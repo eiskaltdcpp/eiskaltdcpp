@@ -37,9 +37,7 @@ void ServerInitialize()
 
 bool ServerStart()
 {
-
 	dcpp::startup(callBack, NULL);
-
 	ServersS = new ServerThread();
 
 	if(ServersS == NULL)

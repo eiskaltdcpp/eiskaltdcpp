@@ -64,6 +64,20 @@ public:
 
     static const vector<StringList>& getSearchExts();
     static StringList parseSearchExts(int flag);
+
+    static const string CLIENT_PROTOCOL;
+    static const string SECURE_CLIENT_PROTOCOL_TEST;
+    static const string ADCS_FEATURE;
+    static const string TCP4_FEATURE;
+    static const string UDP4_FEATURE;
+    static const string NAT0_FEATURE;
+    static const string SEGA_FEATURE;
+    static const string BASE_SUPPORT;
+    static const string BAS0_SUPPORT;
+    static const string TIGR_SUPPORT;
+    static const string UCM0_SUPPORT;
+    static const string BLO0_SUPPORT;
+
 private:
     friend class ClientManager;
     friend class CommandHandler<AdcHub>;
@@ -89,19 +103,6 @@ private:
     uint32_t sid;
 
     std::tr1::unordered_set<uint32_t> forbiddenCommands;
-
-    static const string CLIENT_PROTOCOL;
-    static const string SECURE_CLIENT_PROTOCOL_TEST;
-    static const string ADCS_FEATURE;
-    static const string TCP4_FEATURE;
-    static const string UDP4_FEATURE;
-    static const string NAT0_FEATURE;
-    static const string SEGA_FEATURE;
-    static const string BASE_SUPPORT;
-    static const string BAS0_SUPPORT;
-    static const string TIGR_SUPPORT;
-    static const string UCM0_SUPPORT;
-    static const string BLO0_SUPPORT;
 
     static const vector<StringList> searchExts;
 

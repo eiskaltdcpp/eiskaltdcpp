@@ -309,6 +309,14 @@ Keys:
         <source>Checksum mismatch</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueueModel</name>
@@ -527,6 +535,14 @@ Keys:
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
+    <message>
+        <source>File marked as a duplicate of another file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 [%2 Gb]</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -605,10 +621,14 @@ Keys:
     </message>
     <message>
         <source>/s</source>
-        <translation>/s</translation>
+        <translation type="obsolete">/s</translation>
     </message>
     <message>
         <source>Check sum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1/s</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1111,6 +1131,14 @@ Omiljeni korisnik</translation>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation type="unfinished">Broj korisnika: %1 | Ukupno deljeno: %2 {3/%1 ?}</translation>
     </message>
+    <message>
+        <source>[User went offline]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%2)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubManager</name>
@@ -1257,7 +1285,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Esc</source>
-        <translation>Esc</translation>
+        <translation type="obsolete">Esc</translation>
     </message>
     <message>
         <source>Show/hide find frame</source>
@@ -1881,6 +1909,38 @@ Molim proverite podešavanja vaše veze</translation>
         <source>Show close buttons</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Speed limit On/Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open magnet link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter magnet link:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Alt+H</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2033,7 +2093,7 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Hub list downloaded... (%1)</source>
-        <translation>Hab liste preuzete... (%1)</translation>
+        <translation type="obsolete">Hab liste preuzete... (%1)</translation>
     </message>
     <message>
         <source>Hub list loaded from cache...</source>
@@ -2042,6 +2102,22 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <source>Public Hubs</source>
         <translation>Javni habovi</translation>
+    </message>
+    <message>
+        <source>Cached hub list is corrupted or unsupported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded hub list is corrupted or unsupported (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub list downloaded... (%1 %2) </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from Coral</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2119,6 +2195,51 @@ Keys:
     <message>
         <source>Script Manager</source>
         <translation>Menadžer skripti</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDelegate</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Ime fajla</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDialog</name>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished">Dodaj novi</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListModel</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Ime fajla</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished">Ključ</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">Tip</translation>
+    </message>
+    <message>
+        <source>Set text...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2345,6 +2466,18 @@ Keys:
     </message>
     <message>
         <source>CD Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2594,6 +2727,10 @@ Keys:
         <source>Slovak</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Czech</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
@@ -2632,7 +2769,7 @@ Keys:
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -2652,19 +2789,19 @@ Keys:
     </message>
     <message>
         <source>Enter virtual path name</source>
-        <translation>Unesi ime virtelne putanje</translation>
+        <translation type="obsolete">Unesi ime virtelne putanje</translation>
     </message>
     <message>
         <source>Virtual path</source>
-        <translation>Virtuelna putanja</translation>
+        <translation type="obsolete">Virtuelna putanja</translation>
     </message>
     <message>
         <source>Enter restriction (in GiB)</source>
-        <translation>Usnesi ograničenje  (u GiB)</translation>
+        <translation type="obsolete">Usnesi ograničenje  (u GiB)</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Ograničenje</translation>
+        <translation type="obsolete">Ograničenje</translation>
     </message>
     <message>
         <source>Add item</source>
@@ -2768,6 +2905,34 @@ Keys:
     <message>
         <source>Download to...</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restrictions</source>
+        <translation type="unfinished">Ograničenja</translation>
+    </message>
+    <message>
+        <source>Add restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter restriction size (in GB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open directory</source>
+        <translation type="unfinished">Otvori fasciklu</translation>
     </message>
 </context>
 <context>
@@ -3163,6 +3328,10 @@ Da li želite da zaustavite?</translation>
     <message>
         <source>Finished</source>
         <translation>Završeno</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3580,6 +3749,22 @@ p, li { white-space: pre-wrap; }
         <source>EiskaltDC++ V:2.1</source>
         <translation type="obsolete">EiskaltDC++ V:2.1</translation>
     </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Passive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -3605,11 +3790,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Move up</source>
-        <translation>Pomeri gore</translation>
+        <translation type="obsolete">Pomeri gore</translation>
     </message>
     <message>
         <source>Move down</source>
-        <translation>Pomeri dole</translation>
+        <translation type="obsolete">Pomeri dole</translation>
     </message>
 </context>
 <context>
@@ -3883,6 +4068,38 @@ in options, file will be downloaded without opening search dialog.</source>
         <source>User share</source>
         <translation>Korisnički udeo</translation>
     </message>
+    <message>
+        <source>Find:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation type="unfinished">&lt;</translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation type="unfinished">&gt;</translation>
+    </message>
+    <message>
+        <source>A</source>
+        <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <source>Previous (Shift+F3)</source>
+        <translation type="unfinished">Prethodno (Shift+F3)</translation>
+    </message>
+    <message>
+        <source>Next (F3)</source>
+        <translation type="unfinished">Sledi (F3)</translation>
+    </message>
+    <message>
+        <source>Hide find frame (Ctrl+F)</source>
+        <translation type="unfinished">Sakrij nadjeni okvir (Ctrl+F)</translation>
+    </message>
+    <message>
+        <source>Highlight all</source>
+        <translation type="unfinished">Ukazati na sve</translation>
+    </message>
 </context>
 <context>
     <name>UIPublicHubs</name>
@@ -3938,6 +4155,21 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <source>Dialog</source>
         <translation>Dijalog</translation>
+    </message>
+</context>
+<context>
+    <name>UISearchBlacklistDialog</name>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Otkaži</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished">OK</translation>
     </message>
 </context>
 <context>
@@ -4841,6 +5073,22 @@ them is usually available only to operators</source>
         <source>Try to use system icons (need restart)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Redirect new personal messages to the main chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parse BBCode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use separator for unread messages in the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change background color in the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -5077,7 +5325,7 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.(new line)
+        <translation type="obsolete">Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.(new line)
 For example, if you have /home/username/Video folder shared as &quot;Video&quot;(new line)
 you can specify following:(new line)
 /Video(tab)10(new line)
@@ -5177,19 +5425,19 @@ ako tvoj sistem počinje sporo.</translation>
     </message>
     <message>
         <source>Restrictions</source>
-        <translation>Ograničenja</translation>
+        <translation type="obsolete">Ograničenja</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation>Deljeno</translation>
+        <translation type="obsolete">Deljeno</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Ograničenje</translation>
+        <translation type="obsolete">Ograničenje</translation>
     </message>
     <message>
         <source>All changes take effect only after restart</source>
-        <translation>Sve promene stupiće tek posle ponovnog pokretanja</translation>
+        <translation type="obsolete">Sve promene stupiće tek posle ponovnog pokretanja</translation>
     </message>
     <message>
         <source>Follow symlinks</source>
@@ -5528,7 +5776,7 @@ odobreni slot neće biti zatvoren.</translation>
     </message>
     <message>
         <source>Enter parameter value</source>
-        <translation>Unesite vrednosti parametara</translation>
+        <translation type="obsolete">Unesite vrednosti parametara</translation>
     </message>
     <message>
         <source>%1 B</source>
@@ -5581,6 +5829,18 @@ odobreni slot neće biti zatvoren.</translation>
     <message>
         <source>%1 PB</source>
         <translation>%1 PB</translation>
+    </message>
+    <message>
+        <source>Command parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Otkaži</translation>
     </message>
 </context>
 </TS>

@@ -137,6 +137,13 @@ Keys for cmake
     Enable/disable sound notifications support in EiskaltDC++ Gtk
 -DUSE_LIBNOTIFY=ON/OFF (default: ON)
     Enable/disable popup notifications support in EiskaltDC++ Gtk
+-------
+:nasdc:
+-------
+-DNO_UI_DAEMON=ON/OFF (default: OFF)
+    build daemon without any UI
+-DXMLRPC_DAEMON=ON/OFF (default: OFF)
+    make this daemon as xmlrpc server
 --------
 :common:
 --------
@@ -173,7 +180,10 @@ Keys for cmake
 -PIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
     .
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
+    build type
     .
+    Warning: builds with -DCMAKE_BUILD_TYPE=Debug now is broken
+    (due to some features of the DC++ kernel)
 And other standart cmake keys...
 
 ---------

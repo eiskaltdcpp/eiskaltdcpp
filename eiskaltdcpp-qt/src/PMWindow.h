@@ -40,6 +40,8 @@ public:
     QMenu   *getMenu();
     const QPixmap &getPixmap();
     ArenaWidget::Role role() const { return ArenaWidget::PrivateMessage; }
+    void requestFilter() { slotHideFindFrame(); }
+    void requestFocus() { plainTextEdit_INPUT->setFocus(); }
     void setCompleter(QCompleter *, UserListModel *);
 
     void addStatus(QString);
@@ -63,6 +65,11 @@ private Q_SLOTS:
     void slotSettingChanged(const QString&, const QString&);
     void slotSmileContextMenu();
     void slotSmileClicked();
+    void slotHideFindFrame();
+    void slotFindTextEdited(const QString &);
+    void slotFindAll();
+    void slotFindForward() { findText(0); }
+    void slotFindBackward(){ findText(QTextDocument::FindBackward); }
 
 Q_SIGNALS:
     void privateMessageClosed(QString);
@@ -79,6 +86,8 @@ private:
     void addOutput(QString);
 
     void updateStyles();
+
+    void findText(QTextDocument::FindFlags);
 
     bool hasMessages;
     bool hasHighlightMessages;

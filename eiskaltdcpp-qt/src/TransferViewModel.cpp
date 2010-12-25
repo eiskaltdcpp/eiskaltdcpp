@@ -46,7 +46,8 @@ TransferViewModel::TransferViewModel(QObject *parent)
 {
     QList<QVariant> rootData;
     rootData << tr("Users") << tr("Speed") << tr("Status") << tr("Size")
-             << tr("Time left") << tr("File name") << tr("Host") << tr("IP");
+             << tr("Time left") << tr("File name") << tr("Host") << tr("IP")
+             << tr("Encryption");
 
     rootItem = new TransferViewItem(rootData, NULL);
 
@@ -58,6 +59,7 @@ TransferViewModel::TransferViewModel(QObject *parent)
     column_map.insert("FNAME", COLUMN_TRANSFER_FNAME);
     column_map.insert("HOST", COLUMN_TRANSFER_HOST);
     column_map.insert("IP", COLUMN_TRANSFER_IP);
+    column_map.insert("ENCRYPTION", COLUMN_TRANSFER_ENCRYPTION);
 
     sortColumn = COLUMN_TRANSFER_SIZE;
     sortOrder = Qt::DescendingOrder;
@@ -155,14 +157,15 @@ struct Compare {
     private:
         typedef bool (*AttrComp)(const TransferViewItem * l, const TransferViewItem * r);
         AttrComp static getAttrComp(const int column) {
-            static AttrComp attrs[8] = {   AttrCmp<COLUMN_TRANSFER_USERS>,
+            static AttrComp attrs[9] = {   AttrCmp<COLUMN_TRANSFER_USERS>,
                                            NumCmp<COLUMN_TRANSFER_SPEED>,
                                            AttrCmp<COLUMN_TRANSFER_STATS>,
                                            NumCmp<COLUMN_TRANSFER_SIZE>,
                                            NumCmp<COLUMN_TRANSFER_TLEFT>,
                                            AttrCmp<COLUMN_TRANSFER_FNAME>,
                                            AttrCmp<COLUMN_TRANSFER_HOST>,
-                                           AttrCmp<COLUMN_TRANSFER_IP>
+                                           AttrCmp<COLUMN_TRANSFER_IP>,
+                                           AttrCmp<COLUMN_TRANSFER_ENCRYPTION>
                                        };
 
             return attrs[column];
@@ -322,7 +325,7 @@ void TransferViewModel::addConnection(const VarMap &params){
 
     QList<QVariant> data;
 
-    data << params["USER"] << "" << params["STAT"] << "" << "" << params["FNAME"] << params["HOST"] << "";
+    data << params["USER"] << "" << params["STAT"] << "" << "" << params["FNAME"] << params["HOST"] << "" << "";
     TransferViewItem *item = new TransferViewItem(data, (to && bGroup) ? to : rootItem);
 
     item->download = vbol(params["DOWN"]);
@@ -458,7 +461,7 @@ TransferViewItem *TransferViewModel::getParent(const QString &target, const VarM
     QList<QVariant> data;
 
     data << params["USER"] << 0 << "" << params["ESIZE"]
-         << params["TLEFT"] << params["FNAME"] << params["HOST"] << "";
+         << params["TLEFT"] << params["FNAME"] << params["HOST"] << "" << "";
 
     p = new TransferViewItem(data, rootItem);
     p->download = true;
@@ -732,25 +735,13 @@ TransferViewDelegate::~TransferViewDelegate(){
 }
 
 void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
-    if (index.column() != COLUMN_TRANSFER_STATS){
-        QStyledItemDelegate::paint(painter, option, index);
-
-        return;
-    }
-
     TransferViewItem *item = reinterpret_cast<TransferViewItem*>(index.internalPointer());
 
-    if (!item){
+    if (index.column() != COLUMN_TRANSFER_STATS || !item){
         QStyledItemDelegate::paint(painter, option, index);
+
         return;
     }
-
-    QPalette pal = option.palette;
-
-    if (item->download)
-        pal.setColor(QPalette::Highlight, QColor(0x4C, 0xC3, 0x5C));
-    else
-        pal.setColor(QPalette::Highlight, QColor(0xBF, 0x40, 0x40));
 
     QStyleOptionProgressBarV2 progressBarOption;
     progressBarOption.state = QStyle::State_Enabled;
@@ -761,7 +752,6 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     progressBarOption.maximum = 100;
     progressBarOption.textAlignment = Qt::AlignCenter;
     progressBarOption.textVisible = true;
-    progressBarOption.palette = pal;
 
     double percent = item->percent;
     QString status = item->data(COLUMN_TRANSFER_STATS).toString();

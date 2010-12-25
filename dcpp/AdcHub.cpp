@@ -145,7 +145,7 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) throw() {
                     nick = "[nick unknown]";
                 }
                 fire(ClientListener::StatusMessage(), this, str(F_("%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring")
-                                        % u->getIdentity().getNick() % u->getIdentity().getSIDString() % cid % nick % AdcCommand::fromSID(c.getFrom())),
+                    % u->getIdentity().getNick() % u->getIdentity().getSIDString() % cid % nick % AdcCommand::fromSID(c.getFrom())),
                                         ClientListener::FLAG_IS_SPAM);
                 return;
             }
@@ -358,10 +358,6 @@ void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) throw() {
     if(c.getParameters().size() < 2) {
         return;
     }
-#ifdef DISABLE_NAT_TRAVERSAL
-    if(!isActive())
-         return;
-#endif
 
     OnlineUser* u = findUser(c.getFrom());
     if(!u || u->getUser() == ClientManager::getInstance()->getMe())
@@ -379,24 +375,21 @@ void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) throw() {
         unknownProtocol(c.getFrom(), protocol, token);
         return;
     }
-#ifndef DISABLE_NAT_TRAVERSAL
-       if(ClientManager::getInstance()->isActive()) {
-               connect(*u, token, secure);
-               return;
-       }
 
-       if (!u->getIdentity().supports(NAT0_FEATURE))
-               return;
-
-       // Attempt to traverse NATs and/or firewalls with TCP.
-       // If they respond with their own, symmetric, RNT command, both
-       // clients call ConnectionManager::adcConnect.
-       send(AdcCommand(AdcCommand::CMD_NAT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).
-               addParam(protocol).addParam(Util::toString(sock->getLocalPort())).addParam(token));
+   if(isActive()) {
+       connect(*u, token, secure);
        return;
-#else
-     connect(*u, token, secure);
-#endif
+   }
+
+    if (!u->getIdentity().supports(NAT0_FEATURE) && !BOOLSETTING(ALLOW_NATT))
+       return;
+
+   // Attempt to traverse NATs and/or firewalls with TCP.
+   // If they respond with their own, symmetric, RNT command, both
+   // clients call ConnectionManager::adcConnect.
+   send(AdcCommand(AdcCommand::CMD_NAT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).
+           addParam(protocol).addParam(Util::toString(sock->getLocalPort())).addParam(token));
+   return;
 }
 
 void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) throw() {
@@ -588,6 +581,9 @@ void AdcHub::handle(AdcCommand::GET, AdcCommand& c) throw() {
     }
 }
 void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) throw() {
+    if (!BOOLSETTING(ALLOW_NATT))
+        return;
+
        OnlineUser* u = findUser(c.getFrom());
        if(!u || u->getUser() == ClientManager::getInstance()->getMe() || c.getParameters().size() < 3)
                return;
@@ -619,6 +615,9 @@ void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) throw() {
 void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) throw() {
        // Sent request for NAT traversal cooperation, which
        // was acknowledged (with requisite local port information).
+       	if(!BOOLSETTING(ALLOW_NATT))
+            return;
+
        OnlineUser* u = findUser(c.getFrom());
        if(!u || u->getUser() == ClientManager::getInstance()->getMe() || c.getParameters().size() < 3)
                return;
@@ -903,13 +902,13 @@ void AdcHub::sendSearch(AdcCommand& c) {
     } else {
         string features = c.getFeatures();
         c.setType(AdcCommand::TYPE_FEATURE);
-#ifndef DISABLE_NAT_TRAVERSAL
-        c.setFeatures(features + '+' + TCP4_FEATURE + '-' + NAT0_FEATURE);
-        send(c);
-        c.setFeatures(features + '+' + NAT0_FEATURE);
-#else
-        c.setFeatures(features + '+' + TCP4_FEATURE);
-#endif
+        if (BOOLSETTING(ALLOW_NATT)) {
+            c.setFeatures(features + '+' + TCP4_FEATURE + '-' + NAT0_FEATURE);
+            send(c);
+            c.setFeatures(features + '+' + NAT0_FEATURE);
+        } else {
+            c.setFeatures(features + '+' + TCP4_FEATURE);
+        }
         send(c);
     }
 }
@@ -964,10 +963,9 @@ void AdcHub::info(bool /*alwaysSend*/) {
     addParam(lastInfoMap, c, "ID", ClientManager::getInstance()->getMyCID().toBase32());
     addParam(lastInfoMap, c, "PD", ClientManager::getInstance()->getMyPID().toBase32());
     addParam(lastInfoMap, c, "NI", getCurrentNick());
-    bool gslotf = BOOLSETTING(SHOW_FREE_SLOTS_DESC);
-    string gslot = "["+Util::toString(UploadManager::getInstance()->getFreeSlots())+"]";
-    addParam(lastInfoMap, c, "DE", (gslotf ? gslot : "")+getCurrentDescription());
+    addParam(lastInfoMap, c, "DE", getCurrentDescription());
     addParam(lastInfoMap, c, "SL", Util::toString(SETTING(SLOTS)));
+    addParam(lastInfoMap, c, "FS", Util::toString(UploadManager::getInstance()->getFreeSlots()));
     addParam(lastInfoMap, c, "SS", ShareManager::getInstance()->getShareSizeString());
     addParam(lastInfoMap, c, "SF", Util::toString(ShareManager::getInstance()->getSharedFiles()));
     addParam(lastInfoMap, c, "EM", SETTING(EMAIL));
@@ -977,13 +975,13 @@ void AdcHub::info(bool /*alwaysSend*/) {
     addParam(lastInfoMap, c, "VE", getClientId().c_str());
     addParam(lastInfoMap, c, "AW", Util::getAway() ? "1" : Util::emptyString);
     int limit = ThrottleManager::getInstance()->getDownLimit();
-    if (limit > 0) {
+    if (limit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
         addParam(lastInfoMap, c, "DS", Util::toString(limit * 1024));
     } else {
          addParam(lastInfoMap, c, "DS", Util::emptyString);
     }
     limit = ThrottleManager::getInstance()->getUpLimit();
-    if (limit > 0) {
+    if (limit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
         addParam(lastInfoMap, c, "US", Util::toString(limit * 1024));
     } else {
         addParam(lastInfoMap, c, "US", Util::toString((long)(Util::toDouble(SETTING(UPLOAD_SPEED))*1024*1024/8)));
@@ -994,39 +992,25 @@ void AdcHub::info(bool /*alwaysSend*/) {
         su += "," + ADCS_FEATURE;
     }
 
-#ifndef DISABLE_NAT_TRAVERSAL
-        if (!getFavIp().empty()) {
-            addParam(lastInfoMap, c, "I4", getFavIp());
-       } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
-               addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP)));
-       } else {
-               addParam(lastInfoMap, c, "I4", "0.0.0.0");
-       }
-       if(isActive()) {
-               addParam(lastInfoMap, c, "U4", Util::toString(SearchManager::getInstance()->getPort()));
-               su += "," + TCP4_FEATURE;
-                su += "," + UDP4_FEATURE;
-       } else {
-               addParam(lastInfoMap, c, "U4", "");
-               su += "," + NAT0_FEATURE;
-       }
-#else
-    if(isActive()) {
-        if (!getFavIp().empty()) {
-            addParam(lastInfoMap, c, "I4", getFavIp());
-        } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
-            addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP)));
-        } else {
-            addParam(lastInfoMap, c, "I4", "0.0.0.0");
-        }
-        addParam(lastInfoMap, c, "U4", Util::toString(SearchManager::getInstance()->getPort()));
-        su += "," + TCP4_FEATURE;
-        su += "," + UDP4_FEATURE;
-    } else {
-        addParam(lastInfoMap, c, "I4", "");
+    if (!getFavIp().empty()) {
+        addParam(lastInfoMap, c, "I4", getFavIp());
+   } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
+           addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP)));
+   } else {
+           addParam(lastInfoMap, c, "I4", "0.0.0.0");
+   }
+
+   if(isActive()) {
+           addParam(lastInfoMap, c, "U4", Util::toString(SearchManager::getInstance()->getPort()));
+           su += "," + TCP4_FEATURE;
+            su += "," + UDP4_FEATURE;
+   } else {
+        if (BOOLSETTING(ALLOW_NATT))
+            su += "," + NAT0_FEATURE;
+        else
+            addParam(lastInfoMap, c, "I4", "");
         addParam(lastInfoMap, c, "U4", "");
-    }
-#endif
+   }
 
     addParam(lastInfoMap, c, "SU", su);
 

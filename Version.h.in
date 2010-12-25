@@ -10,13 +10,12 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-const char * const EISKALTDCPP_VERSION         = "2.1.2";
-const char * const EISKALTDCPP_WND_TITLE       = "EiskaltDC++";
+#define APPNAME "@PROJECT_NAME@"
+#define VERSIONSTRING "@VERSION@"
+#define DCVERSIONSTRING "0.770"
 
-#ifndef DCPP_REVISION
-const char * const EISKALTDCPP_VERSION_SFX     = "GIT";
-#else
-const char * const EISKALTDCPP_VERSION_SFX     = DCPP_REVISION;
-#endif
+const char * const EISKALTDCPP_VERSION         = "@VERSION@";
+const char * const EISKALTDCPP_WND_TITLE       = "@PROJECT_NAME@";
+const char * const EISKALTDCPP_VERSION_SFX     = "@eiskaltdcpp_WC_REVISION@";
 
 #endif // VERSION_H

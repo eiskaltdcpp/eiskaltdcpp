@@ -75,7 +75,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     fileView.insertColumn(_("Filename"), G_TYPE_STRING, TreeView::ICON_STRING, 400, "Icon");
     fileView.insertColumn(_("Size"), G_TYPE_STRING, TreeView::STRINGR, 80);
     fileView.insertColumn(_("Type"), G_TYPE_STRING, TreeView::STRING, 50);
-    fileView.insertColumn("TTH", G_TYPE_STRING, TreeView::STRING, 150);
+    fileView.insertColumn(_("TTH"), G_TYPE_STRING, TreeView::STRING, 150);
     fileView.insertColumn(_("Exact Size"), G_TYPE_STRING, TreeView::STRINGR, 105);
     fileView.insertHiddenColumn("DL File", G_TYPE_POINTER);
     fileView.insertHiddenColumn("Icon", G_TYPE_STRING);
@@ -96,7 +96,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
 
     // Initialize the directory treeview
     dirView.setView(GTK_TREE_VIEW(getWidget("dirView")));
-    dirView.insertColumn("Dir", G_TYPE_STRING, TreeView::ICON_STRING, -1, "Icon");
+    dirView.insertColumn(_("Dir"), G_TYPE_STRING, TreeView::ICON_STRING, -1, "Icon");
     dirView.insertHiddenColumn("DL Dir", G_TYPE_POINTER);
     dirView.insertHiddenColumn("Icon", G_TYPE_STRING);
     dirView.finalize();
@@ -127,7 +127,8 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     g_signal_connect(getWidget("searchForAlternatesItem"), "activate", G_CALLBACK(onSearchAlternatesClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyPictureItem"), "activate", G_CALLBACK(onCopyPictureClicked_gui), (gpointer)this);
-    g_signal_connect(getWidget("getDirectory"), "activate", G_CALLBACK(onDirGet), (gpointer)this);
+    //getDirectory нету в glade файле...интересно почему ?
+    //g_signal_connect(getWidget("getDirectory"), "activate", G_CALLBACK(onDirGet), (gpointer)this);
 }
 
 ShareBrowser::~ShareBrowser()
@@ -213,7 +214,7 @@ bool ShareBrowser::findDir_gui(const string &dir, GtkTreeIter *parent)
 
     while (valid)
     {
-        if (dirView.getString(&iter, "Dir") == current)
+        if (dirView.getString(&iter, _("Dir")) == current)
         {
             *parent = iter;
             return findDir_gui(dir.substr(i + 1), parent);
@@ -232,7 +233,7 @@ void ShareBrowser::buildDirs_gui(DirectoryListing::Directory *dir, GtkTreeIter *
     GtkTreeIter newIter;
 
     gtk_tree_store_append(dirStore, &newIter, iter);
-    gtk_tree_store_set(dirStore, &newIter, dirView.col("Dir"), dir->getName().c_str(), -1);
+    gtk_tree_store_set(dirStore, &newIter, dirView.col(_("Dir")), dir->getName().c_str(), -1);
 
     gtk_tree_store_set(dirStore, &newIter,
         dirView.col("DL Dir"), (gpointer)dir,
@@ -287,7 +288,7 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
             fileView.col("Size Order"), size,
             fileView.col(_("Type")), _("Directory"),
             fileView.col("DL File"), (gpointer)(*it_dir),
-            fileView.col("TTH"), "",
+            fileView.col(_("TTH")), "",
             -1);
 
         currentSize += size;
@@ -317,7 +318,7 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
             fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
             fileView.col("Size Order"), size,
             fileView.col("DL File"), (gpointer)(*it_file),
-            fileView.col("TTH"), (*it_file)->getTTH().toBase32().c_str(),
+            fileView.col(_("TTH")), (*it_file)->getTTH().toBase32().c_str(),
             -1);
 
         currentSize += size;
@@ -509,10 +510,10 @@ void ShareBrowser::popupFileMenu_gui()
             }
 
             fileUserCommandMenu->addFile(cid,
-                fileView.getString(&iter, "Filename"),
+                fileView.getString(&iter, _("Filename")),
                 filepath,
                 fileView.getValue<int64_t>(&iter, "Size Order"),
-                fileView.getString(&iter, "TTH"));
+                fileView.getString(&iter, _("TTH")));
         }
         gtk_tree_path_free(path);
     }
@@ -561,7 +562,7 @@ void ShareBrowser::popupDirMenu_gui()
 
         if (dir != listing.getRoot())
         {
-            filename = dirView.getString(&iter, "Dir");
+            filename = dirView.getString(&iter, _("Dir"));
             filepath = listing.getPath(dir->getParent());
         }
         dirUserCommandMenu->addFile(cid, filename, filepath);
@@ -613,7 +614,7 @@ void ShareBrowser::find_gui()
         {
             do
             {
-                name = Text::toLower(dirView.getString(&iter, "Dir"));
+                name = Text::toLower(dirView.getString(&iter, _("Dir")));
                 // We found a matching directory name.
                 if (name.find(search, 0) != string::npos && hits++ == skipHits)
                 {
@@ -968,7 +969,7 @@ void ShareBrowser::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
         {
             filename = sb->fileView.getString(&iter, _("Filename"));
             size = sb->fileView.getValue<int64_t>(&iter, "Size Order");
-            tth = sb->fileView.getString(&iter, "TTH");
+            tth = sb->fileView.getString(&iter, _("TTH"));
             magnet = WulforUtil::makeMagnet(filename, size, tth);
 
             if (!magnet.empty())
@@ -1002,7 +1003,7 @@ void ShareBrowser::onCopyPictureClicked_gui(GtkMenuItem* item, gpointer data)
        {
            filename = sb->fileView.getString(&iter, _("Filename"));
            size = sb->fileView.getValue<int64_t>(&iter, "Size Order");
-           tth = sb->fileView.getString(&iter, "TTH");
+           tth = sb->fileView.getString(&iter, _("TTH"));
            magnet = WulforUtil::makeMagnet(filename, size, tth);
 
            if (!magnet.empty())

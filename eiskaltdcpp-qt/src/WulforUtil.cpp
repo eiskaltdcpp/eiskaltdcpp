@@ -19,7 +19,6 @@
 #include <ifaddrs.h>
 #include <fcntl.h>
 #endif
-
 #include "dcpp/ClientManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"
@@ -36,6 +35,13 @@
 #include <QHeaderView>
 #include <QResource>
 #include <QTimer>
+#include <QDialog>
+#include <QLabel>
+#include <QLineEdit>
+#include <QGridLayout>
+#include <QPushButton>
+#include <QFrame>
+#include <QHBoxLayout>
 
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
@@ -69,12 +75,12 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
     qRegisterMetaType< QMap<QString,QString> >("QMap<QString,QString>");
 
     if (WBGET(WB_APP_DYNDNS_ENABLED)) {
-        http = new QHttp();
+        http = new QHttp(this);
         connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
         http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
         slotHttpTimer();
 
-        http_timer = new QTimer();
+        http_timer = new QTimer(this);
         http_timer->setInterval(30*1000);
         connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
 
@@ -126,8 +132,14 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
 
 WulforUtil::~WulforUtil(){
     delete userIcons;
-    if (http_timer) delete http_timer;
-    if (http)       delete http;
+
+    if (http_timer)
+        http_timer->deleteLater();
+
+    if (http){
+        http->abort();
+        http->deleteLater();
+    }
 
     clearUserIconCache();
 }
@@ -232,6 +244,7 @@ void WulforUtil::clearUserIconCache(){
 }
 
 QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, const QString &sp){
+
     int x = connectionSpeeds[sp];
     int y = 0;
 
@@ -241,8 +254,12 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
     if (id->isSet(User::TLS))
         y += 2;
 
-    if (id->isSet(User::DCPLUSPLUS))
-        y += 4;
+   // if (id->isSet(User::DCPLUSPLUS)) этот флажок ушёл в небытиё =)
+   // ниже примерно то, что я предлагаю
+   // Identity id;
+    //if(id.supports(AdcHub::ADCS_FEATURE) && id.supports(AdcHub::SEGA_FEATURE) &&
+        //((id.supports(AdcHub::TCP4_FEATURE) && id.supports(AdcHub::UDP4_FEATURE)) || id.supports(AdcHub::NAT0_FEATURE)))
+        //y += 4;
 
     if (isOp)
         y += 8;
@@ -365,7 +382,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiGV]           = QPixmap(gv_xpm);
     m_PixmapMap[eiHASHING]      = FROMTHEME("hashing", resourceFound);
     m_PixmapMap[eiHUBMSG]       = FROMTHEME("hubmsg", resourceFound);
-    m_PixmapMap[eiICON_APPL]    = FROMTHEME("icon_appl_big", resourceFound);
+    m_PixmapMap[eiICON_APPL]    = FROMTHEME_SIDE("icon_appl_big", resourceFound, 128);
     m_PixmapMap[eiMESSAGE]      = FROMTHEME("message", resourceFound);
     m_PixmapMap[eiMESSAGE_TRAY_ICON] = FROMTHEME("icon_msg", resourceFound);
     m_PixmapMap[eiOWN_FILELIST] = FROMTHEME("own_filelist", resourceFound);
@@ -379,6 +396,9 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiSERVER]       = FROMTHEME("server", resourceFound);
     m_PixmapMap[eiSPAM]         = FROMTHEME("spam", resourceFound);
     m_PixmapMap[eiSPY]          = FROMTHEME("spy", resourceFound);
+    m_PixmapMap[eiSPEED_LIMIT_OFF]  = FROMTHEME("slow_off", resourceFound);
+    m_PixmapMap[eiSPEED_LIMIT_ON]   = FROMTHEME("slow", resourceFound);
+
     m_PixmapMap[eiSPLASH]       = QPixmap();
     m_PixmapMap[eiSTATUS]       = FROMTHEME("status", resourceFound);
     m_PixmapMap[eiTRANSFER]     = FROMTHEME("transfer", resourceFound);
@@ -460,26 +480,76 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["WAV"]  = eiFILETYPE_MP3;
     m_FileTypeMap["WMA"]  = eiFILETYPE_MP3;
     m_FileTypeMap["WV"]   = eiFILETYPE_MP3;
+    m_FileTypeMap["669"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["AIF"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["AMF"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["AMS"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["DBM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["DMF"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["DSM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["FAR"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["IT"]   = eiFILETYPE_MP3;
+    m_FileTypeMap["MDL"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MED"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MIDI"] = eiFILETYPE_MP3;
+    m_FileTypeMap["MOD"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MOL"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MPA"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MPC"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MPP"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["MTM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["NST"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["OKT"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["PSM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["PTM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["RA"]   = eiFILETYPE_MP3;
+    m_FileTypeMap["RMI"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["S3M"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["STM"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["ULT"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["UMX"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["WOW"]  = eiFILETYPE_MP3;
+    m_FileTypeMap["XM"]   = eiFILETYPE_MP3;
+
 
     // ARCHIVE 3
     m_FileTypeMap["7Z"]  = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["ACE"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["ARJ"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["BZ2"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["CAB"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["EX_"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["GZ"]  = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["HQX"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["JAR"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["ISO"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["MDF"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["MDS"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["NRG"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["LZH"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["LHA"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["RAR"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["RPM"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["SEA"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["TAR"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["TGZ"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["VCD"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["BWT"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["CCD"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["CDI"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["PDI"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["CUE"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["ISZ"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["IMG"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["VC4"] = eiFILETYPE_ARCHIVE;
+    m_FileTypeMap["UC2"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["ZIP"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["ZOO"] = eiFILETYPE_ARCHIVE;
     m_FileTypeMap["Z"]   = eiFILETYPE_ARCHIVE;
 
     // DOCUMENT 4
     m_FileTypeMap["CFG"]   = eiFILETYPE_DOCUMENT;
+    m_FileTypeMap["CHM"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["CONF"]  = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["CPP"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["CSS"]   = eiFILETYPE_DOCUMENT;
@@ -512,6 +582,7 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["TXT"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["RFT"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["RDF"]   = eiFILETYPE_DOCUMENT;
+    m_FileTypeMap["RTF"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["XML"]   = eiFILETYPE_DOCUMENT;
     m_FileTypeMap["XLS"]   = eiFILETYPE_DOCUMENT;
 
@@ -527,6 +598,7 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["SO"]  = eiFILETYPE_APPLICATION;
     m_FileTypeMap["SYS"] = eiFILETYPE_APPLICATION;
     m_FileTypeMap["VXD"] = eiFILETYPE_APPLICATION;
+    m_FileTypeMap["MSI"] = eiFILETYPE_APPLICATION;
 
     // PICTURE 6
     m_FileTypeMap["3DS"]  = eiFILETYPE_PICTURE;
@@ -542,11 +614,14 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["B8"]   = eiFILETYPE_PICTURE;
     m_FileTypeMap["BMP"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["CBM"]  = eiFILETYPE_PICTURE;
+    m_FileTypeMap["DCX"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["EPS"]  = eiFILETYPE_PICTURE;
+    m_FileTypeMap["EMF"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["GIF"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["ICO"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["IMG"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["JPEG"] = eiFILETYPE_PICTURE;
+    m_FileTypeMap["JPE"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["JPG"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["PCT"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["PCX"]  = eiFILETYPE_PICTURE;
@@ -554,12 +629,15 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["PICT"] = eiFILETYPE_PICTURE;
     m_FileTypeMap["PNG"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["PS"]   = eiFILETYPE_PICTURE;
+    m_FileTypeMap["PSD"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["PSP"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["RLE"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["TGA"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["TIF"]  = eiFILETYPE_PICTURE;
     m_FileTypeMap["TIFF"] = eiFILETYPE_PICTURE;
     m_FileTypeMap["XPM"]  = eiFILETYPE_PICTURE;
+    m_FileTypeMap["XIF"]  = eiFILETYPE_PICTURE;
+    m_FileTypeMap["WMF"]  = eiFILETYPE_PICTURE;
 
     // VIDEO 7
     m_FileTypeMap["AVI"]   = eiFILETYPE_VIDEO;
@@ -576,19 +654,30 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["MOV"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["MOVIE"] = eiFILETYPE_VIDEO;
     m_FileTypeMap["MP4"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPE"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPEG"]  = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPEG1"] = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPEG2"] = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPEG4"] = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MP1V"]  = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MP2V"]  = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPV1"]  = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPV2"]  = eiFILETYPE_VIDEO;
     m_FileTypeMap["MPG"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPS"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["MPV"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["OGM"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["PXP"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["QT"]    = eiFILETYPE_VIDEO;
+    m_FileTypeMap["RAM"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["RM"]    = eiFILETYPE_VIDEO;
+    m_FileTypeMap["RV"]    = eiFILETYPE_VIDEO;
     m_FileTypeMap["RMVB"]  = eiFILETYPE_VIDEO;
     m_FileTypeMap["VIV"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["VIVO"]  = eiFILETYPE_VIDEO;
     m_FileTypeMap["VOB"]   = eiFILETYPE_VIDEO;
     m_FileTypeMap["WMV"]   = eiFILETYPE_VIDEO;
+    m_FileTypeMap["TS"]    = eiFILETYPE_VIDEO;
 
     types.clear();
     #define SM SearchManager
@@ -756,6 +845,14 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
     else
         command.remove(0, i+7);//also remove "%[line:" string
 
+    QDialog dlg(MainWindow::getInstance());
+    dlg.setWindowTitle(tr("Command parameters"));
+
+    QGridLayout *layout = new QGridLayout();
+    dlg.setLayout(layout);
+
+    int row = 0;
+
     while (!command.isEmpty()){
         j = command.indexOf("]");
 
@@ -764,18 +861,14 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
 
         name = command.left(j);
 
-        if (done.find(name.toStdString()) == done.end()){
-            bool bOk;
-            QString input = QInputDialog::getText(MainWindow::getInstance(), tr("Enter parameter value"), name, QLineEdit::Normal, store, &bOk);
+        QLabel *lbl = new QLabel(name);
+        QLineEdit *edit = new QLineEdit();
+        edit->setObjectName(name);
 
-            if (bOk){
-                store = input;
-                ucParams["line:" + name.toStdString()] = input.toStdString();
-                done[name.toStdString()] = input.toStdString();
-            }
-            else
-                return false;
-        }
+        layout->addWidget(lbl, row, 0);
+        layout->addWidget(edit, row, 1);
+
+        row++;
 
         command.remove(0, j);
 
@@ -786,6 +879,28 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
         else
             command.remove(0, i+7);//also remove "%[line:" string
     }
+
+    QFrame *frame = new QFrame();
+    QHBoxLayout *fl = new QHBoxLayout(frame);
+    frame->setLayout(fl);
+
+    QPushButton *btn = new QPushButton(tr("Ok"));
+    QPushButton *btn_reject = new QPushButton(tr("Cancel"));
+    connect(btn, SIGNAL(clicked()), &dlg, SLOT(accept()));
+    connect(btn_reject, SIGNAL(clicked()), &dlg, SLOT(reject()));
+
+    fl->addWidget(btn);
+    fl->addWidget(btn_reject);
+
+    layout->addWidget(frame, row, 1);
+
+    if (dlg.exec() != QDialog::Accepted)
+        return false;
+
+    QList<QLineEdit*> edits = dlg.findChildren<QLineEdit*>();
+
+    foreach(QLineEdit *e, edits)
+        ucParams["line:" + _tq(e->objectName())] = _tq(e->text());
 
     return true;
 }

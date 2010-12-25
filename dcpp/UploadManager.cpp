@@ -33,6 +33,8 @@
 #include "CryptoManager.h"
 #include "Upload.h"
 #include "UserConnection.h"
+#include "QueueManager.h"
+#include "FinishedManager.h"
 #include "extra/ipfilter.h"
 #include <functional>
 
@@ -40,7 +42,7 @@ namespace dcpp {
 
 static const string UPLOAD_AREA = "Uploads";
 
-UploadManager::UploadManager() throw() : running(0), extra(0), lastGrant(0), limits(NULL) {
+UploadManager::UploadManager() throw() : running(0), extra(0), lastGrant(0), limits(NULL), lastFreeSlots(-1) {
     ClientManager::getInstance()->addListener(this);
     TimerManager::getInstance()->addListener(this);
 }
@@ -69,9 +71,11 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
     InputStream* is = 0;
     int64_t start = 0;
     int64_t size = 0;
+    int64_t fileSize = 0;
 
     bool userlist = (aFile == Transfer::USER_LIST_NAME_BZ || aFile == Transfer::USER_LIST_NAME);
     bool free = userlist;
+    bool partial = false;
 
     string sourceFile;
     Transfer::Type type;
@@ -89,7 +93,7 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                 string().swap(bz2);
                 is = new MemoryInputStream(xml);
                 start = 0;
-                size = xml.size();
+                fileSize = size = xml.size();
             } else {
                 {
                     string msg;
@@ -104,6 +108,7 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                 start = aStartPos;
                 int64_t sz = f->getSize();
                 size = (aBytes == -1) ? sz - start : aBytes;
+                fileSize = sz;
 
                 if((start + size) > sz) {
                     aSource.fileNotAvail();
@@ -129,7 +134,7 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
             }
 
             start = 0;
-            size = mis->getSize();
+            fileSize = size = mis->getSize();
             is = mis;
             free = true;
             type = Transfer::TYPE_TREE;
@@ -142,7 +147,7 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
             }
 
             start = 0;
-            size = mis->getSize();
+            fileSize = size = mis->getSize();
             is = mis;
             free = true;
             type = Transfer::TYPE_PARTIAL_LIST;
@@ -151,6 +156,82 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
             return false;
         }
     } catch(const ShareException& e) {
+        // -- Added by RevConnect : Partial file sharing upload
+        if(aType == Transfer::names[Transfer::TYPE_FILE] && aFile.compare(0, 4, "TTH/") == 0) {
+
+            TTHValue fileHash(aFile.substr(4));
+            // find in download queue
+            string target;
+
+            if(QueueManager::getInstance()->isChunkDownloaded(fileHash, aStartPos, aBytes, target, fileSize)){
+                sourceFile = target;
+
+                try {
+                        File* f = new File(sourceFile, File::READ, File::OPEN | File::SHARED);
+
+                        start = aStartPos;
+                        fileSize = f->getSize();
+                        size = (aBytes == -1) ? fileSize - start : aBytes;
+
+                        if((start + size) > fileSize) {
+                                aSource.fileNotAvail();
+                                delete f;
+                                return false;
+                        }
+
+                        f->setPos(start);
+                        is = f;
+
+                        if((start + size) < fileSize) {
+                                is = new LimitedInputStream<true>(is, size);
+                        }
+
+                        partial = true;
+                        type = Transfer::TYPE_FILE;
+                        goto ok;
+                } catch(const Exception&) {
+                        aSource.fileNotAvail();
+                        //aSource.disconnect();
+                        delete is;
+                        return false;
+                }
+            } else {
+                // Share finished file
+                target = FinishedManager::getInstance()->getTarget(fileHash.toBase32());
+
+                if(!target.empty() && Util::fileExists(target)){
+                        sourceFile = target;
+                        try {
+                            File* f = new File(sourceFile, File::READ, File::OPEN | File::SHARED);
+
+                            start = aStartPos;
+                            int64_t sz = f->getSize();
+                            size = (aBytes == -1) ? sz - start : aBytes;
+                            fileSize = sz;
+
+                            if((start + size) > sz) {
+                                aSource.fileNotAvail();
+                                delete f;
+                                return false;
+                            }
+
+                            f->setPos(start);
+                            is = f;
+                            if((start + size) < sz) {
+                                is = new LimitedInputStream<true>(is, size);
+                            }
+
+                            partial = true;
+                            type = Transfer::TYPE_FILE;
+                            goto ok;
+                        }catch(const Exception&){
+                            aSource.fileNotAvail();
+                            delete is;
+                            return false;
+                        }
+                }
+            }
+        }
         aSource.fileNotAvail(e.getError());
         return false;
     } catch(const Exception& e) {
@@ -158,6 +239,8 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
         aSource.fileNotAvail();
         return false;
     }
+
+ok:
 
     Lock l(cs);
 
@@ -404,7 +487,7 @@ const UploadManager::FileSet& UploadManager::getWaitingUserFiles(const UserPtr& 
 }
 
 void UploadManager::addConnection(UserConnectionPtr conn) {
-    if (BOOLSETTING(IPFILTER) && !IPFilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_OUT)) {
+    if (BOOLSETTING(IPFILTER) && !ipfilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_OUT)) {
         conn->error("Your IP is Blocked!");// TODO translate
         LogManager::getInstance()->message(_("IPFilter: Blocked incoming connection to ") + conn->getRemoteIp()); // TODO translate
         //QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);
@@ -426,6 +509,10 @@ void UploadManager::removeConnection(UserConnection* aSource) {
         extra--;
         aSource->unsetFlag(UserConnection::FLAG_HASEXTRASLOT);
     }
+}
+
+void UploadManager::reloadRestrictions(){
+    limits.RenewList(NULL);
 }
 
 void UploadManager::on(TimerManagerListener::Minute, uint32_t /* aTick */) throw() {
@@ -468,6 +555,12 @@ void UploadManager::on(TimerManagerListener::Minute, uint32_t /* aTick */) throw
         LogManager::getInstance()->message(str(F_("Disconnected user leaving the hub: %1%") %
         Util::toString(ClientManager::getInstance()->getNicks((*i)->getCID(), Util::emptyString))));
         ConnectionManager::getInstance()->disconnect(*i, false);
+    }
+
+    int freeSlots = getFreeSlots();
+    if(freeSlots != lastFreeSlots) {
+        lastFreeSlots = freeSlots;
+        ClientManager::getInstance()->infoUpdated();
     }
 }
 

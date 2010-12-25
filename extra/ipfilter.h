@@ -37,10 +37,10 @@ typedef struct _IPFilterElem{
 typedef std::map<uint32_t, IPFilterElem*> QIPHash;
 typedef std::vector<IPFilterElem*> QIPList;
 
-class IPFilter :
-        public dcpp::Singleton<IPFilter>
+class ipfilter :
+        public dcpp::Singleton<ipfilter>
 {
-    friend class dcpp::Singleton<IPFilter>;
+    friend class dcpp::Singleton<ipfilter>;
 
 public:
     /** */
@@ -96,9 +96,9 @@ public:
 
 private:
     /** */
-    IPFilter();
+    ipfilter();
     /** */
-    virtual ~IPFilter();
+    virtual ~ipfilter();
 
     /** */
     void step(uint32_t, eTableAction, bool down = true);

@@ -315,7 +315,7 @@ bool FavoriteManager::onHttpFinished(bool fromHttp) throw() {
                 fire(FavoriteManagerListener::Corrupted(), fromHttp ? publicListServer : Util::emptyString);
         }
 
-        if(fromHttp) {
+    if(fromHttp) {
                 try {
                         File f(Util::getHubListsPath() + Util::validateFileName(publicListServer), File::WRITE, File::CREATE | File::TRUNCATE);
                         f.write(downloadBuf);
@@ -777,17 +777,23 @@ void FavoriteManager::on(Failed, HttpConnection*, const string& aLine) throw() {
     }
 }
 void FavoriteManager::on(Complete, HttpConnection*, const string& aLine, bool fromCoral) throw() {
-        bool parseSuccess;
+        bool parseSuccess = false;
 
     c->removeListener(this);
         if(useHttp) {
                 parseSuccess = onHttpFinished(true);
         }
     running = false;
-        if(useHttp && parseSuccess) {
+        if(parseSuccess) {
                 fire(FavoriteManagerListener::DownloadFinished(), aLine, fromCoral);
         }
 }
+
+void FavoriteManager::on(Retried, HttpConnection*, const bool Connected) throw() {
+        if (Connected)
+                downloadBuf = Util::emptyString;
+}
+
 void FavoriteManager::on(Redirected, HttpConnection*, const string& aLine) throw() {
     if(useHttp)
         fire(FavoriteManagerListener::DownloadStarting(), aLine);

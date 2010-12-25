@@ -141,7 +141,6 @@ public:
     void createPMWindow(const dcpp::CID&);
 
     bool hasCID(const dcpp::CID &, const QString &);
-    bool isFindFrameActivated();
 
     inline void reconnect() { slotReconnect(); }
 
@@ -155,6 +154,7 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap();
     void requestFilter() { slotHideFindFrame(); }
+    void requestFocus() { plainTextEdit_INPUT->setFocus(); }
     ArenaWidget::Role role() const { return ArenaWidget::Hub; }
 
     QString getCIDforNick(QString nick) { return model->CIDforNick(nick, _q(client->getHubUrl())); }
@@ -302,6 +302,7 @@ private:
     bool chatDisabled;
     bool hasMessages;
     bool hasHighlightMessages;
+    bool drawLine;
 
     QStringList status_msg_history;
     QStringList out_messages;

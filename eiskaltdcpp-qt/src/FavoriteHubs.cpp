@@ -153,8 +153,6 @@ void FavoriteHubs::init(){
     changeButton->setIcon(WU->getPixmap(WulforUtil::eiEDIT));
     removeButton->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
     connectButton->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
-    upButton->setIcon(WU->getPixmap(WulforUtil::eiUP));
-    downButton->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
 
     load();
 
@@ -163,12 +161,6 @@ void FavoriteHubs::init(){
         changeButton->setEnabled(false);
         removeButton->setEnabled(false);
         connectButton->setEnabled(false);
-        upButton->setEnabled(false);
-        downButton->setEnabled(false);
-    }
-    else if(row_num == 1){
-        upButton->setEnabled(false);
-        downButton->setEnabled(false);
     }
 
     connect(treeView, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(slotContexMenu(const QPoint&)));
@@ -180,8 +172,8 @@ void FavoriteHubs::init(){
     connect(changeButton,  SIGNAL(clicked()), this, SLOT(slotChangeButtonClicked()));
     connect(removeButton,  SIGNAL(clicked()), this, SLOT(slotRemoveButtonClicked()));
     connect(connectButton, SIGNAL(clicked()), this, SLOT(slotConnectButtonClicked()));
-    connect(upButton,      SIGNAL(clicked()), this, SLOT(slotUpButtonClicked()));
-    connect(downButton,    SIGNAL(clicked()), this, SLOT(slotDownButtonClicked()));
+
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
 }
 
 void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor){
@@ -232,6 +224,7 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     editor.checkBox_USEINTERNET->setChecked(map["IIP"].toBool());
     editor.checkBox_DISABLECHAT->setChecked(map["DCHAT"].toBool());
     editor.checkBox_CID->setChecked(map["OVERTAG"].toBool());
+    editor.comboBox_MODE->setCurrentIndex(map["MODE"].toInt());
 
     QStringList tags;
     QString tag = map["TAG"].toString();
@@ -295,6 +288,7 @@ void FavoriteHubs::getParams(const FavoriteHubEntry *entry, StrMap &map){
     map["IP"]       = _q(entry->getExternalIP());
     map["IIP"]      = entry->getUseInternetIP();
     map["DCHAT"]    = entry->getDisableChat();
+    map["MODE"]     = entry->getMode();
 }
 
 void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
@@ -333,6 +327,7 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
         map["ENC"] = WU->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE));
 
     map["UDESC"]    = editor.lineEdit_USERDESC->text();
+    map["MODE"]     = editor.comboBox_MODE->currentIndex();
 }
 
 void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
@@ -349,6 +344,7 @@ void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
     entry.setOverrideId(map["OVERTAG"].toBool());
     entry.setUseInternetIP(map["IIP"].toBool());
     entry.setDisableChat(map["DCHAT"].toBool());
+    entry.setMode(map["MODE"].toInt());
 }
 
 void FavoriteHubs::updateItem(FavoriteHubItem *item, StrMap &map){
@@ -477,6 +473,11 @@ void FavoriteHubs::slotClicked(const QModelIndex &index){
     }
 }
 
+void FavoriteHubs::slotSettingsChanged(const QString &key, const QString &value){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
+}
+
 void FavoriteHubs::on(FavoriteAdded, const FavoriteHubEntryPtr entry) throw(){
     QList<QVariant> data;
     WulforUtil *WU = WulforUtil::getInstance();
@@ -571,22 +572,6 @@ void FavoriteHubs::slotRemoveButtonClicked(){
 
 void FavoriteHubs::slotConnectButtonClicked(){
     slotDblClicked();
-}
-
-void FavoriteHubs::slotUpButtonClicked(){
-    QItemSelectionModel *s_model = treeView->selectionModel();
-    QModelIndexList list = s_model->selectedRows(0);
-
-    foreach (QModelIndex i, list)
-        s_model->select(model->moveUp(i), QItemSelectionModel::ClearAndSelect|QItemSelectionModel::Rows);
-}
-
-void FavoriteHubs::slotDownButtonClicked(){
-    QItemSelectionModel *s_model = treeView->selectionModel();
-    QModelIndexList list = s_model->selectedRows(0);
-
-    foreach (QModelIndex i, list)
-         s_model->select(model->moveDown(i), QItemSelectionModel::ClearAndSelect|QItemSelectionModel::Rows);
 }
 
 FavoriteHubItem *FavoriteHubs::getItem(){

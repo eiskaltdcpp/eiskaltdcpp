@@ -186,6 +186,9 @@ friend class dcpp::Singleton<MainWindow>;
 
         void loadDMD(QString);
 
+        /** */
+        void show();
+
     protected:
         virtual void closeEvent(QCloseEvent*);
         virtual void showEvent(QShowEvent *);
@@ -193,6 +196,7 @@ friend class dcpp::Singleton<MainWindow>;
         virtual bool eventFilter(QObject *, QEvent *);
 
     private Q_SLOTS:
+        void slotOpenMagnet();
         void slotFileOpenLogFile();
         void slotFileOpenDownloadDirectory();
         void slotFileBrowseFilelist();
@@ -220,6 +224,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsJS();
         void slotToolsJSConsole();
         void slotToolsTransfer(bool);
+        void slotToolsSwitchSpeedLimit();
         void slotPanelMenuActionClicked();
         void slotWidgetsToggle();
         void slotQC();
@@ -330,6 +335,7 @@ friend class dcpp::Singleton<MainWindow>;
         HashProgress *_progress_dialog; // Hashing progress dialog
 
         QMenu   *menuFile;
+        QAction *fileOpenMagnet;
         QAction *fileFileListBrowser;
         QAction *fileFileHasher;
         QAction *fileFileListBrowserLocal;
@@ -374,7 +380,8 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsJS;
         QAction *toolsJSConsole;
 #endif
-	QAction *toolsUploads;
+        QAction *toolsUploads;
+        QAction *toolsSwitchSpeedLimit;
 
         QMenu   *menuPanels;
         // submenu

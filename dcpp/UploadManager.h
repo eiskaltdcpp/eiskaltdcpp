@@ -57,6 +57,9 @@ public:
     /** @param aUser Reserve an upload slot for this user and connect. */
     void reserveSlot(const HintedUser& aUser);
 
+    /** */
+    void reloadRestrictions();
+
     typedef set<string> FileSet;
     typedef unordered_map<UserPtr, FileSet, User::Hash> FilesMap;
     void clearUserFiles(const UserPtr&);
@@ -67,7 +70,8 @@ public:
     void addConnection(UserConnectionPtr conn);
 
     GETSET(int, running, Running);
-    GETSET(int, extra, Extra);
+    GETSET(uint8_t, extraPartial, ExtraPartial);
+    GETSET(uint8_t, extra, Extra);
     GETSET(uint64_t, lastGrant, LastGrant);
 
     void updateLimits() {limits.RenewList(NULL);}
@@ -79,6 +83,7 @@ private:
     typedef SlotSet::iterator SlotIter;
     SlotSet reservedSlots;
     CPerfolderLimit limits;
+    int lastFreeSlots; /// amount of free slots at the previous minute
 
     typedef pair<HintedUser, uint64_t> WaitingUser;
     typedef list<WaitingUser> WaitingUserList;

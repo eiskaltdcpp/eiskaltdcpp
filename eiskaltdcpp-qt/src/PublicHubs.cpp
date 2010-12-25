@@ -15,6 +15,7 @@
 #include <QClipboard>
 #include <QItemSelectionModel>
 #include <QHeaderView>
+#include <QKeyEvent>
 
 using namespace dcpp;
 
@@ -29,6 +30,8 @@ PublicHubs::PublicHubs(QWidget *parent) :
 
     treeView->setModel(model);
     treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_PUBLICHUBS_STATE).toAscii()));
+
+    lineEdit_FILTER->installEventFilter(this);
 
     FavoriteManager::getInstance()->addListener(this);
 
@@ -79,6 +82,22 @@ PublicHubs::~PublicHubs(){
     delete proxy;
 
     FavoriteManager::getInstance()->removeListener(this);
+}
+
+bool PublicHubs::eventFilter(QObject *obj, QEvent *e){
+    if (e->type() == QEvent::KeyRelease){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if (static_cast<LineEdit*>(obj) == lineEdit_FILTER && k_e->key() == Qt::Key_Escape){
+            lineEdit_FILTER->clear();
+
+            requestFilter();
+
+            return true;
+        }
+    }
+
+    return QWidget::eventFilter(obj, e);
 }
 
 void PublicHubs::closeEvent(QCloseEvent *e){
@@ -222,10 +241,6 @@ void PublicHubs::slotDoubleClicked(const QModelIndex &index){
         MW->newHubFrame(item->data(COLUMN_PHUB_ADDRESS).toString(), "");
 }
 
-bool PublicHubs::isFindFrameActivated(){
-    return (frame->isVisible() && lineEdit_FILTER->hasFocus());
-}
-
 void PublicHubs::slotFilter(){
     if (frame->isVisible()){
         treeView->setModel(model);
@@ -278,10 +293,17 @@ void PublicHubs::on(DownloadFailed, const std::string& l) throw(){
     emit coreDownloadFailed(tr("Download failed: %1").arg(_q(l)));
 }
 
-void PublicHubs::on(DownloadFinished, const std::string& l) throw(){
-    emit coreDownloadFinished(tr("Hub list downloaded... (%1)").arg(_q(l)));
+void PublicHubs::on(DownloadFinished, const std::string& l, bool fromCoral) throw(){
+    emit coreDownloadFinished(tr("Hub list downloaded... (%1 %2) ").arg(_q(l)).arg(fromCoral? tr("from Coral") : ""));
 }
 
 void PublicHubs::on(LoadedFromCache, const std::string& l) throw(){
     emit coreCacheLoaded(tr("Hub list loaded from cache...").arg(_q(l)));
+}
+
+void PublicHubs::on(Corrupted, const string& l) throw() {
+    if (l.empty())
+        emit coreDownloadFailed(tr("Cached hub list is corrupted or unsupported"));
+    else
+        emit coreDownloadFailed(tr("Downloaded hub list is corrupted or unsupported (%1)").arg(_q(l)));
 }

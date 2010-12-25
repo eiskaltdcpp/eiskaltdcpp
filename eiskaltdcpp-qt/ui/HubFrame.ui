@@ -116,7 +116,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QToolButton" name="pushButton_ALL">
+             <widget class="QToolButton" name="toolButton_ALL">
               <property name="toolTip">
                <string>Highlight all</string>
               </property>
@@ -208,7 +208,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
+     <widget class="QWidget" name="layoutWidget_1">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QTreeView" name="treeView_USERS">

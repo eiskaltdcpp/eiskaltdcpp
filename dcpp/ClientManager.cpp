@@ -97,12 +97,12 @@ StringList ClientManager::getHubs(const CID& cid, const string& hintUrl, bool pr
     if(!priv) {
         OnlinePairC op = onlineUsers.equal_range(cid);
         for(OnlineIterC i = op.first; i != op.second; ++i) {
-            lst.push_back(i->second->getClient().getHubUrl());
+            lst.push_back(i->second->getClientBase().getHubUrl());
         }
     } else {
         OnlineUser* u = findOnlineUser_hint(cid, hintUrl);
         if(u)
-            lst.push_back(u->getClient().getHubUrl());
+            lst.push_back(u->getClientBase().getHubUrl());
     }
     return lst;
 }
@@ -113,12 +113,12 @@ StringList ClientManager::getHubNames(const CID& cid, const string& hintUrl, boo
     if(!priv) {
         OnlinePairC op = onlineUsers.equal_range(cid);
         for(OnlineIterC i = op.first; i != op.second; ++i) {
-            lst.push_back(i->second->getClient().getHubName());
+            lst.push_back(i->second->getClientBase().getHubName());
         }
     } else {
         OnlineUser* u = findOnlineUser_hint(cid, hintUrl);
         if(u)
-            lst.push_back(u->getClient().getHubName());
+            lst.push_back(u->getClientBase().getHubName());
     }
     return lst;
 }
@@ -273,7 +273,7 @@ bool ClientManager::isOp(const UserPtr& user, const string& aHubUrl) const {
     Lock l(cs);
     OnlinePairC p = onlineUsers.equal_range(user->getCID());
     for(OnlineIterC i = p.first; i != p.second; ++i) {
-        if(i->second->getClient().getHubUrl() == aHubUrl) {
+        if(i->second->getClientBase().getHubUrl() == aHubUrl) {
             return i->second->getIdentity().isOp();
         }
     }
@@ -335,7 +335,7 @@ OnlineUser* ClientManager::findOnlineUser_hint(const CID& cid, const string& hin
     if(!hintUrl.empty()) {
         for(OnlineIter i = p.first; i != p.second; ++i) {
             OnlineUser* u = i->second;
-            if(u->getClient().getHubUrl() == hintUrl) {
+            if(u->getClientBase().getHubUrl() == hintUrl) {
                 return u;
             }
         }
@@ -437,6 +437,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
     Speaker<ClientManagerListener>::fire(ClientManagerListener::IncomingSearch(), aString);
 
     bool isPassive = (aSeeker.compare(0, 4, "Hub:") == 0);
+    bool isTTHSearch = ((aFileType == SearchManager::TYPE_TTH) && (aString.compare(0, 4, "TTH:") == 0));
 
     // We don't wan't to answer passive searches if we're in passive mode...
     if(isPassive && !ClientManager::getInstance()->isActive(aClient->getHubUrl())) {
@@ -480,7 +481,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
                 dcdebug("Search caught error\n");
             }
         }
-    } else if(!isPassive && (aFileType == SearchManager::TYPE_TTH) && (aString.compare(0, 4, "TTH:") == 0)) {
+    } else if(!isPassive && isTTHSearch) {
         PartsInfo partialInfo;
         TTHValue aTTH(aString.substr(4));
         if(!QueueManager::getInstance()->handlePartialSearch(aTTH, partialInfo)) {
@@ -504,7 +505,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
     }
 }
 
-void ClientManager::on(AdcSearch, Client*, const AdcCommand& adc, const CID& from) throw() {
+void ClientManager::on(AdcSearch, const Client* c, const AdcCommand& adc, const CID& from) throw() {
     bool isUdpActive = false;
     {
         Lock l(cs);
@@ -516,7 +517,7 @@ void ClientManager::on(AdcSearch, Client*, const AdcCommand& adc, const CID& fro
         }
 
     }
-    SearchManager::getInstance()->respond(adc, from, isUdpActive);
+    SearchManager::getInstance()->respond(adc, from, isUdpActive, c->getIpPort());
 }
 
 void ClientManager::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken) {

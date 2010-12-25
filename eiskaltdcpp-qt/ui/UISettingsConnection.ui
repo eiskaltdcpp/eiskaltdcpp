@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>520</width>
-    <height>439</height>
+    <width>563</width>
+    <height>453</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -466,241 +466,252 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
               <number>0</number>
              </property>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
-               <property name="leftMargin">
-                <number>10</number>
+              <widget class="QFrame" name="frameBasicLimits">
+               <property name="enabled">
+                <bool>false</bool>
                </property>
-               <property name="rightMargin">
-                <number>10</number>
-               </property>
-               <item>
-                <widget class="QLabel" name="label_11">
-                 <property name="text">
-                  <string>Download</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QSpinBox" name="spinBox_DOWN_LIMIT_NORMAL">
-                 <property name="maximum">
-                  <number>125000</number>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_14">
-                 <property name="text">
-                  <string>KiB/s</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_12">
-                 <property name="text">
-                  <string>Upload</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QSpinBox" name="spinBox_UP_LIMIT_NORMAL">
-                 <property name="maximum">
-                  <number>125000</number>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_15">
-                 <property name="text">
-                  <string>KiB/s</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_6">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <property name="leftMargin">
-                <number>10</number>
-               </property>
-               <item>
-                <widget class="QCheckBox" name="checkBox_TIME_DEPENDENT_THROTTLE">
-                 <property name="text">
-                  <string>Alternate speed limit at time from </string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_5">
-                 <property name="frameShape">
-                  <enum>QFrame::NoFrame</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QHBoxLayout" name="horizontalLayout_4">
-                  <item>
-                   <widget class="QSpinBox" name="spinBox_BANDWIDTH_LIMIT_START">
-                    <property name="maximum">
-                     <number>23</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_13">
-                    <property name="text">
-                     <string>to</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QSpinBox" name="spinBox_BANDWIDTH_LIMIT_END">
-                    <property name="maximum">
-                     <number>23</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_19">
-                    <property name="text">
-                     <string>hour(s)</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_4">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="QFrame" name="frame_4">
-               <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_10">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_9">
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QLabel" name="label_11">
                   <property name="text">
                    <string>Download</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <widget class="QSpinBox" name="spinBox_DOWN_LIMIT_TIME">
+                <item>
+                 <widget class="QSpinBox" name="spinBox_DOWN_LIMIT_NORMAL">
                   <property name="maximum">
                    <number>125000</number>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="2">
-                 <widget class="QLabel" name="label_16">
+                <item>
+                 <widget class="QLabel" name="label_14">
                   <property name="text">
                    <string>KiB/s</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="3">
-                 <spacer name="horizontalSpacer">
+                <item>
+                 <spacer name="horizontalSpacer_2">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>124</width>
-                    <height>22</height>
+                    <width>40</width>
+                    <height>20</height>
                    </size>
                   </property>
                  </spacer>
                 </item>
-                <item row="0" column="4">
-                 <widget class="QLabel" name="label_10">
+                <item>
+                 <widget class="QLabel" name="label_12">
                   <property name="text">
                    <string>Upload</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="5">
-                 <widget class="QSpinBox" name="spinBox_UP_LIMIT_TIME">
+                <item>
+                 <widget class="QSpinBox" name="spinBox_UP_LIMIT_NORMAL">
                   <property name="maximum">
                    <number>125000</number>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="6">
-                 <widget class="QLabel" name="label_17">
+                <item>
+                 <widget class="QLabel" name="label_15">
                   <property name="text">
                    <string>KiB/s</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="7">
-                 <spacer name="horizontalSpacer_5">
+                <item>
+                 <spacer name="horizontalSpacer_6">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>124</width>
-                    <height>22</height>
+                    <width>40</width>
+                    <height>20</height>
                    </size>
                   </property>
                  </spacer>
                 </item>
-                <item row="1" column="1">
-                 <widget class="QSpinBox" name="spinBox_ALTERNATE_SLOTS"/>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_21">
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="frameOptionalLimits" native="true">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_3">
+                <item row="0" column="0">
+                 <widget class="QCheckBox" name="checkBox_TIME_DEPENDENT_THROTTLE">
                   <property name="text">
-                   <string>Slots</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
+                   <string>Alternate speed limit at time from </string>
                   </property>
                  </widget>
                 </item>
+                <item row="0" column="1">
+                 <widget class="QFrame" name="frameOptionalLimitsPeriod">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_4">
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_BANDWIDTH_LIMIT_START">
+                     <property name="maximum">
+                      <number>23</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_13">
+                     <property name="text">
+                      <string>to</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_BANDWIDTH_LIMIT_END">
+                     <property name="maximum">
+                      <number>23</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_19">
+                     <property name="text">
+                      <string>hour(s)</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_4">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="0" colspan="2">
+                 <widget class="QFrame" name="frameOptionalLimitsValues">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_10">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_9">
+                     <property name="text">
+                      <string>Download</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QSpinBox" name="spinBox_DOWN_LIMIT_TIME">
+                     <property name="maximum">
+                      <number>125000</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <spacer name="horizontalSpacer">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>124</width>
+                       <height>22</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="0" column="4">
+                    <widget class="QLabel" name="label_10">
+                     <property name="text">
+                      <string>Upload</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="5">
+                    <widget class="QSpinBox" name="spinBox_UP_LIMIT_TIME">
+                     <property name="maximum">
+                      <number>125000</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="6">
+                    <widget class="QLabel" name="label_17">
+                     <property name="text">
+                      <string>KiB/s</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="7">
+                    <spacer name="horizontalSpacer_5">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>124</width>
+                       <height>22</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QSpinBox" name="spinBox_ALTERNATE_SLOTS"/>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_21">
+                     <property name="text">
+                      <string>Slots</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_16">
+                     <property name="text">
+                      <string>KiB/s</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
                </layout>
+               <zorder>checkBox_TIME_DEPENDENT_THROTTLE</zorder>
+               <zorder>frameOptionalLimitsPeriod</zorder>
+               <zorder>label_16</zorder>
+               <zorder>frameOptionalLimitsValues</zorder>
               </widget>
              </item>
             </layout>
@@ -796,5 +807,70 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>checkBox_TIME_DEPENDENT_THROTTLE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>frameOptionalLimitsValues</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>148</x>
+     <y>145</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>281</x>
+     <y>196</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_THROTTLE_ENABLE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>frameBasicLimits</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>281</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>281</x>
+     <y>101</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_TIME_DEPENDENT_THROTTLE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>frameOptionalLimitsPeriod</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>148</x>
+     <y>145</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>404</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_THROTTLE_ENABLE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>frameOptionalLimits</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>281</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>281</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

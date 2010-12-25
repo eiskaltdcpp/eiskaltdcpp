@@ -180,10 +180,38 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
         }
 
         if(!overlaps) {
-            return block;
+            if(partialSource) {
+                // store all chunks we could need
+                for(vector<int64_t>::const_iterator j = posArray.begin(); j < posArray.end(); j += 2){
+                        if( (*j <= start && start < *(j+1)) || (start <= *j && *j < end) ) {
+                            int64_t b = max(start, *j);
+                            int64_t e = min(end, *(j+1));
+
+                        // segment must be blockSize aligned
+                        dcassert(b % blockSize == 0);
+                        dcassert(e % blockSize == 0 || e == getSize());
+
+                        bool merged = false;
+                        if(!neededParts.empty())
+                        {
+                            Segment& prev = neededParts.back();
+                            if(b == prev.getEnd() && e > prev.getEnd())
+                            {
+                                 prev.setSize(prev.getSize() + (e - b));
+                                 merged = true;
+                            }
+                        }
+
+                            if(!merged)
+                                neededParts.push_back(Segment(b, e - b));
+                        }
+                }
+            } else {
+                return block;
+            }
         }
 
-                if(!partialSource && curSize > blockSize) {
+        if(!partialSource && curSize > blockSize) {
             curSize -= blockSize;
         } else {
             start = end;
@@ -201,8 +229,8 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
                 return selected;
         }
 
-        if(partialSource == NULL && BOOLSETTING(OVERLAP_CHUNKS) && lastSpeed > 10*1024) {
-                // overlap slow running chunk only when new speed is more than 10 kB/s
+        if(partialSource == NULL && BOOLSETTING(OVERLAP_CHUNKS) && lastSpeed > 0) {
+                // overlap slow running chunk
 
                 for(DownloadList::const_iterator i = downloads.begin(); i != downloads.end(); ++i) {
                         Download* d = *i;
@@ -265,7 +293,7 @@ void QueueItem::addSegment(const Segment& segment) {
     }
 }
 //Partial
-bool QueueItem::isSource(const PartsInfo& partsInfo, int64_t blockSize)
+bool QueueItem::isNeededPart(const PartsInfo& partsInfo, int64_t blockSize)
 {
         dcassert(partsInfo.size() % 2 == 0);
 

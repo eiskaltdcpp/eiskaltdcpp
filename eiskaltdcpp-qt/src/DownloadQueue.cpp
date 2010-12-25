@@ -39,9 +39,11 @@ using namespace dcpp;
 
 DownloadQueue::Menu::Menu(){
     menu = new QMenu();
+    QMenu *menu_magnet = new QMenu(tr("Magnet"), DownloadQueue::getInstance());
 
     QAction *search_alt  = new QAction(tr("Search for alternates"), menu);
-    QAction *copy_magnet = new QAction(tr("Copy magnet"), menu);
+    QAction *copy_magnet = new QAction(tr("Copy magnet"), menu_magnet);
+    QAction *copy_magnet_web = new QAction(tr("Copy web-magnet"), menu_magnet);
     QAction *ren_move    = new QAction(tr("Rename/Move"), menu);
 
     QAction *sep1 = new QAction(menu);
@@ -86,10 +88,16 @@ DownloadQueue::Menu::Menu(){
 
     map[search_alt] = Alternates;
     map[copy_magnet] = Magnet;
+    map[copy_magnet_web] = MagnetWeb;
     map[ren_move] = RenameMove;
     map[remove] = Remove;
 
-    menu->addActions(QList<QAction*>() << search_alt << copy_magnet << ren_move << sep1);
+    menu_magnet->addActions(QList<QAction*>() << copy_magnet << copy_magnet_web);
+
+    menu->addAction(search_alt);
+    menu->addMenu(menu_magnet);
+    menu->addAction(ren_move);
+    menu->addAction(sep1);
     menu->addMenu(set_prio);
     menu->addMenu(browse);
     menu->addMenu(send_pm);
@@ -572,6 +580,22 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
             break;
         }
+        case Menu::MagnetWeb:
+        {
+            QString magnet = "";
+
+            foreach (DownloadQueueItem *i, items)
+                magnet += "[magnet=\"" +
+                          WulforUtil::getInstance()->makeMagnet(i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
+                                                                i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
+                                                                i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) +
+                          "\"]"+i->data(COLUMN_DOWNLOADQUEUE_NAME).toString()+"[/magnet]\n";
+
+            if (!magnet.isEmpty())
+                qApp->clipboard()->setText(magnet, QClipboard::Clipboard);
+
+            break;
+        }
         case Menu::RenameMove:
         {
             foreach (DownloadQueueItem *i, items){
@@ -712,6 +736,11 @@ void DownloadQueue::slotUpdateStats(quint64 files, quint64 size){
         label_STATS->show();
 
     label_STATS->setText(QString("Total files: <b>%1</b> Total size: <b>%2</b>").arg(files).arg(WulforUtil::formatBytes(size)));
+}
+
+void DownloadQueue::slotSettingsChanged(const QString &key, const QString &value){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }
 
 void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw(){

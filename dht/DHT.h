@@ -138,8 +138,8 @@ namespace dht
 		uint64_t lastPacket;
 
 		/** IPs who we received firewalled status from */
-		std::unordered_set<string> firewalledWanted;
-		std::unordered_map<string, std::pair<string, uint16_t>> firewalledChecks;
+		std::tr1::unordered_set<string> firewalledWanted;
+		std::tr1::unordered_map< string, std::pair< string, uint16_t > > firewalledChecks;
 		bool firewalled;
 		bool requestFWCheck;
 

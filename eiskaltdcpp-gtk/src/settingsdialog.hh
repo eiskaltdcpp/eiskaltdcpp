@@ -183,12 +183,12 @@ class Settings:
             *shareStore, *appearanceStore, *tabStore, *windowStore1,
             *windowStore2, *windowStore3, *advancedStore, *certificatesStore, *userCommandStore,
             *previewAppToStore, *soundStore, *textStyleStore, *notifyStore, *themeIconsStore,
-                        *toolbarStore, *searchTypeStore, *extensionStore;
+            *toolbarStore, *searchTypeStore, *extensionStore;
         TreeView downloadToView, publicListView, queueView, shareView,
             appearanceView, tabView, windowView1, windowView2,
             windowView3, advancedView, certificatesView, userCommandView,
             previewAppView, soundView, textStyleView, notifyView, themeIconsView,
-                        toolbarView, searchTypeView, extensionView;
+            toolbarView, searchTypeView, extensionView;
         GtkTextBuffer *textStyleBuffer;
 
         typedef std::map<std::string, int> IntMap;

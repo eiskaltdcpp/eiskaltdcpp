@@ -71,11 +71,15 @@ class ShareBrowser : public  QWidget,
             DownloadTo,
             Alternates,
             Magnet,
+            MagnetWeb,
             AddToFav,
+            AddRestrinction,
+            RemoveRestriction,
+            OpenUrl,
             None
         };
 
-        Action exec();
+        Action exec(const dcpp::UserPtr& = dcpp::UserPtr(NULL));
 
         QString getTarget() { return target; }
 
@@ -86,7 +90,9 @@ class ShareBrowser : public  QWidget,
         QMap<QAction*, Action> actions;
         QMenu *menu;
         QMenu *down_to;
+        QMenu *rest_menu;
         QString target;
+        QAction *open_url;
     };
 
 public:
@@ -101,16 +107,12 @@ public:
     void requestFilter() { slotFilter(); }
     ArenaWidget::Role role() const { return ArenaWidget::ShareBrowser; }
 
-    bool isFindFrameActivated();
-
-public Q_SLOTS:
-    void slotFilter();
-
 protected:
     virtual void closeEvent(QCloseEvent *);
     virtual bool eventFilter(QObject *, QEvent *);
 
 private Q_SLOTS:
+    void slotFilter();
     void slotRightPaneClicked(const QModelIndex&);
     void slotRightPaneSelChanged(const QItemSelection&, const QItemSelection&);
     void slotLeftPaneSelChanged(const QItemSelection&, const QItemSelection&);

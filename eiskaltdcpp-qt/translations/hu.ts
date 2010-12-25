@@ -345,6 +345,15 @@ Kapcsolók:
         <source>Checksum mismatch</source>
         <translation>Az ellenőrző-összeg eltérő</translation>
     </message>
+    <message>
+        <source>Magnet</source>
+        <translation>Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translatorcomment>Web kompatibilis magnet (BBCode)</translatorcomment>
+        <translation>Web-magnet másolása (BBCode link)</translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueueModel</name>
@@ -564,6 +573,14 @@ Kapcsolók:
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
+    <message>
+        <source>File marked as a duplicate of another file: %1</source>
+        <translation>A fájl meg lett jelölve a következő fájl duplikációjaként: %1</translation>
+    </message>
+    <message>
+        <source>%1 [%2 Gb]</source>
+        <translation>%1 [%2 Gb]</translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -580,22 +597,22 @@ Kapcsolók:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation type="unfinished">Befejezett feltöltések</translation>
+        <translation>Befejezett feltöltések</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation type="unfinished">Befejezett letöltések</translation>
+        <translation>Befejezett letöltések</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation type="unfinished">Fájl megnyitása</translation>
+        <translation>Fájl megnyitása</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation type="unfinished">Könyvtár megnyitása</translation>
+        <translation>Könyvtár megnyitása</translation>
     </message>
 </context>
 <context>
@@ -642,11 +659,15 @@ Kapcsolók:
     </message>
     <message>
         <source>/s</source>
-        <translation>/s</translation>
+        <translation type="obsolete">/s</translation>
     </message>
     <message>
         <source>Check sum</source>
         <translation>Ellenőrző-összeg</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -1254,6 +1275,14 @@ Kedvenc felhasználó</translation>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Felhasználók száma: %3/%1 | Összes megosztás: %2</translation>
     </message>
+    <message>
+        <source>[User went offline]</source>
+        <translation>[A felhasználó nem elérhető]</translation>
+    </message>
+    <message>
+        <source>%1 (%2)</source>
+        <translation>%1 (%2)</translation>
+    </message>
 </context>
 <context>
     <name>HubManager</name>
@@ -1384,7 +1413,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Esc</source>
-        <translation>Esc</translation>
+        <translation type="obsolete">Esc</translation>
     </message>
     <message>
         <source>Show/hide find frame</source>
@@ -1718,7 +1747,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation>Események</translation>
+        <translation>Lehetőségek</translation>
     </message>
     <message>
         <source>Download speed</source>
@@ -2112,6 +2141,38 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Show close buttons</source>
         <translation>Bezárási gombok mutatása</translation>
     </message>
+    <message>
+        <source>Speed limit On/Off</source>
+        <translation>Sebességkorlátozás ki/be</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(2.1.0 és újabb)&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(2.2.0 és újabb)&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Cseh fordítás&lt;/u&gt;&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>Ctrl+I</source>
+        <translation>Ctrl+I</translation>
+    </message>
+    <message>
+        <source>Open magnet link</source>
+        <translation>Magnetlink megnyitása</translation>
+    </message>
+    <message>
+        <source>Enter magnet link:</source>
+        <translation>Magnetlink megadása:</translation>
+    </message>
+    <message>
+        <source>Ctrl+Alt+H</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2271,7 +2332,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1)</source>
-        <translation>Hublista letöltve... (%1)</translation>
+        <translation type="obsolete">Hublista letöltve... (%1)</translation>
     </message>
     <message>
         <source>Hub list loaded from cache...</source>
@@ -2280,6 +2341,22 @@ Letöltve: %3 Feltöltve %4</translation>
     <message>
         <source>Public Hubs</source>
         <translation>Publikus hubok</translation>
+    </message>
+    <message>
+        <source>Cached hub list is corrupted or unsupported</source>
+        <translation>A gyorsítótárban lévő hublista hibás, vagy nem támogatott</translation>
+    </message>
+    <message>
+        <source>Downloaded hub list is corrupted or unsupported (%1)</source>
+        <translation>A letöltött hublista hibás, vagy nem támogatott (%1)</translation>
+    </message>
+    <message>
+        <source>Hub list downloaded... (%1 %2) </source>
+        <translation>Hublista letöltve... (%1 %2) </translation>
+    </message>
+    <message>
+        <source>from Coral</source>
+        <translation>a Coral-ról</translation>
     </message>
 </context>
 <context>
@@ -2357,6 +2434,51 @@ Kapcsolók:
     <message>
         <source>Script Manager</source>
         <translation>Script kezelő</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDelegate</name>
+    <message>
+        <source>Filename</source>
+        <translation>Fájlnév</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation>TTH</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDialog</name>
+    <message>
+        <source>Add new</source>
+        <translation>Új hozzáadása</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Eltávolítás</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListModel</name>
+    <message>
+        <source>Filename</source>
+        <translation>Fájlnév</translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation>TTH</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation>Kulcs</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Típus</translation>
+    </message>
+    <message>
+        <source>Set text...</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2587,7 +2709,20 @@ Kapcsolók:
     </message>
     <message>
         <source>CD Image</source>
-        <translation type="unfinished"></translation>
+        <translation>CD képfájl</translation>
+    </message>
+    <message>
+        <source>Blacklist</source>
+        <translation>Tiltólista</translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation>Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translatorcomment>Web kompatibilis magnetlink (BBCode)</translatorcomment>
+        <translation>Web-magnet másolása (BBCode link)</translation>
     </message>
 </context>
 <context>
@@ -2836,6 +2971,10 @@ Kapcsolók:
         <source>Slovak</source>
         <translation>Szlovák</translation>
     </message>
+    <message>
+        <source>Czech</source>
+        <translation>Cseh</translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
@@ -2882,7 +3021,7 @@ Kapcsolók:
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
         <source>Add</source>
@@ -2894,19 +3033,19 @@ Kapcsolók:
     </message>
     <message>
         <source>Enter virtual path name</source>
-        <translation>Virtuális útvonalnév megadása</translation>
+        <translation type="obsolete">Virtuális útvonalnév megadása</translation>
     </message>
     <message>
         <source>Virtual path</source>
-        <translation>Virtuális útvonal</translation>
+        <translation type="obsolete">Virtuális útvonal</translation>
     </message>
     <message>
         <source>Enter restriction (in GiB)</source>
-        <translation>Korlátozás megadása (GiB)</translation>
+        <translation type="obsolete">Korlátozás megadása (GiB)</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Korlátozás</translation>
+        <translation type="obsolete">Korlátozás</translation>
     </message>
     <message>
         <source>Add item</source>
@@ -3010,6 +3149,34 @@ Kapcsolók:
     <message>
         <source>Download to...</source>
         <translation>Letöltés ide ...</translation>
+    </message>
+    <message>
+        <source>Restrictions</source>
+        <translation>Korlátozások</translation>
+    </message>
+    <message>
+        <source>Add restriction</source>
+        <translation>Új korlátozás hozzáadása</translation>
+    </message>
+    <message>
+        <source>Remove restriction</source>
+        <translation>Korlátozás eltávolítása</translation>
+    </message>
+    <message>
+        <source>Enter restriction size (in GB)</source>
+        <translation>Korlátozás méretének megadása (GiB-ban)</translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation>Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation>Web-magnet másolása (BBCode link)</translation>
+    </message>
+    <message>
+        <source>Open directory</source>
+        <translation>Könyvtár megnyitása</translation>
     </message>
 </context>
 <context>
@@ -3117,7 +3284,8 @@ Kapcsolók:
     <message>
         <source>Internal server running on %1
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Egy belső kiszolgáló fut a következőn: %1
+</translation>
     </message>
 </context>
 <context>
@@ -3410,6 +3578,10 @@ Biztosan le akarod állítani?
     <message>
         <source>Finished</source>
         <translation>Befejezve</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3831,6 +4003,22 @@ p, li { white-space: pre-wrap; }
         <source>EiskaltDC++ V:2.1</source>
         <translation type="obsolete">EiskaltDC++ V:2.1</translation>
     </message>
+    <message>
+        <source>Default</source>
+        <translation>Alapértelmezett</translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation>Aktív</translation>
+    </message>
+    <message>
+        <source>Passive</source>
+        <translation>Passzív</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Mód</translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -3856,11 +4044,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Move up</source>
-        <translation>Mozgatás fel</translation>
+        <translation type="obsolete">Mozgatás fel</translation>
     </message>
     <message>
         <source>Move down</source>
-        <translation>Mozgatás le</translation>
+        <translation type="obsolete">Mozgatás le</translation>
     </message>
 </context>
 <context>
@@ -4143,6 +4331,38 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
         <source>User share</source>
         <translation>Felhasználó megosztása</translation>
     </message>
+    <message>
+        <source>Find:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation>&lt;</translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation>&gt;</translation>
+    </message>
+    <message>
+        <source>A</source>
+        <translation>A</translation>
+    </message>
+    <message>
+        <source>Previous (Shift+F3)</source>
+        <translation>Előző (Shift+F3)</translation>
+    </message>
+    <message>
+        <source>Next (F3)</source>
+        <translation>Következő (F3)</translation>
+    </message>
+    <message>
+        <source>Hide find frame (Ctrl+F)</source>
+        <translation>Keresőmező elrejtése (Ctrl+F)</translation>
+    </message>
+    <message>
+        <source>Highlight all</source>
+        <translation>Összes kiemelése</translation>
+    </message>
 </context>
 <context>
     <name>UIPublicHubs</name>
@@ -4198,6 +4418,21 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <source>Dialog</source>
         <translation>Beállítások</translation>
+    </message>
+</context>
+<context>
+    <name>UISearchBlacklistDialog</name>
+    <message>
+        <source>Blacklist</source>
+        <translation>Tiltólista</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -5149,6 +5384,22 @@ a hub operátoraitól kaphatsz</translation>
         <source>Try to use system icons (need restart)</source>
         <translation>Próbálja használni a rendszerikonokat (újraindítás szükséges) </translation>
     </message>
+    <message>
+        <source>Redirect new personal messages to the main chat</source>
+        <translation>Új privát üzenet átirányítása a main chatre</translation>
+    </message>
+    <message>
+        <source>Parse BBCode</source>
+        <translation>BBCode feldolgozása</translation>
+    </message>
+    <message>
+        <source>Use separator for unread messages in the chat</source>
+        <translation>Elválasztó használata a chatan, a nem olvasott üzenetek kiemeléséhez</translation>
+    </message>
+    <message>
+        <source>Change background color in the chat</source>
+        <translation>A chat háttérszinének megváltoztatása</translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -5418,19 +5669,19 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
     </message>
     <message>
         <source>Restrictions</source>
-        <translation>Korlátozások</translation>
+        <translation type="obsolete">Korlátozások</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation>Megosztás</translation>
+        <translation type="obsolete">Megosztás</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Korlátozás</translation>
+        <translation type="obsolete">Korlátozás</translation>
     </message>
     <message>
         <source>All changes take effect only after restart</source>
-        <translation>A változások csak újraindítás után lesznek érvényesek</translation>
+        <translation type="obsolete">A változások csak újraindítás után lesznek érvényesek</translation>
     </message>
     <message>
         <source>Per folder limit specifies how many files in GiB
@@ -5572,7 +5823,7 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation>Speciális korlátozás megadása (GiB-ban) minden &quot;virtuális&quot; könyvtárhoz a magosztásban.
+        <translation type="obsolete">Speciális korlátozás megadása (GiB-ban) minden &quot;virtuális&quot; könyvtárhoz a magosztásban.
 Például, ha a megosztásba kerül a /home/felhasználónév/Video könyvtár &quot;Video&quot; néven,
 a következő megadásával akalmazható a speciális korlátozás:
 /Video	10
@@ -5867,7 +6118,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>Enter parameter value</source>
-        <translation>Paraméter megadása</translation>
+        <translation type="obsolete">Paraméter megadása</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -5920,6 +6171,18 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <source>%1 PB</source>
         <translation>%1 PB</translation>
+    </message>
+    <message>
+        <source>Command parameters</source>
+        <translation>Parancs paraméterek</translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>Ok</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
     </message>
 </context>
 </TS>

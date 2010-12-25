@@ -47,20 +47,18 @@ public:
     void requestFilter() { slotFilter(); }
     ArenaWidget::Role role() const { return ArenaWidget::PublicHubs; }
 
-    bool isFindFrameActivated();
-
-public Q_SLOTS:
-    void slotFilter();
-
 protected:
     virtual void closeEvent(QCloseEvent *);
+    virtual bool eventFilter(QObject *, QEvent *);
 
     virtual void on(DownloadStarting, const std::string& l) throw();
     virtual void on(DownloadFailed, const std::string& l) throw();
-    virtual void on(DownloadFinished, const std::string& l) throw();
+    virtual void on(DownloadFinished, const std::string& l, bool fromCoral) throw();
     virtual void on(LoadedFromCache, const std::string& l) throw();
+    virtual void on(Corrupted, const std::string& l) throw();
 
 private Q_SLOTS:
+    void slotFilter();
     void slotContextMenu();
     void slotHeaderMenu();
     void slotHubChanged(int);

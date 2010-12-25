@@ -21,11 +21,7 @@
 
 #include "version.h"
 
-//#define xstrver(s) strver(s)
-//#define strver(s) #s
-
 namespace dcpp {
 const char * const  fullVersionString = APPNAME " V:" VERSIONSTRING;
 const char * const  fullADCVersionString = APPNAME " " VERSIONSTRING;
 }
-

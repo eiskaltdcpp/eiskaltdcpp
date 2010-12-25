@@ -300,8 +300,8 @@ private:
     virtual int run();
 
     // QueueManagerListener
-    virtual void on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) throw();
-
+    //virtual void on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) throw();
+    virtual void on(QueueManagerListener::FileMoved, const string& n) throw();
     // HashManagerListener
     virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) throw();
 

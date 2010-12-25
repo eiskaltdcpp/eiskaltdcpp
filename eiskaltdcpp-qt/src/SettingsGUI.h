@@ -46,8 +46,10 @@ public slots:
 private:
     bool custom_style;
 
-    QColor h_color; // clean color (without transparency)
+    // clean colors (without transparency)
+    QColor h_color;
     QColor shared_files_color;
+    QColor chat_background_color;
 };
 
 #endif // SETTINGSGUI_H

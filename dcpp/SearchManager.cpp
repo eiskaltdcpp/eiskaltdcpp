@@ -29,6 +29,7 @@
 #include "QueueManager.h"
 #include "QueueItem.h"
 #include "StringTokenizer.h"
+#include "FinishedManager.h"
 
 namespace dcpp {
 
@@ -42,7 +43,72 @@ const char* SearchManager::types[TYPE_LAST] = {
         N_("Video"),
         N_("Directory"),
         N_("TTH"),
-        N_("CD Image")
+        N_("CD Image")//,
+        //N_("Video/foreign_films"),
+        //N_("Video/foreign_serials"),
+        //N_("Video/foreign_cartoons"),
+        //N_("Video/our_films"),
+        //N_("Video/our_serials"),
+        //N_("Video/our_cartoons"),
+        //N_("Video/tutorial"),
+        //N_("Video/clips"),
+        //N_("Video/concerts"),
+        //N_("Video/karaoke"),
+        //N_("Video/humor"),
+        //N_("Video/anime"),
+        //N_("Video/18"),
+        //N_("Video/other"),
+        //N_("Audio/rock"),
+        //N_("Audio/pop"),
+        //N_("Audio/jazz"),
+        //N_("Audio/blues"),
+        //N_("Audio/electronic"),
+        //N_("Audio/soundtracks"),
+        //N_("Audio/notes"),
+        //N_("Audio/audiobooks"),
+        //N_("Audio/other"),
+        //N_("Image/avatars"),
+        //N_("Image/wallpapers"),
+        //N_("Image/anime"),
+        //N_("Image/nature"),
+        //N_("Image/animals"),
+        //N_("Image/cars"),
+        //N_("Image/humor"),
+        //N_("Image/sport"),
+        //N_("Image/screenshots"),
+        //N_("Image/artistic"),
+        //N_("Image/abstract"),
+        //N_("Image/18"),
+        //N_("Image/other"),
+        //N_("Games/action"),
+        //N_("Games/rpg"),
+        //N_("Games/strategy"),
+        //N_("Games/sim"),
+        //N_("Games/quests"),
+        //N_("Games/arcade"),
+        //N_("Games/mini"),
+        //N_("Games/consoles"),
+        //N_("Games/linux"),
+        //N_("Games/mac"),
+        //N_("Games/add_on"),
+        //N_("Games/other"),
+        //N_("Soft/system"),
+        //N_("Soft/anti_vir"),
+        //N_("Soft/audio"),
+        //N_("Soft/video"),
+        //N_("Soft/graphic"),
+        //N_("Soft/office"),
+        //N_("Soft/drivers"),
+        //N_("Soft/develop"),
+        //N_("Soft/directories"),
+        //N_("Soft/other"),
+        //N_("Book/humor"),
+        //N_("Book/manga"),
+        //N_("Book/tutorial"),
+        //N_("Book/feature"),
+        //N_("Book/technikal"),
+        //N_("Book/other"),
+        //N_("Up/other")
 };
 const char* SearchManager::getTypeStr(int type) {
         return _(types[type]);
@@ -151,6 +217,7 @@ int SearchManager::run() {
                     LogManager::getInstance()->message(_("Search enabled again"));
                     failed = false;
                 }
+                break;
             } catch(const SocketException& e) {
                 dcdebug("SearchManager::run Stopped listening: %s\n", e.getError().c_str());
 
@@ -287,26 +354,25 @@ void SearchManager::onData(const uint8_t* buf, size_t aLen, const string& remote
         onRES(c, user, remoteIp);
 
     } if(x.compare(1, 4, "PSR ") == 0 && x[x.length() - 1] == 0x0a) {
-                        AdcCommand c(x.substr(0, x.length()-1));
-                        if(c.getParameters().empty())
-                                return;//continue;
-                        string cid = c.getParam(0);
-                        if(cid.size() != 39)
-                                return;//continue;//
+            AdcCommand c(x.substr(0, x.length()-1));
+            if(c.getParameters().empty())
+                    return;//continue;
+            string cid = c.getParam(0);
+            if(cid.size() != 39)
+                    return;//continue;//
 
-                        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
-                        // when user == NULL then it is probably NMDC user, check it later
+            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            // when user == NULL then it is probably NMDC user, check it later
 
-                        c.getParameters().erase(c.getParameters().begin());
+            c.getParameters().erase(c.getParameters().begin());
 
-                        SearchManager::getInstance()->onPSR(c, user, remoteIp);
+            SearchManager::getInstance()->onPSR(c, user, remoteIp);
 
-                        SearchResultPtr sr(new SearchResult(user, SearchResult::TYPE_FILE, 0, 0, -1,
-                        "", "", "", remoteIp, TTHValue(), Util::emptyString));
-                fire(SearchManagerListener::SR(), sr);
+            SearchResultPtr sr(new SearchResult(user, SearchResult::TYPE_FILE, 0, 0, -1,
+            "", "", "", remoteIp, TTHValue(), Util::emptyString));
+            fire(SearchManagerListener::SR(), sr);
 
-
-        } /*else if(x.compare(1, 4, "SCH ") == 0 && x[x.length() - 1] == 0x0a) {
+    } /*else if(x.compare(1, 4, "SCH ") == 0 && x[x.length() - 1] == 0x0a) {
         try {
             respond(AdcCommand(x.substr(0, x.length()-1)));
         } catch(ParseException& ) {
@@ -314,7 +380,6 @@ void SearchManager::onData(const uint8_t* buf, size_t aLen, const string& remote
     }*/ // Needs further DoS investigation
 }
 
-//add
 void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& remoteIp) {
 
         uint16_t udpPort = 0;
@@ -385,7 +450,7 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
                 }
         }
 
-}//end
+}
 
 void SearchManager::onRES(const AdcCommand& cmd, const UserPtr& from, const string& remoteIp) {
     int freeSlots = -1;
@@ -411,10 +476,10 @@ void SearchManager::onRES(const AdcCommand& cmd, const UserPtr& from, const stri
 
     if(!file.empty() && freeSlots != -1 && size != -1) {
 
-                /// @todo get the hub this was sent from, to be passed as a hint? (eg by using the token?)
-                StringList names = ClientManager::getInstance()->getHubNames(from->getCID(), Util::emptyString);
+        /// @todo get the hub this was sent from, to be passed as a hint? (eg by using the token?)
+        StringList names = ClientManager::getInstance()->getHubNames(from->getCID(), Util::emptyString);
         string hubName = names.empty() ? _("Offline") : Util::toString(names);
-                StringList hubs = ClientManager::getInstance()->getHubs(from->getCID(), Util::emptyString);
+        StringList hubs = ClientManager::getInstance()->getHubs(from->getCID(), Util::emptyString);
         string hub = hubs.empty() ? _("Offline") : Util::toString(hubs);
 
         SearchResult::Types type = (file[file.length() - 1] == '\\' ? SearchResult::TYPE_DIRECTORY : SearchResult::TYPE_FILE);
@@ -427,7 +492,7 @@ void SearchManager::onRES(const AdcCommand& cmd, const UserPtr& from, const stri
     }
 }
 
-void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpActive) {
+void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpActive, const string& hubIpPort) {
     // Filter own searches
     if(from == ClientManager::getInstance()->getMe()->getCID())
         return;
@@ -443,8 +508,24 @@ void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpA
 
     adc.getParam("TO", 0, token);
 
-    if(results.empty())
+    // TODO: don't send replies to passive users
+    if(results.empty()) {
+        string tth;
+        if(!adc.getParam("TR", 0, tth))
+                return;
+
+        PartsInfo partialInfo;
+        if(!QueueManager::getInstance()->handlePartialSearch(TTHValue(tth), partialInfo)) {
+                // if not found, try to find in finished list
+                if(!FinishedManager::getInstance()->handlePartialRequest(TTHValue(tth), partialInfo)) {
+                        return;
+                }
+        }
+
+        AdcCommand cmd = toPSR(true, Util::emptyString, hubIpPort, tth, partialInfo);
+        ClientManager::getInstance()->send(cmd, from);
         return;
+    }
 
     for(SearchResultList::const_iterator i = results.begin(); i != results.end(); ++i) {
         AdcCommand cmd = (*i)->toRES(AdcCommand::TYPE_UDP);
@@ -454,7 +535,6 @@ void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpA
     }
 }
 
-//add
 string SearchManager::getPartsString(const PartsInfo& partsInfo) const {
         string ret;
 

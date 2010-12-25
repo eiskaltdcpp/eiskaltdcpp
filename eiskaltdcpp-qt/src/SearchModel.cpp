@@ -375,14 +375,12 @@ bool SearchModel::addResult
     if (parent == rootItem && !isDir)
         tths.insert(tth, item);
     else {
-        beginInsertRows(createIndexForItem(parent), parent->childCount(), parent->childCount());
-        {
-            parent->appendChild(item);
-        }
-        endInsertRows();
+        parent->appendChild(item);
 
         if (sortColumn == COLUMN_SF_COUNT)
             sort(sortColumn, sortOrder);
+
+        emit layoutChanged();
 
         return true;
     }

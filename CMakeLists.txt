@@ -7,7 +7,11 @@ else (UNIX AND NOT APPLE)
   set (PROJECT_NAME_GLOBAL EiskaltDC++)
 endif (UNIX AND NOT APPLE)
 
-set (VERSION "2.1.x")
+set (PROJECT_NAME "EiskaltDC++")
+set (VERSION "2.2.0")
+set (SOVERSION "2.2")
+set (VERSION_SUFFIX "GIT")
+
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
 include (CheckFunctionExists)
@@ -89,9 +93,8 @@ option (WITH_LUASCRIPTS "Install examples of lua scripts" OFF)
 option (WITH_SOUNDS "Install sound files" OFF)
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
-option (NATT "Use natt extension" ON)
-option (NO_UI_DAEMON "Daemon without anyone ui" OFF)
-option (XMLRPC_DAEMON "Mаке no ui daemon as xmlrpc server" OFF)
+option (NO_UI_DAEMON "Daemon without any UI" OFF)
+option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 
 if (PERL_REGEX)
@@ -99,10 +102,11 @@ find_package(Pcre REQUIRED)
 endif (PERL_REGEX)
 
 if (LUA_SCRIPT)
-    find_package (Lua51 REQUIRED)
-    #add_definitions ( -DLUA_SCRIPT )
-    message (STATUS "Building with Lua scripts support")
-else (LUA_SCRIPT)
+    #find_package (Lua51 REQUIRED)
+    ##add_definitions ( -DLUA_SCRIPT )
+    #message (STATUS "Building with Lua scripts support")
+#else (LUA_SCRIPT)
+    set (LUA_SCRIPT OFF)
     message (STATUS "Building without Lua scripts support")
 endif(LUA_SCRIPT)
 
@@ -279,7 +283,11 @@ elseif (Subversion_FOUND)
         #add_definitions (-DDCPP_REVISION="r${eiskaltdcpp_WC_REVISION}")
         set (eiskaltdcpp_WC_REVISION "r${eiskaltdcpp_WC_REVISION}")
     endif ()
+else()
+    set (eiskaltdcpp_WC_REVISION "${VERSION_SUFFIX}")
 endif ()
+
+configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
 
 if (UNIX)
 add_definitions (-D_GNU_SOURCE)
@@ -293,9 +301,9 @@ set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${_DATADIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
 
-#if (HAVE_IFADDRS_H)
-  #add_definitions (-DHAVE_IFADDRS_H )
-#endif (HAVE_IFADDRS_H)
+if (HAVE_IFADDRS_H)
+  add_definitions (-DHAVE_IFADDRS_H )
+endif (HAVE_IFADDRS_H)
 
 #if (ICONV_SECOND_ARGUMENT_IS_CONST)
   #add_definitions (-DICONV_CONST=const)
@@ -304,10 +312,9 @@ add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
 #if (FORCE_XDG)
   #add_definitions (-DFORCE_XDG)
 #endif (FORCE_XDG)
-
-if (CMAKE_COMPILER_IS_GNUСXX)
+if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
     if (CMAKE_CROSSCOMPILING)
-        set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -enable-auto-import")
+        set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")
     endif (CMAKE_CROSSCOMPILING)
     if (NOT APPLE)
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
@@ -316,7 +323,7 @@ if (CMAKE_COMPILER_IS_GNUСXX)
     set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -pipe -DNDEBUG")
     set (CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -DQT_NO_DEBUG -pipe")
     set (CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG} -UNDEBUG -g3 -pipe")
-endif (CMAKE_COMPILER_IS_GNUСXX)
+endif ()
 
 include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
@@ -327,7 +334,6 @@ message(STATUS "CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
 message(STATUS "CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS "CMAKE_SYSTEM_VERSION: ${CMAKE_SYSTEM_VERSION}")
-message(STATUS "CMAKE_COMPILER_IS_GNUСXX: ${CMAKE_COMPILER_IS_GNUCXX}")
 message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
 message(STATUS "CMAKE will use this libs (and headers) during build:
@@ -357,6 +363,7 @@ option (LANGUAGES "Using translations")
 list (APPEND AllLanguages
             be
             bg
+            cs
             en
             es
             fr

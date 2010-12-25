@@ -54,7 +54,7 @@ NmdcHub::~NmdcHub() throw() {
 void NmdcHub::connect(const OnlineUser& aUser, const string&) {
     checkstate();
     dcdebug("NmdcHub::connect %s\n", aUser.getIdentity().getNick().c_str());
-    if(ClientManager::getInstance()->isActive()) {
+    if(isActive()) {
         connectToMe(aUser);
     } else {
         revConnectToMe(aUser);
@@ -251,7 +251,7 @@ void NmdcHub::onLine(const string& aLine) throw() {
         string seeker = param.substr(i, j-i);
 
         // Filter own searches
-        if(ClientManager::getInstance()->isActive()) {
+        if(isActive()) {
             if(seeker == (getLocalIp() + ":" + Util::toString(SearchManager::getInstance()->getPort()))) {
                 return;
             }
@@ -451,7 +451,7 @@ void NmdcHub::onLine(const string& aLine) throw() {
         if(u == NULL)
             return;
 
-        if(ClientManager::getInstance()->isActive()) {
+        if(isActive()) {
             connectToMe(*u);
         } else {
             if(!u->getUser()->isSet(User::PASSIVE)) {
@@ -569,8 +569,7 @@ void NmdcHub::onLine(const string& aLine) throw() {
             OnlineUser& u = getUser(param);
 
             if(u.getUser() == getMyIdentity().getUser()) {
-                u.getUser()->setFlag(User::DCPLUSPLUS);
-                if(ClientManager::getInstance()->isActive())
+                if(isActive())
                     u.getUser()->unsetFlag(User::PASSIVE);
                 else
                     u.getUser()->setFlag(User::PASSIVE);
@@ -595,8 +594,8 @@ void NmdcHub::onLine(const string& aLine) throw() {
     }else if(cmd == "$HubTopic") {
         //dcdebug("Nmdc topic:%s",aLine.c_str());
         string line;
-        string str2="Tema hubu:";
-        line=aLine;
+        string str2= _("Hub topic:");
+        line=toUtf8(aLine);
         line.replace(0,9,str2);
         fire(ClientListener::StatusMessage(), this, unescape(line), ClientListener::FLAG_NORMAL);
     } else if(cmd == "$ValidateDenide") {       // Mind the spelling...
@@ -794,13 +793,13 @@ void NmdcHub::myInfo(bool alwaysSend) {
     char modeChar = '?';
     if(SETTING(OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5)
         modeChar = '5';
-    else if(ClientManager::getInstance()->isActive())
+    else if(isActive())
         modeChar = 'A';
     else
         modeChar = 'P';
 string uploadSpeed;
     int upLimit = ThrottleManager::getInstance()->getUpLimit();
-    if (upLimit > 0) {
+    if (upLimit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
         uploadSpeed = Util::toString(upLimit) + " KiB/s";
     } else {
         uploadSpeed = SETTING(UPLOAD_SPEED);

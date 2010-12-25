@@ -53,6 +53,7 @@ public:
     enum Action{
         Alternates=0,
         Magnet,
+        MagnetWeb,
         RenameMove,
         SetPriority,
         Browse,
@@ -116,6 +117,8 @@ private Q_SLOTS:
     void slotCollapseRow(const QModelIndex &);
     void slotHeaderMenu(const QPoint&);
     void slotUpdateStats(quint64 files, quint64 size);
+
+    void slotSettingsChanged(const QString &key, const QString &value);
 
     void addFile(const VarMap&);
     void remFile(const VarMap&);

@@ -24,7 +24,6 @@
 #include "QueueManager.h"
 #include "Download.h"
 #include "LogManager.h"
-#include "SFVReader.h"
 #include "User.h"
 #include "File.h"
 #include "FilteredFile.h"
@@ -131,7 +130,7 @@ void DownloadManager::addConnection(UserConnectionPtr conn) {
         conn->disconnect();
         return;
     }
-    if (BOOLSETTING(IPFILTER) && !IPFilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_IN)) {
+    if (BOOLSETTING(IPFILTER) && !ipfilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_IN)) {
         conn->error("Your IP is Blocked!");
         LogManager::getInstance()->message(_("IPFilter: Blocked outgoing connection to ") + conn->getRemoteIp());
         QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);
@@ -342,13 +341,6 @@ void DownloadManager::endData(UserConnection* aSource) {
 
         dcdebug("Download finished: %s, size " I64_FMT ", downloaded " I64_FMT "\n", d->getPath().c_str(), d->getSize(), d->getPos());
 
-#if PORT_ME
-        // This should be done when the file is done, not the chunk...
-        if(BOOLSETTING(SFV_CHECK) && d->getType() == Transfer::TYPE_FILE) {
-            if(!checkSfv(aSource, d))
-                return;
-        }
-#endif
         if(BOOLSETTING(LOG_DOWNLOADS) && (BOOLSETTING(LOG_FILELIST_TRANSFERS) || d->getType() == Transfer::TYPE_FILE)) {
             logDownload(aSource, d);
         }
@@ -359,50 +351,6 @@ void DownloadManager::endData(UserConnection* aSource) {
 
     QueueManager::getInstance()->putDownload(d, true);
     checkDownloads(aSource);
-}
-
-uint32_t DownloadManager::calcCrc32(const string& file) throw(FileException) {
-    File ff(file, File::READ, File::OPEN);
-    CalcInputStream<CRC32Filter, false> f(&ff);
-
-    const size_t BUF_SIZE = 1024*1024;
-    boost::scoped_array<uint8_t> b(new uint8_t[BUF_SIZE]);
-    size_t n = BUF_SIZE;
-    while(f.read(&b[0], n) > 0)
-        ;       // Keep on looping...
-
-    return f.getFilter().getValue();
-}
-
-bool DownloadManager::checkSfv(UserConnection* aSource, Download* d) {
-    SFVReader sfv(d->getPath());
-    if(sfv.hasCRC()) {
-        bool crcMatch = false;
-        try {
-            crcMatch = (calcCrc32(d->getDownloadTarget()) == sfv.getCRC());
-        } catch(const FileException& ) {
-            // Couldn't read the file to get the CRC(!!!)
-        }
-
-        if(!crcMatch) {
-            File::deleteFile(d->getDownloadTarget());
-            dcdebug("DownloadManager: CRC32 mismatch for %s\n", d->getPath().c_str());
-            LogManager::getInstance()->message(_("CRC32 inconsistency (SFV-Check)") + ' ' + Util::addBrackets(d->getPath()));
-            removeDownload(d);
-            fire(DownloadManagerListener::Failed(), d, _("CRC32 inconsistency (SFV-Check)"));
-
-            QueueManager::getInstance()->removeSource(d->getPath(), aSource->getUser(), QueueItem::Source::FLAG_CRC_WARN, false);
-            QueueManager::getInstance()->putDownload(d, false);
-
-            checkDownloads(aSource);
-            return false;
-        }
-
-        d->setFlag(Download::FLAG_CRC32_OK);
-
-        dcdebug("DownloadManager: CRC32 match for %s\n", d->getPath().c_str());
-    }
-    return true;
 }
 
 int64_t DownloadManager::getRunningAverage() {

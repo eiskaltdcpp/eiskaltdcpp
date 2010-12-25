@@ -1,7 +1,34 @@
---- 2.1.2 2010-12-19 ---
+--- 2.2.0 2011-01-15 ---
 *** common changes ***
+* Completed the transition to the 0.770 kernel.
+* Broken support for Lua-scripts. Build the program with -DLUA_SCRIPT=OFF.
+* Thanks to Uhlik the Czech translation is now available.
+* Now limit on share size doesn't apply to favorite users and users with granted slots.
 *** eiskaltdcpp-qt ***
+* Fixed parsing of emoticons in new messages. Now more fast and correct.
+* Improvements in the search widget.
+* Highlight duplicates in share.
+* Implemented blacklist for search results.
+* Added separator (horizontal line) for unread messages in the chat. (Default is switched off)
+* Added an option of the connection type in the favorite hubs settings.
+* Added a speed limit button to the tools panel.
+* Added ability of redirecting new personal messages to the main chat.
+* Now you can set share restrictions in the share browser widget. Just open own file list and use the menu.
+* Disabled colorize of progress-bar in transfers widget.
+* Added open directory item to the context menu for own file list.
+* Added item to copy web-magnets in all related menu.
+* Added search frame for a personal chat.
+* Fixed possible deadlock when connecting to DynDNS.
+* Print backtrace in console when receiving the signal SIGSEGV (segmentation fault).
+* Fixed mistake of selecting another user in context menu of the chat. (Bug was added in version 2.1.0)
+* Fixed bug of displaying search results when searching directories. It was shown only one result before applying sorting.
+* Fixed bug of displaying file names in UTF-8 in the file list widget under MS Windows.
+* Reworked dialog of sending hub commands.
+* Fixed bug with sending away messages to the bots on NMDC hubs.
 *** eiskaltdcpp-gtk ***
+* Improvements in the search widget.
+* Fixed path to lock file of launched program (it was ~/.dc++/). Now it launches only one instance of the DC-client and magnet-links are correctly intercepted by it.
+* Added hot keys Left/Right to expand the directory tree in the widget view a list of files.
 
 --- 2.1.1 2010-11-21 ---
 *** common changes ***

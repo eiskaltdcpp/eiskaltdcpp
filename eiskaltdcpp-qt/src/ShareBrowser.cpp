@@ -15,6 +15,7 @@
 
 #include "dcpp/SettingsManager.h"
 #include "dcpp/FavoriteManager.h"
+#include "dcpp/ClientManager.h"
 #include <dcpp/ADLSearch.h>
 
 #if (HAVE_MALLOC_TRIM)
@@ -34,6 +35,8 @@
 #include <QKeyEvent>
 #include <QtConcurrentFilter>
 #include <QtConcurrentRun>
+#include <QInputDialog>
+#include <QDesktopServices>
 
 #include <boost/bind.hpp>
 
@@ -60,6 +63,9 @@ ShareBrowser::Menu::Menu(){
 
     WulforUtil *WU = WulforUtil::getInstance();
 
+    rest_menu = new QMenu(tr("Restrictions"));
+    QMenu *magnet_menu = new QMenu(tr("Magnet"), MainWindow::getInstance());
+
     QAction *down    = new QAction(tr("Download"), menu);
     down->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
     down_to = new QMenu(tr("Download to..."));
@@ -69,28 +75,47 @@ ShareBrowser::Menu::Menu(){
     alter->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
     QAction *magnet  = new QAction(tr("Copy magnet"), menu);
     magnet->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
+    QAction *magnet_web  = new QAction(tr("Copy web-magnet"), menu);
+    magnet_web->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
     QAction *sep1    = new QAction(menu);
     QAction *add_to_fav = new QAction(tr("Add to favorites"), menu);
     add_to_fav->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
+    QAction *set_rest = new QAction(tr("Add restriction"), rest_menu);
+    QAction *rem_rest = new QAction(tr("Remove restriction"), rest_menu);
+    open_url = new QAction(tr("Open directory"), menu);
+    QAction *sep2    = new QAction(menu);
 
     actions.insert(down, Download);
     actions.insert(alter, Alternates);
     actions.insert(magnet, Magnet);
+    actions.insert(magnet_web, MagnetWeb);
     actions.insert(add_to_fav, AddToFav);
+    actions.insert(set_rest, AddRestrinction);
+    actions.insert(rem_rest, RemoveRestriction);
+    actions.insert(open_url, OpenUrl);
+
+    magnet_menu->addActions(QList<QAction*>() << magnet << magnet_web);
 
     sep->setSeparator(true);
     sep1->setSeparator(true);
+    sep2->setSeparator(true);
 
-    menu->addActions(QList<QAction*>() << down << sep << alter << magnet << sep1 << add_to_fav);
+    menu->addActions(QList<QAction*>() << down << sep << alter);
+    menu->addMenu(magnet_menu);
+    menu->addActions(QList<QAction*>() << sep1 << add_to_fav << sep2);
+    rest_menu->addActions(QList<QAction*>() << set_rest << rem_rest);
     menu->insertMenu(sep, down_to);
+    menu->addMenu(rest_menu);
+    menu->addAction(open_url);
 }
 
 ShareBrowser::Menu::~Menu(){
     delete menu;
+    delete rest_menu;
     delete down_to;
 }
 
-ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
+ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     qDeleteAll(down_to->actions());
     down_to->clear();
 
@@ -135,6 +160,9 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(){
     browse->setData("");
 
     down_to->addAction(browse);
+
+    rest_menu->setEnabled(user == ClientManager::getInstance()->getMe());
+    open_url->setEnabled(user == ClientManager::getInstance()->getMe());
 
     QAction *ret = menu->exec(QCursor::pos());
 
@@ -221,6 +249,17 @@ bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
         else if (k_e->key() == Qt::Key_Backspace)
             goUp(tree_view);
     }
+    else if (static_cast<LineEdit*>(obj) == lineEdit_FILTER && (e->type() == QEvent::KeyRelease)){
+        QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
+
+        if (k_e->key() == Qt::Key_Escape){
+            lineEdit_FILTER->clear();
+
+            requestFilter();
+
+            return true;
+        }
+    }
 
     return QWidget::eventFilter(obj, e);
 }
@@ -231,6 +270,8 @@ void ShareBrowser::init(){
     initModels();
 
     buildList();
+
+    lineEdit_FILTER->installEventFilter(this);
 
     treeView_LPANE->setModel(tree_model);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
@@ -351,7 +392,7 @@ void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem 
 
     size = dir->getTotalSize(true);
 
-    data << QString::fromUtf8(dir->getName().c_str())
+    data << _q(dir->getName())
          << WulforUtil::formatBytes(size)
          << size
          << "";
@@ -505,7 +546,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         size = (*it)->getTotalSize(true);
         current_size += size;
 
-        data << QString::fromUtf8((*it)->getName().c_str())
+        data << _q((*it)->getName())
              << WulforUtil::formatBytes(size)
              << size
              << "";
@@ -527,10 +568,10 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         size = (*it_file)->getSize();
         current_size += size;
 
-        data << QString::fromUtf8((*it_file)->getName().c_str())
+        data << _q((*it_file)->getName())
              << WulforUtil::formatBytes(size)
              << size
-             << QString::fromUtf8((*it_file)->getTTH().toBase32().c_str());
+             << _q((*it_file)->getTTH().toBase32());
 
         child = new FileBrowserItem(data, list_root);
         child->file = (*it_file);
@@ -639,7 +680,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
     if (!Menu::getInstance())
         Menu::newInstance();
 
-    Menu::Action act = Menu::getInstance()->exec();
+    Menu::Action act = Menu::getInstance()->exec(view == treeView_LPANE? user : dcpp::UserPtr(NULL));
     QString target = _q(SETTING(DOWNLOAD_DIRECTORY));
 
     switch (act){
@@ -746,6 +787,31 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 
             break;
         }
+        case Menu::MagnetWeb:
+        {
+            QString magnets = "";
+            QString path, tth, magnet;
+            qlonglong size;
+
+            foreach (QModelIndex index, list){
+                FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
+
+                path = item->data(COLUMN_FILEBROWSER_NAME).toString();
+                tth  = item->data(COLUMN_FILEBROWSER_TTH).toString();
+                size = item->data(COLUMN_FILEBROWSER_ESIZE).toLongLong();
+
+                magnet = "[magnet=\"" + WulforUtil::getInstance()->makeMagnet(path, size, tth) + "\"]"+path+"[/magnet]";
+
+                if (!magnet.isEmpty())
+                    magnets += (magnet + "\n");
+            }
+
+            magnets = magnets.trimmed();
+
+            qApp->clipboard()->setText(magnets, QClipboard::Clipboard);
+
+            break;
+        }
         case Menu::AddToFav:
         {
             if (user && user != ClientManager::getInstance()->getMe())
@@ -753,6 +819,67 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 
             break;
         }
+        case Menu::AddRestrinction:
+        {
+            bool ok = false;
+            unsigned share_sz = QInputDialog::getInt(this, tr("Enter restriction size (in GB)"), "Size", 0, 0, 1024, 1, &ok);
+
+            if (!ok)
+                break;
+
+            foreach (QModelIndex index, list)
+                tree_model->updateRestriction(index, share_sz);
+
+            break;
+        }
+        case Menu::RemoveRestriction:
+        {
+            foreach (QModelIndex index, list)
+                tree_model->updateRestriction(index, 0);
+
+            break;
+        }
+        case Menu::OpenUrl:
+        {
+            ShareManager *SM = ShareManager::getInstance();
+
+            foreach (QModelIndex index, list){
+                FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
+
+                if (!item)
+                    continue;
+
+                DirectoryListing::AdlDirectory *adl_dir = dynamic_cast<DirectoryListing::AdlDirectory*>(item->dir);
+                dcpp::StringList lst;
+
+                try {
+                    if (!adl_dir)
+                        lst  = listing.getLocalPaths(item->dir);
+                    else{
+                        QStringList path_lst = _q(adl_dir->getFullPath()).split('\\');
+
+                        if (path_lst.size() < 1)
+                            break;
+
+                        path_lst.removeFirst();//remove root element
+
+                        QString path = path_lst.join("\\")+'\\';
+
+                        lst = SM->getRealPaths(Util::toAdcFile(_tq(path)));
+                    }
+                }
+                catch ( ... ){ }
+
+                dcpp::StringIter it = lst.begin();
+                for (; it != lst.end(); ++it){
+                    if (QDir(_q(*it)).exists())
+                        QDesktopServices::openUrl(QUrl("file://"+_q(*it)));
+                }
+            }
+
+            break;
+        }
+        default: break;
     }
 }
 
@@ -764,6 +891,9 @@ void ShareBrowser::slotLoaderFinish(){
     list_model->repaint();
 
     load();
+
+    if (user == ClientManager::getInstance()->getMe())
+        tree_model->loadRestrictions();
 
     if (!jump_to.isEmpty()){
         FileBrowserItem *root = tree_model->getRootElem();
@@ -810,10 +940,6 @@ void ShareBrowser::slotLayoutUpdated(){
 
 void ShareBrowser::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView_RPANE);
-}
-
-bool ShareBrowser::isFindFrameActivated(){
-    return (frame_FILTER->isVisible() && lineEdit_FILTER->hasFocus());
 }
 
 void ShareBrowser::slotFilter(){

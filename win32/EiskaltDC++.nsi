@@ -1,6 +1,6 @@
 !include MUI2.nsh
 
-!define PRODUCT_DISPLAY_VERSION      "2.1.0_testing"
+!define PRODUCT_DISPLAY_VERSION      "2.2.x_testing"
 !define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
@@ -21,6 +21,7 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_PAGE_LICENSE "installer\LICENSE"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
+!define MUI_FINISHPAGE_RUN "$INSTDIR\EiskaltDC++ Qt.exe"
 !insertmacro MUI_PAGE_FINISH
 
 !insertmacro MUI_UNPAGE_CONFIRM
@@ -38,13 +39,15 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_LANGUAGE "SerbianLatin"
 !insertmacro MUI_LANGUAGE "Belarusian"
 !insertmacro MUI_LANGUAGE "Bulgarian"
+!insertmacro MUI_LANGUAGE "Slovak"
+!insertmacro MUI_LANGUAGE "Czech"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY
 FunctionEnd
 
 Name "${PRODUCT_NAME}"
-OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}_x86.exe"
+OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86.exe"
 InstallDir "${PRODUCT_INSTALL_DIR}"
 ShowInstDetails show
 ShowUnInstDetails show
@@ -54,21 +57,38 @@ Section "EiskaltDC++"
   SetOutPath $INSTDIR
   File "installer\EiskaltDC++ Qt.exe"
   File "installer\dcppboot.xml"
-  File "installer\iconv.dll"
-  File "installer\intl.dll"
-  File "installer\libeay32.dll"
-  File "installer\ssleay32.dll"
-  File "installer\libgcc_s_dw2-1.dll"
-  File "installer\mgwbz2-1.dll"
-  File "installer\mgwz.dll"
-  File "installer\mingwm10.dll"
   File "installer\QtCore4.dll"
   File "installer\QtGui4.dll"
   File "installer\QtNetwork4.dll"
   File "installer\QtXml4.dll"
   File "installer\QtScript4.dll"
+  File "installer\QtDeclarative4.dll"
+  File "installer\QtSql4.dll"
+  File "installer\QtXmlPatterns4.dll"
+  File "installer\libgcc_s_dw2-1.dll"
+  File "installer\libeay32.dll"
+  File "installer\ssleay32.dll"
+  File "installer\mingwm10.dll"
   ;File "installer\aspell-15.dll"
-  File "installer\lua51.dll"
+  ;File "installer\lua51.dll"
+
+  File "installer\iconv.dll"
+  ;File "installer\libiconv-2.dll"
+
+  File "installer\intl.dll"
+  ;File "installer\libintl-8.dll"
+
+  File "installer\mgwz.dll"
+  ;File "installer\zlib1.dll"
+
+  File "installer\mgwbz2-1.dll"
+
+  ;File "installer\libgcc_s_sjlj-1.dll"
+  ;File "installer\libstdc++-6.dll"
+
+  ;File "installer\libpcrecpp-0.dll"
+  ;File "installer\libpcre-0.dll"
+
   File /r "installer\resources"
 
   WriteUninstaller "$INSTDIR\Uninstall.exe"

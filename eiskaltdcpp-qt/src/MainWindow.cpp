@@ -28,6 +28,8 @@
 #include <QFileDialog>
 #include <QRegExp>
 #include <QDir>
+#include <QInputDialog>
+
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "HashProgress.h"
@@ -53,6 +55,7 @@
 #include "ActionCustomizer.h"
 #include "MultiLineToolBar.h"
 #include "IPFilter.h"
+#include "SearchBlacklist.h"
 #ifdef FREE_SPACE_BAR_C
 #include "extra/freespace.h"
 #endif
@@ -192,6 +195,7 @@ MainWindow::~MainWindow(){
     delete sBar;
 
     ShortcutManager::deleteInstance();
+    SearchBlacklist::deleteInstance();
 }
 
 void MainWindow::closeEvent(QCloseEvent *c_e){
@@ -278,15 +282,19 @@ void MainWindow::beginExit(){
     setUnload(true);
 }
 
+void MainWindow::show(){
+    if (showMax)
+        showMaximized();
+    else
+        showNormal();
+}
+
 void MainWindow::showEvent(QShowEvent *e){
     if (e->spontaneous())
         redrawToolPanel();
 
     if (!showMax && w > 0 && h > 0 && w != width() && h != height())
         this->resize(QSize(w, h));
-
-    if (showMax)
-        showMaximized();
 
     if (WBGET(WB_APP_AUTO_AWAY) && !Util::getManualAway()){
         Util::setAway(false);
@@ -307,14 +315,23 @@ void MainWindow::showEvent(QShowEvent *e){
 
     ArenaWidget::Role role = awgt->role();
 
-    bool widgetWithFilter = role == ArenaWidget::Hub || role == ArenaWidget::ShareBrowser || role == ArenaWidget::PublicHubs || role == ArenaWidget::Search || role == ArenaWidget::UploadView;
+    bool widgetWithFilter = role == ArenaWidget::Hub ||
+                            role == ArenaWidget::PrivateMessage ||
+                            role == ArenaWidget::ShareBrowser ||
+                            role == ArenaWidget::PublicHubs ||
+                            role == ArenaWidget::Search||
+                            role == ArenaWidget::UploadView;
 
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
-    if (_q(SETTING(NICK)).isEmpty())
+    if (_q(SETTING(NICK)).isEmpty()){
+        activateWindow();
+        raise();
+
         slotToolsSettings();
+    }
 
     e->accept();
 }
@@ -416,11 +433,14 @@ void MainWindow::init(){
     loadSettings();
 
     connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotExit()));
+
 #ifdef LUA_SCRIPT
-    ScriptManager::getInstance()->load();//aded
-    // Start as late as possible, as we might (formatting.lua) need to examine settings
-    string defaultluascript="startup.lua";
-    ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    ScriptManager::getInstance()->load();
+    if (BOOLSETTING(USE_LUA)){
+        // Start as late as possible, as we might (formatting.lua) need to examine settings
+        string defaultluascript="startup.lua";
+        ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    }
 #endif
 
     totalDown = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
@@ -518,9 +538,15 @@ void MainWindow::initActions(){
     ShortcutManager *SM = ShortcutManager::getInstance();
 
     {
+        fileOpenMagnet = new QAction("", this);
+        fileOpenMagnet->setObjectName("fileOpenMagnet");
+        SM->registerShortcut(fileOpenMagnet, tr("Ctrl+I"));
+        fileOpenMagnet->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
+        connect(fileOpenMagnet, SIGNAL(triggered()), this, SLOT(slotOpenMagnet()));
+
         fileFileListBrowserLocal = new QAction("", this);
-        SM->registerShortcut(fileFileListBrowserLocal, tr("Ctrl+L"));
         fileFileListBrowserLocal->setObjectName("fileFileListBrowserLocal");
+        SM->registerShortcut(fileFileListBrowserLocal, tr("Ctrl+L"));
         fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
         connect(fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
 
@@ -550,14 +576,11 @@ void MainWindow::initActions(){
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         connect(fileRefreshShareHashProgress, SIGNAL(triggered()), this, SLOT(slotFileRefreshShareHashProgress()));
 
-        fileHideWindow = new QAction(tr("Hide window"), this);
+        fileHideWindow = new QAction("", this);
         fileHideWindow->setObjectName("fileHideWindow");
-        SM->registerShortcut(fileHideWindow, tr("Esc"));
+        SM->registerShortcut(fileHideWindow, tr("Ctrl+Alt+H"));
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
-
-        if (!WBGET(WB_TRAY_ENABLED))
-            fileHideWindow->setText(tr("Show/hide find frame"));
 
         fileQuit = new QAction("", this);
         fileQuit->setObjectName("fileQuit");
@@ -720,29 +743,31 @@ void MainWindow::initActions(){
         toolsSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
         connect(toolsSearch, SIGNAL(triggered()), this, SLOT(slotToolsSearch()));
 
-        toolsHideProgressSpace = new QAction(tr("Hide free space bar"), this);
+        toolsHideProgressSpace = new QAction("", this);
         toolsHideProgressSpace->setObjectName("toolsHideProgressSpace");
-        if (!WBGET(WB_SHOW_FREE_SPACE))
-            toolsHideProgressSpace->setText(tr("Show free space bar"));
+
 #if (!defined FREE_SPACE_BAR_C)
         toolsHideProgressSpace->setVisible(false);
 #endif
         toolsHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
         connect(toolsHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
 
-        toolsHideLastStatus = new QAction(tr("Hide last status message"), this);
+        toolsHideLastStatus = new QAction("", this);
         toolsHideLastStatus->setObjectName("toolsHideLastStatus");
         toolsHideLastStatus->setIcon(WU->getPixmap(WulforUtil::eiSTATUS));
         connect(toolsHideLastStatus, SIGNAL(triggered()), this, SLOT(slotHideLastStatus()));
-        if (!WBGET(WB_LAST_STATUS))
-            toolsHideLastStatus->setText(tr("Show last status message"));
 
-        toolsHideUsersStatisctics = new QAction(tr("Hide users statistics"), this);
+        toolsHideUsersStatisctics = new QAction("", this);
         toolsHideUsersStatisctics->setObjectName("toolsHideUsersStatisctics");
         toolsHideUsersStatisctics->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
         connect(toolsHideUsersStatisctics, SIGNAL(triggered()), this, SLOT(slotHideUsersStatistics()));
-        if (!WBGET(WB_USERS_STATISTICS))
-            toolsHideUsersStatisctics->setText(tr("Show users statistics"));
+
+        toolsSwitchSpeedLimit = new QAction("", this);
+        toolsSwitchSpeedLimit->setObjectName("toolsSwitchSpeedLimit");
+        toolsSwitchSpeedLimit->setIcon(BOOLSETTING(THROTTLE_ENABLE)? WU->getPixmap(WulforUtil::eiSPEED_LIMIT_ON) : WU->getPixmap(WulforUtil::eiSPEED_LIMIT_OFF));
+        toolsSwitchSpeedLimit->setCheckable(true);
+        toolsSwitchSpeedLimit->setChecked(BOOLSETTING(THROTTLE_ENABLE));
+        connect(toolsSwitchSpeedLimit, SIGNAL(triggered()), this, SLOT(slotToolsSwitchSpeedLimit()));
 
         chatClear = new QAction("", this);
         chatClear->setObjectName("chatClear");
@@ -788,7 +813,9 @@ void MainWindow::initActions(){
         separator8->setObjectName("separator8");
         separator8->setSeparator(true);
 
-        fileMenuActions << fileFileListBrowser
+        fileMenuActions << fileOpenMagnet
+                << separator3
+                << fileFileListBrowser
                 << fileFileListBrowserLocal
                 << fileRefreshShareHashProgress
                 << separator0
@@ -815,6 +842,7 @@ void MainWindow::initActions(){
                 << toolsDownloadQueue
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
+                << toolsSwitchSpeedLimit
                 //<< toolsHubManager
                 << separator1
                 << toolsSpy
@@ -856,6 +884,7 @@ void MainWindow::initActions(){
                 << toolsDownloadQueue
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
+                << toolsSwitchSpeedLimit
                 << separator6
                 << chatClear
                 << findInWidget
@@ -915,7 +944,6 @@ void MainWindow::initActions(){
         // end
 
         sh_menu = new QMenu(this);
-        sh_menu->setTitle(tr("Actions"));
         sh_menu->addActions(QList<QAction*>()
                             << nextTabShortCut
                             << prevTabShortCut
@@ -959,7 +987,8 @@ void MainWindow::initActions(){
 
         aboutClient = new QAction("", this);
         aboutClient->setMenuRole(QAction::AboutRole);
-        aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL));
+        aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL)
+                    .scaled(22, 22, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
         connect(aboutClient, SIGNAL(triggered()), this, SLOT(slotAboutClient()));
 
         aboutQt = new QAction("", this);
@@ -1103,6 +1132,8 @@ void MainWindow::retranslateUi(){
     {
         menuFile->setTitle(tr("&File"));
 
+        fileOpenMagnet->setText(tr("Open magnet link"));
+
         fileOpenLogFile->setText(tr("Open log file"));
 
         fileOpenDownloadDirectory->setText(tr("Open download directory"));
@@ -1114,6 +1145,11 @@ void MainWindow::retranslateUi(){
         fileFileListBrowserLocal->setText(tr("Open own filelist"));
 
         fileRefreshShareHashProgress->setText(tr("Refresh share"));
+
+        fileHideWindow->setText(tr("Hide window"));
+
+        if (!WBGET(WB_TRAY_ENABLED))
+            fileHideWindow->setText(tr("Show/hide find frame"));
 
         fileQuit->setText(tr("Quit"));
 
@@ -1147,6 +1183,21 @@ void MainWindow::retranslateUi(){
 
         toolsIPFilter->setText(tr("IPFilter module"));
 
+        toolsHideProgressSpace->setText(tr("Hide free space bar"));
+
+        if (!WBGET(WB_SHOW_FREE_SPACE))
+            toolsHideProgressSpace->setText(tr("Show free space bar"));
+
+        toolsHideLastStatus->setText(tr("Hide last status message"));
+
+        if (!WBGET(WB_LAST_STATUS))
+            toolsHideLastStatus->setText(tr("Show last status message"));
+
+        toolsHideUsersStatisctics->setText(tr("Hide users statistics"));
+
+        if (!WBGET(WB_USERS_STATISTICS))
+            toolsHideUsersStatisctics->setText(tr("Show users statistics"));
+
         menuAway->setTitle(tr("Away message"));
 
         toolsAwayOn->setText(tr("On"));
@@ -1162,6 +1213,8 @@ void MainWindow::retranslateUi(){
         toolsSearch->setText(tr("Search"));
 
         toolsADLS->setText(tr("ADLSearch"));
+
+        toolsSwitchSpeedLimit->setText(tr("Speed limit On/Off"));
 
 #ifdef USE_JS
         toolsJS->setText(tr("Scripts Manager"));
@@ -1204,6 +1257,9 @@ void MainWindow::retranslateUi(){
         aboutClient->setText(tr("About EiskaltDC++"));
 
         aboutQt->setText(tr("About Qt"));
+    }
+    {
+        sh_menu->setTitle(tr("Actions"));
     }
     {
         arena->setWindowTitle(tr("Main layout"));
@@ -1660,6 +1716,9 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     if (arena->widget() == awgt->getWidget()){
         wcontainer->mapped(awgt);
+
+        awgt->requestFocus();
+
         return;
     }
 
@@ -1669,28 +1728,23 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     wcontainer->mapped(awgt);
 
-    QWidget *wg = arenaMap[awgt];
-
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
 
     ArenaWidget::Role role = awgt->role();
 
-    HubFrame     *fr = qobject_cast<HubFrame *>(wg);
-    PMWindow     *pm = qobject_cast<PMWindow *>(wg);
-
-    bool widgetWithFilter = role == ArenaWidget::Hub || role == ArenaWidget::ShareBrowser || role == ArenaWidget::PublicHubs || role == ArenaWidget::Search || role == ArenaWidget::UploadView;
+    bool widgetWithFilter = role == ArenaWidget::Hub ||
+                            role == ArenaWidget::ShareBrowser ||
+                            role == ArenaWidget::PublicHubs ||
+                            role == ArenaWidget::Search ||
+                            role == ArenaWidget::PrivateMessage||
+                            role == ArenaWidget::UploadView;
 
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
-    if (fr)
-        fr->slotActivate();
-    else if(pm)
-        pm->slotActivate();
-    else
-        wg->setFocus();
+    awgt->requestFocus();
 }
 
 void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
@@ -1703,6 +1757,8 @@ void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
     if (arena->widget() == awgt->getWidget()){
         awgt->getWidget()->hide();
         arena->setWidget(NULL);
+
+        setWindowTitle(QString("%1").arg(EISKALTDCPP_WND_TITLE));
     }
 }
 
@@ -1888,6 +1944,8 @@ void MainWindow::reloadSomeSettings(){
         if (fr)
             fr->reloadSomeSettings();
     }
+
+    toolsSwitchSpeedLimit->setChecked(BOOLSETTING(THROTTLE_ENABLE));
 }
 
 void MainWindow::slotFileOpenLogFile(){
@@ -1953,6 +2011,26 @@ void MainWindow::slotFileRefreshShareHashProgress(){
         break;
     default:
         break;
+    }
+}
+
+void MainWindow::slotOpenMagnet(){
+    QString text = qApp->clipboard()->text(QClipboard::Clipboard);
+    bool ok = false;
+
+    text = (text.startsWith("magnet:?")? text : "");
+
+    QString result = QInputDialog::getText(this, tr("Open magnet link"), tr("Enter magnet link:"), QLineEdit::Normal, text, &ok);
+
+    if (!ok)
+        return;
+
+    if (result.startsWith("magnet:?")){
+        Magnet m(this);
+
+        m.setLink(result);
+
+        m.exec();
     }
 }
 
@@ -2115,6 +2193,8 @@ void MainWindow::slotToolsSettings(){
 
     s.exec();
 
+    reloadSomeSettings();
+
     //reload some settings
     if (!WBGET(WB_TRAY_ENABLED))
         fileHideWindow->setText(tr("Show/hide find frame"));
@@ -2131,6 +2211,13 @@ void MainWindow::slotToolsTransfer(bool toggled){
         transfer_dock->setWidget(NULL);
         transfer_dock->setVisible(false);
     }
+}
+
+void MainWindow::slotToolsSwitchSpeedLimit(){
+    static WulforUtil *WU = WulforUtil::getInstance();
+
+    SettingsManager::getInstance()->set(SettingsManager::THROTTLE_ENABLE, toolsSwitchSpeedLimit->isChecked());
+    toolsSwitchSpeedLimit->setIcon(BOOLSETTING(THROTTLE_ENABLE)? WU->getPixmap(WulforUtil::eiSPEED_LIMIT_ON) : WU->getPixmap(WulforUtil::eiSPEED_LIMIT_OFF));
 }
 
 void MainWindow::slotPanelMenuActionClicked(){
@@ -2213,54 +2300,6 @@ void MainWindow::slotShowMainMenu() {
 }
 
 void MainWindow::slotHideWindow(){
-    QWidget *wg = arena->widget();
-
-    HubFrame     *fr = qobject_cast<HubFrame *>(wg);
-    PublicHubs   *ph = qobject_cast<PublicHubs *>(wg);
-    ShareBrowser *sb = qobject_cast<ShareBrowser *>(wg);
-    SearchFrame  *sf = qobject_cast<SearchFrame *>(wg);
-
-    if (fr){
-        if (fr->isFindFrameActivated() && WBGET(WB_TRAY_ENABLED)){
-            fr->slotHideFindFrame();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            fr->slotHideFindFrame();
-            return;
-        }
-    }
-    else if (ph){
-        if (ph->isFindFrameActivated()){
-            ph->slotFilter();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            ph->slotFilter();
-            return;
-        }
-    }
-    else if (sb){
-        if (sb->isFindFrameActivated()){
-            sb->slotFilter();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            sb->slotFilter();
-            return;
-        }
-    }
-    else if (sf){
-        if (sf->isFindFrameActivated()){
-            sf->slotFilter();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            sf->slotFilter();
-            return;
-        }
-    }
-
     if (!isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
         hide();
     }
@@ -2460,6 +2499,10 @@ void MainWindow::slotAboutClient(){
                "&nbsp;&lt;wiselord1983@gmail.com&gt;<br/>"
                "&nbsp;(for 0.4.10 and later)<br/>")+
             tr("<br/>"
+               "&nbsp;Boris Pek  aka  Tehnick<br/>"
+               "&nbsp;&lt;tehnick-8@mail.ru&gt;<br/>"
+               "&nbsp;(for 2.1.0 and later)<br/>")+
+            tr("<br/>"
                "&nbsp;<u>Belarusian translation</u><br/>")+
             tr("<br/>"
                "&nbsp;Paval Shalamitski  aka  Klyok<br/>"
@@ -2511,7 +2554,13 @@ void MainWindow::slotAboutClient(){
             tr("<br/>"
                "&nbsp;Martin Durisin<br/>"
                "&nbsp;&lt;martin.durisin@gmail.com&gt;<br/>"
-               "&nbsp;(for 2.1.0 and later)<br/>")
+               "&nbsp;(for 2.1.0 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>Czech translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Uhlik<br/>"
+               "&nbsp;&lt;uhlikx@seznam.cz&gt;<br/>"
+               "&nbsp;(for 2.2.0 and later)<br/>")
             );
 
     a.exec();

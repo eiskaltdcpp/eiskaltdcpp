@@ -51,7 +51,7 @@
 #include "wulformanager.hh"
 #include "adlsearch.hh"
 #include "WulforUtil.hh"
-#include "Version.h"
+#include "VersionGlobal.h"
 #include "cmddebug.hh"
 
 using namespace std;
@@ -316,10 +316,12 @@ MainWindow::MainWindow():
         gtk_window_maximize(window);
 
 #ifdef LUA_SCRIPT
-    ScriptManager::getInstance()->load();//aded
-    // Start as late as possible, as we might (formatting.lua) need to examine settings
-    string defaultluascript="startup.lua";
-    ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    ScriptManager::getInstance()->load();
+    if (BOOLSETTING(USE_LUA)){
+        // Start as late as possible, as we might (formatting.lua) need to examine settings
+        string defaultluascript="startup.lua";
+        ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    }
 #endif
 }
 
@@ -2288,5 +2290,7 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
 		gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
 		gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
 		} catch(...) { }
+
+        delete buf;
 	}
 }

@@ -55,6 +55,7 @@ public:
     virtual const QPixmap &getPixmap(){ return _pxmap; }
 
     virtual void requestFilter() {}
+    virtual void requestFocus() {}
 
     virtual void setUnload(bool b){ _arenaUnload = b; }
     virtual bool isUnload() const { return _arenaUnload; }

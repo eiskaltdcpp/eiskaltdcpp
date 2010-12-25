@@ -393,6 +393,14 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Transfer 
     params["PERC"]  = percent;
     params["DOWN"]  = true;
     params["TTH"] = _q(trf->getTTH().toBase32());
+    if (trf->getUserConnection().isSecure())
+    {
+        params["ENCRYPTION"] = _q(trf->getUserConnection().getCipherName());
+    }
+    else
+    {
+        params["ENCRYPTION"] = _q("Plain");
+    }
 }
 
 void TransferView::slotContextMenu(const QPoint &){
@@ -631,7 +639,15 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
     emit coreUpdateTransferPosition(params, pos);
 }
 
-void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw(){
+void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw() {
+    onFailed(dl, reason);
+}
+
+void TransferView::on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* dl, const std::string& reason) throw() {
+    onFailed(dl, reason);
+}
+
+void TransferView::onFailed(dcpp::Download* dl, const std::string& reason) {
     VarMap params;
 
     getParams(params, dl);

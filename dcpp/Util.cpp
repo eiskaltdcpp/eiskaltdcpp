@@ -539,7 +539,7 @@ string Util::formatExactSize(int64_t aBytes) {
 }
 
 string Util::getLocalIp() {
-#ifdef HAVE_IFADDRS_H
+#if defined(HAVE_IFADDRS_H) || defined(HAVE_ADDRS_H)
     vector<string> addresses;
     struct ifaddrs *ifap;
 
@@ -977,73 +977,6 @@ uint32_t Util::rand() {
     return y;
 }
 
-string Util::getOsVersion() {
-    string os;
-
-#ifdef _WIN32
-
-    OSVERSIONINFOEX ver;
-    memset(&ver, 0, sizeof(OSVERSIONINFOEX));
-    ver.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-
-    if(!GetVersionEx((OSVERSIONINFO*)&ver)) {
-        ver.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-        if(!GetVersionEx((OSVERSIONINFO*)&ver)) {
-            os = "Windows (version unknown)";
-        }
-    }
-
-    if(os.empty()) {
-        if(ver.dwPlatformId != VER_PLATFORM_WIN32_NT) {
-            os = "Win9x/ME/Junk";
-        } else if(ver.dwMajorVersion == 4) {
-            os = "WinNT4";
-        } else if(ver.dwMajorVersion == 5) {
-            if(ver.dwMinorVersion == 0) {
-                os = "Win2000";
-            } else if(ver.dwMinorVersion == 1) {
-                os = "WinXP";
-            } else if(ver.dwMinorVersion == 2) {
-                os = "Win2003";
-            } else {
-                os = "Unknown WinNT5";
-            }
-
-            if(ver.wProductType & VER_NT_WORKSTATION)
-                os += " Pro";
-            else if(ver.wProductType & VER_NT_SERVER)
-                os += " Server";
-            else if(ver.wProductType & VER_NT_DOMAIN_CONTROLLER)
-                os += " DC";
-        } else if(ver.dwMajorVersion == 6) {
-            os = "WinVista";
-        }
-
-        if(ver.wServicePackMajor != 0) {
-            os += "SP";
-            os += Util::toString(ver.wServicePackMajor);
-            if(ver.wServicePackMinor != 0) {
-                os += '.';
-                os += Util::toString(ver.wServicePackMinor);
-            }
-        }
-    }
-
-
-#else // _WIN32
-    struct utsname n;
-
-    if(uname(&n) != 0) {
-        os = "unix (unknown version)";
-    } else {
-        os = Text::toUtf8(string(n.sysname) + " " + n.release + " (" + n.machine + ")");
-    }
-
-#endif // _WIN32
-
-    return os;
-}
-
 /*  getIpCountry
     This function returns the country(Abbreviation) of an ip
     for exemple: it returns "PT", whitch standards for "Portugal"
@@ -1165,5 +1098,13 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
 	}
 	return Text::toT(ret);
 }
-
+bool Util::fileExists(const string &aFile) {
+#ifdef _WIN32
+    DWORD attr = GetFileAttributes(Text::toT(aFile).c_str());
+    return (attr != 0xFFFFFFFF);
+#else
+    struct stat stFileInfo;
+    return (stat(aFile.c_str(),&stFileInfo) != 0);
+#endif
+}
 } // namespace dcpp

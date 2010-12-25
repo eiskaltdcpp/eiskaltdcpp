@@ -81,10 +81,12 @@ void ServerThread::Run()
 	startSocket(true, 0);
 	autoConnect();
 #ifdef LUA_SCRIPT
-    ScriptManager::getInstance()->load();//aded
-    // Start as late as possible, as we might (formatting.lua) need to examine settings
-    string defaultluascript="startup.lua";
-    ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    ScriptManager::getInstance()->load();
+    if (BOOLSETTING(USE_LUA)) {
+	// Start as late as possible, as we might (formatting.lua) need to examine settings
+	string defaultluascript="startup.lua";
+	ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+    }
 #endif
 #ifdef XMLRPC_DAEMON
 		xmlrpc_c::methodPtr const sampleAddMethodP(new sampleAddMethod);
@@ -130,8 +132,6 @@ void ServerThread::WaitFor() {
 	fprintf(stdout,"ждём нить %lld\n",threadId);
 	if(threadId != 0) {
 		fprintf(stdout,"threadId != 0 \n");
-		//pthread_t ii = pthread_self();
-		//pthread_exit((void*)this);
 		int i = pthread_join(threadId, NULL);
 		fprintf(stdout,"join done; status %i\n",i);
         threadId = 0;

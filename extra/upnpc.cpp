@@ -28,7 +28,6 @@
 #define STATICLIB
 #endif
 #include <miniupnpc/miniupnpc.h>
-#include <miniupnpc/miniwget.h>
 #include <miniupnpc/upnpcommands.h>
 #include <miniupnpc/upnperrors.h>
 
@@ -45,35 +44,7 @@ bool UPnPc::init()
     if (!devices)
         return false;
 
-    UPNPDev *device = 0;
-    if (devices)
-    {
-        device = devices;
-        while (device)
-        {
-            if (strstr(device->st, "InternetGatewayDevice"))
-                break;
-            device = device->pNext;
-        }
-    }
-    
-    if (!device)
-        device = devices; /* defaulting to first device */
-
-    bool ret = false;
-
-    int descXMLsize = 0;
-    char *descXML = reinterpret_cast<char*>(miniwget(device->descURL, &descXMLsize));
-    if (descXML)
-    {
-        memset(&urls, 0, sizeof(UPNPUrls));
-        memset(&data, 0, sizeof(IGDdatas));
-        parserootdesc(descXML, descXMLsize, &data);
-        delete descXML;
-
-        GetUPNPUrls(&urls, &data, device->descURL);
-        ret = true;
-    }
+    bool ret = UPNP_GetValidIGD(devices, &urls, &data, 0, 0);
 
     freeUPNPDevlist(devices);
 

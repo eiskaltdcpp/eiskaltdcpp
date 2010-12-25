@@ -20,7 +20,7 @@
  */
 
 #include "hub.hh"
-
+#include <dcpp/AdcHub.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/HashManager.h>
 #include <dcpp/SearchManager.h>
@@ -40,7 +40,7 @@
 #include "WulforUtil.hh"
 #include <dcpp/StringTokenizer.h>
 
-#include "Version.h"
+#include "VersionGlobal.h"
 
 #ifdef LUA_SCRIPT
 #include <dcpp/ScriptManager.h>
@@ -2633,7 +2633,7 @@ void Hub::connectClient_client(string address, string encoding)
 
     if (address.substr(0, 6) == "adc://" || address.substr(0, 7) == "adcs://")
         encoding = "UTF-8";
-    else if (encoding.empty() || encoding == "Global hub default") // latter for 1.0.3 backwards compatability
+    else if (encoding.empty() || encoding == _("Global hub default")) // latter for 1.0.3 backwards compatability
         encoding = WGETS("default-charset");
 
     if (encoding == WulforUtil::ENCODING_LOCALE)
@@ -2837,7 +2837,9 @@ void Hub::reconnect_client()
 
 void Hub::getParams_client(ParamMap &params, Identity &id)
 {
-    if (id.getUser()->isSet(User::DCPLUSPLUS))
+    //if (id.getUser()->isSet(User::DCPLUSPLUS))
+    if(id.supports(AdcHub::ADCS_FEATURE) && id.supports(AdcHub::SEGA_FEATURE) &&
+    ((id.supports(AdcHub::TCP4_FEATURE) && id.supports(AdcHub::UDP4_FEATURE)) || id.supports(AdcHub::NAT0_FEATURE)))
         params.insert(ParamMap::value_type("Icon", "dc++"));
     else
         params.insert(ParamMap::value_type("Icon", "normal"));

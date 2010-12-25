@@ -37,7 +37,11 @@
 #include "version.h"
 #include "SearchResult.h"
 #include "MerkleCheckOutputStream.h"
-
+#include "SFVReader.h"
+#include "FilteredFile.h"
+#ifdef DHT
+#include "dht/IndexManager.h"
+#endif
 #include <climits>
 
 #if !defined(_WIN32) && !defined(PATH_MAX) // Extra PATH_MAX check for Mac OS X
@@ -220,25 +224,23 @@ QueueItem* QueueManager::UserQueue::getNext(const UserPtr& aUser, QueueItem::Pri
             dcassert(!i->second.empty());
             for(QueueItem::Iter j = i->second.begin(); j != i->second.end(); ++j) {
                 QueueItem* qi = *j;
-                                ///add
-                                QueueItem::SourceConstIter source = qi->getSource(aUser);
-                                if(source->isSet(QueueItem::Source::FLAG_PARTIAL)) {
-                                        // check partial source
-                                        int64_t blockSize = HashManager::getInstance()->getBlockSize(qi->getTTH());
-                                        if(blockSize == 0)
-                                                blockSize = qi->getSize();
+                QueueItem::SourceConstIter source = qi->getSource(aUser);
+                if(source->isSet(QueueItem::Source::FLAG_PARTIAL)) {
+                        // check partial source
+                        int64_t blockSize = HashManager::getInstance()->getBlockSize(qi->getTTH());
+                        if(blockSize == 0)
+                                blockSize = qi->getSize();
 
-                                        Segment segment = qi->getNextSegment(blockSize, wantedSize, lastSpeed, source->getPartialSource());
-                                        if(allowRemove && segment.getStart() != -1 && segment.getSize() == 0) {
-                                                // no other partial chunk from this user, remove him from queue
-                                                remove(qi, aUser);
-                                                qi->removeSource(aUser, QueueItem::Source::FLAG_NO_NEED_PARTS);
-                                                lastError = _("NO_NEEDED_PART");
-                                                p++;
-                                                break;
-                                        }
-                                }
-                                ///@end
+                        Segment segment = qi->getNextSegment(blockSize, wantedSize, lastSpeed, source->getPartialSource());
+                        if(allowRemove && segment.getStart() != -1 && segment.getSize() == 0) {
+                                // no other partial chunk from this user, remove him from queue
+                                remove(qi, aUser);
+                                qi->removeSource(aUser, QueueItem::Source::FLAG_NO_NEED_PARTS);
+                                lastError = _("No needed part");
+                                p++;
+                                break;
+                        }
+                }
                 if(qi->isWaiting()) {
                     return qi;
                 }
@@ -251,7 +253,7 @@ QueueItem* QueueManager::UserQueue::getNext(const UserPtr& aUser, QueueItem::Pri
                     int64_t blockSize = HashManager::getInstance()->getBlockSize(qi->getTTH());
                     if(blockSize == 0)
                         blockSize = qi->getSize();
-                                        if(qi->getNextSegment(blockSize, wantedSize,lastSpeed, source->getPartialSource()).getSize() == 0) {
+                    if(qi->getNextSegment(blockSize, wantedSize,lastSpeed, source->getPartialSource()).getSize() == 0) {
                         dcdebug("No segment for %s in %s, block " I64_FMT "\n", aUser->getCID().toBase32().c_str(), qi->getTarget().c_str(), blockSize);
                         continue;
                     }
@@ -572,9 +574,40 @@ void QueueManager::on(TimerManagerListener::Minute, uint32_t aTick) throw() {
     string fn;
     string searchString;
     bool online = false;
-        vector<const PartsInfoReqParam*> params;//sdc++
+    vector<const PartsInfoReqParam*> params;
+    TTHValue* tthPub = NULL;
     {
         Lock l(cs);
+        //find max 10 pfs sources to exchange parts
+        //the source basis interval is 5 minutes
+        PFSSourceList sl;
+        fileQueue.findPFSSources(sl);
+
+        for(PFSSourceList::const_iterator i = sl.begin(); i != sl.end(); i++){
+                QueueItem::PartialSource::Ptr source = (*i->first).getPartialSource();
+                const QueueItem* qi = i->second;
+
+                PartsInfoReqParam* param = new PartsInfoReqParam;
+
+                int64_t blockSize = HashManager::getInstance()->getBlockSize(qi->getTTH());
+                if(blockSize == 0)
+                        blockSize = qi->getSize();
+                qi->getPartialInfo(param->parts, blockSize);
+
+                param->tth = qi->getTTH().toBase32();
+                param->ip  = source->getIp();
+                param->udpPort = source->getUdpPort();
+                param->myNick = source->getMyNick();
+                param->hubIpPort = source->getHubIpPort();
+
+                params.push_back(param);
+
+                source->setPendingQueryCount(source->getPendingQueryCount() + 1);
+                source->setNextQueryTime(aTick + 300000);               // 5 minutes
+        }
+
+        if(BOOLSETTING(USE_DHT) && SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_PASSIVE)
+                tthPub = fileQueue.findPFSPubTTH();
 
         if(BOOLSETTING(AUTO_SEARCH) && (aTick >= nextSearch) && (fileQueue.getSize() > 0)) {
             // We keep 30 recent searches to avoid duplicate searches
@@ -607,6 +640,15 @@ void QueueManager::on(TimerManagerListener::Minute, uint32_t aTick) throw() {
         }
 
         delete param;
+    }
+
+     // DHT PFS announce
+    if(tthPub)
+    {
+    #ifdef DHT
+            dht::IndexManager::getInstance()->publishPartialFile(*tthPub);
+    #endif
+            delete tthPub;
     }
 
     if(!searchString.empty()) {
@@ -1150,6 +1192,7 @@ void QueueManager::moveFile(const string& source, const string& target) {
 void QueueManager::moveFile_(const string& source, const string& target) {
             try {
                 File::renameFile(source, target);
+                getInstance()->fire(QueueManagerListener::FileMoved(), target);
         } catch(const FileException& e1) {
                 // Try to just rename it to the correct name at least
                 string newTarget = Util::getFilePath(source) + Util::getFileName(target);
@@ -1196,6 +1239,7 @@ void QueueManager::putDownload(Download* aDownload, bool finished) throw() {
         string fl_fname;
         HintedUser fl_user(UserPtr(), Util::emptyString);
         int fl_flag = 0;
+        bool downloadList = false;
 
     {
         Lock l(cs);
@@ -1204,18 +1248,36 @@ void QueueManager::putDownload(Download* aDownload, bool finished) throw() {
         aDownload->setFile(0);
 
         if(aDownload->getType() == Transfer::TYPE_PARTIAL_LIST) {
-                        QueueItem* q = fileQueue.find(getListPath(aDownload->getHintedUser()));
+            QueueItem* q = fileQueue.find(getListPath(aDownload->getHintedUser()));
             if(q) {
-                if(finished) {
-                                        fire(QueueManagerListener::PartialList(), aDownload->getHintedUser(), aDownload->getPFS());
-                    fire(QueueManagerListener::Removed(), q);
+                if(!aDownload->getPFS().empty()) {
+                    if( (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) && directories.find(aDownload->getUser()) != directories.end()) ||
+                            (q->isSet(QueueItem::FLAG_MATCH_QUEUE)) )
+                    {
+                            dcassert(finished);
+
+                            fl_fname = aDownload->getPFS();
+                            fl_user = aDownload->getHintedUser();
+                            fl_flag = (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) ? (QueueItem::FLAG_DIRECTORY_DOWNLOAD) : 0)
+                                    | (q->isSet(QueueItem::FLAG_MATCH_QUEUE) ? QueueItem::FLAG_MATCH_QUEUE : 0) | QueueItem::FLAG_TEXT;
+                    } else {
+                        fire(QueueManagerListener::PartialList(), aDownload->getHintedUser(), aDownload->getPFS());
+                    }
+                } else {
+                        // partial filelist probably failed, redownload full list
+                        dcassert(!finished);
+
+                        downloadList = true;
+                        fl_flag = q->getFlags() & ~QueueItem::FLAG_PARTIAL_LIST;
+                }
+                fire(QueueManagerListener::Removed(), q);
 
                     userQueue.remove(q);
                     fileQueue.remove(q);
-                } else {
-                    userQueue.removeDownload(q, aDownload->getUser());
-                    fire(QueueManagerListener::StatusUpdated(), q);
-                }
+                //} else {
+                    //userQueue.removeDownload(q, aDownload->getUser());
+                    //fire(QueueManagerListener::StatusUpdated(), q);
+                //}
             }
         } else {
             QueueItem* q = fileQueue.find(aDownload->getPath());
@@ -1242,23 +1304,27 @@ void QueueManager::putDownload(Download* aDownload, bool finished) throw() {
                         if( (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) && directories.find(aDownload->getUser()) != directories.end()) ||
                             (q->isSet(QueueItem::FLAG_MATCH_QUEUE)) )
                         {
-                                                        fl_fname = q->getListName();
-                                                        fl_user = aDownload->getHintedUser();
-                                                        fl_flag = (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) ? QueueItem::FLAG_DIRECTORY_DOWNLOAD : 0)
+                            fl_fname = q->getListName();
+                            fl_user = aDownload->getHintedUser();
+                            fl_flag = (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) ? QueueItem::FLAG_DIRECTORY_DOWNLOAD : 0)
                                 | (q->isSet(QueueItem::FLAG_MATCH_QUEUE) ? QueueItem::FLAG_MATCH_QUEUE : 0);
                         }
 
                         string dir;
                         if(aDownload->getType() == Transfer::TYPE_FULL_LIST) {
                             dir = q->getTempTarget();
-                                                        q->addSegment(Segment(0, q->getSize()));
-                                                } else if(aDownload->getType() == Transfer::TYPE_FILE) {
+                            q->addSegment(Segment(0, q->getSize()));
+                        } else if(aDownload->getType() == Transfer::TYPE_FILE) {
                             q->addSegment(aDownload->getSegment());
+                        }
+
+                        if (q->isFinished() && BOOLSETTING(SFV_CHECK)) {
+                                checkSfv(q, aDownload);
                         }
 
                         if(aDownload->getType() != Transfer::TYPE_FILE || q->isFinished()) {
                             // Check if we need to move the file
-                                                        if( aDownload->getType() == Transfer::TYPE_FILE && !aDownload->getTempTarget().empty() && (Util::stricmp(aDownload->getPath().c_str(), aDownload->getTempTarget().c_str()) != 0) ) {
+                            if( aDownload->getType() == Transfer::TYPE_FILE && !aDownload->getTempTarget().empty() && (Util::stricmp(aDownload->getPath().c_str(), aDownload->getTempTarget().c_str()) != 0) ) {
                                 moveFile(aDownload->getTempTarget(), aDownload->getPath());
                             }
 
@@ -1266,13 +1332,13 @@ void QueueManager::putDownload(Download* aDownload, bool finished) throw() {
 
                             userQueue.remove(q);
 
-                                                        if(!BOOLSETTING(KEEP_FINISHED_FILES) || aDownload->getType() == Transfer::TYPE_FULL_LIST) {
-                                                                fire(QueueManagerListener::Removed(), q);
-                            fileQueue.remove(q);
+                            if(!BOOLSETTING(KEEP_FINISHED_FILES) || aDownload->getType() == Transfer::TYPE_FULL_LIST) {
+                                fire(QueueManagerListener::Removed(), q);
+                                fileQueue.remove(q);
+                            } else {
+                                fire(QueueManagerListener::StatusUpdated(), q);
+                            }
                         } else {
-                                                                fire(QueueManagerListener::StatusUpdated(), q);
-                                                        }
-                                                } else {
                             userQueue.removeDownload(q, aDownload->getUser());
                             fire(QueueManagerListener::StatusUpdated(), q);
                         }
@@ -1425,26 +1491,15 @@ void QueueManager::removeSource(const string& aTarget, const UserPtr& aUser, int
             return;
         }
 
-        if(reason == QueueItem::Source::FLAG_CRC_WARN) {
-            // Already flagged?
-            QueueItem::SourceIter s = q->getSource(aUser);
-            if(s->isSet(QueueItem::Source::FLAG_CRC_WARN)) {
-                reason = QueueItem::Source::FLAG_CRC_FAILED;
-            } else {
-                s->setFlag(reason);
-                return;
-            }
-        }
-
         if(q->isRunning() && userQueue.getRunning(aUser) == q) {
             isRunning = true;
             userQueue.removeDownload(q, aUser);
             fire(QueueManagerListener::StatusUpdated(), q);
-
         }
-                if(!q->isFinished()) {
-        userQueue.remove(q, aUser);
-                }
+
+        if(!q->isFinished()) {
+            userQueue.remove(q, aUser);
+        }
         q->removeSource(aUser, reason);
 
         fire(QueueManagerListener::SourcesUpdated(), q);
@@ -1607,14 +1662,14 @@ void QueueManager::saveQueue(bool force) throw() {
 
         //NOTE: freedcpp, save user cids and nicks to Users.xml see dcplusplus revision 1771
         ClientManager* cm = ClientManager::getInstance();
-#ifdef _WIN32
-        std::for_each(cids.begin(), cids.end(), std::tr1::bind(&ClientManager::saveUser, cm, std::tr1::placeholders::_1));
-#else
+//#ifdef _WIN32
+//        std::for_each(cids.begin(), cids.end(), std::tr1::bind(&ClientManager::saveUser, cm, std::tr1::placeholders::_1));
+//#else
         for (vector<CID>::const_iterator it = cids.begin(); it != cids.end(); ++it)
         {
                 cm->saveUser(*it);
         }
-#endif
+//#endif
 }
 
 class QueueLoader : public SimpleXMLReader::CallBack {
@@ -1855,8 +1910,13 @@ bool QueueManager::handlePartialResult(const UserPtr& aUser, const string& hubHi
                         return false;
                 }
 
-                // Check min size
                 QueueItem::Ptr qi = ql[0];
+                // don't add sources to finished files
+                // this could happen when "Keep finished files in queue" is enabled
+                if(qi->isFinished())
+                        return false;
+
+                // Check min size
                 if(qi->getSize() < PARTIAL_SHARE_MIN_SIZE){
                         dcassert(0);
                         return false;
@@ -1869,14 +1929,14 @@ bool QueueManager::handlePartialResult(const UserPtr& aUser, const string& hubHi
                 qi->getPartialInfo(outPartialInfo, blockSize);
 
                 // Any parts for me?
-                wantConnection = qi->isSource(partialSource.getPartialInfo(), blockSize);
+                wantConnection = qi->isNeededPart(partialSource.getPartialInfo(), blockSize);
 
                 // If this user isn't a source and has no parts needed, ignore it
                 QueueItem::SourceIter si = qi->getSource(aUser);
                 if(si == qi->getSources().end()){
                         si = qi->getBadSource(aUser);
 
-                        if(si != qi->getBadSources().end() && si->isSet(QueueItem::Source::FLAG_BAD_TREE))//e
+                        if(si != qi->getBadSources().end() && (si->isSet(QueueItem::Source::FLAG_BAD_TREE) || si->isSet(QueueItem::Source::FLAG_TTH_INCONSISTENCY)))
                                 return false;
 
                         if(!wantConnection){
@@ -1935,6 +1995,127 @@ bool QueueManager::handlePartialSearch(const TTHValue& tth, PartsInfo& _outParts
         }
 
         return !_outPartsInfo.empty();
+}
+
+void QueueManager::checkSfv(QueueItem* qi, Download* d) {
+	SFVReader sfv(qi->getTarget());
+
+	if(sfv.hasCRC()) {
+		bool crcMatch = false;
+		try {
+			crcMatch = (calcCrc32(qi->getTempTarget()) == sfv.getCRC());
+		} catch(const FileException& ) {
+			// Couldn't read the file to get the CRC(!!!)
+		}
+
+		if(!crcMatch) {
+			/// @todo There is a slight chance that something happens with a file while it's being saved to disk
+			/// maybe calculate tth along with crc and if tth is ok and crc is not flag the file as bad at once
+			/// if tth mismatches (possible disk error) then repair / redownload the file
+
+			File::deleteFile(qi->getTempTarget());
+			qi->resetDownloaded();
+			dcdebug("QueueManager: CRC32 mismatch for %s\n", qi->getTarget().c_str());
+			LogManager::getInstance()->message(_("CRC32 inconsistency (SFV-Check)") + ' ' + Util::addBrackets(qi->getTarget()));
+
+			setPriority(qi->getTarget(), QueueItem::PAUSED);
+
+			QueueItem::SourceList sources = qi->getSources();
+			for(QueueItem::SourceConstIter i = sources.begin(); i != sources.end(); ++i) {
+				removeSource(qi->getTarget(), i->getUser(), QueueItem::Source::FLAG_CRC_FAILED, false);
+			}
+
+			fire(QueueManagerListener::CRCFailed(), d, _("CRC32 inconsistency (SFV-Check)"));
+			return;
+		}
+
+		dcdebug("QueueManager: CRC32 match for %s\n", qi->getTarget().c_str());
+		fire(QueueManagerListener::CRCChecked(), d);
+	}
+}
+
+uint32_t QueueManager::calcCrc32(const string& file) throw(FileException) {
+	File ff(file, File::READ, File::OPEN);
+	CalcInputStream<CRC32Filter, false> f(&ff);
+
+	const size_t BUF_SIZE = 1024*1024;
+	boost::scoped_array<uint8_t> b(new uint8_t[BUF_SIZE]);
+	size_t n = BUF_SIZE;
+	while(f.read(&b[0], n) > 0)
+		;		// Keep on looping...
+
+	return f.getFilter().getValue();
+}
+
+// compare nextQueryTime, get the oldest ones
+void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
+{
+	typedef multimap<time_t, pair<QueueItem::SourceConstIter, const QueueItem*> > Buffer;
+	Buffer buffer;
+	uint64_t now = GET_TICK();
+
+	for(QueueItem::StringIter i = queue.begin(); i != queue.end(); ++i) {
+		const QueueItem* q = i->second;
+
+		if(q->getSize() < PARTIAL_SHARE_MIN_SIZE) continue;
+
+		const QueueItem::SourceList& sources = q->getSources();
+		const QueueItem::SourceList& badSources = q->getBadSources();
+
+		for(QueueItem::SourceConstIter j = sources.begin(); j != sources.end(); ++j) {
+			if(	(*j).isSet(QueueItem::Source::FLAG_PARTIAL) && (*j).getPartialSource()->getNextQueryTime() <= now &&
+				(*j).getPartialSource()->getPendingQueryCount() < 10 && (*j).getPartialSource()->getUdpPort() > 0)
+			{
+				buffer.insert(make_pair((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q)));
+			}
+		}
+
+		for(QueueItem::SourceConstIter j = badSources.begin(); j != badSources.end(); ++j) {
+			if(	(*j).isSet(QueueItem::Source::FLAG_TTH_INCONSISTENCY) == false && (*j).isSet(QueueItem::Source::FLAG_PARTIAL) &&
+				(*j).getPartialSource()->getNextQueryTime() <= now && (*j).getPartialSource()->getPendingQueryCount() < 10 &&
+				(*j).getPartialSource()->getUdpPort() > 0)
+			{
+				buffer.insert(make_pair((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q)));
+			}
+		}
+	}
+
+	// copy to results
+	dcassert(sl.empty());
+	const int32_t maxElements = 10;
+	sl.reserve(maxElements);
+	for(Buffer::iterator i = buffer.begin(); i != buffer.end() && sl.size() < maxElements; i++){
+		sl.push_back(i->second);
+	}
+}
+
+TTHValue* QueueManager::FileQueue::findPFSPubTTH()
+{
+    uint64_t now = GET_TICK();
+    QueueItem::Ptr cand = NULL;
+
+    for(QueueItem::StringIter i = queue.begin(); i != queue.end(); i++)
+    {
+        QueueItem::Ptr qi = i->second;
+        if(qi && qi->getSize() >= PARTIAL_SHARE_MIN_SIZE && now >= qi->getNextPublishingTime() && qi->getPriority() > QueueItem::PAUSED)
+        {
+            if(cand == NULL || cand->getNextPublishingTime() > qi->getNextPublishingTime() || (cand->getNextPublishingTime() == qi->getNextPublishingTime() && cand->getPriority() < qi->getPriority()) )
+            {
+                if(qi->getDownloadedBytes() > HashManager::getInstance()->getBlockSize(qi->getTTH()))
+                    cand = qi;
+            }
+        }
+    }
+    if(cand)
+    {
+        #ifdef DHT
+        cand->setNextPublishingTime(now + PFS_REPUBLISH_TIME);          // one hour
+        #else
+        cand->setNextPublishingTime(now + 1*60*60*1000);          // one hour
+        #endif
+        return new TTHValue(cand->getTTH());
+    }
+     return NULL;
 }
 
 } // namespace dcpp

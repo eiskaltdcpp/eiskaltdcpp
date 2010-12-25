@@ -20,15 +20,17 @@
 #include <QPixmap>
 #include <QFontMetrics>
 #include <QSize>
+#include <QFile>
 
 #include "dcpp/ShareManager.h"
+#include "dcpp/UploadManager.h"
 
 using namespace dcpp;
 
 #include <set>
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
-    : QAbstractItemModel(parent), iconsScaled(false)
+    : QAbstractItemModel(parent), iconsScaled(false), restrictionsLoaded(false)
 {
     QList<QVariant> rootData;
     rootData << tr("Name") << tr("Size") << tr("Exact size") << tr("TTH");
@@ -43,6 +45,24 @@ FileBrowserModel::~FileBrowserModel()
 {
     if (rootItem)
         delete rootItem;
+
+    if (restrictionsLoaded){
+        QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
+
+        if (f.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){
+            QTextStream stream(&f);
+            QMap<QString, unsigned>::iterator it = restrict_map.begin();
+
+            for(; it != restrict_map.end(); ++it)
+                stream << it.value() << " " << it.key() << '\n';
+
+            stream.flush();
+
+            f.close();
+
+            dcpp::UploadManager::getInstance()->reloadRestrictions();
+        }
+    }
 }
 
 int FileBrowserModel::columnCount(const QModelIndex &parent) const
@@ -59,6 +79,16 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         return QVariant();
 
     FileBrowserItem *item = static_cast<FileBrowserItem*>(index.internalPointer());
+    QString path = "";//virtual path
+    QStringList dirs = createRemotePath(item).split("\\");
+
+    if (dirs.size() >= 2){
+        dirs.removeFirst();
+
+        path = "/" + dirs.join("/");
+    }
+    else
+        path = "";
 
     switch(role) {
         case Qt::DecorationRole:
@@ -70,6 +100,12 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         }
         case Qt::DisplayRole:
         {
+            if (restrict_map.contains(path) && index.column() == COLUMN_FILEBROWSER_NAME){
+                QString ret = tr("%1 [%2 Gb]").arg(item->data(index.column()).toString()).arg(restrict_map[path]);
+
+                return ret;
+            }
+
             return item->data(index.column());
         }
         case Qt::TextAlignmentRole:
@@ -134,6 +170,19 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
 
             break;
         }
+        case Qt::FontRole:
+        {
+            if (restrict_map.contains(path) && index.column() == COLUMN_FILEBROWSER_NAME){
+                QFont f;
+                f.setBold(true);
+
+                return f;
+            }
+
+            break;
+        }
+        default:
+            break;
     }
 
     return QVariant();
@@ -424,9 +473,65 @@ void FileBrowserModel::highlightDuplicates(){
             if (i->file != it.value())//Found duplicate
                 i->isDuplicate = true;
         }
-        else {
+        else if (!i->file->getAdls()){
             hash.insert(tth, i->file);
         }
+    }
+}
+
+void FileBrowserModel::loadRestrictions(){
+    QFile f(_q(Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf"));
+
+    if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&f);
+        QString line = "";
+
+        while (!(line = stream.readLine(0)).isNull()){
+            QStringList list = line.split(' ');
+
+            if (list.size() < 2)
+                continue;
+
+            bool ok = false;
+            unsigned size = 0;
+
+            size = list.at(0).toUInt(&ok);
+
+            if (!ok)
+                continue;
+
+            QString virt_path = line.remove(0, list.at(0).length() + 1);
+
+            if (!virt_path.startsWith('/'))
+                virt_path.prepend('/');
+
+            if (!virt_path.isEmpty() && size > 0 && !restrict_map.contains(virt_path))
+                restrict_map.insert(virt_path, size);
+        }
+
+        restrictionsLoaded = true;
+
+        f.close();
+    }
+}
+
+void FileBrowserModel::updateRestriction(QModelIndex &i, unsigned size){
+    FileBrowserItem *item = static_cast<FileBrowserItem*>(i.internalPointer());
+    QString path = "";//virtual path
+    QStringList dirs = createRemotePath(item).split("\\");
+
+    if (dirs.size() >= 2){
+        dirs.removeFirst();
+
+        path = "/" + dirs.join("/");
+    }
+    else
+        path = "/";
+
+    if (size == 0 && restrict_map.contains(path))
+        restrict_map.remove(path);
+    else {
+        restrict_map[path] = size;
     }
 }
 

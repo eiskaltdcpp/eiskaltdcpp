@@ -330,6 +330,14 @@ Keys:
         <source>Checksum mismatch</source>
         <translation>Discordances de somme de contrôle (checksum)</translation>
     </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished">Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueue::Menu</name>
@@ -612,6 +620,14 @@ Keys:
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
+    <message>
+        <source>File marked as a duplicate of another file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 [%2 Gb]</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -690,11 +706,15 @@ Keys:
     </message>
     <message>
         <source>/s</source>
-        <translation>/s</translation>
+        <translation type="obsolete">/s</translation>
     </message>
     <message>
         <source>Check sum</source>
         <translation>Somme de contrôle</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1200,6 +1220,14 @@ Utilisateur favoris</translation>
         <source>Disable emoticons</source>
         <translation type="obsolete">Désactiver les smileys</translation>
     </message>
+    <message>
+        <source>[User went offline]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 (%2)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubFrame::Menu</name>
@@ -1449,7 +1477,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Esc</source>
-        <translation>Échap</translation>
+        <translation type="obsolete">Échap</translation>
     </message>
     <message>
         <source>Show/hide find frame</source>
@@ -2086,6 +2114,38 @@ Please check your connection settings</source>
         <source>Show close buttons</source>
         <translation>Montrer les boutons de fermeture</translation>
     </message>
+    <message>
+        <source>Speed limit On/Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open magnet link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter magnet link:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Alt+H</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2241,7 +2301,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1)</source>
-        <translation>Liste de serveurs téléchargée... (%1)</translation>
+        <translation type="obsolete">Liste de serveurs téléchargée... (%1)</translation>
     </message>
     <message>
         <source>Hub list loaded from cache...</source>
@@ -2250,6 +2310,22 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <source>Public Hubs</source>
         <translation>Serveurs publics</translation>
+    </message>
+    <message>
+        <source>Cached hub list is corrupted or unsupported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloaded hub list is corrupted or unsupported (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hub list downloaded... (%1 %2) </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from Coral</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2327,6 +2403,51 @@ Clés:
     <message>
         <source>Script Manager</source>
         <translation>Gestionnaire de script</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDelegate</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListDialog</name>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchBlackListModel</name>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TTH</source>
+        <translation type="unfinished">TTH</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished">Clé</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set text...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2553,6 +2674,18 @@ Clés:
     </message>
     <message>
         <source>CD Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished">Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2861,6 +2994,10 @@ Clés:
         <source>Slovak</source>
         <translation>Slovaque</translation>
     </message>
+    <message>
+        <source>Czech</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
@@ -2899,7 +3036,7 @@ Clés:
     </message>
     <message>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -2919,19 +3056,19 @@ Clés:
     </message>
     <message>
         <source>Enter virtual path name</source>
-        <translation>Entrer nom de chemin virtuel</translation>
+        <translation type="obsolete">Entrer nom de chemin virtuel</translation>
     </message>
     <message>
         <source>Virtual path</source>
-        <translation>Chemin virtuel</translation>
+        <translation type="obsolete">Chemin virtuel</translation>
     </message>
     <message>
         <source>Enter restriction (in GiB)</source>
-        <translation>Entrer restriction (en GiB)</translation>
+        <translation type="obsolete">Entrer restriction (en GiB)</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Restriction</translation>
+        <translation type="obsolete">Restriction</translation>
     </message>
     <message>
         <source>Add item</source>
@@ -3035,6 +3172,34 @@ Clés:
     <message>
         <source>Download to...</source>
         <translation>Télécharger vers...</translation>
+    </message>
+    <message>
+        <source>Restrictions</source>
+        <translation type="unfinished">Restrictions</translation>
+    </message>
+    <message>
+        <source>Add restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter restriction size (in GB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magnet</source>
+        <translation type="unfinished">Magnet</translation>
+    </message>
+    <message>
+        <source>Copy web-magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open directory</source>
+        <translation type="unfinished">Ouvrir le dossier</translation>
     </message>
 </context>
 <context>
@@ -3501,6 +3666,10 @@ Voulez-vous l&apos;arrêter?</translation>
         <source>Finished</source>
         <translation>Terminé</translation>
     </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UCModel</name>
@@ -3921,6 +4090,22 @@ p, li { white-space: pre-wrap; }
         <source>EiskaltDC++ V:2.1</source>
         <translation type="obsolete">EiskaltDC++ V:2.1</translation>
     </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Passive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -3946,11 +4131,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Move up</source>
-        <translation>Déplacer vers le haut</translation>
+        <translation type="obsolete">Déplacer vers le haut</translation>
     </message>
     <message>
         <source>Move down</source>
-        <translation>Déplacer vers le bas</translation>
+        <translation type="obsolete">Déplacer vers le bas</translation>
     </message>
 </context>
 <context>
@@ -4221,6 +4406,38 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
         <source>User share</source>
         <translation>Partage utilisateur</translation>
     </message>
+    <message>
+        <source>Find:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;</source>
+        <translation type="unfinished">&lt;</translation>
+    </message>
+    <message>
+        <source>&gt;</source>
+        <translation type="unfinished">&gt;</translation>
+    </message>
+    <message>
+        <source>A</source>
+        <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <source>Previous (Shift+F3)</source>
+        <translation type="unfinished">Précédent (Shift+F3)</translation>
+    </message>
+    <message>
+        <source>Next (F3)</source>
+        <translation type="unfinished">Next (F3)</translation>
+    </message>
+    <message>
+        <source>Hide find frame (Ctrl+F)</source>
+        <translation type="unfinished">Cacher fenêtre de recherche (Ctrl+F)</translation>
+    </message>
+    <message>
+        <source>Highlight all</source>
+        <translation type="unfinished">Tout surligner</translation>
+    </message>
 </context>
 <context>
     <name>UIPublicHubs</name>
@@ -4276,6 +4493,21 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <message>
         <source>Dialog</source>
         <translation>Dialogue</translation>
+    </message>
+</context>
+<context>
+    <name>UISearchBlacklistDialog</name>
+    <message>
+        <source>Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Annuler</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished">OK</translation>
     </message>
 </context>
 <context>
@@ -5165,6 +5397,22 @@ them is usually available only to operators</source>
         <source>Try to use system icons (need restart)</source>
         <translation>Utiliser les icônes du système</translation>
     </message>
+    <message>
+        <source>Redirect new personal messages to the main chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parse BBCode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use separator for unread messages in the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change background color in the chat</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -5402,19 +5650,19 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
     </message>
     <message>
         <source>Restrictions</source>
-        <translation>Restrictions</translation>
+        <translation type="obsolete">Restrictions</translation>
     </message>
     <message>
         <source>Share</source>
-        <translation>Partage</translation>
+        <translation type="obsolete">Partage</translation>
     </message>
     <message>
         <source>Restriction</source>
-        <translation>Restriction</translation>
+        <translation type="obsolete">Restriction</translation>
     </message>
     <message>
         <source>All changes take effect only after restart</source>
-        <translation>Tous les changements prennent effet après un redémarrage</translation>
+        <translation type="obsolete">Tous les changements prennent effet après un redémarrage</translation>
     </message>
     <message>
         <source>Follow symlinks</source>
@@ -5543,7 +5791,7 @@ you can specify following:
 /Video	10
 It means that any user who have less then 10GiB shared
 will be unable to download any files from this folder.</source>
-        <translation>Détermine la limite de téléchargement en GiB pour tout dossier &quot;virtuel&quot; de votre partage.
+        <translation type="obsolete">Détermine la limite de téléchargement en GiB pour tout dossier &quot;virtuel&quot; de votre partage.
 Si vous spécifié par exemple une limite de 10 pour un dossier nommé &quot;Vidéo&quot;, les 
 utilisateurs ayant un partage total inférieur à 10GiB ne pourront pas télécharger depuis ce dossier.</translation>
     </message>
@@ -5858,7 +6106,7 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>Enter parameter value</source>
-        <translation>Entrer valeur</translation>
+        <translation type="obsolete">Entrer valeur</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -5911,6 +6159,18 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>%1 PB</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>Command parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Annuler</translation>
     </message>
 </context>
 <context>

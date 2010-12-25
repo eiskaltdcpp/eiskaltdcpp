@@ -44,6 +44,10 @@ public:
     typedef X<12> RecheckNoTree;
     typedef X<13> RecheckAlreadyFinished;
     typedef X<14> RecheckDone;
+    typedef X<15> FileMoved;
+
+    typedef X<16> CRCFailed;
+    typedef X<17> CRCChecked;
 
     virtual void on(Added, QueueItem*) throw() { }
     virtual void on(Finished, QueueItem*, const string&, int64_t) throw() { }
@@ -52,15 +56,19 @@ public:
     virtual void on(SourcesUpdated, QueueItem*) throw() { }
     virtual void on(StatusUpdated, QueueItem*) throw() { }
     virtual void on(SearchStringUpdated, QueueItem*) throw() { }
-        virtual void on(PartialList, const HintedUser&, const string&) throw() { }
+    virtual void on(PartialList, const HintedUser&, const string&) throw() { }
 
-        virtual void on(RecheckStarted, const string&) throw() { }
-        virtual void on(RecheckNoFile, const string&) throw() { }
-        virtual void on(RecheckFileTooSmall, const string&) throw() { }
-        virtual void on(RecheckDownloadsRunning, const string&) throw() { }
-        virtual void on(RecheckNoTree, const string&) throw() { }
-        virtual void on(RecheckAlreadyFinished, const string&) throw() { }
-        virtual void on(RecheckDone, const string&) throw() { }
+    virtual void on(RecheckStarted, const string&) throw() { }
+    virtual void on(RecheckNoFile, const string&) throw() { }
+    virtual void on(RecheckFileTooSmall, const string&) throw() { }
+    virtual void on(RecheckDownloadsRunning, const string&) throw() { }
+    virtual void on(RecheckNoTree, const string&) throw() { }
+    virtual void on(RecheckAlreadyFinished, const string&) throw() { }
+    virtual void on(RecheckDone, const string&) throw() { }
+    virtual void on(FileMoved, const string&) throw() { }
+
+    virtual void on(CRCFailed, Download*, const string&) throw() { }
+    virtual void on(CRCChecked, Download*) throw() { }
 };
 
 } // namespace dcpp

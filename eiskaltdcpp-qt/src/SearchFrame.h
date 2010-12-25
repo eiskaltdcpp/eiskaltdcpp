@@ -80,6 +80,7 @@ class SearchFrame : public QWidget,
             DownloadWholeDirTo,
             SearchTTH,
             Magnet,
+            MagnetWeb,
             Browse,
             MatchQueue,
             SendPM,
@@ -88,6 +89,7 @@ class SearchFrame : public QWidget,
             RemoveFromQueue,
             Remove,
             UserCommands,
+            Blacklist,
             None
         };
 
@@ -107,6 +109,7 @@ class SearchFrame : public QWidget,
         QString downToPath;
 
         QMenu *menu;
+        QMenu *magnet_menu;
         QMenu *down_to;
         QMenu *down_wh_to;
     };
@@ -129,18 +132,16 @@ public:
     ArenaWidget::Role role() const { return ArenaWidget::Search; }
 
     void requestFilter() { slotFilter(); }
-
-    bool isFindFrameActivated();
+    void requestFocus() { lineEdit_SEARCHSTR->setFocus(); }
 
 public Q_SLOTS:
     void searchAlternates(const QString &);
     void searchFile(const QString &);
     void fastSearch(const QString &, bool);
 
-    void slotFilter();
-
 protected:
     virtual void closeEvent(QCloseEvent*);
+    virtual bool eventFilter(QObject *, QEvent *);
 
 Q_SIGNALS:
     /** SearchManager signals */
@@ -152,6 +153,7 @@ Q_SIGNALS:
     void coreClientDisconnected(const QString &info);
 
 private Q_SLOTS:
+    void slotFilter();
     void timerTick();
     void slotClear();
     void slotTimer();
@@ -161,6 +163,8 @@ private Q_SLOTS:
     void slotToggleSidePanel();
     void slotStartSearch();
     void slotChangeProxyColumn(int);
+
+    void slotSettingsChanged(const QString &key, const QString &value);
 
     void onHubAdded(const QString &info);
     void onHubChanged(const QString &info);

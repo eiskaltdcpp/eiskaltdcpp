@@ -83,7 +83,8 @@ enum Type{
     void reloadSounds();
     void resetTrayIcon(){
         if (tray)
-            tray->setIcon(WICON(WulforUtil::eiICON_APPL));
+            tray->setIcon(WICON(WulforUtil::eiICON_APPL)
+                        .scaled(22, 22, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     }
 
 public Q_SLOTS:

@@ -26,7 +26,7 @@ using namespace std;
 #include "HubManager.h"
 #include "Notification.h"
 #include "SingleInstanceRunner.h"
-#include "Version.h"
+#include "VersionGlobal.h"
 #include "IPFilter.h"
 #include "EmoticonFactory.h"
 #include "uploadsframe.h"
@@ -120,6 +120,8 @@ int main(int argc, char *argv[])
 
     if (WulforUtil::getInstance()->loadIcons())
         std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
+
+    app.setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 
     MainWindow::newInstance();
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
@@ -332,4 +334,3 @@ void migrateConfig(){
     }
 }
 #endif
-

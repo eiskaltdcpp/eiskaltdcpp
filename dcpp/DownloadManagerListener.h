@@ -45,7 +45,7 @@ public:
 	typedef X<1> Failed;
 	typedef X<2> Starting;
 	typedef X<3> Tick;
-	typedef X<3> Requesting;
+	typedef X<4> Requesting;
 
 	/**
 	 * This is the first message sent before a download starts.

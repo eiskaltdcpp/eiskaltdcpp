@@ -118,6 +118,8 @@ public:
         eiZOOM_IN,
         eiZOOM_OUT,
         eiQT_LOGO,
+        eiSPEED_LIMIT_ON,
+        eiSPEED_LIMIT_OFF,
 
         eiFILETYPE_APPLICATION,
         eiFILETYPE_ARCHIVE,

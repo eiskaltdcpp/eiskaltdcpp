@@ -218,6 +218,9 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
 
     menu->setTitle(WulforUtil::getInstance()->getNicks(cid));
 
+    if (menu->title().isEmpty())
+        menu->setTitle(tr("[User went offline]"));
+
     menu->addActions(ul_actions);
 
     QMenu *user_menu = NULL;
@@ -299,6 +302,9 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     title->setFont(f);
     title->setEnabled(false);
 
+    if (title->text().isEmpty())
+        title->setText(tr("[User went offline]"));
+
     menu->addAction(title);
 
     if(pmw){
@@ -315,7 +321,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     if (!cid.isEmpty() && !pmw){
         user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
                         UserCommand::CONTEXT_USER);
-        //menu->addMenu(user_menu);
+        menu->addMenu(user_menu);
     }
 
     QMenu *antispam_menu = NULL;
@@ -372,7 +378,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 }
 
 QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
-    if (input.isEmpty() || input.isNull())
+    if (input.isEmpty())
         return input;
 
     static QList<QChar> unwise_chars = QList<QChar>() << '{' << '}' << '|' << '\\' << '^' << '[' << ']' << '`';
@@ -383,6 +389,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
     if (use_emot && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         emoticons = EmoticonFactory::getInstance()->getEmoticons();
+
+    const QString &emo_theme = WSGET(WS_APP_EMOTICON_THEME);
+    bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
 
     while (!input.isEmpty()){
         for (int j = 0; j < link_types.size(); j++){
@@ -446,118 +455,142 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
         EmoticonMap::iterator it = emoticons.begin();
         EmoticonMap::iterator end_it = emoticons.end();
-        const QString &emo_theme = WSGET(WS_APP_EMOTICON_THEME);
-        bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
-        bool emoticon_found = false;
+        bool smile_found = false;
 
-        for (; it != end_it; ++it){
+        for (; it != end_it; ++it){//Let's try to parse smiles
             const QString &emo_text = it.key();
             EmoticonObject *obj = it.value();
 
             if (input.startsWith(emo_text) && obj){
                 if (force_emot || input == emo_text){
+                     QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
+                                  .arg(emo_text)
+                                  .arg(emo_theme)
+                                  .arg(obj->id);
+
+                    output += img;
+                    input.remove(0, emo_text.length());
+
+                    smile_found = true;
+
+                    break;
+                }
+                else if (output.endsWith(' ') || output.endsWith('\t') || output.isEmpty()){
+                    int emo_text_len = emo_text.length();
+                    int input_length = input.length();
+
+                    bool nextCharisSpace = false;
+
+                    if (emo_text_len == input_length)
+                        nextCharisSpace = true;
+                    else if (input_length > emo_text_len){
+                        char c = input.at(emo_text_len).toAscii();
+
+                        nextCharisSpace = (c == ' ' || c == '\t');
+                    }
+
+                    if (!nextCharisSpace)
+                        continue;
+
                     QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
                                   .arg(emo_text)
                                   .arg(emo_theme)
                                   .arg(obj->id);
 
-                    output += img + " ";
-                    input.remove(0, emo_text.length());
+                    output += img;
+                    input.remove(0, emo_text_len);
 
-                    emoticon_found = true;
-
-                    break;
-                }
-                else if (input.length() > emo_text.length()){
-                    QChar nextChar =input.at(emo_text.length());
-
-                    if (!(nextChar.isSpace() || nextChar == '\n'))
-                        break;
-
-                    QString img = QString("<img alt=\"%1\" title=\"%1\" align=\"center\" source=\"%2/emoticon%3\" />")
-                                  .arg(emo_text)
-                                  .arg(emo_theme)
-                                  .arg(obj->id);
-
-                    output += img + " ";
-                    input.remove(0, emo_text.length());
-
-                    emoticon_found = true;
+                    smile_found = true;
 
                     break;
                 }
             }
         }
 
-        if (emoticon_found)
+        if(smile_found)
             continue;
 
-        if (input.startsWith("[b]") && input.indexOf("[/b]") > 0){
-            input.remove(0, 3);
-            int c_len = input.indexOf("[/b]");
+        if (WBGET("hubframe/use-bb-code", false)){
+            if (input.startsWith("[b]") && input.indexOf("[/b]") > 0){
+                input.remove(0, 3);
+                int c_len = input.indexOf("[/b]");
 
-            QString chunk = Qt::escape(input.left(c_len));
-
-            output += "<b>" + chunk + "</b>";
-            input.remove(0, c_len+4);
-
-            continue;
-        }
-        else if (input.startsWith("[u]") && input.indexOf("[/u]") > 0){
-            input.remove(0, 3);
-            int c_len = input.indexOf("[/u]");
-
-            QString chunk = Qt::escape(input.left(c_len));
-
-            output += "<u>" + chunk + "</u>";
-            input.remove(0, c_len+4);
-
-            continue;
-        }
-        else if (input.startsWith("[i]") && input.indexOf("[/i]") > 0){
-            input.remove(0, 3);
-            int c_len = input.indexOf("[/i]");
-
-            QString chunk = Qt::escape(input.left(c_len));
-
-            output += "<i>" + chunk + "</i>";
-            input.remove(0, c_len+4);
-
-            continue;
-        }
-        else if (input.startsWith("_") && input.length() >= 3){
-            int c_len = input.indexOf("_", 1);
-
-            if (c_len > 1){
                 QString chunk = Qt::escape(input.left(c_len));
-                chunk.remove(0, 1);
 
-                QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
+                output += "<b>" + chunk + "</b>";
+                input.remove(0, c_len+4);
 
-                if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
-                    output += "<u>" + chunk + "</u>";
+                continue;
+            }
+            else if (input.startsWith("[u]") && input.indexOf("[/u]") > 0){
+                input.remove(0, 3);
+                int c_len = input.indexOf("[/u]");
 
-                    input.remove(0, c_len + 1);
+                QString chunk = Qt::escape(input.left(c_len));
+
+                output += "<u>" + chunk + "</u>";
+                input.remove(0, c_len+4);
+
+                continue;
+            }
+            else if (input.startsWith("[i]") && input.indexOf("[/i]") > 0){
+                input.remove(0, 3);
+                int c_len = input.indexOf("[/i]");
+
+                QString chunk = Qt::escape(input.left(c_len));
+
+                output += "<i>" + chunk + "</i>";
+                input.remove(0, c_len+4);
+
+                continue;
+            }
+            else if (input.startsWith("_") && input.length() >= 3){
+                int c_len = input.indexOf("_", 1);
+
+                if (c_len > 1){
+                    QString chunk = Qt::escape(input.left(c_len));
+                    chunk.remove(0, 1);
+
+                    QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
+
+                    if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
+                        output += "<u>" + chunk + "</u>";
+
+                        input.remove(0, c_len + 1);
+                    }
+                }
+            }
+            else if (input.startsWith("*") && input.length() >= 3){
+                int c_len = input.indexOf("*", 1);
+
+                if (c_len > 1){
+                    QString chunk = Qt::escape(input.left(c_len));
+                    chunk.remove(0, 1);
+
+                    QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
+
+                    if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
+                        output += "<b>" + chunk + "</b>";
+
+                        input.remove(0, c_len + 1);
+                    }
+                }
+            }
+            else if (input.startsWith("[color=") && input.indexOf("[/color]") > 8){
+                QRegExp exp("\\[color=(.*)\\]((.*))\\[/color\\].*");
+                QString chunk = input.left(input.indexOf("[/color]")+8);
+
+                if (exp.exactMatch(chunk)){
+                    if (exp.captureCount() == 3){
+                        output += "<font color=\"" + exp.cap(1) + "\">" + exp.cap(2) + "</font>";
+
+                        input.remove(0, chunk.length());
+                    }
                 }
             }
         }
-        else if (input.startsWith("*") && input.length() >= 3){
-            int c_len = input.indexOf("*", 1);
 
-            if (c_len > 1){
-                QString chunk = Qt::escape(input.left(c_len));
-                chunk.remove(0, 1);
-
-                QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
-
-                if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
-                    output += "<b>" + chunk + "</b>";
-
-                    input.remove(0, c_len + 1);
-                }
-            }
-        }
-        else if (input.startsWith("<")){
+        if (input.startsWith("<")){
             output += "&lt;";
             input.remove(0, 1);
 
@@ -574,7 +607,52 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
             output += "&amp;";
 
             continue;
-        }      
+        }
+        else if (input.startsWith("[magnet=\"") && input.indexOf("[/magnet]") > 9){//9 - length of [magnet="
+            QString chunk = input.left(input.indexOf("[/magnet]"));
+
+            do{
+                if (chunk.isEmpty())
+                    break;
+
+                chunk.remove(0, 9);
+
+                if (chunk.isEmpty() || chunk.indexOf("\"") <= 0)
+                    break;
+
+                QString magnet = chunk.left(chunk.indexOf("\""));
+
+                magnet = magnet.trimmed();
+
+                if (magnet.isEmpty())
+                    break;
+
+                QString name, tth;
+                int64_t size;
+
+                WulforUtil::splitMagnet(magnet, size, tth, name);
+
+                chunk.remove(0, magnet.length());
+
+                if (chunk.indexOf("]") < 1)
+                    break;
+
+                chunk.remove(0, chunk.indexOf("]") + 1);
+
+                if (chunk.isEmpty())
+                    break;
+
+                QString toshow = tr("%1 (%2)").arg(chunk).arg(WulforUtil::formatBytes(size));
+                QString html_link = "<a href=\"" + magnet + "\" title=\"" + toshow + "\" style=\"cursor: hand\">" + toshow + "</a>";
+
+                output += html_link;
+                input.remove(0, input.indexOf("[/magnet]")+1+9);
+            }
+            while (0);
+        }
+
+        if (input.isEmpty())
+            break;
 
         output += input.at(0);
 
@@ -706,6 +784,14 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             sendChat(plainTextEdit_INPUT->toPlainText(), false, false);
 
             plainTextEdit_INPUT->setPlainText("");
+
+            return true;
+        }
+
+        if (qobject_cast<LineEdit*>(obj) == lineEdit_FIND && k_e->key() == Qt::Key_Escape){
+            lineEdit_FIND->clear();
+
+            requestFilter();
 
             return true;
         }
@@ -936,6 +1022,8 @@ void HubFrame::closeEvent(QCloseEvent *e){
 void HubFrame::showEvent(QShowEvent *e){
     e->accept();
 
+    drawLine = false;
+
     HubManager::getInstance()->setActiveHub(this);
 
     hasMessages = false;
@@ -945,6 +1033,8 @@ void HubFrame::showEvent(QShowEvent *e){
 
 void HubFrame::hideEvent(QHideEvent *e){
     e->accept();
+
+    drawLine = true;
 
     if (!isVisible())
         HubManager::getInstance()->setActiveHub(NULL);
@@ -1030,7 +1120,7 @@ void HubFrame::init(){
     connect(comboBox_COLUMNS, SIGNAL(activated(int)), this, SLOT(slotFilterTextChanged()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
     connect(toolButton_SMILE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSmileContextMenu()));
-    connect(pushButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
+    connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString, QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     connect(WulforSettings::getInstance(), SIGNAL(intValueChanged(QString,int)), this, SLOT(slotBoolSettingsChanged(QString,int)));
 
@@ -1676,6 +1766,8 @@ void HubFrame::addOutput(QString msg){
 }
 
 void HubFrame::addPM(QString cid, QString output, bool keepfocus){
+    bool redirectToMainChat = WBGET("hubframe/redirect-pm-to-main-chat", true);
+
     if (!pm.contains(cid)){
         PMWindow *p = new PMWindow(cid, _q(client->getHubUrl().c_str()));
         p->textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -1688,16 +1780,20 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         MainWindow::getInstance()->addArenaWidget(p);
         MainWindow::getInstance()->addArenaWidgetOnToolbar(p, WBGET(WB_CHAT_KEEPFOCUS));
 
-        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS))
-            MainWindow::getInstance()->mapWidgetOnArena(p);
-
         p->setCompleter(completer, model);
-
         p->addOutput(output);
-
         p->setAttribute(Qt::WA_DeleteOnClose);
 
+        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
+            MainWindow::getInstance()->mapWidgetOnArena(p);
+
+            p->requestFocus();
+        }
+
         pm.insert(cid, p);
+
+        if (!p->isVisible() && redirectToMainChat)
+            addOutput("<b>PM: </b>" + output);
     }
     else{
         PMMap::iterator it = pm.find(cid);
@@ -1705,10 +1801,16 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         if (output.indexOf(_q(client->getMyNick())) >= 0)
             it.value()->setHasHighlightMessages(true);
 
-        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS))
+        it.value()->addOutput(output);
+
+        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
             MainWindow::getInstance()->mapWidgetOnArena(it.value());
 
-        it.value()->addOutput(output);
+            it.value()->requestFocus();
+        }
+
+        if (! it.value()->isVisible() && redirectToMainChat)
+            addOutput("<b>PM: </b>" + output);
     }
 }
 
@@ -2004,8 +2106,6 @@ void HubFrame::newMsg(const VarMap &map){
                .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
     output  += message;
 
-    addOutput(output);
-
     if (!isVisible()){
         if (msg_color == WS_CHAT_SAY_NICK)
             hasHighlightMessages = true;
@@ -2014,6 +2114,35 @@ void HubFrame::newMsg(const VarMap &map){
 
         MainWindow::getInstance()->redrawToolPanel();
     }
+
+    if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
+        QString hr = "<hr />";
+
+        QString pTagEmpty = "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p>";
+
+        int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
+
+        QString chatText = textEdit_CHAT->toHtml();
+
+        chatText.replace(pTagEmpty + "\n" + hr + "\n", "");
+
+        textEdit_CHAT->setHtml(chatText);
+        // После этого мы наблюдаем эпический баг с добавлением "text-decoration: underline; "
+        // в css-стить каждого тега с ником пользователя.
+        // Необходимо переписать этот код таким образом, чтобы содержимое textEdit_CHAT
+        // не перезаписывалось полностью, а только удолялась горизонтальная черта.
+
+        if (scrollbarValue > textEdit_CHAT->verticalScrollBar()->maximum())
+            scrollbarValue = textEdit_CHAT->verticalScrollBar()->maximum();
+
+        textEdit_CHAT->verticalScrollBar()->setValue(scrollbarValue);
+
+        output.prepend(hr);
+
+        drawLine = false;
+    }
+
+    addOutput(output);
 }
 
 void HubFrame::newPm(const VarMap &map){
@@ -2065,10 +2194,6 @@ void HubFrame::createPMWindow(const dcpp::CID &cid){
 
 bool HubFrame::hasCID(const dcpp::CID &cid, const QString &nick){
     return (model->CIDforNick(nick, _q(client->getHubUrl())) == _q(cid.toBase32()));
-}
-
-bool HubFrame::isFindFrameActivated(){
-    return lineEdit_FIND->hasFocus();
 }
 
 void HubFrame::clearUsers(){
@@ -2309,8 +2434,10 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 if (item)
                     addPM(item->cid, "", false);
 
-                if (pm.contains(cid))
+                if (pm.contains(item->cid)){
                     MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);
+                    pm[cid]->requestFocus();
+                }
             }
 
             break;
@@ -2509,7 +2636,7 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     int row_counter = 0;
 
-    while (!pressedParagraph.contains(QRegExp("(<(\\w+)>)")) && row_counter < 600){//try to find nick in above rows (max 600 rows)
+    while (!pressedParagraph.contains(QRegExp("(<(.+)>)")) && row_counter < 600){//try to find nick in above rows (max 600 rows)
         cursor.movePosition(QTextCursor::PreviousBlock);
         pressedParagraph = cursor.block().text();
         row_counter++;
@@ -2873,7 +3000,7 @@ void HubFrame::slotFindTextEdited(const QString & text){
 }
 
 void HubFrame::slotFindAll(){
-    if (!pushButton_ALL->isChecked()){
+    if (!toolButton_ALL->isChecked()){
         textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
 
         return;
@@ -3134,8 +3261,6 @@ void HubFrame::slotHubMenu(QAction *res){
 }
 
 void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
-    Q_UNUSED(value);
-
     if (key == WS_CHAT_FONT || key == WS_CHAT_ULIST_FONT)
         updateStyles();
     else if (key == WS_APP_EMOTICON_THEME){
@@ -3166,6 +3291,9 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
 
             textEdit_CHAT->setPalette(p);
         }
+    }
+    else if (key == WS_TRANSLATION_FILE){
+        retranslateUi(this);
     }
 }
 
@@ -3322,7 +3450,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         const OnlineUser *user = (message.replyTo->getUser() == ClientManager::getInstance()->getMe())?
                                  message.to : message.replyTo;
 
-        bool isBot = user->getIdentity().isBot();
+        bool isBot = user->getIdentity().isBot() || user->getUser()->isSet(User::BOT);
         bool isHub = user->getIdentity().isHub();
         bool isOp  = user->getIdentity().isOp();
 
@@ -3386,6 +3514,9 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         else
             emit corePrivateMsg(map);
 
+        if (!(isBot || isHub) && (message.from->getUser() != ClientManager::getInstance()->getMe()) && Util::getAway() && !hasPMWindow)
+            ClientManager::getInstance()->privateMessage(HintedUser(user->getUser(), client->getHubUrl()), Util::getAwayMessage(), false);
+
         if (BOOLSETTING(LOG_PRIVATE_CHAT)){
             StringMap params;
             params["message"] = _tq(msg);
@@ -3404,6 +3535,9 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         const OnlineUser *user = message.from;
 
         if (chatDisabled)
+            return;
+
+        if (AntiSpam::getInstance() && AntiSpam::getInstance()->isInBlack(_q(user->getIdentity().getNick())))
             return;
 
         map["NICK"] = _q(user->getIdentity().getNick());
@@ -3435,6 +3569,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             params["message"] = _tq(msg);
             client->getHubIdentity().getParams(params, "hub", false);
             params["hubURL"] = client->getHubUrl();
+            params["userNI"] = user->getIdentity().getNick();
             params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp();
             client->getMyIdentity().getParams(params, "my", true);
             LOG(LogManager::CHAT, params);
