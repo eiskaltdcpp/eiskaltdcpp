@@ -576,6 +576,18 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                     }
                 }
             }
+            else if (input.startsWith("[color=") && input.indexOf("[/color]") > 8){
+                QRegExp exp("\\[color=(.*)\\]((.*))\\[/color\\].*");
+                QString chunk = input.left(input.indexOf("[/color]")+8);
+
+                if (exp.exactMatch(chunk)){
+                    if (exp.captureCount() == 3){
+                        output += "<font color=\"" + exp.cap(1) + "\">" + exp.cap(2) + "</font>";
+
+                        input.remove(0, chunk.length());
+                    }
+                }
+            }
         }
 
         if (input.startsWith("<")){
@@ -1772,15 +1784,16 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         p->addOutput(output);
         p->setAttribute(Qt::WA_DeleteOnClose);
 
-        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS))
+        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
             MainWindow::getInstance()->mapWidgetOnArena(p);
+
+            p->requestFocus();
+        }
 
         pm.insert(cid, p);
 
         if (!p->isVisible() && redirectToMainChat)
             addOutput("<b>PM: </b>" + output);
-
-        p->requestFocus();
     }
     else{
         PMMap::iterator it = pm.find(cid);
@@ -1788,15 +1801,16 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         if (output.indexOf(_q(client->getMyNick())) >= 0)
             it.value()->setHasHighlightMessages(true);
 
-        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS))
+        it.value()->addOutput(output);
+
+        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
             MainWindow::getInstance()->mapWidgetOnArena(it.value());
 
-        it.value()->addOutput(output);
+            it.value()->requestFocus();
+        }
 
         if (! it.value()->isVisible() && redirectToMainChat)
             addOutput("<b>PM: </b>" + output);
-
-        it.value()->requestFocus();
     }
 }
 
