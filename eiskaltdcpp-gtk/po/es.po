@@ -3901,4 +3901,3 @@ msgstr "Abrir imagen"
 #: ../glade/hub.glade:495
 msgid "Remove image"
 msgstr "Eliminar imagen"
-

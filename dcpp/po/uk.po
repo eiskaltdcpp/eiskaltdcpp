@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-16 00:21+0200\n"
+"POT-Creation-Date: 2010-12-25 15:24+0200\n"
 "PO-Revision-Date: 2008-05-04 16:18+0000\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,15 +151,15 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Відключений користувач залишає хаб: %1%"
 
-#: ../SettingsManager.cpp:501
+#: ../SettingsManager.cpp:502
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
+#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:559
+#: ../SettingsManager.cpp:560
 msgid "No such search type"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgstr ""
 "повідомте власнику хаба, щоб він виправив це"
 
 #: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:261 ../SearchManager.cpp:415 ../SearchManager.cpp:417
+#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Поза мережею"
 
@@ -212,7 +212,7 @@ msgstr "%1% був відкинутий %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% був відкинутий: %2%"
 
-#: ../AdcHub.cpp:672
+#: ../AdcHub.cpp:671
 msgid "Not listening for connections - please restart %1%"
 msgstr "З'єднання не прослуховуються - будь ласка, перезапустіть %1%"
 
@@ -525,11 +525,11 @@ msgstr "%1%: Файл недоступний"
 msgid "All download slots taken"
 msgstr "Усі слоти скачування зайняті"
 
-#: ../ConnectionManager.cpp:259
+#: ../ConnectionManager.cpp:260
 msgid "Connectivity restored"
 msgstr "З'єднання відновлено"
 
-#: ../ConnectionManager.cpp:266
+#: ../ConnectionManager.cpp:267
 msgid "Connectivity error: %1%"
 msgstr "Помилка SSL: %1% (%2%, %3%)"
 
@@ -577,7 +577,7 @@ msgstr ""
 msgid "Search enabled again"
 msgstr "Пошук знову увімкнено"
 
-#: ../SearchManager.cpp:159
+#: ../SearchManager.cpp:160
 msgid "Search disabled: %1%"
 msgstr "Пошук відключений: %1%"
 

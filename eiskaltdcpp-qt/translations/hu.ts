@@ -1413,7 +1413,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Esc</source>
-        <translation>Esc</translation>
+        <translation type="obsolete">Esc</translation>
     </message>
     <message>
         <source>Show/hide find frame</source>
@@ -2168,6 +2168,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>Enter magnet link:</source>
         <translation>Magnetlink megadása:</translation>
+    </message>
+    <message>
+        <source>Ctrl+Alt+H</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3574,6 +3578,10 @@ Biztosan le akarod állítani?
     <message>
         <source>Finished</source>
         <translation>Befejezve</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

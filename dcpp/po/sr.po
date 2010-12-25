@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-16 00:21+0200\n"
+"POT-Creation-Date: 2010-12-25 15:24+0200\n"
 "PO-Revision-Date: 2009-02-06 21:06+0000\n"
 "Last-Translator: oracle <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -144,15 +144,15 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Isključen korisnik koji je napustio hub: %1%"
 
-#: ../SettingsManager.cpp:501
+#: ../SettingsManager.cpp:502
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
+#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:559
+#: ../SettingsManager.cpp:560
 msgid "No such search type"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgid ""
 msgstr ""
 
 #: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:261 ../SearchManager.cpp:415 ../SearchManager.cpp:417
+#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Nije na mreži"
 
@@ -203,7 +203,7 @@ msgstr "%1% je izbačen od %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% je izbačen: %2%"
 
-#: ../AdcHub.cpp:672
+#: ../AdcHub.cpp:671
 msgid "Not listening for connections - please restart %1%"
 msgstr "Ne osluškujem konekcije - molim restartujte %1%"
 
@@ -522,11 +522,11 @@ msgstr "%1%: Datoteka nije dostupna"
 msgid "All download slots taken"
 msgstr "Svi slotovi za preuzimanje su popunjeni"
 
-#: ../ConnectionManager.cpp:259
+#: ../ConnectionManager.cpp:260
 msgid "Connectivity restored"
 msgstr "Veza ponovo uspostavljena"
 
-#: ../ConnectionManager.cpp:266
+#: ../ConnectionManager.cpp:267
 msgid "Connectivity error: %1%"
 msgstr "Greška pri povezivanju: %1%"
 
@@ -574,7 +574,7 @@ msgstr ""
 msgid "Search enabled again"
 msgstr "Pretraga ponovo omogućena"
 
-#: ../SearchManager.cpp:159
+#: ../SearchManager.cpp:160
 msgid "Search disabled: %1%"
 msgstr "Pretraga onemogućena: %1%"
 
