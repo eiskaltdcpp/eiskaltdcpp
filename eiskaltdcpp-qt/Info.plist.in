@@ -35,7 +35,7 @@
     <key>LSEnvironment</key>
     <dict>
         <key>LANG</key>
-        <string>ru_RU.UTF-8</string>
+        <string>en_US.UTF-8</string>
     </dict>
 </dict>
 </plist>
