@@ -567,7 +567,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="73"/>
         <source>Favorite hubs</source>
-        <translation>Любими хъбове</translation>
+        <translation>Предпочитани хъбове</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="180"/>
@@ -625,7 +625,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/FavoriteUsers.h" line="48"/>
         <source>Favourite users</source>
-        <translation>Любими потребители</translation>
+        <translation>Предпочитани потребители</translation>
     </message>
 </context>
 <context>
@@ -885,12 +885,12 @@ EiskaltDC++ е мулти-платформена програма използв
         <location filename="../src/HubFrame.cpp" line="107"/>
         <location filename="../src/HubFrame.cpp" line="1145"/>
         <source>Add to Favorites</source>
-        <translation>Добавяне в любими</translation>
+        <translation>Добавяне в предпочитани</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="108"/>
         <source>Remove from Favorites</source>
-        <translation>Премахване от любими</translation>
+        <translation>Премахване от предпочитани</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="109"/>
@@ -995,7 +995,7 @@ EiskaltDC++ е мулти-платформена програма използв
         <location filename="../src/HubFrame.cpp" line="1860"/>
         <location filename="../src/HubFrame.cpp" line="1914"/>
         <source>Favorites</source>
-        <translation>Любими</translation>
+        <translation>Предпочитани</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1914"/>
@@ -1220,7 +1220,7 @@ EiskaltDC++ е мулти-платформена програма използв
         <location filename="../src/HubFrame.cpp" line="1613"/>
         <source>/fav - add this hub to favorites
 </source>
-        <translation>/fav - добавя текущия хъб в любими
+        <translation>/fav - добавя текущия хъб в предпочитани
 </translation>
     </message>
     <message>
@@ -1298,12 +1298,12 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/HubFrame.cpp" line="3343"/>
         <source>Connecting to %1</source>
-        <translation>Свързване със %1</translation>
+        <translation>Свързване с %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3349"/>
         <source>Connected to %1</source>
-        <translation>Свързан със %1</translation>
+        <translation>Свързан с %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3401"/>
@@ -1346,7 +1346,7 @@ EiskaltDC++ е мулти-платформена програма използв
         <source>
 Favorite user</source>
         <translation>
-Любим потребител</translation>
+Предпочитан потребител</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1848"/>
@@ -1367,22 +1367,22 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2012"/>
         <source> has been added to favorites.</source>
-        <translation>е добавен в любими.</translation>
+        <translation>е добавен в предпочитани.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2012"/>
         <source> has been removed from favorites.</source>
-        <translation>е премахнат от любими.</translation>
+        <translation>е премахнат от предпочитани.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2043"/>
         <source>Favorite hub added.</source>
-        <translation>Хъба е добавен в любими.</translation>
+        <translation>Хъба е добавен в предпочитани.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2046"/>
         <source>Favorite hub already exists.</source>
-        <translation>Хъба вече съществува в любими.</translation>
+        <translation>Хъба вече съществува в предпочитани.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2198"/>
@@ -1599,7 +1599,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1107"/>
         <location filename="../src/MainWindow.cpp" line="2156"/>
         <source>Hide window</source>
-        <translation>Скриване на прозореца в трея</translation>
+        <translation>Скриване прозореца в трея</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="556"/>
@@ -1616,13 +1616,13 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1144"/>
         <location filename="../src/MainWindow.cpp" line="2318"/>
         <source>Hide free space bar</source>
-        <translation>Скриване на индикатора за свободно място</translation>
+        <translation>Скриване индикатора за свободно място</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1147"/>
         <location filename="../src/MainWindow.cpp" line="2313"/>
         <source>Show free space bar</source>
-        <translation>Показване на индикатора за свободно място</translation>
+        <translation>Показване индикатора за свободно място</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="562"/>
@@ -1730,7 +1730,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1149"/>
         <location filename="../src/MainWindow.cpp" line="2332"/>
         <source>Hide last status message</source>
-        <translation>Скриване на последното статус съобщение</translation>
+        <translation>Скриване последното статус съобщение</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="877"/>
@@ -1740,7 +1740,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="518"/>
         <source>Ctrl+I</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="878"/>
@@ -1761,7 +1761,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1093"/>
         <location filename="../src/MainWindow.cpp" line="1978"/>
         <source>Open magnet link</source>
-        <translation type="unfinished"></translation>
+        <translation>Отваряне на магнитна връзка</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1114"/>
@@ -1857,7 +1857,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1152"/>
         <location filename="../src/MainWindow.cpp" line="2330"/>
         <source>Show last status message</source>
-        <translation>Показване на последното статус съобщение</translation>
+        <translation>Показване последното статус съобщение</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1888"/>
@@ -1867,7 +1867,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1978"/>
         <source>Enter magnet link:</source>
-        <translation type="unfinished"></translation>
+        <translation>Въвеждане на магнитна връзка:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2373"/>
@@ -1922,12 +1922,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1118"/>
         <source>Favourite hubs</source>
-        <translation>Любими хъбове</translation>
+        <translation>Предпочитани хъбове</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1122"/>
         <source>Favourite users</source>
-        <translation>Любими потребители</translation>
+        <translation>Предпочитани потребители</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1171"/>
@@ -1967,13 +1967,13 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1154"/>
         <location filename="../src/MainWindow.cpp" line="2352"/>
         <source>Hide users statistics</source>
-        <translation>Скриване на статистиката с потребители</translation>
+        <translation>Скриване статистиката с потребители</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1157"/>
         <location filename="../src/MainWindow.cpp" line="2350"/>
         <source>Show users statistics</source>
-        <translation>Показване на статистика с потребители</translation>
+        <translation>Показване статистиката с потребители</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="879"/>
@@ -2188,7 +2188,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2687"/>
         <source>Show close buttons</source>
-        <translation>Показване на бутони за затваряне</translation>
+        <translation>Показване бутони за затваряне</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2777"/>
@@ -2440,7 +2440,7 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MultiLineToolBar.cpp" line="70"/>
         <source>Show close buttons</source>
-        <translation>Показване на бутони за затваряне</translation>
+        <translation>Показване бутони за затваряне</translation>
     </message>
 </context>
 <context>
@@ -2598,7 +2598,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="152"/>
         <source>Add to favorites</source>
-        <translation>Добавяне в любими</translation>
+        <translation>Добавяне в предпочитани</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="153"/>
@@ -2618,12 +2618,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="282"/>
         <source>Hub list downloaded... (%1 %2) </source>
-        <translation type="unfinished"></translation>
+        <translation>Списъка с публични хъбове е свален... (%1 %2) </translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="282"/>
         <source>from Coral</source>
-        <translation type="unfinished"></translation>
+        <translation>от Coral</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1)</source>
@@ -2995,7 +2995,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="101"/>
         <source>Add to favorites</source>
-        <translation>Добавяне в любими</translation>
+        <translation>Добавяне в предпочитани</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="104"/>
@@ -3351,7 +3351,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="269"/>
         <source>Favorite User</source>
-        <translation>Любим потребител</translation>
+        <translation>Предпочитан потребител</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="273"/>
@@ -3519,7 +3519,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
         <source>Add to favorites</source>
-        <translation>Добавяне в любими</translation>
+        <translation>Добавяне в предпочитани</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="83"/>
@@ -3703,12 +3703,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SideBar.cpp" line="43"/>
         <source>Favorite Hubs</source>
-        <translation>Любими хъбове</translation>
+        <translation>Предпочитани хъбове</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="44"/>
         <source>Favorite Users</source>
-        <translation>Любими потребители</translation>
+        <translation>Предпочитани потребители</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="45"/>
@@ -3804,7 +3804,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/ToolBar.cpp" line="211"/>
         <source>Show close buttons</source>
-        <translation>Показване на бутони за затваряне</translation>
+        <translation>Показване бутони за затваряне</translation>
     </message>
 </context>
 <context>
@@ -3832,7 +3832,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="56"/>
         <source>Add to favorites</source>
-        <translation>Добавяне в любими</translation>
+        <translation>Добавяне в предпочитани</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="59"/>
@@ -4795,7 +4795,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="137"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation>Скриване на рамката за търсене (Ctrl+F)</translation>
+        <translation>Скриване рамката за търсене (Ctrl+F)</translation>
     </message>
     <message>
         <source>X</source>
@@ -4994,7 +4994,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="80"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation>Скриване на рамката за търсене (Ctrl+F)</translation>
+        <translation>Скриване рамката за търсене (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="90"/>
@@ -5128,7 +5128,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="80"/>
         <source>Firewall with port forwarding</source>
-        <translation>Рутер със задаване на портове</translation>
+        <translation>Защитна стена със задаване на портове</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="63"/>
@@ -5162,7 +5162,7 @@ However, if you have a software firewall installed, you may need further configu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="113"/>
         <source>Firewall with UPnP</source>
-        <translation>Рутер с UPnP</translation>
+        <translation>Защитна стена с UPnP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="138"/>
@@ -5949,7 +5949,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="256"/>
         <source>Show joins only for favorite users</source>
-        <translation>Показване влизане/излизане само за любимите потребители</translation>
+        <translation>Показване влизане/излизане само за предпочитаните потребители</translation>
     </message>
     <message>
         <source>Depending on hub configuration: information about 
@@ -5965,7 +5965,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="660"/>
         <source>Highlight favorite users in user list</source>
-        <translation>Осветяване на любимите потребители в списъка с потребители</translation>
+        <translation>Осветяване на предпочитаните потребители в списъка с потребители</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="315"/>
@@ -6055,12 +6055,12 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="291"/>
         <source>Redirect new personal messages to the main chat</source>
-        <translation>Пренасочване на новите лични съобщения в главния чат</translation>
+        <translation>Пренасочване на новите лични съобщения към главния чат</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="308"/>
         <source>Use separator for unread messages in the chat</source>
-        <translation>Използване на разделител за непрочетените съобщения в чата</translation>
+        <translation>Използване на разделителна линия за непрочетените съобщения в чата</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="453"/>
@@ -6135,7 +6135,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="685"/>
         <source>Parse BBCode</source>
-        <translation>Разбор на BBCode</translation>
+        <translation>Обработване на BBCode</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="706"/>
@@ -6212,17 +6212,17 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="270"/>
         <source>Ignore private messages from Hub</source>
-        <translation>Игнориране на лични съобщения от хъба</translation>
+        <translation>Игнориране на личните съобщения от хъба</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="277"/>
         <source>Ignore private messages from Bot</source>
-        <translation>Игнориране на лични съобщения от бота</translation>
+        <translation>Игнориране на личните съобщения от бота</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="284"/>
         <source>Redirect messages from Bot to the main chat</source>
-        <translation>Пренасочване на съобщенията от бота в главния чат</translation>
+        <translation>Пренасочване на съобщенията от бота към главния чат</translation>
     </message>
     <message>
         <source>Do not change focus on new private message</source>
@@ -6346,7 +6346,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="70"/>
         <source>Favorite user join/part</source>
-        <translation>Влизане/излизане на любим потребител</translation>
+        <translation>Влизане/излизане на предпочитан потребител</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="77"/>
@@ -6381,7 +6381,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="288"/>
         <source>Favorite user event</source>
-        <translation>Действие на любим потребител</translation>
+        <translation>Действие на предпочитан потребител</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="348"/>
@@ -6444,7 +6444,7 @@ For example: /usr/bin/mplayer</source>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <translation>Това описание ще бъде видимо в списъка с потребители.
-Може да бъде зададено за конкретен хъб в настройките на любимите хъбове.</translation>
+Може да бъде зададено за конкретен хъб в настройките на предпочитаните хъбове.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="46"/>
@@ -6459,7 +6459,7 @@ who sends private message to you.</source>
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <translation>С този прякор или име се идентифицирате при влизане в хъб.
 Може да бъде зададен за конкретен хъб в настройките на
-любимите хъбове.</translation>
+предпочитаните хъбове.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="69"/>
@@ -6484,7 +6484,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="151"/>
         <source>Line speed (upload)</source>
-        <translation>Скорост (качване)</translation>
+        <translation>Скорост на качване</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="170"/>
@@ -7023,7 +7023,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="130"/>
         <source>&lt;br/&gt;&lt;b&gt;Favorite user&lt;/b&gt;</source>
-        <translation>&lt;br/&gt;&lt;b&gt;Любим потребител&lt;/b&gt;</translation>
+        <translation>&lt;br/&gt;&lt;b&gt;Предпочитан потребител&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="163"/>

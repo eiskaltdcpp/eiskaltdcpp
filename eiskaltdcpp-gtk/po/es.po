@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-12-20 21:20+0200\n"
-"PO-Revision-Date: 2010-12-06 07:08+0100\n"
+"PO-Revision-Date: 2010-12-25 05:40+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -1875,7 +1875,7 @@ msgstr "Descarga finalizada:"
 
 #: ../src/publichubs.cc:455
 msgid "from Coral"
-msgstr ""
+msgstr "Desde Coral"
 
 #: ../src/search.cc:88 ../src/search.cc:607 ../src/search.cc:708
 #: ../src/search.cc:835 ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289
@@ -3901,3 +3901,4 @@ msgstr "Abrir imagen"
 #: ../glade/hub.glade:495
 msgid "Remove image"
 msgstr "Eliminar imagen"
+

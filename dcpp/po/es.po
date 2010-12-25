@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-12-16 00:21+0200\n"
-"PO-Revision-Date: 2010-12-06 07:20+0100\n"
+"PO-Revision-Date: 2010-12-25 05:42+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -171,7 +171,7 @@ msgstr "%1% (Nick desconocido)"
 
 #: ../NmdcHub.cpp:597
 msgid "Hub topic:"
-msgstr ""
+msgstr "Tópic del Hub :"
 
 #: ../NmdcHub.cpp:939
 msgid ""
@@ -350,9 +350,8 @@ msgid " Search Port (%1% UDP)"
 msgstr "Puerto de búsqueda (1%% UDP)"
 
 #: ../UPnPManager.cpp:101
-#, fuzzy
 msgid " DHT Port (%1% UDP)"
-msgstr "Puerto de búsqueda (1%% UDP)"
+msgstr "Puerto DHT (%1% UDP)"
 
 #: ../UPnPManager.cpp:108
 msgid ""
@@ -588,7 +587,7 @@ msgstr "Búsqueda desactivada: %1%"
 
 #: ../QueueManager.cpp:239
 msgid "No needed part"
-msgstr ""
+msgstr "No se necesitan partes"
 
 #: ../QueueManager.cpp:625
 msgid "Searching TTH alternates for: %1%"
