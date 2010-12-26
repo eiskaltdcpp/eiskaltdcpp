@@ -25,6 +25,7 @@
 #define COLUMN_TRANSFER_FNAME       5
 #define COLUMN_TRANSFER_HOST        6
 #define COLUMN_TRANSFER_IP          7
+#define COLUMN_TRANSFER_ENCRYPTION  8
 
 class TransferViewDelegate:
         public QStyledItemDelegate

@@ -132,17 +132,14 @@ public:
     void requestFilter() { slotFilter(); }
     void requestFocus() { lineEdit_SEARCHSTR->setFocus(); }
 
-    bool isFindFrameActivated();
-
 public Q_SLOTS:
     void searchAlternates(const QString &);
     void searchFile(const QString &);
     void fastSearch(const QString &, bool);
 
-    void slotFilter();
-
 protected:
     virtual void closeEvent(QCloseEvent*);
+    virtual bool eventFilter(QObject *, QEvent *);
 
 Q_SIGNALS:
     /** SearchManager signals */
@@ -154,6 +151,7 @@ Q_SIGNALS:
     void coreClientDisconnected(const QString &info);
 
 private Q_SLOTS:
+    void slotFilter();
     void timerTick();
     void slotClear();
     void slotTimer();

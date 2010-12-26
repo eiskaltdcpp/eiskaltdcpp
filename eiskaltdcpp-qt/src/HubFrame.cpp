@@ -576,6 +576,18 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                     }
                 }
             }
+            else if (input.startsWith("[color=") && input.indexOf("[/color]") > 8){
+                QRegExp exp("\\[color=(.*)\\]((.*))\\[/color\\].*");
+                QString chunk = input.left(input.indexOf("[/color]")+8);
+
+                if (exp.exactMatch(chunk)){
+                    if (exp.numCaptures() == 3){
+                        output += "<font color=\"" + exp.cap(1) + "\">" + exp.cap(2) + "</font>";
+
+                        input.remove(0, chunk.length());
+                    }
+                }
+            }
         }
 
         if (input.startsWith("<")){
@@ -772,6 +784,14 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             sendChat(plainTextEdit_INPUT->toPlainText(), false, false);
 
             plainTextEdit_INPUT->setPlainText("");
+
+            return true;
+        }
+
+        if (qobject_cast<LineEdit*>(obj) == lineEdit_FIND && k_e->key() == Qt::Key_Escape){
+            lineEdit_FIND->clear();
+
+            requestFilter();
 
             return true;
         }
@@ -1764,15 +1784,16 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         p->addOutput(output);
         p->setAttribute(Qt::WA_DeleteOnClose);
 
-        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS))
+        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
             MainWindow::getInstance()->mapWidgetOnArena(p);
+
+            p->requestFocus();
+        }
 
         pm.insert(cid, p);
 
         if (!p->isVisible() && redirectToMainChat)
             addOutput("<b>PM: </b>" + output);
-
-        p->requestFocus();
     }
     else{
         PMMap::iterator it = pm.find(cid);
@@ -1780,15 +1801,16 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         if (output.indexOf(_q(client->getMyNick())) >= 0)
             it.value()->setHasHighlightMessages(true);
 
-        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS))
+        it.value()->addOutput(output);
+
+        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
             MainWindow::getInstance()->mapWidgetOnArena(it.value());
 
-        it.value()->addOutput(output);
+            it.value()->requestFocus();
+        }
 
         if (! it.value()->isVisible() && redirectToMainChat)
             addOutput("<b>PM: </b>" + output);
-
-        it.value()->requestFocus();
     }
 }
 
@@ -2172,10 +2194,6 @@ void HubFrame::createPMWindow(const dcpp::CID &cid){
 
 bool HubFrame::hasCID(const dcpp::CID &cid, const QString &nick){
     return (model->CIDforNick(nick, _q(client->getHubUrl())) == _q(cid.toBase32()));
-}
-
-bool HubFrame::isFindFrameActivated(){
-    return lineEdit_FIND->hasFocus();
 }
 
 void HubFrame::clearUsers(){
@@ -3551,6 +3569,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             params["message"] = _tq(msg);
             client->getHubIdentity().getParams(params, "hub", false);
             params["hubURL"] = client->getHubUrl();
+            params["userNI"] = user->getIdentity().getNick();
             params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp();
             client->getMyIdentity().getParams(params, "my", true);
             LOG(LogManager::CHAT, params);

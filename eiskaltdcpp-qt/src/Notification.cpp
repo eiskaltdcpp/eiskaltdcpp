@@ -258,12 +258,8 @@ void Notification::slotShowHide(){
 #ifdef WIN32
         MW->hide();
 #else //WIN32
-        if (MW->isMinimized()){
-            if (MW->isMaximized())
-                MW->showMaximized();
-            else
-                MW->showNormal();
-        }
+        if (MW->isMinimized())
+            MW->show();
 
         if (!MW->isActiveWindow()){
             MW->activateWindow();

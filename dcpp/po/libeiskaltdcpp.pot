@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-16 00:21+0200\n"
+"POT-Creation-Date: 2010-12-25 15:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../FavoriteManager.cpp:429
@@ -139,15 +139,15 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr ""
 
-#: ../SettingsManager.cpp:501
+#: ../SettingsManager.cpp:502
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
+#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:559
+#: ../SettingsManager.cpp:560
 msgid "No such search type"
 msgstr ""
 
@@ -166,7 +166,7 @@ msgid ""
 msgstr ""
 
 #: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:261 ../SearchManager.cpp:415 ../SearchManager.cpp:417
+#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr ""
 
@@ -196,7 +196,7 @@ msgstr ""
 msgid "%1% was kicked: %2%"
 msgstr ""
 
-#: ../AdcHub.cpp:672
+#: ../AdcHub.cpp:671
 msgid "Not listening for connections - please restart %1%"
 msgstr ""
 
@@ -501,11 +501,11 @@ msgstr ""
 msgid "All download slots taken"
 msgstr ""
 
-#: ../ConnectionManager.cpp:259
+#: ../ConnectionManager.cpp:260
 msgid "Connectivity restored"
 msgstr ""
 
-#: ../ConnectionManager.cpp:266
+#: ../ConnectionManager.cpp:267
 msgid "Connectivity error: %1%"
 msgstr ""
 
@@ -553,7 +553,7 @@ msgstr ""
 msgid "Search enabled again"
 msgstr ""
 
-#: ../SearchManager.cpp:159
+#: ../SearchManager.cpp:160
 msgid "Search disabled: %1%"
 msgstr ""
 

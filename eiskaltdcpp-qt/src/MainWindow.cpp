@@ -264,15 +264,19 @@ void MainWindow::beginExit(){
     setUnload(true);
 }
 
+void MainWindow::show(){
+    if (showMax)
+        showMaximized();
+    else
+        showNormal();
+}
+
 void MainWindow::showEvent(QShowEvent *e){
     if (e->spontaneous())
         redrawToolPanel();
 
     if (!showMax && w > 0 && h > 0 && w != width() && h != height())
         this->resize(QSize(w, h));
-
-    if (showMax)
-        showMaximized();
 
     if (WBGET(WB_APP_AUTO_AWAY) && !Util::getManualAway()){
         Util::setAway(false);
@@ -293,21 +297,23 @@ void MainWindow::showEvent(QShowEvent *e){
 
     ArenaWidget::Role role = awgt->role();
 
-    bool widgetWithFilter = role == ArenaWidget::Hub || role == ArenaWidget::ShareBrowser || role == ArenaWidget::PublicHubs || role == ArenaWidget::Search;
+    bool widgetWithFilter = role == ArenaWidget::Hub ||
+                            role == ArenaWidget::PrivateMessage ||
+                            role == ArenaWidget::ShareBrowser ||
+                            role == ArenaWidget::PublicHubs ||
+                            role == ArenaWidget::Search;
 
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     findInWidget->setEnabled(widgetWithFilter);
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
     if (_q(SETTING(NICK)).isEmpty()){
-
-        show();
-
+        activateWindow();
         raise();
 
         slotToolsSettings();
     }
-
+    
     e->accept();
 }
 
@@ -553,7 +559,7 @@ void MainWindow::initActions(){
 
         fileHideWindow = new QAction("", this);
         fileHideWindow->setObjectName("fileHideWindow");
-        SM->registerShortcut(fileHideWindow, tr("Esc"));
+        SM->registerShortcut(fileHideWindow, tr("Ctrl+Alt+H"));
         fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
         connect(fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
 
@@ -1673,6 +1679,9 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     if (arena->widget() == awgt->getWidget()){
         wcontainer->mapped(awgt);
+
+        awgt->requestFocus();
+
         return;
     }
 
@@ -1681,8 +1690,6 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
 
     wcontainer->mapped(awgt);
-
-    QWidget *wg = arenaMap[awgt];
 
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
@@ -2254,54 +2261,6 @@ void MainWindow::slotShowMainMenu() {
 }
 
 void MainWindow::slotHideWindow(){
-    QWidget *wg = arena->widget();
-
-    HubFrame     *fr = qobject_cast<HubFrame *>(wg);
-    PublicHubs   *ph = qobject_cast<PublicHubs *>(wg);
-    ShareBrowser *sb = qobject_cast<ShareBrowser *>(wg);
-    SearchFrame  *sf = qobject_cast<SearchFrame *>(wg);
-
-    if (fr){
-        if (fr->isFindFrameActivated() && WBGET(WB_TRAY_ENABLED)){
-            fr->slotHideFindFrame();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            fr->slotHideFindFrame();
-            return;
-        }
-    }
-    else if (ph){
-        if (ph->isFindFrameActivated()){
-            ph->slotFilter();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            ph->slotFilter();
-            return;
-        }
-    }
-    else if (sb){
-        if (sb->isFindFrameActivated()){
-            sb->slotFilter();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            sb->slotFilter();
-            return;
-        }
-    }
-    else if (sf){
-        if (sf->isFindFrameActivated()){
-            sf->slotFilter();
-            return;
-        }
-        else if (!WBGET(WB_TRAY_ENABLED)){
-            sf->slotFilter();
-            return;
-        }
-    }
-
     if (!isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
         hide();
     }

@@ -73,6 +73,8 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
 
     setAttribute(Qt::WA_DeleteOnClose);
 
+    lineEdit_FIND->installEventFilter(this);
+
     plainTextEdit_INPUT->setWordWrapMode(QTextOption::NoWrap);
     plainTextEdit_INPUT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     plainTextEdit_INPUT->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -149,6 +151,13 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
             (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
             (k_e->modifiers() == Qt::NoModifier))
         {
+            return true;
+        }
+        else if (static_cast<LineEdit*>(obj) == lineEdit_FIND && k_e->key() == Qt::Key_Escape){
+            lineEdit_FIND->clear();
+
+            requestFilter();
+
             return true;
         }
     }

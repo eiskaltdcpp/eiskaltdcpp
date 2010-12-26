@@ -1285,7 +1285,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Esc</source>
-        <translation>Esc</translation>
+        <translation type="obsolete">Esc</translation>
     </message>
     <message>
         <source>Show/hide find frame</source>
@@ -1935,6 +1935,10 @@ Molim proverite podešavanja vaše veze</translation>
     </message>
     <message>
         <source>Enter magnet link:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Alt+H</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3324,6 +3328,10 @@ Da li želite da zaustavite?</translation>
     <message>
         <source>Finished</source>
         <translation>Završeno</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -152,6 +152,7 @@ int SearchManager::run() {
                     LogManager::getInstance()->message(_("Search enabled again"));
                     failed = false;
                 }
+                break;
             } catch(const SocketException& e) {
                 dcdebug("SearchManager::run Stopped listening: %s\n", e.getError().c_str());
 

@@ -244,6 +244,7 @@ int ConnectionManager::Server::run() throw() {
                     ConnectionManager::getInstance()->accept(sock, secure);
                 }
             }
+            break;
         } catch(const Exception& e) {
             dcdebug("ConnectionManager::Server::run Error: %s\n", e.getError().c_str());
         }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-16 00:21+0200\n"
+"POT-Creation-Date: 2010-12-25 15:24+0200\n"
 "PO-Revision-Date: 2009-03-03 22:46+0000\n"
 "Last-Translator: LadyStardust <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,16 +146,16 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Rozłączony użytkownik opuścił hub: %1%"
 
-#: ../SettingsManager.cpp:501
+#: ../SettingsManager.cpp:502
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:505 ../SettingsManager.cpp:527
+#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
 #, fuzzy
 msgid "This search type already exists"
 msgstr "Nazwa wirtualnego katalogu już istnieje"
 
-#: ../SettingsManager.cpp:559
+#: ../SettingsManager.cpp:560
 msgid "No such search type"
 msgstr ""
 
@@ -174,7 +174,7 @@ msgid ""
 msgstr ""
 
 #: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:261 ../SearchManager.cpp:415 ../SearchManager.cpp:417
+#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Niedostępny"
 
@@ -206,7 +206,7 @@ msgstr "%1% został wykopany przez %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% został wykopany: %2%"
 
-#: ../AdcHub.cpp:672
+#: ../AdcHub.cpp:671
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nie nasłuchuje połączeń - uruchom ponownie %1%"
 
@@ -526,11 +526,11 @@ msgstr "%1%: Plik niedostępny"
 msgid "All download slots taken"
 msgstr "Wszystkie sloty pobierań są zajęte"
 
-#: ../ConnectionManager.cpp:259
+#: ../ConnectionManager.cpp:260
 msgid "Connectivity restored"
 msgstr "Połączenie przywrócone"
 
-#: ../ConnectionManager.cpp:266
+#: ../ConnectionManager.cpp:267
 msgid "Connectivity error: %1%"
 msgstr "Błąd łączenia: %1%"
 
@@ -578,7 +578,7 @@ msgstr ""
 msgid "Search enabled again"
 msgstr "Wyszukiwanie znów aktywne"
 
-#: ../SearchManager.cpp:159
+#: ../SearchManager.cpp:160
 msgid "Search disabled: %1%"
 msgstr "Wyszukiwanie nieaktywne: %1%"
 

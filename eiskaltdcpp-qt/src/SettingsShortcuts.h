@@ -19,23 +19,6 @@
 #include "ui_UISettingsShortcuts.h"
 #include "ShortcutEdit.h"
 
-class ShortcutsDelegate:
-        public QStyledItemDelegate
-{
-    Q_OBJECT
-
-public:
-    ShortcutsDelegate(QObject* = NULL);
-    virtual ~ShortcutsDelegate();
-
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void setEditorData(QWidget *editor, const QModelIndex &index) const;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
-
-private:
-};
-
 class ShortcutItem{
 
 public:
@@ -90,6 +73,9 @@ public:
 
 public Q_SLOTS:
     void ok();
+
+private Q_SLOTS:
+    void slotIndexClicked(const QModelIndex&);
 
 private:
     ShortcutsModel *model;

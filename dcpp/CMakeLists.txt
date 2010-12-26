@@ -37,12 +37,7 @@ if (USE_DHT)
   add_definitions ( -DUSE_DHT )
 endif (USE_DHT)
 
-if (NOT NATT)
-  add_definitions ( -DDISABLE_NAT_TRAVERSAL )
-endif (NOT NATT)
-
 if (PERL_REGEX)
-  #add_definitions ( -DUSE_PCRE )
   set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp PROPERTY COMPILE_DEFINITIONS USE_PCRE )
   set(PCRE ${PCRE_LIBRARY})
 endif (PERL_REGEX)

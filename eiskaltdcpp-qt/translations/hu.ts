@@ -1413,7 +1413,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Esc</source>
-        <translation>Esc</translation>
+        <translation type="obsolete">Esc</translation>
     </message>
     <message>
         <source>Show/hide find frame</source>
@@ -2159,14 +2159,18 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <source>Open magnet link</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnetlink megnyitása</translation>
     </message>
     <message>
         <source>Enter magnet link:</source>
+        <translation>Magnetlink megadása:</translation>
+    </message>
+    <message>
+        <source>Ctrl+Alt+H</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2348,11 +2352,11 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>
-        <translation type="unfinished"></translation>
+        <translation>Hublista letöltve... (%1 %2) </translation>
     </message>
     <message>
         <source>from Coral</source>
-        <translation type="unfinished"></translation>
+        <translation>a Coral-ról</translation>
     </message>
 </context>
 <context>
@@ -3574,6 +3578,10 @@ Biztosan le akarod állítani?
     <message>
         <source>Finished</source>
         <translation>Befejezve</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

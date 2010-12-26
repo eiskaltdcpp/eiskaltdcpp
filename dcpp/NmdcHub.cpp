@@ -799,7 +799,7 @@ void NmdcHub::myInfo(bool alwaysSend) {
         modeChar = 'P';
 string uploadSpeed;
     int upLimit = ThrottleManager::getInstance()->getUpLimit();
-    if (upLimit > 0) {
+    if (upLimit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
         uploadSpeed = Util::toString(upLimit) + " KiB/s";
     } else {
         uploadSpeed = SETTING(UPLOAD_SPEED);

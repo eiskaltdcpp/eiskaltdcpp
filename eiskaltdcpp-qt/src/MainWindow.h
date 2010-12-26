@@ -184,6 +184,9 @@ friend class dcpp::Singleton<MainWindow>;
         /** */
         void setStatusMessage(QString);
 
+        /** */
+        void show();
+
     protected:
         virtual void closeEvent(QCloseEvent*);
         virtual void showEvent(QShowEvent *);
