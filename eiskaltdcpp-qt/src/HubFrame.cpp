@@ -581,7 +581,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 QString chunk = input.left(input.indexOf("[/color]")+8);
 
                 if (exp.exactMatch(chunk)){
-                    if (exp.captureCount() == 3){
+                    if (exp.numCaptures() == 3){
                         output += "<font color=\"" + exp.cap(1) + "\">" + exp.cap(2) + "</font>";
 
                         input.remove(0, chunk.length());
