@@ -1,6 +1,6 @@
 --- 2.2.0 2011-01-15 ---
 *** common changes ***
-* Completed the transition to the 0.770 kernel. Version 0.770 is conditional, since it's used the patches from more recent revisions. However, full synchronization is with the kernel DC++ is not planned because of some of its shortcomings. For example: 1) a deeper connection to libboost; 2) using of the code, which requires -std=c++0x and gcc >= 4.5.x.
+* Completed the transition to the 0.770 kernel. Version 0.770 is conditional, since it's used the patches from more recent revisions. However, full synchronization with lastest DC++ kernel is not planned because of some of its shortcomings. For example: 1) a deeper connection to libboost; 2) using of the code, which requires -std=c++0x and gcc >= 4.5.x; 3) using settings of the graphical window in the kernel config.
 * Broken support for Lua-scripts. Build the program with -DLUA_SCRIPT=OFF.
 * Thanks to Uhlik the Czech translation is now available.
 * Now limit on share size doesn't apply to favorite users and users with granted slots.
