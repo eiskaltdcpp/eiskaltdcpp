@@ -272,9 +272,6 @@ void MainWindow::show(){
 }
 
 void MainWindow::showEvent(QShowEvent *e){
-    if (e->spontaneous())
-        redrawToolPanel();
-
     if (!showMax && w > 0 && h > 0 && w != width() && h != height())
         this->resize(QSize(w, h));
 
@@ -340,7 +337,10 @@ void MainWindow::hideEvent(QHideEvent *e){
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *e){
-    if( obj == progressHashing && e->type() == QEvent::MouseButtonDblClick ) {
+    if (e->type() == QEvent::WindowActivate) {
+        redrawToolPanel();
+    }
+    else if( obj == progressHashing && e->type() == QEvent::MouseButtonDblClick ) {
         slotFileHashProgress();
         return true;
     }
