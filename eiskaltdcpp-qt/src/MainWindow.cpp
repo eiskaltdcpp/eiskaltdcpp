@@ -1027,28 +1027,28 @@ void MainWindow::initMenuBar(){
 void MainWindow::initStatusBar(){
     statusLabel = new QLabel(statusBar());
     statusLabel->setFrameShadow(QFrame::Sunken);
-    statusLabel->setFrameShape(QFrame::Box);
-    statusLabel->setAlignment(Qt::AlignRight);
+    statusLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     statusLabel->setToolTip(tr("Counts"));
+    statusLabel->setContentsMargins(0, 0, 0, 0);
 
     statusSPLabel = new QLabel(statusBar());
     statusSPLabel->setFrameShadow(QFrame::Sunken);
-    statusSPLabel->setFrameShape(QFrame::Box);
-    statusSPLabel->setAlignment(Qt::AlignRight);
+    statusSPLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     statusSPLabel->setToolTip(tr("Download/Upload speed"));
+    statusSPLabel->setContentsMargins(0, 0, 0, 0);
 
     statusDLabel = new QLabel(statusBar());
     statusDLabel->setFrameShadow(QFrame::Sunken);
-    statusDLabel->setFrameShape(QFrame::Box);
-    statusDLabel->setAlignment(Qt::AlignRight);
+    statusDLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     statusDLabel->setToolTip(tr("Downloaded/Uploaded"));
+    statusDLabel->setContentsMargins(0, 0, 0, 0);
 
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
-    msgLabel->setFrameShape(QFrame::NoFrame);
-    msgLabel->setAlignment(Qt::AlignLeft);
+    msgLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     msgLabel->setWordWrap(true);
     msgLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    msgLabel->setContentsMargins(0, 0, 0, 0);
 
 #if (defined FREE_SPACE_BAR_C)
     progressSpace = new QProgressBar(this);
@@ -1436,17 +1436,24 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
     if (!statusLabel)
         return;
 
-    statusLabel->setText(map["STATS"]);
-    statusSPLabel->setText(tr("%1/s / %2/s").arg(map["DSPEED"]).arg(map["USPEED"]));
-    statusDLabel->setText(tr("%1 / %2").arg(map["DOWN"]).arg(map["UP"]));
+    QString statsText = map["STATS"];
+    QFontMetrics metrics(statusLabel->font());
+
+    statusLabel->setText(statsText);
+
+    QString speedText = tr("%1/s / %2/s").arg(map["DSPEED"]).arg(map["USPEED"]);
+    QString downText = tr("%1 / %2").arg(map["DOWN"]).arg(map["UP"]);
+
+    statusSPLabel->setText(speedText);
+    statusDLabel->setText(downText);
 
     if (Notification::getInstance())
         Notification::getInstance()->setToolTip(map["DSPEED"]+tr("/s"), map["USPEED"]+tr("/s"), map["DOWN"], map["UP"]);
 
-    QFontMetrics metrics(font());
+    int boundWidth = statusSPLabel->contentsMargins().left() + statusSPLabel->contentsMargins().right();
 
-    statusSPLabel->setFixedWidth(metrics.width(statusSPLabel->text()) > statusSPLabel->width()? metrics.width(statusSPLabel->text()) + 20 : statusSPLabel->width());
-    statusDLabel->setFixedWidth(metrics.width(statusDLabel->text()) > statusDLabel->width()? metrics.width(statusDLabel->text()) + 20 : statusDLabel->width());
+    statusSPLabel->setFixedWidth(metrics.width(speedText) > statusSPLabel->width()? metrics.width(speedText) + boundWidth : statusSPLabel->width());
+    statusDLabel->setFixedWidth(metrics.width(downText) > statusDLabel->width()? metrics.width(downText) + boundWidth : statusDLabel->width());
 
     if (WBGET(WB_SHOW_FREE_SPACE)) {
 #ifdef FREE_SPACE_BAR_C
@@ -1535,9 +1542,16 @@ void MainWindow::updateHashProgressStatus() {
 }
 
 void MainWindow::setStatusMessage(QString msg){
+    QFontMetrics m(msgLabel->font());
+    QString pure_msg = msg;
 
+    if (m.width(msg) > msgLabel->width())
+        pure_msg = m.elidedText(msg, Qt::ElideRight, msgLabel->width(), 0);
+
+    WulforUtil::getInstance()->textToHtml(pure_msg, true);
     WulforUtil::getInstance()->textToHtml(msg, true);
-    msgLabel->setText(msg);
+
+    msgLabel->setText(pure_msg);
 
     core_msg_history.push_back(msg);
 
