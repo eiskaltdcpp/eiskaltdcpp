@@ -26,6 +26,29 @@
 #endif
 using namespace dcpp;
 
+#ifndef IPTOS_TOS_MASK
+#define	IPTOS_TOS_MASK		0x1E
+#endif
+#ifndef IPTOS_TOS
+#define	IPTOS_TOS(tos)		((tos) & IPTOS_TOS_MASK)
+#endif
+#ifndef IPTOS_LOWDELAY
+#define	IPTOS_LOWDELAY		0x10
+#endif
+#ifndef IPTOS_THROUGHPUT
+#define	IPTOS_THROUGHPUT	0x08
+#endif
+#ifndef IPTOS_RELIABILITY
+#define	IPTOS_RELIABILITY	0x04
+#endif
+#ifndef IPTOS_LOWCOST
+#define	IPTOS_LOWCOST		0x02
+#endif
+#ifndef IPTOS_MINCOST
+#define	IPTOS_MINCOST		IPTOS_LOWCOST
+#endif
+
+
 SettingsConnection::SettingsConnection( QWidget *parent):
         QWidget(parent),
         dirty(false)
@@ -109,6 +132,7 @@ void SettingsConnection::ok(){
     SM->set(SettingsManager::BANDWIDTH_LIMIT_END, spinBox_BANDWIDTH_LIMIT_END->value());
     SM->set(SettingsManager::SLOTS_ALTERNATE_LIMITING, spinBox_ALTERNATE_SLOTS->value());
     SM->set(SettingsManager::RECONNECT_DELAY, spinBox_RECONNECT_DELAY->value());
+    SM->set(SettingsManager::IP_TOS_VALUE, comboBox_TOS->itemData(comboBox_TOS->currentIndex()).toInt());
     WBSET( WB_APP_DYNDNS_ENABLED, static_cast<int>(checkBox_DYNDNS->isChecked()) );
     WSSET( WS_APP_DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text());
     WSSET( WS_APP_DYNDNS_INDEX, lineEdit_DYNDNS_INDEX->text());
@@ -196,6 +220,20 @@ void SettingsConnection::init(){
     case SettingsManager::OUTGOING_SOCKS5:
         {
             radioButton_SOCKS->toggle();
+
+            break;
+        }
+    }
+
+    comboBox_TOS->setItemData(0, -1);
+    comboBox_TOS->setItemData(1, IPTOS_LOWDELAY);
+    comboBox_TOS->setItemData(2, IPTOS_THROUGHPUT);
+    comboBox_TOS->setItemData(3, IPTOS_RELIABILITY);
+    comboBox_TOS->setItemData(4, IPTOS_MINCOST);
+
+    for (int i = 0; i < comboBox_TOS->count(); i++){
+        if (comboBox_TOS->itemData(i).toInt() == SETTING(IP_TOS_VALUE)){
+            comboBox_TOS->setCurrentIndex(i);
 
             break;
         }

@@ -75,7 +75,11 @@ void Socket::create(int aType /* = TYPE_TCP */) throw(SocketException) {
         dcasserta(0);
     }
     type = aType;
+
     setBlocking(false);
+
+    if (SETTING(IP_TOS_VALUE) != -1)
+        setSocketOpt(IP_TOS, IPTOS_TOS(SETTING(IP_TOS_VALUE)));
 }
 
 void Socket::accept(const Socket& listeningSocket) throw(SocketException) {

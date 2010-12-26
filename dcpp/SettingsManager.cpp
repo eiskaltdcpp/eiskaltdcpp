@@ -92,7 +92,7 @@ const string SettingsManager::settingTags[] =
     "MaxDownloadSpeedMain", "MaxUploadSpeedMain",
     "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "KeepFinishedFiles",
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
-    "IpFilter", "TextColor", "UseLua", "AllowNatt"
+    "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -290,6 +290,7 @@ SettingsManager::SettingsManager()
     setDefault(IPFILTER,false);
     setDefault(USE_LUA,false);
     setDefault(ALLOW_NATT, true);
+    setDefault(IP_TOS_VALUE, -1);
 
     setSearchTypeDefaults();
 }
