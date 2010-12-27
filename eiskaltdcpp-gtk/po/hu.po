@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2010-12-20 21:20+0200\n"
-"PO-Revision-Date: 2010-12-18 13:25+0100\n"
+"PO-Revision-Date: 2010-12-27 14:00+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -208,7 +208,8 @@ msgstr "A forrás túl lassú"
 #: ../src/downloadqueue.cc:1363
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr ""
-"A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem lehetséges"
+"A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem "
+"lehetséges"
 
 #: ../src/downloadqueue.cc:1369
 msgid "No errors"
@@ -293,7 +294,8 @@ msgstr "0 Felhasználó"
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr ""
-"Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
+"Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad "
+"elől)"
 
 #: ../src/hub.cc:572
 msgid "<b>Enter your password</b>"
@@ -780,7 +782,7 @@ msgstr " felhasználó(k)"
 #: ../src/transfers.cc:609
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
-msgstr ""
+msgstr "Transfers::updateTransfer, CID nem található %s\n"
 
 #: ../src/transfers.cc:668 ../src/transfers.cc:872
 msgid "File list"
@@ -999,14 +1001,14 @@ msgstr "Amarok player"
 #: ../src/settingsdialog.cc:879
 msgid "Set lowest priority for newly added files larger than low priority size"
 msgstr ""
-"Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új "
-"fájlokhoz"
+"Legalacsonyabb prioritás beállítása az Alacsony prio méretnél "
+"nagyobb új fájlokhoz"
 
 #: ../src/settingsdialog.cc:880
 msgid "Auto-drop slow sources for all queue items (except filelists)"
 msgstr ""
-"Lassú források automatikus eldobása a sor minden eléménél (kivéve fájl-"
-"listáknál)"
+"Lassú források automatikus eldobása a sor minden eléménél (kivéve fá"
+"jl-listáknál)"
 
 #: ../src/settingsdialog.cc:881
 msgid "Remove slow filelists"
@@ -1015,7 +1017,8 @@ msgstr "Lassú fájl-listák eltávolítása"
 #: ../src/settingsdialog.cc:882
 msgid "Don't remove the source when auto-dropping, only disconnect"
 msgstr ""
-"Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás legyen"
+"Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás "
+"legyen"
 
 #: ../src/settingsdialog.cc:883
 msgid "Automatically search for alternative download locations"
@@ -1024,7 +1027,8 @@ msgstr "Alternatív letöltési helyek automatikus keresése"
 #: ../src/settingsdialog.cc:884
 msgid "Automatically match queue for auto search hits"
 msgstr ""
-"Listák automatikus egyeztetése a letöltésekkel alternatív forrás találásakor"
+"Listák automatikus egyeztetése a letöltésekkel alternatív forrás talá"
+"lásakor"
 
 #: ../src/settingsdialog.cc:885
 msgid "Skip zero-byte files"
@@ -1036,7 +1040,8 @@ msgstr "Már megosztott fájlok letöltésének kihagyása"
 
 #: ../src/settingsdialog.cc:887
 msgid "Don't download files already in the queue"
-msgstr "Ne töltse le azokat a fájlokat, amik már a Letöltési sorban vannak"
+msgstr ""
+"Ne töltse le azokat a fájlokat, amik már a Letöltési sorban vannak"
 
 #: ../src/settingsdialog.cc:899 ../src/settingsdialog.cc:3457
 #: ../src/settingsdialog.cc:3526
@@ -1093,7 +1098,8 @@ msgstr "Program bezárása helyett a tálcára helyezés"
 
 #: ../src/settingsdialog.cc:938
 msgid "Send PM when double clicked in the user list"
-msgstr "Privát üzenet küldése dupla kattintásra a felhasználói listában"
+msgstr ""
+"Privát üzenet küldése dupla kattintásra a felhasználói listában"
 
 #: ../src/settingsdialog.cc:954 ../src/settingsdialog.cc:1215
 #: ../src/settingsdialog.cc:1289 ../src/settingsdialog.cc:1330
@@ -1323,7 +1329,8 @@ msgstr "Fájl-lista megnyitása a háttérben"
 
 #: ../src/settingsdialog.cc:1340
 msgid "Open new private messages from other users in the background"
-msgstr "Felhasználóktól kapott új privát üzenet megnyitása a háttérben"
+msgstr ""
+"Felhasználóktól kapott új privát üzenet megnyitása a háttérben"
 
 #: ../src/settingsdialog.cc:1341
 msgid "Open new window when using /join"
@@ -1352,7 +1359,8 @@ msgstr "Megerősítés kérése kedvenc hub eltávolításakor"
 #: ../src/settingsdialog.cc:1395
 msgid "Auto-away on minimize (and back on restore)"
 msgstr ""
-"Minimalizáláskor automatikus away mód (és maximalizáláskor visszavonás)"
+"Minimalizáláskor automatikus away mód (és maximalizáláskor visszavoná"
+"s)"
 
 #: ../src/settingsdialog.cc:1396
 msgid "Automatically follow redirects"
@@ -1367,8 +1375,8 @@ msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
 msgstr ""
-"Többször szereplő fájlok megosztásban tartása (a duplikációk nem növelik a "
-"megosztás méretét)"
+"Többször szereplő fájlok megosztásban tartása (a duplikációk nem nö"
+"velik a megosztás méretét)"
 
 #: ../src/settingsdialog.cc:1399
 msgid "Don't delete file lists when exiting"
@@ -1401,7 +1409,8 @@ msgstr "Ismeretlen /parancsok elküldése a hubnak"
 #: ../src/settingsdialog.cc:1406
 msgid "Add finished files to share instantly (if shared)"
 msgstr ""
-"Letöltött fájlok azonnali megosztása (ha a megosztási mappán belül van)\t"
+"Letöltött fájlok azonnali megosztása (ha a megosztási mappán belül "
+"van)\t"
 
 #: ../src/settingsdialog.cc:1407
 msgid "Don't send the away message to bots"
@@ -1410,17 +1419,19 @@ msgstr "Ne küldjön away üzenetet a botoknak"
 #: ../src/settingsdialog.cc:1408
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr ""
-"Gyors indexelés használata (kapcsold ki, ha problémát észlelsz indexeléskor)"
+"Gyors indexelés használata (kapcsold ki, ha problémát észlelsz indexelé"
+"skor)"
 
 #: ../src/settingsdialog.cc:1409
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr ""
-"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása "
-"a rendszerben"
+"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrá"
+"lása a rendszerben"
 
 #: ../src/settingsdialog.cc:1410
 msgid "Register with the OS to handle magnet: URL links"
-msgstr "A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
+msgstr ""
+"A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
 
 #: ../src/settingsdialog.cc:1411
 msgid "Show IP's' in chats"
@@ -1457,12 +1468,14 @@ msgstr "TLS használata, ha a távoli kliens támogatja azt"
 #: ../src/settingsdialog.cc:1475
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr ""
-"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli huboknál is"
+"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli "
+"huboknál is"
 
 #: ../src/settingsdialog.cc:1476
 msgid "Allow TLS connections to clients without trusted certificate"
 msgstr ""
-"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli klienseknél is"
+"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli "
+"klienseknél is"
 
 #: ../src/settingsdialog.cc:1508 ../src/settingsdialog.cc:1698
 #: ../src/settingsdialog.cc:1731 ../src/settingsdialog.cc:1817
@@ -1473,15 +1486,15 @@ msgstr "Keresés típusa"
 #: ../src/settingsdialog.cc:1509 ../src/settingsdialog.cc:1608
 #: ../src/settingsdialog.cc:1699
 msgid "Predefined"
-msgstr ""
+msgstr "Előre definiált"
 
 #: ../src/settingsdialog.cc:1620
 msgid "New search type"
-msgstr ""
+msgstr "Új keresési típus"
 
 #: ../src/settingsdialog.cc:1621
 msgid "<b>Name of the new search type</b>"
-msgstr ""
+msgstr "<b>Az új keresési típus neve</b>"
 
 #: ../src/settingsdialog.cc:1682 ../src/settingsdialog.cc:1726
 #: ../src/settingsdialog.cc:2668
@@ -1490,11 +1503,11 @@ msgstr "Hiba"
 
 #: ../src/settingsdialog.cc:1802 ../src/settingsdialog.cc:1989
 msgid "Invalid extension: "
-msgstr ""
+msgstr "Érvénytelen kiterjesztés: "
 
 #: ../src/settingsdialog.cc:1873
 msgid "Rename a search type"
-msgstr ""
+msgstr "Keresési típus átnevezése"
 
 #: ../src/settingsdialog.cc:1874
 msgid "<b>New name</b>"
@@ -1692,9 +1705,9 @@ msgid ""
 "until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
-"A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog "
-"megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a "
-"kívánt portot használó alkalmazást be nem zárod."
+"A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem "
+"fog megfelelően működni addig, amíg nem változtatsz a beállításokon, "
+"vagy a kívánt portot használó alkalmazást be nem zárod."
 
 #: ../src/mainwindow.cc:2145
 msgid "Connectivity Manager: Warning"
@@ -1702,7 +1715,7 @@ msgstr "Kapcsolat kezelő: Figyelmeztetés"
 
 #: ../src/mainwindow.cc:2186
 msgid "file list from "
-msgstr ""
+msgstr "fájl lista ettől: "
 
 #: ../src/mainwindow.cc:2196
 msgid "<b>file:</b> "
@@ -1798,11 +1811,11 @@ msgstr "Nick"
 #: ../src/finishedtransfers.cc:173 ../src/finishedtransfers.cc:182
 #: ../src/finishedtransfers.cc:219 ../src/finishedtransfers.cc:551
 msgid "Transferred"
-msgstr ""
+msgstr "Átvitt"
 
 #: ../src/finishedtransfers.cc:62 ../src/finishedtransfers.cc:221
 msgid "CRC Checked"
-msgstr ""
+msgstr "CRC Ellenőrizve"
 
 #: ../src/finishedtransfers.cc:80 ../src/finishedtransfers.cc:181
 msgid "Files"
@@ -1878,7 +1891,7 @@ msgstr "Letöltés befejeződött: "
 
 #: ../src/publichubs.cc:455
 msgid "from Coral"
-msgstr ""
+msgstr "a Coral-ról"
 
 #: ../src/search.cc:88 ../src/search.cc:607 ../src/search.cc:708
 #: ../src/search.cc:835 ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289
@@ -1902,7 +1915,7 @@ msgstr "Böngészés..."
 
 #: ../src/search.cc:528
 msgid "Searching for "
-msgstr ""
+msgstr "Keresés erre: "
 
 #: ../src/search.cc:529
 msgid "0 items"
@@ -1935,7 +1948,7 @@ msgstr " kiszűrve"
 
 #: ../src/search.cc:1843
 msgid " dropped"
-msgstr ""
+msgstr " eldobva"
 
 #: ../src/bookentry.cc:70 ../src/bookentry.cc:75
 msgid "Close tab"
@@ -1969,7 +1982,7 @@ msgstr "Lista: "
 #: ../src/sharebrowser.cc:236 ../src/sharebrowser.cc:565
 #: ../src/sharebrowser.cc:617
 msgid "Dir"
-msgstr ""
+msgstr "Könyvtár"
 
 #: ../src/sharebrowser.cc:152
 msgid "File list loaded"
@@ -1997,7 +2010,7 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:641 ../src/sharebrowser.cc:833
 msgid "No matches"
-msgstr ""
+msgstr "Nincsenek találatok"
 
 #: ../src/sharebrowser.cc:844
 msgid "No search text entered"
@@ -2149,7 +2162,7 @@ msgstr "<b>Célkönyvtár</>b"
 
 #: ../glade/adlsearch.glade:366
 msgid "Download Matches"
-msgstr ""
+msgstr "Találatok letöltése"
 
 #: ../glade/searchspy.glade:32
 msgid "Ignore TTH search"
@@ -2161,7 +2174,7 @@ msgstr "TTH kihagyása"
 
 #: ../glade/searchspy.glade:56
 msgid "Apply settings"
-msgstr ""
+msgstr "Beállítások mentése"
 
 #: ../glade/searchspy.glade:68
 msgid "Top: >"
@@ -2265,11 +2278,11 @@ msgstr ""
 
 #: ../glade/search.glade:218
 msgid "Only users with free slots"
-msgstr ""
+msgstr "Csak szabad slottal rendelkező felhasználók"
 
 #: ../glade/search.glade:238
 msgid "Filter files already in share"
-msgstr ""
+msgstr "Megosztásban lévő fájlok kiszűrése"
 
 #: ../glade/search.glade:264 ../glade/mainwindow.glade:1739
 #: ../glade/mainwindow.glade:1935
@@ -2415,27 +2428,27 @@ msgstr ""
 
 #: ../glade/cmddebug.glade:36
 msgid "HUB IN"
-msgstr ""
+msgstr "HUB IN"
 
 #: ../glade/cmddebug.glade:50
 msgid "HUB OUT"
-msgstr ""
+msgstr "HUB OUT"
 
 #: ../glade/cmddebug.glade:64
 msgid "CLIENT IN"
-msgstr ""
+msgstr "CLIENT IN"
 
 #: ../glade/cmddebug.glade:78
 msgid "CLIENT OUT"
-msgstr ""
+msgstr "CLIENT OUT"
 
 #: ../glade/cmddebug.glade:92
 msgid "DETECTION"
-msgstr ""
+msgstr "DETECTION"
 
 #: ../glade/cmddebug.glade:106
 msgid "Filter by IP"
-msgstr ""
+msgstr "Szűrés IP alapján"
 
 #: ../glade/mainwindow.glade:18
 msgid "_File"
@@ -2487,7 +2500,7 @@ msgstr "_Eszközök"
 
 #: ../glade/mainwindow.glade:260
 msgid "CMD Debug"
-msgstr ""
+msgstr "CMD Debug"
 
 #: ../glade/mainwindow.glade:340
 msgid "_Preferences"
@@ -2766,8 +2779,8 @@ msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
-"A letöltés megkezdéséhez be kell kapcsolnod az alternatívák automatikus "
-"keresését (Beállítások/Letöltések/Letöltési sor)"
+"A letöltés megkezdéséhez be kell kapcsolnod az alternatívák "
+"automatikus keresését (Beállítások/Letöltések/Letöltési sor)"
 
 #: ../glade/mainwindow.glade:1437
 msgid "Add this file to your download queue"
@@ -2953,7 +2966,8 @@ msgstr "<b>Könyvtárak</b>"
 
 #: ../glade/settingsdialog.glade:899
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr "Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
+msgstr ""
+"Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
 
 #: ../glade/settingsdialog.glade:914
 msgid "Maximum simultaneous downloads (0 = infinite)"
@@ -2962,7 +2976,8 @@ msgstr "Egyszerre folytatható letöltések száma (0 = korlátlan)"
 #: ../glade/settingsdialog.glade:958
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
-"Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
+"Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% "
+"pontosságú..."
 
 #: ../glade/settingsdialog.glade:971
 msgid "<b>Limits</b>"
@@ -2998,11 +3013,11 @@ msgstr "Letöltés ide"
 
 #: ../glade/settingsdialog.glade:1272
 msgid "High priority max size"
-msgstr ""
+msgstr "Magas prioritás max mérete"
 
 #: ../glade/settingsdialog.glade:1285
 msgid "Low priority size"
-msgstr ""
+msgstr "Alacsony prioritás max mérete"
 
 #: ../glade/settingsdialog.glade:1300 ../glade/settingsdialog.glade:1315
 #: ../glade/settingsdialog.glade:1344 ../glade/settingsdialog.glade:1359
@@ -3013,15 +3028,15 @@ msgstr "KiB"
 
 #: ../glade/settingsdialog.glade:1372
 msgid "Normal priority max size"
-msgstr ""
+msgstr "Normál prioritás max mérete"
 
 #: ../glade/settingsdialog.glade:1385
 msgid "Highest priority max size"
-msgstr ""
+msgstr "Legmagasabb prioritás max mérete"
 
 #: ../glade/settingsdialog.glade:1397
 msgid "<b>Auto-priority settings</b>"
-msgstr ""
+msgstr "<b>Automatikus fontossági sorrend beállítása</b>"
 
 #: ../glade/settingsdialog.glade:1516
 msgid "Min filesize"
@@ -3029,15 +3044,15 @@ msgstr "Minimum fájlméret"
 
 #: ../glade/settingsdialog.glade:1531
 msgid "Max inactivity"
-msgstr ""
+msgstr "Maximális tétlenség ideje"
 
 #: ../glade/settingsdialog.glade:1546
 msgid "Check every"
-msgstr ""
+msgstr "Ellenőrzés ennyi időnként"
 
 #: ../glade/settingsdialog.glade:1644
 msgid "Min sources online"
-msgstr ""
+msgstr "Minimális online forrás"
 
 #: ../glade/settingsdialog.glade:1657
 msgid "Min elapsed"
@@ -3045,11 +3060,11 @@ msgstr "Eltelt percek"
 
 #: ../glade/settingsdialog.glade:1670
 msgid "Drop sources below"
-msgstr ""
+msgstr "Forrás eldobása ekkora sebesség alatt"
 
 #: ../glade/settingsdialog.glade:1682
 msgid "<b>Auto-drop settings</b>"
-msgstr ""
+msgstr "<b>Automatikus elvetés beállításai</b>"
 
 #: ../glade/settingsdialog.glade:1720
 msgid "<b>Other queue options</b>"
@@ -3083,6 +3098,8 @@ msgstr "Előnézet"
 #: ../glade/settingsdialog.glade:2008
 msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
+"Megjegyzés: Az új fájlok csak az indexelés befejezése után kerülnek "
+"megosztásra!"
 
 #: ../glade/settingsdialog.glade:2023
 msgid "Total size: 0 B"
@@ -3094,7 +3111,7 @@ msgstr "Rejtett fájlok megosztása"
 
 #: ../glade/settingsdialog.glade:2044
 msgid "Follow Links"
-msgstr ""
+msgstr "Linkek követése"
 
 #: ../glade/settingsdialog.glade:2097
 msgid "<b>Shared directories</b>"
@@ -3112,7 +3129,7 @@ msgstr "Feltöltési szálak"
 
 #: ../glade/settingsdialog.glade:2176
 msgid "Pictures"
-msgstr ""
+msgstr "Képek"
 
 #: ../glade/settingsdialog.glade:2206
 msgid "Sharing"
@@ -3181,8 +3198,8 @@ msgstr "<b>Időbélyeg</b>"
 #: ../glade/settingsdialog.glade:2443 ../glade/settingsdialog.glade:2506
 msgid "Note: Most of these options require that you restart the application"
 msgstr ""
-"Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program újraindítása "
-"szükséges"
+"Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program ú"
+"jraindítása szükséges"
 
 #: ../glade/settingsdialog.glade:2456 ../glade/settingsdialog.glade:4005
 msgid "Appearance"
@@ -3190,7 +3207,7 @@ msgstr "Megjelenés"
 
 #: ../glade/settingsdialog.glade:2492
 msgid "<b>Tab bolding on content change</b>"
-msgstr ""
+msgstr "<b>Tab szövegének vastagítása, ha a tartalom változik</b>"
 
 #: ../glade/settingsdialog.glade:2522
 msgid "Tabs"
@@ -3198,7 +3215,7 @@ msgstr "Tabok"
 
 #: ../glade/settingsdialog.glade:2563
 msgid "<b>Auto-open on startup</b>"
-msgstr ""
+msgstr "<b>Automatikus megnyitás indításkor</b>"
 
 #: ../glade/settingsdialog.glade:2601
 msgid "<b>Window Options</b>"
@@ -3222,11 +3239,11 @@ msgstr "Lejátszás"
 
 #: ../glade/settingsdialog.glade:2767
 msgid "Every time a private message is received"
-msgstr ""
+msgstr "Minden alkalommal, mikor privát üzenet érkezik"
 
 #: ../glade/settingsdialog.glade:2779
 msgid "When a private message window is opened"
-msgstr ""
+msgstr "Amikor a privát üzenet megnyitásra kerül"
 
 #: ../glade/settingsdialog.glade:2793
 msgid "<b>Private message sound</b>"
@@ -3238,7 +3255,7 @@ msgstr "<b>Elérhető stílusok</b>"
 
 #: ../glade/settingsdialog.glade:2891
 msgid "<b>Preview styles</b>"
-msgstr ""
+msgstr "<b>Stílusok előnézete</b>"
 
 #: ../glade/settingsdialog.glade:2909
 msgid "Bold Authors of message in chat"
@@ -3366,11 +3383,11 @@ msgstr ""
 
 #: ../glade/settingsdialog.glade:3706
 msgid "State of preparedness"
-msgstr ""
+msgstr "Készültség állapota"
 
 #: ../glade/settingsdialog.glade:3738
 msgid "Matches"
-msgstr ""
+msgstr "Találatok"
 
 #: ../glade/settingsdialog.glade:3770
 msgid "Updating string or TTH"
@@ -3647,7 +3664,7 @@ msgstr ""
 
 #: ../glade/settingsdialog.glade:5747
 msgid "<b>Search types</b>"
-msgstr ""
+msgstr "<b>Keresési típusok</b>"
 
 #: ../glade/settingsdialog.glade:5815 ../glade/publichubs.glade:190
 msgid "Configure hub lists"

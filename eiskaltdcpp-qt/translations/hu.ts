@@ -2171,7 +2171,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Ctrl+Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+H</translation>
     </message>
 </context>
 <context>
@@ -3581,7 +3581,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Encryption</source>
-        <translation type="unfinished"></translation>
+        <translation>Titkosítás</translation>
     </message>
 </context>
 <context>
@@ -4333,7 +4333,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
     <message>
         <source>Find:</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés:</translation>
     </message>
     <message>
         <source>&lt;</source>
