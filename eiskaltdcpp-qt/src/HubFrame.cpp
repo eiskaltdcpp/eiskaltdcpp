@@ -515,7 +515,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 input.remove(0, 3);
                 int c_len = input.indexOf("[/b]");
 
-                QString chunk = Qt::escape(input.left(c_len));
+                QString chunk = parseForLinks(input.left(c_len), false);
 
                 output += "<b>" + chunk + "</b>";
                 input.remove(0, c_len+4);
@@ -526,7 +526,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 input.remove(0, 3);
                 int c_len = input.indexOf("[/u]");
 
-                QString chunk = Qt::escape(input.left(c_len));
+                QString chunk = parseForLinks(input.left(c_len), false);
 
                 output += "<u>" + chunk + "</u>";
                 input.remove(0, c_len+4);
@@ -537,7 +537,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 input.remove(0, 3);
                 int c_len = input.indexOf("[/i]");
 
-                QString chunk = Qt::escape(input.left(c_len));
+                QString chunk = parseForLinks(input.left(c_len), false);
 
                 output += "<i>" + chunk + "</i>";
                 input.remove(0, c_len+4);
@@ -577,12 +577,12 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 }
             }
             else if (input.startsWith("[color=") && input.indexOf("[/color]") > 8){
-                QRegExp exp("\\[color=(.*)\\]((.*))\\[/color\\].*");
+                QRegExp exp("\\[color=(\\w+|#.{6,6})\\]((.*))\\[/color\\].*");
                 QString chunk = input.left(input.indexOf("[/color]")+8);
 
                 if (exp.exactMatch(chunk)){
                     if (exp.numCaptures() == 3){
-                        output += "<font color=\"" + exp.cap(1) + "\">" + exp.cap(2) + "</font>";
+                        output += "<font color=\"" + exp.cap(1) + "\">" + parseForLinks(exp.cap(2), false) + "</font>";
 
                         input.remove(0, chunk.length());
                     }
