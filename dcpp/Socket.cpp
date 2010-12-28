@@ -28,6 +28,13 @@
 #define MSG_NOSIGNAL 0
 #endif
 
+#ifndef IP_TOS
+#define        IP_TOS          1
+#endif
+#ifndef IPTOS_TOS
+#define IPTOS_TOS(a) ((a) & 0x1E)
+#endif
+
 namespace dcpp {
 
 string Socket::udpServer;
