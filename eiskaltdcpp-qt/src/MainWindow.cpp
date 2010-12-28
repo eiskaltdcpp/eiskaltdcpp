@@ -1628,10 +1628,15 @@ void MainWindow::browseOwnFiles(){
 }
 
 void MainWindow::slotFileBrowseFilelist(){
-    QString file = QFileDialog::getOpenFileName(this, tr("Choose file to open"), QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
-            tr("Modern XML Filelists") + " (*.xml.bz2);;" +
-            tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
-            tr("All files") + " (*)");
+    QString file = QFileDialog::getOpenFileName(this, tr("Choose file to open"),
+                QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
+                tr("Modern XML Filelists") + " (*.xml.bz2);;" +
+                tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
+                tr("All files") + " (*)");
+
+    if (file.isEmpty())
+        return;
+
     file = QDir::toNativeSeparators(file);
     UserPtr user = DirectoryListing::getUserFromFilename(_tq(file));
 
