@@ -481,7 +481,7 @@ void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
 
 bool HashManager::Hasher::pause() {
     Lock l(cs);
-    return paused++;
+    return paused++ > 0;
 }
 
 void HashManager::Hasher::resume() {

@@ -46,4 +46,7 @@ bool UPnP::close() {
 	return ret;
 }
 
+bool UPnP::hasRules() const {
+        return !rules.empty();
+}
 } // namespace dcpp

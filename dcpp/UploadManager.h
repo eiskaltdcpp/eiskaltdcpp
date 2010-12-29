@@ -69,13 +69,17 @@ public:
     /** @internal */
     void addConnection(UserConnectionPtr conn);
 
-    GETSET(int, running, Running);
+    void notifyQueuedUsers();
+    void setRunning(int _running) { running = _running; notifyQueuedUsers(); }
+
+    //GETSET(int, running, Running);
     GETSET(uint8_t, extraPartial, ExtraPartial);
     GETSET(uint8_t, extra, Extra);
     GETSET(uint64_t, lastGrant, LastGrant);
 
     void updateLimits() {limits.RenewList(NULL);}
 private:
+    int running;
     UploadList uploads;
     mutable CriticalSection cs;
 

@@ -444,6 +444,24 @@ void UploadManager::on(UserConnectionListener::TransmitDone, UserConnection* aSo
     removeUpload(u);
 }
 
+void UploadManager::notifyQueuedUsers() {
+        Lock l(cs);
+        int freeSlots = getFreeSlots()*2;               //because there will be non-connecting users
+
+        //while all contacted users may not connect, many probably will; it's fine that the rest are filled with randomly allocated slots
+        while (freeSlots) {
+                //get rid of offline users
+                while (!waitingUsers.empty() && !waitingUsers.front().first.user->isOnline()) waitingUsers.pop_front();
+                if (waitingUsers.empty()) break;                //no users to notify
+
+                // FIXME: record and replay a client url hint URL
+                ClientManager::getInstance()->connect(waitingUsers.front().first, Util::toString(Util::rand()));
+                --freeSlots;
+
+                waitingUsers.pop_front();
+        }
+}
+
 void UploadManager::addFailedUpload(const UserConnection& source, string filename) {
     {
         Lock l(cs);
@@ -608,6 +626,8 @@ void UploadManager::on(TimerManagerListener::Second, uint32_t) throw() {
 
     if(!uploads.empty())
         fire(UploadManagerListener::Tick(), UploadList(uploads));
+
+		//notifyQueuedUsers();
 }
 
 void UploadManager::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) throw() {
