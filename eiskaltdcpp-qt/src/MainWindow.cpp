@@ -2428,18 +2428,22 @@ void MainWindow::slotAboutClient(){
                      .arg(EISKALTDCPP_VERSION_SFX));
 
     a.label_ABOUT->setTextFormat(Qt::RichText);
-    a.label_ABOUT->setText(QString("%1<br/><br/> %2 %3 %4<br/><br/> %5 %6<br/><br/> %7 <b>%8</b> <br/> %9 <b>%10</b>")
-                           .arg(tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols."))
-                           .arg(tr("DC++ core version:"))
-                           .arg(DCVERSIONSTRING)
-                           .arg(tr("(modified)"))
-                           .arg(tr("Home page:"))
-                           .arg("<a href=\"http://code.google.com/p/eiskaltdc/\">"
-                                "http://code.google.com/p/eiskaltdc/</a>")
-                           .arg(tr("Total up:"))
-                           .arg(WulforUtil::formatBytes(app_total_up))
-                           .arg(tr("Total down:"))
-                           .arg(WulforUtil::formatBytes(app_total_down)));
+
+    QString about_text = tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.<br/><br/>"
+                            ""
+                            "DC++ core version: %1 (modified)<br/><br/>"
+                            ""
+                            "Home page: <a href=\"http://code.google.com/p/eiskaltdc/\">http://code.google.com/p/eiskaltdc/</a><br/><br/>"
+                            ""
+                            "Total up: <b>%2</b><br/>"
+                            "Total down: <b>%3</b><br/>"
+                            "Ratio: <b>%4</b>"
+                         ).arg(DCVERSIONSTRING)
+                          .arg(WulforUtil::formatBytes(app_total_up))
+                          .arg(WulforUtil::formatBytes(app_total_down))
+                          .arg((float)app_total_up/(float)app_total_down, 0, 'f', 2);
+
+    a.label_ABOUT->setText(about_text);
 
     a.textBrowser_AUTHORS->setText(
             tr("Please use <a href=\"http://code.google.com/p/eiskaltdc/issues/list\">"
