@@ -242,6 +242,7 @@ void Settings::saveSettings_client()
         if (!path.empty() && path[path.length() - 1] != PATH_SEPARATOR)
             path += PATH_SEPARATOR;
         sm->set(SettingsManager::TEMP_DOWNLOAD_DIRECTORY, path);
+        sm->set(SettingsManager::NO_USE_TEMP_DIR, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("noUseTempDirButton"))));
         sm->set(SettingsManager::DOWNLOAD_SLOTS, (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("maxDownloadsSpinButton"))));
         sm->set(SettingsManager::MAX_DOWNLOAD_SPEED, (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("newDownloadsSpinButton"))));
         sm->set(SettingsManager::HTTP_PROXY, gtk_entry_get_text(GTK_ENTRY(getWidget("proxyEntry"))));
@@ -764,6 +765,7 @@ void Settings::initDownloads_gui()
     { // Downloads
         g_signal_connect(getWidget("finishedDownloadsButton"), "clicked", G_CALLBACK(onBrowseFinished_gui), (gpointer)this);
         g_signal_connect(getWidget("unfinishedDownloadsButton"), "clicked", G_CALLBACK(onBrowseUnfinished_gui), (gpointer)this);
+        g_signal_connect(getWidget("noUseTempDirButton"), "toggled", G_CALLBACK(onNoUseTempDir_gui), (gpointer)this);
         g_signal_connect(getWidget("publicHubsButton"), "clicked", G_CALLBACK(onPublicHubs_gui), (gpointer)this);
         g_signal_connect(getWidget("publicHubsDialogAddButton"), "clicked", G_CALLBACK(onPublicAdd_gui), (gpointer)this);
         g_signal_connect(getWidget("publicHubsDialogUpButton"), "clicked", G_CALLBACK(onPublicMoveUp_gui), (gpointer)this);
@@ -774,6 +776,8 @@ void Settings::initDownloads_gui()
         gtk_entry_set_text(GTK_ENTRY(getWidget("unfinishedDownloadsEntry")), SETTING(TEMP_DOWNLOAD_DIRECTORY).c_str());
         gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("maxDownloadsSpinButton")), (double)SETTING(DOWNLOAD_SLOTS));
         gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("newDownloadsSpinButton")), (double)SETTING(MAX_DOWNLOAD_SPEED));
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("noUseTempDirButton")), SETTING(NO_USE_TEMP_DIR));
+
         gtk_entry_set_text(GTK_ENTRY(getWidget("proxyEntry")), SETTING(HTTP_PROXY).c_str());
 
         publicListView.setView(GTK_TREE_VIEW(getWidget("publicHubsDialogTreeView")));
@@ -2033,7 +2037,14 @@ void Settings::onDownExtensionButton_gui(GtkWidget *widget, gpointer data)
                         gtk_list_store_swap(s->extensionStore, &current, &next);
         }
 }
-
+void Settings::onNoUseTempDir_gui(GtkToggleButton *button, gpointer data)
+{
+    Settings *s = (Settings *)data;
+    bool b = gtk_toggle_button_get_active((GtkToggleButton*)s->getWidget("noUseTempDirButton"));
+    gtk_widget_set_sensitive(s->getWidget("unfinishedDownloadsEntry"), !b);
+    gtk_widget_set_sensitive(s->getWidget("unfinishedDownloadsButton"), !b);
+    gtk_widget_set_sensitive(s->getWidget("labelunfinishedDownloadsEntry"), !b);
+}
 void Settings::onNotifyTestButton_gui(GtkWidget *widget, gpointer data)
 {
     Settings *s = (Settings *)data;

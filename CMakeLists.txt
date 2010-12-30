@@ -283,7 +283,7 @@ elseif (Subversion_FOUND)
         #add_definitions (-DDCPP_REVISION="r${eiskaltdcpp_WC_REVISION}")
         set (eiskaltdcpp_WC_REVISION "r${eiskaltdcpp_WC_REVISION}")
     endif ()
-else()
+elseif (NOT DCPP_REVISION)
     set (eiskaltdcpp_WC_REVISION "${VERSION_SUFFIX}")
 endif ()
 
