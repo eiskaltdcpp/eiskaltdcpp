@@ -599,6 +599,37 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                     }
                 }
             }
+            else if (input.startsWith(("[url")) && input.indexOf("[/url]") > 0){
+                QRegExp exp("\\[url=*((.+[^\\]\\[]))*\\]((.+))\\[/url\\]");
+                QString chunk = input.left(input.indexOf("[/url]")+6);
+
+                if (exp.exactMatch(chunk) && exp.numCaptures() == 4){
+                    QString link = exp.cap(2);
+                    QString title = exp.cap(3);
+
+                    link = link.isEmpty()? title : link;
+
+                    if (link.startsWith("="))
+                        link.remove(0, 1);
+
+                    if (!title.isEmpty()){
+                        output += "<a href=\"" + link + "\" title=\"" + Qt::escape(title) + "\">" + Qt::escape(title) + "</a>";
+
+                        input.remove(0, chunk.length());
+                    }
+                }
+            }
+            else if (input.startsWith(("[code]")) && input.indexOf("[/code]") > 0){
+                input.remove(0, 6);
+                int c_len = input.indexOf("[/code]");
+
+                QString chunk = input.left(c_len);
+
+                output += "<table border=1 width=100%><tr><td align=\"left\">Code:</td></tr><tr><td align=\"left\"><pre style=\"white-space: pre;\"><tt>" + chunk + "</tt></pre></td></tr></table>";
+                input.remove(0, c_len+7);
+
+                continue;
+            }
         }
 
         if (input.startsWith("<")){
