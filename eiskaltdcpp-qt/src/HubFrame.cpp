@@ -544,6 +544,17 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
                 continue;
             }
+            else if (input.startsWith("[s]") && input.indexOf("[/s]") > 0){
+                input.remove(0, 3);
+                int c_len = input.indexOf("[/s]");
+
+                QString chunk = parseForLinks(input.left(c_len), false);
+
+                output += "<s>" + chunk + "</s>";
+                input.remove(0, c_len+4);
+
+                continue;
+            }
             else if (input.startsWith("_") && input.length() >= 3){
                 int c_len = input.indexOf("_", 1);
 

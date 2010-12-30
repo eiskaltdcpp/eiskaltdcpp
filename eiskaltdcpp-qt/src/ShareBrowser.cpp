@@ -873,7 +873,11 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
                 dcpp::StringIter it = lst.begin();
                 for (; it != lst.end(); ++it){
                     if (QDir(_q(*it)).exists())
+#ifndef Q_WS_WIN
                         QDesktopServices::openUrl(QUrl("file://"+_q(*it)));
+#else
+                        QDesktopServices::openUrl(QUrl("file:///"+_q(*it)));
+#endif
                 }
             }
 
