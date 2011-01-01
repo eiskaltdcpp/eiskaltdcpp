@@ -71,6 +71,29 @@ static inline void clearLayout(QLayout *l){
     l->invalidate();
 }
 
+//replace [tag]some_text[/tag] with <txt>some_text</txt>
+static bool parseBasicBBCode(const QString &tag, const QString &txt, QString &input, QString &output){
+    if (tag.isEmpty())
+        return false;
+
+    const QString &bbCode1 = QString("[%1]").arg(tag);
+    const QString &bbCode2 = QString("[/%1]").arg(tag);
+
+    if (input.startsWith(bbCode1) && input.indexOf(bbCode2) >= bbCode1.length()){
+        input.remove(0, bbCode1.length());
+        int c_len = input.indexOf(bbCode2);
+
+        const QString &chunk = HubFrame::LinkParser::parseForLinks(input.left(c_len), false);
+
+        output += QString("<%1>").arg(txt) + chunk + QString("</%1>").arg(txt);
+        input.remove(0, c_len+bbCode2.length());
+
+        return true;
+    }
+
+    return false;
+}
+
 QStringList HubFrame::LinkParser::link_types = QString("http://,https://,ftp://,dchub://,adc://,adcs://,magnet:,www.").split(",");
 HubFrame::Menu *HubFrame::Menu::instance = NULL;
 unsigned HubFrame::Menu::counter = 0;
@@ -511,51 +534,16 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
             continue;
 
         if (WBGET("hubframe/use-bb-code", false)){
-            if (input.startsWith("[b]") && input.indexOf("[/b]") > 0){
-                input.remove(0, 3);
-                int c_len = input.indexOf("[/b]");
-
-                QString chunk = parseForLinks(input.left(c_len), false);
-
-                output += "<b>" + chunk + "</b>";
-                input.remove(0, c_len+4);
-
+            if      (parseBasicBBCode("b", "b", input, output))
                 continue;
-            }
-            else if (input.startsWith("[u]") && input.indexOf("[/u]") > 0){
-                input.remove(0, 3);
-                int c_len = input.indexOf("[/u]");
-
-                QString chunk = parseForLinks(input.left(c_len), false);
-
-                output += "<u>" + chunk + "</u>";
-                input.remove(0, c_len+4);
-
+            else if (parseBasicBBCode("u", "u", input, output))
                 continue;
-            }
-            else if (input.startsWith("[i]") && input.indexOf("[/i]") > 0){
-                input.remove(0, 3);
-                int c_len = input.indexOf("[/i]");
-
-                QString chunk = parseForLinks(input.left(c_len), false);
-
-                output += "<i>" + chunk + "</i>";
-                input.remove(0, c_len+4);
-
+            else if (parseBasicBBCode("i", "i", input, output))
                 continue;
-            }
-            else if (input.startsWith("[s]") && input.indexOf("[/s]") > 0){
-                input.remove(0, 3);
-                int c_len = input.indexOf("[/s]");
-
-                QString chunk = parseForLinks(input.left(c_len), false);
-
-                output += "<s>" + chunk + "</s>";
-                input.remove(0, c_len+4);
-
+            else if (parseBasicBBCode("s", "s", input, output))
                 continue;
-            }
-            else if (input.startsWith("_") && input.length() >= 3){
+
+            if (input.startsWith("_") && input.length() >= 3){
                 int c_len = input.indexOf("_", 1);
 
                 if (c_len > 1){
