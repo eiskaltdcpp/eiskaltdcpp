@@ -342,6 +342,12 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
     }
     else if( obj == progressHashing && e->type() == QEvent::MouseButtonDblClick ) {
         slotFileHashProgress();
+
+        return true;
+    }
+    else if (obj == progressSpace && e->type() == QEvent::MouseButtonDblClick ){
+        slotFileOpenDownloadDirectory();
+
         return true;
     }
     else if (obj == sideTree && sideTree && e->type() == QEvent::Resize) {
@@ -1059,6 +1065,7 @@ void MainWindow::initStatusBar(){
     progressSpace->setMaximumWidth(250);
     progressSpace->setFixedHeight(18);
     progressSpace->setToolTip(tr("Space free"));
+    progressSpace->installEventFilter(this);
 
     if (!WBGET(WB_SHOW_FREE_SPACE))
         progressSpace->hide();
