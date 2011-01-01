@@ -73,6 +73,7 @@ private Q_SLOTS:
     void slotContextMenu();
     void slotHeaderMenu();
     void slotAutoGrant(bool b){ WBSET(WB_FAVUSERS_AUTOGRANT, b); }
+    void slotSettingsChanged(const QString &key, const QString &);
 
     void addUser(const VarMap &);
     void updateUser(const QString &, const QString &);

@@ -611,6 +611,8 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
             textEdit_CHAT->setPalette(p);
         }
     }
+    else if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }
 
 void PMWindow::slotHideFindFrame(){

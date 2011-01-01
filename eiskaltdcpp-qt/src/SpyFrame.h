@@ -52,6 +52,7 @@ private Q_SLOTS:
     void slotStartStop();
     void slotClear();
     void contextMenu();
+    void slotSettingsChanged(const QString&, const QString&);
 
 Q_SIGNALS:
     void coreIncomingSearch(const QString&, bool);

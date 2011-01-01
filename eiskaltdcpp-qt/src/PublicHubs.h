@@ -64,6 +64,7 @@ private Q_SLOTS:
     void slotHubChanged(int);
     void slotFilterColumnChanged();
     void slotDoubleClicked(const QModelIndex&);
+    void slotSettingsChanged(const QString&, const QString&);
 
     void setStatus(const QString&);
     void onFinished(const QString&);

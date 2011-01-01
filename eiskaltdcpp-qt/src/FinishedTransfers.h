@@ -59,6 +59,7 @@ public Q_SLOTS:
     virtual void slotClear() = 0;
     virtual void slotContextMenu() = 0;
     virtual void slotHeaderMenu() = 0;
+    virtual void slotSettingsChanged(const QString &key, const QString &) = 0;
 };
 
 template <bool isUpload>
@@ -137,8 +138,9 @@ private:
         QObject::connect(this, SIGNAL(coreUpdatedFile(VarMap)), model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
         QObject::connect(this, SIGNAL(coreUpdatedUser(VarMap)), model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
         QObject::connect(this, SIGNAL(coreRemovedFile(QString)), model, SLOT(remFile(QString)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreRemovedUser(QString)), model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
+        QObject::connect(this, SIGNAL(coreRemovedUser(QString)), model, SLOT(remUser(QString)), Qt::QueuedConnection);
 
+        QObject::connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
         QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
         QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
         QObject::connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
@@ -320,6 +322,11 @@ private:
 
     void slotHeaderMenu(){
         WulforUtil::headerMenu(treeView);
+    }
+
+    void slotSettingsChanged(const QString &key, const QString &){
+        if (key == WS_TRANSLATION_FILE)
+            retranslateUi(this);
     }
 
     void on(FinishedManagerListener::AddedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) throw(){

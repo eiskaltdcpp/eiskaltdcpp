@@ -38,6 +38,7 @@ SpyFrame::SpyFrame(QWidget *parent) :
     connect(pushButton, SIGNAL(clicked()), this, SLOT(slotStartStop()));
     connect(pushButton_CLEAR, SIGNAL(clicked()), this, SLOT(slotClear()));
     connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenu()));
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
 }
 
 SpyFrame::~SpyFrame(){
@@ -122,6 +123,10 @@ void SpyFrame::contextMenu(){
     else
         fr->searchFile(src);
 
+}
+void SpyFrame::slotSettingsChanged(const QString &key, const QString&){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }
 
 void SpyFrame::on(dcpp::ClientManagerListener::IncomingSearch, const string &s) throw(){
