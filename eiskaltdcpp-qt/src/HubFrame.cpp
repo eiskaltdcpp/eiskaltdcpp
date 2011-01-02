@@ -3553,7 +3553,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
             params["hubURL"] = client->getHubUrl();
             params["userCID"] = id.toBase32();
-            params["userNI"] = ClientManager::getInstance()->getNicks(HintedUser(user->getUser(), client->getHubUrl()))[0];
+            params["userNI"] = _tq(nick);
             params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
             params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp();
             LOG(LogManager::PM, params);
