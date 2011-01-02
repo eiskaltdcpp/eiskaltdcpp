@@ -175,7 +175,9 @@ private:
 
         model->clearModel();
 
+#ifdef USE_QT_SQLITE
         db.close();
+#endif
 
         delete model;
     }
