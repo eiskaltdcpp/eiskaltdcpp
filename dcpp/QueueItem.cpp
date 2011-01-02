@@ -75,6 +75,7 @@ void QueueItem::removeSource(const UserPtr& aUser, int reason) {
 const string& QueueItem::getTempTarget() {
     if(!isSet(QueueItem::FLAG_USER_LIST) && tempTarget.empty()) {
         if(!SETTING(TEMP_DOWNLOAD_DIRECTORY).empty() && (File::getSize(getTarget()) == -1)) {
+            string tmp;
 #ifdef _WIN32
             dcpp::StringMap sm;
             if(target.length() >= 3 && target[1] == ':' && target[2] == '\\')
@@ -82,15 +83,29 @@ const string& QueueItem::getTempTarget() {
             else
                 sm["targetdrive"] = Util::getPath(Util::PATH_USER_LOCAL).substr(0, 3);
             if (SETTING(NO_USE_TEMP_DIR))
-                setTempTarget(Util::formatParams(target, sm, false) + getTempName("", getTTH()));
+                tmp = Util::formatParams(target, sm, false) + getTempName("", getTTH());
             else
-                setTempTarget(Util::formatParams(SETTING(TEMP_DOWNLOAD_DIRECTORY), sm, false) + getTempName(getTargetFileName(), getTTH()));
+                tmp = Util::formatParams(SETTING(TEMP_DOWNLOAD_DIRECTORY), sm, false) + getTempName(getTargetFileName(), getTTH());
 #else //_WIN32
             if (SETTING(NO_USE_TEMP_DIR))
-                setTempTarget(target + getTempName("", getTTH()));
+                tmp = target + getTempName("", getTTH());
             else
-                setTempTarget(SETTING(TEMP_DOWNLOAD_DIRECTORY) + getTempName(getTargetFileName(), getTTH()));
+                tmp = SETTING(TEMP_DOWNLOAD_DIRECTORY) + getTempName(getTargetFileName(), getTTH());
 #endif //_WIN32
+            int len = Util::getFileName(tmp).size()+1;
+            if (len >= 255){
+                string tmp1 = tmp.erase(tmp.find(".dctmp")-33,tmp.find(".dctmp")+5) + ".dctmp";
+                tmp = tmp1;
+            }
+            len = Util::getFileName(tmp).size()+1;
+            if (len >= 255) {
+                char tmp3[206]; int i=0;
+                string tmp2 = tmp.erase(tmp.find(".dctmp")-7,tmp.find(".dctmp")+5);
+                memcpy (tmp3, Util::getFileName(tmp2).c_str(), 206);
+                tmp = Util::getFilePath(tmp) + string(tmp3) + "~." + getTTH().toBase32() + ".dctmp";
+                delete tmp3;
+            }
+            setTempTarget(tmp);
         }
     }
     return tempTarget;

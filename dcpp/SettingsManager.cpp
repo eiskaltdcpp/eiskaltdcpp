@@ -98,7 +98,6 @@ const string SettingsManager::settingTags[] =
     "TotalUpload", "TotalDownload",
     "SENTRY",
     // Floats
-    "TransfersPanedPos", "QueuePanedPos", "SearchPanedPos",
     "SENTRY"
 };
 
@@ -264,9 +263,6 @@ SettingsManager::SettingsManager()
     setDefault(HASH_BUFFER_POPULATE, true);
     setDefault(HASH_BUFFER_NORESERVE, true);
     setDefault(HASH_BUFFER_PRIVATE, true);
-    setDefault(TRANSFERS_PANED_POS, .7);
-    setDefault(QUEUE_PANED_POS, .3);
-    setDefault(SEARCH_PANED_POS, .2);
     setDefault(RECONNECT_DELAY, 15);
     setDefault(DHT_PORT, 6245);
     setDefault(USE_DHT, false);
