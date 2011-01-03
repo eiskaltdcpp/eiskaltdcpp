@@ -25,6 +25,12 @@ if (USE_QT_QML)
   set (QT_USE_QTDECLARATIVE 1)
 endif(USE_QT_QML)
 
+if (USE_QT_SQLITE)
+  set (QT_USE_QTSQL 1)
+
+  add_definitions (-DUSE_QT_SQLITE)
+endif (USE_QT_SQLITE)
+
 include (${QT_USE_FILE})
 
 set (SRCS

@@ -19,6 +19,10 @@
 #include <QDesktopServices>
 #include <QHeaderView>
 
+#ifdef USE_QT_SQLITE
+#include <QtSql>
+#endif
+
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/FinishedManager.h"
@@ -115,13 +119,30 @@ protected:
 
 private:
     FinishedTransfers(QWidget *parent = NULL) :
-        FinishedTransferProxy(parent)
+        FinishedTransferProxy(parent), db_opened(false)
     {
         setupUi(this);
 
         model = new FinishedTransfersModel();
 
         treeView->setModel(model);
+
+#ifdef USE_QT_SQLITE
+        db = QSqlDatabase::addDatabase("QSQLITE", (isUpload? "FinishedUploads" : "FinishedDownloads"));
+        db_file = _q(Util::getPath(Util::PATH_USER_CONFIG)) + (isUpload? "FinishedUploads.sqlite" : "FinishedDownloads.sqlite");
+
+        db.setDatabaseName(db_file);
+        db_opened = db.open();
+
+        if (db_opened){
+            QSqlQuery q(db);
+            q.exec("create table if not exists files (FNAME TEXT primary key, "
+                   "TIME TEXT, PATH TEXT, USERS TEXT, TR TEXT, SPEED TEXT, CRC32 INTEGER, TARGET TEXT, ELAP TEXT)");
+
+            q.exec("create table if not exists users (NICK TEXT primary key, "
+                   "TIME TEXT, FILES TEXT, TR TEXT, SPEED TEXT, CID TEXT, ELAP TEXT)");
+        }
+#endif
 
         loadList();
 
@@ -154,6 +175,10 @@ private:
 
         model->clearModel();
 
+#ifdef USE_QT_SQLITE
+        db.close();
+#endif
+
         delete model;
     }
 
@@ -181,6 +206,47 @@ private:
         }
 
         FinishedManager::getInstance()->unLockLists();
+
+#ifdef USE_QT_SQLITE
+        if (!db_opened)
+            return;
+
+        QSqlQuery q(db);
+
+        q.exec("select * from files");
+
+        while (q.next()){
+            int i = 0;
+
+            params["FNAME"] = q.value(i++);
+            params["TIME"]  = q.value(i++);
+            params["PATH"]  = q.value(i++);
+            params["USERS"] = q.value(i++);
+            params["TR"]    = q.value(i++);
+            params["SPEED"] = q.value(i++);
+            params["CRC32"] = q.value(i++);
+            params["TARGET"]= q.value(i++);
+            params["ELAP"]  = q.value(i++);
+
+            model->addFile(params);
+        }
+
+        q.exec("select * from users");
+
+        while (q.next()){
+            int i = 0;
+
+            params["NICK"] = q.value(i++);
+            params["TIME"]  = q.value(i++);
+            params["FILES"]  = q.value(i++);
+            params["TR"]    = q.value(i++);
+            params["SPEED"] = q.value(i++);
+            params["CID"] = q.value(i++);
+            params["ELAP"]  = q.value(i++);
+
+            model->addUser(params);
+        }
+#endif
     }
 
     void getParams(const FinishedFileItemPtr& item, const string& file, FinishedTransfers::VarMap &params){
@@ -199,6 +265,25 @@ private:
         params["CRC32"] = item->getCrc32Checked();
         params["TARGET"]= _q(file);
         params["ELAP"]  = (qlonglong)item->getMilliSeconds();
+
+#ifdef USE_QT_SQLITE
+        if (!db_opened)
+            return;
+
+        QSqlQuery q(db);
+        q.prepare("insert into files values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        q.bindValue(0, params["FNAME"]);
+        q.bindValue(1, params["TIME"]);
+        q.bindValue(2, params["PATH"]);
+        q.bindValue(3, params["USERS"]);
+        q.bindValue(4, params["TR"]);
+        q.bindValue(5, params["SPEED"]);
+        q.bindValue(6, params["CRC32"]);
+        q.bindValue(7, params["TARGET"]);
+        q.bindValue(8, params["ELAP"]);
+
+        q.exec();
+#endif
     }
 
     void getParams(const FinishedUserItemPtr& item, const UserPtr& user, FinishedTransfers::VarMap &params){
@@ -215,6 +300,25 @@ private:
         params["SPEED"] = (qlonglong)item->getAverageSpeed();
         params["CID"]   = _q(user->getCID().toBase32());
         params["ELAP"]  = (qlonglong)item->getMilliSeconds();
+
+#ifdef USE_QT_SQLITE
+        if (!db_opened)
+            return;
+
+        QSqlQuery q(db);
+        q.prepare("insert into users values(?, ?, ?, ?, ?, ?, ?)");
+
+        q.bindValue(0, params["NICK"]);
+        q.bindValue(1, params["TIME"]);
+        q.bindValue(2, params["FILES"]);
+        q.bindValue(3, params["TR"]);
+        q.bindValue(4, params["SPEED"]);
+        q.bindValue(5, params["CID"]);
+        q.bindValue(6, params["ELAP"]);
+
+        q.exec();
+
+#endif
     }
 
     void slotTypeChanged(int index){
@@ -238,6 +342,15 @@ private:
             FinishedManager::getInstance()->removeAll(isUpload);
         }
         catch (const std::exception&){}
+
+#ifdef USE_QT_SQLITE
+        if (!db_opened)
+            return;
+
+        QSqlQuery q(db);
+        q.exec("drop table files");
+        q.exec("drop table users");
+#endif
     }
 
     void slotContextMenu(){
@@ -389,6 +502,12 @@ private:
     }
 
     FinishedTransfersModel *model;
+
+#ifdef USE_QT_SQLITE
+    QSqlDatabase db;
+    QString db_file;
+    bool db_opened;
+#endif
 };
 
 template <>
