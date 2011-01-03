@@ -2182,8 +2182,10 @@ void HubFrame::newPm(const VarMap &map){
     QString color = map["CLR"].toString();
     QString full_message = "";
 
-    if (nick != _q(client->getMyNick()))
-        Notification::getInstance()->showMessage(Notification::PM, nick, message);
+    if (nick != _q(client->getMyNick())){
+        if (!pm.contains(map["CID"].toString()) || (pm.contains(map["CID"].toString()) && !pm[map["CID"].toString()]->isVisible()))
+            Notification::getInstance()->showMessage(Notification::PM, nick, message);
+    }
 
     bool third = map["3RD"].toBool();
 
