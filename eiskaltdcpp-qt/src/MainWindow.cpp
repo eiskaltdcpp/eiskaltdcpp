@@ -1611,6 +1611,13 @@ void MainWindow::parseCmdLine(){
 }
 
 void MainWindow::parseInstanceLine(QString data){
+    if (!isVisible()){
+        show();
+        raise();
+
+        redrawToolPanel();
+    }
+
     QStringList args = data.split("\n", QString::SkipEmptyParts);
 
     foreach (QString arg, args){
