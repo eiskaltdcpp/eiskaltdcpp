@@ -6,6 +6,7 @@
 * Now limit on share size doesn't apply to favorite users and users with granted slots.
 * Added partial file sharing extension (PFSR). It allow you to download files that clients have not completely downloaded or was previously downloaded but not shared immediately. (PFSR is taken from the StrongDC++ project) [see also http://www.adcportal.com/wiki/PFSR_-_Partial_file_sharing]
 * Fixed incorrect use of speed limits: if this value is greater than zero, then the restriction applies even if it was disabled in settings. (Bug was added in version 2.1.0)
+* Fixed deadlock when downloading files with extremely long names.
 *** eiskaltdcpp-qt ***
 * Fixed parsing of emoticons in new messages. Now more fast and correct.
 * Improvements in the search widget.
@@ -29,7 +30,7 @@
 * Fixed bug with sending away messages to the bots on NMDC hubs.
 * Fixed restoring wide-open window mode at startup.
 * Fixed problem with inability to set a hotkey Esc in the settings.
-* Support BBСode tag [color] in the chat.
+* Support for BBСode tags: [color], [url] in the chat.
 * Fixed tray icon action on left mouse click in MS Windows.
 * Open magnet link item was added into main menu.
 * Removed unnecessary dependencies during linking on Mac OS X.
@@ -40,6 +41,7 @@
 * Added a column with information about using of encryption in the transfers list.
 * Fixed a program crash when getting in the search results entries with a blank file name.
 * When window is activate input field will receive focus again. (The problem was added in version 2.1.0)
+* Experimental support of SQLite database (saving finished transfers).
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
 * Fixed path to lock file of launched program (it was ~/.dc++/). Now it launches only one instance of the DC-client and magnet-links are correctly intercepted by it.
