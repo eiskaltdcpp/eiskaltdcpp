@@ -1013,7 +1013,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1345"/>
         <source>Hub role: User</source>
-        <translation>Pouzice na hubu: uživatel</translation>
+        <translation>Pozice na hubu: uživatel</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1410"/>
@@ -1315,7 +1315,8 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1348"/>
         <source>
 Favorite user</source>
-        <translation>Oblíbený uživatel</translation>
+        <translation>
+Oblíbený uživatel</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1856"/>
@@ -1994,7 +1995,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="562"/>
         <source>Ctrl+Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+H</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="885"/>
@@ -3938,7 +3939,7 @@ Chcete jej vypnout?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Encryption</source>
-        <translation type="unfinished"></translation>
+        <translation>Šifrování</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="105"/>
