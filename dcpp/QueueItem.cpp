@@ -99,7 +99,7 @@ const string& QueueItem::getTempTarget() {
             }
             len = Util::getFileName(tmp).size()+1;
             if (len >= 255) {
-                char tmp3[206]; int i=0;
+                char tmp3[206];
                 string tmp2 = tmp.erase(tmp.find(".dctmp")-7,tmp.find(".dctmp")+5);
                 memcpy (tmp3, Util::getFileName(tmp2).c_str(), 206);
                 tmp = Util::getFilePath(tmp) + string(tmp3) + "~." + getTTH().toBase32() + ".dctmp";

@@ -506,8 +506,8 @@ private:
 #ifdef USE_QT_SQLITE
     QSqlDatabase db;
     QString db_file;
-    bool db_opened;
 #endif
+    bool db_opened;
 };
 
 template <>
