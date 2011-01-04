@@ -25,8 +25,6 @@
 #define COLUMN_FILEBROWSER_ESIZE    2
 #define COLUMN_FILEBROWSER_TTH      3
 
-#define FILEBROWSER_GRID_W          100
-#define FILEBROWSER_GRID_H          100
 
 class FileBrowserItem
 {
