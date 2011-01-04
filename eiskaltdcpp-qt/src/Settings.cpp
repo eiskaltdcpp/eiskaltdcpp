@@ -96,6 +96,9 @@ void Settings::init(){
 
     stackedWidget->setCurrentIndex(0);
 
+    if (WVGET("settings/dialog-size").isValid())
+        resize(WVGET("settings/dialog-size").toSize());
+
     connect(listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(slotItemActivated(QListWidgetItem*)));
     connect(listWidget, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(slotItemActivated(QListWidgetItem*)));
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
@@ -112,4 +115,6 @@ void Settings::slotItemActivated(QListWidgetItem *item){
 
 void Settings::dirty(){
     is_dirty = true;
+
+    WVSET("settings/dialog-size", size());
 }

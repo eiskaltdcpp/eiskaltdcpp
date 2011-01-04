@@ -471,6 +471,10 @@ bool WulforSettings::getBool(const QString & key, const bool &default_value) {
     return (static_cast<bool>(getInt(key, default_value)));
 }
 
+QVariant WulforSettings::getVar(const QString &key, const QVariant &default_value){
+    return settings.value(key, default_value);
+}
+
 void WulforSettings::setStr(const QString & key, const QString &value) {
     settings.setValue(key, value);
 
@@ -485,6 +489,12 @@ void WulforSettings::setInt(const QString & key, int value) {
 
 void WulforSettings::setBool(const QString & key, bool value) {
     setInt(key, static_cast<int>(value));
+}
+
+void WulforSettings::setVar(const QString &key, const QVariant &value){
+    settings.setValue(key, value);
+
+    emit varValueChanged(key, value);
 }
 
 void WulforSettings::slotFontChanged(const QString &key, const QString &value){
