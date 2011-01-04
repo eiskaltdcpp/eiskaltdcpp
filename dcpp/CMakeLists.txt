@@ -27,9 +27,8 @@ endif (NOT LINK)
 if (APPLE)
   set (APPLE_LIBS "iconv")
 endif (APPLE)
-if (USE_MINIUPNP OR FREE_SPACE_BAR_C)
-  set (UPNP "extra")
-endif (USE_MINIUPNP OR FREE_SPACE_BAR_C)
+
+set (UPNP "extra")
 
 add_library (dcpp ${LINK} ${dcpp_srcs})
 
