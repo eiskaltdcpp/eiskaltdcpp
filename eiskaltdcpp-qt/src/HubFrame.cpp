@@ -3475,6 +3475,8 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
 
         third = true;
     }
+    else
+        third = message.thirdPerson;
 
     if(message.to && message.replyTo)
     {
