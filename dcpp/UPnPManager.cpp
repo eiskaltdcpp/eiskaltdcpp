@@ -106,7 +106,6 @@ int UPnPManager::run() {
 
         opened = true;
         log(str(F_("Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped using the %4% interface") % conn_port % search_port % secure_port % impl.getName()));
-        ConnectivityManager::getInstance()->mappingFinished(true);
 
         if(!BOOLSETTING(NO_IP_OVERRIDE)) {
             // now lets configure the external IP (connect to me) address
@@ -120,6 +119,8 @@ int UPnPManager::run() {
                 log(_("Failed to get external IP"));
             }
         }
+
+        ConnectivityManager::getInstance()->mappingFinished(true);
 
         break;
     }

@@ -41,20 +41,25 @@ class ConnectivityManager : public Singleton<ConnectivityManager>, public Speake
 {
 public:
    void detectConnection();
-   void log(const string& msg);
    void setup(bool settingsChanged, int lastConnectionMode);
-   void mappingFinished(bool success);
+        bool isRunning() const { return running; }
 
 private:
    friend class Singleton<ConnectivityManager>;
+        friend class UPnPManager;
+
    ConnectivityManager();
    virtual ~ConnectivityManager() throw() { }
+
+        void mappingFinished(bool success);
+        void log(const string& msg);
 
    void startSocket();
    void listen();
    void disconnect();
 
    bool autoDetected;
+        bool running;
 };
 
 } // namespace dcpp
