@@ -25,7 +25,6 @@ using namespace std;
 #include "WulforSettings.h"
 #include "HubManager.h"
 #include "Notification.h"
-#include "SingleInstanceRunner.h"
 #include "VersionGlobal.h"
 #include "IPFilter.h"
 #include "EmoticonFactory.h"
@@ -79,10 +78,11 @@ int main(int argc, char *argv[])
 
     parseCmdLine(app.arguments());
 
-    SingleInstanceRunner runner;
+    if (app.isRunning()){
+        app.sendMessage(app.arguments().join("\n"));
 
-    if (runner.isServerRunning(qApp->arguments()))
         return 0;
+    }
 
 #ifndef Q_WS_WIN
     installHandlers();
@@ -124,6 +124,9 @@ int main(int argc, char *argv[])
 
     MainWindow::newInstance();
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
+
+    app.connect(&app, SIGNAL(messageReceived(QString)), MainWindow::getInstance(), SLOT(parseInstanceLine(QString)));
+    app.setActivationWindow(MainWindow::getInstance(), true);
 
     HubManager::newInstance();
 
@@ -182,8 +185,6 @@ int main(int argc, char *argv[])
     }
 
     std::cout << QObject::tr("Quit...").toStdString() << std::endl;
-
-    runner.servStop();
 
     return ret;
 }
