@@ -59,8 +59,6 @@ private:
 
     QMenu *menu;
     MenuRole role;
-
-    int parentHeight;
 };
 
 #endif // LINEEDIT_H

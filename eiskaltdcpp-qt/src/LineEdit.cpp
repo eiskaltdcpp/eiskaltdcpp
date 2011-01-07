@@ -22,8 +22,6 @@ LineEdit::LineEdit(QWidget *parent) :
 {
     pxm = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITCLEAR).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
 
-    parentHeight = QLineEdit::sizeHint().height();//save parent height before setting up new stylesheet
-                                                  //because we losing top and bottom margins
     label = new QLabel(this);
     label->setPixmap(pxm);
     label->setCursor(Qt::ArrowCursor);
@@ -89,7 +87,7 @@ bool LineEdit::eventFilter(QObject *obj, QEvent *e){
 QSize LineEdit::sizeHint() const{
     ensurePolished();
 
-    int h = parentHeight;
+    int h = QLineEdit::sizeHint().height();
     int w = QLineEdit::sizeHint().width();
     QStyleOptionFrameV2 opt;
 
