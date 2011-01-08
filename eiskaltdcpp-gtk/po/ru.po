@@ -2,15 +2,15 @@
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
 #
-# Boris Pek <tehnick-8@mail.ru>, 2010.
+# Boris Pek <tehnick-8@mail.ru>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2010-12-20 21:20+0200\n"
-"PO-Revision-Date: 2010-12-20 21:24+0200\n"
+"POT-Creation-Date: 2011-01-08 22:21+0200\n"
+"PO-Revision-Date: 2011-01-08 22:29+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language-Team: Russian <tehnick-8@mail.ru>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:956
-#: ../src/settingsdialog.cc:1329 ../glade/mainwindow.glade:272
+#: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:960
+#: ../src/settingsdialog.cc:1333 ../glade/mainwindow.glade:272
 msgid "Download Queue"
 msgstr "Очередь загрузок"
 
@@ -53,9 +53,9 @@ msgstr "Статус"
 #: ../src/downloadqueue.cc:67 ../src/downloadqueue.cc:86
 #: ../src/downloadqueue.cc:278 ../src/downloadqueue.cc:385
 #: ../src/transfers.cc:63 ../src/transfers.cc:544 ../src/transfers.cc:714
-#: ../src/transfers.cc:726 ../src/settingsdialog.cc:901
-#: ../src/settingsdialog.cc:907 ../src/settingsdialog.cc:3459
-#: ../src/settingsdialog.cc:3528 ../src/search.cc:89 ../src/search.cc:116
+#: ../src/transfers.cc:726 ../src/settingsdialog.cc:905
+#: ../src/settingsdialog.cc:911 ../src/settingsdialog.cc:3470
+#: ../src/settingsdialog.cc:3539 ../src/search.cc:89 ../src/search.cc:116
 #: ../src/search.cc:605 ../src/search.cc:688 ../src/search.cc:820
 #: ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
 #: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317
@@ -429,8 +429,8 @@ msgstr "Соединиться с хабом"
 msgid "Say a third person"
 msgstr "Сказать от третьего лица"
 
-#: ../src/hub.cc:1932 ../src/settingsdialog.cc:989
-#: ../src/settingsdialog.cc:1035 ../src/settingsdialog.cc:1155
+#: ../src/hub.cc:1932 ../src/settingsdialog.cc:993
+#: ../src/settingsdialog.cc:1039 ../src/settingsdialog.cc:1159
 #: ../src/settingsmanager.cc:239
 msgid "Private message"
 msgstr "Личное сообщение"
@@ -503,7 +503,7 @@ msgstr "': /help для получения списка доступных ко�
 
 #: ../src/hub.cc:2430 ../src/privatemessage.cc:1188 ../src/mainwindow.cc:1210
 #: ../src/mainwindow.cc:1278 ../glade/sharebrowser.glade:326
-#: ../glade/search.glade:555 ../glade/settingsdialog.glade:6025
+#: ../glade/search.glade:555 ../glade/settingsdialog.glade:6037
 msgid "Choose a directory"
 msgstr "Выбор директории"
 
@@ -616,8 +616,8 @@ msgstr "Минимальный размер"
 msgid "Max Size"
 msgstr "Точный размер"
 
-#: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1214
-#: ../src/settingsdialog.cc:1269 ../src/settingsdialog.cc:1332
+#: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1218
+#: ../src/settingsdialog.cc:1273 ../src/settingsdialog.cc:1336
 #: ../glade/mainwindow.glade:205 ../glade/mainwindow.glade:1946
 msgid "Favorite Users"
 msgstr "Избранные Юзеры"
@@ -664,7 +664,7 @@ msgstr "Приостановлено"
 msgid "Indexing files..."
 msgstr "Хэширование файлов..."
 
-#: ../src/hashdialog.cc:70 ../glade/settingsdialog.glade:1602
+#: ../src/hashdialog.cc:70 ../glade/settingsdialog.glade:1614
 msgid "B/s"
 msgstr "Б/с"
 
@@ -677,8 +677,8 @@ msgid "-:--:-- left"
 msgstr "-:--:-- осталось"
 
 #: ../src/hashdialog.cc:79 ../src/treeview.cc:213 ../src/mainwindow.cc:2220
-#: ../src/mainwindow.cc:2222 ../glade/settingsdialog.glade:1574
-#: ../glade/settingsdialog.glade:1589 ../glade/settingsdialog.glade:1629
+#: ../src/mainwindow.cc:2222 ../glade/settingsdialog.glade:1586
+#: ../glade/settingsdialog.glade:1601 ../glade/settingsdialog.glade:1641
 msgid "s"
 msgstr "с"
 
@@ -686,10 +686,10 @@ msgstr "с"
 msgid "Done"
 msgstr "Готово"
 
-#: ../src/searchspy.cc:36 ../src/settingsdialog.cc:960
-#: ../src/settingsdialog.cc:1224 ../src/settingsdialog.cc:1285
-#: ../src/settingsdialog.cc:1333 ../glade/mainwindow.glade:320
-#: ../glade/mainwindow.glade:2047 ../glade/settingsdialog.glade:3989
+#: ../src/searchspy.cc:36 ../src/settingsdialog.cc:964
+#: ../src/settingsdialog.cc:1228 ../src/settingsdialog.cc:1289
+#: ../src/settingsdialog.cc:1337 ../glade/mainwindow.glade:320
+#: ../glade/mainwindow.glade:2047 ../glade/settingsdialog.glade:4001
 msgid "Search Spy"
 msgstr "Поисковый шпион"
 
@@ -829,8 +829,8 @@ msgstr "Соединение"
 msgid "Waiting to retry"
 msgstr "Ожидание повтора"
 
-#: ../src/transfers.cc:1083 ../src/settingsdialog.cc:986
-#: ../src/settingsdialog.cc:1147 ../src/settingsmanager.cc:235
+#: ../src/transfers.cc:1083 ../src/settingsdialog.cc:990
+#: ../src/settingsdialog.cc:1151 ../src/settingsmanager.cc:235
 msgid "Download finished"
 msgstr "Закачка окончена"
 
@@ -894,688 +894,688 @@ msgstr "Пользователь ушёл в оффлайн"
 msgid "Slot granted"
 msgstr "Слот открыт"
 
-#: ../src/settingsdialog.cc:295 ../src/settingsdialog.cc:331
-#: ../src/settingsdialog.cc:365 ../src/settingsdialog.cc:629
-#: ../src/settingsdialog.cc:642 ../src/settingsdialog.cc:658
-#: ../src/settingsdialog.cc:968 ../src/settingsdialog.cc:979
-#: ../src/settingsdialog.cc:1127 ../src/settingsdialog.cc:1142
-#: ../src/settingsdialog.cc:1243 ../src/settingsdialog.cc:1253
+#: ../src/settingsdialog.cc:296 ../src/settingsdialog.cc:332
+#: ../src/settingsdialog.cc:366 ../src/settingsdialog.cc:630
+#: ../src/settingsdialog.cc:643 ../src/settingsdialog.cc:659
+#: ../src/settingsdialog.cc:972 ../src/settingsdialog.cc:983
+#: ../src/settingsdialog.cc:1131 ../src/settingsdialog.cc:1146
+#: ../src/settingsdialog.cc:1247 ../src/settingsdialog.cc:1257
 msgid "Use"
 msgstr "Исп"
 
-#: ../src/settingsdialog.cc:296 ../src/settingsdialog.cc:970
-#: ../src/settingsdialog.cc:1228 ../src/settingsdialog.cc:2599
-#: ../src/settingsdialog.cc:2615 ../src/UserCommandMenu.cc:68
+#: ../src/settingsdialog.cc:297 ../src/settingsdialog.cc:974
+#: ../src/settingsdialog.cc:1232 ../src/settingsdialog.cc:2610
+#: ../src/settingsdialog.cc:2626 ../src/UserCommandMenu.cc:68
 msgid "File"
 msgstr "Файл"
 
-#: ../src/settingsdialog.cc:332 ../src/settingsdialog.cc:1129
-#: ../src/settingsdialog.cc:2046 ../src/settingsdialog.cc:2102
-#: ../src/settingsdialog.cc:2118 ../src/settingsdialog.cc:2140
-#: ../src/settingsdialog.cc:2144 ../src/settingsdialog.cc:2194
+#: ../src/settingsdialog.cc:333 ../src/settingsdialog.cc:1133
+#: ../src/settingsdialog.cc:2057 ../src/settingsdialog.cc:2113
+#: ../src/settingsdialog.cc:2129 ../src/settingsdialog.cc:2151
+#: ../src/settingsdialog.cc:2155 ../src/settingsdialog.cc:2205
 msgid "Title"
 msgstr "Заголовок"
 
-#: ../src/settingsdialog.cc:333 ../src/settingsdialog.cc:1130
-#: ../src/settingsdialog.cc:2047 ../src/settingsdialog.cc:2081
-#: ../src/settingsdialog.cc:2158 ../src/settingsdialog.cc:2194
+#: ../src/settingsdialog.cc:334 ../src/settingsdialog.cc:1134
+#: ../src/settingsdialog.cc:2058 ../src/settingsdialog.cc:2092
+#: ../src/settingsdialog.cc:2169 ../src/settingsdialog.cc:2205
 msgid "Icon"
 msgstr "Иконка"
 
-#: ../src/settingsdialog.cc:630 ../src/settingsdialog.cc:639
-#: ../src/settingsdialog.cc:819 ../src/settingsdialog.cc:854
-#: ../src/settingsdialog.cc:1190 ../src/settingsdialog.cc:1244
-#: ../src/settingsdialog.cc:1421 ../src/settingsdialog.cc:1430
-#: ../src/settingsdialog.cc:1520 ../src/settingsdialog.cc:1674
-#: ../src/settingsdialog.cc:1718 ../src/settingsdialog.cc:1767
-#: ../src/settingsdialog.cc:1966 ../src/settingsdialog.cc:2677
-#: ../src/settingsdialog.cc:2693 ../src/settingsdialog.cc:2711
-#: ../src/settingsdialog.cc:2729 ../src/settingsdialog.cc:2755
-#: ../src/settingsdialog.cc:2760 ../src/settingsdialog.cc:3005
-#: ../src/settingsdialog.cc:3079 ../src/settingsdialog.cc:3630
-#: ../src/settingsdialog.cc:3721 ../src/settingsdialog.cc:3744
-#: ../src/settingsdialog.cc:3763 ../src/favoritehubs.cc:53
+#: ../src/settingsdialog.cc:631 ../src/settingsdialog.cc:640
+#: ../src/settingsdialog.cc:823 ../src/settingsdialog.cc:858
+#: ../src/settingsdialog.cc:1194 ../src/settingsdialog.cc:1248
+#: ../src/settingsdialog.cc:1425 ../src/settingsdialog.cc:1434
+#: ../src/settingsdialog.cc:1524 ../src/settingsdialog.cc:1678
+#: ../src/settingsdialog.cc:1722 ../src/settingsdialog.cc:1771
+#: ../src/settingsdialog.cc:1970 ../src/settingsdialog.cc:2688
+#: ../src/settingsdialog.cc:2704 ../src/settingsdialog.cc:2722
+#: ../src/settingsdialog.cc:2740 ../src/settingsdialog.cc:2766
+#: ../src/settingsdialog.cc:2771 ../src/settingsdialog.cc:3016
+#: ../src/settingsdialog.cc:3090 ../src/settingsdialog.cc:3641
+#: ../src/settingsdialog.cc:3732 ../src/settingsdialog.cc:3755
+#: ../src/settingsdialog.cc:3774 ../src/favoritehubs.cc:53
 #: ../src/favoritehubs.cc:72 ../src/favoritehubs.cc:73
 #: ../src/favoritehubs.cc:122 ../src/favoritehubs.cc:291
 #: ../src/favoritehubs.cc:407 ../src/publichubs.cc:41 ../src/publichubs.cc:156
 #: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:232
-#: ../src/search.cc:248 ../glade/settingsdialog.glade:6328
+#: ../src/search.cc:248 ../glade/settingsdialog.glade:6340
 msgid "Name"
 msgstr "Название"
 
-#: ../src/settingsdialog.cc:780 ../src/settingsdialog.cc:3289
-#: ../src/settingsdialog.cc:3302 ../src/settingsdialog.cc:3319
+#: ../src/settingsdialog.cc:784 ../src/settingsdialog.cc:3300
+#: ../src/settingsdialog.cc:3313 ../src/settingsdialog.cc:3330
 #: ../src/publichubs.cc:63 ../src/publichubs.cc:335 ../src/publichubs.cc:360
 #: ../src/publichubs.cc:410
 msgid "List"
 msgstr "Список"
 
-#: ../src/settingsdialog.cc:797 ../src/settingsdialog.cc:811
-#: ../src/settingsdialog.cc:3408
+#: ../src/settingsdialog.cc:801 ../src/settingsdialog.cc:815
+#: ../src/settingsdialog.cc:3419
 msgid "Favorite Name"
 msgstr "Избранное имя"
 
-#: ../src/settingsdialog.cc:798 ../src/settingsdialog.cc:812
-#: ../src/settingsdialog.cc:900 ../src/settingsdialog.cc:1229
-#: ../src/settingsdialog.cc:3409 ../src/settingsdialog.cc:3429
-#: ../src/settingsdialog.cc:3458 ../src/settingsdialog.cc:3472
-#: ../src/settingsdialog.cc:3527 ../src/search.cc:1640
+#: ../src/settingsdialog.cc:802 ../src/settingsdialog.cc:816
+#: ../src/settingsdialog.cc:904 ../src/settingsdialog.cc:1233
+#: ../src/settingsdialog.cc:3420 ../src/settingsdialog.cc:3440
+#: ../src/settingsdialog.cc:3469 ../src/settingsdialog.cc:3483
+#: ../src/settingsdialog.cc:3538 ../src/search.cc:1640
 #: ../src/UserCommandMenu.cc:66 ../src/sharebrowser.cc:289
-#: ../glade/settingsdialog.glade:4035
+#: ../glade/settingsdialog.glade:4047
 msgid "Directory"
 msgstr "Директория"
 
-#: ../src/settingsdialog.cc:820 ../src/settingsdialog.cc:855
-#: ../src/settingsdialog.cc:2678 ../src/settingsdialog.cc:2712
-#: ../src/settingsdialog.cc:2730 ../src/settingsdialog.cc:2761
+#: ../src/settingsdialog.cc:824 ../src/settingsdialog.cc:859
+#: ../src/settingsdialog.cc:2689 ../src/settingsdialog.cc:2723
+#: ../src/settingsdialog.cc:2741 ../src/settingsdialog.cc:2772
 msgid "Application"
 msgstr "Приложение"
 
-#: ../src/settingsdialog.cc:821 ../src/settingsdialog.cc:856
-#: ../src/settingsdialog.cc:1510 ../src/settingsdialog.cc:1649
-#: ../src/settingsdialog.cc:1700 ../src/settingsdialog.cc:1755
-#: ../src/settingsdialog.cc:2679 ../src/settingsdialog.cc:2713
-#: ../src/settingsdialog.cc:2731 ../src/settingsdialog.cc:2762
+#: ../src/settingsdialog.cc:825 ../src/settingsdialog.cc:860
+#: ../src/settingsdialog.cc:1514 ../src/settingsdialog.cc:1653
+#: ../src/settingsdialog.cc:1704 ../src/settingsdialog.cc:1759
+#: ../src/settingsdialog.cc:2690 ../src/settingsdialog.cc:2724
+#: ../src/settingsdialog.cc:2742 ../src/settingsdialog.cc:2773
 msgid "Extensions"
 msgstr "Расширения"
 
-#: ../src/settingsdialog.cc:844
+#: ../src/settingsdialog.cc:848
 msgid "Xine player"
 msgstr "Xine плеер"
 
-#: ../src/settingsdialog.cc:845
+#: ../src/settingsdialog.cc:849
 msgid "Kaffeine player"
 msgstr "Kaffeine плеер"
 
-#: ../src/settingsdialog.cc:846
+#: ../src/settingsdialog.cc:850
 msgid "Mplayer player"
 msgstr "Mplayer плеер"
 
-#: ../src/settingsdialog.cc:847
+#: ../src/settingsdialog.cc:851
 msgid "Amarok player"
 msgstr "Amarok плеер"
 
-#: ../src/settingsdialog.cc:879
+#: ../src/settingsdialog.cc:883
 msgid "Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Устанавливать самый низкий приоритет для файлов, превышающих размер низкого "
 "приоритета"
 
-#: ../src/settingsdialog.cc:880
+#: ../src/settingsdialog.cc:884
 msgid "Auto-drop slow sources for all queue items (except filelists)"
 msgstr "Автосброс медленных источников очереди (кроме списков файлов)"
 
-#: ../src/settingsdialog.cc:881
+#: ../src/settingsdialog.cc:885
 msgid "Remove slow filelists"
 msgstr "Удалять медленные списки файлов"
 
-#: ../src/settingsdialog.cc:882
+#: ../src/settingsdialog.cc:886
 msgid "Don't remove the source when auto-dropping, only disconnect"
 msgstr "Отключать, но не удалять источник при автосбросе"
 
-#: ../src/settingsdialog.cc:883
+#: ../src/settingsdialog.cc:887
 msgid "Automatically search for alternative download locations"
 msgstr "Автоматический поиск альтернативных источников закачки"
 
-#: ../src/settingsdialog.cc:884
+#: ../src/settingsdialog.cc:888
 msgid "Automatically match queue for auto search hits"
 msgstr "Автоматически подбирать альтернативы для результатов поиска"
 
-#: ../src/settingsdialog.cc:885
+#: ../src/settingsdialog.cc:889
 msgid "Skip zero-byte files"
 msgstr "Пропускать файлы нулевой длины"
 
-#: ../src/settingsdialog.cc:886
+#: ../src/settingsdialog.cc:890
 msgid "Don't download files already in share"
 msgstr "Не закачивать файлы, которые уже есть в шаре"
 
-#: ../src/settingsdialog.cc:887
+#: ../src/settingsdialog.cc:891
 msgid "Don't download files already in the queue"
 msgstr "Не закачивать файлы, которые уже есть в очереди"
 
-#: ../src/settingsdialog.cc:899 ../src/settingsdialog.cc:3457
-#: ../src/settingsdialog.cc:3526
+#: ../src/settingsdialog.cc:903 ../src/settingsdialog.cc:3468
+#: ../src/settingsdialog.cc:3537
 msgid "Virtual Name"
 msgstr "Виртуальное имя"
 
-#: ../src/settingsdialog.cc:926
+#: ../src/settingsdialog.cc:930
 msgid "Filter kick and NMDC debug messages"
 msgstr "Фильтровать kick и NMDC в отладочных сообщениях"
 
-#: ../src/settingsdialog.cc:927
+#: ../src/settingsdialog.cc:931
 msgid "Show status icon in the system tray"
 msgstr "Показывать статус-значок в системном трее"
 
-#: ../src/settingsdialog.cc:928
+#: ../src/settingsdialog.cc:932
 msgid "Show timestamps in chat by default"
 msgstr "Показывать метки времени в чате"
 
-#: ../src/settingsdialog.cc:929
+#: ../src/settingsdialog.cc:933
 msgid "View status messages in main chat"
 msgstr "Показывать статус-сообщения в основном чате"
 
-#: ../src/settingsdialog.cc:930
+#: ../src/settingsdialog.cc:934
 msgid "Show joins / parts in chat by default"
 msgstr "Показывать вход/выход пользователей"
 
-#: ../src/settingsdialog.cc:931
+#: ../src/settingsdialog.cc:935
 msgid "Only show joins / parts for favorite users"
 msgstr "Показывать вход/выход только избранных польователей"
 
-#: ../src/settingsdialog.cc:932
+#: ../src/settingsdialog.cc:936
 msgid "Sort favorite users first"
 msgstr "Сортировать избранных пользователей первыми"
 
-#: ../src/settingsdialog.cc:933
+#: ../src/settingsdialog.cc:937
 msgid "Use OEM monospaced font for chat windows"
 msgstr "Использовать моношрифт для окна чата"
 
-#: ../src/settingsdialog.cc:934
+#: ../src/settingsdialog.cc:938
 msgid "Use magnet split"
 msgstr "Использовать свёртку магнет-ссылок"
 
-#: ../src/settingsdialog.cc:935
+#: ../src/settingsdialog.cc:939
 msgid "Use blinking status icon"
 msgstr "Использовать мигающий статус-значок"
 
-#: ../src/settingsdialog.cc:936
+#: ../src/settingsdialog.cc:940
 msgid "Use emoticons"
 msgstr "Использовать смайлики"
 
-#: ../src/settingsdialog.cc:937
+#: ../src/settingsdialog.cc:941
 msgid "Do not close the program, hide in the system tray"
 msgstr "Не закрывать программу, сворачивать в треи"
 
-#: ../src/settingsdialog.cc:938
+#: ../src/settingsdialog.cc:942
 msgid "Send PM when double clicked in the user list"
 msgstr "Посылать ЛС при двойном клике в списке пользователей"
 
-#: ../src/settingsdialog.cc:954 ../src/settingsdialog.cc:1215
-#: ../src/settingsdialog.cc:1289 ../src/settingsdialog.cc:1330
+#: ../src/settingsdialog.cc:958 ../src/settingsdialog.cc:1219
+#: ../src/settingsdialog.cc:1293 ../src/settingsdialog.cc:1334
 #: ../src/finishedtransfers.cc:35 ../glade/mainwindow.glade:287
 #: ../glade/mainwindow.glade:1816 ../glade/mainwindow.glade:2005
 msgid "Finished Downloads"
 msgstr "Закачано"
 
-#: ../src/settingsdialog.cc:955 ../src/settingsdialog.cc:1216
-#: ../src/settingsdialog.cc:1291 ../src/settingsdialog.cc:1331
+#: ../src/settingsdialog.cc:959 ../src/settingsdialog.cc:1220
+#: ../src/settingsdialog.cc:1295 ../src/settingsdialog.cc:1335
 #: ../src/finishedtransfers.cc:40 ../glade/mainwindow.glade:301
 #: ../glade/mainwindow.glade:1823 ../glade/mainwindow.glade:2018
 msgid "Finished Uploads"
 msgstr "Отдано"
 
-#: ../src/settingsdialog.cc:957
+#: ../src/settingsdialog.cc:961
 msgid "Hub (also sets urgency hint)"
 msgstr "Хаб"
 
-#: ../src/settingsdialog.cc:958
+#: ../src/settingsdialog.cc:962
 msgid "Private Message (also sets urgency hint)"
 msgstr "Личное сообщение"
 
-#: ../src/settingsdialog.cc:959 ../src/settingsdialog.cc:1223
-#: ../src/settingsdialog.cc:1281 ../src/search.cc:41 ../src/search.cc:72
+#: ../src/settingsdialog.cc:963 ../src/settingsdialog.cc:1227
+#: ../src/settingsdialog.cc:1285 ../src/search.cc:41 ../src/search.cc:72
 #: ../src/search.cc:79 ../src/search.cc:231 ../src/search.cc:429
 #: ../src/search.cc:1066 ../src/search.cc:1067 ../src/search.cc:1877
 #: ../glade/searchspy.glade:184 ../glade/searchspy.glade:249
 #: ../glade/mainwindow.glade:231 ../glade/mainwindow.glade:1788
-#: ../glade/mainwindow.glade:1961 ../glade/settingsdialog.glade:5762
+#: ../glade/mainwindow.glade:1961 ../glade/settingsdialog.glade:5774
 msgid "Search"
 msgstr "Поиск"
 
-#: ../src/settingsdialog.cc:969 ../glade/settingsdialog.glade:2815
+#: ../src/settingsdialog.cc:973 ../glade/settingsdialog.glade:2827
 msgid "Sounds"
 msgstr "Звуки"
 
-#: ../src/settingsdialog.cc:987 ../src/settingsdialog.cc:1151
+#: ../src/settingsdialog.cc:991 ../src/settingsdialog.cc:1155
 #: ../src/settingsmanager.cc:237
 msgid "Download finished file list"
 msgstr "Закачен список файлов"
 
-#: ../src/settingsdialog.cc:988
+#: ../src/settingsdialog.cc:992
 msgid "Upload finished"
 msgstr "Отдача окончена"
 
-#: ../src/settingsdialog.cc:990 ../src/settingsdialog.cc:1159
+#: ../src/settingsdialog.cc:994 ../src/settingsdialog.cc:1163
 #: ../src/settingsmanager.cc:243
 msgid "Hub connected"
 msgstr "Соединён с хабом"
 
-#: ../src/settingsdialog.cc:991 ../src/settingsdialog.cc:1163
+#: ../src/settingsdialog.cc:995 ../src/settingsdialog.cc:1167
 #: ../src/settingsmanager.cc:241
 msgid "Hub disconnected"
 msgstr "Разъединён с хабом"
 
-#: ../src/settingsdialog.cc:992 ../src/settingsdialog.cc:1167
+#: ../src/settingsdialog.cc:996 ../src/settingsdialog.cc:1171
 #: ../src/settingsmanager.cc:245
 msgid "Favorite user joined"
 msgstr "Фаворит вошел"
 
-#: ../src/settingsdialog.cc:993 ../src/settingsdialog.cc:1171
+#: ../src/settingsdialog.cc:997 ../src/settingsdialog.cc:1175
 #: ../src/settingsmanager.cc:247
 msgid "Favorite user quit"
 msgstr "Фаворит вышел"
 
-#: ../src/settingsdialog.cc:1026
+#: ../src/settingsdialog.cc:1030
 msgid "General text"
 msgstr "Основной текст"
 
-#: ../src/settingsdialog.cc:1029
+#: ../src/settingsdialog.cc:1033
 msgid "My nick"
 msgstr "Мой ник"
 
-#: ../src/settingsdialog.cc:1032
+#: ../src/settingsdialog.cc:1036
 msgid "My own message"
 msgstr "Моё сообщение"
 
-#: ../src/settingsdialog.cc:1038
+#: ../src/settingsdialog.cc:1042
 msgid "System message"
 msgstr "Системное сообщение"
 
-#: ../src/settingsdialog.cc:1041
+#: ../src/settingsdialog.cc:1045
 msgid "Status message"
 msgstr "Статус сообщение"
 
-#: ../src/settingsdialog.cc:1044 ../src/settingsdialog.cc:1072
+#: ../src/settingsdialog.cc:1048 ../src/settingsdialog.cc:1076
 msgid "Timestamp"
 msgstr "Метка времени"
 
-#: ../src/settingsdialog.cc:1047
+#: ../src/settingsdialog.cc:1051
 msgid "URL"
 msgstr "Ссылка"
 
-#: ../src/settingsdialog.cc:1050
+#: ../src/settingsdialog.cc:1054
 msgid "Favorite User"
 msgstr "Фаворит"
 
-#: ../src/settingsdialog.cc:1053
+#: ../src/settingsdialog.cc:1057
 msgid "Operator"
 msgstr "Оператор"
 
-#: ../src/settingsdialog.cc:1128 ../glade/settingsdialog.glade:3332
+#: ../src/settingsdialog.cc:1132 ../glade/settingsdialog.glade:3344
 msgid "Notify"
 msgstr "Уведомления"
 
-#: ../src/settingsdialog.cc:1202
+#: ../src/settingsdialog.cc:1206
 msgid "User (dc)"
 msgstr "Юзер (дк)"
 
-#: ../src/settingsdialog.cc:1203
+#: ../src/settingsdialog.cc:1207
 msgid "User firewall (dc)"
 msgstr "Юзер файрвол (дк)"
 
-#: ../src/settingsdialog.cc:1204
+#: ../src/settingsdialog.cc:1208
 msgid "User operator firewall (dc)"
 msgstr "Юзер оператор файрвол (дк)"
 
-#: ../src/settingsdialog.cc:1205
+#: ../src/settingsdialog.cc:1209
 msgid "User operator (dc)"
 msgstr "Юзер оператор (дк)"
 
-#: ../src/settingsdialog.cc:1206
+#: ../src/settingsdialog.cc:1210
 msgid "User (normal)"
 msgstr "Юзер (нормальный)"
 
-#: ../src/settingsdialog.cc:1207
+#: ../src/settingsdialog.cc:1211
 msgid "User firewall (normal)"
 msgstr "Юзер файрвол (нормальный)"
 
-#: ../src/settingsdialog.cc:1208
+#: ../src/settingsdialog.cc:1212
 msgid "User operator firewall (normal)"
 msgstr "Юзер оператор файрвол (нормальный)"
 
-#: ../src/settingsdialog.cc:1209
+#: ../src/settingsdialog.cc:1213
 msgid "User operator (normal)"
 msgstr "Юзер оператор (нормальный)"
 
-#: ../src/settingsdialog.cc:1210
+#: ../src/settingsdialog.cc:1214
 msgid "Button smile"
 msgstr "Смайл кнопка"
 
-#: ../src/settingsdialog.cc:1211 ../glade/sharebrowser.glade:235
+#: ../src/settingsdialog.cc:1215 ../glade/sharebrowser.glade:235
 #: ../glade/sharebrowser.glade:271
 msgid "Download"
 msgstr "Закачать"
 
-#: ../src/settingsdialog.cc:1212
+#: ../src/settingsdialog.cc:1216
 msgid "Upload"
 msgstr "Отдачи"
 
-#: ../src/settingsdialog.cc:1213 ../src/settingsdialog.cc:1267
-#: ../src/settingsdialog.cc:1328 ../src/favoritehubs.cc:31
+#: ../src/settingsdialog.cc:1217 ../src/settingsdialog.cc:1271
+#: ../src/settingsdialog.cc:1332 ../src/favoritehubs.cc:31
 #: ../glade/mainwindow.glade:170 ../glade/mainwindow.glade:1933
 msgid "Favorite Hubs"
 msgstr "Избранные Хабы"
 
-#: ../src/settingsdialog.cc:1217 ../src/settingsdialog.cc:1275
+#: ../src/settingsdialog.cc:1221 ../src/settingsdialog.cc:1279
 #: ../glade/mainwindow.glade:1767 ../glade/mainwindow.glade:1860
 msgid "Own file list"
 msgstr "Свой список файлов"
 
-#: ../src/settingsdialog.cc:1218 ../src/settingsdialog.cc:1277
+#: ../src/settingsdialog.cc:1222 ../src/settingsdialog.cc:1281
 #: ../glade/mainwindow.glade:1774 ../glade/mainwindow.glade:1873
 msgid "Refresh"
 msgstr "Обновить"
 
-#: ../src/settingsdialog.cc:1219 ../src/settingsdialog.cc:1279
+#: ../src/settingsdialog.cc:1223 ../src/settingsdialog.cc:1283
 #: ../glade/mainwindow.glade:1781 ../glade/mainwindow.glade:1886
 msgid "Hash"
 msgstr "Хеш"
 
-#: ../src/settingsdialog.cc:1220 ../src/settingsdialog.cc:1273
+#: ../src/settingsdialog.cc:1224 ../src/settingsdialog.cc:1277
 #: ../glade/mainwindow.glade:1760 ../glade/mainwindow.glade:1842
 #: ../glade/settingsdialog.glade:6
 msgid "Preferences"
 msgstr "Настройки"
 
-#: ../src/settingsdialog.cc:1221 ../src/settingsdialog.cc:1271
-#: ../src/settingsdialog.cc:1327 ../src/publichubs.cc:29
+#: ../src/settingsdialog.cc:1225 ../src/settingsdialog.cc:1275
+#: ../src/settingsdialog.cc:1331 ../src/publichubs.cc:29
 #: ../glade/mainwindow.glade:185 ../glade/mainwindow.glade:1753
 #: ../glade/mainwindow.glade:1974
 msgid "Public Hubs"
 msgstr "Публичные хабы"
 
-#: ../src/settingsdialog.cc:1222 ../src/settingsdialog.cc:1287
+#: ../src/settingsdialog.cc:1226 ../src/settingsdialog.cc:1291
 #: ../glade/mainwindow.glade:1809 ../glade/mainwindow.glade:1992
-#: ../glade/settingsdialog.glade:1740
+#: ../glade/settingsdialog.glade:1752
 msgid "Queue"
 msgstr "Очередь"
 
-#: ../src/settingsdialog.cc:1225 ../src/settingsdialog.cc:1293
+#: ../src/settingsdialog.cc:1229 ../src/settingsdialog.cc:1297
 #: ../glade/mainwindow.glade:1830 ../glade/mainwindow.glade:2067
 msgid "Quit"
 msgstr "Выход"
 
-#: ../src/settingsdialog.cc:1226 ../src/settingsdialog.cc:1265
+#: ../src/settingsdialog.cc:1230 ../src/settingsdialog.cc:1269
 #: ../glade/mainwindow.glade:1732 ../glade/mainwindow.glade:1917
 msgid "Connect"
 msgstr "Соединение"
 
-#: ../src/settingsdialog.cc:1227 ../src/settingsdialog.cc:1263
+#: ../src/settingsdialog.cc:1231 ../src/settingsdialog.cc:1267
 #: ../glade/mainwindow.glade:1725 ../glade/mainwindow.glade:1904
 msgid "Reconnect"
 msgstr "Переподключиться"
 
-#: ../src/settingsdialog.cc:1230 ../glade/mainwindow.glade:246
+#: ../src/settingsdialog.cc:1234 ../glade/mainwindow.glade:246
 msgid "Search ADL"
 msgstr "Поиск ADL"
 
-#: ../src/settingsdialog.cc:1259 ../glade/mainwindow.glade:1397
+#: ../src/settingsdialog.cc:1263 ../glade/mainwindow.glade:1397
 #: ../glade/mainwindow.glade:1711 ../glade/mainwindow.glade:2085
 msgid "+/-"
 msgstr "+/-"
 
-#: ../src/settingsdialog.cc:1261 ../glade/mainwindow.glade:1718
+#: ../src/settingsdialog.cc:1265 ../glade/mainwindow.glade:1718
 msgid "Separators"
 msgstr "Разделители"
 
-#: ../src/settingsdialog.cc:1283
+#: ../src/settingsdialog.cc:1287
 msgid "searchADL"
 msgstr "Поиск ADL"
 
-#: ../src/settingsdialog.cc:1339
+#: ../src/settingsdialog.cc:1343
 msgid "Open file list window in the background"
 msgstr "Открывать окно \"список файлов\" в фоне"
 
-#: ../src/settingsdialog.cc:1340
+#: ../src/settingsdialog.cc:1344
 msgid "Open new private messages from other users in the background"
 msgstr "Открывать окно (ЛС) в фоне"
 
-#: ../src/settingsdialog.cc:1341
+#: ../src/settingsdialog.cc:1345
 msgid "Open new window when using /join"
 msgstr "Открывать окно при использовании /join"
 
-#: ../src/settingsdialog.cc:1342
+#: ../src/settingsdialog.cc:1346
 msgid "Ignore private messages from the hub"
 msgstr "Игнорировать личные сообщения от хаба"
 
-#: ../src/settingsdialog.cc:1343
+#: ../src/settingsdialog.cc:1347
 msgid "Ignore private messages from bots"
 msgstr "Игнорировать личные сообщения от ботов"
 
-#: ../src/settingsdialog.cc:1344
+#: ../src/settingsdialog.cc:1348
 msgid "Popup box to input password for hubs"
 msgstr "Всплывающее окна для ввода пароля на хабе"
 
-#: ../src/settingsdialog.cc:1349
+#: ../src/settingsdialog.cc:1353
 msgid "Confirm application exit"
 msgstr "Запрос при выходе из приложения"
 
-#: ../src/settingsdialog.cc:1350
+#: ../src/settingsdialog.cc:1354
 msgid "Confirm favorite hub removal"
 msgstr "Запрос при удалении избранных хабов"
 
-#: ../src/settingsdialog.cc:1395
+#: ../src/settingsdialog.cc:1399
 msgid "Auto-away on minimize (and back on restore)"
 msgstr ""
 "Авто-режим \"ушёл\" при сворачивании окна (и возврат при восстановлении)"
 
-#: ../src/settingsdialog.cc:1396
+#: ../src/settingsdialog.cc:1400
 msgid "Automatically follow redirects"
 msgstr "Следовать перенаправлениям автоматически"
 
-#: ../src/settingsdialog.cc:1397
+#: ../src/settingsdialog.cc:1401
 msgid "Clear search box after each search"
 msgstr "Очищать поле ввода по завершению поиска"
 
-#: ../src/settingsdialog.cc:1398
+#: ../src/settingsdialog.cc:1402
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
 msgstr "Хранить дубликаты файлов в своём списке файлов"
 
-#: ../src/settingsdialog.cc:1399
+#: ../src/settingsdialog.cc:1403
 msgid "Don't delete file lists when exiting"
 msgstr "Не удалять списки файлов при выходе"
 
-#: ../src/settingsdialog.cc:1400
+#: ../src/settingsdialog.cc:1404
 msgid "Automatically disconnect users who leave the hub"
 msgstr "Автоматически отключать пользователей, покинувших хаб"
 
-#: ../src/settingsdialog.cc:1401
+#: ../src/settingsdialog.cc:1405
 msgid "Enable segmented downloads"
 msgstr "Разрешить закачки с разных источников"
 
-#: ../src/settingsdialog.cc:1402
+#: ../src/settingsdialog.cc:1406
 msgid "Enable automatic SFV checking"
 msgstr "Включить автоматическую проверку SFV"
 
-#: ../src/settingsdialog.cc:1403
+#: ../src/settingsdialog.cc:1407
 msgid "Enable safe and compressed transfers"
 msgstr "Разрешить безопасные и сжатые передачи"
 
-#: ../src/settingsdialog.cc:1404
+#: ../src/settingsdialog.cc:1408
 msgid "Accept custom user commands from hub"
 msgstr "Разрешить команды пользователей хаба"
 
-#: ../src/settingsdialog.cc:1405
+#: ../src/settingsdialog.cc:1409
 msgid "Send unknown /commands to the hub"
 msgstr "Отправлять неизвестные /команды хабу"
 
-#: ../src/settingsdialog.cc:1406
+#: ../src/settingsdialog.cc:1410
 msgid "Add finished files to share instantly (if shared)"
 msgstr "Сразу добавлять закачанные файлы к шаре (если расшарены)"
 
-#: ../src/settingsdialog.cc:1407
+#: ../src/settingsdialog.cc:1411
 msgid "Don't send the away message to bots"
 msgstr "Не отправлять ботам сообщение \"ушёл\""
 
-#: ../src/settingsdialog.cc:1408
+#: ../src/settingsdialog.cc:1412
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr ""
 "Использовать быстрое хэширование (отключите, если у вас проблемы с "
 "хэшированием)"
 
-#: ../src/settingsdialog.cc:1409
+#: ../src/settingsdialog.cc:1413
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr "Перехватывать внешние хаб-ссылки"
 
-#: ../src/settingsdialog.cc:1410
+#: ../src/settingsdialog.cc:1414
 msgid "Register with the OS to handle magnet: URL links"
 msgstr "Перехватывать внешние магнет-ссылки"
 
-#: ../src/settingsdialog.cc:1411
+#: ../src/settingsdialog.cc:1415
 msgid "Show IP's' in chats"
 msgstr "Отображать IP-адреса в чате"
 
-#: ../src/settingsdialog.cc:1412
+#: ../src/settingsdialog.cc:1416
 msgid "Show user country in chat"
 msgstr "Показывать страну пользователя в чате"
 
-#: ../src/settingsdialog.cc:1413
+#: ../src/settingsdialog.cc:1417
 msgid "Allow overlap chunks"
 msgstr "Разрешить перекрытие кусков"
 
-#: ../src/settingsdialog.cc:1422 ../src/settingsdialog.cc:1432
-#: ../src/settingsdialog.cc:3006 ../src/settingsdialog.cc:3080
-#: ../src/settingsdialog.cc:3631 ../src/settingsdialog.cc:3722
-#: ../src/settingsdialog.cc:3745 ../src/settingsdialog.cc:3764
+#: ../src/settingsdialog.cc:1426 ../src/settingsdialog.cc:1436
+#: ../src/settingsdialog.cc:3017 ../src/settingsdialog.cc:3091
+#: ../src/settingsdialog.cc:3642 ../src/settingsdialog.cc:3733
+#: ../src/settingsdialog.cc:3756 ../src/settingsdialog.cc:3775
 #: ../src/finishedtransfers.cc:79 ../src/finishedtransfers.cc:180
 #: ../src/search.cc:93 ../src/search.cc:609 ../src/search.cc:703
 #: ../src/search.cc:832
 msgid "Hub"
 msgstr "Хаб"
 
-#: ../src/settingsdialog.cc:1423 ../src/settingsdialog.cc:1431
-#: ../src/settingsdialog.cc:3007 ../src/settingsdialog.cc:3081
-#: ../glade/settingsdialog.glade:6356
+#: ../src/settingsdialog.cc:1427 ../src/settingsdialog.cc:1435
+#: ../src/settingsdialog.cc:3018 ../src/settingsdialog.cc:3092
+#: ../glade/settingsdialog.glade:6368
 msgid "Command"
 msgstr "Команда"
 
-#: ../src/settingsdialog.cc:1474
+#: ../src/settingsdialog.cc:1478
 msgid "Use TLS when remote client supports it"
 msgstr "Использовать TLS, когда это поддерживает удаленный клиент"
 
-#: ../src/settingsdialog.cc:1475
+#: ../src/settingsdialog.cc:1479
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr "Разрешить TLS соединения с хабами без доверенного сертификата"
 
-#: ../src/settingsdialog.cc:1476
+#: ../src/settingsdialog.cc:1480
 msgid "Allow TLS connections to clients without trusted certificate"
 msgstr "Разрешить TLS соединения с клиентами без доверенного сертификата"
 
-#: ../src/settingsdialog.cc:1508 ../src/settingsdialog.cc:1698
-#: ../src/settingsdialog.cc:1731 ../src/settingsdialog.cc:1817
-#: ../src/settingsdialog.cc:1866 ../src/settingsdialog.cc:1914
+#: ../src/settingsdialog.cc:1512 ../src/settingsdialog.cc:1702
+#: ../src/settingsdialog.cc:1735 ../src/settingsdialog.cc:1821
+#: ../src/settingsdialog.cc:1870 ../src/settingsdialog.cc:1918
 msgid "Search type"
 msgstr "Поисковый тип"
 
-#: ../src/settingsdialog.cc:1509 ../src/settingsdialog.cc:1608
-#: ../src/settingsdialog.cc:1699
+#: ../src/settingsdialog.cc:1513 ../src/settingsdialog.cc:1612
+#: ../src/settingsdialog.cc:1703
 msgid "Predefined"
 msgstr "Предопределенный"
 
-#: ../src/settingsdialog.cc:1620
+#: ../src/settingsdialog.cc:1624
 msgid "New search type"
 msgstr "Новый тип поиска"
 
-#: ../src/settingsdialog.cc:1621
+#: ../src/settingsdialog.cc:1625
 msgid "<b>Name of the new search type</b>"
 msgstr "<b>Имя нового поискового типа</b>"
 
-#: ../src/settingsdialog.cc:1682 ../src/settingsdialog.cc:1726
-#: ../src/settingsdialog.cc:2668
+#: ../src/settingsdialog.cc:1686 ../src/settingsdialog.cc:1730
+#: ../src/settingsdialog.cc:2679
 msgid "Error"
 msgstr "Ошибка"
 
-#: ../src/settingsdialog.cc:1802 ../src/settingsdialog.cc:1989
+#: ../src/settingsdialog.cc:1806 ../src/settingsdialog.cc:1993
 msgid "Invalid extension: "
 msgstr "Неправильное расширение: "
 
-#: ../src/settingsdialog.cc:1873
+#: ../src/settingsdialog.cc:1877
 msgid "Rename a search type"
 msgstr "Переименовать тип поиска"
 
-#: ../src/settingsdialog.cc:1874
+#: ../src/settingsdialog.cc:1878
 msgid "<b>New name</b>"
 msgstr "<b>Новое имя</b>"
 
-#: ../src/settingsdialog.cc:1973
+#: ../src/settingsdialog.cc:1977
 msgid "Extension edition"
 msgstr "Изменение расширения"
 
-#: ../src/settingsdialog.cc:1974
+#: ../src/settingsdialog.cc:1978
 msgid "<b>Extension</b>"
 msgstr "<b>Расширение</b>"
 
-#: ../src/settingsdialog.cc:2049
+#: ../src/settingsdialog.cc:2060
 msgid "*** T E S T ***"
 msgstr "*** Т Е С Т ***"
 
-#: ../src/settingsdialog.cc:2131 ../src/settingsdialog.cc:2160
-#: ../src/settingsdialog.cc:2197
+#: ../src/settingsdialog.cc:2142 ../src/settingsdialog.cc:2171
+#: ../src/settingsdialog.cc:2208
 msgid "...must not be empty"
 msgstr "не должно быть пустым"
 
-#: ../src/settingsdialog.cc:2228 ../src/settingsdialog.cc:2252
+#: ../src/settingsdialog.cc:2239 ../src/settingsdialog.cc:2263
 msgid "...must be *.theme"
 msgstr "...должно быть *.theme"
 
-#: ../src/settingsdialog.cc:2267
+#: ../src/settingsdialog.cc:2278
 msgid "default icons"
 msgstr "иконки по умолчанию"
 
-#: ../src/settingsdialog.cc:2276
+#: ../src/settingsdialog.cc:2287
 msgid " + system icons"
 msgstr " + системные иконки"
 
-#: ../src/settingsdialog.cc:2299
+#: ../src/settingsdialog.cc:2310
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: ../src/settingsdialog.cc:2466
+#: ../src/settingsdialog.cc:2477
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: загружена тема %s...\n"
 
-#: ../src/settingsdialog.cc:2660 ../src/settingsdialog.cc:2746
+#: ../src/settingsdialog.cc:2671 ../src/settingsdialog.cc:2757
 msgid "Must not be empty..."
 msgstr "Не должно быть пустым..."
 
-#: ../src/settingsdialog.cc:2788
+#: ../src/settingsdialog.cc:2799
 msgid "Virtual name"
 msgstr "Виртуальное имя"
 
-#: ../src/settingsdialog.cc:2791
+#: ../src/settingsdialog.cc:2802
 msgid "<b>Name under which the others see the directory</b>"
 msgstr "<b>Имя каталога, которое будут видеть другие пользователи</b>"
 
-#: ../src/settingsdialog.cc:2855 ../src/settingsdialog.cc:2956
+#: ../src/settingsdialog.cc:2866 ../src/settingsdialog.cc:2967
 msgid "selected style failed"
 msgstr "не выбран стиль"
 
-#: ../src/settingsdialog.cc:3031 ../glade/settingsdialog.glade:6202
+#: ../src/settingsdialog.cc:3042 ../glade/settingsdialog.glade:6214
 msgid "Separator"
 msgstr "Разделитель"
 
-#: ../src/settingsdialog.cc:3119
+#: ../src/settingsdialog.cc:3130
 msgid "Name and command must not be empty"
 msgstr "Название и команда не должны быть пустыми"
 
-#: ../src/settingsdialog.cc:3125
+#: ../src/settingsdialog.cc:3136
 msgid "Command name already exists"
 msgstr "Команда уже существует"
 
-#: ../src/settingsdialog.cc:3319 ../src/publichubs.cc:360
+#: ../src/settingsdialog.cc:3330 ../src/publichubs.cc:360
 msgid "New list"
 msgstr "Новый лист"
 
-#: ../src/settingsdialog.cc:3391 ../glade/settingsdialog.glade:5944
+#: ../src/settingsdialog.cc:3402 ../glade/settingsdialog.glade:5956
 msgid "Favorite name"
 msgstr "Имя"
 
-#: ../src/settingsdialog.cc:3393
+#: ../src/settingsdialog.cc:3404
 msgid "<b>Under what name you see the directory</b>"
 msgstr "<b>Под таким именем вы будете видеть каталог</b>"
 
-#: ../src/settingsdialog.cc:3414
+#: ../src/settingsdialog.cc:3425
 msgid "Directory or favorite name already exists"
 msgstr "Такой каталог или имя уже существует"
 
-#: ../src/settingsdialog.cc:3519
+#: ../src/settingsdialog.cc:3530
 msgid "[HIDDEN SHARE] "
 msgstr "[HIDDEN SHARE] "
 
-#: ../src/settingsdialog.cc:3533
+#: ../src/settingsdialog.cc:3544
 msgid "Total size: "
 msgstr "Итоговый размер: "
 
@@ -1701,8 +1701,8 @@ msgid "Select file to Get TTH"
 msgstr "Выберите файл для расчета TTH"
 
 #: ../src/previewmenu.cc:90 ../src/emoticonsdialog.cc:106
-#: ../glade/settingsdialog.glade:3206 ../glade/settingsdialog.glade:3799
-#: ../glade/settingsdialog.glade:3945 ../glade/settingsdialog.glade:5717
+#: ../glade/settingsdialog.glade:3218 ../glade/settingsdialog.glade:3811
+#: ../glade/settingsdialog.glade:3957 ../glade/settingsdialog.glade:5729
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -1880,10 +1880,10 @@ msgstr "Слоты"
 
 #: ../src/search.cc:329 ../src/search.cc:400 ../src/sharebrowser.cc:481
 #: ../src/sharebrowser.cc:549 ../glade/mainwindow.glade:1462
-#: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:846
-#: ../glade/settingsdialog.glade:2739 ../glade/settingsdialog.glade:4052
-#: ../glade/settingsdialog.glade:4978 ../glade/settingsdialog.glade:4993
-#: ../glade/settingsdialog.glade:5008 ../glade/privatemessage.glade:118
+#: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:858
+#: ../glade/settingsdialog.glade:2751 ../glade/settingsdialog.glade:4064
+#: ../glade/settingsdialog.glade:4990 ../glade/settingsdialog.glade:5005
+#: ../glade/settingsdialog.glade:5020 ../glade/privatemessage.glade:118
 #: ../glade/hub.glade:332
 msgid "Browse..."
 msgstr "Обзор..."
@@ -2074,7 +2074,7 @@ msgstr "Переместить"
 msgid "Move Down"
 msgstr "Переместить ниже"
 
-#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5705
+#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5717
 msgid "Remove"
 msgstr "Удалить"
 
@@ -2155,7 +2155,7 @@ msgstr "Применить настройки"
 msgid "Top: >"
 msgstr "Top: >"
 
-#: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3906
+#: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3918
 msgid "Number of matches for the top"
 msgstr "Количество совпадений для добавления в топ"
 
@@ -2163,7 +2163,7 @@ msgstr "Количество совпадений для добавления в
 msgid "Waiting:"
 msgstr "Ожидание:"
 
-#: ../glade/searchspy.glade:101 ../glade/settingsdialog.glade:3875
+#: ../glade/searchspy.glade:101 ../glade/settingsdialog.glade:3887
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
@@ -2175,7 +2175,7 @@ msgstr ""
 msgid "Frame:"
 msgstr "Название:"
 
-#: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3845
+#: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3857
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
@@ -2781,13 +2781,13 @@ msgstr "Запомнить выбор"
 msgid "<b>What would you like to do?</b>"
 msgstr "<b>Что вы хотите сделать?</b>"
 
-#: ../glade/mainwindow.glade:1578 ../glade/settingsdialog.glade:6098
-#: ../glade/settingsdialog.glade:6591 ../glade/settingsdialog.glade:6632
+#: ../glade/mainwindow.glade:1578 ../glade/settingsdialog.glade:6110
+#: ../glade/settingsdialog.glade:6603 ../glade/settingsdialog.glade:6644
 msgid "gtk-cancel"
 msgstr "gtk-cancel"
 
-#: ../glade/mainwindow.glade:1588 ../glade/settingsdialog.glade:6603
-#: ../glade/settingsdialog.glade:6655
+#: ../glade/mainwindow.glade:1588 ../glade/settingsdialog.glade:6615
+#: ../glade/settingsdialog.glade:6667
 msgid "gtk-ok"
 msgstr "gtk-ok"
 
@@ -2937,184 +2937,188 @@ msgstr "<b>Настройка исходящих соединений</b>"
 msgid "Default download directory"
 msgstr "Директория закачек по умолчанию"
 
-#: ../glade/settingsdialog.glade:824
+#: ../glade/settingsdialog.glade:822
+msgid "Do not use unfinished downloads directory"
+msgstr "Не использовать каталог для незавершённых загрузок"
+
+#: ../glade/settingsdialog.glade:836
 msgid "Unfinished downloads directory"
 msgstr "Директория незавершённых закачек"
 
-#: ../glade/settingsdialog.glade:867
+#: ../glade/settingsdialog.glade:879
 msgid "<b>Directories</b>"
 msgstr "<b>Директории</b>"
 
-#: ../glade/settingsdialog.glade:899
+#: ../glade/settingsdialog.glade:911
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
 msgstr "Не закачивать, если скорость выше (Кб/с, 0 = выкл.)"
 
-#: ../glade/settingsdialog.glade:914
+#: ../glade/settingsdialog.glade:926
 msgid "Maximum simultaneous downloads (0 = infinite)"
 msgstr "Макс. одновременных закачек (0 = не ограничено)"
 
-#: ../glade/settingsdialog.glade:958
+#: ../glade/settingsdialog.glade:970
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Примечание; точность не 100%, т.к. скорость закачки меняется..."
 
-#: ../glade/settingsdialog.glade:971
+#: ../glade/settingsdialog.glade:983
 msgid "<b>Limits</b>"
 msgstr "<b>Ограничения</b>"
 
-#: ../glade/settingsdialog.glade:1000
+#: ../glade/settingsdialog.glade:1012
 msgid "Public Hubs list URL"
 msgstr "URL лист открытых хабов"
 
-#: ../glade/settingsdialog.glade:1014
+#: ../glade/settingsdialog.glade:1026
 msgid "Configure Public Hub Lists"
 msgstr "Изменить списки хабов"
 
-#: ../glade/settingsdialog.glade:1045
+#: ../glade/settingsdialog.glade:1057
 msgid "HTTP Proxy (for hublist only)"
 msgstr "HTTP прокси (только для списков хабов)"
 
-#: ../glade/settingsdialog.glade:1073
+#: ../glade/settingsdialog.glade:1085
 msgid "<b>Public Hubs list</b>"
 msgstr "<b>Список открытых хабов</b>"
 
-#: ../glade/settingsdialog.glade:1091 ../glade/settingsdialog.glade:1966
+#: ../glade/settingsdialog.glade:1103 ../glade/settingsdialog.glade:1978
 msgid "Downloads"
 msgstr "Закачки"
 
-#: ../glade/settingsdialog.glade:1179
+#: ../glade/settingsdialog.glade:1191
 msgid "<b>Favorite download to directories</b>"
 msgstr "<b>Избранные папки для скачивания</b>"
 
-#: ../glade/settingsdialog.glade:1194
+#: ../glade/settingsdialog.glade:1206
 msgid "Download to"
 msgstr "Закачать в"
 
-#: ../glade/settingsdialog.glade:1272
+#: ../glade/settingsdialog.glade:1284
 msgid "High priority max size"
 msgstr "Высший"
 
-#: ../glade/settingsdialog.glade:1285
+#: ../glade/settingsdialog.glade:1297
 msgid "Low priority size"
 msgstr "Низкий"
 
-#: ../glade/settingsdialog.glade:1300 ../glade/settingsdialog.glade:1315
-#: ../glade/settingsdialog.glade:1344 ../glade/settingsdialog.glade:1359
-#: ../glade/settingsdialog.glade:1559 ../glade/settingsdialog.glade:4657
-#: ../glade/settingsdialog.glade:4874
+#: ../glade/settingsdialog.glade:1312 ../glade/settingsdialog.glade:1327
+#: ../glade/settingsdialog.glade:1356 ../glade/settingsdialog.glade:1371
+#: ../glade/settingsdialog.glade:1571 ../glade/settingsdialog.glade:4669
+#: ../glade/settingsdialog.glade:4886
 msgid "KiB"
 msgstr "КБ"
 
-#: ../glade/settingsdialog.glade:1372
+#: ../glade/settingsdialog.glade:1384
 msgid "Normal priority max size"
 msgstr "Нормальный"
 
-#: ../glade/settingsdialog.glade:1385
+#: ../glade/settingsdialog.glade:1397
 msgid "Highest priority max size"
 msgstr "Наивысший"
 
-#: ../glade/settingsdialog.glade:1397
+#: ../glade/settingsdialog.glade:1409
 msgid "<b>Auto-priority settings</b>"
 msgstr "<b>Настройки автоприоритета</b>"
 
-#: ../glade/settingsdialog.glade:1516
+#: ../glade/settingsdialog.glade:1528
 msgid "Min filesize"
 msgstr "Мин. размер"
 
-#: ../glade/settingsdialog.glade:1531
+#: ../glade/settingsdialog.glade:1543
 msgid "Max inactivity"
 msgstr "Макс. неактивн."
 
-#: ../glade/settingsdialog.glade:1546
+#: ../glade/settingsdialog.glade:1558
 msgid "Check every"
 msgstr "Проверка каждые"
 
-#: ../glade/settingsdialog.glade:1644
+#: ../glade/settingsdialog.glade:1656
 msgid "Min sources online"
 msgstr "Мин. онлайн"
 
-#: ../glade/settingsdialog.glade:1657
+#: ../glade/settingsdialog.glade:1669
 msgid "Min elapsed"
 msgstr "Мин. прошло"
 
-#: ../glade/settingsdialog.glade:1670
+#: ../glade/settingsdialog.glade:1682
 msgid "Drop sources below"
 msgstr "Сброс если ниже"
 
-#: ../glade/settingsdialog.glade:1682
+#: ../glade/settingsdialog.glade:1694
 msgid "<b>Auto-drop settings</b>"
 msgstr "<b>Настройки автосброса</b>"
 
-#: ../glade/settingsdialog.glade:1720
+#: ../glade/settingsdialog.glade:1732
 msgid "<b>Other queue options</b>"
 msgstr "<b>Другие опции очереди</b>"
 
-#: ../glade/settingsdialog.glade:1775
+#: ../glade/settingsdialog.glade:1787
 msgid "<b>Players list</b>"
 msgstr "<b>Список плееров</b>"
 
-#: ../glade/settingsdialog.glade:1798
+#: ../glade/settingsdialog.glade:1810
 msgid "Name:"
 msgstr "Название:"
 
-#: ../glade/settingsdialog.glade:1820
+#: ../glade/settingsdialog.glade:1832
 msgid "Application:"
 msgstr "Приложение:"
 
-#: ../glade/settingsdialog.glade:1843
+#: ../glade/settingsdialog.glade:1855
 msgid "Apply to Extensions: (avi;mov;divx)"
 msgstr "Расширения: (avi;mov;divx)"
 
-#: ../glade/settingsdialog.glade:1867
+#: ../glade/settingsdialog.glade:1879
 msgid "<b>Add player</b>"
 msgstr "<b>Добавить</b>"
 
-#: ../glade/settingsdialog.glade:1950 ../glade/transfers.glade:89
+#: ../glade/settingsdialog.glade:1962 ../glade/transfers.glade:89
 #: ../glade/finishedtransfers.glade:126
 msgid "Preview"
 msgstr "Предпросмотр"
 
-#: ../glade/settingsdialog.glade:2008
+#: ../glade/settingsdialog.glade:2020
 msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 "Примечание: Файлы добавленные вновь будут расшарены только после хэширования!"
 
-#: ../glade/settingsdialog.glade:2023
+#: ../glade/settingsdialog.glade:2035
 msgid "Total size: 0 B"
 msgstr "Итоговый размер: 0 Б"
 
-#: ../glade/settingsdialog.glade:2034
+#: ../glade/settingsdialog.glade:2046
 msgid "Share hidden files"
 msgstr "Шарить скрытые файлы"
 
-#: ../glade/settingsdialog.glade:2044
+#: ../glade/settingsdialog.glade:2056
 msgid "Follow Links"
 msgstr "Следовать ссылкам"
 
-#: ../glade/settingsdialog.glade:2097
+#: ../glade/settingsdialog.glade:2109
 msgid "<b>Shared directories</b>"
 msgstr "<b>Расшаренные директории</b>"
 
-#: ../glade/settingsdialog.glade:2119
+#: ../glade/settingsdialog.glade:2131
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr "Открыть экстра слот если скорость ниже (0 = отключено)"
 
-#: ../glade/settingsdialog.glade:2147
+#: ../glade/settingsdialog.glade:2159
 msgid "Upload slots"
 msgstr "Слоты отдачи"
 
-#: ../glade/settingsdialog.glade:2176
+#: ../glade/settingsdialog.glade:2188
 msgid "Pictures"
 msgstr "Картинки"
 
-#: ../glade/settingsdialog.glade:2206
+#: ../glade/settingsdialog.glade:2218
 msgid "Sharing"
 msgstr "Шара"
 
-#: ../glade/settingsdialog.glade:2253
+#: ../glade/settingsdialog.glade:2265
 msgid "<b>Options</b>"
 msgstr "<b>Опции</b>"
 
-#: ../glade/settingsdialog.glade:2282
+#: ../glade/settingsdialog.glade:2294
 msgid ""
 "Top\n"
 "Left\n"
@@ -3126,11 +3130,11 @@ msgstr ""
 "Справа\n"
 "Снизу"
 
-#: ../glade/settingsdialog.glade:2299
+#: ../glade/settingsdialog.glade:2311
 msgid "<b>Tab Position</b>"
 msgstr "<b>Позиция вкладок</b>"
 
-#: ../glade/settingsdialog.glade:2323
+#: ../glade/settingsdialog.glade:2335
 msgid ""
 "Icons\n"
 "Text\n"
@@ -3146,15 +3150,15 @@ msgstr ""
 "Скрытые\n"
 "По умолчанию"
 
-#: ../glade/settingsdialog.glade:2342
+#: ../glade/settingsdialog.glade:2354
 msgid "<b>Main Toolbar Style</b>"
 msgstr "<b>Стиль панели инсрументов</b>"
 
-#: ../glade/settingsdialog.glade:2383
+#: ../glade/settingsdialog.glade:2395
 msgid "<b>Default away message</b>"
 msgstr "Сообщение в режиме \"ушёл\""
 
-#: ../glade/settingsdialog.glade:2404
+#: ../glade/settingsdialog.glade:2416
 msgid ""
 "%a abbreviated weekday name.\n"
 "%b abbreviated month name.\n"
@@ -3174,384 +3178,384 @@ msgstr ""
 "\n"
 "см. подробнее man strftime."
 
-#: ../glade/settingsdialog.glade:2419
+#: ../glade/settingsdialog.glade:2431
 msgid "<b>Timestamps</b>"
 msgstr "<b>Формат меток времени</b>"
 
-#: ../glade/settingsdialog.glade:2443 ../glade/settingsdialog.glade:2506
+#: ../glade/settingsdialog.glade:2455 ../glade/settingsdialog.glade:2518
 msgid "Note: Most of these options require that you restart the application"
 msgstr "Примечание: Изменение большинства опций требует перезапуска программы"
 
-#: ../glade/settingsdialog.glade:2456 ../glade/settingsdialog.glade:4005
+#: ../glade/settingsdialog.glade:2468 ../glade/settingsdialog.glade:4017
 msgid "Appearance"
 msgstr "Оформление"
 
-#: ../glade/settingsdialog.glade:2492
+#: ../glade/settingsdialog.glade:2504
 msgid "<b>Tab bolding on content change</b>"
 msgstr "<b>Выделять жирным шрифтом при изменении</b>"
 
-#: ../glade/settingsdialog.glade:2522
+#: ../glade/settingsdialog.glade:2534
 msgid "Tabs"
 msgstr "Вкладки"
 
-#: ../glade/settingsdialog.glade:2563
+#: ../glade/settingsdialog.glade:2575
 msgid "<b>Auto-open on startup</b>"
 msgstr "<b>Автоматически открывать при запуске</b>"
 
-#: ../glade/settingsdialog.glade:2601
+#: ../glade/settingsdialog.glade:2613
 msgid "<b>Window Options</b>"
 msgstr "<b>Опции окна</b>"
 
-#: ../glade/settingsdialog.glade:2642
+#: ../glade/settingsdialog.glade:2654
 msgid "<b>Confirmation Dialog Options</b>"
 msgstr "<b>Запрос при изменении настроек</b>"
 
-#: ../glade/settingsdialog.glade:2662
+#: ../glade/settingsdialog.glade:2674
 msgid "Windows"
 msgstr "Окна"
 
-#: ../glade/settingsdialog.glade:2698
+#: ../glade/settingsdialog.glade:2710
 msgid "<b>Sounds</b>"
 msgstr "<b>Звуки</b>"
 
-#: ../glade/settingsdialog.glade:2716
+#: ../glade/settingsdialog.glade:2728
 msgid "Play"
 msgstr "Играть"
 
-#: ../glade/settingsdialog.glade:2767
+#: ../glade/settingsdialog.glade:2779
 msgid "Every time a private message is received"
 msgstr "Каждый раз, когда получено личное сообщение"
 
-#: ../glade/settingsdialog.glade:2779
+#: ../glade/settingsdialog.glade:2791
 msgid "When a private message window is opened"
 msgstr "Когда открыто окно личных сообщений (ЛС)"
 
-#: ../glade/settingsdialog.glade:2793
+#: ../glade/settingsdialog.glade:2805
 msgid "<b>Private message sound</b>"
 msgstr "<b>Личное сообщение</b>"
 
-#: ../glade/settingsdialog.glade:2859
+#: ../glade/settingsdialog.glade:2871
 msgid "<b>Available styles</b>"
 msgstr "<b>Доступные стили</b>"
 
-#: ../glade/settingsdialog.glade:2891
+#: ../glade/settingsdialog.glade:2903
 msgid "<b>Preview styles</b>"
 msgstr "<b>Предпросмотр стилей</b>"
 
-#: ../glade/settingsdialog.glade:2909
+#: ../glade/settingsdialog.glade:2921
 msgid "Bold Authors of message in chat"
 msgstr "Выделять ники в чате жирным"
 
-#: ../glade/settingsdialog.glade:2928
+#: ../glade/settingsdialog.glade:2940
 msgid "Back color"
 msgstr "Цвет фона"
 
-#: ../glade/settingsdialog.glade:2938
+#: ../glade/settingsdialog.glade:2950
 msgid "Text color"
 msgstr "Цвет текста"
 
-#: ../glade/settingsdialog.glade:2951
+#: ../glade/settingsdialog.glade:2963
 msgid "Text style"
 msgstr "Стиль текста"
 
-#: ../glade/settingsdialog.glade:2964
+#: ../glade/settingsdialog.glade:2976
 msgid "Default styles"
 msgstr "По умолчанию"
 
-#: ../glade/settingsdialog.glade:2977
+#: ../glade/settingsdialog.glade:2989
 msgid "Black/White"
 msgstr "Чёрно/Белый"
 
-#: ../glade/settingsdialog.glade:3015
+#: ../glade/settingsdialog.glade:3027
 msgid "Colors & Fonts"
 msgstr "Цвета и Шрифты"
 
-#: ../glade/settingsdialog.glade:3053
+#: ../glade/settingsdialog.glade:3065
 msgid "<b>Notify</b>"
 msgstr "<b>Уведомления</b>"
 
-#: ../glade/settingsdialog.glade:3088
+#: ../glade/settingsdialog.glade:3100
 msgid "<b>Title</b>"
 msgstr "<b>Заголовок</b>"
 
-#: ../glade/settingsdialog.glade:3117
+#: ../glade/settingsdialog.glade:3129
 msgid "<b>Icon size</b>"
 msgstr "<b>Размер иконки</b>"
 
-#: ../glade/settingsdialog.glade:3144
+#: ../glade/settingsdialog.glade:3156
 msgid "Test"
 msgstr "Тест"
 
-#: ../glade/settingsdialog.glade:3169
+#: ../glade/settingsdialog.glade:3181
 msgid "Icon..."
 msgstr "Иконка..."
 
-#: ../glade/settingsdialog.glade:3193
+#: ../glade/settingsdialog.glade:3205
 msgid "None icon"
 msgstr "Нет иконки"
 
-#: ../glade/settingsdialog.glade:3262
+#: ../glade/settingsdialog.glade:3274
 msgid "Maximum message length (0 = infinite)"
 msgstr "Максимальная длина сообщения (0 = не ограничено)"
 
-#: ../glade/settingsdialog.glade:3278
+#: ../glade/settingsdialog.glade:3290
 msgid "Show only when the application is not active."
 msgstr "Показать только, когда приложение пассивно"
 
-#: ../glade/settingsdialog.glade:3293
+#: ../glade/settingsdialog.glade:3305
 msgid "<b>Private message</b>"
 msgstr "<b>Личное сообщение</b>"
 
-#: ../glade/settingsdialog.glade:3310 ../glade/settingsdialog.glade:6168
+#: ../glade/settingsdialog.glade:3322 ../glade/settingsdialog.glade:6180
 msgid "PM"
 msgstr "ЛС"
 
-#: ../glade/settingsdialog.glade:3372
+#: ../glade/settingsdialog.glade:3384
 msgid "<b>Icons</b>"
 msgstr "<b>Иконки</b>"
 
-#: ../glade/settingsdialog.glade:3404
+#: ../glade/settingsdialog.glade:3416
 msgid "<b>Text styles</b>"
 msgstr "<b>Стили текста</b>"
 
-#: ../glade/settingsdialog.glade:3426
+#: ../glade/settingsdialog.glade:3438
 msgid "<b>Current theme name:</b>"
 msgstr "<b>Текущая тема:</b>"
 
-#: ../glade/settingsdialog.glade:3436
+#: ../glade/settingsdialog.glade:3448
 msgid "theme"
 msgstr "тема"
 
-#: ../glade/settingsdialog.glade:3459
+#: ../glade/settingsdialog.glade:3471
 msgid "Export..."
 msgstr "Экспорт..."
 
-#: ../glade/settingsdialog.glade:3471
+#: ../glade/settingsdialog.glade:3483
 msgid "Import..."
 msgstr "Импорт..."
 
-#: ../glade/settingsdialog.glade:3496
+#: ../glade/settingsdialog.glade:3508
 msgid "Default icons"
 msgstr "Иконки по умолчанию"
 
-#: ../glade/settingsdialog.glade:3509
+#: ../glade/settingsdialog.glade:3521
 msgid "System icons"
 msgstr "Системные иконки"
 
-#: ../glade/settingsdialog.glade:3522
+#: ../glade/settingsdialog.glade:3534
 msgid "Theme default"
 msgstr "По умолчанию"
 
-#: ../glade/settingsdialog.glade:3544
+#: ../glade/settingsdialog.glade:3556
 msgid "Themes"
 msgstr "Темы"
 
-#: ../glade/settingsdialog.glade:3582
+#: ../glade/settingsdialog.glade:3594
 msgid "<b>Toolbar buttons</b>"
 msgstr "<b>Кнопки панели инсрументов</b>"
 
-#: ../glade/settingsdialog.glade:3599
+#: ../glade/settingsdialog.glade:3611
 msgid "Toolbar"
 msgstr "Панель инструментов"
 
-#: ../glade/settingsdialog.glade:3643
+#: ../glade/settingsdialog.glade:3655
 msgid "New string or TTH"
 msgstr "Новая строка или TTH"
 
-#: ../glade/settingsdialog.glade:3674
+#: ../glade/settingsdialog.glade:3686
 msgid "Adding string or TTH in the top"
 msgstr "Добавление строки или TTH в топ"
 
-#: ../glade/settingsdialog.glade:3706
+#: ../glade/settingsdialog.glade:3718
 msgid "State of preparedness"
 msgstr "Состояние готовности"
 
-#: ../glade/settingsdialog.glade:3738
+#: ../glade/settingsdialog.glade:3750
 msgid "Matches"
 msgstr "Совпадения"
 
-#: ../glade/settingsdialog.glade:3770
+#: ../glade/settingsdialog.glade:3782
 msgid "Updating string or TTH"
 msgstr "Обновление строки или TTH"
 
-#: ../glade/settingsdialog.glade:3818
+#: ../glade/settingsdialog.glade:3830
 msgid "<b>Colors</b>"
 msgstr "<b>Цвета</b>"
 
-#: ../glade/settingsdialog.glade:3855
+#: ../glade/settingsdialog.glade:3867
 msgid "Frame (size)"
 msgstr "Кадр (размер)"
 
-#: ../glade/settingsdialog.glade:3885
+#: ../glade/settingsdialog.glade:3897
 msgid "Waiting (seconds)"
 msgstr "Ожидание (секунд)"
 
-#: ../glade/settingsdialog.glade:3916
+#: ../glade/settingsdialog.glade:3928
 msgid "Top (number of matches, more than)"
 msgstr "Топ (число совпадений, больше чем)"
 
-#: ../glade/settingsdialog.glade:3964
+#: ../glade/settingsdialog.glade:3976
 msgid "<b>Frame</b>"
 msgstr "<b>Фрейм</b>"
 
-#: ../glade/settingsdialog.glade:4071
+#: ../glade/settingsdialog.glade:4083
 msgid "Log main chat"
 msgstr "Журнал основного чата"
 
-#: ../glade/settingsdialog.glade:4091 ../glade/settingsdialog.glade:4134
-#: ../glade/settingsdialog.glade:4177 ../glade/settingsdialog.glade:4220
+#: ../glade/settingsdialog.glade:4103 ../glade/settingsdialog.glade:4146
+#: ../glade/settingsdialog.glade:4189 ../glade/settingsdialog.glade:4232
 msgid "Format"
 msgstr "Формат"
 
-#: ../glade/settingsdialog.glade:4114
+#: ../glade/settingsdialog.glade:4126
 msgid "Log private chat"
 msgstr "Журнал личных сообщений (ЛС)"
 
-#: ../glade/settingsdialog.glade:4157
+#: ../glade/settingsdialog.glade:4169
 msgid "Log downloads"
 msgstr "Журнал закачек"
 
-#: ../glade/settingsdialog.glade:4200
+#: ../glade/settingsdialog.glade:4212
 msgid "Log uploads"
 msgstr "Журнал отдач"
 
-#: ../glade/settingsdialog.glade:4243
+#: ../glade/settingsdialog.glade:4255
 msgid "Log system messages"
 msgstr "Журнал системных сообщений"
 
-#: ../glade/settingsdialog.glade:4258
+#: ../glade/settingsdialog.glade:4270
 msgid "Log status messages"
 msgstr "Журнал статус-сообщений"
 
-#: ../glade/settingsdialog.glade:4273
+#: ../glade/settingsdialog.glade:4285
 msgid "Log filelist transfers"
 msgstr "Журнал отдач списка файлов"
 
-#: ../glade/settingsdialog.glade:4289
+#: ../glade/settingsdialog.glade:4301
 msgid "<b>Logging</b>"
 msgstr "<b>Журналирование</b>"
 
-#: ../glade/settingsdialog.glade:4306
+#: ../glade/settingsdialog.glade:4318
 msgid "Logs"
 msgstr "Журналы"
 
-#: ../glade/settingsdialog.glade:4345 ../glade/settingsdialog.glade:5194
+#: ../glade/settingsdialog.glade:4357 ../glade/settingsdialog.glade:5206
 msgid "Advanced"
 msgstr "Расширенные"
 
-#: ../glade/settingsdialog.glade:4459
+#: ../glade/settingsdialog.glade:4471
 msgid "User Commands"
 msgstr "Команды юзера"
 
-#: ../glade/settingsdialog.glade:4485
+#: ../glade/settingsdialog.glade:4497
 msgid "Max hash speed"
 msgstr "Макс. скор. хэш."
 
-#: ../glade/settingsdialog.glade:4497
+#: ../glade/settingsdialog.glade:4509
 msgid "PM history"
 msgstr "ЛС история"
 
-#: ../glade/settingsdialog.glade:4509
+#: ../glade/settingsdialog.glade:4521
 msgid "Mini slot size"
 msgstr "Мин. размер слота"
 
-#: ../glade/settingsdialog.glade:4521
+#: ../glade/settingsdialog.glade:4533
 msgid "Max filelist size"
 msgstr "Макс. файл-лист"
 
-#: ../glade/settingsdialog.glade:4635
+#: ../glade/settingsdialog.glade:4647
 msgid "MiB/s"
 msgstr "МБ/с"
 
-#: ../glade/settingsdialog.glade:4669
+#: ../glade/settingsdialog.glade:4681
 msgid "MiB"
 msgstr "МБ"
 
-#: ../glade/settingsdialog.glade:4701
+#: ../glade/settingsdialog.glade:4713
 msgid "Write buffer size"
 msgstr "Буфер записи"
 
-#: ../glade/settingsdialog.glade:4712
+#: ../glade/settingsdialog.glade:4724
 msgid "Search history"
 msgstr "История поиска"
 
-#: ../glade/settingsdialog.glade:4724
+#: ../glade/settingsdialog.glade:4736
 msgid "Bind address"
 msgstr "Адрес"
 
-#: ../glade/settingsdialog.glade:4736
+#: ../glade/settingsdialog.glade:4748
 msgid "Socket read buffer"
 msgstr "Буфер чтения сокета"
 
-#: ../glade/settingsdialog.glade:4748
+#: ../glade/settingsdialog.glade:4760
 msgid "Socket write buffer"
 msgstr "Буфер записи сокета"
 
-#: ../glade/settingsdialog.glade:4760
+#: ../glade/settingsdialog.glade:4772
 msgid "Auto refresh time"
 msgstr "Автообновление"
 
-#: ../glade/settingsdialog.glade:4903 ../glade/settingsdialog.glade:4915
+#: ../glade/settingsdialog.glade:4915 ../glade/settingsdialog.glade:4927
 msgid "B"
 msgstr "Б"
 
-#: ../glade/settingsdialog.glade:4951
+#: ../glade/settingsdialog.glade:4963
 msgid "Experts Only"
 msgstr "Для опытных"
 
-#: ../glade/settingsdialog.glade:5053
+#: ../glade/settingsdialog.glade:5065
 msgid "Trusted certificates path"
 msgstr "Путь к довер. сертиф."
 
-#: ../glade/settingsdialog.glade:5067
+#: ../glade/settingsdialog.glade:5079
 msgid "Certificate file"
 msgstr "Файл сертификата"
 
-#: ../glade/settingsdialog.glade:5081
+#: ../glade/settingsdialog.glade:5093
 msgid "Private key file"
 msgstr "Файл личного ключа"
 
-#: ../glade/settingsdialog.glade:5097
+#: ../glade/settingsdialog.glade:5109
 msgid "<b>Certificate Paths</b>"
 msgstr "<b>Сертификат Пути</b>"
 
-#: ../glade/settingsdialog.glade:5133
+#: ../glade/settingsdialog.glade:5145
 msgid "<b>Other Security Options</b>"
 msgstr "<b>Другие опции безопасности</b>"
 
-#: ../glade/settingsdialog.glade:5151
+#: ../glade/settingsdialog.glade:5163
 msgid "Generate certificates"
 msgstr "Генерация сертификата"
 
-#: ../glade/settingsdialog.glade:5178
+#: ../glade/settingsdialog.glade:5190
 msgid "Security Certificates"
 msgstr "Сертификаты безопасности"
 
-#: ../glade/settingsdialog.glade:5209
+#: ../glade/settingsdialog.glade:5221
 msgid "Use bandwidth limits"
 msgstr "Использовать ограничения скорости"
 
-#: ../glade/settingsdialog.glade:5247 ../glade/settingsdialog.glade:5490
+#: ../glade/settingsdialog.glade:5259 ../glade/settingsdialog.glade:5502
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
 msgstr "Максимальная скорость отдачи (КиБ/с) (0 = не ограничено)"
 
-#: ../glade/settingsdialog.glade:5284 ../glade/settingsdialog.glade:5527
+#: ../glade/settingsdialog.glade:5296 ../glade/settingsdialog.glade:5539
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
 msgstr "Максимальная скорость загрузки (КиБ/с) (0 = не ограничено)"
 
-#: ../glade/settingsdialog.glade:5312
+#: ../glade/settingsdialog.glade:5324
 msgid "<b>Transfer Rate Limiting</b>"
 msgstr "<b>Ограничение скорости передачи</b>"
 
-#: ../glade/settingsdialog.glade:5339
+#: ../glade/settingsdialog.glade:5351
 msgid "Use second set of bandwidth limits"
 msgstr "Используйте второй набор пределов полосы пропускания"
 
-#: ../glade/settingsdialog.glade:5361
+#: ../glade/settingsdialog.glade:5373
 msgid "from"
 msgstr "от "
 
-#: ../glade/settingsdialog.glade:5371 ../glade/settingsdialog.glade:5414
+#: ../glade/settingsdialog.glade:5383 ../glade/settingsdialog.glade:5426
 msgid ""
 "Midnight\n"
 "1AM\n"
@@ -3603,23 +3607,23 @@ msgstr ""
 "10PM\n"
 "11PM"
 
-#: ../glade/settingsdialog.glade:5404
+#: ../glade/settingsdialog.glade:5416
 msgid "to"
 msgstr "к"
 
-#: ../glade/settingsdialog.glade:5449
+#: ../glade/settingsdialog.glade:5461
 msgid "<b>Secondary Transfer Rate Limiting</b>"
 msgstr "<b>Второе ограничение скорости передачи</b>"
 
-#: ../glade/settingsdialog.glade:5567
+#: ../glade/settingsdialog.glade:5579
 msgid "Upload Slots"
 msgstr "Слоты отдачи"
 
-#: ../glade/settingsdialog.glade:5595
+#: ../glade/settingsdialog.glade:5607
 msgid "<b>Secondary Transfer Rate Settings</b>"
 msgstr "<b>Настройки второй скорости передачи</b>"
 
-#: ../glade/settingsdialog.glade:5628
+#: ../glade/settingsdialog.glade:5640
 msgid ""
 "Bandwidth\n"
 "Limiting"
@@ -3627,122 +3631,122 @@ msgstr ""
 "Bandwidth\n"
 "Limiting"
 
-#: ../glade/settingsdialog.glade:5672
+#: ../glade/settingsdialog.glade:5684
 msgid "Add"
 msgstr "Добавить"
 
-#: ../glade/settingsdialog.glade:5681
+#: ../glade/settingsdialog.glade:5693
 msgid "Modify"
 msgstr "Изменить"
 
-#: ../glade/settingsdialog.glade:5693
+#: ../glade/settingsdialog.glade:5705
 msgid "Rename"
 msgstr "Переименовать"
 
-#: ../glade/settingsdialog.glade:5734
+#: ../glade/settingsdialog.glade:5746
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
 "Заметка: Указанные поисковые типы будут применяться только для ADC хабов!"
 
-#: ../glade/settingsdialog.glade:5747
+#: ../glade/settingsdialog.glade:5759
 msgid "<b>Search types</b>"
 msgstr "<b>Поисковые типы</b>"
 
-#: ../glade/settingsdialog.glade:5815 ../glade/publichubs.glade:190
+#: ../glade/settingsdialog.glade:5827 ../glade/publichubs.glade:190
 msgid "Configure hub lists"
 msgstr "Конфигурация списков хабов"
 
-#: ../glade/settingsdialog.glade:5905 ../glade/publichubs.glade:276
+#: ../glade/settingsdialog.glade:5917 ../glade/publichubs.glade:276
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
 "<b>Заметка:</b> Для изменения ссылок в этом списке достаточно одного клика "
 "после выделения"
 
-#: ../glade/settingsdialog.glade:6077
+#: ../glade/settingsdialog.glade:6089
 msgid "Choose a File"
 msgstr "Выбор файла"
 
-#: ../glade/settingsdialog.glade:6108
+#: ../glade/settingsdialog.glade:6120
 msgid "gtk-open"
 msgstr "gtk-open"
 
-#: ../glade/settingsdialog.glade:6126
+#: ../glade/settingsdialog.glade:6138
 msgid "Modify User Command"
 msgstr "Создать/изменить команду"
 
-#: ../glade/settingsdialog.glade:6152
+#: ../glade/settingsdialog.glade:6164
 msgid "Raw"
 msgstr "Сырой"
 
-#: ../glade/settingsdialog.glade:6186
+#: ../glade/settingsdialog.glade:6198
 msgid "Chat"
 msgstr "Чат"
 
-#: ../glade/settingsdialog.glade:6216
+#: ../glade/settingsdialog.glade:6228
 msgid "<b>Command Type</b>"
 msgstr "<b>Тип команды</b>"
 
-#: ../glade/settingsdialog.glade:6239
+#: ../glade/settingsdialog.glade:6251
 msgid "Search Menu"
 msgstr "Меню поиска"
 
-#: ../glade/settingsdialog.glade:6254
+#: ../glade/settingsdialog.glade:6266
 msgid "Chat Menu"
 msgstr "Меню юзера"
 
-#: ../glade/settingsdialog.glade:6269
+#: ../glade/settingsdialog.glade:6281
 msgid "Filelist Menu"
 msgstr "Меню файл-листа"
 
-#: ../glade/settingsdialog.glade:6286
+#: ../glade/settingsdialog.glade:6298
 msgid "Hub Menu"
 msgstr "Меню хаба"
 
-#: ../glade/settingsdialog.glade:6300
+#: ../glade/settingsdialog.glade:6312
 msgid "<b>Context</b>"
 msgstr "<b>Содержание</b>"
 
-#: ../glade/settingsdialog.glade:6387
+#: ../glade/settingsdialog.glade:6399
 msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
 msgstr "IP / DNS хаба (empty = все, 'op' = где оператор)"
 
-#: ../glade/settingsdialog.glade:6418
+#: ../glade/settingsdialog.glade:6430
 msgid "To (empty for selected user)"
 msgstr "Кому"
 
-#: ../glade/settingsdialog.glade:6446
+#: ../glade/settingsdialog.glade:6458
 msgid "Send once per nick"
 msgstr "Отправить по разу для каждого ника"
 
-#: ../glade/settingsdialog.glade:6462
+#: ../glade/settingsdialog.glade:6474
 msgid "<b>Parameters</b>"
 msgstr "<b>Параметры</b>"
 
-#: ../glade/settingsdialog.glade:6498
+#: ../glade/settingsdialog.glade:6510
 msgid "<b>Text sent to hub</b>"
 msgstr "<b>Текст отправлен хабу</b>"
 
-#: ../glade/settingsdialog.glade:6563
+#: ../glade/settingsdialog.glade:6575
 msgid "Color select"
 msgstr "Выбор цвета"
 
-#: ../glade/settingsdialog.glade:6580
+#: ../glade/settingsdialog.glade:6592
 msgid "gtk-help"
 msgstr "gtk-help"
 
-#: ../glade/settingsdialog.glade:6611
+#: ../glade/settingsdialog.glade:6623
 msgid "Font select"
 msgstr "Выбор шрифта"
 
-#: ../glade/settingsdialog.glade:6643
+#: ../glade/settingsdialog.glade:6655
 msgid "gtk-apply"
 msgstr "gtk-apply"
 
-#: ../glade/settingsdialog.glade:6685
+#: ../glade/settingsdialog.glade:6697
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr "Используйте разделитель для расширений (doc;xls;ppt;docx;xlsx;pptx)"
 
-#: ../glade/settingsdialog.glade:6753
+#: ../glade/settingsdialog.glade:6765
 msgid "gtk-edit"
 msgstr "gtk-edit"
 
@@ -3894,3 +3898,7 @@ msgstr "Открыть изображение"
 #: ../glade/hub.glade:495
 msgid "Remove image"
 msgstr "Удалить изображение"
+
+#, fuzzy
+#~ msgid "No use temp directory"
+#~ msgstr "Выбор директории"

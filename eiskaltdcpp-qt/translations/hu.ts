@@ -1384,6 +1384,10 @@ Kedvenc felhasználó</translation>
         <source>Download file via auto search alternatives</source>
         <translation>Fájlok letöltése automatikus alternatívák keresése közben</translation>
     </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Böngészés</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1647,27 +1651,27 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation>Az EiskaltDC++ egy grafikus kliens a Direct Connect és az ADC protokollhoz.</translation>
+        <translation type="obsolete">Az EiskaltDC++ egy grafikus kliens a Direct Connect és az ADC protokollhoz.</translation>
     </message>
     <message>
         <source>DC++ core version:</source>
-        <translation>Alap DC++ verzió:</translation>
+        <translation type="obsolete">Alap DC++ verzió:</translation>
     </message>
     <message>
         <source>(modified)</source>
-        <translation>(módosított)</translation>
+        <translation type="obsolete">(módosított)</translation>
     </message>
     <message>
         <source>Home page:</source>
-        <translation>Weboldal:</translation>
+        <translation type="obsolete">Weboldal:</translation>
     </message>
     <message>
         <source>Total up:</source>
-        <translation>Összes feltöltés:</translation>
+        <translation type="obsolete">Összes feltöltés:</translation>
     </message>
     <message>
         <source>Total down:</source>
-        <translation>Összes letöltés:</translation>
+        <translation type="obsolete">Összes letöltés:</translation>
     </message>
     <message>
         <source>&amp;Panels</source>
@@ -2173,6 +2177,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Ctrl+Alt+H</source>
         <translation>Ctrl+Alt+H</translation>
     </message>
+    <message>
+        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2250,7 +2258,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Disable emoticons</source>
-        <translation>Hangulatjelek tiltása</translation>
+        <translation type="obsolete">Hangulatjelek tiltása</translation>
     </message>
 </context>
 <context>
@@ -3206,6 +3214,29 @@ Kapcsolók:
     </message>
 </context>
 <context>
+    <name>ShortcutGetter</name>
+    <message>
+        <source>Modify shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press the key combination you want to assign</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished">Töröl</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture keystrokes</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShortcutsModel</name>
     <message>
         <source>Action</source>
@@ -3284,7 +3315,7 @@ Kapcsolók:
     <message>
         <source>Internal server running on %1
 </source>
-        <translation>Egy belső kiszolgáló fut a következőn: %1
+        <translation type="obsolete">Egy belső kiszolgáló fut a következőn: %1
 </translation>
     </message>
 </context>
@@ -3515,6 +3546,10 @@ Biztosan le akarod állítani?
     <message>
         <source>Magnet</source>
         <translation>Magnet</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished">Titkosítás</translation>
     </message>
 </context>
 <context>
@@ -4695,6 +4730,45 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     <message>
         <source>Auto detect connection</source>
         <translation>Kapcsolat-típus automatikus detektálása</translation>
+    </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Low delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Throughput</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reliability</source>
+        <translation type="unfinished">Megbízhatóság</translation>
+    </message>
+    <message>
+        <source>Minimal cost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type-of-Service (ToS)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

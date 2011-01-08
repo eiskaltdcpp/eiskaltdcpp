@@ -819,7 +819,7 @@
                             </child>
                                <child>
                               <widget class="GtkCheckButton" id="noUseTempDirButton">
-                                <property name="label" translatable="yes">No use temp directory</property>
+                                <property name="label" translatable="yes">Do not use unfinished downloads directory</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
