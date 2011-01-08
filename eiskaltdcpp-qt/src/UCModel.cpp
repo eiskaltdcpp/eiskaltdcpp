@@ -154,6 +154,7 @@ void UCModel::addUC(const dcpp::UserCommand &uc){
     item->id   = uc.getId();
     item->type = uc.getType();
     item->ctx  = uc.getCtx();
+    item->to   = _q(uc.getTo());
 
     beginInsertRows(QModelIndex(), rootItem->childCount(), rootItem->childCount());
     rootItem->appendChild(item);
@@ -197,6 +198,7 @@ void UCModel::changeUC(const QModelIndex &i){
         uc.setHub(_tq(ucd.getHub()));
         uc.setType(ucd.getType());
         uc.setCtx(ucd.getCtx());
+        uc.setTo(_tq(ucd.lineEdit_TO->text()));
         FavoriteManager::getInstance()->updateUserCommand(uc);
 
         item->name = ((uc.getType() == dcpp::UserCommand::TYPE_SEPARATOR)? tr("Separator") : _q(uc.getName()));
@@ -273,41 +275,39 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
     QString name        = item.name;
     QString comm        = item.comm;
     QString hub         = item.hub;
+    QString to          = item.to;
+    int new_type;
 
-    if (type == 0){
+    if (type == UserCommand::TYPE_SEPARATOR){
         dlg.radioButton_SEP->toggle();
         dlg.lineEdit_CMD->clear();
+
+        new_type = 0;
     }
-    else if (comm.startsWith("<%[myNI]> ")){
-        dlg.radioButton_CHAT->toggle();
-
-        int from = QString("<%[myNI]> ").length();
-        QString cmd = comm.mid(from, comm.length()-from-1);
-
-        cmd = _q(NmdcHub::validateMessage(_tq(cmd), true));
-
-        dlg.lineEdit_CMD->setText(cmd);
-    }
-    else if ( comm.startsWith("$To: ") && comm.indexOf(" From: %[myNI] $<%[myNI]> ") > 0){
-        QRegExp reg_exp("^\\$To: ([^\t]+) From: %\\[myNI\\] \\$<%\\[myNI\\]> ([^\t^|]+)");
-        (void)reg_exp.indexIn(comm);
-        QStringList list = reg_exp.capturedTexts();
-
-        if (list.size() != 3)
-            return;
-
-        dlg.radioButton_PM->toggle();
-        dlg.lineEdit_CMD->setText(list.at(2));
-        dlg.lineEdit_TO->setText(list.at(1));
-    }
-    else{
-        dlg.radioButton_RAW->toggle();
+    else {
         dlg.lineEdit_CMD->setText(comm);
+
+        if(type == UserCommand::TYPE_RAW || type == UserCommand::TYPE_RAW_ONCE) {
+            dlg.radioButton_RAW->setChecked(true);
+            new_type = 1;
+        }
+        else if(type == UserCommand::TYPE_CHAT || type == UserCommand::TYPE_CHAT_ONCE) {
+            if(to.isEmpty()) {
+                dlg.radioButton_CHAT->setChecked(true);
+                new_type = 2;
+            }
+            else {
+                dlg.radioButton_PM->setChecked(true);
+                dlg.lineEdit_TO->setText(to);
+                new_type = 3;
+            }
+
+            if(type == UserCommand::TYPE_RAW_ONCE || type == UserCommand::TYPE_CHAT_ONCE)
+                dlg.checkBox_SENDONCE->setChecked(true);
+        }
     }
 
-    if(type == UserCommand::TYPE_RAW_ONCE)
-        dlg.checkBox_SENDONCE->setChecked(true);
-
+    dlg.type = new_type;
     dlg.lineEdit_HUB->setText(hub);
     dlg.lineEdit_NAME->setText(name);
 
@@ -356,6 +356,8 @@ int UCItem::row() const {
 }
 
 UCDialog::UCDialog(QWidget *parent): QDialog(parent){
+    type = -1;
+
     setupUi(this);
 
     connect(lineEdit_CMD,     SIGNAL(textChanged(QString)), this, SLOT(updateLines()));
@@ -364,6 +366,10 @@ UCDialog::UCDialog(QWidget *parent): QDialog(parent){
     connect(radioButton_PM,   SIGNAL(toggled(bool)),        this, SLOT(updateLines()));
     connect(radioButton_RAW,  SIGNAL(toggled(bool)),        this, SLOT(updateLines()));
     connect(radioButton_SEP,  SIGNAL(toggled(bool)),        this, SLOT(updateLines()));
+    connect(radioButton_CHAT, SIGNAL(toggled(bool)),        this, SLOT(updateType()));
+    connect(radioButton_PM,   SIGNAL(toggled(bool)),        this, SLOT(updateType()));
+    connect(radioButton_RAW,  SIGNAL(toggled(bool)),        this, SLOT(updateType()));
+    connect(radioButton_SEP,  SIGNAL(toggled(bool)),        this, SLOT(updateType()));
 }
 
 unsigned long UCDialog::getCtx() const {
@@ -381,28 +387,23 @@ unsigned long UCDialog::getCtx() const {
     return ctx;
 }
 
-unsigned long UCDialog::getType() const {
-    int _type = -1;
-    bool sendOnce = checkBox_SENDONCE->isChecked();
-
-    if (radioButton_SEP->isChecked())
-        _type = UserCommand::TYPE_SEPARATOR;
-    else if (radioButton_CHAT->isChecked())
-        _type = UserCommand::TYPE_CHAT;
-    else if (radioButton_PM->isChecked()){
-        if (sendOnce)
-            _type = UserCommand::TYPE_CHAT_ONCE;
-        else
-            _type = UserCommand::TYPE_CHAT;
-    }
-    else{
-        if (sendOnce)
-            _type = UserCommand::TYPE_RAW_ONCE;
-        else
-            _type = UserCommand::TYPE_RAW;
+unsigned long UCDialog::getType() {
+    switch(type) {
+    case 0:
+        type = UserCommand::TYPE_SEPARATOR;
+        break;
+    case 1:
+        type = checkBox_SENDONCE->isChecked()? UserCommand::TYPE_RAW_ONCE : UserCommand::TYPE_RAW;
+        break;
+    case 2:
+        type = UserCommand::TYPE_CHAT;
+        break;
+    case 3:
+        type = checkBox_SENDONCE->isChecked()? UserCommand::TYPE_CHAT_ONCE : UserCommand::TYPE_CHAT;
+        break;
     }
 
-    return _type;
+    return type;
 }
 
 QString UCDialog::getCmd() const {
@@ -423,13 +424,23 @@ void UCDialog::updateLines(){
 
     if(type == 0)
         cmd.clear();
-    else if(type == 1)
+    else
         cmd = lineEdit_CMD->text();
-    else if(type == 2)
-        cmd = "<%[myNI]> " + _q(NmdcHub::validateMessage(Text::fromT(_tq(lineEdit_CMD->text())), false)) + "|";
-    else if(type == 3)
-        cmd = "$To: " + lineEdit_TO->text() + " From: %[myNI] $<%[myNI]> " + _q(NmdcHub::validateMessage(_tq(lineEdit_CMD->text()), false)) + "|";
+
+    if(type == 1 && UserCommand::adc(_tq(getHub())) && !cmd.endsWith('\n'))
+        cmd += '\n';
 
     lineEdit_RESULT->setText(cmd);
+}
+
+void UCDialog::updateType(){
+    if(radioButton_SEP->isChecked())
+        type = 0;
+    else if(radioButton_RAW->isChecked())
+        type = 1;
+    else if(radioButton_CHAT->isChecked())
+        type = 2;
+    else if(radioButton_PM->isChecked())
+        type = 3;
 }
 

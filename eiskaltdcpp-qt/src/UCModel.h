@@ -27,14 +27,17 @@ public:
     UCDialog(QWidget *parent = NULL);
 
     unsigned long getCtx()  const;
-    unsigned long getType() const;
+    unsigned long getType();
 
     QString getName() const;
     QString getHub()  const;
     QString getCmd()  const;
 
+    int type;
+
 private slots:
     void updateLines();
+    void updateType();
 };
 
 class UCItem{
@@ -57,6 +60,7 @@ public:
     QString name;
     QString comm;
     QString hub;
+    QString to;
     unsigned long ctx;
     unsigned long type;
     unsigned long id;
