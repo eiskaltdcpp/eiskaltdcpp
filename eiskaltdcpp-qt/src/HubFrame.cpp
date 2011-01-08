@@ -543,39 +543,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
             else if (parseBasicBBCode("s", "s", input, output))
                 continue;
 
-            if (input.startsWith("_") && input.length() >= 3){
-                int c_len = input.indexOf("_", 1);
-
-                if (c_len > 1){
-                    QString chunk = Qt::escape(input.left(c_len));
-                    chunk.remove(0, 1);
-
-                    QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
-
-                    if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
-                        output += "<u>" + chunk + "</u>";
-
-                        input.remove(0, c_len + 1);
-                    }
-                }
-            }
-            else if (input.startsWith("*") && input.length() >= 3){
-                int c_len = input.indexOf("*", 1);
-
-                if (c_len > 1){
-                    QString chunk = Qt::escape(input.left(c_len));
-                    chunk.remove(0, 1);
-
-                    QChar lastOutputChar = output.isEmpty()? ' ' : (output.at(output.length()-1));
-
-                    if (!chunk.contains(QRegExp("\\s")) && (lastOutputChar.isSpace() || lastOutputChar.isPunct())){
-                        output += "<b>" + chunk + "</b>";
-
-                        input.remove(0, c_len + 1);
-                    }
-                }
-            }
-            else if (input.startsWith("[color=") && input.indexOf("[/color]") > 8){
+            if (input.startsWith("[color=") && input.indexOf("[/color]") > 8){
                 QRegExp exp("\\[color=(\\w+|#.{6,6})\\]((.*))\\[/color\\].*");
                 QString chunk = input.left(input.indexOf("[/color]")+8);
 

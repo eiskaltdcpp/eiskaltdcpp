@@ -489,7 +489,7 @@ private:
 class EiskaltApp: public QtSingleApplication{
 Q_OBJECT
 public:
-    EiskaltApp(int argc, char *argv[]): QtSingleApplication(argc, argv){
+    EiskaltApp(int argc, char *argv[]): QtSingleApplication("EiskaltDCPP", argc, argv){
         installEventFilter(&ef);
     }
 
