@@ -1250,7 +1250,7 @@ Kedvenc felhasználó</translation>
     <message>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation>pm &lt;nick&gt; - privát beszélgetés indítása a felhasználóval
+        <translation>/pm &lt;nick&gt; - privát beszélgetés indítása a felhasználóval
 </translation>
     </message>
     <message>
@@ -5394,7 +5394,7 @@ a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
         <source>Use separator for unread messages in the chat</source>
-        <translation>Elválasztó használata a chatan, a nem olvasott üzenetek kiemeléséhez</translation>
+        <translation>Elválasztó használata a chaten, a nem olvasott üzenetek kiemeléséhez</translation>
     </message>
     <message>
         <source>Change background color in the chat</source>

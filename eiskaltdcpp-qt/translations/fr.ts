@@ -332,11 +332,11 @@ Keys:
     </message>
     <message>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier le magnet</translation>
     </message>
 </context>
 <context>
@@ -622,11 +622,11 @@ Keys:
     </message>
     <message>
         <source>File marked as a duplicate of another file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier marqué comme doublon d&apos;un autre fichier: %1</translation>
     </message>
     <message>
         <source>%1 [%2 Gb]</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 [%2 Gb]</translation>
     </message>
 </context>
 <context>
@@ -644,22 +644,22 @@ Keys:
     <name>FinishedTransferProxy</name>
     <message>
         <source>Finished uploads</source>
-        <translation type="unfinished">Envois terminés</translation>
+        <translation>Envois terminés</translation>
     </message>
     <message>
         <source>Finished downloads</source>
-        <translation type="unfinished">Téléchargements terminés</translation>
+        <translation>Téléchargements terminés</translation>
     </message>
 </context>
 <context>
     <name>FinishedTransfers</name>
     <message>
         <source>Open file</source>
-        <translation type="unfinished">Ouvrir le fichier</translation>
+        <translation>Ouvrir le fichier</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation type="unfinished">Ouvrir le dossier</translation>
+        <translation>Ouvrir le dossier</translation>
     </message>
 </context>
 <context>
@@ -714,7 +714,7 @@ Keys:
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -1222,11 +1222,11 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>[User went offline]</source>
-        <translation type="unfinished"></translation>
+        <translation>[L&apos;utilisateur s&apos;est déconnecté]</translation>
     </message>
     <message>
         <source>%1 (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -2116,35 +2116,35 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Speed limit On/Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Limite de vitesse On/Off</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.1.0 et plus)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.2.0 et plus)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Traduction Tchèque&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>Ctrl+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <source>Open magnet link</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir le lien magnet</translation>
     </message>
     <message>
         <source>Enter magnet link:</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez le lien magnet</translation>
     </message>
     <message>
         <source>Ctrl+Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+H</translation>
     </message>
 </context>
 <context>
@@ -2313,19 +2313,19 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>Cached hub list is corrupted or unsupported</source>
-        <translation type="unfinished"></translation>
+        <translation>La liste des serveurs en cache est corrompue ou non supportée</translation>
     </message>
     <message>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>La liste des serveurs téléchargée est corrompue ou non supportée (%1)</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>
-        <translation type="unfinished"></translation>
+        <translation>Liste des serveurs téléchargée... (%1 %2) </translation>
     </message>
     <message>
         <source>from Coral</source>
-        <translation type="unfinished"></translation>
+        <translation>De Coral</translation>
     </message>
 </context>
 <context>
@@ -2409,45 +2409,45 @@ Clés:
     <name>SearchBlackListDelegate</name>
     <message>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de fichier</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
     <message>
         <source>Add new</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter un nouveau</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Retirer</translation>
     </message>
 </context>
 <context>
     <name>SearchBlackListModel</name>
     <message>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de fichier</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation type="unfinished">TTH</translation>
+        <translation>TTH</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished">Clé</translation>
+        <translation>Clé</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Type</translation>
     </message>
     <message>
         <source>Set text...</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrer texte...</translation>
     </message>
 </context>
 <context>
@@ -2674,19 +2674,19 @@ Clés:
     </message>
     <message>
         <source>CD Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Image CD</translation>
     </message>
     <message>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Liste noire</translation>
     </message>
     <message>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier le magnet</translation>
     </message>
 </context>
 <context>
@@ -2996,7 +2996,7 @@ Clés:
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Tchèque</translation>
     </message>
 </context>
 <context>
@@ -3175,31 +3175,31 @@ Clés:
     </message>
     <message>
         <source>Restrictions</source>
-        <translation type="unfinished">Restrictions</translation>
+        <translation>Restrictions</translation>
     </message>
     <message>
         <source>Add restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter une restriction</translation>
     </message>
     <message>
         <source>Remove restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Retirer une restriction</translation>
     </message>
     <message>
         <source>Enter restriction size (in GB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez la taille de la restriction (en GB)</translation>
     </message>
     <message>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier le magnet</translation>
     </message>
     <message>
         <source>Open directory</source>
-        <translation type="unfinished">Ouvrir le dossier</translation>
+        <translation>Ouvrir le dossier</translation>
     </message>
 </context>
 <context>
@@ -3334,7 +3334,7 @@ Clés:
     <message>
         <source>Internal server running on %1
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Serveur interne sous %1</translation>
     </message>
 </context>
 <context>
@@ -3668,7 +3668,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Encryption</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiffrement</translation>
     </message>
 </context>
 <context>
@@ -4092,19 +4092,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Défaut</translation>
     </message>
     <message>
         <source>Active</source>
-        <translation type="unfinished"></translation>
+        <translation>Actif</translation>
     </message>
     <message>
         <source>Passive</source>
-        <translation type="unfinished"></translation>
+        <translation>Passif</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode</translation>
     </message>
 </context>
 <context>
@@ -4408,35 +4408,35 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     </message>
     <message>
         <source>Find:</source>
-        <translation type="unfinished"></translation>
+        <translation>Trouver:</translation>
     </message>
     <message>
         <source>&lt;</source>
-        <translation type="unfinished">&lt;</translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <source>&gt;</source>
-        <translation type="unfinished">&gt;</translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <source>A</source>
-        <translation type="unfinished">A</translation>
+        <translation>A</translation>
     </message>
     <message>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Précédent (Shift+F3)</translation>
+        <translation>Précédent (Shift+F3)</translation>
     </message>
     <message>
         <source>Next (F3)</source>
-        <translation type="unfinished">Next (F3)</translation>
+        <translation>Next (F3)</translation>
     </message>
     <message>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation type="unfinished">Cacher fenêtre de recherche (Ctrl+F)</translation>
+        <translation>Cacher fenêtre de recherche (Ctrl+F)</translation>
     </message>
     <message>
         <source>Highlight all</source>
-        <translation type="unfinished">Tout surligner</translation>
+        <translation>Tout surligner</translation>
     </message>
 </context>
 <context>
@@ -4499,15 +4499,15 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <name>UISearchBlacklistDialog</name>
     <message>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Liste noire</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Annuler</translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -5399,19 +5399,19 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Redirect new personal messages to the main chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Rediriger les nouveaux messages personnels vers le chat principal</translation>
     </message>
     <message>
         <source>Parse BBCode</source>
-        <translation type="unfinished"></translation>
+        <translation>Traiter BBCode</translation>
     </message>
     <message>
         <source>Use separator for unread messages in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser des séparateurs pour les messages non lus dans le chat</translation>
     </message>
     <message>
         <source>Change background color in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Changer la couleur de fond dans le chat</translation>
     </message>
 </context>
 <context>
@@ -6162,15 +6162,15 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
     <message>
         <source>Command parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres de la commande</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Annuler</translation>
+        <translation>Annuler</translation>
     </message>
 </context>
 <context>
