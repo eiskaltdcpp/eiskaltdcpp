@@ -20,6 +20,8 @@ static const int margin = 3;
 LineEdit::LineEdit(QWidget *parent) :
         QLineEdit(parent), menu(NULL), role(LineEdit::InsertText)
 {
+    parentHeight = QLineEdit::sizeHint().height();//save parent height before setting up new stylesheet
+                                                  //because we losing top and bottom margins
     pxm = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITCLEAR).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
 
     label = new QLabel(this);
@@ -87,7 +89,7 @@ bool LineEdit::eventFilter(QObject *obj, QEvent *e){
 QSize LineEdit::sizeHint() const{
     ensurePolished();
 
-    int h = QLineEdit::sizeHint().height();
+    int h = parentHeight;
     int w = QLineEdit::sizeHint().width();
     QStyleOptionFrameV2 opt;
 
