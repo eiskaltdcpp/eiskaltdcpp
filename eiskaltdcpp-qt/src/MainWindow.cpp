@@ -1457,7 +1457,9 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
     if (Notification::getInstance())
         Notification::getInstance()->setToolTip(map["DSPEED"]+tr("/s"), map["USPEED"]+tr("/s"), map["DOWN"], map["UP"]);
 
-    int boundWidth = statusSPLabel->contentsMargins().left() + statusSPLabel->contentsMargins().right();
+    int leftM=0, topM=0, rightM=0, bottomM=0;
+    statusSPLabel->getContentsMargins(&leftM, &topM, &rightM, &bottomM);
+    int boundWidth = leftM + rightM;
 
     statusSPLabel->setFixedWidth(metrics.width(speedText) > statusSPLabel->width()? metrics.width(speedText) + boundWidth : statusSPLabel->width());
     statusDLabel->setFixedWidth(metrics.width(downText) > statusDLabel->width()? metrics.width(downText) + boundWidth : statusDLabel->width());
