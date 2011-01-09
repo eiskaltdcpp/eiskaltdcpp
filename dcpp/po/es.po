@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the DC++ package.
 #
 #  <renatux@users.sourceforge.net>, 2008.
-# sL1pKn07 <sl1pkn07@gmail.com>, 2010.
+# sL1pKn07 <sl1pkn07@gmail.com>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-01-08 20:39+0200\n"
-"PO-Revision-Date: 2010-12-25 05:42+0100\n"
+"PO-Revision-Date: 2011-01-09 00:17+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -370,16 +370,12 @@ msgid "Failed to create port mappings"
 msgstr "Fallo al crear la tabla de puertos"
 
 #: ../UPnPManager.cpp:138
-#, fuzzy
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr ""
-"Creado mapa de puertos satisfactoriamente (TCP: %1%, UDP: %2%, TLS: %3%), el "
-"mapeo ha sido usado en la interface %4%"
+msgstr "Eliminado con éxito las asignaciones de puerto con la interfaz %1%"
 
 #: ../UPnPManager.cpp:139
-#, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Fallo al remover mapa de puertos"
+msgstr "No se pudo eliminar asignaciones de puertos con la interfaz %1%"
 
 #: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"

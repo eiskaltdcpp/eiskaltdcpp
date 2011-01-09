@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the work package.
 #
 # Automatically generated, 2010.
-# sL1pKn07 <sl1pkn07@gmail.com>, 2010.
+# sL1pKn07 <sl1pkn07@gmail.com>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-01-08 22:21+0200\n"
-"PO-Revision-Date: 2010-12-25 05:40+0100\n"
+"PO-Revision-Date: 2011-01-09 00:21+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -2620,7 +2620,6 @@ msgstr ""
 " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 
 #: ../glade/mainwindow.glade:976
-#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2728,6 +2727,11 @@ msgstr ""
 "\n"
 " Martin Durisin\n"
 " (martin.durisin@gmail.com)\n"
+"\n"
+" Traducción al Checoslovaco\n"
+"\n"
+" Uhlik\n"
+" (uhlikx@seznam.cz)\n"
 
 #: ../glade/mainwindow.glade:1098
 msgid "Enter line for user command"
@@ -2940,9 +2944,8 @@ msgid "Default download directory"
 msgstr "Directorio de descarga por defecto"
 
 #: ../glade/settingsdialog.glade:822
-#, fuzzy
 msgid "Do not use unfinished downloads directory"
-msgstr "Directorio de Descargas sin finalizar"
+msgstr "Directorio de descargas sin finalizar sin uso"
 
 #: ../glade/settingsdialog.glade:836
 msgid "Unfinished downloads directory"
