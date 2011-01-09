@@ -22,6 +22,8 @@
 #include "utility.h"
 #include "ServerManager.h"
 
+#include "VersionGlobal.h"
+
 static void SigHandler(int sig) {
     string str = "Received signal ";
 
@@ -86,7 +88,7 @@ int main(int argc, char* argv[])
             exit(0);
         }
     }
-    
+
 	sTitle = "eiskaltdcpp-daemon [nasdc] (EiskaltDC++ core 2.2)";
 
 #ifdef _DEBUG
