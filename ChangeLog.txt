@@ -46,6 +46,10 @@
 * Improvements in the search widget.
 * Fixed path to lock file of launched program (it was ~/.dc++/). Now it launches only one instance of the DC-client and magnet-links are correctly intercepted by it.
 * Added hot keys Left/Right to expand the directory tree in the widget view a list of files.
+*** eiskaltdcpp-daemon ***
+* Development has begun. Attention: the program is not yet ready to use!
+* At the moment it is uncontrollable demon. You can only run it and kill.
+* Launched process (see man-page) picks up the settings from configuration files that are created manually or by using graphical interface on Qt or Gtk. The result: initiated downloads is continuing, users can access to your share and so on.
 
 --- 2.1.1 2010-11-21 ---
 *** common changes ***

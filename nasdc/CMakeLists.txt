@@ -39,3 +39,18 @@ set_property (TARGET nasdc PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-daemon")
   install (TARGETS nasdc
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
+
+if (UNIX)
+  FIND_PROGRAM (GZIP_CMD gzip)
+  EXECUTE_PROCESS (
+                OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-daemon.1.gz
+                COMMAND "${GZIP_CMD}" -9
+                INPUT_FILE eiskaltdcpp-daemon.1
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+endif (UNIX)
+
+if (APPLE)
+  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-daemon.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+elseif (UNIX AND NOT APPLE)
+  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-daemon.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+endif (APPLE)
