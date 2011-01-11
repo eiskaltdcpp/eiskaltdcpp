@@ -324,7 +324,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
     <message>
         <location filename="../src/DownloadQueue.cpp" line="42"/>
         <source>Magnet</source>
-        <translation type="unfinished">Магнет</translation>
+        <translation>Магнет</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="44"/>
@@ -339,7 +339,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
     <message>
         <location filename="../src/DownloadQueue.cpp" line="46"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати веб-магнет</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="47"/>
@@ -702,7 +702,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="104"/>
         <source>%1 [%2 Gb]</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 [%2 Гб]</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="168"/>
@@ -805,7 +805,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
         <location filename="../src/FinishedTransfersModel.cpp" line="115"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="123"/>
         <source>%1/s</source>
-        <translation type="unfinished"></translation>
+        <translation>%1/с</translation>
     </message>
     <message>
         <source>CRC checked</source>
@@ -1093,12 +1093,12 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="245"/>
         <location filename="../src/HubFrame.cpp" line="329"/>
         <source>[User went offline]</source>
-        <translation type="unfinished"></translation>
+        <translation>[Користувач пішов у офлайн]</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="643"/>
         <source>%1 (%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1315"/>
@@ -1619,7 +1619,7 @@ Favorite user</source>
     <message>
         <location filename="../src/Magnet.cpp" line="156"/>
         <source>Browse</source>
-        <translation type="unfinished">Вибрати теку</translation>
+        <translation>Вибрати теку</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="193"/>
@@ -1940,7 +1940,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1188"/>
         <source>Speed limit On/Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Ліміт швидкості Увімк/Вимк</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1191"/>
@@ -2034,12 +2034,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="530"/>
         <source>Ctrl+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="568"/>
         <source>Ctrl+Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+H</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="889"/>
@@ -2065,7 +2065,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1106"/>
         <location filename="../src/MainWindow.cpp" line="2018"/>
         <source>Open magnet link</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити магнет-посилання</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1219"/>
@@ -2120,7 +2120,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2018"/>
         <source>Enter magnet link:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ввести магнет-посилання:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2429"/>
@@ -2130,7 +2130,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2446"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ це графічний клієнт для Direct Connect та ADC протоколів.&lt;br/&gt;&lt;br/&gt;DC++ версія ядра: %1 (модифікована)&lt;br/&gt;&lt;br/&gt;Дом. сторінка: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2550"/>
@@ -2145,12 +2145,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2556"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Чеський переклад&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2558"/>
         <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.1.2 та пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2683"/>
@@ -2258,7 +2258,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2499"/>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(для 2.1.0 та пізніших)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2503"/>
@@ -2801,12 +2801,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="303"/>
         <source>Hub list downloaded... (%1 %2) </source>
-        <translation type="unfinished"></translation>
+        <translation>Список хабів завантажено... (%1 %2) </translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="303"/>
         <source>from Coral</source>
-        <translation type="unfinished"></translation>
+        <translation>від Coral</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1)</source>
@@ -2820,12 +2820,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="312"/>
         <source>Cached hub list is corrupted or unsupported</source>
-        <translation type="unfinished"></translation>
+        <translation>Прохешований список хабів пошкоджений або не підтримується</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="314"/>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажений список хабів пошкоджений або не підтримується (%1)</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.h" line="42"/>
@@ -3206,7 +3206,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SearchFrame.cpp" line="67"/>
         <source>Magnet</source>
-        <translation type="unfinished">Магнет</translation>
+        <translation>Магнет</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="72"/>
@@ -3231,7 +3231,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SearchFrame.cpp" line="90"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати вею-магнет</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="93"/>
@@ -3517,7 +3517,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SettingsGUI.cpp" line="101"/>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Чеська</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="237"/>
@@ -3759,17 +3759,17 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/ShareBrowser.cpp" line="66"/>
         <source>Restrictions</source>
-        <translation type="unfinished">Обмежування</translation>
+        <translation>Обмежування</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="67"/>
         <source>Magnet</source>
-        <translation type="unfinished">Магнет</translation>
+        <translation>Магнет</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="78"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати веб-магнет</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
@@ -3779,17 +3779,17 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/ShareBrowser.cpp" line="83"/>
         <source>Add restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати обмеження</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
         <source>Remove restriction</source>
-        <translation type="unfinished"></translation>
+        <translation>Видалити обмеження</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="85"/>
         <source>Open directory</source>
-        <translation type="unfinished">Відкрити теку</translation>
+        <translation>Відкрити теку</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="158"/>
@@ -3815,7 +3815,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/ShareBrowser.cpp" line="826"/>
         <source>Enter restriction size (in GB)</source>
-        <translation type="unfinished"></translation>
+        <translation>Введіть обмеження розміру (в ГБ)</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="69"/>
@@ -3873,27 +3873,27 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="229"/>
         <source>Modify shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Змінити гарячі клавіші</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="237"/>
         <source>Press the key combination you want to assign</source>
-        <translation type="unfinished"></translation>
+        <translation>Натисніть потрібну комбінацію клавіш</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="252"/>
         <source>Clear</source>
-        <translation type="unfinished">Очистити</translation>
+        <translation>Очистити</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="254"/>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Записати</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="255"/>
         <source>Capture keystrokes</source>
-        <translation type="unfinished"></translation>
+        <translation>Записати натиснення клавіш</translation>
     </message>
 </context>
 <context>
@@ -4109,7 +4109,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="73"/>
         <source>Encryption</source>
-        <translation type="unfinished"></translation>
+        <translation>Шифрування</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="74"/>
@@ -4329,7 +4329,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Encryption</source>
-        <translation type="unfinished"></translation>
+        <translation>Шифрування</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="105"/>
@@ -4801,22 +4801,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="137"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>По замовчуванню</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="142"/>
         <source>Active</source>
-        <translation type="unfinished">Активный режим</translation>
+        <translation>Активный режим</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="147"/>
         <source>Passive</source>
-        <translation type="unfinished">Пассивный режим</translation>
+        <translation>Пассивный режим</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="155"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="165"/>
@@ -5241,42 +5241,42 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="56"/>
         <source>Find:</source>
-        <translation type="unfinished"></translation>
+        <translation>Знайти: </translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="63"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Попереднє (Shift+F3)</translation>
+        <translation>Попереднє (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="66"/>
         <source>&lt;</source>
-        <translation type="unfinished">&lt;</translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="73"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Наступне (F3)</translation>
+        <translation>Наступне (F3)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="76"/>
         <source>&gt;</source>
-        <translation type="unfinished">&gt;</translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="83"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation type="unfinished">Сховати пошуковий фрейм (Ctrl+F)</translation>
+        <translation>Сховати пошуковий фрейм (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="93"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Підсвітити все</translation>
+        <translation>Підсвітити все</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="96"/>
         <source>A</source>
-        <translation type="unfinished">A</translation>
+        <translation>A</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="189"/>
@@ -5672,37 +5672,48 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="763"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Ні</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="768"/>
         <source>Low delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Сповільнена</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="773"/>
         <source>Throughput</source>
-        <translation type="unfinished"></translation>
+        <translation>Пропускна здатність</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="778"/>
         <source>Reliability</source>
-        <translation type="unfinished">Надійність</translation>
+        <translation>Надійна</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="783"/>
         <source>Minimal cost</source>
-        <translation type="unfinished"></translation>
+        <translation>Мінімальна вартість</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="810"/>
         <source>Type-of-Service (ToS)</source>
-        <translation type="unfinished"></translation>
+        <translation>Type-of-Service (ToS)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="839"/>
@@ -6378,7 +6389,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="291"/>
         <source>Redirect new personal messages to the main chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Перенаправляти нові приватні повідомлення у головний чат</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="379"/>
@@ -6421,7 +6432,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="685"/>
         <source>Parse BBCode</source>
-        <translation type="unfinished"></translation>
+        <translation>Розібрати BBCode</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="450"/>
@@ -6437,7 +6448,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="308"/>
         <source>Use separator for unread messages in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати роздільник для непрочитаних повідомлень у чаті</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="351"/>
@@ -6553,7 +6564,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="843"/>
         <source>Change background color in the chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Вибрати колір фону у чаті</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="886"/>
@@ -7515,17 +7526,17 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/WulforUtil.cpp" line="768"/>
         <source>Command parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри команди</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="806"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="807"/>
         <source>Cancel</source>
-        <translation type="unfinished">Скасувати</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="878"/>
