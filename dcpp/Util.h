@@ -428,6 +428,11 @@ public:
         setAway(!away);
     }
 
+    static void setLang(const string lang) {
+        if(!lang.empty())
+            setenv ("LANGUAGE", lang.c_str(), 1);
+    }
+
     static bool getManualAway() { return manualAway; }
     static void setManualAway(bool aManualAway) { manualAway = aManualAway; }
 
