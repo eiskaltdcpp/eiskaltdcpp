@@ -446,11 +446,10 @@ void WulforSettings::loadTranslation(){
     }
     else if (!file.isEmpty() && (file.size() >= 5) && QFile::exists(file)){
         QString lc_prefix = file.mid(file.size()-5, 2);
-        putenv((QString("LANG=%1").arg(lc_prefix)).toAscii().data());
+        dcpp::Util::setLang(lc_prefix.toStdString());
 #ifdef _DEBUG_MODEL_
-        qDebug() << QString("LANG=%1").arg(lc_prefix);
+        qDebug() << QString("LANGUAGE=%1").arg(lc_prefix);
 #endif
-        printf((QString("LANG=%1\n").arg(lc_prefix)).toAscii().constData());
     }
 
     if (tor.load(file))
