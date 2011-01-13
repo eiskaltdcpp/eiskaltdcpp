@@ -1386,7 +1386,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Böngészés</translation>
+        <translation>Böngészés</translation>
     </message>
 </context>
 <context>
@@ -2179,7 +2179,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Az EiskaltDC++ egy grafikus kliens a Direct Connect és az ADC protokollokhoz.&lt;br/&gt;&lt;br/&gt;DC++ verzió: %1 (módosított)&lt;br/&gt;&lt;br/&gt;Weboldal: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Öszes feltöltés: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Összes letöltés: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Arány: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -3217,23 +3217,23 @@ Kapcsolók:
     <name>ShortcutGetter</name>
     <message>
         <source>Modify shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyorsbillentyű módosítása</translation>
     </message>
     <message>
         <source>Press the key combination you want to assign</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzárendeléshez üsd le a használni kívánt billentyűkombinációt</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Töröl</translation>
+        <translation>Töröl</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Elfogadás</translation>
     </message>
     <message>
         <source>Capture keystrokes</source>
-        <translation type="unfinished"></translation>
+        <translation>Billentyűleütések elfogadása</translation>
     </message>
 </context>
 <context>
@@ -3549,7 +3549,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Encryption</source>
-        <translation type="unfinished">Titkosítás</translation>
+        <translation>Titkosítás</translation>
     </message>
 </context>
 <context>
@@ -4744,31 +4744,42 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;A Type-Of-Service (TOS) megfelelő beállításával lehetőségünk van az &lt;a href=&quot;http://hu.wikipedia.org/wiki/Csomag_(informatika)&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP csomagok&lt;/span&gt;&lt;/a&gt; optimalizására. A TOS minden IP csomaggal elküldésre kerül. A TOS segítségével priorizálhatóak a hálózati csomagok. A TOS egy bájt. A következő előre definiált TOS beállításokat használhatjuk: &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Alacsony késleltetés&amp;quot;&lt;/span&gt; késleltetés minimalizálása az interaktív adatforgalom érdekében&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Teljesítmény&amp;quot;&lt;/span&gt; adatforgalom optimalizálása a nagyobb teljesítmény érdekében&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Megbízhatóság&amp;quot;&lt;/span&gt; adatforgalom optimalizálása a megbízhatóság növelése érdekében&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimális felhasználás&amp;quot;&lt;/span&gt; használható az &amp;quot;adatok kitöltéséhez&amp;quot;, ahol a lassabb átviteli sebesség nem számít&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Legfeljebb egy TOS érték adható meg. A Linux alapértelmezés szerint az &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Alacsony késleltetés&amp;quot;&lt;/span&gt; adatcsomagot küldi el elsőként, de a pontos viselkedése függ a beállított sorkezelési rendszertől.&lt;span style=&quot; font-weight:600;&quot;&gt; Figyelem! Ez az opció rendszergazdai jogosultságot igényelhet!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs</translation>
     </message>
     <message>
         <source>Low delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Alacsony késleltetés</translation>
     </message>
     <message>
         <source>Throughput</source>
-        <translation type="unfinished"></translation>
+        <translation>Teljesítmény</translation>
     </message>
     <message>
         <source>Reliability</source>
-        <translation type="unfinished">Megbízhatóság</translation>
+        <translation>Megbízhatóság</translation>
     </message>
     <message>
         <source>Minimal cost</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimális felhasználás</translation>
     </message>
     <message>
         <source>Type-of-Service (ToS)</source>
-        <translation type="unfinished"></translation>
+        <translation>Type-of-Service (ToS)</translation>
     </message>
 </context>
 <context>

@@ -444,6 +444,13 @@ void WulforSettings::loadTranslation(){
         if (!QFile::exists(file))
             return;
     }
+    else if (!file.isEmpty() && (file.size() >= 5) && QFile::exists(file)){
+        QString lc_prefix = file.mid(file.size()-5, 2);
+        dcpp::Util::setLang(lc_prefix.toStdString());
+#ifdef _DEBUG_MODEL_
+        qDebug() << QString("LANGUAGE=%1").arg(lc_prefix);
+#endif
+    }
 
     if (tor.load(file))
         qApp->installTranslator(&tor);

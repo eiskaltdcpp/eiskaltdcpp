@@ -85,10 +85,10 @@ int main(int argc, char *argv[])
         return 0;
     }
 
+    setlocale(LC_ALL, "");
+
 #ifndef Q_WS_WIN
     installHandlers();
-#else
-    setlocale(LC_ALL, "UTF-8");
 #endif
 
 #ifdef FORCE_XDG

@@ -4,14 +4,14 @@
 #
 # Automatically generated, 2010.
 # sumo <husumo@elitemail.hu>, 2010.
-# Attila Mándy <husumo@gmail.com>, 2010.
+# Attila Mándy <husumo@gmail.com>, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-01-08 22:21+0200\n"
-"PO-Revision-Date: 2010-12-27 14:00+0100\n"
+"PO-Revision-Date: 2011-01-10 18:27+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -2944,9 +2944,8 @@ msgid "Default download directory"
 msgstr "Alapértelmezett letöltési könyvtár"
 
 #: ../glade/settingsdialog.glade:822
-#, fuzzy
 msgid "Do not use unfinished downloads directory"
-msgstr "Befejezetlen letöltések könyvtára"
+msgstr "A Befejezetlen letöltések könyvtár használatának mellőzése"
 
 #: ../glade/settingsdialog.glade:836
 msgid "Unfinished downloads directory"

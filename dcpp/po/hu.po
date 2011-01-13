@@ -4,14 +4,14 @@
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 # sumo <husumo@elitemail.hu>, 2010.
-# Attila Mándy <husumo@gmail.com>, 2010.
+# Attila Mándy <husumo@gmail.com>, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-01-08 20:39+0200\n"
-"PO-Revision-Date: 2010-12-18 13:18+0100\n"
+"PO-Revision-Date: 2011-01-10 18:24+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -372,16 +372,14 @@ msgid "Failed to create port mappings"
 msgstr "Nem sikerült létrehozni a port-hozzárendeléseket."
 
 #: ../UPnPManager.cpp:138
-#, fuzzy
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr ""
-"A port-hozzárendelés sikeresen létrehozva (TCP: %1%, UDP: %2%, TLS: %3%), a "
-"használt interfész: %4%"
+msgstr "A port-hozzárendelés sikeresen törölve a következő interfésszel: %1%"
 
 #: ../UPnPManager.cpp:139
-#, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Nem sikerült megszüntetni a port-hozzárendeléseket"
+msgstr ""
+"Nem sikerült megszüntetni a port-hozzárendeléseket a következő interfészen: "
+"%1%"
 
 #: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
