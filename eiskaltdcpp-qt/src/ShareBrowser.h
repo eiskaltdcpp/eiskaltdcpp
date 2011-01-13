@@ -120,6 +120,7 @@ private Q_SLOTS:
     void slotHeaderMenu();
     void slotLoaderFinish();
     void slotLayoutUpdated();
+    void slotSettingsChanged(const QString&, const QString&);
 
 private:
     void init();

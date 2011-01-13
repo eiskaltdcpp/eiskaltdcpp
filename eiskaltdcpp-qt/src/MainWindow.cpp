@@ -290,9 +290,6 @@ void MainWindow::show(){
 }
 
 void MainWindow::showEvent(QShowEvent *e){
-    if (e->spontaneous())
-        redrawToolPanel();
-
     if (!showMax && w > 0 && h > 0 && w != width() && h != height())
         this->resize(QSize(w, h));
 
@@ -359,8 +356,17 @@ void MainWindow::hideEvent(QHideEvent *e){
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *e){
-    if( obj == progressHashing && e->type() == QEvent::MouseButtonDblClick ) {
+    if (e->type() == QEvent::WindowActivate) {
+        redrawToolPanel();
+    }
+    else if( obj == progressHashing && e->type() == QEvent::MouseButtonDblClick ) {
         slotFileHashProgress();
+
+        return true;
+    }
+    else if (obj == progressSpace && e->type() == QEvent::MouseButtonDblClick ){
+        slotFileOpenDownloadDirectory();
+
         return true;
     }
     else if (obj == sideTree && sideTree && e->type() == QEvent::Resize) {
@@ -1063,28 +1069,28 @@ void MainWindow::initMenuBar(){
 void MainWindow::initStatusBar(){
     statusLabel = new QLabel(statusBar());
     statusLabel->setFrameShadow(QFrame::Sunken);
-    statusLabel->setFrameShape(QFrame::Box);
-    statusLabel->setAlignment(Qt::AlignRight);
+    statusLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     statusLabel->setToolTip(tr("Counts"));
+    statusLabel->setContentsMargins(0, 0, 0, 0);
 
     statusSPLabel = new QLabel(statusBar());
     statusSPLabel->setFrameShadow(QFrame::Sunken);
-    statusSPLabel->setFrameShape(QFrame::Box);
-    statusSPLabel->setAlignment(Qt::AlignRight);
+    statusSPLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     statusSPLabel->setToolTip(tr("Download/Upload speed"));
+    statusSPLabel->setContentsMargins(0, 0, 0, 0);
 
     statusDLabel = new QLabel(statusBar());
     statusDLabel->setFrameShadow(QFrame::Sunken);
-    statusDLabel->setFrameShape(QFrame::Box);
-    statusDLabel->setAlignment(Qt::AlignRight);
+    statusDLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     statusDLabel->setToolTip(tr("Downloaded/Uploaded"));
+    statusDLabel->setContentsMargins(0, 0, 0, 0);
 
     msgLabel = new QLabel(statusBar());
     msgLabel->setFrameShadow(QFrame::Plain);
-    msgLabel->setFrameShape(QFrame::NoFrame);
-    msgLabel->setAlignment(Qt::AlignLeft);
+    msgLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     msgLabel->setWordWrap(true);
     msgLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    msgLabel->setContentsMargins(0, 0, 0, 0);
 
 #if (defined FREE_SPACE_BAR_C)
     progressSpace = new QProgressBar(this);
@@ -1095,6 +1101,7 @@ void MainWindow::initStatusBar(){
     progressSpace->setMaximumWidth(250);
     progressSpace->setFixedHeight(18);
     progressSpace->setToolTip(tr("Space free"));
+    progressSpace->installEventFilter(this);
 
     if (!WBGET(WB_SHOW_FREE_SPACE))
         progressSpace->hide();
@@ -1473,17 +1480,26 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
     if (!statusLabel)
         return;
 
-    statusLabel->setText(map["STATS"]);
-    statusSPLabel->setText(tr("%1/s / %2/s").arg(map["DSPEED"]).arg(map["USPEED"]));
-    statusDLabel->setText(tr("%1 / %2").arg(map["DOWN"]).arg(map["UP"]));
+    QString statsText = map["STATS"];
+    QFontMetrics metrics(statusLabel->font());
+
+    statusLabel->setText(statsText);
+
+    QString speedText = tr("%1/s / %2/s").arg(map["DSPEED"]).arg(map["USPEED"]);
+    QString downText = tr("%1 / %2").arg(map["DOWN"]).arg(map["UP"]);
+
+    statusSPLabel->setText(speedText);
+    statusDLabel->setText(downText);
 
     if (Notification::getInstance())
         Notification::getInstance()->setToolTip(map["DSPEED"]+tr("/s"), map["USPEED"]+tr("/s"), map["DOWN"], map["UP"]);
 
-    QFontMetrics metrics(font());
+    int leftM=0, topM=0, rightM=0, bottomM=0;
+    statusSPLabel->getContentsMargins(&leftM, &topM, &rightM, &bottomM);
+    int boundWidth = leftM + rightM;
 
-    statusSPLabel->setFixedWidth(metrics.width(statusSPLabel->text()) > statusSPLabel->width()? metrics.width(statusSPLabel->text()) + 20 : statusSPLabel->width());
-    statusDLabel->setFixedWidth(metrics.width(statusDLabel->text()) > statusDLabel->width()? metrics.width(statusDLabel->text()) + 20 : statusDLabel->width());
+    statusSPLabel->setFixedWidth(metrics.width(speedText) > statusSPLabel->width()? metrics.width(speedText) + boundWidth : statusSPLabel->width());
+    statusDLabel->setFixedWidth(metrics.width(downText) > statusDLabel->width()? metrics.width(downText) + boundWidth : statusDLabel->width());
 
     if (WBGET(WB_SHOW_FREE_SPACE)) {
 #ifdef FREE_SPACE_BAR_C
@@ -1572,9 +1588,16 @@ void MainWindow::updateHashProgressStatus() {
 }
 
 void MainWindow::setStatusMessage(QString msg){
+    QFontMetrics m(msgLabel->font());
+    QString pure_msg = msg;
 
+    if (m.width(msg) > msgLabel->width())
+        pure_msg = m.elidedText(msg, Qt::ElideRight, msgLabel->width(), 0);
+
+    WulforUtil::getInstance()->textToHtml(pure_msg, true);
     WulforUtil::getInstance()->textToHtml(msg, true);
-    msgLabel->setText(msg);
+
+    msgLabel->setText(pure_msg);
 
     core_msg_history.push_back(msg);
 
@@ -1627,6 +1650,13 @@ void MainWindow::parseCmdLine(){
 }
 
 void MainWindow::parseInstanceLine(QString data){
+    if (!isVisible()){
+        show();
+        raise();
+
+        redrawToolPanel();
+    }
+
     QStringList args = data.split("\n", QString::SkipEmptyParts);
 
     foreach (QString arg, args){
@@ -1651,10 +1681,15 @@ void MainWindow::browseOwnFiles(){
 }
 
 void MainWindow::slotFileBrowseFilelist(){
-    QString file = QFileDialog::getOpenFileName(this, tr("Choose file to open"), QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
-            tr("Modern XML Filelists") + " (*.xml.bz2);;" +
-            tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
-            tr("All files") + " (*)");
+    QString file = QFileDialog::getOpenFileName(this, tr("Choose file to open"),
+                QString::fromStdString(Util::getPath(Util::PATH_FILE_LISTS)),
+                tr("Modern XML Filelists") + " (*.xml.bz2);;" +
+                tr("Modern XML Filelists uncompressed") + " (*.xml);;" +
+                tr("All files") + " (*)");
+
+    if (file.isEmpty())
+        return;
+
     file = QDir::toNativeSeparators(file);
     UserPtr user = DirectoryListing::getUserFromFilename(_tq(file));
 
@@ -2448,18 +2483,22 @@ void MainWindow::slotAboutClient(){
                      .arg(EISKALTDCPP_VERSION_SFX));
 
     a.label_ABOUT->setTextFormat(Qt::RichText);
-    a.label_ABOUT->setText(QString("%1<br/><br/> %2 %3 %4<br/><br/> %5 %6<br/><br/> %7 <b>%8</b> <br/> %9 <b>%10</b>")
-                           .arg(tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols."))
-                           .arg(tr("DC++ core version:"))
-                           .arg(DCVERSIONSTRING)
-                           .arg(tr("(modified)"))
-                           .arg(tr("Home page:"))
-                           .arg("<a href=\"http://code.google.com/p/eiskaltdc/\">"
-                                "http://code.google.com/p/eiskaltdc/</a>")
-                           .arg(tr("Total up:"))
-                           .arg(WulforUtil::formatBytes(app_total_up))
-                           .arg(tr("Total down:"))
-                           .arg(WulforUtil::formatBytes(app_total_down)));
+
+    QString about_text = tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.<br/><br/>"
+                            ""
+                            "DC++ core version: %1 (modified)<br/><br/>"
+                            ""
+                            "Home page: <a href=\"http://code.google.com/p/eiskaltdc/\">http://code.google.com/p/eiskaltdc/</a><br/><br/>"
+                            ""
+                            "Total up: <b>%2</b><br/>"
+                            "Total down: <b>%3</b><br/>"
+                            "Ratio: <b>%4</b>"
+                         ).arg(DCVERSIONSTRING)
+                          .arg(WulforUtil::formatBytes(app_total_up))
+                          .arg(WulforUtil::formatBytes(app_total_down))
+                          .arg((float)app_total_up/(float)app_total_down, 0, 'f', 2);
+
+    a.label_ABOUT->setText(about_text);
 
     a.textBrowser_AUTHORS->setText(
             tr("Please use <a href=\"http://code.google.com/p/eiskaltdc/issues/list\">"

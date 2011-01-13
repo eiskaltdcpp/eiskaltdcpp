@@ -142,6 +142,7 @@ class Settings:
         static void onTextColorBWClicked_gui(GtkWidget *widget, gpointer data);
         static void onTextStyleClicked_gui(GtkWidget *widget, gpointer data);
         static void onTextStyleDefaultClicked_gui(GtkWidget *widget, gpointer data);
+        static void onNoUseTempDir_gui(GtkToggleButton *button, gpointer data);
         static void onNotifyTestButton_gui(GtkWidget *widget, gpointer data);
         static void onNotifyIconFileBrowseClicked_gui(GtkWidget *widget, gpointer data);
         static void onNotifyKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);

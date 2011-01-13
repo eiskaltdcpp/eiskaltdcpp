@@ -73,9 +73,9 @@ void ServerThread::Resume() {
 
 void ServerThread::Run()
 {
-	//TimerManager::getInstance()->addListener(this);
-	//QueueManager::getInstance()->addListener(this);
-	//LogManager::getInstance()->addListener(this);
+	TimerManager::getInstance()->addListener(this);
+	QueueManager::getInstance()->addListener(this);
+	LogManager::getInstance()->addListener(this);
 	//WebServerManager::getInstance()->addListener(this);
 
 	dcpp::TimerManager::getInstance()->start();
@@ -112,34 +112,35 @@ void ServerThread::Run()
 void ServerThread::Close()
 {
 	//WebServerManager::getInstance()->removeListener(this);
-	//SearchManager::getInstance()->disconnect();
+	SearchManager::getInstance()->disconnect();
 
-	//LogManager::getInstance()->removeListener(this);
-	//QueueManager::getInstance()->removeListener(this);
-	//TimerManager::getInstance()->removeListener(this);
+	LogManager::getInstance()->removeListener(this);
+	QueueManager::getInstance()->removeListener(this);
+	TimerManager::getInstance()->removeListener(this);
 	#ifdef XMLRPC_DAEMON
 	AbyssServer.terminate();
 	#endif
-	//for(ClientIter i = clients.begin() ; i != clients.end() ; i++) {
-		//Client* cl = i->second;
-		//cl->removeListener(this);
-		//cl->disconnect(true);
-		//ClientManager::getInstance()->putClient(cl);
+	for(ClientIter i = clients.begin() ; i != clients.end() ; i++) {
+		Client* cl = i->second;
+		cl->removeListener(this);
+		cl->disconnect(true);
+		ClientManager::getInstance()->putClient(cl);
+		cl = NULL;
 		//fprintf(stdout,"wait 5 sec before disconnect next hub\n");
 		//usleep(5000);
-	//};
+	}
 
-	//ConnectionManager::getInstance()->disconnect();
+	ConnectionManager::getInstance()->disconnect();
 	bTerminated = true;
 }
 //---------------------------------------------------------------------------
 
 void ServerThread::WaitFor() {
-	fprintf(stdout,"ждём нить %lld\n",threadId);
+	fprintf(stdout,"ждём нить");
 	if(threadId != 0) {
 		fprintf(stdout,"threadId != 0 \n");
 		int i = pthread_join(threadId, NULL);
-		fprintf(stdout,"join done; status %i\n",i);
+		fprintf(stdout,"join done");
         threadId = 0;
         return;
 	}
@@ -153,7 +154,10 @@ void ServerThread::autoConnect()
 	for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
 		FavoriteHubEntry* entry = *i;
 		if (entry->getConnect()) {
-			Client* cl = ClientManager::getInstance()->getClient(entry->getServer());
+			string address = entry->getServer();string encoding;
+			encoding =  (address.substr(0, 6) == "adc://" || address.substr(0, 7) == "adcs://") ? "UTF-8" : entry->getEncoding();
+			Client* cl = ClientManager::getInstance()->getClient(address);
+			cl->setEncoding(encoding);
 			cl->addListener(this);
 			cl->connect();
 		}

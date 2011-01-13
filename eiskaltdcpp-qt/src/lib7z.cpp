@@ -43,7 +43,7 @@ QStringList lib7z::getIncFiles(QString file)
             return QStringList();
         }
         ++x;
-    } 
+    }
     for (int i = x; i < lines.size()-3; ++i){
         tmp = lines[i].remove(0, 53);
 #ifdef Q_WS_WIN
@@ -141,8 +141,8 @@ bool lib7z::extractFile(QString arc, QString name, QByteArray *data, QString *er
 
     QString tmp = QTextCodec::codecForLocale()->toUnicode(pro.readAllStandardError());
     if (tmp.indexOf(tr("No files to process")) != -1){
-	*error = tr("Not found file in archive");
-	return false;
+        *error = tr("Not found file in archive");
+        return false;
     }
 
     if (tmp.indexOf(tr("Everything is Ok")) != -1){

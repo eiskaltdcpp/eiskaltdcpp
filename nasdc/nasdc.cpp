@@ -22,6 +22,8 @@
 #include "utility.h"
 #include "ServerManager.h"
 
+#include "VersionGlobal.h"
+
 static void SigHandler(int sig) {
     string str = "Received signal ";
 
@@ -58,10 +60,36 @@ static void SigHandler(int sig) {
     sigaction(sig, &sigact, NULL);
 }
 
+void printHelp() {
+    printf("Using:\n"
+           "  eiskaltdcpp-daemon -d\t Run program as daemon\n"
+           "  eiskaltdcpp-daemon <Key>\n"
+           "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+           "\n"
+           "Keys:\n"
+           "  -h, --help\t Show this message\n"
+           "  -v, --version\t Show version string\n"
+           );
+}
+
+void printVersion() {
+    printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+}
 
 int main(int argc, char* argv[])
 {
-	sTitle = "nasdc (EiskaltDC++ core 2.1)";
+    for (int i = 0; i < argc; i++){
+        if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
+            printHelp();
+            exit(0);
+        }
+        else if (!strcmp(argv[i],"--version") || !strcmp(argv[i],"-v")){
+            printVersion();
+            exit(0);
+        }
+    }
+
+	sTitle = "eiskaltdcpp-daemon [nasdc] (EiskaltDC++ core 2.2)";
 
 #ifdef _DEBUG
 	sTitle += " [debug]";

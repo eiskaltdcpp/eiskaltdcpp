@@ -14,6 +14,7 @@ gettext
 libssl (>= 0.9.8)
 liblua5.1 (optional, see cmake keys)
 libpcrecpp0 (optional, see cmake keys)
+miniupnpc (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -29,13 +30,12 @@ libpango
 libgtk2 (>= 2.10)
 libglib2 (>= 2.10)
 libglade2 (>= 2.4)
-libnotify (>= 0.4.1)
+libnotify (>= 0.4.1) (optional, see cmake keys)
 libgnome2 (optional, see cmake keys)
-miniupnpc (optional, see cmake keys)
 
 
 *******************************************************************************
-Opional Depends
+Optional Depends
 *******************************************************************************
 ----------------
 :eiskaltdcpp-qt:
@@ -71,6 +71,7 @@ gettext
 libboost-dev (headers only) (optional, see cmake keys)
 liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
+miniupnpc (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -81,9 +82,8 @@ libaspell-dev (optional, see cmake keys)
 -----------------
 libgtk2.0-dev
 libglade2-dev
-libnotify-dev
+libnotify-dev (optional, see cmake keys)
 libgnome2-dev (optional, see cmake keys)
-miniupnpc (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -137,9 +137,9 @@ Keys for cmake
     Enable/disable sound notifications support in EiskaltDC++ Gtk
 -DUSE_LIBNOTIFY=ON/OFF (default: ON)
     Enable/disable popup notifications support in EiskaltDC++ Gtk
--------
-:nasdc:
--------
+--------------------
+:eiskaltdcpp-daemon:
+--------------------
 -DNO_UI_DAEMON=ON/OFF (default: OFF)
     build daemon without any UI
 -DXMLRPC_DAEMON=ON/OFF (default: OFF)
@@ -220,5 +220,3 @@ cpack -G DragNDrop
 MS Windows specific notes
 *******************************************************************************
 Instructions are available in the file: win32/READ_ME.txt
-
-

@@ -304,6 +304,7 @@ void ShareBrowser::init(){
     connect(treeView_RPANE->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotRightPaneClicked(QModelIndex)));
     connect(tree_model, SIGNAL(layoutChanged()), this, SLOT(slotLayoutUpdated()));
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
 
     setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -873,7 +874,11 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
                 dcpp::StringIter it = lst.begin();
                 for (; it != lst.end(); ++it){
                     if (QDir(_q(*it)).exists())
+#ifndef Q_WS_WIN
                         QDesktopServices::openUrl(QUrl("file://"+_q(*it)));
+#else
+                        QDesktopServices::openUrl(QUrl("file:///"+_q(*it)));
+#endif
                 }
             }
 
@@ -970,4 +975,9 @@ void ShareBrowser::slotFilter(){
     }
 
     frame_FILTER->setVisible(!frame_FILTER->isVisible());
+}
+
+void ShareBrowser::slotSettingsChanged(const QString &key, const QString&){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }

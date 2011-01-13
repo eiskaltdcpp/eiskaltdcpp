@@ -37,6 +37,7 @@ public:
 
 	bool open(const unsigned short port, const Protocol protocol, const string& description);
 	bool close();
+	bool hasRules() const;
 
 	virtual string getExternalIP() = 0;
 	virtual const string& getName() const = 0;

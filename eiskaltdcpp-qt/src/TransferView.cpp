@@ -73,6 +73,7 @@ TransferView::Menu::Menu():
     copy_column->addAction(tr("Filename"));
     copy_column->addAction(tr("Host"));
     copy_column->addAction(tr("IP"));
+    copy_column->addAction(tr("Encryption"));
     copy_column->addAction(tr("Magnet"));
 
     QAction *sep1        = new QAction(menu);

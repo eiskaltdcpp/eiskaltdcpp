@@ -187,18 +187,21 @@ public:
     bool hasKey(const QString&) const;
 
 public Q_SLOTS:
-    QString getStr(const QString&, const QString &default_value = "") ;
-    int     getInt(const QString&, const int &default_value = -1) ;
-    bool    getBool(const QString&, const bool &default_value = false);
+    QString  getStr(const QString&, const QString &default_value = "") ;
+    int      getInt(const QString&, const int &default_value = -1) ;
+    bool     getBool(const QString&, const bool &default_value = false);
+    QVariant getVar(const QString&, const QVariant &default_value = QVariant());
 
     void    setStr (const QString&, const QString&);
     void    setInt (const QString&, int) ;
     void    setBool(const QString&, bool);
+    void    setVar (const QString&, const QVariant &);
 
 Q_SIGNALS:
     void fontChanged(const QString &key, const QString &value);
     void intValueChanged(const QString &key, int value);
     void strValueChanged(const QString &key, const QString &value);
+    void varValueChanged(const QString &key, const QVariant &value);
 
 private Q_SLOTS:
     void slotFontChanged(const QString &key, const QString &value);
@@ -230,6 +233,9 @@ inline void WISET(const QString &key, const int &value){ WulforSettings::getInst
 
 inline bool WBGET(const QString &key, const bool &default_value = false) { return WulforSettings::getInstance()->getBool(key, default_value);}
 inline void WBSET(const QString &key, const bool &value){ WulforSettings::getInstance()->setBool(key, value); }
+
+inline QVariant WVGET(const QString &key, const QVariant &default_value = QVariant()) { return WulforSettings::getInstance()->getVar(key, default_value);}
+inline void WVSET(const QString &key, const QVariant &value){ WulforSettings::getInstance()->setVar(key, value); }
 
 inline void WSCMD(const QString &cmd){ WulforSettings::getInstance()->parseCmd(cmd); }
 

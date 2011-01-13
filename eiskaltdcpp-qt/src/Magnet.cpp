@@ -132,6 +132,47 @@ void Magnet::download() {
 }
 
 void Magnet::slotBrowse(){
+    QMenu *down_to = NULL;
+    QString aliases, paths;
+
+    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
+    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+
+    QStringList a = aliases.split("\n", QString::SkipEmptyParts);
+    QStringList p = paths.split("\n", QString::SkipEmptyParts);
+
+    if (a.size() == p.size() && !a.isEmpty()){
+        down_to = new QMenu();
+
+        for (int i = 0; i < a.size(); i++){
+            QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
+            act->setData(p.at(i));
+
+            down_to->addAction(act);
+        }
+
+        down_to->addSeparator();
+
+        QAction *browse = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+        browse->setData("");
+
+        down_to->addAction(browse);
+    }
+
+    if (down_to){
+        QAction *act = down_to->exec(frame->mapToGlobal(pushButton_BROWSE->pos())+QPoint(0, pushButton_BROWSE->height()));
+
+        down_to->deleteLater();
+
+        if (act && !act->data().toString().isEmpty()){
+            lineEdit_FPATH->setText(act->data().toString() + PATH_SEPARATOR_STR);
+
+            return;
+        }
+        else if (!act)
+            return;
+    }
+
     QString dir = QFileDialog::getExistingDirectory(this, tr("Select directory"), QDir::homePath());
 
     if (dir.isEmpty())

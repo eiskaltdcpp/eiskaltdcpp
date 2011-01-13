@@ -75,6 +75,7 @@ PublicHubs::PublicHubs(QWidget *parent) :
     connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
     connect(comboBox_HUBS, SIGNAL(activated(int)), this, SLOT(slotHubChanged(int)));
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
 }
 
 PublicHubs::~PublicHubs(){
@@ -283,6 +284,11 @@ void PublicHubs::slotFilterColumnChanged(){
 
     if (comboBox_FILTER->hasFocus())
         lineEdit_FILTER->setFocus();
+}
+
+void PublicHubs::slotSettingsChanged(const QString &key, const QString&){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }
 
 void PublicHubs::on(DownloadStarting, const std::string& l) throw(){

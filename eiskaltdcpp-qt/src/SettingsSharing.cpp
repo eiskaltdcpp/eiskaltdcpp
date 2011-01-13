@@ -84,6 +84,7 @@ void SettingsSharing::ok(){
         SM->save();
 
     WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
+    WSSET("settings-simple-share-headerstate", treeWidget_SIMPLE_MODE->header()->saveState().toBase64());
     WBSET(WB_APP_REMOVE_NOT_EX_DIRS, checkBox_AUTOREMOVE->isChecked());
 }
 
@@ -272,6 +273,8 @@ void SettingsSharing::slotSimpleShareModeChanged(){
         }
     }
     else{
+        treeWidget_SIMPLE_MODE->header()->restoreState(QByteArray::fromBase64((WSGET("settings-simple-share-headerstate").toAscii())));
+
         updateShareView();
     }
 }

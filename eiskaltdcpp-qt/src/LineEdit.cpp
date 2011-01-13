@@ -20,10 +20,10 @@ static const int margin = 3;
 LineEdit::LineEdit(QWidget *parent) :
         QLineEdit(parent), menu(NULL), role(LineEdit::InsertText)
 {
-    pxm = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITCLEAR).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
-
     parentHeight = QLineEdit::sizeHint().height();//save parent height before setting up new stylesheet
                                                   //because we losing top and bottom margins
+    pxm = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITCLEAR).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
+
     label = new QLabel(this);
     label->setPixmap(pxm);
     label->setCursor(Qt::ArrowCursor);

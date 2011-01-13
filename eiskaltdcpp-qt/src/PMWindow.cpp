@@ -291,7 +291,7 @@ void PMWindow::showEvent(QShowEvent *e){
         MainWindow::getInstance()->redrawToolPanel();
     }
 
-    plainTextEdit_INPUT->setFocus();
+    MainWindow::getInstance()->mapWidgetOnArena(this);
 }
 
 void PMWindow::slotActivate(){
@@ -557,27 +557,22 @@ void PMWindow::slotSmileContextMenu(){
 #endif//WIN32
 
     QMenu *m = new QMenu(this);
-    QAction * a = m->addAction(tr("Disable emoticons"));
+    QAction * a = NULL;
 
     foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
             QAction * act = m->addAction(f);
             act->setCheckable(true);
 
-            if (f == WSGET(WS_APP_EMOTICON_THEME)){
-                a->setChecked(false);
+            if (f == WSGET(WS_APP_EMOTICON_THEME))
                 act->setChecked(true);
-            }
         }
     }
 
     a = m->exec(QCursor::pos());
 
-    if (a && a->isChecked()){
+    if (a && a->isChecked())
         WSSET(WS_APP_EMOTICON_THEME, a->text());
-    }
-    else if (a)
-        WSSET(WS_APP_EMOTICON_THEME, "");
 }
 
 void PMWindow::slotSettingChanged(const QString &key, const QString &value){
@@ -616,6 +611,8 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
             textEdit_CHAT->setPalette(p);
         }
     }
+    else if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }
 
 void PMWindow::slotHideFindFrame(){

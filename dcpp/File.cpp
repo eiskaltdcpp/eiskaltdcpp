@@ -555,7 +555,7 @@ FileFindIter& FileFindIter::operator++() {
 }
 
 //NOTE: freedcpp, see dcplusplus r2140: Move the impl of FileFindIter.
-bool FileFindIter::operator !=(const FileFindIter& rhs) const {
+bool FileFindIter::operator!=(const FileFindIter& rhs) const {
         // good enough to to say if it's null
         return dir != rhs.dir;
 }

@@ -49,6 +49,9 @@
 #include "dcpp/Util.h"
 #include "dcpp/version.h"
 
+#include "qtsingleapp/qtlockedfile.h"
+#include "qtsingleapp/qtsingleapplication.h"
+
 #include "ArenaWidget.h"
 #include "ArenaWidgetContainer.h"
 #include "HistoryInterface.h"
@@ -134,12 +137,6 @@ friend class dcpp::Singleton<MainWindow>;
         void showPortsError(const std::string& port);
         /** */
         void autoconnect();
-
-        /** */
-        void parseCmdLine();
-        /** */
-        void parseInstanceLine(QString);
-
         /** */
         void retranslateUi();
 
@@ -188,6 +185,11 @@ friend class dcpp::Singleton<MainWindow>;
 
         /** */
         void show();
+
+        /** */
+        void parseCmdLine();
+        /** */
+        void parseInstanceLine(QString);
 
     protected:
         virtual void closeEvent(QCloseEvent*);
@@ -488,10 +490,10 @@ private:
     bool has_activity;
 };
 
-class EiskaltApp: public QApplication{
+class EiskaltApp: public QtSingleApplication{
 Q_OBJECT
 public:
-    EiskaltApp(int argc, char *argv[]): QApplication(argc, argv){
+    EiskaltApp(int argc, char *argv[]): QtSingleApplication("EiskaltDCPP", argc, argv){
         installEventFilter(&ef);
     }
 

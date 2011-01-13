@@ -49,6 +49,9 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     connect(this, SIGNAL(coreUserRemoved(QString)),             this, SLOT(remUser(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreStatusChanged(QString,QString)),   this, SLOT(updateUser(QString,QString)), Qt::QueuedConnection);
 
+    WulforSettings *WS = WulforSettings::getInstance();
+    connect(WS, SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
     VarMap params;
 
@@ -278,6 +281,11 @@ void FavoriteUsers::slotContextMenu(){
 
 void FavoriteUsers::slotHeaderMenu(){
     WulforUtil::headerMenu(treeView);
+}
+
+void FavoriteUsers::slotSettingsChanged(const QString &key, const QString &){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }
 
 void FavoriteUsers::on(UserAdded, const FavoriteUser& aUser) throw() {

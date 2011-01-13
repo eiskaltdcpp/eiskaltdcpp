@@ -30,7 +30,10 @@
 namespace dcpp {
 
 ConnectivityManager::ConnectivityManager() :
-autoDetected(false) { }
+autoDetected(false),
+running(false)
+{
+}
 
 void ConnectivityManager::startSocket() {
    autoDetected = false;
@@ -47,6 +50,14 @@ void ConnectivityManager::startSocket() {
 }
 
 void ConnectivityManager::detectConnection() {
+        if (running)
+                return;
+
+        running = true;
+
+    SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, Util::emptyString);
+    SettingsManager::getInstance()->set(SettingsManager::NO_IP_OVERRIDE, false);
+
    if (UPnPManager::getInstance()->getOpened()) {
        UPnPManager::getInstance()->close();
    }
@@ -60,6 +71,7 @@ void ConnectivityManager::detectConnection() {
        SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_PASSIVE);
        log(str(F_("Unable to open %1% port(s). You must set up your connection manually") % e.getError()));
        fire(ConnectivityManagerListener::Finished());
+                running = false;
        return;
    }
 
@@ -69,20 +81,23 @@ void ConnectivityManager::detectConnection() {
        SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
        log(_("Public IP address detected, selecting active mode with direct connection"));
        fire(ConnectivityManagerListener::Finished());
+                running = false;
        return;
    }
 
    SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);
    log(_("Local network with possible NAT detected, trying to map the ports using UPnP..."));
 
-   UPnPManager::getInstance()->open();
+        if (!UPnPManager::getInstance()->open()) {
+                running = false;
+        }
 }
 
 void ConnectivityManager::setup(bool settingsChanged, int lastConnectionMode) {
    if(BOOLSETTING(AUTO_DETECT_CONNECTION)) {
        if (!autoDetected) detectConnection();
    } else {
-       if(autoDetected ||  settingsChanged || SearchManager::getInstance()->getPort() != SETTING(UDP_PORT) || ConnectionManager::getInstance()->getPort() != SETTING(TCP_PORT) || ConnectionManager::getInstance()->getSecurePort() != SETTING(TLS_PORT)) {
+        if(autoDetected || settingsChanged || SearchManager::getInstance()->getPort() != SETTING(UDP_PORT) || ConnectionManager::getInstance()->getPort() != SETTING(TCP_PORT) || ConnectionManager::getInstance()->getSecurePort() != SETTING(TLS_PORT)) {
            if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP || lastConnectionMode == SettingsManager::INCOMING_FIREWALL_UPNP) {
                UPnPManager::getInstance()->close();
            }
@@ -103,6 +118,8 @@ void ConnectivityManager::mappingFinished(bool success) {
        }
        fire(ConnectivityManagerListener::Finished());
    }
+
+        running = false;
 }
 
 void ConnectivityManager::listen() {
