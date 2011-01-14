@@ -3166,6 +3166,7 @@ default</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="label">gtk-ok</property>
+                                    <property name="use_stock">True</property>
                                     <property name="response_id">0</property>
                                   </widget>
                                   <packing>
@@ -6107,7 +6108,7 @@ Limiting</property>
             <child>
               <widget class="GtkButton" id="button4">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">gtk-cancel</property>
+                <property name="label">gtk-cancel</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">-6</property>
               </widget>
@@ -6117,7 +6118,7 @@ Limiting</property>
                 <property name="visible">True</property>
                 <property name="can_default">True</property>
                 <property name="has_default">True</property>
-                <property name="label" translatable="yes">gtk-open</property>
+                <property name="label">gtk-open</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">-5</property>
               </widget>
@@ -6589,7 +6590,7 @@ Limiting</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="receives_default">True</property>
-        <property name="label" translatable="yes">gtk-help</property>
+        <property name="label">gtk-help</property>
         <property name="use_stock">True</property>
         <property name="response_id">0</property>
       </widget>
@@ -6600,7 +6601,7 @@ Limiting</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="receives_default">True</property>
-        <property name="label" translatable="yes">gtk-cancel</property>
+        <property name="label">gtk-cancel</property>
         <property name="use_stock">True</property>
         <property name="response_id">0</property>
       </widget>
@@ -6612,7 +6613,7 @@ Limiting</property>
         <property name="can_default">True</property>
         <property name="has_default">True</property>
         <property name="receives_default">True</property>
-        <property name="label" translatable="yes">gtk-ok</property>
+        <property name="label">gtk-ok</property>
         <property name="use_stock">True</property>
         <property name="response_id">0</property>
       </widget>
@@ -6641,7 +6642,7 @@ Limiting</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="receives_default">True</property>
-        <property name="label" translatable="yes">gtk-cancel</property>
+        <property name="label">gtk-cancel</property>
         <property name="use_stock">True</property>
         <property name="response_id">0</property>
       </widget>
@@ -6652,7 +6653,7 @@ Limiting</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="receives_default">True</property>
-        <property name="label" translatable="yes">gtk-apply</property>
+        <property name="label">gtk-apply</property>
         <property name="use_stock">True</property>
         <property name="response_id">0</property>
       </widget>
@@ -6664,7 +6665,7 @@ Limiting</property>
         <property name="can_default">True</property>
         <property name="has_default">True</property>
         <property name="receives_default">True</property>
-        <property name="label" translatable="yes">gtk-ok</property>
+        <property name="label">gtk-ok</property>
         <property name="use_stock">True</property>
         <property name="response_id">0</property>
       </widget>
@@ -6762,7 +6763,7 @@ Limiting</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="label" translatable="yes">gtk-edit</property>
+                    <property name="label">gtk-edit</property>
                     <property name="use_stock">True</property>
                     <property name="response_id">0</property>
                   </widget>

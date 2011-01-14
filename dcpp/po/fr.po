@@ -104,7 +104,9 @@ msgstr "Détection du type de connexion"
 
 #: ../ConnectivityManager.cpp:72
 msgid "Unable to open %1% port(s). You must set up your connection manually"
-msgstr "Impossible d'ouvrir le(s) port(s) %1%. Vous devez configurer votre connexion manuellement"
+msgstr ""
+"Impossible d'ouvrir le(s) port(s) %1%. Vous devez configurer votre connexion "
+"manuellement"
 
 #: ../ConnectivityManager.cpp:82
 msgid ""
@@ -115,15 +117,17 @@ msgstr "IP publique détectée, sélection du mode actif avec connexion directe"
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr "Réseau local avec un possible NAT détecté, tentative de "
-"redirection des ports avec UPnP..."
+msgstr ""
+"Réseau local avec un possible NAT détecté, tentative de redirection des "
+"ports avec UPnP..."
 
 #: ../ConnectivityManager.cpp:117
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr "La configuration automatique du mode actif a échoué. "
-"Vous devriez la configurer manuellement pour de meilleurs transferts"
+msgstr ""
+"La configuration automatique du mode actif a échoué. Vous devriez la "
+"configurer manuellement pour de meilleurs transferts"
 
 #: ../ConnectivityManager.cpp:129
 msgid "TCP/TLS"
@@ -175,8 +179,9 @@ msgstr "Sujet du serveur:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr "Ce serveur tente d'utiliser votre client pour spammer %1%, "
-"veuillez rapidement contacter l'administrateur pour qu'il règle le problème"
+msgstr ""
+"Ce serveur tente d'utiliser votre client pour spammer %1%, veuillez "
+"rapidement contacter l'administrateur pour qu'il règle le problème"
 
 #: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
@@ -200,8 +205,8 @@ msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
 msgstr ""
-"Le serveur utilise probablement une ancienne version d'ADC, veuillez encourager "
-"l'hébergeur à mettre à jour son programme d'hébergement"
+"Le serveur utilise probablement une ancienne version d'ADC, veuillez "
+"encourager l'hébergeur à mettre à jour son programme d'hébergement"
 
 #: ../AdcHub.cpp:296
 msgid "%1% was kicked by %2%: %3%"
@@ -359,8 +364,9 @@ msgstr " Port DHT (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr "Redirection de ports réussie (TCP: %1%, UDP: %2%, TLS: %3%), redirigés "
-"en utilisant l'interface %4%"
+msgstr ""
+"Redirection de ports réussie (TCP: %1%, UDP: %2%, TLS: %3%), redirigés en "
+"utilisant l'interface %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -407,7 +413,9 @@ msgstr "L'utilisateur a choisit de ne pas partager le fichier: %1%"
 
 #: ../ShareManager.cpp:688
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr "L'utilisateur a choisit de ne pas partager le fichier temporaire: %1% (Size: %2%)"
+msgstr ""
+"L'utilisateur a choisit de ne pas partager le fichier temporaire: %1% (Size: "
+"%2%)"
 
 #: ../ShareManager.cpp:776
 msgid ""
@@ -650,8 +658,7 @@ msgstr ""
 #: ../QueueManager.cpp:858
 #, fuzzy
 msgid "File already exists at the target location"
-msgstr ""
-"Le même fichier existe déjà dans l'emplacement cible"
+msgstr "Le même fichier existe déjà dans l'emplacement cible"
 
 #: ../QueueManager.cpp:871 ../QueueManager.cpp:875
 msgid "Duplicate source: %1%"
@@ -671,7 +678,8 @@ msgstr "Impossible de déplacer %1% vers %2% (%3); renommé en %4%"
 
 #: ../QueueManager.cpp:1204
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr "Impossible de déplacer %1% vers %2% (%3) ou même de le renommer en %4% (%5)"
+msgstr ""
+"Impossible de déplacer %1% vers %2% (%3) ou même de le renommer en %4% (%5)"
 
 #: ../QueueManager.cpp:1398
 msgid "Unable to open filelist: %1%"
