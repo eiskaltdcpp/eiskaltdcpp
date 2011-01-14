@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-08 22:21+0200\n"
+"POT-Creation-Date: 2011-01-14 21:30+0200\n"
 "PO-Revision-Date: 2011-01-10 18:27+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
@@ -505,7 +505,7 @@ msgstr "': a használható parancsokat a /help használatával érheted el"
 
 #: ../src/hub.cc:2430 ../src/privatemessage.cc:1188 ../src/mainwindow.cc:1210
 #: ../src/mainwindow.cc:1278 ../glade/sharebrowser.glade:326
-#: ../glade/search.glade:555 ../glade/settingsdialog.glade:6037
+#: ../glade/search.glade:555 ../glade/settingsdialog.glade:6038
 msgid "Choose a directory"
 msgstr "Könyvtár választása"
 
@@ -690,7 +690,7 @@ msgstr "Kész"
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:964
 #: ../src/settingsdialog.cc:1228 ../src/settingsdialog.cc:1289
 #: ../src/settingsdialog.cc:1337 ../glade/mainwindow.glade:320
-#: ../glade/mainwindow.glade:2047 ../glade/settingsdialog.glade:4001
+#: ../glade/mainwindow.glade:2047 ../glade/settingsdialog.glade:4002
 msgid "Search Spy"
 msgstr "Keresési megfigyelő"
 
@@ -716,7 +716,7 @@ msgstr "várakozás..."
 msgid "top..."
 msgstr ""
 
-#: ../src/searchspy.cc:389 ../glade/searchspy.glade:149
+#: ../src/searchspy.cc:389 ../glade/searchspy.glade:150
 msgid "Update frame search"
 msgstr "Keresési mező frissítése"
 
@@ -724,7 +724,7 @@ msgstr "Keresési mező frissítése"
 msgid "top/waiting/frame: "
 msgstr ""
 
-#: ../src/searchspy.cc:500 ../glade/searchspy.glade:135
+#: ../src/searchspy.cc:500 ../glade/searchspy.glade:136
 msgid "Clear frame search"
 msgstr "Keresési mező törlése"
 
@@ -940,7 +940,7 @@ msgstr "Ikon"
 #: ../src/favoritehubs.cc:122 ../src/favoritehubs.cc:291
 #: ../src/favoritehubs.cc:407 ../src/publichubs.cc:41 ../src/publichubs.cc:156
 #: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:232
-#: ../src/search.cc:248 ../glade/settingsdialog.glade:6340
+#: ../src/search.cc:248 ../glade/settingsdialog.glade:6341
 msgid "Name"
 msgstr "Név"
 
@@ -962,7 +962,7 @@ msgstr "Kedvenc név"
 #: ../src/settingsdialog.cc:3469 ../src/settingsdialog.cc:3483
 #: ../src/settingsdialog.cc:3538 ../src/search.cc:1640
 #: ../src/UserCommandMenu.cc:66 ../src/sharebrowser.cc:289
-#: ../glade/settingsdialog.glade:4047
+#: ../glade/settingsdialog.glade:4048
 msgid "Directory"
 msgstr "Könyvtár"
 
@@ -1121,9 +1121,9 @@ msgstr ""
 #: ../src/settingsdialog.cc:1285 ../src/search.cc:41 ../src/search.cc:72
 #: ../src/search.cc:79 ../src/search.cc:231 ../src/search.cc:429
 #: ../src/search.cc:1066 ../src/search.cc:1067 ../src/search.cc:1877
-#: ../glade/searchspy.glade:184 ../glade/searchspy.glade:249
+#: ../glade/searchspy.glade:185 ../glade/searchspy.glade:250
 #: ../glade/mainwindow.glade:231 ../glade/mainwindow.glade:1788
-#: ../glade/mainwindow.glade:1961 ../glade/settingsdialog.glade:5774
+#: ../glade/mainwindow.glade:1961 ../glade/settingsdialog.glade:5775
 msgid "Search"
 msgstr "Keresés"
 
@@ -1196,7 +1196,7 @@ msgstr "Kedvenc felhasználó"
 msgid "Operator"
 msgstr "Operátor"
 
-#: ../src/settingsdialog.cc:1132 ../glade/settingsdialog.glade:3344
+#: ../src/settingsdialog.cc:1132 ../glade/settingsdialog.glade:3345
 msgid "Notify"
 msgstr "Figyelmeztetés"
 
@@ -1446,7 +1446,7 @@ msgstr "Hub"
 
 #: ../src/settingsdialog.cc:1427 ../src/settingsdialog.cc:1435
 #: ../src/settingsdialog.cc:3018 ../src/settingsdialog.cc:3092
-#: ../glade/settingsdialog.glade:6368
+#: ../glade/settingsdialog.glade:6369
 msgid "Command"
 msgstr "Parancs"
 
@@ -1554,7 +1554,7 @@ msgstr ""
 msgid "selected style failed"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3042 ../glade/settingsdialog.glade:6214
+#: ../src/settingsdialog.cc:3042 ../glade/settingsdialog.glade:6215
 msgid "Separator"
 msgstr "Elválasztó"
 
@@ -1570,7 +1570,7 @@ msgstr "Ez a parancs név már létezik"
 msgid "New list"
 msgstr "Új lista"
 
-#: ../src/settingsdialog.cc:3402 ../glade/settingsdialog.glade:5956
+#: ../src/settingsdialog.cc:3402 ../glade/settingsdialog.glade:5957
 msgid "Favorite name"
 msgstr "Kedvenc név"
 
@@ -1713,8 +1713,8 @@ msgid "Select file to Get TTH"
 msgstr "Fájl kiválasztása TTH másolásához"
 
 #: ../src/previewmenu.cc:90 ../src/emoticonsdialog.cc:106
-#: ../glade/settingsdialog.glade:3218 ../glade/settingsdialog.glade:3811
-#: ../glade/settingsdialog.glade:3957 ../glade/settingsdialog.glade:5729
+#: ../glade/settingsdialog.glade:3219 ../glade/settingsdialog.glade:3812
+#: ../glade/settingsdialog.glade:3958 ../glade/settingsdialog.glade:5730
 msgid "Default"
 msgstr "Alapértelmezett"
 
@@ -1893,9 +1893,9 @@ msgstr "Slotok"
 #: ../src/search.cc:329 ../src/search.cc:400 ../src/sharebrowser.cc:481
 #: ../src/sharebrowser.cc:549 ../glade/mainwindow.glade:1462
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:858
-#: ../glade/settingsdialog.glade:2751 ../glade/settingsdialog.glade:4064
-#: ../glade/settingsdialog.glade:4990 ../glade/settingsdialog.glade:5005
-#: ../glade/settingsdialog.glade:5020 ../glade/privatemessage.glade:118
+#: ../glade/settingsdialog.glade:2751 ../glade/settingsdialog.glade:4065
+#: ../glade/settingsdialog.glade:4991 ../glade/settingsdialog.glade:5006
+#: ../glade/settingsdialog.glade:5021 ../glade/privatemessage.glade:118
 #: ../glade/hub.glade:332
 msgid "Browse..."
 msgstr "Böngészés..."
@@ -2086,12 +2086,12 @@ msgstr "Mozgatás föl"
 msgid "Move Down"
 msgstr "Mozgatás le"
 
-#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5717
+#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5718
 msgid "Remove"
 msgstr "Törlés"
 
-#: ../glade/adlsearch.glade:124 ../glade/searchspy.glade:196
-#: ../glade/searchspy.glade:263 ../glade/search.glade:548
+#: ../glade/adlsearch.glade:124 ../glade/searchspy.glade:197
+#: ../glade/searchspy.glade:264 ../glade/search.glade:548
 #: ../glade/favoriteusers.glade:93 ../glade/downloadqueue.glade:188
 #: ../glade/downloadqueue.glade:336
 msgid "_Remove"
@@ -2163,51 +2163,51 @@ msgstr "TTH kihagyása"
 msgid "Apply settings"
 msgstr "Beállítások mentése"
 
-#: ../glade/searchspy.glade:68
+#: ../glade/searchspy.glade:69
 msgid "Top: >"
 msgstr ""
 
-#: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3918
+#: ../glade/searchspy.glade:80 ../glade/settingsdialog.glade:3919
 msgid "Number of matches for the top"
 msgstr ""
 
-#: ../glade/searchspy.glade:90
+#: ../glade/searchspy.glade:91
 msgid "Waiting:"
 msgstr "Várakozás:"
 
-#: ../glade/searchspy.glade:101 ../glade/settingsdialog.glade:3887
+#: ../glade/searchspy.glade:102 ../glade/settingsdialog.glade:3888
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
 msgstr ""
 
-#: ../glade/searchspy.glade:112
+#: ../glade/searchspy.glade:113
 msgid "Frame:"
 msgstr ""
 
-#: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3857
+#: ../glade/searchspy.glade:124 ../glade/settingsdialog.glade:3858
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
 msgstr ""
 
-#: ../glade/searchspy.glade:136 ../glade/searchspy.glade:277
+#: ../glade/searchspy.glade:137 ../glade/searchspy.glade:278
 msgid "Clear"
 msgstr "Törlés"
 
-#: ../glade/searchspy.glade:150
+#: ../glade/searchspy.glade:151
 msgid "Update"
 msgstr "Frissítés"
 
-#: ../glade/searchspy.glade:163
+#: ../glade/searchspy.glade:164
 msgid "Show top search"
 msgstr ""
 
-#: ../glade/searchspy.glade:164 ../glade/searchspy.glade:205
+#: ../glade/searchspy.glade:165 ../glade/searchspy.glade:206
 msgid "Top"
 msgstr ""
 
-#: ../glade/searchspy.glade:262
+#: ../glade/searchspy.glade:263
 msgid "Delete item"
 msgstr "Tétel törlése"
 
@@ -2789,16 +2789,6 @@ msgstr "Emlékezz a válaszra"
 msgid "<b>What would you like to do?</b>"
 msgstr "<b>Mit szeretnél tenni?</b>"
 
-#: ../glade/mainwindow.glade:1578 ../glade/settingsdialog.glade:6110
-#: ../glade/settingsdialog.glade:6603 ../glade/settingsdialog.glade:6644
-msgid "gtk-cancel"
-msgstr "gtk-cancel"
-
-#: ../glade/mainwindow.glade:1588 ../glade/settingsdialog.glade:6615
-#: ../glade/settingsdialog.glade:6667
-msgid "gtk-ok"
-msgstr "gtk-ok"
-
 #: ../glade/mainwindow.glade:1617
 msgid "Chose A File"
 msgstr "Fájl választása"
@@ -3010,8 +3000,8 @@ msgstr "Alacsony prioritás max mérete"
 
 #: ../glade/settingsdialog.glade:1312 ../glade/settingsdialog.glade:1327
 #: ../glade/settingsdialog.glade:1356 ../glade/settingsdialog.glade:1371
-#: ../glade/settingsdialog.glade:1571 ../glade/settingsdialog.glade:4669
-#: ../glade/settingsdialog.glade:4886
+#: ../glade/settingsdialog.glade:1571 ../glade/settingsdialog.glade:4670
+#: ../glade/settingsdialog.glade:4887
 msgid "KiB"
 msgstr "KiB"
 
@@ -3190,7 +3180,7 @@ msgstr ""
 "Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program újraindítása "
 "szükséges"
 
-#: ../glade/settingsdialog.glade:2468 ../glade/settingsdialog.glade:4017
+#: ../glade/settingsdialog.glade:2468 ../glade/settingsdialog.glade:4018
 msgid "Appearance"
 msgstr "Megjelenés"
 
@@ -3290,276 +3280,276 @@ msgstr "<b>Ikon méret</b>"
 msgid "Test"
 msgstr "Teszt"
 
-#: ../glade/settingsdialog.glade:3181
+#: ../glade/settingsdialog.glade:3182
 msgid "Icon..."
 msgstr "Ikon..."
 
-#: ../glade/settingsdialog.glade:3205
+#: ../glade/settingsdialog.glade:3206
 msgid "None icon"
 msgstr "Nincsenek ikonok"
 
-#: ../glade/settingsdialog.glade:3274
+#: ../glade/settingsdialog.glade:3275
 msgid "Maximum message length (0 = infinite)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3290
+#: ../glade/settingsdialog.glade:3291
 msgid "Show only when the application is not active."
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3305
+#: ../glade/settingsdialog.glade:3306
 msgid "<b>Private message</b>"
 msgstr "<b>Privát üzenet</b>"
 
-#: ../glade/settingsdialog.glade:3322 ../glade/settingsdialog.glade:6180
+#: ../glade/settingsdialog.glade:3323 ../glade/settingsdialog.glade:6181
 msgid "PM"
 msgstr "PM"
 
-#: ../glade/settingsdialog.glade:3384
+#: ../glade/settingsdialog.glade:3385
 msgid "<b>Icons</b>"
 msgstr "<b>Ikonok</b>"
 
-#: ../glade/settingsdialog.glade:3416
+#: ../glade/settingsdialog.glade:3417
 msgid "<b>Text styles</b>"
 msgstr "<b>Szöveg stílusok</b>"
 
-#: ../glade/settingsdialog.glade:3438
+#: ../glade/settingsdialog.glade:3439
 msgid "<b>Current theme name:</b>"
 msgstr "<b>Jelenlegi téma neve:</b>"
 
-#: ../glade/settingsdialog.glade:3448
+#: ../glade/settingsdialog.glade:3449
 msgid "theme"
 msgstr "téma"
 
-#: ../glade/settingsdialog.glade:3471
+#: ../glade/settingsdialog.glade:3472
 msgid "Export..."
 msgstr "Exportálás..."
 
-#: ../glade/settingsdialog.glade:3483
+#: ../glade/settingsdialog.glade:3484
 msgid "Import..."
 msgstr "Importálás..."
 
-#: ../glade/settingsdialog.glade:3508
+#: ../glade/settingsdialog.glade:3509
 msgid "Default icons"
 msgstr "Alapértelmezett ikonok"
 
-#: ../glade/settingsdialog.glade:3521
+#: ../glade/settingsdialog.glade:3522
 msgid "System icons"
 msgstr "Rendszer ikonok"
 
-#: ../glade/settingsdialog.glade:3534
+#: ../glade/settingsdialog.glade:3535
 msgid "Theme default"
 msgstr "Alapértelmezett téma"
 
-#: ../glade/settingsdialog.glade:3556
+#: ../glade/settingsdialog.glade:3557
 msgid "Themes"
 msgstr "Témák"
 
-#: ../glade/settingsdialog.glade:3594
+#: ../glade/settingsdialog.glade:3595
 msgid "<b>Toolbar buttons</b>"
 msgstr "<b>Eszköztár gombok</b>"
 
-#: ../glade/settingsdialog.glade:3611
+#: ../glade/settingsdialog.glade:3612
 msgid "Toolbar"
 msgstr "Eszköztár"
 
-#: ../glade/settingsdialog.glade:3655
+#: ../glade/settingsdialog.glade:3656
 msgid "New string or TTH"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3686
+#: ../glade/settingsdialog.glade:3687
 msgid "Adding string or TTH in the top"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3718
+#: ../glade/settingsdialog.glade:3719
 msgid "State of preparedness"
 msgstr "Készültség állapota"
 
-#: ../glade/settingsdialog.glade:3750
+#: ../glade/settingsdialog.glade:3751
 msgid "Matches"
 msgstr "Találatok"
 
-#: ../glade/settingsdialog.glade:3782
+#: ../glade/settingsdialog.glade:3783
 msgid "Updating string or TTH"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3830
+#: ../glade/settingsdialog.glade:3831
 msgid "<b>Colors</b>"
 msgstr "<b>Színek</b>"
 
-#: ../glade/settingsdialog.glade:3867
+#: ../glade/settingsdialog.glade:3868
 msgid "Frame (size)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3897
+#: ../glade/settingsdialog.glade:3898
 msgid "Waiting (seconds)"
 msgstr "Várakozás (másodpercben)"
 
-#: ../glade/settingsdialog.glade:3928
+#: ../glade/settingsdialog.glade:3929
 msgid "Top (number of matches, more than)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:3976
+#: ../glade/settingsdialog.glade:3977
 msgid "<b>Frame</b>"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4083
+#: ../glade/settingsdialog.glade:4084
 msgid "Log main chat"
 msgstr "Közös chat naplózása"
 
-#: ../glade/settingsdialog.glade:4103 ../glade/settingsdialog.glade:4146
-#: ../glade/settingsdialog.glade:4189 ../glade/settingsdialog.glade:4232
+#: ../glade/settingsdialog.glade:4104 ../glade/settingsdialog.glade:4147
+#: ../glade/settingsdialog.glade:4190 ../glade/settingsdialog.glade:4233
 msgid "Format"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:4126
+#: ../glade/settingsdialog.glade:4127
 msgid "Log private chat"
 msgstr "Privát chat naplózása"
 
-#: ../glade/settingsdialog.glade:4169
+#: ../glade/settingsdialog.glade:4170
 msgid "Log downloads"
 msgstr "Letöltések naplózása"
 
-#: ../glade/settingsdialog.glade:4212
+#: ../glade/settingsdialog.glade:4213
 msgid "Log uploads"
 msgstr "Feltöltések naplózása"
 
-#: ../glade/settingsdialog.glade:4255
+#: ../glade/settingsdialog.glade:4256
 msgid "Log system messages"
 msgstr "Rendszerüzenetek naplózása"
 
-#: ../glade/settingsdialog.glade:4270
+#: ../glade/settingsdialog.glade:4271
 msgid "Log status messages"
 msgstr "Státuszüzenetek naplózása"
 
-#: ../glade/settingsdialog.glade:4285
+#: ../glade/settingsdialog.glade:4286
 msgid "Log filelist transfers"
 msgstr "Fájl-lista átvitelek naplózása"
 
-#: ../glade/settingsdialog.glade:4301
+#: ../glade/settingsdialog.glade:4302
 msgid "<b>Logging</b>"
 msgstr "<b>Naplózás<b>"
 
-#: ../glade/settingsdialog.glade:4318
+#: ../glade/settingsdialog.glade:4319
 msgid "Logs"
 msgstr "Logok"
 
-#: ../glade/settingsdialog.glade:4357 ../glade/settingsdialog.glade:5206
+#: ../glade/settingsdialog.glade:4358 ../glade/settingsdialog.glade:5207
 msgid "Advanced"
 msgstr "Haladó"
 
-#: ../glade/settingsdialog.glade:4471
+#: ../glade/settingsdialog.glade:4472
 msgid "User Commands"
 msgstr "Felhasználói parancsok"
 
-#: ../glade/settingsdialog.glade:4497
+#: ../glade/settingsdialog.glade:4498
 msgid "Max hash speed"
 msgstr "Az indexelés maximális sebessége"
 
-#: ../glade/settingsdialog.glade:4509
+#: ../glade/settingsdialog.glade:4510
 msgid "PM history"
 msgstr "PM előzmény"
 
-#: ../glade/settingsdialog.glade:4521
+#: ../glade/settingsdialog.glade:4522
 msgid "Mini slot size"
 msgstr "Mini slot méret"
 
-#: ../glade/settingsdialog.glade:4533
+#: ../glade/settingsdialog.glade:4534
 msgid "Max filelist size"
 msgstr "Fájl-lista maximális mérete"
 
-#: ../glade/settingsdialog.glade:4647
+#: ../glade/settingsdialog.glade:4648
 msgid "MiB/s"
 msgstr "MiB/s"
 
-#: ../glade/settingsdialog.glade:4681
+#: ../glade/settingsdialog.glade:4682
 msgid "MiB"
 msgstr "MiB"
 
-#: ../glade/settingsdialog.glade:4713
+#: ../glade/settingsdialog.glade:4714
 msgid "Write buffer size"
 msgstr "Írási puffer méret"
 
-#: ../glade/settingsdialog.glade:4724
+#: ../glade/settingsdialog.glade:4725
 msgid "Search history"
 msgstr "Keresési előzmény"
 
-#: ../glade/settingsdialog.glade:4736
+#: ../glade/settingsdialog.glade:4737
 msgid "Bind address"
 msgstr "Kötési cím"
 
-#: ../glade/settingsdialog.glade:4748
+#: ../glade/settingsdialog.glade:4749
 msgid "Socket read buffer"
 msgstr "Socket olvasási puffer"
 
-#: ../glade/settingsdialog.glade:4760
+#: ../glade/settingsdialog.glade:4761
 msgid "Socket write buffer"
 msgstr "Socket írási puffer"
 
-#: ../glade/settingsdialog.glade:4772
+#: ../glade/settingsdialog.glade:4773
 msgid "Auto refresh time"
 msgstr "Automatikus újraellenőrzés ideje"
 
-#: ../glade/settingsdialog.glade:4915 ../glade/settingsdialog.glade:4927
+#: ../glade/settingsdialog.glade:4916 ../glade/settingsdialog.glade:4928
 msgid "B"
 msgstr "B"
 
-#: ../glade/settingsdialog.glade:4963
+#: ../glade/settingsdialog.glade:4964
 msgid "Experts Only"
 msgstr "Haladó beállítások"
 
-#: ../glade/settingsdialog.glade:5065
+#: ../glade/settingsdialog.glade:5066
 msgid "Trusted certificates path"
 msgstr "Megbízható tanúsítványok helye"
 
-#: ../glade/settingsdialog.glade:5079
+#: ../glade/settingsdialog.glade:5080
 msgid "Certificate file"
 msgstr "Tanúsítvány fájl"
 
-#: ../glade/settingsdialog.glade:5093
+#: ../glade/settingsdialog.glade:5094
 msgid "Private key file"
 msgstr "Privát kulcs"
 
-#: ../glade/settingsdialog.glade:5109
+#: ../glade/settingsdialog.glade:5110
 msgid "<b>Certificate Paths</b>"
 msgstr "<b>Tanúsítvány helye</b>"
 
-#: ../glade/settingsdialog.glade:5145
+#: ../glade/settingsdialog.glade:5146
 msgid "<b>Other Security Options</b>"
 msgstr "<b>Egyéb Biztonsági Beállítások</b>"
 
-#: ../glade/settingsdialog.glade:5163
+#: ../glade/settingsdialog.glade:5164
 msgid "Generate certificates"
 msgstr "Tanúsítvány létrehozása"
 
-#: ../glade/settingsdialog.glade:5190
+#: ../glade/settingsdialog.glade:5191
 msgid "Security Certificates"
 msgstr "Biztonsági Tanúsítványok"
 
-#: ../glade/settingsdialog.glade:5221
+#: ../glade/settingsdialog.glade:5222
 msgid "Use bandwidth limits"
 msgstr "Sebességkorlátozások használata"
 
-#: ../glade/settingsdialog.glade:5259 ../glade/settingsdialog.glade:5502
+#: ../glade/settingsdialog.glade:5260 ../glade/settingsdialog.glade:5503
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
 msgstr "Maximális feltöltési sebesség (KiB/s, 0 = letiltva)"
 
-#: ../glade/settingsdialog.glade:5296 ../glade/settingsdialog.glade:5539
+#: ../glade/settingsdialog.glade:5297 ../glade/settingsdialog.glade:5540
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
 msgstr "Maximális letöltési sebesség (KiB/s; 0 = letiltva)"
 
-#: ../glade/settingsdialog.glade:5324
+#: ../glade/settingsdialog.glade:5325
 msgid "<b>Transfer Rate Limiting</b>"
 msgstr "<b>Átviteli sebesség korlátozás</b>"
 
-#: ../glade/settingsdialog.glade:5351
+#: ../glade/settingsdialog.glade:5352
 msgid "Use second set of bandwidth limits"
 msgstr "Másodlagos átviteli sebesség korlátozás használata"
 
-#: ../glade/settingsdialog.glade:5373
+#: ../glade/settingsdialog.glade:5374
 msgid "from"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5383 ../glade/settingsdialog.glade:5426
+#: ../glade/settingsdialog.glade:5384 ../glade/settingsdialog.glade:5427
 msgid ""
 "Midnight\n"
 "1AM\n"
@@ -3611,23 +3601,23 @@ msgstr ""
 "22h\n"
 "23h"
 
-#: ../glade/settingsdialog.glade:5416
+#: ../glade/settingsdialog.glade:5417
 msgid "to"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5461
+#: ../glade/settingsdialog.glade:5462
 msgid "<b>Secondary Transfer Rate Limiting</b>"
 msgstr "<b>Másodlagos átviteli sebesség korlátozás</b>"
 
-#: ../glade/settingsdialog.glade:5579
+#: ../glade/settingsdialog.glade:5580
 msgid "Upload Slots"
 msgstr "Feltöltési szálak"
 
-#: ../glade/settingsdialog.glade:5607
+#: ../glade/settingsdialog.glade:5608
 msgid "<b>Secondary Transfer Rate Settings</b>"
 msgstr "<b>Másodlagos átviteli sebesség korlátozás beállításai</b>"
 
-#: ../glade/settingsdialog.glade:5640
+#: ../glade/settingsdialog.glade:5641
 msgid ""
 "Bandwidth\n"
 "Limiting"
@@ -3635,121 +3625,105 @@ msgstr ""
 "Sávszélesség\n"
 "Korlátozás"
 
-#: ../glade/settingsdialog.glade:5684
+#: ../glade/settingsdialog.glade:5685
 msgid "Add"
 msgstr "Hozzáadás"
 
-#: ../glade/settingsdialog.glade:5693
+#: ../glade/settingsdialog.glade:5694
 msgid "Modify"
 msgstr "Módosítás"
 
-#: ../glade/settingsdialog.glade:5705
+#: ../glade/settingsdialog.glade:5706
 msgid "Rename"
 msgstr "Átnevezés"
 
-#: ../glade/settingsdialog.glade:5746
+#: ../glade/settingsdialog.glade:5747
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:5759
+#: ../glade/settingsdialog.glade:5760
 msgid "<b>Search types</b>"
 msgstr "<b>Keresési típusok</b>"
 
-#: ../glade/settingsdialog.glade:5827 ../glade/publichubs.glade:190
+#: ../glade/settingsdialog.glade:5828 ../glade/publichubs.glade:190
 msgid "Configure hub lists"
 msgstr "Hublisták beállítása"
 
-#: ../glade/settingsdialog.glade:5917 ../glade/publichubs.glade:276
+#: ../glade/settingsdialog.glade:5918 ../glade/publichubs.glade:276
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6089
+#: ../glade/settingsdialog.glade:6090
 msgid "Choose a File"
 msgstr "Fájl választása"
 
-#: ../glade/settingsdialog.glade:6120
-msgid "gtk-open"
-msgstr "gtk-open"
-
-#: ../glade/settingsdialog.glade:6138
+#: ../glade/settingsdialog.glade:6139
 msgid "Modify User Command"
 msgstr "Felhasználói parancs módosítása"
 
-#: ../glade/settingsdialog.glade:6164
+#: ../glade/settingsdialog.glade:6165
 msgid "Raw"
 msgstr "Nyers üzenet"
 
-#: ../glade/settingsdialog.glade:6198
+#: ../glade/settingsdialog.glade:6199
 msgid "Chat"
 msgstr "Chat"
 
-#: ../glade/settingsdialog.glade:6228
+#: ../glade/settingsdialog.glade:6229
 msgid "<b>Command Type</b>"
 msgstr "<b>Parancs típusa</b>"
 
-#: ../glade/settingsdialog.glade:6251
+#: ../glade/settingsdialog.glade:6252
 msgid "Search Menu"
 msgstr "Keresés Menü"
 
-#: ../glade/settingsdialog.glade:6266
+#: ../glade/settingsdialog.glade:6267
 msgid "Chat Menu"
 msgstr "Chat Menü"
 
-#: ../glade/settingsdialog.glade:6281
+#: ../glade/settingsdialog.glade:6282
 msgid "Filelist Menu"
 msgstr "Fájl-lista menü"
 
-#: ../glade/settingsdialog.glade:6298
+#: ../glade/settingsdialog.glade:6299
 msgid "Hub Menu"
 msgstr "Hub Menü"
 
-#: ../glade/settingsdialog.glade:6312
+#: ../glade/settingsdialog.glade:6313
 msgid "<b>Context</b>"
 msgstr "<b>Környezet</b>"
 
-#: ../glade/settingsdialog.glade:6399
+#: ../glade/settingsdialog.glade:6400
 msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
 msgstr "Hub IP / DNS (üres = Mindenhol, 'op' = Ahol operátor vagy)"
 
-#: ../glade/settingsdialog.glade:6430
+#: ../glade/settingsdialog.glade:6431
 msgid "To (empty for selected user)"
 msgstr ""
 
-#: ../glade/settingsdialog.glade:6458
+#: ../glade/settingsdialog.glade:6459
 msgid "Send once per nick"
 msgstr "Nickenként egyszer küldje el"
 
-#: ../glade/settingsdialog.glade:6474
+#: ../glade/settingsdialog.glade:6475
 msgid "<b>Parameters</b>"
 msgstr "<b>Paraméterek</b>"
 
-#: ../glade/settingsdialog.glade:6510
+#: ../glade/settingsdialog.glade:6511
 msgid "<b>Text sent to hub</b>"
 msgstr "<b>Üzenet elküldve a hubnak</b>"
 
-#: ../glade/settingsdialog.glade:6575
+#: ../glade/settingsdialog.glade:6576
 msgid "Color select"
 msgstr "Szín kiválasztása"
 
-#: ../glade/settingsdialog.glade:6592
-msgid "gtk-help"
-msgstr "gtk-help"
-
-#: ../glade/settingsdialog.glade:6623
+#: ../glade/settingsdialog.glade:6624
 msgid "Font select"
 msgstr "Betűkészlet kiválasztás"
 
-#: ../glade/settingsdialog.glade:6655
-msgid "gtk-apply"
-msgstr "gtk-apply"
-
-#: ../glade/settingsdialog.glade:6697
+#: ../glade/settingsdialog.glade:6698
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr ""
-
-#: ../glade/settingsdialog.glade:6765
-msgid "gtk-edit"
-msgstr "gtk-edit"
 
 #: ../glade/downloadqueue.glade:118 ../glade/downloadqueue.glade:223
 msgid "Set Priorit_y"
@@ -3899,6 +3873,24 @@ msgstr ""
 #: ../glade/hub.glade:495
 msgid "Remove image"
 msgstr ""
+
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-cancel"
+
+#~ msgid "gtk-ok"
+#~ msgstr "gtk-ok"
+
+#~ msgid "gtk-open"
+#~ msgstr "gtk-open"
+
+#~ msgid "gtk-help"
+#~ msgstr "gtk-help"
+
+#~ msgid "gtk-apply"
+#~ msgstr "gtk-apply"
+
+#~ msgid "gtk-edit"
+#~ msgstr "gtk-edit"
 
 #, fuzzy
 #~ msgid "No use temp directory"

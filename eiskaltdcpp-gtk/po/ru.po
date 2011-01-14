@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-08 22:21+0200\n"
+"POT-Creation-Date: 2011-01-14 21:30+0200\n"
 "PO-Revision-Date: 2011-01-08 22:29+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <tehnick-8@mail.ru>\n"
@@ -503,7 +503,7 @@ msgstr "': /help для получения списка доступных ко�
 
 #: ../src/hub.cc:2430 ../src/privatemessage.cc:1188 ../src/mainwindow.cc:1210
 #: ../src/mainwindow.cc:1278 ../glade/sharebrowser.glade:326
-#: ../glade/search.glade:555 ../glade/settingsdialog.glade:6037
+#: ../glade/search.glade:555 ../glade/settingsdialog.glade:6038
 msgid "Choose a directory"
 msgstr "Выбор директории"
 
@@ -689,7 +689,7 @@ msgstr "Готово"
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:964
 #: ../src/settingsdialog.cc:1228 ../src/settingsdialog.cc:1289
 #: ../src/settingsdialog.cc:1337 ../glade/mainwindow.glade:320
-#: ../glade/mainwindow.glade:2047 ../glade/settingsdialog.glade:4001
+#: ../glade/mainwindow.glade:2047 ../glade/settingsdialog.glade:4002
 msgid "Search Spy"
 msgstr "Поисковый шпион"
 
@@ -715,7 +715,7 @@ msgstr "ожидание..."
 msgid "top..."
 msgstr "верх..."
 
-#: ../src/searchspy.cc:389 ../glade/searchspy.glade:149
+#: ../src/searchspy.cc:389 ../glade/searchspy.glade:150
 msgid "Update frame search"
 msgstr "Обновить поисковый фрейм"
 
@@ -723,7 +723,7 @@ msgstr "Обновить поисковый фрейм"
 msgid "top/waiting/frame: "
 msgstr "верх/ожидание/фрейм:"
 
-#: ../src/searchspy.cc:500 ../glade/searchspy.glade:135
+#: ../src/searchspy.cc:500 ../glade/searchspy.glade:136
 msgid "Clear frame search"
 msgstr "Очистить поисковый фрейм"
 
@@ -939,7 +939,7 @@ msgstr "Иконка"
 #: ../src/favoritehubs.cc:122 ../src/favoritehubs.cc:291
 #: ../src/favoritehubs.cc:407 ../src/publichubs.cc:41 ../src/publichubs.cc:156
 #: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:232
-#: ../src/search.cc:248 ../glade/settingsdialog.glade:6340
+#: ../src/search.cc:248 ../glade/settingsdialog.glade:6341
 msgid "Name"
 msgstr "Название"
 
@@ -961,7 +961,7 @@ msgstr "Избранное имя"
 #: ../src/settingsdialog.cc:3469 ../src/settingsdialog.cc:3483
 #: ../src/settingsdialog.cc:3538 ../src/search.cc:1640
 #: ../src/UserCommandMenu.cc:66 ../src/sharebrowser.cc:289
-#: ../glade/settingsdialog.glade:4047
+#: ../glade/settingsdialog.glade:4048
 msgid "Directory"
 msgstr "Директория"
 
@@ -1116,9 +1116,9 @@ msgstr "Личное сообщение"
 #: ../src/settingsdialog.cc:1285 ../src/search.cc:41 ../src/search.cc:72
 #: ../src/search.cc:79 ../src/search.cc:231 ../src/search.cc:429
 #: ../src/search.cc:1066 ../src/search.cc:1067 ../src/search.cc:1877
-#: ../glade/searchspy.glade:184 ../glade/searchspy.glade:249
+#: ../glade/searchspy.glade:185 ../glade/searchspy.glade:250
 #: ../glade/mainwindow.glade:231 ../glade/mainwindow.glade:1788
-#: ../glade/mainwindow.glade:1961 ../glade/settingsdialog.glade:5774
+#: ../glade/mainwindow.glade:1961 ../glade/settingsdialog.glade:5775
 msgid "Search"
 msgstr "Поиск"
 
@@ -1191,7 +1191,7 @@ msgstr "Фаворит"
 msgid "Operator"
 msgstr "Оператор"
 
-#: ../src/settingsdialog.cc:1132 ../glade/settingsdialog.glade:3344
+#: ../src/settingsdialog.cc:1132 ../glade/settingsdialog.glade:3345
 msgid "Notify"
 msgstr "Уведомления"
 
@@ -1437,7 +1437,7 @@ msgstr "Хаб"
 
 #: ../src/settingsdialog.cc:1427 ../src/settingsdialog.cc:1435
 #: ../src/settingsdialog.cc:3018 ../src/settingsdialog.cc:3092
-#: ../glade/settingsdialog.glade:6368
+#: ../glade/settingsdialog.glade:6369
 msgid "Command"
 msgstr "Команда"
 
@@ -1543,7 +1543,7 @@ msgstr "<b>Имя каталога, которое будут видеть др�
 msgid "selected style failed"
 msgstr "не выбран стиль"
 
-#: ../src/settingsdialog.cc:3042 ../glade/settingsdialog.glade:6214
+#: ../src/settingsdialog.cc:3042 ../glade/settingsdialog.glade:6215
 msgid "Separator"
 msgstr "Разделитель"
 
@@ -1559,7 +1559,7 @@ msgstr "Команда уже существует"
 msgid "New list"
 msgstr "Новый лист"
 
-#: ../src/settingsdialog.cc:3402 ../glade/settingsdialog.glade:5956
+#: ../src/settingsdialog.cc:3402 ../glade/settingsdialog.glade:5957
 msgid "Favorite name"
 msgstr "Имя"
 
@@ -1701,8 +1701,8 @@ msgid "Select file to Get TTH"
 msgstr "Выберите файл для расчета TTH"
 
 #: ../src/previewmenu.cc:90 ../src/emoticonsdialog.cc:106
-#: ../glade/settingsdialog.glade:3218 ../glade/settingsdialog.glade:3811
-#: ../glade/settingsdialog.glade:3957 ../glade/settingsdialog.glade:5729
+#: ../glade/settingsdialog.glade:3219 ../glade/settingsdialog.glade:3812
+#: ../glade/settingsdialog.glade:3958 ../glade/settingsdialog.glade:5730
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -1881,9 +1881,9 @@ msgstr "Слоты"
 #: ../src/search.cc:329 ../src/search.cc:400 ../src/sharebrowser.cc:481
 #: ../src/sharebrowser.cc:549 ../glade/mainwindow.glade:1462
 #: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:858
-#: ../glade/settingsdialog.glade:2751 ../glade/settingsdialog.glade:4064
-#: ../glade/settingsdialog.glade:4990 ../glade/settingsdialog.glade:5005
-#: ../glade/settingsdialog.glade:5020 ../glade/privatemessage.glade:118
+#: ../glade/settingsdialog.glade:2751 ../glade/settingsdialog.glade:4065
+#: ../glade/settingsdialog.glade:4991 ../glade/settingsdialog.glade:5006
+#: ../glade/settingsdialog.glade:5021 ../glade/privatemessage.glade:118
 #: ../glade/hub.glade:332
 msgid "Browse..."
 msgstr "Обзор..."
@@ -2074,12 +2074,12 @@ msgstr "Переместить"
 msgid "Move Down"
 msgstr "Переместить ниже"
 
-#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5717
+#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5718
 msgid "Remove"
 msgstr "Удалить"
 
-#: ../glade/adlsearch.glade:124 ../glade/searchspy.glade:196
-#: ../glade/searchspy.glade:263 ../glade/search.glade:548
+#: ../glade/adlsearch.glade:124 ../glade/searchspy.glade:197
+#: ../glade/searchspy.glade:264 ../glade/search.glade:548
 #: ../glade/favoriteusers.glade:93 ../glade/downloadqueue.glade:188
 #: ../glade/downloadqueue.glade:336
 msgid "_Remove"
@@ -2151,19 +2151,19 @@ msgstr "Игнорировать TTH"
 msgid "Apply settings"
 msgstr "Применить настройки"
 
-#: ../glade/searchspy.glade:68
+#: ../glade/searchspy.glade:69
 msgid "Top: >"
 msgstr "Top: >"
 
-#: ../glade/searchspy.glade:79 ../glade/settingsdialog.glade:3918
+#: ../glade/searchspy.glade:80 ../glade/settingsdialog.glade:3919
 msgid "Number of matches for the top"
 msgstr "Количество совпадений для добавления в топ"
 
-#: ../glade/searchspy.glade:90
+#: ../glade/searchspy.glade:91
 msgid "Waiting:"
 msgstr "Ожидание:"
 
-#: ../glade/searchspy.glade:101 ../glade/settingsdialog.glade:3887
+#: ../glade/searchspy.glade:102 ../glade/settingsdialog.glade:3888
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
@@ -2171,11 +2171,11 @@ msgstr ""
 "Увеличение времени ожидания увеличивает вероятность добавления в топ, но "
 "снижает динамику (обновление) кадра"
 
-#: ../glade/searchspy.glade:112
+#: ../glade/searchspy.glade:113
 msgid "Frame:"
 msgstr "Название:"
 
-#: ../glade/searchspy.glade:123 ../glade/settingsdialog.glade:3857
+#: ../glade/searchspy.glade:124 ../glade/settingsdialog.glade:3858
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
@@ -2183,23 +2183,23 @@ msgstr ""
 "Размер кадра определяет ширину обзора, большие значения влияют на "
 "производительность"
 
-#: ../glade/searchspy.glade:136 ../glade/searchspy.glade:277
+#: ../glade/searchspy.glade:137 ../glade/searchspy.glade:278
 msgid "Clear"
 msgstr "Очистить"
 
-#: ../glade/searchspy.glade:150
+#: ../glade/searchspy.glade:151
 msgid "Update"
 msgstr "Обновить"
 
-#: ../glade/searchspy.glade:163
+#: ../glade/searchspy.glade:164
 msgid "Show top search"
 msgstr "Показать топ поиска"
 
-#: ../glade/searchspy.glade:164 ../glade/searchspy.glade:205
+#: ../glade/searchspy.glade:165 ../glade/searchspy.glade:206
 msgid "Top"
 msgstr "Топ"
 
-#: ../glade/searchspy.glade:262
+#: ../glade/searchspy.glade:263
 msgid "Delete item"
 msgstr "Удалить элемент"
 
@@ -2781,16 +2781,6 @@ msgstr "Запомнить выбор"
 msgid "<b>What would you like to do?</b>"
 msgstr "<b>Что вы хотите сделать?</b>"
 
-#: ../glade/mainwindow.glade:1578 ../glade/settingsdialog.glade:6110
-#: ../glade/settingsdialog.glade:6603 ../glade/settingsdialog.glade:6644
-msgid "gtk-cancel"
-msgstr "gtk-cancel"
-
-#: ../glade/mainwindow.glade:1588 ../glade/settingsdialog.glade:6615
-#: ../glade/settingsdialog.glade:6667
-msgid "gtk-ok"
-msgstr "gtk-ok"
-
 #: ../glade/mainwindow.glade:1617
 msgid "Chose A File"
 msgstr "Выберите файл"
@@ -3003,8 +2993,8 @@ msgstr "Низкий"
 
 #: ../glade/settingsdialog.glade:1312 ../glade/settingsdialog.glade:1327
 #: ../glade/settingsdialog.glade:1356 ../glade/settingsdialog.glade:1371
-#: ../glade/settingsdialog.glade:1571 ../glade/settingsdialog.glade:4669
-#: ../glade/settingsdialog.glade:4886
+#: ../glade/settingsdialog.glade:1571 ../glade/settingsdialog.glade:4670
+#: ../glade/settingsdialog.glade:4887
 msgid "KiB"
 msgstr "КБ"
 
@@ -3186,7 +3176,7 @@ msgstr "<b>Формат меток времени</b>"
 msgid "Note: Most of these options require that you restart the application"
 msgstr "Примечание: Изменение большинства опций требует перезапуска программы"
 
-#: ../glade/settingsdialog.glade:2468 ../glade/settingsdialog.glade:4017
+#: ../glade/settingsdialog.glade:2468 ../glade/settingsdialog.glade:4018
 msgid "Appearance"
 msgstr "Оформление"
 
@@ -3286,276 +3276,276 @@ msgstr "<b>Размер иконки</b>"
 msgid "Test"
 msgstr "Тест"
 
-#: ../glade/settingsdialog.glade:3181
+#: ../glade/settingsdialog.glade:3182
 msgid "Icon..."
 msgstr "Иконка..."
 
-#: ../glade/settingsdialog.glade:3205
+#: ../glade/settingsdialog.glade:3206
 msgid "None icon"
 msgstr "Нет иконки"
 
-#: ../glade/settingsdialog.glade:3274
+#: ../glade/settingsdialog.glade:3275
 msgid "Maximum message length (0 = infinite)"
 msgstr "Максимальная длина сообщения (0 = не ограничено)"
 
-#: ../glade/settingsdialog.glade:3290
+#: ../glade/settingsdialog.glade:3291
 msgid "Show only when the application is not active."
 msgstr "Показать только, когда приложение пассивно"
 
-#: ../glade/settingsdialog.glade:3305
+#: ../glade/settingsdialog.glade:3306
 msgid "<b>Private message</b>"
 msgstr "<b>Личное сообщение</b>"
 
-#: ../glade/settingsdialog.glade:3322 ../glade/settingsdialog.glade:6180
+#: ../glade/settingsdialog.glade:3323 ../glade/settingsdialog.glade:6181
 msgid "PM"
 msgstr "ЛС"
 
-#: ../glade/settingsdialog.glade:3384
+#: ../glade/settingsdialog.glade:3385
 msgid "<b>Icons</b>"
 msgstr "<b>Иконки</b>"
 
-#: ../glade/settingsdialog.glade:3416
+#: ../glade/settingsdialog.glade:3417
 msgid "<b>Text styles</b>"
 msgstr "<b>Стили текста</b>"
 
-#: ../glade/settingsdialog.glade:3438
+#: ../glade/settingsdialog.glade:3439
 msgid "<b>Current theme name:</b>"
 msgstr "<b>Текущая тема:</b>"
 
-#: ../glade/settingsdialog.glade:3448
+#: ../glade/settingsdialog.glade:3449
 msgid "theme"
 msgstr "тема"
 
-#: ../glade/settingsdialog.glade:3471
+#: ../glade/settingsdialog.glade:3472
 msgid "Export..."
 msgstr "Экспорт..."
 
-#: ../glade/settingsdialog.glade:3483
+#: ../glade/settingsdialog.glade:3484
 msgid "Import..."
 msgstr "Импорт..."
 
-#: ../glade/settingsdialog.glade:3508
+#: ../glade/settingsdialog.glade:3509
 msgid "Default icons"
 msgstr "Иконки по умолчанию"
 
-#: ../glade/settingsdialog.glade:3521
+#: ../glade/settingsdialog.glade:3522
 msgid "System icons"
 msgstr "Системные иконки"
 
-#: ../glade/settingsdialog.glade:3534
+#: ../glade/settingsdialog.glade:3535
 msgid "Theme default"
 msgstr "По умолчанию"
 
-#: ../glade/settingsdialog.glade:3556
+#: ../glade/settingsdialog.glade:3557
 msgid "Themes"
 msgstr "Темы"
 
-#: ../glade/settingsdialog.glade:3594
+#: ../glade/settingsdialog.glade:3595
 msgid "<b>Toolbar buttons</b>"
 msgstr "<b>Кнопки панели инсрументов</b>"
 
-#: ../glade/settingsdialog.glade:3611
+#: ../glade/settingsdialog.glade:3612
 msgid "Toolbar"
 msgstr "Панель инструментов"
 
-#: ../glade/settingsdialog.glade:3655
+#: ../glade/settingsdialog.glade:3656
 msgid "New string or TTH"
 msgstr "Новая строка или TTH"
 
-#: ../glade/settingsdialog.glade:3686
+#: ../glade/settingsdialog.glade:3687
 msgid "Adding string or TTH in the top"
 msgstr "Добавление строки или TTH в топ"
 
-#: ../glade/settingsdialog.glade:3718
+#: ../glade/settingsdialog.glade:3719
 msgid "State of preparedness"
 msgstr "Состояние готовности"
 
-#: ../glade/settingsdialog.glade:3750
+#: ../glade/settingsdialog.glade:3751
 msgid "Matches"
 msgstr "Совпадения"
 
-#: ../glade/settingsdialog.glade:3782
+#: ../glade/settingsdialog.glade:3783
 msgid "Updating string or TTH"
 msgstr "Обновление строки или TTH"
 
-#: ../glade/settingsdialog.glade:3830
+#: ../glade/settingsdialog.glade:3831
 msgid "<b>Colors</b>"
 msgstr "<b>Цвета</b>"
 
-#: ../glade/settingsdialog.glade:3867
+#: ../glade/settingsdialog.glade:3868
 msgid "Frame (size)"
 msgstr "Кадр (размер)"
 
-#: ../glade/settingsdialog.glade:3897
+#: ../glade/settingsdialog.glade:3898
 msgid "Waiting (seconds)"
 msgstr "Ожидание (секунд)"
 
-#: ../glade/settingsdialog.glade:3928
+#: ../glade/settingsdialog.glade:3929
 msgid "Top (number of matches, more than)"
 msgstr "Топ (число совпадений, больше чем)"
 
-#: ../glade/settingsdialog.glade:3976
+#: ../glade/settingsdialog.glade:3977
 msgid "<b>Frame</b>"
 msgstr "<b>Фрейм</b>"
 
-#: ../glade/settingsdialog.glade:4083
+#: ../glade/settingsdialog.glade:4084
 msgid "Log main chat"
 msgstr "Журнал основного чата"
 
-#: ../glade/settingsdialog.glade:4103 ../glade/settingsdialog.glade:4146
-#: ../glade/settingsdialog.glade:4189 ../glade/settingsdialog.glade:4232
+#: ../glade/settingsdialog.glade:4104 ../glade/settingsdialog.glade:4147
+#: ../glade/settingsdialog.glade:4190 ../glade/settingsdialog.glade:4233
 msgid "Format"
 msgstr "Формат"
 
-#: ../glade/settingsdialog.glade:4126
+#: ../glade/settingsdialog.glade:4127
 msgid "Log private chat"
 msgstr "Журнал личных сообщений (ЛС)"
 
-#: ../glade/settingsdialog.glade:4169
+#: ../glade/settingsdialog.glade:4170
 msgid "Log downloads"
 msgstr "Журнал закачек"
 
-#: ../glade/settingsdialog.glade:4212
+#: ../glade/settingsdialog.glade:4213
 msgid "Log uploads"
 msgstr "Журнал отдач"
 
-#: ../glade/settingsdialog.glade:4255
+#: ../glade/settingsdialog.glade:4256
 msgid "Log system messages"
 msgstr "Журнал системных сообщений"
 
-#: ../glade/settingsdialog.glade:4270
+#: ../glade/settingsdialog.glade:4271
 msgid "Log status messages"
 msgstr "Журнал статус-сообщений"
 
-#: ../glade/settingsdialog.glade:4285
+#: ../glade/settingsdialog.glade:4286
 msgid "Log filelist transfers"
 msgstr "Журнал отдач списка файлов"
 
-#: ../glade/settingsdialog.glade:4301
+#: ../glade/settingsdialog.glade:4302
 msgid "<b>Logging</b>"
 msgstr "<b>Журналирование</b>"
 
-#: ../glade/settingsdialog.glade:4318
+#: ../glade/settingsdialog.glade:4319
 msgid "Logs"
 msgstr "Журналы"
 
-#: ../glade/settingsdialog.glade:4357 ../glade/settingsdialog.glade:5206
+#: ../glade/settingsdialog.glade:4358 ../glade/settingsdialog.glade:5207
 msgid "Advanced"
 msgstr "Расширенные"
 
-#: ../glade/settingsdialog.glade:4471
+#: ../glade/settingsdialog.glade:4472
 msgid "User Commands"
 msgstr "Команды юзера"
 
-#: ../glade/settingsdialog.glade:4497
+#: ../glade/settingsdialog.glade:4498
 msgid "Max hash speed"
 msgstr "Макс. скор. хэш."
 
-#: ../glade/settingsdialog.glade:4509
+#: ../glade/settingsdialog.glade:4510
 msgid "PM history"
 msgstr "ЛС история"
 
-#: ../glade/settingsdialog.glade:4521
+#: ../glade/settingsdialog.glade:4522
 msgid "Mini slot size"
 msgstr "Мин. размер слота"
 
-#: ../glade/settingsdialog.glade:4533
+#: ../glade/settingsdialog.glade:4534
 msgid "Max filelist size"
 msgstr "Макс. файл-лист"
 
-#: ../glade/settingsdialog.glade:4647
+#: ../glade/settingsdialog.glade:4648
 msgid "MiB/s"
 msgstr "МБ/с"
 
-#: ../glade/settingsdialog.glade:4681
+#: ../glade/settingsdialog.glade:4682
 msgid "MiB"
 msgstr "МБ"
 
-#: ../glade/settingsdialog.glade:4713
+#: ../glade/settingsdialog.glade:4714
 msgid "Write buffer size"
 msgstr "Буфер записи"
 
-#: ../glade/settingsdialog.glade:4724
+#: ../glade/settingsdialog.glade:4725
 msgid "Search history"
 msgstr "История поиска"
 
-#: ../glade/settingsdialog.glade:4736
+#: ../glade/settingsdialog.glade:4737
 msgid "Bind address"
 msgstr "Адрес"
 
-#: ../glade/settingsdialog.glade:4748
+#: ../glade/settingsdialog.glade:4749
 msgid "Socket read buffer"
 msgstr "Буфер чтения сокета"
 
-#: ../glade/settingsdialog.glade:4760
+#: ../glade/settingsdialog.glade:4761
 msgid "Socket write buffer"
 msgstr "Буфер записи сокета"
 
-#: ../glade/settingsdialog.glade:4772
+#: ../glade/settingsdialog.glade:4773
 msgid "Auto refresh time"
 msgstr "Автообновление"
 
-#: ../glade/settingsdialog.glade:4915 ../glade/settingsdialog.glade:4927
+#: ../glade/settingsdialog.glade:4916 ../glade/settingsdialog.glade:4928
 msgid "B"
 msgstr "Б"
 
-#: ../glade/settingsdialog.glade:4963
+#: ../glade/settingsdialog.glade:4964
 msgid "Experts Only"
 msgstr "Для опытных"
 
-#: ../glade/settingsdialog.glade:5065
+#: ../glade/settingsdialog.glade:5066
 msgid "Trusted certificates path"
 msgstr "Путь к довер. сертиф."
 
-#: ../glade/settingsdialog.glade:5079
+#: ../glade/settingsdialog.glade:5080
 msgid "Certificate file"
 msgstr "Файл сертификата"
 
-#: ../glade/settingsdialog.glade:5093
+#: ../glade/settingsdialog.glade:5094
 msgid "Private key file"
 msgstr "Файл личного ключа"
 
-#: ../glade/settingsdialog.glade:5109
+#: ../glade/settingsdialog.glade:5110
 msgid "<b>Certificate Paths</b>"
 msgstr "<b>Сертификат Пути</b>"
 
-#: ../glade/settingsdialog.glade:5145
+#: ../glade/settingsdialog.glade:5146
 msgid "<b>Other Security Options</b>"
 msgstr "<b>Другие опции безопасности</b>"
 
-#: ../glade/settingsdialog.glade:5163
+#: ../glade/settingsdialog.glade:5164
 msgid "Generate certificates"
 msgstr "Генерация сертификата"
 
-#: ../glade/settingsdialog.glade:5190
+#: ../glade/settingsdialog.glade:5191
 msgid "Security Certificates"
 msgstr "Сертификаты безопасности"
 
-#: ../glade/settingsdialog.glade:5221
+#: ../glade/settingsdialog.glade:5222
 msgid "Use bandwidth limits"
 msgstr "Использовать ограничения скорости"
 
-#: ../glade/settingsdialog.glade:5259 ../glade/settingsdialog.glade:5502
+#: ../glade/settingsdialog.glade:5260 ../glade/settingsdialog.glade:5503
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
 msgstr "Максимальная скорость отдачи (КиБ/с) (0 = не ограничено)"
 
-#: ../glade/settingsdialog.glade:5296 ../glade/settingsdialog.glade:5539
+#: ../glade/settingsdialog.glade:5297 ../glade/settingsdialog.glade:5540
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
 msgstr "Максимальная скорость загрузки (КиБ/с) (0 = не ограничено)"
 
-#: ../glade/settingsdialog.glade:5324
+#: ../glade/settingsdialog.glade:5325
 msgid "<b>Transfer Rate Limiting</b>"
 msgstr "<b>Ограничение скорости передачи</b>"
 
-#: ../glade/settingsdialog.glade:5351
+#: ../glade/settingsdialog.glade:5352
 msgid "Use second set of bandwidth limits"
 msgstr "Используйте второй набор пределов полосы пропускания"
 
-#: ../glade/settingsdialog.glade:5373
+#: ../glade/settingsdialog.glade:5374
 msgid "from"
 msgstr "от "
 
-#: ../glade/settingsdialog.glade:5383 ../glade/settingsdialog.glade:5426
+#: ../glade/settingsdialog.glade:5384 ../glade/settingsdialog.glade:5427
 msgid ""
 "Midnight\n"
 "1AM\n"
@@ -3607,23 +3597,23 @@ msgstr ""
 "10PM\n"
 "11PM"
 
-#: ../glade/settingsdialog.glade:5416
+#: ../glade/settingsdialog.glade:5417
 msgid "to"
 msgstr "к"
 
-#: ../glade/settingsdialog.glade:5461
+#: ../glade/settingsdialog.glade:5462
 msgid "<b>Secondary Transfer Rate Limiting</b>"
 msgstr "<b>Второе ограничение скорости передачи</b>"
 
-#: ../glade/settingsdialog.glade:5579
+#: ../glade/settingsdialog.glade:5580
 msgid "Upload Slots"
 msgstr "Слоты отдачи"
 
-#: ../glade/settingsdialog.glade:5607
+#: ../glade/settingsdialog.glade:5608
 msgid "<b>Secondary Transfer Rate Settings</b>"
 msgstr "<b>Настройки второй скорости передачи</b>"
 
-#: ../glade/settingsdialog.glade:5640
+#: ../glade/settingsdialog.glade:5641
 msgid ""
 "Bandwidth\n"
 "Limiting"
@@ -3631,124 +3621,108 @@ msgstr ""
 "Bandwidth\n"
 "Limiting"
 
-#: ../glade/settingsdialog.glade:5684
+#: ../glade/settingsdialog.glade:5685
 msgid "Add"
 msgstr "Добавить"
 
-#: ../glade/settingsdialog.glade:5693
+#: ../glade/settingsdialog.glade:5694
 msgid "Modify"
 msgstr "Изменить"
 
-#: ../glade/settingsdialog.glade:5705
+#: ../glade/settingsdialog.glade:5706
 msgid "Rename"
 msgstr "Переименовать"
 
-#: ../glade/settingsdialog.glade:5746
+#: ../glade/settingsdialog.glade:5747
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
 "Заметка: Указанные поисковые типы будут применяться только для ADC хабов!"
 
-#: ../glade/settingsdialog.glade:5759
+#: ../glade/settingsdialog.glade:5760
 msgid "<b>Search types</b>"
 msgstr "<b>Поисковые типы</b>"
 
-#: ../glade/settingsdialog.glade:5827 ../glade/publichubs.glade:190
+#: ../glade/settingsdialog.glade:5828 ../glade/publichubs.glade:190
 msgid "Configure hub lists"
 msgstr "Конфигурация списков хабов"
 
-#: ../glade/settingsdialog.glade:5917 ../glade/publichubs.glade:276
+#: ../glade/settingsdialog.glade:5918 ../glade/publichubs.glade:276
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
 "<b>Заметка:</b> Для изменения ссылок в этом списке достаточно одного клика "
 "после выделения"
 
-#: ../glade/settingsdialog.glade:6089
+#: ../glade/settingsdialog.glade:6090
 msgid "Choose a File"
 msgstr "Выбор файла"
 
-#: ../glade/settingsdialog.glade:6120
-msgid "gtk-open"
-msgstr "gtk-open"
-
-#: ../glade/settingsdialog.glade:6138
+#: ../glade/settingsdialog.glade:6139
 msgid "Modify User Command"
 msgstr "Создать/изменить команду"
 
-#: ../glade/settingsdialog.glade:6164
+#: ../glade/settingsdialog.glade:6165
 msgid "Raw"
 msgstr "Сырой"
 
-#: ../glade/settingsdialog.glade:6198
+#: ../glade/settingsdialog.glade:6199
 msgid "Chat"
 msgstr "Чат"
 
-#: ../glade/settingsdialog.glade:6228
+#: ../glade/settingsdialog.glade:6229
 msgid "<b>Command Type</b>"
 msgstr "<b>Тип команды</b>"
 
-#: ../glade/settingsdialog.glade:6251
+#: ../glade/settingsdialog.glade:6252
 msgid "Search Menu"
 msgstr "Меню поиска"
 
-#: ../glade/settingsdialog.glade:6266
+#: ../glade/settingsdialog.glade:6267
 msgid "Chat Menu"
 msgstr "Меню юзера"
 
-#: ../glade/settingsdialog.glade:6281
+#: ../glade/settingsdialog.glade:6282
 msgid "Filelist Menu"
 msgstr "Меню файл-листа"
 
-#: ../glade/settingsdialog.glade:6298
+#: ../glade/settingsdialog.glade:6299
 msgid "Hub Menu"
 msgstr "Меню хаба"
 
-#: ../glade/settingsdialog.glade:6312
+#: ../glade/settingsdialog.glade:6313
 msgid "<b>Context</b>"
 msgstr "<b>Содержание</b>"
 
-#: ../glade/settingsdialog.glade:6399
+#: ../glade/settingsdialog.glade:6400
 msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
 msgstr "IP / DNS хаба (empty = все, 'op' = где оператор)"
 
-#: ../glade/settingsdialog.glade:6430
+#: ../glade/settingsdialog.glade:6431
 msgid "To (empty for selected user)"
 msgstr "Кому"
 
-#: ../glade/settingsdialog.glade:6458
+#: ../glade/settingsdialog.glade:6459
 msgid "Send once per nick"
 msgstr "Отправить по разу для каждого ника"
 
-#: ../glade/settingsdialog.glade:6474
+#: ../glade/settingsdialog.glade:6475
 msgid "<b>Parameters</b>"
 msgstr "<b>Параметры</b>"
 
-#: ../glade/settingsdialog.glade:6510
+#: ../glade/settingsdialog.glade:6511
 msgid "<b>Text sent to hub</b>"
 msgstr "<b>Текст отправлен хабу</b>"
 
-#: ../glade/settingsdialog.glade:6575
+#: ../glade/settingsdialog.glade:6576
 msgid "Color select"
 msgstr "Выбор цвета"
 
-#: ../glade/settingsdialog.glade:6592
-msgid "gtk-help"
-msgstr "gtk-help"
-
-#: ../glade/settingsdialog.glade:6623
+#: ../glade/settingsdialog.glade:6624
 msgid "Font select"
 msgstr "Выбор шрифта"
 
-#: ../glade/settingsdialog.glade:6655
-msgid "gtk-apply"
-msgstr "gtk-apply"
-
-#: ../glade/settingsdialog.glade:6697
+#: ../glade/settingsdialog.glade:6698
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr "Используйте разделитель для расширений (doc;xls;ppt;docx;xlsx;pptx)"
-
-#: ../glade/settingsdialog.glade:6765
-msgid "gtk-edit"
-msgstr "gtk-edit"
 
 #: ../glade/downloadqueue.glade:118 ../glade/downloadqueue.glade:223
 msgid "Set Priorit_y"
@@ -3898,6 +3872,24 @@ msgstr "Открыть изображение"
 #: ../glade/hub.glade:495
 msgid "Remove image"
 msgstr "Удалить изображение"
+
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-cancel"
+
+#~ msgid "gtk-ok"
+#~ msgstr "gtk-ok"
+
+#~ msgid "gtk-open"
+#~ msgstr "gtk-open"
+
+#~ msgid "gtk-help"
+#~ msgstr "gtk-help"
+
+#~ msgid "gtk-apply"
+#~ msgstr "gtk-apply"
+
+#~ msgid "gtk-edit"
+#~ msgstr "gtk-edit"
 
 #, fuzzy
 #~ msgid "No use temp directory"
