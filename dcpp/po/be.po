@@ -349,9 +349,8 @@ msgid " Search Port (%1% UDP)"
 msgstr " Порт пошуку (%1% UDP)"
 
 #: ../UPnPManager.cpp:101
-#, fuzzy
 msgid " DHT Port (%1% UDP)"
-msgstr " Порт пошуку (%1% UDP)"
+msgstr " Порт DHT (%1% UDP)"
 
 #: ../UPnPManager.cpp:108
 msgid ""
@@ -370,16 +369,12 @@ msgid "Failed to create port mappings"
 msgstr "Не ўдалося адлюстраваць порты"
 
 #: ../UPnPManager.cpp:138
-#, fuzzy
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr ""
-"Пасьпяхова адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю "
-"інтэрфэйсу %4%"
+msgstr "Пасьпяхова зьнішчылі адлюстраваньні портаў на інтэрфэйсе %1%"
 
 #: ../UPnPManager.cpp:139
-#, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Не ўдалося зьнішчыць адлюстраваньні портаў"
+msgstr "Не ўдалося зьнішчыць адлюстраваньні портаў на інтэрфэйсе %1%"
 
 #: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"

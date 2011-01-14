@@ -213,7 +213,7 @@ msgstr "Нельга сьцягнуць: другі кліент ня цалка
 
 #: ../src/downloadqueue.cc:1369
 msgid "No errors"
-msgstr "Няма памылак"
+msgstr "няма памылак"
 
 #: ../src/notify.cc:149
 msgid "Open file"
@@ -1550,7 +1550,7 @@ msgstr "<b>Назоў, які будуць бачыць іншыя карыст�
 
 #: ../src/settingsdialog.cc:2866 ../src/settingsdialog.cc:2967
 msgid "selected style failed"
-msgstr "не абралі від тэксту"
+msgstr "не абралі від"
 
 #: ../src/settingsdialog.cc:3042 ../glade/settingsdialog.glade:6215
 msgid "Separator"
@@ -1593,7 +1593,7 @@ msgstr "Агульны памер:"
 #: ../src/favoritehubs.cc:298 ../src/favoritehubs.cc:452
 #: ../src/favoritehubs.cc:454
 msgid "Auto Connect"
-msgstr "Самарушна злучацца"
+msgstr "Злучацца па запуску"
 
 #: ../src/favoritehubs.cc:55 ../src/favoritehubs.cc:127
 #: ../src/favoritehubs.cc:141 ../src/favoritehubs.cc:214
@@ -1713,7 +1713,7 @@ msgstr "Абярыце файл, скарот якога трэба вылічы
 #: ../glade/settingsdialog.glade:3219 ../glade/settingsdialog.glade:3812
 #: ../glade/settingsdialog.glade:3958 ../glade/settingsdialog.glade:5730
 msgid "Default"
-msgstr "Прадвызначаны"
+msgstr "Прадвызначана"
 
 #: ../src/WulforUtil.cc:42
 msgid "System default"
@@ -2374,7 +2374,7 @@ msgstr "<b>Асяродак</b>"
 
 #: ../glade/favoritehubs.glade:123
 msgid "Auto connect on _startup"
-msgstr "_Самарушна злучацца па запуску"
+msgstr "_Злучацца па запуску"
 
 #: ../glade/favoritehubs.glade:142
 msgid "_Name:"
@@ -2530,7 +2530,7 @@ msgstr "Маленькія значкі"
 
 #: ../glade/mainwindow.glade:453
 msgid "Hide tools panel"
-msgstr "Схаваць паліцу прылад"
+msgstr "Схаваць паліцу прыладаў"
 
 #: ../glade/mainwindow.glade:464
 msgid "_Help"
@@ -2619,7 +2619,6 @@ msgstr ""
 " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 
 #: ../glade/mainwindow.glade:976
-#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2875,7 +2874,7 @@ msgstr "Асабістае"
 
 #: ../glade/settingsdialog.glade:219
 msgid "Use UPnP to let client cofigure my router"
-msgstr "Выкарыстоўваць UPnP, каб кліент наладзіўся праз маршрутавальнік"
+msgstr "Наладзіць кліент па UPnP праз маршрутавальнік"
 
 #: ../glade/settingsdialog.glade:404
 msgid "Ports"
@@ -2934,9 +2933,8 @@ msgid "Default download directory"
 msgstr "Звычайны каталёг на сьцягнутае"
 
 #: ../glade/settingsdialog.glade:822
-#, fuzzy
 msgid "Do not use unfinished downloads directory"
-msgstr "Каталёг на яшчэ ня цалкам сьцягнутае"
+msgstr "Працаваць без асобнага каталёгу на яшчэ ня цалкам сьцягнутае"
 
 #: ../glade/settingsdialog.glade:836
 msgid "Unfinished downloads directory"
@@ -3350,7 +3348,7 @@ msgstr "Звычайнае аздабленьне"
 
 #: ../glade/settingsdialog.glade:3557
 msgid "Themes"
-msgstr "Тэмы"
+msgstr "Аздабленьне"
 
 #: ../glade/settingsdialog.glade:3595
 msgid "<b>Toolbar buttons</b>"
@@ -3893,14 +3891,13 @@ msgstr "Сьцерці відарыс"
 #~ msgstr "gtk-open"
 
 #~ msgid "gtk-help"
-#~ msgstr "gtk-help"
+#~ msgstr "Дапамога"
 
 #~ msgid "gtk-apply"
-#~ msgstr "gtk-apply"
+#~ msgstr "Ужыць"
 
 #~ msgid "gtk-edit"
-#~ msgstr "gtk-edit"
+#~ msgstr "Зьмяніць"
 
-#, fuzzy
 #~ msgid "No use temp directory"
 #~ msgstr "Абярыце каталёг"
