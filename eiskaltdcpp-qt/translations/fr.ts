@@ -498,7 +498,7 @@ Keys:
     <name>FavoriteHubModel</name>
     <message>
         <source>Autoconnect</source>
-        <translation>Connection automatique</translation>
+        <translation>Connexion automatique</translation>
     </message>
     <message>
         <source>Name</source>
@@ -946,7 +946,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>Connection à %1</translation>
+        <translation>Connexion à %1</translation>
     </message>
     <message>
         <source>Connected to %1</source>
@@ -1430,7 +1430,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Parcourir</translation>
+        <translation>Parcourir</translation>
     </message>
 </context>
 <context>
@@ -1673,7 +1673,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Quick connect</source>
-        <translation>Connection rapide</translation>
+        <translation>Connexion rapide</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -2144,7 +2144,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>Enter magnet link:</source>
-        <translation>Entrez le lien magnet</translation>
+        <translation>Entrez le lien magnet:</translation>
     </message>
     <message>
         <source>Ctrl+Alt+H</source>
@@ -2152,7 +2152,7 @@ Please check your connection settings</source>
     </message>
     <message>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ est un client pour les protocoles Direct Connect et ADC.&lt;br/&gt;&lt;br/&gt;Version DC++: %1 (modifiée)&lt;br/&gt;&lt;br/&gt;Page d&apos;accueil: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total envoyé: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total téléchargé: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -2289,7 +2289,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>Connection</translation>
+        <translation>Connexion</translation>
     </message>
     <message>
         <source>Add to favorites</source>
@@ -2823,7 +2823,7 @@ Clés:
     </message>
     <message>
         <source>Connection</source>
-        <translation>Connection</translation>
+        <translation>Connexion</translation>
     </message>
     <message>
         <source>Downloads</source>
@@ -3267,23 +3267,23 @@ Clés:
     <name>ShortcutGetter</name>
     <message>
         <source>Modify shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier le raccourcis</translation>
     </message>
     <message>
         <source>Press the key combination you want to assign</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez la combinaison désirée</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Vider</translation>
+        <translation>Vider</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer</translation>
     </message>
     <message>
         <source>Capture keystrokes</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer le clavier</translation>
     </message>
 </context>
 <context>
@@ -3541,7 +3541,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Close connection(s)</source>
-        <translation>Fermer la/les connection(s)</translation>
+        <translation>Fermer la/les connexion(s)</translation>
     </message>
     <message>
         <source>Search Alternates</source>
@@ -3597,7 +3597,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <source>Encryption</source>
-        <translation type="unfinished">Chiffrement</translation>
+        <translation>Chiffrement</translation>
     </message>
 </context>
 <context>
@@ -4023,7 +4023,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Autoconnect on startup</source>
-        <translation>Connection automatique au démarrage</translation>
+        <translation>Connexion automatique au démarrage</translation>
     </message>
     <message>
         <source>Name</source>
@@ -4516,7 +4516,7 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <name>UIQuickConnect</name>
     <message>
         <source>Quick connect</source>
-        <translation>Connection rapide</translation>
+        <translation>Connexion rapide</translation>
     </message>
     <message>
         <source>IP address of DNS name of hub you want to connect.</source>
@@ -4690,7 +4690,7 @@ This mode carries some serious limitations:
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
         <translation>Utilisez ce mode seulement si aucun des autres ne vous conviennent.
-Dans ce mode EiskaltDC++ ne tentera pas de connections entrantes, seulement des sortantes.
+Dans ce mode EiskaltDC++ ne tentera pas de connexions entrantes, seulement des sortantes.
 Ce mode est très limité:
   * Seul 5 résultats par utilisateur lors d&apos;une recherche;
   * Vous ne pourrez pas télécharger depuis d&apos;autres utilisateurs en mode passif;
@@ -4718,8 +4718,8 @@ et déterminer votre IP externe par la même occasion.</translation>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation>Sélectionnez ce mode si vous pouvez effectuer des connections sortantes sans restrictions.
-Cela inclut une connection à n&apos;importe quelle IP sur n&apos;importe quel port.
+        <translation>Sélectionnez ce mode si vous pouvez effectuer des connexions sortantes sans restrictions.
+Cela inclut une connexion à n&apos;importe quelle IP sur n&apos;importe quel port.
 Choisissez cette option si vous n&apos;êtes pas sûr.</translation>
     </message>
     <message>
@@ -4767,7 +4767,7 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
-        <translation>Reconnection au serveur (secondes)</translation>
+        <translation>Reconnexion au serveur (secondes)</translation>
     </message>
     <message>
         <source>Enable Throttle</source>
@@ -4795,31 +4795,42 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Non</translation>
     </message>
     <message>
         <source>Low delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Délais court</translation>
     </message>
     <message>
         <source>Throughput</source>
-        <translation type="unfinished"></translation>
+        <translation>Débit</translation>
     </message>
     <message>
         <source>Reliability</source>
-        <translation type="unfinished">Fiabilité</translation>
+        <translation>Fiabilité</translation>
     </message>
     <message>
         <source>Minimal cost</source>
-        <translation type="unfinished"></translation>
+        <translation>Coût minimal</translation>
     </message>
     <message>
         <source>Type-of-Service (ToS)</source>
-        <translation type="unfinished"></translation>
+        <translation>Type de service (ToS)</translation>
     </message>
 </context>
 <context>
@@ -5001,7 +5012,7 @@ the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
         <translation>Ce proxy HTTP sera seulement utilisé pour obtenir 
 la liste publique des serveurs spécifiée ci-dessus.
-Non pas pour les envois, téléchargements, ou connections au serveurs.</translation>
+Non pas pour les envois, téléchargements, ou connexions au serveurs.</translation>
     </message>
     <message>
         <source>Files with the same or under the entered size

@@ -20,7 +20,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:960
 #: ../src/settingsdialog.cc:1333 ../glade/mainwindow.glade:272
 msgid "Download Queue"
-msgstr ""
+msgstr "Liste de téléchargement"
 
 #: ../src/downloadqueue.cc:65 ../src/downloadqueue.cc:89
 #: ../src/downloadqueue.cc:90 ../src/downloadqueue.cc:275
@@ -38,7 +38,7 @@ msgstr ""
 #: ../src/sharebrowser.cc:513 ../src/sharebrowser.cc:607
 #: ../src/sharebrowser.cc:970 ../src/sharebrowser.cc:1004
 msgid "Filename"
-msgstr ""
+msgstr "Nom de fichier"
 
 #: ../src/downloadqueue.cc:66 ../src/downloadqueue.cc:277
 #: ../src/downloadqueue.cc:384 ../src/searchspy.cc:57 ../src/searchspy.cc:295
@@ -46,7 +46,7 @@ msgstr ""
 #: ../src/transfers.cc:402 ../src/transfers.cc:496 ../src/transfers.cc:585
 #: ../src/transfers.cc:595 ../src/transfers.cc:761
 msgid "Status"
-msgstr ""
+msgstr "État"
 
 #: ../src/downloadqueue.cc:67 ../src/downloadqueue.cc:86
 #: ../src/downloadqueue.cc:278 ../src/downloadqueue.cc:385
@@ -59,24 +59,24 @@ msgstr ""
 #: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317
 #: ../glade/search.glade:60 ../glade/mainwindow.glade:1287
 msgid "Size"
-msgstr ""
+msgstr "Taille"
 
 #: ../src/downloadqueue.cc:68 ../src/downloadqueue.cc:88
 #: ../src/downloadqueue.cc:281 ../src/downloadqueue.cc:388
 msgid "Downloaded"
-msgstr ""
+msgstr "Téléchargé"
 
 #: ../src/downloadqueue.cc:69 ../src/downloadqueue.cc:283
 #: ../src/downloadqueue.cc:390
 msgid "Priority"
-msgstr ""
+msgstr "Priorité"
 
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
 #: ../src/publichubs.cc:58 ../src/publichubs.cc:158
 #: ../glade/mainwindow.glade:1746 ../glade/mainwindow.glade:1948
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 #: ../src/downloadqueue.cc:71 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/transfers.cc:64 ../src/transfers.cc:713
@@ -86,7 +86,7 @@ msgstr ""
 #: ../src/search.cc:871 ../src/search.cc:1184 ../src/search.cc:1223
 #: ../src/search.cc:1280 ../src/search.cc:1342 ../src/search.cc:1899
 msgid "Path"
-msgstr ""
+msgstr "Chemin"
 
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
 #: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386 ../src/search.cc:94
@@ -94,17 +94,17 @@ msgstr ""
 #: ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
 #: ../src/sharebrowser.cc:287 ../src/sharebrowser.cc:318
 msgid "Exact Size"
-msgstr ""
+msgstr "Taille exacte"
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:285
 #: ../src/downloadqueue.cc:392
 msgid "Errors"
-msgstr ""
+msgstr "Erreurs"
 
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:286
 #: ../src/downloadqueue.cc:393
 msgid "Added"
-msgstr ""
+msgstr "Ajouté"
 
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:287
 #: ../src/downloadqueue.cc:394 ../src/downloadqueue.cc:722
@@ -117,105 +117,105 @@ msgstr ""
 #: ../src/sharebrowser.cc:972 ../src/sharebrowser.cc:1006
 #: ../glade/mainwindow.glade:1300
 msgid "TTH"
-msgstr ""
+msgstr "TTH"
 
 #: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:342
 msgid "Items: "
-msgstr ""
+msgstr "Objets"
 
 #: ../src/downloadqueue.cc:237 ../src/downloadqueue.cc:239
 #: ../src/sharebrowser.cc:343
 msgid "Size: "
-msgstr ""
+msgstr "Taille"
 
 #: ../src/downloadqueue.cc:238 ../src/sharebrowser.cc:337
 msgid "Files: "
-msgstr ""
+msgstr "Fichiers"
 
 #: ../src/downloadqueue.cc:1282
 msgid "No users"
-msgstr ""
+msgstr "Pas d'utilisateurs"
 
 #: ../src/downloadqueue.cc:1287
 msgid " of "
-msgstr ""
+msgstr " de "
 
 #: ../src/downloadqueue.cc:1287
 msgid " user(s) online"
-msgstr ""
+msgstr " utilisateurs en ligne"
 
 #: ../src/downloadqueue.cc:1289
 msgid "Running..."
-msgstr ""
+msgstr "En cours"
 
 #: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
 #: ../src/WulforUtil.cc:318 ../src/WulforUtil.cc:320
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: ../src/downloadqueue.cc:1313
 msgid "0 B (0.00%)"
-msgstr ""
+msgstr "0 B (0.00%)"
 
 #: ../src/downloadqueue.cc:1320
 msgid "Paused"
-msgstr ""
+msgstr "En pause"
 
 #: ../src/downloadqueue.cc:1323
 msgid "Lowest"
-msgstr ""
+msgstr "Plus basse"
 
 #: ../src/downloadqueue.cc:1326
 msgid "Low"
-msgstr ""
+msgstr "Bas"
 
 #: ../src/downloadqueue.cc:1329
 msgid "High"
-msgstr ""
+msgstr "Haute"
 
 #: ../src/downloadqueue.cc:1332
 msgid "Highest"
-msgstr ""
+msgstr "Plus haute"
 
 #: ../src/downloadqueue.cc:1335
 msgid "Normal"
-msgstr ""
+msgstr "Normale"
 
 #: ../src/downloadqueue.cc:1353
 msgid "File not available"
-msgstr ""
+msgstr "Fichier non disponible"
 
 #: ../src/downloadqueue.cc:1355
 msgid "Passive user"
-msgstr ""
+msgstr "Utilisateur passif"
 
 #: ../src/downloadqueue.cc:1357
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr ""
+msgstr "Incohérence CRC32 (Vérification SFV)"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
-msgstr ""
+msgstr "La concaténation des clés ne correspond pas à la racine TTH"
 
 #: ../src/downloadqueue.cc:1361
 msgid "Source too slow"
-msgstr ""
+msgstr "Source trop lente"
 
 #: ../src/downloadqueue.cc:1363
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr ""
+msgstr "Le client distant ne supporte pas pleinement TTH - impossible de télécharger"
 
 #: ../src/downloadqueue.cc:1369
 msgid "No errors"
-msgstr ""
+msgstr "Pas d'erreur"
 
 #: ../src/notify.cc:149
 msgid "Open file"
-msgstr ""
+msgstr "Ouvrir fichier"
 
 #: ../src/notify.cc:152
 msgid "Open folder"
-msgstr ""
+msgstr "Ouvrir dossier"
 
 #: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:364
 #: ../src/hub.cc:379 ../src/hub.cc:399 ../src/hub.cc:447 ../src/hub.cc:1232
@@ -229,12 +229,12 @@ msgstr ""
 #: ../src/finishedtransfers.cc:179 ../src/search.cc:87 ../src/search.cc:602
 #: ../src/search.cc:699 ../src/search.cc:829 ../glade/settingsdialog.glade:131
 msgid "Nick"
-msgstr ""
+msgstr "Surnom"
 
 #: ../src/hub.cc:72 ../src/hub.cc:363 ../src/hub.cc:380 ../src/hub.cc:400
 #: ../src/hub.cc:448 ../src/publichubs.cc:46 ../src/publichubs.cc:161
 msgid "Shared"
-msgstr ""
+msgstr "Partagé"
 
 #: ../src/hub.cc:73 ../src/hub.cc:381 ../src/hub.cc:401
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:112
@@ -244,126 +244,126 @@ msgstr ""
 #: ../src/publichubs.cc:42 ../src/publichubs.cc:157 ../src/publichubs.cc:293
 #: ../glade/favoriteusers.glade:81 ../glade/settingsdialog.glade:105
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: ../src/hub.cc:74 ../src/hub.cc:382 ../src/hub.cc:402
 msgid "Tag"
-msgstr ""
+msgstr "Tag"
 
 #: ../src/hub.cc:75 ../src/hub.cc:383 ../src/hub.cc:403 ../src/search.cc:92
 #: ../src/search.cc:608 ../src/search.cc:693 ../src/search.cc:823
 #: ../glade/settingsdialog.glade:753
 msgid "Connection"
-msgstr ""
+msgstr "Connexion"
 
 #: ../src/hub.cc:77 ../src/hub.cc:385 ../src/hub.cc:405
 msgid "eMail"
-msgstr ""
+msgstr "eMail"
 
 #: ../src/hub.cc:418 ../src/hub.cc:429
 msgid " has joined"
-msgstr ""
+msgstr " a rejoint"
 
 #: ../src/hub.cc:419 ../src/hub.cc:428
 msgid " has joined hub "
-msgstr ""
+msgstr " a rejoint le serveur"
 
 #: ../src/hub.cc:435 ../src/hub.cc:453
 msgid " Users"
-msgstr ""
+msgstr " Utilisateurs"
 
 #: ../src/hub.cc:459 ../src/hub.cc:469
 msgid " has quit hub "
-msgstr ""
+msgstr " a quitté le serveur"
 
 #: ../src/hub.cc:460 ../src/hub.cc:470
 msgid " has quit"
-msgstr ""
+msgstr " a quitté"
 
 #: ../src/hub.cc:499
 msgid "0 Users"
-msgstr ""
+msgstr "0 utilisateur"
 
 #: ../src/hub.cc:533
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr ""
+msgstr "En attente du mot de passe (ne retirez pas /password avant votre mot de passe)"
 
 #: ../src/hub.cc:572
 msgid "<b>Enter your password</b>"
-msgstr ""
+msgstr "<b>Entrez votre mot de passe</b>"
 
 #: ../src/hub.cc:1023 ../src/privatemessage.cc:526
 msgid " *** Emoticons not loaded"
-msgstr ""
+msgstr " *** Smileys non chargés"
 
 #: ../src/hub.cc:1028 ../src/privatemessage.cc:531
 msgid " *** Emoticons mode off"
-msgstr ""
+msgstr " *** Smileys désactivés"
 
 #: ../src/hub.cc:1033 ../src/hub.cc:1112 ../src/privatemessage.cc:536
 #: ../src/privatemessage.cc:615
 msgid " *** Emoticons limit"
-msgstr ""
+msgstr " *** Limite des smileys"
 
 #: ../src/hub.cc:1704 ../src/privatemessage.cc:1110
 msgid "Use Emoticons"
-msgstr ""
+msgstr "Utiliser les smileys"
 
 #: ../src/hub.cc:1785 ../src/hub.cc:1798 ../src/hub.cc:1920
 #: ../src/privatemessage.cc:864 ../src/privatemessage.cc:878
 #: ../src/privatemessage.cc:942 ../glade/privatemessage.glade:190
 #: ../glade/hub.glade:405
 msgid "Away mode off"
-msgstr ""
+msgstr "Mode absent désactivé"
 
 #: ../src/hub.cc:1792 ../src/privatemessage.cc:872
 msgid "Away mode on: "
-msgstr ""
+msgstr "Mode absent activé: "
 
 #: ../src/hub.cc:1829 ../src/hub.cc:2501 ../src/privatemessage.cc:1281
 msgid " is favorite user"
-msgstr ""
+msgstr " est un utilisateur favoris"
 
 #: ../src/hub.cc:1831 ../src/hub.cc:1866 ../src/hub.cc:1876 ../src/hub.cc:1984
 msgid "Not found user: "
-msgstr ""
+msgstr "Utilisateur non trouvé: "
 
 #: ../src/hub.cc:1847 ../src/hub.cc:2540 ../src/privatemessage.cc:1302
 msgid " is not favorite user"
-msgstr ""
+msgstr " n'est pas un utilisateur favoris"
 
 #: ../src/hub.cc:1856
 msgid "User favorite list:"
-msgstr ""
+msgstr "Liste des utilisateurs favoris"
 
 #: ../src/hub.cc:1856
 msgid " empty..."
-msgstr ""
+msgstr " vide..."
 
 #: ../src/hub.cc:1883 ../src/privatemessage.cc:920
 msgid "Emoticons mode off"
-msgstr ""
+msgstr "Smileys désactivés"
 
 #: ../src/hub.cc:1888 ../src/privatemessage.cc:925
 msgid "Emoticons mode on"
-msgstr ""
+msgstr "Smileys activés"
 
 #: ../src/hub.cc:1899
 msgid "Download image: disable"
-msgstr ""
+msgstr "Téléchargement de l'image: désactivé"
 
 #: ../src/hub.cc:1901
 msgid "Download image: unlimit"
-msgstr ""
+msgstr "Téléchargement de l'image: illimité"
 
 #: ../src/hub.cc:1903
 msgid "Download limit image: "
-msgstr ""
+msgstr "Limite de téléchargement de l'image: "
 
 #: ../src/hub.cc:1909
 msgid "Set download limit image: "
-msgstr ""
+msgstr "Spécifiez la limite de téléchargement de l'image: "
 
 #: ../src/hub.cc:1914
 msgid "project home: "
