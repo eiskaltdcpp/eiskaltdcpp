@@ -40,6 +40,8 @@
 
 #include <QtDebug>
 
+#include <iostream>
+
 using namespace dcpp;
 
 QVariant SearchStringListModel::data(const QModelIndex &index, int role) const{
@@ -312,6 +314,10 @@ SearchFrame::SearchFrame(QWidget *parent):
 
     setupUi(this);
 
+    this->button_type = new QTypeContentButton(this->frame);
+    ((QHBoxLayout *)this->frame->layout())->insertWidget(2, button_type);
+    this->comboBox_FILETYPES->setVisible(false);
+
     init();
 
     ClientManager* clientMgr = ClientManager::getInstance();
@@ -449,8 +455,10 @@ void SearchFrame::init(){
     connect(timer1, SIGNAL(timeout()), this, SLOT(slotTimer()));
     connect(pushButton_SIDEPANEL, SIGNAL(clicked()), this, SLOT(slotToggleSidePanel()));
     connect(lineEdit_SEARCHSTR, SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
-    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(setFocus()));
-    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(selectAll()));
+    connect(this->button_type, SIGNAL(typeChanged()), lineEdit_SEARCHSTR, SLOT(setFocus()));
+    connect(this->button_type, SIGNAL(typeChanged()), lineEdit_SEARCHSTR, SLOT(selectAll()));
+    /*connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(setFocus()));
+    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(selectAll()));*/
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), lineEdit_FILTER, SLOT(selectAll()));
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), this, SLOT(slotChangeProxyColumn(int)));
@@ -486,7 +494,8 @@ void SearchFrame::load(){
     checkBox_FILTERSLOTS->setChecked(WBGET(WB_SEARCHFILTER_NOFREE));
     checkBox_HIDEPANEL->setChecked(WBGET(WB_SEARCH_DONTHIDEPANEL));
 
-    comboBox_FILETYPES->setCurrentIndex(WIGET(WI_SEARCH_LAST_TYPE));
+    //comboBox_FILETYPES->setCurrentIndex(WIGET(WI_SEARCH_LAST_TYPE));
+    this->button_type->setDefault();
 
     treeView_RESULTS->sortByColumn(WIGET(WI_SEARCH_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_SEARCH_SORT_ORDER)));
 
@@ -786,7 +795,10 @@ void SearchFrame::searchAlternates(const QString &tth){
         return;
 
     lineEdit_SEARCHSTR->setText(tth);
-    comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_TTH);
+
+    //comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_TTH);
+    this->button_type->setTTH();
+
     lineEdit_SIZE->setText("");
 
     slotStartSearch();
@@ -799,7 +811,10 @@ void SearchFrame::searchFile(const QString &file){
         return;
 
     lineEdit_SEARCHSTR->setText(file);
-    comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_ANY);
+
+    //comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_ANY);
+    this->button_type->setDefault();
+
     lineEdit_SIZE->setText("");
 
     saveFileType = false;
@@ -811,10 +826,13 @@ void SearchFrame::fastSearch(const QString &text, bool isTTH){
     if (text.isEmpty())
         return;
 
-    if (!isTTH)
-        comboBox_FILETYPES->setCurrentIndex(0); // set type "Any"
-    else
-        comboBox_FILETYPES->setCurrentIndex(8); // set type "TTH"
+    if (!isTTH){
+	//comboBox_FILETYPES->setCurrentIndex(0); // set type "Any"
+	this->button_type->setDefault();
+    } else {
+	//comboBox_FILETYPES->setCurrentIndex(8); // set type "TTH"
+	this->button_type->setTTH();
+    }
 
     lineEdit_SEARCHSTR->setText(text);
 
@@ -901,7 +919,17 @@ void SearchFrame::slotStartSearch(){
     if(llsize == 0 || lineEdit_SIZE->text() == "")
         searchMode = SearchManager::SIZE_DONTCARE;
 
-    int ftype = comboBox_FILETYPES->currentIndex();
+    //int ftype = comboBox_FILETYPES->currentIndex();
+    int ftype;
+    if (this->button_type->getNumber() < 100){
+        ftype = this->button_type->getNumber();
+        model->setFilter("");
+    } else {
+        ftype = 0;
+        model->setFilter(WulforUtil::getInstance()->getTypeData(static_cast<dcpp::SearchManager::TypeModes>(this->button_type->getNumber()))[1]);
+        s += " ";
+        s += WulforUtil::getInstance()->getTypeData(static_cast<dcpp::SearchManager::TypeModes>(this->button_type->getNumber()))[1];
+    }
     isHash = (ftype == SearchManager::TYPE_TTH);
 
     filterShared = static_cast<AlreadySharedAction>(comboBox_SHARED->currentIndex());

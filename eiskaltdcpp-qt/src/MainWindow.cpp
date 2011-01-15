@@ -71,6 +71,9 @@
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 
+#include "uploadsframe.h"
+#include "viewdmd.h"
+
 using namespace std;
 
 static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
@@ -149,7 +152,18 @@ MainWindow::MainWindow (QWidget *parent):
             }
         }
     }
+    QStringList shares;
+    SettingsManager *SM = SettingsManager::getInstance();
+    ShareManager *ShM = ShareManager::getInstance();
+    StringPairList directories = ShM->getDirectories();
+    StringPairList::iterator it;
 
+    for (it = directories.begin(); it != directories.end(); ++it){
+	shares << QString::fromStdString((*it).second);
+    }
+    if (shares.indexOf(QString::fromStdString(SM->get(SettingsManager::DOWNLOAD_DIRECTORY, true))) == -1){
+	ShM->addDirectory(SM->get(SettingsManager::DOWNLOAD_DIRECTORY, true), "Download");
+    }
 }
 
 HashProgress* MainWindow::progress_dialog() {
@@ -169,6 +183,10 @@ MainWindow::~MainWindow(){
         AntiSpam::getInstance()->saveLists();
         AntiSpam::getInstance()->saveSettings();
         AntiSpam::deleteInstance();
+    }
+
+    if (UploadsFrame::getInstance()){
+        UploadsFrame::deleteInstance();
     }
 
     delete arena;
@@ -298,7 +316,8 @@ void MainWindow::showEvent(QShowEvent *e){
                             role == ArenaWidget::PrivateMessage ||
                             role == ArenaWidget::ShareBrowser ||
                             role == ArenaWidget::PublicHubs ||
-                            role == ArenaWidget::Search;
+                            role == ArenaWidget::Search||
+                            role == ArenaWidget::UploadView;
 
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     findInWidget->setEnabled(widgetWithFilter);
@@ -310,7 +329,7 @@ void MainWindow::showEvent(QShowEvent *e){
 
         slotToolsSettings();
     }
-    
+
     e->accept();
 }
 
@@ -697,6 +716,13 @@ void MainWindow::initActions(){
         toolsJSConsole->setIcon(WU->getPixmap(WulforUtil::eiCONSOLE));
         connect(toolsJSConsole, SIGNAL(triggered()), this, SLOT(slotToolsJSConsole()));
 #endif
+        toolsUploads = new QAction("", this);
+        toolsUploads->setObjectName("Uploads");
+        toolsUploads->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
+        toolsUploads->setCheckable(true);
+        toolsUploads->setChecked(false);
+        connect(toolsUploads, SIGNAL(triggered()), this, SLOT(slotToolsUploads()));
+        connect(WulforUtil::getInstance(), SIGNAL(outLoadDMD(QString)), this, SLOT(loadDMD(QString)));
 
         menuAwayAction = new QAction("", this);
         // submenu
@@ -786,6 +812,12 @@ void MainWindow::initActions(){
         QAction *separator6 = new QAction("", this);
         separator6->setObjectName("separator6");
         separator6->setSeparator(true);
+        QAction *separator7 = new QAction("", this);
+        separator7->setObjectName("separator7");
+        separator7->setSeparator(true);
+        QAction *separator8 = new QAction("", this);
+        separator8->setObjectName("separator8");
+        separator8->setSeparator(true);
 
         fileMenuActions << fileOpenMagnet
                 << separator3
@@ -809,6 +841,7 @@ void MainWindow::initActions(){
                 << hubsFavoriteUsers;
 
         toolsMenuActions << toolsSearch
+                << toolsUploads
                 << toolsADLS
                 << separator0
                 << toolsTransfers
@@ -839,32 +872,35 @@ void MainWindow::initActions(){
 
         toolBarActions << toolsOptions
                 << separator0
-                << fileFileListBrowserLocal
-                << fileRefreshShareHashProgress
+                << toolsUploads
                 << separator1
+                << fileFileListBrowserLocal
+                << separator2
+                << fileRefreshShareHashProgress
+                << separator3
                 << hubsHubReconnect
                 << hubsQuickConnect
-                << separator2
+                << separator4
                 << hubsFavoriteHubs
                 << hubsFavoriteUsers
                 << toolsSearch
                 << hubsPublicHubs
-                << separator3
+                << separator5
                 << toolsTransfers
                 << toolsDownloadQueue
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
                 << toolsSwitchSpeedLimit
-                << separator4
+                << separator6
                 << chatClear
                 << findInWidget
                 << chatDisable
-                << separator5
+                << separator7
                 << toolsADLS
                 << toolsSpy
                 << toolsAntiSpam
                 << toolsIPFilter
-                << separator6
+                << separator8
                 << fileQuit;
     }
     {
@@ -1192,6 +1228,7 @@ void MainWindow::retranslateUi(){
 
         toolsJSConsole->setText(tr("Script Console"));
 #endif
+        toolsUploads->setText(tr("Uploads"));
 
         chatClear->setText(tr("Clear chat"));
 
@@ -1735,7 +1772,8 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
                             role == ArenaWidget::ShareBrowser ||
                             role == ArenaWidget::PublicHubs ||
                             role == ArenaWidget::Search ||
-                            role == ArenaWidget::PrivateMessage;
+                            role == ArenaWidget::PrivateMessage||
+                            role == ArenaWidget::UploadView;
 
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     findInWidget->setEnabled(widgetWithFilter);
@@ -2146,6 +2184,7 @@ void MainWindow::slotToolsJS(){
 #ifdef USE_JS
     ScriptManagerDialog(this).exec();
 #endif
+
 }
 
 void MainWindow::slotToolsJSConsole(){
@@ -2625,6 +2664,7 @@ void MainWindow::slotSidebarHook(const QModelIndex &index){
 
         if (item->getWidget()){
             switch (item->getWidget()->role()){
+            case ArenaWidget::UploadView:
             case ArenaWidget::Hub:
             case ArenaWidget::PrivateMessage:
             case ArenaWidget::Search:
@@ -2673,6 +2713,12 @@ void MainWindow::slotSideBarDblClicked(const QModelIndex &index){
 
             break;
         }
+    case ArenaWidget::MyUploads:
+	{
+        slotToolsUploads();
+
+	    break;
+	}
     default:
         break;
     }
@@ -2809,4 +2855,19 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
     lastDown = Socket::getTotalDown();
 
     emit coreUpdateStats(map);
+}
+
+void MainWindow::slotToolsUploads()
+{
+    if (!UploadsFrame::getInstance())
+	UploadsFrame::newInstance();
+
+    toggleSingletonWidget(UploadsFrame::getInstance());
+}
+
+void MainWindow::loadDMD(QString dmd)
+{
+    if (!UploadsFrame::getInstance())
+        UploadsFrame::newInstance();
+    UploadsFrame::getInstance()->loadDMD(dmd);
 }

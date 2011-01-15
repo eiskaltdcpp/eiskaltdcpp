@@ -16,6 +16,8 @@
 #include "Notification.h"
 #include "SearchFrame.h"
 #include "DownloadQueue.h"
+#include "HashProgress.h"
+#include "qdmd.h"
 #include "IPFilter.h"
 
 #include "dcpp/Util.h"
@@ -29,6 +31,7 @@
 #include "dcpp/QueueManager.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/HashManager.h"
+#include "dcpp/ShareManager.h"
 
 #include <QItemSelectionModel>
 #include <QModelIndex>
@@ -144,6 +147,7 @@ TransferView::TransferView(QWidget *parent):
     DownloadManager::getInstance()->addListener(this);
     UploadManager::getInstance()->addListener(this);
     ConnectionManager::getInstance()->addListener(this);
+    connect(this, SIGNAL(loadDMD(QString)), WulforUtil::getInstance(), SLOT(inLoadDMD(QString)));
 }
 
 TransferView::~TransferView(){
@@ -335,6 +339,11 @@ void TransferView::searchAlternates(const QString &tth){
 }
 
 void TransferView::downloadComplete(QString target){
+    if ( HashProgress::getHashStatus() == HashProgress::IDLE ) {
+	ShareManager *SM = ShareManager::getInstance();
+	SM->setDirty();
+	SM->refresh(true);
+    }
     Notification::getInstance()->showMessage(Notification::TRANSFER, tr("Download complete"), target);
 }
 
@@ -733,6 +742,12 @@ void TransferView::on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem* qi,
 
     if (!qi->isSet(QueueItem::FLAG_USER_LIST))//Do not show notify for filelists
         emit coreDownloadComplete(_q(qi->getTarget()).split(QDir::separator()).last());
+
+    if (QDmd::isValid(QString::fromStdString(qi->getTarget()))){
+        //MainWindow::getInstance()->slotToolsUploads();
+        //new ViewDMD(QString::fromStdString(qi->getTarget()), 0);
+        emit loadDMD(QString::fromStdString(qi->getTarget()));
+    }
 }
 
 void TransferView::on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem* qi) throw(){
@@ -801,6 +816,12 @@ void TransferView::on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) t
     params["FAIL"] = false;
 
     emit coreUMComplete(params);
+
+/*    if (QDmd::isValid(QString::fromStdString(qi->getTarget()))){
+        //MainWindow::getInstance()->slotToolsUploads();
+        //new ViewDMD(QString::fromStdString(qi->getTarget()), 0);
+        emit loadDMD(QString::fromStdString(qi->getTarget()));
+    }*/
 }
 
 void TransferView::on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) throw(){

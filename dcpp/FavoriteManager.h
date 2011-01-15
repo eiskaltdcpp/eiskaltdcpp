@@ -119,6 +119,7 @@ private:
     StringPairList favoriteDirs;
     UserCommand::List userCommands;
     int lastId;
+    bool found;
 
     FavoriteMap users;
 

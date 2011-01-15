@@ -43,42 +43,18 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="margin">
        <number>1</number>
       </property>
-      <item row="2" column="11">
-       <widget class="QPushButton" name="pushButton_SEARCH">
-        <property name="text">
-         <string>Search</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="8">
+      <item>
        <widget class="QLabel" name="label">
         <property name="text">
          <string>Search for</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="12">
-       <widget class="QPushButton" name="pushButton_CLEAR">
-        <property name="text">
-         <string>Clear</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="13">
-       <widget class="QPushButton" name="pushButton_SIDEPANEL">
-        <property name="text">
-         <string>Show/Hide side panel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="10">
-       <widget class="LineEdit" name="lineEdit_SEARCHSTR"/>
-      </item>
-      <item row="2" column="9">
+      <item>
        <widget class="QComboBox" name="comboBox_FILETYPES">
         <property name="currentIndex">
          <number>0</number>
@@ -133,6 +109,30 @@
           <string>CD Image</string>
          </property>
         </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="LineEdit" name="lineEdit_SEARCHSTR"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_SEARCH">
+        <property name="text">
+         <string>Search</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_CLEAR">
+        <property name="text">
+         <string>Clear</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_SIDEPANEL">
+        <property name="text">
+         <string>Show/Hide side panel</string>
+        </property>
        </widget>
       </item>
      </layout>
