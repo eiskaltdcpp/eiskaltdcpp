@@ -1,5 +1,6 @@
 #include "qtypecontentbutton.h"
 #include "WulforUtil.h"
+//#include <QtDebug>
 
 QTypeContentButton::QTypeContentButton(bool all, QWidget *parent):QPushButton(parent),all(all)
 {
@@ -346,12 +347,15 @@ QTypeContentButton::QTypeContentButton(bool all, QWidget *parent):QPushButton(pa
 	list.append(tr("Video"));			//Видео
 	list.append(tr("Folder"));
 	list.append(tr("TTH"));
+	list.append(tr("CD Image"));
 
 	for (int i = 0; i<list.count(); ++i){
 	    act = new QAction(menuMain);
 	    act->setIconVisibleInMenu(true);
 	    act->setIconText(list[i]);
-	    act->setIcon(QIcon(WulforUtil::getInstance()->getPixmap(icons.at(i))));
+	    //qDebug() << i ;
+	    if (i != 9)
+		act->setIcon(QIcon(WulforUtil::getInstance()->getPixmap(icons.at(i))));
 	    act->setData(i);
 	    menuMain->addAction(act);
 	    connect(act, SIGNAL(triggered(bool)), this, SLOT(actionClick()));
@@ -408,4 +412,3 @@ void QTypeContentButton::setTTH()
     this->setText(tr("TTH"));
     this->typeContent = 8;
 }
-
