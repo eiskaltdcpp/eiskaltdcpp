@@ -1498,7 +1498,7 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/Magnet.cpp" line="156"/>
         <source>Browse</source>
-        <translation type="unfinished">Procházet</translation>
+        <translation>Procházet</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="193"/>
@@ -2160,7 +2160,7 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2448"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ je grafický klient pro Direct Connect a ADC protokoly.&lt;br/&gt;&lt;br/&gt;DC++ core verze: %1 (upraveno)&lt;br/&gt;&lt;br/&gt;Domovská stránka: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Celkem odesláno: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Celkem staženo: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Poměr: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2465"/>
@@ -3529,27 +3529,27 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="229"/>
         <source>Modify shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Upravit klávesovou zkratku</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="237"/>
         <source>Press the key combination you want to assign</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmáčkněte kombinaci kláves kterou chcete přiřadit</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="252"/>
         <source>Clear</source>
-        <translation type="unfinished">Vyčistit</translation>
+        <translation>Vyčistit</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="254"/>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachytit</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="255"/>
         <source>Capture keystrokes</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachytit klávesy</translation>
     </message>
 </context>
 <context>
@@ -3792,7 +3792,7 @@ Chcete jej vypnout?
     <message>
         <location filename="../src/TransferView.cpp" line="73"/>
         <source>Encryption</source>
-        <translation type="unfinished">Šifrování</translation>
+        <translation>Šifrování</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="74"/>
@@ -5193,37 +5193,48 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Nastavit Type-Of-Service (TOS) pole které je odesláno s každým &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP paketem&lt;/span&gt;&lt;/a&gt; pocházejícím z tohoto soketu. To je určeno pro přižazení Priority paketům v síti. TOS je byte. Jsou definovány standarty pro TOS: &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Nízká prodleva&amp;quot;&lt;/span&gt; pro minimalizování prodlevy v interaktivni komunikaci&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Propustnost&amp;quot;&lt;/span&gt; pro optimalizaci propustnosti&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Spolehlivost&amp;quot;&lt;/span&gt; pro optimalizaci spolehlivosti&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimální cena&amp;quot;&lt;/span&gt; může být použito pro &amp;quot;vyplňovací data&amp;quot; kde nevadí pomalé přenosy&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Většinou jedna z těchto TOS hodnot bývá nastavena. Linux odesílá &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Nízká prodleva&amp;quot;&lt;/span&gt; datagramy jako default, ale přesné chování záleží na konfiguraci zařazovacího řádu.&lt;span style=&quot; font-weight:600;&quot;&gt; Varování! Tato volba vyžaduje práva superuživatele!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="763"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="768"/>
         <source>Low delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Nízká prodleva</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="773"/>
         <source>Throughput</source>
-        <translation type="unfinished"></translation>
+        <translation>Propustnost</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="778"/>
         <source>Reliability</source>
-        <translation type="unfinished">Dostupnost</translation>
+        <translation>Spolehlivost</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="783"/>
         <source>Minimal cost</source>
-        <translation type="unfinished"></translation>
+        <translation>Nízké náklady</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="810"/>
         <source>Type-of-Service (ToS)</source>
-        <translation type="unfinished"></translation>
+        <translation>Type-of-Service (ToS)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="839"/>
