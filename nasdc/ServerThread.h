@@ -59,11 +59,11 @@ private:
 	int64_t lastUp;
 	int64_t lastDown;
 	uint64_t lastUpdate;
-
+/*
 	int64_t diff;
 	int64_t updiff;
 	int64_t downdiff;
-
+*/
 	// TimerManagerListener
 	void on(TimerManagerListener::Second, uint64_t aTick) throw();
 

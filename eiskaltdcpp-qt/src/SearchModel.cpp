@@ -330,10 +330,6 @@ bool SearchModel::addResult
         const bool isDir
         )
 {
-    if (filter != ""){
-        if (file.right(filter.length()) != filter)
-            return true;
-    }
     static Compare<Qt::AscendingOrder>  acomp = Compare<Qt::AscendingOrder>();
     static Compare<Qt::DescendingOrder> dcomp = Compare<Qt::DescendingOrder>();
 
@@ -401,11 +397,6 @@ bool SearchModel::addResult
     endInsertRows();
 
     return true;
-}
-
-void SearchModel::setFilter(QString newFilter)
-{
-    this->filter = newFilter;
 }
 
 int SearchModel::getSortColumn() const {
@@ -513,15 +504,6 @@ QVariant SearchItem::data(int column) const {
     if (column == COLUMN_SF_COUNT && childItems.size() > 0 && parentItem != 0)
         return childItems.size()+1;
 
-    if (column == COLUMN_SF_EXTENSION){
-        QList<int> keys = WulforUtil::getInstance()->getTypeKeys();
-        QString ext = QString::fromStdString(Util::getFileExt(itemData.value(1).toString().toStdString()));
-        for (int i = 0; i < keys.count(); ++i){
-            if (WulforUtil::getInstance()->getTypeData(static_cast<dcpp::SearchManager::TypeModes>(keys[i]))[1] == ext){
-                return WulforUtil::getInstance()->getTypeData(static_cast<dcpp::SearchManager::TypeModes>(keys[i]))[0];
-            }
-        }
-    }
     return itemData.value(column);
 }
 

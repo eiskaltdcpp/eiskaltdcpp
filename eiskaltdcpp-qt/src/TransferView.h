@@ -109,8 +109,6 @@ Q_SIGNALS:
 
     void coreDownloadComplete(QString);
 
-    void loadDMD(QString);
-
 protected:
     virtual void resizeEvent(QResizeEvent *);
     virtual void closeEvent(QCloseEvent *);

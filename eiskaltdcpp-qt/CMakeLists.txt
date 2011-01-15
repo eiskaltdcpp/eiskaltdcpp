@@ -103,17 +103,10 @@ set (SRCS
             src/UserListModel.cpp
             src/WulforSettings.cpp
             src/WulforUtil.cpp
-            src/ChatEdit.cpp
-            src/createdmd.cpp
-            src/qdmd.cpp
-            src/viewdmd.cpp
-            src/qtypecontentbutton.cpp
-            src/uploadsframe.cpp
-            src/lib7z.cpp
-            src/getnamedmd.cpp
+            src/ChatEdit.cpp 
             src/qtsingleapp/qtsingleapplication.cpp
             src/qtsingleapp/qtlocalpeer.cpp
-            src/qtsingleapp/qtsinglecoreapplication.cpp
+            src/qtsingleapp/qtsinglecoreapplication.cpp            
             src/qtsingleapp/qtlockedfile.cpp
             )
 if (WIN32)
@@ -194,13 +187,6 @@ set (MOC_HDRS
             src/WulforSettings.h
             src/WulforUtil.h
             src/ChatEdit.h
-            src/createdmd.h
-            src/qdmd.h
-            src/viewdmd.h
-            src/qtypecontentbutton.h
-            src/uploadsframe.h
-            src/lib7z.h
-            src/getnamedmd.h
             src/qtsingleapp/qtlockedfile.h
             src/qtsingleapp/qtsingleapplication.h
             src/qtsingleapp/qtsinglecoreapplication.h
@@ -244,11 +230,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIDialogScriptConsole.ui
             ui/UIActionCustomizer.ui
             ui/UIHubManager.ui
-            ui/createdmd.ui
-            ui/viewdmd.ui
-            ui/UiUploadsFrame.ui
-            ui/getnamedmd.ui
-           )
+            )
 
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)

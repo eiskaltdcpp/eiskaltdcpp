@@ -39,8 +39,6 @@ public:
         FinishedDownloads,
         Spy,
         CustomWidget,
-        MyUploads,
-        UploadView,
         NoRole  //Not valid for widgets
     };
 

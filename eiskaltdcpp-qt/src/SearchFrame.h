@@ -37,8 +37,6 @@
 #include "dcpp/ClientManagerListener.h"
 #include "dcpp/Singleton.h"
 
-#include "qtypecontentbutton.h"
-
 using namespace dcpp;
 
 class SearchModel;
@@ -221,8 +219,6 @@ private:
 
     bool isHash;
     int left_pane_old_size;
-
-    QTypeContentButton *button_type;
 
     // SearchManagerListener
     virtual void on(SearchManagerListener::SR, const SearchResultPtr& aResult) throw();

@@ -160,8 +160,6 @@ public:
     /** */
     void repaint();
 
-    void setFilter(QString newFilter);
-
 public Q_SLOTS:
     /** */
     bool addResultPtr(const VarMap&);
@@ -179,7 +177,6 @@ private:
     SearchItem *rootItem;
     /** */
     QHash<QString, SearchItem*> tths;
-    QString filter;
 };
 
 #endif
