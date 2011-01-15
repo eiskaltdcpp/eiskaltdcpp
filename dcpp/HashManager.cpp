@@ -680,8 +680,11 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         act.sa_handler = NULL;
         act.sa_sigaction = sigbus_handler;
         act.sa_mask = signalset;
+#ifdef SA_SIGINFO
         act.sa_flags = SA_SIGINFO | SA_RESETHAND;
-
+#else
+        act.sa_flags = NULL;
+#endif
         if (sigaction(SIGBUS, &act, &oldact) == -1) {
             dcdebug("Failed to set signal handler for fastHash\n");
             close(fd);
