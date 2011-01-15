@@ -144,13 +144,23 @@ Files:
  eiskaltdcpp-qt/icons/*
  eiskaltdcpp-gtk/icons/*
 Copyright:
- Copyright 2010 Oxygen icons theme team (see http://www.oxygen-icons.org/)
  Copyright 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
+ Copyright 2010 Oxygen icons theme team (see http://www.oxygen-icons.org/)
 License:
  LGPL-3
  .
  On Debian systems, the complete text of the GNU General
  Public License can be found in `/usr/share/common-licenses/LGPL-3'.
+
+Files:
+ eiskaltdcpp-qt/icons/appl/faenza/*
+Copyright:
+ Copyright 2010-2011 Matthieu James (Tiheum) <matthieu.james@gmail.com>
+License:
+ GPL-3
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-3'.
 
 Files:
  sounds/*.wav
