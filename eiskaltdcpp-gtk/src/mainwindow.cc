@@ -2268,29 +2268,44 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
 	{
 		gchar *temp = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(chooser));
 		string TTH;
-		char *buf = new char[512*1024];
-		try {
-		File f(Text::fromT(string(temp)),File::READ, File::OPEN);
-		TigerTree tth(TigerTree::calcBlockSize(f.getSize(), 1));
-		if(f.getSize() > 0) {
-				size_t n = 512*1024;
-				while( (n = f.read(&buf[0], n)) > 0) {
-					tth.update(&buf[0], n);
-					n = 512*1024;
-				}
-		} else {
-			tth.update("", 0);
-		}
-		tth.finalize();
+        File f(Text::fromT(string(temp)),File::READ, File::OPEN);
+        HashManager  *HM = HashManager::getInstance();
+        const TTHValue *tth= HM->getFileTTHif(string(temp));
+        if (tth != NULL) {
+            strcpy(&TTH[0], tth->toBase32().c_str());
+            string magnetlink = "magnet:?xt=urn:tree:tiger:"+ TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
+            f.close();
+            g_print("%s\n",TTH.c_str());
+            gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
+            g_print("%s\n",magnetlink.c_str());
+            gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
+        } else {
+            char *buf = new char[512*1024];
+            try {
+                //File f(Text::fromT(string(temp)),File::READ, File::OPEN);
+                TigerTree tth(TigerTree::calcBlockSize(f.getSize(), 1));
+                if(f.getSize() > 0) {
+                        size_t n = 512*1024;
+                        while( (n = f.read(&buf[0], n)) > 0) {
+                            tth.update(&buf[0], n);
+                            n = 512*1024;
+                        }
+                } else {
+                    tth.update("", 0);
+                }
+                tth.finalize();
 
-		strcpy(&TTH[0], tth.getRoot().toBase32().c_str());
-		string magnetlink = "magnet:?xt=urn:tree:tiger:"+ TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
-		f.close();
-		g_print("%s",TTH.c_str());
-		gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
-		gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
-		} catch(...) { }
+                strcpy(&TTH[0], tth.getRoot().toBase32().c_str());
+                string magnetlink = "magnet:?xt=urn:tree:tiger:"+ TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
+                f.close();
+                g_print("%s\n",TTH.c_str());
+                gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
+                g_print("%s\n",magnetlink.c_str());
+                gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
+            } catch(...) { }
 
-        delete buf;
+            delete buf;
+        }
+
 	}
 }
