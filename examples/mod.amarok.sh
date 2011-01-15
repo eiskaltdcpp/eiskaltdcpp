@@ -17,9 +17,9 @@ nowPlaying="$(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.GetMetada
 
 if [ -n "${nowPlaying}" ]
 then
-	version="$(qdbus org.kde.amarok / org.freedesktop.MediaPlayer.Identity)"
-	nlength="$(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.PositionGet)"
-	nlength=$((nlength/1000))
+        version="$(qdbus org.kde.amarok / org.freedesktop.MediaPlayer.Identity)"
+        nlength="$(qdbus org.kde.amarok /Player org.freedesktop.MediaPlayer.PositionGet)"
+        nlength=$((nlength/1000))
 
         title="$(echo "${nowPlaying}" | sed -ne 's/^title: \(.*\)$/\1/p')"
         artist="$(echo "${nowPlaying}" | sed -ne 's/^artist: \(.*\)$/\1/p')"
@@ -27,17 +27,17 @@ then
         album="$(echo "${nowPlaying}" | sed -ne 's/^album: \(.*\)$/\1/p')"
         length="$(echo "${nowPlaying}" | sed -ne 's/^time: \(.*\)$/\1/p')"
         year="$(echo "${nowPlaying}" | sed -ne 's/^year: \(.*\)$/\1/p')"
-       
-	 #The length sec part
-	secv=$(($length%60))
+
+        #The length sec part
+        secv=$(($length%60))
         if [ ${secv} -lt 10 ]
         then
                 sec="0${secv}"
         else
                 sec="${secv}"
         fi
-	
-	#The lengt min part
+
+        #The lengt min part
         minv=$(($length/60))
         if [ ${minv} -lt 10 ]
         then
@@ -46,7 +46,7 @@ then
                 min="${minv}"
         fi
 
-	#elapsed time sec part
+        #elapsed time sec part
         secn=$(($nlength%60))
         if [ ${secn} -lt 10 ]
         then
@@ -55,7 +55,7 @@ then
                 nsec="${secn}"
         fi
 
-	#elapsed time min part
+        #elapsed time min part
         minn=$(($nlength/60))
         if [ ${minn} -lt 10 ]
         then
@@ -63,14 +63,14 @@ then
         else
                 nmin="${minn}"
         fi
-        
+
         # % of the elapsed time
         rate=$(((nlength*100)/length))
-        
+
         # progressbar
         progressbar="["
         nrate=$((rate/10))
-        for ((i=1;i<=nrate;i++))
+        for ((i=1;i<=${nrate};i++))
         do
                 progressbar="${progressbar}-"
         done
@@ -80,12 +80,13 @@ then
                 progressbar="${progressbar}-"
         done
         progressbar="${progressbar}]"
-        
-        message="${artist} - ${title} [${nmin}:${nsec}/${min}:${sec}] $progressbar [${bitrate} kbps] :: ${version}"
 
-#The message in dc:[17:14:13] <[OP]Marcus> Kylie Minogue - Slow (Chemical Brothers Remix) [01:29/04:44] [---|------] [899 kbps] :: Amarok 2.3.90
+        message="/me is playing: ${artist} - ${title} from ${album} from ${year} [${nmin}:${nsec}/${min}:${sec}] $progressbar [${bitrate} kbps] :: ${version}"
 
-##This part is from the original script.
+## The message in dc:
+# [18:47:22] *  * [.OP]Marcus is playing: Cascada - Because The Night from Perfect Day (Japanese Edition) from 2008 [01:18/03:28] [---|------] [1014 kbps] :: Amarok 2.3.90 
+
+## This part is from the original script.
                                                                                                                                                                                                                         
 ## Also you can send song magnet to chat:                                                                                                                                                                                                    
 # [17:45:03] * WiseLord is listening now: Therion - Midgård (02. Midgård.mp3) (7.0 МиБ)                                                                                                                                                      
@@ -97,4 +98,3 @@ then
 fi                                                                                                                                                                                                                                           
                                                                                                                                                                                                                                              
 echo "${message}" 
-
