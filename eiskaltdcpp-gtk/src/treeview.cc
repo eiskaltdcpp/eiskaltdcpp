@@ -23,7 +23,6 @@
 #include "settingsmanager.hh"
 #include "WulforUtil.hh"
 
-#undef _
 #include <glib/gi18n.h>
 
 using namespace std;

@@ -20,12 +20,11 @@
  */
 
 #include <gtk/gtk.h>
+#include <glib/gi18n.h>
 #include <glade/glade.h>
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
-#undef _
-#include <glib/gi18n.h>
 #include "bacon-message-connection.h"
 #include "settingsmanager.hh"
 #include "wulformanager.hh"

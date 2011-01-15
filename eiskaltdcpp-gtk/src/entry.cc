@@ -20,7 +20,6 @@
  */
 
 #include "entry.hh"
-#undef _
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
 #include <dcpp/Util.h>

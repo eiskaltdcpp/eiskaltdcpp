@@ -27,7 +27,6 @@
 #include <dcpp/StringTokenizer.h>
 #include "WulforUtil.hh"
 
-#undef _
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 

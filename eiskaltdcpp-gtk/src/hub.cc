@@ -2062,7 +2062,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                     else
                     {
                         // добавление алиаса к списку
-                        StringTokenizer<string> command( param, '::' );
+                        StringTokenizer<string> command( param, "::" );
                         string store(""), name("");
                         bool exists = false;
                         for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i)
