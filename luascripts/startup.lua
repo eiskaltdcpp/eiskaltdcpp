@@ -89,9 +89,9 @@
 -- If you want to remove the "bier" chat listener, simply type:
 -- /lua dcpp:setListener( "chat", "bier" )
 -- in any chat window
-											
 
-PrintDebug( " ** Started startup.lua **" )
+
+DC():PrintDebug( "** Started startup.lua **" )
 
 --/////////////////////////////////////
 --// Helper functions
@@ -168,22 +168,20 @@ end
 
 dcpp.addHub = function( this, hub, isitadc )
 	if not this._hubs[hub] then
-		--PrintDebug( "Hub added (id = "..tostring( hub )..")" )
+		-- DC():PrintDebug( "Hub added (id = "..tostring( hub )..")" )
 		if isitadc then
 			this._hubs[hub] = createAdcHub( hub )
---			PrintDebug( "ADC hub added (id = " .. tostring( hub ) ..")" )
+			DC():PrintDebug( "ADC hub added (id = " .. tostring( hub ) ..")" )
 		else
 			this._hubs[hub] = createNmdcHub( hub )
-			--PrintDebug( "NMDC : (id"..tostring(hub)..")")
 		end
 		for k,f in pairs(dcpp:getListeners( "connected" )) do
 			f( this._hubs[hub] )
-			--PrintDebug("CONTO".. tostring(hub))
 		end
 		return this._hubs[hub]
 	else
---		PrintDebug( "Tried to add existing hub on: "..this._hubs[hub]:getHubName()..
---								" (id = "..tostring( hub )..")" )
+		--DC():PrintDebug( "Tried to add existing hub on: "..this._hubs[hub]:getHubName()..
+		--						" (id = "..tostring( hub )..")" )
 		return nil
 	end
 end
@@ -192,7 +190,7 @@ dcpp.getHub = function( this, hub )
 	if this._hubs[hub] then
 		return this._hubs[hub]
 	else
---		PrintDebug( "Tried to fetch an unknown hub (id = "..tostring( hub )..")" )
+		--DC():PrintDebug( "Tried to fetch an unknown hub (id = "..tostring( hub )..")" )
 		return this:addHub( hub ):setPartial() -- tell the object that we missed the logon
 	end
 end
@@ -220,21 +218,21 @@ end
 
 dcpp.removeHub = function( this, hub )
 	if this._hubs[hub] then
-		--PrintDebug( "Hub removed: "..this._hubs[hub]:getHubName().." (id = "..tostring( hub )..")" )
+		--DC():PrintDebug( "Hub removed: "..this._hubs[hub]:getHubName().." (id = "..tostring( hub )..")" )
 		for k,f in pairs(dcpp:getListeners( "disconnected" )) do
 			f( this._hubs[hub] )
 		end
 		this._hubs[hub]:destroy()
 		this._hubs[hub] = nil
 	else
-		--PrintDebug( "Tried to remove non-existent hub (id = "..tostring( hub )..")" )
-	end		
+		--DC():PrintDebug( "Tried to remove non-existent hub (id = "..tostring( hub )..")" )
+	end
 end
 
 dcpp.listHubs = function( this )
-	PrintDebug( "** Listing hubs **" )
+	DC():PrintDebug( "** Listing hubs **" )
 	for k,v in pairs(this._hubs) do
-		PrintDebug( tostring( k ).." ("..v:getHubName()..")" )
+		DC():PrintDebug( tostring( k ).." ("..v:getHubName()..")" )
 	end
 end
 
@@ -260,38 +258,32 @@ end
 
 function createAdcHub( hubid )
 	local hub = {}
-	
+
 	hub._id = hubid
 	hub._mySID = nil
 	hub._myNick = nil
 	hub._myCID = nil
 	hub._nick = nil
 	hub._description = nil
-
 	hub._users = {}
 	hub._uptime = os.time()
-	
-
 
 	hub.getId = function( this )
 		return this._id
-
-
-
 	end
-	
+
 	hub.getUptime = function( this )
 		return ( os.time() - hub._uptime ) / 60
 	end
-	
+
 	hub.getProtocol = function( this )
 		return "adc"
 	end
-	
+
 	hub.getAddress = function( this )
-		return GetHubIpPort( this._id )
+		return DC():GetHubIpPort( this._id )
 	end
-	
+
 	hub.getHubName = function( this )
 		--// TODO: Shall we return with NI or DE? or both?
 		--//       For now just returning the nick with the url
@@ -301,34 +293,34 @@ function createAdcHub( hubid )
 			return this:getUrl()
 		end
 	end
-	
+
 	hub.getUrl = function( this )
-		return GetHubUrl( this._id )
+		return DC():GetHubUrl( this._id )
 	end
-	
+
 	hub.getOwnNick = function( this )
 		return this._myNick
 	end
 
 	hub.setOwnNick = function( this, newnick )
 		this._myNick = newnick
-		PrintDebug("[STATUS] Own nick set: " .. newnick )
+		DC():PrintDebug("[STATUS] Own nick set: " .. newnick )
 	end
-	
+
 	hub.getOwnSid = function( this )
 		if this._mySID then
 			return this._mySID
 		end
---		PrintDebug( "[" .. this:getUrl() .."] Own SID not set, your scripts are failing. Reconnect please." )
+		DC():PrintDebug( "[" .. this:getUrl() .."] Own SID not set, your scripts are failing. Reconnect please." )
 	end
-	
+
 	hub.getOwnCid = function( this )
 		if this._myCID then
 			return this._myCID
 		end
---		PrintDebug( "[" .. this:getUrl() .."] Own CID not set, your scripts are failing. Reconnect please." )
+		DC():PrintDebug( "[" .. this:getUrl() .."] Own CID not set, your scripts are failing. Reconnect please." )
 	end
-	
+
 	hub.getUser = function( this, sid, inf )
 		local newuser = false
 		if sid == "HUB9" and inf then
@@ -340,23 +332,23 @@ function createAdcHub( hubid )
 				if name == "NI" then
 					local NI = dcu:AdcEscape(string.sub( params[k], 3), true)
 					this._nick = NI
-					PrintDebug("[STATUS] HUB nick set: " .. NI )
+					DC():PrintDebug("[STATUS] HUB nick set: " .. NI )
 				elseif name == "DE" then
 					local DE = dcu:AdcEscape(string.sub( params[k], 3), true)
 					this._description = DE
---					PrintDebug("[STATUS] HUB description set: " .. DE )
+					DC():PrintDebug("[STATUS] HUB description set: " .. DE )
 					this:addLine("The current hub topic is: " .. DE)
 				end
 			end
 		end
-		
+
 		if not this._users[sid] then
 			this._users[sid] = createAdcUser( this, sid )
 			newuser = true
 			if this:getUptime() >= 2 then -- start sending messages AFTER logon
 	            for k,f in pairs(dcpp:getListeners( "adcUserCon" )) do
 					f( this, this._users[sid] )
-				end							
+				end
 			end
 		end
 		local r = this._users[sid]
@@ -370,7 +362,7 @@ function createAdcHub( hubid )
 					r:setCid(ID)
 					if sid == this._mySID then
 						this._myCID = ID
-						PrintDebug("[STATUS] Own CID set: " .. ID )
+						DC():PrintDebug("[STATUS] Own CID set: " .. ID )
 					end
 				elseif name == "CT" then
 					local CT = string.sub( params[k], 3)
@@ -382,7 +374,7 @@ function createAdcHub( hubid )
 					local NI = dcu:AdcEscape(string.sub( params[k], 3), true)
 					if not newuser then
 						local oldNI = r:getNick()
-						r:setNick(NI)						
+						r:setNick(NI)
 						this:addLine( oldNI .. " is now known as " .. NI )
 					else
 						r:setNick(NI)
@@ -395,18 +387,18 @@ function createAdcHub( hubid )
 		end
 		return r
 	end
-	
+
 	hub.removeUser = function( this, sid )
 		this._users[sid] = nil
 	end
-	
+
 	hub.isOp = function( this, sid )
 		if this._users[sid] then
 			return this._users[sid]._op
 		end
 		return nil
 	end
-	
+
 	hub.getSidbyNick = function( this, nick )
 		for k in pairs(this._users) do
 			if this._users[k]._nick == nick then
@@ -415,7 +407,7 @@ function createAdcHub( hubid )
 		end
 		return nil
 	end
-	
+
 	hub.getSidbyCid = function( this, cid )
 		for k in pairs(this._users) do
 			if this._users[k]._cid == cid then
@@ -424,7 +416,7 @@ function createAdcHub( hubid )
 		end
 		return nil
 	end
-	
+
 	hub.getUserByCid = function( this, cid )
 		for k in pairs(this._users) do
 			if this._users[k]._cid == cid then
@@ -433,43 +425,43 @@ function createAdcHub( hubid )
 		end
 		return nil
 	end
-	
+
 	hub.sendChat = function( this, msg )
 		local ownSid = this:getOwnSid()
 		msg = dcu:AdcEscape( msg )
-		SendHubMessage( this:getId(), "BMSG " .. ownSid .. " " .. msg .. "\n" )
+		DC():SendHubMessage( this:getId(), "BMSG " .. ownSid .. " " .. msg .. "\n" )
 	end
-	
+
 	hub.injectChat = function( this, msg )
-			PrintDebug("[WARNING] Your scripts trying to use hub:injectChat on ADC hub. Please use hub:injectMessage() to inject an ADC message or hub:addLine() to inject a chat line." )
+			DC():PrintDebug("[WARNING] Your scripts trying to use hub:injectChat on ADC hub. Please use hub:injectMessage() to inject an ADC message or hub:addLine() to inject a chat line." )
 	end
-	
+
 	hub.injectMessage = function( this, msg )
-		InjectHubMessageADC( this:getId(), msg )
+		DC():InjectHubMessageADC( this:getId(), msg )
 	end
-	
+
 	hub.addLine = function( this, msg, fmt )
 		--// TODO: need a function which adds a chat line without nick
 		msg = dcu:AdcEscape( msg )
-		InjectHubMessageADC( this:getId(), "ISTA 000 " .. msg )
+		DC():InjectHubMessageADC( this:getId(), "ISTA 000 " .. msg )
 	end
-	
+
 	hub.sendPrivMsgTo = function( this, victimSid, msg_unescaped, hideFromSelf )
 		local ownSid = this:getOwnSid()
 		local msg = dcu:AdcEscape( msg_unescaped )
 		if ownSid then
 			if hideFromSelf then
-				SendHubMessage( this:getId(), "DMSG ".. ownSid .. " " .. victimSid .." " .. msg .. " PM" .. ownSid .."\n" )
+				DC():SendHubMessage( this:getId(), "DMSG ".. ownSid .. " " .. victimSid .." " .. msg .. " PM" .. ownSid .."\n" )
 			else
-				SendHubMessage( this:getId(), "EMSG ".. ownSid .. " " .. victimSid .." " .. msg .. " PM" .. ownSid .."\n" )
+				DC():SendHubMessage( this:getId(), "EMSG ".. ownSid .. " " .. victimSid .." " .. msg .. " PM" .. ownSid .."\n" )
 			end
-		end	
+		end
 	end
 
 	hub.injectPrivMsg = function( this, victimSid, fromSid, msg )
-		InjectHubMessageADC( this:getId(), "DMSG " .. fromSid .." ".. victimSid .." ".. msg .. " PM" .. victimSid .. "\n" )
+		DC():InjectHubMessageADC( this:getId(), "DMSG " .. fromSid .." ".. victimSid .." ".. msg .. " PM" .. victimSid .. "\n" )
 	end
-	
+
 	hub.findUsers = function( this, nick, notag )
 		-- you get a possibly empty table of users
 		if not notag then
@@ -488,9 +480,9 @@ function createAdcHub( hubid )
 
 	hub.destroy = function( this )
 	end
-	
+
 	--// events
-	
+
 	hub.onChatMessage = function( this, user, text, me_msg )
 		local ret
 		for k,f in pairs(dcpp:getListeners( "adcChat" )) do
@@ -498,15 +490,15 @@ function createAdcHub( hubid )
 		end
 		return ret
 	end
-	
+
 	hub.onChatFromSelf = function( this, text, me_msg )
 		local ret
 		for k,f in pairs(dcpp:getListeners( "adcOwnChat" )) do
 			ret = f( this, text, me_msg, ret ) or ret
 		end
 		return ret
-	end	
-	
+	end
+
 	hub.onINF = function( this, user, flags )
 		local ret
 		for k,f in pairs(dcpp:getListeners( "userInf" )) do
@@ -514,13 +506,13 @@ function createAdcHub( hubid )
 		end
 		return ret
 	end
-	
+
 	hub.onQUI = function( this, sid, flags )
 		for k,f in pairs(dcpp:getListeners( "adcUserQui" )) do
 			f( this, sid, flags )
 		end
 	end
-	
+
 	hub.onPrivateMessage = function( this, user, targetSid, replySid, text, me_msg )
 		if targetSid == this:getOwnSid() then
 			if user:getSid() == replySid then
@@ -535,12 +527,12 @@ function createAdcHub( hubid )
 					ret = f( this, user, replySid, text, me_msg, ret ) or ret
 				end
 				return ret
-			end	
+			end
 		end
 	end
-	
+
 	hub.attention = function( this )
-		HubWindowAttention( this:getId() )
+		DC():HubWindowAttention( this:getId() )
 	end
 
 	return hub
@@ -562,7 +554,7 @@ function createNmdcHub( hubid )
 	hub.getId = function( this )
 		return this._id
 	end
-	
+
 	hub.getProtocol = function( this )
 		return "nmdc"
 	end
@@ -577,7 +569,7 @@ function createNmdcHub( hubid )
 			if this:getUptime() >= 2 then -- start sending messages AFTER logon
 	            for k,f in pairs(dcpp:getListeners( "userConnected" )) do
 					f( this, this._users[nick] )
-				end							
+				end
 			end
 		end
 		local r = this._users[nick]
@@ -589,12 +581,9 @@ function createNmdcHub( hubid )
 		return r
 	end
 
-
 	hub.findUsers = function( this, nick, notag )
 		-- you get a possibly empty table of users
 		if not notag then
-
-
 			return { this._users[nick] }
 		else
 			local list = {}
@@ -630,18 +619,18 @@ function createNmdcHub( hubid )
 	hub.isPartial = function( this )
 		--// are we missing logon info?
 		return this._partial
-	end	
+	end
 
 	hub.setHubName = function( this, msg )
 		this._name = msg
 	end
 
 	hub.getAddress = function( this )
-		return GetHubIpPort( this._id )
+		return DC():GetHubIpPort( this._id )
 	end
-	
+
 	hub.getUrl = function( this )
-		return GetHubUrl( this._id )
+		return DC():GetHubUrl( this._id )
 	end
 
 	hub.getHubName = function( this )
@@ -660,7 +649,7 @@ function createNmdcHub( hubid )
 		if not this:isPartial() then
  			return this._myNick
  		end
-		PrintDebug( "[" .. this:getUrl() .."] Your scripts are failing. "..
+		DC():PrintDebug( "[" .. this:getUrl() .."] Your scripts are failing. "..
 					"Own nick not set. Reconnect please." )
 	end
 
@@ -671,38 +660,38 @@ function createNmdcHub( hubid )
 		local ownNick = this:getOwnNick()
 		msg = dcu:NmdcEscape( msg )
 		if ownNick then
-			SendHubMessage( this:getId(), "<"..ownNick.."> "..msg.."|" )
+			DC():SendHubMessage( this:getId(), "<"..ownNick.."> "..msg.."|" )
 		end
 	end
 
 	hub.injectChat = function( this, msg, skipusercommand )
-			InjectHubMessage( this:getId(), msg )
+			DC():InjectHubMessage( this:getId(), msg )
 			-- test if it's usercommand
 			if ( string.sub(msg, 1, 13) == "$UserCommand " ) and (not skipusercommand) then
 				this:customUC( msg )
 			end
 	end
-	
+
 	hub.addLine = function( this, msg, fmt )
 		if not fmt then
 			msg = "*** " .. msg
 		end
-		InjectHubMessage( this:getId(), msg )
+		DC():InjectHubMessage( this:getId(), msg )
 	end
 
 	hub.sendPrivMsgTo = function( this, victim, msg, hideFromSelf )
 		local ownNick = this:getOwnNick()
 		msg = dcu:NmdcEscape( msg )
 		if ownNick then
-			SendHubMessage( this:getId(), "$To: "..victim.." From: "..ownNick.." $"..msg.."|" )
+			DC():SendHubMessage( this:getId(), "$To: "..victim.." From: "..ownNick.." $"..msg.."|" )
 			if not hideFromSelf then
 				this:injectPrivMsg( victim, ownNick, msg )
 			end
-		end	
+		end
 	end
 
 	hub.injectPrivMsg = function( this, from, to, msg )
-			InjectHubMessage( this:getId(), "$To: "..to.." From: "..from.." $"..msg )
+			DC():InjectHubMessage( this:getId(), "$To: "..to.." From: "..from.." $"..msg )
 	end
 
 	hub.injectPrivMsgFmt = function( this, from, to, msg )
@@ -720,16 +709,16 @@ function createNmdcHub( hubid )
 
 	hub.hubUC = function( this, msg )
 		local uc_type = string.gsub( msg, "%$UserCommand (%d+) .+", "%1")
-	--	PrintDebug( "UserCommand " .. uc_type .. " arrived from " .. this:getHubName() .. " : " .. msg)
+		-- DC():PrintDebug( "UserCommand " .. uc_type .. " arrived from " .. this:getHubName() .. " : " .. msg)
 		if uc_type == "255" then
 			-- clear user command list and resend our own commands to prevent it from disappearing
---			PrintDebug( "Clearing Hub UC list.." )
+			-- DC():PrintDebug( "Clearing Hub UC list.." )
 			this:clearHubUCList()
---			PrintDebug( "Resending Custom commands.." )
+			-- DC():PrintDebug( "Resending Custom commands.." )
 			this:reSendCustomUC()
 		else
 			-- add usercommands to UClist
---			PrintDebug( "Adding hubUC.." )
+			-- DC():PrintDebug( "Adding hubUC.." )
 			this:addHubUC( msg )
 		end
 
@@ -738,7 +727,7 @@ function createNmdcHub( hubid )
 
 	hub.customUC = function ( this, msg )
 		local uc_type = string.gsub( msg, "%$UserCommand (%d+) .+", "%1")
---		PrintDebug( "UserCommand " .. uc_type .. " arrived from a script: " .. msg)
+		-- DC():PrintDebug( "UserCommand " .. uc_type .. " arrived from a script: " .. msg)
 		if uc_type == "255" then
 			-- clear own user command list and resend hub usercommands to prevent it from disappearing
 			this:clearCustomUCList()
@@ -769,7 +758,7 @@ function createNmdcHub( hubid )
 		this._customUC = {}
 		return true
 	end
-	
+
 	hub.reSendCustomUC = function( this )
 		for k in pairs(this._customUC) do
 			hub:injectChat( this._customUC[k] , true )
@@ -788,7 +777,7 @@ function createNmdcHub( hubid )
 	--////////////////
 	--// Own functions
 	--////////////////
-	
+
 	hub.onRaw = function( this, msg )
 		local ret
 		for k,f in pairs(dcpp:getListeners( "raw" )) do
@@ -798,12 +787,12 @@ function createNmdcHub( hubid )
 	end
 
 	hub.onSearch = function( this, msg )
-		--PrintDebug( this:getHubName().."> "..msg )
+		--DC():PrintDebug( this:getHubName().."> "..msg )
 	end
-	
+
 	hub.onHello = function( this, user, msg )
 	end
-	
+
 	hub.onMyInfo = function( this, user, msg )
 		local ret
 		for k,f in pairs(dcpp:getListeners( "userMyInfo" )) do
@@ -811,7 +800,7 @@ function createNmdcHub( hubid )
 		end
 		return ret
 	end
-	
+
 	hub.onQuit = function( this, nick, msg )
 		local ret
 		for k,f in pairs(dcpp:getListeners( "userQuit" )) do
@@ -819,12 +808,12 @@ function createNmdcHub( hubid )
 		end
 		return ret
 	end
-	
+
 	hub.onHubName = function( this, hubname, msg )
 	end
-	
+
 	hub.onPrivateMessage = function( this, user, to, prefix, text, full )
---		PrintDebug("user: " .. tostring(user) .. " to: " .. tostring(to) .. " prefix: " .. tostring(prefix) .. " text: " .. tostring(text) .. " full: " .. tostring(full) )
+		-- DC():PrintDebug("user: " .. tostring(user) .. " to: " .. tostring(to) .. " prefix: " .. tostring(prefix) .. " text: " .. tostring(text) .. " full: " .. tostring(full) )
 		if to == this:getOwnNick() then
 			if prefix == "<"..user:getNick().."> " then
 				local ret
@@ -855,7 +844,7 @@ function createNmdcHub( hubid )
 		end
 		return ret
 	end
-	
+
 	hub.onUnknownChatMessage = function( this, text )
 		local ret
 		for k,f in pairs(dcpp:getListeners( "unknownchat" )) do
@@ -863,14 +852,14 @@ function createNmdcHub( hubid )
 		end
 		return ret
 	end
-	
+
 	hub.onChatFromSelf = function( this, text )
 		local ret
 		for k,f in pairs(dcpp:getListeners( "ownChat" )) do
 			ret = f( this, text, ret ) or ret
 		end
 		return ret
-	end	
+	end
 
 	return hub
 end
@@ -889,7 +878,7 @@ function createNmdcUser( hub, nick )
 	user._ip = ""
 	user._class = "user"
 	user._handled_messages = {} -- flood protection
-	
+
 	user.getProtocol = function( this )
 		return "nmdc"
 	end
@@ -902,12 +891,12 @@ function createNmdcUser( hub, nick )
 	user.isOp = function( this )
 		return this._op
 	end
-	
+
 	user.setClass = function( this, param )
 		this._class = param
 		return this
 	end
-	
+
 	user.getClass = function( this )
 		return this._class
 	end
@@ -919,7 +908,7 @@ function createNmdcUser( hub, nick )
 	user.getIp = function( this )
 		return this._ip
 	end
-	
+
 	user.getNick = function( this )
 		return this._nick
 	end
@@ -946,7 +935,7 @@ end
 
 function createAdcUser( hub, sid )
 	local user = {}
-	
+
 	user._sid = sid
 	user._cid = ""
 	user._hub = hub
@@ -955,10 +944,10 @@ function createAdcUser( hub, sid )
 	user._bot = false
 	user._registered = false
 	user._hubitself = false
-	user._class = "user" 
-	user._ip = "" 
+	user._class = "user"
+	user._ip = ""
 	user._handled_messages = {} -- flood protection
-	
+
 	user.getProtocol = function( this )
 		return "adc"
 	end
@@ -971,29 +960,29 @@ function createAdcUser( hub, sid )
 	user.isOp = function( this )
 		return this._op
 	end
-	
+
 	user.processCt = function( this, param )
 		local num = tonumber(param)
 		if num then
-			
+
 			--// Init
 			this._class = "user"
-			
+
 			--// 2^0: bot
 			if dcu:BBit(num, 0) then
 				this:setBot(true)
---				PrintDebug("BOT set: " .. this:getSid())
+				DC():PrintDebug("BOT set: " .. this:getSid())
 			else
 				this:setBot(false)
 			end
-			
+
 			--// 2^1: registered
 			if dcu:BBit(num, 1) then
 				this:setReg(true)
 			else
 				this:setReg(false)
 			end
-			
+
 			--// 2^2, 2^3, 2^4: some type of operator
 			if dcu:BBit(num, 2) or dcu:BBit(num, 3) or dcu:BBit(num, 4) then
 				this:setOp(true)
@@ -1007,14 +996,14 @@ function createAdcUser( hub, sid )
 			else
 				this:setOp(false)
 			end
-			
+
 			if dcu:BBit(num, 5) then
 				this:setHub(true)
 				this._class = "hub"
 			else
 				this:setHub(false)
 			end
-			
+
 		else
 			--// Empty CT field should cause all properties gone
 			this:setBot(false)
@@ -1023,39 +1012,39 @@ function createAdcUser( hub, sid )
 			this:setHub(false)
 			this._class = "user"
 		end
-		
---		PrintDebug("CLASS: " .. this._class .. " [" .. tostring(param) .. "]" )
+
+		--// DC():PrintDebug("CLASS: " .. this._class .. " [" .. tostring(param) .. "]" )
 		return this
 	end
-	
+
 	--// Possible values: "user", "op", "su", "owner", "hub"
 	user.getClass = function( this )
 		return this._class
 	end
-	
+
 	user.setBot = function(this, bot)
 		this._bot = bot
 		return this
 	end
-	
+
 	user.isBot = function(this)
 		return this._bot
 	end
-	
+
 	user.setReg = function(this, registered)
 		this._registered = registered
 		return this
 	end
-	
+
 	user.isReg = function(this)
 		return this._registered
 	end
-	
+
 	user.setHub = function(this, hubitself)
 		this._hubitself = hubitself
 		return this
 	end
-	
+
 	user.isHub = function(this)
 		return this._hubitself
 	end
@@ -1067,34 +1056,34 @@ function createAdcUser( hub, sid )
 	user.getIp = function( this )
 		return this._ip
 	end
-	
+
 	user.setCid = function( this, cid )
 		this._cid = cid
 	end
-	
+
 	user.getCid = function( this )
 		return this._cid
 	end
-	
+
 	user.getSid = function( this )
 		return this._sid
 	end
-	
+
 	user.getNick = function( this )
 		return this._nick
 	end
-	
+
 	user.setNick = function( this, nick )
 		this._nick = nick
---		PrintDebug("Nick set: " .. nick )
+		-- DC():PrintDebug("Nick set: " .. nick )
 	end
-	
+
 	user.sendPrivMsg = function( this, msg, hideFromSelf )
 		local victimSid = this:getSid()
 		this._hub:sendPrivMsgTo( victimSid, msg, hideFromSelf )
 		return this
 	end
-	
+
 	-- Backward compatibility
 	user.sendPrivMsgFmt = user.sendPrivMsg
 
@@ -1106,7 +1095,7 @@ function createAdcUser( hub, sid )
 	user.msgHandled = function( this, which )
 		return this._handled_messages[which]
 	end
-	
+
 	return user
 end
 
@@ -1133,7 +1122,7 @@ function nmdch.DataArrival( hub, msg )
 		return 1
 	end
 
-	--// parse message and fire appropriate 
+	--// parse message and fire appropriate
 	local ret,c,cmd = string.find( msg, "^%$([^ ]+)" )
 	if ret then
 		if cmd == "Search" then
@@ -1248,14 +1237,14 @@ function adch.DataArrival( hub, msg )
 		return nil
 	end
 	local h = dcpp:getHub( hub )
-	
+
 	local params = {}
 	string.gsub(msg, "([^ ]+)", function(s) table.insert(params, s) end )
-	
+
 	local mtype = string.sub(params[1], 1, 1)
 	local cmd = string.sub(params[1], 2, 4)
 	local sid, targetSid, parameters = false, false, ""
-	
+
 	if mtype == "I" then
 		parameters = string.sub( msg, 6)
 		sid = "HUB9"
@@ -1267,13 +1256,13 @@ function adch.DataArrival( hub, msg )
 		sid = params[2]
 		targetSid = params[3]
 	end
-	
+
 	-- Building flags table
 	local flags = {}
 	string.gsub(parameters, "([^ ]+)", function(s) flags[string.sub(s, 1, 2)] = dcu:AdcEscape( string.sub(s, 3), true ) end )
-	
+
 	if cmd == "SID" then
---		PrintDebug( "[STATUS] SID received: " .. params[2] )
+		DC():PrintDebug( "[STATUS] SID received: " .. params[2] )
 		h._mySID = params[2]
 	elseif cmd == "QUI" then
 		h:removeUser( params[2] )
@@ -1284,11 +1273,11 @@ function adch.DataArrival( hub, msg )
 	elseif cmd == "MSG" then
 		local pm, replySid, me_msg = false, false, false
 		local tmp = {}
-		
+
 		string.gsub(parameters, "([^ ]+)", function(s) table.insert(tmp, s) end )
 		local text = dcu:AdcEscape(tmp[1], true)
 		tmp[1] = nil
-		
+
 		-- Check for named parameters
 		for k in pairs(tmp) do
 			local name = string.sub(tmp[k], 1,2)
@@ -1302,7 +1291,7 @@ function adch.DataArrival( hub, msg )
 				replySid = value
 			end
 		end
-		
+
 		if pm then
 			return h:onPrivateMessage( h:getUser( sid ), targetSid, replySid, text, me_msg )
 		else
@@ -1312,7 +1301,7 @@ function adch.DataArrival( hub, msg )
 				return h:onChatFromSelf( text, me_msg )
 			end
 		end
-		
+
 	end
 end
 
@@ -1330,7 +1319,7 @@ end
 
 function SendActiveSearchResult( hub, ip_port, search_nick, filename, filesize, open_slots,
 		total_slots )
-	SendUDP( ip_port, "$SR "..search_nick.." "..filename.."\005".. filesize.." "..open_slots..
+	DC():SendUDP( ip_port, "$SR "..search_nick.." "..filename.."\005".. filesize.." "..open_slots..
 			"/"..total_slots.."\005"..dcpp:getHub( hub ):getHubName() ) -- no pipe in UDP $SR
 end
 
@@ -1340,18 +1329,17 @@ end
 --/////////////////////////////////////
 
 -- do you need the timer?
---RunTimer(1)
+--DC():RunTimer(1)
 
---dofile( GetConfigPath() .. "scripts//bier.lua" )
---dofile( GetConfigPath() .. "scripts//slots.lua" )
---dofile( GetConfigPath() .. "scripts//formatting.lua" )
-dofile( GetConfigPath() .. "scripts//uptime.lua" )
---dofile( GetConfigPath() .. "scripts//onjoin.lua" )--ok
---dofile( GetConfigPath() .. "scripts//monologue.lua" )--ok
---dofile( GetConfigPath() .. "scripts\\ignore.lua" )
---dofile( DC():GetConfigPath() .. "scripts\\p2pblock.lua" )
---dofile( DC():GetConfigPath() .. "scripts\\quiet_login.lua" )
---dofile( DC():GetConfigPath() .. "scripts\\log.lua" )
---dofile( DC():GetConfigPath() .. "scripts\\kickfilter.lua" )
---dofile( GetConfigPath() .. "scripts//adccommands.lua" )
---dofile( GetConfigPath() .. "scripts//mytimer.lua" )
+--dofile( DC():GetScriptsPath() .. "bier.lua" )
+--dofile( DC():GetScriptsPath() .. "slots.lua" )
+--dofile( DC():GetScriptsPath() .. "formatting.lua" )
+dofile( DC():GetScriptsPath() .. "uptime.lua" )
+--dofile( DC():GetScriptsPath() .. "onjoin.lua" )
+--dofile( DC():GetScriptsPath() .. "monologue.lua" )
+dofile( DC():GetScriptsPath() .. "ignore.lua" )
+--dofile( DC():GetScriptsPath() .. "p2pblock.lua" )
+--dofile( DC():GetScriptsPath() .. "quiet_login.lua" )
+--dofile( DC():GetScriptsPath() .. "log.lua" )
+--dofile( DC():GetScriptsPath() .. "kickfilter.lua" )
+dofile( DC():GetScriptsPath() .. "adccommands.lua" )

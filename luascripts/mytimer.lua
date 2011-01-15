@@ -2,25 +2,18 @@
 --// mytimer.lua -- Do something at regular intervals
 
 myTimer = {}
-myTimer.interval = 120 * 60 -- 2h
+myTimer.interval = 10 * 60 -- 10 mins
 myTimer.next = 0
-myTimer.test = {}
-myTimer.test["1"]="-A"
-myTimer.test["2"]="-B"
-myTimer.test["3"]="-C"
-myTimer.test["4"]="-D"
-myTimer.test["5"]="-E"
-myTimer.test["6"]="-F"
 
 function myTimer.doSomething( hub )
-	hub:sendChat( "Type /fav for add hub to favorite" )
+	hub:sendChat( "." )
 end
 
 dcpp:setListener( "timer", "myTimer",
 	function()
 		if os.time() > myTimer.next then
 			for k,hub in pairs(dcpp:getHubs()) do
-				if hub:getAddress() == "92.240.248.81:411" then
+				if hub:getAddress() == "10.102.221.1:1416" then
 					myTimer.doSomething( hub )
 					break
 				end
@@ -30,4 +23,4 @@ dcpp:setListener( "timer", "myTimer",
 	end																			
 )
 
-PrintDebug( "  ** Loaded mytimer.lua **" )
+DC():PrintDebug( "  ** Loaded mytimer.lua **" )

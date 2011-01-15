@@ -15,20 +15,20 @@ if not uptime then
 	end
 end
 
-dcpp:setListener( "ownChatOut", "up",
+dcpp:setListener( "ownChatOut", "uptime",
 	function( hub, text )
 		local s = string.lower( text )
-		if text == "/up" then
-			PrintDebug( "Uptime: "..uptime.format() )
+		if text == "/uptime" then
+			DC():PrintDebug( "Uptime: "..uptime.format() )
 			return 1
-		elseif text == "/up show" then
-			hub:sendChat( "My EiskaltDC++ uptime is: "..uptime.format() )
+		elseif text == "/uptime show" then
+			hub:sendChat( "My DC++ client uptime is: "..uptime.format() )
 			return 1
 		elseif string.sub(s, 1, 5) == "/help" then
-			hub:addLine( "(uptime.lua) /up [show]" )
+			hub:addLine( "(uptime.lua) /uptime [show]" )
 			return nil
 		end
 	end
 )
 
-PrintDebug( "  ** Loaded uptime.lua **" )
+DC():PrintDebug( "  ** Loaded uptime.lua **" )

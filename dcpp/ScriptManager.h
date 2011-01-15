@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2010 cologic, ne5@parsoma.net
+ * Copyright (C) 2008 cologic, cologic@parsoma.net
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -16,26 +16,18 @@
 * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 */
 
-#if !defined(SCRIPT_MANAGER_H)
-#define SCRIPT_MANAGER_H
-
-#include <iostream>
-
-
+#if !defined(SCRIPTMANAGER_H__INCLUDED_)
+#define SCRIPTMANAGER_H__INCLUDED_
 
 #include "DCPlusPlus.h"
 #include "Singleton.h"
+#include "User.h"
 #include "Socket.h"
 #include "TimerManager.h"
-#include "User.h"
 #include "ClientManagerListener.h"
 #include "CriticalSection.h"
 
-extern "C" {
-#include "lua.h"
-#include "lualib.h"
-#include "lauxlib.h"
-}
+#include "extra/lunar.h"
 
 namespace dcpp {
 
@@ -52,34 +44,36 @@ class ScriptManagerListener {
     };
 
 struct LuaManager  {
+        static const char className[];
+        static Lunar<LuaManager>::RegType methods[];
+
     LuaManager(lua_State* /* L */) { }
-    static int SendClientMessage(lua_State* L);
-    static int SendHubMessage(lua_State* L);
-    static int GenerateDebugMessage(lua_State* L);
-    static int GetHubIpPort(lua_State* L);
-    static int GetHubUrl(lua_State* L);
-    static int GetClientIp(lua_State* L);
-    static int SendUDPPacket(lua_State* L);
+        int SendClientMessage(lua_State* L);
+        int SendHubMessage(lua_State* L);
+        int GenerateDebugMessage(lua_State* L);
+        int GetHubIpPort(lua_State* L);
+        int GetHubUrl(lua_State* L);
+        int GetClientIp(lua_State* L);
+        int SendUDPPacket(lua_State* L);
+        int InjectHubMessageNMDC(lua_State* L);
+        int InjectHubMessageADC(lua_State* L);
+        //int FindWindow(lua_State* L);
+        //int PostMessage(lua_State* L);
+        int DropUserConnection(lua_State* L);
 
-    static int InjectHubMessageADC(lua_State* L);
-    static int InjectHubMessageNMDC(lua_State* L);
+        int CreateClient(lua_State* L);
+        int DeleteClient(lua_State* L);
 
-//  int FindWindow(lua_State *L);
-//  int PostMessage(lua_State *L);
-    static int DropUserConnection(lua_State* L);
-//*/*/*/*/
-    static int CreateClient(lua_State* L);
-    static int DeleteClient(lua_State* L);
-//**/*/*/*/*/**/
-    static int RunTimer(lua_State* L);
-/**/
-    static int GetSetting(lua_State* L);
-    static int GetAppPath(lua_State* L);
-    static int GetConfigPath(lua_State* L);
-/*Misc*/
-    static int ToUtf8(lua_State* L);
-    static int FromUtf8(lua_State* L);
+        int RunTimer(lua_State* L);
 
+        int GetSetting(lua_State* L);
+        int GetAppPath(lua_State* L);
+        int GetConfigPath(lua_State* L);
+        int GetScriptsPath(lua_State* L);
+        int GetConfigScriptsPath(lua_State* L);
+
+        int ToUtf8(lua_State* L);
+        int FromUtf8(lua_State* L);
 };
 
 class ScriptInstance {
@@ -88,15 +82,16 @@ class ScriptInstance {
         virtual ~ScriptInstance() { }
         static lua_State* L;
         static CriticalSection cs;
-        template <typename T> bool MakeCall(const string& table, const string& method, int ret , const T& t) throw()
-        {
+
+        template <typename T> bool MakeCall(const string& table, const string& method,
+                int ret, const T& t) throw() {
         Lock l(cs);
         dcassert(lua_gettop(L) == 0);
         LuaPush(t);
         return MakeCallRaw(table, method, 1 , ret);
         }
-        template <typename T,typename T2> bool MakeCall(const string& table, const string& method, int ret , const T& t, const T2& t2) throw()
-        {
+        template <typename T, typename T2> bool MakeCall(const string& table, const string& method,
+                int ret, const T& t, const T2& t2) throw() {
         Lock l(cs);
         dcassert(lua_gettop(L) == 0);
         LuaPush(t);
@@ -117,18 +112,11 @@ class ScriptInstance {
 class ScriptManager: public ScriptInstance, public Singleton<ScriptManager>, public Speaker<ScriptManagerListener>,
         private ClientManagerListener, private TimerManagerListener
      {
-        Socket s;//xx
+        Socket s;
+
         friend class Singleton<ScriptManager>;
         ScriptManager();
-        virtual ~ScriptManager() throw() {
-            shutdown();
-        }
-        void shutdown () {
-            lua_close(L);
-
-            if(timerEnabled)
-                TimerManager::getInstance()->removeListener(this);
-        }
+        virtual ~ScriptManager() throw () { lua_close(L); if(timerEnabled) TimerManager::getInstance()->removeListener(this); }
     public:
         void load();
         void  SendDebugMessage(const string& s);
@@ -145,11 +133,10 @@ class ScriptManager: public ScriptInstance, public Singleton<ScriptManager>, pub
 };
 
 }//namespace dcpp
-#endif
 
+#endif // !defined(SCRIPTMANAGER_H__INCLUDED_)
 
-
-
-
-
-
+/**
+ * @file ScriptManager.h
+ * $Id: ScriptManager.h,v 1.2 2008/01/18 16:08:14 cologic Exp $
+ */
