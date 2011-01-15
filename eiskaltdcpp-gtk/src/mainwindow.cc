@@ -2140,7 +2140,7 @@ void MainWindow::startSocket_client(bool onstart, int oldmode){
     ClientManager::getInstance()->infoUpdated();
 }
 void MainWindow::showPortsError(const string& port) {
-    string msg = str(F_("Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.") % port);
+    string msg = str(dcpp_fmt(dgettext("eiskaltdcpp-gtk", "Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.")) % port);
     typedef Func2<MainWindow, string, string> F2;
     F2* func = new F2(this, &MainWindow::showMessageDialog_gui, _("Connectivity Manager: Warning"), msg);
     WulforManager::get()->dispatchGuiFunc(func);
