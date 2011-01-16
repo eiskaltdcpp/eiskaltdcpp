@@ -1,0 +1,38 @@
+#!/bin/sh
+
+export LAST_MOD=$(curl -v 'http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip' --max-filesize 1 2>&1 | grep 'Last-Modified:' | sed -e "s/^.*Last-Modified: \(.*\) GMT.*$/\1/")
+export NEW_VER=$(date -d "${LAST_MOD}" +%Y%m%d)
+
+echo " "
+echo "http://www.maxmind.com/app/geoip_country"
+echo " "
+echo "GET /download/geoip/database/GeoIPCountryCSV.zip"
+echo "Last-Modified: ${LAST_MOD} GMT"
+echo " "
+
+if [ -e /usr/share/eiskaltdcpp/GeoIPCountryCSV*.zip ]; then
+    export OLD_VER=$(ls /usr/share/eiskaltdcpp/GeoIPCountryCSV*.zip |
+                     sed -e "s/^.*GeoIPCountryCSV-\(.*\).zip$/\1/")
+    echo "OLD_VER = ${OLD_VER}"
+    echo "NEW_VER = ${NEW_VER}"
+fi
+
+
+if [ -z "${NEW_VER}" ]; then
+    echo "NEW_VER is empty!";
+    exit 0;
+elif [ "${NEW_VER}" = "${OLD_VER}" ]; then
+    echo "Upgrading is not required.";
+    exit 0;
+else
+    cd /usr/share/eiskaltdcpp/
+    rm -f GeoIPCountryWhois.csv GeoIPCountryCSV*.zip
+    wget -4 'http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip'
+
+    if [ -e "GeoIPCountryCSV.zip" ]; then
+        mv -f "GeoIPCountryCSV.zip" "GeoIPCountryCSV-${NEW_VER}.zip"
+        unzip "GeoIPCountryCSV-${NEW_VER}.zip"
+    else
+        echo "File GeoIPCountryCSV.zip was not downloaded."
+    fi
+fi
