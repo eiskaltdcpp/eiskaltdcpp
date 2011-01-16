@@ -430,7 +430,8 @@ public:
 
     static void setLang(const string lang) {
         if(!lang.empty())
-            setenv ("LANGUAGE", lang.c_str(), 1);
+            //setenv ("LANGUAGE", lang.c_str(), 1);
+            putenv((char *)string("LANGUAGE=" + lang).c_str());
     }
 
     static bool getManualAway() { return manualAway; }
