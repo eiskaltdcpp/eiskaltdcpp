@@ -40,14 +40,16 @@
 
 void printHelp()
 {
-    printf("Using:\n"
-           "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-           "  eiskaltdcpp-gtk <Key>\n"
-           "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
-           "\n"
-           "Keys:\n"
-           "  -h, --help\t Show this message\n"
-           "  -v, --version\t Show version string\n"
+    printf(_(
+            "Using:\n"
+            "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+            "  eiskaltdcpp-gtk <Key>\n"
+            "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+            "\n"
+            "Keys:\n"
+            "  -h, --help\t Show this message\n"
+            "  -v, --version\t Show version string\n"
+            )
            );
 }
 

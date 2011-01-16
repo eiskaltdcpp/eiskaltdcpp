@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-08 20:39+0200\n"
+"POT-Creation-Date: 2011-01-16 03:39+0200\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -290,20 +290,20 @@ msgstr "Unable to read hash data file"
 msgid "Error creating hash data file: %1%"
 msgstr "Unable to read hash data file"
 
-#: ../HashManager.cpp:784
+#: ../HashManager.cpp:787
 msgid "Hash database rebuilt"
 msgstr "Hash database rebuilt"
 
-#: ../HashManager.cpp:836
+#: ../HashManager.cpp:839
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr ""
 
-#: ../HashManager.cpp:884
+#: ../HashManager.cpp:887
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 
-#: ../HashManager.cpp:889
+#: ../HashManager.cpp:892
 msgid "Error hashing %1%: %2%"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-08 20:39+0200\n"
+"POT-Creation-Date: 2011-01-16 03:39+0200\n"
 "PO-Revision-Date: 2011-01-09 00:17+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -301,22 +301,22 @@ msgstr "No se pudo leer el archivo índice Hash"
 msgid "Error creating hash data file: %1%"
 msgstr "Error al crear el archivo índice del Hash: %1%"
 
-#: ../HashManager.cpp:784
+#: ../HashManager.cpp:787
 msgid "Hash database rebuilt"
 msgstr "Base de datos del Hash reconstruido"
 
-#: ../HashManager.cpp:836
+#: ../HashManager.cpp:839
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Indexando archivo: %1% (Tamaño: %2%)"
 
-#: ../HashManager.cpp:884
+#: ../HashManager.cpp:887
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% No compartido; el CRC32 calculado no concuerda con el encontrado en el "
 "archivo SFV."
 
-#: ../HashManager.cpp:889
+#: ../HashManager.cpp:892
 msgid "Error hashing %1%: %2%"
 msgstr "Error en el Indexado %1%: %2%"
 

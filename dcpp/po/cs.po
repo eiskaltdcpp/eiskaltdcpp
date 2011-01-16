@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-08 20:39+0200\n"
+"POT-Creation-Date: 2011-01-16 03:39+0200\n"
 "PO-Revision-Date: 2008-04-26 10:35+0000\n"
 "Last-Translator: Stary <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -292,23 +292,23 @@ msgstr "Nelze číst hash souborů"
 msgid "Error creating hash data file: %1%"
 msgstr "Chyba vytváření souboru hashe: %1%"
 
-#: ../HashManager.cpp:784
+#: ../HashManager.cpp:787
 msgid "Hash database rebuilt"
 msgstr "Hash databáze obnovena"
 
-#: ../HashManager.cpp:836
+#: ../HashManager.cpp:839
 #, fuzzy
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Hashování selhalo: %1%"
 
-#: ../HashManager.cpp:884
+#: ../HashManager.cpp:887
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru "
 "SFV."
 
-#: ../HashManager.cpp:889
+#: ../HashManager.cpp:892
 msgid "Error hashing %1%: %2%"
 msgstr "Chyba hashování %1%: %2%"
 

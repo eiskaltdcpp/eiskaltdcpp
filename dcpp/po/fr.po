@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-08 20:39+0200\n"
+"POT-Creation-Date: 2011-01-16 03:39+0200\n"
 "PO-Revision-Date: 2009-02-22 14:17+0000\n"
 "Last-Translator: poy <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -305,23 +305,23 @@ msgstr "Erreur lors de la lecture de la base de données"
 msgid "Error creating hash data file: %1%"
 msgstr "Erreur lors de la création de la base de données : %1%"
 
-#: ../HashManager.cpp:784
+#: ../HashManager.cpp:787
 msgid "Hash database rebuilt"
 msgstr "Base de données re-créée"
 
-#: ../HashManager.cpp:836
+#: ../HashManager.cpp:839
 #, fuzzy
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Scan du fichier : %1% (Size: %2%)"
 
-#: ../HashManager.cpp:884
+#: ../HashManager.cpp:887
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% non partagé ; le CRC32 calculé ne correspond pas avec celui trouvé dans "
 "le fichier SFV ."
 
-#: ../HashManager.cpp:889
+#: ../HashManager.cpp:892
 msgid "Error hashing %1%: %2%"
 msgstr "Erreur lors du scan de %1% : %2%"
 

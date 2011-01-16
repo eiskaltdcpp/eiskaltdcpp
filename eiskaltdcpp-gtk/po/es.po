@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-14 21:30+0200\n"
+"POT-Creation-Date: 2011-01-16 03:39+0200\n"
 "PO-Revision-Date: 2011-01-09 00:21+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
@@ -151,7 +151,7 @@ msgid "Running..."
 msgstr "Funcionando..."
 
 #: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
-#: ../src/WulforUtil.cc:318 ../src/WulforUtil.cc:320
+#: ../src/WulforUtil.cc:316 ../src/WulforUtil.cc:318
 msgid "Unknown"
 msgstr "Desconocido"
 
@@ -221,8 +221,8 @@ msgstr "Abrir Carpeta"
 
 #: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:364
 #: ../src/hub.cc:379 ../src/hub.cc:399 ../src/hub.cc:447 ../src/hub.cc:1232
-#: ../src/hub.cc:1530 ../src/hub.cc:1583 ../src/hub.cc:2174 ../src/hub.cc:2205
-#: ../src/hub.cc:2490 ../src/hub.cc:2529 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:1530 ../src/hub.cc:1583 ../src/hub.cc:2177 ../src/hub.cc:2208
+#: ../src/hub.cc:2493 ../src/hub.cc:2532 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583
@@ -325,7 +325,7 @@ msgstr "Modo Ausente apagado"
 msgid "Away mode on: "
 msgstr "Modo ausente Encendido: "
 
-#: ../src/hub.cc:1829 ../src/hub.cc:2501 ../src/privatemessage.cc:1281
+#: ../src/hub.cc:1829 ../src/hub.cc:2504 ../src/privatemessage.cc:1281
 msgid " is favorite user"
 msgstr "es un usuario favorito"
 
@@ -333,7 +333,7 @@ msgstr "es un usuario favorito"
 msgid "Not found user: "
 msgstr "Usuario no encontrado: "
 
-#: ../src/hub.cc:1847 ../src/hub.cc:2540 ../src/privatemessage.cc:1302
+#: ../src/hub.cc:1847 ../src/hub.cc:2543 ../src/privatemessage.cc:1302
 msgid " is not favorite user"
 msgstr "no es un usuario favorito"
 
@@ -433,7 +433,7 @@ msgstr "Hablar en 3º persona"
 
 #: ../src/hub.cc:1932 ../src/settingsdialog.cc:993
 #: ../src/settingsdialog.cc:1039 ../src/settingsdialog.cc:1159
-#: ../src/settingsmanager.cc:239
+#: ../src/settingsmanager.cc:238
 msgid "Private message"
 msgstr "Mensaje Privado"
 
@@ -503,77 +503,77 @@ msgstr "Comando desconocido '"
 msgid "': type /help for a list of available commands"
 msgstr "': introduce /help para ver la lista de comandos disponibles"
 
-#: ../src/hub.cc:2430 ../src/privatemessage.cc:1188 ../src/mainwindow.cc:1210
+#: ../src/hub.cc:2433 ../src/privatemessage.cc:1188 ../src/mainwindow.cc:1210
 #: ../src/mainwindow.cc:1278 ../glade/sharebrowser.glade:326
 #: ../glade/search.glade:555 ../glade/settingsdialog.glade:6038
 msgid "Choose a directory"
 msgstr "Elige un directorio"
 
-#: ../src/hub.cc:2569
+#: ../src/hub.cc:2572
 msgid " added to favorites list"
 msgstr " añadido a lista de favoritos"
 
-#: ../src/hub.cc:2596
+#: ../src/hub.cc:2599
 msgid " removed from favorites list"
 msgstr " eliminado de la lista de favoritos"
 
-#: ../src/hub.cc:2636 ../src/favoritehubs.cc:330
+#: ../src/hub.cc:2639 ../src/favoritehubs.cc:330
 msgid "Global hub default"
 msgstr "Hub Global por defecto"
 
-#: ../src/hub.cc:2711 ../src/hub.cc:2731
+#: ../src/hub.cc:2714 ../src/hub.cc:2734
 msgid "User not found"
 msgstr "Usuario no encontrado"
 
-#: ../src/hub.cc:2740 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2743 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Conceder slot a "
 
-#: ../src/hub.cc:2765
+#: ../src/hub.cc:2768
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "No puede conectarse: ya se encuentra conectado al Hub solicitado"
 
-#: ../src/hub.cc:2819
+#: ../src/hub.cc:2822
 msgid "Favorite hub added"
 msgstr "Hub favorito añadido"
 
-#: ../src/hub.cc:2824
+#: ../src/hub.cc:2827
 msgid "Favorite hub already exists"
 msgstr "Hub favorito ya existe"
 
-#: ../src/hub.cc:2936
+#: ../src/hub.cc:2939
 msgid "loading error"
 msgstr "Error al cargar"
 
-#: ../src/hub.cc:2949
+#: ../src/hub.cc:2952
 msgid "bad image"
 msgstr "Imagen errónea"
 
-#: ../src/hub.cc:3224
+#: ../src/hub.cc:3227
 msgid "Connecting to "
 msgstr "Conectando a "
 
-#: ../src/hub.cc:3231 ../src/transfers.cc:1022
+#: ../src/hub.cc:3234 ../src/transfers.cc:1022
 msgid "Connected"
 msgstr "Conectado"
 
-#: ../src/hub.cc:3287
+#: ../src/hub.cc:3290
 msgid "Connect failed: "
 msgstr "Conexión fallida: "
 
-#: ../src/hub.cc:3350
+#: ../src/hub.cc:3353
 msgid "Ignored private message from hub"
 msgstr "Ignorar mensajes privados del hub"
 
-#: ../src/hub.cc:3357
+#: ../src/hub.cc:3360
 msgid "Ignored private message from bot "
 msgstr "Ignorar mensajes privados del bot"
 
-#: ../src/hub.cc:3454
+#: ../src/hub.cc:3457
 msgid "Nick already taken"
 msgstr "Nick en uso"
 
-#: ../src/hub.cc:3461
+#: ../src/hub.cc:3464
 msgid "Search spam detected from "
 msgstr "Búsqueda basura detectada desde "
 
@@ -678,7 +678,7 @@ msgstr " restante"
 msgid "-:--:-- left"
 msgstr "-:--:-- restante"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:213 ../src/mainwindow.cc:2220
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2220
 #: ../src/mainwindow.cc:2222 ../glade/settingsdialog.glade:1586
 #: ../glade/settingsdialog.glade:1601 ../glade/settingsdialog.glade:1641
 msgid "s"
@@ -832,7 +832,7 @@ msgid "Waiting to retry"
 msgstr "Esperando reintento"
 
 #: ../src/transfers.cc:1083 ../src/settingsdialog.cc:990
-#: ../src/settingsdialog.cc:1151 ../src/settingsmanager.cc:235
+#: ../src/settingsdialog.cc:1151 ../src/settingsmanager.cc:234
 msgid "Download finished"
 msgstr "Descarga finalizada"
 
@@ -860,15 +860,29 @@ msgstr "Subida completa"
 msgid "CMD"
 msgstr "CMD"
 
-#: ../src/wulfor.cc:70
+#: ../src/wulfor.cc:44
+#, c-format
+msgid ""
+"Using:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Show this message\n"
+"  -v, --version\t Show version string\n"
+msgstr ""
+
+#: ../src/wulfor.cc:71
 msgid "Loading: "
 msgstr "Cargando: "
 
-#: ../src/wulfor.cc:146
+#: ../src/wulfor.cc:147
 msgid "Shutting down libdcpp..."
 msgstr "Apagando libdcpp..."
 
-#: ../src/wulfor.cc:148
+#: ../src/wulfor.cc:149
 msgid "Quit..."
 msgstr "Saliendo..."
 
@@ -1134,7 +1148,7 @@ msgid "Sounds"
 msgstr "Sonidos"
 
 #: ../src/settingsdialog.cc:991 ../src/settingsdialog.cc:1155
-#: ../src/settingsmanager.cc:237
+#: ../src/settingsmanager.cc:236
 msgid "Download finished file list"
 msgstr "Descarga de la lista de archivos finalizada"
 
@@ -1143,22 +1157,22 @@ msgid "Upload finished"
 msgstr "Subida finalizada"
 
 #: ../src/settingsdialog.cc:994 ../src/settingsdialog.cc:1163
-#: ../src/settingsmanager.cc:243
+#: ../src/settingsmanager.cc:242
 msgid "Hub connected"
 msgstr "Hub conectado"
 
 #: ../src/settingsdialog.cc:995 ../src/settingsdialog.cc:1167
-#: ../src/settingsmanager.cc:241
+#: ../src/settingsmanager.cc:240
 msgid "Hub disconnected"
 msgstr "Hub desconectado"
 
 #: ../src/settingsdialog.cc:996 ../src/settingsdialog.cc:1171
-#: ../src/settingsmanager.cc:245
+#: ../src/settingsmanager.cc:244
 msgid "Favorite user joined"
 msgstr "Se ha unido usuario favorito"
 
 #: ../src/settingsdialog.cc:997 ../src/settingsdialog.cc:1175
-#: ../src/settingsmanager.cc:247
+#: ../src/settingsmanager.cc:246
 msgid "Favorite user quit"
 msgstr "Usuario favorito se ha ido"
 
@@ -1709,81 +1723,81 @@ msgstr "<b>Archivo:</b> "
 msgid "Select file to Get TTH"
 msgstr "Seleccionar archivo para dar TTH"
 
-#: ../src/previewmenu.cc:90 ../src/emoticonsdialog.cc:106
+#: ../src/previewmenu.cc:89 ../src/emoticonsdialog.cc:106
 #: ../glade/settingsdialog.glade:3219 ../glade/settingsdialog.glade:3812
 #: ../glade/settingsdialog.glade:3958 ../glade/settingsdialog.glade:5730
 msgid "Default"
 msgstr "Por defecto"
 
-#: ../src/WulforUtil.cc:42
+#: ../src/WulforUtil.cc:40
 msgid "System default"
 msgstr "Sistema por Defecto"
 
-#: ../src/WulforUtil.cc:159
+#: ../src/WulforUtil.cc:157
 msgid "Offline"
 msgstr "Desconectado"
 
-#: ../src/WulforUtil.cc:211
+#: ../src/WulforUtil.cc:209
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: ../src/WulforUtil.cc:212
+#: ../src/WulforUtil.cc:210
 msgid "CP1252"
 msgstr "CP1252"
 
-#: ../src/WulforUtil.cc:213
+#: ../src/WulforUtil.cc:211
 msgid "CP1250"
 msgstr "CP1250"
 
-#: ../src/WulforUtil.cc:214
+#: ../src/WulforUtil.cc:212
 msgid "ISO-8859-2"
 msgstr "ISO-8859-2"
 
-#: ../src/WulforUtil.cc:215
+#: ../src/WulforUtil.cc:213
 msgid "ISO-8859-7"
 msgstr "ISO-8859-7"
 
-#: ../src/WulforUtil.cc:216
+#: ../src/WulforUtil.cc:214
 msgid "ISO-8859-8"
 msgstr "ISO-8859-8"
 
-#: ../src/WulforUtil.cc:217
+#: ../src/WulforUtil.cc:215
 msgid "ISO-8859-9"
 msgstr "ISO-8859-9"
 
-#: ../src/WulforUtil.cc:218
+#: ../src/WulforUtil.cc:216
 msgid "ISO-2022-JP"
 msgstr "ISO-2022-JP"
 
-#: ../src/WulforUtil.cc:219
+#: ../src/WulforUtil.cc:217
 msgid "SJIS"
 msgstr "SJIS"
 
-#: ../src/WulforUtil.cc:220
+#: ../src/WulforUtil.cc:218
 msgid "CP949"
 msgstr "CP949"
 
-#: ../src/WulforUtil.cc:221
+#: ../src/WulforUtil.cc:219
 msgid "KOI8-R"
 msgstr "KOI8-R"
 
-#: ../src/WulforUtil.cc:222
+#: ../src/WulforUtil.cc:220
 msgid "CP1251"
 msgstr "CP1251"
 
-#: ../src/WulforUtil.cc:223
+#: ../src/WulforUtil.cc:221
 msgid "CP1256"
 msgstr "CP1256"
 
-#: ../src/WulforUtil.cc:224
+#: ../src/WulforUtil.cc:222
 msgid "CP1257"
 msgstr "CP1257"
 
-#: ../src/WulforUtil.cc:225
+#: ../src/WulforUtil.cc:223
 msgid "GB18030"
 msgstr "GN18030"
 
-#: ../src/WulforUtil.cc:226
+#: ../src/WulforUtil.cc:224
 msgid "TIS-620"
 msgstr "TIS-620"
 
@@ -1938,23 +1952,23 @@ msgstr " abandonado"
 msgid "Close tab"
 msgstr "Cerrar pestaña"
 
-#: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
+#: ../src/settingsmanager.cc:513 ../src/settingsmanager.cc:533
 msgid "Error: setting not found!"
 msgstr "Error: ¡configuración no encontrada!"
 
-#: ../src/settingsmanager.cc:515
+#: ../src/settingsmanager.cc:514
 msgid "Change setting "
 msgstr "Cambiar configuración"
 
-#: ../src/settingsmanager.cc:515 ../src/settingsmanager.cc:535
+#: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
 msgid " to "
 msgstr " a "
 
-#: ../src/settingsmanager.cc:518 ../src/settingsmanager.cc:537
+#: ../src/settingsmanager.cc:517 ../src/settingsmanager.cc:536
 msgid "Error: params have been not 2!"
 msgstr "Error: ¡los parámetros no son iguales a 2!"
 
-#: ../src/settingsmanager.cc:535
+#: ../src/settingsmanager.cc:534
 msgid "Change core setting "
 msgstr "Cambiar configuración del core"
 
