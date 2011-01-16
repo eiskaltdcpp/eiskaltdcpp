@@ -8,9 +8,9 @@ else (UNIX AND NOT APPLE)
 endif (UNIX AND NOT APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.2.0")
+set (VERSION "2.2.1")
 set (SOVERSION "2.2")
-set (VERSION_SUFFIX "stable")
+set (VERSION_SUFFIX "GIT")
 
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
