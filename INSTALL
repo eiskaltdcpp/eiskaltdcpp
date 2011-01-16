@@ -128,7 +128,9 @@ Keys for cmake
     Enable/disable QtScript basic support
 -DUSE_QT_QML=ON/OFF (default: OFF)
     Enable/disable Qt Declarative Ui support. Work only with Qt >= 4.7.0
------------------
+-DUSE_QT_SQLITE=ON/OFF (default: OFF)
+    Build with SQLite support. (This is experimental option)
+ -----------------
 :eiskaltdcpp-gtk:
 -----------------
 -DUSE_GTK=ON/OFF (default: OFF)
@@ -142,8 +144,6 @@ Keys for cmake
 --------------------
 -DNO_UI_DAEMON=ON/OFF (default: OFF)
     build daemon without any UI
--DXMLRPC_DAEMON=ON/OFF (default: OFF)
-    make this daemon as xmlrpc server
 --------
 :common:
 --------
