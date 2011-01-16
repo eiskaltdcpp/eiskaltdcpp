@@ -1,5 +1,6 @@
 --- 2.2.1 2011-02-22 ---
 *** common changes ***
+* Fixed build under MS Windows.
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***
