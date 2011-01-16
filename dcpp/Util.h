@@ -28,6 +28,8 @@
 
 #include "Text.h"
 
+extern "C" int  _nl_msg_cat_cntr;
+
 namespace dcpp {
 
 template<typename T, bool flag> struct ReferenceSelector {
@@ -430,8 +432,15 @@ public:
 
     static void setLang(const string lang) {
         if(!lang.empty())
-            //setenv ("LANGUAGE", lang.c_str(), 1);
+#ifdef _WIN32
             putenv((char *)string("LANGUAGE=" + lang).c_str());
+#else
+            setenv ("LANGUAGE", lang.c_str(), 1);
+#endif
+        /* Make change known.  */
+        {
+        ++_nl_msg_cat_cntr;
+        }
     }
 
     static bool getManualAway() { return manualAway; }

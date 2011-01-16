@@ -55,8 +55,6 @@ void __stl_debug_terminate() {
 }
 #endif
 
-extern "C" int _nl_msg_cat_cntr;
-
 namespace dcpp {
 
 void startup(void (*f)(void*, const string&), void* p) {
@@ -110,15 +108,7 @@ void startup(void (*f)(void*, const string&), void* p) {
         ipfilter::getInstance()->load();
     }
 
-#ifdef _WIN32
-    if(!SETTING(LANGUAGE).empty()) {
-        string language = "LANGUAGE=" + SETTING(LANGUAGE);
-        putenv(language.c_str());
-
-        // Apparently this is supposted to make gettext reload the message catalog...
-        _nl_msg_cat_cntr++;
-    }
-#endif
+    Util::setLang(SETTING(LANGUAGE));
 
     FavoriteManager::getInstance()->load();
     CryptoManager::getInstance()->loadCertificates();
