@@ -28,6 +28,7 @@
 #include <dcpp/NmdcHub.h>
 #include <dcpp/ShareManager.h>
 #include <dcpp/StringTokenizer.h>//NOTE: core 0.770
+#include <dcpp/ThrottleManager.h>
 #include "settingsmanager.hh"
 #include "sound.hh"
 #include "notify.hh"
@@ -270,7 +271,8 @@ void Settings::saveSettings_client()
     { // Sharing
         sm->set(SettingsManager::FOLLOW_LINKS, (int)gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("followLinksCheckButton"))));
         sm->set(SettingsManager::MIN_UPLOAD_SPEED, (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("sharedExtraSlotSpinButton"))));
-        sm->set(SettingsManager::SLOTS, (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("sharedUploadSlotsSpinButton"))));
+        int sl = gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("sharedUploadSlotsSpinButton")));
+        sm->set(ThrottleManager::getInstance()->getCurSetting(SettingsManager::SLOTS), sl);
     }
 
     { // Appearance
@@ -917,7 +919,7 @@ void Settings::initSharing_gui()
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("shareHiddenCheckButton")), BOOLSETTING(SHARE_HIDDEN));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("followLinksCheckButton")), BOOLSETTING(FOLLOW_LINKS));
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("sharedExtraSlotSpinButton")), (double)SETTING(MIN_UPLOAD_SPEED));
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("sharedUploadSlotsSpinButton")), (double)SETTING(SLOTS));
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("sharedUploadSlotsSpinButton")), (double)SETTING(SLOTS_PRIMARY));
 }
 
 void Settings::initAppearance_gui()
