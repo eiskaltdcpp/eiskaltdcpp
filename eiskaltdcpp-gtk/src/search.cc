@@ -149,6 +149,8 @@ Search::Search():
         }
         gtk_combo_box_set_active(combo_box, 0);
 
+    gtk_combo_box_set_active (GTK_COMBO_BOX(getWidget("comboboxGroupBy")),5);
+
     // Connect the signals to their callback functions.
     g_signal_connect(getContainer(), "focus-in-event", G_CALLBACK(onFocusIn_gui), (gpointer)this);
     g_signal_connect(getWidget("checkbuttonFilter"), "toggled", G_CALLBACK(onFilterButtonToggled_gui), (gpointer)this);
@@ -678,34 +680,111 @@ void Search::updateParentRow_gui(GtkTreeIter *parent, GtkTreeIter *child)
             break;
         case FILENAME:
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("File Order"));
-            break;
-        case FILEPATH:
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Path")));
-            break;
-        case SIZE:
-        {
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Exact Size")));
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Size")));
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Real Size"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Connection")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("TTH")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Nick")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Hub")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Hub URL"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));
+            break;
+        case FILEPATH:
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("File Order"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Path")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Exact Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Real Size"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Connection")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("TTH")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Nick")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Hub")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Hub URL"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));
+            break;
+        case SIZE:
+        {
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("File Order"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Path")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Exact Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Real Size"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Connection")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("TTH")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Nick")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Hub")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Hub URL"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));
             break;
         }
         case CONNECTION:
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("File Order"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Path")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Exact Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Real Size"));
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Connection")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("TTH")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Nick")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Hub")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Hub URL"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));
             break;
         case TTH:
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("File Order"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Path")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Exact Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Real Size"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Connection")));
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("TTH")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Nick")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Hub")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Hub URL"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));
             break;
         case NICK:
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("File Order"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Path")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Exact Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Real Size"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Connection")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("TTH")));
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Nick")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Hub")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Hub URL"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));
             break;
         case HUB:
         {
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("File Order"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Path")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Exact Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Real Size"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Connection")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("TTH")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Nick")));
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Hub")));
             WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Hub URL"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));
             break;
         }
         case TYPE:
-            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("File Order"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Path")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Exact Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Size")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Real Size"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Connection")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("TTH")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Nick")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Hub")));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col("Hub URL"));
+            WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));;
             break;
         default:
             ///@todo: throw an exception
