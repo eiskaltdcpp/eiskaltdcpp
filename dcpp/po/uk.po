@@ -28,7 +28,7 @@ msgstr "Перенаправити користувача"
 
 #: ../FavoriteManager.cpp:488
 msgid "Auto-connect group (converted)"
-msgstr ""
+msgstr "Автопідключення групи"
 
 #: ../Socket.cpp:65
 #, c-format
@@ -80,7 +80,7 @@ msgstr "В черзі"
 
 #: ../DCPlusPlus.cpp:138
 msgid "Users"
-msgstr ""
+msgstr "Користувачі"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
@@ -89,11 +89,11 @@ msgstr "Неможливо створити потік"
 #: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
 #, fuzzy
 msgid "Invalid data"
-msgstr "Невірний розмір"
+msgstr "Невірні дані"
 
 #: ../UserConnection.cpp:61
 msgid "Non-UTF-8 data in an ADC connection"
-msgstr ""
+msgstr "Дані не в UTF-8 у ADC з'єднанні"
 
 #: ../ConnectivityManager.cpp:67
 msgid "Determining connection type..."
@@ -145,7 +145,7 @@ msgstr "Неможливо відправити файл %1%: %2%"
 
 #: ../UploadManager.cpp:510
 msgid "IPFilter: Blocked incoming connection to "
-msgstr ""
+msgstr "IP-Фільтр: Блоковано вхідне з'єдання з "
 
 #: ../UploadManager.cpp:573
 msgid "Disconnected user leaving the hub: %1%"
@@ -153,15 +153,15 @@ msgstr "Відключений користувач залишає хаб: %1%"
 
 #: ../SettingsManager.cpp:499
 msgid "Invalid search type name"
-msgstr ""
+msgstr "Неправильне ім'я типу пошуку"
 
 #: ../SettingsManager.cpp:503 ../SettingsManager.cpp:525
 msgid "This search type already exists"
-msgstr ""
+msgstr "Цей тип пошуку вже використовується"
 
 #: ../SettingsManager.cpp:557
 msgid "No such search type"
-msgstr ""
+msgstr "Немає такого типу пошуку"
 
 #: ../NmdcHub.cpp:288
 msgid "%1% (Nick unknown)"
@@ -169,7 +169,7 @@ msgstr "%1% (Нік невідомий)"
 
 #: ../NmdcHub.cpp:597
 msgid "Hub topic:"
-msgstr ""
+msgstr "Топік хабу:"
 
 #: ../NmdcHub.cpp:939
 msgid ""
@@ -218,7 +218,7 @@ msgstr "З'єднання не прослуховуються - будь лас�
 
 #: ../ChatMessage.cpp:34
 msgid "Sent "
-msgstr ""
+msgstr "Відправлено "
 
 #: ../Util.cpp:492
 #, c-format
@@ -349,7 +349,7 @@ msgstr " Порт для пошуку (%1% UDP)"
 #: ../UPnPManager.cpp:101
 #, fuzzy
 msgid " DHT Port (%1% UDP)"
-msgstr " Порт для пошуку (%1% UDP)"
+msgstr " DHT Порт (%1% UDP)"
 
 #: ../UPnPManager.cpp:108
 msgid ""
@@ -370,14 +370,12 @@ msgstr "Неможливо створити перенаправлення по�
 #: ../UPnPManager.cpp:138
 #, fuzzy
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr ""
-"Успішно виконане прокидання портів (TCP: %1%, UDP: %2%, TLS: %3%), "
-"використовується інтерфейс %4%"
+msgstr "Успішно видалено відображення портів з %1% iнтерфейсу"
 
 #: ../UPnPManager.cpp:139
 #, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Не вдалося видалити прокид портів"
+msgstr "Не вдалося видалити відображення портів з %1% iнтерфейсу"
 
 #: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
@@ -390,7 +388,7 @@ msgstr "Папка не вказана"
 #: ../ShareManager.cpp:457
 #, fuzzy
 msgid "Directory is hidden"
-msgstr "Директорія уже в доступі"
+msgstr "Директорія прихована"
 
 #: ../ShareManager.cpp:461
 msgid "The temporary download directory cannot be shared"
@@ -398,7 +396,7 @@ msgstr "Тимчасова папка скачування не може бут�
 
 #: ../ShareManager.cpp:649
 msgid "Invalid file name found while hashing folder %1%"
-msgstr ""
+msgstr "Знайдено неправильне ім'я файлу під час хешування папки %1%"
 
 #: ../ShareManager.cpp:667
 msgid "User has chosen not to share file: %1% (Size: %2%)"
@@ -503,7 +501,7 @@ msgstr "Помилка SSL: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
-msgstr ""
+msgstr "ІР-Фільтр: Блоковано вихідне з'єднання з "
 
 #: ../DownloadManager.cpp:228
 msgid "Invalid size"
@@ -543,43 +541,43 @@ msgstr "Помилка SSL: %1% (%2%, %3%)"
 
 #: ../SearchManager.cpp:37
 msgid "Any"
-msgstr ""
+msgstr "Будь-який"
 
 #: ../SearchManager.cpp:38
 msgid "Audio"
-msgstr ""
+msgstr "Аудіо"
 
 #: ../SearchManager.cpp:39
 msgid "Compressed"
-msgstr ""
+msgstr "Архів"
 
 #: ../SearchManager.cpp:40
 msgid "Document"
-msgstr ""
+msgstr "Документ"
 
 #: ../SearchManager.cpp:41
 msgid "Executable"
-msgstr ""
+msgstr "Виконувані"
 
 #: ../SearchManager.cpp:42
 msgid "Picture"
-msgstr ""
+msgstr "Зображення"
 
 #: ../SearchManager.cpp:43
 msgid "Video"
-msgstr ""
+msgstr "Відео"
 
 #: ../SearchManager.cpp:44
 msgid "Directory"
-msgstr ""
+msgstr "Тека"
 
 #: ../SearchManager.cpp:45
 msgid "TTH"
-msgstr ""
+msgstr "TTH"
 
 #: ../SearchManager.cpp:46
 msgid "CD Image"
-msgstr ""
+msgstr "Образ"
 
 #: ../SearchManager.cpp:152
 msgid "Search enabled again"
@@ -591,7 +589,7 @@ msgstr "Пошук відключений: %1%"
 
 #: ../QueueManager.cpp:239
 msgid "No needed part"
-msgstr ""
+msgstr "Немає необхідної частини"
 
 #: ../QueueManager.cpp:625
 msgid "Searching TTH alternates for: %1%"
@@ -620,12 +618,12 @@ msgstr "Ви намагаєтесь завантажити у себе!"
 #: ../QueueManager.cpp:796
 #, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
-msgstr "Файл з іншим tth коренем уже існує в черзі"
+msgstr "Файл з іншим коренем TTH уже існує в черзі"
 
 #: ../QueueManager.cpp:800
 #, fuzzy
 msgid "This file has already finished downloading"
-msgstr "Цей файл вже є у черзі"
+msgstr "Цей файл вже завантажено"
 
 #: ../QueueManager.cpp:837 ../QueueManager.cpp:846
 msgid "Target filename too long"
@@ -642,7 +640,7 @@ msgstr ""
 #: ../QueueManager.cpp:858
 #, fuzzy
 msgid "File already exists at the target location"
-msgstr "Файл такого ж або більшого розміру вже існує в папці призначення"
+msgstr "Файл вже існує в папці призначення"
 
 #: ../QueueManager.cpp:871 ../QueueManager.cpp:875
 msgid "Duplicate source: %1%"
@@ -658,11 +656,11 @@ msgstr "Цільовий файл відсутній або має неправ�
 
 #: ../QueueManager.cpp:1201
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr ""
+msgstr "Не вдалося перемістити %1% до %2% (%3%); перейменовано на %4%"
 
 #: ../QueueManager.cpp:1204
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
+msgstr "Не вдалося перемістити %1% до %2% (%3%); перейменовано на %4% (%5%)"
 
 #: ../QueueManager.cpp:1398
 msgid "Unable to open filelist: %1%"
