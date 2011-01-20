@@ -831,7 +831,7 @@ int ShareManager::run() {
     if(dirs.empty())
         refreshDirs = false;
 
-    if(refreshDirs && (BOOLSETTING(ALLOW_UPDATE_FILELIST_ON_STARTUP) || Util::getUpTime() > 15)) {
+    if(refreshDirs) {
         HashManager::HashPauser pauser;
         LogManager::getInstance()->message(_("File list refresh initiated"));
 
@@ -839,11 +839,11 @@ int ShareManager::run() {
 
         DirList newDirs;
         for(StringPairIter i = dirs.begin(); i != dirs.end(); ++i) {
-                        if (checkHidden(i->second)) {
+            if (checkHidden(i->second)) {
             Directory::Ptr dp = buildTree(i->second, Directory::Ptr());
             dp->setName(i->first);
             newDirs.push_back(dp);
-                        }
+            }
         }
 
         {
@@ -914,18 +914,23 @@ void ShareManager::generateXmlList() {
                 xmlRoot = newXmlFile.getFilter().getTree().getRoot();
                 bzXmlRoot = bzTree.getFilter().getTree().getRoot();
             }
-
+            const string XmlListFileName = Util::getPath(Util::PATH_USER_CONFIG) + "files.xml.bz2";
             if(bzXmlRef.get()) {
                 bzXmlRef.reset();
-                File::deleteFile(getBZXmlFile());
+                try {
+                    File::renameFile(XmlListFileName, XmlListFileName + ".bak");
+                } catch(const FileException&) { }
             }
 
             try {
-                File::renameFile(newXmlName, Util::getPath(Util::PATH_USER_CONFIG) + "files.xml.bz2");
-                newXmlName =Util::getPath(Util::PATH_USER_CONFIG) + "files.xml.bz2";
+                File::renameFile(newXmlName, XmlListFileName);
+                newXmlName = XmlListFileName;
             } catch(const FileException&) {
                 // Ignore, this is for caching only...
             }
+            try {
+                File::copyFile(XmlListFileName, XmlListFileName + ".bak");
+            } catch(const FileException&) { }
             bzXmlRef = auto_ptr<File>(new File(newXmlName, File::READ, File::OPEN));
             setBZXmlFile(newXmlName);
             bzXmlListLen = File::getSize(newXmlName);

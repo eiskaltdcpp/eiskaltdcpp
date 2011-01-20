@@ -120,6 +120,12 @@ void startup(void (*f)(void*, const string&), void* p) {
     HashManager::getInstance()->startup();
     if(f != NULL)
         (*f)(p, _("Shared Files"));
+    const string XmlListFileName = Util::getPath(Util::PATH_USER_CONFIG) + "files.xml.bz2";
+    if(!Util::fileExists(XmlListFileName)) {
+        try {
+            File::copyFile(XmlListFileName + ".bak", XmlListFileName);
+        } catch(const FileException&) { }
+    }
     ShareManager::getInstance()->refresh(true, false, true);
     if(f != NULL)
         (*f)(p, _("Download Queue"));

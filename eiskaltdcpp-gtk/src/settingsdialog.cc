@@ -1417,7 +1417,6 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Show IP's' in chats"), SettingsManager::USE_IP);
         addOption_gui(advancedStore, _("Show user country in chat"), SettingsManager::GET_USER_COUNTRY);
         addOption_gui(advancedStore, _("Allow overlap chunks"), SettingsManager::OVERLAP_CHUNKS);
-        addOption_gui(advancedStore, _("Allow update filelist at startup"), SettingsManager::ALLOW_UPDATE_FILELIST_ON_STARTUP);
 
         /// @todo: Uncomment when implemented
         //addOption_gui(advancedStore, _("Use CTRL for line history"), "use-ctrl-for-line-history");

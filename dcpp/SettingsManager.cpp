@@ -66,8 +66,7 @@ const string SettingsManager::settingTags[] =
     "HubUserCommands", "AutoSearchAutoMatch","LogSystem",
     "LogFilelistTransfers",
     "SendUnknownCommands", "MaxHashSpeed",
-    "GetUserCountry", "LogStatusMessages",
-    "AllowUpdateFilelistsOnStartup", "SearchPassiveAlways",
+    "GetUserCountry", "LogStatusMessages", "SearchPassiveAlways",
     "AddFinishedInstantly", "DontDLAlreadyShared",
     "UDPPort", "ShowLastLinesLog", "AdcDebug",
     "SearchHistory", "SetMinislotSize",
@@ -233,7 +232,6 @@ SettingsManager::SettingsManager()
     setDefault(AUTODROP_DISCONNECT, true);
     setDefault(NO_IP_OVERRIDE, false);
     setDefault(NO_USE_TEMP_DIR, false);
-    setDefault(ALLOW_UPDATE_FILELIST_ON_STARTUP, true);
     setDefault(SHARE_TEMP_FILES, false);
     setDefault(SEARCH_ONLY_FREE_SLOTS, false);
     setDefault(SEARCH_FILTER_SHARED, true);

@@ -241,17 +241,6 @@ and may cause the client to appear to freeze.</string>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox_REFRESH_ON_STARTUP">
-         <property name="toolTip">
-          <string>If with uncheck this you will leave the client until the update
-share is complete, share at follow-up activities start nulled.</string>
-         </property>
-         <property name="text">
-          <string>Run refresh share on startup</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QCheckBox" name="checkBox_AUTOREMOVE">
          <property name="text">
           <string>Auto remove non-existing directories</string>

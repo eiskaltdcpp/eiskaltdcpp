@@ -66,7 +66,6 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::MAX_HASH_SPEED, spinBox_MAXHASHSPEED->value());
     SM->set(SettingsManager::FAST_HASH, checkBox_FASTHASH->isChecked());
     SM->set(SettingsManager::AUTO_REFRESH_TIME, spinBox_REFRESH_TIME->value());
-    SM->set(SettingsManager::ALLOW_UPDATE_FILELIST_ON_STARTUP, checkBox_REFRESH_ON_STARTUP->isChecked());
     SM->set(SettingsManager::HASH_BUFFER_NORESERVE, checkBox_MAPNORESERVE->isChecked());
     SM->set(SettingsManager::HASH_BUFFER_POPULATE, checkBox_MAPPOPULATE->isChecked());
     SM->set(SettingsManager::HASH_BUFFER_PRIVATE, checkBox_MAPPRIVATE->isChecked());
@@ -105,7 +104,6 @@ void SettingsSharing::init(){
     spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
     spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));
     spinBox_REFRESH_TIME->setValue(SETTING(AUTO_REFRESH_TIME));
-    checkBox_REFRESH_ON_STARTUP->setChecked(BOOLSETTING(ALLOW_UPDATE_FILELIST_ON_STARTUP));
     checkBox_AUTOREMOVE->setChecked(WBGET(WB_APP_REMOVE_NOT_EX_DIRS));
 
     checkBox_FASTHASH->setChecked(BOOLSETTING(FAST_HASH));

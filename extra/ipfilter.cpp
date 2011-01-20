@@ -16,8 +16,6 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #endif
-#include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Util.h"
 #include "dcpp/File.h"
 #include "dcpp/StringTokenizer.h"
