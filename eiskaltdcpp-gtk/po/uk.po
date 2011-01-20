@@ -521,7 +521,7 @@ msgstr " видалено зі списку обраних"
 
 #: ../src/hub.cc:2639 ../src/favoritehubs.cc:330
 msgid "Global hub default"
-msgstr ""
+msgstr "Глобальні замовчування для хабу"
 
 #: ../src/hub.cc:2714 ../src/hub.cc:2734
 msgid "User not found"
@@ -787,7 +787,7 @@ msgstr " користувач(ів)"
 #: ../src/transfers.cc:609
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
-msgstr ""
+msgstr "Передачі::оновленняПередач, CID не знайдено %s\n"
 
 #: ../src/transfers.cc:668 ../src/transfers.cc:872
 msgid "File list"
@@ -879,6 +879,15 @@ msgid ""
 "  -h, --help\t Show this message\n"
 "  -v, --version\t Show version string\n"
 msgstr ""
+"Використовується:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та ADC "
+"протоколи.\n"
+"\n"
+"Ключі:\n"
+"  -h, --help\t Показати це повідомлення\n"
+"  -v, --version\t Показати версію\n"
 
 #: ../src/wulfor.cc:71
 msgid "Loading: "
@@ -3692,8 +3701,8 @@ msgid ""
 "Bandwidth\n"
 "Limiting"
 msgstr ""
-"Bandwidth\n"
-"Limiting"
+"Обмеження\n"
+"Пропуску"
 
 #: ../glade/settingsdialog.glade:5685
 msgid "Add"
