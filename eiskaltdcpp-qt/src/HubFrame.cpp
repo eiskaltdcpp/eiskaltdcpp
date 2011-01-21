@@ -1719,7 +1719,7 @@ void HubFrame::addStatus(QString msg){
     if (short_msg.isEmpty() && !lines.isEmpty())
         short_msg = lines.first();
 
-    pure_msg  = LinkParser::parseForLinks(msg, false);
+    pure_msg  = LinkParser::parseForLinks(msg.left(WIGET(WI_CHAT_STATUS_MSG_MAX_LEN)), false);
     short_msg = LinkParser::parseForLinks(short_msg, false);
     msg       = LinkParser::parseForLinks(msg, true);
 
@@ -1742,7 +1742,7 @@ void HubFrame::addStatus(QString msg){
 
     label_LAST_STATUS->setText(status + short_msg);
 
-    status += pure_msg.left(WIGET(WI_CHAT_STATUS_MSG_MAX_LEN));
+    status += pure_msg;
     WulforUtil::getInstance()->textToHtml(status, false);
 
     status_msg_history.push_back(status);

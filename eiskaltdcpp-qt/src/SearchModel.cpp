@@ -371,8 +371,6 @@ bool SearchModel::addResult
     if (parent == rootItem && !isDir)
         tths.insert(tth, item);
     else {
-
-
         if (sortColumn == COLUMN_SF_COUNT){
             sort(sortColumn, sortOrder);
 
