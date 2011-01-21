@@ -774,7 +774,18 @@ void SearchFrame::addResult(const QMap<QString, QVariant> &map){
 
     try {
         if (SB->ok(map["FILE"].toString(), SearchBlacklist::NAME) && SB->ok(map["TTH"].toString(), SearchBlacklist::TTH)){
-            if (model->addResultPtr(map))
+            if (model->addResult(map["FILE"].toString(),
+                                 map["SIZE"].toULongLong(),
+                                 map["TTH"].toString(),
+                                 map["PATH"].toString(),
+                                 map["NICK"].toString(),
+                                 map["FSLS"].toULongLong(),
+                                 map["ASLS"].toULongLong(),
+                                 map["IP"].toString(),
+                                 map["HUB"].toString(),
+                                 map["HOST"].toString(),
+                                 map["CID"].toString(),
+                                 map["ISDIR"].toBool()))
                 results++;
         }
     }

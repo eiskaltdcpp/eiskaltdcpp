@@ -200,7 +200,7 @@ int SearchModel::rowCount(const QModelIndex &parent) const
 }
 
 QModelIndex SearchModel::createIndexForItem(SearchItem *item){
-    if (!(rootItem && item))
+    if (!(rootItem && item) || item == rootItem)
         return QModelIndex();
 
     return index(item->row(), COLUMN_SF_FILENAME, (item->parent() == rootItem)? QModelIndex() : createIndexForItem(item->parent()));
@@ -371,30 +371,41 @@ bool SearchModel::addResult
     if (parent == rootItem && !isDir)
         tths.insert(tth, item);
     else {
-        parent->appendChild(item);
 
-        if (sortColumn == COLUMN_SF_COUNT)
+
+        if (sortColumn == COLUMN_SF_COUNT){
             sort(sortColumn, sortOrder);
 
-        emit layoutChanged();
+            return true;
+        }
+
+        beginInsertRows(createIndexForItem(parent), parent->childCount(), parent->childCount());
+        {
+             parent->appendChild(item);
+        }
+        endInsertRows();
 
         return true;
     }
 
-    QList<SearchItem*>::iterator it = rootItem->childItems.end();
+    emit layoutAboutToBeChanged();
+
+    QList<SearchItem*>::iterator it = parent->childItems.end();
 
     if (sortOrder == Qt::AscendingOrder)
-        it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
-    else if (sortOrder == Qt::DescendingOrder)
-        it = dcomp.insertSorted(sortColumn, rootItem->childItems, item);
+        it = acomp.insertSorted(sortColumn, parent->childItems, item);
+    else
+        it = dcomp.insertSorted(sortColumn, parent->childItems, item);
 
-    const int pos = it - rootItem->childItems.begin();
+    const int pos = it - parent->childItems.begin();
 
-    beginInsertRows(QModelIndex(), pos, pos);
-    {
-        rootItem->childItems.insert(it, item);
-    }
-    endInsertRows();
+    //beginInsertRows(createIndexForItem(parent), pos, pos);
+    //{
+        parent->childItems.insert(it, item);
+    //}
+    //endInsertRows();// Crash (???)
+
+    emit layoutChanged();
 
     return true;
 }
