@@ -25,6 +25,7 @@
 #include "HubManager.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
+#include "Magnet.h"
 
 #include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
@@ -44,6 +45,7 @@ DownloadQueue::Menu::Menu(){
     QAction *search_alt  = new QAction(tr("Search for alternates"), menu);
     QAction *copy_magnet = new QAction(tr("Copy magnet"), menu_magnet);
     QAction *copy_magnet_web = new QAction(tr("Copy web-magnet"), menu_magnet);
+    QAction *magnet_info = new QAction(tr("Properties of magnet"), menu_magnet);
     QAction *ren_move    = new QAction(tr("Rename/Move"), menu);
 
     QAction *sep1 = new QAction(menu);
@@ -89,10 +91,12 @@ DownloadQueue::Menu::Menu(){
     map[search_alt] = Alternates;
     map[copy_magnet] = Magnet;
     map[copy_magnet_web] = MagnetWeb;
+    map[magnet_info] = MagnetInfo;
     map[ren_move] = RenameMove;
     map[remove] = Remove;
 
-    menu_magnet->addActions(QList<QAction*>() << copy_magnet << copy_magnet_web);
+    menu_magnet->addActions(QList<QAction*>()
+            << copy_magnet << copy_magnet_web << sep3 << magnet_info);
 
     menu->addAction(search_alt);
     menu->addMenu(menu_magnet);
@@ -571,9 +575,10 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             QString magnet = "";
 
             foreach (DownloadQueueItem *i, items)
-                magnet += WulforUtil::getInstance()->makeMagnet(i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
-                                                                i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
-                                                                i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) + "\n";
+                magnet += WulforUtil::getInstance()->makeMagnet(
+                        i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
+                        i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
+                        i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) + "\n";
 
             if (!magnet.isEmpty())
                 qApp->clipboard()->setText(magnet, QClipboard::Clipboard);
@@ -586,20 +591,41 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
             foreach (DownloadQueueItem *i, items)
                 magnet += "[magnet=\"" +
-                          WulforUtil::getInstance()->makeMagnet(i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
-                                                                i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
-                                                                i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) +
-                          "\"]"+i->data(COLUMN_DOWNLOADQUEUE_NAME).toString()+"[/magnet]\n";
+                    WulforUtil::getInstance()->makeMagnet(
+                        i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
+                        i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
+                        i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) +
+                    "\"]"+i->data(COLUMN_DOWNLOADQUEUE_NAME).toString()+"[/magnet]\n";
 
             if (!magnet.isEmpty())
                 qApp->clipboard()->setText(magnet, QClipboard::Clipboard);
 
             break;
         }
+        case Menu::MagnetInfo:
+        {
+            QString magnet = "";
+
+            foreach (DownloadQueueItem *i, items){
+                magnet = WulforUtil::getInstance()->makeMagnet(
+                    i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
+                    i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
+                    i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) + "\n";
+
+                if (!magnet.isEmpty()){
+                    Magnet m(this);
+                    m.setLink(magnet);
+                    m.exec();
+                }
+            }
+
+            break;
+        }
         case Menu::RenameMove:
         {
             foreach (DownloadQueueItem *i, items){
-                QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
+                QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + 
+                                 i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
                 QString new_target = QFileDialog::getSaveFileName(this, tr("Choose filename"), QDir::homePath(), tr("All files (*.*)"));
 
                 if (!new_target.isEmpty()){

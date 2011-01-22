@@ -54,6 +54,7 @@ public:
         Alternates=0,
         Magnet,
         MagnetWeb,
+        MagnetInfo,
         RenameMove,
         SetPriority,
         Browse,

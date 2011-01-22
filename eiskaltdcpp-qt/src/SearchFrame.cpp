@@ -29,6 +29,7 @@
 #include "SearchBlacklist.h"
 #include "SearchBlacklistDialog.h"
 #include "WulforUtil.h"
+#include "Magnet.h"
 
 #include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
@@ -90,6 +91,9 @@ SearchFrame::Menu::Menu(){
     QAction *magnet_web     = new QAction(tr("Copy web-magnet"), NULL);
     magnet_web->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
 
+    QAction *magnet_info    = new QAction(tr("Properties of magnet"), NULL);
+    magnet_info->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
+
     QAction *browse     = new QAction(tr("Browse files"), NULL);
     browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
@@ -111,6 +115,9 @@ SearchFrame::Menu::Menu(){
     QAction *sep2       = new QAction(menu);
     sep2->setSeparator(true);
 
+    QAction *sep3       = new QAction(menu);
+    sep3->setSeparator(true);
+
     QAction *rem_queue  = new QAction(tr("Remove from Queue"), NULL);
     rem_queue->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
@@ -120,13 +127,15 @@ SearchFrame::Menu::Menu(){
     QAction *blacklist = new QAction(tr("Blacklist"), NULL);
     blacklist->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
 
-    magnet_menu->addActions(QList<QAction*>() << magnet << magnet_web);
+    magnet_menu->addActions(QList<QAction*>()
+                    << magnet << magnet_web << sep3 << magnet_info);
 
     actions.insert(down, Download);
     actions.insert(down_wh, DownloadWholeDir);
     actions.insert(find_tth, SearchTTH);
     actions.insert(magnet, Magnet);
     actions.insert(magnet_web, MagnetWeb);
+    actions.insert(magnet_info, MagnetInfo);
     actions.insert(browse, Browse);
     actions.insert(match, MatchQueue);
     actions.insert(send_pm, SendPM);
@@ -1233,6 +1242,30 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             if (!magnets.isEmpty())
                 qApp->clipboard()->setText(magnets, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::MagnetInfo:
+        {
+            WulforUtil *WU = WulforUtil::getInstance();
+
+            foreach (QModelIndex i, list){
+                SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+
+                if (!item->isDir){//only files
+                    qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
+                    QString tth = item->data(COLUMN_SF_TTH).toString();
+                    QString name = item->data(COLUMN_SF_FILENAME).toString();
+
+                    QString magnet = WU->makeMagnet(name, size, tth);
+
+                    if (!magnet.isEmpty()){
+                        Magnet m(this);
+                        m.setLink(magnet + "\n");
+                        m.exec();
+                    }
+                }
+            }
 
             break;
         }

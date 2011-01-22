@@ -12,6 +12,7 @@
 #include "FileBrowserModel.h"
 #include "MainWindow.h"
 #include "SearchFrame.h"
+#include "Magnet.h"
 
 #include "dcpp/SettingsManager.h"
 #include "dcpp/FavoriteManager.h"
@@ -77,6 +78,8 @@ ShareBrowser::Menu::Menu(){
     magnet->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
     QAction *magnet_web  = new QAction(tr("Copy web-magnet"), menu);
     magnet_web->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
+    QAction *magnet_info  = new QAction(tr("Properties of magnet"), menu);
+    magnet_info->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
     QAction *sep1    = new QAction(menu);
     QAction *add_to_fav = new QAction(tr("Add to favorites"), menu);
     add_to_fav->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
@@ -84,21 +87,25 @@ ShareBrowser::Menu::Menu(){
     QAction *rem_rest = new QAction(tr("Remove restriction"), rest_menu);
     open_url = new QAction(tr("Open directory"), menu);
     QAction *sep2    = new QAction(menu);
+    QAction *sep3    = new QAction(menu);
 
     actions.insert(down, Download);
     actions.insert(alter, Alternates);
     actions.insert(magnet, Magnet);
     actions.insert(magnet_web, MagnetWeb);
+    actions.insert(magnet_info, MagnetInfo);
     actions.insert(add_to_fav, AddToFav);
     actions.insert(set_rest, AddRestrinction);
     actions.insert(rem_rest, RemoveRestriction);
     actions.insert(open_url, OpenUrl);
 
-    magnet_menu->addActions(QList<QAction*>() << magnet << magnet_web);
+    magnet_menu->addActions(QList<QAction*>()
+                    << magnet << magnet_web << sep3 << magnet_info);
 
     sep->setSeparator(true);
     sep1->setSeparator(true);
     sep2->setSeparator(true);
+    sep3->setSeparator(true);
 
     menu->addActions(QList<QAction*>() << down << sep << alter);
     menu->addMenu(magnet_menu);
@@ -810,6 +817,29 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             magnets = magnets.trimmed();
 
             qApp->clipboard()->setText(magnets, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::MagnetInfo:
+        {
+            QString path, tth, magnet;
+            qlonglong size;
+
+            foreach (QModelIndex index, list){
+                FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
+
+                path = item->data(COLUMN_FILEBROWSER_NAME).toString();
+                tth  = item->data(COLUMN_FILEBROWSER_TTH).toString();
+                size = item->data(COLUMN_FILEBROWSER_ESIZE).toLongLong();
+
+                magnet = WulforUtil::getInstance()->makeMagnet(path, size, tth);
+
+                if (!magnet.isEmpty()){
+                    Magnet m(this);
+                    m.setLink(magnet + "\n");
+                    m.exec();
+                }
+            }
 
             break;
         }
