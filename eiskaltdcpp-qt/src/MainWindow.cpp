@@ -310,7 +310,7 @@ void MainWindow::showEvent(QShowEvent *e){
 
         slotToolsSettings();
     }
-    
+
     e->accept();
 }
 
@@ -1179,7 +1179,7 @@ void MainWindow::retranslateUi(){
 
         toolsCopyWindowTitle->setText(tr("Copy window title"));
 
-        toolsOptions->setText(tr("Options"));
+        toolsOptions->setText(tr("Preferences"));
 
         toolsSearch->setText(tr("Search"));
 

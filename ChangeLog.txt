@@ -2,7 +2,9 @@
 *** common changes ***
 * Fixed build under MS Windows.
 *** eiskaltdcpp-qt ***
+* Fixed a crash program when using the filter in the search results when new query results come.
 *** eiskaltdcpp-gtk ***
+* Improvements in the search widget.
 *** eiskaltdcpp-daemon ***
 
 --- 2.2.0 2011-01-16 ---

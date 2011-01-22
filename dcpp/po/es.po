@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-16 03:39+0200\n"
+"POT-Creation-Date: 2011-01-22 21:10+0200\n"
 "PO-Revision-Date: 2011-01-09 00:17+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -69,19 +69,19 @@ msgstr ""
 "Fallada la conexión con el servidor socks por retraso UDP (chequear "
 "dirección socks y puerto)"
 
-#: ../DCPlusPlus.cpp:129
+#: ../DCPlusPlus.cpp:119
 msgid "Hash database"
 msgstr "Base de Datos del Hash"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:122
 msgid "Shared Files"
 msgstr "Archivos compartidos"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:131
 msgid "Download Queue"
 msgstr "Cola de Descargas"
 
-#: ../DCPlusPlus.cpp:138
+#: ../DCPlusPlus.cpp:134
 msgid "Users"
 msgstr "Usuarios"
 
@@ -153,15 +153,15 @@ msgstr "IPFilter: Bloqueada conexión de entrada a "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Usuario desconectado ha dejado el hub: %1%"
 
-#: ../SettingsManager.cpp:499
+#: ../SettingsManager.cpp:497
 msgid "Invalid search type name"
 msgstr "Nombre del tipo de búsqueda invalida"
 
-#: ../SettingsManager.cpp:503 ../SettingsManager.cpp:525
+#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
 msgid "This search type already exists"
 msgstr "Este tipo de búsquedas ya existe"
 
-#: ../SettingsManager.cpp:557
+#: ../SettingsManager.cpp:555
 msgid "No such search type"
 msgstr "Tipo de búsqueda no encontrada"
 
@@ -435,7 +435,7 @@ msgstr "Refresco de la lista Iniciada"
 msgid "File list refresh finished"
 msgstr "Refresco de la lista Terminada"
 
-#: ../ShareManager.cpp:932
+#: ../ShareManager.cpp:937
 msgid "File list %1% generated"
 msgstr "Lista de ficheros %1% generada"
 

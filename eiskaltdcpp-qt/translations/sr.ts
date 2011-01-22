@@ -317,6 +317,10 @@ Keys:
         <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueueModel</name>
@@ -1329,7 +1333,7 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>Podešavanja</translation>
+        <translation type="obsolete">Podešavanja</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -1949,6 +1953,10 @@ Molim proverite podešavanja vaše veze</translation>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2484,6 +2492,10 @@ Keys:
         <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>
@@ -2544,7 +2556,7 @@ Keys:
     <name>Settings</name>
     <message>
         <source>Options</source>
-        <translation>Podešavanja</translation>
+        <translation type="obsolete">Podešavanja</translation>
     </message>
     <message>
         <source>Personal</source>
@@ -2580,6 +2592,10 @@ Keys:
     </message>
     <message>
         <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2937,6 +2953,10 @@ Keys:
     <message>
         <source>Open directory</source>
         <translation type="unfinished">Otvori fasciklu</translation>
+    </message>
+    <message>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5412,7 +5432,7 @@ Napomena: ova opcija zahteva i osvežavanje fajl liste.</translation>
     <message>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation>Ako sključite ovo, vi  ćete ostaviti kliJenta do kompletnog
+        <translation type="obsolete">Ako sključite ovo, vi  ćete ostaviti kliJenta do kompletnog
 ažuriranja deljenog. </translation>
     </message>
     <message>
@@ -5511,7 +5531,7 @@ ako tvoj sistem počinje sporo.</translation>
     </message>
     <message>
         <source>Run refresh share on startup</source>
-        <translation>Pokreni osvežavanje deljenog po startovanju</translation>
+        <translation type="obsolete">Pokreni osvežavanje deljenog po startovanju</translation>
     </message>
     <message>
         <source>Auto remove non-existing directories</source>

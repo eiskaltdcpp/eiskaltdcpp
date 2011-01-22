@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-16 03:39+0200\n"
+"POT-Creation-Date: 2011-01-22 21:10+0200\n"
 "PO-Revision-Date: 2008-05-04 16:18+0000\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,19 +66,19 @@ msgstr ""
 "Не вдалось налаштувати сокет-сервер для UDP передачі (перевірте адресу і "
 "порт сокета)"
 
-#: ../DCPlusPlus.cpp:129
+#: ../DCPlusPlus.cpp:119
 msgid "Hash database"
 msgstr "Хешувати базу даних"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:122
 msgid "Shared Files"
 msgstr "Файли у доступі"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:131
 msgid "Download Queue"
 msgstr "В черзі"
 
-#: ../DCPlusPlus.cpp:138
+#: ../DCPlusPlus.cpp:134
 msgid "Users"
 msgstr "Користувачі"
 
@@ -151,15 +151,15 @@ msgstr "IP-Фільтр: Блоковано вхідне з'єдання з "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Відключений користувач залишає хаб: %1%"
 
-#: ../SettingsManager.cpp:499
+#: ../SettingsManager.cpp:497
 msgid "Invalid search type name"
 msgstr "Неправильне ім'я типу пошуку"
 
-#: ../SettingsManager.cpp:503 ../SettingsManager.cpp:525
+#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
 msgid "This search type already exists"
 msgstr "Цей тип пошуку вже використовується"
 
-#: ../SettingsManager.cpp:557
+#: ../SettingsManager.cpp:555
 msgid "No such search type"
 msgstr "Немає такого типу пошуку"
 
@@ -433,7 +433,7 @@ msgstr "Оновлення списку файлів розпочато"
 msgid "File list refresh finished"
 msgstr "Оновлення списку файлів закінчено"
 
-#: ../ShareManager.cpp:932
+#: ../ShareManager.cpp:937
 msgid "File list %1% generated"
 msgstr "Список файлів %1% згенеровано"
 

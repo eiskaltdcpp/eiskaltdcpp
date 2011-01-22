@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-16 03:39+0200\n"
+"POT-Creation-Date: 2011-01-22 21:10+0200\n"
 "PO-Revision-Date: 2011-01-10 18:24+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
@@ -72,19 +72,19 @@ msgstr ""
 "A socks kiszolgáló beállítása az UDP port továbbításra nem sikerült "
 "(ellenőrizd a kiszolgáló címét és a portot)"
 
-#: ../DCPlusPlus.cpp:129
+#: ../DCPlusPlus.cpp:119
 msgid "Hash database"
 msgstr "Hash adatbázis"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:122
 msgid "Shared Files"
 msgstr "Megosztott fájlok"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:131
 msgid "Download Queue"
 msgstr "Letöltési Sor"
 
-#: ../DCPlusPlus.cpp:138
+#: ../DCPlusPlus.cpp:134
 msgid "Users"
 msgstr "Felhasználó(k)"
 
@@ -156,15 +156,15 @@ msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
-#: ../SettingsManager.cpp:499
+#: ../SettingsManager.cpp:497
 msgid "Invalid search type name"
 msgstr "Érvénytelen keresési feltétel"
 
-#: ../SettingsManager.cpp:503 ../SettingsManager.cpp:525
+#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
 msgid "This search type already exists"
 msgstr "A megadott keresési feltétel már létezik"
 
-#: ../SettingsManager.cpp:557
+#: ../SettingsManager.cpp:555
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
@@ -442,7 +442,7 @@ msgstr "A fájl-lista frissítése elkezdődött"
 msgid "File list refresh finished"
 msgstr "A fájl-lista frissítése befejeződött"
 
-#: ../ShareManager.cpp:932
+#: ../ShareManager.cpp:937
 msgid "File list %1% generated"
 msgstr "Fájl-lista %1% létrehozva"
 

@@ -251,27 +251,27 @@ Opcje:
 <context>
     <name>DownloadQueue</name>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="352"/>
+        <location filename="../src/DownloadQueue.cpp" line="356"/>
         <source>No users...</source>
         <translation>Brak użytkowników...</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="357"/>
+        <location filename="../src/DownloadQueue.cpp" line="361"/>
         <source>%1 of %2 user(s) online</source>
         <translation>%1 z %2 użytkownik(ów) online</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="359"/>
+        <location filename="../src/DownloadQueue.cpp" line="363"/>
         <source>Running...</source>
         <translation>Uruchomiony...</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="385"/>
+        <location filename="../src/DownloadQueue.cpp" line="389"/>
         <source>File not available</source>
         <translation>Plik niedostępny</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="387"/>
+        <location filename="../src/DownloadQueue.cpp" line="391"/>
         <source>Passive user</source>
         <translation>Użytkownik pasywny</translation>
     </message>
@@ -280,127 +280,132 @@ Opcje:
         <translation type="obsolete">Niezgodne CRC32 (sprawdź SFV)</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="391"/>
+        <location filename="../src/DownloadQueue.cpp" line="395"/>
         <source>Full tree does not match TTH root</source>
         <translation>Drzewo katalogu nie odpowiada TTH</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="393"/>
+        <location filename="../src/DownloadQueue.cpp" line="397"/>
         <source>Source too slow</source>
         <translation>Źródło zbyt powolne</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="395"/>
+        <location filename="../src/DownloadQueue.cpp" line="399"/>
         <source>Remote client does not fully support TTH - cannot download</source>
         <translation>Zdalny klient nie obsługuje w pełni TTH - nie można pobrać</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="402"/>
+        <location filename="../src/DownloadQueue.cpp" line="406"/>
         <source>No errors</source>
         <translation>Brak błędów</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="603"/>
+        <location filename="../src/DownloadQueue.cpp" line="629"/>
         <source>Choose filename</source>
         <translation>Wybierz nazwę</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="603"/>
+        <location filename="../src/DownloadQueue.cpp" line="629"/>
         <source>All files (*.*)</source>
         <translation>Wszystkie pliki (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.h" line="88"/>
+        <location filename="../src/DownloadQueue.h" line="89"/>
         <source>Download Queue</source>
         <translation>Kolejka pobierania</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="42"/>
+        <location filename="../src/DownloadQueue.cpp" line="43"/>
         <source>Magnet</source>
         <translation type="unfinished">Magnet</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="44"/>
+        <location filename="../src/DownloadQueue.cpp" line="45"/>
         <source>Search for alternates</source>
         <translation>Szukaj alternatywy</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="45"/>
+        <location filename="../src/DownloadQueue.cpp" line="46"/>
         <source>Copy magnet</source>
         <translation>Kopiuj magnet-link</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="46"/>
+        <location filename="../src/DownloadQueue.cpp" line="47"/>
         <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="47"/>
+        <location filename="../src/DownloadQueue.cpp" line="48"/>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/DownloadQueue.cpp" line="49"/>
         <source>Rename/Move</source>
         <translation>Zmień nazwę/Przenieś</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="52"/>
+        <location filename="../src/DownloadQueue.cpp" line="54"/>
         <source>Set priority</source>
         <translation>Ustaw priorytet</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="54"/>
+        <location filename="../src/DownloadQueue.cpp" line="56"/>
         <source>Paused</source>
         <translation>Wstrzymany</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="57"/>
+        <location filename="../src/DownloadQueue.cpp" line="59"/>
         <source>Lowest</source>
         <translation>Najniższy</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="60"/>
+        <location filename="../src/DownloadQueue.cpp" line="62"/>
         <source>Low</source>
         <translation>Niski</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="63"/>
+        <location filename="../src/DownloadQueue.cpp" line="65"/>
         <source>Normal</source>
         <translation>Normalny</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="66"/>
+        <location filename="../src/DownloadQueue.cpp" line="68"/>
         <source>High</source>
         <translation>Wysoki</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="69"/>
+        <location filename="../src/DownloadQueue.cpp" line="71"/>
         <source>Highest</source>
         <translation>Najwyższy</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="75"/>
+        <location filename="../src/DownloadQueue.cpp" line="77"/>
         <source>Browse files</source>
         <translation>Pobierz listę plików</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="76"/>
+        <location filename="../src/DownloadQueue.cpp" line="78"/>
         <source>Send private message</source>
         <translation>Wyślij wiadomość prywatną</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="81"/>
+        <location filename="../src/DownloadQueue.cpp" line="83"/>
         <source>Remove source</source>
         <translation>Usuń źródło</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="82"/>
+        <location filename="../src/DownloadQueue.cpp" line="84"/>
         <source>Remove user</source>
         <translation>Usuń użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="84"/>
+        <location filename="../src/DownloadQueue.cpp" line="86"/>
         <source>Remove</source>
         <translation>Usuń</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="389"/>
+        <location filename="../src/DownloadQueue.cpp" line="393"/>
         <source>Checksum mismatch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1684,9 +1689,8 @@ Ulubiony użytkownik</translation>
         <translation>&amp;Plik</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1182"/>
         <source>Options</source>
-        <translation>Opcje</translation>
+        <translation type="obsolete">Opcje</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1108"/>
@@ -1879,6 +1883,11 @@ Ulubiony użytkownik</translation>
         <location filename="../src/MainWindow.cpp" line="1178"/>
         <source>Away when not visible</source>
         <translation>Niedostępny (AWAY), kiedy niewidoczny</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1182"/>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1186"/>
@@ -2905,30 +2914,30 @@ Opcje:
 <context>
     <name>SearchFrame</name>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="296"/>
+        <location filename="../src/SearchFrame.cpp" line="305"/>
         <source>Search window</source>
         <translation>Okno wyszukiwań</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="408"/>
+        <location filename="../src/SearchFrame.cpp" line="417"/>
         <source>Close</source>
         <translation>Zamknij</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="644"/>
-        <location filename="../src/SearchFrame.cpp" line="961"/>
+        <location filename="../src/SearchFrame.cpp" line="653"/>
+        <location filename="../src/SearchFrame.cpp" line="981"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation>Zbyt szybkie próby wyszukiwania, proszę czekać %1 sekund</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="648"/>
-        <location filename="../src/SearchFrame.cpp" line="956"/>
-        <location filename="../src/SearchFrame.cpp" line="965"/>
+        <location filename="../src/SearchFrame.cpp" line="657"/>
+        <location filename="../src/SearchFrame.cpp" line="976"/>
+        <location filename="../src/SearchFrame.cpp" line="985"/>
         <source>Search - %1</source>
         <translation>Wyszukiwanie - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="653"/>
+        <location filename="../src/SearchFrame.cpp" line="662"/>
         <source>Ready to search...</source>
         <translation>Gotowy do wyszukiwania...</translation>
     </message>
@@ -3070,18 +3079,18 @@ Opcje:
         <translation>Huby</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1073"/>
-        <location filename="../src/SearchFrame.cpp" line="1131"/>
+        <location filename="../src/SearchFrame.cpp" line="1093"/>
+        <location filename="../src/SearchFrame.cpp" line="1151"/>
         <source>Select directory</source>
         <translation>Wybierz katalog</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1393"/>
+        <location filename="../src/SearchFrame.cpp" line="1437"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Brak wyników&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1402"/>
+        <location filename="../src/SearchFrame.cpp" line="1446"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Znaleziono: &lt;b&gt;%1&lt;/b&gt;  Odrzucono: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -3111,7 +3120,7 @@ Opcje:
         <translation>Nic nierób</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="69"/>
+        <location filename="../src/SearchFrame.cpp" line="70"/>
         <source>Download</source>
         <translation>Pobierz</translation>
     </message>
@@ -3120,7 +3129,7 @@ Opcje:
         <translation type="obsolete">Pobierz do</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="75"/>
+        <location filename="../src/SearchFrame.cpp" line="76"/>
         <source>Download Whole Directory</source>
         <translation>Pobierz cały katalog</translation>
     </message>
@@ -3129,78 +3138,83 @@ Opcje:
         <translation type="obsolete">Pobierz cały katalog do</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="67"/>
+        <location filename="../src/SearchFrame.cpp" line="68"/>
         <source>Magnet</source>
         <translation type="unfinished">Magnet</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="72"/>
+        <location filename="../src/SearchFrame.cpp" line="73"/>
         <source>Download to...</source>
         <translation>Pobierz do</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="78"/>
+        <location filename="../src/SearchFrame.cpp" line="79"/>
         <source>Download Whole Directory to...</source>
         <translation>Pobierz cały katalog do...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="84"/>
+        <location filename="../src/SearchFrame.cpp" line="85"/>
         <source>Search TTH</source>
         <translation>Szukaj TTH</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="87"/>
+        <location filename="../src/SearchFrame.cpp" line="88"/>
         <source>Copy magnet</source>
         <translation>Kopiuj magnet-link</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="90"/>
+        <location filename="../src/SearchFrame.cpp" line="91"/>
         <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="93"/>
+        <location filename="../src/SearchFrame.cpp" line="94"/>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SearchFrame.cpp" line="97"/>
         <source>Browse files</source>
         <translation>Pobierz listę plików</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="96"/>
+        <location filename="../src/SearchFrame.cpp" line="100"/>
         <source>Match Queue</source>
         <translation>Porównaj kolejkę</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="99"/>
+        <location filename="../src/SearchFrame.cpp" line="103"/>
         <source>Send Private Message</source>
         <translation>Wyślij wiadomość prywatną</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="102"/>
+        <location filename="../src/SearchFrame.cpp" line="106"/>
         <source>Add to favorites</source>
         <translation>Dodaj do ulubionych</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="105"/>
+        <location filename="../src/SearchFrame.cpp" line="109"/>
         <source>Grant extra slot</source>
         <translation>Przyznaj extra slot</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="114"/>
+        <location filename="../src/SearchFrame.cpp" line="121"/>
         <source>Remove from Queue</source>
         <translation>Usuń z kolejki</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="117"/>
+        <location filename="../src/SearchFrame.cpp" line="124"/>
         <source>Remove</source>
         <translation>Usuń</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="120"/>
+        <location filename="../src/SearchFrame.cpp" line="127"/>
         <source>Blacklist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="220"/>
-        <location filename="../src/SearchFrame.cpp" line="223"/>
+        <location filename="../src/SearchFrame.cpp" line="229"/>
+        <location filename="../src/SearchFrame.cpp" line="232"/>
         <source>Browse</source>
         <translation>Przegladaj</translation>
     </message>
@@ -3276,6 +3290,11 @@ Opcje:
 <context>
     <name>Settings</name>
     <message>
+        <location filename="../src/Settings.cpp" line="29"/>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/Settings.cpp" line="42"/>
         <source>Personal</source>
         <translation>Informacje osobiste</translation>
@@ -3321,9 +3340,8 @@ Opcje:
         <translation>Skróty</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="29"/>
         <source>Options</source>
-        <translation>Opcje</translation>
+        <translation type="obsolete">Opcje</translation>
     </message>
 </context>
 <context>
@@ -3550,8 +3568,8 @@ Opcje:
         <translation type="obsolete">GiB</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="116"/>
-        <location filename="../src/SettingsSharing.cpp" line="163"/>
+        <location filename="../src/SettingsSharing.cpp" line="114"/>
+        <location filename="../src/SettingsSharing.cpp" line="161"/>
         <source>Total shared: %1</source>
         <translation>Udostępnionych: %1</translation>
     </message>
@@ -3560,26 +3578,26 @@ Opcje:
         <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="190"/>
-        <location filename="../src/SettingsSharing.cpp" line="309"/>
-        <location filename="../src/SettingsSharing.cpp" line="320"/>
+        <location filename="../src/SettingsSharing.cpp" line="188"/>
+        <location filename="../src/SettingsSharing.cpp" line="307"/>
+        <location filename="../src/SettingsSharing.cpp" line="318"/>
         <source>Select directory</source>
         <translation>Wybierz katalog</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="190"/>
-        <location filename="../src/SettingsSharing.cpp" line="320"/>
-        <location filename="../src/SettingsSharing.cpp" line="361"/>
+        <location filename="../src/SettingsSharing.cpp" line="188"/>
+        <location filename="../src/SettingsSharing.cpp" line="318"/>
+        <location filename="../src/SettingsSharing.cpp" line="359"/>
         <source>Name</source>
         <translation>Nazwa</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="288"/>
+        <location filename="../src/SettingsSharing.cpp" line="286"/>
         <source>Add</source>
         <translation>Dodaj</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="297"/>
+        <location filename="../src/SettingsSharing.cpp" line="295"/>
         <source>Remove</source>
         <translation>Usuń</translation>
     </message>
@@ -3600,35 +3618,35 @@ Opcje:
         <translation type="obsolete">Ograniczenie</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="207"/>
-        <location filename="../src/SettingsSharing.cpp" line="236"/>
+        <location filename="../src/SettingsSharing.cpp" line="205"/>
+        <location filename="../src/SettingsSharing.cpp" line="234"/>
         <source>Add item</source>
         <translation>Dodaj element</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="207"/>
-        <location filename="../src/SettingsSharing.cpp" line="236"/>
+        <location filename="../src/SettingsSharing.cpp" line="205"/>
+        <location filename="../src/SettingsSharing.cpp" line="234"/>
         <source>Enter text:</source>
         <translation>Wprowadź tekst:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="214"/>
+        <location filename="../src/SettingsSharing.cpp" line="212"/>
         <source>Choose the directory</source>
         <translation>Wybierz katalog</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="292"/>
+        <location filename="../src/SettingsSharing.cpp" line="290"/>
         <source>Rename</source>
         <translation>Zmień nazwę</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="335"/>
-        <location filename="../src/SettingsSharing.cpp" line="371"/>
+        <location filename="../src/SettingsSharing.cpp" line="333"/>
+        <location filename="../src/SettingsSharing.cpp" line="369"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="360"/>
+        <location filename="../src/SettingsSharing.cpp" line="358"/>
         <source>Enter new name</source>
         <translation>Wprowadź nową nazwę</translation>
     </message>
@@ -3636,22 +3654,22 @@ Opcje:
 <context>
     <name>ShareBrowser</name>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="207"/>
+        <location filename="../src/ShareBrowser.cpp" line="214"/>
         <source>Own files</source>
         <translation>Własne pliki</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="209"/>
+        <location filename="../src/ShareBrowser.cpp" line="216"/>
         <source>Listing: </source>
         <translation>Lista plików:</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="288"/>
+        <location filename="../src/ShareBrowser.cpp" line="295"/>
         <source>Filebrowser</source>
         <translation>Przeglądarka plików</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="290"/>
+        <location filename="../src/ShareBrowser.cpp" line="297"/>
         <source>Close</source>
         <translation>Zamknij</translation>
     </message>
@@ -3672,78 +3690,83 @@ Opcje:
         <translation type="obsolete">TTH</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="333"/>
+        <location filename="../src/ShareBrowser.cpp" line="340"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Udostępnionych: %1; Plików: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="71"/>
+        <location filename="../src/ShareBrowser.cpp" line="72"/>
         <source>Download to...</source>
         <translation>Pobierz do...</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="66"/>
+        <location filename="../src/ShareBrowser.cpp" line="67"/>
         <source>Restrictions</source>
         <translation type="unfinished">Limity</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="67"/>
+        <location filename="../src/ShareBrowser.cpp" line="68"/>
         <source>Magnet</source>
         <translation type="unfinished">Magnet</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="78"/>
+        <location filename="../src/ShareBrowser.cpp" line="79"/>
         <source>Copy web-magnet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
-        <source>Add to favorites</source>
-        <translation>Dodaj do ulubionych</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="83"/>
-        <source>Add restriction</source>
+        <source>Properties of magnet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
+        <source>Add to favorites</source>
+        <translation>Dodaj do ulubionych</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="86"/>
+        <source>Add restriction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="87"/>
         <source>Remove restriction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="85"/>
+        <location filename="../src/ShareBrowser.cpp" line="88"/>
         <source>Open directory</source>
         <translation type="unfinished">Otwórz katalog</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="158"/>
+        <location filename="../src/ShareBrowser.cpp" line="165"/>
         <source>Browse</source>
         <translation>Przeglądaj</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="583"/>
-        <location filename="../src/ShareBrowser.cpp" line="598"/>
+        <location filename="../src/ShareBrowser.cpp" line="590"/>
+        <location filename="../src/ShareBrowser.cpp" line="605"/>
         <source>Total size: %1</source>
         <translation>Rozmiar całkowity: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="601"/>
+        <location filename="../src/ShareBrowser.cpp" line="608"/>
         <source>; Selected: %1</source>
         <translation>; Zaznaczonych: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="711"/>
+        <location filename="../src/ShareBrowser.cpp" line="718"/>
         <source>Select directory</source>
         <translation>Wybierz katalog</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="826"/>
+        <location filename="../src/ShareBrowser.cpp" line="856"/>
         <source>Enter restriction size (in GB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="69"/>
+        <location filename="../src/ShareBrowser.cpp" line="70"/>
         <source>Download</source>
         <translation>Pobierz</translation>
     </message>
@@ -3752,12 +3775,12 @@ Opcje:
         <translation type="obsolete">Pobierz do</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="74"/>
+        <location filename="../src/ShareBrowser.cpp" line="75"/>
         <source>Search for alternates</source>
         <translation>Szukaj alternatywy</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="76"/>
+        <location filename="../src/ShareBrowser.cpp" line="77"/>
         <source>Copy magnet</source>
         <translation>Kopiuj magnet-link</translation>
     </message>
@@ -3765,7 +3788,7 @@ Opcje:
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="527"/>
+        <location filename="../src/SettingsSharing.cpp" line="525"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
@@ -6767,56 +6790,55 @@ Uwaga: ustawienie tej opcji wymaga odświeżenia listy udostępnianych plików,
 i może spowodować zamrożenie sę klienta.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="246"/>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation>Jeśli to odznaczysz lista plików nie będzie uaktualniania
+        <translation type="obsolete">Jeśli to odznaczysz lista plików nie będzie uaktualniania
 podczas uruchamiania klienta.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="277"/>
+        <location filename="../ui/UISettingsSharing.ui" line="266"/>
         <source>FastHash options (restart needed)</source>
         <translation>Opcje szybkiego indeksowania (wymaga restartu)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="331"/>
+        <location filename="../ui/UISettingsSharing.ui" line="320"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="336"/>
+        <location filename="../ui/UISettingsSharing.ui" line="325"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="366"/>
+        <location filename="../ui/UISettingsSharing.ui" line="355"/>
         <source>If checked, a pause hashing may not work.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="387"/>
+        <location filename="../ui/UISettingsSharing.ui" line="376"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="423"/>
+        <location filename="../ui/UISettingsSharing.ui" line="412"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="455"/>
+        <location filename="../ui/UISettingsSharing.ui" line="444"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="468"/>
+        <location filename="../ui/UISettingsSharing.ui" line="457"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
         <translation>Możesz ograniczyć szybkość hashowania plików
 jeśli Twoj system spowalnia kiedy je hashujesz.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="492"/>
+        <location filename="../ui/UISettingsSharing.ui" line="481"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
 one slot for each hub that they&apos;re on with you.
@@ -6841,7 +6863,7 @@ jeżeli użytkownik powróci na hub w ciągu 10 minut, EiskaltDC++ przyzna mu ex
         <translation type="obsolete">Częstotliwość aktualizacji automatycznych (w minutach, 0 = wył)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="264"/>
+        <location filename="../ui/UISettingsSharing.ui" line="253"/>
         <source>Use fast hash</source>
         <translation>Użyj szybkiego indeksowania plików</translation>
     </message>
@@ -6947,62 +6969,61 @@ aby móc pobrać ten folder</translation>
         <translation>Udostępniaj pliki tymczasowe</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="250"/>
         <source>Run refresh share on startup</source>
-        <translation>Podczas uruchamiania odświerzj listę udostępnionych plików</translation>
+        <translation type="obsolete">Podczas uruchamiania odświerzj listę udostępnionych plików</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="257"/>
+        <location filename="../ui/UISettingsSharing.ui" line="246"/>
         <source>Auto remove non-existing directories</source>
         <translation>Automatycznie usuwaj nie istniejące katalogi</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="285"/>
+        <location filename="../ui/UISettingsSharing.ui" line="274"/>
         <source>Private page mapping</source>
         <translation>Prywatne mapowanie stron</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="369"/>
+        <location filename="../ui/UISettingsSharing.ui" line="358"/>
         <source>Proactive read from disk</source>
         <translation>Aktywnie odczytuj z dysku</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="309"/>
+        <location filename="../ui/UISettingsSharing.ui" line="298"/>
         <source>Buffer size (MiB)</source>
         <translation>Rozmiar buforu (МiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="326"/>
+        <location filename="../ui/UISettingsSharing.ui" line="315"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="341"/>
+        <location filename="../ui/UISettingsSharing.ui" line="330"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="346"/>
+        <location filename="../ui/UISettingsSharing.ui" line="335"/>
         <source>16</source>
         <translation>16</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="351"/>
+        <location filename="../ui/UISettingsSharing.ui" line="340"/>
         <source>32</source>
         <translation>32</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="356"/>
+        <location filename="../ui/UISettingsSharing.ui" line="345"/>
         <source>64</source>
         <translation>64</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="292"/>
+        <location filename="../ui/UISettingsSharing.ui" line="281"/>
         <source>No reserve</source>
         <translation>nie używaj kopii zapasowej </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="403"/>
+        <location filename="../ui/UISettingsSharing.ui" line="392"/>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
@@ -7011,7 +7032,7 @@ the granted slot will not be closed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="439"/>
+        <location filename="../ui/UISettingsSharing.ui" line="428"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Tutaj możesz określić przedział czasowy auto odświeżania Twojej listy plików.</translation>
     </message>
@@ -7024,7 +7045,7 @@ the granted slot will not be closed.</source>
         <translation type="obsolete">Automatycznie otwieraj dodatkowy slot, jeżeli prędkość jest niższa niż (KiB/s, 0 = wył)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="482"/>
+        <location filename="../ui/UISettingsSharing.ui" line="471"/>
         <source>Upload slots</source>
         <translation>Dostępne sloty</translation>
     </message>

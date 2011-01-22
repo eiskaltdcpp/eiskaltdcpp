@@ -258,27 +258,27 @@ EiskaltDC++ - кроссплатформенная программа для р�
 <context>
     <name>DownloadQueue</name>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="352"/>
+        <location filename="../src/DownloadQueue.cpp" line="356"/>
         <source>No users...</source>
         <translation>Нет пользователей...</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="357"/>
+        <location filename="../src/DownloadQueue.cpp" line="361"/>
         <source>%1 of %2 user(s) online</source>
         <translation>%1 из %2 пользователей в сети</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="359"/>
+        <location filename="../src/DownloadQueue.cpp" line="363"/>
         <source>Running...</source>
         <translation>Выполняется...</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="385"/>
+        <location filename="../src/DownloadQueue.cpp" line="389"/>
         <source>File not available</source>
         <translation>Файл недоступен</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="387"/>
+        <location filename="../src/DownloadQueue.cpp" line="391"/>
         <source>Passive user</source>
         <translation>Пассивный пользователь</translation>
     </message>
@@ -287,127 +287,132 @@ EiskaltDC++ - кроссплатформенная программа для р�
         <translation type="obsolete">Несоответствие контрольной суммы</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="391"/>
+        <location filename="../src/DownloadQueue.cpp" line="395"/>
         <source>Full tree does not match TTH root</source>
         <translation>Список не соответствует TTH-хэшу</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="393"/>
+        <location filename="../src/DownloadQueue.cpp" line="397"/>
         <source>Source too slow</source>
         <translation>Скорость источника слишком мала</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="395"/>
+        <location filename="../src/DownloadQueue.cpp" line="399"/>
         <source>Remote client does not fully support TTH - cannot download</source>
         <translation>Удалённый клиент не полностью поддерживает TTH - загрузка невозможна</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="402"/>
+        <location filename="../src/DownloadQueue.cpp" line="406"/>
         <source>No errors</source>
         <translation>Ошибок нет</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="603"/>
+        <location filename="../src/DownloadQueue.cpp" line="629"/>
         <source>Choose filename</source>
         <translation>Укажите имя файла</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="603"/>
+        <location filename="../src/DownloadQueue.cpp" line="629"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.h" line="88"/>
+        <location filename="../src/DownloadQueue.h" line="89"/>
         <source>Download Queue</source>
         <translation>Очередь загрузок</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="42"/>
+        <location filename="../src/DownloadQueue.cpp" line="43"/>
         <source>Magnet</source>
         <translation>Магнет</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="44"/>
+        <location filename="../src/DownloadQueue.cpp" line="45"/>
         <source>Search for alternates</source>
         <translation>Поиск других источников</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="45"/>
+        <location filename="../src/DownloadQueue.cpp" line="46"/>
         <source>Copy magnet</source>
         <translation>Копировать магнет-ссылку</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="46"/>
+        <location filename="../src/DownloadQueue.cpp" line="47"/>
         <source>Copy web-magnet</source>
         <translation>Копировать веб-магнет</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="47"/>
+        <location filename="../src/DownloadQueue.cpp" line="48"/>
+        <source>Properties of magnet</source>
+        <translation>Свойства магнет-ссылки</translation>
+    </message>
+    <message>
+        <location filename="../src/DownloadQueue.cpp" line="49"/>
         <source>Rename/Move</source>
         <translation>Переименовать/Переместить</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="52"/>
+        <location filename="../src/DownloadQueue.cpp" line="54"/>
         <source>Set priority</source>
         <translation>Указать приоритет</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="54"/>
+        <location filename="../src/DownloadQueue.cpp" line="56"/>
         <source>Paused</source>
         <translation>Приостановлено</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="57"/>
+        <location filename="../src/DownloadQueue.cpp" line="59"/>
         <source>Lowest</source>
         <translation>Минимальный</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="60"/>
+        <location filename="../src/DownloadQueue.cpp" line="62"/>
         <source>Low</source>
         <translation>Низкий</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="63"/>
+        <location filename="../src/DownloadQueue.cpp" line="65"/>
         <source>Normal</source>
         <translation>Нормальный</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="66"/>
+        <location filename="../src/DownloadQueue.cpp" line="68"/>
         <source>High</source>
         <translation>Высокий</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="69"/>
+        <location filename="../src/DownloadQueue.cpp" line="71"/>
         <source>Highest</source>
         <translation>Максимальный</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="75"/>
+        <location filename="../src/DownloadQueue.cpp" line="77"/>
         <source>Browse files</source>
         <translation>Список файлов</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="76"/>
+        <location filename="../src/DownloadQueue.cpp" line="78"/>
         <source>Send private message</source>
         <translation>Отправить личное сообщение</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="81"/>
+        <location filename="../src/DownloadQueue.cpp" line="83"/>
         <source>Remove source</source>
         <translation>Удалить источник</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="82"/>
+        <location filename="../src/DownloadQueue.cpp" line="84"/>
         <source>Remove user</source>
         <translation>Удалить пользователя</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="84"/>
+        <location filename="../src/DownloadQueue.cpp" line="86"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="389"/>
+        <location filename="../src/DownloadQueue.cpp" line="393"/>
         <source>Checksum mismatch</source>
         <translation>Несоответствие контрольной суммы</translation>
     </message>
@@ -1842,9 +1847,8 @@ Favorite user</source>
         <translation>&amp;Файл</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1182"/>
         <source>Options</source>
-        <translation>Настройки</translation>
+        <translation type="obsolete">Настройки</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1108"/>
@@ -2184,6 +2188,11 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2020"/>
         <source>Open magnet link</source>
         <translation>Открыть магнет-ссылку</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1182"/>
+        <source>Preferences</source>
+        <translation>Найстройки</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1219"/>
@@ -3102,30 +3111,30 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>SearchFrame</name>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="296"/>
+        <location filename="../src/SearchFrame.cpp" line="305"/>
         <source>Search window</source>
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="408"/>
+        <location filename="../src/SearchFrame.cpp" line="417"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="644"/>
-        <location filename="../src/SearchFrame.cpp" line="961"/>
+        <location filename="../src/SearchFrame.cpp" line="653"/>
+        <location filename="../src/SearchFrame.cpp" line="981"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation>Слишком быстрая попытка нового поиска, подождите %1 секунд</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="648"/>
-        <location filename="../src/SearchFrame.cpp" line="956"/>
-        <location filename="../src/SearchFrame.cpp" line="965"/>
+        <location filename="../src/SearchFrame.cpp" line="657"/>
+        <location filename="../src/SearchFrame.cpp" line="976"/>
+        <location filename="../src/SearchFrame.cpp" line="985"/>
         <source>Search - %1</source>
         <translation>Поиск - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="653"/>
+        <location filename="../src/SearchFrame.cpp" line="662"/>
         <source>Ready to search...</source>
         <translation>Готов к поиску...</translation>
     </message>
@@ -3267,18 +3276,18 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Хабы</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1073"/>
-        <location filename="../src/SearchFrame.cpp" line="1131"/>
+        <location filename="../src/SearchFrame.cpp" line="1093"/>
+        <location filename="../src/SearchFrame.cpp" line="1151"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1393"/>
+        <location filename="../src/SearchFrame.cpp" line="1437"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Результаты отсутствуют&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1402"/>
+        <location filename="../src/SearchFrame.cpp" line="1446"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Найдено: &lt;b&gt;%1&lt;/b&gt;  Отсеяно: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -3308,7 +3317,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Ничего не делать</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="69"/>
+        <location filename="../src/SearchFrame.cpp" line="70"/>
         <source>Download</source>
         <translation>Загрузить</translation>
     </message>
@@ -3317,7 +3326,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation type="obsolete">Загрузить в...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="75"/>
+        <location filename="../src/SearchFrame.cpp" line="76"/>
         <source>Download Whole Directory</source>
         <translation>Загрузить весь каталог</translation>
     </message>
@@ -3326,78 +3335,83 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation type="obsolete">Загрузить весь каталог в...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="67"/>
+        <location filename="../src/SearchFrame.cpp" line="68"/>
         <source>Magnet</source>
         <translation>Магнет</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="72"/>
+        <location filename="../src/SearchFrame.cpp" line="73"/>
         <source>Download to...</source>
         <translation>Загрузить в...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="78"/>
+        <location filename="../src/SearchFrame.cpp" line="79"/>
         <source>Download Whole Directory to...</source>
         <translation>Загрузить весь каталог в...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="84"/>
+        <location filename="../src/SearchFrame.cpp" line="85"/>
         <source>Search TTH</source>
         <translation>Поиск по TTH</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="87"/>
+        <location filename="../src/SearchFrame.cpp" line="88"/>
         <source>Copy magnet</source>
         <translation>Копировать магнет-ссылку</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="90"/>
+        <location filename="../src/SearchFrame.cpp" line="91"/>
         <source>Copy web-magnet</source>
         <translation>Копировать веб-магнет</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="93"/>
+        <location filename="../src/SearchFrame.cpp" line="94"/>
+        <source>Properties of magnet</source>
+        <translation>Свойства магнет-ссылки</translation>
+    </message>
+    <message>
+        <location filename="../src/SearchFrame.cpp" line="97"/>
         <source>Browse files</source>
         <translation>Список файлов</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="96"/>
+        <location filename="../src/SearchFrame.cpp" line="100"/>
         <source>Match Queue</source>
         <translation>Согласовать очередь</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="99"/>
+        <location filename="../src/SearchFrame.cpp" line="103"/>
         <source>Send Private Message</source>
         <translation>Отправить личное сообщение</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="102"/>
+        <location filename="../src/SearchFrame.cpp" line="106"/>
         <source>Add to favorites</source>
         <translation>Добавить в избранные</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="105"/>
+        <location filename="../src/SearchFrame.cpp" line="109"/>
         <source>Grant extra slot</source>
         <translation>Выдать дополнительный слот</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="114"/>
+        <location filename="../src/SearchFrame.cpp" line="121"/>
         <source>Remove from Queue</source>
         <translation>Удалить из очереди</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="117"/>
+        <location filename="../src/SearchFrame.cpp" line="124"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="120"/>
+        <location filename="../src/SearchFrame.cpp" line="127"/>
         <source>Blacklist</source>
         <translation>Черный список</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="220"/>
-        <location filename="../src/SearchFrame.cpp" line="223"/>
+        <location filename="../src/SearchFrame.cpp" line="229"/>
+        <location filename="../src/SearchFrame.cpp" line="232"/>
         <source>Browse</source>
         <translation>Выбрать каталог</translation>
     </message>
@@ -3473,6 +3487,11 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>Settings</name>
     <message>
+        <location filename="../src/Settings.cpp" line="29"/>
+        <source>Preferences</source>
+        <translation>Найстройки</translation>
+    </message>
+    <message>
         <location filename="../src/Settings.cpp" line="42"/>
         <source>Personal</source>
         <translation>Персональные</translation>
@@ -3519,9 +3538,8 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation>Горячие клавиши</translation>
     </message>
     <message>
-        <location filename="../src/Settings.cpp" line="29"/>
         <source>Options</source>
-        <translation>Настройки</translation>
+        <translation type="obsolete">Настройки</translation>
     </message>
 </context>
 <context>
@@ -3748,8 +3766,8 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation type="obsolete">ГБ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="116"/>
-        <location filename="../src/SettingsSharing.cpp" line="163"/>
+        <location filename="../src/SettingsSharing.cpp" line="114"/>
+        <location filename="../src/SettingsSharing.cpp" line="161"/>
         <source>Total shared: %1</source>
         <translation>Всего расшарено: %1</translation>
     </message>
@@ -3758,26 +3776,26 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation type="obsolete">%1 ГиБ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="190"/>
-        <location filename="../src/SettingsSharing.cpp" line="309"/>
-        <location filename="../src/SettingsSharing.cpp" line="320"/>
+        <location filename="../src/SettingsSharing.cpp" line="188"/>
+        <location filename="../src/SettingsSharing.cpp" line="307"/>
+        <location filename="../src/SettingsSharing.cpp" line="318"/>
         <source>Select directory</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="190"/>
-        <location filename="../src/SettingsSharing.cpp" line="320"/>
-        <location filename="../src/SettingsSharing.cpp" line="361"/>
+        <location filename="../src/SettingsSharing.cpp" line="188"/>
+        <location filename="../src/SettingsSharing.cpp" line="318"/>
+        <location filename="../src/SettingsSharing.cpp" line="359"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="288"/>
+        <location filename="../src/SettingsSharing.cpp" line="286"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="297"/>
+        <location filename="../src/SettingsSharing.cpp" line="295"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
@@ -3798,35 +3816,35 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation type="obsolete">Ограничение</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="207"/>
-        <location filename="../src/SettingsSharing.cpp" line="236"/>
+        <location filename="../src/SettingsSharing.cpp" line="205"/>
+        <location filename="../src/SettingsSharing.cpp" line="234"/>
         <source>Add item</source>
         <translation>Добавить элемент</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="207"/>
-        <location filename="../src/SettingsSharing.cpp" line="236"/>
+        <location filename="../src/SettingsSharing.cpp" line="205"/>
+        <location filename="../src/SettingsSharing.cpp" line="234"/>
         <source>Enter text:</source>
         <translation>Введите текст:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="214"/>
+        <location filename="../src/SettingsSharing.cpp" line="212"/>
         <source>Choose the directory</source>
         <translation>Выберите каталог</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="292"/>
+        <location filename="../src/SettingsSharing.cpp" line="290"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="335"/>
-        <location filename="../src/SettingsSharing.cpp" line="371"/>
+        <location filename="../src/SettingsSharing.cpp" line="333"/>
+        <location filename="../src/SettingsSharing.cpp" line="369"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="360"/>
+        <location filename="../src/SettingsSharing.cpp" line="358"/>
         <source>Enter new name</source>
         <translation>Введите новое имя</translation>
     </message>
@@ -3834,22 +3852,22 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>ShareBrowser</name>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="207"/>
+        <location filename="../src/ShareBrowser.cpp" line="214"/>
         <source>Own files</source>
         <translation>Свои файлы</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="209"/>
+        <location filename="../src/ShareBrowser.cpp" line="216"/>
         <source>Listing: </source>
         <translation>Список файлов:</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="288"/>
+        <location filename="../src/ShareBrowser.cpp" line="295"/>
         <source>Filebrowser</source>
         <translation>Браузер файлов</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="290"/>
+        <location filename="../src/ShareBrowser.cpp" line="297"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
@@ -3870,78 +3888,83 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation type="obsolete">TTH</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="333"/>
+        <location filename="../src/ShareBrowser.cpp" line="340"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Общий размер шары: %1; файлов: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="71"/>
+        <location filename="../src/ShareBrowser.cpp" line="72"/>
         <source>Download to...</source>
         <translation>Загрузить в...</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="66"/>
+        <location filename="../src/ShareBrowser.cpp" line="67"/>
         <source>Restrictions</source>
         <translation>Ограничения</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="67"/>
+        <location filename="../src/ShareBrowser.cpp" line="68"/>
         <source>Magnet</source>
         <translation>Магнет</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="78"/>
+        <location filename="../src/ShareBrowser.cpp" line="79"/>
         <source>Copy web-magnet</source>
         <translation>Копировать веб-магнет</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
+        <source>Properties of magnet</source>
+        <translation>Свойства магнет-ссылки</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="84"/>
         <source>Add to favorites</source>
         <translation>Добавить в избранные</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="83"/>
+        <location filename="../src/ShareBrowser.cpp" line="86"/>
         <source>Add restriction</source>
         <translation>Добавить ограничение</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="84"/>
+        <location filename="../src/ShareBrowser.cpp" line="87"/>
         <source>Remove restriction</source>
         <translation>Удалить ограничение</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="85"/>
+        <location filename="../src/ShareBrowser.cpp" line="88"/>
         <source>Open directory</source>
         <translation>Открыть каталог</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="158"/>
+        <location filename="../src/ShareBrowser.cpp" line="165"/>
         <source>Browse</source>
         <translation>Выбрать каталог</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="583"/>
-        <location filename="../src/ShareBrowser.cpp" line="598"/>
+        <location filename="../src/ShareBrowser.cpp" line="590"/>
+        <location filename="../src/ShareBrowser.cpp" line="605"/>
         <source>Total size: %1</source>
         <translation>Общий размер: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="601"/>
+        <location filename="../src/ShareBrowser.cpp" line="608"/>
         <source>; Selected: %1</source>
         <translation>; Выделено: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="711"/>
+        <location filename="../src/ShareBrowser.cpp" line="718"/>
         <source>Select directory</source>
         <translation>Укажите каталог</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="826"/>
+        <location filename="../src/ShareBrowser.cpp" line="856"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Введите размер ограничения (в Гб)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="69"/>
+        <location filename="../src/ShareBrowser.cpp" line="70"/>
         <source>Download</source>
         <translation>Загрузить</translation>
     </message>
@@ -3950,12 +3973,12 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
         <translation type="obsolete">Загрузить в...</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="74"/>
+        <location filename="../src/ShareBrowser.cpp" line="75"/>
         <source>Search for alternates</source>
         <translation>Поиск других источников</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="76"/>
+        <location filename="../src/ShareBrowser.cpp" line="77"/>
         <source>Copy magnet</source>
         <translation>Копировать магнет-ссылку</translation>
     </message>
@@ -3963,7 +3986,7 @@ EiskaltDC++ - программа для UNIX-систем, для работы �
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="527"/>
+        <location filename="../src/SettingsSharing.cpp" line="525"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -7085,57 +7108,56 @@ and may cause the client to appear to freeze.</source>
 привести к небольшому замедлению работы программы.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="246"/>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation>Если не отметить эту опцию, выход из клиента до полного
+        <translation type="obsolete">Если не отметить эту опцию, выход из клиента до полного
 завершения обновления шары приведёт к тому, что при следующем
 запуске клиента шара будет отображена как нулевая.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="277"/>
+        <location filename="../ui/UISettingsSharing.ui" line="266"/>
         <source>FastHash options (restart needed)</source>
         <translation>Опции быстрого хэширования (требуется перезапуск)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="331"/>
+        <location filename="../ui/UISettingsSharing.ui" line="320"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="336"/>
+        <location filename="../ui/UISettingsSharing.ui" line="325"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="366"/>
+        <location filename="../ui/UISettingsSharing.ui" line="355"/>
         <source>If checked, a pause hashing may not work.</source>
         <translation>Если отмечено, пауза хэширования может не работать.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="387"/>
+        <location filename="../ui/UISettingsSharing.ui" line="376"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Выдавать доп. слот при скорости ниже (КиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="423"/>
+        <location filename="../ui/UISettingsSharing.ui" line="412"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
         <translation>Период автоматического обновления (минут, 0 = откл.)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="455"/>
+        <location filename="../ui/UISettingsSharing.ui" line="444"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Макс. скорость хэширования (МиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="468"/>
+        <location filename="../ui/UISettingsSharing.ui" line="457"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
         <translation>Здесь вы можете ограничить максимальную скорость хэширования,
 если ваша система работает медленно во время хэширования файлов.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="492"/>
+        <location filename="../ui/UISettingsSharing.ui" line="481"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
 one slot for each hub that they&apos;re on with you.
@@ -7180,7 +7202,7 @@ if the user is back within 10 minutes, DC++ will grant him a slot.</source>
         <translation type="obsolete">Период автоматического обновления (минут, 0 = откл.)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="264"/>
+        <location filename="../ui/UISettingsSharing.ui" line="253"/>
         <source>Use fast hash</source>
         <translation>Использовать быстрый хэш</translation>
     </message>
@@ -7290,62 +7312,61 @@ to download from this folder</source>
         <translation>Расшаривать временные файлы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="250"/>
         <source>Run refresh share on startup</source>
-        <translation>Обновлять шару при запуске программы</translation>
+        <translation type="obsolete">Обновлять шару при запуске программы</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="257"/>
+        <location filename="../ui/UISettingsSharing.ui" line="246"/>
         <source>Auto remove non-existing directories</source>
         <translation>Автоматически удалять несуществующие каталоги</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="285"/>
+        <location filename="../ui/UISettingsSharing.ui" line="274"/>
         <source>Private page mapping</source>
         <translation>Закрытое отображение страниц</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="369"/>
+        <location filename="../ui/UISettingsSharing.ui" line="358"/>
         <source>Proactive read from disk</source>
         <translation>Упреждающее чтение с диска</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="309"/>
+        <location filename="../ui/UISettingsSharing.ui" line="298"/>
         <source>Buffer size (MiB)</source>
         <translation>Размер буфера (МиБ)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="326"/>
+        <location filename="../ui/UISettingsSharing.ui" line="315"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="341"/>
+        <location filename="../ui/UISettingsSharing.ui" line="330"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="346"/>
+        <location filename="../ui/UISettingsSharing.ui" line="335"/>
         <source>16</source>
         <translation>16</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="351"/>
+        <location filename="../ui/UISettingsSharing.ui" line="340"/>
         <source>32</source>
         <translation>32</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="356"/>
+        <location filename="../ui/UISettingsSharing.ui" line="345"/>
         <source>64</source>
         <translation>64</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="292"/>
+        <location filename="../ui/UISettingsSharing.ui" line="281"/>
         <source>No reserve</source>
         <translation>Не использовать резервирование</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="403"/>
+        <location filename="../ui/UISettingsSharing.ui" line="392"/>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
@@ -7358,7 +7379,7 @@ the granted slot will not be closed.</source>
 дополнительные слоты не будут закрыты.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="439"/>
+        <location filename="../ui/UISettingsSharing.ui" line="428"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Здесь можно указать интервал автообновления вашей шары.</translation>
     </message>
@@ -7371,7 +7392,7 @@ the granted slot will not be closed.</source>
         <translation type="obsolete">Выдавать доп. слот при скорости ниже (КиБ/с, 0 = без ограничений)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="482"/>
+        <location filename="../ui/UISettingsSharing.ui" line="471"/>
         <source>Upload slots</source>
         <translation>Количество слотов отдачи</translation>
     </message>

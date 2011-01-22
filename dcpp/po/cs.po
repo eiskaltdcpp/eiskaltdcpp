@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-16 03:39+0200\n"
+"POT-Creation-Date: 2011-01-22 21:10+0200\n"
 "PO-Revision-Date: 2008-04-26 10:35+0000\n"
 "Last-Translator: Stary <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -65,19 +65,19 @@ msgstr ""
 "Nesprávné nastavení Socket Serveru pro UDP přenos (zkontrolujte adresu "
 "Socket Serveru a port)"
 
-#: ../DCPlusPlus.cpp:129
+#: ../DCPlusPlus.cpp:119
 msgid "Hash database"
 msgstr "Hash databáze"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:122
 msgid "Shared Files"
 msgstr "Sdilene soubory"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:131
 msgid "Download Queue"
 msgstr "Fronta souborů ke stáhnutí"
 
-#: ../DCPlusPlus.cpp:138
+#: ../DCPlusPlus.cpp:134
 msgid "Users"
 msgstr ""
 
@@ -144,15 +144,15 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Odpojený uživatel opouštějící hub: %1%"
 
-#: ../SettingsManager.cpp:499
+#: ../SettingsManager.cpp:497
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:503 ../SettingsManager.cpp:525
+#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:557
+#: ../SettingsManager.cpp:555
 msgid "No such search type"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgstr "Zahájení obnovení seznamu souborů"
 msgid "File list refresh finished"
 msgstr "Obnovení seznamu souborů dokončeno"
 
-#: ../ShareManager.cpp:932
+#: ../ShareManager.cpp:937
 #, fuzzy
 msgid "File list %1% generated"
 msgstr "Zahájení obnovení seznamu souborů"

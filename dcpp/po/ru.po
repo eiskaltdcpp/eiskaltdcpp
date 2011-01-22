@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-16 03:39+0200\n"
+"POT-Creation-Date: 2011-01-22 21:10+0200\n"
 "PO-Revision-Date: 2011-01-08 22:31+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <tehnick-8@mail.ru>\n"
@@ -63,19 +63,19 @@ msgid ""
 msgstr ""
 "Не удалось настроить socks сервер для UDP (проверьте socks адрес и порт)"
 
-#: ../DCPlusPlus.cpp:129
+#: ../DCPlusPlus.cpp:119
 msgid "Hash database"
 msgstr "Хеш базы данных"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:122
 msgid "Shared Files"
 msgstr "Расшаренные файлы"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:131
 msgid "Download Queue"
 msgstr "Очередь"
 
-#: ../DCPlusPlus.cpp:138
+#: ../DCPlusPlus.cpp:134
 msgid "Users"
 msgstr "Пользователи"
 
@@ -146,15 +146,15 @@ msgstr "IPFilter: заблокировано входящее соединени
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Пользователь %1% отключился и покинул хаб"
 
-#: ../SettingsManager.cpp:499
+#: ../SettingsManager.cpp:497
 msgid "Invalid search type name"
 msgstr "Неверное имя поискового типа"
 
-#: ../SettingsManager.cpp:503 ../SettingsManager.cpp:525
+#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
 msgid "This search type already exists"
 msgstr "Этот поисковый тип уже существует"
 
-#: ../SettingsManager.cpp:557
+#: ../SettingsManager.cpp:555
 msgid "No such search type"
 msgstr "Нет такого поискового типа"
 
@@ -423,7 +423,7 @@ msgstr "Запущено обновление списка файлов"
 msgid "File list refresh finished"
 msgstr "Обновление списка файлов завершено"
 
-#: ../ShareManager.cpp:932
+#: ../ShareManager.cpp:937
 msgid "File list %1% generated"
 msgstr "Запущено обновление списка файлов %1%"
 

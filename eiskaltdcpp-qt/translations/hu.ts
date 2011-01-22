@@ -354,6 +354,10 @@ Kapcsolók:
         <translatorcomment>Web kompatibilis magnet (BBCode)</translatorcomment>
         <translation>Web-magnet másolása (BBCode link)</translation>
     </message>
+    <message>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueueModel</name>
@@ -1561,7 +1565,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>Beállítások</translation>
+        <translation type="obsolete">Beállítások</translation>
     </message>
     <message>
         <source>Search</source>
@@ -2181,6 +2185,10 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
         <translation>Az EiskaltDC++ egy grafikus kliens a Direct Connect és az ADC protokollokhoz.&lt;br/&gt;&lt;br/&gt;DC++ verzió: %1 (módosított)&lt;br/&gt;&lt;br/&gt;Weboldal: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Öszes feltöltés: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Összes letöltés: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Arány: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2732,6 +2740,10 @@ Kapcsolók:
         <translatorcomment>Web kompatibilis magnetlink (BBCode)</translatorcomment>
         <translation>Web-magnet másolása (BBCode link)</translation>
     </message>
+    <message>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>
@@ -2792,7 +2804,7 @@ Kapcsolók:
     <name>Settings</name>
     <message>
         <source>Options</source>
-        <translation>Beállítások</translation>
+        <translation type="obsolete">Beállítások</translation>
     </message>
     <message>
         <source>Personal</source>
@@ -2829,6 +2841,10 @@ Kapcsolók:
     <message>
         <source>Shortcuts</source>
         <translation>Billentyű-parancsok</translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3185,6 +3201,10 @@ Kapcsolók:
     <message>
         <source>Open directory</source>
         <translation>Könyvtár megnyitása</translation>
+    </message>
+    <message>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5886,7 +5906,7 @@ hogy letölthessen ebből a könyvtárból</translation>
     </message>
     <message>
         <source>Run refresh share on startup</source>
-        <translation>Megosztás frissítése a program indításakor</translation>
+        <translation type="obsolete">Megosztás frissítése a program indításakor</translation>
     </message>
     <message>
         <source>Auto remove non-existing directories</source>
@@ -5928,7 +5948,7 @@ Az opció megváltoztatása a fájl-lista frissítését eredményezi, ezért ek
     <message>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation>Ha ez nincs bejelölve, akkor a klienst hagyni kell,
+        <translation type="obsolete">Ha ez nincs bejelölve, akkor a klienst hagyni kell,
 hogy a megosztás indexelését teljesen elvégezze,
 addig, amíg a folyamatjelző nullát nem mutat.</translation>
     </message>

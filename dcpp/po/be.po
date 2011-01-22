@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-16 03:39+0200\n"
+"POT-Creation-Date: 2011-01-22 21:10+0200\n"
 "PO-Revision-Date: 2010-08-07 15:38+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -71,19 +71,19 @@ msgstr ""
 "Не ўдалося наладзіць паслужнік socks перасылаць UDP (спраўдзіце адрэсу і "
 "порт socks)"
 
-#: ../DCPlusPlus.cpp:129
+#: ../DCPlusPlus.cpp:119
 msgid "Hash database"
 msgstr "база зьвестак скаротаў"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:122
 msgid "Shared Files"
 msgstr "абагуленыя файлы"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:131
 msgid "Download Queue"
 msgstr "чарга сьцягваньня"
 
-#: ../DCPlusPlus.cpp:138
+#: ../DCPlusPlus.cpp:134
 msgid "Users"
 msgstr "карыстальнікі"
 
@@ -152,15 +152,15 @@ msgstr "Сіта IP: затрымалі ўваходнае злучэньне з
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Адлучаны карыстальнік выходзіць з асяродку: %1%"
 
-#: ../SettingsManager.cpp:499
+#: ../SettingsManager.cpp:497
 msgid "Invalid search type name"
 msgstr "Хібны назоў віду пошуку"
 
-#: ../SettingsManager.cpp:503 ../SettingsManager.cpp:525
+#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
 msgid "This search type already exists"
 msgstr "Гэты від пошуку ўжо існуе"
 
-#: ../SettingsManager.cpp:557
+#: ../SettingsManager.cpp:555
 msgid "No such search type"
 msgstr "Такі від пошуку не існуе"
 
@@ -430,7 +430,7 @@ msgstr "Распачалі дапаўняць сьпіс файлаў"
 msgid "File list refresh finished"
 msgstr "Скончылі дапаўняць сьпіс файлаў"
 
-#: ../ShareManager.cpp:932
+#: ../ShareManager.cpp:937
 msgid "File list %1% generated"
 msgstr "Стварылі сьпіс файлаў %1%"
 

@@ -26,7 +26,7 @@ Settings::Settings(): is_dirty(false)
 
     init();
 
-    setWindowTitle(tr("Options"));
+    setWindowTitle(tr("Preferences"));
 }
 
 Settings::~Settings(){

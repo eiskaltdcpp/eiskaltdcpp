@@ -338,6 +338,10 @@ Keys:
         <source>Copy web-magnet</source>
         <translation>Copier le magnet</translation>
     </message>
+    <message>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueue::Menu</name>
@@ -1521,7 +1525,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation>Options</translation>
+        <translation type="obsolete">Options</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -2154,6 +2158,10 @@ Please check your connection settings</source>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
         <translation>EiskaltDC++ est un client pour les protocoles Direct Connect et ADC.&lt;br/&gt;&lt;br/&gt;Version DC++: %1 (modifiée)&lt;br/&gt;&lt;br/&gt;Page d&apos;accueil: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total envoyé: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total téléchargé: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2696,6 +2704,10 @@ Clés:
         <source>Copy web-magnet</source>
         <translation>Copier le magnet</translation>
     </message>
+    <message>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchFrame::Menu</name>
@@ -2815,7 +2827,7 @@ Clés:
     <name>Settings</name>
     <message>
         <source>Options</source>
-        <translation>Options</translation>
+        <translation type="obsolete">Options</translation>
     </message>
     <message>
         <source>Personal</source>
@@ -2852,6 +2864,10 @@ Clés:
     <message>
         <source>Shortcuts</source>
         <translation>Raccourcis</translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3208,6 +3224,10 @@ Clés:
     <message>
         <source>Open directory</source>
         <translation>Ouvrir le dossier</translation>
+    </message>
+    <message>
+        <source>Properties of magnet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5895,11 +5915,11 @@ and may cause the client to appear to freeze.</source>
     <message>
         <source>If with uncheck this you will leave the client until the update
 share is complete, share at follow-up activities start nulled.</source>
-        <translation>Si décoché, le client restera inactif jusqu&apos;à ce que le partage soit complet.</translation>
+        <translation type="obsolete">Si décoché, le client restera inactif jusqu&apos;à ce que le partage soit complet.</translation>
     </message>
     <message>
         <source>Run refresh share on startup</source>
-        <translation>Mettre à jour le partage au démarrage</translation>
+        <translation type="obsolete">Mettre à jour le partage au démarrage</translation>
     </message>
     <message>
         <source>Auto remove non-existing directories</source>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-16 03:39+0200\n"
+"POT-Creation-Date: 2011-01-22 21:10+0200\n"
 "PO-Revision-Date: 2009-02-22 14:17+0000\n"
 "Last-Translator: poy <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,19 +69,19 @@ msgstr ""
 "Impossible de configurer le serveur socks en tant que relais UDP (vérifier "
 "l'adresse et le port du serveur socks)"
 
-#: ../DCPlusPlus.cpp:129
+#: ../DCPlusPlus.cpp:119
 msgid "Hash database"
 msgstr "Base de données des clés"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:122
 msgid "Shared Files"
 msgstr "Fichiers Partagés"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:131
 msgid "Download Queue"
 msgstr "Liste de Téléchargement"
 
-#: ../DCPlusPlus.cpp:138
+#: ../DCPlusPlus.cpp:134
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -154,16 +154,16 @@ msgstr "IPFilter: Connexion entrante bloquée pour "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Déconnexion de l'utilisateur : %1% (sorti du hub)"
 
-#: ../SettingsManager.cpp:499
+#: ../SettingsManager.cpp:497
 msgid "Invalid search type name"
 msgstr "Type de nom de recherche invalide"
 
-#: ../SettingsManager.cpp:503 ../SettingsManager.cpp:525
+#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
 #, fuzzy
 msgid "This search type already exists"
 msgstr "Ce type de recherche existe déjà"
 
-#: ../SettingsManager.cpp:557
+#: ../SettingsManager.cpp:555
 msgid "No such search type"
 msgstr "Pas de type de recherche de la sorte"
 
@@ -444,7 +444,7 @@ msgstr "Mise à jour de la liste de fichiers commencée"
 msgid "File list refresh finished"
 msgstr "Mise à jour de la liste de fichiers terminée"
 
-#: ../ShareManager.cpp:932
+#: ../ShareManager.cpp:937
 #, fuzzy
 msgid "File list %1% generated"
 msgstr "Liste de fichiers générée"
