@@ -26,7 +26,7 @@ main(int argc, char **argv) {
         exit(1);
     }
 
-    string const serverUrl("http://localhost:8080/EiskaltDC++");
+    string const serverUrl("http://localhost:8080/eiskaltdcpp");
     string const methodName("sample.add");
     string const methodmagnet("magnet.add");
     string const methodstopDemon("demon.stop");
