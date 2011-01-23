@@ -412,7 +412,7 @@ if (NO_UI_DAEMON)
 add_subdirectory (nasdc)
 endif (NO_UI_DAEMON)
 
-add_subdirectory (nanodc)
+#add_subdirectory (nanodc)
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
