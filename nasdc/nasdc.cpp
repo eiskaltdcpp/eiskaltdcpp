@@ -208,12 +208,14 @@ int main(int argc, char* argv[])
         printf((sTitle+" running...\n").c_str());
     }
     uint64_t t=0;
+
 	while (bServerRunning) {
 		usleep(1000);
+        if (bServerTerminated)
+            ServerStop();
 //#ifdef _DEBUG
-        //while (1) {t++;if (t>=10000000000){ ServerStop();}}
+       // while (1) {t++;if (t>=1000000000){ ServerStop();}}
 //#endif
-
 	}
 
 	return 0;

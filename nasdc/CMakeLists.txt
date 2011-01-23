@@ -34,7 +34,9 @@ if (UNIX)
 elseif (WIN32)
   set (BINDIR .)
 endif (UNIX)
+if (CMAKE_BUILD_TYPE STREQUAL Debug)
 add_definitions(-D_DEBUG)
+endif()
 set_property (TARGET nasdc PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-daemon")
   install (TARGETS nasdc
     RUNTIME DESTINATION ${BINDIR}

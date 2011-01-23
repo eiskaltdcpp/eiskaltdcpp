@@ -97,9 +97,11 @@ void ServerThread::Run()
 #ifdef XMLRPC_DAEMON
 		xmlrpc_c::methodPtr const sampleAddMethodP(new sampleAddMethod);
 		xmlrpc_c::methodPtr const magnetAddMethodP(new magnetAddMethod);
+		xmlrpc_c::methodPtr const stopDemonMethodP(new stopDemonMethod);
 		xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
 		xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
-
+		xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
+		//xmlrpc_c::xmlrpc_server_abyss_set_handlers()
 		AbyssServer.run();
 #endif
 	while(!bTerminated) {
@@ -128,19 +130,21 @@ void ServerThread::Close()
 		cl = NULL;
 		//fprintf(stdout,"wait 5 sec before disconnect next hub\n");
 		//usleep(5000);
+		//usleep(5000000);
 	}
 
 	ConnectionManager::getInstance()->disconnect();
 	bTerminated = true;
+	//usleep(5000000);
 }
 //---------------------------------------------------------------------------
 
 void ServerThread::WaitFor() {
-	fprintf(stdout,"ждём нить");
+	fprintf(stdout,"ждём нить\t ");
 	if(threadId != 0) {
 		fprintf(stdout,"threadId != 0 \n");
 		int i = pthread_join(threadId, NULL);
-		fprintf(stdout,"join done");
+		fprintf(stdout,"join done\t");
         threadId = 0;
         return;
 	}

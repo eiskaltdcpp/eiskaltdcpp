@@ -24,11 +24,13 @@
 #include <glib/gstdio.h>
 #include <dcpp/ClientManager.h>
 #include <dcpp/Util.h>
+#include <dcpp/StringTokenizer.h>
+
 #include <iostream>
 #include <arpa/inet.h>
 #include <fcntl.h>
 #include "settingsmanager.hh"
-
+#include "dcpp/StringTokenizer.h"
 #ifdef HAVE_IFADDRS_H
 #include <ifaddrs.h>
 #include <net/if.h>
@@ -316,26 +318,22 @@ bool WulforUtil::splitMagnet(const string &magnet, string &name, int64_t &size, 
     name = _("Unknown");
     size = 0;
     tth = _("Unknown");
+    string tmp;
 
     if (!isMagnet(magnet.c_str()) || magnet.size() <= magnetSignature.length())
         return FALSE;
 
-    string::size_type nextpos = 0;
-
-    for (string::size_type pos = magnetSignature.length(); pos < magnet.size(); pos = nextpos + 1)
-    {
-        nextpos = magnet.find('&', pos);
-        if (nextpos == string::npos)
-            nextpos = magnet.size();
-
-        if (pos == magnetSignature.length())
-            tth = magnet.substr(magnetSignature.length(), nextpos - magnetSignature.length());
-        else if (magnet.compare(pos, 3, "xl=") == 0)
-            size = Util::toInt64(magnet.substr(pos + 3, nextpos - pos - 3));
-        else if (magnet.compare(pos, 3, "dn=") == 0)
-            name = Util::encodeURI(magnet.substr(pos + 3, nextpos - pos - 3), TRUE);
+    StringTokenizer<string> st(tmp, "&");
+    for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+        string str;
+        str=*i;
+        if (str.compare(0, 3, "xt=") == 0)
+            tth=str.substr(3+15);
+        else if (str.compare(0, 3, "xl=") == 0)
+            size = Util::toInt64(str.substr(3));
+        else if (str.compare(0, 3, "dn=") == 0)
+            name = Util::encodeURI(str.substr(3), true);
     }
-
     return TRUE;
 }
 
