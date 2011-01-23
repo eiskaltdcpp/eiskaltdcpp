@@ -44,6 +44,8 @@
 #include <QInputDialog>
 #include <QTextCursor>
 #include <QTextBlock>
+#include <QTextLayout>
+#include <QTextDocument>
 #include <QUrl>
 #include <QCloseEvent>
 #include <QThread>
@@ -1067,6 +1069,8 @@ void HubFrame::init(){
 
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
+
+    drawLinePos = -1;
 
     frame->setVisible(false);
 
@@ -2114,26 +2118,29 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
-        QString hr = "<hr />";
-
-        QString pTagEmpty = "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p>";
+        QTextDocument *chatDoc = textEdit_CHAT->document();
+        int chatDocBlockCount = chatDoc->blockCount();
 
         int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
 
-        QString chatText = textEdit_CHAT->toHtml();
+        QString hr = "<hr />";
 
-        chatText.replace(pTagEmpty + "\n" + hr + "\n", "");
+        if (drawLinePos > chatDocBlockCount)
+            drawLinePos = -1;
 
-        textEdit_CHAT->setHtml(chatText);
-        // После этого мы наблюдаем эпический баг с добавлением "text-decoration: underline; "
-        // в css-стить каждого тега с ником пользователя.
-        // Необходимо переписать этот код таким образом, чтобы содержимое textEdit_CHAT
-        // не перезаписывалось полностью, а только удолялась горизонтальная черта.
+        if (drawLinePos >= 0){
+            chatDoc->findBlockByNumber(drawLinePos).layout()->setText("");
+            chatDoc->findBlockByNumber(drawLinePos+1).layout()->setText("");
 
-        if (scrollbarValue > textEdit_CHAT->verticalScrollBar()->maximum())
-            scrollbarValue = textEdit_CHAT->verticalScrollBar()->maximum();
+            chatDocBlockCount = chatDoc->blockCount();
 
-        textEdit_CHAT->verticalScrollBar()->setValue(scrollbarValue);
+            if (scrollbarValue > textEdit_CHAT->verticalScrollBar()->maximum())
+                scrollbarValue = textEdit_CHAT->verticalScrollBar()->maximum();
+
+            textEdit_CHAT->verticalScrollBar()->setValue(scrollbarValue);
+        }
+
+        drawLinePos = chatDocBlockCount;
 
         output.prepend(hr);
 

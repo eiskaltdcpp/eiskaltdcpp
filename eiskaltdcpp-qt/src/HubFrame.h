@@ -303,6 +303,7 @@ private:
     bool hasMessages;
     bool hasHighlightMessages;
     bool drawLine;
+    int  drawLinePos;
 
     QStringList status_msg_history;
     QStringList out_messages;
