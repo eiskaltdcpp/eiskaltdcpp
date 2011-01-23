@@ -158,9 +158,7 @@ public:
     bool isSecure() const { return socket && socket->isSecure(); }
     bool isTrusted() const { return socket && socket->isTrusted(); }
     std::string getCipherName() const { return socket ? socket->getCipherName() : Util::emptyString; }
-    std::string getRemoteIp() const {
-        string ip = socket->getIp(); fprintf(stdout,"%s\n",ip.c_str()); fflush(stdout); return ip;
-    } //return socket ? socket->getIp() : Util::emptyString; }
+    std::string getRemoteIp() const { return socket ? socket->getIp() : Util::emptyString; }
     Download* getDownload() { dcassert(isSet(FLAG_DOWNLOAD)); return download; }
     void setDownload(Download* d) { dcassert(isSet(FLAG_DOWNLOAD)); download = d; }
     Upload* getUpload() { dcassert(isSet(FLAG_UPLOAD)); return upload; }

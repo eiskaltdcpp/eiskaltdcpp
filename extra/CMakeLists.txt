@@ -13,7 +13,6 @@ endif(FREE_SPACE_BAR_C)
 if (NOT USE_MINIUPNP)
     list (REMOVE_ITEM extra_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/upnpc.cpp)
 endif(NOT USE_MINIUPNP)
-list (REMOVE_ITEM extra_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/antispam.cpp)
 
 add_library(extra STATIC ${extra_SRCS})
 
