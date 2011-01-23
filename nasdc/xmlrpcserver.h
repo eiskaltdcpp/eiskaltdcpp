@@ -80,10 +80,10 @@ xmlrpc_c::serverAbyss AbyssServer(xmlrpc_c::serverAbyss::constrOpt()
                                       .logFileName("/tmp/xmlrpc_log")
                                       .serverOwnsSignals(false)
                                       .uriPath("/eiskaltdcpp")
-			//myRegistry,
-			//8080,              // TCP port on which to listen
-			//"/tmp/xmlrpc_log"  // Log file
-			);
+                                  //myRegistry,
+                                  //8080,              // TCP port on which to listen
+                                  //"/tmp/xmlrpc_log"  // Log file
+                                  );
 
 //class myshutdown : public xmlrpc_c::registry::shutdown {
     //public:
@@ -108,7 +108,7 @@ public:
         // can query this information with a system.methodSignature and
         // system.methodHelp RPC.
         this->_signature = "i:ii";
-            // method's result and two arguments are integers
+        // method's result and two arguments are integers
         this->_help = "This method adds two integers together";
     }
 
@@ -128,6 +128,7 @@ public:
             SLEEP(2);
     }
 };
+
 class magnetAddMethod : public xmlrpc_c::method {
 public:
     magnetAddMethod() {

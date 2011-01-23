@@ -23,51 +23,51 @@
 ServerThread *ServersS = NULL;
 bool bServerRunning = false, bServerTerminated = false, bIsRestart = false, bIsClose = false;
 #ifdef _WIN32
-	#ifdef _SERVICE
-	    bool bService = false;
-	#endif
+    #ifdef _SERVICE
+        bool bService = false;
+    #endif
 #else
-	bool bDaemon = false;
+    bool bDaemon = false;
 #endif
 
 void callBack(void* x, const string& a)
 {
-	cout << _("Loading: ") << a << endl;
+    cout << _("Loading: ") << a << endl;
 }
 
 void ServerInitialize()
 {
-	ServersS = NULL;
-	bServerRunning = bIsRestart = bIsClose = false;
+    ServersS = NULL;
+    bServerRunning = bIsRestart = bIsClose = false;
 }
 
 bool ServerStart()
 {
-	dcpp::startup(callBack, NULL);
-	ServersS = new ServerThread();
+    dcpp::startup(callBack, NULL);
+    ServersS = new ServerThread();
 
-	if(ServersS == NULL)
-		return false;
+    if(ServersS == NULL)
+        return false;
 
-	ServersS->Resume();
+    ServersS->Resume();
 
-	bServerRunning = true;
+    bServerRunning = true;
 
-	return true;
+    return true;
 }
 
 void ServerStop()
 {
-	ServersS->Close();
-	fprintf(stdout,"сервер стоп\n");
-	fprintf(stdout,"ждём\n");
-	ServersS->WaitFor();
-	fprintf(stdout,"ожидание закончено\n");
-	delete ServersS;
+    ServersS->Close();
+    fprintf(stdout,"server stops\n");
+    fprintf(stdout,"waiting\n");
+    ServersS->WaitFor();
+    fprintf(stdout,"waiting finished\n");
+    delete ServersS;
 
-	ServersS = NULL;
-	fprintf(stdout,"остановка либы\n");
-	dcpp::shutdown();
-	fprintf(stdout,"либа остановлена\n");
-	bServerRunning = false;
+    ServersS = NULL;
+    fprintf(stdout,"library stops\n");
+    dcpp::shutdown();
+    fprintf(stdout,"library was stopped\n");
+    bServerRunning = false;
 }

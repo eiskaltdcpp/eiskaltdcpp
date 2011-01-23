@@ -23,11 +23,11 @@ void ServerStop();
 
 extern bool bServerRunning, bServerTerminated, bIsRestart, bIsClose;
 #ifdef _WIN32
-	#ifdef _SERVICE
-	    extern bool bService;
-	#endif
+    #ifdef _SERVICE
+        extern bool bService;
+    #endif
 #else
-	extern bool bDaemon;
+    extern bool bDaemon;
 #endif
 
 extern ServerThread *ServersS;

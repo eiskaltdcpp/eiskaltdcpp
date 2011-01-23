@@ -43,9 +43,9 @@ static void SigHandler(int sig) {
     fprintf(stdout,"%s",str.c_str());
     fflush(stdout);
     if (!bDaemon) {
-    	AppendSpecialLog(str);
+        AppendSpecialLog(str);
     } else {
-    	syslog(LOG_USER | LOG_INFO, str.c_str());
+        syslog(LOG_USER | LOG_INFO, str.c_str());
     }
 
     bIsClose = true;
@@ -92,10 +92,10 @@ int main(int argc, char* argv[])
         }
     }
 
-	sTitle = "eiskaltdcpp-daemon [nasdc] (EiskaltDC++ core 2.2)";
+    sTitle = "eiskaltdcpp-daemon [nasdc] (EiskaltDC++ core 2.2)";
 
 #ifdef _DEBUG
-	sTitle += " [debug]";
+    sTitle += " [debug]";
 #endif
 
     Util::initialize();
@@ -126,7 +126,7 @@ int main(int argc, char* argv[])
             return EXIT_SUCCESS;
         }
 
-    	chdir("/");
+        chdir("/");
 
         close(STDIN_FILENO);
         close(STDOUT_FILENO);
@@ -134,17 +134,17 @@ int main(int argc, char* argv[])
 
         umask(117);
 
-    	if (open("/dev/null", O_RDWR) == -1) {
+        if (open("/dev/null", O_RDWR) == -1) {
             syslog(LOG_USER | LOG_ERR, "Failed to open /dev/null!\n");
             return EXIT_FAILURE;
         }
 
-    	dup(0);
+        dup(0);
         dup(0);
 
         syslog(LOG_USER | LOG_INFO, "dc++ daemon starting...\n");
     } else {
-    	printf(("Starting "+sTitle+" using "+PATH+" as config directory.\n").c_str());
+        printf(("Starting "+sTitle+" using "+PATH+" as config directory.\n").c_str());
     }
 
     sigset_t sst;
@@ -167,17 +167,17 @@ int main(int argc, char* argv[])
     sigact.sa_flags = 0;
 
     if (sigaction(SIGINT, &sigact, NULL) == -1) {
-    	printf("Cannot create sigaction SIGINT! %s\n", strerror(errno));
+        printf("Cannot create sigaction SIGINT! %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
     if (sigaction(SIGTERM, &sigact, NULL) == -1) {
-    	printf("Cannot create sigaction SIGTERM! %s\n", strerror(errno));
+        printf("Cannot create sigaction SIGTERM! %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
     if (sigaction(SIGQUIT, &sigact, NULL) == -1) {
-    	printf("Cannot create sigaction SIGQUIT! ", strerror(errno));
+        printf("Cannot create sigaction SIGQUIT! ", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
@@ -186,7 +186,7 @@ int main(int argc, char* argv[])
         exit(EXIT_FAILURE);
     }
 
-	ServerInitialize();
+    ServerInitialize();
 
     if (!ServerStart()) {
         if (!bDaemon) {
@@ -200,14 +200,14 @@ int main(int argc, char* argv[])
     }
     uint64_t t=0;
 
-	while (bServerRunning) {
-		usleep(1000);
+    while (bServerRunning) {
+        usleep(1000);
         if (bServerTerminated)
             ServerStop();
 //#ifdef _DEBUG
        // while (1) {t++;if (t>=1000000000){ ServerStop();}}
 //#endif
-	}
+    }
 
-	return 0;
+    return 0;
 }
