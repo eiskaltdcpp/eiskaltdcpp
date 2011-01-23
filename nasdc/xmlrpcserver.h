@@ -79,7 +79,7 @@ xmlrpc_c::serverAbyss AbyssServer(xmlrpc_c::serverAbyss::constrOpt()
                                       .portNumber(8080)
                                       .logFileName("/tmp/xmlrpc_log")
                                       .serverOwnsSignals(false)
-                                      .uriPath("/EiskaltDC++")
+                                      .uriPath("/eiskaltdcpp")
 			//myRegistry,
 			//8080,              // TCP port on which to listen
 			//"/tmp/xmlrpc_log"  // Log file
