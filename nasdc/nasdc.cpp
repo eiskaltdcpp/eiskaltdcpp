@@ -79,7 +79,10 @@ void printVersion() {
 int main(int argc, char* argv[])
 {
     for (int i = 0; i < argc; i++){
-        if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
+        if (strcasecmp(argv[i], "-d") == 0) {
+            bDaemon = true;
+        }
+        else if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
             printHelp();
             exit(0);
         }
@@ -94,18 +97,6 @@ int main(int argc, char* argv[])
 #ifdef _DEBUG
 	sTitle += " [debug]";
 #endif
-
-    for (int i = 0; i < argc; i++) {
-        if (strcasecmp(argv[i], "-d") == 0) {
-    		bDaemon = true;
-    	} else if (strcasecmp(argv[i], "-v") == 0) {
-        	printf((sTitle+" built on "+__DATE__+" "+__TIME__+"\n").c_str());
-        	return EXIT_SUCCESS;
-        } else if (strcasecmp(argv[i], "-h") == 0) {
-        	printf("nasdc [-d] [-v]\n");
-        	return EXIT_SUCCESS;
-        }
-    }
 
     Util::initialize();
 
