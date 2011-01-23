@@ -103,13 +103,11 @@ find_package(Pcre REQUIRED)
 endif (PERL_REGEX)
 
 if (LUA_SCRIPT)
-    find_package (Lua51 REQUIRED)
-    #add_definitions ( -DLUA_SCRIPT )
-    message (STATUS "Building with Lua scripts support")
-else (LUA_SCRIPT)
-    set ( LUA_INCLUDE_DIR "")
-    set ( LUA_LIBRARIES "")
-    #set (LUA_SCRIPT OFF)
+    #find_package (Lua51 REQUIRED)
+    ##add_definitions ( -DLUA_SCRIPT )
+    #message (STATUS "Building with Lua scripts support")
+#else (LUA_SCRIPT)
+    set (LUA_SCRIPT OFF)
     message (STATUS "Building without Lua scripts support")
 endif(LUA_SCRIPT)
 
@@ -411,8 +409,6 @@ endif (USE_GTK)
 if (NO_UI_DAEMON)
 add_subdirectory (nasdc)
 endif (NO_UI_DAEMON)
-
-#add_subdirectory (nanodc)
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
