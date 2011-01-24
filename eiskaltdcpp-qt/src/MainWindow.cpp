@@ -2775,7 +2775,7 @@ void MainWindow::on(dcpp::QueueManagerListener::Finished, QueueItem *item, const
         emit notifyMessage(Notification::TRANSFER, tr("Download Queue"), tr("All downloads complete"));
 }
 
-void MainWindow::on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw(){
+void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) throw(){
     static quint32 lastUpdate = 0;
     static quint64 lastUp = 0, lastDown = 0;
 

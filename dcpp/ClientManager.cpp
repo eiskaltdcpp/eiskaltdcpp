@@ -552,7 +552,7 @@ void ClientManager::search(StringList& who, int aSizeMode, int64_t aSize, int aF
     }
 }
 
-void ClientManager::on(TimerManagerListener::Minute, uint32_t /* aTick */) throw() {
+void ClientManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) throw() {
     Lock l(cs);
 
     // Collect some garbage...

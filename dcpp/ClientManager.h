@@ -189,7 +189,7 @@ private:
         int aFileType, const string& aString) throw();
     virtual void on(AdcSearch, const Client* c, const AdcCommand& adc, const CID& from) throw();
     // TimerManagerListener
-    virtual void on(TimerManagerListener::Minute, uint32_t aTick) throw();
+    virtual void on(TimerManagerListener::Minute, uint64_t aTick) throw();
 };
 
 } // namespace dcpp

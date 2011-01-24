@@ -314,7 +314,7 @@ private:
     }
 
     // TimerManagerListener
-    virtual void on(TimerManagerListener::Minute, uint32_t tick) throw();
+    virtual void on(TimerManagerListener::Minute, uint64_t tick) throw();
     void load(SimpleXML& aXml);
     void save(SimpleXML& aXml);
 

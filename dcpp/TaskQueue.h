@@ -33,9 +33,9 @@ struct StringTask : public Task {
 
 class TaskQueue {
 public:
-    typedef pair<int, Task*> Pair;
+    typedef pair<uint8_t, Task*> Pair;
     typedef vector<Pair> List;
-    typedef List::iterator Iter;
+    typedef List::const_iterator Iter;
 
     TaskQueue() {
     }
@@ -44,7 +44,7 @@ public:
         clear();
     }
 
-    void add(int type, Task* data) { Lock l(cs); tasks.push_back(make_pair(type, data)); }
+    void add(uint8_t type, Task* data) { Lock l(cs); tasks.push_back(make_pair(type, data)); }
     void get(List& list) { Lock l(cs); swap(tasks, list); }
     void clear() {
         List tmp;

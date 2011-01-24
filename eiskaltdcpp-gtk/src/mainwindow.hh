@@ -188,7 +188,7 @@ class MainWindow:
         // Client callbacks
         virtual void on(dcpp::LogManagerListener::Message, time_t t, const std::string &m) throw();
         virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem *item, const std::string& dir, int64_t avSpeed) throw();
-        virtual void on(dcpp::TimerManagerListener::Second, uint32_t ticks) throw();
+        virtual void on(dcpp::TimerManagerListener::Second, uint64_t ticks) throw();
 
         GtkWindow *window;
         Transfers* transfers;

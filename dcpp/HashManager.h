@@ -238,7 +238,7 @@ private:
 		store.rebuild();
 	}
 
-	virtual void on(TimerManagerListener::Minute, uint32_t) throw() {
+	virtual void on(TimerManagerListener::Minute, uint64_t) throw() {
 		Lock l(cs);
 		store.save();
 	}

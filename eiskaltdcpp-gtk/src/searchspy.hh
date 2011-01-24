@@ -72,7 +72,7 @@ class SearchSpy:
 
 		// Client callbacks
 		virtual void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) throw();
-		virtual void on(dcpp::TimerManagerListener::Minute, uint32_t tick) throw();
+		virtual void on(dcpp::TimerManagerListener::Minute, uint64_t tick) throw();
 
 		SearchType FrameSize;
 		guint Waiting;

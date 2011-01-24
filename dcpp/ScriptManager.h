@@ -127,7 +127,7 @@ class ScriptManager: public ScriptInstance, public Singleton<ScriptManager>, pub
 
         virtual void on(ClientConnected, Client* aClient) throw();
         virtual void on(ClientDisconnected, Client* aClient) throw();
-        virtual void on(Second, uint32_t /* ticks */) throw();
+        virtual void on(Second, uint64_t /* ticks */) throw();
 
 
 };

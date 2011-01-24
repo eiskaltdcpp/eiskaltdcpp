@@ -209,7 +209,7 @@ void ThrottleManager::shutdown()
 #endif //*nix
 
 // TimerManagerListener
-void ThrottleManager::on(TimerManagerListener::Second, uint32_t /* aTick */) throw()
+void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) throw()
 {
 	int newSlots = SettingsManager::getInstance()->get(getCurSetting(SettingsManager::SLOTS));
 	if(newSlots != SETTING(SLOTS)) {

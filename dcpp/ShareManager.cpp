@@ -1147,7 +1147,7 @@ static bool checkType(const string& aString, int aType) {
         }
         break;
     default:
-        dcasserta(0);
+        dcassert(0);
         break;
     }
     return false;
@@ -1507,13 +1507,13 @@ void ShareManager::on(HashManagerListener::TTHDone, const string& fname, const T
     }
 }
 
-void ShareManager::on(TimerManagerListener::Minute, uint32_t tick) throw() {
+void ShareManager::on(TimerManagerListener::Minute, uint64_t tick) throw() {
     if (SETTING(AUTO_REFRESH_TIME) > 0) {
-        if (Util::getUpTime() > 5 * 60) { // [+] IRainman: disabling update file list immediately after startup
+        //if (Util::getUpTime() > 5 * 60) { // [+] IRainman: disabling update file list immediately after startup
             if (lastFullUpdate + SETTING(AUTO_REFRESH_TIME) * 60 * 1000 < tick) {
                 refresh(true, true);
             }
-        }
+        //}
     }
 }
 

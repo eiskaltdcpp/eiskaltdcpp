@@ -113,8 +113,8 @@ private:
     virtual void on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) throw();
 
     // TimerManagerListener
-    virtual void on(Second, uint32_t aTick) throw();
-    virtual void on(Minute, uint32_t aTick) throw();
+    virtual void on(Second, uint64_t aTick) throw();
+    virtual void on(Minute, uint64_t aTick) throw();
 
     // UserConnectionListener
     virtual void on(BytesSent, UserConnection*, size_t, size_t) throw();

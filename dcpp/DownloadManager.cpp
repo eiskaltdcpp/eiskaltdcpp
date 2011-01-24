@@ -59,7 +59,7 @@ DownloadManager::~DownloadManager() throw() {
     }
 }
 
-void DownloadManager::on(TimerManagerListener::Second, uint32_t aTick) throw() {
+void DownloadManager::on(TimerManagerListener::Second, uint64_t aTick) throw() {
     typedef vector<pair<string, UserPtr> > TargetList;
     TargetList dropTargets;
 
@@ -83,8 +83,8 @@ void DownloadManager::on(TimerManagerListener::Second, uint32_t aTick) throw() {
         if((uint32_t)(aTick / 1000) % SETTING(AUTODROP_INTERVAL) == 0) {
             for(DownloadList::iterator i = downloads.begin(); i != downloads.end(); ++i) {
                 Download* d = *i;
-                uint64_t timeElapsed = GET_TICK() - d->getStart();
-                uint64_t timeInactive = GET_TICK() - d->getUserConnection().getLastActivity();
+                uint64_t timeElapsed = aTick - d->getStart();
+                uint64_t timeInactive = aTick - d->getUserConnection().getLastActivity();
                 uint64_t bytesDownloaded = d->getPos();
                 bool timeElapsedOk = timeElapsed >= (uint32_t)SETTING(AUTODROP_ELAPSED) * 1000;
                 bool timeInactiveOk = timeInactive <= (uint32_t)SETTING(AUTODROP_INACTIVITY) * 1000;

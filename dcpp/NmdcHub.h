@@ -100,7 +100,7 @@ private:
     typedef FloodMap::iterator FloodIter;
     FloodMap seekers;
     FloodMap flooders;
-    uint32_t lastProtectedIPsUpdate;
+    uint64_t lastProtectedIPsUpdate;
     StringList protectedIPs;
 
     NmdcHub(const string& aHubURL);
@@ -137,8 +137,8 @@ private:
     virtual string checkNick(const string& aNick);
 
     // TimerManagerListener
-    virtual void on(Second, uint32_t aTick) throw();
-    virtual void on(Minute, uint32_t aTick) throw();
+    virtual void on(Second, uint64_t aTick) throw();
+    virtual void on(Minute, uint64_t aTick) throw();
 
     virtual void on(Connected) throw();
     virtual void on(Line, const string& l) throw();

@@ -561,7 +561,7 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
 
     bool ok = false;
 
-    uint32_t lastRead = GET_TICK();
+    uint64_t lastRead = GET_TICK();
     if (!::ReadFile(h, hbuf, BUF_SIZE, &hn, &over)) {
         if (GetLastError() == ERROR_HANDLE_EOF) {
             hn = 0;
@@ -585,10 +585,10 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
             // Start a new overlapped read
             ResetEvent(over.hEvent);
             if (SETTING(MAX_HASH_SPEED) > 0) {
-                uint32_t now = GET_TICK();
-                uint32_t minTime = hn * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
+                uint64_t now = GET_TICK();
+                uint64_t minTime = hn * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
                 if (lastRead + minTime > now) {
-                    uint32_t diff = now - lastRead;
+                    uint64_t diff = now - lastRead;
                     Thread::sleep(minTime - diff);
                 }
                 lastRead = lastRead + minTime;
@@ -821,7 +821,7 @@ int HashManager::Hasher::run() {
             try {
                 File f(fname, File::READ, File::OPEN);
                 int64_t bs = max(TigerTree::calcBlockSize(f.getSize(), 10), MIN_BLOCK_SIZE);
-                uint32_t start = GET_TICK();
+                uint64_t start = GET_TICK();
                 uint32_t timestamp = f.getLastModified();
                 TigerTree slowTTH(bs);
                 TigerTree* tth = &slowTTH;
@@ -845,13 +845,13 @@ int HashManager::Hasher::run() {
 #endif
                         tth = &slowTTH;
                         crc32 = CRC32Filter();
-                        uint32_t lastRead = GET_TICK();
+                        uint64_t lastRead = GET_TICK();
 
                         do {
                             size_t bufSize = BUF_SIZE;
                             if(SETTING(MAX_HASH_SPEED)> 0) {
-                                uint32_t now = GET_TICK();
-                                uint32_t minTime = n * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
+                                uint64_t now = GET_TICK();
+                                uint64_t minTime = n * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
                                 if(lastRead + minTime> now) {
                                     Thread::sleep(minTime - (now - lastRead));
                                 }
@@ -878,7 +878,7 @@ int HashManager::Hasher::run() {
 
                     f.close();
                     tth->finalize();
-                    uint32_t end = GET_TICK();
+                    uint64_t end = GET_TICK();
                     int64_t speed = 0;
                     if(end> start) {
                         speed = size * _LL(1000) / (end - start);

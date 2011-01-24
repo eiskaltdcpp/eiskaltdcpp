@@ -422,7 +422,7 @@ void ScriptManager::on(ClientConnected, Client* aClient) throw() {
     MakeCall(GetClientType(aClient), "OnHubAdded", 0, aClient);
 }
 
-void ScriptManager::on(Second, uint32_t /* ticks */) throw() {
+void ScriptManager::on(Second, uint64_t /* ticks */) throw() {
     MakeCall("dcpp", "OnTimer", 0, 0);
 }
 

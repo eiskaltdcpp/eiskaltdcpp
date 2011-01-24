@@ -143,7 +143,7 @@ private:
     virtual void on(Line, const string& aLine) throw();
     virtual void on(Failed, const string& aLine) throw();
 
-    virtual void on(Second, uint32_t aTick) throw();
+    virtual void on(Second, uint64_t aTick) throw();
 
 };
 

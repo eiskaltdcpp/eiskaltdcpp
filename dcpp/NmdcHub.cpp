@@ -967,7 +967,7 @@ void NmdcHub::on(Failed, const string& aLine) throw() {
     Client::on(Failed(), aLine);
 }
 
-void NmdcHub::on(Second, uint32_t aTick) throw() {
+void NmdcHub::on(Second, uint64_t aTick) throw() {
     Client::on(Second(), aTick);
 
     if(state == STATE_NORMAL && (aTick > (getLastActivity() + 120*1000)) ) {
@@ -975,7 +975,7 @@ void NmdcHub::on(Second, uint32_t aTick) throw() {
     }
 }
 
-void NmdcHub::on(Minute, uint32_t aTick) throw() {
+void NmdcHub::on(Minute, uint64_t aTick) throw() {
         if(aTick > (lastProtectedIPsUpdate + 24*3600*1000)) {
                 protectedIPs.clear();
 

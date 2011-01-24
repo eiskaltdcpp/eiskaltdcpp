@@ -273,7 +273,7 @@ friend class dcpp::Singleton<MainWindow>;
         /** LogManagerListener */
         virtual void on(dcpp::LogManagerListener::Message, time_t t, const std::string&) throw();
         /** TimerManagerListener */
-        virtual void on(dcpp::TimerManagerListener::Second, uint32_t) throw();
+        virtual void on(dcpp::TimerManagerListener::Second, uint64_t) throw();
         /** QueueManagerListener */
         virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem*, const std::string&, int64_t) throw();
 

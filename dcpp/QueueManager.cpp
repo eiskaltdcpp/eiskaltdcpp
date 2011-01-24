@@ -570,7 +570,7 @@ struct PartsInfoReqParam{
     uint16_t    udpPort;
 };
 
-void QueueManager::on(TimerManagerListener::Minute, uint32_t aTick) throw() {
+void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) throw() {
     string fn;
     string searchString;
     bool online = false;
@@ -1888,7 +1888,7 @@ void QueueManager::on(ClientManagerListener::UserDisconnected, const UserPtr& aU
     }
 }
 
-void QueueManager::on(TimerManagerListener::Second, uint32_t aTick) throw() {
+void QueueManager::on(TimerManagerListener::Second, uint64_t aTick) throw() {
     if(dirty && ((lastSave + 10000) < aTick)) {
         saveQueue();
     }

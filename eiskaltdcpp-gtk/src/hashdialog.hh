@@ -41,7 +41,7 @@ class Hash:
         void updateStats_gui(std::string file, int64_t bytes, size_t files, uint32_t tick);
 
         // Client callbacks
-        virtual void on(dcpp::TimerManagerListener::Second, uint32_t tics) throw();
+        virtual void on(dcpp::TimerManagerListener::Second, uint64_t tics) throw();
         // GUI callback
         static void onPauseHashing_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762
 

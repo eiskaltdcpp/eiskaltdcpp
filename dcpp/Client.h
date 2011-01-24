@@ -175,7 +175,7 @@ protected:
     virtual string checkNick(const string& nick) = 0;
 
     // TimerManagerListener
-    virtual void on(Second, uint32_t aTick) throw();
+    virtual void on(Second, uint64_t aTick) throw();
     // BufferedSocketListener
     virtual void on(Connecting) throw() { fire(ClientListener::Connecting(), this); }
     virtual void on(Connected) throw();

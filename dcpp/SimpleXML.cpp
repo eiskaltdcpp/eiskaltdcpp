@@ -68,7 +68,7 @@ string& SimpleXML::escape(string& aString, bool aAttrib, bool aLoading /* = fals
             case '>': aString.replace(i, 1, "&gt;"); i+=4; break;
             case '\'': aString.replace(i, 1, "&apos;"); i+=6; break;
             case '"': aString.replace(i, 1, "&quot;"); i+=6; break;
-            default: dcasserta(0);
+            default: dcassert(0);
             }
         }
         // No need to convert back to acp since our utf8Header denotes we

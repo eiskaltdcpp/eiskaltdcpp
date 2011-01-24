@@ -29,7 +29,7 @@ public:
 };
 
 template<typename T>
-class Singleton : public ISingleton {
+class Singleton: public ISingleton {
 public:
     Singleton() { }
     virtual ~Singleton() { }
@@ -41,16 +41,16 @@ public:
 
     static void newInstance() {
         if(instance)
-            return;
+            delete instance;
 
         instance = new T();
     }
 
     static void deleteInstance() {
-        delete instance;
+        if(instance)
+            delete instance;
         instance = NULL;
     }
-
     virtual void release(){
         deleteInstance();
     }

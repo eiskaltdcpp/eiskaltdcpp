@@ -192,8 +192,8 @@ private:
     virtual void on(AdcCommand::STA, UserConnection*, const AdcCommand&) throw();
 
     // TimerManagerListener
-    virtual void on(TimerManagerListener::Second, uint32_t aTick) throw();
-    virtual void on(TimerManagerListener::Minute, uint32_t aTick) throw();
+    virtual void on(TimerManagerListener::Second, uint64_t aTick) throw();
+    virtual void on(TimerManagerListener::Minute, uint64_t aTick) throw();
 
 };
 

@@ -113,7 +113,7 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
         string file = t->getPath();
                 const HintedUser& user = t->getHintedUser();
 
-        int64_t milliSeconds = GET_TICK() - t->getStart();
+        uint64_t milliSeconds = GET_TICK() - t->getStart();
         time_t time = GET_TIME();
 
         int64_t size = 0;
