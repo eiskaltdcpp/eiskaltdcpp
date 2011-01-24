@@ -86,7 +86,7 @@ void HashProgress::timerTick(){
     string path;
     int64_t bytes = 0;
     size_t files = 0;
-    uint32_t tick = GET_TICK();
+    uint64_t tick = GET_TICK();
 
     stateButton();
 

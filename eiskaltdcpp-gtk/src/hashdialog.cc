@@ -54,7 +54,7 @@ Hash::~Hash()
     TimerManager::getInstance()->removeListener(this);
 }
 
-void Hash::updateStats_gui(string file, int64_t bytes, size_t files, uint32_t tick)
+void Hash::updateStats_gui(string file, int64_t bytes, size_t files, uint64_t tick)
 {
     if (bytes > startBytes)
         startBytes = bytes;
@@ -140,7 +140,7 @@ void Hash::on(TimerManagerListener::Second, uint64_t tics) throw()
 
     HashManager::getInstance()->getStats(file, bytes, files);
 
-    typedef Func4<Hash, string, int64_t, size_t, uint32_t> F4;
+    typedef Func4<Hash, string, int64_t, size_t, uint64_t> F4;
     F4 *func = new F4(this, &Hash::updateStats_gui, file, bytes, files, GET_TICK());
     WulforManager::get()->dispatchGuiFunc(func);
 }

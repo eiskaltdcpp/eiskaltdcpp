@@ -38,7 +38,7 @@ class Hash:
 
     private:
         // GUI functions
-        void updateStats_gui(std::string file, int64_t bytes, size_t files, uint32_t tick);
+        void updateStats_gui(std::string file, int64_t bytes, size_t files, uint64_t tick);
 
         // Client callbacks
         virtual void on(dcpp::TimerManagerListener::Second, uint64_t tics) throw();
@@ -47,7 +47,7 @@ class Hash:
 
         int64_t startBytes;
         size_t startFiles;
-        uint32_t startTime;
+        uint64_t startTime;
 };
 
 #else
