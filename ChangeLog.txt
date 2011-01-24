@@ -3,6 +3,7 @@
 * Fixed build under MS Windows.
 *** eiskaltdcpp-qt ***
 * Fixed a crash program when using the filter in the search results when new query results come.
+* Algorithm for adding separator (horizontal line) for unread messages in the chat was updated. Now it works fine.
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
 *** eiskaltdcpp-daemon ***
