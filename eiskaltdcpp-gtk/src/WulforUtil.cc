@@ -323,6 +323,7 @@ bool WulforUtil::splitMagnet(const string &magnet, string &name, int64_t &size, 
     if (!isMagnet(magnet.c_str()) || magnet.size() <= magnetSignature.length())
         return FALSE;
 
+    tmp = magnet.substr(8);
     StringTokenizer<string> st(tmp, "&");
     for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
         string str;
