@@ -375,6 +375,7 @@ void MainWindow::init(){
     arena->setWidget(NULL);
     arena->setFloating(false);
 #endif
+    arena->setContentsMargins(0, 0, 0, 0);
     arena->setAllowedAreas(Qt::RightDockWidgetArea);
     arena->setFeatures(QDockWidget::NoDockWidgetFeatures);
     arena->setContextMenuPolicy(Qt::CustomContextMenu);

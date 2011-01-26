@@ -22,7 +22,7 @@
      <item>
       <widget class="QTextEdit" name="textEdit_CHAT">
        <property name="focusPolicy">
-        <enum>Qt::NoFocus</enum>
+        <enum>Qt::StrongFocus</enum>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -207,14 +207,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>ChatEdit</class>
-   <extends>QPlainTextEdit</extends>
-   <header>ChatEdit.h</header>
-  </customwidget>
-  <customwidget>
    <class>LineEdit</class>
    <extends>QLineEdit</extends>
    <header>LineEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ChatEdit</class>
+   <extends>QPlainTextEdit</extends>
+   <header>ChatEdit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
