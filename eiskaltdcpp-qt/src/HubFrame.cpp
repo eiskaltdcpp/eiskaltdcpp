@@ -449,11 +449,43 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 }
 
                 if (linktype == "magnet:"){
-                    QString name, tth;
-                    int64_t size;
+                    QString magnet = link;
 
-                    WulforUtil::splitMagnet(link, size, tth, name);
-                    toshow = QString("%1 (%2)").arg(name).arg(WulforUtil::formatBytes(size));
+                    QUrl u;
+
+                    if (!magnet.contains("+"))
+                        u.setEncodedUrl(magnet.toAscii());
+                    else {
+                        QString _l = magnet;
+
+                        _l.replace("+", "%20");
+                        u.setEncodedUrl(_l.toAscii());
+                    }
+
+                    if (u.hasQueryItem("kt")){
+                        QString keywords = u.queryItemValue("kt");
+                        QString hub = u.hasQueryItem("xs")? u.queryItemValue("xs") : "";
+
+                        if (!(hub.startsWith("dchub://", Qt::CaseInsensitive) ||
+                              hub.startsWith("adc://", Qt::CaseInsensitive) ||
+                              hub.startsWith("adcs://", Qt::CaseInsensitive)) && !hub.isEmpty())
+                            hub.prepend("dchub://");
+
+                        if (keywords.isEmpty())
+                            keywords = tr("Invalid keywords");
+
+                        if (!hub.isEmpty())
+                            toshow = Qt::escape(keywords) + " (" + Qt::escape(hub) + ")";
+                        else
+                            toshow = Qt::escape(keywords);
+                    }
+                    else {
+                        QString name, tth;
+                        int64_t size;
+
+                        WulforUtil::splitMagnet(link, size, tth, name);
+                        toshow = QString("%1 (%2)").arg(name).arg(WulforUtil::formatBytes(size));
+                    }
                 }
 
                 if (linktype == "www.")

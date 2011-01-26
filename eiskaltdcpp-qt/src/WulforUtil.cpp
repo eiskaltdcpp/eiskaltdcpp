@@ -43,6 +43,8 @@
 #include <QFrame>
 #include <QHBoxLayout>
 
+#include "SearchFrame.h"
+
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
 #endif
@@ -731,7 +733,6 @@ bool WulforUtil::openUrl(const QString &url){
     }
     else if (url.startsWith("magnet:") && url.contains("urn:tree:tiger")){
         QString magnet = url;
-
         Magnet *m = new Magnet(MainWindow::getInstance());
 
         m->setLink(magnet);
@@ -739,10 +740,44 @@ bool WulforUtil::openUrl(const QString &url){
             m->setModal(true);
             m->exec();
         }
-        delete m;
+
+        m->deleteLater();
     }
     else if (url.startsWith("magnet:")){
-        QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
+        QString magnet = url;
+
+        QUrl u;
+
+        if (!magnet.contains("+"))
+            u.setEncodedUrl(magnet.toAscii());
+        else {
+            QString _l = magnet;
+
+            _l.replace("+", "%20");
+            u.setEncodedUrl(_l.toAscii());
+        }
+
+        if (u.hasQueryItem("kt")){
+            QString keywords = u.queryItemValue("kt");
+            QString hub = u.hasQueryItem("xs")? u.queryItemValue("xs") : "";
+
+            if (!(hub.startsWith("dchub://", Qt::CaseInsensitive) ||
+                  hub.startsWith("adc://", Qt::CaseInsensitive) ||
+                  hub.startsWith("adcs://", Qt::CaseInsensitive)) && !hub.isEmpty())
+                hub.prepend("dchub://");
+
+            if (keywords.isEmpty())
+                return false;
+
+            if (!hub.isEmpty())
+                WulforUtil::openUrl(hub);
+
+            SearchFrame *sfr = new SearchFrame();
+            sfr->fastSearch(keywords, false);
+        }
+        else {
+            QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
+        }
     }
     else
         return false;
