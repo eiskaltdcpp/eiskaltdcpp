@@ -227,6 +227,7 @@ static const uint32_t FLOOD_ADD = 2000;
 
 ConnectionManager::Server::Server(bool secure_, uint16_t aPort, const string& ip_ /* = "0.0.0.0" */) : port(0), secure(secure_), die(false) {
     sock.create();
+    sock.setSocketOpt(SO_REUSEADDR, 1);
     ip = ip_;
     port = sock.bind(aPort, ip);
     sock.listen();
@@ -244,7 +245,6 @@ int ConnectionManager::Server::run() throw() {
                     ConnectionManager::getInstance()->accept(sock, secure);
                 }
             }
-            break;
         } catch(const Exception& e) {
             dcdebug("ConnectionManager::Server::run Error: %s\n", e.getError().c_str());
         }
@@ -260,6 +260,7 @@ int ConnectionManager::Server::run() throw() {
                     LogManager::getInstance()->message(_("Connectivity restored"));
                     failed = false;
                 }
+                break;
             } catch(const SocketException& e) {
                 dcdebug("ConnectionManager::Server::run Stopped listening: %s\n", e.getError().c_str());
 
