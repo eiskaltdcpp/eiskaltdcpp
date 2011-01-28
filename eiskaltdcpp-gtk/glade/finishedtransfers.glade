@@ -75,6 +75,19 @@
           <placeholder/>
         </child>
         <child>
+          <widget class="GtkCheckButton" id="showOnlyFullFilesCheckButton">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label">Show only completely finished downloads</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
           <widget class="GtkStatusbar" id="totalItems">
             <property name="width_request">80</property>
             <property name="visible">True</property>

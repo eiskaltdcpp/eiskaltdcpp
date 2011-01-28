@@ -107,6 +107,10 @@ FinishedTransfers::FinishedTransfers(const EntryType type, const string &title, 
 	g_signal_connect(userView.get(), "key-release-event", G_CALLBACK(onKeyReleased_gui), (gpointer)this);
 	g_signal_connect_after(getWidget("finishedbook"), "switch-page", G_CALLBACK(onPageSwitched_gui), (gpointer)this);
 
+    if (type == Entry::FINISHED_DOWNLOADS)
+       g_signal_connect(getWidget("showOnlyFullFilesCheckButton"), "toggled", G_CALLBACK(onShowOnlyFullFilesToggled_gui), (gpointer)this);
+    else
+       gtk_widget_hide(getWidget("showOnlyFullFilesCheckButton"));
 }
 
 FinishedTransfers::~FinishedTransfers()
@@ -199,8 +203,14 @@ void FinishedTransfers::addUser_gui(StringMap params, bool update)
 		}
 	}
 }
+
 void FinishedTransfers::addFile_gui(StringMap params, bool update)
 {
+   if (params["full"] == "p" && gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("showOnlyFullFilesCheckButton"))))
+   {
+       return;
+   }
+
 	GtkTreeIter iter;
 	int64_t transferred = Util::toInt64(params["Transferred"]);
 	int64_t speed = Util::toInt64(params["Speed"]);
@@ -240,9 +250,19 @@ void FinishedTransfers::updateStatus_gui()
 	string status;
 	if(gtk_notebook_get_current_page(GTK_NOTEBOOK(getWidget("finishedbook"))) ==
 			gtk_notebook_page_num(GTK_NOTEBOOK(getWidget("finishedbook")), getWidget("viewWindowFile")))
-		status = Util::toString(totalFiles) + _(" files");
+    {
+        status = Util::toString(totalFiles) + _(" files");
+
+        if (getType() == Entry::FINISHED_DOWNLOADS)
+            gtk_widget_show(getWidget("showOnlyFullFilesCheckButton"));
+        else
+            gtk_widget_hide(getWidget("showOnlyFullFilesCheckButton"));
+    }
 	else
-		status = Util::toString(totalUsers) + _(" users");
+    {
+        status = Util::toString(totalUsers) + _(" users");
+        gtk_widget_hide(getWidget("showOnlyFullFilesCheckButton"));
+    }
 
 	string size = Util::formatBytes(totalBytes);
 	string speed = Util::formatBytes((totalTime > 0) ? totalBytes * ((int64_t)1000) / totalTime : 0) + "/s";
@@ -406,6 +426,26 @@ gboolean FinishedTransfers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *ev
 	}
 
 	return FALSE;
+}
+
+void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpointer data)
+{
+    FinishedTransfers *ft = (FinishedTransfers *)data;
+    StringMap params;
+    gtk_list_store_clear(ft->fileStore);
+
+    FinishedManager::getInstance()->lockLists();
+
+    const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(ft->isUpload);
+
+    for (FinishedManager::MapByFile::const_iterator it = list.begin(); it != list.end(); ++it)
+    {
+        params.clear();
+        ft->getFinishedParams_client(it->second, it->first, params);
+        ft->addFile_gui(params, FALSE);
+    }
+
+    FinishedManager::getInstance()->unLockLists();
 }
 
 void FinishedTransfers::onOpen_gui(GtkMenuItem *item, gpointer data)
@@ -628,6 +668,11 @@ void FinishedTransfers::getFinishedParams_client(const FinishedFileItemPtr& item
 	params["CRC Checked"] = item->getCrc32Checked() ? _("Yes") : _("No");
 	params["Target"] = file;
 	params["Elapsed Time"] = Util::toString(item->getMilliSeconds());
+
+    if (item->isFull())
+        params["full"] = "f";
+    else
+        params["full"] = "p";
 }
 
 void FinishedTransfers::getFinishedParams_client(const FinishedUserItemPtr &item, const HintedUser &user, StringMap &params)//NOTE: core 0.762

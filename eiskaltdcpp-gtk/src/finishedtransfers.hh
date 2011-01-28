@@ -62,6 +62,7 @@ class FinishedTransfers:
 		static void onRemoveItems_gui(GtkMenuItem *item, gpointer data);
 		static void onRemoveAll_gui(GtkMenuItem *item, gpointer data);
 		static void onPageSwitched_gui(GtkNotebook *notebook, GtkNotebookPage *page, guint num, gpointer data);
+        static void onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpointer data);
 
 		// Client functions
 		void initializeList_client();
