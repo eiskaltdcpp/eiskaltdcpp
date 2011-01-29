@@ -344,7 +344,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
     <message>
         <location filename="../src/DownloadQueue.cpp" line="48"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Властивості магнету</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="49"/>
@@ -2074,7 +2074,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1182"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Властивості</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1219"/>
@@ -3245,7 +3245,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/SearchFrame.cpp" line="94"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Властивості магнету</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="97"/>
@@ -3367,7 +3367,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/Settings.cpp" line="29"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Властивості</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="42"/>
@@ -3792,7 +3792,7 @@ EiskaltDC++ - програма для UNIX-систем, для роботи з 
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Властивості магнету</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
