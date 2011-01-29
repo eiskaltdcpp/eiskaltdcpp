@@ -786,6 +786,11 @@ void ShareManager::updateIndices(Directory& dir, const Directory::File::Set::ite
 
     tthIndex.insert(make_pair(f.getTTH(), i));
     bloom.add(Text::toLower(f.getName()));
+#ifdef USE_DHT
+    dht::IndexManager* im = dht::IndexManager::getInstance();
+    if(im && im->isTimeForPublishing())
+        im->publishFile(f.getTTH(), f.getSize());
+#endif
 }
 
 void ShareManager::refresh(bool dirs /* = false */, bool aUpdate /* = true */, bool block /* = false */) throw() {
@@ -865,6 +870,11 @@ int ShareManager::run() {
         ClientManager::getInstance()->infoUpdated();
     }
     refreshing = 0;
+#ifdef USE_DHT
+    dht::IndexManager* im = dht::IndexManager::getInstance();
+    if(im && im->isTimeForPublishing())
+        im->setNextPublishing();
+#endif
     return 0;
 }
 

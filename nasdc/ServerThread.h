@@ -44,12 +44,12 @@ public:
 private:
     int server;
     unsigned int iSuspendTime;
-    pthread_t threadId, threadIdxml;
+    pthread_t threadId;
     pthread_mutex_t mtxServerThread;
 
     bool bTerminated;
 
-    socket_t webSock;
+    //socket_t webSock;
     Client* client;
 
     typedef unordered_map<string, Client*> ClientMap;
