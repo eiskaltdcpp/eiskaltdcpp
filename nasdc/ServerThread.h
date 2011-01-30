@@ -51,11 +51,7 @@ private:
 
     //socket_t webSock;
     Client* client;
-
-    typedef unordered_map<string, Client*> ClientMap;
-    typedef ClientMap::const_iterator ClientIter;
-    static ClientMap clients;
-
+    Client::List clients;
     int64_t lastUp;
     int64_t lastDown;
     uint64_t lastUpdate;
@@ -68,19 +64,19 @@ private:
     void on(TimerManagerListener::Second, uint64_t aTick) throw();
 
     // ClientListener
-    void on(Connecting, const Client* cur) throw();
-    void on(Connected, const Client* cur) throw();
-    void on(UserUpdated, const Client* cur, const OnlineUserPtr&) throw();
-    void on(UsersUpdated, const Client* cur, const OnlineUserList&) throw();
-    void on(UserRemoved, const Client* cur, const OnlineUserPtr&) throw();
-    void on(Redirect, const Client* cur, const string&) throw();
-    void on(Failed, const Client* cur, const string&) throw();
-    void on(GetPassword, const Client* cur) throw();
-    void on(HubUpdated, const Client* cur) throw();
-    void on(StatusMessage, const Client* cur, const string&, int = ClientListener::FLAG_NORMAL) throw();
-    void on(ClientListener::Message, const Client*, const ChatMessage&) throw();
-    void on(NickTaken, const Client* cur) throw();
-    void on(SearchFlood, const Client* cur, const string&) throw();
+    void on(Connecting, Client* cur) throw();
+    void on(Connected, Client* cur) throw();
+    void on(UserUpdated, Client* cur, const OnlineUserPtr&) throw();
+    void on(UsersUpdated, Client* cur, const OnlineUserList&) throw();
+    void on(UserRemoved, Client* cur, const OnlineUserPtr&) throw();
+    void on(Redirect, Client* cur, const string&) throw();
+    void on(Failed, Client* cur, const string&) throw();
+    void on(GetPassword, Client* cur) throw();
+    void on(HubUpdated, Client* cur) throw();
+    void on(StatusMessage, Client* cur, const string&, int = ClientListener::FLAG_NORMAL) throw();
+    void on(ClientListener::Message, Client*, const ChatMessage&) throw();
+    void on(NickTaken, Client* cur) throw();
+    void on(SearchFlood, Client* cur, const string&) throw();
 
     // WebServerListener
     //void on(WebServerListener::Setup) throw();

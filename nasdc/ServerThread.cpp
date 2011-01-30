@@ -36,7 +36,7 @@
 
 //#include "../dht/DHT.h"
 
-ServerThread::ClientMap ServerThread::clients;
+//ServerThread::ClientMap ServerThread::clients;
 
 //----------------------------------------------------------------------------
 ServerThread::ServerThread() : threadId(0), bTerminated(false), lastUp(0), lastDown(0), lastUpdate(GET_TICK())
@@ -122,8 +122,8 @@ void ServerThread::Close()
 #ifdef XMLRPC_DAEMON
     AbyssServer.terminate();
 #endif
-    for(ClientIter i = clients.begin() ; i != clients.end() ; i++) {
-        Client* cl = i->second;
+    for(Client::List::const_iterator i = clients.begin() ; i != clients.end() ; i++) {
+        Client* cl = *i;
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
@@ -186,57 +186,58 @@ void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
     //}
 }
 
-void ServerThread::on(Connecting, const Client* cur) throw() {
-    ClientIter i = clients.find(cur->getAddress());
-    if(i == clients.end()) {
-        clients[cur->getAddress()] = const_cast<Client*>(cur);
-    }
+void ServerThread::on(Connecting, Client* cur) throw() {
+    //Client::List::const_iterator i = clients.find(cur->getAddress());
+    //if(i == clients.end()) {
+        //clients[cur->getAddress()] = const_cast<Client*>(cur);
+    //}
+    cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
 
-void ServerThread::on(Connected, const Client*) throw() {
-
+void ServerThread::on(Connected, Client* cur) throw() {
+    cout << "Connect success to " <<  cur->getHubUrl() << "\n";
 }
 
-void ServerThread::on(UserUpdated, const Client*, const OnlineUserPtr& user) throw() {
-
-}
-
-void ServerThread::on(UsersUpdated, const Client*, const OnlineUserList& aList) throw() {
+void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) throw() {
 
 }
 
-void ServerThread::on(UserRemoved, const Client*, const OnlineUserPtr& user) throw() {
+void ServerThread::on(UsersUpdated, Client*, const OnlineUserList& aList) throw() {
 
 }
 
-void ServerThread::on(Redirect, const Client*, const string& line) throw() {
+void ServerThread::on(UserRemoved, Client*, const OnlineUserPtr& user) throw() {
 
 }
 
-void ServerThread::on(Failed, const Client*, const string& line) throw() {
+void ServerThread::on(Redirect, Client* cur, const string& line) throw() {
+    cout <<  "Redirected to" << line << "\n";
+}
+
+void ServerThread::on(Failed, Client* cur, const string& line) throw() {
+    cout <<  "Connect failed [ " << cur->getHubUrl() << " ] :"<< line << "\n";
+}
+
+void ServerThread::on(GetPassword, Client* cur) throw() {
+    //if (i != clients.end()) {
+        //Client* cl =cur;
+        //string pass = cur->getPassword();
+        //if (!pass.empty())
+            //cur->password(pass);
+    //}
+}
+
+void ServerThread::on(HubUpdated, Client*) throw() {
 
 }
 
-void ServerThread::on(GetPassword, const Client* cur) throw() {
-    ClientIter i = clients.find(cur->getAddress());
-    if (i != clients.end()) {
-        Client* cl = i->second;
-        string pass = cl->getPassword();
-        if (!pass.empty())
-            cl->password(pass);
-    }
-}
-
-void ServerThread::on(HubUpdated, const Client*) throw() {
-
-}
-
-void ServerThread::on(ClientListener::Message, const Client *cl, const ChatMessage& message) throw()
+void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& message) throw()
 {
     StringMap params;
     string msg = message.format();
-
-    if (message.to && message.replyTo) {
+    bool privatemsg = message.to && message.replyTo;
+    string priv = privatemsg ? " Private from " + message.from->getIdentity().getNick() : " Public";
+    if (privatemsg) {
         if (BOOLSETTING(LOG_PRIVATE_CHAT)) {
             const string& hint = cl->getHubUrl();
             const CID& cid = message.replyTo->getUser()->getCID();
@@ -260,11 +261,10 @@ void ServerThread::on(ClientListener::Message, const Client *cl, const ChatMessa
         }
     }
 
-
-    cout << msg.c_str() << "\n" << endl;
+    cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << "\n";
 }
 
-void ServerThread::on(StatusMessage, const Client *cl, const string& line, int statusFlags) throw()
+void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusFlags) throw()
 {
     string msg = line;
 
@@ -277,14 +277,14 @@ void ServerThread::on(StatusMessage, const Client *cl, const string& line, int s
         LOG(LogManager::STATUS, params);
     }
 
-    cout << msg.c_str() << "\n" << endl;
+    cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] " << "*"<< msg<< "\n";
 }
 
-void ServerThread::on(NickTaken, const Client*) throw() {
+void ServerThread::on(NickTaken, Client*) throw() {
 
 }
 
-void ServerThread::on(SearchFlood, const Client*, const string& line) throw() {
+void ServerThread::on(SearchFlood, Client*, const string& line) throw() {
 
 }
 
@@ -316,10 +316,10 @@ void ServerThread::startSocket(bool onstart, int oldmode){
 }
 void ServerThread::showPortsError(const string& port) {
     fprintf(stdout,
-            "Connectivity Manager: Warning\n\n Unable to open %d port. "
+            "\n\t\tConnectivity Manager: Warning\n\n Unable to open %s port. "
             "Searching or file transfers will\n not work correctly "
             "until you change settings or turn off\n any application "
-            "that might be using that port.",
+            "that might be using that port.\n\n",
             port.c_str());
     fflush(stdout);
 }
