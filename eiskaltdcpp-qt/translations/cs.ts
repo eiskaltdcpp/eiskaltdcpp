@@ -240,7 +240,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="48"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastnosti magnetu</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="49"/>
@@ -2069,7 +2069,7 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1182"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1188"/>
@@ -2889,7 +2889,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="94"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastnosi magnetu</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="97"/>
@@ -3059,7 +3059,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="29"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="42"/>
@@ -3432,7 +3432,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlastnosti magnetu</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
