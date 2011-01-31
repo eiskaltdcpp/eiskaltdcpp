@@ -299,7 +299,7 @@ void PMWindow::slotActivate(){
 }
 
 QString PMWindow::getArenaTitle(){
-    QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid;
+    QString nick = (cid.length() > 24)? _q(ClientManager::getInstance()->getNicks(CID(cid.toStdString()), _tq(hubUrl)).at(0)) : cid;
 
     nick_ = nick.isEmpty()? nick_ : nick;
 
@@ -307,7 +307,7 @@ QString PMWindow::getArenaTitle(){
 }
 
 QString PMWindow::getArenaShortTitle(){
-    QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNicks(CID(cid.toStdString())) : cid;
+    QString nick = (cid.length() > 24)? _q(ClientManager::getInstance()->getNicks(CID(cid.toStdString()), _tq(hubUrl)).at(0)) : cid;
 
     nick_ = nick.isEmpty()? nick_ : nick;
 
