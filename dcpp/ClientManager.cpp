@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -708,19 +708,58 @@ int ClientManager::getMode(const string& aHubUrl) const {
         int mode = 0;
         const FavoriteHubEntry* hub = FavoriteManager::getInstance()->getFavoriteHubEntry(aHubUrl);
         if(hub) {
-                switch(hub->getMode()) {
-                        case 1 :
-                                mode = SettingsManager::INCOMING_DIRECT;
-                                break;
-                        case 2 :
-                                mode = SettingsManager::INCOMING_FIREWALL_PASSIVE;
-                                break;
-                        default:
-                                mode = SETTING(INCOMING_CONNECTIONS);
-                }
+            switch(hub->getMode()) {
+                    case 1 :
+                            mode = SettingsManager::INCOMING_DIRECT;
+                            break;
+                    case 2 :
+                            mode = SettingsManager::INCOMING_FIREWALL_PASSIVE;
+                            break;
+                    default:
+                            mode = SETTING(INCOMING_CONNECTIONS);
+            }
         } else {
                 mode = SETTING(INCOMING_CONNECTIONS);
         }
         return mode;
 }
+
+#ifdef LUA_SCRIPT
+bool ClientManager::ucExecuteLua(const string& ucCommand, StringMap& params) throw() {
+        bool executedlua = false;
+        string::size_type i, j, k;
+        i = j = k = 0;
+        string tmp = ucCommand;
+        while( (i = tmp.find("%[lua:", i)) != string::npos) {
+                i += 6;
+                j = tmp.find(']', i);
+                if(j == string::npos)
+                        break;
+                string chunk = tmp.substr(i, j-i);
+                // for making possible using %[nick] and similar parameters too
+                // !%!{nick!}
+                k = 0;
+                while( (k = chunk.find("!%")) != string::npos) {
+                        chunk.erase(k, 2);
+                        chunk.insert(k, "%");
+                }
+                k = 0;
+                while( (k = chunk.find("!{")) != string::npos) {
+                        chunk.erase(k, 2);
+                        chunk.insert(k, "[");
+                }
+                k = 0;
+                while( (k = chunk.find("!}")) != string::npos) {
+                        chunk.erase(k, 2);
+                        chunk.insert(k, "]");
+                }
+                //@todo: use filter? I opted for no here, but this means Lua has to be careful about
+                //filtering if it cares.
+                ScriptManager::getInstance()->EvaluateChunk(Util::formatParams(chunk, params, false));
+                executedlua = true;
+                i = j + 1;
+        }
+        return executedlua;
+}
+#endif // LUA_SCRIPT
 } // namespace dcpp

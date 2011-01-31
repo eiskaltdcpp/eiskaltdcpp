@@ -24,6 +24,9 @@
 
 #include "VersionGlobal.h"
 
+#  include <readline/readline.h>
+#  include <readline/history.h>
+
 static void SigHandler(int sig) {
     string str = "Received signal ";
 
@@ -200,13 +203,41 @@ int main(int argc, char* argv[])
     }
     uint64_t t=0;
 
+    char *temp, *prompt;
+    temp = (char *)NULL;
+    prompt = "edcppd$ ";
+
     while (bServerRunning) {
         usleep(1000);
+        temp = readline (prompt);
+
+        /* If there is anything on the line, print it and remember it. */
+        if (*temp)
+        {
+            fprintf (stderr, "%s\r\n", temp);
+            add_history (temp);
+        }
+
+        /* Check for `command' that we handle. */
+        if (strcmp (temp, "quit") == 0)
+            bServerTerminated = true;
+
+        if (strcmp (temp, "list") == 0)
+        {
+            HIST_ENTRY **list;
+            register int i;
+
+            list = history_list ();
+            if (list)
+            {
+                for (i = 0; list[i]; i++)
+                fprintf (stderr, "%d: %s\r\n", i, list[i]->line);
+            }
+        }
+        free (temp);
+
         if (bServerTerminated)
             ServerStop();
-//#ifdef _DEBUG
-       // while (1) {t++;if (t>=1000000000){ ServerStop();}}
-//#endif
     }
 
     return 0;

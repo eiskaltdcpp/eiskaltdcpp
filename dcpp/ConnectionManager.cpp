@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -683,8 +683,7 @@ void ConnectionManager::on(AdcCommand::INF, UserConnection* aSource, const AdcCo
 
             const string& to = (*i)->getToken();
 
-            // 0.698 would send an empty token in some cases...remove this bugfix at some point
-            if(to == token || token.empty()) {
+            if(to == token) {
                 down = true;
             }
         }
