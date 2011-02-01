@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- */ 
+ */
 
 #ifndef DCPLUSPLUS_DCPP_BUFFERED_SOCKET_H
 #define DCPLUSPLUS_DCPP_BUFFERED_SOCKET_H
@@ -26,6 +26,7 @@
 #include "Speaker.h"
 #include "Util.h"
 #include "Socket.h"
+#include <boost/detail/atomic_count.hpp>
 
 namespace dcpp {
 
@@ -163,7 +164,7 @@ private:
 	void threadSendData() throw(Exception);
 
 	void fail(const string& aError);
-	static volatile long sockets;
+	static boost::detail::atomic_count sockets;
 
 	bool checkEvents() throw(Exception);
 	void checkSocket() throw(Exception);

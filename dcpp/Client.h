@@ -26,6 +26,7 @@
 #include "BufferedSocketListener.h"
 #include "TimerManager.h"
 #include "ClientListener.h"
+#include "Atomic.h"
 
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
@@ -102,7 +103,10 @@ public:
 
     static string getCounts() {
         char buf[128];
-        return string(buf, snprintf(buf, sizeof(buf), "%ld/%ld/%ld", counts.normal, counts.registered, counts.op));
+        return string(buf, snprintf(buf, sizeof(buf), "%ld/%ld/%ld",
+            static_cast<long>(counts.normal),
+            static_cast<long>(counts.registered),
+            static_cast<long>(counts.op)));
     }
 
     StringMap& escapeParams(StringMap& sm) {
@@ -148,11 +152,14 @@ protected:
     Client(const string& hubURL, char separator, bool secure_);
     virtual ~Client() throw();
     struct Counts {
-        Counts(long n = 0, long r = 0, long o = 0) : normal(n), registered(r), op(o) { }
-        volatile long normal;
-        volatile long registered;
-        volatile long op;
-        bool operator !=(const Counts& rhs) { return normal != rhs.normal || registered != rhs.registered || op != rhs.op; }
+        private:
+            typedef Atomic<boost::int32_t> atomic_counter_t;
+        public:
+            typedef boost::int32_t value_type;
+            Counts(value_type n = 0, value_type r = 0, value_type o = 0) : normal(n), registered(r), op(o) { }
+            atomic_counter_t normal;
+            atomic_counter_t registered;
+            atomic_counter_t op;
     };
 
     enum States {
