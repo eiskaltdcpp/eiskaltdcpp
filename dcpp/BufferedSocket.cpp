@@ -42,14 +42,13 @@ disconnecting(false)
 {
 	start();
 
-	++sockets;
+	sockets.inc();
 }
 
-//volatile long BufferedSocket::sockets = 0;
-boost::detail::atomic_count BufferedSocket::sockets(0);
+Atomic<long,memory_ordering_strong> BufferedSocket::sockets(0);
 
 BufferedSocket::~BufferedSocket() throw() {
-	--sockets;
+	sockets.dec();
 }
 
 void BufferedSocket::setMode (Modes aMode, size_t aRollback) {
