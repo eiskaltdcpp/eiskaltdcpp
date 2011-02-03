@@ -521,6 +521,8 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
                                 port = 443;
                         } else if(protocol == "dchub") {
                                 port = 411;
+                        } else {  // вообще говоря это нехорошо, но иначе пользователи будут недовольны
+                            port = 411;
                         }
                 } else {
                         dcdebug("p");
