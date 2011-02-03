@@ -2,16 +2,16 @@
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
 #
-# Automatically generated, 2010.
-# sumo <husumo@elitemail.hu>, 2010.
-# Attila Mándy <husumo@gmail.com>, 2010, 2011.
 #
+# Automatically generated, 2010.
+# sumo <husumo@elitemail.hu>, 2010, 2011.
+# Attila Mándy <husumo@gmail.com>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-01-22 21:10+0200\n"
-"PO-Revision-Date: 2011-01-10 18:27+0100\n"
+"PO-Revision-Date: 2011-02-01 22:55+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -886,6 +886,15 @@ msgid ""
 "  -h, --help\t Show this message\n"
 "  -v, --version\t Show version string\n"
 msgstr ""
+"Használat:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp <Kapcsoló>\n"
+"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC "
+"protokollok használatára.\n"
+"\n"
+"Kapcsolók:\n"
+"  -h, --help\t	 Help megjelenítése\n"
+"  -v, --version\t  Verzióinformáció mutatása\n"
 
 #: ../src/wulfor.cc:71
 msgid "Loading: "
@@ -3459,7 +3468,7 @@ msgstr "Fájl-lista átvitelek naplózása"
 
 #: ../glade/settingsdialog.glade:4302
 msgid "<b>Logging</b>"
-msgstr "<b>Naplózás<b>"
+msgstr "<b>Naplózás</b>"
 
 #: ../glade/settingsdialog.glade:4319
 msgid "Logs"
