@@ -129,7 +129,7 @@ Keys:
         <translation>Használat:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Kapcsoló&gt;
-Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
+Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC protokollok használatára.
 
 Kapcsolók:
   -h, --help	 Help megjelenítése
@@ -356,7 +356,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet tulajdonságai</translation>
     </message>
 </context>
 <context>
@@ -2187,7 +2187,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulajdonságok</translation>
     </message>
 </context>
 <context>
@@ -2742,7 +2742,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet tulajdonságai</translation>
     </message>
 </context>
 <context>
@@ -2844,7 +2844,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulajdonságok</translation>
     </message>
 </context>
 <context>
@@ -3204,7 +3204,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet tulajdonságai</translation>
     </message>
 </context>
 <context>
