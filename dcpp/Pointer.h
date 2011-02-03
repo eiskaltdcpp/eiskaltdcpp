@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,14 +38,14 @@ public:
         intrusive_ptr_release(this);
     }
 
-    bool unique() const throw() {
-        return (ref == 1);
+    bool unique(int val = 1) const throw() {
+        return (ref <= val);
     }
 
 protected:
     intrusive_ptr_base() throw() : ref(0) { }
     virtual ~intrusive_ptr_base() { }
-
+private:
     friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) {++p->ref;}
     friend void intrusive_ptr_release(intrusive_ptr_base* p) { if(--p->ref == 0) { delete static_cast<T*>(p); } }
 

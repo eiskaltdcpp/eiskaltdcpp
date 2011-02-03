@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -202,7 +202,8 @@ public:
                 replace(string_t(search), string_t(replacement), str);
         }
 
-    static void decodeUrl(const string& aUrl, string& aServer, uint16_t& aPort, string& aFile);
+    static void decodeUrl(const string& aUrl, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment);
+    static map<string, string> decodeQuery(const string& query);
     static string validateFileName(string aFile);
     static bool checkExtension(const string& tmp);
     static string cleanPathChars(string aNick);
@@ -420,16 +421,6 @@ public:
 
     static string getIpCountry (string IP);
 
-    static bool getAway() { return away; }
-    static void setAway(bool aAway) {
-        away = aAway;
-        if (away)
-            awayTime = time(NULL);
-    }
-    static void switchAway() {
-        setAway(!away);
-    }
-
     static void setLang(const string lang) {
         if(!lang.empty())
 #ifdef _WIN32
@@ -442,6 +433,10 @@ public:
         ++_nl_msg_cat_cntr;
         }
     }
+
+    static bool getAway();
+    static void setAway(bool aAway);
+    static void switchAway();
 
     static bool getManualAway() { return manualAway; }
     static void setManualAway(bool aManualAway) { manualAway = aManualAway; }

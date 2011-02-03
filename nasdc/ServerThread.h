@@ -35,6 +35,7 @@ public:
     void startSocket(bool onstart, int oldmode);
     void autoConnect();
     void showPortsError(const std::string& port);
+    bool disconnect_all();
 
     void Resume();
     void Run();

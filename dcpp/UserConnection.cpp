@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -145,7 +145,6 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
 }
 
 #ifdef LUA_SCRIPT
-//lua
 bool UserConnectionScriptInstance::onUserConnectionMessageIn(UserConnection* aConn, const string& aLine) {
         Lock l(cs);
         MakeCall("dcpp", "UserDataIn", 1, aConn, aLine);
@@ -157,7 +156,6 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
         MakeCall("dcpp", "UserDataOut", 1, aConn, aLine);
         return GetLuaBool();
 }
-//lua end
 #endif
 
 void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException) {

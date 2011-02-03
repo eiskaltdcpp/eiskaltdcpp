@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -103,9 +103,9 @@ public:
 
     void nmdcConnect(const string& aServer, uint16_t aPort, const string& aMyNick, const string& hubUrl, const string& encoding);
     void adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure);
-        void adcConnect(const OnlineUser& aUser, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure);
+    void adcConnect(const OnlineUser& aUser, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure);
 
-        void getDownloadConnection(const HintedUser& aUser);
+    void getDownloadConnection(const HintedUser& aUser);
     void force(const UserPtr& aUser);
 
     void disconnect(const UserPtr& aUser); // disconnect downloads and uploads
@@ -170,8 +170,10 @@ private:
     void addUploadConnection(UserConnection* uc);
     void addDownloadConnection(UserConnection* uc);
 
-        ConnectionQueueItem* getCQI(const HintedUser& aUser, bool download);
+    ConnectionQueueItem* getCQI(const HintedUser& aUser, bool download);
     void putCQI(ConnectionQueueItem* cqi);
+
+    bool checkKeyprint(UserConnection *aSource);
 
     void accept(const Socket& sock, bool secure) throw();
 
@@ -180,7 +182,7 @@ private:
     // UserConnectionListener
     virtual void on(Connected, UserConnection*) throw();
     virtual void on(Failed, UserConnection*, const string&) throw();
-        virtual void on(ProtocolError, UserConnection*, const string&) throw();
+    virtual void on(ProtocolError, UserConnection*, const string&) throw();
     virtual void on(CLock, UserConnection*, const string&, const string&) throw();
     virtual void on(Key, UserConnection*, const string&) throw();
     virtual void on(Direction, UserConnection*, const string&, const string&) throw();

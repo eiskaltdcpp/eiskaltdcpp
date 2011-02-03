@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,6 +49,7 @@ public:
     void loadCertificates() throw();
     void generateCertificate() throw(CryptoException);
     bool checkCertificate() throw();
+    const vector<uint8_t>& getKeyprint() const throw();
 
     bool TLSOk() const throw();
 private:
@@ -67,6 +68,7 @@ private:
 
     bool certsLoaded;
 
+    vector<uint8_t> keyprint;
     const string lock;
     const string pk;
 
@@ -74,6 +76,7 @@ private:
     bool isExtra(uint8_t b) {
         return (b == 0 || b==5 || b==124 || b==96 || b==126 || b==36);
     }
+    void loadKeyprint(const string& file) throw();
 };
 
 } // namespace dcpp

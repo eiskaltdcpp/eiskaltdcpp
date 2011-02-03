@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -198,14 +198,14 @@ std::string SSLSocket::getCipherName() const throw() {
 	return SSL_get_cipher_name(ssl);
 }
 
-std::string SSLSocket::getDigest() const throw() {
+vector<uint8_t> SSLSocket::getKeyprint() const throw() {
 	if(!ssl)
-		return Util::emptyString;
+		return vector<uint8_t>();
 	X509* x509 = SSL_get_peer_certificate(ssl);
 	if(!x509)
-		return Util::emptyString;
+		return vector<uint8_t>();
 
-	return ssl::X509_digest(x509, EVP_sha1());
+	return ssl::X509_digest(x509, EVP_sha256());
 }
 
 void SSLSocket::shutdown() throw() {

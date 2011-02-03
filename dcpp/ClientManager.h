@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,6 +47,7 @@ public:
     StringList getHubs(const CID& cid, const string& hintUrl);
     StringList getHubNames(const CID& cid, const string& hintUrl);
     StringList getNicks(const CID& cid, const string& hintUrl);
+    string getField(const CID& cid, const string& hintUrl, const char* field) const;
 
     StringList getHubs(const CID& cid, const string& hintUrl, bool priv);
     StringList getHubNames(const CID& cid, const string& hintUrl, bool priv);
@@ -73,7 +74,8 @@ public:
         * @param priv discard any user that doesn't match the hint.
         * @return OnlineUser* found by CID and hint; might be only by CID if priv is false.
         */
-        OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl, bool priv) throw();
+    OnlineUser* findOnlineUser(const HintedUser& user, bool priv);
+    OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl, bool priv);
 
     UserPtr findUser(const string& aNick, const string& aHubUrl) const throw() { return findUser(makeCid(aNick, aHubUrl)); }
     UserPtr findUser(const CID& cid) const throw();
@@ -111,6 +113,7 @@ public:
     void userCommand(const HintedUser& user, const UserCommand& uc, StringMap& params, bool compatibility);
     int getMode(const string& aHubUrl) const;
     bool isActive(const string& aHubUrl = Util::emptyString) const { return getMode(aHubUrl) != SettingsManager::INCOMING_FIREWALL_PASSIVE; }
+    static bool ucExecuteLua(const string& cmd, StringMap& params) throw();
 
     void lock() throw() { cs.enter(); }
     void unlock() throw() { cs.leave(); }
@@ -166,15 +169,15 @@ private:
     void updateNick(const OnlineUser& user) throw();
 
     /// @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
-    OnlineUser* findOnlineUser_hint(const CID& cid, const string& hintUrl) throw() {
-            OnlinePair p;
-            return findOnlineUser_hint(cid, hintUrl, p);
+    OnlineUser* findOnlineUserHint(const CID& cid, const string& hintUrl) const {
+        OnlinePairC p;
+        return findOnlineUserHint(cid, hintUrl, p);
     }
     /**
     * @param p OnlinePair of all the users found by CID, even those who don't match the hint.
     * @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
     */
-    OnlineUser* findOnlineUser_hint(const CID& cid, const string& hintUrl, OnlinePair& p) throw();
+    OnlineUser* findOnlineUserHint(const CID& cid, const string& hintUrl, OnlinePairC& p) const;
 
     string getUsersFile() const { return Util::getPath(Util::PATH_USER_LOCAL) + "Users.xml"; }
 

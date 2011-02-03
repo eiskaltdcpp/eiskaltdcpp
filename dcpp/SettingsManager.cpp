@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -91,7 +91,7 @@ const string SettingsManager::settingTags[] =
     "MaxDownloadSpeedMain", "MaxUploadSpeedMain",
     "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "KeepFinishedFiles",
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
-    "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue",
+    "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -285,6 +285,7 @@ SettingsManager::SettingsManager()
     setDefault(USE_LUA,false);
     setDefault(ALLOW_NATT, true);
     setDefault(IP_TOS_VALUE, -1);
+    setDefault(SEGMENT_SIZE, 0);
 
     setSearchTypeDefaults();
 }
@@ -558,23 +559,21 @@ SettingsManager::SearchTypesIter SettingsManager::getSearchType(const string& na
 }
 
 bool SettingsManager::getType(const char* name, int& n, int& type) const {
-        for(n = 0; n < INT64_LAST; n++) {
-                if(strcmp(settingTags[n].c_str(), name) == 0) {
-                        if(n < STR_LAST) {
+    for(n = 0; n < INT64_LAST; n++) {
+            if (strcmp(settingTags[n].c_str(), name) == 0) {
+                    if (n < STR_LAST) {
                         type = TYPE_STRING;
                         return true;
-                        } else if(n < INT_LAST) {
+                    } else if (n < INT_LAST) {
                         type= TYPE_INT;
                         return true;
-                        }else
-                        {
+                    } else {
                         type = TYPE_INT64;
                         return true;
-                        }
-                }
-        }
-                return false;
-
+                    }
+            }
+    }
+    return false;
 }
 
 } // namespace dcpp

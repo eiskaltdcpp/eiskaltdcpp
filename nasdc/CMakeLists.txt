@@ -1,8 +1,10 @@
 project(nasdc)
 cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
-include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/..)
+include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/common ${PROJECT_SOURCE_DIR}/gnu ${PROJECT_SOURCE_DIR}/.. ${READLINE_INCLUDE_DIR})
 aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
+#aux_source_directory(${PROJECT_SOURCE_DIR}/common common_SRCS)
+#aux_source_directory(${PROJECT_SOURCE_DIR}/gnu gnu_SRCS)
 if (XMLRPC_DAEMON)
 include_directories(${XMLRPC_INCLUDE_DIRS})
 set (XMLRPCLIBS ${XMLRPC_LIBRARIES})
@@ -15,6 +17,9 @@ if (LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
 endif (LUA_SCRIPT)
 # actual target:
+#add_library(nasdc_common STATIC ${common_SRCS})
+#add_library(nasdc_gnu STATIC ${gnu_SRCS})
+
 add_executable (nasdc MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
@@ -24,7 +29,7 @@ target_link_libraries (sampleclient ${XMLRPCLIBS})
 #add_executable (sampleserver sampleserver.cpp)
 #target_link_libraries (sampleserver ${XMLRPCLIBS})
 endif()
-target_link_libraries (nasdc dcpp pthread ${XMLRPCLIBS})
+target_link_libraries (nasdc dcpp pthread ${XMLRPCLIBS} ${READLINE_LIBRARIES})
 
 if (UNIX)
  set (BINDIR bin)

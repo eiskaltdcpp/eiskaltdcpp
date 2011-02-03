@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -160,7 +160,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
     double donePart = static_cast<double>(getDownloadedBytes()) / getSize();
 
     // We want smaller blocks at the end of the transfer, squaring gives a nice curve...
-    int64_t targetSize = wantedSize * std::max(0.25, (1. - (donePart * donePart)));
+    int64_t targetSize = SETTING(SEGMENT_SIZE) > 0 ? (int64_t)(SETTING(SEGMENT_SIZE)*1024*1024) : wantedSize * std::max(0.25, (1. - (donePart * donePart)));
 
     if(targetSize > blockSize) {
         // Round off to nearest block size

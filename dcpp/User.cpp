@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -124,6 +124,17 @@ bool Identity::supports(const string& name) const {
             return true;
     }
     return false;
+}
+
+std::map<string, string> Identity::getInfo() const {
+    std::map<string, string> ret;
+
+    FastLock l(cs);
+    for(InfIterC i = info.begin(); i != info.end(); ++i) {
+        ret[string((char*)(&i->first), 2)] = i->second;
+    }
+
+    return ret;
 }
 
 void FavoriteUser::update(const OnlineUser& info) {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -158,6 +158,7 @@ public:
     bool isAway() const { return isSet("AW"); }
     bool isTcpActive(const Client* = NULL) const;
     bool isUdpActive() const;
+    std::map<string, string> getInfo() const;
     string get(const char* name) const;
     void set(const char* name, const string& val);
     bool isSet(const char* name) const;
@@ -172,6 +173,7 @@ public:
 private:
     typedef std::tr1::unordered_map<short, string> InfMap;
     typedef InfMap::iterator InfIter;
+    typedef InfMap::const_iterator InfIterC;
     InfMap info;
 
     static FastCriticalSection cs;
@@ -180,7 +182,7 @@ private:
 class Client;
 class NmdcHub;
 
-class OnlineUser : public FastAlloc<OnlineUser>, private boost::noncopyable {
+class OnlineUser : public FastAlloc<OnlineUser>, public intrusive_ptr_base<OnlineUser> {
 public:
     typedef vector<OnlineUser*> List;
     typedef List::iterator Iter;
@@ -197,6 +199,7 @@ public:
     const Client& getClient() const { return (const Client&)client; }
     ClientBase& getClientBase() { return client; }
     const ClientBase& getClientBase() const { return client; }
+    bool isInList;
     GETSET(Identity, identity, Identity);
 private:
     friend class NmdcHub;

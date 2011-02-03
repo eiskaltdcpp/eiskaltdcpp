@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -88,6 +88,7 @@ public:
     bool isSecure() const;
     bool isTrusted() const;
     std::string getCipherName() const;
+    vector<uint8_t> getKeyprint() const;
 
     bool isOp() const { return getMyIdentity().isOp(); }
 
@@ -198,6 +199,7 @@ private:
     string address;
     string ip;
     string localIp;
+    string keyprint;
     uint16_t port;
     string externalIP;
     char separator;

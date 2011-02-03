@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,8 +39,16 @@ Client::Client(const string& hubURL, char separator_, bool secure_) :
     hubUrl(hubURL), port(0), separator(separator_),
     secure(secure_), countType(COUNT_UNCOUNTED)
 {
-    string file;
-    Util::decodeUrl(hubURL, address, port, file);
+    string file, proto, query, fragment;
+    Util::decodeUrl(hubURL, proto, address, port, file, query, fragment);
+
+    if(!query.empty()) {
+            map<string, string> q = Util::decodeQuery(query);
+            map<string, string>::iterator kp = q.find("kp");
+            if(kp != q.end()) {
+                    keyprint = kp->second;
+            }
+    }
 
     TimerManager::getInstance()->addListener(this);
 }
@@ -152,6 +160,19 @@ void Client::on(Connected) throw() {
     updateActivity();
     ip = sock->getIp();
     localIp = sock->getLocalIp();
+    if(sock->isSecure() && keyprint.compare(0, 7, "SHA256/") == 0) {
+        vector<uint8_t> kp = sock->getKeyprint();
+        if(!kp.empty()) {
+            vector<uint8_t> kp2v(kp.size());
+            Encoder::fromBase32(keyprint.c_str() + 7, &kp2v[0], kp2v.size());
+            if(!std::equal(kp.begin(), kp.end(), kp2v.begin())) {
+                state = STATE_DISCONNECTED;
+                sock->removeListener(this);
+                fire(ClientListener::Failed(), this, "Keyprint mismatch");
+                return;
+            }
+        }
+    }
     fire(ClientListener::Connected(), this);
     state = STATE_PROTOCOL;
 }
@@ -180,6 +201,9 @@ std::string Client::getCipherName() const {
     return isReady() ? sock->getCipherName() : Util::emptyString;
 }
 
+vector<uint8_t> Client::getKeyprint() const {
+    return isReady() ? sock->getKeyprint() : vector<uint8_t>();
+}
 void Client::updateCounts(bool aRemove) {
     // We always remove the count and then add the correct one if requested...
     if(countType == COUNT_NORMAL) {

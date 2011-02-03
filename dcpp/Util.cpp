@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
 #include "File.h"
 
 #include "StringTokenizer.h"
+#include "ClientManager.h"
 #include "SettingsManager.h"
 #include "LogManager.h"
 #include "version.h"
@@ -441,51 +442,128 @@ string Util::getShortTimeString(time_t t) {
  * http:// -> port 80
  * dchub:// -> port 411
  */
-void Util::decodeUrl(const string& url, string& aServer, uint16_t& aPort, string& aFile) {
-    // First, check for a protocol: xxxx://
-    string::size_type i = 0, j, k;
+void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment) {
+        size_t fragmentEnd = url.size();
+        size_t fragmentStart = url.rfind('#');
 
-    aServer = emptyString;
-    aFile = emptyString;
-
-    if( (j=url.find("://", i)) != string::npos) {
-        // Protocol found
-        string protocol = url.substr(0, j);
-        i = j + 3;
-
-        if(protocol == "http") {
-            aPort = 80;
-        } else if(protocol == "dchub") {
-            aPort = 411;
+        size_t queryEnd;
+        if(fragmentStart == string::npos) {
+                queryEnd = fragmentStart = fragmentEnd;
+        } else {
+                dcdebug("f");
+                queryEnd = fragmentStart;
+                fragmentStart++;
         }
-    }
 
-    if( (j=url.find('/', i)) != string::npos) {
-        // We have a filename...
-        aFile = url.substr(j);
-    }
+        size_t queryStart = url.rfind('?', queryEnd);
+        size_t fileEnd;
 
-    if( (k=url.find(':', i)) != string::npos) {
-        // Port
-        if(j == string::npos) {
-            aPort = static_cast<uint16_t>(Util::toInt(url.substr(k+1)));
-        } else if(k < j) {
-            aPort = static_cast<uint16_t>(Util::toInt(url.substr(k+1, j-k-1)));
+        if(queryStart == string::npos) {
+                fileEnd = queryStart = queryEnd;
+        } else {
+                dcdebug("q");
+                fileEnd = queryStart;
+                queryStart++;
         }
-    } else {
-        k = j;
-    }
 
-    if(k == string::npos) {
-        aServer = url.substr(i);
-        if(i==0) aPort = 411;
-    } else
-        aServer = url.substr(i, k-i);
+        size_t protoStart = 0;
+        size_t protoEnd = url.find("://", protoStart);
+
+        size_t authorityStart = protoEnd == string::npos ? protoStart : protoEnd + 3;
+        size_t authorityEnd = url.find_first_of("/#?", authorityStart);
+
+        size_t fileStart;
+        if(authorityEnd == string::npos) {
+                authorityEnd = fileStart = fileEnd;
+        } else {
+                dcdebug("a");
+                fileStart = authorityEnd;
+        }
+
+        protocol = url.substr(protoStart, protoEnd - protoStart);
+
+        if(authorityEnd > authorityStart) {
+                dcdebug("x");
+                size_t portStart = string::npos;
+                if(url[authorityStart] == '[') {
+                        // IPv6?
+                        size_t hostEnd = url.find(']');
+                        if(hostEnd == string::npos) {
+                                return;
+                        }
+
+                        host = url.substr(authorityStart, hostEnd - authorityStart);
+                        if(hostEnd + 1 < url.size() && url[hostEnd + 1] == ':') {
+                                portStart = hostEnd + 1;
+                        }
+                } else {
+                        size_t hostEnd;
+                        portStart = url.find(':', authorityStart);
+                        if(portStart != string::npos && portStart > authorityEnd) {
+                                portStart = string::npos;
+                        }
+
+                        if(portStart == string::npos) {
+                                hostEnd = authorityEnd;
+                        } else {
+                                hostEnd = portStart;
+                                portStart++;
+                        }
+
+                        dcdebug("h");
+                        host = url.substr(authorityStart, hostEnd - authorityStart);
+                }
+
+                if(portStart == string::npos) {
+                        if(protocol == "http") {
+                                port = 80;
+                        } else if(protocol == "https") {
+                                port = 443;
+                        } else if(protocol == "dchub") {
+                                port = 411;
+                        }
+                } else {
+                        dcdebug("p");
+                        port = static_cast<uint16_t>(Util::toInt(url.substr(portStart, authorityEnd - portStart)));
+                }
+        }
+
+        dcdebug("\n");
+        path = url.substr(fileStart, fileEnd - fileStart);
+        query = url.substr(queryStart, queryEnd - queryStart);
+        fragment = url.substr(fragmentStart, fragmentStart);
+}
+
+map<string, string> Util::decodeQuery(const string& query) {
+        map<string, string> ret;
+        size_t start = 0;
+        while(start < query.size()) {
+                size_t eq = query.find('=', start);
+                if(eq == string::npos) {
+                        break;
+                }
+
+                size_t param = eq + 1;
+                size_t end = query.find('&', param);
+
+                if(end == string::npos) {
+                        end = query.size();
+                }
+
+                if(eq > start && end > param) {
+                        ret[query.substr(start, eq-start)] = query.substr(param, end - param);
+                }
+
+                start = end + 1;
+        }
+
+        return ret;
 }
 
 string Util::getAwayMessage() {
     return (formatTime(awayMsg.empty() ? SETTING(DEFAULT_AWAY_MESSAGE) : awayMsg, awayTime)) + " <" APPNAME " v" VERSIONSTRING ">";
 }
+
 string Util::formatBytes(int64_t aBytes) {
     char buf[128];
     if(aBytes < 1024) {
@@ -879,18 +957,21 @@ string Util::formatParams(const string& msg, const StringMap& params, bool filte
 
 string Util::formatTime(const string &msg, const time_t t) {
     if (!msg.empty()) {
-        size_t bufsize = msg.size() + 256;
-        struct tm* loc = localtime(&t);
+    tm* loc = localtime(&t);
 
         if(!loc) {
             return Util::emptyString;
         }
-
+        size_t bufsize = msg.size() + 256;
         string buf(bufsize, 0);
+
+        errno = 0;
 
         buf.resize(strftime(&buf[0], bufsize-1, msg.c_str(), loc));
 
         while(buf.empty()) {
+            if(errno == EINVAL)
+                return Util::emptyString;
             bufsize+=64;
             buf.resize(bufsize);
             buf.resize(strftime(&buf[0], bufsize-1, msg.c_str(), loc));
@@ -1078,6 +1159,24 @@ string Util::translateError(int aError) {
 #endif // _WIN32
 }
 
+bool Util::getAway() {
+    return away;
+}
+
+void Util::setAway(bool aAway) {
+    bool changed = aAway != away;
+    away = aAway;
+    if(away)
+        awayTime = time(NULL);
+
+    if(changed)
+        ClientManager::getInstance()->infoUpdated();
+ }
+
+ void Util::switchAway() {
+    setAway(!away);
+ }
+
 string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
 	string ret = Util::emptyString;
 
@@ -1098,6 +1197,7 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
 	}
 	return Text::toT(ret);
 }
+
 bool Util::fileExists(const string &aFile) {
 #ifdef _WIN32
     DWORD attr = GetFileAttributes(Text::toT(aFile).c_str());
@@ -1107,4 +1207,5 @@ bool Util::fileExists(const string &aFile) {
     return (stat(aFile.c_str(),&stFileInfo) != 0);
 #endif
 }
+
 } // namespace dcpp

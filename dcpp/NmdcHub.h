@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,6 +37,7 @@ namespace dcpp {
 
 #ifdef LUA_SCRIPT
 struct NmdcHubScriptInstance : public ScriptInstance {
+    friend class ClientManager;
     bool onClientMessage(NmdcHub* aClient, const string& aLine);
 };
 #endif
@@ -52,6 +53,7 @@ public:
     using Client::send;
     using Client::connect;
 
+    void onLine(const string& aLine) throw();
     virtual void connect(const OnlineUser& aUser, const string&);
 
     virtual void hubMessage(const string& aMessage, bool /*thirdPerson*/ = false);
@@ -70,11 +72,9 @@ public:
     virtual void send(const AdcCommand&) { dcassert(0); }
 
     static string validateMessage(string tmp, bool reverse);
-#ifdef LUA_SCRIPT
-    void onLine(const string& aLine) throw();
-#endif
+
 private:
-    friend class ClientManager;
+friend class ClientManager;
     enum SupportFlags {
         SUPPORTS_USERCOMMAND = 0x01,
         SUPPORTS_NOGETINFO = 0x02,
@@ -111,9 +111,7 @@ private:
     NmdcHub& operator=(const NmdcHub&);
 
     void clearUsers();
-#ifndef LUA_SCRIPT
-    void onLine(const string& aLine) throw();
-#endif
+
     OnlineUser& getUser(const string& aNick);
     OnlineUser* findUser(const string& aNick);
     void putUser(const string& aNick);

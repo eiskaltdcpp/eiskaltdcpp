@@ -63,11 +63,11 @@ static void* ExecuteServerThread(void* SrvThread) {
 
 void ServerThread::Resume() {
     int iRet = pthread_create(&threadId, NULL, ExecuteServerThread, this);
-    fprintf(stdout,"thread: %i\n",iRet);
+    fprintf(stdout,"pthread_create return: %i\n",iRet);
 
-    //if(iRet != 0) {
-        //AppendSpecialLog("[ERR] Failed to create new ServerThread!");
-    //}
+    if(iRet != 0) {
+        AppendSpecialLog("[ERR] Failed to create new ServerThread!");
+    }
 }
 //---------------------------------------------------------------------------
 
@@ -104,15 +104,30 @@ void ServerThread::Run()
     //xmlrpc_c::xmlrpc_server_abyss_set_handlers()
     AbyssServer.run();
 #endif
-    while(!bTerminated) {
-        usleep(1000);
-    }
+
+    //while(!bTerminated) {
+        //usleep(1000);
+    //}
+    //if (bTerminated)
+        //disconnect_all();
 
 }
-
+bool ServerThread::disconnect_all(){
+    for(Client::List::const_iterator i = clients.begin() ; i != clients.end() ; i++) {
+        Client* cl = *i;
+        cl->removeListener(this);
+        cl->disconnect(true);
+        ClientManager::getInstance()->putClient(cl);
+        cl = NULL;
+    }
+}
 //---------------------------------------------------------------------------
 void ServerThread::Close()
 {
+    pthread_mutex_lock( &mtxServerThread );
+    disconnect_all();
+    pthread_mutex_unlock( &mtxServerThread );
+    usleep(10000000);
     //WebServerManager::getInstance()->removeListener(this);
     SearchManager::getInstance()->disconnect();
 
@@ -122,16 +137,6 @@ void ServerThread::Close()
 #ifdef XMLRPC_DAEMON
     AbyssServer.terminate();
 #endif
-    for(Client::List::const_iterator i = clients.begin() ; i != clients.end() ; i++) {
-        Client* cl = *i;
-        cl->removeListener(this);
-        cl->disconnect(true);
-        ClientManager::getInstance()->putClient(cl);
-        cl = NULL;
-        //fprintf(stdout,"wait 5 sec before disconnect next hub\n");
-        //usleep(5000);
-        //usleep(5000000);
-    }
 
     ConnectionManager::getInstance()->disconnect();
     bTerminated = true;

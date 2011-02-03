@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -944,7 +944,9 @@ bool NmdcHub::isProtectedIP(const string& ip) {
 
 void NmdcHub::on(Connected) throw() {
     Client::on(Connected());
-
+    if(state != STATE_PROTOCOL) {
+        return;
+    }
     supportFlags = 0;
     lastMyInfoA.clear();
     lastMyInfoB.clear();
@@ -955,7 +957,7 @@ void NmdcHub::on(Connected) throw() {
 
 void NmdcHub::on(Line, const string& aLine) throw() {
 #ifdef LUA_SCRIPT
-    if (onClientMessage(this, validateMessage(aLine, true)))//lua
+    if (onClientMessage(this, validateMessage(aLine, true)))
         return;
 #endif
     Client::on(Line(), aLine);
@@ -997,13 +999,10 @@ void NmdcHub::on(Minute, uint64_t aTick) throw() {
 }
 
 #ifdef LUA_SCRIPT
-//aded
 bool NmdcHubScriptInstance::onClientMessage(NmdcHub* aClient, const string& aLine) {
     Lock l(cs);
     MakeCall("nmdch", "DataArrival", 1, aClient, aLine);
     return GetLuaBool();
-
 }
-//end
 #endif
 } // namespace dcpp

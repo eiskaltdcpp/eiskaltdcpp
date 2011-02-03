@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,8 +16,8 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(SOCKET_H)
-#define SOCKET_H
+#ifndef DCPLUSPLUS_DCPP_SOCKET_H
+#define DCPLUSPLUS_DCPP_SOCKET_H
 
 #include "Util.h"
 #include "Exception.h"
@@ -36,7 +36,6 @@ typedef SOCKET socket_t;
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <netinet/ip.h>
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <fcntl.h>
@@ -178,7 +177,7 @@ public:
 	virtual bool isSecure() const throw() { return false; }
 	virtual bool isTrusted() const throw() { return false; }
 	virtual std::string getCipherName() const throw() { return Util::emptyString; }
-	virtual std::string getDigest() const throw() { return Util::emptyString; }
+	virtual vector<uint8_t> getKeyprint() const throw() { return vector<uint8_t>(); }
 
 	/** When socks settings are updated, this has to be called... */
 	static void socksUpdated();

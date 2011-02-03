@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -110,7 +110,7 @@ public:
         MAX_DOWNLOAD_SPEED_MAIN, MAX_UPLOAD_SPEED_MAIN,
         SLOTS_ALTERNATE_LIMITING, SLOTS_PRIMARY, KEEP_FINISHED_FILES,
         SHOW_FREE_SLOTS_DESC, USE_IP, OVERLAP_CHUNKS, CASESENSITIVE_FILELIST,
-        IPFILTER, TEXT_COLOR, USE_LUA, ALLOW_NATT, IP_TOS_VALUE,
+        IPFILTER, TEXT_COLOR, USE_LUA, ALLOW_NATT, IP_TOS_VALUE, SEGMENT_SIZE,
         INT_LAST };
 
     enum Int64Setting { INT64_FIRST = INT_LAST + 1,

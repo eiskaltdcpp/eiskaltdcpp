@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -990,6 +990,8 @@ void AdcHub::info(bool /*alwaysSend*/) {
     string su(SEGA_FEATURE);
     if(CryptoManager::getInstance()->TLSOk()) {
         su += "," + ADCS_FEATURE;
+        const vector<uint8_t> &kp = CryptoManager::getInstance()->getKeyprint();
+        addParam(lastInfoMap, c, "KP", "SHA256/" + Encoder::toBase32(&kp[0], kp.size()));
     }
 
     if (!getFavIp().empty()) {
