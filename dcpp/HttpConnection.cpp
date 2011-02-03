@@ -55,12 +55,13 @@ void HttpConnection::downloadFile(const string& aUrl) {
         fire(HttpConnectionListener::TypeNormal(), this);
     }
 
+        string proto, query, fragment;
     if(SETTING(HTTP_PROXY).empty()) {
-        Util::decodeUrl(currentUrl, server, port, file);
+                Util::decodeUrl(currentUrl, proto, server, port, file, query, fragment);
         if(file.empty())
             file = "/";
     } else {
-        Util::decodeUrl(SETTING(HTTP_PROXY), server, port, file);
+                Util::decodeUrl(SETTING(HTTP_PROXY), proto, server, port, file, query, fragment);
         file = currentUrl;
     }
 
@@ -95,9 +96,9 @@ void HttpConnection::on(BufferedSocketListener::Connected) throw() {
     string sRemoteServer = server;
     if(!SETTING(HTTP_PROXY).empty())
     {
-        string tfile;
+                string tfile, proto, query, fragment;
         uint16_t tport;
-        Util::decodeUrl(file, sRemoteServer, tport, tfile);
+                Util::decodeUrl(file, proto, sRemoteServer, tport, tfile, query, fragment);
     }
     socket->write("Host: " + sRemoteServer + "\r\n");
     socket->write("Connection: close\r\n"); // we'll only be doing one request
@@ -140,7 +141,8 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) throw
         // make sure we can also handle redirects with relative paths
         if(Util::strnicmp(location302.c_str(), "http://", 7) != 0) {
             if(location302[0] == '/') {
-                Util::decodeUrl(currentUrl, server, port, file);
+                                string proto, query, fragment;
+                                Util::decodeUrl(currentUrl, proto, server, port, file, query, fragment);
                 string tmp = "http://" + server;
                 if(port != 80)
                     tmp += ':' + Util::toString(port);

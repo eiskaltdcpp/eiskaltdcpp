@@ -198,14 +198,14 @@ std::string SSLSocket::getCipherName() const throw() {
 	return SSL_get_cipher_name(ssl);
 }
 
-std::string SSLSocket::getDigest() const throw() {
+vector<uint8_t> SSLSocket::getKeyprint() const throw() {
 	if(!ssl)
-		return Util::emptyString;
+		return vector<uint8_t>();
 	X509* x509 = SSL_get_peer_certificate(ssl);
 	if(!x509)
-		return Util::emptyString;
+		return vector<uint8_t>();
 
-	return ssl::X509_digest(x509, EVP_sha1());
+	return ssl::X509_digest(x509, EVP_sha256());
 }
 
 void SSLSocket::shutdown() throw() {

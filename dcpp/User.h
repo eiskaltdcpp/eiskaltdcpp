@@ -158,6 +158,7 @@ public:
     bool isAway() const { return isSet("AW"); }
     bool isTcpActive(const Client* = NULL) const;
     bool isUdpActive() const;
+    std::map<string, string> getInfo() const;
     string get(const char* name) const;
     void set(const char* name, const string& val);
     bool isSet(const char* name) const;
@@ -172,6 +173,7 @@ public:
 private:
     typedef std::tr1::unordered_map<short, string> InfMap;
     typedef InfMap::iterator InfIter;
+    typedef InfMap::const_iterator InfIterC;
     InfMap info;
 
     static FastCriticalSection cs;
