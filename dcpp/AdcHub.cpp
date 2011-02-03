@@ -990,6 +990,8 @@ void AdcHub::info(bool /*alwaysSend*/) {
     string su(SEGA_FEATURE);
     if(CryptoManager::getInstance()->TLSOk()) {
         su += "," + ADCS_FEATURE;
+        const vector<uint8_t> &kp = CryptoManager::getInstance()->getKeyprint();
+        addParam(lastInfoMap, c, "KP", "SHA256/" + Encoder::toBase32(&kp[0], kp.size()));
     }
 
     if (!getFavIp().empty()) {
