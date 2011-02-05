@@ -18,6 +18,6 @@
 extern string PATH, sTitle;
 
 bool DirExist(char * sPath);
-void AppendSpecialLog(const string & sData);
+void Log(const string & sData);
 string toString(short val);
 #endif /* UTILITY_H_ */

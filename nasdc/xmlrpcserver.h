@@ -191,4 +191,50 @@ public:
     }
 };
 
+class hubAddMethod : public xmlrpc_c::method {
+public:
+    hubAddMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method add connect to new hub";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const shub(paramList.getString(0));
+        string const senc(paramList.getString(1));
+        paramList.verifyEnd(2);
+
+       ServerThread::connectClient(saddress, senc);
+            *retvalP = xmlrpc_c::value_string("Connected to hub");
+        }
+        else
+            *retvalP = xmlrpc_c::value_string("Fail connect");
+        SLEEP(2);
+    }
+};
+
+class hubDelMethod : public xmlrpc_c::method {
+public:
+    hubDelMethod() {
+        this->_signature = "i:s";
+        this->_help = "This method disconnect from hub";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const shub(paramList.getString(0));
+        paramList.verifyEnd(1);
+
+       ServerThread::disconnectClient(saddress);
+            *retvalP = xmlrpc_c::value_string("Disconnected from hub");
+        }
+        else
+            *retvalP = xmlrpc_c::value_string("Fail disconnect");
+        SLEEP(2);
+    }
+};
 #endif

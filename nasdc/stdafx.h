@@ -18,9 +18,6 @@
 //#include "../dht/StdAfx.h"
 #include "dcpp/DCPlusPlus.h"
 
-#include <syslog.h>
-#include <sys/stat.h>
-#include <signal.h>
 #include <libintl.h>
 #include <iostream>
 
