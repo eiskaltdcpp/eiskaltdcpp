@@ -14,6 +14,9 @@
 //---------------------------------------------------------------------------
 #include "stdafx.h"
 #include "utility.h"
+#ifndef _WIN32
+#include <sys/stat.h>
+#endif
 //---------------------------------------------------------------------------
 
 string PATH = "", sTitle = "";
@@ -32,11 +35,11 @@ bool DirExist(char * sPath) {
     return false;
 }
 
-void AppendSpecialLog(const string & sData) {
+void Log(const string & sData) {
 #ifdef _WIN32
-    FILE * fw = fopen((PATH + "\\logs\\debug.log").c_str(), "a");
+    FILE * fw = fopen((PATH + "\\logs\\daemon.log").c_str(), "a");
 #else
-    FILE * fw = fopen((PATH + "/Logs/debug.log").c_str(), "a");
+    FILE * fw = fopen((PATH + "/Logs/daemon.log").c_str(), "a");
 #endif
 
     if(fw == NULL) {
