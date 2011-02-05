@@ -129,6 +129,16 @@ License:
  Public Domain
 
 Files:
+ luascripts/*
+Copyright:
+ Copyright 2008-2011 BCDC++ team (https://launchpad.net/~bcdcpp-team)
+License:
+ GPL-2 or later
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+Files:
  extra/fsusage.c
  extra/fsusage.h
 Copyright:
