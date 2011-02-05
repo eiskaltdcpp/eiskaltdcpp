@@ -285,7 +285,7 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) thr
 
 		dcassert(activeWaiter == 0 || activeWaiter == 1);
 		waitCS[1-activeWaiter].enter();
-		Thread::safeExchange(activeWaiter, 1-activeWaiter);
+		activeWaiter = 1-activeWaiter;
 		waitCS[1-activeWaiter].leave();
 	}
 }

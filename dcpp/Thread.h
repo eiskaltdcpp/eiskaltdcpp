@@ -64,12 +64,6 @@ public:
 	static void sleep(uint32_t millis) { ::Sleep(millis); }
 	static void yield() { ::Sleep(0); }
 
-#ifdef __MINGW32__
-	static long safeExchange(volatile long& target, long value) { return InterlockedExchange((long*)&target, value); }
-#else
-	static long safeExchange(volatile long& target, long value) { return InterlockedExchange(&target, value); }
-#endif
-
 #else
 
 	enum Priority {
@@ -95,13 +89,6 @@ public:
 	void setThreadPriority(Priority p) { setpriority(PRIO_PROCESS, 0, p); }
 	static void sleep(uint32_t millis) { ::usleep(millis*1000); }
 	static void yield() { ::sched_yield(); }
-	static long safeExchange(volatile long& target, long value) {
-		pthread_mutex_lock(&mtx);
-		long ret = target;
-		target = value;
-		pthread_mutex_unlock(&mtx);
-		return ret;
-	}
 
 #endif
 
