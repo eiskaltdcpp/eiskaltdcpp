@@ -240,7 +240,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="48"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Propiedades del imán</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="49"/>
@@ -1617,10 +1617,6 @@ Usuario favorito</translation>
         <translation>&amp;Archivo</translation>
     </message>
     <message>
-        <source>Options</source>
-        <translation type="obsolete">Opciones</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1108"/>
         <location filename="../src/MainWindow.cpp" line="1949"/>
         <source>Open log file</source>
@@ -1770,22 +1766,6 @@ Usuario favorito</translation>
         <location filename="../src/MainWindow.cpp" line="2431"/>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
         <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
-    </message>
-    <message>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="obsolete">EiskaltDC++ es un cliente gráfico para Direct Connect y protocolos ADC.</translation>
-    </message>
-    <message>
-        <source>DC++ core version:</source>
-        <translation type="obsolete">Versión del núcleo DC++:</translation>
-    </message>
-    <message>
-        <source>Total up:</source>
-        <translation type="obsolete">Total subido:</translation>
-    </message>
-    <message>
-        <source>Total down:</source>
-        <translation type="obsolete">Total bajado:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1129"/>
@@ -2054,7 +2034,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1182"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferencias</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1188"/>
@@ -2420,10 +2400,6 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/PMWindow.cpp" line="424"/>
         <source>User went offline</source>
         <translation>El usuario está desconectado</translation>
-    </message>
-    <message>
-        <source>Disable emoticons</source>
-        <translation type="obsolete">Deshabilitar emoticonos</translation>
     </message>
 </context>
 <context>
@@ -2870,7 +2846,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="94"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Propiedades del imán</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="97"/>
@@ -3034,13 +3010,9 @@ Descargas: %3 Subidas: %4</translation>
 <context>
     <name>Settings</name>
     <message>
-        <source>Options</source>
-        <translation type="obsolete">Opciones</translation>
-    </message>
-    <message>
         <location filename="../src/Settings.cpp" line="29"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferencias</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="42"/>
@@ -3393,7 +3365,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Propiedades del imán</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
@@ -3620,15 +3592,6 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/SideBar.cpp" line="112"/>
         <source>Widgets</source>
         <translation></translation>
-    </message>
-</context>
-<context>
-    <name>SingleInstanceRunner</name>
-    <message>
-        <source>Internal server running on %1
-</source>
-        <translation type="obsolete">Servidor interno funcionando en %1
-</translation>
     </message>
 </context>
 <context>
@@ -6401,12 +6364,6 @@ Con esta opción, los archivos que comienzan con la extensión.&quot;.&quot;(Pun
 Nota: esta opcion requiere un refresco de la lista, y puede causar que el cliente quede congelado.</translation>
     </message>
     <message>
-        <source>If with uncheck this you will leave the client until the update
-share is complete, share at follow-up activities start nulled.</source>
-        <translation type="obsolete">Si ha desmarcado esta casilla dejará de poder usar este cliente hasta que finalice 
-la actualización de compartidos, las actividades de compartir al inicio no funcionarán.</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="266"/>
         <source>FastHash options (restart needed)</source>
         <translation>Opciones de Hash rápido (se necesita reiniciar)</translation>
@@ -6497,10 +6454,6 @@ si su sistema se vuelve lento cuando se hashean archivos.</translation>
         <location filename="../ui/UISettingsSharing.ui" line="239"/>
         <source>Share temporary files</source>
         <translation>Compartir archivos temporales</translation>
-    </message>
-    <message>
-        <source>Run refresh share on startup</source>
-        <translation type="obsolete">Ejecutar refresco de compartidos al iniciar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="246"/>

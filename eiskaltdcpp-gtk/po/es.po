@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-01-22 21:10+0200\n"
-"PO-Revision-Date: 2011-01-09 00:21+0100\n"
+"PO-Revision-Date: 2011-02-06 07:06+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.1\n"
+"X-Generator: Lokalize 1.2\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:962
 #: ../src/settingsdialog.cc:1335 ../glade/mainwindow.glade:272
@@ -466,7 +466,7 @@ msgstr "Mostrar/Ocultar lista de usuarios"
 #: ../src/hub.cc:1936
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
-"Descargar limite de imagen: 0 - deshabilitado, n < 0 - sin limite, vacio - "
+"Descargar limite de imagen: 0 - deshabilitado, n < 0 - sin limite, vacío - "
 "información"
 
 #: ../src/hub.cc:1937 ../glade/hub.glade:468
@@ -887,6 +887,15 @@ msgid ""
 "  -h, --help\t Show this message\n"
 "  -v, --version\t Show version string\n"
 msgstr ""
+"Uso:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ es un programa de plataforma-cruzada (multisistema) que usa los "
+"protocolos Direct Connect y ADC \n"
+"\n"
+"Opciones:\n"
+"  -h, --help\t muestra este mensaje\n"
+"  -v, --version\t Muestra la version del programa\n"
 
 #: ../src/wulfor.cc:71
 msgid "Loading: "
