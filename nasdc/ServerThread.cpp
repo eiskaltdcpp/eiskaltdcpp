@@ -28,6 +28,7 @@
 #include "dcpp/SearchManager.h"
 #include "dcpp/ConnectivityManager.h"
 #include "dcpp/ChatMessage.h"
+#include "dcpp/Text.h"
 
 #include "dcpp/version.h"
 #ifdef XMLRPC_DAEMON
@@ -36,42 +37,27 @@
 
 //#include "../dht/DHT.h"
 
-//ServerThread::ClientMap ServerThread::clients;
+ServerThread::ClientMap ServerThread::clientsMap;
 
 //----------------------------------------------------------------------------
-ServerThread::ServerThread() : threadId(0), bTerminated(false), lastUp(0), lastDown(0), lastUpdate(GET_TICK())
+ServerThread::ServerThread() : bTerminated(false), lastUp(0), lastDown(0), lastUpdate(GET_TICK())
 {
-    pthread_mutex_init(&mtxServerThread, NULL);
+
 }
 //---------------------------------------------------------------------------
 
 ServerThread::~ServerThread() {
-    if(threadId != 0) {
         Close();
         WaitFor();
-    }
-
-    pthread_mutex_destroy(&mtxServerThread);
-}
-//---------------------------------------------------------------------------
-
-static void* ExecuteServerThread(void* SrvThread) {
-    ((ServerThread *)SrvThread)->Run();
-    return 0;
 }
 //---------------------------------------------------------------------------
 
 void ServerThread::Resume() {
-    int iRet = pthread_create(&threadId, NULL, ExecuteServerThread, this);
-    fprintf(stdout,"pthread_create return: %i\n",iRet);
-
-    if(iRet != 0) {
-        AppendSpecialLog("[ERR] Failed to create new ServerThread!");
-    }
+    start();
 }
 //---------------------------------------------------------------------------
 
-void ServerThread::Run()
+int ServerThread::run()
 {
     TimerManager::getInstance()->addListener(this);
     QueueManager::getInstance()->addListener(this);
@@ -98,9 +84,13 @@ void ServerThread::Run()
     xmlrpc_c::methodPtr const sampleAddMethodP(new sampleAddMethod);
     xmlrpc_c::methodPtr const magnetAddMethodP(new magnetAddMethod);
     xmlrpc_c::methodPtr const stopDemonMethodP(new stopDemonMethod);
+    xmlrpc_c::methodPtr const hubAddMethodP(new hubAddMethod);
+    xmlrpc_c::methodPtr const hubDelMethodP(new hubDelMethod);
     xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
+    xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
+    xmlrpcRegistry.addMethod("hub.del", hubDelMethodP);
     //xmlrpc_c::xmlrpc_server_abyss_set_handlers()
     AbyssServer.run();
 #endif
@@ -113,8 +103,8 @@ void ServerThread::Run()
 
 }
 bool ServerThread::disconnect_all(){
-    for(Client::List::const_iterator i = clients.begin() ; i != clients.end() ; i++) {
-        Client* cl = *i;
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        Client* cl = i->second;
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
@@ -124,10 +114,8 @@ bool ServerThread::disconnect_all(){
 //---------------------------------------------------------------------------
 void ServerThread::Close()
 {
-    pthread_mutex_lock( &mtxServerThread );
     disconnect_all();
-    pthread_mutex_unlock( &mtxServerThread );
-    usleep(10000000);
+    usleep(1000000);
     //WebServerManager::getInstance()->removeListener(this);
     SearchManager::getInstance()->disconnect();
 
@@ -140,19 +128,11 @@ void ServerThread::Close()
 
     ConnectionManager::getInstance()->disconnect();
     bTerminated = true;
-    //usleep(5000000);
 }
 //---------------------------------------------------------------------------
 
 void ServerThread::WaitFor() {
-    fprintf(stdout,"waiting of thread\t ");
-    if(threadId != 0) {
-        fprintf(stdout,"threadId != 0 \n");
-        int i = pthread_join(threadId, NULL);
-        fprintf(stdout,"join done\t");
-        threadId = 0;
-        return;
-    }
+    join();
 }
 
 //----------------------------------------------------------------------------
@@ -163,13 +143,34 @@ void ServerThread::autoConnect()
     for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
         FavoriteHubEntry* entry = *i;
         if (entry->getConnect()) {
-            string address = entry->getServer();string encoding;
-            encoding =  (address.substr(0, 6) == "adc://" || address.substr(0, 7) == "adcs://") ? "UTF-8" : entry->getEncoding();
-            Client* cl = ClientManager::getInstance()->getClient(address);
-            cl->setEncoding(encoding);
-            cl->addListener(this);
-            cl->connect();
+            address = entry->getServer();
+            encoding = entry->getEncoding();
+            connectClient(address,encoding);
         }
+    }
+}
+
+void ServerThread::connectClient(string address, string encoding)
+{
+    if (address.substr(0, 6) == "adc://" || address.substr(0, 7) == "adcs://")
+        encoding = "UTF-8";
+    else if (encoding.empty())
+        encoding = Text::systemCharset;
+
+    Client* client = ClientManager::getInstance()->getClient(address);
+    client->setEncoding(encoding);
+    client->addListener(this);
+    client->connect();
+}
+
+void ServerThread::disconnectClient(string address){
+    ClientIter i = clientsMap.find(address);
+    if(i != clientsMap.end()) {
+        Client* cl = i->second;
+        cl->removeListener(this);
+        cl->disconnect(true);
+        ClientManager::getInstance()->putClient(cl);
+        cl = NULL;
     }
 }
 //----------------------------------------------------------------------------
@@ -192,10 +193,10 @@ void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
 }
 
 void ServerThread::on(Connecting, Client* cur) throw() {
-    //Client::List::const_iterator i = clients.find(cur->getAddress());
-    //if(i == clients.end()) {
-        //clients[cur->getAddress()] = const_cast<Client*>(cur);
-    //}
+    ClientIter i = clientsMap.find(cur->getAddress());
+    if(i == clientsMap.end()) {
+        clientsMap[cur->getAddress()] = const_cast<Client*>(cur);
+    }
     cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
 
@@ -224,12 +225,13 @@ void ServerThread::on(Failed, Client* cur, const string& line) throw() {
 }
 
 void ServerThread::on(GetPassword, Client* cur) throw() {
-    //if (i != clients.end()) {
-        //Client* cl =cur;
-        //string pass = cur->getPassword();
-        //if (!pass.empty())
-            //cur->password(pass);
-    //}
+    ClientIter i = clientsMap.find(cur->getAddress());
+    if (i != clientsMap.end()) {
+        Client* cl =cur;
+        string pass = cur->getPassword();
+        if (!pass.empty())
+            cur->password(pass);
+    }
 }
 
 void ServerThread::on(HubUpdated, Client*) throw() {

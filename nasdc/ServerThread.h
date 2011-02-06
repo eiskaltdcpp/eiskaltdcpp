@@ -19,12 +19,14 @@
 #include "dcpp/LogManager.h"
 #include "dcpp/ClientListener.h"
 #include "dcpp/ShareManager.h"
+#include "dcpp/Thread.h"
 //#include "dcpp/WebServerManager.h"
 
-class ServerThread : private TimerManagerListener,
+class ServerThread :private TimerManagerListener,
         private QueueManagerListener,
         private LogManagerListener,
-        private ClientListener/*,
+        private ClientListener,
+        public Thread/*,
         private WebServerListener*/
 {
 
@@ -38,29 +40,22 @@ public:
     bool disconnect_all();
 
     void Resume();
-    void Run();
     void Close();
     void WaitFor();
+    virtual int run();
+
+    void connectClient (string address, string encoding);
+    void disconnectClient(string address);
 
 private:
     int server;
     unsigned int iSuspendTime;
-    pthread_t threadId;
-    pthread_mutex_t mtxServerThread;
-
     bool bTerminated;
-
+    typedef unordered_map<string, Client*> ClientMap;
+    typedef ClientMap::const_iterator ClientIter;
+    static ClientMap clientsMap;
     //socket_t webSock;
-    Client* client;
-    Client::List clients;
-    int64_t lastUp;
-    int64_t lastDown;
-    uint64_t lastUpdate;
-/*
-    int64_t diff;
-    int64_t updiff;
-    int64_t downdiff;
-*/
+
     // TimerManagerListener
     void on(TimerManagerListener::Second, uint64_t aTick) throw();
 
@@ -83,6 +78,11 @@ private:
     //void on(WebServerListener::Setup) throw();
     //void on(WebServerListener::ShutdownPC, int) throw();
 
+    int64_t lastUp;
+    int64_t lastDown;
+    uint64_t lastUpdate;
+    std::string address;
+    std::string encoding;
 };
 
 #endif /* SERVERTHREAD_H_ */

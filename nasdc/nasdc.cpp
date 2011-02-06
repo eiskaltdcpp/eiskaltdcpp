@@ -24,8 +24,13 @@
 
 #include "VersionGlobal.h"
 
-#  include <readline/readline.h>
-#  include <readline/history.h>
+#ifndef _WIN32
+#include <syslog.h>
+#include <signal.h>
+#endif
+
+#include <readline/readline.h>
+#include <readline/history.h>
 
 static void SigHandler(int sig) {
     string str = "Received signal ";
@@ -46,7 +51,7 @@ static void SigHandler(int sig) {
     fprintf(stdout,"%s",str.c_str());
     fflush(stdout);
     if (!bDaemon) {
-        AppendSpecialLog(str);
+        Log(str);
     } else {
         syslog(LOG_USER | LOG_INFO, str.c_str());
     }
