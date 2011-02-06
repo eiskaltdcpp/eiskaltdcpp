@@ -1619,26 +1619,18 @@ gboolean MainWindow::onKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpo
         }
     }
     else if (event->state & GDK_MOD1_MASK) {
-        if (event->keyval == GDK_1)
-            mw->onSwitchOnPage_gui(1);
-        else if (event->keyval == GDK_2)
-            mw->onSwitchOnPage_gui(2);
-        else if (event->keyval == GDK_3)
-            mw->onSwitchOnPage_gui(3);
-        else if (event->keyval == GDK_4)
-            mw->onSwitchOnPage_gui(4);
-        else if (event->keyval == GDK_5)
-            mw->onSwitchOnPage_gui(5);
-        else if (event->keyval == GDK_6)
-            mw->onSwitchOnPage_gui(6);
-        else if (event->keyval == GDK_7)
-            mw->onSwitchOnPage_gui(7);
-        else if (event->keyval == GDK_8)
-            mw->onSwitchOnPage_gui(8);
-        else if (event->keyval == GDK_9)
-            mw->onSwitchOnPage_gui(9);
-        else if (event->keyval == GDK_0)
-            mw->onSwitchOnPage_gui(10);
+        switch (event->keyval) {
+            case GDK_1: mw->onSwitchOnPage_gui(1);break;
+            case GDK_2: mw->onSwitchOnPage_gui(2);break;
+            case GDK_3: mw->onSwitchOnPage_gui(3);break;
+            case GDK_4: mw->onSwitchOnPage_gui(4);break;
+            case GDK_5: mw->onSwitchOnPage_gui(5);break;
+            case GDK_6: mw->onSwitchOnPage_gui(6);break;
+            case GDK_7: mw->onSwitchOnPage_gui(7);break;
+            case GDK_8: mw->onSwitchOnPage_gui(8);break;
+            case GDK_9: mw->onSwitchOnPage_gui(9);break;
+            case GDK_0: mw->onSwitchOnPage_gui(10);break;
+        }
     }
 
 

@@ -63,6 +63,7 @@ void SettingsDownloads::ok(){
 
     SM->set(SettingsManager::NO_USE_TEMP_DIR, !checkBox_NO_USE_TEMP_DIR->isChecked());
     SM->set(SettingsManager::AUTO_SEARCH_TIME, spinBox_AUTO_SEARCH_TIME->value());
+    SM->set(SettingsManager::SEGMENT_SIZE, spinBox_SEGMENT_SIZE->value());
     SM->set(SettingsManager::DOWNLOAD_DIRECTORY, CQST(dl_dir));
     SM->set(SettingsManager::TEMP_DOWNLOAD_DIRECTORY, CQST(udl_dir));
     SM->set(SettingsManager::DOWNLOAD_SLOTS, spinBox_MAXDL->value());
@@ -97,6 +98,7 @@ void SettingsDownloads::init(){
 
         checkBox_NO_USE_TEMP_DIR->setChecked(!(((bool)SettingsManager::getInstance()->get(SettingsManager::NO_USE_TEMP_DIR))? Qt::Checked : Qt::Unchecked));
         spinBox_AUTO_SEARCH_TIME->setValue(SETTING(AUTO_SEARCH_TIME));
+        spinBox_SEGMENT_SIZE->setValue(SETTING(SEGMENT_SIZE));
         spinBox_MAXDL->setValue(SETTING(DOWNLOAD_SLOTS));
         spinBox_NONEWDL->setValue(SETTING(MAX_DOWNLOAD_SPEED));
 
@@ -234,4 +236,3 @@ void SettingsDownloads::slotCfgPublic(){
 
     h.exec();
 }
-
