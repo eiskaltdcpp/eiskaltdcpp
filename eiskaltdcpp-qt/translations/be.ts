@@ -281,7 +281,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/DownloadQueue.cpp" line="48"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Уласьцівасьці магніт-спасылкі</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="49"/>
@@ -2173,7 +2173,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1182"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Перавагі</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1219"/>
@@ -2966,7 +2966,8 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="162"/>
         <source>Key</source>
-        <translation type="unfinished">Адказ</translation>
+        <translatorcomment>Ключ?</translatorcomment>
+        <translation>Адказ</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="163"/>
@@ -3032,7 +3033,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/SearchFrame.cpp" line="94"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Уласьцівасьці магніт-спасылкі</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="97"/>
@@ -3361,7 +3362,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/Settings.cpp" line="29"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Перавагі</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="42"/>
@@ -3754,7 +3755,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Уласьцівасьці магніт-спасылкі</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
@@ -3896,7 +3897,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="237"/>
         <source>Press the key combination you want to assign</source>
-        <translation type="unfinished">Націсьніце спалучэньне клявішаў, якое вы хочаце прызначыць</translation>
+        <translation>Націсьніце спалучэньне клявішаў, якое вы хочаце прызначыць</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="252"/>
@@ -3911,7 +3912,7 @@ EiskaltDC++ — гэта праграма для сыстэмаў, падобн�
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="255"/>
         <source>Capture keystrokes</source>
-        <translation type="unfinished">Захапіць націсканьне клявішаў</translation>
+        <translation>Захапіць націсканьне клявішаў</translation>
     </message>
 </context>
 <context>
@@ -5305,7 +5306,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="96"/>
         <source>A</source>
-        <translation type="unfinished">Усе</translation>
+        <translation>Усё</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="189"/>

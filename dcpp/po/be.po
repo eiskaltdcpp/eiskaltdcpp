@@ -170,7 +170,7 @@ msgstr " %1% (мянушка невядомая)"
 
 #: ../NmdcHub.cpp:597
 msgid "Hub topic:"
-msgstr ""
+msgstr "Тэма асяродку:"
 
 #: ../NmdcHub.cpp:939
 msgid ""
@@ -586,7 +586,7 @@ msgstr "Пошук не працуе: %1%"
 
 #: ../QueueManager.cpp:239
 msgid "No needed part"
-msgstr ""
+msgstr "Неабавязковая частка"
 
 #: ../QueueManager.cpp:625
 msgid "Searching TTH alternates for: %1%"
