@@ -1143,6 +1143,10 @@ Omiljeni korisnik</translation>
         <source>%1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Invalid keywords</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubManager</name>
@@ -4867,6 +4871,10 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Segment size (in MB, 0 = auto segment size)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

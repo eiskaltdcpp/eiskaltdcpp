@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-22 21:10+0200\n"
+"POT-Creation-Date: 2011-02-07 22:42+0200\n"
 "PO-Revision-Date: 2008-04-26 10:35+0000\n"
 "Last-Translator: Stary <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -144,15 +144,15 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Odpojený uživatel opouštějící hub: %1%"
 
-#: ../SettingsManager.cpp:497
+#: ../SettingsManager.cpp:498
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
+#: ../SettingsManager.cpp:502 ../SettingsManager.cpp:524
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:555
+#: ../SettingsManager.cpp:556
 msgid "No such search type"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgid ""
 "fix this"
 msgstr ""
 
-#: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
+#: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Nepřipojen"
@@ -211,42 +211,42 @@ msgstr "Nenaslouchá připojením - prosím restartujte %1%"
 msgid "Sent "
 msgstr ""
 
-#: ../Util.cpp:492
+#: ../Util.cpp:572
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:494
+#: ../Util.cpp:574
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:496
+#: ../Util.cpp:576
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:498
+#: ../Util.cpp:578
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:500
+#: ../Util.cpp:580
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:502
+#: ../Util.cpp:582
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:532
+#: ../Util.cpp:612
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:536
+#: ../Util.cpp:616
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -256,8 +256,8 @@ msgstr "%'lld B"
 msgid "Error during compression"
 msgstr "Chyba pocesu komprese"
 
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
-#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:374
+#: ../CryptoManager.cpp:393 ../CryptoManager.cpp:407 ../BZUtils.cpp:72
 #: ../BZUtils.cpp:94 ../BZUtils.cpp:97
 msgid "Error during decompression"
 msgstr "Chyba během dekomprese"
@@ -407,25 +407,25 @@ msgid ""
 msgstr ""
 "Duplicitní soubor nebude sdílen: %1%%2% (Velikost: %3% B) Duplicita s: %4%%5%"
 
-#: ../ShareManager.cpp:793
+#: ../ShareManager.cpp:798
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
 msgstr "Probíhá obnovení seznamu souborů, prosím počkejte"
 
-#: ../ShareManager.cpp:814
+#: ../ShareManager.cpp:819
 msgid "File list refresh failed: %1%"
 msgstr "Nemohu obnovit seznam souborů: %1%"
 
-#: ../ShareManager.cpp:836
+#: ../ShareManager.cpp:841
 msgid "File list refresh initiated"
 msgstr "Zahájení obnovení seznamu souborů"
 
-#: ../ShareManager.cpp:861
+#: ../ShareManager.cpp:866
 msgid "File list refresh finished"
 msgstr "Obnovení seznamu souborů dokončeno"
 
-#: ../ShareManager.cpp:937
+#: ../ShareManager.cpp:947
 #, fuzzy
 msgid "File list %1% generated"
 msgstr "Zahájení obnovení seznamu souborů"
@@ -454,39 +454,39 @@ msgstr "Zahodit"
 msgid "Directory missing name attribute"
 msgstr ""
 
-#: ../CryptoManager.cpp:140
+#: ../CryptoManager.cpp:136
 msgid "No private key file chosen"
 msgstr ""
 
-#: ../CryptoManager.cpp:143
+#: ../CryptoManager.cpp:139
 #, fuzzy
 msgid "No certificate file chosen"
 msgstr "TLS zakázáno, chybí certifikát"
 
-#: ../CryptoManager.cpp:154
+#: ../CryptoManager.cpp:151
 #, fuzzy
 msgid "Error generating certificate"
 msgstr "Vygenerovaný nový TLS certifikát"
 
-#: ../CryptoManager.cpp:213
+#: ../CryptoManager.cpp:214
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS zakázáno, chybí certifikát"
 
-#: ../CryptoManager.cpp:221
+#: ../CryptoManager.cpp:222
 msgid "Generated new TLS certificate"
 msgstr "Vygenerovaný nový TLS certifikát"
 
-#: ../CryptoManager.cpp:223
+#: ../CryptoManager.cpp:224
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS zakázáno, nelze vygenerovat certifikát: %1%"
 
-#: ../CryptoManager.cpp:228 ../CryptoManager.cpp:232 ../CryptoManager.cpp:237
-#: ../CryptoManager.cpp:241
+#: ../CryptoManager.cpp:229 ../CryptoManager.cpp:233 ../CryptoManager.cpp:238
+#: ../CryptoManager.cpp:242
 msgid "Failed to load certificate file"
 msgstr "Nemohu nahrát soubor s certifikátem"
 
-#: ../CryptoManager.cpp:246 ../CryptoManager.cpp:250 ../CryptoManager.cpp:255
-#: ../CryptoManager.cpp:259
+#: ../CryptoManager.cpp:247 ../CryptoManager.cpp:251 ../CryptoManager.cpp:256
+#: ../CryptoManager.cpp:260
 msgid "Failed to load private key"
 msgstr "Nemohu nahrát privátní klíč"
 
@@ -531,7 +531,7 @@ msgstr "Všechny download sloty jsou obsazené"
 msgid "Connectivity restored"
 msgstr "Spojení ukončeno"
 
-#: ../ConnectionManager.cpp:267
+#: ../ConnectionManager.cpp:268
 msgid "Connectivity error: %1%"
 msgstr ""
 

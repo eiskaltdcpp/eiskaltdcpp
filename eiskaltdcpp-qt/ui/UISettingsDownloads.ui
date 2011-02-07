@@ -877,7 +877,7 @@ from the queue either, you must do that manually.</string>
           <item row="1" column="0">
            <widget class="QLabel" name="label_17">
             <property name="text">
-             <string>Segment size( in MB, 0 = auto segment size)</string>
+             <string>Segment size (in MB, 0 = auto segment size)</string>
             </property>
            </widget>
           </item>

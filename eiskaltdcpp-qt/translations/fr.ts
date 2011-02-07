@@ -1232,6 +1232,10 @@ Utilisateur favoris</translation>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
     </message>
+    <message>
+        <source>Invalid keywords</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubFrame::Menu</name>
@@ -5210,6 +5214,10 @@ the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
         <translation>Ceci est le temps maximum depuis que le dernier paquet du fichier a été reçu. Cela est utile afin d&apos;améliorer la précision des mesures de vitesse et pour éviter de supprimer des sources qui vont être déconnectées du fait de leur inactivité actuelle. (défaut: 10 s)</translation>
+    </message>
+    <message>
+        <source>Segment size (in MB, 0 = auto segment size)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

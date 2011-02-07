@@ -1287,6 +1287,10 @@ Kedvenc felhasználó</translation>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
     </message>
+    <message>
+        <source>Invalid keywords</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubManager</name>
@@ -5189,6 +5193,10 @@ A beállítás a sebességmérés pontosságát hivatott javítani, annak érdek
 hogy az egyes források szétkapcsolása ne történjen meg,
 ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünetek keletkeznek.
 (alapértelmezés: 10s)</translation>
+    </message>
+    <message>
+        <source>Segment size (in MB, 0 = auto segment size)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

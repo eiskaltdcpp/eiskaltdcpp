@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-22 21:10+0200\n"
+"POT-Creation-Date: 2011-02-07 22:42+0200\n"
 "PO-Revision-Date: 2009-02-22 14:17+0000\n"
 "Last-Translator: poy <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,16 +154,16 @@ msgstr "IPFilter: Connexion entrante bloquée pour "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Déconnexion de l'utilisateur : %1% (sorti du hub)"
 
-#: ../SettingsManager.cpp:497
+#: ../SettingsManager.cpp:498
 msgid "Invalid search type name"
 msgstr "Type de nom de recherche invalide"
 
-#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
+#: ../SettingsManager.cpp:502 ../SettingsManager.cpp:524
 #, fuzzy
 msgid "This search type already exists"
 msgstr "Ce type de recherche existe déjà"
 
-#: ../SettingsManager.cpp:555
+#: ../SettingsManager.cpp:556
 msgid "No such search type"
 msgstr "Pas de type de recherche de la sorte"
 
@@ -183,7 +183,7 @@ msgstr ""
 "Ce serveur tente d'utiliser votre client pour spammer %1%, veuillez "
 "rapidement contacter l'administrateur pour qu'il règle le problème"
 
-#: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
+#: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Déconnecté"
@@ -224,42 +224,42 @@ msgstr "Échec dans l'écoute des connexions - veuillez relancer %1%"
 msgid "Sent "
 msgstr "Envoyé"
 
-#: ../Util.cpp:492
+#: ../Util.cpp:572
 #, c-format
 msgid "%d B"
 msgstr "%d o"
 
-#: ../Util.cpp:494
+#: ../Util.cpp:574
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f Kio"
 
-#: ../Util.cpp:496
+#: ../Util.cpp:576
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f Mio"
 
-#: ../Util.cpp:498
+#: ../Util.cpp:578
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f Gio"
 
-#: ../Util.cpp:500
+#: ../Util.cpp:580
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f Tio"
 
-#: ../Util.cpp:502
+#: ../Util.cpp:582
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f Pio"
 
-#: ../Util.cpp:532
+#: ../Util.cpp:612
 #, c-format
 msgid "%s B"
 msgstr "%s o"
 
-#: ../Util.cpp:536
+#: ../Util.cpp:616
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld o"
@@ -269,8 +269,8 @@ msgstr "%'lld o"
 msgid "Error during compression"
 msgstr "Erreur de compression"
 
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
-#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:374
+#: ../CryptoManager.cpp:393 ../CryptoManager.cpp:407 ../BZUtils.cpp:72
 #: ../BZUtils.cpp:94 ../BZUtils.cpp:97
 msgid "Error during decompression"
 msgstr "Erreur de décompression"
@@ -424,7 +424,7 @@ msgid ""
 msgstr ""
 "Ficher en double non partagé : %1% (Taille : %2% o) Est identique à : %3%"
 
-#: ../ShareManager.cpp:793
+#: ../ShareManager.cpp:798
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -432,19 +432,19 @@ msgstr ""
 "La mise à jour de la liste de fichiers est en cours, veuillez attendre "
 "qu'elle se termine avant de ré-essayer"
 
-#: ../ShareManager.cpp:814
+#: ../ShareManager.cpp:819
 msgid "File list refresh failed: %1%"
 msgstr "Mise à jour de la liste de fichiers échouée : %1%"
 
-#: ../ShareManager.cpp:836
+#: ../ShareManager.cpp:841
 msgid "File list refresh initiated"
 msgstr "Mise à jour de la liste de fichiers commencée"
 
-#: ../ShareManager.cpp:861
+#: ../ShareManager.cpp:866
 msgid "File list refresh finished"
 msgstr "Mise à jour de la liste de fichiers terminée"
 
-#: ../ShareManager.cpp:937
+#: ../ShareManager.cpp:947
 #, fuzzy
 msgid "File list %1% generated"
 msgstr "Liste de fichiers générée"
@@ -473,37 +473,37 @@ msgstr "Abandonner"
 msgid "Directory missing name attribute"
 msgstr "Dossier sans nom"
 
-#: ../CryptoManager.cpp:140
+#: ../CryptoManager.cpp:136
 msgid "No private key file chosen"
 msgstr "Aucun fichier de clé privée choisi"
 
-#: ../CryptoManager.cpp:143
+#: ../CryptoManager.cpp:139
 msgid "No certificate file chosen"
 msgstr "Aucun fichier de certificat choisi"
 
-#: ../CryptoManager.cpp:154
+#: ../CryptoManager.cpp:151
 msgid "Error generating certificate"
 msgstr "Erreur lors de la génération du certificat"
 
-#: ../CryptoManager.cpp:213
+#: ../CryptoManager.cpp:214
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS désactivé, aucun fichier de certificat défini"
 
-#: ../CryptoManager.cpp:221
+#: ../CryptoManager.cpp:222
 msgid "Generated new TLS certificate"
 msgstr "Nouveau certificat TLS généré"
 
-#: ../CryptoManager.cpp:223
+#: ../CryptoManager.cpp:224
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS désactivé, impossible de générer le certificat : %1%"
 
-#: ../CryptoManager.cpp:228 ../CryptoManager.cpp:232 ../CryptoManager.cpp:237
-#: ../CryptoManager.cpp:241
+#: ../CryptoManager.cpp:229 ../CryptoManager.cpp:233 ../CryptoManager.cpp:238
+#: ../CryptoManager.cpp:242
 msgid "Failed to load certificate file"
 msgstr "Impossible de charger le certificat"
 
-#: ../CryptoManager.cpp:246 ../CryptoManager.cpp:250 ../CryptoManager.cpp:255
-#: ../CryptoManager.cpp:259
+#: ../CryptoManager.cpp:247 ../CryptoManager.cpp:251 ../CryptoManager.cpp:256
+#: ../CryptoManager.cpp:260
 msgid "Failed to load private key"
 msgstr "Impossible de charger la clé privée"
 
@@ -547,7 +547,7 @@ msgstr "Tous les slots de téléchargement sont pris"
 msgid "Connectivity restored"
 msgstr "Connectivité restaurée"
 
-#: ../ConnectionManager.cpp:267
+#: ../ConnectionManager.cpp:268
 msgid "Connectivity error: %1%"
 msgstr "Erreur de connectivité : %1%"
 

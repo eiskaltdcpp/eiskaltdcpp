@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-22 21:10+0200\n"
+"POT-Creation-Date: 2011-02-07 22:42+0200\n"
 "PO-Revision-Date: 2011-01-08 22:31+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <tehnick-8@mail.ru>\n"
@@ -146,15 +146,15 @@ msgstr "IPFilter: заблокировано входящее соединени
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Пользователь %1% отключился и покинул хаб"
 
-#: ../SettingsManager.cpp:497
+#: ../SettingsManager.cpp:498
 msgid "Invalid search type name"
 msgstr "Неверное имя поискового типа"
 
-#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
+#: ../SettingsManager.cpp:502 ../SettingsManager.cpp:524
 msgid "This search type already exists"
 msgstr "Этот поисковый тип уже существует"
 
-#: ../SettingsManager.cpp:555
+#: ../SettingsManager.cpp:556
 msgid "No such search type"
 msgstr "Нет такого поискового типа"
 
@@ -174,7 +174,7 @@ msgstr ""
 "Этот хаб пытается использовать ваш клиент для спама %1%, пожалуйста сообщите "
 "владельцу хаба, чтобы он исправил это"
 
-#: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
+#: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Не в сети"
@@ -215,42 +215,42 @@ msgstr "Соединения не обрабатываются - пожалуй�
 msgid "Sent "
 msgstr "Отправлено "
 
-#: ../Util.cpp:492
+#: ../Util.cpp:572
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:494
+#: ../Util.cpp:574
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:496
+#: ../Util.cpp:576
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:498
+#: ../Util.cpp:578
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:500
+#: ../Util.cpp:580
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:502
+#: ../Util.cpp:582
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:532
+#: ../Util.cpp:612
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:536
+#: ../Util.cpp:616
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
@@ -260,8 +260,8 @@ msgstr "%'lld Б"
 msgid "Error during compression"
 msgstr "Ошибка сжатия"
 
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
-#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:374
+#: ../CryptoManager.cpp:393 ../CryptoManager.cpp:407 ../BZUtils.cpp:72
 #: ../BZUtils.cpp:94 ../BZUtils.cpp:97
 msgid "Error during decompression"
 msgstr "Ошибка распаковки"
@@ -403,7 +403,7 @@ msgid ""
 msgstr ""
 "Дубликат файла не будет расшарен: %1% (Размер: %2% B) Копия совпала с: %3%"
 
-#: ../ShareManager.cpp:793
+#: ../ShareManager.cpp:798
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -411,19 +411,19 @@ msgstr ""
 "Выполняется обновление списка файлов, пожалуйста, дождитесь окончания, "
 "прежде чем обновлять список вновь"
 
-#: ../ShareManager.cpp:814
+#: ../ShareManager.cpp:819
 msgid "File list refresh failed: %1%"
 msgstr "Не удалось обновить список файлов: %1%"
 
-#: ../ShareManager.cpp:836
+#: ../ShareManager.cpp:841
 msgid "File list refresh initiated"
 msgstr "Запущено обновление списка файлов"
 
-#: ../ShareManager.cpp:861
+#: ../ShareManager.cpp:866
 msgid "File list refresh finished"
 msgstr "Обновление списка файлов завершено"
 
-#: ../ShareManager.cpp:937
+#: ../ShareManager.cpp:947
 msgid "File list %1% generated"
 msgstr "Запущено обновление списка файлов %1%"
 
@@ -451,37 +451,37 @@ msgstr "Отклонить"
 msgid "Directory missing name attribute"
 msgstr "Отсутствует имя папки"
 
-#: ../CryptoManager.cpp:140
+#: ../CryptoManager.cpp:136
 msgid "No private key file chosen"
 msgstr "Не выбран файл личного ключа"
 
-#: ../CryptoManager.cpp:143
+#: ../CryptoManager.cpp:139
 msgid "No certificate file chosen"
 msgstr "Не выбран файл сертификата"
 
-#: ../CryptoManager.cpp:154
+#: ../CryptoManager.cpp:151
 msgid "Error generating certificate"
 msgstr "Ошибка генерирования сертификата"
 
-#: ../CryptoManager.cpp:213
+#: ../CryptoManager.cpp:214
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS отключен, не установлен файл сертификата"
 
-#: ../CryptoManager.cpp:221
+#: ../CryptoManager.cpp:222
 msgid "Generated new TLS certificate"
 msgstr "Создан новый сертификат TLS"
 
-#: ../CryptoManager.cpp:223
+#: ../CryptoManager.cpp:224
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS отключен, не удалось создать сертификат: %1%"
 
-#: ../CryptoManager.cpp:228 ../CryptoManager.cpp:232 ../CryptoManager.cpp:237
-#: ../CryptoManager.cpp:241
+#: ../CryptoManager.cpp:229 ../CryptoManager.cpp:233 ../CryptoManager.cpp:238
+#: ../CryptoManager.cpp:242
 msgid "Failed to load certificate file"
 msgstr "Не удалось загрузить файл сертификата"
 
-#: ../CryptoManager.cpp:246 ../CryptoManager.cpp:250 ../CryptoManager.cpp:255
-#: ../CryptoManager.cpp:259
+#: ../CryptoManager.cpp:247 ../CryptoManager.cpp:251 ../CryptoManager.cpp:256
+#: ../CryptoManager.cpp:260
 msgid "Failed to load private key"
 msgstr "Не удалось загрузить личный ключ"
 
@@ -525,7 +525,7 @@ msgstr "Все слоты закачек заняты"
 msgid "Connectivity restored"
 msgstr "Соединение восстановлено"
 
-#: ../ConnectionManager.cpp:267
+#: ../ConnectionManager.cpp:268
 msgid "Connectivity error: %1%"
 msgstr "Ошибка соединения: %1%"
 
