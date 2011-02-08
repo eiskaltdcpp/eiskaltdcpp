@@ -129,7 +129,7 @@ Keys:
         <translation>Használat:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Kapcsoló&gt;
-Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
+Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC protokollok használatára.
 
 Kapcsolók:
   -h, --help	 Help megjelenítése
@@ -356,7 +356,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet tulajdonságai</translation>
     </message>
 </context>
 <context>
@@ -1287,6 +1287,10 @@ Kedvenc felhasználó</translation>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
     </message>
+    <message>
+        <source>Invalid keywords</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubManager</name>
@@ -2187,7 +2191,7 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulajdonságok</translation>
     </message>
 </context>
 <context>
@@ -2742,7 +2746,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet tulajdonságai</translation>
     </message>
 </context>
 <context>
@@ -2844,7 +2848,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulajdonságok</translation>
     </message>
 </context>
 <context>
@@ -3204,7 +3208,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet tulajdonságai</translation>
     </message>
 </context>
 <context>
@@ -5189,6 +5193,10 @@ A beállítás a sebességmérés pontosságát hivatott javítani, annak érdek
 hogy az egyes források szétkapcsolása ne történjen meg,
 ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünetek keletkeznek.
 (alapértelmezés: 10s)</translation>
+    </message>
+    <message>
+        <source>Segment size (in MB, 0 = auto segment size)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

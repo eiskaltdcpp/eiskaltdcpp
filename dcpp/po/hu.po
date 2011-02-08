@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-01-22 21:10+0200\n"
+"POT-Creation-Date: 2011-02-07 22:42+0200\n"
 "PO-Revision-Date: 2011-01-10 18:24+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
@@ -156,15 +156,15 @@ msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
-#: ../SettingsManager.cpp:497
+#: ../SettingsManager.cpp:498
 msgid "Invalid search type name"
 msgstr "Érvénytelen keresési feltétel"
 
-#: ../SettingsManager.cpp:501 ../SettingsManager.cpp:523
+#: ../SettingsManager.cpp:502 ../SettingsManager.cpp:524
 msgid "This search type already exists"
 msgstr "A megadott keresési feltétel már létezik"
 
-#: ../SettingsManager.cpp:555
+#: ../SettingsManager.cpp:556
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
@@ -184,7 +184,7 @@ msgstr ""
 "Ez a hub a kliensedet spam küldésére próbálja felhasználni (%1%), kérlek "
 "értesítsd a hub üzemeltetőit, hogy javítsák a problémát."
 
-#: ../ClientManager.cpp:157 ../Transfer.cpp:82 ../Transfer.cpp:86
+#: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
 msgid "Offline"
 msgstr "Kilépett"
@@ -225,42 +225,42 @@ msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 msgid "Sent "
 msgstr "Elküldve"
 
-#: ../Util.cpp:492
+#: ../Util.cpp:572
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:494
+#: ../Util.cpp:574
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:496
+#: ../Util.cpp:576
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:498
+#: ../Util.cpp:578
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:500
+#: ../Util.cpp:580
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:502
+#: ../Util.cpp:582
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:532
+#: ../Util.cpp:612
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:536
+#: ../Util.cpp:616
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -270,8 +270,8 @@ msgstr "%'lld B"
 msgid "Error during compression"
 msgstr "Hiba a tömörítéskor"
 
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:344
-#: ../CryptoManager.cpp:363 ../CryptoManager.cpp:377 ../BZUtils.cpp:72
+#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:374
+#: ../CryptoManager.cpp:393 ../CryptoManager.cpp:407 ../BZUtils.cpp:72
 #: ../BZUtils.cpp:94 ../BZUtils.cpp:97
 msgid "Error during decompression"
 msgstr "Hiba a kicsomagoláskor"
@@ -422,7 +422,7 @@ msgstr ""
 "Többször meglévő fájl nem lesz megosztva: %1% (Méret: %2% B) Megegyezik "
 "ezzel: %3%"
 
-#: ../ShareManager.cpp:793
+#: ../ShareManager.cpp:798
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -430,19 +430,19 @@ msgstr ""
 "A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, "
 "mielőtt újra frissíteni próbálnál!"
 
-#: ../ShareManager.cpp:814
+#: ../ShareManager.cpp:819
 msgid "File list refresh failed: %1%"
 msgstr "Hiba a fájl-lista frissítésekor: %1%"
 
-#: ../ShareManager.cpp:836
+#: ../ShareManager.cpp:841
 msgid "File list refresh initiated"
 msgstr "A fájl-lista frissítése elkezdődött"
 
-#: ../ShareManager.cpp:861
+#: ../ShareManager.cpp:866
 msgid "File list refresh finished"
 msgstr "A fájl-lista frissítése befejeződött"
 
-#: ../ShareManager.cpp:937
+#: ../ShareManager.cpp:947
 msgid "File list %1% generated"
 msgstr "Fájl-lista %1% létrehozva"
 
@@ -470,37 +470,37 @@ msgstr "Eldob"
 msgid "Directory missing name attribute"
 msgstr "Hiányzik a könyvtár név attribútuma"
 
-#: ../CryptoManager.cpp:140
+#: ../CryptoManager.cpp:136
 msgid "No private key file chosen"
 msgstr "Nincs kiválasztva privát kulcs fájl"
 
-#: ../CryptoManager.cpp:143
+#: ../CryptoManager.cpp:139
 msgid "No certificate file chosen"
 msgstr "Nincs kiválasztva tanúsítvány fájl"
 
-#: ../CryptoManager.cpp:154
+#: ../CryptoManager.cpp:151
 msgid "Error generating certificate"
 msgstr "Hiba a tanúsítvány készítésekor"
 
-#: ../CryptoManager.cpp:213
+#: ../CryptoManager.cpp:214
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS letiltva, nincs tanúsítvány fájl beállítva"
 
-#: ../CryptoManager.cpp:221
+#: ../CryptoManager.cpp:222
 msgid "Generated new TLS certificate"
 msgstr "Új TLS tanúsítvány generálva"
 
-#: ../CryptoManager.cpp:223
+#: ../CryptoManager.cpp:224
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS letiltva, a tanúsítvány fájl generálása sikertelen: %1%"
 
-#: ../CryptoManager.cpp:228 ../CryptoManager.cpp:232 ../CryptoManager.cpp:237
-#: ../CryptoManager.cpp:241
+#: ../CryptoManager.cpp:229 ../CryptoManager.cpp:233 ../CryptoManager.cpp:238
+#: ../CryptoManager.cpp:242
 msgid "Failed to load certificate file"
 msgstr "Nem sikerült betölteni a tanúsítvány fájlt"
 
-#: ../CryptoManager.cpp:246 ../CryptoManager.cpp:250 ../CryptoManager.cpp:255
-#: ../CryptoManager.cpp:259
+#: ../CryptoManager.cpp:247 ../CryptoManager.cpp:251 ../CryptoManager.cpp:256
+#: ../CryptoManager.cpp:260
 msgid "Failed to load private key"
 msgstr "Nem sikerült betölteni a pirvát kulcsot"
 
@@ -544,7 +544,7 @@ msgstr "Összes letöltési szál foglalt"
 msgid "Connectivity restored"
 msgstr "Kapcsolódás lehetősége visszaállítva"
 
-#: ../ConnectionManager.cpp:267
+#: ../ConnectionManager.cpp:268
 msgid "Connectivity error: %1%"
 msgstr "Kapcsolódási hiba: %1%"
 

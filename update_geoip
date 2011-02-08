@@ -1,5 +1,15 @@
 #!/bin/sh
 
+# This is script for updating the Geo IP database for EiskaltDC++.
+#
+# Database in text format (GeoIPCountryWhois.csv) will be downloaded from
+# official site (http://maxmind.com/) if it's required.
+
+## Author:  Boris Pek
+## License: Public Domain
+## Depends: unzip, curl
+## Version: 1
+
 export LAST_MOD=$(curl -v 'http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip' --max-filesize 1 2>&1 | grep 'Last-Modified:' | sed -e "s/^.*Last-Modified: \(.*\) GMT.*$/\1/")
 export NEW_VER=$(date -d "${LAST_MOD}" +%Y%m%d)
 
