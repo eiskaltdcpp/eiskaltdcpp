@@ -1,7 +1,7 @@
 project(nasdc)
 cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
-include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/common ${PROJECT_SOURCE_DIR}/gnu ${PROJECT_SOURCE_DIR}/.. ${READLINE_INCLUDE_DIR})
+include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/common ${PROJECT_SOURCE_DIR}/gnu ${PROJECT_SOURCE_DIR}/.. )
 aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
 #aux_source_directory(${PROJECT_SOURCE_DIR}/common common_SRCS)
 #aux_source_directory(${PROJECT_SOURCE_DIR}/gnu gnu_SRCS)
@@ -10,6 +10,13 @@ include_directories(${XMLRPC_INCLUDE_DIRS})
 set (XMLRPCLIBS ${XMLRPC_LIBRARIES})
 add_definitions (-DXMLRPC_DAEMON )
 endif (XMLRPC_DAEMON)
+
+if (CLI_DAEMON)
+include_directories(${READLINE_INCLUDE_DIR})
+set (RL_LIBS ${READLINE_LIBRARIES})
+add_definitions (-DCLI_DAEMON )
+endif (CLI_DAEMON)
+
 list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/sampleclient.cpp)
 list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/sampleserver.cpp)
 if (LUA_SCRIPT)
@@ -29,7 +36,8 @@ target_link_libraries (sampleclient ${XMLRPCLIBS})
 #add_executable (sampleserver sampleserver.cpp)
 #target_link_libraries (sampleserver ${XMLRPCLIBS})
 endif()
-target_link_libraries (nasdc dcpp pthread ${XMLRPCLIBS} ${READLINE_LIBRARIES})
+
+target_link_libraries (nasdc dcpp pthread ${XMLRPCLIBS} ${RL_LIBS})
 
 if (UNIX)
  set (BINDIR bin)

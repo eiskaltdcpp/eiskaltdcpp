@@ -26,8 +26,10 @@
 #include <signal.h>
 #endif
 
+#ifdef CLI_DAEMON
 #include <readline/readline.h>
 #include <readline/history.h>
+#endif
 
 static void  logging(bool b, string msg){
     #ifndef _WIN32
@@ -213,13 +215,14 @@ int main(int argc, char* argv[])
         printf((sTitle+" running...\n").c_str());
     }
     uint64_t t=0;
-
+#ifdef CLI_DAEMON
     char *temp, *prompt;
     temp = (char *)NULL;
     prompt = "edcppd$ ";
-
+#endif
     while (bServerRunning) {
         usleep(1000);
+        #ifdef CLI_DAEMON
         temp = readline (prompt);
 
         /* If there is anything on the line, print it and remember it. */
@@ -246,7 +249,7 @@ int main(int argc, char* argv[])
             }
         }
         free (temp);
-
+        #endif
         if (bServerTerminated)
             ServerStop();
     }

@@ -206,11 +206,11 @@ public:
         string const senc(paramList.getString(1));
         paramList.verifyEnd(2);
 
-       ServerThread::connectClient(saddress, senc);
-            *retvalP = xmlrpc_c::value_string("Connected to hub");
-        }
-        else
-            *retvalP = xmlrpc_c::value_string("Fail connect");
+       connectClient(shub, senc);
+        *retvalP = xmlrpc_c::value_string("Connected to hub");
+        //}
+        //else
+            //*retvalP = xmlrpc_c::value_string("Fail connect");
         SLEEP(2);
     }
 };
@@ -229,11 +229,11 @@ public:
         string const shub(paramList.getString(0));
         paramList.verifyEnd(1);
 
-       ServerThread::disconnectClient(saddress);
-            *retvalP = xmlrpc_c::value_string("Disconnected from hub");
-        }
-        else
-            *retvalP = xmlrpc_c::value_string("Fail disconnect");
+       disconnectClient(shub);
+        *retvalP = xmlrpc_c::value_string("Disconnected from hub");
+        //}
+        //else
+            //*retvalP = xmlrpc_c::value_string("Fail disconnect");
         SLEEP(2);
     }
 };

@@ -47,8 +47,6 @@ ServerThread::ServerThread() : bTerminated(false), lastUp(0), lastDown(0), lastU
 //---------------------------------------------------------------------------
 
 ServerThread::~ServerThread() {
-        //Close();
-        //WaitFor();
         join();
 }
 //---------------------------------------------------------------------------
@@ -109,7 +107,7 @@ bool ServerThread::disconnect_all(){
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
-        Thread::sleep(1000);
+        Thread::sleep(100);
     }
 }
 //---------------------------------------------------------------------------
@@ -126,7 +124,6 @@ void ServerThread::Close()
 #endif
 
     ConnectionManager::getInstance()->disconnect();
-    //Lock l(shutcs);
     disconnect_all();
     bTerminated = true;
 }
@@ -167,11 +164,11 @@ void ServerThread::connectClient(string address, string encoding)
 void ServerThread::disconnectClient(string address){
     ClientIter i = clientsMap.find(address);
     if(i != clientsMap.end()) {
+        Lock l(shutcs);
         Client* cl = i->second;
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
-        cl = NULL;
     }
 }
 //----------------------------------------------------------------------------
