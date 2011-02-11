@@ -181,6 +181,8 @@ friend class dcpp::Singleton<MainWindow>;
         /** */
         void setStatusMessage(QString);
 
+        void loadDMD(QString);
+
         /** */
         void show();
 
@@ -242,6 +244,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotExit();
         void slotToolbarCustomization();
         void slotToolbarCustomizerDone(const QList<QAction*> &enabled);
+        void slotToolsUploads();
 
         void slotCloseCurrentWidget();
 
@@ -257,7 +260,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotAboutClient();
         void slotAboutQt();
 
-        void showShareBrowser(dcpp::UserPtr, const QString &, const QString&);
+	void showShareBrowser(dcpp::UserPtr, const QString &, const QString&);
         void updateStatus(const QMap<QString,QString> &);
 
     Q_SIGNALS:
@@ -379,6 +382,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsJS;
         QAction *toolsJSConsole;
 #endif
+        QAction *toolsUploads;
         QAction *toolsSwitchSpeedLimit;
 
         QMenu   *menuPanels;
