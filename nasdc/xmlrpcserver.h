@@ -192,6 +192,7 @@ public:
 };
 
 class hubAddMethod : public xmlrpc_c::method {
+    friend class ServerThread;
 public:
     hubAddMethod() {
         this->_signature = "i:ss";
@@ -205,8 +206,8 @@ public:
         string const shub(paramList.getString(0));
         string const senc(paramList.getString(1));
         paramList.verifyEnd(2);
-
-       connectClient(shub, senc);
+        ServerThread svT;
+        svT.connectClient(shub, senc);
         *retvalP = xmlrpc_c::value_string("Connected to hub");
         //}
         //else
@@ -216,6 +217,7 @@ public:
 };
 
 class hubDelMethod : public xmlrpc_c::method {
+    friend class ServerThread;
 public:
     hubDelMethod() {
         this->_signature = "i:s";
@@ -228,8 +230,8 @@ public:
 
         string const shub(paramList.getString(0));
         paramList.verifyEnd(1);
-
-       disconnectClient(shub);
+        ServerThread svT;
+        svT.disconnectClient(shub);
         *retvalP = xmlrpc_c::value_string("Disconnected from hub");
         //}
         //else

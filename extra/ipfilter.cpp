@@ -412,7 +412,9 @@ void ipfilter::saveList(){
 
         prefix = (direction == eDIRECTION_IN?"|D_IN|:":(direction == eDIRECTION_OUT?"|D_OUT|:":"|D_BOTH|:"));
         prefix += string(act == etaACPT?"":"!");
-        f.write(prefix + ipfilter::Uint32ToString(el->ip).c_str() + "/" + ipfilter::Uint32ToString(ipfilter::MaskToCIDR(el->mask)).c_str()+ "\n");
+        string prefix1; std:stringstream ss;
+        ss << MaskToCIDR(el->mask); ss >> prefix1;
+        f.write(prefix + Uint32ToString(el->ip).c_str() + "/" + prefix1.c_str() + "\n");
     }
     f.close();
 }
