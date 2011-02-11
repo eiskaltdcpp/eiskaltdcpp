@@ -1103,7 +1103,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="475"/>
         <source>Invalid keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Невірні ключові слова</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="677"/>
@@ -5916,7 +5916,7 @@ download speed/10 + (download speed - (download speed/10)*10)
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="880"/>
         <source>Segment size (in MB, 0 = auto segment size)</source>
-        <translation type="unfinished"></translation>
+        <translation>Розмір сегменту (у Мб, 0 = авторозмір сегменту)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
