@@ -23,10 +23,17 @@
 #include "Speaker.h"
 #include "Singleton.h"
 
-#include <boost/thread/mutex.hpp>
+#ifdef TIMER_OLD_BOOST
+    #include "Semaphore.h"
+#else
+    #include <boost/thread/mutex.hpp>
+#endif
 
 #ifndef _WIN32
-#include <sys/time.h>
+    #include <sys/time.h>
+    #ifdef TIMER_OLD_BOOST
+        #include <limits.h>
+    #endif
 #endif
 
 namespace dcpp {
@@ -39,23 +46,27 @@ public:
     typedef X<0> Second;
     typedef X<1> Minute;
 
-        virtual void on(Second, uint64_t) throw() { }
-        virtual void on(Minute, uint64_t) throw() { }
+    virtual void on(Second, uint64_t) throw() { }
+    virtual void on(Minute, uint64_t) throw() { }
 };
 
 class TimerManager : public Speaker<TimerManagerListener>, public Singleton<TimerManager>, public Thread
 {
 public:
-        void shutdown();
+    void shutdown();
 
     static time_t getTime() { return (time_t)time(NULL); }
     static uint64_t getTick();
 private:
     friend class Singleton<TimerManager>;
-        boost::timed_mutex boostmtx;
-
-        TimerManager();
-        virtual ~TimerManager() throw();
+#ifdef TIMER_OLD_BOOST
+    Semaphore s;
+    static timeval tv;
+#else
+    boost::timed_mutex boostmtx;
+#endif
+    TimerManager();
+    virtual ~TimerManager() throw();
 
     virtual int run();
 };
