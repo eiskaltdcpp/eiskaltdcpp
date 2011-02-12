@@ -18,31 +18,32 @@ HubManager::HubManager():
 {
     setupUi(this);
 
-    MainWindow *MW = MainWindow::getInstance();
+//    MainWindow *MW = MainWindow::getInstance();
 
-    MW->addArenaWidget(this);
+//    MW->addArenaWidget(this);
 
-    treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
+//    treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+//    connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
 }
 
 HubManager::~HubManager(){
 }
 
 void HubManager::closeEvent(QCloseEvent *e){
-    if (isUnload()){
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-        MainWindow::getInstance()->remArenaWidget(this);
+    e->accept();
+//    if (isUnload()){
+//        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+//        MainWindow::getInstance()->remWidgetFromArena(this);
+//        MainWindow::getInstance()->remArenaWidget(this);
 
-        e->accept();
-    }
-    else {
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
+//        e->accept();
+//    }
+//    else {
+//        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
+//        MainWindow::getInstance()->remWidgetFromArena(this);
 
-        e->ignore();
-    }
+//        e->ignore();
+//    }
 }
 
 void HubManager::registerHubUrl(const QString &url, HubFrame *hub){
@@ -53,25 +54,25 @@ void HubManager::registerHubUrl(const QString &url, HubFrame *hub){
 
     hubs.insert(url, hub);
 
-    QTreeWidgetItem *item = (items.contains(hub)? (items[hub]) : (new QTreeWidgetItem(treeWidget)));
+//    QTreeWidgetItem *item = (items.contains(hub)? (items[hub]) : (new QTreeWidgetItem(treeWidget)));
 
-    quint64 users = 0, share = 0;
+//    quint64 users = 0, share = 0;
 
-    hub->getStatistic(users, share);
+//    hub->getStatistic(users, share);
 
-    item->setText(0, hub->getArenaTitle());
-    item->setText(1, url);
-    item->setText(2, QString("%1").arg(users));
-    item->setText(3, WulforUtil::formatBytes(share));
+//    item->setText(0, hub->getArenaTitle());
+//    item->setText(1, url);
+//    item->setText(2, QString("%1").arg(users));
+//    item->setText(3, WulforUtil::formatBytes(share));
 
-    items[hub] = item;
+//    items[hub] = item;
 
-    connect(hub, SIGNAL(closeRequest()), this, SLOT(slotHubClosed()));
-    connect(hub, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)), this, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)));
-    connect(hub, SIGNAL(coreUserUpdated(VarMap,dcpp::UserPtr,bool)), this, SLOT(slotHubUpdated()));
-    connect(hub, SIGNAL(coreUserRemoved(dcpp::UserPtr,qlonglong)), this, SLOT(slotHubUpdated()));
-    connect(hub, SIGNAL(coreConnected(QString)), this, SLOT(slotHubUpdated()));
-    connect(hub, SIGNAL(coreFailed()), this, SLOT(slotHubUpdated()));
+//    connect(hub, SIGNAL(closeRequest()), this, SLOT(slotHubClosed()));
+//    connect(hub, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)), this, SIGNAL(newMessage(HubFrame*,QString,QString,QString,QString)));
+//    connect(hub, SIGNAL(coreUserUpdated(VarMap,dcpp::UserPtr,bool)), this, SLOT(slotHubUpdated()));
+//    connect(hub, SIGNAL(coreUserRemoved(dcpp::UserPtr,qlonglong)), this, SLOT(slotHubUpdated()));
+//    connect(hub, SIGNAL(coreConnected(QString)), this, SLOT(slotHubUpdated()));
+//    connect(hub, SIGNAL(coreFailed()), this, SLOT(slotHubUpdated()));
 }
 
 void HubManager::unregisterHubUrl(const QString &url){
@@ -80,14 +81,14 @@ void HubManager::unregisterHubUrl(const QString &url){
     if (it != hubs.end()){
         hubs.erase(it);
 
-        QTreeWidgetItem *item = items[(*it)];
-        quint64 users = 0, share = 0;
+//        QTreeWidgetItem *item = items[(*it)];
+//        quint64 users = 0, share = 0;
 
-        (*it)->getStatistic(users, share);
+//        (*it)->getStatistic(users, share);
 
-        item->setText(0, (*it)->getArenaShortTitle());
-        item->setText(2, QString("%1").arg(users));
-        item->setText(3, WulforUtil::formatBytes(share));
+//        item->setText(0, (*it)->getArenaShortTitle());
+//        item->setText(2, QString("%1").arg(users));
+//        item->setText(3, WulforUtil::formatBytes(share));
     }
 }
 
@@ -125,57 +126,57 @@ QObject *HubManager::getHubObject(){
 }
 
 void HubManager::slotHubUpdated(){
-    HubFrame *hub = qobject_cast<HubFrame* >(sender());
-    QMap<HubFrame*,QTreeWidgetItem*>::iterator it = items.find(hub);
+//    HubFrame *hub = qobject_cast<HubFrame* >(sender());
+//    QMap<HubFrame*,QTreeWidgetItem*>::iterator it = items.find(hub);
 
-    if (it == items.end())
-        return;
+//    if (it == items.end())
+//        return;
 
-    QTreeWidgetItem *item = it.value();
+//    QTreeWidgetItem *item = it.value();
 
-    quint64 users = 0, share = 0;
+//    quint64 users = 0, share = 0;
 
-    hub->getStatistic(users, share);
+//    hub->getStatistic(users, share);
 
-    item->setText(0, hub->getArenaShortTitle());
-    item->setText(2, QString("%1").arg(users));
-    item->setText(3, WulforUtil::formatBytes(share));
+//    item->setText(0, hub->getArenaShortTitle());
+//    item->setText(2, QString("%1").arg(users));
+//    item->setText(3, WulforUtil::formatBytes(share));
 }
 
 void HubManager::slotContextMenu(){
-    QList<QTreeWidgetItem*> itemList = treeWidget->selectedItems();
+//    QList<QTreeWidgetItem*> itemList = treeWidget->selectedItems();
 
-    if (itemList.size() != 1)
-        return;
+//    if (itemList.size() != 1)
+//        return;
 
-    QTreeWidgetItem *item = itemList.first();
-    QMap<HubFrame*,QTreeWidgetItem*>::iterator it = items.begin();
+//    QTreeWidgetItem *item = itemList.first();
+//    QMap<HubFrame*,QTreeWidgetItem*>::iterator it = items.begin();
 
-    for (; it != items.end(); ++it){
-        if (it.value() != item)
-            continue;
+//    for (; it != items.end(); ++it){
+//        if (it.value() != item)
+//            continue;
 
-        HubFrame *fr = it.key();
+//        HubFrame *fr = it.key();
 
-        if (!fr->getMenu())
-            return;
+//        if (!fr->getMenu())
+//            return;
 
-        QMenu *m = fr->getMenu();
+//        QMenu *m = fr->getMenu();
 
-        m->exec(QCursor::pos());
+//        m->exec(QCursor::pos());
 
-        return;
-    }
+//        return;
+//    }
 }
 
 void HubManager::slotHubClosed(){
-    HubFrame *hub = qobject_cast<HubFrame* >(sender());
+//    HubFrame *hub = qobject_cast<HubFrame* >(sender());
 
-    if (!hub)
-        return;
+//    if (!hub)
+//        return;
 
-    QTreeWidgetItem *item = items[hub];
-    items.remove(hub);
+//    QTreeWidgetItem *item = items[hub];
+//    items.remove(hub);
 
-    delete item;
+//    delete item;
 }
