@@ -19,16 +19,19 @@ copy /Y "%QTDIR%\bin\QtGui4.dll"                                      %DIRINSTAL
 copy /Y "%QTDIR%\bin\QtNetwork4.dll"                                  %DIRINSTALLER%
 copy /Y "%QTDIR%\bin\QtXml4.dll"                                      %DIRINSTALLER%
 copy /Y "%QTDIR%\bin\QtScript4.dll"                                   %DIRINSTALLER%
+copy /Y "%QTDIR%\bin\QtDeclarative4.dll"                              %DIRINSTALLER%
+copy /Y "%QTDIR%\bin\QtSql4.dll"                                      %DIRINSTALLER%
+copy /Y "%QTDIR%\bin\QtXmlPatterns4.dll"                              %DIRINSTALLER%
 
 copy /Y "%MINGW%\bin\libgcc_s_dw2-1.dll"                              %DIRINSTALLER%
 copy /Y "%MINGW%\bin\mingwm10.dll"                                    %DIRINSTALLER%
 
-copy /Y "%MINGW%\bin\intl.dll"                                        %DIRINSTALLER%
+copy /Y "%MINGW%\bin\libintl-8.dll"                                   %DIRINSTALLER%
 copy /Y "%MINGW%\bin\iconv.dll"                                       %DIRINSTALLER%
 copy /Y "%MINGW%\bin\mgwz.dll"                                        %DIRINSTALLER%
 copy /Y "%MINGW%\bin\mgwbz2-1.dll"                                    %DIRINSTALLER%
-copy /Y "%MINGW%\bin\lua51.dll"                                       %DIRINSTALLER%
-@rem copy /Y "%MINGW%\bin\aspell-15.dll"                                   %DIRINSTALLER%
+@rem copy /Y "%MINGW%\bin\lua51.dll"                                       %DIRINSTALLER%
+copy /Y "%MINGW%\bin\libaspell-15.dll"                                %DIRINSTALLER%
 
 copy /Y "%SystemRoot%\System32\ssleay32.dll"                          %DIRINSTALLER%
 copy /Y "%SystemRoot%\System32\libeay32.dll"                          %DIRINSTALLER%

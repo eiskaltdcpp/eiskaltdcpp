@@ -1,4 +1,3 @@
-set SVNDIR="%ProgramFiles%\SlikSvn"
 set QTSDKDIR=%SystemDrive%\Qt\2010.05
 set CMAKEDIR="%ProgramFiles%\CMake 2.8"
 set INSTALLDIR="%ProgramFiles%\EiskaltDC++"
@@ -14,7 +13,6 @@ set MINGW=%QTSDKDIR%\mingw
 set QTDIR=%QTSDKDIR%\qt
 
 set PATH=%QTDIR%\bin
-set PATH=%PATH%;%SVNDIR%\bin
 set PATH=%PATH%;%MINGW%\bin
 set PATH=%PATH%;%CMAKEDIR%\bin
 set PATH=%PATH%;%SystemRoot%\System32

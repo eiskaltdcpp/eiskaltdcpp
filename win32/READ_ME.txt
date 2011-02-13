@@ -37,17 +37,23 @@ mingw-zlib0-1.2.3-10.tar.bz2 or later
 	http://ring.nict.go.jp/archives/pc/gnu-win32/release/mingw/mingw-zlib/mingw-zlib0/mingw-zlib0-1.2.3-10.tar.bz2
 	http://ftp.uni-kl.de/pub/windows/cygwin/release/mingw/mingw-zlib/mingw-zlib0/mingw-zlib0-1.2.3-10.tar.bz2
 
-gettext-tools-0.13.1.bin.woe32.zip or later
-	http://ftp.gnu.org/gnu/gettext/gettext-tools-0.13.1.bin.woe32.zip
+gettext-0.17-1-mingw32-dev.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.17-1/gettext-0.17-1-mingw32-dev.tar.lzma/download
 
-gettext-runtime-0.13.1.bin.woe32.zip or later
-	http://ftp.gnu.org/gnu/gettext/gettext-runtime-0.13.1.bin.woe32.zip
+libintl-0.17-1-mingw32-dll-8.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.17-1/libintl-0.17-1-mingw32-dll-8.tar.lzma/download
 
 libiconv-1.9.1.bin.woe32.zip or later
 	http://ftp.gnu.org/gnu/libiconv/libiconv-1.9.1.bin.woe32.zip
 
 mingw32-lua-5.1.4-2.zip or later
 	http://sourceforge.net/projects/mingw-cross/files/[LIB] Lua/mingw32-lua-5.1.4-2/mingw32-lua-5.1.4-2.zip/download
+
+aspell-0.60.5-1-bin.tar.bz2 or later
+	http://www.winkde.org/pub/kde/ports/win32/repository/aspell/aspell-0.60.5-1-bin.tar.bz2
+
+aspell-0.60.5-1-lib.tar.bz2 or later
+	http://www.winkde.org/pub/kde/ports/win32/repository/aspell/aspell-0.60.5-1-lib.tar.bz2
 
 *******************************************************************************
 Compilation in MS Windows
@@ -61,7 +67,7 @@ Unpack files from mingw-* archives to appropriate subdirectories in %QTSDKDIR%\m
 ( i.e. bzlib.h shoud go to %QTSDKDIR%\mingw\include\
        libbz2.a         to %QTSDKDIR%\mingw\lib\
        mgwbz2-1.dll     to %QTSDKDIR%\mingw\bin\ )
-Unpack files from gettext-* and libiconv-* archives to %QTSDKDIR%\mingw\
+Unpack files from gettext-*, libintl-*, aspell-* and libiconv-* archives to %QTSDKDIR%\mingw\
 Check variables.bat for correct paths and run:
 	configure.bat
 	build.bat
