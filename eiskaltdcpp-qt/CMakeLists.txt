@@ -104,7 +104,6 @@ set (SRCS
             src/WulforSettings.cpp
             src/WulforUtil.cpp
             src/ChatEdit.cpp
-            src/ChatEdit.cpp
             src/createdmd.cpp
             src/qdmd.cpp
             src/viewdmd.cpp

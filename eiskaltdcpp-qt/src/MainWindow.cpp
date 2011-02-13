@@ -316,7 +316,7 @@ void MainWindow::showEvent(QShowEvent *e){
                             role == ArenaWidget::PrivateMessage ||
                             role == ArenaWidget::ShareBrowser ||
                             role == ArenaWidget::PublicHubs ||
-                            role == ArenaWidget::Search||
+                            role == ArenaWidget::Search ||
                             role == ArenaWidget::UploadView;
 
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
@@ -842,8 +842,8 @@ void MainWindow::initActions(){
                 << hubsFavoriteUsers;
 
         toolsMenuActions << toolsSearch
-                << toolsUploads
                 << toolsADLS
+                << toolsUploads
                 << separator0
                 << toolsTransfers
                 << toolsDownloadQueue
@@ -873,35 +873,34 @@ void MainWindow::initActions(){
 
         toolBarActions << toolsOptions
                 << separator0
-                << toolsUploads
-                << separator1
                 << fileFileListBrowserLocal
-                << separator2
                 << fileRefreshShareHashProgress
-                << separator3
+                << separator1
                 << hubsHubReconnect
                 << hubsQuickConnect
-                << separator4
+                << separator2
                 << hubsFavoriteHubs
                 << hubsFavoriteUsers
                 << toolsSearch
                 << hubsPublicHubs
-                << separator5
+                << separator3
                 << toolsTransfers
                 << toolsDownloadQueue
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
                 << toolsSwitchSpeedLimit
-                << separator6
+                << separator4
                 << chatClear
                 << findInWidget
                 << chatDisable
-                << separator7
+                << separator5
                 << toolsADLS
+                << toolsUploads
                 << toolsSpy
+                << separator6
                 << toolsAntiSpam
                 << toolsIPFilter
-                << separator8
+                << separator7
                 << fileQuit;
     }
     {
@@ -1773,7 +1772,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
                             role == ArenaWidget::ShareBrowser ||
                             role == ArenaWidget::PublicHubs ||
                             role == ArenaWidget::Search ||
-                            role == ArenaWidget::PrivateMessage||
+                            role == ArenaWidget::PrivateMessage ||
                             role == ArenaWidget::UploadView;
 
     chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
@@ -2715,11 +2714,11 @@ void MainWindow::slotSideBarDblClicked(const QModelIndex &index){
             break;
         }
     case ArenaWidget::MyUploads:
-	{
+    {
         slotToolsUploads();
 
-	    break;
-	}
+        break;
+    }
     default:
         break;
     }
@@ -2861,7 +2860,7 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) throw(){
 void MainWindow::slotToolsUploads()
 {
     if (!UploadsFrame::getInstance())
-	UploadsFrame::newInstance();
+        UploadsFrame::newInstance();
 
     toggleSingletonWidget(UploadsFrame::getInstance());
 }
