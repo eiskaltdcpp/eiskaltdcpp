@@ -33,6 +33,7 @@
 #include "FastAlloc.h"
 #include "MerkleTree.h"
 #include "Pointer.h"
+#include "Atomic.h"
 
 namespace dht {
     class IndexManager;
@@ -255,7 +256,7 @@ private:
 
     int listN;
 
-    volatile long refreshing;
+    Atomic<bool,memory_ordering_strong> refreshing;
 
     uint64_t lastXmlUpdate;
     uint64_t lastFullUpdate;

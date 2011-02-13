@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-07 22:42+0200\n"
+"POT-Creation-Date: 2011-02-13 14:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -671,7 +671,7 @@ msgstr ""
 msgid "Paused..."
 msgstr ""
 
-#: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../glade/hash.glade:6
+#: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../glade/hash.glade:7
 msgid "Indexing files..."
 msgstr ""
 
@@ -2059,19 +2059,19 @@ msgstr ""
 msgid "_Copy picture"
 msgstr ""
 
-#: ../glade/hash.glade:24
+#: ../glade/hash.glade:22
 msgid "<b>Processing file:</b>"
 msgstr ""
 
-#: ../glade/hash.glade:85
+#: ../glade/hash.glade:81
 msgid "<b>Statistics</b>"
 msgstr ""
 
-#: ../glade/hash.glade:128
+#: ../glade/hash.glade:109
 msgid "Pause"
 msgstr ""
 
-#: ../glade/hash.glade:140
+#: ../glade/hash.glade:138
 msgid "Run in background"
 msgstr ""
 

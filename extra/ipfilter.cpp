@@ -105,7 +105,7 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
     }
 
     string str_ip = "", str_mask = "";
-    unsigned int ip1=0,ip2=0,ip3=0,ip4=0,mask1=0,nip=0,nmask=0;
+    unsigned int ip1=0,ip2=0,ip3=0,ip4=0,mask1=0,nip=0;
     nip = exp.find("!") != string::npos;
     str_ip = exp.substr(exp.find("!") != string::npos);
     if (str_ip.find("/") != string::npos) {
@@ -358,10 +358,6 @@ void ipfilter::moveRuleDown(uint32_t ip, eTableAction act){
     step(ip, act, true);
 }
 
-bool ipfilter::isIP(string &exp) {
-    //return (QRegExp("^(\\d{1,3}.){3,3}\\d{1,3}$").exactMatch(exp));
-}
-
 void ipfilter::loadList() {
     File file(Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter", File::READ, File::OPEN);
     string f = file.read();
@@ -416,11 +412,9 @@ void ipfilter::saveList(){
 
         prefix = (direction == eDIRECTION_IN?"|D_IN|:":(direction == eDIRECTION_OUT?"|D_OUT|:":"|D_BOTH|:"));
         prefix += string(act == etaACPT?"":"!");
-        char * buffer;int n;string prefix1;
-        std::stringstream ss;
-        ss << ipfilter::MaskToCIDR(el->mask);
-        ss >> prefix1;
-        f.write(prefix + ipfilter::Uint32ToString(el->ip).c_str() + "/" + prefix1.c_str() + "\n");
+        string prefix1; std:stringstream ss;
+        ss << MaskToCIDR(el->mask); ss >> prefix1;
+        f.write(prefix + Uint32ToString(el->ip).c_str() + "/" + prefix1.c_str() + "\n");
     }
     f.close();
 }
@@ -428,31 +422,25 @@ void ipfilter::saveList(){
 void ipfilter::exportTo(string path) {
     string file = Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter";
     saveList();
-#ifndef WIN32
-    struct stat stFileInfo;
-    if (stat(file.c_str(),&stFileInfo) != 0){
+    if (!Util::fileExists(path)) {
         fprintf(stdout,"Nothing to export.");fflush(stdout);
         return;
     }
-#endif
-        File::deleteFile(path);
-        try{
-            File::copyFile(file,path);
-        } catch (...) {
-        fprintf(stdout,"Unable to export settings.");fflush(stdout);
-        return;
-        }
+    File::deleteFile(path);
+    try{
+        File::copyFile(file,path);
+    } catch (...) {
+    fprintf(stdout,"Unable to export settings.");fflush(stdout);
+    return;
+    }
     return;
 }
 
 void ipfilter::importFrom(string path) {
-#ifndef WIN32
-    struct stat stFileInfo;
-    if (stat(path.c_str(),&stFileInfo) != 0) {
+    if (!Util::fileExists(path)) {
         fprintf(stdout,"Nothing to export.");fflush(stdout);
         return;
     }
-#endif
     File f(path, File::READ, File::OPEN);
     string sign = f.read();//in.readLine();
     StringTokenizer<string> st(sign, "\n");
