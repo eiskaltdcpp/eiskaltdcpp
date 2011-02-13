@@ -1102,8 +1102,6 @@ void HubFrame::init(){
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
 
-    drawLinePos = -1;
-
     frame->setVisible(false);
 
     for (int i = 0; i < model->columnCount(); i++)
@@ -2150,35 +2148,60 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
-        QTextDocument *chatDoc = textEdit_CHAT->document();
-        int chatDocBlockCount = chatDoc->blockCount();
-
-        int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
-
         QString hr = "<hr />";
-
-        if (drawLinePos > chatDocBlockCount)
-            drawLinePos = -1;
-
-        if (drawLinePos >= 0){
-            chatDoc->findBlockByNumber(drawLinePos).layout()->setText("");
-            chatDoc->findBlockByNumber(drawLinePos+1).layout()->setText("");
-
-            chatDocBlockCount = chatDoc->blockCount();
-
-            if (scrollbarValue > textEdit_CHAT->verticalScrollBar()->maximum())
-                scrollbarValue = textEdit_CHAT->verticalScrollBar()->maximum();
-
-            textEdit_CHAT->verticalScrollBar()->setValue(scrollbarValue);
+        
+        QTextDocument *chatDoc = textEdit_CHAT->document();
+        
+        int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
+        
+        for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
+            if (it.userState() == 1){
+                if (it.text().isEmpty()){ // additional check that it is not message
+                    QTextCursor c(it);
+                    c.select(QTextCursor::BlockUnderCursor);
+                    c.deleteChar(); // delete string with horizontal line
+                    
+                    if (scrollbarValue > textEdit_CHAT->verticalScrollBar()->maximum())
+                        scrollbarValue = textEdit_CHAT->verticalScrollBar()->maximum();
+                    
+                    textEdit_CHAT->verticalScrollBar()->setValue(scrollbarValue);
+                    
+                    break;
+                }
+            }
         }
-
-        drawLinePos = chatDocBlockCount;
-
-        output.prepend(hr);
-
+        
         drawLine = false;
+        
+        chatDoc->lastBlock().setUserState(0); // add label for the last of the old messages
+        
+        output.prepend(hr);
+        
+        addOutput(output);
+        
+        for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
+            if (it.userState() == 0){
+                it.setUserState(-1); // delete label for the last of the old messages
+                
+                if (it.blockNumber() < chatDoc->blockCount()-3){
+                    it = it.next().next();
+                    it.setUserState(1); // add label for string with horizontal line
+                    
+                    it = it.previous();
+                    if (it.text().isEmpty()){ // additional check that it is not message
+                        QTextCursor c(it);
+                        c.select(QTextCursor::BlockUnderCursor);
+                        c.deleteChar(); // delete empty string above horizontal line
+                    }
+                }
+                
+                break;
+            }
+        }
+        
+        return;
     }
-
+    
     addOutput(output);
 }
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++ Gtk\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-07 22:42+0200\n"
+"POT-Creation-Date: 2011-02-13 14:08+0200\n"
 "PO-Revision-Date: 2011-01-16 03:43+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <tehnick-8@mail.ru>\n"
@@ -674,7 +674,7 @@ msgstr "Вы уверены, что хотите удалить избранно
 msgid "Paused..."
 msgstr "Приостановлено"
 
-#: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../glade/hash.glade:6
+#: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../glade/hash.glade:7
 msgid "Indexing files..."
 msgstr "Хэширование файлов..."
 
@@ -2083,19 +2083,19 @@ msgstr "_Копировать магнет"
 msgid "_Copy picture"
 msgstr "_Копировать картинку"
 
-#: ../glade/hash.glade:24
+#: ../glade/hash.glade:22
 msgid "<b>Processing file:</b>"
 msgstr "<b>В процессе файл:</b>"
 
-#: ../glade/hash.glade:85
+#: ../glade/hash.glade:81
 msgid "<b>Statistics</b>"
 msgstr "<b>Статистика</b>"
 
-#: ../glade/hash.glade:128
+#: ../glade/hash.glade:109
 msgid "Pause"
 msgstr "Приостановлено"
 
-#: ../glade/hash.glade:140
+#: ../glade/hash.glade:138
 msgid "Run in background"
 msgstr "Выполнять в фоне"
 
