@@ -2193,6 +2193,22 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Preferences</source>
         <translation>Tulajdonságok</translation>
     </message>
+    <message>
+        <source>Icons only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text beside icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text under icons</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
