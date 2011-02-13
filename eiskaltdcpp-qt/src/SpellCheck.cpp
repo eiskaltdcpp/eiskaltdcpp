@@ -27,6 +27,11 @@ SpellCheck::SpellCheck(QObject *parent) :
     aspell_config_replace(config, "encoding", "utf-8");
     aspell_config_replace(config, "personal", (dcpp::Util::getPath(dcpp::Util::PATH_USER_CONFIG)+"dict").c_str());
 
+#ifdef WIN32
+    aspell_config_replace(config, "data-dir", "./aspell/data");
+    aspell_config_replace(config, "dict-dir", "./aspell/dict");
+#endif//WIN32
+
     if (config){
         AspellCanHaveError *error = new_aspell_speller(config);
 
