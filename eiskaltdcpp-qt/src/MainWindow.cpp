@@ -2366,10 +2366,10 @@ void MainWindow::slotToolbarCustomization() {
     QMenu *m = new QMenu(this);
 
     QMenu *toolButtonStyle = new QMenu(tr("Button style"), this);
-    toolButtonStyle->addAction("Icons only")->setData(Qt::ToolButtonIconOnly);
-    toolButtonStyle->addAction("Text only")->setData(Qt::ToolButtonTextOnly);
-    toolButtonStyle->addAction("Text beside icons")->setData(Qt::ToolButtonTextBesideIcon);
-    toolButtonStyle->addAction("Text under icons")->setData(Qt::ToolButtonTextUnderIcon);
+    toolButtonStyle->addAction(tr("Icons only"))->setData(Qt::ToolButtonIconOnly);
+    toolButtonStyle->addAction(tr("Text only"))->setData(Qt::ToolButtonTextOnly);
+    toolButtonStyle->addAction(tr("Text beside icons"))->setData(Qt::ToolButtonTextBesideIcon);
+    toolButtonStyle->addAction(tr("Text under icons"))->setData(Qt::ToolButtonTextUnderIcon);
 
     foreach (QAction *a, toolButtonStyle->actions()){
         a->setCheckable(true);
