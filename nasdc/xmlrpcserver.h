@@ -192,6 +192,7 @@ public:
 };
 
 class hubAddMethod : public xmlrpc_c::method {
+    friend class ServerThread;
 public:
     hubAddMethod() {
         this->_signature = "i:ss";
@@ -205,17 +206,18 @@ public:
         string const shub(paramList.getString(0));
         string const senc(paramList.getString(1));
         paramList.verifyEnd(2);
-
-       ServerThread::connectClient(saddress, senc);
-            *retvalP = xmlrpc_c::value_string("Connected to hub");
-        }
-        else
-            *retvalP = xmlrpc_c::value_string("Fail connect");
+        ServerThread svT;
+        svT.connectClient(shub, senc);
+        *retvalP = xmlrpc_c::value_string("Connected to hub");
+        //}
+        //else
+            //*retvalP = xmlrpc_c::value_string("Fail connect");
         SLEEP(2);
     }
 };
 
 class hubDelMethod : public xmlrpc_c::method {
+    friend class ServerThread;
 public:
     hubDelMethod() {
         this->_signature = "i:s";
@@ -228,12 +230,12 @@ public:
 
         string const shub(paramList.getString(0));
         paramList.verifyEnd(1);
-
-       ServerThread::disconnectClient(saddress);
-            *retvalP = xmlrpc_c::value_string("Disconnected from hub");
-        }
-        else
-            *retvalP = xmlrpc_c::value_string("Fail disconnect");
+        ServerThread svT;
+        svT.disconnectClient(shub);
+        *retvalP = xmlrpc_c::value_string("Disconnected from hub");
+        //}
+        //else
+            //*retvalP = xmlrpc_c::value_string("Fail disconnect");
         SLEEP(2);
     }
 };

@@ -53,8 +53,6 @@ public:
     static uint32_t MaskForBits(uint32_t);
     /** */
     static bool ParseString(std::string, uint32_t&, uint32_t&, eTableAction&);
-    /** */
-    static bool isIP(std::string &exp);
 
     void load();
     void shutdown();

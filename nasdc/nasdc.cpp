@@ -15,9 +15,6 @@
 
 #include "dcpp/Util.h"
 #include "dcpp/File.h"
-#include "dcpp/Text.h"
-#include "dcpp/ResourceManager.h"
-#include "dcpp/Exception.h"
 
 #include "utility.h"
 #include "ServerManager.h"
@@ -29,8 +26,19 @@
 #include <signal.h>
 #endif
 
+#ifdef CLI_DAEMON
 #include <readline/readline.h>
 #include <readline/history.h>
+#endif
+
+static void  logging(bool b, string msg){
+    #ifndef _WIN32
+        if (b) syslog(LOG_USER | LOG_INFO, msg.c_str());
+        else  syslog(LOG_USER | LOG_ERR, msg.c_str());
+    #else
+        Log(msg);
+    #endif
+}
 
 static void SigHandler(int sig) {
     string str = "Received signal ";
@@ -53,7 +61,7 @@ static void SigHandler(int sig) {
     if (!bDaemon) {
         Log(str);
     } else {
-        syslog(LOG_USER | LOG_INFO, str.c_str());
+        logging(true, str);
     }
 
     bIsClose = true;
@@ -115,20 +123,20 @@ int main(int argc, char* argv[])
 
         pid_t pid1 = fork();
         if (pid1 == -1) {
-            syslog(LOG_USER | LOG_ERR, "First fork failed!\n");
+            logging(false,"First fork failed!\n");
             return EXIT_FAILURE;
         } else if (pid1 > 0) {
             return EXIT_SUCCESS;
         }
 
     	if (setsid() == -1) {
-            syslog(LOG_USER | LOG_ERR, "Setsid failed!\n");
+            logging(false, "Setsid failed!\n");
             return EXIT_FAILURE;
     	}
 
         pid_t pid2 = fork();
         if (pid2 == -1) {
-            syslog(LOG_USER | LOG_ERR, "Second fork failed!\n");
+            logging(false, "Second fork failed!\n");
             return EXIT_FAILURE;
         } else if (pid2 > 0) {
             return EXIT_SUCCESS;
@@ -143,14 +151,14 @@ int main(int argc, char* argv[])
         umask(117);
 
         if (open("/dev/null", O_RDWR) == -1) {
-            syslog(LOG_USER | LOG_ERR, "Failed to open /dev/null!\n");
+            logging(false,  "Failed to open /dev/null!\n");
             return EXIT_FAILURE;
         }
 
         dup(0);
         dup(0);
 
-        syslog(LOG_USER | LOG_INFO, "dc++ daemon starting...\n");
+        logging(true,  "EiskaltDC++ daemon starting...\n");
     } else {
         printf(("Starting "+sTitle+" using "+PATH+" as config directory.\n").c_str());
     }
@@ -200,20 +208,21 @@ int main(int argc, char* argv[])
         if (!bDaemon) {
             printf("Server start failed!\n");
         } else {
-            syslog(LOG_USER | LOG_ERR, "Server start failed!\n");
+            logging(false, "Server start failed!\n");
         }
         return EXIT_FAILURE;
     } else if (!bDaemon) {
         printf((sTitle+" running...\n").c_str());
     }
     uint64_t t=0;
-
+#ifdef CLI_DAEMON
     char *temp, *prompt;
     temp = (char *)NULL;
     prompt = "edcppd$ ";
-
+#endif
     while (bServerRunning) {
         usleep(1000);
+        #ifdef CLI_DAEMON
         temp = readline (prompt);
 
         /* If there is anything on the line, print it and remember it. */
@@ -240,7 +249,7 @@ int main(int argc, char* argv[])
             }
         }
         free (temp);
-
+        #endif
         if (bServerTerminated)
             ServerStop();
     }

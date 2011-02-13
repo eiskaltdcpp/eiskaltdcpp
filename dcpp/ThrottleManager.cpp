@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2009-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -285,7 +285,7 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) thr
 
 		dcassert(activeWaiter == 0 || activeWaiter == 1);
 		waitCS[1-activeWaiter].enter();
-		Thread::safeExchange(activeWaiter, 1-activeWaiter);
+		activeWaiter = 1-activeWaiter;
 		waitCS[1-activeWaiter].leave();
 	}
 }

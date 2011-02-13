@@ -47,8 +47,7 @@ ServerThread::ServerThread() : bTerminated(false), lastUp(0), lastDown(0), lastU
 //---------------------------------------------------------------------------
 
 ServerThread::~ServerThread() {
-        Close();
-        WaitFor();
+        join();
 }
 //---------------------------------------------------------------------------
 
@@ -59,12 +58,11 @@ void ServerThread::Resume() {
 
 int ServerThread::run()
 {
+    dcpp::TimerManager::getInstance()->start();
     TimerManager::getInstance()->addListener(this);
     QueueManager::getInstance()->addListener(this);
     LogManager::getInstance()->addListener(this);
     //WebServerManager::getInstance()->addListener(this);
-
-    dcpp::TimerManager::getInstance()->start();
 
     try {
         File::ensureDirectory(SETTING(LOG_DIRECTORY));
@@ -104,18 +102,17 @@ int ServerThread::run()
 }
 bool ServerThread::disconnect_all(){
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        Lock l(shutcs);
         Client* cl = i->second;
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
-        cl = NULL;
+        Thread::sleep(100);
     }
 }
 //---------------------------------------------------------------------------
 void ServerThread::Close()
 {
-    disconnect_all();
-    usleep(1000000);
     //WebServerManager::getInstance()->removeListener(this);
     SearchManager::getInstance()->disconnect();
 
@@ -127,6 +124,7 @@ void ServerThread::Close()
 #endif
 
     ConnectionManager::getInstance()->disconnect();
+    disconnect_all();
     bTerminated = true;
 }
 //---------------------------------------------------------------------------
@@ -166,11 +164,11 @@ void ServerThread::connectClient(string address, string encoding)
 void ServerThread::disconnectClient(string address){
     ClientIter i = clientsMap.find(address);
     if(i != clientsMap.end()) {
+        Lock l(shutcs);
         Client* cl = i->second;
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
-        cl = NULL;
     }
 }
 //----------------------------------------------------------------------------

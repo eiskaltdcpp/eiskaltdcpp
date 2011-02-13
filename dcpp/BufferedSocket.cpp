@@ -42,13 +42,13 @@ disconnecting(false)
 {
 	start();
 
-	Thread::safeInc(sockets);
+	sockets.inc();
 }
 
-volatile long BufferedSocket::sockets = 0;
+Atomic<long,memory_ordering_strong> BufferedSocket::sockets(0);
 
 BufferedSocket::~BufferedSocket() throw() {
-	Thread::safeDec(sockets);
+	sockets.dec();
 }
 
 void BufferedSocket::setMode (Modes aMode, size_t aRollback) {
@@ -244,7 +244,7 @@ void BufferedSocket::threadRead() throw(Exception) {
 						break;
 					}
 				}
-				if (pos == string::npos) 
+				if (pos == string::npos)
 					left = 0;
 				line = l;
 				break;
@@ -327,15 +327,15 @@ void BufferedSocket::threadSendFile(InputStream* file) throw(Exception) {
 		while(writePos < writeBuf.size()) {
 			if(disconnecting)
 				return;
-			
+
 			if(written == -1) {
 				// workaround for OpenSSL (crashes when previous write failed and now retrying with different writeSize)
 				written = sock->write(&writeBuf[writePos], writeSize);
 			} else {
-				writeSize = min(sockSize / 2, writeBuf.size() - writePos);	
+				writeSize = min(sockSize / 2, writeBuf.size() - writePos);
 				written = ThrottleManager::getInstance()->write(sock.get(), &writeBuf[writePos], writeSize);
 			}
-			
+
 			if(written > 0) {
 				writePos += written;
 

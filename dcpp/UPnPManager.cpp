@@ -47,7 +47,7 @@ bool UPnPManager::open() {
         return false;
     }
 
-    if(Thread::safeExchange(portMapping, 1) == 1) {
+    if(portMapping.exchange(true) == true) {
         log(_("Another UPnP port mapping attempt is in progress..."));
         return false;
     }
@@ -129,7 +129,7 @@ int UPnPManager::run() {
         log(_("Failed to create port mappings"));
         ConnectivityManager::getInstance()->mappingFinished(false);
     }
-    portMapping == 0;
+    portMapping = false;
     return 0;
 }
 

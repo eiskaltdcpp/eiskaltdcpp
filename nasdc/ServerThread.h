@@ -51,7 +51,7 @@ private:
     int server;
     unsigned int iSuspendTime;
     bool bTerminated;
-    typedef unordered_map<string, Client*> ClientMap;
+    typedef map<string, Client*> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
     //socket_t webSock;
@@ -83,6 +83,7 @@ private:
     uint64_t lastUpdate;
     std::string address;
     std::string encoding;
+    CriticalSection shutcs;
 };
 
 #endif /* SERVERTHREAD_H_ */

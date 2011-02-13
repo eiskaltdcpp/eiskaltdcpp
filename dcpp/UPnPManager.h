@@ -23,7 +23,7 @@
 #include "Singleton.h"
 #include "Thread.h"
 #include "UPnP.h"
-
+#include "Atomic.h"
 #include <boost/ptr_container/ptr_vector.hpp>
 
 namespace dcpp {
@@ -53,9 +53,9 @@ private:
     Impls impls;
 
     bool opened;
-    volatile long portMapping;
+    Atomic<bool,memory_ordering_strong> portMapping;
 
-    UPnPManager() : opened(false) { }
+    UPnPManager() : opened(false), portMapping(false) { }
     virtual ~UPnPManager() throw() { join(); }
 
     int run();

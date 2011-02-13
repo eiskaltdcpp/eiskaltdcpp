@@ -26,6 +26,7 @@
 #include "Speaker.h"
 #include "Util.h"
 #include "Socket.h"
+#include "Atomic.h"
 
 namespace dcpp {
 
@@ -164,7 +165,7 @@ private:
 	void threadSendData() throw(Exception);
 
 	void fail(const string& aError);
-	static volatile long sockets;
+	static Atomic<long,memory_ordering_strong> sockets;
 
 	bool checkEvents() throw(Exception);
 	void checkSocket() throw(Exception);
