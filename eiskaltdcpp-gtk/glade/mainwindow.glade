@@ -24,7 +24,6 @@
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Open _file list...</property>
                         <property name="use_underline">True</property>
-                        <accelerator key="L" modifiers="GDK_CONTROL_MASK" signal="activate"/>
                         <child internal-child="image">
                           <widget class="GtkImage" id="menu-item-image25">
                             <property name="visible">True</property>
@@ -39,6 +38,7 @@
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Open _own file list</property>
                         <property name="use_underline">True</property>
+                        <accelerator key="L" modifiers="GDK_CONTROL_MASK" signal="activate"/>
                         <child internal-child="image">
                           <widget class="GtkImage" id="image666">
                             <property name="visible">True</property>
@@ -87,7 +87,6 @@
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">_Magnet Choice</property>
                         <property name="use_underline">True</property>
-                        <accelerator key="M" modifiers="GDK_CONTROL_MASK" signal="activate"/>
                         <child internal-child="image">
                           <widget class="GtkImage" id="menu-item-image29">
                             <property name="visible">True</property>
@@ -114,6 +113,7 @@
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">_Exit</property>
                         <property name="use_underline">True</property>
+                        <accelerator key="Q" modifiers="GDK_CONTROL_MASK" signal="activate"/>
                         <child internal-child="image">
                           <widget class="GtkImage" id="menu-item-image30">
                             <property name="visible">True</property>
@@ -169,7 +169,7 @@
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Favorite Hubs</property>
                         <property name="use_underline">True</property>
-                        <accelerator key="F" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+                        <accelerator key="H" modifiers="GDK_CONTROL_MASK" signal="activate"/>
                         <child internal-child="image">
                           <widget class="GtkImage" id="menu-item-image31">
                             <property name="visible">True</property>
