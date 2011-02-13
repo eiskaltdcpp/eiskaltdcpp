@@ -2157,13 +2157,16 @@ void HubFrame::newMsg(const VarMap &map){
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if (it.userState() == 1){
                 if (it.text().isEmpty()){ // additional check that it is not message
-                    it.setUserState(-1); // delete label for string with horizontal line
-                    it.layout()->setText(""); // delete string with horizontal line
+                    QTextCursor c(it);
+                    c.select(QTextCursor::BlockUnderCursor);
+                    c.deleteChar(); // delete string with horizontal line
                     
                     if (scrollbarValue > textEdit_CHAT->verticalScrollBar()->maximum())
                         scrollbarValue = textEdit_CHAT->verticalScrollBar()->maximum();
                     
                     textEdit_CHAT->verticalScrollBar()->setValue(scrollbarValue);
+                    
+                    break;
                 }
             }
         }
@@ -2185,8 +2188,11 @@ void HubFrame::newMsg(const VarMap &map){
                     it.setUserState(1); // add label for string with horizontal line
                     
                     it = it.previous();
-                    if (it.text().isEmpty()) // additional check that it is not message
-                        it.layout()->setText(""); // delete empty string above horizontal line
+                    if (it.text().isEmpty()){ // additional check that it is not message
+                        QTextCursor c(it);
+                        c.select(QTextCursor::BlockUnderCursor);
+                        c.deleteChar(); // delete empty string above horizontal line
+                    }
                 }
                 
                 break;
