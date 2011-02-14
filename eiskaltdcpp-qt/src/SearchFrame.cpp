@@ -466,8 +466,8 @@ void SearchFrame::init(){
     connect(lineEdit_SEARCHSTR, SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
     connect(this->button_type, SIGNAL(typeChanged()), lineEdit_SEARCHSTR, SLOT(setFocus()));
     connect(this->button_type, SIGNAL(typeChanged()), lineEdit_SEARCHSTR, SLOT(selectAll()));
-    /*connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(setFocus()));
-    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(selectAll()));*/
+    // connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(setFocus()));
+    // connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(selectAll()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), lineEdit_FILTER, SLOT(selectAll()));
     connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), this, SLOT(slotChangeProxyColumn(int)));
@@ -847,11 +847,11 @@ void SearchFrame::fastSearch(const QString &text, bool isTTH){
         return;
 
     if (!isTTH){
-	//comboBox_FILETYPES->setCurrentIndex(0); // set type "Any"
-	this->button_type->setDefault();
+        //comboBox_FILETYPES->setCurrentIndex(0); // set type "Any"
+        this->button_type->setDefault();
     } else {
-	//comboBox_FILETYPES->setCurrentIndex(8); // set type "TTH"
-	this->button_type->setTTH();
+        //comboBox_FILETYPES->setCurrentIndex(8); // set type "TTH"
+        this->button_type->setTTH();
     }
 
     lineEdit_SEARCHSTR->setText(text);

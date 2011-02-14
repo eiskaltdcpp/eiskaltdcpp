@@ -181,6 +181,7 @@ friend class dcpp::Singleton<MainWindow>;
         /** */
         void setStatusMessage(QString);
 
+        /** */
         void loadDMD(QString);
 
         /** */
@@ -260,7 +261,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotAboutClient();
         void slotAboutQt();
 
-	void showShareBrowser(dcpp::UserPtr, const QString &, const QString&);
+        void showShareBrowser(dcpp::UserPtr, const QString &, const QString&);
         void updateStatus(const QMap<QString,QString> &);
 
     Q_SIGNALS:

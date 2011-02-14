@@ -340,9 +340,9 @@ void TransferView::searchAlternates(const QString &tth){
 
 void TransferView::downloadComplete(QString target){
     if ( HashProgress::getHashStatus() == HashProgress::IDLE ) {
-	ShareManager *SM = ShareManager::getInstance();
-	SM->setDirty();
-	SM->refresh(true);
+        ShareManager *SM = ShareManager::getInstance();
+        SM->setDirty();
+        SM->refresh(true);
     }
     Notification::getInstance()->showMessage(Notification::TRANSFER, tr("Download complete"), target);
 }
