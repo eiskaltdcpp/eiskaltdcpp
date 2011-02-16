@@ -1,11 +1,3 @@
-EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol. It is compatible with other DC clients, such as the original DC from Neomodus, DC++ and derivatives. EiskaltDC++ also interoperates with all common DC hub software.
-
-The minimum number of our patches to original DC++ kernel makes it easy to upgrade to new versions and ensures compatibility with other clients.
-
-Home page: http://code.google.com/p/eiskaltdc/
-
-Please use http://code.google.com/p/eiskaltdc/issues/list to report bugs.
-
 Developers
 
  Andrey Karlov
