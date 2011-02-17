@@ -99,6 +99,8 @@ sudo make install
 git clone git://github.com/negativ/eiskaltdcpp.git
 # or
 wget -4 http://nodeload.github.com/negativ/eiskaltdcpp/tarball/master
+# or
+svn export http://svn.github.com/negativ/eiskaltdcpp/ eiskaltdcpp
 
 
 *******************************************************************************
