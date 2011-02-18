@@ -95,12 +95,12 @@ StringList ClientManager::getHubs(const CID& cid, const string& hintUrl, bool pr
     if(!priv) {
         OnlinePairC op = onlineUsers.equal_range(cid);
         for(OnlineIterC i = op.first; i != op.second; ++i) {
-            lst.push_back(i->second->getClientBase().getHubUrl());
+            lst.push_back(i->second->getClient().getHubUrl());
         }
     } else {
         OnlineUser* u = findOnlineUserHint(cid, hintUrl);
         if(u)
-            lst.push_back(u->getClientBase().getHubUrl());
+            lst.push_back(u->getClient().getHubUrl());
     }
     return lst;
 }
@@ -111,12 +111,12 @@ StringList ClientManager::getHubNames(const CID& cid, const string& hintUrl, boo
     if(!priv) {
         OnlinePairC op = onlineUsers.equal_range(cid);
         for(OnlineIterC i = op.first; i != op.second; ++i) {
-            lst.push_back(i->second->getClientBase().getHubName());
+            lst.push_back(i->second->getClient().getHubName());
         }
     } else {
         OnlineUser* u = findOnlineUserHint(cid, hintUrl);
         if(u)
-            lst.push_back(u->getClientBase().getHubName());
+            lst.push_back(u->getClient().getHubName());
     }
     return lst;
 }
@@ -293,7 +293,7 @@ bool ClientManager::isOp(const UserPtr& user, const string& aHubUrl) const {
     Lock l(cs);
     OnlinePairC p = onlineUsers.equal_range(user->getCID());
     for(OnlineIterC i = p.first; i != p.second; ++i) {
-        if(i->second->getClientBase().getHubUrl() == aHubUrl) {
+        if(i->second->getClient().getHubUrl() == aHubUrl) {
             return i->second->getIdentity().isOp();
         }
     }
@@ -355,7 +355,7 @@ OnlineUser* ClientManager::findOnlineUserHint(const CID& cid, const string& hint
     if(!hintUrl.empty()) {
         for(OnlineIterC i = p.first; i != p.second; ++i) {
             OnlineUser* u = i->second;
-            if(u->getClientBase().getHubUrl() == hintUrl) {
+            if(u->getClient().getHubUrl() == hintUrl) {
                 return u;
             }
         }
@@ -392,7 +392,7 @@ void ClientManager::connect(const HintedUser& user, const string& token) {
     OnlineUser* u = findOnlineUser(user, priv);
 
     if(u) {
-            u->getClientBase().connect(*u, token);
+            u->getClient().connect(*u, token);
     }
 }
 
@@ -403,7 +403,7 @@ void ClientManager::privateMessage(const HintedUser& user, const string& msg, bo
     OnlineUser* u = findOnlineUser(user, priv);
 
     if(u) {
-        u->getClientBase().privateMessage(*u, msg, thirdPerson);
+        u->getClient().privateMessage(*u, msg, thirdPerson);
     }
 }
 
