@@ -1130,7 +1130,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="475"/>
         <source>Invalid keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Neplatná klíčová slova</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="677"/>
@@ -2164,27 +2164,27 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2368"/>
         <source>Button style</source>
-        <translation>Vzhled tlačítka</translation>
+        <translation>Vzhled tlačítek</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2369"/>
         <source>Icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouze ikony</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2370"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouze text</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2371"/>
         <source>Text beside icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Text vedle ikon</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2372"/>
         <source>Text under icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Text pod ikonami</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2382"/>
@@ -5739,7 +5739,7 @@ to je třeba udělat ručně.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="880"/>
         <source>Segment size (in MB, 0 = auto segment size)</source>
-        <translation type="unfinished"></translation>
+        <translation>Velikost segmentu (v MB, 0 = automatická velikost)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="642"/>
