@@ -18,6 +18,10 @@ include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DI
 if (WIN32)
   set (LINK STATIC)
   set (WIN32_LIBS "ws2_32")
+else (WIN32)
+  if (NOT CMAKE_CROSSCOMPILING)
+    set (PTHREADS "pthread")
+  endif (NOT CMAKE_CROSSCOMPILING)
 endif (WIN32)
 
 if (NOT LINK)
@@ -70,7 +74,6 @@ if (WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS)
 else(WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
-   set (PTHREADS "pthread")
 endif (WIN32)
 
 target_link_libraries (dcpp ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
