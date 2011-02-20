@@ -9,8 +9,6 @@
 *                                                                         *
 ***************************************************************************/
 
-// Description : Hello World in C++, Ansi-style
-
 #include "stdafx.h"
 
 #include "dcpp/Util.h"
@@ -39,7 +37,7 @@ static void  logging(bool b, string msg){
         Log(msg);
     #endif
 }
-
+#ifndef _WIN32
 static void SigHandler(int sig) {
     string str = "Received signal ";
 
@@ -75,7 +73,7 @@ static void SigHandler(int sig) {
 
     sigaction(sig, &sigact, NULL);
 }
-
+#endif
 void printHelp() {
     printf("Using:\n"
            "  eiskaltdcpp-daemon -d\t Run program as daemon\n"
@@ -96,7 +94,11 @@ int main(int argc, char* argv[])
 {
     for (int i = 0; i < argc; i++){
         if (strcasecmp(argv[i], "-d") == 0) {
-            bDaemon = true;
+            //#ifdef _WIN32
+                //bService=true;
+            //#else
+                bDaemon = true;
+            //#endif
         }
         else if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
             printHelp();
@@ -117,7 +119,7 @@ int main(int argc, char* argv[])
     Util::initialize();
 
     PATH = Util::getPath(Util::PATH_USER_CONFIG);
-
+    #ifndef _WIN32
     if (bDaemon) {
         printf(("Starting "+sTitle+" as daemon using "+PATH+" as config directory.\n").c_str());
 
@@ -159,10 +161,14 @@ int main(int argc, char* argv[])
         dup(0);
 
         logging(true,  "EiskaltDC++ daemon starting...\n");
+    #else
+    if (bService) {
+
+    #endif
     } else {
         printf(("Starting "+sTitle+" using "+PATH+" as config directory.\n").c_str());
     }
-
+    #ifndef _WIN32
     sigset_t sst;
     sigemptyset(&sst);
     sigaddset(&sst, SIGPIPE);
@@ -201,7 +207,7 @@ int main(int argc, char* argv[])
         printf("Cannot create sigaction SIGHUP! ", strerror(errno));
         exit(EXIT_FAILURE);
     }
-
+    #endif
     ServerInitialize();
 
     if (!ServerStart()) {
