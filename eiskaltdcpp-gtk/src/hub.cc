@@ -2146,10 +2146,11 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         {
             hub->addStatusMessage_gui(_("Unknown command '") + text + _("': type /help for a list of available commands"), Msg::SYSTEM, Sound::NONE);
         }
-        #ifdef LUA_SCRIPT
-            func2 = new F2(hub, &Hub::sendMessage_client, text, false);
-            WulforManager::get()->dispatchClientFunc(func2);
-        #endif
+        //#ifdef LUA_SCRIPT
+            //client->hubMessage(text);
+            //func2 = new F2(hub, &Hub::sendMessage_client, text, false);
+            //WulforManager::get()->dispatchClientFunc(func2);
+        //#endif
     }
     else
     {

@@ -70,9 +70,10 @@ if (WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS)
 else(WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
+   set (PTHREADS "pthread")
 endif (WIN32)
 
-target_link_libraries (dcpp ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
+target_link_libraries (dcpp ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
 ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE} ${DHT_LIB})
 set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 
