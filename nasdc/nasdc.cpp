@@ -97,8 +97,9 @@ int main(int argc, char* argv[])
             //#ifdef _WIN32
                 //bService=true;
             //#else
+            #ifndef _WIN32
                 bDaemon = true;
-            //#endif
+            #endif
         }
         else if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
             printHelp();
@@ -161,14 +162,14 @@ int main(int argc, char* argv[])
         dup(0);
 
         logging(true,  "EiskaltDC++ daemon starting...\n");
-    #else
-    if (bService) {
-
-    #endif
+    //#else
+    //if (bService) {
+    //#endif
     } else {
+    #endif
         printf(("Starting "+sTitle+" using "+PATH+" as config directory.\n").c_str());
-    }
     #ifndef _WIN32
+    }
     sigset_t sst;
     sigemptyset(&sst);
     sigaddset(&sst, SIGPIPE);
@@ -211,16 +212,24 @@ int main(int argc, char* argv[])
     ServerInitialize();
 
     if (!ServerStart()) {
+        #ifndef _WIN32
         if (!bDaemon) {
             printf("Server start failed!\n");
         } else {
             logging(false, "Server start failed!\n");
         }
+        #else
+            printf("Server start failed!\n");
+        #endif
         return EXIT_FAILURE;
-    } else if (!bDaemon) {
+    }
+    #ifndef _WIN32
+    else if (!bDaemon) {
         printf((sTitle+" running...\n").c_str());
     }
-    uint64_t t=0;
+    #else
+        printf((sTitle+" running...\n").c_str());
+    #endif
 #ifdef CLI_DAEMON
     char *temp, *prompt;
     temp = (char *)NULL;
