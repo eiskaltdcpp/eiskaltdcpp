@@ -13,6 +13,7 @@
 
 #include "dcpp/Util.h"
 #include "dcpp/File.h"
+#include "dcpp/Thread.h"
 
 #include "utility.h"
 #include "ServerManager.h"
@@ -236,7 +237,7 @@ int main(int argc, char* argv[])
     prompt = "edcppd$ ";
 #endif
     while (bServerRunning) {
-        usleep(1000);
+        Thread::sleep(1);
         #ifdef CLI_DAEMON
         temp = readline (prompt);
 
