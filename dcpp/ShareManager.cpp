@@ -644,7 +644,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
     //for(FileFindIter i(aName + "*"); i != end; ++i) {
     for(FileFindIter i(aName); i != end; ++i) {
 #endif
-        string name = i->getFileName();
+        string name = Text::toUtf8(i->getFileName());
         if(name.empty()) {
             LogManager::getInstance()->message(str(F_("Invalid file name found while hashing folder %1%") % Util::addBrackets(aName)));
             continue;
@@ -658,7 +658,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
             continue;
 
         int64_t size = i->getSize();
-        string fileName = aName + name;
+        string fileName = Text::toUtf8(aName) + name;
 
         if (l_skip_list.size())
         {
