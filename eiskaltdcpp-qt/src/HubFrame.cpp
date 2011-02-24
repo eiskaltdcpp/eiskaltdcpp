@@ -2299,7 +2299,14 @@ void HubFrame::newPm(const VarMap &map){
     QString full_message = "";
 
     if (nick != _q(client->getMyNick())){
-        if (!pm.contains(map["CID"].toString()) || (pm.contains(map["CID"].toString()) && !pm[map["CID"].toString()]->isVisible()))
+        bool show_msg = false;
+
+        if (!pm.contains(map["CID"].toString()))
+            show_msg = true;
+        else
+            show_msg = (!pm[map["CID"].toString()]->isVisible() || WBGET("notification/play-sound-with-active-pm", true));
+
+        if (show_msg)
             Notification::getInstance()->showMessage(Notification::PM, nick, message);
     }
 
