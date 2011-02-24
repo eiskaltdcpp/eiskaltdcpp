@@ -194,11 +194,11 @@ void HashProgress::slotStart(){
     case LISTUPDATE:
     case RUNNING:
             HM->pauseHashing();
-            HM->setPriority(Thread::IDLE);
+            //HM->setPriority(Thread::IDLE);
             break;
     case PAUSED:
             HM->resumeHashing();
-            HM->setPriority(Thread::NORMAL);
+            //HM->setPriority(Thread::NORMAL);
             break;
     }
     stateButton();

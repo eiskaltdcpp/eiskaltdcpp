@@ -41,6 +41,10 @@
 #include <dcpp/Text.h>
 #include "notify.hh"
 
+#ifndef NOTIFY_CHECK_VERSION
+#define NOTIFY_CHECK_VERSION(x,y,z)  0
+#endif
+
 using namespace std;
 using namespace dcpp;
 
@@ -68,8 +72,13 @@ Notify* Notify::get()
 void Notify::init()
 {
 #ifdef USE_LIBNOTIFY
-	notify_init(g_get_application_name());
-	notification = notify_notification_new("template", "template", NULL, NULL);
+    notify_init(g_get_application_name());
+    notification = notify_notification_new("template", "template", NULL
+#if NOTIFY_CHECK_VERSION (0, 7, 0)
+    );
+#else
+    , NULL);
+#endif
 #endif // USE_LIBNOTIFY
 	action = FALSE;
 }

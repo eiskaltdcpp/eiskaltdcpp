@@ -69,14 +69,12 @@ Section "EiskaltDC++"
   File "installer\libeay32.dll"
   File "installer\ssleay32.dll"
   File "installer\mingwm10.dll"
-  ;File "installer\aspell-15.dll"
+  File "installer\libintl-8.dll"
+  File "installer\libaspell-15.dll"
   ;File "installer\lua51.dll"
 
   File "installer\iconv.dll"
   ;File "installer\libiconv-2.dll"
-
-  File "installer\intl.dll"
-  ;File "installer\libintl-8.dll"
 
   File "installer\mgwz.dll"
   ;File "installer\zlib1.dll"

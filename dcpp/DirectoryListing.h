@@ -45,7 +45,7 @@ public:
         typedef vector<Ptr> List;
         typedef List::iterator Iter;
 
-        File(Directory* aDir, const string& aName, int64_t aSize, const string& aTTH) throw() :
+        File(Directory* aDir, const string& aName, int64_t aSize, const TTHValue& aTTH) throw() :
             name(aName), size(aSize), parent(aDir), tthRoot(aTTH), adls(false)
         {
         }
@@ -68,7 +68,7 @@ public:
         GETSET(bool, adls, Adls);
     };
 
-    class Directory : public FastAlloc<Directory> {
+    class Directory : public FastAlloc<Directory>, boost::noncopyable {
     public:
         typedef Directory* Ptr;
         struct DirSort {
@@ -113,9 +113,6 @@ public:
         GETSET(bool, adls, Adls);
         GETSET(bool, complete, Complete);
 
-    private:
-        Directory(const Directory&);
-        Directory& operator=(const Directory&);
     };
 
     class AdlDirectory : public Directory {

@@ -2139,22 +2139,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2369"/>
         <source>Icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>Тільки значки</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2370"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>Тільки текст</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2371"/>
         <source>Text beside icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст поруч із значками</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2372"/>
         <source>Text under icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст під значками</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2432"/>

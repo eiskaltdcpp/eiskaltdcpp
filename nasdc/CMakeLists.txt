@@ -19,6 +19,11 @@ endif (CLI_DAEMON)
 
 list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/sampleclient.cpp)
 list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/sampleserver.cpp)
+
+if (WIN32)
+  list (APPEND nasdc_SRCS ../win32/applink.c)
+endif (WIN32)
+
 if (LUA_SCRIPT)
   set_property(SOURCE ${PROJECT_SOURCE_DIR}/ServerThread.cpp PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
@@ -37,7 +42,7 @@ target_link_libraries (sampleclient ${XMLRPCLIBS})
 #target_link_libraries (sampleserver ${XMLRPCLIBS})
 endif()
 
-target_link_libraries (nasdc dcpp pthread ${XMLRPCLIBS} ${RL_LIBS})
+target_link_libraries (nasdc dcpp ${XMLRPCLIBS} ${RL_LIBS})
 
 if (UNIX)
  set (BINDIR bin)

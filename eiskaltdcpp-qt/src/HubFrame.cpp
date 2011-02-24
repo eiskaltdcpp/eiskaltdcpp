@@ -1547,6 +1547,79 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             }
         }
     }
+    else if (cmd == "/kword" && !emptyParam){
+        if (list.size() < 2 || list.size() > 3)
+            return false;
+
+        enum { List=0, Add, Remove };
+
+        int kw_action = List;
+
+        if (list.at(1) == QString("add"))
+            kw_action = Add;
+        else if (list.at(1) == QString("purge"))
+            kw_action = Remove;
+        else if (list.at(1) == QString("list"))
+            kw_action = List;
+        else {
+            if (fr == this)
+                addStatus(tr("Invalid command syntax."));
+            else if (pm)
+                pm->addStatus(tr("Invalid command syntax."));
+
+            return false;
+        }
+
+        if (kw_action != List && list.size() != 3){
+            if (fr == this)
+                addStatus(tr("Invalid command syntax."));
+            else if (pm)
+                pm->addStatus(tr("Invalid command syntax."));
+
+            return false;
+        }
+
+        QStringList kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
+
+        switch (kw_action){
+        case List:
+            {
+                QString str = tr("List of keywords:\n");
+
+                foreach (const QString s, kwords)
+                    str += "\t" + s + "\n";
+
+                if (fr == this)
+                    addStatus(str);
+                else if (pm)
+                    pm->addStatus(str);;
+
+                break;
+            }
+        case Remove:
+            {
+                QString kword = list.last();
+
+                if (kwords.contains(kword))
+                    kwords.removeOne(kword);
+
+                break;
+            }
+        case Add:
+            {
+                QString kword = list.last();
+
+                if (!kwords.contains(kword))
+                    kwords.push_back(kword);
+
+                break;
+            }
+        default:
+            break;
+        }
+
+        WVSET("hubframe/chat-keywords", kwords);
+    }
     else if (cmd == "/ratio"){
         double ratio;
         double down = QString(WSGET(WS_APP_TOTAL_DOWN)).toDouble();
@@ -1660,6 +1733,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         out += tr("/back - set away-mode off\n");
         out += tr("/browse <nick> - browse user files\n");
         out += tr("/clear - clear chat window\n");
+        out += tr("/kword add <keyword> - add user-defined keyword\n");
+        out += tr("/kword purge <keyword> - remove user-defined keyword\n");
+        out += tr("/kword list - list all keywrds\n");
         out += tr("/magnet - default action with magnet (0-ask, 1-search, 2-download)\n");
         out += tr("/close - close this hub\n");
         out += tr("/fav - add this hub to favorites\n");
@@ -2110,6 +2186,16 @@ void HubFrame::newMsg(const VarMap &map){
     QString color = map["CLR"].toString();
     QString msg_color = WS_CHAT_MSG_COLOR;
 
+    const QStringList &kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
+
+    foreach (const QString &word, kwords){
+        if (message.contains(word, Qt::CaseInsensitive)){
+            msg_color = WS_CHAT_SAY_NICK;
+
+            break;
+        }
+    }
+
     emit newMessage(this, _q(client->getHubUrl()), map["CID"].toString(), nick, message);
 
     if (message.indexOf(_q(client->getMyNick())) >= 0){
@@ -2213,7 +2299,14 @@ void HubFrame::newPm(const VarMap &map){
     QString full_message = "";
 
     if (nick != _q(client->getMyNick())){
-        if (!pm.contains(map["CID"].toString()) || (pm.contains(map["CID"].toString()) && !pm[map["CID"].toString()]->isVisible()))
+        bool show_msg = false;
+
+        if (!pm.contains(map["CID"].toString()))
+            show_msg = true;
+        else
+            show_msg = (!pm[map["CID"].toString()]->isVisible() || WBGET("notification/play-sound-with-active-pm", true));
+
+        if (show_msg)
             Notification::getInstance()->showMessage(Notification::PM, nick, message);
     }
 

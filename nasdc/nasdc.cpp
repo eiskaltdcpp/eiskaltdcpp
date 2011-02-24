@@ -9,12 +9,11 @@
 *                                                                         *
 ***************************************************************************/
 
-// Description : Hello World in C++, Ansi-style
-
 #include "stdafx.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/File.h"
+#include "dcpp/Thread.h"
 
 #include "utility.h"
 #include "ServerManager.h"
@@ -39,7 +38,7 @@ static void  logging(bool b, string msg){
         Log(msg);
     #endif
 }
-
+#ifndef _WIN32
 static void SigHandler(int sig) {
     string str = "Received signal ";
 
@@ -75,7 +74,7 @@ static void SigHandler(int sig) {
 
     sigaction(sig, &sigact, NULL);
 }
-
+#endif
 void printHelp() {
     printf("Using:\n"
            "  eiskaltdcpp-daemon -d\t Run program as daemon\n"
@@ -96,7 +95,12 @@ int main(int argc, char* argv[])
 {
     for (int i = 0; i < argc; i++){
         if (strcasecmp(argv[i], "-d") == 0) {
-            bDaemon = true;
+            //#ifdef _WIN32
+                //bService=true;
+            //#else
+            #ifndef _WIN32
+                bDaemon = true;
+            #endif
         }
         else if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
             printHelp();
@@ -117,7 +121,7 @@ int main(int argc, char* argv[])
     Util::initialize();
 
     PATH = Util::getPath(Util::PATH_USER_CONFIG);
-
+    #ifndef _WIN32
     if (bDaemon) {
         printf(("Starting "+sTitle+" as daemon using "+PATH+" as config directory.\n").c_str());
 
@@ -159,10 +163,14 @@ int main(int argc, char* argv[])
         dup(0);
 
         logging(true,  "EiskaltDC++ daemon starting...\n");
+    //#else
+    //if (bService) {
+    //#endif
     } else {
+    #endif
         printf(("Starting "+sTitle+" using "+PATH+" as config directory.\n").c_str());
+    #ifndef _WIN32
     }
-
     sigset_t sst;
     sigemptyset(&sst);
     sigaddset(&sst, SIGPIPE);
@@ -201,27 +209,35 @@ int main(int argc, char* argv[])
         printf("Cannot create sigaction SIGHUP! ", strerror(errno));
         exit(EXIT_FAILURE);
     }
-
+    #endif
     ServerInitialize();
 
     if (!ServerStart()) {
+        #ifndef _WIN32
         if (!bDaemon) {
             printf("Server start failed!\n");
         } else {
             logging(false, "Server start failed!\n");
         }
+        #else
+            printf("Server start failed!\n");
+        #endif
         return EXIT_FAILURE;
-    } else if (!bDaemon) {
+    }
+    #ifndef _WIN32
+    else if (!bDaemon) {
         printf((sTitle+" running...\n").c_str());
     }
-    uint64_t t=0;
+    #else
+        printf((sTitle+" running...\n").c_str());
+    #endif
 #ifdef CLI_DAEMON
     char *temp, *prompt;
     temp = (char *)NULL;
     prompt = "edcppd$ ";
 #endif
     while (bServerRunning) {
-        usleep(1000);
+        Thread::sleep(1);
         #ifdef CLI_DAEMON
         temp = readline (prompt);
 

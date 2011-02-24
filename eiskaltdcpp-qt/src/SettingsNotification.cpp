@@ -75,6 +75,8 @@ void SettingsNotification::init(){
         groupBox_PM->setChecked(emap & Notification::PM);
         groupBox_TR->setChecked(emap & Notification::TRANSFER);
         groupBox_FAV->setChecked(emap & Notification::FAVORITE);
+
+        checkBox_ACTIVEPM->setChecked(WBGET("notification/play-sound-with-active-pm", true));
     }
 
     toolButton_BRWNICK->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
@@ -161,6 +163,7 @@ void SettingsNotification::ok(){
 
         WSSET(WS_NOTIFY_SOUNDS, sounds.toAscii().toBase64());
         WBSET(WB_NOTIFY_SND_ENABLED, groupBox_SND->isChecked());
+        WBSET("notification/play-sound-with-active-pm", checkBox_ACTIVEPM->isChecked());
 
         Notification::getInstance()->reloadSounds();
 

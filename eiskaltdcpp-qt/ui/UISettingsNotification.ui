@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>374</width>
-    <height>348</height>
+    <width>425</width>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -107,7 +107,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="">
+           <widget class="QFrame" name="frame">
             <layout class="QHBoxLayout" name="horizontalLayout">
              <property name="margin">
               <number>0</number>
@@ -244,6 +244,13 @@
               <widget class="QToolButton" name="toolButton_BRWPM">
                <property name="text">
                 <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QCheckBox" name="checkBox_ACTIVEPM">
+               <property name="text">
+                <string>Play sound on active PM window</string>
                </property>
               </widget>
              </item>

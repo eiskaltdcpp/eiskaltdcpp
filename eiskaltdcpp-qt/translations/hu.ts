@@ -1289,7 +1289,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Invalid keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Érvénytelen kulcsszó</translation>
     </message>
 </context>
 <context>
@@ -2195,19 +2195,19 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     </message>
     <message>
         <source>Icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak ikonok</translation>
     </message>
     <message>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak szöveg</translation>
     </message>
     <message>
         <source>Text beside icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg az ikonok mellett</translation>
     </message>
     <message>
         <source>Text under icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg az ikonok alatt</translation>
     </message>
 </context>
 <context>
@@ -5212,7 +5212,7 @@ ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünete
     </message>
     <message>
         <source>Segment size (in MB, 0 = auto segment size)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl szegmens méret (MiB-ban, 0 = automatikus beállítás)</translation>
     </message>
 </context>
 <context>

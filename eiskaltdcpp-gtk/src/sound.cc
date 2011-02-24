@@ -26,6 +26,7 @@
 #include "settingsmanager.hh"
 #include <dcpp/Text.h>
 #include "sound.hh"
+#include "wulformanager.hh"
 
 using namespace std;
 using namespace dcpp;
@@ -128,6 +129,9 @@ void Sound::playSound(const string &target)
 {
 #ifdef USE_LIBGNOME2
 	gnome_sound_play(Text::fromUtf8(target).c_str());
+#else
+	FILE *pipe = popen((WulforSettingsManager::getInstance()->getString("sound-command") + " \"" +target+"\" &" ).c_str(), "w" );
+	pclose( pipe );
 #endif
 }
 
