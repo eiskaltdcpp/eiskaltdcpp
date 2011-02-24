@@ -729,6 +729,14 @@ void TransferViewItem::updateColumn(int column, QVariant var){
 TransferViewDelegate::TransferViewDelegate(QObject *parent):
         QStyledItemDelegate(parent)
 {
+    QColor download_bar_color = qvariant_cast<QColor>(WVGET("transferview/download-bar-color", QColor()));
+    QColor upload_bar_color = qvariant_cast<QColor>(WVGET("transferview/upload-bar-color", QColor()));
+
+    if (!download_bar_color.isValid())
+        WVSET("transferview/download-bar-color", qApp->palette().color(QPalette::Highlight));
+
+    if (!upload_bar_color.isValid())
+        WVSET("transferview/upload-bar-color", qApp->palette().color(QPalette::Highlight));
 }
 
 TransferViewDelegate::~TransferViewDelegate(){
@@ -743,6 +751,9 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
         return;
     }
 
+    static const QColor download_bar_color = qvariant_cast<QColor>(WVGET("transferview/download-bar-color", QColor()));
+    static const QColor upload_bar_color = qvariant_cast<QColor>(WVGET("transferview/upload-bar-color", QColor()));
+
     QStyleOptionProgressBarV2 progressBarOption;
     progressBarOption.state = QStyle::State_Enabled;
     progressBarOption.direction = QApplication::layoutDirection();
@@ -752,6 +763,15 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     progressBarOption.maximum = 100;
     progressBarOption.textAlignment = Qt::AlignCenter;
     progressBarOption.textVisible = true;
+
+    QPalette pal = option.palette;
+
+    if (item->download && download_bar_color.isValid())
+        pal.setColor(QPalette::Highlight, download_bar_color);
+    else if (!item->download && upload_bar_color.isValid())
+        pal.setColor(QPalette::Highlight, upload_bar_color);
+
+    progressBarOption.palette = pal;
 
     double percent = item->percent;
     QString status = item->data(COLUMN_TRANSFER_STATS).toString();
