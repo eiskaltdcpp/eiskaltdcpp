@@ -529,7 +529,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
     }
 }
 
-void ClientManager::on(AdcSearch, const Client* c, const AdcCommand& adc, const CID& from) throw() {
+void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const CID& from) throw() {
     bool isUdpActive = false;
     {
         Lock l(cs);
