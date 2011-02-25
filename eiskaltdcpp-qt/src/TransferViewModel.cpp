@@ -729,14 +729,10 @@ void TransferViewItem::updateColumn(int column, QVariant var){
 TransferViewDelegate::TransferViewDelegate(QObject *parent):
         QStyledItemDelegate(parent)
 {
-    QColor download_bar_color = qvariant_cast<QColor>(WVGET("transferview/download-bar-color", QColor()));
-    QColor upload_bar_color = qvariant_cast<QColor>(WVGET("transferview/upload-bar-color", QColor()));
+    download_bar_color = qvariant_cast<QColor>(WVGET("transferview/download-bar-color", QColor()));
+    upload_bar_color = qvariant_cast<QColor>(WVGET("transferview/upload-bar-color", QColor()));
 
-    if (!download_bar_color.isValid())
-        WVSET("transferview/download-bar-color", qApp->palette().color(QPalette::Highlight));
-
-    if (!upload_bar_color.isValid())
-        WVSET("transferview/upload-bar-color", qApp->palette().color(QPalette::Highlight));
+    connect(WulforSettings::getInstance(), SIGNAL(varValueChanged(QString,QVariant)), this, SLOT(wsVarValueChanged(QString,QVariant)));
 }
 
 TransferViewDelegate::~TransferViewDelegate(){
@@ -750,9 +746,6 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
 
         return;
     }
-
-    static const QColor download_bar_color = qvariant_cast<QColor>(WVGET("transferview/download-bar-color", QColor()));
-    static const QColor upload_bar_color = qvariant_cast<QColor>(WVGET("transferview/upload-bar-color", QColor()));
 
     QStyleOptionProgressBarV2 progressBarOption;
     progressBarOption.state = QStyle::State_Enabled;
@@ -783,4 +776,11 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
         painter->fillRect(option.rect, option.palette.highlight());
 
     QApplication::style()->drawControl(QStyle::CE_ProgressBar, &progressBarOption, painter);
+}
+
+void TransferViewDelegate::wsVarValueChanged(const QString &key, const QVariant &val){
+    if (key == "transferview/download-bar-color")
+        download_bar_color = qvariant_cast<QColor>(val);
+    else if (key == "transferview/upload-bar-color")
+        upload_bar_color = qvariant_cast<QColor>(val);
 }

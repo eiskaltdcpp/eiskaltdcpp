@@ -289,6 +289,22 @@ void SettingsGUI::init(){
         p.fill(c);
         toolButton_SHAREDFILES->setIcon(p);
 
+        downloads_clr = qvariant_cast<QColor>(WVGET("transferview/download-bar-color", QColor()));
+        uploads_clr = qvariant_cast<QColor>(WVGET("transferview/upload-bar-color", QColor()));
+
+        if (downloads_clr.isValid()){
+            c = downloads_clr;
+            p.fill(c);
+
+            toolButton_DOWNLOADSCLR->setIcon(p);
+        }
+        if (uploads_clr.isValid()){
+            c = uploads_clr;
+            p.fill(c);
+
+            toolButton_UPLOADSCLR->setIcon(p);
+        }
+
         checkBox_CHAT_BACKGROUND_COLOR->setChecked(WBGET("hubframe/change-chat-background-color", false));
         toolButton_CHAT_BACKGROUND_COLOR->setEnabled(WBGET("hubframe/change-chat-background-color", false));
         if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
@@ -323,6 +339,9 @@ void SettingsGUI::init(){
     connect(toolButton_H_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
     connect(toolButton_SHAREDFILES, SIGNAL(clicked()), this, SLOT(slotGetColor()));
     connect(toolButton_CHAT_BACKGROUND_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
+    connect(toolButton_DOWNLOADSCLR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
+    connect(toolButton_UPLOADSCLR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
+    connect(pushButton_RESET, SIGNAL(clicked()), this, SLOT(slotResetTransferColors()));
     connect(horizontalSlider_H_COLOR, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
     connect(horizontalSlider_SHAREDFILES, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
 }
@@ -431,6 +450,10 @@ void SettingsGUI::ok(){
             WSSET("hubframe/chat-background-color", chat_background_color.name());
         if (!checkBox_CHAT_BACKGROUND_COLOR->isChecked())
             WSSET("hubframe/chat-background-color", QTextEdit().palette().color(QPalette::Active, QPalette::Base).name());
+        if (downloads_clr.isValid())
+            WVSET("transferview/download-bar-color", downloads_clr);
+        if (uploads_clr.isValid())
+            WVSET("transferview/upload-bar-color", uploads_clr);
     }
 
     WSSET(WS_SETTINGS_GUI_FONTS_STATE, tableView->horizontalHeader()->saveState().toBase64());
@@ -483,6 +506,28 @@ void SettingsGUI::slotGetColor(){
             color.setAlpha(255);
             p.fill(color);
             toolButton_CHAT_BACKGROUND_COLOR->setIcon(p);
+        }
+    }
+    else if (sender() == toolButton_DOWNLOADSCLR){
+        QColor color = QColorDialog::getColor(chat_background_color);
+
+        if (color.isValid()){
+            downloads_clr = color;
+
+            color.setAlpha(255);
+            p.fill(color);
+            toolButton_DOWNLOADSCLR->setIcon(p);
+        }
+    }
+    else if (sender() == toolButton_UPLOADSCLR){
+        QColor color = QColorDialog::getColor(chat_background_color);
+
+        if (color.isValid()){
+            uploads_clr = color;
+
+            color.setAlpha(255);
+            p.fill(color);
+            toolButton_UPLOADSCLR->setIcon(p);
         }
     }
 }
@@ -587,4 +632,15 @@ void SettingsGUI::slotIconsChanged(){
 
 void SettingsGUI::slotUsersChanged(){
     WSSET(WS_APP_USERTHEME, comboBox_USERS->currentText());
+}
+
+void SettingsGUI::slotResetTransferColors(){
+    WVSET("transferview/download-bar-color", QColor());
+    WVSET("transferview/upload-bar-color", QColor());
+
+    downloads_clr = QColor();
+    uploads_clr = QColor();
+
+    toolButton_DOWNLOADSCLR->setIcon(QIcon());
+    toolButton_UPLOADSCLR->setIcon(QIcon());
 }
