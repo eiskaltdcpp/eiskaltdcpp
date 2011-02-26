@@ -1161,7 +1161,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="475"/>
         <source>Invalid keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Palabras Clave invalidas</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="677"/>
@@ -2134,22 +2134,22 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2369"/>
         <source>Icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>Solo iconos</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2370"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>Solo texto</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2371"/>
         <source>Text beside icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Texto al lado de los iconos</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2372"/>
         <source>Text under icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Texto debajo de los iconos</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2382"/>
@@ -5624,7 +5624,7 @@ en la cola, o bien, debe eliminarlos manualmente.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="880"/>
         <source>Segment size (in MB, 0 = auto segment size)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño del segmento (en MB, 0 = tamaño del segmento automatico)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="642"/>
