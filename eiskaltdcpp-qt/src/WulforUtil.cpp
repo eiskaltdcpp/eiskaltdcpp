@@ -65,7 +65,6 @@
 #define CLIENT_RES_DIR ""
 #endif
 
-
 using namespace dcpp;
 
 const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";

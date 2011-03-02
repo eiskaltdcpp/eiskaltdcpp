@@ -21,6 +21,8 @@
 #include <QHttp>
 #include <QHttpHeader>
 
+#include <boost/pool/pool_alloc.hpp>
+
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
