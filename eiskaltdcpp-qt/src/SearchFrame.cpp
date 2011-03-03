@@ -126,8 +126,17 @@ SearchFrame::Menu::Menu(){
     QAction *rem        = new QAction(tr("Remove"), NULL);
     rem->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
+    black_list_menu     = new QMenu(tr("Blacklist..."));
+    black_list_menu->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
+
     QAction *blacklist = new QAction(tr("Blacklist"), NULL);
     blacklist->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
+
+    QAction *add_to_blacklist = new QAction(tr("Add to Blacklist"), NULL);
+    add_to_blacklist->setIcon(WU->getPixmap(WulforUtil::eiEDITADD));
+
+    black_list_menu->addActions(QList<QAction*>()
+                    << add_to_blacklist << blacklist);
 
     magnet_menu->addActions(QList<QAction*>()
                     << magnet << magnet_web << sep3 << magnet_info);
@@ -146,6 +155,7 @@ SearchFrame::Menu::Menu(){
     actions.insert(rem_queue, RemoveFromQueue);
     actions.insert(rem, Remove);
     actions.insert(blacklist, Blacklist);
+    actions.insert(add_to_blacklist, AddToBlacklist);
 
     action_list   << down
                   << down_wh
@@ -159,8 +169,7 @@ SearchFrame::Menu::Menu(){
                   << sep1
                   << rem_queue
                   << rem
-                  << sep2
-                  << blacklist;
+                  << sep2;
 }
 
 SearchFrame::Menu::~Menu(){
@@ -170,6 +179,7 @@ SearchFrame::Menu::~Menu(){
     menu->deleteLater();
     down_to->deleteLater();
     down_wh_to->deleteLater();
+    black_list_menu->deleteLater();
 }
 
 SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList()){
@@ -242,6 +252,7 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     menu->insertMenu(action_list.at(1), down_to);
     menu->insertMenu(action_list.at(2), down_wh_to);
     menu->insertMenu(action_list.at(5), magnet_menu);
+    menu->insertMenu(action_list.at(13),black_list_menu);
 
     QMenu *userm = buildUserCmdMenu(list);
 
@@ -1440,6 +1451,26 @@ void SearchFrame::slotContextMenu(const QPoint &){
             SearchBlackListDialog dlg(this);
 
             dlg.exec();
+
+            break;
+        }
+        case Menu::AddToBlacklist:
+        {
+            QList <QString> new_inst;
+
+            foreach (QModelIndex i, list){
+                SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                VarMap params;
+
+                if (getDownloadParams(params, item))
+                    new_inst << item->data(COLUMN_SF_FILENAME).toString();
+            }
+            if (new_inst.size()>0){
+                static SearchBlacklist *SB = SearchBlacklist::getInstance();
+                QList <QString> list = SB->getList(SearchBlacklist::NAME);
+                list.append(new_inst);
+                SB->setList(SearchBlacklist::NAME, list);
+            }
 
             break;
         }

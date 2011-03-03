@@ -91,6 +91,7 @@ class SearchFrame : public QWidget,
             Remove,
             UserCommands,
             Blacklist,
+            AddToBlacklist,
             None
         };
 
@@ -113,6 +114,7 @@ class SearchFrame : public QWidget,
         QMenu *magnet_menu;
         QMenu *down_to;
         QMenu *down_wh_to;
+        QMenu *black_list_menu;
     };
 
 public:

@@ -23,6 +23,8 @@
 #include <limits.h>
 #endif
 
+#include "PoolItem.h"
+
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/User.h"
@@ -70,7 +72,7 @@ public:
 
 typedef QHash<QString, QVariant> UserMap;
 
-class UserListItem{
+class UserListItem: public PoolItem<UserListItem> {
 
 public:
     UserListItem(UserListItem* = NULL);
@@ -85,8 +87,8 @@ public:
     UserListItem *parent();
     QList<UserListItem*> childItems;
 
-    bool isOp;
-    bool fav;
+    bool isOp: 1;
+    bool fav: 1;
     QString nick;
     qulonglong share;
     QString comm;
