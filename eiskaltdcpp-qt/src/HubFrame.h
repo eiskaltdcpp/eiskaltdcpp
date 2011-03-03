@@ -307,6 +307,7 @@ private:
     QStringList status_msg_history;
     QStringList out_messages;
     int out_messages_index;
+    bool out_messages_unsent;
 
     PMMap pm;
     ShellList shell_list;

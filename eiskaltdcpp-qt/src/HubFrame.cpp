@@ -764,6 +764,7 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     setAttribute(Qt::WA_DeleteOnClose);
 
     out_messages_index = 0;
+    out_messages_unsent = false;
 
     FavoriteManager::getInstance()->addListener(this);
 }
@@ -1415,10 +1416,15 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
         client->hubMessage(msg.toStdString(), thirdPerson);
 
     if (!thirdPerson){
+        if (out_messages_unsent){
+            out_messages.removeLast();
+            out_messages_unsent = false;
+        }
+
         out_messages << msg;
 
-        if (out_messages.size() >= WIGET(WI_OUT_IN_HIST))
-            out_messages.removeAt(0);
+        if (out_messages.size() > WIGET(WI_OUT_IN_HIST))
+            out_messages.removeFirst();
 
         out_messages_index = out_messages.size()-1;
     }
@@ -2235,44 +2241,44 @@ void HubFrame::newMsg(const VarMap &map){
 
     if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
         QString hr = "<hr />";
-        
+
         QTextDocument *chatDoc = textEdit_CHAT->document();
-        
+
         int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
-        
+
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if (it.userState() == 1){
                 if (it.text().isEmpty()){ // additional check that it is not message
                     QTextCursor c(it);
                     c.select(QTextCursor::BlockUnderCursor);
                     c.deleteChar(); // delete string with horizontal line
-                    
+
                     if (scrollbarValue > textEdit_CHAT->verticalScrollBar()->maximum())
                         scrollbarValue = textEdit_CHAT->verticalScrollBar()->maximum();
-                    
+
                     textEdit_CHAT->verticalScrollBar()->setValue(scrollbarValue);
-                    
+
                     break;
                 }
             }
         }
-        
+
         drawLine = false;
-        
+
         chatDoc->lastBlock().setUserState(0); // add label for the last of the old messages
-        
+
         output.prepend(hr);
-        
+
         addOutput(output);
-        
+
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if (it.userState() == 0){
                 it.setUserState(-1); // delete label for the last of the old messages
-                
+
                 if (it.blockNumber() < chatDoc->blockCount()-3){
                     it = it.next().next();
                     it.setUserState(1); // add label for string with horizontal line
-                    
+
                     it = it.previous();
                     if (it.text().isEmpty()){ // additional check that it is not message
                         QTextCursor c(it);
@@ -2280,14 +2286,14 @@ void HubFrame::newMsg(const VarMap &map){
                         c.deleteChar(); // delete empty string above horizontal line
                     }
                 }
-                
+
                 break;
             }
         }
-        
+
         return;
     }
-    
+
     addOutput(output);
 }
 
@@ -3045,31 +3051,47 @@ void HubFrame::nextMsg(){
         return;
 
     if (out_messages_index < 0 ||
-        out_messages.size()-1 < out_messages_index+1 ||
+        out_messages_index+1 > out_messages.size()-1 ||
         out_messages.size() == 0)
         return;
 
-    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index+1));
+    if (out_messages.at(out_messages_index) != plainTextEdit_INPUT->toPlainText())
+        out_messages[out_messages_index] = plainTextEdit_INPUT->toPlainText();
 
-    if (out_messages_index < out_messages.size()-1)
+    if (out_messages_index+1 <= out_messages.size()-1)
         out_messages_index++;
-    else
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
+
+    if (out_messages_unsent && out_messages_index == out_messages.size()-1){
+        out_messages.removeLast();
+        out_messages_unsent = false;
         out_messages_index = out_messages.size()-1;
+    }
 }
 
 void HubFrame::prevMsg(){
     if (!plainTextEdit_INPUT->hasFocus())
         return;
 
-    if (out_messages_index < 0 ||
-        out_messages.size()-1 < out_messages_index ||
+    if (out_messages_index < 1 ||
+        out_messages_index-1 > out_messages.size()-1 ||
         out_messages.size() == 0)
         return;
 
-    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
+    if (!out_messages_unsent && out_messages_index == out_messages.size()-1){
+        out_messages << plainTextEdit_INPUT->toPlainText();
+        out_messages_unsent = true;
+        out_messages_index++;
+    }
+
+    if (out_messages.at(out_messages_index) != plainTextEdit_INPUT->toPlainText())
+        out_messages[out_messages_index] = plainTextEdit_INPUT->toPlainText();
 
     if (out_messages_index >= 1)
         out_messages_index--;
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
 }
 
 void HubFrame::slotHideFindFrame(){

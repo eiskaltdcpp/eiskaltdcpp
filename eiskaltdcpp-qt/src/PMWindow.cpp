@@ -133,6 +133,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
 
     out_messages_index = 0;
+    out_messages_unsent = false;
 }
 
 void PMWindow::setCompleter(QCompleter *completer, UserListModel *model) {
@@ -424,10 +425,15 @@ void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
         addStatusMessage(tr("User went offline"));
     }
 
+    if (out_messages_unsent){
+        out_messages.removeLast();
+        out_messages_unsent = false;
+    }
+
     out_messages << msg;
 
-    if (out_messages.size() >= WIGET(WI_OUT_IN_HIST))
-        out_messages.removeAt(0);
+    if (out_messages.size() > WIGET(WI_OUT_IN_HIST))
+        out_messages.removeFirst();
 
     out_messages_index = out_messages.size()-1;
 }
@@ -437,31 +443,47 @@ void PMWindow::nextMsg(){
         return;
 
     if (out_messages_index < 0 ||
-        out_messages.size()-1 < out_messages_index+1 ||
+        out_messages_index+1 > out_messages.size()-1 ||
         out_messages.size() == 0)
         return;
 
-    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index+1));
+    if (out_messages.at(out_messages_index) != plainTextEdit_INPUT->toPlainText())
+        out_messages[out_messages_index] = plainTextEdit_INPUT->toPlainText();
 
-    if (out_messages_index < out_messages.size()-1)
+    if (out_messages_index+1 <= out_messages.size()-1)
         out_messages_index++;
-    else
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
+
+    if (out_messages_unsent && out_messages_index == out_messages.size()-1){
+        out_messages.removeLast();
+        out_messages_unsent = false;
         out_messages_index = out_messages.size()-1;
+    }
 }
 
 void PMWindow::prevMsg(){
     if (!plainTextEdit_INPUT->hasFocus())
         return;
 
-    if (out_messages_index < 0 ||
-        out_messages.size()-1 < out_messages_index ||
+    if (out_messages_index < 1 ||
+        out_messages_index-1 > out_messages.size()-1 ||
         out_messages.size() == 0)
         return;
 
-    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
+    if (!out_messages_unsent && out_messages_index == out_messages.size()-1){
+        out_messages << plainTextEdit_INPUT->toPlainText();
+        out_messages_unsent = true;
+        out_messages_index++;
+    }
+
+    if (out_messages.at(out_messages_index) != plainTextEdit_INPUT->toPlainText())
+        out_messages[out_messages_index] = plainTextEdit_INPUT->toPlainText();
 
     if (out_messages_index >= 1)
         out_messages_index--;
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
 }
 
 void PMWindow::slotHub(){

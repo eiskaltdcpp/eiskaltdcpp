@@ -99,6 +99,7 @@ private:
 
     QStringList out_messages;
     int out_messages_index;
+    bool out_messages_unsent;
 };
 
 #endif // PMWindow_H
