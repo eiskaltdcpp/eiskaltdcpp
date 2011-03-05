@@ -97,4 +97,16 @@ static inline void print_stacktrace(FILE *out = stderr, unsigned int max_frames 
     free(symbollist);
 }
 
+#ifndef _WIN32
+void printBacktrace(int){
+    std::cerr << "\n\n*************************************************************\n";
+    std::cerr << "Oops! Please report a bug at http://code.google.com/p/eiskaltdc/issues/list provide the following backtrace:\n";
+    print_stacktrace();
+
+    raise(SIGINT);
+
+    std::abort();
+}
+#endif
+
 #endif // _STACKTRACE_H_

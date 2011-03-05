@@ -103,10 +103,10 @@ set (SRCS
             src/UserListModel.cpp
             src/WulforSettings.cpp
             src/WulforUtil.cpp
-            src/ChatEdit.cpp 
+            src/ChatEdit.cpp
             src/qtsingleapp/qtsingleapplication.cpp
             src/qtsingleapp/qtlocalpeer.cpp
-            src/qtsingleapp/qtsinglecoreapplication.cpp            
+            src/qtsingleapp/qtsinglecoreapplication.cpp
             src/qtsingleapp/qtlockedfile.cpp
             )
 if (WIN32)
@@ -122,7 +122,6 @@ set (MOC_HDRS
             src/Antispam.h
             src/AntiSpamFrame.h
             src/ArenaWidget.h
-            src/Backtrace.h
             src/CustomFontModel.h
             src/CustomSetting.h
             src/DownloadQueue.h

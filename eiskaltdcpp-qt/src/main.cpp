@@ -58,7 +58,7 @@ void parseCmdLine(const QStringList &);
 #include <signal.h>
 #include <execinfo.h>
 
-#include "Backtrace.h"
+#include "extra/stacktrace.h"
 
 void installHandlers();
 
@@ -205,15 +205,6 @@ void parseCmdLine(const QStringList &args){
 }
 
 #ifndef Q_WS_WIN
-void printBacktrace(int){
-    std::cerr << "\n\n*************************************************************\n";
-    std::cerr << "Oops! Please report a bug at http://code.google.com/p/eiskaltdc/issues/list provide the following backtrace:\n";
-    print_stacktrace();
-
-    raise(SIGINT);
-
-    std::abort();
-}
 
 void installHandlers(){
     struct sigaction sa;

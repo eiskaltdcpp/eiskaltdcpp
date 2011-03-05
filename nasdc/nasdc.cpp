@@ -23,6 +23,7 @@
 #ifndef _WIN32
 #include <syslog.h>
 #include <signal.h>
+#include "extra/stacktrace.h"
 #endif
 
 #ifdef CLI_DAEMON
@@ -42,9 +43,9 @@ static void  logging(bool b, string msg){
 static void SigHandler(int sig) {
     string str = "Received signal ";
 
-    if (sig == SIGINT) {
+    /*if (sig == SIGINT) {
         str += "SIGINT";
-    } else if (sig == SIGTERM) {
+    } else */if (sig == SIGTERM) {
         str += "SIGTERM";
     } else if (sig == SIGQUIT) {
         str += "SIGQUIT";
@@ -190,10 +191,10 @@ int main(int argc, char* argv[])
     sigemptyset(&sigact.sa_mask);
     sigact.sa_flags = 0;
 
-    if (sigaction(SIGINT, &sigact, NULL) == -1) {
-        printf("Cannot create sigaction SIGINT! %s\n", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
+    //if (sigaction(SIGINT, &sigact, NULL) == -1) {
+        //printf("Cannot create sigaction SIGINT! %s\n", strerror(errno));
+        //exit(EXIT_FAILURE);
+    //}
 
     if (sigaction(SIGTERM, &sigact, NULL) == -1) {
         printf("Cannot create sigaction SIGTERM! %s\n", strerror(errno));
@@ -235,6 +236,9 @@ int main(int argc, char* argv[])
     char *temp, *prompt;
     temp = (char *)NULL;
     prompt = "edcppd$ ";
+#endif
+#ifndef _WIN32
+    signal(SIGSEGV, printBacktrace);
 #endif
     while (bServerRunning) {
         Thread::sleep(1);
