@@ -46,10 +46,6 @@ if (PERL_REGEX)
   set(PCRE ${PCRE_LIBRARY})
 endif (PERL_REGEX)
 
-if (eiskaltdcpp_WC_REVISION)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/version.cpp  PROPERTY COMPILE_DEFINITIONS DCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
-endif ()
-
 if (LUA_SCRIPT)
     add_definitions ( -DLUA_SCRIPT )
 endif (LUA_SCRIPT)
