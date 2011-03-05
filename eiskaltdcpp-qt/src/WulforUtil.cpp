@@ -1134,6 +1134,8 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
     foreach (QString s, hub_list)
         hubs.push_back(s.toStdString());
 
+    hubs.push_back("");
+
     QMenu *usr_menu = new QMenu(tr("User commands"), parent);
     UserCommand::List commands = FavoriteManager::getInstance()->getUserCommands(ctx, hubs);
     bool separator = false;

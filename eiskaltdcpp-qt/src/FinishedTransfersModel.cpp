@@ -44,14 +44,14 @@ FinishedTransfersModel::FinishedTransfersModel(QObject *parent):
 {
     QList<QVariant> userData;
     userData << tr("User")<< tr("Files") << tr("Time") << tr("Transferred")
-             << tr("Speed") << tr("Elapsed time");
+             << tr("Speed") << tr("Elapsed time") << tr("Full");
 
     userItem = new FinishedTransfersItem(userData);
 
     QList<QVariant> fileData;
     fileData << tr("Filename") << tr("Path") << tr("Time") << tr("User")
              << tr("Transferred") << tr("Speed")   << tr("Check sum")
-             << tr("Target") << tr("Elapsed time");
+             << tr("Target") << tr("Elapsed time") << tr("Full");
 
     fileItem = new FinishedTransfersItem(fileData);
 
@@ -66,6 +66,7 @@ FinishedTransfersModel::FinishedTransfersModel(QObject *parent):
     file_header_table.insert(COLUMN_FINISHED_CRC32,     "CRC32");
     file_header_table.insert(COLUMN_FINISHED_TARGET,    "TARGET");
     file_header_table.insert(COLUMN_FINISHED_ELAPS,     "ELAP");
+    file_header_table.insert(COLUMN_FINISHED_FULL,      "FULL");
 
     user_header_table.insert(COLUMN_FINISHED_NAME,      "NICK");
     user_header_table.insert(COLUMN_FINISHED_PATH,      "FILES");
@@ -73,6 +74,7 @@ FinishedTransfersModel::FinishedTransfersModel(QObject *parent):
     user_header_table.insert(COLUMN_FINISHED_USER,      "TR");
     user_header_table.insert(COLUMN_FINISHED_TR,        "SPEED");
     user_header_table.insert(COLUMN_FINISHED_SPEED,     "ELAP");
+    user_header_table.insert(COLUMN_FINISHED_CRC32,     "FULL");
 }
 
 FinishedTransfersModel::~FinishedTransfersModel()
@@ -115,6 +117,8 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
                     return tr("%1/s").arg(WulforUtil::formatBytes(item->data(COLUMN_FINISHED_SPEED).toLongLong()));
                 else if (index.column() == COLUMN_FINISHED_TR)
                     return WulforUtil::formatBytes(item->data(COLUMN_FINISHED_TR).toLongLong());
+                else if (index.column() == COLUMN_FINISHED_FULL)
+                    return (item->data(COLUMN_FINISHED_FULL).toBool()? tr("Yes") : tr("No"));
             }
             else {
                 if (index.column() == COLUMN_FINISHED_SPEED)
@@ -123,6 +127,8 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
                     return tr("%1/s").arg(WulforUtil::formatBytes(item->data(COLUMN_FINISHED_TR).toLongLong()));
                 else if (index.column() == COLUMN_FINISHED_USER)
                     return WulforUtil::formatBytes(item->data(COLUMN_FINISHED_USER).toLongLong());
+                else if (index.column() == COLUMN_FINISHED_CRC32)
+                    return (item->data(COLUMN_FINISHED_CRC32).toBool()? tr("Yes") : tr("No"));
             }
 
             return item->data(index.column());
@@ -233,6 +239,8 @@ struct FileCompare {
                     return NumCmp<COLUMN_FINISHED_CRC32>;
                 case COLUMN_FINISHED_TARGET:
                     return AttrCmp<COLUMN_FINISHED_TARGET>;
+                case COLUMN_FINISHED_FULL:
+                    return NumCmp<COLUMN_FINISHED_FULL>;
                 default:
                     return NumCmp<COLUMN_FINISHED_ELAPS>;
             }
@@ -290,6 +298,8 @@ struct UserCompare {
                     return NumCmp<COLUMN_FINISHED_USER>;
                 case COLUMN_FINISHED_TR:
                     return NumCmp<COLUMN_FINISHED_TR>;
+                case COLUMN_FINISHED_FULL:
+                    return NumCmp<COLUMN_FINISHED_FULL>;
                 default:
                     return AttrCmp<COLUMN_FINISHED_ELAPS>;
             }
@@ -389,7 +399,7 @@ void FinishedTransfersModel::addFile(const QMap<QString, QVariant> &params){
             item->updateColumn(i, params[file_header_table[i]]);
     }
 
-    emit layoutChanged();
+    emit dataChanged(createIndex(item->row(), COLUMN_FINISHED_NAME, item), createIndex(item->row(), COLUMN_FINISHED_FULL, item));
 }
 
 void FinishedTransfersModel::addUser(const QMap<QString, QVariant> &params){
@@ -411,7 +421,7 @@ void FinishedTransfersModel::addUser(const QMap<QString, QVariant> &params){
             item->updateColumn(i, params[user_header_table[i]]);
     }
 
-    emit layoutChanged();
+    emit dataChanged(createIndex(item->row(), COLUMN_FINISHED_NAME, item), createIndex(item->row(), COLUMN_FINISHED_CRC32, item));
 }
 
 void FinishedTransfersModel::remFile(const QString &file){
@@ -429,8 +439,6 @@ void FinishedTransfersModel::remFile(const QString &file){
         delete item;
     }
     endRemoveRows();
-
-    emit layoutChanged();
 }
 
 void FinishedTransfersModel::remUser(const QString &cid){
@@ -448,8 +456,6 @@ void FinishedTransfersModel::remUser(const QString &cid){
         delete item;
     }
     endRemoveRows();
-
-    emit layoutChanged();
 }
 
 void FinishedTransfersModel::switchViewType(FinishedTransfersModel::ViewType t){
@@ -476,9 +482,17 @@ FinishedTransfersItem *FinishedTransfersModel::findFile(const QString &fname){
 
     FinishedTransfersItem *item = new FinishedTransfersItem(QList<QVariant>() << "" << "" << "" << ""
                                                                               << "" << "" << "" << ""
-                                                                              << "",
+                                                                              << "" << false,
                                                             fileItem);
-    fileItem->appendChild(item);
+    if (fileItem == rootItem){
+        emit beginInsertRows(QModelIndex(), rootItem->childCount(), rootItem->childCount());
+        {
+            fileItem->appendChild(item);
+        }
+        emit endInsertRows();
+    }
+    else
+        fileItem->appendChild(item);
 
     file_hash.insert(fname, item);
 
@@ -498,9 +512,18 @@ FinishedTransfersItem *FinishedTransfersModel::findUser(const QString &cid){
         return const_cast<FinishedTransfersItem*>(it.value());
 
     FinishedTransfersItem *item = new FinishedTransfersItem(QList<QVariant>() << "" << "" << ""
-                                                                              << "" << "" << "",
+                                                                              << "" << "" << ""
+                                                                              << false,
                                                             userItem);
-    userItem->appendChild(item);
+    if (fileItem == rootItem){
+        emit beginInsertRows(QModelIndex(), rootItem->childCount(), rootItem->childCount());
+        {
+            userItem->appendChild(item);
+        }
+        emit endInsertRows();
+    }
+    else
+        userItem->appendChild(item);;
 
     user_hash.insert(cid, item);
 
