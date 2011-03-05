@@ -10,6 +10,7 @@
 #ifndef POOLITEM_H
 
 #include <boost/pool/pool_alloc.hpp>
+#include <assert.h>
 
 template <class T>
 class PoolItem{
@@ -21,6 +22,8 @@ public:
     }
 
     static void* operator new(size_t s) {
+        assert(sizeof(T) == s);
+
         return reinterpret_cast<void*>(pool.allocate());
     }
 
@@ -30,7 +33,9 @@ public:
 
     static void operator delete(void*, void*) { }
 
-    static void operator delete(void* m, size_t) {
+    static void operator delete(void* m, size_t s) {
+        assert(sizeof(T) == s);
+
         pool.deallocate(reinterpret_cast<T*>(m));
     }
 
