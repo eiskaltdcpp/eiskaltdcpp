@@ -305,7 +305,6 @@ void MainWindow::showEvent(QShowEvent *e){
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
     if (_q(SETTING(NICK)).isEmpty()){
-        show();
         activateWindow();
         raise();
 
