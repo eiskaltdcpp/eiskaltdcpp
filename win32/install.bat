@@ -2,7 +2,8 @@ call variables.bat
 
 mingw32-make -k install
 
-strip "%INSTALLDIR%\EiskaltDC++ Qt.exe"
+strip "%INSTALLDIR%\eiskaltdcpp-qt.exe"
+strip "%INSTALLDIR%\eiskaltdcpp-daemon.exe"
 
 copy /Y %SOURCESDIR%\win32\dcppboot.xml      %INSTALLDIR%
 

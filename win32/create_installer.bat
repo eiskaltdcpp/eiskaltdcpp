@@ -7,7 +7,8 @@ mingw32-make -k install DESTDIR=%BUILDDIR%
 xcopy /E /R /Y /I "%BUILDDIR%\Program Files\EiskaltDC++\*"            %DIRINSTALLER%
 rmdir /s /q "%BUILDDIR%\Program Files"
 
-strip "%DIRINSTALLER%\EiskaltDC++ Qt.exe"
+strip "%DIRINSTALLER%\eiskaltdcpp-qt.exe"
+strip "%DIRINSTALLER%\eiskaltdcpp-daemon.exe"
 
 copy /Y "%SOURCESDIR%\icons\eiskaltdcpp.ico"                          %DIRINSTALLER%
 copy /Y "%SOURCESDIR%\icons\icon_164x314.bmp"                         %DIRINSTALLER%
