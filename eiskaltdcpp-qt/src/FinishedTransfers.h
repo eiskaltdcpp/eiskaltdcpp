@@ -63,7 +63,7 @@ public Q_SLOTS:
     virtual void slotClear() = 0;
     virtual void slotContextMenu() = 0;
     virtual void slotHeaderMenu() = 0;
-    virtual void slotSwitchOnlyFull() = 0;
+    virtual void slotSwitchOnlyFull(bool) = 0;
     virtual void slotSettingsChanged(const QString &key, const QString &) = 0;
 };
 
@@ -171,9 +171,9 @@ private:
         QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
         QObject::connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
         QObject::connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
-        QObject::connect(checkBox_FULL, SIGNAL(stateChanged(int)), this, SLOT(slotSwitchOnlyFull()));
+        QObject::connect(checkBox_FULL, SIGNAL(toggled(bool)), this, SLOT(slotSwitchOnlyFull(bool)));
 
-        slotSwitchOnlyFull();
+        slotSwitchOnlyFull(false);
         slotTypeChanged(0);
     }
 
@@ -460,8 +460,8 @@ private:
         WulforUtil::headerMenu(treeView);
     }
 
-    void slotSwitchOnlyFull(){
-        proxy->setFilterFixedString((checkBox_FULL->isChecked()? tr("Yes") : ""));
+    void slotSwitchOnlyFull(bool checked){
+        proxy->setFilterFixedString((checked? tr("Yes") : ""));
     }
 
     void slotSettingsChanged(const QString &key, const QString &){
