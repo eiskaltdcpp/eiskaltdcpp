@@ -35,7 +35,7 @@ public:
 
     int type;
 
-private slots:
+public Q_SLOTS:
     void updateLines();
     void updateType();
 };
