@@ -1,6 +1,6 @@
 call variables.bat
 
-set DIRINSTALLER="%SOURCESDIR%\win32\installer"
+set DIRINSTALLER="%BUILDDIR%\installer"
 
 mingw32-make -k install DESTDIR=%BUILDDIR%
 
@@ -30,7 +30,7 @@ copy /Y "%MINGW%\bin\libintl-8.dll"                                   %DIRINSTAL
 copy /Y "%MINGW%\bin\iconv.dll"                                       %DIRINSTALLER%
 copy /Y "%MINGW%\bin\mgwz.dll"                                        %DIRINSTALLER%
 copy /Y "%MINGW%\bin\mgwbz2-1.dll"                                    %DIRINSTALLER%
-@rem copy /Y "%MINGW%\bin\lua51.dll"                                       %DIRINSTALLER%
+copy /Y "%MINGW%\bin\lua51.dll"                                       %DIRINSTALLER%
 copy /Y "%MINGW%\bin\libaspell-15.dll"                                %DIRINSTALLER%
 
 copy /Y "%SystemRoot%\System32\ssleay32.dll"                          %DIRINSTALLER%

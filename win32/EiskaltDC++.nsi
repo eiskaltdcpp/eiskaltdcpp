@@ -1,6 +1,6 @@
 !include MUI2.nsh
 
-!define PRODUCT_DISPLAY_VERSION      "2.2.0"
+!define PRODUCT_DISPLAY_VERSION      "2.2.1"
 !define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
@@ -21,7 +21,7 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_PAGE_LICENSE "installer\LICENSE"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
-!define MUI_FINISHPAGE_RUN "$INSTDIR\EiskaltDC++ Qt.exe"
+!define MUI_FINISHPAGE_RUN "$INSTDIR\eiskaltdcpp-qt.exe"
 !insertmacro MUI_PAGE_FINISH
 
 !insertmacro MUI_UNPAGE_CONFIRM
@@ -55,7 +55,8 @@ RequestExecutionLevel admin
 
 Section "EiskaltDC++"
   SetOutPath $INSTDIR
-  File "installer\EiskaltDC++ Qt.exe"
+  File "installer\eiskaltdcpp-qt.exe"
+  File "installer\eiskaltdcpp-daemon.exe"
   File "installer\dcppboot.xml"
   File "installer\QtCore4.dll"
   File "installer\QtGui4.dll"
@@ -71,7 +72,7 @@ Section "EiskaltDC++"
   File "installer\mingwm10.dll"
   File "installer\libintl-8.dll"
   File "installer\libaspell-15.dll"
-  ;File "installer\lua51.dll"
+  File "installer\lua51.dll"
 
   File "installer\iconv.dll"
   ;File "installer\libiconv-2.dll"
@@ -82,17 +83,17 @@ Section "EiskaltDC++"
   File "installer\mgwbz2-1.dll"
 
   ;File "installer\libgcc_s_sjlj-1.dll"
-  ;File "installer\libstdc++-6.dll"
 
+  ;File "installer\libstdc++-6.dll"
   ;File "installer\libpcrecpp-0.dll"
   ;File "installer\libpcre-0.dll"
 
   File /r "installer\resources"
 
-  WriteUninstaller "$INSTDIR\Uninstall.exe"
+  WriteUninstaller "$INSTDIR\uninstall.exe"
   WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayName"     "${PRODUCT_NAME}"
-  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayIcon"     "$INSTDIR\EiskaltDC++ Qt.exe"
-  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "UninstallString" "$INSTDIR\Uninstall.exe"
+  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayIcon"     "$INSTDIR\eiskaltdcpp-qt.exe"
+  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "UninstallString" "$INSTDIR\uninstall.exe"
   WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayVersion"  "${PRODUCT_DISPLAY_VERSION}"
   WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "URLInfoAbout"    "${PRODUCT_WEB_SITE}"
   WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "Publisher"       "${PRODUCT_PUBLISHER}"
@@ -100,7 +101,7 @@ SectionEnd
 
 Section "Start Menu Shortcuts"
   CreateDirectory "$SMPROGRAMS\EiskaltDC++"
-  CreateShortCut  "$SMPROGRAMS\EiskaltDC++\EiskaltDC++.lnk" "$INSTDIR\EiskaltDC++ Qt.exe"
+  CreateShortCut  "$SMPROGRAMS\EiskaltDC++\EiskaltDC++.lnk" "$INSTDIR\eiskaltdcpp-qt.exe"
   CreateShortCut  "$SMPROGRAMS\EiskaltDC++\Uninstall.lnk"   "$INSTDIR\uninstall.exe"
 SectionEnd
 
