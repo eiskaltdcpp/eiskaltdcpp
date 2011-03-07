@@ -11,6 +11,7 @@
 #define FINISHEDTRANSFERSMODEL_H
 
 #include <QAbstractItemModel>
+#include <QSortFilterProxyModel>
 #include <QHash>
 #include <QMap>
 
@@ -23,6 +24,7 @@
 #define COLUMN_FINISHED_CRC32   6
 #define COLUMN_FINISHED_TARGET  7
 #define COLUMN_FINISHED_ELAPS   8
+#define COLUMN_FINISHED_FULL    9
 
 class FinishedTransfersItem
 {
@@ -46,6 +48,16 @@ public:
 private:
     QList<QVariant> itemData;
     FinishedTransfersItem *parentItem;
+};
+
+class FinishedTransferProxyModel: public QSortFilterProxyModel {
+    Q_OBJECT
+
+public:
+    virtual void sort(int column, Qt::SortOrder order) {
+        if (sourceModel())
+            sourceModel()->sort(column, order);
+    }
 };
 
 class FinishedTransfersModel : public QAbstractItemModel

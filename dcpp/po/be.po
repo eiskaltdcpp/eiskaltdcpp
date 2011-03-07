@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-07 22:42+0200\n"
+"POT-Creation-Date: 2011-03-07 01:27+0200\n"
 "PO-Revision-Date: 2010-08-07 15:38+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -91,11 +91,11 @@ msgstr "карыстальнікі"
 msgid "Unable to create thread"
 msgstr "Не магу стварыць ніць"
 
-#: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:67 ../UserConnection.cpp:141
 msgid "Invalid data"
 msgstr "Хібныя зьвесткі"
 
-#: ../UserConnection.cpp:61
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Зьвесткі злучэньня ADC не ў знаказборы UTF-8"
 
@@ -181,7 +181,7 @@ msgstr ""
 "кліент; калі ласка, паведаміце ўладальніку асяродку, каб ён выправіў гэта"
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
+#: ../SearchManager.cpp:271 ../SearchManager.cpp:425 ../SearchManager.cpp:427
 msgid "Offline"
 msgstr "Адлучаны"
 
@@ -454,7 +454,7 @@ msgstr "<Упішыце радок>"
 msgid "Discard"
 msgstr "Адкінуць"
 
-#: ../DirectoryListing.cpp:163
+#: ../DirectoryListing.cpp:178
 msgid "Directory missing name attribute"
 msgstr "Каталёг ня мае назову"
 
@@ -576,11 +576,11 @@ msgstr "Скарот (TTH)"
 msgid "CD Image"
 msgstr "Адбітак CD"
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:161
 msgid "Search enabled again"
 msgstr "Пошук зноўку працуе"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:169
 msgid "Search disabled: %1%"
 msgstr "Пошук не працуе: %1%"
 

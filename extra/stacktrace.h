@@ -2,7 +2,7 @@
 *                                                                         *
 *   This program is free software; you can redistribute it and/or modify  *
 *   it under the terms of the GNU General Public License as published by  *
-*   the Free Software Foundation; either version 3 of the License, or     *
+*   the Free Software Foundation; either version 2 of the License, or     *
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
@@ -96,5 +96,17 @@ static inline void print_stacktrace(FILE *out = stderr, unsigned int max_frames 
     free(funcname);
     free(symbollist);
 }
+
+#ifndef _WIN32
+void printBacktrace(int){
+    std::cerr << "\n\n*************************************************************\n";
+    std::cerr << "Oops! Please report a bug at http://code.google.com/p/eiskaltdc/issues/list provide the following backtrace:\n";
+    print_stacktrace();
+
+    raise(SIGINT);
+
+    std::abort();
+}
+#endif
 
 #endif // _STACKTRACE_H_

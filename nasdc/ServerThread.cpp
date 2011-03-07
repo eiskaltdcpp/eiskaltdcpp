@@ -102,11 +102,14 @@ int ServerThread::run()
 }
 bool ServerThread::disconnect_all(){
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
-        Lock l(shutcs);
-        Client* cl = i->second;
-        cl->removeListener(this);
-        cl->disconnect(true);
-        ClientManager::getInstance()->putClient(cl);
+        if (clientsMap[i->first] !=NULL) {
+            Lock l(shutcs);
+            Client* cl = i->second;
+            cl->removeListener(this);
+            cl->disconnect(true);
+            ClientManager::getInstance()->putClient(cl);
+            clientsMap[i->first]=NULL;
+        }
         Thread::sleep(100);
     }
 }
@@ -125,6 +128,7 @@ void ServerThread::Close()
 
     ConnectionManager::getInstance()->disconnect();
     disconnect_all();
+
     bTerminated = true;
 }
 //---------------------------------------------------------------------------
@@ -163,12 +167,13 @@ void ServerThread::connectClient(string address, string encoding)
 
 void ServerThread::disconnectClient(string address){
     ClientIter i = clientsMap.find(address);
-    if(i != clientsMap.end()) {
+    if(i != clientsMap.end() && clientsMap[i->first]!=NULL) {
         Lock l(shutcs);
         Client* cl = i->second;
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
+        clientsMap[i->first]=NULL;
     }
 }
 //----------------------------------------------------------------------------

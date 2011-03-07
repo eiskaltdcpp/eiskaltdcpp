@@ -327,7 +327,17 @@ void MainWindow::showEvent(QShowEvent *e){
         activateWindow();
         raise();
 
-        slotToolsSettings();
+        bool ok = false;
+        QString new_nick = QInputDialog::getText(this, tr("Enter user nick"), tr("Nick"), QLineEdit::Normal, tr("User"), &ok);
+
+        if (ok && !new_nick.isEmpty()){
+            SettingsManager::getInstance()->set(SettingsManager::NICK, _tq(new_nick));
+
+            ok = (QMessageBox::question(this, "EiskaltDC++", tr("Would you like to change other settings?"), QMessageBox::Yes, QMessageBox::No) == QMessageBox::No);
+        }
+
+        if (!ok)
+            slotToolsSettings();
     }
 
     e->accept();

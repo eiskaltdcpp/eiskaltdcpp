@@ -129,7 +129,6 @@ set (MOC_HDRS
             src/Antispam.h
             src/AntiSpamFrame.h
             src/ArenaWidget.h
-            src/Backtrace.h
             src/CustomFontModel.h
             src/CustomSetting.h
             src/DownloadQueue.h
@@ -418,13 +417,11 @@ else (APPLE)
   target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp)
 endif (APPLE)
 
-if (UNIX AND NOT APPLE)
-  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-qt")
-elseif (APPLE)
+if (APPLE)
   set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
-elseif (WIN32)
-  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL} Qt")
-endif (UNIX AND NOT APPLE)
+else (APPLE)
+  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-qt")
+endif (APPLE)
 
 if (UNIX)
  set (BINDIR bin)
@@ -504,9 +501,5 @@ if (APPLE)
     set(CPACK_BINARY_DRAGNDROP ON)
 
 endif (APPLE)
-
-if( WIN32 AND NOT UNIX )
-    set(CPACK_PACKAGE_EXECUTABLES "..\\\\EiskaltDC++" "EiskaltDC++")
-endif()
 
 include(CPack)

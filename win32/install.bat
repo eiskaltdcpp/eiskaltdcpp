@@ -2,7 +2,8 @@ call variables.bat
 
 mingw32-make -k install
 
-strip "%INSTALLDIR%\EiskaltDC++ Qt.exe"
+strip "%INSTALLDIR%\eiskaltdcpp-qt.exe"
+strip "%INSTALLDIR%\eiskaltdcpp-daemon.exe"
 
 copy /Y %SOURCESDIR%\win32\dcppboot.xml      %INSTALLDIR%
 
@@ -23,7 +24,7 @@ copy /Y "%MINGW%\bin\iconv.dll"              %INSTALLDIR%
 copy /Y "%MINGW%\bin\mgwz.dll"               %INSTALLDIR%
 copy /Y "%MINGW%\bin\mgwbz2-1.dll"           %INSTALLDIR%
 copy /Y "%MINGW%\bin\libaspell-15.dll"       %INSTALLDIR%
-@rem copy /Y "%MINGW%\bin\lua51.dll"              %INSTALLDIR%
+copy /Y "%MINGW%\bin\lua51.dll"              %INSTALLDIR%
 
 copy /Y "%SystemRoot%\System32\ssleay32.dll" %INSTALLDIR%
 copy /Y "%SystemRoot%\System32\libeay32.dll" %INSTALLDIR%

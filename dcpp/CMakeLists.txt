@@ -1,7 +1,5 @@
 project (dcpp)
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
 cmake_minimum_required (VERSION 2.6)
 
 aux_source_directory(${PROJECT_SOURCE_DIR} dcpp_srcs)
@@ -45,10 +43,6 @@ if (PERL_REGEX)
   set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp PROPERTY COMPILE_DEFINITIONS USE_PCRE )
   set(PCRE ${PCRE_LIBRARY})
 endif (PERL_REGEX)
-
-if (eiskaltdcpp_WC_REVISION)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/version.cpp  PROPERTY COMPILE_DEFINITIONS DCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
-endif ()
 
 if (LUA_SCRIPT)
     add_definitions ( -DLUA_SCRIPT )

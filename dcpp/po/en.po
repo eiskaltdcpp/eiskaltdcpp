@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-07 22:42+0200\n"
+"POT-Creation-Date: 2011-03-07 01:27+0200\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -84,12 +84,12 @@ msgstr ""
 msgid "Unable to create thread"
 msgstr "Unable to create thread"
 
-#: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:67 ../UserConnection.cpp:141
 #, fuzzy
 msgid "Invalid data"
 msgstr "Invalid size"
 
-#: ../UserConnection.cpp:61
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgid ""
 msgstr ""
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
+#: ../SearchManager.cpp:271 ../SearchManager.cpp:425 ../SearchManager.cpp:427
 msgid "Offline"
 msgstr "Offline"
 
@@ -447,7 +447,7 @@ msgstr "<Enter string>"
 msgid "Discard"
 msgstr "Discard"
 
-#: ../DirectoryListing.cpp:163
+#: ../DirectoryListing.cpp:178
 msgid "Directory missing name attribute"
 msgstr "Directory missing name attribute"
 
@@ -572,11 +572,11 @@ msgstr ""
 msgid "CD Image"
 msgstr ""
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:161
 msgid "Search enabled again"
 msgstr "Search enabled again"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:169
 #, fuzzy
 msgid "Search disabled: %1%"
 msgstr "Search enabled again"

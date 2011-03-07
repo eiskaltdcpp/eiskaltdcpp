@@ -78,7 +78,7 @@
           <widget class="GtkCheckButton" id="showOnlyFullFilesCheckButton">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="label">Show only completely finished downloads</property>
+            <property name="label" translatable="yes">Show only completely finished downloads</property>
             <property name="response_id">0</property>
             <property name="draw_indicator">True</property>
           </widget>

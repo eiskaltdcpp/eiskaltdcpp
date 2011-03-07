@@ -37,6 +37,7 @@
 #define GUI_PACKAGE "eiskaltdcpp-gtk"
 
 #include "VersionGlobal.h"
+#include "extra/stacktrace.h"
 
 void printHelp()
 {
@@ -134,6 +135,7 @@ int main(int argc, char *argv[])
     g_set_application_name("EiskaltDC++ Gtk");
 
     signal(SIGPIPE, SIG_IGN);
+    signal(SIGSEGV, printBacktrace);
 
     WulforSettingsManager::newInstance();
     WulforManager::start(argc, argv);

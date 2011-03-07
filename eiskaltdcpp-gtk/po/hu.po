@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-13 14:08+0200\n"
+"POT-Creation-Date: 2011-03-07 02:21+0200\n"
 "PO-Revision-Date: 2011-02-01 22:55+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
@@ -223,18 +223,18 @@ msgstr ""
 msgid "No errors"
 msgstr "Nincsenek hibák"
 
-#: ../src/notify.cc:149
+#: ../src/notify.cc:158
 msgid "Open file"
 msgstr "Fájl megnyitása"
 
-#: ../src/notify.cc:152
+#: ../src/notify.cc:161
 msgid "Open folder"
 msgstr "Könyvtár megnyitása"
 
 #: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:364
 #: ../src/hub.cc:379 ../src/hub.cc:399 ../src/hub.cc:447 ../src/hub.cc:1232
-#: ../src/hub.cc:1530 ../src/hub.cc:1583 ../src/hub.cc:2177 ../src/hub.cc:2208
-#: ../src/hub.cc:2493 ../src/hub.cc:2532 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:1530 ../src/hub.cc:1583 ../src/hub.cc:2178 ../src/hub.cc:2209
+#: ../src/hub.cc:2494 ../src/hub.cc:2533 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583
@@ -341,7 +341,7 @@ msgstr "Away-mód kikapcsolva"
 msgid "Away mode on: "
 msgstr "Away-mód bekapcsolva: "
 
-#: ../src/hub.cc:1829 ../src/hub.cc:2504 ../src/privatemessage.cc:1281
+#: ../src/hub.cc:1829 ../src/hub.cc:2505 ../src/privatemessage.cc:1281
 msgid " is favorite user"
 msgstr " kedvenc felhasználó"
 
@@ -349,7 +349,7 @@ msgstr " kedvenc felhasználó"
 msgid "Not found user: "
 msgstr "Felhasználó nem található: "
 
-#: ../src/hub.cc:1847 ../src/hub.cc:2543 ../src/privatemessage.cc:1302
+#: ../src/hub.cc:1847 ../src/hub.cc:2544 ../src/privatemessage.cc:1302
 msgid " is not favorite user"
 msgstr " nem kedvenc felhasználó"
 
@@ -449,7 +449,7 @@ msgstr "Beszéd harmadik személyben"
 
 #: ../src/hub.cc:1932 ../src/settingsdialog.cc:995
 #: ../src/settingsdialog.cc:1041 ../src/settingsdialog.cc:1161
-#: ../src/settingsmanager.cc:238
+#: ../src/settingsmanager.cc:239
 msgid "Private message"
 msgstr "Privát üzenet"
 
@@ -517,77 +517,77 @@ msgstr "Ismeretlen parancs '"
 msgid "': type /help for a list of available commands"
 msgstr "': a használható parancsokat a /help használatával érheted el"
 
-#: ../src/hub.cc:2433 ../src/privatemessage.cc:1188 ../src/mainwindow.cc:1210
+#: ../src/hub.cc:2434 ../src/privatemessage.cc:1188 ../src/mainwindow.cc:1210
 #: ../src/mainwindow.cc:1278 ../glade/sharebrowser.glade:326
 #: ../glade/search.glade:555 ../glade/settingsdialog.glade:6038
 msgid "Choose a directory"
 msgstr "Könyvtár választása"
 
-#: ../src/hub.cc:2572
+#: ../src/hub.cc:2573
 msgid " added to favorites list"
 msgstr " hozzáadva a favoritokhoz"
 
-#: ../src/hub.cc:2599
+#: ../src/hub.cc:2600
 msgid " removed from favorites list"
 msgstr " törölve a favoritok közül"
 
-#: ../src/hub.cc:2639 ../src/favoritehubs.cc:330
+#: ../src/hub.cc:2640 ../src/favoritehubs.cc:330
 msgid "Global hub default"
 msgstr ""
 
-#: ../src/hub.cc:2714 ../src/hub.cc:2734
+#: ../src/hub.cc:2715 ../src/hub.cc:2735
 msgid "User not found"
 msgstr "Felhasználó nem található"
 
-#: ../src/hub.cc:2743 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2744 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Slot biztosítva: "
 
-#: ../src/hub.cc:2768
+#: ../src/hub.cc:2769
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "A csatlakozás nem lehetséges: a kért hubhoz már csatlakozva vagy"
 
-#: ../src/hub.cc:2822
+#: ../src/hub.cc:2823
 msgid "Favorite hub added"
 msgstr "Favorit hub hozzáadva"
 
-#: ../src/hub.cc:2827
+#: ../src/hub.cc:2828
 msgid "Favorite hub already exists"
 msgstr "Favorit hub már létezik"
 
-#: ../src/hub.cc:2939
+#: ../src/hub.cc:2940
 msgid "loading error"
 msgstr "hiba betöltése"
 
-#: ../src/hub.cc:2952
+#: ../src/hub.cc:2953
 msgid "bad image"
 msgstr ""
 
-#: ../src/hub.cc:3227
+#: ../src/hub.cc:3228
 msgid "Connecting to "
 msgstr "Csatlakozás: "
 
-#: ../src/hub.cc:3234 ../src/transfers.cc:1022
+#: ../src/hub.cc:3235 ../src/transfers.cc:1022
 msgid "Connected"
 msgstr "Csatlakozva"
 
-#: ../src/hub.cc:3290
+#: ../src/hub.cc:3291
 msgid "Connect failed: "
 msgstr "Csatlakozás sikertelen: "
 
-#: ../src/hub.cc:3353
+#: ../src/hub.cc:3354
 msgid "Ignored private message from hub"
 msgstr "Huboktól érkező privát üzenetek letiltása"
 
-#: ../src/hub.cc:3360
+#: ../src/hub.cc:3361
 msgid "Ignored private message from bot "
 msgstr "Némított privát üzenet a következőtől: "
 
-#: ../src/hub.cc:3457
+#: ../src/hub.cc:3458
 msgid "Nick already taken"
 msgstr "A nick használatban van"
 
-#: ../src/hub.cc:3464
+#: ../src/hub.cc:3465
 msgid "Search spam detected from "
 msgstr "Keresési spam érzékelve a következőtől: "
 
@@ -845,7 +845,7 @@ msgid "Waiting to retry"
 msgstr ""
 
 #: ../src/transfers.cc:1083 ../src/settingsdialog.cc:992
-#: ../src/settingsdialog.cc:1153 ../src/settingsmanager.cc:234
+#: ../src/settingsdialog.cc:1153 ../src/settingsmanager.cc:235
 msgid "Download finished"
 msgstr "Letöltés befejeződött"
 
@@ -873,7 +873,7 @@ msgstr "Feltöltés kész..."
 msgid "CMD"
 msgstr "CMD"
 
-#: ../src/wulfor.cc:44
+#: ../src/wulfor.cc:45
 #, c-format
 msgid ""
 "Using:\n"
@@ -896,15 +896,15 @@ msgstr ""
 "  -h, --help\t\t Help megjelenítése\n"
 "  -v, --version\t  Verzióinformáció mutatása\n"
 
-#: ../src/wulfor.cc:71
+#: ../src/wulfor.cc:72
 msgid "Loading: "
 msgstr "Betöltés: "
 
-#: ../src/wulfor.cc:147
+#: ../src/wulfor.cc:149
 msgid "Shutting down libdcpp..."
 msgstr "Libdcpp leállítása..."
 
-#: ../src/wulfor.cc:149
+#: ../src/wulfor.cc:151
 msgid "Quit..."
 msgstr "Kilépés..."
 
@@ -1169,7 +1169,7 @@ msgid "Sounds"
 msgstr "Hangok"
 
 #: ../src/settingsdialog.cc:993 ../src/settingsdialog.cc:1157
-#: ../src/settingsmanager.cc:236
+#: ../src/settingsmanager.cc:237
 msgid "Download finished file list"
 msgstr "Fájl-lista letöltése kész"
 
@@ -1178,22 +1178,22 @@ msgid "Upload finished"
 msgstr "Feltöltés befejezve"
 
 #: ../src/settingsdialog.cc:996 ../src/settingsdialog.cc:1165
-#: ../src/settingsmanager.cc:242
+#: ../src/settingsmanager.cc:243
 msgid "Hub connected"
 msgstr "Csatlakozva a hubhoz"
 
 #: ../src/settingsdialog.cc:997 ../src/settingsdialog.cc:1169
-#: ../src/settingsmanager.cc:240
+#: ../src/settingsmanager.cc:241
 msgid "Hub disconnected"
 msgstr "Hub szétkapcsolva"
 
 #: ../src/settingsdialog.cc:998 ../src/settingsdialog.cc:1173
-#: ../src/settingsmanager.cc:244
+#: ../src/settingsmanager.cc:245
 msgid "Favorite user joined"
 msgstr "Kedvenc felhasználó belépett"
 
 #: ../src/settingsdialog.cc:999 ../src/settingsdialog.cc:1177
-#: ../src/settingsmanager.cc:246
+#: ../src/settingsmanager.cc:247
 msgid "Favorite user quit"
 msgstr "Kedvenc felhasználó kilépett"
 
@@ -1982,23 +1982,23 @@ msgstr " eldobva"
 msgid "Close tab"
 msgstr "Tab bezárása"
 
-#: ../src/settingsmanager.cc:513 ../src/settingsmanager.cc:533
+#: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
 msgid "Error: setting not found!"
 msgstr "Hiba: beállítás nem található!"
 
-#: ../src/settingsmanager.cc:514
+#: ../src/settingsmanager.cc:515
 msgid "Change setting "
 msgstr ""
 
-#: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
+#: ../src/settingsmanager.cc:515 ../src/settingsmanager.cc:535
 msgid " to "
 msgstr ""
 
-#: ../src/settingsmanager.cc:517 ../src/settingsmanager.cc:536
+#: ../src/settingsmanager.cc:518 ../src/settingsmanager.cc:537
 msgid "Error: params have been not 2!"
 msgstr ""
 
-#: ../src/settingsmanager.cc:534
+#: ../src/settingsmanager.cc:535
 msgid "Change core setting "
 msgstr ""
 
@@ -2486,7 +2486,7 @@ msgstr "_Fájl"
 msgid "Open _file list..."
 msgstr "_Fájl-lista megnyitása..."
 
-#: ../glade/mainwindow.glade:40
+#: ../glade/mainwindow.glade:39
 msgid "Open _own file list"
 msgstr "_Saját fájl-lista megnyitása"
 
@@ -2502,11 +2502,11 @@ msgstr "Indexelési folyamat"
 msgid "_Magnet Choice"
 msgstr "_Magnet lehetőségek"
 
-#: ../glade/mainwindow.glade:103
+#: ../glade/mainwindow.glade:102
 msgid "Calculate file TTH"
 msgstr "Fájl TTH kiszámítása"
 
-#: ../glade/mainwindow.glade:115 ../glade/mainwindow.glade:1212
+#: ../glade/mainwindow.glade:114 ../glade/mainwindow.glade:1212
 msgid "_Exit"
 msgstr "_Kilépés"
 
@@ -3874,6 +3874,11 @@ msgstr "Csoportosítva fájlok szerint"
 #: ../glade/finishedtransfers.glade:60
 msgid "Grouped by Users"
 msgstr "Csoportosítva felhasználók szerint"
+
+#: ../glade/finishedtransfers.glade:81
+#, fuzzy
+msgid "Show only completely finished downloads"
+msgstr "Befejezett letöltések listázása"
 
 #: ../glade/finishedtransfers.glade:150
 msgid "Open containing _folder"

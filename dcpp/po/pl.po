@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-07 22:42+0200\n"
+"POT-Creation-Date: 2011-03-07 01:27+0200\n"
 "PO-Revision-Date: 2009-03-03 22:46+0000\n"
 "Last-Translator: LadyStardust <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,12 +87,12 @@ msgstr ""
 msgid "Unable to create thread"
 msgstr "Nie można utworzyć wątku"
 
-#: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:67 ../UserConnection.cpp:141
 #, fuzzy
 msgid "Invalid data"
 msgstr "Nieprawidłowy rozmiar"
 
-#: ../UserConnection.cpp:61
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr ""
 
@@ -174,7 +174,7 @@ msgid ""
 msgstr ""
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
+#: ../SearchManager.cpp:271 ../SearchManager.cpp:425 ../SearchManager.cpp:427
 msgid "Offline"
 msgstr "Niedostępny"
 
@@ -457,7 +457,7 @@ msgstr "<wprowadź tekst>"
 msgid "Discard"
 msgstr "Porzuć"
 
-#: ../DirectoryListing.cpp:163
+#: ../DirectoryListing.cpp:178
 msgid "Directory missing name attribute"
 msgstr "Bąd nazwy przypisanego katalogu"
 
@@ -579,11 +579,11 @@ msgstr ""
 msgid "CD Image"
 msgstr ""
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:161
 msgid "Search enabled again"
 msgstr "Wyszukiwanie znów aktywne"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:169
 msgid "Search disabled: %1%"
 msgstr "Wyszukiwanie nieaktywne: %1%"
 
