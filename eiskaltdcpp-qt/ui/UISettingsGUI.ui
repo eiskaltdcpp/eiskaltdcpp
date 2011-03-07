@@ -202,6 +202,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="checkBox_HIDE_ICONS_IN_MENU">
+         <property name="text">
+          <string>Don't show icons in menus (need restart)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QComboBox" name="comboBox_TABBAR">
          <item>
           <property name="text">
