@@ -64,11 +64,21 @@ typedef unsigned __int64 uint64_t;
 #endif // _MSC_VER
 
 #ifdef _WIN32
-# define _WIN32_WINNT 0x0501
-# define _WIN32_IE      0x0501
-# define WINVER 0x501
 
+#ifndef _WIN32_WINNT
+# define _WIN32_WINNT 0x0501
+#endif
+
+# define _WIN32_IE      0x0501
+
+#ifndef WINVER
+# define WINVER 0x501
+#endif
+
+#ifndef STRICT
 #define STRICT
+#endif
+
 #define WIN32_LEAN_AND_MEAN
 
 #include <winsock2.h>
