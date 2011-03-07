@@ -565,7 +565,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Igen</translation>
     </message>
 </context>
 <context>
@@ -616,15 +616,15 @@ Kapcsolók:
     </message>
     <message>
         <source>Full</source>
-        <translation type="unfinished"></translation>
+        <translation>Teljes</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Igen</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished">Nincs</translation>
+        <translation>Nem</translation>
     </message>
 </context>
 <context>
@@ -1120,27 +1120,28 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Invalid command syntax.</source>
-        <translation type="unfinished"></translation>
+        <translation>Érvénytelen parancs szintaxis.</translation>
     </message>
     <message>
         <source>List of keywords:
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Kiemelt szavak listája:
+</translation>
     </message>
     <message>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword add &lt;kulcsszó&gt; - kiemelt szó hozzáadása</translation>
     </message>
     <message>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword purge &lt;kulcsszó&gt; - kiemelt szó eltávolítása</translation>
     </message>
     <message>
         <source>/kword list - list all keywords
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword list - kiemelt szavak listázása</translation>
     </message>
 </context>
 <context>
@@ -1892,19 +1893,19 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Enter user nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználónév megadása</translation>
     </message>
     <message>
         <source>Nick</source>
-        <translation type="unfinished">Nick</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználó</translation>
     </message>
     <message>
         <source>Would you like to change other settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>Szeretnél megváltoztatni más beállításokat is?</translation>
     </message>
 </context>
 <context>
@@ -2406,11 +2407,11 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Blacklist...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiltólista...</translation>
     </message>
     <message>
         <source>Add to Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás a Tiltólistához</translation>
     </message>
 </context>
 <context>
@@ -3715,11 +3716,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Show only completely finished transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Csak a teljesen befejezett átvitelek mutatása</translation>
     </message>
     <message>
         <source>Full only</source>
-        <translation type="unfinished"></translation>
+        <translation>Szűrés (csak teljes)</translation>
     </message>
 </context>
 <context>
@@ -4310,7 +4311,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Bind Address:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kötési cím:</translation>
     </message>
 </context>
 <context>
@@ -4973,19 +4974,19 @@ a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
         <source>Transfer colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Átvitelek színei</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished">Feltöltés</translation>
+        <translation>Feltöltés</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Visszaállítás</translation>
     </message>
     <message>
         <source>Don&apos;t show icons in menus (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikonok elrejtése a menükben (újraindítás szükséges)</translation>
     </message>
 </context>
 <context>
@@ -5135,7 +5136,7 @@ Például: /usr/bin/mplayer</translation>
     </message>
     <message>
         <source>Play sound on active PM window</source>
-        <translation type="unfinished"></translation>
+        <translation>Hang lejátszása az aktív Privát ablakban</translation>
     </message>
 </context>
 <context>
