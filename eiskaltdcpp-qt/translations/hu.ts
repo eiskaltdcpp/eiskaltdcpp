@@ -83,42 +83,6 @@
     <name>About</name>
     <message>
         <source>Using:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
-
-Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
-        <translation type="obsolete">Használat:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Kapcsoló&gt;
-Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
-
-Kapcsolók:
-  -h, --help	 Help megjelenítése
-  -v, --version  Verzióinformáció mutatása</translation>
-    </message>
-    <message>
-        <source>Using:
-  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
-
-Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
-        <translation type="obsolete">Használat:
-  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp-qt&lt;Kapcsoló&gt;
-Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
-
-Kapcsolók:
-  -h, --help	 Help megjelenítése
-  -v, --version  Verzióinformáció mutatása</translation>
-    </message>
-    <message>
-        <source>Using:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
 EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
@@ -171,17 +135,6 @@ Kapcsolók:
     </message>
 </context>
 <context>
-    <name>Compare</name>
-    <message>
-        <source>Inncorrect column %1</source>
-        <translation type="obsolete">Nem helyes oszlop %1</translation>
-    </message>
-    <message>
-        <source>Unknown column %1</source>
-        <translation type="obsolete">Ismeretlen oszlop %1</translation>
-    </message>
-</context>
-<context>
     <name>CustomFontModel</name>
     <message>
         <source>Description</source>
@@ -194,10 +147,6 @@ Kapcsolók:
     <message>
         <source>Application</source>
         <translation>Alkalmazás</translation>
-    </message>
-    <message>
-        <source>Public Chat</source>
-        <translation type="obsolete">Publikus chat</translation>
     </message>
     <message>
         <source>Public Chat: Chat</source>
@@ -304,10 +253,6 @@ Kapcsolók:
     <message>
         <source>Passive user</source>
         <translation>Passzív felhasználó</translation>
-    </message>
-    <message>
-        <source>CRC32 inconsistency (SFV-Check)</source>
-        <translation type="obsolete">CRC32 inkonzisztencia (SFV-Ellenőrzéskor)</translation>
     </message>
     <message>
         <source>Full tree does not match TTH root</source>
@@ -618,6 +563,10 @@ Kapcsolók:
         <source>Open directory</source>
         <translation>Könyvtár megnyitása</translation>
     </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FinishedTransfersModel</name>
@@ -654,16 +603,8 @@ Kapcsolók:
         <translation>Útvonal</translation>
     </message>
     <message>
-        <source>CRC checked</source>
-        <translation type="obsolete">CRC ellenőrizve</translation>
-    </message>
-    <message>
         <source>Target</source>
         <translation>Cél</translation>
-    </message>
-    <message>
-        <source>/s</source>
-        <translation type="obsolete">/s</translation>
     </message>
     <message>
         <source>Check sum</source>
@@ -672,6 +613,18 @@ Kapcsolók:
     <message>
         <source>%1/s</source>
         <translation>%1/s</translation>
+    </message>
+    <message>
+        <source>Full</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished">Nincs</translation>
     </message>
 </context>
 <context>
@@ -788,10 +741,6 @@ Kapcsolók:
         <translation>Kicsinyítés</translation>
     </message>
     <message>
-        <source>Commands</source>
-        <translation type="obsolete">Felhasználói parancsok</translation>
-    </message>
-    <message>
         <source>Hub menu</source>
         <translation>Hub menü</translation>
     </message>
@@ -894,10 +843,6 @@ Kedvenc felhasználó</translation>
         <translation>Slot biztosítva </translation>
     </message>
     <message>
-        <source>User not found.</source>
-        <translation type="obsolete">Felhasználó nem található.</translation>
-    </message>
-    <message>
         <source> has been added to favorites.</source>
         <translation> hozzáadva a kedvencekhez.</translation>
     </message>
@@ -922,10 +867,6 @@ Kedvenc felhasználó</translation>
         <translation>Tárolt jelszó elküldve...</translation>
     </message>
     <message>
-        <source>Enter password</source>
-        <translation type="obsolete">Jelszó megadása</translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
@@ -948,46 +889,6 @@ Kedvenc felhasználó</translation>
     <message>
         <source>Search flood detected: %1</source>
         <translation>Keresési flood érzékelve: %1</translation>
-    </message>
-    <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/aspell on/off - nyelvhelyesség elenőrző ki/be kapcsolása
-/alias &lt;ÁLNÉV&gt;::&lt;PARANCS&gt; - álnév létrehozása /ÁLNÉV a /PARANCSRA
-/alias purge &lt;ÁLNÉV&gt; - álnév eltávolítása
-/alias list - álnevek listázása
-/away &lt;üzenet&gt; - away-mód ki/be kapcsolása
-/back - away-mód kikapcsolása
-/browse &lt;nick&gt; - felhaszáló fájlistájának böngészése
-/clear - chat ablak törlése
-/magnet - alapértelmezett magnetlink akció (0-kérdés, 1-keresés 2-letöltés)
-/close - hub bezárása
-/fav - hub hozzáadása a kedvencekhez
-/grant &lt;nick&gt; - extra slot biztosítása a felhasználónak
-/help, /?, /h - segítség mutatása
-/info &lt;nick&gt; - információ mutatása a felhasználóról
-/me - üzenet küldése harmadik személyben
-/pm &lt;nick&gt; - privát beszélgetés kezdése a felhasználóval
-/sh &lt;parancs&gt; - shell parancs indítása, és a kimenet átirányítása a chat ablakba</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="obsolete">&lt;b&gt;Utolsó státuszüzenet a hubon:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <source>Hub Menu</source>
@@ -1080,80 +981,6 @@ Kedvenc felhasználó</translation>
     <message>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
         <translation>arány: %1 (feltöltés: %2, letöltés: %3)</translation>
-    </message>
-    <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/ratio [show] - show ratio [send in chat]/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/aspell on/off - nyelvhelyesség elenőrző ki/be kapcsolása
-/alias &lt;ÁLNÉV&gt;::&lt;PARANCS&gt; - álnév létrehozása /ÁLNÉV a /PARANCSRA
-/alias purge &lt;ÁLNÉV&gt; - álnév eltávolítása
-/alias list - álnevek listázása
-/away &lt;üzenet&gt; - away-mód ki/be kapcsolása
-/back - away-mód kikapcsolása
-/browse &lt;nick&gt; - felhaszáló fájlistájának böngészése
-/clear - chat ablak törlése
-/magnet - alapértelmezett magnetlink akció (0-kérdés, 1-keresés 2-letöltés)
-/close - hub bezárása
-/fav - hub hozzáadása a kedvencekhez
-/grant &lt;nick&gt; - extra slot biztosítása a felhasználónak
-/help, /?, /h - segítség mutatása
-/info &lt;nick&gt; - információ mutatása a felhasználóról
-/me - üzenet küldése harmadik személyben
-/pm &lt;nick&gt; - privát beszélgetés kezdése a felhasználóval
-/sh &lt;parancs&gt; - shell parancs indítása, és a kimenet átirányítása a chat ablakba</translation>
-    </message>
-    <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/ratio [show] - show ratio [send in chat]
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/aspell on/off - nyelvhelyesség elenőrző ki/be kapcsolása
-/alias &lt;ÁLNÉV&gt;::&lt;PARANCS&gt; - álnév létrehozása /ÁLNÉV a /PARANCSRA
-/alias purge &lt;ÁLNÉV&gt; - álnév eltávolítása
-/alias list - álnevek listázása
-/away &lt;üzenet&gt; - away-mód ki/be kapcsolása
-/back - away-mód kikapcsolása
-/browse &lt;nick&gt; - felhaszáló fájlistájának böngészése
-/clear - chat ablak törlése
-/magnet - alapértelmezett magnetlink akció (0-kérdés, 1-keresés 2-letöltés)
-/close - hub bezárása
-/fav - hub hozzáadása a kedvencekhez
-/grant &lt;nick&gt; - extra slot biztosítása a felhasználónak
-/help, /?, /h - segítség mutatása
-/info &lt;nick&gt; - információ mutatása a felhasználóról
-/ratio [show] - átviteli ráta mutatása [küldés a chatre]
-/me - üzenet küldése harmadik személyben
-/pm &lt;nick&gt; - privát beszélgetés kezdése a felhasználóval
-/sh &lt;parancs&gt; - shell parancs indítása, és a kimenet átirányítása a chat ablakba</translation>
     </message>
     <message>
         <source>/aspell on/off - enable/disable spell checking
@@ -1291,6 +1118,30 @@ Kedvenc felhasználó</translation>
         <source>Invalid keywords</source>
         <translation>Érvénytelen kulcsszó</translation>
     </message>
+    <message>
+        <source>Invalid command syntax.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>List of keywords:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/kword add &lt;keyword&gt; - add user-defined keyword
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/kword list - list all keywords
+</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubManager</name>
@@ -1377,10 +1228,6 @@ Kedvenc felhasználó</translation>
  %1</translation>
     </message>
     <message>
-        <source>Search Manager not ready. Please, try again later.</source>
-        <translation type="obsolete">A kereső nem áll készen. Kérlek próbáld újra később.</translation>
-    </message>
-    <message>
         <source>Select directory</source>
         <translation>Könyvtár kiválasztása</translation>
     </message>
@@ -1422,10 +1269,6 @@ Kedvenc felhasználó</translation>
     <message>
         <source>Hide window</source>
         <translation>Ablak elrejtése</translation>
-    </message>
-    <message>
-        <source>Esc</source>
-        <translation type="obsolete">Esc</translation>
     </message>
     <message>
         <source>Show/hide find frame</source>
@@ -1470,14 +1313,6 @@ Kedvenc felhasználó</translation>
     <message>
         <source>Counts</source>
         <translation>Counts</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation type="obsolete">Letöltve</translation>
-    </message>
-    <message>
-        <source>Uploaded</source>
-        <translation type="obsolete">Feltöltve</translation>
     </message>
     <message>
         <source>Space free</source>
@@ -1568,10 +1403,6 @@ Kedvenc felhasználó</translation>
         <translation>IPFilter modul</translation>
     </message>
     <message>
-        <source>Options</source>
-        <translation type="obsolete">Beállítások</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
@@ -1632,54 +1463,8 @@ Kedvenc felhasználó</translation>
         <translation>A fájl-lista nem megnyitható: Érvénytelen fájl-lista név</translation>
     </message>
     <message>
-        <source>Cannot listen socket because: 
-</source>
-        <translation type="obsolete">Cannot listen socket because: 
-</translation>
-    </message>
-    <message>
-        <source>
-
-Please check your connection settings</source>
-        <translation type="obsolete">
-
-Kérlek ellenőrizd a kapcsolat beállításokat</translation>
-    </message>
-    <message>
-        <source>Connection Manager: Warning</source>
-        <translation type="obsolete">Kapcsolatkezelő: Figyelmeztetés</translation>
-    </message>
-    <message>
-        <source>Search Manager: Warning</source>
-        <translation type="obsolete">Kereséskezelő: Figyelmeztetés</translation>
-    </message>
-    <message>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation>Log fájlok (*.log);;Minden fájl (*.*)</translation>
-    </message>
-    <message>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="obsolete">Az EiskaltDC++ egy grafikus kliens a Direct Connect és az ADC protokollhoz.</translation>
-    </message>
-    <message>
-        <source>DC++ core version:</source>
-        <translation type="obsolete">Alap DC++ verzió:</translation>
-    </message>
-    <message>
-        <source>(modified)</source>
-        <translation type="obsolete">(módosított)</translation>
-    </message>
-    <message>
-        <source>Home page:</source>
-        <translation type="obsolete">Weboldal:</translation>
-    </message>
-    <message>
-        <source>Total up:</source>
-        <translation type="obsolete">Összes feltöltés:</translation>
-    </message>
-    <message>
-        <source>Total down:</source>
-        <translation type="obsolete">Összes letöltés:</translation>
     </message>
     <message>
         <source>&amp;Panels</source>
@@ -1734,10 +1519,6 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <translation>Gyorskereső panel</translation>
     </message>
     <message>
-        <source>Clear text field</source>
-        <translation type="obsolete">Szövegmező törlése</translation>
-    </message>
-    <message>
         <source>Open download directory</source>
         <translation>Letöltési könyvtár megnyitása</translation>
     </message>
@@ -1762,80 +1543,8 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <translation>Lehetőségek</translation>
     </message>
     <message>
-        <source>Download speed</source>
-        <translation type="obsolete">Letöltési sebesség</translation>
-    </message>
-    <message>
-        <source>Upload speed</source>
-        <translation type="obsolete">Feltöltési sebesség</translation>
-    </message>
-    <message>
         <source>/s</source>
         <translation>/s</translation>
-    </message>
-    <message>
-        <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">Kérlek használd a &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; címet a hibák jelentéséhez.&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Fejlesztők&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(fő fejlesztő 0.4.10 és újabb)&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(karbantartó és fejlesztő 1.89.0 és újabb)&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(karbantartó és fejlesztő 0.4.10 és újabb)&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Logo and Splash Screen Logo&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Logó és Indítási képernyő&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(0.4.10 és újabb)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Translators&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Fordítók&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&lt;u&gt;Orosz fordítás&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(0.4.10 és újabb)&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&lt;u&gt;Belorusz fordítás&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(1.0.40 és újabb)&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&lt;u&gt;Magyar fordítás&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.1 és újabb)&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&lt;u&gt;Francia fordítás&lt;/u&gt;&lt;br/&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.2 és újabb)&lt;br/&gt;</translation>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
@@ -1914,10 +1623,6 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <translation>Navigációs oldalsáv</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="obsolete">&lt;b&gt;Utolsó kernelüzenet:&lt;/b&gt;&lt;br/&gt;%1</translation>
-    </message>
-    <message>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(fejlesztő 2.0.3 és újabb)&lt;br/&gt;</translation>
     </message>
@@ -1932,10 +1637,6 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.3 és újabb&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>Ctrl+A</source>
-        <translation type="obsolete">Ctrl+A</translation>
     </message>
     <message>
         <source>ADLSearch</source>
@@ -1974,10 +1675,6 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Spanyol fordítás&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(2.0.4 és újabb)&lt;br/&gt;</translation>
-    </message>
-    <message>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
@@ -2014,24 +1711,12 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <translation>Weboldal</translation>
     </message>
     <message>
-        <source>Source (svn)</source>
-        <translation type="obsolete">Forráskód (svn)</translation>
-    </message>
-    <message>
         <source>Report a Bug</source>
         <translation>Hiba jelentése</translation>
     </message>
     <message>
         <source>Wiki of project</source>
         <translation>A project Wiki oldala</translation>
-    </message>
-    <message>
-        <source>Changelog (svn)</source>
-        <translation type="obsolete">Változások (svn)</translation>
-    </message>
-    <message>
-        <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation type="obsolete">http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
     </message>
     <message>
         <source>Connectivity Manager: Warning</source>
@@ -2096,10 +1781,6 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="obsolete">Törlés</translation>
     </message>
     <message>
         <source>Button style</source>
@@ -2209,6 +1890,22 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
         <source>Text under icons</source>
         <translation>Szöveg az ikonok alatt</translation>
     </message>
+    <message>
+        <source>Enter user nick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nick</source>
+        <translation type="unfinished">Nick</translation>
+    </message>
+    <message>
+        <source>User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Would you like to change other settings?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2226,10 +1923,6 @@ Kérlek ellenőrizd a kapcsolat beállításokat</translation>
     <message>
         <source>Exit</source>
         <translation>Kilépés</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Sebesség&lt;/b&gt;&lt;br/&gt;Letöltés: &lt;font color=&quot;green&quot;&gt;%1&lt;/font&gt; Feltöltés: &lt;font color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statisztika&lt;/b&gt;&lt;br/&gt;Letöltve: &lt;font color=&quot;green&quot;&gt;%3&lt;/font&gt; Feltöltve: &lt;font color=&quot;red&quot;&gt;%4&lt;/font&gt;</translation>
     </message>
     <message>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
@@ -2269,10 +1962,6 @@ Letöltve: %3 Feltöltve %4</translation>
         <translation>Bezárás</translation>
     </message>
     <message>
-        <source> on hub </source>
-        <translation type="obsolete"> on hub </translation>
-    </message>
-    <message>
         <source>User went offline</source>
         <translation>A felhasználó kilépett</translation>
     </message>
@@ -2283,10 +1972,6 @@ Letöltve: %3 Feltöltve %4</translation>
     <message>
         <source>%1 on hub %2</source>
         <translation>%1 a következő hubon: %2</translation>
-    </message>
-    <message>
-        <source>Disable emoticons</source>
-        <translation type="obsolete">Hangulatjelek tiltása</translation>
     </message>
 </context>
 <context>
@@ -2367,10 +2052,6 @@ Letöltve: %3 Feltöltve %4</translation>
         <translation>Letöltés sikertelen: %1</translation>
     </message>
     <message>
-        <source>Hub list downloaded... (%1)</source>
-        <translation type="obsolete">Hublista letöltve... (%1)</translation>
-    </message>
-    <message>
         <source>Hub list loaded from cache...</source>
         <translation>Hublista betöltve a cache-ből...</translation>
     </message>
@@ -2404,27 +2085,6 @@ Letöltve: %3 Feltöltve %4</translation>
     <message>
         <source>Link</source>
         <translation>Link</translation>
-    </message>
-</context>
-<context>
-    <name>QApplication</name>
-    <message>
-        <source>Using:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
-
-Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
-        <translation type="obsolete">Használat:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Kapcsoló&gt;
-Az EiskaltDC++ egy program az UNIX-like rendszerekhez, a Direct Connect és az ADC protokollok használatára.
-
-Kapcsolók:
-  -h, --help	 Help megjelenítése
-  -v, --version  Verzióinformáció mutatása</translation>
     </message>
 </context>
 <context>
@@ -2568,10 +2228,6 @@ Kapcsolók:
         <translation>TTH</translation>
     </message>
     <message>
-        <source>File type</source>
-        <translation type="obsolete">Fájl típus</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>Töröl</translation>
     </message>
@@ -2644,16 +2300,8 @@ Kapcsolók:
         <translation>Letöltés</translation>
     </message>
     <message>
-        <source>Download to</source>
-        <translation type="obsolete">Letöltés ide</translation>
-    </message>
-    <message>
         <source>Download Whole Directory</source>
         <translation>Egész könyvtár letöltése</translation>
-    </message>
-    <message>
-        <source>Download Whole Directory to</source>
-        <translation type="obsolete">Egész könyvtár letöltése ide</translation>
     </message>
     <message>
         <source>Search TTH</source>
@@ -2728,14 +2376,6 @@ Kapcsolók:
         <translation>Találat: &lt;b&gt;%1&lt;/b&gt;  Eldobva: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>X</source>
-        <translation type="obsolete">X</translation>
-    </message>
-    <message>
-        <source>C</source>
-        <translation type="obsolete">C</translation>
-    </message>
-    <message>
         <source>Download to...</source>
         <translation>Letöltés ide ...</translation>
     </message>
@@ -2763,6 +2403,14 @@ Kapcsolók:
     <message>
         <source>Properties of magnet</source>
         <translation>Magnet tulajdonságai</translation>
+    </message>
+    <message>
+        <source>Blacklist...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to Blacklist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2823,10 +2471,6 @@ Kapcsolók:
 <context>
     <name>Settings</name>
     <message>
-        <source>Options</source>
-        <translation type="obsolete">Beállítások</translation>
-    </message>
-    <message>
         <source>Personal</source>
         <translation>Személyes</translation>
     </message>
@@ -2869,10 +2513,6 @@ Kapcsolók:
 </context>
 <context>
     <name>SettingsConnection</name>
-    <message>
-        <source>You enter ports with number &lt; 1024, ports numbers set to default.</source>
-        <translation type="obsolete">Az általad megadott port &lt; 1024, a portok az alapértelmezés szerint beálítva.</translation>
-    </message>
     <message>
         <source>No valid SOCKS5 server IP found!</source>
         <translation>Nem található érvényes SOCKS5 szerver IP!</translation>
@@ -2950,10 +2590,6 @@ Kapcsolók:
     <message>
         <source>Chat: Say nick</source>
         <translation>Chat: Saját nicknév a chatszövegben</translation>
-    </message>
-    <message>
-        <source>Core</source>
-        <translation type="obsolete">Rendszerüzenet</translation>
     </message>
     <message>
         <source>Status</source>
@@ -3060,36 +2696,12 @@ Kapcsolók:
         <translation>Név</translation>
     </message>
     <message>
-        <source>GiB</source>
-        <translation type="obsolete">GiB</translation>
-    </message>
-    <message>
-        <source>%1 GiB</source>
-        <translation type="obsolete">%1 GiB</translation>
-    </message>
-    <message>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
         <source>Remove</source>
         <translation>Törlés</translation>
-    </message>
-    <message>
-        <source>Enter virtual path name</source>
-        <translation type="obsolete">Virtuális útvonalnév megadása</translation>
-    </message>
-    <message>
-        <source>Virtual path</source>
-        <translation type="obsolete">Virtuális útvonal</translation>
-    </message>
-    <message>
-        <source>Enter restriction (in GiB)</source>
-        <translation type="obsolete">Korlátozás megadása (GiB)</translation>
-    </message>
-    <message>
-        <source>Restriction</source>
-        <translation type="obsolete">Korlátozás</translation>
     </message>
     <message>
         <source>Add item</source>
@@ -3123,10 +2735,6 @@ Kapcsolók:
         <translation>Letöltés</translation>
     </message>
     <message>
-        <source>Download to</source>
-        <translation type="obsolete">Letöltés ide</translation>
-    </message>
-    <message>
         <source>Search for alternates</source>
         <translation>Alternatíva keresése</translation>
     </message>
@@ -3157,22 +2765,6 @@ Kapcsolók:
     <message>
         <source>Close</source>
         <translation>Bezárás</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="obsolete">Név</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">Méret</translation>
-    </message>
-    <message>
-        <source>Exact size</source>
-        <translation type="obsolete">Pontos méret</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Total size: %1</source>
@@ -3345,19 +2937,6 @@ Kapcsolók:
         <source>Other Widgets</source>
         <translation>Egyéb alkalmazások</translation>
     </message>
-    <message>
-        <source>Hub Manager</source>
-        <translation type="obsolete">Hub kezelő</translation>
-    </message>
-</context>
-<context>
-    <name>SingleInstanceRunner</name>
-    <message>
-        <source>Internal server running on %1
-</source>
-        <translation type="obsolete">Egy belső kiszolgáló fut a következőn: %1
-</translation>
-    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3488,10 +3067,6 @@ Biztosan le akarod állítani?
         <translation> (%1%)</translation>
     </message>
     <message>
-        <source>Download complete...</source>
-        <translation type="obsolete">Letöltés kész...</translation>
-    </message>
-    <message>
         <source>Connecting...</source>
         <translation>Csatlakozás...</translation>
     </message>
@@ -3530,10 +3105,6 @@ Biztosan le akarod állítani?
     <message>
         <source>Remove Source</source>
         <translation>Forrás eltávolítása</translation>
-    </message>
-    <message>
-        <source>Copy IP-address of user</source>
-        <translation type="obsolete">Felhasználó IP címének másolása</translation>
     </message>
     <message>
         <source>Search Alternates</source>
@@ -3710,10 +3281,6 @@ Biztosan le akarod állítani?
     <message>
         <source>Dialog</source>
         <translation>ADL Beállítások</translation>
-    </message>
-    <message>
-        <source>Search String</source>
-        <translation type="obsolete">Keresendő kifejezés</translation>
     </message>
     <message>
         <source>Favorite hub name.</source>
@@ -4003,30 +3570,6 @@ p, li { white-space: pre-wrap; }
         <translation>Külső IP</translation>
     </message>
     <message>
-        <source>EiskaltDC++ V:2.0</source>
-        <translation type="obsolete">EiskaltDC++ V:2.0</translation>
-    </message>
-    <message>
-        <source>++ V:0.75 </source>
-        <translation type="obsolete">++ V:0.75 </translation>
-    </message>
-    <message>
-        <source>StrgDC++ V:2.30</source>
-        <translation type="obsolete">StrgDC++ V:2.30</translation>
-    </message>
-    <message>
-        <source>ApexDC++ V: 1.2.2 </source>
-        <translation type="obsolete">ApexDC++ V: 1.2.2 </translation>
-    </message>
-    <message>
-        <source>FlylinkDC++ V:(r500) </source>
-        <translation type="obsolete">FlylinkDC++ V:(r500) </translation>
-    </message>
-    <message>
-        <source>HomeDC++ V:2.22 </source>
-        <translation type="obsolete">HomeDC++ V:2.22 </translation>
-    </message>
-    <message>
         <source>000.000.000.000; </source>
         <translation>000.000.000.000; </translation>
     </message>
@@ -4075,10 +3618,6 @@ p, li { white-space: pre-wrap; }
         <translation>Ha a hub jelszót kér (ha regisztrálva vagy a hubon), add meg itt.</translation>
     </message>
     <message>
-        <source>EiskaltDC++ V:2.1</source>
-        <translation type="obsolete">EiskaltDC++ V:2.1</translation>
-    </message>
-    <message>
         <source>Default</source>
         <translation>Alapértelmezett</translation>
     </message>
@@ -4116,14 +3655,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Connect</source>
         <translation>Csatlakozás</translation>
-    </message>
-    <message>
-        <source>Move up</source>
-        <translation type="obsolete">Mozgatás fel</translation>
-    </message>
-    <message>
-        <source>Move down</source>
-        <translation type="obsolete">Mozgatás le</translation>
     </message>
 </context>
 <context>
@@ -4181,6 +3712,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Clear</source>
         <translation>Töröl</translation>
+    </message>
+    <message>
+        <source>Show only completely finished transfers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full only</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4247,18 +3786,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Hide find frame (Ctrl+F)</source>
         <translation>Kereső ablak elrejtése (Ctrl+F)</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="obsolete">X</translation>
-    </message>
-    <message>
-        <source>Clear filter</source>
-        <translation type="obsolete">Filter törlése</translation>
-    </message>
-    <message>
-        <source>c</source>
-        <translation type="obsolete">c</translation>
     </message>
     <message>
         <source>Last status message on hub</source>
@@ -4370,10 +3897,6 @@ p, li { white-space: pre-wrap; }
         <translation>Mégsem</translation>
     </message>
     <message>
-        <source>Remember my choose</source>
-        <translation type="obsolete">Emlékezz a választásra</translation>
-    </message>
-    <message>
         <source>Add to queue</source>
         <translation>Hozzáadás a letöltési sorhoz</translation>
     </message>
@@ -4444,10 +3967,6 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <source>Form</source>
         <translation>Publikus hubok</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="obsolete">X</translation>
     </message>
 </context>
 <context>
@@ -4528,20 +4047,8 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
         <translation>Kapcsolat</translation>
     </message>
     <message>
-        <source>Incomming connections</source>
-        <translation type="obsolete">Bejövő kapcsolatok</translation>
-    </message>
-    <message>
-        <source>Active</source>
-        <translation type="obsolete">Aktív</translation>
-    </message>
-    <message>
         <source>Firewall with port forwarding</source>
         <translation>Tűzfal kézi port-továbbítással (magam állítom be a routerem)</translation>
-    </message>
-    <message>
-        <source>Passive</source>
-        <translation type="obsolete">Passzív (csak végső esetben használd!)</translation>
     </message>
     <message>
         <source>Firewall with UPnP</source>
@@ -4612,10 +4119,6 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
         <translation>Limitek</translation>
     </message>
     <message>
-        <source>On/Off speed limits</source>
-        <translation type="obsolete">Sebesség-korlátozás ki/bekapcsolása</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Letöltés</translation>
     </message>
@@ -4628,20 +4131,8 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
         <translation>Feltöltés</translation>
     </message>
     <message>
-        <source>Alternate restrictions speed from </source>
-        <translation type="obsolete">Alternatív sebesség-korlát használata a következő időben </translation>
-    </message>
-    <message>
         <source>to</source>
         <translation>-</translation>
-    </message>
-    <message>
-        <source>Restriction of upload speed is associated with restriction of download speed by sly formula:
-download speed/10 + (download speed - (download speed/10)*10)
-Do not try to understand it...</source>
-        <translation type="obsolete">A feltöltési sebesség korlátozása összefüggésben áll a letöltési sebességgel a következő formula szerint:
-letöltési sebesség/10 + (letöltési sebesség - (letöltési sebesség/10)*10)
-Ne is próbáld megérteni...</translation>
     </message>
     <message>
         <source>Active mode</source>
@@ -4650,10 +4141,6 @@ Ne is próbáld megérteni...</translation>
     <message>
         <source>Passive mode</source>
         <translation>Passzív mód</translation>
-    </message>
-    <message>
-        <source>Enable total speed limit</source>
-        <translation type="obsolete">Teljes sebességkorlátozás engedélyezése</translation>
     </message>
     <message>
         <source>Alternate speed limit at time from </source>
@@ -4821,6 +4308,10 @@ p, li { white-space: pre-wrap; }
         <source>Type-of-Service (ToS)</source>
         <translation>Type-of-Service (ToS)</translation>
     </message>
+    <message>
+        <source>Bind Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -4981,16 +4472,8 @@ p, li { white-space: pre-wrap; }
         <translation>SFV Ellenőrzés</translation>
     </message>
     <message>
-        <source>Warning: file-lists of the users will be constantly downloaded before loading files from them.</source>
-        <translation type="obsolete">Figyelem: a felhasználók fájl-listái konstans módon mindig le lesznek töltve, melőtt a fájlok töltése megkezdődne.</translation>
-    </message>
-    <message>
         <source>Advanced</source>
         <translation>Haladó</translation>
-    </message>
-    <message>
-        <source>Interval for auto search alternates(minutes)</source>
-        <translation type="obsolete">Alternatívák automatikus keresése (keresési intervallum, percben)</translation>
     </message>
     <message>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
@@ -5066,17 +4549,6 @@ akkor a forrás dobva lesz. (alapértelmezés: 1024 B/s)</translation>
 started before a source can be dropped. (default: 15 s)</source>
         <translation>Meghatározott idő (másodpercben) aminek el kell telnie a letöltés
 megkezdése előtt, mielőtt a forrás eldobható. (alapértelmezett: 15 s)</translation>
-    </message>
-    <message>
-        <source>This is the maximal time since the last chunk of data for
-the file was recieved. It is meant to improve speed measurement
-accuracy and to prevent dropping sources that are going to be
-disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="obsolete">Ez a maximális idő ami eltellhet két adatcsomag érkezése között.
-A beállítás a sebességmérés pontosságát hivatott javítani, annak érdekében,
-hogy az egyes források szétkapcsolása ne történjen meg,
-ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünetek keletkeznek.
-(alapértelmezés: 10 s)</translation>
     </message>
     <message>
         <source>Minimum amount of sources before any sources
@@ -5188,10 +4660,6 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
         <translation>Letöltött fájl-listák megtartása</translation>
     </message>
     <message>
-        <source>Compressed transfer</source>
-        <translation type="obsolete">Tömörített átvitel</translation>
-    </message>
-    <message>
         <source>Compressed transfers</source>
         <translation>Tömörített átvitel</translation>
     </message>
@@ -5286,10 +4754,6 @@ ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünete
         <translation>A botoktól érkező üzenetek main chatre irányítása</translation>
     </message>
     <message>
-        <source>Do not change focus on new private message</source>
-        <translation type="obsolete">Ne kerüljön fókusz az újonnan érkezett privát üzenetekre</translation>
-    </message>
-    <message>
         <source>Maximum paragraphs</source>
         <translation>Maximum sorok a chaten</translation>
     </message>
@@ -5326,14 +4790,6 @@ ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünete
         <translation>Ctrl+Enter használata az üzenet küldéséhez</translation>
     </message>
     <message>
-        <source>The height of the text entry field</source>
-        <translation type="obsolete">A szövegbeviteli mező magassága</translation>
-    </message>
-    <message>
-        <source>Window position at startup</source>
-        <translation type="obsolete">Ablak pozíció induláskor</translation>
-    </message>
-    <message>
         <source>Remember window position on exit</source>
         <translation>Ablak pozíció megjegyzése kilépéskor</translation>
     </message>
@@ -5350,14 +4806,6 @@ ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünete
         <translation>SideBar használata ToolBar helyett (újraindítást igényel)</translation>
     </message>
     <message>
-        <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated 
-from other words by spaces.</source>
-        <translation type="obsolete">Ha be van jelölve, akkor a hangulatjelek láthatóak lesznek akár a szavak közepén is.
-Ha nincs bejelölve, a hangulatjelek csak akkor látszódnak majd,
-ha egy szünettel el vannak választva a szavaktól.</translation>
-    </message>
-    <message>
         <source>Show icon in system tray</source>
         <translation>Ikon mutatása a rendszer-tálcán</translation>
     </message>
@@ -5372,12 +4820,6 @@ ha egy szünettel el vannak választva a szavaktól.</translation>
     <message>
         <source>Show ip-addresses of users in chat</source>
         <translation>Felhasználók IP címének mutatása a chaten</translation>
-    </message>
-    <message>
-        <source>Depending on hub configuration: information about 
-them is usually available only to operators</source>
-        <translation type="obsolete">A hub beállításaitól függ: a szükséges információkat 
-ezzel kapcsolatban csak az operátoroktól tudhatod meg</translation>
     </message>
     <message>
         <source>Use default ToolBar (need restart)</source>
@@ -5529,6 +4971,18 @@ a hub operátoraitól kaphatsz</translation>
         <source>Change background color in the chat</source>
         <translation>A chat háttérszinének megváltoztatása</translation>
     </message>
+    <message>
+        <source>Transfer colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished">Feltöltés</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -5594,10 +5048,6 @@ a hub operátoraitól kaphatsz</translation>
     <message>
         <source>Text</source>
         <translation>Szöveg</translation>
-    </message>
-    <message>
-        <source>Show icon in system tray</source>
-        <translation type="obsolete">Ikon mutatása a rendszer-tálcán</translation>
     </message>
     <message>
         <source>Ask confirm before exit</source>
@@ -5679,6 +5129,10 @@ Például: /usr/bin/mplayer</translation>
         <source>Favorite user event</source>
         <translation>Kedvenc felhasználói esemény</translation>
     </message>
+    <message>
+        <source>Play sound on active PM window</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsPersonal</name>
@@ -5701,10 +5155,6 @@ Például: /usr/bin/mplayer</translation>
     <message>
         <source>Away message</source>
         <translation>Away üzenet</translation>
-    </message>
-    <message>
-        <source>Max upload speed</source>
-        <translation type="obsolete">Maximum feltöltési sebességed</translation>
     </message>
     <message>
         <source>MiB/s</source>
@@ -5765,10 +5215,6 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
         <translation>Összes megosztás: %1</translation>
     </message>
     <message>
-        <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation type="obsolete">Maximális indexelési sebesség (MB/s) (0=korlátlan)</translation>
-    </message>
-    <message>
         <source>Use fast hash</source>
         <translation>Gyors indexelés használata</translation>
     </message>
@@ -5777,16 +5223,8 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
         <translation>Szimbólikus linkek követése</translation>
     </message>
     <message>
-        <source>Share temp files</source>
-        <translation type="obsolete">Ideiglenes fájlok megosztása</translation>
-    </message>
-    <message>
         <source>Share hidden files</source>
         <translation>Rejtett fájlok megosztása</translation>
-    </message>
-    <message>
-        <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation type="obsolete">Automatikus extra slot nyitása, ha a feltöltési sebesség ez alá esik (KiB/s, 0 = letiltva)</translation>
     </message>
     <message>
         <source>Upload slots</source>
@@ -5797,44 +5235,8 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
         <translation>Alap beállítások</translation>
     </message>
     <message>
-        <source>Restrictions</source>
-        <translation type="obsolete">Korlátozások</translation>
-    </message>
-    <message>
-        <source>Share</source>
-        <translation type="obsolete">Megosztás</translation>
-    </message>
-    <message>
-        <source>Restriction</source>
-        <translation type="obsolete">Korlátozás</translation>
-    </message>
-    <message>
-        <source>All changes take effect only after restart</source>
-        <translation type="obsolete">A változások csak újraindítás után lesznek érvényesek</translation>
-    </message>
-    <message>
-        <source>Per folder limit specifies how many files in GiB
-remote user must share the to be able
-to download from this folder</source>
-        <translation type="obsolete">Könyvtárankénti limit, ahol megadható,
-hogy a távoli felhasználónak mennyi adatot kell megosztania (GiB),
-hogy letölthessen ebből a könyvtárból</translation>
-    </message>
-    <message>
         <source>Advanced</source>
         <translation>Haladó</translation>
-    </message>
-    <message>
-        <source>Auto refresh time (minutes,0 = off)</source>
-        <translation type="obsolete">Automatikus frissítési időköz (percben, 0 = letiltva)</translation>
-    </message>
-    <message>
-        <source>Run on startup refresh share </source>
-        <translation type="obsolete">Megosztás frissítése a kliens indulásakor</translation>
-    </message>
-    <message>
-        <source>Auto remove not existing directories</source>
-        <translation type="obsolete">Nem létező könyvtárak automatikus eltávolítása</translation>
     </message>
     <message>
         <source>Exceptions</source>
@@ -5929,10 +5331,6 @@ hogy letölthessen ebből a könyvtárból</translation>
         <translation>Ideiglenes fájlok megosztása</translation>
     </message>
     <message>
-        <source>Run refresh share on startup</source>
-        <translation type="obsolete">Megosztás frissítése a program indításakor</translation>
-    </message>
-    <message>
         <source>Auto remove non-existing directories</source>
         <translation>Nem létező könyvtárak automatikus eltávolítása</translation>
     </message>
@@ -5946,20 +5344,6 @@ az újabb vagy megváltozott tartalom indexelése céljából.</translation>
         <translation>Példákkal megadható, hogy milyen fájlok ne legyen megosztva (regexp használtata lehetséges). </translation>
     </message>
     <message>
-        <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
-For example, if you have /home/username/Video folder shared as &quot;Video&quot;
-you can specify following:
-/Video	10
-It means that any user who have less then 10GiB shared
-will be unable to download any files from this folder.</source>
-        <translation type="obsolete">Speciális korlátozás megadása (GiB-ban) minden &quot;virtuális&quot; könyvtárhoz a magosztásban.
-Például, ha a megosztásba kerül a /home/felhasználónév/Video könyvtár &quot;Video&quot; néven,
-a következő megadásával akalmazható a speciális korlátozás:
-/Video	10
-Ez azt jelenti, hogy bármelyik felhasználónak, akinek a megosztása kevesebb, mint 10GiB
-a letöltés nem lesz lehetséges a megadott könyvtárból.</translation>
-    </message>
-    <message>
         <source>Share files with the Hidden attribute set and files inside directory with
 the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
@@ -5968,13 +5352,6 @@ and may cause the client to appear to freeze.</source>
         <translation>Engedélyezi a rejtett attribútumú fájlok ill. a rejtett könyvtárak tartalmának megosztását is.
 Ha ki van kapcsolva, a ponttal (.) kezdődő fájlok sem lesznek megosztva. 
 Az opció megváltoztatása a fájl-lista frissítését eredményezi, ezért ekkor előforduihat, hogy a program átmeneti ideig nem reagál.</translation>
-    </message>
-    <message>
-        <source>If with uncheck this you will leave the client until the update
-share is complete, share at follow-up activities start nulled.</source>
-        <translation type="obsolete">Ha ez nincs bejelölve, akkor a klienst hagyni kell,
-hogy a megosztás indexelését teljesen elvégezze,
-addig, amíg a folyamatjelző nullát nem mutat.</translation>
     </message>
     <message>
         <source>If the average upload speed drops below the given number,
@@ -6026,10 +5403,6 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Maximális indexelési sebesség (MB/s, 0 = letiltva)</translation>
     </message>
-    <message>
-        <source>If checked, a pause hashing may not work.</source>
-        <translation>Ha be van jelölve, az indexelés szüneteltetése nem biztos, hogy működni fog.</translation>
-    </message>
 </context>
 <context>
     <name>UISettingsShortcuts</name>
@@ -6070,10 +5443,6 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <source>Form</source>
         <translation>Megosztás</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="obsolete">X</translation>
     </message>
 </context>
 <context>
@@ -6182,17 +5551,6 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
 </context>
 <context>
-    <name>UPnPMapper</name>
-    <message>
-        <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation type="obsolete">A külső IP megállapítása nem sikerült UPnp-n keresztül. Kérlek állítsd be kézzel.</translation>
-    </message>
-    <message>
-        <source>Failed to create port mappings. Please set up your NAT yourself.</source>
-        <translation type="obsolete">A porthozzárendelés létrehozása sikertelen. Kérlek állítsd be a NAT-ot kézzel.</translation>
-    </message>
-</context>
-<context>
     <name>UserListModel</name>
     <message>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: Operator</source>
@@ -6223,10 +5581,6 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
         <translation>Kapcsolat</translation>
     </message>
     <message>
-        <source>Email</source>
-        <translation type="obsolete">Email</translation>
-    </message>
-    <message>
         <source>Share</source>
         <translation>Megosztás</translation>
     </message>
@@ -6244,10 +5598,6 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <source>System default</source>
         <translation>Rendszer alapértelmezés</translation>
-    </message>
-    <message>
-        <source>Enter parameter value</source>
-        <translation type="obsolete">Paraméter megadása</translation>
     </message>
     <message>
         <source>Offline</source>

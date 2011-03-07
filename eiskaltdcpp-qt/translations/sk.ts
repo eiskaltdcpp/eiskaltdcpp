@@ -699,14 +699,19 @@ Kľúčové skratky:
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="401"/>
+        <location filename="../src/FinishedTransfers.h" line="424"/>
         <source>Open file</source>
         <translation type="unfinished">otvoriť súbor</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="402"/>
+        <location filename="../src/FinishedTransfers.h" line="425"/>
         <source>Open directory</source>
         <translation type="unfinished">otvoriť priečinok</translation>
+    </message>
+    <message>
+        <location filename="../src/FinishedTransfers.h" line="464"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -747,6 +752,12 @@ Kľúčové skratky:
         <translation>uplynulý čas</translation>
     </message>
     <message>
+        <location filename="../src/FinishedTransfersModel.cpp" line="47"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="54"/>
+        <source>Full</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Filename</source>
         <translation>názov súboru</translation>
@@ -767,14 +778,22 @@ Kľúčové skratky:
         <translation>cieľ</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="115"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="123"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="117"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="127"/>
         <source>%1/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>/s</source>
-        <translation type="obsolete">/s</translation>
+        <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -865,7 +884,7 @@ Kľúčové skratky:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="132"/>
-        <location filename="../src/HubFrame.cpp" line="1197"/>
+        <location filename="../src/HubFrame.cpp" line="1198"/>
         <source>Add to Favorites</source>
         <translation>Pridať do obľúbených</translation>
     </message>
@@ -958,150 +977,150 @@ Kľúčové skratky:
         <translation>Add to White</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1963"/>
+        <location filename="../src/HubFrame.cpp" line="2045"/>
         <source> left the chat</source>
         <translation>opustiť chat</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1914"/>
-        <location filename="../src/HubFrame.cpp" line="1968"/>
+        <location filename="../src/HubFrame.cpp" line="1996"/>
+        <location filename="../src/HubFrame.cpp" line="2050"/>
         <source>Favorites</source>
         <translation>Obľúbené</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1968"/>
+        <location filename="../src/HubFrame.cpp" line="2050"/>
         <source>%1 become offline</source>
         <translation>%1 je offline</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1193"/>
+        <location filename="../src/HubFrame.cpp" line="1194"/>
         <source>Hub menu</source>
         <translation>Hub menu</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1195"/>
+        <location filename="../src/HubFrame.cpp" line="1196"/>
         <source>Reconnect</source>
         <translation>Znova pripojiť</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1199"/>
+        <location filename="../src/HubFrame.cpp" line="1200"/>
         <source>Hub IP</source>
         <translation>Hub IP</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1200"/>
+        <location filename="../src/HubFrame.cpp" line="1201"/>
         <source>Hub URL</source>
         <translation>Hub URL</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1201"/>
+        <location filename="../src/HubFrame.cpp" line="1202"/>
         <source>Hub Title</source>
         <translation>Hub Title</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1205"/>
+        <location filename="../src/HubFrame.cpp" line="1206"/>
         <source>Close</source>
         <translation>Zatvoriť</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1218"/>
+        <location filename="../src/HubFrame.cpp" line="1219"/>
         <source>Hub Menu</source>
         <translation>Hub menu</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1292"/>
-        <location filename="../src/HubFrame.cpp" line="1310"/>
+        <location filename="../src/HubFrame.cpp" line="1293"/>
+        <location filename="../src/HubFrame.cpp" line="1311"/>
         <source>Not connected</source>
         <translation>Nepripojený</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1389"/>
+        <location filename="../src/HubFrame.cpp" line="1390"/>
         <source>Hub role: User</source>
         <translation>Hub role: užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1454"/>
-        <location filename="../src/HubFrame.cpp" line="1456"/>
-        <location filename="../src/HubFrame.cpp" line="1594"/>
-        <location filename="../src/HubFrame.cpp" line="1596"/>
+        <location filename="../src/HubFrame.cpp" line="1460"/>
+        <location filename="../src/HubFrame.cpp" line="1462"/>
+        <location filename="../src/HubFrame.cpp" line="1673"/>
+        <location filename="../src/HubFrame.cpp" line="1675"/>
         <source>Away mode off</source>
         <translation>Režim preč vypnutý</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1468"/>
-        <location filename="../src/HubFrame.cpp" line="1470"/>
+        <location filename="../src/HubFrame.cpp" line="1474"/>
+        <location filename="../src/HubFrame.cpp" line="1476"/>
         <source>Away mode on: </source>
         <translation>režim preč zapnutý:</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1488"/>
-        <location filename="../src/HubFrame.cpp" line="1490"/>
+        <location filename="../src/HubFrame.cpp" line="1494"/>
+        <location filename="../src/HubFrame.cpp" line="1496"/>
         <source>Aliases not found.</source>
         <translation>Aliasy nenájdené.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1510"/>
-        <location filename="../src/HubFrame.cpp" line="1512"/>
+        <location filename="../src/HubFrame.cpp" line="1516"/>
+        <location filename="../src/HubFrame.cpp" line="1518"/>
         <source>Alias removed.</source>
         <translation>Alias odstránený.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1523"/>
-        <location filename="../src/HubFrame.cpp" line="1525"/>
-        <location filename="../src/HubFrame.cpp" line="1532"/>
-        <location filename="../src/HubFrame.cpp" line="1534"/>
+        <location filename="../src/HubFrame.cpp" line="1529"/>
+        <location filename="../src/HubFrame.cpp" line="1531"/>
+        <location filename="../src/HubFrame.cpp" line="1538"/>
+        <location filename="../src/HubFrame.cpp" line="1540"/>
         <source>Invalid alias syntax.</source>
         <translation>Neplatný syntax aliasu.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1542"/>
-        <location filename="../src/HubFrame.cpp" line="1544"/>
+        <location filename="../src/HubFrame.cpp" line="1548"/>
+        <location filename="../src/HubFrame.cpp" line="1550"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Alias %1 =&gt; %2 bol pridaný</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1560"/>
+        <location filename="../src/HubFrame.cpp" line="1639"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
         <translation>pomer: %1 (uploads: %2, downloads: %3)</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1585"/>
-        <location filename="../src/HubFrame.cpp" line="1587"/>
+        <location filename="../src/HubFrame.cpp" line="1664"/>
+        <location filename="../src/HubFrame.cpp" line="1666"/>
         <source>Aspell switched %1</source>
         <translation>Aspell switched %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1585"/>
-        <location filename="../src/HubFrame.cpp" line="1587"/>
+        <location filename="../src/HubFrame.cpp" line="1664"/>
+        <location filename="../src/HubFrame.cpp" line="1666"/>
         <source>on</source>
         <translation>zapnutý</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1585"/>
-        <location filename="../src/HubFrame.cpp" line="1587"/>
+        <location filename="../src/HubFrame.cpp" line="1664"/>
+        <location filename="../src/HubFrame.cpp" line="1666"/>
         <source>off</source>
         <translation>vypnutý</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1602"/>
-        <location filename="../src/HubFrame.cpp" line="1604"/>
+        <location filename="../src/HubFrame.cpp" line="1681"/>
+        <location filename="../src/HubFrame.cpp" line="1683"/>
         <source>Chat has been cleared</source>
         <translation>chat bol zmazaný</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1654"/>
+        <location filename="../src/HubFrame.cpp" line="1733"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
         <translation>/aspell on/off - enable/disable spell checking
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1914"/>
+        <location filename="../src/HubFrame.cpp" line="1996"/>
         <source>%1 become online</source>
         <translation>%1 je online</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1927"/>
+        <location filename="../src/HubFrame.cpp" line="2009"/>
         <source>User online.</source>
         <translation>užívateľ je online.</translation>
     </message>
@@ -1111,12 +1130,12 @@ Kľúčové skratky:
         <translation>nezdieľané</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3263"/>
+        <location filename="../src/HubFrame.cpp" line="3378"/>
         <source>Suggestions</source>
         <translation>návrhy</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3257"/>
+        <location filename="../src/HubFrame.cpp" line="3372"/>
         <source>Add to dictionary</source>
         <translation>pridať do slovníka</translation>
     </message>
@@ -1137,175 +1156,207 @@ Kľúčové skratky:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1656"/>
+        <location filename="../src/HubFrame.cpp" line="1572"/>
+        <location filename="../src/HubFrame.cpp" line="1574"/>
+        <location filename="../src/HubFrame.cpp" line="1581"/>
+        <location filename="../src/HubFrame.cpp" line="1583"/>
+        <source>Invalid command syntax.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1593"/>
+        <source>List of keywords:
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1735"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
         <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1657"/>
+        <location filename="../src/HubFrame.cpp" line="1736"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
         <translation>/alias purge &lt;ALIAS_NAME&gt; - remove alias</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1658"/>
+        <location filename="../src/HubFrame.cpp" line="1737"/>
         <source>/alias list - list all aliases
 </source>
         <translation>/alias list - list all aliases
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1659"/>
+        <location filename="../src/HubFrame.cpp" line="1738"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
         <translation>/away &lt;message&gt; - set away-mode on/off
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1660"/>
+        <location filename="../src/HubFrame.cpp" line="1739"/>
         <source>/back - set away-mode off
 </source>
         <translation>/back - set away-mode off
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1661"/>
+        <location filename="../src/HubFrame.cpp" line="1740"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
         <translation>/browse &lt;nick&gt; - browse user files
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1662"/>
+        <location filename="../src/HubFrame.cpp" line="1741"/>
         <source>/clear - clear chat window
 </source>
         <translation>/clear - clear chat window
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1663"/>
+        <location filename="../src/HubFrame.cpp" line="1742"/>
+        <source>/kword add &lt;keyword&gt; - add user-defined keyword
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1743"/>
+        <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1744"/>
+        <source>/kword list - list all keywords
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1745"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
         <translation>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1664"/>
+        <location filename="../src/HubFrame.cpp" line="1746"/>
         <source>/close - close this hub
 </source>
         <translation>/close - close this hub
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1665"/>
+        <location filename="../src/HubFrame.cpp" line="1747"/>
         <source>/fav - add this hub to favorites
 </source>
         <translation>/fav - add this hub to favorites
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1666"/>
+        <location filename="../src/HubFrame.cpp" line="1748"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
         <translation>/grant &lt;nick&gt; - grant extra slot to user
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1667"/>
+        <location filename="../src/HubFrame.cpp" line="1749"/>
         <source>/help, /?, /h - show this help
 </source>
         <translation>/help, /?, /h - show this help
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1668"/>
+        <location filename="../src/HubFrame.cpp" line="1750"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
         <translation>/info &lt;nick&gt; - show info about user
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1669"/>
+        <location filename="../src/HubFrame.cpp" line="1751"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
         <translation>/ratio [show] - show ratio [send in chat]
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1670"/>
+        <location filename="../src/HubFrame.cpp" line="1752"/>
         <source>/me - say a third person
 </source>
         <translation>/me - say a third person
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1671"/>
+        <location filename="../src/HubFrame.cpp" line="1753"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
         <translation>/pm &lt;nick&gt; - begin private chat with user
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1672"/>
+        <location filename="../src/HubFrame.cpp" line="1754"/>
         <source>/sh &lt;command&gt; - start command and redirect output to the chat
 </source>
         <translation>/sh &lt;command&gt; - start command and redirect output to the chat
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1674"/>
+        <location filename="../src/HubFrame.cpp" line="1756"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
         <translation>/luafile &lt;file&gt; - load Lua file
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1675"/>
+        <location filename="../src/HubFrame.cpp" line="1757"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
         <translation>/lua &lt;chunk&gt; - execute Lua chunk
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2399"/>
+        <location filename="../src/HubFrame.cpp" line="2498"/>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Počet pripojených užívateľov: %3/%1 | Celkovo zdieľané: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3423"/>
+        <location filename="../src/HubFrame.cpp" line="3538"/>
         <source>Connecting to %1</source>
         <translation>pripájať sa k %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3429"/>
+        <location filename="../src/HubFrame.cpp" line="3544"/>
         <source>Connected to %1</source>
         <translation>pripojený k %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3481"/>
+        <location filename="../src/HubFrame.cpp" line="3596"/>
         <source>Fail: %1...</source>
         <translation>zlyhanie:%1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3660"/>
+        <location filename="../src/HubFrame.cpp" line="3775"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Prepáč ale užívateľ s prezývkou &quot;%1&quot; je práve obsadeny iným užívateľom.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3666"/>
+        <location filename="../src/HubFrame.cpp" line="3781"/>
         <source>Search flood detected: %1</source>
         <translation>Search flood detected: %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1387"/>
+        <location filename="../src/HubFrame.cpp" line="1388"/>
         <source>Hub role: Operator</source>
         <translation>Hub role:operator</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="126"/>
-        <location filename="../src/HubFrame.cpp" line="1198"/>
+        <location filename="../src/HubFrame.cpp" line="1199"/>
         <source>Copy</source>
         <translation>kopírovať</translation>
     </message>
@@ -1315,90 +1366,90 @@ Kľúčové skratky:
         <translation>Kopírovať dáta</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1196"/>
+        <location filename="../src/HubFrame.cpp" line="1197"/>
         <source>Show widget</source>
         <translation>ukázať widget</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1392"/>
+        <location filename="../src/HubFrame.cpp" line="1393"/>
         <source>
 Favorite user</source>
         <translation>obľúbený užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1902"/>
+        <location filename="../src/HubFrame.cpp" line="1984"/>
         <source> joins the chat</source>
         <translation> sa pripojil ku chatu</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1990"/>
-        <location filename="../src/HubFrame.cpp" line="2002"/>
+        <location filename="../src/HubFrame.cpp" line="2072"/>
+        <location filename="../src/HubFrame.cpp" line="2084"/>
         <source>User not found</source>
         <translation>užívateľ nenájdený</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2009"/>
+        <location filename="../src/HubFrame.cpp" line="2091"/>
         <source>Slot granted to </source>
         <translation>slot udelený</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2066"/>
+        <location filename="../src/HubFrame.cpp" line="2148"/>
         <source> has been added to favorites.</source>
         <translation> bol pridany k obľúbeným.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2066"/>
+        <location filename="../src/HubFrame.cpp" line="2148"/>
         <source> has been removed from favorites.</source>
         <translation> bol odstránený z obľubených.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2097"/>
+        <location filename="../src/HubFrame.cpp" line="2179"/>
         <source>Favorite hub added.</source>
         <translation>obľúbený hub pridaný.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2100"/>
+        <location filename="../src/HubFrame.cpp" line="2182"/>
         <source>Favorite hub already exists.</source>
         <translation>obľúbený hub existuje.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2278"/>
+        <location filename="../src/HubFrame.cpp" line="2377"/>
         <source>User offline.</source>
         <translation>užívateľ je offline.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2313"/>
+        <location filename="../src/HubFrame.cpp" line="2412"/>
         <source>Stored password sent...</source>
         <translation>uložené heslo bolo zaslané...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2316"/>
+        <location filename="../src/HubFrame.cpp" line="2415"/>
         <source>Password</source>
         <translation>heslo</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2330"/>
-        <location filename="../src/HubFrame.cpp" line="3471"/>
+        <location filename="../src/HubFrame.cpp" line="2429"/>
+        <location filename="../src/HubFrame.cpp" line="3586"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Požiadavka bola prijatá a presmerovaná na hub na ,ktorý ste sa práve pripojili</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2405"/>
+        <location filename="../src/HubFrame.cpp" line="2504"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Počet pripojených užívateľov: %1 | Celkovo zdieľané: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1339"/>
+        <location filename="../src/HubFrame.cpp" line="1340"/>
         <source>Chat cleared.</source>
         <translation>chat bol zmazaný.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1349"/>
+        <location filename="../src/HubFrame.cpp" line="1350"/>
         <source>Chat disabled.</source>
         <translation>chatovanie je vypnut.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1356"/>
+        <location filename="../src/HubFrame.cpp" line="1357"/>
         <source>Chat enabled.</source>
         <translation>chatovanie je zapnuté.</translation>
     </message>
@@ -1543,838 +1594,826 @@ Favorite user</source>
         <translation>Ukončiť program?</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="622"/>
+        <location filename="../src/MainWindow.cpp" line="632"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="537"/>
+        <location filename="../src/MainWindow.cpp" line="547"/>
         <source>Ctrl+L</source>
         <translation>Ctrl+L</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="582"/>
+        <location filename="../src/MainWindow.cpp" line="592"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="594"/>
+        <location filename="../src/MainWindow.cpp" line="604"/>
         <source>Ctrl+H</source>
         <translation>Ctrl+H</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="634"/>
+        <location filename="../src/MainWindow.cpp" line="644"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="642"/>
+        <location filename="../src/MainWindow.cpp" line="652"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="723"/>
+        <location filename="../src/MainWindow.cpp" line="733"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1121"/>
-        <location filename="../src/MainWindow.cpp" line="2199"/>
+        <location filename="../src/MainWindow.cpp" line="1131"/>
+        <location filename="../src/MainWindow.cpp" line="2209"/>
         <source>Hide window</source>
         <translation>Skryť okno</translation>
     </message>
     <message>
-        <source>Esc</source>
-        <translation type="obsolete">Esc</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1124"/>
-        <location filename="../src/MainWindow.cpp" line="2197"/>
+        <location filename="../src/MainWindow.cpp" line="1134"/>
+        <location filename="../src/MainWindow.cpp" line="2207"/>
         <source>Show/hide find frame</source>
         <translation>Zobraziť/Skryť políčko pre hľadanie</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1158"/>
-        <location filename="../src/MainWindow.cpp" line="2313"/>
+        <location filename="../src/MainWindow.cpp" line="1168"/>
+        <location filename="../src/MainWindow.cpp" line="2323"/>
         <source>Hide free space bar</source>
         <translation>Skryť ukazovateľ voľného miesta na disku</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1161"/>
-        <location filename="../src/MainWindow.cpp" line="2308"/>
+        <location filename="../src/MainWindow.cpp" line="1171"/>
+        <location filename="../src/MainWindow.cpp" line="2318"/>
         <source>Show free space bar</source>
         <translation>Zobraziť ukazovateľ voľného miesta na disku</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="575"/>
+        <location filename="../src/MainWindow.cpp" line="585"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="760"/>
+        <location filename="../src/MainWindow.cpp" line="770"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1068"/>
+        <location filename="../src/MainWindow.cpp" line="1078"/>
         <source>Space free</source>
         <translation>Voľné miesto</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1105"/>
+        <location filename="../src/MainWindow.cpp" line="1115"/>
         <source>&amp;File</source>
         <translation>&amp;Súbor</translation>
     </message>
     <message>
-        <source>Options</source>
-        <translation type="obsolete">Možnosti</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1109"/>
-        <location filename="../src/MainWindow.cpp" line="1950"/>
+        <location filename="../src/MainWindow.cpp" line="1119"/>
+        <location filename="../src/MainWindow.cpp" line="1960"/>
         <source>Open log file</source>
         <translation>Otvoriť záznam</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1113"/>
+        <location filename="../src/MainWindow.cpp" line="1123"/>
         <source>Open filelist...</source>
         <translation>Otvoriť zoznam súborov...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1117"/>
+        <location filename="../src/MainWindow.cpp" line="1127"/>
         <source>Open own filelist</source>
         <translation>Otvoriť vlastný zoznam súborov</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1119"/>
-        <location filename="../src/MainWindow.cpp" line="1510"/>
+        <location filename="../src/MainWindow.cpp" line="1129"/>
+        <location filename="../src/MainWindow.cpp" line="1520"/>
         <source>Refresh share</source>
         <translation>Obnoviť zdieľanie</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1519"/>
         <location filename="../src/MainWindow.cpp" line="1529"/>
         <location filename="../src/MainWindow.cpp" line="1539"/>
+        <location filename="../src/MainWindow.cpp" line="1549"/>
         <source>Hash progress</source>
         <translation>Postup kontroly súčtu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1142"/>
+        <location filename="../src/MainWindow.cpp" line="1152"/>
         <source>Transfers</source>
         <translation>Prenosy</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1144"/>
+        <location filename="../src/MainWindow.cpp" line="1154"/>
         <source>Download queue</source>
         <translation>Fronta sťahovania</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1148"/>
+        <location filename="../src/MainWindow.cpp" line="1158"/>
         <source>Finished downloads</source>
         <translation>Ukončené sťahovania</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1150"/>
+        <location filename="../src/MainWindow.cpp" line="1160"/>
         <source>Finished uploads</source>
         <translation>Dokončené uploady</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1152"/>
+        <location filename="../src/MainWindow.cpp" line="1162"/>
         <source>Search Spy</source>
         <translation>Hľadať</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1154"/>
+        <location filename="../src/MainWindow.cpp" line="1164"/>
         <source>AntiSpam module</source>
         <translation>AntiSpam modul</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1156"/>
+        <location filename="../src/MainWindow.cpp" line="1166"/>
         <source>IPFilter module</source>
         <translation>IPFilter modul</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1134"/>
+        <location filename="../src/MainWindow.cpp" line="1144"/>
         <source>Public hubs</source>
         <translation>Verejné huby</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1163"/>
-        <location filename="../src/MainWindow.cpp" line="2327"/>
+        <location filename="../src/MainWindow.cpp" line="1173"/>
+        <location filename="../src/MainWindow.cpp" line="2337"/>
         <source>Hide last status message</source>
         <translation>Skryť naposledy použitú správu o stave</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1128"/>
+        <location filename="../src/MainWindow.cpp" line="1138"/>
         <source>&amp;Hubs</source>
         <translation>&amp;Huby</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1140"/>
+        <location filename="../src/MainWindow.cpp" line="1150"/>
         <source>&amp;Tools</source>
         <translation>&amp;Nástroje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1173"/>
+        <location filename="../src/MainWindow.cpp" line="1183"/>
         <source>Away message</source>
         <translation>Správa o odchode</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1197"/>
+        <location filename="../src/MainWindow.cpp" line="1207"/>
         <source>Clear chat</source>
         <translation>Zmazať chat</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1201"/>
+        <location filename="../src/MainWindow.cpp" line="1211"/>
         <source>Disable/enable chat</source>
         <translation>Vypnúť/Zapnúť chat</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1203"/>
+        <location filename="../src/MainWindow.cpp" line="1213"/>
         <source>&amp;Widgets</source>
         <translation>&amp;Widgety</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1205"/>
+        <location filename="../src/MainWindow.cpp" line="1215"/>
         <source>&amp;Panels</source>
         <translation>&amp;Panely</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1208"/>
+        <location filename="../src/MainWindow.cpp" line="1218"/>
         <source>Widgets panel</source>
         <translation>Widget panel</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1212"/>
+        <location filename="../src/MainWindow.cpp" line="1222"/>
         <source>Tools panel</source>
         <translation>Nástrojový panel</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1480"/>
+        <location filename="../src/MainWindow.cpp" line="1490"/>
         <source>Free %1</source>
         <translation>Voľný %1</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1483"/>
+        <location filename="../src/MainWindow.cpp" line="1493"/>
         <source>Free %1 of %2</source>
         <translation>Voľný priestor na disku %1 z %2</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1932"/>
+        <location filename="../src/MainWindow.cpp" line="1942"/>
         <source>Connectivity Manager: Warning</source>
         <translation>Manažér pripojenia: Výstraha</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1950"/>
+        <location filename="../src/MainWindow.cpp" line="1960"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation>Log files (*.log);;All files (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1166"/>
-        <location filename="../src/MainWindow.cpp" line="2325"/>
+        <location filename="../src/MainWindow.cpp" line="1176"/>
+        <location filename="../src/MainWindow.cpp" line="2335"/>
         <source>Show last status message</source>
         <translation>Zobraziť naposledy použitu správu o stave</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2432"/>
+        <location filename="../src/MainWindow.cpp" line="2442"/>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
         <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
     </message>
     <message>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="obsolete">EiskaltDC++ je grafický klient pre Direct Connect and ADC protocols.</translation>
-    </message>
-    <message>
-        <source>DC++ core version:</source>
-        <translation type="obsolete">DC++ verzia jadra:</translation>
-    </message>
-    <message>
-        <source>(modified)</source>
-        <translation type="obsolete">(modifikované)</translation>
-    </message>
-    <message>
-        <source>Home page:</source>
-        <translation type="obsolete">Domovská stránka:</translation>
-    </message>
-    <message>
-        <source>Total up:</source>
-        <translation type="obsolete">Total up:</translation>
-    </message>
-    <message>
-        <source>Total down:</source>
-        <translation type="obsolete">Total down:</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1130"/>
+        <location filename="../src/MainWindow.cpp" line="1140"/>
         <source>Reconnect to hub</source>
         <translation>Znova pripojiť ku hubu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1038"/>
+        <location filename="../src/MainWindow.cpp" line="1048"/>
         <source>Counts</source>
         <translation>Počíta</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1132"/>
+        <location filename="../src/MainWindow.cpp" line="1142"/>
         <source>Favourite hubs</source>
         <translation>Obľúbené huby</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1136"/>
+        <location filename="../src/MainWindow.cpp" line="1146"/>
         <source>Favourite users</source>
         <translation>Obľúbený užívatelia</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1185"/>
+        <location filename="../src/MainWindow.cpp" line="1195"/>
         <source>Search</source>
         <translation>Hľadať</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1138"/>
+        <location filename="../src/MainWindow.cpp" line="1148"/>
         <source>Quick connect</source>
         <translation>Rýchle pripojenie</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="563"/>
+        <location filename="../src/MainWindow.cpp" line="573"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="588"/>
+        <location filename="../src/MainWindow.cpp" line="598"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="600"/>
+        <location filename="../src/MainWindow.cpp" line="610"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="606"/>
+        <location filename="../src/MainWindow.cpp" line="616"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1168"/>
-        <location filename="../src/MainWindow.cpp" line="2347"/>
+        <location filename="../src/MainWindow.cpp" line="1178"/>
+        <location filename="../src/MainWindow.cpp" line="2357"/>
         <source>Hide users statistics</source>
         <translation>Skryť štatistiky užívateľov</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1171"/>
-        <location filename="../src/MainWindow.cpp" line="2345"/>
+        <location filename="../src/MainWindow.cpp" line="1181"/>
+        <location filename="../src/MainWindow.cpp" line="2355"/>
         <source>Show users statistics</source>
         <translation>Zobraziť štatistiky užívateľov</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="890"/>
+        <location filename="../src/MainWindow.cpp" line="900"/>
         <source>Next widget</source>
         <translation>Nasledujúci widget</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="891"/>
+        <location filename="../src/MainWindow.cpp" line="901"/>
         <source>Previous widget</source>
         <translation>Predchádzajúci widget</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1082"/>
+        <location filename="../src/MainWindow.cpp" line="1092"/>
         <source>Hashing progress</source>
         <translation>Postup kontroly súčtu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1111"/>
+        <location filename="../src/MainWindow.cpp" line="1121"/>
         <source>Open download directory</source>
         <translation>Otvoriť priečinok so stiahnutými súbormi</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1115"/>
+        <location filename="../src/MainWindow.cpp" line="1125"/>
         <source>Calculate file TTH</source>
         <translation>Prepočítať súbor TTH</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1126"/>
+        <location filename="../src/MainWindow.cpp" line="1136"/>
         <source>Quit</source>
         <translation>Ukončiť</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1146"/>
+        <location filename="../src/MainWindow.cpp" line="1156"/>
         <source>Hub Manager</source>
         <translation>Hub manažér</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1175"/>
+        <location filename="../src/MainWindow.cpp" line="1185"/>
         <source>On</source>
         <translation>Zapnúť</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1177"/>
+        <location filename="../src/MainWindow.cpp" line="1187"/>
         <source>Off</source>
         <translation>Vypnúť</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1179"/>
+        <location filename="../src/MainWindow.cpp" line="1189"/>
         <source>Away when not visible</source>
         <translation>Nastaviť preč , ak niesom viditeľný</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1181"/>
+        <location filename="../src/MainWindow.cpp" line="1191"/>
         <source>Copy window title</source>
         <translation>Kopírovať názov okna</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1187"/>
+        <location filename="../src/MainWindow.cpp" line="1197"/>
         <source>ADLSearch</source>
         <translation>ADLS hľadanie</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1192"/>
+        <location filename="../src/MainWindow.cpp" line="1202"/>
         <source>Scripts Manager</source>
         <translation>Skript manažer</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1194"/>
+        <location filename="../src/MainWindow.cpp" line="1204"/>
         <source>Script Console</source>
         <translation>Skript konzola</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1199"/>
+        <location filename="../src/MainWindow.cpp" line="1209"/>
         <source>Find/Filter</source>
         <translation>Hľadať/Filtrovať</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1210"/>
+        <location filename="../src/MainWindow.cpp" line="1220"/>
         <source>Widgets side dock</source>
         <translation>Miesto pre widgety</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1214"/>
+        <location filename="../src/MainWindow.cpp" line="1224"/>
         <source>Fast search panel</source>
         <translation>Panel rýchleho hľadania</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1216"/>
+        <location filename="../src/MainWindow.cpp" line="1226"/>
         <source>&amp;Help</source>
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1218"/>
+        <location filename="../src/MainWindow.cpp" line="1228"/>
         <source>Homepage</source>
         <translation>Domovská stránka</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1222"/>
+        <location filename="../src/MainWindow.cpp" line="1232"/>
         <source>Report a Bug</source>
         <translation>Nahlásiť problém</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1224"/>
+        <location filename="../src/MainWindow.cpp" line="1234"/>
         <source>Wiki of project</source>
         <translation>Wiki projektu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1228"/>
+        <location filename="../src/MainWindow.cpp" line="1238"/>
         <source>About EiskaltDC++</source>
         <translation>Informácie o EiskaltDC++</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1230"/>
+        <location filename="../src/MainWindow.cpp" line="1240"/>
         <source>About Qt</source>
         <translation>Informácie o Qt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1236"/>
+        <location filename="../src/MainWindow.cpp" line="1246"/>
         <source>Main layout</source>
         <translation>Hlavné usporiadanie</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1233"/>
-        <location filename="../src/MainWindow.cpp" line="1261"/>
+        <location filename="../src/MainWindow.cpp" line="1243"/>
+        <location filename="../src/MainWindow.cpp" line="1271"/>
         <source>Actions</source>
         <translation>Akcie</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="531"/>
+        <location filename="../src/MainWindow.cpp" line="312"/>
+        <source>Enter user nick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="312"/>
+        <source>Nick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="312"/>
+        <source>User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="317"/>
+        <source>Would you like to change other settings?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="541"/>
         <source>Ctrl+I</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="569"/>
+        <location filename="../src/MainWindow.cpp" line="579"/>
         <source>Ctrl+Alt+H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="892"/>
+        <location filename="../src/MainWindow.cpp" line="902"/>
         <source>Next message</source>
         <translation>Nová správa</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="893"/>
+        <location filename="../src/MainWindow.cpp" line="903"/>
         <source>Previous message</source>
         <translation>Predchádzajúca správa</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="894"/>
+        <location filename="../src/MainWindow.cpp" line="904"/>
         <source>Close current widget</source>
         <translation>Uzavrieť aktuálny widget</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="895"/>
+        <location filename="../src/MainWindow.cpp" line="905"/>
         <source>Toggle main menu</source>
         <translation>Zapnúť/Vypnúť hlavné menu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="904"/>
+        <location filename="../src/MainWindow.cpp" line="914"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="905"/>
+        <location filename="../src/MainWindow.cpp" line="915"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="906"/>
+        <location filename="../src/MainWindow.cpp" line="916"/>
         <source>Ctrl+Down</source>
         <translation>Ctrl+Dole</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="907"/>
+        <location filename="../src/MainWindow.cpp" line="917"/>
         <source>Ctrl+Up</source>
         <translation>Ctrl+Hore</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="908"/>
+        <location filename="../src/MainWindow.cpp" line="918"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="909"/>
+        <location filename="../src/MainWindow.cpp" line="919"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1044"/>
+        <location filename="../src/MainWindow.cpp" line="1054"/>
         <source>Download/Upload speed</source>
         <translation>Rýchlosť sťahovania/uploadovania</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1050"/>
+        <location filename="../src/MainWindow.cpp" line="1060"/>
         <source>Downloaded/Uploaded</source>
         <translation>Stiahnuté/Uploadované</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1107"/>
-        <location filename="../src/MainWindow.cpp" line="2021"/>
+        <location filename="../src/MainWindow.cpp" line="1117"/>
+        <location filename="../src/MainWindow.cpp" line="2031"/>
         <source>Open magnet link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1183"/>
+        <location filename="../src/MainWindow.cpp" line="1193"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1189"/>
+        <location filename="../src/MainWindow.cpp" line="1199"/>
         <source>Speed limit On/Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1220"/>
+        <location filename="../src/MainWindow.cpp" line="1230"/>
         <source>Source (git)</source>
         <translation>Zdroj (git)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1226"/>
+        <location filename="../src/MainWindow.cpp" line="1236"/>
         <source>Changelog (git)</source>
         <translation>Zoznam zmien (git)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1452"/>
+        <location filename="../src/MainWindow.cpp" line="1462"/>
         <source>%1/s / %2/s</source>
         <translation>%1/s / %2/s</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1453"/>
+        <location filename="../src/MainWindow.cpp" line="1463"/>
         <source>%1 / %2</source>
         <translation>%1 / %2</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1459"/>
+        <location filename="../src/MainWindow.cpp" line="1469"/>
         <source>/s</source>
         <translation>/s</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1522"/>
+        <location filename="../src/MainWindow.cpp" line="1532"/>
         <source>List update</source>
         <translation>Aktualizovať zoznam</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1532"/>
+        <location filename="../src/MainWindow.cpp" line="1542"/>
         <source>Paused</source>
         <translation>Pozastavené</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1542"/>
+        <location filename="../src/MainWindow.cpp" line="1552"/>
         <source>%p%</source>
         <translation>%p%</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1648"/>
+        <location filename="../src/MainWindow.cpp" line="1658"/>
         <source>Choose file to open</source>
         <translation>Vybrať súbor na otvorenie</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1650"/>
+        <location filename="../src/MainWindow.cpp" line="1660"/>
         <source>Modern XML Filelists</source>
         <translation>Modern XML Filelists</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1651"/>
+        <location filename="../src/MainWindow.cpp" line="1661"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Modern XML Filelists uncompressed</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1652"/>
+        <location filename="../src/MainWindow.cpp" line="1662"/>
         <source>All files</source>
         <translation>Všetky súbory</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1663"/>
+        <location filename="../src/MainWindow.cpp" line="1673"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation>Nie je možné načítať zoznam súborov: Neplatný názov zoznamu súborov</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1883"/>
+        <location filename="../src/MainWindow.cpp" line="1893"/>
         <source>Menu</source>
         <translation>Menu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1931"/>
+        <location filename="../src/MainWindow.cpp" line="1941"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
         <translation>Nie je možné otvoriť %1 port. Nie je možné hľadať alebo sťahovať súbory pokiaľ si nezmeníte alebo nezatvoríte aplikácie , ktoré by mohli využívať tento port.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2021"/>
+        <location filename="../src/MainWindow.cpp" line="2031"/>
         <source>Enter magnet link:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2368"/>
+        <location filename="../src/MainWindow.cpp" line="2378"/>
         <source>Button style</source>
         <translation>Button style</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2369"/>
+        <location filename="../src/MainWindow.cpp" line="2379"/>
         <source>Icons only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2370"/>
+        <location filename="../src/MainWindow.cpp" line="2380"/>
         <source>Text only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2371"/>
+        <location filename="../src/MainWindow.cpp" line="2381"/>
         <source>Text beside icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2372"/>
+        <location filename="../src/MainWindow.cpp" line="2382"/>
         <source>Text under icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2382"/>
+        <location filename="../src/MainWindow.cpp" line="2392"/>
         <source>Customize</source>
         <translation>Prispôsobiť</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2449"/>
+        <location filename="../src/MainWindow.cpp" line="2459"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2466"/>
+        <location filename="../src/MainWindow.cpp" line="2476"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation>Ak zistíte nieakú chybu prosím nahláste je tu &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt;.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2468"/>
+        <location filename="../src/MainWindow.cpp" line="2478"/>
         <source>&lt;br/&gt;&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&lt;b&gt;Vývojári&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2470"/>
+        <location filename="../src/MainWindow.cpp" line="2480"/>
         <source>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2474"/>
+        <location filename="../src/MainWindow.cpp" line="2484"/>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2478"/>
+        <location filename="../src/MainWindow.cpp" line="2488"/>
         <source>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2482"/>
+        <location filename="../src/MainWindow.cpp" line="2492"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2486"/>
+        <location filename="../src/MainWindow.cpp" line="2496"/>
         <source>&lt;br/&gt;&lt;b&gt;Logo and Splash Screen Logo&lt;/b&gt;&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2488"/>
+        <location filename="../src/MainWindow.cpp" line="2498"/>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2495"/>
+        <location filename="../src/MainWindow.cpp" line="2505"/>
         <source>&lt;b&gt;Translators&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Prekladatelia&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2496"/>
+        <location filename="../src/MainWindow.cpp" line="2506"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ruský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2498"/>
+        <location filename="../src/MainWindow.cpp" line="2508"/>
         <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2502"/>
+        <location filename="../src/MainWindow.cpp" line="2512"/>
         <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2506"/>
+        <location filename="../src/MainWindow.cpp" line="2516"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bieloruský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2508"/>
+        <location filename="../src/MainWindow.cpp" line="2518"/>
         <source>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2512"/>
+        <location filename="../src/MainWindow.cpp" line="2522"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Maďarský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2514"/>
+        <location filename="../src/MainWindow.cpp" line="2524"/>
         <source>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2518"/>
+        <location filename="../src/MainWindow.cpp" line="2528"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Francúzsky preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2520"/>
+        <location filename="../src/MainWindow.cpp" line="2530"/>
         <source>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2524"/>
+        <location filename="../src/MainWindow.cpp" line="2534"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Poľský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2526"/>
+        <location filename="../src/MainWindow.cpp" line="2536"/>
         <source>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2529"/>
+        <location filename="../src/MainWindow.cpp" line="2539"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrajinský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2531"/>
+        <location filename="../src/MainWindow.cpp" line="2541"/>
         <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2535"/>
+        <location filename="../src/MainWindow.cpp" line="2545"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Srbský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2537"/>
+        <location filename="../src/MainWindow.cpp" line="2547"/>
         <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2541"/>
+        <location filename="../src/MainWindow.cpp" line="2551"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Spanish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Španielský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2543"/>
+        <location filename="../src/MainWindow.cpp" line="2553"/>
         <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2547"/>
+        <location filename="../src/MainWindow.cpp" line="2557"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulharský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2549"/>
+        <location filename="../src/MainWindow.cpp" line="2559"/>
         <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2553"/>
+        <location filename="../src/MainWindow.cpp" line="2563"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovenský preklad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2555"/>
+        <location filename="../src/MainWindow.cpp" line="2565"/>
         <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2559"/>
+        <location filename="../src/MainWindow.cpp" line="2569"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2561"/>
+        <location filename="../src/MainWindow.cpp" line="2571"/>
         <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2591"/>
+        <location filename="../src/MainWindow.cpp" line="2601"/>
         <source>Close all</source>
         <translation>Zavrieť všetko</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2611"/>
+        <location filename="../src/MainWindow.cpp" line="2621"/>
         <source>Close</source>
         <translation>Zatvoriť</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2686"/>
+        <location filename="../src/MainWindow.cpp" line="2696"/>
         <source>Show close buttons</source>
         <translation type="unfinished">Zobraziť tlačidlá pre zatvorenie programu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2776"/>
+        <location filename="../src/MainWindow.cpp" line="2786"/>
         <source>Download Queue</source>
         <translation>fronta sťahovania</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2776"/>
+        <location filename="../src/MainWindow.cpp" line="2786"/>
         <source>All downloads complete</source>
         <translation>Všetky sťahovania dokončené</translation>
     </message>
@@ -2444,23 +2483,19 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Zatvoriť</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="306"/>
+        <location filename="../src/PMWindow.cpp" line="307"/>
         <source>%1 on hub %2</source>
         <translation>%1 on hube %2</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="336"/>
+        <location filename="../src/PMWindow.cpp" line="337"/>
         <source>Chat cleared.</source>
         <translation>Chat bol zmazaný.</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="424"/>
+        <location filename="../src/PMWindow.cpp" line="425"/>
         <source>User went offline</source>
         <translation>Užívateľ sa odhlásil</translation>
-    </message>
-    <message>
-        <source>Disable emoticons</source>
-        <translation type="obsolete">Vypnúť smajlíkov</translation>
     </message>
 </context>
 <context>
@@ -2569,10 +2604,6 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hub list downloaded... (%1)</source>
-        <translation type="obsolete">Zoznam hubov stiahnutý... (%1)</translation>
-    </message>
-    <message>
         <location filename="../src/PublicHubs.cpp" line="307"/>
         <source>Hub list loaded from cache...</source>
         <translation>Zoznam hubov načitaný z pamäti...</translation>
@@ -2636,12 +2667,12 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Ukončiť...</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="223"/>
+        <location filename="../src/main.cpp" line="214"/>
         <source>Cannot handle SIGPIPE</source>
         <translation>Nemôžem manipulovať s SIGPIPE</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="228"/>
+        <location filename="../src/main.cpp" line="219"/>
         <source>Signal handlers installed.</source>
         <translation>Signál obslúžného programu nainštalovaný.</translation>
     </message>
@@ -2950,56 +2981,66 @@ Stiahnuté: %3 Uploadované: %4</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="127"/>
+        <source>Blacklist...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SearchFrame.cpp" line="130"/>
         <source>Blacklist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="229"/>
-        <location filename="../src/SearchFrame.cpp" line="232"/>
+        <location filename="../src/SearchFrame.cpp" line="133"/>
+        <source>Add to Blacklist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SearchFrame.cpp" line="239"/>
+        <location filename="../src/SearchFrame.cpp" line="242"/>
         <source>Browse</source>
         <translation>Prehliadať</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="305"/>
+        <location filename="../src/SearchFrame.cpp" line="316"/>
         <source>Search window</source>
         <translation>Okienko pre hľadanie</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="417"/>
+        <location filename="../src/SearchFrame.cpp" line="428"/>
         <source>Close</source>
         <translation>Zatvoriť</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="653"/>
-        <location filename="../src/SearchFrame.cpp" line="981"/>
+        <location filename="../src/SearchFrame.cpp" line="664"/>
+        <location filename="../src/SearchFrame.cpp" line="992"/>
         <source>Searching too soon, next search in %1 second</source>
         <translation>Hľadáš príliš rýchlo, ďalšie hľadanie bude nasledovať za %1 sekúnd</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="657"/>
-        <location filename="../src/SearchFrame.cpp" line="976"/>
-        <location filename="../src/SearchFrame.cpp" line="985"/>
+        <location filename="../src/SearchFrame.cpp" line="668"/>
+        <location filename="../src/SearchFrame.cpp" line="987"/>
+        <location filename="../src/SearchFrame.cpp" line="996"/>
         <source>Search - %1</source>
         <translation>Hľadať - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="662"/>
+        <location filename="../src/SearchFrame.cpp" line="673"/>
         <source>Ready to search...</source>
         <translation>Pripravený na hľadanie...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1093"/>
-        <location filename="../src/SearchFrame.cpp" line="1151"/>
+        <location filename="../src/SearchFrame.cpp" line="1104"/>
+        <location filename="../src/SearchFrame.cpp" line="1162"/>
         <source>Select directory</source>
         <translation>Vybrať adresár</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1437"/>
+        <location filename="../src/SearchFrame.cpp" line="1468"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bez výsledkov&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1446"/>
+        <location filename="../src/SearchFrame.cpp" line="1477"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Nájdené: &lt;b&gt;%1&lt;/b&gt; Stratené: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -3075,10 +3116,6 @@ Stiahnuté: %3 Uploadované: %4</translation>
 <context>
     <name>Settings</name>
     <message>
-        <source>Options</source>
-        <translation type="obsolete">Možnosti</translation>
-    </message>
-    <message>
         <location filename="../src/Settings.cpp" line="29"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
@@ -3132,17 +3169,17 @@ Stiahnuté: %3 Uploadované: %4</translation>
 <context>
     <name>SettingsConnection</name>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="102"/>
+        <location filename="../src/SettingsConnection.cpp" line="105"/>
         <source>No valid SOCKS5 server IP found!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="145"/>
+        <location filename="../src/SettingsConnection.cpp" line="148"/>
         <source>Program need root privileges to open ports less than 1024</source>
         <translation>Program potrebuje nastaviť práva root(a) na otvorenie portu nižšieho ako 1024</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="308"/>
+        <location filename="../src/SettingsConnection.cpp" line="312"/>
         <source>Warning</source>
         <translation>Varovanie</translation>
     </message>
@@ -3299,12 +3336,12 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Správa</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="547"/>
+        <location filename="../src/SettingsGUI.cpp" line="592"/>
         <source>Select translation</source>
         <translation>Vybrať preklad</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="547"/>
+        <location filename="../src/SettingsGUI.cpp" line="592"/>
         <source>Translation (*.qm)</source>
         <translation>Preklad (*.qm)</translation>
     </message>
@@ -3320,12 +3357,12 @@ Stiahnuté: %3 Uploadované: %4</translation>
 <context>
     <name>SettingsNotification</name>
     <message>
-        <location filename="../src/SettingsNotification.cpp" line="191"/>
+        <location filename="../src/SettingsNotification.cpp" line="194"/>
         <source>Select file</source>
         <translation>Vybrať súbor</translation>
     </message>
     <message>
-        <location filename="../src/SettingsNotification.cpp" line="191"/>
+        <location filename="../src/SettingsNotification.cpp" line="194"/>
         <source>All files (*.*)</source>
         <translation>Všetky súbory</translation>
     </message>
@@ -3345,10 +3382,6 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <location filename="../src/SettingsSharing.cpp" line="161"/>
         <source>Total shared: %1</source>
         <translation>Celkovo zdieľané: %1</translation>
-    </message>
-    <message>
-        <source>%1 GiB</source>
-        <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="188"/>
@@ -3373,22 +3406,6 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <location filename="../src/SettingsSharing.cpp" line="295"/>
         <source>Remove</source>
         <translation>Odstrániť</translation>
-    </message>
-    <message>
-        <source>Enter virtual path name</source>
-        <translation type="obsolete">Zadaj názov virtuálnej cesty</translation>
-    </message>
-    <message>
-        <source>Virtual path</source>
-        <translation type="obsolete">Virtuálna cesta</translation>
-    </message>
-    <message>
-        <source>Enter restriction (in GiB)</source>
-        <translation type="obsolete">Zadať obmedzenie (v GiB)</translation>
-    </message>
-    <message>
-        <source>Restriction</source>
-        <translation type="obsolete">Obmedzenia</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="205"/>
@@ -4568,14 +4585,6 @@ p, li { white-space: pre-wrap; }
         <source>Connect</source>
         <translation>Pripojiť</translation>
     </message>
-    <message>
-        <source>Move up</source>
-        <translation type="obsolete">Zdvihnúť</translation>
-    </message>
-    <message>
-        <source>Move down</source>
-        <translation type="obsolete">Presunúť</translation>
-    </message>
 </context>
 <context>
     <name>UIFavoriteUsers</name>
@@ -4641,7 +4650,17 @@ p, li { white-space: pre-wrap; }
         <translation>Zobraziť</translation>
     </message>
     <message>
-        <location filename="../ui/UIFinishedTransfers.ui" line="56"/>
+        <location filename="../ui/UIFinishedTransfers.ui" line="43"/>
+        <source>Show only completely finished transfers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFinishedTransfers.ui" line="46"/>
+        <source>Full only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFinishedTransfers.ui" line="66"/>
         <source>Clear</source>
         <translation>Vyčistiť</translation>
     </message>
@@ -5084,7 +5103,7 @@ Ak máš nainštalovaný firewall, tak bude možno potrebné nastaviť tvoj fire
         <translation>Extérna/WAN IP:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="287"/>
+        <location filename="../ui/UISettingsConnection.ui" line="314"/>
         <source>000.000.000.000; </source>
         <translation></translation>
     </message>
@@ -5114,88 +5133,93 @@ Ak máš nainštalovaný firewall, tak bude možno potrebné nastaviť tvoj fire
         <translation>Automaticky zistiť pripojenie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="229"/>
+        <location filename="../ui/UISettingsConnection.ui" line="231"/>
+        <source>Bind Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="256"/>
         <source>Outgoing connections</source>
         <translation>Odchádzajúce pripojenia</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="249"/>
+        <location filename="../ui/UISettingsConnection.ui" line="276"/>
         <source>Direct connection</source>
         <translation>Priame spojenie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="265"/>
+        <location filename="../ui/UISettingsConnection.ui" line="292"/>
         <source>SOCKS5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="300"/>
+        <location filename="../ui/UISettingsConnection.ui" line="327"/>
         <source>IP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="307"/>
+        <location filename="../ui/UISettingsConnection.ui" line="334"/>
         <source>User</source>
         <translation>Užívateľ</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="314"/>
+        <location filename="../ui/UISettingsConnection.ui" line="341"/>
         <source>Password</source>
         <translation>Heslo</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="321"/>
+        <location filename="../ui/UISettingsConnection.ui" line="348"/>
         <source>Port</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="334"/>
+        <location filename="../ui/UISettingsConnection.ui" line="361"/>
         <source>00000; </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="341"/>
+        <location filename="../ui/UISettingsConnection.ui" line="368"/>
         <source>Use to resolve hostnames</source>
         <translation>Použiť k vyriešeniu hostiteľov</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="398"/>
+        <location filename="../ui/UISettingsConnection.ui" line="425"/>
         <source>When enabled can hang program on exit.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="401"/>
+        <location filename="../ui/UISettingsConnection.ui" line="428"/>
         <source>Automatically update external IP (restart required)</source>
         <translation>Automaticky aktualizovať extérnu IP adresu (potrebný reštart)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="369"/>
+        <location filename="../ui/UISettingsConnection.ui" line="396"/>
         <source>DynDNS Address:</source>
         <translation>DynDNS Adresa:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="425"/>
-        <location filename="../ui/UISettingsConnection.ui" line="440"/>
+        <location filename="../ui/UISettingsConnection.ui" line="452"/>
+        <location filename="../ui/UISettingsConnection.ui" line="467"/>
         <source>Limits</source>
         <translation>Limity</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="554"/>
+        <location filename="../ui/UISettingsConnection.ui" line="581"/>
         <source>Alternate speed limit at time from </source>
         <translation>Nastaviť časový limit pre sťahovanie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="693"/>
+        <location filename="../ui/UISettingsConnection.ui" line="720"/>
         <source>Slots</source>
         <translation>Sloty</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="736"/>
+        <location filename="../ui/UISettingsConnection.ui" line="763"/>
         <source>Advanced</source>
         <translation>Rozšírené</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="748"/>
+        <location filename="../ui/UISettingsConnection.ui" line="775"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -5211,43 +5235,43 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="763"/>
+        <location filename="../ui/UISettingsConnection.ui" line="790"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="768"/>
+        <location filename="../ui/UISettingsConnection.ui" line="795"/>
         <source>Low delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="773"/>
+        <location filename="../ui/UISettingsConnection.ui" line="800"/>
         <source>Throughput</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="778"/>
+        <location filename="../ui/UISettingsConnection.ui" line="805"/>
         <source>Reliability</source>
         <translation type="unfinished">Spoľahlivos</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="783"/>
+        <location filename="../ui/UISettingsConnection.ui" line="810"/>
         <source>Minimal cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="810"/>
+        <location filename="../ui/UISettingsConnection.ui" line="837"/>
         <source>Type-of-Service (ToS)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="839"/>
+        <location filename="../ui/UISettingsConnection.ui" line="866"/>
         <source>Reconnect to hub(seconds)</source>
         <translation>Znova pripojiť ku hubu(v sekundách)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="477"/>
-        <location filename="../ui/UISettingsConnection.ui" line="629"/>
+        <location filename="../ui/UISettingsConnection.ui" line="504"/>
+        <location filename="../ui/UISettingsConnection.ui" line="656"/>
         <source>Download</source>
         <translation>Sťahovanie</translation>
     </message>
@@ -5291,7 +5315,7 @@ Mnoho routrov podporuje UPnP ale treba ho zapnúť v routri.
 Týmto spôsobom EiskaltDC++ automaticky nastaví porty ak to bude potrebné na získanie extérnej IP adresy.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="244"/>
+        <location filename="../ui/UISettingsConnection.ui" line="271"/>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
@@ -5300,7 +5324,7 @@ Toto zahrňuje pripojenie ku hociakej IP adrese alebo portu.
 Ak si nie si istý zvoľ si túto možnosť.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="259"/>
+        <location filename="../ui/UISettingsConnection.ui" line="286"/>
         <source>Select this mode if you want to make outbound connections through
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
@@ -5311,31 +5335,31 @@ SOSKS5 proxy niesú totožné ako HTTP proxy.
 DC++ SOCKS5 nepodporuje GSSAPI.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="446"/>
+        <location filename="../ui/UISettingsConnection.ui" line="473"/>
         <source>Enable Throttle</source>
         <translation>Zapnúť regulátor pre:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="491"/>
-        <location filename="../ui/UISettingsConnection.ui" line="525"/>
-        <location filename="../ui/UISettingsConnection.ui" line="670"/>
-        <location filename="../ui/UISettingsConnection.ui" line="703"/>
+        <location filename="../ui/UISettingsConnection.ui" line="518"/>
+        <location filename="../ui/UISettingsConnection.ui" line="552"/>
+        <location filename="../ui/UISettingsConnection.ui" line="697"/>
+        <location filename="../ui/UISettingsConnection.ui" line="730"/>
         <source>KiB/s</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="511"/>
-        <location filename="../ui/UISettingsConnection.ui" line="656"/>
+        <location filename="../ui/UISettingsConnection.ui" line="538"/>
+        <location filename="../ui/UISettingsConnection.ui" line="683"/>
         <source>Upload</source>
         <translation>Upload</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="580"/>
+        <location filename="../ui/UISettingsConnection.ui" line="607"/>
         <source>to</source>
         <translation>do</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="594"/>
+        <location filename="../ui/UISettingsConnection.ui" line="621"/>
         <source>hour(s)</source>
         <translation>hodina(y)</translation>
     </message>
@@ -5989,6 +6013,7 @@ them is usually available only to operators</source>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="558"/>
+        <location filename="../ui/UISettingsGUI.ui" line="863"/>
         <source>Download</source>
         <translation>Stiahnúť</translation>
     </message>
@@ -6050,12 +6075,27 @@ them is usually available only to operators</source>
         <translation>Zvýrazniť súbory, ktoré su zdieľané</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="843"/>
+        <location filename="../ui/UISettingsGUI.ui" line="847"/>
+        <source>Transfer colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="870"/>
+        <source>Upload</source>
+        <translation type="unfinished">Upload</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="897"/>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="909"/>
         <source>Change background color in the chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="886"/>
+        <location filename="../ui/UISettingsGUI.ui" line="952"/>
         <source>Fonts</source>
         <translation>Fonty</translation>
     </message>
@@ -6215,7 +6255,7 @@ them is usually available only to operators</source>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="63"/>
-        <location filename="../ui/UISettingsNotification.ui" line="256"/>
+        <location filename="../ui/UISettingsNotification.ui" line="263"/>
         <source>Transfer done</source>
         <translation>Prenos ukončený</translation>
     </message>
@@ -6255,12 +6295,17 @@ them is usually available only to operators</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="288"/>
+        <location filename="../ui/UISettingsNotification.ui" line="253"/>
+        <source>Play sound on active PM window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsNotification.ui" line="295"/>
         <source>Favorite user event</source>
         <translation>Obľúbené užívateľské udalosti</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="348"/>
+        <location filename="../ui/UISettingsNotification.ui" line="355"/>
         <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
@@ -6285,13 +6330,13 @@ Príklad: /usr/bin/mplayer</translation>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="207"/>
         <location filename="../ui/UISettingsNotification.ui" line="239"/>
-        <location filename="../ui/UISettingsNotification.ui" line="271"/>
-        <location filename="../ui/UISettingsNotification.ui" line="303"/>
+        <location filename="../ui/UISettingsNotification.ui" line="278"/>
+        <location filename="../ui/UISettingsNotification.ui" line="310"/>
         <source>Test</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="336"/>
+        <location filename="../ui/UISettingsNotification.ui" line="343"/>
         <source>Use external command</source>
         <translation>Použiť extérny príkaz</translation>
     </message>
@@ -6395,18 +6440,6 @@ of how fast a source you are likely to be for other users.</source>
         <translation>Tu môžete špecifikovať výnimky pre súbori, ktoré nechcete zdieľať. </translation>
     </message>
     <message>
-        <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
-For example, if you have /home/username/Video folder shared as &quot;Video&quot;
-you can specify following:
-/Video	10
-It means that any user who have less then 10GiB shared
-will be unable to download any files from this folder.</source>
-        <translation type="obsolete">Nastaviť obmedzenie pre každý váš zdieľaný priečinok.
-Príklad: Ak máte priečinok /home/meno/Video zdieľaný ako &quot;Video&quot;
-/Video	10
-Znamená to, že užívatelia, ktorí zdieľajú menej než 10GiB nebudú môcť sťahovať z tohto priečinku.</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
         <source>Advanced</source>
         <translation>Rozšírené</translation>
@@ -6421,28 +6454,28 @@ and may cause the client to appear to freeze.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="266"/>
+        <location filename="../ui/UISettingsSharing.ui" line="331"/>
         <source>FastHash options (restart needed)</source>
         <translation>FashHash možnosti (potrebný reštart)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="320"/>
+        <location filename="../ui/UISettingsSharing.ui" line="290"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="325"/>
+        <location filename="../ui/UISettingsSharing.ui" line="295"/>
         <source>4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="457"/>
+        <location filename="../ui/UISettingsSharing.ui" line="461"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
         <translation>Nastaviť max rýchlosť hashovania.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="253"/>
+        <location filename="../ui/UISettingsSharing.ui" line="255"/>
         <source>Use fast hash</source>
         <translation>Použiť rýchle hashovanie</translation>
     </message>
@@ -6502,22 +6535,6 @@ if your system becomes slow while hasing files.</source>
         <translation>Vymazať</translation>
     </message>
     <message>
-        <source>Restrictions</source>
-        <translation type="obsolete">Obmedzenia</translation>
-    </message>
-    <message>
-        <source>Share</source>
-        <translation type="obsolete">Zdieľané</translation>
-    </message>
-    <message>
-        <source>Restriction</source>
-        <translation type="obsolete">Obmedzenia</translation>
-    </message>
-    <message>
-        <source>All changes take effect only after restart</source>
-        <translation type="obsolete">Všetky zmeny budú viditeľné až po reštarte</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="206"/>
         <source>Follow symlinks</source>
         <translation>Nasleduj symbolické odkazy</translation>
@@ -6528,46 +6545,37 @@ if your system becomes slow while hasing files.</source>
         <translation>Zdieľať dočasné súbory</translation>
     </message>
     <message>
-        <source>Run refresh share on startup</source>
-        <translation type="obsolete">Spustiť obnovenie zdieľania súborov pri štarte programu</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="246"/>
         <source>Auto remove non-existing directories</source>
         <translation>Automaticky vymazať neexistujúce priečinky</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="274"/>
+        <location filename="../ui/UISettingsSharing.ui" line="339"/>
         <source>Private page mapping</source>
         <translation>Sukromné mapovanie stránky</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="355"/>
-        <source>If checked, a pause hashing may not work.</source>
-        <translation>Ak je zaškrtnuté, pauza na hash nemusí fungovať.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="358"/>
+        <location filename="../ui/UISettingsSharing.ui" line="360"/>
         <source>Proactive read from disk</source>
         <translation>Proaktívne čítanie z disku</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="376"/>
+        <location filename="../ui/UISettingsSharing.ui" line="380"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Automaticky otvoriť extra slot ak rýchlosť klesne pod (KiB/s, 0 = infinite)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="412"/>
+        <location filename="../ui/UISettingsSharing.ui" line="416"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
         <translation>Automatické obnovovanie (minutes, 0 = off)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="444"/>
+        <location filename="../ui/UISettingsSharing.ui" line="448"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Maximálna hash rýchlosť (MB/s) (0 = infinite)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="481"/>
+        <location filename="../ui/UISettingsSharing.ui" line="485"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
 one slot for each hub that they&apos;re on with you.
@@ -6585,42 +6593,42 @@ Poznámka: Ak užívateľ opustí hub, EiskaltDC++ uzatvorí jeho sloty,
 avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="298"/>
+        <location filename="../ui/UISettingsSharing.ui" line="268"/>
         <source>Buffer size (MiB)</source>
         <translation>Veľkosť buffera (MiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="315"/>
+        <location filename="../ui/UISettingsSharing.ui" line="285"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="330"/>
+        <location filename="../ui/UISettingsSharing.ui" line="300"/>
         <source>8</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="335"/>
+        <location filename="../ui/UISettingsSharing.ui" line="305"/>
         <source>16</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="340"/>
+        <location filename="../ui/UISettingsSharing.ui" line="310"/>
         <source>32</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="345"/>
+        <location filename="../ui/UISettingsSharing.ui" line="315"/>
         <source>64</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="281"/>
+        <location filename="../ui/UISettingsSharing.ui" line="346"/>
         <source>No reserve</source>
         <translation>Bez zálohy/rezervácie</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="392"/>
+        <location filename="../ui/UISettingsSharing.ui" line="396"/>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
@@ -6631,12 +6639,12 @@ Tieto sloty sú poskytované raz za  30 sekúnd
 Ak rýchosť uploadovania vzrastie, tak tento extra slot sa uzavrie.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="428"/>
+        <location filename="../ui/UISettingsSharing.ui" line="432"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Tu môžte nastaviť časový interval opätovného obnovovania vaších zdieľaných súborov.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="471"/>
+        <location filename="../ui/UISettingsSharing.ui" line="475"/>
         <source>Upload slots</source>
         <translation>Sloty pre upload</translation>
     </message>
@@ -6880,92 +6888,88 @@ Ak rýchosť uploadovania vzrastie, tak tento extra slot sa uzavrie.</translatio
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="703"/>
+        <location filename="../src/WulforUtil.cpp" line="702"/>
         <source>System default</source>
         <translation>Štandartne nastavený systém</translation>
     </message>
     <message>
-        <source>Enter parameter value</source>
-        <translation type="obsolete">Zadať hodnotu parametra</translation>
-    </message>
-    <message>
-        <location filename="../src/WulforUtil.cpp" line="803"/>
+        <location filename="../src/WulforUtil.cpp" line="802"/>
         <source>Command parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="841"/>
+        <location filename="../src/WulforUtil.cpp" line="840"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="842"/>
+        <location filename="../src/WulforUtil.cpp" line="841"/>
         <source>Cancel</source>
         <translation type="unfinished">Zrušiť</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="913"/>
-        <location filename="../src/WulforUtil.cpp" line="927"/>
+        <location filename="../src/WulforUtil.cpp" line="912"/>
+        <location filename="../src/WulforUtil.cpp" line="926"/>
         <source>%1 B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="915"/>
+        <location filename="../src/WulforUtil.cpp" line="914"/>
         <source>%1 KiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="917"/>
+        <location filename="../src/WulforUtil.cpp" line="916"/>
         <source>%1 MiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="919"/>
+        <location filename="../src/WulforUtil.cpp" line="918"/>
         <source>%1 GiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="921"/>
+        <location filename="../src/WulforUtil.cpp" line="920"/>
         <source>%1 TiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="923"/>
+        <location filename="../src/WulforUtil.cpp" line="922"/>
         <source>%1 PiB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="929"/>
+        <location filename="../src/WulforUtil.cpp" line="928"/>
         <source>%1 KB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="931"/>
+        <location filename="../src/WulforUtil.cpp" line="930"/>
         <source>%1 MB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="933"/>
+        <location filename="../src/WulforUtil.cpp" line="932"/>
         <source>%1 GB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="935"/>
+        <location filename="../src/WulforUtil.cpp" line="934"/>
         <source>%1 TB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="937"/>
+        <location filename="../src/WulforUtil.cpp" line="936"/>
         <source>%1 PB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1000"/>
+        <location filename="../src/WulforUtil.cpp" line="999"/>
         <source>Offline</source>
         <translation>Odpojený</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1138"/>
+        <location filename="../src/WulforUtil.cpp" line="1139"/>
         <source>User commands</source>
         <translation>Užívateľské príkazy</translation>
     </message>

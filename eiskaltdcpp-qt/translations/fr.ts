@@ -83,42 +83,6 @@
     <name>About</name>
     <message>
         <source>Using:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
-
-Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
-        <translation type="obsolete">Utilise:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les protocoles Direct Connect et ADC.
-
-Clés:
-  -h, --help(tab) Montre ce message
-  -v, --version(tab) Montre la version de la chaîne</translation>
-    </message>
-    <message>
-        <source>Using:
-  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
-
-Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
-        <translation type="obsolete">Utilise:
-  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp-qt&lt;Key&gt;
-EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les protocoles Direct Connect et ADC.
-
-Raccourcis:
-  -h, --help(tab) Montre ce message
-  -v, --version(tab) Montre la liste des versions</translation>
-    </message>
-    <message>
-        <source>Using:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
 EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
@@ -231,10 +195,6 @@ Keys:
         <translation>Utilisateur passif</translation>
     </message>
     <message>
-        <source>CRC32 inconsistency (SFV-Check)</source>
-        <translation type="obsolete">CRC32 Divergent  (Vérification du SFV)</translation>
-    </message>
-    <message>
         <source>Full tree does not match TTH root</source>
         <translation>L&apos;arborescence ne correspond pas au TTH d&apos;origine</translation>
     </message>
@@ -341,69 +301,6 @@ Keys:
     <message>
         <source>Properties of magnet</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DownloadQueue::Menu</name>
-    <message>
-        <source>Search for alternates</source>
-        <translation type="obsolete">Rechercher d&apos;autres sources</translation>
-    </message>
-    <message>
-        <source>Copy magnet</source>
-        <translation type="obsolete">Copier le magnet</translation>
-    </message>
-    <message>
-        <source>Rename/Move</source>
-        <translation type="obsolete">Renommer/Déplacer</translation>
-    </message>
-    <message>
-        <source>Set priority</source>
-        <translation type="obsolete">Définir la priorité</translation>
-    </message>
-    <message>
-        <source>Paused</source>
-        <translation type="obsolete">En pause</translation>
-    </message>
-    <message>
-        <source>Lowest</source>
-        <translation type="obsolete">Le plus bas</translation>
-    </message>
-    <message>
-        <source>Low</source>
-        <translation type="obsolete">Bas</translation>
-    </message>
-    <message>
-        <source>Normal</source>
-        <translation type="obsolete">Normal</translation>
-    </message>
-    <message>
-        <source>High</source>
-        <translation type="obsolete">Élevé</translation>
-    </message>
-    <message>
-        <source>Highest</source>
-        <translation type="obsolete">Le plus élevé</translation>
-    </message>
-    <message>
-        <source>Browse files</source>
-        <translation type="obsolete">Parcourir les fichiers</translation>
-    </message>
-    <message>
-        <source>Send private message</source>
-        <translation type="obsolete">Envoyer un message privé</translation>
-    </message>
-    <message>
-        <source>Remove source</source>
-        <translation type="obsolete">Retirer la source</translation>
-    </message>
-    <message>
-        <source>Remove user</source>
-        <translation type="obsolete">Retirer l&apos;utilisateur</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Retirer</translation>
     </message>
 </context>
 <context>
@@ -665,6 +562,10 @@ Keys:
         <source>Open directory</source>
         <translation>Ouvrir le dossier</translation>
     </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FinishedTransfersModel</name>
@@ -701,16 +602,8 @@ Keys:
         <translation>Chemin</translation>
     </message>
     <message>
-        <source>CRC checked</source>
-        <translation type="obsolete">Vérification CRC</translation>
-    </message>
-    <message>
         <source>Target</source>
         <translation>Cible</translation>
-    </message>
-    <message>
-        <source>/s</source>
-        <translation type="obsolete">/s</translation>
     </message>
     <message>
         <source>Check sum</source>
@@ -719,6 +612,18 @@ Keys:
     <message>
         <source>%1/s</source>
         <translation>%1/s</translation>
+    </message>
+    <message>
+        <source>Full</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished">Non</translation>
     </message>
 </context>
 <context>
@@ -829,10 +734,6 @@ Keys:
     <message>
         <source>Chat has been cleared</source>
         <translation>Discussion vidée</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Last status message on hub:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="obsolete">&lt;b&gt;Dernier message d&apos;état du serveur:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <source>User online.</source>
@@ -1065,42 +966,6 @@ Utilisateur favoris</translation>
         <translation>Ajouter à la liste blanche</translation>
     </message>
     <message>
-        <source>/aspell on/off - enable/disable spell checking
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - remove alias
-/alias list - list all aliases
-/away &lt;message&gt; - set away-mode on/off
-/back - set away-mode off
-/browse &lt;nick&gt; - browse user files
-/clear - clear chat window
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - close this hub
-/fav - add this hub to favorites
-/grant &lt;nick&gt; - grant extra slot to user
-/help, /?, /h - show this help
-/info &lt;nick&gt; - show info about user
-/me - say a third person
-/pm &lt;nick&gt; - begin private chat with user
-/sh &lt;command&gt; - start command and redirect output to the chat</source>
-        <translation type="obsolete">/aspell on/off - active/désactive la vérification orthographique
-/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
-/alias purge &lt;ALIAS_NAME&gt; - retirer l&apos;alias
-/alias list - lister tous les alias
-/away &lt;message&gt; - définir le mode absent on/off
-/back - désactive le mode absent
-/browse &lt;nick&gt; - parcourir les fichiers de l&apos;utilisateur
-/clear - vide la fenêtre de discussion
-/magnet - default action with magnet (0-ask, 1-search, 2-download)
-/close - ferme le hub
-/fav - ajoute le serveur aux favoris
-/grant &lt;nick&gt; - donne un slot à l&apos;utilisateur
-/help, /?, /h - montre cette aide
-/info &lt;nick&gt; - montre les infos de l&apos;utilisateur
-/me - parler à la troisième personne
-/pm &lt;nick&gt; - démarre une discussion privée avec l&apos;utilisateur
-/sh &lt;command&gt; - lance une commande et redirige son résultat vers le chat</translation>
-    </message>
-    <message>
         <source>Hub IP</source>
         <translation>IP serveur</translation>
     </message>
@@ -1221,10 +1086,6 @@ Utilisateur favoris</translation>
         <translation>Nombre d&apos;utilisateurs: %3/%1 | Partage total: %2</translation>
     </message>
     <message>
-        <source>Disable emoticons</source>
-        <translation type="obsolete">Désactiver les smileys</translation>
-    </message>
-    <message>
         <source>[User went offline]</source>
         <translation>[L&apos;utilisateur s&apos;est déconnecté]</translation>
     </message>
@@ -1236,108 +1097,29 @@ Utilisateur favoris</translation>
         <source>Invalid keywords</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>HubFrame::Menu</name>
     <message>
-        <source>Copy</source>
-        <translation type="obsolete">Copier</translation>
+        <source>Invalid command syntax.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copy nick</source>
-        <translation type="obsolete">Copier le surnom</translation>
+        <source>List of keywords:
+</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show in list</source>
-        <translation type="obsolete">Montrer sur la liste</translation>
+        <source>/kword add &lt;keyword&gt; - add user-defined keyword
+</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Browse files</source>
-        <translation type="obsolete">Parcourir les fichiers</translation>
+        <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
+</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Match Queue</source>
-        <translation type="obsolete">Correspondre avec les téléchargements</translation>
-    </message>
-    <message>
-        <source>Private Message</source>
-        <translation type="obsolete">Message Privé</translation>
-    </message>
-    <message>
-        <source>Add to Favorites</source>
-        <translation type="obsolete">Ajouter aux favoris</translation>
-    </message>
-    <message>
-        <source>Remove from Favorites</source>
-        <translation type="obsolete">Retirer des favoris</translation>
-    </message>
-    <message>
-        <source>Grant slot</source>
-        <translation type="obsolete">Donner un slot</translation>
-    </message>
-    <message>
-        <source>Remove from Queue</source>
-        <translation type="obsolete">Retirer de la liste</translation>
-    </message>
-    <message>
-        <source>Clear chat</source>
-        <translation type="obsolete">Vider la discussion</translation>
-    </message>
-    <message>
-        <source>Find in chat</source>
-        <translation type="obsolete">Trouver dans la discussion</translation>
-    </message>
-    <message>
-        <source>Disable/Enable chat</source>
-        <translation type="obsolete">Désactiver/Activer la discussion</translation>
-    </message>
-    <message>
-        <source>Select all</source>
-        <translation type="obsolete">Tout sélectionner</translation>
-    </message>
-    <message>
-        <source>Zoom In</source>
-        <translation type="obsolete">Zoom avant</translation>
-    </message>
-    <message>
-        <source>Zoom Out</source>
-        <translation type="obsolete">Zoom arrière</translation>
-    </message>
-    <message>
-        <source>Nick</source>
-        <translation type="obsolete">Surnom</translation>
-    </message>
-    <message>
-        <source>IP</source>
-        <translation type="obsolete">IP</translation>
-    </message>
-    <message>
-        <source>Share</source>
-        <translation type="obsolete">Partage</translation>
-    </message>
-    <message>
-        <source>Tag</source>
-        <translation type="obsolete">Tag</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation type="obsolete">Tout</translation>
-    </message>
-    <message>
-        <source>Copy data</source>
-        <translation type="obsolete">Copier les données</translation>
-    </message>
-    <message>
-        <source>AntiSpam</source>
-        <translation type="obsolete">AntiSpam</translation>
-    </message>
-    <message>
-        <source>Add to Black</source>
-        <translation type="obsolete">Ajouter à la liste noire</translation>
-    </message>
-    <message>
-        <source>Add to White</source>
-        <translation type="obsolete">Ajouter à la liste blanche</translation>
+        <source>/kword list - list all keywords
+</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1488,10 +1270,6 @@ Utilisateur favoris</translation>
         <translation>Cacher la fenêtre</translation>
     </message>
     <message>
-        <source>Esc</source>
-        <translation type="obsolete">Échap</translation>
-    </message>
-    <message>
         <source>Show/hide find frame</source>
         <translation>Montrer/cacher le module de recherche</translation>
     </message>
@@ -1512,24 +1290,12 @@ Utilisateur favoris</translation>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <source>Downloaded</source>
-        <translation type="obsolete">Téléchargé</translation>
-    </message>
-    <message>
-        <source>Uploaded</source>
-        <translation type="obsolete">Envoyé</translation>
-    </message>
-    <message>
         <source>Space free</source>
         <translation>Expace libre</translation>
     </message>
     <message>
         <source>&amp;File</source>
         <translation>&amp;Fichier</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation type="obsolete">Options</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -1636,30 +1402,6 @@ Utilisateur favoris</translation>
         <translation>Montrer le dernier message d&apos;état</translation>
     </message>
     <message>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="obsolete">EiskaltDC++ est une interface graphique pour les protocoles Direct Connect et ADC.</translation>
-    </message>
-    <message>
-        <source>DC++ core version:</source>
-        <translation type="obsolete">Version noyau DC++:</translation>
-    </message>
-    <message>
-        <source>(modified)</source>
-        <translation type="obsolete">(modifié)</translation>
-    </message>
-    <message>
-        <source>Home page:</source>
-        <translation type="obsolete">Page d&apos;accueil:</translation>
-    </message>
-    <message>
-        <source>Total up:</source>
-        <translation type="obsolete">Total envoyé:</translation>
-    </message>
-    <message>
-        <source>Total down:</source>
-        <translation type="obsolete">Total téléchargé:</translation>
-    </message>
-    <message>
         <source>Reconnect to hub</source>
         <translation>Reconnecter au serveur</translation>
     </message>
@@ -1724,25 +1466,6 @@ Utilisateur favoris</translation>
         <translation>Impossible de charger la liste de fichier: Nom de liste invalide</translation>
     </message>
     <message>
-        <source>Cannot listen socket because: 
-</source>
-        <translation type="obsolete">Ne peut écouter le socket parce que:</translation>
-    </message>
-    <message>
-        <source>
-
-Please check your connection settings</source>
-        <translation type="obsolete">Veuillez vérifier vos paramètres de connection</translation>
-    </message>
-    <message>
-        <source>Connection Manager: Warning</source>
-        <translation type="obsolete">Gestionnaire de connection: Attention</translation>
-    </message>
-    <message>
-        <source>Search Manager: Warning</source>
-        <translation type="obsolete">Gestionnaire de recherche: Attention</translation>
-    </message>
-    <message>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
@@ -1765,14 +1488,6 @@ Please check your connection settings</source>
     <message>
         <source>Show users statistics</source>
         <translation>Montrer les statistiques des utilisateurs</translation>
-    </message>
-    <message>
-        <source>Download speed</source>
-        <translation type="obsolete">Vitesse de téléchargement</translation>
-    </message>
-    <message>
-        <source>Upload speed</source>
-        <translation type="obsolete">Vitesse d&apos;envoi</translation>
     </message>
     <message>
         <source>Open download directory</source>
@@ -1887,16 +1602,8 @@ Please check your connection settings</source>
         <translation>Dock latéral des Widgets</translation>
     </message>
     <message>
-        <source>Ctrl+A</source>
-        <translation type="obsolete">Ctrl+A</translation>
-    </message>
-    <message>
         <source>ADLSearch</source>
         <translation>ADLSearch</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Last kernel message:&lt;/b&gt;&lt;br/&gt;%1</source>
-        <translation type="obsolete">&lt;b&gt;Dernier message du noyau:&lt;/b&gt;&lt;br/&gt;%1</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
@@ -1947,10 +1654,6 @@ Please check your connection settings</source>
         <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Traduction Espagnol&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.4 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(pour 2.0.4 et plus)&lt;br/&gt;</translation>
-    </message>
-    <message>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
@@ -1987,28 +1690,12 @@ Please check your connection settings</source>
         <translation>Page d&apos;accueil</translation>
     </message>
     <message>
-        <source>Source (svn)</source>
-        <translation type="obsolete">Source (svn)</translation>
-    </message>
-    <message>
         <source>Report a Bug</source>
         <translation>Rapporter un bug</translation>
     </message>
     <message>
         <source>Wiki of project</source>
         <translation>Wiki du projet</translation>
-    </message>
-    <message>
-        <source>Changelog (svn)</source>
-        <translation type="obsolete">Changelog (svn)</translation>
-    </message>
-    <message>
-        <source>http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</source>
-        <translation type="obsolete">http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt</translation>
-    </message>
-    <message>
-        <source>Unable to open %1% port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="obsolete">Impossible d&apos;ouvrir le port %1%. Les recherches ou transferts de fichiers ne fonctionneront pas correctement tant que vous ne changerez pas de port ou fermerez toute application susceptible d&apos;utiliser ce port.</translation>
     </message>
     <message>
         <source>Connectivity Manager: Warning</source>
@@ -2182,6 +1869,22 @@ Please check your connection settings</source>
         <source>Text under icons</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enter user nick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nick</source>
+        <translation type="unfinished">Surnom</translation>
+    </message>
+    <message>
+        <source>User</source>
+        <translation type="unfinished">Utilisateur</translation>
+    </message>
+    <message>
+        <source>Would you like to change other settings?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2238,10 +1941,6 @@ Téléchargé: %3 Envoyé: %4</translation>
         <translation>Fermer</translation>
     </message>
     <message>
-        <source> on hub </source>
-        <translation type="obsolete">sur le serveur</translation>
-    </message>
-    <message>
         <source>User went offline</source>
         <translation>L&apos;utilisateur est hors-ligne</translation>
     </message>
@@ -2252,10 +1951,6 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <source>%1 on hub %2</source>
         <translation>%1 sur le serveur %2</translation>
-    </message>
-    <message>
-        <source>Disable emoticons</source>
-        <translation type="obsolete">Désactiver les smiley</translation>
     </message>
 </context>
 <context>
@@ -2336,10 +2031,6 @@ Téléchargé: %3 Envoyé: %4</translation>
         <translation>Téléchargement échoué: %1</translation>
     </message>
     <message>
-        <source>Hub list downloaded... (%1)</source>
-        <translation type="obsolete">Liste de serveurs téléchargée... (%1)</translation>
-    </message>
-    <message>
         <source>Hub list loaded from cache...</source>
         <translation>Liste de serveurs chargée depuis le cache...</translation>
     </message>
@@ -2373,27 +2064,6 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <source>Link</source>
         <translation>Lien</translation>
-    </message>
-</context>
-<context>
-    <name>QApplication</name>
-    <message>
-        <source>Using:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ is a program for UNIX-like systems that uses the Direct Connect and ADC protocol.
-
-Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</source>
-        <translation type="obsolete">Utilise:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;Key&gt;
-EiskaltDC++ est un programme pour systèmes de type UNIX qui utilisent les protocoles Direct Connect et ADC.
-
-Clés:
-  -h, --help(tab) Montre ce message
-  -v, --version(tab) Montre la version de la chaîne</translation>
     </message>
 </context>
 <context>
@@ -2537,10 +2207,6 @@ Clés:
         <translation>TTH</translation>
     </message>
     <message>
-        <source>File type</source>
-        <translation type="obsolete">Type de fichier</translation>
-    </message>
-    <message>
         <source>Clear</source>
         <translation>Vider</translation>
     </message>
@@ -2641,24 +2307,12 @@ Clés:
         <translation>Trouvé: &lt;b&gt;%1&lt;/b&gt;  Laissé: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>X</source>
-        <translation type="obsolete">X</translation>
-    </message>
-    <message>
         <source>Download</source>
         <translation>Téléchargement</translation>
     </message>
     <message>
-        <source>Download to</source>
-        <translation type="obsolete">Télécharger vers</translation>
-    </message>
-    <message>
         <source>Download Whole Directory</source>
         <translation>Télécharger le répertoire entier</translation>
-    </message>
-    <message>
-        <source>Download Whole Directory to</source>
-        <translation type="obsolete">Télécharger le répertoire entier vers</translation>
     </message>
     <message>
         <source>Search TTH</source>
@@ -2728,64 +2382,13 @@ Clés:
         <source>Properties of magnet</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>SearchFrame::Menu</name>
     <message>
-        <source>Download</source>
-        <translation type="obsolete">Téléchargement</translation>
+        <source>Blacklist...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Download to</source>
-        <translation type="obsolete">Télécharger vers</translation>
-    </message>
-    <message>
-        <source>Download Whole Directory</source>
-        <translation type="obsolete">Télécharger le répertoire entier</translation>
-    </message>
-    <message>
-        <source>Download Whole Directory to</source>
-        <translation type="obsolete">Télécharger le répertoire entier vers</translation>
-    </message>
-    <message>
-        <source>Search TTH</source>
-        <translation type="obsolete">Rechercher le TTH</translation>
-    </message>
-    <message>
-        <source>Copy magnet</source>
-        <translation type="obsolete">Copier le magnet</translation>
-    </message>
-    <message>
-        <source>Browse files</source>
-        <translation type="obsolete">Parcourir les fichiers</translation>
-    </message>
-    <message>
-        <source>Match Queue</source>
-        <translation type="obsolete">Correspondre avec les téléchargements</translation>
-    </message>
-    <message>
-        <source>Send Private Message</source>
-        <translation type="obsolete">Envoyer message privé</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation type="obsolete">Ajouter aux favoris</translation>
-    </message>
-    <message>
-        <source>Grant extra slot</source>
-        <translation type="obsolete">Donner un slot</translation>
-    </message>
-    <message>
-        <source>Remove from Queue</source>
-        <translation type="obsolete">Retirer de la liste</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="obsolete">Retirer</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation type="obsolete">Parcourir</translation>
+        <source>Add to Blacklist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2846,10 +2449,6 @@ Clés:
 <context>
     <name>Settings</name>
     <message>
-        <source>Options</source>
-        <translation type="obsolete">Options</translation>
-    </message>
-    <message>
         <source>Personal</source>
         <translation>Personnel</translation>
     </message>
@@ -2892,10 +2491,6 @@ Clés:
 </context>
 <context>
     <name>SettingsConnection</name>
-    <message>
-        <source>You enter ports with number &lt; 1024, ports numbers set to default.</source>
-        <translation type="obsolete">Entrez des ports &lt; 1024, nombres de ports appliqués par défaut.</translation>
-    </message>
     <message>
         <source>No valid SOCKS5 server IP found!</source>
         <translation>Pas d&apos;ip serveur SOCKS5 trouvée!</translation>
@@ -2977,10 +2572,6 @@ Clés:
     <message>
         <source>Chat: Say nick</source>
         <translation>Discussion: Surnom écrit</translation>
-    </message>
-    <message>
-        <source>Core</source>
-        <translation type="obsolete">noyau</translation>
     </message>
     <message>
         <source>Status</source>
@@ -3071,16 +2662,8 @@ Clés:
 <context>
     <name>SettingsSharing</name>
     <message>
-        <source>GiB</source>
-        <translation type="obsolete">GiB</translation>
-    </message>
-    <message>
         <source>Total shared: %1</source>
         <translation>Total partagé: %1</translation>
-    </message>
-    <message>
-        <source>%1 GiB</source>
-        <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -3097,22 +2680,6 @@ Clés:
     <message>
         <source>Remove</source>
         <translation>Enlever</translation>
-    </message>
-    <message>
-        <source>Enter virtual path name</source>
-        <translation type="obsolete">Entrer nom de chemin virtuel</translation>
-    </message>
-    <message>
-        <source>Virtual path</source>
-        <translation type="obsolete">Chemin virtuel</translation>
-    </message>
-    <message>
-        <source>Enter restriction (in GiB)</source>
-        <translation type="obsolete">Entrer restriction (en GiB)</translation>
-    </message>
-    <message>
-        <source>Restriction</source>
-        <translation type="obsolete">Restriction</translation>
     </message>
     <message>
         <source>Add item</source>
@@ -3162,22 +2729,6 @@ Clés:
         <translation>Fermer</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation type="obsolete">Nom</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="obsolete">Taille</translation>
-    </message>
-    <message>
-        <source>Exact size</source>
-        <translation type="obsolete">Taille exacte</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <source>Total size: %1</source>
         <translation>Taille Totale: %1</translation>
     </message>
@@ -3192,10 +2743,6 @@ Clés:
     <message>
         <source>Download</source>
         <translation>Téléchargement</translation>
-    </message>
-    <message>
-        <source>Download to</source>
-        <translation type="obsolete">Télécharger vers</translation>
     </message>
     <message>
         <source>Search for alternates</source>
@@ -3248,33 +2795,6 @@ Clés:
     <message>
         <source>Properties of magnet</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ShareBrowser::Menu</name>
-    <message>
-        <source>Download</source>
-        <translation type="obsolete">Téléchargement</translation>
-    </message>
-    <message>
-        <source>Download to</source>
-        <translation type="obsolete">Télécharger vers</translation>
-    </message>
-    <message>
-        <source>Search for alternates</source>
-        <translation type="obsolete">Rechercher d&apos;autres sources</translation>
-    </message>
-    <message>
-        <source>Copy magnet</source>
-        <translation type="obsolete">Copier le magnet</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation type="obsolete">Ajouter aux favoris</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation type="obsolete">Parcourir</translation>
     </message>
 </context>
 <context>
@@ -3395,18 +2915,6 @@ Clés:
         <source>Other Widgets</source>
         <translation>Autres Widgets</translation>
     </message>
-    <message>
-        <source>Hub Manager</source>
-        <translation type="obsolete">Gestionnaire de serveurs</translation>
-    </message>
-</context>
-<context>
-    <name>SingleInstanceRunner</name>
-    <message>
-        <source>Internal server running on %1
-</source>
-        <translation type="obsolete">Serveur interne sous %1</translation>
-    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3508,10 +3016,6 @@ Voulez-vous l&apos;arrêter?</translation>
         <translation> (%1%)</translation>
     </message>
     <message>
-        <source>Download complete...</source>
-        <translation type="obsolete">Téléchargement complet...</translation>
-    </message>
-    <message>
         <source>Connecting...</source>
         <translation>Connexion...</translation>
     </message>
@@ -3566,10 +3070,6 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>Grant extra slot</source>
         <translation>Donner un slot</translation>
-    </message>
-    <message>
-        <source>Copy IP-address of user</source>
-        <translation type="obsolete">Copier l&apos;adresse ip de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Remove Source</source>
@@ -3638,45 +3138,6 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>Encryption</source>
         <translation>Chiffrement</translation>
-    </message>
-</context>
-<context>
-    <name>TransferView::Menu</name>
-    <message>
-        <source>Browse files</source>
-        <translation type="obsolete">Parcourir les fichiers</translation>
-    </message>
-    <message>
-        <source>Match Queue</source>
-        <translation type="obsolete">Correspondre avec les téléchargements</translation>
-    </message>
-    <message>
-        <source>Send Private Message</source>
-        <translation type="obsolete">Envoyer message privé</translation>
-    </message>
-    <message>
-        <source>Add to favorites</source>
-        <translation type="obsolete">Ajouter aux favoris</translation>
-    </message>
-    <message>
-        <source>Grant extra slot</source>
-        <translation type="obsolete">Donner un slot</translation>
-    </message>
-    <message>
-        <source>Copy IP-address of user</source>
-        <translation type="obsolete">Copier l&apos;adresse ip de l&apos;utilisateur</translation>
-    </message>
-    <message>
-        <source>Remove Source</source>
-        <translation type="obsolete">Retirer la source</translation>
-    </message>
-    <message>
-        <source>Force attempt</source>
-        <translation type="obsolete">Forcer une tentative</translation>
-    </message>
-    <message>
-        <source>Close connection(s)</source>
-        <translation type="obsolete">Fermer la/les connection(s)</translation>
     </message>
 </context>
 <context>
@@ -3797,10 +3258,6 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <source>Dialog</source>
         <translation>Dialogue</translation>
-    </message>
-    <message>
-        <source>Search String</source>
-        <translation type="obsolete">Chaîne de recherche</translation>
     </message>
     <message>
         <source>Favorite hub name.</source>
@@ -4090,30 +3547,6 @@ p, li { white-space: pre-wrap; }
         <translation>IP externe</translation>
     </message>
     <message>
-        <source>EiskaltDC++ V:2.0</source>
-        <translation type="obsolete">EiskaltDC++ V:2.0</translation>
-    </message>
-    <message>
-        <source>++ V:0.75 </source>
-        <translation type="obsolete">++ V:0.75 </translation>
-    </message>
-    <message>
-        <source>StrgDC++ V:2.30</source>
-        <translation type="obsolete">StrgDC++ V:2.30</translation>
-    </message>
-    <message>
-        <source>ApexDC++ V: 1.2.2 </source>
-        <translation type="obsolete">ApexDC++ V: 1.2.2 </translation>
-    </message>
-    <message>
-        <source>FlylinkDC++ V:(r500) </source>
-        <translation type="obsolete">FlylinkDC++ V:(r500) </translation>
-    </message>
-    <message>
-        <source>HomeDC++ V:2.22 </source>
-        <translation type="obsolete">HomeDC++ V:2.22 </translation>
-    </message>
-    <message>
         <source>000.000.000.000; </source>
         <translation>000.000.000.000; </translation>
     </message>
@@ -4162,10 +3595,6 @@ p, li { white-space: pre-wrap; }
         <translation>Si le serveur nécessite un mot de passe, précisez-le ici.</translation>
     </message>
     <message>
-        <source>EiskaltDC++ V:2.1</source>
-        <translation type="obsolete">EiskaltDC++ V:2.1</translation>
-    </message>
-    <message>
         <source>Default</source>
         <translation>Défaut</translation>
     </message>
@@ -4203,14 +3632,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Connect</source>
         <translation>Connecter</translation>
-    </message>
-    <message>
-        <source>Move up</source>
-        <translation type="obsolete">Déplacer vers le haut</translation>
-    </message>
-    <message>
-        <source>Move down</source>
-        <translation type="obsolete">Déplacer vers le bas</translation>
     </message>
 </context>
 <context>
@@ -4268,6 +3689,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Clear</source>
         <translation>Vider</translation>
+    </message>
+    <message>
+        <source>Show only completely finished transfers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full only</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4334,10 +3763,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Hide find frame (Ctrl+F)</source>
         <translation>Cacher fenêtre de recherche (Ctrl+F)</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="obsolete">X</translation>
     </message>
     <message>
         <source>Last status message on hub</source>
@@ -4520,10 +3945,6 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
-    <message>
-        <source>X</source>
-        <translation type="obsolete">X</translation>
-    </message>
 </context>
 <context>
     <name>UIPublicHubsList</name>
@@ -4601,10 +4022,6 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     <message>
         <source>Connection</source>
         <translation>Connexion</translation>
-    </message>
-    <message>
-        <source>Incomming connections</source>
-        <translation type="obsolete">Connexions entrantes</translation>
     </message>
     <message>
         <source>Firewall with port forwarding</source>
@@ -4773,10 +4190,6 @@ Les proxy SOCKS5 sont différents des proxy HTTP.
 Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
-        <source>Enable total speed limit</source>
-        <translation type="obsolete">Activé la limite de vitesse totale</translation>
-    </message>
-    <message>
         <source>Alternate speed limit at time from </source>
         <translation>Alterner la limite de vitesse à une tranche d&apos;horaires. Depuis </translation>
     </message>
@@ -4871,6 +4284,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Type-of-Service (ToS)</source>
         <translation>Type de service (ToS)</translation>
+    </message>
+    <message>
+        <source>Bind Address:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5092,15 +4509,6 @@ started before a source can be dropped. (default: 15 s)</source>
 a commencé avant qu&apos;une source puisse être abandonnée. (15s par défaut)</translation>
     </message>
     <message>
-        <source>This is the maximal time since the last chunk of data for
-the file was recieved. It is meant to improve speed measurement
-accuracy and to prevent dropping sources that are going to be
-disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="obsolete">Ceci est le temps maximum écoulé pour la réception du dernier paquet d&apos;un fichier.
-L&apos;objectif est d&apos;améliorer les mesures de vitesses, et d&apos;empêcher la déconnection d&apos;une source 
-dans le cas où elle serait simplement temporairement inactive. (10s par défaut)</translation>
-    </message>
-    <message>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
         <translation>Nombres de sources minimum avant qu&apos;une
@@ -5211,10 +4619,6 @@ avoir besoin de vérifier la page de téléchargements terminés dédiée.</tran
     <message>
         <source>Keep downloaded filelists</source>
         <translation>Garder les listes de fichiers téléchargées</translation>
-    </message>
-    <message>
-        <source>Compressed transfer</source>
-        <translation type="obsolete">Transfert compressé</translation>
     </message>
     <message>
         <source>Compressed transfers</source>
@@ -5339,10 +4743,6 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
         <translation>Rediriger les messages des robots vers le chat principal</translation>
     </message>
     <message>
-        <source>Do not change focus on new private message</source>
-        <translation type="obsolete">Ne pas basculer d&apos;onglet lors de la réception d&apos;un message privé</translation>
-    </message>
-    <message>
         <source>Remember window position on exit</source>
         <translation>Se souvenir de la position en quittant</translation>
     </message>
@@ -5363,17 +4763,6 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
         <translation>Utiliser Ctrl+Enter pour envoyer les messages</translation>
     </message>
     <message>
-        <source>The height of the text entry field</source>
-        <translation type="obsolete">La hauteur du champ d&apos;entrée du texte</translation>
-    </message>
-    <message>
-        <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated 
-from other words by spaces.</source>
-        <translation type="obsolete">Si activé, vous verrez les smileys aussi au sein des mots.
-Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</translation>
-    </message>
-    <message>
         <source>Show icon in system tray</source>
         <translation>Montrer l&apos;icône dans la zone de notification</translation>
     </message>
@@ -5388,11 +4777,6 @@ Sinon ils apparaissent uniquement s&apos;ils sont isolés par des espaces.</tran
     <message>
         <source>Show ip-addresses of users in chat</source>
         <translation>Montrer l&apos;adresse IP des utilisateurs dans la discussion</translation>
-    </message>
-    <message>
-        <source>Depending on hub configuration: information about 
-them is usually available only to operators</source>
-        <translation type="obsolete">Dépend de la configuration du serveur concerné: Les informations sont généralement disponibles pour les opérateurs seulement</translation>
     </message>
     <message>
         <source>Use default ToolBar (need restart)</source>
@@ -5542,6 +4926,18 @@ them is usually available only to operators</source>
         <source>Change background color in the chat</source>
         <translation>Changer la couleur de fond dans le chat</translation>
     </message>
+    <message>
+        <source>Transfer colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload</source>
+        <translation type="unfinished">Envoi</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
@@ -5688,6 +5084,10 @@ Par exemple: /usr/bin/mplayer</translation>
         <source>Favorite user event</source>
         <translation>Évènement d&apos;un utilisateur</translation>
     </message>
+    <message>
+        <source>Play sound on active PM window</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsPersonal</name>
@@ -5778,32 +5178,8 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
         <translation>Partager les fichiers cachés</translation>
     </message>
     <message>
-        <source>Restrictions</source>
-        <translation type="obsolete">Restrictions</translation>
-    </message>
-    <message>
-        <source>Share</source>
-        <translation type="obsolete">Partage</translation>
-    </message>
-    <message>
-        <source>Restriction</source>
-        <translation type="obsolete">Restriction</translation>
-    </message>
-    <message>
-        <source>All changes take effect only after restart</source>
-        <translation type="obsolete">Tous les changements prennent effet après un redémarrage</translation>
-    </message>
-    <message>
         <source>Follow symlinks</source>
         <translation>Suivre les liens symboliques</translation>
-    </message>
-    <message>
-        <source>Max hash speed (MB/s) (0=infinite)</source>
-        <translation type="obsolete">Vitesse de scan max (MB/s) (0=infini)</translation>
-    </message>
-    <message>
-        <source>Automaticaly open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation type="obsolete">Donner un slot automatiquement si vitesse inférieure à (KiB/s, 0 = infini)</translation>
     </message>
     <message>
         <source>Upload slots</source>
@@ -5906,23 +5282,8 @@ Ne mettez pas votre vitesse de téléchargement (!).</translation>
         <translation>Lecture proactive depuis le disque</translation>
     </message>
     <message>
-        <source>Auto refresh time (minutes,0 = off)</source>
-        <translation type="obsolete">Rafraichissement auto toutes les (en minutes, 0 = off)</translation>
-    </message>
-    <message>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
         <translation>Ici vous pouvez choisir des modèles pour les fichiers que vous ne voulez pas partager. </translation>
-    </message>
-    <message>
-        <source>Specifies download limit (in GiB) per any &quot;virtual&quot; folder from your share.
-For example, if you have /home/username/Video folder shared as &quot;Video&quot;
-you can specify following:
-/Video	10
-It means that any user who have less then 10GiB shared
-will be unable to download any files from this folder.</source>
-        <translation type="obsolete">Détermine la limite de téléchargement en GiB pour tout dossier &quot;virtuel&quot; de votre partage.
-Si vous spécifié par exemple une limite de 10 pour un dossier nommé &quot;Vidéo&quot;, les 
-utilisateurs ayant un partage total inférieur à 10GiB ne pourront pas télécharger depuis ce dossier.</translation>
     </message>
     <message>
         <source>Share files with the Hidden attribute set and files inside directory with
@@ -5935,15 +5296,6 @@ and may cause the client to appear to freeze.</source>
     <message>
         <source>Share temporary files</source>
         <translation>Partager les fichiers temporaires</translation>
-    </message>
-    <message>
-        <source>If with uncheck this you will leave the client until the update
-share is complete, share at follow-up activities start nulled.</source>
-        <translation type="obsolete">Si décoché, le client restera inactif jusqu&apos;à ce que le partage soit complet.</translation>
-    </message>
-    <message>
-        <source>Run refresh share on startup</source>
-        <translation type="obsolete">Mettre à jour le partage au démarrage</translation>
     </message>
     <message>
         <source>Auto remove non-existing directories</source>
@@ -5999,10 +5351,6 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Vitesse de scan max (MB/s) (0=infini)</translation>
     </message>
-    <message>
-        <source>If checked, a pause hashing may not work.</source>
-        <translation>Si coché, la pause du scan peut ne pas fonctionner.</translation>
-    </message>
 </context>
 <context>
     <name>UISettingsShortcuts</name>
@@ -6043,10 +5391,6 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="obsolete">X</translation>
     </message>
 </context>
 <context>
@@ -6155,32 +5499,6 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     </message>
 </context>
 <context>
-    <name>UPnPMapper</name>
-    <message>
-        <source>Failed to get external IP via  UPnP. Please set it yourself.</source>
-        <translation type="obsolete">Échec de récupération d&apos;IP externe via UPnP. Veuillez la définir manuellement.</translation>
-    </message>
-    <message>
-        <source>Failed to create port mappings. Please set up your NAT yourself.</source>
-        <translation type="obsolete">Échec de découverte des ports. Veuillez configurer manuellement.</translation>
-    </message>
-</context>
-<context>
-    <name>Ui</name>
-    <message>
-        <source>Favourite users</source>
-        <translation type="obsolete">Utilisateurs favoris</translation>
-    </message>
-    <message>
-        <source>Search Spy</source>
-        <translation type="obsolete">Espion de recherches</translation>
-    </message>
-    <message>
-        <source>Public Hubs</source>
-        <translation type="obsolete">Serveurs publics</translation>
-    </message>
-</context>
-<context>
     <name>UserListModel</name>
     <message>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: Operator</source>
@@ -6211,10 +5529,6 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
         <translation>Connexion</translation>
     </message>
     <message>
-        <source>Email</source>
-        <translation type="obsolete">Email</translation>
-    </message>
-    <message>
         <source>Share</source>
         <translation>Partage</translation>
     </message>
@@ -6232,10 +5546,6 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>System default</source>
         <translation>Défaut système</translation>
-    </message>
-    <message>
-        <source>Enter parameter value</source>
-        <translation type="obsolete">Entrer valeur</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -6300,21 +5610,6 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>Cancel</source>
         <translation>Annuler</translation>
-    </message>
-</context>
-<context>
-    <name>dcpp</name>
-    <message>
-        <source>Open file</source>
-        <translation type="obsolete">Ouvrir le fichier</translation>
-    </message>
-    <message>
-        <source>Open directory</source>
-        <translation type="obsolete">Ouvrir le dossier</translation>
-    </message>
-    <message>
-        <source>Download Queue</source>
-        <translation type="obsolete">Liste des téléchargements</translation>
     </message>
 </context>
 </TS>

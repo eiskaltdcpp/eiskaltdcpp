@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-07 22:42+0200\n"
+"POT-Creation-Date: 2011-03-07 01:27+0200\n"
 "PO-Revision-Date: 2009-02-06 21:06+0000\n"
 "Last-Translator: oracle <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -85,12 +85,12 @@ msgstr ""
 msgid "Unable to create thread"
 msgstr "Ne mogu kreirati nit"
 
-#: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:67 ../UserConnection.cpp:141
 #, fuzzy
 msgid "Invalid data"
 msgstr "Pogrešna veličina"
 
-#: ../UserConnection.cpp:61
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgid ""
 msgstr ""
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
+#: ../SearchManager.cpp:271 ../SearchManager.cpp:425 ../SearchManager.cpp:427
 msgid "Offline"
 msgstr "Nije na mreži"
 
@@ -453,7 +453,7 @@ msgstr "<Unesite tekst>"
 msgid "Discard"
 msgstr "Odbaci"
 
-#: ../DirectoryListing.cpp:163
+#: ../DirectoryListing.cpp:178
 msgid "Directory missing name attribute"
 msgstr "Direktorijumu nedostaje atribut ime"
 
@@ -575,11 +575,11 @@ msgstr ""
 msgid "CD Image"
 msgstr ""
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:161
 msgid "Search enabled again"
 msgstr "Pretraga ponovo omogućena"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:169
 msgid "Search disabled: %1%"
 msgstr "Pretraga onemogućena: %1%"
 
