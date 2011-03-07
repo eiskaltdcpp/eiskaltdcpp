@@ -62,11 +62,7 @@ void SearchBlackListDialog::slotContextMenu(){
             if (!i)
                 continue;
 
-            model->repaint();
-
             i->parent()->childItems.removeAt(i->row());
-
-            delete i;
         }
 
         model->repaint();
