@@ -10,16 +10,18 @@ qt-sdk-win-opensource-2010.05.exe or later
 	http://get.qt.nokia.com/qtsdk/qt-sdk-win-opensource-2010.05.exe
 	ftp://ftp.qt.nokia.com/qtsdk/qt-sdk-win-opensource-2010.05.exe
 
-Win32OpenSSL-1_0_0c.exe or later
-	http://www.slproweb.com/download/Win32OpenSSL-1_0_0c.exe
-	http://www.shininglightpro.com/download/Win32OpenSSL-1_0_0c.exe
+Win32OpenSSL-1_0_0d.exe or later
+	http://www.slproweb.com/download/Win32OpenSSL-1_0_0d.exe
+	http://www.shininglightpro.com/download/Win32OpenSSL-1_0_0d.exe
 
-cmake-2.8.3-win32-x86.exe or later
-	http://www.cmake.org/files/v2.8/cmake-2.8.3-win32-x86.exe
+cmake-2.8.4-win32-x86.exe or later
+	http://www.cmake.org/files/v2.8/cmake-2.8.4-win32-x86.exe
 
-boost.tar.gz
-	http://code.google.com/p/eiskaltdc/downloads/detail?name=boost.tar.gz
-	http://eiskaltdc.googlecode.com/files/boost.tar.gz
+nsis-2.46-setup.exe or later
+	http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46-setup.exe/download
+
+boost_1_46_0.tar.bz2 or later
+	http://sourceforge.net/projects/boost/files/boost/1.46.0/boost_1_46_0.tar.bz2/download
 
 mingw-libbz2-devel-1.0.5-10.tar.bz2
 	http://ring.nict.go.jp/archives/pc/gnu-win32/release/mingw/mingw-bzip2/mingw-libbz2-devel/mingw-libbz2-devel-1.0.5-10.tar.bz2
@@ -39,6 +41,9 @@ mingw-zlib0-1.2.3-10.tar.bz2 or later
 
 gettext-0.17-1-mingw32-dev.tar.lzma or later
 	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.17-1/gettext-0.17-1-mingw32-dev.tar.lzma/download
+
+libgettextpo-0.17-1-mingw32-dll-0.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.17-1/libgettextpo-0.17-1-mingw32-dll-0.tar.lzma/download
 
 libintl-0.17-1-mingw32-dll-8.tar.lzma or later
 	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.17-1/libintl-0.17-1-mingw32-dll-8.tar.lzma/download
@@ -62,12 +67,12 @@ Install:
 	qt-sdk-win-opensource-*
 	Win32OpenSSL-*
 	cmake-*
-Unpack files from boost-* archive to %QTSDKDIR%\mingw\include\.
+Unpack directory boost from boost* archive to %QTSDKDIR%\mingw\include\.
 Unpack files from mingw-* archives to appropriate subdirectories in %QTSDKDIR%\mingw\
 ( i.e. bzlib.h shoud go to %QTSDKDIR%\mingw\include\
        libbz2.a         to %QTSDKDIR%\mingw\lib\
        mgwbz2-1.dll     to %QTSDKDIR%\mingw\bin\ )
-Unpack files from gettext-*, libintl-*, aspell-* and libiconv-* archives to %QTSDKDIR%\mingw\
+Unpack files from gettext-*, libgettextpo-*, libintl-*, aspell-* and libiconv-* archives to %QTSDKDIR%\mingw\
 Check variables.bat for correct paths and run:
 	configure.bat
 	build.bat

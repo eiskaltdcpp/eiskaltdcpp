@@ -732,26 +732,29 @@ UserCommand::List FavoriteManager::getUserCommands(int ctx, const StringList& hu
     for(UserCommand::List::iterator i = userCommands.begin(); i != userCommands.end(); ++i) {
         UserCommand& uc = *i;
         if(!(uc.getCtx() & ctx)) {
+            //printf("%s\n", uc.getName().c_str());
+            //printf("false\n");
             continue;
         }
-
         for(size_t j = 0; j < hubs.size(); ++j) {
             const string& hub = hubs[j];
-                        bool hubAdc = hub.compare(0, 6, "adc://") == 0 || hub.compare(0, 7, "adcs://") == 0;
-                        bool commandAdc = uc.getHub().compare(0, 6, "adc://") == 0 || uc.getHub().compare(0, 7, "adcs://") == 0;
+            bool hubAdc = hub.compare(0, 6, "adc://") == 0 || hub.compare(0, 7, "adcs://") == 0;
+            bool commandAdc = uc.getHub().compare(0, 6, "adc://") == 0 || uc.getHub().compare(0, 7, "adcs://") == 0;
             if(hubAdc && commandAdc) {
-                                if((uc.getHub() == "adc://" || uc.getHub() == "adcs://") ||
-                                        ((uc.getHub() == "adc://op" || uc.getHub() == "adcs://op") && isOp[j]) ||
-                    (uc.getHub() == hub) )
+                if((uc.getHub() == "adc://" || uc.getHub() == "adcs://") ||
+                   ((uc.getHub() == "adc://op" || uc.getHub() == "adcs://op") && isOp[j]) ||
+                   (uc.getHub() == hub) )
                 {
+                    //printf("Found ADC command for ADC hub.\n");
                     lst.push_back(*i);
                     break;
                 }
-                        } else if((!hubAdc && !commandAdc) || uc.isChat()) {
+            } else if((!hubAdc && !commandAdc) || uc.isChat()) {
                 if((uc.getHub().length() == 0) ||
-                    (uc.getHub() == "op" && isOp[j]) ||
-                    (uc.getHub() == hub) )
+                   (uc.getHub() == "op" && isOp[j]) ||
+                   (uc.getHub() == hub) )
                 {
+                    //printf("Found non-ADC command for non-ADC hub.\n");
                     lst.push_back(*i);
                     break;
                 }

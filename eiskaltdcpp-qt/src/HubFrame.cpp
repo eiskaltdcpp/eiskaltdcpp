@@ -345,7 +345,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 
     if (!cid.isEmpty() && !pmw){
         user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_USER);
+                        UserCommand::CONTEXT_HUB);
         menu->addMenu(user_menu);
     }
 
@@ -764,6 +764,7 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     setAttribute(Qt::WA_DeleteOnClose);
 
     out_messages_index = 0;
+    out_messages_unsent = false;
 
     FavoriteManager::getInstance()->addListener(this);
 }
@@ -1415,10 +1416,15 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
         client->hubMessage(msg.toStdString(), thirdPerson);
 
     if (!thirdPerson){
+        if (out_messages_unsent){
+            out_messages.removeLast();
+            out_messages_unsent = false;
+        }
+
         out_messages << msg;
 
-        if (out_messages.size() >= WIGET(WI_OUT_IN_HIST))
-            out_messages.removeAt(0);
+        if (out_messages.size() > WIGET(WI_OUT_IN_HIST))
+            out_messages.removeFirst();
 
         out_messages_index = out_messages.size()-1;
     }
@@ -1547,6 +1553,79 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             }
         }
     }
+    else if (cmd == "/kword" && !emptyParam){
+        if (list.size() < 2 || list.size() > 3)
+            return false;
+
+        enum { List=0, Add, Remove };
+
+        int kw_action = List;
+
+        if (list.at(1) == QString("add"))
+            kw_action = Add;
+        else if (list.at(1) == QString("purge"))
+            kw_action = Remove;
+        else if (list.at(1) == QString("list"))
+            kw_action = List;
+        else {
+            if (fr == this)
+                addStatus(tr("Invalid command syntax."));
+            else if (pm)
+                pm->addStatus(tr("Invalid command syntax."));
+
+            return false;
+        }
+
+        if (kw_action != List && list.size() != 3){
+            if (fr == this)
+                addStatus(tr("Invalid command syntax."));
+            else if (pm)
+                pm->addStatus(tr("Invalid command syntax."));
+
+            return false;
+        }
+
+        QStringList kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
+
+        switch (kw_action){
+        case List:
+            {
+                QString str = tr("List of keywords:\n");
+
+                foreach (const QString s, kwords)
+                    str += "\t" + s + "\n";
+
+                if (fr == this)
+                    addStatus(str);
+                else if (pm)
+                    pm->addStatus(str);;
+
+                break;
+            }
+        case Remove:
+            {
+                QString kword = list.last();
+
+                if (kwords.contains(kword))
+                    kwords.removeOne(kword);
+
+                break;
+            }
+        case Add:
+            {
+                QString kword = list.last();
+
+                if (!kwords.contains(kword))
+                    kwords.push_back(kword);
+
+                break;
+            }
+        default:
+            break;
+        }
+
+        WVSET("hubframe/chat-keywords", kwords);
+    }
     else if (cmd == "/ratio"){
         double ratio;
         double down = QString(WSGET(WS_APP_TOTAL_DOWN)).toDouble();
@@ -1660,6 +1739,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         out += tr("/back - set away-mode off\n");
         out += tr("/browse <nick> - browse user files\n");
         out += tr("/clear - clear chat window\n");
+        out += tr("/kword add <keyword> - add user-defined keyword\n");
+        out += tr("/kword purge <keyword> - remove user-defined keyword\n");
+        out += tr("/kword list - list all keywords\n");
         out += tr("/magnet - default action with magnet (0-ask, 1-search, 2-download)\n");
         out += tr("/close - close this hub\n");
         out += tr("/fav - add this hub to favorites\n");
@@ -2110,6 +2192,16 @@ void HubFrame::newMsg(const VarMap &map){
     QString color = map["CLR"].toString();
     QString msg_color = WS_CHAT_MSG_COLOR;
 
+    const QStringList &kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
+
+    foreach (const QString &word, kwords){
+        if (message.contains(word, Qt::CaseInsensitive)){
+            msg_color = WS_CHAT_SAY_NICK;
+
+            break;
+        }
+    }
+
     emit newMessage(this, _q(client->getHubUrl()), map["CID"].toString(), nick, message);
 
     if (message.indexOf(_q(client->getMyNick())) >= 0){
@@ -2149,44 +2241,44 @@ void HubFrame::newMsg(const VarMap &map){
 
     if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
         QString hr = "<hr />";
-        
+
         QTextDocument *chatDoc = textEdit_CHAT->document();
-        
+
         int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
-        
+
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if (it.userState() == 1){
                 if (it.text().isEmpty()){ // additional check that it is not message
                     QTextCursor c(it);
                     c.select(QTextCursor::BlockUnderCursor);
                     c.deleteChar(); // delete string with horizontal line
-                    
+
                     if (scrollbarValue > textEdit_CHAT->verticalScrollBar()->maximum())
                         scrollbarValue = textEdit_CHAT->verticalScrollBar()->maximum();
-                    
+
                     textEdit_CHAT->verticalScrollBar()->setValue(scrollbarValue);
-                    
+
                     break;
                 }
             }
         }
-        
+
         drawLine = false;
-        
+
         chatDoc->lastBlock().setUserState(0); // add label for the last of the old messages
-        
+
         output.prepend(hr);
-        
+
         addOutput(output);
-        
+
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if (it.userState() == 0){
                 it.setUserState(-1); // delete label for the last of the old messages
-                
+
                 if (it.blockNumber() < chatDoc->blockCount()-3){
                     it = it.next().next();
                     it.setUserState(1); // add label for string with horizontal line
-                    
+
                     it = it.previous();
                     if (it.text().isEmpty()){ // additional check that it is not message
                         QTextCursor c(it);
@@ -2194,14 +2286,14 @@ void HubFrame::newMsg(const VarMap &map){
                         c.deleteChar(); // delete empty string above horizontal line
                     }
                 }
-                
+
                 break;
             }
         }
-        
+
         return;
     }
-    
+
     addOutput(output);
 }
 
@@ -2213,7 +2305,14 @@ void HubFrame::newPm(const VarMap &map){
     QString full_message = "";
 
     if (nick != _q(client->getMyNick())){
-        if (!pm.contains(map["CID"].toString()) || (pm.contains(map["CID"].toString()) && !pm[map["CID"].toString()]->isVisible()))
+        bool show_msg = false;
+
+        if (!pm.contains(map["CID"].toString()))
+            show_msg = true;
+        else
+            show_msg = (!pm[map["CID"].toString()]->isVisible() || WBGET("notification/play-sound-with-active-pm", true));
+
+        if (show_msg)
             Notification::getInstance()->showMessage(Notification::PM, nick, message);
     }
 
@@ -2952,31 +3051,47 @@ void HubFrame::nextMsg(){
         return;
 
     if (out_messages_index < 0 ||
-        out_messages.size()-1 < out_messages_index+1 ||
+        out_messages_index+1 > out_messages.size()-1 ||
         out_messages.size() == 0)
         return;
 
-    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index+1));
+    if (out_messages.at(out_messages_index) != plainTextEdit_INPUT->toPlainText())
+        out_messages[out_messages_index] = plainTextEdit_INPUT->toPlainText();
 
-    if (out_messages_index < out_messages.size()-1)
+    if (out_messages_index+1 <= out_messages.size()-1)
         out_messages_index++;
-    else
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
+
+    if (out_messages_unsent && out_messages_index == out_messages.size()-1){
+        out_messages.removeLast();
+        out_messages_unsent = false;
         out_messages_index = out_messages.size()-1;
+    }
 }
 
 void HubFrame::prevMsg(){
     if (!plainTextEdit_INPUT->hasFocus())
         return;
 
-    if (out_messages_index < 0 ||
-        out_messages.size()-1 < out_messages_index ||
+    if (out_messages_index < 1 ||
+        out_messages_index-1 > out_messages.size()-1 ||
         out_messages.size() == 0)
         return;
 
-    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
+    if (!out_messages_unsent && out_messages_index == out_messages.size()-1){
+        out_messages << plainTextEdit_INPUT->toPlainText();
+        out_messages_unsent = true;
+        out_messages_index++;
+    }
+
+    if (out_messages.at(out_messages_index) != plainTextEdit_INPUT->toPlainText())
+        out_messages[out_messages_index] = plainTextEdit_INPUT->toPlainText();
 
     if (out_messages_index >= 1)
         out_messages_index--;
+
+    plainTextEdit_INPUT->setPlainText(out_messages.at(out_messages_index));
 }
 
 void HubFrame::slotHideFindFrame(){

@@ -285,7 +285,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
         new_type = 0;
     }
     else {
-        dlg.lineEdit_CMD->setText(comm);
+        dlg.lineEdit_CMD->setText(_q(Text::toDOS(_tq(comm))));
 
         if(type == UserCommand::TYPE_RAW || type == UserCommand::TYPE_RAW_ONCE) {
             dlg.radioButton_RAW->setChecked(true);
@@ -315,6 +315,8 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
     dlg.checkBox_HUB->setChecked(ctx & UserCommand::CONTEXT_HUB);
     dlg.checkBox_USER->setChecked(ctx & UserCommand::CONTEXT_USER);
     dlg.checkBox_SEARCH->setChecked(ctx & UserCommand::CONTEXT_SEARCH);
+
+    dlg.updateLines();
 }
 
 UCItem::UCItem(UCItem *parent) :
@@ -407,7 +409,12 @@ unsigned long UCDialog::getType() {
 }
 
 QString UCDialog::getCmd() const {
-    return lineEdit_RESULT->text();
+    QString cmd = lineEdit_RESULT->text();
+
+    if(type == 1 && UserCommand::adc(_tq(getHub())) && !cmd.endsWith('\n'))
+        cmd += '\n';
+
+    return cmd;
 }
 
 QString UCDialog::getName() const {

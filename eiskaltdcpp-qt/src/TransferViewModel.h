@@ -37,6 +37,13 @@ public:
     virtual ~TransferViewDelegate();
 
     virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
+
+private Q_SLOTS:
+    void wsVarValueChanged(const QString&, const QVariant &);
+
+private:
+    QColor download_bar_color;
+    QColor upload_bar_color;
 };
 
 class TransferViewItem

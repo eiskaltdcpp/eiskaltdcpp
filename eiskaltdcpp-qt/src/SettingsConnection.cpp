@@ -86,6 +86,9 @@ void SettingsConnection::ok(){
         SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
 
         SM->set(SettingsManager::EXTERNAL_IP, lineEdit_WANIP->text().toStdString());
+        QString bind_ip=lineEdit_BIND_ADDRESS->text();
+        if (validateIp(bind_ip))
+            SM->set(SettingsManager::BIND_ADDRESS, lineEdit_BIND_ADDRESS->text().toStdString());
         SM->set(SettingsManager::NO_IP_OVERRIDE, checkBox_DONTOVERRIDE->checkState() == Qt::Checked);
     }
     else {
@@ -150,6 +153,7 @@ void SettingsConnection::ok(){
 
 void SettingsConnection::init(){
     lineEdit_WANIP->setText(QString::fromStdString(SETTING(EXTERNAL_IP)));
+    lineEdit_BIND_ADDRESS->setText(QString::fromStdString(SETTING(BIND_ADDRESS)));
 
     spinBox_TCP->setValue(old_tcp = SETTING(TCP_PORT));
     spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));

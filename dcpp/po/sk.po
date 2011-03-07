@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-07 22:42+0200\n"
+"POT-Creation-Date: 2011-03-07 01:27+0200\n"
 "PO-Revision-Date: 2009-03-24 12:27+0000\n"
 "Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
@@ -86,12 +86,12 @@ msgstr ""
 msgid "Unable to create thread"
 msgstr "Nepodarilo sa vytvoriť vlákno"
 
-#: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:67 ../UserConnection.cpp:141
 #, fuzzy
 msgid "Invalid data"
 msgstr "Neplatná veľkosť"
 
-#: ../UserConnection.cpp:61
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgid ""
 msgstr ""
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
+#: ../SearchManager.cpp:271 ../SearchManager.cpp:425 ../SearchManager.cpp:427
 msgid "Offline"
 msgstr "Odpojený"
 
@@ -452,7 +452,7 @@ msgstr "<Zadajte reťazec>"
 msgid "Discard"
 msgstr "Zahodiť"
 
-#: ../DirectoryListing.cpp:163
+#: ../DirectoryListing.cpp:178
 msgid "Directory missing name attribute"
 msgstr "Adresáru chýba atribút názov"
 
@@ -575,11 +575,11 @@ msgstr ""
 msgid "CD Image"
 msgstr ""
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:161
 msgid "Search enabled again"
 msgstr "Hľadanie znova zapnuté"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:169
 msgid "Search disabled: %1%"
 msgstr "Hľadanie vypnuté: %1%"
 

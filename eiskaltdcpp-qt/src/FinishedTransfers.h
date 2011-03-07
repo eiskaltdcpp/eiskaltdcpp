@@ -63,6 +63,7 @@ public Q_SLOTS:
     virtual void slotClear() = 0;
     virtual void slotContextMenu() = 0;
     virtual void slotHeaderMenu() = 0;
+    virtual void slotSwitchOnlyFull(bool) = 0;
     virtual void slotSettingsChanged(const QString &key, const QString &) = 0;
 };
 
@@ -125,7 +126,11 @@ private:
 
         model = new FinishedTransfersModel();
 
-        treeView->setModel(model);
+        proxy = new FinishedTransferProxyModel();
+        proxy->setDynamicSortFilter(true);
+        proxy->setSourceModel(model);
+
+        treeView->setModel(proxy);
 
 #ifdef USE_QT_SQLITE
         db = QSqlDatabase::addDatabase("QSQLITE", (isUpload? "FinishedUploads" : "FinishedDownloads"));
@@ -137,10 +142,10 @@ private:
         if (db_opened){
             QSqlQuery q(db);
             q.exec("create table if not exists files (FNAME TEXT primary key, "
-                   "TIME TEXT, PATH TEXT, USERS TEXT, TR TEXT, SPEED TEXT, CRC32 INTEGER, TARGET TEXT, ELAP TEXT)");
+                   "TIME TEXT, PATH TEXT, USERS TEXT, TR TEXT, SPEED TEXT, CRC32 INTEGER, TARGET TEXT, ELAP TEXT, FULL INTEGER)");
 
             q.exec("create table if not exists users (NICK TEXT primary key, "
-                   "TIME TEXT, FILES TEXT, TR TEXT, SPEED TEXT, CID TEXT, ELAP TEXT)");
+                   "TIME TEXT, FILES TEXT, TR TEXT, SPEED TEXT, CID TEXT, ELAP TEXT, FULL INTEGER)");
         }
 #endif
 
@@ -166,7 +171,9 @@ private:
         QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
         QObject::connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
         QObject::connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
+        QObject::connect(checkBox_FULL, SIGNAL(toggled(bool)), this, SLOT(slotSwitchOnlyFull(bool)));
 
+        slotSwitchOnlyFull(false);
         slotTypeChanged(0);
     }
 
@@ -179,6 +186,7 @@ private:
         db.close();
 #endif
 
+        delete proxy;
         delete model;
     }
 
@@ -227,6 +235,7 @@ private:
             params["CRC32"] = q.value(i++);
             params["TARGET"]= q.value(i++);
             params["ELAP"]  = q.value(i++);
+            params["FULL"]  = q.value(i++);
 
             model->addFile(params);
         }
@@ -243,6 +252,7 @@ private:
             params["SPEED"] = q.value(i++);
             params["CID"] = q.value(i++);
             params["ELAP"]  = q.value(i++);
+            params["FULL"]  = q.value(i++);
 
             model->addUser(params);
         }
@@ -265,13 +275,14 @@ private:
         params["CRC32"] = item->getCrc32Checked();
         params["TARGET"]= _q(file);
         params["ELAP"]  = (qlonglong)item->getMilliSeconds();
+        params["FULL"]  = item->isFull();
 
 #ifdef USE_QT_SQLITE
         if (!db_opened)
             return;
 
         QSqlQuery q(db);
-        q.prepare("insert into files values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        q.prepare("insert into files values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         q.bindValue(0, params["FNAME"]);
         q.bindValue(1, params["TIME"]);
         q.bindValue(2, params["PATH"]);
@@ -281,6 +292,7 @@ private:
         q.bindValue(6, params["CRC32"]);
         q.bindValue(7, params["TARGET"]);
         q.bindValue(8, params["ELAP"]);
+        q.bindValue(9, params["FULL"]);
 
         q.exec();
 #endif
@@ -300,13 +312,14 @@ private:
         params["SPEED"] = (qlonglong)item->getAverageSpeed();
         params["CID"]   = _q(user->getCID().toBase32());
         params["ELAP"]  = (qlonglong)item->getMilliSeconds();
+        params["FULL"]  = true;
 
 #ifdef USE_QT_SQLITE
         if (!db_opened)
             return;
 
         QSqlQuery q(db);
-        q.prepare("insert into users values(?, ?, ?, ?, ?, ?, ?)");
+        q.prepare("insert into users values(?, ?, ?, ?, ?, ?, ?, ?)");
 
         q.bindValue(0, params["NICK"]);
         q.bindValue(1, params["TIME"]);
@@ -315,6 +328,7 @@ private:
         q.bindValue(4, params["SPEED"]);
         q.bindValue(5, params["CID"]);
         q.bindValue(6, params["ELAP"]);
+        q.bindValue(7, params["FULL"]);
 
         q.exec();
 
@@ -333,6 +347,11 @@ private:
         treeView->setSortingEnabled(true);
 
         model->switchViewType(static_cast<FinishedTransfersModel::ViewType>(index));
+
+        if (index == FinishedTransfersModel::FileView)
+            proxy->setFilterKeyColumn(COLUMN_FINISHED_FULL);
+        else
+            proxy->setFilterKeyColumn(COLUMN_FINISHED_CRC32);
     }
 
     void slotClear(){
@@ -357,7 +376,11 @@ private:
         static WulforUtil *WU = WulforUtil::getInstance();
 
         QItemSelectionModel *s_model = treeView->selectionModel();
-        QModelIndexList indexes = s_model->selectedRows(0);
+        QModelIndexList p_indexes = s_model->selectedRows(0);
+        QModelIndexList indexes;
+
+        foreach (QModelIndex i, p_indexes)
+            indexes.push_back(proxy->mapToSource(i));
 
         if (indexes.size() < 1)
             return;
@@ -437,6 +460,10 @@ private:
         WulforUtil::headerMenu(treeView);
     }
 
+    void slotSwitchOnlyFull(bool checked){
+        proxy->setFilterFixedString((checked? tr("Yes") : ""));
+    }
+
     void slotSettingsChanged(const QString &key, const QString &){
         if (key == WS_TRANSLATION_FILE)
             retranslateUi(this);
@@ -501,6 +528,7 @@ private:
         }
     }
 
+    FinishedTransferProxyModel *proxy;
     FinishedTransfersModel *model;
 
 #ifdef USE_QT_SQLITE

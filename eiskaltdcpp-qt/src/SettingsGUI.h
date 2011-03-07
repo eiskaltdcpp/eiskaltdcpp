@@ -25,7 +25,7 @@ public:
 private:
     void init();
 
-private slots:
+private Q_SLOTS:
     void slotChatColorItemClicked(QListWidgetItem *);
     void slotTestAppTheme();
     void slotThemeChanged();
@@ -36,11 +36,12 @@ private slots:
     void slotIconsChanged();
     void slotGetColor();
     void slotSetTransparency(int);
+    void slotResetTransferColors();
 
-signals:
+Q_SIGNALS:
     void saveFonts();
 
-public slots:
+public Q_SLOTS:
     void ok();
 
 private:
@@ -50,6 +51,8 @@ private:
     QColor h_color;
     QColor shared_files_color;
     QColor chat_background_color;
+    QColor downloads_clr;
+    QColor uploads_clr;
 };
 
 #endif // SETTINGSGUI_H

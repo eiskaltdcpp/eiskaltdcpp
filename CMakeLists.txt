@@ -1,11 +1,11 @@
 project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6)
 
-if (UNIX AND NOT APPLE)
-  set (PROJECT_NAME_GLOBAL eiskaltdcpp)
-else (UNIX AND NOT APPLE)
+if (APPLE)
   set (PROJECT_NAME_GLOBAL EiskaltDC++)
-endif (UNIX AND NOT APPLE)
+else (APPLE)
+  set (PROJECT_NAME_GLOBAL eiskaltdcpp)
+endif (APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
 set (VERSION "2.2.1")
@@ -130,13 +130,6 @@ elseif (NOT USE_MINIUPNP)
     unset (MINIUPNP_LIBRARY CACHE)
     message (STATUS "Building without UPNP support (miniupnpc)")
 endif(USE_MINIUPNP)
-find_package(Readline REQUIRED)
-if (XMLRPC_DAEMON)
-    if (NOT NO_UI_DAEMON)
-        set (NO_UI_DAEMON 1 CACHE BOOL "Daemon without anyone ui" FORCE)
-    endif (NOT NO_UI_DAEMON)
-    find_package (XMLRPC REQUIRED c++2 abyss-server client)
-endif (XMLRPC_DAEMON)
 
 if (USE_QT)
     if (USE_QT_QML)
@@ -320,9 +313,9 @@ endif (HAVE_IFADDRS_H)
   #add_definitions (-DFORCE_XDG)
 #endif (FORCE_XDG)
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
-    if (CMAKE_CROSSCOMPILING)
+    if (MINGW)
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")
-    endif (CMAKE_CROSSCOMPILING)
+    endif (MINGW)
     if (NOT APPLE)
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--as-needed")
@@ -412,9 +405,9 @@ if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK)
 
-if (NO_UI_DAEMON)
-add_subdirectory (nasdc)
-endif (NO_UI_DAEMON)
+if (NO_UI_DAEMON OR XMLRPC_DAEMON OR CLI_DAEMON)
+    add_subdirectory (nasdc)
+endif ()
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
@@ -425,26 +418,26 @@ ADD_CUSTOM_TARGET(uninstall
 
 if(GETTEXT_FOUND)
     include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/KWWidgetsInternationalizationMacros.cmake)
-option (UPDATE_PO "Update po files" OFF)
-option (CREATE_MO "Create mo files" ON)
+    option (UPDATE_PO "Update po files" OFF)
+    option (CREATE_MO "Create mo files" ON)
 
-if (UPDATE_PO)
-set (create_pot 1)
-set (create_po 1)
-set (create_po_lo 1)
-else (UPDATE_PO)
-set (create_pot 0)
-set (create_po 0)
-set (create_po_lo 0)
-endif (UPDATE_PO)
-if (CREATE_MO)
-set (create_mo 1)
-set (create_mo_lo 1)
-else (CREATE_MO)
-set (create_mo 0)
-set (create_mo_lo 0)
-endif (CREATE_MO)
-set (mo_for_all 1)
+    if (UPDATE_PO)
+        set (create_pot 1)
+        set (create_po 1)
+        set (create_po_lo 1)
+    else (UPDATE_PO)
+        set (create_pot 0)
+        set (create_po 0)
+        set (create_po_lo 0)
+    endif (UPDATE_PO)
+    if (CREATE_MO)
+        set (create_mo 1)
+        set (create_mo_lo 1)
+    else (CREATE_MO)
+        set (create_mo 0)
+        set (create_mo_lo 0)
+    endif (CREATE_MO)
+    set (mo_for_all 1)
     kwwidgets_create_gettext_targets(
       DOMAIN_NAME "libeiskaltdcpp"
       LOCALE_LIST "${LANGUAGES}"
@@ -463,27 +456,27 @@ set (mo_for_all 1)
       CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
       ADD_MO_TARGET_TO_ALL ${mo_for_all}
       )
-if (USE_GTK)
-     kwwidgets_create_gettext_targets(
-      DOMAIN_NAME "eiskaltdcpp-gtk"
-      LOCALE_LIST "${LANGUAGES}"
-      COPYRIGHT_HOLDER "EiskaltDC++ team"
-      SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_GLADE}"
-      PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
-      POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
-      #PO_PREFIX    ""
-      PO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
-      MO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}/locale"
-      MO_INSTALL_DIR "/${LOCALE_DIR}"
-      CREATE_POT_TARGET ${create_pot}
-      CREATE_PO_TARGET ${create_po}
-      CREATE_PO_LOCALE_TARGETS ${create_po_lo}
-      CREATE_MO_TARGET ${create_mo}
-      CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
-      ADD_MO_TARGET_TO_ALL ${mo_for_all}
-      )
+    if (USE_GTK)
+         kwwidgets_create_gettext_targets(
+          DOMAIN_NAME "eiskaltdcpp-gtk"
+          LOCALE_LIST "${LANGUAGES}"
+          COPYRIGHT_HOLDER "EiskaltDC++ team"
+          SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_GLADE}"
+          PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
+          POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
+          #PO_PREFIX    ""
+          PO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
+          MO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}/locale"
+          MO_INSTALL_DIR "/${LOCALE_DIR}"
+          CREATE_POT_TARGET ${create_pot}
+          CREATE_PO_TARGET ${create_po}
+          CREATE_PO_LOCALE_TARGETS ${create_po_lo}
+          CREATE_MO_TARGET ${create_mo}
+          CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
+          ADD_MO_TARGET_TO_ALL ${mo_for_all}
+          )
 
-endif (USE_GTK)
+    endif (USE_GTK)
 
 endif(GETTEXT_FOUND)
 

@@ -53,10 +53,6 @@ add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/gtk/icons"
                 )
 
-#if (eiskaltdcpp_WC_REVISION)
-    #set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/wulfor.cc  ${PROJECT_SOURCE_DIR}/src/mainwindow.cc PROPERTY COMPILE_DEFINITIONS DCPP_REVISION="${eiskaltdcpp_WC_REVISION}")
-#endif ()
-
 if (USE_MINIUPNP)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/settingsdialog.cc  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
 endif()
