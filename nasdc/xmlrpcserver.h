@@ -116,15 +116,15 @@ public:
     execute(xmlrpc_c::paramList const& paramList,
             xmlrpc_c::value *   const  retvalP) {
 
-        int const addend(paramList.getInt(0));
-        int const adder(paramList.getInt(1));
+        int const iaddend(paramList.getInt(0));
+        int const iadder(paramList.getInt(1));
 
         paramList.verifyEnd(2);
 
-        *retvalP = xmlrpc_c::value_int(addend + adder);
+        *retvalP = xmlrpc_c::value_int(iaddend + iadder);
         // Sometimes, make it look hard (so client can see what it's like
         // to do an RPC that takes a while).
-        if (adder == 1)
+        if (iadder == 1)
             SLEEP(2);
     }
 };
@@ -176,10 +176,10 @@ public:
     execute(xmlrpc_c::paramList const& paramList,
             xmlrpc_c::value *   const  retvalP) {
 
-        int  const sstop(paramList.getInt(0));
+        int const istop(paramList.getInt(0));
         paramList.verifyEnd(1);
 
-        if (sstop == 1) {
+        if (istop == 1) {
             *retvalP = xmlrpc_c::value_string("Stopping daemon");
             bServerTerminated=true;
         }
@@ -259,7 +259,7 @@ class listHubsMethod : public xmlrpc_c::method {
 public:
     listHubsMethod() {
         this->_signature = "i:s";
-        this->_help = "This method return list of connected hubs in string. Рarams: separator)";
+        this->_help = "This method return list of connected hubs in string. Рarams: separator";
     }
 
     void
@@ -271,6 +271,121 @@ public:
         ServerThread svT; string listhubs;
         svT.listConnectedClients(listhubs, sseparator);
         *retvalP = xmlrpc_c::value_string(listhubs);
+    }
+};
+
+class addDirInShareMethod : public xmlrpc_c::method {
+public:
+    addDirInShareMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method add dir in share. Рarams: directory,virtual name";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const sdirectory(paramList.getString(0));
+        string const svirtname(paramList.getString(1));
+        paramList.verifyEnd(2);
+        try {
+            ShareManager::getInstance()->addDirectory(sdirectory,svirtname);
+            ShareManager::getInstance()->refresh(true);
+            *retvalP = xmlrpc_c::value_string("Adding dir in share sucess");
+        } catch (const ShareException& e) {
+            *retvalP = xmlrpc_c::value_string(e.getError());
+        }
+    }
+};
+
+class renameDirInShareMethod : public xmlrpc_c::method {
+public:
+    renameDirInShareMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method rename dir in share. Рarams: directory,virtual name";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const sdirectory(paramList.getString(0));
+        string const svirtname(paramList.getString(1));
+        paramList.verifyEnd(2);
+        try {
+            ShareManager::getInstance()->renameDirectory(sdirectory,svirtname);
+            ShareManager::getInstance()->refresh(true);
+            *retvalP = xmlrpc_c::value_string("Rename dir in share success");
+        } catch (const ShareException& e) {
+            *retvalP = xmlrpc_c::value_string(e.getError());
+        }
+    }
+};
+
+class delDirFromShareMethod : public xmlrpc_c::method {
+public:
+    delDirFromShareMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method delete dir from share. Рarams: directory";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const sdirectory(paramList.getString(0));
+        paramList.verifyEnd(1);
+        ShareManager::getInstance()->removeDirectory(sdirectory);
+        ShareManager::getInstance()->refresh(true);
+        *retvalP = xmlrpc_c::value_string("Delete dir from share success");
+    }
+};
+
+class listShareMethod : public xmlrpc_c::method {
+public:
+    listShareMethod() {
+        this->_signature = "i:s";
+        this->_help = "This method return list of shared directories in string. Рarams: separator";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const sseparator(paramList.getString(0));
+        paramList.verifyEnd(1);
+        string listshare;
+        StringPairList directories = ShareManager::getInstance()->getDirectories();
+        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){
+            listshare.append("\n");
+            listshare.append(it->second+sseparator);
+            listshare.append(it->first+sseparator);
+            listshare.append(Util::formatBytes(ShareManager::getInstance()->getShareSize(it->second))+sseparator);
+            listshare.append("\n");
+        }
+        *retvalP = xmlrpc_c::value_string(listshare);
+    }
+};
+class refreshShareMethod : public xmlrpc_c::method {
+public:
+    refreshShareMethod() {
+        this->_signature = "i:i";
+        this->_help = "This method run refresh. Рarams: 1";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        int const irefresh(paramList.getInt(0));
+        paramList.verifyEnd(1);
+        if (irefresh == 1) {
+            *retvalP = xmlrpc_c::value_string("Refresh share started");
+            ShareManager::getInstance()->setDirty();
+            ShareManager::getInstance()->refresh(true);
+        }
+        else
+            *retvalP = xmlrpc_c::value_string("Param not equal 1, ignoring....");
     }
 };
 #endif

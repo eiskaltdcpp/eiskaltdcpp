@@ -86,22 +86,26 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const hubDelMethodP(new hubDelMethod);
     xmlrpc_c::methodPtr const hubSayMethodP(new hubSayMethod);
     xmlrpc_c::methodPtr const listHubsMethodP(new listHubsMethod);
+    xmlrpc_c::methodPtr const addDirInShareMethodP(new addDirInShareMethod);
+    xmlrpc_c::methodPtr const renameDirInShareMethodP(new renameDirInShareMethod);
+    xmlrpc_c::methodPtr const delDirFromShareMethodP(new delDirFromShareMethod);
+    xmlrpc_c::methodPtr const listShareMethodP(new listShareMethod);
+    xmlrpc_c::methodPtr const refreshShareMethodP(new refreshShareMethod);
     xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
-    xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
+    //xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
     xmlrpcRegistry.addMethod("hub.del", hubDelMethodP);
     xmlrpcRegistry.addMethod("hub.say", hubSayMethodP);
     xmlrpcRegistry.addMethod("hubs.list", listHubsMethodP);
+    xmlrpcRegistry.addMethod("share.add", addDirInShareMethodP);
+    xmlrpcRegistry.addMethod("share.rename", renameDirInShareMethodP);
+    xmlrpcRegistry.addMethod("share.del", delDirFromShareMethodP);
+    xmlrpcRegistry.addMethod("share.list", listShareMethodP);
+    xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
     //xmlrpc_c::xmlrpc_server_abyss_set_handlers()
     AbyssServer.run();
 #endif
-
-    //while(!bTerminated) {
-        //usleep(1000);
-    //}
-    //if (bTerminated)
-        //disconnect_all();
 
 }
 bool ServerThread::disconnect_all(){
