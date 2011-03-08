@@ -397,7 +397,8 @@ void ScriptInstance::EvaluateFile(const string& fn) {
 }
 
 void ScriptManager::SendDebugMessage(const string &mess) {
-    LogManager::getInstance()->message(mess);
+    //LogManager::getInstance()->message(mess);
+    dcdebug((mess + "\n").c_str()); // temporary
 }
 
 bool ScriptInstance::GetLuaBool() {
