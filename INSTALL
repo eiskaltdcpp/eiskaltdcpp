@@ -68,7 +68,7 @@ pkg-config
 :libeiskaltdcpp:
 ----------------
 gettext
-libboost-dev (headers only) (optional, see cmake keys)
+libboost-dev (>=1.38.0) (headers only) (optional, see cmake keys)
 liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
@@ -111,6 +111,9 @@ Keys for cmake
 ----------------
 -DLOCAL_BOOST=ON/OFF (default: OFF)
     use local boost headers
+    Script downloads archive with only necessary headers: http://code.google.com/p/eiskaltdc/downloads/detail?name=boost.tar.gz
+    (This archive have less size than official boost archive)
+    If boost.tar.gz already available in source tree nothing happens.
 -DLUA_SCRIPT=ON/OFF (default: OFF)
     lua scripts
 -DPERL_REGEX=ON/OFF (default: OFF)
