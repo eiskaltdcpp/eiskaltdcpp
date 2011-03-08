@@ -5,6 +5,7 @@
 * Fixed support for Lua-scripts. (It was broken in version 2.2.0 when was sync with DC++ kernel)
 * Fixed bug with "empty share" at startup. Now after updating the list of files will be done back up, which is used when the program starts. Note: an empty list of files is not an empty share! (Many people were wrong in this regard)
 * Fixed the answering function for search queries on the ADC-hubs. (Bug was added in version 2.2.0 when was sync with DC++ kernel)
+* Added ability to disable segmenting and to change segment size (in MiB).
 *** eiskaltdcpp-qt ***
 * Fixed a crash program when using the filter in the search results when new query results come.
 * Algorithm for adding separator (horizontal line) for unread messages in the chat was updated. Now it works fine.
@@ -22,6 +23,8 @@
 * Now user commands menu are not shown if commands list on hub is empty.
 * Added option to hide icons in menus. (Useful for Mac OS X users)
 * Changed the response for blank nick when the program starts: now a dialog to enter a nickname is opened instead of the general preferences dialog.
+* Added ability to use aspell in the assembly under MS Windows.
+* Added ability to specify BIND_ADDRESS in the preferences dialog.
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
 * Fixed saving of number of upload slots in the preferences dialog. (Bug was added in version 2.2.0)
