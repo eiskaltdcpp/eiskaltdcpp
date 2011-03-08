@@ -43,9 +43,9 @@ static void  logging(bool b, string msg){
 static void SigHandler(int sig) {
     string str = "Received signal ";
 
-    /*if (sig == SIGINT) {
+    if (sig == SIGINT) {
         str += "SIGINT";
-    } else */if (sig == SIGTERM) {
+    } else if (sig == SIGTERM) {
         str += "SIGTERM";
     } else if (sig == SIGQUIT) {
         str += "SIGQUIT";
@@ -191,10 +191,10 @@ int main(int argc, char* argv[])
     sigemptyset(&sigact.sa_mask);
     sigact.sa_flags = 0;
 
-    //if (sigaction(SIGINT, &sigact, NULL) == -1) {
-        //printf("Cannot create sigaction SIGINT! %s\n", strerror(errno));
-        //exit(EXIT_FAILURE);
-    //}
+    if (sigaction(SIGINT, &sigact, NULL) == -1) {
+        printf("Cannot create sigaction SIGINT! %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     if (sigaction(SIGTERM, &sigact, NULL) == -1) {
         printf("Cannot create sigaction SIGTERM! %s\n", strerror(errno));
