@@ -712,7 +712,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfers.h" line="464"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ano</translation>
     </message>
 </context>
 <context>
@@ -756,7 +756,7 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="47"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="54"/>
         <source>Full</source>
-        <translation type="unfinished"></translation>
+        <translation>Plný</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
@@ -788,13 +788,13 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ano</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
         <source>No</source>
-        <translation type="unfinished">Ne</translation>
+        <translation>Ne</translation>
     </message>
 </context>
 <context>
@@ -1162,13 +1162,13 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1587"/>
         <location filename="../src/HubFrame.cpp" line="1589"/>
         <source>Invalid command syntax.</source>
-        <translation type="unfinished"></translation>
+        <translation>Špatně napsaný příkaz</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1599"/>
         <source>List of keywords:
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Seznam klíčových slov</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1741"/>
@@ -1223,19 +1223,22 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1748"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword add &lt;keyword&gt; - vloží uživatelem definované klíčové slovo
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1749"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword purge &lt;keyword&gt; - odebere uživatelem definované klíčové slovo
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1750"/>
         <source>/kword list - list all keywords
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword list - seznam všech klíčových slov
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1751"/>
@@ -2017,22 +2020,22 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>Enter user nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Vlož uživatelovu přezdívku</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>Nick</source>
-        <translation type="unfinished">Přezdívka</translation>
+        <translation>Přezdívka</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>User</source>
-        <translation type="unfinished">Uživatel</translation>
+        <translation>Uživatel</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="317"/>
         <source>Would you like to change other settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chceš změnit další nastavení?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="544"/>
@@ -2985,7 +2988,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="127"/>
         <source>Blacklist...</source>
-        <translation type="unfinished"></translation>
+        <translation>Černá listina...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="130"/>
@@ -2995,7 +2998,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="133"/>
         <source>Add to Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat na černou listinu</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="239"/>
@@ -4673,12 +4676,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="43"/>
         <source>Show only completely finished transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit pouze dokončené přenosy</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="46"/>
         <source>Full only</source>
-        <translation type="unfinished"></translation>
+        <translation>Pouze plné</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="66"/>
@@ -5159,7 +5162,7 @@ další nastavení ve firewallu, aby povolil EiskaltDC++ připojení k Internetu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="231"/>
         <source>Bind Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bind Address:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="256"/>
@@ -6043,7 +6046,7 @@ jsou obvykle dostupné operátorům</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="207"/>
         <source>Don&apos;t show icons in menus (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nezobrazovat ikony v menu (vyžaduje restart)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="315"/>
@@ -6166,17 +6169,17 @@ jsou obvykle dostupné operátorům</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="854"/>
         <source>Transfer colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Barvy přenosu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="877"/>
         <source>Upload</source>
-        <translation type="unfinished">Odesílání</translation>
+        <translation>Odesílání</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="904"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Reset</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="916"/>
@@ -6388,7 +6391,7 @@ seznamu souborů</translation>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="253"/>
         <source>Play sound on active PM window</source>
-        <translation type="unfinished"></translation>
+        <translation>Přehrát zvuk na aktivním PM okně</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="295"/>
