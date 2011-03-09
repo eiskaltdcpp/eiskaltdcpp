@@ -1131,17 +1131,20 @@ Kedvenc felhasználó</translation>
     <message>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword
 </source>
-        <translation>/kword add &lt;kulcsszó&gt; - kiemelt szó hozzáadása</translation>
+        <translation>/kword add &lt;kulcsszó&gt; - kiemelt szó hozzáadása
+</translation>
     </message>
     <message>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
-        <translation>/kword purge &lt;kulcsszó&gt; - kiemelt szó eltávolítása</translation>
+        <translation>/kword purge &lt;kulcsszó&gt; - kiemelt szó eltávolítása
+</translation>
     </message>
     <message>
         <source>/kword list - list all keywords
 </source>
-        <translation>/kword list - kiemelt szavak listázása</translation>
+        <translation>/kword list - kiemelt szavak listázása
+</translation>
     </message>
 </context>
 <context>
@@ -1873,7 +1876,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation>Tulajdonságok</translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>Icons only</source>
@@ -2509,7 +2512,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation>Tulajdonságok</translation>
+        <translation>Beállítások</translation>
     </message>
 </context>
 <context>
@@ -4311,7 +4314,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Bind Address:</source>
-        <translation type="unfinished">Kötési cím:</translation>
+        <translation>Kötési cím:</translation>
     </message>
 </context>
 <context>
