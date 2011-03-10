@@ -712,7 +712,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
     <message>
         <location filename="../src/FinishedTransfers.h" line="464"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Так</translation>
     </message>
 </context>
 <context>
@@ -783,13 +783,13 @@ EiskaltDC++ - кросплатформенна програма для робо�
         <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Так</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
         <source>No</source>
-        <translation type="unfinished">Ні</translation>
+        <translation>Ні</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="54"/>
@@ -1048,13 +1048,13 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1587"/>
         <location filename="../src/HubFrame.cpp" line="1589"/>
         <source>Invalid command syntax.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неправильний синтаксис для команди.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1599"/>
         <source>List of keywords:
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Список ключових слів:</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1739"/>
@@ -1905,22 +1905,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>Enter user nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Введіть нік користувача</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>Nick</source>
-        <translation type="unfinished">Нік</translation>
+        <translation>Нік</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>User</source>
-        <translation type="unfinished">Користувач</translation>
+        <translation>Користувач</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="317"/>
         <source>Would you like to change other settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>Бажаєте обрати інші налаштування?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="544"/>
@@ -3009,7 +3009,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="127"/>
         <source>Blacklist...</source>
-        <translation type="unfinished"></translation>
+        <translation>Чорний список...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="130"/>
@@ -3019,7 +3019,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="133"/>
         <source>Add to Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати до Чорного списку</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="239"/>
@@ -4635,7 +4635,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="43"/>
         <source>Show only completely finished transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати тільки завершені передачі</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="46"/>
@@ -6013,7 +6013,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="207"/>
         <source>Don&apos;t show icons in menus (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Не показувати іконки у меню (потрібний перезапуск)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="305"/>
@@ -6136,17 +6136,17 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="854"/>
         <source>Transfer colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Кольори передач</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="877"/>
         <source>Upload</source>
-        <translation type="unfinished">Віддача</translation>
+        <translation>Віддача</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="904"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Скинути</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="916"/>
@@ -6357,7 +6357,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="253"/>
         <source>Play sound on active PM window</source>
-        <translation type="unfinished"></translation>
+        <translation>Звукове сповіщення при активації вікна ПП</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="295"/>
