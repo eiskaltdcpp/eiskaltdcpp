@@ -408,7 +408,7 @@ endif (USE_GTK)
 
 if (USE_WT)
   add_subdirectory (eiskaltdcpp-wt)
-endif
+endif (USE_WT)
 
 if (NO_UI_DAEMON OR XMLRPC_DAEMON OR CLI_DAEMON)
     add_subdirectory (nasdc)
