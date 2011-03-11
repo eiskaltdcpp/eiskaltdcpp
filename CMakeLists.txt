@@ -79,6 +79,7 @@ option (USE_QT "Qt interface" ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
 option (USE_QT_SQLITE "Build with SQLite support" OFF)
 option (USE_GTK "GTK interface" OFF)
+option (USE_WT "Wt interface" OFF)
 option (DHT "DHT support for dcpp" OFF)
 option (LUA_SCRIPT "Lua script" OFF)
 option (USE_MINIUPNP "Use miniupnpc for forward ports" OFF)
@@ -404,6 +405,10 @@ endif (USE_QT)
 if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK)
+
+if (USE_WT)
+  add_subdirectory (eiskaltdcpp-wt)
+endif
 
 if (NO_UI_DAEMON OR XMLRPC_DAEMON OR CLI_DAEMON)
     add_subdirectory (nasdc)
