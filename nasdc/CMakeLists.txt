@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/common ${PROJECT_SOURCE_DIR}/gnu ${PROJECT_SOURCE_DIR}/.. )
 aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
-#aux_source_directory(${PROJECT_SOURCE_DIR}/common common_SRCS)
-#aux_source_directory(${PROJECT_SOURCE_DIR}/gnu gnu_SRCS)
 if (XMLRPC_DAEMON)
     if (NOT NO_UI_DAEMON)
         set (NO_UI_DAEMON 1 CACHE BOOL "Daemon without anyone ui" FORCE)
@@ -25,7 +23,16 @@ if (CLI_DAEMON)
     add_definitions (-DCLI_DAEMON )
 endif (CLI_DAEMON)
 
+if (DISABLE_STACKTRACE)
+	add_definitions(-DDISABLE_STACKTRACE)
+endif (DISABLE_STACKTRACE)
+
+if (HAVE_DAEMON)
+    add_definitions(-DHAVE_DAEMON)
+endif()
+
 list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/sampleclient.cpp)
+list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/screen.c)
 
 if (WIN32)
   list (APPEND nasdc_SRCS ../win32/applink.c)
@@ -36,9 +43,6 @@ if (LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
 endif (LUA_SCRIPT)
 # actual target:
-#add_library(nasdc_common STATIC ${common_SRCS})
-#add_library(nasdc_gnu STATIC ${gnu_SRCS})
-
 add_executable (nasdc MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
