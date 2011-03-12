@@ -1,12 +1,44 @@
---- 2.2.1 2011-03-07 ---
+--- 2.2.1 2011-03-08 ---
 *** common changes ***
 * Fixed build under MS Windows.
+* Partial synchronization with DC++ kernel (0.785).
+* Fixed support for Lua-scripts. (It was broken in version 2.2.0 when was sync with DC++ kernel)
+* Fixed bug with "empty share" at startup. Now after updating the list of files will be done back up, which is used when the program starts. Note: an empty list of files is not an empty share! (Many people were wrong in this regard)
+* Fixed the answering function for search queries on the ADC-hubs. (Bug was added in version 2.2.0 when was sync with DC++ kernel)
+* Added ability to disable segmenting and to change segment size (in MiB).
 *** eiskaltdcpp-qt ***
 * Fixed a crash program when using the filter in the search results when new query results come.
 * Algorithm for adding separator (horizontal line) for unread messages in the chat was updated. Now it works fine.
+* Added item view 'properties of magnet links' to all related menu.
+* Added support for search links (magnets with kt-keyword). (See also: https://bugs.launchpad.net/dcplusplus/+bug/674545)
+* Fixed keyboard shortcut Ctrl+C in a personal chat. (Bug was added in version 2.2.0)
+* Added option to show only completely finished transfers in finished transfers widget. A simple filter is used: incomplete downloads can hide and show again.
+* Code of work with database (SQLite is used) found to be stable. Some columns have been added to finished transfers tables, it is recommended to delete old files to avoid possible problems: ~/.config/eiskaltdc++/*.sqlite
+* Some fixes for user commands.
+* Added ability to highlight user-defined keywords in chat.
+* Added ability to customize the color of download/upload progressbars.
+* Added option to play sound when personal chat is active.
+* Improvements in the scrolling algorithm of history of sent messages.
+* Fixed crash when deleting the active (editable) elements from the black list of search results. Added ability to sort the list.
+* Now user commands menu are not shown if commands list on hub is empty.
+* Added option to hide icons in menus. (Useful for Mac OS X users)
+* Changed the response for blank nick when the program starts: now a dialog to enter a nickname is opened instead of the general preferences dialog.
+* Added ability to use aspell in the assembly under MS Windows.
+* Added ability to specify BIND_ADDRESS in the preferences dialog.
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
+* Fixed saving of number of upload slots in the preferences dialog. (Bug was added in version 2.2.0)
+* Added option to display only the transmission is completed in the widget programs. A hard algorithm is used: incomplete downloads are removed from the list and will not be added to it.
+* Hotkeys were synchronized with EiskaltDC++ Qt.
+* Fixed builds with libnotify >= 0.7.0.
+* Changed the parser of magnet-links.
+* Fixed issue with loading emoticons. (In the xml-files emoticon packs it was pointed standalone = "no" instead of "yes")
+* Added the ability to play audio notifications without using libgnome.
 *** eiskaltdcpp-daemon ***
+* Fixed sending a password when connecting to hubs with registration.
+* Rewrote the code that is responsible for using of threads. Now program can be builded in MS Windows.
+  Note: This binary can't be run as a service of Windows, because the process must be run on behalf of an existing user (for access to the settings).
+* XML-RPC access to the program is now in active development but not yet ready.
 
 --- 2.2.0 2011-01-16 ---
 *** common changes ***

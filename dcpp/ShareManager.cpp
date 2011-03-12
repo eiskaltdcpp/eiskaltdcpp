@@ -576,7 +576,7 @@ void ShareManager::removeDirectory(const string& realPath) {
 
     // Readd all directories with the same vName
     for(i = shares.begin(); i != shares.end(); ++i) {
-                if(Util::stricmp(i->second, vName) == 0 && checkHidden(i->first)) {
+        if(Util::stricmp(i->second, vName) == 0 && checkHidden(i->first)) {
             Directory::Ptr dp = buildTree(i->first, 0);
             dp->setName(i->second);
             merge(dp);

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-03-07 02:21+0200\n"
-"PO-Revision-Date: 2011-02-01 22:55+0100\n"
+"PO-Revision-Date: 2011-03-07 21:49+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -2608,7 +2608,7 @@ msgstr "Átvitelek mutatása/elrejtése "
 
 #: ../glade/mainwindow.glade:656
 msgid "Hubs (normal / registered / op)"
-msgstr ""
+msgstr "Hubok (normál / regisztrált / op)"
 
 #: ../glade/mainwindow.glade:695
 msgid "Download speed"
@@ -3876,9 +3876,8 @@ msgid "Grouped by Users"
 msgstr "Csoportosítva felhasználók szerint"
 
 #: ../glade/finishedtransfers.glade:81
-#, fuzzy
 msgid "Show only completely finished downloads"
-msgstr "Befejezett letöltések listázása"
+msgstr "Csak a teljesen befejezett letöltések mutatása"
 
 #: ../glade/finishedtransfers.glade:150
 msgid "Open containing _folder"

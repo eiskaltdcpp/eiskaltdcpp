@@ -251,9 +251,11 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_USER);
-        menu->addMenu(user_menu);
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList()
+                        << _q(client->getHubUrl()), UserCommand::CONTEXT_USER);
+
+        if (user_menu->actions().size() > 0)
+            menu->addMenu(user_menu);
     }
 
     QMenu *antispam_menu = NULL;
@@ -344,8 +346,10 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty() && !pmw){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_HUB);
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList()
+                        << _q(client->getHubUrl()), UserCommand::CONTEXT_HUB);
+
+    if (user_menu->actions().size() > 0)
         menu->addMenu(user_menu);
     }
 
@@ -1216,11 +1220,13 @@ void HubFrame::initMenu(){
         QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(QList<QString>() << _q(client->getHubUrl()), UserCommand::CONTEXT_HUB, arenaMenu);
 
         if (u_c){
-            u_c->setTitle(tr("Hub Menu"));
+            if (u_c->actions().size() > 0){
+                u_c->setTitle(tr("Hub Menu"));
 
-            arenaMenu->addMenu(u_c);
+                arenaMenu->addMenu(u_c);
 
-            connect(u_c, SIGNAL(triggered(QAction*)), this, SLOT(slotHubMenu(QAction*)));
+                connect(u_c, SIGNAL(triggered(QAction*)), this, SLOT(slotHubMenu(QAction*)));
+            }
         }
     }
 

@@ -12,7 +12,7 @@
 
 #define APPNAME "@PROJECT_NAME@"
 #define VERSIONSTRING "@VERSION@"
-#define DCVERSIONSTRING "0.770"
+#define DCVERSIONSTRING "0.785"
 
 const char * const EISKALTDCPP_VERSION         = "@VERSION@";
 const char * const EISKALTDCPP_WND_TITLE       = "@PROJECT_NAME@";

@@ -45,12 +45,17 @@ public:
     int row() const;
     SearchBlackListItem *parent();
     QList<SearchBlackListItem*> childItems;
+    QVariant data(int column) const;
 
     QString title;
     int argument;
 private:
     SearchBlackListItem *parentItem;
+    QList<QVariant> itemData;
 };
+
+#define COLUMN_SBL_KEY          0
+#define COLUMN_SBL_TYPE         1
 
 class SearchBlackListModel : public QAbstractItemModel {
     Q_OBJECT
@@ -73,8 +78,13 @@ public:
     void repaint() { emit layoutChanged(); }
     void save();
 
+    int  getSortColumn() const;
+    void setSortColumn(int);
+
 private:
     SearchBlackListItem *rootItem;
+    Qt::SortOrder sortOrder;
+    int sortColumn;
 };
 
 class SearchBlackListDialog:

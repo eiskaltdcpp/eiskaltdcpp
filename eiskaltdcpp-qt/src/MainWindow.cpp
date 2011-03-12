@@ -489,6 +489,9 @@ void MainWindow::loadSettings(){
 
     if (!WBGET(WB_MAIN_MENU_VISIBLE))
         toggleMainMenu(false);
+
+    if (WBGET("mainwindow/dont-show-icons-in-menus", false))
+        qApp->setAttribute(Qt::AA_DontShowIconsInMenus);
 }
 
 void MainWindow::saveSettings(){

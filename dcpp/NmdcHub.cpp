@@ -709,30 +709,30 @@ void NmdcHub::onLine(const string& aLine) throw() {
         if(param.size() < j + 2) {
             return;
         }
-                ChatMessage message = { unescape(param.substr(j + 2)), findUser(fromNick), &getUser(getMyNick()), findUser(rtNick) };
+        ChatMessage message = { unescape(param.substr(j + 2)), findUser(fromNick), &getUser(getMyNick()), findUser(rtNick) };
 
-                if(!message.replyTo || !message.from) {
-                        if(!message.replyTo) {
+        if(!message.replyTo || !message.from) {
+            if(!message.replyTo) {
                 // Assume it's from the hub
-                                OnlineUser* replyTo = &getUser(rtNick);
-                replyTo->getIdentity().setHub(true);
-                replyTo->getIdentity().setHidden(true);
-                fire(ClientListener::UserUpdated(), this, *replyTo);
+                OnlineUser& replyTo = getUser(rtNick);
+                replyTo.getIdentity().setHub(true);
+                replyTo.getIdentity().setHidden(true);
+                fire(ClientListener::UserUpdated(), this, replyTo);
             }
-                        if(!message.from) {
+            if(!message.from) {
                 // Assume it's from the hub
-                                OnlineUser* from = &getUser(fromNick);
-                from->getIdentity().setHub(true);
-                from->getIdentity().setHidden(true);
-                fire(ClientListener::UserUpdated(), this, *from);
+                OnlineUser& from = getUser(fromNick);
+                from.getIdentity().setHub(true);
+                from.getIdentity().setHidden(true);
+                fire(ClientListener::UserUpdated(), this, from);
             }
 
             // Update pointers just in case they've been invalidated
-                        message.replyTo = findUser(rtNick);
-                        message.from = findUser(fromNick);
+            message.replyTo = findUser(rtNick);
+            message.from = findUser(fromNick);
         }
 
-                fire(ClientListener::Message(), this, message);
+        fire(ClientListener::Message(), this, message);
     } else if(cmd == "$GetPass") {
         OnlineUser& ou = getUser(getMyNick());
         ou.getIdentity().set("RG", "1");
@@ -741,11 +741,11 @@ void NmdcHub::onLine(const string& aLine) throw() {
     } else if(cmd == "$BadPass") {
         setPassword(Util::emptyString);
     } else if(cmd == "$ZOn") {
-                try {
-        sock->setMode(BufferedSocket::MODE_ZPIPE);
-                } catch (const Exception& e) {
-                        dcdebug("NmdcHub::onLine %s failed with error: %s\n", cmd.c_str(), e.getError().c_str());
-                }
+        try {
+            sock->setMode(BufferedSocket::MODE_ZPIPE);
+        } catch (const Exception& e) {
+            dcdebug("NmdcHub::onLine %s failed with error: %s\n", cmd.c_str(), e.getError().c_str());
+        }
     } else {
         dcassert(cmd[0] == '$');
         dcdebug("NmdcHub::onLine Unknown command %s\n", aLine.c_str());
@@ -900,27 +900,27 @@ void NmdcHub::privateMessage(const string& nick, const string& message) {
 void NmdcHub::privateMessage(const OnlineUser& aUser, const string& aMessage, bool /*thirdPerson*/) {
     checkstate();
 
-        privateMessage(aUser.getIdentity().getNick(), aMessage);
+    privateMessage(aUser.getIdentity().getNick(), aMessage);
     // Emulate a returning message...
     Lock l(cs);
     OnlineUser* ou = findUser(getMyNick());
     if(ou) {
-                ChatMessage message = { aMessage, ou, &aUser, ou };
-                fire(ClientListener::Message(), this, message);
-        }
+        ChatMessage message = { aMessage, ou, &aUser, ou };
+        fire(ClientListener::Message(), this, message);
+    }
 }
 
 void NmdcHub::sendUserCmd(const UserCommand& command, const StringMap& params) {
-        checkstate();
-        string cmd = Util::formatParams(command.getCommand(), params, false);
-        if(command.isChat()) {
-                if(command.getTo().empty()) {
-                        hubMessage(cmd);
-                } else {
-                        privateMessage(command.getTo(), cmd);
-                }
+    checkstate();
+    string cmd = Util::formatParams(command.getCommand(), params, false);
+    if(command.isChat()) {
+        if(command.getTo().empty()) {
+            hubMessage(cmd);
         } else {
-                send(fromUtf8(cmd));
+            privateMessage(command.getTo(), cmd);
+        }
+    } else {
+        send(fromUtf8(cmd));
     }
 }
 
