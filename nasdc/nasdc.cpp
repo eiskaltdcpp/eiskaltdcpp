@@ -171,6 +171,7 @@ void parseArgs(int argc, char* argv[]) {
                 printHelp();
                 exit(0);
             default:
+				;
         }
     }
 }
