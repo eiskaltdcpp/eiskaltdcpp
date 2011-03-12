@@ -8,7 +8,7 @@ else (APPLE)
 endif (APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.2.1")
+set (VERSION "2.2.2")
 set (SOVERSION "2.2")
 set (VERSION_SUFFIX "GIT")
 
@@ -45,6 +45,7 @@ CHECK_INCLUDE_FILE (inttypes.h HAVE_INTTYPES_H)
 CHECK_FUNCTION_EXISTS(mallinfo HAVE_MALLINFO)
 CHECK_FUNCTION_EXISTS(malloc_stats HAVE_MALLOC_STATS)
 CHECK_FUNCTION_EXISTS(malloc_trim HAVE_MALLOC_TRIM)
+CHECK_FUNCTION_EXISTS(daemon HAVE_DAEMON)
 CHECK_INCLUDE_FILE (memory.h HAVE_MEMORY_H)
 CHECK_INCLUDE_FILE (stdint.h HAVE_STDINT_H)
 CHECK_INCLUDE_FILE (stdlib.h HAVE_STDLIB_H)
@@ -98,6 +99,7 @@ option (NO_UI_DAEMON "Daemon without any UI" OFF)
 option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
 option (CLI_DAEMON "Mаке daemon with sample cli based on readline" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
+option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 
 if (PERL_REGEX)
 find_package(Pcre REQUIRED)
@@ -300,6 +302,10 @@ set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 
 add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${_DATADIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
+
+if (ENABLE_STACKTRACE)
+    add_definitions(-DENABLE_STACKTRACE)
+endif (ENABLE_STACKTRACE)
 
 if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H )

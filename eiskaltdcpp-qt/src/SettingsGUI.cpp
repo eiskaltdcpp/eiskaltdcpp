@@ -193,7 +193,7 @@ void SettingsGUI::init(){
 #else
         checkBox_ICONTHEME->hide();
 #endif
-
+        checkBox_HIDE_ICONS_IN_MENU->setChecked(WBGET("mainwindow/dont-show-icons-in-menus", false));
     }
     {//Chat tab
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
@@ -389,6 +389,7 @@ void SettingsGUI::ok(){
         }
 
         WBSET("app/use-icon-theme", checkBox_ICONTHEME->isChecked());
+        WBSET("mainwindow/dont-show-icons-in-menus", checkBox_HIDE_ICONS_IN_MENU->isChecked());
     }
     {//Chat tab
         WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());

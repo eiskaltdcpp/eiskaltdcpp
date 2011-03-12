@@ -84,20 +84,28 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const stopDemonMethodP(new stopDemonMethod);
     xmlrpc_c::methodPtr const hubAddMethodP(new hubAddMethod);
     xmlrpc_c::methodPtr const hubDelMethodP(new hubDelMethod);
+    xmlrpc_c::methodPtr const hubSayMethodP(new hubSayMethod);
+    xmlrpc_c::methodPtr const listHubsMethodP(new listHubsMethod);
+    xmlrpc_c::methodPtr const addDirInShareMethodP(new addDirInShareMethod);
+    xmlrpc_c::methodPtr const renameDirInShareMethodP(new renameDirInShareMethod);
+    xmlrpc_c::methodPtr const delDirFromShareMethodP(new delDirFromShareMethod);
+    xmlrpc_c::methodPtr const listShareMethodP(new listShareMethod);
+    xmlrpc_c::methodPtr const refreshShareMethodP(new refreshShareMethod);
     xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
-    xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
+    //xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
     xmlrpcRegistry.addMethod("hub.del", hubDelMethodP);
+    xmlrpcRegistry.addMethod("hub.say", hubSayMethodP);
+    xmlrpcRegistry.addMethod("hubs.list", listHubsMethodP);
+    xmlrpcRegistry.addMethod("share.add", addDirInShareMethodP);
+    xmlrpcRegistry.addMethod("share.rename", renameDirInShareMethodP);
+    xmlrpcRegistry.addMethod("share.del", delDirFromShareMethodP);
+    xmlrpcRegistry.addMethod("share.list", listShareMethodP);
+    xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
     //xmlrpc_c::xmlrpc_server_abyss_set_handlers()
     AbyssServer.run();
 #endif
-
-    //while(!bTerminated) {
-        //usleep(1000);
-    //}
-    //if (bTerminated)
-        //disconnect_all();
 
 }
 bool ServerThread::disconnect_all(){
@@ -154,11 +162,14 @@ void ServerThread::autoConnect()
 
 void ServerThread::connectClient(string address, string encoding)
 {
+    ClientIter i = clientsMap.find(address);
+    if(i != clientsMap.end())
+        return;
     if (address.substr(0, 6) == "adc://" || address.substr(0, 7) == "adcs://")
         encoding = "UTF-8";
     else if (encoding.empty())
         encoding = Text::systemCharset;
-
+    Lock l(shutcs);
     Client* client = ClientManager::getInstance()->getClient(address);
     client->setEncoding(encoding);
     client->addListener(this);
@@ -196,9 +207,9 @@ void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
 }
 
 void ServerThread::on(Connecting, Client* cur) throw() {
-    ClientIter i = clientsMap.find(cur->getAddress());
+    ClientIter i = clientsMap.find(cur->getHubUrl());
     if(i == clientsMap.end()) {
-        clientsMap[cur->getAddress()] = const_cast<Client*>(cur);
+        clientsMap[cur->getHubUrl()] = cur;
     }
     cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
@@ -228,9 +239,8 @@ void ServerThread::on(Failed, Client* cur, const string& line) throw() {
 }
 
 void ServerThread::on(GetPassword, Client* cur) throw() {
-    ClientIter i = clientsMap.find(cur->getAddress());
+    ClientIter i = clientsMap.find(cur->getHubUrl());
     if (i != clientsMap.end()) {
-        Client* cl =cur;
         string pass = cur->getPassword();
         if (!pass.empty())
             cur->password(pass);
@@ -332,4 +342,25 @@ void ServerThread::showPortsError(const string& port) {
             "that might be using that port.\n\n",
             port.c_str());
     fflush(stdout);
+}
+
+void ServerThread::sendMessage(const string& hubUrl, const string& message) {
+    ClientIter i = clientsMap.find(hubUrl);
+    if(i != clientsMap.end() && clientsMap[i->first]!=NULL) {
+        Client* client = i->second;
+        if (client && !message.empty()) {
+            bool thirdPerson = !message.compare(0,3,"/me");
+            //printf("%s\t%s\n'",message.c_str(),message.substr(4).c_str());
+            client->hubMessage(thirdPerson ? message.substr(4) : message , thirdPerson);
+        }
+    }
+}
+
+void ServerThread::listConnectedClients(string& listhubs,const string& separator) {
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        if (clientsMap[i->first] !=NULL) {
+            listhubs.append(i->first);
+            listhubs.append(separator);
+        }
+    }
 }

@@ -257,7 +257,8 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     QMenu *userm = buildUserCmdMenu(list);
 
     if (userm)
-        menu->addMenu(userm);
+        if (userm->actions().size() > 0)
+            menu->addMenu(userm);
 
     QAction *ret = menu->exec(QCursor::pos());
 

@@ -58,7 +58,9 @@ void parseCmdLine(const QStringList &);
 #include <signal.h>
 #include <execinfo.h>
 
+#ifdef ENABLE_STACKTRACE
 #include "extra/stacktrace.h"
+#endif // ENABLE_STACKTRACE
 
 void installHandlers();
 
@@ -214,7 +216,9 @@ void installHandlers(){
         std::cout << QObject::tr("Cannot handle SIGPIPE").toStdString() << std::endl;
     }
 
+#ifdef ENABLE_STACKTRACE
     signal(SIGSEGV, printBacktrace);
+#endif // ENABLE_STACKTRACE
 
     std::cout << QObject::tr("Signal handlers installed.").toStdString() << std::endl;
 }

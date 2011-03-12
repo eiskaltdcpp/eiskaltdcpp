@@ -23,6 +23,8 @@ SearchBlackListDialog::SearchBlackListDialog(QWidget *parent): QDialog(parent){
     treeView_RULES->setModel(model);
     treeView_RULES->setItemDelegate(new SearchBlackListDelegate(this));
     treeView_RULES->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeView_RULES->setSortingEnabled(true);
+    treeView_RULES->sortByColumn(COLUMN_SBL_KEY, Qt::AscendingOrder);
 
     connect(treeView_RULES, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
     connect(this, SIGNAL(accepted()), this, SLOT(ok()));
@@ -61,15 +63,16 @@ void SearchBlackListDialog::slotContextMenu(){
                 continue;
 
             i->parent()->childItems.removeAt(i->row());
-
-            delete i;
         }
 
         model->repaint();
     }
 }
 
-SearchBlackListModel::SearchBlackListModel(QObject * parent) : QAbstractItemModel(parent) {
+SearchBlackListModel::SearchBlackListModel(QObject * parent) :
+        QAbstractItemModel(parent),
+        sortColumn(COLUMN_SBL_KEY)
+{
     rootItem = new SearchBlackListItem(NULL);
 
     SearchBlacklist *SB = SearchBlacklist::getInstance();
@@ -92,6 +95,8 @@ SearchBlackListModel::SearchBlackListModel(QObject * parent) : QAbstractItemMode
 
         rootItem->appendChild(item);
     }
+
+    sortColumn = -1;
 }
 
 
@@ -167,7 +172,82 @@ QVariant SearchBlackListModel::headerData(int section, Qt::Orientation orientati
     return QVariant();
 }
 
+QVariant SearchBlackListItem::data(int column) const {
+    if (column == COLUMN_SBL_KEY && childItems.size() > 0 && parentItem != 0)
+        return childItems.size()+1;
+
+    switch(column){
+        case COLUMN_SBL_TYPE:
+            return QVariant (argument);
+        default:
+            return QVariant (title);
+    }
+}
+
+namespace {
+    template <Qt::SortOrder order>
+    struct Compare {
+        void static sort(int col, QList<SearchBlackListItem*>& items) {
+            qStableSort(items.begin(), items.end(), getAttrComp(col));
+        }
+
+        void static insertSorted(int col, QList<SearchBlackListItem*>& items, SearchBlackListItem* item) {
+            QList<SearchBlackListItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+            items.insert(it, item);
+        }
+
+        private:
+            typedef bool (*AttrComp)(const SearchBlackListItem * l, const SearchBlackListItem * r);
+            AttrComp static getAttrComp(int column) {
+                switch (column){
+                    case COLUMN_SBL_TYPE:
+                        return AttrCmp<COLUMN_SBL_TYPE>;
+                    default:
+                        return AttrCmp<COLUMN_SBL_KEY>;
+                }
+            }
+            template <int i>
+            bool static AttrCmp(const SearchBlackListItem * l, const SearchBlackListItem * r) {
+                return Cmp(QString::localeAwareCompare(l->data(i).toString(), r->data(i).toString()), 0);
+            }
+            template <typename T, T (SearchBlackListItem::*attr)>
+            bool static AttrCmp(const SearchBlackListItem * l, const SearchBlackListItem * r) {
+                return Cmp(l->*attr, r->*attr);
+            }
+            template <int i>
+            bool static NumCmp(const SearchBlackListItem * l, const SearchBlackListItem * r) {
+                return Cmp(l->data(i).toULongLong(), r->data(i).toULongLong());
+            }
+            template <typename T>
+            bool static Cmp(const T& l, const T& r);
+    };
+
+    template <> template <typename T>
+    bool inline Compare<Qt::AscendingOrder>::Cmp(const T& l, const T& r) {
+        return l < r;
+    }
+
+    template <> template <typename T>
+    bool inline Compare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
+        return l > r;
+    }
+} //namespace
+
 void SearchBlackListModel::sort(int column, Qt::SortOrder order) {
+    static int c = 0;
+
+    if (column < 0)
+        column = c;
+
+    emit layoutAboutToBeChanged();
+
+    if (order == Qt::AscendingOrder)
+        Compare<Qt::AscendingOrder>().sort(column, rootItem->childItems);
+    else if (order == Qt::DescendingOrder)
+        Compare<Qt::DescendingOrder>().sort(column, rootItem->childItems);
+
+    c = column;
+
     emit layoutChanged();
 }
 
@@ -193,6 +273,14 @@ QModelIndex SearchBlackListModel::addEmptyItem(){
     return createIndex(item->row(), 0, item);
 }
 
+int SearchBlackListModel::getSortColumn() const{
+    return sortColumn;
+}
+
+void SearchBlackListModel::setSortColumn(int sc){
+    sortColumn = sc;
+}
+
 SearchBlackListItem::SearchBlackListItem(SearchBlackListItem *parent) : parentItem(parent), argument(0)
 {
 }
@@ -216,7 +304,7 @@ int SearchBlackListItem::childCount() const {
 }
 
 int SearchBlackListItem::columnCount() const {
-    return 7;
+    return itemData.count();
 }
 SearchBlackListItem *SearchBlackListItem::parent() {
     return parentItem;
@@ -287,13 +375,13 @@ void SearchBlackListDelegate::setModelData(QWidget *editor, QAbstractItemModel *
     SearchBlackListModel *m = qobject_cast<SearchBlackListModel* >(model);
     SearchBlackListItem *item = reinterpret_cast<SearchBlackListItem* >(index.internalPointer());
 
-    if (!(m && item))
+    if (!m)
         return;
 
     if (index.column() == 1){
         QComboBox *edit = qobject_cast<QComboBox*>(editor);
 
-        if (!edit)
+        if (!edit || !item)
             return;
 
         item->argument = edit->currentIndex();
@@ -301,7 +389,7 @@ void SearchBlackListDelegate::setModelData(QWidget *editor, QAbstractItemModel *
     else{
         QLineEdit *edit = qobject_cast<QLineEdit*>(editor);
 
-        if (!edit)
+        if (!edit || !item)
             return;
 
         item->title = edit->text();

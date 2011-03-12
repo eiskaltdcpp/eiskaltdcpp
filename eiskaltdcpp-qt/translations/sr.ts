@@ -4936,6 +4936,10 @@ them is usually available only to operators</source>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Don&apos;t show icons in menus (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsLog</name>
