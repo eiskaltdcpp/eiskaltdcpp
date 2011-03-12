@@ -23,9 +23,9 @@
 #ifndef _WIN32
 #include <syslog.h>
 #include <signal.h>
-#ifndef DISABLE_STACKTRACE
-#include "extra/stacktrace.h"
-#endif
+  #ifdef ENABLE_STACKTRACE
+  #include "extra/stacktrace.h"
+  #endif
 #include <getopt.h>
 #include <fstream>
 #endif
@@ -38,13 +38,14 @@
 char pidfile[256] = {0};
 
 static void  logging(bool b, string msg){
-    #ifndef _WIN32
-        if (b) syslog(LOG_USER | LOG_INFO, msg.c_str());
-        else  syslog(LOG_USER | LOG_ERR, msg.c_str());
-    #else
-        Log(msg);
-    #endif
+#ifndef _WIN32
+    if (b) syslog(LOG_USER | LOG_INFO, msg.c_str());
+    else  syslog(LOG_USER | LOG_ERR, msg.c_str());
+#else
+    Log(msg);
+#endif
 }
+
 #ifndef _WIN32
 static void SigHandler(int sig) {
     string str = "Received signal ";
@@ -129,7 +130,7 @@ void printHelp() {
            "  -h, --help\t Show this message\n"
            "  -v, --version\t Show version string\n"
 #ifndef _WIN32
-		   "  -p file, --pidfile=file\t Write daemon process ID to file\n"
+           "  -p file, --pidfile=file\t Write daemon process ID to file\n"
 #endif // _WIN32
            );
 }
@@ -146,42 +147,37 @@ void writePidFile(char *path)
 
 #ifndef _WIN32
 static struct option opts[] = {
-	{ "help",	no_argument,	NULL,	'h'},
-	{ "version",	no_argument,	NULL,	'v'},
-	{ "daemon",	no_argument,	NULL,	'd'},
-	{ "pidfile",	required_argument,	NULL,	'p'},
-	{ NULL,	0,	NULL,	0}
+    { "help",    no_argument,       NULL, 'h'},
+    { "version", no_argument,       NULL, 'v'},
+    { "daemon",  no_argument,       NULL, 'd'},
+    { "pidfile", required_argument, NULL, 'p'},
+    { NULL,      0,                 NULL, 0}
 };
 
 void parseArgs(int argc, char* argv[]) {
-	int ch;
-	while((ch = getopt_long(argc, argv, "hvd", opts, NULL)) != -1) {
-		switch (ch) {
-		case 'd':
-			bDaemon = true;
-			break;
-		case 'p':
-			strncpy(pidfile, optarg, 256);
-			break;
-		case 'v':
-			printVersion();
-			exit(0);
-		case 'h':
-		default:
-			printHelp();
-			exit(0);
-		}
-	}
+    int ch;
+    while((ch = getopt_long(argc, argv, "hvd", opts, NULL)) != -1) {
+        switch (ch) {
+            case 'd':
+                bDaemon = true;
+                break;
+            case 'p':
+                strncpy(pidfile, optarg, 256);
+                break;
+            case 'v':
+                printVersion();
+                exit(0);
+            case 'h':
+                printHelp();
+                exit(0);
+            default:
+        }
+    }
 }
 #else // _WIN32
 void parseArgs(int argc, char* argv[]) {
     for (int i = 0; i < argc; i++){
-        if (strcasecmp(argv[i], "-d") == 0) {
-            #ifndef _WIN32
-                bDaemon = true;
-            #endif
-        }
-        else if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
+        if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
             printHelp();
             exit(0);
         }
@@ -206,7 +202,7 @@ int main(int argc, char* argv[])
     Util::initialize();
 
     PATH = Util::getPath(Util::PATH_USER_CONFIG);
-    #ifndef _WIN32
+#ifndef _WIN32
     if (bDaemon) {
         printf(("Starting "+sTitle+" as daemon using "+PATH+" as config directory.\n").c_str());
 
@@ -215,14 +211,14 @@ int main(int argc, char* argv[])
 
         umask(117);
 
-		if (pidfile[0] != 0)
-			writePidFile(pidfile);
+        if (pidfile[0] != 0)
+            writePidFile(pidfile);
 
         logging(true,  "EiskaltDC++ daemon starting...\n");
     } else {
-    #endif
+#endif
         printf(("Starting "+sTitle+" using "+PATH+" as config directory.\n").c_str());
-    #ifndef _WIN32
+#ifndef _WIN32
     }
     sigset_t sst;
     sigemptyset(&sst);
@@ -260,39 +256,42 @@ int main(int argc, char* argv[])
         printf("Cannot create sigaction SIGHUP! ", strerror(errno));
         exit(EXIT_FAILURE);
     }
-    #endif
+#endif
     ServerInitialize();
 
     if (!ServerStart()) {
-        #ifndef _WIN32
+#ifndef _WIN32
         if (!bDaemon) {
             printf("Server start failed!\n");
         } else {
             logging(false, "Server start failed!\n");
         }
-        #else
+#else
             printf("Server start failed!\n");
-        #endif
+#endif
         return EXIT_FAILURE;
     }
-    #ifndef _WIN32
+#ifndef _WIN32
     else if (!bDaemon) {
         printf((sTitle+" running...\n").c_str());
     }
-    #else
+#else
         printf((sTitle+" running...\n").c_str());
-    #endif
+#endif
+
 #ifdef CLI_DAEMON
     char *temp, *prompt;
     temp = (char *)NULL;
     prompt = "edcppd$ ";
 #endif
-#if !defined(_WIN32) && !defined(DISABLE_STACKTRACE)
+
+#if !defined(_WIN32) && defined(ENABLE_STACKTRACE)
     signal(SIGSEGV, printBacktrace);
 #endif
+
     while (bServerRunning) {
         Thread::sleep(1);
-        #ifdef CLI_DAEMON
+#ifdef CLI_DAEMON
         temp = readline (prompt);
 
         /* If there is anything on the line, print it and remember it. */
@@ -319,7 +318,7 @@ int main(int argc, char* argv[])
             }
         }
         free (temp);
-        #endif
+#endif
         if (bServerTerminated)
             ServerStop();
     }

@@ -180,10 +180,12 @@ Keys for cmake
     -DLIBDIR=lib64 - install lib in <prefix for install>/lib64
 -DLIB_INSTALL_DIR=<lib prefix> (default: lib)
     see -DLIBDIR
--DESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
+-DDESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
     .
--PIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
+-DPIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
     .
+-DENABLE_STACKTRACE=ON/OFF (default: OFF)
+    Show stacktrace when program receive SIGSEGV
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
     build type
     .

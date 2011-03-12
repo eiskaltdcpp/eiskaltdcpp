@@ -100,6 +100,7 @@ option (NO_UI_DAEMON "Daemon without any UI" OFF)
 option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
 option (CLI_DAEMON "Mаке daemon with sample cli based on readline" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
+option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 
 if (PERL_REGEX)
 find_package(Pcre REQUIRED)
@@ -303,9 +304,9 @@ set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${_DATADIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
 
-if (DISABLE_STACKTRACE)
-	add_definitions(-DDISABLE_STACKTRACE)
-endif (DISABLE_STACKTRACE)
+if (ENABLE_STACKTRACE)
+    add_definitions(-DENABLE_STACKTRACE)
+endif (ENABLE_STACKTRACE)
 
 if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H )
