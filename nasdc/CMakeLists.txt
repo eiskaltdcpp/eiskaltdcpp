@@ -23,10 +23,6 @@ if (CLI_DAEMON)
     add_definitions (-DCLI_DAEMON )
 endif (CLI_DAEMON)
 
-if (DISABLE_STACKTRACE)
-	add_definitions(-DDISABLE_STACKTRACE)
-endif (DISABLE_STACKTRACE)
-
 if (HAVE_DAEMON)
     add_definitions(-DHAVE_DAEMON)
 endif()
