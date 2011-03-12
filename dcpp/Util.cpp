@@ -109,6 +109,10 @@ static string getDownloadsPath(const string& def) {
 #endif
 
 void Util::initialize(PathsMap pathOverrides) {
+    static bool initDone = false;
+    if (initDone)
+        return;
+
     Text::initialize();
 
     sgenrand((unsigned long)time(NULL));
@@ -262,6 +266,7 @@ void Util::initialize(PathsMap pathOverrides) {
         }
     } catch(const FileException&) {
     }
+    initDone = true;
 }
 
 void Util::migrate(const string& file) {
