@@ -36,6 +36,7 @@
 #endif
 
 char pidfile[256] = {0};
+char config_dir[1024] = {0};
 
 static void  logging(bool b, string msg){
 #ifndef _WIN32
@@ -150,19 +151,23 @@ static struct option opts[] = {
     { "help",    no_argument,       NULL, 'h'},
     { "version", no_argument,       NULL, 'v'},
     { "daemon",  no_argument,       NULL, 'd'},
+    { "confdir", required_argument, NULL, 'c'},
     { "pidfile", required_argument, NULL, 'p'},
     { NULL,      0,                 NULL, 0}
 };
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hvd", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hp:c:vd", opts, NULL)) != -1) {
         switch (ch) {
             case 'd':
                 bDaemon = true;
                 break;
             case 'p':
                 strncpy(pidfile, optarg, 256);
+                break;
+            case 'c':
+                strncpy(config_dir, optarg, 1024);
                 break;
             case 'v':
                 printVersion();
@@ -171,7 +176,7 @@ void parseArgs(int argc, char* argv[]) {
                 printHelp();
                 exit(0);
             default:
-				;
+                ;
         }
     }
 }
@@ -200,7 +205,10 @@ int main(int argc, char* argv[])
     sTitle += " [debug]";
 #endif
 
-    Util::initialize();
+    Util::PathsMap override;
+    if (config_dir[0] != 0)
+        override[Util::PATH_USER_CONFIG] = config_dir;
+    Util::initialize(override);
 
     PATH = Util::getPath(Util::PATH_USER_CONFIG);
 #ifndef _WIN32
