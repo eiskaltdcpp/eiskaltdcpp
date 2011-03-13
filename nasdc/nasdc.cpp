@@ -124,17 +124,18 @@ static int eidcpp_daemon( int nochdir, int noclose ) {
 #endif
 void printHelp() {
     printf("Using:\n"
-           "  eiskaltdcpp-daemon -d\t Run program as daemon\n"
+           "  eiskaltdcpp-daemon -d [options]\n"
            "  eiskaltdcpp-daemon <Key>\n"
            "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
            "\n"
            "Keys:\n"
+           "  -d, --daemon\t Run program as daemon\n"
            "  -h, --help\t Show this message\n"
            "  -v, --version\t Show version string\n"
 #ifndef _WIN32
-           "  -p file, --pidfile=file\t Write daemon process ID to file\n"
-           "  -c dir, --confdir=dir\t Store config in dir\n"
-           "  -l dir, --localdir=dir\t Store local data (cache, temp files) in dir. (defaults to confdir)\n"
+           "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
+           "  -c <dir>,  --confdir=<dir>\t Store config in <dir>\n"
+           "  -l <dir>,  --localdir=<dir>\t Store local data (cache, temp files) in <dir> (defaults is equal confdir)\n"
 #endif // _WIN32
            );
 }
@@ -155,7 +156,7 @@ static struct option opts[] = {
     { "version", no_argument,       NULL, 'v'},
     { "daemon",  no_argument,       NULL, 'd'},
     { "confdir", required_argument, NULL, 'c'},
-    { "localdir", required_argument, NULL, 'l'},
+    { "localdir",required_argument, NULL, 'l'},
     { "pidfile", required_argument, NULL, 'p'},
     { NULL,      0,                 NULL, 0}
 };

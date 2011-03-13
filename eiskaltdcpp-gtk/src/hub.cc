@@ -1020,7 +1020,8 @@ void Hub::applyEmoticons_gui()
     }
     else if (!Emoticons::get()->useEmoticons_gui())
     {
-        setStatus_gui("statusMain", _(" *** Emoticons not loaded"));
+        if (WGETB("emoticons-use"))
+            setStatus_gui("statusMain", _(" *** Emoticons not loaded"));
         return;
     }
     else if (!useEmoticons)
