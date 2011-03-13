@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp-daemon" 1 "10 Jan 2011"
+.TH "eiskaltdcpp-daemon" 1 "13 Mar 2011"
 .SH "NAME"
 nasdc \- simple uncontrollable daemon
 .SH "SYNOPSIS"
@@ -14,14 +14,23 @@ nasdc \- simple uncontrollable daemon
 .SH "COMMAND LINE OPTIONS"
 .RB "A summary of options is included below."
 .TP
-.BR "\-d"
-run program as daemon
+.BR "\-d",  \-\-daemon"
+Run program as daemon
+.TP
+.BR "\-p file",  \-\-pidfile=<file>"
+Write daemon process ID to <file>
+.TP
+.BR "\-c dir",  \-\-confdir=<dir>"
+Store config in <dir>
+.TP
+.BR "\-l <dir>",  \-\-localdir=<dir>"
+Store local data (cache, temp files) in <dir> (defaults is equal confdir)
 .TP
 .BR "\-h,  \-\-help"
-display help and exit
+Display help and exit
 .TP
 .BR "\-v,  \-\-version"
-output version information and exit
+Show version information and exit
 .SH "FILES"
 .TP
 .B "~/.config/eiskaltdc++/" or "$XDG_CONFIG_HOME/eiskaltdc++/"

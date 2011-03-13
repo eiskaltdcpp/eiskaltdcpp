@@ -2,7 +2,7 @@
 <HTML><HEAD><TITLE>Man page of eiskaltdcpp-daemon</TITLE>
 </HEAD><BODY>
 <H1>eiskaltdcpp-daemon</H1>
-Section: User Commands  (1)<BR>Updated: 10 Jan 2011<BR><A HREF="#index">Index</A>
+Section: User Commands  (1)<BR>Updated: 13 Mar 2011<BR><A HREF="#index">Index</A>
 <A HREF="/cgi-bin/man/man2html">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
@@ -34,18 +34,30 @@ nasdc - simple uncontrollable daemon
 A summary of options is included below.
 
 <DL COMPACT>
-<DT><B>-d</B>
+<DT><B>-d,</B>--daemon
 
 <DD>
-run program as daemon
+Run program as daemon
+<DT><B>-p file,</B>--pidfile=&lt;file&gt;
+
+<DD>
+Write daemon process ID to &lt;file&gt;
+<DT><B>-c dir,</B>--confdir=&lt;dir&gt;
+
+<DD>
+Store config in &lt;dir&gt;
+<DT><B>-l &lt;dir&gt;,</B>--localdir=&lt;dir&gt;
+
+<DD>
+Store local data (cache, temp files) in &lt;dir&gt; (defaults is equal confdir)
 <DT><B>-h,  --help</B>
 
 <DD>
-display help and exit
+Display help and exit
 <DT><B>-v,  --version</B>
 
 <DD>
-output version information and exit
+Show version information and exit
 </DL>
 <A NAME="lbAF">&nbsp;</A>
 <H2>FILES</H2>
@@ -89,6 +101,6 @@ This manual page was written by Boris Pek &lt;<A HREF="mailto:tehnick-8@mail.ru"
 This document was created by
 <A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 22:15:04 GMT, January 09, 2011
+Time: 13:43:22 GMT, March 13, 2011
 </BODY>
 </HTML>
