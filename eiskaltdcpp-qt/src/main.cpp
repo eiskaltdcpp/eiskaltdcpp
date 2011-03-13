@@ -56,6 +56,7 @@ void parseCmdLine(const QStringList &);
 #ifndef Q_WS_WIN
 #include <unistd.h>
 #include <signal.h>
+#ifndef __HAIKU__
 #include <execinfo.h>
 
 #ifdef ENABLE_STACKTRACE
@@ -63,6 +64,7 @@ void parseCmdLine(const QStringList &);
 #endif // ENABLE_STACKTRACE
 
 void installHandlers();
+#endif
 
 #ifdef FORCE_XDG
 #include <QTextStream>
@@ -88,7 +90,7 @@ int main(int argc, char *argv[])
 
     setlocale(LC_ALL, "");
 
-#ifndef Q_WS_WIN
+#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
     installHandlers();
 #endif
 
@@ -206,7 +208,7 @@ void parseCmdLine(const QStringList &args){
     }
 }
 
-#ifndef Q_WS_WIN
+#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
 
 void installHandlers(){
     struct sigaction sa;

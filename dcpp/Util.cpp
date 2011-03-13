@@ -167,6 +167,8 @@ void Util::initialize(PathsMap pathOverrides) {
     string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
     paths[PATH_USER_CONFIG] = xdg_config_home + "/eiskaltdc++/";
     printf("$XDG_CONFIG_HOME: %s\n", paths[PATH_USER_CONFIG].c_str());
+#elif defined __HAIKU__
+    paths[PATH_USER_CONFIG] = home + "/config/settings/eiskaltdc++/";
 #else
     paths[PATH_USER_CONFIG] = home + "/.eiskaltdc++/";
 #endif
