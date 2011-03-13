@@ -23,15 +23,13 @@
  * This file contains forward declarations for the various DC++ classes
  */
 
-#include "Pointer.h"
+#include <boost/intrusive_ptr.hpp>
 
 namespace dcpp {
 
 class AdcCommand;
 
 class BufferedSocket;
-
-typedef std::vector<uint16_t> PartsInfo;
 
 struct ChatMessage;
 
@@ -45,11 +43,9 @@ class ConnectionQueueItem;
 
 class Download;
 typedef Download* DownloadPtr;
-typedef std::vector<DownloadPtr> DownloadList;
 
 class FavoriteHubEntry;
 typedef FavoriteHubEntry* FavoriteHubEntryPtr;
-typedef std::vector<FavoriteHubEntryPtr> FavoriteHubEntryList;
 
 class FavoriteUser;
 
@@ -64,10 +60,8 @@ typedef boost::intrusive_ptr<FinishedUserItem> FinishedUserItemPtr;
 class FinishedManager;
 
 struct HintedUser;
-typedef std::vector<HintedUser> HintedUserList;
 
 class HubEntry;
-typedef std::vector<HubEntry> HubEntryList;
 
 class Identity;
 
@@ -77,13 +71,11 @@ class LogManager;
 
 class OnlineUser;
 typedef OnlineUser* OnlineUserPtr;
-typedef std::vector<OnlineUserPtr> OnlineUserList;
 
 class QueueItem;
 
 class SearchResult;
 typedef boost::intrusive_ptr<SearchResult> SearchResultPtr;
-typedef std::vector<SearchResultPtr> SearchResultList;
 
 class Socket;
 class SocketException;
@@ -96,17 +88,14 @@ class UnZFilter;
 
 class Upload;
 typedef Upload* UploadPtr;
-typedef std::vector<UploadPtr> UploadList;
 
 class User;
 typedef boost::intrusive_ptr<User> UserPtr;
-typedef std::vector<UserPtr> UserList;
 
 class UserCommand;
 
 class UserConnection;
 typedef UserConnection* UserConnectionPtr;
-typedef std::vector<UserConnectionPtr> UserConnectionList;
 
 class WindowInfo;
 } // namespace dcpp

@@ -20,6 +20,7 @@
 #include "DCPlusPlus.h"
 
 #include "QueueManager.h"
+#include "format.h"
 
 #include "ClientManager.h"
 #include "ConnectionManager.h"

@@ -21,6 +21,7 @@
 
 #include "HttpConnection.h"
 
+#include "format.h"
 #include "SettingsManager.h"
 #include "version.h"
 

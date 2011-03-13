@@ -20,6 +20,8 @@
 #define DCPLUSPLUS_DCPP_FINISHED_ITEM_H
 
 #include "forward.h"
+
+#include "Pointer.h"
 #include "Util.h"
 
 namespace dcpp {

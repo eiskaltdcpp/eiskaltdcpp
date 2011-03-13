@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_LOG_MANAGER_H
 #define DCPLUSPLUS_DCPP_LOG_MANAGER_H
 
+#include "typedefs.h"
+
 #include "CriticalSection.h"
 #include "Singleton.h"
 #include "Speaker.h"

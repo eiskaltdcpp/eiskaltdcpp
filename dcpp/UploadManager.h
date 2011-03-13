@@ -31,6 +31,7 @@
 #include "TimerManager.h"
 #include "Speaker.h"
 #include "PerFolderLimit.h"
+#include "SettingsManager.h"
 
 namespace dcpp {
 

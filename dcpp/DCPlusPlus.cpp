@@ -18,6 +18,7 @@
 
 #include "stdinc.h"
 #include "DCPlusPlus.h"
+#include "format.h"
 
 #include "ConnectionManager.h"
 #include "DownloadManager.h"

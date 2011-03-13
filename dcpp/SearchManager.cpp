@@ -21,7 +21,7 @@
 
 #include "SearchManager.h"
 #include "UploadManager.h"
-
+#include "format.h"
 #include "ClientManager.h"
 #include "ShareManager.h"
 #include "SearchResult.h"

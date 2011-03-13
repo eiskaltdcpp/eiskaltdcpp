@@ -37,6 +37,7 @@
 
 char pidfile[256] = {0};
 char config_dir[1024] = {0};
+char local_dir[1024] = {0};
 
 static void  logging(bool b, string msg){
 #ifndef _WIN32
@@ -132,6 +133,8 @@ void printHelp() {
            "  -v, --version\t Show version string\n"
 #ifndef _WIN32
            "  -p file, --pidfile=file\t Write daemon process ID to file\n"
+           "  -c dir, --confdir=dir\t Store config in dir\n"
+           "  -l dir, --localdir=dir\t Store local data (cache, temp files) in dir. (defaults to confdir)\n"
 #endif // _WIN32
            );
 }
@@ -152,13 +155,14 @@ static struct option opts[] = {
     { "version", no_argument,       NULL, 'v'},
     { "daemon",  no_argument,       NULL, 'd'},
     { "confdir", required_argument, NULL, 'c'},
+    { "localdir", required_argument, NULL, 'l'},
     { "pidfile", required_argument, NULL, 'p'},
     { NULL,      0,                 NULL, 0}
 };
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hp:c:vd", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hp:c:l:vd", opts, NULL)) != -1) {
         switch (ch) {
             case 'd':
                 bDaemon = true;
@@ -169,6 +173,9 @@ void parseArgs(int argc, char* argv[]) {
             case 'c':
                 strncpy(config_dir, optarg, 1024);
                 break;
+            case 'l':
+                strncpy(local_dir, optarg, 1024);
+                break;
             case 'v':
                 printVersion();
                 exit(0);
@@ -176,7 +183,7 @@ void parseArgs(int argc, char* argv[]) {
                 printHelp();
                 exit(0);
             default:
-                ;
+                exit(0);
         }
     }
 }
@@ -206,8 +213,12 @@ int main(int argc, char* argv[])
 #endif
 
     Util::PathsMap override;
-    if (config_dir[0] != 0)
+    if (config_dir[0] != 0) {
         override[Util::PATH_USER_CONFIG] = config_dir;
+        override[Util::PATH_USER_LOCAL] = config_dir;
+    }
+	if (local_dir[0] != 0)
+        override[Util::PATH_USER_LOCAL] = local_dir;
     Util::initialize(override);
 
     PATH = Util::getPath(Util::PATH_USER_CONFIG);

@@ -20,6 +20,8 @@
 #include "DCPlusPlus.h"
 
 #include "ZUtils.h"
+
+#include "format.h"
 #include "Exception.h"
 
 namespace dcpp {

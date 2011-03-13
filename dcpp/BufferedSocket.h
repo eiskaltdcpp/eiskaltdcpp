@@ -19,7 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_BUFFERED_SOCKET_H
 #define DCPLUSPLUS_DCPP_BUFFERED_SOCKET_H
 
-#include "forward.h"
+#include "typedefs.h"
+
 #include "BufferedSocketListener.h"
 #include "Semaphore.h"
 #include "Thread.h"

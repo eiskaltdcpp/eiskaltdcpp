@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_ADC_HUB_H
 #define DCPLUSPLUS_DCPP_ADC_HUB_H
 
+#include "typedefs.h"
+
 #include "Client.h"
 #include "AdcCommand.h"
 #include "Socket.h"
