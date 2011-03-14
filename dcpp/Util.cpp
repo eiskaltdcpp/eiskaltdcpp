@@ -1194,8 +1194,14 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
 		bool showIp = BOOLSETTING(USE_IP) || sIp;
 		bool showCc = (BOOLSETTING(GET_USER_COUNTRY) || sCC) && !cc.empty();
 
-		if(showIp) {
-			ret = "[" + aIp + "] ";
+        if(showIp) {
+            int ll = 15 - aIp.size();
+            if (ll >0) {
+                string tmp = " "; size_t sz=tmp.size();
+                tmp.resize(sz+ll-1,' ');
+                ret = "[" + tmp + aIp + "] ";
+            } else
+                ret = "[" + aIp + "] ";
 		}
         //printf("%s\n",ret.c_str());
 		if(showCc) {
