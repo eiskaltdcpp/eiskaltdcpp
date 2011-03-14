@@ -144,12 +144,6 @@ void printVersion() {
     printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
 }
 
-void writePidFile(char *path)
-{
-	std::ofstream pidfile(path);
-	pidfile << getpid();
-}
-
 #ifndef _WIN32
 static struct option opts[] = {
     { "help",    no_argument,       NULL, 'h'},
@@ -160,6 +154,12 @@ static struct option opts[] = {
     { "pidfile", required_argument, NULL, 'p'},
     { NULL,      0,                 NULL, 0}
 };
+
+void writePidFile(char *path)
+{
+    std::ofstream pidfile(path);
+    pidfile << getpid();
+}
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
