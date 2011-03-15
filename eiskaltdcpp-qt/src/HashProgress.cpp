@@ -138,7 +138,6 @@ void HashProgress::timerTick(){
             eta = tr("-:--:--");
         }
         else {
-            double fs = files * 60 * 60 / filestat;
             double ss = bytes / speedStat;
 
             eta = _q(Text::toT(Util::formatSeconds((int64_t)(ss))));

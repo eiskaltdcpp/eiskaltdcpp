@@ -36,7 +36,7 @@ private:
     LogManagerScript(QObject *parent = 0);
     LogManagerScript(const LogManagerScript&){}
     ~LogManagerScript();
-    LogManagerScript &operator=(const LogManagerScript&){}
+    LogManagerScript &operator=(const LogManagerScript&){ return *this; }
 };
 
 #endif // LOGMANAGERSCRIPT_H
