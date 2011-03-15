@@ -483,7 +483,8 @@ bool SearchModel::okToFind(const SearchItem *item){
 SearchItem::SearchItem(const QList<QVariant> &data, SearchItem *parent) :
     isDir(false),
     itemData(data),
-    parentItem(parent)
+    parentItem(parent),
+    count(0)
 {
 }
 

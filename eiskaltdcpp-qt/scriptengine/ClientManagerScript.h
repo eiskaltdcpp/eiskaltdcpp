@@ -57,7 +57,7 @@ private:
     ClientManagerScript(QObject *parent = 0);
     ClientManagerScript(const ClientManagerScript&) {}
     ~ClientManagerScript();
-    ClientManagerScript &operator =(const ClientManagerScript&) {}
+    ClientManagerScript &operator =(const ClientManagerScript&) { return *this; }
 
     dcpp::ClientManager *CM;
 };

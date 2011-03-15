@@ -61,7 +61,7 @@ private:
 #endif
 
     ScriptEngine(const ScriptEngine&) {}
-    ScriptEngine &operator =(const ScriptEngine&){}
+    ScriptEngine &operator =(const ScriptEngine&){ return *this; }
 
     void registerStaticMembers(QScriptEngine &);
     void registerDynamicMembers(QScriptEngine &);
