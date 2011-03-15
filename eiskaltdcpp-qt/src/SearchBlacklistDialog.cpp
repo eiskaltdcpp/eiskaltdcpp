@@ -15,6 +15,7 @@
 #include <QLineEdit>
 #include <QMenu>
 #include <QItemSelectionModel>
+#include <QResizeEvent>
 
 SearchBlackListDialog::SearchBlackListDialog(QWidget *parent): QDialog(parent){
     setupUi(this);
@@ -36,6 +37,13 @@ SearchBlackListDialog::~SearchBlackListDialog(){
 
 void SearchBlackListDialog::ok(){
     model->save();
+}
+
+void SearchBlackListDialog::resizeEvent(QResizeEvent *e){
+    e->accept();
+
+    treeView_RULES->resizeColumnToContents(COLUMN_SBL_TYPE);
+    treeView_RULES->setColumnWidth(COLUMN_SBL_KEY, treeView_RULES->frameGeometry().right()- treeView_RULES->frameGeometry().left()-treeView_RULES->columnWidth(COLUMN_SBL_TYPE));
 }
 
 void SearchBlackListDialog::slotContextMenu(){
