@@ -626,7 +626,7 @@ string Util::formatExactSize(int64_t aBytes) {
 }
 
 string Util::getLocalIp() {
-#if defined(HAVE_IFADDRS_H) || defined(HAVE_ADDRS_H)
+#ifdef HAVE_IFADDRS_H
     vector<string> addresses;
     struct ifaddrs *ifap;
 

@@ -319,13 +319,6 @@ if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H )
 endif (HAVE_IFADDRS_H)
 
-#if (ICONV_SECOND_ARGUMENT_IS_CONST)
-  #add_definitions (-DICONV_CONST=const)
-#endif (ICONV_SECOND_ARGUMENT_IS_CONST)
-
-#if (FORCE_XDG)
-  #add_definitions (-DFORCE_XDG)
-#endif (FORCE_XDG)
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
     if (MINGW)
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")

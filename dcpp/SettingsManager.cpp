@@ -42,12 +42,13 @@ const string SettingsManager::settingTags[] =
     // Strings
     "Nick", "UploadSpeed", "Description", "DownloadDirectory", "EMail",
     "ExternalIp", "HublistServers", "HttpProxy",
-    "LogDirectory", "LogFormatPostDownload",
+    "LogDirectory", "LogFormatPostDownload","LogFormatPostFinishedDownload",
     "LogFormatPostUpload", "LogFormatMainChat", "LogFormatPrivateChat",
     "TempDownloadDirectory", "BindAddress", "SocksServer",
     "SocksUser", "SocksPassword", "ConfigVersion", "DefaultAwayMessage",
     "TimeStampsFormat", "CID", "LogFileMainChat", "LogFilePrivateChat",
-    "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileSystem",
+    "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileFinishedDownload",
+    "LogFileSystem",
     "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
     "Language", "SkipListShare", "InternetIp",
@@ -58,8 +59,8 @@ const string SettingsManager::settingTags[] =
     "AutoSearchTime", "ReportFoundAlternates", "TimeStamps",
     "IgnoreHubPms", "IgnoreBotPms",
     "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed",
-    "LogMainChat", "LogPrivateChat", "LogDownloads", "LogUploads",
-    "MinUploadSpeed", "AutoAway",
+    "LogMainChat", "LogPrivateChat", "LogDownloads","LogFileFinishedDownload",
+    "LogUploads", "MinUploadSpeed", "AutoAway",
     "SocksPort", "SocksResolve", "KeepLists", "AutoKick",
     "CompressTransfers", "SFVCheck",
     "MaxCompression", "NoAwayMsgToBots", "SkipZeroByte", "AdlsBreakOnFirst",
@@ -170,11 +171,13 @@ SettingsManager::SettingsManager()
     setDefault(LOG_DIRECTORY, Util::getPath(Util::PATH_USER_LOCAL) + "Logs" PATH_SEPARATOR_STR);
     setDefault(LOG_UPLOADS, false);
     setDefault(LOG_DOWNLOADS, false);
+    setDefault(LOG_FINISHED_DOWNLOADS, false);
     setDefault(LOG_PRIVATE_CHAT, false);
     setDefault(LOG_MAIN_CHAT, false);
     setDefault(UPLOAD_SPEED, connectionSpeeds[11]);
     setDefault(MIN_UPLOAD_SPEED, 0);
     setDefault(LOG_FORMAT_POST_DOWNLOAD, "[%Y-%m-%d %H:%M:%S] %[target] downloaded from %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
+    setDefault(LOG_FORMAT_POST_FINISHED_DOWNLOAD, "%Y-%m-%d %H:%M: %[target] " + string(_("downloaded from")) + " %[userNI] (%[userCID]), %[fileSI] (%[fileSIsession]), %[speed], %[time], %[fileTR]");
     setDefault(LOG_FORMAT_POST_UPLOAD,   "[%Y-%m-%d %H:%M:%S] %[source] uploaded to %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
     setDefault(LOG_FORMAT_MAIN_CHAT,     "[%Y-%m-%d %H:%M:%S] %[message]");
     setDefault(LOG_FORMAT_PRIVATE_CHAT,  "[%Y-%m-%d %H:%M:%S] %[message]");
@@ -185,6 +188,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FILE_PRIVATE_CHAT, "PM/%B - %Y/%[userNI] (%[userCID]).log");
     setDefault(LOG_FILE_UPLOAD,       "Uploads.log");
     setDefault(LOG_FILE_DOWNLOAD,     "Downloads.log");
+    setDefault(LOG_FILE_FINISHED_DOWNLOAD, "Finished_downloads.log");
     setDefault(LOG_FILE_SYSTEM,       "System.log");
     setDefault(AUTO_AWAY, false);
     setDefault(BIND_ADDRESS, "0.0.0.0");
