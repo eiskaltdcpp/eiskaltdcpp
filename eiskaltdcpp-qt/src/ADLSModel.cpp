@@ -291,6 +291,8 @@ bool ADLSModel::removeItem(const ADLSItem *item){
     QModelIndex i = index(item->row(), 0, QModelIndex());
 
     removeItem(i);
+
+    return true;
 }
 
 void ADLSModel::addResult(QList<QVariant> &data){

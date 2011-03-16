@@ -107,6 +107,7 @@ int ServerThread::run()
     AbyssServer.run();
 #endif
 
+    return 0;
 }
 bool ServerThread::disconnect_all(){
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {

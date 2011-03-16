@@ -58,6 +58,8 @@ bool SearchStringListModel::setData(const QModelIndex &index, const QVariant &va
         checked.push_back(index.data().toString());
     else if (checked.contains(index.data().toString()))
         checked.removeAt(checked.indexOf(index.data().toString()));
+
+    return true;
 }
 
 SearchFrame::Menu::Menu(){

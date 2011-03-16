@@ -300,6 +300,8 @@ bool FavoriteHubModel::removeItem(const FavoriteHubItem *item){
     QModelIndex i = index(item->row(), 0, QModelIndex());
 
     removeItem(i);
+
+    return true;
 }
 
 void FavoriteHubModel::addResult(QList<QVariant> &data){

@@ -1121,6 +1121,8 @@ int ShareBrowser::ItemInfo::compareItems(ItemInfo* a, ItemInfo* b, int col) {
                 default: break;// strcmp(a->columns[col].c_str(), b->columns[col].c_str());
                 }
         }
+        
+        return -1;
 }
 
 /*Many code from orginal DC++*/

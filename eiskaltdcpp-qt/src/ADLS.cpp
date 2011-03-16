@@ -426,4 +426,6 @@ void ADLS::slotSettingsChanged(const QString &key, const QString &value){
             _q(search.destDir) == map["DIRECTORY"])
             return j;
     }
+
+    return -1;
 }
