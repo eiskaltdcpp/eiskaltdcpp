@@ -113,10 +113,13 @@ public:
     void mapped(ArenaWidget *awgt);
     void redraw() { emit layoutChanged(); }
 
-public slots:
+public Q_SLOTS:
     void slotIndexClicked(const QModelIndex&);
 
-signals:
+private Q_SLOTS:
+    void slotSettingsChanged(const QString &key, const QString &value);
+
+Q_SIGNALS:
     void mapWidget(ArenaWidget*);
     void selectIndex(const QModelIndex&);
 
