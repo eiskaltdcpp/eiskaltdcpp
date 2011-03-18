@@ -1000,6 +1000,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void HubFrame::closeEvent(QCloseEvent *e){
+    QObject::disconnect(this, NULL, this, NULL);
+
     MainWindow *MW = MainWindow::getInstance();
 
     MW->remArenaWidgetFromToolbar(this);
