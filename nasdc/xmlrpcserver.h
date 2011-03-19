@@ -351,7 +351,7 @@ class delDirFromShareMethod : public xmlrpc_c::method {
 public:
     delDirFromShareMethod() {
         this->_signature = "i:ss";
-        this->_help = "This method delete dir from share. Рarams: directory";
+        this->_help = "This method delete dir from share. Рarams: virt name of directory";
     }
 
     void
@@ -360,9 +360,14 @@ public:
 
         string const sdirectory(paramList.getString(0));
         paramList.verifyEnd(1);
-        ShareManager::getInstance()->removeDirectory(sdirectory);
-        ShareManager::getInstance()->refresh(true);
-        *retvalP = xmlrpc_c::value_string("Delete dir from share success");
+        StringPairList directories = ShareManager::getInstance()->getDirectories();
+        StringPairList::iterator it = directories.find(sdirectory);
+        if (it != directories.end()) {
+            ShareManager::getInstance()->removeDirectory(it->second);
+            ShareManager::getInstance()->refresh(true);
+            *retvalP = xmlrpc_c::value_string("Delete dir from share success");
+        } else
+            *retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name don't exist");
     }
 };
 
@@ -381,7 +386,7 @@ public:
         paramList.verifyEnd(1);
         string listshare;
         StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){
+        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
             listshare.append("\n");
             listshare.append(it->second+sseparator);
             listshare.append(it->first+sseparator);
