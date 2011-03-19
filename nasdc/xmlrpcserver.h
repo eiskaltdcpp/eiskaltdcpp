@@ -361,13 +361,15 @@ public:
         string const sdirectory(paramList.getString(0));
         paramList.verifyEnd(1);
         StringPairList directories = ShareManager::getInstance()->getDirectories();
-        StringPairList::iterator it = directories.find(sdirectory);
-        if (it != directories.end()) {
-            ShareManager::getInstance()->removeDirectory(it->second);
-            ShareManager::getInstance()->refresh(true);
-            *retvalP = xmlrpc_c::value_string("Delete dir from share success");
-        } else
-            *retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name don't exist");
+        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+            if (it->first == sdirectory) {
+                ShareManager::getInstance()->removeDirectory(it->second);
+                ShareManager::getInstance()->refresh(true);
+                *retvalP = xmlrpc_c::value_string("Delete dir from share success");
+                return;
+            }
+        }
+        *retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name don't exist");
     }
 };
 
