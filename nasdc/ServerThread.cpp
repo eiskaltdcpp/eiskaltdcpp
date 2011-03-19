@@ -365,3 +365,10 @@ void ServerThread::listConnectedClients(string& listhubs,const string& separator
         }
     }
 }
+
+bool ServerThread::findHubInConnectedClients(const string& hub) {
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end())
+        return true;
+    return false;
+}

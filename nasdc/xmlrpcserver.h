@@ -249,8 +249,11 @@ public:
         string const smess(paramList.getString(1));
         paramList.verifyEnd(2);
         ServerThread svT;
-        svT.sendMessage(shub,smess);
-        *retvalP = xmlrpc_c::value_string("Message send on hub: " + shub);
+        if (svT.findHubInConnectedClients(shub)) {
+            svT.sendMessage(shub,smess);
+            *retvalP = xmlrpc_c::value_string("Message send on hub: " + shub);
+        } else
+            *retvalP = xmlrpc_c::value_string(shub + " don't connected");
     }
 };
 
@@ -338,9 +341,18 @@ public:
         string const svirtname(paramList.getString(1));
         paramList.verifyEnd(2);
         try {
-            ShareManager::getInstance()->renameDirectory(sdirectory,svirtname);
-            ShareManager::getInstance()->refresh(true);
-            *retvalP = xmlrpc_c::value_string("Rename dir in share success");
+            StringPairList directories = ShareManager::getInstance()->getDirectories();
+            string tmp;
+            for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+                if (it->second.compare(sdirectory) == 0) {
+                    tmp = it->first;
+                    ShareManager::getInstance()->renameDirectory(sdirectory,svirtname);
+                    ShareManager::getInstance()->refresh(true);
+                    *retvalP = xmlrpc_c::value_string("Rename dir " + tmp + "->" + svirtname +" in share success");
+                    return;
+                }
+            }
+            *retvalP = xmlrpc_c::value_string("Rename dir failed");
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }

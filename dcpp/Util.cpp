@@ -1219,7 +1219,7 @@ bool Util::fileExists(const string &aFile) {
     return (attr != 0xFFFFFFFF);
 #else
     struct stat stFileInfo;
-    return (stat(aFile.c_str(),&stFileInfo) != 0);
+    return (stat(aFile.c_str(),&stFileInfo) == 0);
 #endif
 }
 
