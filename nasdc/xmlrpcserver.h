@@ -362,7 +362,7 @@ public:
         paramList.verifyEnd(1);
         StringPairList directories = ShareManager::getInstance()->getDirectories();
         for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
-            if (it->first == sdirectory) {
+            if (it->first.compare(sdirectory) == 0) {
                 ShareManager::getInstance()->removeDirectory(it->second);
                 ShareManager::getInstance()->refresh(true);
                 *retvalP = xmlrpc_c::value_string("Delete dir from share success");
