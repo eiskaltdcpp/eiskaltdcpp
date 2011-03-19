@@ -1000,6 +1000,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void HubFrame::closeEvent(QCloseEvent *e){
+    QObject::disconnect(this, NULL, this, NULL);
+
     MainWindow *MW = MainWindow::getInstance();
 
     MW->remArenaWidgetFromToolbar(this);
@@ -1845,9 +1847,9 @@ void HubFrame::addStatus(QString msg){
     short_msg = LinkParser::parseForLinks(short_msg, false);
     msg       = LinkParser::parseForLinks(msg, true);
 
-    pure_msg        = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + pure_msg + "</font>";
-    short_msg       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + short_msg + "</font>";
-    msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
+    pure_msg        = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + pure_msg + "</font>";
+    short_msg       = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + short_msg + "</font>";
+    msg             = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + msg + "</font>";
     QString time    = "";
 
     if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
