@@ -1,3 +1,21 @@
+--- 2.2.2 2011-04-09 ---
+*** common changes ***
+* Align ip-address in a chat (only for monospaced fonts).
+* Added configuration options: ENABLE_STACKTRACE, WITH_DEV_FILES and EISKALTDCPP_INCLUDE_DIR.
+* Added separate file for logging completely finished downloads.
+*** eiskaltdcpp-qt ***
+* Added ability to build program on Haiku-OS (see file INSTALL).
+* Fixed loading of emoticons from emoticon packs. It was support files only in PNG format, but now it can load images in any standart format.
+* Improvements in the dialog with black list of search results.
+* Fixed highlighting of status messages in a chat: the color is now applied to full message.
+* Fixed small memory leaks and produced code cleanup.
+*** eiskaltdcpp-gtk ***
+* Fixed initialization of the toolbar.
+* "Emoticons not loaded" messages is now disabled, when emoticons is switched off.
+*** eiskaltdcpp-daemon ***
+* Added ability to build program on Haiku-OS (see file INSTALL).
+* Added command line options: --pidfile, --confdir, --localdir
+
 --- 2.2.1 2011-03-08 ---
 *** common changes ***
 * Fixed build under MS Windows.
