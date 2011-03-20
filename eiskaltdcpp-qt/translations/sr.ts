@@ -2434,6 +2434,10 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Host</source>
         <translation>Host</translation>
     </message>
+    <message>
+        <source>File already exists: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Settings</name>
@@ -4994,6 +4998,10 @@ them is usually available only to operators</source>
     <message>
         <source>Status messages</source>
         <translation>Status poruka</translation>
+    </message>
+    <message>
+        <source>Finished Downloads</source>
+        <translation type="unfinished">Zavšeno preuzimanje</translation>
     </message>
 </context>
 <context>

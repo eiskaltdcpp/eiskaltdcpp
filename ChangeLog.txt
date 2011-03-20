@@ -8,6 +8,7 @@
 * Fixed loading of emoticons from emoticon packs. It was support files only in PNG format, but now it can load images in any standart format.
 * Improvements in the dialog with black list of search results.
 * Fixed highlighting of status messages in a chat: the color is now applied to full message.
+* Improvement in the search widget: tooltip shows where is the file located if it exists in the share.
 * Fixed small memory leaks and produced code cleanup.
 *** eiskaltdcpp-gtk ***
 * Fixed initialization of the toolbar.
