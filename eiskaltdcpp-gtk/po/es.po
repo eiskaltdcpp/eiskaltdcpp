@@ -4,13 +4,14 @@
 #
 # Automatically generated, 2010.
 # sL1pKn07 <sl1pkn07@gmail.com>, 2010, 2011.
+# Gustavo Alvarez <gustavoalvarez@ono.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-03-07 02:21+0200\n"
-"PO-Revision-Date: 2011-02-06 07:06+0100\n"
-"Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
+"PO-Revision-Date: 2011-03-20 01:05+0100\n"
+"Last-Translator: Gustavo Alvarez <gustavoalvarez@ono.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -3886,9 +3887,8 @@ msgid "Grouped by Users"
 msgstr "Agrupar por Usuarios"
 
 #: ../glade/finishedtransfers.glade:81
-#, fuzzy
 msgid "Show only completely finished downloads"
-msgstr "Ver la lista de descargas finalizadas"
+msgstr "Ver solo la lista de descargas finalizadas por completo"
 
 #: ../glade/finishedtransfers.glade:150
 msgid "Open containing _folder"

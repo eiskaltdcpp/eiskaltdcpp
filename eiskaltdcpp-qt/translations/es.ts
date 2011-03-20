@@ -712,7 +712,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfers.h" line="464"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Si</translation>
     </message>
 </context>
 <context>
@@ -756,7 +756,7 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="47"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="54"/>
         <source>Full</source>
-        <translation type="unfinished"></translation>
+        <translation>Lleno</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
@@ -788,13 +788,14 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Si</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
         <source>No</source>
-        <translation type="unfinished">No</translation>
+        <translatorcomment>No</translatorcomment>
+        <translation>No</translation>
     </message>
 </context>
 <context>
@@ -1209,13 +1210,14 @@ Usuario favorito</translation>
         <location filename="../src/HubFrame.cpp" line="1587"/>
         <location filename="../src/HubFrame.cpp" line="1589"/>
         <source>Invalid command syntax.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sintaxis del comando invalido.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1599"/>
         <source>List of keywords:
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de palabras clave:
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1739"/>
@@ -1279,19 +1281,22 @@ Usuario favorito</translation>
         <location filename="../src/HubFrame.cpp" line="1748"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword add &lt;palabraclave&gt; - añadir palabra clave definida por el usuario
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1749"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword purge &lt;palabraclave&gt; - elimina palabra clave definida por el usuario
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1750"/>
         <source>/kword list - list all keywords
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword list - lista todas las palabras clave
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1751"/>
@@ -2018,22 +2023,22 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>Enter user nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Intruduzca nick del usuario</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>User</source>
-        <translation type="unfinished">Usuario</translation>
+        <translation>Usuario</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="317"/>
         <source>Would you like to change other settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Desea cambiar algúna otra configuracion?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="544"/>
@@ -2986,7 +2991,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="127"/>
         <source>Blacklist...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista negra...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="130"/>
@@ -2996,7 +3001,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="133"/>
         <source>Add to Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir a la Lista Negra</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="239"/>
@@ -4656,12 +4661,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="43"/>
         <source>Show only completely finished transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar solo transferencias completamente finalizadas</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="46"/>
         <source>Full only</source>
-        <translation type="unfinished"></translation>
+        <translation>Solo completados</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="66"/>
@@ -5142,7 +5147,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="231"/>
         <source>Bind Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ligar dirección:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="256"/>
@@ -6017,7 +6022,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="207"/>
         <source>Don&apos;t show icons in menus (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>No mostrar iconos en los menús (se necesita reiniciar)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="315"/>
@@ -6136,17 +6141,17 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="854"/>
         <source>Transfer colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Transferir colores</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="877"/>
         <source>Upload</source>
-        <translation type="unfinished">Subida</translation>
+        <translation>Subida</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="904"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Resetear</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="916"/>
@@ -6356,7 +6361,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="253"/>
         <source>Play sound on active PM window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ejecutar sonido en la ventana activa de Mensajes Privados</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="295"/>
