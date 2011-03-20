@@ -748,6 +748,25 @@ int ClientManager::getMode(const string& aHubUrl) const {
         return mode;
 }
 
+/*OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const
+{
+        Lock l(cs);
+
+        OnlinePairC op = onlineUsers.equal_range(const_cast<CID*>(&cid));
+        for(OnlineIterC i = op.first; i != op.second; ++i) {
+                OnlineUser* ou = i->second;
+
+                // user not in DHT, so don't bother with other hubs
+                if(!ou->getUser()->isSet(User::DHT))
+                        break;
+
+                if(ou->getClientBase().getType() == Client::DHT)
+                        return ou;
+        }
+
+        return NULL;
+}*/
+
 #ifdef LUA_SCRIPT
 bool ClientManager::ucExecuteLua(const string& ucCommand, StringMap& params) throw() {
         bool executedlua = false;

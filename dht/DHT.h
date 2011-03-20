@@ -39,7 +39,7 @@ namespace dht
 	{
 	public:
 		DHT(void);
-		~DHT(void);
+		~DHT(void) throw();
 
 		enum InfType { NONE = 0, PING = 1, MAKE_ONLINE = 2 };
 

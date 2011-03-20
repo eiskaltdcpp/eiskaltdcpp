@@ -166,7 +166,7 @@ public:
 
     bool isClientType(ClientType ct) const;
 
-    void getParams(StringMap& map, const string& prefix, bool compatibility) const;
+    void getParams(StringMap& map, const string& prefix, bool compatibility, bool dht = false) const;
     UserPtr& getUser() { return user; }
     GETSET(UserPtr, user, User);
     GETSET(uint32_t, sid, SID);

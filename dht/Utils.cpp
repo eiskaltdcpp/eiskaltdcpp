@@ -25,12 +25,13 @@
 #include "dcpp/CID.h"
 #include "dcpp/MerkleTree.h"
 #include "dcpp/TimerManager.h"
+#include "dcpp/SettingsManager.h"
 
 namespace dht
 {
 
 	CriticalSection Utils::cs;
-	std::unordered_map<string, std::unordered_multiset<uint32_t>> Utils::receivedPackets;
+	unordered_map<string, unordered_multiset<uint32_t> > Utils::receivedPackets;
 	std::list<Utils::OutPacket> Utils::sentPackets;
 
 	CID Utils::getDistance(const CID& cid1, const CID& cid2)
@@ -108,7 +109,7 @@ namespace dht
 		}
 
 		Lock l(cs);
-		std::unordered_multiset<uint32_t>& packetsPerIp = receivedPackets[ip];
+		unordered_multiset<uint32_t>& packetsPerIp = receivedPackets[ip];
 		packetsPerIp.insert(cmd.getCommand());
 
 		if(packetsPerIp.count(cmd.getCommand()) > maxAllowedPacketsPerMinute)

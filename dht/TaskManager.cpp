@@ -28,6 +28,7 @@
 #include "dcpp/SettingsManager.h"
 #include "dcpp/ShareManager.h"
 #include "dcpp/TimerManager.h"
+#include "dcpp/ClientManager.h"
 
 namespace dht
 {

@@ -24,6 +24,7 @@
 
 #include "dcpp/ConnectionManager.h"
 #include "dcpp/CryptoManager.h"
+#include "dcpp/ClientManager.h"
 
 namespace dht
 {

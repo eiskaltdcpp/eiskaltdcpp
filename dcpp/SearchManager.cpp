@@ -142,7 +142,7 @@ int SearchManager::run() {
                 // @todo: remove this workaround for http://bugs.winehq.org/show_bug.cgi?id=22291
                 // if that's fixed by reverting to simpler while (read(...) > 0) {...} code.
                 while (socket->wait(400, Socket::WAIT_READ) != Socket::WAIT_READ);
-                if (stop || (len = socket->read(&buf[0], BUFSIZE, remoteAddr)) <= 0)
+                if (stop || (len = socket->read((void*)&buf[0], BUFSIZE, (sockaddr_in&)remoteAddr)) <= 0)
                     break;
                 onData(&buf[0], len, remoteAddr);
             }

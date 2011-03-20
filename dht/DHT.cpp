@@ -31,6 +31,7 @@
 #include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/CryptoManager.h"
+#include "dcpp/File.h"
 #include "dcpp/LogManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/ShareManager.h"
@@ -49,7 +50,7 @@ namespace dht
 		IndexManager::newInstance();
 	}
 
-	DHT::~DHT(void)
+	DHT::~DHT(void) throw()
 	{
 		// when DHT is disabled, we shouldn't try to perform exit cleanup
 		if(bucket == NULL) {
@@ -557,7 +558,7 @@ namespace dht
 				{
 					// when we received more firewalled statuses, we will be firewalled
 					int fw = 0;	string lastIP;
-					for(std::unordered_map<string, std::pair<string, uint16_t>>::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); i++)
+					for(unordered_map<string, std::pair<string, uint16_t> >::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); i++)
 					{
 						string ip = i->second.first;
 						uint16_t udpPort = i->second.second;

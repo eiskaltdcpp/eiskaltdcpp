@@ -60,6 +60,9 @@ public:
     const string& getIP() const { return IP; }
     const string& getToken() const { return token; }
 
+    // for DHT use only
+    void setSlots(size_t _slots) { slots = _slots; }
+
 private:
     friend class SearchManager;
 
@@ -67,6 +70,7 @@ private:
 
     SearchResult(const SearchResult& rhs);
 
+    size_t slots;
     string file;
     string hubName;
     string hubURL;

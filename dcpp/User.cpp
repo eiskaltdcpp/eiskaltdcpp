@@ -50,7 +50,7 @@ bool Identity::isUdpActive() const {
         return (!user->isSet(User::NMDC)) ? supports(AdcHub::UDP4_FEATURE) : !user->isSet(User::PASSIVE);
 }
 
-void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility) const {
+void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility, bool dht) const {
     {
         FastLock l(cs);
         for(InfMap::const_iterator i = info.begin(); i != info.end(); ++i) {

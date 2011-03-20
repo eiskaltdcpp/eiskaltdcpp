@@ -316,7 +316,26 @@ int Socket::read(void* aBuffer, int aBufLen) throw(SocketException) {
     return len;
 }
 
-int Socket::read(void* aBuffer, int aBufLen, string &aIP) throw(SocketException) {
+int Socket::read(void* aBuffer, int aBufLen, sockaddr_in &remote) throw(SocketException) {
+        dcassert(type == TYPE_UDP);
+
+        sockaddr_in remote_addr = { 0 };
+        socklen_t addr_length = sizeof(remote_addr);
+
+        int len;
+        do {
+                len = ::recvfrom(sock, (char*)aBuffer, aBufLen, 0, (sockaddr*)&remote_addr, &addr_length);
+        } while (len < 0 && getLastError() == EINTR);
+
+        check(len, true);
+        if(len > 0) {
+                stats.totalDown += len;
+        }
+        remote = remote_addr;
+        return len;
+}
+
+/*int Socket::read(void* aBuffer, int aBufLen, string &aIP) throw(SocketException) {
     dcassert(type == TYPE_UDP);
 
     sockaddr_in remote_addr = { 0 };
@@ -335,7 +354,7 @@ int Socket::read(void* aBuffer, int aBufLen, string &aIP) throw(SocketException)
         aIP.clear();
     }
     return len;
-}
+}*/
 
 int Socket::readAll(void* aBuffer, int aBufLen, uint32_t timeout) throw(SocketException) {
     uint8_t* buf = (uint8_t*)aBuffer;
