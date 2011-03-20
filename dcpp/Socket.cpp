@@ -35,6 +35,15 @@
 #define IPTOS_TOS(a) ((a) & 0x1E)
 #endif
 
+#ifndef _WIN32
+#include <sys/ioctl.h>
+#include <ifaddrs.h>
+#include <netdb.h>
+#include <net/if.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#endif
+
 namespace dcpp {
 
 string Socket::udpServer;
@@ -114,12 +123,42 @@ void Socket::accept(const Socket& listeningSocket) throw(SocketException) {
 }
 
 
+static string getIfaceI4 (const string &iface){
+#ifdef _WIN32
+    return "0.0.0.0";
+#endif
+    struct ifreq request;
+    string s = "0.0.0.0";
+
+    memset(&request, 0, sizeof(struct ifreq));
+
+    if ((size_t)iface.size() <= sizeof(request.ifr_name)){
+        memcpy(request.ifr_name, iface.c_str(), iface.size());
+
+        int sock = socket(AF_INET, SOCK_STREAM, 0);
+
+        if (sock != -1 ){
+            if (ioctl(sock, SIOCGIFADDR, &request) >= 0){
+                struct sockaddr *sa = &request.ifr_addr;
+
+                if ( sa && sa->sa_family == AF_INET )
+                    s = inet_ntoa(((struct sockaddr_in*)sa)->sin_addr);
+            }
+
+            close(sock);
+        }
+    }
+
+    return s;
+}
+
 uint16_t Socket::bind(uint16_t aPort, const string& aIp /* = 0.0.0.0 */) throw (SocketException){
     sockaddr_in sock_addr;
 
     sock_addr.sin_family = AF_INET;
     sock_addr.sin_port = htons(aPort);
-    sock_addr.sin_addr.s_addr = inet_addr(aIp.c_str());
+    sock_addr.sin_addr.s_addr = inet_addr((SETTING(BIND_IFACE)? getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : aIp.c_str()));
+
     if(::bind(sock, (sockaddr *)&sock_addr, sizeof(sock_addr)) == SOCKET_ERROR) {
         dcdebug("Bind failed, retrying with INADDR_ANY: %s\n", SocketException(getLastError()).getError().c_str());
         sock_addr.sin_addr.s_addr = htonl(INADDR_ANY);
