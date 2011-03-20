@@ -1401,7 +1401,7 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="2156"/>
         <source> has been added to favorites.</source>
-        <translation> byl přidán k olíbeným.</translation>
+        <translation> byl přidán k oblíbeným.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2156"/>
@@ -3121,7 +3121,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/SearchModel.cpp" line="134"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubor už existuje: %1</translation>
     </message>
 </context>
 <context>
@@ -6296,7 +6296,7 @@ alternativ</translation>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="218"/>
         <source>Finished Downloads</source>
-        <translation type="unfinished">Dokončené stahování</translation>
+        <translation>Dokončené stahování</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
