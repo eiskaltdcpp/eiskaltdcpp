@@ -121,6 +121,8 @@ bool ServerThread::disconnect_all(){
         }
         Thread::sleep(100);
     }
+    
+    return true;
 }
 //---------------------------------------------------------------------------
 void ServerThread::Close()
