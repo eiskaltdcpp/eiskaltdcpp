@@ -1420,9 +1420,14 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
     if (msg.endsWith("\n"))
         msg = msg.left(msg.lastIndexOf("\n"));
 
-    if (!parseForCmd(msg, this))
+    bool script_ret = false;
+#ifdef LUA_SCRIPT
+    script_ret = ((ClientScriptInstance *) (this->client))->onHubFrameEnter(this->client, msg.toStdString());
+#endif
+    if (!script_ret && !parseForCmd(msg, this))
         client->hubMessage(msg.toStdString(), thirdPerson);
 
+    //qDebug() << "cmd: " << cmd <<" sript_ret: " << script_ret;
     if (!thirdPerson){
         if (out_messages_unsent){
             out_messages.removeLast();
