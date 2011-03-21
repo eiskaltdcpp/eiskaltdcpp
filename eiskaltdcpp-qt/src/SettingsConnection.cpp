@@ -84,7 +84,11 @@ void SettingsConnection::ok(){
 #endif
         SM->set(SettingsManager::TCP_PORT, spinBox_TCP->value());
         SM->set(SettingsManager::UDP_PORT, spinBox_UDP->value());
-        SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
+
+        if (spinBox_TLS->value() != SETTING(TCP_PORT))
+            SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
+        else
+            SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value()+1);
 
         SM->set(SettingsManager::EXTERNAL_IP, lineEdit_WANIP->text().toStdString());
         QString bind_ip=lineEdit_BIND_ADDRESS->text();
