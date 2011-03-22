@@ -18,6 +18,7 @@
 #include "EmoticonDialog.h"
 #include "WulforSettings.h"
 #include "FlowLayout.h"
+#include "SearchFrame.h"
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
@@ -124,6 +125,7 @@ HubFrame::Menu::Menu(){
 
     // Userlist actions
     QAction *copy_text   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy"), NULL);
+    QAction *search_text = new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Search text"), NULL);
     QAction *copy_nick   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy nick"), NULL);
     QAction *find        = new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Show in list"), NULL);
     QAction *browse      = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse files"), NULL);
@@ -163,6 +165,7 @@ HubFrame::Menu::Menu(){
     sep1->setSeparator(true), sep2->setSeparator(true), sep3->setSeparator(true), sep4->setSeparator(true);
 
     actions << copy_text
+            << search_text
             << copy_nick
             << find
             << browse
@@ -211,6 +214,7 @@ HubFrame::Menu::Menu(){
                  << zoom_out;
 
     chat_actions_map.insert(copy_text, CopyText);
+    chat_actions_map.insert(search_text, SearchText);
     chat_actions_map.insert(copy_nick, CopyNick);
     chat_actions_map.insert(clear_chat, ClearChat);
     chat_actions_map.insert(find_in_chat, FindInChat);
@@ -2881,6 +2885,32 @@ void HubFrame::slotChatMenu(const QPoint &){
                 ret = editor->textCursor().block().text();
 
             qApp->clipboard()->setText(ret, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::SearchText:
+        {
+            QString ret = editor->textCursor().selectedText();
+
+            if (ret.isEmpty())
+                ret = editor->anchorAt(textEdit_CHAT->mapFromGlobal(p));
+
+            if (ret.startsWith("user://")){
+                ret.remove(0, 7);
+
+                ret = ret.trimmed();
+
+                if (ret.startsWith("<") && ret.endsWith(">")){
+                    ret.remove(0, 1);//remove <
+                    ret = ret.left(ret.lastIndexOf(">"));//remove >
+                }
+            }
+
+            if (ret.isEmpty())
+                break;
+
+            SearchFrame *sf = new SearchFrame(this);
+            sf->fastSearch(ret, false);
 
             break;
         }
