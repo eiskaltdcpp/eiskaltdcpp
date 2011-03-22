@@ -126,7 +126,7 @@ void Socket::accept(const Socket& listeningSocket) throw(SocketException) {
 static string getIfaceI4 (const string &iface){
 #ifdef _WIN32
     return "0.0.0.0";
-#endif
+#else
     struct ifreq request;
     string s = "0.0.0.0";
 
@@ -150,6 +150,7 @@ static string getIfaceI4 (const string &iface){
     }
 
     return s;
+#endif
 }
 
 uint16_t Socket::bind(uint16_t aPort, const string& aIp /* = 0.0.0.0 */) throw (SocketException){
