@@ -34,20 +34,24 @@ public:
     ServerThread();
     ~ServerThread();
 
+    void Resume();
+    void Close();
+    void WaitFor();
+
+    void connectClient(string address, string encoding);
+    void disconnectClient(string address);
+    void sendMessage(const string& hubUrl, const string& message);
+    void listConnectedClients(string& listhubs,const string& separator);
+    bool findHubInConnectedClients(const string& hub);
+
+private:
+
+    virtual int run();
     void startSocket(bool onstart, int oldmode);
     void autoConnect();
     void showPortsError(const std::string& port);
     bool disconnect_all();
 
-    void Resume();
-    void Close();
-    void WaitFor();
-    virtual int run();
-
-    void connectClient (string address, string encoding);
-    void disconnectClient(string address);
-
-private:
     int server;
     unsigned int iSuspendTime;
     bool bTerminated;

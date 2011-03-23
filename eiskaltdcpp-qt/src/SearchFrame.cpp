@@ -58,6 +58,8 @@ bool SearchStringListModel::setData(const QModelIndex &index, const QVariant &va
         checked.push_back(index.data().toString());
     else if (checked.contains(index.data().toString()))
         checked.removeAt(checked.indexOf(index.data().toString()));
+
+    return true;
 }
 
 SearchFrame::Menu::Menu(){
@@ -250,12 +252,13 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     menu->insertMenu(action_list.at(1), down_to);
     menu->insertMenu(action_list.at(2), down_wh_to);
     menu->insertMenu(action_list.at(5), magnet_menu);
-    menu->insertMenu(action_list.at(13),black_list_menu);
+    menu->insertMenu(action_list.at(12),black_list_menu);
 
     QMenu *userm = buildUserCmdMenu(list);
 
     if (userm)
-        menu->addMenu(userm);
+        if (userm->actions().size() > 0)
+            menu->addMenu(userm);
 
     QAction *ret = menu->exec(QCursor::pos());
 

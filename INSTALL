@@ -68,7 +68,7 @@ pkg-config
 :libeiskaltdcpp:
 ----------------
 gettext
-libboost-dev (headers only) (optional, see cmake keys)
+libboost-dev (>=1.38.0) (headers only) (optional, see cmake keys)
 liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
@@ -111,6 +111,9 @@ Keys for cmake
 ----------------
 -DLOCAL_BOOST=ON/OFF (default: OFF)
     use local boost headers
+    Script downloads archive with only necessary headers: http://code.google.com/p/eiskaltdc/downloads/detail?name=boost.tar.gz
+    (This archive have less size than official boost archive)
+    If boost.tar.gz already available in source tree nothing happens.
 -DLUA_SCRIPT=ON/OFF (default: OFF)
     lua scripts
 -DPERL_REGEX=ON/OFF (default: OFF)
@@ -172,15 +175,22 @@ Keys for cmake
 -DCMAKE_INSTALL_PREFIX=<prefix for install> (default: /usr/local)
     .
 -DLIBDIR=<lib prefix> (default: lib)
-    install lib in <prefix for install>/<lib prefix>
+    install lib to <prefix for install>/<lib prefix>
     examples:
-    -DLIBDIR=lib64 - install lib in <prefix for install>/lib64
+    -DLIBDIR=lib64 - install lib to <prefix for install>/lib64
 -DLIB_INSTALL_DIR=<lib prefix> (default: lib)
     see -DLIBDIR
--DESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
+-DWITH_DEV_FILES=ON/OFF (default: OFF)
+    If ON install development files (headers for libeiskaltdcpp)
+    see also -DEISKALTDCPP_INCLUDE_DIR
+-DEISKALTDCPP_INCLUDE_DIR=<dir> (default: <prefix for install>/include/eiskaltdcpp)
+    install development files (headers for libeiskaltdcpp) to <dir>
+-DDESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
     .
--PIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
+-DPIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
     .
+-DENABLE_STACKTRACE=ON/OFF (default: OFF)
+    Show stacktrace when program receive SIGSEGV
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
     build type
     .
@@ -222,3 +232,11 @@ cpack -G DragNDrop
 MS Windows specific notes
 *******************************************************************************
 Instructions are available in the file: win32/READ_ME.txt
+
+
+*******************************************************************************
+Haiku-OS specific notes
+*******************************************************************************
+To configure program use command like this:
+cmake -DLOCAL_BOOST=ON -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp -DCMAKE_CXX_FLAGS="-DTIMER_OLD_BOOST" -DCMAKE_SHARE_DIR=/boot/apps/Eiskaltdcpp -DCMAKE_CLIENT_DATA_DIR=/boot/apps/Eiskaltdcpp ..
+

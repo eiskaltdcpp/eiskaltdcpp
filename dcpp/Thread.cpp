@@ -19,6 +19,7 @@
 #include "stdinc.h"
 #include "DCPlusPlus.h"
 
+#include "format.h"
 #include "Thread.h"
 
 namespace dcpp {

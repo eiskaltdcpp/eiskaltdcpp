@@ -443,16 +443,16 @@ StringList File::findFiles(const string& path, const string& pattern) {
         while (struct dirent* ent = readdir(dir)) {
             if (fnmatch(pattern.c_str(), ent->d_name, 0) == 0) {
 
-                                //NOTE: dcplusplus revision 2126 compilation fixes for OpenSolaris
-//                              struct stat s;
-//                              stat(ent->d_name, &s);
-//                              const char* extra = (s.st_mode & S_IFDIR) ? "/" : "";
-//                              ret.push_back(path + Text::toUtf8(ent->d_name) + extra);
+            //NOTE: dcplusplus revision 2126 compilation fixes for OpenSolaris
+            //struct stat s;
+            //stat(ent->d_name, &s);
+            //const char* extra = (s.st_mode & S_IFDIR) ? "/" : "";
+            //ret.push_back(path + Text::toUtf8(ent->d_name) + extra);
 
-                                //NOTE: freedcpp, fix error file path
-                                struct stat s;
-                                if (stat((Text::fromUtf8(path) + PATH_SEPARATOR + ent->d_name).c_str(), &s) != -1)
-                                {
+            //NOTE: freedcpp, fix error file path
+            struct stat s;
+            if (stat((Text::fromUtf8(path) + PATH_SEPARATOR + ent->d_name).c_str(), &s) != -1)
+            {
                                         const char* extra = S_ISDIR(s.st_mode) ? "/" : "";
                 ret.push_back(path + Text::toUtf8(ent->d_name) + extra);
             }

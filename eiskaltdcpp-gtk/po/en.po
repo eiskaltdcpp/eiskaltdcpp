@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-13 14:08+0200\n"
+"POT-Creation-Date: 2011-03-20 16:39+0200\n"
 "PO-Revision-Date: 2010-07-30 00:20+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -218,18 +218,18 @@ msgstr "Remote client does not fully support TTH - cannot download"
 msgid "No errors"
 msgstr "No errors"
 
-#: ../src/notify.cc:149
+#: ../src/notify.cc:158
 msgid "Open file"
 msgstr "Open file"
 
-#: ../src/notify.cc:152
+#: ../src/notify.cc:161
 msgid "Open folder"
 msgstr "Open folder"
 
 #: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:364
-#: ../src/hub.cc:379 ../src/hub.cc:399 ../src/hub.cc:447 ../src/hub.cc:1232
-#: ../src/hub.cc:1530 ../src/hub.cc:1583 ../src/hub.cc:2177 ../src/hub.cc:2208
-#: ../src/hub.cc:2493 ../src/hub.cc:2532 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:379 ../src/hub.cc:399 ../src/hub.cc:447 ../src/hub.cc:1233
+#: ../src/hub.cc:1531 ../src/hub.cc:1584 ../src/hub.cc:2179 ../src/hub.cc:2210
+#: ../src/hub.cc:2495 ../src/hub.cc:2534 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583
@@ -308,287 +308,287 @@ msgstr ""
 msgid "<b>Enter your password</b>"
 msgstr "<b>Enter your password</b>"
 
-#: ../src/hub.cc:1023 ../src/privatemessage.cc:526
+#: ../src/hub.cc:1024 ../src/privatemessage.cc:527
 msgid " *** Emoticons not loaded"
 msgstr " *** Emoticons not loaded"
 
-#: ../src/hub.cc:1028 ../src/privatemessage.cc:531
+#: ../src/hub.cc:1029 ../src/privatemessage.cc:532
 msgid " *** Emoticons mode off"
 msgstr " *** Emoticons mode off"
 
-#: ../src/hub.cc:1033 ../src/hub.cc:1112 ../src/privatemessage.cc:536
-#: ../src/privatemessage.cc:615
+#: ../src/hub.cc:1034 ../src/hub.cc:1113 ../src/privatemessage.cc:537
+#: ../src/privatemessage.cc:616
 msgid " *** Emoticons limit"
 msgstr " *** Emoticons limit"
 
-#: ../src/hub.cc:1704 ../src/privatemessage.cc:1110
+#: ../src/hub.cc:1705 ../src/privatemessage.cc:1111
 msgid "Use Emoticons"
 msgstr "Use Emoticons"
 
-#: ../src/hub.cc:1785 ../src/hub.cc:1798 ../src/hub.cc:1920
-#: ../src/privatemessage.cc:864 ../src/privatemessage.cc:878
-#: ../src/privatemessage.cc:942 ../glade/privatemessage.glade:190
+#: ../src/hub.cc:1786 ../src/hub.cc:1799 ../src/hub.cc:1921
+#: ../src/privatemessage.cc:865 ../src/privatemessage.cc:879
+#: ../src/privatemessage.cc:943 ../glade/privatemessage.glade:190
 #: ../glade/hub.glade:405
 msgid "Away mode off"
 msgstr "Away mode off"
 
-#: ../src/hub.cc:1792 ../src/privatemessage.cc:872
+#: ../src/hub.cc:1793 ../src/privatemessage.cc:873
 msgid "Away mode on: "
 msgstr "Away mode on: "
 
-#: ../src/hub.cc:1829 ../src/hub.cc:2504 ../src/privatemessage.cc:1281
+#: ../src/hub.cc:1830 ../src/hub.cc:2506 ../src/privatemessage.cc:1282
 msgid " is favorite user"
 msgstr " is favorite user"
 
-#: ../src/hub.cc:1831 ../src/hub.cc:1866 ../src/hub.cc:1876 ../src/hub.cc:1984
+#: ../src/hub.cc:1832 ../src/hub.cc:1867 ../src/hub.cc:1877 ../src/hub.cc:1985
 msgid "Not found user: "
 msgstr "Not found user: "
 
-#: ../src/hub.cc:1847 ../src/hub.cc:2543 ../src/privatemessage.cc:1302
+#: ../src/hub.cc:1848 ../src/hub.cc:2545 ../src/privatemessage.cc:1303
 msgid " is not favorite user"
 msgstr " is not favorite user"
 
-#: ../src/hub.cc:1856
+#: ../src/hub.cc:1857
 msgid "User favorite list:"
 msgstr "User favorite list:"
 
-#: ../src/hub.cc:1856
+#: ../src/hub.cc:1857
 msgid " empty..."
 msgstr " empty..."
 
-#: ../src/hub.cc:1883 ../src/privatemessage.cc:920
+#: ../src/hub.cc:1884 ../src/privatemessage.cc:921
 msgid "Emoticons mode off"
 msgstr "Emoticons mode off"
 
-#: ../src/hub.cc:1888 ../src/privatemessage.cc:925
+#: ../src/hub.cc:1889 ../src/privatemessage.cc:926
 msgid "Emoticons mode on"
 msgstr "Emoticons mode on"
 
-#: ../src/hub.cc:1899
+#: ../src/hub.cc:1900
 #, fuzzy
 msgid "Download image: disable"
 msgstr "Download finished"
 
-#: ../src/hub.cc:1901
+#: ../src/hub.cc:1902
 #, fuzzy
 msgid "Download image: unlimit"
 msgstr "Download failed: "
 
-#: ../src/hub.cc:1903
+#: ../src/hub.cc:1904
 #, fuzzy
 msgid "Download limit image: "
 msgstr "Download starting: "
 
-#: ../src/hub.cc:1909
+#: ../src/hub.cc:1910
 msgid "Set download limit image: "
 msgstr ""
 
-#: ../src/hub.cc:1914
+#: ../src/hub.cc:1915
 msgid "project home: "
 msgstr ""
 
-#: ../src/hub.cc:1918 ../src/privatemessage.cc:940
+#: ../src/hub.cc:1919 ../src/privatemessage.cc:941
 msgid "*** Available commands:"
 msgstr "*** Available commands:"
 
-#: ../src/hub.cc:1919 ../src/privatemessage.cc:941
+#: ../src/hub.cc:1920 ../src/privatemessage.cc:942
 #: ../glade/privatemessage.glade:183 ../glade/hub.glade:398
 msgid "Away mode message on/off"
 msgstr "Away mode message on/off"
 
-#: ../src/hub.cc:1921 ../glade/hub.glade:412
+#: ../src/hub.cc:1922 ../glade/hub.glade:412
 msgid "Clear chat"
 msgstr "Clear chat"
 
-#: ../src/hub.cc:1922
+#: ../src/hub.cc:1923
 msgid "Close chat"
 msgstr "Close chat"
 
-#: ../src/hub.cc:1923 ../glade/hub.glade:419
+#: ../src/hub.cc:1924 ../glade/hub.glade:419
 msgid "Add a hub to favorites"
 msgstr "Add a hub to favorites"
 
-#: ../src/hub.cc:1924 ../src/privatemessage.cc:945
+#: ../src/hub.cc:1925 ../src/privatemessage.cc:946
 #: ../glade/privatemessage.glade:211
 msgid "Add user to favorites list"
 msgstr "Add user to favorites list"
 
-#: ../src/hub.cc:1925 ../src/privatemessage.cc:946
+#: ../src/hub.cc:1926 ../src/privatemessage.cc:947
 #: ../glade/privatemessage.glade:218
 msgid "Remove user favorite"
 msgstr "Remove user favorite"
 
-#: ../src/hub.cc:1926 ../glade/hub.glade:426
+#: ../src/hub.cc:1927 ../glade/hub.glade:426
 msgid "Show favorites list"
 msgstr "Show favorites list"
 
-#: ../src/hub.cc:1927 ../src/privatemessage.cc:947
+#: ../src/hub.cc:1928 ../src/privatemessage.cc:948
 #: ../glade/privatemessage.glade:225
 msgid "Get file list"
 msgstr "Get file list"
 
-#: ../src/hub.cc:1928 ../src/privatemessage.cc:948
+#: ../src/hub.cc:1929 ../src/privatemessage.cc:949
 #: ../glade/privatemessage.glade:232
 msgid "Grant extra slot"
 msgstr "Grant extra slot"
 
-#: ../src/hub.cc:1929 ../src/privatemessage.cc:950
+#: ../src/hub.cc:1930 ../src/privatemessage.cc:951
 #: ../glade/privatemessage.glade:239 ../glade/hub.glade:433
 msgid "Show help"
 msgstr "Show help"
 
-#: ../src/hub.cc:1930 ../glade/hub.glade:440
+#: ../src/hub.cc:1931 ../glade/hub.glade:440
 msgid "Connect to the hub"
 msgstr "Connect to the hub"
 
-#: ../src/hub.cc:1931 ../glade/hub.glade:447
+#: ../src/hub.cc:1932 ../glade/hub.glade:447
 msgid "Say a third person"
 msgstr "Say a third person"
 
-#: ../src/hub.cc:1932 ../src/settingsdialog.cc:995
+#: ../src/hub.cc:1933 ../src/settingsdialog.cc:995
 #: ../src/settingsdialog.cc:1041 ../src/settingsdialog.cc:1161
-#: ../src/settingsmanager.cc:238
+#: ../src/settingsmanager.cc:239
 msgid "Private message"
 msgstr "Private message"
 
-#: ../src/hub.cc:1933 ../glade/hub.glade:454
+#: ../src/hub.cc:1934 ../glade/hub.glade:454
 msgid "Rebuild hash"
 msgstr "Rebuild hash"
 
-#: ../src/hub.cc:1934
+#: ../src/hub.cc:1935
 msgid "Update own file list"
 msgstr "Update own file list"
 
-#: ../src/hub.cc:1935
+#: ../src/hub.cc:1936
 msgid "User list show/hide"
 msgstr "User list show/hide"
 
-#: ../src/hub.cc:1936
+#: ../src/hub.cc:1937
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
 
-#: ../src/hub.cc:1937 ../glade/hub.glade:468
+#: ../src/hub.cc:1938 ../glade/hub.glade:468
 msgid "Show version"
 msgstr "Show version"
 
-#: ../src/hub.cc:1938 ../src/privatemessage.cc:949
+#: ../src/hub.cc:1939 ../src/privatemessage.cc:950
 msgid "Emoticons on/off"
 msgstr "Emoticons on/off"
 
-#: ../src/hub.cc:1940
+#: ../src/hub.cc:1941
 #, fuzzy
 msgid "Load Lua file"
 msgstr "Loading file list"
 
-#: ../src/hub.cc:1941
+#: ../src/hub.cc:1942
 msgid "Execute Lua Chunk"
 msgstr ""
 
-#: ../src/hub.cc:1943
+#: ../src/hub.cc:1944
 msgid "Execute code (bash)"
 msgstr ""
 
-#: ../src/hub.cc:1944
+#: ../src/hub.cc:1945
 msgid "Alias List"
 msgstr ""
 
-#: ../src/hub.cc:1945
+#: ../src/hub.cc:1946
 msgid "Alias Remove A"
 msgstr ""
 
-#: ../src/hub.cc:1946
+#: ../src/hub.cc:1947
 msgid "Alias add uname -a as A"
 msgstr ""
 
-#: ../src/hub.cc:1947
+#: ../src/hub.cc:1948
 msgid "Alias A executing"
 msgstr ""
 
-#: ../src/hub.cc:2046
+#: ../src/hub.cc:2047
 #, fuzzy
 msgid "Aliases not found."
 msgstr "User not found"
 
-#: ../src/hub.cc:2147
+#: ../src/hub.cc:2148
 msgid "Unknown command '"
 msgstr "Unknown command '"
 
-#: ../src/hub.cc:2147
+#: ../src/hub.cc:2148
 msgid "': type /help for a list of available commands"
 msgstr "': type /help for a list of available commands"
 
-#: ../src/hub.cc:2433 ../src/privatemessage.cc:1188 ../src/mainwindow.cc:1210
-#: ../src/mainwindow.cc:1278 ../glade/sharebrowser.glade:326
+#: ../src/hub.cc:2435 ../src/privatemessage.cc:1189 ../src/mainwindow.cc:1214
+#: ../src/mainwindow.cc:1282 ../glade/sharebrowser.glade:326
 #: ../glade/search.glade:555 ../glade/settingsdialog.glade:6038
 msgid "Choose a directory"
 msgstr "Choose a directory"
 
-#: ../src/hub.cc:2572
+#: ../src/hub.cc:2574
 msgid " added to favorites list"
 msgstr " added to favorites list"
 
-#: ../src/hub.cc:2599
+#: ../src/hub.cc:2601
 msgid " removed from favorites list"
 msgstr " removed from favorites list"
 
-#: ../src/hub.cc:2639 ../src/favoritehubs.cc:330
+#: ../src/hub.cc:2641 ../src/favoritehubs.cc:330
 msgid "Global hub default"
 msgstr ""
 
-#: ../src/hub.cc:2714 ../src/hub.cc:2734
+#: ../src/hub.cc:2716 ../src/hub.cc:2736
 msgid "User not found"
 msgstr "User not found"
 
-#: ../src/hub.cc:2743 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2745 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Slot granted to "
 
-#: ../src/hub.cc:2768
+#: ../src/hub.cc:2770
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "Unable to connect: already connected to the requested hub"
 
-#: ../src/hub.cc:2822
+#: ../src/hub.cc:2824
 msgid "Favorite hub added"
 msgstr "Favorite hub added"
 
-#: ../src/hub.cc:2827
+#: ../src/hub.cc:2829
 msgid "Favorite hub already exists"
 msgstr "Favorite hub already exists"
 
-#: ../src/hub.cc:2939
+#: ../src/hub.cc:2941
 #, fuzzy
 msgid "loading error"
 msgstr "No errors"
 
-#: ../src/hub.cc:2952
+#: ../src/hub.cc:2954
 msgid "bad image"
 msgstr ""
 
-#: ../src/hub.cc:3227
+#: ../src/hub.cc:3229
 msgid "Connecting to "
 msgstr "Connecting to "
 
-#: ../src/hub.cc:3234 ../src/transfers.cc:1022
+#: ../src/hub.cc:3236 ../src/transfers.cc:1022
 msgid "Connected"
 msgstr "Connected"
 
-#: ../src/hub.cc:3290
+#: ../src/hub.cc:3292
 msgid "Connect failed: "
 msgstr "Connect failed: "
 
-#: ../src/hub.cc:3353
+#: ../src/hub.cc:3355
 msgid "Ignored private message from hub"
 msgstr "Ignored private message from hub"
 
-#: ../src/hub.cc:3360
+#: ../src/hub.cc:3362
 msgid "Ignored private message from bot "
 msgstr "Ignored private message from bot "
 
-#: ../src/hub.cc:3457
+#: ../src/hub.cc:3459
 msgid "Nick already taken"
 msgstr "Nick already taken"
 
-#: ../src/hub.cc:3464
+#: ../src/hub.cc:3466
 msgid "Search spam detected from "
 msgstr "Search spam detected from "
 
@@ -697,8 +697,8 @@ msgstr " left"
 msgid "-:--:-- left"
 msgstr "-:--:-- left"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2212
-#: ../src/mainwindow.cc:2214 ../glade/settingsdialog.glade:1586
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2216
+#: ../src/mainwindow.cc:2218 ../glade/settingsdialog.glade:1586
 #: ../glade/settingsdialog.glade:1601 ../glade/settingsdialog.glade:1641
 msgid "s"
 msgstr "s"
@@ -851,7 +851,7 @@ msgid "Waiting to retry"
 msgstr "Waiting to retry"
 
 #: ../src/transfers.cc:1083 ../src/settingsdialog.cc:992
-#: ../src/settingsdialog.cc:1153 ../src/settingsmanager.cc:234
+#: ../src/settingsdialog.cc:1153 ../src/settingsmanager.cc:235
 msgid "Download finished"
 msgstr "Download finished"
 
@@ -879,7 +879,7 @@ msgstr "Upload complete..."
 msgid "CMD"
 msgstr ""
 
-#: ../src/wulfor.cc:44
+#: ../src/wulfor.cc:48
 #, c-format
 msgid ""
 "Using:\n"
@@ -893,41 +893,41 @@ msgid ""
 "  -v, --version\t Show version string\n"
 msgstr ""
 
-#: ../src/wulfor.cc:71
+#: ../src/wulfor.cc:75
 #, fuzzy
 msgid "Loading: "
 msgstr "Encoding"
 
-#: ../src/wulfor.cc:147
+#: ../src/wulfor.cc:154
 msgid "Shutting down libdcpp..."
 msgstr ""
 
-#: ../src/wulfor.cc:149
+#: ../src/wulfor.cc:156
 #, fuzzy
 msgid "Quit..."
 msgstr "Quit"
 
-#: ../src/privatemessage.cc:943 ../glade/privatemessage.glade:197
+#: ../src/privatemessage.cc:944 ../glade/privatemessage.glade:197
 msgid "Clear PM"
 msgstr "Clear PM"
 
-#: ../src/privatemessage.cc:944 ../glade/privatemessage.glade:204
+#: ../src/privatemessage.cc:945 ../glade/privatemessage.glade:204
 msgid "Close PM"
 msgstr "Close PM"
 
-#: ../src/privatemessage.cc:954
+#: ../src/privatemessage.cc:955
 msgid "Unknown command "
 msgstr "Unknown command "
 
-#: ../src/privatemessage.cc:954
+#: ../src/privatemessage.cc:955
 msgid ": type /help for a list of available commands"
 msgstr ": type /help for a list of available commands"
 
-#: ../src/privatemessage.cc:1269
+#: ../src/privatemessage.cc:1270
 msgid "User went offline"
 msgstr "User went offline"
 
-#: ../src/privatemessage.cc:1334
+#: ../src/privatemessage.cc:1335
 msgid "Slot granted"
 msgstr "Slot granted"
 
@@ -1167,7 +1167,7 @@ msgid "Sounds"
 msgstr "Sounds"
 
 #: ../src/settingsdialog.cc:993 ../src/settingsdialog.cc:1157
-#: ../src/settingsmanager.cc:236
+#: ../src/settingsmanager.cc:237
 msgid "Download finished file list"
 msgstr "Download finished file list"
 
@@ -1176,22 +1176,22 @@ msgid "Upload finished"
 msgstr "Upload finished"
 
 #: ../src/settingsdialog.cc:996 ../src/settingsdialog.cc:1165
-#: ../src/settingsmanager.cc:242
+#: ../src/settingsmanager.cc:243
 msgid "Hub connected"
 msgstr "Hub connected"
 
 #: ../src/settingsdialog.cc:997 ../src/settingsdialog.cc:1169
-#: ../src/settingsmanager.cc:240
+#: ../src/settingsmanager.cc:241
 msgid "Hub disconnected"
 msgstr "Hub disconnected"
 
 #: ../src/settingsdialog.cc:998 ../src/settingsdialog.cc:1173
-#: ../src/settingsmanager.cc:244
+#: ../src/settingsmanager.cc:245
 msgid "Favorite user joined"
 msgstr "Favorite user joined"
 
 #: ../src/settingsdialog.cc:999 ../src/settingsdialog.cc:1177
-#: ../src/settingsmanager.cc:246
+#: ../src/settingsmanager.cc:247
 msgid "Favorite user quit"
 msgstr "Favorite user quit"
 
@@ -1674,7 +1674,7 @@ msgstr "The name and address fields are required"
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
 msgstr "Are you sure you want to delete favorite hub \"%s\"?"
 
-#: ../src/mainwindow.cc:174
+#: ../src/mainwindow.cc:178
 #, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
@@ -1687,47 +1687,47 @@ msgstr ""
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
 
-#: ../src/mainwindow.cc:281
+#: ../src/mainwindow.cc:285
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr ""
 
-#: ../src/mainwindow.cc:295
+#: ../src/mainwindow.cc:299
 msgid "Welcome to "
 msgstr "Welcome to "
 
-#: ../src/mainwindow.cc:652
+#: ../src/mainwindow.cc:656
 msgid "Download: "
 msgstr "Download: "
 
-#: ../src/mainwindow.cc:652
+#: ../src/mainwindow.cc:656
 msgid "Upload: "
 msgstr "Upload: "
 
-#: ../src/mainwindow.cc:1144
+#: ../src/mainwindow.cc:1148
 msgid "Enter value for "
 msgstr "Enter value for "
 
-#: ../src/mainwindow.cc:1201
+#: ../src/mainwindow.cc:1205
 msgid "Magnet Properties / Choice"
 msgstr "Magnet Properties / Choice"
 
-#: ../src/mainwindow.cc:1271
+#: ../src/mainwindow.cc:1275
 msgid "Magnet Choice"
 msgstr "Magnet Choice"
 
-#: ../src/mainwindow.cc:1899 ../glade/mainwindow.glade:1049
+#: ../src/mainwindow.cc:1903 ../glade/mainwindow.glade:1049
 msgid "Select filelist to browse"
 msgstr "Select filelist to browse"
 
-#: ../src/mainwindow.cc:1924
+#: ../src/mainwindow.cc:1928
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Unable to load file list: Invalid file list name"
 
-#: ../src/mainwindow.cc:1936
+#: ../src/mainwindow.cc:1940
 msgid "Loading file list"
 msgstr "Loading file list"
 
-#: ../src/mainwindow.cc:2135
+#: ../src/mainwindow.cc:2139
 #, fuzzy
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
@@ -1737,19 +1737,19 @@ msgstr ""
 "File transfers will not work correctly until you change settings or turn off "
 "any application that might be using the TCP/TLS port."
 
-#: ../src/mainwindow.cc:2137
+#: ../src/mainwindow.cc:2141
 msgid "Connectivity Manager: Warning"
 msgstr ""
 
-#: ../src/mainwindow.cc:2178
+#: ../src/mainwindow.cc:2182
 msgid "file list from "
 msgstr "file list from "
 
-#: ../src/mainwindow.cc:2188
+#: ../src/mainwindow.cc:2192
 msgid "<b>file:</b> "
 msgstr "<b>file:</b> "
 
-#: ../src/mainwindow.cc:2247
+#: ../src/mainwindow.cc:2251
 #, fuzzy
 msgid "Select file to Get TTH"
 msgstr "Select filelist to browse"
@@ -1992,24 +1992,24 @@ msgstr " dropped"
 msgid "Close tab"
 msgstr "Close tab"
 
-#: ../src/settingsmanager.cc:513 ../src/settingsmanager.cc:533
+#: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
 #, fuzzy
 msgid "Error: setting not found!"
 msgstr "User not found"
 
-#: ../src/settingsmanager.cc:514
+#: ../src/settingsmanager.cc:515
 msgid "Change setting "
 msgstr ""
 
-#: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
+#: ../src/settingsmanager.cc:515 ../src/settingsmanager.cc:535
 msgid " to "
 msgstr ""
 
-#: ../src/settingsmanager.cc:517 ../src/settingsmanager.cc:536
+#: ../src/settingsmanager.cc:518 ../src/settingsmanager.cc:537
 msgid "Error: params have been not 2!"
 msgstr ""
 
-#: ../src/settingsmanager.cc:534
+#: ../src/settingsmanager.cc:535
 msgid "Change core setting "
 msgstr ""
 
@@ -2531,7 +2531,7 @@ msgstr "File"
 msgid "Open _file list..."
 msgstr "Get file list"
 
-#: ../glade/mainwindow.glade:40
+#: ../glade/mainwindow.glade:39
 #, fuzzy
 msgid "Open _own file list"
 msgstr "Update own file list"
@@ -2550,12 +2550,12 @@ msgstr ""
 msgid "_Magnet Choice"
 msgstr "Magnet Choice"
 
-#: ../glade/mainwindow.glade:103
+#: ../glade/mainwindow.glade:102
 #, fuzzy
 msgid "Calculate file TTH"
 msgstr "Select filelist to browse"
 
-#: ../glade/mainwindow.glade:115 ../glade/mainwindow.glade:1212
+#: ../glade/mainwindow.glade:114 ../glade/mainwindow.glade:1212
 msgid "_Exit"
 msgstr ""
 
@@ -3909,6 +3909,11 @@ msgstr ""
 #: ../glade/finishedtransfers.glade:60
 msgid "Grouped by Users"
 msgstr ""
+
+#: ../glade/finishedtransfers.glade:81
+#, fuzzy
+msgid "Show only completely finished downloads"
+msgstr "Finished Downloads"
 
 #: ../glade/finishedtransfers.glade:150
 #, fuzzy

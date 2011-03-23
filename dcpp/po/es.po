@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-02-07 22:42+0200\n"
+"POT-Creation-Date: 2011-03-20 16:39+0200\n"
 "PO-Revision-Date: 2011-01-09 00:17+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -69,31 +69,31 @@ msgstr ""
 "Fallada la conexión con el servidor socks por retraso UDP (chequear "
 "dirección socks y puerto)"
 
-#: ../DCPlusPlus.cpp:119
+#: ../DCPlusPlus.cpp:120
 msgid "Hash database"
 msgstr "Base de Datos del Hash"
 
-#: ../DCPlusPlus.cpp:122
+#: ../DCPlusPlus.cpp:123
 msgid "Shared Files"
 msgstr "Archivos compartidos"
 
-#: ../DCPlusPlus.cpp:131
+#: ../DCPlusPlus.cpp:132
 msgid "Download Queue"
 msgstr "Cola de Descargas"
 
-#: ../DCPlusPlus.cpp:134
+#: ../DCPlusPlus.cpp:135
 msgid "Users"
 msgstr "Usuarios"
 
-#: ../Thread.cpp:34 ../Thread.cpp:42
+#: ../Thread.cpp:35 ../Thread.cpp:43
 msgid "Unable to create thread"
 msgstr "No se puede crear tarea"
 
-#: ../UserConnection.cpp:55 ../UserConnection.cpp:69 ../UserConnection.cpp:143
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:67 ../UserConnection.cpp:141
 msgid "Invalid data"
 msgstr "Datos inválidos"
 
-#: ../UserConnection.cpp:61
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Datos no-UTF8 en la conexión ADC"
 
@@ -153,15 +153,19 @@ msgstr "IPFilter: Bloqueada conexión de entrada a "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Usuario desconectado ha dejado el hub: %1%"
 
-#: ../SettingsManager.cpp:498
+#: ../SettingsManager.cpp:180
+msgid "downloaded from"
+msgstr ""
+
+#: ../SettingsManager.cpp:502
 msgid "Invalid search type name"
 msgstr "Nombre del tipo de búsqueda invalida"
 
-#: ../SettingsManager.cpp:502 ../SettingsManager.cpp:524
+#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
 msgid "This search type already exists"
 msgstr "Este tipo de búsquedas ya existe"
 
-#: ../SettingsManager.cpp:556
+#: ../SettingsManager.cpp:560
 msgid "No such search type"
 msgstr "Tipo de búsqueda no encontrada"
 
@@ -182,7 +186,8 @@ msgstr ""
 "favor, inste al dueño del hub que arregle esto"
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:262 ../SearchManager.cpp:416 ../SearchManager.cpp:418
+#: ../SearchManager.cpp:271 ../SearchManager.cpp:425 ../SearchManager.cpp:427
+#: ../QueueManager.cpp:2162 ../QueueManager.cpp:2168 ../QueueManager.cpp:2174
 msgid "Offline"
 msgstr "Desconectado"
 
@@ -190,7 +195,7 @@ msgstr "Desconectado"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) tiene el mismo CID {%3%} como  %4% (%5%), ignorando"
 
-#: ../AdcHub.cpp:184
+#: ../AdcHub.cpp:184 ../Transfer.cpp:92 ../QueueManager.cpp:2191
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -222,54 +227,54 @@ msgstr "No escuchando conexiones - por favor reinicie %1%"
 msgid "Sent "
 msgstr "Enviado"
 
-#: ../Util.cpp:572
+#: ../Util.cpp:579
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:574
+#: ../Util.cpp:581
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:576
+#: ../Util.cpp:583
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:578
+#: ../Util.cpp:585
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:580
+#: ../Util.cpp:587
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:582
+#: ../Util.cpp:589
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:612
+#: ../Util.cpp:619
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:616
+#: ../Util.cpp:623
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
 
-#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
-#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
+#: ../ZUtils.cpp:35 ../ZUtils.cpp:56 ../ZUtils.cpp:78 ../ZUtils.cpp:88
+#: ../BZUtils.cpp:32 ../BZUtils.cpp:53 ../BZUtils.cpp:61
 msgid "Error during compression"
 msgstr "Error en la compresión"
 
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:374
-#: ../CryptoManager.cpp:393 ../CryptoManager.cpp:407 ../BZUtils.cpp:72
-#: ../BZUtils.cpp:94 ../BZUtils.cpp:97
+#: ../ZUtils.cpp:102 ../ZUtils.cpp:125 ../CryptoManager.cpp:372
+#: ../CryptoManager.cpp:391 ../CryptoManager.cpp:405 ../BZUtils.cpp:73
+#: ../BZUtils.cpp:95 ../BZUtils.cpp:98
 msgid "Error during decompression"
 msgstr "Error en la descompresión"
 
@@ -301,22 +306,22 @@ msgstr "No se pudo leer el archivo índice Hash"
 msgid "Error creating hash data file: %1%"
 msgstr "Error al crear el archivo índice del Hash: %1%"
 
-#: ../HashManager.cpp:787
+#: ../HashManager.cpp:797
 msgid "Hash database rebuilt"
 msgstr "Base de datos del Hash reconstruido"
 
-#: ../HashManager.cpp:839
+#: ../HashManager.cpp:849
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Indexando archivo: %1% (Tamaño: %2%)"
 
-#: ../HashManager.cpp:887
+#: ../HashManager.cpp:897
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% No compartido; el CRC32 calculado no concuerda con el encontrado en el "
 "archivo SFV."
 
-#: ../HashManager.cpp:892
+#: ../HashManager.cpp:902
 msgid "Error hashing %1%: %2%"
 msgstr "Error en el Indexado %1%: %2%"
 
@@ -439,7 +444,7 @@ msgstr "Refresco de la lista Terminada"
 msgid "File list %1% generated"
 msgstr "Lista de ficheros %1% generada"
 
-#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:155
 msgid "Connection closed"
 msgstr "Conexión cerrada"
 
@@ -459,45 +464,45 @@ msgstr "<Ingrese cadena>"
 msgid "Discard"
 msgstr "Descartar"
 
-#: ../DirectoryListing.cpp:163
+#: ../DirectoryListing.cpp:178
 msgid "Directory missing name attribute"
 msgstr "Atributo de nombre falta del directorio."
 
-#: ../CryptoManager.cpp:136
+#: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
 msgstr "No ha elegido archivo de claves privadas"
 
-#: ../CryptoManager.cpp:139
+#: ../CryptoManager.cpp:137
 msgid "No certificate file chosen"
 msgstr "Ningún archivo de certificado ha sido escogido"
 
-#: ../CryptoManager.cpp:151
+#: ../CryptoManager.cpp:149
 msgid "Error generating certificate"
 msgstr "Error al generar certificado"
 
-#: ../CryptoManager.cpp:214
+#: ../CryptoManager.cpp:212
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS desactivado, no ha definido un certificado"
 
-#: ../CryptoManager.cpp:222
+#: ../CryptoManager.cpp:220
 msgid "Generated new TLS certificate"
 msgstr "Nuevo certificado TLS generado"
 
-#: ../CryptoManager.cpp:224
+#: ../CryptoManager.cpp:222
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS desactivado, no ha definido un certificado: %1%"
 
-#: ../CryptoManager.cpp:229 ../CryptoManager.cpp:233 ../CryptoManager.cpp:238
-#: ../CryptoManager.cpp:242
+#: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
+#: ../CryptoManager.cpp:240
 msgid "Failed to load certificate file"
 msgstr "Carga del Certificado fallida"
 
-#: ../CryptoManager.cpp:247 ../CryptoManager.cpp:251 ../CryptoManager.cpp:256
-#: ../CryptoManager.cpp:260
+#: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
+#: ../CryptoManager.cpp:258
 msgid "Failed to load private key"
 msgstr "Carga de la Llave Privada fallida"
 
-#: ../SSLSocket.cpp:160
+#: ../SSLSocket.cpp:161
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "SSL Error: %1% (%2%, %3%)"
 
@@ -581,55 +586,55 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "Imagen CD"
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:161
 msgid "Search enabled again"
 msgstr "Búsqueda habilitada nuevamente"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:169
 msgid "Search disabled: %1%"
 msgstr "Búsqueda desactivada: %1%"
 
-#: ../QueueManager.cpp:239
+#: ../QueueManager.cpp:243
 msgid "No needed part"
 msgstr "No se necesitan partes"
 
-#: ../QueueManager.cpp:625
+#: ../QueueManager.cpp:629
 msgid "Searching TTH alternates for: %1%"
 msgstr "Buscando alternativas TTH para: %1%"
 
-#: ../QueueManager.cpp:676 ../QueueManager.cpp:739
+#: ../QueueManager.cpp:680 ../QueueManager.cpp:743
 msgid "A file with the same hash already exists in your share"
 msgstr "Un archivo con el mismo TTH ya está compartido"
 
-#: ../QueueManager.cpp:702 ../QueueManager.cpp:781
+#: ../QueueManager.cpp:706 ../QueueManager.cpp:785
 msgid "This file is already queued"
 msgstr "Este archivo ya está en la Cola de Descarga"
 
-#: ../QueueManager.cpp:717 ../QueueManager.cpp:793
+#: ../QueueManager.cpp:721 ../QueueManager.cpp:797
 msgid "A file with a different size already exists in the queue"
 msgstr "Un archivo de distinto tamaño ya existe en su cola de descarga"
 
-#: ../QueueManager.cpp:721
+#: ../QueueManager.cpp:725
 msgid "A file with different tth root already exists in the queue"
 msgstr "Un archivo de distinto TTH ya existe en su cola de descarga"
 
-#: ../QueueManager.cpp:733
+#: ../QueueManager.cpp:737
 msgid "You're trying to download from yourself!"
 msgstr "¡Intentas descargar de ti mismo!"
 
-#: ../QueueManager.cpp:796
+#: ../QueueManager.cpp:800
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Un archivo de distinta raíz TTH ya existe en su cola de descarga"
 
-#: ../QueueManager.cpp:800
+#: ../QueueManager.cpp:804
 msgid "This file has already finished downloading"
 msgstr "Este archivo ya ha acabado de descargarse"
 
-#: ../QueueManager.cpp:837 ../QueueManager.cpp:846
+#: ../QueueManager.cpp:841 ../QueueManager.cpp:850
 msgid "Target filename too long"
 msgstr "Nombre del Archivo Destino demasiado largo"
 
-#: ../QueueManager.cpp:842 ../QueueManager.cpp:850
+#: ../QueueManager.cpp:846 ../QueueManager.cpp:854
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -637,53 +642,52 @@ msgstr ""
 "Archivo de destino NO válido (carpeta no valida, chequear carpeta de "
 "descargas)"
 
-#: ../QueueManager.cpp:858
+#: ../QueueManager.cpp:862
 msgid "File already exists at the target location"
 msgstr "Ya existe un archivo igual en el directorio de destino"
 
-#: ../QueueManager.cpp:871 ../QueueManager.cpp:875
+#: ../QueueManager.cpp:875 ../QueueManager.cpp:879
 msgid "Duplicate source: %1%"
 msgstr "Fuente Duplicada: %1%"
 
-#: ../QueueManager.cpp:1144
+#: ../QueueManager.cpp:1148
 msgid "Target removed"
 msgstr "Archivo destino eliminado"
 
-#: ../QueueManager.cpp:1152
+#: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
 msgstr "El archivo no existe o tiene un tamaño incorrecto"
 
-#: ../QueueManager.cpp:1201
+#: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "No se puede mover %1% a %2% (%3%); renombrando a %4%"
 
-#: ../QueueManager.cpp:1204
+#: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr "No se puede mover %1% a %2% (%3%) no se puede renombrar a %4% (%5%)"
 
-#: ../QueueManager.cpp:1398
+#: ../QueueManager.cpp:1406
 msgid "Unable to open filelist: %1%"
 msgstr "Imposible abrir Lista de Archivos: %1%"
 
-#: ../QueueManager.cpp:1421
+#: ../QueueManager.cpp:1429
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Emparejado %2% archivo"
 
-#: ../QueueManager.cpp:2019 ../QueueManager.cpp:2028
+#: ../QueueManager.cpp:2027 ../QueueManager.cpp:2036
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Error de CRC32  (SFV-Check)"
 
-#: ../BitInputStream.h:40
-msgid "Request to seek beyond the end of data"
-msgstr "Solicitar búsqueda más allá del final de los datos"
-
-#: ../Streams.h:140
+#: ../Streams.h:143
 msgid "More bytes written than requested"
 msgstr "Más bytes escritos de los requeridos"
 
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Incoherencia TTH"
+
+#~ msgid "Request to seek beyond the end of data"
+#~ msgstr "Solicitar búsqueda más allá del final de los datos"
 
 #~ msgid "NO_NEEDED_PART"
 #~ msgstr "PARTE_NO_NECESITADA"

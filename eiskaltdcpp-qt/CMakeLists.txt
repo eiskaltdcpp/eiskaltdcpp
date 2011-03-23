@@ -348,10 +348,6 @@ if (USE_MINIUPNP)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/SettingsConnection.cpp  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
 endif()
 
-if (HAVE_IFADDRS_H)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/WulforUtil.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H )
-endif (HAVE_IFADDRS_H)
-
 if (FORCE_XDG)
    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/main.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
 endif (FORCE_XDG)
@@ -399,13 +395,11 @@ else (APPLE)
   target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp)
 endif (APPLE)
 
-if (UNIX AND NOT APPLE)
-  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-qt")
-elseif (APPLE)
+if (APPLE)
   set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
-elseif (WIN32)
-  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL} Qt")
-endif (UNIX AND NOT APPLE)
+else (APPLE)
+  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-qt")
+endif (APPLE)
 
 if (UNIX)
  set (BINDIR bin)
@@ -485,9 +479,5 @@ if (APPLE)
     set(CPACK_BINARY_DRAGNDROP ON)
 
 endif (APPLE)
-
-if( WIN32 AND NOT UNIX )
-    set(CPACK_PACKAGE_EXECUTABLES "..\\\\EiskaltDC++" "EiskaltDC++")
-endif()
 
 include(CPack)

@@ -1,14 +1,14 @@
 project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6)
 
-if (UNIX AND NOT APPLE)
-  set (PROJECT_NAME_GLOBAL eiskaltdcpp)
-else (UNIX AND NOT APPLE)
+if (APPLE)
   set (PROJECT_NAME_GLOBAL EiskaltDC++)
-endif (UNIX AND NOT APPLE)
+else (APPLE)
+  set (PROJECT_NAME_GLOBAL eiskaltdcpp)
+endif (APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.2.1")
+set (VERSION "2.2.2")
 set (SOVERSION "2.2")
 set (VERSION_SUFFIX "GIT")
 
@@ -45,6 +45,7 @@ CHECK_INCLUDE_FILE (inttypes.h HAVE_INTTYPES_H)
 CHECK_FUNCTION_EXISTS(mallinfo HAVE_MALLINFO)
 CHECK_FUNCTION_EXISTS(malloc_stats HAVE_MALLOC_STATS)
 CHECK_FUNCTION_EXISTS(malloc_trim HAVE_MALLOC_TRIM)
+CHECK_FUNCTION_EXISTS(daemon HAVE_DAEMON)
 CHECK_INCLUDE_FILE (memory.h HAVE_MEMORY_H)
 CHECK_INCLUDE_FILE (stdint.h HAVE_STDINT_H)
 CHECK_INCLUDE_FILE (stdlib.h HAVE_STDLIB_H)
@@ -92,12 +93,14 @@ option (WITH_EMOTICONS "Install emoticon packs" ON)
 option (WITH_EXAMPLES "Install examples sh and others scripts" ON)
 option (WITH_LUASCRIPTS "Install examples of lua scripts" OFF)
 option (WITH_SOUNDS "Install sound files" OFF)
+option (WITH_DEV_FILES "Install development files (headers for libeiskaltdcpp)" OFF)
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NO_UI_DAEMON "Daemon without any UI" OFF)
 option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
 option (CLI_DAEMON "Mаке daemon with sample cli based on readline" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
+option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 
 if (PERL_REGEX)
 find_package(Pcre REQUIRED)
@@ -130,13 +133,6 @@ elseif (NOT USE_MINIUPNP)
     unset (MINIUPNP_LIBRARY CACHE)
     message (STATUS "Building without UPNP support (miniupnpc)")
 endif(USE_MINIUPNP)
-find_package(Readline REQUIRED)
-if (XMLRPC_DAEMON)
-    if (NOT NO_UI_DAEMON)
-        set (NO_UI_DAEMON 1 CACHE BOOL "Daemon without anyone ui" FORCE)
-    endif (NOT NO_UI_DAEMON)
-    find_package (XMLRPC REQUIRED c++2 abyss-server client)
-endif (XMLRPC_DAEMON)
 
 if (USE_QT)
     if (USE_QT_QML)
@@ -242,8 +238,21 @@ if (NOT LIBDIR)
 endif (NOT LIBDIR)
 message (STATUS "Library directory: ${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
 
+if (WITH_DEV_FILES)
+  if (NOT EISKALTDCPP_INCLUDE_DIR)
+    set (EISKALTDCPP_INCLUDE_DIR "${CMAKE_INSTALL_PREFIX}/include/eiskaltdcpp")
+  endif (NOT EISKALTDCPP_INCLUDE_DIR)
+  message (STATUS "Headers of libeiskaltdcpp will be installed to: ${EISKALTDCPP_INCLUDE_DIR}")
+endif (WITH_DEV_FILES)
+
 if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  set (CMAKE_BUILD_TYPE "RelWithDebInfo")
+  message(STATUS "CMAKE_BUILD_TYPE = Debug is not now supported. RelWithDebInfo is used instead.")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo")
+  set (CMAKE_BUILD_TYPE "RelWithDebInfo")
+  message(STATUS "CMAKE_BUILD_TYPE = Gentoo is not now supported. RelWithDebInfo is used instead.")
 endif (NOT CMAKE_BUILD_TYPE)
 
 if (NOT SHARE_DIR)
@@ -308,21 +317,18 @@ set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${_DATADIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
 
+if (ENABLE_STACKTRACE)
+    add_definitions(-DENABLE_STACKTRACE)
+endif (ENABLE_STACKTRACE)
+
 if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H )
 endif (HAVE_IFADDRS_H)
 
-#if (ICONV_SECOND_ARGUMENT_IS_CONST)
-  #add_definitions (-DICONV_CONST=const)
-#endif (ICONV_SECOND_ARGUMENT_IS_CONST)
-
-#if (FORCE_XDG)
-  #add_definitions (-DFORCE_XDG)
-#endif (FORCE_XDG)
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
-    if (CMAKE_CROSSCOMPILING)
+    if (MINGW)
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")
-    endif (CMAKE_CROSSCOMPILING)
+    endif (MINGW)
     if (NOT APPLE)
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--as-needed")
@@ -412,9 +418,9 @@ if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK)
 
-if (NO_UI_DAEMON)
-add_subdirectory (nasdc)
-endif (NO_UI_DAEMON)
+if (NO_UI_DAEMON OR XMLRPC_DAEMON OR CLI_DAEMON)
+    add_subdirectory (nasdc)
+endif ()
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
@@ -425,26 +431,26 @@ ADD_CUSTOM_TARGET(uninstall
 
 if(GETTEXT_FOUND)
     include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/KWWidgetsInternationalizationMacros.cmake)
-option (UPDATE_PO "Update po files" OFF)
-option (CREATE_MO "Create mo files" ON)
+    option (UPDATE_PO "Update po files" OFF)
+    option (CREATE_MO "Create mo files" ON)
 
-if (UPDATE_PO)
-set (create_pot 1)
-set (create_po 1)
-set (create_po_lo 1)
-else (UPDATE_PO)
-set (create_pot 0)
-set (create_po 0)
-set (create_po_lo 0)
-endif (UPDATE_PO)
-if (CREATE_MO)
-set (create_mo 1)
-set (create_mo_lo 1)
-else (CREATE_MO)
-set (create_mo 0)
-set (create_mo_lo 0)
-endif (CREATE_MO)
-set (mo_for_all 1)
+    if (UPDATE_PO)
+        set (create_pot 1)
+        set (create_po 1)
+        set (create_po_lo 1)
+    else (UPDATE_PO)
+        set (create_pot 0)
+        set (create_po 0)
+        set (create_po_lo 0)
+    endif (UPDATE_PO)
+    if (CREATE_MO)
+        set (create_mo 1)
+        set (create_mo_lo 1)
+    else (CREATE_MO)
+        set (create_mo 0)
+        set (create_mo_lo 0)
+    endif (CREATE_MO)
+    set (mo_for_all 1)
     kwwidgets_create_gettext_targets(
       DOMAIN_NAME "libeiskaltdcpp"
       LOCALE_LIST "${LANGUAGES}"
@@ -463,27 +469,27 @@ set (mo_for_all 1)
       CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
       ADD_MO_TARGET_TO_ALL ${mo_for_all}
       )
-if (USE_GTK)
-     kwwidgets_create_gettext_targets(
-      DOMAIN_NAME "eiskaltdcpp-gtk"
-      LOCALE_LIST "${LANGUAGES}"
-      COPYRIGHT_HOLDER "EiskaltDC++ team"
-      SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_GLADE}"
-      PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
-      POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
-      #PO_PREFIX    ""
-      PO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
-      MO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}/locale"
-      MO_INSTALL_DIR "/${LOCALE_DIR}"
-      CREATE_POT_TARGET ${create_pot}
-      CREATE_PO_TARGET ${create_po}
-      CREATE_PO_LOCALE_TARGETS ${create_po_lo}
-      CREATE_MO_TARGET ${create_mo}
-      CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
-      ADD_MO_TARGET_TO_ALL ${mo_for_all}
-      )
+    if (USE_GTK)
+         kwwidgets_create_gettext_targets(
+          DOMAIN_NAME "eiskaltdcpp-gtk"
+          LOCALE_LIST "${LANGUAGES}"
+          COPYRIGHT_HOLDER "EiskaltDC++ team"
+          SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_GLADE}"
+          PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
+          POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
+          #PO_PREFIX    ""
+          PO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
+          MO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}/locale"
+          MO_INSTALL_DIR "/${LOCALE_DIR}"
+          CREATE_POT_TARGET ${create_pot}
+          CREATE_PO_TARGET ${create_po}
+          CREATE_PO_LOCALE_TARGETS ${create_po_lo}
+          CREATE_MO_TARGET ${create_mo}
+          CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
+          ADD_MO_TARGET_TO_ALL ${mo_for_all}
+          )
 
-endif (USE_GTK)
+    endif (USE_GTK)
 
 endif(GETTEXT_FOUND)
 
@@ -511,6 +517,12 @@ if (USE_QT OR USE_GTK)
         install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
         PATTERN ".svn" EXCLUDE)
     endif (WITH_EMOTICONS)
+
+    if (WITH_DEV_FILES)
+        FILE(GLOB DEV_FILES "${CMAKE_CURRENT_SOURCE_DIR}/dcpp/*.h")
+        install (FILES ${DEV_FILES} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/)
+    endif (WITH_DEV_FILES)
+
 list(APPEND iconsize 16 22 24 32 48 64 128)
 foreach (isize ${iconsize})
   install (FILES icons/icon_${isize}x${isize}.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/${isize}x${isize}/apps RENAME eiskaltdcpp.png)

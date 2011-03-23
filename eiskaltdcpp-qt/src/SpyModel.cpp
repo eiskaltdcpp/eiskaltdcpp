@@ -266,7 +266,8 @@ void SpyModel::clearModel(){
 SpyItem::SpyItem(const QList<QVariant> &data, SpyItem *parent) :
     isTTH(false),
     itemData(data),
-    parentItem(parent)
+    parentItem(parent),
+    count(0)
 {
 }
 

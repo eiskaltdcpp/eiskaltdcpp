@@ -18,6 +18,7 @@
 #include "EmoticonDialog.h"
 #include "WulforSettings.h"
 #include "FlowLayout.h"
+#include "SearchFrame.h"
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
@@ -124,6 +125,7 @@ HubFrame::Menu::Menu(){
 
     // Userlist actions
     QAction *copy_text   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy"), NULL);
+    QAction *search_text = new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Search text"), NULL);
     QAction *copy_nick   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy nick"), NULL);
     QAction *find        = new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Show in list"), NULL);
     QAction *browse      = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse files"), NULL);
@@ -163,6 +165,7 @@ HubFrame::Menu::Menu(){
     sep1->setSeparator(true), sep2->setSeparator(true), sep3->setSeparator(true), sep4->setSeparator(true);
 
     actions << copy_text
+            << search_text
             << copy_nick
             << find
             << browse
@@ -211,6 +214,7 @@ HubFrame::Menu::Menu(){
                  << zoom_out;
 
     chat_actions_map.insert(copy_text, CopyText);
+    chat_actions_map.insert(search_text, SearchText);
     chat_actions_map.insert(copy_nick, CopyNick);
     chat_actions_map.insert(clear_chat, ClearChat);
     chat_actions_map.insert(find_in_chat, FindInChat);
@@ -251,9 +255,11 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_USER);
-        menu->addMenu(user_menu);
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList()
+                        << _q(client->getHubUrl()), UserCommand::CONTEXT_USER);
+
+        if (user_menu->actions().size() > 0)
+            menu->addMenu(user_menu);
     }
 
     QMenu *antispam_menu = NULL;
@@ -344,8 +350,10 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty() && !pmw){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList() << _q(client->getHubUrl()),
-                        UserCommand::CONTEXT_HUB);
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList()
+                        << _q(client->getHubUrl()), UserCommand::CONTEXT_HUB);
+
+    if (user_menu->actions().size() > 0)
         menu->addMenu(user_menu);
     }
 
@@ -996,6 +1004,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void HubFrame::closeEvent(QCloseEvent *e){
+    QObject::disconnect(this, NULL, this, NULL);
+
     MainWindow *MW = MainWindow::getInstance();
 
     MW->remArenaWidgetFromToolbar(this);
@@ -1216,11 +1226,13 @@ void HubFrame::initMenu(){
         QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(QList<QString>() << _q(client->getHubUrl()), UserCommand::CONTEXT_HUB, arenaMenu);
 
         if (u_c){
-            u_c->setTitle(tr("Hub Menu"));
+            if (u_c->actions().size() > 0){
+                u_c->setTitle(tr("Hub Menu"));
 
-            arenaMenu->addMenu(u_c);
+                arenaMenu->addMenu(u_c);
 
-            connect(u_c, SIGNAL(triggered(QAction*)), this, SLOT(slotHubMenu(QAction*)));
+                connect(u_c, SIGNAL(triggered(QAction*)), this, SLOT(slotHubMenu(QAction*)));
+            }
         }
     }
 
@@ -1412,9 +1424,14 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
     if (msg.endsWith("\n"))
         msg = msg.left(msg.lastIndexOf("\n"));
 
-    if (!parseForCmd(msg, this))
+    bool script_ret = false;
+#ifdef LUA_SCRIPT
+    script_ret = ((ClientScriptInstance *) (this->client))->onHubFrameEnter(this->client, msg.toStdString());
+#endif
+    if (!script_ret && !parseForCmd(msg, this))
         client->hubMessage(msg.toStdString(), thirdPerson);
 
+    //qDebug() << "cmd: " << cmd <<" sript_ret: " << script_ret;
     if (!thirdPerson){
         if (out_messages_unsent){
             out_messages.removeLast();
@@ -1741,7 +1758,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         out += tr("/clear - clear chat window\n");
         out += tr("/kword add <keyword> - add user-defined keyword\n");
         out += tr("/kword purge <keyword> - remove user-defined keyword\n");
-        out += tr("/kword list - list all keywrds\n");
+        out += tr("/kword list - list all keywords\n");
         out += tr("/magnet - default action with magnet (0-ask, 1-search, 2-download)\n");
         out += tr("/close - close this hub\n");
         out += tr("/fav - add this hub to favorites\n");
@@ -1839,9 +1856,9 @@ void HubFrame::addStatus(QString msg){
     short_msg = LinkParser::parseForLinks(short_msg, false);
     msg       = LinkParser::parseForLinks(msg, true);
 
-    pure_msg        = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + pure_msg + "</font>";
-    short_msg       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + short_msg + "</font>";
-    msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
+    pure_msg        = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + pure_msg + "</font>";
+    short_msg       = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + short_msg + "</font>";
+    msg             = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + msg + "</font>";
     QString time    = "";
 
     if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
@@ -2868,6 +2885,32 @@ void HubFrame::slotChatMenu(const QPoint &){
                 ret = editor->textCursor().block().text();
 
             qApp->clipboard()->setText(ret, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::SearchText:
+        {
+            QString ret = editor->textCursor().selectedText();
+
+            if (ret.isEmpty())
+                ret = editor->anchorAt(textEdit_CHAT->mapFromGlobal(p));
+
+            if (ret.startsWith("user://")){
+                ret.remove(0, 7);
+
+                ret = ret.trimmed();
+
+                if (ret.startsWith("<") && ret.endsWith(">")){
+                    ret.remove(0, 1);//remove <
+                    ret = ret.left(ret.lastIndexOf(">"));//remove >
+                }
+            }
+
+            if (ret.isEmpty())
+                break;
+
+            SearchFrame *sf = new SearchFrame(this);
+            sf->fastSearch(ret, false);
 
             break;
         }

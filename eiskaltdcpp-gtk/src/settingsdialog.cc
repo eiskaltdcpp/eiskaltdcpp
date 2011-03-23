@@ -211,7 +211,10 @@ void Settings::saveSettings_client()
             sm->set(SettingsManager::UDP_PORT, port);
         port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("tlsEntry"))));
         if (port > 0 && port <= 65535)
-            sm->set(SettingsManager::TLS_PORT, port);
+            if (port != SETTING(TCP_PORT))
+                sm->set(SettingsManager::TLS_PORT, port);
+            else
+                sm->set(SettingsManager::TLS_PORT, port+1);
 
         // Outgoing connection
         int type = SETTING(OUTGOING_CONNECTIONS);

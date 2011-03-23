@@ -1,7 +1,5 @@
 project (dcpp)
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
 cmake_minimum_required (VERSION 2.6)
 
 aux_source_directory(${PROJECT_SOURCE_DIR} dcpp_srcs)
@@ -20,7 +18,11 @@ if (WIN32)
   set (WIN32_LIBS "ws2_32")
 else (WIN32)
   if (NOT CMAKE_CROSSCOMPILING)
-    set (PTHREADS "pthread")
+    if (HAIKU)
+        set (PTHREADS "root")
+    else (HAIKU)
+        set (PTHREADS "pthread")
+    endif(HAIKU)
   endif (NOT CMAKE_CROSSCOMPILING)
 endif (WIN32)
 
@@ -53,10 +55,6 @@ endif (LUA_SCRIPT)
 if (USE_MINIUPNP)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/DCPlusPlus.cpp ${PROJECT_SOURCE_DIR}/UPnPManager.cpp  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
 endif()
-
-if (HAVE_IFADDRS_H)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H )
-endif (HAVE_IFADDRS_H)
 
 if (ICONV_SECOND_ARGUMENT_IS_CONST)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/Text.cpp PROPERTY COMPILE_DEFINITIONS ICONV_CONST=const)

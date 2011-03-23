@@ -39,6 +39,9 @@
      </item>
      <item>
       <widget class="QCheckBox" name="checkBox_FULL">
+       <property name="toolTip">
+        <string>Show only completely finished transfers</string>
+       </property>
        <property name="text">
         <string>Full only</string>
        </property>

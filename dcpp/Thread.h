@@ -86,7 +86,11 @@ public:
 		}
 	}
 
-	void setThreadPriority(Priority p) { setpriority(PRIO_PROCESS, 0, p); }
+	void setThreadPriority(Priority p) {
+#ifndef __HAIKU__
+	setpriority(PRIO_PROCESS, 0, p);
+#endif
+	}
 	static void sleep(uint32_t millis) { ::usleep(millis*1000); }
 	static void yield() { ::sched_yield(); }
 

@@ -56,11 +56,15 @@ void parseCmdLine(const QStringList &);
 #ifndef Q_WS_WIN
 #include <unistd.h>
 #include <signal.h>
+#ifndef __HAIKU__
 #include <execinfo.h>
 
+#ifdef ENABLE_STACKTRACE
 #include "extra/stacktrace.h"
+#endif // ENABLE_STACKTRACE
 
 void installHandlers();
+#endif
 
 #ifdef FORCE_XDG
 #include <QTextStream>
@@ -86,11 +90,11 @@ int main(int argc, char *argv[])
 
     setlocale(LC_ALL, "");
 
-#ifndef Q_WS_WIN
+#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
     installHandlers();
 #endif
 
-#ifdef FORCE_XDG
+#ifdef FORCE_XDG && !defined (Q_WS_WIN)
     migrateConfig();
 #endif
 
@@ -204,7 +208,7 @@ void parseCmdLine(const QStringList &args){
     }
 }
 
-#ifndef Q_WS_WIN
+#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
 
 void installHandlers(){
     struct sigaction sa;
@@ -214,7 +218,9 @@ void installHandlers(){
         std::cout << QObject::tr("Cannot handle SIGPIPE").toStdString() << std::endl;
     }
 
+#ifdef ENABLE_STACKTRACE
     signal(SIGSEGV, printBacktrace);
+#endif // ENABLE_STACKTRACE
 
     std::cout << QObject::tr("Signal handlers installed.").toStdString() << std::endl;
 }

@@ -34,7 +34,7 @@
 #include "LogManager.h"
 #include "ThrottleManager.h"
 #include "UploadManager.h"
-#include <math.h>
+#include <cmath>
 
 namespace dcpp {
 

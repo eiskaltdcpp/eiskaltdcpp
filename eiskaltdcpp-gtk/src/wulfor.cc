@@ -37,7 +37,10 @@
 #define GUI_PACKAGE "eiskaltdcpp-gtk"
 
 #include "VersionGlobal.h"
+
+#ifdef ENABLE_STACKTRACE
 #include "extra/stacktrace.h"
+#endif // ENABLE_STACKTRACE
 
 void printHelp()
 {
@@ -135,7 +138,9 @@ int main(int argc, char *argv[])
     g_set_application_name("EiskaltDC++ Gtk");
 
     signal(SIGPIPE, SIG_IGN);
+#ifdef ENABLE_STACKTRACE
     signal(SIGSEGV, printBacktrace);
+#endif // ENABLE_STACKTRACE
 
     WulforSettingsManager::newInstance();
     WulforManager::start(argc, argv);

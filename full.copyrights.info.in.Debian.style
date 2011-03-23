@@ -38,6 +38,7 @@ Copyright:
  Copyright 2007 Alban Browaeys <prahal@yahoo.com>
  Copyright 2010 Pau Garcia i Quiles, <pgquiles@elpauer.org>
  Copyright 2006 Tristan Carel
+ Copyright 2006 Alexander Neundorf <neundorf@kde.org>
 License:
  BSD License
  .
@@ -116,16 +117,20 @@ License:
  Public License can be found in `/usr/share/common-licenses/GPL-2'.
 
 Files:
+ update_geoip
  examples/amr.en_US.sh
  examples/mpris_now_playing.en_US.sh
  examples/audacious.en_US.sh
  examples/mpc.en_US.sh
  examples/rhythmbox.en_US.sh
  examples/qmmp.ru_RU.UTF-8.sh
- qtscripts/amarok_nowplay/amarok.sh
+ eiskaltdcpp-qt/qtscripts/amarok_nowplay/amarok.sh
+ eiskaltdcpp-qt/qtscripts/clementine_nowplay/clementine.sh
 Copyright:
  Copyright 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
  Copyright 2010 Vovochka404 <vovochka13@gmail.com>
+ Copyright 2011 Mark Lutring
+ Copyright 2011 Boris Pek
  Copyright 2010 none
 License:
  Public Domain

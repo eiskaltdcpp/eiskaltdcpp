@@ -110,11 +110,15 @@ MainWindow::MainWindow():
     ToolbarStyle = 0;
     GtkBox *box = GTK_BOX(getWidget("hbox4"));
     GtkWidget *child = getWidget("toolbar1");
+    gtk_toolbar_set_orientation(GTK_TOOLBAR(child), GTK_ORIENTATION_VERTICAL);
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("leftToolbarItem")), TRUE);
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), (WGETI("toolbar-style") == 4) ? TRUE : FALSE);
-    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("sizeToolbarItem")), WGETB("toolbar-small"));
-    if (WGETB("toolbar-small"))
+
+    if (WGETB("toolbar-small")) {
         g_object_set(G_OBJECT(child), "icon-size", GTK_ICON_SIZE_SMALL_TOOLBAR, NULL);
+        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("sizeToolbarItem")), WGETB("toolbar-small"));
+    } else
+        g_object_set(G_OBJECT(child), "icon-size", GTK_ICON_SIZE_LARGE_TOOLBAR, NULL);
 
     if (WGETI("toolbar-position") == 0)
     {

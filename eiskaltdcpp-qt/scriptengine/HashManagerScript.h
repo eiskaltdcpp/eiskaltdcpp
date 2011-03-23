@@ -48,7 +48,7 @@ private:
     HashManagerScript(QObject *parent = 0);
     HashManagerScript(const HashManagerScript&){}
     ~HashManagerScript();
-    HashManagerScript &operator=(const HashManagerScript&){}
+    HashManagerScript &operator=(const HashManagerScript&){ return *this; }
 
     dcpp::HashManager *HM;
 };

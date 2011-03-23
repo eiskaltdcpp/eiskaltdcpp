@@ -225,7 +225,7 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
         emot->fileName  = el.attribute("file").toUtf8();
         emot->id        = list.size();
         emot->pixmap    = QPixmap();
-        emot->pixmap.load(EmotionPath+emoTheme+QDir::separator()+emot->fileName, "PNG");
+        emot->pixmap.load(EmotionPath+emoTheme+QDir::separator()+emot->fileName);
 
         DomNodeList emoTexts;
         getSubSectionsByName(node, emoTexts, EmoticonTextSectionName);

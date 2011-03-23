@@ -19,6 +19,9 @@
 #ifndef DCPLUSPLUS_DCPP_STREAMS_H
 #define DCPLUSPLUS_DCPP_STREAMS_H
 
+#include "typedefs.h"
+#include "format.h"
+
 #include "SettingsManager.h"
 #include "Exception.h"
 

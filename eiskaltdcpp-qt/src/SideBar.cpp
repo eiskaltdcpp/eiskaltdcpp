@@ -25,6 +25,12 @@
         (a)->appendChild(root); \
     } while (0)
 
+#define RETRANSLATE_ROOT_EL(text, map, type_el) \
+    do { \
+        if ((map).contains(ArenaWidget::type_el) && map[ArenaWidget::type_el]) \
+            map[ArenaWidget::type_el]->title = text; \
+    } while (0)
+
 SideBarModel::SideBarModel(QObject *parent) :
     QAbstractItemModel(parent)
 {
@@ -46,6 +52,8 @@ SideBarModel::SideBarModel(QObject *parent) :
     CREATE_ROOT_EL(rootItem, eiSPY,         tr("Spy"),              roots,  Spy);
     //CREATE_ROOT_EL(rootItem, eiSERVER,      tr("Hub Manager"),      roots,  HubManager);
     CREATE_ROOT_EL(rootItem, eiGUI,         tr("Other Widgets"),    roots,  CustomWidget);
+
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
 }
 
 SideBarModel::~SideBarModel()
@@ -349,6 +357,24 @@ void SideBarModel::slotIndexClicked(const QModelIndex &i){
 
        emit mapWidget(awgt);
    }
+}
+
+void SideBarModel::slotSettingsChanged(const QString &key, const QString &value){
+    if (key == WS_TRANSLATION_FILE){
+        RETRANSLATE_ROOT_EL(tr("Hubs"),             roots,  Hub);
+        RETRANSLATE_ROOT_EL(tr("Private Messages"), roots,  PrivateMessage);
+        RETRANSLATE_ROOT_EL(tr("Search"),           roots,  Search);
+        RETRANSLATE_ROOT_EL(tr("Share Browsers"),   roots,  ShareBrowser);
+        RETRANSLATE_ROOT_EL(tr("ADLSearch"),        roots,  ADLS);
+        RETRANSLATE_ROOT_EL(tr("Download Queue"),   roots,  Downloads);
+        RETRANSLATE_ROOT_EL(tr("Finished Uploads"), roots,  FinishedUploads);
+        RETRANSLATE_ROOT_EL(tr("Finished Downloads"),roots, FinishedDownloads);
+        RETRANSLATE_ROOT_EL(tr("Favorite Hubs"),    roots,  FavoriteHubs);
+        RETRANSLATE_ROOT_EL(tr("Favorite Users"),   roots,  FavoriteUsers);
+        RETRANSLATE_ROOT_EL(tr("Public Hubs"),      roots,  PublicHubs);
+        RETRANSLATE_ROOT_EL(tr("Spy"),              roots,  Spy);
+        RETRANSLATE_ROOT_EL(tr("Other Widgets"),    roots,  CustomWidget);
+    }
 }
 
 SideBarDelegate::SideBarDelegate(QObject *parent):

@@ -648,11 +648,17 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
 
 static sigjmp_buf sb_env;
 
-static void sigbus_handler(int signum, siginfo_t* info, void* context) {
+static void sigbus_handler(int signum
+#ifndef __HAIKU__
+, siginfo_t* info, void* context
+#endif
+) {
     // Jump back to the fastHash which will return error. Apparently truncating
     // a file in Solaris sets si_code to BUS_OBJERR
-    if (signum == SIGBUS && (info->si_code == BUS_ADRERR || info->si_code == BUS_OBJERR))
+#ifndef __HAIKU__
+       if (signum == SIGBUS && (info->si_code == BUS_ADRERR || info->si_code == BUS_OBJERR))
         siglongjmp(sb_env, 1);
+#endif
 }
 
 bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree& tth, int64_t size, CRC32Filter* xcrc32) {
@@ -678,7 +684,9 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         sigemptyset(&signalset);
 
         act.sa_handler = NULL;
+#ifndef __HAIKU__
         act.sa_sigaction = sigbus_handler;
+#endif
         act.sa_mask = signalset;
 #ifdef SA_SIGINFO
         act.sa_flags = SA_SIGINFO | SA_RESETHAND;
@@ -714,10 +722,12 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
                             break;
                         }
 
-        if (madvise(buf, size_read, MADV_SEQUENTIAL | MADV_WILLNEED) == -1) {
+#ifndef __HAIKU__
+               if (madvise(buf, size_read, MADV_SEQUENTIAL | MADV_WILLNEED) == -1) {
             dcdebug("Error calling madvise for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
             break;
         }
+#endif
 
             if(SETTING(MAX_HASH_SPEED) > 0) {
             uint64_t now = GET_TICK();

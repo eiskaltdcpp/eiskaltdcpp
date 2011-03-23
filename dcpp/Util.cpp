@@ -109,6 +109,10 @@ static string getDownloadsPath(const string& def) {
 #endif
 
 void Util::initialize(PathsMap pathOverrides) {
+    static bool initDone = false;
+    if (initDone)
+        return;
+
     Text::initialize();
 
     sgenrand((unsigned long)time(NULL));
@@ -163,6 +167,8 @@ void Util::initialize(PathsMap pathOverrides) {
     string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
     paths[PATH_USER_CONFIG] = xdg_config_home + "/eiskaltdc++/";
     printf("$XDG_CONFIG_HOME: %s\n", paths[PATH_USER_CONFIG].c_str());
+#elif defined __HAIKU__
+    paths[PATH_USER_CONFIG] = home + "/config/settings/eiskaltdc++/";
 #else
     paths[PATH_USER_CONFIG] = home + "/.eiskaltdc++/";
 #endif
@@ -262,6 +268,7 @@ void Util::initialize(PathsMap pathOverrides) {
         }
     } catch(const FileException&) {
     }
+    initDone = true;
 }
 
 void Util::migrate(const string& file) {
@@ -619,7 +626,7 @@ string Util::formatExactSize(int64_t aBytes) {
 }
 
 string Util::getLocalIp() {
-#if defined(HAVE_IFADDRS_H) || defined(HAVE_ADDRS_H)
+#ifdef HAVE_IFADDRS_H
     vector<string> addresses;
     struct ifaddrs *ifap;
 
@@ -1187,8 +1194,14 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
 		bool showIp = BOOLSETTING(USE_IP) || sIp;
 		bool showCc = (BOOLSETTING(GET_USER_COUNTRY) || sCC) && !cc.empty();
 
-		if(showIp) {
-			ret = "[" + aIp + "] ";
+        if(showIp) {
+            int ll = 15 - aIp.size();
+            if (ll >0) {
+                string tmp = " "; size_t sz=tmp.size();
+                tmp.resize(sz+ll-1,' ');
+                ret = "[" + tmp + aIp + "] ";
+            } else
+                ret = "[" + aIp + "] ";
 		}
         //printf("%s\n",ret.c_str());
 		if(showCc) {
@@ -1206,7 +1219,7 @@ bool Util::fileExists(const string &aFile) {
     return (attr != 0xFFFFFFFF);
 #else
     struct stat stFileInfo;
-    return (stat(aFile.c_str(),&stFileInfo) != 0);
+    return (stat(aFile.c_str(),&stFileInfo) == 0);
 #endif
 }
 
