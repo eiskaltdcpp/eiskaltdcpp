@@ -1463,7 +1463,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="475"/>
         <source>Invalid keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Хібныя ключавыя словы</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="677"/>
@@ -2349,22 +2349,22 @@ Please check your connection settings</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2369"/>
         <source>Icons only</source>
-        <translation type="unfinished"></translation>
+        <translation>Толькі значкі</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2370"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>Толькі тэкст</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2371"/>
         <source>Text beside icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Тэкст збоку ад значак</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2372"/>
         <source>Text under icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Тэкст пад значкамі</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2382"/>
@@ -5931,7 +5931,7 @@ Do not try to understand it...</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="880"/>
         <source>Segment size (in MB, 0 = auto segment size)</source>
-        <translation type="unfinished"></translation>
+        <translation>Памер часткі (у МБ, 0 = вызначаецца самарушна)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
