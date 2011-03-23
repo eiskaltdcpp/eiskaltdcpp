@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
     installHandlers();
 #endif
 
-#ifdef FORCE_XDG
+#ifdef FORCE_XDG && !defined (Q_WS_WIN)
     migrateConfig();
 #endif
 
