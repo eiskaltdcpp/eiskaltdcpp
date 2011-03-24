@@ -381,29 +381,35 @@ void UploadManager::on(AdcCommand::GET, UserConnection* aSource, const AdcComman
     int64_t aStartPos = Util::toInt64(c.getParam(2));
     int64_t aBytes = Util::toInt64(c.getParam(3));
 
-    if(prepareFile(*aSource, type, fname, aStartPos, aBytes, c.hasFlag("RE", 4))) {
-        Upload* u = aSource->getUpload();
-        dcassert(u != NULL);
+    try {
+        if(prepareFile(*aSource, type, fname, aStartPos, aBytes, c.hasFlag("RE", 4))) {
+            Upload* u = aSource->getUpload();
+            dcassert(u != NULL);
 
-        AdcCommand cmd(AdcCommand::CMD_SND);
-        cmd.addParam(type).addParam(fname)
-            .addParam(Util::toString(u->getStartPos()))
-            .addParam(Util::toString(u->getSize()));
+            AdcCommand cmd(AdcCommand::CMD_SND);
+            cmd.addParam(type).addParam(fname)
+                    .addParam(Util::toString(u->getStartPos()))
+                    .addParam(Util::toString(u->getSize()));
 
-        if(c.hasFlag("ZL", 4)) {
-            u->setStream(new FilteredInputStream<ZFilter, true>(u->getStream()));
-            u->setFlag(Upload::FLAG_ZUPLOAD);
-            cmd.addParam("ZL1");
+            if(c.hasFlag("ZL", 4)) {
+                u->setStream(new FilteredInputStream<ZFilter, true>(u->getStream()));
+                u->setFlag(Upload::FLAG_ZUPLOAD);
+                cmd.addParam("ZL1");
+            }
+
+            aSource->send(cmd);
+
+            u->setStart(GET_TICK());
+            u->tick();
+            aSource->setState(UserConnection::STATE_RUNNING);
+            aSource->transmitFile(u->getStream());
+            fire(UploadManagerListener::Starting(), u);
         }
-
-        aSource->send(cmd);
-
-        u->setStart(GET_TICK());
-        u->tick();
-        aSource->setState(UserConnection::STATE_RUNNING);
-        aSource->transmitFile(u->getStream());
-        fire(UploadManagerListener::Starting(), u);
     }
+    catch (const ShareException &e){
+        dcdebug(e.what());
+    }
+    catch ( ... ) {}
 }
 
 void UploadManager::on(UserConnectionListener::BytesSent, UserConnection* aSource, size_t aBytes, size_t aActual) throw() {
