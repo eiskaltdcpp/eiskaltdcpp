@@ -247,9 +247,11 @@ endif (WITH_DEV_FILES)
 
 if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Debug")
-  set (CMAKE_BUILD_TYPE "RelWithDebInfo")
-  message(STATUS "CMAKE_BUILD_TYPE = Debug is not now supported. RelWithDebInfo is used instead.")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND USE_QT)
+  message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
+                 "\tYou can build it for your own risk.\n"
+                 "\tBut do not even try to write bug reports in this case.\n"
+                 "\tPlease use RelWithDebInfo instead it.")
 elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo")
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
   message(STATUS "CMAKE_BUILD_TYPE = Gentoo is not now supported. RelWithDebInfo is used instead.")
