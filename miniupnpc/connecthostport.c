@@ -34,6 +34,10 @@
 #endif /* #ifndef USE_GETHOSTBYNAME */
 #endif /* #else WIN32 */
 
+#ifdef __HAIKU__
+#include <sys/select.h>
+#endif
+
 /* definition of PRINT_SOCKET_ERROR */
 #ifdef WIN32
 #define PRINT_SOCKET_ERROR(x)    printf("Socket error: %s, %d\n", x, WSAGetLastError());
@@ -64,7 +68,7 @@ int connecthostport(const char * host, unsigned short port)
 #ifdef MINIUPNPC_SET_SOCKET_TIMEOUT
 	struct timeval timeout;
 #endif /* #ifdef MINIUPNPC_SET_SOCKET_TIMEOUT */
-	
+
 #ifdef USE_GETHOSTBYNAME
 	hp = gethostbyname(host);
 	if(hp == NULL)

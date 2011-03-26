@@ -37,11 +37,17 @@
 
 #ifndef _WIN32
 #include <sys/ioctl.h>
-#include <ifaddrs.h>
+#ifndef __HAIKU__
+  #include <ifaddrs.h>
+#endif
 #include <netdb.h>
 #include <net/if.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#endif
+
+#ifdef __HAIKU__
+#include <sys/sockio.h>
 #endif
 
 namespace dcpp {
