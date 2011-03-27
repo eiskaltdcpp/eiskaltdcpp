@@ -43,6 +43,8 @@ public:
     void sendMessage(const string& hubUrl, const string& message);
     void listConnectedClients(string& listhubs,const string& separator);
     bool findHubInConnectedClients(const string& hub);
+    bool sendPrivateMessage(const string &shub,const string& scid,const string& smessage);
+    string getFileList_client(const string& hub, const string& cid, bool match);
 
 private:
 

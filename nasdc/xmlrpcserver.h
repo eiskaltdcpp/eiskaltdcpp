@@ -257,27 +257,30 @@ public:
     }
 };
 
-//class hubSayPrivateMethod : public xmlrpc_c::method {
-    //friend class ServerThread;
-//public:
-    //hubSayPrivateMethod() {
-        //this->_signature = "i:sss";
-        //this->_help = "This method add private message on hub. Params: huburl, nick, message";
-    //}
+class hubSayPrivateMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    hubSayPrivateMethod() {
+        this->_signature = "i:sss";
+        this->_help = "This method add private message on hub. Params: huburl, cid, message";
+    }
 
-    //void
-    //execute(xmlrpc_c::paramList const& paramList,
-            //xmlrpc_c::value *   const  retvalP) {
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
 
-        //string const shub(paramList.getString(0));
-        //string const snick(paramList.getString(1));
-        //string const smess(paramList.getString(2));
-        //paramList.verifyEnd(3);
-        ////ServerThread svT;
-        ////svT.sendPrivateMessage(shub, snick, smess);
-        //*retvalP = xmlrpc_c::value_string("Private message send to"+snick+" at " + shub);
-    //}
-//};
+        string const shub(paramList.getString(0));
+        string const scid(paramList.getString(1));
+        string const smess(paramList.getString(2));
+        paramList.verifyEnd(3);
+        ServerThread svT;
+        bool b = svT.sendPrivateMessage(shub, scid, smess);
+        if (b)
+            *retvalP = xmlrpc_c::value_string("Private message send to "+scid+" at " + shub);
+        else
+            *retvalP = xmlrpc_c::value_string("User went offline at " + shub);
+    }
+};
 
 class listHubsMethod : public xmlrpc_c::method {
     friend class ServerThread;
@@ -432,4 +435,37 @@ public:
             *retvalP = xmlrpc_c::value_string("Param not equal 1, ignoring....");
     }
 };
+
+class getFileListMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    getFileListMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method get file list from user by cid and huburl. Рarams: huburl, cid";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const shub(paramList.getString(0));
+        string const scid(paramList.getString(1));
+        paramList.verifyEnd(2);
+        ServerThread svT; string tmp;
+        tmp = svT.getFileList_client(shub, scid, false);
+        //svT.getFileList_client(string cid, false);
+        *retvalP = xmlrpc_c::value_string(tmp);
+        //else if (command == "getlist")
+        //{
+            //if (hub->userMap.find(param) != hub->userMap.end())
+            //{
+                //func2 = new F2(hub, &Hub::getFileList_client, hub->userMap[param], FALSE);
+                //WulforManager::get()->dispatchClientFunc(func2);
+            //}
+            //else
+                //hub->addStatusMessage_gui(_("Not found user: ") + param, Msg::SYSTEM, Sound::NONE);
+        //}
+    }
+};
+
 #endif
