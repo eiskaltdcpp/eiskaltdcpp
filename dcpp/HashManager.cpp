@@ -784,7 +784,10 @@ int HashManager::Hasher::run() {
 
     uint8_t* buf = NULL;
     bool virtualBuf = true;
-
+    if (Util::getUpTime() < 60)
+        pause();
+    if (Util::getUpTime() > 60 && SETTING(AUTO_REFRESH_TIME) > 0)
+        resume();
     string fname;
     bool last = false;
     for(;;) {
