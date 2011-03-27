@@ -121,7 +121,7 @@ bool ServerThread::disconnect_all(){
         }
         Thread::sleep(100);
     }
-    
+
     return true;
 }
 //---------------------------------------------------------------------------
@@ -373,4 +373,59 @@ bool ServerThread::findHubInConnectedClients(const string& hub) {
     if(i != clientsMap.end())
         return true;
     return false;
+}
+
+bool ServerThread::sendPrivateMessage(const string& hub,const string& cid,const string& message) {
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end() && clientsMap[i->first]!=NULL) {
+        Client* client = i->second;
+        if (client && !message.empty()) {
+            bool thirdPerson = !message.compare(0,3,"/me");
+            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            if (user && user->isOnline())
+            {
+                ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+
+string ServerThread::getFileList_client(const string& hub, const string& cid, bool match) {
+    string message;
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end() && clientsMap[i->first]!=NULL) {
+        if (!cid.empty()) {
+            try {
+                UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+                if (user) {
+                    const HintedUser hintedUser(user, i->first);//NOTE: core 0.762
+                    if (user == ClientManager::getInstance()->getMe()) {
+                        // Don't download file list, open locally instead
+                        //WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
+                    }
+                    else if (match) {
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);//NOTE: core 0.762
+                    }
+                    else {
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
+                    }
+                }
+                else {
+                    message = _("User not found");
+                }
+            }
+            catch (const Exception &e) {
+                message = e.getError();
+                LogManager::getInstance()->message(message);
+            }
+        }
+    }
+    if (!message.empty()) {
+        return message;
+    }
 }
