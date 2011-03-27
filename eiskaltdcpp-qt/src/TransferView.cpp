@@ -39,7 +39,8 @@
 #include <QMessageBox>
 
 TransferView::Menu::Menu():
-        menu(NULL)
+        menu(NULL),
+        selectedColumn(0)
 {
     WulforUtil *WU = WulforUtil::getInstance();
     menu = new QMenu();

@@ -17,6 +17,8 @@
 #ifndef DCPLUSPLUS_DCPP_SIMPLEXMLREADER_H_
 #define DCPLUSPLUS_DCPP_SIMPLEXMLREADER_H_
 
+#include "typedefs.h"
+
 namespace dcpp {
 
 class InputStream;
@@ -25,7 +27,7 @@ class SimpleXMLReader {
 public:
         struct CallBack : private boost::noncopyable {
                 virtual ~CallBack() { }
-                virtual void startTag(const std::string& name, dcpp::StringPairList& attribs, bool simple) = 0;
+                virtual void startTag(const std::string& name, StringPairList& attribs, bool simple) = 0;
                 virtual void endTag(const std::string& name, const std::string& data) = 0;
 
         protected:

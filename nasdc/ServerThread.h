@@ -42,6 +42,7 @@ public:
     void disconnectClient(string address);
     void sendMessage(const string& hubUrl, const string& message);
     void listConnectedClients(string& listhubs,const string& separator);
+    bool findHubInConnectedClients(const string& hub);
 
 private:
 

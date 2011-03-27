@@ -156,6 +156,7 @@ public:
     bool getUserCommandParams(QString, dcpp::StringMap &);
 
     QStringList getLocalIPs();
+    QStringList getLocalIfaces();
 
     QString makeMagnet(const QString&, const int64_t, const QString&);
     static void splitMagnet(const QString &magnet, int64_t &size, QString &tth, QString &name);

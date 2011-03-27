@@ -27,7 +27,6 @@ if (HAVE_DAEMON)
     add_definitions(-DHAVE_DAEMON)
 endif()
 
-list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/sampleclient.cpp)
 list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/screen.c)
 
 if (WIN32)
@@ -42,10 +41,6 @@ endif (LUA_SCRIPT)
 add_executable (nasdc MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
-if (XMLRPC_DAEMON)
-add_executable (sampleclient sampleclient.cpp)
-target_link_libraries (sampleclient ${XMLRPCLIBS})
-endif()
 
 target_link_libraries (nasdc dcpp ${XMLRPCLIBS} ${RL_LIBS})
 

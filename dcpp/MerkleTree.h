@@ -16,9 +16,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(MERKLE_TREE_H)
-#define MERKLE_TREE_H
+#ifndef DCPLUSPLUS_DCPP_MERKLE_TREE_H
+#define DCPLUSPLUS_DCPP_MERKLE_TREE_H
 
+#include "typedefs.h"
 #include "TigerHash.h"
 #include "Encoder.h"
 #include "HashValue.h"
@@ -231,4 +232,4 @@ private:
 
 } // namespace dcpp
 
-#endif // !defined(MERKLE_TREE_H)
+#endif // DCPLUSPLUS_DCPP_MERKLE_TREE_H

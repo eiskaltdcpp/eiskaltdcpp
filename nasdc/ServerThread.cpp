@@ -107,6 +107,7 @@ int ServerThread::run()
     AbyssServer.run();
 #endif
 
+    return 0;
 }
 bool ServerThread::disconnect_all(){
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
@@ -120,6 +121,8 @@ bool ServerThread::disconnect_all(){
         }
         Thread::sleep(100);
     }
+    
+    return true;
 }
 //---------------------------------------------------------------------------
 void ServerThread::Close()
@@ -363,4 +366,11 @@ void ServerThread::listConnectedClients(string& listhubs,const string& separator
             listhubs.append(separator);
         }
     }
+}
+
+bool ServerThread::findHubInConnectedClients(const string& hub) {
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end())
+        return true;
+    return false;
 }

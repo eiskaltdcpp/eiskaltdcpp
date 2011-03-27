@@ -161,11 +161,11 @@ public:
         string::size_type i = path.rfind('.');
         return (i != string::npos) ? path.substr(i) : Util::emptyString;
     }
-        static string getLastDir(const string& path, char separator = PATH_SEPARATOR) {
-                string::size_type i = path.rfind(separator);
+    static string getLastDir(const string& path, char separator = PATH_SEPARATOR) {
+        string::size_type i = path.rfind(separator);
         if(i == string::npos)
             return Util::emptyString;
-                string::size_type j = path.rfind(separator, i-1);
+        string::size_type j = path.rfind(separator, i-1);
         return (j != string::npos) ? path.substr(j+1, i-j-1) : path;
     }
 
@@ -189,18 +189,18 @@ public:
         return (j != wstring::npos) ? path.substr(j+1, i-j-1) : path;
     }
 
-        template<typename string_t>
-        static void replace(const string_t& search, const string_t& replacement, string_t& str) {
-                typename string_t::size_type i = 0;
-                while((i = str.find(search, i)) != string_t::npos) {
-                        str.replace(i, search.size(), replacement);
-                        i += replacement.size();
-                }
+    template<typename string_t>
+    static void replace(const string_t& search, const string_t& replacement, string_t& str) {
+        typename string_t::size_type i = 0;
+        while((i = str.find(search, i)) != string_t::npos) {
+                str.replace(i, search.size(), replacement);
+                i += replacement.size();
         }
-        template<typename string_t>
-        static inline void replace(const typename string_t::value_type* search, const typename string_t::value_type* replacement, string_t& str) {
-                replace(string_t(search), string_t(replacement), str);
-        }
+    }
+    template<typename string_t>
+    static inline void replace(const typename string_t::value_type* search, const typename string_t::value_type* replacement, string_t& str) {
+            replace(string_t(search), string_t(replacement), str);
+    }
 
     static void decodeUrl(const string& aUrl, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment);
     static map<string, string> decodeQuery(const string& query);
@@ -231,21 +231,21 @@ public:
     static string formatParams(const string& msg, const StringMap& params, bool filter);
     static string formatTime(const string &msg, const time_t t);
 
-        static inline int64_t roundDown(int64_t size, int64_t blockSize) {
-                return ((size + blockSize / 2) / blockSize) * blockSize;
-        }
+    static inline int64_t roundDown(int64_t size, int64_t blockSize) {
+        return ((size + blockSize / 2) / blockSize) * blockSize;
+    }
 
-        static inline int64_t roundUp(int64_t size, int64_t blockSize) {
-                return ((size + blockSize - 1) / blockSize) * blockSize;
-        }
+    static inline int64_t roundUp(int64_t size, int64_t blockSize) {
+        return ((size + blockSize - 1) / blockSize) * blockSize;
+    }
 
-        static inline int roundDown(int size, int blockSize) {
-                return ((size + blockSize / 2) / blockSize) * blockSize;
-        }
+    static inline int roundDown(int size, int blockSize) {
+        return ((size + blockSize / 2) / blockSize) * blockSize;
+    }
 
-        static inline int roundUp(int size, int blockSize) {
-                return ((size + blockSize - 1) / blockSize) * blockSize;
-        }
+    static inline int roundUp(int size, int blockSize) {
+        return ((size + blockSize - 1) / blockSize) * blockSize;
+    }
 
 
     static int64_t toInt64(const string& aString) {
@@ -277,14 +277,14 @@ public:
 #endif
     }
 
-        static unsigned toUInt(const string& s) {
-                if(s.empty())
-                        return 0;
-                int ret = toInt(s);
-                if(ret < 0)
-                        return 0;
-                return ret;
-        }
+    static unsigned toUInt(const string& s) {
+        if(s.empty())
+                return 0;
+        int ret = toInt(s);
+        if(ret < 0)
+                return 0;
+        return ret;
+    }
 
     static double toDouble(const string& aString) {
         // Work-around for atof and locales...
@@ -348,22 +348,22 @@ public:
         return buf;
     }
 
-        template<typename string_t>
-        static string_t toString(const string_t& sep, const vector<string_t>& lst) {
-                string_t ret;
-                for(typename vector<string_t>::const_iterator i = lst.begin(), iend = lst.end(); i != iend; ++i) {
-                        ret += *i;
-                        if(i + 1 != iend)
-                                ret += sep;
-        }
-                return ret;
-        }
-        template<typename string_t>
-        static inline string_t toString(const typename string_t::value_type* sep, const vector<string_t>& lst) {
-                return toString(string_t(sep), lst);
+    template<typename string_t>
+    static string_t toString(const string_t& sep, const vector<string_t>& lst) {
+        string_t ret;
+        for(typename vector<string_t>::const_iterator i = lst.begin(), iend = lst.end(); i != iend; ++i) {
+            ret += *i;
+            if(i + 1 != iend)
+                ret += sep;
     }
-        static string toString(const string& sep, const StringList& lst);
-        static string toString(const StringList& lst);
+            return ret;
+    }
+    template<typename string_t>
+    static inline string_t toString(const typename string_t::value_type* sep, const vector<string_t>& lst) {
+        return toString(string_t(sep), lst);
+    }
+    static string toString(const string& sep, const StringList& lst);
+    static string toString(const StringList& lst);
 
     static string toHexEscape(char val) {
         char buf[sizeof(int)*2+1+1];

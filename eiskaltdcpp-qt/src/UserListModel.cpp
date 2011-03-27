@@ -233,6 +233,8 @@ struct Compare {
 
                 return Cmp(l_ip, r_ip);
             }
+
+            return false;
         }
 
         template <typename T>

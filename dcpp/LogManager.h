@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_LOG_MANAGER_H
 #define DCPLUSPLUS_DCPP_LOG_MANAGER_H
 
+#include "typedefs.h"
+
 #include "CriticalSection.h"
 #include "Singleton.h"
 #include "Speaker.h"
@@ -32,7 +34,7 @@ public:
 	typedef pair<time_t, string> Pair;
 	typedef deque<Pair> List;
 
-	enum Area { CHAT, PM, DOWNLOAD, UPLOAD, SYSTEM, STATUS, LAST };
+	enum Area { CHAT, PM, DOWNLOAD, FINISHED_DOWNLOAD, UPLOAD, SYSTEM, STATUS, LAST };
 	enum { FILE, FORMAT };
 
 	void log(Area area, StringMap& params) throw();

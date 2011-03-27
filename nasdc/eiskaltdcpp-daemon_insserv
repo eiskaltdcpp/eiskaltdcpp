@@ -1,0 +1,74 @@
+#!/bin/sh -e
+### BEGIN INIT INFO
+# Provides:          eiskaltdcpp-daemon
+# Required-Start:    $local_fs $remote_fs $network
+# Required-Stop:     $local_fs $remote_fs $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start or stop the EiskaltDC++ daemon.
+### END INIT INFO
+
+NAME=eiskaltdcpp-daemon
+DAEMON=/usr/bin/$NAME
+USER=dcppuser
+
+export LANG=en_US.UTF-8
+export XDG_CONFIG_HOME="/home/${USER}/.config"
+export PATH="${PATH:+$PATH:}/sbin"
+
+PIDFILE="/var/run/${NAME}.pid"
+STOP_TIMEOUT=3
+
+ENABLE_DAEMON=1
+OPTIONS="-d -c=${XDG_CONFIG_HOME} -p=${PIDFILE}"
+
+[ -x $DAEMON ] || exit 0
+
+. /lib/lsb/init-functions
+
+start_daemon () {
+    if [ $ENABLE_DAEMON != 1 ]; then
+        log_progress_msg "(disabled)"
+    else
+        start-stop-daemon --start \
+        --chuid $USER \
+        --exec $DAEMON -- $OPTIONS
+    fi
+}
+
+case "$1" in
+    start)
+        log_daemon_msg "Starting EiskaltDC++ daemon" "$NAME"
+        start_daemon
+        log_end_msg 0
+        ;;
+    stop)
+        log_daemon_msg "Stopping EiskaltDC++ daemon" "$NAME"
+        start-stop-daemon --stop --quiet \
+            --exec $DAEMON --retry $STOP_TIMEOUT \
+            --oknodo
+        log_end_msg 0
+        ;;
+    reload)
+        log_daemon_msg "Reloading EiskaltDC++ daemon" "$NAME"
+        start-stop-daemon --stop --quiet \
+            --exec $DAEMON \
+            --oknodo --signal 1
+        log_end_msg 0
+        ;;
+    restart|force-reload)
+        log_daemon_msg "Restarting EiskaltDC++ daemon" "$NAME"
+        start-stop-daemon --stop --quiet \
+            --exec $DAEMON --retry $STOP_TIMEOUT \
+            --oknodo
+        start_daemon
+        log_end_msg 0
+        ;;
+    *)
+        echo "Usage: /etc/init.d/$NAME {start|stop|reload|force-reload|restart}"
+        exit 2
+        ;;
+esac
+
+exit 0
+

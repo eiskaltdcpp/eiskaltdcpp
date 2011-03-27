@@ -2445,6 +2445,10 @@ Téléchargé: %3 Envoyé: %4</translation>
         <source>Host</source>
         <translation>Serveur</translation>
     </message>
+    <message>
+        <source>File already exists: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Settings</name>
@@ -4996,6 +5000,10 @@ them is usually available only to operators</source>
     <message>
         <source>Auto search alternates</source>
         <translation>Recherche auto de sources supplémentaires</translation>
+    </message>
+    <message>
+        <source>Finished Downloads</source>
+        <translation type="unfinished">Téléchargements terminés</translation>
     </message>
 </context>
 <context>

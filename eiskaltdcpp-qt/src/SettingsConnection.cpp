@@ -10,6 +10,7 @@
 #include "SettingsConnection.h"
 #include "MainWindow.h"
 #include "WulforSettings.h"
+#include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
@@ -83,7 +84,11 @@ void SettingsConnection::ok(){
 #endif
         SM->set(SettingsManager::TCP_PORT, spinBox_TCP->value());
         SM->set(SettingsManager::UDP_PORT, spinBox_UDP->value());
-        SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
+
+        if (spinBox_TLS->value() != SETTING(TCP_PORT))
+            SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value());
+        else
+            SM->set(SettingsManager::TLS_PORT, spinBox_TLS->value()+1);
 
         SM->set(SettingsManager::EXTERNAL_IP, lineEdit_WANIP->text().toStdString());
         QString bind_ip=lineEdit_BIND_ADDRESS->text();
@@ -97,6 +102,9 @@ void SettingsConnection::ok(){
 
     bool use_socks = !radioButton_DC->isChecked();
     int type = SETTING(OUTGOING_CONNECTIONS);
+
+    SM->set(SettingsManager::BIND_IFACE, radioButton_BIND_IFACE->isChecked());
+    SM->set(SettingsManager::BIND_IFACE_NAME, _tq(comboBox_IFACES->currentText()));
 
     if (use_socks){
         QString ip = lineEdit_SIP->text();
@@ -174,6 +182,23 @@ void SettingsConnection::init(){
     lineEdit_DYNDNS_SERVER->setText(WSGET(WS_APP_DYNDNS_SERVER));
     lineEdit_DYNDNS_INDEX->setText(WSGET(WS_APP_DYNDNS_INDEX));
 
+    QStringList ifaces = WulforUtil::getInstance()->getLocalIfaces();
+
+    if (!ifaces.isEmpty())
+        comboBox_IFACES->addItems(ifaces);
+
+    comboBox_IFACES->addItem("");
+
+    if (SETTING(BIND_IFACE)){
+        radioButton_BIND_IFACE->toggle();
+
+        if (ifaces.contains(_q(SETTING(BIND_IFACE_NAME))))
+            comboBox_IFACES->setCurrentIndex(ifaces.indexOf(_q(SETTING(BIND_IFACE_NAME))));
+        else
+            comboBox_IFACES->setCurrentIndex(comboBox_IFACES->count()-1);
+    }
+    else
+        radioButton_BIND_ADDR->toggle();
 
     switch (SETTING(INCOMING_CONNECTIONS)){
     case SettingsManager::INCOMING_DIRECT:

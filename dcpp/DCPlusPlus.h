@@ -61,45 +61,6 @@ _CrtDbgBreak(); } } while(false)
 #undef max
 #endif
 
-namespace dcpp {
-
-typedef std::vector<string> StringList;
-typedef StringList::iterator StringIter;
-typedef StringList::const_iterator StringIterC;
-
-typedef std::pair<string, string> StringPair;
-typedef std::vector<StringPair> StringPairList;
-typedef StringPairList::iterator StringPairIter;
-
-typedef std::tr1::unordered_map<string, string> StringMap;
-typedef StringMap::iterator StringMapIter;
-
-typedef std::tr1::unordered_set<string> StringSet;
-typedef StringSet::iterator StringSetIter;
-
-typedef std::vector<wstring> WStringList;
-typedef WStringList::iterator WStringIter;
-typedef WStringList::const_iterator WStringIterC;
-
-typedef std::pair<wstring, wstring> WStringPair;
-typedef std::vector<WStringPair> WStringPairList;
-typedef WStringPairList::iterator WStringPairIter;
-
-typedef std::vector<uint8_t> ByteVector;
-
-template<typename T>
-boost::basic_format<T> dcpp_fmt(const T* t) {
-    boost::basic_format<T> fmt;
-    fmt.exceptions(boost::io::no_error_bits);
-    fmt.parse(t);
-    return fmt;
-}
-
-template<typename T>
-boost::basic_format<T> dcpp_fmt(const std::basic_string<T>& t) {
-    return dcpp_fmt(t.c_str());
-}
-
 #if defined(_MSC_VER) || defined(__MINGW32__)
 #define _LL(x) x##ll
 #define _ULL(x) x##ull
@@ -130,53 +91,9 @@ boost::basic_format<T> dcpp_fmt(const std::basic_string<T>& t) {
 
 #endif
 
-
-typedef unordered_map<wstring, wstring> WStringMap;
-typedef WStringMap::iterator WStringMapIter;
-
-#ifdef UNICODE
-
-typedef wstring tstring;
-typedef WStringList TStringList;
-typedef WStringIter TStringIter;
-typedef WStringIterC TStringIterC;
-
-typedef WStringPair TStringPair;
-typedef WStringPairIter TStringPairIter;
-typedef WStringPairList TStringPairList;
-
-typedef WStringMap TStringMap;
-typedef WStringMapIter TStringMapIter;
-
-#else
-
-typedef string tstring;
-typedef StringList TStringList;
-typedef StringIter TStringIter;
-typedef StringIterC TStringIterC;
-
-typedef StringPair TStringPair;
-typedef StringPairIter TStringPairIter;
-typedef StringPairList TStringPairList;
-
-typedef StringMap TStringMap;
-typedef StringMapIter TStringMapIter;
-
-#endif
-
+namespace dcpp {
 extern void startup(void (*f)(void*, const string&), void* p);
 extern void shutdown();
-
-#ifdef BUILDING_DCPP
-#define PACKAGE "libeiskaltdcpp"
-#define LOCALEDIR LOCALE_DIR
-#define _(String) dgettext(PACKAGE, String)
-#define gettext_noop(String) String
-#define N_(String) gettext_noop (String)
-#define F_(String) dcpp_fmt(dgettext(PACKAGE, String))
-#define FN_(String1,String2, N) dcpp_fmt(dngettext(PACKAGE, String1, String2, N))
-
-#endif
 
 } // namespace dcpp
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-03-07 01:27+0200\n"
+"POT-Creation-Date: 2011-03-20 16:39+0200\n"
 "PO-Revision-Date: 2008-05-04 16:18+0000\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,23 +66,23 @@ msgstr ""
 "Не вдалось налаштувати сокет-сервер для UDP передачі (перевірте адресу і "
 "порт сокета)"
 
-#: ../DCPlusPlus.cpp:119
+#: ../DCPlusPlus.cpp:120
 msgid "Hash database"
 msgstr "Хешувати базу даних"
 
-#: ../DCPlusPlus.cpp:122
+#: ../DCPlusPlus.cpp:123
 msgid "Shared Files"
 msgstr "Файли у доступі"
 
-#: ../DCPlusPlus.cpp:131
+#: ../DCPlusPlus.cpp:132
 msgid "Download Queue"
 msgstr "В черзі"
 
-#: ../DCPlusPlus.cpp:134
+#: ../DCPlusPlus.cpp:135
 msgid "Users"
 msgstr "Користувачі"
 
-#: ../Thread.cpp:34 ../Thread.cpp:42
+#: ../Thread.cpp:35 ../Thread.cpp:43
 msgid "Unable to create thread"
 msgstr "Неможливо створити потік"
 
@@ -151,15 +151,19 @@ msgstr "IP-Фільтр: Блоковано вхідне з'єдання з "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Відключений користувач залишає хаб: %1%"
 
-#: ../SettingsManager.cpp:498
+#: ../SettingsManager.cpp:180
+msgid "downloaded from"
+msgstr ""
+
+#: ../SettingsManager.cpp:502
 msgid "Invalid search type name"
 msgstr "Неправильне ім'я типу пошуку"
 
-#: ../SettingsManager.cpp:502 ../SettingsManager.cpp:524
+#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
 msgid "This search type already exists"
 msgstr "Цей тип пошуку вже використовується"
 
-#: ../SettingsManager.cpp:556
+#: ../SettingsManager.cpp:560
 msgid "No such search type"
 msgstr "Немає такого типу пошуку"
 
@@ -181,6 +185,7 @@ msgstr ""
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
 #: ../SearchManager.cpp:271 ../SearchManager.cpp:425 ../SearchManager.cpp:427
+#: ../QueueManager.cpp:2162 ../QueueManager.cpp:2168 ../QueueManager.cpp:2174
 msgid "Offline"
 msgstr "Поза мережею"
 
@@ -188,7 +193,7 @@ msgstr "Поза мережею"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) має цей самий CID {%3%} як %4% (%5%), ігноровано"
 
-#: ../AdcHub.cpp:184
+#: ../AdcHub.cpp:184 ../Transfer.cpp:92 ../QueueManager.cpp:2191
 msgid "%1%/s"
 msgstr "%1%/с"
 
@@ -220,54 +225,54 @@ msgstr "З'єднання не прослуховуються - будь лас�
 msgid "Sent "
 msgstr "Відправлено "
 
-#: ../Util.cpp:572
+#: ../Util.cpp:579
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:574
+#: ../Util.cpp:581
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:576
+#: ../Util.cpp:583
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:578
+#: ../Util.cpp:585
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:580
+#: ../Util.cpp:587
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:582
+#: ../Util.cpp:589
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:612
+#: ../Util.cpp:619
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:616
+#: ../Util.cpp:623
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
 
-#: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
-#: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
+#: ../ZUtils.cpp:35 ../ZUtils.cpp:56 ../ZUtils.cpp:78 ../ZUtils.cpp:88
+#: ../BZUtils.cpp:32 ../BZUtils.cpp:53 ../BZUtils.cpp:61
 msgid "Error during compression"
 msgstr "Помилка під час компресії"
 
-#: ../ZUtils.cpp:100 ../ZUtils.cpp:123 ../CryptoManager.cpp:374
-#: ../CryptoManager.cpp:393 ../CryptoManager.cpp:407 ../BZUtils.cpp:72
-#: ../BZUtils.cpp:94 ../BZUtils.cpp:97
+#: ../ZUtils.cpp:102 ../ZUtils.cpp:125 ../CryptoManager.cpp:372
+#: ../CryptoManager.cpp:391 ../CryptoManager.cpp:405 ../BZUtils.cpp:73
+#: ../BZUtils.cpp:95 ../BZUtils.cpp:98
 msgid "Error during decompression"
 msgstr "Помилка під час декомпресії"
 
@@ -299,21 +304,21 @@ msgstr "Неможливо прочитати хеш файлу"
 msgid "Error creating hash data file: %1%"
 msgstr "Помилка створення файлу даних хеша: %1%"
 
-#: ../HashManager.cpp:787
+#: ../HashManager.cpp:797
 msgid "Hash database rebuilt"
 msgstr "Хешувати перебудовану базу"
 
-#: ../HashManager.cpp:839
+#: ../HashManager.cpp:849
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Хешується файл: %1% (Розмір: %2%)"
 
-#: ../HashManager.cpp:887
+#: ../HashManager.cpp:897
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% не розшарено; підрахована CRC32 не відповідає знайденій у SFV файлі."
 
-#: ../HashManager.cpp:892
+#: ../HashManager.cpp:902
 msgid "Error hashing %1%: %2%"
 msgstr "Помилка хешування %1%: %2%"
 
@@ -437,7 +442,7 @@ msgstr "Оновлення списку файлів закінчено"
 msgid "File list %1% generated"
 msgstr "Список файлів %1% згенеровано"
 
-#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:154
+#: ../BufferedSocket.cpp:185 ../SSLSocket.cpp:155
 msgid "Connection closed"
 msgstr "З'єднання закрито"
 
@@ -461,41 +466,41 @@ msgstr "Не зважати"
 msgid "Directory missing name attribute"
 msgstr "Відсутнє ім'я теки"
 
-#: ../CryptoManager.cpp:136
+#: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
 msgstr "Не вибрано файл приватного ключа"
 
-#: ../CryptoManager.cpp:139
+#: ../CryptoManager.cpp:137
 msgid "No certificate file chosen"
 msgstr "Не вибраний файл сертифікату"
 
-#: ../CryptoManager.cpp:151
+#: ../CryptoManager.cpp:149
 msgid "Error generating certificate"
 msgstr "Помилка генерування сертифікату"
 
-#: ../CryptoManager.cpp:214
+#: ../CryptoManager.cpp:212
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS заборонений, не встановлено сертифікат файлу"
 
-#: ../CryptoManager.cpp:222
+#: ../CryptoManager.cpp:220
 msgid "Generated new TLS certificate"
 msgstr "Новий TLS сертифікат згенеровано"
 
-#: ../CryptoManager.cpp:224
+#: ../CryptoManager.cpp:222
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS заборонений, не вдалось сгенерувати сертифікат: %1%"
 
-#: ../CryptoManager.cpp:229 ../CryptoManager.cpp:233 ../CryptoManager.cpp:238
-#: ../CryptoManager.cpp:242
+#: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
+#: ../CryptoManager.cpp:240
 msgid "Failed to load certificate file"
 msgstr "Файл сертифікату не завантажено"
 
-#: ../CryptoManager.cpp:247 ../CryptoManager.cpp:251 ../CryptoManager.cpp:256
-#: ../CryptoManager.cpp:260
+#: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
+#: ../CryptoManager.cpp:258
 msgid "Failed to load private key"
 msgstr "Особовий ключ не завантажено"
 
-#: ../SSLSocket.cpp:160
+#: ../SSLSocket.cpp:161
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "Помилка SSL: %1% (%2%, %3%)"
 
@@ -587,49 +592,49 @@ msgstr "Пошук знову увімкнено"
 msgid "Search disabled: %1%"
 msgstr "Пошук відключений: %1%"
 
-#: ../QueueManager.cpp:239
+#: ../QueueManager.cpp:243
 msgid "No needed part"
 msgstr "Немає необхідної частини"
 
-#: ../QueueManager.cpp:625
+#: ../QueueManager.cpp:629
 msgid "Searching TTH alternates for: %1%"
 msgstr "Пошук TTH альтернатив для: %1%"
 
-#: ../QueueManager.cpp:676 ../QueueManager.cpp:739
+#: ../QueueManager.cpp:680 ../QueueManager.cpp:743
 msgid "A file with the same hash already exists in your share"
 msgstr "Файл з ідентичним хешом уже існує у вашому доступі"
 
-#: ../QueueManager.cpp:702 ../QueueManager.cpp:781
+#: ../QueueManager.cpp:706 ../QueueManager.cpp:785
 msgid "This file is already queued"
 msgstr "Цей файл вже є у черзі"
 
-#: ../QueueManager.cpp:717 ../QueueManager.cpp:793
+#: ../QueueManager.cpp:721 ../QueueManager.cpp:797
 msgid "A file with a different size already exists in the queue"
 msgstr "Файл з іншим розміром уже існує в черзі"
 
-#: ../QueueManager.cpp:721
+#: ../QueueManager.cpp:725
 msgid "A file with different tth root already exists in the queue"
 msgstr "Файл з іншим tth коренем уже існує в черзі"
 
-#: ../QueueManager.cpp:733
+#: ../QueueManager.cpp:737
 msgid "You're trying to download from yourself!"
 msgstr "Ви намагаєтесь завантажити у себе!"
 
-#: ../QueueManager.cpp:796
+#: ../QueueManager.cpp:800
 #, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Файл з іншим коренем TTH уже існує в черзі"
 
-#: ../QueueManager.cpp:800
+#: ../QueueManager.cpp:804
 #, fuzzy
 msgid "This file has already finished downloading"
 msgstr "Цей файл вже завантажено"
 
-#: ../QueueManager.cpp:837 ../QueueManager.cpp:846
+#: ../QueueManager.cpp:841 ../QueueManager.cpp:850
 msgid "Target filename too long"
 msgstr "Назва файла призначення надто довге"
 
-#: ../QueueManager.cpp:842 ../QueueManager.cpp:850
+#: ../QueueManager.cpp:846 ../QueueManager.cpp:854
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -637,51 +642,50 @@ msgstr ""
 "Невірний файл призначення (відсутня папка, перевірте конфігурацію папки "
 "завантаження за вмовчуванням)"
 
-#: ../QueueManager.cpp:858
+#: ../QueueManager.cpp:862
 #, fuzzy
 msgid "File already exists at the target location"
 msgstr "Файл вже існує в папці призначення"
 
-#: ../QueueManager.cpp:871 ../QueueManager.cpp:875
+#: ../QueueManager.cpp:875 ../QueueManager.cpp:879
 msgid "Duplicate source: %1%"
 msgstr "Джерело копії: %1%"
 
-#: ../QueueManager.cpp:1144
+#: ../QueueManager.cpp:1148
 msgid "Target removed"
 msgstr "Видалено"
 
-#: ../QueueManager.cpp:1152
+#: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
 msgstr "Цільовий файл відсутній або має неправильний розмір"
 
-#: ../QueueManager.cpp:1201
+#: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "Не вдалося перемістити %1% до %2% (%3%); перейменовано на %4%"
 
-#: ../QueueManager.cpp:1204
+#: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr "Не вдалося перемістити %1% до %2% (%3%); перейменовано на %4% (%5%)"
 
-#: ../QueueManager.cpp:1398
+#: ../QueueManager.cpp:1406
 msgid "Unable to open filelist: %1%"
 msgstr "Неможливо відкрити список файлів: %1%"
 
-#: ../QueueManager.cpp:1421
+#: ../QueueManager.cpp:1429
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Узгоджений файл %2%"
 
-#: ../QueueManager.cpp:2019 ../QueueManager.cpp:2028
+#: ../QueueManager.cpp:2027 ../QueueManager.cpp:2036
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 несумісність (SFV перевірка цілісності файла)"
 
-#: ../BitInputStream.h:40
-msgid "Request to seek beyond the end of data"
-msgstr "Запит пошуку поза областю даних"
-
-#: ../Streams.h:140
+#: ../Streams.h:143
 msgid "More bytes written than requested"
 msgstr "Записано більше байтів ніж потрібно"
 
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Незбіг TTH"
+
+#~ msgid "Request to seek beyond the end of data"
+#~ msgstr "Запит пошуку поза областю даних"

@@ -939,6 +939,28 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
     return true;
 }
 
+QStringList WulforUtil::getLocalIfaces(){
+    QStringList ifaces;
+
+#ifdef HAVE_IFADDRS_H
+    struct ifaddrs *ifap;
+
+    if (getifaddrs(&ifap) == 0){
+        for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next){
+            struct sockaddr *sa = i->ifa_addr;
+
+            // If the interface is up, is not a loopback and it has an address
+            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL && !ifaces.contains(i->ifa_name))
+                ifaces.push_back(i->ifa_name);
+        }
+
+        freeifaddrs(ifap);
+    }
+#endif
+
+    return ifaces;
+}
+
 QStringList WulforUtil::getLocalIPs(){
     QStringList addresses;
 

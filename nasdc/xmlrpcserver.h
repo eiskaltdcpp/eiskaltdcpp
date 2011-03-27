@@ -148,7 +148,7 @@ public:
         bool ok = splitMagnet(smagnet, name, size, tth);
         if (ok){
             if (!sddir.empty())
-                name = sddir+name;
+                name = sddir+PATH_SEPARATOR_STR+name;
             else
                 name = SETTING(DOWNLOAD_DIRECTORY) + name;
 #ifdef _DEBUG
@@ -249,10 +249,35 @@ public:
         string const smess(paramList.getString(1));
         paramList.verifyEnd(2);
         ServerThread svT;
-        svT.sendMessage(shub,smess);
-        *retvalP = xmlrpc_c::value_string("Message send on hub: " + shub);
+        if (svT.findHubInConnectedClients(shub)) {
+            svT.sendMessage(shub,smess);
+            *retvalP = xmlrpc_c::value_string("Message send on hub: " + shub);
+        } else
+            *retvalP = xmlrpc_c::value_string(shub + " don't connected");
     }
 };
+
+//class hubSayPrivateMethod : public xmlrpc_c::method {
+    //friend class ServerThread;
+//public:
+    //hubSayPrivateMethod() {
+        //this->_signature = "i:sss";
+        //this->_help = "This method add private message on hub. Params: huburl, nick, message";
+    //}
+
+    //void
+    //execute(xmlrpc_c::paramList const& paramList,
+            //xmlrpc_c::value *   const  retvalP) {
+
+        //string const shub(paramList.getString(0));
+        //string const snick(paramList.getString(1));
+        //string const smess(paramList.getString(2));
+        //paramList.verifyEnd(3);
+        ////ServerThread svT;
+        ////svT.sendPrivateMessage(shub, snick, smess);
+        //*retvalP = xmlrpc_c::value_string("Private message send to"+snick+" at " + shub);
+    //}
+//};
 
 class listHubsMethod : public xmlrpc_c::method {
     friend class ServerThread;
@@ -289,9 +314,12 @@ public:
         string const svirtname(paramList.getString(1));
         paramList.verifyEnd(2);
         try {
-            ShareManager::getInstance()->addDirectory(sdirectory,svirtname);
-            ShareManager::getInstance()->refresh(true);
-            *retvalP = xmlrpc_c::value_string("Adding dir in share sucess");
+            if (Util::fileExists(sdirectory.c_str())) {
+                ShareManager::getInstance()->addDirectory(sdirectory,svirtname);
+                ShareManager::getInstance()->refresh(true);
+                *retvalP = xmlrpc_c::value_string("Adding dir in share sucess");
+            } else
+                *retvalP = xmlrpc_c::value_string("Dir don't exist in filesystem");
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }
@@ -313,9 +341,18 @@ public:
         string const svirtname(paramList.getString(1));
         paramList.verifyEnd(2);
         try {
-            ShareManager::getInstance()->renameDirectory(sdirectory,svirtname);
-            ShareManager::getInstance()->refresh(true);
-            *retvalP = xmlrpc_c::value_string("Rename dir in share success");
+            StringPairList directories = ShareManager::getInstance()->getDirectories();
+            string tmp;
+            for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+                if (it->second.compare(sdirectory) == 0) {
+                    tmp = it->first;
+                    ShareManager::getInstance()->renameDirectory(sdirectory,svirtname);
+                    ShareManager::getInstance()->refresh(true);
+                    *retvalP = xmlrpc_c::value_string("Rename dir " + tmp + "->" + svirtname +" in share success");
+                    return;
+                }
+            }
+            *retvalP = xmlrpc_c::value_string("Rename dir failed");
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }
@@ -326,7 +363,7 @@ class delDirFromShareMethod : public xmlrpc_c::method {
 public:
     delDirFromShareMethod() {
         this->_signature = "i:ss";
-        this->_help = "This method delete dir from share. Рarams: directory";
+        this->_help = "This method delete dir from share. Рarams: virt name of directory";
     }
 
     void
@@ -335,9 +372,16 @@ public:
 
         string const sdirectory(paramList.getString(0));
         paramList.verifyEnd(1);
-        ShareManager::getInstance()->removeDirectory(sdirectory);
-        ShareManager::getInstance()->refresh(true);
-        *retvalP = xmlrpc_c::value_string("Delete dir from share success");
+        StringPairList directories = ShareManager::getInstance()->getDirectories();
+        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+            if (it->first.compare(sdirectory) == 0) {
+                ShareManager::getInstance()->removeDirectory(it->second);
+                ShareManager::getInstance()->refresh(true);
+                *retvalP = xmlrpc_c::value_string("Delete dir from share success");
+                return;
+            }
+        }
+        *retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name don't exist");
     }
 };
 
@@ -356,7 +400,7 @@ public:
         paramList.verifyEnd(1);
         string listshare;
         StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){
+        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
             listshare.append("\n");
             listshare.append(it->second+sseparator);
             listshare.append(it->first+sseparator);

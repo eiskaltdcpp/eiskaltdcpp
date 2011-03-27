@@ -93,6 +93,7 @@ option (WITH_EMOTICONS "Install emoticon packs" ON)
 option (WITH_EXAMPLES "Install examples sh and others scripts" ON)
 option (WITH_LUASCRIPTS "Install examples of lua scripts" OFF)
 option (WITH_SOUNDS "Install sound files" OFF)
+option (WITH_DEV_FILES "Install development files (headers for libeiskaltdcpp)" OFF)
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NO_UI_DAEMON "Daemon without any UI" OFF)
@@ -237,8 +238,23 @@ if (NOT LIBDIR)
 endif (NOT LIBDIR)
 message (STATUS "Library directory: ${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
 
+if (WITH_DEV_FILES)
+  if (NOT EISKALTDCPP_INCLUDE_DIR)
+    set (EISKALTDCPP_INCLUDE_DIR "${CMAKE_INSTALL_PREFIX}/include/eiskaltdcpp")
+  endif (NOT EISKALTDCPP_INCLUDE_DIR)
+  message (STATUS "Headers of libeiskaltdcpp will be installed to: ${EISKALTDCPP_INCLUDE_DIR}")
+endif (WITH_DEV_FILES)
+
 if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND USE_QT)
+  message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
+                 "\tYou can build it for your own risk.\n"
+                 "\tBut do not even try to write bug reports in this case.\n"
+                 "\tPlease use RelWithDebInfo instead it.")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo")
+  set (CMAKE_BUILD_TYPE "RelWithDebInfo")
+  message(STATUS "CMAKE_BUILD_TYPE = Gentoo is not now supported. RelWithDebInfo is used instead.")
 endif (NOT CMAKE_BUILD_TYPE)
 
 if (NOT SHARE_DIR)
@@ -311,13 +327,6 @@ if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H )
 endif (HAVE_IFADDRS_H)
 
-#if (ICONV_SECOND_ARGUMENT_IS_CONST)
-  #add_definitions (-DICONV_CONST=const)
-#endif (ICONV_SECOND_ARGUMENT_IS_CONST)
-
-#if (FORCE_XDG)
-  #add_definitions (-DFORCE_XDG)
-#endif (FORCE_XDG)
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
     if (MINGW)
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")
@@ -510,6 +519,12 @@ if (USE_QT OR USE_GTK)
         install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
         PATTERN ".svn" EXCLUDE)
     endif (WITH_EMOTICONS)
+
+    if (WITH_DEV_FILES)
+        FILE(GLOB DEV_FILES "${CMAKE_CURRENT_SOURCE_DIR}/dcpp/*.h")
+        install (FILES ${DEV_FILES} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/)
+    endif (WITH_DEV_FILES)
+
 list(APPEND iconsize 16 22 24 32 48 64 128)
 foreach (isize ${iconsize})
   install (FILES icons/icon_${isize}x${isize}.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/${isize}x${isize}/apps RENAME eiskaltdcpp.png)
