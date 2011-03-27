@@ -61,7 +61,7 @@ public:
     const string& getToken() const { return token; }
 
     // for DHT use only
-    void setSlots(size_t _slots) { slots = _slots; }
+    void setSlots(size_t _slots) { slots_dht = _slots; }
 
 private:
     friend class SearchManager;
@@ -70,7 +70,7 @@ private:
 
     SearchResult(const SearchResult& rhs);
 
-    size_t slots;
+    size_t slots_dht;
     string file;
     string hubName;
     string hubURL;

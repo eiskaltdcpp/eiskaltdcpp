@@ -211,6 +211,11 @@ namespace dht
 		// when sent to port that wasn't listening.
 		// See MSDN - Q263823
 		DWORD value = FALSE;
+
+#ifndef SIO_UDP_CONNRESET
+		#define SIO_UDP_CONNRESET _WSAIOW(IOC_VENDOR,12)
+#endif
+
 		ioctlsocket(socket->sock, SIO_UDP_CONNRESET, &value);
 #endif
 

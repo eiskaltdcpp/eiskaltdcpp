@@ -38,10 +38,10 @@ set (UPNP "extra")
 
 add_library (dcpp ${LINK} ${dcpp_srcs})
 
-if (USE_DHT)
-  add_definitions ( -DUSE_DHT )
+if (WITH_DHT)
+  add_definitions ( -DWITH_DHT )
   set (DHT_LIB "dht")
-endif (USE_DHT)
+endif (WITH_DHT)
 
 if (PERL_REGEX)
   set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp PROPERTY COMPILE_DEFINITIONS USE_PCRE )

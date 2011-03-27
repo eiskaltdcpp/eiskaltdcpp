@@ -130,7 +130,7 @@ void SearchManager::disconnect() throw() {
 int SearchManager::run() {
     boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
     int len;
-    string remoteAddr;
+    sockaddr_in remoteAddr = { 0 };
 
     while(!stop) {
         try {
@@ -142,9 +142,9 @@ int SearchManager::run() {
                 // @todo: remove this workaround for http://bugs.winehq.org/show_bug.cgi?id=22291
                 // if that's fixed by reverting to simpler while (read(...) > 0) {...} code.
                 while (socket->wait(400, Socket::WAIT_READ) != Socket::WAIT_READ);
-                if (stop || (len = socket->read((void*)&buf[0], BUFSIZE, (sockaddr_in&)remoteAddr)) <= 0)
+                if (stop || (len = socket->read(&buf[0], BUFSIZE, remoteAddr)) <= 0)
                     break;
-                onData(&buf[0], len, remoteAddr);
+                onData(&buf[0], len, inet_ntoa(remoteAddr.sin_addr));
             }
         } catch(const SocketException& e) {
             dcdebug("SearchManager::run Error: %s\n", e.getError().c_str());

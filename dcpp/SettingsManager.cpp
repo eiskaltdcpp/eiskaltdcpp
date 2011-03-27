@@ -27,8 +27,8 @@
 #include "version.h"
 #include "AdcHub.h"
 #include "CID.h"
-#ifdef DHT
-#include "../dht/DHT.h"
+#ifdef WITH_DHT
+#include "dht/DHT.h"
 #endif
 #include "SearchManager.h"
 #include "StringTokenizer.h"

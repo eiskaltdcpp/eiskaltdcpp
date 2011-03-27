@@ -27,6 +27,8 @@
 #include "LogManager.h"
 #include "UPnPManager.h"
 
+#include "dht/DHT.h"
+
 namespace dcpp {
 
 ConnectivityManager::ConnectivityManager() :
@@ -134,11 +136,18 @@ void ConnectivityManager::listen() {
    } catch(const Exception&) {
        throw Exception(_("UDP"));
    }
+
+   try {
+       dht::DHT::getInstance()->start();
+   } catch (const Exception&) {
+       throw Exception("DHT");
+   }
 }
 
 void ConnectivityManager::disconnect() {
         SearchManager::getInstance()->disconnect();
         ConnectionManager::getInstance()->disconnect();
+        dht::DHT::getInstance()->stop();
 }
 
 void ConnectivityManager::log(const string& message) {

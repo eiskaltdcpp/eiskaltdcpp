@@ -32,8 +32,8 @@
 
 #include "AdcHub.h"
 #include "NmdcHub.h"
-#ifdef DHT
-#include "../dht/DHT.h"
+#ifdef WITH_DHT
+#include "dht/DHT.h"
 #endif
 #include "FinishedManager.h"//sdc
 #include "QueueManager.h"
@@ -545,7 +545,7 @@ void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const CID& f
 }
 
 void ClientManager::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken) {
-#ifdef DHT
+#ifdef WITH_DHT
     if(BOOLSETTING(USE_DHT) && aFileType == SearchManager::TYPE_TTH)
         dht::DHT::getInstance()->findFile(aString);
 #endif
@@ -559,7 +559,7 @@ void ClientManager::search(int aSizeMode, int64_t aSize, int aFileType, const st
 }
 
 void ClientManager::search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) {
-#ifdef DHT
+#ifdef WITH_DHT
     if(BOOLSETTING(USE_DHT) && aFileType == SearchManager::TYPE_TTH)
         dht::DHT::getInstance()->findFile(aString, aToken);
 #endif

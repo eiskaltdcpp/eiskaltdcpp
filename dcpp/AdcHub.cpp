@@ -50,6 +50,7 @@ const string AdcHub::BAS0_SUPPORT("ADBAS0");
 const string AdcHub::TIGR_SUPPORT("ADTIGR");
 const string AdcHub::UCM0_SUPPORT("ADUCM0");
 const string AdcHub::BLO0_SUPPORT("ADBLO0");
+const string AdcHub::DHT0_SUPPORT("ADDHT0");
 
 const vector<StringList> AdcHub::searchExts;
 
@@ -1073,6 +1074,10 @@ void AdcHub::on(Connected c) throw() {
     if(BOOLSETTING(SEND_BLOOM)) {
         cmd.addParam(BLO0_SUPPORT);
     }
+#ifdef WITH_DHT
+    if (BOOLSETTING(USE_DHT))
+        cmd.addParam(DHT0_SUPPORT);
+#endif
     send(cmd);
 }
 

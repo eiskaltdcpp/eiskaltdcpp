@@ -40,7 +40,7 @@
 #include "MerkleCheckOutputStream.h"
 #include "SFVReader.h"
 #include "FilteredFile.h"
-#ifdef DHT
+#ifdef WITH_DHT
 #include "dht/IndexManager.h"
 #endif
 #include <climits>
@@ -646,7 +646,7 @@ void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) throw() {
      // DHT PFS announce
     if(tthPub)
     {
-    #ifdef DHT
+    #ifdef WITH_DHT
             dht::IndexManager::getInstance()->publishPartialFile(*tthPub);
     #endif
             delete tthPub;
@@ -2109,7 +2109,7 @@ TTHValue* QueueManager::FileQueue::findPFSPubTTH()
     }
     if(cand)
     {
-        #ifdef DHT
+        #ifdef WITH_DHT
         cand->setNextPublishingTime(now + PFS_REPUBLISH_TIME);          // one hour
         #else
         cand->setNextPublishingTime(now + 1*60*60*1000);          // one hour
