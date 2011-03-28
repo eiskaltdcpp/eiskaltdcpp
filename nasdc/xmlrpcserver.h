@@ -468,4 +468,25 @@ public:
     }
 };
 
+class getChatPubMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    getChatPubMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method return last messahge in chat on target hub. Рarams: huburl, separator";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const shub(paramList.getString(0));
+        string const sseparator(paramList.getString(1));
+        paramList.verifyEnd(2);
+        ServerThread svT; string retchat;
+        svT.getChatPubFromClient(retchat, shub, sseparator);
+        *retvalP = xmlrpc_c::value_string(retchat);
+    }
+};
+
 #endif
