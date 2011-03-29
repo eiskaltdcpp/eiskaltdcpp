@@ -788,10 +788,6 @@ HubFrame::~HubFrame(){
     delete proxy;
 
     delete updater;
-
-#if HAVE_MALLOC_TRIM
-    malloc_trim(0);
-#endif
 }
 
 bool HubFrame::eventFilter(QObject *obj, QEvent *e){
