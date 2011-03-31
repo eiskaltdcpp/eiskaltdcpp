@@ -611,7 +611,7 @@ string Socket::resolve(const string& aDns) {
         return aDns;
     }
 #else
-        // POSIX doesn't guarantee the gethostbyname to be thread safe. And it may (will) return a pointer to static data.
+    // POSIX doesn't guarantee the gethostbyname to be thread safe. And it may (will) return a pointer to static data.
    string address = Util::emptyString;
    addrinfo hints = { 0 };
    addrinfo *result;

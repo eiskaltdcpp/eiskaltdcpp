@@ -90,7 +90,7 @@ public:
     }
 
 private:
-    sem_t semaphore;;
+    sem_t semaphore;
 #endif
     Semaphore(const Semaphore&);
     Semaphore& operator=(const Semaphore&);

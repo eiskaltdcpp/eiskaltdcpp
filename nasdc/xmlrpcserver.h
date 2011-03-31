@@ -253,7 +253,7 @@ public:
             svT.sendMessage(shub,smess);
             *retvalP = xmlrpc_c::value_string("Message send on hub: " + shub);
         } else
-            *retvalP = xmlrpc_c::value_string(shub + " don't connected");
+            *retvalP = xmlrpc_c::value_string(shub + " not connected");
     }
 };
 
@@ -322,7 +322,7 @@ public:
                 ShareManager::getInstance()->refresh(true);
                 *retvalP = xmlrpc_c::value_string("Adding dir in share sucess");
             } else
-                *retvalP = xmlrpc_c::value_string("Dir don't exist in filesystem");
+                *retvalP = xmlrpc_c::value_string("Dir not exist in filesystem");
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }
@@ -384,7 +384,7 @@ public:
                 return;
             }
         }
-        *retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name don't exist");
+        *retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name not exist");
     }
 };
 
