@@ -166,7 +166,6 @@ void Util::initialize(PathsMap pathOverrides) {
     const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
     string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
     paths[PATH_USER_CONFIG] = xdg_config_home + "/eiskaltdc++/";
-    printf("$XDG_CONFIG_HOME: %s\n", paths[PATH_USER_CONFIG].c_str());
 #elif defined __HAIKU__
     paths[PATH_USER_CONFIG] = home + "/config/settings/eiskaltdc++/";
 #else
@@ -194,7 +193,6 @@ void Util::initialize(PathsMap pathOverrides) {
     const char *xdg_config_down_ = getenv("XDG_DOWNLOAD_DIR");
     string xdg_config_down = xdg_config_down_? (Text::toUtf8(xdg_config_down_)+"/") : (home+"/Downloads/");
     paths[PATH_DOWNLOADS] = xdg_config_down;
-    printf("$XDG_DOWNLOAD_DIR: %s\n", paths[PATH_DOWNLOADS].c_str());
 #else
     paths[PATH_DOWNLOADS] = home + "/Downloads/";
 #endif

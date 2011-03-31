@@ -43,6 +43,9 @@ public:
     void sendMessage(const string& hubUrl, const string& message);
     void listConnectedClients(string& listhubs,const string& separator);
     bool findHubInConnectedClients(const string& hub);
+    bool sendPrivateMessage(const string &shub,const string& scid,const string& smessage);
+    string getFileList_client(const string& hub, const string& cid, bool match);
+    void getChatPubFromClient(string& chat, const string& hub, const string& separator);
 
 private:
 
@@ -55,8 +58,11 @@ private:
     int server;
     unsigned int iSuspendTime;
     bool bTerminated;
-    typedef map<string, Client*> ClientMap;
+    typedef tr1::unordered_map <Client*, deque <string> > ChatMap;
+    typedef ChatMap::const_iterator ChatIter;
+    typedef tr1::unordered_map <string, Client*> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
+    ChatMap chatsPubMap;
     static ClientMap clientsMap;
     //socket_t webSock;
 
@@ -88,6 +94,7 @@ private:
     std::string address;
     std::string encoding;
     CriticalSection shutcs;
+    static const int maxLines = 1000;
 };
 
 #endif /* SERVERTHREAD_H_ */

@@ -781,10 +781,14 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
 #endif // !_WIN32
 int HashManager::Hasher::run() {
     setThreadPriority(Thread::IDLE);
-
+    while (Util::getUpTime() < 60) {
+        Thread::sleep(100);
+    }
+    if (Util::getUpTime() >= 60 && SETTING(AUTO_REFRESH_TIME) == 0) {
+        pause();
+    }
     uint8_t* buf = NULL;
     bool virtualBuf = true;
-
     string fname;
     bool last = false;
     for(;;) {

@@ -91,6 +91,7 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const delDirFromShareMethodP(new delDirFromShareMethod);
     xmlrpc_c::methodPtr const listShareMethodP(new listShareMethod);
     xmlrpc_c::methodPtr const refreshShareMethodP(new refreshShareMethod);
+    xmlrpc_c::methodPtr const getChatPubMethodP(new getChatPubMethod);
     xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
@@ -103,6 +104,7 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("share.del", delDirFromShareMethodP);
     xmlrpcRegistry.addMethod("share.list", listShareMethodP);
     xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
+    xmlrpcRegistry.addMethod("hub.retchat", getChatPubMethodP);
     //xmlrpc_c::xmlrpc_server_abyss_set_handlers()
     AbyssServer.run();
 #endif
@@ -121,7 +123,7 @@ bool ServerThread::disconnect_all(){
         }
         Thread::sleep(100);
     }
-    
+
     return true;
 }
 //---------------------------------------------------------------------------
@@ -214,6 +216,10 @@ void ServerThread::on(Connecting, Client* cur) throw() {
     if(i == clientsMap.end()) {
         clientsMap[cur->getHubUrl()] = cur;
     }
+    //ChatIter it = chatsPubMap.find(cur);
+    //if (it == chatsPubMap.end()) {
+        //chatsPubMap[cur].push_back(" ");
+    //}
     cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
 
@@ -256,6 +262,7 @@ void ServerThread::on(HubUpdated, Client*) throw() {
 
 void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& message) throw()
 {
+    Lock l(shutcs);
     StringMap params;
     string msg = message.format();
     bool privatemsg = message.to && message.replyTo;
@@ -265,7 +272,6 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
             const string& hint = cl->getHubUrl();
             const CID& cid = message.replyTo->getUser()->getCID();
             bool priv = FavoriteManager::getInstance()->isPrivate(hint);
-
             params["message"] = Text::fromUtf8(msg);
             params["hubNI"] = Util::toString(ClientManager::getInstance()->getHubNames(cid, hint, priv));
             params["hubURL"] = Util::toString(ClientManager::getInstance()->getHubs(cid, hint, priv));
@@ -275,6 +281,12 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
             LOG(LogManager::PM, params);
         }
     } else {
+        ChatIter it = chatsPubMap.find(cl);
+        if (it != chatsPubMap.end() && it->first != NULL) {
+            if (it->second.size() >= maxLines)
+                chatsPubMap[cl].pop_front();
+            chatsPubMap[cl].push_back("[" + Util::getTimeString() + "] " + msg);
+        }
         if(BOOLSETTING(LOG_MAIN_CHAT)) {
             params["message"] = Text::fromUtf8(msg);
             cl->getHubIdentity().getParams(params, "hub", false);
@@ -373,4 +385,74 @@ bool ServerThread::findHubInConnectedClients(const string& hub) {
     if(i != clientsMap.end())
         return true;
     return false;
+}
+
+bool ServerThread::sendPrivateMessage(const string& hub,const string& cid,const string& message) {
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end() && clientsMap[i->first]!=NULL) {
+        Client* client = i->second;
+        if (client && !message.empty()) {
+            bool thirdPerson = !message.compare(0,3,"/me");
+            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            if (user && user->isOnline())
+            {
+                ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+
+string ServerThread::getFileList_client(const string& hub, const string& cid, bool match) {
+    string message;
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end() && clientsMap[i->first]!=NULL) {
+        if (!cid.empty()) {
+            try {
+                UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+                if (user) {
+                    const HintedUser hintedUser(user, i->first);//NOTE: core 0.762
+                    if (user == ClientManager::getInstance()->getMe()) {
+                        // Don't download file list, open locally instead
+                        //WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
+                    }
+                    else if (match) {
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);//NOTE: core 0.762
+                    }
+                    else {
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
+                    }
+                }
+                else {
+                    message = _("User not found");
+                }
+            }
+            catch (const Exception &e) {
+                message = e.getError();
+                LogManager::getInstance()->message(message);
+            }
+        }
+    }
+    if (!message.empty()) {
+        return message;
+    }
+}
+
+void ServerThread::getChatPubFromClient(string& chat, const string& hub, const string& separator) {
+    Lock l(shutcs);
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end() && clientsMap[i->first]!=NULL) {
+        ChatIter it = chatsPubMap.find(i->second);
+        if (it != chatsPubMap.end()) {
+            while (it->second.size() > 0) {
+                chat += it->second.front();
+                chat.append(separator);
+                chatsPubMap[it->first].pop_front();
+            }
+        }
+    }
 }
