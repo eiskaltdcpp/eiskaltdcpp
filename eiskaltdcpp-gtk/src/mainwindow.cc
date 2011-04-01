@@ -318,7 +318,8 @@ MainWindow::MainWindow():
 
     if (WGETI("main-window-maximized"))
         gtk_window_maximize(window);
-
+    if (WGETI("minimize-tray"))
+        gtk_widget_hide(GTK_WIDGET(window));
 #ifdef LUA_SCRIPT
     ScriptManager::getInstance()->load();
     if (BOOLSETTING(USE_LUA)){
