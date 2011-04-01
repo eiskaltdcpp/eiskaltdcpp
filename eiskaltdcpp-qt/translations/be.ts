@@ -719,7 +719,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FinishedTransfers.h" line="464"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Так</translation>
     </message>
 </context>
 <context>
@@ -763,7 +763,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
         <location filename="../src/FinishedTransfersModel.cpp" line="47"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="54"/>
         <source>Full</source>
-        <translation type="unfinished"></translation>
+        <translation>Скончылі</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
@@ -790,13 +790,13 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
         <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Так</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
         <source>No</source>
-        <translation type="unfinished">Няма</translation>
+        <translation>Не</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="54"/>
@@ -1084,13 +1084,14 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1589"/>
         <location filename="../src/HubFrame.cpp" line="1591"/>
         <source>Invalid command syntax.</source>
-        <translation type="unfinished"></translation>
+        <translation>Хібны сынтакс загаду.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1601"/>
         <source>List of keywords:
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Сьпіс ключавых словаў:
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1647"/>
@@ -1174,19 +1175,22 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1750"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword add &lt;ключавое_слова&gt; — дадаць вызначае карыстальнікам ключавое слова
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1751"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword purge &lt;ключавое_слова&gt; — выкрасьліць вызначанае карыстальнікам ключавое слова
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1752"/>
         <source>/kword list - list all keywords
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword list — пералічыць усе ключавыя словы
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1753"/>
@@ -1485,7 +1489,7 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilter.cpp" line="466"/>
         <source>Unable to export settings.</source>
-        <translation>Немагчыма выняць наладжваньні.</translation>
+        <translation>Немагчыма выняць налады.</translation>
     </message>
     <message>
         <location filename="../src/IPFilter.cpp" line="482"/>
@@ -2053,22 +2057,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>Enter user nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Упішыце новую мянушку</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Мянушка</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="312"/>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Карыстальнік</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="317"/>
         <source>Would you like to change other settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ці хочаце вы зьмяніць іншыя налады?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="544"/>
@@ -2225,7 +2229,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1944"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation>Не магу адкрыць порт %1. Каб належным чынам працаваў пошук і перадаваліся файлы, вы мусіце зьмяніць наладжваньні, ці вымкнуць праграму, якая можа выкарыстоўваць гэты порт.</translation>
+        <translation>Не магу адкрыць порт %1. Каб належным чынам працаваў пошук і перадаваліся файлы, вы мусіце зьмяніць налады, ці вымкнуць праграму, якая можа выкарыстоўваць гэты порт.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1963"/>
@@ -2854,7 +2858,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="129"/>
         <source>Blacklist...</source>
-        <translation type="unfinished"></translation>
+        <translation>Чорны сьпіс…</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="132"/>
@@ -2864,7 +2868,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="135"/>
         <source>Add to Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation>Дадаць у чорны сьпіс</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="241"/>
@@ -3142,7 +3146,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="134"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл ужо існуе: %1</translation>
     </message>
 </context>
 <context>
@@ -4724,12 +4728,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="43"/>
         <source>Show only completely finished transfers</source>
-        <translation type="unfinished"></translation>
+        <translation>Паказваць толькі тое, што ўжо скончылі перадаваць</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="46"/>
         <source>Full only</source>
-        <translation type="unfinished"></translation>
+        <translation>Толькі скончанае</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="66"/>
@@ -5119,7 +5123,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettings.ui" line="14"/>
         <source>Settings</source>
-        <translation>Наладжваньні</translation>
+        <translation>Налады</translation>
     </message>
 </context>
 <context>
@@ -5208,7 +5212,7 @@ However, if you have a software firewall installed, you may need further configu
 сетказаслону.
 Калі ваш асьветар ня месьціцца за сетказаслонаю, усё, што вы мусіце зрабіць —
 гэта абраць гэтую можнасьць: звычайна вам не спатрэбіцца зьмяняць нешта яшчэ
-ў наладжваньнях злучэньня.
+ў наладах злучэньня.
 Але калі вы маеце ўсталяванаю праграмную сетказаслону, вам можа спатрэбіцца
 дадаткова наладзіць сетказаслону, каб дазволіць EiskaltDC++ мець доступ у словасьвет.</translation>
     </message>
@@ -5233,7 +5237,7 @@ Use this mode only if the previous ones are not options for you.</source>
 і вызначце самастойна порты TCP, UDP і TLS, якія будуць перасылацца.
 А каб мець магчымасьць без перашкод сьцягваць файлы, вы мусіце таксама
 вызначыць вонкавую адрэсу IP вашага маршрутавальніку з дапамогаю
-наладжваньняў, якія вы можаце пабачыць праваруч.
+наладаў, якія вы можаце пабачыць праваруч.
 
 Карыстайцеся гэтым спосабам толькі калі папярэднія вам не пасуюць.</translation>
     </message>
@@ -5273,7 +5277,7 @@ and obtain your external IP address as well.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="231"/>
         <source>Bind Address:</source>
-        <translation type="unfinished"></translation>
+        <translation>Прывязаць адрэсу:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="271"/>
@@ -5550,7 +5554,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="284"/>
         <source>Auto-priority settings</source>
-        <translation>Наладжваньні самарушнага пяршынства</translation>
+        <translation>Налады самарушнага пяршынства</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="343"/>
@@ -5575,7 +5579,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="420"/>
         <source>Auto-drop settings</source>
-        <translation>Наладжваньні самарушна адкідаць крыніцы</translation>
+        <translation>Налады самарушна адкідаць крыніцы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="440"/>
@@ -6147,7 +6151,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="207"/>
         <source>Don&apos;t show icons in menus (need restart)</source>
-        <translation type="unfinished"></translation>
+        <translation>Не паказваць значкі ў мэню (трэба запусьціць нанова)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="315"/>
@@ -6198,7 +6202,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="565"/>
         <location filename="../ui/UISettingsGUI.ui" line="870"/>
         <source>Download</source>
-        <translation>Сьцягнуць спасылку</translation>
+        <translation>Сьцягванае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="583"/>
@@ -6261,17 +6265,17 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="854"/>
         <source>Transfer colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Колеры перадаванага</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="877"/>
         <source>Upload</source>
-        <translation type="unfinished">Зацягваць</translation>
+        <translation>Зацягванае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="904"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Узнавіць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="916"/>
@@ -6369,7 +6373,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="218"/>
         <source>Finished Downloads</source>
-        <translation type="unfinished">Сьцягнутае</translation>
+        <translation>Сьцягнутае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
@@ -6488,7 +6492,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="253"/>
         <source>Play sound on active PM window</source>
-        <translation type="unfinished"></translation>
+        <translation>Гучэць, калі вакно паведамленьняў — дзейнае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="295"/>
@@ -6612,7 +6616,7 @@ Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
         <translation>Гэты выпадальны сьпіс зьмяшчае шэраг агульнапрынятых хуткасьцяў зацягваць
 (у МіБ/с). Калі ласка, абярыце адну, што болей адпавядае вашае хуткасьці.
-Ня трэба выкарыстоўваць тут значэньне хуткасьці сьцягваць: гэтыя наладжваньні
+Ня трэба выкарыстоўваць тут значэньне хуткасьці сьцягваць: гэтыя налады
 паказваюць іншым карыстальнікам, наколькі хуткаю крыніцаю вы можаце быць.</translation>
     </message>
     <message>
@@ -6989,7 +6993,7 @@ the granted slot will not be closed.</source>
         <location filename="../ui/UIUserCommands.ui" line="49"/>
         <source>Raw</source>
         <translatorcomment>!!!удакладніць пераклад</translatorcomment>
-        <translation>Сыры</translation>
+        <translation>Наўпроставы</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="56"/>
