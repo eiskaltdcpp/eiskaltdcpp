@@ -216,9 +216,9 @@ void ServerThread::on(Connecting, Client* cur) throw() {
     if(i == clientsMap.end()) {
         clientsMap[cur->getHubUrl()] = cur;
     }
-    ChatIter it = chatsPubMap.find(cur);
+    ChatIter it = chatsPubMap.find(cur->getHubUrl());
     if (it == chatsPubMap.end()) {
-        chatsPubMap[cur].push_back(" ");
+        chatsPubMap[cur->getHubUrl()].push_back(" ");
     }
     cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
