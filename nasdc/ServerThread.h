@@ -58,7 +58,7 @@ private:
     int server;
     unsigned int iSuspendTime;
     bool bTerminated;
-    typedef tr1::unordered_map <Client*, deque <string> > ChatMap;
+    typedef tr1::unordered_map <string, deque <string> > ChatMap;
     typedef ChatMap::const_iterator ChatIter;
     typedef tr1::unordered_map <string, Client*> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
