@@ -15,6 +15,7 @@ libssl (>= 0.9.8)
 liblua5.1 (optional, see cmake keys)
 libpcrecpp0 (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
+libidn (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -72,6 +73,7 @@ libboost-dev (>=1.38.0) (headers only) (optional, see cmake keys)
 liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
+libidn (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -118,6 +120,8 @@ Keys for cmake
     lua scripts
 -DPERL_REGEX=ON/OFF (default: OFF)
     use pcre lib for regex in perl style (now it uses only in ADL Search)
+-USE_LIBIDN=ON/OFF (default: ON)
+    Use libidn for rfc3490
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -239,4 +243,3 @@ Haiku-OS specific notes
 *******************************************************************************
 To configure program use command like this:
 cmake -DLOCAL_BOOST=ON -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp -DCMAKE_CXX_FLAGS="-DTIMER_OLD_BOOST" -DCMAKE_SHARE_DIR=/boot/apps/Eiskaltdcpp -DCMAKE_CLIENT_DATA_DIR=/boot/apps/Eiskaltdcpp ..
-

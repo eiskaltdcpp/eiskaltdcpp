@@ -48,6 +48,10 @@
 
 #include "FastAlloc.h"
 
+#ifdef USE_LIBIDN
+#include <idna.h>
+#endif
+
 namespace dcpp {
 
 #ifndef _DEBUG
@@ -539,6 +543,17 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
         path = url.substr(fileStart, fileEnd - fileStart);
         query = url.substr(queryStart, queryEnd - queryStart);
         fragment = url.substr(fragmentStart, fragmentStart);
+
+#ifdef USE_LIBIDN
+        //printf("%s\n",host.c_str());
+        char *p;
+        if (idna_to_ascii_8z(host.c_str(), &p, 0) == IDNA_SUCCESS) {
+            host = string(p);
+        }
+        free(p);
+        //printf ("ACE label (length %d): '%s'\n", strlen (p), p);
+        //printf ("%s\n", host.c_str());
+#endif
 }
 
 map<string, string> Util::decodeQuery(const string& query) {

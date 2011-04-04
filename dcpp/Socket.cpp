@@ -618,7 +618,7 @@ string Socket::resolve(const string& aDns) {
     hints.ai_family = AF_UNSPEC;    /* Allow IPv4 or IPv6 */
     hints.ai_socktype = 0;
     hints.ai_protocol = 0;          /* Any protocol */
-    hints.ai_flags = AI_IDN | AI_CANONIDN;// | AI_IDN_ALLOW_UNASSIGNED;
+    //hints.ai_flags = AI_IDN | AI_CANONIDN;// | AI_IDN_ALLOW_UNASSIGNED;
 
     if (getaddrinfo(aDns.c_str(), NULL, &hints, &result) == 0) {
         if (result->ai_addr != NULL)
