@@ -808,6 +808,7 @@ int HashManager::Hasher::run() {
             }
         }
         running = true;
+        instantPause();
 
         if(!fname.empty()) {
             int64_t size = File::getSize(fname);
