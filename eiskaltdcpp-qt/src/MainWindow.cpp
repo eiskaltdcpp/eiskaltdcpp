@@ -93,9 +93,6 @@ MainWindow::MainWindow (QWidget *parent):
 {
     exitBegin = false;
 
-    arenaMap.clear();
-    arenaWidgets.clear();
-
     if (WBGET(WB_ANTISPAM_ENABLED)){
         AntiSpam::newInstance();
 

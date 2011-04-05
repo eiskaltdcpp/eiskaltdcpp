@@ -28,6 +28,7 @@ using namespace std;
 #include "VersionGlobal.h"
 #include "IPFilter.h"
 #include "EmoticonFactory.h"
+#include "FinishedTransfers.h"
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
@@ -157,6 +158,9 @@ int main(int argc, char *argv[])
 #ifdef USE_JS
     ScriptEngine::newInstance();
 #endif
+
+    FinishedUploads::newInstance();
+    FinishedDownloads::newInstance();
 
     ret = app.exec();
 
