@@ -58,11 +58,15 @@ private:
     int server;
     unsigned int iSuspendTime;
     bool bTerminated;
-    typedef tr1::unordered_map <string, deque <string> > ChatMap;
-    typedef ChatMap::const_iterator ChatIter;
-    typedef tr1::unordered_map <string, Client*> ClientMap;
+    typedef struct {
+            deque<string> curchat;
+            Client* curclient;
+    } CurHub;
+    //typedef tr1::unordered_map <string, deque <string> > ChatMap;
+    //typedef ChatMap::const_iterator ChatIter;
+    typedef tr1::unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
-    ChatMap chatsPubMap;
+    //ChatMap chatsPubMap;
     static ClientMap clientsMap;
     //socket_t webSock;
 
