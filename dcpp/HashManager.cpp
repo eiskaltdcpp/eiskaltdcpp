@@ -951,7 +951,7 @@ void HashManager::on(TimerManagerListener::Second, uint64_t tick) throw() {
         pauseHashing();
     }
     static bool firstcycle = true;
-    if (Util::getUpTime() >= 60 && SETTING(AUTO_REFRESH_TIME) == 0 && isHashingPaused() && firstcycle) {
+    if (Util::getUpTime() >= 60 && SETTING(AUTO_REFRESH_TIME) > 0 && isHashingPaused() && firstcycle) {
         resumeHashing();
         firstcycle = false;
     }
