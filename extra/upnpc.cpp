@@ -40,7 +40,7 @@ using namespace dcpp;
 
 bool UPnPc::init()
 {
-    UPNPDev *devices = upnpDiscover(5000, 0, 0, 0);
+    UPNPDev *devices = upnpDiscover(5000, SettingsManager::getInstance()->isDefault(SettingsManager::BIND_ADDRESS) ? 0 : SETTING(BIND_ADDRESS).c_str(), 0, 0);
     if (!devices)
         return false;
 

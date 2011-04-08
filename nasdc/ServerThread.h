@@ -50,7 +50,7 @@ public:
 private:
 
     virtual int run();
-    void startSocket(bool onstart, int oldmode);
+    void startSocket(bool changed);
     void autoConnect();
     void showPortsError(const std::string& port);
     bool disconnect_all();

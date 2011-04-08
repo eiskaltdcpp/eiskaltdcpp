@@ -27,39 +27,46 @@ namespace dcpp {
 
 class ConnectivityManagerListener {
 public:
-   virtual ~ConnectivityManagerListener() { }
-   template<int I> struct X { enum { TYPE = I }; };
+    virtual ~ConnectivityManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-   typedef X<0> Message;
-   typedef X<1> Finished;
+    typedef X<0> Message;
+    typedef X<1> Finished;
 
-   virtual void on(Message, const string&) throw() { }
-   virtual void on(Finished) throw() { }
+    virtual void on(Message, const string&) throw() { }
+    virtual void on(Finished) throw() { }
 };
 
 class ConnectivityManager : public Singleton<ConnectivityManager>, public Speaker<ConnectivityManagerListener>
 {
 public:
-   void detectConnection();
-   void setup(bool settingsChanged, int lastConnectionMode);
-        bool isRunning() const { return running; }
+    void detectConnection();
+    void setup(bool settingsChanged);
+    bool isRunning() const { return running; }
+    void updateLast();
 
 private:
-   friend class Singleton<ConnectivityManager>;
-        friend class UPnPManager;
+    friend class Singleton<ConnectivityManager>;
+    friend class UPnPManager;
 
-   ConnectivityManager();
-   virtual ~ConnectivityManager() throw() { }
+    ConnectivityManager();
+    virtual ~ConnectivityManager() throw() { }
 
-        void mappingFinished(bool success);
-        void log(const string& msg);
+    void mappingFinished(bool success);
+    void log(const string& msg);
 
-   void startSocket();
-   void listen();
-   void disconnect();
+    void startSocket();
+    void listen();
+    void disconnect();
 
-   bool autoDetected;
-        bool running;
+    bool autoDetected;
+    bool running;
+
+    unsigned short lastTcp;
+    unsigned short lastUdp;
+    unsigned short lastTls;
+    int lastConn;
+    string lastBind;
 };
 
 } // namespace dcpp

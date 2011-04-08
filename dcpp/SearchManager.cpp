@@ -86,7 +86,7 @@ void SearchManager::search(const string& aName, int64_t aSize, TypeModes aTypeMo
 
 void SearchManager::search(StringList& who, const string& aName, int64_t aSize /* = 0 */, TypeModes aTypeMode /* = TYPE_ANY */, SizeModes aSizeMode /* = SIZE_ATLEAST */, const string& aToken /* = Util::emptyString */, const StringList& aExtList) {
     if(okToSearch()) {
-                ClientManager::getInstance()->search(who, aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aExtList);
+        ClientManager::getInstance()->search(who, aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aExtList);
         lastSearch = GET_TICK();
     }
 }
@@ -99,12 +99,8 @@ void SearchManager::listen() throw(SocketException) {
         socket.reset(new Socket);
         socket->create(Socket::TYPE_UDP);
         socket->setBlocking(true);
-                socket->setSocketOpt(SO_REUSEADDR, 1);
-       if (BOOLSETTING(AUTO_DETECT_CONNECTION)) {
-           port = socket->bind(0, Util::emptyString);
-       } else {
-           port = socket->bind(static_cast<uint16_t>(SETTING(UDP_PORT)), SETTING(BIND_ADDRESS));
-       }
+        socket->setSocketOpt(SO_REUSEADDR, 1);
+        port = socket->bind(static_cast<uint16_t>(SETTING(UDP_PORT)), SETTING(BIND_ADDRESS));
         start();
     } catch(...) {
         socket.reset();
