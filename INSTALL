@@ -120,7 +120,7 @@ Keys for cmake
     lua scripts
 -DPERL_REGEX=ON/OFF (default: OFF)
     use pcre lib for regex in perl style (now it uses only in ADL Search)
--USE_LIBIDN=ON/OFF (default: ON)
+-USE_IDNA=ON/OFF (default: ON)
     Use libidn for rfc3490
 ----------------
 :eiskaltdcpp-qt:
