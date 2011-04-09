@@ -20,6 +20,7 @@
 #include "DCPlusPlus.h"
 
 #include "HashManager.h"
+#include "ShareManager.h"
 #include "SimpleXML.h"
 #include "LogManager.h"
 #include "File.h"
@@ -948,18 +949,29 @@ bool HashManager::isHashingPaused() const {
 
 void HashManager::on(TimerManagerListener::Second, uint64_t tick) throw() {
     //fprintf(stdout,"%lld\n", tick); fflush(stdout);
-    int delay = SETTING(HASHING_START_DELAY);
-
-    SettingsManager *SM = SettingsManager::getInstance();
-    if (delay > 1800){
-        delay = 1800;
-        SM->set(SettingsManager::HASHING_START_DELAY, delay);
-    }
-
     static bool firstcycle = true;
-    if (delay >= 0 && isHashingPaused() && Util::getUpTime() >= delay && firstcycle){
-        resumeHashing();
-        firstcycle = false;
+    if (firstcycle){
+        int delay = SETTING(HASHING_START_DELAY);
+        SettingsManager *SM = SettingsManager::getInstance();
+        if (delay > 1800){
+            delay = 1800;
+            SM->set(SettingsManager::HASHING_START_DELAY, delay);
+        }
+
+        string  curFile;
+        int64_t bytesLeft;
+        size_t  filesLeft = -1;
+        if (!ShareManager::getInstance()->isRefreshing()){
+            getStats(curFile, bytesLeft, filesLeft);
+            //fprintf(stdout,"filesLeft %d\n", filesLeft); fflush(stdout);
+
+            // if delay is more than -1 hashing process must be resumed
+            // if there is nothing to hashing pause is not required
+            if (isHashingPaused() && ((delay >= 0 && Util::getUpTime() >= delay) || filesLeft == 0)){
+                resumeHashing();
+                firstcycle = false;
+            }
+        }
     }
 }
 
