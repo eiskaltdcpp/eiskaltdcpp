@@ -880,7 +880,9 @@ void MainWindow::initActions(){
                 << chatDisable
                 << separator5
                 << toolsADLS
+                << toolsSpy
                 << toolsAntiSpam
+                << toolsIPFilter
                 << separator6
                 << fileQuit;
     }
