@@ -48,7 +48,7 @@
 
 #include "FastAlloc.h"
 
-#ifdef USE_LIBIDN
+#ifdef USE_IDNA
 #include <idna.h>
 #endif
 
@@ -544,7 +544,7 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
         query = url.substr(queryStart, queryEnd - queryStart);
         fragment = url.substr(fragmentStart, fragmentStart);
 
-#ifdef USE_LIBIDN
+#ifdef USE_IDNA
         //printf("%s\n",host.c_str());
         char *p;
         if (idna_to_ascii_8z(host.c_str(), &p, 0) == IDNA_SUCCESS) {

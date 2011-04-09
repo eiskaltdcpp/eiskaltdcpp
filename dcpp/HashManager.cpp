@@ -947,13 +947,13 @@ bool HashManager::isHashingPaused() const {
 
 void HashManager::on(TimerManagerListener::Second, uint64_t tick) throw() {
     //fprintf(stdout,"%lld\n", tick); fflush(stdout);
-    if (Util::getUpTime() < 60 && !isHashingPaused()) {
-        pauseHashing();
-    }
     static bool firstcycle = true;
-    if (Util::getUpTime() >= 60 && SETTING(AUTO_REFRESH_TIME) > 0 && isHashingPaused() && firstcycle) {
-        resumeHashing();
+    if (Util::getUpTime() < 60 && !isHashingPaused() && firstcycle) {
+        pauseHashing();
         firstcycle = false;
+    }
+    if (Util::getUpTime() >= 60 && SETTING(AUTO_REFRESH_TIME) > 0 && isHashingPaused()) {
+        resumeHashing();
     }
 }
 

@@ -68,7 +68,7 @@ int ServerThread::run()
         File::ensureDirectory(SETTING(LOG_DIRECTORY));
     } catch (const FileException) {	}
 
-    startSocket(true, 0);
+    startSocket(false);
     autoConnect();
 #ifdef LUA_SCRIPT
     ScriptManager::getInstance()->load();
@@ -322,25 +322,17 @@ void ServerThread::on(SearchFlood, Client*, const string& line) throw() {
 //void ServerThread::on(WebServerListener::ShutdownPC, int action) throw() {
 
 //}
-void ServerThread::startSocket(bool onstart, int oldmode){
-    if (onstart) {
-        try {
-            ConnectivityManager::getInstance()->setup(true, SettingsManager::INCOMING_DIRECT);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
-    } else {
-        bool b = false;
-        if (oldmode != SETTING(INCOMING_CONNECTIONS))
-            b = true;
-        try {
-            ConnectivityManager::getInstance()->setup(b, oldmode);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
+void ServerThread::startSocket(bool changed){
+    if (changed)
+        ConnectivityManager::getInstance()->updateLast();
+    try {
+        ConnectivityManager::getInstance()->setup(true);
+    } catch (const Exception& e) {
+        showPortsError(e.getError());
     }
     ClientManager::getInstance()->infoUpdated();
 }
+
 void ServerThread::showPortsError(const string& port) {
     fprintf(stdout,
             "\n\t\tConnectivity Manager: Warning\n\n Unable to open %s port. "

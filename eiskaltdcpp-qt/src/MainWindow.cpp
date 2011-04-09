@@ -117,7 +117,7 @@ MainWindow::MainWindow (QWidget *parent):
     TimerManager::getInstance()->addListener(this);
     QueueManager::getInstance()->addListener(this);
 
-    startSocket(true, 0);
+    startSocket(false);
 
     setStatusMessage(tr("Ready"));
 
@@ -1926,24 +1926,13 @@ void MainWindow::toggleMainMenu(bool showMenu){
     WBSET(WB_MAIN_MENU_VISIBLE, showMenu);
 }
 
-void MainWindow::startSocket(bool onstart, int oldmode){
-    if (onstart) {
-        try {
-            ConnectivityManager::getInstance()->setup(true, SettingsManager::INCOMING_DIRECT);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
-    //qDebug() << "start";
-    } else {
-        bool b = false;
-        if (oldmode != SETTING(INCOMING_CONNECTIONS))
-            b = true;
-        try {
-            ConnectivityManager::getInstance()->setup(b, oldmode);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
-    //qDebug() << "running";
+void MainWindow::startSocket(bool changed){
+    if (changed)
+        ConnectivityManager::getInstance()->updateLast();
+    try {
+        ConnectivityManager::getInstance()->setup(true);
+    } catch (const Exception& e) {
+        showPortsError(e.getError());
     }
     ClientManager::getInstance()->infoUpdated();
 }

@@ -132,7 +132,7 @@ friend class dcpp::Singleton<MainWindow>;
         void browseOwnFiles();
 
         /** */
-        void startSocket(bool onstart, int oldmode);
+        void startSocket(bool changed);
         /** */
         void showPortsError(const std::string& port);
         /** */
