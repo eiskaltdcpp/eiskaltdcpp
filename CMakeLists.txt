@@ -104,11 +104,13 @@ option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
 
 if (PERL_REGEX)
-find_package(Pcre REQUIRED)
+    find_package(Pcre REQUIRED)
 endif (PERL_REGEX)
+
 if (USE_IDNA)
     find_package(IDNA REQUIRED)
 endif(USE_IDNA)
+
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
     add_definitions ( -DLUA_SCRIPT )
@@ -140,19 +142,33 @@ endif(USE_MINIUPNP)
 if (USE_QT)
     if (USE_QT_QML)
       find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork QtDeclarative REQUIRED)
-      message (STATUS "Building with Qt Declarative Ui support")
+      message (STATUS "Building with Qt Declarative UI support")
       set (USE_JS ON)
     else (USE_QT_QML)
       find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+      message (STATUS "Building without Qt Declarative UI support")
     endif (USE_QT_QML)
 
     if (DBUS_NOTIFY)
         find_package (Qt4 4.4.0 COMPONENTS QtDBus REQUIRED)
+        message (STATUS "Building with Qt DBus support")
+    else (DBUS_NOTIFY)
+        message (STATUS "Building without Qt DBus support")
     endif (DBUS_NOTIFY)
+
     if (USE_JS)
         find_package (Qt4 4.4.0 COMPONENTS QtScript REQUIRED)
 	message (STATUS "Building with Qt Script support")
+    else (USE_JS)
+        message (STATUS "Building without Qt Script support")
     endif (USE_JS)
+
+    if (USE_QT_SQLITE)
+        find_package (Qt4 4.4.0 COMPONENTS QtSql REQUIRED)
+        message (STATUS "Building with Qt SQLite support")
+    else (USE_QT_SQLITE)
+        message (STATUS "Building without Qt SQLite support")
+    endif (USE_QT_SQLITE)
 endif (USE_QT)
 
 
@@ -185,7 +201,6 @@ else (FREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)
 
 if (USE_GTK)
-
     find_package (GTK2 REQUIRED gtk glade)
 
     if (USE_LIBGNOME2)
@@ -365,7 +380,7 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
                 iconv (headers): ${ICONV_LIBRARIES} (${ICONV_INCLUDE_DIR})
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
-                pcre(cpp) (headers): ${PCRE_LIBRARY} (${PCRE_INCLUDE_DIR})
+                pcre(cpp) (headers): ${PCRE_LIBRARIES} (${PCRE_INCLUDE_DIR})
                 idna (headers): ${IDNA_LIBRARIES} (${IDNA_INCLUDE_DIR})
 
                 ")

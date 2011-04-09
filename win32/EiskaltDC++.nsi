@@ -1,6 +1,6 @@
 !include MUI2.nsh
 
-!define PRODUCT_DISPLAY_VERSION      "2.2.1"
+!define PRODUCT_DISPLAY_VERSION      "2.2.2"
 !define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
@@ -87,6 +87,18 @@ Section "EiskaltDC++"
   ;File "installer\libstdc++-6.dll"
   ;File "installer\libpcrecpp-0.dll"
   ;File "installer\libpcre-0.dll"
+
+  File "installer\sqript\qtscript_core.dll"
+  File "installer\script\qtscript_gui.dll"
+  File "installer\script\qtscript_network.dll"
+  File "installer\script\qtscript_opengl.dll"
+  File "installer\script\qtscript_phonon.dll"
+  File "installer\script\qtscript_sql.dll"
+  File "installer\script\qtscript_svg.dll"
+  File "installer\script\qtscript_uitools.dll"
+  File "installer\script\qtscript_webkit.dll"
+  File "installer\script\qtscript_xml.dll"
+  File "installer\script\qtscript_xmlpatterns.dll"
 
   File /r "installer\resources"
 
