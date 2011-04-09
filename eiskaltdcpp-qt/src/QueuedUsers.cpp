@@ -12,18 +12,22 @@
 #include "WulforSettings.h"
 
 #include "dcpp/UploadManager.h"
+#include "dcpp/ClientManager.h"
 
 #include <QAbstractItemModel>
+#include <QMenu>
 
 QueuedUsers::QueuedUsers(){
     setupUi(this);
 
     model = new QueuedUsersModel(this);
     treeView_USERS->setModel(model);
+    treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->header()->restoreState(WVGET("queued-users/headerstate", QByteArray()).toByteArray());
 
     connect(this, SIGNAL(coreWaitingAddFile(VarMap)), this, SLOT(slotWaitingAddFile(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreWaitingRemoved(VarMap)), this, SLOT(slotWaitingRemoved(VarMap)), Qt::QueuedConnection);
+    connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
 
     UploadManager::getInstance()->addListener(this);
     MainWindow::getInstance()->addArenaWidget(this);
@@ -59,10 +63,44 @@ void QueuedUsers::slotWaitingRemoved(const VarMap &map){
     model->remResult(map);
 }
 
+void QueuedUsers::slotContextMenu(){
+    QModelIndexList indexes = treeView_USERS->selectionModel()->selectedRows(0);
+
+    if (indexes.isEmpty())
+        return;
+
+    QMenu *m = new QMenu(this);
+    m->addAction(tr("Grant slot"));
+
+    if (m->exec(QCursor::pos())){
+        foreach (QModelIndex i, indexes){
+            QueuedUserItem *item = reinterpret_cast<QueuedUserItem*>(i.internalPointer());
+
+            if (!item)
+                continue;
+
+            QString id = item->cid;
+
+            if (!id.isEmpty()){
+                UserPtr user = ClientManager::getInstance()->findUser(CID(id.toStdString()));
+
+                if (user){
+                    try { UploadManager::getInstance()->reserveSlot(HintedUser(user, _tq(item->hub))); }
+                    catch ( ... ) {}
+                }
+            }
+
+        }
+    }
+
+    m->deleteLater();
+}
+
 void QueuedUsers::on(WaitingAddFile, const dcpp::HintedUser &user, const std::string &file) throw() {
     VarMap map;
     map["CID"]  = _q(user.user->getCID().toBase32());
     map["FILE"] = _q(file);
+    map["HUB"]  = _q(user.hint);
 
     emit coreWaitingAddFile(map);
 }
@@ -71,6 +109,7 @@ void QueuedUsers::on(WaitingRemoveUser, const dcpp::HintedUser &user) throw() {
     VarMap map;
     map["CID"]  = _q(user.user->getCID().toBase32());
     map["FILE"] = "";
+    map["HUB"]  = _q(user.hint);
 
     emit coreWaitingRemoved(map);
 }
@@ -227,24 +266,83 @@ bool inline Compare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
 void QueuedUsersModel::sort(int column, Qt::SortOrder order) {
     static Compare<Qt::AscendingOrder>  acomp = Compare<Qt::AscendingOrder>();
     static Compare<Qt::DescendingOrder> dcomp = Compare<Qt::DescendingOrder>();
+    static int sortColumn = 0;
+    static Qt::SortOrder sortOrder = Qt::AscendingOrder;
+
+    sortColumn = (column < 0 || column > 1)? sortColumn : column;
+    sortOrder = (column < 0 || column > 1)? sortOrder : order;
 
     emit layoutAboutToBeChanged();
 
-    if (order == Qt::AscendingOrder)
-        acomp.sort(column, rootItem->childItems);
-    else if (order == Qt::DescendingOrder)
-        dcomp.sort(column, rootItem->childItems);
+    if (sortOrder == Qt::AscendingOrder)
+        acomp.sort(sortColumn, rootItem->childItems);
+    else if (sortOrder == Qt::DescendingOrder)
+        dcomp.sort(sortColumn, rootItem->childItems);
 
     emit layoutChanged();
 }
 
 void QueuedUsersModel::addResult(const VarMap &map)
 {
+    if (!map.contains("CID"))
+        return;
 
+    const QString &cid  = map["CID"].toString();
+    const QString &file = map["FILE"].toString();
+    const QString &hub  = map["HUB"].toString();
+    QHash<QString, QueuedUserItem*>::iterator it = cids.find(cid);
+    QueuedUserItem *parentItem = NULL;
+
+    if (it != cids.end())
+        parentItem = it.value();
+    else {
+        parentItem = new QueuedUserItem(QList<QVariant>() << WulforUtil::getInstance()->getNicks(cid) << "", rootItem);
+        parentItem->cid     = cid;
+        parentItem->file    = file;
+        parentItem->hub     = hub;
+
+        rootItem->appendChild(parentItem);
+
+        cids.insert(cid, parentItem);
+    }
+
+    if (!parentItem)
+        return;
+
+    QueuedUserItem *item = new QueuedUserItem(QList<QVariant>() << "" << file, parentItem);
+    item->cid     = cid;
+    item->file    = file;
+    item->hub     = hub;
+
+    parentItem->appendChild(item);
+
+    sort();
 }
 
 void QueuedUsersModel::remResult(const VarMap &map){
+    if (!map.contains("CID"))
+        return;
 
+    const QString &cid  = map["CID"].toString();
+    QHash<QString, QueuedUserItem*>::iterator it = cids.find(cid);
+    QueuedUserItem *parentItem = NULL;
+
+    if (it != cids.end())
+        parentItem = it.value();
+    else
+        return;
+
+    if (!parentItem)
+        return;
+
+    emit layoutChanged();
+
+    parentItem->parent()->childItems.removeAt(parentItem->row());
+    cids.remove(cid);
+
+    delete parentItem;
+
+    emit layoutChanged();
 }
 
 QueuedUserItem::QueuedUserItem(const QList<QVariant> &data, QueuedUserItem *parent) :

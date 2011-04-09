@@ -43,6 +43,7 @@ public:
 
     QString cid;
     QString file;
+    QString hub;
 
     QList<QueuedUserItem*> childItems;
 private:
@@ -75,7 +76,7 @@ public:
     /** */
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
-    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    virtual void sort(int column = -1, Qt::SortOrder order = Qt::AscendingOrder);
 
     void addResult(const VarMap& map);
     void remResult(const VarMap& map);
@@ -113,6 +114,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void slotWaitingAddFile(const VarMap&);
     void slotWaitingRemoved(const VarMap&);
+    void slotContextMenu();
 
 protected:
     void closeEvent(QCloseEvent *e);
