@@ -413,7 +413,7 @@ the granted slot will not be closed.</string>
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Hashing start delay on startup (seconds, 0 = off)</string>
+            <string>Hashing delay on startup (seconds, -1 = infinity)</string>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -431,8 +431,11 @@ the granted slot will not be closed.</string>
            <property name="toolTip">
             <string>Here you can set time interval of auto refreshing your share.</string>
            </property>
+           <property name="minimum">
+            <number>-1</number>
+           </property>
            <property name="maximum">
-            <number>10080</number>
+            <number>1800</number>
            </property>
           </widget>
          </item>

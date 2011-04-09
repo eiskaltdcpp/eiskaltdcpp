@@ -1548,11 +1548,14 @@ void MainWindow::updateHashProgressStatus() {
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         fileRefreshShareHashProgress->setText(tr("Hash progress"));
         {
-            if (SETTING(HASHING_START_DELAY) > 0){
+            if (SETTING(HASHING_START_DELAY) >= 0){
                 int left = SETTING(HASHING_START_DELAY) - Util::getUpTime();
-                progressHashing->setValue( 100*left/60 );
+                progressHashing->setValue( 100 * left / SETTING(HASHING_START_DELAY) );
                 progressHashing->setFormat(tr("Delayed"));
                 progressHashing->show();
+            }
+            else {
+                progressHashing->hide();
             }
         }
         //qDebug("delayed");
@@ -1561,9 +1564,14 @@ void MainWindow::updateHashProgressStatus() {
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         fileRefreshShareHashProgress->setText(tr("Hash progress"));
         {
-            progressHashing->setValue( 100 );
-            progressHashing->setFormat(tr("Paused"));
-            progressHashing->show();
+            if (SETTING(HASHING_START_DELAY) >= 0){
+                progressHashing->setValue( 100 );
+                progressHashing->setFormat(tr("Paused"));
+                progressHashing->show();
+            }
+            else {
+                progressHashing->hide();
+            }
         }
         //qDebug("paused");
         break;

@@ -949,8 +949,15 @@ bool HashManager::isHashingPaused() const {
 void HashManager::on(TimerManagerListener::Second, uint64_t tick) throw() {
     //fprintf(stdout,"%lld\n", tick); fflush(stdout);
     int delay = SETTING(HASHING_START_DELAY);
+
+    SettingsManager *SM = SettingsManager::getInstance();
+    if (delay > 1800){
+        delay = 1800;
+        SM->set(SettingsManager::HASHING_START_DELAY, delay);
+    }
+
     static bool firstcycle = true;
-    if (delay > 0 && isHashingPaused() && Util::getUpTime() >= delay && firstcycle){
+    if (delay >= 0 && isHashingPaused() && Util::getUpTime() >= delay && firstcycle){
         resumeHashing();
         firstcycle = false;
     }
