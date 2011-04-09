@@ -1432,6 +1432,12 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
 
             break;
         }
+    case ArenaWidget::QueuedUsers:
+        {
+            awgt = QueuedUsers::getInstance();// QueuedUsers::newInstance() called at startup
+
+            break;
+        }
     default:
         break;
     }
