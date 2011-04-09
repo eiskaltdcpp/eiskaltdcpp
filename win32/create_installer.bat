@@ -24,6 +24,18 @@ copy /Y "%QTDIR%\bin\QtDeclarative4.dll"                              %DIRINSTAL
 copy /Y "%QTDIR%\bin\QtSql4.dll"                                      %DIRINSTALLER%
 copy /Y "%QTDIR%\bin\QtXmlPatterns4.dll"                              %DIRINSTALLER%
 
+copy /Y "%MINGW%\bin\qtscript_core.dll"                               %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_gui.dll"                                %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_network.dll"                            %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_opengl.dll"                             %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_phonon.dll"                             %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_sql.dll"                                %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_svg.dll"                                %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_uitools.dll"                            %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_webkit.dll"                             %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_xml.dll"                                %DIRINSTALLER%\script
+copy /Y "%MINGW%\bin\qtscript_xmlpatterns.dll"                        %DIRINSTALLER%\script
+
 copy /Y "%MINGW%\bin\libgcc_s_dw2-1.dll"                              %DIRINSTALLER%
 copy /Y "%MINGW%\bin\mingwm10.dll"                                    %DIRINSTALLER%
 

@@ -26,8 +26,9 @@ unsigned HashProgress::getHashStatus() {
     if( SM->isRefreshing() )
         return LISTUPDATE;
 
-    if( HM->isHashingPaused() )
-        return PAUSED;
+    if( HM->isHashingPaused() ) {
+        return (Util::getUpTime() < SETTING(HASHING_START_DELAY)) ? DELAYED : PAUSED;
+    }
 
     string path;
     int64_t bytes = 0;
@@ -195,6 +196,7 @@ void HashProgress::slotStart(){
             HM->pauseHashing();
             //HM->setPriority(Thread::IDLE);
             break;
+    case DELAYED:
     case PAUSED:
             HM->resumeHashing();
             //HM->setPriority(Thread::NORMAL);
@@ -220,6 +222,7 @@ void HashProgress::stateButton(){
     case RUNNING:
         pushButton_START->setText(tr("Pause"));
         break;
+    case DELAYED:
     case PAUSED:
         pushButton_START->setText(tr("Resume"));
         break;
