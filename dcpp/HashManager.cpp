@@ -785,6 +785,7 @@ int HashManager::Hasher::run() {
     bool virtualBuf = true;
     string fname;
     bool last = false;
+    pause();
     for(;;) {
         s.wait();
         if(stop)
@@ -947,13 +948,11 @@ bool HashManager::isHashingPaused() const {
 
 void HashManager::on(TimerManagerListener::Second, uint64_t tick) throw() {
     //fprintf(stdout,"%lld\n", tick); fflush(stdout);
+    int delay = SETTING(HASHING_START_DELAY);
     static bool firstcycle = true;
-    if (Util::getUpTime() < 60 && !isHashingPaused() && firstcycle) {
-        pauseHashing();
-        firstcycle = false;
-    }
-    if (Util::getUpTime() >= 60 && SETTING(AUTO_REFRESH_TIME) > 0 && isHashingPaused()) {
+    if (delay > 0 && isHashingPaused() && Util::getUpTime() >= delay && firstcycle){
         resumeHashing();
+        firstcycle = false;
     }
 }
 
