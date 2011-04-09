@@ -39,6 +39,7 @@ public:
         FinishedDownloads,
         Spy,
         CustomWidget,
+        QueuedUsers,
         NoRole  //Not valid for widgets
     };
 

@@ -56,6 +56,7 @@
 #include "MultiLineToolBar.h"
 #include "IPFilter.h"
 #include "SearchBlacklist.h"
+#include "QueuedUsers.h"
 #ifdef FREE_SPACE_BAR_C
 #include "extra/freespace.h"
 #endif
@@ -653,6 +654,12 @@ void MainWindow::initActions(){
         toolsDownloadQueue->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
         connect(toolsDownloadQueue, SIGNAL(triggered()), this, SLOT(slotToolsDownloadQueue()));
 
+        toolsQueuedUsers = new QAction("", this);
+        toolsQueuedUsers->setObjectName("toolsQueuedUsers");
+        SM->registerShortcut(toolsQueuedUsers, tr("Ctrl+Shift+U"));
+        toolsQueuedUsers->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
+        connect(toolsQueuedUsers, SIGNAL(triggered()), this, SLOT(slotToolsQueuedUsers()));
+
         toolsFinishedDownloads = new QAction("", this);
         toolsFinishedDownloads->setObjectName("toolsFinishedDownloads");
         toolsFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWNLIST));
@@ -824,6 +831,7 @@ void MainWindow::initActions(){
                 << separator0
                 << toolsTransfers
                 << toolsDownloadQueue
+                << toolsQueuedUsers
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
                 << toolsSwitchSpeedLimit
@@ -1152,6 +1160,8 @@ void MainWindow::retranslateUi(){
         toolsTransfers->setText(tr("Transfers"));
 
         toolsDownloadQueue->setText(tr("Download queue"));
+
+        toolsQueuedUsers->setText(tr("Queued Users"));
 
         toolsHubManager->setText(tr("Hub Manager"));
 
@@ -2080,6 +2090,13 @@ void MainWindow::slotToolsDownloadQueue(){
         DownloadQueue::newInstance();
 
     toggleSingletonWidget(DownloadQueue::getInstance());
+}
+
+void MainWindow::slotToolsQueuedUsers(){
+    if (!QueuedUsers::getInstance())
+        QueuedUsers::newInstance();
+
+    toggleSingletonWidget(QueuedUsers::getInstance());
 }
 
 void MainWindow::slotToolsHubManager(){

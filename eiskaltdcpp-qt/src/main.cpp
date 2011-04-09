@@ -29,6 +29,7 @@ using namespace std;
 #include "IPFilter.h"
 #include "EmoticonFactory.h"
 #include "FinishedTransfers.h"
+#include "QueuedUsers.h"
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
@@ -161,6 +162,7 @@ int main(int argc, char *argv[])
 
     FinishedUploads::newInstance();
     FinishedDownloads::newInstance();
+    QueuedUsers::newInstance();
 
     ret = app.exec();
 
