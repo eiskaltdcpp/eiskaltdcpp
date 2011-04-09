@@ -118,7 +118,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
                 else if (index.column() == COLUMN_FINISHED_TR)
                     return WulforUtil::formatBytes(item->data(COLUMN_FINISHED_TR).toLongLong());
                 else if (index.column() == COLUMN_FINISHED_FULL)
-                    return (item->data(COLUMN_FINISHED_FULL).toBool()? tr("Yes") : tr("No"));
+                    return (item->data(COLUMN_FINISHED_FULL).toBool()? "1" : "0");
             }
             else {
                 if (index.column() == COLUMN_FINISHED_SPEED)
@@ -128,7 +128,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
                 else if (index.column() == COLUMN_FINISHED_USER)
                     return WulforUtil::formatBytes(item->data(COLUMN_FINISHED_USER).toLongLong());
                 else if (index.column() == COLUMN_FINISHED_CRC32)
-                    return (item->data(COLUMN_FINISHED_CRC32).toBool()? tr("Yes") : tr("No"));
+                    return (item->data(COLUMN_FINISHED_CRC32).toBool()? "1" : "0");
             }
 
             return item->data(index.column());

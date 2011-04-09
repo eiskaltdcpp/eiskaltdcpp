@@ -464,7 +464,7 @@ private:
     }
 
     void slotSwitchOnlyFull(bool checked){
-        proxy->setFilterFixedString((checked? tr("Yes") : ""));
+        proxy->setFilterFixedString((checked? "1" : ""));
     }
 
     void slotSettingsChanged(const QString &key, const QString &){
