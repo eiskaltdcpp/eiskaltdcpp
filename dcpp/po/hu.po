@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-03-20 16:39+0200\n"
+"POT-Creation-Date: 2011-04-10 16:43+0300\n"
 "PO-Revision-Date: 2011-01-10 18:24+0100\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
@@ -34,37 +34,37 @@ msgstr "Felhasználó(k) átirányítása"
 msgid "Auto-connect group (converted)"
 msgstr "Automatikusan csatlakozó hubok csoportja (konvertált)"
 
-#: ../Socket.cpp:65
+#: ../Socket.cpp:80
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Ismeretlen hiba: 0x%1$x"
 
-#: ../Socket.cpp:169 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:198
+#: ../Socket.cpp:215 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:187
 msgid "Connection timeout"
 msgstr "Időtúllépés"
 
-#: ../Socket.cpp:177 ../Socket.cpp:185 ../Socket.cpp:218 ../Socket.cpp:222
-#: ../Socket.cpp:246 ../Socket.cpp:261
+#: ../Socket.cpp:223 ../Socket.cpp:231 ../Socket.cpp:264 ../Socket.cpp:268
+#: ../Socket.cpp:292 ../Socket.cpp:307
 msgid "The socks server failed establish a connection"
 msgstr "Nem sikerült a socks kiszolgálóhoz kapcsolódni"
 
-#: ../Socket.cpp:250
+#: ../Socket.cpp:296
 msgid "The socks server requires authentication"
 msgstr "A socks kiszolgáló hitelesítést igényel"
 
-#: ../Socket.cpp:264
+#: ../Socket.cpp:310
 msgid "The socks server doesn't support login / password authentication"
 msgstr ""
 "A socks kiszolgáló nem támogatja a bejelentkezési név / jelszó hitelesítést"
 
-#: ../Socket.cpp:278 ../Socket.cpp:282
+#: ../Socket.cpp:324 ../Socket.cpp:328
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
 "A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói név/"
 "jelszó?)"
 
-#: ../Socket.cpp:417
+#: ../Socket.cpp:463
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -100,23 +100,26 @@ msgstr "Érvénytelen adat"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Nem-UTF-8 adat az ADC kapcsolatban"
 
-#: ../ConnectivityManager.cpp:67
-msgid "Determining connection type..."
+#: ../ConnectivityManager.cpp:76
+#, fuzzy
+msgid "Determining the best connectivity settings..."
 msgstr "Kapcsolat típus felderítése..."
 
-#: ../ConnectivityManager.cpp:72
-msgid "Unable to open %1% port(s). You must set up your connection manually"
+#: ../ConnectivityManager.cpp:81
+#, fuzzy
+msgid ""
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani."
 
-#: ../ConnectivityManager.cpp:82
+#: ../ConnectivityManager.cpp:92
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 "Publikus IP cím sikeresen lekérdezve, aktív mód kiválasztása közvetlen "
 "kapcsolattal"
 
-#: ../ConnectivityManager.cpp:89
+#: ../ConnectivityManager.cpp:99
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -124,7 +127,7 @@ msgstr ""
 "Helyi hálózat és lehetséges NAT észlelve, kísérlet a portok feltérképezésére "
 "UPnP használatával ..."
 
-#: ../ConnectivityManager.cpp:117
+#: ../ConnectivityManager.cpp:127
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -132,15 +135,17 @@ msgstr ""
 "Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az aktív mód "
 "beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
 
-#: ../ConnectivityManager.cpp:129
-msgid "TCP/TLS"
-msgstr "TCP/TLS"
+#: ../ConnectivityManager.cpp:139
+#, fuzzy
+msgid "Transfer (TCP)"
+msgstr " Átviteli port (%1% TCP)"
 
-#: ../ConnectivityManager.cpp:135
-msgid "UDP"
-msgstr "UDP"
+#: ../ConnectivityManager.cpp:145
+#, fuzzy
+msgid "Search (UDP)"
+msgstr " Keresési port (%1% UDP)"
 
-#: ../ConnectivityManager.cpp:146
+#: ../ConnectivityManager.cpp:156
 msgid "Connectivity: "
 msgstr "Kapcsolatok: "
 
@@ -148,11 +153,11 @@ msgstr "Kapcsolatok: "
 msgid "Unable to send file %1%: %2%"
 msgstr "A fájl küldése sikertelen: %1%: %2%"
 
-#: ../UploadManager.cpp:510
+#: ../UploadManager.cpp:516
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 
-#: ../UploadManager.cpp:573
+#: ../UploadManager.cpp:579
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
@@ -160,15 +165,15 @@ msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:502
+#: ../SettingsManager.cpp:505
 msgid "Invalid search type name"
 msgstr "Érvénytelen keresési feltétel"
 
-#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
+#: ../SettingsManager.cpp:509 ../SettingsManager.cpp:531
 msgid "This search type already exists"
 msgstr "A megadott keresési feltétel már létezik"
 
-#: ../SettingsManager.cpp:560
+#: ../SettingsManager.cpp:563
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
@@ -189,7 +194,7 @@ msgstr ""
 "értesítsd a hub üzemeltetőit, hogy javítsák a problémát."
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:271 ../SearchManager.cpp:425 ../SearchManager.cpp:427
+#: ../SearchManager.cpp:267 ../SearchManager.cpp:421 ../SearchManager.cpp:423
 #: ../QueueManager.cpp:2162 ../QueueManager.cpp:2168 ../QueueManager.cpp:2174
 msgid "Offline"
 msgstr "Kilépett"
@@ -230,42 +235,42 @@ msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 msgid "Sent "
 msgstr "Elküldve"
 
-#: ../Util.cpp:579
+#: ../Util.cpp:592
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:581
+#: ../Util.cpp:594
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:583
+#: ../Util.cpp:596
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:585
+#: ../Util.cpp:598
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:587
+#: ../Util.cpp:600
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:589
+#: ../Util.cpp:602
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:619
+#: ../Util.cpp:632
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:623
+#: ../Util.cpp:636
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -281,31 +286,31 @@ msgstr "Hiba a tömörítéskor"
 msgid "Error during decompression"
 msgstr "Hiba a kicsomagoláskor"
 
-#: ../HashManager.cpp:80 ../HashManager.cpp:280
+#: ../HashManager.cpp:81 ../HashManager.cpp:281
 msgid "Hashing failed: %1%"
 msgstr "Sikertelen indexelés: %1%"
 
-#: ../HashManager.cpp:87
+#: ../HashManager.cpp:88
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Indexelés befejezve: %1% (%2% at %3%/s)"
 
-#: ../HashManager.cpp:90
+#: ../HashManager.cpp:91
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Indexelés befejezve: %1% (%2%)"
 
-#: ../HashManager.cpp:93
+#: ../HashManager.cpp:94
 msgid "Finished hashing: %1%"
 msgstr "Indexelés befejezve: %1%"
 
-#: ../HashManager.cpp:122 ../HashManager.cpp:336
+#: ../HashManager.cpp:123 ../HashManager.cpp:337
 msgid "Error saving hash data: %1%"
 msgstr "Hiba a hash adatok mentésekor: %1%"
 
-#: ../HashManager.cpp:135
+#: ../HashManager.cpp:136
 msgid "Unable to read hash data file"
 msgstr "A hash adatfájl beolvasása nem lehetséges"
 
-#: ../HashManager.cpp:468
+#: ../HashManager.cpp:469
 msgid "Error creating hash data file: %1%"
 msgstr "Hiba a hash adatfájl létrehozásakor: %1%"
 
@@ -313,17 +318,17 @@ msgstr "Hiba a hash adatfájl létrehozásakor: %1%"
 msgid "Hash database rebuilt"
 msgstr "A hash adatbázis újraépítve"
 
-#: ../HashManager.cpp:849
+#: ../HashManager.cpp:850
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Fájl(ok) indexelése: %1% (Méret: %2%)"
 
-#: ../HashManager.cpp:897
+#: ../HashManager.cpp:898
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% nincs megosztva. A kiszámított CRC32 nem egyezik az SFV fájlban lévővel."
 
-#: ../HashManager.cpp:902
+#: ../HashManager.cpp:903
 msgid "Error hashing %1%: %2%"
 msgstr "Hiba a következő hashelésekor: %1%: %2%"
 
@@ -541,15 +546,15 @@ msgstr "Nincs szabad slot"
 msgid "%1%: File not available"
 msgstr "%1%: A fájl nem elérhető"
 
-#: ../ConnectionManager.cpp:191
+#: ../ConnectionManager.cpp:180
 msgid "All download slots taken"
 msgstr "Összes letöltési szál foglalt"
 
-#: ../ConnectionManager.cpp:260
+#: ../ConnectionManager.cpp:249
 msgid "Connectivity restored"
 msgstr "Kapcsolódás lehetősége visszaállítva"
 
-#: ../ConnectionManager.cpp:268
+#: ../ConnectionManager.cpp:257
 msgid "Connectivity error: %1%"
 msgstr "Kapcsolódási hiba: %1%"
 
@@ -593,11 +598,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "CD képfájl"
 
-#: ../SearchManager.cpp:161
+#: ../SearchManager.cpp:157
 msgid "Search enabled again"
 msgstr "Keresés ismét engedélyezve"
 
-#: ../SearchManager.cpp:169
+#: ../SearchManager.cpp:165
 msgid "Search disabled: %1%"
 msgstr "Keresés tiltva:%1%"
 
@@ -693,6 +698,12 @@ msgstr "A kértnél több byte írása történt"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "TTH inkonzisztencia"
+
+#~ msgid "TCP/TLS"
+#~ msgstr "TCP/TLS"
+
+#~ msgid "UDP"
+#~ msgstr "UDP"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Kérés az adatsor vége utáni pozícionálásra"
