@@ -30,7 +30,7 @@ gettext
 libpango
 libgtk2 (>= 2.10)
 libglib2 (>= 2.10)
-libglade2 (>= 2.4)
+libglade2 (>= 2.10)
 libnotify (>= 0.4.1) (optional, see cmake keys)
 libgnome2 (optional, see cmake keys)
 

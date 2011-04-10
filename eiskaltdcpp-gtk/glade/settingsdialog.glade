@@ -4294,6 +4294,19 @@ default</property>
                             <property name="position">11</property>
                           </packing>
                         </child>
+                        <child>
+                          <widget class="GtkLabel" id="logHelpLabel">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes" context="yes">&lt;a href="http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"&gt;Help&lt;/a&gt;</property>
+                            <property name="use_underline">False</property>
+                            <property name="use_markup">True</property>
+                            <property name="justify">GTK_JUSTIFY_RIGHT</property>
+                            <property name="selectable">False</property>
+                          </widget>
+                          <packing>
+                            <property name="position">12</property>
+                          </packing>
+                        </child>
                       </widget>
                     </child>
                     <child>
