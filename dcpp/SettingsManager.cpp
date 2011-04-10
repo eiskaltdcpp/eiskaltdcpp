@@ -78,7 +78,7 @@ const string SettingsManager::settingTags[] =
     "AutoDropDisconnect", "OutgoingConnections", "NoIpOverride", "NoUseTempDir",
     "ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType",
     "SocketInBuffer", "SocketOutBuffer",
-    "AutoRefreshTime", "UseTLS", "AutoSearchLimit",
+    "AutoRefreshTime", "HashingStartDelay", "UseTLS", "AutoSearchLimit",
     "AutoKickNoFavs", "PromptPassword",
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs",
     "AllowUntrustedClients", "TLSPort", "FastHash",
