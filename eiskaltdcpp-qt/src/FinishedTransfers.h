@@ -436,22 +436,37 @@ private:
 
         if (ret == open_f){
             foreach (QString f, files){
+                if (!f.startsWith("/"))
+                    f.prepend("/");
+
+                int sep = f.lastIndexOf(QDir::separator());
+                QString name = f.right(sep);
+                QString path = f.left(sep);
+
+                QDir test(path);
+                if (!test.exists(f)){
+                    QStringList files = test.entryList(QStringList("*"+name+"*"), QDir::Files, QDir::Name);
+
+                    if (files.size() > 0)
+                        f = path + QDir::separator() + files.first();
+                }
+
                 if (f.startsWith("/"))
-                    f = "file://" + f;
+                    f.prepend("file://");
                 else
-                    f = "file:///" + f;
+                    f.prepend("file:///");
 
                 QDesktopServices::openUrl(f);
             }
         }
         else if (ret == open_dir){
             foreach (QString f, files){
-                f = f.left(f.lastIndexOf(QDir::separator()));
+                f = f.left(f.lastIndexOf(QDir::separator())) + QDir::separator();
 
                 if (f.startsWith("/"))
-                    f = "file://" + f;
+                    f.prepend("file://");
                 else
-                    f = "file:///" + f;
+                    f.prepend("file:///");
 
                 QDesktopServices::openUrl(f);
             }
