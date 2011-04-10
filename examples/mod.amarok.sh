@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Modified script for amarok2
 
 ## Author: WiseLord
@@ -84,17 +84,17 @@ then
         message="/me is playing: ${artist} - ${title} from ${album} from ${year} [${nmin}:${nsec}/${min}:${sec}] $progressbar [${bitrate} kbps] :: ${version}"
 
 ## The message in dc:
-# [18:47:22] *  * [.OP]Marcus is playing: Cascada - Because The Night from Perfect Day (Japanese Edition) from 2008 [01:18/03:28] [---|------] [1014 kbps] :: Amarok 2.3.90 
+# [18:47:22] *  * [.OP]Marcus is playing: Cascada - Because The Night from Perfect Day (Japanese Edition) from 2008 [01:18/03:28] [---|------] [1014 kbps] :: Amarok 2.3.90
 
 ## This part is from the original script.
-                                                                                                                                                                                                                        
-## Also you can send song magnet to chat:                                                                                                                                                                                                    
-# [17:45:03] * WiseLord is listening now: Therion - Midgård (02. Midgård.mp3) (7.0 МиБ)                                                                                                                                                      
-# You can use <magnet show=NAME_TO_SHOW>PATH_TO_FILE</magnet> or just <magnet>PATH_TO_FILE</magnet>                                                                                                                                          
-# If you want to do this, uncomment 2 lines below:                                                                                                                                                                                           
-                                                                                                                                                                                                                                             
-#       location="$(echo "${nowPlaying}" | sed -ne 's/^location: file:\/\/\(.*\)$/\1/p' | sed -e s/\'/\\\\\'/g -e 's/%\([0-9A-Fa-f][0-9A-Fa-f]\)/\\\\\x\1/g' | xargs echo -e )"                                                              
-#       message="/me is listening now: ${artist} - ${title} ( <magnet>${location}</magnet> )"                                                                                                                                                
-fi                                                                                                                                                                                                                                           
-                                                                                                                                                                                                                                             
-echo "${message}" 
+
+## Also you can send song magnet to chat:
+# [17:45:03] * WiseLord is listening now: Therion - Midgård (02. Midgård.mp3) (7.0 МиБ)
+# You can use <magnet show=NAME_TO_SHOW>PATH_TO_FILE</magnet> or just <magnet>PATH_TO_FILE</magnet>
+# If you want to do this, uncomment 2 lines below:
+
+#       location="$(echo "${nowPlaying}" | sed -ne 's/^location: file:\/\/\(.*\)$/\1/p' | sed -e s/\'/\\\\\'/g -e 's/%\([0-9A-Fa-f][0-9A-Fa-f]\)/\\\\\x\1/g' | xargs echo -e )"
+#       message="/me is listening now: ${artist} - ${title} ( <magnet>${location}</magnet> )"
+fi
+
+echo "${message}"
