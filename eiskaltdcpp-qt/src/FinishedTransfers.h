@@ -141,10 +141,10 @@ private:
 
         if (db_opened){
             QSqlQuery q(db);
-            q.exec("create table if not exists files (FNAME TEXT primary key, "
+            q.exec("CREATE TABLE IF NOT EXISTS files (FNAME TEXT PRIMARY KEY, "
                    "TIME TEXT, PATH TEXT, USERS TEXT, TR TEXT, SPEED TEXT, CRC32 INTEGER, TARGET TEXT, ELAP TEXT, FULL INTEGER)");
 
-            q.exec("create table if not exists users (NICK TEXT primary key, "
+            q.exec("CREATE TABLE IF NOT EXISTS users (NICK TEXT PRIMARY KEY, "
                    "TIME TEXT, FILES TEXT, TR TEXT, SPEED TEXT, CID TEXT, ELAP TEXT, FULL INTEGER)");
         }
 #endif
@@ -221,7 +221,7 @@ private:
 
         QSqlQuery q(db);
 
-        q.exec("select * from files");
+        q.exec("SELECT * FROM files");
 
         while (q.next()){
             int i = 0;
@@ -240,7 +240,7 @@ private:
             model->addFile(params);
         }
 
-        q.exec("select * from users");
+        q.exec("SELECT * FROM users");
 
         while (q.next()){
             int i = 0;
@@ -282,7 +282,9 @@ private:
             return;
 
         QSqlQuery q(db);
-        q.prepare("insert into files values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        q.prepare("REPLACE INTO files "
+                  "(FNAME, TIME, PATH, USERS, TR, SPEED, CRC32, TARGET, ELAP, FULL) "
+                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         q.bindValue(0, params["FNAME"]);
         q.bindValue(1, params["TIME"]);
         q.bindValue(2, params["PATH"]);
@@ -319,8 +321,9 @@ private:
             return;
 
         QSqlQuery q(db);
-        q.prepare("insert into users values(?, ?, ?, ?, ?, ?, ?, ?)");
-
+        q.prepare("REPLACE INTO users "
+                  "(NICK, TIME, FILES, TR, SPEED, CID, ELAP, FULL)"
+                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         q.bindValue(0, params["NICK"]);
         q.bindValue(1, params["TIME"]);
         q.bindValue(2, params["FILES"]);
@@ -367,8 +370,8 @@ private:
             return;
 
         QSqlQuery q(db);
-        q.exec("drop table files");
-        q.exec("drop table users");
+        q.exec("DROP TABLE files");
+        q.exec("DROP TABLE users");
 #endif
     }
 
@@ -461,7 +464,7 @@ private:
     }
 
     void slotSwitchOnlyFull(bool checked){
-        proxy->setFilterFixedString((checked? tr("Yes") : ""));
+        proxy->setFilterFixedString((checked? "1" : ""));
     }
 
     void slotSettingsChanged(const QString &key, const QString &){

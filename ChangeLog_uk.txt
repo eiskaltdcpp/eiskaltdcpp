@@ -1,4 +1,4 @@
---- 2.2.2 2011-04-09 ---
+--- 2.2.2 2011-04-16 ---
 *** common changes ***
 * Вирівнювання ip-адрес в чаті (тільки для моноширинних шрифтів).
 * Додані опції конфігурації: ENABLE_STACKTRACE, WITH_DEV_FILES i EISKALTDCPP_INCLUDE_DIR.
