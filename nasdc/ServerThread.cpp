@@ -392,7 +392,7 @@ bool ServerThread::sendPrivateMessage(const string& hub,const string& cid,const 
 }
 
 string ServerThread::getFileList_client(const string& hub, const string& cid, bool match) {
-    string message;
+    string message = "";
     ClientIter i = clientsMap.find(hub);
     if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
         if (!cid.empty()) {
@@ -421,9 +421,8 @@ string ServerThread::getFileList_client(const string& hub, const string& cid, bo
             }
         }
     }
-    if (!message.empty()) {
-        return message;
-    }
+    
+    return message;
 }
 
 void ServerThread::getChatPubFromClient(string& chat, const string& hub, const string& separator) {
