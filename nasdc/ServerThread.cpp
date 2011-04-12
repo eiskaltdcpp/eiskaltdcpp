@@ -389,6 +389,8 @@ bool ServerThread::sendPrivateMessage(const string& hub,const string& cid,const 
             }
         }
     }
+    
+    return false;
 }
 
 string ServerThread::getFileList_client(const string& hub, const string& cid, bool match) {
