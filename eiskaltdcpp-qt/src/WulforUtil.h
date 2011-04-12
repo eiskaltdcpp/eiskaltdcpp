@@ -47,6 +47,8 @@ inline std::string _tq(const QString &s) __attribute__((always_inline));
 inline QString _q (const std::string &s) { return QString::fromStdString(s); }
 inline std::string _tq(const QString &s) { return s.toStdString(); }
 
+typedef QMap<QString, QVariant> VarMap;
+
 class WulforUtil :
         public QObject,
         public dcpp::Singleton<WulforUtil>

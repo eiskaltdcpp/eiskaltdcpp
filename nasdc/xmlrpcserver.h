@@ -253,7 +253,7 @@ public:
             svT.sendMessage(shub,smess);
             *retvalP = xmlrpc_c::value_string("Message send on hub: " + shub);
         } else
-            *retvalP = xmlrpc_c::value_string(shub + " don't connected");
+            *retvalP = xmlrpc_c::value_string(shub + " not connected");
     }
 };
 
@@ -322,7 +322,7 @@ public:
                 ShareManager::getInstance()->refresh(true);
                 *retvalP = xmlrpc_c::value_string("Adding dir in share sucess");
             } else
-                *retvalP = xmlrpc_c::value_string("Dir don't exist in filesystem");
+                *retvalP = xmlrpc_c::value_string("Dir not exist in filesystem");
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }
@@ -384,7 +384,7 @@ public:
                 return;
             }
         }
-        *retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name don't exist");
+        *retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name not exist");
     }
 };
 
@@ -465,6 +465,27 @@ public:
             //else
                 //hub->addStatusMessage_gui(_("Not found user: ") + param, Msg::SYSTEM, Sound::NONE);
         //}
+    }
+};
+
+class getChatPubMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    getChatPubMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method return last messahge in chat on target hub. Рarams: huburl, separator";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const shub(paramList.getString(0));
+        string const sseparator(paramList.getString(1));
+        paramList.verifyEnd(2);
+        ServerThread svT; string retchat;
+        svT.getChatPubFromClient(retchat, shub, sseparator);
+        *retvalP = xmlrpc_c::value_string(retchat);
     }
 };
 

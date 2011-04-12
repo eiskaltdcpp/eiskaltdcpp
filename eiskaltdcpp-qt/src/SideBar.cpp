@@ -44,6 +44,7 @@ SideBarModel::SideBarModel(QObject *parent) :
     CREATE_ROOT_EL(rootItem, eiOWN_FILELIST,tr("Share Browsers"),   roots,  ShareBrowser);
     CREATE_ROOT_EL(rootItem, eiADLS,        tr("ADLSearch"),        roots,  ADLS);
     CREATE_ROOT_EL(rootItem, eiDOWNLOAD,    tr("Download Queue"),   roots,  Downloads);
+    CREATE_ROOT_EL(rootItem, eiUSERS,       tr("Queued Users"),     roots,  QueuedUsers);
     CREATE_ROOT_EL(rootItem, eiUPLIST,      tr("Finished Uploads"), roots,  FinishedUploads);
     CREATE_ROOT_EL(rootItem, eiDOWNLIST,    tr("Finished Downloads"),roots, FinishedDownloads);
     CREATE_ROOT_EL(rootItem, eiFAVSERVER,   tr("Favorite Hubs"),    roots,  FavoriteHubs);
@@ -415,6 +416,7 @@ void SideBarModel::slotSettingsChanged(const QString &key, const QString &value)
         RETRANSLATE_ROOT_EL(tr("Public Hubs"),      roots,  PublicHubs);
         RETRANSLATE_ROOT_EL(tr("Spy"),              roots,  Spy);
         RETRANSLATE_ROOT_EL(tr("Other Widgets"),    roots,  CustomWidget);
+        RETRANSLATE_ROOT_EL(tr("Queued Users"),     roots,  QueuedUsers);
     }
 }
 

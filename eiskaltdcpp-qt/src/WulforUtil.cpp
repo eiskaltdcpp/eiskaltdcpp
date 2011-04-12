@@ -22,6 +22,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"
+#include "dcpp/AdcHub.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -255,12 +256,11 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
     if (id->isSet(User::TLS))
         y += 2;
 
-   // if (id->isSet(User::DCPLUSPLUS)) этот флажок ушёл в небытиё =)
-   // ниже примерно то, что я предлагаю
-   // Identity id;
-    //if(id.supports(AdcHub::ADCS_FEATURE) && id.supports(AdcHub::SEGA_FEATURE) &&
-        //((id.supports(AdcHub::TCP4_FEATURE) && id.supports(AdcHub::UDP4_FEATURE)) || id.supports(AdcHub::NAT0_FEATURE)))
-        //y += 4;
+    Identity iid = ClientManager::getInstance()->getOnlineUserIdentity(id);
+
+    if( (iid.supports(AdcHub::ADCS_FEATURE) && iid.supports(AdcHub::SEGA_FEATURE)) &&
+        ((iid.supports(AdcHub::TCP4_FEATURE) && iid.supports(AdcHub::UDP4_FEATURE)) || iid.supports(AdcHub::NAT0_FEATURE)))
+        y += 4;
 
     if (isOp)
         y += 8;

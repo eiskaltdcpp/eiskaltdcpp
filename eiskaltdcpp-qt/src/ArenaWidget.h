@@ -41,6 +41,7 @@ public:
         CustomWidget,
         MyUploads,
         UploadView,
+        QueuedUsers,
         NoRole  //Not valid for widgets
     };
 

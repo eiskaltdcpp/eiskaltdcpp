@@ -947,7 +947,7 @@ void Settings::initAppearance_gui()
         addOption_gui(appearanceStore, _("Send PM when double clicked in the user list"), "pm");
 
         /// @todo: Uncomment when implemented
-        //addOption_gui(appearanceStore, _("Minimize to tray"), "minimize-tray");
+        addOption_gui(appearanceStore, _("Minimize to tray on startup"), "minimize-tray");
         //addOption_gui(appearanceStore, _("Use system icons"), "use-system-icons");
 
         gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("tabPositionComboBox")), WGETI("tab-position"));

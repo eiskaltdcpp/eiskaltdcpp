@@ -788,10 +788,6 @@ HubFrame::~HubFrame(){
     delete proxy;
 
     delete updater;
-
-#if HAVE_MALLOC_TRIM
-    malloc_trim(0);
-#endif
 }
 
 bool HubFrame::eventFilter(QObject *obj, QEvent *e){
@@ -2798,13 +2794,12 @@ void HubFrame::slotUserListMenu(const QPoint&){
 }
 
 void HubFrame::slotChatMenu(const QPoint &){
-    QTextEdit *editor = static_cast<QTextEdit*>(sender());
+    QTextEdit *editor = qobject_cast<QTextEdit*>(sender());
 
     if (!editor)
         return;
 
     QString pressedParagraph = "", nick = "";
-    int nickStart = 0, nickLen = 0;
 
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
 
@@ -2813,37 +2808,28 @@ void HubFrame::slotChatMenu(const QPoint &){
     pressedParagraph = cursor.block().text();
 
     int row_counter = 0;
+    QRegExp nick_exp("<((.+))>");
+    QRegExp thirdPerson_exp("\\*\\W+((\\w+))");// * Some_nick say something
 
-    while (!pressedParagraph.contains(QRegExp("(<(.+)>)")) && row_counter < 600){//try to find nick in above rows (max 600 rows)
+    while (!(pressedParagraph.contains(nick_exp) || pressedParagraph.contains(thirdPerson_exp)) && row_counter < 600){//try to find nick in above rows (max 600 rows)
         cursor.movePosition(QTextCursor::PreviousBlock);
         pressedParagraph = cursor.block().text();
+
         row_counter++;
     }
 
-    nickStart = 1 + pressedParagraph.indexOf("<");
-    nickLen = pressedParagraph.indexOf(">") - nickStart;
-
-    // sanity check
-    if ((nickStart == 0) || (nickLen < 0)) {
-        nickStart = QString("[hh.mm.ss] ").length();
-
-        nickLen = pressedParagraph.indexOf(" ", nickStart) - nickStart;
-
-        nick = pressedParagraph.mid(nickStart, nickLen);
-
-        /* [10:57:15] * somenick does something */
-        if (nick == "*") {
-            nickStart = pressedParagraph.indexOf(" ", nickStart + 1) + 1;
-
-            if (nickStart > 0) {
-                nickLen = pressedParagraph.indexOf(" ", nickStart) - nickStart;
-                nick = pressedParagraph.mid(nickStart, nickLen);
-            }
-        }
-    }
-    else {
-        nick = pressedParagraph.mid(nickStart, nickLen);
-    }
+#if QT_VERSION >= 0x040600
+    if (nick_exp.captureCount() >= 2)
+        nick = nick_exp.cap(1);
+    else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.captureCount() >= 2)
+        nick = thirdPerson_exp.cap(1);
+#else
+    // QRegExp::captureCount() function was introduced in Qt 4.6,
+    if (nick_exp.capturedTexts().size() >= 2)
+        nick = nick_exp.cap(1);
+    else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.capturedTexts().size() >= 2)
+        nick = thirdPerson_exp.cap(1);
+#endif
 
     QString cid = model->CIDforNick(nick, _q(client->getHubUrl()));
 

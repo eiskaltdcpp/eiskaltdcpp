@@ -385,18 +385,18 @@ void SettingsManager::load(string const& aFileName)
         if(v <= 0.674) {
 
             // Formats changed, might as well remove these...
-            set(LOG_FORMAT_POST_DOWNLOAD, Util::emptyString);
-            set(LOG_FORMAT_POST_UPLOAD, Util::emptyString);
-            set(LOG_FORMAT_MAIN_CHAT, Util::emptyString);
-            set(LOG_FORMAT_PRIVATE_CHAT, Util::emptyString);
-            set(LOG_FORMAT_STATUS, Util::emptyString);
-            set(LOG_FORMAT_SYSTEM, Util::emptyString);
-            set(LOG_FILE_MAIN_CHAT, Util::emptyString);
-            set(LOG_FILE_STATUS, Util::emptyString);
-            set(LOG_FILE_PRIVATE_CHAT, Util::emptyString);
-            set(LOG_FILE_UPLOAD, Util::emptyString);
-            set(LOG_FILE_DOWNLOAD, Util::emptyString);
-            set(LOG_FILE_SYSTEM, Util::emptyString);
+            unset(LOG_FORMAT_POST_DOWNLOAD);
+            unset(LOG_FORMAT_POST_UPLOAD);
+            unset(LOG_FORMAT_MAIN_CHAT);
+            unset(LOG_FORMAT_PRIVATE_CHAT);
+            unset(LOG_FORMAT_STATUS);
+            unset(LOG_FORMAT_SYSTEM);
+            unset(LOG_FILE_MAIN_CHAT);
+            unset(LOG_FILE_STATUS);
+            unset(LOG_FILE_PRIVATE_CHAT);
+            unset(LOG_FILE_UPLOAD);
+            unset(LOG_FILE_DOWNLOAD);
+            unset(LOG_FILE_SYSTEM);
         }
 
         if(SETTING(SET_MINISLOT_SIZE) < 64)

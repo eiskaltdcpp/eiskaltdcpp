@@ -101,11 +101,14 @@ option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
 option (CLI_DAEMON "Mаке daemon with sample cli based on readline" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
+option (USE_IDNA "Use libidn for punycode generation" ON)
 
 if (PERL_REGEX)
 find_package(Pcre REQUIRED)
 endif (PERL_REGEX)
-
+if (USE_IDNA)
+    find_package(IDNA REQUIRED)
+endif(USE_IDNA)
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
     add_definitions ( -DLUA_SCRIPT )
@@ -363,6 +366,7 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
                 pcre(cpp) (headers): ${PCRE_LIBRARY} (${PCRE_INCLUDE_DIR})
+                idna (headers): ${IDNA_LIBRARIES} (${IDNA_INCLUDE_DIR})
 
                 ")
 
@@ -521,8 +525,7 @@ if (USE_QT OR USE_GTK)
     endif (WITH_EMOTICONS)
 
     if (WITH_DEV_FILES)
-        FILE(GLOB DEV_FILES "${CMAKE_CURRENT_SOURCE_DIR}/dcpp/*.h")
-        install (FILES ${DEV_FILES} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/)
+        install (FILES ${DCPP_HDRS} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/)
     endif (WITH_DEV_FILES)
 
 list(APPEND iconsize 16 22 24 32 48 64 128)

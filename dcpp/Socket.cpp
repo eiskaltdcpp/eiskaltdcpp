@@ -611,20 +611,22 @@ string Socket::resolve(const string& aDns) {
         return aDns;
     }
 #else
-        // POSIX doesn't guarantee the gethostbyname to be thread safe. And it may (will) return a pointer to static data.
-   string address = Util::emptyString;
-   addrinfo hints = { 0 };
-   addrinfo *result;
-   hints.ai_family = AF_INET;
+    // POSIX doesn't guarantee the gethostbyname to be thread safe. And it may (will) return a pointer to static data.
+    string address = Util::emptyString;
+    addrinfo hints = { 0 };
+    addrinfo *result;
+    hints.ai_family = AF_UNSPEC;    /* Allow IPv4 or IPv6 */
+    hints.ai_socktype = 0;
+    hints.ai_protocol = 0;          /* Any protocol */
+    //hints.ai_flags = AI_IDN | AI_CANONIDN;// | AI_IDN_ALLOW_UNASSIGNED;
 
-   if (getaddrinfo(aDns.c_str(), NULL, &hints, &result) == 0) {
-       if (result->ai_addr != NULL)
-           address = inet_ntoa(((sockaddr_in*)(result->ai_addr))->sin_addr);
+    if (getaddrinfo(aDns.c_str(), NULL, &hints, &result) == 0) {
+        if (result->ai_addr != NULL)
+            address = inet_ntoa(((sockaddr_in*)(result->ai_addr))->sin_addr);
 
-       freeaddrinfo(result);
-   }
-
-   return address;
+        freeaddrinfo(result);
+    }
+    return address;
 #endif
 }
 

@@ -599,8 +599,7 @@ msgstr "Самарушна шукаць у сьпісах файлаў"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
-#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
-#: ../glade/adlsearch.glade:354
+#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393 ../glade/adlsearch.glade:354
 msgid "Enabled"
 msgstr "Задзейнічаць"
 
@@ -888,6 +887,15 @@ msgid ""
 "  -h, --help\t Show this message\n"
 "  -v, --version\t Show version string\n"
 msgstr ""
+"Як карыстацца:\n"
+"  eiskaltdcpp-gtk <магніт-спасылка> <dchub://спасылка> <adc(s)://спасылка>\n"
+"  eiskaltdcpp-gtk <Ключ>\n"
+"EiskaltDC++ — гэта міжплятформавая праграма, якая выкарыстоўвае пратаколы "
+"Direct Connect і ADC.\n"
+"\n"
+"Ключы:\n"
+"  -h, --help\t Паказвае гэтае паведамленьне\n"
+"  -v, --version\t Паказвае радок з вэрсіяй\n"
 
 #: ../src/wulfor.cc:75
 msgid "Loading: "
@@ -1905,7 +1913,7 @@ msgstr "Скончылі сьцягваць: "
 
 #: ../src/publichubs.cc:455
 msgid "from Coral"
-msgstr ""
+msgstr "з Каралу (Coral)"
 
 #: ../src/search.cc:88 ../src/search.cc:609 ../src/search.cc:692
 #: ../src/search.cc:705 ../src/search.cc:719 ../src/search.cc:733
@@ -2353,8 +2361,7 @@ msgstr "Узгадніць _чаргу"
 msgid "Send _private message"
 msgstr "Асабістае _паведамленьне"
 
-#: ../glade/search.glade:511 ../glade/transfers.glade:52
-#: ../glade/hub.glade:265
+#: ../glade/search.glade:511 ../glade/transfers.glade:52 ../glade/hub.glade:265
 msgid "_Add to favorites"
 msgstr "_Дадаць да ўлюбёнцаў"
 
@@ -3874,9 +3881,8 @@ msgid "Grouped by Users"
 msgstr "Аб’яднанае па карыстальніках"
 
 #: ../glade/finishedtransfers.glade:81
-#, fuzzy
 msgid "Show only completely finished downloads"
-msgstr "Зірнуць сьпіс сьцягнутага"
+msgstr "Паказваць толькі цалкам сьцягнутае"
 
 #: ../glade/finishedtransfers.glade:150
 msgid "Open containing _folder"

@@ -781,12 +781,6 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
 #endif // !_WIN32
 int HashManager::Hasher::run() {
     setThreadPriority(Thread::IDLE);
-    while (Util::getUpTime() < 60) {
-        Thread::sleep(100);
-    }
-    if (Util::getUpTime() >= 60 && SETTING(AUTO_REFRESH_TIME) == 0) {
-        pause();
-    }
     uint8_t* buf = NULL;
     bool virtualBuf = true;
     string fname;
@@ -814,6 +808,7 @@ int HashManager::Hasher::run() {
             }
         }
         running = true;
+        instantPause();
 
         if(!fname.empty()) {
             int64_t size = File::getSize(fname);
@@ -948,6 +943,18 @@ void HashManager::resumeHashing() {
 bool HashManager::isHashingPaused() const {
     Lock l(cs);
     return hasher.isPaused();
+}
+
+void HashManager::on(TimerManagerListener::Second, uint64_t tick) throw() {
+    //fprintf(stdout,"%lld\n", tick); fflush(stdout);
+    static bool firstcycle = true;
+    if (Util::getUpTime() < 60 && !isHashingPaused() && firstcycle) {
+        pauseHashing();
+        firstcycle = false;
+    }
+    if (Util::getUpTime() >= 60 && SETTING(AUTO_REFRESH_TIME) > 0 && isHashingPaused()) {
+        resumeHashing();
+    }
 }
 
 } // namespace dcpp

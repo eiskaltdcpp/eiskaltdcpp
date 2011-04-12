@@ -211,7 +211,9 @@ public:
         floatDefaults[key - FLOAT_FIRST] = value;
     }
 
-    bool isDefault(int aSet) { return !isSet[aSet]; }
+    bool isDefault(size_t key) { return !isSet[key]; }
+
+    void unset(size_t key) { isSet[key] = false; }
 
     void load() {
         Util::migrate(getConfigFile());
@@ -224,15 +226,13 @@ public:
     void load(const string& aFileName);
     void save(const string& aFileName);
 
-        //aded
-        enum Types {
-                TYPE_STRING,
-                TYPE_INT,
-                TYPE_INT64,
-        };
-        //aded end
+    enum Types {
+        TYPE_STRING,
+        TYPE_INT,
+        TYPE_INT64,
+    };
 
-        bool getType(const char* name, int& n, int& type) const;
+    bool getType(const char* name, int& n, int& type) const;
 	// Search types
 	void validateSearchTypeName(const string& name) const;
 	void setSearchTypeDefaults();

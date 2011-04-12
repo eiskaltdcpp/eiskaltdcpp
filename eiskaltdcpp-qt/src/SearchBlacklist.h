@@ -35,7 +35,7 @@ public:
 
     bool ok(const QString &exp, Argument type);
     QList<QString> getList(Argument arg) const { return (list[arg]); }
-    void setList(Argument arg, QList<QString> l) { list[arg] = l; }
+    void setList(Argument arg, const QList<QString> &l) { list[arg] = l; }
 
 private:
     SearchBlacklist();

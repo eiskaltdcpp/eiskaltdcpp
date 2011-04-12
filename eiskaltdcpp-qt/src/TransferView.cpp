@@ -457,10 +457,8 @@ void TransferView::slotContextMenu(const QPoint &){
         QStringList tths;
 
         foreach(TransferViewItem *i, items){
-            if (i->download && !tths.contains(i->tth))
+            if (!tths.contains(i->tth))
                 tths.push_back(i->tth);
-            else if (!i->download)
-                QMessageBox::information(this, tr("Transfer View"), tr("You cannot search alternates for uploads!"), QMessageBox::Ok);
         }
 
         foreach (QString tth, tths)
