@@ -20,6 +20,8 @@
 QueuedUsers::QueuedUsers(){
     setupUi(this);
 
+    setUnload(false);
+
     model = new QueuedUsersModel(this);
     treeView_USERS->setModel(model);
     treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);

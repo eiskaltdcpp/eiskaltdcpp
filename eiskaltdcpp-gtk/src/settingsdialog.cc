@@ -306,6 +306,8 @@ void Settings::saveSettings_client()
 
             WSET("sound-pm",gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("soundPMReceivedCheckButton"))));
             WSET("sound-pm-open", gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("soundPMWindowCheckButton"))));
+
+            wsm->set("sound-command", string(gtk_entry_get_text(GTK_ENTRY(getWidget("soundCommandEntry")))));
         }
 
         { // Colors & Fonts
@@ -1006,6 +1008,13 @@ void Settings::initAppearance_gui()
 
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("soundPMReceivedCheckButton")), WGETB("sound-pm"));
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("soundPMWindowCheckButton")), WGETB("sound-pm-open"));
+
+        gtk_entry_set_text(GTK_ENTRY(getWidget("soundCommandEntry")), wsm->getString("sound-command").c_str());
+
+#ifdef USE_LIBGNOME2
+        gtk_widget_hide((GtkWidget*)GTK_LABEL(getWidget("soundCommandLabel")));
+        gtk_widget_hide((GtkWidget*)GTK_ENTRY(getWidget("soundCommandEntry")));
+#endif
     }
 
     { // Colors & Fonts
@@ -2625,6 +2634,9 @@ void Settings::onSoundPlayButton_gui(GtkWidget *widget, gpointer data)
 
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->soundView.get());
+
+    WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
+    wsm->set("sound-command", string(gtk_entry_get_text(GTK_ENTRY(s->getWidget("soundCommandEntry")))));
 
     if (gtk_tree_selection_get_selected(selection, NULL, &iter))
     {

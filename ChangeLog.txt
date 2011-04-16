@@ -1,4 +1,4 @@
---- 2.2.2 2011-04-09 ---
+--- 2.2.2 2011-04-16 ---
 *** common changes ***
 * Align ip-address in a chat (only for monospaced fonts).
 * Added configuration options: ENABLE_STACKTRACE, WITH_DEV_FILES and EISKALTDCPP_INCLUDE_DIR.

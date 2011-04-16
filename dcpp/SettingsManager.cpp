@@ -78,7 +78,7 @@ const string SettingsManager::settingTags[] =
     "AutoDropDisconnect", "OutgoingConnections", "NoIpOverride", "NoUseTempDir",
     "ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType",
     "SocketInBuffer", "SocketOutBuffer",
-    "AutoRefreshTime", "UseTLS", "AutoSearchLimit",
+    "AutoRefreshTime", "HashingStartDelay", "UseTLS", "AutoSearchLimit",
     "AutoKickNoFavs", "PromptPassword",
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs",
     "AllowUntrustedClients", "TLSPort", "FastHash",
@@ -245,7 +245,8 @@ SettingsManager::SettingsManager()
     setDefault(TLS_TRUSTED_CERTIFICATES_PATH, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR);
     setDefault(TLS_PRIVATE_KEY_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.key");
     setDefault(TLS_CERTIFICATE_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.crt");
-    setDefault(AUTO_REFRESH_TIME, 60);
+    setDefault(AUTO_REFRESH_TIME, 60);  // minutes
+    setDefault(HASHING_START_DELAY, 60); // seconds
     setDefault(USE_TLS, true);
     setDefault(AUTO_SEARCH_LIMIT, 5);
     setDefault(AUTO_KICK_NO_FAVS, false);

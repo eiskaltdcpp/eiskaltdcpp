@@ -204,7 +204,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("sound-hub-disconnect", ""));
     defaultString.insert(StringMap::value_type("sound-fuser-join", ""));
     defaultString.insert(StringMap::value_type("sound-fuser-quit", ""));
-    defaultString.insert(StringMap::value_type("sound-command", ""));
+    defaultString.insert(StringMap::value_type("sound-command", "aplay -q"));
     defaultString.insert(StringMap::value_type("text-general-back-color", "#FFFFFF"));
     defaultString.insert(StringMap::value_type("text-general-fore-color", "#4D4D4D"));
     defaultString.insert(StringMap::value_type("text-myown-back-color", "#FFFFFF"));
