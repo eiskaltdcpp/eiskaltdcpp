@@ -30,7 +30,7 @@ gettext
 libpango
 libgtk2 (>= 2.10)
 libglib2 (>= 2.10)
-libglade2 (>= 2.4)
+libglade2 (>= 2.10)
 libnotify (>= 0.4.1) (optional, see cmake keys)
 libgnome2 (optional, see cmake keys)
 
@@ -120,8 +120,12 @@ Keys for cmake
     lua scripts
 -DPERL_REGEX=ON/OFF (default: OFF)
     use pcre lib for regex in perl style (now it uses only in ADL Search)
--USE_IDNA=ON/OFF (default: ON)
+-DUSE_IDNA=ON/OFF (default: ON)
     Use libidn for rfc3490
+-DLINK=STATIC/SHARED (default: SHARED)
+    make static or shared library
+    Option available only on Unix-like systems.
+    On MS Windows platform it forcibly set to STATIC.
 ----------------
 :eiskaltdcpp-qt:
 ----------------

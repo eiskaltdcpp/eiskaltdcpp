@@ -25,7 +25,7 @@ class HashProgress :
 public:
     HashProgress(QWidget* = NULL);
     virtual ~HashProgress();
-    enum { IDLE, RUNNING, LISTUPDATE, PAUSED };
+    enum { IDLE, RUNNING, LISTUPDATE, PAUSED, DELAYED };
     static unsigned getHashStatus();
     float getProgress();
 

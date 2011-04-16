@@ -1,6 +1,6 @@
 !include MUI2.nsh
 
-!define PRODUCT_DISPLAY_VERSION      "2.2.1"
+!define PRODUCT_DISPLAY_VERSION      "2.2.2"
 !define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
@@ -87,6 +87,8 @@ Section "EiskaltDC++"
   ;File "installer\libstdc++-6.dll"
   ;File "installer\libpcrecpp-0.dll"
   ;File "installer\libpcre-0.dll"
+
+  File /r "installer\script"
 
   File /r "installer\resources"
 

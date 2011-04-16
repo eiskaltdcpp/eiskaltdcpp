@@ -521,6 +521,10 @@ Keys:
         <source>%1 [%2 Gb]</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>File already exists: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -553,10 +557,6 @@ Keys:
     <message>
         <source>Open directory</source>
         <translation type="unfinished">Otvori fasciklu</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -607,14 +607,6 @@ Keys:
     </message>
     <message>
         <source>Full</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1111,6 +1103,10 @@ Omiljeni korisnik</translation>
     <message>
         <source>/kword list - list all keywords
 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search text</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1877,6 +1873,18 @@ Omiljeni korisnik</translation>
         <source>Would you like to change other settings?</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Ctrl+Shift+U</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Queued Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delayed</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2084,6 +2092,28 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <source>Signal handlers installed.</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QueuedUsers</name>
+    <message>
+        <source>Grant slot</source>
+        <translation type="unfinished">Dodeli slot</translation>
+    </message>
+    <message>
+        <source>Queued Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QueuedUsersModel</name>
+    <message>
+        <source>User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Fajl</translation>
     </message>
 </context>
 <context>
@@ -2908,6 +2938,10 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Other Widgets</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Queued Users</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3078,14 +3112,6 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <source>Search Alternates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transfer View</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You cannot search alternates for uploads!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3966,6 +3992,13 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
 </context>
 <context>
+    <name>UIQueuedUsers</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Oblik</translation>
+    </message>
+</context>
+<context>
     <name>UIQuickConnect</name>
     <message>
         <source>Quick connect</source>
@@ -4264,7 +4297,11 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Bind Address:</source>
+        <source>Bind to address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bind to interface</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5003,6 +5040,14 @@ them is usually available only to operators</source>
         <source>Finished Downloads</source>
         <translation type="unfinished">Zavšeno preuzimanje</translation>
     </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsNotification</name>
@@ -5364,6 +5409,10 @@ odobreni slot neće biti zatvoren.</translation>
     </message>
     <message>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hashing delay on startup (seconds, -1 = infinity)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

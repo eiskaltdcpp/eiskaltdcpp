@@ -34,7 +34,7 @@ ELSE(IDNA_FOUND)
 ENDIF(IDNA_FOUND)
 
 
-# Lastly make it so that the IDNA_LIBRARY and IDNA_INCLUDE_DIR variables
+# Lastly make it so that the IDNA_LIBRARIES and IDNA_INCLUDE_DIR variables
 # only show up under the advanced options in the gui cmake applications.
-MARK_AS_ADVANCED( IDNA_LIBRARY IDNA_INCLUDE_DIR )
+MARK_AS_ADVANCED( IDNA_LIBRARIES IDNA_INCLUDE_DIR )
 

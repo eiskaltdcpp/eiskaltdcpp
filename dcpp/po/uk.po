@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-03-20 16:39+0200\n"
+"POT-Creation-Date: 2011-04-10 16:43+0300\n"
 "PO-Revision-Date: 2008-05-04 16:18+0000\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,35 +30,35 @@ msgstr "Перенаправити користувача"
 msgid "Auto-connect group (converted)"
 msgstr "Автопідключення групи"
 
-#: ../Socket.cpp:65
+#: ../Socket.cpp:80
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Невідома помилка: 0x%1$x"
 
-#: ../Socket.cpp:169 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
-#: ../ConnectionManager.cpp:198
+#: ../Socket.cpp:215 ../BufferedSocket.cpp:154 ../BufferedSocket.cpp:170
+#: ../ConnectionManager.cpp:187
 msgid "Connection timeout"
 msgstr "Час з'єднання вичерпався"
 
-#: ../Socket.cpp:177 ../Socket.cpp:185 ../Socket.cpp:218 ../Socket.cpp:222
-#: ../Socket.cpp:246 ../Socket.cpp:261
+#: ../Socket.cpp:223 ../Socket.cpp:231 ../Socket.cpp:264 ../Socket.cpp:268
+#: ../Socket.cpp:292 ../Socket.cpp:307
 msgid "The socks server failed establish a connection"
 msgstr "Сокет-серверу не вдалось встановити зв’язок"
 
-#: ../Socket.cpp:250
+#: ../Socket.cpp:296
 msgid "The socks server requires authentication"
 msgstr "Сокет-сервер вимагає авторизацію"
 
-#: ../Socket.cpp:264
+#: ../Socket.cpp:310
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Сокет-сервер на підтримує авторизацію користувач / пароль"
 
-#: ../Socket.cpp:278 ../Socket.cpp:282
+#: ../Socket.cpp:324 ../Socket.cpp:328
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
 "Сокет-сервер авторизація не вдалась (неправильне ім’я користувача / паролю?)"
 
-#: ../Socket.cpp:417
+#: ../Socket.cpp:463
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -95,23 +95,26 @@ msgstr "Невірні дані"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Дані не в UTF-8 у ADC з'єднанні"
 
-#: ../ConnectivityManager.cpp:67
-msgid "Determining connection type..."
+#: ../ConnectivityManager.cpp:76
+#, fuzzy
+msgid "Determining the best connectivity settings..."
 msgstr "Визначення типу з'єднання..."
 
-#: ../ConnectivityManager.cpp:72
-msgid "Unable to open %1% port(s). You must set up your connection manually"
+#: ../ConnectivityManager.cpp:81
+#, fuzzy
+msgid ""
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "Неможливо відкрити порт(и) %1%. Вам необхідно налаштувати підключення вручну"
 
-#: ../ConnectivityManager.cpp:82
+#: ../ConnectivityManager.cpp:92
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 "Публічна IP-адреса виявлена, вибирається активний режим із прямим "
 "підключенням"
 
-#: ../ConnectivityManager.cpp:89
+#: ../ConnectivityManager.cpp:99
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -119,7 +122,7 @@ msgstr ""
 "Виявлена локальна мережа з можливим використанням NAT, роблю спробу "
 "прокинути порти, використовуючи UPnP..."
 
-#: ../ConnectivityManager.cpp:117
+#: ../ConnectivityManager.cpp:127
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -127,15 +130,17 @@ msgstr ""
 "Автоматичне встановлення активного режиму провалилося. Ви можете спробувати "
 "встановити своє підключення вручну для кращого зв'язку"
 
-#: ../ConnectivityManager.cpp:129
-msgid "TCP/TLS"
-msgstr "TCP/TLS"
+#: ../ConnectivityManager.cpp:139
+#, fuzzy
+msgid "Transfer (TCP)"
+msgstr " Порт передачі (%1% TCP)"
 
-#: ../ConnectivityManager.cpp:135
-msgid "UDP"
-msgstr "UDP"
+#: ../ConnectivityManager.cpp:145
+#, fuzzy
+msgid "Search (UDP)"
+msgstr " Порт для пошуку (%1% UDP)"
 
-#: ../ConnectivityManager.cpp:146
+#: ../ConnectivityManager.cpp:156
 msgid "Connectivity: "
 msgstr "Підключення: "
 
@@ -143,11 +148,11 @@ msgstr "Підключення: "
 msgid "Unable to send file %1%: %2%"
 msgstr "Неможливо відправити файл %1%: %2%"
 
-#: ../UploadManager.cpp:510
+#: ../UploadManager.cpp:516
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IP-Фільтр: Блоковано вхідне з'єдання з "
 
-#: ../UploadManager.cpp:573
+#: ../UploadManager.cpp:579
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Відключений користувач залишає хаб: %1%"
 
@@ -155,15 +160,15 @@ msgstr "Відключений користувач залишає хаб: %1%"
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:502
+#: ../SettingsManager.cpp:505
 msgid "Invalid search type name"
 msgstr "Неправильне ім'я типу пошуку"
 
-#: ../SettingsManager.cpp:506 ../SettingsManager.cpp:528
+#: ../SettingsManager.cpp:509 ../SettingsManager.cpp:531
 msgid "This search type already exists"
 msgstr "Цей тип пошуку вже використовується"
 
-#: ../SettingsManager.cpp:560
+#: ../SettingsManager.cpp:563
 msgid "No such search type"
 msgstr "Немає такого типу пошуку"
 
@@ -184,7 +189,7 @@ msgstr ""
 "повідомте власнику хаба, щоб він виправив це"
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:271 ../SearchManager.cpp:425 ../SearchManager.cpp:427
+#: ../SearchManager.cpp:267 ../SearchManager.cpp:421 ../SearchManager.cpp:423
 #: ../QueueManager.cpp:2162 ../QueueManager.cpp:2168 ../QueueManager.cpp:2174
 msgid "Offline"
 msgstr "Поза мережею"
@@ -225,42 +230,42 @@ msgstr "З'єднання не прослуховуються - будь лас�
 msgid "Sent "
 msgstr "Відправлено "
 
-#: ../Util.cpp:579
+#: ../Util.cpp:592
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:581
+#: ../Util.cpp:594
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:583
+#: ../Util.cpp:596
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:585
+#: ../Util.cpp:598
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:587
+#: ../Util.cpp:600
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:589
+#: ../Util.cpp:602
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:619
+#: ../Util.cpp:632
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:623
+#: ../Util.cpp:636
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
@@ -276,31 +281,31 @@ msgstr "Помилка під час компресії"
 msgid "Error during decompression"
 msgstr "Помилка під час декомпресії"
 
-#: ../HashManager.cpp:80 ../HashManager.cpp:280
+#: ../HashManager.cpp:81 ../HashManager.cpp:281
 msgid "Hashing failed: %1%"
 msgstr "Не вдалось виконати хешування: %1%"
 
-#: ../HashManager.cpp:87
+#: ../HashManager.cpp:88
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Хешування закінчено: %1% (%2% at %3%/s)"
 
-#: ../HashManager.cpp:90
+#: ../HashManager.cpp:91
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Хешування закінчено: %1% (%2%)"
 
-#: ../HashManager.cpp:93
+#: ../HashManager.cpp:94
 msgid "Finished hashing: %1%"
 msgstr "Хешування закінчено: %1%"
 
-#: ../HashManager.cpp:122 ../HashManager.cpp:336
+#: ../HashManager.cpp:123 ../HashManager.cpp:337
 msgid "Error saving hash data: %1%"
 msgstr "Помилка зберігання хеш даних: %1%"
 
-#: ../HashManager.cpp:135
+#: ../HashManager.cpp:136
 msgid "Unable to read hash data file"
 msgstr "Неможливо прочитати хеш файлу"
 
-#: ../HashManager.cpp:468
+#: ../HashManager.cpp:469
 msgid "Error creating hash data file: %1%"
 msgstr "Помилка створення файлу даних хеша: %1%"
 
@@ -308,17 +313,17 @@ msgstr "Помилка створення файлу даних хеша: %1%"
 msgid "Hash database rebuilt"
 msgstr "Хешувати перебудовану базу"
 
-#: ../HashManager.cpp:849
+#: ../HashManager.cpp:850
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Хешується файл: %1% (Розмір: %2%)"
 
-#: ../HashManager.cpp:897
+#: ../HashManager.cpp:898
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% не розшарено; підрахована CRC32 не відповідає знайденій у SFV файлі."
 
-#: ../HashManager.cpp:902
+#: ../HashManager.cpp:903
 msgid "Error hashing %1%: %2%"
 msgstr "Помилка хешування %1%: %2%"
 
@@ -532,15 +537,15 @@ msgstr "Немає вільних слотів"
 msgid "%1%: File not available"
 msgstr "%1%: Файл недоступний"
 
-#: ../ConnectionManager.cpp:191
+#: ../ConnectionManager.cpp:180
 msgid "All download slots taken"
 msgstr "Усі слоти скачування зайняті"
 
-#: ../ConnectionManager.cpp:260
+#: ../ConnectionManager.cpp:249
 msgid "Connectivity restored"
 msgstr "З'єднання відновлено"
 
-#: ../ConnectionManager.cpp:268
+#: ../ConnectionManager.cpp:257
 msgid "Connectivity error: %1%"
 msgstr "Помилка SSL: %1% (%2%, %3%)"
 
@@ -584,11 +589,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "Образ"
 
-#: ../SearchManager.cpp:161
+#: ../SearchManager.cpp:157
 msgid "Search enabled again"
 msgstr "Пошук знову увімкнено"
 
-#: ../SearchManager.cpp:169
+#: ../SearchManager.cpp:165
 msgid "Search disabled: %1%"
 msgstr "Пошук відключений: %1%"
 
@@ -686,6 +691,12 @@ msgstr "Записано більше байтів ніж потрібно"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Незбіг TTH"
+
+#~ msgid "TCP/TLS"
+#~ msgstr "TCP/TLS"
+
+#~ msgid "UDP"
+#~ msgstr "UDP"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Запит пошуку поза областю даних"
