@@ -3,19 +3,36 @@
 * Align ip-address in a chat (only for monospaced fonts).
 * Added configuration options: ENABLE_STACKTRACE, WITH_DEV_FILES and EISKALTDCPP_INCLUDE_DIR.
 * Added separate file for logging completely finished downloads.
+* Ability to bind to network interface.
+* Translations has been updated.
+* Startup speedup (lazy hashing).
+* Resolve Internationalized Domain Names for *nix (with libidn).
+* MimeType section for .desktop files.
+* Fixed build on win32.
+* Bugfixes.
 *** eiskaltdcpp-qt ***
 * Added ability to build program on Haiku-OS (see file INSTALL).
 * Fixed loading of emoticons from emoticon packs. It was support files only in PNG format, but now it can load images in any standart format.
 * Improvements in the dialog with black list of search results.
 * Fixed highlighting of status messages in a chat: the color is now applied to full message.
 * Improvement in the search widget: tooltip shows where is the file located if it exists in the share.
+* Tooltip for already shared files in ShareBrowser.
+* Log settings for finished downloads.
+* Search highlighted text in chat.
+* Allow searching alternates for uploads.
+* Tab for Queued Users.
+* Private chat window now respects WI_CHAT_MAXPARAGRAPHS setting.
 * Fixed small memory leaks and produced code cleanup.
 *** eiskaltdcpp-gtk ***
 * Fixed initialization of the toolbar.
 * "Emoticons not loaded" messages is now disabled, when emoticons is switched off.
+* "Minimize to tray on startup" option.
+* Fixed sound notifications.
 *** eiskaltdcpp-daemon ***
 * Added ability to build program on Haiku-OS (see file INSTALL).
+* New XML-RPC methods.
 * Added command line options: --pidfile, --confdir, --localdir
+* Added example script for launching daemon on startup in Debian-based systems
 
 --- 2.2.1 2011-03-08 ---
 *** common changes ***
