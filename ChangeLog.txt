@@ -12,15 +12,22 @@
 * Improvements in the dialog with black list of search results.
 * Fixed highlighting of status messages in a chat: the color is now applied to full message.
 * Improvement in the search widget: tooltip shows where is the file located if it exists in the share.
+* Ability to specify TLS_PORT equal TCP_PORT was eliminated in the settings dialog. (This was frequent users mistake)
 * Fixed small memory leaks and produced code cleanup.
+* Added MimeType section in .desktop file.
 * Now EiskaltDC++ Qt is available as a plugin for the LeechCraft (https://github.com/0xd34df00d/leechcraft) project.
 *** eiskaltdcpp-gtk ***
 * Fixed initialization of the toolbar.
 * "Emoticons not loaded" messages is now disabled, when emoticons is switched off.
 * Added some options in settings dialog: "sound-command", "minimize-tray" (minimize to tray on startup)
+* Ability to specify TLS_PORT equal TCP_PORT was eliminated in the settings dialog. (This was frequent users mistake)
+* Added MimeType section in .desktop file.
 *** eiskaltdcpp-daemon ***
 * Added ability to build program on Haiku-OS (see file INSTALL).
 * Added command line options: --pidfile, --confdir, --localdir
+* Added example script for launching daemon on system startup in Debian-based systems.
+* Disabled the forced change of access rights to the created files (644).
+* New XML-RPC methods.
 
 --- 2.2.1 2011-03-08 ---
 *** common changes ***
