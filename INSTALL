@@ -121,7 +121,7 @@ Keys for cmake
 -DPERL_REGEX=ON/OFF (default: OFF)
     use pcre lib for regex in perl style (now it uses only in ADL Search)
 -DUSE_IDNA=ON/OFF (default: ON)
-    Use libidn for rfc3490
+    Use libidn for rfc3490 (resolving Internationalized Domain Names)
 -DLINK=STATIC/SHARED (default: SHARED)
     make static or shared library
     Option available only on Unix-like systems.

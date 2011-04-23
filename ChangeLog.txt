@@ -3,9 +3,13 @@
 * Partial synchronization with DC++ kernel (0.785).
 * Align ip-address in a chat (only for monospaced fonts).
 * Added configuration options: ENABLE_STACKTRACE, WITH_DEV_FILES and EISKALTDCPP_INCLUDE_DIR.
+* Resolving Internationalized Domain Names (libidn is used) [rfc3490]. (Enabled by default, see file INSTALL)
+* Possible fix to fix migrating from older releases (<2.1.0) without rehashing.
+* Added option of hashing delay on programs startup (60 seconds by default). If the delay is equal -1, hashing process will not be resumed. This option is very useful to accelerate GUI launching, because it is not waiting DC++ kernel.
 * Added separate file for logging completely finished downloads.
 * Ability to bind to a network interface.
 * Fixes to improve Lua-scripts.
+* Bugfixes.
 *** eiskaltdcpp-qt ***
 * Added ability to build program on Haiku-OS (see file INSTALL).
 * Fixed loading of emoticons from emoticon packs. It was support files only in PNG format, but now it can load images in any standart format.
