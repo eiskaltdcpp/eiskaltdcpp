@@ -50,7 +50,7 @@ const string SettingsManager::settingTags[] =
     "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileSystem",
     "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
-    "Language", "SkipListShare", "InternetIp",
+    "Language", "SkipListShare", "InternetIp", "DHTKey",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow",
@@ -262,8 +262,8 @@ SettingsManager::SettingsManager()
     setDefault(HASH_BUFFER_NORESERVE, true);
     setDefault(HASH_BUFFER_PRIVATE, true);
     setDefault(RECONNECT_DELAY, 15);
-    setDefault(DHT_PORT, 6245);
-    setDefault(USE_DHT, false);
+    setDefault(DHT_PORT, 6250);
+    setDefault(USE_DHT, true);
     setDefault(SEARCH_PASSIVE, false);
     setDefault(AUTO_DETECT_CONNECTION, false);
     setDefault(MAX_UPLOAD_SPEED_MAIN, 0);
@@ -419,6 +419,9 @@ void SettingsManager::load(string const& aFileName)
         if(CID(SETTING(PRIVATE_ID)).isZero())
             set(PRIVATE_ID, CID::generate().toBase32());
     }
+
+    if (SETTING(DHT_KEY).length() != 39 || CID(SETTING(DHT_KEY)).isZero())
+        set(DHT_KEY, CID::generate().toBase32());
 }
 
 void SettingsManager::save(string const& aFileName) {
