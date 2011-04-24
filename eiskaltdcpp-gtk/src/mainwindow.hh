@@ -181,7 +181,7 @@ class MainWindow:
 
         // Client functions
         void autoConnect_client();
-        void startSocket_client(bool onstart, int oldmode);
+        void startSocket_client(bool changed);
         void refreshFileList_client();
         void addFileDownloadQueue_client(std::string name, int64_t size, std::string tth);
 

@@ -603,6 +603,8 @@ DownloadQueueItem::DownloadQueueItem(const QList<QVariant> &data, DownloadQueueI
 DownloadQueueItem::DownloadQueueItem(const DownloadQueueItem &item){
     itemData = item.itemData;
     dir = item.dir;
+    parentItem = NULL;
+    childItems = QList<DownloadQueueItem*> ();
 }
 void DownloadQueueItem::operator=(const DownloadQueueItem &item){
     itemData = item.itemData;

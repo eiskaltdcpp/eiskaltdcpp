@@ -19,7 +19,7 @@
 #ifndef DCPLUSPLUS_DCPP_DOWNLOADMANAGERLISTENER_H_
 #define DCPLUSPLUS_DCPP_DOWNLOADMANAGERLISTENER_H_
 
-#include "forward.h"
+#include "typedefs.h"
 
 namespace dcpp {
 

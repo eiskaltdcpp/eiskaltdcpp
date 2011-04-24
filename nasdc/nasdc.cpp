@@ -36,6 +36,8 @@
 #endif
 
 char pidfile[256] = {0};
+char config_dir[1024] = {0};
+char local_dir[1024] = {0};
 
 static void  logging(bool b, string msg){
 #ifndef _WIN32
@@ -122,15 +124,18 @@ static int eidcpp_daemon( int nochdir, int noclose ) {
 #endif
 void printHelp() {
     printf("Using:\n"
-           "  eiskaltdcpp-daemon -d\t Run program as daemon\n"
+           "  eiskaltdcpp-daemon -d [options]\n"
            "  eiskaltdcpp-daemon <Key>\n"
            "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
            "\n"
            "Keys:\n"
+           "  -d, --daemon\t Run program as daemon\n"
            "  -h, --help\t Show this message\n"
            "  -v, --version\t Show version string\n"
 #ifndef _WIN32
-           "  -p file, --pidfile=file\t Write daemon process ID to file\n"
+           "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
+           "  -c <dir>,  --confdir=<dir>\t Store config in <dir>\n"
+           "  -l <dir>,  --localdir=<dir>\t Store local data (cache, temp files) in <dir> (defaults is equal confdir)\n"
 #endif // _WIN32
            );
 }
@@ -139,30 +144,38 @@ void printVersion() {
     printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
 }
 
-void writePidFile(char *path)
-{
-	std::ofstream pidfile(path);
-	pidfile << getpid();
-}
-
 #ifndef _WIN32
 static struct option opts[] = {
     { "help",    no_argument,       NULL, 'h'},
     { "version", no_argument,       NULL, 'v'},
     { "daemon",  no_argument,       NULL, 'd'},
+    { "confdir", required_argument, NULL, 'c'},
+    { "localdir",required_argument, NULL, 'l'},
     { "pidfile", required_argument, NULL, 'p'},
     { NULL,      0,                 NULL, 0}
 };
 
+void writePidFile(char *path)
+{
+    std::ofstream pidfile(path);
+    pidfile << getpid();
+}
+
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hvd", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hp:c:l:vd", opts, NULL)) != -1) {
         switch (ch) {
             case 'd':
                 bDaemon = true;
                 break;
             case 'p':
                 strncpy(pidfile, optarg, 256);
+                break;
+            case 'c':
+                strncpy(config_dir, optarg, 1024);
+                break;
+            case 'l':
+                strncpy(local_dir, optarg, 1024);
                 break;
             case 'v':
                 printVersion();
@@ -171,7 +184,7 @@ void parseArgs(int argc, char* argv[]) {
                 printHelp();
                 exit(0);
             default:
-				;
+                exit(0);
         }
     }
 }
@@ -200,7 +213,14 @@ int main(int argc, char* argv[])
     sTitle += " [debug]";
 #endif
 
-    Util::initialize();
+    Util::PathsMap override;
+    if (config_dir[0] != 0) {
+        override[Util::PATH_USER_CONFIG] = config_dir;
+        override[Util::PATH_USER_LOCAL] = config_dir;
+    }
+	if (local_dir[0] != 0)
+        override[Util::PATH_USER_LOCAL] = local_dir;
+    Util::initialize(override);
 
     PATH = Util::getPath(Util::PATH_USER_CONFIG);
 #ifndef _WIN32
@@ -210,7 +230,7 @@ int main(int argc, char* argv[])
         if (eidcpp_daemon(true,false) == -1)
             return EXIT_FAILURE;
 
-        umask(117);
+        //umask(117);
 
         if (pidfile[0] != 0)
             writePidFile(pidfile);

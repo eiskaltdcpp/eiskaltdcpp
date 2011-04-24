@@ -1020,7 +1020,8 @@ void Hub::applyEmoticons_gui()
     }
     else if (!Emoticons::get()->useEmoticons_gui())
     {
-        setStatus_gui("statusMain", _(" *** Emoticons not loaded"));
+        if (WGETB("emoticons-use"))
+            setStatus_gui("statusMain", _(" *** Emoticons not loaded"));
         return;
     }
     else if (!useEmoticons)
@@ -1760,6 +1761,12 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
     if (hub->history.size() > maxHistory + 1)
         hub->history.erase(hub->history.begin());
 
+#ifdef LUA_SCRIPT
+    bool script_ret = false;
+    if (((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, text)) {
+        script_ret = true;
+    }
+#endif
     // Process special commands
     if (text[0] == '/')
     {
@@ -2021,6 +2028,8 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         else if( command == "luafile") {
             ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
         }
+        else if (script_ret)
+            ((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, text);
 #endif
         //alias patch
         else if (command == "alias" && !param.empty())
@@ -2146,11 +2155,6 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         {
             hub->addStatusMessage_gui(_("Unknown command '") + text + _("': type /help for a list of available commands"), Msg::SYSTEM, Sound::NONE);
         }
-        //#ifdef LUA_SCRIPT
-            //client->hubMessage(text);
-            //func2 = new F2(hub, &Hub::sendMessage_client, text, false);
-            //WulforManager::get()->dispatchClientFunc(func2);
-        //#endif
     }
     else
     {

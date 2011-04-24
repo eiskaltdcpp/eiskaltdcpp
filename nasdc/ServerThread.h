@@ -42,11 +42,15 @@ public:
     void disconnectClient(string address);
     void sendMessage(const string& hubUrl, const string& message);
     void listConnectedClients(string& listhubs,const string& separator);
+    bool findHubInConnectedClients(const string& hub);
+    bool sendPrivateMessage(const string &shub,const string& scid,const string& smessage);
+    string getFileList_client(const string& hub, const string& cid, bool match);
+    void getChatPubFromClient(string& chat, const string& hub, const string& separator);
 
 private:
 
     virtual int run();
-    void startSocket(bool onstart, int oldmode);
+    void startSocket(bool changed);
     void autoConnect();
     void showPortsError(const std::string& port);
     bool disconnect_all();
@@ -54,7 +58,11 @@ private:
     int server;
     unsigned int iSuspendTime;
     bool bTerminated;
-    typedef map<string, Client*> ClientMap;
+    typedef struct {
+            deque<string> curchat;
+            Client* curclient;
+    } CurHub;
+    typedef tr1::unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
     //socket_t webSock;
@@ -87,6 +95,7 @@ private:
     std::string address;
     std::string encoding;
     CriticalSection shutcs;
+    static const int maxLines = 1000;
 };
 
 #endif /* SERVERTHREAD_H_ */

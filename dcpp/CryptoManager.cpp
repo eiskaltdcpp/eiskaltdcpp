@@ -21,8 +21,6 @@
 
 #include "CryptoManager.h"
 
-#include "BitInputStream.h"
-#include "BitOutputStream.h"
 #include "File.h"
 #include "LogManager.h"
 #include "ClientManager.h"

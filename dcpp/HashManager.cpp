@@ -20,6 +20,7 @@
 #include "DCPlusPlus.h"
 
 #include "HashManager.h"
+#include "ShareManager.h"
 #include "SimpleXML.h"
 #include "LogManager.h"
 #include "File.h"
@@ -40,7 +41,14 @@ const int64_t HashManager::MIN_BLOCK_SIZE = 64 * 1024;
 
 bool HashManager::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp) {
     Lock l(cs);
-    if (!store.checkTTH(aFileName, aSize, aTimeStamp)) {
+    const TTHValue* tth = getFileTTHif(Text::toLower(aFileName));
+    if (tth != NULL) {
+        TigerTree tt(MIN_BLOCK_SIZE);
+        store.getTree(*tth, tt);
+        hashDone(aFileName, aTimeStamp, tt, 0, aSize);
+        return true;
+    }
+    else if (!store.checkTTH(aFileName, aSize, aTimeStamp)) {
         hasher.hashFile(aFileName, aSize);
         return false;
     }
@@ -648,11 +656,17 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
 
 static sigjmp_buf sb_env;
 
-static void sigbus_handler(int signum, siginfo_t* info, void* context) {
+static void sigbus_handler(int signum
+#ifndef __HAIKU__
+, siginfo_t* info, void* context
+#endif
+) {
     // Jump back to the fastHash which will return error. Apparently truncating
     // a file in Solaris sets si_code to BUS_OBJERR
-    if (signum == SIGBUS && (info->si_code == BUS_ADRERR || info->si_code == BUS_OBJERR))
+#ifndef __HAIKU__
+       if (signum == SIGBUS && (info->si_code == BUS_ADRERR || info->si_code == BUS_OBJERR))
         siglongjmp(sb_env, 1);
+#endif
 }
 
 bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree& tth, int64_t size, CRC32Filter* xcrc32) {
@@ -678,7 +692,9 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         sigemptyset(&signalset);
 
         act.sa_handler = NULL;
+#ifndef __HAIKU__
         act.sa_sigaction = sigbus_handler;
+#endif
         act.sa_mask = signalset;
 #ifdef SA_SIGINFO
         act.sa_flags = SA_SIGINFO | SA_RESETHAND;
@@ -714,10 +730,12 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
                             break;
                         }
 
-        if (madvise(buf, size_read, MADV_SEQUENTIAL | MADV_WILLNEED) == -1) {
+#ifndef __HAIKU__
+               if (madvise(buf, size_read, MADV_SEQUENTIAL | MADV_WILLNEED) == -1) {
             dcdebug("Error calling madvise for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
             break;
         }
+#endif
 
             if(SETTING(MAX_HASH_SPEED) > 0) {
             uint64_t now = GET_TICK();
@@ -771,12 +789,11 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
 #endif // !_WIN32
 int HashManager::Hasher::run() {
     setThreadPriority(Thread::IDLE);
-
     uint8_t* buf = NULL;
     bool virtualBuf = true;
-
     string fname;
     bool last = false;
+    pause();
     for(;;) {
         s.wait();
         if(stop)
@@ -800,6 +817,7 @@ int HashManager::Hasher::run() {
             }
         }
         running = true;
+        instantPause();
 
         if(!fname.empty()) {
             int64_t size = File::getSize(fname);
@@ -934,6 +952,34 @@ void HashManager::resumeHashing() {
 bool HashManager::isHashingPaused() const {
     Lock l(cs);
     return hasher.isPaused();
+}
+
+void HashManager::on(TimerManagerListener::Second, uint64_t tick) throw() {
+    //fprintf(stdout,"%lld\n", tick); fflush(stdout);
+    static bool firstcycle = true;
+    if (firstcycle){
+        int delay = SETTING(HASHING_START_DELAY);
+        SettingsManager *SM = SettingsManager::getInstance();
+        if (delay > 1800){
+            delay = 1800;
+            SM->set(SettingsManager::HASHING_START_DELAY, delay);
+        }
+
+        string  curFile;
+        int64_t bytesLeft;
+        size_t  filesLeft = -1;
+        if (!ShareManager::getInstance()->isRefreshing()){
+            getStats(curFile, bytesLeft, filesLeft);
+            //fprintf(stdout,"filesLeft %d\n", filesLeft); fflush(stdout);
+
+            // if delay is more than -1 hashing process must be resumed
+            // if there is nothing to hashing pause is not required
+            if (isHashingPaused() && ((delay >= 0 && Util::getUpTime() >= delay) || filesLeft == 0)){
+                resumeHashing();
+                firstcycle = false;
+            }
+        }
+    }
 }
 
 } // namespace dcpp

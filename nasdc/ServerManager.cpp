@@ -14,6 +14,7 @@
 //---------------------------------------------------------------------------
 #include "stdafx.h"
 #include "dcpp/DCPlusPlus.h"
+#include "dcpp/format.h"
 #include "dcpp/Util.h"
 //---------------------------------------------------------------------------
 #include "ServerManager.h"

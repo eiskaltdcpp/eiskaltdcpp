@@ -28,6 +28,8 @@ using namespace std;
 #include "VersionGlobal.h"
 #include "IPFilter.h"
 #include "EmoticonFactory.h"
+#include "FinishedTransfers.h"
+#include "QueuedUsers.h"
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
@@ -56,6 +58,7 @@ void parseCmdLine(const QStringList &);
 #ifndef Q_WS_WIN
 #include <unistd.h>
 #include <signal.h>
+#ifndef __HAIKU__
 #include <execinfo.h>
 
 #ifdef ENABLE_STACKTRACE
@@ -63,6 +66,7 @@ void parseCmdLine(const QStringList &);
 #endif // ENABLE_STACKTRACE
 
 void installHandlers();
+#endif
 
 #ifdef FORCE_XDG
 #include <QTextStream>
@@ -88,11 +92,11 @@ int main(int argc, char *argv[])
 
     setlocale(LC_ALL, "");
 
-#ifndef Q_WS_WIN
+#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
     installHandlers();
 #endif
 
-#ifdef FORCE_XDG
+#if defined(FORCE_XDG) && !defined(Q_WS_WIN)
     migrateConfig();
 #endif
 
@@ -156,6 +160,10 @@ int main(int argc, char *argv[])
     ScriptEngine::newInstance();
 #endif
 
+    FinishedUploads::newInstance();
+    FinishedDownloads::newInstance();
+    QueuedUsers::newInstance();
+
     ret = app.exec();
 
     std::cout << QObject::tr("Shutting down libdcpp...").toStdString() << std::endl;
@@ -206,7 +214,7 @@ void parseCmdLine(const QStringList &args){
     }
 }
 
-#ifndef Q_WS_WIN
+#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
 
 void installHandlers(){
     struct sigaction sa;

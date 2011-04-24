@@ -44,6 +44,10 @@ void SettingsLog::init(){
     lineEdit_UPFMT->setText(_q(SETTING(LOG_FORMAT_POST_UPLOAD)));
     lineEdit_FILE_UPFMT->setText(_q(SETTING(LOG_FILE_UPLOAD)));
 
+    groupBox_FINISH_DOWN->setChecked(BOOLSETTING(LOG_FINISHED_DOWNLOADS));
+    lineEdit_FINISH_DOWNFMT->setText(_q(SETTING(LOG_FORMAT_POST_FINISHED_DOWNLOAD)));
+    lineEdit_FILE_FINISH_DOWNFMT->setText(_q(SETTING(LOG_FILE_FINISHED_DOWNLOAD)));
+
     checkBox_FILELIST->setChecked(BOOLSETTING(LOG_FILELIST_TRANSFERS));
     checkBox_STAT->setChecked(BOOLSETTING(LOG_STATUS_MESSAGES));
     checkBox_SYSTEM->setChecked(BOOLSETTING(LOG_SYSTEM));
@@ -74,6 +78,9 @@ void SettingsLog::ok(){
     sm->set(SettingsManager::LOG_UPLOADS, groupBox_UP->isChecked());
     sm->set(SettingsManager::LOG_FORMAT_POST_UPLOAD, _tq(lineEdit_UPFMT->text()));
     sm->set(SettingsManager::LOG_FILE_UPLOAD, _tq(lineEdit_FILE_UPFMT->text()));
+    sm->set(SettingsManager::LOG_FINISHED_DOWNLOADS, groupBox_FINISH_DOWN->isChecked());
+    sm->set(SettingsManager::LOG_FORMAT_POST_FINISHED_DOWNLOAD, _tq(lineEdit_FINISH_DOWNFMT->text()));
+    sm->set(SettingsManager::LOG_FILE_FINISHED_DOWNLOAD, _tq(lineEdit_FILE_FINISH_DOWNFMT->text()));
     sm->set(SettingsManager::LOG_SYSTEM, checkBox_SYSTEM->isChecked());
     sm->set(SettingsManager::LOG_STATUS_MESSAGES, checkBox_STAT->isChecked());
     sm->set(SettingsManager::LOG_FILELIST_TRANSFERS, checkBox_FILELIST->isChecked());

@@ -8,7 +8,7 @@ else (APPLE)
 endif (APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.2.2")
+set (VERSION "2.2.3")
 set (SOVERSION "2.2")
 set (VERSION_SUFFIX "GIT")
 
@@ -93,6 +93,7 @@ option (WITH_EMOTICONS "Install emoticon packs" ON)
 option (WITH_EXAMPLES "Install examples sh and others scripts" ON)
 option (WITH_LUASCRIPTS "Install examples of lua scripts" OFF)
 option (WITH_SOUNDS "Install sound files" OFF)
+option (WITH_DEV_FILES "Install development files (headers for libeiskaltdcpp)" OFF)
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NO_UI_DAEMON "Daemon without any UI" OFF)
@@ -100,10 +101,15 @@ option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
 option (CLI_DAEMON "Mаке daemon with sample cli based on readline" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
+option (USE_IDNA "Use libidn for punycode generation" ON)
 
 if (PERL_REGEX)
-find_package(Pcre REQUIRED)
+    find_package(Pcre REQUIRED)
 endif (PERL_REGEX)
+
+if (USE_IDNA)
+    find_package(IDNA REQUIRED)
+endif(USE_IDNA)
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
@@ -136,19 +142,33 @@ endif(USE_MINIUPNP)
 if (USE_QT)
     if (USE_QT_QML)
       find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork QtDeclarative REQUIRED)
-      message (STATUS "Building with Qt Declarative Ui support")
+      message (STATUS "Building with Qt Declarative UI support")
       set (USE_JS ON)
     else (USE_QT_QML)
       find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+      message (STATUS "Building without Qt Declarative UI support")
     endif (USE_QT_QML)
 
     if (DBUS_NOTIFY)
         find_package (Qt4 4.4.0 COMPONENTS QtDBus REQUIRED)
+        message (STATUS "Building with Qt DBus support")
+    else (DBUS_NOTIFY)
+        message (STATUS "Building without Qt DBus support")
     endif (DBUS_NOTIFY)
+
     if (USE_JS)
         find_package (Qt4 4.4.0 COMPONENTS QtScript REQUIRED)
 	message (STATUS "Building with Qt Script support")
+    else (USE_JS)
+        message (STATUS "Building without Qt Script support")
     endif (USE_JS)
+
+    if (USE_QT_SQLITE)
+        find_package (Qt4 4.4.0 COMPONENTS QtSql REQUIRED)
+        message (STATUS "Building with Qt SQLite support")
+    else (USE_QT_SQLITE)
+        message (STATUS "Building without Qt SQLite support")
+    endif (USE_QT_SQLITE)
 endif (USE_QT)
 
 
@@ -181,7 +201,6 @@ else (FREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)
 
 if (USE_GTK)
-
     find_package (GTK2 REQUIRED gtk glade)
 
     if (USE_LIBGNOME2)
@@ -237,8 +256,23 @@ if (NOT LIBDIR)
 endif (NOT LIBDIR)
 message (STATUS "Library directory: ${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
 
+if (WITH_DEV_FILES)
+  if (NOT EISKALTDCPP_INCLUDE_DIR)
+    set (EISKALTDCPP_INCLUDE_DIR "${CMAKE_INSTALL_PREFIX}/include/eiskaltdcpp")
+  endif (NOT EISKALTDCPP_INCLUDE_DIR)
+  message (STATUS "Headers of libeiskaltdcpp will be installed to: ${EISKALTDCPP_INCLUDE_DIR}")
+endif (WITH_DEV_FILES)
+
 if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND USE_QT)
+  message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
+                 "\tYou can build it for your own risk.\n"
+                 "\tBut do not even try to write bug reports in this case.\n"
+                 "\tPlease use RelWithDebInfo instead it.")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo")
+  set (CMAKE_BUILD_TYPE "RelWithDebInfo")
+  message(STATUS "CMAKE_BUILD_TYPE = Gentoo is not now supported. RelWithDebInfo is used instead.")
 endif (NOT CMAKE_BUILD_TYPE)
 
 if (NOT SHARE_DIR)
@@ -311,13 +345,6 @@ if (HAVE_IFADDRS_H)
   add_definitions (-DHAVE_IFADDRS_H )
 endif (HAVE_IFADDRS_H)
 
-#if (ICONV_SECOND_ARGUMENT_IS_CONST)
-  #add_definitions (-DICONV_CONST=const)
-#endif (ICONV_SECOND_ARGUMENT_IS_CONST)
-
-#if (FORCE_XDG)
-  #add_definitions (-DFORCE_XDG)
-#endif (FORCE_XDG)
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
     if (MINGW)
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")
@@ -353,7 +380,8 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
                 iconv (headers): ${ICONV_LIBRARIES} (${ICONV_INCLUDE_DIR})
                 aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
                 gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
-                pcre(cpp) (headers): ${PCRE_LIBRARY} (${PCRE_INCLUDE_DIR})
+                pcre(cpp) (headers): ${PCRE_LIBRARIES} (${PCRE_INCLUDE_DIR})
+                idna (headers): ${IDNA_LIBRARIES} (${IDNA_INCLUDE_DIR})
 
                 ")
 
@@ -510,6 +538,11 @@ if (USE_QT OR USE_GTK)
         install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
         PATTERN ".svn" EXCLUDE)
     endif (WITH_EMOTICONS)
+
+    if (WITH_DEV_FILES)
+        install (FILES ${DCPP_HDRS} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/)
+    endif (WITH_DEV_FILES)
+
 list(APPEND iconsize 16 22 24 32 48 64 128)
 foreach (isize ${iconsize})
   install (FILES icons/icon_${isize}x${isize}.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/${isize}x${isize}/apps RENAME eiskaltdcpp.png)

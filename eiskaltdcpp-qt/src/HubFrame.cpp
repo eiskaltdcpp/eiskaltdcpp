@@ -18,6 +18,7 @@
 #include "EmoticonDialog.h"
 #include "WulforSettings.h"
 #include "FlowLayout.h"
+#include "SearchFrame.h"
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
@@ -124,6 +125,7 @@ HubFrame::Menu::Menu(){
 
     // Userlist actions
     QAction *copy_text   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy"), NULL);
+    QAction *search_text = new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Search text"), NULL);
     QAction *copy_nick   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy nick"), NULL);
     QAction *find        = new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Show in list"), NULL);
     QAction *browse      = new QAction(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse files"), NULL);
@@ -163,6 +165,7 @@ HubFrame::Menu::Menu(){
     sep1->setSeparator(true), sep2->setSeparator(true), sep3->setSeparator(true), sep4->setSeparator(true);
 
     actions << copy_text
+            << search_text
             << copy_nick
             << find
             << browse
@@ -211,6 +214,7 @@ HubFrame::Menu::Menu(){
                  << zoom_out;
 
     chat_actions_map.insert(copy_text, CopyText);
+    chat_actions_map.insert(search_text, SearchText);
     chat_actions_map.insert(copy_nick, CopyNick);
     chat_actions_map.insert(clear_chat, ClearChat);
     chat_actions_map.insert(find_in_chat, FindInChat);
@@ -784,10 +788,6 @@ HubFrame::~HubFrame(){
     delete proxy;
 
     delete updater;
-
-#if HAVE_MALLOC_TRIM
-    malloc_trim(0);
-#endif
 }
 
 bool HubFrame::eventFilter(QObject *obj, QEvent *e){
@@ -1000,6 +1000,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void HubFrame::closeEvent(QCloseEvent *e){
+    QObject::disconnect(this, NULL, this, NULL);
+
     MainWindow *MW = MainWindow::getInstance();
 
     MW->remArenaWidgetFromToolbar(this);
@@ -1418,9 +1420,14 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
     if (msg.endsWith("\n"))
         msg = msg.left(msg.lastIndexOf("\n"));
 
-    if (!parseForCmd(msg, this))
+    bool script_ret = false;
+#ifdef LUA_SCRIPT
+    script_ret = ((ClientScriptInstance *) (this->client))->onHubFrameEnter(this->client, msg.toStdString());
+#endif
+    if (!script_ret && !parseForCmd(msg, this))
         client->hubMessage(msg.toStdString(), thirdPerson);
 
+    //qDebug() << "cmd: " << cmd <<" sript_ret: " << script_ret;
     if (!thirdPerson){
         if (out_messages_unsent){
             out_messages.removeLast();
@@ -1845,9 +1852,9 @@ void HubFrame::addStatus(QString msg){
     short_msg = LinkParser::parseForLinks(short_msg, false);
     msg       = LinkParser::parseForLinks(msg, true);
 
-    pure_msg        = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + pure_msg + "</font>";
-    short_msg       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + short_msg + "</font>";
-    msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
+    pure_msg        = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + pure_msg + "</font>";
+    short_msg       = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + short_msg + "</font>";
+    msg             = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + msg + "</font>";
     QString time    = "";
 
     if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
@@ -2787,13 +2794,12 @@ void HubFrame::slotUserListMenu(const QPoint&){
 }
 
 void HubFrame::slotChatMenu(const QPoint &){
-    QTextEdit *editor = static_cast<QTextEdit*>(sender());
+    QTextEdit *editor = qobject_cast<QTextEdit*>(sender());
 
     if (!editor)
         return;
 
     QString pressedParagraph = "", nick = "";
-    int nickStart = 0, nickLen = 0;
 
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
 
@@ -2802,37 +2808,28 @@ void HubFrame::slotChatMenu(const QPoint &){
     pressedParagraph = cursor.block().text();
 
     int row_counter = 0;
+    QRegExp nick_exp("<((.+))>");
+    QRegExp thirdPerson_exp("\\*\\W+((\\w+))");// * Some_nick say something
 
-    while (!pressedParagraph.contains(QRegExp("(<(.+)>)")) && row_counter < 600){//try to find nick in above rows (max 600 rows)
+    while (!(pressedParagraph.contains(nick_exp) || pressedParagraph.contains(thirdPerson_exp)) && row_counter < 600){//try to find nick in above rows (max 600 rows)
         cursor.movePosition(QTextCursor::PreviousBlock);
         pressedParagraph = cursor.block().text();
+
         row_counter++;
     }
 
-    nickStart = 1 + pressedParagraph.indexOf("<");
-    nickLen = pressedParagraph.indexOf(">") - nickStart;
-
-    // sanity check
-    if ((nickStart == 0) || (nickLen < 0)) {
-        nickStart = QString("[hh.mm.ss] ").length();
-
-        nickLen = pressedParagraph.indexOf(" ", nickStart) - nickStart;
-
-        nick = pressedParagraph.mid(nickStart, nickLen);
-
-        /* [10:57:15] * somenick does something */
-        if (nick == "*") {
-            nickStart = pressedParagraph.indexOf(" ", nickStart + 1) + 1;
-
-            if (nickStart > 0) {
-                nickLen = pressedParagraph.indexOf(" ", nickStart) - nickStart;
-                nick = pressedParagraph.mid(nickStart, nickLen);
-            }
-        }
-    }
-    else {
-        nick = pressedParagraph.mid(nickStart, nickLen);
-    }
+#if QT_VERSION >= 0x040600
+    if (nick_exp.captureCount() >= 2)
+        nick = nick_exp.cap(1);
+    else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.captureCount() >= 2)
+        nick = thirdPerson_exp.cap(1);
+#else
+    // QRegExp::captureCount() function was introduced in Qt 4.6,
+    if (nick_exp.capturedTexts().size() >= 2)
+        nick = nick_exp.cap(1);
+    else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.capturedTexts().size() >= 2)
+        nick = thirdPerson_exp.cap(1);
+#endif
 
     QString cid = model->CIDforNick(nick, _q(client->getHubUrl()));
 
@@ -2874,6 +2871,32 @@ void HubFrame::slotChatMenu(const QPoint &){
                 ret = editor->textCursor().block().text();
 
             qApp->clipboard()->setText(ret, QClipboard::Clipboard);
+
+            break;
+        }
+        case Menu::SearchText:
+        {
+            QString ret = editor->textCursor().selectedText();
+
+            if (ret.isEmpty())
+                ret = editor->anchorAt(textEdit_CHAT->mapFromGlobal(p));
+
+            if (ret.startsWith("user://")){
+                ret.remove(0, 7);
+
+                ret = ret.trimmed();
+
+                if (ret.startsWith("<") && ret.endsWith(">")){
+                    ret.remove(0, 1);//remove <
+                    ret = ret.left(ret.lastIndexOf(">"));//remove >
+                }
+            }
+
+            if (ret.isEmpty())
+                break;
+
+            SearchFrame *sf = new SearchFrame(this);
+            sf->fastSearch(ret, false);
 
             break;
         }

@@ -56,6 +56,7 @@
 #include "MultiLineToolBar.h"
 #include "IPFilter.h"
 #include "SearchBlacklist.h"
+#include "QueuedUsers.h"
 #ifdef FREE_SPACE_BAR_C
 #include "extra/freespace.h"
 #endif
@@ -93,9 +94,6 @@ MainWindow::MainWindow (QWidget *parent):
 {
     exitBegin = false;
 
-    arenaMap.clear();
-    arenaWidgets.clear();
-
     if (WBGET(WB_ANTISPAM_ENABLED)){
         AntiSpam::newInstance();
 
@@ -119,7 +117,7 @@ MainWindow::MainWindow (QWidget *parent):
     TimerManager::getInstance()->addListener(this);
     QueueManager::getInstance()->addListener(this);
 
-    startSocket(true, 0);
+    startSocket(false);
 
     setStatusMessage(tr("Ready"));
 
@@ -656,6 +654,12 @@ void MainWindow::initActions(){
         toolsDownloadQueue->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
         connect(toolsDownloadQueue, SIGNAL(triggered()), this, SLOT(slotToolsDownloadQueue()));
 
+        toolsQueuedUsers = new QAction("", this);
+        toolsQueuedUsers->setObjectName("toolsQueuedUsers");
+        SM->registerShortcut(toolsQueuedUsers, tr("Ctrl+Shift+U"));
+        toolsQueuedUsers->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
+        connect(toolsQueuedUsers, SIGNAL(triggered()), this, SLOT(slotToolsQueuedUsers()));
+
         toolsFinishedDownloads = new QAction("", this);
         toolsFinishedDownloads->setObjectName("toolsFinishedDownloads");
         toolsFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWNLIST));
@@ -827,6 +831,7 @@ void MainWindow::initActions(){
                 << separator0
                 << toolsTransfers
                 << toolsDownloadQueue
+                << toolsQueuedUsers
                 << toolsFinishedDownloads
                 << toolsFinishedUploads
                 << toolsSwitchSpeedLimit
@@ -1156,6 +1161,8 @@ void MainWindow::retranslateUi(){
 
         toolsDownloadQueue->setText(tr("Download queue"));
 
+        toolsQueuedUsers->setText(tr("Queued Users"));
+
         toolsHubManager->setText(tr("Hub Manager"));
 
         toolsFinishedDownloads->setText(tr("Finished downloads"));
@@ -1425,6 +1432,12 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
 
             break;
         }
+    case ArenaWidget::QueuedUsers:
+        {
+            awgt = QueuedUsers::getInstance();// QueuedUsers::newInstance() called at startup
+
+            break;
+        }
     default:
         break;
     }
@@ -1537,13 +1550,34 @@ void MainWindow::updateHashProgressStatus() {
         }
         //qDebug("listupdate");
         break;
+    case HashProgress::DELAYED:
+        fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
+        fileRefreshShareHashProgress->setText(tr("Hash progress"));
+        {
+            if (SETTING(HASHING_START_DELAY) >= 0){
+                int left = SETTING(HASHING_START_DELAY) - Util::getUpTime();
+                progressHashing->setValue( 100 * left / SETTING(HASHING_START_DELAY) );
+                progressHashing->setFormat(tr("Delayed"));
+                progressHashing->show();
+            }
+            else {
+                progressHashing->hide();
+            }
+        }
+        //qDebug("delayed");
+        break;
     case HashProgress::PAUSED:
         fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         fileRefreshShareHashProgress->setText(tr("Hash progress"));
         {
-            progressHashing->setValue( 100 );
-            progressHashing->setFormat(tr("Paused"));
-            progressHashing->show();
+            if (SETTING(HASHING_START_DELAY) >= 0){
+                progressHashing->setValue( 100 );
+                progressHashing->setFormat(tr("Paused"));
+                progressHashing->show();
+            }
+            else {
+                progressHashing->hide();
+            }
         }
         //qDebug("paused");
         break;
@@ -1919,24 +1953,13 @@ void MainWindow::toggleMainMenu(bool showMenu){
     WBSET(WB_MAIN_MENU_VISIBLE, showMenu);
 }
 
-void MainWindow::startSocket(bool onstart, int oldmode){
-    if (onstart) {
-        try {
-            ConnectivityManager::getInstance()->setup(true, SettingsManager::INCOMING_DIRECT);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
-    //qDebug() << "start";
-    } else {
-        bool b = false;
-        if (oldmode != SETTING(INCOMING_CONNECTIONS))
-            b = true;
-        try {
-            ConnectivityManager::getInstance()->setup(b, oldmode);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
-    //qDebug() << "running";
+void MainWindow::startSocket(bool changed){
+    if (changed)
+        ConnectivityManager::getInstance()->updateLast();
+    try {
+        ConnectivityManager::getInstance()->setup(true);
+    } catch (const Exception& e) {
+        showPortsError(e.getError());
     }
     ClientManager::getInstance()->infoUpdated();
 }
@@ -2017,6 +2040,7 @@ void MainWindow::slotFileRefreshShareHashProgress(){
         break;
     case HashProgress::LISTUPDATE:
     case HashProgress::PAUSED:
+    case HashProgress::DELAYED:
     case HashProgress::RUNNING:
         slotFileHashProgress();
         break;
@@ -2094,6 +2118,13 @@ void MainWindow::slotToolsDownloadQueue(){
         DownloadQueue::newInstance();
 
     toggleSingletonWidget(DownloadQueue::getInstance());
+}
+
+void MainWindow::slotToolsQueuedUsers(){
+    if (!QueuedUsers::getInstance())
+        QueuedUsers::newInstance();
+
+    toggleSingletonWidget(QueuedUsers::getInstance());
 }
 
 void MainWindow::slotToolsHubManager(){

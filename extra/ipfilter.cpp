@@ -225,8 +225,12 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
             list_ip.erase(it);
 
             QIPList::iterator itt = rules.begin();
-            while (itt != rules.end() && *itt == el){
+            while (itt != rules.end()) {
+                if (*itt == el) {
                     rules.erase(itt);
+                    break;
+                }
+                ++itt;
             }
 
             delete el;

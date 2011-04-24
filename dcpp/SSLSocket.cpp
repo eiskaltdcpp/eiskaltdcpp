@@ -22,6 +22,7 @@
 #include "SSLSocket.h"
 #include "LogManager.h"
 #include "SettingsManager.h"
+#include "format.h"
 
 #include <openssl/err.h>
 

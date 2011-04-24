@@ -530,6 +530,10 @@ Kapcsolók:
         <source>%1 [%2 Gb]</source>
         <translation>%1 [%2 Gb]</translation>
     </message>
+    <message>
+        <source>File already exists: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileHasher</name>
@@ -565,7 +569,7 @@ Kapcsolók:
     </message>
     <message>
         <source>Yes</source>
-        <translation>Igen</translation>
+        <translation type="obsolete">Igen</translation>
     </message>
 </context>
 <context>
@@ -620,11 +624,11 @@ Kapcsolók:
     </message>
     <message>
         <source>Yes</source>
-        <translation>Igen</translation>
+        <translation type="obsolete">Igen</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>Nem</translation>
+        <translation type="obsolete">Nem</translation>
     </message>
 </context>
 <context>
@@ -1145,6 +1149,10 @@ Kedvenc felhasználó</translation>
 </source>
         <translation>/kword list - kiemelt szavak listázása
 </translation>
+    </message>
+    <message>
+        <source>Search text</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1910,6 +1918,18 @@ Kedvenc felhasználó</translation>
         <source>Would you like to change other settings?</source>
         <translation>Szeretnél megváltoztatni más beállításokat is?</translation>
     </message>
+    <message>
+        <source>Ctrl+Shift+U</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Queued Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delayed</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2120,6 +2140,28 @@ Letöltve: %3 Feltöltve %4</translation>
     <message>
         <source>Signal handlers installed.</source>
         <translation>Jelfeldolgozó telepítve.</translation>
+    </message>
+</context>
+<context>
+    <name>QueuedUsers</name>
+    <message>
+        <source>Grant slot</source>
+        <translation type="unfinished">Extra slot biztosítása</translation>
+    </message>
+    <message>
+        <source>Queued Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QueuedUsersModel</name>
+    <message>
+        <source>User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished">Fájl</translation>
     </message>
 </context>
 <context>
@@ -2470,6 +2512,10 @@ Letöltve: %3 Feltöltve %4</translation>
     <message>
         <source>Host</source>
         <translation>Host</translation>
+    </message>
+    <message>
+        <source>File already exists: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2941,6 +2987,10 @@ Letöltve: %3 Feltöltve %4</translation>
         <source>Other Widgets</source>
         <translation>Egyéb alkalmazások</translation>
     </message>
+    <message>
+        <source>Queued Users</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SpyFrame</name>
@@ -3116,11 +3166,11 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Transfer View</source>
-        <translation>Átvitelek</translation>
+        <translation type="obsolete">Átvitelek</translation>
     </message>
     <message>
         <source>You cannot search alternates for uploads!</source>
-        <translation>Feltöltésekhez nem kereshető alternatíva!</translation>
+        <translation type="obsolete">Feltöltésekhez nem kereshető alternatíva!</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -4001,6 +4051,13 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
 </context>
 <context>
+    <name>UIQueuedUsers</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UIQuickConnect</name>
     <message>
         <source>Quick connect</source>
@@ -4314,7 +4371,15 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Bind Address:</source>
-        <translation>Kötési cím:</translation>
+        <translation type="obsolete">Kötési cím:</translation>
+    </message>
+    <message>
+        <source>Bind to address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bind to interface</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5046,6 +5111,18 @@ a hub operátoraitól kaphatsz</translation>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
         <translation>Minden EiskaltDC++ által generált log a program alkönyvtárában lesz tárolva.</translation>
     </message>
+    <message>
+        <source>Finished Downloads</source>
+        <translation type="unfinished">Befejezett letöltések</translation>
+    </message>
+    <message>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsNotification</name>
@@ -5410,6 +5487,10 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Maximális indexelési sebesség (MB/s, 0 = letiltva)</translation>
+    </message>
+    <message>
+        <source>Hashing delay on startup (seconds, -1 = infinity)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

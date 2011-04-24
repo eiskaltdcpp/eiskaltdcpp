@@ -67,10 +67,11 @@ void FileHasher::slotStart(){
         lineEdit_HASH->setText(_q(tth->toBase32()));
         pushButton_RUN->setEnabled(true);
     } else {
-        if (hasher)
+        if (hasher){
             hasher-> terminate();
-        hasher->setFile(file);
-        hasher->start();
+            hasher->setFile(file);
+            hasher->start();
+        }
     }
 }
 
@@ -150,5 +151,5 @@ void HashThread::calculate_tth() {
         f.close();
     } catch (...) {}
 
-    delete buf;
+    delete [] buf;
 }

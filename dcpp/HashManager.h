@@ -127,7 +127,7 @@ private:
 		virtual int run();
 		bool fastHash(const string& fname, uint8_t* buf, TigerTree& tth, int64_t size, CRC32Filter* xcrc32);
 		void getStats(string& curFile, int64_t& bytesLeft, size_t& filesLeft);
-		void shutdown() { stop = true; if(paused) s.signal(); s.signal(); }
+		void shutdown() { stop = true; if(paused){ s.signal(); resume();} s.signal(); }
 		void scheduleRebuild() { rebuild = true; if(paused) s.signal(); s.signal(); }
 
 	private:
@@ -242,6 +242,7 @@ private:
 		Lock l(cs);
 		store.save();
 	}
+	void on(TimerManagerListener::Second, uint64_t) throw();
 };
 
 } // namespace dcpp

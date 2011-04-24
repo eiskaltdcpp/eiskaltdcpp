@@ -21,6 +21,7 @@
 
 #include "HttpConnection.h"
 
+#include "format.h"
 #include "SettingsManager.h"
 #include "version.h"
 
@@ -152,6 +153,10 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) throw
                 dcassert(i != string::npos);
                 location302 = currentUrl.substr(0, i + 1) + location302;
             }
+        }
+        if(location302 == currentUrl) {
+            fire(HttpConnectionListener::Failed(), this, str(F_("Endless redirection loop (%1%)") % currentUrl));
+            return;
         }
         fire(HttpConnectionListener::Redirected(), this, location302);
 

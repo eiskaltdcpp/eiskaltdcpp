@@ -21,6 +21,7 @@
 
 #include "BZUtils.h"
 #include "Exception.h"
+#include "format.h"
 
 namespace dcpp {
 

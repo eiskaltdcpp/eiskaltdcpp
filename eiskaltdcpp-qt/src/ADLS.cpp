@@ -324,8 +324,6 @@ void ADLS::updateItem(ADLSItem *item, StrMap &map) {
     if (!item)
         return;
 
-    WulforUtil *WU = WulforUtil::getInstance();
-
     item->updateColumn(COLUMN_CHECK, map["CHECK"]);
     item->updateColumn(COLUMN_SSTRING, map["SSTRING"]);
     item->updateColumn(COLUMN_DIRECTORY, map["DIRECTORY"]);
@@ -333,7 +331,6 @@ void ADLS::updateItem(ADLSItem *item, StrMap &map) {
     item->updateColumn(COLUMN_MAXSIZE, map["MAXSIZE"]);
     item->updateColumn(COLUMN_TYPESIZE, SizeTypeToString((ADLSearch::SizeType)map["TYPESIZE"].toInt()));
     item->updateColumn(COLUMN_TYPE, SourceTypeToString((ADLSearch::SourceType)map["SOURCETYPE"].toInt()));
-
 }
 
 void ADLS::updateEntry(ADLSearch &entry, StrMap &map){
@@ -429,4 +426,6 @@ void ADLS::slotSettingsChanged(const QString &key, const QString &value){
             _q(search.destDir) == map["DIRECTORY"])
             return j;
     }
+
+    return -1;
 }

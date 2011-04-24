@@ -168,6 +168,15 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
                 return tr("File marked as a duplicate of another file: %1").arg(path+_q(file->getName()));
             }
 
+            TTHValue t(_tq(item->data(COLUMN_FILEBROWSER_TTH).toString()));
+            ShareManager *SM = ShareManager::getInstance();
+
+            try{
+                QString toolTip = _q(SM->toReal(SM->toVirtual(t)));
+
+                return tr("File already exists: %1").arg(toolTip);
+            }catch( ... ){};
+
             break;
         }
         case Qt::FontRole:

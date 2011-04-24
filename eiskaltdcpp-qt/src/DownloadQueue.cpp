@@ -518,6 +518,8 @@ void DownloadQueue::getChilds(DownloadQueueItem *i, QList<DownloadQueueItem *> &
 }
 
 void DownloadQueue::getItems(const QModelIndexList &list, QList<DownloadQueueItem*> &items){
+    items.clear();
+
     if (list.isEmpty())
         return;
 

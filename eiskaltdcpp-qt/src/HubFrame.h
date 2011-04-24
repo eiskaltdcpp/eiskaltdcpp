@@ -63,6 +63,7 @@ class HubFrame :
         enum Action{
             /** Actions for userlist */
             CopyText=0,
+            SearchText,
             CopyNick,
             FindInList,
             BrowseFilelist,

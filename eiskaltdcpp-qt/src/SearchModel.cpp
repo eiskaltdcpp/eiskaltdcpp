@@ -124,7 +124,19 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         case Qt::BackgroundColorRole:
             break;
         case Qt::ToolTipRole:
+        {
+            TTHValue t(_tq(item->data(COLUMN_SF_TTH).toString()));
+            ShareManager *SM = ShareManager::getInstance();
+
+            try{
+                QString toolTip = _q(SM->toReal(SM->toVirtual(t)));
+
+                return tr("File already exists: %1").arg(toolTip);
+            }catch( ... ){}
+
             break;
+        }
+        deafult: break;
     }
 
     return QVariant();
@@ -483,7 +495,8 @@ bool SearchModel::okToFind(const SearchItem *item){
 SearchItem::SearchItem(const QList<QVariant> &data, SearchItem *parent) :
     isDir(false),
     itemData(data),
-    parentItem(parent)
+    parentItem(parent),
+    count(0)
 {
 }
 
