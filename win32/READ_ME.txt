@@ -1,4 +1,4 @@
-You can get the lastest program sorces from git repository:
+You can get the lastest program sources from git repository:
 download sources on link http://nodeload.github.com/negativ/eiskaltdcpp/tarball/master
 or download and install git from http://git-scm.com/
 and run in command line: git clone git://github.com/negativ/eiskaltdcpp.git

@@ -41,7 +41,14 @@ const int64_t HashManager::MIN_BLOCK_SIZE = 64 * 1024;
 
 bool HashManager::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp) {
     Lock l(cs);
-    if (!store.checkTTH(aFileName, aSize, aTimeStamp)) {
+    const TTHValue* tth = getFileTTHif(Text::toLower(aFileName));
+    if (tth != NULL) {
+        TigerTree tt(MIN_BLOCK_SIZE);
+        store.getTree(*tth, tt);
+        hashDone(aFileName, aTimeStamp, tt, 0, aSize);
+        return true;
+    }
+    else if (!store.checkTTH(aFileName, aSize, aTimeStamp)) {
         hasher.hashFile(aFileName, aSize);
         return false;
     }

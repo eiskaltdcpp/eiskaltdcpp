@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-04-10 16:43+0300\n"
+"POT-Creation-Date: 2011-04-24 17:48+0300\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -212,6 +212,10 @@ msgstr ""
 msgid "Not listening for connections - please restart %1%"
 msgstr ""
 
+#: ../HttpConnection.cpp:158
+msgid "Endless redirection loop (%1%)"
+msgstr ""
+
 #: ../ChatMessage.cpp:34
 msgid "Sent "
 msgstr ""
@@ -267,49 +271,49 @@ msgstr "Error during compression"
 msgid "Error during decompression"
 msgstr "Error during decompression"
 
-#: ../HashManager.cpp:81 ../HashManager.cpp:281
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
 msgid "Hashing failed: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:88
+#: ../HashManager.cpp:95
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr ""
 
-#: ../HashManager.cpp:91
+#: ../HashManager.cpp:98
 msgid "Finished hashing: %1% (%2%)"
 msgstr ""
 
-#: ../HashManager.cpp:94
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:123 ../HashManager.cpp:337
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
 msgid "Error saving hash data: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:136
+#: ../HashManager.cpp:143
 msgid "Unable to read hash data file"
 msgstr "Unable to read hash data file"
 
-#: ../HashManager.cpp:469
+#: ../HashManager.cpp:476
 #, fuzzy
 msgid "Error creating hash data file: %1%"
 msgstr "Unable to read hash data file"
 
-#: ../HashManager.cpp:797
+#: ../HashManager.cpp:804
 msgid "Hash database rebuilt"
 msgstr "Hash database rebuilt"
 
-#: ../HashManager.cpp:850
+#: ../HashManager.cpp:857
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr ""
 
-#: ../HashManager.cpp:898
+#: ../HashManager.cpp:905
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 
-#: ../HashManager.cpp:903
+#: ../HashManager.cpp:910
 msgid "Error hashing %1%: %2%"
 msgstr ""
 

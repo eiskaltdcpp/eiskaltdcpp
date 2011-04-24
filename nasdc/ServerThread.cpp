@@ -85,6 +85,7 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const hubAddMethodP(new hubAddMethod);
     xmlrpc_c::methodPtr const hubDelMethodP(new hubDelMethod);
     xmlrpc_c::methodPtr const hubSayMethodP(new hubSayMethod);
+    xmlrpc_c::methodPtr const hubSayPrivateMethodP(new hubSayPrivateMethod);
     xmlrpc_c::methodPtr const listHubsMethodP(new listHubsMethod);
     xmlrpc_c::methodPtr const addDirInShareMethodP(new addDirInShareMethod);
     xmlrpc_c::methodPtr const renameDirInShareMethodP(new renameDirInShareMethod);
@@ -98,6 +99,7 @@ int ServerThread::run()
     //xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
     xmlrpcRegistry.addMethod("hub.del", hubDelMethodP);
     xmlrpcRegistry.addMethod("hub.say", hubSayMethodP);
+    xmlrpcRegistry.addMethod("hub.pm", hubSayPrivateMethodP);
     xmlrpcRegistry.addMethod("hubs.list", listHubsMethodP);
     xmlrpcRegistry.addMethod("share.add", addDirInShareMethodP);
     xmlrpcRegistry.addMethod("share.rename", renameDirInShareMethodP);
@@ -314,7 +316,6 @@ void ServerThread::on(NickTaken, Client*) throw() {
 void ServerThread::on(SearchFlood, Client*, const string& line) throw() {
 
 }
-
 //void ServerThread::on(WebServerListener::Setup) throw() {
     ////webSock = WebServerManager::getInstance()->getServerSocket().getSock();
 //}
@@ -371,13 +372,13 @@ bool ServerThread::findHubInConnectedClients(const string& hub) {
     return false;
 }
 
-bool ServerThread::sendPrivateMessage(const string& hub,const string& cid,const string& message) {
+bool ServerThread::sendPrivateMessage(const string& hub,const string& nick, const string& message) {
     ClientIter i = clientsMap.find(hub);
     if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
         Client* client = i->second.curclient;
         if (client && !message.empty()) {
             bool thirdPerson = !message.compare(0,3,"/me");
-            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
             if (user && user->isOnline())
             {
                 ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
@@ -389,7 +390,7 @@ bool ServerThread::sendPrivateMessage(const string& hub,const string& cid,const 
             }
         }
     }
-    
+
     return false;
 }
 
@@ -423,7 +424,7 @@ string ServerThread::getFileList_client(const string& hub, const string& cid, bo
             }
         }
     }
-    
+
     return message;
 }
 

@@ -262,7 +262,7 @@ class hubSayPrivateMethod : public xmlrpc_c::method {
 public:
     hubSayPrivateMethod() {
         this->_signature = "i:sss";
-        this->_help = "This method add private message on hub. Params: huburl, cid, message";
+        this->_help = "This method add private message on hub. Params: huburl, nick, message";
     }
 
     void
@@ -270,13 +270,13 @@ public:
             xmlrpc_c::value *   const  retvalP) {
 
         string const shub(paramList.getString(0));
-        string const scid(paramList.getString(1));
+        string const snick(paramList.getString(1));
         string const smess(paramList.getString(2));
         paramList.verifyEnd(3);
         ServerThread svT;
-        bool b = svT.sendPrivateMessage(shub, scid, smess);
+        bool b = svT.sendPrivateMessage(shub, snick, smess);
         if (b)
-            *retvalP = xmlrpc_c::value_string("Private message send to "+scid+" at " + shub);
+            *retvalP = xmlrpc_c::value_string("Private message send to "+snick+" at " + shub);
         else
             *retvalP = xmlrpc_c::value_string("User went offline at " + shub);
     }
