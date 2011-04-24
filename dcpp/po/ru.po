@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-04-10 16:43+0300\n"
-"PO-Revision-Date: 2011-04-10 17:12+0300\n"
+"POT-Creation-Date: 2011-04-24 17:48+0300\n"
+"PO-Revision-Date: 2011-04-24 17:50+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <tehnick-8@mail.ru>\n"
 "Language: ru\n"
@@ -218,6 +218,10 @@ msgstr "%1% кикнут %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Соединения не обрабатываются - пожалуйста перезапустите %1%"
 
+#: ../HttpConnection.cpp:158
+msgid "Endless redirection loop (%1%)"
+msgstr "Бесконечный цикл перенаправления (%1%)"
+
 #: ../ChatMessage.cpp:34
 msgid "Sent "
 msgstr "Отправлено "
@@ -273,48 +277,48 @@ msgstr "Ошибка сжатия"
 msgid "Error during decompression"
 msgstr "Ошибка распаковки"
 
-#: ../HashManager.cpp:81 ../HashManager.cpp:281
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
 msgid "Hashing failed: %1%"
 msgstr "Не удалось хэширование: %1%"
 
-#: ../HashManager.cpp:88
+#: ../HashManager.cpp:95
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Завершено хэширование: %1% (%2%/с)"
 
-#: ../HashManager.cpp:91
+#: ../HashManager.cpp:98
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Завершено хэширование: %1% (%2%)"
 
-#: ../HashManager.cpp:94
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
 msgstr "Завершено хэширование: %1%"
 
-#: ../HashManager.cpp:123 ../HashManager.cpp:337
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
 msgid "Error saving hash data: %1%"
 msgstr "Ошибка сохранения хэш данных: %1%"
 
-#: ../HashManager.cpp:136
+#: ../HashManager.cpp:143
 msgid "Unable to read hash data file"
 msgstr "Невозможно считать хэш файла"
 
-#: ../HashManager.cpp:469
+#: ../HashManager.cpp:476
 msgid "Error creating hash data file: %1%"
 msgstr "Ошибка создания файла данных хэша: %1%"
 
-#: ../HashManager.cpp:797
+#: ../HashManager.cpp:804
 msgid "Hash database rebuilt"
 msgstr "Хеш базы данных обновлен"
 
-#: ../HashManager.cpp:850
+#: ../HashManager.cpp:857
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Хэшируемый файл: %1% (Размер: %2%)"
 
-#: ../HashManager.cpp:898
+#: ../HashManager.cpp:905
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr "%1% не расшарен из-за несоответсвия хеш-суммы (CRC32)."
 
-#: ../HashManager.cpp:903
+#: ../HashManager.cpp:910
 msgid "Error hashing %1%: %2%"
 msgstr "Ошибка хэширования %1%: %2%"
 

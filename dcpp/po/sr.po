@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-04-10 16:43+0300\n"
+"POT-Creation-Date: 2011-04-24 17:48+0300\n"
 "PO-Revision-Date: 2009-02-06 21:06+0000\n"
 "Last-Translator: oracle <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -213,6 +213,10 @@ msgstr "%1% je izbačen: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Ne osluškujem konekcije - molim restartujte %1%"
 
+#: ../HttpConnection.cpp:158
+msgid "Endless redirection loop (%1%)"
+msgstr ""
+
 #: ../ChatMessage.cpp:34
 msgid "Sent "
 msgstr ""
@@ -268,52 +272,52 @@ msgstr "Greška tokom pakovanja"
 msgid "Error during decompression"
 msgstr "Greška tokom otpakivanja"
 
-#: ../HashManager.cpp:81 ../HashManager.cpp:281
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
 msgid "Hashing failed: %1%"
 msgstr "Hashovanje nije uspelo: %1%"
 
-#: ../HashManager.cpp:88
+#: ../HashManager.cpp:95
 #, fuzzy
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Završeno hashovanje: %1% (%2%/s)"
 
-#: ../HashManager.cpp:91
+#: ../HashManager.cpp:98
 #, fuzzy
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Završeno hashovanje: %1% (%2%/s)"
 
-#: ../HashManager.cpp:94
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
 msgstr "Završeno hashovanje: %1%"
 
-#: ../HashManager.cpp:123 ../HashManager.cpp:337
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
 msgid "Error saving hash data: %1%"
 msgstr "Greška pri čuvanju hash podataka: %1%"
 
-#: ../HashManager.cpp:136
+#: ../HashManager.cpp:143
 msgid "Unable to read hash data file"
 msgstr "Ne mogu da pročitam datoteku sa hash podatcima"
 
-#: ../HashManager.cpp:469
+#: ../HashManager.cpp:476
 msgid "Error creating hash data file: %1%"
 msgstr "Greška pri kreiranju hash podataka za datoteku: %1%"
 
-#: ../HashManager.cpp:797
+#: ../HashManager.cpp:804
 msgid "Hash database rebuilt"
 msgstr "Obnavaljam hash bazu podataka"
 
-#: ../HashManager.cpp:850
+#: ../HashManager.cpp:857
 #, fuzzy
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Hashovanje nije uspelo: %1%"
 
-#: ../HashManager.cpp:898
+#: ../HashManager.cpp:905
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% nije deljeno; izračunati CRC32 se ne poklapa sa onim u SFV datoteci."
 
-#: ../HashManager.cpp:903
+#: ../HashManager.cpp:910
 msgid "Error hashing %1%: %2%"
 msgstr "Greška pri hashovanju %1%: %2%"
 

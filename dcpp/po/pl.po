@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-04-10 16:43+0300\n"
+"POT-Creation-Date: 2011-04-24 17:48+0300\n"
 "PO-Revision-Date: 2009-03-03 22:46+0000\n"
 "Last-Translator: LadyStardust <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -216,6 +216,10 @@ msgstr "%1% został wykopany: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nie nasłuchuje połączeń - uruchom ponownie %1%"
 
+#: ../HttpConnection.cpp:158
+msgid "Endless redirection loop (%1%)"
+msgstr ""
+
 #: ../ChatMessage.cpp:34
 msgid "Sent "
 msgstr ""
@@ -271,53 +275,53 @@ msgstr "Błąd podczas kompresji"
 msgid "Error during decompression"
 msgstr "Błąd podczas dekompresowania"
 
-#: ../HashManager.cpp:81 ../HashManager.cpp:281
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
 msgid "Hashing failed: %1%"
 msgstr "Hashowanie zakończone niepowodzeniem: %1%"
 
-#: ../HashManager.cpp:88
+#: ../HashManager.cpp:95
 #, fuzzy
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Zakończono hashowanie: %1% (%2%/s)"
 
-#: ../HashManager.cpp:91
+#: ../HashManager.cpp:98
 #, fuzzy
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Zakończono hashowanie: %1% (%2%/s)"
 
-#: ../HashManager.cpp:94
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
 msgstr "Zakończono hashowanie: %1%"
 
-#: ../HashManager.cpp:123 ../HashManager.cpp:337
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
 msgid "Error saving hash data: %1%"
 msgstr "Błąd zapisu danych hash: %1%"
 
-#: ../HashManager.cpp:136
+#: ../HashManager.cpp:143
 msgid "Unable to read hash data file"
 msgstr "Nie można odczytać pliku danych hash"
 
-#: ../HashManager.cpp:469
+#: ../HashManager.cpp:476
 msgid "Error creating hash data file: %1%"
 msgstr "Błąd tworzenia pliku danych hash: %1%"
 
-#: ../HashManager.cpp:797
+#: ../HashManager.cpp:804
 msgid "Hash database rebuilt"
 msgstr "Odbudowano bazę danych hashów"
 
-#: ../HashManager.cpp:850
+#: ../HashManager.cpp:857
 #, fuzzy
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Hashowanie zakończone niepowodzeniem: %1%"
 
-#: ../HashManager.cpp:898
+#: ../HashManager.cpp:905
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% nie udostępniono; suma kontrolna CRC32 nie odpowiada tej znalezionej w "
 "pliku SFV."
 
-#: ../HashManager.cpp:903
+#: ../HashManager.cpp:910
 msgid "Error hashing %1%: %2%"
 msgstr "Błąd hashowania %1%: %2%"
 
