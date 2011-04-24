@@ -441,7 +441,7 @@ class getFileListMethod : public xmlrpc_c::method {
 public:
     getFileListMethod() {
         this->_signature = "i:ss";
-        this->_help = "This method get file list from user by cid and huburl. Рarams: huburl, cid";
+        this->_help = "This method get file list from user by nick and huburl. Рarams: huburl, nick";
     }
 
     void
@@ -449,22 +449,11 @@ public:
             xmlrpc_c::value *   const  retvalP) {
 
         string const shub(paramList.getString(0));
-        string const scid(paramList.getString(1));
+        string const snick(paramList.getString(1));
         paramList.verifyEnd(2);
         ServerThread svT; string tmp;
-        tmp = svT.getFileList_client(shub, scid, false);
-        //svT.getFileList_client(string cid, false);
+        tmp = svT.getFileList_client(shub, snick, false);
         *retvalP = xmlrpc_c::value_string(tmp);
-        //else if (command == "getlist")
-        //{
-            //if (hub->userMap.find(param) != hub->userMap.end())
-            //{
-                //func2 = new F2(hub, &Hub::getFileList_client, hub->userMap[param], FALSE);
-                //WulforManager::get()->dispatchClientFunc(func2);
-            //}
-            //else
-                //hub->addStatusMessage_gui(_("Not found user: ") + param, Msg::SYSTEM, Sound::NONE);
-        //}
     }
 };
 
@@ -473,7 +462,7 @@ class getChatPubMethod : public xmlrpc_c::method {
 public:
     getChatPubMethod() {
         this->_signature = "i:ss";
-        this->_help = "This method return last messahge in chat on target hub. Рarams: huburl, separator";
+        this->_help = "This method return last message in chat on target hub. Рarams: huburl, separator";
     }
 
     void

@@ -93,6 +93,7 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const listShareMethodP(new listShareMethod);
     xmlrpc_c::methodPtr const refreshShareMethodP(new refreshShareMethod);
     xmlrpc_c::methodPtr const getChatPubMethodP(new getChatPubMethod);
+    xmlrpc_c::methodPtr const getFileListMethodP(new getFileListMethod);
     xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
@@ -107,6 +108,7 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("share.list", listShareMethodP);
     xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
     xmlrpcRegistry.addMethod("hub.retchat", getChatPubMethodP);
+    xmlrpcRegistry.addMethod("list.download", getFileListMethodP);
     //xmlrpc_c::xmlrpc_server_abyss_set_handlers()
     AbyssServer.run();
 #endif
@@ -189,7 +191,7 @@ void ServerThread::disconnectClient(string address){
 //----------------------------------------------------------------------------
 void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
 {
-    int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
+    //int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
     int64_t updiff = Socket::getTotalUp() - lastUp;
     int64_t downdiff = Socket::getTotalDown() - lastDown;
 
@@ -394,24 +396,25 @@ bool ServerThread::sendPrivateMessage(const string& hub,const string& nick, cons
     return false;
 }
 
-string ServerThread::getFileList_client(const string& hub, const string& cid, bool match) {
+string ServerThread::getFileList_client(const string& hub, const string& nick, bool match) {
     string message = "";
     ClientIter i = clientsMap.find(hub);
     if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
-        if (!cid.empty()) {
+        if (!nick.empty()) {
             try {
-                UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+                //UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+                UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
                 if (user) {
-                    const HintedUser hintedUser(user, i->first);//NOTE: core 0.762
+                    const HintedUser hintedUser(user, i->first);
                     if (user == ClientManager::getInstance()->getMe()) {
                         // Don't download file list, open locally instead
                         //WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
                     }
                     else if (match) {
-                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);//NOTE: core 0.762
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);
                     }
                     else {
-                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);
                     }
                 }
                 else {
