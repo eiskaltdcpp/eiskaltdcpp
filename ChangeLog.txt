@@ -17,6 +17,11 @@
 * Fixed highlighting of status messages in a chat: the color is now applied to full message.
 * Improvement in the search widget: tooltip shows where is the file located if it exists in the share.
 * Ability to specify TLS_PORT equal TCP_PORT was eliminated in the settings dialog. (This was frequent users mistake)
+* Added some options in settings dialog: BIND_IFACE (bind to a network interface), HASHING_START_DELAY (hashing delay on startup), LOG_FILE_FINISHED_DOWNLOAD (separate file for logging completely finished downloads).
+* Added tooltip for already shared files in file list viewing widget (now it is available for other's lists of files too).
+* Added ability to open an incompletely downloaded files from the list of downloads.
+* Added additional widget for viewing Queued Users.
+* Allowed searching alternates for uploads.
 * Fixed small memory leaks and produced code cleanup.
 * Added MimeType section in .desktop file.
 * Now EiskaltDC++ Qt is available as a plugin for the LeechCraft (https://github.com/0xd34df00d/leechcraft) project.
