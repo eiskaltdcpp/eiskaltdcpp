@@ -318,7 +318,8 @@ MainWindow::MainWindow():
 
     if (WGETI("main-window-maximized"))
         gtk_window_maximize(window);
-
+    if (WGETI("minimize-tray"))
+        gtk_widget_hide(GTK_WIDGET(window));
 #ifdef LUA_SCRIPT
     ScriptManager::getInstance()->load();
     if (BOOLSETTING(USE_LUA)){
@@ -386,10 +387,10 @@ void MainWindow::show()
     TimerManager::getInstance()->addListener(this);
     LogManager::getInstance()->addListener(this);
 
-    typedef Func2<MainWindow, bool, int> F2;
+    typedef Func1<MainWindow, bool> F1;
     typedef Func0<MainWindow> F0;
-    F2 *f2 = new F2(this, &MainWindow::startSocket_client, true, 0);
-    WulforManager::get()->dispatchClientFunc(f2);
+    F1 *f1 = new F1(this, &MainWindow::startSocket_client, false);
+    WulforManager::get()->dispatchClientFunc(f1);
 
     F0 *f0 = new F0(this, &MainWindow::autoConnect_client);
     WulforManager::get()->dispatchClientFunc(f0);
@@ -1769,11 +1770,7 @@ void MainWindow::onPublicHubsClicked_gui(GtkWidget *widget, gpointer data)
 void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
 {
     MainWindow *mw = (MainWindow *)data;
-    typedef Func2<MainWindow, bool, int> F2;
-    unsigned short tcpPort = (unsigned short)SETTING(TCP_PORT);
-    unsigned short udpPort = (unsigned short)SETTING(UDP_PORT);
-    int lastConn = SETTING(INCOMING_CONNECTIONS);
-    bool onstart = false;
+    typedef Func1<MainWindow, bool> F1;
     if (mw->useStatusIconBlink != WGETB("status-icon-blink-use"))
         WSET("status-icon-blink-use", mw->useStatusIconBlink);
     bool emoticons = WGETB("emoticons-use");
@@ -1782,7 +1779,7 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
 
     if (response == GTK_RESPONSE_OK)
     {
-        F2 *func = new F2(mw, &MainWindow::startSocket_client, onstart, lastConn);
+        F1 *func = new F1(mw, &MainWindow::startSocket_client, true);
         WulforManager::get()->dispatchClientFunc(func);
 
         if (WGETB("always-tray"))
@@ -2116,22 +2113,13 @@ void MainWindow::autoConnect_client()
     }
 }
 
-void MainWindow::startSocket_client(bool onstart, int oldmode){
-    if (onstart) {
-        try {
-            ConnectivityManager::getInstance()->setup(true, SettingsManager::INCOMING_DIRECT);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
-    } else {
-        bool b = false;
-        if (oldmode != SETTING(INCOMING_CONNECTIONS))
-            b = true;
-        try {
-            ConnectivityManager::getInstance()->setup(b, oldmode);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
+void MainWindow::startSocket_client(bool changed){
+    if (changed)
+        ConnectivityManager::getInstance()->updateLast();
+    try {
+        ConnectivityManager::getInstance()->setup(true);
+    } catch (const Exception& e) {
+        showPortsError(e.getError());
     }
     ClientManager::getInstance()->infoUpdated();
 }

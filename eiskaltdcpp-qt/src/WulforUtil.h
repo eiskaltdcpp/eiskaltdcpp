@@ -46,6 +46,8 @@ inline std::string _tq(const QString &s) __attribute__((always_inline));
 inline QString _q (const std::string &s) { return QString::fromStdString(s); }
 inline std::string _tq(const QString &s) { return s.toStdString(); }
 
+typedef QMap<QString, QVariant> VarMap;
+
 class WulforUtil :
         public QObject,
         public dcpp::Singleton<WulforUtil>
@@ -155,6 +157,7 @@ public:
     bool getUserCommandParams(QString, dcpp::StringMap &);
 
     QStringList getLocalIPs();
+    QStringList getLocalIfaces();
 
     QString makeMagnet(const QString&, const int64_t, const QString&);
     static void splitMagnet(const QString &magnet, int64_t &size, QString &tth, QString &name);

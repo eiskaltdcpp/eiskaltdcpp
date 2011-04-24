@@ -132,7 +132,7 @@ friend class dcpp::Singleton<MainWindow>;
         void browseOwnFiles();
 
         /** */
-        void startSocket(bool onstart, int oldmode);
+        void startSocket(bool changed);
         /** */
         void showPortsError(const std::string& port);
         /** */
@@ -209,6 +209,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotHubsPublicHubs();
         void slotHubsFavoriteUsers();
         void slotToolsDownloadQueue();
+        void slotToolsQueuedUsers();
         void slotToolsHubManager();
         void slotToolsFinishedDownloads();
         void slotToolsFinishedUploads();
@@ -356,6 +357,7 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *toolsADLS;
         QAction *toolsTransfers;
         QAction *toolsDownloadQueue;
+        QAction *toolsQueuedUsers;
         QAction *toolsFinishedDownloads;
         QAction *toolsFinishedUploads;
         QAction *toolsSpy;

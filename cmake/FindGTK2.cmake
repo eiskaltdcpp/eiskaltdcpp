@@ -66,6 +66,10 @@
 # (To distribute this file outside of CMake, substitute the full
 #  License text for the above reference.)
 
+# Version 1.3 (11/9/2010) (CMake 2.8.4)
+#   * 11429: Add support for detecting GTK2 built with Visual Studio 10.
+#            Thanks to Vincent Levesque for the patch.
+
 # Version 1.2 (8/30/2010) (CMake 2.8.3)
 #   * Merge patch for detecting gdk-pixbuf library (split off
 #     from core GTK in 2.21).  Thanks to Vincent Untz for the patch
@@ -181,6 +185,10 @@ function(_GTK2_FIND_INCLUDE_DIR _var _hdr)
 
     find_path(${_var} ${_hdr}
         PATHS
+            # fix for Ubuntu >= 11.04 (Natty Narwhal)
+            /usr/lib/i386-linux-gnu/
+            /usr/lib/x86_64-linux-gnu/
+            # end fix for Ubuntu >= 11.04 (Natty Narwhal)
             /usr/local/lib64
             /usr/local/lib
             /usr/lib64
@@ -237,15 +245,16 @@ function(_GTK2_FIND_LIBRARY _var _lib _expand_vc _append_version)
 
     set(_library ${_lib})
 
-    if(_expand_vc)
-        # Add vc80/vc90 midfixes
+    if(_expand_vc AND MSVC)
+        # Add vc80/vc90/vc100 midfixes
         if(MSVC80)
             set(_library   ${_library}-vc80)
-            set(_library_d ${_library}-d)
         elseif(MSVC90)
             set(_library   ${_library}-vc90)
-            set(_library_d ${_library}-d)
+        elseif(MSVC10)
+            set(_library ${_library}-vc100)
         endif()
+        set(_library_d ${_library}-d)
     endif()
 
     if(GTK2_DEBUG)

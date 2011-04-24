@@ -230,7 +230,7 @@ int main(int argc, char* argv[])
         if (eidcpp_daemon(true,false) == -1)
             return EXIT_FAILURE;
 
-        umask(117);
+        //umask(117);
 
         if (pidfile[0] != 0)
             writePidFile(pidfile);

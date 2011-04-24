@@ -54,6 +54,7 @@ public:
         int64_t milliSeconds_,
         time_t time_,
         int64_t fileSize_,
+        int64_t actual_,
         bool crc32Checked_,
                 const HintedUser& user
         );
@@ -62,6 +63,7 @@ public:
         int64_t transferred_,
         int64_t milliSeconds_,
         time_t time_,
+        int64_t actual_,
         bool crc32Checked_,
                 const HintedUser& user
         );
@@ -69,8 +71,9 @@ public:
     double getTransferredPercentage() const;
     bool isFull() const;
 
-        GETSET(HintedUserList, users, Users);
+    GETSET(HintedUserList, users, Users);
     GETSET(int64_t, fileSize, FileSize);
+    GETSET(int64_t, actual, Actual);
     GETSET(bool, crc32Checked, Crc32Checked);
 };
 

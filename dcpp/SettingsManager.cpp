@@ -42,15 +42,16 @@ const string SettingsManager::settingTags[] =
     // Strings
     "Nick", "UploadSpeed", "Description", "DownloadDirectory", "EMail",
     "ExternalIp", "HublistServers", "HttpProxy",
-    "LogDirectory", "LogFormatPostDownload",
+    "LogDirectory", "LogFormatPostDownload","LogFormatPostFinishedDownload",
     "LogFormatPostUpload", "LogFormatMainChat", "LogFormatPrivateChat",
     "TempDownloadDirectory", "BindAddress", "SocksServer",
     "SocksUser", "SocksPassword", "ConfigVersion", "DefaultAwayMessage",
     "TimeStampsFormat", "CID", "LogFileMainChat", "LogFilePrivateChat",
-    "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileSystem",
+    "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileFinishedDownload",
+    "LogFileSystem",
     "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
-    "Language", "SkipListShare", "InternetIp", "DHTKey",
+    "Language", "SkipListShare", "InternetIp", "BindIfaceName", "DHTKey",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow",
@@ -58,8 +59,8 @@ const string SettingsManager::settingTags[] =
     "AutoSearchTime", "ReportFoundAlternates", "TimeStamps",
     "IgnoreHubPms", "IgnoreBotPms",
     "ListDuplicates", "BufferSize", "DownloadSlots", "MaxDownloadSpeed",
-    "LogMainChat", "LogPrivateChat", "LogDownloads", "LogUploads",
-    "MinUploadSpeed", "AutoAway",
+    "LogMainChat", "LogPrivateChat", "LogDownloads","LogFileFinishedDownload",
+    "LogUploads", "MinUploadSpeed", "AutoAway",
     "SocksPort", "SocksResolve", "KeepLists", "AutoKick",
     "CompressTransfers", "SFVCheck",
     "MaxCompression", "NoAwayMsgToBots", "SkipZeroByte", "AdlsBreakOnFirst",
@@ -77,7 +78,7 @@ const string SettingsManager::settingTags[] =
     "AutoDropDisconnect", "OutgoingConnections", "NoIpOverride", "NoUseTempDir",
     "ShareTempFiles", "SearchOnlyFreeSlots", "LastSearchType",
     "SocketInBuffer", "SocketOutBuffer",
-    "AutoRefreshTime", "UseTLS", "AutoSearchLimit",
+    "AutoRefreshTime", "HashingStartDelay", "UseTLS", "AutoSearchLimit",
     "AutoKickNoFavs", "PromptPassword",
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs",
     "AllowUntrustedClients", "TLSPort", "FastHash",
@@ -92,7 +93,7 @@ const string SettingsManager::settingTags[] =
     "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "KeepFinishedFiles",
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
-    "SENTRY",
+    "BindIface", "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
@@ -170,11 +171,13 @@ SettingsManager::SettingsManager()
     setDefault(LOG_DIRECTORY, Util::getPath(Util::PATH_USER_LOCAL) + "Logs" PATH_SEPARATOR_STR);
     setDefault(LOG_UPLOADS, false);
     setDefault(LOG_DOWNLOADS, false);
+    setDefault(LOG_FINISHED_DOWNLOADS, false);
     setDefault(LOG_PRIVATE_CHAT, false);
     setDefault(LOG_MAIN_CHAT, false);
     setDefault(UPLOAD_SPEED, connectionSpeeds[11]);
     setDefault(MIN_UPLOAD_SPEED, 0);
     setDefault(LOG_FORMAT_POST_DOWNLOAD, "[%Y-%m-%d %H:%M:%S] %[target] downloaded from %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
+    setDefault(LOG_FORMAT_POST_FINISHED_DOWNLOAD, "%Y-%m-%d %H:%M: %[target] " + string(_("downloaded from")) + " %[userNI] (%[userCID]), %[fileSI] (%[fileSIsession]), %[speed], %[time], %[fileTR]");
     setDefault(LOG_FORMAT_POST_UPLOAD,   "[%Y-%m-%d %H:%M:%S] %[source] uploaded to %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
     setDefault(LOG_FORMAT_MAIN_CHAT,     "[%Y-%m-%d %H:%M:%S] %[message]");
     setDefault(LOG_FORMAT_PRIVATE_CHAT,  "[%Y-%m-%d %H:%M:%S] %[message]");
@@ -185,6 +188,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FILE_PRIVATE_CHAT, "PM/%B - %Y/%[userNI] (%[userCID]).log");
     setDefault(LOG_FILE_UPLOAD,       "Uploads.log");
     setDefault(LOG_FILE_DOWNLOAD,     "Downloads.log");
+    setDefault(LOG_FILE_FINISHED_DOWNLOAD, "Finished_downloads.log");
     setDefault(LOG_FILE_SYSTEM,       "System.log");
     setDefault(AUTO_AWAY, false);
     setDefault(BIND_ADDRESS, "0.0.0.0");
@@ -241,7 +245,8 @@ SettingsManager::SettingsManager()
     setDefault(TLS_TRUSTED_CERTIFICATES_PATH, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR);
     setDefault(TLS_PRIVATE_KEY_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.key");
     setDefault(TLS_CERTIFICATE_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.crt");
-    setDefault(AUTO_REFRESH_TIME, 60);
+    setDefault(AUTO_REFRESH_TIME, 60);  // minutes
+    setDefault(HASHING_START_DELAY, 60); // seconds
     setDefault(USE_TLS, true);
     setDefault(AUTO_SEARCH_LIMIT, 5);
     setDefault(AUTO_KICK_NO_FAVS, false);
@@ -286,6 +291,8 @@ SettingsManager::SettingsManager()
     setDefault(ALLOW_NATT, true);
     setDefault(IP_TOS_VALUE, -1);
     setDefault(SEGMENT_SIZE, 0);
+    setDefault(BIND_IFACE, false);
+    setDefault(BIND_IFACE_NAME, "");
 
     setSearchTypeDefaults();
 }
@@ -379,18 +386,18 @@ void SettingsManager::load(string const& aFileName)
         if(v <= 0.674) {
 
             // Formats changed, might as well remove these...
-            set(LOG_FORMAT_POST_DOWNLOAD, Util::emptyString);
-            set(LOG_FORMAT_POST_UPLOAD, Util::emptyString);
-            set(LOG_FORMAT_MAIN_CHAT, Util::emptyString);
-            set(LOG_FORMAT_PRIVATE_CHAT, Util::emptyString);
-            set(LOG_FORMAT_STATUS, Util::emptyString);
-            set(LOG_FORMAT_SYSTEM, Util::emptyString);
-            set(LOG_FILE_MAIN_CHAT, Util::emptyString);
-            set(LOG_FILE_STATUS, Util::emptyString);
-            set(LOG_FILE_PRIVATE_CHAT, Util::emptyString);
-            set(LOG_FILE_UPLOAD, Util::emptyString);
-            set(LOG_FILE_DOWNLOAD, Util::emptyString);
-            set(LOG_FILE_SYSTEM, Util::emptyString);
+            unset(LOG_FORMAT_POST_DOWNLOAD);
+            unset(LOG_FORMAT_POST_UPLOAD);
+            unset(LOG_FORMAT_MAIN_CHAT);
+            unset(LOG_FORMAT_PRIVATE_CHAT);
+            unset(LOG_FORMAT_STATUS);
+            unset(LOG_FORMAT_SYSTEM);
+            unset(LOG_FILE_MAIN_CHAT);
+            unset(LOG_FILE_STATUS);
+            unset(LOG_FILE_PRIVATE_CHAT);
+            unset(LOG_FILE_UPLOAD);
+            unset(LOG_FILE_DOWNLOAD);
+            unset(LOG_FILE_SYSTEM);
         }
 
         if(SETTING(SET_MINISLOT_SIZE) < 64)

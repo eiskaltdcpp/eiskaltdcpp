@@ -21,7 +21,7 @@
 
 #include "HashBloom.h"
 
-#include <math.h>
+#include <cmath>
 
 namespace dcpp {
 

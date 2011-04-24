@@ -220,35 +220,40 @@ and obtain your external IP address as well.</string>
             </layout>
            </widget>
           </item>
+          <item row="2" column="0" colspan="2">
+           <widget class="QGroupBox" name="groupBox_5">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_12">
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="lineEdit_BIND_ADDRESS"/>
+             </item>
+             <item row="0" column="0">
+              <widget class="QRadioButton" name="radioButton_BIND_ADDR">
+               <property name="text">
+                <string>Bind to address</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QRadioButton" name="radioButton_BIND_IFACE">
+               <property name="text">
+                <string>Bind to interface</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QComboBox" name="comboBox_IFACES"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
          </layout>
         </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QLabel" name="label_23">
-           <property name="text">
-            <string>Bind Address:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEdit_BIND_ADDRESS"/>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox_2">
@@ -899,12 +904,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>148</x>
-     <y>145</y>
+     <x>167</x>
+     <y>200</y>
     </hint>
     <hint type="destinationlabel">
-     <x>281</x>
-     <y>196</y>
+     <x>300</x>
+     <y>265</y>
     </hint>
    </hints>
   </connection>
@@ -931,12 +936,12 @@ p, li { white-space: pre-wrap; }
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>148</x>
-     <y>145</y>
+     <x>167</x>
+     <y>200</y>
     </hint>
     <hint type="destinationlabel">
-     <x>404</x>
-     <y>145</y>
+     <x>596</x>
+     <y>205</y>
     </hint>
    </hints>
   </connection>
@@ -951,8 +956,40 @@ p, li { white-space: pre-wrap; }
      <y>68</y>
     </hint>
     <hint type="destinationlabel">
-     <x>281</x>
-     <y>145</y>
+     <x>296</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_BIND_ADDR</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEdit_BIND_ADDRESS</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_BIND_IFACE</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>comboBox_IFACES</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>426</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>241</y>
     </hint>
    </hints>
   </connection>

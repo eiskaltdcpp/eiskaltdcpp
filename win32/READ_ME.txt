@@ -1,4 +1,4 @@
-You can get the lastest program sorces from git repository:
+You can get the lastest program sources from git repository:
 download sources on link http://nodeload.github.com/negativ/eiskaltdcpp/tarball/master
 or download and install git from http://git-scm.com/
 and run in command line: git clone git://github.com/negativ/eiskaltdcpp.git
@@ -60,6 +60,12 @@ aspell-0.60.5-1-bin.tar.bz2 or later
 aspell-0.60.5-1-lib.tar.bz2 or later
 	http://www.winkde.org/pub/kde/ports/win32/repository/aspell/aspell-0.60.5-1-lib.tar.bz2
 
+libidn-1.11-w32.zip or later
+	http://www.gknw.de/mirror/libidn/win32/libidn-1.11-w32.zip
+
+mingw32-qtscriptgenerator-git-26-10-2010.tar.xz or later
+	http://eiskaltdc.googlecode.com/files/mingw32-qtscriptgenerator-git-26-10-2010.tar.xz
+
 *******************************************************************************
 Compilation in MS Windows
 *******************************************************************************
@@ -67,12 +73,13 @@ Install:
 	qt-sdk-win-opensource-*
 	Win32OpenSSL-*
 	cmake-*
+	nsis-*
 Unpack directory boost from boost* archive to %QTSDKDIR%\mingw\include\.
-Unpack files from mingw-* archives to appropriate subdirectories in %QTSDKDIR%\mingw\
+Unpack files from mingw-* and mingw32-qtscriptgenerator-* archives to appropriate subdirectories in %QTSDKDIR%\mingw\
 ( i.e. bzlib.h shoud go to %QTSDKDIR%\mingw\include\
        libbz2.a         to %QTSDKDIR%\mingw\lib\
        mgwbz2-1.dll     to %QTSDKDIR%\mingw\bin\ )
-Unpack files from gettext-*, libgettextpo-*, libintl-*, aspell-* and libiconv-* archives to %QTSDKDIR%\mingw\
+Unpack files from gettext-*, libgettextpo-*, libintl-*, libidn-*, aspell-* and libiconv-* archives to %QTSDKDIR%\mingw\
 Check variables.bat for correct paths and run:
 	configure.bat
 	build.bat

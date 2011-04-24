@@ -145,6 +145,7 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
                     milliSeconds,
                     time,
                     upload ? File::getSize(file) : size,
+                    t->getActual(),
                     crc32Checked,
                     user
                     );
@@ -155,6 +156,7 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
                     crc32Checked ? 0 : t->getPos(), // in case of a successful crc check at the end we want to update the status only
                     milliSeconds,
                     time,
+                    t->getActual(),
                     crc32Checked,
                     user
                     );

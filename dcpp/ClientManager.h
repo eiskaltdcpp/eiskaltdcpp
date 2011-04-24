@@ -55,6 +55,7 @@ public:
 
     StringList getNicks(const HintedUser& user) { return getNicks(user.user->getCID(), user.hint); }
     StringList getHubNames(const HintedUser& user) { return getHubNames(user.user->getCID(), user.hint); }
+    StringList getHubs(const HintedUser& user) { return getHubs(user.user->getCID(), user.hint); }
 
     string getConnection(const CID& cid) const;
 

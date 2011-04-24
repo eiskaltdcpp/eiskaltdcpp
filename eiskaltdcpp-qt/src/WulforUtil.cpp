@@ -22,6 +22,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"
+#include "dcpp/AdcHub.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -249,12 +250,11 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
     if (id->isSet(User::TLS))
         y += 2;
 
-   // if (id->isSet(User::DCPLUSPLUS)) этот флажок ушёл в небытиё =)
-   // ниже примерно то, что я предлагаю
-   // Identity id;
-    //if(id.supports(AdcHub::ADCS_FEATURE) && id.supports(AdcHub::SEGA_FEATURE) &&
-        //((id.supports(AdcHub::TCP4_FEATURE) && id.supports(AdcHub::UDP4_FEATURE)) || id.supports(AdcHub::NAT0_FEATURE)))
-        //y += 4;
+    Identity iid = ClientManager::getInstance()->getOnlineUserIdentity(id);
+
+    if( (iid.supports(AdcHub::ADCS_FEATURE) && iid.supports(AdcHub::SEGA_FEATURE)) &&
+        ((iid.supports(AdcHub::TCP4_FEATURE) && iid.supports(AdcHub::UDP4_FEATURE)) || iid.supports(AdcHub::NAT0_FEATURE)))
+        y += 4;
 
     if (isOp)
         y += 8;
@@ -856,6 +856,28 @@ bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams
         ucParams["line:" + _tq(e->objectName())] = _tq(e->text());
 
     return true;
+}
+
+QStringList WulforUtil::getLocalIfaces(){
+    QStringList ifaces;
+
+#ifdef HAVE_IFADDRS_H
+    struct ifaddrs *ifap;
+
+    if (getifaddrs(&ifap) == 0){
+        for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next){
+            struct sockaddr *sa = i->ifa_addr;
+
+            // If the interface is up, is not a loopback and it has an address
+            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL && !ifaces.contains(i->ifa_name))
+                ifaces.push_back(i->ifa_name);
+        }
+
+        freeifaddrs(ifap);
+    }
+#endif
+
+    return ifaces;
 }
 
 QStringList WulforUtil::getLocalIPs(){

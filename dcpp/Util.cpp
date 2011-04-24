@@ -48,6 +48,10 @@
 
 #include "FastAlloc.h"
 
+#ifdef USE_IDNA
+#include <idna.h>
+#endif
+
 namespace dcpp {
 
 #ifndef _DEBUG
@@ -166,7 +170,6 @@ void Util::initialize(PathsMap pathOverrides) {
     const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
     string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
     paths[PATH_USER_CONFIG] = xdg_config_home + "/eiskaltdc++/";
-    printf("$XDG_CONFIG_HOME: %s\n", paths[PATH_USER_CONFIG].c_str());
 #elif defined __HAIKU__
     paths[PATH_USER_CONFIG] = home + "/config/settings/eiskaltdc++/";
 #else
@@ -194,7 +197,6 @@ void Util::initialize(PathsMap pathOverrides) {
     const char *xdg_config_down_ = getenv("XDG_DOWNLOAD_DIR");
     string xdg_config_down = xdg_config_down_? (Text::toUtf8(xdg_config_down_)+"/") : (home+"/Downloads/");
     paths[PATH_DOWNLOADS] = xdg_config_down;
-    printf("$XDG_DOWNLOAD_DIR: %s\n", paths[PATH_DOWNLOADS].c_str());
 #else
     paths[PATH_DOWNLOADS] = home + "/Downloads/";
 #endif
@@ -541,6 +543,17 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
         path = url.substr(fileStart, fileEnd - fileStart);
         query = url.substr(queryStart, queryEnd - queryStart);
         fragment = url.substr(fragmentStart, fragmentStart);
+
+#ifdef USE_IDNA
+        //printf("%s\n",host.c_str());
+        char *p;
+        if (idna_to_ascii_8z(host.c_str(), &p, 0) == IDNA_SUCCESS) {
+            host = string(p);
+        }
+        free(p);
+        //printf ("ACE label (length %d): '%s'\n", strlen (p), p);
+        //printf ("%s\n", host.c_str());
+#endif
 }
 
 map<string, string> Util::decodeQuery(const string& query) {
@@ -626,7 +639,7 @@ string Util::formatExactSize(int64_t aBytes) {
 }
 
 string Util::getLocalIp() {
-#if defined(HAVE_IFADDRS_H) || defined(HAVE_ADDRS_H)
+#ifdef HAVE_IFADDRS_H
     vector<string> addresses;
     struct ifaddrs *ifap;
 
@@ -1219,7 +1232,7 @@ bool Util::fileExists(const string &aFile) {
     return (attr != 0xFFFFFFFF);
 #else
     struct stat stFileInfo;
-    return (stat(aFile.c_str(),&stFileInfo) != 0);
+    return (stat(aFile.c_str(),&stFileInfo) == 0);
 #endif
 }
 

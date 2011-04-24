@@ -137,6 +137,10 @@ void Hash::on(TimerManagerListener::Second, uint64_t tics) throw()
     string file;
     int64_t bytes = 0;
     size_t files = 0;
+    bool paused = HashManager::getInstance()->isHashingPaused();
+    gtk_window_set_title(GTK_WINDOW(getContainer()),
+    paused ? _("Paused...") : _("Indexing files..."));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), paused);
 
     HashManager::getInstance()->getStats(file, bytes, files);
 

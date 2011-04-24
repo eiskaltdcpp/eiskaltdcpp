@@ -68,7 +68,7 @@ int ServerThread::run()
         File::ensureDirectory(SETTING(LOG_DIRECTORY));
     } catch (const FileException) {	}
 
-    startSocket(true, 0);
+    startSocket(false);
     autoConnect();
 #ifdef LUA_SCRIPT
     ScriptManager::getInstance()->load();
@@ -85,24 +85,28 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const hubAddMethodP(new hubAddMethod);
     xmlrpc_c::methodPtr const hubDelMethodP(new hubDelMethod);
     xmlrpc_c::methodPtr const hubSayMethodP(new hubSayMethod);
+    xmlrpc_c::methodPtr const hubSayPrivateMethodP(new hubSayPrivateMethod);
     xmlrpc_c::methodPtr const listHubsMethodP(new listHubsMethod);
     xmlrpc_c::methodPtr const addDirInShareMethodP(new addDirInShareMethod);
     xmlrpc_c::methodPtr const renameDirInShareMethodP(new renameDirInShareMethod);
     xmlrpc_c::methodPtr const delDirFromShareMethodP(new delDirFromShareMethod);
     xmlrpc_c::methodPtr const listShareMethodP(new listShareMethod);
     xmlrpc_c::methodPtr const refreshShareMethodP(new refreshShareMethod);
+    xmlrpc_c::methodPtr const getChatPubMethodP(new getChatPubMethod);
     xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
     //xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
     xmlrpcRegistry.addMethod("hub.del", hubDelMethodP);
     xmlrpcRegistry.addMethod("hub.say", hubSayMethodP);
+    xmlrpcRegistry.addMethod("hub.pm", hubSayPrivateMethodP);
     xmlrpcRegistry.addMethod("hubs.list", listHubsMethodP);
     xmlrpcRegistry.addMethod("share.add", addDirInShareMethodP);
     xmlrpcRegistry.addMethod("share.rename", renameDirInShareMethodP);
     xmlrpcRegistry.addMethod("share.del", delDirFromShareMethodP);
     xmlrpcRegistry.addMethod("share.list", listShareMethodP);
     xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
+    xmlrpcRegistry.addMethod("hub.retchat", getChatPubMethodP);
     //xmlrpc_c::xmlrpc_server_abyss_set_handlers()
     AbyssServer.run();
 #endif
@@ -111,16 +115,10 @@ int ServerThread::run()
 }
 bool ServerThread::disconnect_all(){
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
-        if (clientsMap[i->first] !=NULL) {
-            Lock l(shutcs);
-            Client* cl = i->second;
-            cl->removeListener(this);
-            cl->disconnect(true);
-            ClientManager::getInstance()->putClient(cl);
-            clientsMap[i->first]=NULL;
-        }
-        Thread::sleep(100);
+        if (clientsMap[i->first].curclient != NULL)
+            disconnectClient(i->first);
     }
+    return true;
 }
 //---------------------------------------------------------------------------
 void ServerThread::Close()
@@ -179,13 +177,13 @@ void ServerThread::connectClient(string address, string encoding)
 
 void ServerThread::disconnectClient(string address){
     ClientIter i = clientsMap.find(address);
-    if(i != clientsMap.end() && clientsMap[i->first]!=NULL) {
+    if(i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
         Lock l(shutcs);
-        Client* cl = i->second;
+        Client* cl = i->second.curclient;
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
-        clientsMap[i->first]=NULL;
+        clientsMap[i->first].curclient=NULL;
     }
 }
 //----------------------------------------------------------------------------
@@ -210,7 +208,10 @@ void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
 void ServerThread::on(Connecting, Client* cur) throw() {
     ClientIter i = clientsMap.find(cur->getHubUrl());
     if(i == clientsMap.end()) {
-        clientsMap[cur->getHubUrl()] = cur;
+        CurHub curhub;
+        curhub.curclient = cur;
+        //curhub.curchat.push_back("test");
+        clientsMap[cur->getHubUrl()] = curhub;
     }
     cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
@@ -254,6 +255,7 @@ void ServerThread::on(HubUpdated, Client*) throw() {
 
 void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& message) throw()
 {
+    Lock l(shutcs);
     StringMap params;
     string msg = message.format();
     bool privatemsg = message.to && message.replyTo;
@@ -263,7 +265,6 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
             const string& hint = cl->getHubUrl();
             const CID& cid = message.replyTo->getUser()->getCID();
             bool priv = FavoriteManager::getInstance()->isPrivate(hint);
-
             params["message"] = Text::fromUtf8(msg);
             params["hubNI"] = Util::toString(ClientManager::getInstance()->getHubNames(cid, hint, priv));
             params["hubURL"] = Util::toString(ClientManager::getInstance()->getHubs(cid, hint, priv));
@@ -273,6 +274,13 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
             LOG(LogManager::PM, params);
         }
     } else {
+        ClientIter it = clientsMap.find(cl->getHubUrl());
+        if (it != clientsMap.end()) {
+            if (it->second.curchat.size() >= maxLines)
+                clientsMap[cl->getHubUrl()].curchat.pop_front();
+            string tmp = "[" + Util::getTimeString() + "] " + msg;
+            clientsMap[cl->getHubUrl()].curchat.push_back(tmp);
+        }
         if(BOOLSETTING(LOG_MAIN_CHAT)) {
             params["message"] = Text::fromUtf8(msg);
             cl->getHubIdentity().getParams(params, "hub", false);
@@ -308,7 +316,6 @@ void ServerThread::on(NickTaken, Client*) throw() {
 void ServerThread::on(SearchFlood, Client*, const string& line) throw() {
 
 }
-
 //void ServerThread::on(WebServerListener::Setup) throw() {
     ////webSock = WebServerManager::getInstance()->getServerSocket().getSock();
 //}
@@ -316,25 +323,17 @@ void ServerThread::on(SearchFlood, Client*, const string& line) throw() {
 //void ServerThread::on(WebServerListener::ShutdownPC, int action) throw() {
 
 //}
-void ServerThread::startSocket(bool onstart, int oldmode){
-    if (onstart) {
-        try {
-            ConnectivityManager::getInstance()->setup(true, SettingsManager::INCOMING_DIRECT);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
-    } else {
-        bool b = false;
-        if (oldmode != SETTING(INCOMING_CONNECTIONS))
-            b = true;
-        try {
-            ConnectivityManager::getInstance()->setup(b, oldmode);
-        } catch (const Exception& e) {
-            showPortsError(e.getError());
-        }
+void ServerThread::startSocket(bool changed){
+    if (changed)
+        ConnectivityManager::getInstance()->updateLast();
+    try {
+        ConnectivityManager::getInstance()->setup(true);
+    } catch (const Exception& e) {
+        showPortsError(e.getError());
     }
     ClientManager::getInstance()->infoUpdated();
 }
+
 void ServerThread::showPortsError(const string& port) {
     fprintf(stdout,
             "\n\t\tConnectivity Manager: Warning\n\n Unable to open %s port. "
@@ -347,8 +346,8 @@ void ServerThread::showPortsError(const string& port) {
 
 void ServerThread::sendMessage(const string& hubUrl, const string& message) {
     ClientIter i = clientsMap.find(hubUrl);
-    if(i != clientsMap.end() && clientsMap[i->first]!=NULL) {
-        Client* client = i->second;
+    if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
+        Client* client = i->second.curclient;
         if (client && !message.empty()) {
             bool thirdPerson = !message.compare(0,3,"/me");
             //printf("%s\t%s\n'",message.c_str(),message.substr(4).c_str());
@@ -359,9 +358,86 @@ void ServerThread::sendMessage(const string& hubUrl, const string& message) {
 
 void ServerThread::listConnectedClients(string& listhubs,const string& separator) {
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
-        if (clientsMap[i->first] !=NULL) {
+        if (clientsMap[i->first].curclient !=NULL) {
             listhubs.append(i->first);
             listhubs.append(separator);
         }
     }
+}
+
+bool ServerThread::findHubInConnectedClients(const string& hub) {
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end())
+        return true;
+    return false;
+}
+
+bool ServerThread::sendPrivateMessage(const string& hub,const string& nick, const string& message) {
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
+        Client* client = i->second.curclient;
+        if (client && !message.empty()) {
+            bool thirdPerson = !message.compare(0,3,"/me");
+            UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
+            if (user && user->isOnline())
+            {
+                ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    return false;
+}
+
+string ServerThread::getFileList_client(const string& hub, const string& cid, bool match) {
+    string message = "";
+    ClientIter i = clientsMap.find(hub);
+    if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
+        if (!cid.empty()) {
+            try {
+                UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+                if (user) {
+                    const HintedUser hintedUser(user, i->first);//NOTE: core 0.762
+                    if (user == ClientManager::getInstance()->getMe()) {
+                        // Don't download file list, open locally instead
+                        //WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
+                    }
+                    else if (match) {
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);//NOTE: core 0.762
+                    }
+                    else {
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
+                    }
+                }
+                else {
+                    message = _("User not found");
+                }
+            }
+            catch (const Exception &e) {
+                message = e.getError();
+                LogManager::getInstance()->message(message);
+            }
+        }
+    }
+
+    return message;
+}
+
+void ServerThread::getChatPubFromClient(string& chat, const string& hub, const string& separator) {
+    Lock l(shutcs);
+    ClientIter it = clientsMap.find(hub);
+    if (it != clientsMap.end()) {
+        for (int i =0; i < it->second.curchat.size(); ++i) {
+            chat += it->second.curchat.at(i);
+            chat.append(separator);
+            //chatsPubMap[hub].pop_front();
+        }
+        clientsMap[hub].curchat.clear();
+    } else
+        chat = "Huburl is invalid";
 }
