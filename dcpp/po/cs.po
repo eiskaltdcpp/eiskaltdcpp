@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-04-10 16:43+0300\n"
+"POT-Creation-Date: 2011-04-24 17:48+0300\n"
 "PO-Revision-Date: 2008-04-26 10:35+0000\n"
 "Last-Translator: Stary <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -213,6 +213,10 @@ msgstr "%1% byl vykopnut: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nenaslouchá připojením - prosím restartujte %1%"
 
+#: ../HttpConnection.cpp:158
+msgid "Endless redirection loop (%1%)"
+msgstr ""
+
 #: ../ChatMessage.cpp:34
 msgid "Sent "
 msgstr ""
@@ -268,53 +272,53 @@ msgstr "Chyba pocesu komprese"
 msgid "Error during decompression"
 msgstr "Chyba během dekomprese"
 
-#: ../HashManager.cpp:81 ../HashManager.cpp:281
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
 msgid "Hashing failed: %1%"
 msgstr "Hashování selhalo: %1%"
 
-#: ../HashManager.cpp:88
+#: ../HashManager.cpp:95
 #, fuzzy
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Dokončeno hashování: %1% (%2%/s)"
 
-#: ../HashManager.cpp:91
+#: ../HashManager.cpp:98
 #, fuzzy
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Dokončeno hashování: %1% (%2%/s)"
 
-#: ../HashManager.cpp:94
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
 msgstr "Dokončeno hashování: %1%"
 
-#: ../HashManager.cpp:123 ../HashManager.cpp:337
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
 msgid "Error saving hash data: %1%"
 msgstr "Chyba při ukládání hashe: %1%"
 
-#: ../HashManager.cpp:136
+#: ../HashManager.cpp:143
 msgid "Unable to read hash data file"
 msgstr "Nelze číst hash souborů"
 
-#: ../HashManager.cpp:469
+#: ../HashManager.cpp:476
 msgid "Error creating hash data file: %1%"
 msgstr "Chyba vytváření souboru hashe: %1%"
 
-#: ../HashManager.cpp:797
+#: ../HashManager.cpp:804
 msgid "Hash database rebuilt"
 msgstr "Hash databáze obnovena"
 
-#: ../HashManager.cpp:850
+#: ../HashManager.cpp:857
 #, fuzzy
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Hashování selhalo: %1%"
 
-#: ../HashManager.cpp:898
+#: ../HashManager.cpp:905
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru "
 "SFV."
 
-#: ../HashManager.cpp:903
+#: ../HashManager.cpp:910
 msgid "Error hashing %1%: %2%"
 msgstr "Chyba hashování %1%: %2%"
 

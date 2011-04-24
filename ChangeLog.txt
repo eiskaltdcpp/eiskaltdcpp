@@ -1,21 +1,45 @@
---- 2.2.2 2011-04-16 ---
+--- 2.2.2 2011-04-24 ---
 *** common changes ***
+* Partial synchronization with DC++ kernel (0.785).
 * Align ip-address in a chat (only for monospaced fonts).
 * Added configuration options: ENABLE_STACKTRACE, WITH_DEV_FILES and EISKALTDCPP_INCLUDE_DIR.
+* Resolving Internationalized Domain Names (libidn is used) [rfc3490]. (Enabled by default, see file INSTALL)
+* Possible fix to fix migrating from older releases (<2.1.0) without rehashing.
+* Added option of hashing delay on programs startup (60 seconds by default). If the delay is equal -1, hashing process will not be resumed. This option is very useful to accelerate GUI launching, because it is not waiting DC++ kernel.
 * Added separate file for logging completely finished downloads.
+* Ability to bind to a network interface.
+* Fixes to improve Lua-scripts.
+* Bugfixes.
 *** eiskaltdcpp-qt ***
 * Added ability to build program on Haiku-OS (see file INSTALL).
 * Fixed loading of emoticons from emoticon packs. It was support files only in PNG format, but now it can load images in any standart format.
 * Improvements in the dialog with black list of search results.
 * Fixed highlighting of status messages in a chat: the color is now applied to full message.
 * Improvement in the search widget: tooltip shows where is the file located if it exists in the share.
+* Ability to specify TLS_PORT equal TCP_PORT was eliminated in the settings dialog. (This was frequent users mistake)
+* Added some options in settings dialog: BIND_IFACE (bind to a network interface), HASHING_START_DELAY (hashing delay on startup), LOG_FILE_FINISHED_DOWNLOAD (separate file for logging completely finished downloads).
+* Added tooltip for already shared files in file list viewing widget (now it is available for other's lists of files too).
+* Fixed option of filtering completely finished downloads in transfers widget (it didn't work with localization).
+* Personal chat widget now uses the limitation of the maximum number of messages. Some users had a significant increase of memory usage when receiving many messages from bots.
+* Added ability to open an incompletely downloaded files from the list of downloads.
+* In chat menu was added the item for searching selected text.
+* Added additional widget for viewing Queued Users.
+* Allowed searching alternates for uploads.
 * Fixed small memory leaks and produced code cleanup.
+* Added MimeType section in .desktop file.
+* Now EiskaltDC++ Qt is available as a plugin for the LeechCraft (https://github.com/0xd34df00d/leechcraft) project.
 *** eiskaltdcpp-gtk ***
 * Fixed initialization of the toolbar.
 * "Emoticons not loaded" messages is now disabled, when emoticons is switched off.
+* Added some options in settings dialog: "sound-command", "minimize-tray" (minimize to tray on startup)
+* Ability to specify TLS_PORT equal TCP_PORT was eliminated in the settings dialog. (This was frequent users mistake)
+* Added MimeType section in .desktop file.
 *** eiskaltdcpp-daemon ***
 * Added ability to build program on Haiku-OS (see file INSTALL).
 * Added command line options: --pidfile, --confdir, --localdir
+* Added example script for launching daemon on system startup in Debian-based systems.
+* Disabled the forced change of access rights to the created files (644).
+* New XML-RPC methods.
 
 --- 2.2.1 2011-03-08 ---
 *** common changes ***
