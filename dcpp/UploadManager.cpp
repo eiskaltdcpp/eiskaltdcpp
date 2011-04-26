@@ -407,7 +407,7 @@ void UploadManager::on(AdcCommand::GET, UserConnection* aSource, const AdcComman
         }
     }
     catch (const ShareException &e){
-        dcdebug(e.what());
+        dcdebug("UploadManager thrown: %s\n", e.what());
     }
     catch ( ... ) {}
 }
