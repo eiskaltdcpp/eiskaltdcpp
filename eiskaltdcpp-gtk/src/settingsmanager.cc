@@ -504,11 +504,11 @@ const std::string WulforSettingsManager::parseCmd(const std::string cmd)
 {
     StringTokenizer<string> sl(cmd, ' ');
         if (sl.getTokens().size() == 2) {
-            if (intMap.find(sl.getTokens().at(0)) != intMap.end()) {
+            if (intMap.find(sl.getTokens().at(0)) != intMap.end() && defaultInt.find(sl.getTokens().at(0)) != defaultInt.end()) {
                 int i = atoi(sl.getTokens().at(1).c_str());
                 WSET(sl.getTokens().at(0), i);
             }
-            else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end())
+            else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end() && defaultString.find(sl.getTokens().at(0)) != defaultString.end())
                 WSET(sl.getTokens().at(0), sl.getTokens().at(1));
             else
                 return _("Error: setting not found!");
