@@ -57,7 +57,7 @@ void Log(const string & sData) {
 
     string sTmp = string(sBuf) + " - " + sData + "\n";
 
-    fprintf(fw, sTmp.c_str());
+    fprintf(fw, "%s", sTmp.c_str());
 
     fclose(fw);
 }
