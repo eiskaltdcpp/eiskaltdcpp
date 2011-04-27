@@ -879,7 +879,8 @@ int ShareManager::run() {
 }
 
 void ShareManager::getBloom(ByteVector& v, size_t k, size_t m, size_t h) const {
-    dcdebug("Creating bloom filter, k=%u, m=%u, h=%u\n", k, m, h);
+    dcdebug("Creating bloom filter, k=%u, m=%u, h=%u\n",
+            static_cast<unsigned int>(k), static_cast<unsigned int>(m), static_cast<unsigned int>(h));
     Lock l(cs);
 
     HashBloom bloom;

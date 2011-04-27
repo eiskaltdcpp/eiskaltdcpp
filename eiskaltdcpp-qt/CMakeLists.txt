@@ -42,7 +42,6 @@ set (SRCS
             src/ArenaWidget.cpp
             src/ArenaWidgetContainer.cpp
             src/CustomFontModel.cpp
-            src/CustomSetting.cpp
             src/DownloadQueue.cpp
             src/DownloadQueueModel.cpp
             src/EmoticonDialog.cpp
@@ -124,7 +123,6 @@ set (MOC_HDRS
             src/AntiSpamFrame.h
             src/ArenaWidget.h
             src/CustomFontModel.h
-            src/CustomSetting.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
             src/EmoticonDialog.h
