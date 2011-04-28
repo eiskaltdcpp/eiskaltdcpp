@@ -276,6 +276,9 @@ void UserListModel::sort(int column, Qt::SortOrder order) {
     if (column < 0 || column > columnCount() - 1)
         return;
 
+    if (rootItem->childItems.size() <= 0)
+        return;
+
     emit layoutAboutToBeChanged();
 
     if (order == Qt::AscendingOrder)
