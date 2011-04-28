@@ -327,6 +327,8 @@ configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionG
 
 if (UNIX)
 add_definitions (-D_GNU_SOURCE)
+find_program (GZIP_CMD gzip)
+mark_as_advanced(GZIP_CMD)
 endif (UNIX)
 
 set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/qt/ts")

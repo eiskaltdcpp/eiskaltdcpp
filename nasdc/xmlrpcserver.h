@@ -28,12 +28,6 @@
 #include <xmlrpc-c/registry.hpp>
 #include <xmlrpc-c/server_abyss.hpp>
 
-#ifdef WIN32
-  #define SLEEP(seconds) SleepEx(seconds * 1000);
-#else
-  #define SLEEP(seconds) sleep(seconds);
-#endif
-
 #include "ServerManager.h"
 
 using namespace std;
@@ -84,50 +78,6 @@ xmlrpc_c::serverAbyss AbyssServer(xmlrpc_c::serverAbyss::constrOpt()
                                   //8080,              // TCP port on which to listen
                                   //"/tmp/xmlrpc_log"  // Log file
                                   );
-
-//class myshutdown : public xmlrpc_c::registry::shutdown {
-    //public:
-        //myshutdown(xmlrpc_c::serverAbyss * const serverHandle) :
-            //serverHandle(serverHandle) {}
-
-        //void doit(string const& comment,
-                  //void * const) const {
-
-            //cerr << "Shutting down because " << comment <<endl;
-            //shutdownMyServer(serverHandle);
-        //}
-
-    //private:
-        //xmlrpc_c::serverAbyss * const serverHandle;
-//};
-
-class sampleAddMethod : public xmlrpc_c::method {
-public:
-    sampleAddMethod() {
-        // signature and help strings are documentation -- the client
-        // can query this information with a system.methodSignature and
-        // system.methodHelp RPC.
-        this->_signature = "i:ii";
-        // method's result and two arguments are integers
-        this->_help = "This method adds two integers together";
-    }
-
-    void
-    execute(xmlrpc_c::paramList const& paramList,
-            xmlrpc_c::value *   const  retvalP) {
-
-        int const iaddend(paramList.getInt(0));
-        int const iadder(paramList.getInt(1));
-
-        paramList.verifyEnd(2);
-
-        *retvalP = xmlrpc_c::value_int(iaddend + iadder);
-        // Sometimes, make it look hard (so client can see what it's like
-        // to do an RPC that takes a while).
-        if (iadder == 1)
-            SLEEP(2);
-    }
-};
 
 class magnetAddMethod : public xmlrpc_c::method {
 public:
@@ -206,10 +156,6 @@ public:
         ServerThread svT;
         svT.connectClient(shub, senc);
         *retvalP = xmlrpc_c::value_string("Connecting to " + shub);
-        //}
-        //else
-            //*retvalP = xmlrpc_c::value_string("Fail connect");
-        //SLEEP(2);
     }
 };
 

@@ -308,7 +308,6 @@ add_custom_target(${target_basename} ALL DEPENDS ${TRANSLATIONS_BINARY})
 set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
 if (UNIX)
-  FIND_PROGRAM (GZIP_CMD gzip)
   EXECUTE_PROCESS (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz
                 COMMAND "${GZIP_CMD}" -9
