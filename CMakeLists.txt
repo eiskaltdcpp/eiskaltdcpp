@@ -270,9 +270,6 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND USE_QT)
                  "\tYou can build it for your own risk.\n"
                  "\tBut do not even try to write bug reports in this case.\n"
                  "\tPlease use RelWithDebInfo instead it.")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo")
-  set (CMAKE_BUILD_TYPE "RelWithDebInfo")
-  message(STATUS "CMAKE_BUILD_TYPE = Gentoo is not now supported. RelWithDebInfo is used instead.")
 endif (NOT CMAKE_BUILD_TYPE)
 
 if (NOT SHARE_DIR)
