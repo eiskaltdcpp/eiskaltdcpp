@@ -845,9 +845,9 @@ int ShareManager::run() {
         DirList newDirs;
         for(StringPairIter i = dirs.begin(); i != dirs.end(); ++i) {
             if (checkHidden(i->second)) {
-            Directory::Ptr dp = buildTree(i->second, Directory::Ptr());
-            dp->setName(i->first);
-            newDirs.push_back(dp);
+                Directory::Ptr dp = buildTree(i->second, Directory::Ptr());
+                dp->setName(i->first);
+                newDirs.push_back(dp);
             }
         }
 
@@ -1063,14 +1063,8 @@ void ShareManager::Directory::filesToXml(OutputStream& xmlFile, string& indent, 
 
 static const char* typeAudio[] = { ".mp3", ".mp2", ".mid", ".wav", ".ogg", ".wma", ".669", ".aac", ".aif", ".amf", ".ams", ".ape", ".dbm", ".dmf", ".dsm", ".far", ".mdl", ".med", ".mod", ".mol", ".mp1", ".mpa", ".mpc", ".mpp", ".mtm", ".nst", ".okt", ".psm", ".ptm", ".rmi", ".s3m", ".stm", ".ult", ".umx", ".wow" };
 static const char* typeCompressed[] = { ".rar", ".zip", ".ace", ".arj", ".hqx", ".lha", ".sea", ".tar", ".tgz", ".uc2" };
-static const char* typeDocument[] = { ".htm", ".doc", ".txt", ".nfo", ".pdf", ".chm",
-                                      ".rtf", // [+] from flylinkdc++
-                                      ".xls",
-                                      ".ppt",
-                                      ".odt",
-                                      ".ods",
-                                      ".odf",
-                                      ".odp" };
+static const char* typeDocument[] = { ".htm", ".doc", ".txt", ".nfo", ".pdf", ".chm", ".rtf",
+                                      ".xls", ".ppt", ".odt", ".ods", ".odf", ".odp" };
 static const char* typeExecutable[] = { ".exe", ".com", ".msi" };
 static const char* typePicture[] = { ".jpg", ".gif", ".png", ".eps", ".img", ".pct", ".psp", ".pic", ".tif", ".rle", ".bmp", ".pcx", ".jpe", ".dcx", ".emf", ".ico", ".psd", ".tga", ".wmf", ".xif" };
 static const char* typeVideo[] = { ".avi", ".mpg", ".mov", ".flv", ".asf",  ".pxp", ".wmv", ".ogm", ".mkv", ".m1v", ".m2v", ".mpe", ".mps", ".mpv", ".ram", ".vob", ".mp4" };
