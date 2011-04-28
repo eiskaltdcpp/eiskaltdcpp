@@ -192,7 +192,7 @@ void DownloadManager::checkDownloads(UserConnection* aConn) {
     }
     fire(DownloadManagerListener::Requesting(), d);
 
-    dcdebug("Requesting " I64_FMT "/" I64_FMT "\n", d->getStartPos(), d->getSize());
+    dcdebug("Requesting " I64_FMT "/" I64_FMT "\n", static_cast<long long int>(d->getStartPos()), static_cast<long long int>(d->getSize()));
 
     aConn->send(d->getCommand(aConn->isSet(UserConnection::FLAG_SUPPORTS_ZLIB_GET)));
 }
@@ -220,7 +220,9 @@ void DownloadManager::startData(UserConnection* aSource, int64_t start, int64_t 
     Download* d = aSource->getDownload();
     dcassert(d != NULL);
 
-    dcdebug("Preparing " I64_FMT ":" I64_FMT ", " I64_FMT ":" I64_FMT"\n", d->getStartPos(), start, d->getSize(), bytes);
+    dcdebug("Preparing " I64_FMT ":" I64_FMT ", " I64_FMT ":" I64_FMT"\n",
+            static_cast<long long int>(d->getStartPos()), static_cast<long long int>(start),
+            static_cast<long long int>(d->getSize()), static_cast<long long int>(bytes));
     if(d->getSize() == -1) {
         if(bytes >= 0) {
             d->setSize(bytes);
@@ -339,7 +341,8 @@ void DownloadManager::endData(UserConnection* aSource) {
         aSource->setSpeed(d->getAverageSpeed());
         aSource->updateChunkSize(d->getTigerTree().getBlockSize(), d->getSize(), GET_TICK() - d->getStart());
 
-        dcdebug("Download finished: %s, size " I64_FMT ", downloaded " I64_FMT "\n", d->getPath().c_str(), d->getSize(), d->getPos());
+        dcdebug("Download finished: %s, size " I64_FMT ", downloaded " I64_FMT "\n", d->getPath().c_str(),
+                static_cast<long long int>(d->getSize()), static_cast<long long int>(d->getPos()));
 
         if(BOOLSETTING(LOG_DOWNLOADS) && (BOOLSETTING(LOG_FILELIST_TRANSFERS) || d->getType() == Transfer::TYPE_FILE)) {
             logDownload(aSource, d);

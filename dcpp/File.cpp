@@ -308,7 +308,8 @@ int File::extendFile(int64_t len) throw() {
     char zero;
 
     if( (lseek(h, (off_t)len, SEEK_SET) != -1) && (::write(h, &zero,1) != -1) ) {
-                ftruncate(h,(off_t)len);
+                if (ftruncate(h,(off_t)len) != 0)
+                    dcdebug("ftruncate() error in File::extendFile()");
         return 1;
     }
     return -1;
