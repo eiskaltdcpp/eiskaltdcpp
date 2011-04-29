@@ -93,7 +93,7 @@ const string SettingsManager::settingTags[] =
     "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "KeepFinishedFiles",
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
-    "BindIface", "SENTRY",
+    "BindIface", "MinimumSearchInterval", "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
@@ -293,6 +293,7 @@ SettingsManager::SettingsManager()
     setDefault(SEGMENT_SIZE, 0);
     setDefault(BIND_IFACE, false);
     setDefault(BIND_IFACE_NAME, "");
+    setDefault(MINIMUM_SEARCH_INTERVAL, 30);
 
     setSearchTypeDefaults();
 }

@@ -108,11 +108,16 @@ void Client::reloadSettings(bool updateNick) {
         if (hub->getUseInternetIP() && !SETTING(INTERNETIP).empty()){
             externalIP = SETTING(INTERNETIP);
         }
+        if(hub->getSearchInterval() < 10)
+            setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL) * 1000);
+        else
+            setSearchInterval(hub->getSearchInterval() * 1000);
     } else {
         if(updateNick) {
             setCurrentNick(checkNick(SETTING(NICK)));
         }
         setCurrentDescription(SETTING(DESCRIPTION));
+        setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL) * 1000);
     }
     setClientId(ClientId);
 }
@@ -248,6 +253,29 @@ string Client::getLocalIp() const {
     }
 
     return localIp;
+}
+
+uint64_t Client::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList, void* owner){
+    dcdebug("Queue search %s\n", aString.c_str());
+
+    if(searchQueue.interval) {
+        SearchCore s;
+        s.fileType = aFileType;
+        s.size     = aSize;
+        s.query    = aString;
+        s.sizeType = aSizeMode;
+        s.token    = aToken;
+        s.exts	   = aExtList;
+        s.owners.insert(owner);
+
+        searchQueue.add(s);
+
+        return searchQueue.getSearchTime(owner) - GET_TICK();
+    }
+
+    search(aSizeMode, aSize, aFileType , aString, aToken, aExtList);
+    return 0;
+
 }
 
 void Client::on(Line, const string& aLine) throw() {
