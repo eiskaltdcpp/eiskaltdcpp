@@ -42,7 +42,6 @@ set (SRCS
             src/ArenaWidget.cpp
             src/ArenaWidgetContainer.cpp
             src/CustomFontModel.cpp
-            src/CustomSetting.cpp
             src/DownloadQueue.cpp
             src/DownloadQueueModel.cpp
             src/EmoticonDialog.cpp
@@ -124,7 +123,6 @@ set (MOC_HDRS
             src/AntiSpamFrame.h
             src/ArenaWidget.h
             src/CustomFontModel.h
-            src/CustomSetting.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
             src/EmoticonDialog.h
@@ -308,7 +306,6 @@ add_custom_target(${target_basename} ALL DEPENDS ${TRANSLATIONS_BINARY})
 set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
 if (UNIX)
-  FIND_PROGRAM (GZIP_CMD gzip)
   EXECUTE_PROCESS (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz
                 COMMAND "${GZIP_CMD}" -9

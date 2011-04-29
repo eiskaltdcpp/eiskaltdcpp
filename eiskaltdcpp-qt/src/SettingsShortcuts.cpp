@@ -10,7 +10,6 @@
 #include "SettingsShortcuts.h"
 #include "ShortcutManager.h"
 #include "MainWindow.h"
-#include "CustomSetting.h"
 #include "ShortcutGetter.h"
 
 #include <QMap>

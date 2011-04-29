@@ -42,6 +42,7 @@
 #ifndef FLOWLAYOUT_H
 #define FLOWLAYOUT_H
 
+#include <QObject>
 #include <QLayout>
 #include <QRect>
 #include <QWidgetItem>
@@ -49,6 +50,7 @@
 
 class FlowLayout : public QLayout
 {
+    Q_OBJECT
 public:
     FlowLayout(QWidget *parent, int margin = 0, int hSpacing = 0, int vSpacing = 0);
     FlowLayout(int margin = 0, int hSpacing = 0, int vSpacing = 0);

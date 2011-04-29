@@ -14,12 +14,15 @@
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
+#include <QObject>
 #include <QMap>
 #include <QAction>
 #include <QShortcut>
 
-class ShortcutManager: public dcpp::Singleton<ShortcutManager>
+class ShortcutManager: public QObject, public dcpp::Singleton<ShortcutManager>
 {
+    Q_OBJECT
+
 friend class dcpp::Singleton<ShortcutManager>;
 
 public:

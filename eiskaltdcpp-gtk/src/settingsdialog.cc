@@ -1550,7 +1550,7 @@ void Settings::initSearchTypes_gui()
                 bool predefined = false;
                 int key = SearchManager::TYPE_ANY;
 
-                if (type.size() == 1 && type[0] >= '1' && type[0] <= '6')
+                if (type.size() == 1 && ((type[0] >= '1' && type[0] <= '6') ||  type[0] == '9'))
                 {
                         key = type[0] - '0';
                         type = SearchManager::getTypeStr(key);

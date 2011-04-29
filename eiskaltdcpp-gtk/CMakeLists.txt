@@ -83,7 +83,6 @@ elseif (WIN32)
 endif (UNIX)
 
 if (UNIX)
-  FIND_PROGRAM (GZIP_CMD gzip)
   EXECUTE_PROCESS (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-gtk.1.gz
                 COMMAND "${GZIP_CMD}" -9

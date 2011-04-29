@@ -79,7 +79,6 @@ int ServerThread::run()
     }
 #endif
 #ifdef XMLRPC_DAEMON
-    xmlrpc_c::methodPtr const sampleAddMethodP(new sampleAddMethod);
     xmlrpc_c::methodPtr const magnetAddMethodP(new magnetAddMethod);
     xmlrpc_c::methodPtr const stopDemonMethodP(new stopDemonMethod);
     xmlrpc_c::methodPtr const hubAddMethodP(new hubAddMethod);
@@ -93,7 +92,7 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const listShareMethodP(new listShareMethod);
     xmlrpc_c::methodPtr const refreshShareMethodP(new refreshShareMethod);
     xmlrpc_c::methodPtr const getChatPubMethodP(new getChatPubMethod);
-    xmlrpcRegistry.addMethod("sample.add", sampleAddMethodP);
+    xmlrpc_c::methodPtr const getFileListMethodP(new getFileListMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
     //xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
@@ -107,7 +106,7 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("share.list", listShareMethodP);
     xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
     xmlrpcRegistry.addMethod("hub.retchat", getChatPubMethodP);
-    //xmlrpc_c::xmlrpc_server_abyss_set_handlers()
+    xmlrpcRegistry.addMethod("list.download", getFileListMethodP);
     AbyssServer.run();
 #endif
 
@@ -189,7 +188,7 @@ void ServerThread::disconnectClient(string address){
 //----------------------------------------------------------------------------
 void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
 {
-    int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
+    //int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
     int64_t updiff = Socket::getTotalUp() - lastUp;
     int64_t downdiff = Socket::getTotalDown() - lastDown;
 
@@ -210,7 +209,6 @@ void ServerThread::on(Connecting, Client* cur) throw() {
     if(i == clientsMap.end()) {
         CurHub curhub;
         curhub.curclient = cur;
-        //curhub.curchat.push_back("test");
         clientsMap[cur->getHubUrl()] = curhub;
     }
     cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
@@ -316,6 +314,10 @@ void ServerThread::on(NickTaken, Client*) throw() {
 void ServerThread::on(SearchFlood, Client*, const string& line) throw() {
 
 }
+
+void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) throw() {
+
+}
 //void ServerThread::on(WebServerListener::Setup) throw() {
     ////webSock = WebServerManager::getInstance()->getServerSocket().getSock();
 //}
@@ -394,24 +396,25 @@ bool ServerThread::sendPrivateMessage(const string& hub,const string& nick, cons
     return false;
 }
 
-string ServerThread::getFileList_client(const string& hub, const string& cid, bool match) {
+string ServerThread::getFileList_client(const string& hub, const string& nick, bool match) {
     string message = "";
     ClientIter i = clientsMap.find(hub);
     if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
-        if (!cid.empty()) {
+        if (!nick.empty()) {
             try {
-                UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+                //UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+                UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
                 if (user) {
-                    const HintedUser hintedUser(user, i->first);//NOTE: core 0.762
+                    const HintedUser hintedUser(user, i->first);
                     if (user == ClientManager::getInstance()->getMe()) {
                         // Don't download file list, open locally instead
                         //WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
                     }
                     else if (match) {
-                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);//NOTE: core 0.762
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);
                     }
                     else {
-                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
+                        QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);
                     }
                 }
                 else {
@@ -440,4 +443,69 @@ void ServerThread::getChatPubFromClient(string& chat, const string& hub, const s
         clientsMap[hub].curchat.clear();
     } else
         chat = "Huburl is invalid";
+}
+
+void ServerThread::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap) {
+    if (result->getType() == SearchResult::TYPE_FILE) {
+        string file = revertSeparator(result->getFile());
+        if (file.rfind('/') == tstring::npos) {
+            resultMap["Filename"] = file;
+        } else {
+            resultMap["Filename"] = Util::getFileName(file);
+            resultMap["Path"] = Util::getFilePath(file);
+        }
+
+        resultMap["File Order"] = "f" + resultMap["Filename"];
+        resultMap["Type"] = Util::getFileExt(resultMap["Filename"]);
+        if (!resultMap["Type"].empty() && resultMap["Type"][0] == '.')
+            resultMap["Type"].erase(0, 1);
+        resultMap["Size"] = Util::formatBytes(result->getSize());
+        resultMap["Exact Size"] = Util::formatExactSize(result->getSize());
+        resultMap["Icon"] = "icon-file";
+        resultMap["Shared"] = Util::toString(ShareManager::getInstance()->isTTHShared(result->getTTH()));
+    } else {
+        string path = revertSeparator(result->getFile());
+        resultMap["Filename"] = revertSeparator(result->getFileName());
+        resultMap["Path"] = Util::getFilePath(path.substr(0, path.length() - 1)); // getFilePath just returns path unless we chop the last / off
+        if (resultMap["Path"].find("/") == string::npos)
+            resultMap["Path"] = "";
+        resultMap["File Order"] = "d" + resultMap["Filename"];
+        resultMap["Type"] = _("Directory");
+        resultMap["Icon"] = "icon-directory";
+        resultMap["Shared"] = "0";
+        if (result->getSize() > 0) {
+            resultMap["Size"] = Util::formatBytes(result->getSize());
+            resultMap["Exact Size"] = Util::formatExactSize(result->getSize());
+        }
+    }
+
+    resultMap["Nick"] = Util::toString(ClientManager::getInstance()->getNicks(result->getUser()->getCID(), result->getHubURL()));
+    //WulforUtil::getNicks(result->getUser(), result->getHubURL());//NOTE: core 0.762
+    resultMap["CID"] = result->getUser()->getCID().toBase32();
+    resultMap["Slots"] = result->getSlotString();
+    resultMap["Connection"] = ClientManager::getInstance()->getConnection(result->getUser()->getCID());
+    resultMap["Hub"] = result->getHubName().empty() ? result->getHubURL().c_str() : result->getHubName().c_str();
+    resultMap["Hub URL"] = result->getHubURL();
+    resultMap["IP"] = result->getIP();
+    resultMap["Real Size"] = Util::toString(result->getSize());
+    if (result->getType() == SearchResult::TYPE_FILE)
+        resultMap["TTH"] = result->getTTH().toBase32();
+
+    // assumption: total slots is never above 999
+    resultMap["Slots Order"] = Util::toString(-1000 * result->getFreeSlots() - result->getSlots());
+    resultMap["Free Slots"] = Util::toString(result->getFreeSlots());
+}
+
+string ServerThread::revertSeparator(const string &ps) {
+    string str = ps;
+    for (string::iterator it = str.begin(); it != str.end(); ++it) {
+#ifdef _WIN32
+        if ((*it) == '/')
+            (*it) = '\\'
+#else
+        if ((*it) == '\\')
+            (*it) = '/';
+#endif //_WIN32
+    }
+    return str;
 }
