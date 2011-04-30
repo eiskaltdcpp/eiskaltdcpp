@@ -150,7 +150,7 @@ void SettingsConnection::ok(){
 
 #ifdef WITH_DHT
     SM->set(SettingsManager::USE_DHT, groupBox_DHT->isChecked());
-    SM->set(SettingsManager::DHT_PORT, spinBox_DHT_PORT->value());
+    SM->set(SettingsManager::DHT_PORT, spinBox_DHT->value());
 
     if (!(old_dht < 1024) && (SETTING(DHT_PORT) < 1024))
         showMsg(tr("Program need root privileges to open ports less than 1024"), NULL);

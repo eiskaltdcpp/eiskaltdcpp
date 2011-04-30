@@ -25,6 +25,10 @@ if (USE_QT_QML)
   set (QT_USE_QTDECLARATIVE 1)
 endif(USE_QT_QML)
 
+if (WITH_DHT)
+  add_definitions ( -DWITH_DHT )
+endif (WITH_DHT)
+
 if (USE_QT_SQLITE)
   set (QT_USE_QTSQL 1)
 
