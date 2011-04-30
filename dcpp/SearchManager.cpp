@@ -270,7 +270,7 @@ int SearchManager::UdpQueue::run() {
                 continue;
         }
 
-        //ClientManager::getInstance()->setIPUser(user, remoteIp);
+        ClientManager::getInstance()->setIPUser(user, remoteIp);
 
         string tth;
         if(hubName.compare(0, 4, "TTH:") == 0) {
@@ -282,7 +282,6 @@ int SearchManager::UdpQueue::run() {
         if(tth.empty() && type == SearchResult::TYPE_FILE) {
             continue;
         }
-
 
         SearchResultPtr sr(new SearchResult(user, type, slots, freeSlots, size,
                         file, hubName, url, remoteIp, TTHValue(tth), Util::emptyString));
@@ -427,7 +426,7 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
             }
     }
 
-    //ClientManager::getInstance()->setIPUser(from, remoteIp, udpPort);
+    ClientManager::getInstance()->setIPUser(from, remoteIp, udpPort);
 
     if(partialInfo.size() != partialCount) {
             // what to do now ? just ignore partial search result :-/

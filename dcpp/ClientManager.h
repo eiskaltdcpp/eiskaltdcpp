@@ -101,6 +101,19 @@ public:
         return Identity();
     }
 
+    void setIPUser(const UserPtr& user, const string& IP, uint16_t udpPort = 0) {
+        if(IP.empty())
+            return;
+
+        Lock l(cs);
+        OnlineMap::const_iterator i = onlineUsers.find(user->getCID());
+        if ( i != onlineUsers.end() ) {
+            i->second->getIdentity().setIp(IP);
+            if(udpPort > 0)
+                i->second->getIdentity().setUdpPort(Util::toString(udpPort));
+        }
+    }
+
     bool isOp(const UserPtr& aUser, const string& aHubUrl) const;
 
     /** Constructs a synthetic, hopefully unique CID */
