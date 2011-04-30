@@ -148,6 +148,14 @@ void SettingsConnection::ok(){
     WSSET( WS_APP_DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text());
     WSSET( WS_APP_DYNDNS_INDEX, lineEdit_DYNDNS_INDEX->text());
 
+#ifdef WITH_DHT
+    SM->set(SettingsManager::USE_DHT, groupBox_DHT->isChecked());
+    SM->set(SettingsManager::DHT_PORT, spinBox_DHT_PORT->value());
+
+    if (!(old_dht < 1024) && (SETTING(DHT_PORT) < 1024))
+        showMsg(tr("Program need root privileges to open ports less than 1024"), NULL);
+#endif
+
     if (old_mode != SETTING(INCOMING_CONNECTIONS) || old_tcp != (SETTING(TCP_PORT))
         || old_udp != (SETTING(UDP_PORT)) || old_tls != (SETTING(TLS_PORT)))
     {
@@ -181,6 +189,13 @@ void SettingsConnection::init(){
     checkBox_DYNDNS->setCheckState( WBGET(WB_APP_DYNDNS_ENABLED) ? Qt::Checked : Qt::Unchecked );
     lineEdit_DYNDNS_SERVER->setText(WSGET(WS_APP_DYNDNS_SERVER));
     lineEdit_DYNDNS_INDEX->setText(WSGET(WS_APP_DYNDNS_INDEX));
+
+#ifdef WITH_DHT
+    groupBox_DHT->setChecked(BOOLSETTING(USE_DHT));
+    spinBox_DHT->setValue(old_dht = SETTING(DHT_PORT));
+#else
+    groupBox_DHT->hide();
+#endif
 
     QStringList ifaces = WulforUtil::getInstance()->getLocalIfaces();
 
