@@ -96,7 +96,7 @@ namespace dht
 		/** Locks access to "searches" */
 		CriticalSection cs;
 
-		typedef unordered_multimap<CID, std::pair<uint64_t, SearchResultPtr> > ResultsMap;
+		typedef unordered_multimap< CID, std::pair<uint64_t, SearchResultPtr> > ResultsMap;
 		ResultsMap searchResults;
 
 		/** Performs general search operation in the network */

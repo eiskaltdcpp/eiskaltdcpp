@@ -31,7 +31,7 @@ namespace dht
 {
 
 	CriticalSection Utils::cs;
-	unordered_map<string, unordered_multiset<uint32_t> > Utils::receivedPackets;
+	unordered_map< string, unordered_multiset<uint32_t> > Utils::receivedPackets;
 	std::list<Utils::OutPacket> Utils::sentPackets;
 
 	CID Utils::getDistance(const CID& cid1, const CID& cid2)
