@@ -65,7 +65,7 @@ public:
     FavoriteHubEntry(const HubEntry& rhs) throw() : name(rhs.getName()),
     server(rhs.getServer()),
     description(rhs.getDescription()), connect(false),
-    encoding(Text::systemCharset), mode(0),overrideId(0),
+    encoding(Text::systemCharset), mode(0), overrideId(0),
     clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL)) { }
     FavoriteHubEntry(const FavoriteHubEntry& rhs) throw() :
     userdescription(rhs.userdescription), name(rhs.getName()),
