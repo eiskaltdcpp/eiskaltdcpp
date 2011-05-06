@@ -1449,9 +1449,9 @@ void MainWindow::newHubFrame(QString address, QString enc){
     if (address.isEmpty())
         return;
 
-    HubFrame *fr = NULL;
+    HubFrame *fr = HubManager::getInstance()->getHub(address);
 
-    if (fr = HubManager::getInstance()->getHub(address)){
+    if (fr){
         mapWidgetOnArena(fr);
 
         return;
