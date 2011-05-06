@@ -113,7 +113,6 @@ endif(USE_IDNA)
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
-    add_definitions ( -DLUA_SCRIPT )
     message (STATUS "Building with Lua scripts support")
 else (LUA_SCRIPT)
     #set (LUA_INCLUDE_DIR " ")
@@ -338,14 +337,6 @@ set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 
 add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${_DATADIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
-
-if (ENABLE_STACKTRACE)
-    add_definitions(-DENABLE_STACKTRACE)
-endif (ENABLE_STACKTRACE)
-
-if (HAVE_IFADDRS_H)
-  add_definitions (-DHAVE_IFADDRS_H )
-endif (HAVE_IFADDRS_H)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
     if (MINGW)

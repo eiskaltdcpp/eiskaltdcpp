@@ -27,8 +27,6 @@ if (HAVE_DAEMON)
     add_definitions(-DHAVE_DAEMON)
 endif()
 
-list (REMOVE_ITEM nasdc_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/screen.c)
-
 if (WIN32)
   list (APPEND nasdc_SRCS ../win32/applink.c)
 endif (WIN32)
@@ -37,6 +35,11 @@ if (LUA_SCRIPT)
   set_property(SOURCE ${PROJECT_SOURCE_DIR}/ServerThread.cpp PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
 endif (LUA_SCRIPT)
+
+if (ENABLE_STACKTRACE)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/nasdc.cpp PROPERTY COMPILE_DEFINITIONS ENABLE_STACKTRACE)
+endif (ENABLE_STACKTRACE)
+
 # actual target:
 add_executable (nasdc MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
@@ -52,16 +55,19 @@ if (UNIX)
 elseif (WIN32)
   set (BINDIR .)
 endif (UNIX)
+
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
-add_definitions(-D_DEBUG)
+    add_definitions(-D_DEBUG)
 endif()
+
 set_property (TARGET nasdc PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-daemon")
-  install (TARGETS nasdc
+
+install (TARGETS nasdc
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 
 if (UNIX)
-  EXECUTE_PROCESS (
+  execute_process (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-daemon.1.gz
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE eiskaltdcpp-daemon.1
