@@ -990,35 +990,21 @@ void SearchFrame::slotStartSearch(){
         ftype = SearchManager::TYPE_ANY;
     }
 
-    //if(SearchManager::getInstance()->okToSearch()) {
-        SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype,
-                                             searchMode, token.toStdString(), exts);
+    SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype, searchMode, token.toStdString(), exts);
 
-        if (!checkBox_HIDEPANEL->isChecked()){
-            QList<int> panes = splitter->sizes();
+    if (!checkBox_HIDEPANEL->isChecked()){
+        QList<int> panes = splitter->sizes();
 
-            panes[1] = panes[0] + panes[1];
+        panes[1] = panes[0] + panes[1];
 
-            left_pane_old_size = panes[0] > 15 ? panes[0] : left_pane_old_size;
+        left_pane_old_size = panes[0] > 15 ? panes[0] : left_pane_old_size;
 
-            panes[0] = 0;
+        panes[0] = 0;
 
-            splitter->setSizes(panes);
-        }
+        splitter->setSizes(panes);
+    }
 
-        arena_title = tr("Search - %1").arg(s);
-
-    //}
-    //else {
-        //int32_t waitFor = SearchManager::getInstance()->timeToSearch();
-        //QString msg = tr("Searching too soon, next search in %1 second").arg(waitFor);
-
-        //status->setText(msg);
-
-        //arena_title = tr("Search - %1").arg(msg);
-        //// Start the countdown timer
-        //initSecond();
-    //}
+    arena_title = tr("Search - %1").arg(s);
 
     MW->redrawToolPanel();
 }

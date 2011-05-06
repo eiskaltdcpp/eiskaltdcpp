@@ -532,22 +532,11 @@ void Search::search_gui()
     setStatus_gui("statusbar3", _("0 filtered"));
     setLabel_gui(text);
 
-    //if (SearchManager::getInstance()->okToSearch())
-    //{
-		dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());//NOTE: core 0.770
-		SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);//NOTE: core 0.770
+    dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());//NOTE: core 0.770
+    SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);//NOTE: core 0.770
 
-        if (WGETB("clearsearch")) // Only clear if the search was sent.
-            gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
-    //}
-    //else
-    //{
-        //int32_t waitFor = SearchManager::getInstance()->timeToSearch();
-        //string line = _("Searching too soon, retry in ") + Util::toString(waitFor) + _(" s");
-        //setStatus_gui("statusbar1", line);
-        //setStatus_gui("statusbar2", "");
-        //setStatus_gui("statusbar3", "");
-    //}
+    if (WGETB("clearsearch")) // Only clear if the search was sent.
+        gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
 }
 
 void Search::addResult_gui(const SearchResultPtr result)

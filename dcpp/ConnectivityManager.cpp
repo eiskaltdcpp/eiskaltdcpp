@@ -150,7 +150,7 @@ void ConnectivityManager::listen() {
     try {
         dht::DHT::getInstance()->start();
     } catch (const Exception&) {
-        throw Exception(_("Search (DHT)"));
+        throw Exception(_("DHT (UDP)"));
     }
 #endif
 }
