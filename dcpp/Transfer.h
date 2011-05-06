@@ -86,7 +86,7 @@ public:
 
     UserConnection& getUserConnection() { return userConnection; }
     const UserConnection& getUserConnection() const { return userConnection; }
-//#ifdef DHT
+//#ifdef WITH_DHT
     //Partial
     bool getOverlapped() const { return getSegment().getOverlapped(); }
     void setOverlapped(bool overlap) { segment.setOverlapped(overlap); }

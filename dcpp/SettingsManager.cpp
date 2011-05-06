@@ -27,8 +27,8 @@
 #include "version.h"
 #include "AdcHub.h"
 #include "CID.h"
-#ifdef DHT
-#include "../dht/DHT.h"
+#ifdef WITH_DHT
+#include "dht/DHT.h"
 #endif
 #include "SearchManager.h"
 #include "StringTokenizer.h"
@@ -51,7 +51,7 @@ const string SettingsManager::settingTags[] =
     "LogFileSystem",
     "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
-    "Language", "SkipListShare", "InternetIp", "BindIfaceName",
+    "Language", "SkipListShare", "InternetIp", "BindIfaceName", "DHTKey",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow",
@@ -267,7 +267,7 @@ SettingsManager::SettingsManager()
     setDefault(HASH_BUFFER_NORESERVE, true);
     setDefault(HASH_BUFFER_PRIVATE, true);
     setDefault(RECONNECT_DELAY, 15);
-    setDefault(DHT_PORT, 6245);
+    setDefault(DHT_PORT, 6250);
     setDefault(USE_DHT, false);
     setDefault(SEARCH_PASSIVE, false);
     setDefault(AUTO_DETECT_CONNECTION, false);
@@ -427,6 +427,9 @@ void SettingsManager::load(string const& aFileName)
         if(CID(SETTING(PRIVATE_ID)).isZero())
             set(PRIVATE_ID, CID::generate().toBase32());
     }
+
+    if (SETTING(DHT_KEY).length() != 39 || CID(SETTING(DHT_KEY)).isZero())
+        set(DHT_KEY, CID::generate().toBase32());
 }
 
 void SettingsManager::save(string const& aFileName) {

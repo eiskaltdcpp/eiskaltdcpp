@@ -44,7 +44,7 @@
 #include "UPnPManager.h"
 #include "ConnectivityManager.h"
 #include "extra/ipfilter.h"
-#ifdef DHT
+#ifdef WITH_DHT
 #include "dht/DHT.h"
 #endif
 #include "DebugManager.h"
@@ -113,8 +113,8 @@ void startup(void (*f)(void*, const string&), void* p) {
 
     FavoriteManager::getInstance()->load();
     CryptoManager::getInstance()->loadCertificates();
-#ifdef USE_DHT
-    DHT::newInstance();
+#ifdef WITH_DHT
+    dht::DHT::newInstance();
 #endif
     if(f != NULL)
         (*f)(p, _("Hash database"));
@@ -163,8 +163,8 @@ void shutdown() {
         ipfilter::getInstance()->shutdown();
     SettingsManager::getInstance()->save();
 
-#ifdef USE_DHT
-    DHT::deleteInstance();
+#ifdef WITH_DHT
+    dht::DHT::deleteInstance();
 #endif
     WindowManager::deleteInstance();
     UPnPManager::deleteInstance();

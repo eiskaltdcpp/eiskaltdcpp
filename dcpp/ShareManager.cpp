@@ -39,8 +39,8 @@
 #include "HashBloom.h"
 #include "SearchResult.h"
 #include "version.h"
-#ifdef DHT
-#include "../dht/IndexManager.h"
+#ifdef WITH_DHT
+#include "dht/IndexManager.h"
 #endif
 #ifndef _WIN32
 #include <sys/types.h>
@@ -53,7 +53,7 @@
 #include <limits>
 
 namespace dcpp {
-#ifdef DHT
+#ifdef WITH_DHT
 void ShareManager::publish() {
     Lock l(cs);
     dht::IndexManager::getInstance()->createPublishQueue(tthIndex);
@@ -786,7 +786,7 @@ void ShareManager::updateIndices(Directory& dir, const Directory::File::Set::ite
 
     tthIndex.insert(make_pair(f.getTTH(), i));
     bloom.add(Text::toLower(f.getName()));
-#ifdef USE_DHT
+#ifdef WITH_DHT
     dht::IndexManager* im = dht::IndexManager::getInstance();
     if(im && im->isTimeForPublishing())
         im->publishFile(f.getTTH(), f.getSize());
@@ -870,7 +870,7 @@ int ShareManager::run() {
         ClientManager::getInstance()->infoUpdated();
     }
     refreshing = false;
-#ifdef USE_DHT
+#ifdef WITH_DHT
     dht::IndexManager* im = dht::IndexManager::getInstance();
     if(im && im->isTimeForPublishing())
         im->setNextPublishing();

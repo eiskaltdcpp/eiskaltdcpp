@@ -80,7 +80,7 @@ option (USE_QT "Qt interface" ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
 option (USE_QT_SQLITE "Build with SQLite support" OFF)
 option (USE_GTK "GTK interface" OFF)
-option (DHT "DHT support for dcpp" OFF)
+option (WITH_DHT "DHT support for dcpp" OFF)
 option (LUA_SCRIPT "Lua script" OFF)
 option (USE_MINIUPNP "Use miniupnpc for forward ports" OFF)
 option (LOCAL_MINIUPNP "Use local miniupnpc" OFF)
@@ -427,9 +427,9 @@ message (STATUS "Translations: ${LANGUAGES}")
 
 add_subdirectory(extra)
 
-if (DHT)
-add_subdirectory (dht)
-endif (DHT)
+if (WITH_DHT)
+  add_subdirectory (dht)
+endif (WITH_DHT)
 
 add_subdirectory (dcpp)
 

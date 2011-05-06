@@ -32,8 +32,8 @@
 
 #include "AdcHub.h"
 #include "NmdcHub.h"
-#ifdef DHT
-#include "../dht/DHT.h"
+#ifdef WITH_DHT
+#include "dht/DHT.h"
 #endif
 #include "FinishedManager.h"//sdc
 #include "QueueManager.h"
@@ -553,8 +553,9 @@ void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const CID& f
     SearchManager::getInstance()->respond(adc, from, isUdpActive, c->getIpPort());
 }
 
+
 void ClientManager::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, void* aOwner) {
-#ifdef DHT
+#ifdef WITH_DHT
     if(BOOLSETTING(USE_DHT) && aFileType == SearchManager::TYPE_TTH)
         dht::DHT::getInstance()->findFile(aString);
 #endif
@@ -568,7 +569,7 @@ void ClientManager::search(int aSizeMode, int64_t aSize, int aFileType, const st
 }
 
 uint64_t ClientManager::search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList, void* aOwner) {
-#ifdef DHT
+#ifdef WITH_DHT
     if(BOOLSETTING(USE_DHT) && aFileType == SearchManager::TYPE_TTH)
         dht::DHT::getInstance()->findFile(aString, aToken);
 #endif
@@ -766,6 +767,25 @@ void ClientManager::cancelSearch(void* aOwner) {
         (*i)->cancelSearch(aOwner);
     }
 }
+
+/*OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const
+{
+        Lock l(cs);
+
+        OnlinePairC op = onlineUsers.equal_range(const_cast<CID*>(&cid));
+        for(OnlineIterC i = op.first; i != op.second; ++i) {
+                OnlineUser* ou = i->second;
+
+                // user not in DHT, so don't bother with other hubs
+                if(!ou->getUser()->isSet(User::DHT))
+                        break;
+
+                if(ou->getClientBase().getType() == Client::DHT)
+                        return ou;
+        }
+
+        return NULL;
+}*/
 
 #ifdef LUA_SCRIPT
 bool ClientManager::ucExecuteLua(const string& ucCommand, StringMap& params) throw() {

@@ -27,9 +27,10 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/LogManager.h"
 #include "dcpp/SettingsManager.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/DebugManager.h"
 
 #include <zlib.h>
-#define _DEBUG
 #ifdef _WIN32
 #include <mswsock.h>
 #endif
@@ -125,7 +126,7 @@ namespace dht
 				//	return; // non-encrypted packets are forbidden
 
 				unsigned long destLen = BUFSIZE; // what size should be reserved?
-				std::unique_ptr<uint8_t> destBuf(new uint8_t[destLen]);
+				std::auto_ptr<uint8_t> destBuf(new uint8_t[destLen]);
 				if(buf[0] == ADC_PACKED_PACKET_HEADER) // is this compressed packet?
 				{
 					if(!decompressPacket(destBuf.get(), destLen, buf.get(), len))
@@ -154,7 +155,7 @@ namespace dht
 
 	void UDPSocket::checkOutgoing(uint64_t& timer) throw(SocketException)
 	{
-		std::unique_ptr<Packet> packet;
+		std::auto_ptr<Packet> packet;
 		uint64_t now = GET_TICK();
 
 		{
@@ -180,7 +181,7 @@ namespace dht
 			try
 			{
 				unsigned long length = compressBound(packet->data.length()) + 2;
-				std::unique_ptr<uint8_t> data(new uint8_t[length]);
+				std::auto_ptr<uint8_t> data(new uint8_t[length]);
 
 				// compress packet
 				compressPacket(packet->data, data.get(), length);
@@ -210,6 +211,11 @@ namespace dht
 		// when sent to port that wasn't listening.
 		// See MSDN - Q263823
 		DWORD value = FALSE;
+
+#ifndef SIO_UDP_CONNRESET
+		#define SIO_UDP_CONNRESET _WSAIOW(IOC_VENDOR,12)
+#endif
+
 		ioctlsocket(socket->sock, SIO_UDP_CONNRESET, &value);
 #endif
 
