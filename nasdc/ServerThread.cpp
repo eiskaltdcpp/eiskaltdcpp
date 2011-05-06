@@ -316,7 +316,11 @@ void ServerThread::on(SearchFlood, Client*, const string& line) throw() {
 }
 
 void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) throw() {
-
+    if (result == NULL) return;
+    ClientIter i = clientsMap.begin();
+    for ( ; i != clientsMap.end(); i++)
+        if (result->getHubURL() == i->first && clientsMap[i->first].curclient !=NULL) break;
+    if (i == clientsMap.end() && result->getHubURL() != i->first) return;
 }
 //void ServerThread::on(WebServerListener::Setup) throw() {
     ////webSock = WebServerManager::getInstance()->getServerSocket().getSock();

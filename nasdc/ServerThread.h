@@ -66,6 +66,8 @@ private:
     typedef struct {
             deque<string> curchat;
             Client* curclient;
+            deque<string> cursearchlist;
+            unordered_map<string, SearchResultList> cursearchresult;
     } CurHub;
     typedef tr1::unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
