@@ -933,7 +933,7 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "dcpps" && !param.empty())
         {
-            string msg = WulforSettingsManager::getInstance()->parseCoreCmd (param);
+            string msg = SettingsManager::getInstance()->parseCoreCmd (param);
             pm->addStatusMessage_gui(msg, Msg::SYSTEM);
         }
         else if (command == "help")

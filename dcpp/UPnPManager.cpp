@@ -29,7 +29,7 @@
 #ifdef USE_MINIUPNP
 #include "extra/upnpc.h"
 #endif
-#ifdef DHT
+#ifdef WITH_DHT
 #include "dht/DHT.h"
 #endif
 namespace dcpp {
@@ -69,8 +69,8 @@ int UPnPManager::run() {
         conn_port = ConnectionManager::getInstance()->getPort(),
         secure_port = ConnectionManager::getInstance()->getSecurePort(),
         search_port = SearchManager::getInstance()->getPort();
-        #ifdef DHT
-        dht_port = dht::DHT::getInstance()->getPort();
+        #ifdef WITH_DHT
+        const unsigned short dht_port = dht::DHT::getInstance()->getPort();
         #endif
 
     for(Impls::iterator i = impls.begin(); i != impls.end(); ++i) {
@@ -97,7 +97,7 @@ int UPnPManager::run() {
             log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "UDP" % search_port));
             continue;
         }
-        #ifdef DHT
+        #ifdef WITH_DHT
         if(dht_port != 0 && !impl.open(dht_port, UPnP::PROTOCOL_UDP, str(F_(APPNAME " DHT Port (%1% UDP)") % dht_port))){
             log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "UDP" % dht_port));
             continue;

@@ -65,7 +65,7 @@ public:
         LOG_FILE_DOWNLOAD, LOG_FILE_FINISHED_DOWNLOAD, LOG_FILE_SYSTEM, LOG_FORMAT_SYSTEM,
         LOG_FORMAT_STATUS, TLS_PRIVATE_KEY_FILE,
         TLS_CERTIFICATE_FILE, TLS_TRUSTED_CERTIFICATES_PATH,
-        LANGUAGE, SKIPLIST_SHARE, INTERNETIP, BIND_IFACE_NAME,
+        LANGUAGE, SKIPLIST_SHARE, INTERNETIP, BIND_IFACE_NAME, DHT_KEY,
         STR_LAST };
 
     enum IntSetting { INT_FIRST = STR_LAST + 1,
@@ -214,6 +214,8 @@ public:
     bool isDefault(size_t key) { return !isSet[key]; }
 
     void unset(size_t key) { isSet[key] = false; }
+
+    const std::string parseCoreCmd(const std::string cmd);
 
     void load() {
         Util::migrate(getConfigFile());

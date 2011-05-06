@@ -557,6 +557,9 @@ void NmdcHub::onLine(const string& aLine) throw() {
                 feat.push_back("TTHSearch");
                 feat.push_back("ZPipe0");
 
+                if(BOOLSETTING(USE_DHT))
+                    feat.push_back("DHT0");
+
                 supports(feat);
             }
 

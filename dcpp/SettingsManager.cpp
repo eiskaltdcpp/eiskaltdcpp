@@ -27,8 +27,8 @@
 #include "version.h"
 #include "AdcHub.h"
 #include "CID.h"
-#ifdef DHT
-#include "../dht/DHT.h"
+#ifdef WITH_DHT
+#include "dht/DHT.h"
 #endif
 #include "SearchManager.h"
 #include "StringTokenizer.h"
@@ -51,7 +51,7 @@ const string SettingsManager::settingTags[] =
     "LogFileSystem",
     "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
-    "Language", "SkipListShare", "InternetIp", "BindIfaceName",
+    "Language", "SkipListShare", "InternetIp", "BindIfaceName", "DHTKey",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow",
@@ -267,7 +267,7 @@ SettingsManager::SettingsManager()
     setDefault(HASH_BUFFER_NORESERVE, true);
     setDefault(HASH_BUFFER_PRIVATE, true);
     setDefault(RECONNECT_DELAY, 15);
-    setDefault(DHT_PORT, 6245);
+    setDefault(DHT_PORT, 6250);
     setDefault(USE_DHT, false);
     setDefault(SEARCH_PASSIVE, false);
     setDefault(AUTO_DETECT_CONNECTION, false);
@@ -426,6 +426,9 @@ void SettingsManager::load(string const& aFileName)
         if(CID(SETTING(PRIVATE_ID)).isZero())
             set(PRIVATE_ID, CID::generate().toBase32());
     }
+
+    if (SETTING(DHT_KEY).length() != 39 || CID(SETTING(DHT_KEY)).isZero())
+        set(DHT_KEY, CID::generate().toBase32());
 }
 
 void SettingsManager::save(string const& aFileName) {
@@ -567,20 +570,38 @@ SettingsManager::SearchTypesIter SettingsManager::getSearchType(const string& na
 
 bool SettingsManager::getType(const char* name, int& n, int& type) const {
     for(n = 0; n < INT64_LAST; n++) {
-            if (strcmp(settingTags[n].c_str(), name) == 0) {
-                    if (n < STR_LAST) {
-                        type = TYPE_STRING;
-                        return true;
-                    } else if (n < INT_LAST) {
-                        type= TYPE_INT;
-                        return true;
-                    } else {
-                        type = TYPE_INT64;
-                        return true;
-                    }
+        if (strcmp(settingTags[n].c_str(), name) == 0) {
+            if (n < STR_LAST) {
+                type = TYPE_STRING;
+                return true;
+            } else if (n < INT_LAST) {
+                type= TYPE_INT;
+                return true;
+            } else {
+                type = TYPE_INT64;
+                return true;
             }
+        }
     }
     return false;
+}
+
+const std::string SettingsManager::parseCoreCmd(const std::string cmd) {
+    StringTokenizer<string> sl(cmd, ' ');
+        if (sl.getTokens().size() == 2) {
+            int n,type;
+            getType(sl.getTokens().at(0).c_str(),n,type);
+            if (type == SettingsManager::TYPE_INT) {
+                int i = atoi(sl.getTokens().at(1).c_str());
+                set((SettingsManager::IntSetting)n,i);
+            }
+            else if (type == SettingsManager::TYPE_STRING)
+                set((SettingsManager::StrSetting)n, sl.getTokens().at(1));
+            else
+                return _("Error: setting not found!");
+            return _("Change core setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
+        }
+    return _("Error: params have been not 2!");
 }
 
 } // namespace dcpp

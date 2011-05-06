@@ -20,8 +20,6 @@
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
-#include "CustomSetting.h"
-
 static const QString & WS_CHAT_OP_COLOR           = "chat-op-color";
 static const QString & WS_CHAT_USER_COLOR         = "chat-us-color";
 static const QString & WS_CHAT_CORE_COLOR         = "chat-co-color";

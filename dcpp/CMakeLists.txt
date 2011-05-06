@@ -38,10 +38,10 @@ set (UPNP "extra")
 
 add_library (dcpp ${LINK} ${dcpp_srcs})
 
-if (USE_DHT)
-  add_definitions ( -DUSE_DHT )
+if (WITH_DHT)
+  add_definitions ( -DWITH_DHT )
   set (DHT_LIB "dht")
-endif (USE_DHT)
+endif (WITH_DHT)
 
 if (PERL_REGEX)
   set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp PROPERTY COMPILE_DEFINITIONS USE_PCRE )
@@ -74,8 +74,8 @@ else(WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
 endif (WIN32)
 
-target_link_libraries (dcpp ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
-${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE} ${DHT_LIB} ${IDNA_LIBRARIES})
+target_link_libraries (dcpp ${DHT_LIB} ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
+${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE} ${IDNA_LIBRARIES})
 set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)

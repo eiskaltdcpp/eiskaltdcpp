@@ -80,7 +80,7 @@ option (USE_QT "Qt interface" ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
 option (USE_QT_SQLITE "Build with SQLite support" OFF)
 option (USE_GTK "GTK interface" OFF)
-option (DHT "DHT support for dcpp" OFF)
+option (WITH_DHT "DHT support for dcpp" OFF)
 option (LUA_SCRIPT "Lua script" OFF)
 option (USE_MINIUPNP "Use miniupnpc for forward ports" OFF)
 option (LOCAL_MINIUPNP "Use local miniupnpc" OFF)
@@ -270,9 +270,9 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND USE_QT)
                  "\tYou can build it for your own risk.\n"
                  "\tBut do not even try to write bug reports in this case.\n"
                  "\tPlease use RelWithDebInfo instead it.")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo")
-  set (CMAKE_BUILD_TYPE "RelWithDebInfo")
-  message(STATUS "CMAKE_BUILD_TYPE = Gentoo is not now supported. RelWithDebInfo is used instead.")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND USE_QT)
+  message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
+                 "\tPlease try to use RelWithDebInfo instead it if some troubles happend.")
 endif (NOT CMAKE_BUILD_TYPE)
 
 if (NOT SHARE_DIR)
@@ -327,6 +327,8 @@ configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionG
 
 if (UNIX)
 add_definitions (-D_GNU_SOURCE)
+find_program (GZIP_CMD gzip)
+mark_as_advanced(GZIP_CMD)
 endif (UNIX)
 
 set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/qt/ts")
@@ -425,9 +427,9 @@ message (STATUS "Translations: ${LANGUAGES}")
 
 add_subdirectory(extra)
 
-if (DHT)
-add_subdirectory (dht)
-endif (DHT)
+if (WITH_DHT)
+  add_subdirectory (dht)
+endif (WITH_DHT)
 
 add_subdirectory (dcpp)
 

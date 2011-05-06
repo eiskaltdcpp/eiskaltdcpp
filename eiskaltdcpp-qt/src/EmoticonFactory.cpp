@@ -42,9 +42,9 @@ EmoticonFactory::~EmoticonFactory(){
 }
 
 void EmoticonFactory::load(){
-    QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
+    QString emoTheme = WSGET(WS_APP_EMOTICON_THEME, "default");
 
-    if (currentTheme == emoTheme)
+    if (emoTheme.isEmpty() || (currentTheme == emoTheme))
         return;
 
     currentTheme = emoTheme;

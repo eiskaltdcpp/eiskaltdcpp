@@ -39,7 +39,7 @@ namespace dht
 	{
 	public:
 		DHT(void);
-		~DHT(void);
+		~DHT(void) throw();
 
 		enum InfType { NONE = 0, PING = 1, MAKE_ONLINE = 2 };
 
@@ -82,7 +82,7 @@ namespace dht
 		void connect(const OnlineUser& ou, const string& token);
 
 		/** Sends private message to online node */
-		void privateMessage(const OnlineUserPtr& ou, const string& aMessage, bool thirdPerson);
+		void privateMessage(const OnlineUser& ou, const string& aMessage, bool thirdPerson);
 
 		/** Is DHT connected? */
 		bool isConnected() const { return lastPacket && (GET_TICK() - lastPacket < CONNECTED_TIMEOUT); }

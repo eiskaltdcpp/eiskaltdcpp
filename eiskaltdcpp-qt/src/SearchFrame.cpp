@@ -436,6 +436,25 @@ void SearchFrame::init(){
     arena_menu = new QMenu(this->windowTitle());
     QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
+    const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
+    QStringList filetypes;
+    // Predefined
+    for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
+    {
+            filetypes << _q(SearchManager::getTypeStr(i));
+    }
+
+    // Customs
+    for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
+    {
+        string type = i->first;
+        if (!(type.size() == 1 && ((type[0] >= '1' && type[0] <= '6') ||  type[0] == '9')))
+        {
+                filetypes << _q(type);
+        }
+    }
+    comboBox_FILETYPES->addItems(filetypes);
+    comboBox_FILETYPES->setCurrentIndex(0);
 
     QList<WulforUtil::Icons> icons;
     icons   << WulforUtil::eiFILETYPE_UNKNOWN  << WulforUtil::eiFILETYPE_MP3         << WulforUtil::eiFILETYPE_ARCHIVE

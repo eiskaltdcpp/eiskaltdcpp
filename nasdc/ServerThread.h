@@ -20,6 +20,9 @@
 #include "dcpp/ClientListener.h"
 #include "dcpp/ShareManager.h"
 #include "dcpp/Thread.h"
+#include "dcpp/SearchManager.h"
+#include "dcpp/SearchManagerListener.h"
+#include "dcpp/SearchResult.h"
 //#include "dcpp/WebServerManager.h"
 
 class ServerThread :private TimerManagerListener,
@@ -43,8 +46,8 @@ public:
     void sendMessage(const string& hubUrl, const string& message);
     void listConnectedClients(string& listhubs,const string& separator);
     bool findHubInConnectedClients(const string& hub);
-    bool sendPrivateMessage(const string &shub,const string& scid,const string& smessage);
-    string getFileList_client(const string& hub, const string& cid, bool match);
+    bool sendPrivateMessage(const string& hub, const string& nick, const string& message);
+    string getFileList_client(const string& hub, const string& nick, bool match);
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
 
 private:
@@ -54,6 +57,8 @@ private:
     void autoConnect();
     void showPortsError(const std::string& port);
     bool disconnect_all();
+    void parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap);
+    string revertSeparator(const string &ps);
 
     int server;
     unsigned int iSuspendTime;
@@ -84,6 +89,9 @@ private:
     void on(ClientListener::Message, Client*, const ChatMessage&) throw();
     void on(NickTaken, Client* cur) throw();
     void on(SearchFlood, Client* cur, const string&) throw();
+
+    //SearchManagerListener
+    void on(SearchManagerListener::SR, const SearchResultPtr &result) throw();
 
     // WebServerListener
     //void on(WebServerListener::Setup) throw();

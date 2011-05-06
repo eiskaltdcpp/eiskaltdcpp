@@ -1805,6 +1805,14 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
 
         WSCMD(line);
     }
+    else if (cmd == "/dcpps" && !emptyParam) {
+        line = line.remove(0,7);
+        QString out = _q(SettingsManager::getInstance()->parseCoreCmd (_tq(line)));
+        if (fr == this)
+            addStatus(out);
+        else if (pm)
+            pm->addStatus(out);
+    }
     else if (!WSGET(WS_CHAT_CMD_ALIASES).isEmpty()){
         QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toAscii());
         QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);

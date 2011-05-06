@@ -55,6 +55,7 @@ private Q_SLOTS:
 
 protected:
     virtual void resizeEvent(QResizeEvent *e);
+    virtual bool eventFilter(QObject *, QEvent *);
 
 private:
     void historyPush(ArenaWidget*);

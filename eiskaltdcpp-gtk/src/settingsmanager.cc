@@ -504,35 +504,16 @@ const std::string WulforSettingsManager::parseCmd(const std::string cmd)
 {
     StringTokenizer<string> sl(cmd, ' ');
         if (sl.getTokens().size() == 2) {
-            if (intMap.find(sl.getTokens().at(0)) != intMap.end()) {
+            if (intMap.find(sl.getTokens().at(0)) != intMap.end() && defaultInt.find(sl.getTokens().at(0)) != defaultInt.end()) {
                 int i = atoi(sl.getTokens().at(1).c_str());
                 WSET(sl.getTokens().at(0), i);
             }
-            else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end())
+            else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end() && defaultString.find(sl.getTokens().at(0)) != defaultString.end())
                 WSET(sl.getTokens().at(0), sl.getTokens().at(1));
             else
                 return _("Error: setting not found!");
             string msg = _("Change setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
             return msg;
-        }
-    return _("Error: params have been not 2!");
-}
-
-const std::string WulforSettingsManager::parseCoreCmd(const std::string cmd)
-{
-    StringTokenizer<string> sl(cmd, ' ');
-        if (sl.getTokens().size() == 2) {
-            int n,type;SettingsManager *SM = SettingsManager::getInstance();
-            SM->getType(sl.getTokens().at(0).c_str(),n,type);
-            if (type == SettingsManager::TYPE_INT) {
-                int i = atoi(sl.getTokens().at(1).c_str());
-                SM->set((SettingsManager::IntSetting)n,i);
-            }
-            else if (type == SettingsManager::TYPE_STRING)
-                SM->set((SettingsManager::StrSetting)n, sl.getTokens().at(1));
-            else
-                return _("Error: setting not found!");
-            return _("Change core setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
         }
     return _("Error: params have been not 2!");
 }

@@ -123,32 +123,32 @@ Search::Search():
     userCommandMenu = new UserCommandMenu(getWidget("usercommandMenu"), ::UserCommand::CONTEXT_SEARCH);
     addChild(userCommandMenu);
 
-        // Initialize search types
-        GtkTreeIter iter;
-        GtkComboBox *combo_box = GTK_COMBO_BOX(getWidget("comboboxFile"));
-        GtkTreeModel *model = gtk_combo_box_get_model(combo_box);
-        GtkListStore *store = GTK_LIST_STORE(model);
-        const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
+    // Initialize search types
+    GtkTreeIter iter;
+    GtkComboBox *combo_box = GTK_COMBO_BOX(getWidget("comboboxFile"));
+    GtkTreeModel *model = gtk_combo_box_get_model(combo_box);
+    GtkListStore *store = GTK_LIST_STORE(model);
+    const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
 
-        // Predefined
-        //for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
-        for (int i = SearchManager::TYPE_ANY; i <= SearchManager::TYPE_CD_IMAGE; i++)
-        {
-                gtk_list_store_append(store, &iter);
-                gtk_list_store_set(store, &iter, 0, SearchManager::getTypeStr(i), -1);
-        }
+    // Predefined
+    //for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
+    for (int i = SearchManager::TYPE_ANY; i <= SearchManager::TYPE_CD_IMAGE; i++)
+    {
+            gtk_list_store_append(store, &iter);
+            gtk_list_store_set(store, &iter, 0, SearchManager::getTypeStr(i), -1);
+    }
 
-        // Customs
-        for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
-        {
-                string type = i->first;
-                if (!(type.size() == 1 && type[0] >= '0' && type[0] <= '6'))
-                {
-                        gtk_list_store_append(store, &iter);
-                        gtk_list_store_set(store, &iter, 0, type.c_str(), -1);
-                }
-        }
-        gtk_combo_box_set_active(combo_box, 0);
+    // Customs
+    for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
+    {
+            string type = i->first;
+            if (!(type.size() == 1 && ((type[0] >= '1' && type[0] <= '6') ||  type[0] == '9')))
+            {
+                    gtk_list_store_append(store, &iter);
+                    gtk_list_store_set(store, &iter, 0, type.c_str(), -1);
+            }
+    }
+    gtk_combo_box_set_active(combo_box, 0);
 
     gtk_combo_box_set_active (GTK_COMBO_BOX(getWidget("comboboxGroupBy")),5);
 

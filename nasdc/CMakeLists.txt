@@ -61,7 +61,6 @@ set_property (TARGET nasdc PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-daemon")
     BUNDLE DESTINATION ${BUNDLEDIR})
 
 if (UNIX)
-  FIND_PROGRAM (GZIP_CMD gzip)
   EXECUTE_PROCESS (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-daemon.1.gz
                 COMMAND "${GZIP_CMD}" -9
