@@ -459,6 +459,8 @@ void FinishedTransfersModel::remUser(const QString &cid){
 }
 
 void FinishedTransfersModel::switchViewType(FinishedTransfersModel::ViewType t){
+    beginResetModel();
+
     switch (t){
         case FileView:
             rootItem = fileItem;
@@ -468,7 +470,9 @@ void FinishedTransfersModel::switchViewType(FinishedTransfersModel::ViewType t){
             break;
     }
 
-    reset();
+    endResetModel();
+
+    sort();
 }
 
 FinishedTransfersItem *FinishedTransfersModel::findFile(const QString &fname){
@@ -515,7 +519,7 @@ FinishedTransfersItem *FinishedTransfersModel::findUser(const QString &cid){
                                                                               << "" << "" << ""
                                                                               << false,
                                                             userItem);
-    if (fileItem == rootItem){
+    if (userItem == rootItem){
         emit beginInsertRows(QModelIndex(), rootItem->childCount(), rootItem->childCount());
         {
             userItem->appendChild(item);
