@@ -146,18 +146,21 @@ void ConnectivityManager::listen() {
     } catch(const Exception&) {
         throw Exception(_("Search (UDP)"));
     }
-
+#ifdef WITH_DHT
     try {
         dht::DHT::getInstance()->start();
     } catch (const Exception&) {
         throw Exception(_("Search (DHT)"));
     }
+#endif
 }
 
 void ConnectivityManager::disconnect() {
     SearchManager::getInstance()->disconnect();
     ConnectionManager::getInstance()->disconnect();
+#ifdef WITH_DHT
     dht::DHT::getInstance()->stop();
+#endif
 }
 
 void ConnectivityManager::log(const string& message) {
