@@ -41,7 +41,7 @@
 #include <dcpp/StringTokenizer.h>
 
 #include "VersionGlobal.h"
-
+#include "extra/ipfilter.h"
 #ifdef LUA_SCRIPT
 #include <dcpp/ScriptManager.h>
 #endif
@@ -1951,7 +1951,12 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/alias list\t\t\t\t - " + _("Alias List")+ "\n"+
             "/alias purge A\t\t\t - "+ _("Alias Remove A")+"\n"+
             "/alias A::uname -a\t\t - " +  _("Alias add uname -a as A")+"\n" +
-            "/A\t\t\t\t\t - " + _("Alias A executing")+"\n"
+            "/A\t\t\t\t\t - " + _("Alias A executing")+"\n" +
+            "/ip on/off\t\t\t\t - " + _("Ipfilter on/off")+ "\n" +
+            "/ip list\t\t\t\t - " + _("Show ipfilter rules list") + "\n" +
+            "/ip moveup/movedown - " + _("Move rule up/down") + "\n" +
+            "/ip purge 192.168.1.0/23;192.168.6.0/24 - " + _("Remove rule from list") + "\n" +
+            "/ip 192.168.1.0/23::in;192.168.6.0/24::both - " + _("Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming, outcoming and action is drop") + "\n"
             , Msg::SYSTEM);
         }
         else if (command == "ws" && !param.empty())
@@ -2031,6 +2036,103 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         else if (script_ret)
             ((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, text);
 #endif
+        else if (command == "ip" && !param.empty())
+        {
+            StringTokenizer<string> sl(param, ' ');
+            if( sl.getTokens().size() >= 1 )
+            {
+                    if( sl.getTokens().at(0) == "list" )
+                    {
+                        if (!ipfilter::getInstance())
+                            return;
+                        QIPList list = ipfilter::getInstance()->getRules();
+                        string tmp = "ipfilter rules list:\n";
+                        for (int i = 0; i < list.size(); i++) {
+
+                            IPFilterElem *el = list.at(i);
+                            string prefix = (el->action == etaDROP?"!":"");
+                            string type = "OUT";
+
+                            switch (el->direction) {
+                                case eDIRECTION_BOTH:
+                                    type = "BOTH";
+
+                                    break;
+                                case eDIRECTION_IN:
+                                    type = "IN";
+
+                                    break;
+                                default:
+                                    break;
+                            }
+                            tmp+=prefix+string(ipfilter::Uint32ToString(el->ip)) + "/" + Util::toString(ipfilter::MaskToCIDR(el->mask))+ "::" + type + "\n";
+                        }
+                        hub->addStatusMessage_gui(tmp, Msg::SYSTEM, Sound::NONE);
+                        list.clear();
+                        tmp.clear();
+                    }
+                    else if( sl.getTokens().at(0) == "purge" )
+                    {
+                        if (!ipfilter::getInstance())
+                            return;
+                        StringTokenizer<string> purge( param, ";" );
+                        for(StringIter i = purge.getTokens().begin(); i != purge.getTokens().end(); ++i) {
+                            g_print("%s",(*i).c_str());
+                            if (i->find("!") == 0)
+                                ipfilter::getInstance()->remFromRules((*i), etaDROP);
+                            else
+                                ipfilter::getInstance()->remFromRules((*i), etaACPT);
+                        }
+                    }
+                    else if (sl.getTokens().at(0) == "on") {
+                        ipfilter::newInstance();
+                        ipfilter::getInstance()->load();
+                        SettingsManager::getInstance()->set(SettingsManager::IPFILTER, 1);
+                        hub->addStatusMessage_gui(_("Ipfilter is enable"), Msg::SYSTEM, Sound::NONE);
+                    }
+                    else if (sl.getTokens().at(0) == "off") {
+                        if (!ipfilter::getInstance())
+                            return;
+                        ipfilter::getInstance()->shutdown();
+                        SettingsManager::getInstance()->set(SettingsManager::IPFILTER, 0);
+                        hub->addStatusMessage_gui(_("Ipfilter is disable"), Msg::SYSTEM, Sound::NONE);
+                    }
+                    else if (sl.getTokens().at(0) == "moveup"){
+                        if (!ipfilter::getInstance())
+                            return;
+                        uint32_t ip,mask; eTableAction act;
+                        g_print("%s %s", sl.getTokens().at(0).c_str(), sl.getTokens().at(1).c_str());
+                        ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act);
+                        ipfilter::getInstance()->moveRuleUp(ip, act);
+                    }
+                    else if (sl.getTokens().at(0) == "movedown"){
+                        if (!ipfilter::getInstance())
+                            return;
+                        uint32_t ip,mask; eTableAction act;
+                        g_print("%s %s", sl.getTokens().at(0).c_str(), sl.getTokens().at(1).c_str());
+                        ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act);
+                        ipfilter::getInstance()->moveRuleDown(ip, act);
+                    }
+                    else
+                    {
+                        if (!ipfilter::getInstance())
+                            return;
+                        StringTokenizer<string> add( param, ";" );
+                        for(StringIter i = add.getTokens().begin(); i != add.getTokens().end(); ++i)
+                        {
+                            StringTokenizer<string> addsub( (*i), "::" );
+                            if (addsub.getTokens().at(1) == "in")
+                                ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_IN);
+                            else if (addsub.getTokens().at(1) == "out")
+                                ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_OUT);
+                            else
+                                ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_BOTH);
+
+                            hub->addStatusMessage_gui(string( "Add rule in ipfilter: " + *i ), Msg::SYSTEM, Sound::NONE);
+                        }
+                    }
+            }
+        }
         //alias patch
         else if (command == "alias" && !param.empty())
         {

@@ -209,10 +209,10 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
 
     exp_ip = ipfilter::StringToUint32(str_ip);
 
-    if (list_ip.find(exp_ip) == list_ip.end())
+    QIPHash::iterator it = list_ip.find(exp_ip);
+    if (it == list_ip.end())
         return;
 
-    QIPHash::iterator it = list_ip.find(exp_ip);
     IPFilterElem *el;
 
     while (it != list_ip.end() && it->first == exp_ip){
