@@ -1954,9 +1954,9 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/A\t\t\t\t\t - " + _("Alias A executing")+"\n" +
             "/ip on/off\t\t\t\t - " + _("Ipfilter on/off")+ "\n" +
             "/ip list\t\t\t\t - " + _("Show ipfilter rules list") + "\n" +
-            "/ip moveup/movedown - " + _("Move rule up/down") + "\n" +
-            "/ip purge 192.168.1.0/23;192.168.6.0/24 - " + _("Remove rule from list") + "\n" +
-            "/ip 192.168.1.0/23::in;192.168.6.0/24::both - " + _("Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming, outcoming and action is drop") + "\n"
+            "/ip up/down\t\t\t - " + _("Move rule up/down") + "\n" +
+            "/ip purge 192.168.1.0/23;192.168.6.0/24 - " + _("Remove rules from list") + "\n" +
+            "/ip 192.168.1.0/23::in;!192.168.6.0/24::both - " + _("Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming or outcoming and action is drop") + "\n"
             , Msg::SYSTEM);
         }
         else if (command == "ws" && !param.empty())
@@ -2068,16 +2068,17 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                             tmp+=prefix+string(ipfilter::Uint32ToString(el->ip)) + "/" + Util::toString(ipfilter::MaskToCIDR(el->mask))+ "::" + type + "\n";
                         }
                         hub->addStatusMessage_gui(tmp, Msg::SYSTEM, Sound::NONE);
-                        list.clear();
-                        tmp.clear();
+                        //list.clear();
+                        //tmp.clear();
                     }
                     else if( sl.getTokens().at(0) == "purge" )
                     {
                         if (!ipfilter::getInstance())
                             return;
-                        StringTokenizer<string> purge( param, ";" );
+                        g_print("/ip %s\n",sl.getTokens().at(1).c_str());
+                        StringTokenizer<string> purge( sl.getTokens().at(1), ";" );
                         for(StringIter i = purge.getTokens().begin(); i != purge.getTokens().end(); ++i) {
-                            g_print("/ip purge %s\n",(*i).c_str());
+                            //g_print("/ip purge %s\n",(*i).c_str());
                             if (i->find("!") == 0)
                                 ipfilter::getInstance()->remFromRules((*i), etaDROP);
                             else
@@ -2097,21 +2098,21 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         SettingsManager::getInstance()->set(SettingsManager::IPFILTER, 0);
                         hub->addStatusMessage_gui(_("Ipfilter is disable"), Msg::SYSTEM, Sound::NONE);
                     }
-                    else if (sl.getTokens().at(0) == "moveup"){
+                    else if (sl.getTokens().at(0) == "up"){
                         if (!ipfilter::getInstance())
                             return;
                         uint32_t ip,mask; eTableAction act;
-                        g_print("/ip moveup: %s %s\n", sl.getTokens().at(0).c_str(), sl.getTokens().at(1).c_str());
-                        ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act);
-                        ipfilter::getInstance()->moveRuleUp(ip, act);
+                        //g_print("/ip moveup: %s\n", sl.getTokens().at(1).c_str());
+                        if (ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act))
+                            ipfilter::getInstance()->moveRuleUp(ip, act);
                     }
-                    else if (sl.getTokens().at(0) == "movedown"){
+                    else if (sl.getTokens().at(0) == "down"){
                         if (!ipfilter::getInstance())
                             return;
                         uint32_t ip,mask; eTableAction act;
-                        g_print("/ip movedown: %s %s\n", sl.getTokens().at(0).c_str(), sl.getTokens().at(1).c_str());
-                        ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act);
-                        ipfilter::getInstance()->moveRuleDown(ip, act);
+                        //g_print("/ip movedown: %s\n", sl.getTokens().at(1).c_str());
+                        if (ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act))
+                            ipfilter::getInstance()->moveRuleDown(ip, act);
                     }
                     else
                     {

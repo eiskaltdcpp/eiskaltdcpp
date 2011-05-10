@@ -125,14 +125,14 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
             return false;}
     }
     #ifdef _DEBUG_IPFILTER_
-        fprintf(stdout,"%d %d %d %d %d \n",ip1,ip2,ip3,ip4,mask1); fflush(stdout);
+        fprintf(stdout,"ip::%d %d %d %d mask::%d \n",ip1,ip2,ip3,ip4,mask1); fflush(stdout);
     #endif
     if (nip > 0)
         act = etaDROP;
     else
         act = etaACPT;
     #ifdef _DEBUG_IPFILTER_
-        fprintf(stdout,"%d\n",nip); fflush(stdout);
+        fprintf(stdout,"act::%d\n",nip); fflush(stdout);
     #endif
     if (mask1 >= 0)
         mask = MaskForBits(mask1 > 32? 32:mask1);
@@ -206,32 +206,60 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
     printf("remove: exp - %s\n", exp.c_str());
 #endif
     size_t pos = exp.find("/");
-    if (pos > 0)
-        str_ip = exp.erase(pos);
 #ifdef _DEBUG_IPFILTER_
-    printf("remove: str_ip - %s", str_ip.c_str());
-    #endif
+    printf("pos / - %i\n", (uint32_t)pos);
+#endif
+    if (pos != string::npos)
+        str_ip = exp.erase(pos);
+    else
+        str_ip = exp;
+#ifdef _DEBUG_IPFILTER_
+    printf("remove: str_ip - %s\n", str_ip.c_str());
+#endif
     exp_ip = ipfilter::StringToUint32(str_ip);
     QIPHash::iterator it = list_ip.find(exp_ip);
 
     if (it != list_ip.end() && it->first == exp_ip){
         IPFilterElem *el = it->second;
-
+#ifdef _DEBUG_IPFILTER_
+    fprintf(stdout,"\tThis element will be deleted:\n");
+    fprintf(stdout,"\t\tMASK: 0x%x\n"
+           "\t\tIP  : %i\n"
+           "\t\tD   : %i\n"
+           "\t\tA   : %i\n",
+           el->mask, el->ip,
+           (int)el->direction, (int)el->action
+          );fflush(stdout);
+#endif
         if (el->action == act) {
+#ifdef _DEBUG_IPFILTER_
+        printf("ok, action match. delete element.\n");
+#endif
             list_ip.erase(it);
             rules.erase( remove( rules.begin(), rules.end(), el ), rules.end());
+#ifdef _DEBUG_IPFILTER_
+        printf("element is deleted.\n");
+#endif
         }
+#ifdef _DEBUG_IPFILTER_
+        printf("delete *el\n");
+#endif
         delete el;
     }
 }
 
 void ipfilter::changeRuleDirection(string exp, eDIRECTION direction, eTableAction act) {
-
+    string str_ip;
     size_t pos = exp.find("/");
-    if (pos > 0)
-        exp = exp.erase(pos);
+#ifdef _DEBUG_IPFILTER_
+    printf("pos / - %i\n", (uint32_t)pos);
+#endif
+    if (pos != string::npos)
+        str_ip = exp.erase(pos);
+    else
+        str_ip = exp;
 
-    uint32_t exp_ip = ipfilter::StringToUint32(exp);
+    uint32_t exp_ip = ipfilter::StringToUint32(str_ip);
     QIPHash::const_iterator it = list_ip.find(exp_ip);
 
     if (it != list_ip.end() && it->first == exp_ip) {
@@ -302,18 +330,39 @@ void ipfilter::step(uint32_t ip, eTableAction act, bool down){
 
     if (it != list_ip.end() && it->first == ip && it->second->action == act) {
         el = it->second;
+#ifdef _DEBUG_IPFILTER_
+    fprintf(stdout,"\tThis element will be moved:\n");
+    fprintf(stdout,"\t\tMASK: 0x%x\n"
+           "\t\tIP  : %i\n"
+           "\t\tD   : %i\n"
+           "\t\tA   : %i\n",
+           el->mask, el->ip,
+           (int)el->direction, (int)el->action
+          );fflush(stdout);
+#endif
     }
 
     if (!el)
         return;
 
     int index;
-    int itt=0;
-    while (itt < rules.size() && rules.at(itt) == el){
-        index=itt;itt++;
+    for (int itt = 0; itt < rules.size(); itt++) {
+        if (rules.at(itt) == el) {
+            index=itt;break;
+        }
     }
     int control = (down?(rules.size()-1):0);
     int inc = (down?1:-1);
+#ifdef _DEBUG_IPFILTER_
+    fprintf(stdout,"\tat place this element:\n");
+    fprintf(stdout,"\t\tMASK: 0x%x\n"
+           "\t\tIP  : %i\n"
+           "\t\tD   : %i\n"
+           "\t\tA   : %i\n",
+           rules.at(index+inc)->mask, rules.at(index+inc)->ip,
+           (int)rules.at(index+inc)->direction, (int)rules.at(index+inc)->action
+          );fflush(stdout);
+#endif
 
     if ((index == control) || (index < 0))
         return;
@@ -321,8 +370,28 @@ void ipfilter::step(uint32_t ip, eTableAction act, bool down){
     int new_index = index+inc;
     IPFilterElem *old_el = rules.at(new_index);
 
-    rules[index]    = old_el;
+    rules[index]= old_el;
     rules[new_index]= el;
+#ifdef _DEBUG_IPFILTER_
+    fprintf(stdout,"\tElement has been moved at new_index:\n");
+    fprintf(stdout,"\t\tMASK: 0x%x\n"
+           "\t\tIP  : %i\n"
+           "\t\tD   : %i\n"
+           "\t\tA   : %i\n",
+           rules.at(new_index)->mask, rules.at(new_index)->ip,
+           (int)rules.at(new_index)->direction, (int)rules.at(new_index)->action
+          );fflush(stdout);
+    fprintf(stdout,"\tElement at index moved from new_index:\n");
+    fprintf(stdout,"\t\tMASK: 0x%x\n"
+           "\t\tIP  : %i\n"
+           "\t\tD   : %i\n"
+           "\t\tA   : %i\n",
+           rules.at(index)->mask, rules.at(index)->ip,
+           (int)rules.at(index)->direction, (int)rules.at(index)->action
+          );fflush(stdout);
+#endif
+
+
 }
 
 void ipfilter::moveRuleUp(uint32_t ip, eTableAction act){
