@@ -46,7 +46,7 @@ public:
     void sendMessage(const string& hubUrl, const string& message);
     void listConnectedClients(string& listhubs,const string& separator);
     bool findHubInConnectedClients(const string& hub);
-    bool sendPrivateMessage(const string& hub, const string& nick, const string& message);
+    string sendPrivateMessage(const string& hub, const string& nick, const string& message);
     string getFileList_client(const string& hub, const string& nick, bool match);
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
 
