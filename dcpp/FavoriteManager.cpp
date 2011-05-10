@@ -365,7 +365,7 @@ void FavoriteManager::save() {
             xml.addChildAttrib("UseInternetIp",(*i)->getUseInternetIP());
             xml.addChildAttrib("DisableChat", (*i)->getDisableChat());
             xml.addChildAttrib("Mode", Util::toString((*i)->getMode()));
-            xml.addChildAttrib("MinimumSearchInterval", Util::toString((*i)->getSearchInterval()));
+            xml.addChildAttrib("SearchInterval", Util::toString((*i)->getSearchInterval()));
             xml.addChildAttrib("Group", (*i)->getGroup());
         }
         xml.stepOut();
@@ -481,7 +481,7 @@ void FavoriteManager::load(SimpleXML& aXml) {
             e->setUseInternetIP(aXml.getBoolChildAttrib("UseInternetIp"));
             e->setDisableChat(aXml.getBoolChildAttrib("DisableChat"));
             e->setMode(Util::toInt(aXml.getChildAttrib("Mode")));
-            e->setSearchInterval(Util::toInt(aXml.getChildAttrib("MinimumSearchInterval")));
+            e->setSearchInterval(Util::toInt(aXml.getChildAttrib("SearchInterval")));
             e->setGroup(aXml.getChildAttrib("Group"));
             favoriteHubs.push_back(e);
 
