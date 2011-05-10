@@ -378,7 +378,7 @@ bool ServerThread::findHubInConnectedClients(const string& hub) {
     return false;
 }
 
-bool ServerThread::sendPrivateMessage(const string& hub,const string& nick, const string& message) {
+string ServerThread::sendPrivateMessage(const string& hub,const string& nick, const string& message) {
     ClientIter i = clientsMap.find(hub);
     if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
         Client* client = i->second.curclient;
@@ -388,16 +388,16 @@ bool ServerThread::sendPrivateMessage(const string& hub,const string& nick, cons
             if (user && user->isOnline())
             {
                 ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
-                return true;
+                return "Private message sent to "+ nick + " at " + hub;
             }
             else
             {
-                return false;
+                return "User went offline at " + hub;
             }
         }
     }
 
-    return false;
+    return "Huburl is invalid";
 }
 
 string ServerThread::getFileList_client(const string& hub, const string& nick, bool match) {

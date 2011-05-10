@@ -1180,35 +1180,42 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
             QString raw_name = _q(uc.getName());
             QAction *action = NULL;
 
+            raw_name.replace("//", "\t");
+
             if (raw_name.contains("/")){
                 QStringList submenus = raw_name.split("/", QString::SkipEmptyParts);
                 if (!submenus.isEmpty()){
-                QString name = submenus.takeLast();
-                QString key = "";
-                QMenu *parent = usr_menu;
-                QMenu *submenu;
+                    QString name = submenus.takeLast();
+                    QString key = "";
+                    QMenu *parent = usr_menu;
+                    QMenu *submenu;
 
-                foreach (QString s, submenus){
-                    key += s + "/";
+                    name.replace("\t", "/");
 
-                    if (registered_menus.contains(key))
-                        parent = registered_menus[key];
-                    else {
-                        submenu = new QMenu(s, parent);
-                        parent->addMenu(submenu);
+                    foreach (QString s, submenus){
+                        s.replace("\t", "/");
 
-                        registered_menus.insert(key, submenu);
+                        key += s + "/";
 
-                        parent = submenu;
+                        if (registered_menus.contains(key))
+                            parent = registered_menus[key];
+                        else {
+                            submenu = new QMenu(s, parent);
+                            parent->addMenu(submenu);
+
+                            registered_menus.insert(key, submenu);
+
+                            parent = submenu;
+                        }
                     }
-                }
 
-                action = new QAction(name, parent);
-                parent->addAction(action);
+                    action = new QAction(name, parent);
+                    parent->addAction(action);
                 }
             }
             else{
-                action = new QAction(_q(uc.getName()), usr_menu);
+                raw_name.replace("\t", "/");
+                action = new QAction(raw_name, usr_menu);
                 usr_menu->addAction(action);
             }
             if (action) {

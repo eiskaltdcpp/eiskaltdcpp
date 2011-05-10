@@ -219,12 +219,9 @@ public:
         string const snick(paramList.getString(1));
         string const smess(paramList.getString(2));
         paramList.verifyEnd(3);
-        ServerThread svT;
-        bool b = svT.sendPrivateMessage(shub, snick, smess);
-        if (b)
-            *retvalP = xmlrpc_c::value_string("Private message send to "+snick+" at " + shub);
-        else
-            *retvalP = xmlrpc_c::value_string("User went offline at " + shub);
+        ServerThread svT; string tmp;
+        tmp = svT.sendPrivateMessage(shub, snick, smess);
+        *retvalP = xmlrpc_c::value_string(tmp);
     }
 };
 
