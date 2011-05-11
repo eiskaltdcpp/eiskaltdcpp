@@ -8,7 +8,7 @@
  ***************************************************************************/
 
 #include "ipfilter.h"
-#define _DEBUG_IPFILTER_
+//#define _DEBUG_IPFILTER_
 #include <stdlib.h>
 #include <sstream>
 #ifndef WIN32

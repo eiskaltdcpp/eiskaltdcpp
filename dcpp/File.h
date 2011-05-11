@@ -101,7 +101,7 @@ public:
     static void ensureDirectory(const string& aFile) throw();
     static bool isAbsolute(const string& path) throw();
 
-    virtual ~File() throw() { File::close(); }
+    virtual ~File() throw() { close(); }
 
     string read(size_t len) throw(FileException);
     string read() throw(FileException);
