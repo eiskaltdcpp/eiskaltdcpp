@@ -2077,7 +2077,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                             return;
                         StringTokenizer<string> purge( param, ";" );
                         for(StringIter i = purge.getTokens().begin(); i != purge.getTokens().end(); ++i) {
-                            g_print("%s",(*i).c_str());
+                            g_print("/ip purge %s\n",(*i).c_str());
                             if (i->find("!") == 0)
                                 ipfilter::getInstance()->remFromRules((*i), etaDROP);
                             else
@@ -2101,7 +2101,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         if (!ipfilter::getInstance())
                             return;
                         uint32_t ip,mask; eTableAction act;
-                        g_print("%s %s", sl.getTokens().at(0).c_str(), sl.getTokens().at(1).c_str());
+                        g_print("/ip moveup: %s %s\n", sl.getTokens().at(0).c_str(), sl.getTokens().at(1).c_str());
                         ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act);
                         ipfilter::getInstance()->moveRuleUp(ip, act);
                     }
@@ -2109,7 +2109,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         if (!ipfilter::getInstance())
                             return;
                         uint32_t ip,mask; eTableAction act;
-                        g_print("%s %s", sl.getTokens().at(0).c_str(), sl.getTokens().at(1).c_str());
+                        g_print("/ip movedown: %s %s\n", sl.getTokens().at(0).c_str(), sl.getTokens().at(1).c_str());
                         ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act);
                         ipfilter::getInstance()->moveRuleDown(ip, act);
                     }

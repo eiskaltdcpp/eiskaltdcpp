@@ -221,7 +221,7 @@ public:
 
     static string formatExactSize(int64_t aBytes);
     static time_t getStartTime() { return startTime; }
-    static time_t getUpTime() { return time(NULL) - Util::getStartTime(); }
+    static time_t getUpTime() { return time(NULL) - getStartTime(); }
     static string formatSeconds(int64_t aSec) {
         char buf[64];
         snprintf(buf, sizeof(buf), "%01lu:%02d:%02d", (unsigned long)(aSec / (60*60)), (int)((aSec / 60) % 60), (int)(aSec % 60));

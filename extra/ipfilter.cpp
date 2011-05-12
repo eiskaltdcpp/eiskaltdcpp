@@ -8,7 +8,7 @@
  ***************************************************************************/
 
 #include "ipfilter.h"
-//#define _DEBUG_IPFILTER_
+#define _DEBUG_IPFILTER_
 #include <stdlib.h>
 #include <sstream>
 #ifndef WIN32
@@ -202,42 +202,26 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
 
     string str_ip;
     uint32_t exp_ip;
-
+#ifdef _DEBUG_IPFILTER_
+    printf("remove: exp - %s\n", exp.c_str());
+#endif
     size_t pos = exp.find("/");
     if (pos > 0)
         str_ip = exp.erase(pos);
-
+#ifdef _DEBUG_IPFILTER_
+    printf("remove: str_ip - %s", str_ip.c_str());
+    #endif
     exp_ip = ipfilter::StringToUint32(str_ip);
-
     QIPHash::iterator it = list_ip.find(exp_ip);
-    if (it == list_ip.end())
-        return;
 
-    IPFilterElem *el;
+    if (it != list_ip.end() && it->first == exp_ip){
+        IPFilterElem *el = it->second;
 
-    while (it != list_ip.end() && it->first == exp_ip){
-        el = it->second;
-
-        if (!el)//i know that it's impossible..
-            return;
-
-        if (el->action == act){
+        if (el->action == act) {
             list_ip.erase(it);
-
-            QIPList::iterator itt = rules.begin();
-            while (itt != rules.end()) {
-                if (*itt == el) {
-                    rules.erase(itt);
-                    break;
-                }
-                ++itt;
-            }
-
-            delete el;
-            return;
+            rules.erase( remove( rules.begin(), rules.end(), el ), rules.end());
         }
-
-        ++ it;
+        delete el;
     }
 }
 
@@ -250,19 +234,12 @@ void ipfilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
     uint32_t exp_ip = ipfilter::StringToUint32(exp);
     QIPHash::const_iterator it = list_ip.find(exp_ip);
 
-    while (it != list_ip.end() && it->first == exp_ip){
+    if (it != list_ip.end() && it->first == exp_ip) {
         IPFilterElem *el = it->second;
 
-        if (!el)
-            return;
-
         if (el->action == act){
-
             el->direction = direction;
-            return;
         }
-
-        ++it;
     }
 }
 
@@ -323,14 +300,8 @@ void ipfilter::step(uint32_t ip, eTableAction act, bool down){
 
     QIPHash::const_iterator it = list_ip.find(ip);
 
-    while (it != list_ip.end() && it->first == ip){
-        if (it->second->action == act){
-            el = it->second;
-
-            break;
-        }
-
-        ++it;
+    if (it != list_ip.end() && it->first == ip && it->second->action == act) {
+        el = it->second;
     }
 
     if (!el)

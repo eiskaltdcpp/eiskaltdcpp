@@ -78,7 +78,7 @@ public:
 
 	Socket() throw(SocketException) : sock(INVALID_SOCKET), connected(false) { }
 	Socket(const string& aIp, uint16_t aPort) throw(SocketException) : sock(INVALID_SOCKET), connected(false) { connect(aIp, aPort); }
-	virtual ~Socket() throw() { Socket::disconnect(); }
+	virtual ~Socket() throw() { disconnect(); }
 
 	/**
 	 * Connects a socket to an address/ip, closing any other connections made with
