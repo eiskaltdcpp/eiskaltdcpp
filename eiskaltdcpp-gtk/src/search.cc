@@ -141,7 +141,7 @@ Search::Search():
     for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
     {
             string type = i->first;
-            if (!(type.size() == 1 && ((type[0] >= '1' && type[0] <= '6') ||  type[0] == '9')))
+            if (!(type.size() == 1 && type[0] >= '1' && type[0] <= '7'))
             {
                     gtk_list_store_append(store, &iter);
                     gtk_list_store_set(store, &iter, 0, type.c_str(), -1);
@@ -492,7 +492,7 @@ void Search::search_gui()
                         // Custom searchtype
                         exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
                 }
-                else if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY)
+                else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE)
                 {
                         // Predefined searchtype
                         exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));

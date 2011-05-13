@@ -442,7 +442,7 @@ void SearchFrame::init(){
     for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
     {
         string type = i->first;
-        if (!(type.size() == 1 && ((type[0] >= '1' && type[0] <= '6') ||  type[0] == '9')))
+        if (!(type.size() == 1 && type[0] >= '1' && type[0] <= '7'))
         {
                 filetypes << _q(type);
         }
@@ -981,7 +981,7 @@ void SearchFrame::slotStartSearch(){
             // Custom searchtype
             exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
         }
-        else if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY){
+        else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE){
             // Predefined searchtype
             exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
         }
