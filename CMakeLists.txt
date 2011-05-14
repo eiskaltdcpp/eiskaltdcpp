@@ -113,6 +113,7 @@ endif(USE_IDNA)
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
+    add_definitions ( -DLUA_SCRIPT )
     message (STATUS "Building with Lua scripts support")
 else (LUA_SCRIPT)
     #set (LUA_INCLUDE_DIR " ")
