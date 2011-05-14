@@ -142,10 +142,10 @@ private:
         if (db_opened){
             QSqlQuery q(db);
             q.exec("CREATE TABLE IF NOT EXISTS files (FNAME TEXT PRIMARY KEY, "
-                   "TIME TEXT, PATH TEXT, USERS TEXT, TR TEXT, SPEED TEXT, CRC32 INTEGER, TARGET TEXT, ELAP TEXT, FULL INTEGER)");
+                   "TIME TEXT, PATH TEXT, USERS TEXT, TR TEXT, SPEED TEXT, CRC32 INTEGER, TARGET TEXT, ELAP TEXT, FULL INTEGER);");
 
             q.exec("CREATE TABLE IF NOT EXISTS users (NICK TEXT PRIMARY KEY, "
-                   "TIME TEXT, FILES TEXT, TR TEXT, SPEED TEXT, CID TEXT, ELAP TEXT, FULL INTEGER)");
+                   "TIME TEXT, FILES TEXT, TR TEXT, SPEED TEXT, CID TEXT, ELAP TEXT, FULL INTEGER);");
         }
 #endif
 
@@ -221,7 +221,12 @@ private:
 
         QSqlQuery q(db);
 
-        q.exec("SELECT * FROM files");
+        q.exec("SELECT * FROM files LIMIT 0, 1000;"); // temporary limitation
+        // we must make simple history nagigation in this widget
+        // necessary buttons and counter:
+        // First Prev [num] Next Last
+        // <<    <    [num]    >    >>
+        // here [num] sets the number of showing strings
 
         while (q.next()){
             int i = 0;
@@ -240,7 +245,12 @@ private:
             model->addFile(params);
         }
 
-        q.exec("SELECT * FROM users");
+        q.exec("SELECT * FROM users LIMIT 0, 1000;");
+        // we must make simple history nagigation in this widget
+        // necessary buttons and counter:
+        // First Prev [num] Next Last
+        // <<    <    [num]    >    >>
+        // here [num] sets the number of showing strings
 
         while (q.next()){
             int i = 0;
@@ -284,7 +294,7 @@ private:
         QSqlQuery q(db);
         q.prepare("REPLACE INTO files "
                   "(FNAME, TIME, PATH, USERS, TR, SPEED, CRC32, TARGET, ELAP, FULL) "
-                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
         q.bindValue(0, params["FNAME"]);
         q.bindValue(1, params["TIME"]);
         q.bindValue(2, params["PATH"]);
@@ -323,7 +333,7 @@ private:
         QSqlQuery q(db);
         q.prepare("REPLACE INTO users "
                   "(NICK, TIME, FILES, TR, SPEED, CID, ELAP, FULL)"
-                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
         q.bindValue(0, params["NICK"]);
         q.bindValue(1, params["TIME"]);
         q.bindValue(2, params["FILES"]);
@@ -370,8 +380,8 @@ private:
             return;
 
         QSqlQuery q(db);
-        q.exec("DROP TABLE files");
-        q.exec("DROP TABLE users");
+        q.exec("DROP TABLE files;");
+        q.exec("DROP TABLE users;");
 #endif
     }
 
