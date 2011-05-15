@@ -421,4 +421,51 @@ public:
     }
 };
 
+class sendSearchMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    sendSearchMethod() {
+        this->_signature = "i:siiids";
+        this->_help = "This method send search. Рarams: search string, type, sizemode, sizetype, size, huburls";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const ssearch(paramList.getString(0));
+        int const itype(paramList.getInt(1));
+        int const isizemode(paramList.getInt(2));
+        int const isizetype(paramList.getInt(3));
+        int const isize(paramList.getDouble(4));
+        string const shuburls(paramList.getString(5));
+        paramList.verifyEnd(6);
+        ServerThread svT;
+        if (svT.sendSearchonHubs(ssearch, itype, isizemode, isizetype, isize, shuburls))
+            *retvalP = xmlrpc_c::value_string("Start search " + ssearch + " on " + shuburls);
+        else
+            *retvalP = xmlrpc_c::value_string("Start search " + ssearch + " on " + shuburls + " was been failed");
+    }
+};
+
+class listSearchStringsMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    listSearchStringsMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method return list of search strings. Рarams: search string, separator.";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const ssearch(paramList.getString(0));
+        string const sseparator(paramList.getString(1));
+        paramList.verifyEnd(2);
+        ServerThread svT; string listsearchstrings;
+        svT.listSearchStrings(listsearchstrings, ssearch, sseparator);
+        *retvalP = xmlrpc_c::value_string(listsearchstrings);
+    }
+};
 #endif

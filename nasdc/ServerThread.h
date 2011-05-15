@@ -23,14 +23,12 @@
 #include "dcpp/SearchManager.h"
 #include "dcpp/SearchManagerListener.h"
 #include "dcpp/SearchResult.h"
-//#include "dcpp/WebServerManager.h"
 
 class ServerThread :private TimerManagerListener,
         private QueueManagerListener,
         private LogManagerListener,
         private ClientListener,
-        public Thread/*,
-        private WebServerListener*/
+        public Thread
 {
 
 public:
@@ -41,14 +39,16 @@ public:
     void Close();
     void WaitFor();
 
-    void connectClient(string address, string encoding);
-    void disconnectClient(string address);
+    void connectClient(const string& address, const string& encoding);
+    void disconnectClient(const string& address);
     void sendMessage(const string& hubUrl, const string& message);
     void listConnectedClients(string& listhubs,const string& separator);
     bool findHubInConnectedClients(const string& hub);
     string sendPrivateMessage(const string& hub, const string& nick, const string& message);
     string getFileList_client(const string& hub, const string& nick, bool match);
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
+    bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
+    void listSearchStrings(string& listsearchstrings, const string& search, const string& separator);
 
 private:
 
@@ -60,19 +60,15 @@ private:
     void parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap);
     string revertSeparator(const string &ps);
 
-    int server;
-    unsigned int iSuspendTime;
-    bool bTerminated;
     typedef struct {
             deque<string> curchat;
             Client* curclient;
-            deque<string> cursearchlist;
+            vector<string> cursearchlist;
             unordered_map<string, SearchResultList> cursearchresult;
     } CurHub;
     typedef tr1::unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
-    //socket_t webSock;
 
     // TimerManagerListener
     void on(TimerManagerListener::Second, uint64_t aTick) throw();
@@ -95,15 +91,10 @@ private:
     //SearchManagerListener
     void on(SearchManagerListener::SR, const SearchResultPtr &result) throw();
 
-    // WebServerListener
-    //void on(WebServerListener::Setup) throw();
-    //void on(WebServerListener::ShutdownPC, int) throw();
-
     int64_t lastUp;
     int64_t lastDown;
     uint64_t lastUpdate;
-    std::string address;
-    std::string encoding;
+
     CriticalSection shutcs;
     static const int maxLines = 1000;
 };
