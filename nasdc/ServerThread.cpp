@@ -29,6 +29,7 @@
 #include "dcpp/ConnectivityManager.h"
 #include "dcpp/ChatMessage.h"
 #include "dcpp/Text.h"
+#include "dcpp/StringTokenizer.h"
 
 #include "dcpp/version.h"
 #ifdef XMLRPC_DAEMON
