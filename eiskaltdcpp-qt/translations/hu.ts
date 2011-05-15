@@ -532,7 +532,7 @@ Kapcsolók:
     </message>
     <message>
         <source>File already exists: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>A fájl már létezik: %1</translation>
     </message>
 </context>
 <context>
@@ -1152,7 +1152,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Search text</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg keresése</translation>
     </message>
 </context>
 <context>
@@ -1920,7 +1920,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Ctrl+Shift+U</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+U</translation>
     </message>
     <message>
         <source>Queued Users</source>
@@ -2146,7 +2146,7 @@ Letöltve: %3 Feltöltve %4</translation>
     <name>QueuedUsers</name>
     <message>
         <source>Grant slot</source>
-        <translation type="unfinished">Extra slot biztosítása</translation>
+        <translation>Extra slot biztosítása</translation>
     </message>
     <message>
         <source>Queued Users</source>
@@ -2157,11 +2157,11 @@ Letöltve: %3 Feltöltve %4</translation>
     <name>QueuedUsersModel</name>
     <message>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználó</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Fájl</translation>
+        <translation>Fájl</translation>
     </message>
 </context>
 <context>
@@ -2515,7 +2515,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>File already exists: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>A fájl már létezik: %1</translation>
     </message>
 </context>
 <context>
@@ -4375,7 +4375,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Bind to address</source>
-        <translation type="unfinished"></translation>
+        <translation>Kötési cím</translation>
     </message>
     <message>
         <source>Bind to interface</source>
@@ -5113,7 +5113,7 @@ a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
         <source>Finished Downloads</source>
-        <translation type="unfinished">Befejezett letöltések</translation>
+        <translation>Befejezett letöltések</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -5121,7 +5121,11 @@ a hub operátoraitól kaphatsz</translation>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Segítség&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -5490,7 +5494,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
-        <translation type="unfinished"></translation>
+        <translation>Indexelés elhalasztása indításkor (másodpercben, -1 = letiltva)</translation>
     </message>
 </context>
 <context>
