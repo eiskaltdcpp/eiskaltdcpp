@@ -20,8 +20,12 @@
 #define SEMAPHORE_H
 
 #ifndef _WIN32
-#include <errno.h>
-#include <semaphore.h>
+    #ifdef APPLE
+        #include "CriticalSection.h"
+    #else
+        #include <errno.h>
+        #include <semaphore.h>
+    #endif
 #include <sys/time.h>
 #endif
 
@@ -48,6 +52,49 @@ public:
 
 private:
     HANDLE h;
+#elseif APPLE
+public:
+    Semaphore() throw() : count(0) { pthread_cond_init(&cond, NULL); }
+    ~Semaphore() throw() { pthread_cond_destroy(&cond); }
+    void signal() throw() {
+        Lock l(cs);
+        count++;
+        pthread_cond_signal(&cond);
+    }
+
+    bool wait() throw() {
+        Lock l(cs);
+        while (count == 0) {
+            pthread_cond_wait(&cond, &cs.getMutex());
+        }
+        count--;
+        return true;
+    }
+
+    bool wait(uint32_t millis) throw() {
+        Lock l(cs);
+        if(count == 0) {
+            timeval timev;
+            timespec t;
+            gettimeofday(&timev, NULL);
+            millis+=timev.tv_usec/1000;
+            t.tv_sec = timev.tv_sec + (millis/1000);
+            t.tv_nsec = (millis%1000)*1000*1000;
+            int ret;
+            do {
+                ret = pthread_cond_timedwait(&cond, &cs.getMutex(), &t);
+            } while (ret==0 && count==0);
+            if(ret != 0) {
+                return false;
+            }
+        }
+        count--;
+        return true;
+    }
+private:
+    pthread_cond_t cond;
+    CriticalSection cs;
+    int count;
 #else
 public:
     Semaphore() throw() {
@@ -70,6 +117,7 @@ public:
 
         return true;
     }
+
     bool wait(uint32_t millis) throw() {
         timeval timev;
         timespec t;
