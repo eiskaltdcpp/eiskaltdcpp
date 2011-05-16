@@ -44,7 +44,7 @@ msgstr "Чарга сьцягваньня"
 #: ../src/sharebrowser.cc:513 ../src/sharebrowser.cc:607
 #: ../src/sharebrowser.cc:970 ../src/sharebrowser.cc:1004
 msgid "Filename"
-msgstr "Назоў файла"
+msgstr "Назва файла"
 
 #: ../src/downloadqueue.cc:66 ../src/downloadqueue.cc:277
 #: ../src/downloadqueue.cc:384 ../src/searchspy.cc:57 ../src/searchspy.cc:295
@@ -226,11 +226,11 @@ msgstr "няма памылак"
 
 #: ../src/notify.cc:158
 msgid "Open file"
-msgstr "Адкрыць файл"
+msgstr "Адчыніць файл"
 
 #: ../src/notify.cc:161
 msgid "Open folder"
-msgstr "Адкрыць тэчку"
+msgstr "Адчыніць каталёґ"
 
 #: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:364
 #: ../src/hub.cc:379 ../src/hub.cc:399 ../src/hub.cc:447 ../src/hub.cc:1233
@@ -404,7 +404,7 @@ msgstr "Ачысьціць гаману"
 
 #: ../src/hub.cc:1929
 msgid "Close chat"
-msgstr "Закрыць гаману"
+msgstr "Зачыніць гаману"
 
 #: ../src/hub.cc:1930 ../glade/hub.glade:419
 msgid "Add a hub to favorites"
@@ -522,7 +522,7 @@ msgstr "»: надрукуйце «/help», каб атрымаць сьпіс �
 #: ../src/mainwindow.cc:1283 ../glade/sharebrowser.glade:326
 #: ../glade/search.glade:555 ../glade/settingsdialog.glade:6078
 msgid "Choose a directory"
-msgstr "Абярыце каталёг"
+msgstr "Абярыце каталёґ"
 
 #: ../src/hub.cc:2577
 msgid " added to favorites list"
@@ -558,7 +558,7 @@ msgstr "Асяродак ужо ёсьць ва ўлюбёных"
 
 #: ../src/hub.cc:2944
 msgid "loading error"
-msgstr "здарылася памылка, калі чыталі"
+msgstr "далі хібу, калі чыталі"
 
 #: ../src/hub.cc:2957
 msgid "bad image"
@@ -599,8 +599,7 @@ msgstr "Самарушна шукаць у сьпісах файлаў"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
-#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
-#: ../glade/adlsearch.glade:354
+#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393 ../glade/adlsearch.glade:354
 msgid "Enabled"
 msgstr "Задзейнічаць"
 
@@ -621,7 +620,7 @@ msgstr "Від крыніцы"
 #: ../src/adlsearch.cc:42 ../src/adlsearch.cc:62 ../src/adlsearch.cc:113
 #: ../src/adlsearch.cc:213 ../src/adlsearch.cc:238
 msgid "Destination Directory"
-msgstr "Каталёг прызначэньня"
+msgstr "Каталёґ прызначэньня"
 
 #: ../src/adlsearch.cc:43 ../src/adlsearch.cc:63 ../src/adlsearch.cc:114
 #: ../src/adlsearch.cc:214
@@ -753,7 +752,7 @@ msgstr "Карыстальнік"
 #: ../src/transfers.cc:58 ../src/transfers.cc:495 ../src/transfers.cc:561
 #: ../src/transfers.cc:592
 msgid "Hub Name"
-msgstr "Назоў асяродку"
+msgstr "Назва асяродку"
 
 #: ../src/transfers.cc:60 ../src/transfers.cc:594
 msgid "Time Left"
@@ -768,7 +767,7 @@ msgstr "Хуткасьць"
 
 #: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:613
 msgid "IP"
-msgstr "Адрэса IP"
+msgstr "Адрас IP"
 
 #: ../src/transfers.cc:369
 msgid "Connecting (forced)..."
@@ -776,7 +775,7 @@ msgstr "Злучаемся (прымусова)…"
 
 #: ../src/transfers.cc:402
 msgid "Closing connection..."
-msgstr "Закрываецца злучэньне…"
+msgstr "Зачыняецца злучэньне…"
 
 #: ../src/transfers.cc:576 ../src/transfers.cc:947
 msgid "Downloaded "
@@ -890,9 +889,9 @@ msgid ""
 "  -v, --version\t Show version string\n"
 msgstr ""
 "Як карыстацца:\n"
-"  eiskaltdcpp-gtk <магніт-спасылка> <dchub://спасылка> <adc(s)://спасылка>\n"
-"  eiskaltdcpp-gtk <Ключ>\n"
-"EiskaltDC++ — гэта міжплятформавая праграма, якая выкарыстоўвае пратаколы "
+"  eiskaltdcpp-gtk <маґніт-спасылка> <dchub://спасылка> <adc(s)://спасылка>\n"
+"  eiskaltdcpp-gtk <ключ>\n"
+"EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы "
 "Direct Connect і ADC.\n"
 "\n"
 "Ключы:\n"
@@ -917,7 +916,7 @@ msgstr "Ачысьціць ваконца асабістых паведамле�
 
 #: ../src/privatemessage.cc:945 ../glade/privatemessage.glade:204
 msgid "Close PM"
-msgstr "Закрыць ваконца асабістых паведамленьняў"
+msgstr "Зачыніць ваконца асабістых паведамленьняў"
 
 #: ../src/privatemessage.cc:955
 msgid "Unknown command "
@@ -961,7 +960,7 @@ msgstr "Загаловак"
 #: ../src/settingsdialog.cc:2072 ../src/settingsdialog.cc:2106
 #: ../src/settingsdialog.cc:2183 ../src/settingsdialog.cc:2219
 msgid "Icon"
-msgstr "Значка"
+msgstr "Значак"
 
 #: ../src/settingsdialog.cc:638 ../src/settingsdialog.cc:647
 #: ../src/settingsdialog.cc:830 ../src/settingsdialog.cc:865
@@ -982,7 +981,7 @@ msgstr "Значка"
 #: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:234
 #: ../src/search.cc:250 ../glade/settingsdialog.glade:6381
 msgid "Name"
-msgstr "Назоў"
+msgstr "Назва"
 
 #: ../src/settingsdialog.cc:791 ../src/settingsdialog.cc:3317
 #: ../src/settingsdialog.cc:3330 ../src/settingsdialog.cc:3347
@@ -994,7 +993,7 @@ msgstr "Сьпіс"
 #: ../src/settingsdialog.cc:808 ../src/settingsdialog.cc:822
 #: ../src/settingsdialog.cc:3436
 msgid "Favorite Name"
-msgstr "Назоў"
+msgstr "Назва ўлюбёнага"
 
 #: ../src/settingsdialog.cc:809 ../src/settingsdialog.cc:823
 #: ../src/settingsdialog.cc:911 ../src/settingsdialog.cc:1247
@@ -1004,13 +1003,13 @@ msgstr "Назоў"
 #: ../src/UserCommandMenu.cc:66 ../src/sharebrowser.cc:289
 #: ../glade/settingsdialog.glade:4075
 msgid "Directory"
-msgstr "Каталёг"
+msgstr "Каталёґ"
 
 #: ../src/settingsdialog.cc:831 ../src/settingsdialog.cc:866
 #: ../src/settingsdialog.cc:2706 ../src/settingsdialog.cc:2740
 #: ../src/settingsdialog.cc:2758 ../src/settingsdialog.cc:2789
 msgid "Application"
-msgstr "Прыстасаваньне"
+msgstr "Праґрама"
 
 #: ../src/settingsdialog.cc:832 ../src/settingsdialog.cc:867
 #: ../src/settingsdialog.cc:1528 ../src/settingsdialog.cc:1667
@@ -1079,7 +1078,7 @@ msgstr "Ня сьцягваць файлы, што ўжо стаяць у чар
 #: ../src/settingsdialog.cc:910 ../src/settingsdialog.cc:3485
 #: ../src/settingsdialog.cc:3554
 msgid "Virtual Name"
-msgstr "Уяўны назоў"
+msgstr "Уяўная назва"
 
 #: ../src/settingsdialog.cc:937
 msgid "Filter kick and NMDC debug messages"
@@ -1087,7 +1086,7 @@ msgstr "Не паказваць паведамленьні наладкі (і я
 
 #: ../src/settingsdialog.cc:938
 msgid "Show status icon in the system tray"
-msgstr "Паказваць значку стану ў сыстэмным латку"
+msgstr "Паказваць значак стану ў сыстэмным латку"
 
 #: ../src/settingsdialog.cc:939
 msgid "Show timestamps in chat by default"
@@ -1115,11 +1114,11 @@ msgstr "Ужываць роўнашырокі шрыфт у ваконцах г�
 
 #: ../src/settingsdialog.cc:945
 msgid "Use magnet split"
-msgstr "Паказваць магніт-спасылкі сьцісла"
+msgstr "Паказваць маґніт-спасылкі сьцісла"
 
 #: ../src/settingsdialog.cc:946
 msgid "Use blinking status icon"
-msgstr "Мігцець значкаю стану"
+msgstr "Мігцець значкам стану"
 
 #: ../src/settingsdialog.cc:947
 msgid "Use emoticons"
@@ -1127,7 +1126,7 @@ msgstr "Ужываць пачуцьцезнакі"
 
 #: ../src/settingsdialog.cc:948
 msgid "Do not close the program, hide in the system tray"
-msgstr "Не закрываць праграму, а хаваць у сыстэмны латок"
+msgstr "Не зачыняць праґраму, а хаваць у сыстэмны латок"
 
 #: ../src/settingsdialog.cc:949
 msgid "Send PM when double clicked in the user list"
@@ -1136,7 +1135,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:952
 msgid "Minimize to tray on startup"
-msgstr ""
+msgstr "Наймяншаць у латок па запуску"
 
 #: ../src/settingsdialog.cc:965 ../src/settingsdialog.cc:1233
 #: ../src/settingsdialog.cc:1307 ../src/settingsdialog.cc:1348
@@ -1362,15 +1361,15 @@ msgstr "Самарушна шукаць у сьпісах файлаў"
 
 #: ../src/settingsdialog.cc:1357
 msgid "Open file list window in the background"
-msgstr "Адкрываць новыя вокны сьпісаў файлаў на заднім пляне"
+msgstr "Адчыняць новыя вокны сьпісаў файлаў на заднім пляне"
 
 #: ../src/settingsdialog.cc:1358
 msgid "Open new private messages from other users in the background"
-msgstr "Адкрываць новыя вокны асаб. паведамленьняў на заднім пляне"
+msgstr "Адчыняць новыя вокны асаб. паведамленьняў на заднім пляне"
 
 #: ../src/settingsdialog.cc:1359
 msgid "Open new window when using /join"
-msgstr "Адкрыць новае вакно па загаду «/join»"
+msgstr "Адчыніць новае вакно па загадзе «/join»"
 
 #: ../src/settingsdialog.cc:1360
 msgid "Ignore private messages from the hub"
@@ -1386,7 +1385,7 @@ msgstr "Вокны-вынырцы на гасло да асяродкаў"
 
 #: ../src/settingsdialog.cc:1367
 msgid "Confirm application exit"
-msgstr "Пацьвярджаць, калі выходзім з прыстасаваньня"
+msgstr "Пацьвярджаць, калі выходзім з праґрамы"
 
 #: ../src/settingsdialog.cc:1368
 msgid "Confirm favorite hub removal"
@@ -1466,7 +1465,7 @@ msgstr "Запісацца ў апэрацыйнае сыстэме як апр�
 
 #: ../src/settingsdialog.cc:1429
 msgid "Show IP's' in chats"
-msgstr "Паказваць адрэсы IP ў гамане"
+msgstr "Паказваць адрасы IP ў гамане"
 
 #: ../src/settingsdialog.cc:1430
 msgid "Show user country in chat"
@@ -1523,7 +1522,7 @@ msgstr "Новы від пошуку"
 
 #: ../src/settingsdialog.cc:1639
 msgid "<b>Name of the new search type</b>"
-msgstr "<b>Назоў новага віду пошуку</b>"
+msgstr "<b>Назва новага віду пошуку</b>"
 
 #: ../src/settingsdialog.cc:1700 ../src/settingsdialog.cc:1744
 #: ../src/settingsdialog.cc:2696
@@ -1536,11 +1535,11 @@ msgstr "Хібнае пашырэньне: "
 
 #: ../src/settingsdialog.cc:1891
 msgid "Rename a search type"
-msgstr "Даць новы назоў віду пошуку"
+msgstr "Даць новую назву віду пошуку"
 
 #: ../src/settingsdialog.cc:1892
 msgid "<b>New name</b>"
-msgstr "<b>Новы назоў</b>"
+msgstr "<b>Новая назва</b>"
 
 #: ../src/settingsdialog.cc:1991
 msgid "Extension edition"
@@ -1586,11 +1585,11 @@ msgstr "Нельга, каб было пустым…"
 
 #: ../src/settingsdialog.cc:2816
 msgid "Virtual name"
-msgstr "Уяўны назоў"
+msgstr "Уяўная назва"
 
 #: ../src/settingsdialog.cc:2819
 msgid "<b>Name under which the others see the directory</b>"
-msgstr "<b>Назоў, які будуць бачыць іншыя карыстальнікі</b>"
+msgstr "<b>Назва, якую будуць бачыць іншыя карыстальнікі</b>"
 
 #: ../src/settingsdialog.cc:2883 ../src/settingsdialog.cc:2984
 msgid "selected style failed"
@@ -1602,7 +1601,7 @@ msgstr "Аддзяляльнік"
 
 #: ../src/settingsdialog.cc:3147
 msgid "Name and command must not be empty"
-msgstr "Нельга, каб назоў і загад былі пустымі"
+msgstr "Нельга, каб назва ды загад былі пустымі"
 
 #: ../src/settingsdialog.cc:3153
 msgid "Command name already exists"
@@ -1614,15 +1613,15 @@ msgstr "Новы сьпіс"
 
 #: ../src/settingsdialog.cc:3419 ../glade/settingsdialog.glade:5997
 msgid "Favorite name"
-msgstr "Назоў"
+msgstr "Назва ўлюбёнага"
 
 #: ../src/settingsdialog.cc:3421
 msgid "<b>Under what name you see the directory</b>"
-msgstr "<b>Назоў, які будзеце бачыць вы</b>"
+msgstr "<b>Назва, якую будзеце бачыць вы</b>"
 
 #: ../src/settingsdialog.cc:3442
 msgid "Directory or favorite name already exists"
-msgstr "Такі каталёг (або назоў каталёгу) ужо існуе"
+msgstr "Такі каталёґ (або назва каталёґа) ўжо існуе"
 
 #: ../src/settingsdialog.cc:3547
 msgid "[HIDDEN SHARE] "
@@ -1647,7 +1646,7 @@ msgstr "Злучацца па запуску"
 #: ../src/publichubs.cc:44 ../src/publichubs.cc:159 ../src/publichubs.cc:269
 #: ../src/publichubs.cc:294
 msgid "Address"
-msgstr "Адрэса"
+msgstr "Адрас"
 
 #: ../src/favoritehubs.cc:57 ../src/favoritehubs.cc:125
 #: ../glade/settingsdialog.glade:636
@@ -1667,7 +1666,7 @@ msgstr "Знаказбор"
 
 #: ../src/favoritehubs.cc:376
 msgid "The name and address fields are required"
-msgstr "Трэба запоўніць палі «Назоў» і «Адрэса»"
+msgstr "Трэба запоўніць палі «Назва» і «Адрас»"
 
 #: ../src/favoritehubs.cc:411
 #, c-format
@@ -1709,11 +1708,11 @@ msgstr "Упішыце значэньне "
 
 #: ../src/mainwindow.cc:1206
 msgid "Magnet Properties / Choice"
-msgstr "Уласьцівасьці магніт-спасылкі (выбар)"
+msgstr "Уласьцівасьці маґніт-спасылкі (выбар)"
 
 #: ../src/mainwindow.cc:1276
 msgid "Magnet Choice"
-msgstr "Выбар па магніт-спасылцы"
+msgstr "Выбар па маґніт-спасылцы"
 
 #: ../src/mainwindow.cc:1900 ../glade/mainwindow.glade:1049
 msgid "Select filelist to browse"
@@ -1721,7 +1720,7 @@ msgstr "Абярыце сьпіс файлаў"
 
 #: ../src/mainwindow.cc:1925
 msgid "Unable to load file list: Invalid file list name"
-msgstr "Не магу прачытаць сьпіс файлаў: хібны назоў сьпісу файлаў"
+msgstr "Не магу прачытаць сьпіс файлаў: хібная назва сьпісу файлаў"
 
 #: ../src/mainwindow.cc:1937
 msgid "Loading file list"
@@ -1733,9 +1732,9 @@ msgid ""
 "until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
-"Не магу адкрыць порт %1. Файлы ня будуць перадавацца без памылак і пошук ня "
-"будзе працаваць належным чынам, пакуль вы ня зьменіце наладжваньні ці ня "
-"спыніце ўсе праграмы, што выкарыстоўваюць гэты порт."
+"Не магу адчыніць порт %1. Файлы ня будуць перадавацца без памылак і пошук ня "
+"будзе працаваць належным чынам, пакуль вы ня зьменіце налады ці ня спыніце "
+"ўсе праґрамы, што выкарыстоўваюць гэты порт."
 
 #: ../src/mainwindow.cc:2129
 msgid "Connectivity Manager: Warning"
@@ -1871,7 +1870,7 @@ msgstr "Наборы пачуцьцезнакаў"
 
 #: ../src/emoticonsdialog.cc:74
 msgid "Icon size"
-msgstr "Памер значкі"
+msgstr "Памер значка"
 
 #: ../src/publichubs.cc:45 ../src/publichubs.cc:160
 msgid "Country"
@@ -1981,7 +1980,7 @@ msgstr " адкінулі"
 
 #: ../src/bookentry.cc:70 ../src/bookentry.cc:75
 msgid "Close tab"
-msgstr "Закрыць картку"
+msgstr "Зачыніць картку"
 
 #: ../src/settingsmanager.cc:514 ../src/settingsmanager.cc:534
 msgid "Error: setting not found!"
@@ -2090,7 +2089,7 @@ msgstr "Шукаць дадатковыя _крыніцы"
 #: ../glade/downloadqueue.glade:204 ../glade/privatemessage.glade:129
 #: ../glade/hub.glade:343
 msgid "_Copy magnet"
-msgstr "Перапісаць _магніт-спасылку"
+msgstr "Перапісаць _маґніт-спасылку"
 
 #: ../glade/sharebrowser.glade:308
 msgid "_Copy picture"
@@ -2153,8 +2152,8 @@ msgid ""
 "Directory\n"
 "Full Path"
 msgstr ""
-"Назоў файла\n"
-"Каталёг\n"
+"Назва файла\n"
+"Каталёґ\n"
 "Поўны шлях"
 
 #: ../glade/adlsearch.glade:192
@@ -2187,7 +2186,7 @@ msgstr "<b>памер, вымяраць у</b>"
 
 #: ../glade/adlsearch.glade:334
 msgid "<b>Destination Directory</b>"
-msgstr "<b>Каталёг прызначэньня</b>"
+msgstr "<b>Каталёґ прызначэньня</b>"
 
 #: ../glade/adlsearch.glade:366
 msgid "Download Matches"
@@ -2203,7 +2202,7 @@ msgstr "Не скароты (TTH)"
 
 #: ../glade/searchspy.glade:56
 msgid "Apply settings"
-msgstr "Ужыць наладжваньні"
+msgstr "Ужыць налады"
 
 #: ../glade/searchspy.glade:69
 msgid "Top: >"
@@ -2342,11 +2341,11 @@ msgstr "Сьцягнуць _у…"
 
 #: ../glade/search.glade:448
 msgid "Download _whole directory"
-msgstr "Сьцягнуць увесь _каталёг"
+msgstr "Сьцягнуць увесь _каталёґ"
 
 #: ../glade/search.glade:455
 msgid "Download whole director_y to..."
-msgstr "Сьцягнуць у_весь каталёг у…"
+msgstr "Сьцягнуць у_весь каталёґ у…"
 
 #: ../glade/search.glade:471
 msgid "_Search by TTH"
@@ -2366,8 +2365,7 @@ msgstr "Узгадніць _чаргу"
 msgid "Send _private message"
 msgstr "Асабістае _паведамленьне"
 
-#: ../glade/search.glade:511 ../glade/transfers.glade:52
-#: ../glade/hub.glade:265
+#: ../glade/search.glade:511 ../glade/transfers.glade:52 ../glade/hub.glade:265
 msgid "_Add to favorites"
 msgstr "_Дадаць да ўлюбёнцаў"
 
@@ -2423,11 +2421,11 @@ msgstr "_Злучацца па запуску"
 
 #: ../glade/favoritehubs.glade:142
 msgid "_Name:"
-msgstr "_Назоў:"
+msgstr "_Назва:"
 
 #: ../glade/favoritehubs.glade:173
 msgid "_Address:"
-msgstr "_Адрэса:"
+msgstr "_Адрас:"
 
 #: ../glade/favoritehubs.glade:203
 msgid "_Description:"
@@ -2487,11 +2485,11 @@ msgstr "_Файл"
 
 #: ../glade/mainwindow.glade:25
 msgid "Open _file list..."
-msgstr "Адкрыць сьпіс _файлаў…"
+msgstr "Адчыніць сьпіс _файлаў…"
 
 #: ../glade/mainwindow.glade:39
 msgid "Open _own file list"
-msgstr "Адкрыць _уласны сьпіс файлаў"
+msgstr "Адчыніць _уласны сьпіс файлаў"
 
 #: ../glade/mainwindow.glade:54
 msgid "_Refresh file list"
@@ -2503,7 +2501,7 @@ msgstr "Поступ стварэньня скаротаў"
 
 #: ../glade/mainwindow.glade:88
 msgid "_Magnet Choice"
-msgstr "Выбар па _магніт-спасылцы"
+msgstr "Выбар па _маґніт-спасылцы"
 
 #: ../glade/mainwindow.glade:102
 msgid "Calculate file TTH"
@@ -2551,7 +2549,7 @@ msgstr "_Наступнае ваконца"
 
 #: ../glade/mainwindow.glade:384
 msgid "_Close widget"
-msgstr "_Закрыць ваконца"
+msgstr "_Зачыніць ваконца"
 
 #: ../glade/mainwindow.glade:401
 msgid "Panels"
@@ -2643,7 +2641,7 @@ msgstr "Злучыцца з асяродкам"
 
 #: ../glade/mainwindow.glade:907
 msgid "<b>Connect to address:</b>"
-msgstr "<b>Злучыцца з адрэсаю:</b>"
+msgstr "<b>Злучыцца з адрасам:</b>"
 
 #: ../glade/mainwindow.glade:968
 msgid ""
@@ -2787,15 +2785,15 @@ msgstr "Паказаць _інтэрфэйс"
 
 #: ../glade/mainwindow.glade:1199
 msgid "Use Blinking Icon"
-msgstr "Мігцець значкаю"
+msgstr "Мігцець значкам"
 
 #: ../glade/mainwindow.glade:1226 ../glade/mainwindow.glade:1263
 msgid "Magnet"
-msgstr "Магніт-спасылка"
+msgstr "Маґніт-спасылка"
 
 #: ../glade/mainwindow.glade:1274
 msgid "File name"
-msgstr "Назоў файла"
+msgstr "Назва файла"
 
 #: ../glade/mainwindow.glade:1369
 msgid "Exact size"
@@ -2803,7 +2801,7 @@ msgstr "Дакладны памер"
 
 #: ../glade/mainwindow.glade:1408
 msgid "<b>Magnet properties</b>"
-msgstr "<b>Уласьцівасьці магніт-спасылкі</b>"
+msgstr "<b>Уласьцівасьці маґніт-спасылкі</b>"
 
 #: ../glade/mainwindow.glade:1436
 msgid ""
@@ -2823,7 +2821,7 @@ msgstr "Пачаць шукаць гэты файл"
 
 #: ../glade/mainwindow.glade:1495
 msgid "Show magnet dialog"
-msgstr "Паказаць дыялёг магніт-спасылкі"
+msgstr "Паказаць дыялёґ маґніт-спасылкі"
 
 #: ../glade/mainwindow.glade:1521
 msgid "Remember choice"
@@ -2851,7 +2849,7 @@ msgstr "Зьмяніць перавагі"
 
 #: ../glade/mainwindow.glade:1858
 msgid "Open own file list"
-msgstr "Адкрыць уласны сьпіс файлаў"
+msgstr "Адчыніць уласны сьпіс файлаў"
 
 #: ../glade/mainwindow.glade:1871
 msgid "Refresh file list"
@@ -2891,7 +2889,7 @@ msgstr "Зірнуць сьпіс зацягнутага"
 
 #: ../glade/mainwindow.glade:2065
 msgid "Quit the program"
-msgstr "Выйсьці з праграмы"
+msgstr "Выйсьці з праґрамы"
 
 #: ../glade/mainwindow.glade:2083
 msgid "Add / Remove"
@@ -2935,7 +2933,7 @@ msgstr "Сетказаслона (нядзейны — найгоршы спос
 
 #: ../glade/settingsdialog.glade:449
 msgid "External / WAN IP"
-msgstr "Вонкавая або WAN адрэса IP"
+msgstr "Вонкавы або WAN адрас IP"
 
 #: ../glade/settingsdialog.glade:464
 msgid "Don't allow hub/UPnP to override"
@@ -2947,7 +2945,7 @@ msgstr "Сетказаслона з ручным перасыланьнем по
 
 #: ../glade/settingsdialog.glade:499
 msgid "<b>Incoming connection settings</b>"
-msgstr "<b>Наладжваньні ўваходных злучэньняў</b>"
+msgstr "<b>Налады ўваходных злучэньняў</b>"
 
 #: ../glade/settingsdialog.glade:589
 msgid "Username"
@@ -2963,7 +2961,7 @@ msgstr "Порт"
 
 #: ../glade/settingsdialog.glade:680
 msgid "Socks IP"
-msgstr "Адрэса IP для Socks"
+msgstr "Адрас IP для Socks"
 
 #: ../glade/settingsdialog.glade:712
 msgid "Direct connection"
@@ -2971,23 +2969,23 @@ msgstr "Простае злучэньне"
 
 #: ../glade/settingsdialog.glade:732
 msgid "<b>Outgoing connection settings</b>"
-msgstr "<b>Наладжваньні выходных злучэньняў</b>"
+msgstr "<b>Налады выходных злучэньняў</b>"
 
 #: ../glade/settingsdialog.glade:783
 msgid "Default download directory"
-msgstr "Звычайны каталёг на сьцягнутае"
+msgstr "Звычайны каталёґ на сьцягнутае"
 
 #: ../glade/settingsdialog.glade:822
 msgid "Do not use unfinished downloads directory"
-msgstr "Працаваць без асобнага каталёгу на яшчэ ня цалкам сьцягнутае"
+msgstr "Працаваць без асобнага каталёґа на яшчэ ня цалкам сьцягнутае"
 
 #: ../glade/settingsdialog.glade:836
 msgid "Unfinished downloads directory"
-msgstr "Каталёг на яшчэ ня цалкам сьцягнутае"
+msgstr "Каталёґ на яшчэ ня цалкам сьцягнутае"
 
 #: ../glade/settingsdialog.glade:879
 msgid "<b>Directories</b>"
-msgstr "<b>Каталёгі</b>"
+msgstr "<b>Каталёґі</b>"
 
 #: ../glade/settingsdialog.glade:911
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
@@ -3029,7 +3027,7 @@ msgstr "Сьцягванае"
 
 #: ../glade/settingsdialog.glade:1191
 msgid "<b>Favorite download to directories</b>"
-msgstr "<b>Улюбёныя тэчкі на сьцягванае</b>"
+msgstr "<b>Улюбёныя каталёґі на сьцягванае</b>"
 
 #: ../glade/settingsdialog.glade:1206
 msgid "Download to"
@@ -3060,7 +3058,7 @@ msgstr "Найвышэйшае: найвялікшы памер"
 
 #: ../glade/settingsdialog.glade:1409
 msgid "<b>Auto-priority settings</b>"
-msgstr "<b>Наладжваньні самарушнага пяршынства</b>"
+msgstr "<b>Налады самарушнага пяршынства</b>"
 
 #: ../glade/settingsdialog.glade:1528
 msgid "Min filesize"
@@ -3088,7 +3086,7 @@ msgstr "Адкідаць павольнейшыя за"
 
 #: ../glade/settingsdialog.glade:1694
 msgid "<b>Auto-drop settings</b>"
-msgstr "<b>Наладжваньні самарушна адкідаць крыніцы</b>"
+msgstr "<b>Налады самарушна адкідаць крыніцы</b>"
 
 #: ../glade/settingsdialog.glade:1732
 msgid "<b>Other queue options</b>"
@@ -3100,11 +3098,11 @@ msgstr "<b>Сьпіс прайгравальнікаў</b>"
 
 #: ../glade/settingsdialog.glade:1810
 msgid "Name:"
-msgstr "Назоў:"
+msgstr "Назва:"
 
 #: ../glade/settingsdialog.glade:1832
 msgid "Application:"
-msgstr "Прыстасаваньне:"
+msgstr "Праґрама:"
 
 #: ../glade/settingsdialog.glade:1855
 msgid "Apply to Extensions: (avi;mov;divx)"
@@ -3139,7 +3137,7 @@ msgstr "Хадзіць па спасылках"
 
 #: ../glade/settingsdialog.glade:2109
 msgid "<b>Shared directories</b>"
-msgstr "<b>Абагуленыя каталёгі</b>"
+msgstr "<b>Абагуленыя каталёґі</b>"
 
 #: ../glade/settingsdialog.glade:2131
 msgid "Automatically open extra slot if speed is below (0 = disable)"
@@ -3189,7 +3187,7 @@ msgstr ""
 "Значкі\n"
 "Тэкст\n"
 "Тэкст і значкі\n"
-"Тэкст праваруч ад значкі\n"
+"Тэкст праваруч ад значка\n"
 "Схаваная\n"
 "Як звычайна ў сыстэме"
 
@@ -3212,8 +3210,8 @@ msgid ""
 "\n"
 "see man strftime for details."
 msgstr ""
-"%a — скарочаны назоў дня тыдня.\n"
-"%b — скарочаны назоў месяца.\n"
+"%a — скарочаная назва дня тыдня.\n"
+"%b — скарочаная назва месяца.\n"
 "%H — гадзіна ў 24-гадзінным выглядзе.\n"
 "%M — хвіліна як дзесятковы лік (00—59).\n"
 "%S — сэкунда як дзесятковы лік (00—59).\n"
@@ -3229,7 +3227,7 @@ msgstr "<b>Часадзнакі</b>"
 msgid "Note: Most of these options require that you restart the application"
 msgstr ""
 "Уважце: зьмяненьні ў большасьці можнасьцяў пачынаюць дзейнічаць па наступным "
-"запуску праграмы"
+"запуску праґрамы"
 
 #: ../glade/settingsdialog.glade:2468 ../glade/settingsdialog.glade:4045
 msgid "Appearance"
@@ -3245,7 +3243,7 @@ msgstr "Карткі"
 
 #: ../glade/settingsdialog.glade:2575
 msgid "<b>Auto-open on startup</b>"
-msgstr "<b>Самарушна адкрываць па запуску</b>"
+msgstr "<b>Самарушна адчыняць па запуску</b>"
 
 #: ../glade/settingsdialog.glade:2613
 msgid "<b>Window Options</b>"
@@ -3253,7 +3251,7 @@ msgstr "<b>Можнасьці ваконцаў</b>"
 
 #: ../glade/settingsdialog.glade:2654
 msgid "<b>Confirmation Dialog Options</b>"
-msgstr "<b>Можнасьці дыялёгу пацьверджаньня</b>"
+msgstr "<b>Можнасьці дыялёґу пацьверджаньня</b>"
 
 #: ../glade/settingsdialog.glade:2674
 msgid "Windows"
@@ -3268,14 +3266,12 @@ msgid "Play"
 msgstr "Граць"
 
 #: ../glade/settingsdialog.glade:2740
-#, fuzzy
 msgid "in program"
-msgstr "Выйсьці з праграмы"
+msgstr "у праґраме"
 
 #: ../glade/settingsdialog.glade:2778
-#, fuzzy
 msgid "Browse file..."
-msgstr "Зірнуць…"
+msgstr "Зірнуць файл…"
 
 #: ../glade/settingsdialog.glade:2806
 msgid "Every time a private message is received"
@@ -3283,7 +3279,7 @@ msgstr "Штораз, як атрымалі асабістае паведамл�
 
 #: ../glade/settingsdialog.glade:2818
 msgid "When a private message window is opened"
-msgstr "Калі ваконца асабістага паведамленьня ўжо адкрытае"
+msgstr "Калі ваконца асабістага паведамленьня ўжо адчыненае"
 
 #: ../glade/settingsdialog.glade:2832
 msgid "<b>Private message sound</b>"
@@ -3335,7 +3331,7 @@ msgstr "<b>Загаловак</b>"
 
 #: ../glade/settingsdialog.glade:3156
 msgid "<b>Icon size</b>"
-msgstr "<b>Памер значкі</b>"
+msgstr "<b>Памер значка</b>"
 
 #: ../glade/settingsdialog.glade:3183
 msgid "Test"
@@ -3343,11 +3339,11 @@ msgstr "Паспрабаваць"
 
 #: ../glade/settingsdialog.glade:3209
 msgid "Icon..."
-msgstr "Значка…"
+msgstr "Значак…"
 
 #: ../glade/settingsdialog.glade:3233
 msgid "None icon"
-msgstr "Няма значкі"
+msgstr "Няма значка"
 
 #: ../glade/settingsdialog.glade:3302
 msgid "Maximum message length (0 = infinite)"
@@ -3355,7 +3351,7 @@ msgstr "Найвялікшая даўжыня паведамленьня (0 = н
 
 #: ../glade/settingsdialog.glade:3318
 msgid "Show only when the application is not active."
-msgstr "Паказваць толькі калі прыстасаваньне — нядзейнае."
+msgstr "Паказваць толькі калі праґрама — нядзейная"
 
 #: ../glade/settingsdialog.glade:3333
 msgid "<b>Private message</b>"
@@ -3375,7 +3371,7 @@ msgstr "<b>Выгляд тэксту</b>"
 
 #: ../glade/settingsdialog.glade:3466
 msgid "<b>Current theme name:</b>"
-msgstr "<b>Назоў бягучага аздабленьня:</b>"
+msgstr "<b>Назва бягучага аздабленьня:</b>"
 
 #: ../glade/settingsdialog.glade:3476
 msgid "theme"
@@ -3488,9 +3484,11 @@ msgstr "Перададзеныя сьпісы файлаў"
 
 #: ../glade/settingsdialog.glade:4327
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Дапамога</a>"
 
 #: ../glade/settingsdialog.glade:4342
 msgid "<b>Logging</b>"
@@ -3542,7 +3540,7 @@ msgstr "Гісторыя пошуку"
 
 #: ../glade/settingsdialog.glade:4777
 msgid "Bind address"
-msgstr "Адрэса"
+msgstr "Адрас"
 
 #: ../glade/settingsdialog.glade:4789
 msgid "Socket read buffer"
@@ -3644,29 +3642,29 @@ msgid ""
 "11PM"
 msgstr ""
 "поўначы\n"
-"1AM\n"
-"2AM\n"
-"3AM\n"
-"4AM\n"
-"5AM\n"
-"6AM\n"
-"7AM\n"
-"8AM\n"
-"9AM\n"
-"10AM\n"
-"11AM\n"
+"1:00\n"
+"2:00\n"
+"3:00\n"
+"4:00\n"
+"5:00\n"
+"6:00\n"
+"7:00\n"
+"8:00\n"
+"9:00\n"
+"10:00\n"
+"11:00\n"
 "поўдня\n"
-"1PM\n"
-"2PM\n"
-"3PM\n"
-"4PM\n"
-"5PM\n"
-"6PM\n"
-"7PM\n"
-"8PM\n"
-"9PM\n"
-"10PM\n"
-"11PM"
+"13:00\n"
+"14:00\n"
+"15:00\n"
+"16:00\n"
+"17:00\n"
+"18:00\n"
+"19:00\n"
+"20:00\n"
+"21:00\n"
+"22:00\n"
+"23:00"
 
 #: ../glade/settingsdialog.glade:5457
 msgid "to"
@@ -3674,15 +3672,16 @@ msgstr "да"
 
 #: ../glade/settingsdialog.glade:5502
 msgid "<b>Secondary Transfer Rate Limiting</b>"
-msgstr "<b>Іншыя абмежаваньні хуткасьці</b>"
+msgstr "<b>Другарадныя абмежаваньні хуткасьці</b>"
 
 #: ../glade/settingsdialog.glade:5620
 msgid "Upload Slots"
 msgstr "Шчылінаў зацягваць файлы"
 
+# «налады абмежаваньня…»?
 #: ../glade/settingsdialog.glade:5648
 msgid "<b>Secondary Transfer Rate Settings</b>"
-msgstr "<b>Наладжваньні абмежаваньняў хуткасьці</b>"
+msgstr "<b>Налады другараднае хуткасьці</b>"
 
 #: ../glade/settingsdialog.glade:5681
 msgid ""
@@ -3702,7 +3701,7 @@ msgstr "Зьмяніць"
 
 #: ../glade/settingsdialog.glade:5746
 msgid "Rename"
-msgstr "Даць новы назоў"
+msgstr "Даць новую назву"
 
 #: ../glade/settingsdialog.glade:5787
 msgid "Note: Custom search types will only be applied to ADC hubs!"
@@ -3763,7 +3762,7 @@ msgstr "<b>Дзе ўжываецца</b>"
 
 #: ../glade/settingsdialog.glade:6440
 msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
-msgstr "Адрэса IP / DNS асяродку (пуста = усе, «op» — дзе вы апэратар)"
+msgstr "Адрас IP ці DNS асяродку (пуста = усе, «op» — дзе вы апэратар)"
 
 #: ../glade/settingsdialog.glade:6471
 msgid "To (empty for selected user)"
@@ -3827,7 +3826,7 @@ msgstr "Пера_сунуць"
 
 #: ../glade/downloadqueue.glade:211
 msgid "_Move/Rename"
-msgstr "_Перасунуць/Новы назоў"
+msgstr "_Перасунуць/Новая назва"
 
 #: ../glade/downloadqueue.glade:298
 msgid "Re-_add source"
@@ -3863,7 +3862,7 @@ msgstr "_Прымусіць паспрабаваць"
 
 #: ../glade/transfers.glade:117
 msgid "_Close connection"
-msgstr "_Закрыць злучэньне"
+msgstr "_Зачыніць злучэньне"
 
 #: ../glade/privatemessage.glade:37 ../glade/hub.glade:66
 msgid "Chat Commands"
@@ -3888,11 +3887,11 @@ msgstr "Перапісаць _спасылку"
 
 #: ../glade/privatemessage.glade:157 ../glade/hub.glade:372
 msgid "_Open link in default application"
-msgstr "Адкрыць спасылку ў звычайным _прыстасаваньні"
+msgstr "Адчыніць спасылку ў звычайнае _праґраме"
 
 #: ../glade/privatemessage.glade:173 ../glade/hub.glade:388
 msgid "_Open hub"
-msgstr "Адкрыць _асяродак"
+msgstr "Адчыніць _асяродак"
 
 #: ../glade/finishedtransfers.glade:31
 msgid "Grouped by Files"
@@ -3908,7 +3907,7 @@ msgstr "Паказваць толькі цалкам сьцягнутае"
 
 #: ../glade/finishedtransfers.glade:150
 msgid "Open containing _folder"
-msgstr "Адкрыць _тэчку"
+msgstr "Адчыніць _каталёґ"
 
 #: ../glade/finishedtransfers.glade:165
 msgid "Remove All"
@@ -3940,7 +3939,7 @@ msgstr "Сьцягнуць відарыс"
 
 #: ../glade/hub.glade:484
 msgid "Open image"
-msgstr "Адкрыць відарыс"
+msgstr "Адчыніць відарыс"
 
 #: ../glade/hub.glade:495
 msgid "Remove image"

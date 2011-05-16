@@ -27,12 +27,12 @@
     <message>
         <location filename="../src/ADLS.cpp" line="401"/>
         <source>Filename</source>
-        <translation>Назоў файла</translation>
+        <translation>Назва файла</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="402"/>
         <source>Directory</source>
-        <translation>Каталёг</translation>
+        <translation>Каталёґ</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="403"/>
@@ -80,7 +80,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation>Назоў каталёгу</translation>
+        <translation>Назва каталёґа</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
@@ -112,9 +112,9 @@ Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
         <translation>Як карыстацца:
-  eiskaltdcpp-qt &lt;магніт-спасылка&gt; &lt;dchub://спасылка&gt; &lt;adc(s)://спасылка&gt;
-  eiskaltdcpp-qt &lt;Ключ&gt;
-EiskaltDC++ — гэта міжплятформавая праграма, якая выкарыстоўвае пратаколы Direct Connect і ADC.
+  eiskaltdcpp-qt &lt;маґніт-спасылка&gt; &lt;dchub://спасылка&gt; &lt;adc(s)://спасылка&gt;
+  eiskaltdcpp-qt &lt;ключ&gt;
+EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы Direct Connect і ADC.
 
 Ключы:
   -h, --help	 Паказвае гэтае паведамленьне
@@ -180,7 +180,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/CustomFontModel.cpp" line="33"/>
         <source>Application</source>
-        <translation>Прыстасаваньне</translation>
+        <translation>Праґрама</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="34"/>
@@ -221,7 +221,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/DownloadQueue.cpp" line="43"/>
         <source>Magnet</source>
-        <translation>Магніт-спасылка</translation>
+        <translation>Маґніт-спасылка</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="45"/>
@@ -231,17 +231,17 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/DownloadQueue.cpp" line="46"/>
         <source>Copy magnet</source>
-        <translation>Перапісаць магніт-спасылку</translation>
+        <translation>Перапісаць маґніт-спасылку</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="47"/>
         <source>Copy web-magnet</source>
-        <translation>Перапісаць магніт-спасылку для сеціва</translation>
+        <translation>Перапісаць маґніт-спасылку для сеціва</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="48"/>
         <source>Properties of magnet</source>
-        <translation>Уласьцівасьці магніт-спасылкі</translation>
+        <translation>Уласьцівасьці маґніт-спасылкі</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="49"/>
@@ -363,7 +363,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/DownloadQueue.cpp" line="631"/>
         <source>Choose filename</source>
-        <translation>Абярыце назоў файла</translation>
+        <translation>Абярыце назву файла</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="631"/>
@@ -382,7 +382,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
         <location filename="../src/DownloadQueueModel.cpp" line="53"/>
         <location filename="../src/DownloadQueueModel.cpp" line="235"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="53"/>
@@ -512,7 +512,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="19"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="19"/>
@@ -522,7 +522,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>Address</source>
-        <translation>Адрэса</translation>
+        <translation>Адрас</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
@@ -647,7 +647,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
         <location filename="../src/FileBrowserModel.cpp" line="36"/>
         <location filename="../src/FileBrowserModel.cpp" line="257"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="36"/>
@@ -680,7 +680,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="177"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished">Файл ужо існуе: %1</translation>
+        <translation>Файл ужо існуе: %1</translation>
     </message>
 </context>
 <context>
@@ -714,12 +714,12 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FinishedTransfers.h" line="427"/>
         <source>Open file</source>
-        <translation>Адкрыць файл</translation>
+        <translation>Адчыніць файл</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.h" line="428"/>
         <source>Open directory</source>
-        <translation>Адкрыць каталёг</translation>
+        <translation>Адчыніць каталёґ</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -772,7 +772,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Filename</source>
-        <translation>Назоў файла</translation>
+        <translation>Назва файла</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
@@ -870,12 +870,12 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
         <location filename="../src/HubFrame.cpp" line="127"/>
         <location filename="../src/HubFrame.cpp" line="1205"/>
         <source>Copy</source>
-        <translation>Перапісаць у буфэр</translation>
+        <translation>Перапісаць у кішэню</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="128"/>
         <source>Search text</source>
-        <translation type="unfinished"></translation>
+        <translation>Шукаць тэкст</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="129"/>
@@ -961,7 +961,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/HubFrame.cpp" line="152"/>
         <source>IP</source>
-        <translation>Адрэсу IP</translation>
+        <translation>Адрас IP</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="153"/>
@@ -997,7 +997,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/HubFrame.cpp" line="1206"/>
         <source>Hub IP</source>
-        <translation>Адрэсу IP асяродку</translation>
+        <translation>Адрас IP асяродку</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1207"/>
@@ -1012,7 +1012,7 @@ EiskaltDC++ — гэта міжплятформавая праграма, яка
     <message>
         <location filename="../src/HubFrame.cpp" line="1212"/>
         <source>Close</source>
-        <translation>Закрыць</translation>
+        <translation>Зачыніць</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1226"/>
@@ -1201,14 +1201,14 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1758"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation>/magnet — прадвызначанае дзеяньне па магніт-спасылцы (0 — запытацца, 1 — шукаць, 2 — сьцягнуць)
+        <translation>/magnet — прадвызначанае дзеяньне па маґніт-спасылцы (0 — запытацца, 1 — шукаць, 2 — сьцягнуць)
 </translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1759"/>
         <source>/close - close this hub
 </source>
-        <translation>/close — закрыць гэты асяродак
+        <translation>/close — зачыніць гэты асяродак
 </translation>
     </message>
     <message>
@@ -1590,13 +1590,13 @@ Favorite user</source>
         <location filename="../src/Magnet.cpp" line="193"/>
         <source>Some error ocurred when starting download:
  %1</source>
-        <translation>Здарылася памылка, калі пачыналі сьцягваць:
+        <translation>Далі хібу, калі пачыналі сьцягваць:
  %1</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="176"/>
         <source>Select directory</source>
-        <translation>Абраць каталёг</translation>
+        <translation>Абраць каталёґ</translation>
     </message>
 </context>
 <context>
@@ -1614,7 +1614,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="193"/>
         <source>Exit program?</source>
-        <translation>Ці выйсьці з праграмы?</translation>
+        <translation>Ці выйсьці з праґрамы?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="633"/>
@@ -1698,7 +1698,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="912"/>
         <source>Close current widget</source>
-        <translation>Закрыць бягучае ваконца</translation>
+        <translation>Зачыніць бягучае ваконца</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="913"/>
@@ -1765,7 +1765,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1127"/>
         <location filename="../src/MainWindow.cpp" line="1986"/>
         <source>Open log file</source>
-        <translation>Адкрыць файл справаздачы</translation>
+        <translation>Адчыніць файл справаздачы</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1100"/>
@@ -1775,12 +1775,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1131"/>
         <source>Open filelist...</source>
-        <translation>Адкрыць сьпіс файлаў…</translation>
+        <translation>Адчыніць сьпіс файлаў…</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1135"/>
         <source>Open own filelist</source>
-        <translation>Адкрыць уласны сьпіс файлаў</translation>
+        <translation>Адчыніць уласны сьпіс файлаў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1137"/>
@@ -1913,7 +1913,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1129"/>
         <source>Open download directory</source>
-        <translation>Адкрыць каталёг сьцягнутага</translation>
+        <translation>Адчыніць каталёґ сьцягнутага</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1133"/>
@@ -2105,7 +2105,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1125"/>
         <location filename="../src/MainWindow.cpp" line="2058"/>
         <source>Open magnet link</source>
-        <translation>Адкрыць магніт-спасылку</translation>
+        <translation>Адчыніць маґніт-спасылку</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1203"/>
@@ -2165,7 +2165,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2476"/>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2597"/>
@@ -2190,7 +2190,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2730"/>
         <source>Show close buttons</source>
-        <translation>Паказваць гузікі «закрыць»</translation>
+        <translation>Паказваць гузікі «зачыніць»</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2820"/>
@@ -2205,22 +2205,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1695"/>
         <source>Choose file to open</source>
-        <translation>Абярыце, які файл адкрываць</translation>
+        <translation>Абярыце, які файл адчыняць</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="659"/>
         <source>Ctrl+Shift+U</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+U</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1164"/>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Чарга карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1560"/>
         <source>Delayed</source>
-        <translation type="unfinished"></translation>
+        <translation>Затрымалі</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1697"/>
@@ -2240,7 +2240,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1710"/>
         <source>Unable to load file list: Invalid file list name</source>
-        <translation>Не магу прачытаць сьпіс файлаў: хібны назоў сьпісу файлаў</translation>
+        <translation>Не магу прачытаць сьпіс файлаў: хібная назва сьпісу файлаў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1930"/>
@@ -2250,7 +2250,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1967"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation>Не магу адкрыць порт %1. Каб належным чынам працаваў пошук і перадаваліся файлы, вы мусіце зьмяніць налады, ці вымкнуць праграму, якая можа выкарыстоўваць гэты порт.</translation>
+        <translation>Не магу адчыніць порт %1. Каб належным чынам працаваў пошук і перадаваліся файлы, вы мусіце зьмяніць налады, ці вымкнуць праґраму, якая можа выкарыстоўваць гэты порт.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1986"/>
@@ -2260,7 +2260,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2058"/>
         <source>Enter magnet link:</source>
-        <translation>Упішыце магніт-спасылку:</translation>
+        <translation>Упішыце маґніт-спасылку:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2412"/>
@@ -2280,7 +2280,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2415"/>
         <source>Text beside icons</source>
-        <translation>Тэкст збоку ад значак</translation>
+        <translation>Тэкст збоку ад значкаў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2416"/>
@@ -2295,7 +2295,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2493"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation>EiskaltDC++ — графічны кліент да пратаколаў Direct Connect і ADC.&lt;br/&gt;&lt;br/&gt;Вэрсія асновы DC++: %1 (зьмененая).&lt;br/&gt;&lt;br/&gt;Хатняя бачына: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Разам зацягнулі: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Разам сьцягнулі: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Суадносіны: &lt;b&gt;%4&lt;/b&gt;</translation>
+        <translation>EiskaltDC++ — ґрафічны кліент да пратаколаў Direct Connect і ADC.&lt;br/&gt;&lt;br/&gt;Вэрсія асновы DC++: %1 (зьмененая).&lt;br/&gt;&lt;br/&gt;Хатняя бачына: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Разам зацягнулі: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Разам сьцягнулі: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Суадносіны: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2510"/>
@@ -2440,12 +2440,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2635"/>
         <source>Close all</source>
-        <translation>Закрыць усе</translation>
+        <translation>Зачыніць усе</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2655"/>
         <source>Close</source>
-        <translation>Закрыць</translation>
+        <translation>Зачыніць</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1186"/>
@@ -2469,7 +2469,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MultiLineToolBar.cpp" line="70"/>
         <source>Show close buttons</source>
-        <translation>Паказваць гузікі «закрыць»</translation>
+        <translation>Паказваць гузікі «зачыніць»</translation>
     </message>
 </context>
 <context>
@@ -2526,7 +2526,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="106"/>
         <source>Close</source>
-        <translation>Закрыць</translation>
+        <translation>Зачыніць</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="307"/>
@@ -2549,7 +2549,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
@@ -2564,7 +2564,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Address</source>
-        <translation>Адрэса</translation>
+        <translation>Адрас</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="28"/>
@@ -2627,7 +2627,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="173"/>
         <source>Copy &amp;address to clipboard</source>
-        <translation>Перапісаць &amp;адрэсу ў буфэр абмену</translation>
+        <translation>Перапісаць &amp;адрас у кішэню</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="295"/>
@@ -2700,7 +2700,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/main.cpp" line="127"/>
         <source>Application icons has been loaded</source>
-        <translation>Прачыталі значкі прыстасаваньня</translation>
+        <translation>Прачыталі значкі праґрамы</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="169"/>
@@ -2728,12 +2728,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="75"/>
         <source>Grant slot</source>
-        <translation type="unfinished">Даць шчыліну</translation>
+        <translation>Даць шчыліну</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.h" line="104"/>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Чарга карыстальнікаў</translation>
     </message>
 </context>
 <context>
@@ -2741,12 +2741,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="123"/>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Карыстальнік</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="123"/>
         <source>File</source>
-        <translation type="unfinished">Файл</translation>
+        <translation>Файл</translation>
     </message>
 </context>
 <context>
@@ -2770,7 +2770,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="344"/>
         <source>Filename</source>
-        <translation>Назоў файла</translation>
+        <translation>Назва файла</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="345"/>
@@ -2796,7 +2796,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>Filename</source>
-        <translation>Назоў файла</translation>
+        <translation>Назва файла</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
@@ -2830,12 +2830,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="78"/>
         <source>Download Whole Directory</source>
-        <translation>Сьцягнуць увесь каталёг</translation>
+        <translation>Сьцягнуць увесь каталёґ</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="70"/>
         <source>Magnet</source>
-        <translation>Магніт-спасылка</translation>
+        <translation>Маґніт-спасылка</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="75"/>
@@ -2845,7 +2845,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="81"/>
         <source>Download Whole Directory to...</source>
-        <translation>Сьцягнуць увесь каталёг у…</translation>
+        <translation>Сьцягнуць увесь каталёґ у…</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="87"/>
@@ -2855,17 +2855,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="90"/>
         <source>Copy magnet</source>
-        <translation>Перапісаць магніт-спасылку</translation>
+        <translation>Перапісаць маґніт-спасылку</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="93"/>
         <source>Copy web-magnet</source>
-        <translation>Перапісаць магніт-спасылку для сеціва</translation>
+        <translation>Перапісаць маґніт-спасылку для сеціва</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="96"/>
         <source>Properties of magnet</source>
-        <translation>Уласьцівасьці магніт-спасылкі</translation>
+        <translation>Уласьцівасьці маґніт-спасылкі</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="99"/>
@@ -2932,7 +2932,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="431"/>
         <source>Close</source>
-        <translation>Закрыць</translation>
+        <translation>Зачыніць</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="667"/>
@@ -2958,7 +2958,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchFrame.cpp" line="1107"/>
         <location filename="../src/SearchFrame.cpp" line="1165"/>
         <source>Select directory</source>
-        <translation>Абраць каталёг</translation>
+        <translation>Абраць каталёґ</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1471"/>
@@ -3024,7 +3024,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="123"/>
         <source>Directory</source>
-        <translation>Каталёг</translation>
+        <translation>Каталёґ</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="128"/>
@@ -3178,7 +3178,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="55"/>
         <source>IP</source>
-        <translation>Адрэса IP</translation>
+        <translation>Адрас IP</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="55"/>
@@ -3261,7 +3261,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsConnection.cpp" line="156"/>
         <source>Program need root privileges to open ports less than 1024</source>
-        <translation>Каб адкрыць порты, меншыя за 1024, праграме патрабуюцца прывілеі спраўніка (root)</translation>
+        <translation>Каб адчыніць порты, меншыя за 1024, праґраме патрабуюцца прывілеі спраўніка (root)</translation>
     </message>
     <message>
         <location filename="../src/SettingsConnection.cpp" line="337"/>
@@ -3275,7 +3275,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsDownloads.cpp" line="156"/>
         <location filename="../src/SettingsDownloads.cpp" line="191"/>
         <source>Select directory</source>
-        <translation>Абраць каталёг</translation>
+        <translation>Абраць каталёґ</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="173"/>
@@ -3291,7 +3291,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="186"/>
         <source>Enter alias for directory</source>
-        <translation>Упішыце назоўку каталёгу</translation>
+        <translation>Упішыце назоўку каталёґа</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="186"/>
@@ -3437,7 +3437,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsLog.cpp" line="91"/>
         <source>Choose the directory</source>
-        <translation>Абярыце каталёг</translation>
+        <translation>Абярыце каталёґ</translation>
     </message>
 </context>
 <context>
@@ -3474,14 +3474,14 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="309"/>
         <location filename="../src/SettingsSharing.cpp" line="320"/>
         <source>Select directory</source>
-        <translation>Абраць каталёг</translation>
+        <translation>Абраць каталёґ</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="190"/>
         <location filename="../src/SettingsSharing.cpp" line="320"/>
         <location filename="../src/SettingsSharing.cpp" line="361"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="288"/>
@@ -3508,12 +3508,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="214"/>
         <source>Choose the directory</source>
-        <translation>Абярыце каталёг</translation>
+        <translation>Абярыце каталёґ</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="292"/>
         <source>Rename</source>
-        <translation>Даць новы назоў</translation>
+        <translation>Даць новую назву</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="335"/>
@@ -3524,7 +3524,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="360"/>
         <source>Enter new name</source>
-        <translation>Упішыце новы назоў</translation>
+        <translation>Упішыце новую назву</translation>
     </message>
 </context>
 <context>
@@ -3547,18 +3547,18 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="77"/>
         <source>Copy magnet</source>
-        <translation>Перапісаць магніт-спасылку</translation>
+        <translation>Перапісаць маґніт-спасылку</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="79"/>
         <source>Copy web-magnet</source>
         <translatorcomment>Flylink: «Перапісаць магніт-спасылку як спасылку сеціва»</translatorcomment>
-        <translation>Перапісаць магніт-спасылку для сеціва</translation>
+        <translation>Перапісаць маґніт-спасылку для сеціва</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
         <source>Properties of magnet</source>
-        <translation>Уласьцівасьці магніт-спасылкі</translation>
+        <translation>Уласьцівасьці маґніт-спасылкі</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
@@ -3578,7 +3578,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="88"/>
         <source>Open directory</source>
-        <translation>Адкрыць каталёг</translation>
+        <translation>Адчыніць каталёґ</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="165"/>
@@ -3619,12 +3619,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="68"/>
         <source>Magnet</source>
-        <translation>Магніт-спасылка</translation>
+        <translation>Маґніт-спасылка</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="297"/>
         <source>Close</source>
-        <translation>Закрыць</translation>
+        <translation>Зачыніць</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="590"/>
@@ -3640,7 +3640,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="718"/>
         <source>Select directory</source>
-        <translation>Абраць каталёг</translation>
+        <translation>Абярыце каталёґ</translation>
     </message>
 </context>
 <context>
@@ -3758,7 +3758,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="47"/>
         <location filename="../src/SideBar.cpp" line="378"/>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Чарга карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="48"/>
@@ -3863,7 +3863,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TabFrame.cpp" line="285"/>
         <source>Close</source>
-        <translation>Закрыць</translation>
+        <translation>Зачыніць</translation>
     </message>
 </context>
 <context>
@@ -3871,7 +3871,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/ToolBar.cpp" line="211"/>
         <source>Show close buttons</source>
-        <translation>Паказваць гузікі «закрыць»</translation>
+        <translation>Паказваць гузікі «зачыніць»</translation>
     </message>
 </context>
 <context>
@@ -3909,7 +3909,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="63"/>
         <source>Copy</source>
-        <translation>Перапісаць у буфэр</translation>
+        <translation>Перапісаць у кішэню</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="66"/>
@@ -3939,7 +3939,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="71"/>
         <source>Filename</source>
-        <translation>Назоў файла</translation>
+        <translation>Назва файла</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="72"/>
@@ -3949,7 +3949,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="73"/>
         <source>IP</source>
-        <translation>Адрэса IP</translation>
+        <translation>Адрас IP</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="74"/>
@@ -3959,7 +3959,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="75"/>
         <source>Magnet</source>
-        <translation>Магніт-спасылка</translation>
+        <translation>Маґніт-спасылка</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="80"/>
@@ -3974,7 +3974,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="89"/>
         <source>Close connection(s)</source>
-        <translation>Закрыць злучэньне(і)</translation>
+        <translation>Зачыніць злучэньне(і)</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="339"/>
@@ -4120,7 +4120,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="49"/>
         <source>File name</source>
-        <translation>Назоў файла</translation>
+        <translation>Назва файла</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="49"/>
@@ -4130,7 +4130,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="49"/>
         <source>IP</source>
-        <translation>Адрэса IP</translation>
+        <translation>Адрас IP</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
@@ -4181,7 +4181,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/UCModel.cpp" line="83"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="84"/>
@@ -4243,7 +4243,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="29"/>
         <source>Favorite hub name.</source>
-        <translation>Назоў улюбёнага асяродку.</translation>
+        <translation>Назва ўлюбёнага асяродку.</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="78"/>
@@ -4254,13 +4254,13 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="94"/>
         <source>Filename</source>
-        <translation>Назоў файла</translation>
+        <translation>Назва файла</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
         <location filename="../ui/UIADLSearchEditor.ui" line="99"/>
         <source>Directory</source>
-        <translation>Каталёг</translation>
+        <translation>Каталёґ</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
@@ -4327,7 +4327,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAbout.ui" line="38"/>
         <source>About program</source>
-        <translation>Пра праграму</translation>
+        <translation>Пра праґраму</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="67"/>
@@ -4367,11 +4367,11 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Аўтарскае права (c) 2009–2010  Андрэй Карлаў &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Гэтая праграма адносіцца да вольнага праграмнага забесьпячэньня: вы можаце распаўсюджваць і (ці) зьмяняць яе на ўмовах трэцяе ці (на ваш выбар) пазьнейшае вэрсіі ліцэнзіі GNU General Public License, якую апублікавала Free Software Foundation.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Гэтая праґрама адносіцца да вольнага праґрамнага забесьпячэньня: вы можаце распаўсюджваць і (ці) зьмяняць яе на ўмовах трэцяе ці (на ваш выбар) пазьнейшае вэрсіі ліцэнзіі GNU General Public License, якую апублікавала Free Software Foundation.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Гэтая праграма распаўсюждваецца з надзеяй, што яна будзе карыснаю, але БЕЗ АНІЯКІХ ПАРУК; нават без парукі мець КАМЭРЦЫЙНУЮ ВАРТАСЬЦЬ ці БЫЦЬ ПРЫДАТНАЮ ДА НЕЙКАЕ МЭТЫ. За падрабязнасьцямі зьвяртайцеся да тэксту GNU General Public License.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Гэтая праґрама распаўсюждваецца з надзеяй, што яна будзе карыснаю, але БЕЗ АНІЯКІХ ПАРУК; нават без парукі мець КАМЭРЦЫЙНУЮ ВАРТАСЬЦЬ ці БЫЦЬ ПРЫДАТНАЮ ДА НЕЙКАЕ МЭТЫ. За падрабязнасьцямі зьвяртайцеся да тэксту GNU General Public License.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Вы мусілі атрымаць асобнік GNU General Public License разам з гэтаю праграмаю. Калі гэтага не адбылося, зірніце &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Вы мусілі атрымаць асобнік GNU General Public License разам з гэтаю праґрамаю. Калі гэтага не адбылося, зірніце &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="85"/>
@@ -4573,12 +4573,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="36"/>
         <source>Favorite hub name.</source>
-        <translation>Назоў улюбёнага асяродку.</translation>
+        <translation>Назва ўлюбёнага асяродку.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="43"/>
         <source>IP address or DNS name of hub.</source>
-        <translation>Адрэса IP або назоў DNS асяродку.</translation>
+        <translation>Адрас IP або назва DNS асяродку.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
@@ -4590,12 +4590,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="57"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="64"/>
         <source>Address</source>
-        <translation>Адрэса</translation>
+        <translation>Адрас</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="71"/>
@@ -4746,12 +4746,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFileHasher.ui" line="80"/>
         <source>Get magnet</source>
-        <translation>Атрымаць магніт-спасылку</translation>
+        <translation>Атрымаць маґніт-спасылку</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Close</source>
-        <translation>Закрыць</translation>
+        <translation>Зачыніць</translation>
     </message>
 </context>
 <context>
@@ -4812,7 +4812,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="109"/>
         <source>Close on finish</source>
-        <translation>Закрыць, як скончыцца</translation>
+        <translation>Зачыніць, як скончыцца</translation>
     </message>
 </context>
 <context>
@@ -4985,7 +4985,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIMagnet.ui" line="65"/>
         <source>Filename</source>
-        <translation>Назоў файла</translation>
+        <translation>Назва файла</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="75"/>
@@ -5000,7 +5000,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIMagnet.ui" line="127"/>
         <source>Opens search dialog and searches file.</source>
-        <translation>Адкрывае ваконца пошуку ды пачынае шукаць файл.</translation>
+        <translation>Адчыняе ваконца пошуку ды пачынае шукаць файл.</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="130"/>
@@ -5012,7 +5012,7 @@ p, li { white-space: pre-wrap; }
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
         <translation>Дадае спасылку ў чаргу сьцягваць. Калі вы дазволілі самарушна шукаць
-крыніцы ў можнасьцях, ваконца пошуку ня будзе адкрывацца, а будзе
+крыніцы ў можнасьцях, ваконца пошуку ня будзе адчыняцца, а будзе
 адразу спрабаваць сьцягвацца файл.</translation>
     </message>
     <message>
@@ -5135,7 +5135,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIQueuedUsers.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -5148,7 +5148,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="44"/>
         <source>IP address of DNS name of hub you want to connect.</source>
-        <translation>Адрэса IP ці назоў DNS асяродку, зь якім вы хочаце злучыцца.</translation>
+        <translation>Адрас IP ці назва DNS асяродку, зь якім вы хочаце злучыцца.</translation>
     </message>
 </context>
 <context>
@@ -5272,8 +5272,8 @@ However, if you have a software firewall installed, you may need further configu
 Калі ваш асьветар ня месьціцца за сетказаслонаю, усё, што вы мусіце зрабіць —
 гэта абраць гэтую можнасьць: звычайна вам не спатрэбіцца зьмяняць нешта яшчэ
 ў наладах злучэньня.
-Але калі вы маеце ўсталяванаю праграмную сетказаслону, вам можа спатрэбіцца
-дадаткова наладзіць сетказаслону, каб дазволіць EiskaltDC++ мець доступ у словасьвет.</translation>
+Але калі вы маеце ўсталяванаю праґрамную сетказаслону, вам можа спатрэбіцца
+дадаткова наставіць сетказаслону, каб дазволіць EiskaltDC++ мець доступ у словасьвет.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
@@ -5295,7 +5295,7 @@ Use this mode only if the previous ones are not options for you.</source>
         <translation>Калі вы месьціцеся за сетказаслонаю (маршрутавальнікам), абярыце гэты спосаб
 і вызначце самастойна порты TCP, UDP і TLS, якія будуць перасылацца.
 А каб мець магчымасьць без перашкод сьцягваць файлы, вы мусіце таксама
-вызначыць вонкавую адрэсу IP вашага маршрутавальніку з дапамогаю
+вызначыць вонкавы адрас IP вашага маршрутавальніку з дапамогаю
 наладаў, якія вы можаце пабачыць праваруч.
 
 Карыстайцеся гэтым спосабам толькі калі папярэднія вам не пасуюць.</translation>
@@ -5326,12 +5326,12 @@ This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
         <translation>Абярыце гэты спосаб, калі вы месьціцеся за сетказаслонаю
 або маршрутавальнікам, які падтрымвае стандарт UPnP
-на самарушнае наладжваньне праграмы.
+самарушна настаўляць праґраму.
 Большасьць маршрутавальнікаў падтрымваюць UPnP, але вам
-можа спатрэбіцца задзейнічаць гэта на бачыне наладжваньняў
+можа спатрэбіцца задзейнічаць гэта на бачыне настаўленьняў
 маршрутавальніку.
-Такім чынам EiskaltDC++ будзе самарушна адкрываць порты,
-у якіх маецца патрэба, і таксама атрымваць вашую вонкавую адрэсу IP.</translation>
+Такім чынам EiskaltDC++ будзе самарушна адчыняць порты,
+у якіх маецца патрэба, і таксама атрымваць ваш вонкавы адрас IP.</translation>
     </message>
     <message>
         <source>Bind Address:</source>
@@ -5343,7 +5343,7 @@ and obtain your external IP address as well.</source>
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
         <translation>Абярыце гэты спосаб, калі вы можаце неабмежавана ствараць выходныя
-злучэньні: злучацца з хоць-якою адрэсаю IP на хоць-якім порце.
+злучэньні: злучацца з хоць-якім адрасам IP на хоць-якім порце.
 Аддайце перавагу гэтаму спосабу, калі вы ня маеце ўпэўненасьці, што абраць.</translation>
     </message>
     <message>
@@ -5366,7 +5366,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="332"/>
         <source>IP</source>
-        <translation>Адрэса IP</translation>
+        <translation>Адрас IP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="339"/>
@@ -5396,7 +5396,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="430"/>
         <source>When enabled can hang program on exit.</source>
-        <translation>Калі задзейнічаць, праграма можа «завіснуць» па выхадзе.</translation>
+        <translation>Калі задзейнічаць, праґрама можа «завіснуць» па выхадзе.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="433"/>
@@ -5406,17 +5406,17 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="401"/>
         <source>DynDNS Address:</source>
-        <translation>Адрэса DynDNS:</translation>
+        <translation>Адрас DynDNS:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="235"/>
         <source>Bind to address</source>
-        <translation type="unfinished"></translation>
+        <translation>Прывязаць да адрасу</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="245"/>
         <source>Bind to interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Прывязаць да інтэрфэйсу</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="457"/>
@@ -5552,17 +5552,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="36"/>
         <source>Directories</source>
-        <translation>Каталёгі</translation>
+        <translation>Каталёґі</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="51"/>
         <source>Download directory</source>
-        <translation>Каталёг, у які сьцягваць</translation>
+        <translation>Каталёґ, у які сьцягваць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="84"/>
         <source>Use unfinished downloads directory</source>
-        <translation>Выкарыстоўваць асобны каталёг на яшчэ ня цалкам сьцягнутае</translation>
+        <translation>Выкарыстоўваць асобны каталёґ на яшчэ ня цалкам сьцягнутае</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="97"/>
@@ -5582,7 +5582,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="159"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
-        <translation>Уважце: хуткасьць зьмяняецца, таму дакладнасьць меней за 100%</translation>
+        <translation>&lt;b&gt;Уважце:&lt;/b&gt; хуткасьць зьмяняецца, таму дакладнасьць меней за 100%</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="172"/>
@@ -5867,15 +5867,15 @@ Sometimes empty files contain information through their naming.
 However every file, even an empty one, will consume some drive space.</source>
         <translation>Калі задзейнічаць гэтую можнасьць, усе файлы, што маюць нулявы памер,
 будуць незаўважна прапускацца.
-Часам пустыя файлы зьмяшчаюць каштоўныя зьвесткі ў сваіх назовах.
+Часам пустыя файлы зьмяшчаюць каштоўныя зьвесткі ў сваіх назвах.
 Тым ня менш, кожны файл, нават пусты, займае нейкую прастору на дыску.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="750"/>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
-        <translation>Гэтая можнасьць спыніць сьцягваць файлы, якія ўжо
-маюцца ў адным з каталёгаў, якія вы абагулілі.</translation>
+        <translation>Гэтая можнасьць спыніць сьцягваць файлы, што ўжо
+маюцца ў адным з каталёґаў, якія вы абагулілі.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="765"/>
@@ -5899,12 +5899,12 @@ the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Задзейнічайце гэтую можнасьць, калі вы хочаце пакідаць у чарзе
-ўжо сьцягнутыя файлы ды тэчкі.
+ўжо сьцягнутыя файлы ды каталёґі.
 Сьцягнутыя пункты чаргі перайдуць у стан «Скончылі», а вы зможаце
 выкрасьліць гэтыя пункты калі пажадаеце.
 Дзякуючы гэтае можнасьці вы можаце адразу ў чарзе сачыць,
 якія файлы ўжо сьцягнуліся — і ня трэба будзе кожнага разу
-адкрываць дзеля гэтага ваконца «Сьцягнутае».
+адчыняць дзеля гэтага ваконца «Сьцягнутае».
 Уважце, што калі вы фізычна перасунеце зь мейсца прызначэньня
 ці зьнішчыце сьцягнутыя файлы, адпаведныя сьпісы ў чарзе
 застануцца й ня будуць самарушна выкрасьляцца.
@@ -6040,7 +6040,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="83"/>
         <source>Application font</source>
-        <translation>Шрыфт прыстасаваньня</translation>
+        <translation>Шрыфт праґрамы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="95"/>
@@ -6076,7 +6076,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="166"/>
         <source>Icon theme</source>
-        <translation>Набор агульных значак</translation>
+        <translation>Набор агульных значкаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="182"/>
@@ -6124,12 +6124,12 @@ from other words by spaces.</source>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
         <translation>Залежыць ад настаўленьняў асяродку: звычайна
-зьвесткі пра адрэсы IP могуць бачыць толькі апэратары.</translation>
+зьвесткі пра адрасы IP могуць бачыць толькі апэратары.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="678"/>
         <source>Show ip-addresses of users in chat</source>
-        <translation>Паказваць адрэсы IP ў гамане</translation>
+        <translation>Паказваць адрасы IP ў гамане</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="667"/>
@@ -6229,7 +6229,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="460"/>
         <source>Application unit base</source>
-        <translation>Аснова сыстэмы адзінак у праграме</translation>
+        <translation>Аснова сыстэмы адзінак у праґраме</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
@@ -6254,7 +6254,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="541"/>
         <source>Default action with magnet</source>
-        <translation>Што рабіць з магніт-спасылкаю</translation>
+        <translation>Што рабіць з маґніт-спасылкаю</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="555"/>
@@ -6270,7 +6270,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="565"/>
         <location filename="../ui/UISettingsGUI.ui" line="870"/>
         <source>Download</source>
-        <translation>Сьцягванае</translation>
+        <translation>Сьцягнуць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="583"/>
@@ -6348,7 +6348,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="916"/>
         <source>Change background color in the chat</source>
-        <translation>Зьмяняць колер тла гаманы</translation>
+        <translation>Зьмяніць колер тла гаманы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="959"/>
@@ -6363,7 +6363,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Show icon in system tray</source>
-        <translation>Паказваць значку ў сыстэмным латку</translation>
+        <translation>Паказваць значак у сыстэмным латку</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="270"/>
@@ -6411,7 +6411,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="29"/>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
-        <translation>Усе справаздачы, якія створыць EiskaltDC++, будуць ляжаць у гэтым каталёгу.</translation>
+        <translation>Усе справаздачы, якія створыць EiskaltDC++, будуць ляжаць у гэтым каталёґу.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="46"/>
@@ -6450,12 +6450,16 @@ them is usually available only to operators</source>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Даведка&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
         <source>Log directory</source>
-        <translation>Каталёг справаздачаў</translation>
+        <translation>Каталёґ справаздачаў</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="58"/>
@@ -6589,7 +6593,7 @@ For example: /usr/bin/mplayer</source>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="105"/>
         <source>Change icon when main window is visible</source>
-        <translation>Зьмяняць значку, калі бачна галоўнае вакно</translation>
+        <translation>Зьмяняць значак, калі бачна галоўнае вакно</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="177"/>
@@ -6626,7 +6630,7 @@ For example: /usr/bin/mplayer</source>
         <location filename="../ui/UISettingsPersonal.ui" line="110"/>
         <source>This field is for sharing your email address, if you wish it.</source>
         <translation>Калі вы жадаеце падзяліцца зь іншымі карыстальнікамі
-адрэсаю сваёй паштовае скрыні, упішыце яе ў гэтае поле.</translation>
+адрасам сваёй паштовае скрыні, упішыце яе ў гэтае поле.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="54"/>
@@ -6722,7 +6726,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation>Тут вы можаце вызначыць шаблёны да назоваў файлаў,
+        <translation>Тут вы можаце вызначыць шаблёны да назваў файлаў,
 якія вы не жадаеце абагуляць.</translation>
     </message>
     <message>
@@ -6738,7 +6742,7 @@ With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
         <translatorcomment>!!!удакладніць пераклад attribute, freeze, refresh</translatorcomment>
-        <translation>Абагуляць файлы, што маюць азнаку «схаваны» ды файлы ў каталёгах,
+        <translation>Абагуляць файлы, што маюць азнаку «схаваны» ды файлы ў каталёґах,
 якія маюць азнаку «схаваны».
 Калі гэтую можнасьць не задзейнічаць, файлы, якія пачынаюцца з кропкі
 («.»), абагуляцца ня будуць.
@@ -6795,13 +6799,13 @@ these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
         <translation>Вызначце колькасьць шчылінаў, якія могуць заняць іншыя карыстальнікі,
-каб сьцягваць з вас файлы. Аддалены карыстальнік можа ўжываць толькі
+каб сьцягваць з вас файлы. Адлеглы карыстальнік можа ўжываць толькі
 адну шчыліну на кожным асяродку, дзе ён вас бачыць.
 EiskaltDC++ падтрымвае зацягваць сьпісы файлаў і файлы, меншыя за 64 КіБ,
 іншым карыстальнікам DC++ без таго, каб патрабаваць шчыліну.
-Найбольшая колькасьць дадатковаых да звычайных шчылінаў злучэньняў — 3.
+Найбольшая колькасьць дадатковых да звычайных шчылінаў злучэньняў — 3.
 Такія злучэньні называюцца мінішчылінамі.
-Уважце: калі карыстальнік сыходзіць з асяродку, EiskaltDC++ закрывае ягоныя шчыліны,
+Уважце: калі карыстальнік сыходзіць з асяродку, EiskaltDC++ зачыняе ягоныя шчыліны,
 а калі карыстальнік вяртаецца цягам 10 хвілінаў, EiskaltDC++ дадае яму шчыліну.</translation>
     </message>
     <message>
@@ -6828,7 +6832,7 @@ EiskaltDC++ падтрымвае зацягваць сьпісы файлаў і
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="75"/>
@@ -6844,7 +6848,7 @@ EiskaltDC++ падтрымвае зацягваць сьпісы файлаў і
         <location filename="../ui/UISettingsSharing.ui" line="122"/>
         <source>Don&apos;t share files and folders containing:</source>
         <translatorcomment>???якія зьмяшчаюць=&gt;назовы якіх зьмяшчаюць</translatorcomment>
-        <translation>Не абагуляць файлы ды тэчкі, якія зьмяшчаюць:</translation>
+        <translation>Не абагуляць файлы ды каталёґі, якія зьмяшчаюць:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
@@ -6854,7 +6858,7 @@ EiskaltDC++ падтрымвае зацягваць сьпісы файлаў і
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="148"/>
         <source>Select and add the directory</source>
-        <translation>Абраць і дадаць каталёг</translation>
+        <translation>Абраць і дадаць каталёґ</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="158"/>
@@ -6879,7 +6883,7 @@ EiskaltDC++ падтрымвае зацягваць сьпісы файлаў і
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="246"/>
         <source>Auto remove non-existing directories</source>
-        <translation>Самарушна выкрасьляць каталёгі, што не існуюць</translation>
+        <translation>Самарушна выкрасьляць каталёґі, што не існуюць</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="339"/>
@@ -6939,12 +6943,12 @@ the granted slot will not be closed.</source>
 будзе давацца адна дадатковая шчыліна зацягваць файлы.
 Гэтыя шчыліны выдаюцца не часьцей, як адзін раз на 30 сэкундаў.
 Калі хуткасьць зацягваць павялічыцца, дададзеная шчыліна
-не закрыецца.</translation>
+не зачыніцца.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="416"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ствараць скароты па запуску з затрымкаю (у сэкундах, -1 = бязьмежнасьць)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="432"/>
@@ -7119,7 +7123,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="139"/>
         <source>Name</source>
-        <translation>Назоў</translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="146"/>
@@ -7129,7 +7133,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="153"/>
         <source>Hub address</source>
-        <translation>Адрэса асяродку</translation>
+        <translation>Адрас асяродку</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="160"/>
@@ -7199,7 +7203,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../src/UserListModel.cpp" line="169"/>
         <source>IP</source>
-        <translation>Адрэса IP</translation>
+        <translation>Адрас IP</translation>
     </message>
 </context>
 <context>
