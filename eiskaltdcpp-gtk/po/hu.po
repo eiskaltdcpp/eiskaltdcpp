@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-04-24 17:48+0300\n"
-"PO-Revision-Date: 2011-03-07 21:49+0100\n"
+"PO-Revision-Date: 2011-05-15 20:50+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding:  \n"
 "Plural-Forms:  \n"
-"X-Generator: Lokalize 1.1\n"
+"X-Generator: Lokalize 1.2\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:967
 #: ../src/settingsdialog.cc:1347 ../glade/mainwindow.glade:272
@@ -3262,14 +3262,12 @@ msgid "Play"
 msgstr "Lejátszás"
 
 #: ../glade/settingsdialog.glade:2740
-#, fuzzy
 msgid "in program"
-msgstr "Kilépés a programból"
+msgstr "a programban"
 
 #: ../glade/settingsdialog.glade:2778
-#, fuzzy
 msgid "Browse file..."
-msgstr "Böngészés..."
+msgstr "Fájl böngészése..."
 
 #: ../glade/settingsdialog.glade:2806
 msgid "Every time a private message is received"
@@ -3485,6 +3483,8 @@ msgid ""
 "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
 "\">Help</a>"
 msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Segítség</a>"
 
 #: ../glade/settingsdialog.glade:4342
 msgid "<b>Logging</b>"

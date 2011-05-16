@@ -2,16 +2,16 @@
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
 # This file is distributed under the same license as the dcplusplus package.
 #
+#
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 # sumo <husumo@elitemail.hu>, 2010.
 # Attila Mándy <husumo@gmail.com>, 2010, 2011.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-04-24 17:48+0300\n"
-"PO-Revision-Date: 2011-01-10 18:24+0100\n"
+"PO-Revision-Date: 2011-05-15 20:49+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding:  \n"
 "X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
-"X-Generator: Lokalize 1.1\n"
+"X-Generator: Lokalize 1.2\n"
 "Plural-Forms:  \n"
 
 #: ../FavoriteManager.cpp:429
@@ -101,16 +101,14 @@ msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Nem-UTF-8 adat az ADC kapcsolatban"
 
 #: ../ConnectivityManager.cpp:76
-#, fuzzy
 msgid "Determining the best connectivity settings..."
-msgstr "Kapcsolat típus felderítése..."
+msgstr "Legjobb kapcsolat beállítások felderítése..."
 
 #: ../ConnectivityManager.cpp:81
-#, fuzzy
 msgid ""
 "Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
-"%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani."
+"%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani"
 
 #: ../ConnectivityManager.cpp:92
 msgid ""
@@ -136,14 +134,12 @@ msgstr ""
 "beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
 
 #: ../ConnectivityManager.cpp:139
-#, fuzzy
 msgid "Transfer (TCP)"
-msgstr " Átviteli port (%1% TCP)"
+msgstr "Átvitel (TCP)"
 
 #: ../ConnectivityManager.cpp:145
-#, fuzzy
 msgid "Search (UDP)"
-msgstr " Keresési port (%1% UDP)"
+msgstr "Keresés (UDP)"
 
 #: ../ConnectivityManager.cpp:156
 msgid "Connectivity: "
@@ -163,7 +159,7 @@ msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
 #: ../SettingsManager.cpp:180
 msgid "downloaded from"
-msgstr ""
+msgstr "letöltve"
 
 #: ../SettingsManager.cpp:505
 msgid "Invalid search type name"
@@ -233,7 +229,7 @@ msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 
 #: ../HttpConnection.cpp:158
 msgid "Endless redirection loop (%1%)"
-msgstr ""
+msgstr "Végtelen átirányítási kör (%1%)"
 
 #: ../ChatMessage.cpp:34
 msgid "Sent "
