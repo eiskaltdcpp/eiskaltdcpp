@@ -33,7 +33,7 @@ namespace dcpp {
 
 class Semaphore
 {
-#ifdef _WIN32
+#if defined(_WIN32)
 public:
     Semaphore() throw() {
         h = CreateSemaphore(NULL, 0, MAXLONG, NULL);
@@ -52,7 +52,7 @@ public:
 
 private:
     HANDLE h;
-#elseif APPLE
+#elif defined(APPLE)
 public:
     Semaphore() throw() : count(0) { pthread_cond_init(&cond, NULL); }
     ~Semaphore() throw() { pthread_cond_destroy(&cond); }
