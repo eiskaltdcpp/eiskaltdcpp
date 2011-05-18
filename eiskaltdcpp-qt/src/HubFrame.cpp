@@ -3634,6 +3634,7 @@ void HubFrame::on(ClientListener::Failed, Client*, const string &msg) throw(){
 
     emit coreStatusMsg(status);
     emit coreFailed();
+    emit coreHubUpdated();
 }
 
 void HubFrame::on(GetPassword, Client*) throw(){

@@ -1717,17 +1717,21 @@ void MainWindow::redrawToolPanel(){
     QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
     QHash<QAction*, ArenaWidget*>::iterator end = menuWidgetsHash.end();
 
+    ArenaWidget *awgt = NULL;
     PMWindow *pm = NULL;
     bool has_unread = false;
 
-    for(; it != end; ++it){//also redraw all widget menu items
+    for(; it != end; ++it){//also redraw all widget menu items and change window title if needed
         it.key()->setText(it.value()->getArenaShortTitle());
         it.key()->setIcon(it.value()->getPixmap());
 
-        pm = qobject_cast<PMWindow *>(arenaMap[it.value()]);
+        awgt = qobject_cast<ArenaWidget*> (arenaMap[it.value()]);
+        pm = qobject_cast<PMWindow *>(awgt->getWidget());
 
         if (pm && pm->hasNewMessages())
             has_unread = true;
+        if (arena->widget() && arena->widget() == awgt->getWidget())
+            setWindowTitle(awgt->getArenaTitle() + " :: " + EISKALTDCPP_WND_TITLE);
     }
 
     if (!has_unread)
