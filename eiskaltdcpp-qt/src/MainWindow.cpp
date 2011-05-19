@@ -1725,13 +1725,13 @@ void MainWindow::redrawToolPanel(){
         it.key()->setText(it.value()->getArenaShortTitle());
         it.key()->setIcon(it.value()->getPixmap());
 
-        awgt = qobject_cast<ArenaWidget*> (arenaMap[it.value()]);
-        pm = qobject_cast<PMWindow *>(awgt->getWidget());
-
+        pm = qobject_cast<PMWindow *>(arenaMap[it.value()]);
         if (pm && pm->hasNewMessages())
             has_unread = true;
-        if (arena->widget() && arena->widget() == awgt->getWidget())
-            setWindowTitle(awgt->getArenaTitle() + " :: " + EISKALTDCPP_WND_TITLE);
+
+        awgt = qobject_cast<ArenaWidget*> (arenaMap[it.value()]);
+        if (awgt && arena->widget() && arena->widget() == awgt->getWidget())
+            setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
     }
 
     if (!has_unread)
