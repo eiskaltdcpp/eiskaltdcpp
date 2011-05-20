@@ -560,7 +560,6 @@ void ClientManager::search(int aSizeMode, int64_t aSize, int aFileType, const st
         dht::DHT::getInstance()->findFile(aString);
 #endif
     Lock l(cs);
-
     for(Client::Iter i = clients.begin(); i != clients.end(); ++i) {
         if((*i)->isConnected()) {
             (*i)->search(aSizeMode, aSize, aFileType, aString, aToken, StringList() /*ExtList*/, aOwner);

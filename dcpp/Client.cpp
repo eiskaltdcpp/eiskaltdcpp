@@ -272,7 +272,6 @@ uint64_t Client::search(int aSizeMode, int64_t aSize, int aFileType, const strin
 
         return searchQueue.getSearchTime(owner) - GET_TICK();
     }
-
     search(aSizeMode, aSize, aFileType , aString, aToken, aExtList);
     return 0;
 
@@ -287,6 +286,15 @@ void Client::on(Second, uint64_t aTick) throw() {
     if(state == STATE_DISCONNECTED && getAutoReconnect() && (aTick > (getLastActivity() + getReconnDelay() * 1000)) ) {
         // Try to reconnect...
         connect();
+    }
+    if(!searchQueue.interval) return;
+
+    if(isConnected()){
+        SearchCore s;
+
+        if(searchQueue.pop(s)){
+            search(s.sizeType, s.size, s.fileType , s.query, s.token, s.exts);
+        }
     }
 }
 #ifdef LUA_SCRIPT
