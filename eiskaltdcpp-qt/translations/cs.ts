@@ -673,7 +673,7 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="177"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished">Soubor už existuje: %1</translation>
+        <translation>Soubor už existuje: %1</translation>
     </message>
 </context>
 <context>
@@ -1143,7 +1143,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="128"/>
         <source>Search text</source>
-        <translation type="unfinished"></translation>
+        <translation>Hledat text</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="251"/>
@@ -2056,7 +2056,7 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="659"/>
         <source>Ctrl+Shift+U</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+U</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="910"/>
@@ -2127,7 +2127,7 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1164"/>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Uživatelé ve frontě</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1203"/>
@@ -2172,7 +2172,7 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1560"/>
         <source>Delayed</source>
-        <translation type="unfinished"></translation>
+        <translation>Opožděno</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1575"/>
@@ -2709,12 +2709,12 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="75"/>
         <source>Grant slot</source>
-        <translation type="unfinished">Přidělit slot</translation>
+        <translation>Přidělit slot</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.h" line="104"/>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Uživatelé ve frontě</translation>
     </message>
 </context>
 <context>
@@ -2722,12 +2722,12 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="123"/>
         <source>User</source>
-        <translation type="unfinished">Uživatel</translation>
+        <translation>Uživatel</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="123"/>
         <source>File</source>
-        <translation type="unfinished">Soubor</translation>
+        <translation>Soubor</translation>
     </message>
 </context>
 <context>
@@ -3727,7 +3727,7 @@ Staženo: %3 Odesláno: %4</translation>
         <location filename="../src/SideBar.cpp" line="47"/>
         <location filename="../src/SideBar.cpp" line="378"/>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Uživatelé ve frontě</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="48"/>
@@ -5099,7 +5099,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     <message>
         <location filename="../ui/UIQueuedUsers.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
 </context>
 <context>
@@ -5303,12 +5303,12 @@ další nastavení ve firewallu, aby povolil EiskaltDC++ připojení k Internetu
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="235"/>
         <source>Bind to address</source>
-        <translation type="unfinished"></translation>
+        <translation>Bind to address</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="245"/>
         <source>Bind to interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Bind to interface</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="457"/>
@@ -6373,7 +6373,11 @@ alternativ</translation>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
@@ -6772,7 +6776,7 @@ pokud je váš systém při hashování zpomalený.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="416"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
-        <translation type="unfinished"></translation>
+        <translation>Prodleva hashovaní při startu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="451"/>
