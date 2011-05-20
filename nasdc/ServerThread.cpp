@@ -518,7 +518,7 @@ string ServerThread::revertSeparator(const string &ps) {
     for (string::iterator it = str.begin(); it != str.end(); ++it) {
 #ifdef _WIN32
         if ((*it) == '/')
-            (*it) = '\\'
+            (*it) = '\\';
 #else
         if ((*it) == '\\')
             (*it) = '/';
