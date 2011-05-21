@@ -21,6 +21,7 @@
 
 #include "privatemessage.hh"
 
+#include <dcpp/version.h>
 #include <dcpp/ClientManager.h>
 #include <dcpp/FavoriteManager.h>
 #include "settingsmanager.hh"
@@ -98,6 +99,12 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
 
     g_object_set_data_full(G_OBJECT(getWidget("rmfuCommandItem")), "command", g_strdup("/rmfu"), g_free);
     g_signal_connect(getWidget("rmfuCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
+
+    g_object_set_data_full(G_OBJECT(getWidget("versionCommandItem")), "command", g_strdup("/version"), g_free);
+    g_signal_connect(getWidget("versionCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
+
+    g_object_set_data_full(G_OBJECT(getWidget("ratioCommandItem")), "command", g_strdup("/ratio"), g_free);
+    g_signal_connect(getWidget("ratioCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
 
     g_object_set_data_full(G_OBJECT(getWidget("helpCommandItem")), "command", g_strdup("/help"), g_free);
     g_signal_connect(getWidget("helpCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
@@ -926,6 +933,47 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 pm->addStatusMessage_gui(_("Emoticons mode on"), Msg::SYSTEM);
             }
         }
+        else if (command == "version")
+        {
+            pm->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE)+" "+string(EISKALTDCPP_VERSION)+" ("+string(EISKALTDCPP_VERSION_SFX)+"), "+_("project home: ")+"http://code.google.com/p/eiskaltdc/", Msg::SYSTEM);
+        }
+        else if (command == "ratio")
+        {
+            WulforManager::get()->getMainWindow()->saveStatistics();
+
+            std::istringstream down_s, up_s;
+            double ratio=0, down=0, up=0;
+
+            up_s.str(WGETS("app-stat-total-up"));
+            down_s.str(WGETS("app-stat-total-down"));
+            up_s >> up;
+            down_s >> down;
+
+            if (down > 0)
+                ratio = up / down;
+            else
+                ratio = 0;
+
+            stringstream ratio_s;
+            ratio_s << ratio;
+
+            string uploaded = Util::formatBytes(up);
+            string downloaded = Util::formatBytes(down);
+
+            string line = str(dcpp_fmt(gettext("ratio: %1% (uploads: %2%, downloads: %3% )"))
+                                                % ratio_s.str()
+                                                % uploaded
+                                                % downloaded);
+
+             if (!param.compare("show")){
+                 typedef Func1<PrivateMessage, string> F1;
+                 F1 *func = new F1(pm, &PrivateMessage::sendMessage_client, line);
+                 WulforManager::get()->dispatchClientFunc(func);
+             }
+             else{
+                 pm->addStatusMessage_gui(line, Msg::SYSTEM);
+             }
+        }
         else if (command == "ws" && !param.empty())
         {
             string msg = WSCMD(param);
@@ -939,15 +987,17 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
         else if (command == "help")
         {
             pm->addLine_gui(Msg::SYSTEM, string(_("*** Available commands:")) + "\n\n" +
-            "/away <message>\t\t - " + _("Away mode message on/off") + "\n" +
+            "/away <message>\t - " + _("Away mode message on/off") + "\n" +
             "/back\t\t\t\t - " + _("Away mode off") + "\n" +
             "/clear\t\t\t\t - " + _("Clear PM") + "\n" +
             "/close\t\t\t\t - " + _("Close PM") + "\n" +
-            "/fuser, /fu\t\t\t\t - " + _("Add user to favorites list") + "\n" +
+            "/fuser, /fu\t\t\t - " + _("Add user to favorites list") + "\n" +
             "/removefu, /rmfu\t\t - " + _("Remove user favorite") + "\n" +
             "/getlist\t\t\t\t - " + _("Get file list") + "\n" +
             "/grant\t\t\t\t - " + _("Grant extra slot") + "\n" +
-            "/emoticons, /emot\t\t - " + _("Emoticons on/off") + "\n" +
+            "/emoticons, /emot\t - " + _("Emoticons on/off") + "\n" +
+            "/version\t\t\t\t - " + _("Show version") + "\n" +
+            "/ratio [show]\t\t\t - " + _("Show ratio [send in chat]") + "\n" +
             "/help\t\t\t\t - " + _("Show help") + "\n");
         }
         else

@@ -328,6 +328,12 @@ MainWindow::MainWindow():
         ScriptManager::getInstance()->EvaluateFile(defaultluascript);
     }
 #endif
+
+    std::istringstream down_s, up_s;
+    up_s.str(WGETS("app-stat-total-up"));
+    down_s.str(WGETS("app-stat-total-down"));
+    up_s >> totalUp;
+    down_s >> totalDown;
 }
 
 MainWindow::~MainWindow()
@@ -338,6 +344,8 @@ MainWindow::~MainWindow()
 
     GList *list = (GList *)g_object_get_data(G_OBJECT(getWidget("book")), "page-rotation-list");
     g_list_free(list);
+
+    saveStatistics();
 
     // Save window state and position
     gint posX, posY, sizeX, sizeY, transferPanePosition;
@@ -374,6 +382,15 @@ MainWindow::~MainWindow()
     Sound::stop();
     Emoticons::stop();
     Notify::stop();
+}
+
+void MainWindow::saveStatistics()
+{
+    stringstream up_s, down_s;
+    up_s << totalUp;
+    down_s << totalDown;
+    WSET("app-stat-total-up", up_s.str());
+    WSET("app-stat-total-down", down_s.str());
 }
 
 GtkWidget *MainWindow::getContainer()
@@ -2189,13 +2206,13 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) throw()
         return;
 
     int64_t diff = (int64_t)((lastUpdate == 0) ? ticks - 1000 : ticks - lastUpdate);
+    int64_t downDiff = Socket::getTotalDown() - lastDown;
+    int64_t upDiff = Socket::getTotalUp() - lastUp;
     int64_t downBytes = 0;
     int64_t upBytes = 0;
 
     if (diff > 0)
     {
-        int64_t downDiff = Socket::getTotalDown() - lastDown;
-        int64_t upDiff = Socket::getTotalUp() - lastUp;
         downBytes = (downDiff * 1000) / diff;
         upBytes = (upDiff * 1000) / diff;
     }
@@ -2205,6 +2222,9 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) throw()
     string downloaded = Util::formatBytes(Socket::getTotalDown());
     string uploadSpeed = Util::formatBytes(upBytes) + "/" + _("s");
     string uploaded = Util::formatBytes(Socket::getTotalUp());
+
+    totalDown = totalDown + downDiff;
+    totalUp = totalUp + upDiff;
 
     lastUpdate = ticks;
     lastUp = Socket::getTotalUp();

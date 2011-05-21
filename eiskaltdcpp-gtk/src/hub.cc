@@ -180,6 +180,9 @@ Hub::Hub(const string &address, const string &encoding):
     g_object_set_data_full(G_OBJECT(getWidget("versionCommandItem")), "command", g_strdup("/version"), g_free);
     g_signal_connect(getWidget("versionCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
 
+    g_object_set_data_full(G_OBJECT(getWidget("ratioCommandItem")), "command", g_strdup("/ratio"), g_free);
+    g_signal_connect(getWidget("ratioCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
+
     // chat commands button
     g_signal_connect(getWidget("chatCommandsButton"), "button-release-event", G_CALLBACK(onChatCommandButtonRelease_gui), (gpointer)this);
 
@@ -1920,19 +1923,55 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         {
             hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE)+" "+string(EISKALTDCPP_VERSION)+" ("+string(EISKALTDCPP_VERSION_SFX)+"), "+_("project home: ")+"http://code.google.com/p/eiskaltdc/", Msg::SYSTEM, Sound::NONE);
         }
+        else if (command == "ratio")
+        {
+            WulforManager::get()->getMainWindow()->saveStatistics();
+
+            std::istringstream down_s, up_s;
+            double ratio=0, down=0, up=0;
+
+            up_s.str(WGETS("app-stat-total-up"));
+            down_s.str(WGETS("app-stat-total-down"));
+            up_s >> up;
+            down_s >> down;
+
+            if (down > 0)
+                ratio = up / down;
+            else
+                ratio = 0;
+
+            stringstream ratio_s;
+            ratio_s << ratio;
+
+            string uploaded = Util::formatBytes(up);
+            string downloaded = Util::formatBytes(down);
+
+            string line = str(dcpp_fmt(gettext("ratio: %1% (uploads: %2%, downloads: %3% )"))
+                                                % ratio_s.str()
+                                                % uploaded
+                                                % downloaded);
+
+             if (!param.compare("show")){
+                 F2 *func = new F2( hub, &Hub::sendMessage_client, line, false);
+                 WulforManager::get()->dispatchClientFunc(func);
+             }
+             else{
+                 hub->addStatusMessage_gui(line, Msg::SYSTEM, Sound::NONE);
+             }
+        }
         else if (command == "help")
         {
             hub->addMessage_gui("", string(_("*** Available commands:")) + "\n\n" +
-            "/away <message>\t\t - " + _("Away mode message on/off") + "\n" +
+            "/away <message>\t - " + _("Away mode message on/off") + "\n" +
             "/back\t\t\t\t - " + _("Away mode off") + "\n" +
             "/clear\t\t\t\t - " + _("Clear chat") + "\n" +
             "/close\t\t\t\t - " + _("Close chat") + "\n" +
-            "/favorite, /fav\t\t\t - " + _("Add a hub to favorites") + "\n" +
+            "/favorite, /fav\t\t - " + _("Add a hub to favorites") + "\n" +
             "/fuser, /fu <nick>\t\t - " + _("Add user to favorites list") + "\n" +
-            "/removefu, /rmfu <nick>\t - " + _("Remove user favorite") + "\n" +
+            "/removefu, /rmfu <nick> - " + _("Remove user favorite") + "\n" +
             "/listfu, /lsfu\t\t\t - " + _("Show favorites list") + "\n" +
-            "/getlist <nick>\t\t\t - " + _("Get file list") + "\n" +
-            "/grant <nick>\t\t\t - " + _("Grant extra slot") + "\n" +
+            "/getlist <nick>\t\t - " + _("Get file list") + "\n" +
+            "/grant <nick>\t\t - " + _("Grant extra slot") + "\n" +
             "/help\t\t\t\t - " + _("Show help") + "\n" +
             "/join <address>\t\t - " + _("Connect to the hub") + "\n" +
             "/me <message>\t\t - " + _("Say a third person") + "\n" +
@@ -1940,19 +1979,20 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/rebuild\t\t\t\t - " + _("Rebuild hash") + "\n" +
             "/refresh\t\t\t\t - " + _("Update own file list") + "\n" +
             "/userlist\t\t\t\t - " + _("User list show/hide") + "\n" +
-            "/limitimg <n>, limg <n>\t - " + _("Download limit image: 0 - disable, n < 0 - unlimit, empty - info") + "\n" +
+            "/limitimg <n>, limg <n> - " + _("Download limit image: 0 - disable, n < 0 - unlimit, empty - info") + "\n" +
             "/version\t\t\t\t - " + _("Show version") + "\n" +
-            "/emoticons, /emot\t\t - " + _("Emoticons on/off") + "\n" +
+            "/ratio [show]\t\t\t - " + _("Show ratio [send in chat]") + "\n" +
+            "/emoticons, /emot\t - " + _("Emoticons on/off") + "\n" +
 #ifdef LUA_SCRIPT
-            "/luafile <file>\t\t\t - " + _("Load Lua file") + "\n" +
-            "/lua <chunk>\t\t\t\t -  " + _("Execute Lua Chunk") + "\n"+
+            "/luafile <file>\t\t - " + _("Load Lua file") + "\n" +
+            "/lua <chunk>\t\t\t -  " + _("Execute Lua Chunk") + "\n"+
 #endif
             "/sh\t\t\t\t\t - " +  _("Execute code (bash)") +"\n"+
-            "/alias list\t\t\t\t - " + _("Alias List")+ "\n"+
-            "/alias purge A\t\t\t - "+ _("Alias Remove A")+"\n"+
-            "/alias A::uname -a\t\t - " +  _("Alias add uname -a as A")+"\n" +
+            "/alias list\t\t\t - " + _("Alias List")+ "\n"+
+            "/alias purge A\t\t - "+ _("Alias Remove A")+"\n"+
+            "/alias A::uname -a\t - " +  _("Alias add uname -a as A")+"\n" +
             "/A\t\t\t\t\t - " + _("Alias A executing")+"\n" +
-            "/ip on/off\t\t\t\t - " + _("Ipfilter on/off")+ "\n" +
+            "/ip on/off\t\t\t - " + _("Ipfilter on/off")+ "\n" +
             "/ip list\t\t\t\t - " + _("Show ipfilter rules list") + "\n" +
             "/ip up/down\t\t\t - " + _("Move rule up/down") + "\n" +
             "/ip purge 192.168.1.0/23;192.168.6.0/24 - " + _("Remove rules from list") + "\n" +
@@ -1983,12 +2023,12 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 WulforManager::get()->dispatchClientFunc(func);
             }
         }
-        else if (command == "me")
+        else if (command == "me" && !param.empty())
         {
             func2 = new F2(hub, &Hub::sendMessage_client, param, true);
             WulforManager::get()->dispatchClientFunc(func2);
         }
-        else if (command == "pm")
+        else if (command == "pm" && !param.empty())
         {
             if (hub->userMap.find(param) != hub->userMap.end())
                 WulforManager::get()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN, hub->userMap[param], hub->client->getHubUrl());
@@ -2010,7 +2050,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             else
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), TRUE);
         }
-        else if (command == "sh")
+        else if (command == "sh" && !param.empty())
         {
             FILE *pipe = popen( param.c_str(), "r" );
             gchar *command_res;
@@ -2027,10 +2067,10 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             pclose( pipe );
         }
 #ifdef LUA_SCRIPT
-        else if (command == "lua" ) {
+        else if (command == "lua" && !param.empty()) {
             ScriptManager::getInstance()->EvaluateChunk(Text::fromT(param));
         }
-        else if( command == "luafile") {
+        else if( command == "luafile" && !param.empty()) {
             ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
         }
         else if (script_ret)

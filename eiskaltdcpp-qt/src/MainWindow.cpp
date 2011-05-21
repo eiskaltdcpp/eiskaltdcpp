@@ -525,10 +525,15 @@ void MainWindow::saveSettings(){
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
     WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
-    WSSET(WS_APP_TOTAL_DOWN, QString().setNum(totalDown));
-    WSSET(WS_APP_TOTAL_UP, QString().setNum(totalUp));
+
+    saveStatistics();
 
     stateIsSaved = true;
+}
+
+void MainWindow::saveStatistics(){
+    WSSET(WS_APP_TOTAL_DOWN, QString().setNum(totalDown));
+    WSSET(WS_APP_TOTAL_UP, QString().setNum(totalUp));
 }
 
 void MainWindow::initActions(){
