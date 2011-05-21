@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-04-24 17:48+0300\n"
+"POT-Creation-Date: 2011-05-22 01:16+0300\n"
 "PO-Revision-Date: 2011-01-09 00:17+0100\n"
 "Last-Translator: sL1pKn07 <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -20,15 +20,15 @@ msgstr ""
 "X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../FavoriteManager.cpp:429
+#: ../FavoriteManager.cpp:430
 msgid "Kick user(s)"
 msgstr "Expulsar Usuario(s)"
 
-#: ../FavoriteManager.cpp:433
+#: ../FavoriteManager.cpp:434
 msgid "Redirect user(s)"
 msgstr "Redireccionar usuario(s)"
 
-#: ../FavoriteManager.cpp:488
+#: ../FavoriteManager.cpp:490
 msgid "Auto-connect group (converted)"
 msgstr "Auto-conectar grupo (convertido)"
 
@@ -61,7 +61,7 @@ msgstr ""
 "No se ha establecido conexión con el servidor socks (¿usuario / contraseña "
 "errónea?)"
 
-#: ../Socket.cpp:463
+#: ../Socket.cpp:461
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -97,12 +97,12 @@ msgstr "Datos inválidos"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Datos no-UTF8 en la conexión ADC"
 
-#: ../ConnectivityManager.cpp:76
+#: ../ConnectivityManager.cpp:78
 #, fuzzy
 msgid "Determining the best connectivity settings..."
 msgstr "Determinando tipo de conexión..."
 
-#: ../ConnectivityManager.cpp:81
+#: ../ConnectivityManager.cpp:83
 #, fuzzy
 msgid ""
 "Unable to open %1% port(s); connectivity settings must be configured manually"
@@ -110,13 +110,13 @@ msgstr ""
 "No se puede habilitar e puerto(s) %1%. Debería configurar su conexión "
 "manualmente"
 
-#: ../ConnectivityManager.cpp:92
+#: ../ConnectivityManager.cpp:94
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 "IP publica detectada, Seleccionando modo activo con la conexión directa"
 
-#: ../ConnectivityManager.cpp:99
+#: ../ConnectivityManager.cpp:101
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -124,7 +124,7 @@ msgstr ""
 "Detectado posible red local con NAT, probando los puertos con el mapa, "
 "usando UPnP..."
 
-#: ../ConnectivityManager.cpp:127
+#: ../ConnectivityManager.cpp:129
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -132,29 +132,34 @@ msgstr ""
 "La configuración automática para el modo activo a fallado. Necesita "
 "configurar su conexión manualmente para una mejor conectividad"
 
-#: ../ConnectivityManager.cpp:139
+#: ../ConnectivityManager.cpp:141
 #, fuzzy
 msgid "Transfer (TCP)"
 msgstr "Puerto de Transferencia (%1% TCP)"
 
-#: ../ConnectivityManager.cpp:145
+#: ../ConnectivityManager.cpp:147
 #, fuzzy
 msgid "Search (UDP)"
 msgstr "Puerto de búsqueda (1%% UDP)"
 
-#: ../ConnectivityManager.cpp:156
+#: ../ConnectivityManager.cpp:153
+#, fuzzy
+msgid "DHT (UDP)"
+msgstr "Puerto DHT (%1% UDP)"
+
+#: ../ConnectivityManager.cpp:168
 msgid "Connectivity: "
 msgstr "Conectividad: "
 
-#: ../UploadManager.cpp:238
+#: ../UploadManager.cpp:239
 msgid "Unable to send file %1%: %2%"
 msgstr "Imposible enviar archivo  %1%: %2%"
 
-#: ../UploadManager.cpp:516
+#: ../UploadManager.cpp:517
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Bloqueada conexión de entrada a "
 
-#: ../UploadManager.cpp:579
+#: ../UploadManager.cpp:580
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Usuario desconectado ha dejado el hub: %1%"
 
@@ -162,27 +167,43 @@ msgstr "Usuario desconectado ha dejado el hub: %1%"
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:505
+#: ../SettingsManager.cpp:509
 msgid "Invalid search type name"
 msgstr "Nombre del tipo de búsqueda invalida"
 
-#: ../SettingsManager.cpp:509 ../SettingsManager.cpp:531
+#: ../SettingsManager.cpp:513 ../SettingsManager.cpp:535
 msgid "This search type already exists"
 msgstr "Este tipo de búsquedas ya existe"
 
-#: ../SettingsManager.cpp:563
+#: ../SettingsManager.cpp:567
 msgid "No such search type"
 msgstr "Tipo de búsqueda no encontrada"
+
+#: ../SettingsManager.cpp:602
+msgid "Error: setting not found!"
+msgstr ""
+
+#: ../SettingsManager.cpp:603
+msgid "Change core setting "
+msgstr ""
+
+#: ../SettingsManager.cpp:603
+msgid " to "
+msgstr ""
+
+#: ../SettingsManager.cpp:605
+msgid "Error: params have been not 2!"
+msgstr ""
 
 #: ../NmdcHub.cpp:288
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nick desconocido)"
 
-#: ../NmdcHub.cpp:597
+#: ../NmdcHub.cpp:600
 msgid "Hub topic:"
 msgstr "Tópic del Hub :"
 
-#: ../NmdcHub.cpp:939
+#: ../NmdcHub.cpp:942
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -191,24 +212,24 @@ msgstr ""
 "favor, inste al dueño del hub que arregle esto"
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:267 ../SearchManager.cpp:421 ../SearchManager.cpp:423
-#: ../QueueManager.cpp:2162 ../QueueManager.cpp:2168 ../QueueManager.cpp:2174
+#: ../SearchManager.cpp:280 ../SearchManager.cpp:367 ../SearchManager.cpp:369
+#: ../QueueManager.cpp:2164 ../QueueManager.cpp:2170 ../QueueManager.cpp:2176
 msgid "Offline"
 msgstr "Desconectado"
 
-#: ../AdcHub.cpp:147
+#: ../AdcHub.cpp:148
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) tiene el mismo CID {%3%} como  %4% (%5%), ignorando"
 
-#: ../AdcHub.cpp:184 ../Transfer.cpp:92 ../QueueManager.cpp:2191
+#: ../AdcHub.cpp:185 ../Transfer.cpp:92 ../QueueManager.cpp:2193
 msgid "%1%/s"
 msgstr "%1%/s"
 
-#: ../AdcHub.cpp:219
+#: ../AdcHub.cpp:220
 msgid "Failed to negotiate base protocol"
 msgstr "No se ha podido negociar el protocolo base"
 
-#: ../AdcHub.cpp:225
+#: ../AdcHub.cpp:226
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -216,19 +237,19 @@ msgstr ""
 "El Hub probablemente utiliza una versión antigua de ADC, por favor, Insta al "
 "administrador que lo actualice"
 
-#: ../AdcHub.cpp:296
+#: ../AdcHub.cpp:297
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1% ha sido expulsado de %2%: %3%"
 
-#: ../AdcHub.cpp:299
+#: ../AdcHub.cpp:300
 msgid "%1% was kicked: %2%"
 msgstr "%1% ha sido expulsado: %2%"
 
-#: ../AdcHub.cpp:671
+#: ../AdcHub.cpp:672
 msgid "Not listening for connections - please restart %1%"
 msgstr "No escuchando conexiones - por favor reinicie %1%"
 
-#: ../HttpConnection.cpp:158
+#: ../HttpConnection.cpp:159
 msgid "Endless redirection loop (%1%)"
 msgstr ""
 
@@ -449,7 +470,7 @@ msgstr "Refresco de la lista Iniciada"
 msgid "File list refresh finished"
 msgstr "Refresco de la lista Terminada"
 
-#: ../ShareManager.cpp:947
+#: ../ShareManager.cpp:948
 msgid "File list %1% generated"
 msgstr "Lista de ficheros %1% generada"
 
@@ -519,27 +540,27 @@ msgstr "SSL Error: %1% (%2%, %3%)"
 msgid "IPFilter: Blocked outgoing connection to "
 msgstr "IPFilter: Bloqueada conexión de salida a "
 
-#: ../DownloadManager.cpp:228
+#: ../DownloadManager.cpp:230
 msgid "Invalid size"
 msgstr "Tamaño no válido"
 
-#: ../DownloadManager.cpp:233
+#: ../DownloadManager.cpp:235
 msgid "Response does not match request"
 msgstr "La estructura del árbol TTH no es correcta"
 
-#: ../DownloadManager.cpp:240
+#: ../DownloadManager.cpp:242
 msgid "Could not open target file: %1%"
 msgstr "No se puede abrir el archivo de destino: %1%"
 
-#: ../DownloadManager.cpp:319
+#: ../DownloadManager.cpp:321
 msgid "Full tree does not match TTH root"
 msgstr "La estructura del árbol TTH no es correcta"
 
-#: ../DownloadManager.cpp:383
+#: ../DownloadManager.cpp:386
 msgid "No slots available"
 msgstr "Slots no Disponibles"
 
-#: ../DownloadManager.cpp:494
+#: ../DownloadManager.cpp:497
 msgid "%1%: File not available"
 msgstr "%1%: Archivo no disponible"
 
@@ -595,11 +616,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "Imagen CD"
 
-#: ../SearchManager.cpp:157
+#: ../SearchManager.cpp:152
 msgid "Search enabled again"
 msgstr "Búsqueda habilitada nuevamente"
 
-#: ../SearchManager.cpp:165
+#: ../SearchManager.cpp:160
 msgid "Search disabled: %1%"
 msgstr "Búsqueda desactivada: %1%"
 
@@ -607,43 +628,43 @@ msgstr "Búsqueda desactivada: %1%"
 msgid "No needed part"
 msgstr "No se necesitan partes"
 
-#: ../QueueManager.cpp:629
+#: ../QueueManager.cpp:631
 msgid "Searching TTH alternates for: %1%"
 msgstr "Buscando alternativas TTH para: %1%"
 
-#: ../QueueManager.cpp:680 ../QueueManager.cpp:743
+#: ../QueueManager.cpp:682 ../QueueManager.cpp:745
 msgid "A file with the same hash already exists in your share"
 msgstr "Un archivo con el mismo TTH ya está compartido"
 
-#: ../QueueManager.cpp:706 ../QueueManager.cpp:785
+#: ../QueueManager.cpp:708 ../QueueManager.cpp:787
 msgid "This file is already queued"
 msgstr "Este archivo ya está en la Cola de Descarga"
 
-#: ../QueueManager.cpp:721 ../QueueManager.cpp:797
+#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
 msgid "A file with a different size already exists in the queue"
 msgstr "Un archivo de distinto tamaño ya existe en su cola de descarga"
 
-#: ../QueueManager.cpp:725
+#: ../QueueManager.cpp:727
 msgid "A file with different tth root already exists in the queue"
 msgstr "Un archivo de distinto TTH ya existe en su cola de descarga"
 
-#: ../QueueManager.cpp:737
+#: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
 msgstr "¡Intentas descargar de ti mismo!"
 
-#: ../QueueManager.cpp:800
+#: ../QueueManager.cpp:802
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Un archivo de distinta raíz TTH ya existe en su cola de descarga"
 
-#: ../QueueManager.cpp:804
+#: ../QueueManager.cpp:806
 msgid "This file has already finished downloading"
 msgstr "Este archivo ya ha acabado de descargarse"
 
-#: ../QueueManager.cpp:841 ../QueueManager.cpp:850
+#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
 msgstr "Nombre del Archivo Destino demasiado largo"
 
-#: ../QueueManager.cpp:846 ../QueueManager.cpp:854
+#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -651,39 +672,39 @@ msgstr ""
 "Archivo de destino NO válido (carpeta no valida, chequear carpeta de "
 "descargas)"
 
-#: ../QueueManager.cpp:862
+#: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
 msgstr "Ya existe un archivo igual en el directorio de destino"
 
-#: ../QueueManager.cpp:875 ../QueueManager.cpp:879
+#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
 msgstr "Fuente Duplicada: %1%"
 
-#: ../QueueManager.cpp:1148
+#: ../QueueManager.cpp:1150
 msgid "Target removed"
 msgstr "Archivo destino eliminado"
 
-#: ../QueueManager.cpp:1156
+#: ../QueueManager.cpp:1158
 msgid "Target file is missing or wrong size"
 msgstr "El archivo no existe o tiene un tamaño incorrecto"
 
-#: ../QueueManager.cpp:1205
+#: ../QueueManager.cpp:1207
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "No se puede mover %1% a %2% (%3%); renombrando a %4%"
 
-#: ../QueueManager.cpp:1208
+#: ../QueueManager.cpp:1210
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr "No se puede mover %1% a %2% (%3%) no se puede renombrar a %4% (%5%)"
 
-#: ../QueueManager.cpp:1406
+#: ../QueueManager.cpp:1408
 msgid "Unable to open filelist: %1%"
 msgstr "Imposible abrir Lista de Archivos: %1%"
 
-#: ../QueueManager.cpp:1429
+#: ../QueueManager.cpp:1431
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Emparejado %2% archivo"
 
-#: ../QueueManager.cpp:2027 ../QueueManager.cpp:2036
+#: ../QueueManager.cpp:2029 ../QueueManager.cpp:2038
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Error de CRC32  (SFV-Check)"
 
