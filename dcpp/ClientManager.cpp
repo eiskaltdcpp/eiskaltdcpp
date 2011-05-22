@@ -767,11 +767,11 @@ void ClientManager::cancelSearch(void* aOwner) {
     }
 }
 
-/*OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const
+OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const
 {
         Lock l(cs);
 
-        OnlinePairC op = onlineUsers.equal_range(const_cast<CID*>(&cid));
+        OnlinePairC op = onlineUsers.equal_range(cid);
         for(OnlineIterC i = op.first; i != op.second; ++i) {
                 OnlineUser* ou = i->second;
 
@@ -784,7 +784,7 @@ void ClientManager::cancelSearch(void* aOwner) {
         }
 
         return NULL;
-}*/
+}
 
 #ifdef LUA_SCRIPT
 bool ClientManager::ucExecuteLua(const string& ucCommand, StringMap& params) throw() {
