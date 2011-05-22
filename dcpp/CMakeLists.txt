@@ -50,10 +50,6 @@ if (PERL_REGEX)
   set(PCRE ${PCRE_LIBRARIES})
 endif (PERL_REGEX)
 
-if (LUA_SCRIPT)
-    add_definitions ( -DLUA_SCRIPT )
-endif (LUA_SCRIPT)
-
 if (USE_IDNA)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS USE_IDNA APPEND)
 endif(USE_IDNA)

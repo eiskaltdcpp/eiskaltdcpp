@@ -75,7 +75,7 @@ set (SRCS
             src/PublicHubsList.cpp
             src/PublicHubModel.cpp
             src/QuickConnect.cpp
-	    src/QueuedUsers.cpp
+            src/QueuedUsers.cpp
             src/SearchBlacklist.cpp
             src/SearchBlacklistDialog.cpp
             src/SearchFrame.cpp
@@ -169,7 +169,7 @@ set (MOC_HDRS
             src/ShortcutEdit.h
             src/SideBar.h
             src/QuickConnect.h
-	    src/QueuedUsers.h
+            src/QueuedUsers.h
             src/SearchBlacklist.h
             src/SearchBlacklistDialog.h
             src/SearchFrame.h
@@ -213,7 +213,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIPublicHubs.ui
             ui/UIPublicHubsList.ui
             ui/UIQuickConnect.ui
-	    ui/UIQueuedUsers.ui
+            ui/UIQueuedUsers.ui
             ui/UISearchBlacklist.ui
             ui/UISearchFrame.ui
             ui/UISettings.ui
@@ -345,7 +345,6 @@ endif (USE_ASPELL)
 if (LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
   list (APPEND LIBS ${LUA_LIBRARIES})
-  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/MainWindow.cpp ${PROJECT_SOURCE_DIR}/src/HubFrame.cpp PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
 endif (LUA_SCRIPT)
 
 if (USE_MINIUPNP)

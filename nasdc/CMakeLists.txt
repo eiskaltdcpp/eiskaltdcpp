@@ -32,7 +32,6 @@ if (WIN32)
 endif (WIN32)
 
 if (LUA_SCRIPT)
-  set_property(SOURCE ${PROJECT_SOURCE_DIR}/ServerThread.cpp PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
 endif (LUA_SCRIPT)
 

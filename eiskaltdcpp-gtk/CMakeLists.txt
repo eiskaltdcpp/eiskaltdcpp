@@ -34,7 +34,6 @@ list(APPEND LIBS
 if (LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
   list (APPEND LIBS ${LUA_LIBRARIES})
-  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/mainwindow.cc ${PROJECT_SOURCE_DIR}/src/hub.cc PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
 endif (LUA_SCRIPT)
 
 add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
