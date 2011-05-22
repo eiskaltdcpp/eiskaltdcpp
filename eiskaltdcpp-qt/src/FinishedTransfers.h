@@ -19,6 +19,8 @@
 #include <QDesktopServices>
 #include <QHeaderView>
 
+#include <boost/bind.hpp>
+
 #ifdef USE_QT_SQLITE
 #include <QtSql>
 #endif
@@ -37,6 +39,7 @@
 #include "WulforUtil.h"
 #include "FinishedTransfersModel.h"
 #include "MainWindow.h"
+#include "ShareBrowser.h"
 
 using namespace dcpp;
 
@@ -215,18 +218,30 @@ private:
 
         FinishedManager::getInstance()->unLockLists();
 
+        AsyncRunner *runner = new AsyncRunner(this);
+        boost::function<void()> f = boost::bind(&FinishedTransfers<isUpload>::loadListFromDB, this);
+
+        runner->setRunFunction(f);
+        connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
+
+        runner->start();
+    }
+
+    void loadListFromDB(){
 #ifdef USE_QT_SQLITE
+        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", (isUpload? "FinishedUploadsLoader" : "FinishedDownloadsLoader"));
+        db.setDatabaseName(db_file);
+
+        bool db_opened = db.open();
+
         if (!db_opened)
             return;
 
         QSqlQuery q(db);
 
         q.exec("SELECT * FROM files LIMIT 0, 500;"); // temporary limitation
-        // we must make simple history nagigation in this widget
-        // necessary buttons and counter:
-        // First Prev [num] Next Last
-        // <<    <    [num]    >    >>
-        // here [num] sets the number of showing strings
+
+        VarMap params;
 
         while (q.next()){
             int i = 0;
@@ -242,15 +257,12 @@ private:
             params["ELAP"]  = q.value(i++);
             params["FULL"]  = q.value(i++);
 
-            model->addFile(params);
+            emit coreAddedFile(params);
         }
 
+        params.clear();
+
         q.exec("SELECT * FROM users LIMIT 0, 500;");
-        // we must make simple history nagigation in this widget
-        // necessary buttons and counter:
-        // First Prev [num] Next Last
-        // <<    <    [num]    >    >>
-        // here [num] sets the number of showing strings
 
         while (q.next()){
             int i = 0;
@@ -264,8 +276,10 @@ private:
             params["ELAP"]  = q.value(i++);
             params["FULL"]  = q.value(i++);
 
-            model->addUser(params);
+            emit coreAddedUser(params);
         }
+
+        db.close();
 #endif
     }
 
