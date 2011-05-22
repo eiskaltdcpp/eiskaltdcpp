@@ -221,7 +221,7 @@ private:
 
         QSqlQuery q(db);
 
-        q.exec("SELECT * FROM files LIMIT 0, 1000;"); // temporary limitation
+        q.exec("SELECT * FROM files LIMIT 0, 500;"); // temporary limitation
         // we must make simple history nagigation in this widget
         // necessary buttons and counter:
         // First Prev [num] Next Last
@@ -245,7 +245,7 @@ private:
             model->addFile(params);
         }
 
-        q.exec("SELECT * FROM users LIMIT 0, 1000;");
+        q.exec("SELECT * FROM users LIMIT 0, 500;");
         // we must make simple history nagigation in this widget
         // necessary buttons and counter:
         // First Prev [num] Next Last

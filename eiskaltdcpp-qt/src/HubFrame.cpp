@@ -1640,6 +1640,8 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         WVSET("hubframe/chat-keywords", kwords);
     }
     else if (cmd == "/ratio"){
+        MainWindow::getInstance()->saveStatistics();
+        
         double ratio;
         double down = QString(WSGET(WS_APP_TOTAL_DOWN)).toDouble();
         double up = QString(WSGET(WS_APP_TOTAL_UP)).toDouble();

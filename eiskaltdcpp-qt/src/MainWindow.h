@@ -144,6 +144,9 @@ friend class dcpp::Singleton<MainWindow>;
         void reloadSomeSettings();
 
         /** */
+        void saveStatistics();
+
+        /** */
         void setUnload(bool b){ isUnload = b; }
 
         ArenaWidget *widgetForRole(ArenaWidget::Role) const;

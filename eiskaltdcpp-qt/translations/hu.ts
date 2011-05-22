@@ -2239,39 +2239,39 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Any</source>
-        <translation>Minden</translation>
+        <translation type="obsolete">Minden</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation>Hang</translation>
+        <translation type="obsolete">Hang</translation>
     </message>
     <message>
         <source>Compressed</source>
-        <translation>Tömörített</translation>
+        <translation type="obsolete">Tömörített</translation>
     </message>
     <message>
         <source>Document</source>
-        <translation>Dokumentum</translation>
+        <translation type="obsolete">Dokumentum</translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation>Futtatható</translation>
+        <translation type="obsolete">Futtatható</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Kép</translation>
+        <translation type="obsolete">Kép</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Videó</translation>
+        <translation type="obsolete">Videó</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation>Könyvtár</translation>
+        <translation type="obsolete">Könyvtár</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2399,7 +2399,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Searching too soon, next search in %1 second</source>
-        <translation>Túl gyakori keresés. a következő keresés %1 másodperc múlva lehetséges</translation>
+        <translation type="obsolete">Túl gyakori keresés. a következő keresés %1 másodperc múlva lehetséges</translation>
     </message>
     <message>
         <source>Search - %1</source>
@@ -2407,7 +2407,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Ready to search...</source>
-        <translation>Keresésre kész...</translation>
+        <translation type="obsolete">Keresésre kész...</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -2431,7 +2431,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>CD Image</source>
-        <translation>CD képfájl</translation>
+        <translation type="obsolete">CD képfájl</translation>
     </message>
     <message>
         <source>Blacklist</source>
@@ -3687,6 +3687,10 @@ p, li { white-space: pre-wrap; }
         <source>Mode</source>
         <translation>Mód</translation>
     </message>
+    <message>
+        <source>Minimum search interval</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -4381,6 +4385,14 @@ p, li { white-space: pre-wrap; }
         <source>Bind to interface</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enable DHT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DHT port</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -4750,6 +4762,22 @@ ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünete
     <message>
         <source>Segment size (in MB, 0 = auto segment size)</source>
         <translation>Fájl szegmens méret (MiB-ban, 0 = automatikus beállítás)</translation>
+    </message>
+    <message>
+        <source>Enable this option if you want to keep downloaded filelists 
+in the download queue after they have been finished.
+After downloaded the queue items will have &apos;Finished&apos; status
+and you can delete these finished entries anytime later.
+Note that if you physically move/delete your downloaded files from
+their target location, it won&apos;t result automatic deletion of
+the corresponding finished entries from the queue.
+If you disable this function, it won&apos;t remove existing finished items
+from the queue either, you must do that manually.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep downloaded files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

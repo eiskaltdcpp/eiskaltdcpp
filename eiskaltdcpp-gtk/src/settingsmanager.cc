@@ -284,6 +284,10 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("icon-hub-offline", "eiskaltdcpp-server-red"));
     //alias
     defaultString.insert(StringMap::value_type("custom-aliases", ""));
+    
+    //Statistics
+    defaultString.insert(StringMap::value_type("app-stat-total-up", "0"));
+    defaultString.insert(StringMap::value_type("app-stat-total-down", "0"));
 
     load();
 

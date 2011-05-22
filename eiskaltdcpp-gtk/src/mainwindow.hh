@@ -89,6 +89,9 @@ class MainWindow:
         // Client functions
         void openOwnList_client(bool useSetting);
         void updateFavoriteHubMenu_client(const dcpp::FavoriteHubEntryList &fh);
+        
+        // Other
+        void saveStatistics();
 
     private:
         typedef std::pair<std::string, std::string> ParamPair;
@@ -194,6 +197,7 @@ class MainWindow:
         Transfers* transfers;
         GtkStatusIcon *statusIcon;
         int64_t lastUpdate, lastUp, lastDown;
+        int64_t totalUp, totalDown; //Statistics
         bool minimized;
         dcpp::StringList EntryList;
         guint timer;
