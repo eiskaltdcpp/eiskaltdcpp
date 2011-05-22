@@ -20,6 +20,7 @@
  */
 
 #include "hub.hh"
+#include <sstream>
 #include <dcpp/AdcHub.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/HashManager.h>

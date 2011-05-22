@@ -21,6 +21,7 @@
 
 #include "privatemessage.hh"
 
+#include <sstream>
 #include <dcpp/version.h>
 #include <dcpp/ClientManager.h>
 #include <dcpp/FavoriteManager.h>
