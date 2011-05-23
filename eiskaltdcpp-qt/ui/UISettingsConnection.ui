@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>620</width>
-    <height>538</height>
+    <height>611</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -404,9 +404,6 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
              </item>
              <item>
               <widget class="QLineEdit" name="lineEdit_DYNDNS_SERVER"/>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEdit_DYNDNS_INDEX"/>
              </item>
             </layout>
            </widget>

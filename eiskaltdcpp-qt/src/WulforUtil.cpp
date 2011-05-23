@@ -76,18 +76,18 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
     qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
     qRegisterMetaType< QMap<QString,QString> >("QMap<QString,QString>");
 
-    if (WBGET(WB_APP_DYNDNS_ENABLED)) {
-        http = new QHttp(this);
-        connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
-        http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
-        slotHttpTimer();
+    //if (WBGET(WB_APP_DYNDNS_ENABLED)) {
+        //http = new QHttp(this);
+        //connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
+        //http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
+        //slotHttpTimer();
 
-        http_timer = new QTimer(this);
-        http_timer->setInterval(30*1000);
-        connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
+        //http_timer = new QTimer(this);
+        //http_timer->setInterval(30*1000);
+        //connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
 
-        http_timer->start();
-    }
+        //http_timer->start();
+    //}
     memset(userIconCache, 0, sizeof (userIconCache));
 
     userIcons = new QImage();
@@ -1123,7 +1123,7 @@ void WulforUtil::slotHttpDone(bool error){
     else
         internetIP = "";
 
-    if (!internetIP.isEmpty()){
+    if (!internetIP.isEmpty()) {
         SettingsManager::getInstance()->set(SettingsManager::INTERNETIP, internetIP.toStdString());
         Client::List clients = ClientManager::getInstance()->getClients();
 

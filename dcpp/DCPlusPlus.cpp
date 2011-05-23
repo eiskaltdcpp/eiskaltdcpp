@@ -44,6 +44,7 @@
 #include "UPnPManager.h"
 #include "ConnectivityManager.h"
 #include "extra/ipfilter.h"
+#include "extra/dyndns.h"
 #ifdef WITH_DHT
 #include "dht/DHT.h"
 #endif
@@ -108,6 +109,7 @@ void startup(void (*f)(void*, const string&), void* p) {
         ipfilter::newInstance();
         ipfilter::getInstance()->load();
     }
+    DynDNS::newInstance();
 
     Util::setLang(SETTING(LANGUAGE));
 
@@ -137,7 +139,7 @@ void startup(void (*f)(void*, const string&), void* p) {
 }
 
 void shutdown() {
-
+    DynDNS::deleteInstance();
 #ifndef _WIN32 //*nix system
     ThrottleManager::getInstance()->shutdown();
 #endif

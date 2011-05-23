@@ -52,6 +52,7 @@ const string SettingsManager::settingTags[] =
     "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
     "Language", "SkipListShare", "InternetIp", "BindIfaceName", "DHTKey",
+    "DynDNSServer",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow",
@@ -294,7 +295,8 @@ SettingsManager::SettingsManager()
     setDefault(BIND_IFACE, false);
     setDefault(BIND_IFACE_NAME, "");
     setDefault(MINIMUM_SEARCH_INTERVAL, 30);
-
+    setDefault(DYNDNS_SERVER, "checkip.dyndns.org/index.html");
+    setDefault(DYNDNS_ENABLE, true);
     setSearchTypeDefaults();
 }
 
