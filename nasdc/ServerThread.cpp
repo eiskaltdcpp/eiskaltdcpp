@@ -192,16 +192,16 @@ void ServerThread::disconnectClient(const string& address){
 void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
 {
     //int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
-    int64_t updiff = Socket::getTotalUp() - lastUp;
-    int64_t downdiff = Socket::getTotalDown() - lastDown;
+    int64_t upDiff = Socket::getTotalUp() - lastUp;
+    int64_t downDiff = Socket::getTotalDown() - lastDown;
 
-    SettingsManager::getInstance()->set(SettingsManager::TOTAL_UPLOAD, SETTING(TOTAL_UPLOAD) + updiff);
-    SettingsManager::getInstance()->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downdiff);
+    SettingsManager *SM = SettingsManager::getInstance();
+    SM->set(SettingsManager::TOTAL_UPLOAD,   SETTING(TOTAL_UPLOAD)   + upDiff);
+    SM->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downDiff);
 
     lastUpdate = aTick;
     lastUp = Socket::getTotalUp();
     lastDown = Socket::getTotalDown();
-
 }
 
 void ServerThread::on(Connecting, Client* cur) throw() {

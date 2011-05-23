@@ -438,9 +438,6 @@ void MainWindow::init(){
         ScriptManager::getInstance()->EvaluateFile(defaultluascript);
     }
 #endif
-
-    totalDown = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
-    totalUp =  WSGET(WS_APP_TOTAL_UP).toULongLong();
 }
 
 void MainWindow::loadSettings(){
@@ -526,14 +523,7 @@ void MainWindow::saveSettings(){
 
     WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
 
-    saveStatistics();
-
     stateIsSaved = true;
-}
-
-void MainWindow::saveStatistics(){
-    WSSET(WS_APP_TOTAL_DOWN, QString().setNum(totalDown));
-    WSSET(WS_APP_TOTAL_UP, QString().setNum(totalUp));
 }
 
 void MainWindow::initActions(){
@@ -2489,8 +2479,14 @@ void MainWindow::slotAboutOpenUrl(){
 void MainWindow::slotAboutClient(){
     About a(this);
 
-    volatile const qulonglong &app_total_down = totalDown;
-    volatile const qulonglong &app_total_up   = totalUp;
+    double ratio;
+    double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
+    double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
+
+    if (down > 0)
+        ratio = up / down;
+    else
+        ratio = 0;
 
     a.label->setText(QString("<b>%1</b> %2 (%3)")
                      .arg(EISKALTDCPP_WND_TITLE)
@@ -2509,9 +2505,9 @@ void MainWindow::slotAboutClient(){
                             "Total down: <b>%3</b><br/>"
                             "Ratio: <b>%4</b>"
                          ).arg(DCVERSIONSTRING)
-                          .arg(WulforUtil::formatBytes(app_total_up))
-                          .arg(WulforUtil::formatBytes(app_total_down))
-                          .arg((float)app_total_up/(float)app_total_down, 0, 'f', 2);
+                          .arg(WulforUtil::formatBytes(up))
+                          .arg(WulforUtil::formatBytes(down))
+                          .arg(ratio, 0, 'f', 3);
 
     a.label_ABOUT->setText(about_text);
 
@@ -2856,11 +2852,13 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) throw(){
     map["USPEED"]   = WulforUtil::formatBytes(upBytes);
     map["UP"]       = WulforUtil::formatBytes(Socket::getTotalUp());
 
-    totalDown = totalDown+downDiff;
-    totalUp = totalUp+upDiff;
     lastUpdate = ticks;
-    lastUp = Socket::getTotalUp();
-    lastDown = Socket::getTotalDown();
+    lastUp     = Socket::getTotalUp();
+    lastDown   = Socket::getTotalDown();
+
+    SettingsManager *SM = SettingsManager::getInstance();
+    SM->set(SettingsManager::TOTAL_UPLOAD,   SETTING(TOTAL_UPLOAD)   + upDiff);
+    SM->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downDiff);
 
     emit coreUpdateStats(map);
 }

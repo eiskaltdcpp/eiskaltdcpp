@@ -142,8 +142,6 @@ void WulforSettings::load(){
             settings.setValue(WS_SHAREHEADER_STATE,     "");
             settings.setValue(WS_DOWNLOADTO_ALIASES,    "");
             settings.setValue(WS_DOWNLOADTO_PATHS,      "");
-            settings.setValue(WS_APP_TOTAL_DOWN,        "0");
-            settings.setValue(WS_APP_TOTAL_UP,          "0");
             settings.setValue(WS_APP_EMOTICON_THEME,    "default");
             settings.setValue(WS_APP_ASPELL_LANG,       "");
             settings.setValue(WS_APP_DYNDNS_SERVER,     "checkip.dyndns.org");
@@ -285,8 +283,6 @@ void WulforSettings::loadOldConfig(){
         strmap.insert(WS_SHAREHEADER_STATE,     "");
         strmap.insert(WS_DOWNLOADTO_ALIASES,    "");
         strmap.insert(WS_DOWNLOADTO_PATHS,      "");
-        strmap.insert(WS_APP_TOTAL_DOWN,        "0");
-        strmap.insert(WS_APP_TOTAL_UP,          "0");
         strmap.insert(WS_APP_EMOTICON_THEME,    "default");
         strmap.insert(WS_APP_ASPELL_LANG,       "");
         strmap.insert(WS_APP_DYNDNS_SERVER,     "checkip.dyndns.org");

@@ -20,7 +20,6 @@
  */
 
 #include "hub.hh"
-#include <sstream>
 #include <dcpp/AdcHub.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/HashManager.h>
@@ -1926,29 +1925,23 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "ratio")
         {
-            WulforManager::get()->getMainWindow()->saveStatistics();
-
-            std::istringstream down_s, up_s;
-            double ratio=0, down=0, up=0;
-
-            up_s.str(WGETS("app-stat-total-up"));
-            down_s.str(WGETS("app-stat-total-down"));
-            up_s >> up;
-            down_s >> down;
+            double ratio;
+            double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
+            double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
 
             if (down > 0)
                 ratio = up / down;
             else
                 ratio = 0;
 
-            stringstream ratio_s;
-            ratio_s << ratio;
+            char ratio_c[32];
+            sprintf(ratio_c,"%.3f", ratio);
 
             string uploaded = Util::formatBytes(up);
             string downloaded = Util::formatBytes(down);
 
             string line = str(dcpp_fmt(gettext("ratio: %1% (uploads: %2%, downloads: %3% )"))
-                                                % ratio_s.str()
+                                                % string(ratio_c)
                                                 % uploaded
                                                 % downloaded);
 
