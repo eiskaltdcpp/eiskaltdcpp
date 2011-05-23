@@ -43,19 +43,19 @@
 
 using namespace dcpp;
 
-ShareBrowserRunner::ShareBrowserRunner(QObject *parent): QThread(parent){
+AsyncRunner::AsyncRunner(QObject *parent): QThread(parent){
 
 }
 
-ShareBrowserRunner::~ShareBrowserRunner(){
+AsyncRunner::~AsyncRunner(){
 
 }
 
-void ShareBrowserRunner::run(){
+void AsyncRunner::run(){
     runFunc();
 }
 
-void ShareBrowserRunner::setRunFunction(const boost::function<void()> &f){
+void AsyncRunner::setRunFunction(const boost::function<void()> &f){
     runFunc = f;
 }
 
@@ -370,7 +370,7 @@ void ShareBrowser::buildList(){
         listing.getRoot()->setName(nick.toStdString());
         ADLSearchManager::getInstance()->matchListing(listing);
 
-        ShareBrowserRunner *runner = new ShareBrowserRunner(this);
+        AsyncRunner *runner = new AsyncRunner(this);
         boost::function<void()> f = boost::bind(&ShareBrowser::createTree, this, listing.getRoot(), tree_root);
 
         runner->setRunFunction(f);

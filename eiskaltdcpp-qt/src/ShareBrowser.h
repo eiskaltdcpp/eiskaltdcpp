@@ -40,11 +40,11 @@ class ShareBrowser;
 
 class QModelIndex;
 
-class ShareBrowserRunner: public QThread{
+class AsyncRunner: public QThread{
 Q_OBJECT
 public:
-    ShareBrowserRunner(QObject * = NULL);
-    virtual ~ShareBrowserRunner();
+    AsyncRunner(QObject * = NULL);
+    virtual ~AsyncRunner();
 
     virtual void run();
 
