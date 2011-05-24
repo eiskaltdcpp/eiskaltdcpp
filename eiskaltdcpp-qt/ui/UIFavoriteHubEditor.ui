@@ -6,27 +6,48 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>380</width>
-    <height>497</height>
+    <width>387</width>
+    <height>454</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="2">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string>Hub</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <property name="margin">
-       <number>1</number>
-      </property>
+     <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0" colspan="2">
-       <widget class="QCheckBox" name="checkBox_AUTOCONNECT">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QCheckBox" name="checkBox_AUTOCONNECT">
+          <property name="text">
+           <string>Autoconnect on startup</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_DISABLECHAT">
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
+          <property name="text">
+           <string>Disable chat</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label">
         <property name="text">
-         <string>Autoconnect on startup</string>
+         <string>Name</string>
         </property>
        </widget>
       </item>
@@ -37,31 +58,17 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="LineEdit" name="lineEdit_ADDRESS">
-        <property name="toolTip">
-         <string>IP address or DNS name of hub.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="LineEdit" name="lineEdit_DESC">
-        <property name="toolTip">
-         <string>This description will show in the user list.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Name</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>Address</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="LineEdit" name="lineEdit_ADDRESS">
+        <property name="toolTip">
+         <string>IP address or DNS name of hub.</string>
         </property>
        </widget>
       </item>
@@ -72,8 +79,12 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
-       <widget class="QComboBox" name="comboBox_ENC"/>
+      <item row="3" column="1">
+       <widget class="LineEdit" name="lineEdit_DESC">
+        <property name="toolTip">
+         <string>This description will show in the user list.</string>
+        </property>
+       </widget>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="label_4">
@@ -82,51 +93,13 @@
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
-       <widget class="QCheckBox" name="checkBox_CID">
+      <item row="4" column="1">
+       <widget class="QComboBox" name="comboBox_ENC"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Client ID</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
-       <widget class="QCheckBox" name="checkBox_IP">
-        <property name="text">
-         <string>External IP</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="QComboBox" name="comboBox_CID">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="1">
-       <widget class="LineEdit" name="lineEdit_IP">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="inputMask">
-         <string>000.000.000.000; </string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="1">
-       <widget class="QCheckBox" name="checkBox_USEINTERNET">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>Auto update from Internet</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="0" colspan="2">
-       <widget class="QCheckBox" name="checkBox_DISABLECHAT">
-        <property name="text">
-         <string>Disable chat</string>
+         <string>Mode</string>
         </property>
        </widget>
       </item>
@@ -149,34 +122,81 @@
         </item>
        </widget>
       </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="label_6">
+      <item row="6" column="0">
+       <widget class="QCheckBox" name="checkBox_CID">
         <property name="text">
-         <string>Mode</string>
+         <string>Client ID</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="label_7">
+      <item row="6" column="1">
+       <widget class="QComboBox" name="comboBox_CID">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QCheckBox" name="checkBox_IP">
         <property name="text">
-         <string>Minimum search interval</string>
+         <string>External IP</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="LineEdit" name="lineEdit_IP">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="inputMask">
+         <string>000.000.000.000; </string>
         </property>
        </widget>
       </item>
       <item row="8" column="1">
-       <widget class="QSpinBox" name="spinBox_MINSEARCH_INTERVAL">
-        <property name="minimum">
-         <number>1</number>
+       <widget class="QCheckBox" name="checkBox_USEINTERNET">
+        <property name="enabled">
+         <bool>false</bool>
         </property>
-        <property name="maximum">
-         <number>1000</number>
+        <property name="text">
+         <string>Auto update from Internet</string>
         </property>
        </widget>
+      </item>
+      <item row="9" column="0" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_7">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Minimum search interval</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spinBox_MINSEARCH_INTERVAL">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>1200</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
+   <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
       <string>Identification</string>
@@ -239,7 +259,20 @@
      </layout>
     </widget>
    </item>
-   <item row="3" column="1">
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>2</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
