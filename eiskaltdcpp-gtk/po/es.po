@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-05-26 00:40+0300\n"
-"PO-Revision-Date: 2011-03-20 01:05+0100\n"
+"PO-Revision-Date: 2011-05-23 18:19+0200\n"
 "Last-Translator: Gustavo Alvarez <gustavoalvarez@ono.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -390,7 +390,7 @@ msgstr "Home del proyecto: "
 
 #: ../src/hub.cc:1943 ../src/privatemessage.cc:957
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
-msgstr ""
+msgstr "ratio: %1% (subidas: %2%, descargas: %3% )"
 
 #: ../src/hub.cc:1958 ../src/privatemessage.cc:983
 msgid "*** Available commands:"
@@ -481,9 +481,8 @@ msgstr "Mostrar version"
 
 #: ../src/hub.cc:1978 ../src/privatemessage.cc:994
 #: ../glade/privatemessage.glade:246 ../glade/hub.glade:468
-#, fuzzy
 msgid "Show ratio [send in chat]"
-msgstr "Mostrar país del usuario en el chat"
+msgstr "Mostrar ratio [mandado al chat]"
 
 #: ../src/hub.cc:1979 ../src/privatemessage.cc:992
 msgid "Emoticons on/off"
@@ -519,36 +518,36 @@ msgstr "Ejecutando Alias A"
 
 #: ../src/hub.cc:1989
 msgid "Ipfilter on/off"
-msgstr ""
+msgstr "ipfilter encendido/apagado"
 
 #: ../src/hub.cc:1990
-#, fuzzy
 msgid "Show ipfilter rules list"
-msgstr "Mostrar lista de favoritos"
+msgstr "Mostrar lista de las reglas de ipfilter"
 
 #: ../src/hub.cc:1991
-#, fuzzy
 msgid "Move rule up/down"
-msgstr "Mover abajo"
+msgstr "Mover regla arriba/abajo"
 
 #: ../src/hub.cc:1992
-#, fuzzy
 msgid "Remove rules from list"
-msgstr "Eliminar usuario de la _cola"
+msgstr "Eliminar regla de la lista"
 
 #: ../src/hub.cc:1993
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
 msgstr ""
+"Añadir la regla 192.168.1.0/23 cuando la dirección entrante y la acción es "
+"permitir y 192.168.6.0/24 donde la dirección es de entrada o salida y la "
+"acción es denegar"
 
 #: ../src/hub.cc:2123
 msgid "Ipfilter is enable"
-msgstr ""
+msgstr "ipfilter está habilitado"
 
 #: ../src/hub.cc:2130
 msgid "Ipfilter is disable"
-msgstr ""
+msgstr "ipfilter está deshabilitado"
 
 #: ../src/hub.cc:2187
 msgid "Aliases not found."
@@ -688,11 +687,10 @@ msgstr "Usuario Favorito"
 msgid "Auto grant slot"
 msgstr "Conceder slot automáticamente"
 
-# no me mola :S
 #: ../src/favoriteusers.cc:46 ../src/favoriteusers.cc:110
 #: ../src/favoriteusers.cc:584
 msgid "Hub (last seen in, if offline)"
-msgstr "Hub (Visto por ultima vez en el, si desconectado) "
+msgstr "Hub (Visto por ultima vez en el, si ha estado desconectado) "
 
 #: ../src/favoriteusers.cc:47 ../src/favoriteusers.cc:111
 #: ../src/favoriteusers.cc:577 ../src/favoriteusers.cc:585
@@ -1181,7 +1179,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:952
 msgid "Minimize to tray on startup"
-msgstr ""
+msgstr "Minimizar a la bandeja de sistema al iniciar"
 
 #: ../src/settingsdialog.cc:965 ../src/settingsdialog.cc:1233
 #: ../src/settingsdialog.cc:1307 ../src/settingsdialog.cc:1348
@@ -3303,14 +3301,12 @@ msgid "Play"
 msgstr "Reproducir"
 
 #: ../glade/settingsdialog.glade:2740
-#, fuzzy
 msgid "in program"
-msgstr "Salir del programa"
+msgstr "dentro del programa"
 
 #: ../glade/settingsdialog.glade:2778
-#, fuzzy
 msgid "Browse file..."
-msgstr "Explorar..."
+msgstr "Explorar archivo..."
 
 #: ../glade/settingsdialog.glade:2806
 msgid "Every time a private message is received"
@@ -3526,6 +3522,8 @@ msgid ""
 "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
 "\">Help</a>"
 msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Ayuda</a>"
 
 #: ../glade/settingsdialog.glade:4342
 msgid "<b>Logging</b>"
@@ -3981,34 +3979,3 @@ msgstr "Abrir imagen"
 #: ../glade/hub.glade:502
 msgid "Remove image"
 msgstr "Eliminar imagen"
-
-#~ msgid "Searching too soon, retry in "
-#~ msgstr "Búsqueda demasiado rápida, reintentar en "
-
-#~ msgid " s"
-#~ msgstr " s"
-
-#~ msgid "Change core setting "
-#~ msgstr "Cambiar configuración del core"
-
-#~ msgid "gtk-cancel"
-#~ msgstr "Cancelar gtk"
-
-#~ msgid "gtk-ok"
-#~ msgstr "gtk ok"
-
-#~ msgid "gtk-open"
-#~ msgstr "abrir gtk"
-
-#~ msgid "gtk-help"
-#~ msgstr "Ayuda gtk"
-
-#~ msgid "gtk-apply"
-#~ msgstr "aplicar gtk"
-
-#~ msgid "gtk-edit"
-#~ msgstr "editar gtk"
-
-#, fuzzy
-#~ msgid "No use temp directory"
-#~ msgstr "Elige un directorio"

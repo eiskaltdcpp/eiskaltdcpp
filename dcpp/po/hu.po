@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-05-22 01:16+0300\n"
-"PO-Revision-Date: 2011-05-15 20:49+0200\n"
+"PO-Revision-Date: 2011-05-23 18:24+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -142,9 +142,8 @@ msgid "Search (UDP)"
 msgstr "Keresés (UDP)"
 
 #: ../ConnectivityManager.cpp:153
-#, fuzzy
 msgid "DHT (UDP)"
-msgstr " DHT port (%1% UDP)"
+msgstr "DHT (UDP)"
 
 #: ../ConnectivityManager.cpp:168
 msgid "Connectivity: "
@@ -180,7 +179,7 @@ msgstr "Keresési feltétel nem található"
 
 #: ../SettingsManager.cpp:602
 msgid "Error: setting not found!"
-msgstr ""
+msgstr "Hiba: Beállítás nem található!"
 
 #: ../SettingsManager.cpp:603
 msgid "Change core setting "

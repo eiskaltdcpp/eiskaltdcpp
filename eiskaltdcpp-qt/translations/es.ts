@@ -673,7 +673,7 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="177"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>El archivo ya existe: %1</translation>
     </message>
 </context>
 <context>
@@ -713,10 +713,6 @@ Keys:
         <location filename="../src/FinishedTransfers.h" line="452"/>
         <source>Open directory</source>
         <translation>Abrir directorio</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="obsolete">Si</translation>
     </message>
 </context>
 <context>
@@ -787,15 +783,6 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="127"/>
         <source>%1/s</source>
         <translation>%1/s</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="obsolete">Si</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translatorcomment>No</translatorcomment>
-        <translation type="obsolete">No</translation>
     </message>
 </context>
 <context>
@@ -1173,7 +1160,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="128"/>
         <source>Search text</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar texto</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="161"/>
@@ -2059,7 +2046,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="654"/>
         <source>Ctrl+Shift+U</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+U</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="905"/>
@@ -2130,7 +2117,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1159"/>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuarios en cola</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1198"/>
@@ -2175,7 +2162,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1555"/>
         <source>Delayed</source>
-        <translation type="unfinished"></translation>
+        <translation>Retraso</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1570"/>
@@ -2712,12 +2699,12 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="75"/>
         <source>Grant slot</source>
-        <translation type="unfinished">Conceder slot</translation>
+        <translation>Conceder slot</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.h" line="104"/>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuarios en cola</translation>
     </message>
 </context>
 <context>
@@ -2725,12 +2712,12 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="123"/>
         <source>User</source>
-        <translation type="unfinished">Usuario</translation>
+        <translation>Usuario</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="123"/>
         <source>File</source>
-        <translation type="unfinished">Archivo</translation>
+        <translation>Archivo</translation>
     </message>
 </context>
 <context>
@@ -2821,30 +2808,6 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Buscar por</translation>
     </message>
     <message>
-        <source>Any</source>
-        <translation type="obsolete">cualquiera</translation>
-    </message>
-    <message>
-        <source>Compressed</source>
-        <translation type="obsolete">Comprimidos</translation>
-    </message>
-    <message>
-        <source>Document</source>
-        <translation type="obsolete">Documentos</translation>
-    </message>
-    <message>
-        <source>Executable</source>
-        <translation type="obsolete">Ejecutables</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation type="obsolete">Fotos</translation>
-    </message>
-    <message>
-        <source>Directory</source>
-        <translation type="obsolete">Directorio</translation>
-    </message>
-    <message>
         <location filename="../ui/UISearchFrame.ui" line="67"/>
         <source>Clear</source>
         <translation>Limpiar</translation>
@@ -2853,10 +2816,6 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../ui/UISearchFrame.ui" line="74"/>
         <source>Show/Hide side panel</source>
         <translation>Mostrar/Ocultar panel lateral</translation>
-    </message>
-    <message>
-        <source>CD Image</source>
-        <translation type="obsolete">Imagen CD</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="134"/>
@@ -3045,17 +3004,9 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Cerrar</translation>
     </message>
     <message>
-        <source>Searching too soon, next search in %1 second</source>
-        <translation type="obsolete">Búsqueda demasiado rápida, nueva búsqueda en %1 segundos</translation>
-    </message>
-    <message>
         <location filename="../src/SearchFrame.cpp" line="1007"/>
         <source>Search - %1</source>
         <translation>Buscando - %1</translation>
-    </message>
-    <message>
-        <source>Ready to search...</source>
-        <translation type="obsolete">Preparado para buscar...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1112"/>
@@ -3144,7 +3095,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchModel.cpp" line="134"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>El archivo ya existe: %1</translation>
     </message>
 </context>
 <context>
@@ -3704,7 +3655,7 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/SideBar.cpp" line="47"/>
         <location filename="../src/SideBar.cpp" line="378"/>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuarios en cola</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="48"/>
@@ -3936,14 +3887,6 @@ que continuará trabajando cuando el widget esté oculto.
         <location filename="../src/TransferView.cpp" line="364"/>
         <source>TTH: </source>
         <translation></translation>
-    </message>
-    <message>
-        <source>Transfer View</source>
-        <translation type="obsolete">Vista transferencia</translation>
-    </message>
-    <message>
-        <source>You cannot search alternates for uploads!</source>
-        <translation type="obsolete">¡No puedes buscar suplentes para subir!</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="569"/>
@@ -4582,7 +4525,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="180"/>
         <source>Minimum search interval</source>
-        <translation type="unfinished"></translation>
+        <translation>Intervalo de busqueda minimo</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="202"/>
@@ -5063,7 +5006,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UIQueuedUsers.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Forma</translation>
+        <translation>Forma</translation>
     </message>
 </context>
 <context>
@@ -5201,10 +5144,6 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
         <translation>Auto-detectar conexión</translation>
     </message>
     <message>
-        <source>Bind Address:</source>
-        <translation type="obsolete">Ligar dirección:</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="261"/>
         <source>Outgoing connections</source>
         <translation>Conexiones de Salida</translation>
@@ -5267,12 +5206,12 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="235"/>
         <source>Bind to address</source>
-        <translation type="unfinished"></translation>
+        <translation>Ligar a dirección</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="245"/>
         <source>Bind to interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Ligar a interface</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="457"/>
@@ -5339,12 +5278,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="879"/>
         <source>Enable DHT</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitar DHT</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="903"/>
         <source>DHT port</source>
-        <translation type="unfinished"></translation>
+        <translation>Puerto DHT</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="818"/>
@@ -5786,12 +5725,20 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilita esta opción si desea mantener la lista de archivos descargados 
+en la cola de descarga después de que hayan finalizado.
+Después de terminar la cola de descargas, éstas tendrán el estado de &apos;Finalizado&apos;
+pudiendo eliminar esas entradas de la lista cuando quiera.
+Tenga en cuenta que si mueve/elimina físicamente los archivos descargados desde
+su ubicación de destino, las entradas correspondientes a la cola de descarga no se 
+eliminarán automáticamente, teniendolas que eliminar a mano.
+Si deshabilita esta opción, no se eliminarán las entradas que estén
+en la cola de descargas, debe hacerlo manualmente.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
         <source>Keep downloaded files</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantener archivos descargados</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
@@ -6342,7 +6289,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="218"/>
         <source>Finished Downloads</source>
-        <translation type="unfinished">Descargas finalizadas</translation>
+        <translation>Descargas finalizadas</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="253"/>
@@ -6351,7 +6298,11 @@ solo estará disponible para los operadores</translation>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Ayuda&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
@@ -6748,7 +6699,7 @@ si su sistema se vuelve lento cuando se hashean archivos.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="416"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
-        <translation type="unfinished"></translation>
+        <translation>Retraso del Hasheo a iniciar (Segundos, -1 = infinito)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="451"/>

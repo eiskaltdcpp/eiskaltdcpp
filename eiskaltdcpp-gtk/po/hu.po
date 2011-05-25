@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-05-26 00:40+0300\n"
-"PO-Revision-Date: 2011-05-15 20:50+0200\n"
+"PO-Revision-Date: 2011-05-23 18:27+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -480,9 +480,8 @@ msgstr "Verzió mutatása"
 
 #: ../src/hub.cc:1978 ../src/privatemessage.cc:994
 #: ../glade/privatemessage.glade:246 ../glade/hub.glade:468
-#, fuzzy
 msgid "Show ratio [send in chat]"
-msgstr "A felhasználók országkódjainak mutatása a chaten"
+msgstr "Átviteli ráta mutatása [küldés a chatre]"
 
 #: ../src/hub.cc:1979 ../src/privatemessage.cc:992
 msgid "Emoticons on/off"
@@ -518,22 +517,19 @@ msgstr "A álnév futtatása"
 
 #: ../src/hub.cc:1989
 msgid "Ipfilter on/off"
-msgstr ""
+msgstr "Ipfilter ki/be"
 
 #: ../src/hub.cc:1990
-#, fuzzy
 msgid "Show ipfilter rules list"
-msgstr "Kedvencek mutatása"
+msgstr "Ipfilter szabályok mutatása"
 
 #: ../src/hub.cc:1991
-#, fuzzy
 msgid "Move rule up/down"
-msgstr "Mozgatás le"
+msgstr "Szabály mozgatása fel/le"
 
 #: ../src/hub.cc:1992
-#, fuzzy
 msgid "Remove rules from list"
-msgstr "Felhasználó törlése a _sorból"
+msgstr "Szabály eltávolítása a listából"
 
 #: ../src/hub.cc:1993
 msgid ""
@@ -543,11 +539,11 @@ msgstr ""
 
 #: ../src/hub.cc:2123
 msgid "Ipfilter is enable"
-msgstr ""
+msgstr "Ipfilter engedélyezve"
 
 #: ../src/hub.cc:2130
 msgid "Ipfilter is disable"
-msgstr ""
+msgstr "Ipfilter letiltva"
 
 #: ../src/hub.cc:2187
 msgid "Aliases not found."
