@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-05-22 01:16+0300\n"
+"POT-Creation-Date: 2011-05-26 00:40+0300\n"
 "PO-Revision-Date: 2011-03-20 01:05+0100\n"
 "Last-Translator: Gustavo Alvarez <gustavoalvarez@ono.com>\n"
 "Language-Team: Spanish <>\n"
@@ -231,8 +231,8 @@ msgstr "Abrir Carpeta"
 
 #: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:367
 #: ../src/hub.cc:382 ../src/hub.cc:402 ../src/hub.cc:450 ../src/hub.cc:1236
-#: ../src/hub.cc:1534 ../src/hub.cc:1587 ../src/hub.cc:2320 ../src/hub.cc:2351
-#: ../src/hub.cc:2636 ../src/hub.cc:2675 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:1534 ../src/hub.cc:1587 ../src/hub.cc:2314 ../src/hub.cc:2345
+#: ../src/hub.cc:2630 ../src/hub.cc:2669 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583
@@ -325,13 +325,13 @@ msgstr "*** Modo Emoticonos Apagado"
 msgid " *** Emoticons limit"
 msgstr "*** limite de Emoticonos"
 
-#: ../src/hub.cc:1708 ../src/privatemessage.cc:1161
+#: ../src/hub.cc:1708 ../src/privatemessage.cc:1155
 msgid "Use Emoticons"
 msgstr "Usar Emoticonos"
 
-#: ../src/hub.cc:1795 ../src/hub.cc:1808 ../src/hub.cc:1966
+#: ../src/hub.cc:1795 ../src/hub.cc:1808 ../src/hub.cc:1960
 #: ../src/privatemessage.cc:872 ../src/privatemessage.cc:886
-#: ../src/privatemessage.cc:991 ../glade/privatemessage.glade:190
+#: ../src/privatemessage.cc:985 ../glade/privatemessage.glade:190
 #: ../glade/hub.glade:405
 msgid "Away mode off"
 msgstr "Modo Ausente apagado"
@@ -340,15 +340,15 @@ msgstr "Modo Ausente apagado"
 msgid "Away mode on: "
 msgstr "Modo ausente Encendido: "
 
-#: ../src/hub.cc:1839 ../src/hub.cc:2647 ../src/privatemessage.cc:1332
+#: ../src/hub.cc:1839 ../src/hub.cc:2641 ../src/privatemessage.cc:1326
 msgid " is favorite user"
 msgstr "es un usuario favorito"
 
-#: ../src/hub.cc:1841 ../src/hub.cc:1876 ../src/hub.cc:1886 ../src/hub.cc:2036
+#: ../src/hub.cc:1841 ../src/hub.cc:1876 ../src/hub.cc:1886 ../src/hub.cc:2030
 msgid "Not found user: "
 msgstr "Usuario no encontrado: "
 
-#: ../src/hub.cc:1857 ../src/hub.cc:2686 ../src/privatemessage.cc:1353
+#: ../src/hub.cc:1857 ../src/hub.cc:2680 ../src/privatemessage.cc:1347
 msgid " is not favorite user"
 msgstr "no es un usuario favorito"
 
@@ -388,251 +388,251 @@ msgstr "Configurar descarga imagen limite: "
 msgid "project home: "
 msgstr "Home del proyecto: "
 
-#: ../src/hub.cc:1949 ../src/privatemessage.cc:963
+#: ../src/hub.cc:1943 ../src/privatemessage.cc:957
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr ""
 
-#: ../src/hub.cc:1964 ../src/privatemessage.cc:989
+#: ../src/hub.cc:1958 ../src/privatemessage.cc:983
 msgid "*** Available commands:"
 msgstr "*** Comandos disponibles:"
 
-#: ../src/hub.cc:1965 ../src/privatemessage.cc:990
+#: ../src/hub.cc:1959 ../src/privatemessage.cc:984
 #: ../glade/privatemessage.glade:183 ../glade/hub.glade:398
 msgid "Away mode message on/off"
 msgstr "Mensaje del modo ausente Encendido/Apagado"
 
-#: ../src/hub.cc:1967 ../glade/hub.glade:412
+#: ../src/hub.cc:1961 ../glade/hub.glade:412
 msgid "Clear chat"
 msgstr "Limpiar Chat"
 
-#: ../src/hub.cc:1968
+#: ../src/hub.cc:1962
 msgid "Close chat"
 msgstr "Cerrar chat"
 
-#: ../src/hub.cc:1969 ../glade/hub.glade:419
+#: ../src/hub.cc:1963 ../glade/hub.glade:419
 msgid "Add a hub to favorites"
 msgstr "Añadir un Hub a favoritos"
 
-#: ../src/hub.cc:1970 ../src/privatemessage.cc:994
+#: ../src/hub.cc:1964 ../src/privatemessage.cc:988
 #: ../glade/privatemessage.glade:211
 msgid "Add user to favorites list"
 msgstr "Añadir usuario a lista de favoritos"
 
-#: ../src/hub.cc:1971 ../src/privatemessage.cc:995
+#: ../src/hub.cc:1965 ../src/privatemessage.cc:989
 #: ../glade/privatemessage.glade:218
 msgid "Remove user favorite"
 msgstr "Eliminar usuario favorito"
 
-#: ../src/hub.cc:1972 ../glade/hub.glade:426
+#: ../src/hub.cc:1966 ../glade/hub.glade:426
 msgid "Show favorites list"
 msgstr "Mostrar lista de favoritos"
 
-#: ../src/hub.cc:1973 ../src/privatemessage.cc:996
+#: ../src/hub.cc:1967 ../src/privatemessage.cc:990
 #: ../glade/privatemessage.glade:225
 msgid "Get file list"
 msgstr "Obtener lista de archivos"
 
-#: ../src/hub.cc:1974 ../src/privatemessage.cc:997
+#: ../src/hub.cc:1968 ../src/privatemessage.cc:991
 #: ../glade/privatemessage.glade:232
 msgid "Grant extra slot"
 msgstr "conceder slot extra"
 
-#: ../src/hub.cc:1975 ../src/privatemessage.cc:1001
+#: ../src/hub.cc:1969 ../src/privatemessage.cc:995
 #: ../glade/privatemessage.glade:253 ../glade/hub.glade:475
 msgid "Show help"
 msgstr "Mostrar Ayuda"
 
-#: ../src/hub.cc:1976 ../glade/hub.glade:433
+#: ../src/hub.cc:1970 ../glade/hub.glade:433
 msgid "Connect to the hub"
 msgstr "Conectar con el Hub"
 
-#: ../src/hub.cc:1977 ../glade/hub.glade:440
+#: ../src/hub.cc:1971 ../glade/hub.glade:440
 msgid "Say a third person"
 msgstr "Hablar en 3º persona"
 
-#: ../src/hub.cc:1978 ../src/settingsdialog.cc:1000
+#: ../src/hub.cc:1972 ../src/settingsdialog.cc:1000
 #: ../src/settingsdialog.cc:1053 ../src/settingsdialog.cc:1173
 #: ../src/settingsmanager.cc:239
 msgid "Private message"
 msgstr "Mensaje Privado"
 
-#: ../src/hub.cc:1979 ../glade/hub.glade:447
+#: ../src/hub.cc:1973 ../glade/hub.glade:447
 msgid "Rebuild hash"
 msgstr "Reconstruir Hash"
 
-#: ../src/hub.cc:1980
+#: ../src/hub.cc:1974
 msgid "Update own file list"
 msgstr "Actualizar lista de archivos propios"
 
-#: ../src/hub.cc:1981
+#: ../src/hub.cc:1975
 msgid "User list show/hide"
 msgstr "Mostrar/Ocultar lista de usuarios"
 
-#: ../src/hub.cc:1982
+#: ../src/hub.cc:1976
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
 "Descargar limite de imagen: 0 - deshabilitado, n < 0 - sin limite, vacío - "
 "información"
 
-#: ../src/hub.cc:1983 ../src/privatemessage.cc:999
+#: ../src/hub.cc:1977 ../src/privatemessage.cc:993
 #: ../glade/privatemessage.glade:239 ../glade/hub.glade:461
 msgid "Show version"
 msgstr "Mostrar version"
 
-#: ../src/hub.cc:1984 ../src/privatemessage.cc:1000
+#: ../src/hub.cc:1978 ../src/privatemessage.cc:994
 #: ../glade/privatemessage.glade:246 ../glade/hub.glade:468
 #, fuzzy
 msgid "Show ratio [send in chat]"
 msgstr "Mostrar país del usuario en el chat"
 
-#: ../src/hub.cc:1985 ../src/privatemessage.cc:998
+#: ../src/hub.cc:1979 ../src/privatemessage.cc:992
 msgid "Emoticons on/off"
 msgstr "Encender/Apagar Emoticonos"
 
-#: ../src/hub.cc:1987
+#: ../src/hub.cc:1981
 msgid "Load Lua file"
 msgstr "Cargar archivo LUA"
 
-#: ../src/hub.cc:1988
+#: ../src/hub.cc:1982
 msgid "Execute Lua Chunk"
 msgstr "Ejecutar trozo de código Lua"
 
-#: ../src/hub.cc:1990
+#: ../src/hub.cc:1984
 msgid "Execute code (bash)"
 msgstr "Ejecutar código (bash)"
 
-#: ../src/hub.cc:1991
+#: ../src/hub.cc:1985
 msgid "Alias List"
 msgstr "Lista de Alias"
 
-#: ../src/hub.cc:1992
+#: ../src/hub.cc:1986
 msgid "Alias Remove A"
 msgstr "Borrar Alias A"
 
-#: ../src/hub.cc:1993
+#: ../src/hub.cc:1987
 msgid "Alias add uname -a as A"
 msgstr "Añadir Alias  uname -a  como A"
 
-#: ../src/hub.cc:1994
+#: ../src/hub.cc:1988
 msgid "Alias A executing"
 msgstr "Ejecutando Alias A"
 
-#: ../src/hub.cc:1995
+#: ../src/hub.cc:1989
 msgid "Ipfilter on/off"
 msgstr ""
 
-#: ../src/hub.cc:1996
+#: ../src/hub.cc:1990
 #, fuzzy
 msgid "Show ipfilter rules list"
 msgstr "Mostrar lista de favoritos"
 
-#: ../src/hub.cc:1997
+#: ../src/hub.cc:1991
 #, fuzzy
 msgid "Move rule up/down"
 msgstr "Mover abajo"
 
-#: ../src/hub.cc:1998
+#: ../src/hub.cc:1992
 #, fuzzy
 msgid "Remove rules from list"
 msgstr "Eliminar usuario de la _cola"
 
-#: ../src/hub.cc:1999
+#: ../src/hub.cc:1993
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
 msgstr ""
 
-#: ../src/hub.cc:2129
+#: ../src/hub.cc:2123
 msgid "Ipfilter is enable"
 msgstr ""
 
-#: ../src/hub.cc:2136
+#: ../src/hub.cc:2130
 msgid "Ipfilter is disable"
 msgstr ""
 
-#: ../src/hub.cc:2193
+#: ../src/hub.cc:2187
 msgid "Aliases not found."
 msgstr "Alias no encontrado"
 
-#: ../src/hub.cc:2294
+#: ../src/hub.cc:2288
 msgid "Unknown command '"
 msgstr "Comando desconocido '"
 
-#: ../src/hub.cc:2294
+#: ../src/hub.cc:2288
 msgid "': type /help for a list of available commands"
 msgstr "': introduce /help para ver la lista de comandos disponibles"
 
-#: ../src/hub.cc:2576 ../src/privatemessage.cc:1239 ../src/mainwindow.cc:1232
-#: ../src/mainwindow.cc:1300 ../glade/sharebrowser.glade:326
+#: ../src/hub.cc:2570 ../src/privatemessage.cc:1233 ../src/mainwindow.cc:1215
+#: ../src/mainwindow.cc:1283 ../glade/sharebrowser.glade:326
 #: ../glade/search.glade:555 ../glade/settingsdialog.glade:6078
 msgid "Choose a directory"
 msgstr "Elige un directorio"
 
-#: ../src/hub.cc:2715
+#: ../src/hub.cc:2709
 msgid " added to favorites list"
 msgstr " añadido a lista de favoritos"
 
-#: ../src/hub.cc:2742
+#: ../src/hub.cc:2736
 msgid " removed from favorites list"
 msgstr " eliminado de la lista de favoritos"
 
-#: ../src/hub.cc:2782 ../src/favoritehubs.cc:330
+#: ../src/hub.cc:2776 ../src/favoritehubs.cc:330
 msgid "Global hub default"
 msgstr "Hub Global por defecto"
 
-#: ../src/hub.cc:2857 ../src/hub.cc:2877
+#: ../src/hub.cc:2851 ../src/hub.cc:2871
 msgid "User not found"
 msgstr "Usuario no encontrado"
 
-#: ../src/hub.cc:2886 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2880 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Conceder slot a "
 
-#: ../src/hub.cc:2911
+#: ../src/hub.cc:2905
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "No puede conectarse: ya se encuentra conectado al Hub solicitado"
 
-#: ../src/hub.cc:2965
+#: ../src/hub.cc:2959
 msgid "Favorite hub added"
 msgstr "Hub favorito añadido"
 
-#: ../src/hub.cc:2970
+#: ../src/hub.cc:2964
 msgid "Favorite hub already exists"
 msgstr "Hub favorito ya existe"
 
-#: ../src/hub.cc:3082
+#: ../src/hub.cc:3076
 msgid "loading error"
 msgstr "Error al cargar"
 
-#: ../src/hub.cc:3095
+#: ../src/hub.cc:3089
 msgid "bad image"
 msgstr "Imagen errónea"
 
-#: ../src/hub.cc:3370
+#: ../src/hub.cc:3364
 msgid "Connecting to "
 msgstr "Conectando a "
 
-#: ../src/hub.cc:3377 ../src/transfers.cc:1022
+#: ../src/hub.cc:3371 ../src/transfers.cc:1022
 msgid "Connected"
 msgstr "Conectado"
 
-#: ../src/hub.cc:3433
+#: ../src/hub.cc:3427
 msgid "Connect failed: "
 msgstr "Conexión fallida: "
 
-#: ../src/hub.cc:3496
+#: ../src/hub.cc:3490
 msgid "Ignored private message from hub"
 msgstr "Ignorar mensajes privados del hub"
 
-#: ../src/hub.cc:3503
+#: ../src/hub.cc:3497
 msgid "Ignored private message from bot "
 msgstr "Ignorar mensajes privados del bot"
 
-#: ../src/hub.cc:3600
+#: ../src/hub.cc:3594
 msgid "Nick already taken"
 msgstr "Nick en uso"
 
-#: ../src/hub.cc:3607
+#: ../src/hub.cc:3601
 msgid "Search spam detected from "
 msgstr "Búsqueda basura detectada desde "
 
@@ -738,8 +738,8 @@ msgstr " restante"
 msgid "-:--:-- left"
 msgstr "-:--:-- restante"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2221
-#: ../src/mainwindow.cc:2223 ../glade/settingsdialog.glade:1586
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2204
+#: ../src/mainwindow.cc:2206 ../glade/settingsdialog.glade:1586
 #: ../glade/settingsdialog.glade:1601 ../glade/settingsdialog.glade:1641
 msgid "s"
 msgstr "s"
@@ -955,27 +955,27 @@ msgstr "Apagando libdcpp..."
 msgid "Quit..."
 msgstr "Saliendo..."
 
-#: ../src/privatemessage.cc:992 ../glade/privatemessage.glade:197
+#: ../src/privatemessage.cc:986 ../glade/privatemessage.glade:197
 msgid "Clear PM"
 msgstr "Limpiar mensaje privado"
 
-#: ../src/privatemessage.cc:993 ../glade/privatemessage.glade:204
+#: ../src/privatemessage.cc:987 ../glade/privatemessage.glade:204
 msgid "Close PM"
 msgstr "Cerrar mensaje privado"
 
-#: ../src/privatemessage.cc:1005
+#: ../src/privatemessage.cc:999
 msgid "Unknown command "
 msgstr "Comando desconocido"
 
-#: ../src/privatemessage.cc:1005
+#: ../src/privatemessage.cc:999
 msgid ": type /help for a list of available commands"
 msgstr ": introduce /help para ver la lista de comandos disponibles"
 
-#: ../src/privatemessage.cc:1320
+#: ../src/privatemessage.cc:1314
 msgid "User went offline"
 msgstr "El usuario fue desconectado"
 
-#: ../src/privatemessage.cc:1385
+#: ../src/privatemessage.cc:1379
 msgid "Slot granted"
 msgstr "Slot concedido"
 
@@ -1739,40 +1739,40 @@ msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgid "Welcome to "
 msgstr "Bienvenido a "
 
-#: ../src/mainwindow.cc:674
+#: ../src/mainwindow.cc:657
 msgid "Download: "
 msgstr "Descarga: "
 
-#: ../src/mainwindow.cc:674
+#: ../src/mainwindow.cc:657
 msgid "Upload: "
 msgstr "Subida: "
 
-#: ../src/mainwindow.cc:1166
+#: ../src/mainwindow.cc:1149
 msgid "Enter value for "
 msgstr "Introducir valor para "
 
-#: ../src/mainwindow.cc:1223
+#: ../src/mainwindow.cc:1206
 msgid "Magnet Properties / Choice"
 msgstr "Propiedades/Preferencia del Imán"
 
-#: ../src/mainwindow.cc:1293
+#: ../src/mainwindow.cc:1276
 msgid "Magnet Choice"
 msgstr "Elección de Imán"
 
-#: ../src/mainwindow.cc:1917 ../glade/mainwindow.glade:1049
+#: ../src/mainwindow.cc:1900 ../glade/mainwindow.glade:1049
 msgid "Select filelist to browse"
 msgstr "Seleccionar lista de archivos para explorar"
 
-#: ../src/mainwindow.cc:1942
+#: ../src/mainwindow.cc:1925
 msgid "Unable to load file list: Invalid file list name"
 msgstr ""
 "No se puede cargar lista de archivos: Nombre de la lista de archivos invalida"
 
-#: ../src/mainwindow.cc:1954
+#: ../src/mainwindow.cc:1937
 msgid "Loading file list"
 msgstr "Cargando lista de archivos"
 
-#: ../src/mainwindow.cc:2144
+#: ../src/mainwindow.cc:2127
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -1782,19 +1782,19 @@ msgstr ""
 "archivos funcionarán incorrectamente hasta que cambie las opciones o apague "
 "la aplicación que esté usando dicho puerto."
 
-#: ../src/mainwindow.cc:2146
+#: ../src/mainwindow.cc:2129
 msgid "Connectivity Manager: Warning"
 msgstr "Manager de conectividad: Atención"
 
-#: ../src/mainwindow.cc:2187
+#: ../src/mainwindow.cc:2170
 msgid "file list from "
 msgstr "Lista de archivos desde "
 
-#: ../src/mainwindow.cc:2197
+#: ../src/mainwindow.cc:2180
 msgid "<b>file:</b> "
 msgstr "<b>Archivo:</b> "
 
-#: ../src/mainwindow.cc:2259
+#: ../src/mainwindow.cc:2243
 msgid "Select file to Get TTH"
 msgstr "Seleccionar archivo para dar TTH"
 
@@ -2020,19 +2020,19 @@ msgstr " abandonado"
 msgid "Close tab"
 msgstr "Cerrar pestaña"
 
-#: ../src/settingsmanager.cc:518
+#: ../src/settingsmanager.cc:514
 msgid "Error: setting not found!"
 msgstr "Error: ¡configuración no encontrada!"
 
-#: ../src/settingsmanager.cc:519
+#: ../src/settingsmanager.cc:515
 msgid "Change setting "
 msgstr "Cambiar configuración"
 
-#: ../src/settingsmanager.cc:519
+#: ../src/settingsmanager.cc:515
 msgid " to "
 msgstr " a "
 
-#: ../src/settingsmanager.cc:522
+#: ../src/settingsmanager.cc:518
 msgid "Error: params have been not 2!"
 msgstr "Error: ¡los parámetros no son iguales a 2!"
 

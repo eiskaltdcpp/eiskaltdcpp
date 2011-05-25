@@ -392,6 +392,7 @@ list (APPEND AllLanguages
             be
             bg
             cs
+            de
             en
             es
             fr
