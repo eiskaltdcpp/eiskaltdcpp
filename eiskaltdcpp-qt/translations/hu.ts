@@ -1924,11 +1924,11 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorban álló felhasználók</translation>
     </message>
     <message>
         <source>Delayed</source>
-        <translation type="unfinished"></translation>
+        <translation>Késleltetett</translation>
     </message>
 </context>
 <context>
@@ -2150,7 +2150,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorban álló felhasználók</translation>
     </message>
 </context>
 <context>
@@ -2989,7 +2989,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorban álló felhasználók</translation>
     </message>
 </context>
 <context>
@@ -3261,7 +3261,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Downloaded </source>
-        <translation>Letöltve</translation>
+        <translation>Letöltve </translation>
     </message>
     <message>
         <source>Waiting for slot </source>
@@ -3269,7 +3269,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source> from %1/%2 user(s)</source>
-        <translation> %1/%2 felhasználó(k)-tól</translation>
+        <translation> %1/%2 felhasználótól</translation>
     </message>
     <message>
         <source>TTH: </source>
@@ -3689,7 +3689,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Minimum search interval</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimális keresési intervallum</translation>
     </message>
 </context>
 <context>
@@ -4379,19 +4379,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Bind to address</source>
-        <translation>Kötési cím</translation>
+        <translation>Kötés címhez</translation>
     </message>
     <message>
         <source>Bind to interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Kötés interfészhez</translation>
     </message>
     <message>
         <source>Enable DHT</source>
-        <translation type="unfinished"></translation>
+        <translation>DHT engedélyezése</translation>
     </message>
     <message>
         <source>DHT port</source>
-        <translation type="unfinished"></translation>
+        <translation>DHT port</translation>
     </message>
 </context>
 <context>
@@ -4773,11 +4773,19 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Engedélyezd ezt az opciót ha szeretnéd hogy a már letöltődött fájlok 
+és mappák a letöltési sorban maradjanak. 
+Ebben az esetben miután letöltődtek, a fájlok mellett a &apos;Befejezve&apos; 
+állapotjelzés jelenik meg és később szükség esetén 
+bármikor kézzel törölhetőek a sorból. 
+Fontos tudni, hogy a befejezett fájlok fizikai törlése vagy elmozdítása a 
+célterületről nem törli automatikusan annak bejegyzését a letöltési sorból. 
+Ezen kívül a funkció kikapcsolása nem törli a már meglévő befejezett 
+elemeket sem a sorból - ezeket kézzel kell kitörölnöd.</translation>
     </message>
     <message>
         <source>Keep downloaded files</source>
-        <translation type="unfinished"></translation>
+        <translation>Letöltött fájlok megtartása</translation>
     </message>
 </context>
 <context>

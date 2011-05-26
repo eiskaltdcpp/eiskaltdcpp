@@ -328,12 +328,6 @@ MainWindow::MainWindow():
         ScriptManager::getInstance()->EvaluateFile(defaultluascript);
     }
 #endif
-
-    std::istringstream down_s, up_s;
-    up_s.str(WGETS("app-stat-total-up"));
-    down_s.str(WGETS("app-stat-total-down"));
-    up_s >> totalUp;
-    down_s >> totalDown;
 }
 
 MainWindow::~MainWindow()
@@ -344,8 +338,6 @@ MainWindow::~MainWindow()
 
     GList *list = (GList *)g_object_get_data(G_OBJECT(getWidget("book")), "page-rotation-list");
     g_list_free(list);
-
-    saveStatistics();
 
     // Save window state and position
     gint posX, posY, sizeX, sizeY, transferPanePosition;
@@ -382,15 +374,6 @@ MainWindow::~MainWindow()
     Sound::stop();
     Emoticons::stop();
     Notify::stop();
-}
-
-void MainWindow::saveStatistics()
-{
-    stringstream up_s, down_s;
-    up_s << totalUp;
-    down_s << totalDown;
-    WSET("app-stat-total-up", up_s.str());
-    WSET("app-stat-total-down", down_s.str());
 }
 
 GtkWidget *MainWindow::getContainer()
@@ -2223,8 +2206,9 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) throw()
     string uploadSpeed = Util::formatBytes(upBytes) + "/" + _("s");
     string uploaded = Util::formatBytes(Socket::getTotalUp());
 
-    totalDown = totalDown + downDiff;
-    totalUp = totalUp + upDiff;
+    SettingsManager *SM = SettingsManager::getInstance();
+    SM->set(SettingsManager::TOTAL_UPLOAD,   SETTING(TOTAL_UPLOAD)   + upDiff);
+    SM->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downDiff);
 
     lastUpdate = ticks;
     lastUp = Socket::getTotalUp();

@@ -1640,11 +1640,10 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         WVSET("hubframe/chat-keywords", kwords);
     }
     else if (cmd == "/ratio"){
-        MainWindow::getInstance()->saveStatistics();
-        
         double ratio;
-        double down = QString(WSGET(WS_APP_TOTAL_DOWN)).toDouble();
-        double up = QString(WSGET(WS_APP_TOTAL_UP)).toDouble();
+        double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
+        double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
+
 
         if (down > 0)
             ratio = up / down;
@@ -1652,7 +1651,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             ratio = 0;
 
         QString line = tr("ratio: %1 (uploads: %2, downloads: %3)")
-            .arg(QString().setNum(ratio, 'f', 2)).arg(WulforUtil::formatBytes(up)).arg(WulforUtil::formatBytes(down));
+                          .arg(QString().setNum(ratio, 'f', 3))
+                          .arg(WulforUtil::formatBytes(up))
+                          .arg(WulforUtil::formatBytes(down));
 
         if (param.trimmed() == "show"){
             if (fr == this)
