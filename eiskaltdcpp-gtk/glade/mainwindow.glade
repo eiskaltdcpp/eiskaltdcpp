@@ -1028,6 +1028,11 @@ Contributors
 
  Uhlik
  (uhlikx@seznam.cz)
+
+ German translation
+
+ Chris Leick
+ (c.leick@vollbio.de)
 </property>
     <property name="wrap_license">True</property>
     <child internal-child="vbox">

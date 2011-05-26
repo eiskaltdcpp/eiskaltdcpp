@@ -1885,6 +1885,14 @@ Omiljeni korisnik</translation>
         <source>Delayed</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2650,6 +2658,10 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Czech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>German</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
