@@ -4642,7 +4642,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="180"/>
         <source>Minimum search interval</source>
-        <translation type="unfinished"></translation>
+        <translation>Найменшы прамежак між спробамі шукаць</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="202"/>
@@ -5490,12 +5490,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="879"/>
         <source>Enable DHT</source>
-        <translation type="unfinished"></translation>
+        <translation>Задзейнічаць DHT</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="903"/>
         <source>DHT port</source>
-        <translation type="unfinished"></translation>
+        <translation>Порт DHT</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="818"/>
@@ -5896,12 +5896,20 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Задзейнічайце гэтую можнасьць, калі вы хочаце пакідаць у чарзе
+ўжо сьцягнутыя сьпісы файлаў.
+Сьцягнутыя пункты чаргі перайдуць у стан «Скончылі», а вы зможаце
+выкрасьліць гэтыя пункты калі пажадаеце.
+Уважце, што калі вы фізычна перасунеце зь мейсца прызначэньня
+ці зьнішчыце сьцягнутыя файлы, адпаведныя пункты ў чарзе
+застануцца й ня будуць самарушна выкрасьляцца.
+Калі абязьдзейніць гэтую можнасьць, ужо існыя скончаныя пункты
+усё роўна ня выкрасьляцца з чаргі: вы мусіце зрабіць гэта самастойна.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
         <source>Keep downloaded files</source>
-        <translation type="unfinished"></translation>
+        <translation>Захоўваць сьцягнутыя файлы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
