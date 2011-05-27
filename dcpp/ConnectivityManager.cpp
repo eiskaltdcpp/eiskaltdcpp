@@ -81,7 +81,6 @@ void ConnectivityManager::detectConnection() {
    } catch(const Exception& e) {
        SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_PASSIVE);
        log(str(F_("Unable to open %1% port(s); connectivity settings must be configured manually") % e.getError()));
-;
        fire(ConnectivityManagerListener::Finished());
                 running = false;
        return;

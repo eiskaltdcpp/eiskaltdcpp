@@ -105,14 +105,14 @@ private:
         }
         void addResult(const string& buf, const string& ip) {
             {
-                Lock l(cs);
+                Lock l(csudp);
                 resultList.push_back(make_pair(buf, ip));
             }
             s.signal();
         }
 
     private:
-        CriticalSection cs;
+        CriticalSection csudp;
         Semaphore s;
 
         deque<pair<string, string> > resultList;

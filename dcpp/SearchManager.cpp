@@ -53,7 +53,7 @@ SearchManager::SearchManager() :
     port(0),
     stop(false)
 {
-
+    queue.start();
 }
 
 SearchManager::~SearchManager() throw() {
@@ -120,7 +120,6 @@ void SearchManager::disconnect() throw() {
 int SearchManager::run() {
     boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
     int len;
-    queue.start();
     sockaddr_in remoteAddr = { 0 };
 
     while(!stop) {
@@ -175,20 +174,23 @@ int SearchManager::UdpQueue::run() {
     string x = Util::emptyString;
     string remoteIp = Util::emptyString;
     stop = false;
-
+;
     while(true) {
-        s.wait();
+        if (resultList.empty())
+            s.wait();
+
         if(stop)
             break;
 
         {
-            Lock l(cs);
+            Lock l(csudp);
             if(resultList.empty()) continue;
 
             x = resultList.front().first;
             remoteIp = resultList.front().second;
             resultList.pop_front();
         }
+
     if(x.compare(0, 4, "$SR ") == 0) {
         string::size_type i, j;
         // Directories: $SR <nick><0x20><directory><0x20><free slots>/<total slots><0x05><Hubname><0x20>(<Hubip:port>)
