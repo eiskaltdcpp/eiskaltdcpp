@@ -99,6 +99,8 @@ void SettingsGUI::init(){
                 lang = tr("Slovak");
             else if (f == "cs.qm")
                 lang = tr("Czech");
+            else if (f == "de.qm")
+                lang = tr("German");
 
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);

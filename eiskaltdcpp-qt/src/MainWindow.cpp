@@ -2610,7 +2610,13 @@ void MainWindow::slotAboutClient(){
             tr("<br/>"
                "&nbsp;Uhlik<br/>"
                "&nbsp;&lt;uhlikx@seznam.cz&gt;<br/>"
-               "&nbsp;(for 2.2.0 and later)<br/>")
+               "&nbsp;(for 2.2.0 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>German translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Chris Leick<br/>"
+               "&nbsp;&lt;c.leick@vollbio.de&gt;<br/>"
+               "&nbsp;(for 2.2.3 and later)<br/>")
             );
 
     a.exec();

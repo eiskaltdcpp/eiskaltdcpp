@@ -16,7 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 "X-Poedit-Language: Belarusian\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -105,7 +106,6 @@ msgid "Determining the best connectivity settings..."
 msgstr "Вызначаюцца найлепшыя налады злучэньня…"
 
 #: ../ConnectivityManager.cpp:83
-#, qt-format
 msgid ""
 "Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr "Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
@@ -148,7 +148,6 @@ msgid "Connectivity: "
 msgstr "Злучэньне: "
 
 #: ../UploadManager.cpp:239
-#, qt-format
 msgid "Unable to send file %1%: %2%"
 msgstr "Не магу даслаць файл %1%: %2%"
 
@@ -157,7 +156,6 @@ msgid "IPFilter: Blocked incoming connection to "
 msgstr "Сіта IP: затрымалі ўваходнае злучэньне з "
 
 #: ../UploadManager.cpp:580
-#, qt-format
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Карыстальнік адлучыўся і выходзіць з асяродку: %1%"
 
@@ -194,7 +192,6 @@ msgid "Error: params have been not 2!"
 msgstr "Памылка: мусіць быць два парамэтры!"
 
 #: ../NmdcHub.cpp:288
-#, qt-format
 msgid "%1% (Nick unknown)"
 msgstr " %1% (мянушка невядомая)"
 
@@ -203,7 +200,6 @@ msgid "Hub topic:"
 msgstr "Тэма асяродку:"
 
 #: ../NmdcHub.cpp:942
-#, qt-format
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -218,12 +214,10 @@ msgid "Offline"
 msgstr "Адлучаны"
 
 #: ../AdcHub.cpp:148
-#, qt-format
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
 
 #: ../AdcHub.cpp:185 ../Transfer.cpp:92 ../QueueManager.cpp:2193
-#, qt-format
 msgid "%1%/s"
 msgstr "%1%/с"
 
@@ -240,22 +234,18 @@ msgstr ""
 "каб уладальнік абнавіў яе"
 
 #: ../AdcHub.cpp:297
-#, qt-format
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%2% даў высьпятка карыстальніку %1%: %3%"
 
 #: ../AdcHub.cpp:300
-#, qt-format
 msgid "%1% was kicked: %2%"
 msgstr "Карыстальніку %1% далі высьпятка: %2%"
 
 #: ../AdcHub.cpp:672
-#, qt-format
 msgid "Not listening for connections - please restart %1%"
 msgstr "Ня чую злучэньняў — калі ласка, запусьціце %1% нанова"
 
 #: ../HttpConnection.cpp:159
-#, qt-format
 msgid "Endless redirection loop (%1%)"
 msgstr "Бясконцая пятля перанакіроўваньня (%1%)"
 
@@ -315,27 +305,22 @@ msgid "Error during decompression"
 msgstr "Далі хібу, калі распакоўвалі"
 
 #: ../HashManager.cpp:88 ../HashManager.cpp:288
-#, qt-format
 msgid "Hashing failed: %1%"
 msgstr "Не ўдалося стварыць скароты: %1%"
 
 #: ../HashManager.cpp:95
-#, qt-format
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Скароты стварылі: %1% (%2% на %3%/с)"
 
 #: ../HashManager.cpp:98
-#, qt-format
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Скароты стварылі: %1% (%2%)"
 
 #: ../HashManager.cpp:101
-#, qt-format
 msgid "Finished hashing: %1%"
 msgstr "Скончылі ствараць скароты: %1%"
 
 #: ../HashManager.cpp:130 ../HashManager.cpp:344
-#, qt-format
 msgid "Error saving hash data: %1%"
 msgstr "Далі хібу, калі захоўвалі зьвесткі скаротаў: %1%"
 
@@ -344,7 +329,6 @@ msgid "Unable to read hash data file"
 msgstr "Не магу прачытаць файл зьвестак скаротаў"
 
 #: ../HashManager.cpp:476
-#, qt-format
 msgid "Error creating hash data file: %1%"
 msgstr "Далі хібу, калі стваралі файл зьвестак скаротаў: %1%"
 
@@ -353,12 +337,10 @@ msgid "Hash database rebuilt"
 msgstr "Адбудавалі базу зьвестак"
 
 #: ../HashManager.cpp:857
-#, qt-format
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Ствараецца скарот: %1% (памер: %2%)"
 
 #: ../HashManager.cpp:905
-#, qt-format
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
@@ -366,7 +348,6 @@ msgstr ""
 "файле SFV."
 
 #: ../HashManager.cpp:910
-#, qt-format
 msgid "Error hashing %1%: %2%"
 msgstr "Не ўдалося стварыць скарот да %1%: %2%"
 
@@ -379,38 +360,31 @@ msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Апрацоўваецца іншая спроба адлюстраваць порты з дапамогаю UPnP…"
 
 #: ../UPnPManager.cpp:82
-#, qt-format
 msgid "Failed to initialize the %1% interface"
 msgstr "Не ўдалося задзейнічаць інтэрфэйс %1%"
 
 #: ../UPnPManager.cpp:86
-#, qt-format
 msgid " Transfer Port (%1% TCP)"
 msgstr " Порт перадаваньня (%1% TCP)"
 
 #: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
 #: ../UPnPManager.cpp:102
-#, qt-format
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "Інтэрфэйсу %1% не ўдалося адлюстраваць порт %2% на %3%"
 
 #: ../UPnPManager.cpp:91
-#, qt-format
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr " Шыфраваны порт перадаваньня (%1% TCP)"
 
 #: ../UPnPManager.cpp:96
-#, qt-format
 msgid " Search Port (%1% UDP)"
 msgstr " Порт пошуку (%1% UDP)"
 
 #: ../UPnPManager.cpp:101
-#, qt-format
 msgid " DHT Port (%1% UDP)"
 msgstr " Порт DHT (%1% UDP)"
 
 #: ../UPnPManager.cpp:108
-#, qt-format
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -427,17 +401,14 @@ msgid "Failed to create port mappings"
 msgstr "Не ўдалося адлюстраваць порты"
 
 #: ../UPnPManager.cpp:138
-#, qt-format
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Пасьпяхова зьнішчылі адлюстраваньні портаў на інтэрфэйсе %1%"
 
 #: ../UPnPManager.cpp:139
-#, qt-format
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Не ўдалося зьнішчыць адлюстраваньні портаў на інтэрфэйсе %1%"
 
 #: ../UPnPManager.cpp:144
-#, qt-format
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -454,22 +425,18 @@ msgid "The temporary download directory cannot be shared"
 msgstr "Нельга абагуляць часовы каталёґ"
 
 #: ../ShareManager.cpp:649
-#, qt-format
 msgid "Invalid file name found while hashing folder %1%"
 msgstr "Выявілі хібную назву файла, калі стваралі скароты ў каталёґу %1%"
 
 #: ../ShareManager.cpp:667
-#, qt-format
 msgid "User has chosen not to share file: %1% (Size: %2%)"
 msgstr "Карыстальнік абраў не абагуляць файл %1% (памер: %2%)"
 
 #: ../ShareManager.cpp:688
-#, qt-format
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr "Карыстальнік абраў не абагуляць часовы файл %1% (памер: %2%)"
 
 #: ../ShareManager.cpp:776
-#, qt-format
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
@@ -484,7 +451,6 @@ msgstr ""
 "каб паспрабаваць ізноў"
 
 #: ../ShareManager.cpp:819
-#, qt-format
 msgid "File list refresh failed: %1%"
 msgstr "Не ўдалося дапоўніць сьпіс файлаў: %1%"
 
@@ -497,7 +463,6 @@ msgid "File list refresh finished"
 msgstr "Скончылі дапаўняць сьпіс файлаў"
 
 #: ../ShareManager.cpp:948
-#, qt-format
 msgid "File list %1% generated"
 msgstr "Стварылі сьпіс файлаў %1%"
 
@@ -546,7 +511,6 @@ msgid "Generated new TLS certificate"
 msgstr "Стварылі новае пасьведчаньне TLS"
 
 #: ../CryptoManager.cpp:222
-#, qt-format
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS не задзейнічалі, бо не ўдалося стварыць пасьведчаньне: %1%"
 
@@ -561,7 +525,6 @@ msgid "Failed to load private key"
 msgstr "Не ўдалося прачытаць асабісты ключ"
 
 #: ../SSLSocket.cpp:161
-#, qt-format
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "Памылка SSL: %1% (%2%, %3%)"
 
@@ -578,7 +541,6 @@ msgid "Response does not match request"
 msgstr "Адказ не адпавядае запыту"
 
 #: ../DownloadManager.cpp:242
-#, qt-format
 msgid "Could not open target file: %1%"
 msgstr "Не магу адчыніць прызначаны файл: %1%"
 
@@ -591,7 +553,6 @@ msgid "No slots available"
 msgstr "Няма даступных шчылінаў"
 
 #: ../DownloadManager.cpp:497
-#, qt-format
 msgid "%1%: File not available"
 msgstr "%1%: файл не даступны"
 
@@ -604,7 +565,6 @@ msgid "Connectivity restored"
 msgstr "Аднавілі злучэньне"
 
 #: ../ConnectionManager.cpp:257
-#, qt-format
 msgid "Connectivity error: %1%"
 msgstr "Памылка злучэньня: %1%"
 
@@ -653,7 +613,6 @@ msgid "Search enabled again"
 msgstr "Пошук зноўку працуе"
 
 #: ../SearchManager.cpp:160
-#, qt-format
 msgid "Search disabled: %1%"
 msgstr "Пошук не працуе: %1%"
 
@@ -662,7 +621,6 @@ msgid "No needed part"
 msgstr "Неабавязковая частка"
 
 #: ../QueueManager.cpp:631
-#, qt-format
 msgid "Searching TTH alternates for: %1%"
 msgstr "Шукаюцца па скаротах (TTH) дадатковыя крыніцы для: %1%"
 
@@ -711,7 +669,6 @@ msgid "File already exists at the target location"
 msgstr "Файл ужо ёсьць у прызначаным месцы"
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
-#, qt-format
 msgid "Duplicate source: %1%"
 msgstr "Падвоеная крыніца: %1%"
 
@@ -724,23 +681,19 @@ msgid "Target file is missing or wrong size"
 msgstr "Файл мэты адсутнічае ці мае неадпаведны памер"
 
 #: ../QueueManager.cpp:1207
-#, qt-format
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "Не магу перасунуць %1% у %2% (%3%); далі новую назву: %4%"
 
 #: ../QueueManager.cpp:1210
-#, qt-format
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 "Не магу ані перасунуць %1% у %2% (%3%), ані даць новую назву: %4% (%5%)"
 
 #: ../QueueManager.cpp:1408
-#, qt-format
 msgid "Unable to open filelist: %1%"
 msgstr "Не магу адчыніць сьпіс файлаў: %1%"
 
 #: ../QueueManager.cpp:1431
-#, qt-format
 msgid "%1%: Matched %2% file"
 msgstr "%1%: супаў файл %2%"
 
