@@ -272,7 +272,7 @@ msgstr "%s B"
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
-lkc
+
 #: ../ZUtils.cpp:33 ../ZUtils.cpp:54 ../ZUtils.cpp:76 ../ZUtils.cpp:86
 #: ../BZUtils.cpp:31 ../BZUtils.cpp:52 ../BZUtils.cpp:60
 msgid "Error during compression"

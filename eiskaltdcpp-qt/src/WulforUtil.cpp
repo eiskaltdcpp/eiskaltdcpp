@@ -70,24 +70,12 @@ using namespace dcpp;
 
 const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
 
-WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
+WulforUtil::WulforUtil()
 {
     qRegisterMetaType< QMap<QString,QVariant> >("VarMap");
     qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
     qRegisterMetaType< QMap<QString,QString> >("QMap<QString,QString>");
 
-    //if (WBGET(WB_APP_DYNDNS_ENABLED)) {
-        //http = new QHttp(this);
-        //connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
-        //http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
-        //slotHttpTimer();
-
-        //http_timer = new QTimer(this);
-        //http_timer->setInterval(30*1000);
-        //connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
-
-        //http_timer->start();
-    //}
     memset(userIconCache, 0, sizeof (userIconCache));
 
     userIcons = new QImage();
@@ -134,14 +122,6 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
 
 WulforUtil::~WulforUtil(){
     delete userIcons;
-
-    if (http_timer)
-        http_timer->deleteLater();
-
-    if (http){
-        http->abort();
-        http->deleteLater();
-    }
 
     clearUserIconCache();
 }
@@ -1101,49 +1081,6 @@ void WulforUtil::headerMenu(QTreeView *tree){
     }
 
     delete mcols;
-}
-
-void WulforUtil::slotHttpDone(bool error){
-    if (!error){
-        QString html = QString(http->readAll());
-        int start = html.indexOf(":")+2;
-        int end = html.indexOf("</body>", start);
-
-
-        if ((start == -1) || (end < start)) {
-            internetIP = "";
-        } else {
-            QString ip = html.mid(start, end - start);
-
-            if (QHostAddress().setAddress(ip)) {
-                internetIP = ip;
-            }
-        }
-    }
-    else
-        internetIP = "";
-
-    if (!internetIP.isEmpty()) {
-        SettingsManager::getInstance()->set(SettingsManager::INTERNETIP, internetIP.toStdString());
-        Client::List clients = ClientManager::getInstance()->getClients();
-
-        for(Client::Iter i = clients.begin(); i != clients.end(); ++i) {
-            if((*i)->isConnected()) {
-                (*i)->reloadSettings(false);
-            }
-        }
-    }
-}
-
-void WulforUtil::slotHttpTimer(){
-    if( WBGET(WB_APP_DYNDNS_ENABLED) ) {
-        QHttpRequestHeader header("GET", WSGET(WS_APP_DYNDNS_INDEX));
-        header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
-        QString useragent = QString("EiskaltDCPP");
-        header.setValue("User-Agent", useragent);
-
-        http->request(header);
-    }
 }
 
 QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* parent){
