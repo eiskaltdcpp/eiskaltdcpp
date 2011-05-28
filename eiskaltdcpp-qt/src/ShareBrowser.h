@@ -122,6 +122,8 @@ private Q_SLOTS:
     void slotLoaderFinish();
     void slotLayoutUpdated();
     void slotSettingsChanged(const QString&, const QString&);
+    void slotStartSearch();
+    void slotSearchJumpTo(FileBrowserItem*);
 
 private:
     void init();
