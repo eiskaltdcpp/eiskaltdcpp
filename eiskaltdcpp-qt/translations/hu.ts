@@ -2882,6 +2882,13 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
 </context>
 <context>
+    <name>ShareBrowserSearch</name>
+    <message>
+        <source>Search - %1</source>
+        <translation type="unfinished">Keresés - %1</translation>
+    </message>
+</context>
+<context>
     <name>ShareDirModel</name>
     <message>
         <source>Error</source>
@@ -4070,7 +4077,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <name>UIQueuedUsers</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználók a sorban</translation>
     </message>
 </context>
 <context>
@@ -5584,6 +5591,21 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <source>Form</source>
         <translation>Megosztás</translation>
+    </message>
+</context>
+<context>
+    <name>UIShareBrowserSearch</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Fájlnév</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Könyvtár</translation>
     </message>
 </context>
 <context>

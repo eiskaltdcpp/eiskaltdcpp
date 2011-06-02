@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-05-22 01:16+0300\n"
+"POT-Creation-Date: 2011-06-02 23:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,19 +62,19 @@ msgid ""
 "port)"
 msgstr ""
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:122
 msgid "Hash database"
 msgstr ""
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:125
 msgid "Shared Files"
 msgstr ""
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:134
 msgid "Download Queue"
 msgstr ""
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:137
 msgid "Users"
 msgstr ""
 
@@ -99,36 +99,36 @@ msgid ""
 "Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:94
+#: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:101
+#: ../ConnectivityManager.cpp:100
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
 
-#: ../ConnectivityManager.cpp:129
+#: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:141
+#: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:147
+#: ../ConnectivityManager.cpp:146
 msgid "Search (UDP)"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:153
+#: ../ConnectivityManager.cpp:152
 msgid "DHT (UDP)"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:168
+#: ../ConnectivityManager.cpp:167
 msgid "Connectivity: "
 msgstr ""
 
@@ -144,35 +144,35 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr ""
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:181
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:509
+#: ../SettingsManager.cpp:511
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:513 ../SettingsManager.cpp:535
+#: ../SettingsManager.cpp:515 ../SettingsManager.cpp:537
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:567
+#: ../SettingsManager.cpp:569
 msgid "No such search type"
 msgstr ""
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:604
 msgid "Error: setting not found!"
 msgstr ""
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid "Change core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid " to "
 msgstr ""
 
-#: ../SettingsManager.cpp:605
+#: ../SettingsManager.cpp:607
 msgid "Error: params have been not 2!"
 msgstr ""
 
@@ -191,7 +191,7 @@ msgid ""
 msgstr ""
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:280 ../SearchManager.cpp:367 ../SearchManager.cpp:369
+#: ../SearchManager.cpp:282 ../SearchManager.cpp:369 ../SearchManager.cpp:371
 #: ../QueueManager.cpp:2164 ../QueueManager.cpp:2170 ../QueueManager.cpp:2176
 msgid "Offline"
 msgstr ""
@@ -583,11 +583,11 @@ msgstr ""
 msgid "CD Image"
 msgstr ""
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:151
 msgid "Search enabled again"
 msgstr ""
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
 msgstr ""
 
