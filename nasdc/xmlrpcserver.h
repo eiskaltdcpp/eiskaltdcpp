@@ -219,8 +219,8 @@ public:
         string const snick(paramList.getString(1));
         string const smess(paramList.getString(2));
         paramList.verifyEnd(3);
-        ServerThread svT; string tmp;
-        tmp = svT.sendPrivateMessage(shub, snick, smess);
+        ServerThread svT;
+        string tmp = svT.sendPrivateMessage(shub, snick, smess);
         *retvalP = xmlrpc_c::value_string(tmp);
     }
 };
@@ -452,20 +452,51 @@ class listSearchStringsMethod : public xmlrpc_c::method {
     friend class ServerThread;
 public:
     listSearchStringsMethod() {
-        this->_signature = "i:ss";
-        this->_help = "This method return list of search strings. Рarams: search string, separator.";
+        this->_signature = "i:s";
+        this->_help = "This method return list of search strings. Рarams: separator.";
     }
 
     void
     execute(xmlrpc_c::paramList const& paramList,
             xmlrpc_c::value *   const  retvalP) {
 
-        string const ssearch(paramList.getString(0));
-        string const sseparator(paramList.getString(1));
-        paramList.verifyEnd(2);
+        string const sseparator(paramList.getString(0));
+        paramList.verifyEnd(1);
         ServerThread svT; string listsearchstrings;
-        svT.listSearchStrings(listsearchstrings, ssearch, sseparator);
+        svT.listSearchStrings(listsearchstrings, sseparator);
         *retvalP = xmlrpc_c::value_string(listsearchstrings);
+    }
+};
+
+class returnSearchResultsMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    returnSearchResultsMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method return results list by search string from huburls. Рarams: index, huburls";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        int const iindex(paramList.getInt(0));
+        string const shuburls(paramList.getString(1));
+        paramList.verifyEnd(2);
+        ServerThread svT; vector<StringMap> tmp;
+        svT.returnSearchResults(tmp, iindex, shuburls);
+        vector<xmlrpc_c::value> tmp_array_in;
+        for (vector<StringMap>::iterator i = tmp.begin(); i != tmp.end(); ++i) {
+            map<string, xmlrpc_c::value> tmp_struct_in;
+            for (StringMap::iterator kk = (*i).begin(); kk != (*i).end(); ++kk) {
+                pair<string, xmlrpc_c::value> member(kk->first, xmlrpc_c::value_string(kk->second));
+                tmp_struct_in.insert(member);
+            }
+            xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
+            tmp_array_in.push_back(xmlrpc_c::value_struct(tmp_struct_out));
+        }
+        xmlrpc_c::value_array tmp_array_out(tmp_array_in);
+        *retvalP = tmp_array_out;
     }
 };
 #endif

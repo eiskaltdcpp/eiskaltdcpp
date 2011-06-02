@@ -93,6 +93,7 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const getFileListMethodP(new getFileListMethod);
     xmlrpc_c::methodPtr const sendSearchMethodP(new sendSearchMethod);
     xmlrpc_c::methodPtr const listSearchStringsMethodP(new listSearchStringsMethod);
+    xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
     xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
@@ -598,7 +599,6 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
         ftype = SearchManager::TYPE_ANY;
     }
     for (StringIter it = clients.begin(); it != clients.end(); ++it){
-        clientsMap[(*it)].cursearchlist.push_back(ssearch);
         clientsMap[(*it)].cursearchresult[ssearch].push_back(NULL);
     }
 
@@ -607,13 +607,34 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     return true;
 }
 
-void ServerThread::listSearchStrings(string& listsearchstrings, const string& search, const string& separator) {
+void ServerThread::listSearchStrings(string& listsearchstrings, const string& separator) {
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
         unordered_map<string, SearchResultList>::const_iterator it;
         for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
         {
             listsearchstrings.append(it->first);
             listsearchstrings.append(separator);
+        }
+    }
+}
+
+void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const int& index, const string& huburls) {
+    StringTokenizer<string> sl(huburls, ";");
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        for (StringIter itt = sl.getTokens().begin(); itt != sl.getTokens().end(); ++itt) {
+            if (i->first.compare(*itt)) {
+                unordered_map<string, SearchResultList>::const_iterator it;
+                for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it) {
+                    if (it->first == retlistsearchs[index]) {
+                        for (SearchResultList::const_iterator kk = it->second.begin(); kk != it->second.end(); ++kk) {
+                            StringMap resultMap;
+                            parseSearchResult_gui(*kk, resultMap);
+                            resultarray.push_back(resultMap);
+                        }
+                        //resultarray.insert(resultarray.begin(), (it)->second.begin(), (it)->second.end());
+                    }
+                }
+            }
         }
     }
 }
