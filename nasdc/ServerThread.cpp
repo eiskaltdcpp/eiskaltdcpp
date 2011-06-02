@@ -608,10 +608,12 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
 }
 
 void ServerThread::listSearchStrings(string& listsearchstrings, const string& separator) {
+    retlistsearchs.clear();
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
         unordered_map<string, SearchResultList>::const_iterator it;
         for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
         {
+            retlistsearchs.push_back(it->first);
             listsearchstrings.append(it->first);
             listsearchstrings.append(separator);
         }

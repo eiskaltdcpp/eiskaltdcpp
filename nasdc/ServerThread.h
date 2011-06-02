@@ -60,7 +60,7 @@ private:
     bool disconnect_all();
     void parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap);
     string revertSeparator(const string &ps);
-
+    vector<string> retlistsearchs;
     typedef struct {
             deque<string> curchat;
             Client* curclient;
