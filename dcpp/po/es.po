@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-05-22 01:16+0300\n"
+"POT-Creation-Date: 2011-06-02 23:09+0300\n"
 "PO-Revision-Date: 2011-05-23 18:25+0200\n"
 "Last-Translator: Gustavo Alvarez <gustavoalvarez@ono.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -70,19 +70,19 @@ msgstr ""
 "Fallada la conexión con el servidor socks por retraso UDP (chequear "
 "dirección socks y puerto)"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:122
 msgid "Hash database"
 msgstr "Base de Datos del Hash"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:125
 msgid "Shared Files"
 msgstr "Archivos compartidos"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:134
 msgid "Download Queue"
 msgstr "Cola de Descargas"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:137
 msgid "Users"
 msgstr "Usuarios"
 
@@ -109,13 +109,13 @@ msgstr ""
 "No se puede habilitar el/los puerto(s) %1%. Debería configurar su conexión "
 "manualmente"
 
-#: ../ConnectivityManager.cpp:94
+#: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 "IP publica detectada, Seleccionando modo activo con la conexión directa"
 
-#: ../ConnectivityManager.cpp:101
+#: ../ConnectivityManager.cpp:100
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -123,7 +123,7 @@ msgstr ""
 "Detectado posible red local con NAT, probando los puertos con el mapa, "
 "usando UPnP..."
 
-#: ../ConnectivityManager.cpp:129
+#: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -131,19 +131,19 @@ msgstr ""
 "La configuración automática para el modo activo a fallado. Necesita "
 "configurar su conexión manualmente para una mejor conectividad"
 
-#: ../ConnectivityManager.cpp:141
+#: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
 msgstr "Transferencia (TCP)"
 
-#: ../ConnectivityManager.cpp:147
+#: ../ConnectivityManager.cpp:146
 msgid "Search (UDP)"
 msgstr "Búsqueda (UDP)"
 
-#: ../ConnectivityManager.cpp:153
+#: ../ConnectivityManager.cpp:152
 msgid "DHT (UDP)"
 msgstr "DHT (UDP)"
 
-#: ../ConnectivityManager.cpp:168
+#: ../ConnectivityManager.cpp:167
 msgid "Connectivity: "
 msgstr "Conectividad: "
 
@@ -159,35 +159,35 @@ msgstr "IPFilter: Bloqueada conexión de entrada a "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Usuario desconectado ha dejado el hub: %1%"
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:181
 msgid "downloaded from"
 msgstr "descargado de"
 
-#: ../SettingsManager.cpp:509
+#: ../SettingsManager.cpp:511
 msgid "Invalid search type name"
 msgstr "Nombre del tipo de búsqueda invalida"
 
-#: ../SettingsManager.cpp:513 ../SettingsManager.cpp:535
+#: ../SettingsManager.cpp:515 ../SettingsManager.cpp:537
 msgid "This search type already exists"
 msgstr "Este tipo de búsquedas ya existe"
 
-#: ../SettingsManager.cpp:567
+#: ../SettingsManager.cpp:569
 msgid "No such search type"
 msgstr "Tipo de búsqueda no encontrada"
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:604
 msgid "Error: setting not found!"
 msgstr "Error: ¡configuración no encontrada!"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid "Change core setting "
 msgstr "Cambiar configuración del núcleo:"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid " to "
 msgstr "a"
 
-#: ../SettingsManager.cpp:605
+#: ../SettingsManager.cpp:607
 msgid "Error: params have been not 2!"
 msgstr "Error: ¡no me ha dado 2 parámetros!"
 
@@ -208,7 +208,7 @@ msgstr ""
 "favor, inste al dueño del hub que arregle esto"
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:280 ../SearchManager.cpp:367 ../SearchManager.cpp:369
+#: ../SearchManager.cpp:282 ../SearchManager.cpp:369 ../SearchManager.cpp:371
 #: ../QueueManager.cpp:2164 ../QueueManager.cpp:2170 ../QueueManager.cpp:2176
 msgid "Offline"
 msgstr "Desconectado"
@@ -612,11 +612,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "Imagen CD"
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:151
 msgid "Search enabled again"
 msgstr "Búsqueda habilitada nuevamente"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
 msgstr "Búsqueda desactivada: %1%"
 

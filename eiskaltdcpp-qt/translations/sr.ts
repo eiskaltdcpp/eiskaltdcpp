@@ -2829,6 +2829,13 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
 </context>
 <context>
+    <name>ShareBrowserSearch</name>
+    <message>
+        <source>Search - %1</source>
+        <translation type="unfinished">Pretraži - %1</translation>
+    </message>
+</context>
+<context>
     <name>ShareDirModel</name>
     <message>
         <source>Error</source>
@@ -5491,6 +5498,21 @@ odobreni slot neće biti zatvoren.</translation>
     <message>
         <source>Form</source>
         <translation>Oblik</translation>
+    </message>
+</context>
+<context>
+    <name>UIShareBrowserSearch</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Pretraži</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Ime fajla</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Fascikla</translation>
     </message>
 </context>
 <context>

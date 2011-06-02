@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-05-22 01:16+0300\n"
+"POT-Creation-Date: 2011-06-02 23:09+0300\n"
 "PO-Revision-Date: 2008-05-04 16:18+0000\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,19 +66,19 @@ msgstr ""
 "Не вдалось налаштувати сокет-сервер для UDP передачі (перевірте адресу і "
 "порт сокета)"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:122
 msgid "Hash database"
 msgstr "Хешувати базу даних"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:125
 msgid "Shared Files"
 msgstr "Файли у доступі"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:134
 msgid "Download Queue"
 msgstr "В черзі"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:137
 msgid "Users"
 msgstr "Користувачі"
 
@@ -107,14 +107,14 @@ msgid ""
 msgstr ""
 "Неможливо відкрити порт(и) %1%. Вам необхідно налаштувати підключення вручну"
 
-#: ../ConnectivityManager.cpp:94
+#: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 "Публічна IP-адреса виявлена, вибирається активний режим із прямим "
 "підключенням"
 
-#: ../ConnectivityManager.cpp:101
+#: ../ConnectivityManager.cpp:100
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -122,7 +122,7 @@ msgstr ""
 "Виявлена локальна мережа з можливим використанням NAT, роблю спробу "
 "прокинути порти, використовуючи UPnP..."
 
-#: ../ConnectivityManager.cpp:129
+#: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -130,22 +130,22 @@ msgstr ""
 "Автоматичне встановлення активного режиму провалилося. Ви можете спробувати "
 "встановити своє підключення вручну для кращого зв'язку"
 
-#: ../ConnectivityManager.cpp:141
+#: ../ConnectivityManager.cpp:140
 #, fuzzy
 msgid "Transfer (TCP)"
 msgstr " Порт передачі (%1% TCP)"
 
-#: ../ConnectivityManager.cpp:147
+#: ../ConnectivityManager.cpp:146
 #, fuzzy
 msgid "Search (UDP)"
 msgstr " Порт для пошуку (%1% UDP)"
 
-#: ../ConnectivityManager.cpp:153
+#: ../ConnectivityManager.cpp:152
 #, fuzzy
 msgid "DHT (UDP)"
 msgstr " DHT Порт (%1% UDP)"
 
-#: ../ConnectivityManager.cpp:168
+#: ../ConnectivityManager.cpp:167
 msgid "Connectivity: "
 msgstr "Підключення: "
 
@@ -161,35 +161,35 @@ msgstr "IP-Фільтр: Блоковано вхідне з'єдання з "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Відключений користувач залишає хаб: %1%"
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:181
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:509
+#: ../SettingsManager.cpp:511
 msgid "Invalid search type name"
 msgstr "Неправильне ім'я типу пошуку"
 
-#: ../SettingsManager.cpp:513 ../SettingsManager.cpp:535
+#: ../SettingsManager.cpp:515 ../SettingsManager.cpp:537
 msgid "This search type already exists"
 msgstr "Цей тип пошуку вже використовується"
 
-#: ../SettingsManager.cpp:567
+#: ../SettingsManager.cpp:569
 msgid "No such search type"
 msgstr "Немає такого типу пошуку"
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:604
 msgid "Error: setting not found!"
 msgstr ""
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid "Change core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid " to "
 msgstr ""
 
-#: ../SettingsManager.cpp:605
+#: ../SettingsManager.cpp:607
 msgid "Error: params have been not 2!"
 msgstr ""
 
@@ -210,7 +210,7 @@ msgstr ""
 "повідомте власнику хаба, щоб він виправив це"
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:280 ../SearchManager.cpp:367 ../SearchManager.cpp:369
+#: ../SearchManager.cpp:282 ../SearchManager.cpp:369 ../SearchManager.cpp:371
 #: ../QueueManager.cpp:2164 ../QueueManager.cpp:2170 ../QueueManager.cpp:2176
 msgid "Offline"
 msgstr "Поза мережею"
@@ -614,11 +614,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "Образ"
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:151
 msgid "Search enabled again"
 msgstr "Пошук знову увімкнено"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
 msgstr "Пошук відключений: %1%"
 

@@ -2848,6 +2848,13 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
 </context>
 <context>
+    <name>ShareBrowserSearch</name>
+    <message>
+        <source>Search - %1</source>
+        <translation type="unfinished">Recherche - %1</translation>
+    </message>
+</context>
+<context>
     <name>ShareDirModel</name>
     <message>
         <source>Error</source>
@@ -5504,6 +5511,21 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
+    </message>
+</context>
+<context>
+    <name>UIShareBrowserSearch</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Rechercher</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Répertoire</translation>
     </message>
 </context>
 <context>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-05-22 01:16+0300\n"
+"POT-Creation-Date: 2011-06-02 23:09+0300\n"
 "PO-Revision-Date: 2009-02-22 14:17+0000\n"
 "Last-Translator: poy <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,19 +69,19 @@ msgstr ""
 "Impossible de configurer le serveur socks en tant que relais UDP (vérifier "
 "l'adresse et le port du serveur socks)"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:122
 msgid "Hash database"
 msgstr "Base de données des clés"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:125
 msgid "Shared Files"
 msgstr "Fichiers Partagés"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:134
 msgid "Download Queue"
 msgstr "Liste de Téléchargement"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:137
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -111,12 +111,12 @@ msgstr ""
 "Impossible d'ouvrir le(s) port(s) %1%. Vous devez configurer votre connexion "
 "manuellement"
 
-#: ../ConnectivityManager.cpp:94
+#: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr "IP publique détectée, sélection du mode actif avec connexion directe"
 
-#: ../ConnectivityManager.cpp:101
+#: ../ConnectivityManager.cpp:100
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -124,7 +124,7 @@ msgstr ""
 "Réseau local avec un possible NAT détecté, tentative de redirection des "
 "ports avec UPnP..."
 
-#: ../ConnectivityManager.cpp:129
+#: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -132,22 +132,22 @@ msgstr ""
 "La configuration automatique du mode actif a échoué. Vous devriez la "
 "configurer manuellement pour de meilleurs transferts"
 
-#: ../ConnectivityManager.cpp:141
+#: ../ConnectivityManager.cpp:140
 #, fuzzy
 msgid "Transfer (TCP)"
 msgstr "Transfert de port (%1% TCP)"
 
-#: ../ConnectivityManager.cpp:147
+#: ../ConnectivityManager.cpp:146
 #, fuzzy
 msgid "Search (UDP)"
 msgstr " Recherche de port (%1% UDP)"
 
-#: ../ConnectivityManager.cpp:153
+#: ../ConnectivityManager.cpp:152
 #, fuzzy
 msgid "DHT (UDP)"
 msgstr " Port DHT (%1% UDP)"
 
-#: ../ConnectivityManager.cpp:168
+#: ../ConnectivityManager.cpp:167
 #, fuzzy
 msgid "Connectivity: "
 msgstr "Connection: "
@@ -164,36 +164,36 @@ msgstr "IPFilter: Connexion entrante bloquée pour "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Déconnexion de l'utilisateur : %1% (sorti du hub)"
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:181
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:509
+#: ../SettingsManager.cpp:511
 msgid "Invalid search type name"
 msgstr "Type de nom de recherche invalide"
 
-#: ../SettingsManager.cpp:513 ../SettingsManager.cpp:535
+#: ../SettingsManager.cpp:515 ../SettingsManager.cpp:537
 #, fuzzy
 msgid "This search type already exists"
 msgstr "Ce type de recherche existe déjà"
 
-#: ../SettingsManager.cpp:567
+#: ../SettingsManager.cpp:569
 msgid "No such search type"
 msgstr "Pas de type de recherche de la sorte"
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:604
 msgid "Error: setting not found!"
 msgstr ""
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid "Change core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid " to "
 msgstr ""
 
-#: ../SettingsManager.cpp:605
+#: ../SettingsManager.cpp:607
 msgid "Error: params have been not 2!"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 "rapidement contacter l'administrateur pour qu'il règle le problème"
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:280 ../SearchManager.cpp:367 ../SearchManager.cpp:369
+#: ../SearchManager.cpp:282 ../SearchManager.cpp:369 ../SearchManager.cpp:371
 #: ../QueueManager.cpp:2164 ../QueueManager.cpp:2170 ../QueueManager.cpp:2176
 msgid "Offline"
 msgstr "Déconnecté"
@@ -626,11 +626,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "Image CD"
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:151
 msgid "Search enabled again"
 msgstr "Recherche à nouveau activée"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
 msgstr "Recherche désactivée : %1%"
 

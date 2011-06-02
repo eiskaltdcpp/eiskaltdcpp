@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-05-22 01:16+0300\n"
-"PO-Revision-Date: 2011-05-23 18:24+0200\n"
+"POT-Creation-Date: 2011-06-02 23:09+0300\n"
+"PO-Revision-Date: 2011-06-02 10:43+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -72,19 +72,19 @@ msgstr ""
 "A socks kiszolgáló beállítása az UDP port továbbításra nem sikerült "
 "(ellenőrizd a kiszolgáló címét és a portot)"
 
-#: ../DCPlusPlus.cpp:120
+#: ../DCPlusPlus.cpp:122
 msgid "Hash database"
 msgstr "Hash adatbázis"
 
-#: ../DCPlusPlus.cpp:123
+#: ../DCPlusPlus.cpp:125
 msgid "Shared Files"
 msgstr "Megosztott fájlok"
 
-#: ../DCPlusPlus.cpp:132
+#: ../DCPlusPlus.cpp:134
 msgid "Download Queue"
 msgstr "Letöltési Sor"
 
-#: ../DCPlusPlus.cpp:135
+#: ../DCPlusPlus.cpp:137
 msgid "Users"
 msgstr "Felhasználó(k)"
 
@@ -110,14 +110,14 @@ msgid ""
 msgstr ""
 "%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani"
 
-#: ../ConnectivityManager.cpp:94
+#: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
 "Publikus IP cím sikeresen lekérdezve, aktív mód kiválasztása közvetlen "
 "kapcsolattal"
 
-#: ../ConnectivityManager.cpp:101
+#: ../ConnectivityManager.cpp:100
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -125,7 +125,7 @@ msgstr ""
 "Helyi hálózat és lehetséges NAT észlelve, kísérlet a portok feltérképezésére "
 "UPnP használatával ..."
 
-#: ../ConnectivityManager.cpp:129
+#: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -133,19 +133,19 @@ msgstr ""
 "Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az aktív mód "
 "beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
 
-#: ../ConnectivityManager.cpp:141
+#: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
 msgstr "Átvitel (TCP)"
 
-#: ../ConnectivityManager.cpp:147
+#: ../ConnectivityManager.cpp:146
 msgid "Search (UDP)"
 msgstr "Keresés (UDP)"
 
-#: ../ConnectivityManager.cpp:153
+#: ../ConnectivityManager.cpp:152
 msgid "DHT (UDP)"
 msgstr "DHT (UDP)"
 
-#: ../ConnectivityManager.cpp:168
+#: ../ConnectivityManager.cpp:167
 msgid "Connectivity: "
 msgstr "Kapcsolatok: "
 
@@ -161,35 +161,35 @@ msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:181
 msgid "downloaded from"
 msgstr "letöltve"
 
-#: ../SettingsManager.cpp:509
+#: ../SettingsManager.cpp:511
 msgid "Invalid search type name"
 msgstr "Érvénytelen keresési feltétel"
 
-#: ../SettingsManager.cpp:513 ../SettingsManager.cpp:535
+#: ../SettingsManager.cpp:515 ../SettingsManager.cpp:537
 msgid "This search type already exists"
 msgstr "A megadott keresési feltétel már létezik"
 
-#: ../SettingsManager.cpp:567
+#: ../SettingsManager.cpp:569
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:604
 msgid "Error: setting not found!"
 msgstr "Hiba: Beállítás nem található!"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid "Change core setting "
-msgstr ""
+msgstr "Alapbeállítás megváltoztatása: "
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:605
 msgid " to "
 msgstr ""
 
-#: ../SettingsManager.cpp:605
+#: ../SettingsManager.cpp:607
 msgid "Error: params have been not 2!"
 msgstr ""
 
@@ -210,7 +210,7 @@ msgstr ""
 "értesítsd a hub üzemeltetőit, hogy javítsák a problémát."
 
 #: ../ClientManager.cpp:177 ../Transfer.cpp:82 ../Transfer.cpp:86
-#: ../SearchManager.cpp:280 ../SearchManager.cpp:367 ../SearchManager.cpp:369
+#: ../SearchManager.cpp:282 ../SearchManager.cpp:369 ../SearchManager.cpp:371
 #: ../QueueManager.cpp:2164 ../QueueManager.cpp:2170 ../QueueManager.cpp:2176
 msgid "Offline"
 msgstr "Kilépett"
@@ -618,11 +618,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "CD képfájl"
 
-#: ../SearchManager.cpp:152
+#: ../SearchManager.cpp:151
 msgid "Search enabled again"
 msgstr "Keresés ismét engedélyezve"
 
-#: ../SearchManager.cpp:160
+#: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
 msgstr "Keresés tiltva:%1%"
 
