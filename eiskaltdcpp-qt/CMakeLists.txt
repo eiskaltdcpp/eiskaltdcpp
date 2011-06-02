@@ -91,7 +91,7 @@ set (SRCS
             src/SettingsShortcuts.cpp
             src/SettingsUC.cpp
             src/ShareBrowser.cpp
-	    src/ShareBrowserSearch.cpp
+            src/ShareBrowserSearch.cpp
             src/ShellCommandRunner.cpp
             src/ShortcutManager.cpp
             src/ShortcutEdit.cpp
@@ -167,7 +167,7 @@ set (MOC_HDRS
             src/SettingsSharing.h
             src/SettingsShortcuts.h
             src/SettingsUC.h
-	    src/ShareBrowserSearch.h
+            src/ShareBrowserSearch.h
             src/ShortcutEdit.h
             src/SideBar.h
             src/QuickConnect.h
@@ -228,7 +228,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsSharing.ui
             ui/UISettingsShortcuts.ui
             ui/UIShareBrowser.ui
-	    ui/UIShareBrowserSearch.ui
+            ui/UIShareBrowserSearch.ui
             ui/UISpy.ui
             ui/UITransferView.ui
             ui/UISettingsUC.ui

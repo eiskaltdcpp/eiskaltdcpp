@@ -1,3 +1,9 @@
+--- 2.2.3 2011-06-04 ---
+*** common changes ***
+*** eiskaltdcpp-qt ***
+*** eiskaltdcpp-gtk ***
+*** eiskaltdcpp-daemon ***
+
 --- 2.2.2 2011-04-24 ---
 *** common changes ***
 * Partial synchronization with DC++ kernel (0.785).
