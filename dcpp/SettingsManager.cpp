@@ -94,7 +94,7 @@ const string SettingsManager::settingTags[] =
     "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "KeepFinishedFiles",
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
-    "BindIface", "MinimumSearchInterval", "SENTRY",
+    "BindIface", "MinimumSearchInterval", "EnableDynDNS", "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
