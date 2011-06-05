@@ -375,6 +375,7 @@ void TransferViewModel::updateTransfer(const VarMap &params){
 
     if (item->parent() != rootItem && rootItem->childItems.contains(item->parent()) && params.contains("FPOS")){
         item->parent()->dpos += item->delta;
+        item->parent()->finished = false;
 
         if (vlng(params["FPOS"]) > item->parent()->dpos)
             item->parent()->dpos = vlng(params["FPOS"]);
