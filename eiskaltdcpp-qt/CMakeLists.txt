@@ -375,7 +375,6 @@ if (APPLE)
   SET_SOURCE_FILES_PROPERTIES(${MACOSICON} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
   # include the icns file in the target
   list (APPEND SRCS ${MACOSICON})
-  add_definitions(-DAPPLE)
 endif (APPLE)
 
 add_executable (eiskaltdcpp-qt MACOSX_BUNDLE WIN32 src/main.cpp

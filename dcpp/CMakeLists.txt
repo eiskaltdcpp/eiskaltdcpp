@@ -32,7 +32,6 @@ endif (NOT LINK)
 
 if (APPLE)
   set (APPLE_LIBS "iconv")
-  add_definitions(-DAPPLE)
 endif (APPLE)
 
 set (UPNP "extra")
