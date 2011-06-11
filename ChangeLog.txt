@@ -1,8 +1,22 @@
 --- 2.2.3 2011-06-04 ---
 *** common changes ***
+* Fixed some compiler warnings.
+* Different search interval for favorite hubs.
+* Fixed work with ADC hubs on ARM processors.
+* Download/upload statistic moved to DC++ core.
+* Updated app icons in faenza theme.
+* Added German translation.
+* A lot of fixes.
 *** eiskaltdcpp-qt ***
+* New chat command: /dcpps (change core settings).
+* Finished transfers: async loading from database.
+* Wildcard search in ShareBrowser.
 *** eiskaltdcpp-gtk ***
+* New chat command: /ip (IPFilter rules), /ratio, /version.
+* Save download/upload statistic between sessions. 
 *** eiskaltdcpp-daemon ***
+* Search support.
+* New XML-RPC methods.
 
 --- 2.2.2 2011-04-24 ---
 *** common changes ***
