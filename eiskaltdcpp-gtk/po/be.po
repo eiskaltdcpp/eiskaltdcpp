@@ -16,8 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Translate Toolkit 1.5.3\n"
 "X-Poedit-Language: Belarusian\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -392,6 +391,7 @@ msgid "project home: "
 msgstr "бачына праекту: "
 
 #: ../src/hub.cc:1943 ../src/privatemessage.cc:957
+#, qt-format
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "суадносіны: %1% (зацягнулі: %2%, сьцягнулі: %3%)"
 
@@ -644,8 +644,7 @@ msgstr "Самарушна шукаць у сьпісах файлаў"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
-#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
-#: ../glade/adlsearch.glade:354
+#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393 ../glade/adlsearch.glade:354
 msgid "Enabled"
 msgstr "Задзейнічаць"
 
@@ -1773,6 +1772,7 @@ msgid "Loading file list"
 msgstr "Чытаецца сьпіс файлаў"
 
 #: ../src/mainwindow.cc:2127
+#, qt-format
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -2399,8 +2399,7 @@ msgstr "Узгадніць _чаргу"
 msgid "Send _private message"
 msgstr "Асабістае _паведамленьне"
 
-#: ../glade/search.glade:511 ../glade/transfers.glade:52
-#: ../glade/hub.glade:265
+#: ../glade/search.glade:511 ../glade/transfers.glade:52 ../glade/hub.glade:265
 msgid "_Add to favorites"
 msgstr "_Дадаць да ўлюбёнцаў"
 
@@ -2697,7 +2696,6 @@ msgstr ""
 " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 
 #: ../glade/mainwindow.glade:976
-#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2815,6 +2813,11 @@ msgstr ""
 "\n"
 " Uhlik\n"
 " (uhlikx@seznam.cz)\n"
+"\n"
+" Пераклаў у нямецкую\n"
+"\n"
+" Chris Leick\n"
+" (c.leick@vollbio.de)\n"
 
 #: ../glade/mainwindow.glade:1103
 msgid "Enter line for user command"
@@ -3525,11 +3528,11 @@ msgstr "Перададзеныя сьпісы файлаў"
 
 #: ../glade/settingsdialog.glade:4327
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Дапамога</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Дапамога</a>"
 
 #: ../glade/settingsdialog.glade:4342
 msgid "<b>Logging</b>"
