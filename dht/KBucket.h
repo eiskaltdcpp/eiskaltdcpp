@@ -44,7 +44,7 @@ namespace dht
 		typedef std::map<CID, Node::Ptr> Map;
 
 		Node(const UserPtr& u);
-		virtual ~Node() throw();
+		~Node() throw() {}
 
 		uint8_t getType() const { return type; }
 		bool isIpVerified() const { return ipVerified; }
