@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-06-02 23:09+0300\n"
-"PO-Revision-Date: 2011-05-23 18:27+0200\n"
+"PO-Revision-Date: 2011-06-12 13:27+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -2693,7 +2693,6 @@ msgstr ""
 " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 
 #: ../glade/mainwindow.glade:976
-#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -2811,6 +2810,11 @@ msgstr ""
 "\n"
 " Uhlik\n"
 " (uhlikx@seznam.cz)\n"
+"\n"
+" Német fordítás\n"
+"\n"
+" Chris Leick\n"
+" (c.leick@vollbio.de)\n"
 
 #: ../glade/mainwindow.glade:1103
 msgid "Enter line for user command"
@@ -2818,7 +2822,7 @@ msgstr ""
 
 #: ../glade/mainwindow.glade:1191
 msgid "_Show Interface"
-msgstr ""
+msgstr "_Interfész mutatása"
 
 #: ../glade/mainwindow.glade:1204
 msgid "Use Blinking Icon"
