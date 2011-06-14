@@ -1932,11 +1932,11 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Német fordítás&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(2.2.3 és újabb)&lt;br/&gt;</translation>
     </message>
 </context>
 <context>
@@ -2715,7 +2715,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>Német</translation>
     </message>
 </context>
 <context>
@@ -2885,7 +2885,7 @@ Letöltve: %3 Feltöltve %4</translation>
     <name>ShareBrowserSearch</name>
     <message>
         <source>Search - %1</source>
-        <translation type="unfinished">Keresés - %1</translation>
+        <translation>Keresés - %1</translation>
     </message>
 </context>
 <context>
@@ -5597,15 +5597,15 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <name>UIShareBrowserSearch</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresés</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Fájlnév</translation>
+        <translation>Fájlnév</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation type="unfinished">Könyvtár</translation>
+        <translation>Könyvtár</translation>
     </message>
 </context>
 <context>
