@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: eiskaltdcpp 2.2.1-1\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
 "POT-Creation-Date: 2011-06-02 23:09+0300\n"
-"PO-Revision-Date: 2011-05-09 21:35+0200\n"
+"PO-Revision-Date: 2011-06-14 21:08+0200\n"
 "Last-Translator: Chris Leick <c.leick@vollbio.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
 "Language: de\n"
@@ -98,17 +98,14 @@ msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Nicht-UTF-8-Daten in einer ADC-Verbindung"
 
 #: ../ConnectivityManager.cpp:78
-#, fuzzy
 msgid "Determining the best connectivity settings..."
-msgstr "Verbindungstyp wird festgelegt …"
+msgstr "Beste Verbindungseinstellungen werden festgelegt …"
 
 #: ../ConnectivityManager.cpp:83
-#, fuzzy
 msgid ""
 "Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
-"%1% Port(s) können nicht geöffnet werden. Sie müssen Ihre Verbindung manuell "
-"einrichten."
+"%1% Port(s) können nicht geöffnet werden; Verbindungseinstellungen müssen manuell konfiguriert werden"
 
 # http://de.wikipedia.org/wiki/Direct_Connect
 # http://en.wikipedia.org/wiki/Direct_Connect_%28file_sharing%29
@@ -137,20 +134,17 @@ msgstr ""
 "manuell einrichten."
 
 #: ../ConnectivityManager.cpp:140
-#, fuzzy
 msgid "Transfer (TCP)"
-msgstr " Übertragungsport (%1% TCP)"
+msgstr " Übertragung (TCP)"
 
 # http://www.duden.de/suchen/dudenonline/port
 #: ../ConnectivityManager.cpp:146
-#, fuzzy
 msgid "Search (UDP)"
-msgstr " Suchport (%1% UDP)"
+msgstr " Suche (UDP)"
 
 #: ../ConnectivityManager.cpp:152
-#, fuzzy
 msgid "DHT (UDP)"
-msgstr " DHT-Port (%1% UDP)"
+msgstr " DHT (UDP)"
 
 #: ../ConnectivityManager.cpp:167
 msgid "Connectivity: "
@@ -171,7 +165,7 @@ msgstr "Der Benutzer, dessen Verbindung getrennt wurde, verließ den Hub: %1%"
 
 #: ../SettingsManager.cpp:181
 msgid "downloaded from"
-msgstr ""
+msgstr "heruntergeladen von"
 
 #: ../SettingsManager.cpp:511
 msgid "Invalid search type name"
@@ -187,19 +181,19 @@ msgstr "kein derartiger Suchtyp"
 
 #: ../SettingsManager.cpp:604
 msgid "Error: setting not found!"
-msgstr ""
+msgstr "Fehler: Einstellung nicht gefunden!"
 
 #: ../SettingsManager.cpp:605
 msgid "Change core setting "
-msgstr ""
+msgstr "Ändern der Kerneinstellung "
 
 #: ../SettingsManager.cpp:605
 msgid " to "
-msgstr ""
+msgstr " auf "
 
 #: ../SettingsManager.cpp:607
 msgid "Error: params have been not 2!"
-msgstr ""
+msgstr "Fehler: Es waren keine zwei Parameter!"
 
 #: ../NmdcHub.cpp:288
 msgid "%1% (Nick unknown)"
@@ -260,7 +254,7 @@ msgstr "Es wird nicht auf Verbindungen gewartet – bitte starten Sie %1% neu."
 
 #: ../HttpConnection.cpp:159
 msgid "Endless redirection loop (%1%)"
-msgstr ""
+msgstr "Endlose Weiterleitungsschleife (%1%)"
 
 #: ../ChatMessage.cpp:34
 msgid "Sent "
@@ -748,12 +742,3 @@ msgstr "mehr Byte geschrieben als angefragt"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "TTH-Unstimmigkeit"
-
-#~ msgid "TCP/TLS"
-#~ msgstr "TCP/TLS"
-
-#~ msgid "UDP"
-#~ msgstr "UDP"
-
-#~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Anfage, jenseits des Dateiendes zu suchen"
