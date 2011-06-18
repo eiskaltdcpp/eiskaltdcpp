@@ -177,7 +177,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Minimum search interval</string>
+           <string>Minimum search interval (seconds)</string>
           </property>
          </widget>
         </item>

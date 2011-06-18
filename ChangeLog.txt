@@ -1,4 +1,4 @@
---- 2.2.3 2011-06-04 ---
+--- 2.2.3 2011-06-19 ---
 *** common changes ***
 * Fixed some compiler warnings.
 * Different search interval for favorite hubs.

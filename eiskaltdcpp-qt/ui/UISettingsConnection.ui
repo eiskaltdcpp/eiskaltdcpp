@@ -789,7 +789,7 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Reconnect to hub(seconds)</string>
+            <string>Reconnect to hub (seconds)</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
