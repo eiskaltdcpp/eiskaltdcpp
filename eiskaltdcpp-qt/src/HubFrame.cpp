@@ -245,7 +245,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     menu->clear();
     menu->setProperty("iconVisibleInMenu", true);
 
-    menu->setTitle(WulforUtil::getInstance()->getNicks(cid));
+    menu->setTitle(WulforUtil::getInstance()->getNicks(cid, _q(client->getHubUrl())));
 
     if (menu->title().isEmpty())
         menu->setTitle(tr("[User went offline]"));
@@ -327,7 +327,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 
     menu->clear();
 
-    QAction *title = new QAction(WulforUtil::getInstance()->getNicks(cid), menu);
+    QAction *title = new QAction(WulforUtil::getInstance()->getNicks(cid, _q(client->getHubUrl())), menu);
     QFont f;
     f.setBold(true);
     title->setFont(f);
@@ -2112,7 +2112,7 @@ void HubFrame::grantSlot(const QString& id){
 
         if (user){
             UploadManager::getInstance()->reserveSlot(HintedUser(user, client->getHubUrl()));
-            message = tr("Slot granted to ") + WulforUtil::getInstance()->getNicks(user->getCID());
+            message = tr("Slot granted to ") + WulforUtil::getInstance()->getNicks(user->getCID(), _q(client->getHubUrl()));
         }
     }
 
@@ -2168,7 +2168,7 @@ void HubFrame::changeFavStatus(const QString &id) {
             model->repaintData(ixb, ixe);
         }
 
-        QString message = WulforUtil::getInstance()->getNicks(id) +
+        QString message = WulforUtil::getInstance()->getNicks(id, _q(client->getHubUrl())) +
                 (bFav ? tr(" has been added to favorites.") : tr(" has been removed from favorites."));
 
         MainWindow::getInstance()->setStatusMessage(message);

@@ -140,7 +140,7 @@ public:
 
     QPixmap *getUserIcon(const UserPtr&, bool, bool, const QString&);
 
-    QString getNicks(const CID &cid);
+    QString getNicks(const CID &cid, const QString& = "");
 
     const QString &getIconsPath() { return app_icons_path; }
 
@@ -179,7 +179,7 @@ public:
 
 public Q_SLOTS:
     const QPixmap &getPixmap(Icons);
-    QString getNicks(const QString&);
+    QString getNicks(const QString&,const QString& = "");
     bool openUrl(const QString&);
 
 private:

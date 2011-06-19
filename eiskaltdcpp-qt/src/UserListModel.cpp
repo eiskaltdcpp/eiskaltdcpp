@@ -438,9 +438,17 @@ UserListItem *UserListModel::itemForNick(const QString &nick, const QString &aHu
 }
 
 QString UserListModel::CIDforNick(const QString &nick, const QString &aHubUrl){
-    dcpp::CID cid = dcpp::ClientManager::getInstance()->makeCid(_tq(nick), _tq(aHubUrl));
+    Q_UNUSED(aHubUrl);
 
-    return _q(cid.toBase32());
+    QModelIndexList indexes = match(index(0, COLUMN_NICK, QModelIndex()), Qt::DisplayRole, nick, 1, Qt::MatchExactly);
+
+    if (indexes.size() != 1)
+        return "";
+
+    QModelIndex i = indexes.takeFirst();
+    UserListItem *item = reinterpret_cast<UserListItem*>(i.internalPointer());
+
+    return (item? item->cid : "");
 }
 
 QStringList UserListModel::matchNicksContaining(const QString & part, bool stripTags) const {

@@ -406,13 +406,12 @@ const QPixmap &WulforUtil::getPixmap(enum WulforUtil::Icons e){
     return m_PixmapMap[static_cast<qulonglong>(e)];
 }
 
-QString WulforUtil::getNicks(const QString &cid){
-    return getNicks(CID(cid.toStdString()));
+QString WulforUtil::getNicks(const QString &cid, const QString &hintUrl){
+    return getNicks(CID(cid.toStdString()), hintUrl);
 }
 
-QString WulforUtil::getNicks(const CID &cid){
-    const dcpp::Identity &user = ClientManager::getInstance()->getOnlineUserIdentity(ClientManager::getInstance()->getUser(cid));
-    return _q(user.getNick());
+QString WulforUtil::getNicks(const CID &cid, const QString &hintUrl){
+    return _q(dcpp::Util::toString(ClientManager::getInstance()->getNicks(cid, _tq(hintUrl))));
 }
 
 void WulforUtil::textToHtml(QString &str, bool print){
