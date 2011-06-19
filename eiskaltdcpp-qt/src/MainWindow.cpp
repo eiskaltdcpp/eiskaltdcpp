@@ -950,23 +950,18 @@ void MainWindow::initActions(){
     }
     {
         aboutHomepage = new QAction("", this);
-        aboutHomepage->setMenuRole(QAction::AboutRole);
         connect(aboutHomepage, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutSource = new QAction("", this);
-        aboutSource->setMenuRole(QAction::AboutRole);
         connect(aboutSource, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutIssues = new QAction("", this);
-        aboutIssues->setMenuRole(QAction::AboutRole);
         connect(aboutIssues, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutWiki = new QAction("", this);
-        aboutWiki->setMenuRole(QAction::AboutRole);
         connect(aboutWiki, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutChangelog = new QAction("", this);
-        aboutChangelog->setMenuRole(QAction::AboutRole);
         connect(aboutChangelog, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutClient = new QAction("", this);
