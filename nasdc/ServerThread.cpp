@@ -78,7 +78,7 @@ int ServerThread::run()
 #endif
 #ifdef XMLRPC_DAEMON
     xmlrpc_c::methodPtr const magnetAddMethodP(new magnetAddMethod);
-    xmlrpc_c::methodPtr const stopDemonMethodP(new stopDemonMethod);
+    xmlrpc_c::methodPtr const stopDaemonMethodP(new stopDaemonMethod);
     xmlrpc_c::methodPtr const hubAddMethodP(new hubAddMethod);
     xmlrpc_c::methodPtr const hubDelMethodP(new hubDelMethod);
     xmlrpc_c::methodPtr const hubSayMethodP(new hubSayMethod);
@@ -95,7 +95,7 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const listSearchStringsMethodP(new listSearchStringsMethod);
     xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
-    xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
+    xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
     xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
     xmlrpcRegistry.addMethod("hub.del", hubDelMethodP);
     xmlrpcRegistry.addMethod("hub.say", hubSayMethodP);

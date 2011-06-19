@@ -115,11 +115,11 @@ public:
     }
 };
 
-class stopDemonMethod : public xmlrpc_c::method {
+class stopDaemonMethod : public xmlrpc_c::method {
 public:
-    stopDemonMethod() {
+    stopDaemonMethod() {
         this->_signature = "i:i";
-        this->_help = "This method can stop demon. Params: 1";
+        this->_help = "This method can stop daemon. Params: 1";
     }
 
     void

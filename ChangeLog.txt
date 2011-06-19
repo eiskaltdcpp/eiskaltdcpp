@@ -1,6 +1,5 @@
 --- 2.2.3 2011-06-19 ---
 *** common changes ***
-* Added support for DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). This option is disabled in the settings by default. It is possible to completely remove support for DHT during configuration (option -DWITH_DHT for cmake). See also: http://en.wikipedia.org/wiki/Distributed_hash_table
 * Different search intervals for favorite hubs (default value: 60 s).
 * Fixed bug with connecting to ADC hubs on armel architechture.
 * Thanks to Chris Leick the German translation is now available.
@@ -21,7 +20,7 @@
 * Added new chat commands: /ip (IPFilter rules), /ratio, /version
 *** eiskaltdcpp-daemon ***
 * New XML-RPC methods.
-* Full list of currently available methods: magnet.add, demon.stop, hub.del, hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del, share.list, share.refresh
+* Full list of currently available methods: magnet.add, daemon.stop, hub.del, hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del, share.list, share.refresh
 * There is no web-ui for daemon control yet.
 
 --- 2.2.2 2011-04-24 ---

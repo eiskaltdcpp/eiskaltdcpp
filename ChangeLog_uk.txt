@@ -1,6 +1,5 @@
 --- 2.2.3 2011-06-19 ---
 *** common changes ***
-* Додана підтримка DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). Опція в налаштуваннях за умовчанням відключена. Є можливість повністю прибрати підтримку DHT на етапі конфігурування (опція -DWITH_DHT для cmake). Див також: http://ru.wikipedia.org/wiki/DHT
 * Різні пошукові інтервали для обраних хабів (за замовчуванням: 60 с).
 * Виправлено баг з підключенням до ADC хабiв на архітектурі armel.
 * Завдяки Chris Leick доступний німецький переклад.
@@ -21,7 +20,7 @@
 * Додана можливість пошуку за шаблоном у віджеті перегляду списку файлів.
 *** eiskaltdcpp-daemon ***
 * Нові методи XML-RPC.
-* Повний список доступних зараз методів: magnet.add, demon.stop, hub.del, hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del, share.list, share.refresh
+* Повний список доступних зараз методів: magnet.add, daemon.stop, hub.del, hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del, share.list, share.refresh
 * Веб-інтерфейсу для управління демоном все ще немає.
 
 --- 2.2.2 2011-04-24 ---
