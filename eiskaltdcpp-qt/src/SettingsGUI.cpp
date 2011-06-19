@@ -206,7 +206,7 @@ void SettingsGUI::init(){
         checkBox_REDIRECTPMBOT->setChecked(WBGET(WB_CHAT_REDIRECT_BOT_PMS));
         checkBox_REDIRECT_UNREAD->setChecked(WBGET("hubframe/redirect-pm-to-main-chat", false));
         checkBox_KEEPFOCUS->setChecked(WBGET(WB_CHAT_KEEPFOCUS));
-        checkBox_UNREADEN_DRAW_LINE->setChecked(WBGET("hubframe/unreaden-draw-line", false));
+        checkBox_UNREADEN_DRAW_LINE->setChecked(WBGET("hubframe/unreaden-draw-line", true));
         checkBox_USE_CTRL_ENTER->setChecked(WBGET(WB_USE_CTRL_ENTER));
         checkBox_ROTATING->setChecked(WBGET(WB_CHAT_ROTATING_MSGS));
         checkBox_EMOT->setChecked(WBGET(WB_APP_ENABLE_EMOTICON));

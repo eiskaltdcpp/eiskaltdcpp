@@ -2263,7 +2263,7 @@ void HubFrame::newMsg(const VarMap &map){
         MainWindow::getInstance()->redrawToolPanel();
     }
 
-    if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
+    if (drawLine && WBGET("hubframe/unreaden-draw-line", true)){
         QString hr = "<hr />";
 
         QTextDocument *chatDoc = textEdit_CHAT->document();

@@ -15,8 +15,9 @@
 * New chat command: /ip (IPFilter rules), /ratio, /version.
 * Save download/upload statistic between sessions. 
 *** eiskaltdcpp-daemon ***
-* Search support.
 * New XML-RPC methods.
+* Full list of currently available methods: magnet.add, demon.stop, hub.del, hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del, share.list, share.refresh
+* There is no web-ui for daemon control yet.
 
 --- 2.2.2 2011-04-24 ---
 *** common changes ***
