@@ -3,25 +3,16 @@ cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/common ${PROJECT_SOURCE_DIR}/gnu ${PROJECT_SOURCE_DIR}/.. )
 aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
+
 if (XMLRPC_DAEMON)
     if (NOT NO_UI_DAEMON)
         set (NO_UI_DAEMON 1 CACHE BOOL "Daemon without anyone ui" FORCE)
     endif (NOT NO_UI_DAEMON)
-    find_package (XMLRPC REQUIRED c++2 abyss-server client)
+    find_package (XMLRPC REQUIRED c++2 abyss-server)
     include_directories(${XMLRPC_INCLUDE_DIRS})
     set (XMLRPCLIBS ${XMLRPC_LIBRARIES})
     add_definitions (-DXMLRPC_DAEMON )
 endif (XMLRPC_DAEMON)
-
-if (CLI_DAEMON)
-    if (NOT NO_UI_DAEMON)
-        set (NO_UI_DAEMON 1 CACHE BOOL "Daemon without anyone ui" FORCE)
-    endif (NOT NO_UI_DAEMON)
-    find_package(Readline REQUIRED)
-    include_directories(${READLINE_INCLUDE_DIR})
-    set (RL_LIBS ${READLINE_LIBRARIES})
-    add_definitions (-DCLI_DAEMON )
-endif (CLI_DAEMON)
 
 if (HAVE_DAEMON)
     add_definitions(-DHAVE_DAEMON)
@@ -44,7 +35,7 @@ add_executable (nasdc MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
 
-target_link_libraries (nasdc dcpp ${XMLRPCLIBS} ${RL_LIBS})
+target_link_libraries (nasdc dcpp ${XMLRPCLIBS})
 
 if (UNIX)
  set (BINDIR bin)
