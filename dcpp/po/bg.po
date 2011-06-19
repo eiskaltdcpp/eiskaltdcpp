@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-06-02 23:09+0300\n"
+"POT-Creation-Date: 2011-06-19 20:59+0300\n"
 "PO-Revision-Date: 2010-12-20 19:57+0200\n"
 "Last-Translator: Rusi Dimitrov <dimitrov.rusi@gmail.com>\n"
 "Language-Team: Bulgarian < >\n"
@@ -303,50 +303,50 @@ msgstr "Грешка при компресиране"
 msgid "Error during decompression"
 msgstr "Грешка при декомпресиране"
 
-#: ../HashManager.cpp:88 ../HashManager.cpp:288
+#: ../HashManager.cpp:94 ../HashManager.cpp:294
 msgid "Hashing failed: %1%"
 msgstr "Грешка при хеширане: %1%"
 
-#: ../HashManager.cpp:95
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Завършено хеширане: %1% (%2% с %3%/s)"
 
-#: ../HashManager.cpp:98
+#: ../HashManager.cpp:104
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Завършено хеширане: %1% (%2%)"
 
-#: ../HashManager.cpp:101
+#: ../HashManager.cpp:107
 msgid "Finished hashing: %1%"
 msgstr "Завършено хеширане: %1%"
 
-#: ../HashManager.cpp:130 ../HashManager.cpp:344
+#: ../HashManager.cpp:136 ../HashManager.cpp:350
 msgid "Error saving hash data: %1%"
 msgstr "Грешка при запазване на хеш данни: %1%"
 
-#: ../HashManager.cpp:143
+#: ../HashManager.cpp:149
 msgid "Unable to read hash data file"
 msgstr "Грешка при четене на хеш файла"
 
-#: ../HashManager.cpp:476
+#: ../HashManager.cpp:482
 msgid "Error creating hash data file: %1%"
 msgstr "Грешка при създаване на хеш файл: %1%"
 
-#: ../HashManager.cpp:804
+#: ../HashManager.cpp:808
 msgid "Hash database rebuilt"
 msgstr "Базата-данни с хешове е построена наново"
 
-#: ../HashManager.cpp:857
+#: ../HashManager.cpp:861
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Хеширане на файл: %1% (размер: %2%)"
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:909
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% не е споделен; изчислената CRC32 сума не съвпада с намерената в SFV "
 "файла."
 
-#: ../HashManager.cpp:910
+#: ../HashManager.cpp:914
 msgid "Error hashing %1%: %2%"
 msgstr "Грешка при хеширане %1%: %2%"
 

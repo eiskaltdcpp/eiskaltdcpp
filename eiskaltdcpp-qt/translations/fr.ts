@@ -3672,7 +3672,7 @@ p, li { white-space: pre-wrap; }
         <translation>Mode</translation>
     </message>
     <message>
-        <source>Minimum search interval</source>
+        <source>Minimum search interval (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4292,7 +4292,7 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
-        <translation>Reconnexion au serveur (secondes)</translation>
+        <translation type="obsolete">Reconnexion au serveur (secondes)</translation>
     </message>
     <message>
         <source>Enable Throttle</source>
@@ -4371,6 +4371,10 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>DHT port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reconnect to hub (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

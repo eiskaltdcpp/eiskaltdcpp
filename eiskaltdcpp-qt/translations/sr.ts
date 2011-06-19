@@ -3645,7 +3645,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Minimum search interval</source>
+        <source>Minimum search interval (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4261,10 +4261,6 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
         <translation type="unfinished">Napredno</translation>
     </message>
     <message>
-        <source>Reconnect to hub(seconds)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Enable Throttle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4329,6 +4325,10 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>DHT port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reconnect to hub (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -3708,7 +3708,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Minimum search interval</source>
-        <translation>Minimális keresési intervallum</translation>
+        <translation type="obsolete">Minimális keresési intervallum</translation>
+    </message>
+    <message>
+        <source>Minimum search interval (seconds)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4328,7 +4332,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
-        <translation>Újracsatlakozás a hubhoz (másodpercekben)</translation>
+        <translation type="obsolete">Újracsatlakozás a hubhoz (másodpercekben)</translation>
     </message>
     <message>
         <source>Enable Throttle</source>
@@ -4411,6 +4415,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>DHT port</source>
         <translation>DHT port</translation>
+    </message>
+    <message>
+        <source>Reconnect to hub (seconds)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

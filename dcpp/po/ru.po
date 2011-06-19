@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-06-02 23:09+0300\n"
+"POT-Creation-Date: 2011-06-19 20:59+0300\n"
 "PO-Revision-Date: 2011-05-22 01:28+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <tehnick-8@mail.ru>\n"
@@ -297,48 +297,48 @@ msgstr "Ошибка сжатия"
 msgid "Error during decompression"
 msgstr "Ошибка распаковки"
 
-#: ../HashManager.cpp:88 ../HashManager.cpp:288
+#: ../HashManager.cpp:94 ../HashManager.cpp:294
 msgid "Hashing failed: %1%"
 msgstr "Не удалось хэширование: %1%"
 
-#: ../HashManager.cpp:95
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Завершено хэширование: %1% (%2%/с)"
 
-#: ../HashManager.cpp:98
+#: ../HashManager.cpp:104
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Завершено хэширование: %1% (%2%)"
 
-#: ../HashManager.cpp:101
+#: ../HashManager.cpp:107
 msgid "Finished hashing: %1%"
 msgstr "Завершено хэширование: %1%"
 
-#: ../HashManager.cpp:130 ../HashManager.cpp:344
+#: ../HashManager.cpp:136 ../HashManager.cpp:350
 msgid "Error saving hash data: %1%"
 msgstr "Ошибка сохранения хэш данных: %1%"
 
-#: ../HashManager.cpp:143
+#: ../HashManager.cpp:149
 msgid "Unable to read hash data file"
 msgstr "Невозможно считать хэш файла"
 
-#: ../HashManager.cpp:476
+#: ../HashManager.cpp:482
 msgid "Error creating hash data file: %1%"
 msgstr "Ошибка создания файла данных хэша: %1%"
 
-#: ../HashManager.cpp:804
+#: ../HashManager.cpp:808
 msgid "Hash database rebuilt"
 msgstr "Хеш базы данных обновлен"
 
-#: ../HashManager.cpp:857
+#: ../HashManager.cpp:861
 msgid "Hashing file: %1% (Size: %2%)"
 msgstr "Хэшируемый файл: %1% (Размер: %2%)"
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:909
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr "%1% не расшарен из-за несоответсвия хеш-суммы (CRC32)."
 
-#: ../HashManager.cpp:910
+#: ../HashManager.cpp:914
 msgid "Error hashing %1%: %2%"
 msgstr "Ошибка хэширования %1%: %2%"
 
