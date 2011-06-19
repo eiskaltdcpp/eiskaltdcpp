@@ -30,11 +30,6 @@
 #include <fstream>
 #endif
 
-#ifdef CLI_DAEMON
-#include <readline/readline.h>
-#include <readline/history.h>
-#endif
-
 char pidfile[256] = {0};
 char config_dir[1024] = {0};
 char local_dir[1024] = {0};
@@ -300,46 +295,12 @@ int main(int argc, char* argv[])
         printf("%s\n",(sTitle+" running...").c_str());
 #endif
 
-#ifdef CLI_DAEMON
-    char *temp, *prompt;
-    temp = (char *)NULL;
-    prompt = "edcppd$ ";
-#endif
-
 #if !defined(_WIN32) && defined(ENABLE_STACKTRACE)
     signal(SIGSEGV, printBacktrace);
 #endif
 
     while (bServerRunning) {
         Thread::sleep(1);
-#ifdef CLI_DAEMON
-        temp = readline (prompt);
-
-        /* If there is anything on the line, print it and remember it. */
-        if (*temp)
-        {
-            fprintf (stderr, "%s\r\n", temp);
-            add_history (temp);
-        }
-
-        /* Check for `command' that we handle. */
-        if (strcmp (temp, "quit") == 0)
-            bServerTerminated = true;
-
-        if (strcmp (temp, "list") == 0)
-        {
-            HIST_ENTRY **list;
-            register int i;
-
-            list = history_list ();
-            if (list)
-            {
-                for (i = 0; list[i]; i++)
-                fprintf (stderr, "%d: %s\r\n", i, list[i]->line);
-            }
-        }
-        free (temp);
-#endif
         if (bServerTerminated)
             ServerStop();
     }
