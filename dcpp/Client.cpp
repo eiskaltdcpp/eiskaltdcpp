@@ -80,7 +80,7 @@ void Client::reloadSettings(bool updateNick) {
 
     string ClientId;
     if (::strncmp(getHubUrl().c_str(),"adc://", 6) == 0 ||
-        ::strncmp(getHubUrl().c_str(),"adcs://", 6) == 0)
+        ::strncmp(getHubUrl().c_str(),"adcs://", 7) == 0)
         ClientId = fullADCVersionString;
     else
         ClientId = fullVersionString;
