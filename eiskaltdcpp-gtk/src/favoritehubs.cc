@@ -58,6 +58,7 @@ FavoriteHubs::FavoriteHubs():
 	favoriteView.insertColumn(_("User Description"), G_TYPE_STRING, TreeView::STRING, 125);
 	favoriteView.insertColumn(_("Encoding"), G_TYPE_STRING, TreeView::STRING, 125);
 	favoriteView.insertHiddenColumn("Hidden Password", G_TYPE_STRING);
+	favoriteView.insertHiddenColumn("Mode", G_TYPE_STRING);
 	favoriteView.finalize();
 	favoriteStore = gtk_list_store_newv(favoriteView.getColCount(), favoriteView.getGTypes());
 	gtk_tree_view_set_model(favoriteView.get(), GTK_TREE_MODEL(favoriteStore));
@@ -124,6 +125,7 @@ void FavoriteHubs::editEntry_gui(StringMap &params, GtkTreeIter *iter)
 		favoriteView.col(_("Nick")), params["Nick"].c_str(),
 		favoriteView.col(_("Password")), password.c_str(),
 		favoriteView.col("Hidden Password"), params["Password"].c_str(),
+		favoriteView.col("Mode"), params["Mode"].c_str(),
 		favoriteView.col(_("Address")), params["Address"].c_str(),
 		favoriteView.col(_("User Description")), params["User Description"].c_str(),
 		favoriteView.col(_("Encoding")), params["Encoding"].c_str(),
@@ -297,6 +299,7 @@ void FavoriteHubs::onEditEntry_gui(GtkWidget *widget, gpointer data)
 	params["User Description"] = fh->favoriteView.getString(&iter, _("User Description"));
 	params["Encoding"] = fh->favoriteView.getString(&iter, _("Encoding"));
 	params["Auto Connect"] = fh->favoriteView.getValue<gboolean>(&iter, _("Auto Connect")) ? "1" : "0";
+	params["Mode"] = fh->favoriteView.getString(&iter, "Mode");
 
 	bool entryUpdated = showFavoriteHubDialog_gui(params, fh);
 
