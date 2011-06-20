@@ -282,10 +282,11 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkComboBoxEntry" id="comboboxMode">
-                <property name="visible">True</property>
-                <property name="items" translatable="yes"></property>
-                <property name="items"></property>
+              <widget class="GtkComboBox" id="comboboxMode">
+                 <property name="visible">True</property>
+                 <property name="items" translatable="yes">Default
+Active
+Passive</property>
               </widget>
               <packing>
                 <property name="left_attach">1</property>
