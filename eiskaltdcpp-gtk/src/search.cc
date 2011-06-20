@@ -123,31 +123,31 @@ Search::Search():
     userCommandMenu = new UserCommandMenu(getWidget("usercommandMenu"), ::UserCommand::CONTEXT_SEARCH);
     addChild(userCommandMenu);
 
-        // Initialize search types
-        GtkTreeIter iter;
-        GtkComboBox *combo_box = GTK_COMBO_BOX(getWidget("comboboxFile"));
-        GtkTreeModel *model = gtk_combo_box_get_model(combo_box);
-        GtkListStore *store = GTK_LIST_STORE(model);
-        const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
+    // Initialize search types
+    GtkTreeIter iter;
+    GtkComboBox *combo_box = GTK_COMBO_BOX(getWidget("comboboxFile"));
+    GtkTreeModel *model = gtk_combo_box_get_model(combo_box);
+    GtkListStore *store = GTK_LIST_STORE(model);
+    const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
 
-        // Predefined
-        for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
-        {
-                gtk_list_store_append(store, &iter);
-                gtk_list_store_set(store, &iter, 0, SearchManager::getTypeStr(i), -1);
-        }
+    // Predefined
+    for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
+    {
+            gtk_list_store_append(store, &iter);
+            gtk_list_store_set(store, &iter, 0, SearchManager::getTypeStr(i), -1);
+    }
 
-        // Customs
-        for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
-        {
-                string type = i->first;
-                if (!(type.size() == 1 && type[0] >= '0' && type[0] <= '6'))
-                {
-                        gtk_list_store_append(store, &iter);
-                        gtk_list_store_set(store, &iter, 0, type.c_str(), -1);
-                }
-        }
-        gtk_combo_box_set_active(combo_box, 0);
+    // Customs
+    for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
+    {
+            string type = i->first;
+            if (!(type.size() == 1 && type[0] >= '1' && type[0] <= '7'))
+            {
+                    gtk_list_store_append(store, &iter);
+                    gtk_list_store_set(store, &iter, 0, type.c_str(), -1);
+            }
+    }
+    gtk_combo_box_set_active(combo_box, 0);
 
     gtk_combo_box_set_active (GTK_COMBO_BOX(getWidget("comboboxGroupBy")),5);
 
@@ -492,7 +492,7 @@ void Search::search_gui()
                         // Custom searchtype
                         exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
                 }
-                else if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY)
+                else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE)
                 {
                         // Predefined searchtype
                         exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
@@ -532,22 +532,11 @@ void Search::search_gui()
     setStatus_gui("statusbar3", _("0 filtered"));
     setLabel_gui(text);
 
-    if (SearchManager::getInstance()->okToSearch())
-    {
-		dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());//NOTE: core 0.770
-		SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);//NOTE: core 0.770
+    dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());//NOTE: core 0.770
+    SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);//NOTE: core 0.770
 
-        if (WGETB("clearsearch")) // Only clear if the search was sent.
-            gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
-    }
-    else
-    {
-        int32_t waitFor = SearchManager::getInstance()->timeToSearch();
-        string line = _("Searching too soon, retry in ") + Util::toString(waitFor) + _(" s");
-        setStatus_gui("statusbar1", line);
-        setStatus_gui("statusbar2", "");
-        setStatus_gui("statusbar3", "");
-    }
+    if (WGETB("clearsearch")) // Only clear if the search was sent.
+        gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
 }
 
 void Search::addResult_gui(const SearchResultPtr result)

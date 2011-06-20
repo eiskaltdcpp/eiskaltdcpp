@@ -245,7 +245,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     menu->clear();
     menu->setProperty("iconVisibleInMenu", true);
 
-    menu->setTitle(WulforUtil::getInstance()->getNicks(cid));
+    menu->setTitle(WulforUtil::getInstance()->getNicks(cid, _q(client->getHubUrl())));
 
     if (menu->title().isEmpty())
         menu->setTitle(tr("[User went offline]"));
@@ -327,7 +327,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 
     menu->clear();
 
-    QAction *title = new QAction(WulforUtil::getInstance()->getNicks(cid), menu);
+    QAction *title = new QAction(WulforUtil::getInstance()->getNicks(cid, _q(client->getHubUrl())), menu);
     QFont f;
     f.setBold(true);
     title->setFont(f);
@@ -1641,8 +1641,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
     }
     else if (cmd == "/ratio"){
         double ratio;
-        double down = QString(WSGET(WS_APP_TOTAL_DOWN)).toDouble();
-        double up = QString(WSGET(WS_APP_TOTAL_UP)).toDouble();
+        double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
+        double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
+
 
         if (down > 0)
             ratio = up / down;
@@ -1650,7 +1651,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             ratio = 0;
 
         QString line = tr("ratio: %1 (uploads: %2, downloads: %3)")
-            .arg(QString().setNum(ratio, 'f', 2)).arg(WulforUtil::formatBytes(up)).arg(WulforUtil::formatBytes(down));
+                          .arg(QString().setNum(ratio, 'f', 3))
+                          .arg(WulforUtil::formatBytes(up))
+                          .arg(WulforUtil::formatBytes(down));
 
         if (param.trimmed() == "show"){
             if (fr == this)
@@ -1804,6 +1807,14 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         line.replace("\n", "");
 
         WSCMD(line);
+    }
+    else if (cmd == "/dcpps" && !emptyParam) {
+        line = line.remove(0,7);
+        QString out = _q(SettingsManager::getInstance()->parseCoreCmd (_tq(line)));
+        if (fr == this)
+            addStatus(out);
+        else if (pm)
+            pm->addStatus(out);
     }
     else if (!WSGET(WS_CHAT_CMD_ALIASES).isEmpty()){
         QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toAscii());
@@ -2101,7 +2112,7 @@ void HubFrame::grantSlot(const QString& id){
 
         if (user){
             UploadManager::getInstance()->reserveSlot(HintedUser(user, client->getHubUrl()));
-            message = tr("Slot granted to ") + WulforUtil::getInstance()->getNicks(user->getCID());
+            message = tr("Slot granted to ") + WulforUtil::getInstance()->getNicks(user->getCID(), _q(client->getHubUrl()));
         }
     }
 
@@ -2157,7 +2168,7 @@ void HubFrame::changeFavStatus(const QString &id) {
             model->repaintData(ixb, ixe);
         }
 
-        QString message = WulforUtil::getInstance()->getNicks(id) +
+        QString message = WulforUtil::getInstance()->getNicks(id, _q(client->getHubUrl())) +
                 (bFav ? tr(" has been added to favorites.") : tr(" has been removed from favorites."));
 
         MainWindow::getInstance()->setStatusMessage(message);
@@ -2252,7 +2263,7 @@ void HubFrame::newMsg(const VarMap &map){
         MainWindow::getInstance()->redrawToolPanel();
     }
 
-    if (drawLine && WBGET("hubframe/unreaden-draw-line", false)){
+    if (drawLine && WBGET("hubframe/unreaden-draw-line", true)){
         QString hr = "<hr />";
 
         QTextDocument *chatDoc = textEdit_CHAT->document();
@@ -3626,6 +3637,7 @@ void HubFrame::on(ClientListener::Failed, Client*, const string &msg) throw(){
 
     emit coreStatusMsg(status);
     emit coreFailed();
+    emit coreHubUpdated();
 }
 
 void HubFrame::on(GetPassword, Client*) throw(){

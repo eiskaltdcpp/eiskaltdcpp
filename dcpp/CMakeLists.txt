@@ -38,22 +38,19 @@ set (UPNP "extra")
 
 add_library (dcpp ${LINK} ${dcpp_srcs})
 
-if (USE_DHT)
-  add_definitions ( -DUSE_DHT )
+if (WITH_DHT)
+  add_definitions ( -DWITH_DHT )
   set (DHT_LIB "dht")
-endif (USE_DHT)
+ # add_dependencies(dcpp ${DHT_LIB})
+endif (WITH_DHT)
 
 if (PERL_REGEX)
   set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp PROPERTY COMPILE_DEFINITIONS USE_PCRE )
   set(PCRE ${PCRE_LIBRARIES})
 endif (PERL_REGEX)
 
-if (LUA_SCRIPT)
-    add_definitions ( -DLUA_SCRIPT )
-endif (LUA_SCRIPT)
-
 if (USE_IDNA)
-    add_definitions(-DUSE_IDNA)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS USE_IDNA APPEND)
 endif(USE_IDNA)
 
 if (USE_MINIUPNP)
@@ -65,8 +62,12 @@ if (ICONV_SECOND_ARGUMENT_IS_CONST)
 endif (ICONV_SECOND_ARGUMENT_IS_CONST)
 
 if (FORCE_XDG)
-   set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
+   set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG APPEND)
 endif (FORCE_XDG)
+
+if (HAVE_IFADDRS_H)
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
+endif (HAVE_IFADDRS_H)
 
 if (WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS)
@@ -74,8 +75,8 @@ else(WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
 endif (WIN32)
 
-target_link_libraries (dcpp ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
-${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE} ${DHT_LIB} ${IDNA_LIBRARIES})
+target_link_libraries (dcpp ${DHT_LIB} ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
+${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE} ${IDNA_LIBRARIES})
 set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)

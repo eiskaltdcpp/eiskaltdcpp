@@ -532,7 +532,7 @@ Kapcsolók:
     </message>
     <message>
         <source>File already exists: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>A fájl már létezik: %1</translation>
     </message>
 </context>
 <context>
@@ -1152,7 +1152,7 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Search text</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg keresése</translation>
     </message>
 </context>
 <context>
@@ -1920,15 +1920,23 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <source>Ctrl+Shift+U</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+U</translation>
     </message>
     <message>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorban álló felhasználók</translation>
     </message>
     <message>
         <source>Delayed</source>
-        <translation type="unfinished"></translation>
+        <translation>Késleltetett</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Német fordítás&lt;/u&gt;&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</source>
+        <translation>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(2.2.3 és újabb)&lt;br/&gt;</translation>
     </message>
 </context>
 <context>
@@ -2146,22 +2154,22 @@ Letöltve: %3 Feltöltve %4</translation>
     <name>QueuedUsers</name>
     <message>
         <source>Grant slot</source>
-        <translation type="unfinished">Extra slot biztosítása</translation>
+        <translation>Extra slot biztosítása</translation>
     </message>
     <message>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorban álló felhasználók</translation>
     </message>
 </context>
 <context>
     <name>QueuedUsersModel</name>
     <message>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználó</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Fájl</translation>
+        <translation>Fájl</translation>
     </message>
 </context>
 <context>
@@ -2239,39 +2247,39 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Any</source>
-        <translation>Minden</translation>
+        <translation type="obsolete">Minden</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation>Hang</translation>
+        <translation type="obsolete">Hang</translation>
     </message>
     <message>
         <source>Compressed</source>
-        <translation>Tömörített</translation>
+        <translation type="obsolete">Tömörített</translation>
     </message>
     <message>
         <source>Document</source>
-        <translation>Dokumentum</translation>
+        <translation type="obsolete">Dokumentum</translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation>Futtatható</translation>
+        <translation type="obsolete">Futtatható</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Kép</translation>
+        <translation type="obsolete">Kép</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Videó</translation>
+        <translation type="obsolete">Videó</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation>Könyvtár</translation>
+        <translation type="obsolete">Könyvtár</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2399,7 +2407,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Searching too soon, next search in %1 second</source>
-        <translation>Túl gyakori keresés. a következő keresés %1 másodperc múlva lehetséges</translation>
+        <translation type="obsolete">Túl gyakori keresés. a következő keresés %1 másodperc múlva lehetséges</translation>
     </message>
     <message>
         <source>Search - %1</source>
@@ -2407,7 +2415,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Ready to search...</source>
-        <translation>Keresésre kész...</translation>
+        <translation type="obsolete">Keresésre kész...</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -2431,7 +2439,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>CD Image</source>
-        <translation>CD képfájl</translation>
+        <translation type="obsolete">CD képfájl</translation>
     </message>
     <message>
         <source>Blacklist</source>
@@ -2515,7 +2523,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>File already exists: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>A fájl már létezik: %1</translation>
     </message>
 </context>
 <context>
@@ -2705,6 +2713,10 @@ Letöltve: %3 Feltöltve %4</translation>
         <source>Czech</source>
         <translation>Cseh</translation>
     </message>
+    <message>
+        <source>German</source>
+        <translation>Német</translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
@@ -2870,6 +2882,13 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
 </context>
 <context>
+    <name>ShareBrowserSearch</name>
+    <message>
+        <source>Search - %1</source>
+        <translation>Keresés - %1</translation>
+    </message>
+</context>
+<context>
     <name>ShareDirModel</name>
     <message>
         <source>Error</source>
@@ -2989,7 +3008,7 @@ Letöltve: %3 Feltöltve %4</translation>
     </message>
     <message>
         <source>Queued Users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorban álló felhasználók</translation>
     </message>
 </context>
 <context>
@@ -3261,7 +3280,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Downloaded </source>
-        <translation>Letöltve</translation>
+        <translation>Letöltve </translation>
     </message>
     <message>
         <source>Waiting for slot </source>
@@ -3269,7 +3288,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source> from %1/%2 user(s)</source>
-        <translation> %1/%2 felhasználó(k)-tól</translation>
+        <translation> %1/%2 felhasználótól</translation>
     </message>
     <message>
         <source>TTH: </source>
@@ -3687,6 +3706,14 @@ p, li { white-space: pre-wrap; }
         <source>Mode</source>
         <translation>Mód</translation>
     </message>
+    <message>
+        <source>Minimum search interval</source>
+        <translation type="obsolete">Minimális keresési intervallum</translation>
+    </message>
+    <message>
+        <source>Minimum search interval (seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -4054,7 +4081,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <name>UIQueuedUsers</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználók a sorban</translation>
     </message>
 </context>
 <context>
@@ -4305,7 +4332,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
-        <translation>Újracsatlakozás a hubhoz (másodpercekben)</translation>
+        <translation type="obsolete">Újracsatlakozás a hubhoz (másodpercekben)</translation>
     </message>
     <message>
         <source>Enable Throttle</source>
@@ -4375,10 +4402,22 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Bind to address</source>
-        <translation type="unfinished"></translation>
+        <translation>Kötés címhez</translation>
     </message>
     <message>
         <source>Bind to interface</source>
+        <translation>Kötés interfészhez</translation>
+    </message>
+    <message>
+        <source>Enable DHT</source>
+        <translation>DHT engedélyezése</translation>
+    </message>
+    <message>
+        <source>DHT port</source>
+        <translation>DHT port</translation>
+    </message>
+    <message>
+        <source>Reconnect to hub (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4751,6 +4790,30 @@ ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünete
         <source>Segment size (in MB, 0 = auto segment size)</source>
         <translation>Fájl szegmens méret (MiB-ban, 0 = automatikus beállítás)</translation>
     </message>
+    <message>
+        <source>Enable this option if you want to keep downloaded filelists 
+in the download queue after they have been finished.
+After downloaded the queue items will have &apos;Finished&apos; status
+and you can delete these finished entries anytime later.
+Note that if you physically move/delete your downloaded files from
+their target location, it won&apos;t result automatic deletion of
+the corresponding finished entries from the queue.
+If you disable this function, it won&apos;t remove existing finished items
+from the queue either, you must do that manually.</source>
+        <translation>Engedélyezd ezt az opciót ha szeretnéd hogy a már letöltődött fájlok 
+és mappák a letöltési sorban maradjanak. 
+Ebben az esetben miután letöltődtek, a fájlok mellett a &apos;Befejezve&apos; 
+állapotjelzés jelenik meg és később szükség esetén 
+bármikor kézzel törölhetőek a sorból. 
+Fontos tudni, hogy a befejezett fájlok fizikai törlése vagy elmozdítása a 
+célterületről nem törli automatikusan annak bejegyzését a letöltési sorból. 
+Ezen kívül a funkció kikapcsolása nem törli a már meglévő befejezett 
+elemeket sem a sorból - ezeket kézzel kell kitörölnöd.</translation>
+    </message>
+    <message>
+        <source>Keep downloaded files</source>
+        <translation>Letöltött fájlok megtartása</translation>
+    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>
@@ -5113,7 +5176,7 @@ a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
         <source>Finished Downloads</source>
-        <translation type="unfinished">Befejezett letöltések</translation>
+        <translation>Befejezett letöltések</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -5121,7 +5184,11 @@ a hub operátoraitól kaphatsz</translation>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Segítség&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -5490,7 +5557,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     </message>
     <message>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
-        <translation type="unfinished"></translation>
+        <translation>Indexelés elhalasztása indításkor (másodpercben, -1 = letiltva)</translation>
     </message>
 </context>
 <context>
@@ -5532,6 +5599,21 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <source>Form</source>
         <translation>Megosztás</translation>
+    </message>
+</context>
+<context>
+    <name>UIShareBrowserSearch</name>
+    <message>
+        <source>Search</source>
+        <translation>Keresés</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation>Fájlnév</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation>Könyvtár</translation>
     </message>
 </context>
 <context>

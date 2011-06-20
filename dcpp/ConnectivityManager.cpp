@@ -27,6 +27,8 @@
 #include "LogManager.h"
 #include "UPnPManager.h"
 
+#include "dht/DHT.h"
+
 namespace dcpp {
 
 ConnectivityManager::ConnectivityManager() :
@@ -79,7 +81,6 @@ void ConnectivityManager::detectConnection() {
    } catch(const Exception& e) {
        SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_PASSIVE);
        log(str(F_("Unable to open %1% port(s); connectivity settings must be configured manually") % e.getError()));
-;
        fire(ConnectivityManagerListener::Finished());
                 running = false;
        return;
@@ -144,11 +145,21 @@ void ConnectivityManager::listen() {
     } catch(const Exception&) {
         throw Exception(_("Search (UDP)"));
     }
+#ifdef WITH_DHT
+    try {
+        dht::DHT::getInstance()->start();
+    } catch (const Exception&) {
+        throw Exception(_("DHT (UDP)"));
+    }
+#endif
 }
 
 void ConnectivityManager::disconnect() {
     SearchManager::getInstance()->disconnect();
     ConnectionManager::getInstance()->disconnect();
+#ifdef WITH_DHT
+    dht::DHT::getInstance()->stop();
+#endif
 }
 
 void ConnectivityManager::log(const string& message) {

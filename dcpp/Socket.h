@@ -78,7 +78,7 @@ public:
 
 	Socket() throw(SocketException) : sock(INVALID_SOCKET), connected(false) { }
 	Socket(const string& aIp, uint16_t aPort) throw(SocketException) : sock(INVALID_SOCKET), connected(false) { connect(aIp, aPort); }
-	virtual ~Socket() throw() { Socket::disconnect(); }
+	virtual ~Socket() throw() { disconnect(); }
 
 	/**
 	 * Connects a socket to an address/ip, closing any other connections made with
@@ -128,7 +128,7 @@ public:
 	 * @return Number of bytes read, 0 if disconnected and -1 if the call would block.
 	 * @throw SocketException On any failure.
 	 */
-	virtual int read(void* aBuffer, int aBufLen, string &aIP) throw(SocketException);
+	virtual int read(void* aBuffer, int aBufLen, sockaddr_in& remote) throw(SocketException);
 	/**
 	 * Reads data until aBufLen bytes have been read or an error occurs.
 	 * If the socket is closed, or the timeout is reached, the number of bytes read
@@ -183,8 +183,8 @@ public:
 	static void socksUpdated();
 
 	GETSET(string, ip, Ip);
-protected:
 	socket_t sock;
+protected:
 	int type;
 	bool connected;
 

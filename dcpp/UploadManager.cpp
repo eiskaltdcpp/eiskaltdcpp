@@ -61,7 +61,8 @@ UploadManager::~UploadManager() throw() {
 }
 
 bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, const string& aFile, int64_t aStartPos, int64_t aBytes, bool listRecursive) {
-    dcdebug("Preparing %s %s " I64_FMT " " I64_FMT " %d\n", aType.c_str(), aFile.c_str(), aStartPos, aBytes, listRecursive);
+    dcdebug("Preparing %s %s " I64_FMT " " I64_FMT " %d\n", aType.c_str(), aFile.c_str(),
+            static_cast<long long int>(aStartPos), static_cast<long long int>(aBytes), listRecursive);
 
     if(aFile.empty() || aStartPos < 0 || aBytes < -1 || aBytes == 0) {
         aSource.fileNotAvail("Invalid request");
@@ -407,7 +408,7 @@ void UploadManager::on(AdcCommand::GET, UserConnection* aSource, const AdcComman
         }
     }
     catch (const ShareException &e){
-        dcdebug(e.what());
+        dcdebug("UploadManager thrown: %s\n", e.what());
     }
     catch ( ... ) {}
 }

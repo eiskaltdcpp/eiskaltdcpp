@@ -179,7 +179,7 @@ void FavoriteHubs::init(){
 void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor){
     editor.comboBox_ENC->addItem(tr("System default"));
     editor.comboBox_ENC->addItems(WulforUtil::getInstance()->encodings());
-
+    editor.spinBox_MINSEARCH_INTERVAL->setValue(SETTING(MINIMUM_SEARCH_INTERVAL));
     connect(editor.checkBox_CID, SIGNAL(clicked()), this, SLOT(slotUpdateComboBox_CID()));
     connect(editor.lineEdit_ADDRESS, SIGNAL(textChanged(QString)), this, SLOT(slotUpdateComboBox_CID()));
 }
@@ -225,6 +225,7 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     editor.checkBox_DISABLECHAT->setChecked(map["DCHAT"].toBool());
     editor.checkBox_CID->setChecked(map["OVERTAG"].toBool());
     editor.comboBox_MODE->setCurrentIndex(map["MODE"].toInt());
+    editor.spinBox_MINSEARCH_INTERVAL->setValue(map["SINT"].toInt());
 
     QStringList tags;
     QString tag = map["TAG"].toString();
@@ -289,6 +290,7 @@ void FavoriteHubs::getParams(const FavoriteHubEntry *entry, StrMap &map){
     map["IIP"]      = entry->getUseInternetIP();
     map["DCHAT"]    = entry->getDisableChat();
     map["MODE"]     = entry->getMode();
+    map["SINT"]     = entry->getSearchInterval();
 }
 
 void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
@@ -328,6 +330,7 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
 
     map["UDESC"]    = editor.lineEdit_USERDESC->text();
     map["MODE"]     = editor.comboBox_MODE->currentIndex();
+    map["SINT"]     = editor.spinBox_MINSEARCH_INTERVAL->value();
 }
 
 void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
@@ -345,6 +348,7 @@ void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
     entry.setUseInternetIP(map["IIP"].toBool());
     entry.setDisableChat(map["DCHAT"].toBool());
     entry.setMode(map["MODE"].toInt());
+    entry.setSearchInterval(map["SINT"].toInt());
 }
 
 void FavoriteHubs::updateItem(FavoriteHubItem *item, StrMap &map){

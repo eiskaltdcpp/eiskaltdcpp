@@ -234,6 +234,20 @@
       </widget>
     </child>
     <child>
+      <widget class="GtkMenuItem" id="versionCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Show version</property>
+        <property name="label">/version</property>
+      </widget>
+    </child>
+    <child>
+      <widget class="GtkMenuItem" id="ratioCommandItem">
+        <property name="visible">True</property>
+        <property name="tooltip" translatable="yes">Show ratio [send in chat]</property>
+        <property name="label">/ratio [show]</property>
+      </widget>
+    </child>
+    <child>
       <widget class="GtkMenuItem" id="helpCommandItem">
         <property name="visible">True</property>
         <property name="tooltip" translatable="yes">Show help</property>

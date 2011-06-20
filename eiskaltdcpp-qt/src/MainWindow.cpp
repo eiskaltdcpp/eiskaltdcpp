@@ -438,9 +438,6 @@ void MainWindow::init(){
         ScriptManager::getInstance()->EvaluateFile(defaultluascript);
     }
 #endif
-
-    totalDown = WSGET(WS_APP_TOTAL_DOWN).toULongLong();
-    totalUp =  WSGET(WS_APP_TOTAL_UP).toULongLong();
 }
 
 void MainWindow::loadSettings(){
@@ -525,8 +522,6 @@ void MainWindow::saveSettings(){
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
     WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
-    WSSET(WS_APP_TOTAL_DOWN, QString().setNum(totalDown));
-    WSSET(WS_APP_TOTAL_UP, QString().setNum(totalUp));
 
     stateIsSaved = true;
 }
@@ -955,23 +950,18 @@ void MainWindow::initActions(){
     }
     {
         aboutHomepage = new QAction("", this);
-        aboutHomepage->setMenuRole(QAction::AboutRole);
         connect(aboutHomepage, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutSource = new QAction("", this);
-        aboutSource->setMenuRole(QAction::AboutRole);
         connect(aboutSource, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutIssues = new QAction("", this);
-        aboutIssues->setMenuRole(QAction::AboutRole);
         connect(aboutIssues, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutWiki = new QAction("", this);
-        aboutWiki->setMenuRole(QAction::AboutRole);
         connect(aboutWiki, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutChangelog = new QAction("", this);
-        aboutChangelog->setMenuRole(QAction::AboutRole);
         connect(aboutChangelog, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
         aboutClient = new QAction("", this);
@@ -1449,9 +1439,9 @@ void MainWindow::newHubFrame(QString address, QString enc){
     if (address.isEmpty())
         return;
 
-    HubFrame *fr = NULL;
+    HubFrame *fr = HubManager::getInstance()->getHub(address);
 
-    if (fr = HubManager::getInstance()->getHub(address)){
+    if (fr){
         mapWidgetOnArena(fr);
 
         return;
@@ -1717,17 +1707,21 @@ void MainWindow::redrawToolPanel(){
     QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
     QHash<QAction*, ArenaWidget*>::iterator end = menuWidgetsHash.end();
 
+    ArenaWidget *awgt = NULL;
     PMWindow *pm = NULL;
     bool has_unread = false;
 
-    for(; it != end; ++it){//also redraw all widget menu items
+    for(; it != end; ++it){//also redraw all widget menu items and change window title if needed
         it.key()->setText(it.value()->getArenaShortTitle());
         it.key()->setIcon(it.value()->getPixmap());
 
         pm = qobject_cast<PMWindow *>(arenaMap[it.value()]);
-
         if (pm && pm->hasNewMessages())
             has_unread = true;
+
+        awgt = qobject_cast<ArenaWidget*> (arenaMap[it.value()]);
+        if (awgt && arena->widget() && arena->widget() == awgt->getWidget())
+            setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
     }
 
     if (!has_unread)
@@ -2480,8 +2474,14 @@ void MainWindow::slotAboutOpenUrl(){
 void MainWindow::slotAboutClient(){
     About a(this);
 
-    volatile const qulonglong &app_total_down = totalDown;
-    volatile const qulonglong &app_total_up   = totalUp;
+    double ratio;
+    double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
+    double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
+
+    if (down > 0)
+        ratio = up / down;
+    else
+        ratio = 0;
 
     a.label->setText(QString("<b>%1</b> %2 (%3)")
                      .arg(EISKALTDCPP_WND_TITLE)
@@ -2500,9 +2500,9 @@ void MainWindow::slotAboutClient(){
                             "Total down: <b>%3</b><br/>"
                             "Ratio: <b>%4</b>"
                          ).arg(DCVERSIONSTRING)
-                          .arg(WulforUtil::formatBytes(app_total_up))
-                          .arg(WulforUtil::formatBytes(app_total_down))
-                          .arg((float)app_total_up/(float)app_total_down, 0, 'f', 2);
+                          .arg(WulforUtil::formatBytes(up))
+                          .arg(WulforUtil::formatBytes(down))
+                          .arg(ratio, 0, 'f', 3);
 
     a.label_ABOUT->setText(about_text);
 
@@ -2605,7 +2605,13 @@ void MainWindow::slotAboutClient(){
             tr("<br/>"
                "&nbsp;Uhlik<br/>"
                "&nbsp;&lt;uhlikx@seznam.cz&gt;<br/>"
-               "&nbsp;(for 2.2.0 and later)<br/>")
+               "&nbsp;(for 2.2.0 and later)<br/>")+
+            tr("<br/>"
+               "&nbsp;<u>German translation</u><br/>")+
+            tr("<br/>"
+               "&nbsp;Chris Leick<br/>"
+               "&nbsp;&lt;c.leick@vollbio.de&gt;<br/>"
+               "&nbsp;(for 2.2.3 and later)<br/>")
             );
 
     a.exec();
@@ -2847,11 +2853,13 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) throw(){
     map["USPEED"]   = WulforUtil::formatBytes(upBytes);
     map["UP"]       = WulforUtil::formatBytes(Socket::getTotalUp());
 
-    totalDown = totalDown+downDiff;
-    totalUp = totalUp+upDiff;
     lastUpdate = ticks;
-    lastUp = Socket::getTotalUp();
-    lastDown = Socket::getTotalDown();
+    lastUp     = Socket::getTotalUp();
+    lastDown   = Socket::getTotalDown();
+
+    SettingsManager *SM = SettingsManager::getInstance();
+    SM->set(SettingsManager::TOTAL_UPLOAD,   SETTING(TOTAL_UPLOAD)   + upDiff);
+    SM->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downDiff);
 
     emit coreUpdateStats(map);
 }

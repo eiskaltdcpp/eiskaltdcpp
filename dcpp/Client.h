@@ -27,6 +27,7 @@
 #include "TimerManager.h"
 #include "ClientListener.h"
 #include "Atomic.h"
+#include "SearchQueue.h"
 
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
@@ -73,7 +74,10 @@ public:
     virtual void hubMessage(const string& aMessage, bool thirdPerson = false) = 0;
     virtual void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false) = 0;
     virtual void sendUserCmd(const UserCommand& command, const StringMap& params) = 0;
-    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) = 0;
+
+    uint64_t search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList, void* owner);
+    void cancelSearch(void* aOwner) { searchQueue.cancelSearch(aOwner); }
+
     virtual void password(const string& pwd) = 0;
     virtual void info(bool force) = 0;
 
@@ -115,6 +119,14 @@ public:
             i->second = escape(i->second);
         }
         return sm;
+    }
+    void setSearchInterval(uint32_t aInterval) {
+        // min interval is 10 seconds
+        searchQueue.interval = max(aInterval + 2000, (uint32_t)(10 * 1000));
+    }
+
+    uint32_t getSearchInterval() const {
+        return searchQueue.interval;
     }
 
     void reconnect();
@@ -171,7 +183,7 @@ protected:
         STATE_NORMAL,       ///< Running
         STATE_DISCONNECTED, ///< Nothing in particular
     } state;
-
+    SearchQueue searchQueue;
     BufferedSocket* sock;
 
     static Counts counts;
@@ -181,6 +193,7 @@ protected:
     void updateActivity() { lastActivity = GET_TICK(); }
 
     virtual string checkNick(const string& nick) = 0;
+    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) = 0;
 
     // TimerManagerListener
     virtual void on(Second, uint64_t aTick) throw();

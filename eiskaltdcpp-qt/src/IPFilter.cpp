@@ -80,7 +80,7 @@ quint32 IPFilter::MaskForBits(quint32 bits){
     quint32 mask = 0xFFFFFFFF;
     quint32 bit  = 0xFFFFFFFE;
 
-    for (int i = 0; i < bits; i++, bit <<= 1)
+    for (quint32 i = 0; i < bits; i++, bit <<= 1)
         mask &= bit;
 
     return mask;

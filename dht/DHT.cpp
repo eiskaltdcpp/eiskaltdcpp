@@ -31,10 +31,12 @@
 #include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/CryptoManager.h"
+#include "dcpp/File.h"
 #include "dcpp/LogManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/ShareManager.h"
 #include "dcpp/UploadManager.h"
+#include "dcpp/ThrottleManager.h"
 #include "dcpp/User.h"
 #include "dcpp/version.h"
 
@@ -49,7 +51,7 @@ namespace dht
 		IndexManager::newInstance();
 	}
 
-	DHT::~DHT(void)
+	DHT::~DHT(void) throw()
 	{
 		// when DHT is disabled, we shouldn't try to perform exit cleanup
 		if(bucket == NULL) {
@@ -76,8 +78,8 @@ namespace dht
 
 		if(!bucket)
 		{
-			if(BOOLSETTING(UPDATE_IP))
-				SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, Util::emptyString);
+// 			if(BOOLSETTING(UPDATE_IP))
+			SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, Util::emptyString);
 
 			bucket = new KBucket();
 
@@ -311,8 +313,9 @@ namespace dht
 		cmd.addParam("NI", SETTING(NICK));
 		cmd.addParam("SL", Util::toString(UploadManager::getInstance()->getSlots()));
 
-		if (SETTING(THROTTLE_ENABLE) && SETTING(MAX_UPLOAD_SPEED_LIMIT) != 0) {
-			cmd.addParam("US", Util::toString(SETTING(MAX_UPLOAD_SPEED_LIMIT)*1024));
+		int limit = ThrottleManager::getInstance()->getUpLimit();
+		if (SETTING(THROTTLE_ENABLE) && limit > 0) {
+			cmd.addParam("US", Util::toString(limit*1024));
 		} else {
 			cmd.addParam("US", Util::toString((long)(Util::toDouble(SETTING(UPLOAD_SPEED))*1024*1024/8)));
 		}
@@ -349,7 +352,7 @@ namespace dht
 	/*
 	 * Sends private message to online node
 	 */
-	void DHT::privateMessage(const OnlineUserPtr& /*ou*/, const string& /*aMessage*/, bool /*thirdPerson*/)
+	void DHT::privateMessage(const OnlineUser& /*ou*/, const string& /*aMessage*/, bool /*thirdPerson*/)
 	{
 		//AdcCommand cmd(AdcCommand::CMD_MSG, AdcCommand::TYPE_UDP);
 		//cmd.addParam(aMessage);
@@ -557,7 +560,7 @@ namespace dht
 				{
 					// when we received more firewalled statuses, we will be firewalled
 					int fw = 0;	string lastIP;
-					for(std::unordered_map<string, std::pair<string, uint16_t>>::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); i++)
+					for(unordered_map< string, std::pair<string, uint16_t> >::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); i++)
 					{
 						string ip = i->second.first;
 						uint16_t udpPort = i->second.second;
@@ -597,8 +600,8 @@ namespace dht
 						firewalled = false;
 					}
 
-					if(BOOLSETTING(UPDATE_IP))
-						SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, externalIP);
+					// if(BOOLSETTING(UPDATE_IP))
+					SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, externalIP);
 
 					firewalledChecks.clear();
 					firewalledWanted.clear();

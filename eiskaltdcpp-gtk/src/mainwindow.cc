@@ -2189,13 +2189,13 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) throw()
         return;
 
     int64_t diff = (int64_t)((lastUpdate == 0) ? ticks - 1000 : ticks - lastUpdate);
+    int64_t downDiff = Socket::getTotalDown() - lastDown;
+    int64_t upDiff = Socket::getTotalUp() - lastUp;
     int64_t downBytes = 0;
     int64_t upBytes = 0;
 
     if (diff > 0)
     {
-        int64_t downDiff = Socket::getTotalDown() - lastDown;
-        int64_t upDiff = Socket::getTotalUp() - lastUp;
         downBytes = (downDiff * 1000) / diff;
         upBytes = (upDiff * 1000) / diff;
     }
@@ -2205,6 +2205,10 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) throw()
     string downloaded = Util::formatBytes(Socket::getTotalDown());
     string uploadSpeed = Util::formatBytes(upBytes) + "/" + _("s");
     string uploaded = Util::formatBytes(Socket::getTotalUp());
+
+    SettingsManager *SM = SettingsManager::getInstance();
+    SM->set(SettingsManager::TOTAL_UPLOAD,   SETTING(TOTAL_UPLOAD)   + upDiff);
+    SM->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downDiff);
 
     lastUpdate = ticks;
     lastUp = Socket::getTotalUp();

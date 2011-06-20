@@ -423,7 +423,7 @@ bool BufferedSocket::checkEvents() throw(Exception) {
 		pair<Tasks, boost::shared_ptr<TaskData> > p;
 		{
 			Lock l(cs);
-			dcassert(tasks.size() > 0);
+			dcassert(tasks.empty());
 			p = tasks.front();
 			tasks.erase(tasks.begin());
 		}
