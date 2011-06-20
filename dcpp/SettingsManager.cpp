@@ -295,7 +295,7 @@ SettingsManager::SettingsManager()
     setDefault(BIND_IFACE, false);
     setDefault(BIND_IFACE_NAME, "");
     setDefault(MINIMUM_SEARCH_INTERVAL, 60);
-    setDefault(DYNDNS_SERVER, "checkip.dyndns.org/index.html");
+    setDefault(DYNDNS_SERVER, "http://checkip.dyndns.org/index.html");
     setDefault(DYNDNS_ENABLE, true);
     setSearchTypeDefaults();
 }
