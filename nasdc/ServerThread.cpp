@@ -29,25 +29,24 @@
 #include "dcpp/ConnectivityManager.h"
 #include "dcpp/ChatMessage.h"
 #include "dcpp/Text.h"
+#include "dcpp/StringTokenizer.h"
 
 #include "dcpp/version.h"
 #ifdef XMLRPC_DAEMON
 #include "xmlrpcserver.h"
 #endif
 
-//#include "../dht/DHT.h"
-
 ServerThread::ClientMap ServerThread::clientsMap;
 
 //----------------------------------------------------------------------------
-ServerThread::ServerThread() : bTerminated(false), lastUp(0), lastDown(0), lastUpdate(GET_TICK())
+ServerThread::ServerThread() : lastUp(0), lastDown(0), lastUpdate(GET_TICK())
 {
 
 }
 //---------------------------------------------------------------------------
 
 ServerThread::~ServerThread() {
-        join();
+    join();
 }
 //---------------------------------------------------------------------------
 
@@ -62,7 +61,6 @@ int ServerThread::run()
     TimerManager::getInstance()->addListener(this);
     QueueManager::getInstance()->addListener(this);
     LogManager::getInstance()->addListener(this);
-    //WebServerManager::getInstance()->addListener(this);
 
     try {
         File::ensureDirectory(SETTING(LOG_DIRECTORY));
@@ -80,7 +78,7 @@ int ServerThread::run()
 #endif
 #ifdef XMLRPC_DAEMON
     xmlrpc_c::methodPtr const magnetAddMethodP(new magnetAddMethod);
-    xmlrpc_c::methodPtr const stopDemonMethodP(new stopDemonMethod);
+    xmlrpc_c::methodPtr const stopDaemonMethodP(new stopDaemonMethod);
     xmlrpc_c::methodPtr const hubAddMethodP(new hubAddMethod);
     xmlrpc_c::methodPtr const hubDelMethodP(new hubDelMethod);
     xmlrpc_c::methodPtr const hubSayMethodP(new hubSayMethod);
@@ -93,20 +91,26 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const refreshShareMethodP(new refreshShareMethod);
     xmlrpc_c::methodPtr const getChatPubMethodP(new getChatPubMethod);
     xmlrpc_c::methodPtr const getFileListMethodP(new getFileListMethod);
+    xmlrpc_c::methodPtr const sendSearchMethodP(new sendSearchMethod);
+    xmlrpc_c::methodPtr const listSearchStringsMethodP(new listSearchStringsMethod);
+    xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
-    xmlrpcRegistry.addMethod("demon.stop", stopDemonMethodP);
-    //xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
+    xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
+    xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
     xmlrpcRegistry.addMethod("hub.del", hubDelMethodP);
     xmlrpcRegistry.addMethod("hub.say", hubSayMethodP);
     xmlrpcRegistry.addMethod("hub.pm", hubSayPrivateMethodP);
-    xmlrpcRegistry.addMethod("hubs.list", listHubsMethodP);
+    xmlrpcRegistry.addMethod("hub.list", listHubsMethodP);
+    xmlrpcRegistry.addMethod("hub.retchat", getChatPubMethodP);
     xmlrpcRegistry.addMethod("share.add", addDirInShareMethodP);
     xmlrpcRegistry.addMethod("share.rename", renameDirInShareMethodP);
     xmlrpcRegistry.addMethod("share.del", delDirFromShareMethodP);
     xmlrpcRegistry.addMethod("share.list", listShareMethodP);
     xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
-    xmlrpcRegistry.addMethod("hub.retchat", getChatPubMethodP);
     xmlrpcRegistry.addMethod("list.download", getFileListMethodP);
+    xmlrpcRegistry.addMethod("search.send", sendSearchMethodP);
+    xmlrpcRegistry.addMethod("search.list", listSearchStringsMethodP);
+    //xmlrpcRegistry.addMethod("search.retresults", returnSearchResultsMethodP);
     AbyssServer.run();
 #endif
 
@@ -122,7 +126,6 @@ bool ServerThread::disconnect_all(){
 //---------------------------------------------------------------------------
 void ServerThread::Close()
 {
-    //WebServerManager::getInstance()->removeListener(this);
     SearchManager::getInstance()->disconnect();
 
     LogManager::getInstance()->removeListener(this);
@@ -134,8 +137,6 @@ void ServerThread::Close()
 
     ConnectionManager::getInstance()->disconnect();
     disconnect_all();
-
-    bTerminated = true;
 }
 //---------------------------------------------------------------------------
 
@@ -151,30 +152,33 @@ void ServerThread::autoConnect()
     for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
         FavoriteHubEntry* entry = *i;
         if (entry->getConnect()) {
-            address = entry->getServer();
-            encoding = entry->getEncoding();
+            string address = entry->getServer();
+            string encoding = entry->getEncoding();
             connectClient(address,encoding);
         }
     }
 }
 
-void ServerThread::connectClient(string address, string encoding)
+void ServerThread::connectClient(const string& address, const string& encoding)
 {
+    Lock l(shutcs);
+    if (ClientManager::getInstance()->isConnected(address))
+        printf("Already connected to %s\n",address.c_str());
+    string tmp;
     ClientIter i = clientsMap.find(address);
     if(i != clientsMap.end())
         return;
     if (address.substr(0, 6) == "adc://" || address.substr(0, 7) == "adcs://")
-        encoding = "UTF-8";
+        tmp = "UTF-8";
     else if (encoding.empty())
-        encoding = Text::systemCharset;
-    Lock l(shutcs);
+        tmp = Text::systemCharset;
     Client* client = ClientManager::getInstance()->getClient(address);
-    client->setEncoding(encoding);
+    client->setEncoding(tmp);
     client->addListener(this);
     client->connect();
 }
 
-void ServerThread::disconnectClient(string address){
+void ServerThread::disconnectClient(const string& address){
     ClientIter i = clientsMap.find(address);
     if(i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
         Lock l(shutcs);
@@ -189,19 +193,16 @@ void ServerThread::disconnectClient(string address){
 void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
 {
     //int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
-    int64_t updiff = Socket::getTotalUp() - lastUp;
-    int64_t downdiff = Socket::getTotalDown() - lastDown;
+    int64_t upDiff = Socket::getTotalUp() - lastUp;
+    int64_t downDiff = Socket::getTotalDown() - lastDown;
 
-    SettingsManager::getInstance()->set(SettingsManager::TOTAL_UPLOAD, SETTING(TOTAL_UPLOAD) + updiff);
-    SettingsManager::getInstance()->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downdiff);
+    SettingsManager *SM = SettingsManager::getInstance();
+    SM->set(SettingsManager::TOTAL_UPLOAD,   SETTING(TOTAL_UPLOAD)   + upDiff);
+    SM->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downDiff);
 
     lastUpdate = aTick;
     lastUp = Socket::getTotalUp();
     lastDown = Socket::getTotalDown();
-
-    //if(SETTING(DISCONNECT_SPEED) < 1) {
-        //SettingsManager::getInstance()->set(SettingsManager::DISCONNECT_SPEED, 1);
-    //}
 }
 
 void ServerThread::on(Connecting, Client* cur) throw() {
@@ -211,6 +212,8 @@ void ServerThread::on(Connecting, Client* cur) throw() {
         curhub.curclient = cur;
         clientsMap[cur->getHubUrl()] = curhub;
     }
+    else if (i != clientsMap.end() && clientsMap[cur->getHubUrl()].curclient == NULL)
+        clientsMap[cur->getHubUrl()].curclient = cur;
     cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
 
@@ -316,15 +319,32 @@ void ServerThread::on(SearchFlood, Client*, const string& line) throw() {
 }
 
 void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) throw() {
+    // Без пол-литра не разберёшься :D
+    // Варианты как всю эту херню реализовать по-проще принимаются к рассмотрению...
+    if (result == NULL) return;
+    ClientIter i = clientsMap.begin();
+    for ( ; i != clientsMap.end(); i++)
+        if (result->getHubURL() == i->first && clientsMap[i->first].curclient !=NULL) break;
+    if (i == clientsMap.end() && result->getHubURL() != i->first) return;
 
+    unordered_map<string, SearchResultList>::const_iterator it;
+    for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
+    {
+        dcpp::TStringList searchlist = StringTokenizer<string>(it->first, ' ').getTokens();
+        for (TStringIter itt = searchlist.begin(); itt != searchlist.end(); ++itt)
+        {
+            if ((*itt->begin() != '-' && Util::findSubString(result->getFile(), *itt) == (string::size_type)-1) ||
+                (*itt->begin() == '-' && itt->size() != 1 && Util::findSubString(result->getFile(), itt->substr(1)) != (string::size_type)-1))
+            {
+                return;
+            }
+            else
+                continue;
+        }
+        clientsMap[i->first].cursearchresult[it->first].push_back(result);
+    }
 }
-//void ServerThread::on(WebServerListener::Setup) throw() {
-    ////webSock = WebServerManager::getInstance()->getServerSocket().getSock();
-//}
 
-//void ServerThread::on(WebServerListener::ShutdownPC, int action) throw() {
-
-//}
 void ServerThread::startSocket(bool changed){
     if (changed)
         ConnectivityManager::getInstance()->updateLast();
@@ -374,7 +394,7 @@ bool ServerThread::findHubInConnectedClients(const string& hub) {
     return false;
 }
 
-bool ServerThread::sendPrivateMessage(const string& hub,const string& nick, const string& message) {
+string ServerThread::sendPrivateMessage(const string& hub,const string& nick, const string& message) {
     ClientIter i = clientsMap.find(hub);
     if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
         Client* client = i->second.curclient;
@@ -384,16 +404,16 @@ bool ServerThread::sendPrivateMessage(const string& hub,const string& nick, cons
             if (user && user->isOnline())
             {
                 ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
-                return true;
+                return "Private message sent to "+ nick + " at " + hub;
             }
             else
             {
-                return false;
+                return "User went offline at " + hub;
             }
         }
     }
 
-    return false;
+    return "Huburl is invalid";
 }
 
 string ServerThread::getFileList_client(const string& hub, const string& nick, bool match) {
@@ -438,7 +458,6 @@ void ServerThread::getChatPubFromClient(string& chat, const string& hub, const s
         for (int i =0; i < it->second.curchat.size(); ++i) {
             chat += it->second.curchat.at(i);
             chat.append(separator);
-            //chatsPubMap[hub].pop_front();
         }
         clientsMap[hub].curchat.clear();
     } else
@@ -480,7 +499,6 @@ void ServerThread::parseSearchResult_gui(SearchResultPtr result, StringMap &resu
     }
 
     resultMap["Nick"] = Util::toString(ClientManager::getInstance()->getNicks(result->getUser()->getCID(), result->getHubURL()));
-    //WulforUtil::getNicks(result->getUser(), result->getHubURL());//NOTE: core 0.762
     resultMap["CID"] = result->getUser()->getCID().toBase32();
     resultMap["Slots"] = result->getSlotString();
     resultMap["Connection"] = ClientManager::getInstance()->getConnection(result->getUser()->getCID());
@@ -501,11 +519,124 @@ string ServerThread::revertSeparator(const string &ps) {
     for (string::iterator it = str.begin(); it != str.end(); ++it) {
 #ifdef _WIN32
         if ((*it) == '/')
-            (*it) = '\\'
+            (*it) = '\\';
 #else
         if ((*it) == '\\')
             (*it) = '/';
 #endif //_WIN32
     }
     return str;
+}
+
+bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype, const int& sizemode, const int& sizetype, const double& lsize, const string& huburls) {
+    if (search.empty())
+        return false;
+    StringList clients;
+    if (!huburls.empty()) {
+        StringTokenizer<string> sl(huburls, ";");
+        for (StringIter i = sl.getTokens().begin(); i != sl.getTokens().end(); ++i) {
+            clients.push_back((*i));
+        }
+        if (clients.size() < 1)
+            return false;
+    } else {
+        ClientIter i = clientsMap.begin();
+        while (i != clientsMap.end()) {
+            clients.push_back(i->first);++i;
+        }
+    }
+    string ssearch;
+    dcpp::TStringList searchlist = StringTokenizer<string>(search, ' ').getTokens();
+    for (StringList::const_iterator si = searchlist.begin(); si != searchlist.end(); ++si)
+        if ((*si)[0] != '-') ssearch += *si + ' ';
+    ssearch = ssearch.substr(0, std::max(ssearch.size(), static_cast<string::size_type>(1)) - 1);
+
+    double llsize = lsize;
+    switch (sizetype)
+    {
+        case 1:
+            llsize *= 1024.0;
+            break;
+        case 2:
+            llsize *= 1024.0 * 1024.0;
+            break;
+        case 3:
+            llsize *= 1024.0 * 1024.0 * 1024.0;
+            break;
+    }
+    int64_t lllsize = static_cast<int64_t>(llsize);
+
+    SearchManager::SizeModes mode((SearchManager::SizeModes)sizemode);
+    if (llsize == 0)
+        mode = SearchManager::SIZE_DONTCARE;
+    int ftype = searchtype;
+    string ftypeStr;
+    if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_LAST)
+    {
+        ftypeStr = SearchManager::getInstance()->getTypeStr(ftype);
+    }
+    else
+    {
+        ftype = SearchManager::TYPE_ANY;
+    }
+    // Get ADC searchtype extensions if any is selected
+    StringList exts;
+    try
+    {
+        if (ftype == SearchManager::TYPE_ANY)
+        {
+            // Custom searchtype
+            exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
+        }
+        else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE)
+        {
+            // Predefined searchtype
+            exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
+        }
+    }
+    catch (const SearchTypeException&)
+    {
+        ftype = SearchManager::TYPE_ANY;
+    }
+    for (StringIter it = clients.begin(); it != clients.end(); ++it){
+        clientsMap[(*it)].cursearchresult[ssearch].push_back(NULL);
+    }
+
+    SearchManager::getInstance()->search(clients, ssearch, lllsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);
+
+    return true;
+}
+
+void ServerThread::listSearchStrings(string& listsearchstrings, const string& separator) {
+    retlistsearchs.clear();
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        unordered_map<string, SearchResultList>::const_iterator it;
+        for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
+        {
+            retlistsearchs.push_back(it->first);
+            listsearchstrings.append(it->first);
+            listsearchstrings.append(separator);
+        }
+    }
+}
+
+void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const int& index, const string& huburls) {
+    StringTokenizer<string> sl(huburls, ";");
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        for (StringIter itt = sl.getTokens().begin(); itt != sl.getTokens().end(); ++itt) {
+            if (i->first.compare(*itt)) {
+                unordered_map<string, SearchResultList>::const_iterator it;
+                for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it) {
+                    if (it->first == retlistsearchs[index]) {
+                        for (SearchResultList::const_iterator kk = it->second.begin(); kk != it->second.end(); ++kk) {
+                            StringMap resultMap;
+                            parseSearchResult_gui(*kk, resultMap);
+                            resultarray.push_back(resultMap);
+                        }
+                        //resultarray.insert(resultarray.begin(), (it)->second.begin(), (it)->second.end());
+                    }
+                }
+            }
+        }
+    }
 }

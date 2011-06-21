@@ -33,6 +33,12 @@
 #include <setjmp.h>
 #endif
 
+#ifdef __HAIKU__
+#define MADV_SEQUENTIAL	POSIX_MADV_SEQUENTIAL
+#define MADV_WILLNEED	POSIX_MADV_WILLNEED
+#define madvise	posix_madvise
+#endif
+
 namespace dcpp {
 
 #define HASH_FILE_VERSION_STRING "2"
@@ -725,17 +731,15 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
             break;
             }
 
-                        if (sigsetjmp(sb_env, 1)) {
-                            dcdebug("Caught SIGBUS for file %s\n", filename.c_str());
-                            break;
-                        }
+            if (sigsetjmp(sb_env, 1)) {
+                dcdebug("Caught SIGBUS for file %s\n", filename.c_str());
+                break;
+            }
 
-#ifndef __HAIKU__
-               if (madvise(buf, size_read, MADV_SEQUENTIAL | MADV_WILLNEED) == -1) {
-            dcdebug("Error calling madvise for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
-            break;
-        }
-#endif
+            if (madvise(buf, size_read, MADV_SEQUENTIAL | MADV_WILLNEED) == -1) {
+                dcdebug("Error calling madvise for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
+                break;
+            }
 
             if(SETTING(MAX_HASH_SPEED) > 0) {
             uint64_t now = GET_TICK();

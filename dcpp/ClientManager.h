@@ -58,11 +58,14 @@ public:
     StringList getHubs(const HintedUser& user) { return getHubs(user.user->getCID(), user.hint); }
 
     string getConnection(const CID& cid) const;
+    uint8_t getSlots(const CID& cid) const;
 
     bool isConnected(const string& aUrl) const;
 
-    void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken);
-    void search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList);
+    void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, void* aOwner = 0);
+    uint64_t search(StringList& who, int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList, void* aOwner = 0);
+    void cancelSearch(void* aOwner);
+
     void infoUpdated();
 
     UserPtr getUser(const string& aNick, const string& aHubUrl) throw();
@@ -96,6 +99,19 @@ public:
             return i->second->getIdentity();
         }
         return Identity();
+    }
+
+    void setIPUser(const UserPtr& user, const string& IP, uint16_t udpPort = 0) {
+        if(IP.empty())
+            return;
+
+        Lock l(cs);
+        OnlineMap::const_iterator i = onlineUsers.find(user->getCID());
+        if ( i != onlineUsers.end() ) {
+            i->second->getIdentity().setIp(IP);
+            if(udpPort > 0)
+                i->second->getIdentity().setUdpPort(Util::toString(udpPort));
+        }
     }
 
     bool isOp(const UserPtr& aUser, const string& aHubUrl) const;

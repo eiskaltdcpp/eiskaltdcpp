@@ -144,6 +144,9 @@ final class EiskaltDC
         $cpu = '';$time = '';$mem = '';
       }
 
+      // This code is deprecated. You need update it.
+      // app-stat-total-up and app-stat-total-down are obsolete.
+      // Use TotalUpload and TotalDownload from DCPlusPlus.xml instead.
       preg_replace('#<app-stat-total-down type="string">(.*?)</app-stat-total-down>#e', '$total_down="$1";', $file);
       preg_replace('#<app-stat-total-up type="string">(.*?)</app-stat-total-up>#e', '$total_up="$1";', $file);
 

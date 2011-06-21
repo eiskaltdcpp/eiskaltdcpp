@@ -115,11 +115,11 @@ public:
     }
 };
 
-class stopDemonMethod : public xmlrpc_c::method {
+class stopDaemonMethod : public xmlrpc_c::method {
 public:
-    stopDemonMethod() {
+    stopDaemonMethod() {
         this->_signature = "i:i";
-        this->_help = "This method can stop demon. Params: 1";
+        this->_help = "This method can stop daemon. Params: 1";
     }
 
     void
@@ -220,11 +220,8 @@ public:
         string const smess(paramList.getString(2));
         paramList.verifyEnd(3);
         ServerThread svT;
-        bool b = svT.sendPrivateMessage(shub, snick, smess);
-        if (b)
-            *retvalP = xmlrpc_c::value_string("Private message send to "+snick+" at " + shub);
-        else
-            *retvalP = xmlrpc_c::value_string("User went offline at " + shub);
+        string tmp = svT.sendPrivateMessage(shub, snick, smess);
+        *retvalP = xmlrpc_c::value_string(tmp);
     }
 };
 
@@ -424,4 +421,82 @@ public:
     }
 };
 
+class sendSearchMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    sendSearchMethod() {
+        this->_signature = "i:siiids";
+        this->_help = "This method send search. Рarams: search string, type, sizemode, sizetype, size, huburls";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const ssearch(paramList.getString(0));
+        int const itype(paramList.getInt(1));
+        int const isizemode(paramList.getInt(2));
+        int const isizetype(paramList.getInt(3));
+        int const isize(paramList.getDouble(4));
+        string const shuburls(paramList.getString(5));
+        paramList.verifyEnd(6);
+        ServerThread svT;
+        if (svT.sendSearchonHubs(ssearch, itype, isizemode, isizetype, isize, shuburls))
+            *retvalP = xmlrpc_c::value_string("Start search " + ssearch + " on " + shuburls);
+        else
+            *retvalP = xmlrpc_c::value_string("Start search " + ssearch + " on " + shuburls + " was been failed");
+    }
+};
+
+class listSearchStringsMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    listSearchStringsMethod() {
+        this->_signature = "i:s";
+        this->_help = "This method return list of search strings. Рarams: separator.";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const sseparator(paramList.getString(0));
+        paramList.verifyEnd(1);
+        ServerThread svT; string listsearchstrings;
+        svT.listSearchStrings(listsearchstrings, sseparator);
+        *retvalP = xmlrpc_c::value_string(listsearchstrings);
+    }
+};
+
+class returnSearchResultsMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    returnSearchResultsMethod() {
+        this->_signature = "i:ss";
+        this->_help = "This method return results list by search string from huburls. Рarams: index, huburls";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        int const iindex(paramList.getInt(0));
+        string const shuburls(paramList.getString(1));
+        paramList.verifyEnd(2);
+        ServerThread svT; vector<StringMap> tmp;
+        svT.returnSearchResults(tmp, iindex, shuburls);
+        vector<xmlrpc_c::value> tmp_array_in;
+        for (vector<StringMap>::iterator i = tmp.begin(); i != tmp.end(); ++i) {
+            map<string, xmlrpc_c::value> tmp_struct_in;
+            for (StringMap::iterator kk = (*i).begin(); kk != (*i).end(); ++kk) {
+                pair<string, xmlrpc_c::value> member(kk->first, xmlrpc_c::value_string(kk->second));
+                tmp_struct_in.insert(member);
+            }
+            xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
+            tmp_array_in.push_back(xmlrpc_c::value_struct(tmp_struct_out));
+        }
+        xmlrpc_c::value_array tmp_array_out(tmp_array_in);
+        *retvalP = tmp_array_out;
+    }
+};
 #endif

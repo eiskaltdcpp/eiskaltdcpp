@@ -41,6 +41,7 @@ add_library (dcpp ${LINK} ${dcpp_srcs})
 if (WITH_DHT)
   add_definitions ( -DWITH_DHT )
   set (DHT_LIB "dht")
+ # add_dependencies(dcpp ${DHT_LIB})
 endif (WITH_DHT)
 
 if (PERL_REGEX)
@@ -48,12 +49,8 @@ if (PERL_REGEX)
   set(PCRE ${PCRE_LIBRARIES})
 endif (PERL_REGEX)
 
-if (LUA_SCRIPT)
-    add_definitions ( -DLUA_SCRIPT )
-endif (LUA_SCRIPT)
-
 if (USE_IDNA)
-    add_definitions(-DUSE_IDNA)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS USE_IDNA APPEND)
 endif(USE_IDNA)
 
 if (USE_MINIUPNP)
@@ -65,8 +62,12 @@ if (ICONV_SECOND_ARGUMENT_IS_CONST)
 endif (ICONV_SECOND_ARGUMENT_IS_CONST)
 
 if (FORCE_XDG)
-   set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
+   set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG APPEND)
 endif (FORCE_XDG)
+
+if (HAVE_IFADDRS_H)
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
+endif (HAVE_IFADDRS_H)
 
 if (WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS)

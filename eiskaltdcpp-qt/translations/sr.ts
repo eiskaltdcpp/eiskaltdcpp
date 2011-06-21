@@ -1885,6 +1885,14 @@ Omiljeni korisnik</translation>
         <source>Delayed</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2191,39 +2199,39 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Any</source>
-        <translation>Bilo koji</translation>
+        <translation type="obsolete">Bilo koji</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation>Zvučni</translation>
+        <translation type="obsolete">Zvučni</translation>
     </message>
     <message>
         <source>Compressed</source>
-        <translation>Kompresovan</translation>
+        <translation type="obsolete">Kompresovan</translation>
     </message>
     <message>
         <source>Document</source>
-        <translation>Dokument</translation>
+        <translation type="obsolete">Dokument</translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation>Izvršni</translation>
+        <translation type="obsolete">Izvršni</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Slika</translation>
+        <translation type="obsolete">Slika</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation type="obsolete">Video</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation>Fascikla</translation>
+        <translation type="obsolete">Fascikla</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2351,7 +2359,7 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Searching too soon, next search in %1 second</source>
-        <translation>Pretraživanje prerano, sledeća pretraga u %1 second</translation>
+        <translation type="obsolete">Pretraživanje prerano, sledeća pretraga u %1 second</translation>
     </message>
     <message>
         <source>Search - %1</source>
@@ -2359,7 +2367,7 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Ready to search...</source>
-        <translation>Spremno za pretragu...</translation>
+        <translation type="obsolete">Spremno za pretragu...</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -2379,10 +2387,6 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Download Whole Directory to...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CD Image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2656,6 +2660,10 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Czech</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>German</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
@@ -2818,6 +2826,13 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <source>Properties of magnet</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ShareBrowserSearch</name>
+    <message>
+        <source>Search - %1</source>
+        <translation type="unfinished">Pretraži - %1</translation>
     </message>
 </context>
 <context>
@@ -3629,6 +3644,10 @@ p, li { white-space: pre-wrap; }
         <source>Mode</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Minimum search interval (seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -4242,10 +4261,6 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
         <translation type="unfinished">Napredno</translation>
     </message>
     <message>
-        <source>Reconnect to hub(seconds)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Enable Throttle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4302,6 +4317,18 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Bind to interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable DHT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DHT port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reconnect to hub (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4677,6 +4704,22 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
     </message>
     <message>
         <source>Segment size (in MB, 0 = auto segment size)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable this option if you want to keep downloaded filelists 
+in the download queue after they have been finished.
+After downloaded the queue items will have &apos;Finished&apos; status
+and you can delete these finished entries anytime later.
+Note that if you physically move/delete your downloaded files from
+their target location, it won&apos;t result automatic deletion of
+the corresponding finished entries from the queue.
+If you disable this function, it won&apos;t remove existing finished items
+from the queue either, you must do that manually.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep downloaded files</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5455,6 +5498,21 @@ odobreni slot neće biti zatvoren.</translation>
     <message>
         <source>Form</source>
         <translation>Oblik</translation>
+    </message>
+</context>
+<context>
+    <name>UIShareBrowserSearch</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Pretraži</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished">Ime fajla</translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Fascikla</translation>
     </message>
 </context>
 <context>

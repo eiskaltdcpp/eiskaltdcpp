@@ -271,7 +271,8 @@ void ToolBar::redraw(){
     ArenaWidget *awgt = findWidgetForIndex(tabbar->currentIndex());
 
     if (awgt)
-        MainWindow::getInstance()->setWindowTitle(awgt->getArenaTitle());
+        MainWindow::getInstance()->setWindowTitle(awgt->getArenaTitle() +
+                                   " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
 }
 
 void ToolBar::nextTab(){

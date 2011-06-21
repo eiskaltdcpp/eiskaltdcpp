@@ -33,6 +33,10 @@ libglib2 (>= 2.10)
 libglade2 (>= 2.4)
 libnotify (>= 0.4.1) (optional, see cmake keys)
 libgnome2 (optional, see cmake keys)
+--------------------
+:eiskaltdcpp-daemon:
+--------------------
+libxmlrpc-c++4 (>=1.19.0) (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -86,6 +90,10 @@ libgtk2.0-dev
 libglade2-dev
 libnotify-dev (optional, see cmake keys)
 libgnome2-dev (optional, see cmake keys)
+--------------------
+:eiskaltdcpp-daemon:
+--------------------
+libxmlrpc-c++4-dev (>=1.19.0) (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -156,7 +164,9 @@ Keys for cmake
 :eiskaltdcpp-daemon:
 --------------------
 -DNO_UI_DAEMON=ON/OFF (default: OFF)
-    build daemon without any UI
+    build daemon (without any UI)
+-DXMLRPC_DAEMON=ON/OFF (default: OFF)
+    make this daemon as xmlrpc server
 --------
 :common:
 --------

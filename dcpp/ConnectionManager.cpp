@@ -494,6 +494,8 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
     if(ClientManager::getInstance()->isOp(aSource->getUser(), aSource->getHubUrl()))
         aSource->setFlag(UserConnection::FLAG_OP);
 
+    ClientManager::getInstance()->setIPUser(aSource->getUser(), aSource->getRemoteIp());
+
     if( aSource->isSet(UserConnection::FLAG_INCOMING) ) {
         aSource->myNick(aSource->getToken());
         aSource->lock(CryptoManager::getInstance()->getLock(), CryptoManager::getInstance()->getPk());

@@ -448,7 +448,7 @@ void SearchFrame::init(){
     for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
     {
         string type = i->first;
-        if (!(type.size() == 1 && ((type[0] >= '1' && type[0] <= '6') ||  type[0] == '9')))
+        if (!(type.size() == 1 && type[0] >= '1' && type[0] <= '7'))
         {
                 filetypes << _q(type);
         }
@@ -689,20 +689,20 @@ void SearchFrame::removeSource(const VarMap &params){
 }
 
 void SearchFrame::timerTick(){
-    int32_t waitFor = SearchManager::getInstance()->timeToSearch();
+    ////int32_t waitFor = SearchManager::getInstance()->timeToSearch();
 
-    if (waitFor > 0){
-        QString msg = tr("Searching too soon, next search in %1 second").arg(waitFor);
+    //if (waitFor > 0){
+        //QString msg = tr("Searching too soon, next search in %1 second").arg(waitFor);
 
-        status->setText(msg);
+        //status->setText(msg);
 
-        arena_title = tr("Search - %1").arg(msg);
+        //arena_title = tr("Search - %1").arg(msg);
 
-        timer->start();
-    }
-    else {
-        status->setText(tr("Ready to search..."));
-    }
+        //timer->start();
+    //}
+    //else {
+        //status->setText(tr("Ready to search..."));
+    //}
 }
 
 void SearchFrame::onHubAdded(const QString &info){
@@ -1009,7 +1009,7 @@ void SearchFrame::slotStartSearch(){
             // Custom searchtype
             exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
         }
-        else if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY){
+        else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE){
             // Predefined searchtype
             exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
         }
@@ -1018,35 +1018,21 @@ void SearchFrame::slotStartSearch(){
         ftype = SearchManager::TYPE_ANY;
     }
 
-    if(SearchManager::getInstance()->okToSearch()) {
-        SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype,
-                                             searchMode, token.toStdString(), exts);
+    SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype, searchMode, token.toStdString(), exts);
 
-        if (!checkBox_HIDEPANEL->isChecked()){
-            QList<int> panes = splitter->sizes();
+    if (!checkBox_HIDEPANEL->isChecked()){
+        QList<int> panes = splitter->sizes();
 
-            panes[1] = panes[0] + panes[1];
+        panes[1] = panes[0] + panes[1];
 
-            left_pane_old_size = panes[0] > 15 ? panes[0] : left_pane_old_size;
+        left_pane_old_size = panes[0] > 15 ? panes[0] : left_pane_old_size;
 
-            panes[0] = 0;
+        panes[0] = 0;
 
-            splitter->setSizes(panes);
-        }
-
-        arena_title = tr("Search - %1").arg(s);
-
+        splitter->setSizes(panes);
     }
-    else {
-        int32_t waitFor = SearchManager::getInstance()->timeToSearch();
-        QString msg = tr("Searching too soon, next search in %1 second").arg(waitFor);
 
-        status->setText(msg);
-
-        arena_title = tr("Search - %1").arg(msg);
-        // Start the countdown timer
-        initSecond();
-    }
+    arena_title = tr("Search - %1").arg(s);
 
     MW->redrawToolPanel();
 }

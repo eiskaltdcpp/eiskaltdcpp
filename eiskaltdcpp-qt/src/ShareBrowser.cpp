@@ -13,6 +13,7 @@
 #include "MainWindow.h"
 #include "SearchFrame.h"
 #include "Magnet.h"
+#include "ShareBrowserSearch.h"
 
 #include "dcpp/SettingsManager.h"
 #include "dcpp/FavoriteManager.h"
@@ -43,19 +44,19 @@
 
 using namespace dcpp;
 
-ShareBrowserRunner::ShareBrowserRunner(QObject *parent): QThread(parent){
+AsyncRunner::AsyncRunner(QObject *parent): QThread(parent){
 
 }
 
-ShareBrowserRunner::~ShareBrowserRunner(){
+AsyncRunner::~AsyncRunner(){
 
 }
 
-void ShareBrowserRunner::run(){
+void AsyncRunner::run(){
     runFunc();
 }
 
-void ShareBrowserRunner::setRunFunction(const boost::function<void()> &f){
+void AsyncRunner::setRunFunction(const boost::function<void()> &f){
     runFunc = f;
 }
 
@@ -291,6 +292,7 @@ void ShareBrowser::init(){
     treeView_RPANE->installEventFilter(this);
 
     toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
+    toolButton_SEARCH->setIcon(WICON(WulforUtil::eiFIND));
 
     arena_menu = new QMenu(tr("Filebrowser"));
 
@@ -312,6 +314,7 @@ void ShareBrowser::init(){
     connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotRightPaneClicked(QModelIndex)));
     connect(tree_model, SIGNAL(layoutChanged()), this, SLOT(slotLayoutUpdated()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(toolButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
 
     setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -370,7 +373,7 @@ void ShareBrowser::buildList(){
         listing.getRoot()->setName(nick.toStdString());
         ADLSearchManager::getInstance()->matchListing(listing);
 
-        ShareBrowserRunner *runner = new ShareBrowserRunner(this);
+        AsyncRunner *runner = new AsyncRunner(this);
         boost::function<void()> f = boost::bind(&ShareBrowser::createTree, this, listing.getRoot(), tree_root);
 
         runner->setRunFunction(f);
@@ -1005,6 +1008,23 @@ void ShareBrowser::slotFilter(){
     }
 
     frame_FILTER->setVisible(!frame_FILTER->isVisible());
+}
+
+void ShareBrowser::slotStartSearch(){
+    ShareBrowserSearch *sb_search = new ShareBrowserSearch(this);
+
+    sb_search->setSearchRoot(tree_root);
+    connect(sb_search, SIGNAL(indexClicked(FileBrowserItem*)), this, SLOT(slotSearchJumpTo(FileBrowserItem*)));
+}
+
+void ShareBrowser::slotSearchJumpTo(FileBrowserItem *tree_item){
+    if (!tree_item)
+        return;
+
+    QModelIndex tree_index = tree_model->createIndexForItem(tree_item);
+
+    treeView_LPANE->selectionModel()->select(tree_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+    treeView_LPANE->scrollTo(tree_index, QAbstractItemView::PositionAtCenter);
 }
 
 void ShareBrowser::slotSettingsChanged(const QString &key, const QString&){

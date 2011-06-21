@@ -80,7 +80,7 @@ void Client::reloadSettings(bool updateNick) {
 
     string ClientId;
     if (::strncmp(getHubUrl().c_str(),"adc://", 6) == 0 ||
-        ::strncmp(getHubUrl().c_str(),"adcs://", 6) == 0)
+        ::strncmp(getHubUrl().c_str(),"adcs://", 7) == 0)
         ClientId = fullADCVersionString;
     else
         ClientId = fullVersionString;
@@ -108,11 +108,16 @@ void Client::reloadSettings(bool updateNick) {
         if (hub->getUseInternetIP() && !SETTING(INTERNETIP).empty()){
             externalIP = SETTING(INTERNETIP);
         }
+        if(hub->getSearchInterval() < 10)
+            setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL) * 1000);
+        else
+            setSearchInterval(hub->getSearchInterval() * 1000);
     } else {
         if(updateNick) {
             setCurrentNick(checkNick(SETTING(NICK)));
         }
         setCurrentDescription(SETTING(DESCRIPTION));
+        setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL) * 1000);
     }
     setClientId(ClientId);
 }
@@ -250,6 +255,27 @@ string Client::getLocalIp() const {
     return localIp;
 }
 
+uint64_t Client::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList, void* owner){
+    dcdebug("Queue search %s\n", aString.c_str());
+
+    if(searchQueue.interval) {
+        SearchCore s;
+        s.fileType = aFileType;
+        s.size     = aSize;
+        s.query    = aString;
+        s.sizeType = aSizeMode;
+        s.token    = aToken;
+        s.exts	   = aExtList;
+        s.owners.insert(owner);
+
+        searchQueue.add(s);
+    }
+    search(aSizeMode, aSize, aFileType , aString, aToken, aExtList);
+
+    return searchQueue.interval ? searchQueue.getSearchTime(owner) - GET_TICK() : 0;
+
+}
+
 void Client::on(Line, const string& aLine) throw() {
     updateActivity();
     COMMAND_DEBUG(aLine, DebugManager::HUB_IN, getIpPort())
@@ -259,6 +285,15 @@ void Client::on(Second, uint64_t aTick) throw() {
     if(state == STATE_DISCONNECTED && getAutoReconnect() && (aTick > (getLastActivity() + getReconnDelay() * 1000)) ) {
         // Try to reconnect...
         connect();
+    }
+    if(!searchQueue.interval) return;
+
+    if(isConnected()){
+        SearchCore s;
+
+        if(searchQueue.pop(s)){
+            search(s.sizeType, s.size, s.fileType , s.query, s.token, s.exts);
+        }
     }
 }
 #ifdef LUA_SCRIPT

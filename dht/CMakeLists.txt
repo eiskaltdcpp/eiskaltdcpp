@@ -11,3 +11,9 @@ include_directories (${Boost_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${BZIP2_INCLUDE
 set (LINK STATIC)
 
 add_library (dht ${LINK} ${dht_srcs})
+
+if (WIN32)
+    set_property(TARGET dht PROPERTY COMPILE_FLAGS)
+else(WIN32)
+    set_property(TARGET dht PROPERTY COMPILE_FLAGS -fPIC)
+endif (WIN32)

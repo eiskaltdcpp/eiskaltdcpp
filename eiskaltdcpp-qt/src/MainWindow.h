@@ -309,10 +309,6 @@ friend class dcpp::Singleton<MainWindow>;
         int xPos;
         int yPos;
 
-        //Statistics
-        qulonglong totalUp;
-        qulonglong totalDown;
-
         // Widgets
         QDockWidget *arena;
         QDockWidget *transfer_dock;

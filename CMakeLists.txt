@@ -80,7 +80,7 @@ option (USE_QT "Qt interface" ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
 option (USE_QT_SQLITE "Build with SQLite support" OFF)
 option (USE_GTK "GTK interface" OFF)
-option (WITH_DHT "DHT support for dcpp" OFF)
+option (WITH_DHT "DHT support for libeiskaltdcpp" OFF)
 option (LUA_SCRIPT "Lua script" OFF)
 option (USE_MINIUPNP "Use miniupnpc for forward ports" OFF)
 option (LOCAL_MINIUPNP "Use local miniupnpc" OFF)
@@ -98,7 +98,6 @@ option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NO_UI_DAEMON "Daemon without any UI" OFF)
 option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
-option (CLI_DAEMON "Mаке daemon with sample cli based on readline" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
@@ -280,6 +279,10 @@ set (SHARE_DIR "share")
 endif (NOT SHARE_DIR)
 
 if (APPLE)
+    add_definitions(-DAPPLE)
+endif (APPLE)
+
+if (APPLE)
   set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app")
 elseif (WIN32)
   set (CLIENT_DATA_DIR "${SHARE_DIR}")
@@ -339,14 +342,6 @@ set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${_DATADIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
 
-if (ENABLE_STACKTRACE)
-    add_definitions(-DENABLE_STACKTRACE)
-endif (ENABLE_STACKTRACE)
-
-if (HAVE_IFADDRS_H)
-  add_definitions (-DHAVE_IFADDRS_H )
-endif (HAVE_IFADDRS_H)
-
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
     if (MINGW)
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")
@@ -400,6 +395,7 @@ list (APPEND AllLanguages
             be
             bg
             cs
+            de
             en
             es
             fr

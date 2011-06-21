@@ -70,24 +70,12 @@ using namespace dcpp;
 
 const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
 
-WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
+WulforUtil::WulforUtil()
 {
     qRegisterMetaType< QMap<QString,QVariant> >("VarMap");
     qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
     qRegisterMetaType< QMap<QString,QString> >("QMap<QString,QString>");
 
-    if (WBGET(WB_APP_DYNDNS_ENABLED)) {
-        http = new QHttp(this);
-        connect(http, SIGNAL(done(bool)), this, SLOT(slotHttpDone(bool)));
-        http->setHost(WSGET(WS_APP_DYNDNS_SERVER));
-        slotHttpTimer();
-
-        http_timer = new QTimer(this);
-        http_timer->setInterval(30*1000);
-        connect(http_timer, SIGNAL(timeout()), this, SLOT(slotHttpTimer()));
-
-        http_timer->start();
-    }
     memset(userIconCache, 0, sizeof (userIconCache));
 
     userIcons = new QImage();
@@ -134,14 +122,6 @@ WulforUtil::WulforUtil(): http(NULL), http_timer(NULL)
 
 WulforUtil::~WulforUtil(){
     delete userIcons;
-
-    if (http_timer)
-        http_timer->deleteLater();
-
-    if (http){
-        http->abort();
-        http->deleteLater();
-    }
 
     clearUserIconCache();
 }
@@ -432,13 +412,12 @@ const QPixmap &WulforUtil::getPixmap(enum WulforUtil::Icons e){
     return m_PixmapMap[static_cast<qulonglong>(e)];
 }
 
-QString WulforUtil::getNicks(const QString &cid){
-    return getNicks(CID(cid.toStdString()));
+QString WulforUtil::getNicks(const QString &cid, const QString &hintUrl){
+    return getNicks(CID(cid.toStdString()), hintUrl);
 }
 
-QString WulforUtil::getNicks(const CID &cid){
-    const dcpp::Identity &user = ClientManager::getInstance()->getOnlineUserIdentity(ClientManager::getInstance()->getUser(cid));
-    return _q(user.getNick());
+QString WulforUtil::getNicks(const CID &cid, const QString &hintUrl){
+    return _q(dcpp::Util::toString(ClientManager::getInstance()->getNicks(cid, _tq(hintUrl))));
 }
 
 void WulforUtil::textToHtml(QString &str, bool print){
@@ -1184,49 +1163,6 @@ void WulforUtil::headerMenu(QTreeView *tree){
     delete mcols;
 }
 
-void WulforUtil::slotHttpDone(bool error){
-    if (!error){
-        QString html = QString(http->readAll());
-        int start = html.indexOf(":")+2;
-        int end = html.indexOf("</body>", start);
-
-
-        if ((start == -1) || (end < start)) {
-            internetIP = "";
-        } else {
-            QString ip = html.mid(start, end - start);
-
-            if (QHostAddress().setAddress(ip)) {
-                internetIP = ip;
-            }
-        }
-    }
-    else
-        internetIP = "";
-
-    if (!internetIP.isEmpty()){
-        SettingsManager::getInstance()->set(SettingsManager::INTERNETIP, internetIP.toStdString());
-        Client::List clients = ClientManager::getInstance()->getClients();
-
-        for(Client::Iter i = clients.begin(); i != clients.end(); ++i) {
-            if((*i)->isConnected()) {
-                (*i)->reloadSettings(false);
-            }
-        }
-    }
-}
-
-void WulforUtil::slotHttpTimer(){
-    if( WBGET(WB_APP_DYNDNS_ENABLED) ) {
-        QHttpRequestHeader header("GET", WSGET(WS_APP_DYNDNS_INDEX));
-        header.setValue("Host", WSGET(WS_APP_DYNDNS_SERVER));
-        QString useragent = QString("EiskaltDCPP");
-        header.setValue("User-Agent", useragent);
-
-        http->request(header);
-    }
-}
-
 QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* parent){
     if (hub_list.empty())
         return NULL;
@@ -1261,35 +1197,42 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
             QString raw_name = _q(uc.getName());
             QAction *action = NULL;
 
+            raw_name.replace("//", "\t");
+
             if (raw_name.contains("/")){
                 QStringList submenus = raw_name.split("/", QString::SkipEmptyParts);
                 if (!submenus.isEmpty()){
-                QString name = submenus.takeLast();
-                QString key = "";
-                QMenu *parent = usr_menu;
-                QMenu *submenu;
+                    QString name = submenus.takeLast();
+                    QString key = "";
+                    QMenu *parent = usr_menu;
+                    QMenu *submenu;
 
-                foreach (QString s, submenus){
-                    key += s + "/";
+                    name.replace("\t", "/");
 
-                    if (registered_menus.contains(key))
-                        parent = registered_menus[key];
-                    else {
-                        submenu = new QMenu(s, parent);
-                        parent->addMenu(submenu);
+                    foreach (QString s, submenus){
+                        s.replace("\t", "/");
 
-                        registered_menus.insert(key, submenu);
+                        key += s + "/";
 
-                        parent = submenu;
+                        if (registered_menus.contains(key))
+                            parent = registered_menus[key];
+                        else {
+                            submenu = new QMenu(s, parent);
+                            parent->addMenu(submenu);
+
+                            registered_menus.insert(key, submenu);
+
+                            parent = submenu;
+                        }
                     }
-                }
 
-                action = new QAction(name, parent);
-                parent->addAction(action);
+                    action = new QAction(name, parent);
+                    parent->addAction(action);
                 }
             }
             else{
-                action = new QAction(_q(uc.getName()), usr_menu);
+                raw_name.replace("\t", "/");
+                action = new QAction(raw_name, usr_menu);
                 usr_menu->addAction(action);
             }
             if (action) {
