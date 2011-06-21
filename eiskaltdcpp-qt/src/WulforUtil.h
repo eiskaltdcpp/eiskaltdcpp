@@ -140,7 +140,7 @@ public:
 
     QPixmap *getUserIcon(const UserPtr&, bool, bool, const QString&);
 
-    QString getNicks(const CID &cid);
+    QString getNicks(const CID &cid, const QString& = "");
 
     const QString &getIconsPath() { return app_icons_path; }
 
@@ -175,18 +175,12 @@ public:
 
     QString compactToolTipText(QString, int, QString);
 
-    std::string getInternetIP() const { return _tq(internetIP); }
-
     QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* = 0);
 
 public Q_SLOTS:
     const QPixmap &getPixmap(Icons);
-    QString getNicks(const QString&);
+    QString getNicks(const QString&,const QString& = "");
     bool openUrl(const QString&);
-
-private Q_SLOTS:
-    void slotHttpDone(bool);
-    void slotHttpTimer();
 
 private:
 
@@ -221,9 +215,6 @@ private:
 
     static const QString magnetSignature;
 
-    QHttp *http;
-    QTimer *http_timer;
-    QString internetIP;
 };
 
 Q_DECLARE_METATYPE(WulforUtil*);

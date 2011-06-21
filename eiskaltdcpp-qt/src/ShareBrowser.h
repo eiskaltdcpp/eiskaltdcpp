@@ -40,11 +40,11 @@ class ShareBrowser;
 
 class QModelIndex;
 
-class ShareBrowserRunner: public QThread{
+class AsyncRunner: public QThread{
 Q_OBJECT
 public:
-    ShareBrowserRunner(QObject * = NULL);
-    virtual ~ShareBrowserRunner();
+    AsyncRunner(QObject * = NULL);
+    virtual ~AsyncRunner();
 
     virtual void run();
 
@@ -122,6 +122,8 @@ private Q_SLOTS:
     void slotLoaderFinish();
     void slotLayoutUpdated();
     void slotSettingsChanged(const QString&, const QString&);
+    void slotStartSearch();
+    void slotSearchJumpTo(FileBrowserItem*);
 
 private:
     void init();

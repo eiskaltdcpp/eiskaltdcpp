@@ -20,8 +20,6 @@
 #include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
-#include "CustomSetting.h"
-
 static const QString & WS_CHAT_OP_COLOR           = "chat-op-color";
 static const QString & WS_CHAT_USER_COLOR         = "chat-us-color";
 static const QString & WS_CHAT_CORE_COLOR         = "chat-co-color";
@@ -69,13 +67,8 @@ static const QString & WS_DOWNLOADTO_ALIASES      = "downloadto-aliases";
 static const QString & WS_DOWNLOADTO_PATHS        = "downloadto-paths";
 static const QString & WS_APP_ICONTHEME           = "app-theme-icons";
 static const QString & WS_APP_USERTHEME           = "app-theme-users";
-static const QString & WS_APP_TOTAL_UP            = "app-stat-total-up";
-static const QString & WS_APP_TOTAL_DOWN          = "app-stat-total-down";
 static const QString & WS_APP_ASPELL_LANG         = "app-aspell-lang";
 static const QString & WS_APP_EMOTICON_THEME      = "app-emoticon-theme";
-static const QString & WS_APP_DYNDNS_SERVER       = "app-dyndns-server";
-static const QString & WS_APP_DYNDNS_INDEX        = "app-dyndns-server-index";
-static const QString & WB_APP_DYNDNS_ENABLED      = "app-dyndns-enabled";
 static const QString & WS_APP_SHARED_FILES_COLOR  = "app-already-shared-files-color";
 static const QString & WS_PUBLICHUBS_STATE        = "publichubs-state";
 static const QString & WS_SETTINGS_GUI_FONTS_STATE= "settings-gui-fonts-state";

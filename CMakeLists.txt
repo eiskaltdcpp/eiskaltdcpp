@@ -80,7 +80,7 @@ option (USE_QT "Qt interface" ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
 option (USE_QT_SQLITE "Build with SQLite support" OFF)
 option (USE_GTK "GTK interface" OFF)
-option (DHT "DHT support for dcpp" OFF)
+option (WITH_DHT "DHT support for libeiskaltdcpp" OFF)
 option (LUA_SCRIPT "Lua script" OFF)
 option (USE_MINIUPNP "Use miniupnpc for forward ports" OFF)
 option (LOCAL_MINIUPNP "Use local miniupnpc" OFF)
@@ -98,7 +98,6 @@ option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NO_UI_DAEMON "Daemon without any UI" OFF)
 option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
-option (CLI_DAEMON "Mаке daemon with sample cli based on readline" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
@@ -270,14 +269,18 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND USE_QT)
                  "\tYou can build it for your own risk.\n"
                  "\tBut do not even try to write bug reports in this case.\n"
                  "\tPlease use RelWithDebInfo instead it.")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo")
-  set (CMAKE_BUILD_TYPE "RelWithDebInfo")
-  message(STATUS "CMAKE_BUILD_TYPE = Gentoo is not now supported. RelWithDebInfo is used instead.")
+elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND USE_QT)
+  message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
+                 "\tPlease try to use RelWithDebInfo instead it if some troubles happend.")
 endif (NOT CMAKE_BUILD_TYPE)
 
 if (NOT SHARE_DIR)
 set (SHARE_DIR "share")
 endif (NOT SHARE_DIR)
+
+if (APPLE)
+    add_definitions(-DAPPLE)
+endif (APPLE)
 
 if (APPLE)
   set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app")
@@ -327,6 +330,8 @@ configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionG
 
 if (UNIX)
 add_definitions (-D_GNU_SOURCE)
+find_program (GZIP_CMD gzip)
+mark_as_advanced(GZIP_CMD)
 endif (UNIX)
 
 set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/qt/ts")
@@ -336,14 +341,6 @@ set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 
 add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${_DATADIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
-
-if (ENABLE_STACKTRACE)
-    add_definitions(-DENABLE_STACKTRACE)
-endif (ENABLE_STACKTRACE)
-
-if (HAVE_IFADDRS_H)
-  add_definitions (-DHAVE_IFADDRS_H )
-endif (HAVE_IFADDRS_H)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
     if (MINGW)
@@ -398,6 +395,7 @@ list (APPEND AllLanguages
             be
             bg
             cs
+            de
             en
             es
             fr
@@ -425,9 +423,9 @@ message (STATUS "Translations: ${LANGUAGES}")
 
 add_subdirectory(extra)
 
-if (DHT)
-add_subdirectory (dht)
-endif (DHT)
+if (WITH_DHT)
+  add_subdirectory (dht)
+endif (WITH_DHT)
 
 add_subdirectory (dcpp)
 

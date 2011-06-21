@@ -235,7 +235,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
 
         if(!neededParts.empty()) {
                 // select random chunk for PFS
-                dcdebug("Found partial chunks: %d\n", neededParts.size());
+                dcdebug("Found partial chunks: %d\n", static_cast<int>(neededParts.size()));
 
                 Segment& selected = neededParts[Util::rand(0, neededParts.size())];
                 selected.setSize(std::min(selected.getSize(), targetSize));     // request only wanted size
@@ -268,7 +268,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
                         // new user should finish this chunk more than 2x faster
                         int64_t newChunkLeft = size / lastSpeed;
                         if(2 * newChunkLeft < d->getSecondsLeft()) {
-                                dcdebug("Overlapping... old user: %I64d s, new user: %I64d s\n", d->getSecondsLeft(), newChunkLeft);
+                                dcdebug("Overlapping... old user: %I64d s, new user: %I64d s\n", static_cast<int>(d->getSecondsLeft()), static_cast<int>(newChunkLeft));
                                 return Segment(d->getStartPos() + pos, size/*, true*/);//TODO bool
                         }
                 }

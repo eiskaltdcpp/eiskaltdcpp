@@ -44,7 +44,7 @@ private:
 
     bool dirty;
 
-    int old_tcp, old_udp, old_tls;
+    int old_tcp, old_udp, old_tls, old_dht;
 };
 
 #endif // SETTINGSCONNECTION_H

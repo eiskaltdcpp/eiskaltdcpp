@@ -34,7 +34,7 @@ typedef struct _IPFilterElem{
     eTableAction action;
 } IPFilterElem;
 
-typedef std::map<uint32_t, IPFilterElem*> QIPHash;
+typedef std::tr1::unordered_map<uint32_t, IPFilterElem*> QIPHash;
 typedef std::vector<IPFilterElem*> QIPList;
 
 class ipfilter :

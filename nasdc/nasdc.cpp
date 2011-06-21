@@ -30,19 +30,14 @@
 #include <fstream>
 #endif
 
-#ifdef CLI_DAEMON
-#include <readline/readline.h>
-#include <readline/history.h>
-#endif
-
 char pidfile[256] = {0};
 char config_dir[1024] = {0};
 char local_dir[1024] = {0};
 
 static void  logging(bool b, string msg){
 #ifndef _WIN32
-    if (b) syslog(LOG_USER | LOG_INFO, msg.c_str());
-    else  syslog(LOG_USER | LOG_ERR, msg.c_str());
+    if (b) syslog(LOG_USER | LOG_INFO, "%s", msg.c_str());
+    else  syslog(LOG_USER | LOG_ERR, "%s", msg.c_str());
 #else
     Log(msg);
 #endif
@@ -225,7 +220,7 @@ int main(int argc, char* argv[])
     PATH = Util::getPath(Util::PATH_USER_CONFIG);
 #ifndef _WIN32
     if (bDaemon) {
-        printf(("Starting "+sTitle+" as daemon using "+PATH+" as config directory.\n").c_str());
+        printf("%s\n",("Starting "+sTitle+" as daemon using "+PATH+" as config directory.").c_str());
 
         if (eidcpp_daemon(true,false) == -1)
             return EXIT_FAILURE;
@@ -238,7 +233,7 @@ int main(int argc, char* argv[])
         logging(true,  "EiskaltDC++ daemon starting...\n");
     } else {
 #endif
-        printf(("Starting "+sTitle+" using "+PATH+" as config directory.\n").c_str());
+        printf("%s\n",("Starting "+sTitle+" using "+PATH+" as config directory.").c_str());
 #ifndef _WIN32
     }
     sigset_t sst;
@@ -294,16 +289,10 @@ int main(int argc, char* argv[])
     }
 #ifndef _WIN32
     else if (!bDaemon) {
-        printf((sTitle+" running...\n").c_str());
+        printf("%s\n",(sTitle+" running...").c_str());
     }
 #else
-        printf((sTitle+" running...\n").c_str());
-#endif
-
-#ifdef CLI_DAEMON
-    char *temp, *prompt;
-    temp = (char *)NULL;
-    prompt = "edcppd$ ";
+        printf("%s\n",(sTitle+" running...").c_str());
 #endif
 
 #if !defined(_WIN32) && defined(ENABLE_STACKTRACE)
@@ -312,34 +301,6 @@ int main(int argc, char* argv[])
 
     while (bServerRunning) {
         Thread::sleep(1);
-#ifdef CLI_DAEMON
-        temp = readline (prompt);
-
-        /* If there is anything on the line, print it and remember it. */
-        if (*temp)
-        {
-            fprintf (stderr, "%s\r\n", temp);
-            add_history (temp);
-        }
-
-        /* Check for `command' that we handle. */
-        if (strcmp (temp, "quit") == 0)
-            bServerTerminated = true;
-
-        if (strcmp (temp, "list") == 0)
-        {
-            HIST_ENTRY **list;
-            register int i;
-
-            list = history_list ();
-            if (list)
-            {
-                for (i = 0; list[i]; i++)
-                fprintf (stderr, "%d: %s\r\n", i, list[i]->line);
-            }
-        }
-        free (temp);
-#endif
         if (bServerTerminated)
             ServerStop();
     }

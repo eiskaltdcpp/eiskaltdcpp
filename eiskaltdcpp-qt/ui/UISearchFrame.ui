@@ -81,58 +81,8 @@
       <item row="2" column="9">
        <widget class="QComboBox" name="comboBox_FILETYPES">
         <property name="currentIndex">
-         <number>0</number>
+         <number>-1</number>
         </property>
-        <item>
-         <property name="text">
-          <string>Any</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Audio</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Compressed</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Document</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Executable</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Picture</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Video</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Directory</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>TTH</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>CD Image</string>
-         </property>
-        </item>
        </widget>
       </item>
      </layout>

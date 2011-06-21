@@ -46,7 +46,7 @@ FavoriteHubs::FavoriteHubs():
 	vector<string> &charsets = WulforUtil::getCharsets();
 	for (vector<string>::const_iterator it = charsets.begin(); it != charsets.end(); ++it)
 		gtk_combo_box_append_text(GTK_COMBO_BOX(getWidget("comboboxCharset")), it->c_str());
-
+	
 	// Initialize favorite hub list treeview
 	favoriteView.setView(GTK_TREE_VIEW(getWidget("favoriteView")), TRUE, "favoritehubs");
 	favoriteView.insertColumn(_("Auto Connect"), G_TYPE_BOOLEAN, TreeView::BOOL, 100);
@@ -58,6 +58,8 @@ FavoriteHubs::FavoriteHubs():
 	favoriteView.insertColumn(_("User Description"), G_TYPE_STRING, TreeView::STRING, 125);
 	favoriteView.insertColumn(_("Encoding"), G_TYPE_STRING, TreeView::STRING, 125);
 	favoriteView.insertHiddenColumn("Hidden Password", G_TYPE_STRING);
+	favoriteView.insertHiddenColumn("Mode", G_TYPE_STRING);
+	favoriteView.insertHiddenColumn("Search Interval", G_TYPE_STRING);
 	favoriteView.finalize();
 	favoriteStore = gtk_list_store_newv(favoriteView.getColCount(), favoriteView.getGTypes());
 	gtk_tree_view_set_model(favoriteView.get(), GTK_TREE_MODEL(favoriteStore));
@@ -124,6 +126,8 @@ void FavoriteHubs::editEntry_gui(StringMap &params, GtkTreeIter *iter)
 		favoriteView.col(_("Nick")), params["Nick"].c_str(),
 		favoriteView.col(_("Password")), password.c_str(),
 		favoriteView.col("Hidden Password"), params["Password"].c_str(),
+		favoriteView.col("Mode"), params["Mode"].c_str(),
+		favoriteView.col("Search Interval"), params["Search Interval"].c_str(),
 		favoriteView.col(_("Address")), params["Address"].c_str(),
 		favoriteView.col(_("User Description")), params["User Description"].c_str(),
 		favoriteView.col(_("Encoding")), params["Encoding"].c_str(),
@@ -268,6 +272,8 @@ void FavoriteHubs::onAddEntry_gui(GtkWidget *widget, gpointer data)
 	params["User Description"] = emptyString;
 	params["Encoding"] = emptyString;
 	params["Auto Connect"] = "0";
+	params["Mode"] = "0";
+	params["Search Interval"] = "0";
 
 	bool updatedEntry = fh->showFavoriteHubDialog_gui(params, fh);
 
@@ -296,6 +302,8 @@ void FavoriteHubs::onEditEntry_gui(GtkWidget *widget, gpointer data)
 	params["User Description"] = fh->favoriteView.getString(&iter, _("User Description"));
 	params["Encoding"] = fh->favoriteView.getString(&iter, _("Encoding"));
 	params["Auto Connect"] = fh->favoriteView.getValue<gboolean>(&iter, _("Auto Connect")) ? "1" : "0";
+	params["Mode"] = fh->favoriteView.getString(&iter, "Mode");
+	params["Search Interval"] = fh->favoriteView.getString(&iter, "Search Interval");
 
 	bool entryUpdated = showFavoriteHubDialog_gui(params, fh);
 
@@ -320,6 +328,8 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 	gtk_entry_set_text(GTK_ENTRY(fh->getWidget("entryPassword")), params["Password"].c_str());
 	gtk_entry_set_text(GTK_ENTRY(fh->getWidget("entryUserDescription")), params["User Description"].c_str());
 	gtk_entry_set_text(GTK_ENTRY(fh->getWidget("comboboxentryCharset")), params["Encoding"].c_str());
+	gtk_combo_box_set_active(GTK_COMBO_BOX(fh->getWidget("comboboxMode")), Util::toInt64(params["Mode"]));
+	gtk_spin_button_set_value(GTK_SPIN_BUTTON(fh->getWidget("spinButton_MINSEARCH_INTERVAL")), Util::toInt64(params["Search Interval"]));
 
 	// Set the auto connect checkbox
 	gboolean autoConnect = params["Auto Connect"] == "1" ? TRUE : FALSE;
@@ -359,6 +369,11 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 			gchar *encoding = gtk_combo_box_get_active_text(GTK_COMBO_BOX(fh->getWidget("comboboxCharset")));
 			params["Encoding"] = string(encoding);
 			g_free(encoding);
+		}
+		
+		{
+			params["Mode"] = Util::toString(gtk_combo_box_get_active(GTK_COMBO_BOX(fh->getWidget("comboboxMode"))));
+			params["Search Interval"] = Util::toString(gtk_spin_button_get_value(GTK_SPIN_BUTTON(fh->getWidget("spinButton_MINSEARCH_INTERVAL"))));
 		}
 
 		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkbuttonNick"))))
@@ -498,6 +513,8 @@ void FavoriteHubs::getFavHubParams_client(const FavoriteHubEntry *entry, StringM
 	params["Address"] = entry->getServer();
 	params["User Description"] = entry->getUserDescription();
 	params["Encoding"] = entry->getEncoding();
+	params["Mode"] = Util::toString(entry->getMode());
+	params["Search Interval"] = Util::toString(entry->getSearchInterval());
 }
 
 void FavoriteHubs::addEntry_client(StringMap params)
@@ -511,6 +528,8 @@ void FavoriteHubs::addEntry_client(StringMap params)
     entry.setPassword(params["Password"]);
     entry.setUserDescription(params["User Description"]);
     entry.setEncoding(params["Encoding"]);
+	entry.setMode(Util::toInt64(params["Mode"]));
+	entry.setSearchInterval(Util::toInt64(params["Search Interval"]));
     FavoriteManager::getInstance()->addFavorite(entry);
 
     const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();
@@ -531,6 +550,8 @@ void FavoriteHubs::editEntry_client(string address, StringMap params)
 		entry->setPassword(params["Password"]);
 		entry->setUserDescription(params["User Description"]);
 		entry->setEncoding(params["Encoding"]);
+		entry->setMode(Util::toInt64(params["Mode"]));
+		entry->setSearchInterval(Util::toInt64(params["Search Interval"]));
 		FavoriteManager::getInstance()->save();
 
         const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();

@@ -69,6 +69,9 @@ namespace dht
 		/** Try to publish next file in queue */
 		void publishNextFile();
 
+		/** Create publish queue from local file list */
+		void createPublishQueue(ShareManager::HashFileMap& tthIndex);
+
 		/** Loads existing indexes from disk */
 		void loadIndexes(SimpleXML& xml);
 
@@ -76,8 +79,8 @@ namespace dht
 		void saveIndexes(SimpleXML& xml);
 
 		/** How many files is currently being published */
-		void incPublishing() { Thread::safeInc(publishing); }
-		void decPublishing() { Lock l(cs); Thread::safeDec(publishing); }
+		void incPublishing() { ++publishing; } //{ Thread::safeInc(publishing); }
+		void decPublishing() { --publishing; } //{ Lock l(cs); Thread::safeDec(publishing); }
 
 		/** Is publishing allowed? */
 		void setPublish(bool _publish) { publish = _publish; }
@@ -104,7 +107,7 @@ namespace dht
 	private:
 
 		/** Contains known hashes in the network and their sources */
-		typedef std::unordered_map<TTHValue, SourceList> TTHMap;
+		typedef unordered_map<TTHValue, SourceList> TTHMap;
 		TTHMap tthList;
 
 		/** Queue of files prepared for publishing */

@@ -41,7 +41,7 @@
 #include <dcpp/StringTokenizer.h>
 
 #include "VersionGlobal.h"
-
+#include "extra/ipfilter.h"
 #ifdef LUA_SCRIPT
 #include <dcpp/ScriptManager.h>
 #endif
@@ -179,6 +179,9 @@ Hub::Hub(const string &address, const string &encoding):
 
     g_object_set_data_full(G_OBJECT(getWidget("versionCommandItem")), "command", g_strdup("/version"), g_free);
     g_signal_connect(getWidget("versionCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
+
+    g_object_set_data_full(G_OBJECT(getWidget("ratioCommandItem")), "command", g_strdup("/ratio"), g_free);
+    g_signal_connect(getWidget("ratioCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
 
     // chat commands button
     g_signal_connect(getWidget("chatCommandsButton"), "button-release-event", G_CALLBACK(onChatCommandButtonRelease_gui), (gpointer)this);
@@ -1920,19 +1923,49 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         {
             hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE)+" "+string(EISKALTDCPP_VERSION)+" ("+string(EISKALTDCPP_VERSION_SFX)+"), "+_("project home: ")+"http://code.google.com/p/eiskaltdc/", Msg::SYSTEM, Sound::NONE);
         }
+        else if (command == "ratio")
+        {
+            double ratio;
+            double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
+            double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
+
+            if (down > 0)
+                ratio = up / down;
+            else
+                ratio = 0;
+
+            char ratio_c[32];
+            sprintf(ratio_c,"%.3f", ratio);
+
+            string uploaded = Util::formatBytes(up);
+            string downloaded = Util::formatBytes(down);
+
+            string line = str(dcpp_fmt(gettext("ratio: %1% (uploads: %2%, downloads: %3% )"))
+                                                % string(ratio_c)
+                                                % uploaded
+                                                % downloaded);
+
+             if (!param.compare("show")){
+                 F2 *func = new F2( hub, &Hub::sendMessage_client, line, false);
+                 WulforManager::get()->dispatchClientFunc(func);
+             }
+             else{
+                 hub->addStatusMessage_gui(line, Msg::SYSTEM, Sound::NONE);
+             }
+        }
         else if (command == "help")
         {
             hub->addMessage_gui("", string(_("*** Available commands:")) + "\n\n" +
-            "/away <message>\t\t - " + _("Away mode message on/off") + "\n" +
+            "/away <message>\t - " + _("Away mode message on/off") + "\n" +
             "/back\t\t\t\t - " + _("Away mode off") + "\n" +
             "/clear\t\t\t\t - " + _("Clear chat") + "\n" +
             "/close\t\t\t\t - " + _("Close chat") + "\n" +
-            "/favorite, /fav\t\t\t - " + _("Add a hub to favorites") + "\n" +
+            "/favorite, /fav\t\t - " + _("Add a hub to favorites") + "\n" +
             "/fuser, /fu <nick>\t\t - " + _("Add user to favorites list") + "\n" +
-            "/removefu, /rmfu <nick>\t - " + _("Remove user favorite") + "\n" +
+            "/removefu, /rmfu <nick> - " + _("Remove user favorite") + "\n" +
             "/listfu, /lsfu\t\t\t - " + _("Show favorites list") + "\n" +
-            "/getlist <nick>\t\t\t - " + _("Get file list") + "\n" +
-            "/grant <nick>\t\t\t - " + _("Grant extra slot") + "\n" +
+            "/getlist <nick>\t\t - " + _("Get file list") + "\n" +
+            "/grant <nick>\t\t - " + _("Grant extra slot") + "\n" +
             "/help\t\t\t\t - " + _("Show help") + "\n" +
             "/join <address>\t\t - " + _("Connect to the hub") + "\n" +
             "/me <message>\t\t - " + _("Say a third person") + "\n" +
@@ -1940,18 +1973,24 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/rebuild\t\t\t\t - " + _("Rebuild hash") + "\n" +
             "/refresh\t\t\t\t - " + _("Update own file list") + "\n" +
             "/userlist\t\t\t\t - " + _("User list show/hide") + "\n" +
-            "/limitimg <n>, limg <n>\t - " + _("Download limit image: 0 - disable, n < 0 - unlimit, empty - info") + "\n" +
+            "/limitimg <n>, limg <n> - " + _("Download limit image: 0 - disable, n < 0 - unlimit, empty - info") + "\n" +
             "/version\t\t\t\t - " + _("Show version") + "\n" +
-            "/emoticons, /emot\t\t - " + _("Emoticons on/off") + "\n" +
+            "/ratio [show]\t\t\t - " + _("Show ratio [send in chat]") + "\n" +
+            "/emoticons, /emot\t - " + _("Emoticons on/off") + "\n" +
 #ifdef LUA_SCRIPT
-            "/luafile <file>\t\t\t - " + _("Load Lua file") + "\n" +
-            "/lua <chunk>\t\t\t\t -  " + _("Execute Lua Chunk") + "\n"+
+            "/luafile <file>\t\t - " + _("Load Lua file") + "\n" +
+            "/lua <chunk>\t\t\t -  " + _("Execute Lua Chunk") + "\n"+
 #endif
             "/sh\t\t\t\t\t - " +  _("Execute code (bash)") +"\n"+
-            "/alias list\t\t\t\t - " + _("Alias List")+ "\n"+
-            "/alias purge A\t\t\t - "+ _("Alias Remove A")+"\n"+
-            "/alias A::uname -a\t\t - " +  _("Alias add uname -a as A")+"\n" +
-            "/A\t\t\t\t\t - " + _("Alias A executing")+"\n"
+            "/alias list\t\t\t - " + _("Alias List")+ "\n"+
+            "/alias purge A\t\t - "+ _("Alias Remove A")+"\n"+
+            "/alias A::uname -a\t - " +  _("Alias add uname -a as A")+"\n" +
+            "/A\t\t\t\t\t - " + _("Alias A executing")+"\n" +
+            "/ip on/off\t\t\t - " + _("Ipfilter on/off")+ "\n" +
+            "/ip list\t\t\t\t - " + _("Show ipfilter rules list") + "\n" +
+            "/ip up/down\t\t\t - " + _("Move rule up/down") + "\n" +
+            "/ip purge 192.168.1.0/23;192.168.6.0/24 - " + _("Remove rules from list") + "\n" +
+            "/ip 192.168.1.0/23::in;!192.168.6.0/24::both - " + _("Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming or outcoming and action is drop") + "\n"
             , Msg::SYSTEM);
         }
         else if (command == "ws" && !param.empty())
@@ -1961,7 +2000,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "dcpps" && !param.empty())
         {
-            string msg = WulforSettingsManager::getInstance()->parseCoreCmd (param);
+            string msg = SettingsManager::getInstance()->parseCoreCmd (param);
             hub->addStatusMessage_gui(msg, Msg::SYSTEM, Sound::NONE);
         }
         else if (command == "join" && !param.empty())
@@ -1978,12 +2017,12 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 WulforManager::get()->dispatchClientFunc(func);
             }
         }
-        else if (command == "me")
+        else if (command == "me" && !param.empty())
         {
             func2 = new F2(hub, &Hub::sendMessage_client, param, true);
             WulforManager::get()->dispatchClientFunc(func2);
         }
-        else if (command == "pm")
+        else if (command == "pm" && !param.empty())
         {
             if (hub->userMap.find(param) != hub->userMap.end())
                 WulforManager::get()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN, hub->userMap[param], hub->client->getHubUrl());
@@ -2005,7 +2044,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             else
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), TRUE);
         }
-        else if (command == "sh")
+        else if (command == "sh" && !param.empty())
         {
             FILE *pipe = popen( param.c_str(), "r" );
             gchar *command_res;
@@ -2022,15 +2061,108 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             pclose( pipe );
         }
 #ifdef LUA_SCRIPT
-        else if (command == "lua" ) {
+        else if (command == "lua" && !param.empty()) {
             ScriptManager::getInstance()->EvaluateChunk(Text::fromT(param));
         }
-        else if( command == "luafile") {
+        else if( command == "luafile" && !param.empty()) {
             ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
         }
         else if (script_ret)
             ((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, text);
 #endif
+        else if (command == "ip" && !param.empty())
+        {
+            StringTokenizer<string> sl(param, ' ');
+            if( sl.getTokens().size() >= 1 )
+            {
+                    if( sl.getTokens().at(0) == "list" )
+                    {
+                        if (!ipfilter::getInstance())
+                            return;
+                        QIPList list = ipfilter::getInstance()->getRules();
+                        string tmp = "ipfilter rules list:\n";
+                        for (int i = 0; i < list.size(); i++) {
+
+                            IPFilterElem *el = list.at(i);
+                            string prefix = (el->action == etaDROP?"!":"");
+                            string type = "OUT";
+
+                            switch (el->direction) {
+                                case eDIRECTION_BOTH:
+                                    type = "BOTH";
+
+                                    break;
+                                case eDIRECTION_IN:
+                                    type = "IN";
+
+                                    break;
+                                default:
+                                    break;
+                            }
+                            tmp+=prefix+string(ipfilter::Uint32ToString(el->ip)) + "/" + Util::toString(ipfilter::MaskToCIDR(el->mask))+ "::" + type + "\n";
+                        }
+                        hub->addStatusMessage_gui(tmp, Msg::SYSTEM, Sound::NONE);;
+                    }
+                    else if( sl.getTokens().at(0) == "purge" )
+                    {
+                        if (!ipfilter::getInstance())
+                            return;
+                        g_print("/ip %s\n",sl.getTokens().at(1).c_str());
+                        StringTokenizer<string> purge( sl.getTokens().at(1), ";" );
+                        for(StringIter i = purge.getTokens().begin(); i != purge.getTokens().end(); ++i) {
+                            if (i->find("!") == 0)
+                                ipfilter::getInstance()->remFromRules((*i), etaDROP);
+                            else
+                                ipfilter::getInstance()->remFromRules((*i), etaACPT);
+                        }
+                    }
+                    else if (sl.getTokens().at(0) == "on") {
+                        ipfilter::newInstance();
+                        ipfilter::getInstance()->load();
+                        SettingsManager::getInstance()->set(SettingsManager::IPFILTER, 1);
+                        hub->addStatusMessage_gui(_("Ipfilter is enable"), Msg::SYSTEM, Sound::NONE);
+                    }
+                    else if (sl.getTokens().at(0) == "off") {
+                        if (!ipfilter::getInstance())
+                            return;
+                        ipfilter::getInstance()->shutdown();
+                        SettingsManager::getInstance()->set(SettingsManager::IPFILTER, 0);
+                        hub->addStatusMessage_gui(_("Ipfilter is disable"), Msg::SYSTEM, Sound::NONE);
+                    }
+                    else if (sl.getTokens().at(0) == "up"){
+                        if (!ipfilter::getInstance())
+                            return;
+                        uint32_t ip,mask; eTableAction act;
+                        if (ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act))
+                            ipfilter::getInstance()->moveRuleUp(ip, act);
+                    }
+                    else if (sl.getTokens().at(0) == "down"){
+                        if (!ipfilter::getInstance())
+                            return;
+                        uint32_t ip,mask; eTableAction act;
+                        if (ipfilter::getInstance()->ParseString(sl.getTokens().at(1), ip, mask, act))
+                            ipfilter::getInstance()->moveRuleDown(ip, act);
+                    }
+                    else
+                    {
+                        if (!ipfilter::getInstance())
+                            return;
+                        StringTokenizer<string> add( param, ";" );
+                        for(StringIter i = add.getTokens().begin(); i != add.getTokens().end(); ++i)
+                        {
+                            StringTokenizer<string> addsub( (*i), "::" );
+                            if (addsub.getTokens().at(1) == "in")
+                                ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_IN);
+                            else if (addsub.getTokens().at(1) == "out")
+                                ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_OUT);
+                            else
+                                ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_BOTH);
+
+                            hub->addStatusMessage_gui(string( "Add rule in ipfilter: " + *i ), Msg::SYSTEM, Sound::NONE);
+                        }
+                    }
+            }
+        }
         //alias patch
         else if (command == "alias" && !param.empty())
         {

@@ -333,7 +333,7 @@ void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, uint
     uc->setToken(aToken);
     uc->setEncoding(Text::utf8);
     uc->setState(UserConnection::STATE_CONNECT);
-    uc->setHubUrl(aUser.getClient().getHubUrl());
+    uc->setHubUrl(&aUser.getClient() == NULL ? "DHT" : aUser.getClient().getHubUrl());
     if(aUser.getIdentity().isOp()) {
         uc->setFlag(UserConnection::FLAG_OP);
     }
@@ -493,6 +493,8 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
 
     if(ClientManager::getInstance()->isOp(aSource->getUser(), aSource->getHubUrl()))
         aSource->setFlag(UserConnection::FLAG_OP);
+
+    ClientManager::getInstance()->setIPUser(aSource->getUser(), aSource->getRemoteIp());
 
     if( aSource->isSet(UserConnection::FLAG_INCOMING) ) {
         aSource->myNick(aSource->getToken());

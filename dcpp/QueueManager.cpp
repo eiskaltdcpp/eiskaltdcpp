@@ -43,7 +43,7 @@
 #include "FinishedItem.h"
 #include "FinishedManager.h"
 
-#ifdef DHT
+#ifdef WITH_DHT
 #include "dht/IndexManager.h"
 #endif
 #include <climits>
@@ -258,7 +258,9 @@ QueueItem* QueueManager::UserQueue::getNext(const UserPtr& aUser, QueueItem::Pri
                     if(blockSize == 0)
                         blockSize = qi->getSize();
                     if(qi->getNextSegment(blockSize, wantedSize,lastSpeed, source->getPartialSource()).getSize() == 0) {
-                        dcdebug("No segment for %s in %s, block " I64_FMT "\n", aUser->getCID().toBase32().c_str(), qi->getTarget().c_str(), blockSize);
+                        dcdebug("No segment for %s in %s, block " I64_FMT "\n",
+                                aUser->getCID().toBase32().c_str(), qi->getTarget().c_str(),
+                                static_cast<long long int>(blockSize));
                         continue;
                     }
                 }
@@ -492,7 +494,7 @@ int QueueManager::Rechecker::run() {
                     sizes.push_back(make_pair(startPos, segmentSize));
                 } catch(const Exception&) {
                     hasBadBlocks = true;
-                    dcdebug("Found bad block at " I64_FMT "\n", startPos);
+                    dcdebug("Found bad block at " I64_FMT "\n", static_cast<long long int>(startPos));
                 }
                 startPos += blockSize;
             }
@@ -649,7 +651,7 @@ void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) throw() {
      // DHT PFS announce
     if(tthPub)
     {
-    #ifdef DHT
+    #ifdef WITH_DHT
             dht::IndexManager::getInstance()->publishPartialFile(*tthPub);
     #endif
             delete tthPub;
@@ -2117,7 +2119,7 @@ TTHValue* QueueManager::FileQueue::findPFSPubTTH()
     }
     if(cand)
     {
-        #ifdef DHT
+        #ifdef WITH_DHT
         cand->setNextPublishingTime(now + PFS_REPUBLISH_TIME);          // one hour
         #else
         cand->setNextPublishingTime(now + 1*60*60*1000);          // one hour

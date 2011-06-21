@@ -16,6 +16,10 @@
 
 #include <QtGui>
 #include <QPushButton>
+#include <QWheelEvent>
+
+#include <boost/function.hpp>
+#include <boost/bind.hpp>
 
 TabFrame::TabFrame(QWidget *parent) :
     QFrame(parent)
@@ -63,6 +67,24 @@ void TabFrame::resizeEvent(QResizeEvent *e){
     QFrame::updateGeometry();
 }
 
+bool TabFrame::eventFilter(QObject *obj, QEvent *e){
+    TabButton *btn = qobject_cast<TabButton*>(obj);
+    QWheelEvent *w_e = reinterpret_cast<QWheelEvent*>(e);
+
+    if (btn && (e->type() == QEvent::Wheel) && w_e){
+        int numDegrees = (w_e->delta() < 0)? (-1*w_e->delta()/8) : (w_e->delta()/8);
+        int numSteps = numDegrees/15;
+        boost::function<void()> f = (w_e->delta() < 0)? boost::bind(&TabFrame::nextTab, this) : boost::bind(&TabFrame::prevTab, this);
+
+        for (int i = 0; i < numSteps; i++)
+            f();
+
+        return true;
+    }
+
+    return QFrame::eventFilter(obj, e);
+}
+
 QSize TabFrame::sizeHint() const {
     QSize s(fr_layout->sizeHint().width() , fr_layout->heightForWidth(width()));
     return s;
@@ -97,6 +119,7 @@ void TabFrame::insertWidget(ArenaWidget *awgt){
     btn->setToolTip(WulforUtil::getInstance()->compactToolTipText(awgt->getArenaTitle(), 60, "\n"));
     btn->setWidgetIcon(awgt->getPixmap());
     btn->setContextMenuPolicy(Qt::CustomContextMenu);
+    btn->installEventFilter(this);
 
     fr_layout->addWidget(btn);
 

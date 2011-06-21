@@ -1,3 +1,32 @@
+--- 2.2.3 2011-06-25 ---
+*** common changes ***
+* Different search intervals for favorite hubs (default value: 60 s).
+* Fixed bug with connecting to ADC hubs on armel architechture.
+* Thanks to Chris Leick the German translation is now available.
+* Common code for updating IP from DynDNS (moved from Qt GUI).
+* Summary statistics (downloaded/uploaded) moved into the core (current values ​​in the Qt GUI will be dropped).
+* Updated app icons in faenza theme.
+* Fixed build in Mac OS X.
+* A lot of fixes and cleanup of code (fixed some compiler warnings and etc).
+*** eiskaltdcpp-qt ***
+* Added new chat command: /dcpps (for changing settings of DC++ core)
+* Added some options in settings dialog: USE_DHT and DHT_PORT
+* Added some options in favorite hub settings dialog: MINIMUM_SEARCH_INTERVAL
+* Async loading of history from databases was implemented in widget of finished transfers.
+* Added temporary limitation to the number of items loaded from the databases on program startup (only 500 elements from the history of finished transfers). It will be simple history navigation in this widget later.
+* Added the possibility of searching using patterns in the file list widget.
+* Fixed bug with incorrect menu item 'About program' in Mac OS X.
+* Fixed chat context menu on ADC hubs.
+* Added new theme with monochrome app icons.
+*** eiskaltdcpp-gtk ***
+* Added saving of information about the general traffic (downloaded/uploaded) between sessions.
+* Added new chat commands: /ip (IPFilter rules), /ratio, /version
+* Added some options in favorite hub settings dialog: Mode (connection type), MINIMUM_SEARCH_INTERVAL
+*** eiskaltdcpp-daemon ***
+* New XML-RPC methods.
+* Full list of currently available methods: magnet.add, daemon.stop, hub.del, hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del, share.list, share.refresh
+* There is no web-ui for daemon control yet.
+
 --- 2.2.2 2011-04-24 ---
 *** common changes ***
 * Partial synchronization with DC++ kernel (0.785).

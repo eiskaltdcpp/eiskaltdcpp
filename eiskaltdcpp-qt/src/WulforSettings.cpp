@@ -142,12 +142,8 @@ void WulforSettings::load(){
             settings.setValue(WS_SHAREHEADER_STATE,     "");
             settings.setValue(WS_DOWNLOADTO_ALIASES,    "");
             settings.setValue(WS_DOWNLOADTO_PATHS,      "");
-            settings.setValue(WS_APP_TOTAL_DOWN,        "0");
-            settings.setValue(WS_APP_TOTAL_UP,          "0");
             settings.setValue(WS_APP_EMOTICON_THEME,    "default");
             settings.setValue(WS_APP_ASPELL_LANG,       "");
-            settings.setValue(WS_APP_DYNDNS_SERVER,     "checkip.dyndns.org");
-            settings.setValue(WS_APP_DYNDNS_INDEX,      "/index.html");
             settings.setValue(WS_APP_ENABLED_SCRIPTS,   "");
             settings.setValue(WS_PUBLICHUBS_STATE,      "");
             settings.setValue(WS_SETTINGS_GUI_FONTS_STATE, "");
@@ -200,7 +196,6 @@ void WulforSettings::load(){
             settings.setValue(WB_MAIN_MENU_VISIBLE,     static_cast<int>(true));
             settings.setValue(WB_USE_CTRL_ENTER,        static_cast<int>(false));
             settings.setValue(WB_SIMPLE_SHARE_MODE,     static_cast<int>(true));
-            settings.setValue(WB_APP_DYNDNS_ENABLED,    static_cast<int>(false));
             settings.setValue(WI_APP_UNIT_BASE,         1024);
             settings.setValue(WI_APP_AUTOAWAY_INTERVAL, 60);
             settings.setValue(WI_APP_SHARED_FILES_ALPHA, 127);
@@ -285,12 +280,8 @@ void WulforSettings::loadOldConfig(){
         strmap.insert(WS_SHAREHEADER_STATE,     "");
         strmap.insert(WS_DOWNLOADTO_ALIASES,    "");
         strmap.insert(WS_DOWNLOADTO_PATHS,      "");
-        strmap.insert(WS_APP_TOTAL_DOWN,        "0");
-        strmap.insert(WS_APP_TOTAL_UP,          "0");
         strmap.insert(WS_APP_EMOTICON_THEME,    "default");
         strmap.insert(WS_APP_ASPELL_LANG,       "");
-        strmap.insert(WS_APP_DYNDNS_SERVER,     "checkip.dyndns.org");
-        strmap.insert(WS_APP_DYNDNS_INDEX,      "/index.html");
         strmap.insert(WS_APP_ENABLED_SCRIPTS,   "");
         strmap.insert(WS_PUBLICHUBS_STATE,      "");
         strmap.insert(WS_SETTINGS_GUI_FONTS_STATE, "");
@@ -343,7 +334,6 @@ void WulforSettings::loadOldConfig(){
         intmap.insert(WB_MAIN_MENU_VISIBLE,     static_cast<int>(true));
         intmap.insert(WB_USE_CTRL_ENTER,        static_cast<int>(false));
         intmap.insert(WB_SIMPLE_SHARE_MODE,     static_cast<int>(false));
-        intmap.insert(WB_APP_DYNDNS_ENABLED,    static_cast<int>(false));
         intmap.insert(WI_APP_UNIT_BASE,         1024);
         intmap.insert(WI_APP_AUTOAWAY_INTERVAL, 60);
         intmap.insert(WI_APP_SHARED_FILES_ALPHA, 127);

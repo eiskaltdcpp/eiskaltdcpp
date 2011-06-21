@@ -25,6 +25,10 @@ if (USE_QT_QML)
   set (QT_USE_QTDECLARATIVE 1)
 endif(USE_QT_QML)
 
+if (WITH_DHT)
+  add_definitions ( -DWITH_DHT )
+endif (WITH_DHT)
+
 if (USE_QT_SQLITE)
   set (QT_USE_QTSQL 1)
 
@@ -42,7 +46,6 @@ set (SRCS
             src/ArenaWidget.cpp
             src/ArenaWidgetContainer.cpp
             src/CustomFontModel.cpp
-            src/CustomSetting.cpp
             src/DownloadQueue.cpp
             src/DownloadQueueModel.cpp
             src/EmoticonDialog.cpp
@@ -72,7 +75,7 @@ set (SRCS
             src/PublicHubsList.cpp
             src/PublicHubModel.cpp
             src/QuickConnect.cpp
-	    src/QueuedUsers.cpp
+            src/QueuedUsers.cpp
             src/SearchBlacklist.cpp
             src/SearchBlacklistDialog.cpp
             src/SearchFrame.cpp
@@ -88,6 +91,7 @@ set (SRCS
             src/SettingsShortcuts.cpp
             src/SettingsUC.cpp
             src/ShareBrowser.cpp
+            src/ShareBrowserSearch.cpp
             src/ShellCommandRunner.cpp
             src/ShortcutManager.cpp
             src/ShortcutEdit.cpp
@@ -124,7 +128,6 @@ set (MOC_HDRS
             src/AntiSpamFrame.h
             src/ArenaWidget.h
             src/CustomFontModel.h
-            src/CustomSetting.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
             src/EmoticonDialog.h
@@ -164,10 +167,11 @@ set (MOC_HDRS
             src/SettingsSharing.h
             src/SettingsShortcuts.h
             src/SettingsUC.h
+            src/ShareBrowserSearch.h
             src/ShortcutEdit.h
             src/SideBar.h
             src/QuickConnect.h
-	    src/QueuedUsers.h
+            src/QueuedUsers.h
             src/SearchBlacklist.h
             src/SearchBlacklistDialog.h
             src/SearchFrame.h
@@ -211,7 +215,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIPublicHubs.ui
             ui/UIPublicHubsList.ui
             ui/UIQuickConnect.ui
-	    ui/UIQueuedUsers.ui
+            ui/UIQueuedUsers.ui
             ui/UISearchBlacklist.ui
             ui/UISearchFrame.ui
             ui/UISettings.ui
@@ -224,6 +228,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsSharing.ui
             ui/UISettingsShortcuts.ui
             ui/UIShareBrowser.ui
+            ui/UIShareBrowserSearch.ui
             ui/UISpy.ui
             ui/UITransferView.ui
             ui/UISettingsUC.ui
@@ -308,7 +313,6 @@ add_custom_target(${target_basename} ALL DEPENDS ${TRANSLATIONS_BINARY})
 set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
 if (UNIX)
-  FIND_PROGRAM (GZIP_CMD gzip)
   EXECUTE_PROCESS (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz
                 COMMAND "${GZIP_CMD}" -9
@@ -316,7 +320,7 @@ if (UNIX)
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
 
-  EXECUTE_PROCESS (
+EXECUTE_PROCESS (
     COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} -o ${PROJECT_BINARY_DIR}/default.rcc
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
   )
@@ -344,7 +348,6 @@ endif (USE_ASPELL)
 if (LUA_SCRIPT)
   include_directories (${LUA_INCLUDE_DIR})
   list (APPEND LIBS ${LUA_LIBRARIES})
-  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/MainWindow.cpp ${PROJECT_SOURCE_DIR}/src/HubFrame.cpp PROPERTY COMPILE_DEFINITIONS LUA_SCRIPT)
 endif (LUA_SCRIPT)
 
 if (USE_MINIUPNP)
@@ -354,6 +357,14 @@ endif()
 if (FORCE_XDG)
    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/main.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
 endif (FORCE_XDG)
+
+if (HAVE_IFADDRS_H)
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/WulforUtil.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
+endif (HAVE_IFADDRS_H)
+
+if (ENABLE_STACKTRACE)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/main.cpp PROPERTY COMPILE_DEFINITIONS ENABLE_STACKTRACE)
+endif (ENABLE_STACKTRACE)
 
 if (APPLE)
   set (MACOSICON "${PROJECT_SOURCE_DIR}/../icons/icon_128x128.icns")

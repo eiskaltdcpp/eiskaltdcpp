@@ -144,9 +144,16 @@ void SettingsConnection::ok(){
     SM->set(SettingsManager::SLOTS_ALTERNATE_LIMITING, spinBox_ALTERNATE_SLOTS->value());
     SM->set(SettingsManager::RECONNECT_DELAY, spinBox_RECONNECT_DELAY->value());
     SM->set(SettingsManager::IP_TOS_VALUE, comboBox_TOS->itemData(comboBox_TOS->currentIndex()).toInt());
-    WBSET( WB_APP_DYNDNS_ENABLED, static_cast<int>(checkBox_DYNDNS->isChecked()) );
-    WSSET( WS_APP_DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text());
-    WSSET( WS_APP_DYNDNS_INDEX, lineEdit_DYNDNS_INDEX->text());
+    SM->set(SettingsManager::DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text().toStdString());
+    SM->set(SettingsManager::DYNDNS_ENABLE, checkBox_DYNDNS->isChecked());
+
+#ifdef WITH_DHT
+    SM->set(SettingsManager::USE_DHT, groupBox_DHT->isChecked());
+    SM->set(SettingsManager::DHT_PORT, spinBox_DHT->value());
+
+    if (!(old_dht < 1024) && (SETTING(DHT_PORT) < 1024))
+        showMsg(tr("Program need root privileges to open ports less than 1024"), NULL);
+#endif
 
     if (old_mode != SETTING(INCOMING_CONNECTIONS) || old_tcp != (SETTING(TCP_PORT))
         || old_udp != (SETTING(UDP_PORT)) || old_tls != (SETTING(TLS_PORT)))
@@ -178,9 +185,15 @@ void SettingsConnection::init(){
     spinBox_ALTERNATE_SLOTS->setValue(SETTING(SLOTS_ALTERNATE_LIMITING));
     spinBox_RECONNECT_DELAY->setValue(SETTING(RECONNECT_DELAY));
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
-    checkBox_DYNDNS->setCheckState( WBGET(WB_APP_DYNDNS_ENABLED) ? Qt::Checked : Qt::Unchecked );
-    lineEdit_DYNDNS_SERVER->setText(WSGET(WS_APP_DYNDNS_SERVER));
-    lineEdit_DYNDNS_INDEX->setText(WSGET(WS_APP_DYNDNS_INDEX));
+    checkBox_DYNDNS->setCheckState( BOOLSETTING(DYNDNS_ENABLE) ? Qt::Checked : Qt::Unchecked );
+    lineEdit_DYNDNS_SERVER->setText(QString::fromStdString(SETTING(DYNDNS_SERVER)));
+
+#ifdef WITH_DHT
+    groupBox_DHT->setChecked(BOOLSETTING(USE_DHT));
+    spinBox_DHT->setValue(old_dht = SETTING(DHT_PORT));
+#else
+    groupBox_DHT->hide();
+#endif
 
     QStringList ifaces = WulforUtil::getInstance()->getLocalIfaces();
 

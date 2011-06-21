@@ -122,6 +122,31 @@ namespace dht
 		SearchManager::getInstance()->findStore(f.tth.toBase32(), f.size, f.partial);
 	}
 
+        void IndexManager::createPublishQueue(ShareManager::HashFileMap& tthIndex)
+        {
+                // copy to map to sort by size
+                std::map<int64_t, const TTHValue*> sizeMap;
+                for(ShareManager::HashFileIter i = tthIndex.begin(); i != tthIndex.end(); i++)
+                {
+                        if(i->second->getSize() > MIN_PUBLISH_FILESIZE)
+                                sizeMap[i->second->getSize()] = &i->first;
+                }
+
+                Lock l(cs);
+
+                // select the first MAX_PUBLISHED_FILES largest files
+                size_t count = 0;
+                for(std::map<int64_t, const TTHValue*>::reverse_iterator i = sizeMap.rbegin(); i != sizeMap.rend() && count < MAX_PUBLISHED_FILES; i++, count++)
+                {
+                        publishQueue.push_back(File(*i->second, i->first, false));
+                }
+
+                // shuffle
+                random_shuffle(publishQueue.begin(), publishQueue.end());
+
+                LogManager::getInstance()->message("DHT: Publishing " + Util::toString(publishQueue.size()) + " files...");
+        }
+
 	/*
 	 * Loads existing indexes from disk
 	 */

@@ -27,6 +27,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/HttpConnection.h"
 #include "dcpp/LogManager.h"
+#include <zlib.h>
 
 namespace dht
 {

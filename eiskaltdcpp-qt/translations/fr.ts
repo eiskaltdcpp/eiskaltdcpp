@@ -1897,6 +1897,14 @@ Utilisateur favoris</translation>
         <source>Delayed</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2206,39 +2214,39 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>Any</source>
-        <translation>Tout</translation>
+        <translation type="obsolete">Tout</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation>Audio</translation>
+        <translation type="obsolete">Audio</translation>
     </message>
     <message>
         <source>Compressed</source>
-        <translation>Compressé</translation>
+        <translation type="obsolete">Compressé</translation>
     </message>
     <message>
         <source>Document</source>
-        <translation>Document</translation>
+        <translation type="obsolete">Document</translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation>Éxécutable</translation>
+        <translation type="obsolete">Éxécutable</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Image</translation>
+        <translation type="obsolete">Image</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Vidéo</translation>
+        <translation type="obsolete">Vidéo</translation>
     </message>
     <message>
         <source>Directory</source>
-        <translation>Répertoire</translation>
+        <translation type="obsolete">Répertoire</translation>
     </message>
     <message>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -2318,7 +2326,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>Searching too soon, next search in %1 second</source>
-        <translation>Recherche trop rapide, prochaine recherche dans %1 secondes</translation>
+        <translation type="obsolete">Recherche trop rapide, prochaine recherche dans %1 secondes</translation>
     </message>
     <message>
         <source>Search - %1</source>
@@ -2326,7 +2334,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>Ready to search...</source>
-        <translation>Prêt à rechercher...</translation>
+        <translation type="obsolete">Prêt à rechercher...</translation>
     </message>
     <message>
         <source>Select directory</source>
@@ -2398,7 +2406,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <source>CD Image</source>
-        <translation>Image CD</translation>
+        <translation type="obsolete">Image CD</translation>
     </message>
     <message>
         <source>Blacklist</source>
@@ -2671,6 +2679,10 @@ Téléchargé: %3 Envoyé: %4</translation>
         <source>Czech</source>
         <translation>Tchèque</translation>
     </message>
+    <message>
+        <source>German</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsLog</name>
@@ -2833,6 +2845,13 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <source>Properties of magnet</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ShareBrowserSearch</name>
+    <message>
+        <source>Search - %1</source>
+        <translation type="unfinished">Recherche - %1</translation>
     </message>
 </context>
 <context>
@@ -3652,6 +3671,10 @@ p, li { white-space: pre-wrap; }
         <source>Mode</source>
         <translation>Mode</translation>
     </message>
+    <message>
+        <source>Minimum search interval (seconds)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UIFavoriteHubs</name>
@@ -4269,7 +4292,7 @@ Cette fonctionnalité n&apos;inclut pas GSSAPI.</translation>
     </message>
     <message>
         <source>Reconnect to hub(seconds)</source>
-        <translation>Reconnexion au serveur (secondes)</translation>
+        <translation type="obsolete">Reconnexion au serveur (secondes)</translation>
     </message>
     <message>
         <source>Enable Throttle</source>
@@ -4340,6 +4363,18 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Bind to interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable DHT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DHT port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reconnect to hub (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4690,6 +4725,22 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
     </message>
     <message>
         <source>Segment size (in MB, 0 = auto segment size)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable this option if you want to keep downloaded filelists 
+in the download queue after they have been finished.
+After downloaded the queue items will have &apos;Finished&apos; status
+and you can delete these finished entries anytime later.
+Note that if you physically move/delete your downloaded files from
+their target location, it won&apos;t result automatic deletion of
+the corresponding finished entries from the queue.
+If you disable this function, it won&apos;t remove existing finished items
+from the queue either, you must do that manually.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep downloaded files</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5464,6 +5515,21 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
+    </message>
+</context>
+<context>
+    <name>UIShareBrowserSearch</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Rechercher</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Directory</source>
+        <translation type="unfinished">Répertoire</translation>
     </message>
 </context>
 <context>

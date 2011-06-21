@@ -50,6 +50,7 @@ const string AdcHub::BAS0_SUPPORT("ADBAS0");
 const string AdcHub::TIGR_SUPPORT("ADTIGR");
 const string AdcHub::UCM0_SUPPORT("ADUCM0");
 const string AdcHub::BLO0_SUPPORT("ADBLO0");
+const string AdcHub::DHT0_SUPPORT("ADDHT0");
 
 const vector<StringList> AdcHub::searchExts;
 
@@ -727,7 +728,7 @@ const vector<StringList>& AdcHub::getSearchExts() {
     // the list is always immutable except for this function where it is initially being filled.
     vector<StringList>& xSearchExts = const_cast<vector<StringList>&>(searchExts);
 
-    xSearchExts.resize(6);
+    xSearchExts.resize(7);
 
     /// @todo simplify this as searchExts[0] = { "mp3", "etc" } when VC++ supports initializer lists
     // these extensions *must* be sorted alphabetically!
@@ -779,6 +780,13 @@ const vector<StringList>& AdcHub::getSearchExts() {
         l.push_back("swf"); l.push_back("vob"); l.push_back("webm"); l.push_back("wmv");
     }
 
+    {
+        StringList& l = xSearchExts[6];
+        l.push_back("iso"); l.push_back("mdf"); l.push_back("mds"); l.push_back("nrg");
+        l.push_back("vcd"); l.push_back("bwt"); l.push_back("ccd"); l.push_back("cdi");
+        l.push_back("pdi"); l.push_back("cue"); l.push_back("isz"); l.push_back("img");
+        l.push_back("vc4");
+    }
     return searchExts;
 }
 
@@ -1073,6 +1081,10 @@ void AdcHub::on(Connected c) throw() {
     if(BOOLSETTING(SEND_BLOOM)) {
         cmd.addParam(BLO0_SUPPORT);
     }
+#ifdef WITH_DHT
+    if (BOOLSETTING(USE_DHT))
+        cmd.addParam(DHT0_SUPPORT);
+#endif
     send(cmd);
 }
 
