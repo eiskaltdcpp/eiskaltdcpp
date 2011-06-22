@@ -43,7 +43,7 @@ File::File(const string& aFileName, int access, int mode) throw(FileException) {
     }
     DWORD shared = FILE_SHARE_READ | (mode & SHARED ? FILE_SHARE_WRITE : 0);
 
-    h = ::CreateFile(Text::toT(aFileName).c_str(), access, shared, NULL, m, FILE_FLAG_SEQUENTIAL_SCAN, NULL);
+    h = ::CreateFileW(Text::utf8ToWide(aFileName).c_str(), access, shared, NULL, m, FILE_FLAG_SEQUENTIAL_SCAN, NULL);
 
     if(h == INVALID_HANDLE_VALUE) {
         throw FileException(Util::translateError(GetLastError()));
@@ -148,7 +148,7 @@ size_t File::flush() throw(FileException) {
 }
 
 void File::renameFile(const string& source, const string& target) throw(FileException) {
-    if(!::MoveFile(Text::toT(source).c_str(), Text::toT(target).c_str())) {
+    if(!::MoveFileW(Text::utf8ToWide(source).c_str(), Text::utf8ToWide(target).c_str())) {
         // Can't move, try copy/delete...
         copyFile(source, target);
         deleteFile(source);
@@ -156,21 +156,21 @@ void File::renameFile(const string& source, const string& target) throw(FileExce
 }
 
 void File::copyFile(const string& src, const string& target) throw(FileException) {
-    if(!::CopyFile(Text::toT(src).c_str(), Text::toT(target).c_str(), FALSE)) {
+    if(!::CopyFileW(Text::utf8ToWide(src).c_str(), Text::utf8ToWide(target).c_str(), FALSE)) {
         throw FileException(Util::translateError(GetLastError()));
     }
 }
 
 void File::deleteFile(const string& aFileName) throw()
 {
-    ::DeleteFile(Text::toT(aFileName).c_str());
+    ::DeleteFileW(Text::utf8ToWide(aFileName).c_str());
 }
 
 int64_t File::getSize(const string& aFileName) throw() {
-    WIN32_FIND_DATA fd;
+    WIN32_FIND_DATAW fd;
     HANDLE hFind;
 
-    hFind = FindFirstFile(Text::toT(aFileName).c_str(), &fd);
+    hFind = FindFirstFileW(Text::utf8ToWide(aFileName).c_str(), &fd);
 
     if (hFind == INVALID_HANDLE_VALUE) {
         return -1;
@@ -454,7 +454,7 @@ StringList File::findFiles(const string& path, const string& pattern) {
             struct stat s;
             if (stat((Text::fromUtf8(path) + PATH_SEPARATOR + ent->d_name).c_str(), &s) != -1)
             {
-                                        const char* extra = S_ISDIR(s.st_mode) ? "/" : "";
+                const char* extra = S_ISDIR(s.st_mode) ? "/" : "";
                 ret.push_back(path + Text::toUtf8(ent->d_name) + extra);
             }
         }
@@ -471,7 +471,7 @@ StringList File::findFiles(const string& path, const string& pattern) {
 FileFindIter::FileFindIter() : handle(INVALID_HANDLE_VALUE) { }
 
 FileFindIter::FileFindIter(const string& path) : handle(INVALID_HANDLE_VALUE) {
-        handle = ::FindFirstFile(Text::toT(path).c_str(), &data);
+        handle = ::FindFirstFileW(Text::utf8ToWide(path).c_str(), &data);
 }
 
 FileFindIter::~FileFindIter() {
@@ -481,7 +481,7 @@ FileFindIter::~FileFindIter() {
 }
 
 FileFindIter& FileFindIter::operator++() {
-        if(!::FindNextFile(handle, &data)) {
+        if(!::FindNextFileW(handle, &data)) {
                 ::FindClose(handle);
                 handle = INVALID_HANDLE_VALUE;
         }
@@ -493,7 +493,7 @@ bool FileFindIter::operator!=(const FileFindIter& rhs) const { return handle != 
 FileFindIter::DirData::DirData() { }
 
 string FileFindIter::DirData::getFileName() {
-        return Text::fromT(cFileName);
+        return Text::wideToUtf8(cFileName);
 }
 
 bool FileFindIter::DirData::isDirectory() {
