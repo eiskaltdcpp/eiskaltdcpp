@@ -4640,7 +4640,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="180"/>
         <source>Minimum search interval (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Найменшы прамежак між спробамі шукаць (сэк.)</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="41"/>
@@ -5465,7 +5465,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="792"/>
         <source>Reconnect to hub (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Нанова злучацца з асяродкам праз (сэк.)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="831"/>

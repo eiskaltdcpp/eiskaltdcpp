@@ -21,6 +21,7 @@
 *** eiskaltdcpp-gtk ***
 * Added saving of information about the general traffic (downloaded/uploaded) between sessions.
 * Added new chat commands: /ip (IPFilter rules), /ratio, /version
+* Added some options in favorite hub settings dialog: Mode (connection type), MINIMUM_SEARCH_INTERVAL
 *** eiskaltdcpp-daemon ***
 * New XML-RPC methods.
 * Full list of currently available methods: magnet.add, daemon.stop, hub.del, hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del, share.list, share.refresh

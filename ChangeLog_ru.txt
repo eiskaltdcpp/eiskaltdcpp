@@ -21,6 +21,7 @@
 *** eiskaltdcpp-gtk ***
 * Добавлено сохранение информации об общем трафике (загружено/передано) между сессиями.
 * Добавлены новые команды чата: /ip (правила IPFilter), /ratio, /version
+* Добавлены некоторые опции в диалог настроек избранного хаба: Mode (тип подключения), MINIMUM_SEARCH_INTERVAL
 *** eiskaltdcpp-daemon ***
 * Новые методы XML-RPC.
 * Полный список доступных сейчас методов: magnet.add, daemon.stop, hub.del, hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del, share.list, share.refresh
