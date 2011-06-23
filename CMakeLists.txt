@@ -344,7 +344,7 @@ add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
     if (MINGW)
-        set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")
+        set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import -static-libgcc -static-libstdc++")
     endif (MINGW)
     if (NOT APPLE)
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
