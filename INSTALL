@@ -211,9 +211,6 @@ Keys for cmake
     Show stacktrace when program receive SIGSEGV
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
     build type
-    .
-    Warning: builds with -DCMAKE_BUILD_TYPE=Debug now is broken
-    (due to some features of the DC++ kernel)
 And other standart cmake keys...
 
 ---------
