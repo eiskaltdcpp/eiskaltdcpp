@@ -5,7 +5,7 @@
 * Thanks to Chris Leick the German translation is now available.
 * Common code for updating IP from DynDNS (moved from Qt GUI).
 * Summary statistics (downloaded/uploaded) moved into the core (current values ​​in the Qt GUI will be dropped).
-* Fixed problem with hashing files which contain UTF-8 characters in their names [affects only MS Windows]. (Problem still present in original DC++ client)
+* Fixed problem with hashing files which contain UTF-8 characters in their names (affects only MS Windows).
 * Updated app icons in faenza theme.
 * Fixed build in Mac OS X.
 * A lot of fixes and cleanup of code (fixed some compiler warnings and etc).
