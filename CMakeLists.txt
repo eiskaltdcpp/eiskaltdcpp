@@ -10,7 +10,7 @@ endif (APPLE)
 set (PROJECT_NAME "EiskaltDC++")
 set (VERSION "2.2.3")
 set (SOVERSION "2.2")
-set (VERSION_SUFFIX "GIT")
+set (VERSION_SUFFIX "stable")
 
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
