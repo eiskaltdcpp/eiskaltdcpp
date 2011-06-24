@@ -416,12 +416,12 @@ else (APPLE)
 endif (APPLE)
 
 if (WIN32 OR HAIKU)
-  set (BINDIR .)
-  if (APPLE)
-    set (BUNDLEDIR .)
- endif ()
+    set (BINDIR .)
 elseif (UNIX)
-  set (BINDIR bin)
+    set (BINDIR bin)
+    if (APPLE)
+        set (BUNDLEDIR .)
+    endif ()
 endif (WIN32 OR HAIKU)
 
 
