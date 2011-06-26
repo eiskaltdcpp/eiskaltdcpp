@@ -177,7 +177,7 @@
         </child>
         <child>
           <widget class="GtkStatusbar" id="statusUsers">
-            <property name="width_request">100</property>
+            <property name="width_request">140</property>
             <property name="visible">True</property>
             <property name="has_resize_grip">False</property>
           </widget>
