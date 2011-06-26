@@ -467,13 +467,13 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
         size_t queryStart = url.rfind('?', queryEnd);
         size_t fileEnd;
 
-        if(queryStart == string::npos) {
+        //if(queryStart == string::npos) {
                 fileEnd = queryStart = queryEnd;
-        } else {
-                dcdebug("q");
-                fileEnd = queryStart;
-                queryStart++;
-        }
+        //} else {
+        //        dcdebug("q");
+        //        fileEnd = queryStart;
+        //        queryStart++;
+        //}
 
         size_t protoStart = 0;
         size_t protoEnd = url.find("://", protoStart);

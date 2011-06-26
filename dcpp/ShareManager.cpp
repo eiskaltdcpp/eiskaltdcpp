@@ -53,12 +53,7 @@
 #include <limits>
 
 namespace dcpp {
-#ifdef WITH_DHT
-void ShareManager::publish() {
-    Lock l(cs);
-    dht::IndexManager::getInstance()->createPublishQueue(tthIndex);
-}
-#endif
+
 ShareManager::ShareManager() : hits(0), xmlListLen(0), bzXmlListLen(0),
     xmlDirty(true), forceXmlRefresh(false), refreshDirs(false), update(false), initial(true), listN(0), refreshing(false),
     lastXmlUpdate(0), lastFullUpdate(GET_TICK()), bloom(1<<20)

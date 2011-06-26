@@ -18,7 +18,7 @@
 
 #ifndef _UTILS_H
 #define _UTILS_H
-#include "stdafx.h"
+
 #include "dcpp/AdcCommand.h"
 #include "dcpp/CID.h"
 #include "dcpp/MerkleTree.h"
@@ -68,7 +68,7 @@ namespace dht
 		};
 
 		static CriticalSection cs;
-		static unordered_map< string, unordered_multiset<uint32_t> > receivedPackets;
+		static std::tr1::unordered_map< string, std::tr1::unordered_multiset<uint32_t> > receivedPackets;
 		static std::list<OutPacket> sentPackets;
 	};
 
