@@ -92,8 +92,8 @@ void HttpConnection::downloadFile(const string& aUrl) {
 void HttpConnection::on(BufferedSocketListener::Connected) throw() {
     dcassert(socket);
     socket->write("GET " + file + " HTTP/1.1\r\n");
-    socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
-    //socket->write("User-Agent: StrongDC++ v2.42\r\n"); // wtf?
+    //socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
+    socket->write("User-Agent: StrongDC++ v2.42\r\n"); // wtf?
 
     string sRemoteServer = server;
     if(!SETTING(HTTP_PROXY).empty())
