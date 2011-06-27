@@ -31,7 +31,7 @@ using namespace std;
 using namespace dcpp;
 
 DownloadQueue::DownloadQueue():
-	BookEntry(Entry::DOWNLOAD_QUEUE, _("Download Queue"), "downloadqueue.glade"),
+	BookEntry(Entry::DOWNLOAD_QUEUE, _("Download Queue"), "downloadqueue.ui"),
 	currentItems(0),
 	totalItems(0),
 	currentSize(0),

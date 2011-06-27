@@ -26,7 +26,7 @@ using namespace std;
 using namespace dcpp;
 
 PublicHubs::PublicHubs():
-	BookEntry(Entry::PUBLIC_HUBS, _("Public Hubs"), "publichubs.glade"),
+	BookEntry(Entry::PUBLIC_HUBS, _("Public Hubs"), "publichubs.ui"),
 	hubs(0),
 	filter("")
 {

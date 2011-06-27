@@ -7,11 +7,11 @@ set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 aux_source_directory(${PROJECT_SOURCE_DIR}/src gtk_srcs)
 file (GLOB gtk_hdrs ${PROJECT_SOURCE_DIR}/src/*.hh)
-file (GLOB gtk_glade ${PROJECT_SOURCE_DIR}/glade/*.glade)
+file (GLOB gtk_ui ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
 set (GTK_SRCS @gtk_srcs@ PARENT_SCOPE)
 set (GTK_HDRS @gtk_hdrs@ PARENT_SCOPE)
-set (GTK_GLADE @gtk_glade@ PARENT_SCOPE)
+set (GTK_UI   @gtk_ui@   PARENT_SCOPE)
 set (GTHREAD "-lgthread-2.0")
 
 include_directories (
@@ -102,7 +102,7 @@ endif (UNIX)
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 
-  install (DIRECTORY glade/ DESTINATION "${CLIENT_DATA_DIR}/gtk/glade"
+  install (DIRECTORY ui/ DESTINATION "${CLIENT_DATA_DIR}/gtk/ui"
     PATTERN ".svn" EXCLUDE)
   install (DIRECTORY icons/ DESTINATION "${CLIENT_DATA_DIR}/gtk/icons"
     PATTERN ".svn" EXCLUDE)

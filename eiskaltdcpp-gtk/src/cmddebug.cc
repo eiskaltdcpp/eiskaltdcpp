@@ -30,7 +30,7 @@ using namespace dcpp;
 
 
 cmddebug::cmddebug():
-BookEntry(Entry::CMD,_("CMD"),"cmddebug.glade")
+BookEntry(Entry::CMD,_("CMD"),"cmddebug.ui")
 {
     buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (getWidget("cmdtextview")));
     gtk_text_buffer_get_end_iter(buffer, &iter);

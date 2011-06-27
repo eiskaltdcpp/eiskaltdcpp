@@ -52,7 +52,7 @@ using namespace dcpp;
 const string Hub::tagPrefix = "#";
 
 Hub::Hub(const string &address, const string &encoding):
-    BookEntry(Entry::HUB, address, "hub.glade", address),
+    BookEntry(Entry::HUB, address, "hub.ui", address),
     client(NULL),
     historyIndex(0),
     totalShared(0),

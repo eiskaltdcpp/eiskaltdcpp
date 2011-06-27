@@ -28,7 +28,7 @@ using namespace std;
 using namespace dcpp;
 
 SearchADL::SearchADL():
-	BookEntry(Entry::SEARCH_ADL, _("ADL Search"), "adlsearch.glade")
+	BookEntry(Entry::SEARCH_ADL, _("ADL Search"), "adlsearch.ui")
 {
 	// Configure the dialog
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("ADLSearchDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);

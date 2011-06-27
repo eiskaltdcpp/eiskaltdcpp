@@ -251,7 +251,7 @@ License:
 
 Files:
  eiskaltdcpp-gtk/src/*
- eiskaltdcpp-gtk/glade/*
+ eiskaltdcpp-gtk/ui/*
 Copyright:
  Copyright 2004-2010 Jens Oknelid <paskharen@gmail.com>
  Copyright 2009-2010 freedcpp (http://code.google.com/p/freedcpp)
