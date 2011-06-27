@@ -470,9 +470,9 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
         //if(queryStart == string::npos) {
                 fileEnd = queryStart = queryEnd;
         //} else {
-        //        dcdebug("q");
-        //        fileEnd = queryStart;
-        //        queryStart++;
+                //dcdebug("q");
+                //fileEnd = queryStart;
+                //queryStart++;
         //}
 
         size_t protoStart = 0;
@@ -542,7 +542,7 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
         dcdebug("\n");
         path = url.substr(fileStart, fileEnd - fileStart);
         query = url.substr(queryStart, queryEnd - queryStart);
-        fragment = url.substr(fragmentStart, fragmentStart);
+        fragment = url.substr(fragmentStart, fragmentEnd - fragmentStart);
 
 #ifdef USE_IDNA
         //printf("%s\n",host.c_str());
@@ -554,6 +554,7 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
         //printf ("ACE label (length %d): '%s'\n", strlen (p), p);
         //printf ("%s\n", host.c_str());
 #endif
+        //printf("protocol:%s\n host:%s\n port:%d\n path:%s\n query:%s\n fragment:%s\n", protocol.c_str(), host.c_str(), port, path.c_str(), query.c_str(), fragment.c_str());
 }
 
 map<string, string> Util::decodeQuery(const string& query) {
@@ -638,9 +639,10 @@ string Util::formatExactSize(int64_t aBytes) {
 #endif
 }
 
-string Util::getLocalIp() {
-#ifdef HAVE_IFADDRS_H
+vector<string> Util::getLocalIPs() {
     vector<string> addresses;
+
+#ifdef HAVE_IFADDRS_H
     struct ifaddrs *ifap;
 
     if (getifaddrs(&ifap) == 0)
@@ -681,7 +683,13 @@ string Util::getLocalIp() {
         }
         freeifaddrs(ifap);
     }
-    return addresses[0];
+#endif
+
+    return addresses;
+}
+string Util::getLocalIp() {
+#ifdef HAVE_IFADDRS_H
+    return getLocalIPs()[0];
 #else
     string tmp;
 
