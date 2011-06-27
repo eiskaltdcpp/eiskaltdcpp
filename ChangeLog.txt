@@ -5,6 +5,7 @@
 * Thanks to Chris Leick the German translation is now available.
 * Common code for updating IP from DynDNS (moved from Qt GUI).
 * Summary statistics (downloaded/uploaded) moved into the core (current values ​​in the Qt GUI will be dropped).
+* Fixed problem with hashing files, which contain in their names characters missing in the standard 8-bytes locales, but present in Unicode locales. (Affects only MS Windows)
 * Updated app icons in faenza theme.
 * Fixed build in Mac OS X.
 * A lot of fixes and cleanup of code (fixed some compiler warnings and etc).
@@ -15,7 +16,6 @@
 * Added temporary limitation to the number of items loaded from the databases on program startup (only 500 elements from the history of finished transfers). It will be simple history navigation in this widget later.
 * Added the possibility of searching using patterns in the file list widget.
 * Fixed bug with incorrect menu item 'About program' in Mac OS X.
-* Fixed problem with displaying file names which contain hieroglyphs in MS Windows.
 * Fixed chat context menu on ADC hubs.
 * Added new theme with monochrome app icons.
 *** eiskaltdcpp-gtk ***

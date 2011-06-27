@@ -35,8 +35,8 @@
 #include "dcpp/LogManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/ShareManager.h"
-#include "dcpp/UploadManager.h"
 #include "dcpp/ThrottleManager.h"
+#include "dcpp/UploadManager.h"
 #include "dcpp/User.h"
 #include "dcpp/version.h"
 
@@ -460,7 +460,7 @@ namespace dht
 		}
 
 		// add node to our routing table and put him online if it is required
-		addNode(node, (it & DHT::MAKE_ONLINE) == DHT::MAKE_ONLINE);
+		addNode(node, true);
 
 		// do we wait for any search results from this user?
 		SearchManager::getInstance()->processSearchResults(node->getUser(), Util::toInt(node->getIdentity().get("SL")));
@@ -560,7 +560,7 @@ namespace dht
 				{
 					// when we received more firewalled statuses, we will be firewalled
 					int fw = 0;	string lastIP;
-					for(unordered_map< string, std::pair<string, uint16_t> >::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); i++)
+					for(std::tr1::unordered_map< string, std::pair<string, uint16_t> >::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); i++)
 					{
 						string ip = i->second.first;
 						uint16_t udpPort = i->second.second;

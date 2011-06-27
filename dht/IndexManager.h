@@ -69,9 +69,6 @@ namespace dht
 		/** Try to publish next file in queue */
 		void publishNextFile();
 
-		/** Create publish queue from local file list */
-		void createPublishQueue(ShareManager::HashFileMap& tthIndex);
-
 		/** Loads existing indexes from disk */
 		void loadIndexes(SimpleXML& xml);
 
