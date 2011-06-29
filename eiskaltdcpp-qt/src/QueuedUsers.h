@@ -15,7 +15,6 @@
 #include <QHash>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 #include "dcpp/UploadManager.h"
 #include "dcpp/UploadManagerListener.h"

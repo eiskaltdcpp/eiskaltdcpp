@@ -17,7 +17,6 @@
 #include <QSettings>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
 static const QString & WS_CHAT_OP_COLOR           = "chat-op-color";

@@ -21,7 +21,6 @@
 
 #include "entry.hh"
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/Util.h>
 #include "wulformanager.hh"
 
@@ -121,4 +120,3 @@ void Entry::removeChildren()
 	while (!children.empty())
 		removeChild(children.begin()->second);
 }
-

@@ -19,7 +19,6 @@
 #if !defined(SCRIPTMANAGER_H__INCLUDED_)
 #define SCRIPTMANAGER_H__INCLUDED_
 
-#include "DCPlusPlus.h"
 #include "Singleton.h"
 #include "User.h"
 #include "Socket.h"

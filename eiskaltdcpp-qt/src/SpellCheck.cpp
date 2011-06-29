@@ -10,7 +10,6 @@
 #include "SpellCheck.h"
 #include "WulforSettings.h"
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Util.h"
 
 #include <QLocale>

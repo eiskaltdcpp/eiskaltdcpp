@@ -21,7 +21,6 @@
 #include "EmoticonObject.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
 class EmoticonFactory :

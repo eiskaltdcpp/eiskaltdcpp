@@ -26,7 +26,6 @@
 #include "PoolItem.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
 

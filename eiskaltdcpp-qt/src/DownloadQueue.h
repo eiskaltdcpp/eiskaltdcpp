@@ -20,7 +20,7 @@
 #include <QShortcut>
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
+
 #include <dcpp/QueueManager.h>
 #include <dcpp/Singleton.h>
 

@@ -17,7 +17,6 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "HashManager.h"
 #include "ShareManager.h"

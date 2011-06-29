@@ -17,7 +17,6 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "Socket.h"
 #include "format.h"

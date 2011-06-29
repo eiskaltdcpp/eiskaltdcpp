@@ -24,7 +24,6 @@
 
 #include <gtk/gtk.h>
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/typedefs.h>
 #include "entry.hh"
 

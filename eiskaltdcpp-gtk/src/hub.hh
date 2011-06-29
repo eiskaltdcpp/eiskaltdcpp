@@ -23,7 +23,6 @@
 #define WULFOR_HUB_HH
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/Client.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/QueueManager.h>

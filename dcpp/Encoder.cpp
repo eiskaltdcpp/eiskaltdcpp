@@ -17,9 +17,10 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "Encoder.h"
+
+#include "debug.h"
 
 namespace dcpp {
 

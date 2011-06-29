@@ -18,7 +18,6 @@
 #include "FlowLayout.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/QueueManager.h"
 #include "dcpp/User.h"

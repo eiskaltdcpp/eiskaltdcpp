@@ -18,7 +18,6 @@
 */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 #include "User.h"
 #include "File.h"
 #include "PerFolderLimit.h"
@@ -178,4 +177,3 @@ void CPerfolderLimit::RenewList(string const *config_name)
   }
 }
 } // namespace dcpp
-

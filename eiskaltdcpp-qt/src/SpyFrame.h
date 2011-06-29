@@ -14,7 +14,6 @@
 #include <QCloseEvent>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/Singleton.h"
 

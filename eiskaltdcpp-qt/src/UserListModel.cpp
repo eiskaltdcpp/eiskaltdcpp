@@ -13,7 +13,6 @@
 #include <QtGlobal>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/Util.h"

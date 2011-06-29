@@ -23,7 +23,6 @@
 #define WULFOR_FINISHED_TRANSFERS
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/FinishedManager.h>
 #include <dcpp/FinishedItem.h>
 #include "bookentry.hh"

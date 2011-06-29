@@ -16,4 +16,40 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "stdinc.h"
+#ifndef DCPLUSPLUS_DCPP_W_H_
+#define DCPLUSPLUS_DCPP_W_H_
+
+#ifdef _WIN32
+
+#ifndef _WIN32_WINNT
+# define _WIN32_WINNT 0x0502
+#endif
+
+#ifndef _WIN32_IE
+# define _WIN32_IE	0x0501
+#endif
+
+#ifndef WINVER
+# define WINVER 0x501
+#endif
+
+#ifndef STRICT
+#define STRICT 1
+#endif
+
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+
+#ifndef NOMINMAX
+#define NOMINMAX 1
+#endif
+
+#include <winsock2.h>
+
+#include <windows.h>
+#include <tchar.h>
+
+#endif
+
+#endif /* W_H_ */

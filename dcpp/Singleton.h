@@ -16,8 +16,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(SINGLETON_H)
-#define SINGLETON_H
+#ifndef DCPLUSPLUS_DCPP_SINGLETON_H
+#define DCPLUSPLUS_DCPP_SINGLETON_H
+
+#include "debug.h"
 
 namespace dcpp {
 
@@ -67,4 +69,4 @@ template<class T> T* Singleton<T>::instance = NULL;
 
 } // namespace dcpp
 
-#endif // !defined(SINGLETON_H)
+#endif // DCPLUSPLUS_DCPP_SINGLETON_H
