@@ -29,7 +29,10 @@
 #include "File.h"
 #include "SimpleXML.h"
 
-#ifndef _WIN32
+#ifdef _WIN32
+#include "w.h"
+#include "shlobj.h"
+#else
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
