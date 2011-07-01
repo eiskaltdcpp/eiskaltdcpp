@@ -19,7 +19,7 @@
 #ifndef DCPLUSPLUS_DCPP_CLIENT_MANAGER_LISTENER_H
 #define DCPLUSPLUS_DCPP_CLIENT_MANAGER_LISTENER_H
 
-#include "forward.h"
+#include "typedefs.h"
 
 namespace dcpp {
 
@@ -37,14 +37,14 @@ public:
     typedef X<6> ClientDisconnected;
 
     /** User online in at least one hub */
-    virtual void on(UserConnected, const UserPtr&) throw() { }
-    virtual void on(UserUpdated, const OnlineUser&) throw() { }
+    virtual void on(UserConnected, const UserPtr&) noexcept { }
+    virtual void on(UserUpdated, const OnlineUser&) noexcept { }
     /** User offline in all hubs */
-    virtual void on(UserDisconnected, const UserPtr&) throw() { }
-    virtual void on(IncomingSearch, const string&) throw() { }
-    virtual void on(ClientConnected, Client*) throw() { }
-    virtual void on(ClientUpdated, Client*) throw() { }
-    virtual void on(ClientDisconnected, Client*) throw() { }
+    virtual void on(UserDisconnected, const UserPtr&) noexcept { }
+    virtual void on(IncomingSearch, const string&) noexcept { }
+    virtual void on(ClientConnected, Client*) noexcept { }
+    virtual void on(ClientUpdated, Client*) noexcept { }
+    virtual void on(ClientDisconnected, Client*) noexcept { }
 };
 
 } // namespace dcpp

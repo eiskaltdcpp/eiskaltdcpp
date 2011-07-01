@@ -35,7 +35,7 @@ namespace dcpp {
 // Polling is used for tasks...should be fixed...
 #define POLL_TIMEOUT 250
 
-BufferedSocket::BufferedSocket(char aSeparator) throw(ThreadException) :
+BufferedSocket::BufferedSocket(char aSeparator) :
 separator(aSeparator), mode(MODE_LINE), dataBytes(0), rollback(0), state(STARTING),
 disconnecting(false)
 {
@@ -46,7 +46,7 @@ disconnecting(false)
 
 Atomic<long,memory_ordering_strong> BufferedSocket::sockets(0);
 
-BufferedSocket::~BufferedSocket() throw() {
+BufferedSocket::~BufferedSocket() {
 	sockets.dec();
 }
 
@@ -82,7 +82,7 @@ void BufferedSocket::setSocket(std::auto_ptr<Socket> s) {
 	sock = s;
 }
 
-void BufferedSocket::accept(const Socket& srv, bool secure, bool allowUntrusted) throw(SocketException) {
+void BufferedSocket::accept(const Socket& srv, bool secure, bool allowUntrusted) {
 	dcdebug("BufferedSocket::accept() %p\n", (void*)this);
 
 	std::auto_ptr<Socket> s(secure ? CryptoManager::getInstance()->getServerSocket(allowUntrusted) : new Socket);
@@ -95,11 +95,11 @@ void BufferedSocket::accept(const Socket& srv, bool secure, bool allowUntrusted)
 	addTask(ACCEPTED, 0);
 }
 
-void BufferedSocket::connect(const string& aAddress, uint16_t aPort, bool secure, bool allowUntrusted, bool proxy) throw(SocketException) {
+void BufferedSocket::connect(const string& aAddress, uint16_t aPort, bool secure, bool allowUntrusted, bool proxy) {
 	connect(aAddress, aPort, 0, NAT_NONE, secure, allowUntrusted, proxy);
 }
 
-void BufferedSocket::connect(const string& aAddress, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy) throw(SocketException) {
+void BufferedSocket::connect(const string& aAddress, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy) {
 	dcdebug("BufferedSocket::connect() %p\n", (void*)this);
 	std::auto_ptr<Socket> s(secure ? (natRole == NAT_SERVER ? CryptoManager::getInstance()->getServerSocket(allowUntrusted) : CryptoManager::getInstance()->getClientSocket(allowUntrusted)) : new Socket);
 
@@ -113,7 +113,7 @@ void BufferedSocket::connect(const string& aAddress, uint16_t aPort, uint16_t lo
 
 #define LONG_TIMEOUT 30000
 #define SHORT_TIMEOUT 1000
-void BufferedSocket::threadConnect(const string& aAddr, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool proxy) throw(SocketException) {
+void BufferedSocket::threadConnect(const string& aAddr, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool proxy) {
 	dcassert(state == STARTING);
 
 	dcdebug("threadConnect %s:%d/%d\n", aAddr.c_str(), (int)localPort, (int)aPort);
@@ -153,7 +153,7 @@ void BufferedSocket::threadConnect(const string& aAddr, uint16_t aPort, uint16_t
 	throw SocketException(_("Connection timeout"));
 }
 
-void BufferedSocket::threadAccept() throw(SocketException) {
+void BufferedSocket::threadAccept() {
 	dcassert(state == STARTING);
 
 	dcdebug("threadAccept\n");
@@ -171,7 +171,7 @@ void BufferedSocket::threadAccept() throw(SocketException) {
 	}
 }
 
-void BufferedSocket::threadRead() throw(Exception) {
+void BufferedSocket::threadRead() {
 	if(state != RUNNING)
 		return;
 
@@ -276,7 +276,7 @@ void BufferedSocket::threadRead() throw(Exception) {
 	}
 }
 
-void BufferedSocket::threadSendFile(InputStream* file) throw(Exception) {
+void BufferedSocket::threadSendFile(InputStream* file) {
 	if(state != RUNNING)
 		return;
 
@@ -371,7 +371,7 @@ void BufferedSocket::threadSendFile(InputStream* file) throw(Exception) {
 	}
 }
 
-void BufferedSocket::write(const char* aBuf, size_t aLen) throw() {
+void BufferedSocket::write(const char* aBuf, size_t aLen) noexcept {
 	if(!sock.get())
 		return;
 	Lock l(cs);
@@ -381,7 +381,7 @@ void BufferedSocket::write(const char* aBuf, size_t aLen) throw() {
 	writeBuf.insert(writeBuf.end(), aBuf, aBuf+aLen);
 }
 
-void BufferedSocket::threadSendData() throw(Exception) {
+void BufferedSocket::threadSendData() {
 	if(state != RUNNING)
 		return;
 
@@ -417,7 +417,7 @@ void BufferedSocket::threadSendData() throw(Exception) {
 	sendBuf.clear();
 }
 
-bool BufferedSocket::checkEvents() throw(Exception) {
+bool BufferedSocket::checkEvents() {
 	while(state == RUNNING ? taskSem.wait(0) : taskSem.wait()) {
 		pair<Tasks, boost::shared_ptr<TaskData> > p;
 		{
@@ -458,7 +458,7 @@ bool BufferedSocket::checkEvents() throw(Exception) {
 	return true;
 }
 
-void BufferedSocket::checkSocket() throw(Exception) {
+void BufferedSocket::checkSocket() {
 	int waitFor = sock->wait(POLL_TIMEOUT, Socket::WAIT_READ);
 
 	if(waitFor & Socket::WAIT_READ) {

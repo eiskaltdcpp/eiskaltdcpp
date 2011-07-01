@@ -33,6 +33,8 @@
 #include "LogManager.h"
 #include "ThrottleManager.h"
 #include "UploadManager.h"
+#include "format.h"
+
 #include <cmath>
 
 namespace dcpp {
@@ -57,7 +59,7 @@ AdcHub::AdcHub(const string& aHubURL, bool secure) : Client(aHubURL, '\n', secur
     TimerManager::getInstance()->addListener(this);
 }
 
-AdcHub::~AdcHub() throw() {
+AdcHub::~AdcHub() {
     TimerManager::getInstance()->removeListener(this);
     clearUsers();
 }
@@ -128,7 +130,7 @@ void AdcHub::clearUsers() {
     }
 }
 
-void AdcHub::handle(AdcCommand::INF, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::INF, AdcCommand& c) noexcept {
     if(c.getParameters().empty())
         return;
 
@@ -199,7 +201,7 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) throw() {
     }
 }
 
-void AdcHub::handle(AdcCommand::SUP, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::SUP, AdcCommand& c) noexcept {
     if(state != STATE_PROTOCOL) /** @todo SUP changes */
         return;
     bool baseOk = false;
@@ -226,7 +228,7 @@ void AdcHub::handle(AdcCommand::SUP, AdcCommand& c) throw() {
     }
 }
 
-void AdcHub::handle(AdcCommand::SID, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::SID, AdcCommand& c) noexcept {
     if(state != STATE_PROTOCOL) {
         dcdebug("Invalid state for SID\n");
         return;
@@ -241,7 +243,7 @@ void AdcHub::handle(AdcCommand::SID, AdcCommand& c) throw() {
     info(true);
 }
 
-void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) noexcept {
     if(c.getParameters().empty())
         return;
 
@@ -269,7 +271,7 @@ void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) throw() {
         fire(ClientListener::Message(), this, message);
 }
 
-void AdcHub::handle(AdcCommand::GPA, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::GPA, AdcCommand& c) noexcept {
     if(c.getParameters().empty())
         return;
     salt = c.getParam(0);
@@ -278,7 +280,7 @@ void AdcHub::handle(AdcCommand::GPA, AdcCommand& c) throw() {
     fire(ClientListener::GetPassword(), this);
 }
 
-void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) noexcept {
     uint32_t s = AdcCommand::toSID(c.getParam(0));
 
     OnlineUser* victim = findUser(s);
@@ -325,7 +327,7 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) throw() {
     }
 }
 
-void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) noexcept {
     OnlineUser* u = findUser(c.getFrom());
     if(!u || u->getUser() == ClientManager::getInstance()->getMe())
         return;
@@ -354,7 +356,7 @@ void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) throw() {
     ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), token, secure);
 }
 
-void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) noexcept {
     if(c.getParameters().size() < 2) {
         return;
     }
@@ -392,7 +394,7 @@ void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) throw() {
    return;
 }
 
-void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) noexcept {
     if(c.getParameters().size() < 1)
         return;
     const string& name = c.getParam(0);
@@ -419,7 +421,7 @@ void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) throw() {
     fire(ClientListener::HubUserCommand(), this, (int)(once ? UserCommand::TYPE_RAW_ONCE : UserCommand::TYPE_RAW), ctx, name, txt);
 }
 
-void AdcHub::sendUDP(const AdcCommand& cmd) throw() {
+void AdcHub::sendUDP(const AdcCommand& cmd) noexcept {
     string command;
     string ip;
     uint16_t port;
@@ -446,7 +448,7 @@ void AdcHub::sendUDP(const AdcCommand& cmd) throw() {
     }
 }
 
-void AdcHub::handle(AdcCommand::STA, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::STA, AdcCommand& c) noexcept {
     if(c.getParameters().size() < 2)
         return;
 
@@ -495,7 +497,7 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) throw() {
     fire(ClientListener::Message(), this, message);
 }
 
-void AdcHub::handle(AdcCommand::SCH, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::SCH, AdcCommand& c) noexcept {
     OnlineUser* ou = findUser(c.getFrom());
     if(!ou) {
         dcdebug("Invalid user in AdcHub::onSCH\n");
@@ -505,7 +507,7 @@ void AdcHub::handle(AdcCommand::SCH, AdcCommand& c) throw() {
     fire(ClientListener::AdcSearch(), this, c, ou->getUser()->getCID());
 }
 
-void AdcHub::handle(AdcCommand::RES, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::RES, AdcCommand& c) noexcept {
     OnlineUser* ou = findUser(c.getFrom());
     if(!ou) {
         dcdebug("Invalid user in AdcHub::onRES\n");
@@ -514,7 +516,7 @@ void AdcHub::handle(AdcCommand::RES, AdcCommand& c) throw() {
     SearchManager::getInstance()->onRES(c, ou->getUser());
 }
 
-void AdcHub::handle(AdcCommand::PSR, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::PSR, AdcCommand& c) noexcept {
     OnlineUser* ou = findUser(c.getFrom());
     if(!ou) {
         dcdebug("Invalid user in AdcHub::onPSR\n");
@@ -523,7 +525,7 @@ void AdcHub::handle(AdcCommand::PSR, AdcCommand& c) throw() {
     SearchManager::getInstance()->onPSR(c, ou->getUser());
 }
 
-void AdcHub::handle(AdcCommand::GET, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::GET, AdcCommand& c) noexcept {
     if(c.getParameters().size() < 5) {
         if(c.getParameters().size() > 0) {
             if(c.getParam(0) == "blom") {
@@ -580,7 +582,7 @@ void AdcHub::handle(AdcCommand::GET, AdcCommand& c) throw() {
         }
     }
 }
-void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) noexcept {
     if (!BOOLSETTING(ALLOW_NATT))
         return;
 
@@ -612,7 +614,7 @@ void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) throw() {
                addParam(Util::toString(sock->getLocalPort())).addParam(token));
 }
 
-void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
        // Sent request for NAT traversal cooperation, which
        // was acknowledged (with requisite local port information).
        	if(!BOOLSETTING(ALLOW_NATT))
@@ -1064,8 +1066,12 @@ void AdcHub::unknownProtocol(uint32_t target, const string& protocol, const stri
        send(cmd);
 }
 
-void AdcHub::on(Connected c) throw() {
+void AdcHub::on(Connected c) noexcept {
     Client::on(c);
+
+    if(state != STATE_PROTOCOL) {
+        return;
+    }
 
     lastInfoMap.clear();
     sid = 0;
@@ -1087,7 +1093,7 @@ void AdcHub::on(Connected c) throw() {
     send(cmd);
 }
 
-void AdcHub::on(Line l, const string& aLine) throw() {
+void AdcHub::on(Line l, const string& aLine) noexcept {
     Client::on(l, aLine);
 
     if(!Text::validateUtf8(aLine)) {
@@ -1105,25 +1111,23 @@ void AdcHub::on(Line l, const string& aLine) throw() {
     dispatch(aLine);
 }
 
-void AdcHub::on(Failed f, const string& aLine) throw() {
+void AdcHub::on(Failed f, const string& aLine) noexcept {
     clearUsers();
     Client::on(f, aLine);
 }
 
-void AdcHub::on(Second s, uint64_t aTick) throw() {
+void AdcHub::on(Second s, uint64_t aTick) noexcept {
     Client::on(s, aTick);
     if(state == STATE_NORMAL && (aTick > (getLastActivity() + 120*1000)) ) {
         send("\n", 1);
     }
 }
 #ifdef LUA_SCRIPT
-//aded
 bool AdcScriptInstance::onClientMessage(AdcHub* aClient, const string& aLine) {
         Lock l(cs);
         MakeCall("adch", "DataArrival", 1, aClient, aLine);
         return GetLuaBool();
 
 }
-//end
 #endif
 } // namespace dcpp

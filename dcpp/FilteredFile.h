@@ -16,8 +16,8 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(FILTERED_FILE_H)
-#define FILTERED_FILE_H
+#ifndef DCPLUSPLUS_DCPP_FILTERED_FILE_H
+#define DCPLUSPLUS_DCPP_FILTERED_FILE_H
 
 #include "Streams.h"
 #include "Util.h"

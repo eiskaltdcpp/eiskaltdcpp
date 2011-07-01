@@ -19,7 +19,7 @@
 #ifndef CLIENTLISTENER_H_
 #define CLIENTLISTENER_H_
 
-#include "forward.h"
+#include "typedefs.h"
 
 namespace dcpp {
 
@@ -52,23 +52,23 @@ public:
 		FLAG_IS_SPAM = 0x01
 	};
 
-	virtual void on(Connecting, Client*) throw() { }
-	virtual void on(Connected, Client*) throw() { }
-	virtual void on(UserUpdated, Client*, const OnlineUser&) throw() { }
-	virtual void on(UsersUpdated, Client*, const OnlineUserList&) throw() { }
-	virtual void on(UserRemoved, Client*, const OnlineUser&) throw() { }
-	virtual void on(Redirect, Client*, const string&) throw() { }
-	virtual void on(Failed, Client*, const string&) throw() { }
-	virtual void on(GetPassword, Client*) throw() { }
-	virtual void on(HubUpdated, Client*) throw() { }
-	virtual void on(Message, Client*, const ChatMessage&) throw() { }
-	virtual void on(StatusMessage, Client*, const string&, int = FLAG_NORMAL) throw() { }
-	virtual void on(HubUserCommand, Client*, int, int, const string&, const string&) throw() { }
-	virtual void on(HubFull, Client*) throw() { }
-	virtual void on(NickTaken, Client*) throw() { }
-	virtual void on(SearchFlood, Client*, const string&) throw() { }
-	virtual void on(NmdcSearch, Client*, const string&, int, int64_t, int, const string&) throw() { }
-	virtual void on(AdcSearch, Client*, const AdcCommand&, const CID&) throw() { }
+	virtual void on(Connecting, Client*) noexcept { }
+	virtual void on(Connected, Client*) noexcept { }
+	virtual void on(UserUpdated, Client*, const OnlineUser&) noexcept { }
+	virtual void on(UsersUpdated, Client*, const OnlineUserList&) noexcept { }
+	virtual void on(UserRemoved, Client*, const OnlineUser&) noexcept { }
+	virtual void on(Redirect, Client*, const string&) noexcept { }
+	virtual void on(Failed, Client*, const string&) noexcept { }
+	virtual void on(GetPassword, Client*) noexcept { }
+	virtual void on(HubUpdated, Client*) noexcept { }
+	virtual void on(Message, Client*, const ChatMessage&) noexcept { }
+	virtual void on(StatusMessage, Client*, const string&, int = FLAG_NORMAL) noexcept { }
+	virtual void on(HubUserCommand, Client*, int, int, const string&, const string&) noexcept { }
+	virtual void on(HubFull, Client*) noexcept { }
+	virtual void on(NickTaken, Client*) noexcept { }
+	virtual void on(SearchFlood, Client*, const string&) noexcept { }
+	virtual void on(NmdcSearch, Client*, const string&, int, int64_t, int, const string&) noexcept { }
+	virtual void on(AdcSearch, Client*, const AdcCommand&, const CID&) noexcept { }
 };
 
 } // namespace dcpp
