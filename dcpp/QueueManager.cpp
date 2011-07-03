@@ -611,8 +611,10 @@ void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) throw() {
                 source->setNextQueryTime(aTick + 300000);               // 5 minutes
         }
 
+#ifdef WITH_DHT
         if(BOOLSETTING(USE_DHT) && SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_PASSIVE)
                 tthPub = fileQueue.findPFSPubTTH();
+#endif
 
         if(BOOLSETTING(AUTO_SEARCH) && (aTick >= nextSearch) && (fileQueue.getSize() > 0)) {
             // We keep 30 recent searches to avoid duplicate searches
@@ -1638,18 +1640,20 @@ void QueueManager::saveQueue(bool force) throw() {
                 }
 
                 for(QueueItem::SourceConstIter j = qi->sources.begin(); j != qi->sources.end(); ++j) {
-                                        const CID& cid = j->getUser().user->getCID();
-                                        const string& hint = j->getUser().hint;
+                    if(j->isSet(QueueItem::Source::FLAG_PARTIAL) || j->getUser().hint == "DHT") continue;
+
+                    const CID& cid = j->getUser().user->getCID();
+                    const string& hint = j->getUser().hint;
 
                     f.write(LIT("\t\t<Source CID=\""));
-                                        f.write(cid.toBase32());
-                                        if(!hint.empty()) {
-                                                f.write(LIT("\" Hub=\""));
-                                                f.write(hint);
-                                        }
+                    f.write(cid.toBase32());
+                    if(!hint.empty()) {
+                        f.write(LIT("\" Hub=\""));
+                        f.write(hint);
+                    }
                     f.write(LIT("\"/>\r\n"));
 
-                                        cids.push_back(cid);
+                    cids.push_back(cid);
                 }
 
                 f.write(LIT("\t</Download>\r\n"));
@@ -2099,6 +2103,7 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
 	}
 }
 
+#ifdef WITH_DHT
 TTHValue* QueueManager::FileQueue::findPFSPubTTH()
 {
     uint64_t now = GET_TICK();
@@ -2118,15 +2123,12 @@ TTHValue* QueueManager::FileQueue::findPFSPubTTH()
     }
     if(cand)
     {
-        #ifdef WITH_DHT
         cand->setNextPublishingTime(now + PFS_REPUBLISH_TIME);          // one hour
-        #else
-        cand->setNextPublishingTime(now + 1*60*60*1000);          // one hour
-        #endif
         return new TTHValue(cand->getTTH());
     }
      return NULL;
 }
+#endif
 
 void QueueManager::logFinishedDownload(QueueItem* qi, Download* d, bool crcError)
 {

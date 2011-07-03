@@ -99,10 +99,16 @@ void HttpConnection::on(BufferedSocketListener::Connected) throw() {
         uint16_t tport;
         Util::decodeUrl(file, proto, sRemoteServer, tport, tfile, query, fragment);
     }
+
+#ifdef WITH_DHT
     if (sRemoteServer == "strongdc.sourceforge.net")
         socket->write("User-Agent: StrongDC++ v2.42\r\n");
     else
         socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
+#else
+    socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
+#endif
+
     socket->write("Host: " + sRemoteServer + "\r\n");
     socket->write("Connection: close\r\n"); // we'll only be doing one request
     socket->write("Cache-Control: no-cache\r\n\r\n");

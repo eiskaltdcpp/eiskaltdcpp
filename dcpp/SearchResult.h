@@ -54,14 +54,14 @@ public:
     const string& getHubName() const { return hubName; }
     int64_t getSize() const { return size; }
     Types getType() const { return type; }
-    int getSlots() const { return aslots; }
+    size_t getSlots() const { return aslots; }
     int getFreeSlots() const { return freeSlots; }
     TTHValue getTTH() const { return tth; }
     const string& getIP() const { return IP; }
     const string& getToken() const { return token; }
 
     // for DHT use only
-    void setSlots(size_t _slots) { slots_dht = _slots; }
+    void setSlots(size_t _slots) { aslots = _slots; }
 
 private:
     friend class SearchManager;
@@ -70,15 +70,14 @@ private:
 
     SearchResult(const SearchResult& rhs);
 
-    size_t slots_dht;
     string file;
     string hubName;
     string hubURL;
     UserPtr user;
     int64_t size;
     Types type;
-    int aslots;
-    int freeSlots;
+    size_t aslots;
+    size_t freeSlots;
     string IP;
     TTHValue tth;
     string token;
