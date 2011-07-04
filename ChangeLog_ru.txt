@@ -1,3 +1,10 @@
+--- 2.2.4 2011-09-18 ---
+*** common changes ***
+* Добавлена поддержка DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). Опция в настройках по умолчанию отключена. Есть возможность полностью убрать поддержку DHT на этапе конфигурирования (опция -DWITH_DHT для cmake). См. так же: http://ru.wikipedia.org/wiki/DHT
+*** eiskaltdcpp-qt ***
+*** eiskaltdcpp-gtk ***
+*** eiskaltdcpp-daemon ***
+
 --- 2.2.3 2011-06-25 ---
 *** common changes ***
 * Разные поисковые интервалы для избранных хабов (по умолчанию: 60 с).
