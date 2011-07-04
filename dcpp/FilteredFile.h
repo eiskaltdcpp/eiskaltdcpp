@@ -19,8 +19,11 @@
 #ifndef DCPLUSPLUS_DCPP_FILTERED_FILE_H
 #define DCPLUSPLUS_DCPP_FILTERED_FILE_H
 
+#include <boost/scoped_array.hpp>
+
 #include "Streams.h"
 #include "Util.h"
+#include "Exception.h"
 
 namespace dcpp {
 
@@ -29,14 +32,14 @@ class CountOutputStream : public OutputStream {
 public:
     using OutputStream::write;
     CountOutputStream(OutputStream* aStream) : s(aStream), count(0) { }
-    virtual ~CountOutputStream() throw() { if(managed) delete s; }
+    virtual ~CountOutputStream() { if(managed) delete s; }
 
-    size_t flush() throw(Exception) {
+        size_t flush() {
         size_t n = s->flush();
         count += n;
         return n;
     }
-    size_t write(const void* buf, size_t len) throw(Exception) {
+        size_t write(const void* buf, size_t len) {
         size_t n = s->write(buf, len);
         count += n;
         return n;
@@ -54,13 +57,13 @@ public:
     using OutputStream::write;
 
     CalcOutputStream(OutputStream* aStream) : s(aStream) { }
-    virtual ~CalcOutputStream() throw() { if(managed) delete s; }
+    virtual ~CalcOutputStream() { if(managed) delete s; }
 
-    size_t flush() throw(Exception) {
+        size_t flush() {
         return s->flush();
     }
 
-    size_t write(const void* buf, size_t len) throw(Exception) {
+        size_t write(const void* buf, size_t len) {
         filter(buf, len);
         return s->write(buf, len);
     }
@@ -76,9 +79,9 @@ template<class Filter, bool managed>
 class CalcInputStream : public InputStream {
 public:
     CalcInputStream(InputStream* aStream) : s(aStream) { }
-    virtual ~CalcInputStream() throw() { if(managed) delete s; }
+    virtual ~CalcInputStream() { if(managed) delete s; }
 
-    size_t read(void* buf, size_t& len) throw(Exception) {
+        size_t read(void* buf, size_t& len) {
         size_t x = s->read(buf, len);
         filter(buf, x);
         return x;
@@ -96,9 +99,9 @@ public:
     using OutputStream::write;
 
     FilteredOutputStream(OutputStream* aFile) : f(aFile), buf(new uint8_t[BUF_SIZE]), flushed(false), more(true) { }
-    ~FilteredOutputStream() throw() { if(manage) delete f; }
+    virtual ~FilteredOutputStream() { if(manage) delete f; }
 
-    size_t flush() throw(Exception) {
+        size_t flush() {
         if(flushed)
             return 0;
 
@@ -118,7 +121,7 @@ public:
         return written + f->flush();
     }
 
-    size_t write(const void* wbuf, size_t len) throw(Exception) {
+        size_t write(const void* wbuf, size_t len) {
         if(flushed)
             throw Exception("No filtered writes after flush");
 
@@ -161,7 +164,7 @@ template<class Filter, bool managed>
 class FilteredInputStream : public InputStream {
 public:
     FilteredInputStream(InputStream* aFile) : f(aFile), buf(new uint8_t[BUF_SIZE]), pos(0), valid(0), more(true) { }
-    virtual ~FilteredInputStream() throw() { if(managed) delete f; }
+        virtual ~FilteredInputStream() { if(managed) delete f; }
 
     /**
     * Read data through filter, keep calling until len returns 0.
@@ -169,7 +172,7 @@ public:
     * @param len Buffer size on entry, bytes actually read on exit
     * @return Length of data in buffer
     */
-    size_t read(void* rbuf, size_t& len) throw(Exception) {
+        size_t read(void* rbuf, size_t& len) {
         uint8_t* rb = (uint8_t*)rbuf;
 
         size_t totalRead = 0;

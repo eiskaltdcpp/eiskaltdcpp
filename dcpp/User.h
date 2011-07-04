@@ -68,7 +68,7 @@ public:
 
     User(const CID& aCID) : cid(aCID) { }
 
-    ~User() throw() { }
+    ~User() noexcept { }
 
     const CID& getCID() const { return cid; }
     operator const CID&() const { return cid; }
@@ -188,7 +188,7 @@ public:
     typedef List::iterator Iter;
 
     OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_);
-    virtual ~OnlineUser() throw() { }
+    virtual ~OnlineUser() noexcept { }
     operator UserPtr&() { return getUser(); }
     operator const UserPtr&() const { return getUser(); }
 

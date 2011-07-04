@@ -37,7 +37,7 @@ public:
 	enum Area { CHAT, PM, DOWNLOAD, FINISHED_DOWNLOAD, UPLOAD, SYSTEM, STATUS, LAST };
 	enum { FILE, FORMAT };
 
-	void log(Area area, StringMap& params) throw();
+	void log(Area area, StringMap& params) noexcept;
 	void message(const string& msg);
 
 	List getLastLogs();
@@ -48,7 +48,7 @@ public:
 	void saveSetting(int area, int sel, const string& setting);
 
 private:
-	void log(const string& area, const string& msg) throw();
+	void log(const string& area, const string& msg) noexcept;
 
 	friend class Singleton<LogManager>;
 	CriticalSection cs;
@@ -57,7 +57,7 @@ private:
 	int options[LAST][2];
 
 	LogManager();
-	virtual ~LogManager() throw();
+	virtual ~LogManager() noexcept;
 };
 
 #define LOG(area, msg) LogManager::getInstance()->log(area, msg)

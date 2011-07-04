@@ -25,6 +25,8 @@
 
 namespace dcpp {
 
+using std::max;
+
 const double ZFilter::MIN_COMPRESSION_LEVEL = 0.9;
 
 ZFilter::ZFilter() : totalIn(0), totalOut(0), compressing(true) {

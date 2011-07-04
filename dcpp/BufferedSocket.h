@@ -142,10 +142,10 @@ private:
 	CriticalSection cs;
 
 	Semaphore taskSem;
-	deque<pair<Tasks, boost::shared_ptr<TaskData> > > tasks;
+	deque<pair<Tasks, unique_ptr<TaskData> > > tasks;
 
 	Modes mode;
-	std::auto_ptr<UnZFilter> filterIn;
+	std::unique_ptr<UnZFilter> filterIn;
 	int64_t dataBytes;
 	size_t rollback;
 	string line;
@@ -153,7 +153,7 @@ private:
 	ByteVector writeBuf;
 	ByteVector sendBuf;
 
-	std::auto_ptr<Socket> sock;
+	std::unique_ptr<Socket> sock;
 	State state;
 	bool disconnecting;
 
@@ -171,7 +171,7 @@ private:
 	bool checkEvents();
 	void checkSocket();
 
-	void setSocket(std::auto_ptr<Socket> s);
+	void setSocket(std::unique_ptr<Socket> s);
 	void shutdown();
 	void addTask(Tasks task, TaskData* data);
 };

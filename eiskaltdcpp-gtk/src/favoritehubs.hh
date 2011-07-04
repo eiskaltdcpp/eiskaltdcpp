@@ -66,8 +66,8 @@ class FavoriteHubs:
 		void setConnect_client(std::string address, bool active);
 
 		// Client callbacks
-		virtual void on(dcpp::FavoriteManagerListener::FavoriteAdded, const dcpp::FavoriteHubEntryPtr entry) throw();
-		virtual void on(dcpp::FavoriteManagerListener::FavoriteRemoved, const dcpp::FavoriteHubEntryPtr entry) throw();
+		virtual void on(dcpp::FavoriteManagerListener::FavoriteAdded, const dcpp::FavoriteHubEntryPtr entry) noexcept;
+		virtual void on(dcpp::FavoriteManagerListener::FavoriteRemoved, const dcpp::FavoriteHubEntryPtr entry) noexcept;
 
 		TreeView favoriteView;
 		GtkListStore *favoriteStore;

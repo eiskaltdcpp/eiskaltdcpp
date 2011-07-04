@@ -1546,7 +1546,7 @@ void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
         retranslateUi(this);
 }
 
-void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) throw() {
+void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) noexcept {
     if (currentSearch.empty() || aResult == NULL)
         return;
 
@@ -1598,14 +1598,14 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
     emit coreSR(map);
 }
 
-void SearchFrame::on(ClientConnected, Client* c) throw(){
+void SearchFrame::on(ClientConnected, Client* c) noexcept{
     emit coreClientConnected(_q(c->getHubUrl()));
 }
 
-void SearchFrame::on(ClientUpdated, Client* c) throw(){
+void SearchFrame::on(ClientUpdated, Client* c) noexcept{
     emit coreClientUpdated((_q(c->getHubUrl())));
 }
 
-void SearchFrame::on(ClientDisconnected, Client* c) throw(){
+void SearchFrame::on(ClientDisconnected, Client* c) noexcept{
     emit coreClientDisconnected((_q(c->getHubUrl())));
 }

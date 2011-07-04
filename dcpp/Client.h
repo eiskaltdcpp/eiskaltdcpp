@@ -165,7 +165,7 @@ public:
 protected:
     friend class ClientManager;
     Client(const string& hubURL, char separator, bool secure_);
-    virtual ~Client() throw();
+    virtual ~Client();
     struct Counts {
         private:
             typedef Atomic<boost::int32_t> atomic_counter_t;

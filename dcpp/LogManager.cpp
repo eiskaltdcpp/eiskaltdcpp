@@ -25,7 +25,7 @@
 
 namespace dcpp {
 
-void LogManager::log(Area area, StringMap& params) throw() {
+void LogManager::log(Area area, StringMap& params) noexcept {
 	log(getPath(area, params), Util::formatParams(getSetting(area, FORMAT), params, false));
 }
 
@@ -68,7 +68,7 @@ void LogManager::saveSetting(int area, int sel, const string& setting) {
 	SettingsManager::getInstance()->set(static_cast<SettingsManager::StrSetting>(options[area][sel]), setting);
 }
 
-void LogManager::log(const string& area, const string& msg) throw() {
+void LogManager::log(const string& area, const string& msg) noexcept {
 	Lock l(cs);
 	try {
 		string aArea = Util::validateFileName(area);
@@ -98,7 +98,7 @@ LogManager::LogManager() {
 	options[STATUS][FORMAT]		= SettingsManager::LOG_FORMAT_STATUS;
 }
 
-LogManager::~LogManager() throw() {
+LogManager::~LogManager() noexcept {
 }
 
 } // namespace dcpp

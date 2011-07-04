@@ -98,7 +98,7 @@ void QueuedUsers::slotContextMenu(){
     m->deleteLater();
 }
 
-void QueuedUsers::on(WaitingAddFile, const dcpp::HintedUser &user, const std::string &file) throw() {
+void QueuedUsers::on(WaitingAddFile, const dcpp::HintedUser &user, const std::string &file) noexcept {
     VarMap map;
     map["CID"]  = _q(user.user->getCID().toBase32());
     map["FILE"] = _q(file);
@@ -107,7 +107,7 @@ void QueuedUsers::on(WaitingAddFile, const dcpp::HintedUser &user, const std::st
     emit coreWaitingAddFile(map);
 }
 
-void QueuedUsers::on(WaitingRemoveUser, const dcpp::HintedUser &user) throw() {
+void QueuedUsers::on(WaitingRemoveUser, const dcpp::HintedUser &user) noexcept {
     VarMap map;
     map["CID"]  = _q(user.user->getCID().toBase32());
     map["FILE"] = "";
@@ -388,5 +388,3 @@ int QueuedUserItem::row() const {
 
     return 0;
 }
-
-

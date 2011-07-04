@@ -114,8 +114,8 @@ public:
     void shutdown();
 
     /** Find a suitable port to listen on, and start doing it */
-    void listen() throw(SocketException);
-    void disconnect() throw();
+    void listen();
+    void disconnect() noexcept;
 
     uint16_t getPort() { return server ? static_cast<uint16_t>(server->getPort()) : 0; }
     uint16_t getSecurePort() { return secureServer ? static_cast<uint16_t>(secureServer->getPort()) : 0; }
@@ -127,7 +127,7 @@ private:
         uint16_t getPort() { return port; }
         virtual ~Server() { die = true; join(); }
     private:
-        virtual int run() throw();
+        virtual int run() noexcept;
 
         Socket sock;
         uint16_t port;
@@ -162,9 +162,9 @@ private:
     friend class Singleton<ConnectionManager>;
     ConnectionManager();
 
-    virtual ~ConnectionManager() throw() { shutdown(); }
+    virtual ~ConnectionManager() noexcept { shutdown(); }
 
-    UserConnection* getConnection(bool aNmdc, bool secure) throw();
+    UserConnection* getConnection(bool aNmdc, bool secure) noexcept;
     void putConnection(UserConnection* aConn);
 
     void addUploadConnection(UserConnection* uc);
@@ -175,27 +175,27 @@ private:
 
     bool checkKeyprint(UserConnection *aSource);
 
-    void accept(const Socket& sock, bool secure) throw();
+    void accept(const Socket& sock, bool secure) noexcept;
 
         void failed(UserConnection* aSource, const string& aError, bool protocolError);
 
     // UserConnectionListener
-    virtual void on(Connected, UserConnection*) throw();
-    virtual void on(Failed, UserConnection*, const string&) throw();
-    virtual void on(ProtocolError, UserConnection*, const string&) throw();
-    virtual void on(CLock, UserConnection*, const string&, const string&) throw();
-    virtual void on(Key, UserConnection*, const string&) throw();
-    virtual void on(Direction, UserConnection*, const string&, const string&) throw();
-    virtual void on(MyNick, UserConnection*, const string&) throw();
-    virtual void on(Supports, UserConnection*, const StringList&) throw();
+    virtual void on(Connected, UserConnection*) noexcept;
+    virtual void on(Failed, UserConnection*, const string&) noexcept;
+    virtual void on(ProtocolError, UserConnection*, const string&) noexcept;
+    virtual void on(CLock, UserConnection*, const string&, const string&) noexcept;
+    virtual void on(Key, UserConnection*, const string&) noexcept;
+    virtual void on(Direction, UserConnection*, const string&, const string&) noexcept;
+    virtual void on(MyNick, UserConnection*, const string&) noexcept;
+    virtual void on(Supports, UserConnection*, const StringList&) noexcept;
 
-    virtual void on(AdcCommand::SUP, UserConnection*, const AdcCommand&) throw();
-    virtual void on(AdcCommand::INF, UserConnection*, const AdcCommand&) throw();
-    virtual void on(AdcCommand::STA, UserConnection*, const AdcCommand&) throw();
+    virtual void on(AdcCommand::SUP, UserConnection*, const AdcCommand&) noexcept;
+    virtual void on(AdcCommand::INF, UserConnection*, const AdcCommand&) noexcept;
+    virtual void on(AdcCommand::STA, UserConnection*, const AdcCommand&) noexcept;
 
     // TimerManagerListener
-    virtual void on(TimerManagerListener::Second, uint64_t aTick) throw();
-    virtual void on(TimerManagerListener::Minute, uint64_t aTick) throw();
+    virtual void on(TimerManagerListener::Second, uint64_t aTick) noexcept;
+    virtual void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;
 
 };
 

@@ -626,7 +626,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         case Menu::RenameMove:
         {
             foreach (DownloadQueueItem *i, items){
-                QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + 
+                QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() +
                                  i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
                 QString new_target = QFileDialog::getSaveFileName(this, tr("Choose filename"), QDir::homePath(), tr("All files (*.*)"));
 
@@ -771,7 +771,7 @@ void DownloadQueue::slotSettingsChanged(const QString &key, const QString &value
         retranslateUi(this);
 }
 
-void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw(){
+void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) noexcept{
     VarMap params;
     getParams(params, item);
 
@@ -779,7 +779,7 @@ void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw(){
     emit added(_q(item->getTargetFileName()));
 }
 
-void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const std::string &oldTarget) throw(){
+void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const std::string &oldTarget) noexcept{
     VarMap params;
     getParams(params, item);
 
@@ -787,7 +787,7 @@ void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const std::
     emit moved(_q(oldTarget), _q(item->getTargetFileName()));
 }
 
-void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) throw(){
+void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) noexcept{
     VarMap params;
     getParams(params, item);
 
@@ -795,14 +795,14 @@ void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) throw(){
     emit removed(_q(item->getTargetFileName()));
 }
 
-void DownloadQueue::on(QueueManagerListener::SourcesUpdated, QueueItem *item) throw(){
+void DownloadQueue::on(QueueManagerListener::SourcesUpdated, QueueItem *item) noexcept{
     VarMap params;
     getParams(params, item);
 
     emit coreSourcesUpdated(params);
 }
 
-void DownloadQueue::on(QueueManagerListener::StatusUpdated, QueueItem *item) throw(){
+void DownloadQueue::on(QueueManagerListener::StatusUpdated, QueueItem *item) noexcept{
     VarMap params;
     getParams(params, item);
 

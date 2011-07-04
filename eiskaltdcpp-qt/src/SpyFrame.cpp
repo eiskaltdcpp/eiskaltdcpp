@@ -129,7 +129,7 @@ void SpyFrame::slotSettingsChanged(const QString &key, const QString&){
         retranslateUi(this);
 }
 
-void SpyFrame::on(dcpp::ClientManagerListener::IncomingSearch, const string &s) throw(){
+void SpyFrame::on(dcpp::ClientManagerListener::IncomingSearch, const string &s) noexcept{
     bool isTTH = _q(s).startsWith("TTH:");
 
     if (checkBox_IGNORETTH->isChecked() && isTTH)

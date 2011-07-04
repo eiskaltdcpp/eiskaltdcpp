@@ -16,28 +16,25 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "stdinc.h"
-#include "Thread.h"
+#ifndef DCPLUSPLUS_DCPP_NOEXCEPT_H
+#define DCPLUSPLUS_DCPP_NOEXCEPT_H
 
-#include "format.h"
+// for compilers that don't support noexcept, use an exception specifier
 
-namespace dcpp {
+//#ifdef __GNUC__
+//#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 6) // GCC 4.6 is the first GCC to implement noexcept.
 
-#ifdef _WIN32
-void Thread::start() {
-	join();
-	if( (threadHandle = CreateThread(NULL, 0, &starter, this, 0, &threadId)) == NULL) {
-		throw ThreadException(_("Unable to create thread"));
-	}
-}
-
-#else
-void Thread::start() {
-	join();
-	if(pthread_create(&threadHandle, NULL, &starter, this) != 0) {
-		throw ThreadException(_("Unable to create thread"));
-	}
-}
+#ifndef noexcept
+#define noexcept throw()
 #endif
 
-} // namespace dcpp
+//#endif
+//#elif defined(_MSC_VER)
+
+//#ifndef noexcept
+//#define noexcept throw()
+//#endif
+
+//#endif
+
+#endif

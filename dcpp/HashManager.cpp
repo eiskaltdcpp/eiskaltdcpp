@@ -60,7 +60,7 @@ bool HashManager::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTim
     return true;
 }
 
-TTHValue HashManager::getTTH(const string& aFileName, int64_t aSize) throw(HashException) {
+TTHValue HashManager::getTTH(const string& aFileName, int64_t aSize) {
     Lock l(cs);
     const TTHValue* tth = store.getTTH(aFileName);
     if (tth == NULL) {
@@ -124,7 +124,7 @@ void HashManager::HashStore::addFile(const string& aFileName, uint32_t aTimeStam
     dirty = true;
 }
 
-void HashManager::HashStore::addTree(const TigerTree& tt) throw() {
+void HashManager::HashStore::addTree(const TigerTree& tt) noexcept {
     if (treeIndex.find(tt.getRoot()) == treeIndex.end()) {
         try {
             File f(getDataFile(), File::READ | File::WRITE, File::OPEN);
@@ -137,7 +137,7 @@ void HashManager::HashStore::addTree(const TigerTree& tt) throw() {
     }
 }
 
-int64_t HashManager::HashStore::saveTree(File& f, const TigerTree& tt) throw(FileException) {
+int64_t HashManager::HashStore::saveTree(File& f, const TigerTree& tt) {
     if (tt.getLeaves().size() == 1)
         return SMALL_TREE;
 
@@ -957,7 +957,7 @@ bool HashManager::isHashingPaused() const {
     return hasher.isPaused();
 }
 
-void HashManager::on(TimerManagerListener::Second, uint64_t tick) throw() {
+void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
     //fprintf(stdout,"%lld\n", tick); fflush(stdout);
     static bool firstcycle = true;
     if (firstcycle){

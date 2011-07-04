@@ -291,23 +291,23 @@ void PublicHubs::slotSettingsChanged(const QString &key, const QString&){
         retranslateUi(this);
 }
 
-void PublicHubs::on(DownloadStarting, const std::string& l) throw(){
+void PublicHubs::on(DownloadStarting, const std::string& l) noexcept{
     emit coreDownloadStarted(tr("Downloading public hub list... (%1)").arg(_q(l)));
 }
 
-void PublicHubs::on(DownloadFailed, const std::string& l) throw(){
+void PublicHubs::on(DownloadFailed, const std::string& l) noexcept{
     emit coreDownloadFailed(tr("Download failed: %1").arg(_q(l)));
 }
 
-void PublicHubs::on(DownloadFinished, const std::string& l, bool fromCoral) throw(){
+void PublicHubs::on(DownloadFinished, const std::string& l, bool fromCoral) noexcept{
     emit coreDownloadFinished(tr("Hub list downloaded... (%1 %2) ").arg(_q(l)).arg(fromCoral? tr("from Coral") : ""));
 }
 
-void PublicHubs::on(LoadedFromCache, const std::string& l) throw(){
+void PublicHubs::on(LoadedFromCache, const std::string& l) noexcept{
     emit coreCacheLoaded(tr("Hub list loaded from cache...").arg(_q(l)));
 }
 
-void PublicHubs::on(Corrupted, const string& l) throw() {
+void PublicHubs::on(Corrupted, const string& l) noexcept {
     if (l.empty())
         emit coreDownloadFailed(tr("Cached hub list is corrupted or unsupported"));
     else

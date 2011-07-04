@@ -269,23 +269,23 @@ private:
     //inline void on_userUpdated(const VarMap&, const UserPtr&, bool) __attribute__((always_inline));
 
     // FavoriteManagerListener
-    virtual void on(FavoriteManagerListener::UserAdded, const FavoriteUser& /*aUser*/) throw();
-    virtual void on(FavoriteManagerListener::UserRemoved, const FavoriteUser& /*aUser*/) throw();
+    virtual void on(FavoriteManagerListener::UserAdded, const FavoriteUser& /*aUser*/) noexcept;
+    virtual void on(FavoriteManagerListener::UserRemoved, const FavoriteUser& /*aUser*/) noexcept;
 
     // ClientListener interface
-    virtual void on(ClientListener::Connecting, Client*) throw();
-    virtual void on(ClientListener::Connected, Client*) throw();
-    virtual void on(ClientListener::UserUpdated, Client*, const OnlineUser&) throw();
-    virtual void on(ClientListener::UsersUpdated, Client*, const OnlineUserList&) throw();
-    virtual void on(ClientListener::UserRemoved, Client*, const OnlineUser&) throw();
-    virtual void on(ClientListener::Redirect, Client*, const string&) throw();
-    virtual void on(ClientListener::Failed, Client*, const string&) throw();
-    virtual void on(ClientListener::GetPassword, Client*) throw();
-    virtual void on(ClientListener::HubUpdated, Client*) throw();
-    virtual void on(ClientListener::Message, Client*, const ChatMessage&) throw();
-    virtual void on(ClientListener::StatusMessage, Client*, const string&, int = ClientListener::FLAG_NORMAL) throw();
-    virtual void on(ClientListener::NickTaken, Client*) throw();
-    virtual void on(ClientListener::SearchFlood, Client*, const string&) throw();
+    virtual void on(ClientListener::Connecting, Client*) noexcept;
+    virtual void on(ClientListener::Connected, Client*) noexcept;
+    virtual void on(ClientListener::UserUpdated, Client*, const OnlineUser&) noexcept;
+    virtual void on(ClientListener::UsersUpdated, Client*, const OnlineUserList&) noexcept;
+    virtual void on(ClientListener::UserRemoved, Client*, const OnlineUser&) noexcept;
+    virtual void on(ClientListener::Redirect, Client*, const string&) noexcept;
+    virtual void on(ClientListener::Failed, Client*, const string&) noexcept;
+    virtual void on(ClientListener::GetPassword, Client*) noexcept;
+    virtual void on(ClientListener::HubUpdated, Client*) noexcept;
+    virtual void on(ClientListener::Message, Client*, const ChatMessage&) noexcept;
+    virtual void on(ClientListener::StatusMessage, Client*, const string&, int = ClientListener::FLAG_NORMAL) noexcept;
+    virtual void on(ClientListener::NickTaken, Client*) noexcept;
+    virtual void on(ClientListener::SearchFlood, Client*, const string&) noexcept;
 
     QTimer *updater;
 

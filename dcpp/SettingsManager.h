@@ -39,9 +39,9 @@ public:
     typedef X<1> Save;
     typedef X<2> SearchTypesChanged;
 
-    virtual void on(Load, SimpleXML&) throw() { }
-    virtual void on(Save, SimpleXML&) throw() { }
-    virtual void on(SearchTypesChanged) throw() { }
+    virtual void on(Load, SimpleXML&) noexcept { }
+    virtual void on(Save, SimpleXML&) noexcept { }
+    virtual void on(SearchTypesChanged) noexcept { }
 };
 
 class SettingsManager : public Singleton<SettingsManager>, public Speaker<SettingsManagerListener>
@@ -252,7 +252,7 @@ public:
 private:
     friend class Singleton<SettingsManager>;
     SettingsManager();
-    virtual ~SettingsManager() throw() { }
+    virtual ~SettingsManager() noexcept { }
 
     static const string settingTags[SETTINGS_LAST+1];
 

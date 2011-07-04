@@ -47,8 +47,8 @@ class cmddebug:
         void addCmd(const std::string& cmd,const std::string& ip);
 
         //DebugManager
-        void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) throw();
-        void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw();
+        void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept;
+        void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept;
 
         static void onScroll_gui(GtkAdjustment *adjustment, gpointer data);
         static void onResize_gui(GtkAdjustment *adjustment, gpointer data);

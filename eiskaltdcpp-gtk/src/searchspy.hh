@@ -70,8 +70,8 @@ class SearchSpy:
 		static gboolean onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
 
 		// Client callbacks
-		virtual void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) throw();
-		virtual void on(dcpp::TimerManagerListener::Minute, uint64_t tick) throw();
+		virtual void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) noexcept;
+		virtual void on(dcpp::TimerManagerListener::Minute, uint64_t tick) noexcept;
 
 		SearchType FrameSize;
 		guint Waiting;

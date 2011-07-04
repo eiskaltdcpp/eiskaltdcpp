@@ -89,7 +89,7 @@ namespace dcpp
 		void waitToken();
 
 		// TimerManagerListener
-		void on(TimerManagerListener::Second, uint64_t /* aTick */) throw();
+		void on(TimerManagerListener::Second, uint64_t /* aTick */) noexcept;
 	};
 
 }	// namespace dcpp

@@ -2151,14 +2151,14 @@ void MainWindow::openOwnList_client(bool useSetting)
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void MainWindow::on(LogManagerListener::Message, time_t t, const string &message) throw()
+void MainWindow::on(LogManagerListener::Message, time_t t, const string &message) noexcept
 {
     typedef Func2<MainWindow, string, time_t> F2;
     F2 *func = new F2(this, &MainWindow::setMainStatus_gui, message, t);
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const string& dir, int64_t avSpeed) throw()
+void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const string& dir, int64_t avSpeed) noexcept
 {
     typedef Func3<MainWindow, string, string, Notify::TypeNotify> F3;
 
@@ -2182,7 +2182,7 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
     }
 }
 
-void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) throw()
+void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) noexcept
 {
     // Avoid calculating status update if it's not needed
     if (!WGETB("always-tray") && minimized)

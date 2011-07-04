@@ -20,6 +20,7 @@
 #define DCPLUSPLUS_DCPP_DOWNLOAD_H_
 
 #include "forward.h"
+#include "noexcept.h"
 #include "Transfer.h"
 #include "MerkleTree.h"
 #include "Flags.h"
@@ -41,7 +42,7 @@ public:
         FLAG_OVERLAP    = 0x100
     };
 
-    Download(UserConnection& conn, QueueItem& qi, const string& path, bool supportsTrees) throw();
+    Download(UserConnection& conn, QueueItem& qi, const string& path, bool supportsTrees) noexcept;
 
     virtual void getParams(const UserConnection& aSource, StringMap& params);
 

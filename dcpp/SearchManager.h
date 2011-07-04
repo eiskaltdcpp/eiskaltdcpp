@@ -82,8 +82,8 @@ public:
         return port;
     }
 
-    void listen() throw(SocketException);
-    void disconnect() throw();
+    void listen();
+    void disconnect() noexcept;
     void onSearchResult(const string& aLine) {
         onData((const uint8_t*)aLine.data(), aLine.length(), Util::emptyString);
     }
@@ -96,7 +96,7 @@ private:
     class UdpQueue: public Thread {
     public:
         UdpQueue() : stop(false) {}
-        ~UdpQueue() throw() { shutdown(); }
+        ~UdpQueue() noexcept { shutdown(); }
 
         int run();
         void shutdown() {
@@ -121,7 +121,7 @@ private:
     } queue;
 
     CriticalSection cs;
-    std::auto_ptr<Socket> socket;
+    std::unique_ptr<Socket> socket;
     uint16_t port;
     bool stop;
     friend class Singleton<SearchManager>;
@@ -131,7 +131,7 @@ private:
     static std::string normalizeWhitespace(const std::string& aString);
     int run();
 
-    ~SearchManager() throw();
+    ~SearchManager() noexcept;
     void onData(const uint8_t* buf, size_t aLen, const string& address);
 
     string getPartsString(const PartsInfo& partsInfo) const;

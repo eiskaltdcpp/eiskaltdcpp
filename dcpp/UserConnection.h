@@ -199,11 +199,11 @@ private:
     };
 
     // We only want ConnectionManager to create this...
-    UserConnection(bool secure_) throw() : encoding(Text::systemCharset), state(STATE_UNCONNECTED),
+    UserConnection(bool secure_) noexcept : encoding(Text::systemCharset), state(STATE_UNCONNECTED),
         lastActivity(0), speed(0), chunkSize(0), socket(0), secure(secure_), download(NULL) {
     }
 
-    virtual ~UserConnection() throw() {
+    virtual ~UserConnection() noexcept {
         BufferedSocket::putSocket(socket);
     }
 
@@ -213,7 +213,7 @@ private:
         user = aUser;
     }
 
-    void onLine(const string& aLine) throw();
+    void onLine(const string& aLine) noexcept;
 
     void send(const string& aString) {
         lastActivity = GET_TICK();
@@ -227,14 +227,14 @@ private:
         socket->write(aString);
     }
 
-    virtual void on(Connected) throw();
-    virtual void on(Line, const string&) throw();
-    virtual void on(Data, uint8_t* data, size_t len) throw();
-    virtual void on(BytesSent, size_t bytes, size_t actual) throw() ;
-    virtual void on(ModeChange) throw();
-    virtual void on(TransmitDone) throw();
-    virtual void on(Failed, const string&) throw();
-    virtual void on(Updated) throw();
+    virtual void on(Connected) noexcept;
+    virtual void on(Line, const string&) noexcept;
+    virtual void on(Data, uint8_t* data, size_t len) noexcept;
+    virtual void on(BytesSent, size_t bytes, size_t actual) noexcept ;
+    virtual void on(ModeChange) noexcept;
+    virtual void on(TransmitDone) noexcept;
+    virtual void on(Failed, const string&) noexcept;
+    virtual void on(Updated) noexcept;
 };
 
 } // namespace dcpp

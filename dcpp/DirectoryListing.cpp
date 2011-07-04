@@ -84,7 +84,7 @@ UserPtr DirectoryListing::getUserFromFilename(const string& fileName) {
     return ClientManager::getInstance()->getUser(cid);
 }
 
-void DirectoryListing::loadFile(const string& name) throw(Exception) {
+void DirectoryListing::loadFile(const string& name) {
     string txt;
 
     // For now, we detect type by ending...

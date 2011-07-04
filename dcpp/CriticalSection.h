@@ -20,6 +20,7 @@
 #define DCPLUSPLUS_DCPP_CRITICAL_SECTION_H
 
 #include "debug.h"
+#include "noexcept.h"
 
 #ifdef FIX_FOR_OLD_BOOST
     #include "Thread.h"
@@ -34,19 +35,19 @@ class CriticalSection
 {
 #ifdef _WIN32
 public:
-    void enter() throw() {
+    void enter() noexcept {
         EnterCriticalSection(&cs);
         dcdrun(counter++);
     }
-    void leave() throw() {
+    void leave() noexcept {
         dcassert(--counter >= 0);
         LeaveCriticalSection(&cs);
     }
-    CriticalSection() throw() {
+    CriticalSection() noexcept {
         dcdrun(counter = 0;);
         InitializeCriticalSection(&cs);
     }
-    ~CriticalSection() throw() {
+    ~CriticalSection() noexcept {
         dcassert(counter==0);
         DeleteCriticalSection(&cs);
     }
@@ -55,17 +56,17 @@ private:
     CRITICAL_SECTION cs;
 #else
 public:
-    CriticalSection() throw() {
+    CriticalSection() noexcept {
         pthread_mutexattr_init(&ma);
         pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_RECURSIVE);
         pthread_mutex_init(&mtx, &ma);
     }
-    ~CriticalSection() throw() {
+    ~CriticalSection() noexcept {
         pthread_mutex_destroy(&mtx);
         pthread_mutexattr_destroy(&ma);
     }
-    void enter() throw() { pthread_mutex_lock(&mtx); }
-    void leave() throw() { pthread_mutex_unlock(&mtx); }
+    void enter() noexcept { pthread_mutex_lock(&mtx); }
+    void leave() noexcept { pthread_mutex_unlock(&mtx); }
     pthread_mutex_t& getMutex() { return mtx; }
 private:
     pthread_mutex_t mtx;
@@ -108,8 +109,8 @@ private:
 template<class T>
 class LockBase {
 public:
-    LockBase(T& aCs) throw() : cs(aCs) { cs.enter(); }
-    ~LockBase() throw() { cs.leave(); }
+    LockBase(T& aCs) noexcept : cs(aCs) { cs.enter(); }
+    ~LockBase() noexcept { cs.leave(); }
 private:
     LockBase& operator=(const LockBase&);
     T& cs;

@@ -73,56 +73,56 @@ class QueueManager : public Singleton<QueueManager>, public Speaker<QueueManager
 {
 public:
     //NOTE: freedcpp
-    void add(const string& aTarget, int64_t aSize, const TTHValue& root) throw(QueueException, FileException);
+    void add(const string& aTarget, int64_t aSize, const TTHValue& root);
 
     /** Add a file to the queue. */
     void add(const string& aTarget, int64_t aSize, const TTHValue& root, const HintedUser& aUser,
-    int aFlags = 0, bool addBad = true) throw(QueueException, FileException);
+    int aFlags = 0, bool addBad = true);
     /** Add a user's filelist to the queue. */
-    void addList(const HintedUser& HintedUser, int aFlags, const string& aInitialDir = Util::emptyString) throw(QueueException, FileException);
+    void addList(const HintedUser& HintedUser, int aFlags, const string& aInitialDir = Util::emptyString);
     /** Readd a source that was removed */
-    void readd(const string& target, const HintedUser& aUser) throw(QueueException);
+    void readd(const string& target, const HintedUser& aUser);
     /** Add a directory to the queue (downloads filelist and matches the directory). */
     void addDirectory(const string& aDir, const HintedUser& aUser, const string& aTarget,
-            QueueItem::Priority p = QueueItem::DEFAULT) throw();
+            QueueItem::Priority p = QueueItem::DEFAULT) noexcept;
 
-    int matchListing(const DirectoryListing& dl) throw();
+    int matchListing(const DirectoryListing& dl) noexcept;
 
-    bool getTTH(const string& name, TTHValue& tth) throw();
+    bool getTTH(const string& name, TTHValue& tth) noexcept;
 
-    int64_t getSize(const string& target) throw();
-    int64_t getPos(const string& target) throw();
+    int64_t getSize(const string& target) noexcept;
+    int64_t getPos(const string& target) noexcept;
 
     /** Move the target location of a queued item. Running items are silently ignored */
-    void move(const string& aSource, const string& aTarget) throw();
+    void move(const string& aSource, const string& aTarget) noexcept;
 
-    void remove(const string& aTarget) throw();
-    void removeSource(const string& aTarget, const UserPtr& aUser, int reason, bool removeConn = true) throw();
-    void removeSource(const UserPtr& aUser, int reason) throw();
+    void remove(const string& aTarget) noexcept;
+    void removeSource(const string& aTarget, const UserPtr& aUser, int reason, bool removeConn = true) noexcept;
+    void removeSource(const UserPtr& aUser, int reason) noexcept;
 
     void recheck(const string& aTarget);
 
-    void setPriority(const string& aTarget, QueueItem::Priority p) throw();
+    void setPriority(const string& aTarget, QueueItem::Priority p) noexcept;
 
     void getTargets(const TTHValue& tth, StringList& sl);
-    QueueItem::StringMap& lockQueue() throw() { cs.enter(); return fileQueue.getQueue(); } ;
-    void unlockQueue() throw() { cs.leave(); }
+    QueueItem::StringMap& lockQueue() noexcept { cs.enter(); return fileQueue.getQueue(); } ;
+    void unlockQueue() noexcept { cs.leave(); }
 
-    Download* getDownload(UserConnection& aSource, bool supportsTrees) throw();
-    void putDownload(Download* aDownload, bool finished) throw();
+    Download* getDownload(UserConnection& aSource, bool supportsTrees) noexcept;
+    void putDownload(Download* aDownload, bool finished) noexcept;
     void setFile(Download* download);
 
     int64_t getQueued(const UserPtr& aUser) const;
 
     /** @return The highest priority download the user has, PAUSED may also mean no downloads */
-    QueueItem::Priority hasDownload(const UserPtr& aUser) throw();
+    QueueItem::Priority hasDownload(const UserPtr& aUser) noexcept;
 
-    bool getQueueInfo(const UserPtr& aUser, string& aTarget, int64_t& aSize, int& aFlags) throw();
+    bool getQueueInfo(const UserPtr& aUser, string& aTarget, int64_t& aSize, int& aFlags) noexcept;
 
     int countOnlineSources(const string& aTarget);
 
-    void loadQueue() throw();
-    void saveQueue(bool force = false) throw();
+    void loadQueue() noexcept;
+    void saveQueue(bool force = false) noexcept;
 
     void noDeleteFileList(const string& path);
 
@@ -170,8 +170,8 @@ private:
 
     class Rechecker : public Thread {
         struct DummyOutputStream : OutputStream {
-            virtual size_t write(const void*, size_t n) throw(Exception) { return n; }
-            virtual size_t flush() throw(Exception) { return 0; }
+            virtual size_t write(const void*, size_t n) { return n; }
+            virtual size_t flush() { return 0; }
         };
 
     public:
@@ -199,8 +199,7 @@ private:
         }
         void add(QueueItem* qi);
         QueueItem* add(const string& aTarget, int64_t aSize, int aFlags, QueueItem::Priority p,
-            const string& aTempTarget, time_t aAdded, const TTHValue& root)
-            throw(QueueException, FileException);
+            const string& aTempTarget, time_t aAdded, const TTHValue& root);
 
         QueueItem* find(const string& target);
         void find(QueueItem::List& sl, int64_t aSize, const string& ext);
@@ -251,7 +250,7 @@ private:
     friend class Singleton<QueueManager>;
 
     QueueManager();
-    virtual ~QueueManager() throw();
+    virtual ~QueueManager() noexcept;
 
     mutable CriticalSection cs;
 
@@ -270,9 +269,9 @@ private:
     /** File lists not to delete */
     StringList protectedFileLists;
     /** Sanity check for the target filename */
-    static string checkTarget(const string& aTarget, bool checkExsistence) throw(QueueException, FileException);
+    static string checkTarget(const string& aTarget, bool checkExsistence);
     /** Add a source to an existing queue item */
-    bool addSource(QueueItem* qi, const HintedUser& aUser, Flags::MaskType addBad) throw(QueueException, FileException);
+    bool addSource(QueueItem* qi, const HintedUser& aUser, Flags::MaskType addBad);
 
     void processList(const string& name, const HintedUser& user, int flags);
 
@@ -287,20 +286,20 @@ private:
     string getListPath(const HintedUser& user);
 
     bool checkSfv(QueueItem* qi, Download* d);
-    uint32_t calcCrc32(const string& file) throw(FileException);
+    uint32_t calcCrc32(const string& file);
 
     void logFinishedDownload(QueueItem* qi, Download* d, bool crcError);
 
     // TimerManagerListener
-    virtual void on(TimerManagerListener::Second, uint64_t aTick) throw();
-    virtual void on(TimerManagerListener::Minute, uint64_t aTick) throw();
+    virtual void on(TimerManagerListener::Second, uint64_t aTick) noexcept;
+    virtual void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;
 
     // SearchManagerListener
-    virtual void on(SearchManagerListener::SR, const SearchResultPtr&) throw();
+    virtual void on(SearchManagerListener::SR, const SearchResultPtr&) noexcept;
 
     // ClientManagerListener
-    virtual void on(ClientManagerListener::UserConnected, const UserPtr& aUser) throw();
-    virtual void on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) throw();
+    virtual void on(ClientManagerListener::UserConnected, const UserPtr& aUser) noexcept;
+    virtual void on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) noexcept;
 };
 
 } // namespace dcpp

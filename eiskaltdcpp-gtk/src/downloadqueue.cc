@@ -1376,7 +1376,7 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
 	params["TTH"] = item->getTTH().toBase32();
 }
 
-void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw()
+void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) noexcept
 {
 	StringMap params;
 	getQueueParams_client(item, params);
@@ -1386,7 +1386,7 @@ void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) throw()
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const string &oldTarget) throw()
+void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const string &oldTarget) noexcept
 {
 	// Remove the old file
 	typedef Func2<DownloadQueue, string, int64_t> F2a;
@@ -1402,14 +1402,14 @@ void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const strin
 	WulforManager::get()->dispatchGuiFunc(func2);
 }
 
-void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) throw()
+void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) noexcept
 {
 	typedef Func2<DownloadQueue, string, int64_t> F2;
 	F2 *func = new F2(this, &DownloadQueue::removeFile_gui, item->getTarget(), item->getSize());
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void DownloadQueue::on(QueueManagerListener::SourcesUpdated, QueueItem *item) throw()
+void DownloadQueue::on(QueueManagerListener::SourcesUpdated, QueueItem *item) noexcept
 {
 	StringMap params;
 	getQueueParams_client(item, params);
@@ -1419,7 +1419,7 @@ void DownloadQueue::on(QueueManagerListener::SourcesUpdated, QueueItem *item) th
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void DownloadQueue::on(QueueManagerListener::StatusUpdated, QueueItem *item) throw()
+void DownloadQueue::on(QueueManagerListener::StatusUpdated, QueueItem *item) noexcept
 {
 	StringMap params;
 	getQueueParams_client(item, params);

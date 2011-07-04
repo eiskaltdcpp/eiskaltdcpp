@@ -71,25 +71,25 @@ private:
     static ClientMap clientsMap;
 
     // TimerManagerListener
-    void on(TimerManagerListener::Second, uint64_t aTick) throw();
+    void on(TimerManagerListener::Second, uint64_t aTick) noexcept;
 
     // ClientListener
-    void on(Connecting, Client* cur) throw();
-    void on(Connected, Client* cur) throw();
-    void on(UserUpdated, Client* cur, const OnlineUserPtr&) throw();
-    void on(UsersUpdated, Client* cur, const OnlineUserList&) throw();
-    void on(UserRemoved, Client* cur, const OnlineUserPtr&) throw();
-    void on(Redirect, Client* cur, const string&) throw();
-    void on(Failed, Client* cur, const string&) throw();
-    void on(GetPassword, Client* cur) throw();
-    void on(HubUpdated, Client* cur) throw();
-    void on(StatusMessage, Client* cur, const string&, int = ClientListener::FLAG_NORMAL) throw();
-    void on(ClientListener::Message, Client*, const ChatMessage&) throw();
-    void on(NickTaken, Client* cur) throw();
-    void on(SearchFlood, Client* cur, const string&) throw();
+    void on(Connecting, Client* cur) noexcept;
+    void on(Connected, Client* cur) noexcept;
+    void on(UserUpdated, Client* cur, const OnlineUserPtr&) noexcept;
+    void on(UsersUpdated, Client* cur, const OnlineUserList&) noexcept;
+    void on(UserRemoved, Client* cur, const OnlineUserPtr&) noexcept;
+    void on(Redirect, Client* cur, const string&) noexcept;
+    void on(Failed, Client* cur, const string&) noexcept;
+    void on(GetPassword, Client* cur) noexcept;
+    void on(HubUpdated, Client* cur) noexcept;
+    void on(StatusMessage, Client* cur, const string&, int = ClientListener::FLAG_NORMAL) noexcept;
+    void on(ClientListener::Message, Client*, const ChatMessage&) noexcept;
+    void on(NickTaken, Client* cur) noexcept;
+    void on(SearchFlood, Client* cur, const string&) noexcept;
 
     //SearchManagerListener
-    void on(SearchManagerListener::SR, const SearchResultPtr &result) throw();
+    void on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept;
 
     int64_t lastUp;
     int64_t lastDown;

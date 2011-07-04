@@ -20,6 +20,7 @@
 #define DCPLUSPLUS_DCPP_SEARCH_MANAGER_LISTENER_H
 
 #include "forward.h"
+#include "noexcept.h"
 
 namespace dcpp {
 
@@ -31,7 +32,7 @@ public:
     template<int I> struct X { enum { TYPE = I }; };
 
     typedef X<0> SR;
-    virtual void on(SR, const SearchResultPtr&) throw() = 0;
+    virtual void on(SR, const SearchResultPtr&) noexcept = 0;
 };
 
 } // namespace dcpp

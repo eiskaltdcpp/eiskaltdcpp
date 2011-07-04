@@ -40,7 +40,7 @@ public:
         cur.getLeaves().insert(cur.getLeaves().begin(), aTree.getLeaves().begin(), aTree.getLeaves().begin() + nBlocks);
     }
 
-    virtual ~MerkleCheckOutputStream() throw() { if(managed) delete s; }
+    virtual ~MerkleCheckOutputStream() noexcept { if(managed) delete s; }
 
     virtual size_t flush() throw(FileException) {
         if (bufPos != 0)

@@ -30,7 +30,7 @@
 
 namespace dcpp {
 
-bool SFVReader::tryFile(const string& sfvFile, const string& fileName) throw(FileException) {
+bool SFVReader::tryFile(const string& sfvFile, const string& fileName) {
 
     string sfv = File(sfvFile, File::READ, File::OPEN).read();
 
@@ -51,7 +51,7 @@ bool SFVReader::tryFile(const string& sfvFile, const string& fileName) throw(Fil
     return false;
 }
 
-void SFVReader::load(const string& fileName) throw() {
+void SFVReader::load(const string& fileName) noexcept {
     string path = Util::getFilePath(fileName);
     string fname = Util::getFileName(fileName);
     StringList files = File::findFiles(path, "*.sfv");

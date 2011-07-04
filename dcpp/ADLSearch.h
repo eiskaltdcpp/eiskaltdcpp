@@ -128,7 +128,7 @@ public:
     GETSET(HintedUser, user, User)
 
     // @remarks Used to add ADLSearch directories to an existing DirectoryListing
-    void matchListing(DirectoryListing& /*aDirList*/) throw();
+    void matchListing(DirectoryListing& /*aDirList*/) noexcept;
 
 private:
     // @internal
@@ -144,7 +144,7 @@ private:
     // Finalize destination directories
     void FinalizeDestinationDirectories(DestDirList& destDirVector, DirectoryListing::Directory* root);
 
-    string getConfigFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "ADLSearch.xml"; }
+    string getConfigFile();
 };
 
 } // namespace dcpp

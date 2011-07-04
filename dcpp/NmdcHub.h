@@ -53,7 +53,7 @@ public:
     using Client::send;
     using Client::connect;
 
-    void onLine(const string& aLine) throw();
+    void onLine(const string& aLine) noexcept;
     virtual void connect(const OnlineUser& aUser, const string&);
 
     virtual void hubMessage(const string& aMessage, bool /*thirdPerson*/ = false);
@@ -104,7 +104,7 @@ friend class ClientManager;
     StringList protectedIPs;
 
     NmdcHub(const string& aHubURL);
-    virtual ~NmdcHub() throw();
+    virtual ~NmdcHub() noexcept;
 
     // Dummy
     NmdcHub(const NmdcHub&);
@@ -135,12 +135,12 @@ friend class ClientManager;
     virtual string checkNick(const string& aNick);
 
     // TimerManagerListener
-    virtual void on(Second, uint64_t aTick) throw();
-    virtual void on(Minute, uint64_t aTick) throw();
+    virtual void on(Second, uint64_t aTick) noexcept;
+    virtual void on(Minute, uint64_t aTick) noexcept;
 
-    virtual void on(Connected) throw();
-    virtual void on(Line, const string& l) throw();
-    virtual void on(Failed, const string&) throw();
+    virtual void on(Connected) noexcept;
+    virtual void on(Line, const string& l) noexcept;
+    virtual void on(Failed, const string&) noexcept;
 
 };
 

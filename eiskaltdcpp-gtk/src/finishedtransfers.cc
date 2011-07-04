@@ -720,7 +720,7 @@ void FinishedTransfers::removeAll_client()
 	FinishedManager::getInstance()->removeAll(isUpload);
 }
 
-void FinishedTransfers::on(FinishedManagerListener::AddedFile, bool upload, const string& file, const FinishedFileItemPtr& item) throw()
+void FinishedTransfers::on(FinishedManagerListener::AddedFile, bool upload, const string& file, const FinishedFileItemPtr& item) noexcept
 {
 	if (isUpload == upload)
 	{
@@ -734,7 +734,7 @@ void FinishedTransfers::on(FinishedManagerListener::AddedFile, bool upload, cons
 }
 
 //NOTE: core 0.762
-void FinishedTransfers::on(FinishedManagerListener::AddedUser, bool upload, const HintedUser &user, const FinishedUserItemPtr &item) throw()
+void FinishedTransfers::on(FinishedManagerListener::AddedUser, bool upload, const HintedUser &user, const FinishedUserItemPtr &item) noexcept
 {
 	if (isUpload == upload)
 	{
@@ -747,7 +747,7 @@ void FinishedTransfers::on(FinishedManagerListener::AddedUser, bool upload, cons
 	}
 }
 
-void FinishedTransfers::on(FinishedManagerListener::UpdatedFile, bool upload, const string& file, const FinishedFileItemPtr& item) throw()
+void FinishedTransfers::on(FinishedManagerListener::UpdatedFile, bool upload, const string& file, const FinishedFileItemPtr& item) noexcept
 {
 	if (isUpload == upload)
 	{
@@ -760,7 +760,7 @@ void FinishedTransfers::on(FinishedManagerListener::UpdatedFile, bool upload, co
 	}
 }
 
-void FinishedTransfers::on(FinishedManagerListener::UpdatedUser, bool upload, const HintedUser &user) throw()//NOTE: core 0.762
+void FinishedTransfers::on(FinishedManagerListener::UpdatedUser, bool upload, const HintedUser &user) noexcept//NOTE: core 0.762
 {
 	if (isUpload == upload)
 	{
@@ -780,7 +780,7 @@ void FinishedTransfers::on(FinishedManagerListener::UpdatedUser, bool upload, co
 	}
 }
 
-void FinishedTransfers::on(FinishedManagerListener::RemovedFile, bool upload, const string& item) throw()
+void FinishedTransfers::on(FinishedManagerListener::RemovedFile, bool upload, const string& item) noexcept
 {
 	if (isUpload == upload)
 	{
@@ -790,7 +790,7 @@ void FinishedTransfers::on(FinishedManagerListener::RemovedFile, bool upload, co
 	}
 }
 
-void FinishedTransfers::on(FinishedManagerListener::RemovedUser, bool upload, const HintedUser &user) throw()//NOTE: core 0.762
+void FinishedTransfers::on(FinishedManagerListener::RemovedUser, bool upload, const HintedUser &user) noexcept//NOTE: core 0.762
 {
 	if (isUpload == upload)
 	{

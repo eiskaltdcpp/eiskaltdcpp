@@ -19,7 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_CLIENT_MANAGER_LISTENER_H
 #define DCPLUSPLUS_DCPP_CLIENT_MANAGER_LISTENER_H
 
-#include "typedefs.h"
+#include "forward.h"
+#include "noexcept.h"
 
 namespace dcpp {
 
