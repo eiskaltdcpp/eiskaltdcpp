@@ -17,7 +17,6 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "UPnPManager.h"
 
@@ -69,9 +68,9 @@ int UPnPManager::run() {
         conn_port = ConnectionManager::getInstance()->getPort(),
         secure_port = ConnectionManager::getInstance()->getSecurePort(),
         search_port = SearchManager::getInstance()->getPort();
-        #ifdef WITH_DHT
+#ifdef WITH_DHT
         const unsigned short dht_port = dht::DHT::getInstance()->getPort();
-        #endif
+#endif
 
     for(Impls::iterator i = impls.begin(); i != impls.end(); ++i) {
         UPnP& impl = *i;
@@ -97,12 +96,12 @@ int UPnPManager::run() {
             log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "UDP" % search_port));
             continue;
         }
-        #ifdef WITH_DHT
+#ifdef WITH_DHT
         if(dht_port != 0 && !impl.open(dht_port, UPnP::PROTOCOL_UDP, str(F_(APPNAME " DHT Port (%1% UDP)") % dht_port))){
             log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "UDP" % dht_port));
             continue;
         }
-        #endif
+#endif
 
         opened = true;
         log(str(F_("Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped using the %4% interface") % conn_port % search_port % secure_port % impl.getName()));

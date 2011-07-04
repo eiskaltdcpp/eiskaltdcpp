@@ -16,7 +16,6 @@
 #include <QThread>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 
 #include "ui_UIFileHasher.h"
 
@@ -57,4 +56,3 @@ public:
 };
 
 #endif // FILEHASHER_H
-

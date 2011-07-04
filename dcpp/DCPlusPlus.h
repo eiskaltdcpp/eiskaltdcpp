@@ -19,79 +19,12 @@
 #ifndef DCPLUSPLUS_DCPP_DCPLUSPLUS_H
 #define DCPLUSPLUS_DCPP_DCPLUSPLUS_H
 
-#ifdef _WIN32
-#ifndef snprintf
-#define snprintf _snprintf
-#endif
-#endif
-
-#ifdef _DEBUG
-
-inline void CDECL debugTrace(const char* format, ...)
-{
-    va_list args;
-    va_start(args, format);
-
-    vprintf(format, args);
-    va_end(args);
-}
-
-#define dcdebug debugTrace
-#ifdef _MSC_VER
-#define dcassert(exp) \
-do { if (!(exp)) { \
-    dcdebug("Assertion hit in %s(%d): " #exp "\n", __FILE__, __LINE__); \
-    if(1 == _CrtDbgReport(_CRT_ASSERT, __FILE__, __LINE__, NULL, #exp)) \
-_CrtDbgBreak(); } } while(false)
-#else
-#define dcassert(exp) assert(exp)
-#endif
-#define dcdrun(exp) exp
-#else //_DEBUG
-#define dcdebug if (false) printf
-#define dcassert(exp)
-#define dcdrun(exp)
-#endif //_DEBUG
-
-// Make sure we're using the templates from algorithm...
-#ifdef min
-#undef min
-#endif
-#ifdef max
-#undef max
-#endif
-
-#if defined(_MSC_VER) || defined(__MINGW32__)
-#define _LL(x) x##ll
-#define _ULL(x) x##ull
-#define I64_FMT "%I64d"
-#define U64_FMT "%I64d"
-
-#elif defined(SIZEOF_LONG) && SIZEOF_LONG == 8
-#define _LL(x) x##l
-#define _ULL(x) x##ul
-#define I64_FMT "%ld"
-#define U64_FMT "%ld"
-#else
-#define _LL(x) x##ll
-#define _ULL(x) x##ull
-#define I64_FMT "%lld"
-#define U64_FMT "%lld"
-#endif
-
-#ifdef _WIN32
-
-# define PATH_SEPARATOR '\\'
-# define PATH_SEPARATOR_STR "\\"
-
-#else
-
-# define PATH_SEPARATOR '/'
-# define PATH_SEPARATOR_STR "/"
-
-#endif
+#include <string>
 
 namespace dcpp {
+
+using std::string;
+
 extern void startup(void (*f)(void*, const string&), void* p);
 extern void shutdown();
 

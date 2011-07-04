@@ -17,7 +17,6 @@
 #include "ui_UIUserCommands.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include <dcpp/FavoriteManager.h>
 
 class UCDialog: public QDialog, public Ui::UIUserCommands{

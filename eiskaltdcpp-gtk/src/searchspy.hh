@@ -23,7 +23,6 @@
 #define SEARCH_SPY_HH
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/ClientManager.h>
 #include <dcpp/TimerManager.h>
 

@@ -23,7 +23,6 @@
 #define WULFOR_PRIVATE_MESSAGE_HH
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/ClientManagerListener.h>
 #include "bookentry.hh"
 #include "message.hh"

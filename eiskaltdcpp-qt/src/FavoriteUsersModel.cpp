@@ -15,7 +15,6 @@
 #include <QStringList>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/CID.h"

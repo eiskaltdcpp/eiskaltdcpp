@@ -14,7 +14,6 @@
 #include "WulforSettings.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/ADLSearch.h"
 
 #include <QTreeView>

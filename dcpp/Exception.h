@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_EXCEPTION_H
 #define DCPLUSPLUS_DCPP_EXCEPTION_H
 
+#include "debug.h"
+
 namespace dcpp {
 
 class Exception : public std::exception

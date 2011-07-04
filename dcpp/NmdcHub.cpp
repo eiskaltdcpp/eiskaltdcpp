@@ -17,7 +17,6 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "NmdcHub.h"
 
@@ -557,8 +556,10 @@ void NmdcHub::onLine(const string& aLine) throw() {
                 feat.push_back("TTHSearch");
                 feat.push_back("ZPipe0");
 
+#ifdef WITH_DHT
                 if(BOOLSETTING(USE_DHT))
                     feat.push_back("DHT0");
+#endif
 
                 supports(feat);
             }

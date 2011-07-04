@@ -17,7 +17,6 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "AdcHub.h"
 
@@ -50,7 +49,9 @@ const string AdcHub::BAS0_SUPPORT("ADBAS0");
 const string AdcHub::TIGR_SUPPORT("ADTIGR");
 const string AdcHub::UCM0_SUPPORT("ADUCM0");
 const string AdcHub::BLO0_SUPPORT("ADBLO0");
+#ifdef WITH_DHT
 const string AdcHub::DHT0_SUPPORT("ADDHT0");
+#endif
 
 const vector<StringList> AdcHub::searchExts;
 

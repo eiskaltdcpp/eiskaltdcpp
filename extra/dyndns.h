@@ -20,7 +20,6 @@
 #define EISKALTDCPP_DYNDNS_H
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/HttpConnection.h"
 #include "dcpp/Singleton.h"
 #include "dcpp/TimerManager.h"

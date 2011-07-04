@@ -19,7 +19,6 @@
 #include <algorithm>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/CID.h"
 

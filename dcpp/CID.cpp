@@ -17,3 +17,19 @@
  */
 
 #include "stdinc.h"
+#include "CID.h"
+
+#include "Util.h"
+
+namespace dcpp {
+
+CID CID::generate() {
+	uint8_t data[CID::SIZE];
+	for(size_t i = 0; i < sizeof(data); ++i) {
+		data[i] = (uint8_t)Util::rand();
+	}
+	return CID(data);
+}
+
+
+}

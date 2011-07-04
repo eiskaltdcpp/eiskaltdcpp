@@ -17,9 +17,9 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "TigerHash.h"
+#include "debug.h"
 
 namespace dcpp {
 

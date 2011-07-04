@@ -29,7 +29,6 @@
 #include "SettingsManager.h"
 
 #include "StringSearch.h"
-#include "StringTokenizer.h"
 #include "Singleton.h"
 #include "DirectoryListing.h"
 

@@ -17,7 +17,6 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "ConnectivityManager.h"
 #include "SettingsManager.h"
@@ -26,8 +25,9 @@
 #include "SearchManager.h"
 #include "LogManager.h"
 #include "UPnPManager.h"
-
+#ifdef WITH_DHT
 #include "dht/DHT.h"
+#endif
 
 namespace dcpp {
 

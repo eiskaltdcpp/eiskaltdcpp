@@ -19,7 +19,6 @@
 #include <QApplication>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Util.h"
 
 #ifndef CLIENT_SCRIPTS_DIR
@@ -270,4 +269,3 @@ int ScriptManagerItem::row() const {
 
     return 0;
 }
-

@@ -23,7 +23,6 @@
 #define WULFOR_HASH_HH
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/TimerManager.h>
 
 #include "dialogentry.hh"

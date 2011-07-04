@@ -13,7 +13,6 @@
 #include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Socket.h"
 

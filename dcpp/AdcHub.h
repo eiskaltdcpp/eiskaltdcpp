@@ -79,7 +79,9 @@ public:
     static const string TIGR_SUPPORT;
     static const string UCM0_SUPPORT;
     static const string BLO0_SUPPORT;
+#ifdef WITH_DHT
     static const string DHT0_SUPPORT;
+#endif
 
 private:
     friend class ClientManager;

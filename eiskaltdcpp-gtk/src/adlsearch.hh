@@ -23,7 +23,6 @@
 #define SEARCH_ADL_H
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/ADLSearch.h>
 
 #include "bookentry.hh"

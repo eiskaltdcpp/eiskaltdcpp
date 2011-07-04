@@ -19,7 +19,12 @@
 #ifndef DCPLUSPLUS_DCPP_UTIL_H
 #define DCPLUSPLUS_DCPP_UTIL_H
 
-#ifndef _WIN32
+#ifdef _WIN32
+# define PATH_SEPARATOR '\\'
+# define PATH_SEPARATOR_STR "\\"
+#else
+# define PATH_SEPARATOR '/'
+# define PATH_SEPARATOR_STR "/"
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -389,6 +394,7 @@ public:
 
     static string encodeURI(const string& /*aString*/, bool reverse = false);
     static string getLocalIp();
+    static vector<string> getLocalIPs();
     static bool isPrivateIp(string const& ip);
     static string formatAdditionalInfo(const std::string& aIp, bool sIp, bool sCC);
     /**

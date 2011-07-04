@@ -15,7 +15,6 @@
 #include <boost/noncopyable.hpp>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 
 class SearchBlacklist:

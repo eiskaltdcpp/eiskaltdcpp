@@ -23,7 +23,6 @@
 #define WULFOR_TRANSFERS_HH
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/ConnectionManager.h>
 #include <dcpp/DownloadManager.h>
 #include <dcpp/LogManager.h>

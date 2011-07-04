@@ -21,7 +21,6 @@
 #endif
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Util.h"
 
 using namespace dcpp;
