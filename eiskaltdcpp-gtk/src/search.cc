@@ -433,8 +433,10 @@ void Search::search_gui()
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(hubStore), &iter);
     }
 
+#ifndef WITH_DHT
     if (clients.size() < 1)
         return;
+#endif
 
     double lsize = Util::toDouble(gtk_entry_get_text(GTK_ENTRY(getWidget("entrySize"))));
 
