@@ -25,7 +25,6 @@
 #include <string>
 #include <map>
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/Singleton.h>
 
 #define WSET(key, value) WulforSettingsManager::getInstance()->set(key, value)

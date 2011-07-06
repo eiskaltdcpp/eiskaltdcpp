@@ -23,7 +23,6 @@
 #define WULFOR_DOWNLOAD_QUEUE_HH
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/QueueManager.h>
 
 #include "bookentry.hh"

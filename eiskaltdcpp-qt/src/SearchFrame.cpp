@@ -907,8 +907,10 @@ void SearchFrame::slotStartSearch(){
             clients.push_back(_tq(index.data().toString()));
     }
 
+#ifndef WITH_DHT
     if (clients.empty())
         return;
+#endif
 
     QString str_size = lineEdit_SIZE->text();
     double lsize = Util::toDouble(Text::fromT(str_size.toStdString()));

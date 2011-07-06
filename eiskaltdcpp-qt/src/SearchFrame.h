@@ -30,7 +30,6 @@
 #include "ArenaWidget.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/SearchResult.h"
 #include "dcpp/SearchManager.h"
 #include "dcpp/SettingsManager.h"

@@ -56,7 +56,7 @@
         </child>
         <child>
           <widget class="GtkStatusbar" id="itemsStatus">
-            <property name="width_request">100</property>
+            <property name="width_request">120</property>
             <property name="visible">True</property>
             <property name="has_resize_grip">False</property>
           </widget>
@@ -68,7 +68,7 @@
         </child>
         <child>
           <widget class="GtkStatusbar" id="sizeStatus">
-            <property name="width_request">120</property>
+            <property name="width_request">160</property>
             <property name="visible">True</property>
             <property name="has_resize_grip">False</property>
           </widget>
@@ -80,7 +80,7 @@
         </child>
         <child>
           <widget class="GtkStatusbar" id="filesStatus">
-            <property name="width_request">120</property>
+            <property name="width_request">160</property>
             <property name="visible">True</property>
             <property name="has_resize_grip">False</property>
           </widget>
@@ -92,7 +92,7 @@
         </child>
         <child>
           <widget class="GtkStatusbar" id="totalStatus">
-            <property name="width_request">120</property>
+            <property name="width_request">160</property>
             <property name="visible">True</property>
             <property name="has_resize_grip">False</property>
           </widget>

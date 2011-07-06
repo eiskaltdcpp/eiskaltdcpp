@@ -19,6 +19,7 @@
 #ifndef DCPLUSPLUS_DCPP_MERKLE_TREE_H
 #define DCPLUSPLUS_DCPP_MERKLE_TREE_H
 
+#include "debug.h"
 #include "typedefs.h"
 #include "TigerHash.h"
 #include "Encoder.h"

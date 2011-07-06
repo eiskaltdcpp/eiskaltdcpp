@@ -1,3 +1,10 @@
+--- 2.2.4 2011-09-18 ---
+*** common changes ***
+* Added support for DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). This option is disabled in the settings by default. It is possible to completely remove support for DHT during configuration (option -DWITH_DHT for cmake). See also: http://en.wikipedia.org/wiki/Distributed_hash_table
+*** eiskaltdcpp-qt ***
+*** eiskaltdcpp-gtk ***
+*** eiskaltdcpp-daemon ***
+
 --- 2.2.3 2011-06-25 ---
 *** common changes ***
 * Different search intervals for favorite hubs (default value: 60 s).
@@ -5,12 +12,12 @@
 * Thanks to Chris Leick the German translation is now available.
 * Common code for updating IP from DynDNS (moved from Qt GUI).
 * Summary statistics (downloaded/uploaded) moved into the core (current values ​​in the Qt GUI will be dropped).
+* Fixed problem with hashing files, which contain in their names characters missing in the standard 8-bytes locales, but present in Unicode locales. (Affects only MS Windows)
 * Updated app icons in faenza theme.
 * Fixed build in Mac OS X.
 * A lot of fixes and cleanup of code (fixed some compiler warnings and etc).
 *** eiskaltdcpp-qt ***
 * Added new chat command: /dcpps (for changing settings of DC++ core)
-* Added some options in settings dialog: USE_DHT and DHT_PORT
 * Added some options in favorite hub settings dialog: MINIMUM_SEARCH_INTERVAL
 * Async loading of history from databases was implemented in widget of finished transfers.
 * Added temporary limitation to the number of items loaded from the databases on program startup (only 500 elements from the history of finished transfers). It will be simple history navigation in this widget later.

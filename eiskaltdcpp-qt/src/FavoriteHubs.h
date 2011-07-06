@@ -21,7 +21,6 @@
 #include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Singleton.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/FavoriteManagerListener.h"

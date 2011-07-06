@@ -17,7 +17,6 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "HttpConnection.h"
 
@@ -92,20 +91,28 @@ void HttpConnection::downloadFile(const string& aUrl) {
 void HttpConnection::on(BufferedSocketListener::Connected) throw() {
     dcassert(socket);
     socket->write("GET " + file + " HTTP/1.1\r\n");
-    //socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
-    socket->write("User-Agent: StrongDC++ v2.42\r\n");
 
     string sRemoteServer = server;
     if(!SETTING(HTTP_PROXY).empty())
     {
-                string tfile, proto, query, fragment;
+        string tfile, proto, query, fragment;
         uint16_t tport;
-                Util::decodeUrl(file, proto, sRemoteServer, tport, tfile, query, fragment);
+        Util::decodeUrl(file, proto, sRemoteServer, tport, tfile, query, fragment);
     }
+
+#ifdef WITH_DHT
+    if (sRemoteServer == "strongdc.sourceforge.net")
+        socket->write("User-Agent: StrongDC++ v2.42\r\n");
+    else
+        socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
+#else
+    socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
+#endif
+
     socket->write("Host: " + sRemoteServer + "\r\n");
     socket->write("Connection: close\r\n"); // we'll only be doing one request
     socket->write("Cache-Control: no-cache\r\n\r\n");
-        if (coralizeState == CST_DEFAULT) coralizeState = CST_CONNECTED;
+    if (coralizeState == CST_DEFAULT) coralizeState = CST_CONNECTED;
 }
 
 void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) throw() {
@@ -119,13 +126,13 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) throw
                 socket->removeListener(this);
                 BufferedSocket::putSocket(socket);
                 socket = NULL;
-                                if(SETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
-                                        fire(HttpConnectionListener::Retried(), this, coralizeState == CST_CONNECTED);
-                                        coralizeState = CST_NOCORALIZE;
-                                        dcdebug("HTTP error with Coral, retrying : %s\n",currentUrl.c_str());
-                                        downloadFile(currentUrl);
-                                        return;
-                                }
+                if(SETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
+                    fire(HttpConnectionListener::Retried(), this, coralizeState == CST_CONNECTED);
+                    coralizeState = CST_NOCORALIZE;
+                    dcdebug("HTTP error with Coral, retrying : %s\n",currentUrl.c_str());
+                    downloadFile(currentUrl);
+                    return;
+                }
                 fire(HttpConnectionListener::Failed(), this, aLine + " (" + currentUrl + ")");
                 coralizeState = CST_DEFAULT;
                 return;
@@ -143,8 +150,8 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) throw
         // make sure we can also handle redirects with relative paths
         if(Util::strnicmp(location302.c_str(), "http://", 7) != 0) {
             if(location302[0] == '/') {
-                                string proto, query, fragment;
-                                Util::decodeUrl(currentUrl, proto, server, port, file, query, fragment);
+                string proto, query, fragment;
+                Util::decodeUrl(currentUrl, proto, server, port, file, query, fragment);
                 string tmp = "http://" + server;
                 if(port != 80)
                     tmp += ':' + Util::toString(port);
@@ -178,8 +185,8 @@ void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) thr
     socket->removeListener(this);
     BufferedSocket::putSocket(socket);
     socket = NULL;
-        if(SETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
-                fire(HttpConnectionListener::Retried(), this, coralizeState == CST_CONNECTED);
+    if(SETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
+        fire(HttpConnectionListener::Retried(), this, coralizeState == CST_CONNECTED);
         coralizeState = CST_NOCORALIZE;
         dcdebug("Coralized address failed, retrying : %s\n",currentUrl.c_str());
         downloadFile(currentUrl);
@@ -194,7 +201,7 @@ void HttpConnection::on(BufferedSocketListener::ModeChange) throw() {
     socket->disconnect();
     BufferedSocket::putSocket(socket);
     socket = NULL;
-        fire(HttpConnectionListener::Complete(), this, currentUrl, BOOLSETTING(CORAL) && coralizeState != CST_NOCORALIZE);
+    fire(HttpConnectionListener::Complete(), this, currentUrl, BOOLSETTING(CORAL) && coralizeState != CST_NOCORALIZE);
     coralizeState = CST_DEFAULT;
 }
 void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen) throw() {

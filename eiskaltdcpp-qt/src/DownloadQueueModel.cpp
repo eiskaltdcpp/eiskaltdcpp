@@ -23,7 +23,7 @@
 #include <QSize>
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
+
 #include <dcpp/QueueManager.h>
 
 #define _DEBUG_ 1
@@ -542,7 +542,7 @@ DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
 
         if (!found){
             static QString data = "";
-            
+
             for (int j = i; j < list.size(); j++){
                 QList<QVariant> rootData;
                 rootData << list.at(j)  << data << data << data

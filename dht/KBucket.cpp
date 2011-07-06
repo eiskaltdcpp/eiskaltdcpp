@@ -27,16 +27,11 @@
 
 namespace dht
 {
-	int check = 0;
+
 	// Set all new nodes' type to 3 to avoid spreading dead nodes..
 	Node::Node(const UserPtr& u) :
 		OnlineUser(u, *DHT::getInstance(), 0), created(GET_TICK()), type(3), expires(0), ipVerified(false), online(false)
 	{
-		check++;
-	}
-	Node::~Node() throw ()
-	{
-		check--;
 	}
 
 	CID Node::getUdpKey() const
@@ -100,12 +95,8 @@ namespace dht
 				ClientManager::getInstance()->putOffline(node.get());
 				node->dec();
 			}
-			dcassert(node->unique());
 		}
-		dcdebug("Autodelete %d nodes, ", nodes.size());
 		nodes.clear();
-		dcdebug("%d leaked somewhere :(\n", check);
-		dcassert(check == 0);
 	}
 
 	/*
@@ -131,12 +122,14 @@ namespace dht
 				}
 			}
 
+                        /*
 			if(node == NULL && u->isOnline())
 			{
 				// try to get node from ClientManager (user can be online but not in our routing table)
 				// this fixes the bug with DHT node online twice
-				//node = (Node*)ClientManager::getInstance()->findDHTNode(u->getCID()).get();
+				node = (Node*)ClientManager::getInstance()->findDHTNode(u->getCID()).get();
 			}
+                        */
 
 			if(node != NULL)
 			{

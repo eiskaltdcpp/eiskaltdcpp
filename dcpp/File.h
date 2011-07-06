@@ -133,7 +133,7 @@ public:
 
         struct DirData
 #ifdef _WIN32
-                : public WIN32_FIND_DATA
+                : public WIN32_FIND_DATAW
 #endif
         {
                 DirData();

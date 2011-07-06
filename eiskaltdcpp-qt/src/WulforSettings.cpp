@@ -11,7 +11,6 @@
 #include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/File.h"
 #include "dcpp/Util.h"
 #include "dcpp/SimpleXML.h"

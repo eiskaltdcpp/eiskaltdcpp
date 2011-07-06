@@ -20,6 +20,7 @@
 #define FAST_ALLOC_H
 
 #include "CriticalSection.h"
+#include "debug.h"
 
 namespace dcpp {
 

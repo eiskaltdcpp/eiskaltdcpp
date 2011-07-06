@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_CRITICAL_SECTION_H
 #define DCPLUSPLUS_DCPP_CRITICAL_SECTION_H
 
+#include "debug.h"
+
 #ifdef FIX_FOR_OLD_BOOST
     #include "Thread.h"
 #else

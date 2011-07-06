@@ -17,7 +17,6 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "ClientManager.h"
 
@@ -767,6 +766,7 @@ void ClientManager::cancelSearch(void* aOwner) {
     }
 }
 
+#ifdef WITH_DHT
 OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const
 {
         Lock l(cs);
@@ -785,6 +785,7 @@ OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const
 
         return NULL;
 }
+#endif
 
 #ifdef LUA_SCRIPT
 bool ClientManager::ucExecuteLua(const string& ucCommand, StringMap& params) throw() {

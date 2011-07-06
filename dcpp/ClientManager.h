@@ -143,7 +143,9 @@ public:
     void loadUsers();
     void saveUsers() const;
     void saveUser(const CID& cid);
+#ifdef WITH_DHT
     OnlineUserPtr findDHTNode(const CID& cid) const;
+#endif
 
 private:
     typedef unordered_map<string, UserPtr> LegacyMap;

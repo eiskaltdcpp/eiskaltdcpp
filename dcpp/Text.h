@@ -19,6 +19,7 @@
 #ifndef DCPLUSPLUS_DCPP_TEXT_H
 #define DCPLUSPLUS_DCPP_TEXT_H
 
+#include "debug.h"
 #include "typedefs.h"
 
 namespace dcpp {

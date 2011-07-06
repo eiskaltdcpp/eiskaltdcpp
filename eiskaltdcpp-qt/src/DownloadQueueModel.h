@@ -17,7 +17,6 @@
 #include <QSize>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/User.h"
 #include "dcpp/DirectoryListing.h"
 

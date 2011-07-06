@@ -130,6 +130,8 @@ Keys for cmake
     use pcre lib for regex in perl style (now it uses only in ADL Search)
 -DUSE_IDNA=ON/OFF (default: ON)
     Use libidn for rfc3490 (resolving Internationalized Domain Names)
+-DWITH_DHT=ON/OFF (default: ON)
+    DHT support (http://www.adcportal.com/wiki/StrongDC++_DHT)
 -DLINK=STATIC/SHARED (default: SHARED)
     make static or shared library
     Option available only on Unix-like systems.
@@ -211,9 +213,6 @@ Keys for cmake
     Show stacktrace when program receive SIGSEGV
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
     build type
-    .
-    Warning: builds with -DCMAKE_BUILD_TYPE=Debug now is broken
-    (due to some features of the DC++ kernel)
 And other standart cmake keys...
 
 ---------

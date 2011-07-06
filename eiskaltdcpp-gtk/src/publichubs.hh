@@ -23,7 +23,6 @@
 #define WULFOR_PUBLIC_HUBS_HH
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/StringSearch.h>
 

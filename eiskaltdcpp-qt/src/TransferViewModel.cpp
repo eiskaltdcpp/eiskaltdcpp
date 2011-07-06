@@ -29,7 +29,6 @@
 #include <QColorGroup>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/ShareManager.h"
 #include "dcpp/Util.h"
 

@@ -22,7 +22,6 @@
  */
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "ADLSearch.h"
 #include "QueueManager.h"
@@ -30,6 +29,7 @@
 
 #include "File.h"
 #include "SimpleXML.h"
+#include "StringTokenizer.h"
 
 #ifdef USE_PCRE
 #include "pcrecpp.h"

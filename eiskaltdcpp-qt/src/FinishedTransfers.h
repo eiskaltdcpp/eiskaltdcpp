@@ -26,7 +26,6 @@
 #endif
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/FinishedManager.h"
 //#include "dcpp/FinishedManagerListener.h"
 #include "dcpp/Util.h"

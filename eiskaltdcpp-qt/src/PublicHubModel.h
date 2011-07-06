@@ -14,7 +14,6 @@
 #include <QSortFilterProxyModel>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/FavoriteManager.h"
 
 class PublicHubProxyModel: public QSortFilterProxyModel {

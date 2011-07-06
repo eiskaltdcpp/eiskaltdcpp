@@ -48,13 +48,7 @@ public:
 
     bool isZero() const { return find_if(cid, cid+SIZE, bind2nd(not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
 
-    static CID generate() {
-        uint8_t data[CID::SIZE];
-        for(size_t i = 0; i < sizeof(data); ++i) {
-            data[i] = (uint8_t)Util::rand();
-        }
-        return CID(data);
-    }
+    static CID generate();
 
 private:
     uint8_t cid[SIZE];

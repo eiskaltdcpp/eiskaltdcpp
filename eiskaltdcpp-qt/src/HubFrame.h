@@ -26,7 +26,6 @@
 #include "ui_HubFrame.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/FastAlloc.h"
 #include "dcpp/ClientListener.h"
 #include "dcpp/ClientManager.h"

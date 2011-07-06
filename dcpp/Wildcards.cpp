@@ -10,7 +10,6 @@
 // to the wildcards pttern matching algorithm
 
 #include "stdinc.h"
-#include "DCPlusPlus.h"
 
 #include "Wildcards.h"
 using namespace std;

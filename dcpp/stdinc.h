@@ -19,15 +19,7 @@
 #ifndef DCPLUSPLUS_DCPP_STDINC_H
 #define DCPLUSPLUS_DCPP_STDINC_H
 
-// This enables stlport's debug mode (and slows it down to a crawl...)
-//#define _STLP_DEBUG 1
-//#define _STLP_USE_NEWALLOC 1
-
-// --- Shouldn't have to change anything under here...
-
-#ifndef _REENTRANT
-# define _REENTRANT 1
-#endif
+#include "compiler.h"
 
 #ifndef BZ_NO_STDIO
 #define BZ_NO_STDIO 1
@@ -64,31 +56,7 @@ typedef unsigned __int64 uint64_t;
 #endif // _MSC_VER
 
 #ifdef _WIN32
-
-#ifndef _WIN32_WINNT
-# define _WIN32_WINNT 0x0501
-#endif
-
-# define _WIN32_IE      0x0501
-
-#ifndef WINVER
-# define WINVER 0x501
-#endif
-
-#ifndef STRICT
-#define STRICT
-#endif
-
-#define WIN32_LEAN_AND_MEAN
-
-#include <winsock2.h>
-
-#include <windows.h>
-#include <mmsystem.h>
-
-#include <tchar.h>
-#include <shlobj.h>
-
+#include "w.h"
 #else
 #include <unistd.h>
 #endif

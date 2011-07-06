@@ -23,7 +23,6 @@
 #define WULFOR_SHARE_BROWSER_HH
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 #include <dcpp/DirectoryListing.h>
 
 #include "bookentry.hh"

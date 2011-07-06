@@ -24,7 +24,6 @@
 #define WULFOR_CMDDEBUG_HH
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
 
 #include "bookentry.hh"
 #include "treeview.hh"

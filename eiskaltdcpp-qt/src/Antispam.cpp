@@ -15,7 +15,6 @@
 #include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Util.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
@@ -376,7 +375,7 @@ void AntiSpam::loadSettings() {
                     foreach (QString s, words)
                         keys.append(s);
 #endif
-		
+
 	    }
         } else if (line.indexOf("|ATTEMPTS|") != -1){
             line = line.right(line.length() - 10);
@@ -436,7 +435,7 @@ void AntiSpam::setKeys(const QList<QString> &keys) {
     foreach (QString s, keys)
         this->keys.append(s);
 #endif
-    
+
 }
 
 QList<QString> AntiSpam::getKeys() {

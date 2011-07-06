@@ -14,7 +14,6 @@
 #include "WulforSettings.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"

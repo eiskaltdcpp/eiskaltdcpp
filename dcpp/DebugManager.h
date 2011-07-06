@@ -1,4 +1,4 @@
-/* 
+/*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -17,7 +17,6 @@
 #ifndef __DEBUGMANAGER_H
 #define __DEBUGMANAGER_H
 
-#include "DCPlusPlus.h"
 #include "Singleton.h"
 #include "TimerManager.h"
 
@@ -28,7 +27,7 @@ public:
 template<int I>	struct X { enum { TYPE = I };  };
 
 	typedef X<0> DebugCommand;
-	typedef X<0> DebugDetection;	
+	typedef X<0> DebugDetection;
 
 	virtual void on(DebugDetection, const string&) throw() { }
 	virtual void on(DebugCommand, const string&, int, const string&) throw() { }

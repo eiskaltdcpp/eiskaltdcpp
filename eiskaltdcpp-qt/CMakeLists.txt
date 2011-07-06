@@ -433,14 +433,16 @@ else (APPLE)
   set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-qt")
 endif (APPLE)
 
-if (UNIX)
- set (BINDIR bin)
- if (APPLE)
-    set (BUNDLEDIR .)
- endif ()
-elseif (WIN32)
-  set (BINDIR .)
-endif (UNIX)
+if (WIN32 OR HAIKU)
+    set (BINDIR .)
+elseif (UNIX)
+    set (BINDIR bin)
+    if (APPLE)
+        set (BUNDLEDIR .)
+    endif ()
+endif (WIN32 OR HAIKU)
+
+
 
   install (TARGETS eiskaltdcpp-qt
     RUNTIME DESTINATION ${BINDIR}
@@ -491,10 +493,10 @@ if (APPLE)
   install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 else (APPLE)
   install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
-  if (UNIX)
+  if (UNIX AND NOT HAIKU)
     install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
     install (FILES eiskaltdcpp-qt.desktop DESTINATION ${SHARE_DIR}/applications)
-  endif (UNIX)
+  endif (UNIX AND NOT HAIKU)
 endif (APPLE)
 
 if (APPLE)

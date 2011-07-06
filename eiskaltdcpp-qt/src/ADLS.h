@@ -20,7 +20,7 @@
 #include "WulforUtil.h"
 
 #include <dcpp/stdinc.h>
-#include <dcpp/DCPlusPlus.h>
+
 #include <dcpp/ADLSearch.h>
 #include <dcpp/Singleton.h>
 
