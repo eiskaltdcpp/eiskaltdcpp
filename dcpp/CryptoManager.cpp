@@ -17,8 +17,9 @@
  */
 
 #include "stdinc.h"
-
 #include "CryptoManager.h"
+
+#include <boost/scoped_array.hpp>
 
 #include "File.h"
 #include "LogManager.h"

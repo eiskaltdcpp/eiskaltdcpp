@@ -21,9 +21,9 @@
 #include "SFVReader.h"
 
 #include "StringTokenizer.h"
+#include "File.h"
 
 #ifndef _WIN32
-#include <sys/types.h>
 #include <dirent.h>
 #include <fnmatch.h>
 #endif

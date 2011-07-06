@@ -104,8 +104,8 @@ class DownloadQueue:
 		GtkTreeSelection *fileSelection;
 		GdkEventType dirPrevious;
 		std::string currentDir;
-		std::tr1::unordered_map<std::string, std::map<std::string, std::string> > sources;
-		std::tr1::unordered_map<std::string, std::map<std::string, std::string> > badSources;
+		std::unordered_map<std::string, std::map<std::string, std::string> > sources;
+		std::unordered_map<std::string, std::map<std::string, std::string> > badSources;
 		int currentItems;
 		int totalItems;
 		int64_t currentSize;

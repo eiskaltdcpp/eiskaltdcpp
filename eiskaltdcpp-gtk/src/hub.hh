@@ -73,9 +73,9 @@ class Hub:
         } TypeTag;
 
         typedef std::map<std::string, std::string> ParamMap;
-        typedef std::tr1::unordered_map<std::string, std::string> UserMap;
-        typedef std::tr1::unordered_map<std::string, GtkTreeIter> UserIters;
-        typedef std::tr1::unordered_map<GtkWidget*, std::string> ImageList;
+        typedef std::unordered_map<std::string, std::string> UserMap;
+        typedef std::unordered_map<std::string, GtkTreeIter> UserIters;
+        typedef std::unordered_map<GtkWidget*, std::string> ImageList;
         typedef std::pair<std::string, GtkWidget*> ImageLoad;
 
         // GUI functions

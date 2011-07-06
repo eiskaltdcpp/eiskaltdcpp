@@ -16,12 +16,16 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(SFV_READER_H)
-#define SFV_READER_H
+#ifndef DCPLUSPLUS_DCPP_SFV_READER_H
+#define DCPLUSPLUS_DCPP_SFV_READER_H
 
-#include "File.h"
+#include <string>
+
+#include "noexcept.h"
 
 namespace dcpp {
+
+using std::string;
 
 class SFVReader {
 public:

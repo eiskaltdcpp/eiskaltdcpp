@@ -105,7 +105,7 @@ private:
     string salt;
     uint32_t sid;
 
-    std::tr1::unordered_set<uint32_t> forbiddenCommands;
+    std::unordered_set<uint32_t> forbiddenCommands;
 
     static const vector<StringList> searchExts;
 

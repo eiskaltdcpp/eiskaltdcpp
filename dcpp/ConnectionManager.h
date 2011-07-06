@@ -51,7 +51,7 @@ public:
 
     GETSET(string, token, Token);
     GETSET(uint64_t, lastAttempt, LastAttempt);
-        GETSET(int, errors, Errors); // Number of connection errors, or -1 after a protocol error
+    GETSET(int, errors, Errors); // Number of connection errors, or -1 after a protocol error
     GETSET(State, state, State);
     GETSET(bool, download, Download);
 

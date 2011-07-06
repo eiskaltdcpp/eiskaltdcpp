@@ -42,11 +42,11 @@ Client::Client(const string& hubURL, char separator_, bool secure_) :
     Util::decodeUrl(hubURL, proto, address, port, file, query, fragment);
 
     if(!query.empty()) {
-            map<string, string> q = Util::decodeQuery(query);
-            map<string, string>::iterator kp = q.find("kp");
-            if(kp != q.end()) {
-                    keyprint = kp->second;
-            }
+        auto q = Util::decodeQuery(query);
+        auto kp = q.find("kp");
+        if(kp != q.end()) {
+            keyprint = kp->second;
+        }
     }
 
     TimerManager::getInstance()->addListener(this);
@@ -165,7 +165,7 @@ void Client::on(Connected) noexcept {
     ip = sock->getIp();
     localIp = sock->getLocalIp();
     if(sock->isSecure() && keyprint.compare(0, 7, "SHA256/") == 0) {
-        vector<uint8_t> kp = sock->getKeyprint();
+        auto kp = sock->getKeyprint();
         if(!kp.empty()) {
             vector<uint8_t> kp2v(kp.size());
             Encoder::fromBase32(keyprint.c_str() + 7, &kp2v[0], kp2v.size());

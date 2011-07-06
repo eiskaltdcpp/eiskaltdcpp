@@ -41,7 +41,7 @@ class SearchSpy:
 		void preferences_gui();
 
 	private:
-		typedef std::tr1::unordered_map<std::string, GtkTreeIter> SearchIters;
+		typedef std::unordered_map<std::string, GtkTreeIter> SearchIters;
 		typedef SearchIters::size_type SearchType;
 
 		// GUI functions

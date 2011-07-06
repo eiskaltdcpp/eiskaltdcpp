@@ -23,15 +23,11 @@
 
 #include "Exception.h"
 #include "Singleton.h"
-#include "FastAlloc.h"
 #include "SSLSocket.h"
 
 namespace dcpp {
 
 STANDARD_EXCEPTION(CryptoException);
-
-class File;
-class FileException;
 
 class CryptoManager : public Singleton<CryptoManager>
 {

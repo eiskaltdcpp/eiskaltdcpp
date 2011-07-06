@@ -788,8 +788,6 @@ void NmdcHub::myInfo(bool alwaysSend) {
 
     reloadSettings(false);
 
-    lastCounts = counts;
-
     string::size_type i;
 
     char modeChar = '?';

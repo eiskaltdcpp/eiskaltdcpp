@@ -19,15 +19,22 @@
 #ifndef DCPLUSPLUS_DCPP_SPEAKER_H
 #define DCPLUSPLUS_DCPP_SPEAKER_H
 
+#include <boost/range/algorithm/find.hpp>
+#include <utility>
+#include <vector>
+
 #include "CriticalSection.h"
 #include "noexcept.h"
 
 namespace dcpp {
 
+using std::forward;
+using std::vector;
+using boost::range::find;
+
 template<typename Listener>
 class Speaker {
     typedef vector<Listener*> ListenerList;
-    typedef typename ListenerList::iterator ListenerIter;
 
 public:
     Speaker() noexcept { }
@@ -44,13 +51,13 @@ public:
 
     void addListener(Listener* aListener) {
         Lock l(listenerCS);
-        if(find(listeners.begin(), listeners.end(), aListener) == listeners.end())
+        if(find(listeners, aListener) == listeners.end())
             listeners.push_back(aListener);
     }
 
     void removeListener(Listener* aListener) {
         Lock l(listenerCS);
-        ListenerIter it = find(listeners.begin(), listeners.end(), aListener);
+        auto it = find(listeners, aListener);
         if(it != listeners.end())
             listeners.erase(it);
     }

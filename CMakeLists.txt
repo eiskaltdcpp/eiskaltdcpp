@@ -436,7 +436,7 @@ if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK)
 
-if (NO_UI_DAEMON OR XMLRPC_DAEMON OR CLI_DAEMON)
+if (NO_UI_DAEMON OR XMLRPC_DAEMON)
     add_subdirectory (nasdc)
 endif ()
 

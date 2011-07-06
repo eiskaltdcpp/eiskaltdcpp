@@ -51,4 +51,6 @@ boost::basic_format<T> dcpp_fmt(const T* t) {
 
 }
 
+using boost::str;
+
 #endif /* DCPLUSPLUS_DCPP_FORMAT_H_ */

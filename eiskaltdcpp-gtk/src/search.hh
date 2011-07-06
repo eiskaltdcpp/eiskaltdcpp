@@ -140,7 +140,7 @@ class Search:
 		bool onlyFree;
 		UserCommandMenu *userCommandMenu;
 		GroupType previousGrouping;
-		std::tr1::unordered_map<std::string, std::vector<dcpp::SearchResultPtr> > results;
+		std::unordered_map<std::string, std::vector<dcpp::SearchResultPtr> > results;
 };
 
 #else

@@ -30,10 +30,10 @@ class WindowManager :
 	public Speaker<WindowManagerListener>,
 	private SettingsManagerListener
 {
-	typedef std::tr1::unordered_map<string, unsigned> MaxRecentItems;
+	typedef std::unordered_map<string, unsigned> MaxRecentItems;
 public:
 	typedef std::vector<WindowInfo> WindowInfoList;
-	typedef std::tr1::unordered_map<string, WindowInfoList> RecentList;
+	typedef std::unordered_map<string, WindowInfoList> RecentList;
 
 	void autoOpen(bool skipHubs);
 

@@ -68,7 +68,7 @@ namespace dht
 		};
 
 		static CriticalSection cs;
-		static std::tr1::unordered_map< string, std::tr1::unordered_multiset<uint32_t> > receivedPackets;
+		static std::unordered_map< string, std::unordered_multiset<uint32_t> > receivedPackets;
 		static std::list<OutPacket> sentPackets;
 	};
 

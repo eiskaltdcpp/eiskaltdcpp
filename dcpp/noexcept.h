@@ -21,20 +21,20 @@
 
 // for compilers that don't support noexcept, use an exception specifier
 
-//#ifdef __GNUC__
-//#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 6) // GCC 4.6 is the first GCC to implement noexcept.
+#ifdef __GNUC__
+#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 6) // GCC 4.6 is the first GCC to implement noexcept.
 
 #ifndef noexcept
 #define noexcept throw()
 #endif
 
-//#endif
-//#elif defined(_MSC_VER)
+#endif
+#elif defined(_MSC_VER)
 
-//#ifndef noexcept
-//#define noexcept throw()
-//#endif
+#ifndef noexcept
+#define noexcept throw()
+#endif
 
-//#endif
+#endif
 
 #endif

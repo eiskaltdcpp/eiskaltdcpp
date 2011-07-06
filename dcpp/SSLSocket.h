@@ -45,7 +45,7 @@ class CryptoManager;
 
 class SSLSocket : public Socket {
 public:
-	virtual ~SSLSocket() noexcept {}
+	virtual ~SSLSocket() { }
 
 	virtual void accept(const Socket& listeningSocket);
 	virtual void connect(const string& aIp, uint16_t aPort);
