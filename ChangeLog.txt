@@ -1,3 +1,10 @@
+--- 2.2.4 2011-09-18 ---
+*** common changes ***
+* Added support for DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). This option is disabled in the settings by default. It is possible to completely remove support for DHT during configuration (option -DWITH_DHT for cmake). See also: http://en.wikipedia.org/wiki/Distributed_hash_table
+*** eiskaltdcpp-qt ***
+*** eiskaltdcpp-gtk ***
+*** eiskaltdcpp-daemon ***
+
 --- 2.2.3 2011-06-25 ---
 *** common changes ***
 * Different search intervals for favorite hubs (default value: 60 s).

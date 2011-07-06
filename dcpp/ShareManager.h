@@ -35,9 +35,12 @@
 #include "Pointer.h"
 #include "Atomic.h"
 
+#ifdef WITH_DHT
 namespace dht {
     class IndexManager;
 }
+#endif
+
 namespace dcpp {
 
 STANDARD_EXCEPTION(ShareException);
@@ -269,7 +272,11 @@ private:
 
     /** Map real name to virtual name - multiple real names may be mapped to a single virtual one */
     StringMap shares;
+
+#ifdef WITH_DHT
     friend class ::dht::IndexManager;
+#endif
+
     typedef unordered_map<TTHValue, Directory::File::Set::const_iterator> HashFileMap;
     typedef HashFileMap::iterator HashFileIter;
 

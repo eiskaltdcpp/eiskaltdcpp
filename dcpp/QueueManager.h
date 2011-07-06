@@ -207,8 +207,12 @@ private:
         // find some PFS sources to exchange parts info
         void findPFSSources(PFSSourceList&);
         bool exists(const TTHValue& tth) const;
+
+#ifdef WITH_DHT
         // return a PFS tth to DHT publish
         TTHValue* findPFSPubTTH();
+#endif
+
         QueueItem* findAutoSearch(StringList& recent);
         size_t getSize() { return queue.size(); }
         QueueItem::StringMap& getQueue() { return queue; }
