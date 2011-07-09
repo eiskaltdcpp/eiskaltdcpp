@@ -103,7 +103,7 @@ friend class ClientManager;
     uint64_t lastProtectedIPsUpdate;
     StringList protectedIPs;
 
-    NmdcHub(const string& aHubURL);
+    NmdcHub(const string& aHubURL, bool secure);
     virtual ~NmdcHub() throw();
 
     // Dummy
@@ -116,7 +116,7 @@ friend class ClientManager;
     OnlineUser* findUser(const string& aNick);
     void putUser(const string& aNick);
 
-    string toUtf8(const string& str) const { return Text::toUtf8(str, getEncoding()); }
+    string toUtf8(const string& str) const { return Text::validateUtf8(str) ? str : Text::toUtf8(str, getEncoding()); }
     string fromUtf8(const string& str) const { return Text::fromUtf8(str, getEncoding()); }
     void privateMessage(const string& nick, const string& aMessage);
     void validateNick(const string& aNick) { send("$ValidateNick " + fromUtf8(aNick) + "|"); }

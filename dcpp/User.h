@@ -118,6 +118,14 @@ public:
         CT_HUB = 32,
         CT_HIDDEN = 64
     };
+    enum StatusFlags {
+        NORMAL          = 0x01,
+        AWAY            = 0x02,
+        SERVER          = 0x04,
+        FIREBALL        = 0x08,
+        TLS             = 0x10,
+        NAT             = 0x20
+    };
 
     //Identity() : sid(0) { }
     //Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr), sid(aSID) { }
@@ -143,6 +151,9 @@ public:
 
     void setBytesShared(const string& bs) { set("SS", bs); }
     int64_t getBytesShared() const { return Util::toInt64(get("SS")); }
+
+    void setStatus(const string& st) { set("ST", st); }
+    StatusFlags getStatus() const { return static_cast<StatusFlags>(Util::toInt(get("ST"))); }
 
     void setOp(bool op) { set("OP", op ? "1" : Util::emptyString); }
     void setHub(bool hub) { set("HU", hub ? "1" : Util::emptyString); }

@@ -160,14 +160,14 @@ void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t loc
 
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
-    socket->connect(aServer, aPort, localPort, natRole, secure, BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
+    socket->connect(aServer, aPort, localPort, natRole, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
 }
 
 void UserConnection::accept(const Socket& aServer) throw(SocketException, ThreadException) {
     dcassert(!socket);
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
-    socket->accept(aServer, secure, BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS));
+    socket->accept(aServer, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS));
 }
 
 void UserConnection::inf(bool withToken) {

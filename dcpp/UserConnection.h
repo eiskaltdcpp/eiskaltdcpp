@@ -86,7 +86,8 @@ public:
         FLAG_SUPPORTS_ADCGET = FLAG_SUPPORTS_XML_BZLIST << 1,
         FLAG_SUPPORTS_ZLIB_GET = FLAG_SUPPORTS_ADCGET << 1,
         FLAG_SUPPORTS_TTHL = FLAG_SUPPORTS_ZLIB_GET << 1,
-        FLAG_SUPPORTS_TTHF = FLAG_SUPPORTS_TTHL << 1
+        FLAG_SUPPORTS_TTHF = FLAG_SUPPORTS_TTHL << 1,
+        FLAG_SECURE = FLAG_SUPPORTS_TTHF << 1
     };
 
     enum States {
@@ -161,6 +162,7 @@ public:
     vector<uint8_t> getKeyprint() const { return socket ? socket->getKeyprint() : vector<uint8_t>(); }
     std::string getRemoteIp() const { return socket ? socket->getIp() : Util::emptyString; }
     Download* getDownload() { dcassert(isSet(FLAG_DOWNLOAD)); return download; }
+    //uint16_t getPort() const { if(socket) return socket->getPort(); else return 0; }
     void setDownload(Download* d) { dcassert(isSet(FLAG_DOWNLOAD)); download = d; }
     Upload* getUpload() { dcassert(isSet(FLAG_UPLOAD)); return upload; }
     void setUpload(Upload* u) { dcassert(isSet(FLAG_UPLOAD)); upload = u; }
@@ -201,6 +203,8 @@ private:
     // We only want ConnectionManager to create this...
     UserConnection(bool secure_) throw() : encoding(Text::systemCharset), state(STATE_UNCONNECTED),
         lastActivity(0), speed(0), chunkSize(0), socket(0), secure(secure_), download(NULL) {
+        if (secure_)
+            setFlag(FLAG_SECURE);
     }
 
     virtual ~UserConnection() throw() {
