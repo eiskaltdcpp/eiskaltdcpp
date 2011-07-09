@@ -37,8 +37,7 @@ public:
 
 	void autoOpen(bool skipHubs);
 
-	void lock();
-	void unlock();
+	Lock lock();
 
 	void add(const string& id, const StringMap& params);
 	void clear();

@@ -52,12 +52,8 @@ void WindowManager::autoOpen(bool skipHubs) {
 	}
 }
 
-void WindowManager::lock() {
-	cs.enter();
-}
-
-void WindowManager::unlock() {
-	cs.leave();
+Lock WindowManager::lock() {
+	return Lock(cs);
 }
 
 void WindowManager::add(const string& id, const StringMap& params) {

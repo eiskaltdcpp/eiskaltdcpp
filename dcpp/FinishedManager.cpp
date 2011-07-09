@@ -45,8 +45,8 @@ FinishedManager::~FinishedManager() {
     clearULs();
 }
 
-void FinishedManager::lockLists() {
-    cs.enter();
+Lock FinishedManager::lockLists() {
+    return Lock(cs);
 }
 
 const FinishedManager::MapByFile& FinishedManager::getMapByFile(bool upload) const {
@@ -55,10 +55,6 @@ const FinishedManager::MapByFile& FinishedManager::getMapByFile(bool upload) con
 
 const FinishedManager::MapByUser& FinishedManager::getMapByUser(bool upload) const {
     return upload ? ULByUser : DLByUser;
-}
-
-void FinishedManager::unLockLists() {
-    cs.leave();
 }
 
 void FinishedManager::remove(bool upload, const string& file) {

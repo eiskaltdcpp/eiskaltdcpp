@@ -186,7 +186,7 @@ ThrottleManager::~ThrottleManager(void)
 void ThrottleManager::shutdown() {
 	Lock l(stateCS);
 	if (activeWaiter != -1) {
-		waitCS[activeWaiter].leave();
+		waitCS[activeWaiter].unlock();
 		activeWaiter = -1;
 	}
 }
@@ -233,8 +233,8 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noe
 
 			// unlock shutdown and token wait
 			dcassert(n_lock == 0 || n_lock == 1);
-			waitCS[n_lock].leave();
-			shutdownCS.leave();
+			waitCS[n_lock].unlock();
+			shutdownCS.unlock();
 
 			return;
 		}
@@ -247,12 +247,12 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noe
 		{
 			// This will create slight weirdness for the read/write calls between
 			// here and the first activeWaiter-toggle below.
-			waitCS[activeWaiter = 0].enter();
+			waitCS[activeWaiter = 0].lock();
 
 #ifndef _WIN32 //*nix
 
 			// lock shutdown
-			shutdownCS.enter();
+			shutdownCS.lock();
 #endif
 		}
 	}
@@ -260,10 +260,10 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noe
 	int downLimit = getDownLimit();
 	int upLimit   = getUpLimit();
 
-	if(!BOOLSETTING(THROTTLE_ENABLE)) {
-		downLimit = 0;
-		upLimit = 0;
-	}
+	//if(!BOOLSETTING(THROTTLE_ENABLE)) {
+		//downLimit = 0;
+		//upLimit = 0;
+	//}
 
 	// readd tokens
 	{
@@ -289,9 +289,9 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noe
 		Lock l(stateCS);
 
 		dcassert(activeWaiter == 0 || activeWaiter == 1);
-		waitCS[1-activeWaiter].enter();
+		waitCS[1-activeWaiter].lock();
 		activeWaiter = 1-activeWaiter;
-		waitCS[1-activeWaiter].leave();
+		waitCS[1-activeWaiter].unlock();
 	}
 }
 
