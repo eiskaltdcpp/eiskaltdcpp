@@ -301,19 +301,22 @@ void ConnectionManager::accept(const Socket& sock, bool secure) throw() {
         delete uc;
     }
 }
+void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
+    nmdcConnect(aServer, aPort, 0, BufferedSocket::NAT_NONE, aNick, hubUrl, encoding, secure);
+}
 
-void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, const string& aNick, const string& hubUrl, const string& encoding) {
+void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
     if(shuttingDown)
         return;
 
-    UserConnection* uc = getConnection(true, false);
+    UserConnection* uc = getConnection(true, secure);
     uc->setToken(aNick);
     uc->setHubUrl(hubUrl);
     uc->setEncoding(encoding);
     uc->setState(UserConnection::STATE_CONNECT);
     uc->setFlag(UserConnection::FLAG_NMDC);
     try {
-                uc->connect(aServer, aPort, 0, BufferedSocket::NAT_NONE);
+        uc->connect(aServer, aPort, localPort, natRole);
     } catch(const Exception&) {
         putConnection(uc);
         delete uc;

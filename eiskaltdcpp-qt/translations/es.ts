@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="es">
+<TS version="2.0" language="es_ES">
 <context>
     <name>ADLS</name>
     <message>
@@ -2412,12 +2412,12 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2609"/>
         <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Taducción al Alemán&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2611"/>
         <source>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(para 2.2.3 y posteriores)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2641"/>
@@ -3279,7 +3279,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="103"/>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation>Alemán</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="239"/>
@@ -3561,7 +3561,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/ShareBrowserSearch.cpp" line="65"/>
         <source>Search - %1</source>
-        <translation type="unfinished">Buscando - %1</translation>
+        <translation>Buscando - %1</translation>
     </message>
 </context>
 <context>
@@ -4523,7 +4523,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="180"/>
         <source>Minimum search interval (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Intervalo de bbusqueda (segundos)</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="41"/>
@@ -4549,10 +4549,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="102"/>
         <source>Mode</source>
         <translation>Modo</translation>
-    </message>
-    <message>
-        <source>Minimum search interval</source>
-        <translation type="obsolete">Intervalo de busqueda minimo</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="202"/>
@@ -5264,7 +5260,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="792"/>
         <source>Reconnect to hub (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Reconectar al Hub (segundos)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="831"/>
@@ -5321,10 +5317,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsConnection.ui" line="815"/>
         <source>Type-of-Service (ToS)</source>
         <translation>Terminos del Servicio (en inglés TOS)</translation>
-    </message>
-    <message>
-        <source>Reconnect to hub(seconds)</source>
-        <translation type="obsolete">Reconexión al Hub (segundos)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="506"/>
@@ -6880,17 +6872,17 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
         <location filename="../ui/UIShareBrowserSearch.ui" line="14"/>
         <location filename="../ui/UIShareBrowserSearch.ui" line="25"/>
         <source>Search</source>
-        <translation type="unfinished">Buscar</translation>
+        <translation>Buscar</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de archivo</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="40"/>
         <source>Directory</source>
-        <translation type="unfinished">Directorio</translation>
+        <translation>Directorio</translation>
     </message>
 </context>
 <context>

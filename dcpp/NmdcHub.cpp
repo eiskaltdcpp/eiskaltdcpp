@@ -35,8 +35,8 @@
 
 namespace dcpp {
 
-NmdcHub::NmdcHub(const string& aHubURL) :
-Client(aHubURL, '|', false),
+NmdcHub::NmdcHub(const string& aHubURL, bool secure) :
+Client(aHubURL, '|', secure),
 supportFlags(0),
 lastUpdate(0),
 lastProtectedIPsUpdate(0)
@@ -143,6 +143,9 @@ void NmdcHub::clearUsers() {
 
 void NmdcHub::updateFromTag(Identity& id, const string& tag) {
     StringTokenizer<string> tok(tag, ',');
+    string::size_type j;
+    size_t slots = 1;
+    id.set("US", Util::emptyString);
     for(StringIter i = tok.getTokens().begin(); i != tok.getTokens().end(); ++i) {
         if(i->length() < 2)
             continue;
@@ -156,9 +159,9 @@ void NmdcHub::updateFromTag(Identity& id, const string& tag) {
             id.set("HO", t.getTokens()[2]);
         } else if(i->compare(0, 2, "S:") == 0) {
             id.set("SL", i->substr(2));
-        } else if(i->find("V:") != string::npos) {
-            string::size_type j = i->find("V:");
-            i->erase(i->begin() + j, i->begin() + j + 2);
+            slots = Util::toUInt32(i->substr(2));
+        } else if((j = i->find("V:")) != string::npos) {
+            i->erase(i->begin(), i->begin() + j + 2);
             id.set("VE", *i);
         } else if(i->compare(0, 2, "M:") == 0) {
             if(i->size() == 3) {
@@ -167,6 +170,9 @@ void NmdcHub::updateFromTag(Identity& id, const string& tag) {
                 else
                     id.getUser()->setFlag(User::PASSIVE);
             }
+        } else if((j = i->find("L:")) != string::npos) {
+            i->erase(i->begin() + j, i->begin() + j + 2);
+            id.set("US", Util::toString(Util::toInt(*i) * 1024));
         }
     }
     /// @todo Think about this
@@ -383,6 +389,19 @@ void NmdcHub::onLine(const string& aLine) throw() {
         u.getIdentity().setHub(false);
 
         u.getIdentity().setConnection(connection);
+        u.getIdentity().setStatus(Util::toString(param[j-1]));
+
+        if(u.getIdentity().getStatus() & Identity::TLS) {
+            u.getUser()->setFlag(User::TLS);
+        } else {
+            u.getUser()->unsetFlag(User::TLS);
+        }
+
+        if(u.getIdentity().getStatus() & Identity::NAT) {
+            u.getUser()->setFlag(User::NAT_TRAVERSAL);
+        } else {
+            u.getUser()->unsetFlag(User::NAT_TRAVERSAL);
+        }
         i = j + 1;
         j = param.find('$', i);
 
@@ -433,9 +452,53 @@ void NmdcHub::onLine(const string& aLine) throw() {
         if(j+1 >= param.size()) {
             return;
         }
-        string port = param.substr(j+1);
+        string senderNick;
+        string port;
+
+        i = param.find(' ', j+1);
+        if(i == string::npos) {
+            port = param.substr(j+1);
+        } else {
+            senderNick = param.substr(i+1);
+            port = param.substr(j+1, i-j-1);
+        }
+
+        bool secure = false;
+        if(port[port.size() - 1] == 'S') {
+            port.erase(port.size() - 1);
+            if(CryptoManager::getInstance()->TLSOk()) {
+                secure = true;
+            }
+        }
+
+        if(BOOLSETTING(ALLOW_NATT)) {
+            if(port[port.size() - 1] == 'N') {
+                if(senderNick.empty())
+                    return;
+
+                port.erase(port.size() - 1);
+
+                // Trigger connection attempt sequence locally ...
+                ConnectionManager::getInstance()->nmdcConnect(server, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(),
+                BufferedSocket::NAT_CLIENT, getMyNick(), getHubUrl(), getEncoding(), secure);
+
+                // ... and signal other client to do likewise.
+                send("$ConnectToMe " + senderNick + " " + getLocalIp() + ":" + Util::toString(sock->getLocalPort()) + (secure ? "RS" : "R") + "|");
+                return;
+            } else if(port[port.size() - 1] == 'R') {
+                port.erase(port.size() - 1);
+
+                // Trigger connection attempt sequence locally
+                ConnectionManager::getInstance()->nmdcConnect(server, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(),
+                BufferedSocket::NAT_SERVER, getMyNick(), getHubUrl(), getEncoding(), secure);
+                return;
+            }
+        }
+
+        if(port.empty())
+                return;
         // For simplicity, we make the assumption that users on a hub have the same character encoding
-        ConnectionManager::getInstance()->nmdcConnect(server, (uint16_t)Util::toInt(port), getMyNick(), getHubUrl(), getEncoding());
+        ConnectionManager::getInstance()->nmdcConnect(server, static_cast<uint16_t>(Util::toInt(port)), getMyNick(), getHubUrl(), getEncoding(), secure);
     } else if(cmd == "$RevConnectToMe") {
         if(state != STATE_NORMAL) {
             return;
@@ -452,6 +515,11 @@ void NmdcHub::onLine(const string& aLine) throw() {
 
         if(isActive()) {
             connectToMe(*u);
+        } else if(BOOLSETTING(ALLOW_NATT) && (u->getIdentity().getStatus() & Identity::NAT)) {
+            bool secure = CryptoManager::getInstance()->TLSOk() && u->getUser()->isSet(User::TLS);
+            // NMDC v2.205 supports "$ConnectToMe sender_nick remote_nick ip:port", but many NMDC hubsofts block it
+            // sender_nick at the end should work at least in most used hubsofts
+            send("$ConnectToMe " + fromUtf8(u->getIdentity().getNick()) + " " + getLocalIp() + ":" + Util::toString(sock->getLocalPort()) + (secure ? "NS " : "N ") + fromUtf8(getMyNick()) + "|");
         } else {
             if(!u->getUser()->isSet(User::PASSIVE)) {
                 u->getUser()->setFlag(User::PASSIVE);
@@ -555,6 +623,9 @@ void NmdcHub::onLine(const string& aLine) throw() {
                 feat.push_back("UserIP2");
                 feat.push_back("TTHSearch");
                 feat.push_back("ZPipe0");
+
+            if(CryptoManager::getInstance()->TLSOk())
+                feat.push_back("TLS");
 
 #ifdef WITH_DHT
                 if(BOOLSETTING(USE_DHT))
@@ -707,12 +778,9 @@ void NmdcHub::onLine(const string& aLine) throw() {
             return;
 
         string fromNick = param.substr(i+1, j-i-1);
-        if(fromNick.empty())
+        if(fromNick.empty() || param.size() < j + 2)
             return;
 
-        if(param.size() < j + 2) {
-            return;
-        }
         ChatMessage message = { unescape(param.substr(j + 2)), findUser(fromNick), &getUser(getMyNick()), findUser(rtNick) };
 
         if(!message.replyTo || !message.from) {
@@ -771,7 +839,9 @@ void NmdcHub::connectToMe(const OnlineUser& aUser) {
     dcdebug("NmdcHub::connectToMe %s\n", aUser.getIdentity().getNick().c_str());
     string nick = fromUtf8(aUser.getIdentity().getNick());
     ConnectionManager::getInstance()->nmdcExpect(nick, getMyNick(), getHubUrl());
-    send("$ConnectToMe " + nick + " " + getLocalIp() + ":" + Util::toString(ConnectionManager::getInstance()->getPort()) + "|");
+    bool secure = CryptoManager::getInstance()->TLSOk() && aUser.getUser()->isSet(User::TLS);
+    uint16_t port = secure ? ConnectionManager::getInstance()->getSecurePort() : ConnectionManager::getInstance()->getPort();
+    send("$ConnectToMe " + nick + " " + getLocalIp() + ":" + Util::toString(port) + (secure ? "S" : "") + "|");
 }
 
 void NmdcHub::revConnectToMe(const OnlineUser& aUser) {
