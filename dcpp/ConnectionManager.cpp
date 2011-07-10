@@ -332,7 +332,11 @@ void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, uint
     uc->setToken(aToken);
     uc->setEncoding(Text::utf8);
     uc->setState(UserConnection::STATE_CONNECT);
+#ifdef WITH_DHT
     uc->setHubUrl(&aUser.getClient() == NULL ? "DHT" : aUser.getClient().getHubUrl());
+#else
+    uc->setHubUrl(aUser.getClient().getHubUrl());
+#endif
     if(aUser.getIdentity().isOp()) {
         uc->setFlag(UserConnection::FLAG_OP);
     }

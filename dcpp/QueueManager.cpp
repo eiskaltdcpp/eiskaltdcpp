@@ -1640,7 +1640,11 @@ void QueueManager::saveQueue(bool force) throw() {
                 }
 
                 for(QueueItem::SourceConstIter j = qi->sources.begin(); j != qi->sources.end(); ++j) {
-                    if(j->isSet(QueueItem::Source::FLAG_PARTIAL) || j->getUser().hint == "DHT") continue;
+                    if(j->isSet(QueueItem::Source::FLAG_PARTIAL)
+#ifdef WITH_DHT
+                                                                 || j->getUser().hint == "DHT"
+#endif
+                                                                                              ) continue;
 
                     const CID& cid = j->getUser().user->getCID();
                     const string& hint = j->getUser().hint;

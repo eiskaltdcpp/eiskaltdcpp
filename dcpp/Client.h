@@ -46,7 +46,11 @@ public:
 
     ClientBase() : type(DIRECT_CONNECT) { }
 
-    enum P2PType { DIRECT_CONNECT, DHT };
+    enum P2PType { DIRECT_CONNECT
+#ifdef WITH_DHT
+                                 , DHT 
+#endif
+                                       };
     P2PType type;
     P2PType getType() const { return type; }
     virtual const string& getHubUrl() const = 0;
