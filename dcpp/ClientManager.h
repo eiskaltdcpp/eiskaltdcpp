@@ -181,7 +181,7 @@ private:
         TimerManager::getInstance()->addListener(this);
     }
 
-    virtual ~ClientManager() noexcept {
+    virtual ~ClientManager() {
         TimerManager::getInstance()->removeListener(this);
     }
 

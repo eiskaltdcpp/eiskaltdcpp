@@ -254,7 +254,7 @@ private:
     friend class Singleton<QueueManager>;
 
     QueueManager();
-    virtual ~QueueManager() noexcept;
+    virtual ~QueueManager();
 
     mutable CriticalSection cs;
 

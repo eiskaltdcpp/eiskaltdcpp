@@ -50,4 +50,4 @@ public:
 
 } // namespace dcpp
 
-#endif // !defined(CLIENT_MANAGER_LISTENER_H)
+#endif // DCPLUSPLUS_DCPP_CLIENT_MANAGER_LISTENER_H

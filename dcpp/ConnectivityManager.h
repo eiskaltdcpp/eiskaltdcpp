@@ -50,7 +50,7 @@ private:
     friend class UPnPManager;
 
     ConnectivityManager();
-    virtual ~ConnectivityManager() noexcept { }
+    virtual ~ConnectivityManager() { }
 
     void mappingFinished(bool success);
     void log(const string& msg);

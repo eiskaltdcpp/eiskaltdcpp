@@ -104,7 +104,7 @@ private:
 
     friend class Singleton<UploadManager>;
     UploadManager() noexcept;
-    virtual ~UploadManager() noexcept;
+    virtual ~UploadManager();
 
     bool getAutoSlot();
     void removeConnection(UserConnection* aConn);

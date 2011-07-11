@@ -104,7 +104,7 @@ friend class ClientManager;
     StringList protectedIPs;
 
     NmdcHub(const string& aHubURL);
-    virtual ~NmdcHub() noexcept;
+    virtual ~NmdcHub();
 
     // Dummy
     NmdcHub(const NmdcHub&);

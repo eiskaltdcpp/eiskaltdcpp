@@ -57,7 +57,7 @@ private:
 	int options[LAST][2];
 
 	LogManager();
-	virtual ~LogManager() noexcept;
+	virtual ~LogManager();
 };
 
 #define LOG(area, msg) LogManager::getInstance()->log(area, msg)

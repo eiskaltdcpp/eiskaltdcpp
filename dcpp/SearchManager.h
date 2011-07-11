@@ -131,7 +131,7 @@ private:
     static std::string normalizeWhitespace(const std::string& aString);
     int run();
 
-    ~SearchManager() noexcept;
+    ~SearchManager();
     void onData(const uint8_t* buf, size_t aLen, const string& address);
 
     string getPartsString(const PartsInfo& partsInfo) const;

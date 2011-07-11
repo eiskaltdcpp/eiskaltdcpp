@@ -16,8 +16,8 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(CONNECTION_MANAGER_H)
-#define CONNECTION_MANAGER_H
+#ifndef DCPLUSPLUS_DCPP_CONNECTION_MANAGER_H
+#define DCPLUSPLUS_DCPP_CONNECTION_MANAGER_H
 
 #include "TimerManager.h"
 
@@ -46,7 +46,7 @@ public:
         ACTIVE                      // In one up/downmanager
     };
 
-        ConnectionQueueItem(const HintedUser& aUser, bool aDownload) : token(Util::toString(Util::rand())),
+    ConnectionQueueItem(const HintedUser& aUser, bool aDownload) : token(Util::toString(Util::rand())),
                 lastAttempt(0), errors(0), state(WAITING), download(aDownload), user(aUser) { }
 
     GETSET(string, token, Token);
@@ -55,10 +55,10 @@ public:
     GETSET(State, state, State);
     GETSET(bool, download, Download);
 
-        const HintedUser& getUser() const { return user; }
+    const HintedUser& getUser() const { return user; }
 
 private:
-        HintedUser user;
+    HintedUser user;
 };
 
 class ExpectedMap {
@@ -162,7 +162,7 @@ private:
     friend class Singleton<ConnectionManager>;
     ConnectionManager();
 
-    virtual ~ConnectionManager() noexcept { shutdown(); }
+    virtual ~ConnectionManager() { shutdown(); }
 
     UserConnection* getConnection(bool aNmdc, bool secure) noexcept;
     void putConnection(UserConnection* aConn);
@@ -177,7 +177,7 @@ private:
 
     void accept(const Socket& sock, bool secure) noexcept;
 
-        void failed(UserConnection* aSource, const string& aError, bool protocolError);
+    void failed(UserConnection* aSource, const string& aError, bool protocolError);
 
     // UserConnectionListener
     virtual void on(Connected, UserConnection*) noexcept;

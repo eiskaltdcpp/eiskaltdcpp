@@ -140,7 +140,7 @@ private:
     friend class Singleton<FavoriteManager>;
 
     FavoriteManager();
-    virtual ~FavoriteManager() noexcept;
+    virtual ~FavoriteManager();
 
     FavoriteHubEntryList::iterator getFavoriteHub(const string& aServer);
 
