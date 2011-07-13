@@ -1937,6 +1937,509 @@ Contributors
     <property name="stock">icon-reconnect</property>
     <property name="icon-size">1</property>
   </object>
+  <object class="GtkToolbar" id="toolbar1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkToolButton" id="settings">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Edit the preferences</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Preferences</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-preferences</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSeparatorToolItem" id="SeparatorToolItem1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="own_file_list">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Open own file list</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Own file list</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-own-filelist</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="refresh">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Refresh file list</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Refresh</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-refresh</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="hash">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">View the hashing progress</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Hash</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-hash</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSeparatorToolItem" id="SeparatorToolItem2">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="reconnect">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Reconnect to the hub</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Reconnect</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-reconnect</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="connect">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Quick connect to the hub</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Connect</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-connect</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSeparatorToolItem" id="SeparatorToolItem3">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkMenuToolButton" id="favHubs">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Favorite Hubs</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Hubs</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-favorite-hubs</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="favUsers">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Favorite Users</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Users</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-favorite-users</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="search">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Search for files to download</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Search</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-search</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="publicHubs">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Browse the list of public hubs</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Public Hubs</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-public-hubs</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSeparatorToolItem" id="SeparatorToolItem4">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="queue">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">View the files to be downloaded</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Queue</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-queue</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="finishedDownloads">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">View the list of finished downloads</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Finished Downloads</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-finished-downloads</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="finishedUploads">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">View the list of finished uploads</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Finished Uploads</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-finished-uploads</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSeparatorToolItem" id="SeparatorToolItem5">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="searchADL">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">ADL Search</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">ADL</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-search-adl</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="searchSpy">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Search Spy</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Spy</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-search-spy</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSeparatorToolItem" id="SeparatorToolItem6">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="quit">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Quit the program</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">Quit</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">icon-quit</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSeparatorToolItem" id="SeparatorToolItem7">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkToolButton" id="add">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="has_tooltip">True</property>
+        <property name="tooltip_text" translatable="yes">Add / Remove</property>
+        <property name="use_action_appearance">False</property>
+        <property name="is_important">True</property>
+        <property name="label" translatable="yes">+/-</property>
+        <property name="use_underline">True</property>
+        <property name="stock_id">gtk-add</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="homogeneous">True</property>
+      </packing>
+    </child>
+  </object>
+  <object class="GtkMenu" id="toolbarMenu">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkCheckMenuItem" id="addMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">+/-</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="separatorsMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Separators</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="reconnectMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Reconnect</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="connectMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Connect</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="favHubsMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Hubs</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="favUsersMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Users</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="publicHubsMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Public Hubs</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="settingsMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Preferences</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="own_filelistMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Own file list</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="refreshMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Refresh</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="hashMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Hash</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="searchMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Search</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="searchADLMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">ADL</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="searchSpyMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Spy</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="queueMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Queue</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="finishedDownloadsMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Finished Downloads</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="finishedUploadsMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Finished Uploads</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="quitMenuItemBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Quit</property>
+      </object>
+    </child>
+  </object>
   <object class="GtkDialog" id="ucLineDialog">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Enter line for user command</property>
