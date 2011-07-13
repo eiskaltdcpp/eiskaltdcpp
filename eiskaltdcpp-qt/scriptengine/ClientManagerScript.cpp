@@ -64,7 +64,7 @@ QStringList ClientManagerScript::getNicks(const QString& cid) const{
 
 QStringList ClientManagerScript::getConnectedHubs() const {
     QStringList ret;
-    CM->lock();
+    auto lock = CM->lock();
     dcpp::Client::List& clients = CM->getClients();
 
     for(dcpp::Client::List::iterator it = clients.begin(); it != clients.end(); ++it) {
@@ -75,8 +75,6 @@ QStringList ClientManagerScript::getConnectedHubs() const {
 
         ret.push_back(_q(client->getHubUrl()));
     }
-
-    CM->unlock();
 
     return ret;
 }
