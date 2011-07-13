@@ -28,7 +28,7 @@ class BookEntry : public Entry
 {
 	public:
 		BookEntry() {}
-		BookEntry(const EntryType type, const std::string &text, const std::string &glade, const std::string &id = "");
+		BookEntry(const EntryType type, const std::string &text, const std::string &ui, const std::string &id = "");
 		virtual ~BookEntry()
 		{
 #if !GTK_CHECK_VERSION(2, 12, 0)

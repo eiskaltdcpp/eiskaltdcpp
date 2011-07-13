@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy toplevel-contextual -->
+  <object class="GtkAccelGroup" id="accelgroup1"/>
+  <object class="GtkVBox" id="mainBox">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="border_width">4</property>
+    <property name="spacing">4</property>
+    <child>
+      <object class="GtkNotebook" id="finishedbook">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <child>
+          <object class="GtkScrolledWindow" id="viewWindowFile">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">automatic</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTreeView" id="fileView">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="tab">
+          <object class="GtkLabel" id="lbl_grpfile">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Grouped by Files</property>
+          </object>
+          <packing>
+            <property name="tab_fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="viewWindowUser">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">automatic</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTreeView" id="userView">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child type="tab">
+          <object class="GtkLabel" id="lbl_grpuser">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Grouped by Users</property>
+          </object>
+          <packing>
+            <property name="position">1</property>
+            <property name="tab_fill">False</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">True</property>
+        <property name="fill">True</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkHBox" id="statusBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="spacing">4</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <object class="GtkStatusbar" id="averageSpeed">
+            <property name="width_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="has_resize_grip">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkStatusbar" id="totalSize">
+            <property name="width_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="has_resize_grip">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkStatusbar" id="totalItems">
+            <property name="width_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="has_resize_grip">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="showOnlyFullFilesCheckButton">
+            <property name="label" translatable="yes">Show only completely finished downloads</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_action_appearance">False</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">False</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+  </object>
+  <object class="GtkMenu" id="menu">
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkMenuItem" id="appsPreviewItem">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Preview</property>
+        <property name="use_underline">True</property>
+        <child type="submenu">
+          <object class="GtkMenu" id="appsPreviewMenu">
+            <property name="can_focus">False</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="openFolderItem">
+        <property name="label" translatable="yes">Open containing _folder</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="removeItem">
+        <property name="label">gtk-remove</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+        <property name="accel_group">accelgroup1</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="removeAllItem">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="label" translatable="yes">Remove All</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -58,7 +58,7 @@ using namespace std;
 using namespace dcpp;
 
 MainWindow::MainWindow():
-    Entry(Entry::MAIN_WINDOW, "mainwindow.glade"),
+    Entry(Entry::MAIN_WINDOW, "mainwindow.ui"),
     transfers(NULL),
     lastUpdate(0),
     lastUp(0),

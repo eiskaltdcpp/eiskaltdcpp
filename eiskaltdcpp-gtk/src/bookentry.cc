@@ -27,8 +27,8 @@ using namespace std;
 
 GSList* BookEntry::group = NULL;
 
-BookEntry::BookEntry(const EntryType type, const string &text, const string &glade, const string &id):
-    Entry(type, glade, id),
+BookEntry::BookEntry(const EntryType type, const string &text, const string &ui, const string &id):
+    Entry(type, ui, id),
     bold(FALSE),
     urgent(FALSE)
 {

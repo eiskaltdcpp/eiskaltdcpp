@@ -35,7 +35,7 @@ using namespace std;
 using namespace dcpp;
 
 ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initialDirectory):
-    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(user, ""), "sharebrowser.glade", user->getCID().toBase32()),//NOTE: core 0.762
+    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(user, ""), "sharebrowser.ui", user->getCID().toBase32()),//NOTE: core 0.762
     user(user),
     file(file),
     initialDirectory(initialDirectory),
@@ -127,7 +127,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     g_signal_connect(getWidget("searchForAlternatesItem"), "activate", G_CALLBACK(onSearchAlternatesClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyPictureItem"), "activate", G_CALLBACK(onCopyPictureClicked_gui), (gpointer)this);
-    //getDirectory нету в glade файле...интересно почему ?
+    //getDirectory нет в ui файле...интересно почему ?
     //g_signal_connect(getWidget("getDirectory"), "activate", G_CALLBACK(onDirGet), (gpointer)this);
 }
 

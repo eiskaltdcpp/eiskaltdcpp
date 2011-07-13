@@ -33,7 +33,7 @@ using namespace std;
 using namespace dcpp;
 
 SearchSpy::SearchSpy():
-	BookEntry(Entry::SEARCH_SPY, _("Search Spy"), "searchspy.glade")
+	BookEntry(Entry::SEARCH_SPY, _("Search Spy"), "searchspy.ui")
 {
 	FrameSize = (SearchType)WGETI("search-spy-frame");
 	Waiting = (guint)WGETI("search-spy-waiting");

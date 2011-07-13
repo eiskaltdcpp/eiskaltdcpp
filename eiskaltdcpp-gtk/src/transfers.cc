@@ -40,7 +40,7 @@ using namespace std;
 using namespace dcpp;
 
 Transfers::Transfers() :
-    Entry(Entry::TRANSFERS, "transfers.glade")
+    Entry(Entry::TRANSFERS, "transfers.ui")
 {
     // menu
     g_object_ref_sink(getWidget("transferMenu"));

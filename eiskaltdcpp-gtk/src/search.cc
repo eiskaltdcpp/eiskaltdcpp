@@ -38,7 +38,7 @@ using namespace dcpp;
 GtkTreeModel* Search::searchEntriesModel = NULL;
 
 Search::Search():
-    BookEntry(Entry::SEARCH, _("Search"), "search.glade", generateID()),
+    BookEntry(Entry::SEARCH, _("Search"), "search.ui", generateID()),
     previousGrouping(NOGROUPING)
 {
     // Initialize the search entries combo box

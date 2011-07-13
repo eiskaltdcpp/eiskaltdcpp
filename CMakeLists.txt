@@ -200,7 +200,7 @@ else (FREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)
 
 if (USE_GTK)
-    find_package (GTK2 REQUIRED gtk glade)
+    find_package (GTK2 REQUIRED gtk)
 
     if (USE_LIBGNOME2)
         message (STATUS "Building with LibGnome2 support")
@@ -492,7 +492,7 @@ if(GETTEXT_FOUND)
           DOMAIN_NAME "eiskaltdcpp-gtk"
           LOCALE_LIST "${LANGUAGES}"
           COPYRIGHT_HOLDER "EiskaltDC++ team"
-          SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_GLADE}"
+          SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_UI}"
           PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
           POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
           #PO_PREFIX    ""
