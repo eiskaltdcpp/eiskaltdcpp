@@ -90,13 +90,13 @@ namespace dht
 	private:
 
 		/** Running search operations */
-		typedef std::tr1::unordered_map<string*, Search*, noCaseStringHash, noCaseStringEq> SearchMap;
+		typedef std::unordered_map<string*, Search*, noCaseStringHash, noCaseStringEq> SearchMap;
 		SearchMap searches;
 
 		/** Locks access to "searches" */
 		CriticalSection cs;
 
-		typedef std::tr1::unordered_multimap< CID, std::pair<uint64_t, SearchResultPtr> > ResultsMap;
+		typedef std::unordered_multimap< CID, std::pair<uint64_t, SearchResultPtr> > ResultsMap;
 		ResultsMap searchResults;
 
 		/** Performs general search operation in the network */

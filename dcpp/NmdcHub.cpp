@@ -43,7 +43,7 @@ lastProtectedIPsUpdate(0)
 {
 }
 
-NmdcHub::~NmdcHub() throw() {
+NmdcHub::~NmdcHub() {
     clearUsers();
 }
 
@@ -179,7 +179,7 @@ void NmdcHub::updateFromTag(Identity& id, const string& tag) {
     id.set("TA", '<' + tag + '>');
 }
 
-void NmdcHub::onLine(const string& aLine) throw() {
+void NmdcHub::onLine(const string& aLine) noexcept {
     if(aLine.length() == 0)
         return;
 
@@ -860,7 +860,7 @@ void NmdcHub::myInfo(bool alwaysSend) {
 
     reloadSettings(false);
 
-    lastCounts = counts;
+    char StatusMode = Identity::NORMAL;
 
     string::size_type i;
 
@@ -878,6 +878,16 @@ string uploadSpeed;
     } else {
         uploadSpeed = SETTING(UPLOAD_SPEED);
     }
+    if(Util::getAway()) {
+        StatusMode |= Identity::AWAY;
+    }
+    if(BOOLSETTING(ALLOW_NATT) && !isActive()) {
+            StatusMode |= Identity::NAT;
+    }
+    if (CryptoManager::getInstance()->TLSOk()) {
+            StatusMode |= Identity::TLS;
+    }
+
     bool gslotf = BOOLSETTING(SHOW_FREE_SLOTS_DESC);
     string gslot = "["+Util::toString(UploadManager::getInstance()->getFreeSlots())+"]";
     string uMin = (SETTING(MIN_UPLOAD_SPEED) == 0) ? Util::emptyString : ",O:" + Util::toString(SETTING(MIN_UPLOAD_SPEED));
@@ -886,9 +896,10 @@ string uploadSpeed;
         fromUtf8(escape((gslotf ? gslot :"")+getCurrentDescription())) + " <"+ getClientId().c_str() + ",M:" + modeChar + ",H:" + getCounts();
     string myInfoB = ",S:" + Util::toString(SETTING(SLOTS));
     string myInfoC = uMin +
-        ">$ $" + uploadSpeed + "\x01$" + fromUtf8(escape(SETTING(EMAIL))) + '$';
+        ">$ $" + uploadSpeed + StatusMode + "$" + fromUtf8(escape(SETTING(EMAIL))) + '$';
     string myInfoD = ShareManager::getInstance()->getShareSizeString() + "$|";
     // we always send A and C; however, B (slots) and D (share size) can frequently change so we delay them if needed
+    //printf("%s\n", (myInfoA + myInfoB + myInfoC + myInfoD).c_str());
     if(lastMyInfoA != myInfoA || lastMyInfoC != myInfoC ||
         alwaysSend || ((lastMyInfoB != myInfoB || lastMyInfoD != myInfoD) && lastUpdate + 15*60*1000 < GET_TICK())) {
         dcdebug("MyInfo %s...\n", getMyNick().c_str());
@@ -1016,7 +1027,7 @@ bool NmdcHub::isProtectedIP(const string& ip) {
         return false;
 }
 
-void NmdcHub::on(Connected) throw() {
+void NmdcHub::on(Connected) noexcept {
     Client::on(Connected());
     if(state != STATE_PROTOCOL) {
         return;
@@ -1029,7 +1040,7 @@ void NmdcHub::on(Connected) throw() {
     lastUpdate = 0;
 }
 
-void NmdcHub::on(Line, const string& aLine) throw() {
+void NmdcHub::on(Line, const string& aLine) noexcept {
 #ifdef LUA_SCRIPT
     if (onClientMessage(this, validateMessage(aLine, true)))
         return;
@@ -1038,12 +1049,12 @@ void NmdcHub::on(Line, const string& aLine) throw() {
     onLine(aLine);
 }
 
-void NmdcHub::on(Failed, const string& aLine) throw() {
+void NmdcHub::on(Failed, const string& aLine) noexcept {
     clearUsers();
     Client::on(Failed(), aLine);
 }
 
-void NmdcHub::on(Second, uint64_t aTick) throw() {
+void NmdcHub::on(Second, uint64_t aTick) noexcept {
     Client::on(Second(), aTick);
 
     if(state == STATE_NORMAL && (aTick > (getLastActivity() + 120*1000)) ) {
@@ -1051,7 +1062,7 @@ void NmdcHub::on(Second, uint64_t aTick) throw() {
     }
 }
 
-void NmdcHub::on(Minute, uint64_t aTick) throw() {
+void NmdcHub::on(Minute, uint64_t aTick) noexcept {
         if(aTick > (lastProtectedIPsUpdate + 24*3600*1000)) {
                 protectedIPs.clear();
 

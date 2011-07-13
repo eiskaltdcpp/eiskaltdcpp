@@ -19,8 +19,7 @@
 #ifndef DCPLUSPLUS_DCPP_BLOOM_FILTER_H
 #define DCPLUSPLUS_DCPP_BLOOM_FILTER_H
 
-#include "ZUtils.h"
-#include "Text.h"
+#include "typedefs.h"
 
 namespace dcpp {
 
@@ -30,10 +29,10 @@ public:
 	BloomFilter(size_t tableSize) { table.resize(tableSize); }
 	~BloomFilter() { }
 
-	void add(const string& s) { string tmp=Text::toLower(s); xadd(tmp, N); }
+	void add(const string& s) {xadd(s, N); }
 	bool match(const StringList& s) const {
 		for(StringList::const_iterator i = s.begin(); i != s.end(); ++i) {
-			if(!match(Text::toLower(*i)))
+			if(!match(*i))
 				return false;
 		}
 		return true;

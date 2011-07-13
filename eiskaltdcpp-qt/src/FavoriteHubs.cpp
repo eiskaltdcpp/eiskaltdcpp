@@ -481,7 +481,7 @@ void FavoriteHubs::slotSettingsChanged(const QString &key, const QString &value)
         retranslateUi(this);
 }
 
-void FavoriteHubs::on(FavoriteAdded, const FavoriteHubEntryPtr entry) throw(){
+void FavoriteHubs::on(FavoriteAdded, const FavoriteHubEntryPtr entry) noexcept{
     QList<QVariant> data;
     WulforUtil *WU = WulforUtil::getInstance();
 
@@ -497,7 +497,7 @@ void FavoriteHubs::on(FavoriteAdded, const FavoriteHubEntryPtr entry) throw(){
    model->addResult(data);
 }
 
-void FavoriteHubs::on(FavoriteRemoved, const FavoriteHubEntryPtr entry) throw(){
+void FavoriteHubs::on(FavoriteRemoved, const FavoriteHubEntryPtr entry) noexcept{
     QString server = _q(entry->getServer());
     FavoriteHubItem *item = NULL;
 

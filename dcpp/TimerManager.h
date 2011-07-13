@@ -46,8 +46,8 @@ public:
     typedef X<0> Second;
     typedef X<1> Minute;
 
-    virtual void on(Second, uint64_t) throw() { }
-    virtual void on(Minute, uint64_t) throw() { }
+    virtual void on(Second, uint64_t) noexcept { }
+    virtual void on(Minute, uint64_t) noexcept { }
 };
 
 class TimerManager : public Speaker<TimerManagerListener>, public Singleton<TimerManager>, public Thread
@@ -66,7 +66,7 @@ private:
     boost::timed_mutex boostmtx;
 #endif
     TimerManager();
-    virtual ~TimerManager() throw();
+    virtual ~TimerManager();
 
     virtual int run();
 };

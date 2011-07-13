@@ -195,7 +195,7 @@ private:
     void loadList(){
         VarMap params;
 
-        FinishedManager::getInstance()->lockLists();
+        auto lock = FinishedManager::getInstance()->lockLists();
         const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
         const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 
@@ -214,8 +214,6 @@ private:
 
             model->addUser(params);;
         }
-
-        FinishedManager::getInstance()->unLockLists();
 
         AsyncRunner *runner = new AsyncRunner(this);
         boost::function<void()> f = boost::bind(&FinishedTransfers<isUpload>::loadListFromDB, this);
@@ -510,7 +508,7 @@ private:
             retranslateUi(this);
     }
 
-    void on(FinishedManagerListener::AddedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) throw(){
+    void on(FinishedManagerListener::AddedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) noexcept{
         if (isUpload == upload){
             VarMap params;
 
@@ -520,7 +518,7 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const FinishedUserItemPtr &item) throw(){
+    void on(FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const FinishedUserItemPtr &item) noexcept{
         if (isUpload == upload){
             VarMap params;
 
@@ -530,7 +528,7 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::UpdatedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) throw(){
+    void on(FinishedManagerListener::UpdatedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) noexcept{
         if (isUpload == upload){
             VarMap params;
 
@@ -540,13 +538,13 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::RemovedFile, bool upload, const std::string &file) throw(){
+    void on(FinishedManagerListener::RemovedFile, bool upload, const std::string &file) noexcept{
         if (isUpload == upload){
             emit coreRemovedFile(_q(file));
         }
     }
 
-    void on(FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) throw(){
+    void on(FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) noexcept{
         if (isUpload == upload){
             const FinishedManager::MapByUser &umap = FinishedManager::getInstance()->getMapByUser(isUpload);
             FinishedManager::MapByUser::const_iterator userit = umap.find(user);
@@ -563,7 +561,7 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::RemovedUser, bool upload, const dcpp::HintedUser &user) throw(){
+    void on(FinishedManagerListener::RemovedUser, bool upload, const dcpp::HintedUser &user) noexcept{
         if (isUpload == upload){
             emit coreRemovedUser(_q(user.user->getCID().toBase32()));
         }

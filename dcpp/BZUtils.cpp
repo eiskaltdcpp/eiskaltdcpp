@@ -24,6 +24,8 @@
 
 namespace dcpp {
 
+using std::max;
+
 BZFilter::BZFilter() {
 	memset(&zs, 0, sizeof(zs));
 

@@ -32,7 +32,7 @@ struct FavHubGroupProperties {
 	bool connect;
 };
 
-typedef std::tr1::unordered_map<string, FavHubGroupProperties> FavHubGroups;
+typedef std::unordered_map<string, FavHubGroupProperties> FavHubGroups;
 typedef FavHubGroups::value_type FavHubGroup;
 
 } // namespace dcpp

@@ -20,6 +20,7 @@
 #define DCPLUSPLUS_DCPP_FAVORITEMANAGERLISTENER_H_
 
 #include "forward.h"
+#include "noexcept.h"
 
 namespace dcpp {
 
@@ -39,16 +40,16 @@ public:
     typedef X<8> LoadedFromCache;
     typedef X<9> Corrupted;
 
-    virtual void on(DownloadStarting, const string&) throw() { }
-    virtual void on(DownloadFailed, const string&) throw() { }
-    virtual void on(DownloadFinished, const string&, bool) throw() { }
-    virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) throw() { }
-    virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) throw() { }
-    virtual void on(UserAdded, const FavoriteUser&) throw() { }
-    virtual void on(UserRemoved, const FavoriteUser&) throw() { }
-    virtual void on(StatusChanged, const FavoriteUser&) throw() { }//NOTE: freedcpp
-    virtual void on(LoadedFromCache, const string&, const string&) throw() { }
-    virtual void on(Corrupted, const string&) throw() { }
+    virtual void on(DownloadStarting, const string&) noexcept { }
+    virtual void on(DownloadFailed, const string&) noexcept { }
+    virtual void on(DownloadFinished, const string&, bool) noexcept { }
+    virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) noexcept { }
+    virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) noexcept { }
+    virtual void on(UserAdded, const FavoriteUser&) noexcept { }
+    virtual void on(UserRemoved, const FavoriteUser&) noexcept { }
+    virtual void on(StatusChanged, const FavoriteUser&) noexcept { }//NOTE: freedcpp
+    virtual void on(LoadedFromCache, const string&, const string&) noexcept { }
+    virtual void on(Corrupted, const string&) noexcept { }
 };
 
 } // namespace dcpp

@@ -414,22 +414,22 @@ string ScriptInstance::GetClientType(Client* aClient) {
     return dynamic_cast<AdcHub *>(aClient)?"adch":"nmdch";
 }
 
-void ScriptManager::on(ClientDisconnected, Client* aClient) throw() {
+void ScriptManager::on(ClientDisconnected, Client* aClient) noexcept {
     MakeCall(GetClientType(aClient), "OnHubRemoved", 0, aClient);
 }
 
-void ScriptManager::on(ClientConnected, Client* aClient) throw() {
+void ScriptManager::on(ClientConnected, Client* aClient) noexcept {
     MakeCall(GetClientType(aClient), "OnHubAdded", 0, aClient);
 }
 
-void ScriptManager::on(Second, uint64_t /* ticks */) throw() {
+void ScriptManager::on(Second, uint64_t /* ticks */) noexcept {
     MakeCall("dcpp", "OnTimer", 0, 0);
 }
 
 void ScriptInstance::LuaPush(int i) { lua_pushnumber(L, i); }
 void ScriptInstance::LuaPush(const string& s) { lua_pushlstring(L, s.data(), s.size()); }
 
-bool ScriptInstance::MakeCallRaw(const string& table, const string& method, int args, int ret) throw() {
+bool ScriptInstance::MakeCallRaw(const string& table, const string& method, int args, int ret) noexcept {
     lua_getglobal(L, table.c_str());        // args + 1
     lua_pushstring(L, method.c_str());      // args + 2
     if (lua_istable(L, -2)) {

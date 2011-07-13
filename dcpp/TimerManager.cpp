@@ -40,7 +40,7 @@ TimerManager::TimerManager() {
 #endif
 }
 
-TimerManager::~TimerManager() throw() {
+TimerManager::~TimerManager() {
         dcassert(listeners.size() == 0);
 }
 

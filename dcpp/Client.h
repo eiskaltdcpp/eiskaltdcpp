@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_CLIENT_H
 #define DCPLUSPLUS_DCPP_CLIENT_H
 
+#include "compiler.h"
+
 #include "forward.h"
 
 #include "User.h"
@@ -46,11 +48,7 @@ public:
 
     ClientBase() : type(DIRECT_CONNECT) { }
 
-    enum P2PType { DIRECT_CONNECT
-#ifdef WITH_DHT
-                                 , DHT 
-#endif
-                                       };
+    enum P2PType { DIRECT_CONNECT, DHT };
     P2PType type;
     P2PType getType() const { return type; }
     virtual const string& getHubUrl() const = 0;
@@ -167,7 +165,7 @@ public:
 protected:
     friend class ClientManager;
     Client(const string& hubURL, char separator, bool secure_);
-    virtual ~Client() throw();
+    virtual ~Client();
     struct Counts {
         private:
             typedef Atomic<boost::int32_t> atomic_counter_t;
@@ -200,12 +198,12 @@ protected:
     virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) = 0;
 
     // TimerManagerListener
-    virtual void on(Second, uint64_t aTick) throw();
+    virtual void on(Second, uint64_t aTick) noexcept;
     // BufferedSocketListener
-    virtual void on(Connecting) throw() { fire(ClientListener::Connecting(), this); }
-    virtual void on(Connected) throw();
-    virtual void on(Line, const string& aLine) throw();
-    virtual void on(Failed, const string&) throw();
+    virtual void on(Connecting) noexcept { fire(ClientListener::Connecting(), this); }
+    virtual void on(Connected) noexcept;
+    virtual void on(Line, const string& aLine) noexcept;
+    virtual void on(Failed, const string&) noexcept;
 
 private:
 

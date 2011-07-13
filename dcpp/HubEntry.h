@@ -23,7 +23,7 @@ namespace dcpp {
 
 class HubEntry {
 public:
-    HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers) throw() :
+    HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers) noexcept :
     name(aName), server(aServer), description(aDescription), country(Util::emptyString),
     rating(Util::emptyString), reliability(0.0), shared(0), minShare(0), users(Util::toInt(aUsers)), minSlots(0), maxHubs(0), maxUsers(0) { }
 
@@ -36,12 +36,12 @@ public:
 
     }
 
-    HubEntry() throw() { }
-    HubEntry(const HubEntry& rhs) throw() : name(rhs.name), server(rhs.server), description(rhs.description), country(rhs.country),
+    HubEntry() noexcept { }
+    HubEntry(const HubEntry& rhs) noexcept : name(rhs.name), server(rhs.server), description(rhs.description), country(rhs.country),
         rating(rhs.rating), reliability(rhs.reliability), shared(rhs.shared), minShare(rhs.minShare), users(rhs.users), minSlots(rhs.minSlots),
         maxHubs(rhs.maxHubs), maxUsers(rhs.maxUsers) { }
 
-    ~HubEntry() throw() { }
+    ~HubEntry() noexcept { }
 
     GETSET(string, name, Name);
     GETSET(string, server, Server);
@@ -60,14 +60,14 @@ const string DEF_FAKE_ID = "";
 
 class FavoriteHubEntry {
 public:
-    FavoriteHubEntry() throw() : connect(false), encoding(Text::systemCharset),
+    FavoriteHubEntry() noexcept : connect(false), encoding(Text::systemCharset),
     mode(0), overrideId(0), clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL)) { }
-    FavoriteHubEntry(const HubEntry& rhs) throw() : name(rhs.getName()),
+    FavoriteHubEntry(const HubEntry& rhs) noexcept : name(rhs.getName()),
     server(rhs.getServer()),
     description(rhs.getDescription()), connect(false),
     encoding(Text::systemCharset), mode(0), overrideId(0),
     clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL)) { }
-    FavoriteHubEntry(const FavoriteHubEntry& rhs) throw() :
+    FavoriteHubEntry(const FavoriteHubEntry& rhs) noexcept :
     userdescription(rhs.userdescription), name(rhs.getName()),
     server(rhs.getServer()), description(rhs.getDescription()),
     password(rhs.getPassword()), connect(rhs.getConnect()),
@@ -76,7 +76,7 @@ public:
     externalIP(""), useInternetIp(false), disableChat(false),
     nick(rhs.nick), searchInterval(rhs.searchInterval)
     { }
-    ~FavoriteHubEntry() throw() { }
+    ~FavoriteHubEntry() noexcept { }
 
     const string& getNick(bool useDefault = true) const {
         return (!nick.empty() || !useDefault) ? nick : SETTING(NICK);

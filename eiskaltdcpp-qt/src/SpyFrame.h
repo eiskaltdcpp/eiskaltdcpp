@@ -62,7 +62,7 @@ private:
 
     SpyModel *model;
 
-    virtual void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) throw();
+    virtual void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) noexcept;
 };
 
 #endif // SPYFRAME_H

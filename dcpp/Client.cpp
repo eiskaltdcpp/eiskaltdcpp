@@ -42,17 +42,17 @@ Client::Client(const string& hubURL, char separator_, bool secure_) :
     Util::decodeUrl(hubURL, proto, address, port, file, query, fragment);
 
     if(!query.empty()) {
-            map<string, string> q = Util::decodeQuery(query);
-            map<string, string>::iterator kp = q.find("kp");
-            if(kp != q.end()) {
-                    keyprint = kp->second;
-            }
+        auto q = Util::decodeQuery(query);
+        auto kp = q.find("kp");
+        if(kp != q.end()) {
+            keyprint = kp->second;
+        }
     }
 
     TimerManager::getInstance()->addListener(this);
 }
 
-Client::~Client() throw() {
+Client::~Client() {
     dcassert(!sock);
 
     // In case we were deleted before we Failed
@@ -160,12 +160,12 @@ void Client::send(const char* aMessage, size_t aLen) {
     COMMAND_DEBUG(aMessage, DebugManager::HUB_OUT, getIpPort());
 }
 
-void Client::on(Connected) throw() {
+void Client::on(Connected) noexcept {
     updateActivity();
     ip = sock->getIp();
     localIp = sock->getLocalIp();
     if(sock->isSecure() && keyprint.compare(0, 7, "SHA256/") == 0) {
-        vector<uint8_t> kp = sock->getKeyprint();
+        auto kp = sock->getKeyprint();
         if(!kp.empty()) {
             vector<uint8_t> kp2v(kp.size());
             Encoder::fromBase32(keyprint.c_str() + 7, &kp2v[0], kp2v.size());
@@ -181,7 +181,7 @@ void Client::on(Connected) throw() {
     state = STATE_PROTOCOL;
 }
 
-void Client::on(Failed, const string& aLine) throw() {
+void Client::on(Failed, const string& aLine) noexcept {
     state = STATE_DISCONNECTED;
     FavoriteManager::getInstance()->removeUserCommand(getHubUrl());
     sock->removeListener(this);
@@ -275,12 +275,12 @@ uint64_t Client::search(int aSizeMode, int64_t aSize, int aFileType, const strin
 
 }
 
-void Client::on(Line, const string& aLine) throw() {
+void Client::on(Line, const string& aLine) noexcept {
     updateActivity();
     COMMAND_DEBUG(aLine, DebugManager::HUB_IN, getIpPort())
 }
 
-void Client::on(Second, uint64_t aTick) throw() {
+void Client::on(Second, uint64_t aTick) noexcept {
     if(state == STATE_DISCONNECTED && getAutoReconnect() && (aTick > (getLastActivity() + getReconnDelay() * 1000)) ) {
         // Try to reconnect...
         connect();

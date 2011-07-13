@@ -19,6 +19,9 @@
 #ifndef DCPLUSPLUS_DCPP_Z_UTILS_H
 #define DCPLUSPLUS_DCPP_Z_UTILS_H
 
+#include <cstddef>
+#include <cstdint>
+
 #include <zlib.h>
 
 namespace dcpp {

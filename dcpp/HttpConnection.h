@@ -20,6 +20,7 @@
 #define DCPLUSPLUS_DCPP_HTTP_CONNECTION_H
 
 #include "BufferedSocket.h"
+#include "noexcept.h"
 
 namespace dcpp {
 
@@ -38,13 +39,13 @@ public:
     typedef X<5> TypeBZ2;
     typedef X<6> Retried;
 
-    virtual void on(Data, HttpConnection*, const uint8_t*, size_t) throw() =0;
-    virtual void on(Failed, HttpConnection*, const string&) throw() { }
-    virtual void on(Complete, HttpConnection*, const string&, bool) throw() { }
-    virtual void on(Redirected, HttpConnection*, const string&) throw() { }
-    virtual void on(TypeNormal, HttpConnection*) throw() { }
-    virtual void on(TypeBZ2, HttpConnection*) throw() { }
-    virtual void on(Retried, HttpConnection*, const bool) throw() { }
+    virtual void on(Data, HttpConnection*, const uint8_t*, size_t) noexcept =0;
+    virtual void on(Failed, HttpConnection*, const string&) noexcept { }
+    virtual void on(Complete, HttpConnection*, const string&, bool) noexcept { }
+    virtual void on(Redirected, HttpConnection*, const string&) noexcept { }
+    virtual void on(TypeNormal, HttpConnection*) noexcept { }
+    virtual void on(TypeBZ2, HttpConnection*) noexcept { }
+    virtual void on(Retried, HttpConnection*, const bool) noexcept { }
 };
 
 class HttpConnection : BufferedSocketListener, public Speaker<HttpConnectionListener>
@@ -52,7 +53,7 @@ class HttpConnection : BufferedSocketListener, public Speaker<HttpConnectionList
 public:
     void downloadFile(const string& aUrl);
     HttpConnection() : ok(false), port(80), size(-1), moved302(false), coralizeState(CST_DEFAULT), socket(NULL) { }
-    virtual ~HttpConnection() throw() {
+    virtual ~HttpConnection() noexcept {
         if(socket) {
             socket->removeListener(this);
             BufferedSocket::putSocket(socket);
@@ -80,11 +81,11 @@ private:
     BufferedSocket* socket;
 
     // BufferedSocketListener
-    virtual void on(Connected) throw();
-    virtual void on(Line, const string&) throw();
-    virtual void on(Data, uint8_t*, size_t) throw();
-    virtual void on(ModeChange) throw();
-    virtual void on(Failed, const string&) throw();
+    virtual void on(Connected) noexcept;
+    virtual void on(Line, const string&) noexcept;
+    virtual void on(Data, uint8_t*, size_t) noexcept;
+    virtual void on(ModeChange) noexcept;
+    virtual void on(Failed, const string&) noexcept;
 
     void onConnected();
     void onLine(const string& aLine);

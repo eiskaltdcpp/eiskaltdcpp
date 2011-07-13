@@ -3566,21 +3566,21 @@ void HubFrame::slotCopyHubURL(){
     }
 }
 
-void HubFrame::on(FavoriteManagerListener::UserAdded, const FavoriteUser& aUser) throw() {
+void HubFrame::on(FavoriteManagerListener::UserAdded, const FavoriteUser& aUser) noexcept {
     emit coreFavoriteUserAdded(_q(aUser.getUser()->getCID().toBase32()));
 }
 
-void HubFrame::on(FavoriteManagerListener::UserRemoved, const FavoriteUser& aUser) throw() {
+void HubFrame::on(FavoriteManagerListener::UserRemoved, const FavoriteUser& aUser) noexcept {
     emit coreFavoriteUserRemoved(_q(aUser.getUser()->getCID().toBase32()));
 }
 
-void HubFrame::on(ClientListener::Connecting, Client *c) throw(){
+void HubFrame::on(ClientListener::Connecting, Client *c) noexcept{
     QString status = tr("Connecting to %1").arg(QString::fromStdString(client->getHubUrl()));
 
     emit coreConnecting(status);
 }
 
-void HubFrame::on(ClientListener::Connected, Client*) throw(){
+void HubFrame::on(ClientListener::Connected, Client*) noexcept{
     QString status = tr("Connected to %1").arg(QString::fromStdString(client->getHubUrl()));
 
     emit coreConnected(status);
@@ -3588,7 +3588,7 @@ void HubFrame::on(ClientListener::Connected, Client*) throw(){
     HubManager::getInstance()->registerHubUrl(_q(client->getHubUrl()), this);
 }
 
-void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) throw(){
+void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) noexcept{
     if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
         return;
 
@@ -3599,7 +3599,7 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
     emit coreUserUpdated(params, user, true);
 }
 
-void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) throw(){
+void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) noexcept{
     bool showHidden = WBGET(WB_SHOW_HIDDEN_USERS);
 
     for (OnlineUserList::const_iterator it = list.begin(); it != list.end(); ++it){
@@ -3614,14 +3614,14 @@ void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList 
     }
 }
 
-void HubFrame::on(ClientListener::UserRemoved, Client*, const OnlineUser &user) throw(){
+void HubFrame::on(ClientListener::UserRemoved, Client*, const OnlineUser &user) noexcept{
     if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
         return;
 
     emit coreUserRemoved(user.getUser(), user.getIdentity().getBytesShared());
 }
 
-void HubFrame::on(ClientListener::Redirect, Client*, const string &link) throw(){
+void HubFrame::on(ClientListener::Redirect, Client*, const string &link) noexcept{
     if(ClientManager::getInstance()->isConnected(link)) {
         emit coreStatusMsg(tr("Redirect request received to a hub that's already connected"));
 
@@ -3632,7 +3632,7 @@ void HubFrame::on(ClientListener::Redirect, Client*, const string &link) throw()
         emit coreFollow(_q(link));
 }
 
-void HubFrame::on(ClientListener::Failed, Client*, const string &msg) throw(){
+void HubFrame::on(ClientListener::Failed, Client*, const string &msg) noexcept{
     QString status = tr("Fail: %1...").arg(_q(msg));
 
     emit coreStatusMsg(status);
@@ -3640,15 +3640,15 @@ void HubFrame::on(ClientListener::Failed, Client*, const string &msg) throw(){
     emit coreHubUpdated();
 }
 
-void HubFrame::on(GetPassword, Client*) throw(){
+void HubFrame::on(GetPassword, Client*) noexcept{
     emit corePassword();
 }
 
-void HubFrame::on(ClientListener::HubUpdated, Client*) throw(){
+void HubFrame::on(ClientListener::HubUpdated, Client*) noexcept{
     emit coreHubUpdated();
 }
 
-void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) throw(){
+void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) noexcept{
     if (message.text.empty())
         return;
 
@@ -3797,7 +3797,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
     }
 }
 
-void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int) throw(){
+void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int) noexcept{
     QString status = QString("%1 ").arg(_q(msg));
 
     emit coreStatusMsg(status);
@@ -3812,12 +3812,12 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
     }
 }
 
-void HubFrame::on(ClientListener::NickTaken, Client*) throw(){
+void HubFrame::on(ClientListener::NickTaken, Client*) noexcept{
     QString status = tr("Sorry, but nick \"%1\" is already taken by another user.").arg(client->getCurrentNick().c_str());
 
     emit coreStatusMsg(status);
 }
 
-void HubFrame::on(ClientListener::SearchFlood, Client*, const string &str) throw(){
+void HubFrame::on(ClientListener::SearchFlood, Client*, const string &str) noexcept{
     emit coreStatusMsg(tr("Search flood detected: %1").arg(_q(str)));
 }

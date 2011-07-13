@@ -21,7 +21,6 @@
 
 #include "Singleton.h"
 #include "Socket.h"
-#include "Thread.h"
 #include "TimerManager.h"
 #include "SettingsManager.h"
 
@@ -47,10 +46,12 @@ namespace dcpp
 		 */
 		int write(Socket* sock, void* buffer, size_t& len);
 
-		SettingsManager::IntSetting getCurSetting(SettingsManager::IntSetting setting);
+		static SettingsManager::IntSetting getCurSetting(SettingsManager::IntSetting setting);
 
-		int getUpLimit();
-		int getDownLimit();
+		static int getUpLimit();
+		static int getDownLimit();
+
+		static void setSetting(SettingsManager::IntSetting setting, int value);
 
 		void shutdown();
 	private:
@@ -89,7 +90,7 @@ namespace dcpp
 		void waitToken();
 
 		// TimerManagerListener
-		void on(TimerManagerListener::Second, uint64_t /* aTick */) throw();
+		void on(TimerManagerListener::Second, uint64_t /* aTick */) noexcept;
 	};
 
 }	// namespace dcpp

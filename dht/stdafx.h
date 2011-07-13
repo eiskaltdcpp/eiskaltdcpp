@@ -24,13 +24,11 @@
 #define _STDAFX_H
 
 #include "dcpp/stdinc.h"
-#include "dcpp/DCPlusPlus.h"
 
 namespace dht
 {
 	using namespace dcpp;
 	using namespace std;
-	using namespace std::tr1;
 }
 
 // TODO: reference additional headers your program requires here

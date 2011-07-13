@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_DCPLUSPLUS_H
 #define DCPLUSPLUS_DCPP_DCPLUSPLUS_H
 
+#include "compiler.h"
+
 #include <string>
 
 namespace dcpp {

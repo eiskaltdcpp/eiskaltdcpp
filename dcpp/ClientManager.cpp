@@ -248,7 +248,7 @@ string ClientManager::findHubEncoding(const string& aUrl) const {
     return Text::hubDefaultCharset;
 }
 
-UserPtr ClientManager::findLegacyUser(const string& aNick) const throw() {
+UserPtr ClientManager::findLegacyUser(const string& aNick) const noexcept {
     if (aNick.empty())
         return UserPtr();
     Lock l(cs);
@@ -261,7 +261,7 @@ UserPtr ClientManager::findLegacyUser(const string& aNick) const throw() {
     return UserPtr();
 }
 
-UserPtr ClientManager::getUser(const string& aNick, const string& aHubUrl) throw() {
+UserPtr ClientManager::getUser(const string& aNick, const string& aHubUrl) noexcept {
     CID cid = makeCid(aNick, aHubUrl);
     Lock l(cs);
 
@@ -278,7 +278,7 @@ UserPtr ClientManager::getUser(const string& aNick, const string& aHubUrl) throw
     return p;
 }
 
-UserPtr ClientManager::getUser(const CID& cid) throw() {
+UserPtr ClientManager::getUser(const CID& cid) noexcept {
     Lock l(cs);
     UserIter ui = users.find(cid);
     if(ui != users.end()) {
@@ -290,7 +290,7 @@ UserPtr ClientManager::getUser(const CID& cid) throw() {
     return p;
 }
 
-UserPtr ClientManager::findUser(const CID& cid) const throw() {
+UserPtr ClientManager::findUser(const CID& cid) const noexcept {
     Lock l(cs);
     UserMap::const_iterator ui = users.find(cid);
     if(ui != users.end()) {
@@ -310,7 +310,7 @@ bool ClientManager::isOp(const UserPtr& user, const string& aHubUrl) const {
     return false;
 }
 
-CID ClientManager::makeCid(const string& aNick, const string& aHubUrl) const throw() {
+CID ClientManager::makeCid(const string& aNick, const string& aHubUrl) const noexcept {
     string n = Text::toLower(aNick);
     TigerHash th;
     th.update(n.c_str(), n.length());
@@ -320,7 +320,7 @@ CID ClientManager::makeCid(const string& aNick, const string& aHubUrl) const thr
     return CID(th.finalize());
 }
 
-void ClientManager::putOnline(OnlineUser* ou) throw() {
+void ClientManager::putOnline(OnlineUser* ou) noexcept {
     {
         Lock l(cs);
         onlineUsers.insert(make_pair(ou->getUser()->getCID(), ou));
@@ -332,7 +332,7 @@ void ClientManager::putOnline(OnlineUser* ou) throw() {
     }
 }
 
-void ClientManager::putOffline(OnlineUser* ou, bool disconnect) throw() {
+void ClientManager::putOffline(OnlineUser* ou, bool disconnect) noexcept {
     bool lastUser = false;
     {
         Lock l(cs);
@@ -474,7 +474,7 @@ void ClientManager::infoUpdated() {
 }
 
 void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int aSearchType, int64_t aSize,
-                                    int aFileType, const string& aString) throw()
+                                    int aFileType, const string& aString) noexcept
 {
     Speaker<ClientManagerListener>::fire(ClientManagerListener::IncomingSearch(), aString);
 
@@ -547,7 +547,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
     }
 }
 
-void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const CID& from) throw() {
+void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const CID& from) noexcept {
     bool isUdpActive = false;
     {
         Lock l(cs);
@@ -596,7 +596,7 @@ uint64_t ClientManager::search(StringList& who, int aSizeMode, int64_t aSize, in
     return estimateSearchSpan;
 }
 
-void ClientManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) throw() {
+void ClientManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexcept {
     Lock l(cs);
 
     // Collect some garbage...
@@ -637,7 +637,7 @@ CID ClientManager::getMyCID() {
     return CID(tiger.finalize());
 }
 
-void ClientManager::updateNick(const OnlineUser& user) throw() {
+void ClientManager::updateNick(const OnlineUser& user) noexcept {
         if(!user.getIdentity().getNick().empty()) {
     Lock l(cs);
                 NickMap::iterator i = nicks.find(user.getUser()->getCID());
@@ -707,31 +707,31 @@ void ClientManager::saveUser(const CID& cid) {
                 i->second.second = true;
 }
 
-void ClientManager::on(Connected, Client* c) throw() {
+void ClientManager::on(Connected, Client* c) noexcept {
     fire(ClientManagerListener::ClientConnected(), c);
 }
 
-void ClientManager::on(UserUpdated, Client*, const OnlineUser& user) throw() {
+void ClientManager::on(UserUpdated, Client*, const OnlineUser& user) noexcept {
     updateNick(user);
     fire(ClientManagerListener::UserUpdated(), user);
 }
 
-void ClientManager::on(UsersUpdated, Client* c, const OnlineUserList& l) throw() {
+void ClientManager::on(UsersUpdated, Client* c, const OnlineUserList& l) noexcept {
     for(OnlineUserList::const_iterator i = l.begin(), iend = l.end(); i != iend; ++i) {
         updateNick(*(*i));
         fire(ClientManagerListener::UserUpdated(), *(*i));
     }
 }
 
-void ClientManager::on(HubUpdated, Client* c) throw() {
+void ClientManager::on(HubUpdated, Client* c) noexcept {
     fire(ClientManagerListener::ClientUpdated(), c);
 }
 
-void ClientManager::on(Failed, Client* client, const string&) throw() {
+void ClientManager::on(Failed, Client* client, const string&) noexcept {
     fire(ClientManagerListener::ClientDisconnected(), client);
 }
 
-void ClientManager::on(HubUserCommand, Client* client, int aType, int ctx, const string& name, const string& command) throw() {
+void ClientManager::on(HubUserCommand, Client* client, int aType, int ctx, const string& name, const string& command) noexcept {
     if(BOOLSETTING(HUB_USER_COMMANDS)) {
         if(aType == UserCommand::TYPE_REMOVE) {
             int cmd = FavoriteManager::getInstance()->findUserCommand(name, client->getHubUrl());
@@ -798,7 +798,7 @@ OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const
 #endif
 
 #ifdef LUA_SCRIPT
-bool ClientManager::ucExecuteLua(const string& ucCommand, StringMap& params) throw() {
+bool ClientManager::ucExecuteLua(const string& ucCommand, StringMap& params) noexcept {
         bool executedlua = false;
         string::size_type i, j, k;
         i = j = k = 0;

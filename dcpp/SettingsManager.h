@@ -39,15 +39,15 @@ public:
     typedef X<1> Save;
     typedef X<2> SearchTypesChanged;
 
-    virtual void on(Load, SimpleXML&) throw() { }
-    virtual void on(Save, SimpleXML&) throw() { }
-    virtual void on(SearchTypesChanged) throw() { }
+    virtual void on(Load, SimpleXML&) noexcept { }
+    virtual void on(Save, SimpleXML&) noexcept { }
+    virtual void on(SearchTypesChanged) noexcept { }
 };
 
 class SettingsManager : public Singleton<SettingsManager>, public Speaker<SettingsManagerListener>
 {
 public:
-    typedef std::tr1::unordered_map<string, StringList> SearchTypes;
+    typedef std::unordered_map<string, StringList> SearchTypes;
     typedef SearchTypes::iterator SearchTypesIter;
     typedef SearchTypes::const_iterator SearchTypesIterC;
     static StringList connectionSpeeds;
@@ -65,11 +65,8 @@ public:
         LOG_FILE_DOWNLOAD, LOG_FILE_FINISHED_DOWNLOAD, LOG_FILE_SYSTEM, LOG_FORMAT_SYSTEM,
         LOG_FORMAT_STATUS, TLS_PRIVATE_KEY_FILE,
         TLS_CERTIFICATE_FILE, TLS_TRUSTED_CERTIFICATES_PATH,
-        LANGUAGE, SKIPLIST_SHARE, INTERNETIP, BIND_IFACE_NAME, 
-#ifdef WITH_DHT
-        DHT_KEY,
-#endif
-        DYNDNS_SERVER,
+        LANGUAGE, SKIPLIST_SHARE, INTERNETIP, BIND_IFACE_NAME,
+        DHT_KEY, DYNDNS_SERVER,
         STR_LAST };
 
     enum IntSetting { INT_FIRST = STR_LAST + 1,
@@ -108,9 +105,7 @@ public:
         SEARCH_FILTER_SHARED, FINISHED_DL_ONLY_FULL,
         SEARCH_MERGE, HASH_BUFFER_SIZE_MB, HASH_BUFFER_POPULATE,
         HASH_BUFFER_NORESERVE, HASH_BUFFER_PRIVATE,
-#ifdef WITH_DHT
         USE_DHT, DHT_PORT,
-#endif
         RECONNECT_DELAY, AUTO_DETECT_CONNECTION, BANDWIDTH_LIMIT_START,
         BANDWIDTH_LIMIT_END, THROTTLE_ENABLE, TIME_DEPENDENT_THROTTLE,
         MAX_DOWNLOAD_SPEED_ALTERNATE, MAX_UPLOAD_SPEED_ALTERNATE,
@@ -258,7 +253,7 @@ public:
 private:
     friend class Singleton<SettingsManager>;
     SettingsManager();
-    virtual ~SettingsManager() throw() { }
+    virtual ~SettingsManager() noexcept { }
 
     static const string settingTags[SETTINGS_LAST+1];
 

@@ -103,8 +103,8 @@ class PrivateMessage:
 		void grantSlot_client();
 
                 // client callback
-                virtual void on(dcpp::ClientManagerListener::UserConnected, const dcpp::UserPtr& aUser) throw();
-                virtual void on(dcpp::ClientManagerListener::UserDisconnected, const dcpp::UserPtr& aUser) throw();
+                virtual void on(dcpp::ClientManagerListener::UserConnected, const dcpp::UserPtr& aUser) noexcept;
+                virtual void on(dcpp::ClientManagerListener::UserDisconnected, const dcpp::UserPtr& aUser) noexcept;
 
 		GtkTextBuffer *messageBuffer;
 		GtkTextMark *mark, *start_mark, *end_mark, *tag_mark, *emot_mark;

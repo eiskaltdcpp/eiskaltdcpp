@@ -34,11 +34,11 @@ public:
     typedef X<3> Failed;
     typedef X<4> StatusChanged;
 
-    virtual void on(Added, ConnectionQueueItem*) throw() { }
-    virtual void on(Connected, ConnectionQueueItem*) throw() { }
-    virtual void on(Removed, ConnectionQueueItem*) throw() { }
-    virtual void on(Failed, ConnectionQueueItem*, const string&) throw() { }
-    virtual void on(StatusChanged, ConnectionQueueItem*) throw() { }
+    virtual void on(Added, ConnectionQueueItem*) noexcept { }
+    virtual void on(Connected, ConnectionQueueItem*) noexcept { }
+    virtual void on(Removed, ConnectionQueueItem*) noexcept { }
+    virtual void on(Failed, ConnectionQueueItem*, const string&) noexcept { }
+    virtual void on(StatusChanged, ConnectionQueueItem*) noexcept { }
 };
 
 } // namespace dcpp

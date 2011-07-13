@@ -288,7 +288,7 @@ void FavoriteUsers::slotSettingsChanged(const QString &key, const QString &){
         retranslateUi(this);
 }
 
-void FavoriteUsers::on(UserAdded, const FavoriteUser& aUser) throw() {
+void FavoriteUsers::on(UserAdded, const FavoriteUser& aUser) noexcept {
     if (WBGET(WB_FAVUSERS_AUTOGRANT))
         FavoriteManager::getInstance()->setAutoGrant(aUser.getUser(), true);
 
@@ -299,15 +299,14 @@ void FavoriteUsers::on(UserAdded, const FavoriteUser& aUser) throw() {
     emit coreUserAdded(params);
 }
 
-void FavoriteUsers::on(UserRemoved, const FavoriteUser& aUser) throw() {
+void FavoriteUsers::on(UserRemoved, const FavoriteUser& aUser) noexcept {
     emit coreUserRemoved(_q(aUser.getUser()->getCID().toBase32()));
 }
 
-void FavoriteUsers::on(StatusChanged, const UserPtr& u) throw(){
+void FavoriteUsers::on(StatusChanged, const UserPtr& u) noexcept{
     emit coreStatusChanged(_q(u->getCID().toBase32()), u->isOnline()?
                                                                     tr("Online")
                                                                     :
                                                                     _q(Util::formatTime("%Y-%m-%d %H:%M", FavoriteManager::getInstance()->getLastSeen(u))));
 
 }
-

@@ -641,7 +641,7 @@ gboolean SearchSpy::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpo
 	return FALSE;
 }
 
-void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) throw()
+void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) noexcept
 {
 	if(WGETB("spyframe-ignore-tth-searches") && s.compare(0, 4, "TTH:") == 0)
 		return;
@@ -665,7 +665,7 @@ void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) throw
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void SearchSpy::on(TimerManagerListener::Minute, uint64_t tick) throw()
+void SearchSpy::on(TimerManagerListener::Minute, uint64_t tick) noexcept
 {
 	typedef Func0<SearchSpy> F0;
 	F0 *func = new F0(this, &SearchSpy::updateFrameStatus_gui);

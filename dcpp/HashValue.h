@@ -30,7 +30,7 @@ struct HashValue : FastAlloc<HashValue<Hasher> >{
     static const size_t BYTES = Hasher::BYTES;
 
     HashValue() { }
-    explicit HashValue(uint8_t* aData) { memcpy(data, aData, BYTES); }
+    explicit HashValue(const uint8_t* aData) { memcpy(data, aData, BYTES); }
     explicit HashValue(const std::string& base32) { Encoder::fromBase32(base32.c_str(), data, BYTES); }
     HashValue(const HashValue& rhs) { memcpy(data, rhs.data, BYTES); }
     HashValue& operator=(const HashValue& rhs) { memcpy(data, rhs.data, BYTES); return *this; }
@@ -46,7 +46,7 @@ struct HashValue : FastAlloc<HashValue<Hasher> >{
 
 } // namespace dcpp
 
-namespace std { namespace tr1 {
+namespace std {
 template<typename T>
 struct hash<dcpp::HashValue<T> > {
         size_t operator()(const dcpp::HashValue<T>& rhs) const {
@@ -56,7 +56,6 @@ struct hash<dcpp::HashValue<T> > {
             return hvHash;
         }
 };
-}
 }
 
 #endif // !defined(HASH_VALUE_H)

@@ -44,9 +44,7 @@ public:
         OLD_CLIENT_BIT,
         NO_ADC_1_0_PROTOCOL_BIT,
         NO_ADCS_0_10_PROTOCOL_BIT,
-#ifdef WITH_DHT
         DHT_BIT,
-#endif
         NAT_TRAVERSAL_BIT
     };
 
@@ -60,9 +58,7 @@ public:
         OLD_CLIENT = 1<<OLD_CLIENT_BIT,  //< Can't download - old client
         NO_ADC_1_0_PROTOCOL = 1<<NO_ADC_1_0_PROTOCOL_BIT,   //< Doesn't support "ADC/1.0" (dc++ <=0.703)
         NO_ADCS_0_10_PROTOCOL = 1<< NO_ADCS_0_10_PROTOCOL_BIT,   //< Doesn't support "ADCS/0.10"
-#ifdef WITH_DHT
         DHT = 1<<DHT_BIT,
-#endif
         NAT_TRAVERSAL = 1<<NAT_TRAVERSAL_BIT
     };
 
@@ -72,7 +68,7 @@ public:
 
     User(const CID& aCID) : cid(aCID) { }
 
-    ~User() throw() { }
+    ~User() noexcept { }
 
     const CID& getCID() const { return cid; }
     operator const CID&() const { return cid; }
@@ -131,10 +127,6 @@ public:
         NAT             = 0x20
     };
 
-    //Identity() : sid(0) { }
-    //Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr), sid(aSID) { }
-    //Identity(const Identity& rhs) : Flags(), sid(0) { *this = rhs; } // Use operator= since we have to lock before reading...
-    //Identity& operator=(const Identity& rhs) { FastLock l(cs); *static_cast<Flags*>(this) = rhs; user = rhs.user; sid = rhs.sid; info = rhs.info; return *this; }
     Identity() { }
     Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr) { setSID(aSID); }
     Identity(const Identity& rhs) { *this = rhs; } // Use operator= since we have to lock before reading...
@@ -181,16 +173,12 @@ public:
 
     bool isClientType(ClientType ct) const;
 
-    void getParams(StringMap& map, const string& prefix, bool compatibility
-#ifdef WITH_DHT
-                                                                           , bool dht = false
-#endif
-                                                                                             ) const;
+    void getParams(StringMap& map, const string& prefix, bool compatibility, bool dht = false) const;
     UserPtr& getUser() { return user; }
     GETSET(UserPtr, user, User);
     GETSET(uint32_t, sid, SID);
 private:
-    typedef std::tr1::unordered_map<short, string> InfMap;
+    typedef std::unordered_map<short, string> InfMap;
     typedef InfMap::iterator InfIter;
     typedef InfMap::const_iterator InfIterC;
     InfMap info;
@@ -207,7 +195,7 @@ public:
     typedef List::iterator Iter;
 
     OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_);
-    virtual ~OnlineUser() throw() { }
+    virtual ~OnlineUser() noexcept { }
     operator UserPtr&() { return getUser(); }
     operator const UserPtr&() const { return getUser(); }
 

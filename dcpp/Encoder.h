@@ -16,10 +16,14 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(ENCODER_H)
-#define ENCODER_H
+#ifndef DCPLUSPLUS_DCPP_ENCODER_H
+#define DCPLUSPLUS_DCPP_ENCODER_H
+
+#include <string>
 
 namespace dcpp {
+
+using std::string;
 
 class Encoder
 {
@@ -30,6 +34,8 @@ public:
 		return toBase32(src, len, tmp);
 	}
 	static void fromBase32(const char* src, uint8_t* dst, size_t len);
+
+	static void fromBase16(const char* src, uint8_t *dst, size_t len);
 private:
 	static const int8_t base32Table[];
 	static const char base32Alphabet[];
