@@ -987,7 +987,7 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child internal-child="action_area">
-          <object class="GtkHButtonBox" id="dialog-action_area1">
+          <object class="GtkHButtonBox" id="dialog-action_area4">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
@@ -3270,7 +3270,7 @@
               </packing>
             </child>
             <child type="tab">
-              <object class="GtkLabel" id="label3">
+              <object class="GtkLabel" id="label300">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Downloads</property>
@@ -6170,7 +6170,7 @@ see man strftime for details.</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkVBox" id="vbox24">
+                  <object class="GtkVBox" id="vbox241">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="border_width">8</property>
@@ -7695,7 +7695,7 @@ Limiting</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkHBox" id="hbox41">
+                      <object class="GtkHBox" id="hbox411">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="spacing">8</property>
@@ -7838,12 +7838,12 @@ Limiting</property>
     <property name="local_only">False</property>
     <property name="show_hidden">True</property>
     <child internal-child="vbox">
-      <object class="GtkVBox" id="dialog-vbox1">
+      <object class="GtkVBox" id="dialog-vbox21">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="spacing">24</property>
         <child internal-child="action_area">
-          <object class="GtkHButtonBox" id="dialog-action_area1">
+          <object class="GtkHButtonBox" id="dialog-action_area2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
@@ -8402,7 +8402,7 @@ Limiting</property>
     <property name="title" translatable="yes">Configure hub lists</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkVBox" id="dialog-vbox1">
+      <object class="GtkVBox" id="dialog-vbox2">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child internal-child="action_area">
@@ -8411,7 +8411,7 @@ Limiting</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="okbutton1">
+              <object class="GtkButton" id="okbutton2">
                 <property name="label">gtk-ok</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -8436,13 +8436,13 @@ Limiting</property>
           </packing>
         </child>
         <child>
-          <object class="GtkVBox" id="vbox8">
+          <object class="GtkVBox" id="vbox81">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="border_width">8</property>
             <property name="spacing">4</property>
             <child>
-              <object class="GtkHBox" id="hbox5">
+              <object class="GtkHBox" id="hbox54">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">4</property>
@@ -8458,7 +8458,7 @@ Limiting</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkVBox" id="vbox6">
+                  <object class="GtkVBox" id="vbox600">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="spacing">4</property>

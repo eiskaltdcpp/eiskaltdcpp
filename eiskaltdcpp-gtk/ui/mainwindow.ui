@@ -1937,6 +1937,45 @@ Contributors
     <property name="stock">icon-reconnect</property>
     <property name="icon-size">1</property>
   </object>
+  <object class="GtkMenu" id="statusIconMenu">
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkCheckMenuItem" id="statusIconShowInterfaceItem">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="active">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="statusIconSeparatorItem">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="statusIconBlinkUseItem">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="active">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="statusIconSeparatorItem1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="statusIconQuitItem">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_action_appearance">False</property>
+        <property name="use_stock">False</property>
+      </object>
+    </child>
+  </object>
   <object class="GtkToolbar" id="toolbar1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
