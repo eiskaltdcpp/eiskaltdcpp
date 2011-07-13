@@ -72,23 +72,23 @@ class FinishedTransfers:
 		void removeAll_client();
 
 		/**
-		virtual void on(AddedFile, bool, const string&, const FinishedFileItemPtr&) throw() { }
-		virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) throw() { }
-		virtual void on(UpdatedFile, bool, const string&, const FinishedFileItemPtr&) throw() { }
-		virtual void on(UpdatedUser, bool, const HintedUser&) throw() { }
-		virtual void on(RemovedFile, bool, const string&) throw() { }
-		virtual void on(RemovedUser, bool, const HintedUser&) throw() { }
-		virtual void on(RemovedAll, bool) throw() { }
+		virtual void on(AddedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
+		virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) noexcept { }
+		virtual void on(UpdatedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
+		virtual void on(UpdatedUser, bool, const HintedUser&) noexcept { }
+		virtual void on(RemovedFile, bool, const string&) noexcept { }
+		virtual void on(RemovedUser, bool, const HintedUser&) noexcept { }
+		virtual void on(RemovedAll, bool) noexcept { }
 
 		*/
 		// Client callbacks
-		virtual void on(dcpp::FinishedManagerListener::AddedFile, bool upload, const std::string &file, const dcpp::FinishedFileItemPtr &item) throw();
-		virtual void on(dcpp::FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const dcpp::FinishedUserItemPtr &item) throw();//NOTE: core 0.762
-		virtual void on(dcpp::FinishedManagerListener::UpdatedFile, bool upload, const std::string &file, const dcpp::FinishedFileItemPtr &item) throw();
-		virtual void on(dcpp::FinishedManagerListener::RemovedFile, bool upload, const std::string &file) throw();
-		virtual void on(dcpp::FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) throw();//NOTE: core 0.762
-		virtual void on(dcpp::FinishedManagerListener::RemovedUser, bool upload, const dcpp::HintedUser &user) throw();//NOTE: core 0.762
-		/* virtual void on(dcpp::FinishedManagerListener::RemoveAll, bool upload) throw();  Implement? */
+		virtual void on(dcpp::FinishedManagerListener::AddedFile, bool upload, const std::string &file, const dcpp::FinishedFileItemPtr &item) noexcept;
+		virtual void on(dcpp::FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const dcpp::FinishedUserItemPtr &item) noexcept;//NOTE: core 0.762
+		virtual void on(dcpp::FinishedManagerListener::UpdatedFile, bool upload, const std::string &file, const dcpp::FinishedFileItemPtr &item) noexcept;
+		virtual void on(dcpp::FinishedManagerListener::RemovedFile, bool upload, const std::string &file) noexcept;
+		virtual void on(dcpp::FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) noexcept;//NOTE: core 0.762
+		virtual void on(dcpp::FinishedManagerListener::RemovedUser, bool upload, const dcpp::HintedUser &user) noexcept;//NOTE: core 0.762
+		/* virtual void on(dcpp::FinishedManagerListener::RemoveAll, bool upload) noexcept;  Implement? */
 
 		GtkListStore *fileStore, *userStore;
 		TreeView userView;

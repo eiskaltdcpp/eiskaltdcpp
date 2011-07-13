@@ -55,7 +55,7 @@ SearchManager::SearchManager() :
     queue.start();
 }
 
-SearchManager::~SearchManager() throw() {
+SearchManager::~SearchManager() {
     if(socket.get()) {
         stop = true;
         socket->disconnect();
@@ -83,7 +83,7 @@ uint64_t SearchManager::search(StringList& who, const string& aName, int64_t aSi
         return ClientManager::getInstance()->search(who, aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aExtList, aOwner);
 }
 
-void SearchManager::listen() throw(SocketException) {
+void SearchManager::listen() {
 
     disconnect();
 
@@ -100,7 +100,7 @@ void SearchManager::listen() throw(SocketException) {
     }
 }
 
-void SearchManager::disconnect() throw() {
+void SearchManager::disconnect() noexcept {
     if(socket.get()) {
         stop = true;
         queue.shutdown();

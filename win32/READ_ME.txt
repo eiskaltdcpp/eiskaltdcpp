@@ -85,7 +85,8 @@ Check variables.bat for correct paths and run:
 	build.bat
 	install.bat
 Program with all necessary files is now available in EiskaltDC++ directory.
-If you need installer run create_installer.bat
+If you need installer run:
+	create_installer.bat
 
 *******************************************************************************
 Compilation in Linux ( cross-compile )

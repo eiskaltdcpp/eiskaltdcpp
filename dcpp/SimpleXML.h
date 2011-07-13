@@ -40,30 +40,30 @@ public:
     }
     ~SimpleXML() { }
 
-    void addTag(const string& aName, const string& aData = Util::emptyString) throw(SimpleXMLException);
-    void addTag(const string& aName, int aData) throw(SimpleXMLException) {
+    void addTag(const string& aName, const string& aData = Util::emptyString);
+    void addTag(const string& aName, int aData) {
         addTag(aName, Util::toString(aData));
     }
-    void addTag(const string& aName, int64_t aData) throw(SimpleXMLException) {
+    void addTag(const string& aName, int64_t aData) {
         addTag(aName, Util::toString(aData));
     }
 
     template<typename T>
-    void addAttrib(const string& aName, const T& aData) throw(SimpleXMLException) {
+    void addAttrib(const string& aName, const T& aData) {
         addAttrib(aName, Util::toString(aData));
     }
 
-    void addAttrib(const string& aName, const string& aData) throw(SimpleXMLException);
-    void addAttrib(const string& aName, bool aData) throw(SimpleXMLException) {
+    void addAttrib(const string& aName, const string& aData);
+    void addAttrib(const string& aName, bool aData) {
         addAttrib(aName, string(aData ? "1" : "0"));
     }
 
     template <typename T>
-    void addChildAttrib(const string& aName, const T& aData) throw(SimpleXMLException) {
+    void addChildAttrib(const string& aName, const T& aData) {
         addChildAttrib(aName, Util::toString(aData));
     }
-    void addChildAttrib(const string& aName, const string& aData) throw(SimpleXMLException);
-    void addChildAttrib(const string& aName, bool aData) throw(SimpleXMLException) {
+    void addChildAttrib(const string& aName, const string& aData);
+    void addChildAttrib(const string& aName, bool aData) {
         addChildAttrib(aName, string(aData ? "1" : "0"));
     }
 
@@ -72,14 +72,14 @@ public:
         return current->data;
     }
 
-    void stepIn() throw(SimpleXMLException) {
+    void stepIn() {
         checkChildSelected();
         current = *currentChild;
         currentChild = current->children.begin();
         found = false;
     }
 
-    void stepOut() throw(SimpleXMLException) {
+    void stepOut() {
         if(current == &root)
             throw SimpleXMLException("Already at lowest level");
 
@@ -91,42 +91,42 @@ public:
         found = true;
     }
 
-    void resetCurrentChild() throw() {
+    void resetCurrentChild() noexcept {
         found = false;
         dcassert(current != NULL);
         currentChild = current->children.begin();
     }
 
-    bool findChild(const string& aName) throw();
+    bool findChild(const string& aName) noexcept;
 
-    const string& getChildData() const throw(SimpleXMLException) {
+    const string& getChildData() const {
         checkChildSelected();
         return (*currentChild)->data;
     }
 
-    const string& getChildAttrib(const string& aName, const string& aDefault = Util::emptyString) throw(SimpleXMLException) {
+    const string& getChildAttrib(const string& aName, const string& aDefault = Util::emptyString) {
         checkChildSelected();
         return (*currentChild)->getAttrib(aName, aDefault);
     }
 
-    int getIntChildAttrib(const string& aName) throw(SimpleXMLException) {
+    int getIntChildAttrib(const string& aName) {
         checkChildSelected();
         return Util::toInt(getChildAttrib(aName));
     }
-    int64_t getLongLongChildAttrib(const string& aName) throw(SimpleXMLException) {
+    int64_t getLongLongChildAttrib(const string& aName) {
         checkChildSelected();
         return Util::toInt64(getChildAttrib(aName));
     }
-    bool getBoolChildAttrib(const string& aName) throw(SimpleXMLException) {
+    bool getBoolChildAttrib(const string& aName) {
         checkChildSelected();
         const string& tmp = getChildAttrib(aName);
 
         return (tmp.size() > 0) && tmp[0] == '1';
     }
 
-    void fromXML(const string& aXML) throw(SimpleXMLException);
+    void fromXML(const string& aXML);
     string toXML() { string tmp; StringOutputStream os(tmp); toXML(&os); return tmp; }
-    void toXML(OutputStream* f) throw(FileException) { if(!root.children.empty()) root.children[0]->toXML(0, f); }
+    void toXML(OutputStream* f) { if(!root.children.empty()) root.children[0]->toXML(0, f); }
 
     static const string& escape(const string& str, string& tmp, bool aAttrib, bool aLoading = false, const string &encoding = Text::utf8) {
         if(needsEscape(str, aAttrib, aLoading, encoding)) {
@@ -225,7 +225,7 @@ private:
 
     Tag::Iter currentChild;
 
-    void checkChildSelected() const throw() {
+    void checkChildSelected() const noexcept {
         dcassert(current != NULL);
         dcassert(currentChild != current->children.end());
     }

@@ -3051,7 +3051,7 @@ string Hub::realFile_client(string tth)
    return "";
 }
 
-void Hub::on(QueueManagerListener::Finished, QueueItem *item, const string& dir, int64_t avSpeed) throw()
+void Hub::on(QueueManagerListener::Finished, QueueItem *item, const string& dir, int64_t avSpeed) noexcept
 {
    typedef Func2<Hub, string, string> F2;
    string tth = item->getTTH().toBase32();
@@ -3331,7 +3331,7 @@ void Hub::insertBBcodeEntry_gui(string ch)
     }
 }
 
-void Hub::on(FavoriteManagerListener::UserAdded, const FavoriteUser &user) throw()
+void Hub::on(FavoriteManagerListener::UserAdded, const FavoriteUser &user) noexcept
 {
     if (user.getUrl() != client->getHubUrl())
         return;
@@ -3345,7 +3345,7 @@ void Hub::on(FavoriteManagerListener::UserAdded, const FavoriteUser &user) throw
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void Hub::on(FavoriteManagerListener::UserRemoved, const FavoriteUser &user) throw()
+void Hub::on(FavoriteManagerListener::UserRemoved, const FavoriteUser &user) noexcept
 {
     if (user.getUrl() != client->getHubUrl())
         return;
@@ -3358,21 +3358,21 @@ void Hub::on(FavoriteManagerListener::UserRemoved, const FavoriteUser &user) thr
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void Hub::on(ClientListener::Connecting, Client *) throw()
+void Hub::on(ClientListener::Connecting, Client *) noexcept
 {
     typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
     F3 *f3 = new F3(this, &Hub::addStatusMessage_gui, _("Connecting to ") + client->getHubUrl() + "...", Msg::STATUS, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(f3);
 }
 
-void Hub::on(ClientListener::Connected, Client *) throw()
+void Hub::on(ClientListener::Connected, Client *) noexcept
 {
     typedef Func4<Hub, string, Msg::TypeMsg, Sound::TypeSound, Notify::TypeNotify> F4;
     F4 *func = new F4(this, &Hub::addStatusMessage_gui, _("Connected"), Msg::STATUS, Sound::HUB_CONNECT, Notify::HUB_CONNECT);
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void Hub::on(ClientListener::UserUpdated, Client *, const OnlineUser &user) throw()
+void Hub::on(ClientListener::UserUpdated, Client *, const OnlineUser &user) noexcept
 {
     Identity id = user.getIdentity();
 
@@ -3385,7 +3385,7 @@ void Hub::on(ClientListener::UserUpdated, Client *, const OnlineUser &user) thro
     }
 }
 
-void Hub::on(ClientListener::UsersUpdated, Client *, const OnlineUserList &list) throw()
+void Hub::on(ClientListener::UsersUpdated, Client *, const OnlineUserList &list) noexcept
 {
     Identity id;
     typedef Func1<Hub, ParamMap> F1;
@@ -3404,13 +3404,13 @@ void Hub::on(ClientListener::UsersUpdated, Client *, const OnlineUserList &list)
     }
 }
 
-void Hub::on(ClientListener::UserRemoved, Client *, const OnlineUser &user) throw()
+void Hub::on(ClientListener::UserRemoved, Client *, const OnlineUser &user) noexcept
 {
     Func1<Hub, string> *func = new Func1<Hub, string>(this, &Hub::removeUser_gui, user.getUser()->getCID().toBase32());
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void Hub::on(ClientListener::Redirect, Client *, const string &address) throw()
+void Hub::on(ClientListener::Redirect, Client *, const string &address) noexcept
 {
     // redirect_client() crashes unless I put it into the dispatcher (why?)
     typedef Func2<Hub, string, bool> F2;
@@ -3418,7 +3418,7 @@ void Hub::on(ClientListener::Redirect, Client *, const string &address) throw()
     WulforManager::get()->dispatchClientFunc(func);
 }
 
-void Hub::on(ClientListener::Failed, Client *, const string &reason) throw()
+void Hub::on(ClientListener::Failed, Client *, const string &reason) noexcept
 {
     Func0<Hub> *f0 = new Func0<Hub>(this, &Hub::clearNickList_gui);
     WulforManager::get()->dispatchGuiFunc(f0);
@@ -3428,7 +3428,7 @@ void Hub::on(ClientListener::Failed, Client *, const string &reason) throw()
     WulforManager::get()->dispatchGuiFunc(f4);
 }
 
-void Hub::on(ClientListener::GetPassword, Client *) throw()
+void Hub::on(ClientListener::GetPassword, Client *) noexcept
 {
     if (!client->getPassword().empty())
         client->password(client->getPassword());
@@ -3439,7 +3439,7 @@ void Hub::on(ClientListener::GetPassword, Client *) throw()
     }
 }
 
-void Hub::on(ClientListener::HubUpdated, Client *) throw()
+void Hub::on(ClientListener::HubUpdated, Client *) noexcept
 {
     typedef Func1<Hub, string> F1;
     string hubName;
@@ -3456,7 +3456,7 @@ void Hub::on(ClientListener::HubUpdated, Client *) throw()
     WulforManager::get()->dispatchGuiFunc(func1);
 }
 
-void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) throw() //NOTE: core 0.762
+void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) noexcept //NOTE: core 0.762
     {
         if (message.text.empty())
                 return;
@@ -3556,7 +3556,7 @@ void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) throw
     }
 } //NOTE: core 0.762
 
-void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int /* flag */) throw()
+void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int /* flag */) noexcept
 {
     if (!message.empty())
     {
@@ -3588,14 +3588,14 @@ void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int
     }
 }
 
-void Hub::on(ClientListener::NickTaken, Client *) throw()
+void Hub::on(ClientListener::NickTaken, Client *) noexcept
 {
     typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
     F3 *func = new F3(this, &Hub::addStatusMessage_gui, _("Nick already taken"), Msg::STATUS, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void Hub::on(ClientListener::SearchFlood, Client *, const string &msg) throw()
+void Hub::on(ClientListener::SearchFlood, Client *, const string &msg) noexcept
 {
     typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
     F3 *func = new F3(this, &Hub::addStatusMessage_gui, _("Search spam detected from ") + msg, Msg::STATUS, Sound::NONE);

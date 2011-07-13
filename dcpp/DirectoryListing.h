@@ -16,9 +16,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(DIRECTORY_LISTING_H)
-#define DIRECTORY_LISTING_H
+#ifndef DCPLUSPLUS_DCPP_DIRECTORY_LISTING_H
+#define DCPLUSPLUS_DCPP_DIRECTORY_LISTING_H
 
+//#include "forward.h"
+#include "noexcept.h"
 #include "User.h"
 #include "FastAlloc.h"
 
@@ -45,7 +47,7 @@ public:
         typedef vector<Ptr> List;
         typedef List::iterator Iter;
 
-        File(Directory* aDir, const string& aName, int64_t aSize, const TTHValue& aTTH) throw() :
+        File(Directory* aDir, const string& aName, int64_t aSize, const TTHValue& aTTH) noexcept :
             name(aName), size(aSize), parent(aDir), tthRoot(aTTH), adls(false)
         {
         }
@@ -125,7 +127,7 @@ public:
     DirectoryListing(const HintedUser& aUser);
     ~DirectoryListing();
 
-    void loadFile(const string& name) throw(Exception);
+    void loadFile(const string& name);
 
     string updateXML(const std::string&);
     string loadXML(InputStream& xml, bool updating);

@@ -56,7 +56,7 @@ private:
     Atomic<bool,memory_ordering_strong> portMapping;
 
     UPnPManager() : opened(false), portMapping(false) { }
-    virtual ~UPnPManager() throw() { join(); }
+    virtual ~UPnPManager() noexcept { join(); }
 
     int run();
 

@@ -97,11 +97,11 @@ public:
 protected:
     virtual void closeEvent(QCloseEvent*);
     // Client callbacks
-    virtual void on(dcpp::QueueManagerListener::Added, dcpp::QueueItem *item) throw();
-    virtual void on(dcpp::QueueManagerListener::Moved, dcpp::QueueItem *item, const std::string &oldTarget) throw();
-    virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem *item) throw();
-    virtual void on(dcpp::QueueManagerListener::SourcesUpdated, dcpp::QueueItem *item) throw();
-    virtual void on(dcpp::QueueManagerListener::StatusUpdated, dcpp::QueueItem *item) throw();
+    virtual void on(dcpp::QueueManagerListener::Added, dcpp::QueueItem *item) noexcept;
+    virtual void on(dcpp::QueueManagerListener::Moved, dcpp::QueueItem *item, const std::string &oldTarget) noexcept;
+    virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem *item) noexcept;
+    virtual void on(dcpp::QueueManagerListener::SourcesUpdated, dcpp::QueueItem *item) noexcept;
+    virtual void on(dcpp::QueueManagerListener::StatusUpdated, dcpp::QueueItem *item) noexcept;
 
 public Q_SLOTS:
     QStringList getSources();

@@ -76,8 +76,6 @@ QStringList ClientManagerScript::getConnectedHubs() const {
         ret.push_back(_q(client->getHubUrl()));
     }
 
-    CM->unlock();
-
     return ret;
 }
 

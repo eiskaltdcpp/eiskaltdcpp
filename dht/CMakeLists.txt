@@ -8,6 +8,10 @@ aux_source_directory(${PROJECT_SOURCE_DIR} dht_srcs)
 
 include_directories (${Boost_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DIR} ${LUA_INCLUDE_DIR})
 
+if (WITH_DHT)
+  add_definitions ( -DWITH_DHT )
+endif (WITH_DHT)
+
 set (LINK STATIC)
 
 add_library (dht ${LINK} ${dht_srcs})

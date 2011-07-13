@@ -104,7 +104,7 @@ namespace dht
 	private:
 
 		/** Contains known hashes in the network and their sources */
-		typedef unordered_map<TTHValue, SourceList> TTHMap;
+		typedef std::unordered_map<TTHValue, SourceList> TTHMap;
 		TTHMap tthList;
 
 		/** Queue of files prepared for publishing */

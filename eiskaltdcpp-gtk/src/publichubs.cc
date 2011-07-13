@@ -434,7 +434,7 @@ void PublicHubs::addFav_client(FavoriteHubEntry entry)
 	FavoriteManager::getInstance()->addFavorite(entry);
 }
 
-void PublicHubs::on(FavoriteManagerListener::DownloadStarting, const string &file) throw()
+void PublicHubs::on(FavoriteManagerListener::DownloadStarting, const string &file) noexcept
 {
 	string msg = _("Download starting: ") + file;
 	typedef Func2<PublicHubs, string, string> Func;
@@ -442,7 +442,7 @@ void PublicHubs::on(FavoriteManagerListener::DownloadStarting, const string &fil
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void PublicHubs::on(FavoriteManagerListener::DownloadFailed, const string &file) throw()
+void PublicHubs::on(FavoriteManagerListener::DownloadFailed, const string &file) noexcept
 {
 	string msg = _("Download failed: ") + file;
 	typedef Func2<PublicHubs, string, string> Func;
@@ -450,7 +450,7 @@ void PublicHubs::on(FavoriteManagerListener::DownloadFailed, const string &file)
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void PublicHubs::on(FavoriteManagerListener::DownloadFinished, const string &file, bool fromCoral) throw()
+void PublicHubs::on(FavoriteManagerListener::DownloadFinished, const string &file, bool fromCoral) noexcept
 {
 	string msg = _("Download finished: ") + file + (fromCoral ? _("from Coral") : "");
 	typedef Func2<PublicHubs, string, string> Func;

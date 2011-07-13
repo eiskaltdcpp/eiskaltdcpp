@@ -552,7 +552,7 @@ void TransferView::slotHeaderMenu(const QPoint &){
     WulforUtil::headerMenu(treeView_TRANSFERS);
 }
 
-void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) throw(){
+void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) noexcept{
     VarMap params;
 
     getParams(params, dl);
@@ -572,7 +572,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download*
     emit coreDMRequesting(params);
 }
 
-void TransferView::on(dcpp::DownloadManagerListener::Starting, dcpp::Download* dl) throw(){
+void TransferView::on(dcpp::DownloadManagerListener::Starting, dcpp::Download* dl) noexcept{
     VarMap params;
 
     getParams(params, dl);
@@ -583,7 +583,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Starting, dcpp::Download* d
     emit coreDMStarting(params);
 }
 
-void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadList& dls) throw(){
+void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadList& dls) noexcept{
     for (DownloadList::const_iterator it = dls.begin(); it != dls.end(); ++it){
         Download* dl = *it;
         VarMap params;
@@ -616,7 +616,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadL
     emit coreUpdateParents();
 }
 
-void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* dl) throw(){
+void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* dl) noexcept{
     VarMap params;
 
     getParams(params, dl);
@@ -630,11 +630,11 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
     emit coreUpdateTransferPosition(params, pos);
 }
 
-void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) throw() {
+void TransferView::on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) noexcept {
     onFailed(dl, reason);
 }
 
-void TransferView::on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* dl, const std::string& reason) throw() {
+void TransferView::on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* dl, const std::string& reason) noexcept {
     onFailed(dl, reason);
 }
 
@@ -654,7 +654,7 @@ void TransferView::onFailed(dcpp::Download* dl, const std::string& reason) {
     emit coreUpdateTransferPosition(params, pos);
 }
 
-void TransferView::on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQueueItem* cqi) throw(){
+void TransferView::on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQueueItem* cqi) noexcept{
     VarMap params;
 
     getParams(params, cqi);
@@ -678,7 +678,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQu
     emit coreCMAdded(params);
 }
 
-void TransferView::on(dcpp::ConnectionManagerListener::Connected, dcpp::ConnectionQueueItem* cqi) throw(){
+void TransferView::on(dcpp::ConnectionManagerListener::Connected, dcpp::ConnectionQueueItem* cqi) noexcept{
 
     VarMap params;
 
@@ -689,7 +689,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Connected, dcpp::Connecti
     emit coreCMConnected(params);
 }
 
-void TransferView::on(dcpp::ConnectionManagerListener::Removed, dcpp::ConnectionQueueItem* cqi) throw(){
+void TransferView::on(dcpp::ConnectionManagerListener::Removed, dcpp::ConnectionQueueItem* cqi) noexcept{
     VarMap params;
 
     getParams(params, cqi);
@@ -697,7 +697,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Removed, dcpp::Connection
     emit coreCMRemoved(params);
 }
 
-void TransferView::on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQueueItem* cqi, const std::string &reason) throw(){
+void TransferView::on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQueueItem* cqi, const std::string &reason) noexcept{
     VarMap params;
 
     getParams(params, cqi);
@@ -710,7 +710,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQ
     emit coreCMFailed(params);
 }
 
-void TransferView::on(dcpp::ConnectionManagerListener::StatusChanged, dcpp::ConnectionQueueItem* cqi) throw(){
+void TransferView::on(dcpp::ConnectionManagerListener::StatusChanged, dcpp::ConnectionQueueItem* cqi) noexcept{
     VarMap params;
     getParams(params, cqi);
 
@@ -724,7 +724,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::StatusChanged, dcpp::Conn
     emit coreCMStatusChanged(params);
 }
 
-void TransferView::on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem* qi, const std::string&, int64_t) throw(){
+void TransferView::on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem* qi, const std::string&, int64_t) noexcept{
     VarMap params;
     params["TARGET"] = _q(qi->getTarget());
 
@@ -734,14 +734,14 @@ void TransferView::on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem* qi,
         emit coreDownloadComplete(_q(qi->getTarget()).split(QDir::separator()).last());
 }
 
-void TransferView::on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem* qi) throw(){
+void TransferView::on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem* qi) noexcept{
     VarMap params;
     params["TARGET"] = _q(qi->getTarget());
 
     emit coreQMRemoved(params);
 }
 
-void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) throw(){
+void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) noexcept{
     VarMap params;
 
     getParams(params, ul);
@@ -760,7 +760,7 @@ void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) t
     emit coreUMStarting(params);
 }
 
-void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) throw(){
+void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) noexcept{
     for (UploadList::const_iterator it = uls.begin(); it != uls.end(); ++it){
         Upload* ul = *it;
         VarMap params;
@@ -790,7 +790,7 @@ void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList&
     emit coreUpdateParents();
 }
 
-void TransferView::on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) throw(){
+void TransferView::on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) noexcept{
     VarMap params;
 
     getParams(params, ul);
@@ -802,7 +802,7 @@ void TransferView::on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) t
     emit coreUMComplete(params);
 }
 
-void TransferView::on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) throw(){
+void TransferView::on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) noexcept{
     VarMap params;
 
     getParams(params, ul);

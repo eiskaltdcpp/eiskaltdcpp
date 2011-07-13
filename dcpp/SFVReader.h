@@ -16,12 +16,16 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#if !defined(SFV_READER_H)
-#define SFV_READER_H
+#ifndef DCPLUSPLUS_DCPP_SFV_READER_H
+#define DCPLUSPLUS_DCPP_SFV_READER_H
 
-#include "File.h"
+#include <string>
+
+#include "noexcept.h"
 
 namespace dcpp {
+
+using std::string;
 
 class SFVReader {
 public:
@@ -37,17 +41,17 @@ public:
      * considered comments, and we throw away lines with ' ' or '#' as well
      * (pdSFV 1.2 does this...).
      */
-    void load(const string& fileName) throw();
+    void load(const string& fileName) noexcept;
 
-    bool hasCRC() const throw() { return crcFound; }
-    uint32_t getCRC() const throw() { return crc32; }
+    bool hasCRC() const noexcept { return crcFound; }
+    uint32_t getCRC() const noexcept { return crc32; }
 
 private:
 
     uint32_t crc32;
     bool crcFound;
 
-    bool tryFile(const string& sfvFile, const string& fileName) throw(FileException);
+    bool tryFile(const string& sfvFile, const string& fileName);
 
 };
 

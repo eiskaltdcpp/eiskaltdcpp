@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2011 Jacek Sieka, j_s@telia.com
+ * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,10 +16,25 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#include "stdinc.h"
+#ifndef DCPLUSPLUS_DCPP_NOEXCEPT_H
+#define DCPLUSPLUS_DCPP_NOEXCEPT_H
 
-#include "Exception.h"
+// for compilers that don't support noexcept, use an exception specifier
 
-namespace dcpp {
+#ifdef __GNUC__
+#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 6) // GCC 4.6 is the first GCC to implement noexcept.
 
-} // namespace dcpp
+#ifndef noexcept
+#define noexcept throw()
+#endif
+
+#endif
+#elif defined(_MSC_VER)
+
+#ifndef noexcept
+#define noexcept throw()
+#endif
+
+#endif
+
+#endif

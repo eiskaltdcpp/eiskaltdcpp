@@ -20,6 +20,9 @@
 
 #include "AdcHub.h"
 
+#include <boost/scoped_array.hpp>
+#include <boost/format.hpp>
+
 #include "ChatMessage.h"
 #include "ClientManager.h"
 #include "ShareManager.h"
@@ -33,9 +36,13 @@
 #include "LogManager.h"
 #include "ThrottleManager.h"
 #include "UploadManager.h"
+#include "format.h"
+
 #include <cmath>
 
 namespace dcpp {
+
+using std::make_pair;
 
 const string AdcHub::CLIENT_PROTOCOL("ADC/1.0");
 const string AdcHub::SECURE_CLIENT_PROTOCOL_TEST("ADCS/0.10");
@@ -59,7 +66,7 @@ AdcHub::AdcHub(const string& aHubURL, bool secure) : Client(aHubURL, '\n', secur
     TimerManager::getInstance()->addListener(this);
 }
 
-AdcHub::~AdcHub() throw() {
+AdcHub::~AdcHub() {
     TimerManager::getInstance()->removeListener(this);
     clearUsers();
 }
@@ -130,7 +137,7 @@ void AdcHub::clearUsers() {
     }
 }
 
-void AdcHub::handle(AdcCommand::INF, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::INF, AdcCommand& c) noexcept {
     if(c.getParameters().empty())
         return;
 
@@ -201,7 +208,7 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) throw() {
     }
 }
 
-void AdcHub::handle(AdcCommand::SUP, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::SUP, AdcCommand& c) noexcept {
     if(state != STATE_PROTOCOL) /** @todo SUP changes */
         return;
     bool baseOk = false;
@@ -228,7 +235,7 @@ void AdcHub::handle(AdcCommand::SUP, AdcCommand& c) throw() {
     }
 }
 
-void AdcHub::handle(AdcCommand::SID, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::SID, AdcCommand& c) noexcept {
     if(state != STATE_PROTOCOL) {
         dcdebug("Invalid state for SID\n");
         return;
@@ -243,7 +250,7 @@ void AdcHub::handle(AdcCommand::SID, AdcCommand& c) throw() {
     info(true);
 }
 
-void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) noexcept {
     if(c.getParameters().empty())
         return;
 
@@ -271,7 +278,7 @@ void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) throw() {
         fire(ClientListener::Message(), this, message);
 }
 
-void AdcHub::handle(AdcCommand::GPA, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::GPA, AdcCommand& c) noexcept {
     if(c.getParameters().empty())
         return;
     salt = c.getParam(0);
@@ -280,7 +287,7 @@ void AdcHub::handle(AdcCommand::GPA, AdcCommand& c) throw() {
     fire(ClientListener::GetPassword(), this);
 }
 
-void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) noexcept {
     uint32_t s = AdcCommand::toSID(c.getParam(0));
 
     OnlineUser* victim = findUser(s);
@@ -327,7 +334,7 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) throw() {
     }
 }
 
-void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) noexcept {
     OnlineUser* u = findUser(c.getFrom());
     if(!u || u->getUser() == ClientManager::getInstance()->getMe())
         return;
@@ -356,7 +363,7 @@ void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) throw() {
     ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), token, secure);
 }
 
-void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) noexcept {
     if(c.getParameters().size() < 2) {
         return;
     }
@@ -394,7 +401,7 @@ void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) throw() {
    return;
 }
 
-void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) noexcept {
     if(c.getParameters().size() < 1)
         return;
     const string& name = c.getParam(0);
@@ -421,7 +428,7 @@ void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) throw() {
     fire(ClientListener::HubUserCommand(), this, (int)(once ? UserCommand::TYPE_RAW_ONCE : UserCommand::TYPE_RAW), ctx, name, txt);
 }
 
-void AdcHub::sendUDP(const AdcCommand& cmd) throw() {
+void AdcHub::sendUDP(const AdcCommand& cmd) noexcept {
     string command;
     string ip;
     uint16_t port;
@@ -448,7 +455,7 @@ void AdcHub::sendUDP(const AdcCommand& cmd) throw() {
     }
 }
 
-void AdcHub::handle(AdcCommand::STA, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::STA, AdcCommand& c) noexcept {
     if(c.getParameters().size() < 2)
         return;
 
@@ -497,7 +504,7 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) throw() {
     fire(ClientListener::Message(), this, message);
 }
 
-void AdcHub::handle(AdcCommand::SCH, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::SCH, AdcCommand& c) noexcept {
     OnlineUser* ou = findUser(c.getFrom());
     if(!ou) {
         dcdebug("Invalid user in AdcHub::onSCH\n");
@@ -507,7 +514,7 @@ void AdcHub::handle(AdcCommand::SCH, AdcCommand& c) throw() {
     fire(ClientListener::AdcSearch(), this, c, ou->getUser()->getCID());
 }
 
-void AdcHub::handle(AdcCommand::RES, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::RES, AdcCommand& c) noexcept {
     OnlineUser* ou = findUser(c.getFrom());
     if(!ou) {
         dcdebug("Invalid user in AdcHub::onRES\n");
@@ -516,7 +523,7 @@ void AdcHub::handle(AdcCommand::RES, AdcCommand& c) throw() {
     SearchManager::getInstance()->onRES(c, ou->getUser());
 }
 
-void AdcHub::handle(AdcCommand::PSR, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::PSR, AdcCommand& c) noexcept {
     OnlineUser* ou = findUser(c.getFrom());
     if(!ou) {
         dcdebug("Invalid user in AdcHub::onPSR\n");
@@ -525,7 +532,7 @@ void AdcHub::handle(AdcCommand::PSR, AdcCommand& c) throw() {
     SearchManager::getInstance()->onPSR(c, ou->getUser());
 }
 
-void AdcHub::handle(AdcCommand::GET, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::GET, AdcCommand& c) noexcept {
     if(c.getParameters().size() < 5) {
         if(c.getParameters().size() > 0) {
             if(c.getParam(0) == "blom") {
@@ -582,7 +589,7 @@ void AdcHub::handle(AdcCommand::GET, AdcCommand& c) throw() {
         }
     }
 }
-void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) noexcept {
     if (!BOOLSETTING(ALLOW_NATT))
         return;
 
@@ -614,7 +621,7 @@ void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) throw() {
                addParam(Util::toString(sock->getLocalPort())).addParam(token));
 }
 
-void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) throw() {
+void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
        // Sent request for NAT traversal cooperation, which
        // was acknowledged (with requisite local port information).
        	if(!BOOLSETTING(ALLOW_NATT))
@@ -793,9 +800,9 @@ const vector<StringList>& AdcHub::getSearchExts() {
 
 StringList AdcHub::parseSearchExts(int flag) {
     StringList ret;
-    const vector<StringList>& searchExts = getSearchExts();
-    for(std::vector<StringList>::const_iterator i = searchExts.begin(), iend = searchExts.end(); i != iend; ++i) {
-        if(flag & (1 << (i - searchExts.begin()))) {
+    const auto& searchExts = getSearchExts();
+    for(auto i = searchExts.cbegin(), iend = searchExts.cend(); i != iend; ++i) {
+        if(flag & (1 << (i - searchExts.cbegin()))) {
             ret.insert(ret.begin(), i->begin(), i->end());
         }
     }
@@ -827,80 +834,78 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
             c.addParam("TY", "2");
         }
 
-        if(!aExtList.empty()) {
+        if(aExtList.size() > 2) {
             StringList exts = aExtList;
 
-            if(exts.size() > 2) {
-                sort(exts.begin(), exts.end());
+            sort(exts.begin(), exts.end());
 
-                uint8_t gr = 0;
-                StringList rx;
+            uint8_t gr = 0;
+            StringList rx;
 
-                const vector<StringList>& searchExts = getSearchExts();
-                for(std::vector<StringList>::const_iterator i = searchExts.begin(), iend = searchExts.end(); i != iend; ++i) {
-                    const StringList& def = *i;
+            const auto& searchExts = getSearchExts();
+            for(auto i = searchExts.cbegin(), iend = searchExts.cend(); i != iend; ++i) {
+                const StringList& def = *i;
 
-                    // gather the exts not present in any of the lists
-                    StringList temp(def.size() + exts.size());
-                    temp = StringList(temp.begin(), set_symmetric_difference(def.begin(), def.end(),
-                        exts.begin(), exts.end(), temp.begin()));
+                // gather the exts not present in any of the lists
+                StringList temp(def.size() + exts.size());
+                temp = StringList(temp.begin(), set_symmetric_difference(def.begin(), def.end(),
+                    exts.begin(), exts.end(), temp.begin()));
 
-                    // figure out whether the remaining exts have to be added or removed from the set
-                    StringList rm;
-                    bool ok = true;
-                    for(StringIter diff = temp.begin(); diff != temp.end();) {
-                        if(find(def.begin(), def.end(), *diff) == def.end()) {
-                            ++diff; // will be added further below as an "EX"
-                        } else {
-                            if(rm.size() == 2) {
-                                ok = false;
-                                break;
-                            }
-                            rm.push_back(*diff);
-                            diff = temp.erase(diff);
+                // figure out whether the remaining exts have to be added or removed from the set
+                StringList rx_;
+                bool ok = true;
+                for(auto diff = temp.begin(); diff != temp.end();) {
+                    if(find(def.cbegin(), def.cend(), *diff) == def.cend()) {
+                        ++diff; // will be added further below as an "EX"
+                    } else {
+                        if(rx_.size() == 2) {
+                            ok = false;
+                            break;
                         }
+                        rx_.push_back(*diff);
+                        diff = temp.erase(diff);
                     }
-                    if(!ok) // too many "RX"s necessary - disregard this group
-                        continue;
-
-                    // let's include this group!
-                    gr += 1 << (i - searchExts.begin());
-
-                    exts = temp; // the exts to still add (that were not defined in the group)
-
-                    rx.insert(rx.begin(), rm.begin(), rm.end());
-
-                    if(exts.size() <= 2)
-                        break;
-                    // keep looping to see if there are more exts that can be grouped
                 }
+                if(!ok) // too many "RX"s necessary - disregard this group
+                    continue;
 
-                if(gr) {
-                    // some extensions can be grouped; let's send a command with grouped exts.
-                    AdcCommand c_gr(AdcCommand::CMD_SCH, AdcCommand::TYPE_FEATURE);
-                    c_gr.setFeatures('+' + SEGA_FEATURE);
+                // let's include this group!
+                gr += 1 << (i - searchExts.cbegin());
 
-                    const StringList& params = c.getParameters();
-                    for(StringIterC i = params.begin(), iend = params.end(); i != iend; ++i)
-                        c_gr.addParam(*i);
+                exts = temp; // the exts to still add (that were not defined in the group)
 
-                    for(StringIterC i = exts.begin(), iend = exts.end(); i != iend; ++i)
-                        c_gr.addParam("EX", *i);
-                    c_gr.addParam("GR", Util::toString(gr));
-                    for(StringIterC i = rx.begin(), iend = rx.end(); i != iend; ++i)
-                        c_gr.addParam("RX", *i);
+                rx.insert(rx.begin(), rx_.begin(), rx_.end());
 
-                    sendSearch(c_gr);
-
-                    // make sure users with the feature don't receive the search twice.
-                    c.setType(AdcCommand::TYPE_FEATURE);
-                    c.setFeatures('-' + SEGA_FEATURE);
-                }
+                if(exts.size() <= 2)
+                    break;
+                // keep looping to see if there are more exts that can be grouped
             }
 
-            for(StringIterC i = aExtList.begin(); i != aExtList.end(); ++i)
-                c.addParam("EX", *i);
+            if(gr) {
+                // some extensions can be grouped; let's send a command with grouped exts.
+                AdcCommand c_gr(AdcCommand::CMD_SCH, AdcCommand::TYPE_FEATURE);
+                c_gr.setFeatures('+' + SEGA_FEATURE);
+
+                const auto& params = c.getParameters();
+                for(auto i = params.cbegin(), iend = params.cend(); i != iend; ++i)
+                    c_gr.addParam(*i);
+
+                for(auto i = exts.cbegin(), iend = exts.cend(); i != iend; ++i)
+                    c_gr.addParam("EX", *i);
+                c_gr.addParam("GR", Util::toString(gr));
+                for(auto i = rx.cbegin(), iend = rx.cend(); i != iend; ++i)
+                    c_gr.addParam("RX", *i);
+
+                sendSearch(c_gr);
+
+                // make sure users with the feature don't receive the search twice.
+                c.setType(AdcCommand::TYPE_FEATURE);
+                c.setFeatures('-' + SEGA_FEATURE);
+            }
         }
+
+        for(auto i = aExtList.cbegin(), iend = aExtList.cend(); i != iend; ++i)
+            c.addParam("EX", *i);
     }
 
     sendSearch(c);
@@ -999,7 +1004,7 @@ void AdcHub::info(bool /*alwaysSend*/) {
     string su(SEGA_FEATURE);
     if(CryptoManager::getInstance()->TLSOk()) {
         su += "," + ADCS_FEATURE;
-        const vector<uint8_t> &kp = CryptoManager::getInstance()->getKeyprint();
+        auto &kp = CryptoManager::getInstance()->getKeyprint();
         addParam(lastInfoMap, c, "KP", "SHA256/" + Encoder::toBase32(&kp[0], kp.size()));
     }
 
@@ -1066,8 +1071,12 @@ void AdcHub::unknownProtocol(uint32_t target, const string& protocol, const stri
        send(cmd);
 }
 
-void AdcHub::on(Connected c) throw() {
+void AdcHub::on(Connected c) noexcept {
     Client::on(c);
+
+    if(state != STATE_PROTOCOL) {
+        return;
+    }
 
     lastInfoMap.clear();
     sid = 0;
@@ -1089,7 +1098,7 @@ void AdcHub::on(Connected c) throw() {
     send(cmd);
 }
 
-void AdcHub::on(Line l, const string& aLine) throw() {
+void AdcHub::on(Line l, const string& aLine) noexcept {
     Client::on(l, aLine);
 
     if(!Text::validateUtf8(aLine)) {
@@ -1107,25 +1116,23 @@ void AdcHub::on(Line l, const string& aLine) throw() {
     dispatch(aLine);
 }
 
-void AdcHub::on(Failed f, const string& aLine) throw() {
+void AdcHub::on(Failed f, const string& aLine) noexcept {
     clearUsers();
     Client::on(f, aLine);
 }
 
-void AdcHub::on(Second s, uint64_t aTick) throw() {
+void AdcHub::on(Second s, uint64_t aTick) noexcept {
     Client::on(s, aTick);
     if(state == STATE_NORMAL && (aTick > (getLastActivity() + 120*1000)) ) {
         send("\n", 1);
     }
 }
 #ifdef LUA_SCRIPT
-//aded
 bool AdcScriptInstance::onClientMessage(AdcHub* aClient, const string& aLine) {
         Lock l(cs);
         MakeCall("adch", "DataArrival", 1, aClient, aLine);
         return GetLuaBool();
 
 }
-//end
 #endif
 } // namespace dcpp

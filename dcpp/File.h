@@ -19,25 +19,18 @@
 #ifndef DCPLUSPLUS_DCPP_FILE_H
 #define DCPLUSPLUS_DCPP_FILE_H
 
-#include "SettingsManager.h"
-
-#include "Util.h"
 #include "Text.h"
 #include "Streams.h"
 
-#ifndef _WIN32
+#ifdef _WIN32
+#include "w.h"
+#else
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <dirent.h>
 #include <fnmatch.h>
 #endif
-
-//#ifdef _WIN32
-//#include "../zlib/zlib.h"
-//#else
-#include <zlib.h>
-//#endif
 
 namespace dcpp {
 
@@ -69,43 +62,43 @@ public:
 
     // some ftruncate implementations can't extend files like SetEndOfFile,
     // not sure if the client code needs this...
-    int extendFile(int64_t len) throw();
+    int extendFile(int64_t len) noexcept;
 
 #endif // !_WIN32
 
-    File(const string& aFileName, int access, int mode) throw(FileException);
+    File(const string& aFileName, int access, int mode);
 
-    bool isOpen() throw();
-    virtual void close() throw();
-    virtual int64_t getSize() throw();
-    virtual void setSize(int64_t newSize) throw(FileException);
+    bool isOpen() noexcept;
+    virtual void close() noexcept;
+    virtual int64_t getSize() noexcept;
+    virtual void setSize(int64_t newSize);
 
-    virtual int64_t getPos() throw();
-    virtual void setPos(int64_t pos) throw();
-    virtual void setEndPos(int64_t pos) throw();
-    virtual void movePos(int64_t pos) throw();
-    virtual void setEOF() throw(FileException);
+    virtual int64_t getPos() noexcept;
+    virtual void setPos(int64_t pos) noexcept;
+    virtual void setEndPos(int64_t pos) noexcept;
+    virtual void movePos(int64_t pos) noexcept;
+    virtual void setEOF();
 
-    virtual size_t read(void* buf, size_t& len) throw(FileException);
-    virtual size_t write(const void* buf, size_t len) throw(FileException);
-    virtual size_t flush() throw(FileException);
+    virtual size_t read(void* buf, size_t& len);
+    virtual size_t write(const void* buf, size_t len);
+    virtual size_t flush();
 
-    uint32_t getLastModified() throw();
+    uint32_t getLastModified() noexcept;
 
-    static void copyFile(const string& src, const string& target) throw(FileException);
-    static void renameFile(const string& source, const string& target) throw(FileException);
-    static void deleteFile(const string& aFileName) throw();
+    static void copyFile(const string& src, const string& target);
+    static void renameFile(const string& source, const string& target);
+    static void deleteFile(const string& aFileName) noexcept;
 
-    static int64_t getSize(const string& aFileName) throw();
+    static int64_t getSize(const string& aFileName) noexcept;
 
-    static void ensureDirectory(const string& aFile) throw();
-    static bool isAbsolute(const string& path) throw();
+    static void ensureDirectory(const string& aFile) noexcept;
+    static bool isAbsolute(const string& path) noexcept;
 
-    virtual ~File() throw() { close(); }
+    virtual ~File() { close(); }
 
-    string read(size_t len) throw(FileException);
-    string read() throw(FileException);
-    void write(const string& aString) throw(FileException) { write((void*)aString.data(), aString.size()); }
+    string read(size_t len);
+    string read();
+    void write(const string& aString) { write((void*)aString.data(), aString.size()); }
     static StringList findFiles(const string& path, const string& pattern);
 
 protected:

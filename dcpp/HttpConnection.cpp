@@ -88,7 +88,7 @@ void HttpConnection::downloadFile(const string& aUrl) {
     }
 }
 
-void HttpConnection::on(BufferedSocketListener::Connected) throw() {
+void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
     dcassert(socket);
     socket->write("GET " + file + " HTTP/1.1\r\n");
 
@@ -115,7 +115,7 @@ void HttpConnection::on(BufferedSocketListener::Connected) throw() {
     if (coralizeState == CST_DEFAULT) coralizeState = CST_CONNECTED;
 }
 
-void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) throw() {
+void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexcept {
     if(!ok) {
                 dcdebug("%s\n",aLine.c_str());
         if(aLine.find("200") == string::npos) {
@@ -181,7 +181,7 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) throw
     }
 }
 
-void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) throw() {
+void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) noexcept {
     socket->removeListener(this);
     BufferedSocket::putSocket(socket);
     socket = NULL;
@@ -196,7 +196,7 @@ void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) thr
     fire(HttpConnectionListener::Failed(), this, aLine + " (" + currentUrl + ")");
 }
 
-void HttpConnection::on(BufferedSocketListener::ModeChange) throw() {
+void HttpConnection::on(BufferedSocketListener::ModeChange) noexcept {
     socket->removeListener(this);
     socket->disconnect();
     BufferedSocket::putSocket(socket);
@@ -204,7 +204,7 @@ void HttpConnection::on(BufferedSocketListener::ModeChange) throw() {
     fire(HttpConnectionListener::Complete(), this, currentUrl, BOOLSETTING(CORAL) && coralizeState != CST_NOCORALIZE);
     coralizeState = CST_DEFAULT;
 }
-void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen) throw() {
+void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen) noexcept {
     fire(HttpConnectionListener::Data(), this, aBuf, aLen);
 }
 

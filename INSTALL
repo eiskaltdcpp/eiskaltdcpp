@@ -62,9 +62,9 @@ Build Depends
 --------
 :common:
 --------
-gcc
 zlib
 bzip2
+gcc   (>= 4.4.0)
 cmake (>= 2.6.0)
 iconv (libc on GNU/Linux)
 pkg-config

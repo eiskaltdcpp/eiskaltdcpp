@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_LOG_MANAGER_LISTENER_H
 #define DCPLUSPLUS_DCPP_LOG_MANAGER_LISTENER_H
 
+#include "noexcept.h"
+
 namespace dcpp {
 
 class LogManagerListener {
@@ -27,7 +29,7 @@ public:
 	template<int I>	struct X { enum { TYPE = I }; };
 
 	typedef X<0> Message;
-	virtual void on(Message, time_t, const string&) throw() { }
+	virtual void on(Message, time_t, const string&) noexcept { }
 };
 
 } // namespace dcpp

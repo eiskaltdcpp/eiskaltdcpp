@@ -41,6 +41,8 @@ class ClientManager;
 
 class ConnectionQueueItem;
 
+class CRC32Filter;
+
 class Download;
 typedef Download* DownloadPtr;
 

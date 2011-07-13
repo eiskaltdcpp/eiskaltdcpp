@@ -122,8 +122,8 @@ private:
     QueuedUsers();
     virtual ~QueuedUsers();
 
-    virtual void on(WaitingAddFile, const dcpp::HintedUser&, const std::string&) throw();
-    virtual void on(WaitingRemoveUser, const dcpp::HintedUser&) throw();
+    virtual void on(WaitingAddFile, const dcpp::HintedUser&, const std::string&) noexcept;
+    virtual void on(WaitingRemoveUser, const dcpp::HintedUser&) noexcept;
 
     QueuedUsersModel *model;
 };

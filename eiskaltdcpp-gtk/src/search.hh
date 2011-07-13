@@ -119,10 +119,10 @@ class Search:
 		void removeSource_client(std::string cid);
 
 		// Client callbacks
-		virtual void on(dcpp::ClientManagerListener::ClientConnected, dcpp::Client *client) throw();
-	 	virtual void on(dcpp::ClientManagerListener::ClientUpdated, dcpp::Client *client) throw();
-		virtual void on(dcpp::ClientManagerListener::ClientDisconnected, dcpp::Client *client) throw();
-		virtual void on(dcpp::SearchManagerListener::SR, const dcpp::SearchResultPtr &result) throw();
+		virtual void on(dcpp::ClientManagerListener::ClientConnected, dcpp::Client *client) noexcept;
+	 	virtual void on(dcpp::ClientManagerListener::ClientUpdated, dcpp::Client *client) noexcept;
+		virtual void on(dcpp::ClientManagerListener::ClientDisconnected, dcpp::Client *client) noexcept;
+		virtual void on(dcpp::SearchManagerListener::SR, const dcpp::SearchResultPtr &result) noexcept;
 
 		TreeView hubView, resultView;
 		GtkListStore *hubStore;
@@ -140,7 +140,7 @@ class Search:
 		bool onlyFree;
 		UserCommandMenu *userCommandMenu;
 		GroupType previousGrouping;
-		std::tr1::unordered_map<std::string, std::vector<dcpp::SearchResultPtr> > results;
+		std::unordered_map<std::string, std::vector<dcpp::SearchResultPtr> > results;
 };
 
 #else

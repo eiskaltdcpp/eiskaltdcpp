@@ -1381,7 +1381,7 @@ void PrivateMessage::grantSlot_client()
     }
 }
 
-void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUser) throw()
+void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUser) noexcept
 {
         if (aUser->getCID() == CID(cid))
         {
@@ -1391,7 +1391,7 @@ void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUs
         }
 }
 
-void PrivateMessage::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) throw()
+void PrivateMessage::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) noexcept
 {
         if (aUser->getCID() == CID(cid))
         {

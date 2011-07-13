@@ -89,11 +89,11 @@ class DownloadQueue:
 		void getQueueParams_client(dcpp::QueueItem *item, dcpp::StringMap &params);
 
 		// Client callbacks
-		virtual void on(dcpp::QueueManagerListener::Added, dcpp::QueueItem *item) throw();
-		virtual void on(dcpp::QueueManagerListener::Moved, dcpp::QueueItem *item, const std::string &oldTarget) throw();
-		virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem *item) throw();
-		virtual void on(dcpp::QueueManagerListener::SourcesUpdated, dcpp::QueueItem *item) throw();
-		virtual void on(dcpp::QueueManagerListener::StatusUpdated, dcpp::QueueItem *item) throw();
+		virtual void on(dcpp::QueueManagerListener::Added, dcpp::QueueItem *item) noexcept;
+		virtual void on(dcpp::QueueManagerListener::Moved, dcpp::QueueItem *item, const std::string &oldTarget) noexcept;
+		virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem *item) noexcept;
+		virtual void on(dcpp::QueueManagerListener::SourcesUpdated, dcpp::QueueItem *item) noexcept;
+		virtual void on(dcpp::QueueManagerListener::StatusUpdated, dcpp::QueueItem *item) noexcept;
 
 		// Private variables
 		TreeView dirView;
@@ -104,8 +104,8 @@ class DownloadQueue:
 		GtkTreeSelection *fileSelection;
 		GdkEventType dirPrevious;
 		std::string currentDir;
-		std::tr1::unordered_map<std::string, std::map<std::string, std::string> > sources;
-		std::tr1::unordered_map<std::string, std::map<std::string, std::string> > badSources;
+		std::unordered_map<std::string, std::map<std::string, std::string> > sources;
+		std::unordered_map<std::string, std::map<std::string, std::string> > badSources;
 		int currentItems;
 		int totalItems;
 		int64_t currentSize;

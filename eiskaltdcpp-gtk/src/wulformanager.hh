@@ -80,7 +80,7 @@ class WulforManager
 		std::string path;
 		std::vector<FuncBase *> guiFuncs;
 		std::vector<FuncBase *> clientFuncs;
-		std::tr1::unordered_map<std::string, Entry *> entries;
+		std::unordered_map<std::string, Entry *> entries;
 		gint guiCondValue;
 		gint clientCondValue;
 		GCond *guiCond;

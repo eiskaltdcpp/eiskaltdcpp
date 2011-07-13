@@ -20,6 +20,7 @@
 #define DCPLUSPLUS_DCPP_QUEUE_MANAGER_LISTENER_H
 
 #include "forward.h"
+#include "noexcept.h"
 
 namespace dcpp {
 
@@ -49,26 +50,26 @@ public:
     typedef X<16> CRCFailed;
     typedef X<17> CRCChecked;
 
-    virtual void on(Added, QueueItem*) throw() { }
-    virtual void on(Finished, QueueItem*, const string&, int64_t) throw() { }
-    virtual void on(Removed, QueueItem*) throw() { }
-    virtual void on(Moved, QueueItem*, const string&) throw() { }
-    virtual void on(SourcesUpdated, QueueItem*) throw() { }
-    virtual void on(StatusUpdated, QueueItem*) throw() { }
-    virtual void on(SearchStringUpdated, QueueItem*) throw() { }
-    virtual void on(PartialList, const HintedUser&, const string&) throw() { }
+    virtual void on(Added, QueueItem*) noexcept { }
+    virtual void on(Finished, QueueItem*, const string&, int64_t) noexcept { }
+    virtual void on(Removed, QueueItem*) noexcept { }
+    virtual void on(Moved, QueueItem*, const string&) noexcept { }
+    virtual void on(SourcesUpdated, QueueItem*) noexcept { }
+    virtual void on(StatusUpdated, QueueItem*) noexcept { }
+    virtual void on(SearchStringUpdated, QueueItem*) noexcept { }
+    virtual void on(PartialList, const HintedUser&, const string&) noexcept { }
 
-    virtual void on(RecheckStarted, const string&) throw() { }
-    virtual void on(RecheckNoFile, const string&) throw() { }
-    virtual void on(RecheckFileTooSmall, const string&) throw() { }
-    virtual void on(RecheckDownloadsRunning, const string&) throw() { }
-    virtual void on(RecheckNoTree, const string&) throw() { }
-    virtual void on(RecheckAlreadyFinished, const string&) throw() { }
-    virtual void on(RecheckDone, const string&) throw() { }
-    virtual void on(FileMoved, const string&) throw() { }
+    virtual void on(RecheckStarted, const string&) noexcept { }
+    virtual void on(RecheckNoFile, const string&) noexcept { }
+    virtual void on(RecheckFileTooSmall, const string&) noexcept { }
+    virtual void on(RecheckDownloadsRunning, const string&) noexcept { }
+    virtual void on(RecheckNoTree, const string&) noexcept { }
+    virtual void on(RecheckAlreadyFinished, const string&) noexcept { }
+    virtual void on(RecheckDone, const string&) noexcept { }
+    virtual void on(FileMoved, const string&) noexcept { }
 
-    virtual void on(CRCFailed, Download*, const string&) throw() { }
-    virtual void on(CRCChecked, Download*) throw() { }
+    virtual void on(CRCFailed, Download*, const string&) noexcept { }
+    virtual void on(CRCChecked, Download*) noexcept { }
 };
 
 } // namespace dcpp

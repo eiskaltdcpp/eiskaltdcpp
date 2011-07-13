@@ -160,14 +160,14 @@ void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t loc
 
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
-    socket->connect(aServer, aPort, localPort, natRole, secure, BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
+    socket->connect(aServer, aPort, localPort, natRole, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
 }
 
 void UserConnection::accept(const Socket& aServer) throw(SocketException, ThreadException) {
     dcassert(!socket);
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
-    socket->accept(aServer, secure, BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS));
+    socket->accept(aServer, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS));
 }
 
 void UserConnection::inf(bool withToken) {
@@ -206,35 +206,35 @@ void UserConnection::handle(AdcCommand::STA t, const AdcCommand& c) {
         fire(t, this, c);
 }
 
-void UserConnection::on(Connected) throw() {
+void UserConnection::on(Connected) noexcept {
     lastActivity = GET_TICK();
     fire(UserConnectionListener::Connected(), this);
 }
 
-void UserConnection::on(Data, uint8_t* data, size_t len) throw() {
+void UserConnection::on(Data, uint8_t* data, size_t len) noexcept {
     lastActivity = GET_TICK();
     fire(UserConnectionListener::Data(), this, data, len);
 }
 
-void UserConnection::on(BytesSent, size_t bytes, size_t actual) throw() {
+void UserConnection::on(BytesSent, size_t bytes, size_t actual) noexcept {
     lastActivity = GET_TICK();
     fire(UserConnectionListener::BytesSent(), this, bytes, actual);
 }
 
-void UserConnection::on(ModeChange) throw() {
+void UserConnection::on(ModeChange) noexcept {
     lastActivity = GET_TICK();
     fire(UserConnectionListener::ModeChange(), this);
 }
 
-void UserConnection::on(TransmitDone) throw() {
+void UserConnection::on(TransmitDone) noexcept {
     fire(UserConnectionListener::TransmitDone(), this);
 }
 
-void UserConnection::on(Updated) throw() {
+void UserConnection::on(Updated) noexcept {
     fire(UserConnectionListener::Updated(), this);
 }
 
-void UserConnection::on(Failed, const string& aLine) throw() {
+void UserConnection::on(Failed, const string& aLine) noexcept {
     setState(STATE_UNCONNECTED);
     fire(UserConnectionListener::Failed(), this, aLine);
 

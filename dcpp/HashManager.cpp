@@ -32,12 +32,6 @@
 #include <setjmp.h>
 #endif
 
-#ifdef __HAIKU__
-#define MADV_SEQUENTIAL	POSIX_MADV_SEQUENTIAL
-#define MADV_WILLNEED	POSIX_MADV_WILLNEED
-#define madvise	posix_madvise
-#endif
-
 namespace dcpp {
 
 #define HASH_FILE_VERSION_STRING "2"
@@ -60,7 +54,7 @@ bool HashManager::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTim
     return true;
 }
 
-TTHValue HashManager::getTTH(const string& aFileName, int64_t aSize) throw(HashException) {
+TTHValue HashManager::getTTH(const string& aFileName, int64_t aSize) {
     Lock l(cs);
     const TTHValue* tth = store.getTTH(aFileName);
     if (tth == NULL) {
@@ -124,7 +118,7 @@ void HashManager::HashStore::addFile(const string& aFileName, uint32_t aTimeStam
     dirty = true;
 }
 
-void HashManager::HashStore::addTree(const TigerTree& tt) throw() {
+void HashManager::HashStore::addTree(const TigerTree& tt) noexcept {
     if (treeIndex.find(tt.getRoot()) == treeIndex.end()) {
         try {
             File f(getDataFile(), File::READ | File::WRITE, File::OPEN);
@@ -137,7 +131,7 @@ void HashManager::HashStore::addTree(const TigerTree& tt) throw() {
     }
 }
 
-int64_t HashManager::HashStore::saveTree(File& f, const TigerTree& tt) throw(FileException) {
+int64_t HashManager::HashStore::saveTree(File& f, const TigerTree& tt) {
     if (tt.getLeaves().size() == 1)
         return SMALL_TREE;
 
@@ -735,7 +729,7 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
                 break;
             }
 
-            if (madvise(buf, size_read, MADV_SEQUENTIAL | MADV_WILLNEED) == -1) {
+            if (posix_madvise(buf, size_read, POSIX_MADV_SEQUENTIAL | POSIX_MADV_WILLNEED) == -1) {
                 dcdebug("Error calling madvise for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
                 break;
             }
@@ -857,8 +851,6 @@ int HashManager::Hasher::run() {
                 TigerTree fastTTH(bs);
                 tth = &fastTTH;
 
-                LogManager::getInstance()->message(str(F_("Hashing file: %1% (Size: %2%)")
-                % Util::addBrackets(fname) % Util::formatBytes(size)));
 #ifdef _WIN32
                 if(!virtualBuf || !BOOLSETTING(FAST_HASH) || !fastHash(fname, buf, fastTTH, size, xcrc32)) {
 #else
@@ -957,7 +949,7 @@ bool HashManager::isHashingPaused() const {
     return hasher.isPaused();
 }
 
-void HashManager::on(TimerManagerListener::Second, uint64_t tick) throw() {
+void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
     //fprintf(stdout,"%lld\n", tick); fflush(stdout);
     static bool firstcycle = true;
     if (firstcycle){

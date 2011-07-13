@@ -210,7 +210,7 @@ void Search::putValue_gui(const string &str, int64_t size, SearchManager::SizeMo
 
 void Search::initHubs_gui()
 {
-    ClientManager::getInstance()->lock();
+    auto lock = ClientManager::getInstance()->lock();
 
     Client::List& clients = ClientManager::getInstance()->getClients();
 
@@ -221,8 +221,6 @@ void Search::initHubs_gui()
         if (client->isConnected())
             addHub_gui(client->getHubName(), client->getHubUrl());
     }
-
-    ClientManager::getInstance()->unlock();
 }
 
 void Search::addHub_gui(string name, string url)
@@ -433,8 +431,10 @@ void Search::search_gui()
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(hubStore), &iter);
     }
 
+#ifndef WITH_DHT
     if (clients.size() < 1)
         return;
+#endif
 
     double lsize = Util::toDouble(gtk_entry_get_text(GTK_ENTRY(getWidget("entrySize"))));
 
@@ -1779,7 +1779,7 @@ void Search::removeSource_client(string cid)
     }
 }
 
-void Search::on(ClientManagerListener::ClientConnected, Client *client) throw()
+void Search::on(ClientManagerListener::ClientConnected, Client *client) noexcept
 {
     if (client)
     {
@@ -1789,7 +1789,7 @@ void Search::on(ClientManagerListener::ClientConnected, Client *client) throw()
     }
 }
 
-void Search::on(ClientManagerListener::ClientUpdated, Client *client) throw()
+void Search::on(ClientManagerListener::ClientUpdated, Client *client) noexcept
 {
     if (client)
     {
@@ -1799,7 +1799,7 @@ void Search::on(ClientManagerListener::ClientUpdated, Client *client) throw()
     }
 }
 
-void Search::on(ClientManagerListener::ClientDisconnected, Client *client) throw()
+void Search::on(ClientManagerListener::ClientDisconnected, Client *client) noexcept
 {
     if (client)
     {
@@ -1809,7 +1809,7 @@ void Search::on(ClientManagerListener::ClientDisconnected, Client *client) throw
     }
 }
 
-void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) throw()
+void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept
 {
     if (searchlist.empty() || result == NULL)
         return;

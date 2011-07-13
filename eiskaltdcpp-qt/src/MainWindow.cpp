@@ -2807,11 +2807,11 @@ void MainWindow::prevMsg(){
     }
 }
 
-void MainWindow::on(dcpp::LogManagerListener::Message, time_t t, const std::string& m) throw(){
+void MainWindow::on(dcpp::LogManagerListener::Message, time_t t, const std::string& m) noexcept{
     emit coreLogMessage(_q(m.c_str()));
 }
 
-void MainWindow::on(dcpp::QueueManagerListener::Finished, QueueItem *item, const std::string &dir, int64_t) throw(){
+void MainWindow::on(dcpp::QueueManagerListener::Finished, QueueItem *item, const std::string &dir, int64_t) noexcept{
     if (item->isSet(QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_USER_LIST)){
         UserPtr user = item->getDownloads()[0]->getUser();
         QString listName = _q(item->getListName());
@@ -2826,7 +2826,7 @@ void MainWindow::on(dcpp::QueueManagerListener::Finished, QueueItem *item, const
         emit notifyMessage(Notification::TRANSFER, tr("Download Queue"), tr("All downloads complete"));
 }
 
-void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) throw(){
+void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) noexcept{
     static quint32 lastUpdate = 0;
     static quint64 lastUp = 0, lastDown = 0;
 

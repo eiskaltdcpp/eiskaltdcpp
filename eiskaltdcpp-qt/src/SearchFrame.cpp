@@ -339,7 +339,7 @@ SearchFrame::SearchFrame(QWidget *parent):
 
     ClientManager* clientMgr = ClientManager::getInstance();
 
-    clientMgr->lock();
+    auto lock = clientMgr->lock();
     clientMgr->addListener(this);
     Client::List& clients = clientMgr->getClients();
 
@@ -352,8 +352,6 @@ SearchFrame::SearchFrame(QWidget *parent):
         hubs.push_back(_q(client->getHubUrl()));
         client_list.push_back(client);
     }
-
-    clientMgr->unlock();
 
     str_model->setStringList(hubs);
 
@@ -889,8 +887,10 @@ void SearchFrame::slotStartSearch(){
             clients.push_back(_tq(index.data().toString()));
     }
 
+#ifndef WITH_DHT
     if (clients.empty())
         return;
+#endif
 
     QString str_size = lineEdit_SIZE->text();
     double lsize = Util::toDouble(Text::fromT(str_size.toStdString()));
@@ -1546,7 +1546,7 @@ void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
         retranslateUi(this);
 }
 
-void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) throw() {
+void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) noexcept {
     if (currentSearch.empty() || aResult == NULL)
         return;
 
@@ -1598,14 +1598,14 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
     emit coreSR(map);
 }
 
-void SearchFrame::on(ClientConnected, Client* c) throw(){
+void SearchFrame::on(ClientConnected, Client* c) noexcept{
     emit coreClientConnected(_q(c->getHubUrl()));
 }
 
-void SearchFrame::on(ClientUpdated, Client* c) throw(){
+void SearchFrame::on(ClientUpdated, Client* c) noexcept{
     emit coreClientUpdated((_q(c->getHubUrl())));
 }
 
-void SearchFrame::on(ClientDisconnected, Client* c) throw(){
+void SearchFrame::on(ClientDisconnected, Client* c) noexcept{
     emit coreClientDisconnected((_q(c->getHubUrl())));
 }

@@ -140,28 +140,28 @@ private:
     friend class Singleton<FavoriteManager>;
 
     FavoriteManager();
-    virtual ~FavoriteManager() throw();
+    virtual ~FavoriteManager();
 
     FavoriteHubEntryList::iterator getFavoriteHub(const string& aServer);
 
     // ClientManagerListener
-    virtual void on(UserUpdated, const OnlineUser& user) throw();
-    virtual void on(UserConnected, const UserPtr& user) throw();
-    virtual void on(UserDisconnected, const UserPtr& user) throw();
+    virtual void on(UserUpdated, const OnlineUser& user) noexcept;
+    virtual void on(UserConnected, const UserPtr& user) noexcept;
+    virtual void on(UserDisconnected, const UserPtr& user) noexcept;
 
     // HttpConnectionListener
-    virtual void on(Data, HttpConnection*, const uint8_t*, size_t) throw();
-    virtual void on(Failed, HttpConnection*, const string&) throw();
-    virtual void on(Complete, HttpConnection*, const string&, bool) throw();
-    virtual void on(Redirected, HttpConnection*, const string&) throw();
-    virtual void on(TypeNormal, HttpConnection*) throw();
-    virtual void on(TypeBZ2, HttpConnection*) throw();
-    virtual void on(Retried, HttpConnection*, const bool) throw();
+    virtual void on(Data, HttpConnection*, const uint8_t*, size_t) noexcept;
+    virtual void on(Failed, HttpConnection*, const string&) noexcept;
+    virtual void on(Complete, HttpConnection*, const string&, bool) noexcept;
+    virtual void on(Redirected, HttpConnection*, const string&) noexcept;
+    virtual void on(TypeNormal, HttpConnection*) noexcept;
+    virtual void on(TypeBZ2, HttpConnection*) noexcept;
+    virtual void on(Retried, HttpConnection*, const bool) noexcept;
 
-    bool onHttpFinished(bool fromHttp) throw();
+    bool onHttpFinished(bool fromHttp) noexcept;
 
     // SettingsManagerListener
-    virtual void on(SettingsManagerListener::Load, SimpleXML& xml) throw() {
+    virtual void on(SettingsManagerListener::Load, SimpleXML& xml) noexcept {
         load(xml);
     }
 

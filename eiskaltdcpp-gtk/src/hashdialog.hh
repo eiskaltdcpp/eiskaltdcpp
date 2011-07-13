@@ -40,7 +40,7 @@ class Hash:
         void updateStats_gui(std::string file, int64_t bytes, size_t files, uint64_t tick);
 
         // Client callbacks
-        virtual void on(dcpp::TimerManagerListener::Second, uint64_t tics) throw();
+        virtual void on(dcpp::TimerManagerListener::Second, uint64_t tics) noexcept;
         // GUI callback
         static void onPauseHashing_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762
 

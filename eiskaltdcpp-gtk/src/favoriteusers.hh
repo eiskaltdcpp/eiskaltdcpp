@@ -39,7 +39,7 @@ class FavoriteUsers:
 
 	private:
 		typedef std::map<std::string, std::string> ParamMap;
-		typedef std::tr1::unordered_map<std::string, GtkTreeIter> UserIters;
+		typedef std::unordered_map<std::string, GtkTreeIter> UserIters;
 
 		// GUI functions
 		bool findUser_gui(const std::string &cid, GtkTreeIter *iter);
@@ -70,9 +70,9 @@ class FavoriteUsers:
 		void setUserDescription_client(const std::string cid, const std::string description);
 
 		// Favorite callbacks
-		virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) throw();
-		virtual void on(dcpp::FavoriteManagerListener::UserRemoved, const dcpp::FavoriteUser &user) throw();
-		virtual void on(dcpp::FavoriteManagerListener::StatusChanged, const dcpp::FavoriteUser &user) throw();
+		virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) noexcept;
+		virtual void on(dcpp::FavoriteManagerListener::UserRemoved, const dcpp::FavoriteUser &user) noexcept;
+		virtual void on(dcpp::FavoriteManagerListener::StatusChanged, const dcpp::FavoriteUser &user) noexcept;
 
 		UserIters userIters;
 		GdkEventType previous;

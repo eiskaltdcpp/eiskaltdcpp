@@ -59,10 +59,10 @@ public:
     TTHValue getTTH() const { return tth; }
     const string& getIP() const { return IP; }
     const string& getToken() const { return token; }
-
+#ifdef WITH_DHT
     // for DHT use only
     void setSlots(size_t _slots) { aslots = _slots; }
-
+#endif
 private:
     friend class SearchManager;
 
