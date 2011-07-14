@@ -403,59 +403,38 @@
         <property name="current_color">#ffffffffffff</property>
       </object>
     </child>
-    <action-widgets>
-      <action-widget response="0">colorsel-help_button</action-widget>
-      <action-widget response="0">colorsel-ok_button</action-widget>
-      <action-widget response="0">colorsel-cancel_button</action-widget>
-    </action-widgets>
     <child internal-child="help_button">
       <object class="GtkButton" id="colorsel-help_button">
-        <property name="label">gtk-help</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="receives_default">True</property>
         <property name="use_action_appearance">False</property>
-        <property name="use_stock">True</property>
       </object>
     </child>
-    <action-widgets>
-      <action-widget response="0">colorsel-help_button</action-widget>
-      <action-widget response="0">colorsel-ok_button</action-widget>
-      <action-widget response="0">colorsel-cancel_button</action-widget>
-    </action-widgets>
     <child internal-child="cancel_button">
       <object class="GtkButton" id="colorsel-cancel_button">
-        <property name="label">gtk-cancel</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="receives_default">True</property>
         <property name="use_action_appearance">False</property>
-        <property name="use_stock">True</property>
       </object>
     </child>
-    <action-widgets>
-      <action-widget response="0">colorsel-help_button</action-widget>
-      <action-widget response="0">colorsel-ok_button</action-widget>
-      <action-widget response="0">colorsel-cancel_button</action-widget>
-    </action-widgets>
     <child internal-child="ok_button">
       <object class="GtkButton" id="colorsel-ok_button">
-        <property name="label">gtk-ok</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="has_default">True</property>
         <property name="receives_default">True</property>
         <property name="use_action_appearance">False</property>
-        <property name="use_stock">True</property>
       </object>
     </child>
     <action-widgets>
-      <action-widget response="0">colorsel-help_button</action-widget>
-      <action-widget response="0">colorsel-ok_button</action-widget>
-      <action-widget response="0">colorsel-cancel_button</action-widget>
+      <action-widget response="-11">colorsel-help_button</action-widget>
+      <action-widget response="-5">colorsel-ok_button</action-widget>
+      <action-widget response="-6">colorsel-cancel_button</action-widget>
     </action-widgets>
   </object>
   <object class="GtkDialog" id="commandDialog">
@@ -8235,59 +8214,38 @@ Limiting</property>
         </child>
       </object>
     </child>
-    <action-widgets>
-      <action-widget response="0">fontsel-ok_button</action-widget>
-      <action-widget response="0">fontsel-apply_button</action-widget>
-      <action-widget response="0">fontsel-cancel_button</action-widget>
-    </action-widgets>
     <child internal-child="cancel_button">
       <object class="GtkButton" id="fontsel-cancel_button">
-        <property name="label">gtk-cancel</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="receives_default">True</property>
         <property name="use_action_appearance">False</property>
-        <property name="use_stock">True</property>
       </object>
     </child>
-    <action-widgets>
-      <action-widget response="0">fontsel-ok_button</action-widget>
-      <action-widget response="0">fontsel-apply_button</action-widget>
-      <action-widget response="0">fontsel-cancel_button</action-widget>
-    </action-widgets>
     <child internal-child="apply_button">
       <object class="GtkButton" id="fontsel-apply_button">
-        <property name="label">gtk-apply</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="receives_default">True</property>
         <property name="use_action_appearance">False</property>
-        <property name="use_stock">True</property>
       </object>
     </child>
-    <action-widgets>
-      <action-widget response="0">fontsel-ok_button</action-widget>
-      <action-widget response="0">fontsel-apply_button</action-widget>
-      <action-widget response="0">fontsel-cancel_button</action-widget>
-    </action-widgets>
     <child internal-child="ok_button">
       <object class="GtkButton" id="fontsel-ok_button">
-        <property name="label">gtk-ok</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="can_default">True</property>
         <property name="has_default">True</property>
         <property name="receives_default">True</property>
         <property name="use_action_appearance">False</property>
-        <property name="use_stock">True</property>
       </object>
     </child>
     <action-widgets>
-      <action-widget response="0">fontsel-ok_button</action-widget>
-      <action-widget response="0">fontsel-apply_button</action-widget>
-      <action-widget response="0">fontsel-cancel_button</action-widget>
+      <action-widget response="-5">fontsel-ok_button</action-widget>
+      <action-widget response="-10">fontsel-apply_button</action-widget>
+      <action-widget response="-6">fontsel-cancel_button</action-widget>
     </action-widgets>
   </object>
   <object class="GtkDialog" id="nameDialog">
