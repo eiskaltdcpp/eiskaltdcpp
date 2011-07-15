@@ -309,7 +309,7 @@ namespace dht
 #endif
 
 		cmd.addParam("TY", Util::toString(type));
-		cmd.addParam("VE", ("StrgDC++ " VER));
+		cmd.addParam("VE", ("EiskaltDC++ " VER));
 		cmd.addParam("NI", SETTING(NICK));
 		cmd.addParam("SL", Util::toString(UploadManager::getInstance()->getSlots()));
 
