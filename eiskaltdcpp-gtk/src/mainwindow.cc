@@ -1840,7 +1840,7 @@ void MainWindow::onTransferToggled_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onHashClicked_gui(GtkWidget *widget, gpointer data)
 {
-    WulforManager::get()->openHashDialog_gui();
+    gint response = WulforManager::get()->openHashDialog_gui();
 }
 
 void MainWindow::onSearchClicked_gui(GtkWidget *widget, gpointer data)
