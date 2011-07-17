@@ -24,8 +24,8 @@
 
 using namespace std;
 
-DialogEntry::DialogEntry(const EntryType type, const string &glade, GtkWindow* parent):
-	Entry(type, glade),
+DialogEntry::DialogEntry(const EntryType type, const string &ui, GtkWindow* parent):
+	Entry(type, ui),
 	parent(parent),
 	responseID(GTK_RESPONSE_NONE)
 {
@@ -65,4 +65,3 @@ gint DialogEntry::getResponseID()
 {
 	return responseID;
 }
-

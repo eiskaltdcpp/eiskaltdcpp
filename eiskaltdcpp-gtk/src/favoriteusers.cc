@@ -31,7 +31,7 @@ using namespace std;
 using namespace dcpp;
 
 FavoriteUsers::FavoriteUsers():
-	BookEntry(Entry::FAVORITE_USERS, _("Favorite Users"), "favoriteusers.glade")
+	BookEntry(Entry::FAVORITE_USERS, _("Favorite Users"), "favoriteusers.ui")
 {
 	// Configure the dialog
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("DescriptionDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);

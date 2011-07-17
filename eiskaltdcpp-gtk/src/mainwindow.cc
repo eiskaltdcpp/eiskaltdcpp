@@ -58,7 +58,7 @@ using namespace std;
 using namespace dcpp;
 
 MainWindow::MainWindow():
-    Entry(Entry::MAIN_WINDOW, "mainwindow.glade"),
+    Entry(Entry::MAIN_WINDOW, "mainwindow.ui"),
     transfers(NULL),
     lastUpdate(0),
     lastUp(0),
@@ -1840,7 +1840,7 @@ void MainWindow::onTransferToggled_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onHashClicked_gui(GtkWidget *widget, gpointer data)
 {
-    WulforManager::get()->openHashDialog_gui();
+    gint response = WulforManager::get()->openHashDialog_gui();
 }
 
 void MainWindow::onSearchClicked_gui(GtkWidget *widget, gpointer data)

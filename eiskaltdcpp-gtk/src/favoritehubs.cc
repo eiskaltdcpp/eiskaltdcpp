@@ -28,7 +28,7 @@ using namespace std;
 using namespace dcpp;
 
 FavoriteHubs::FavoriteHubs():
-	BookEntry(Entry::FAVORITE_HUBS, _("Favorite Hubs"), "favoritehubs.glade")
+	BookEntry(Entry::FAVORITE_HUBS, _("Favorite Hubs"), "favoritehubs.ui")
 {
 	// Configure the dialog
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("favoriteHubsDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
