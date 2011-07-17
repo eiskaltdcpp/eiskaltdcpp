@@ -28,7 +28,7 @@ using namespace std;
 using namespace dcpp;
 
 FavoriteHubs::FavoriteHubs():
-	BookEntry(Entry::FAVORITE_HUBS, _("Favorite Hubs"), "favoritehubs.glade")
+	BookEntry(Entry::FAVORITE_HUBS, _("Favorite Hubs"), "favoritehubs.ui")
 {
 	// Configure the dialog
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("favoriteHubsDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
@@ -46,7 +46,7 @@ FavoriteHubs::FavoriteHubs():
 	vector<string> &charsets = WulforUtil::getCharsets();
 	for (vector<string>::const_iterator it = charsets.begin(); it != charsets.end(); ++it)
 		gtk_combo_box_append_text(GTK_COMBO_BOX(getWidget("comboboxCharset")), it->c_str());
-	
+
 	// Initialize favorite hub list treeview
 	favoriteView.setView(GTK_TREE_VIEW(getWidget("favoriteView")), TRUE, "favoritehubs");
 	favoriteView.insertColumn(_("Auto Connect"), G_TYPE_BOOLEAN, TreeView::BOOL, 100);
@@ -370,7 +370,7 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 			params["Encoding"] = string(encoding);
 			g_free(encoding);
 		}
-		
+
 		{
 			params["Mode"] = Util::toString(gtk_combo_box_get_active(GTK_COMBO_BOX(fh->getWidget("comboboxMode"))));
 			params["Search Interval"] = Util::toString(gtk_spin_button_get_value(GTK_SPIN_BUTTON(fh->getWidget("spinButton_MINSEARCH_INTERVAL"))));
@@ -583,7 +583,7 @@ void FavoriteHubs::setConnect_client(string address, bool active)
 	}
 }
 
-void FavoriteHubs::on(FavoriteManagerListener::FavoriteAdded, const FavoriteHubEntryPtr entry) throw()
+void FavoriteHubs::on(FavoriteManagerListener::FavoriteAdded, const FavoriteHubEntryPtr entry) noexcept
 {
 	StringMap params;
 	getFavHubParams_client(entry, params);
@@ -593,10 +593,9 @@ void FavoriteHubs::on(FavoriteManagerListener::FavoriteAdded, const FavoriteHubE
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void FavoriteHubs::on(FavoriteManagerListener::FavoriteRemoved, const FavoriteHubEntryPtr entry) throw()
+void FavoriteHubs::on(FavoriteManagerListener::FavoriteRemoved, const FavoriteHubEntryPtr entry) noexcept
 {
 	typedef Func1<FavoriteHubs, string> F1;
 	F1 *func = new F1(this, &FavoriteHubs::removeEntry_gui, entry->getServer());
 	WulforManager::get()->dispatchGuiFunc(func);
 }
-

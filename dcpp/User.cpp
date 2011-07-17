@@ -56,7 +56,11 @@ void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility
             sm[prefix + string((char*)(&i->first), 2)] = i->second;
         }
     }
-    if(!dht && user) {
+    if(
+#ifdef WITH_DHT
+       !dht &&
+#endif
+               user) {
         sm[prefix + "SID"] = getSIDString();
         sm[prefix + "CID"] = user->getCID().toBase32();
         sm[prefix + "TAG"] = getTag();

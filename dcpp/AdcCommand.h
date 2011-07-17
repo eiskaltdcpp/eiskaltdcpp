@@ -119,8 +119,8 @@ public:
     explicit AdcCommand(uint32_t aCmd, char aType = TYPE_CLIENT);
     explicit AdcCommand(uint32_t aCmd, const uint32_t aTarget, char aType);
     explicit AdcCommand(Severity sev, Error err, const string& desc, char aType = TYPE_CLIENT);
-    explicit AdcCommand(const string& aLine, bool nmdc = false) throw(ParseException);
-    void parse(const string& aLine, bool nmdc = false) throw(ParseException);
+    explicit AdcCommand(const string& aLine, bool nmdc = false);
+    void parse(const string& aLine, bool nmdc = false);
 
     uint32_t getCommand() const { return cmdInt; }
     char getType() const { return type; }

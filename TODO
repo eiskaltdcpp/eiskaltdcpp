@@ -1,5 +1,3 @@
-* DHT Support
 * IPv6 in DC++ Core
 * JSON interface in EiskaltDC++ Daemon
 * Migrating from Libglade to GtkBuilder in EiskaltDC++ Gtk
-* Up minimal gcc version to 4.4 

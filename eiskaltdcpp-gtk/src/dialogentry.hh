@@ -28,7 +28,7 @@ class DialogEntry : public Entry
 {
 	public:
 		DialogEntry() {}
-		DialogEntry(const EntryType type, const std::string &glade, GtkWindow* parent = NULL);
+		DialogEntry(const EntryType type, const std::string &ui, GtkWindow* parent = NULL);
 		virtual ~DialogEntry();
 
 		GtkWidget *getContainer();

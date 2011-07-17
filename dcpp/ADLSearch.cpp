@@ -441,7 +441,7 @@ void ADLSearchManager::PrepareDestinationDirectories(DestDirList& destDirVector,
     }
 }
 
-void ADLSearchManager::matchListing(DirectoryListing& aDirList) throw() {
+void ADLSearchManager::matchListing(DirectoryListing& aDirList) noexcept {
     StringMap params;
     params["userNI"] = ClientManager::getInstance()->getNicks(aDirList.getUser())[0];
     params["userCID"] = aDirList.getUser().user->getCID().toBase32();
@@ -493,6 +493,10 @@ void ADLSearchManager::FinalizeDestinationDirectories(DestDirList& destDirVector
             root->directories.push_back(id->dir);
         }
     }
+}
+
+string ADLSearchManager::getConfigFile() {
+    return Util::getPath(Util::PATH_USER_CONFIG) + "ADLSearch.xml";
 }
 
 } // namespace dcpp

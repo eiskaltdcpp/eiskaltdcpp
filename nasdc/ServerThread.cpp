@@ -190,7 +190,7 @@ void ServerThread::disconnectClient(const string& address){
     }
 }
 //----------------------------------------------------------------------------
-void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
+void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) noexcept
 {
     //int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
     int64_t upDiff = Socket::getTotalUp() - lastUp;
@@ -205,7 +205,7 @@ void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) throw()
     lastDown = Socket::getTotalDown();
 }
 
-void ServerThread::on(Connecting, Client* cur) throw() {
+void ServerThread::on(Connecting, Client* cur) noexcept {
     ClientIter i = clientsMap.find(cur->getHubUrl());
     if(i == clientsMap.end()) {
         CurHub curhub;
@@ -217,31 +217,31 @@ void ServerThread::on(Connecting, Client* cur) throw() {
     cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
 
-void ServerThread::on(Connected, Client* cur) throw() {
+void ServerThread::on(Connected, Client* cur) noexcept {
     cout << "Connect success to " <<  cur->getHubUrl() << "\n";
 }
 
-void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) throw() {
+void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) noexcept {
 
 }
 
-void ServerThread::on(UsersUpdated, Client*, const OnlineUserList& aList) throw() {
+void ServerThread::on(UsersUpdated, Client*, const OnlineUserList& aList) noexcept {
 
 }
 
-void ServerThread::on(UserRemoved, Client*, const OnlineUserPtr& user) throw() {
+void ServerThread::on(UserRemoved, Client*, const OnlineUserPtr& user) noexcept {
 
 }
 
-void ServerThread::on(Redirect, Client* cur, const string& line) throw() {
+void ServerThread::on(Redirect, Client* cur, const string& line) noexcept {
     cout <<  "Redirected to" << line << "\n";
 }
 
-void ServerThread::on(Failed, Client* cur, const string& line) throw() {
+void ServerThread::on(Failed, Client* cur, const string& line) noexcept {
     cout <<  "Connect failed [ " << cur->getHubUrl() << " ] :"<< line << "\n";
 }
 
-void ServerThread::on(GetPassword, Client* cur) throw() {
+void ServerThread::on(GetPassword, Client* cur) noexcept {
     ClientIter i = clientsMap.find(cur->getHubUrl());
     if (i != clientsMap.end()) {
         string pass = cur->getPassword();
@@ -250,11 +250,11 @@ void ServerThread::on(GetPassword, Client* cur) throw() {
     }
 }
 
-void ServerThread::on(HubUpdated, Client*) throw() {
+void ServerThread::on(HubUpdated, Client*) noexcept {
 
 }
 
-void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& message) throw()
+void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& message) noexcept
 {
     Lock l(shutcs);
     StringMap params;
@@ -294,7 +294,7 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
     cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << "\n";
 }
 
-void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusFlags) throw()
+void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusFlags) noexcept
 {
     string msg = line;
 
@@ -310,15 +310,15 @@ void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusF
     cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] " << "*"<< msg<< "\n";
 }
 
-void ServerThread::on(NickTaken, Client*) throw() {
+void ServerThread::on(NickTaken, Client*) noexcept {
 
 }
 
-void ServerThread::on(SearchFlood, Client*, const string& line) throw() {
+void ServerThread::on(SearchFlood, Client*, const string& line) noexcept {
 
 }
 
-void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) throw() {
+void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept {
     // Без пол-литра не разберёшься :D
     // Варианты как всю эту херню реализовать по-проще принимаются к рассмотрению...
     if (result == NULL) return;

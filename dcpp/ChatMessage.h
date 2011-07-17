@@ -20,8 +20,11 @@
 #define DCPLUSPLUS_DCPP_CHAT_MESSAGE_H
 
 #include "forward.h"
+#include <string>
 
 namespace dcpp {
+
+using std::string;
 
 struct ChatMessage {
         string text;

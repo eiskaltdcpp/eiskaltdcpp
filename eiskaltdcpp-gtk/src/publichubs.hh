@@ -66,9 +66,9 @@ class PublicHubs:
 		void addFav_client(dcpp::FavoriteHubEntry entry);
 
 		// Client callbacks
-		virtual void on(dcpp::FavoriteManagerListener::DownloadStarting, const std::string &file) throw();
-		virtual void on(dcpp::FavoriteManagerListener::DownloadFailed, const std::string &file) throw();
-		virtual void on(dcpp::FavoriteManagerListener::DownloadFinished, const std::string &file, bool fromCoral) throw();
+		virtual void on(dcpp::FavoriteManagerListener::DownloadStarting, const std::string &file) noexcept;
+		virtual void on(dcpp::FavoriteManagerListener::DownloadFailed, const std::string &file) noexcept;
+		virtual void on(dcpp::FavoriteManagerListener::DownloadFinished, const std::string &file, bool fromCoral) noexcept;
 
 		dcpp::HubEntryList hubs;
 		dcpp::StringSearch filter;

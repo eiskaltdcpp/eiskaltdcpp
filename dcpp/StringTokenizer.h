@@ -19,7 +19,13 @@
 #ifndef DCPLUSPLUS_DCPP_STRING_TOKENIZER_H
 #define DCPLUSPLUS_DCPP_STRING_TOKENIZER_H
 
+#include <string>
+#include <vector>
+
 namespace dcpp {
+
+using std::string;
+using std::vector;
 
 template<class T>
 class StringTokenizer

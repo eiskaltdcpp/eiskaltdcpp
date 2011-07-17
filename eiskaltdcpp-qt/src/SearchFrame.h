@@ -227,12 +227,12 @@ private:
     QTypeContentButton *button_type;
 
     // SearchManagerListener
-    virtual void on(SearchManagerListener::SR, const SearchResultPtr& aResult) throw();
+    virtual void on(SearchManagerListener::SR, const SearchResultPtr& aResult) noexcept;
 
     // ClientManagerListener
-    virtual void on(ClientConnected, Client* c) throw();
-    virtual void on(ClientUpdated, Client* c) throw();
-    virtual void on(ClientDisconnected, Client* c) throw();
+    virtual void on(ClientConnected, Client* c) noexcept;
+    virtual void on(ClientUpdated, Client* c) noexcept;
+    virtual void on(ClientDisconnected, Client* c) noexcept;
 };
 
 Q_DECLARE_METATYPE(SearchFrame*)

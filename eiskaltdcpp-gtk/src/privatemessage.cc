@@ -36,7 +36,7 @@ using namespace std;
 using namespace dcpp;
 
 PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
-    BookEntry(Entry::PRIVATE_MESSAGE, WulforUtil::getNicks(cid, hubUrl), "privatemessage.glade", cid),
+    BookEntry(Entry::PRIVATE_MESSAGE, WulforUtil::getNicks(cid, hubUrl), "privatemessage.ui", cid),
     cid(cid),
     hubUrl(hubUrl),
     historyIndex(0),
@@ -1381,7 +1381,7 @@ void PrivateMessage::grantSlot_client()
     }
 }
 
-void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUser) throw()
+void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUser) noexcept
 {
         if (aUser->getCID() == CID(cid))
         {
@@ -1391,7 +1391,7 @@ void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUs
         }
 }
 
-void PrivateMessage::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) throw()
+void PrivateMessage::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) noexcept
 {
         if (aUser->getCID() == CID(cid))
         {

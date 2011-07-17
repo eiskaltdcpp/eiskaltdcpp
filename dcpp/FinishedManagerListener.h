@@ -20,6 +20,7 @@
 #define DCPLUSPLUS_DCPP_FINISHED_MANAGER_LISTENER_H
 
 #include "forward.h"
+#include "noexcept.h"
 
 namespace dcpp {
 
@@ -36,13 +37,13 @@ public:
     typedef X<5> RemovedUser;
     typedef X<6> RemovedAll;
 
-    virtual void on(AddedFile, bool, const string&, const FinishedFileItemPtr&) throw() { }
-        virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) throw() { }
-    virtual void on(UpdatedFile, bool, const string&, const FinishedFileItemPtr&) throw() { }
-        virtual void on(UpdatedUser, bool, const HintedUser&) throw() { }
-    virtual void on(RemovedFile, bool, const string&) throw() { }
-        virtual void on(RemovedUser, bool, const HintedUser&) throw() { }
-    virtual void on(RemovedAll, bool) throw() { }
+    virtual void on(AddedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
+        virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) noexcept { }
+    virtual void on(UpdatedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
+        virtual void on(UpdatedUser, bool, const HintedUser&) noexcept { }
+    virtual void on(RemovedFile, bool, const string&) noexcept { }
+        virtual void on(RemovedUser, bool, const HintedUser&) noexcept { }
+    virtual void on(RemovedAll, bool) noexcept { }
 };
 
 } // namespace dcpp

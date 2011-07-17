@@ -30,7 +30,7 @@ using namespace dcpp;
 
 
 cmddebug::cmddebug():
-BookEntry(Entry::CMD,_("CMD"),"cmddebug.glade")
+BookEntry(Entry::CMD,_("CMD"),"cmddebug.ui")
 {
     buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (getWidget("cmdtextview")));
     gtk_text_buffer_get_end_iter(buffer, &iter);
@@ -87,7 +87,7 @@ void cmddebug::show()
     ini_client();
 }
 
-void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) throw()
+void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept
 {
         switch(typedir) {
             case dcpp::DebugManager::HUB_IN :
@@ -153,7 +153,7 @@ void cmddebug::addCmd(const std::string& cmd,const std::string& ip) {
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void cmddebug::on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) throw()
+void cmddebug::on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept
 {
     if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("detection_button"))) == TRUE)
         addCmd(com,"");

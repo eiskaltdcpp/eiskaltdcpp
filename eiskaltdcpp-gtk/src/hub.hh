@@ -73,9 +73,9 @@ class Hub:
         } TypeTag;
 
         typedef std::map<std::string, std::string> ParamMap;
-        typedef std::tr1::unordered_map<std::string, std::string> UserMap;
-        typedef std::tr1::unordered_map<std::string, GtkTreeIter> UserIters;
-        typedef std::tr1::unordered_map<GtkWidget*, std::string> ImageList;
+        typedef std::unordered_map<std::string, std::string> UserMap;
+        typedef std::unordered_map<std::string, GtkTreeIter> UserIters;
+        typedef std::unordered_map<GtkWidget*, std::string> ImageList;
         typedef std::pair<std::string, GtkWidget*> ImageLoad;
 
         // GUI functions
@@ -172,24 +172,24 @@ class Hub:
         void openImage_client(std::string tth);
 
         // Favorite callbacks
-        virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) throw();
-        virtual void on(dcpp::FavoriteManagerListener::UserRemoved, const dcpp::FavoriteUser &user) throw();
+        virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) noexcept;
+        virtual void on(dcpp::FavoriteManagerListener::UserRemoved, const dcpp::FavoriteUser &user) noexcept;
 
         // Client callbacks
-        virtual void on(dcpp::ClientListener::Connecting, dcpp::Client *) throw();
-        virtual void on(dcpp::ClientListener::Connected, dcpp::Client *) throw();
-        virtual void on(dcpp::ClientListener::UserUpdated, dcpp::Client *, const dcpp::OnlineUser &user) throw();
-        virtual void on(dcpp::ClientListener::UsersUpdated, dcpp::Client *, const dcpp::OnlineUserList &list) throw();
-        virtual void on(dcpp::ClientListener::UserRemoved, dcpp::Client *, const dcpp::OnlineUser &user) throw();
-        virtual void on(dcpp::ClientListener::Redirect, dcpp::Client *, const std::string &address) throw();
-        virtual void on(dcpp::ClientListener::Failed, dcpp::Client *, const std::string &reason) throw();
-        virtual void on(dcpp::ClientListener::GetPassword, dcpp::Client *) throw();
-        virtual void on(dcpp::ClientListener::HubUpdated, dcpp::Client *) throw();
-        virtual void on(dcpp::ClientListener::Message, dcpp::Client*, const dcpp::ChatMessage& message) throw();//NOTE: core 0.762
-        virtual void on(dcpp::ClientListener::StatusMessage, dcpp::Client *, const std::string &message, int flag) throw();
-        virtual void on(dcpp::ClientListener::NickTaken, dcpp::Client *) throw();
-        virtual void on(dcpp::ClientListener::SearchFlood, dcpp::Client *, const std::string &message) throw();
-        virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem *item, const std::string& dir, int64_t avSpeed) throw();
+        virtual void on(dcpp::ClientListener::Connecting, dcpp::Client *) noexcept;
+        virtual void on(dcpp::ClientListener::Connected, dcpp::Client *) noexcept;
+        virtual void on(dcpp::ClientListener::UserUpdated, dcpp::Client *, const dcpp::OnlineUser &user) noexcept;
+        virtual void on(dcpp::ClientListener::UsersUpdated, dcpp::Client *, const dcpp::OnlineUserList &list) noexcept;
+        virtual void on(dcpp::ClientListener::UserRemoved, dcpp::Client *, const dcpp::OnlineUser &user) noexcept;
+        virtual void on(dcpp::ClientListener::Redirect, dcpp::Client *, const std::string &address) noexcept;
+        virtual void on(dcpp::ClientListener::Failed, dcpp::Client *, const std::string &reason) noexcept;
+        virtual void on(dcpp::ClientListener::GetPassword, dcpp::Client *) noexcept;
+        virtual void on(dcpp::ClientListener::HubUpdated, dcpp::Client *) noexcept;
+        virtual void on(dcpp::ClientListener::Message, dcpp::Client*, const dcpp::ChatMessage& message) noexcept;//NOTE: core 0.762
+        virtual void on(dcpp::ClientListener::StatusMessage, dcpp::Client *, const std::string &message, int flag) noexcept;
+        virtual void on(dcpp::ClientListener::NickTaken, dcpp::Client *) noexcept;
+        virtual void on(dcpp::ClientListener::SearchFlood, dcpp::Client *, const std::string &message) noexcept;
+        virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem *item, const std::string& dir, int64_t avSpeed) noexcept;
 
         UserMap userMap;
         UserIters userIters;

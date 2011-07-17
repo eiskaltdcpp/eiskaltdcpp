@@ -794,7 +794,7 @@ string Util::toString(const StringList& lst) {
         return '[' + toString(",", lst) + ']';
 }
 
-string::size_type Util::findSubString(const string& aString, const string& aSubString, string::size_type start) throw() {
+string::size_type Util::findSubString(const string& aString, const string& aSubString, string::size_type start) noexcept {
     if(aString.length() < start)
         return (string::size_type)string::npos;
 
@@ -830,7 +830,7 @@ string::size_type Util::findSubString(const string& aString, const string& aSubS
     return (string::size_type)string::npos;
 }
 
-wstring::size_type Util::findSubString(const wstring& aString, const wstring& aSubString, wstring::size_type pos) throw() {
+wstring::size_type Util::findSubString(const wstring& aString, const wstring& aSubString, wstring::size_type pos) noexcept {
     if(aString.length() < pos)
         return static_cast<wstring::size_type>(wstring::npos);
 

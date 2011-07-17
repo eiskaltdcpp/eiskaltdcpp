@@ -86,7 +86,8 @@ public:
         FLAG_SUPPORTS_ADCGET = FLAG_SUPPORTS_XML_BZLIST << 1,
         FLAG_SUPPORTS_ZLIB_GET = FLAG_SUPPORTS_ADCGET << 1,
         FLAG_SUPPORTS_TTHL = FLAG_SUPPORTS_ZLIB_GET << 1,
-        FLAG_SUPPORTS_TTHF = FLAG_SUPPORTS_TTHL << 1
+        FLAG_SUPPORTS_TTHF = FLAG_SUPPORTS_TTHL << 1,
+        FLAG_SECURE = FLAG_SUPPORTS_TTHF << 1
     };
 
     enum States {
@@ -161,6 +162,7 @@ public:
     vector<uint8_t> getKeyprint() const { return socket ? socket->getKeyprint() : vector<uint8_t>(); }
     std::string getRemoteIp() const { return socket ? socket->getIp() : Util::emptyString; }
     Download* getDownload() { dcassert(isSet(FLAG_DOWNLOAD)); return download; }
+    //uint16_t getPort() const { if(socket) return socket->getPort(); else return 0; }
     void setDownload(Download* d) { dcassert(isSet(FLAG_DOWNLOAD)); download = d; }
     Upload* getUpload() { dcassert(isSet(FLAG_UPLOAD)); return upload; }
     void setUpload(Upload* u) { dcassert(isSet(FLAG_UPLOAD)); upload = u; }
@@ -199,11 +201,13 @@ private:
     };
 
     // We only want ConnectionManager to create this...
-    UserConnection(bool secure_) throw() : encoding(Text::systemCharset), state(STATE_UNCONNECTED),
+    UserConnection(bool secure_) noexcept : encoding(Text::systemCharset), state(STATE_UNCONNECTED),
         lastActivity(0), speed(0), chunkSize(0), socket(0), secure(secure_), download(NULL) {
+        if (secure_)
+            setFlag(FLAG_SECURE);
     }
 
-    virtual ~UserConnection() throw() {
+    virtual ~UserConnection() noexcept {
         BufferedSocket::putSocket(socket);
     }
 
@@ -213,7 +217,7 @@ private:
         user = aUser;
     }
 
-    void onLine(const string& aLine) throw();
+    void onLine(const string& aLine) noexcept;
 
     void send(const string& aString) {
         lastActivity = GET_TICK();
@@ -227,14 +231,14 @@ private:
         socket->write(aString);
     }
 
-    virtual void on(Connected) throw();
-    virtual void on(Line, const string&) throw();
-    virtual void on(Data, uint8_t* data, size_t len) throw();
-    virtual void on(BytesSent, size_t bytes, size_t actual) throw() ;
-    virtual void on(ModeChange) throw();
-    virtual void on(TransmitDone) throw();
-    virtual void on(Failed, const string&) throw();
-    virtual void on(Updated) throw();
+    virtual void on(Connected) noexcept;
+    virtual void on(Line, const string&) noexcept;
+    virtual void on(Data, uint8_t* data, size_t len) noexcept;
+    virtual void on(BytesSent, size_t bytes, size_t actual) noexcept ;
+    virtual void on(ModeChange) noexcept;
+    virtual void on(TransmitDone) noexcept;
+    virtual void on(Failed, const string&) noexcept;
+    virtual void on(Updated) noexcept;
 };
 
 } // namespace dcpp

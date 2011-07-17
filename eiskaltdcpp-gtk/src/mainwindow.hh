@@ -185,9 +185,9 @@ class MainWindow:
         void addFileDownloadQueue_client(std::string name, int64_t size, std::string tth);
 
         // Client callbacks
-        virtual void on(dcpp::LogManagerListener::Message, time_t t, const std::string &m) throw();
-        virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem *item, const std::string& dir, int64_t avSpeed) throw();
-        virtual void on(dcpp::TimerManagerListener::Second, uint64_t ticks) throw();
+        virtual void on(dcpp::LogManagerListener::Message, time_t t, const std::string &m) noexcept;
+        virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem *item, const std::string& dir, int64_t avSpeed) noexcept;
+        virtual void on(dcpp::TimerManagerListener::Second, uint64_t ticks) noexcept;
 
         GtkWindow *window;
         Transfers* transfers;

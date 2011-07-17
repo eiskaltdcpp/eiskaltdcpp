@@ -31,7 +31,7 @@ using namespace std;
 using namespace dcpp;
 
 FavoriteUsers::FavoriteUsers():
-	BookEntry(Entry::FAVORITE_USERS, _("Favorite Users"), "favoriteusers.glade")
+	BookEntry(Entry::FAVORITE_USERS, _("Favorite Users"), "favoriteusers.ui")
 {
 	// Configure the dialog
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("DescriptionDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
@@ -613,7 +613,7 @@ void FavoriteUsers::setStatus_gui(const string text)
 	}
 }
 
-void FavoriteUsers::on(FavoriteManagerListener::UserAdded, const FavoriteUser &user) throw()
+void FavoriteUsers::on(FavoriteManagerListener::UserAdded, const FavoriteUser &user) noexcept
 {
 	ParamMap params;
 	bool online = user.getUser()->isOnline();
@@ -628,14 +628,14 @@ void FavoriteUsers::on(FavoriteManagerListener::UserAdded, const FavoriteUser &u
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void FavoriteUsers::on(FavoriteManagerListener::UserRemoved, const FavoriteUser &user) throw()
+void FavoriteUsers::on(FavoriteManagerListener::UserRemoved, const FavoriteUser &user) noexcept
 {
 	Func1<FavoriteUsers, string> *func = new Func1<FavoriteUsers, string>(this, &FavoriteUsers::removeFavoriteUser_gui,
 		user.getUser()->getCID().toBase32());
 	WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void FavoriteUsers::on(FavoriteManagerListener::StatusChanged, const FavoriteUser &user) throw()
+void FavoriteUsers::on(FavoriteManagerListener::StatusChanged, const FavoriteUser &user) noexcept
 {
 	ParamMap params;
 	string seen = user.getUser()->isOnline() ? _("Online") : Util::formatTime("%Y-%m-%d %H:%M", user.getLastSeen());

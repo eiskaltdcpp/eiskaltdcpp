@@ -41,16 +41,16 @@ void DynDNS::Request() {
     }
 }
 
-void DynDNS::on(TimerManagerListener::Minute, uint64_t aTick) throw() {
+void DynDNS::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
     if (request)
         Request();
 }
 
-void DynDNS::on(HttpConnectionListener::Data, HttpConnection*, const uint8_t* buf, size_t len) throw() {
+void DynDNS::on(HttpConnectionListener::Data, HttpConnection*, const uint8_t* buf, size_t len) noexcept {
     html += string((const char*)buf, len);
 }
 
-void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&, bool /*fromCoral*/) throw() {
+void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&, bool /*fromCoral*/) noexcept {
     request = false;
     string internetIP;
     if (!html.empty()) {
@@ -80,7 +80,7 @@ void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&
     request = true;
 }
 
-void DynDNS::on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) throw() {
+void DynDNS::on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) noexcept {
     Request();
 }
 

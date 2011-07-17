@@ -309,7 +309,7 @@ namespace dht
 #endif
 
 		cmd.addParam("TY", Util::toString(type));
-		cmd.addParam("VE", ("StrgDC++ " VER));
+		cmd.addParam("VE", ("EiskaltDC++ " VER));
 		cmd.addParam("NI", SETTING(NICK));
 		cmd.addParam("SL", Util::toString(UploadManager::getInstance()->getSlots()));
 
@@ -560,7 +560,7 @@ namespace dht
 				{
 					// when we received more firewalled statuses, we will be firewalled
 					int fw = 0;	string lastIP;
-					for(std::tr1::unordered_map< string, std::pair<string, uint16_t> >::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); i++)
+					for(std::unordered_map< string, std::pair<string, uint16_t> >::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); i++)
 					{
 						string ip = i->second.first;
 						uint16_t udpPort = i->second.second;

@@ -28,9 +28,8 @@ libaspell (optional, see cmake keys)
 -----------------
 gettext
 libpango
-libgtk2 (>= 2.10)
-libglib2 (>= 2.10)
-libglade2 (>= 2.4)
+libgtk2 (>= 2.18)
+libglib2 (>= 2.18)
 libnotify (>= 0.4.1) (optional, see cmake keys)
 libgnome2 (optional, see cmake keys)
 --------------------
@@ -63,9 +62,9 @@ Build Depends
 --------
 :common:
 --------
-gcc
 zlib
 bzip2
+gcc   (>= 4.4.0)
 cmake (>= 2.6.0)
 iconv (libc on GNU/Linux)
 pkg-config
@@ -87,7 +86,6 @@ libaspell-dev (optional, see cmake keys)
 :eiskaltdcpp-gtk:
 -----------------
 libgtk2.0-dev
-libglade2-dev
 libnotify-dev (optional, see cmake keys)
 libgnome2-dev (optional, see cmake keys)
 --------------------

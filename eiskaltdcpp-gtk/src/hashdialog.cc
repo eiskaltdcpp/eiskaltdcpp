@@ -27,7 +27,7 @@ using namespace std;
 using namespace dcpp;
 
 Hash::Hash(GtkWindow* parent):
-    DialogEntry(Entry::HASH_DIALOG, "hash.glade", parent)
+    DialogEntry(Entry::HASH_DIALOG, "hash.ui", parent)
 {
     string tmp;
     startTime = GET_TICK();
@@ -132,7 +132,7 @@ void Hash::onPauseHashing_gui(GtkWidget *widget, gpointer data)
         }
 }
 
-void Hash::on(TimerManagerListener::Second, uint64_t tics) throw()
+void Hash::on(TimerManagerListener::Second, uint64_t tics) noexcept
 {
     string file;
     int64_t bytes = 0;

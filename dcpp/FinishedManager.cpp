@@ -36,7 +36,7 @@ FinishedManager::FinishedManager() {
     QueueManager::getInstance()->addListener(this);
 }
 
-FinishedManager::~FinishedManager() throw() {
+FinishedManager::~FinishedManager() {
     DownloadManager::getInstance()->removeListener(this);
     UploadManager::getInstance()->removeListener(this);
     QueueManager::getInstance()->removeListener(this);
@@ -45,8 +45,8 @@ FinishedManager::~FinishedManager() throw() {
     clearULs();
 }
 
-void FinishedManager::lockLists() {
-    cs.enter();
+Lock FinishedManager::lockLists() {
+    return Lock(cs);
 }
 
 const FinishedManager::MapByFile& FinishedManager::getMapByFile(bool upload) const {
@@ -55,10 +55,6 @@ const FinishedManager::MapByFile& FinishedManager::getMapByFile(bool upload) con
 
 const FinishedManager::MapByUser& FinishedManager::getMapByUser(bool upload) const {
     return upload ? ULByUser : DLByUser;
-}
-
-void FinishedManager::unLockLists() {
-    cs.leave();
 }
 
 void FinishedManager::remove(bool upload, const string& file) {
@@ -189,24 +185,24 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
     }
 }
 
-void FinishedManager::on(QueueManagerListener::CRCChecked, Download* d) throw() {
+void FinishedManager::on(QueueManagerListener::CRCChecked, Download* d) noexcept {
     onComplete(d, false, /*crc32Checked*/true);
 }
 
-void FinishedManager::on(DownloadManagerListener::Complete, Download* d) throw() {
+void FinishedManager::on(DownloadManagerListener::Complete, Download* d) noexcept {
     onComplete(d, false);
 }
 
-void FinishedManager::on(DownloadManagerListener::Failed, Download* d, const string&) throw() {
+void FinishedManager::on(DownloadManagerListener::Failed, Download* d, const string&) noexcept {
     if(d->getPos() > 0)
         onComplete(d, false);
 }
 
-void FinishedManager::on(UploadManagerListener::Complete, Upload* u) throw() {
+void FinishedManager::on(UploadManagerListener::Complete, Upload* u) noexcept {
     onComplete(u, true);
 }
 
-void FinishedManager::on(UploadManagerListener::Failed, Upload* u, const string&) throw() {
+void FinishedManager::on(UploadManagerListener::Failed, Upload* u, const string&) noexcept {
     if(u->getPos() > 0)
         onComplete(u, true);
 }

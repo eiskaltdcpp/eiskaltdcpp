@@ -17,8 +17,8 @@
  */
 
 #include "stdinc.h"
-
 #include "ChatMessage.h"
+
 #include "format.h"
 #include "User.h"
 #include "Util.h"

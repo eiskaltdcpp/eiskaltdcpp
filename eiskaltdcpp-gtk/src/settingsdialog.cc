@@ -42,7 +42,7 @@ using namespace std;
 using namespace dcpp;
 
 Settings::Settings(GtkWindow* parent):
-    DialogEntry(Entry::SETTINGS_DIALOG, "settingsdialog.glade", parent)
+    DialogEntry(Entry::SETTINGS_DIALOG, "settingsdialog.ui", parent)
 {
     // Configure the dialogs.
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("dialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);

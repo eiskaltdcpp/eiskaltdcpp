@@ -59,9 +59,9 @@ protected:
     virtual void closeEvent(QCloseEvent *);
     virtual bool eventFilter(QObject *, QEvent *);
 
-    virtual void on(UserAdded, const dcpp::FavoriteUser& aUser) throw();
-    virtual void on(UserRemoved, const dcpp::FavoriteUser& aUser) throw();
-    virtual void on(StatusChanged, const dcpp::UserPtr& aUser) throw();
+    virtual void on(UserAdded, const dcpp::FavoriteUser& aUser) noexcept;
+    virtual void on(UserRemoved, const dcpp::FavoriteUser& aUser) noexcept;
+    virtual void on(StatusChanged, const dcpp::UserPtr& aUser) noexcept;
 
 public Q_SLOTS:
     bool addUserToFav(const QString &id);

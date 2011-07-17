@@ -24,15 +24,15 @@
 #include <stdint.h>
 
 #include <string>
-#include <tr1/unordered_map>
-#include <tr1/unordered_set>
+#include <unordered_map>
+#include <unordered_set>
 
 namespace dcpp {
 
 using std::pair;
 using std::string;
-using std::tr1::unordered_map;
-using std::tr1::unordered_set;
+using std::unordered_map;
+using std::unordered_set;
 using std::vector;
 using std::wstring;
 

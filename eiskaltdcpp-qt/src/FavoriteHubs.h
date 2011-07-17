@@ -106,8 +106,8 @@ private:
     QStringList fakeNMDCTags;
     QStringList fakeADCTags;
 
-    virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) throw();
-    virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) throw();
+    virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) noexcept;
+    virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) noexcept;
 };
 
 Q_DECLARE_METATYPE (FavoriteHubs*)

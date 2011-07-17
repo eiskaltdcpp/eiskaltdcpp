@@ -39,7 +39,7 @@ class ScriptManagerListener {
         enum Types {
         DEBUG_MESSAGE,
         };
-        virtual void onAction(Types, const string&) throw() = 0;
+        virtual void onAction(Types, const string&) noexcept = 0;
     };
 
 struct LuaManager  {
@@ -76,21 +76,21 @@ struct LuaManager  {
 };
 
 class ScriptInstance {
-        bool MakeCallRaw(const string& table, const string& method , int args, int ret) throw();
+        bool MakeCallRaw(const string& table, const string& method , int args, int ret) noexcept;
     protected:
         virtual ~ScriptInstance() { }
         static lua_State* L;
         static CriticalSection cs;
 
         template <typename T> bool MakeCall(const string& table, const string& method,
-                int ret, const T& t) throw() {
+                int ret, const T& t) noexcept {
         Lock l(cs);
         dcassert(lua_gettop(L) == 0);
         LuaPush(t);
         return MakeCallRaw(table, method, 1 , ret);
         }
         template <typename T, typename T2> bool MakeCall(const string& table, const string& method,
-                int ret, const T& t, const T2& t2) throw() {
+                int ret, const T& t, const T2& t2) noexcept {
         Lock l(cs);
         dcassert(lua_gettop(L) == 0);
         LuaPush(t);
@@ -124,9 +124,9 @@ class ScriptManager: public ScriptInstance, public Singleton<ScriptManager>, pub
         friend struct LuaManager;
         friend class ScriptInstance;
 
-        virtual void on(ClientConnected, Client* aClient) throw();
-        virtual void on(ClientDisconnected, Client* aClient) throw();
-        virtual void on(Second, uint64_t /* ticks */) throw();
+        virtual void on(ClientConnected, Client* aClient) noexcept;
+        virtual void on(ClientDisconnected, Client* aClient) noexcept;
+        virtual void on(Second, uint64_t /* ticks */) noexcept;
 
 
 };

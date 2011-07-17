@@ -35,7 +35,6 @@ namespace dcpp {
 
 STANDARD_EXCEPTION(HashException);
 class File;
-class CRC32Filter;
 
 class HashLoader;
 class FileException;
@@ -51,7 +50,7 @@ public:
 	HashManager() {
 		TimerManager::getInstance()->addListener(this);
 	}
-	virtual ~HashManager() throw() {
+	virtual ~HashManager() noexcept {
 		TimerManager::getInstance()->removeListener(this);
 		hasher.join();
 	}
@@ -65,7 +64,7 @@ public:
 	void setPriority(Thread::Priority p) { hasher.setThreadPriority(p); }
 
 	/** @return TTH root */
-	TTHValue getTTH(const string& aFileName, int64_t aSize) throw(HashException);
+	TTHValue getTTH(const string& aFileName, int64_t aSize);
 
 	/** eiskaltdc++ **/
 	const TTHValue* getFileTTHif(const string& aFileName);
@@ -164,7 +163,7 @@ private:
 
 		bool checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp);
 
-		void addTree(const TigerTree& tt) throw();
+		void addTree(const TigerTree& tt) noexcept;
 		const TTHValue* getTTH(const string& aFileName);
 		bool getTree(const TTHValue& root, TigerTree& tth);
 		size_t getBlockSize(const TTHValue& root) const;
@@ -215,7 +214,7 @@ private:
 		void createDataFile(const string& name);
 
 		bool loadTree(File& dataFile, const TreeInfo& ti, const TTHValue& root, TigerTree& tt);
-		int64_t saveTree(File& dataFile, const TigerTree& tt) throw(FileException);
+		int64_t saveTree(File& dataFile, const TigerTree& tt);
 
 		string getIndexFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "HashIndex.xml"; }
 		string getDataFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "HashData.dat"; }
@@ -238,11 +237,11 @@ private:
 		store.rebuild();
 	}
 
-	virtual void on(TimerManagerListener::Minute, uint64_t) throw() {
+	virtual void on(TimerManagerListener::Minute, uint64_t) noexcept {
 		Lock l(cs);
 		store.save();
 	}
-	void on(TimerManagerListener::Second, uint64_t) throw();
+	void on(TimerManagerListener::Second, uint64_t) noexcept;
 };
 
 } // namespace dcpp

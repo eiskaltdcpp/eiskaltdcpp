@@ -200,7 +200,7 @@ else (FREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)
 
 if (USE_GTK)
-    find_package (GTK2 REQUIRED gtk glade)
+    find_package (GTK2 REQUIRED gtk)
 
     if (USE_LIBGNOME2)
         message (STATUS "Building with LibGnome2 support")
@@ -348,6 +348,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,--as-needed")
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,--as-needed")
     endif (NOT APPLE)
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
     set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -pipe -DNDEBUG")
     set (CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE} -DQT_NO_DEBUG -pipe")
     set (CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG} -UNDEBUG -g3 -pipe")
@@ -435,7 +436,7 @@ if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK)
 
-if (NO_UI_DAEMON OR XMLRPC_DAEMON OR CLI_DAEMON)
+if (NO_UI_DAEMON OR XMLRPC_DAEMON)
     add_subdirectory (nasdc)
 endif ()
 
@@ -491,7 +492,7 @@ if(GETTEXT_FOUND)
           DOMAIN_NAME "eiskaltdcpp-gtk"
           LOCALE_LIST "${LANGUAGES}"
           COPYRIGHT_HOLDER "EiskaltDC++ team"
-          SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_GLADE}"
+          SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_UI}"
           PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
           POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
           #PO_PREFIX    ""

@@ -68,7 +68,7 @@ public:
 
     User(const CID& aCID) : cid(aCID) { }
 
-    ~User() throw() { }
+    ~User() noexcept { }
 
     const CID& getCID() const { return cid; }
     operator const CID&() const { return cid; }
@@ -118,11 +118,15 @@ public:
         CT_HUB = 32,
         CT_HIDDEN = 64
     };
+    enum StatusFlags {
+        NORMAL          = 0x01,
+        AWAY            = 0x02,
+        SERVER          = 0x04,
+        FIREBALL        = 0x08,
+        TLS             = 0x10,
+        NAT             = 0x20
+    };
 
-    //Identity() : sid(0) { }
-    //Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr), sid(aSID) { }
-    //Identity(const Identity& rhs) : Flags(), sid(0) { *this = rhs; } // Use operator= since we have to lock before reading...
-    //Identity& operator=(const Identity& rhs) { FastLock l(cs); *static_cast<Flags*>(this) = rhs; user = rhs.user; sid = rhs.sid; info = rhs.info; return *this; }
     Identity() { }
     Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr) { setSID(aSID); }
     Identity(const Identity& rhs) { *this = rhs; } // Use operator= since we have to lock before reading...
@@ -143,6 +147,9 @@ public:
 
     void setBytesShared(const string& bs) { set("SS", bs); }
     int64_t getBytesShared() const { return Util::toInt64(get("SS")); }
+
+    void setStatus(const string& st) { set("ST", st); }
+    StatusFlags getStatus() const { return static_cast<StatusFlags>(Util::toInt(get("ST"))); }
 
     void setOp(bool op) { set("OP", op ? "1" : Util::emptyString); }
     void setHub(bool hub) { set("HU", hub ? "1" : Util::emptyString); }
@@ -171,7 +178,7 @@ public:
     GETSET(UserPtr, user, User);
     GETSET(uint32_t, sid, SID);
 private:
-    typedef std::tr1::unordered_map<short, string> InfMap;
+    typedef std::unordered_map<short, string> InfMap;
     typedef InfMap::iterator InfIter;
     typedef InfMap::const_iterator InfIterC;
     InfMap info;
@@ -188,7 +195,7 @@ public:
     typedef List::iterator Iter;
 
     OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_);
-    virtual ~OnlineUser() throw() { }
+    virtual ~OnlineUser() noexcept { }
     operator UserPtr&() { return getUser(); }
     operator const UserPtr&() const { return getUser(); }
 
