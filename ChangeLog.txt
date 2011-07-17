@@ -2,9 +2,11 @@
 *** common changes ***
 * Partial synchronization with DC++ kernel (0.785).
 * Now GCC >= 4.4.0 is required for build.
-* Added support for DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). This option is disabled in the settings by default. It is possible to completely remove support for DHT during configuration (option -DWITH_DHT for cmake). See also: http://en.wikipedia.org/wiki/Distributed_hash_table
+* Added support for DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). This option is disabled in the settings by default. It is possible to completely remove support for DHT during configuration (option -DWITH_DHT for cmake). DHT requires white external IPv4 for a work. See also: http://en.wikipedia.org/wiki/Distributed_hash_table
 *** eiskaltdcpp-qt ***
+* Added some options in settings dialog: DHT, DHT_PORT
 *** eiskaltdcpp-gtk ***
+* Migrating from Libglade to GtkBuilder. Compatibility with the code base of LinuxDC++ and FreeDC++ was partially lost.
 *** eiskaltdcpp-daemon ***
 
 --- 2.2.3 2011-06-25 ---

@@ -2,9 +2,11 @@
 *** common changes ***
 * Часткова синхронізація з ядром DC++ (0.785).
 * Тепер для сбiрки потрібен GCC >= 4.4.0.
-* Додана підтримка DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). Опція в налаштуваннях за умовчанням відключена. Є можливість повністю прибрати підтримку DHT на етапі конфігурування (опція -DWITH_DHT для cmake). Див також: http://ru.wikipedia.org/wiki/DHT
+* Додана підтримка DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). Опція в налаштуваннях за умовчанням відключена. Є можливість повністю прибрати підтримку DHT на етапі конфігурування (опція -DWITH_DHT для cmake). Для роботи DHT необхідний білий зовнішній IPv4. Див також: http://ru.wikipedia.org/wiki/DHT
 *** eiskaltdcpp-qt ***
+* Додані деякі опції в діалог налаштувань: DHT, DHT_PORT
 *** eiskaltdcpp-gtk ***
+* Перехід з Libglade на GtkBuilder. Частково втрачено сумісність з кодовою базою LinuxDC++ і FreeDC++.
 *** eiskaltdcpp-daemon ***
 
 --- 2.2.3 2011-06-25 ---

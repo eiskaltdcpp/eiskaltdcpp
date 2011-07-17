@@ -2260,12 +2260,12 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
         HashManager  *HM = HashManager::getInstance();
         const TTHValue *tth= HM->getFileTTHif(string(temp));
         if (tth != NULL) {
-            strcpy(&TTH[0], tth->toBase32().c_str());
-            string magnetlink = "magnet:?xt=urn:tree:tiger:"+ TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
+            TTH = tth->toBase32();
+            string magnetlink = "magnet:?xt=urn:tree:tiger:" + TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
             f.close();
-            g_print("%s\n",TTH.c_str());
+            //g_print("%s\n",TTH.c_str());
             gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
-            g_print("%s\n",magnetlink.c_str());
+            //g_print("%s\n",magnetlink.c_str());
             gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
         } else {
             char *buf = new char[512*1024];
@@ -2283,17 +2283,18 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
                 }
                 tth.finalize();
 
-                strcpy(&TTH[0], tth.getRoot().toBase32().c_str());
+                TTH = tth.getRoot().toBase32();
                 string magnetlink = "magnet:?xt=urn:tree:tiger:"+ TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
                 f.close();
-                g_print("%s\n",TTH.c_str());
+                //g_print("%s\n",TTH.c_str());
                 gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
-                g_print("%s\n",magnetlink.c_str());
+                //g_print("%s\n",magnetlink.c_str());
                 gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
             } catch(...) { }
 
             delete buf;
         }
+        delete tth;
 
 	}
 }
