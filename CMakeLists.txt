@@ -231,6 +231,11 @@ FIND_PROGRAM (TAR_CMD tar)
                 COMMAND ${TAR_CMD} -xf ${BOOST_TAR_EXISTS}
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 set (Boost_INCLUDE_DIR "./")
+if (HAIKU)
+EXECUTE_PROCESS (
+                COMMAND patch -p0 -i boost.diff
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+endif()
 message (STATUS "USED LOCAL BOOST HEADERS")
 else (LOCAL_BOOST)
     find_package (Boost REQUIRED)

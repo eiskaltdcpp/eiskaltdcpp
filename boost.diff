@@ -1,0 +1,55 @@
+diff -Naur boost/config/platform/haiku.hpp boost1/config/platform/haiku.hpp
+--- boost/config/platform/haiku.hpp	1970-01-01 05:00:00.000000000 +0500
++++ boost1/config/platform/haiku.hpp	2011-07-15 14:46:28.611319808 +0600
+@@ -0,0 +1,25 @@
++//  (C) Copyright John Maddock 2001. 
++//  Use, modification and distribution are subject to the 
++//  Boost Software License, Version 1.0. (See accompanying file 
++//  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
++
++//  See http://www.boost.org for most recent version.
++	
++//  Haiku specific config options:
++
++#define BOOST_PLATFORM "Haiku"
++
++#define BOOST_HAS_UNISTD_H
++	
++	
++#ifndef BOOST_DISABLE_THREADS
++#   define BOOST_HAS_THREADS
++#endif
++
++//
++// thread API's not auto detected:
++//
++#define BOOST_HAS_GETTIMEOFDAY
++
++// boilerplate code:
++#include <boost/config/posix_features.hpp>
+diff -Naur boost/config/select_platform_config.hpp boost1/config/select_platform_config.hpp
+--- boost/config/select_platform_config.hpp	2011-02-14 10:10:56.020447232 +0500
++++ boost1/config/select_platform_config.hpp	2011-07-15 14:44:54.698875904 +0600
+@@ -41,6 +41,10 @@
+ // win32:
+ #  define BOOST_PLATFORM_CONFIG "boost/config/platform/win32.hpp"
+ 
++#elif defined(__HAIKU__)
++// Haiku
++#  define BOOST_PLATFORM_CONFIG "boost/config/platform/haiku.hpp" 
++
+ #elif defined(__BEOS__)
+ // BeOS
+ #  define BOOST_PLATFORM_CONFIG "boost/config/platform/beos.hpp"
+diff -Naur boost/config/stdlib/libstdcpp3.hpp boost1/config/stdlib/libstdcpp3.hpp
+--- boost/config/stdlib/libstdcpp3.hpp	2011-02-14 10:10:56.017039360 +0500
++++ boost1/config/stdlib/libstdcpp3.hpp	2011-07-15 14:44:54.705167360 +0600
+@@ -31,7 +31,7 @@
+ 
+ #ifdef __GLIBCXX__ // gcc 3.4 and greater:
+ #  if defined(_GLIBCXX_HAVE_GTHR_DEFAULT) \
+-        || defined(_GLIBCXX__PTHREADS)
++        || defined(_GLIBCXX__PTHREADS) || defined(__HAIKU__)
+       //
+       // If the std lib has thread support turned on, then turn it on in Boost
+       // as well.  We do this because some gcc-3.4 std lib headers define _REENTANT
