@@ -52,6 +52,10 @@ add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/gtk/icons"
                 )
 
+if (WITH_DHT)
+  add_definitions ( -DWITH_DHT )
+endif (WITH_DHT)
+
 if (USE_MINIUPNP)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/settingsdialog.cc  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
 endif()

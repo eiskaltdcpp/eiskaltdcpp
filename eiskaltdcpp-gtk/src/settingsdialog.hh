@@ -65,7 +65,6 @@ class Settings:
         void initAppearance_gui();
         void initLog_gui();
         void initAdvanced_gui();
-        void initBandwidthLimiting_gui();//NOTE: core 0.762
         void initSearchTypes_gui();//NOTE: core 0.770
         void addShare_gui(std::string path, std::string name, int64_t size);
         void selectTextColor_gui(const int select);
