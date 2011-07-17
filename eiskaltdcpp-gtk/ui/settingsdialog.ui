@@ -8405,9 +8405,17 @@ Limiting</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">4</property>
                 <child>
-                  <object class="GtkTreeView" id="publicHubsDialogTreeView">
+                  <object class="GtkScrolledWindow" id="scrolledwindow15">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="hscrollbar_policy">automatic</property>
+                    <property name="vscrollbar_policy">automatic</property>
+                    <child>
+                      <object class="GtkTreeView" id="publicHubsDialogTreeView">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">True</property>
@@ -8517,7 +8525,7 @@ Limiting</property>
       </object>
     </child>
     <action-widgets>
-      <action-widget response="-5">okbutton1</action-widget>
+      <action-widget response="-5">okbutton2</action-widget>
     </action-widgets>
   </object>
 </interface>
