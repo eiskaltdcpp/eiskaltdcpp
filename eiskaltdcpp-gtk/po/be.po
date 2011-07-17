@@ -26,7 +26,7 @@ msgstr ""
 "X-Source-Language: C\n"
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:967
-#: ../src/settingsdialog.cc:1347 ../glade/mainwindow.glade:272
+#: ../src/settingsdialog.cc:1347 ../ui/mainwindow.ui:272
 msgid "Download Queue"
 msgstr "Чарга сьцягваньня"
 
@@ -66,8 +66,8 @@ msgstr "Стан"
 #: ../src/search.cc:701 ../src/search.cc:715 ../src/search.cc:728
 #: ../src/search.cc:741 ../src/search.cc:755 ../src/search.cc:769
 #: ../src/search.cc:888 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
-#: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317
-#: ../glade/search.glade:60 ../glade/mainwindow.glade:1292
+#: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317 ../ui/search.ui:60
+#: ../ui/mainwindow.ui:1292
 msgid "Size"
 msgstr "Памер"
 
@@ -83,8 +83,8 @@ msgstr "Пяршынства"
 
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
-#: ../src/publichubs.cc:58 ../src/publichubs.cc:158
-#: ../glade/mainwindow.glade:1751 ../glade/mainwindow.glade:1953
+#: ../src/publichubs.cc:58 ../src/publichubs.cc:158 ../ui/mainwindow.ui:1751
+#: ../ui/mainwindow.ui:1953
 msgid "Users"
 msgstr "Карыстальнікі"
 
@@ -132,7 +132,7 @@ msgstr "Дадалі"
 #: ../src/search.cc:1655 ../src/sharebrowser.cc:78 ../src/sharebrowser.cc:291
 #: ../src/sharebrowser.cc:321 ../src/sharebrowser.cc:516
 #: ../src/sharebrowser.cc:972 ../src/sharebrowser.cc:1006
-#: ../glade/mainwindow.glade:1305
+#: ../ui/mainwindow.ui:1305
 msgid "TTH"
 msgstr "Скарот (TTH)"
 
@@ -247,7 +247,7 @@ msgstr "Адчыніць каталёґ"
 #: ../src/search.cc:678 ../src/search.cc:691 ../src/search.cc:705
 #: ../src/search.cc:719 ../src/search.cc:732 ../src/search.cc:745
 #: ../src/search.cc:759 ../src/search.cc:773 ../src/search.cc:897
-#: ../glade/settingsdialog.glade:131
+#: ../ui/settingsdialog.ui:131
 msgid "Nick"
 msgstr "Мянушка"
 
@@ -262,7 +262,7 @@ msgstr "Абагуленае"
 #: ../src/favoriteusers.cc:586 ../src/favoritehubs.cc:54
 #: ../src/favoritehubs.cc:123 ../src/favoritehubs.cc:293
 #: ../src/publichubs.cc:42 ../src/publichubs.cc:157 ../src/publichubs.cc:293
-#: ../glade/favoriteusers.glade:81 ../glade/settingsdialog.glade:105
+#: ../ui/favoriteusers.ui:81 ../ui/settingsdialog.ui:105
 msgid "Description"
 msgstr "Апісаньне"
 
@@ -274,7 +274,7 @@ msgstr "Бірка"
 #: ../src/search.cc:599 ../src/search.cc:676 ../src/search.cc:689
 #: ../src/search.cc:703 ../src/search.cc:717 ../src/search.cc:730
 #: ../src/search.cc:743 ../src/search.cc:757 ../src/search.cc:771
-#: ../src/search.cc:891 ../glade/settingsdialog.glade:753
+#: ../src/search.cc:891 ../ui/settingsdialog.ui:753
 msgid "Connection"
 msgstr "Злучэньне"
 
@@ -334,8 +334,7 @@ msgstr "Ужываць пачуцьцезнакі"
 
 #: ../src/hub.cc:1795 ../src/hub.cc:1808 ../src/hub.cc:1960
 #: ../src/privatemessage.cc:872 ../src/privatemessage.cc:886
-#: ../src/privatemessage.cc:985 ../glade/privatemessage.glade:190
-#: ../glade/hub.glade:405
+#: ../src/privatemessage.cc:985 ../ui/privatemessage.ui:190 ../ui/hub.ui:405
 msgid "Away mode off"
 msgstr "Вярнуліся са стану «адышоў»"
 
@@ -399,12 +398,12 @@ msgstr "суадносіны: %1% (зацягнулі: %2%, сьцягнулі: 
 msgid "*** Available commands:"
 msgstr "*** Даступныя загады:"
 
-#: ../src/hub.cc:1959 ../src/privatemessage.cc:984
-#: ../glade/privatemessage.glade:183 ../glade/hub.glade:398
+#: ../src/hub.cc:1959 ../src/privatemessage.cc:984 ../ui/privatemessage.ui:183
+#: ../ui/hub.ui:398
 msgid "Away mode message on/off"
 msgstr "Перайсьці ў стан «адышоў», ці вярнуцца"
 
-#: ../src/hub.cc:1961 ../glade/hub.glade:412
+#: ../src/hub.cc:1961 ../ui/hub.ui:412
 msgid "Clear chat"
 msgstr "Ачысьціць гаману"
 
@@ -412,44 +411,40 @@ msgstr "Ачысьціць гаману"
 msgid "Close chat"
 msgstr "Зачыніць гаману"
 
-#: ../src/hub.cc:1963 ../glade/hub.glade:419
+#: ../src/hub.cc:1963 ../ui/hub.ui:419
 msgid "Add a hub to favorites"
 msgstr "Дадаць асяродак да ўлюбёных"
 
-#: ../src/hub.cc:1964 ../src/privatemessage.cc:988
-#: ../glade/privatemessage.glade:211
+#: ../src/hub.cc:1964 ../src/privatemessage.cc:988 ../ui/privatemessage.ui:211
 msgid "Add user to favorites list"
 msgstr "Дадаць карыстальніка да ўлюбёнцаў"
 
-#: ../src/hub.cc:1965 ../src/privatemessage.cc:989
-#: ../glade/privatemessage.glade:218
+#: ../src/hub.cc:1965 ../src/privatemessage.cc:989 ../ui/privatemessage.ui:218
 msgid "Remove user favorite"
 msgstr "Выкрасьліць карыстальніка з улюбёнцаў"
 
-#: ../src/hub.cc:1966 ../glade/hub.glade:426
+#: ../src/hub.cc:1966 ../ui/hub.ui:426
 msgid "Show favorites list"
 msgstr "Паказаць сьпіс улюбёнцаў"
 
-#: ../src/hub.cc:1967 ../src/privatemessage.cc:990
-#: ../glade/privatemessage.glade:225
+#: ../src/hub.cc:1967 ../src/privatemessage.cc:990 ../ui/privatemessage.ui:225
 msgid "Get file list"
 msgstr "Сьцягнуць сьпіс файлаў"
 
-#: ../src/hub.cc:1968 ../src/privatemessage.cc:991
-#: ../glade/privatemessage.glade:232
+#: ../src/hub.cc:1968 ../src/privatemessage.cc:991 ../ui/privatemessage.ui:232
 msgid "Grant extra slot"
 msgstr "Даць дадатковую шчыліну"
 
-#: ../src/hub.cc:1969 ../src/privatemessage.cc:995
-#: ../glade/privatemessage.glade:253 ../glade/hub.glade:475
+#: ../src/hub.cc:1969 ../src/privatemessage.cc:995 ../ui/privatemessage.ui:253
+#: ../ui/hub.ui:475
 msgid "Show help"
 msgstr "Паказаць даведку"
 
-#: ../src/hub.cc:1970 ../glade/hub.glade:433
+#: ../src/hub.cc:1970 ../ui/hub.ui:433
 msgid "Connect to the hub"
 msgstr "Злучыцца з асяродкам"
 
-#: ../src/hub.cc:1971 ../glade/hub.glade:440
+#: ../src/hub.cc:1971 ../ui/hub.ui:440
 msgid "Say a third person"
 msgstr "Мовіць ад трэцяе асобы"
 
@@ -459,7 +454,7 @@ msgstr "Мовіць ад трэцяе асобы"
 msgid "Private message"
 msgstr "Асабістае паведамленьне"
 
-#: ../src/hub.cc:1973 ../glade/hub.glade:447
+#: ../src/hub.cc:1973 ../ui/hub.ui:447
 msgid "Rebuild hash"
 msgstr "Стварыць нанова скароты"
 
@@ -476,13 +471,13 @@ msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
 "Відарысы: 0 — ня сьцягваць; n<0 — сьцягваць усе; пуста — паказаць бягучы стан"
 
-#: ../src/hub.cc:1977 ../src/privatemessage.cc:993
-#: ../glade/privatemessage.glade:239 ../glade/hub.glade:461
+#: ../src/hub.cc:1977 ../src/privatemessage.cc:993 ../ui/privatemessage.ui:239
+#: ../ui/hub.ui:461
 msgid "Show version"
 msgstr "Паказаць вэрсію"
 
-#: ../src/hub.cc:1978 ../src/privatemessage.cc:994
-#: ../glade/privatemessage.glade:246 ../glade/hub.glade:468
+#: ../src/hub.cc:1978 ../src/privatemessage.cc:994 ../ui/privatemessage.ui:246
+#: ../ui/hub.ui:468
 msgid "Show ratio [send in chat]"
 msgstr "Паказаць суадносіны [даслаць у гаману]"
 
@@ -564,8 +559,8 @@ msgid "': type /help for a list of available commands"
 msgstr "»: надрукуйце «/help», каб атрымаць сьпіс даступных загадаў"
 
 #: ../src/hub.cc:2570 ../src/privatemessage.cc:1233 ../src/mainwindow.cc:1215
-#: ../src/mainwindow.cc:1283 ../glade/sharebrowser.glade:326
-#: ../glade/search.glade:555 ../glade/settingsdialog.glade:6078
+#: ../src/mainwindow.cc:1283 ../ui/sharebrowser.ui:326 ../ui/search.ui:555
+#: ../ui/settingsdialog.ui:6078
 msgid "Choose a directory"
 msgstr "Абярыце каталёґ"
 
@@ -638,14 +633,13 @@ msgstr "Мянушку ўжо занялі"
 msgid "Search spam detected from "
 msgstr "Выявілі непажаданы пошук ад "
 
-#: ../src/adlsearch.cc:31 ../glade/mainwindow.glade:2039
+#: ../src/adlsearch.cc:31 ../ui/mainwindow.ui:2039
 msgid "ADL Search"
 msgstr "Самарушна шукаць у сьпісах файлаў"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:67
 #: ../src/adlsearch.cc:110 ../src/adlsearch.cc:210 ../src/adlsearch.cc:243
-#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393
-#: ../glade/adlsearch.glade:354
+#: ../src/adlsearch.cc:391 ../src/adlsearch.cc:393 ../ui/adlsearch.ui:354
 msgid "Enabled"
 msgstr "Задзейнічаць"
 
@@ -680,7 +674,7 @@ msgstr "Найбольшы памер"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1232
 #: ../src/settingsdialog.cc:1287 ../src/settingsdialog.cc:1350
-#: ../glade/mainwindow.glade:205 ../glade/mainwindow.glade:1951
+#: ../ui/mainwindow.ui:205 ../ui/mainwindow.ui:1951
 msgid "Favorite Users"
 msgstr "Улюбёнцы"
 
@@ -723,11 +717,11 @@ msgid "Paused..."
 msgstr "Прыпынілі…"
 
 #: ../src/hashdialog.cc:44 ../src/hashdialog.cc:125 ../src/hashdialog.cc:142
-#: ../glade/hash.glade:7
+#: ../ui/hash.ui:7
 msgid "Indexing files..."
 msgstr "Ствараецца паказьнік файлаў…"
 
-#: ../src/hashdialog.cc:70 ../glade/settingsdialog.glade:1614
+#: ../src/hashdialog.cc:70 ../ui/settingsdialog.ui:1614
 msgid "B/s"
 msgstr "Б/с"
 
@@ -740,8 +734,8 @@ msgid "-:--:-- left"
 msgstr "-:--:-- засталося"
 
 #: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2204
-#: ../src/mainwindow.cc:2206 ../glade/settingsdialog.glade:1586
-#: ../glade/settingsdialog.glade:1601 ../glade/settingsdialog.glade:1641
+#: ../src/mainwindow.cc:2206 ../ui/settingsdialog.ui:1586
+#: ../ui/settingsdialog.ui:1601 ../ui/settingsdialog.ui:1641
 msgid "s"
 msgstr "с"
 
@@ -751,8 +745,8 @@ msgstr "Скончылі"
 
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:971
 #: ../src/settingsdialog.cc:1242 ../src/settingsdialog.cc:1303
-#: ../src/settingsdialog.cc:1351 ../glade/mainwindow.glade:320
-#: ../glade/mainwindow.glade:2052 ../glade/settingsdialog.glade:4029
+#: ../src/settingsdialog.cc:1351 ../ui/mainwindow.ui:320
+#: ../ui/mainwindow.ui:2052 ../ui/settingsdialog.ui:4029
 msgid "Search Spy"
 msgstr "Шпегаваць у шуканым"
 
@@ -778,7 +772,7 @@ msgstr "чакаем…"
 msgid "top..."
 msgstr "найлепшыя…"
 
-#: ../src/searchspy.cc:389 ../glade/searchspy.glade:150
+#: ../src/searchspy.cc:389 ../ui/searchspy.ui:150
 msgid "Update frame search"
 msgstr "Абнавіць ваконца пошуку"
 
@@ -786,7 +780,7 @@ msgstr "Абнавіць ваконца пошуку"
 msgid "top/waiting/frame: "
 msgstr "найлепшыя/чакаюць/бачныя: "
 
-#: ../src/searchspy.cc:500 ../glade/searchspy.glade:136
+#: ../src/searchspy.cc:500 ../ui/searchspy.ui:136
 msgid "Clear frame search"
 msgstr "Ачысьціць ваконца пошуку"
 
@@ -956,11 +950,11 @@ msgstr "Спыняецца libdcpp…"
 msgid "Quit..."
 msgstr "Выходзім…"
 
-#: ../src/privatemessage.cc:986 ../glade/privatemessage.glade:197
+#: ../src/privatemessage.cc:986 ../ui/privatemessage.ui:197
 msgid "Clear PM"
 msgstr "Ачысьціць ваконца асабістых паведамленьняў"
 
-#: ../src/privatemessage.cc:987 ../glade/privatemessage.glade:204
+#: ../src/privatemessage.cc:987 ../ui/privatemessage.ui:204
 msgid "Close PM"
 msgstr "Зачыніць ваконца асабістых паведамленьняў"
 
@@ -1025,7 +1019,7 @@ msgstr "Значак"
 #: ../src/favoritehubs.cc:122 ../src/favoritehubs.cc:291
 #: ../src/favoritehubs.cc:407 ../src/publichubs.cc:41 ../src/publichubs.cc:156
 #: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:234
-#: ../src/search.cc:250 ../glade/settingsdialog.glade:6381
+#: ../src/search.cc:250 ../ui/settingsdialog.ui:6381
 msgid "Name"
 msgstr "Назва"
 
@@ -1047,7 +1041,7 @@ msgstr "Назва ўлюбёнага"
 #: ../src/settingsdialog.cc:3489 ../src/settingsdialog.cc:3503
 #: ../src/settingsdialog.cc:3558 ../src/search.cc:1708
 #: ../src/UserCommandMenu.cc:66 ../src/sharebrowser.cc:289
-#: ../glade/settingsdialog.glade:4075
+#: ../ui/settingsdialog.ui:4075
 msgid "Directory"
 msgstr "Каталёґ"
 
@@ -1185,15 +1179,15 @@ msgstr "Наймяншаць у латок па запуску"
 
 #: ../src/settingsdialog.cc:965 ../src/settingsdialog.cc:1233
 #: ../src/settingsdialog.cc:1307 ../src/settingsdialog.cc:1348
-#: ../src/finishedtransfers.cc:35 ../glade/mainwindow.glade:287
-#: ../glade/mainwindow.glade:1821 ../glade/mainwindow.glade:2010
+#: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:287
+#: ../ui/mainwindow.ui:1821 ../ui/mainwindow.ui:2010
 msgid "Finished Downloads"
 msgstr "Сьцягнутае"
 
 #: ../src/settingsdialog.cc:966 ../src/settingsdialog.cc:1234
 #: ../src/settingsdialog.cc:1309 ../src/settingsdialog.cc:1349
-#: ../src/finishedtransfers.cc:40 ../glade/mainwindow.glade:301
-#: ../glade/mainwindow.glade:1828 ../glade/mainwindow.glade:2023
+#: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:301
+#: ../ui/mainwindow.ui:1828 ../ui/mainwindow.ui:2023
 msgid "Finished Uploads"
 msgstr "Зацягнутае"
 
@@ -1209,13 +1203,13 @@ msgstr "Асабістае паведамленьне (таксама устал
 #: ../src/settingsdialog.cc:1299 ../src/search.cc:41 ../src/search.cc:72
 #: ../src/search.cc:79 ../src/search.cc:233 ../src/search.cc:431
 #: ../src/search.cc:1134 ../src/search.cc:1135 ../src/search.cc:1945
-#: ../glade/searchspy.glade:185 ../glade/searchspy.glade:250
-#: ../glade/mainwindow.glade:231 ../glade/mainwindow.glade:1793
-#: ../glade/mainwindow.glade:1966 ../glade/settingsdialog.glade:5815
+#: ../ui/searchspy.ui:185 ../ui/searchspy.ui:250 ../ui/mainwindow.ui:231
+#: ../ui/mainwindow.ui:1793 ../ui/mainwindow.ui:1966
+#: ../ui/settingsdialog.ui:5815
 msgid "Search"
 msgstr "Пошук"
 
-#: ../src/settingsdialog.cc:980 ../glade/settingsdialog.glade:2854
+#: ../src/settingsdialog.cc:980 ../ui/settingsdialog.ui:2854
 msgid "Sounds"
 msgstr "Гук"
 
@@ -1284,7 +1278,7 @@ msgstr "Улюбёнец"
 msgid "Operator"
 msgstr "Апэратар"
 
-#: ../src/settingsdialog.cc:1146 ../glade/settingsdialog.glade:3372
+#: ../src/settingsdialog.cc:1146 ../ui/settingsdialog.ui:3372
 msgid "Notify"
 msgstr "Апавяшчэньне"
 
@@ -1324,8 +1318,8 @@ msgstr "Карыстальнік — апэратар (звычайны)"
 msgid "Button smile"
 msgstr "Гузік усьмешак"
 
-#: ../src/settingsdialog.cc:1229 ../glade/sharebrowser.glade:235
-#: ../glade/sharebrowser.glade:271
+#: ../src/settingsdialog.cc:1229 ../ui/sharebrowser.ui:235
+#: ../ui/sharebrowser.ui:271
 msgid "Download"
 msgstr "Сьцягванае"
 
@@ -1335,69 +1329,67 @@ msgstr "Зацягванае"
 
 #: ../src/settingsdialog.cc:1231 ../src/settingsdialog.cc:1285
 #: ../src/settingsdialog.cc:1346 ../src/favoritehubs.cc:31
-#: ../glade/mainwindow.glade:170 ../glade/mainwindow.glade:1938
+#: ../ui/mainwindow.ui:170 ../ui/mainwindow.ui:1938
 msgid "Favorite Hubs"
 msgstr "Улюбёныя асяродкі"
 
 #: ../src/settingsdialog.cc:1235 ../src/settingsdialog.cc:1293
-#: ../glade/mainwindow.glade:1772 ../glade/mainwindow.glade:1865
+#: ../ui/mainwindow.ui:1772 ../ui/mainwindow.ui:1865
 msgid "Own file list"
 msgstr "Уласны сьпіс файлаў"
 
 #: ../src/settingsdialog.cc:1236 ../src/settingsdialog.cc:1295
-#: ../glade/mainwindow.glade:1779 ../glade/mainwindow.glade:1878
+#: ../ui/mainwindow.ui:1779 ../ui/mainwindow.ui:1878
 msgid "Refresh"
 msgstr "Дапоўніць"
 
 #: ../src/settingsdialog.cc:1237 ../src/settingsdialog.cc:1297
-#: ../glade/mainwindow.glade:1786 ../glade/mainwindow.glade:1891
+#: ../ui/mainwindow.ui:1786 ../ui/mainwindow.ui:1891
 msgid "Hash"
 msgstr "Стварэньне скаротаў"
 
 #: ../src/settingsdialog.cc:1238 ../src/settingsdialog.cc:1291
-#: ../glade/mainwindow.glade:1765 ../glade/mainwindow.glade:1847
-#: ../glade/settingsdialog.glade:6
+#: ../ui/mainwindow.ui:1765 ../ui/mainwindow.ui:1847 ../ui/settingsdialog.ui:6
 msgid "Preferences"
 msgstr "Перавагі"
 
 #: ../src/settingsdialog.cc:1239 ../src/settingsdialog.cc:1289
 #: ../src/settingsdialog.cc:1345 ../src/publichubs.cc:29
-#: ../glade/mainwindow.glade:185 ../glade/mainwindow.glade:1758
-#: ../glade/mainwindow.glade:1979
+#: ../ui/mainwindow.ui:185 ../ui/mainwindow.ui:1758 ../ui/mainwindow.ui:1979
 msgid "Public Hubs"
 msgstr "Адкрытыя асяродкі"
 
 #: ../src/settingsdialog.cc:1240 ../src/settingsdialog.cc:1305
-#: ../glade/mainwindow.glade:1814 ../glade/mainwindow.glade:1997
-#: ../glade/settingsdialog.glade:1752
+#: ../ui/mainwindow.ui:1814 ../ui/mainwindow.ui:1997
+#: ../ui/settingsdialog.ui:1752
 msgid "Queue"
 msgstr "Чарга"
 
 #: ../src/settingsdialog.cc:1243 ../src/settingsdialog.cc:1311
-#: ../glade/mainwindow.glade:1835 ../glade/mainwindow.glade:2072
+#: ../ui/mainwindow.ui:1835 ../ui/mainwindow.ui:2072
 msgid "Quit"
 msgstr "Выйсьці"
 
 #: ../src/settingsdialog.cc:1244 ../src/settingsdialog.cc:1283
-#: ../glade/mainwindow.glade:1737 ../glade/mainwindow.glade:1922
+#: ../ui/mainwindow.ui:1737 ../ui/mainwindow.ui:1922
 msgid "Connect"
 msgstr "Злучыцца"
 
 #: ../src/settingsdialog.cc:1245 ../src/settingsdialog.cc:1281
-#: ../glade/mainwindow.glade:1730 ../glade/mainwindow.glade:1909
+#: ../ui/mainwindow.ui:1730 ../ui/mainwindow.ui:1909
 msgid "Reconnect"
 msgstr "Нанова злучыцца"
 
-#: ../src/settingsdialog.cc:1248 ../glade/mainwindow.glade:246
+#: ../src/settingsdialog.cc:1248 ../ui/mainwindow.ui:246
 msgid "Search ADL"
 msgstr "Самарушна шукаць у сьпісах файлаў"
 
-#: ../src/settingsdialog.cc:1277 ../glade/mainwindow.glade:1402
-#: ../glade/mainwindow.glade:1716 ../glade/mainwindow.glade:2090
+#: ../src/settingsdialog.cc:1277 ../ui/mainwindow.ui:1402
+#: ../ui/mainwindow.ui:1716 ../ui/mainwindow.ui:2090
 msgid "+/-"
 msgstr "+/-"
 
-#: ../src/settingsdialog.cc:1279 ../glade/mainwindow.glade:1723
+#: ../src/settingsdialog.cc:1279 ../ui/mainwindow.ui:1723
 msgid "Separators"
 msgstr "Аддзяляльнікі"
 
@@ -1535,7 +1527,7 @@ msgstr "Асяродак"
 
 #: ../src/settingsdialog.cc:1441 ../src/settingsdialog.cc:1449
 #: ../src/settingsdialog.cc:3038 ../src/settingsdialog.cc:3112
-#: ../glade/settingsdialog.glade:6409
+#: ../ui/settingsdialog.ui:6409
 msgid "Command"
 msgstr "Загад"
 
@@ -1641,7 +1633,7 @@ msgstr "<b>Назва, якую будуць бачыць іншыя карыс�
 msgid "selected style failed"
 msgstr "не абралі від"
 
-#: ../src/settingsdialog.cc:3062 ../glade/settingsdialog.glade:6255
+#: ../src/settingsdialog.cc:3062 ../ui/settingsdialog.ui:6255
 msgid "Separator"
 msgstr "Аддзяляльнік"
 
@@ -1657,7 +1649,7 @@ msgstr "Загад з такім назовам ужо існуе"
 msgid "New list"
 msgstr "Новы сьпіс"
 
-#: ../src/settingsdialog.cc:3422 ../glade/settingsdialog.glade:5997
+#: ../src/settingsdialog.cc:3422 ../ui/settingsdialog.ui:5997
 msgid "Favorite name"
 msgstr "Назва ўлюбёнага"
 
@@ -1695,7 +1687,7 @@ msgid "Address"
 msgstr "Адрас"
 
 #: ../src/favoritehubs.cc:57 ../src/favoritehubs.cc:125
-#: ../glade/settingsdialog.glade:636
+#: ../ui/settingsdialog.ui:636
 msgid "Password"
 msgstr "Гасло"
 
@@ -1760,7 +1752,7 @@ msgstr "Уласьцівасьці маґніт-спасылкі (выбар)"
 msgid "Magnet Choice"
 msgstr "Выбар па маґніт-спасылцы"
 
-#: ../src/mainwindow.cc:1900 ../glade/mainwindow.glade:1054
+#: ../src/mainwindow.cc:1900 ../ui/mainwindow.ui:1054
 msgid "Select filelist to browse"
 msgstr "Абярыце сьпіс файлаў"
 
@@ -1799,8 +1791,8 @@ msgid "Select file to Get TTH"
 msgstr "Абярыце файл, скарот якога трэба вылічыць"
 
 #: ../src/previewmenu.cc:89 ../src/emoticonsdialog.cc:106
-#: ../glade/settingsdialog.glade:3246 ../glade/settingsdialog.glade:3839
-#: ../glade/settingsdialog.glade:3985 ../glade/settingsdialog.glade:5770
+#: ../ui/settingsdialog.ui:3246 ../ui/settingsdialog.ui:3839
+#: ../ui/settingsdialog.ui:3985 ../ui/settingsdialog.ui:5770
 msgid "Default"
 msgstr "Прадвызначана"
 
@@ -1979,11 +1971,11 @@ msgid "Slots"
 msgstr "Шчыліны"
 
 #: ../src/search.cc:331 ../src/search.cc:402 ../src/sharebrowser.cc:481
-#: ../src/sharebrowser.cc:549 ../glade/mainwindow.glade:1467
-#: ../glade/settingsdialog.glade:804 ../glade/settingsdialog.glade:858
-#: ../glade/settingsdialog.glade:4092 ../glade/settingsdialog.glade:5031
-#: ../glade/settingsdialog.glade:5046 ../glade/settingsdialog.glade:5061
-#: ../glade/privatemessage.glade:118 ../glade/hub.glade:332
+#: ../src/sharebrowser.cc:549 ../ui/mainwindow.ui:1467
+#: ../ui/settingsdialog.ui:804 ../ui/settingsdialog.ui:858
+#: ../ui/settingsdialog.ui:4092 ../ui/settingsdialog.ui:5031
+#: ../ui/settingsdialog.ui:5046 ../ui/settingsdialog.ui:5061
+#: ../ui/privatemessage.ui:118 ../ui/hub.ui:332
 msgid "Browse..."
 msgstr "Зірнуць…"
 
@@ -2086,101 +2078,98 @@ msgstr "Супала "
 msgid "?"
 msgstr "?"
 
-#: ../glade/sharebrowser.glade:109
+#: ../ui/sharebrowser.ui:109
 msgid "Match Queue"
 msgstr "Узгадніць чаргу"
 
-#: ../glade/sharebrowser.glade:122
+#: ../ui/sharebrowser.ui:122
 msgid "Find"
 msgstr "Шукаць"
 
-#: ../glade/sharebrowser.glade:135
+#: ../ui/sharebrowser.ui:135
 msgid "Next"
 msgstr "Наступнае"
 
-#: ../glade/sharebrowser.glade:154
+#: ../ui/sharebrowser.ui:154
 msgid "Find files"
 msgstr "Знайсьці файлы"
 
-#: ../glade/sharebrowser.glade:182
+#: ../ui/sharebrowser.ui:182
 msgid "Enter text to search for"
 msgstr "Упішыце тэкст, які трэба шукаць"
 
-#: ../glade/sharebrowser.glade:242 ../glade/sharebrowser.glade:278
+#: ../ui/sharebrowser.ui:242 ../ui/sharebrowser.ui:278
 msgid "Download to..."
 msgstr "Сьцягнуць у…"
 
-#: ../glade/sharebrowser.glade:258 ../glade/sharebrowser.glade:315
-#: ../glade/transfers.glade:73
+#: ../ui/sharebrowser.ui:258 ../ui/sharebrowser.ui:315 ../ui/transfers.ui:73
 msgid "User commands"
 msgstr "Загады карыстальніка"
 
-#: ../glade/sharebrowser.glade:294 ../glade/downloadqueue.glade:197
+#: ../ui/sharebrowser.ui:294 ../ui/downloadqueue.ui:197
 msgid "_Search for alternates"
 msgstr "Шукаць дадатковыя _крыніцы"
 
-#: ../glade/sharebrowser.glade:301 ../glade/search.glade:478
-#: ../glade/downloadqueue.glade:204 ../glade/privatemessage.glade:129
-#: ../glade/hub.glade:343
+#: ../ui/sharebrowser.ui:301 ../ui/search.ui:478 ../ui/downloadqueue.ui:204
+#: ../ui/privatemessage.ui:129 ../ui/hub.ui:343
 msgid "_Copy magnet"
 msgstr "Перапісаць _маґніт-спасылку"
 
-#: ../glade/sharebrowser.glade:308
+#: ../ui/sharebrowser.ui:308
 msgid "_Copy picture"
 msgstr "Перапісаць _малюнак"
 
-#: ../glade/hash.glade:22
+#: ../ui/hash.ui:22
 msgid "<b>Processing file:</b>"
 msgstr "<b>Апрацоўваецца файл:</b>"
 
-#: ../glade/hash.glade:81
+#: ../ui/hash.ui:81
 msgid "<b>Statistics</b>"
 msgstr "<b>Статыстыка</b>"
 
-#: ../glade/hash.glade:109
+#: ../ui/hash.ui:109
 msgid "Pause"
 msgstr "Прыпыніць"
 
-#: ../glade/hash.glade:138
+#: ../ui/hash.ui:138
 msgid "Run in background"
 msgstr "Выконваць на заднім пляне"
 
-#: ../glade/adlsearch.glade:34 ../glade/adlsearch.glade:110
+#: ../ui/adlsearch.ui:34 ../ui/adlsearch.ui:110
 msgid "Add..."
 msgstr "Дадаць…"
 
-#: ../glade/adlsearch.glade:47 ../glade/adlsearch.glade:117
+#: ../ui/adlsearch.ui:47 ../ui/adlsearch.ui:117
 msgid "Properties"
 msgstr "Уласьцівасьці"
 
-#: ../glade/adlsearch.glade:61
+#: ../ui/adlsearch.ui:61
 msgid "Move Up"
 msgstr "Пасунуць угору"
 
-#: ../glade/adlsearch.glade:75
+#: ../ui/adlsearch.ui:75
 msgid "Move Down"
 msgstr "Пасунуць да-долу"
 
-#: ../glade/adlsearch.glade:89 ../glade/settingsdialog.glade:5758
+#: ../ui/adlsearch.ui:89 ../ui/settingsdialog.ui:5758
 msgid "Remove"
 msgstr "Выкрасьліць"
 
-#: ../glade/adlsearch.glade:124 ../glade/searchspy.glade:197
-#: ../glade/searchspy.glade:264 ../glade/search.glade:548
-#: ../glade/favoriteusers.glade:93 ../glade/downloadqueue.glade:188
-#: ../glade/downloadqueue.glade:336
+#: ../ui/adlsearch.ui:124 ../ui/searchspy.ui:197 ../ui/searchspy.ui:264
+#: ../ui/search.ui:548 ../ui/favoriteusers.ui:93 ../ui/downloadqueue.ui:188
+#: ../ui/downloadqueue.ui:336
 msgid "_Remove"
 msgstr "_Выкрасьліць"
 
-#: ../glade/adlsearch.glade:131
+#: ../ui/adlsearch.ui:131
 msgid "ADLSearch Properties"
 msgstr "Уласьцівасьці самарушнага пошуку"
 
-#: ../glade/adlsearch.glade:163
+#: ../ui/adlsearch.ui:163
 msgid "<b>Search String</b>"
 msgstr "<b>Шукаць радок</b>"
 
-#: ../glade/adlsearch.glade:184
+#: ../ui/adlsearch.ui:184
 msgid ""
 "Filename\n"
 "Directory\n"
@@ -2190,19 +2179,19 @@ msgstr ""
 "Каталёґ\n"
 "Поўны шлях"
 
-#: ../glade/adlsearch.glade:192
+#: ../ui/adlsearch.ui:192
 msgid "<b>Source Type</b>"
 msgstr "<b>Від крыніцы</b>"
 
-#: ../glade/adlsearch.glade:233
+#: ../ui/adlsearch.ui:233
 msgid "<b>Min FileSize</b>"
 msgstr "<b>Найменшы і</b>"
 
-#: ../glade/adlsearch.glade:262
+#: ../ui/adlsearch.ui:262
 msgid "<b>Max FileSize</b>"
 msgstr "<b>найбольшы</b>"
 
-#: ../glade/adlsearch.glade:289 ../glade/search.glade:94
+#: ../ui/adlsearch.ui:289 ../ui/search.ui:94
 msgid ""
 "B\n"
 "KiB\n"
@@ -2214,43 +2203,43 @@ msgstr ""
 "МіБ\n"
 "ГіБ"
 
-#: ../glade/adlsearch.glade:298
+#: ../ui/adlsearch.ui:298
 msgid "<b>Size Type</b>"
 msgstr "<b>памер, вымяраць у</b>"
 
-#: ../glade/adlsearch.glade:334
+#: ../ui/adlsearch.ui:334
 msgid "<b>Destination Directory</b>"
 msgstr "<b>Каталёґ прызначэньня</b>"
 
-#: ../glade/adlsearch.glade:366
+#: ../ui/adlsearch.ui:366
 msgid "Download Matches"
 msgstr "Сьцягваць супадзеньні"
 
-#: ../glade/searchspy.glade:32
+#: ../ui/searchspy.ui:32
 msgid "Ignore TTH search"
 msgstr "Не зважаць на пошук па скаротах"
 
-#: ../glade/searchspy.glade:33
+#: ../ui/searchspy.ui:33
 msgid "Ignore TTH"
 msgstr "Не скароты (TTH)"
 
-#: ../glade/searchspy.glade:56
+#: ../ui/searchspy.ui:56
 msgid "Apply settings"
 msgstr "Ужыць налады"
 
-#: ../glade/searchspy.glade:69
+#: ../ui/searchspy.ui:69
 msgid "Top: >"
 msgstr "Найлепшыя: >"
 
-#: ../glade/searchspy.glade:80 ../glade/settingsdialog.glade:3946
+#: ../ui/searchspy.ui:80 ../ui/settingsdialog.ui:3946
 msgid "Number of matches for the top"
 msgstr "Колькасьць супадзеньняў, каб дадаць у найлепшыя"
 
-#: ../glade/searchspy.glade:91
+#: ../ui/searchspy.ui:91
 msgid "Waiting:"
 msgstr "Чакаем:"
 
-#: ../glade/searchspy.glade:102 ../glade/settingsdialog.glade:3915
+#: ../ui/searchspy.ui:102 ../ui/settingsdialog.ui:3915
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
@@ -2258,11 +2247,11 @@ msgstr ""
 "Калі павялічыць час чаканьня, павялічыцца імавернасьць дадаць у найлепшыя, "
 "але чашчыня абнаўленьня кадру паменшыцца"
 
-#: ../glade/searchspy.glade:113
+#: ../ui/searchspy.ui:113
 msgid "Frame:"
 msgstr "Кадр:"
 
-#: ../glade/searchspy.glade:124 ../glade/settingsdialog.glade:3885
+#: ../ui/searchspy.ui:124 ../ui/settingsdialog.ui:3885
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
@@ -2270,31 +2259,31 @@ msgstr ""
 "Памеры кадру вызначае шырыню агляду, але вялікія значэньні ўплываюць на "
 "выніковасьць"
 
-#: ../glade/searchspy.glade:137 ../glade/searchspy.glade:278
+#: ../ui/searchspy.ui:137 ../ui/searchspy.ui:278
 msgid "Clear"
 msgstr "Ачысьціць"
 
-#: ../glade/searchspy.glade:151
+#: ../ui/searchspy.ui:151
 msgid "Update"
 msgstr "Абнавіць"
 
-#: ../glade/searchspy.glade:164
+#: ../ui/searchspy.ui:164
 msgid "Show top search"
 msgstr "Паказаць найлепшае пошуку"
 
-#: ../glade/searchspy.glade:165 ../glade/searchspy.glade:206
+#: ../ui/searchspy.ui:165 ../ui/searchspy.ui:206
 msgid "Top"
 msgstr "Найлепшае"
 
-#: ../glade/searchspy.glade:263
+#: ../ui/searchspy.ui:263
 msgid "Delete item"
 msgstr "Выкрасьліць пункт"
 
-#: ../glade/search.glade:25
+#: ../ui/search.ui:25
 msgid "Search for"
 msgstr "Шукаць"
 
-#: ../glade/search.glade:74
+#: ../ui/search.ui:74
 msgid ""
 "Normal\n"
 "At least\n"
@@ -2304,15 +2293,15 @@ msgstr ""
 "Ня меней за\n"
 "Ня болей за"
 
-#: ../glade/search.glade:121
+#: ../ui/search.ui:121
 msgid "File type"
 msgstr "Від файла"
 
-#: ../glade/search.glade:150
+#: ../ui/search.ui:150
 msgid "Group by"
 msgstr "Аб’ядноўваць па"
 
-#: ../glade/search.glade:160
+#: ../ui/search.ui:160
 msgid ""
 "No grouping\n"
 "Filename\n"
@@ -2334,351 +2323,344 @@ msgstr ""
 "асяродку\n"
 "віду файла\n"
 
-#: ../glade/search.glade:189
+#: ../ui/search.ui:189
 msgid "Search options"
 msgstr "Можнасьці пошуку"
 
-#: ../glade/search.glade:200
+#: ../ui/search.ui:200
 msgid "Search within local results"
 msgstr "Шукаць сярод знойдзенага"
 
-#: ../glade/search.glade:218
+#: ../ui/search.ui:218
 msgid "Only users with free slots"
 msgstr "Тых, хто мае вольныя шчыліны"
 
-#: ../glade/search.glade:238
+#: ../ui/search.ui:238
 msgid "Filter files already in share"
 msgstr "Прасейваць файлы, што ўжо маюцца ў абагуленым"
 
-#: ../glade/search.glade:264 ../glade/mainwindow.glade:1744
-#: ../glade/mainwindow.glade:1940
+#: ../ui/search.ui:264 ../ui/mainwindow.ui:1744 ../ui/mainwindow.ui:1940
 msgid "Hubs"
 msgstr "Асяродкі"
 
-#: ../glade/search.glade:309
+#: ../ui/search.ui:309
 msgid "Search for a file"
 msgstr "Шукаць файл"
 
-#: ../glade/search.glade:333
+#: ../ui/search.ui:333
 msgid "_Search"
 msgstr "_Шукаць"
 
-#: ../glade/search.glade:430 ../glade/privatemessage.glade:104
-#: ../glade/hub.glade:318
+#: ../ui/search.ui:430 ../ui/privatemessage.ui:104 ../ui/hub.ui:318
 msgid "_Download"
 msgstr "_Сьцягнуць"
 
-#: ../glade/search.glade:437 ../glade/privatemessage.glade:111
-#: ../glade/hub.glade:325
+#: ../ui/search.ui:437 ../ui/privatemessage.ui:111 ../ui/hub.ui:325
 msgid "Download _to..."
 msgstr "Сьцягнуць _у…"
 
-#: ../glade/search.glade:448
+#: ../ui/search.ui:448
 msgid "Download _whole directory"
 msgstr "Сьцягнуць увесь _каталёґ"
 
-#: ../glade/search.glade:455
+#: ../ui/search.ui:455
 msgid "Download whole director_y to..."
 msgstr "Сьцягнуць у_весь каталёґ у…"
 
-#: ../glade/search.glade:471
+#: ../ui/search.ui:471
 msgid "_Search by TTH"
 msgstr "_Шукаць па скароце (TTH)"
 
-#: ../glade/search.glade:490 ../glade/favoriteusers.glade:39
-#: ../glade/downloadqueue.glade:276 ../glade/transfers.glade:31
-#: ../glade/hub.glade:239
+#: ../ui/search.ui:490 ../ui/favoriteusers.ui:39 ../ui/downloadqueue.ui:276
+#: ../ui/transfers.ui:31 ../ui/hub.ui:239
 msgid "_Browse file list"
 msgstr "_Зірнуць сьпіс файлаў"
 
-#: ../glade/search.glade:497
+#: ../ui/search.ui:497
 msgid "_Match Queue"
 msgstr "Узгадніць _чаргу"
 
-#: ../glade/search.glade:504 ../glade/downloadqueue.glade:287
+#: ../ui/search.ui:504 ../ui/downloadqueue.ui:287
 msgid "Send _private message"
 msgstr "Асабістае _паведамленьне"
 
-#: ../glade/search.glade:511 ../glade/transfers.glade:52
-#: ../glade/hub.glade:265
+#: ../ui/search.ui:511 ../ui/transfers.ui:52 ../ui/hub.ui:265
 msgid "_Add to favorites"
 msgstr "_Дадаць да ўлюбёнцаў"
 
-#: ../glade/search.glade:518 ../glade/transfers.glade:59
+#: ../ui/search.ui:518 ../ui/transfers.ui:59
 msgid "_Grant extra slot"
 msgstr "Дадаць _шчыліну"
 
-#: ../glade/search.glade:525 ../glade/downloadqueue.glade:325
+#: ../ui/search.ui:525 ../ui/downloadqueue.ui:325
 msgid "Remove user from _queue"
 msgstr "_Выкрасьліць карыстальніка з чаргі"
 
-#: ../glade/search.glade:532 ../glade/hub.glade:298
+#: ../ui/search.ui:532 ../ui/hub.ui:298
 msgid "_User commands"
 msgstr "Загады _карыстальніка"
 
-#: ../glade/favoriteusers.glade:46 ../glade/transfers.glade:38
-#: ../glade/hub.glade:246
+#: ../ui/favoriteusers.ui:46 ../ui/transfers.ui:38 ../ui/hub.ui:246
 msgid "_Match queue"
 msgstr "Узгадніць _чаргу"
 
-#: ../glade/favoriteusers.glade:53 ../glade/hub.glade:253
+#: ../ui/favoriteusers.ui:53 ../ui/hub.ui:253
 msgid "_Private message"
 msgstr "Асабістае _паведамленьне"
 
-#: ../glade/favoriteusers.glade:60 ../glade/hub.glade:284
+#: ../ui/favoriteusers.ui:60 ../ui/hub.ui:284
 msgid "_Grant slot"
 msgstr "Дадаць _шчыліну"
 
-#: ../glade/favoriteusers.glade:67 ../glade/transfers.glade:66
-#: ../glade/hub.glade:291
+#: ../ui/favoriteusers.ui:67 ../ui/transfers.ui:66 ../ui/hub.ui:291
 msgid "_Remove user from queue"
 msgstr "_Выкрасьліць карыстальніка з чаргі"
 
-#: ../glade/favoriteusers.glade:74
+#: ../ui/favoriteusers.ui:74
 msgid "Connect to hub"
 msgstr "Злучыцца з асяродкам"
 
-#: ../glade/favoriteusers.glade:135
+#: ../ui/favoriteusers.ui:135
 msgid "<b>Description</b>"
 msgstr "<b>Апісаньне</b>"
 
-#: ../glade/favoritehubs.glade:90
+#: ../ui/favoritehubs.ui:90
 msgid "Favorite Hub Properties"
 msgstr "Уласьцівасьці ўлюбёнага асяродку"
 
-#: ../glade/favoritehubs.glade:108
+#: ../ui/favoritehubs.ui:108
 msgid "<b>Hub</b>"
 msgstr "<b>Асяродак</b>"
 
-#: ../glade/favoritehubs.glade:123
+#: ../ui/favoritehubs.ui:123
 msgid "Auto connect on _startup"
 msgstr "_Злучацца па запуску"
 
-#: ../glade/favoritehubs.glade:142
+#: ../ui/favoritehubs.ui:142
 msgid "_Name:"
 msgstr "_Назва:"
 
-#: ../glade/favoritehubs.glade:173
+#: ../ui/favoritehubs.ui:173
 msgid "_Address:"
 msgstr "_Адрас:"
 
-#: ../glade/favoritehubs.glade:203
+#: ../ui/favoritehubs.ui:203
 msgid "_Description:"
 msgstr "А_пісаньне:"
 
-#: ../glade/favoritehubs.glade:233
+#: ../ui/favoritehubs.ui:233
 msgid "_Encoding:"
 msgstr "_Знаказбор:"
 
-#: ../glade/favoritehubs.glade:272
+#: ../ui/favoritehubs.ui:272
 msgid "<b>Identification</b>"
 msgstr "<b>Атаясьненьне</b>"
 
-#: ../glade/favoritehubs.glade:288
+#: ../ui/favoritehubs.ui:288
 msgid "N_ick:"
 msgstr "_Мянушка:"
 
-#: ../glade/favoritehubs.glade:320
+#: ../ui/favoritehubs.ui:320
 msgid "_Password:"
 msgstr "_Гасло:"
 
-#: ../glade/favoritehubs.glade:352
+#: ../ui/favoritehubs.ui:352
 msgid "_User Description:"
 msgstr "Апісаньне _карыстальніка:"
 
-#: ../glade/favoritehubs.glade:384
+#: ../ui/favoritehubs.ui:384
 msgid "<small>Note: Leave unchecked for default values</small>"
 msgstr "<small>Уважце: ня стаўце птушачку, каб пакінуць звычайным</small>"
 
-#: ../glade/cmddebug.glade:36
+#: ../ui/cmddebug.ui:36
 msgid "HUB IN"
 msgstr "Увах. асяродку"
 
-#: ../glade/cmddebug.glade:50
+#: ../ui/cmddebug.ui:50
 msgid "HUB OUT"
 msgstr "Вых. асяродку"
 
-#: ../glade/cmddebug.glade:64
+#: ../ui/cmddebug.ui:64
 msgid "CLIENT IN"
 msgstr "Увах. кліента"
 
-#: ../glade/cmddebug.glade:78
+#: ../ui/cmddebug.ui:78
 msgid "CLIENT OUT"
 msgstr "Вых. кліента"
 
-#: ../glade/cmddebug.glade:92
+#: ../ui/cmddebug.ui:92
 msgid "DETECTION"
 msgstr "Выяўляць"
 
-#: ../glade/cmddebug.glade:106
+#: ../ui/cmddebug.ui:106
 msgid "Filter by IP"
 msgstr "Прасейваць па IP"
 
-#: ../glade/mainwindow.glade:18
+#: ../ui/mainwindow.ui:18
 msgid "_File"
 msgstr "_Файл"
 
-#: ../glade/mainwindow.glade:25
+#: ../ui/mainwindow.ui:25
 msgid "Open _file list..."
 msgstr "Адчыніць сьпіс _файлаў…"
 
-#: ../glade/mainwindow.glade:39
+#: ../ui/mainwindow.ui:39
 msgid "Open _own file list"
 msgstr "Адчыніць _уласны сьпіс файлаў"
 
-#: ../glade/mainwindow.glade:54
+#: ../ui/mainwindow.ui:54
 msgid "_Refresh file list"
 msgstr "_Дапоўніць сьпіс файлаў"
 
-#: ../glade/mainwindow.glade:69
+#: ../ui/mainwindow.ui:69
 msgid "Indexing Progress"
 msgstr "Поступ стварэньня скаротаў"
 
-#: ../glade/mainwindow.glade:88
+#: ../ui/mainwindow.ui:88
 msgid "_Magnet Choice"
 msgstr "Выбар па _маґніт-спасылцы"
 
-#: ../glade/mainwindow.glade:102
+#: ../ui/mainwindow.ui:102
 msgid "Calculate file TTH"
 msgstr "Падлічыць скарот (TTH) файла"
 
-#: ../glade/mainwindow.glade:114 ../glade/mainwindow.glade:1217
+#: ../ui/mainwindow.ui:114 ../ui/mainwindow.ui:1217
 msgid "_Exit"
 msgstr "_Выйсьці"
 
-#: ../glade/mainwindow.glade:133
+#: ../ui/mainwindow.ui:133
 msgid "_Hubs"
 msgstr "_Асяродкі"
 
-#: ../glade/mainwindow.glade:140
+#: ../ui/mainwindow.ui:140
 msgid "_Quick connect"
 msgstr "_Хутка злучыцца"
 
-#: ../glade/mainwindow.glade:155
+#: ../ui/mainwindow.ui:155
 msgid "Re_connect"
 msgstr "Нанова _злучыцца"
 
-#: ../glade/mainwindow.glade:224
+#: ../ui/mainwindow.ui:224
 msgid "_Tools"
 msgstr "Пры_лады"
 
-#: ../glade/mainwindow.glade:260
+#: ../ui/mainwindow.ui:260
 msgid "CMD Debug"
 msgstr "Наладка загадаў"
 
-#: ../glade/mainwindow.glade:340
+#: ../ui/mainwindow.ui:340
 msgid "_Preferences"
 msgstr "_Перавагі"
 
-#: ../glade/mainwindow.glade:359
+#: ../ui/mainwindow.ui:359
 msgid "_Widgets"
 msgstr "_Ваконцы"
 
-#: ../glade/mainwindow.glade:367
+#: ../ui/mainwindow.ui:367
 msgid "_Previous widget"
 msgstr "_Папярэдняе ваконца"
 
-#: ../glade/mainwindow.glade:376
+#: ../ui/mainwindow.ui:376
 msgid "_Next widget"
 msgstr "_Наступнае ваконца"
 
-#: ../glade/mainwindow.glade:384
+#: ../ui/mainwindow.ui:384
 msgid "_Close widget"
 msgstr "_Зачыніць ваконца"
 
-#: ../glade/mainwindow.glade:401
+#: ../ui/mainwindow.ui:401
 msgid "Panels"
 msgstr "Паліцы"
 
-#: ../glade/mainwindow.glade:408
+#: ../ui/mainwindow.ui:408
 msgid "Tools panel"
 msgstr "Паліца прыладаў"
 
-#: ../glade/mainwindow.glade:415
+#: ../ui/mainwindow.ui:415
 msgid "Top position"
 msgstr "Уверсе"
 
-#: ../glade/mainwindow.glade:423
+#: ../ui/mainwindow.ui:423
 msgid "Left position"
 msgstr "Леваруч"
 
-#: ../glade/mainwindow.glade:437
+#: ../ui/mainwindow.ui:437
 msgid "Small icons"
 msgstr "Маленькія значкі"
 
-#: ../glade/mainwindow.glade:453
+#: ../ui/mainwindow.ui:453
 msgid "Hide tools panel"
 msgstr "Схаваць паліцу прыладаў"
 
-#: ../glade/mainwindow.glade:464
+#: ../ui/mainwindow.ui:464
 msgid "_Help"
 msgstr "_Дапамога"
 
-#: ../glade/mainwindow.glade:471
+#: ../ui/mainwindow.ui:471
 msgid "Homepage"
 msgstr "Хатняя бачына"
 
-#: ../glade/mainwindow.glade:485
+#: ../ui/mainwindow.ui:485
 msgid "Source (git)"
 msgstr "Крынічнікі (git)"
 
-#: ../glade/mainwindow.glade:499
+#: ../ui/mainwindow.ui:499
 msgid "Report a Bug"
 msgstr "Паведаміць пра хібу"
 
-#: ../glade/mainwindow.glade:513
+#: ../ui/mainwindow.ui:513
 msgid "Wiki of project"
 msgstr "Wiki праекту"
 
-#: ../glade/mainwindow.glade:532
+#: ../ui/mainwindow.ui:532
 msgid "Changelog (git)"
 msgstr "Гісторыя зьмяненьняў (git)"
 
-#: ../glade/mainwindow.glade:551
+#: ../ui/mainwindow.ui:551
 msgid "About EiskaltDC++"
 msgstr "Пра EiskaltDC++"
 
-#: ../glade/mainwindow.glade:623
+#: ../ui/mainwindow.ui:623
 msgid "Show/Hide transfers panel"
 msgstr "Паказаць або схаваць паліцу перадаванага"
 
-#: ../glade/mainwindow.glade:656
+#: ../ui/mainwindow.ui:656
 msgid "Hubs (normal / registered / op)"
 msgstr "Асяродкі (звычайныя / запісаны / апэратар)"
 
-#: ../glade/mainwindow.glade:695
+#: ../ui/mainwindow.ui:695
 msgid "Download speed"
 msgstr "Хуткасьць сьцягваць"
 
-#: ../glade/mainwindow.glade:733
+#: ../ui/mainwindow.ui:733
 msgid "Total received"
 msgstr "Агулам атрымалі"
 
-#: ../glade/mainwindow.glade:755
+#: ../ui/mainwindow.ui:755
 msgid "Upload speed"
 msgstr "Хуткасьць зацягваць"
 
-#: ../glade/mainwindow.glade:794
+#: ../ui/mainwindow.ui:794
 msgid "Total sent"
 msgstr "Агулам адаслалі"
 
-#: ../glade/mainwindow.glade:816
+#: ../ui/mainwindow.ui:816
 msgid "Exit EiskaltDC++ Gtk?"
 msgstr "Ці выйсьці з EiskaltDC++ Gtk?"
 
-#: ../glade/mainwindow.glade:827
+#: ../ui/mainwindow.ui:827
 msgid "Do you really want to exit?"
 msgstr "Ці сапраўды вы хочаце выйсьці?"
 
-#: ../glade/mainwindow.glade:873
+#: ../ui/mainwindow.ui:873
 msgid "Connect to a hub"
 msgstr "Злучыцца з асяродкам"
 
-#: ../glade/mainwindow.glade:907
+#: ../ui/mainwindow.ui:907
 msgid "<b>Connect to address:</b>"
 msgstr "<b>Злучыцца з адрасам:</b>"
 
-#: ../glade/mainwindow.glade:968
+#: ../ui/mainwindow.ui:968
 msgid ""
 "Developers\n"
 " Boris Pek (tehnick-8@mail.ru)\n"
@@ -2696,7 +2678,7 @@ msgstr ""
 " troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/\n"
 " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
 
-#: ../glade/mainwindow.glade:976
+#: ../ui/mainwindow.ui:976
 msgid ""
 "Translators\n"
 "\n"
@@ -2820,35 +2802,35 @@ msgstr ""
 " Chris Leick\n"
 " (c.leick@vollbio.de)\n"
 
-#: ../glade/mainwindow.glade:1103
+#: ../ui/mainwindow.ui:1103
 msgid "Enter line for user command"
 msgstr "Упішыце радок карыстальніцкага загаду"
 
-#: ../glade/mainwindow.glade:1191
+#: ../ui/mainwindow.ui:1191
 msgid "_Show Interface"
 msgstr "Паказаць _інтэрфэйс"
 
-#: ../glade/mainwindow.glade:1204
+#: ../ui/mainwindow.ui:1204
 msgid "Use Blinking Icon"
 msgstr "Мігцець значкам"
 
-#: ../glade/mainwindow.glade:1231 ../glade/mainwindow.glade:1268
+#: ../ui/mainwindow.ui:1231 ../ui/mainwindow.ui:1268
 msgid "Magnet"
 msgstr "Маґніт-спасылка"
 
-#: ../glade/mainwindow.glade:1279
+#: ../ui/mainwindow.ui:1279
 msgid "File name"
 msgstr "Назва файла"
 
-#: ../glade/mainwindow.glade:1374
+#: ../ui/mainwindow.ui:1374
 msgid "Exact size"
 msgstr "Дакладны памер"
 
-#: ../glade/mainwindow.glade:1413
+#: ../ui/mainwindow.ui:1413
 msgid "<b>Magnet properties</b>"
 msgstr "<b>Уласьцівасьці маґніт-спасылкі</b>"
 
-#: ../glade/mainwindow.glade:1441
+#: ../ui/mainwindow.ui:1441
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
@@ -2856,355 +2838,355 @@ msgstr ""
 "Каб файл пачаў сьцягваццца, трэба дазволіць самарушна шукаць крыніцы "
 "(Перавагі/Сьцягванае/Чарга)"
 
-#: ../glade/mainwindow.glade:1442
+#: ../ui/mainwindow.ui:1442
 msgid "Add this file to your download queue"
 msgstr "Дадаць гэты файл у чаргу"
 
-#: ../glade/mainwindow.glade:1486
+#: ../ui/mainwindow.ui:1486
 msgid "Start a search for this file"
 msgstr "Пачаць шукаць гэты файл"
 
-#: ../glade/mainwindow.glade:1500
+#: ../ui/mainwindow.ui:1500
 msgid "Show magnet dialog"
 msgstr "Паказаць дыялёґ маґніт-спасылкі"
 
-#: ../glade/mainwindow.glade:1526
+#: ../ui/mainwindow.ui:1526
 msgid "Remember choice"
 msgstr "Запомніць, што я абраў"
 
-#: ../glade/mainwindow.glade:1555
+#: ../ui/mainwindow.ui:1555
 msgid "<b>What would you like to do?</b>"
 msgstr "<b>Што вы хочаце рабіць?</b>"
 
-#: ../glade/mainwindow.glade:1622
+#: ../ui/mainwindow.ui:1622
 msgid "Chose A File"
 msgstr "Абярыце файл"
 
-#: ../glade/mainwindow.glade:1800 ../glade/mainwindow.glade:2041
+#: ../ui/mainwindow.ui:1800 ../ui/mainwindow.ui:2041
 msgid "ADL"
 msgstr "Самарушна шукаць у сьпісах"
 
-#: ../glade/mainwindow.glade:1807 ../glade/mainwindow.glade:2054
+#: ../ui/mainwindow.ui:1807 ../ui/mainwindow.ui:2054
 msgid "Spy"
 msgstr "Шпег"
 
-#: ../glade/mainwindow.glade:1845
+#: ../ui/mainwindow.ui:1845
 msgid "Edit the preferences"
 msgstr "Зьмяніць перавагі"
 
-#: ../glade/mainwindow.glade:1863
+#: ../ui/mainwindow.ui:1863
 msgid "Open own file list"
 msgstr "Адчыніць уласны сьпіс файлаў"
 
-#: ../glade/mainwindow.glade:1876
+#: ../ui/mainwindow.ui:1876
 msgid "Refresh file list"
 msgstr "Дапоўніць сьпіс файлаў"
 
-#: ../glade/mainwindow.glade:1889
+#: ../ui/mainwindow.ui:1889
 msgid "View the hashing progress"
 msgstr "Зірнуць поступ стварэньня скаротаў"
 
-#: ../glade/mainwindow.glade:1907
+#: ../ui/mainwindow.ui:1907
 msgid "Reconnect to the hub"
 msgstr "Нанова злучыцца з асяродкам"
 
-#: ../glade/mainwindow.glade:1920
+#: ../ui/mainwindow.ui:1920
 msgid "Quick connect to the hub"
 msgstr "Хутка злучыцца з асяродкам"
 
-#: ../glade/mainwindow.glade:1964
+#: ../ui/mainwindow.ui:1964
 msgid "Search for files to download"
 msgstr "Шукаць, што можна сьцягнуць"
 
-#: ../glade/mainwindow.glade:1977
+#: ../ui/mainwindow.ui:1977
 msgid "Browse the list of public hubs"
 msgstr "Зірнуць сьпіс асяродкаў адкрытага доступу"
 
-#: ../glade/mainwindow.glade:1995
+#: ../ui/mainwindow.ui:1995
 msgid "View the files to be downloaded"
 msgstr "Зірнуць файлы, якія мусяць сьцягвацца"
 
-#: ../glade/mainwindow.glade:2008
+#: ../ui/mainwindow.ui:2008
 msgid "View the list of finished downloads"
 msgstr "Зірнуць сьпіс сьцягнутага"
 
-#: ../glade/mainwindow.glade:2021
+#: ../ui/mainwindow.ui:2021
 msgid "View the list of finished uploads"
 msgstr "Зірнуць сьпіс зацягнутага"
 
-#: ../glade/mainwindow.glade:2070
+#: ../ui/mainwindow.ui:2070
 msgid "Quit the program"
 msgstr "Выйсьці з праґрамы"
 
-#: ../glade/mainwindow.glade:2088
+#: ../ui/mainwindow.ui:2088
 msgid "Add / Remove"
 msgstr "Дадаць / Выкрасьліць"
 
-#: ../glade/settingsdialog.glade:92
+#: ../ui/settingsdialog.ui:92
 msgid "Max upload speed (MiB/s)"
 msgstr "Найв. хутк. зацягваць (МіБ/с)"
 
-#: ../glade/settingsdialog.glade:118
+#: ../ui/settingsdialog.ui:118
 msgid "E-Mail"
 msgstr "Пошта"
 
-#: ../glade/settingsdialog.glade:142
+#: ../ui/settingsdialog.ui:142
 msgid "Default hub encoding"
 msgstr "Звычайны знаказбор"
 
-#: ../glade/settingsdialog.glade:175
+#: ../ui/settingsdialog.ui:175
 msgid "<b>Personal Information</b>"
 msgstr "<b>Асабістыя зьвесткі</b>"
 
-#: ../glade/settingsdialog.glade:192
+#: ../ui/settingsdialog.ui:192
 msgid "Personal"
 msgstr "Асабістае"
 
-#: ../glade/settingsdialog.glade:219
+#: ../ui/settingsdialog.ui:219
 msgid "Use UPnP to let client cofigure my router"
 msgstr "Наладзіць кліент па UPnP праз маршрутавальнік"
 
-#: ../glade/settingsdialog.glade:404
+#: ../ui/settingsdialog.ui:404
 msgid "Ports"
 msgstr "Порты"
 
-#: ../glade/settingsdialog.glade:417
+#: ../ui/settingsdialog.ui:417
 msgid "Active"
 msgstr "Дзейны спосаб"
 
-#: ../glade/settingsdialog.glade:432
+#: ../ui/settingsdialog.ui:432
 msgid "Firewall (passive, last resort)"
 msgstr "Сетказаслона (нядзейны — найгоршы спосаб)"
 
-#: ../glade/settingsdialog.glade:449
+#: ../ui/settingsdialog.ui:449
 msgid "External / WAN IP"
 msgstr "Вонкавы або WAN адрас IP"
 
-#: ../glade/settingsdialog.glade:464
+#: ../ui/settingsdialog.ui:464
 msgid "Don't allow hub/UPnP to override"
 msgstr "Не дазваляць асяродку або UPnP замяняць"
 
-#: ../glade/settingsdialog.glade:482
+#: ../ui/settingsdialog.ui:482
 msgid "Firewall with manual port forward"
 msgstr "Сетказаслона з ручным перасыланьнем портаў"
 
-#: ../glade/settingsdialog.glade:499
+#: ../ui/settingsdialog.ui:499
 msgid "<b>Incoming connection settings</b>"
 msgstr "<b>Налады ўваходных злучэньняў</b>"
 
-#: ../glade/settingsdialog.glade:589
+#: ../ui/settingsdialog.ui:589
 msgid "Username"
 msgstr "Карыстальнік"
 
-#: ../glade/settingsdialog.glade:604
+#: ../ui/settingsdialog.ui:604
 msgid "Use SOCKS5 server to resolve hostnames"
 msgstr "Ужываць паслужнік SOCKS5, каб высьвятляць назвы вузлоў"
 
-#: ../glade/settingsdialog.glade:665
+#: ../ui/settingsdialog.ui:665
 msgid "Port"
 msgstr "Порт"
 
-#: ../glade/settingsdialog.glade:680
+#: ../ui/settingsdialog.ui:680
 msgid "Socks IP"
 msgstr "Адрас IP для Socks"
 
-#: ../glade/settingsdialog.glade:712
+#: ../ui/settingsdialog.ui:712
 msgid "Direct connection"
 msgstr "Простае злучэньне"
 
-#: ../glade/settingsdialog.glade:732
+#: ../ui/settingsdialog.ui:732
 msgid "<b>Outgoing connection settings</b>"
 msgstr "<b>Налады выходных злучэньняў</b>"
 
-#: ../glade/settingsdialog.glade:783
+#: ../ui/settingsdialog.ui:783
 msgid "Default download directory"
 msgstr "Звычайны каталёґ на сьцягнутае"
 
-#: ../glade/settingsdialog.glade:822
+#: ../ui/settingsdialog.ui:822
 msgid "Do not use unfinished downloads directory"
 msgstr "Працаваць без асобнага каталёґа на яшчэ ня цалкам сьцягнутае"
 
-#: ../glade/settingsdialog.glade:836
+#: ../ui/settingsdialog.ui:836
 msgid "Unfinished downloads directory"
 msgstr "Каталёґ на яшчэ ня цалкам сьцягнутае"
 
-#: ../glade/settingsdialog.glade:879
+#: ../ui/settingsdialog.ui:879
 msgid "<b>Directories</b>"
 msgstr "<b>Каталёґі</b>"
 
-#: ../glade/settingsdialog.glade:911
+#: ../ui/settingsdialog.ui:911
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
 msgstr ""
 "Не пачынаць сьцягваць новае, калі хуткасьць перавышае (КіБ/с, 0 = "
 "бясконцасьць)"
 
-#: ../glade/settingsdialog.glade:926
+#: ../ui/settingsdialog.ui:926
 msgid "Maximum simultaneous downloads (0 = infinite)"
 msgstr "Найбольшая колькасьць адначасовых сьцягваньняў (0 = не абмяжоўваць)"
 
-#: ../glade/settingsdialog.glade:970
+#: ../ui/settingsdialog.ui:970
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Уважце: хуткасьць зьмяняецца, таму дакладнасьць меней за 100%…"
 
-#: ../glade/settingsdialog.glade:983
+#: ../ui/settingsdialog.ui:983
 msgid "<b>Limits</b>"
 msgstr "<b>Абмежаваньні</b>"
 
-#: ../glade/settingsdialog.glade:1012
+#: ../ui/settingsdialog.ui:1012
 msgid "Public Hubs list URL"
 msgstr "Спасылка на сьпіс адкрытых асяродкаў"
 
-#: ../glade/settingsdialog.glade:1026
+#: ../ui/settingsdialog.ui:1026
 msgid "Configure Public Hub Lists"
 msgstr "Наставіць сьпісы"
 
-#: ../glade/settingsdialog.glade:1057
+#: ../ui/settingsdialog.ui:1057
 msgid "HTTP Proxy (for hublist only)"
 msgstr "Пасродак http (толькі на сьпіс асяродкаў)"
 
-#: ../glade/settingsdialog.glade:1085
+#: ../ui/settingsdialog.ui:1085
 msgid "<b>Public Hubs list</b>"
 msgstr "<b>Сьпіс адкрытых асяродкаў</b>"
 
-#: ../glade/settingsdialog.glade:1103 ../glade/settingsdialog.glade:1978
+#: ../ui/settingsdialog.ui:1103 ../ui/settingsdialog.ui:1978
 msgid "Downloads"
 msgstr "Сьцягванае"
 
-#: ../glade/settingsdialog.glade:1191
+#: ../ui/settingsdialog.ui:1191
 msgid "<b>Favorite download to directories</b>"
 msgstr "<b>Улюбёныя каталёґі на сьцягванае</b>"
 
-#: ../glade/settingsdialog.glade:1206
+#: ../ui/settingsdialog.ui:1206
 msgid "Download to"
 msgstr "Сьцягваць у"
 
-#: ../glade/settingsdialog.glade:1284
+#: ../ui/settingsdialog.ui:1284
 msgid "High priority max size"
 msgstr "Высокае: найвялікшы памер"
 
-#: ../glade/settingsdialog.glade:1297
+#: ../ui/settingsdialog.ui:1297
 msgid "Low priority size"
 msgstr "Нізкае: найвялікшы памер"
 
-#: ../glade/settingsdialog.glade:1312 ../glade/settingsdialog.glade:1327
-#: ../glade/settingsdialog.glade:1356 ../glade/settingsdialog.glade:1371
-#: ../glade/settingsdialog.glade:1571 ../glade/settingsdialog.glade:4710
-#: ../glade/settingsdialog.glade:4927
+#: ../ui/settingsdialog.ui:1312 ../ui/settingsdialog.ui:1327
+#: ../ui/settingsdialog.ui:1356 ../ui/settingsdialog.ui:1371
+#: ../ui/settingsdialog.ui:1571 ../ui/settingsdialog.ui:4710
+#: ../ui/settingsdialog.ui:4927
 msgid "KiB"
 msgstr "КіБ"
 
-#: ../glade/settingsdialog.glade:1384
+#: ../ui/settingsdialog.ui:1384
 msgid "Normal priority max size"
 msgstr "Звычайнае: найвялікшы памер"
 
-#: ../glade/settingsdialog.glade:1397
+#: ../ui/settingsdialog.ui:1397
 msgid "Highest priority max size"
 msgstr "Найвышэйшае: найвялікшы памер"
 
-#: ../glade/settingsdialog.glade:1409
+#: ../ui/settingsdialog.ui:1409
 msgid "<b>Auto-priority settings</b>"
 msgstr "<b>Налады самарушнага пяршынства</b>"
 
-#: ../glade/settingsdialog.glade:1528
+#: ../ui/settingsdialog.ui:1528
 msgid "Min filesize"
 msgstr "Найменшы памер файла"
 
-#: ../glade/settingsdialog.glade:1543
+#: ../ui/settingsdialog.ui:1543
 msgid "Max inactivity"
 msgstr "Бязьдзейнічае болей за"
 
-#: ../glade/settingsdialog.glade:1558
+#: ../ui/settingsdialog.ui:1558
 msgid "Check every"
 msgstr "Спраўджваць кожныя"
 
-#: ../glade/settingsdialog.glade:1656
+#: ../ui/settingsdialog.ui:1656
 msgid "Min sources online"
 msgstr "Далучаных крыніцаў болей за"
 
-#: ../glade/settingsdialog.glade:1669
+#: ../ui/settingsdialog.ui:1669
 msgid "Min elapsed"
 msgstr "Часу мінула ня меней за"
 
-#: ../glade/settingsdialog.glade:1682
+#: ../ui/settingsdialog.ui:1682
 msgid "Drop sources below"
 msgstr "Адкідаць павольнейшыя за"
 
-#: ../glade/settingsdialog.glade:1694
+#: ../ui/settingsdialog.ui:1694
 msgid "<b>Auto-drop settings</b>"
 msgstr "<b>Налады самарушна адкідаць крыніцы</b>"
 
-#: ../glade/settingsdialog.glade:1732
+#: ../ui/settingsdialog.ui:1732
 msgid "<b>Other queue options</b>"
 msgstr "<b>Іншыя можнасьці чаргі</b>"
 
-#: ../glade/settingsdialog.glade:1787
+#: ../ui/settingsdialog.ui:1787
 msgid "<b>Players list</b>"
 msgstr "<b>Сьпіс прайгравальнікаў</b>"
 
-#: ../glade/settingsdialog.glade:1810
+#: ../ui/settingsdialog.ui:1810
 msgid "Name:"
 msgstr "Назва:"
 
-#: ../glade/settingsdialog.glade:1832
+#: ../ui/settingsdialog.ui:1832
 msgid "Application:"
 msgstr "Праґрама:"
 
-#: ../glade/settingsdialog.glade:1855
+#: ../ui/settingsdialog.ui:1855
 msgid "Apply to Extensions: (avi;mov;divx)"
 msgstr "Выкарыстоўваць на пашырэньнях: (avi;mov;divx)"
 
-#: ../glade/settingsdialog.glade:1879
+#: ../ui/settingsdialog.ui:1879
 msgid "<b>Add player</b>"
 msgstr "<b>Дадаць прайгравальнік</b>"
 
-#: ../glade/settingsdialog.glade:1962 ../glade/transfers.glade:89
-#: ../glade/finishedtransfers.glade:139
+#: ../ui/settingsdialog.ui:1962 ../ui/transfers.ui:89
+#: ../ui/finishedtransfers.ui:139
 msgid "Preview"
 msgstr "Папярэдні прагляд"
 
-#: ../glade/settingsdialog.glade:2020
+#: ../ui/settingsdialog.ui:2020
 msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 "Уважце: новыя файлы будуць дадавацца да абагуленага толькі калі да іх "
 "створацца скароты!"
 
-#: ../glade/settingsdialog.glade:2035
+#: ../ui/settingsdialog.ui:2035
 msgid "Total size: 0 B"
 msgstr "Агульны памер: 0 Б"
 
-#: ../glade/settingsdialog.glade:2046
+#: ../ui/settingsdialog.ui:2046
 msgid "Share hidden files"
 msgstr "Абагуляць схаваныя файлы"
 
-#: ../glade/settingsdialog.glade:2056
+#: ../ui/settingsdialog.ui:2056
 msgid "Follow Links"
 msgstr "Хадзіць па спасылках"
 
-#: ../glade/settingsdialog.glade:2109
+#: ../ui/settingsdialog.ui:2109
 msgid "<b>Shared directories</b>"
 msgstr "<b>Абагуленыя каталёґі</b>"
 
-#: ../glade/settingsdialog.glade:2131
+#: ../ui/settingsdialog.ui:2131
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr "Дадаць шчыліну, калі хуткасьць меней за"
 
-#: ../glade/settingsdialog.glade:2159
+#: ../ui/settingsdialog.ui:2159
 msgid "Upload slots"
 msgstr "Шчылінаў зацягваць файлы"
 
-#: ../glade/settingsdialog.glade:2188
+#: ../ui/settingsdialog.ui:2188
 msgid "Pictures"
 msgstr "Малюнкі"
 
-#: ../glade/settingsdialog.glade:2218
+#: ../ui/settingsdialog.ui:2218
 msgid "Sharing"
 msgstr "Абагуленае"
 
-#: ../glade/settingsdialog.glade:2265
+#: ../ui/settingsdialog.ui:2265
 msgid "<b>Options</b>"
 msgstr "<b>Можнасьці</b>"
 
-#: ../glade/settingsdialog.glade:2294
+#: ../ui/settingsdialog.ui:2294
 msgid ""
 "Top\n"
 "Left\n"
@@ -3216,11 +3198,11 @@ msgstr ""
 "Праваруч\n"
 "Унізе"
 
-#: ../glade/settingsdialog.glade:2311
+#: ../ui/settingsdialog.ui:2311
 msgid "<b>Tab Position</b>"
 msgstr "<b>Разьмешчаньне картак</b>"
 
-#: ../glade/settingsdialog.glade:2335
+#: ../ui/settingsdialog.ui:2335
 msgid ""
 "Icons\n"
 "Text\n"
@@ -3236,15 +3218,15 @@ msgstr ""
 "Схаваная\n"
 "Як звычайна ў сыстэме"
 
-#: ../glade/settingsdialog.glade:2354
+#: ../ui/settingsdialog.ui:2354
 msgid "<b>Main Toolbar Style</b>"
 msgstr "<b>Выгляд галоўнае паліцы прыладаў</b>"
 
-#: ../glade/settingsdialog.glade:2395
+#: ../ui/settingsdialog.ui:2395
 msgid "<b>Default away message</b>"
 msgstr "<b>Тлумачэньне адсутнасьці</b>"
 
-#: ../glade/settingsdialog.glade:2416
+#: ../ui/settingsdialog.ui:2416
 msgid ""
 "%a abbreviated weekday name.\n"
 "%b abbreviated month name.\n"
@@ -3264,270 +3246,270 @@ msgstr ""
 "\n"
 "За падрабязнасьцямі зьвяртайцеся да man strftime."
 
-#: ../glade/settingsdialog.glade:2431
+#: ../ui/settingsdialog.ui:2431
 msgid "<b>Timestamps</b>"
 msgstr "<b>Часадзнакі</b>"
 
-#: ../glade/settingsdialog.glade:2455 ../glade/settingsdialog.glade:2518
+#: ../ui/settingsdialog.ui:2455 ../ui/settingsdialog.ui:2518
 msgid "Note: Most of these options require that you restart the application"
 msgstr ""
 "Уважце: зьмяненьні ў большасьці можнасьцяў пачынаюць дзейнічаць па наступным "
 "запуску праґрамы"
 
-#: ../glade/settingsdialog.glade:2468 ../glade/settingsdialog.glade:4045
+#: ../ui/settingsdialog.ui:2468 ../ui/settingsdialog.ui:4045
 msgid "Appearance"
 msgstr "Выгляд"
 
-#: ../glade/settingsdialog.glade:2504
+#: ../ui/settingsdialog.ui:2504
 msgid "<b>Tab bolding on content change</b>"
 msgstr "<b>Вылучаць тлустым, калі маюцца зьмяненьні</b>"
 
-#: ../glade/settingsdialog.glade:2534
+#: ../ui/settingsdialog.ui:2534
 msgid "Tabs"
 msgstr "Карткі"
 
-#: ../glade/settingsdialog.glade:2575
+#: ../ui/settingsdialog.ui:2575
 msgid "<b>Auto-open on startup</b>"
 msgstr "<b>Самарушна адчыняць па запуску</b>"
 
-#: ../glade/settingsdialog.glade:2613
+#: ../ui/settingsdialog.ui:2613
 msgid "<b>Window Options</b>"
 msgstr "<b>Можнасьці ваконцаў</b>"
 
-#: ../glade/settingsdialog.glade:2654
+#: ../ui/settingsdialog.ui:2654
 msgid "<b>Confirmation Dialog Options</b>"
 msgstr "<b>Можнасьці дыялёґу пацьверджаньня</b>"
 
-#: ../glade/settingsdialog.glade:2674
+#: ../ui/settingsdialog.ui:2674
 msgid "Windows"
 msgstr "Ваконцы"
 
-#: ../glade/settingsdialog.glade:2710
+#: ../ui/settingsdialog.ui:2710
 msgid "<b>Sounds</b>"
 msgstr "<b>Гукі</b>"
 
-#: ../glade/settingsdialog.glade:2728
+#: ../ui/settingsdialog.ui:2728
 msgid "Play"
 msgstr "Граць"
 
-#: ../glade/settingsdialog.glade:2740
+#: ../ui/settingsdialog.ui:2740
 msgid "in program"
 msgstr "у праґраме"
 
-#: ../glade/settingsdialog.glade:2778
+#: ../ui/settingsdialog.ui:2778
 msgid "Browse file..."
 msgstr "Зірнуць файл…"
 
-#: ../glade/settingsdialog.glade:2806
+#: ../ui/settingsdialog.ui:2806
 msgid "Every time a private message is received"
 msgstr "Штораз, як атрымалі асабістае паведамленьне"
 
-#: ../glade/settingsdialog.glade:2818
+#: ../ui/settingsdialog.ui:2818
 msgid "When a private message window is opened"
 msgstr "Калі ваконца асабістага паведамленьня ўжо адчыненае"
 
-#: ../glade/settingsdialog.glade:2832
+#: ../ui/settingsdialog.ui:2832
 msgid "<b>Private message sound</b>"
 msgstr "<b>Гук асабістых паведамленьняў</b>"
 
-#: ../glade/settingsdialog.glade:2898
+#: ../ui/settingsdialog.ui:2898
 msgid "<b>Available styles</b>"
 msgstr "<b>Віды тэксту</b>"
 
-#: ../glade/settingsdialog.glade:2930
+#: ../ui/settingsdialog.ui:2930
 msgid "<b>Preview styles</b>"
 msgstr "<b>Выніковы выгляд</b>"
 
-#: ../glade/settingsdialog.glade:2948
+#: ../ui/settingsdialog.ui:2948
 msgid "Bold Authors of message in chat"
 msgstr "Выразна пісаць мянушкі ў гамане"
 
-#: ../glade/settingsdialog.glade:2967
+#: ../ui/settingsdialog.ui:2967
 msgid "Back color"
 msgstr "Колер тла"
 
-#: ../glade/settingsdialog.glade:2977
+#: ../ui/settingsdialog.ui:2977
 msgid "Text color"
 msgstr "Колер тэксту"
 
-#: ../glade/settingsdialog.glade:2990
+#: ../ui/settingsdialog.ui:2990
 msgid "Text style"
 msgstr "Выгляд тэксту"
 
-#: ../glade/settingsdialog.glade:3003
+#: ../ui/settingsdialog.ui:3003
 msgid "Default styles"
 msgstr "Прадвызначана"
 
-#: ../glade/settingsdialog.glade:3016
+#: ../ui/settingsdialog.ui:3016
 msgid "Black/White"
 msgstr "Чорна-белае"
 
-#: ../glade/settingsdialog.glade:3054
+#: ../ui/settingsdialog.ui:3054
 msgid "Colors & Fonts"
 msgstr "Колеры ды шрыфты"
 
-#: ../glade/settingsdialog.glade:3092
+#: ../ui/settingsdialog.ui:3092
 msgid "<b>Notify</b>"
 msgstr "<b>Апавяшчэньні</b>"
 
-#: ../glade/settingsdialog.glade:3127
+#: ../ui/settingsdialog.ui:3127
 msgid "<b>Title</b>"
 msgstr "<b>Загаловак</b>"
 
-#: ../glade/settingsdialog.glade:3156
+#: ../ui/settingsdialog.ui:3156
 msgid "<b>Icon size</b>"
 msgstr "<b>Памер значка</b>"
 
-#: ../glade/settingsdialog.glade:3183
+#: ../ui/settingsdialog.ui:3183
 msgid "Test"
 msgstr "Паспрабаваць"
 
-#: ../glade/settingsdialog.glade:3209
+#: ../ui/settingsdialog.ui:3209
 msgid "Icon..."
 msgstr "Значак…"
 
-#: ../glade/settingsdialog.glade:3233
+#: ../ui/settingsdialog.ui:3233
 msgid "None icon"
 msgstr "Няма значка"
 
-#: ../glade/settingsdialog.glade:3302
+#: ../ui/settingsdialog.ui:3302
 msgid "Maximum message length (0 = infinite)"
 msgstr "Найвялікшая даўжыня паведамленьня (0 = не абмяжоўваць)"
 
-#: ../glade/settingsdialog.glade:3318
+#: ../ui/settingsdialog.ui:3318
 msgid "Show only when the application is not active."
 msgstr "Паказваць толькі калі праґрама — нядзейная"
 
-#: ../glade/settingsdialog.glade:3333
+#: ../ui/settingsdialog.ui:3333
 msgid "<b>Private message</b>"
 msgstr "<b>Асабістае паведамленьне</b>"
 
-#: ../glade/settingsdialog.glade:3350 ../glade/settingsdialog.glade:6221
+#: ../ui/settingsdialog.ui:3350 ../ui/settingsdialog.ui:6221
 msgid "PM"
 msgstr "Паведамленьне"
 
-#: ../glade/settingsdialog.glade:3412
+#: ../ui/settingsdialog.ui:3412
 msgid "<b>Icons</b>"
 msgstr "<b>Значкі</b>"
 
-#: ../glade/settingsdialog.glade:3444
+#: ../ui/settingsdialog.ui:3444
 msgid "<b>Text styles</b>"
 msgstr "<b>Выгляд тэксту</b>"
 
-#: ../glade/settingsdialog.glade:3466
+#: ../ui/settingsdialog.ui:3466
 msgid "<b>Current theme name:</b>"
 msgstr "<b>Назва бягучага аздабленьня:</b>"
 
-#: ../glade/settingsdialog.glade:3476
+#: ../ui/settingsdialog.ui:3476
 msgid "theme"
 msgstr "аздабленьне"
 
-#: ../glade/settingsdialog.glade:3499
+#: ../ui/settingsdialog.ui:3499
 msgid "Export..."
 msgstr "Выняць…"
 
-#: ../glade/settingsdialog.glade:3511
+#: ../ui/settingsdialog.ui:3511
 msgid "Import..."
 msgstr "Убудаваць…"
 
-#: ../glade/settingsdialog.glade:3536
+#: ../ui/settingsdialog.ui:3536
 msgid "Default icons"
 msgstr "Звычайныя значкі"
 
-#: ../glade/settingsdialog.glade:3549
+#: ../ui/settingsdialog.ui:3549
 msgid "System icons"
 msgstr "Сыстэмныя значкі"
 
-#: ../glade/settingsdialog.glade:3562
+#: ../ui/settingsdialog.ui:3562
 msgid "Theme default"
 msgstr "Звычайнае аздабленьне"
 
-#: ../glade/settingsdialog.glade:3584
+#: ../ui/settingsdialog.ui:3584
 msgid "Themes"
 msgstr "Аздабленьне"
 
-#: ../glade/settingsdialog.glade:3622
+#: ../ui/settingsdialog.ui:3622
 msgid "<b>Toolbar buttons</b>"
 msgstr "<b>Гузікі паліцы прыладаў</b>"
 
-#: ../glade/settingsdialog.glade:3639
+#: ../ui/settingsdialog.ui:3639
 msgid "Toolbar"
 msgstr "Паліца прыладаў"
 
-#: ../glade/settingsdialog.glade:3683
+#: ../ui/settingsdialog.ui:3683
 msgid "New string or TTH"
 msgstr "Новы радок або скарот (TTH)"
 
-#: ../glade/settingsdialog.glade:3714
+#: ../ui/settingsdialog.ui:3714
 msgid "Adding string or TTH in the top"
 msgstr "Скарот або радок дадаецца ў найлепшыя"
 
-#: ../glade/settingsdialog.glade:3746
+#: ../ui/settingsdialog.ui:3746
 msgid "State of preparedness"
 msgstr "Стан падрыхтаванасьці"
 
-#: ../glade/settingsdialog.glade:3778
+#: ../ui/settingsdialog.ui:3778
 msgid "Matches"
 msgstr "Супала"
 
-#: ../glade/settingsdialog.glade:3810
+#: ../ui/settingsdialog.ui:3810
 msgid "Updating string or TTH"
 msgstr "Абнаўляецца радок або скарот"
 
-#: ../glade/settingsdialog.glade:3858
+#: ../ui/settingsdialog.ui:3858
 msgid "<b>Colors</b>"
 msgstr "<b>Колеры</b>"
 
-#: ../glade/settingsdialog.glade:3895
+#: ../ui/settingsdialog.ui:3895
 msgid "Frame (size)"
 msgstr "Кадр (памер)"
 
-#: ../glade/settingsdialog.glade:3925
+#: ../ui/settingsdialog.ui:3925
 msgid "Waiting (seconds)"
 msgstr "Чакаць (у сэкундах)"
 
-#: ../glade/settingsdialog.glade:3956
+#: ../ui/settingsdialog.ui:3956
 msgid "Top (number of matches, more than)"
 msgstr "Найлепшыя (неабходная колькасьць супадзеньняў)"
 
-#: ../glade/settingsdialog.glade:4004
+#: ../ui/settingsdialog.ui:4004
 msgid "<b>Frame</b>"
 msgstr "<b>Кадр</b>"
 
-#: ../glade/settingsdialog.glade:4111
+#: ../ui/settingsdialog.ui:4111
 msgid "Log main chat"
 msgstr "Занатоўваць агульную гаману"
 
-#: ../glade/settingsdialog.glade:4131 ../glade/settingsdialog.glade:4174
-#: ../glade/settingsdialog.glade:4217 ../glade/settingsdialog.glade:4260
+#: ../ui/settingsdialog.ui:4131 ../ui/settingsdialog.ui:4174
+#: ../ui/settingsdialog.ui:4217 ../ui/settingsdialog.ui:4260
 msgid "Format"
 msgstr "Фармат"
 
-#: ../glade/settingsdialog.glade:4154
+#: ../ui/settingsdialog.ui:4154
 msgid "Log private chat"
 msgstr "Занатоўваць асабістую гаману"
 
-#: ../glade/settingsdialog.glade:4197
+#: ../ui/settingsdialog.ui:4197
 msgid "Log downloads"
 msgstr "Занатоўваць сьцягванае"
 
-#: ../glade/settingsdialog.glade:4240
+#: ../ui/settingsdialog.ui:4240
 msgid "Log uploads"
 msgstr "Занатоўваць зацягванае"
 
-#: ../glade/settingsdialog.glade:4283
+#: ../ui/settingsdialog.ui:4283
 msgid "Log system messages"
 msgstr "Занатоўваць паведамленьні сыстэмы"
 
-#: ../glade/settingsdialog.glade:4298
+#: ../ui/settingsdialog.ui:4298
 msgid "Log status messages"
 msgstr "Занатоўваць паведамленьні стану"
 
-#: ../glade/settingsdialog.glade:4313
+#: ../ui/settingsdialog.ui:4313
 msgid "Log filelist transfers"
 msgstr "Перададзеныя сьпісы файлаў"
 
-#: ../glade/settingsdialog.glade:4327
+#: ../ui/settingsdialog.ui:4327
 msgid ""
 "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
 "\">Help</a>"
@@ -3535,131 +3517,131 @@ msgstr ""
 "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
 "\">Дапамога</a>"
 
-#: ../glade/settingsdialog.glade:4342
+#: ../ui/settingsdialog.ui:4342
 msgid "<b>Logging</b>"
 msgstr "<b>Справаздачы</b>"
 
-#: ../glade/settingsdialog.glade:4359
+#: ../ui/settingsdialog.ui:4359
 msgid "Logs"
 msgstr "Справаздачы"
 
-#: ../glade/settingsdialog.glade:4398 ../glade/settingsdialog.glade:5247
+#: ../ui/settingsdialog.ui:4398 ../ui/settingsdialog.ui:5247
 msgid "Advanced"
 msgstr "Адмысловыя"
 
-#: ../glade/settingsdialog.glade:4512
+#: ../ui/settingsdialog.ui:4512
 msgid "User Commands"
 msgstr "Загады карыстальніка"
 
-#: ../glade/settingsdialog.glade:4538
+#: ../ui/settingsdialog.ui:4538
 msgid "Max hash speed"
 msgstr "Найвялікшая хуткасьць ствараць скароты"
 
-#: ../glade/settingsdialog.glade:4550
+#: ../ui/settingsdialog.ui:4550
 msgid "PM history"
 msgstr "Гісторыя асабістых паведамленьняў"
 
-#: ../glade/settingsdialog.glade:4562
+#: ../ui/settingsdialog.ui:4562
 msgid "Mini slot size"
 msgstr "Найменшы памер шчыліны"
 
-#: ../glade/settingsdialog.glade:4574
+#: ../ui/settingsdialog.ui:4574
 msgid "Max filelist size"
 msgstr "Найбольшы памер сьпісу файлаў"
 
-#: ../glade/settingsdialog.glade:4688
+#: ../ui/settingsdialog.ui:4688
 msgid "MiB/s"
 msgstr "МіБ/с"
 
-#: ../glade/settingsdialog.glade:4722
+#: ../ui/settingsdialog.ui:4722
 msgid "MiB"
 msgstr "МіБ"
 
-#: ../glade/settingsdialog.glade:4754
+#: ../ui/settingsdialog.ui:4754
 msgid "Write buffer size"
 msgstr "Буфэр запісваньня"
 
-#: ../glade/settingsdialog.glade:4765
+#: ../ui/settingsdialog.ui:4765
 msgid "Search history"
 msgstr "Гісторыя пошуку"
 
-#: ../glade/settingsdialog.glade:4777
+#: ../ui/settingsdialog.ui:4777
 msgid "Bind address"
 msgstr "Адрас"
 
-#: ../glade/settingsdialog.glade:4789
+#: ../ui/settingsdialog.ui:4789
 msgid "Socket read buffer"
 msgstr "Буфэр чытаньня гнязда"
 
-#: ../glade/settingsdialog.glade:4801
+#: ../ui/settingsdialog.ui:4801
 msgid "Socket write buffer"
 msgstr "Буфэр запісваньня гнязда"
 
-#: ../glade/settingsdialog.glade:4813
+#: ../ui/settingsdialog.ui:4813
 msgid "Auto refresh time"
 msgstr "Час між абнаўленьнямі"
 
-#: ../glade/settingsdialog.glade:4956 ../glade/settingsdialog.glade:4968
+#: ../ui/settingsdialog.ui:4956 ../ui/settingsdialog.ui:4968
 msgid "B"
 msgstr "Б"
 
-#: ../glade/settingsdialog.glade:5004
+#: ../ui/settingsdialog.ui:5004
 msgid "Experts Only"
 msgstr "Толькі адмыслоўцам"
 
-#: ../glade/settingsdialog.glade:5106
+#: ../ui/settingsdialog.ui:5106
 msgid "Trusted certificates path"
 msgstr "Шлях да давераных пасьведчаньняў"
 
-#: ../glade/settingsdialog.glade:5120
+#: ../ui/settingsdialog.ui:5120
 msgid "Certificate file"
 msgstr "Файл пасьведчаньня"
 
-#: ../glade/settingsdialog.glade:5134
+#: ../ui/settingsdialog.ui:5134
 msgid "Private key file"
 msgstr "Файл асабістага ключа"
 
-#: ../glade/settingsdialog.glade:5150
+#: ../ui/settingsdialog.ui:5150
 msgid "<b>Certificate Paths</b>"
 msgstr "<b>Шляхі да пасьведчаньняў</b>"
 
-#: ../glade/settingsdialog.glade:5186
+#: ../ui/settingsdialog.ui:5186
 msgid "<b>Other Security Options</b>"
 msgstr "<b>Іншыя можнасьці бясьпекі</b>"
 
-#: ../glade/settingsdialog.glade:5204
+#: ../ui/settingsdialog.ui:5204
 msgid "Generate certificates"
 msgstr "Стварыць пасьведчаньні"
 
-#: ../glade/settingsdialog.glade:5231
+#: ../ui/settingsdialog.ui:5231
 msgid "Security Certificates"
 msgstr "Пасьведчаньні бясьпекі"
 
-#: ../glade/settingsdialog.glade:5262
+#: ../ui/settingsdialog.ui:5262
 msgid "Use bandwidth limits"
 msgstr "Абмяжоўваць хуткасьці"
 
-#: ../glade/settingsdialog.glade:5300 ../glade/settingsdialog.glade:5543
+#: ../ui/settingsdialog.ui:5300 ../ui/settingsdialog.ui:5543
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
 msgstr "Найвялікшая хуткасьць зацягваць (КіБ/с; 0 = не абмяжоўваць)"
 
-#: ../glade/settingsdialog.glade:5337 ../glade/settingsdialog.glade:5580
+#: ../ui/settingsdialog.ui:5337 ../ui/settingsdialog.ui:5580
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
 msgstr "Найвялікшая хуткасьць сьцягваць (КіБ/с; 0 = не абмяжоўваць)"
 
-#: ../glade/settingsdialog.glade:5365
+#: ../ui/settingsdialog.ui:5365
 msgid "<b>Transfer Rate Limiting</b>"
 msgstr "<b>Абмежаваньні хуткасьцяў</b>"
 
-#: ../glade/settingsdialog.glade:5392
+#: ../ui/settingsdialog.ui:5392
 msgid "Use second set of bandwidth limits"
 msgstr "Ужываць іншыя абмежаваньні хуткасьці ў час"
 
-#: ../glade/settingsdialog.glade:5414
+#: ../ui/settingsdialog.ui:5414
 msgid "from"
 msgstr "ад"
 
-#: ../glade/settingsdialog.glade:5424 ../glade/settingsdialog.glade:5467
+#: ../ui/settingsdialog.ui:5424 ../ui/settingsdialog.ui:5467
 msgid ""
 "Midnight\n"
 "1AM\n"
@@ -3711,24 +3693,24 @@ msgstr ""
 "22:00\n"
 "23:00"
 
-#: ../glade/settingsdialog.glade:5457
+#: ../ui/settingsdialog.ui:5457
 msgid "to"
 msgstr "да"
 
-#: ../glade/settingsdialog.glade:5502
+#: ../ui/settingsdialog.ui:5502
 msgid "<b>Secondary Transfer Rate Limiting</b>"
 msgstr "<b>Другарадныя абмежаваньні хуткасьці</b>"
 
-#: ../glade/settingsdialog.glade:5620
+#: ../ui/settingsdialog.ui:5620
 msgid "Upload Slots"
 msgstr "Шчылінаў зацягваць файлы"
 
 # «налады абмежаваньня…»?
-#: ../glade/settingsdialog.glade:5648
+#: ../ui/settingsdialog.ui:5648
 msgid "<b>Secondary Transfer Rate Settings</b>"
 msgstr "<b>Налады другараднае хуткасьці</b>"
 
-#: ../glade/settingsdialog.glade:5681
+#: ../ui/settingsdialog.ui:5681
 msgid ""
 "Bandwidth\n"
 "Limiting"
@@ -3736,257 +3718,257 @@ msgstr ""
 "Абмежаваньні\n"
 "хуткасьці"
 
-#: ../glade/settingsdialog.glade:5725
+#: ../ui/settingsdialog.ui:5725
 msgid "Add"
 msgstr "Дадаць"
 
-#: ../glade/settingsdialog.glade:5734
+#: ../ui/settingsdialog.ui:5734
 msgid "Modify"
 msgstr "Зьмяніць"
 
-#: ../glade/settingsdialog.glade:5746
+#: ../ui/settingsdialog.ui:5746
 msgid "Rename"
 msgstr "Даць новую назву"
 
-#: ../glade/settingsdialog.glade:5787
+#: ../ui/settingsdialog.ui:5787
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr "Уважце: абраныя віды пошуку будуць працаваць толькі на асяродках ADC!"
 
-#: ../glade/settingsdialog.glade:5800
+#: ../ui/settingsdialog.ui:5800
 msgid "<b>Search types</b>"
 msgstr "<b>Віды пошуку</b>"
 
-#: ../glade/settingsdialog.glade:5868 ../glade/publichubs.glade:190
+#: ../ui/settingsdialog.ui:5868 ../ui/publichubs.ui:190
 msgid "Configure hub lists"
 msgstr "Наставіць сьпісы асяродкаў"
 
-#: ../glade/settingsdialog.glade:5958 ../glade/publichubs.glade:276
+#: ../ui/settingsdialog.ui:5958 ../ui/publichubs.ui:276
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
 "<b>Уважце:</b> абраныя ў сьпісе спасылкі рэдагуюцца па першым пстрыку мышкаю"
 
-#: ../glade/settingsdialog.glade:6130
+#: ../ui/settingsdialog.ui:6130
 msgid "Choose a File"
 msgstr "Абярыце файл"
 
-#: ../glade/settingsdialog.glade:6179
+#: ../ui/settingsdialog.ui:6179
 msgid "Modify User Command"
 msgstr "Зьмяніць загад карыстальніка"
 
-#: ../glade/settingsdialog.glade:6205
+#: ../ui/settingsdialog.ui:6205
 msgid "Raw"
 msgstr "Наўпроставы"
 
-#: ../glade/settingsdialog.glade:6239
+#: ../ui/settingsdialog.ui:6239
 msgid "Chat"
 msgstr "Гамана"
 
-#: ../glade/settingsdialog.glade:6269
+#: ../ui/settingsdialog.ui:6269
 msgid "<b>Command Type</b>"
 msgstr "<b>Від загаду</b>"
 
-#: ../glade/settingsdialog.glade:6292
+#: ../ui/settingsdialog.ui:6292
 msgid "Search Menu"
 msgstr "Мэню пошуку"
 
-#: ../glade/settingsdialog.glade:6307
+#: ../ui/settingsdialog.ui:6307
 msgid "Chat Menu"
 msgstr "Мэню гаманы"
 
-#: ../glade/settingsdialog.glade:6322
+#: ../ui/settingsdialog.ui:6322
 msgid "Filelist Menu"
 msgstr "Мэню сьпісу файлаў"
 
-#: ../glade/settingsdialog.glade:6339
+#: ../ui/settingsdialog.ui:6339
 msgid "Hub Menu"
 msgstr "Мэню асяродку"
 
-#: ../glade/settingsdialog.glade:6353
+#: ../ui/settingsdialog.ui:6353
 msgid "<b>Context</b>"
 msgstr "<b>Дзе ўжываецца</b>"
 
-#: ../glade/settingsdialog.glade:6440
+#: ../ui/settingsdialog.ui:6440
 msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
 msgstr "Адрас IP ці DNS асяродку (пуста = усе, «op» — дзе вы апэратар)"
 
-#: ../glade/settingsdialog.glade:6471
+#: ../ui/settingsdialog.ui:6471
 msgid "To (empty for selected user)"
 msgstr "Каму (пуста = абранаму карыстальніку)"
 
-#: ../glade/settingsdialog.glade:6499
+#: ../ui/settingsdialog.ui:6499
 msgid "Send once per nick"
 msgstr "Адзін раз на кожную мянушку"
 
-#: ../glade/settingsdialog.glade:6515
+#: ../ui/settingsdialog.ui:6515
 msgid "<b>Parameters</b>"
 msgstr "<b>Парамэтры</b>"
 
-#: ../glade/settingsdialog.glade:6551
+#: ../ui/settingsdialog.ui:6551
 msgid "<b>Text sent to hub</b>"
 msgstr "<b>Тэкст, які дашлецца асяродку</b>"
 
-#: ../glade/settingsdialog.glade:6616
+#: ../ui/settingsdialog.ui:6616
 msgid "Color select"
 msgstr "Абярыце колер"
 
-#: ../glade/settingsdialog.glade:6664
+#: ../ui/settingsdialog.ui:6664
 msgid "Font select"
 msgstr "Абярыце шрыфт"
 
-#: ../glade/settingsdialog.glade:6738
+#: ../ui/settingsdialog.ui:6738
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr "Аддзяляйце пашырэньні кропкаю з коскаю (odt;ods;odp)"
 
-#: ../glade/downloadqueue.glade:118 ../glade/downloadqueue.glade:223
+#: ../ui/downloadqueue.ui:118 ../ui/downloadqueue.ui:223
 msgid "Set Priorit_y"
 msgstr "Вызначыць _пяршынства"
 
-#: ../glade/downloadqueue.glade:125 ../glade/downloadqueue.glade:230
+#: ../ui/downloadqueue.ui:125 ../ui/downloadqueue.ui:230
 msgid "_Paused"
 msgstr "_Прыпынены"
 
-#: ../glade/downloadqueue.glade:132 ../glade/downloadqueue.glade:237
+#: ../ui/downloadqueue.ui:132 ../ui/downloadqueue.ui:237
 msgid "_Lowest"
 msgstr "_Найніжэйшае"
 
-#: ../glade/downloadqueue.glade:139 ../glade/downloadqueue.glade:244
+#: ../ui/downloadqueue.ui:139 ../ui/downloadqueue.ui:244
 msgid "L_ow"
 msgstr "Н_ізкае"
 
-#: ../glade/downloadqueue.glade:146 ../glade/downloadqueue.glade:251
+#: ../ui/downloadqueue.ui:146 ../ui/downloadqueue.ui:251
 msgid "_Normal"
 msgstr "_Звычайнае"
 
-#: ../glade/downloadqueue.glade:153 ../glade/downloadqueue.glade:258
+#: ../ui/downloadqueue.ui:153 ../ui/downloadqueue.ui:258
 msgid "H_igh"
 msgstr "_Высокае"
 
-#: ../glade/downloadqueue.glade:160 ../glade/downloadqueue.glade:265
+#: ../ui/downloadqueue.ui:160 ../ui/downloadqueue.ui:265
 msgid "_Highest"
 msgstr "Н_айвышэйшае"
 
-#: ../glade/downloadqueue.glade:176
+#: ../ui/downloadqueue.ui:176
 msgid "_Move"
 msgstr "Пера_сунуць"
 
-#: ../glade/downloadqueue.glade:211
+#: ../ui/downloadqueue.ui:211
 msgid "_Move/Rename"
 msgstr "_Перасунуць/Новая назва"
 
-#: ../glade/downloadqueue.glade:298
+#: ../ui/downloadqueue.ui:298
 msgid "Re-_add source"
 msgstr "Нанова _дадаць крыніцу"
 
-#: ../glade/downloadqueue.glade:314
+#: ../ui/downloadqueue.ui:314
 msgid "Remove So_urce"
 msgstr "_Выкрасьліць крыніцу"
 
-#: ../glade/downloadqueue.glade:344
+#: ../ui/downloadqueue.ui:344
 msgid "Move to..."
 msgstr "Перасунуць у…"
 
-#: ../glade/publichubs.glade:51
+#: ../ui/publichubs.ui:51
 msgid "<b>Filter</b>"
 msgstr "<b>Прасеяць</b>"
 
-#: ../glade/publichubs.glade:92
+#: ../ui/publichubs.ui:92
 msgid "<b>Hub List</b>"
 msgstr "<b>Сьпіс асяродкаў</b>"
 
-#: ../glade/publichubs.glade:326
+#: ../ui/publichubs.ui:326
 msgid "Add to favorites"
 msgstr "Дадаць да ўлюбёных"
 
-#: ../glade/transfers.glade:45
+#: ../ui/transfers.ui:45
 msgid "_Send private message"
 msgstr "_Асабістае паведамленьне"
 
-#: ../glade/transfers.glade:105
+#: ../ui/transfers.ui:105
 msgid "_Force attempt"
 msgstr "_Прымусіць паспрабаваць"
 
-#: ../glade/transfers.glade:117
+#: ../ui/transfers.ui:117
 msgid "_Close connection"
 msgstr "_Зачыніць злучэньне"
 
-#: ../glade/privatemessage.glade:37 ../glade/hub.glade:66
+#: ../ui/privatemessage.ui:37 ../ui/hub.ui:66
 msgid "Chat Commands"
 msgstr "Загады гаманы"
 
-#: ../glade/privatemessage.glade:60 ../glade/hub.glade:92
+#: ../ui/privatemessage.ui:60 ../ui/hub.ui:92
 msgid "Emoticons"
 msgstr "Пачуцьцезнакі"
 
-#: ../glade/privatemessage.glade:97 ../glade/hub.glade:311
+#: ../ui/privatemessage.ui:97 ../ui/hub.ui:311
 msgid "_Search magnet"
 msgstr "_Шукаць спасылку"
 
-#: ../glade/privatemessage.glade:141 ../glade/hub.glade:355
+#: ../ui/privatemessage.ui:141 ../ui/hub.ui:355
 msgid "_Properties/Choice"
 msgstr "_Уласьцівасьці/Выбар"
 
-#: ../glade/privatemessage.glade:150 ../glade/privatemessage.glade:166
-#: ../glade/hub.glade:365 ../glade/hub.glade:381
+#: ../ui/privatemessage.ui:150 ../ui/privatemessage.ui:166 ../ui/hub.ui:365
+#: ../ui/hub.ui:381
 msgid "_Copy link"
 msgstr "Перапісаць _спасылку"
 
-#: ../glade/privatemessage.glade:157 ../glade/hub.glade:372
+#: ../ui/privatemessage.ui:157 ../ui/hub.ui:372
 msgid "_Open link in default application"
 msgstr "Адчыніць спасылку ў звычайнае _праґраме"
 
-#: ../glade/privatemessage.glade:173 ../glade/hub.glade:388
+#: ../ui/privatemessage.ui:173 ../ui/hub.ui:388
 msgid "_Open hub"
 msgstr "Адчыніць _асяродак"
 
-#: ../glade/finishedtransfers.glade:31
+#: ../ui/finishedtransfers.ui:31
 msgid "Grouped by Files"
 msgstr "Аб’яднанае па файлах"
 
-#: ../glade/finishedtransfers.glade:60
+#: ../ui/finishedtransfers.ui:60
 msgid "Grouped by Users"
 msgstr "Аб’яднанае па карыстальніках"
 
-#: ../glade/finishedtransfers.glade:81
+#: ../ui/finishedtransfers.ui:81
 msgid "Show only completely finished downloads"
 msgstr "Паказваць толькі цалкам сьцягнутае"
 
-#: ../glade/finishedtransfers.glade:150
+#: ../ui/finishedtransfers.ui:150
 msgid "Open containing _folder"
 msgstr "Адчыніць _каталёґ"
 
-#: ../glade/finishedtransfers.glade:165
+#: ../ui/finishedtransfers.ui:165
 msgid "Remove All"
 msgstr "Выкрасьліць усе"
 
-#: ../glade/hub.glade:203
+#: ../ui/hub.ui:203
 msgid "Show/Hide user list"
 msgstr "Паказаць або схаваць сьпіс карыстальнікаў"
 
-#: ../glade/hub.glade:225
+#: ../ui/hub.ui:225
 msgid "_Copy nick"
 msgstr "Перапісаць _мянушку"
 
-#: ../glade/hub.glade:232
+#: ../ui/hub.ui:232
 msgid "_Send public message"
 msgstr "_Даслаць паведамленьне ў агульную гаману"
 
-#: ../glade/hub.glade:272
+#: ../ui/hub.ui:272
 msgid "_Remove from favorites"
 msgstr "Выкрасьліць з _улюбёнцаў"
 
-#: ../glade/hub.glade:454
+#: ../ui/hub.ui:454
 msgid "Set download limit image"
 msgstr "Абмежаваць хуткасьць сьцягваць відарысы"
 
-#: ../glade/hub.glade:485
+#: ../ui/hub.ui:485
 msgid "Download image"
 msgstr "Сьцягнуць відарыс"
 
-#: ../glade/hub.glade:491
+#: ../ui/hub.ui:491
 msgid "Open image"
 msgstr "Адчыніць відарыс"
 
-#: ../glade/hub.glade:502
+#: ../ui/hub.ui:502
 msgid "Remove image"
 msgstr "Сьцерці відарыс"
 
