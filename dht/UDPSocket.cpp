@@ -125,7 +125,7 @@ namespace dht
 				//	return; // non-encrypted packets are forbidden
 
 				unsigned long destLen = BUFSIZE; // what size should be reserved?
-				std::auto_ptr<uint8_t> destBuf(new uint8_t[destLen]);
+				boost::scoped_array<uint8_t> destBuf(new uint8_t[destLen]);
 				if(buf[0] == ADC_PACKED_PACKET_HEADER) // is this compressed packet?
 				{
 					if(!decompressPacket(destBuf.get(), destLen, buf.get(), len))
@@ -154,7 +154,7 @@ namespace dht
 
 	void UDPSocket::checkOutgoing(uint64_t& timer) throw(SocketException)
 	{
-		std::auto_ptr<Packet> packet;
+		std::unique_ptr<Packet> packet;
 		uint64_t now = GET_TICK();
 
 		{

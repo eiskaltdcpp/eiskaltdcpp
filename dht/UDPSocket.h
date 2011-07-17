@@ -76,7 +76,7 @@ namespace dht
 
 	private:
 
-		std::auto_ptr<Socket> socket;
+		std::unique_ptr<Socket> socket;
 
 		/** Indicates to stop socket thread */
 		bool stop;
