@@ -791,6 +791,9 @@ void Settings::initConnection_gui()
 
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useLimitSecondCheckButton")), BOOLSETTING(TIME_DEPENDENT_THROTTLE));
 
+        onLimitToggled_gui(NULL, (gpointer)this);
+        g_signal_connect(getWidget("useLimitCheckButton"), "toggled", G_CALLBACK(onLimitToggled_gui), (gpointer)this);
+
         onLimitSecondToggled_gui(NULL, (gpointer)this);
         g_signal_connect(getWidget("useLimitSecondCheckButton"), "toggled", G_CALLBACK(onLimitSecondToggled_gui), (gpointer)this);
     }
@@ -798,6 +801,9 @@ void Settings::initConnection_gui()
 #ifdef WITH_DHT
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton")), BOOLSETTING(USE_DHT));
         gtk_entry_set_text(GTK_ENTRY(getWidget("dhtEntry")), Util::toString(SETTING(DHT_PORT)).c_str());
+        
+        onDHTCheckToggled_gui(NULL, (gpointer)this);
+        g_signal_connect(getWidget("useDHTCheckButton"), "toggled", G_CALLBACK(onDHTCheckToggled_gui), (gpointer)this);
 #else
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton")), false);
         gtk_entry_set_text(GTK_ENTRY(getWidget("dhtEntry")), "6250");
@@ -2381,7 +2387,41 @@ void Settings::onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data)
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("topSPSpinButton")), double(wsm->getInt("search-spy-top", TRUE)));
 }
 
+void Settings::onDHTCheckToggled_gui(GtkWidget *widget, gpointer data)
+{
+        Settings *s = (Settings *)data;
+
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useDHTCheckButton"))))
+        {
+                gtk_widget_set_sensitive(s->getWidget("dhtEntry"), TRUE);
+                gtk_widget_set_sensitive(s->getWidget("dhtLabel"), TRUE);
+        }
+        else
+        {
+                gtk_widget_set_sensitive(s->getWidget("dhtEntry"), FALSE);
+                gtk_widget_set_sensitive(s->getWidget("dhtLabel"), FALSE);
+        }
+}
+
 //NOTE: core 0.762
+void Settings::onLimitToggled_gui(GtkWidget *widget, gpointer data)
+{
+        Settings *s = (Settings *)data;
+
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitCheckButton"))))
+        {
+                gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), TRUE);
+                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), TRUE);
+                onLimitSecondToggled_gui(NULL, (gpointer)s);
+        }
+        else
+        {
+                gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), FALSE);
+                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), FALSE);
+                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), FALSE);
+        }
+}
+
 void Settings::onLimitSecondToggled_gui(GtkWidget *widget, gpointer data)
 {
         Settings *s = (Settings *)data;

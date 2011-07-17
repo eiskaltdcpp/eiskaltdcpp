@@ -1880,7 +1880,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkFrame" id="frame32">
+                  <object class="GtkFrame" id="transferSettingsFrame">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="border_width">4</property>
@@ -2018,7 +2018,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkFrame" id="frame34">
+                  <object class="GtkFrame" id="secondaryTransferSwitcherFrame">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="border_width">4</property>
@@ -2413,7 +2413,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="label81.1">
+                              <object class="GtkLabel" id="dhtLabel">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">DHT Port</property>
