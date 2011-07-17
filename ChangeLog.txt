@@ -6,6 +6,7 @@
 *** eiskaltdcpp-qt ***
 * Added some options in settings dialog: DHT, DHT_PORT
 *** eiskaltdcpp-gtk ***
+* Added some options in settings dialog: DHT, DHT_PORT
 * Migrating from Libglade to GtkBuilder. Compatibility with the code base of LinuxDC++ and FreeDC++ was partially lost.
 *** eiskaltdcpp-daemon ***
 
