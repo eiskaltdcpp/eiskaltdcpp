@@ -233,7 +233,7 @@ FIND_PROGRAM (TAR_CMD tar)
 set (Boost_INCLUDE_DIR "./")
 if (HAIKU)
 EXECUTE_PROCESS (
-                COMMAND patch -p0 -i boost.diff
+                COMMAND patch -p0 -i haiku/boost.diff
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif()
 message (STATUS "USED LOCAL BOOST HEADERS")
