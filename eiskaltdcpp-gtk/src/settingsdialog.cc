@@ -137,7 +137,6 @@ Settings::Settings(GtkWindow* parent):
     initAppearance_gui();
     initLog_gui();
     initAdvanced_gui();
-    initBandwidthLimiting_gui();//NOTE: core 0.762
     initSearchTypes_gui();//NOTE: core 0.770
 }
 
@@ -188,6 +187,7 @@ void Settings::saveSettings_client()
     }
 
     { // Connection
+    { // Connection
         // Incoming connection
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("activeRadioButton"))))
             sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
@@ -234,6 +234,44 @@ void Settings::saveSettings_client()
         port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("socksPortEntry"))));
         if (port > 0 && port <= 65535)
             sm->set(SettingsManager::SOCKS_PORT, port);
+    }
+    { // Limits
+        sm->set(SettingsManager::THROTTLE_ENABLE,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useLimitCheckButton"))));
+        // Transfer Rate Limiting
+        sm->set(SettingsManager::MAX_UPLOAD_SPEED_MAIN,
+                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("transferMaxUpload"))));
+        sm->set(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN,
+                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("transferMaxDownload"))));
+
+        // Secondary Transfer Rate Limiting
+        bool secondary = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useLimitSecondCheckButton")));
+        sm->set(SettingsManager::TIME_DEPENDENT_THROTTLE, secondary);
+
+        if (secondary)
+        {
+        // Secondary Transfer Rate Settings
+        sm->set(SettingsManager::MAX_UPLOAD_SPEED_ALTERNATE,
+                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxUpload"))));
+        sm->set(SettingsManager::MAX_DOWNLOAD_SPEED_ALTERNATE,
+                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxDownload"))));
+        sm->set(SettingsManager::SLOTS_ALTERNATE_LIMITING,
+                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryUploadSlots"))));
+        sm->set(SettingsManager::BANDWIDTH_LIMIT_START,
+                gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("limitsFromCombobox"))));
+        sm->set(SettingsManager::BANDWIDTH_LIMIT_END,
+                gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("limitsToCombobox"))));
+        }
+    }
+    { // Advanced
+        sm->set(SettingsManager::USE_DHT,
+                gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton"))));
+        int port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("dhtEntry"))));
+        if (port > 0 && port <= 65535)
+            if (port != SETTING(UDP_PORT))
+                sm->set(SettingsManager::DHT_PORT, port);
+            else
+                sm->set(SettingsManager::DHT_PORT, port+1);
+    }
     }
 
     { // Downloads
@@ -453,35 +491,6 @@ void Settings::saveSettings_client()
 
         saveOptionsView_gui(certificatesView, sm);
     }
-    //NOTE: core 0.762
-    {
-        sm->set(SettingsManager::THROTTLE_ENABLE,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useLimitCheckButton"))));
-        // Transfer Rate Limiting
-        sm->set(SettingsManager::MAX_UPLOAD_SPEED_MAIN,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("transferMaxUpload"))));
-        sm->set(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("transferMaxDownload"))));
-
-        // Secondary Transfer Rate Limiting
-        bool secondary = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useLimitSecondCheckButton")));
-        sm->set(SettingsManager::TIME_DEPENDENT_THROTTLE, secondary);
-
-        if (secondary)
-        {
-        // Secondary Transfer Rate Settings
-        sm->set(SettingsManager::MAX_UPLOAD_SPEED_ALTERNATE,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxUpload"))));
-        sm->set(SettingsManager::MAX_DOWNLOAD_SPEED_ALTERNATE,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxDownload"))));
-        sm->set(SettingsManager::SLOTS_ALTERNATE_LIMITING,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryUploadSlots"))));
-        sm->set(SettingsManager::BANDWIDTH_LIMIT_START,
-                gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("limitsFromCombobox"))));
-        sm->set(SettingsManager::BANDWIDTH_LIMIT_END,
-                gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("limitsToCombobox"))));
-        }
-    }
-    //NOTE: core 0.762
     sm->save();
 }
 
@@ -706,6 +715,7 @@ void Settings::initPersonal_gui()
 
 void Settings::initConnection_gui()
 {
+    { // Connection
     // Incoming
     g_signal_connect(getWidget("activeRadioButton"), "toggled", G_CALLBACK(onInDirect_gui), (gpointer)this);
     g_signal_connect(getWidget("upnpRadioButton"), "toggled", G_CALLBACK(onInFW_UPnP_gui), (gpointer)this);//NOTE: core 0.762
@@ -762,6 +772,43 @@ void Settings::initConnection_gui()
         case SettingsManager::OUTGOING_SOCKS5:
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("socksRadioButton")), TRUE);
             break;
+    }
+    }
+    { // Limits
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useLimitCheckButton")), BOOLSETTING( THROTTLE_ENABLE));
+        // Transfer Rate Limiting
+        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("transferMaxUpload")), (double)SETTING(MAX_UPLOAD_SPEED_MAIN));
+        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("transferMaxDownload")), (double)SETTING(MAX_DOWNLOAD_SPEED_MAIN));
+
+        // Secondary Transfer Rate Settings
+        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxUpload")), (double)SETTING(MAX_UPLOAD_SPEED_ALTERNATE));
+        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxDownload")), (double)SETTING(MAX_DOWNLOAD_SPEED_ALTERNATE));
+        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("secondaryUploadSlots")), (double)SETTING(SLOTS_ALTERNATE_LIMITING));
+
+        // Secondary Transfer Rate Limiting
+        gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("limitsFromCombobox")), SETTING(BANDWIDTH_LIMIT_START));
+        gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("limitsToCombobox")), SETTING(BANDWIDTH_LIMIT_END));
+
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useLimitSecondCheckButton")), BOOLSETTING(TIME_DEPENDENT_THROTTLE));
+
+        onLimitToggled_gui(NULL, (gpointer)this);
+        g_signal_connect(getWidget("useLimitCheckButton"), "toggled", G_CALLBACK(onLimitToggled_gui), (gpointer)this);
+
+        onLimitSecondToggled_gui(NULL, (gpointer)this);
+        g_signal_connect(getWidget("useLimitSecondCheckButton"), "toggled", G_CALLBACK(onLimitSecondToggled_gui), (gpointer)this);
+    }
+    { // Advanced
+#ifdef WITH_DHT
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton")), BOOLSETTING(USE_DHT));
+        gtk_entry_set_text(GTK_ENTRY(getWidget("dhtEntry")), Util::toString(SETTING(DHT_PORT)).c_str());
+        
+        onDHTCheckToggled_gui(NULL, (gpointer)this);
+        g_signal_connect(getWidget("useDHTCheckButton"), "toggled", G_CALLBACK(onDHTCheckToggled_gui), (gpointer)this);
+#else
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton")), false);
+        gtk_entry_set_text(GTK_ENTRY(getWidget("dhtEntry")), "6250");
+        gtk_widget_set_sensitive((GtkWidget*)GTK_FRAME(getWidget("dhtFrame")), FALSE);
+#endif
     }
 }
 
@@ -1495,28 +1542,6 @@ void Settings::initAdvanced_gui()
 
         g_signal_connect(getWidget("generateCertificatesButton"), "clicked", G_CALLBACK(onGenerateCertificatesClicked_gui), (gpointer)this);
     }
-}
-//NOTE: core 0.762
-void Settings::initBandwidthLimiting_gui()
-{
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useLimitCheckButton")), BOOLSETTING( THROTTLE_ENABLE));
-        // Transfer Rate Limiting
-        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("transferMaxUpload")), (double)SETTING(MAX_UPLOAD_SPEED_MAIN));
-        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("transferMaxDownload")), (double)SETTING(MAX_DOWNLOAD_SPEED_MAIN));
-
-        // Secondary Transfer Rate Settings
-        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxUpload")), (double)SETTING(MAX_UPLOAD_SPEED_ALTERNATE));
-        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxDownload")), (double)SETTING(MAX_DOWNLOAD_SPEED_ALTERNATE));
-        gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("secondaryUploadSlots")), (double)SETTING(SLOTS_ALTERNATE_LIMITING));
-
-        // Secondary Transfer Rate Limiting
-        gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("limitsFromCombobox")), SETTING(BANDWIDTH_LIMIT_START));
-        gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("limitsToCombobox")), SETTING(BANDWIDTH_LIMIT_END));
-
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useLimitSecondCheckButton")), BOOLSETTING(TIME_DEPENDENT_THROTTLE));
-
-        onLimitSecondToggled_gui(NULL, (gpointer)this);
-        g_signal_connect(getWidget("useLimitSecondCheckButton"), "toggled", G_CALLBACK(onLimitSecondToggled_gui), (gpointer)this);
 }
 
 void Settings::initSearchTypes_gui()
@@ -2362,7 +2387,41 @@ void Settings::onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data)
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("topSPSpinButton")), double(wsm->getInt("search-spy-top", TRUE)));
 }
 
+void Settings::onDHTCheckToggled_gui(GtkWidget *widget, gpointer data)
+{
+        Settings *s = (Settings *)data;
+
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useDHTCheckButton"))))
+        {
+                gtk_widget_set_sensitive(s->getWidget("dhtEntry"), TRUE);
+                gtk_widget_set_sensitive(s->getWidget("dhtLabel"), TRUE);
+        }
+        else
+        {
+                gtk_widget_set_sensitive(s->getWidget("dhtEntry"), FALSE);
+                gtk_widget_set_sensitive(s->getWidget("dhtLabel"), FALSE);
+        }
+}
+
 //NOTE: core 0.762
+void Settings::onLimitToggled_gui(GtkWidget *widget, gpointer data)
+{
+        Settings *s = (Settings *)data;
+
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitCheckButton"))))
+        {
+                gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), TRUE);
+                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), TRUE);
+                onLimitSecondToggled_gui(NULL, (gpointer)s);
+        }
+        else
+        {
+                gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), FALSE);
+                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), FALSE);
+                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), FALSE);
+        }
+}
+
 void Settings::onLimitSecondToggled_gui(GtkWidget *widget, gpointer data)
 {
         Settings *s = (Settings *)data;
