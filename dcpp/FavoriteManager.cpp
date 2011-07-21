@@ -498,8 +498,6 @@ void FavoriteManager::load(SimpleXML& aXml) {
         aXml.stepOut();
     }
     // parse groups that have the "Connect" param and send their hubs to WindowManager
-    // бесполезная для нас хрень, только засирает конфиг
-    // предназначение: подобие менеджера сессий для подключённых хабов(к автоконнекту не относится).
     //for(FavHubGroups::const_iterator i = favHubGroups.begin(), iend = favHubGroups.end(); i != iend; ++i) {
         //if(i->second.connect) {
             //FavoriteHubEntryList hubs = getFavoriteHubs(i->first);

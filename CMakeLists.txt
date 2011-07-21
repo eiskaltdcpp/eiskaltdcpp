@@ -453,67 +453,9 @@ ADD_CUSTOM_TARGET(uninstall
   "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
 
 if(GETTEXT_FOUND)
-    include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/KWWidgetsInternationalizationMacros.cmake)
     option (UPDATE_PO "Update po files" OFF)
     option (CREATE_MO "Create mo files" ON)
-
-    if (UPDATE_PO)
-        set (create_pot 1)
-        set (create_po 1)
-        set (create_po_lo 1)
-    else (UPDATE_PO)
-        set (create_pot 0)
-        set (create_po 0)
-        set (create_po_lo 0)
-    endif (UPDATE_PO)
-    if (CREATE_MO)
-        set (create_mo 1)
-        set (create_mo_lo 1)
-    else (CREATE_MO)
-        set (create_mo 0)
-        set (create_mo_lo 0)
-    endif (CREATE_MO)
-    set (mo_for_all 1)
-    kwwidgets_create_gettext_targets(
-      DOMAIN_NAME "libeiskaltdcpp"
-      LOCALE_LIST "${LANGUAGES}"
-      COPYRIGHT_HOLDER "EiskaltDC++ team"
-      SOURCES "${DCPP_SRCS};${DCPP_HDRS}"
-      PO_DIR "${dcpp_SOURCE_DIR}/po"
-      POT_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
-      #PO_PREFIX    ""
-      PO_BUILD_DIR "${dcpp_SOURCE_DIR}/po"
-      MO_BUILD_DIR "${dcpp_BINARY_DIR}/locale"
-      MO_INSTALL_DIR "/${LOCALE_DIR}"
-      CREATE_POT_TARGET ${create_pot}
-      CREATE_PO_TARGET ${create_po}
-      CREATE_PO_LOCALE_TARGETS ${create_po_lo}
-      CREATE_MO_TARGET ${create_mo}
-      CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
-      ADD_MO_TARGET_TO_ALL ${mo_for_all}
-      )
-    if (USE_GTK)
-         kwwidgets_create_gettext_targets(
-          DOMAIN_NAME "eiskaltdcpp-gtk"
-          LOCALE_LIST "${LANGUAGES}"
-          COPYRIGHT_HOLDER "EiskaltDC++ team"
-          SOURCES "${GTK_SRCS};${GTK_HDRS};${GTK_UI}"
-          PO_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
-          POT_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
-          #PO_PREFIX    ""
-          PO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_SOURCE_DIR}/po"
-          MO_BUILD_DIR "${${PROJECT_NAME_GLOBAL}-gtk_BINARY_DIR}/locale"
-          MO_INSTALL_DIR "/${LOCALE_DIR}"
-          CREATE_POT_TARGET ${create_pot}
-          CREATE_PO_TARGET ${create_po}
-          CREATE_PO_LOCALE_TARGETS ${create_po_lo}
-          CREATE_MO_TARGET ${create_mo}
-          CREATE_MO_LOCALE_TARGETS ${create_mo_lo}
-          ADD_MO_TARGET_TO_ALL ${mo_for_all}
-          )
-
-    endif (USE_GTK)
-
+    add_subdirectory(cmake)
 endif(GETTEXT_FOUND)
 
 if (USE_QT OR USE_GTK)
