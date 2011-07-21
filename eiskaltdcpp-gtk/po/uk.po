@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-07-21 19:30+0300\n"
+"POT-Creation-Date: 2011-07-21 21:50+0400\n"
 "PO-Revision-Date: 2011-02-02 23:46+0300\n"
 "Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -53,7 +53,7 @@ msgstr " скинуто"
 msgid " empty..."
 msgstr " порожньо..."
 
-#: ../src/finishedtransfers.cc:259 ../src/sharebrowser.cc:1056
+#: ../src/sharebrowser.cc:1056 ../src/finishedtransfers.cc:259
 msgid " files"
 msgstr " файли"
 
@@ -105,7 +105,7 @@ msgstr " видалено зі списку обраних"
 msgid " to "
 msgstr " до "
 
-#: ../src/transfers.cc:582 ../src/search.cc:658
+#: ../src/search.cc:658 ../src/transfers.cc:582
 msgid " user(s)"
 msgstr " користувач(ів)"
 
@@ -757,12 +757,11 @@ msgstr "Огляд..."
 msgid "Browse the list of public hubs"
 msgstr "Показати список публічних хабів"
 
-#: ../src/search.cc:329 ../src/search.cc:400 ../src/sharebrowser.cc:481
-#: ../src/sharebrowser.cc:549 ../ui/privatemessage.ui:188 ../ui/hub.ui:231
-#: ../ui/mainwindow.ui:319 ../ui/settingsdialog.ui:2624
-#: ../ui/settingsdialog.ui:2694 ../ui/settingsdialog.ui:6467
-#: ../ui/settingsdialog.ui:7593 ../ui/settingsdialog.ui:7610
-#: ../ui/settingsdialog.ui:7627
+#: ../src/sharebrowser.cc:481 ../src/sharebrowser.cc:549 ../src/search.cc:329
+#: ../src/search.cc:400 ../ui/mainwindow.ui:319 ../ui/privatemessage.ui:188
+#: ../ui/hub.ui:231 ../ui/settingsdialog.ui:2624 ../ui/settingsdialog.ui:2694
+#: ../ui/settingsdialog.ui:6467 ../ui/settingsdialog.ui:7593
+#: ../ui/settingsdialog.ui:7610 ../ui/settingsdialog.ui:7627
 msgid "Browse..."
 msgstr "Огляд..."
 
@@ -863,9 +862,9 @@ msgstr "Перевірка кожні"
 msgid "Choose a File"
 msgstr "Вибір файлу"
 
-#: ../src/hub.cc:2570 ../src/privatemessage.cc:1233 ../src/mainwindow.cc:1215
-#: ../src/mainwindow.cc:1283 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
-#: ../ui/settingsdialog.ui:8022
+#: ../src/hub.cc:2570 ../src/mainwindow.cc:1215 ../src/mainwindow.cc:1283
+#: ../src/privatemessage.cc:1233 ../ui/search.ui:7
+#: ../ui/settingsdialog.ui:8022 ../ui/sharebrowser.ui:7
 msgid "Choose a directory"
 msgstr "Обрати теку"
 
@@ -1027,7 +1026,7 @@ msgstr "ТРАСУВАННЯ"
 msgid "DHT Port"
 msgstr "Порт"
 
-#: ../src/previewmenu.cc:89 ../src/emoticonsdialog.cc:106
+#: ../src/emoticonsdialog.cc:106 ../src/previewmenu.cc:89
 #: ../ui/settingsdialog.ui:5447 ../ui/settingsdialog.ui:6148
 #: ../ui/settingsdialog.ui:6339 ../ui/settingsdialog.ui:7948
 msgid "Default"
@@ -1059,7 +1058,7 @@ msgstr "Видалити елемент"
 #: ../src/favoriteusers.cc:586 ../src/favoritehubs.cc:54
 #: ../src/favoritehubs.cc:125 ../src/favoritehubs.cc:299
 #: ../src/publichubs.cc:42 ../src/publichubs.cc:157 ../src/publichubs.cc:293
-#: ../ui/settingsdialog.ui:1124 ../ui/favoriteusers.ui:213
+#: ../ui/favoriteusers.ui:213 ../ui/settingsdialog.ui:1124
 msgid "Description"
 msgstr "Опис"
 
@@ -1078,12 +1077,12 @@ msgstr "Директорія"
 msgid "Direct connection"
 msgstr "Пряме з'єднання (активний режим)"
 
-#: ../src/settingsdialog.cc:867 ../src/settingsdialog.cc:881
-#: ../src/settingsdialog.cc:969 ../src/settingsdialog.cc:1305
-#: ../src/settingsdialog.cc:3526 ../src/settingsdialog.cc:3546
-#: ../src/settingsdialog.cc:3575 ../src/settingsdialog.cc:3589
-#: ../src/settingsdialog.cc:3644 ../src/search.cc:1634
-#: ../src/UserCommandMenu.cc:66 ../src/sharebrowser.cc:289
+#: ../src/sharebrowser.cc:289 ../src/UserCommandMenu.cc:66
+#: ../src/search.cc:1634 ../src/settingsdialog.cc:867
+#: ../src/settingsdialog.cc:881 ../src/settingsdialog.cc:969
+#: ../src/settingsdialog.cc:1305 ../src/settingsdialog.cc:3526
+#: ../src/settingsdialog.cc:3546 ../src/settingsdialog.cc:3575
+#: ../src/settingsdialog.cc:3589 ../src/settingsdialog.cc:3644
 #: ../ui/settingsdialog.ui:6441
 msgid "Directory"
 msgstr "Тека"
@@ -1143,12 +1142,12 @@ msgstr "Завантаження"
 msgid "Download Matches"
 msgstr "Завантажити Співпадіння"
 
-#: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:1025
-#: ../src/settingsdialog.cc:1405 ../ui/mainwindow.ui:1194
+#: ../src/settingsdialog.cc:1025 ../src/settingsdialog.cc:1405
+#: ../src/downloadqueue.cc:34 ../ui/mainwindow.ui:1194
 msgid "Download Queue"
 msgstr "Черга завантажень"
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:710 ../ui/hub.ui:221
+#: ../ui/search.ui:710 ../ui/privatemessage.ui:178 ../ui/hub.ui:221
 #, fuzzy
 msgid "Download _to..."
 msgstr "Завантажити _до..."
@@ -1166,8 +1165,8 @@ msgstr "Завантаження завершене..."
 msgid "Download failed: "
 msgstr "Завантаження не вдалося: "
 
-#: ../src/transfers.cc:1085 ../src/settingsdialog.cc:1055
-#: ../src/settingsdialog.cc:1223 ../src/settingsmanager.cc:235
+#: ../src/settingsdialog.cc:1055 ../src/settingsdialog.cc:1223
+#: ../src/transfers.cc:1085 ../src/settingsmanager.cc:235
 msgid "Download finished"
 msgstr "Завантаження завершено"
 
@@ -1351,11 +1350,11 @@ msgstr "Помилки"
 msgid "Every time a private message is received"
 msgstr "Кожного разу, коли повідомлення отримано"
 
-#: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
-#: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386 ../src/search.cc:94
+#: ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
+#: ../src/sharebrowser.cc:287 ../src/sharebrowser.cc:318 ../src/search.cc:94
 #: ../src/search.cc:117 ../src/search.cc:601 ../src/search.cc:678
-#: ../src/search.cc:687 ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
-#: ../src/sharebrowser.cc:287 ../src/sharebrowser.cc:318
+#: ../src/search.cc:687 ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
+#: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386
 msgid "Exact Size"
 msgstr "Точний розмір"
 
@@ -1449,9 +1448,9 @@ msgstr "Прийшов обраний користувач"
 msgid "Favorite user quit"
 msgstr "Вийшов обраний користувач"
 
-#: ../src/settingsdialog.cc:345 ../src/settingsdialog.cc:1039
-#: ../src/settingsdialog.cc:1304 ../src/settingsdialog.cc:2713
-#: ../src/settingsdialog.cc:2732 ../src/UserCommandMenu.cc:68
+#: ../src/UserCommandMenu.cc:68 ../src/settingsdialog.cc:345
+#: ../src/settingsdialog.cc:1039 ../src/settingsdialog.cc:1304
+#: ../src/settingsdialog.cc:2713 ../src/settingsdialog.cc:2732
 msgid "File"
 msgstr "Файл"
 
@@ -1480,21 +1479,21 @@ msgstr "Тип файла"
 msgid "Filelist Menu"
 msgstr "Меню списку файлів"
 
-#: ../src/downloadqueue.cc:65 ../src/downloadqueue.cc:89
-#: ../src/downloadqueue.cc:90 ../src/downloadqueue.cc:275
-#: ../src/downloadqueue.cc:382 ../src/downloadqueue.cc:748
-#: ../src/downloadqueue.cc:791 ../src/downloadqueue.cc:842
-#: ../src/transfers.cc:62 ../src/transfers.cc:713
+#: ../src/sharebrowser.cc:75 ../src/sharebrowser.cc:91
+#: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:279
+#: ../src/sharebrowser.cc:309 ../src/sharebrowser.cc:513
+#: ../src/sharebrowser.cc:607 ../src/sharebrowser.cc:970
+#: ../src/sharebrowser.cc:1004 ../src/search.cc:86 ../src/search.cc:119
+#: ../src/search.cc:344 ../src/search.cc:594 ../src/search.cc:635
+#: ../src/search.cc:640 ../src/search.cc:808 ../src/search.cc:856
+#: ../src/search.cc:866 ../src/search.cc:1179 ../src/search.cc:1218
+#: ../src/search.cc:1275 ../src/search.cc:1579 ../src/search.cc:1892
 #: ../src/finishedtransfers.cc:57 ../src/finishedtransfers.cc:231
-#: ../src/search.cc:86 ../src/search.cc:119 ../src/search.cc:344
-#: ../src/search.cc:594 ../src/search.cc:635 ../src/search.cc:640
-#: ../src/search.cc:808 ../src/search.cc:856 ../src/search.cc:866
-#: ../src/search.cc:1179 ../src/search.cc:1218 ../src/search.cc:1275
-#: ../src/search.cc:1579 ../src/search.cc:1892 ../src/sharebrowser.cc:75
-#: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:93
-#: ../src/sharebrowser.cc:279 ../src/sharebrowser.cc:309
-#: ../src/sharebrowser.cc:513 ../src/sharebrowser.cc:607
-#: ../src/sharebrowser.cc:970 ../src/sharebrowser.cc:1004
+#: ../src/transfers.cc:62 ../src/transfers.cc:713 ../src/downloadqueue.cc:65
+#: ../src/downloadqueue.cc:89 ../src/downloadqueue.cc:90
+#: ../src/downloadqueue.cc:275 ../src/downloadqueue.cc:382
+#: ../src/downloadqueue.cc:748 ../src/downloadqueue.cc:791
+#: ../src/downloadqueue.cc:842
 msgid "Filename"
 msgstr "Ім'я файлу"
 
@@ -1502,7 +1501,7 @@ msgstr "Ім'я файлу"
 msgid "Files"
 msgstr "Файли"
 
-#: ../src/downloadqueue.cc:238 ../src/sharebrowser.cc:337
+#: ../src/sharebrowser.cc:337 ../src/downloadqueue.cc:238
 msgid "Files: "
 msgstr "Файли: "
 
@@ -1527,16 +1526,16 @@ msgstr "Знайдено"
 msgid "Find files"
 msgstr "Знайдено файлів"
 
-#: ../src/settingsdialog.cc:1023 ../src/settingsdialog.cc:1291
-#: ../src/settingsdialog.cc:1365 ../src/settingsdialog.cc:1406
-#: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1206
+#: ../src/finishedtransfers.cc:35 ../src/settingsdialog.cc:1023
+#: ../src/settingsdialog.cc:1291 ../src/settingsdialog.cc:1365
+#: ../src/settingsdialog.cc:1406 ../ui/mainwindow.ui:1206
 #: ../ui/mainwindow.ui:2212 ../ui/mainwindow.ui:2462
 msgid "Finished Downloads"
 msgstr "Завершені Завантаження"
 
-#: ../src/settingsdialog.cc:1024 ../src/settingsdialog.cc:1292
-#: ../src/settingsdialog.cc:1367 ../src/settingsdialog.cc:1407
-#: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1217
+#: ../src/finishedtransfers.cc:40 ../src/settingsdialog.cc:1024
+#: ../src/settingsdialog.cc:1292 ../src/settingsdialog.cc:1367
+#: ../src/settingsdialog.cc:1407 ../ui/mainwindow.ui:1217
 #: ../ui/mainwindow.ui:2229 ../ui/mainwindow.ui:2470
 msgid "Finished Uploads"
 msgstr "Завершені Віддачі"
@@ -1570,7 +1569,7 @@ msgstr "Знайдено співпадінь"
 msgid "Frame (size)"
 msgstr "Кадр (розмір)"
 
-#: ../ui/searchspy.ui:326 ../ui/settingsdialog.ui:6205
+#: ../ui/settingsdialog.ui:6205 ../ui/searchspy.ui:326
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
@@ -1667,13 +1666,13 @@ msgstr "Найвищий"
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
-#: ../src/settingsdialog.cc:1498 ../src/settingsdialog.cc:1508
-#: ../src/settingsdialog.cc:3123 ../src/settingsdialog.cc:3197
-#: ../src/settingsdialog.cc:3748 ../src/settingsdialog.cc:3839
-#: ../src/settingsdialog.cc:3862 ../src/settingsdialog.cc:3881
-#: ../src/finishedtransfers.cc:79 ../src/finishedtransfers.cc:188
 #: ../src/search.cc:93 ../src/search.cc:600 ../src/search.cc:697
-#: ../src/search.cc:826
+#: ../src/search.cc:826 ../src/finishedtransfers.cc:79
+#: ../src/finishedtransfers.cc:188 ../src/settingsdialog.cc:1498
+#: ../src/settingsdialog.cc:1508 ../src/settingsdialog.cc:3123
+#: ../src/settingsdialog.cc:3197 ../src/settingsdialog.cc:3748
+#: ../src/settingsdialog.cc:3839 ../src/settingsdialog.cc:3862
+#: ../src/settingsdialog.cc:3881
 msgid "Hub"
 msgstr "Хаб"
 
@@ -1709,7 +1708,7 @@ msgstr "З'єднано з хабом"
 msgid "Hub disconnected"
 msgstr "Розз'єднано з хабом"
 
-#: ../ui/search.ui:495 ../ui/mainwindow.ui:2119 ../ui/mainwindow.ui:2374
+#: ../ui/mainwindow.ui:2119 ../ui/mainwindow.ui:2374 ../ui/search.ui:495
 msgid "Hubs"
 msgstr "Хаби"
 
@@ -1721,7 +1720,7 @@ msgstr "Хаби (норм./зареєст./опер.)"
 msgid "Hubs: "
 msgstr "Хаби: "
 
-#: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:602
+#: ../src/search.cc:95 ../src/search.cc:602 ../src/transfers.cc:65
 msgid "IP"
 msgstr "IP"
 
@@ -1812,7 +1811,7 @@ msgstr ""
 msgid "Ipfilter on/off"
 msgstr ""
 
-#: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:342
+#: ../src/sharebrowser.cc:342 ../src/downloadqueue.cc:236
 msgid "Items: "
 msgstr "Пунктів: "
 
@@ -2083,6 +2082,7 @@ msgstr "Моє повідомлдення"
 msgid "N_ick:"
 msgstr "Н_ік:"
 
+#: ../src/search.cc:73 ../src/search.cc:232 ../src/search.cc:248
 #: ../src/settingsdialog.cc:652 ../src/settingsdialog.cc:661
 #: ../src/settingsdialog.cc:888 ../src/settingsdialog.cc:923
 #: ../src/settingsdialog.cc:1266 ../src/settingsdialog.cc:1320
@@ -2099,8 +2099,7 @@ msgstr "Н_ік:"
 #: ../src/favoritehubs.cc:74 ../src/favoritehubs.cc:75
 #: ../src/favoritehubs.cc:124 ../src/favoritehubs.cc:297
 #: ../src/favoritehubs.cc:422 ../src/publichubs.cc:41 ../src/publichubs.cc:156
-#: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:232
-#: ../src/search.cc:248 ../ui/settingsdialog.ui:714
+#: ../src/publichubs.cc:292 ../ui/settingsdialog.ui:714
 msgid "Name"
 msgstr "Ім'я"
 
@@ -2134,11 +2133,11 @@ msgstr "Наступний"
 #: ../src/hub.cc:2630 ../src/hub.cc:2669 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
-#: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583
-#: ../src/favoritehubs.cc:56 ../src/favoritehubs.cc:126
-#: ../src/favoritehubs.cc:300 ../src/finishedtransfers.cc:78
-#: ../src/finishedtransfers.cc:187 ../src/search.cc:87 ../src/search.cc:593
-#: ../src/search.cc:659 ../src/search.cc:693 ../src/search.cc:823
+#: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583 ../src/search.cc:87
+#: ../src/search.cc:593 ../src/search.cc:659 ../src/search.cc:693
+#: ../src/search.cc:823 ../src/finishedtransfers.cc:78
+#: ../src/finishedtransfers.cc:187 ../src/favoritehubs.cc:56
+#: ../src/favoritehubs.cc:126 ../src/favoritehubs.cc:300
 #: ../ui/settingsdialog.ui:1152
 msgid "Nick"
 msgstr "Нік"
@@ -2213,7 +2212,7 @@ msgstr ""
 msgid "Notify"
 msgstr "Сповіщення"
 
-#: ../ui/searchspy.ui:268 ../ui/settingsdialog.ui:6287
+#: ../ui/settingsdialog.ui:6287 ../ui/searchspy.ui:268
 msgid "Number of matches for the top"
 msgstr "Кількість співпадінь для додання в топ"
 
@@ -2307,13 +2306,13 @@ msgstr "Пасивний користувач"
 msgid "Password"
 msgstr "Пароль"
 
-#: ../src/downloadqueue.cc:71 ../src/downloadqueue.cc:284
-#: ../src/downloadqueue.cc:391 ../src/transfers.cc:64 ../src/transfers.cc:714
-#: ../src/finishedtransfers.cc:58 ../src/finishedtransfers.cc:232
-#: ../src/finishedtransfers.cc:502 ../src/search.cc:90 ../src/search.cc:345
-#: ../src/search.cc:597 ../src/search.cc:674 ../src/search.cc:811
-#: ../src/search.cc:865 ../src/search.cc:1178 ../src/search.cc:1217
-#: ../src/search.cc:1274 ../src/search.cc:1336 ../src/search.cc:1893
+#: ../src/search.cc:90 ../src/search.cc:345 ../src/search.cc:597
+#: ../src/search.cc:674 ../src/search.cc:811 ../src/search.cc:865
+#: ../src/search.cc:1178 ../src/search.cc:1217 ../src/search.cc:1274
+#: ../src/search.cc:1336 ../src/search.cc:1893 ../src/finishedtransfers.cc:58
+#: ../src/finishedtransfers.cc:232 ../src/finishedtransfers.cc:502
+#: ../src/transfers.cc:64 ../src/transfers.cc:714 ../src/downloadqueue.cc:71
+#: ../src/downloadqueue.cc:284 ../src/downloadqueue.cc:391
 msgid "Path"
 msgstr "Шлях"
 
@@ -2370,8 +2369,8 @@ msgstr "Зумовлено"
 msgid "Preferences"
 msgstr "Налаштування"
 
-#: ../ui/finishedtransfers.ui:156 ../ui/settingsdialog.ui:3950
-#: ../ui/transfers.ui:110
+#: ../ui/transfers.ui:110 ../ui/settingsdialog.ui:3950
+#: ../ui/finishedtransfers.ui:156
 msgid "Preview"
 msgstr "Передперегляд"
 
@@ -2517,7 +2516,7 @@ msgstr "Видаляти повільні списки файлів"
 msgid "Remove user favorite"
 msgstr "Видалити користувача з обраних"
 
-#: ../ui/downloadqueue.ui:345 ../ui/search.ui:822
+#: ../ui/search.ui:822 ../ui/downloadqueue.ui:345
 #, fuzzy
 msgid "Remove user from _queue"
 msgstr "Видалити користувача з _черги"
@@ -2554,13 +2553,12 @@ msgstr "SJIS"
 msgid "Say a third person"
 msgstr "Сказати від третьої особи"
 
-#: ../src/settingsdialog.cc:1028 ../src/settingsdialog.cc:1299
-#: ../src/settingsdialog.cc:1357 ../src/search.cc:41 ../src/search.cc:72
-#: ../src/search.cc:79 ../src/search.cc:231 ../src/search.cc:429
-#: ../src/search.cc:1060 ../src/search.cc:1061 ../src/search.cc:1871
-#: ../ui/searchspy.ui:94 ../ui/searchspy.ui:402 ../ui/mainwindow.ui:1156
-#: ../ui/mainwindow.ui:2152 ../ui/mainwindow.ui:2430
-#: ../ui/settingsdialog.ui:7999
+#: ../src/search.cc:41 ../src/search.cc:72 ../src/search.cc:79
+#: ../src/search.cc:231 ../src/search.cc:429 ../src/search.cc:1060
+#: ../src/search.cc:1061 ../src/search.cc:1871 ../src/settingsdialog.cc:1028
+#: ../src/settingsdialog.cc:1299 ../src/settingsdialog.cc:1357
+#: ../ui/mainwindow.ui:1156 ../ui/mainwindow.ui:2152 ../ui/mainwindow.ui:2430
+#: ../ui/settingsdialog.ui:7999 ../ui/searchspy.ui:94 ../ui/searchspy.ui:402
 msgid "Search"
 msgstr "Пошук"
 
@@ -2643,7 +2641,7 @@ msgstr "Виберіть список файлів"
 msgid "Send PM when double clicked in the user list"
 msgstr "Відсилати ПП при подвійному кліку на користувачі у списку"
 
-#: ../ui/downloadqueue.ui:297 ../ui/search.ui:795
+#: ../ui/search.ui:795 ../ui/downloadqueue.ui:297
 #, fuzzy
 msgid "Send _private message"
 msgstr "Надіслати _приватне повідомлення"
@@ -2774,21 +2772,21 @@ msgstr "Показати/приховати список юзерів"
 msgid "Shutting down libdcpp..."
 msgstr "Вимкнути libdcpp..."
 
+#: ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
+#: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317 ../src/search.cc:89
+#: ../src/search.cc:116 ../src/search.cc:596 ../src/search.cc:679
+#: ../src/search.cc:688 ../src/search.cc:814 ../src/settingsdialog.cc:970
+#: ../src/settingsdialog.cc:976 ../src/settingsdialog.cc:3576
+#: ../src/settingsdialog.cc:3645 ../src/transfers.cc:63
+#: ../src/transfers.cc:545 ../src/transfers.cc:715 ../src/transfers.cc:727
 #: ../src/downloadqueue.cc:67 ../src/downloadqueue.cc:86
 #: ../src/downloadqueue.cc:278 ../src/downloadqueue.cc:385
-#: ../src/transfers.cc:63 ../src/transfers.cc:545 ../src/transfers.cc:715
-#: ../src/transfers.cc:727 ../src/settingsdialog.cc:970
-#: ../src/settingsdialog.cc:976 ../src/settingsdialog.cc:3576
-#: ../src/settingsdialog.cc:3645 ../src/search.cc:89 ../src/search.cc:116
-#: ../src/search.cc:596 ../src/search.cc:679 ../src/search.cc:688
-#: ../src/search.cc:814 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
-#: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317 ../ui/search.ui:237
-#: ../ui/mainwindow.ui:118
+#: ../ui/mainwindow.ui:118 ../ui/search.ui:237
 msgid "Size"
 msgstr "Розмір"
 
-#: ../src/downloadqueue.cc:237 ../src/downloadqueue.cc:239
-#: ../src/sharebrowser.cc:343
+#: ../src/sharebrowser.cc:343 ../src/downloadqueue.cc:237
+#: ../src/downloadqueue.cc:239
 msgid "Size: "
 msgstr "Розмір: "
 
@@ -2849,10 +2847,10 @@ msgstr "Тип джерела"
 msgid "Source too slow"
 msgstr "Надто повільне джерело"
 
+#: ../src/finishedtransfers.cc:61 ../src/finishedtransfers.cc:82
+#: ../src/finishedtransfers.cc:191 ../src/finishedtransfers.cc:235
 #: ../src/transfers.cc:61 ../src/transfers.cc:558 ../src/transfers.cc:594
-#: ../src/transfers.cc:764 ../src/finishedtransfers.cc:61
-#: ../src/finishedtransfers.cc:82 ../src/finishedtransfers.cc:191
-#: ../src/finishedtransfers.cc:235
+#: ../src/transfers.cc:764
 msgid "Speed"
 msgstr "Швидкість"
 
@@ -2868,11 +2866,11 @@ msgstr "Почати пошук файлу"
 msgid "State of preparedness"
 msgstr "Стан готовності"
 
-#: ../src/downloadqueue.cc:66 ../src/downloadqueue.cc:277
-#: ../src/downloadqueue.cc:384 ../src/searchspy.cc:57 ../src/searchspy.cc:295
-#: ../src/searchspy.cc:377 ../src/transfers.cc:59 ../src/transfers.cc:370
-#: ../src/transfers.cc:403 ../src/transfers.cc:497 ../src/transfers.cc:586
-#: ../src/transfers.cc:596 ../src/transfers.cc:762
+#: ../src/searchspy.cc:57 ../src/searchspy.cc:295 ../src/searchspy.cc:377
+#: ../src/transfers.cc:59 ../src/transfers.cc:370 ../src/transfers.cc:403
+#: ../src/transfers.cc:497 ../src/transfers.cc:586 ../src/transfers.cc:596
+#: ../src/transfers.cc:762 ../src/downloadqueue.cc:66
+#: ../src/downloadqueue.cc:277 ../src/downloadqueue.cc:384
 msgid "Status"
 msgstr "Статус"
 
@@ -2896,15 +2894,15 @@ msgstr "Системне повідомлення"
 msgid "TIS-620"
 msgstr "TIS-620"
 
-#: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:287
-#: ../src/downloadqueue.cc:394 ../src/downloadqueue.cc:722
-#: ../src/downloadqueue.cc:750 ../src/search.cc:96 ../src/search.cc:347
-#: ../src/search.cc:351 ../src/search.cc:357 ../src/search.cc:603
-#: ../src/search.cc:690 ../src/search.cc:820 ../src/search.cc:871
-#: ../src/search.cc:1140 ../src/search.cc:1305 ../src/search.cc:1581
 #: ../src/sharebrowser.cc:78 ../src/sharebrowser.cc:291
 #: ../src/sharebrowser.cc:321 ../src/sharebrowser.cc:516
-#: ../src/sharebrowser.cc:972 ../src/sharebrowser.cc:1006
+#: ../src/sharebrowser.cc:972 ../src/sharebrowser.cc:1006 ../src/search.cc:96
+#: ../src/search.cc:347 ../src/search.cc:351 ../src/search.cc:357
+#: ../src/search.cc:603 ../src/search.cc:690 ../src/search.cc:820
+#: ../src/search.cc:871 ../src/search.cc:1140 ../src/search.cc:1305
+#: ../src/search.cc:1581 ../src/downloadqueue.cc:75
+#: ../src/downloadqueue.cc:287 ../src/downloadqueue.cc:394
+#: ../src/downloadqueue.cc:722 ../src/downloadqueue.cc:750
 #: ../ui/mainwindow.ui:132
 msgid "TTH"
 msgstr "ТТН"
@@ -2933,7 +2931,7 @@ msgstr "Колір тексту"
 msgid "Text style"
 msgstr "Стиль тексту"
 
-#: ../ui/searchspy.ui:297 ../ui/settingsdialog.ui:6246
+#: ../ui/settingsdialog.ui:6246 ../ui/searchspy.ui:297
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
@@ -2953,12 +2951,12 @@ msgstr "Тема за замовчуванням"
 msgid "Themes"
 msgstr "Теми"
 
+#: ../src/finishedtransfers.cc:56 ../src/finishedtransfers.cc:70
+#: ../src/finishedtransfers.cc:71 ../src/finishedtransfers.cc:77
+#: ../src/finishedtransfers.cc:90 ../src/finishedtransfers.cc:91
+#: ../src/finishedtransfers.cc:186 ../src/finishedtransfers.cc:230
 #: ../src/searchspy.cc:56 ../src/searchspy.cc:269 ../src/searchspy.cc:294
-#: ../src/searchspy.cc:310 ../src/finishedtransfers.cc:56
-#: ../src/finishedtransfers.cc:70 ../src/finishedtransfers.cc:71
-#: ../src/finishedtransfers.cc:77 ../src/finishedtransfers.cc:90
-#: ../src/finishedtransfers.cc:91 ../src/finishedtransfers.cc:186
-#: ../src/finishedtransfers.cc:230
+#: ../src/searchspy.cc:310
 msgid "Time"
 msgstr "Час"
 
@@ -3173,9 +3171,9 @@ msgstr ""
 msgid "Trusted certificates path"
 msgstr "Шлях до довір. сертиф."
 
-#: ../src/search.cc:88 ../src/search.cc:598 ../src/search.cc:702
-#: ../src/search.cc:829 ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289
-#: ../src/sharebrowser.cc:310
+#: ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289
+#: ../src/sharebrowser.cc:310 ../src/search.cc:88 ../src/search.cc:598
+#: ../src/search.cc:702 ../src/search.cc:829
 msgid "Type"
 msgstr "Тип"
 
@@ -3214,8 +3212,8 @@ msgstr ""
 msgid "Unfinished downloads directory"
 msgstr "Тека незавершених завантажень"
 
-#: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
 #: ../src/WulforUtil.cc:318 ../src/WulforUtil.cc:320
+#: ../src/downloadqueue.cc:1295 ../src/downloadqueue.cc:1296
 msgid "Unknown"
 msgstr "Невідомо"
 
@@ -3363,7 +3361,7 @@ msgstr "Команди Користувача"
 msgid "User Description"
 msgstr "Опис"
 
-#: ../ui/sharebrowser.ui:109 ../ui/sharebrowser.ui:182 ../ui/transfers.ui:90
+#: ../ui/transfers.ui:90 ../ui/sharebrowser.ui:109 ../ui/sharebrowser.ui:182
 #, fuzzy
 msgid "User commands"
 msgstr "Команди користувача"
@@ -3412,10 +3410,10 @@ msgstr "Користувач пішов"
 msgid "Username"
 msgstr "Логін"
 
-#: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
-#: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
-#: ../src/publichubs.cc:58 ../src/publichubs.cc:158 ../ui/mainwindow.ui:2135
-#: ../ui/mainwindow.ui:2382
+#: ../src/publichubs.cc:43 ../src/publichubs.cc:57 ../src/publichubs.cc:58
+#: ../src/publichubs.cc:158 ../src/downloadqueue.cc:70
+#: ../src/downloadqueue.cc:276 ../src/downloadqueue.cc:383
+#: ../ui/mainwindow.ui:2135 ../ui/mainwindow.ui:2382
 msgid "Users"
 msgstr "Користувачі"
 
@@ -3546,7 +3544,7 @@ msgstr "[U]"
 msgid "[Z]"
 msgstr "[Z]"
 
-#: ../ui/search.ui:804 ../ui/hub.ui:578 ../ui/transfers.ui:63
+#: ../ui/search.ui:804 ../ui/transfers.ui:63 ../ui/hub.ui:578
 #, fuzzy
 msgid "_Add to favorites"
 msgstr "_Додати хаб до обраних"
@@ -3555,8 +3553,8 @@ msgstr "_Додати хаб до обраних"
 msgid "_Address:"
 msgstr "_Адреса:"
 
-#: ../ui/downloadqueue.ui:283 ../ui/search.ui:777 ../ui/hub.ui:545
-#: ../ui/favoriteusers.ui:159 ../ui/transfers.ui:36
+#: ../ui/favoriteusers.ui:159 ../ui/search.ui:777 ../ui/transfers.ui:36
+#: ../ui/hub.ui:545 ../ui/downloadqueue.ui:283
 #, fuzzy
 msgid "_Browse file list"
 msgstr "_Список файлів"
@@ -3574,8 +3572,8 @@ msgstr "_Закрити віджет"
 msgid "_Copy link"
 msgstr "_Копіювати посилання"
 
-#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:762
-#: ../ui/hub.ui:244 ../ui/sharebrowser.ui:164
+#: ../ui/search.ui:762 ../ui/privatemessage.ui:201 ../ui/hub.ui:244
+#: ../ui/downloadqueue.ui:191 ../ui/sharebrowser.ui:164
 msgid "_Copy magnet"
 msgstr "_Копіювати магнет"
 
@@ -3592,7 +3590,7 @@ msgstr "_Копіювати картинку"
 msgid "_Description:"
 msgstr "_Опис:"
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:701 ../ui/hub.ui:212
+#: ../ui/search.ui:701 ../ui/privatemessage.ui:169 ../ui/hub.ui:212
 #, fuzzy
 msgid "_Download"
 msgstr "_Завантажити"
@@ -3619,7 +3617,7 @@ msgstr "_Примусово"
 msgid "_Grant extra slot"
 msgstr "_Виділити екстра слот"
 
-#: ../ui/hub.ui:602 ../ui/favoriteusers.ui:186
+#: ../ui/favoriteusers.ui:186 ../ui/hub.ui:602
 #, fuzzy
 msgid "_Grant slot"
 msgstr "_Виділити слот"
@@ -3650,7 +3648,7 @@ msgstr "_Властивості магнетів"
 msgid "_Match Queue"
 msgstr "_Співпадіння Черги"
 
-#: ../ui/hub.ui:554 ../ui/favoriteusers.ui:168 ../ui/transfers.ui:45
+#: ../ui/favoriteusers.ui:168 ../ui/transfers.ui:45 ../ui/hub.ui:554
 #, fuzzy
 msgid "_Match queue"
 msgstr "_Співпадіння черги"
@@ -3703,7 +3701,7 @@ msgstr "_Налаштування"
 msgid "_Previous widget"
 msgstr "_Попередній віджет"
 
-#: ../ui/hub.ui:563 ../ui/favoriteusers.ui:177
+#: ../ui/favoriteusers.ui:177 ../ui/hub.ui:563
 #, fuzzy
 msgid "_Private message"
 msgstr "_Приватне повідомлення"
@@ -3721,9 +3719,9 @@ msgstr "_Швидке з'єднання"
 msgid "_Refresh file list"
 msgstr "_Оновити список файлів"
 
-#: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
-#: ../ui/downloadqueue.ui:359 ../ui/search.ui:851 ../ui/searchspy.ui:108
-#: ../ui/searchspy.ui:417 ../ui/favoriteusers.ui:228
+#: ../ui/favoriteusers.ui:228 ../ui/adlsearch.ui:553 ../ui/search.ui:851
+#: ../ui/downloadqueue.ui:170 ../ui/downloadqueue.ui:359
+#: ../ui/searchspy.ui:108 ../ui/searchspy.ui:417
 msgid "_Remove"
 msgstr "_Видалити"
 
@@ -3731,7 +3729,7 @@ msgstr "_Видалити"
 msgid "_Remove from favorites"
 msgstr "_Видалити з обраних"
 
-#: ../ui/hub.ui:611 ../ui/favoriteusers.ui:195 ../ui/transfers.ui:81
+#: ../ui/favoriteusers.ui:195 ../ui/transfers.ui:81 ../ui/hub.ui:611
 #, fuzzy
 msgid "_Remove user from queue"
 msgstr "_Видалити користувача з черги"
@@ -3836,8 +3834,8 @@ msgstr "сайт проекту: "
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr ""
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2204
-#: ../src/mainwindow.cc:2206 ../ui/settingsdialog.ui:3519
+#: ../src/mainwindow.cc:2204 ../src/mainwindow.cc:2206 ../src/hashdialog.cc:79
+#: ../src/treeview.cc:212 ../ui/settingsdialog.ui:3519
 #: ../ui/settingsdialog.ui:3535 ../ui/settingsdialog.ui:3581
 msgid "s"
 msgstr "с"

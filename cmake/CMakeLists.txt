@@ -72,6 +72,8 @@ if(UPDATE_PO)
 				--from-code=UTF-8
 				--keyword=_
 				--keyword=N_
+				--keyword=F_
+				--keyword=F_:2 --flag=F_:2:pass-c-format
 				--keyword=FN_
 				--output=${dcpp_SOURCE_DIR}/po/libeiskaltdcpp.pot
 			# replace the chartype
@@ -93,6 +95,8 @@ if(UPDATE_PO)
 				--from-code=UTF-8
 				--keyword=_
 				--keyword=N_
+				--keyword=F_
+				--keyword=F_:2 --flag=F_:2:pass-c-format
 				--keyword=FN_
 				--output="${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.cpp.pot"
 			# replace the chartype
