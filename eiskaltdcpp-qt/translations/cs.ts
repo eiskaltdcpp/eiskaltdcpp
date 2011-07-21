@@ -3227,13 +3227,13 @@ Staženo: %3 Odesláno: %4</translation>
         <translation>Nenalezena korektní IP pro SOCKS5 server!</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="154"/>
-        <location filename="../src/SettingsConnection.cpp" line="162"/>
+        <location filename="../src/SettingsConnection.cpp" line="157"/>
+        <location filename="../src/SettingsConnection.cpp" line="165"/>
         <source>Program need root privileges to open ports less than 1024</source>
         <translation>Program potřebuje práva root uživatele pro otevření portů nižších než 1024</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="349"/>
+        <location filename="../src/SettingsConnection.cpp" line="352"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>

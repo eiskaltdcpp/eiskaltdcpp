@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
-"Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-07-17 15:00+0300\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
+"POT-Creation-Date: 2011-07-21 19:34+0300\n"
 "PO-Revision-Date: 2010-07-30 00:09+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -27,11 +27,6 @@ msgstr "Redirect user(s)"
 
 #: ../FavoriteManager.cpp:489
 msgid "Auto-connect group (converted)"
-msgstr ""
-
-#: ../Socket.cpp:79
-#, c-format
-msgid "Unknown error: 0x%1$x"
 msgstr ""
 
 #: ../Socket.cpp:214 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
@@ -97,11 +92,6 @@ msgstr ""
 msgid "Determining the best connectivity settings..."
 msgstr ""
 
-#: ../ConnectivityManager.cpp:83
-msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-
 #: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
@@ -136,16 +126,8 @@ msgstr ""
 msgid "Connectivity: "
 msgstr "Connectivity restored"
 
-#: ../UploadManager.cpp:238
-msgid "Unable to send file %1%: %2%"
-msgstr ""
-
 #: ../UploadManager.cpp:516
 msgid "IPFilter: Blocked incoming connection to "
-msgstr ""
-
-#: ../UploadManager.cpp:579
-msgid "Disconnected user leaving the hub: %1%"
 msgstr ""
 
 #: ../SettingsManager.cpp:181
@@ -180,18 +162,8 @@ msgstr ""
 msgid "Error: params have been not 2!"
 msgstr ""
 
-#: ../NmdcHub.cpp:293
-msgid "%1% (Nick unknown)"
-msgstr ""
-
 #: ../NmdcHub.cpp:672
 msgid "Hub topic:"
-msgstr ""
-
-#: ../NmdcHub.cpp:1024
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
 msgstr ""
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
@@ -199,14 +171,6 @@ msgstr ""
 #: ../QueueManager.cpp:2169 ../QueueManager.cpp:2175 ../QueueManager.cpp:2181
 msgid "Offline"
 msgstr "Offline"
-
-#: ../AdcHub.cpp:156
-msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr ""
-
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2198
-msgid "%1%/s"
-msgstr ""
 
 #: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
@@ -219,22 +183,6 @@ msgid ""
 msgstr ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-
-#: ../AdcHub.cpp:305
-msgid "%1% was kicked by %2%: %3%"
-msgstr ""
-
-#: ../AdcHub.cpp:308
-msgid "%1% was kicked: %2%"
-msgstr ""
-
-#: ../AdcHub.cpp:680
-msgid "Not listening for connections - please restart %1%"
-msgstr ""
-
-#: ../HttpConnection.cpp:166
-msgid "Endless redirection loop (%1%)"
-msgstr ""
 
 #: ../ChatMessage.cpp:33
 msgid "Sent "
@@ -291,47 +239,13 @@ msgstr "Error during compression"
 msgid "Error during decompression"
 msgstr "Error during decompression"
 
-#: ../HashManager.cpp:87 ../HashManager.cpp:287
-msgid "Hashing failed: %1%"
-msgstr ""
-
-#: ../HashManager.cpp:94
-msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr ""
-
-#: ../HashManager.cpp:97
-msgid "Finished hashing: %1% (%2%)"
-msgstr ""
-
-#: ../HashManager.cpp:100
-msgid "Finished hashing: %1%"
-msgstr ""
-
-#: ../HashManager.cpp:129 ../HashManager.cpp:343
-msgid "Error saving hash data: %1%"
-msgstr ""
-
 #: ../HashManager.cpp:142
 msgid "Unable to read hash data file"
-msgstr "Unable to read hash data file"
-
-#: ../HashManager.cpp:475
-#, fuzzy
-msgid "Error creating hash data file: %1%"
 msgstr "Unable to read hash data file"
 
 #: ../HashManager.cpp:801
 msgid "Hash database rebuilt"
 msgstr "Hash database rebuilt"
-
-#: ../HashManager.cpp:900
-msgid ""
-"%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-
-#: ../HashManager.cpp:905
-msgid "Error hashing %1%: %2%"
-msgstr ""
 
 #: ../UPnPManager.cpp:45
 #, fuzzy
@@ -342,38 +256,6 @@ msgstr "File not available"
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
-#: ../UPnPManager.cpp:81
-#, fuzzy
-msgid "Failed to initialize the %1% interface"
-msgstr "File list refresh initiated"
-
-#: ../UPnPManager.cpp:85
-msgid " Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
-#: ../UPnPManager.cpp:101
-msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr ""
-
-#: ../UPnPManager.cpp:90
-msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:95
-msgid " Search Port (%1% UDP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:100
-msgid " DHT Port (%1% UDP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:107
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-msgstr ""
-
 #: ../UPnPManager.cpp:118
 msgid "Failed to get external IP"
 msgstr ""
@@ -382,19 +264,6 @@ msgstr ""
 #, fuzzy
 msgid "Failed to create port mappings"
 msgstr "Unable to create thread"
-
-#: ../UPnPManager.cpp:137
-msgid "Successfully removed port mappings with the %1% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:138
-#, fuzzy
-msgid "Failed to remove port mappings with the %1% interface"
-msgstr "File list refresh initiated"
-
-#: ../UPnPManager.cpp:143
-msgid "UPnP: %1%"
-msgstr ""
 
 #: ../ShareManager.cpp:447
 msgid "No directory specified"
@@ -409,24 +278,6 @@ msgstr "Directory already shared"
 msgid "The temporary download directory cannot be shared"
 msgstr "The temporary download directory cannot be shared"
 
-#: ../ShareManager.cpp:643
-msgid "Invalid file name found while hashing folder %1%"
-msgstr ""
-
-#: ../ShareManager.cpp:661
-msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:682
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:770
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr ""
-
 #: ../ShareManager.cpp:792
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
@@ -435,11 +286,6 @@ msgstr ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
 
-#: ../ShareManager.cpp:813
-#, fuzzy
-msgid "File list refresh failed: %1%"
-msgstr "File list refresh finished"
-
 #: ../ShareManager.cpp:835
 msgid "File list refresh initiated"
 msgstr "File list refresh initiated"
@@ -447,11 +293,6 @@ msgstr "File list refresh initiated"
 #: ../ShareManager.cpp:860
 msgid "File list refresh finished"
 msgstr "File list refresh finished"
-
-#: ../ShareManager.cpp:942
-#, fuzzy
-msgid "File list %1% generated"
-msgstr "File list refresh initiated"
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -497,11 +338,6 @@ msgstr "TLS disabled, no certificate file set"
 msgid "Generated new TLS certificate"
 msgstr "Generated new TLS certificate"
 
-#: ../CryptoManager.cpp:222
-#, fuzzy
-msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "TLS disabled, no certificate file set"
-
 #: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
 #: ../CryptoManager.cpp:240
 msgid "Failed to load certificate file"
@@ -511,10 +347,6 @@ msgstr "Failed to load certificate file"
 #: ../CryptoManager.cpp:258
 msgid "Failed to load private key"
 msgstr "Failed to load private key"
-
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr ""
 
 #: ../DownloadManager.cpp:134
 msgid "IPFilter: Blocked outgoing connection to "
@@ -528,10 +360,6 @@ msgstr "Invalid size"
 msgid "Response does not match request"
 msgstr "Response does not match request"
 
-#: ../DownloadManager.cpp:241
-msgid "Could not open target file: %1%"
-msgstr ""
-
 #: ../DownloadManager.cpp:320
 msgid "Full tree does not match TTH root"
 msgstr "Full tree does not match TTH root"
@@ -540,22 +368,12 @@ msgstr "Full tree does not match TTH root"
 msgid "No slots available"
 msgstr "No slots available"
 
-#: ../DownloadManager.cpp:496
-#, fuzzy
-msgid "%1%: File not available"
-msgstr "File not available"
-
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
 msgstr "All download slots taken"
 
 #: ../ConnectionManager.cpp:248
 msgid "Connectivity restored"
-msgstr "Connectivity restored"
-
-#: ../ConnectionManager.cpp:256
-#, fuzzy
-msgid "Connectivity error: %1%"
 msgstr "Connectivity restored"
 
 #: ../SearchManager.cpp:36
@@ -602,17 +420,8 @@ msgstr ""
 msgid "Search enabled again"
 msgstr "Search enabled again"
 
-#: ../SearchManager.cpp:158
-#, fuzzy
-msgid "Search disabled: %1%"
-msgstr "Search enabled again"
-
 #: ../QueueManager.cpp:243
 msgid "No needed part"
-msgstr ""
-
-#: ../QueueManager.cpp:633
-msgid "Searching TTH alternates for: %1%"
 msgstr ""
 
 #: ../QueueManager.cpp:684 ../QueueManager.cpp:747
@@ -662,10 +471,6 @@ msgstr ""
 msgid "File already exists at the target location"
 msgstr "A file of equal or larger size already exists at the target location"
 
-#: ../QueueManager.cpp:879 ../QueueManager.cpp:883
-msgid "Duplicate source: %1%"
-msgstr ""
-
 #: ../QueueManager.cpp:1152
 msgid "Target removed"
 msgstr "Target removed"
@@ -673,18 +478,6 @@ msgstr "Target removed"
 #: ../QueueManager.cpp:1160
 msgid "Target file is missing or wrong size"
 msgstr "Target file is missing or wrong size"
-
-#: ../QueueManager.cpp:1209
-msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr ""
-
-#: ../QueueManager.cpp:1212
-msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-
-#: ../QueueManager.cpp:1410
-msgid "Unable to open filelist: %1%"
-msgstr ""
 
 #: ../QueueManager.cpp:1433
 msgid "%1%: Matched %2% file"
@@ -701,6 +494,42 @@ msgstr "More bytes written than requested"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "TTH inconsistency"
+
+#, fuzzy
+#~ msgid "Error creating hash data file: %1%"
+#~ msgstr "Unable to read hash data file"
+
+#, fuzzy
+#~ msgid "Failed to initialize the %1% interface"
+#~ msgstr "File list refresh initiated"
+
+#, fuzzy
+#~ msgid "Failed to remove port mappings with the %1% interface"
+#~ msgstr "File list refresh initiated"
+
+#, fuzzy
+#~ msgid "File list refresh failed: %1%"
+#~ msgstr "File list refresh finished"
+
+#, fuzzy
+#~ msgid "File list %1% generated"
+#~ msgstr "File list refresh initiated"
+
+#, fuzzy
+#~ msgid "TLS disabled, failed to generate certificate: %1%"
+#~ msgstr "TLS disabled, no certificate file set"
+
+#, fuzzy
+#~ msgid "%1%: File not available"
+#~ msgstr "File not available"
+
+#, fuzzy
+#~ msgid "Connectivity error: %1%"
+#~ msgstr "Connectivity restored"
+
+#, fuzzy
+#~ msgid "Search disabled: %1%"
+#~ msgstr "Search enabled again"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"

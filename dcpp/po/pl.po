@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
-"Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-07-17 15:00+0300\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
+"POT-Creation-Date: 2011-07-21 19:34+0300\n"
 "PO-Revision-Date: 2009-03-03 22:46+0000\n"
 "Last-Translator: LadyStardust <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,11 +29,6 @@ msgstr "Przekieruj użytkownika(ów)"
 #: ../FavoriteManager.cpp:489
 msgid "Auto-connect group (converted)"
 msgstr ""
-
-#: ../Socket.cpp:79
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Nieznany błąd: 0x%1$x"
 
 #: ../Socket.cpp:214 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
 #: ../ConnectionManager.cpp:186
@@ -100,11 +95,6 @@ msgstr ""
 msgid "Determining the best connectivity settings..."
 msgstr ""
 
-#: ../ConnectivityManager.cpp:83
-msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-
 #: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
@@ -139,17 +129,9 @@ msgstr ""
 msgid "Connectivity: "
 msgstr "Błąd łączenia: %1%"
 
-#: ../UploadManager.cpp:238
-msgid "Unable to send file %1%: %2%"
-msgstr "Niemożna wysłać pliku %1%: %2%"
-
 #: ../UploadManager.cpp:516
 msgid "IPFilter: Blocked incoming connection to "
 msgstr ""
-
-#: ../UploadManager.cpp:579
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Rozłączony użytkownik opuścił hub: %1%"
 
 #: ../SettingsManager.cpp:181
 msgid "downloaded from"
@@ -184,18 +166,8 @@ msgstr ""
 msgid "Error: params have been not 2!"
 msgstr ""
 
-#: ../NmdcHub.cpp:293
-msgid "%1% (Nick unknown)"
-msgstr "%1% (Nazwa użytkownika nieznana)"
-
 #: ../NmdcHub.cpp:672
 msgid "Hub topic:"
-msgstr ""
-
-#: ../NmdcHub.cpp:1024
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
 msgstr ""
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
@@ -203,14 +175,6 @@ msgstr ""
 #: ../QueueManager.cpp:2169 ../QueueManager.cpp:2175 ../QueueManager.cpp:2181
 msgid "Offline"
 msgstr "Niedostępny"
-
-#: ../AdcHub.cpp:156
-msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr "%1% (%2%) ma ten sam CID {%3%} jak %4% (%5%), ignoruję"
-
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2198
-msgid "%1%/s"
-msgstr "%1%/s"
 
 #: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
@@ -223,22 +187,6 @@ msgid ""
 msgstr ""
 "Hub najprawdopodobniej używa starszej wersji ADC, poproś właściciela o "
 "aktualizację"
-
-#: ../AdcHub.cpp:305
-msgid "%1% was kicked by %2%: %3%"
-msgstr "%1% został wykopany przez %2%: %3%"
-
-#: ../AdcHub.cpp:308
-msgid "%1% was kicked: %2%"
-msgstr "%1% został wykopany: %2%"
-
-#: ../AdcHub.cpp:680
-msgid "Not listening for connections - please restart %1%"
-msgstr "Nie nasłuchuje połączeń - uruchom ponownie %1%"
-
-#: ../HttpConnection.cpp:166
-msgid "Endless redirection loop (%1%)"
-msgstr ""
 
 #: ../ChatMessage.cpp:33
 msgid "Sent "
@@ -295,50 +243,13 @@ msgstr "Błąd podczas kompresji"
 msgid "Error during decompression"
 msgstr "Błąd podczas dekompresowania"
 
-#: ../HashManager.cpp:87 ../HashManager.cpp:287
-msgid "Hashing failed: %1%"
-msgstr "Hashowanie zakończone niepowodzeniem: %1%"
-
-#: ../HashManager.cpp:94
-#, fuzzy
-msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Zakończono hashowanie: %1% (%2%/s)"
-
-#: ../HashManager.cpp:97
-#, fuzzy
-msgid "Finished hashing: %1% (%2%)"
-msgstr "Zakończono hashowanie: %1% (%2%/s)"
-
-#: ../HashManager.cpp:100
-msgid "Finished hashing: %1%"
-msgstr "Zakończono hashowanie: %1%"
-
-#: ../HashManager.cpp:129 ../HashManager.cpp:343
-msgid "Error saving hash data: %1%"
-msgstr "Błąd zapisu danych hash: %1%"
-
 #: ../HashManager.cpp:142
 msgid "Unable to read hash data file"
 msgstr "Nie można odczytać pliku danych hash"
 
-#: ../HashManager.cpp:475
-msgid "Error creating hash data file: %1%"
-msgstr "Błąd tworzenia pliku danych hash: %1%"
-
 #: ../HashManager.cpp:801
 msgid "Hash database rebuilt"
 msgstr "Odbudowano bazę danych hashów"
-
-#: ../HashManager.cpp:900
-msgid ""
-"%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% nie udostępniono; suma kontrolna CRC32 nie odpowiada tej znalezionej w "
-"pliku SFV."
-
-#: ../HashManager.cpp:905
-msgid "Error hashing %1%: %2%"
-msgstr "Błąd hashowania %1%: %2%"
 
 #: ../UPnPManager.cpp:45
 #, fuzzy
@@ -349,38 +260,6 @@ msgstr "Plik niedostępny"
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
-#: ../UPnPManager.cpp:81
-#, fuzzy
-msgid "Failed to initialize the %1% interface"
-msgstr "Zainicjowano odświeżenie listy plików"
-
-#: ../UPnPManager.cpp:85
-msgid " Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
-#: ../UPnPManager.cpp:101
-msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr ""
-
-#: ../UPnPManager.cpp:90
-msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:95
-msgid " Search Port (%1% UDP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:100
-msgid " DHT Port (%1% UDP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:107
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-msgstr ""
-
 #: ../UPnPManager.cpp:118
 msgid "Failed to get external IP"
 msgstr ""
@@ -389,19 +268,6 @@ msgstr ""
 #, fuzzy
 msgid "Failed to create port mappings"
 msgstr "Nie można utworzyć wątku"
-
-#: ../UPnPManager.cpp:137
-msgid "Successfully removed port mappings with the %1% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:138
-#, fuzzy
-msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Zainicjowano odświeżenie listy plików"
-
-#: ../UPnPManager.cpp:143
-msgid "UPnP: %1%"
-msgstr ""
 
 #: ../ShareManager.cpp:447
 msgid "No directory specified"
@@ -416,27 +282,6 @@ msgstr "Katalog jest już udostępniony"
 msgid "The temporary download directory cannot be shared"
 msgstr "Katalog plików tymczasowych nie może być udostępniony"
 
-#: ../ShareManager.cpp:643
-msgid "Invalid file name found while hashing folder %1%"
-msgstr ""
-
-#: ../ShareManager.cpp:661
-msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:682
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:770
-#, fuzzy
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr ""
-"Zduplikowany plik nie zostanie udostępniony: %1%%2% (Rozmiar: %3% B) "
-"Porównano z: %4%%5%"
-
 #: ../ShareManager.cpp:792
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
@@ -445,10 +290,6 @@ msgstr ""
 "Odświeżanie listy plików w toku, proszę poczekać do zakończenia przed "
 "ponownym odświeżeniem"
 
-#: ../ShareManager.cpp:813
-msgid "File list refresh failed: %1%"
-msgstr "Odświeżanie listy plików zakończone niepowodzeniem: %1%"
-
 #: ../ShareManager.cpp:835
 msgid "File list refresh initiated"
 msgstr "Zainicjowano odświeżenie listy plików"
@@ -456,11 +297,6 @@ msgstr "Zainicjowano odświeżenie listy plików"
 #: ../ShareManager.cpp:860
 msgid "File list refresh finished"
 msgstr "Odświeżanie listy plików zakończone"
-
-#: ../ShareManager.cpp:942
-#, fuzzy
-msgid "File list %1% generated"
-msgstr "Zainicjowano odświeżenie listy plików"
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -506,10 +342,6 @@ msgstr "TLS wyłączony, brak ustalonego pliku certyfikatu"
 msgid "Generated new TLS certificate"
 msgstr "Wygenerowano nowy ceryfikat TLS"
 
-#: ../CryptoManager.cpp:222
-msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "TLS wyłączony, generowanie certyfikatu zakończone niepowodzeniem: %1%"
-
 #: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
 #: ../CryptoManager.cpp:240
 msgid "Failed to load certificate file"
@@ -519,10 +351,6 @@ msgstr "Nie udało się wczytać pliku certyfikatu"
 #: ../CryptoManager.cpp:258
 msgid "Failed to load private key"
 msgstr "Nie udało się wczytać klucza prywatnego"
-
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "Błąd SSL: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:134
 msgid "IPFilter: Blocked outgoing connection to "
@@ -536,10 +364,6 @@ msgstr "Nieprawidłowy rozmiar"
 msgid "Response does not match request"
 msgstr "Odpowiedź nie paduje do zapytania"
 
-#: ../DownloadManager.cpp:241
-msgid "Could not open target file: %1%"
-msgstr "Nie można otworzyć pliku docelowego: %1%"
-
 #: ../DownloadManager.cpp:320
 msgid "Full tree does not match TTH root"
 msgstr "Pełne drzewo nie pasuje do głównego TTH"
@@ -548,10 +372,6 @@ msgstr "Pełne drzewo nie pasuje do głównego TTH"
 msgid "No slots available"
 msgstr "Brak wolnych slotów"
 
-#: ../DownloadManager.cpp:496
-msgid "%1%: File not available"
-msgstr "%1%: Plik niedostępny"
-
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
 msgstr "Wszystkie sloty pobierań są zajęte"
@@ -559,10 +379,6 @@ msgstr "Wszystkie sloty pobierań są zajęte"
 #: ../ConnectionManager.cpp:248
 msgid "Connectivity restored"
 msgstr "Połączenie przywrócone"
-
-#: ../ConnectionManager.cpp:256
-msgid "Connectivity error: %1%"
-msgstr "Błąd łączenia: %1%"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -608,16 +424,8 @@ msgstr ""
 msgid "Search enabled again"
 msgstr "Wyszukiwanie znów aktywne"
 
-#: ../SearchManager.cpp:158
-msgid "Search disabled: %1%"
-msgstr "Wyszukiwanie nieaktywne: %1%"
-
 #: ../QueueManager.cpp:243
 msgid "No needed part"
-msgstr ""
-
-#: ../QueueManager.cpp:633
-msgid "Searching TTH alternates for: %1%"
 msgstr ""
 
 #: ../QueueManager.cpp:684 ../QueueManager.cpp:747
@@ -669,10 +477,6 @@ msgstr ""
 "Plik o podobnym lub większym rozmiarze znajduje się już w lokalizacji "
 "docelowej"
 
-#: ../QueueManager.cpp:879 ../QueueManager.cpp:883
-msgid "Duplicate source: %1%"
-msgstr "Zdublowane żródło: %1%"
-
 #: ../QueueManager.cpp:1152
 msgid "Target removed"
 msgstr "Cel usunięty"
@@ -680,18 +484,6 @@ msgstr "Cel usunięty"
 #: ../QueueManager.cpp:1160
 msgid "Target file is missing or wrong size"
 msgstr "Brak pliku docelowego lub zły rozmiar"
-
-#: ../QueueManager.cpp:1209
-msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr ""
-
-#: ../QueueManager.cpp:1212
-msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-
-#: ../QueueManager.cpp:1410
-msgid "Unable to open filelist: %1%"
-msgstr "Nie można otworzyć listy plików: %1%"
 
 #: ../QueueManager.cpp:1433
 #, fuzzy
@@ -709,6 +501,110 @@ msgstr "Zapisano więcej bajtów, niż żądano"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Niezgodność TTH"
+
+#~ msgid "Unknown error: 0x%1$x"
+#~ msgstr "Nieznany błąd: 0x%1$x"
+
+#~ msgid "Unable to send file %1%: %2%"
+#~ msgstr "Niemożna wysłać pliku %1%: %2%"
+
+#~ msgid "Disconnected user leaving the hub: %1%"
+#~ msgstr "Rozłączony użytkownik opuścił hub: %1%"
+
+#~ msgid "%1% (Nick unknown)"
+#~ msgstr "%1% (Nazwa użytkownika nieznana)"
+
+#~ msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+#~ msgstr "%1% (%2%) ma ten sam CID {%3%} jak %4% (%5%), ignoruję"
+
+#~ msgid "%1%/s"
+#~ msgstr "%1%/s"
+
+#~ msgid "%1% was kicked by %2%: %3%"
+#~ msgstr "%1% został wykopany przez %2%: %3%"
+
+#~ msgid "%1% was kicked: %2%"
+#~ msgstr "%1% został wykopany: %2%"
+
+#~ msgid "Not listening for connections - please restart %1%"
+#~ msgstr "Nie nasłuchuje połączeń - uruchom ponownie %1%"
+
+#~ msgid "Hashing failed: %1%"
+#~ msgstr "Hashowanie zakończone niepowodzeniem: %1%"
+
+#, fuzzy
+#~ msgid "Finished hashing: %1% (%2% at %3%/s)"
+#~ msgstr "Zakończono hashowanie: %1% (%2%/s)"
+
+#, fuzzy
+#~ msgid "Finished hashing: %1% (%2%)"
+#~ msgstr "Zakończono hashowanie: %1% (%2%/s)"
+
+#~ msgid "Finished hashing: %1%"
+#~ msgstr "Zakończono hashowanie: %1%"
+
+#~ msgid "Error saving hash data: %1%"
+#~ msgstr "Błąd zapisu danych hash: %1%"
+
+#~ msgid "Error creating hash data file: %1%"
+#~ msgstr "Błąd tworzenia pliku danych hash: %1%"
+
+#~ msgid ""
+#~ "%1% not shared; calculated CRC32 does not match the one found in SFV file."
+#~ msgstr ""
+#~ "%1% nie udostępniono; suma kontrolna CRC32 nie odpowiada tej znalezionej "
+#~ "w pliku SFV."
+
+#~ msgid "Error hashing %1%: %2%"
+#~ msgstr "Błąd hashowania %1%: %2%"
+
+#, fuzzy
+#~ msgid "Failed to initialize the %1% interface"
+#~ msgstr "Zainicjowano odświeżenie listy plików"
+
+#, fuzzy
+#~ msgid "Failed to remove port mappings with the %1% interface"
+#~ msgstr "Zainicjowano odświeżenie listy plików"
+
+#, fuzzy
+#~ msgid ""
+#~ "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched "
+#~ "against: %3%"
+#~ msgstr ""
+#~ "Zduplikowany plik nie zostanie udostępniony: %1%%2% (Rozmiar: %3% B) "
+#~ "Porównano z: %4%%5%"
+
+#~ msgid "File list refresh failed: %1%"
+#~ msgstr "Odświeżanie listy plików zakończone niepowodzeniem: %1%"
+
+#, fuzzy
+#~ msgid "File list %1% generated"
+#~ msgstr "Zainicjowano odświeżenie listy plików"
+
+#~ msgid "TLS disabled, failed to generate certificate: %1%"
+#~ msgstr ""
+#~ "TLS wyłączony, generowanie certyfikatu zakończone niepowodzeniem: %1%"
+
+#~ msgid "SSL Error: %1% (%2%, %3%)"
+#~ msgstr "Błąd SSL: %1% (%2%, %3%)"
+
+#~ msgid "Could not open target file: %1%"
+#~ msgstr "Nie można otworzyć pliku docelowego: %1%"
+
+#~ msgid "%1%: File not available"
+#~ msgstr "%1%: Plik niedostępny"
+
+#~ msgid "Connectivity error: %1%"
+#~ msgstr "Błąd łączenia: %1%"
+
+#~ msgid "Search disabled: %1%"
+#~ msgstr "Wyszukiwanie nieaktywne: %1%"
+
+#~ msgid "Duplicate source: %1%"
+#~ msgstr "Zdublowane żródło: %1%"
+
+#~ msgid "Unable to open filelist: %1%"
+#~ msgstr "Nie można otworzyć listy plików: %1%"
 
 #, fuzzy
 #~ msgid "Hashing file: %1% (Size: %2%)"

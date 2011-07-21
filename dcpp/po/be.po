@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
-"Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-07-17 15:00+0300\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
+"POT-Creation-Date: 2011-07-21 19:34+0300\n"
 "PO-Revision-Date: 2010-08-07 15:38+0300\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i.kliok@gmail.com>\n"
@@ -36,11 +36,6 @@ msgstr "Накіраваць карыстальніка(аў)"
 #: ../FavoriteManager.cpp:489
 msgid "Auto-connect group (converted)"
 msgstr "Самарушна злучацца суполцы (пераробленае)"
-
-#: ../Socket.cpp:79
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Невядомая памылка: 0x%1$x"
 
 #: ../Socket.cpp:214 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
 #: ../ConnectionManager.cpp:186
@@ -105,11 +100,6 @@ msgstr "Зьвесткі злучэньня ADC не ў знаказборы UTF
 msgid "Determining the best connectivity settings..."
 msgstr "Вызначаюцца найлепшыя налады злучэньня…"
 
-#: ../ConnectivityManager.cpp:83
-msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr "Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
-
 #: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
@@ -147,17 +137,9 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Злучэньне: "
 
-#: ../UploadManager.cpp:238
-msgid "Unable to send file %1%: %2%"
-msgstr "Не магу даслаць файл %1%: %2%"
-
 #: ../UploadManager.cpp:516
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "Сіта IP: затрымалі ўваходнае злучэньне з "
-
-#: ../UploadManager.cpp:579
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Карыстальнік адлучыўся і выходзіць з асяродку: %1%"
 
 #: ../SettingsManager.cpp:181
 msgid "downloaded from"
@@ -191,35 +173,15 @@ msgstr " на "
 msgid "Error: params have been not 2!"
 msgstr "Памылка: мусіць быць два парамэтры!"
 
-#: ../NmdcHub.cpp:293
-msgid "%1% (Nick unknown)"
-msgstr " %1% (мянушка невядомая)"
-
 #: ../NmdcHub.cpp:672
 msgid "Hub topic:"
 msgstr "Тэма асяродку:"
-
-#: ../NmdcHub.cpp:1024
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr ""
-"Гэты асяродак спрабуе рассылаць непажаданыя паведамленьні %1% праз ваш "
-"кліент; калі ласка, паведаміце ўладальніку асяродку, каб ён выправіў гэта"
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
 #: ../QueueManager.cpp:2169 ../QueueManager.cpp:2175 ../QueueManager.cpp:2181
 msgid "Offline"
 msgstr "Адлучаны"
-
-#: ../AdcHub.cpp:156
-msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
-
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2198
-msgid "%1%/s"
-msgstr "%1%/с"
 
 #: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
@@ -232,22 +194,6 @@ msgid ""
 msgstr ""
 "Магчыма, асяродак выкарыстоўвае старую вэрсію ADC. Калі ласка, паспрыяйце, "
 "каб уладальнік абнавіў яе"
-
-#: ../AdcHub.cpp:305
-msgid "%1% was kicked by %2%: %3%"
-msgstr "%2% даў высьпятка карыстальніку %1%: %3%"
-
-#: ../AdcHub.cpp:308
-msgid "%1% was kicked: %2%"
-msgstr "Карыстальніку %1% далі высьпятка: %2%"
-
-#: ../AdcHub.cpp:680
-msgid "Not listening for connections - please restart %1%"
-msgstr "Ня чую злучэньняў — калі ласка, запусьціце %1% нанова"
-
-#: ../HttpConnection.cpp:166
-msgid "Endless redirection loop (%1%)"
-msgstr "Бясконцая пятля перанакіроўваньня (%1%)"
 
 #: ../ChatMessage.cpp:33
 msgid "Sent "
@@ -304,48 +250,13 @@ msgstr "Далі хібу, калі сьціскалі"
 msgid "Error during decompression"
 msgstr "Далі хібу, калі распакоўвалі"
 
-#: ../HashManager.cpp:87 ../HashManager.cpp:287
-msgid "Hashing failed: %1%"
-msgstr "Не ўдалося стварыць скароты: %1%"
-
-#: ../HashManager.cpp:94
-msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Скароты стварылі: %1% (%2% на %3%/с)"
-
-#: ../HashManager.cpp:97
-msgid "Finished hashing: %1% (%2%)"
-msgstr "Скароты стварылі: %1% (%2%)"
-
-#: ../HashManager.cpp:100
-msgid "Finished hashing: %1%"
-msgstr "Скончылі ствараць скароты: %1%"
-
-#: ../HashManager.cpp:129 ../HashManager.cpp:343
-msgid "Error saving hash data: %1%"
-msgstr "Далі хібу, калі захоўвалі зьвесткі скаротаў: %1%"
-
 #: ../HashManager.cpp:142
 msgid "Unable to read hash data file"
 msgstr "Не магу прачытаць файл зьвестак скаротаў"
 
-#: ../HashManager.cpp:475
-msgid "Error creating hash data file: %1%"
-msgstr "Далі хібу, калі стваралі файл зьвестак скаротаў: %1%"
-
 #: ../HashManager.cpp:801
 msgid "Hash database rebuilt"
 msgstr "Адбудавалі базу зьвестак"
-
-#: ../HashManager.cpp:900
-msgid ""
-"%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% не абагулілі: падлічаная сума CRC32 не адпавядае той, што знайшлі ў "
-"файле SFV."
-
-#: ../HashManager.cpp:905
-msgid "Error hashing %1%: %2%"
-msgstr "Не ўдалося стварыць скарот да %1%: %2%"
 
 #: ../UPnPManager.cpp:45
 msgid "No UPnP implementation available"
@@ -355,39 +266,6 @@ msgstr "Няма даступных выкананьняў UPnP"
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Апрацоўваецца іншая спроба адлюстраваць порты з дапамогаю UPnP…"
 
-#: ../UPnPManager.cpp:81
-msgid "Failed to initialize the %1% interface"
-msgstr "Не ўдалося задзейнічаць інтэрфэйс %1%"
-
-#: ../UPnPManager.cpp:85
-msgid " Transfer Port (%1% TCP)"
-msgstr " Порт перадаваньня (%1% TCP)"
-
-#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
-#: ../UPnPManager.cpp:101
-msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr "Інтэрфэйсу %1% не ўдалося адлюстраваць порт %2% на %3%"
-
-#: ../UPnPManager.cpp:90
-msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr " Шыфраваны порт перадаваньня (%1% TCP)"
-
-#: ../UPnPManager.cpp:95
-msgid " Search Port (%1% UDP)"
-msgstr " Порт пошуку (%1% UDP)"
-
-#: ../UPnPManager.cpp:100
-msgid " DHT Port (%1% UDP)"
-msgstr " Порт DHT (%1% UDP)"
-
-#: ../UPnPManager.cpp:107
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-msgstr ""
-"Пасьпяхова адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю "
-"інтэрфэйсу %4%"
-
 #: ../UPnPManager.cpp:118
 msgid "Failed to get external IP"
 msgstr "Не ўдалося атрымаць вонкавы адрас IP"
@@ -395,18 +273,6 @@ msgstr "Не ўдалося атрымаць вонкавы адрас IP"
 #: ../UPnPManager.cpp:128
 msgid "Failed to create port mappings"
 msgstr "Не ўдалося адлюстраваць порты"
-
-#: ../UPnPManager.cpp:137
-msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Пасьпяхова зьнішчылі адлюстраваньні портаў на інтэрфэйсе %1%"
-
-#: ../UPnPManager.cpp:138
-msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Не ўдалося зьнішчыць адлюстраваньні портаў на інтэрфэйсе %1%"
-
-#: ../UPnPManager.cpp:143
-msgid "UPnP: %1%"
-msgstr "UPnP: %1%"
 
 #: ../ShareManager.cpp:447
 msgid "No directory specified"
@@ -420,24 +286,6 @@ msgstr "Схаваны каталёґ"
 msgid "The temporary download directory cannot be shared"
 msgstr "Нельга абагуляць часовы каталёґ"
 
-#: ../ShareManager.cpp:643
-msgid "Invalid file name found while hashing folder %1%"
-msgstr "Выявілі хібную назву файла, калі стваралі скароты ў каталёґу %1%"
-
-#: ../ShareManager.cpp:661
-msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr "Карыстальнік абраў не абагуляць файл %1% (памер: %2%)"
-
-#: ../ShareManager.cpp:682
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr "Карыстальнік абраў не абагуляць часовы файл %1% (памер: %2%)"
-
-#: ../ShareManager.cpp:770
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
-
 #: ../ShareManager.cpp:792
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
@@ -446,10 +294,6 @@ msgstr ""
 "Сьпіс файлаў зараз дапаўняецца. Калі ласка, пачакайце, пакуль ён дапоўніцца, "
 "каб паспрабаваць ізноў"
 
-#: ../ShareManager.cpp:813
-msgid "File list refresh failed: %1%"
-msgstr "Не ўдалося дапоўніць сьпіс файлаў: %1%"
-
 #: ../ShareManager.cpp:835
 msgid "File list refresh initiated"
 msgstr "Распачалі дапаўняць сьпіс файлаў"
@@ -457,10 +301,6 @@ msgstr "Распачалі дапаўняць сьпіс файлаў"
 #: ../ShareManager.cpp:860
 msgid "File list refresh finished"
 msgstr "Скончылі дапаўняць сьпіс файлаў"
-
-#: ../ShareManager.cpp:942
-msgid "File list %1% generated"
-msgstr "Стварылі сьпіс файлаў %1%"
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -506,10 +346,6 @@ msgstr "TLS не задзейнічалі, бо ня вызначылі файл
 msgid "Generated new TLS certificate"
 msgstr "Стварылі новае пасьведчаньне TLS"
 
-#: ../CryptoManager.cpp:222
-msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "TLS не задзейнічалі, бо не ўдалося стварыць пасьведчаньне: %1%"
-
 #: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
 #: ../CryptoManager.cpp:240
 msgid "Failed to load certificate file"
@@ -519,10 +355,6 @@ msgstr "Не ўдалося прачытаць файл пасьведчаньн
 #: ../CryptoManager.cpp:258
 msgid "Failed to load private key"
 msgstr "Не ўдалося прачытаць асабісты ключ"
-
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "Памылка SSL: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:134
 msgid "IPFilter: Blocked outgoing connection to "
@@ -536,10 +368,6 @@ msgstr "Хібны памер"
 msgid "Response does not match request"
 msgstr "Адказ не адпавядае запыту"
 
-#: ../DownloadManager.cpp:241
-msgid "Could not open target file: %1%"
-msgstr "Не магу адчыніць прызначаны файл: %1%"
-
 #: ../DownloadManager.cpp:320
 msgid "Full tree does not match TTH root"
 msgstr "Скарот (TTH) сьцягнутага не адпавядае скароту крыніцы"
@@ -548,10 +376,6 @@ msgstr "Скарот (TTH) сьцягнутага не адпавядае ска
 msgid "No slots available"
 msgstr "Няма даступных шчылінаў"
 
-#: ../DownloadManager.cpp:496
-msgid "%1%: File not available"
-msgstr "%1%: файл не даступны"
-
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
 msgstr "Усе шчыліны сьцягваньня занятыя"
@@ -559,10 +383,6 @@ msgstr "Усе шчыліны сьцягваньня занятыя"
 #: ../ConnectionManager.cpp:248
 msgid "Connectivity restored"
 msgstr "Аднавілі злучэньне"
-
-#: ../ConnectionManager.cpp:256
-msgid "Connectivity error: %1%"
-msgstr "Памылка злучэньня: %1%"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -608,17 +428,9 @@ msgstr "Адбітак CD"
 msgid "Search enabled again"
 msgstr "Пошук зноўку працуе"
 
-#: ../SearchManager.cpp:158
-msgid "Search disabled: %1%"
-msgstr "Пошук не працуе: %1%"
-
 #: ../QueueManager.cpp:243
 msgid "No needed part"
 msgstr "Неабавязковая частка"
-
-#: ../QueueManager.cpp:633
-msgid "Searching TTH alternates for: %1%"
-msgstr "Шукаюцца па скаротах (TTH) дадатковыя крыніцы для: %1%"
 
 #: ../QueueManager.cpp:684 ../QueueManager.cpp:747
 msgid "A file with the same hash already exists in your share"
@@ -664,10 +476,6 @@ msgstr ""
 msgid "File already exists at the target location"
 msgstr "Файл ужо ёсьць у прызначаным месцы"
 
-#: ../QueueManager.cpp:879 ../QueueManager.cpp:883
-msgid "Duplicate source: %1%"
-msgstr "Падвоеная крыніца: %1%"
-
 #: ../QueueManager.cpp:1152
 msgid "Target removed"
 msgstr "Мэта зьнікла"
@@ -675,19 +483,6 @@ msgstr "Мэта зьнікла"
 #: ../QueueManager.cpp:1160
 msgid "Target file is missing or wrong size"
 msgstr "Файл мэты адсутнічае ці мае неадпаведны памер"
-
-#: ../QueueManager.cpp:1209
-msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr "Не магу перасунуць %1% у %2% (%3%); далі новую назву: %4%"
-
-#: ../QueueManager.cpp:1212
-msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"Не магу ані перасунуць %1% у %2% (%3%), ані даць новую назву: %4% (%5%)"
-
-#: ../QueueManager.cpp:1410
-msgid "Unable to open filelist: %1%"
-msgstr "Не магу адчыніць сьпіс файлаў: %1%"
 
 #: ../QueueManager.cpp:1433
 msgid "%1%: Matched %2% file"
@@ -704,6 +499,164 @@ msgstr "Запісалі байтаў болей за тое, колькі бы�
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Разыходжаньне TTH"
+
+#~ msgid "Unknown error: 0x%1$x"
+#~ msgstr "Невядомая памылка: 0x%1$x"
+
+#~ msgid ""
+#~ "Unable to open %1% port(s); connectivity settings must be configured "
+#~ "manually"
+#~ msgstr ""
+#~ "Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
+
+#~ msgid "Unable to send file %1%: %2%"
+#~ msgstr "Не магу даслаць файл %1%: %2%"
+
+#~ msgid "Disconnected user leaving the hub: %1%"
+#~ msgstr "Карыстальнік адлучыўся і выходзіць з асяродку: %1%"
+
+#~ msgid "%1% (Nick unknown)"
+#~ msgstr " %1% (мянушка невядомая)"
+
+#~ msgid ""
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
+#~ msgstr ""
+#~ "Гэты асяродак спрабуе рассылаць непажаданыя паведамленьні %1% праз ваш "
+#~ "кліент; калі ласка, паведаміце ўладальніку асяродку, каб ён выправіў гэта"
+
+#~ msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+#~ msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
+
+#~ msgid "%1%/s"
+#~ msgstr "%1%/с"
+
+#~ msgid "%1% was kicked by %2%: %3%"
+#~ msgstr "%2% даў высьпятка карыстальніку %1%: %3%"
+
+#~ msgid "%1% was kicked: %2%"
+#~ msgstr "Карыстальніку %1% далі высьпятка: %2%"
+
+#~ msgid "Not listening for connections - please restart %1%"
+#~ msgstr "Ня чую злучэньняў — калі ласка, запусьціце %1% нанова"
+
+#~ msgid "Endless redirection loop (%1%)"
+#~ msgstr "Бясконцая пятля перанакіроўваньня (%1%)"
+
+#~ msgid "Hashing failed: %1%"
+#~ msgstr "Не ўдалося стварыць скароты: %1%"
+
+#~ msgid "Finished hashing: %1% (%2% at %3%/s)"
+#~ msgstr "Скароты стварылі: %1% (%2% на %3%/с)"
+
+#~ msgid "Finished hashing: %1% (%2%)"
+#~ msgstr "Скароты стварылі: %1% (%2%)"
+
+#~ msgid "Finished hashing: %1%"
+#~ msgstr "Скончылі ствараць скароты: %1%"
+
+#~ msgid "Error saving hash data: %1%"
+#~ msgstr "Далі хібу, калі захоўвалі зьвесткі скаротаў: %1%"
+
+#~ msgid "Error creating hash data file: %1%"
+#~ msgstr "Далі хібу, калі стваралі файл зьвестак скаротаў: %1%"
+
+#~ msgid ""
+#~ "%1% not shared; calculated CRC32 does not match the one found in SFV file."
+#~ msgstr ""
+#~ "%1% не абагулілі: падлічаная сума CRC32 не адпавядае той, што знайшлі ў "
+#~ "файле SFV."
+
+#~ msgid "Error hashing %1%: %2%"
+#~ msgstr "Не ўдалося стварыць скарот да %1%: %2%"
+
+#~ msgid "Failed to initialize the %1% interface"
+#~ msgstr "Не ўдалося задзейнічаць інтэрфэйс %1%"
+
+#~ msgid " Transfer Port (%1% TCP)"
+#~ msgstr " Порт перадаваньня (%1% TCP)"
+
+#~ msgid "The %1% interface has failed to map the %2% %3% port"
+#~ msgstr "Інтэрфэйсу %1% не ўдалося адлюстраваць порт %2% на %3%"
+
+#~ msgid " Encrypted Transfer Port (%1% TCP)"
+#~ msgstr " Шыфраваны порт перадаваньня (%1% TCP)"
+
+#~ msgid " Search Port (%1% UDP)"
+#~ msgstr " Порт пошуку (%1% UDP)"
+
+#~ msgid " DHT Port (%1% UDP)"
+#~ msgstr " Порт DHT (%1% UDP)"
+
+#~ msgid ""
+#~ "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+#~ "using the %4% interface"
+#~ msgstr ""
+#~ "Пасьпяхова адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю "
+#~ "інтэрфэйсу %4%"
+
+#~ msgid "Successfully removed port mappings with the %1% interface"
+#~ msgstr "Пасьпяхова зьнішчылі адлюстраваньні портаў на інтэрфэйсе %1%"
+
+#~ msgid "Failed to remove port mappings with the %1% interface"
+#~ msgstr "Не ўдалося зьнішчыць адлюстраваньні портаў на інтэрфэйсе %1%"
+
+#~ msgid "UPnP: %1%"
+#~ msgstr "UPnP: %1%"
+
+#~ msgid "Invalid file name found while hashing folder %1%"
+#~ msgstr "Выявілі хібную назву файла, калі стваралі скароты ў каталёґу %1%"
+
+#~ msgid "User has chosen not to share file: %1% (Size: %2%)"
+#~ msgstr "Карыстальнік абраў не абагуляць файл %1% (памер: %2%)"
+
+#~ msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+#~ msgstr "Карыстальнік абраў не абагуляць часовы файл %1% (памер: %2%)"
+
+#~ msgid ""
+#~ "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched "
+#~ "against: %3%"
+#~ msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
+
+#~ msgid "File list refresh failed: %1%"
+#~ msgstr "Не ўдалося дапоўніць сьпіс файлаў: %1%"
+
+#~ msgid "File list %1% generated"
+#~ msgstr "Стварылі сьпіс файлаў %1%"
+
+#~ msgid "TLS disabled, failed to generate certificate: %1%"
+#~ msgstr "TLS не задзейнічалі, бо не ўдалося стварыць пасьведчаньне: %1%"
+
+#~ msgid "SSL Error: %1% (%2%, %3%)"
+#~ msgstr "Памылка SSL: %1% (%2%, %3%)"
+
+#~ msgid "Could not open target file: %1%"
+#~ msgstr "Не магу адчыніць прызначаны файл: %1%"
+
+#~ msgid "%1%: File not available"
+#~ msgstr "%1%: файл не даступны"
+
+#~ msgid "Connectivity error: %1%"
+#~ msgstr "Памылка злучэньня: %1%"
+
+#~ msgid "Search disabled: %1%"
+#~ msgstr "Пошук не працуе: %1%"
+
+#~ msgid "Searching TTH alternates for: %1%"
+#~ msgstr "Шукаюцца па скаротах (TTH) дадатковыя крыніцы для: %1%"
+
+#~ msgid "Duplicate source: %1%"
+#~ msgstr "Падвоеная крыніца: %1%"
+
+#~ msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
+#~ msgstr "Не магу перасунуць %1% у %2% (%3%); далі новую назву: %4%"
+
+#~ msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
+#~ msgstr ""
+#~ "Не магу ані перасунуць %1% у %2% (%3%), ані даць новую назву: %4% (%5%)"
+
+#~ msgid "Unable to open filelist: %1%"
+#~ msgstr "Не магу адчыніць сьпіс файлаў: %1%"
 
 #~ msgid "Hashing file: %1% (Size: %2%)"
 #~ msgstr "Ствараецца скарот: %1% (памер: %2%)"
