@@ -3169,13 +3169,13 @@ Descargas: %3 Subidas: %4</translation>
         <translation>IP del servidor SOCKS5 invalida!</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="154"/>
-        <location filename="../src/SettingsConnection.cpp" line="162"/>
+        <location filename="../src/SettingsConnection.cpp" line="157"/>
+        <location filename="../src/SettingsConnection.cpp" line="165"/>
         <source>Program need root privileges to open ports less than 1024</source>
         <translation>El programa necesita privilegios de Administrador para abrir puertos más bajos que 1024</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="349"/>
+        <location filename="../src/SettingsConnection.cpp" line="352"/>
         <source>Warning</source>
         <translation>Advertencia</translation>
     </message>
