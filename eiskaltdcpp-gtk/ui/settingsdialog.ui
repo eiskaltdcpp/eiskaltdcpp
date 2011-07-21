@@ -2366,7 +2366,7 @@
                 <property name="border_width">4</property>
                 <property name="spacing">8</property>
                 <child>
-                  <object class="GtkFrame" id="dhtFrame">
+                  <object class="GtkFrame" id="frame0">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="border_width">4</property>
@@ -2378,6 +2378,75 @@
                         <property name="can_focus">False</property>
                         <property name="border_width">4</property>
                         <property name="spacing">4</property>
+                        <child>
+                          <object class="GtkHBox" id="hbox37.0">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="spacing">4</property>
+                            <child>
+                              <object class="GtkCheckButton" id="enableDynDNSCheckButton">
+                                <property name="label" translatable="yes">Automatically update external IP (restart required)</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="use_action_appearance">False</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkAlignment" id="alignment19.0">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="dyndnsLabel">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">DynDNS Address</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkEntry" id="dyndnsEntry">
+                                <property name="width_request">50</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="primary_icon_activatable">False</property>
+                                <property name="secondary_icon_activatable">False</property>
+                                <property name="primary_icon_sensitive">True</property>
+                                <property name="secondary_icon_sensitive">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">3</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">True</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                         <child>
                           <object class="GtkHBox" id="hbox37.1">
                             <property name="visible">True</property>
@@ -2444,7 +2513,7 @@
                           <packing>
                             <property name="expand">True</property>
                             <property name="fill">True</property>
-                            <property name="position">0</property>
+                            <property name="position">1</property>
                           </packing>
                         </child>
                       </object>
