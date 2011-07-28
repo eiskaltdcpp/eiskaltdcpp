@@ -263,18 +263,12 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noe
 	// readd tokens
 	{
 		Lock l(downCS);
-		if(downLimit > 0)
-			downTokens = downLimit * 1024;
-		else
-			downTokens = -1;
+		downTokens = downLimit * 1024;
 	}
 
 	{
 		Lock l(upCS);
-		if(upLimit > 0)
-			upTokens = upLimit * 1024;
-		else
-			upTokens = -1;
+		upTokens = upLimit * 1024;
 	}
 
 	// let existing events drain out (fairness).

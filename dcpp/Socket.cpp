@@ -23,6 +23,12 @@
 #include "SettingsManager.h"
 #include "TimerManager.h"
 
+#ifdef __MINGW32__
+#ifndef EADDRNOTAVAIL
+#define EADDRNOTAVAIL WSAEADDRNOTAVAIL
+#endif
+#endif
+
 #ifndef MSG_NOSIGNAL
 #define MSG_NOSIGNAL 0
 #endif
