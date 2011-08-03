@@ -19,15 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_SOCKET_H
 #define DCPLUSPLUS_DCPP_SOCKET_H
 
-#include "Util.h"
-#include "Exception.h"
-
-#include <errno.h>
-
 #ifdef _WIN32
-// Berkely constants converted to the windows equivs...
-#define EADDRNOTAVAIL WSAEADDRNOTAVAIL
-
+#include "w.h"
 typedef int socklen_t;
 typedef SOCKET socket_t;
 
@@ -39,11 +32,15 @@ typedef SOCKET socket_t;
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <fcntl.h>
+#include <errno.h>
 
 typedef int socket_t;
 const int INVALID_SOCKET = -1;
 #define SOCKET_ERROR -1
 #endif
+
+#include "Util.h"
+#include "Exception.h"
 
 namespace dcpp {
 
@@ -183,8 +180,8 @@ public:
 	static void socksUpdated();
 
 	GETSET(string, ip, Ip);
-	socket_t sock;
 protected:
+	socket_t sock;
 	int type;
 	bool connected;
 

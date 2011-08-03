@@ -122,14 +122,13 @@ namespace dht
 				}
 			}
 
-                        /*
 			if(node == NULL && u->isOnline())
 			{
 				// try to get node from ClientManager (user can be online but not in our routing table)
 				// this fixes the bug with DHT node online twice
-				node = (Node*)ClientManager::getInstance()->findDHTNode(u->getCID()).get();
+				node = (Node*)ClientManager::getInstance()->findDHTNode(u->getCID());
+				node = node.get();
 			}
-                        */
 
 			if(node != NULL)
 			{

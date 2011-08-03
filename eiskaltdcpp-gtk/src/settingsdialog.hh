@@ -155,6 +155,7 @@ class Settings:
         static void onDefaultThemeButton_gui(GtkWidget *widget, gpointer data);
         static void onDefaultColorsSPButton_gui(GtkWidget *widget, gpointer data);
         static void onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data);
+        static void onEnableDynDNSCheckToggled_gui(GtkWidget *widget, gpointer data);
         static void onDHTCheckToggled_gui(GtkWidget *widget, gpointer data);
         static void onLimitToggled_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762
         static void onLimitSecondToggled_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762

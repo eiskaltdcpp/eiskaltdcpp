@@ -263,6 +263,11 @@ void Settings::saveSettings_client()
         }
     }
     { // Advanced
+        sm->set(SettingsManager::DYNDNS_ENABLE,
+                gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("enableDynDNSCheckButton"))));
+        sm->set(SettingsManager::DYNDNS_SERVER,
+                gtk_entry_get_text(GTK_ENTRY(getWidget("dyndnsEntry"))));
+    
         sm->set(SettingsManager::USE_DHT,
                 gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton"))));
         int port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("dhtEntry"))));
@@ -798,6 +803,12 @@ void Settings::initConnection_gui()
         g_signal_connect(getWidget("useLimitSecondCheckButton"), "toggled", G_CALLBACK(onLimitSecondToggled_gui), (gpointer)this);
     }
     { // Advanced
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("enableDynDNSCheckButton")), BOOLSETTING(DYNDNS_ENABLE));
+        gtk_entry_set_text(GTK_ENTRY(getWidget("dyndnsEntry")), SETTING(DYNDNS_SERVER).c_str());
+
+        onEnableDynDNSCheckToggled_gui(NULL, (gpointer)this);
+        g_signal_connect(getWidget("enableDynDNSCheckButton"), "toggled", G_CALLBACK(onEnableDynDNSCheckToggled_gui), (gpointer)this);
+
 #ifdef WITH_DHT
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton")), BOOLSETTING(USE_DHT));
         gtk_entry_set_text(GTK_ENTRY(getWidget("dhtEntry")), Util::toString(SETTING(DHT_PORT)).c_str());
@@ -2385,6 +2396,22 @@ void Settings::onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data)
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("frameSPSpinButton")), double(wsm->getInt("search-spy-frame", TRUE)));
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("waitingSPSpinButton")), double(wsm->getInt("search-spy-waiting", TRUE)));
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("topSPSpinButton")), double(wsm->getInt("search-spy-top", TRUE)));
+}
+
+void Settings::onEnableDynDNSCheckToggled_gui(GtkWidget *widget, gpointer data)
+{
+        Settings *s = (Settings *)data;
+
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("enableDynDNSCheckButton"))))
+        {
+                gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), TRUE);
+                gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), TRUE);
+        }
+        else
+        {
+                gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), FALSE);
+                gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), FALSE);
+        }
 }
 
 void Settings::onDHTCheckToggled_gui(GtkWidget *widget, gpointer data)

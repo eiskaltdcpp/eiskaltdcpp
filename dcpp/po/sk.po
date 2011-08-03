@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
-"Report-Msgid-Bugs-To: foo@bar.com\n"
-"POT-Creation-Date: 2011-07-17 15:00+0300\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
+"POT-Creation-Date: 2011-07-21 21:50+0400\n"
 "PO-Revision-Date: 2009-03-24 12:27+0000\n"
 "Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
@@ -29,179 +29,6 @@ msgstr "Presmerovať používateľov"
 #: ../FavoriteManager.cpp:489
 msgid "Auto-connect group (converted)"
 msgstr ""
-
-#: ../Socket.cpp:79
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Neznáma chyba: 0x%1$x"
-
-#: ../Socket.cpp:214 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
-#: ../ConnectionManager.cpp:186
-msgid "Connection timeout"
-msgstr "Vypršal maximálny čas nečinnosti spojenia"
-
-#: ../Socket.cpp:222 ../Socket.cpp:230 ../Socket.cpp:263 ../Socket.cpp:267
-#: ../Socket.cpp:291 ../Socket.cpp:306
-msgid "The socks server failed establish a connection"
-msgstr "SOCKS serveru sa nepodarilo nadviazať spojenie"
-
-#: ../Socket.cpp:295
-msgid "The socks server requires authentication"
-msgstr "SOCKS server vyžaduje overenie"
-
-#: ../Socket.cpp:309
-msgid "The socks server doesn't support login / password authentication"
-msgstr "SOCKS server nepodporuje overenie menom a heslom"
-
-#: ../Socket.cpp:323 ../Socket.cpp:327
-msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"Zlyhalo overenie u SOCKS servera (chybné prihlasovacie meno alebo heslo?)"
-
-#: ../Socket.cpp:460
-msgid ""
-"Failed to set up the socks server for UDP relay (check socks address and "
-"port)"
-msgstr ""
-"Nepodarilo sa nastaviť SOCKS server, aby robil UDP relé (skontrolujte adresu "
-"a port SOCKS)"
-
-#: ../DCPlusPlus.cpp:122
-msgid "Hash database"
-msgstr "Databáza hašov"
-
-#: ../DCPlusPlus.cpp:125
-msgid "Shared Files"
-msgstr "Zdieľané súbory"
-
-#: ../DCPlusPlus.cpp:134
-msgid "Download Queue"
-msgstr "Front sťahovaní"
-
-#: ../DCPlusPlus.cpp:137
-msgid "Users"
-msgstr ""
-
-#: ../Thread.cpp:30 ../Thread.cpp:38
-msgid "Unable to create thread"
-msgstr "Nepodarilo sa vytvoriť vlákno"
-
-#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
-#, fuzzy
-msgid "Invalid data"
-msgstr "Neplatná veľkosť"
-
-#: ../UserConnection.cpp:58
-msgid "Non-UTF-8 data in an ADC connection"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:78
-msgid "Determining the best connectivity settings..."
-msgstr ""
-
-#: ../ConnectivityManager.cpp:83
-msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:93
-msgid ""
-"Public IP address detected, selecting active mode with direct connection"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:100
-msgid ""
-"Local network with possible NAT detected, trying to map the ports using "
-"UPnP..."
-msgstr ""
-
-#: ../ConnectivityManager.cpp:128
-msgid ""
-"Automatic setup of active mode has failed. You may want to set up your "
-"connection manually for better connectivity"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:140
-msgid "Transfer (TCP)"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:146
-msgid "Search (UDP)"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:152
-msgid "DHT (UDP)"
-msgstr ""
-
-#: ../ConnectivityManager.cpp:167
-#, fuzzy
-msgid "Connectivity: "
-msgstr "Chyba konektivity: %1%"
-
-#: ../UploadManager.cpp:238
-msgid "Unable to send file %1%: %2%"
-msgstr "Nepodarilo sa poslať súbor %1%: %2%"
-
-#: ../UploadManager.cpp:516
-msgid "IPFilter: Blocked incoming connection to "
-msgstr ""
-
-#: ../UploadManager.cpp:579
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Používateľ, ktorý opustil hub, bol odpojený: %1%"
-
-#: ../SettingsManager.cpp:181
-msgid "downloaded from"
-msgstr ""
-
-#: ../SettingsManager.cpp:510
-#, fuzzy
-msgid "Invalid search type name"
-msgstr "Neplatná veľkosť"
-
-#: ../SettingsManager.cpp:514 ../SettingsManager.cpp:536
-msgid "This search type already exists"
-msgstr ""
-
-#: ../SettingsManager.cpp:568
-msgid "No such search type"
-msgstr ""
-
-#: ../SettingsManager.cpp:603
-msgid "Error: setting not found!"
-msgstr ""
-
-#: ../SettingsManager.cpp:604
-msgid "Change core setting "
-msgstr ""
-
-#: ../SettingsManager.cpp:604
-msgid " to "
-msgstr ""
-
-#: ../SettingsManager.cpp:606
-msgid "Error: params have been not 2!"
-msgstr ""
-
-#: ../NmdcHub.cpp:293
-msgid "%1% (Nick unknown)"
-msgstr "%1% (neznáma prezývka)"
-
-#: ../NmdcHub.cpp:672
-msgid "Hub topic:"
-msgstr ""
-
-#: ../NmdcHub.cpp:1024
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr ""
-
-#: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
-#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../QueueManager.cpp:2169 ../QueueManager.cpp:2175 ../QueueManager.cpp:2181
-msgid "Offline"
-msgstr "Odpojený"
 
 #: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
@@ -235,64 +62,27 @@ msgstr "%1% bol vykopnutý: %2%"
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nepočúvajú sa nové spojenia - prosím reštartujte %1%"
 
-#: ../HttpConnection.cpp:166
-msgid "Endless redirection loop (%1%)"
+#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2169
+#: ../QueueManager.cpp:2175 ../QueueManager.cpp:2181 ../SearchManager.cpp:281
+#: ../SearchManager.cpp:368 ../SearchManager.cpp:370 ../ClientManager.cpp:178
+msgid "Offline"
+msgstr "Odpojený"
+
+#: ../DCPlusPlus.cpp:122
+msgid "Hash database"
+msgstr "Databáza hašov"
+
+#: ../DCPlusPlus.cpp:125
+msgid "Shared Files"
+msgstr "Zdieľané súbory"
+
+#: ../DCPlusPlus.cpp:134
+msgid "Download Queue"
+msgstr "Front sťahovaní"
+
+#: ../DCPlusPlus.cpp:137
+msgid "Users"
 msgstr ""
-
-#: ../ChatMessage.cpp:33
-msgid "Sent "
-msgstr ""
-
-#: ../Util.cpp:595
-#, c-format
-msgid "%d B"
-msgstr "%d B"
-
-#: ../Util.cpp:597
-#, c-format
-msgid "%.02f KiB"
-msgstr "%.02f KiB"
-
-#: ../Util.cpp:599
-#, c-format
-msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:601
-#, c-format
-msgid "%.02f GiB"
-msgstr "%.02f GiB"
-
-#: ../Util.cpp:603
-#, c-format
-msgid "%.02f TiB"
-msgstr "%.02f TiB"
-
-#: ../Util.cpp:605
-#, c-format
-msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:635
-#, c-format
-msgid "%s B"
-msgstr "%s B"
-
-#: ../Util.cpp:639
-#, c-format
-msgid "%'lld B"
-msgstr "%'lld B"
-
-#: ../ZUtils.cpp:36 ../ZUtils.cpp:57 ../ZUtils.cpp:79 ../ZUtils.cpp:89
-#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62
-msgid "Error during compression"
-msgstr "Chyba počas kompresie"
-
-#: ../ZUtils.cpp:103 ../ZUtils.cpp:126 ../CryptoManager.cpp:372
-#: ../CryptoManager.cpp:391 ../CryptoManager.cpp:405 ../BZUtils.cpp:74
-#: ../BZUtils.cpp:96 ../BZUtils.cpp:99
-msgid "Error during decompression"
-msgstr "Chyba počas dekompresie"
 
 #: ../HashManager.cpp:87 ../HashManager.cpp:287
 msgid "Hashing failed: %1%"
@@ -338,149 +128,6 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Chyba pri vytváraní hašu %1%: %2%"
 
-#: ../UPnPManager.cpp:45
-#, fuzzy
-msgid "No UPnP implementation available"
-msgstr "Nie sú dostupné sloty"
-
-#: ../UPnPManager.cpp:50
-msgid "Another UPnP port mapping attempt is in progress..."
-msgstr ""
-
-#: ../UPnPManager.cpp:81
-msgid "Failed to initialize the %1% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:85
-msgid " Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
-#: ../UPnPManager.cpp:101
-msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr ""
-
-#: ../UPnPManager.cpp:90
-msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:95
-msgid " Search Port (%1% UDP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:100
-msgid " DHT Port (%1% UDP)"
-msgstr ""
-
-#: ../UPnPManager.cpp:107
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:118
-msgid "Failed to get external IP"
-msgstr ""
-
-#: ../UPnPManager.cpp:128
-#, fuzzy
-msgid "Failed to create port mappings"
-msgstr "Nepodarilo sa vytvoriť vlákno"
-
-#: ../UPnPManager.cpp:137
-msgid "Successfully removed port mappings with the %1% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:138
-#, fuzzy
-msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Nepodarilo sa vytvoriť vlákno"
-
-#: ../UPnPManager.cpp:143
-msgid "UPnP: %1%"
-msgstr ""
-
-#: ../ShareManager.cpp:447
-msgid "No directory specified"
-msgstr "Nebol zadaný adresár"
-
-#: ../ShareManager.cpp:451
-#, fuzzy
-msgid "Directory is hidden"
-msgstr "Adresár je už zdieľaný"
-
-#: ../ShareManager.cpp:455
-msgid "The temporary download directory cannot be shared"
-msgstr "Dočasný adresár sťahovaní nemožno zdieľať"
-
-#: ../ShareManager.cpp:643
-msgid "Invalid file name found while hashing folder %1%"
-msgstr ""
-
-#: ../ShareManager.cpp:661
-msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:682
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
-
-#: ../ShareManager.cpp:770
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr ""
-"Duplicitný súbor sa nebude zdieľať: %1% (Veľkosť: %2% B) Zhoduje sa s: %3%"
-
-#: ../ShareManager.cpp:792
-msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Prebieha obnovenie zoznamu súborov, počkajte prosím, kým skončí, než ho "
-"skúsite znova obnoviť"
-
-#: ../ShareManager.cpp:813
-msgid "File list refresh failed: %1%"
-msgstr "Nepodarilo sa obnoviť zoznam súborov: %1%"
-
-#: ../ShareManager.cpp:835
-msgid "File list refresh initiated"
-msgstr "Obnovenie zoznamu súborov sa začalo"
-
-#: ../ShareManager.cpp:860
-msgid "File list refresh finished"
-msgstr "Obnovenie zoznamu súborov bolo dokončené"
-
-#: ../ShareManager.cpp:942
-#, fuzzy
-msgid "File list %1% generated"
-msgstr "Obnovenie zoznamu súborov sa začalo"
-
-#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Spojenie ukončené"
-
-#: ../BufferedSocket.cpp:275
-msgid "Maximum command length exceeded"
-msgstr "Bola prekročená maximálna dĺžka príkazu"
-
-#: ../BufferedSocket.cpp:452
-msgid "Disconnected"
-msgstr "Odpojený"
-
-#: ../ADLSearch.cpp:40
-msgid "<Enter string>"
-msgstr "<Zadajte reťazec>"
-
-#: ../ADLSearch.cpp:484
-msgid "Discard"
-msgstr "Zahodiť"
-
-#: ../DirectoryListing.cpp:177
-msgid "Directory missing name attribute"
-msgstr "Adresáru chýba atribút názov"
-
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
 msgstr "Nebol vybraný súbor s privátnym kľúčom"
@@ -515,9 +162,11 @@ msgstr "Nepodarilo sa načítať súbor s certifikátom"
 msgid "Failed to load private key"
 msgstr "Nepodarilo sa načítať privátny kľúč"
 
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "Chyba SSL: %1% (%2%, %3%)"
+#: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
+#: ../ZUtils.cpp:103 ../ZUtils.cpp:126 ../BZUtils.cpp:74 ../BZUtils.cpp:96
+#: ../BZUtils.cpp:99
+msgid "Error during decompression"
+msgstr "Chyba počas dekompresie"
 
 #: ../DownloadManager.cpp:134
 msgid "IPFilter: Blocked outgoing connection to "
@@ -547,66 +196,14 @@ msgstr "Nie sú dostupné sloty"
 msgid "%1%: File not available"
 msgstr "%1%: Súbor nie je dostupný"
 
-#: ../ConnectionManager.cpp:179
-msgid "All download slots taken"
-msgstr "Všetky sťahovacie sloty sú obsadené"
-
-#: ../ConnectionManager.cpp:248
-msgid "Connectivity restored"
-msgstr "Konektivita bola obnovená"
-
-#: ../ConnectionManager.cpp:256
-msgid "Connectivity error: %1%"
-msgstr "Chyba konektivity: %1%"
-
-#: ../SearchManager.cpp:36
-msgid "Any"
-msgstr ""
-
-#: ../SearchManager.cpp:37
-msgid "Audio"
-msgstr ""
-
-#: ../SearchManager.cpp:38
-msgid "Compressed"
-msgstr ""
-
-#: ../SearchManager.cpp:39
-msgid "Document"
-msgstr ""
-
-#: ../SearchManager.cpp:40
-msgid "Executable"
-msgstr ""
-
-#: ../SearchManager.cpp:41
-msgid "Picture"
-msgstr ""
-
-#: ../SearchManager.cpp:42
-msgid "Video"
-msgstr ""
-
-#: ../SearchManager.cpp:43
+#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
 #, fuzzy
-msgid "Directory"
-msgstr "Adresár je už zdieľaný"
+msgid "Invalid data"
+msgstr "Neplatná veľkosť"
 
-#: ../SearchManager.cpp:44
-msgid "TTH"
+#: ../UserConnection.cpp:58
+msgid "Non-UTF-8 data in an ADC connection"
 msgstr ""
-
-#: ../SearchManager.cpp:45
-msgid "CD Image"
-msgstr ""
-
-#: ../SearchManager.cpp:150
-msgid "Search enabled again"
-msgstr "Hľadanie znova zapnuté"
-
-#: ../SearchManager.cpp:158
-msgid "Search disabled: %1%"
-msgstr "Hľadanie vypnuté: %1%"
 
 #: ../QueueManager.cpp:243
 msgid "No needed part"
@@ -699,6 +296,413 @@ msgstr "%1% bol vykopnutý: %2%"
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "nekonzistentný CRC32 (kontrola v SFV)"
 
+#: ../Socket.cpp:79
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Neznáma chyba: 0x%1$x"
+
+#: ../Socket.cpp:214 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../ConnectionManager.cpp:186
+msgid "Connection timeout"
+msgstr "Vypršal maximálny čas nečinnosti spojenia"
+
+#: ../Socket.cpp:222 ../Socket.cpp:230 ../Socket.cpp:263 ../Socket.cpp:267
+#: ../Socket.cpp:291 ../Socket.cpp:306
+msgid "The socks server failed establish a connection"
+msgstr "SOCKS serveru sa nepodarilo nadviazať spojenie"
+
+#: ../Socket.cpp:295
+msgid "The socks server requires authentication"
+msgstr "SOCKS server vyžaduje overenie"
+
+#: ../Socket.cpp:309
+msgid "The socks server doesn't support login / password authentication"
+msgstr "SOCKS server nepodporuje overenie menom a heslom"
+
+#: ../Socket.cpp:323 ../Socket.cpp:327
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr ""
+"Zlyhalo overenie u SOCKS servera (chybné prihlasovacie meno alebo heslo?)"
+
+#: ../Socket.cpp:460
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+"Nepodarilo sa nastaviť SOCKS server, aby robil UDP relé (skontrolujte adresu "
+"a port SOCKS)"
+
+#: ../UPnPManager.cpp:45
+#, fuzzy
+msgid "No UPnP implementation available"
+msgstr "Nie sú dostupné sloty"
+
+#: ../UPnPManager.cpp:50
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr ""
+
+#: ../UPnPManager.cpp:81
+#, fuzzy
+msgid "Failed to initialize the %1% interface"
+msgstr "Nepodarilo sa vytvoriť vlákno"
+
+#: ../UPnPManager.cpp:85
+msgid " Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
+#: ../UPnPManager.cpp:101
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr ""
+
+#: ../UPnPManager.cpp:90
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:95
+msgid " Search Port (%1% UDP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:100
+msgid " DHT Port (%1% UDP)"
+msgstr ""
+
+#: ../UPnPManager.cpp:107
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr ""
+
+#: ../UPnPManager.cpp:118
+msgid "Failed to get external IP"
+msgstr ""
+
+#: ../UPnPManager.cpp:128
+#, fuzzy
+msgid "Failed to create port mappings"
+msgstr "Nepodarilo sa vytvoriť vlákno"
+
+#: ../UPnPManager.cpp:137
+#, fuzzy
+msgid "Successfully removed port mappings with the %1% interface"
+msgstr "Nepodarilo sa vytvoriť vlákno"
+
+#: ../UPnPManager.cpp:138
+#, fuzzy
+msgid "Failed to remove port mappings with the %1% interface"
+msgstr "Nepodarilo sa vytvoriť vlákno"
+
+#: ../UPnPManager.cpp:143
+msgid "UPnP: %1%"
+msgstr ""
+
+#: ../ChatMessage.cpp:33
+msgid "Sent "
+msgstr ""
+
+#: ../NmdcHub.cpp:293
+msgid "%1% (Nick unknown)"
+msgstr "%1% (neznáma prezývka)"
+
+#: ../NmdcHub.cpp:672
+msgid "Hub topic:"
+msgstr ""
+
+#: ../NmdcHub.cpp:1024
+msgid ""
+"This hub is trying to use your client to spam %1%, please urge hub owner to "
+"fix this"
+msgstr ""
+
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Zadajte reťazec>"
+
+#: ../ADLSearch.cpp:484
+msgid "Discard"
+msgstr "Zahodiť"
+
+#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Spojenie ukončené"
+
+#: ../BufferedSocket.cpp:275
+msgid "Maximum command length exceeded"
+msgstr "Bola prekročená maximálna dĺžka príkazu"
+
+#: ../BufferedSocket.cpp:452
+msgid "Disconnected"
+msgstr "Odpojený"
+
+#: ../UploadManager.cpp:238
+msgid "Unable to send file %1%: %2%"
+msgstr "Nepodarilo sa poslať súbor %1%: %2%"
+
+#: ../UploadManager.cpp:516
+msgid "IPFilter: Blocked incoming connection to "
+msgstr ""
+
+#: ../UploadManager.cpp:579
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Používateľ, ktorý opustil hub, bol odpojený: %1%"
+
+#: ../ZUtils.cpp:36 ../ZUtils.cpp:57 ../ZUtils.cpp:79 ../ZUtils.cpp:89
+#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62
+msgid "Error during compression"
+msgstr "Chyba počas kompresie"
+
+#: ../ConnectionManager.cpp:179
+msgid "All download slots taken"
+msgstr "Všetky sťahovacie sloty sú obsadené"
+
+#: ../ConnectionManager.cpp:248
+msgid "Connectivity restored"
+msgstr "Konektivita bola obnovená"
+
+#: ../ConnectionManager.cpp:256
+msgid "Connectivity error: %1%"
+msgstr "Chyba konektivity: %1%"
+
+#: ../SearchManager.cpp:36
+msgid "Any"
+msgstr ""
+
+#: ../SearchManager.cpp:37
+msgid "Audio"
+msgstr ""
+
+#: ../SearchManager.cpp:38
+msgid "Compressed"
+msgstr ""
+
+#: ../SearchManager.cpp:39
+msgid "Document"
+msgstr ""
+
+#: ../SearchManager.cpp:40
+msgid "Executable"
+msgstr ""
+
+#: ../SearchManager.cpp:41
+msgid "Picture"
+msgstr ""
+
+#: ../SearchManager.cpp:42
+msgid "Video"
+msgstr ""
+
+#: ../SearchManager.cpp:43
+#, fuzzy
+msgid "Directory"
+msgstr "Adresár je už zdieľaný"
+
+#: ../SearchManager.cpp:44
+msgid "TTH"
+msgstr ""
+
+#: ../SearchManager.cpp:45
+msgid "CD Image"
+msgstr ""
+
+#: ../SearchManager.cpp:150
+msgid "Search enabled again"
+msgstr "Hľadanie znova zapnuté"
+
+#: ../SearchManager.cpp:158
+msgid "Search disabled: %1%"
+msgstr "Hľadanie vypnuté: %1%"
+
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "Chyba SSL: %1% (%2%, %3%)"
+
+#: ../Thread.cpp:30 ../Thread.cpp:38
+msgid "Unable to create thread"
+msgstr "Nepodarilo sa vytvoriť vlákno"
+
+#: ../SettingsManager.cpp:181
+msgid "downloaded from"
+msgstr ""
+
+#: ../SettingsManager.cpp:510
+#, fuzzy
+msgid "Invalid search type name"
+msgstr "Neplatná veľkosť"
+
+#: ../SettingsManager.cpp:514 ../SettingsManager.cpp:536
+msgid "This search type already exists"
+msgstr ""
+
+#: ../SettingsManager.cpp:568
+msgid "No such search type"
+msgstr ""
+
+#: ../SettingsManager.cpp:603
+msgid "Error: setting not found!"
+msgstr ""
+
+#: ../SettingsManager.cpp:604
+msgid "Change core setting "
+msgstr ""
+
+#: ../SettingsManager.cpp:604
+msgid " to "
+msgstr ""
+
+#: ../SettingsManager.cpp:606
+msgid "Error: params have been not 2!"
+msgstr ""
+
+#: ../HttpConnection.cpp:166
+msgid "Endless redirection loop (%1%)"
+msgstr ""
+
+#: ../ShareManager.cpp:447
+msgid "No directory specified"
+msgstr "Nebol zadaný adresár"
+
+#: ../ShareManager.cpp:451
+#, fuzzy
+msgid "Directory is hidden"
+msgstr "Adresár je už zdieľaný"
+
+#: ../ShareManager.cpp:455
+msgid "The temporary download directory cannot be shared"
+msgstr "Dočasný adresár sťahovaní nemožno zdieľať"
+
+#: ../ShareManager.cpp:643
+msgid "Invalid file name found while hashing folder %1%"
+msgstr ""
+
+#: ../ShareManager.cpp:661
+#, fuzzy
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr "Nepodarilo sa hašovanie: %1%"
+
+#: ../ShareManager.cpp:682
+#, fuzzy
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr "Nepodarilo sa hašovanie: %1%"
+
+#: ../ShareManager.cpp:770
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+"Duplicitný súbor sa nebude zdieľať: %1% (Veľkosť: %2% B) Zhoduje sa s: %3%"
+
+#: ../ShareManager.cpp:792
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Prebieha obnovenie zoznamu súborov, počkajte prosím, kým skončí, než ho "
+"skúsite znova obnoviť"
+
+#: ../ShareManager.cpp:813
+msgid "File list refresh failed: %1%"
+msgstr "Nepodarilo sa obnoviť zoznam súborov: %1%"
+
+#: ../ShareManager.cpp:835
+msgid "File list refresh initiated"
+msgstr "Obnovenie zoznamu súborov sa začalo"
+
+#: ../ShareManager.cpp:860
+msgid "File list refresh finished"
+msgstr "Obnovenie zoznamu súborov bolo dokončené"
+
+#: ../ShareManager.cpp:942
+#, fuzzy
+msgid "File list %1% generated"
+msgstr "Obnovenie zoznamu súborov sa začalo"
+
+#: ../Util.cpp:595
+#, c-format
+msgid "%d B"
+msgstr "%d B"
+
+#: ../Util.cpp:597
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:599
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:601
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:603
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:605
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:635
+#, c-format
+msgid "%s B"
+msgstr "%s B"
+
+#: ../Util.cpp:639
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld B"
+
+#: ../DirectoryListing.cpp:177
+msgid "Directory missing name attribute"
+msgstr "Adresáru chýba atribút názov"
+
+#: ../ConnectivityManager.cpp:78
+msgid "Determining the best connectivity settings..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:83
+msgid ""
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:93
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:100
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+
+#: ../ConnectivityManager.cpp:128
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:140
+msgid "Transfer (TCP)"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:146
+msgid "Search (UDP)"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:152
+msgid "DHT (UDP)"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:167
+#, fuzzy
+msgid "Connectivity: "
+msgstr "Chyba konektivity: %1%"
+
 #: ../Streams.h:144
 msgid "More bytes written than requested"
 msgstr "Bolo zapísaných viac bajtov ako bolo vyžiadaných"
@@ -706,10 +710,6 @@ msgstr "Bolo zapísaných viac bajtov ako bolo vyžiadaných"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "nekonzistencia TTH"
-
-#, fuzzy
-#~ msgid "Hashing file: %1% (Size: %2%)"
-#~ msgstr "Nepodarilo sa hašovanie: %1%"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Požiadavka o čítanie za koncom údajov"

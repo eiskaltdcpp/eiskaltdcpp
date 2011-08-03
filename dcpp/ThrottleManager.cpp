@@ -42,7 +42,7 @@ int ThrottleManager::read(Socket* sock, void* buffer, size_t len)
 	int64_t readSize = -1;
 	size_t downs = DownloadManager::getInstance()->getDownloadCount();
 	auto downLimit = getDownLimit(); // avoid even intra-function races
-	if(!getCurThrottling() || downLimit == 0 || downs == 0)
+	if(!BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || downLimit == 0 || downs == 0)
 		return sock->read(buffer, len);
 
 	{
@@ -80,7 +80,7 @@ int ThrottleManager::write(Socket* sock, void* buffer, size_t& len)
 	bool gotToken = false;
 	size_t ups = UploadManager::getInstance()->getUploadCount();
 	auto upLimit = getUpLimit(); // avoid even intra-function races
-	if(!getCurThrottling() || upLimit == 0 || ups == 0)
+	if(!BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || upLimit == 0 || ups == 0)
 		return sock->write(buffer, len);
 
 	{
@@ -260,26 +260,15 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noe
 	int downLimit = getDownLimit();
 	int upLimit   = getUpLimit();
 
-	//if(!BOOLSETTING(THROTTLE_ENABLE)) {
-		//downLimit = 0;
-		//upLimit = 0;
-	//}
-
 	// readd tokens
 	{
 		Lock l(downCS);
-		if(downLimit > 0)
-			downTokens = downLimit * 1024;
-		else
-			downTokens = -1;
+		downTokens = downLimit * 1024;
 	}
 
 	{
 		Lock l(upCS);
-		if(upLimit > 0)
-			upTokens = upLimit * 1024;
-		else
-			upTokens = -1;
+		upTokens = upLimit * 1024;
 	}
 
 	// let existing events drain out (fairness).

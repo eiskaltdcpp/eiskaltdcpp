@@ -7,7 +7,7 @@
 * Додані деякі опції в діалог налаштувань: DHT, DHT_PORT
 *** eiskaltdcpp-gtk ***
 * Перехід з Libglade на GtkBuilder. Частково втрачено сумісність з кодовою базою LinuxDC++ і FreeDC++.
-* Додані деякі опції в діалог налаштувань: DHT, DHT_PORT
+* Додані деякі опції в діалог налаштувань: DHT, DHT_PORT, DYNDNS_ENABLE, DYNDNS_SERVER
 * Деякі покращення в діалозі налаштувань.
 *** eiskaltdcpp-daemon ***
 
