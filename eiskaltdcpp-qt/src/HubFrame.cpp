@@ -3738,12 +3738,15 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             ClientManager::getInstance()->privateMessage(HintedUser(user->getUser(), client->getHubUrl()), Util::getAwayMessage(), false);
 
         if (BOOLSETTING(LOG_PRIVATE_CHAT)){
+            string info = Util::formatAdditionalInfo(map["I4"].toString().toStdString(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+            QString qinfo = !info.empty() ? _q(info) : "";
+
             StringMap params;
-            params["message"] = _tq(msg);
+            params["message"] = _tq(qinfo + "<" + nick + "> " + msg);
             params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
             params["hubURL"] = client->getHubUrl();
             params["userCID"] = id.toBase32();
-            params["userNI"] = _tq(nick);
+            params["userNI"] = user->getIdentity().getNick();
             params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
             params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp();
             LOG(LogManager::PM, params);
@@ -3785,11 +3788,15 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         emit coreMessage(map);
 
         if (BOOLSETTING(LOG_MAIN_CHAT)){
+            string info = Util::formatAdditionalInfo(map["I4"].toString().toStdString(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+            QString qinfo = !info.empty() ? _q(info) : "";
+            QString nick  =  _q(user->getIdentity().getNick());
+            
             StringMap params;
-            params["message"] = _tq(msg);
+            params["message"] = _tq(qinfo + "<" + nick + "> " + msg);
             client->getHubIdentity().getParams(params, "hub", false);
             params["hubURL"] = client->getHubUrl();
-            params["userNI"] = user->getIdentity().getNick();
+            params["userNI"] = _tq(nick);
             params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp();
             client->getMyIdentity().getParams(params, "my", true);
             LOG(LogManager::CHAT, params);
