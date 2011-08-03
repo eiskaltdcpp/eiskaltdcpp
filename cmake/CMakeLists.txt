@@ -44,6 +44,7 @@ set(dcpp_files_from "${dcpp_BINARY_DIR}/po/libeiskaltdcpp_srcs.txt")
 string(REGEX REPLACE ";" "\n" dcpp_contents "${rel_dcpp_sources}")
 file(WRITE "${dcpp_files_from}" "${dcpp_contents}")
 
+if (USE_GTK)
 get_absolute_sources(abs_gtk_cpp_sources "${GTK_SRCS};${GTK_HDRS}")
 get_relative_sources(rel_gtk_cpp_sources "${eiskaltdcpp-gtk_SOURCE_DIR}/po" "${abs_gtk_cpp_sources}")
 file(MAKE_DIRECTORY "${eiskaltdcpp-gtk_BINARY_DIR}/po")
@@ -53,11 +54,10 @@ file(WRITE "${gtk_cpp_files_from}" "${gtk_cpp_contents}")
 
 get_absolute_sources(abs_gtk_ui_sources "${GTK_UI}")
 get_relative_sources(rel_gtk_ui_sources "${eiskaltdcpp-gtk_SOURCE_DIR}/po" "${abs_gtk_ui_sources}")
-file(MAKE_DIRECTORY "${eiskaltdcpp-gtk_BINARY_DIR}/po")
 set(gtk_ui_files_from "${eiskaltdcpp-gtk_BINARY_DIR}/po/eiskaltdcpp-gtk_ui_srcs.txt")
 string(REGEX REPLACE ";" "\n" gtk_ui_contents "${rel_gtk_ui_sources}")
 file(WRITE "${gtk_ui_files_from}" "${gtk_ui_contents}")
-
+endif (USE_GTK)
 ############ pot update. ###########
 
 if(UPDATE_PO)
@@ -252,7 +252,6 @@ if(UPDATE_PO)
 		COMMENT "pot-update: Done."
 		DEPENDS ${pot-update-SRC}
 	)
-
 
 	##### po update per language #####
 	foreach(LANG ${LANGUAGES})
