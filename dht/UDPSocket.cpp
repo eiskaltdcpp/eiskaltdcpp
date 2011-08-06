@@ -106,11 +106,14 @@ namespace dht
 	{
 		if(socket->wait(delay, Socket::WAIT_READ) == Socket::WAIT_READ)
 		{
-			sockaddr_in remoteAddr = { 0 };
+			Socket::addr remoteAddr = { 0 };
 			boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
 			int len = socket->read(&buf[0], BUFSIZE, remoteAddr);
 			dcdrun(receivedBytes += len);
 			dcdrun(receivedPackets++);
+
+			uint16_t port = 0;
+			string ip = Socket::resolveName(remoteAddr, &port);
 
 			if(len > 1)
 			{
@@ -118,7 +121,7 @@ namespace dht
 				if(buf[0] != ADC_PACKED_PACKET_HEADER && buf[0] != ADC_PACKET_HEADER)
 				{
 					// it seems to be encrypted packet
-					if(!decryptPacket(&buf[0], len, inet_ntoa(remoteAddr.sin_addr), isUdpKeyValid))
+					if(!decryptPacket(&buf[0], len, ip, isUdpKeyValid))
 						return;
 				}
 				//else
@@ -141,9 +144,7 @@ namespace dht
 				string s((char*)destBuf.get(), destLen);
 				if(s[0] == ADC_PACKET_HEADER && s[s.length() - 1] == ADC_PACKET_FOOTER)	// is it valid ADC command?
 				{
-					string ip = inet_ntoa(remoteAddr.sin_addr);
-					uint16_t port = ntohs(remoteAddr.sin_port);
-					COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::HUB_IN,  ip + ":" + Util::toString(port));
+					COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::HUB_IN,  string(ip) + ":" + Util::toString(port));
 					DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), ip, port, isUdpKeyValid);
 				}
 

@@ -71,7 +71,9 @@ public:
     static const string SECURE_CLIENT_PROTOCOL_TEST;
     static const string ADCS_FEATURE;
     static const string TCP4_FEATURE;
+    static const string TCP6_FEATURE;
     static const string UDP4_FEATURE;
+    static const string UDP6_FEATURE;
     static const string NAT0_FEATURE;
     static const string SEGA_FEATURE;
     static const string BASE_SUPPORT;

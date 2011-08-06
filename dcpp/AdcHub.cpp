@@ -48,7 +48,9 @@ const string AdcHub::CLIENT_PROTOCOL("ADC/1.0");
 const string AdcHub::SECURE_CLIENT_PROTOCOL_TEST("ADCS/0.10");
 const string AdcHub::ADCS_FEATURE("ADC0");
 const string AdcHub::TCP4_FEATURE("TCP4");
+const string AdcHub::TCP6_FEATURE("TCP6");
 const string AdcHub::UDP4_FEATURE("UDP4");
+const string AdcHub::UDP6_FEATURE("UDP6");
 const string AdcHub::NAT0_FEATURE("NAT0");
 const string AdcHub::SEGA_FEATURE("SEGA");
 const string AdcHub::BASE_SUPPORT("ADBASE");
@@ -1009,7 +1011,7 @@ void AdcHub::info(bool /*alwaysSend*/) {
     }
 
     if (!getFavIp().empty()) {
-        addParam(lastInfoMap, c, "I4", getFavIp());
+        addParam(lastInfoMap, c, "I4", Socket::resolve(getFavIp()));
    } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
            addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP)));
    } else {

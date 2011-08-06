@@ -21,6 +21,7 @@
 
 #ifdef _WIN32
 #include "w.h"
+#include <ws2tcpip.h>
 typedef int socklen_t;
 typedef SOCKET socket_t;
 
@@ -58,7 +59,7 @@ private:
 	static string errorToString(int aError) noexcept;
 };
 
-class Socket
+class Socket : boost::noncopyable
 {
 public:
 	enum {
@@ -72,6 +73,13 @@ public:
 		TYPE_TCP,
 		TYPE_UDP
 	};
+
+	typedef union {
+		sockaddr sa;
+		sockaddr_in sai;
+		sockaddr_in6 sai6;
+		sockaddr_storage sas;
+	} addr;
 
 	Socket() : sock(INVALID_SOCKET), connected(false) { }
 	Socket(const string& aIp, uint16_t aPort) : sock(INVALID_SOCKET), connected(false) { connect(aIp, aPort); }
@@ -125,7 +133,7 @@ public:
 	 * @return Number of bytes read, 0 if disconnected and -1 if the call would block.
 	 * @throw SocketException On any failure.
 	 */
-	virtual int read(void* aBuffer, int aBufLen, sockaddr_in& remote);
+	virtual int read(void* aBuffer, int aBufLen, addr& remote);
 	/**
 	 * Reads data until aBufLen bytes have been read or an error occurs.
 	 * If the socket is closed, or the timeout is reached, the number of bytes read
@@ -138,6 +146,8 @@ public:
 	bool isConnected() { return connected; }
 
 	static string resolve(const string& aDns);
+	typedef std::unique_ptr<addrinfo, decltype(&freeaddrinfo)> addrinfo_p;
+	static addrinfo_p resolveAddr(const string& aDns, uint16_t port, int flags = 0);
 	static uint64_t getTotalDown() { return stats.totalDown; }
 	static uint64_t getTotalUp() { return stats.totalUp; }
 
@@ -178,12 +188,15 @@ public:
 
 	/** When socks settings are updated, this has to be called... */
 	static void socksUpdated();
-
+	static string resolveName(const addr& serv_addr, uint16_t* port = NULL);
 	GETSET(string, ip, Ip);
 protected:
 	socket_t sock;
 	int type;
 	bool connected;
+
+	// family for all sockets
+	static uint16_t family;
 
 	class Stats {
 	public:
@@ -192,24 +205,15 @@ protected:
 	};
 	static Stats stats;
 
-	static string udpServer;
-	static uint16_t udpPort;
+	static addr udpAddr;
+	static socklen_t udpAddrLen;
 
 private:
-	Socket(const Socket&);
-	Socket& operator=(const Socket&);
-
 
 	void socksAuth(uint32_t timeout);
 
 #ifdef _WIN32
 	static int getLastError() { return ::WSAGetLastError(); }
-	static int checksocket(int ret) {
-		if(ret == SOCKET_ERROR) {
-			throw SocketException(getLastError());
-		}
-		return ret;
-	}
 	static int check(int ret, bool blockOk = false) {
 		if(ret == SOCKET_ERROR) {
 			int error = getLastError();
@@ -223,12 +227,6 @@ private:
 	}
 #else
 	static int getLastError() { return errno; }
-	static int checksocket(int ret) {
-		if(ret < 0) {
-			throw SocketException(getLastError());
-		}
-		return ret;
-	}
 	static int check(int ret, bool blockOk = false) {
 		if(ret == -1) {
 			int error = getLastError();
