@@ -13,7 +13,6 @@
 
 //---------------------------------------------------------------------------
 #include "stdafx.h"
-#include "dcpp/DCPlusPlus.h"
 //---------------------------------------------------------------------------
 #include "utility.h"
 #include "ServerThread.h"
@@ -36,8 +35,13 @@
 #include "xmlrpcserver.h"
 #endif
 
-ServerThread::ClientMap ServerThread::clientsMap;
+#ifdef JSONRPC_DAEMON
+#include "jsonrpcmethods.h"
+#include "json/src/jsonrpc.h"
+#endif
 
+ServerThread::ClientMap ServerThread::clientsMap;
+Json::Rpc::TcpServer jsonserver(std::string("127.0.0.1"), 8086);
 //----------------------------------------------------------------------------
 ServerThread::ServerThread() : lastUp(0), lastDown(0), lastUpdate(GET_TICK())
 {
@@ -114,6 +118,25 @@ int ServerThread::run()
     AbyssServer.run();
 #endif
 
+#ifdef JSONRPC_DAEMON
+    JsonRpcMethods a;
+    if(!networking::init())
+        std::cerr << "JSONRPC: Networking initialization failed" << std::endl;
+    jsonserver.AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::Print, std::string("print")));
+    jsonserver.AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::Notify, std::string("notify")));
+    if(!jsonserver.Bind())
+        std::cout << "JSONRPC: Bind failed" << std::endl;
+    if(!jsonserver.Listen())
+        std::cout << "JSONRPC: Listen failed" << std::endl;
+
+    std::cout << "JSONRPC: Start JSON-RPC TCP server" << std::endl;
+    json_run = true;
+    while(json_run)
+    {
+        jsonserver.WaitMessage(1000);
+    }
+#endif
+
     return 0;
 }
 bool ServerThread::disconnect_all(){
@@ -133,6 +156,12 @@ void ServerThread::Close()
     TimerManager::getInstance()->removeListener(this);
 #ifdef XMLRPC_DAEMON
     AbyssServer.terminate();
+#endif
+#ifdef JSONRPC_DAEMON
+    json_run = false;
+    std::cout << "JSONRPC: Stop JSON-RPC TCP server" << std::endl;
+    jsonserver.Close();
+    networking::cleanup();
 #endif
 
     ConnectionManager::getInstance()->disconnect();

@@ -1,0 +1,147 @@
+JsonRpc-Cpp coding style
+=========================
+
+I) Code layout
+--------------
+
+The code has to follow ANSI coding standard layout. Use 2 space indentation instead 
+of tabs.
+
+void foo(int barc, char** barv)
+{
+  int test = 0;
+  bool run = true;
+  size_t i = 0;
+
+  if(test)
+  {
+    /* do something */
+  }
+  else
+  {
+    /* do other thing */
+  }
+
+  while(run)
+  {
+    /* do loop */
+  }
+
+  for(i = 0 ; i < 2 ; i++)
+  {
+    /* do other loop */
+  }
+
+  do
+  {
+    /* do another loop */
+  }while(run);
+}
+
+The C++ comments ('//') can be used as well as the C comments ('/* */').
+
+/* my short comment */
+
+// another short comment
+
+/* a longer comment
+ * on multiple lines
+ * ...
+ */
+
+II) Code organization
+---------------------
+
+The code has to follow these recommendations:
+- Always initialize your variables;
+- Put "static" keyword if functions / global variables are not used outside a C++ file (not in header file);
+- Try to avoid static variables in functions (try to make reentrant things);
+- Prefer using size_t/ssize_t instead of int/unsigned int when possible;
+- Use "const" keyword for pointers and references if they should not been modified in function/method;
+- Use "const" keyword for methods if they do not modified class variables;
+- Put a space before and after operator +/-* i.e. a + b - ((c * 5) / 3);
+- Put an empty line at the end of each file.
+
+Naming has to follow these recommendations:
+- File name has to be in lower case, words are separated by  "_" (core files) or "-" (test and application-level files);
+- Class and method name respect the CamelCase convention (MyClass::MyMethod);
+- All class member variables name must be prefixed with "m_" (m_var);
+- Function name should be in lower case, words are separeted by a "_" character (my_function);
+- Each global variable must be prefixed with "g_" (g_run).
+
+Each file, function, structure, class and global variable MUST be documented using doxygen.
+Here is a complete example:
+
+/**
+ * \file my_file.h
+ * \brief Short description.
+ * \author Name
+ * \date 2008
+ */
+
+#ifndef MY_FILE_H
+#define MY_FILE_H
+
+/**
+ * \struct my_struct
+ * \brief Short description.
+ */
+struct my_struct
+{
+  int a; /**< Description of a */
+  char b; /**< Description of b */
+};
+
+/**
+ * \var g_my_var
+ * \brief Description of this global variable.
+ */
+struct my_struct* g_my_var = NULL;
+
+/**
+ * \class MyClass
+ * \brief Short description of MyClass.
+ */
+class MyClass
+{
+  public:
+    /**
+     * \brief Constructor.
+     */
+    MyClass();
+
+    /**
+     * \brief Destructor.
+     */
+    ~MyClass();
+
+    /**
+     * \brief If count reach maximum.
+     * \param count parameter description
+     * \return true if count reach maximum, false otherwise
+     */
+    bool IsMax(size_t count);
+
+  private:
+    /**
+     * \brief Member description.
+     */
+    size_t m_count;
+};
+
+/**
+ * \brief Doing something.
+ * \param a number to use
+ * \param b char to use
+ * \return 0 if success, -1 otherwise
+ */
+int foo(int a, char b);
+
+#endif /* MY_FILE_H */
+
+III) Standards
+---------------
+
+In order to compile and run on many operating systems the code has to be portable. Thus
+it is strongly recommended to write code which respects C++98 and POSIX standards.
+

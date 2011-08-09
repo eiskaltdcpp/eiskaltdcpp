@@ -101,6 +101,7 @@ option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
+option (JSONRPC_DAEMON "Mаке daemon without UI as jsonrpc server" OFF)
 
 if (PERL_REGEX)
     find_package(Pcre REQUIRED)
@@ -441,9 +442,13 @@ if (USE_GTK)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK)
 
-if (NO_UI_DAEMON OR XMLRPC_DAEMON)
+if (NO_UI_DAEMON OR XMLRPC_DAEMON OR JSONRPC_DAEMON)
     add_subdirectory (nasdc)
 endif ()
+
+if (JSONRPC_DAEMON)
+add_subdirectory (json)
+endif (JSONRPC_DAEMON)
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"

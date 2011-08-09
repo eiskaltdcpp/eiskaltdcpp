@@ -16,7 +16,6 @@
 
 #include "dcpp/stdinc.h"
 //#include "../dht/StdAfx.h"
-#include "dcpp/DCPlusPlus.h"
 
 #include <libintl.h>
 #include <iostream>

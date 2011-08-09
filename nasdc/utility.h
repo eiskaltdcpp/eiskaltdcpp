@@ -20,4 +20,5 @@ extern string PATH, sTitle;
 bool DirExist(char * sPath);
 void Log(const string & sData);
 string toString(short val);
+bool splitMagnet(const string &, string &, int64_t &, string &);
 #endif /* UTILITY_H_ */

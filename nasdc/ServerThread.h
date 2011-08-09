@@ -69,6 +69,7 @@ private:
     typedef unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
+    bool json_run;
 
     // TimerManagerListener
     void on(TimerManagerListener::Second, uint64_t aTick) noexcept;
