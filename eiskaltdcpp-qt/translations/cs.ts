@@ -5858,7 +5858,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
         <source>Keep downloaded files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachovat stažené soubory</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
@@ -5874,17 +5874,17 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation>Zapněte pokud chcete zachovat stažené soubory a složky
+        <translation>Zapněte tuto volbu pokud chcete zachovat stažené soubory a složky
 ve frontě stahování po jejich dokončení.
-Poté budou mít stažené položky status &apos;Hotovo&apos;
-a můžete je odstranit kdykoliv později.
-Používáním této funkce si můžete udržet přehled o stažených souborech
-aniž by jste museli kontrolovat Seznam dokončených stahování
-Pokud fyzicky odstraníte/přesunete stažené soubory
-ze složky pro stahování, nebudou automaticky smazány z fronty
-poznámky o jejich dokončení. Pokud vypnete tuto funkci,
-nebudou tyto soubory odstraněny z fronty stahování
-to je třeba udělat ručně.</translation>
+Po stažení budou mít stažené položky ve frontě status &apos;Hotovo&apos;
+a tyto položky můžete později kdykoliv smazat.
+Použitím této funkce můžete lehce sledovat které soubory byli již
+staženy přímo zde ve frontě stahování bez potřeby
+kontrolováí v okně Dokončených stahování.
+Poznámka: Pokud fyzicky smažete/přesunete stažené soubory z jejich cílové složky
+neodstraní se tímto automaticky z fronty stahování.
+Vypnutím této funkce se také již stažené položky automaticky neodstraní
+z fronty stahování, musíte je odebrat ručně.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="899"/>
