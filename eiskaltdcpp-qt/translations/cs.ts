@@ -110,14 +110,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Použitím:
+        <translation>Použití:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
+EiskaltDC++ je cross-platform program který používá Direct Connect a ADC protokol.
 
 Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</translation>
+  -h, --help	 Zobrazí tuto zpávu
+  -v, --version	 Zobrazí číslo verze</translation>
     </message>
 </context>
 <context>
@@ -159,7 +159,7 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="178"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</translation>
+        <translation>Ahoj, toto je AntiSpam bot. Takže otázka zní &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1167,7 +1167,7 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1594"/>
         <location filename="../src/HubFrame.cpp" line="1596"/>
         <source>Invalid command syntax.</source>
-        <translation>Špatně napsaný příkaz</translation>
+        <translation>Špatná syntaxe příkazu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1606"/>
@@ -6975,17 +6975,17 @@ přidané sloty se již neuzavřou.</translation>
         <location filename="../ui/UIShareBrowserSearch.ui" line="14"/>
         <location filename="../ui/UIShareBrowserSearch.ui" line="25"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Hledat</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
         <source>Filename</source>
-        <translation type="unfinished">Soubor</translation>
+        <translation>Soubor</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="40"/>
         <source>Directory</source>
-        <translation type="unfinished">Složka</translation>
+        <translation>Složka</translation>
     </message>
 </context>
 <context>
