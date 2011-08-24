@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This is script for updating the Geo IP database for EiskaltDC++.
 #
