@@ -328,7 +328,8 @@ SearchFrame::SearchFrame(QWidget *parent):
         timer1(NULL),
         saveFileType(true),
         proxy(NULL),
-        completer(NULL)
+        completer(NULL),
+        stop(false)
 {
     if (!SearchBlacklist::getInstance())
         SearchBlacklist::newInstance();
@@ -482,6 +483,7 @@ void SearchFrame::init(){
     connect(focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(selectAll()));
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
+    connect(pushButton_STOP, SIGNAL(clicked()), this, SLOT(slotStopSearch()));
     connect(pushButton_CLEAR, SIGNAL(clicked()), this, SLOT(slotClear()));
     connect(treeView_RESULTS, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotResultDoubleClicked(QModelIndex)));
     connect(treeView_RESULTS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
@@ -873,6 +875,7 @@ void SearchFrame::fastSearch(const QString &text, bool isTTH){
 }
 
 void SearchFrame::slotStartSearch(){
+    stop=false;
     if (lineEdit_SEARCHSTR->text().trimmed().isEmpty())
         return;
 
@@ -1547,7 +1550,7 @@ void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) noexcept {
-    if (currentSearch.empty() || aResult == NULL)
+    if (currentSearch.empty() || aResult == NULL || stop == true)
         return;
 
     if (!aResult->getToken().empty() && token != _q(aResult->getToken())){
@@ -1608,4 +1611,7 @@ void SearchFrame::on(ClientUpdated, Client* c) noexcept{
 
 void SearchFrame::on(ClientDisconnected, Client* c) noexcept{
     emit coreClientDisconnected((_q(c->getHubUrl())));
+}
+void SearchFrame::slotStopSearch(){
+    stop = true;
 }

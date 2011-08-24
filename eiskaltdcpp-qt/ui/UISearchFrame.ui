@@ -61,14 +61,14 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="12">
+      <item row="2" column="13">
        <widget class="QPushButton" name="pushButton_CLEAR">
         <property name="text">
          <string>Clear</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="13">
+      <item row="2" column="14">
        <widget class="QPushButton" name="pushButton_SIDEPANEL">
         <property name="text">
          <string>Show/Hide side panel</string>
@@ -82,6 +82,13 @@
        <widget class="QComboBox" name="comboBox_FILETYPES">
         <property name="currentIndex">
          <number>-1</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="12">
+       <widget class="QPushButton" name="pushButton_STOP">
+        <property name="text">
+         <string>Stop</string>
         </property>
        </widget>
       </item>
