@@ -12,18 +12,13 @@
 #ifndef XMLRPCSERVER_H_
 #define XMLRPCSERVER_H_
 
-#include "dcpp/DCPlusPlus.h"
 #include "dcpp/Util.h"
 #include "dcpp/StringTokenizer.h"
 
 #include <cassert>
 #include <stdexcept>
 #include <iostream>
-#ifdef WIN32
-#  include <windows.h>
-#else
-#  include <unistd.h>
-#endif
+
 #include <xmlrpc-c/base.hpp>
 #include <xmlrpc-c/registry.hpp>
 #include <xmlrpc-c/server_abyss.hpp>
@@ -83,7 +78,7 @@ class magnetAddMethod : public xmlrpc_c::method {
 public:
     magnetAddMethod() {
         this->_signature = "i:ss";
-        this->_help = "This method add queue for magnet. Params: magnet, download directory";
+        this->_help = "This method adds a magnet to queue. Params: magnet, download directory";
     }
 
     void
@@ -108,10 +103,12 @@ public:
             fflush(stderr);
 #endif
             QueueManager::getInstance()->add(name, size, TTHValue(tth));
-            *retvalP = xmlrpc_c::value_string("Magnet added in queue");
+            //*retvalP = xmlrpc_c::value_string("Magnet added in queue");
+            *retvalP = xmlrpc_c::value_int(0);
         }
         else
-            *retvalP = xmlrpc_c::value_string("Fail add magnet in queue");
+            //*retvalP = xmlrpc_c::value_int("Fail add magnet in queue");
+            *retvalP = xmlrpc_c::value_int(1);
     }
 };
 
@@ -130,11 +127,13 @@ public:
         paramList.verifyEnd(1);
 
         if (istop == 1) {
-            *retvalP = xmlrpc_c::value_string("Stopping daemon");
+            //*retvalP = xmlrpc_c::value_string("Stopping daemon");
+            *retvalP = xmlrpc_c::value_int(0);
             bServerTerminated=true;
         }
         else
-            *retvalP = xmlrpc_c::value_string("Param not equal 1, continue executing....");
+            //*retvalP = xmlrpc_c::value_string("Param not equal 1, continue executing....");
+            *retvalP = xmlrpc_c::value_int(1);
     }
 };
 
@@ -153,8 +152,7 @@ public:
         string const shub(paramList.getString(0));
         string const senc(paramList.getString(1));
         paramList.verifyEnd(2);
-        ServerThread svT;
-        svT.connectClient(shub, senc);
+        ServerThread::getInstance()->connectClient(shub, senc);
         *retvalP = xmlrpc_c::value_string("Connecting to " + shub);
     }
 };
@@ -173,9 +171,9 @@ public:
 
         string const shub(paramList.getString(0));
         paramList.verifyEnd(1);
-        ServerThread svT;
-        svT.disconnectClient(shub);
-        *retvalP = xmlrpc_c::value_string("Disconnected from " + shub);
+        ServerThread::getInstance()->disconnectClient(shub);
+        //*retvalP = xmlrpc_c::value_string("Disconnected from " + shub);
+        *retvalP = xmlrpc_c::value_int(0);
     }
 };
 
@@ -195,11 +193,13 @@ public:
         string const smess(paramList.getString(1));
         paramList.verifyEnd(2);
         ServerThread svT;
-        if (svT.findHubInConnectedClients(shub)) {
-            svT.sendMessage(shub,smess);
-            *retvalP = xmlrpc_c::value_string("Message send on hub: " + shub);
+        if (ServerThread::getInstance()->findHubInConnectedClients(shub)) {
+            ServerThread::getInstance()->sendMessage(shub,smess);
+            //*retvalP = xmlrpc_c::value_string("Message send on hub: " + shub);
+            *retvalP = xmlrpc_c::value_int(0);
         } else
-            *retvalP = xmlrpc_c::value_string(shub + " not connected");
+            //*retvalP = xmlrpc_c::value_string(shub + " not connected");
+            *retvalP = xmlrpc_c::value_int(1);
     }
 };
 
@@ -219,8 +219,7 @@ public:
         string const snick(paramList.getString(1));
         string const smess(paramList.getString(2));
         paramList.verifyEnd(3);
-        ServerThread svT;
-        string tmp = svT.sendPrivateMessage(shub, snick, smess);
+        string tmp = ServerThread::getInstance()->sendPrivateMessage(shub, snick, smess);
         *retvalP = xmlrpc_c::value_string(tmp);
     }
 };
@@ -238,9 +237,8 @@ public:
             xmlrpc_c::value *   const  retvalP) {
 
         string const sseparator(paramList.getString(0));
-        paramList.verifyEnd(1);
-        ServerThread svT; string listhubs;
-        svT.listConnectedClients(listhubs, sseparator);
+        paramList.verifyEnd(1); string listhubs;
+        ServerThread::getInstance()->listConnectedClients(listhubs, sseparator);
         *retvalP = xmlrpc_c::value_string(listhubs);
     }
 };
@@ -263,9 +261,11 @@ public:
             if (Util::fileExists(sdirectory.c_str())) {
                 ShareManager::getInstance()->addDirectory(sdirectory,svirtname);
                 ShareManager::getInstance()->refresh(true);
-                *retvalP = xmlrpc_c::value_string("Adding dir in share sucess");
+                //*retvalP = xmlrpc_c::value_string("Adding dir in share sucess");
+                *retvalP = xmlrpc_c::value_int(0);
             } else
-                *retvalP = xmlrpc_c::value_string("Dir not exist in filesystem");
+                //*retvalP = xmlrpc_c::value_string("Dir not exist in filesystem");
+                *retvalP = xmlrpc_c::value_int(1);
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }
@@ -294,11 +294,13 @@ public:
                     tmp = it->first;
                     ShareManager::getInstance()->renameDirectory(sdirectory,svirtname);
                     ShareManager::getInstance()->refresh(true);
-                    *retvalP = xmlrpc_c::value_string("Rename dir " + tmp + "->" + svirtname +" in share success");
+                    //*retvalP = xmlrpc_c::value_string("Rename dir " + tmp + "->" + svirtname +" in share success");
+                    *retvalP = xmlrpc_c::value_int(0);
                     return;
                 }
             }
-            *retvalP = xmlrpc_c::value_string("Rename dir failed");
+            //*retvalP = xmlrpc_c::value_string("Rename dir failed");
+            *retvalP = xmlrpc_c::value_int(1);
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }
@@ -323,11 +325,13 @@ public:
             if (it->first.compare(sdirectory) == 0) {
                 ShareManager::getInstance()->removeDirectory(it->second);
                 ShareManager::getInstance()->refresh(true);
-                *retvalP = xmlrpc_c::value_string("Delete dir from share success");
+                //*retvalP = xmlrpc_c::value_string("Delete dir from share success");
+                *retvalP = xmlrpc_c::value_int(0);
                 return;
             }
         }
-        *retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name not exist");
+        //*retvalP = xmlrpc_c::value_string("Delete dir from share failed, this virt name not exist");
+        *retvalP = xmlrpc_c::value_int(1);
     }
 };
 
@@ -370,12 +374,14 @@ public:
         int const irefresh(paramList.getInt(0));
         paramList.verifyEnd(1);
         if (irefresh == 1) {
-            *retvalP = xmlrpc_c::value_string("Refresh share started");
+            //*retvalP = xmlrpc_c::value_string("Refresh share started");
+            *retvalP = xmlrpc_c::value_int(0);
             ShareManager::getInstance()->setDirty();
             ShareManager::getInstance()->refresh(true);
         }
         else
-            *retvalP = xmlrpc_c::value_string("Param not equal 1, ignoring....");
+            //*retvalP = xmlrpc_c::value_string("Param not equal 1, ignoring....");
+            *retvalP = xmlrpc_c::value_int(1);
     }
 };
 
@@ -393,9 +399,8 @@ public:
 
         string const shub(paramList.getString(0));
         string const snick(paramList.getString(1));
-        paramList.verifyEnd(2);
-        ServerThread svT; string tmp;
-        tmp = svT.getFileList_client(shub, snick, false);
+        paramList.verifyEnd(2); string tmp;
+        tmp = ServerThread::getInstance()->getFileList_client(shub, snick, false);
         *retvalP = xmlrpc_c::value_string(tmp);
     }
 };
@@ -414,9 +419,8 @@ public:
 
         string const shub(paramList.getString(0));
         string const sseparator(paramList.getString(1));
-        paramList.verifyEnd(2);
-        ServerThread svT; string retchat;
-        svT.getChatPubFromClient(retchat, shub, sseparator);
+        paramList.verifyEnd(2); string retchat;
+        ServerThread::getInstance()->getChatPubFromClient(retchat, shub, sseparator);
         *retvalP = xmlrpc_c::value_string(retchat);
     }
 };
@@ -425,7 +429,8 @@ class sendSearchMethod : public xmlrpc_c::method {
     friend class ServerThread;
 public:
     sendSearchMethod() {
-        this->_signature = "i:siiids";
+        //this->_signature = "i:siiids";
+        this->_signature = "i:s";
         this->_help = "This method send search. Рarams: search string, type, sizemode, sizetype, size, huburls";
     }
 
@@ -434,17 +439,18 @@ public:
             xmlrpc_c::value *   const  retvalP) {
 
         string const ssearch(paramList.getString(0));
-        int const itype(paramList.getInt(1));
-        int const isizemode(paramList.getInt(2));
-        int const isizetype(paramList.getInt(3));
-        int const isize(paramList.getDouble(4));
-        string const shuburls(paramList.getString(5));
-        paramList.verifyEnd(6);
-        ServerThread svT;
-        if (svT.sendSearchonHubs(ssearch, itype, isizemode, isizetype, isize, shuburls))
-            *retvalP = xmlrpc_c::value_string("Start search " + ssearch + " on " + shuburls);
+        //int const itype(paramList.getInt(1));
+        //int const isizemode(paramList.getInt(2));
+        //int const isizetype(paramList.getInt(3));
+        //int const isize(paramList.getDouble(4));
+        //string const shuburls(paramList.getString(5));
+        paramList.verifyEnd(1);
+        if (ServerThread::getInstance()->sendSearchonHubs(ssearch, 0, 0, 0, 0, ""))
+            //*retvalP = xmlrpc_c::value_string("Start search " + ssearch + " on " + shuburls);
+            *retvalP = xmlrpc_c::value_int(0);
         else
-            *retvalP = xmlrpc_c::value_string("Start search " + ssearch + " on " + shuburls + " was been failed");
+            //*retvalP = xmlrpc_c::value_string("Start search " + ssearch + " on " + shuburls + " was been failed");
+            *retvalP = xmlrpc_c::value_int(1);
     }
 };
 
@@ -461,9 +467,8 @@ public:
             xmlrpc_c::value *   const  retvalP) {
 
         string const sseparator(paramList.getString(0));
-        paramList.verifyEnd(1);
-        ServerThread svT; string listsearchstrings;
-        svT.listSearchStrings(listsearchstrings, sseparator);
+        paramList.verifyEnd(1); string listsearchstrings;
+        ServerThread::getInstance()->listSearchStrings(listsearchstrings, sseparator);
         *retvalP = xmlrpc_c::value_string(listsearchstrings);
     }
 };
@@ -472,7 +477,7 @@ class returnSearchResultsMethod : public xmlrpc_c::method {
     friend class ServerThread;
 public:
     returnSearchResultsMethod() {
-        this->_signature = "i:ss";
+        this->_signature = "i:is";
         this->_help = "This method return results list by search string from huburls. Рarams: index, huburls";
     }
 
@@ -482,9 +487,8 @@ public:
 
         int const iindex(paramList.getInt(0));
         string const shuburls(paramList.getString(1));
-        paramList.verifyEnd(2);
-        ServerThread svT; vector<StringMap> tmp;
-        svT.returnSearchResults(tmp, iindex, shuburls);
+        paramList.verifyEnd(2); vector<StringMap> tmp;
+        ServerThread::getInstance()->returnSearchResults(tmp, iindex, shuburls);
         vector<xmlrpc_c::value> tmp_array_in;
         for (vector<StringMap>::iterator i = tmp.begin(); i != tmp.end(); ++i) {
             map<string, xmlrpc_c::value> tmp_struct_in;
