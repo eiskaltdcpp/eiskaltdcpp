@@ -1968,7 +1968,7 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Sebesség
 Letöltés: %1 Feltöltés: %2
 Statisztika
-Letöltve: %3 Feltöltve %4</translation>
+Letöltve: %3 Feltöltve: %4</translation>
     </message>
     <message>
         <source>Additional</source>
@@ -3284,7 +3284,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <source>Waiting for slot </source>
-        <translation>Várakozás slotra</translation>
+        <translation>Várakozás slotra </translation>
     </message>
     <message>
         <source> from %1/%2 user(s)</source>
@@ -3712,7 +3712,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Minimum search interval (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimális keresési intervallum (másodpercben)</translation>
     </message>
 </context>
 <context>
@@ -4418,7 +4418,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Reconnect to hub (seconds)</source>
-        <translation type="unfinished"></translation>
+        <translation>Újracsatlakozás a hubhoz (másodpercben)</translation>
     </message>
 </context>
 <context>
