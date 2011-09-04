@@ -1171,8 +1171,9 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkComboBoxEntry" id="comboboxCharset">
+                          <object class="GtkComboBoxText" id="comboboxCharset">
                             <property name="visible">True</property>
+                            <property name="has_entry">True</property>
                             <property name="can_focus">False</property>
                             <property name="model">liststore1</property>
                             <child>
@@ -1326,8 +1327,9 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkComboBoxEntry" id="ipComboboxEntry">
+                          <object class="GtkComboBoxText" id="ipComboboxEntry">
                             <property name="visible">True</property>
+                            <property name="has_entry">True</property>
                             <property name="can_focus">False</property>
                             <property name="model">liststore2</property>
                             <child>
