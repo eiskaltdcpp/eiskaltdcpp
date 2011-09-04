@@ -194,6 +194,7 @@
                     <property name="width_request">200</property>
                     <property name="visible">True</property>
                     <property name="has_entry">True</property>
+                    <property name="entry_text_column">0</property>
                     <property name="can_focus">True</property>
                     <property name="model">liststore1</property>
                     <child>
