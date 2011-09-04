@@ -236,14 +236,9 @@ gboolean FavoriteHubs::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, 
 
 		if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
 		{
-			GtkTreeViewColumn *column;
-			gtk_tree_view_get_cursor(fh->favoriteView.get(), NULL, &column);
-			if (column && column != gtk_tree_view_get_column(fh->favoriteView.get(), fh->favoriteView.col(_("Auto Connect"))))
-			{
-				WulforManager::get()->getMainWindow()->showHub_gui(
-					fh->favoriteView.getString(&iter, _("Address")),
-					fh->favoriteView.getString(&iter, _("Encoding")));
-			}
+			WulforManager::get()->getMainWindow()->showHub_gui(
+				fh->favoriteView.getString(&iter, _("Address")),
+				fh->favoriteView.getString(&iter, _("Encoding")));
 		}
 		else if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
 		{

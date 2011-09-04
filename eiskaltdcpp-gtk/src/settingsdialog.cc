@@ -3243,6 +3243,11 @@ bool Settings::validateUserCommandInput(const string &oldName)
             return FALSE;
         }
     }
+    else if (FavoriteManager::getInstance()->findUserCommand(_("Separator"), "") != -1)
+    {
+        showErrorDialog(_("Command name already exists"));
+        return FALSE;
+    }
 
     return TRUE;
 }
@@ -4071,6 +4076,7 @@ void Settings::moveUserCommand_client(string name, string hub, int pos)
     {
         FavoriteManager *fm = FavoriteManager::getInstance();
         fm->moveUserCommand(fm->findUserCommand(name, hub), pos);
+        fm->save();
     }
 }
 
