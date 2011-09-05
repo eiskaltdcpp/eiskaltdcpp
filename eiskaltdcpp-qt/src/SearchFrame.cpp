@@ -418,6 +418,8 @@ void SearchFrame::init(){
 
     frame_FILTER->setVisible(false);
 
+    pushButton_STOP->hide();
+
     toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
 
     treeView_RESULTS->setModel(model);
@@ -491,6 +493,7 @@ void SearchFrame::init(){
     connect(timer1, SIGNAL(timeout()), this, SLOT(slotTimer()));
     connect(pushButton_SIDEPANEL, SIGNAL(clicked()), this, SLOT(slotToggleSidePanel()));
     connect(lineEdit_SEARCHSTR, SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
+	connect(lineEdit_SIZE,      SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(setFocus()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(selectAll()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
@@ -875,7 +878,14 @@ void SearchFrame::fastSearch(const QString &text, bool isTTH){
 }
 
 void SearchFrame::slotStartSearch(){
+    if (qobject_cast<QPushButton*>(sender()) != pushButton_SEARCH){
+        pushButton_SEARCH->click(); //Generating clicked() signal that shows pushButton_STOP button.
+                                    //Anybody can suggest something better?
+        return;
+    }
+
     stop=false;
+
     if (lineEdit_SEARCHSTR->text().trimmed().isEmpty())
         return;
 

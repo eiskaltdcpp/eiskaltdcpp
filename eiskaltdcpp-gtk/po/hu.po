@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-07-21 21:50+0400\n"
-"PO-Revision-Date: 2011-06-12 13:27+0200\n"
+"PO-Revision-Date: 2011-09-03 13:41+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -1012,9 +1012,8 @@ msgid "DETECTION"
 msgstr "DETECTION"
 
 #: ../ui/settingsdialog.ui:2488
-#, fuzzy
 msgid "DHT Port"
-msgstr "Port"
+msgstr "DHT Port"
 
 #: ../src/emoticonsdialog.cc:106 ../src/previewmenu.cc:89
 #: ../ui/settingsdialog.ui:5447 ../ui/settingsdialog.ui:6148
@@ -1236,9 +1235,8 @@ msgid "Drop sources below"
 msgstr "Forrás eldobása ekkora sebesség alatt"
 
 #: ../ui/settingsdialog.ui:2419
-#, fuzzy
 msgid "DynDNS Address"
-msgstr "Cím"
+msgstr "DynDNS Cím"
 
 #: ../ui/settingsdialog.ui:1138
 msgid "E-Mail"
@@ -1293,9 +1291,8 @@ msgid "Encoding"
 msgstr "Karakterkódolás"
 
 #: ../src/transfers.cc:66
-#, fuzzy
 msgid "Encryption"
-msgstr "Leírás"
+msgstr "Titkosítás"
 
 #: ../ui/mainwindow.ui:2484
 msgid "Enter line for user command"
@@ -1825,9 +1822,8 @@ msgid "Left position"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2355
-#, fuzzy
 msgid "Limits"
-msgstr "<b>Limitek</b>"
+msgstr "Limitek"
 
 #: ../src/settingsdialog.cc:849 ../src/settingsdialog.cc:3406
 #: ../src/settingsdialog.cc:3419 ../src/settingsdialog.cc:3436
