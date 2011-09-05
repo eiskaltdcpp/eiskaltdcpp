@@ -418,6 +418,8 @@ void SearchFrame::init(){
 
     frame_FILTER->setVisible(false);
 
+    pushButton_STOP->hide();
+
     toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
 
     treeView_RESULTS->setModel(model);
@@ -876,7 +878,14 @@ void SearchFrame::fastSearch(const QString &text, bool isTTH){
 }
 
 void SearchFrame::slotStartSearch(){
+    if (qobject_cast<QPushButton*>(sender()) != pushButton_SEARCH){
+        pushButton_SEARCH->click(); //Generating clicked() signal that shows pushButton_STOP button.
+                                    //Anybody can suggest something better?
+        return;
+    }
+
     stop=false;
+
     if (lineEdit_SEARCHSTR->text().trimmed().isEmpty())
         return;
 
