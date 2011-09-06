@@ -1943,6 +1943,7 @@ Contributors
       <object class="GtkCheckMenuItem" id="statusIconShowInterfaceItem">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">_Show Interface</property>
         <property name="use_action_appearance">False</property>
         <property name="active">True</property>
       </object>
@@ -1957,6 +1958,7 @@ Contributors
       <object class="GtkCheckMenuItem" id="statusIconBlinkUseItem">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Use Blinking Icon</property>
         <property name="use_action_appearance">False</property>
         <property name="active">True</property>
       </object>
@@ -1971,8 +1973,10 @@ Contributors
       <object class="GtkImageMenuItem" id="statusIconQuitItem">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="label" translatable="yes">_Exit</property>
         <property name="use_action_appearance">False</property>
         <property name="use_stock">False</property>
+        <property name="image">menu-item-image30</property>
       </object>
     </child>
   </object>
