@@ -45,7 +45,7 @@ FavoriteHubs::FavoriteHubs():
 	// Fill the charset drop-down list in edit fav hub dialog.
 	vector<string> &charsets = WulforUtil::getCharsets();
 	for (vector<string>::const_iterator it = charsets.begin(); it != charsets.end(); ++it)
-		gtk_combo_box_append_text(GTK_COMBO_BOX(getWidget("comboboxCharset")), it->c_str());
+		gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")), it->c_str());
 
 	// Initialize favorite hub list treeview
 	favoriteView.setView(GTK_TREE_VIEW(getWidget("favoriteView")), TRUE, "favoritehubs");
@@ -236,14 +236,9 @@ gboolean FavoriteHubs::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, 
 
 		if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
 		{
-			GtkTreeViewColumn *column;
-			gtk_tree_view_get_cursor(fh->favoriteView.get(), NULL, &column);
-			if (column && column != gtk_tree_view_get_column(fh->favoriteView.get(), fh->favoriteView.col(_("Auto Connect"))))
-			{
-				WulforManager::get()->getMainWindow()->showHub_gui(
-					fh->favoriteView.getString(&iter, _("Address")),
-					fh->favoriteView.getString(&iter, _("Encoding")));
-			}
+			WulforManager::get()->getMainWindow()->showHub_gui(
+				fh->favoriteView.getString(&iter, _("Address")),
+				fh->favoriteView.getString(&iter, _("Encoding")));
 		}
 		else if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
 		{
@@ -366,7 +361,7 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 
 		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkbuttonEncoding"))))
 		{
-			gchar *encoding = gtk_combo_box_get_active_text(GTK_COMBO_BOX(fh->getWidget("comboboxCharset")));
+			gchar *encoding = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(fh->getWidget("comboboxCharset")));
 			params["Encoding"] = string(encoding);
 			g_free(encoding);
 		}

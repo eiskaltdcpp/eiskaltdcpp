@@ -110,14 +110,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Použitím:
+        <translation>Použití:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
+EiskaltDC++ je cross-platform program který používá Direct Connect a ADC protokol.
 
 Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</translation>
+  -h, --help	 Zobrazí tuto zpávu
+  -v, --version	 Zobrazí číslo verze</translation>
     </message>
 </context>
 <context>
@@ -159,7 +159,7 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="178"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</translation>
+        <translation>Ahoj, toto je AntiSpam bot. Takže otázka zní &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1167,7 +1167,7 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1594"/>
         <location filename="../src/HubFrame.cpp" line="1596"/>
         <source>Invalid command syntax.</source>
-        <translation>Špatně napsaný příkaz</translation>
+        <translation>Špatná syntaxe příkazu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1606"/>
@@ -5858,7 +5858,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
         <source>Keep downloaded files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachovat stažené soubory</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
@@ -5874,17 +5874,17 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation>Zapněte pokud chcete zachovat stažené soubory a složky
+        <translation>Zapněte tuto volbu pokud chcete zachovat stažené soubory a složky
 ve frontě stahování po jejich dokončení.
-Poté budou mít stažené položky status &apos;Hotovo&apos;
-a můžete je odstranit kdykoliv později.
-Používáním této funkce si můžete udržet přehled o stažených souborech
-aniž by jste museli kontrolovat Seznam dokončených stahování
-Pokud fyzicky odstraníte/přesunete stažené soubory
-ze složky pro stahování, nebudou automaticky smazány z fronty
-poznámky o jejich dokončení. Pokud vypnete tuto funkci,
-nebudou tyto soubory odstraněny z fronty stahování
-to je třeba udělat ručně.</translation>
+Po stažení budou mít stažené položky ve frontě status &apos;Hotovo&apos;
+a tyto položky můžete později kdykoliv smazat.
+Použitím této funkce můžete lehce sledovat které soubory byli již
+staženy přímo zde ve frontě stahování bez potřeby
+kontrolováí v okně Dokončených stahování.
+Poznámka: Pokud fyzicky smažete/přesunete stažené soubory z jejich cílové složky
+neodstraní se tímto automaticky z fronty stahování.
+Vypnutím této funkce se také již stažené položky automaticky neodstraní
+z fronty stahování, musíte je odebrat ručně.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="899"/>
@@ -6975,17 +6975,17 @@ přidané sloty se již neuzavřou.</translation>
         <location filename="../ui/UIShareBrowserSearch.ui" line="14"/>
         <location filename="../ui/UIShareBrowserSearch.ui" line="25"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Hledat</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
         <source>Filename</source>
-        <translation type="unfinished">Soubor</translation>
+        <translation>Soubor</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="40"/>
         <source>Directory</source>
-        <translation type="unfinished">Složka</translation>
+        <translation>Složka</translation>
     </message>
 </context>
 <context>
