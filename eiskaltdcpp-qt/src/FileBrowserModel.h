@@ -78,6 +78,12 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
+    /** */
+    bool canFetchMore(const QModelIndex &parent) const;
+    /** */
+    void fetchMore(const QModelIndex &parent);
+    /** */
+    bool hasChildren(const QModelIndex &parent) const;
     /** sort list */
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
     virtual void sort() { sort(sortColumn, sortOrder); }
@@ -88,6 +94,8 @@ public:
     FileBrowserItem *getRootElem() const;
     /** */
     void setIconsScaled(bool, const QSize&);
+    /** */
+    void setListing(dcpp::DirectoryListing *l) {listing = l; }
 
     /** */
     QString createRemotePath(FileBrowserItem *) const;
@@ -122,6 +130,10 @@ signals:
     void rootChanged(FileBrowserItem*,FileBrowserItem*);
 
 private:
+    /** */
+    void fetchBranch(const QModelIndex &parent, dcpp::DirectoryListing::Directory *dir);
+    /** */
+    dcpp::DirectoryListing *listing;
     /** */
     int sortColumn;
     /** */
