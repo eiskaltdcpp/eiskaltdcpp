@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>565</width>
-    <height>514</height>
+    <width>718</width>
+    <height>542</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,14 +61,14 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="12">
+      <item row="2" column="13">
        <widget class="QPushButton" name="pushButton_CLEAR">
         <property name="text">
          <string>Clear</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="13">
+      <item row="2" column="14">
        <widget class="QPushButton" name="pushButton_SIDEPANEL">
         <property name="text">
          <string>Show/Hide side panel</string>
@@ -82,6 +82,13 @@
        <widget class="QComboBox" name="comboBox_FILETYPES">
         <property name="currentIndex">
          <number>-1</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="12">
+       <widget class="QPushButton" name="pushButton_STOP">
+        <property name="text">
+         <string>Stop</string>
         </property>
        </widget>
       </item>
@@ -369,5 +376,70 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_SEARCH</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_STOP</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>377</x>
+     <y>17</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>447</x>
+     <y>17</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_STOP</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_SEARCH</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>23</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>23</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_SEARCH</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_SEARCH</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>383</x>
+     <y>10</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>385</x>
+     <y>17</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_STOP</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_STOP</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>496</x>
+     <y>11</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>491</x>
+     <y>14</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
