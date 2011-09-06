@@ -1451,12 +1451,12 @@ Favorite user</source>
         <translation>Не ўдалося: %1…</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3816"/>
+        <location filename="../src/HubFrame.cpp" line="3823"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Выбачайце, але мянушку «%1» ўжо заняў іншы карыстальнік.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3822"/>
+        <location filename="../src/HubFrame.cpp" line="3829"/>
         <source>Search flood detected: %1</source>
         <translation>Выявілі назолу ў пошуку: %1</translation>
     </message>
@@ -2940,7 +2940,7 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Ваконца шукаць файлы</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="429"/>
+        <location filename="../src/SearchFrame.cpp" line="432"/>
         <source>Close</source>
         <translation>Зачыніць</translation>
     </message>
@@ -2950,7 +2950,7 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="obsolete">Занадта часта шукаем, наступны раз паспрабуем праз %1 сэкундаў</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1007"/>
+        <location filename="../src/SearchFrame.cpp" line="1020"/>
         <source>Search - %1</source>
         <translation>Шукаем — %1</translation>
     </message>
@@ -2960,18 +2960,18 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="obsolete">Можна шукаць…</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1112"/>
-        <location filename="../src/SearchFrame.cpp" line="1170"/>
+        <location filename="../src/SearchFrame.cpp" line="1125"/>
+        <location filename="../src/SearchFrame.cpp" line="1183"/>
         <source>Select directory</source>
         <translation>Абраць каталёґ</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1476"/>
+        <location filename="../src/SearchFrame.cpp" line="1489"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Вынікаў няма&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1485"/>
+        <location filename="../src/SearchFrame.cpp" line="1498"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translatorcomment>???Прапусьцілі</translatorcomment>
         <translation>Знайшлі: &lt;b&gt;%1&lt;/b&gt;  Адкінулі: &lt;b&gt;%2&lt;/b&gt;</translation>
@@ -3042,78 +3042,83 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="obsolete">Адбітак CD</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="134"/>
+        <location filename="../ui/UISearchFrame.ui" line="141"/>
         <source>Hubs</source>
         <translation>Асяродкі</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="141"/>
+        <location filename="../ui/UISearchFrame.ui" line="148"/>
         <source>Only users with free slots</source>
         <translation>Толькі ў тых, хто мае вольныя шчыліны</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="148"/>
+        <location filename="../ui/UISearchFrame.ui" line="155"/>
         <source>Size</source>
         <translation>Памер</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="159"/>
+        <location filename="../ui/UISearchFrame.ui" line="166"/>
         <source>B</source>
         <translation>Б</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="164"/>
+        <location filename="../ui/UISearchFrame.ui" line="171"/>
         <source>KiB</source>
         <translation>КіБ</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="169"/>
+        <location filename="../ui/UISearchFrame.ui" line="176"/>
         <source>MiB</source>
         <translation>МіБ</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="174"/>
+        <location filename="../ui/UISearchFrame.ui" line="181"/>
         <source>GiB</source>
         <translation>ГіБ</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="186"/>
+        <location filename="../ui/UISearchFrame.ui" line="193"/>
         <source>Normal</source>
         <translation>Звычайны</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="191"/>
+        <location filename="../ui/UISearchFrame.ui" line="198"/>
         <source>At least</source>
         <translation>Ня меней за</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="203"/>
         <source>At most</source>
         <translation>Ня болей за</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="223"/>
+        <location filename="../ui/UISearchFrame.ui" line="230"/>
         <source>Already shared files</source>
         <translation>Файлы, што ўжо маем абагуленымі</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="248"/>
         <source>Hide</source>
         <translation>Схаваць</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Highlight</source>
         <translatorcomment>???Падкрэсьліваць</translatorcomment>
         <translation>Падсьвечваць</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="236"/>
+        <location filename="../ui/UISearchFrame.ui" line="243"/>
         <source>Do nothing</source>
         <translation>Нічога не рабіць</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="207"/>
+        <location filename="../ui/UISearchFrame.ui" line="91"/>
+        <source>Stop</source>
+        <translation type="unfinished">Спыніць</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISearchFrame.ui" line="214"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>Не хаваць гэтую паліцу, калі шукаем</translation>
     </message>

@@ -2466,6 +2466,10 @@ Letöltve: %3 Feltöltve: %4</translation>
         <source>Add to Blacklist</source>
         <translation>Hozzáadás a Tiltólistához</translation>
     </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Állj</translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>
