@@ -2413,6 +2413,10 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Add to Blacklist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Stop</translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>
