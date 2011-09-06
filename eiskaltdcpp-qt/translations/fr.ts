@@ -2432,6 +2432,10 @@ Téléchargé: %3 Envoyé: %4</translation>
         <source>Add to Blacklist</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished">Arrêt</translation>
+    </message>
 </context>
 <context>
     <name>SearchModel</name>

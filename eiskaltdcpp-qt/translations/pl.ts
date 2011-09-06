@@ -1420,12 +1420,12 @@ Ulubiony użytkownik</translation>
         <translation>Niepowodzenie: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3816"/>
+        <location filename="../src/HubFrame.cpp" line="3823"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Niestety ale nick &quot;%1&quot; jest używany przez innego użytkownika.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3822"/>
+        <location filename="../src/HubFrame.cpp" line="3829"/>
         <source>Search flood detected: %1</source>
         <translation>Wykryty flood zapytań: %1</translation>
     </message>
@@ -2780,7 +2780,7 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Okno wyszukiwań</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="429"/>
+        <location filename="../src/SearchFrame.cpp" line="432"/>
         <source>Close</source>
         <translation>Zamknij</translation>
     </message>
@@ -2789,7 +2789,7 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="obsolete">Zbyt szybkie próby wyszukiwania, proszę czekać %1 sekund</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1007"/>
+        <location filename="../src/SearchFrame.cpp" line="1020"/>
         <source>Search - %1</source>
         <translation>Wyszukiwanie - %1</translation>
     </message>
@@ -2813,42 +2813,47 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Pokaż/ukryj panel boczny</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="148"/>
+        <location filename="../ui/UISearchFrame.ui" line="91"/>
+        <source>Stop</source>
+        <translation type="unfinished">Stop</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISearchFrame.ui" line="155"/>
         <source>Size</source>
         <translation>Rozmiar</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="186"/>
+        <location filename="../ui/UISearchFrame.ui" line="193"/>
         <source>Normal</source>
         <translation>Normalny</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="191"/>
+        <location filename="../ui/UISearchFrame.ui" line="198"/>
         <source>At least</source>
         <translation>Co najmniej</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="203"/>
         <source>At most</source>
         <translation>Najwyżej</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="159"/>
+        <location filename="../ui/UISearchFrame.ui" line="166"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="164"/>
+        <location filename="../ui/UISearchFrame.ui" line="171"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="169"/>
+        <location filename="../ui/UISearchFrame.ui" line="176"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="174"/>
+        <location filename="../ui/UISearchFrame.ui" line="181"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
@@ -2889,7 +2894,7 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="obsolete">TTH</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="207"/>
+        <location filename="../ui/UISearchFrame.ui" line="214"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>Nie ukrywaj tego panelu podczas wyszukiwania</translation>
     </message>
@@ -2899,28 +2904,28 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Szukaj</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="141"/>
+        <location filename="../ui/UISearchFrame.ui" line="148"/>
         <source>Only users with free slots</source>
         <translation>Tylko użytkownicy z wolnymi slotami</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="134"/>
+        <location filename="../ui/UISearchFrame.ui" line="141"/>
         <source>Hubs</source>
         <translation>Huby</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1112"/>
-        <location filename="../src/SearchFrame.cpp" line="1170"/>
+        <location filename="../src/SearchFrame.cpp" line="1125"/>
+        <location filename="../src/SearchFrame.cpp" line="1183"/>
         <source>Select directory</source>
         <translation>Wybierz katalog</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1476"/>
+        <location filename="../src/SearchFrame.cpp" line="1489"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Brak wyników&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1485"/>
+        <location filename="../src/SearchFrame.cpp" line="1498"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Znaleziono: &lt;b&gt;%1&lt;/b&gt;  Odrzucono: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -2930,22 +2935,22 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Wyczyść</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="223"/>
+        <location filename="../ui/UISearchFrame.ui" line="230"/>
         <source>Already shared files</source>
         <translation>Aktualnie udostępniane pliki</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="248"/>
         <source>Hide</source>
         <translation>Ukryj</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Highlight</source>
         <translation>Podświetl</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="236"/>
+        <location filename="../ui/UISearchFrame.ui" line="243"/>
         <source>Do nothing</source>
         <translation>Nic nierób</translation>
     </message>
@@ -2987,12 +2992,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="93"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kopiuj magnet-www</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="96"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Właściwości magetu</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="99"/>
@@ -3037,7 +3042,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="132"/>
         <source>Blacklist</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Czarna Lista</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="135"/>
@@ -3121,7 +3126,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="133"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Plik już istnieje:% 1</translation>
     </message>
 </context>
 <context>
@@ -3503,12 +3508,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="80"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kopiuj magnet-www</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="82"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Właściwości magetu</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="85"/>

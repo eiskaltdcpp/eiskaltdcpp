@@ -1333,12 +1333,12 @@ Kľúčové skratky:
         <translation>zlyhanie:%1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3816"/>
+        <location filename="../src/HubFrame.cpp" line="3823"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Prepáč ale užívateľ s prezývkou &quot;%1&quot; je práve obsadeny iným užívateľom.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3822"/>
+        <location filename="../src/HubFrame.cpp" line="3829"/>
         <source>Search flood detected: %1</source>
         <translation>Search flood detected: %1</translation>
     </message>
@@ -2856,77 +2856,82 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Zobraziť/Skryť bočný panel</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="134"/>
+        <location filename="../ui/UISearchFrame.ui" line="91"/>
+        <source>Stop</source>
+        <translation type="unfinished">Stop</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISearchFrame.ui" line="141"/>
         <source>Hubs</source>
         <translation>Huby</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="141"/>
+        <location filename="../ui/UISearchFrame.ui" line="148"/>
         <source>Only users with free slots</source>
         <translation>Iba užívatelia s voľnými slotmi</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="148"/>
+        <location filename="../ui/UISearchFrame.ui" line="155"/>
         <source>Size</source>
         <translation>Veľkosť</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="159"/>
+        <location filename="../ui/UISearchFrame.ui" line="166"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="164"/>
+        <location filename="../ui/UISearchFrame.ui" line="171"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="169"/>
+        <location filename="../ui/UISearchFrame.ui" line="176"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="174"/>
+        <location filename="../ui/UISearchFrame.ui" line="181"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="186"/>
+        <location filename="../ui/UISearchFrame.ui" line="193"/>
         <source>Normal</source>
         <translation>Normálna</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="191"/>
+        <location filename="../ui/UISearchFrame.ui" line="198"/>
         <source>At least</source>
         <translation>Najmenšia</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="203"/>
         <source>At most</source>
         <translation>Najväčšia</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="223"/>
+        <location filename="../ui/UISearchFrame.ui" line="230"/>
         <source>Already shared files</source>
         <translation>Už zdieľané súbory</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="248"/>
         <source>Hide</source>
         <translation>Skri</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Highlight</source>
         <translation>Vyznač</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="236"/>
+        <location filename="../ui/UISearchFrame.ui" line="243"/>
         <source>Do nothing</source>
         <translation>Nerobiť nič</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="207"/>
+        <location filename="../ui/UISearchFrame.ui" line="214"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>Neskrývaj tento panel ak sa vyhľadáva</translation>
     </message>
@@ -3037,7 +3042,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Okienko pre hľadanie</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="429"/>
+        <location filename="../src/SearchFrame.cpp" line="432"/>
         <source>Close</source>
         <translation>Zatvoriť</translation>
     </message>
@@ -3046,7 +3051,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation type="obsolete">Hľadáš príliš rýchlo, ďalšie hľadanie bude nasledovať za %1 sekúnd</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1007"/>
+        <location filename="../src/SearchFrame.cpp" line="1020"/>
         <source>Search - %1</source>
         <translation>Hľadať - %1</translation>
     </message>
@@ -3055,18 +3060,18 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation type="obsolete">Pripravený na hľadanie...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1112"/>
-        <location filename="../src/SearchFrame.cpp" line="1170"/>
+        <location filename="../src/SearchFrame.cpp" line="1125"/>
+        <location filename="../src/SearchFrame.cpp" line="1183"/>
         <source>Select directory</source>
         <translation>Vybrať adresár</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1476"/>
+        <location filename="../src/SearchFrame.cpp" line="1489"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bez výsledkov&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1485"/>
+        <location filename="../src/SearchFrame.cpp" line="1498"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Nájdené: &lt;b&gt;%1&lt;/b&gt; Stratené: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
