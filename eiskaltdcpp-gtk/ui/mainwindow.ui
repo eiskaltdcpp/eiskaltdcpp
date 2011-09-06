@@ -1931,6 +1931,12 @@ Contributors
     <property name="stock">eiskaltdcpp</property>
     <property name="icon-size">1</property>
   </object>
+  <object class="GtkImage" id="menu-item-image48">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">icon-quit</property>
+    <property name="icon-size">1</property>
+  </object>
   <object class="GtkImage" id="reconnectMenuImage">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -1943,7 +1949,7 @@ Contributors
       <object class="GtkCheckMenuItem" id="statusIconShowInterfaceItem">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label" translatable="yes">_Show Interface</property>
+        <property name="label" translatable="yes">Show Interface</property>
         <property name="use_action_appearance">False</property>
         <property name="active">True</property>
       </object>
@@ -1973,10 +1979,10 @@ Contributors
       <object class="GtkImageMenuItem" id="statusIconQuitItem">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label" translatable="yes">_Exit</property>
+        <property name="label" translatable="yes">Exit</property>
         <property name="use_action_appearance">False</property>
         <property name="use_stock">False</property>
-        <property name="image">menu-item-image30</property>
+        <property name="image">menu-item-image48</property>
       </object>
     </child>
   </object>
