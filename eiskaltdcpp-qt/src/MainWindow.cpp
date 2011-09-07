@@ -1439,6 +1439,9 @@ void MainWindow::newHubFrame(QString address, QString enc){
     if (address.isEmpty())
         return;
 
+    if (address.contains('%'))
+        address = QUrl::fromPercentEncoding(address.toAscii());
+
     HubFrame *fr = HubManager::getInstance()->getHub(address);
 
     if (fr){
