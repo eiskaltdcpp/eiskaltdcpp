@@ -29,13 +29,12 @@ using namespace dcpp;
 
 #include <set>
 
-FileBrowserModel::FileBrowserModel(QObject *parent)
-    : QAbstractItemModel(parent), iconsScaled(false), restrictionsLoaded(false)
-{
-    QList<QVariant> rootData;
-    rootData << tr("Name") << tr("Size") << tr("Exact size") << tr("TTH");
+static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i);
 
-    rootItem = new FileBrowserItem(rootData, NULL);
+FileBrowserModel::FileBrowserModel(QObject *parent)
+    : QAbstractItemModel(parent), iconsScaled(false), restrictionsLoaded(false), listing(NULL)
+{
+    rootItem = new FileBrowserItem(QList<QVariant>() << tr("") << tr("") << tr("") << tr(""), NULL);
 
     sortColumn = COLUMN_FILEBROWSER_NAME;
     sortOrder = Qt::DescendingOrder;
@@ -310,6 +309,68 @@ int FileBrowserModel::rowCount(const QModelIndex &parent) const
     return parentItem->childCount();
 }
 
+bool FileBrowserModel::canFetchMore(const QModelIndex &parent) const{
+    if (!listing)
+        return false;
+
+    FileBrowserItem *item = parent.isValid()? static_cast<FileBrowserItem*>(parent.internalPointer()) : rootItem;
+
+    return (!(item->file || item->childCount() > 0));
+}
+
+void FileBrowserModel::fetchBranch(const QModelIndex &parent, dcpp::DirectoryListing::Directory *dir){
+    if (!dir)
+        return;
+
+    FileBrowserItem *root = parent.isValid()? static_cast<FileBrowserItem*>(parent.internalPointer()) : rootItem;
+    FileBrowserItem *item;
+    quint64 size = 0;
+    QList<QVariant> data;
+
+    size = dir->getTotalSize(true);
+
+    data << _q(dir->getName())
+         << WulforUtil::formatBytes(size)
+         << size
+         << "";
+
+    item = new FileBrowserItem(data, root);
+    item->dir = dir;
+
+    beginInsertRows(parent, root->childCount(), root->childCount());
+    {
+        root->appendChild(item);
+    }
+    endInsertRows();
+}
+
+bool FileBrowserModel::hasChildren(const QModelIndex &parent) const{
+    if (!parent.isValid())
+        return true;
+
+    FileBrowserItem *item = static_cast<FileBrowserItem*>(parent.internalPointer());
+
+    return (item->dir && item->dir->directories.size() > 0);
+}
+
+void FileBrowserModel::fetchMore(const QModelIndex &parent){
+    if (!listing)
+        return;
+
+    if (!parent.isValid())
+        fetchBranch(parent, listing->getRoot());
+    else{
+        FileBrowserItem *item = static_cast<FileBrowserItem*>(parent.internalPointer());
+        DirectoryListing::Directory::Iter it;
+        QModelIndex i = createIndexForItem(item);
+
+        for (it = item->dir->directories.begin(); it != item->dir->directories.end(); ++it)//loading child directories
+            fetchBranch(i, *it);
+
+        sortRecursive(sortColumn, sortOrder, item);
+    }
+}
+
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i){
     static Compare<Qt::AscendingOrder> acomp = Compare<Qt::AscendingOrder>();
     static Compare<Qt::DescendingOrder> dcomp = Compare<Qt::DescendingOrder>();
@@ -437,6 +498,9 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
 
         bool found = false;
 
+        if (root->dir && root->dir->directories.size() > 0 && root->childCount() == 0)//Load child items
+            fetchMore(createIndexForItem(root));
+
         foreach(FileBrowserItem *item, root->childItems){
             if (!item->dir)
                 continue;
@@ -453,7 +517,6 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
 
         if (!found)
             return root;
-
     }
 
     return root;
