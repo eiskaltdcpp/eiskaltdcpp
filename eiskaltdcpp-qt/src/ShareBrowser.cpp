@@ -331,7 +331,7 @@ void ShareBrowser::continueInit(){
         tree_model->loadRestrictions();
 
     if (!jump_to.isEmpty()){
-        /*FileBrowserItem *root = tree_model->getRootElem();
+        FileBrowserItem *root = tree_model->getRootElem();
 
         root = root->childItems.at(0);
 
@@ -342,7 +342,7 @@ void ShareBrowser::continueInit(){
 
             treeView_LPANE->selectionModel()->select(jump_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
             treeView_LPANE->scrollTo(jump_index, QAbstractItemView::PositionAtCenter);
-        }*/
+        }
     }
 
     MainWindow::getInstance()->addArenaWidget(this);
@@ -412,38 +412,10 @@ void ShareBrowser::buildList(){
     }
 }
 
-void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem *root){
-    if (!(dir && root))
-        return;
-
-    DirectoryListing::Directory::Iter it;
-    FileBrowserItem *item;
-    quint64 size = 0;
-    QList<QVariant> data;
-
-    size = dir->getTotalSize(true);
-
-    data << _q(dir->getName())
-         << WulforUtil::formatBytes(size)
-         << size
-         << "";
-
-    item = new FileBrowserItem(data, root);
-    item->dir = dir;
-
-    root->appendChild(item);
-
-    itemsCount += dir->getFileCount();
-
-    //std::sort(dir->directories.begin(), dir->directories.end(), DirectoryListing::Directory::DirSort());
-
-    for (it = dir->directories.begin(); it != dir->directories.end(); ++it)
-        createTree(*it, item);
-}
-
 void ShareBrowser::initModels(){
     tree_model = new FileBrowserModel();
     tree_model->setListing(&listing);
+    tree_model->fetchMore(QModelIndex());
     tree_root  = tree_model->getRootElem();
 
     list_model = new FileBrowserModel();

@@ -353,25 +353,12 @@ bool FileBrowserModel::hasChildren(const QModelIndex &parent) const{
     return (item->dir && item->dir->directories.size() > 0);
 }
 
-
-void dumpTree(const QString &delim, FileBrowserItem *tree){
-    if (!tree)
-        return;
-
-    qDebug() << delim << tree->data(COLUMN_FILEBROWSER_NAME).toString();
-
-    foreach (FileBrowserItem *i, tree->childItems)
-        dumpTree(delim + delim.at(0), i);
-}
-
 void FileBrowserModel::fetchMore(const QModelIndex &parent){
     if (!listing)
         return;
 
-    if (!parent.isValid()){
+    if (!parent.isValid())
         fetchBranch(parent, listing->getRoot());
-        dumpTree("-", rootItem);
-    }
     else{
         FileBrowserItem *item = static_cast<FileBrowserItem*>(parent.internalPointer());
         DirectoryListing::Directory::Iter it;
@@ -511,6 +498,9 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
 
         bool found = false;
 
+        if (root->dir && root->dir->directories.size() > 0 && root->childCount() == 0)//Load child items
+            fetchMore(createIndexForItem(root));
+
         foreach(FileBrowserItem *item, root->childItems){
             if (!item->dir)
                 continue;
@@ -527,7 +517,6 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
 
         if (!found)
             return root;
-
     }
 
     return root;

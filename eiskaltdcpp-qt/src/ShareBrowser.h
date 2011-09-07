@@ -131,7 +131,6 @@ private:
     void save();
 
     void buildList();
-    void createTree(dcpp::DirectoryListing::Directory*, FileBrowserItem*);
     void initModels();
 
     void download(dcpp::DirectoryListing::Directory*, const QString &);
