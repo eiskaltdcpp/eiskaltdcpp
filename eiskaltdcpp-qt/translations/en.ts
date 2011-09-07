@@ -1305,12 +1305,12 @@ Keys:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3816"/>
+        <location filename="../src/HubFrame.cpp" line="3823"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3822"/>
+        <location filename="../src/HubFrame.cpp" line="3829"/>
         <source>Search flood detected: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2788,77 +2788,82 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="134"/>
-        <source>Hubs</source>
+        <location filename="../ui/UISearchFrame.ui" line="91"/>
+        <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="141"/>
-        <source>Only users with free slots</source>
+        <source>Hubs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="148"/>
+        <source>Only users with free slots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISearchFrame.ui" line="155"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="159"/>
+        <location filename="../ui/UISearchFrame.ui" line="166"/>
         <source>B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="164"/>
+        <location filename="../ui/UISearchFrame.ui" line="171"/>
         <source>KiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="169"/>
+        <location filename="../ui/UISearchFrame.ui" line="176"/>
         <source>MiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="174"/>
+        <location filename="../ui/UISearchFrame.ui" line="181"/>
         <source>GiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="186"/>
+        <location filename="../ui/UISearchFrame.ui" line="193"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="191"/>
+        <location filename="../ui/UISearchFrame.ui" line="198"/>
         <source>At least</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="203"/>
         <source>At most</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="223"/>
+        <location filename="../ui/UISearchFrame.ui" line="230"/>
         <source>Already shared files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="248"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Highlight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="236"/>
+        <location filename="../ui/UISearchFrame.ui" line="243"/>
         <source>Do nothing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="207"/>
+        <location filename="../ui/UISearchFrame.ui" line="214"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2969,28 +2974,28 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="429"/>
+        <location filename="../src/SearchFrame.cpp" line="432"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1007"/>
+        <location filename="../src/SearchFrame.cpp" line="1020"/>
         <source>Search - %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1112"/>
-        <location filename="../src/SearchFrame.cpp" line="1170"/>
+        <location filename="../src/SearchFrame.cpp" line="1125"/>
+        <location filename="../src/SearchFrame.cpp" line="1183"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1476"/>
+        <location filename="../src/SearchFrame.cpp" line="1489"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1485"/>
+        <location filename="../src/SearchFrame.cpp" line="1498"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
