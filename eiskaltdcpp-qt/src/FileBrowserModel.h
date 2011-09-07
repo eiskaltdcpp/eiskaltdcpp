@@ -27,7 +27,7 @@
 #define COLUMN_FILEBROWSER_TTH      3
 
 
-class FileBrowserItem: public PoolItem<FileBrowserItem>
+class FileBrowserItem
 {
 
 public:
