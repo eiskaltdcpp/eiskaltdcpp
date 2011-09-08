@@ -328,7 +328,8 @@ SearchFrame::SearchFrame(QWidget *parent):
         timer1(NULL),
         saveFileType(true),
         proxy(NULL),
-        completer(NULL)
+        completer(NULL),
+        stop(false)
 {
     if (!SearchBlacklist::getInstance())
         SearchBlacklist::newInstance();
@@ -417,6 +418,8 @@ void SearchFrame::init(){
 
     frame_FILTER->setVisible(false);
 
+    pushButton_STOP->hide();
+
     toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
 
     treeView_RESULTS->setModel(model);
@@ -482,6 +485,7 @@ void SearchFrame::init(){
     connect(focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(selectAll()));
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
     connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
+    connect(pushButton_STOP, SIGNAL(clicked()), this, SLOT(slotStopSearch()));
     connect(pushButton_CLEAR, SIGNAL(clicked()), this, SLOT(slotClear()));
     connect(treeView_RESULTS, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotResultDoubleClicked(QModelIndex)));
     connect(treeView_RESULTS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
@@ -489,6 +493,7 @@ void SearchFrame::init(){
     connect(timer1, SIGNAL(timeout()), this, SLOT(slotTimer()));
     connect(pushButton_SIDEPANEL, SIGNAL(clicked()), this, SLOT(slotToggleSidePanel()));
     connect(lineEdit_SEARCHSTR, SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
+	connect(lineEdit_SIZE,      SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(setFocus()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(selectAll()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
@@ -873,6 +878,14 @@ void SearchFrame::fastSearch(const QString &text, bool isTTH){
 }
 
 void SearchFrame::slotStartSearch(){
+    if (qobject_cast<QPushButton*>(sender()) != pushButton_SEARCH){
+        pushButton_SEARCH->click(); //Generating clicked() signal that shows pushButton_STOP button.
+                                    //Anybody can suggest something better?
+        return;
+    }
+
+    stop=false;
+
     if (lineEdit_SEARCHSTR->text().trimmed().isEmpty())
         return;
 
@@ -1547,7 +1560,7 @@ void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) noexcept {
-    if (currentSearch.empty() || aResult == NULL)
+    if (currentSearch.empty() || aResult == NULL || stop == true)
         return;
 
     if (!aResult->getToken().empty() && token != _q(aResult->getToken())){
@@ -1608,4 +1621,7 @@ void SearchFrame::on(ClientUpdated, Client* c) noexcept{
 
 void SearchFrame::on(ClientDisconnected, Client* c) noexcept{
     emit coreClientDisconnected((_q(c->getHubUrl())));
+}
+void SearchFrame::slotStopSearch(){
+    stop = true;
 }

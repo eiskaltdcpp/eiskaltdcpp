@@ -15,8 +15,8 @@
 #define SERVERMANAGER_H_
 
 class ServerThread;
-
-void callBack(void* x, const string& a);
+#include <string>
+void callBack(void* x, const std::string& a);
 void ServerInitialize();
 bool ServerStart();
 void ServerStop();

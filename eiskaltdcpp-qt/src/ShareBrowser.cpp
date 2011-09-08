@@ -275,9 +275,9 @@ bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
 void ShareBrowser::init(){
     frame_FILTER->setVisible(false);
 
-    initModels();
-
     buildList();
+
+    initModels();
 
     lineEdit_FILTER->installEventFilter(this);
 
@@ -317,7 +317,39 @@ void ShareBrowser::init(){
     connect(toolButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
 
     setAttribute(Qt::WA_DeleteOnClose);
+
+    continueInit();
 }
+
+void ShareBrowser::continueInit(){
+    tree_model->repaint();
+    list_model->repaint();
+
+    load();
+
+    if (user == ClientManager::getInstance()->getMe())
+        tree_model->loadRestrictions();
+
+    if (!jump_to.isEmpty()){
+        FileBrowserItem *root = tree_model->getRootElem();
+
+        root = root->childItems.at(0);
+
+        FileBrowserItem *jump = tree_model->createRootForPath(jump_to, root);
+
+        if (jump){
+            QModelIndex jump_index = tree_model->createIndexForItem(jump);
+
+            treeView_LPANE->selectionModel()->select(jump_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+            treeView_LPANE->scrollTo(jump_index, QAbstractItemView::PositionAtCenter);
+        }
+    }
+
+    MainWindow::getInstance()->addArenaWidget(this);
+    MainWindow::getInstance()->addArenaWidgetOnToolbar(this);
+    MainWindow::getInstance()->mapWidgetOnArena(this);
+}
+
 
 void ShareBrowser::load(){
     int w = WIGET(WI_SHARE_WIDTH);
@@ -372,18 +404,6 @@ void ShareBrowser::buildList(){
         listing.loadFile(file.toStdString());
         listing.getRoot()->setName(nick.toStdString());
         ADLSearchManager::getInstance()->matchListing(listing);
-
-        AsyncRunner *runner = new AsyncRunner(this);
-        boost::function<void()> f = boost::bind(&ShareBrowser::createTree, this, listing.getRoot(), tree_root);
-
-        runner->setRunFunction(f);
-        connect(runner, SIGNAL(finished()), this, SLOT(slotLoaderFinish()));
-        connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
-
-        runner->start();
-
-        treeView_LPANE->blockSignals(true);
-        treeView_RPANE->blockSignals(true);
     }
     catch (const Exception &e){
         QMessageBox::critical(this, file, _q(e.what()), QMessageBox::Ok);
@@ -392,51 +412,14 @@ void ShareBrowser::buildList(){
     }
 }
 
-void ShareBrowser::createTree(DirectoryListing::Directory *dir, FileBrowserItem *root){
-    if (!(dir && root))
-        return;
-
-    DirectoryListing::Directory::Iter it;
-    FileBrowserItem *item;
-    quint64 size = 0;
-    QList<QVariant> data;
-
-    size = dir->getTotalSize(true);
-
-    data << _q(dir->getName())
-         << WulforUtil::formatBytes(size)
-         << size
-         << "";
-
-    item = new FileBrowserItem(data, root);
-    item->dir = dir;
-
-    root->appendChild(item);
-
-    itemsCount += dir->getFileCount();
-
-    //std::sort(dir->directories.begin(), dir->directories.end(), DirectoryListing::Directory::DirSort());
-
-    for (it = dir->directories.begin(); it != dir->directories.end(); ++it)
-        createTree(*it, item);
-}
-
 void ShareBrowser::initModels(){
     tree_model = new FileBrowserModel();
-    tree_root  = new FileBrowserItem(QList<QVariant>() << tr("") << tr("")
-                                                       << tr("")
-                                                       << tr(""),
-                                                       NULL);
-
-    tree_model->setRootElem(tree_root, true, true);
+    tree_model->setListing(&listing);
+    tree_model->fetchMore(QModelIndex());
+    tree_root  = tree_model->getRootElem();
 
     list_model = new FileBrowserModel();
-    list_root = new FileBrowserItem(QList<QVariant>() << tr("") << tr("")
-                                                      << tr("")
-                                                      << tr(""),
-                                                      NULL);
-
-    list_model->setRootElem(list_root, true, true);
+    list_root = list_model->getRootElem();
 }
 
 void ShareBrowser::goDown(QTreeView *view){
@@ -919,48 +902,6 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         default: break;
     }
-}
-
-void ShareBrowser::slotLoaderFinish(){
-    treeView_LPANE->blockSignals(false);
-    treeView_RPANE->blockSignals(false);
-
-    tree_model->repaint();
-    list_model->repaint();
-
-    load();
-
-    if (user == ClientManager::getInstance()->getMe())
-        tree_model->loadRestrictions();
-
-    if (!jump_to.isEmpty()){
-        FileBrowserItem *root = tree_model->getRootElem();
-
-        root = root->childItems.at(0);
-
-        FileBrowserItem *jump = tree_model->createRootForPath(jump_to, root);
-
-        if (jump){
-            QModelIndex jump_index = tree_model->createIndexForItem(jump);
-
-            treeView_LPANE->selectionModel()->select(jump_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
-            treeView_LPANE->scrollTo(jump_index, QAbstractItemView::PositionAtCenter);
-        }
-    }
-    else {
-        QModelIndex index = tree_model->index(0, 0, QModelIndex());
-
-        treeView_LPANE->selectionModel()->select(index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
-        treeView_LPANE->expand(index);
-    }
-
-    /*treeView_LPANE->resizeColumnToContents(0);
-    treeView_LPANE->resizeColumnToContents(1);*/
-
-    MainWindow::getInstance()->addArenaWidget(this);
-    MainWindow::getInstance()->addArenaWidgetOnToolbar(this);
-    MainWindow::getInstance()->mapWidgetOnArena(this);
-
 }
 
 void ShareBrowser::slotLayoutUpdated(){

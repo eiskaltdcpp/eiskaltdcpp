@@ -3,7 +3,7 @@
 #define JSON_RPC_METHODS_H
 
 #include <json/json.h>
-
+#include "ServerManager.h"
 class JsonRpcMethods
 {
   public:
@@ -22,6 +22,14 @@ class JsonRpcMethods
      * \return true if correctly processed, false otherwise
      */
     bool Notify(const Json::Value& root, Json::Value& response);
+
+    /**
+     * \brief Stop Daemon.
+     * \param root JSON-RPC request
+     * \param response JSON-RPC response
+     * \return true if correctly processed, false otherwise
+     */
+    bool StopDaemon(const Json::Value& root, Json::Value& response);
 
     /**
      * \brief Get the description in JSON format.

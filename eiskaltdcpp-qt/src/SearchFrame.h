@@ -162,6 +162,7 @@ private Q_SLOTS:
     void slotHeaderMenu(const QPoint&);
     void slotToggleSidePanel();
     void slotStartSearch();
+    void slotStopSearch();
     void slotChangeProxyColumn(int);
 
     void slotSettingsChanged(const QString &key, const QString &value);
@@ -220,6 +221,7 @@ private:
     SearchProxyModel *proxy;
 
     bool isHash;
+    bool stop;
     int left_pane_old_size;
 
     // SearchManagerListener

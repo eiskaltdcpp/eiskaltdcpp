@@ -118,7 +118,6 @@ private Q_SLOTS:
     void slotLeftPaneSelChanged(const QItemSelection&, const QItemSelection&);
     void slotCustomContextMenu(const QPoint&);
     void slotHeaderMenu();
-    void slotLoaderFinish();
     void slotLayoutUpdated();
     void slotSettingsChanged(const QString&, const QString&);
     void slotStartSearch();
@@ -126,12 +125,12 @@ private Q_SLOTS:
 
 private:
     void init();
+    void continueInit();
 
     void load();
     void save();
 
     void buildList();
-    void createTree(dcpp::DirectoryListing::Directory*, FileBrowserItem*);
     void initModels();
 
     void download(dcpp::DirectoryListing::Directory*, const QString &);

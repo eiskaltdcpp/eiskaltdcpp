@@ -303,10 +303,10 @@ void FavoriteUsers::on(UserRemoved, const FavoriteUser& aUser) noexcept {
     emit coreUserRemoved(_q(aUser.getUser()->getCID().toBase32()));
 }
 
-void FavoriteUsers::on(StatusChanged, const UserPtr& u) noexcept{
-    emit coreStatusChanged(_q(u->getCID().toBase32()), u->isOnline()?
+void FavoriteUsers::on(StatusChanged, const FavoriteUser& u) noexcept{
+    emit coreStatusChanged(_q(u.getUser()->getCID().toBase32()), u.getUser()->isOnline()?
                                                                     tr("Online")
                                                                     :
-                                                                    _q(Util::formatTime("%Y-%m-%d %H:%M", FavoriteManager::getInstance()->getLastSeen(u))));
+                               _q(Util::formatTime("%Y-%m-%d %H:%M", FavoriteManager::getInstance()->getLastSeen(u.getUser()))));
 
 }

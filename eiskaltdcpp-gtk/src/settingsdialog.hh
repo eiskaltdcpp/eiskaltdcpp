@@ -180,7 +180,7 @@ class Settings:
         void moveUserCommand_client(std::string name, std::string hub, int pos);
         void generateCertificates_client();
 
-        GtkComboBox *connectionSpeedComboBox;
+        GtkComboBoxText *connectionSpeedComboBox;
         GtkListStore *downloadToStore, *publicListStore, *queueStore,
             *shareStore, *appearanceStore, *tabStore, *windowStore1,
             *windowStore2, *windowStore3, *advancedStore, *certificatesStore, *userCommandStore,

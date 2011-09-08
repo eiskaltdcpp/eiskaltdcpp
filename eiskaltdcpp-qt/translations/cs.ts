@@ -110,14 +110,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Použitím:
+        <translation>Použití:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
+EiskaltDC++ je cross-platform program který používá Direct Connect a ADC protokol.
 
 Keys:
-  -h, --help	 Show this message
-  -v, --version	 Show version string</translation>
+  -h, --help	 Zobrazí tuto zpávu
+  -v, --version	 Zobrazí číslo verze</translation>
     </message>
 </context>
 <context>
@@ -159,7 +159,7 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="178"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</translation>
+        <translation>Ahoj, toto je AntiSpam bot. Takže otázka zní &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -1167,7 +1167,7 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1594"/>
         <location filename="../src/HubFrame.cpp" line="1596"/>
         <source>Invalid command syntax.</source>
-        <translation>Špatně napsaný příkaz</translation>
+        <translation>Špatná syntaxe příkazu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1606"/>
@@ -1350,12 +1350,12 @@ Keys:
         <translation>Chyba: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3816"/>
+        <location filename="../src/HubFrame.cpp" line="3823"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Je mi líto, ale přezdívka &quot;%1&quot; je již používána jiným uživatelem.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3822"/>
+        <location filename="../src/HubFrame.cpp" line="3829"/>
         <source>Search flood detected: %1</source>
         <translation>Detekován flood hledání: %1</translation>
     </message>
@@ -2878,77 +2878,82 @@ Staženo: %3 Odesláno: %4</translation>
         <translation type="obsolete">Obraz CD</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="134"/>
+        <location filename="../ui/UISearchFrame.ui" line="141"/>
         <source>Hubs</source>
         <translation>Huby</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="141"/>
+        <location filename="../ui/UISearchFrame.ui" line="148"/>
         <source>Only users with free slots</source>
         <translation>Pouze uživatelé s volnýmy sloty</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="148"/>
+        <location filename="../ui/UISearchFrame.ui" line="155"/>
         <source>Size</source>
         <translation>Velikost</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="159"/>
+        <location filename="../ui/UISearchFrame.ui" line="166"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="164"/>
+        <location filename="../ui/UISearchFrame.ui" line="171"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="169"/>
+        <location filename="../ui/UISearchFrame.ui" line="176"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="174"/>
+        <location filename="../ui/UISearchFrame.ui" line="181"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="186"/>
+        <location filename="../ui/UISearchFrame.ui" line="193"/>
         <source>Normal</source>
         <translation>Přesně</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="191"/>
+        <location filename="../ui/UISearchFrame.ui" line="198"/>
         <source>At least</source>
         <translation>Alespoň</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="196"/>
+        <location filename="../ui/UISearchFrame.ui" line="203"/>
         <source>At most</source>
         <translation>Nanejvýš</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="223"/>
+        <location filename="../ui/UISearchFrame.ui" line="230"/>
         <source>Already shared files</source>
         <translation>Už sdílené soubory</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="241"/>
+        <location filename="../ui/UISearchFrame.ui" line="248"/>
         <source>Hide</source>
         <translation>Skrýt</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="246"/>
+        <location filename="../ui/UISearchFrame.ui" line="253"/>
         <source>Highlight</source>
         <translation>Zvýraznit</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="236"/>
+        <location filename="../ui/UISearchFrame.ui" line="243"/>
         <source>Do nothing</source>
         <translation>Nedělat nic</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="207"/>
+        <location filename="../ui/UISearchFrame.ui" line="91"/>
+        <source>Stop</source>
+        <translation type="unfinished">Stop</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISearchFrame.ui" line="214"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>Neskrývat tento panel při hledání</translation>
     </message>
@@ -3059,7 +3064,7 @@ Staženo: %3 Odesláno: %4</translation>
         <translation>Okno hledání</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="429"/>
+        <location filename="../src/SearchFrame.cpp" line="432"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
@@ -3068,7 +3073,7 @@ Staženo: %3 Odesláno: %4</translation>
         <translation type="obsolete">Hledání příliš brzo, další hledání za %1 sekund</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1007"/>
+        <location filename="../src/SearchFrame.cpp" line="1020"/>
         <source>Search - %1</source>
         <translation>Hledání - %1</translation>
     </message>
@@ -3077,18 +3082,18 @@ Staženo: %3 Odesláno: %4</translation>
         <translation type="obsolete">Připraven hledat...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1112"/>
-        <location filename="../src/SearchFrame.cpp" line="1170"/>
+        <location filename="../src/SearchFrame.cpp" line="1125"/>
+        <location filename="../src/SearchFrame.cpp" line="1183"/>
         <source>Select directory</source>
         <translation>Vyber složku</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1476"/>
+        <location filename="../src/SearchFrame.cpp" line="1489"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Žádné výsledky&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1485"/>
+        <location filename="../src/SearchFrame.cpp" line="1498"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Nalezeno: &lt;b&gt;%1&lt;/b&gt;  Zahozeno: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -5858,7 +5863,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
         <source>Keep downloaded files</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachovat stažené soubory</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
@@ -5874,17 +5879,17 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation>Zapněte pokud chcete zachovat stažené soubory a složky
+        <translation>Zapněte tuto volbu pokud chcete zachovat stažené soubory a složky
 ve frontě stahování po jejich dokončení.
-Poté budou mít stažené položky status &apos;Hotovo&apos;
-a můžete je odstranit kdykoliv později.
-Používáním této funkce si můžete udržet přehled o stažených souborech
-aniž by jste museli kontrolovat Seznam dokončených stahování
-Pokud fyzicky odstraníte/přesunete stažené soubory
-ze složky pro stahování, nebudou automaticky smazány z fronty
-poznámky o jejich dokončení. Pokud vypnete tuto funkci,
-nebudou tyto soubory odstraněny z fronty stahování
-to je třeba udělat ručně.</translation>
+Po stažení budou mít stažené položky ve frontě status &apos;Hotovo&apos;
+a tyto položky můžete později kdykoliv smazat.
+Použitím této funkce můžete lehce sledovat které soubory byli již
+staženy přímo zde ve frontě stahování bez potřeby
+kontrolováí v okně Dokončených stahování.
+Poznámka: Pokud fyzicky smažete/přesunete stažené soubory z jejich cílové složky
+neodstraní se tímto automaticky z fronty stahování.
+Vypnutím této funkce se také již stažené položky automaticky neodstraní
+z fronty stahování, musíte je odebrat ručně.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="899"/>
@@ -6975,17 +6980,17 @@ přidané sloty se již neuzavřou.</translation>
         <location filename="../ui/UIShareBrowserSearch.ui" line="14"/>
         <location filename="../ui/UIShareBrowserSearch.ui" line="25"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Hledat</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
         <source>Filename</source>
-        <translation type="unfinished">Soubor</translation>
+        <translation>Soubor</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="40"/>
         <source>Directory</source>
-        <translation type="unfinished">Složka</translation>
+        <translation>Složka</translation>
     </message>
 </context>
 <context>

@@ -23,12 +23,16 @@
 #include "dcpp/SearchManager.h"
 #include "dcpp/SearchManagerListener.h"
 #include "dcpp/SearchResult.h"
+#include "dcpp/Singleton.h"
 
-class ServerThread :private TimerManagerListener,
+class ServerThread :
+        private TimerManagerListener,
         private QueueManagerListener,
         private LogManagerListener,
         private ClientListener,
-        public Thread
+        public SearchManagerListener,
+        public Thread,
+        public Singleton<ServerThread>
 {
 
 public:
@@ -50,6 +54,7 @@ public:
     bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
     void listSearchStrings(string& listsearchstrings, const string& separator);
     void returnSearchResults(vector<StringMap>& resultarray, const int& index, const string& huburls);
+    void addStringinSearchList(const string& s);
 
 private:
 
@@ -66,31 +71,33 @@ private:
             Client* curclient;
             unordered_map<string, SearchResultList> cursearchresult;
     } CurHub;
+    //unordered_map<string, SearchResultList> gsearchresult;
+    SearchResultList gsearchresult;
     typedef unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
     bool json_run;
 
     // TimerManagerListener
-    void on(TimerManagerListener::Second, uint64_t aTick) noexcept;
+    virtual void on(TimerManagerListener::Second, uint64_t aTick) noexcept;
 
     // ClientListener
-    void on(Connecting, Client* cur) noexcept;
-    void on(Connected, Client* cur) noexcept;
-    void on(UserUpdated, Client* cur, const OnlineUserPtr&) noexcept;
-    void on(UsersUpdated, Client* cur, const OnlineUserList&) noexcept;
-    void on(UserRemoved, Client* cur, const OnlineUserPtr&) noexcept;
-    void on(Redirect, Client* cur, const string&) noexcept;
-    void on(Failed, Client* cur, const string&) noexcept;
-    void on(GetPassword, Client* cur) noexcept;
-    void on(HubUpdated, Client* cur) noexcept;
-    void on(StatusMessage, Client* cur, const string&, int = ClientListener::FLAG_NORMAL) noexcept;
-    void on(ClientListener::Message, Client*, const ChatMessage&) noexcept;
-    void on(NickTaken, Client* cur) noexcept;
-    void on(SearchFlood, Client* cur, const string&) noexcept;
+    virtual void on(Connecting, Client* cur) noexcept;
+    virtual void on(Connected, Client* cur) noexcept;
+    virtual void on(UserUpdated, Client* cur, const OnlineUserPtr&) noexcept;
+    virtual void on(UsersUpdated, Client* cur, const OnlineUserList&) noexcept;
+    virtual void on(UserRemoved, Client* cur, const OnlineUserPtr&) noexcept;
+    virtual void on(Redirect, Client* cur, const string&) noexcept;
+    virtual void on(Failed, Client* cur, const string&) noexcept;
+    virtual void on(GetPassword, Client* cur) noexcept;
+    virtual void on(HubUpdated, Client* cur) noexcept;
+    virtual void on(StatusMessage, Client* cur, const string&, int = ClientListener::FLAG_NORMAL) noexcept;
+    virtual void on(ClientListener::Message, Client*, const ChatMessage&) noexcept;
+    virtual void on(NickTaken, Client* cur) noexcept;
+    virtual void on(SearchFlood, Client* cur, const string&) noexcept;
 
     //SearchManagerListener
-    void on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept;
+    virtual void on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept;
 
     int64_t lastUp;
     int64_t lastDown;

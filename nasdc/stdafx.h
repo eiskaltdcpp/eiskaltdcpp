@@ -15,12 +15,10 @@
 #define STDAFX_H_
 
 #include "dcpp/stdinc.h"
-//#include "../dht/StdAfx.h"
 
 #include <libintl.h>
 #include <iostream>
 
 using namespace dcpp;
-//using namespace dht;
 
 #endif /* STDAFX_H_ */
