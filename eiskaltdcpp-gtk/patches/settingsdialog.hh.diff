@@ -1,0 +1,11 @@
+--- a/eiskaltdcpp-gtk/src/settingsdialog.hh
++++ b/eiskaltdcpp-gtk/src/settingsdialog.hh
+@@ -180,7 +180,7 @@ class Settings:
+         void moveUserCommand_client(std::string name, std::string hub, int pos);
+         void generateCertificates_client();
+ 
+-        GtkComboBoxText *connectionSpeedComboBox;
++        GtkComboBox *connectionSpeedComboBox;
+         GtkListStore *downloadToStore, *publicListStore, *queueStore,
+             *shareStore, *appearanceStore, *tabStore, *windowStore1,
+             *windowStore2, *windowStore3, *advancedStore, *certificatesStore, *userCommandStore,
