@@ -101,6 +101,7 @@ option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
+option (CHECK_GTK3 "Check ability build with gtk 3.x.x" OFF)
 
 if (PERL_REGEX)
     find_package(Pcre REQUIRED)
