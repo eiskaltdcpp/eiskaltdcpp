@@ -66,7 +66,7 @@ FavoriteHubs::FavoriteHubs():
 	g_object_unref(favoriteStore);
 	gtk_tree_view_set_fixed_height_mode(favoriteView.get(), TRUE);
 	favoriteSelection = gtk_tree_view_get_selection(favoriteView.get());
-	GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(favoriteView.get(), favoriteView.col(_("Auto Connect"))));
+	GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(favoriteView.get(), favoriteView.col(_("Auto Connect")))));
 	GtkCellRenderer *renderer = (GtkCellRenderer *)g_list_nth_data(list, 0);
 	g_list_free(list);
 

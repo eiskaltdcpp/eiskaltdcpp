@@ -110,7 +110,7 @@ MainWindow::MainWindow():
     ToolbarStyle = 0;
     GtkBox *box = GTK_BOX(getWidget("hbox4"));
     GtkWidget *child = getWidget("toolbar1");
-    gtk_toolbar_set_orientation(GTK_TOOLBAR(child), GTK_ORIENTATION_VERTICAL);
+    gtk_orientable_set_orientation(GTK_ORIENTABLE(child), GTK_ORIENTATION_VERTICAL);
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("leftToolbarItem")), TRUE);
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), (WGETI("toolbar-style") == 4) ? TRUE : FALSE);
 
@@ -123,7 +123,7 @@ MainWindow::MainWindow():
     if (WGETI("toolbar-position") == 0)
     {
         box = GTK_BOX(getWidget("vbox1"));
-        gtk_toolbar_set_orientation(GTK_TOOLBAR(child), GTK_ORIENTATION_HORIZONTAL);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(child), GTK_ORIENTATION_HORIZONTAL);
         gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("topToolbarItem")), TRUE);
         pos = 1;
     }
@@ -191,8 +191,8 @@ MainWindow::MainWindow():
         g_object_unref(logo);
     }
 
-    gtk_about_dialog_set_email_hook((GtkAboutDialogActivateLinkFunc)onAboutDialogActivateLink_gui, (gpointer)this, NULL);
-    gtk_about_dialog_set_url_hook((GtkAboutDialogActivateLinkFunc)onAboutDialogActivateLink_gui, (gpointer)this, NULL);
+    //gtk_about_dialog_set_email_hook((GtkAboutDialogActivateLinkFunc)onAboutDialogActivateLink_gui, (gpointer)this, NULL);
+    //gtk_about_dialog_set_url_hook((GtkAboutDialogActivateLinkFunc)onAboutDialogActivateLink_gui, (gpointer)this, NULL);
     // This has to be set in code in order to activate the link
     gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), "http://eiskaltdc.googlecode.com");
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("aboutDialog")), window);
@@ -655,7 +655,7 @@ void MainWindow::updateStatusIconTooltip_gui(string download, string upload)
 {
     ostringstream toolTip;
     toolTip << _("Download: ") << download << endl << _("Upload: ") << upload;
-    gtk_status_icon_set_tooltip(statusIcon, toolTip.str().c_str());
+    gtk_status_icon_set_tooltip_text(statusIcon, toolTip.str().c_str());
 }
 
 void MainWindow::setMainStatus_gui(string text, time_t t)
@@ -964,7 +964,7 @@ GtkWidget* MainWindow::getChooserDialog_gui()
 
 void MainWindow::actionMagnet_gui(string magnet)
 {
-    if (GTK_WIDGET_VISIBLE(getWidget("MagnetDialog")))
+    if (gtk_widget_get_visible(getWidget("MagnetDialog")))
         return;
 
     string name, tth;
@@ -1298,7 +1298,7 @@ void MainWindow::onResponseMagnetDialog_gui(GtkWidget *dialog, gint response, gp
         string path;
 
         // magnet choice frame
-        if (!GTK_WIDGET_VISIBLE(mw->getWidget("magnetPropertiesFrame")))
+        if (!gtk_widget_get_visible(mw->getWidget("magnetPropertiesFrame")))
         {
             if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(mw->getWidget("dowloadQueueRadioButton"))))
             {
@@ -1497,7 +1497,7 @@ void MainWindow::onTopToolbarToggled_gui(GtkWidget *widget, gpointer data)
    g_object_ref(child);
    gtk_container_remove(GTK_CONTAINER(parent), child);
    parent = mw->getWidget("vbox1");
-   gtk_toolbar_set_orientation(GTK_TOOLBAR(child), GTK_ORIENTATION_HORIZONTAL);
+   gtk_orientable_set_orientation(GTK_ORIENTABLE(child), GTK_ORIENTATION_HORIZONTAL);
    gtk_box_pack_start(GTK_BOX(parent), child, FALSE, FALSE, 2);
    gtk_box_reorder_child(GTK_BOX(parent), child, 1);
    g_object_unref(child);
@@ -1515,7 +1515,7 @@ void MainWindow::onLeftToolbarToggled_gui(GtkWidget *widget, gpointer data)
    g_object_ref(child);
    gtk_container_remove(GTK_CONTAINER(parent), child);
    parent = mw->getWidget("hbox4");
-   gtk_toolbar_set_orientation(GTK_TOOLBAR(child), GTK_ORIENTATION_VERTICAL);
+   gtk_orientable_set_orientation(GTK_ORIENTABLE(child), GTK_ORIENTATION_VERTICAL);
    gtk_box_pack_start(GTK_BOX(parent), child, FALSE, FALSE, 2);
    gtk_box_reorder_child(GTK_BOX(parent), child, 0);
    g_object_unref(child);
@@ -1648,7 +1648,13 @@ void MainWindow::onSwitchOnPage_gui(int pageNum){
 gboolean MainWindow::onButtonReleasePage_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     gint width, height;
+
+#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
+    width  = gdk_window_get_width (event->window);
+    height = gdk_window_get_height(event->window);
+#else
     gdk_drawable_get_size(event->window, &width, &height);
+#endif
 
     // If middle mouse button was released when hovering over tab label
     if (event->button == 2 && event->x >= 0 && event->y >= 0
@@ -1684,7 +1690,7 @@ void MainWindow::onRaisePage_gui(GtkMenuItem *item, gpointer data)
     WulforManager::get()->getMainWindow()->raisePage_gui((GtkWidget *)data);
 }
 
-void MainWindow::onPageSwitched_gui(GtkNotebook *notebook, GtkNotebookPage *page, guint num, gpointer data)
+void MainWindow::onPageSwitched_gui(GtkNotebook *notebook, GtkNotebook *page, guint num, gpointer data)
 {
     MainWindow* mw = (MainWindow*)data;
     GtkWidget *child = gtk_notebook_get_nth_page(notebook, num);
@@ -1832,7 +1838,7 @@ void MainWindow::onTransferToggled_gui(GtkWidget *widget, gpointer data)
     MainWindow *mw = (MainWindow *)data;
     GtkWidget *transfer = mw->transfers->getContainer();
 
-    if (GTK_WIDGET_VISIBLE(transfer))
+    if (gtk_widget_get_visible(transfer))
         gtk_widget_hide(transfer);
     else
         gtk_widget_show_all(transfer);
@@ -1884,7 +1890,7 @@ void MainWindow::onQuitClicked_gui(GtkWidget *widget, gpointer data)
     MainWindow *mw = (MainWindow *)data;
 
     // fix emit signal (status-icon menu quit)
-    if (GTK_WIDGET_VISIBLE(mw->getWidget("exitDialog")))
+    if (gtk_widget_get_visible(mw->getWidget("exitDialog")))
         return;
 
     mw->onQuit = TRUE;
@@ -1999,10 +2005,10 @@ void MainWindow::onAboutClicked_gui(GtkWidget *widget, gpointer data)
     gtk_widget_hide(mw->getWidget("aboutDialog"));
 }
 
-void MainWindow::onAboutDialogActivateLink_gui(GtkAboutDialog *dialog, const gchar *link, gpointer data)
-{
-    WulforUtil::openURI(link);
-}
+// void MainWindow::onAboutDialogActivateLink_gui(GtkAboutDialog *dialog, const gchar *link, gpointer data)
+// {
+//     WulforUtil::openURI(link);
+// }
 
 void MainWindow::onCloseBookEntry_gui(GtkWidget *widget, gpointer data)
 {
@@ -2034,7 +2040,7 @@ void MainWindow::onShowInterfaceToggled_gui(GtkCheckMenuItem *item, gpointer dat
     static int x, y;
     static bool isMaximized, isIconified;
 
-    if (GTK_WIDGET_VISIBLE(win))
+    if (gtk_widget_get_visible(GTK_WIDGET(win)))
     {
         GdkWindowState state;
         gtk_window_get_position(win, &x, &y);

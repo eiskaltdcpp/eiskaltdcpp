@@ -68,7 +68,7 @@ PublicHubs::PublicHubs():
 	gtk_tree_view_set_headers_visible(listsView.get(), FALSE);
 	listsSelection = gtk_tree_view_get_selection(listsView.get());
 	GtkTreeViewColumn *c = gtk_tree_view_get_column(listsView.get(), 0);
-	GList *l = gtk_tree_view_column_get_cell_renderers(c);
+	GList *l = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(c));
 	GObject *editRenderer = G_OBJECT(g_list_nth_data(l, 0));
 	g_list_free(l);
 
@@ -311,7 +311,12 @@ void PublicHubs::onConfigure_gui(GtkWidget *widget, gpointer data)
 	PublicHubs *ph = (PublicHubs *)data;
 
 	// Have to get active here since temp could be NULL after dialog is closed
-	gchar *temp = gtk_combo_box_get_active_text(GTK_COMBO_BOX(ph->getWidget("hubListBox")));
+    // http://developer.gnome.org/gtk/2.24/GtkComboBox.html#gtk-combo-box-get-active-text
+#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
+    gchar *temp = g_strdup(gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN((GTK_COMBO_BOX(ph->getWidget("hubListBox"))))))));
+#else
+    gchar *temp = gtk_combo_box_get_active_text(GTK_COMBO_BOX(ph->getWidget("hubListBox")));
+#endif
 	string active = string(temp);
 	g_free(temp);
 

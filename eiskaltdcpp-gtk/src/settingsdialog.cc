@@ -661,7 +661,7 @@ void Settings::createOptionsView_gui(TreeView &treeView, GtkListStore *&store, c
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(store), treeView.col(_("Name")), GTK_SORT_ASCENDING);
 
     // Connect the signal handlers
-    GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(treeView.get(), treeView.col(_("Use"))));
+    GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(treeView.get(), treeView.col(_("Use")))));
     GObject *renderer = (GObject *)g_list_nth_data(list, 0);
     g_signal_connect(renderer, "toggled", G_CALLBACK(onOptionsViewToggled_gui), (gpointer)store);
     g_list_free(list);
@@ -853,7 +853,7 @@ void Settings::initDownloads_gui()
         g_object_unref(publicListStore);
         gtk_tree_view_set_headers_visible(publicListView.get(), FALSE);
         GtkTreeViewColumn *col = gtk_tree_view_get_column(publicListView.get(), 0);
-        GList *list = gtk_tree_view_column_get_cell_renderers(col);
+        GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(col));
         GObject *editRenderer = G_OBJECT(g_list_nth_data(list, 0));
         g_list_free(list);
         g_signal_connect(editRenderer, "edited", G_CALLBACK(onPublicEdit_gui), (gpointer)this);
@@ -1045,7 +1045,7 @@ void Settings::initAppearance_gui()
         gtk_tree_view_set_model(soundView.get(), GTK_TREE_MODEL(soundStore));
         g_object_unref(soundStore);
 
-        GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(soundView.get(), soundView.col(_("Use"))));
+        GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(soundView.get(), soundView.col(_("Use")))));
         GObject *renderer = (GObject *)g_list_nth_data(list, 0);
         g_signal_connect(renderer, "toggled", G_CALLBACK(onOptionsViewToggled_gui), (gpointer)soundStore);
         g_list_free(list);
@@ -1215,7 +1215,7 @@ void Settings::initAppearance_gui()
         gtk_tree_view_set_model(notifyView.get(), GTK_TREE_MODEL(notifyStore));
         g_object_unref(notifyStore);
 
-        GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(notifyView.get(), notifyView.col(_("Use"))));
+        GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(notifyView.get(), notifyView.col(_("Use")))));
         GObject *renderer = (GObject *)g_list_nth_data(list, 0);
         g_signal_connect(renderer, "toggled", G_CALLBACK(onOptionsViewToggled_gui), (gpointer)notifyStore);
         g_list_free(list);
@@ -1326,7 +1326,7 @@ void Settings::initAppearance_gui()
         gtk_tree_view_set_model(toolbarView.get(), GTK_TREE_MODEL(toolbarStore));
         g_object_unref(toolbarStore);
 
-        GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(toolbarView.get(), toolbarView.col(_("Use"))));
+        GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(toolbarView.get(), toolbarView.col(_("Use")))));
         GObject *renderer = (GObject *)g_list_nth_data(list, 0);
         g_signal_connect(renderer, "toggled", G_CALLBACK(onOptionsViewToggled_gui), (gpointer)toolbarStore);
         g_list_free(list);
