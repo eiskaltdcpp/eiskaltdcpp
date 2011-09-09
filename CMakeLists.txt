@@ -216,6 +216,15 @@ if (USE_GTK)
     else (USE_LIBNOTIFY)
         message (STATUS "Building without libnotify support")
     endif (USE_LIBNOTIFY)
+
+    if (GTK2_VERSION VERSION_LESS 2.24.0)
+        file(GLOB gtk2_ph eiskaltdcpp-gtk/patches/*.diff)
+        foreach (ph ${gtk2_ph})
+            EXECUTE_PROCESS (
+                COMMAND patch -p1 -i ${ph}
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+        endforeach()
+    endif()
 endif (USE_GTK)
 
 if (LOCAL_BOOST)
