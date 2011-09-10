@@ -84,11 +84,13 @@ int main(int argc, char *argv[])
 
     parseCmdLine(app.arguments());
 
+#if !defined (Q_WS_HAIKU)
     if (app.isRunning()){
         app.sendMessage(app.arguments().join("\n"));
 
         return 0;
     }
+#endif
 
     setlocale(LC_ALL, "");
 
