@@ -33,6 +33,7 @@ typedef SOCKET socket_t;
 #include <netdb.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <vector>
 
 typedef int socket_t;
 const int INVALID_SOCKET = -1;
@@ -174,7 +175,7 @@ public:
 	virtual bool isSecure() const noexcept { return false; }
 	virtual bool isTrusted() const noexcept { return false; }
 	virtual std::string getCipherName() const noexcept { return Util::emptyString; }
-	virtual vector<uint8_t> getKeyprint() const noexcept { return vector<uint8_t>(); }
+	virtual std::vector<uint8_t> getKeyprint() const noexcept { return std::vector<uint8_t>(); }
 
 	/** When socks settings are updated, this has to be called... */
 	static void socksUpdated();
