@@ -102,6 +102,7 @@ option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
 option (CHECK_GTK3 "Check ability build with gtk 3.x.x" OFF)
+option (USE_GTK3 "GTK3 interface" OFF)
 
 if (PERL_REGEX)
     find_package(Pcre REQUIRED)
@@ -200,8 +201,13 @@ else (FREE_SPACE_BAR_C)
     message (STATUS "Building without free space bar")
 endif (FREE_SPACE_BAR_C)
 
-if (USE_GTK)
-    find_package (GTK2 REQUIRED gtk)
+if (USE_GTK OR USE_GTK3)
+
+    if (USE_GTK)
+        find_package (GTK2 REQUIRED gtk)
+    elseif (USE_GTK3)
+        find_package (GTK3 REQUIRED gtk)
+    endif (USE_GTK)
 
     if (USE_LIBGNOME2)
         message (STATUS "Building with LibGnome2 support")
@@ -216,16 +222,17 @@ if (USE_GTK)
     else (USE_LIBNOTIFY)
         message (STATUS "Building without libnotify support")
     endif (USE_LIBNOTIFY)
-
-    if (GTK2_VERSION VERSION_LESS 2.24.0)
-        file(GLOB gtk2_ph eiskaltdcpp-gtk/patches/*.diff)
-        foreach (ph ${gtk2_ph})
-            EXECUTE_PROCESS (
-                COMMAND patch -p1 -i ${ph}
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
-        endforeach()
-    endif()
-endif (USE_GTK)
+    if (USE_GTK)
+        if (GTK2_VERSION VERSION_LESS 2.24.0)
+            file(GLOB gtk2_ph eiskaltdcpp-gtk/patches/*.diff)
+            foreach (ph ${gtk2_ph})
+                EXECUTE_PROCESS (
+                    COMMAND patch -p1 -i ${ph}
+                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+            endforeach()
+        endif(GTK2_VERSION VERSION_LESS 2.24.0)
+    endif (USE_GTK)
+endif (USE_GTK OR USE_GTK3)
 
 if (LOCAL_BOOST)
 file(GLOB BOOST_TAR_EXISTS  *.tar.gz)
@@ -447,9 +454,9 @@ if (USE_QT)
   add_subdirectory (eiskaltdcpp-qt)
 endif (USE_QT)
 
-if (USE_GTK)
+if (USE_GTK OR USE_GTK3)
   add_subdirectory (eiskaltdcpp-gtk)
-endif (USE_GTK)
+endif (USE_GTK OR USE_GTK3)
 
 if (NO_UI_DAEMON OR XMLRPC_DAEMON)
     add_subdirectory (nasdc)

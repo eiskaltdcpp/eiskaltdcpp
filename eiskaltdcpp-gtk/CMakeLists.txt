@@ -14,8 +14,16 @@ set (GTK_HDRS @gtk_hdrs@ PARENT_SCOPE)
 set (GTK_UI   @gtk_ui@   PARENT_SCOPE)
 set (GTHREAD "-lgthread-2.0")
 
+if (USE_GTK)
+    set(GTK_INCLUDE_DIRS ${GTK2_INCLUDE_DIRS})
+    set(GTK_LIBRARIES ${GTK2_LIBRARIES})
+elseif (USE_GTK3)
+    set(GTK_INCLUDE_DIRS ${GTK3_INCLUDE_DIRS})
+    set(GTK_LIBRARIES ${GTK3_LIBRARIES})
+endif(USE_GTK)
+
 include_directories (
-        ${GTK2_INCLUDE_DIRS}
+        ${GTK_INCLUDE_DIRS}
         ${LIBGNOME2_INCLUDE_DIRS}
         ${PROJECT_SOURCE_DIR}
         ${PROJECT_SOURCE_DIR}/..
@@ -23,7 +31,7 @@ include_directories (
         )
 list(APPEND LIBS
         ${X11_LIBRARIES}
-        ${GTK2_LIBRARIES}
+        ${GTK_LIBRARIES}
         ${LIBGNOME2_LIBRARIES}
         ${Boost_LIBRARIES}
         ${ICONV_LIBRARIES}
