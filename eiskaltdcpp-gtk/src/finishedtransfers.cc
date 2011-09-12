@@ -439,7 +439,7 @@ void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpoint
     StringMap params;
     gtk_list_store_clear(ft->fileStore);
 
-    auto lock = FinishedManager::getInstance()->lockLists();
+    FinishedManager::getInstance()->lockLists();
 
     const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(ft->isUpload);
 
@@ -449,6 +449,8 @@ void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpoint
         ft->getFinishedParams_client(it->second, it->first, params);
         ft->addFile_gui(params, FALSE);
     }
+
+    FinishedManager::getInstance()->unlockLists();
 }
 
 void FinishedTransfers::onOpen_gui(GtkMenuItem *item, gpointer data)
@@ -624,7 +626,7 @@ void FinishedTransfers::initializeList_client()
 	StringMap params;
 	typedef Func2<FinishedTransfers, StringMap, bool> F2;
 	//F2 *func;
-	auto lock = FinishedManager::getInstance()->lockLists();
+	FinishedManager::getInstance()->lockLists();
 	const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
 	const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 
@@ -645,6 +647,8 @@ void FinishedTransfers::initializeList_client()
 		//func = new F2(this, &FinishedTransfers::addItem_gui, params, FALSE);
 		//WulforManager::get()->dispatchGuiFunc(func);
 	}
+
+	FinishedManager::getInstance()->unlockLists();
 
 	updateStatus_gui();
 	//WulforManager::get()->dispatchGuiFunc(new Func0<FinishedTransfers>(this, &FinishedTransfers::updateStatus_gui));

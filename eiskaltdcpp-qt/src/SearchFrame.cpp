@@ -340,7 +340,7 @@ SearchFrame::SearchFrame(QWidget *parent):
 
     ClientManager* clientMgr = ClientManager::getInstance();
 
-    auto lock = clientMgr->lock();
+    clientMgr->lock();
     clientMgr->addListener(this);
     Client::List& clients = clientMgr->getClients();
 
@@ -353,6 +353,8 @@ SearchFrame::SearchFrame(QWidget *parent):
         hubs.push_back(_q(client->getHubUrl()));
         client_list.push_back(client);
     }
+
+    clientMgr->unlock();
 
     str_model->setStringList(hubs);
 
