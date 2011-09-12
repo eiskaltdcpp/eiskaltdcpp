@@ -13,3 +13,25 @@
                      <property name="can_focus">True</property>
                      <property name="model">liststore1</property>
                      <child>
+--- a/eiskaltdcpp-gtk/ui/publichubs.ui
++++ b/eiskaltdcpp-gtk/ui/publichubs.ui
+@@ -258,6 +258,8 @@
+                 <child>
+                   <object class="GtkComboBox" id="hubListBox">
+                     <property name="visible">True</property>
+-                    <property name="has_entry">True</property>
+-                    <property name="entry_text_column">0</property>
+                     <property name="can_focus">False</property>
+                   </object>
+                   <packing>
+--- a/eiskaltdcpp-gtk/ui/search.ui
++++ b/eiskaltdcpp-gtk/ui/search.ui
+@@ -335,6 +335,8 @@
+                 <child>
+                   <object class="GtkComboBox" id="comboboxFile">
+                     <property name="visible">True</property>
+-                    <property name="has_entry">True</property>
+-                    <property name="entry_text_column">0</property>
+                     <property name="can_focus">False</property>
+                     <property name="model">liststore4</property>
+                     <child>
