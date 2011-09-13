@@ -74,7 +74,6 @@ public:
     QString tth;
     QString target;
     qlonglong dpos;
-    qlonglong delta;
     double percent;
     QList<QVariant> itemData;
 
