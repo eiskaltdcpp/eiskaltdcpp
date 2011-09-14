@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-09-07 00:45+0300\n"
-"PO-Revision-Date: 2011-09-03 13:41+0200\n"
+"PO-Revision-Date: 2011-09-14 15:00+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -133,6 +133,14 @@ msgid ""
 "\n"
 "see man strftime for details."
 msgstr ""
+"%a a hét napjainak rövidített neve.\n"
+"%b a hónapok rövidített neve.\n"
+"%H óra, mint decimális szám, 24 órás időformátumban.\n"
+"%M perc, mind decimális szám (tartomány: 00-59).\n"
+"%S másodperc, mind decimális szám (tartomány: 00-59).\n"
+"%% megjeleníthető '%' karakter.\n"
+"\n"
+"lásd még: 'man strftime' a további részletekért."
 
 #: ../src/hub.cc:2288
 msgid "': type /help for a list of available commands"
@@ -266,7 +274,7 @@ msgstr "<b>Kiterjesztés</b>"
 
 #: ../ui/settingsdialog.ui:3089
 msgid "<b>Favorite download to directories</b>"
-msgstr ""
+msgstr "<b>Kedvenc letöltési könyvtárak</b>"
 
 #: ../ui/publichubs.ui:236
 msgid "<b>Filter</b>"
@@ -314,7 +322,7 @@ msgstr "<b>Magnet beállítások</b>"
 
 #: ../ui/settingsdialog.ui:4437
 msgid "<b>Main Toolbar Style</b>"
-msgstr ""
+msgstr "<b>Fő eszköztár stílus</b>"
 
 #: ../ui/adlsearch.ui:211
 msgid "<b>Max FileSize</b>"
@@ -339,6 +347,8 @@ msgstr "<b>Új név</b>"
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8722
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
+"<b>Megjegyzés:</b> A listában szereplő url-ek szerkeszthetők kiválasztás után "
+"egy kattintással"
 
 #: ../ui/settingsdialog.ui:5277
 msgid "<b>Notify</b>"
@@ -386,7 +396,7 @@ msgstr "<b>Privát üzenet</b>"
 
 #: ../ui/hash.ui:55
 msgid "<b>Processing file:</b>"
-msgstr ""
+msgstr "<b>Fájl feldolgozása:</b>"
 
 #: ../ui/settingsdialog.ui:2964
 msgid "<b>Public Hubs list</b>"
@@ -470,7 +480,7 @@ msgstr "<b>Mit szeretnél tenni?</b>"
 
 #: ../ui/settingsdialog.ui:4737
 msgid "<b>Window Options</b>"
-msgstr ""
+msgstr "<b>Ablak beállítások</b>"
 
 #: ../src/mainwindow.cc:2180
 msgid "<b>file:</b> "
@@ -699,7 +709,7 @@ msgstr "Alternatív letöltési helyek automatikus keresése"
 
 #: ../ui/settingsdialog.ui:2392
 msgid "Automatically update external IP (restart required)"
-msgstr ""
+msgstr "Külső IP cím autómatikus frissítése (újraindítás szükséges)"
 
 #: ../src/hub.cc:1959 ../src/privatemessage.cc:984 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
@@ -738,7 +748,7 @@ msgstr "Fekete/Fehér"
 
 #: ../ui/settingsdialog.ui:5101
 msgid "Bold Authors of message in chat"
-msgstr ""
+msgstr "Üzenet küldőjének neve kiemelése a chaten"
 
 #: ../ui/settingsdialog.ui:4912
 msgid "Browse file..."
@@ -828,7 +838,7 @@ msgstr "Tanúsítvány fájl"
 
 #: ../src/settingsmanager.cc:515
 msgid "Change setting "
-msgstr ""
+msgstr "Beállítás megváltoztatása "
 
 #: ../ui/mainwindow.ui:1460
 msgid "Changelog (git)"
@@ -1313,7 +1323,7 @@ msgstr "Hiba"
 
 #: ../src/settingsmanager.cc:518
 msgid "Error: params have been not 2!"
-msgstr ""
+msgstr "Hiba: nem lehet 2 paraméter!"
 
 #: ../src/settingsmanager.cc:514
 msgid "Error: setting not found!"
@@ -1349,9 +1359,8 @@ msgid "Execute code (bash)"
 msgstr "Kód futtatása (bash)"
 
 #: ../ui/mainwindow.ui:1982
-#, fuzzy
 msgid "Exit"
-msgstr "_Kilépés"
+msgstr "Kilépés"
 
 #: ../ui/mainwindow.ui:801
 msgid "Exit EiskaltDC++ Gtk?"
@@ -1960,7 +1969,7 @@ msgstr "Maximális feltöltési sebesség (KiB/s, 0 = letiltva)"
 
 #: ../ui/settingsdialog.ui:5523
 msgid "Maximum message length (0 = infinite)"
-msgstr ""
+msgstr "Üzenet maximális hossza (0 = korlátlan)"
 
 #: ../ui/settingsdialog.ui:2775
 msgid "Maximum simultaneous downloads (0 = infinite)"
@@ -2005,11 +2014,11 @@ msgstr "Mini slot méret"
 
 #: ../src/settingsdialog.cc:1010
 msgid "Minimize to tray on startup"
-msgstr ""
+msgstr "Induláskor minimalizálás a tálcára"
 
 #: ../ui/favoritehubs.ui:312
 msgid "Minimum search interval (seconds):"
-msgstr ""
+msgstr "Minimum keresési időköz (másodpercben):"
 
 #: ../ui/settingsdialog.ui:7910
 msgid "Modify"
@@ -2166,6 +2175,7 @@ msgstr "Felhasználó nem található: "
 #: ../ui/settingsdialog.ui:7976
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
+"Megjegyzés: Különböző keresési típusok csak az ADC hubokon használhatóak!"
 
 #: ../ui/settingsdialog.ui:4564 ../ui/settingsdialog.ui:4633
 msgid "Note: Most of these options require that you restart the application"
@@ -2625,7 +2635,7 @@ msgstr "Ismeretlen /parancsok elküldése a hubnak"
 #: ../src/search.cc:536
 #, c-format
 msgid "Sent ADC extensions : %s\n"
-msgstr ""
+msgstr "ADC kiterjesztése(ek) elküldve : %s\n"
 
 #: ../src/settingsdialog.cc:3148 ../src/settingsdialog.cc:3246
 #: ../ui/settingsdialog.ui:572
@@ -2672,9 +2682,8 @@ msgid "Show IP's' in chats"
 msgstr "IP-k mutatása a chaten"
 
 #: ../ui/mainwindow.ui:1952
-#, fuzzy
 msgid "Show Interface"
-msgstr "_Interfész mutatása"
+msgstr "Interfész mutatása"
 
 #: ../src/hub.cc:1966 ../ui/hub.ui:48
 msgid "Show favorites list"
@@ -2910,7 +2919,7 @@ msgstr ""
 
 #: ../src/favoritehubs.cc:386
 msgid "The name and address fields are required"
-msgstr ""
+msgstr "A név és cím mező kitöltése szükséges"
 
 #: ../ui/settingsdialog.ui:5827
 msgid "Theme default"
@@ -3264,7 +3273,7 @@ msgstr "Villogó ikon használata"
 
 #: ../ui/settingsdialog.ui:2461
 msgid "Use DHT"
-msgstr ""
+msgstr "DHT használata"
 
 #: ../src/hub.cc:1708 ../src/privatemessage.cc:1155
 msgid "Use Emoticons"
@@ -3790,7 +3799,7 @@ msgstr "a projekt weboldala: "
 
 #: ../src/hub.cc:1943 ../src/privatemessage.cc:957
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
-msgstr ""
+msgstr "arány: %1% (feltöltés: %2%, letöltés: %3% )"
 
 #: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2204
 #: ../src/mainwindow.cc:2206 ../ui/settingsdialog.ui:3523

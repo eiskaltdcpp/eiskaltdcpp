@@ -2468,7 +2468,7 @@ Letöltve: %3 Feltöltve: %4</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Állj</translation>
+        <translation>Állj</translation>
     </message>
 </context>
 <context>

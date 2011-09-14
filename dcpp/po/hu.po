@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-09-07 00:38+0300\n"
-"PO-Revision-Date: 2011-06-02 10:43+0200\n"
+"PO-Revision-Date: 2011-09-14 14:52+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -191,7 +191,7 @@ msgstr ""
 
 #: ../SettingsManager.cpp:606
 msgid "Error: params have been not 2!"
-msgstr ""
+msgstr "Hiba: nem lehet 2 paraméter!"
 
 #: ../NmdcHub.cpp:293
 msgid "%1% (Nick unknown)"
