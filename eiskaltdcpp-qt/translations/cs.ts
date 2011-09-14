@@ -2950,7 +2950,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="91"/>
         <source>Stop</source>
-        <translation type="unfinished">Stop</translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="214"/>
@@ -5858,7 +5858,14 @@ their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapněte tuto volbu pokud chcete zachovat stažené seznamy souborů
+ve frontě stahování i po jejich stažení.
+Po stažení zařazených položek budou tyto mít status &apos;Dokončeno&apos;
+a můžete je kdykoliv smazat.
+Pokud fyzicky smažete stažené soubory z disku,
+nebudou poté automaticky odebrány z fronty stahování.
+Pokud tuto funkci vypnete, neodeberou se automaticky existující dokončená stahováni z fronty,
+musíte je taé odebrat manuálně.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
