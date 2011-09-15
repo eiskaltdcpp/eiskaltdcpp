@@ -14,6 +14,7 @@
 
 #include "dcpp/Util.h"
 #include "dcpp/StringTokenizer.h"
+#include "dcpp/format.h"
 
 #include <cassert>
 #include <stdexcept>
@@ -243,6 +244,60 @@ public:
     }
 };
 
+class showVesionMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    showVesionMethod() {
+        this->_signature = "i:s";
+        this->_help = "This method return full client version in string. Рarams: none";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string version(EISKALTDCPP_VERSION);
+        version.append(" (");
+        version.append(EISKALTDCPP_VERSION_SFX);
+        version.append(")");
+        *retvalP = xmlrpc_c::value_string(version);
+    }
+};
+
+class showRatioMethod : public xmlrpc_c::method {
+    friend class ServerThread;
+public:
+    showRatioMethod() {
+        this->_signature = "i:s";
+        this->_help = "This method return client ratio in string. Рarams: none";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        double ratio;
+        double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
+        double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
+
+        if (down > 0)
+            ratio = up / down;
+        else
+            ratio = 0;
+
+        char ratio_c[32];
+        sprintf(ratio_c,"%.3f", ratio);
+
+        string uploaded = Util::formatBytes(up);
+        string downloaded = Util::formatBytes(down);
+
+        string line = str(dcpp_fmt("ratio: %1% (uploads: %2%, downloads: %3% )")
+        % string(ratio_c) % uploaded % downloaded);
+
+        *retvalP = xmlrpc_c::value_string(line);
+    }
+};
+
 class addDirInShareMethod : public xmlrpc_c::method {
 public:
     addDirInShareMethod() {
@@ -360,6 +415,7 @@ public:
         *retvalP = xmlrpc_c::value_string(listshare);
     }
 };
+
 class refreshShareMethod : public xmlrpc_c::method {
 public:
     refreshShareMethod() {

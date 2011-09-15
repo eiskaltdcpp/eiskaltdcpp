@@ -5865,7 +5865,7 @@ a můžete je kdykoliv smazat.
 Pokud fyzicky smažete stažené soubory z disku,
 nebudou poté automaticky odebrány z fronty stahování.
 Pokud tuto funkci vypnete, neodeberou se automaticky existující dokončená stahováni z fronty,
-musíte je taé odebrat manuálně.</translation>
+musíte je také odebrat manuálně.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
