@@ -95,6 +95,8 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const sendSearchMethodP(new sendSearchMethod);
     xmlrpc_c::methodPtr const listSearchStringsMethodP(new listSearchStringsMethod);
     xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
+    xmlrpc_c::methodPtr const showVesionMethodP(new showVesionMethod);
+    xmlrpc_c::methodPtr const showRatioMethodP(new showRatioMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
     xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
@@ -102,7 +104,7 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("hub.say", hubSayMethodP);
     xmlrpcRegistry.addMethod("hub.pm", hubSayPrivateMethodP);
     xmlrpcRegistry.addMethod("hub.list", listHubsMethodP);
-    xmlrpcRegistry.addMethod("hub.retchat", getChatPubMethodP);
+    xmlrpcRegistry.addMethod("hub.getchat", getChatPubMethodP);
     xmlrpcRegistry.addMethod("share.add", addDirInShareMethodP);
     xmlrpcRegistry.addMethod("share.rename", renameDirInShareMethodP);
     xmlrpcRegistry.addMethod("share.del", delDirFromShareMethodP);
@@ -111,7 +113,9 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("list.download", getFileListMethodP);
     xmlrpcRegistry.addMethod("search.send", sendSearchMethodP);
     xmlrpcRegistry.addMethod("search.list", listSearchStringsMethodP);
-    xmlrpcRegistry.addMethod("search.retresults", returnSearchResultsMethodP);
+    xmlrpcRegistry.addMethod("search.getresults", returnSearchResultsMethodP);
+    xmlrpcRegistry.addMethod("show.version", showVesionMethodP);
+    xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
     AbyssServer.run();
 #endif
 
@@ -319,56 +323,20 @@ void ServerThread::on(SearchFlood, Client*, const string& line) noexcept {
 }
 
 void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept {
-    //// Без пол-литра не разберёшься :D
-    //// Варианты как всю эту херню реализовать по-проще принимаются к рассмотрению...
-    //if (result == NULL) return;
-    //ClientIter i = clientsMap.begin();
-    //for ( ; i != clientsMap.end(); i++)
-        //if (result->getHubURL() == i->first && clientsMap[i->first].curclient !=NULL) break;
-    //if (i == clientsMap.end() && result->getHubURL() != i->first) return;
 
-    //unordered_map<string, SearchResultList>::const_iterator it;
-    //for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
-    //{
-        //dcpp::TStringList searchlist = StringTokenizer<string>(it->first, ' ').getTokens();
-        //for (TStringIter itt = searchlist.begin(); itt != searchlist.end(); ++itt)
-        //{
-            //if ((*itt->begin() != '-' && Util::findSubString(result->getFile(), *itt) == (string::size_type)-1) ||
-                //(*itt->begin() == '-' && itt->size() != 1 && Util::findSubString(result->getFile(), itt->substr(1)) != (string::size_type)-1))
-            //{
-                //return;
-            //}
-            //else
-                //continue;
-        //}
-        //clientsMap[i->first].cursearchresult[it->first].push_back(result);
-        //fprintf(stdout,"добавили результат %s на %s\n", i->first.c_str(), it->first.c_str());
-        //fflush(stdout);
-    //}
-    //fprintf(stdout,"?????????WTF?????????\n");fflush(stdout);
-    //for (vector<string>::const_iterator it = retlistsearchs.begin(); it != retlistsearchs.end(); it++) {
-        //fprintf(stdout,"vector<string>2: %s\n",(*it).c_str());fflush(stdout);
-    //}
-
-    if (/*retlistsearchs.empty() || */result == NULL) {
-        fprintf(stdout,"?????????WTF?????????\n");fflush(stdout);
+    if (result == NULL) {
+        //fprintf(stdout,"?????????WTF?????????\n");fflush(stdout);
         return;
     }
-    //for (vector<string>::const_iterator it = retlistsearchs.begin(); it != retlistsearchs.end(); ++it) {
-        //printf("vector<string>3: %s\n",(*it).c_str());
-        //if ((*it->begin() != '-' && Util::findSubString(result->getFile(), *it) == (string::size_type)-1) ||
-            //(*it->begin() == '-' && it->size() != 1 && Util::findSubString(result->getFile(), it->substr(1)) != (string::size_type)-1))
-        //{
-            //return;
-        //}
-        //else {
-            //fprintf(stdout,"добавили результат %s\n", (*it).c_str());
-            //fflush(stdout);
-            //gsearchresult[*it].push_back(result);
-        //}
-    //}
-    fprintf(stdout,"добавили результат %s\n", result->getFile().c_str());fflush(stdout);
-    gsearchresult.push_back(result);
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        if (clientsMap[i->first].curclient != NULL && i->first == result->getHubURL()) {
+            clientsMap[i->first].cursearchresult.push_back(result);
+            //fprintf(stdout,"%s: размер вектора %d\n", i->first.c_str(), clientsMap[i->first].cursearchresult.size());fflush(stdout);
+        }
+    }
+    //fprintf(stdout,"добавили результат %s\n", result->getFile().c_str());fflush(stdout);
+    //gsearchresult.push_back(result);
+    //fprintf(stdout,"размер вектора %d\n", gsearchresult.size());fflush(stdout);
 }
 
 void ServerThread::startSocket(bool changed){
@@ -623,14 +591,8 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     {
         ftype = SearchManager::TYPE_ANY;
     }
-    for (StringIter it = clients.begin(); it != clients.end(); ++it){
-        clientsMap[(*it)].cursearchresult[ssearch].push_back(NULL);
-    }
-    //fprintf(stdout,"записали %s в retlistsearchs\n", ssearch.c_str());fflush(stdout);
-    //ServerThread::getInstance()->retlistsearchs.push_back(ssearch);
-    //addStringinSearchList(ssearch);
-    //for (vector<string>::const_iterator it = retlistsearchs.begin(); it != retlistsearchs.end(); it++) {
-        //fprintf(stdout,"vector<string>1: %s\n",(*it).c_str());fflush(stdout);
+    //for (StringIter it = clients.begin(); it != clients.end(); ++it){
+        //clientsMap[(*it)].cursearchresult[ssearch].push_back(NULL);
     //}
 
     SearchManager::getInstance()->search(clients, ssearch, lllsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);
@@ -639,42 +601,29 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
 }
 
 void ServerThread::listSearchStrings(string& listsearchstrings, const string& separator) {
+    //for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        //unordered_map<string, SearchResultList>::const_iterator it;
+        //for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
+        //{
+            //listsearchstrings.append(it->first);
+            //listsearchstrings.append(separator);
+        //}
+    //}
+}
+
+void ServerThread::returnSearchResults(vector<StringMap>& resultarray) {
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
-        unordered_map<string, SearchResultList>::const_iterator it;
-        for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
-        {
-            listsearchstrings.append(it->first);
-            listsearchstrings.append(separator);
+        SearchResultList::const_iterator kk;
+        //fprintf(stdout,"%s: размер вектора %d\n", i->first.c_str(), clientsMap[i->first].cursearchresult.size());fflush(stdout);
+        for (kk = clientsMap[i->first].cursearchresult.begin(); kk != clientsMap[i->first].cursearchresult.end(); ++kk) {
+            StringMap resultMap;
+            parseSearchResult_gui(*kk, resultMap);
+            //fprintf(stdout,"resultMap[Filename]: %s\n", resultMap["Filename"].c_str());fflush(stdout);
+            resultarray.push_back(resultMap);
         }
     }
 }
 
-void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const int& index, const string& huburls) {
-    //StringTokenizer<string> sl(huburls, ";");
-    //for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
-        //for (StringIter itt = sl.getTokens().begin(); itt != sl.getTokens().end(); ++itt) {
-            //if (i->first.compare(*itt)) {
-                //unordered_map<string, SearchResultList>::const_iterator it;
-                //for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it) {
-                    //if (it->first == retlistsearchs[index]) {
-                        //for (SearchResultList::const_iterator kk = it->second.begin(); kk != it->second.end(); ++kk) {
-                            //StringMap resultMap;
-                            //parseSearchResult_gui(*kk, resultMap);
-                            //resultarray.push_back(resultMap);
-                        //}
-                        ////resultarray.insert(resultarray.begin(), (it)->second.begin(), (it)->second.end());
-                    //}
-                //}
-            //}
-        //}
-    //}
-
-    for (SearchResultList::iterator kk = gsearchresult.begin(); kk != gsearchresult.end(); ++kk) {
-        StringMap resultMap;
-        parseSearchResult_gui(*kk, resultMap);
-        resultarray.push_back(resultMap);
-    }
-}
 void ServerThread::addStringinSearchList(const string& s) {
     retlistsearchs.push_back(s);
 }
