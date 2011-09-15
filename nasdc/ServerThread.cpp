@@ -95,6 +95,8 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const sendSearchMethodP(new sendSearchMethod);
     xmlrpc_c::methodPtr const listSearchStringsMethodP(new listSearchStringsMethod);
     xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
+    xmlrpc_c::methodPtr const showVesionMethodP(new showVesionMethod);
+    xmlrpc_c::methodPtr const showRatioMethodP(new showRatioMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
     xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
@@ -112,6 +114,8 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("search.send", sendSearchMethodP);
     xmlrpcRegistry.addMethod("search.list", listSearchStringsMethodP);
     xmlrpcRegistry.addMethod("search.retresults", returnSearchResultsMethodP);
+    xmlrpcRegistry.addMethod("show.version", showVesionMethodP);
+    xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
     AbyssServer.run();
 #endif
 
@@ -675,6 +679,7 @@ void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const int
         resultarray.push_back(resultMap);
     }
 }
+
 void ServerThread::addStringinSearchList(const string& s) {
     retlistsearchs.push_back(s);
 }
