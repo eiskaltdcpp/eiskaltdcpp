@@ -163,7 +163,6 @@ void ServerThread::autoConnect()
 
 void ServerThread::connectClient(const string& address, const string& encoding)
 {
-    Lock l(shutcs);
     if (ClientManager::getInstance()->isConnected(address))
         printf("Already connected to %s\n",address.c_str());
     string tmp;
@@ -183,7 +182,6 @@ void ServerThread::connectClient(const string& address, const string& encoding)
 void ServerThread::disconnectClient(const string& address){
     ClientIter i = clientsMap.find(address);
     if(i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
-        Lock l(shutcs);
         Client* cl = i->second.curclient;
         cl->removeListener(this);
         cl->disconnect(true);
@@ -480,7 +478,6 @@ string ServerThread::getFileList_client(const string& hub, const string& nick, b
 }
 
 void ServerThread::getChatPubFromClient(string& chat, const string& hub, const string& separator) {
-    Lock l(shutcs);
     ClientIter it = clientsMap.find(hub);
     if (it != clientsMap.end()) {
         for (int i =0; i < it->second.curchat.size(); ++i) {
