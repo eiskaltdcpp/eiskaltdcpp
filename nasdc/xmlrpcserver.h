@@ -241,10 +241,10 @@ public:
     }
 };
 
-class showVesionMethod : public xmlrpc_c::method {
+class showVersionMethod : public xmlrpc_c::method {
     friend class ServerThread;
 public:
-    showVesionMethod() {
+    showVersionMethod() {
         this->_signature = "i:s";
         this->_help = "This method return full client version in string. Рarams: none";
     }

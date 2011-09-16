@@ -94,7 +94,7 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const getFileListMethodP(new getFileListMethod);
     xmlrpc_c::methodPtr const sendSearchMethodP(new sendSearchMethod);
     xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
-    xmlrpc_c::methodPtr const showVesionMethodP(new showVesionMethod);
+    xmlrpc_c::methodPtr const showVersionMethodP(new showVersionMethod);
     xmlrpc_c::methodPtr const showRatioMethodP(new showRatioMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
@@ -112,7 +112,7 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("list.download", getFileListMethodP);
     xmlrpcRegistry.addMethod("search.send", sendSearchMethodP);
     xmlrpcRegistry.addMethod("search.getresults", returnSearchResultsMethodP);
-    xmlrpcRegistry.addMethod("show.version", showVesionMethodP);
+    xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
     xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
 #if defined(USE_XMLRPC_ABYSS)
     server.run();

@@ -262,7 +262,7 @@ public:
 #ifdef _WIN32
         return _atoi64(aString.c_str());
 #else
-        return strtoll(aString.c_str(), (char **)NULL, 10);
+        return strtoq(aString.c_str(), (char **)NULL, 10);
 #endif
     }
 
