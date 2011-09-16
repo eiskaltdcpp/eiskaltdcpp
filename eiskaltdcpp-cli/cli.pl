@@ -47,7 +47,7 @@ foreach (keys %config)
 my $P = RPC::XML::Parser->new();
 my $cli = RPC::XML::Client->new($config{eiskaltURL}) or die "Can not connect to hub url $config{eiskaltURL}: $_\n";
 my $term = new Term::ShellUI(commands => get_commands(), history_file => $config{hist_file}, history_max => $config{hist_max});
-$term->prompt($config{prompt});
+$term->prompt("$config{eiskaltHostPort} $config{prompt}");
 $term->run();
 
 sub get_commands
@@ -66,8 +66,7 @@ sub get_commands
 			desc => "Add a new hub and connect. Parameters: s/'huburl', s/'encoding'",
 			minargs => 2,
 			maxargs => 2,
-			proc => sub {}
-
+			proc => \&hubadd
 		},
 		"hub.del" =>
 		{
@@ -75,7 +74,7 @@ sub get_commands
 			# add autocomplete from list of connected hubs
 			minargs => 1,
 			maxargs => 1,
-			proc => sub {}
+			proc => \&hubdel
 
 		},
 		"hub.say" =>
@@ -94,24 +93,7 @@ sub get_commands
 			#args => sub { grep { !/^\.?\.$/ } shift->complete_onlydirs(@_) },
 			minargs => 3,
 			maxargs => 3,
-			proc => sub {}
-
-		},
-		"daemon.stop" =>
-		{
-			desc => "Disconnect from hubs and exit. Parameters: i/1",
-			minargs => 1,
-			maxargs => 1,
-			proc => sub {}
-
-		},
-		"magnet.add" =>
-		{
-			desc => "Add a magnet to download queue, and fetch it to download directory. Parameters: s/'magnet', s/'download directory'",
-			args => sub { grep { !/^\.?\.$/ } shift->complete_onlydirs(@_) },
-			minargs => 1,
-			maxargs => 1,
-			proc => sub {}
+			proc => \&hubpm
 
 		},
 		"hub.list" =>
@@ -125,30 +107,48 @@ sub get_commands
 		"hub.retchat" =>
 		{
 			desc => "Get last public chat messages. Parameters: s/'huburl', s/'separator'",
+			minargs => 1,
+			maxargs => 2,
+			proc => \&hubretchat
+		},
+		"daemon.stop" =>
+		{
+			desc => "Disconnect from hubs and exit. Parameters: i/1",
+			minargs => 1,
+			maxargs => 1,
+			proc => \&daemonstop
+
+		},
+		"magnet.add" =>
+		{
+			desc => "Add a magnet to download queue, and fetch it to download directory. Parameters: s/'magnet', s/'download directory'",
+			args => sub { shift->complete_onlydirs(@_) },
 			minargs => 2,
 			maxargs => 2,
-			proc => sub {}
+			proc => \&magnetadd
 		},
 		"share.add" =>
 		{
 			desc => "Add a directory to share as virtual name. Parameters: s/'directory',s/'virtual name'",
+			args => sub { shift->complete_onlydirs(@_) },
 			minargs => 2,
 			maxargs => 2,
-			proc => sub {}
+			proc => \&shareadd
 		},
 		"share.rename" =>
 		{
 			desc => "Give a new virtual name to shared directory. Parameters: s/'directory',s/'virtual name'",
+			args => sub { shift->complete_onlydirs(@_) },
 			minargs => 2,
 			maxargs => 2,
-			proc => sub {}
+			proc => \&sharerename
 		},
 		"share.del" =>
 		{
 			desc => "Unshare directory with virtual name. Parameters: Parameters: s/'virtual name'",
 			minargs => 1,
 			maxargs => 1,
-			proc => sub {}
+			proc => \&sharedel
 		},
 		"share.list" =>
 		{
@@ -161,40 +161,28 @@ sub get_commands
 			desc => "Refresh a share, hash new files. Parameters: i/1",
 			minargs => 1,
 			maxargs => 1,
-			proc => sub {}
+			proc => \&sharerefresh
 		},
 		"list.download" =>
 		{
 			desc => "Download a file list from nick on huburl. Parameters: s/'huburl', s/'nick'",
 			minargs => 2,
 			maxargs => 2,
-			proc => sub {}
+			proc => \&listdownload
 		},
 		"search.send" =>
 		{
-			desc => "Start hub search. Parameters: s/'search string', i/type, i/sizemode, i/sizetype, d/size, s/'huburls'",
-			doc => qq[Start hub search. Parameters: s/'search string', i/type, i/sizemode, i/sizetype, d/size, s/'huburls'
-	
-type is an integer, one of the following:
-"2" is for search 7z ,ace ,arj ,bz2 ,gz ,lha ,lzh ,rar ,tar ,z ,zip files
-"1" is for search ape ,flac ,m4a ,mid ,mp3 ,mpc ,ogg ,ra ,wav ,wma files
-"4" is for search app ,bat ,cmd ,com ,dll ,exe ,jar ,msi ,ps1 ,vbs ,wsf files
-"3" is for search doc ,docx ,htm ,html ,nfo ,odf ,odp ,ods ,odt ,pdf ,ppt ,pptx ,rtf ,txt ,xls ,xlsx ,xml ,xps files
-"6" is for search 3gp ,asf ,asx ,avi ,divx ,flv ,mkv ,mov ,mp4 ,mpeg ,mpg ,ogm ,pxp ,qt ,rm ,rmvb ,swf ,vob ,webm ,wmv files
-"5" is for search bmp ,cdr ,eps ,gif ,ico ,img ,jpeg ,jpg ,png ,ps ,psd ,sfw ,tga ,tif ,webp files
-"7" is for search iso ,mdf ,mds ,nrg ,vcd ,bwt ,ccd ,cdi ,pdi ,cue ,isz ,img ,vc4 files
-
-sizemode and sizetype is commonly 0, size is commonly 0.0 (decimal value)],
-			minargs => 2,
-			maxargs => 6,
-			proc => sub {}
+			desc => "Start hub search. Parameters: s/'search string'",
+			minargs => 1,
+			maxargs => 1,
+			proc => \&searchsend
 		},
 		"search.list" =>
 		{
 			desc => "Get search results. Parameters: s/'index of search', s/'huburls'",
 			minargs => 2,
 			maxargs => 2,
-			proc => sub {}
+			proc => \&searchlist
 		},
 		"search.retresults" => 
 		{
@@ -205,7 +193,7 @@ sizemode and sizetype is commonly 0, size is commonly 0.0 (decimal value)],
 			desc => "Set custom prompt",
 			minargs => 1,
 			maxargs =>1,
-			proc => sub { $term->prompt(shift) }
+			proc => sub { $term->prompt("$config{eiskaltHostPort} ".shift) }
 		},
 		"exec" =>
 		{
@@ -214,6 +202,13 @@ sizemode and sizetype is commonly 0, size is commonly 0.0 (decimal value)],
 			minargs => 1,
 			proc => sub { system(shift) }
 		},
+		"quit" => 
+		{
+			desc => "Quit this program", 
+			maxargs => 0,
+			method => sub { shift->exit_requested(1); }
+		},
+		"exit" => { alias => 'quit' },
 		'' =>
 		{
 	  		proc => "No command here by that name\n",
@@ -223,40 +218,163 @@ sizemode and sizetype is commonly 0, size is commonly 0.0 (decimal value)],
 }
 
 # functions
-sub hublist($)
+sub hubadd($$)
 {
-	my $req=RPC::XML::request->new('hub.list', RPC::XML::string->new($_[0]||$config{separator}));
-	my $xml = $req->as_string();
+	my $req=RPC::XML::request->new('hub.add', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1]));
 	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
-	$xml = $resp->as_string();
-	my $res = $P->parse($xml);
+	my $res = $P->parse($resp->as_string());
 	print $$res."\n";
 }
 
-sub sharelist($)
+sub hubdel($)
 {
-	my $req=RPC::XML::request->new('share.list', RPC::XML::string->new($_[0]));
-	my $xml = $req->as_string();
+	my $req=RPC::XML::request->new('hub.del', RPC::XML::string->new($_[0]));
 	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
-	$xml = $resp->as_string();
-	my $res = $P->parse($xml);
+	my $res = $P->parse($resp->as_string());
 	print $$res."\n";
 }
 
 sub hubsay($$)
 {
 	my $req=RPC::XML::request->new('hub.say', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1]));
-	my $xml = $req->as_string();
 	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
-	$xml = $resp->as_string();
-	my $res = $P->parse($xml);
+	my $res = $P->parse($resp->as_string());
 	print $$res."\n";
 }
+
+sub hubpm($$$)
+{
+	my $req=RPC::XML::request->new('hub.pm', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1]), RPC::XML::string->new($_[2]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub hublist($)
+{
+	my $req=RPC::XML::request->new('hub.list', RPC::XML::string->new($_[0] || $config{separator}));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub hubretchat($$)
+{
+	my $req=RPC::XML::request->new('hub.retchat', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1] || $config{separator}));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub daemonstop($)
+{
+	my $req=RPC::XML::request->new('daemon.stop', RPC::XML::int->new($_[0]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub magnetadd($$)
+{
+	my $req=RPC::XML::request->new('magnet.add', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub shareadd($$)
+{
+	my $req=RPC::XML::request->new('share.add', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub sharerename($$)
+{
+	my $req=RPC::XML::request->new('share.rename', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub sharedel($)
+{
+	my $req=RPC::XML::request->new('share.del', RPC::XML::string->new($_[0]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub sharelist($)
+{
+	if (defined($_[0])) {print('>',$_[0],'<')}
+	my $req=RPC::XML::request->new('share.list', RPC::XML::string->new($_[0] || $config{separator}));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub sharerefresh($)
+{
+	my $req=RPC::XML::request->new('share.refresh', RPC::XML::int->new($_[0]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub listdownload($$)
+{
+	my $req=RPC::XML::request->new('list.download', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub searchsend($)
+{
+	my $req=RPC::XML::request->new('search.send', RPC::XML::string->new($_[0]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub searchlist($$)
+{
+	my $req=RPC::XML::request->new('search.list', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1]));
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+
+
+
 
 __END__
 
 
 =pod
+
+			#desc => "Start hub search. Parameters: s/'search string', i/type, i/sizemode, i/sizetype, d/size, s/'huburls'",
+			#doc => qq[Start hub search. Parameters: s/'search string', i/type, i/sizemode, i/sizetype, d/size, s/'huburls'
+	
+#type is an integer, one of the following:
+#"2" is for search 7z ,ace ,arj ,bz2 ,gz ,lha ,lzh ,rar ,tar ,z ,zip files
+#"1" is for search ape ,flac ,m4a ,mid ,mp3 ,mpc ,ogg ,ra ,wav ,wma files
+#"4" is for search app ,bat ,cmd ,com ,dll ,exe ,jar ,msi ,ps1 ,vbs ,wsf files
+#"3" is for search doc ,docx ,htm ,html ,nfo ,odf ,odp ,ods ,odt ,pdf ,ppt ,pptx ,rtf ,txt ,xls ,xlsx ,xml ,xps files
+#"6" is for search 3gp ,asf ,asx ,avi ,divx ,flv ,mkv ,mov ,mp4 ,mpeg ,mpg ,ogm ,pxp ,qt ,rm ,rmvb ,swf ,vob ,webm ,wmv files
+#"5" is for search bmp ,cdr ,eps ,gif ,ico ,img ,jpeg ,jpg ,png ,ps ,psd ,sfw ,tga ,tif ,webp files
+#"7" is for search iso ,mdf ,mds ,nrg ,vcd ,bwt ,ccd ,cdi ,pdi ,cue ,isz ,img ,vc4 files
+
+#sizemode and sizetype is commonly 0, size is commonly 0.0 (decimal value)],
+			#minargs => 2,
+			#maxargs => 6,
+			#proc => sub {}
+
+
+
 args
 maxargs
 minargs
