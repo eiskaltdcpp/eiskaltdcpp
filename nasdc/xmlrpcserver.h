@@ -23,6 +23,7 @@
 #include <xmlrpc-c/base.hpp>
 #include <xmlrpc-c/registry.hpp>
 #include <xmlrpc-c/server_abyss.hpp>
+#include <xmlrpc-c/server_pstream.hpp>
 
 #include "ServerManager.h"
 
@@ -63,14 +64,20 @@ bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth)
 }
 
 xmlrpc_c::registry xmlrpcRegistry;
-
-xmlrpc_c::serverAbyss AbyssServer(xmlrpc_c::serverAbyss::constrOpt()
+#if defined(USE_XMLRPC_ABYSS)
+xmlrpc_c::serverAbyss server(xmlrpc_c::serverAbyss::constrOpt()
                                       .registryP(&xmlrpcRegistry)
                                       .portNumber(8080)
                                       .logFileName("/tmp/xmlrpc_log")
                                       .serverOwnsSignals(false)
                                       .uriPath("/eiskaltdcpp")
                                   );
+#elif defined(USE_XMLRPC_PSTREAM)
+xmlrpc_c::serverPstream server(xmlrpc_c::serverPstream::constrOpt()
+                                   .registryP(&xmlrpcRegistry)
+                                   .socketFd(STDIN_FILENO)
+                                  );
+#endif
 
 class magnetAddMethod : public xmlrpc_c::method {
 public:
@@ -481,25 +488,6 @@ public:
             *retvalP = xmlrpc_c::value_int(0);
         else
             *retvalP = xmlrpc_c::value_int(1);
-    }
-};
-
-class listSearchStringsMethod : public xmlrpc_c::method {
-    friend class ServerThread;
-public:
-    listSearchStringsMethod() {
-        this->_signature = "i:s";
-        this->_help = "This method return list of search strings. Рarams: separator.";
-    }
-
-    void
-    execute(xmlrpc_c::paramList const& paramList,
-            xmlrpc_c::value *   const  retvalP) {
-
-        string const sseparator(paramList.getString(0));
-        paramList.verifyEnd(1); string listsearchstrings;
-        ServerThread::getInstance()->listSearchStrings(listsearchstrings, sseparator);
-        *retvalP = xmlrpc_c::value_string(listsearchstrings);
     }
 };
 

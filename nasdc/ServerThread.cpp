@@ -93,7 +93,6 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const getChatPubMethodP(new getChatPubMethod);
     xmlrpc_c::methodPtr const getFileListMethodP(new getFileListMethod);
     xmlrpc_c::methodPtr const sendSearchMethodP(new sendSearchMethod);
-    xmlrpc_c::methodPtr const listSearchStringsMethodP(new listSearchStringsMethod);
     xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
     xmlrpc_c::methodPtr const showVesionMethodP(new showVesionMethod);
     xmlrpc_c::methodPtr const showRatioMethodP(new showRatioMethod);
@@ -112,11 +111,15 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
     xmlrpcRegistry.addMethod("list.download", getFileListMethodP);
     xmlrpcRegistry.addMethod("search.send", sendSearchMethodP);
-    xmlrpcRegistry.addMethod("search.list", listSearchStringsMethodP);
     xmlrpcRegistry.addMethod("search.getresults", returnSearchResultsMethodP);
     xmlrpcRegistry.addMethod("show.version", showVesionMethodP);
     xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
-    AbyssServer.run();
+#if defined(USE_XMLRPC_ABYSS)
+    server.run();
+#elif defined(USE_XMLRPC_PSTREAM)
+    server.runSerial();
+#endif
+
 #endif
 
     return 0;
@@ -138,7 +141,7 @@ void ServerThread::Close()
     TimerManager::getInstance()->removeListener(this);
     SearchManager::getInstance()->removeListener(this);
 #ifdef XMLRPC_DAEMON
-    AbyssServer.terminate();
+    server.terminate();
 #endif
 
     ConnectionManager::getInstance()->disconnect();
@@ -218,11 +221,11 @@ void ServerThread::on(Connecting, Client* cur) noexcept {
     }
     else if (i != clientsMap.end() && clientsMap[cur->getHubUrl()].curclient == NULL)
         clientsMap[cur->getHubUrl()].curclient = cur;
-    cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
+    //cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
 
 void ServerThread::on(Connected, Client* cur) noexcept {
-    cout << "Connect success to " <<  cur->getHubUrl() << "\n";
+    //cout << "Connect success to " <<  cur->getHubUrl() << "\n";
 }
 
 void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) noexcept {
@@ -238,11 +241,11 @@ void ServerThread::on(UserRemoved, Client*, const OnlineUserPtr& user) noexcept 
 }
 
 void ServerThread::on(Redirect, Client* cur, const string& line) noexcept {
-    cout <<  "Redirected to" << line << "\n";
+    //cout <<  "Redirected to" << line << "\n";
 }
 
 void ServerThread::on(Failed, Client* cur, const string& line) noexcept {
-    cout <<  "Connect failed [ " << cur->getHubUrl() << " ] :"<< line << "\n";
+    //cout <<  "Connect failed [ " << cur->getHubUrl() << " ] :"<< line << "\n";
 }
 
 void ServerThread::on(GetPassword, Client* cur) noexcept {
@@ -295,7 +298,7 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
         }
     }
 
-    cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << "\n";
+    //cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << "\n";
 }
 
 void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusFlags) noexcept
@@ -311,7 +314,7 @@ void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusF
         LOG(LogManager::STATUS, params);
     }
 
-    cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] " << "*"<< msg<< "\n";
+    //cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] " << "*"<< msg<< "\n";
 }
 
 void ServerThread::on(NickTaken, Client*) noexcept {
@@ -325,18 +328,13 @@ void ServerThread::on(SearchFlood, Client*, const string& line) noexcept {
 void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept {
 
     if (result == NULL) {
-        //fprintf(stdout,"?????????WTF?????????\n");fflush(stdout);
         return;
     }
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
         if (clientsMap[i->first].curclient != NULL && i->first == result->getHubURL()) {
             clientsMap[i->first].cursearchresult.push_back(result);
-            //fprintf(stdout,"%s: размер вектора %d\n", i->first.c_str(), clientsMap[i->first].cursearchresult.size());fflush(stdout);
         }
     }
-    //fprintf(stdout,"добавили результат %s\n", result->getFile().c_str());fflush(stdout);
-    //gsearchresult.push_back(result);
-    //fprintf(stdout,"размер вектора %d\n", gsearchresult.size());fflush(stdout);
 }
 
 void ServerThread::startSocket(bool changed){
@@ -591,34 +589,18 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     {
         ftype = SearchManager::TYPE_ANY;
     }
-    //for (StringIter it = clients.begin(); it != clients.end(); ++it){
-        //clientsMap[(*it)].cursearchresult[ssearch].push_back(NULL);
-    //}
 
     SearchManager::getInstance()->search(clients, ssearch, lllsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);
 
     return true;
 }
 
-void ServerThread::listSearchStrings(string& listsearchstrings, const string& separator) {
-    //for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
-        //unordered_map<string, SearchResultList>::const_iterator it;
-        //for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
-        //{
-            //listsearchstrings.append(it->first);
-            //listsearchstrings.append(separator);
-        //}
-    //}
-}
-
 void ServerThread::returnSearchResults(vector<StringMap>& resultarray) {
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
         SearchResultList::const_iterator kk;
-        //fprintf(stdout,"%s: размер вектора %d\n", i->first.c_str(), clientsMap[i->first].cursearchresult.size());fflush(stdout);
         for (kk = clientsMap[i->first].cursearchresult.begin(); kk != clientsMap[i->first].cursearchresult.end(); ++kk) {
             StringMap resultMap;
             parseSearchResult_gui(*kk, resultMap);
-            //fprintf(stdout,"resultMap[Filename]: %s\n", resultMap["Filename"].c_str());fflush(stdout);
             resultarray.push_back(resultMap);
         }
     }
