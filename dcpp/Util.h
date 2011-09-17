@@ -259,7 +259,7 @@ public:
 
 
     static int64_t toInt64(const string& aString) {
-#ifdef _MSC_VER
+#ifdef _WIN32
         return _atoi64(aString.c_str());
 #else
         return strtoq(aString.c_str(), (char **)NULL, 10);
