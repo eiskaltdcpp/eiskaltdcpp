@@ -21,6 +21,8 @@
 
 #include "Encoder.h"
 #include "Util.h"
+#include <functional>
+#include <algorithm>
 
 namespace dcpp {
 
@@ -46,7 +48,7 @@ public:
     }
     const uint8_t* data() const { return cid; }
 
-    bool isZero() const { return find_if(cid, cid+SIZE, bind2nd(not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
+    bool isZero() const { return std::find_if(cid, cid+SIZE, bind2nd(std::not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
 
     static CID generate();
 

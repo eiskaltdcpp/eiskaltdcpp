@@ -63,8 +63,8 @@ SearchADL::SearchADL():
 	gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Min Size"))), FALSE);
 	gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Max Size"))), FALSE);
 
-	GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(searchADLView.get(),
-		searchADLView.col(_("Enabled"))));
+	GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(searchADLView.get(),
+		searchADLView.col(_("Enabled")))));
 	GObject *renderer = (GObject *)g_list_nth_data(list, 0);
 	g_signal_connect(renderer, "toggled", G_CALLBACK(onActiveToggled_gui), (gpointer)this);
 	g_list_free(list);

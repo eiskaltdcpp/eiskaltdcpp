@@ -26,6 +26,9 @@
 #include "CriticalSection.h"
 #include "Flags.h"
 #include "forward.h"
+#include <boost/utility.hpp>
+#include <map>
+#include <vector>
 
 namespace dcpp {
 
@@ -189,7 +192,7 @@ class NmdcHub;
 
 class OnlineUser : public FastAlloc<OnlineUser>, public intrusive_ptr_base<OnlineUser> {
 public:
-    typedef vector<OnlineUser*> List;
+    typedef std::vector<OnlineUser*> List;
     typedef List::iterator Iter;
 
     OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_);

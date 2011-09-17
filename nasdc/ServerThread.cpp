@@ -61,6 +61,7 @@ int ServerThread::run()
     TimerManager::getInstance()->addListener(this);
     QueueManager::getInstance()->addListener(this);
     LogManager::getInstance()->addListener(this);
+    SearchManager::getInstance()->addListener(this);
 
     try {
         File::ensureDirectory(SETTING(LOG_DIRECTORY));
@@ -92,8 +93,9 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const getChatPubMethodP(new getChatPubMethod);
     xmlrpc_c::methodPtr const getFileListMethodP(new getFileListMethod);
     xmlrpc_c::methodPtr const sendSearchMethodP(new sendSearchMethod);
-    xmlrpc_c::methodPtr const listSearchStringsMethodP(new listSearchStringsMethod);
     xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
+    xmlrpc_c::methodPtr const showVersionMethodP(new showVersionMethod);
+    xmlrpc_c::methodPtr const showRatioMethodP(new showRatioMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
     xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
@@ -101,7 +103,7 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("hub.say", hubSayMethodP);
     xmlrpcRegistry.addMethod("hub.pm", hubSayPrivateMethodP);
     xmlrpcRegistry.addMethod("hub.list", listHubsMethodP);
-    xmlrpcRegistry.addMethod("hub.retchat", getChatPubMethodP);
+    xmlrpcRegistry.addMethod("hub.getchat", getChatPubMethodP);
     xmlrpcRegistry.addMethod("share.add", addDirInShareMethodP);
     xmlrpcRegistry.addMethod("share.rename", renameDirInShareMethodP);
     xmlrpcRegistry.addMethod("share.del", delDirFromShareMethodP);
@@ -109,9 +111,15 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
     xmlrpcRegistry.addMethod("list.download", getFileListMethodP);
     xmlrpcRegistry.addMethod("search.send", sendSearchMethodP);
-    xmlrpcRegistry.addMethod("search.list", listSearchStringsMethodP);
-    //xmlrpcRegistry.addMethod("search.retresults", returnSearchResultsMethodP);
-    AbyssServer.run();
+    xmlrpcRegistry.addMethod("search.getresults", returnSearchResultsMethodP);
+    xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
+    xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
+#if defined(USE_XMLRPC_ABYSS)
+    server.run();
+#elif defined(USE_XMLRPC_PSTREAM)
+    server.runSerial();
+#endif
+
 #endif
 
     return 0;
@@ -131,8 +139,9 @@ void ServerThread::Close()
     LogManager::getInstance()->removeListener(this);
     QueueManager::getInstance()->removeListener(this);
     TimerManager::getInstance()->removeListener(this);
+    SearchManager::getInstance()->removeListener(this);
 #ifdef XMLRPC_DAEMON
-    AbyssServer.terminate();
+    server.terminate();
 #endif
 
     ConnectionManager::getInstance()->disconnect();
@@ -161,7 +170,6 @@ void ServerThread::autoConnect()
 
 void ServerThread::connectClient(const string& address, const string& encoding)
 {
-    Lock l(shutcs);
     if (ClientManager::getInstance()->isConnected(address))
         printf("Already connected to %s\n",address.c_str());
     string tmp;
@@ -181,7 +189,6 @@ void ServerThread::connectClient(const string& address, const string& encoding)
 void ServerThread::disconnectClient(const string& address){
     ClientIter i = clientsMap.find(address);
     if(i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
-        Lock l(shutcs);
         Client* cl = i->second.curclient;
         cl->removeListener(this);
         cl->disconnect(true);
@@ -214,11 +221,11 @@ void ServerThread::on(Connecting, Client* cur) noexcept {
     }
     else if (i != clientsMap.end() && clientsMap[cur->getHubUrl()].curclient == NULL)
         clientsMap[cur->getHubUrl()].curclient = cur;
-    cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
+    //cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
 
 void ServerThread::on(Connected, Client* cur) noexcept {
-    cout << "Connect success to " <<  cur->getHubUrl() << "\n";
+    //cout << "Connect success to " <<  cur->getHubUrl() << "\n";
 }
 
 void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) noexcept {
@@ -234,11 +241,11 @@ void ServerThread::on(UserRemoved, Client*, const OnlineUserPtr& user) noexcept 
 }
 
 void ServerThread::on(Redirect, Client* cur, const string& line) noexcept {
-    cout <<  "Redirected to" << line << "\n";
+    //cout <<  "Redirected to" << line << "\n";
 }
 
 void ServerThread::on(Failed, Client* cur, const string& line) noexcept {
-    cout <<  "Connect failed [ " << cur->getHubUrl() << " ] :"<< line << "\n";
+    //cout <<  "Connect failed [ " << cur->getHubUrl() << " ] :"<< line << "\n";
 }
 
 void ServerThread::on(GetPassword, Client* cur) noexcept {
@@ -291,7 +298,7 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
         }
     }
 
-    cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << "\n";
+    //cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << "\n";
 }
 
 void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusFlags) noexcept
@@ -307,7 +314,7 @@ void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusF
         LOG(LogManager::STATUS, params);
     }
 
-    cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] " << "*"<< msg<< "\n";
+    //cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] " << "*"<< msg<< "\n";
 }
 
 void ServerThread::on(NickTaken, Client*) noexcept {
@@ -319,29 +326,14 @@ void ServerThread::on(SearchFlood, Client*, const string& line) noexcept {
 }
 
 void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept {
-    // Без пол-литра не разберёшься :D
-    // Варианты как всю эту херню реализовать по-проще принимаются к рассмотрению...
-    if (result == NULL) return;
-    ClientIter i = clientsMap.begin();
-    for ( ; i != clientsMap.end(); i++)
-        if (result->getHubURL() == i->first && clientsMap[i->first].curclient !=NULL) break;
-    if (i == clientsMap.end() && result->getHubURL() != i->first) return;
 
-    unordered_map<string, SearchResultList>::const_iterator it;
-    for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
-    {
-        dcpp::TStringList searchlist = StringTokenizer<string>(it->first, ' ').getTokens();
-        for (TStringIter itt = searchlist.begin(); itt != searchlist.end(); ++itt)
-        {
-            if ((*itt->begin() != '-' && Util::findSubString(result->getFile(), *itt) == (string::size_type)-1) ||
-                (*itt->begin() == '-' && itt->size() != 1 && Util::findSubString(result->getFile(), itt->substr(1)) != (string::size_type)-1))
-            {
-                return;
-            }
-            else
-                continue;
+    if (result == NULL) {
+        return;
+    }
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        if (clientsMap[i->first].curclient != NULL && i->first == result->getHubURL()) {
+            clientsMap[i->first].cursearchresult.push_back(result);
         }
-        clientsMap[i->first].cursearchresult[it->first].push_back(result);
     }
 }
 
@@ -452,7 +444,6 @@ string ServerThread::getFileList_client(const string& hub, const string& nick, b
 }
 
 void ServerThread::getChatPubFromClient(string& chat, const string& hub, const string& separator) {
-    Lock l(shutcs);
     ClientIter it = clientsMap.find(hub);
     if (it != clientsMap.end()) {
         for (int i =0; i < it->second.curchat.size(); ++i) {
@@ -598,45 +589,23 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     {
         ftype = SearchManager::TYPE_ANY;
     }
-    for (StringIter it = clients.begin(); it != clients.end(); ++it){
-        clientsMap[(*it)].cursearchresult[ssearch].push_back(NULL);
-    }
 
     SearchManager::getInstance()->search(clients, ssearch, lllsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);
 
     return true;
 }
 
-void ServerThread::listSearchStrings(string& listsearchstrings, const string& separator) {
-    retlistsearchs.clear();
+void ServerThread::returnSearchResults(vector<StringMap>& resultarray) {
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
-        unordered_map<string, SearchResultList>::const_iterator it;
-        for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it)
-        {
-            retlistsearchs.push_back(it->first);
-            listsearchstrings.append(it->first);
-            listsearchstrings.append(separator);
+        SearchResultList::const_iterator kk;
+        for (kk = clientsMap[i->first].cursearchresult.begin(); kk != clientsMap[i->first].cursearchresult.end(); ++kk) {
+            StringMap resultMap;
+            parseSearchResult_gui(*kk, resultMap);
+            resultarray.push_back(resultMap);
         }
     }
 }
 
-void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const int& index, const string& huburls) {
-    StringTokenizer<string> sl(huburls, ";");
-    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
-        for (StringIter itt = sl.getTokens().begin(); itt != sl.getTokens().end(); ++itt) {
-            if (i->first.compare(*itt)) {
-                unordered_map<string, SearchResultList>::const_iterator it;
-                for (it = clientsMap[i->first].cursearchresult.begin(); it != clientsMap[i->first].cursearchresult.end(); ++it) {
-                    if (it->first == retlistsearchs[index]) {
-                        for (SearchResultList::const_iterator kk = it->second.begin(); kk != it->second.end(); ++kk) {
-                            StringMap resultMap;
-                            parseSearchResult_gui(*kk, resultMap);
-                            resultarray.push_back(resultMap);
-                        }
-                        //resultarray.insert(resultarray.begin(), (it)->second.begin(), (it)->second.end());
-                    }
-                }
-            }
-        }
-    }
+void ServerThread::addStringinSearchList(const string& s) {
+    retlistsearchs.push_back(s);
 }

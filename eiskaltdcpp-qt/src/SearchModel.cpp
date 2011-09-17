@@ -196,6 +196,10 @@ QModelIndex SearchModel::parent(const QModelIndex &index) const
     return createIndex(parentItem->row(), 0, parentItem);
 }
 
+bool SearchModel::hasChildren(const QModelIndex &parent) const{
+    return (parent.isValid()? (static_cast<SearchItem*>(parent.internalPointer())->childCount() > 0) : true);
+}
+
 int SearchModel::rowCount(const QModelIndex &parent) const
 {
     SearchItem *parentItem;

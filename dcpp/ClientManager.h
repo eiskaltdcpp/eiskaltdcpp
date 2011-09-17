@@ -132,7 +132,8 @@ public:
     bool isActive(const string& aHubUrl = Util::emptyString) const { return getMode(aHubUrl) != SettingsManager::INCOMING_FIREWALL_PASSIVE; }
     static bool ucExecuteLua(const string& cmd, StringMap& params) noexcept;
 
-    Lock lock() { return Lock(cs); }
+    void lock() noexcept { cs.lock(); }
+    void unlock() noexcept { cs.unlock(); }
 
     Client::List& getClients() { return clients; }
 

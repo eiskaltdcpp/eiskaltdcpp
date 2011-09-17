@@ -1223,10 +1223,10 @@ void Hub::preferences_gui()
 
     if (!WGETB("emoticons-use"))
     {
-        if (GTK_WIDGET_IS_SENSITIVE(getWidget("emotButton")))
+        if (gtk_widget_is_sensitive(getWidget("emotButton")))
             gtk_widget_set_sensitive(getWidget("emotButton"), FALSE);
     }
-    else if (!GTK_WIDGET_IS_SENSITIVE(getWidget("emotButton")))
+    else if (!gtk_widget_is_sensitive(getWidget("emotButton")))
     {
         gtk_widget_set_sensitive(getWidget("emotButton"), TRUE);
     }
@@ -2039,7 +2039,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "userlist")
         {
-            if (GTK_WIDGET_VISIBLE(hub->getWidget("scrolledwindow2")))
+            if (gtk_widget_get_visible(hub->getWidget("scrolledwindow2")))
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), FALSE);
             else
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), TRUE);
@@ -2602,7 +2602,7 @@ void Hub::onUserListToggled_gui(GtkWidget *widget, gpointer data)
 {
     Hub *hub = (Hub *)data;
 
-    if (GTK_WIDGET_VISIBLE(hub->getWidget("scrolledwindow2")))
+    if (gtk_widget_get_visible(hub->getWidget("scrolledwindow2")))
         gtk_widget_hide(hub->getWidget("scrolledwindow2"));
     else
         gtk_widget_show_all(hub->getWidget("scrolledwindow2"));

@@ -60,7 +60,7 @@ class FinishedTransfers:
 		static void onOpenFolder_gui(GtkMenuItem *item, gpointer data);
 		static void onRemoveItems_gui(GtkMenuItem *item, gpointer data);
 		static void onRemoveAll_gui(GtkMenuItem *item, gpointer data);
-		static void onPageSwitched_gui(GtkNotebook *notebook, GtkNotebookPage *page, guint num, gpointer data);
+		static void onPageSwitched_gui(GtkNotebook *notebook, GtkNotebook *page, guint num, gpointer data);
         static void onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpointer data);
 
 		// Client functions

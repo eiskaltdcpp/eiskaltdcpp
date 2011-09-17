@@ -61,7 +61,7 @@ protected:
 
     virtual void on(UserAdded, const dcpp::FavoriteUser& aUser) noexcept;
     virtual void on(UserRemoved, const dcpp::FavoriteUser& aUser) noexcept;
-    virtual void on(StatusChanged, const dcpp::UserPtr& aUser) noexcept;
+    virtual void on(StatusChanged, const dcpp::FavoriteUser& aUser) noexcept;
 
 public Q_SLOTS:
     bool addUserToFav(const QString &id);
