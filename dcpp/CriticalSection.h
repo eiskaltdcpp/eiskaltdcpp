@@ -36,12 +36,12 @@ class CriticalSection
 #ifdef _WIN32
 public:
     void lock() noexcept {
-        lockCriticalSection(&cs);
+        EnterCriticalSection(&cs);
         dcdrun(counter++);
     }
     void unlock() noexcept {
         dcassert(--counter >= 0);
-        unlockCriticalSection(&cs);
+        LeaveCriticalSection(&cs);
     }
     CriticalSection() noexcept {
         dcdrun(counter = 0;);
