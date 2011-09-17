@@ -35,7 +35,13 @@ libgnome2 (optional, see cmake keys)
 --------------------
 :eiskaltdcpp-daemon:
 --------------------
-libxmlrpc-c++4 (>=1.19.0) (optional, see cmake keys)
+libxmlrpc-c++4 (>= 1.19.0) (optional, see cmake keys)
+-----------------
+:eiskaltdcpp-cli:
+-----------------
+perl (>= 5.10)
+RPC::XML perl module (librpc-xml-perl)
+Term::ShellUI perl module
 
 
 *******************************************************************************
@@ -167,6 +173,11 @@ Keys for cmake
     build daemon (without any UI)
 -DXMLRPC_DAEMON=ON/OFF (default: OFF)
     make this daemon as xmlrpc server
+-----------------
+:eiskaltdcpp-cli:
+----------------
+-DUSE_CLI=ON/OFF (default: OFF)
+    use command line interface
 --------
 :common:
 --------
@@ -254,3 +265,14 @@ Haiku-OS specific notes
 *******************************************************************************
 To configure program use command like this:
 cmake -DLOCAL_BOOST=ON -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp -DCMAKE_CXX_FLAGS="-DTIMER_OLD_BOOST" -DCMAKE_SHARE_DIR=/boot/apps/Eiskaltdcpp -DCMAKE_CLIENT_DATA_DIR=/boot/apps/Eiskaltdcpp ..
+
+
+*******************************************************************************
+How to install Term::ShellUI perl module in Debian and Ubuntu
+*******************************************************************************
+# Correct method:
+sudo apt-get install dh-make-perl
+sudo dh-make-perl --install --cpan Term::ShellUI
+# If that doesn't work for some reason use CPAN:
+sudo cpan Term::ShellUI
+

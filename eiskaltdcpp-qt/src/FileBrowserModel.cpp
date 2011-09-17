@@ -507,7 +507,7 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
 
             QString name = (item == rootItem?"":item->data(COLUMN_FILEBROWSER_NAME).toString());
 
-            if (!name.compare(s, Qt::CaseInsensitive)){
+            if (!name.compare(s, Qt::CaseSensitive)){
                 root = item;
                 found = true;
 

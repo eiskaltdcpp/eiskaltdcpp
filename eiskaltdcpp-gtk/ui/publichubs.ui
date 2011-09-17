@@ -258,6 +258,8 @@
                 <child>
                   <object class="GtkComboBox" id="hubListBox">
                     <property name="visible">True</property>
+                    <property name="has_entry">True</property>
+                    <property name="entry_text_column">0</property>
                     <property name="can_focus">False</property>
                   </object>
                   <packing>

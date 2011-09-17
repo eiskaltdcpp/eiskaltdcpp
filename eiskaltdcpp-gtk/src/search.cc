@@ -77,7 +77,7 @@ Search::Search():
     gtk_tree_view_set_model(hubView.get(), GTK_TREE_MODEL(hubStore));
     g_object_unref(hubStore);
     GtkTreeViewColumn *col = gtk_tree_view_get_column(hubView.get(), hubView.col(_("Search")));
-    GList *list = gtk_tree_view_column_get_cell_renderers(col);
+    GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(col));
     GtkCellRenderer *renderer = (GtkCellRenderer *)g_list_nth_data(list, 0);
     g_list_free(list);
 
@@ -211,7 +211,7 @@ void Search::putValue_gui(const string &str, int64_t size, SearchManager::SizeMo
 
 void Search::initHubs_gui()
 {
-    auto lock = ClientManager::getInstance()->lock();
+    ClientManager::getInstance()->lock();
 
     Client::List& clients = ClientManager::getInstance()->getClients();
 
@@ -222,6 +222,8 @@ void Search::initHubs_gui()
         if (client->isConnected())
             addHub_gui(client->getHubName(), client->getHubUrl());
     }
+
+    ClientManager::getInstance()->unlock();
 }
 
 void Search::addHub_gui(string name, string url)
@@ -478,10 +480,14 @@ void Search::search_gui()
         }
         else
         {
-                gchar *tmp = gtk_combo_box_get_active_text(GTK_COMBO_BOX(getWidget("comboboxFile")));
-                ftypeStr = tmp;
-                g_free(tmp);
-                ftype = SearchManager::TYPE_ANY;
+#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
+            gchar *tmp = g_strdup(gtk_entry_get_text (GTK_ENTRY(gtk_bin_get_child(GTK_BIN((GTK_COMBO_BOX(getWidget("comboboxFile"))))))));
+#else
+            gchar *tmp = gtk_combo_box_get_active_text(GTK_COMBO_BOX(getWidget("comboboxFile")));
+#endif
+            ftypeStr = tmp;
+            g_free(tmp);
+            ftype = SearchManager::TYPE_ANY;
         }
 
         // Get ADC searchtype extensions if any is selected

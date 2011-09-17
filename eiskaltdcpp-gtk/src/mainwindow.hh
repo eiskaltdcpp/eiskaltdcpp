@@ -128,7 +128,7 @@ class MainWindow:
         static gboolean onButtonReleasePage_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
         static gboolean animationStatusIcon_gui(gpointer data);
         static void onRaisePage_gui(GtkMenuItem *item, gpointer data);
-        static void onPageSwitched_gui(GtkNotebook *notebook, GtkNotebookPage *page, guint num, gpointer data);
+        static void onPageSwitched_gui(GtkNotebook *notebook, GtkNotebook *page, guint num, gpointer data);
         static void onPaneRealized_gui(GtkWidget *pane, gpointer data);
         static void onConnectClicked_gui(GtkWidget *widget, gpointer data);
         static void onFavoriteHubsClicked_gui(GtkWidget *widget, gpointer data);
@@ -151,7 +151,7 @@ class MainWindow:
         static void onPreviousTabClicked_gui(GtkWidget* widget, gpointer data);
         static void onNextTabClicked_gui(GtkWidget* widget, gpointer data);
         static void onAboutClicked_gui(GtkWidget *widget, gpointer data);
-        static void onAboutDialogActivateLink_gui(GtkAboutDialog *dialog, const gchar *link, gpointer data);
+        //static void onAboutDialogActivateLink_gui(GtkAboutDialog *dialog, const gchar *link, gpointer data);
         static void onCloseBookEntry_gui(GtkWidget *widget, gpointer data);
         static void onStatusIconActivated_gui(GtkStatusIcon *statusIcon, gpointer data);
         static void onStatusIconPopupMenu_gui(GtkStatusIcon *statusIcon, guint button, guint time, gpointer data);

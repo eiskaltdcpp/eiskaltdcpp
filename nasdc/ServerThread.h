@@ -52,8 +52,7 @@ public:
     string getFileList_client(const string& hub, const string& nick, bool match);
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
     bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
-    void listSearchStrings(string& listsearchstrings, const string& separator);
-    void returnSearchResults(vector<StringMap>& resultarray, const int& index, const string& huburls);
+    void returnSearchResults(vector<StringMap>& resultarray);
     void addStringinSearchList(const string& s);
 
 private:
@@ -69,10 +68,9 @@ private:
     typedef struct {
             deque<string> curchat;
             Client* curclient;
-            unordered_map<string, SearchResultList> cursearchresult;
+            SearchResultList cursearchresult;
     } CurHub;
-    //unordered_map<string, SearchResultList> gsearchresult;
-    SearchResultList gsearchresult;
+
     typedef unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
