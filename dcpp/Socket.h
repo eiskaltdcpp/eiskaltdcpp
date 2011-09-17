@@ -181,8 +181,8 @@ public:
 	static void socksUpdated();
 
 	GETSET(string, ip, Ip);
-protected:
 	socket_t sock;
+protected:
 	int type;
 	bool connected;
 
