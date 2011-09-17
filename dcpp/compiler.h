@@ -35,7 +35,7 @@
 #define _ATL_SECURE_NO_DEPRECATE 1
 #define _CRT_NON_CONFORMING_SWPRINTFS 1
 
-#define strtoll _strtoi64
+#define strtoq _atoi64
 
 #else
 //#error No supported compiler found
