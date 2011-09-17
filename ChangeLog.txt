@@ -19,6 +19,10 @@
 * Some improvements in settings dialog.
 * Improvement in the search widget: pressing Return key in size entry field starts searching.
 *** eiskaltdcpp-daemon ***
+* Added new XML-RPC methods: search.send, search.getresults, show.version, show.ratio
+  (more detail: http://code.google.com/p/eiskaltdc/wiki/XMLRPC)
+*** eiskaltdcpp-cli ***
+* Added a simple console interface to control the daemon via XML-RPC.
 
 --- 2.2.3 2011-06-25 ---
 *** common changes ***

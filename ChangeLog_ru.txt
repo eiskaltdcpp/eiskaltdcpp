@@ -19,6 +19,10 @@
 * Некоторые улучшения в диалоге настроек.
 * Улучшение поискового виджета: нажатие клавиши Return в поле ввода размера запускает поиск.
 *** eiskaltdcpp-daemon ***
+* Добавлены новые методы XML-RPC: search.send, search.getresults, show.version, show.ratio
+  (подробнее: http://code.google.com/p/eiskaltdc/wiki/XMLRPC)
+*** eiskaltdcpp-cli ***
+* Добавлен простой консольный интерфейс для управления демоном через XML-RPC.
 
 --- 2.2.3 2011-06-25 ---
 *** common changes ***
