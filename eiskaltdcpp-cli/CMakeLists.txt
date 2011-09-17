@@ -1,0 +1,18 @@
+project(eiskaltdcpp-cli)
+cmake_minimum_required(VERSION 2.6)
+
+if (WIN32 OR HAIKU)
+    set (BINDIR .)
+elseif (UNIX)
+    set (BINDIR bin)
+    if (APPLE)
+        set (BUNDLEDIR .)
+    endif ()
+endif (WIN32 OR HAIKU)
+
+
+install (FILES cli.pl DESTINATION ${BINDIR} RENAME eiskaltdcpp-cli
+    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+
+install (FILES config.pl DESTINATION ${CLIENT_DATA_DIR}/cli
+    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)

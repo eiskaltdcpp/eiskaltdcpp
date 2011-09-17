@@ -103,6 +103,7 @@ option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
 option (CHECK_GTK3 "Check ability build with gtk 3.x.x" OFF)
 option (USE_GTK3 "GTK3 interface" OFF)
+option (USE_CLI "Command line interface" OFF)
 
 if (PERL_REGEX)
     find_package(Pcre REQUIRED)
@@ -459,7 +460,11 @@ if (USE_GTK OR USE_GTK3)
 endif (USE_GTK OR USE_GTK3)
 
 if (NO_UI_DAEMON OR XMLRPC_DAEMON)
-    add_subdirectory (nasdc)
+  add_subdirectory (nasdc)
+endif ()
+
+if (USE_CLI)
+  add_subdirectory (eiskaltdcpp-cli)
 endif ()
 
 CONFIGURE_FILE(

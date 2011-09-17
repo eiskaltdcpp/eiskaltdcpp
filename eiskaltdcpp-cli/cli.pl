@@ -31,6 +31,13 @@ use Cwd;
 # preparing terminal
 binmode STDOUT, ':utf8';
 
+# use non-standart paths
+BEGIN {
+    unshift @INC, 
+         "~/.config/eiskaltdc++/",
+         "/usr/local/share/eiskaltdcpp/cli", "/usr/share/eiskaltdcpp/cli"
+}
+
 # configuration
 our %config;
 require "config.pl";
