@@ -9,6 +9,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set (QT_USE_QTNETWORK 1)
 set (QT_USE_QTXML 1)
+set (QT_USE_QTWEBKIT 0)
 
 if (DBUS_NOTIFY)
   set (QT_USE_QTDBUS 1)
