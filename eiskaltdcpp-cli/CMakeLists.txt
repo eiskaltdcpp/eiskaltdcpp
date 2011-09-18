@@ -16,3 +16,17 @@ install (FILES cli.pl DESTINATION ${BINDIR} RENAME eiskaltdcpp-cli
 
 install (FILES config.pl DESTINATION ${CLIENT_DATA_DIR}/cli
     PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+
+if (UNIX)
+  execute_process (
+                OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-cli.1.gz
+                COMMAND "${GZIP_CMD}" -9
+                INPUT_FILE eiskaltdcpp-cli.1
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+endif (UNIX)
+
+if (APPLE)
+  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-cli.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+elseif (UNIX AND NOT APPLE)
+  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-cli.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+endif (APPLE)

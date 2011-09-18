@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp-gtk" 1 "02 Oct 2010"
+.TH "eiskaltdcpp-gtk" 1 "18 Sep 2011"
 .SH "NAME"
 EiskaltDC++_Gtk \- GUI based on Gtk (based on FreeDC++ and LinuxDC++)
 .SH "SYNOPSIS"
@@ -19,6 +19,61 @@ display help and exit
 .TP
 .BR "\-v,  \-\-version"
 output version information and exit
+.SH "KEYBOARD SHORTCUTS"
+.RB "These are default keyboard shortcuts. You can change them in any text editor. For example:"
+.br
+sudo nano /usr/share/eiskaltdcpp/gtk/ui/mainwindow.ui
+.TP
+.B "Ctrl+O"
+Open options window
+.TP
+.B "Ctrl+L"
+Open own filelist
+.TP
+.B "Ctrl+E"
+Refresh share
+.TP
+.B "Ctrl+R"
+Reconnect to hub
+.TP
+.B "Ctrl+N"
+Quick connect
+.TP
+.B "Ctrl+H"
+Favourite hubs
+.TP
+.B "Ctrl+P"
+Public hubs
+.TP
+.B "Ctrl+U"
+Favourite users
+.TP
+.B "Ctrl+D"
+Show/hide downloads queue widget
+.TP
+.B "Ctrl+S"
+Open search widget
+.TP
+.B "Ctrl+F"
+Show/hide find or filter frame
+.TP
+.B "Ctrl+A"
+Select all
+.TP
+.B "Ctrl+W"
+Close current widget
+.TP
+.B "Ctrl+PageUp"
+Switch to the previous widget. Available only if widget panel is used, not working in mode of sidebar.
+.TP
+.B "Ctrl+PageDown"
+Switch to the next widget. Available only if widget panel is used, not working in mode of sidebar.
+.TP
+.B "Up"
+Switch to the previous string from history of sent messages in chat for current session. Available only when input frame is focused on.
+.TP
+.B "Down"
+Switch to the next string from history of sent messages in chat for current session. Available only when input frame is focused on.
 .SH "CHAT COMMANDS"
 /away <message> \- Away mode message on/off
 .br
@@ -73,6 +128,16 @@ output version information and exit
 /alias A::uname \-a \- Alias add uname \-a as A
 .br
 /A \- Alias A executing
+.br
+/ip on/off \- Ipfilter on/off
+.br
+/ip list \- Show ipfilter rules list
+.br
+/ip up/down \- Move rule up/down
+.br
+/ip purge 192.168.1.0/23;192.168.6.0/24 \- Remove rules from list
+.br
+/ip 192.168.1.0/23::in;!192.168.6.0/24::both \- Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming or outcoming and action is drop
 .br
 /ws <option> [value] \- edit config (~/.config/eiskaltdc++/EiskaltDC++_Gtk.xml), also you can edit it manually
     For example:
