@@ -1,36 +1,17 @@
-==========
-eiskaltdcpp-cli is a console client for nasdc/eiskaltdcpp-deamon
+eiskaltdcpp-cli is a console client for eiskaltdcpp-deamon written on perl
+
 Daemon provides xml-rpc interface to controll themself, so console client uses it.
-XML-RPC is a simple http-based protocol, consist of set of commands on server side, wich requested by client.
-The set of commands on sever side is unique to server.
+
+XML-RPC is a simple http-based protocol, consist of set of commands on server side, wich requested by client. The set of commands on sever side is unique to server.
 
 Dependencies:
-perl >= 5.10
-RPC::XML perl module
-Term::ShellUI perl module
+    perl >= 5.10
+    RPC::XML perl module
+    Term::ShellUI perl module
 
 Usage:
-After client starts, the command prompt appears. Command prompt has a search capability, history, completition
-(FS, commands). To overview command list execute `help`, or `help command`, where command is a desired command from the list.
-Also, there configuration file is, and it is a good idea to write down some configuration to it, such as command prompt, 
-server address, and so.
+After client starts, the command prompt appears. Command prompt has a search capability, history, completition (FS, commands).
 
-========== Russian, UTF-8 ===========
-eiskaltdcpp-cli - консольный клиент для nasdc/eiskaltdcpp-deamon, написанный на perl
-Демон предоставляет xml-rpc интерфейс для управления собой, и консольный клиент управляет демоном посредство xml-rpc.
-XML-RPC представляет собой http-based протокол, состоящий из команд от клиента к северу и ответов от сервера к клиенту.
-Набор комманд уникален в рамках каждого сервера, в том числе и в нашем случае. 
-Таким образом, на стороне сервера имеется некий список команд, выдающих результаты, и клиент, путем запросов к серверу,
-получает результаты выполнения этих команд.
+To overview command list execute `help`, or `help command`, where command is a desired command from the list.
 
-Требования:
-perl > 5.10
-модуль perl RPC::XML
-модуль perl Term::ShellUI
-
-Работа с консольным клиентом:
-После запуска клиента появится приглашение командной строки, которая имеет поиск, историю, автодополнение (пути ФС, команды и тд).
-Со списком команд можно ознакомится выполнив команду help, или help command, где command - интересущая команда.
-Так же существует файл конфигурации консольного клиента, куда имеет смысл вписать основную конфигурацию клиента, такую как
-вид приглашения командной строки, адрес xml-rpc сервера, и тд.
-
+Also, there configuration file is, and it is a good idea to write down some configuration to it, such as command prompt, server address, and so.

@@ -2,7 +2,7 @@
 <HTML><HEAD><TITLE>Man page of eiskaltdcpp-gtk</TITLE>
 </HEAD><BODY>
 <H1>eiskaltdcpp-gtk</H1>
-Section: User Commands  (1)<BR>Updated: 02 Oct 2010<BR><A HREF="#index">Index</A>
+Section: User Commands  (1)<BR>Updated: 18 Sep 2011<BR><A HREF="#index">Index</A>
 <A HREF="/cgi-bin/man/man2html">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
@@ -44,6 +44,84 @@ display help and exit
 output version information and exit
 </DL>
 <A NAME="lbAF">&nbsp;</A>
+<H2>KEYBOARD SHORTCUTS</H2>
+
+These are default keyboard shortcuts. You can change them in any text editor. For example:
+
+<BR>
+
+sudo nano /usr/share/eiskaltdcpp/gtk/ui/mainwindow.ui
+<DL COMPACT>
+<DT><B>Ctrl+O</B>
+
+<DD>
+Open options window
+<DT><B>Ctrl+L</B>
+
+<DD>
+Open own filelist
+<DT><B>Ctrl+E</B>
+
+<DD>
+Refresh share
+<DT><B>Ctrl+R</B>
+
+<DD>
+Reconnect to hub
+<DT><B>Ctrl+N</B>
+
+<DD>
+Quick connect
+<DT><B>Ctrl+H</B>
+
+<DD>
+Favourite hubs
+<DT><B>Ctrl+P</B>
+
+<DD>
+Public hubs
+<DT><B>Ctrl+U</B>
+
+<DD>
+Favourite users
+<DT><B>Ctrl+D</B>
+
+<DD>
+Show/hide downloads queue widget
+<DT><B>Ctrl+S</B>
+
+<DD>
+Open search widget
+<DT><B>Ctrl+F</B>
+
+<DD>
+Show/hide find or filter frame
+<DT><B>Ctrl+A</B>
+
+<DD>
+Select all
+<DT><B>Ctrl+W</B>
+
+<DD>
+Close current widget
+<DT><B>Ctrl+PageUp</B>
+
+<DD>
+Switch to the previous widget. Available only if widget panel is used, not working in mode of sidebar.
+<DT><B>Ctrl+PageDown</B>
+
+<DD>
+Switch to the next widget. Available only if widget panel is used, not working in mode of sidebar.
+<DT><B>Up</B>
+
+<DD>
+Switch to the previous string from history of sent messages in chat for current session. Available only when input frame is focused on.
+<DT><B>Down</B>
+
+<DD>
+Switch to the next string from history of sent messages in chat for current session. Available only when input frame is focused on.
+</DL>
+<A NAME="lbAG">&nbsp;</A>
 <H2>CHAT COMMANDS</H2>
 
 /away &lt;message&gt; - Away mode message on/off
@@ -127,10 +205,25 @@ output version information and exit
 /A - Alias A executing
 <BR>
 
+/ip on/off - Ipfilter on/off
+<BR>
+
+/ip list - Show ipfilter rules list
+<BR>
+
+/ip up/down - Move rule up/down
+<BR>
+
+/ip purge 192.168.1.0/23;192.168.6.0/24 - Remove rules from list
+<BR>
+
+/ip 192.168.1.0/23::in;!192.168.6.0/24::both - Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming or outcoming and action is drop
+<BR>
+
 /ws &lt;option&gt; [value] - edit config (~/.config/eiskaltdc++/EiskaltDC++_Gtk.xml), also you can edit it manually
 <BR>&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;example:
 <BR>&nbsp;&nbsp;&nbsp;&nbsp;/ws&nbsp;sound-command&nbsp;aplay&nbsp;(specify&nbsp;program&nbsp;for&nbsp;sound&nbsp;playing)
-<A NAME="lbAG">&nbsp;</A>
+<A NAME="lbAH">&nbsp;</A>
 <H2>FILES</H2>
 
 <DL COMPACT>
@@ -147,14 +240,14 @@ Directory with configuration files
 <DD>
 Directory with examples of custom scripts (see /sh chat command)
 </DL>
-<A NAME="lbAH">&nbsp;</A>
+<A NAME="lbAI">&nbsp;</A>
 <H2>AUTHOR</H2>
 
 Full list of authors you can find in file Credits.txt
 <BR>
 
 EiskaltDC++ homepage: <B><A HREF="http://code.google.com/p/eiskaltdc/">http://code.google.com/p/eiskaltdc/</A></B>
-<A NAME="lbAI">&nbsp;</A>
+<A NAME="lbAJ">&nbsp;</A>
 <H2>BUG REPORTS</H2>
 
 If you find a bug in EiskaltDC++ please report it here:
@@ -172,15 +265,16 @@ This manual page was written by Boris Pek &lt;<A HREF="mailto:tehnick-8@mail.ru"
 <DT><A HREF="#lbAC">SYNOPSIS</A><DD>
 <DT><A HREF="#lbAD">DESCRIPTION</A><DD>
 <DT><A HREF="#lbAE">COMMAND LINE OPTIONS</A><DD>
-<DT><A HREF="#lbAF">CHAT COMMANDS</A><DD>
-<DT><A HREF="#lbAG">FILES</A><DD>
-<DT><A HREF="#lbAH">AUTHOR</A><DD>
-<DT><A HREF="#lbAI">BUG REPORTS</A><DD>
+<DT><A HREF="#lbAF">KEYBOARD SHORTCUTS</A><DD>
+<DT><A HREF="#lbAG">CHAT COMMANDS</A><DD>
+<DT><A HREF="#lbAH">FILES</A><DD>
+<DT><A HREF="#lbAI">AUTHOR</A><DD>
+<DT><A HREF="#lbAJ">BUG REPORTS</A><DD>
 </DL>
 <HR>
 This document was created by
 <A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 13:52:42 GMT, March 08, 2011
+Time: 19:46:35 GMT, September 18, 2011
 </BODY>
 </HTML>

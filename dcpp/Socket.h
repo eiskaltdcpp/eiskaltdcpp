@@ -191,8 +191,8 @@ public:
 	static void socksUpdated();
 	static string resolveName(const addr& serv_addr, uint16_t* port = NULL);
 	GETSET(string, ip, Ip);
-protected:
 	socket_t sock;
+protected:
 	int type;
 	bool connected;
 
