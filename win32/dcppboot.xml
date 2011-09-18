@@ -19,5 +19,5 @@
 	All % variables from strftime with the current time: 
 	http://msdn.microsoft.com/library/en-us/vclib/html/_crt_strftime.2c_.wcsftime.asp
 	-->
-	<ConfigPath>%[APPDATA]\Settings\</ConfigPath>
+	<ConfigPath></ConfigPath>
 </Boot>

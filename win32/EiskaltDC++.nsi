@@ -1,6 +1,6 @@
 !include MUI2.nsh
 
-!define PRODUCT_DISPLAY_VERSION      "2.2.3"
+!define PRODUCT_DISPLAY_VERSION      "2.2.4"
 !define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
@@ -75,15 +75,10 @@ Section "EiskaltDC++"
   File "installer\libaspell-15.dll"
   File "installer\lua51.dll"
   File "installer\libidn-11.dll"
-
-  File "installer\iconv.dll"
-  ;File "installer\libiconv-2.dll"
-
-  File "installer\mgwz.dll"
+  File "installer\libbz2-2.dll"
+  File "installer\libiconv-2.dll"
+  File "installer\libz-1.dll"
   ;File "installer\zlib1.dll"
-
-  File "installer\mgwbz2-1.dll"
-
   ;File "installer\libgcc_s_sjlj-1.dll"
 
   ;File "installer\libstdc++-6.dll"

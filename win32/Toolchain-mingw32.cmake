@@ -5,13 +5,14 @@ set(MINGW32_NAME i486-mingw32)
 
 set(MINGW32_PREFIX /usr/${MINGW32_NAME})
 #set(QT_WIN32_PREFIX ${MINGW32_PREFIX})
-set(QT_WIN32_PREFIX /home/user_name/.wine/drive_c/Qt/2010.05/qt)
-#set(QT_WIN32_PREFIX /home/user_name/.wine/drive_c/Qt/4.7.1/)
+#set(QT_WIN32_PREFIX /home/YOUR_USER_NAME/.wine/drive_c/Qt/2010.05/qt)
+#set(QT_WIN32_PREFIX /home/YOUR_USER_NAME/.wine/drive_c/Qt/4.7.4/)
+set(QT_WIN32_PREFIX /home/YOUR_USER_NAME/.wine/drive_c/QtSDK/Desktop/Qt/4.7.4/mingw)
 
 # which compilers to use for C and C++
 set(CMAKE_C_COMPILER ${MINGW32_NAME}-gcc)
 set(CMAKE_CXX_COMPILER ${MINGW32_NAME}-g++)
-#set(CMAKE_RC_COMPILER ${MINGW32_NAME}-windres)
+set(CMAKE_RC_COMPILER ${MINGW32_NAME}-windres)
  
 # here is the target environment located
 set(CMAKE_FIND_ROOT_PATH ${MINGW32_PREFIX} ${QT_WIN32_PREFIX})

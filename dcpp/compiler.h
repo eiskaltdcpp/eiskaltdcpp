@@ -20,8 +20,8 @@
 #define DCPLUSPLUS_DCPP_COMPILER_H
 
 #if defined(__GNUC__)
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 5)
-//#error GCC 4.5 is required
+#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 4)
+#error GCC 4.4 is required
 
 #endif
 
@@ -34,8 +34,6 @@
 #define _CRT_SECURE_NO_DEPRECATE 1
 #define _ATL_SECURE_NO_DEPRECATE 1
 #define _CRT_NON_CONFORMING_SWPRINTFS 1
-
-#define strtoll _strtoi64
 
 #else
 //#error No supported compiler found

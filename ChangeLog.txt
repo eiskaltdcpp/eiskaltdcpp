@@ -3,6 +3,7 @@
 * Partial synchronization with DC++ kernel (0.785).
 * Now GCC >= 4.4.0 is required for build.
 * Added support for DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). This option is disabled in the settings by default. It is possible to completely remove support for DHT during configuration (option -DWITH_DHT for cmake). DHT requires white external IPv4 for a work. See also: http://en.wikipedia.org/wiki/Distributed_hash_table
+* Fixed build in Mac OS X.
 *** eiskaltdcpp-qt ***
 * Added some options in settings dialog: DHT, DHT_PORT
 * Fixed wrong logging of private chats.
