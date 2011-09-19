@@ -256,10 +256,10 @@ void PrivateMessage::preferences_gui()
 
     if (!WGETB("emoticons-use"))
     {
-        if (GTK_WIDGET_IS_SENSITIVE(getWidget("emotButton")))
+        if (gtk_widget_is_sensitive(getWidget("emotButton")))
             gtk_widget_set_sensitive(getWidget("emotButton"), FALSE);
     }
-    else if (!GTK_WIDGET_IS_SENSITIVE(getWidget("emotButton")))
+    else if (!gtk_widget_is_sensitive(getWidget("emotButton")))
     {
         gtk_widget_set_sensitive(getWidget("emotButton"), TRUE);
     }

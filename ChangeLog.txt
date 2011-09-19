@@ -1,15 +1,29 @@
---- 2.2.4 2011-09-18 ---
+--- 2.2.4 2011-09-24 ---
 *** common changes ***
 * Partial synchronization with DC++ kernel (0.785).
 * Now GCC >= 4.4.0 is required for build.
 * Added support for DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). This option is disabled in the settings by default. It is possible to completely remove support for DHT during configuration (option -DWITH_DHT for cmake). DHT requires white external IPv4 for a work. See also: http://en.wikipedia.org/wiki/Distributed_hash_table
+* Fixed build in Mac OS X.
 *** eiskaltdcpp-qt ***
 * Added some options in settings dialog: DHT, DHT_PORT
+* Fixed wrong logging of private chats.
+* Added Stop button in the search widget, which only stops adding new elements to the frame. Responses to the search query will still come from other clients, but will be ignored. This is caused by peculiarities of the protocol...
+* Improvement in the search widget: pressing Return key in size entry field starts searching.
+* Added possibility to connect to hubs on encoded URLs (for example: dchub://%D1%85%D0%B0%D0%B1.%D1%81%D0%BC%D0%BE%D0%BB%D0%BD%D0%B5%D1%82.%D1%80%D1%84)
+* Implemented delayed filling model in the file list widget, which significantly reduces memory consumption and does not create a short GUI frieze. Especially noticeable when opening large file lists.
+* Fixed definition of user availability status in the favorite users widget.
+* Fixed display the progress of over 100% in downloads progress indicator in the active transfers widget.
 *** eiskaltdcpp-gtk ***
 * Migrating from Libglade to GtkBuilder. Compatibility with the code base of LinuxDC++ and FreeDC++ was partially lost.
+* Transition to Gtk+ version 2.24 was made: there are no deprecated elements in code now. Support of older versions (only Gtk >= 2.18) is temporarily retained by using the insertions in code and additional patches.
 * Added some options in settings dialog: DHT, DHT_PORT, DYNDNS_ENABLE, DYNDNS_SERVER
 * Some improvements in settings dialog.
+* Improvement in the search widget: pressing Return key in size entry field starts searching.
 *** eiskaltdcpp-daemon ***
+* Added new XML-RPC methods: search.send, search.getresults, show.version, show.ratio
+  (more detail: http://code.google.com/p/eiskaltdc/wiki/XMLRPC)
+*** eiskaltdcpp-cli ***
+* Added a simple console interface to control the daemon via XML-RPC.
 
 --- 2.2.3 2011-06-25 ---
 *** common changes ***

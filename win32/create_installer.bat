@@ -43,9 +43,9 @@ copy /Y "%MINGW%\bin\libgcc_s_dw2-1.dll"                              %DIRINSTAL
 copy /Y "%MINGW%\bin\mingwm10.dll"                                    %DIRINSTALLER%
 
 copy /Y "%MINGW%\bin\libintl-8.dll"                                   %DIRINSTALLER%
-copy /Y "%MINGW%\bin\iconv.dll"                                       %DIRINSTALLER%
-copy /Y "%MINGW%\bin\mgwz.dll"                                        %DIRINSTALLER%
-copy /Y "%MINGW%\bin\mgwbz2-1.dll"                                    %DIRINSTALLER%
+copy /Y "%MINGW%\bin\libiconv-2.dll"                                  %DIRINSTALLER%
+copy /Y "%MINGW%\bin\libz-1.dll"                                      %DIRINSTALLER%
+copy /Y "%MINGW%\bin\libbz2-2.dll"                                    %DIRINSTALLER%
 copy /Y "%MINGW%\bin\lua51.dll"                                       %DIRINSTALLER%
 copy /Y "%MINGW%\bin\libidn-11.dll"                                   %DIRINSTALLER%
 copy /Y "%MINGW%\bin\libaspell-15.dll"                                %DIRINSTALLER%

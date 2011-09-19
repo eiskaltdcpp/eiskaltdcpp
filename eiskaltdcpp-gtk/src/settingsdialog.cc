@@ -179,9 +179,15 @@ void Settings::saveSettings_client()
         sm->set(SettingsManager::NICK, gtk_entry_get_text(GTK_ENTRY(getWidget("nickEntry"))));
         sm->set(SettingsManager::EMAIL, gtk_entry_get_text(GTK_ENTRY(getWidget("emailEntry"))));
         sm->set(SettingsManager::DESCRIPTION, gtk_entry_get_text(GTK_ENTRY(getWidget("descriptionEntry"))));
+#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
         sm->set(SettingsManager::UPLOAD_SPEED, SettingsManager::connectionSpeeds[gtk_combo_box_get_active(GTK_COMBO_BOX(connectionSpeedComboBox))]);
 
         gchar *encoding = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")));
+#else
+        sm->set(SettingsManager::UPLOAD_SPEED, SettingsManager::connectionSpeeds[gtk_combo_box_get_active(connectionSpeedComboBox)]);
+
+        gchar *encoding = gtk_combo_box_get_active_text(GTK_COMBO_BOX(getWidget("comboboxCharset")));
+#endif
         WSET("default-charset", string(encoding));
         g_free(encoding);
     }
@@ -661,7 +667,7 @@ void Settings::createOptionsView_gui(TreeView &treeView, GtkListStore *&store, c
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(store), treeView.col(_("Name")), GTK_SORT_ASCENDING);
 
     // Connect the signal handlers
-    GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(treeView.get(), treeView.col(_("Use"))));
+    GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(treeView.get(), treeView.col(_("Use")))));
     GObject *renderer = (GObject *)g_list_nth_data(list, 0);
     g_signal_connect(renderer, "toggled", G_CALLBACK(onOptionsViewToggled_gui), (gpointer)store);
     g_list_free(list);
@@ -699,21 +705,35 @@ void Settings::initPersonal_gui()
     gtk_entry_set_text(GTK_ENTRY(getWidget("nickEntry")), SETTING(NICK).c_str());
     gtk_entry_set_text(GTK_ENTRY(getWidget("emailEntry")), SETTING(EMAIL).c_str());
     gtk_entry_set_text(GTK_ENTRY(getWidget("descriptionEntry")), SETTING(DESCRIPTION).c_str());
+#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
     connectionSpeedComboBox = GTK_COMBO_BOX_TEXT(gtk_combo_box_text_new());
+#else
+    connectionSpeedComboBox = GTK_COMBO_BOX(gtk_combo_box_new_text());
+#endif
     gtk_box_pack_start(GTK_BOX(getWidget("connectionBox")), GTK_WIDGET(connectionSpeedComboBox), FALSE, TRUE, 0);
     gtk_widget_show_all(GTK_WIDGET(connectionSpeedComboBox));
 
     for (StringIter i = SettingsManager::connectionSpeeds.begin(); i != SettingsManager::connectionSpeeds.end(); ++i)
     {
+#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
         gtk_combo_box_text_append_text(connectionSpeedComboBox, (*i).c_str());
         if (SETTING(UPLOAD_SPEED) == *i)
             gtk_combo_box_set_active(GTK_COMBO_BOX(connectionSpeedComboBox), i - SettingsManager::connectionSpeeds.begin());
+#else
+        gtk_combo_box_append_text(connectionSpeedComboBox, (*i).c_str());
+        if (SETTING(UPLOAD_SPEED) == *i)
+            gtk_combo_box_set_active(connectionSpeedComboBox, i - SettingsManager::connectionSpeeds.begin());
+#endif
     }
 
     // Fill charset drop-down list
     vector<string> &charsets = WulforUtil::getCharsets();
     for (vector<string>::const_iterator it = charsets.begin(); it != charsets.end(); ++it)
+#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")), it->c_str());
+#else
+        gtk_combo_box_append_text(GTK_COMBO_BOX(getWidget("comboboxCharset")), it->c_str());
+#endif
 
     gtk_entry_set_text(GTK_ENTRY(getWidget("comboboxentryCharset")), WGETS("default-charset").c_str());
 }
@@ -731,7 +751,11 @@ void Settings::initConnection_gui()
     // Fill IP address combo box
     vector<string> addresses = WulforUtil::getLocalIPs();
     for (vector<string>::const_iterator it = addresses.begin(); it != addresses.end(); ++it)
+#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("ipComboboxEntry")), it->c_str());
+#else
+        gtk_combo_box_append_text(GTK_COMBO_BOX(getWidget("ipComboboxEntry")), it->c_str());
+#endif
 
     gtk_entry_set_text(GTK_ENTRY(getWidget("tcpEntry")), Util::toString(SETTING(TCP_PORT)).c_str());
     gtk_entry_set_text(GTK_ENTRY(getWidget("udpEntry")), Util::toString(SETTING(UDP_PORT)).c_str());
@@ -853,7 +877,7 @@ void Settings::initDownloads_gui()
         g_object_unref(publicListStore);
         gtk_tree_view_set_headers_visible(publicListView.get(), FALSE);
         GtkTreeViewColumn *col = gtk_tree_view_get_column(publicListView.get(), 0);
-        GList *list = gtk_tree_view_column_get_cell_renderers(col);
+        GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(col));
         GObject *editRenderer = G_OBJECT(g_list_nth_data(list, 0));
         g_list_free(list);
         g_signal_connect(editRenderer, "edited", G_CALLBACK(onPublicEdit_gui), (gpointer)this);
@@ -1045,7 +1069,7 @@ void Settings::initAppearance_gui()
         gtk_tree_view_set_model(soundView.get(), GTK_TREE_MODEL(soundStore));
         g_object_unref(soundStore);
 
-        GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(soundView.get(), soundView.col(_("Use"))));
+        GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(soundView.get(), soundView.col(_("Use")))));
         GObject *renderer = (GObject *)g_list_nth_data(list, 0);
         g_signal_connect(renderer, "toggled", G_CALLBACK(onOptionsViewToggled_gui), (gpointer)soundStore);
         g_list_free(list);
@@ -1215,7 +1239,7 @@ void Settings::initAppearance_gui()
         gtk_tree_view_set_model(notifyView.get(), GTK_TREE_MODEL(notifyStore));
         g_object_unref(notifyStore);
 
-        GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(notifyView.get(), notifyView.col(_("Use"))));
+        GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(notifyView.get(), notifyView.col(_("Use")))));
         GObject *renderer = (GObject *)g_list_nth_data(list, 0);
         g_signal_connect(renderer, "toggled", G_CALLBACK(onOptionsViewToggled_gui), (gpointer)notifyStore);
         g_list_free(list);
@@ -1326,7 +1350,7 @@ void Settings::initAppearance_gui()
         gtk_tree_view_set_model(toolbarView.get(), GTK_TREE_MODEL(toolbarStore));
         g_object_unref(toolbarStore);
 
-        GList *list = gtk_tree_view_column_get_cell_renderers(gtk_tree_view_get_column(toolbarView.get(), toolbarView.col(_("Use"))));
+        GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(toolbarView.get(), toolbarView.col(_("Use")))));
         GObject *renderer = (GObject *)g_list_nth_data(list, 0);
         g_signal_connect(renderer, "toggled", G_CALLBACK(onOptionsViewToggled_gui), (gpointer)toolbarStore);
         g_list_free(list);

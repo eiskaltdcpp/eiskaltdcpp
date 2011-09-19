@@ -1,0 +1,17 @@
+eiskaltdcpp-cli is a console client for eiskaltdcpp-deamon written on perl
+
+Daemon provides xml-rpc interface to controll themself, so console client uses it.
+
+XML-RPC is a simple http-based protocol, consist of set of commands on server side, wich requested by client. The set of commands on sever side is unique to server.
+
+Dependencies:
+    perl >= 5.10
+    RPC::XML perl module
+    Term::ShellUI perl module
+
+Usage:
+After client starts, the command prompt appears. Command prompt has a search capability, history, completition (FS, commands).
+
+To overview command list execute `help`, or `help command`, where command is a desired command from the list.
+
+Also, there configuration file is, and it is a good idea to write down some configuration to it, such as command prompt, server address, and so.

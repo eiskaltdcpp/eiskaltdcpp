@@ -116,7 +116,6 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("search-spy-frame", 50));
     defaultInt.insert(IntMap::value_type("search-spy-waiting", 40));
     defaultInt.insert(IntMap::value_type("search-spy-top", 4));
-    defaultInt.insert(IntMap::value_type("magnet-action", -1));//default show magnet dialog
     defaultInt.insert(IntMap::value_type("toolbar-position", 1));
     defaultInt.insert(IntMap::value_type("toolbar-small", 0));
     defaultInt.insert(IntMap::value_type("open-public", 0));
@@ -139,9 +138,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("bold-search-spy", 0));
     defaultInt.insert(IntMap::value_type("bold-finished-uploads", 0));
     defaultInt.insert(IntMap::value_type("bold-finished-downloads", 0));
-    defaultInt.insert(IntMap::value_type("magnet-ask", 1));
-    defaultInt.insert(IntMap::value_type("magnet-action", 0));
-    defaultInt.insert(IntMap::value_type("magnet-register", 0));
+    defaultInt.insert(IntMap::value_type("magnet-action", -1)); //default show magnet dialog
+    defaultInt.insert(IntMap::value_type("magnet-register", 1));
     defaultInt.insert(IntMap::value_type("urlhandler", 0));
     defaultInt.insert(IntMap::value_type("join-open-new-window", 0));
     defaultInt.insert(IntMap::value_type("always-tray", 0));

@@ -195,7 +195,7 @@ private:
     void loadList(){
         VarMap params;
 
-        auto lock = FinishedManager::getInstance()->lockLists();
+        FinishedManager::getInstance()->lockLists();
         const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
         const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 
@@ -214,6 +214,8 @@ private:
 
             model->addUser(params);;
         }
+
+        FinishedManager::getInstance()->unlockLists();
 
         AsyncRunner *runner = new AsyncRunner(this);
         boost::function<void()> f = boost::bind(&FinishedTransfers<isUpload>::loadListFromDB, this);

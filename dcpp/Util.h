@@ -25,11 +25,16 @@
 #else
 # define PATH_SEPARATOR '/'
 # define PATH_SEPARATOR_STR "/"
+#endif
+
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
-#endif
+#include <vector>
+#include <functional>
+#include <algorithm>
+#include <map>
 
 #include "Text.h"
 
@@ -66,7 +71,7 @@ public: TypeTraits<type>::ParameterType get##name2() const { return name; } \
 #define LIT(x) x, (sizeof(x)-1)
 
 /** Evaluates op(pair<T1, T2>.first, compareTo) */
-template<class T1, class T2, class op = equal_to<T1> >
+template<class T1, class T2, class op = std::equal_to<T1> >
 class CompareFirst {
 public:
     CompareFirst(const T1& compareTo) : a(compareTo) { }
@@ -77,7 +82,7 @@ private:
 };
 
 /** Evaluates op(pair<T1, T2>.second, compareTo) */
-template<class T1, class T2, class op = equal_to<T2> >
+template<class T1, class T2, class op = std::equal_to<T2> >
 class CompareSecond {
 public:
     CompareSecond(const T2& compareTo) : a(compareTo) { }
@@ -208,7 +213,7 @@ public:
     }
 
     static void decodeUrl(const string& aUrl, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment);
-    static map<string, string> decodeQuery(const string& query);
+    static std::map<string, string> decodeQuery(const string& query);
     static string validateFileName(string aFile);
     static bool checkExtension(const string& tmp);
     static string cleanPathChars(string aNick);
@@ -257,7 +262,7 @@ public:
 #ifdef _WIN32
         return _atoi64(aString.c_str());
 #else
-        return strtoll(aString.c_str(), (char **)NULL, 10);
+        return strtoq(aString.c_str(), (char **)NULL, 10);
 #endif
     }
 
@@ -354,9 +359,9 @@ public:
     }
 
     template<typename string_t>
-    static string_t toString(const string_t& sep, const vector<string_t>& lst) {
+    static string_t toString(const string_t& sep, const std::vector<string_t>& lst) {
         string_t ret;
-        for(typename vector<string_t>::const_iterator i = lst.begin(), iend = lst.end(); i != iend; ++i) {
+        for(typename std::vector<string_t>::const_iterator i = lst.begin(), iend = lst.end(); i != iend; ++i) {
             ret += *i;
             if(i + 1 != iend)
                 ret += sep;
@@ -364,7 +369,7 @@ public:
             return ret;
     }
     template<typename string_t>
-    static inline string_t toString(const typename string_t::value_type* sep, const vector<string_t>& lst) {
+    static inline string_t toString(const typename string_t::value_type* sep, const std::vector<string_t>& lst) {
         return toString(string_t(sep), lst);
     }
     static string toString(const string& sep, const StringList& lst);
@@ -384,7 +389,7 @@ public:
     template<typename T>
     static T& intersect(T& t1, const T& t2) {
         for(typename T::iterator i = t1.begin(); i != t1.end();) {
-            if(find_if(t2.begin(), t2.end(), bind1st(equal_to<typename T::value_type>(), *i)) == t2.end())
+            if(std::find_if(t2.begin(), t2.end(), bind1st(std::equal_to<typename T::value_type>(), *i)) == t2.end())
                 i = t1.erase(i);
             else
                 ++i;
@@ -394,7 +399,7 @@ public:
 
     static string encodeURI(const string& /*aString*/, bool reverse = false);
     static string getLocalIp();
-    static vector<string> getLocalIPs();
+    static std::vector<string> getLocalIPs();
     static bool isPrivateIp(string const& ip);
     static string formatAdditionalInfo(const std::string& aIp, bool sIp, bool sCC);
     /**
@@ -466,7 +471,7 @@ private:
     static string awayMsg;
     static time_t awayTime;
     static time_t startTime;
-    typedef map<uint32_t, uint16_t> CountryList;
+    typedef std::map<uint32_t, uint16_t> CountryList;
     typedef CountryList::iterator CountryIter;
 
     static CountryList countries;

@@ -1,30 +1,23 @@
-.TH "eiskaltdcpp-daemon" 1 "18 Sep 2011"
+.TH "eiskaltdcpp-cli" 1 "18 Sep 2011"
 .SH "NAME"
-eiskaltdcpp-daemon \- simple daemon controllable via XML-RPC
+EiskaltDC++_CLI \- simple command line interface for EiskaltDC++ Daemon written on perl
 .SH "SYNOPSIS"
 .PP
-.B eiskaltdcpp-daemon
-\-d
+.B eiskaltdcpp-cli
 .br
-.B eiskaltdcpp-daemon
+.B eiskaltdcpp-cli
 <Key>
 .SH "DESCRIPTION"
 .PP
 \fBEiskaltDC++\fP is a cross-platform program that uses the Direct Connect and ADC protocol. It is compatible with other DC clients, such as the original DC from Neomodus, DC++ and derivatives. EiskaltDC++ also interoperates with all common DC hub software.
+.PP
+To use this program you need first install few perl modules:
+.br
+sudo cpan Term::ShellUI
+.br
+sudo cpan RPC::XML
 .SH "COMMAND LINE OPTIONS"
 .RB "A summary of options is included below."
-.TP
-.BR "\-d",  \-\-daemon"
-Run program as daemon
-.TP
-.BR "\-p file",  \-\-pidfile=<file>"
-Write daemon process ID to <file>
-.TP
-.BR "\-c dir",  \-\-confdir=<dir>"
-Store config in <dir>
-.TP
-.BR "\-l <dir>",  \-\-localdir=<dir>"
-Store local data (cache, temp files) in <dir> (defaults is equal confdir)
 .TP
 .BR "\-h,  \-\-help"
 Display help and exit
@@ -34,12 +27,15 @@ Show version information and exit
 .SH "FILES"
 .TP
 .B "~/.config/eiskaltdc++/" or "$XDG_CONFIG_HOME/eiskaltdc++/"
-Directory with user configuration files
+Directory with user configuration files and logs
+.TP
+.B "/usr/local/share/eiskaltdcpp/cli/" or "/usr/share/eiskaltdcpp/cli/"
+Directory with default configuration file
 .SH "DOCUMENTATION"
 .TP
-Detail documentation about available XML-RPC methods can be found in our wiki: \fBhttp://code.google.com/p/eiskaltdc/wiki/XMLRPC\fR
+Actual README file you can always find here: \fBhttps://raw.github.com/negativ/eiskaltdcpp/master/eiskaltdcpp-cli/README\fR
 .SH AUTHOR
-This program was written by EiskaltDC++ developers team (see file AUTHORS).
+This program was written by Dmitry Kolosov <onyx@z-up.ru> and others (see file AUTHORS).
 .br
 EiskaltDC++ homepage: \fBhttp://code.google.com/p/eiskaltdc/\fR
 .SH "BUG REPORTS"

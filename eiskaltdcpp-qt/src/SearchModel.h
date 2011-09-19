@@ -119,6 +119,8 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
+    /** */
+    bool hasChildren(const QModelIndex &parent) const;
     /** sort list */
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
