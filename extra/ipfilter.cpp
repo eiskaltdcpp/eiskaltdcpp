@@ -196,7 +196,6 @@ void ipfilter::addToRules(string exp, eDIRECTION direction) {
 
     list_ip.insert(pair<uint32_t, IPFilterElem*>(el->ip,el));
     rules.push_back(el);
-    delete el;
 }
 
 void ipfilter::remFromRules(string exp, eTableAction act) {
