@@ -118,23 +118,16 @@ public:
 class stopDaemonMethod : public xmlrpc_c::method {
 public:
     stopDaemonMethod() {
-        this->_signature = "i:i";
-        this->_help = "This method can stop daemon. Params: 1";
+        this->_signature = "i:s";
+        this->_help = "This method can stop daemon. Params: none";
     }
 
     void
     execute(xmlrpc_c::paramList const& paramList,
             xmlrpc_c::value *   const  retvalP) {
 
-        int const istop(paramList.getInt(0));
-        paramList.verifyEnd(1);
-
-        if (istop == 1) {
-            *retvalP = xmlrpc_c::value_int(0);
-            bServerTerminated=true;
-        }
-        else
-            *retvalP = xmlrpc_c::value_int(1);
+        *retvalP = xmlrpc_c::value_int(0);
+        bServerTerminated=true;
     }
 };
 
@@ -358,7 +351,7 @@ public:
 class delDirFromShareMethod : public xmlrpc_c::method {
 public:
     delDirFromShareMethod() {
-        this->_signature = "i:ss";
+        this->_signature = "i:s";
         this->_help = "This method delete dir from share. Рarams: virt name of directory";
     }
 
@@ -410,23 +403,17 @@ public:
 class refreshShareMethod : public xmlrpc_c::method {
 public:
     refreshShareMethod() {
-        this->_signature = "i:i";
-        this->_help = "This method run refresh. Рarams: 1";
+        this->_signature = "i:s";
+        this->_help = "This method run refresh. Рarams: none";
     }
 
     void
     execute(xmlrpc_c::paramList const& paramList,
             xmlrpc_c::value *   const  retvalP) {
 
-        int const irefresh(paramList.getInt(0));
-        paramList.verifyEnd(1);
-        if (irefresh == 1) {
-            *retvalP = xmlrpc_c::value_int(0);
-            ShareManager::getInstance()->setDirty();
-            ShareManager::getInstance()->refresh(true);
-        }
-        else
-            *retvalP = xmlrpc_c::value_int(1);
+        ShareManager::getInstance()->setDirty();
+        ShareManager::getInstance()->refresh(true);
+        *retvalP = xmlrpc_c::value_int(0);
     }
 };
 
