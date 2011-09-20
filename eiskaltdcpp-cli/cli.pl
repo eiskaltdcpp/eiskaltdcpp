@@ -42,15 +42,15 @@ if ($version)
 }
 if ($help)
 {
-	print(  "Using:\n"
-			"  eiskaltdcpp-cli\n"
-			"  eiskaltdcpp-cli <Key>\n"
-			"This is command line interface for eiskaltdcpp-deamon written on perl.\n");
-			"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
-			"\n"
-			"Keys:\n"
-			"  -h, --help\t Show this message\n"
-			"  -v, --version\t Show version string"
+	print(  "Using:
+\teiskaltdcpp-cli
+\teiskaltdcpp-cli <Key>
+This is command line interface for eiskaltdcpp-deamon written on perl.
+EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
+
+Keys:
+\t-h, --help\t Show this message
+\t-v, --version\t Show version string\n");
 	exit(1);
 }
 print("Configuration:\n");
