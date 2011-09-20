@@ -43,6 +43,7 @@ using namespace std;
 #include <QMainWindow>
 #include <QRegExp>
 #include <QObject>
+#include <QTextCodec>
 
 #ifdef DBUS_NOTIFY
 #include <QtDBus>
@@ -79,6 +80,9 @@ void migrateConfig();
 
 int main(int argc, char *argv[])
 {
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+    setlocale(LC_ALL, "");
+
     EiskaltApp app(argc, argv);
     int ret = 0;
 
@@ -91,8 +95,6 @@ int main(int argc, char *argv[])
         return 0;
     }
 #endif
-
-    setlocale(LC_ALL, "");
 
 #if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
     installHandlers();

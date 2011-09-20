@@ -512,14 +512,21 @@ void ShareBrowser::slotRightPaneClicked(const QModelIndex &index){
         return;
     }
 
-    label_PATH->setText(label_PATH->text()+"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString());
+    QString parent_path = label_PATH->text();
+    QModelIndex parent_index = tree_model->createIndexForItem(tree_model->createRootForPath(parent_path));
 
-    FileBrowserItem *tree_item = tree_model->createRootForPath(label_PATH->text());
+    parent_path = parent_path +"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString();
+    parent_index = tree_model->createIndexForItem(tree_model->createRootForPath(parent_path));
 
-    QModelIndex tree_index = tree_model->createIndexForItem(tree_item);
+    if (!parent_index.isValid())
+        return;
 
-    treeView_LPANE->selectionModel()->select(tree_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
-    treeView_LPANE->scrollTo(tree_index, QAbstractItemView::PositionAtCenter);
+    if (tree_model->canFetchMore(parent_index))
+        tree_model->fetchMore(parent_index);
+
+    treeView_LPANE->selectionModel()->clear();
+    treeView_LPANE->selectionModel()->select(parent_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+    treeView_LPANE->scrollTo(parent_index, QAbstractItemView::PositionAtCenter);
 }
 
 void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
