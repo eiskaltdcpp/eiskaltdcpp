@@ -21,14 +21,35 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 # POSSIBILITY OF SUCH DAMAGE.
 
-$config{version}=0.2;
-
 use warnings;
 use strict;
 use RPC::XML::Client;
 use RPC::XML::Parser;
 use Term::ShellUI;
 use Cwd;
+use Getopt::Long;
+
+# configuration
+our %config;
+$config{version}=0.2;
+require "config.pl";
+my $version,my $help;
+GetOptions ('v|version' => \$version, 'h|help' => \$help);
+if ($version)
+{
+	print("Cli version: $config{version}\n");
+	exit(1);
+}
+if ($help)
+{
+	print("Command line interface for eiskaltdcpp-deamon written in perl\n");
+	exit(1);
+}
+print("Configuration:\n");
+foreach (keys %config)
+{
+	print("$_: $config{$_}\n");
+}
 
 # preparing terminal
 binmode STDOUT, ':utf8';
@@ -38,15 +59,6 @@ BEGIN {
     unshift @INC, 
          "~/.config/eiskaltdc++/",
          "/usr/local/share/eiskaltdcpp/cli", "/usr/share/eiskaltdcpp/cli"
-}
-
-# configuration
-our %config;
-require "config.pl";
-print("Configuration:\n");
-foreach (keys %config)
-{
-	print("$_: $config{$_}\n");
 }
 
 my $P = RPC::XML::Parser->new();
@@ -389,76 +401,6 @@ __END__
 
 
 =pod
-
-			#desc => "Start hub search. Parameters: s/'search string', i/type, i/sizemode, i/sizetype, d/size, s/'huburls'",
-			#doc => qq[Start hub search. Parameters: s/'search string', i/type, i/sizemode, i/sizetype, d/size, s/'huburls'
-	
-#type is an integer, one of the following:
-#"2" is for search 7z ,ace ,arj ,bz2 ,gz ,lha ,lzh ,rar ,tar ,z ,zip files
-#"1" is for search ape ,flac ,m4a ,mid ,mp3 ,mpc ,ogg ,ra ,wav ,wma files
-#"4" is for search app ,bat ,cmd ,com ,dll ,exe ,jar ,msi ,ps1 ,vbs ,wsf files
-#"3" is for search doc ,docx ,htm ,html ,nfo ,odf ,odp ,ods ,odt ,pdf ,ppt ,pptx ,rtf ,txt ,xls ,xlsx ,xml ,xps files
-#"6" is for search 3gp ,asf ,asx ,avi ,divx ,flv ,mkv ,mov ,mp4 ,mpeg ,mpg ,ogm ,pxp ,qt ,rm ,rmvb ,swf ,vob ,webm ,wmv files
-#"5" is for search bmp ,cdr ,eps ,gif ,ico ,img ,jpeg ,jpg ,png ,ps ,psd ,sfw ,tga ,tif ,webp files
-#"7" is for search iso ,mdf ,mds ,nrg ,vcd ,bwt ,ccd ,cdi ,pdi ,cue ,isz ,img ,vc4 files
-
-#sizemode and sizetype is commonly 0, size is commonly 0.0 (decimal value)],
-			#minargs => 2,
-			#maxargs => 6,
-			#proc => sub {}
-
-
-
-args
-maxargs
-minargs
-proc
-method
-
-        "cd" => { desc => "Change to directory DIR",
-                      args => sub { shift->complete_onlydirs(@_); },
-                      maxargs => 1,
-                      proc => sub { chdir($_[0] || $ENV{HOME} || $ENV{LOGDIR}) or print("Could not cd: $!\n") } },
-        "delete" => { desc => "Delete FILEs",
-                      args => sub { shift->complete_onlyfiles(@_); },
-                      minargs => 1,
-                      proc => sub { danger() && (unlink(@_) or warn "Could not delete: $!\n") } },
-        "?" => { syn => "help" },
-        "help" => { desc => "Print helpful information",
-                      args => sub { shift->help_args(undef, @_); },
-                      method => sub { shift->help_call(undef, @_); } },
-        "ls" => { syn => "list" },
-        "dir" => { syn => "ls" },
-        "list" => { desc => "List files in DIRs",
-                      args => sub { shift->complete_onlydirs(@_); },
-                      proc => sub { system('ls', '-FClg', @_); } },
-        "pwd" => { desc => "Print the current working directory",
-                      maxargs => 0,
-                      proc => sub { system('pwd'); } },
-        "quit" => { desc => "Quit using Fileman",
-                      maxargs => 0,
-                      method => sub { shift->exit_requested(1); } },
-        "rename" => { desc => "Rename FILE to NEWNAME",
-                      args => sub { shift->complete_files(@_); },
-                      minargs => 2, maxargs => 2,
-                      proc => sub { danger() && system('mv', @_); } },
-        "stat" => { desc => "Print out statistics on FILEs",
-                      args => sub { shift->complete_files(@_); },
-                      proc => \&print_stats },
-        "cat" => { syn => "view" },
-        "view" => { desc => "View the contents of FILEs",
-                      args => sub { shift->complete_onlyfiles(@_); },
-                      proc => sub { system('cat', @_); } },
-# these demonstrate how parts of Term::ShellUI work:
-        echo => { desc => "Echoes the command-line arguments",
-                      proc => sub { print join(" ", @_), "\n"; } },
-        tok => { desc => "Print command-line arguments with clear separations",
-                      proc => sub { print "<" . join(">, <", @_), ">\n"; } },
-        debug_complete => { desc => "Turn on completion debugging",
-                      minargs => 1, maxargs => 1, args => "0=off 1=some, 2=more, 3=tons",
-                      proc => sub { $term->{debug_complete} = $_[0] },
-			},
-
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
     xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
@@ -477,5 +419,4 @@ method
     xmlrpcRegistry.addMethod("search.getresults", returnSearchResultsMethodP);
     xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
     xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
-
 =cut
