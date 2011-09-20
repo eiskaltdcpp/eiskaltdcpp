@@ -1,6 +1,1 @@
-~ get stats from daemon with upload/download counters, connection stats, versions, etc
-* move licence to dedicated file
-+ split README to english and russian into separate files, other translations are welcome
-+ commit comment starts with "EiskaltDC++ CLI:" words
-+ bump versions before commit & push
-
+* realize -h/--help and -v/--version command line options
