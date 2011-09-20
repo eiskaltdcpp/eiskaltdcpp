@@ -1,5 +1,5 @@
 project (eiskaltdcpp)
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 2.6.3)
 
 if (APPLE)
   set (PROJECT_NAME_GLOBAL EiskaltDC++)
