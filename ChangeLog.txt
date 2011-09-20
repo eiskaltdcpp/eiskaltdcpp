@@ -13,7 +13,6 @@
 * Implemented delayed filling model in the file list widget, which significantly reduces memory consumption and does not create a short GUI frieze. Especially noticeable when opening large file lists.
 * Fixed definition of user availability status in the favorite users widget.
 * Fixed display the progress of over 100% in downloads progress indicator in the active transfers widget.
-* Fixed navigation in the share browser widget.
 *** eiskaltdcpp-gtk ***
 * Migrating from Libglade to GtkBuilder. Compatibility with the code base of LinuxDC++ and FreeDC++ was partially lost.
 * Transition to Gtk+ version 2.24 was made: there are no deprecated elements in code now. Support of older versions (only Gtk >= 2.18) is temporarily retained by using the insertions in code and additional patches.
