@@ -408,8 +408,6 @@ void MainWindow::init(){
 
     transfer_dock->hide();
 
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-
     setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 
     setWindowTitle(QString("%1").arg(EISKALTDCPP_WND_TITLE));
