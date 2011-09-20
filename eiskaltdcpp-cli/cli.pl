@@ -37,12 +37,20 @@ my $version,my $help;
 GetOptions ('v|version' => \$version, 'h|help' => \$help);
 if ($version)
 {
-	print("Cli version: $config{version}\n");
+	print("Command line interface version: $config{version}\n");
 	exit(1);
 }
 if ($help)
 {
-	print("Command line interface for eiskaltdcpp-deamon written in perl\n");
+	print(  "Using:\n"
+			"  eiskaltdcpp-cli\n"
+			"  eiskaltdcpp-cli <Key>\n"
+			"This is command line interface for eiskaltdcpp-deamon written on perl.\n");
+			"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+			"\n"
+			"Keys:\n"
+			"  -h, --help\t Show this message\n"
+			"  -v, --version\t Show version string"
 	exit(1);
 }
 print("Configuration:\n");

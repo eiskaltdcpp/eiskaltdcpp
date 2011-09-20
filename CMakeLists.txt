@@ -97,7 +97,7 @@ option (WITH_DEV_FILES "Install development files (headers for libeiskaltdcpp)" 
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NO_UI_DAEMON "Daemon without any UI" OFF)
-option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
+option (XMLRPC_DAEMON "Make daemon as xmlrpc server" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
