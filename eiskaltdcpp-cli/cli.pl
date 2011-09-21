@@ -388,7 +388,18 @@ sub searchgetresults()
 	my $req=RPC::XML::request->new('search.getresults');
 	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
 	my $res = $P->parse($resp->as_string());
-	print $$res."\n";
+	foreach (@$res)
+	{
+		foreach ($_)
+		{
+			my %result=%$_;
+			foreach (keys %result)
+			{
+				print("$_ => ${$result{$_}}\n");
+			}
+		}
+
+	}
 }
 
 sub showversion()
