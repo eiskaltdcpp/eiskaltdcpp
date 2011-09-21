@@ -22,12 +22,26 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 use warnings;
+no warnings qw( uninitialized );
 use strict;
 use RPC::XML::Client;
 use RPC::XML::Parser;
 use Term::ShellUI;
 use Cwd;
 use Getopt::Long;
+use Env qw[$XDG_CONFIG_HOME];
+
+# use non-standart paths
+BEGIN {
+    unshift @INC, 
+         "~/.config/eiskaltdc++/",
+         "/usr/local/share/eiskaltdcpp/cli",
+	 "/usr/share/eiskaltdcpp/cli",
+	 "$XDG_CONFIG_HOME/eiskaltdc++"
+}
+
+# preparing terminal
+binmode STDOUT, ':utf8';
 
 # configuration
 our %config;
@@ -57,16 +71,6 @@ print("Configuration:\n");
 foreach (keys %config)
 {
 	print("$_: $config{$_}\n");
-}
-
-# preparing terminal
-binmode STDOUT, ':utf8';
-
-# use non-standart paths
-BEGIN {
-    unshift @INC, 
-         "~/.config/eiskaltdc++/",
-         "/usr/local/share/eiskaltdcpp/cli", "/usr/share/eiskaltdcpp/cli"
 }
 
 my $P = RPC::XML::Parser->new();
