@@ -45,7 +45,7 @@ if ($help)
 	print(  "Using:
 \teiskaltdcpp-cli
 \teiskaltdcpp-cli <Key>
-This is command line interface for eiskaltdcpp-deamon written on perl.
+This is command line interface for eiskaltdcpp-daemon written on perl.
 EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
 
 Keys:
