@@ -34,10 +34,10 @@ use Env qw[$XDG_CONFIG_HOME];
 # use non-standart paths
 BEGIN {
     unshift @INC, 
-         "~/.config/eiskaltdc++/",
-         "/usr/local/share/eiskaltdcpp/cli",
-	 "/usr/share/eiskaltdcpp/cli",
-	 "$XDG_CONFIG_HOME/eiskaltdc++"
+	 "$XDG_CONFIG_HOME/eiskaltdc++",
+	 "~/.config/eiskaltdc++/",
+	 "/usr/local/share/eiskaltdcpp/cli",
+	 "/usr/share/eiskaltdcpp/cli"
 }
 
 # preparing terminal
