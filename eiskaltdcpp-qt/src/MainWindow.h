@@ -48,8 +48,7 @@
 #include "dcpp/Util.h"
 #include "dcpp/version.h"
 
-#include "qtsingleapp/qtlockedfile.h"
-#include "qtsingleapp/qtsingleapplication.h"
+#include "qtsingleapp/qtsinglecoreapplication.h"
 
 #include "ArenaWidget.h"
 #include "ArenaWidgetContainer.h"
@@ -483,10 +482,10 @@ private:
     bool has_activity;
 };
 
-class EiskaltApp: public QtSingleApplication{
+class EiskaltApp: public QtSingleCoreApplication{
 Q_OBJECT
 public:
-    EiskaltApp(int argc, char *argv[]): QtSingleApplication("EiskaltDCPP", argc, argv){
+    EiskaltApp(int argc, char *argv[]): QtSingleCoreApplication(argc, argv, "EiskaltDCPP"){
         installEventFilter(&ef);
     }
 

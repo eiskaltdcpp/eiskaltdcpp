@@ -88,13 +88,14 @@ int main(int argc, char *argv[])
 
     parseCmdLine(app.arguments());
 
-#if !defined (Q_WS_HAIKU)
     if (app.isRunning()){
-        app.sendMessage(app.arguments().join("\n"));
+        QStringList args = app.arguments();
+        args.removeFirst();//remove path to executable
+
+        app.sendMessage(args.join("\n"));
 
         return 0;
     }
-#endif
 
 #if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
     installHandlers();
@@ -136,7 +137,6 @@ int main(int argc, char *argv[])
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
 
     app.connect(&app, SIGNAL(messageReceived(QString)), MainWindow::getInstance(), SLOT(parseInstanceLine(QString)));
-    app.setActivationWindow(MainWindow::getInstance(), true);
 
     HubManager::newInstance();
 

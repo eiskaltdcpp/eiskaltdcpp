@@ -110,17 +110,8 @@ set (SRCS
             src/WulforSettings.cpp
             src/WulforUtil.cpp
             src/ChatEdit.cpp
-            src/qtsingleapp/qtsingleapplication.cpp
-            src/qtsingleapp/qtlocalpeer.cpp
             src/qtsingleapp/qtsinglecoreapplication.cpp
-            src/qtsingleapp/qtlockedfile.cpp
             )
-if (WIN32)
-  list (APPEND SRCS ../win32/applink.c)
-  list (APPEND SRCS src/qtsingleapp/qtlockedfile_win.cpp)
-else (WIN32)
-  list (APPEND SRCS src/qtsingleapp/qtlockedfile_unix.cpp)
-endif (WIN32)
 set (MOC_HDRS
             src/ActionCustomizer.h
             src/ADLS.h
@@ -193,10 +184,7 @@ set (MOC_HDRS
             src/WulforSettings.h
             src/WulforUtil.h
             src/ChatEdit.h
-            src/qtsingleapp/qtlockedfile.h
-            src/qtsingleapp/qtsingleapplication.h
             src/qtsingleapp/qtsinglecoreapplication.h
-            src/qtsingleapp/qtlocalpeer.h
             )
 set (UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui
