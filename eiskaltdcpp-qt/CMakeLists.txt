@@ -228,6 +228,10 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UIHubManager.ui
             )
 
+if (WIN32)
+  list (APPEND SRCS ../win32/applink.c)
+endif (WIN32)
+
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)
   if (CMAKE_CROSSCOMPILING)
