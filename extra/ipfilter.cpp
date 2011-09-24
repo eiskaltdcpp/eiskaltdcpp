@@ -403,6 +403,8 @@ void ipfilter::moveRuleDown(uint32_t ip, eTableAction act){
 }
 
 void ipfilter::loadList() {
+    if (!Util::fileExists(Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter"))
+        return;
     File file(Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter", File::READ, File::OPEN);
     string f = file.read();
     file.close();
