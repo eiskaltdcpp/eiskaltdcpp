@@ -213,7 +213,6 @@ License:
 Files:
  eiskaltdcpp-qt/src/FlowLayout.cpp
  eiskaltdcpp-qt/src/FlowLayout.h
- eiskaltdcpp-qt/src/qtsingleapp/*
  eiskaltdcpp-qt/qtscripts/tic-tac-toe/*
 Copyright:
  Copyright 2010 Nokia Corporation and/or its subsidiary(-ies).
