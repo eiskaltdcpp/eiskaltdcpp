@@ -436,21 +436,6 @@ void MainWindow::init(){
         ScriptManager::getInstance()->EvaluateFile(defaultluascript);
     }
 #endif
-
-    QString download_dir        = _q(SETTING(DOWNLOAD_DIRECTORY));
-    QString temp_download_dir   = _q(SETTING(TEMP_DOWNLOAD_DIRECTORY));
-    QString format("Directory \"%1\" does not exist. Would you like to create one?\n\nIf \"No\": application may not work correctly.");
-    QMessageBox::StandardButton btn = QMessageBox::NoButton;
-
-    if (!QDir(download_dir).exists())
-        btn = (QMessageBox::StandardButton)QMessageBox::warning(this, tr("Warning"), format.arg(download_dir), QMessageBox::Yes, QMessageBox::No);
-    else if (!SETTING(NO_USE_TEMP_DIR) && !QDir(temp_download_dir).exists())
-        btn = (QMessageBox::StandardButton)QMessageBox::warning(this, tr("Warning"), format.arg(temp_download_dir), QMessageBox::Yes, QMessageBox::No);
-
-    if (btn == QMessageBox::Yes){
-        QDir(download_dir).mkpath(download_dir);
-        QDir(temp_download_dir).mkpath(temp_download_dir);
-    }
 }
 
 void MainWindow::loadSettings(){
