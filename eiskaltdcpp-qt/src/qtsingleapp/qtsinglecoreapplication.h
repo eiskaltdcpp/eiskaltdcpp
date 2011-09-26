@@ -18,6 +18,7 @@ class QtSingleCoreApplication : public QApplication
 public:
     QtSingleCoreApplication(int &argc, char **argv, const QString &key);
     QtSingleCoreApplication(const QString &id, int &argc, char **argv);
+    virtual ~QtSingleCoreApplication();
 
     bool isRunning();
 

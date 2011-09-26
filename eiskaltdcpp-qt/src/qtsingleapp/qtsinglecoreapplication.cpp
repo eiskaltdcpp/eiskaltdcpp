@@ -46,6 +46,10 @@ QtSingleCoreApplication::QtSingleCoreApplication(int &argc, char **argv, const Q
     }
 }
 
+QtSingleCoreApplication::~QtSingleCoreApplication(){
+    sharedMemory.detach();
+}
+
 bool QtSingleCoreApplication::isRunning()
 {
     return _isRunning;
