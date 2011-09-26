@@ -2117,7 +2117,7 @@ TTHValue* QueueManager::FileQueue::findPFSPubTTH()
     for(QueueItem::StringIter i = queue.begin(); i != queue.end(); i++)
     {
         QueueItem::Ptr qi = i->second;
-        if(qi && qi->getSize() >= PARTIAL_SHARE_MIN_SIZE && now >= qi->getNextPublishingTime() && qi->getPriority() > QueueItem::PAUSED)
+        if(qi && qi->getSize() >= PARTIAL_SHARE_MIN_SIZE && now >= qi->getNextPublishingTime() && qi->getPriority() > QueueItem::PAUSED && qi->isRunning())
         {
             if(cand == NULL || cand->getNextPublishingTime() > qi->getNextPublishingTime() || (cand->getNextPublishingTime() == qi->getNextPublishingTime() && cand->getPriority() < qi->getPriority()) )
             {
