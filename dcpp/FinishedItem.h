@@ -58,7 +58,7 @@ public:
         int64_t fileSize_,
         int64_t actual_,
         bool crc32Checked_,
-                const HintedUser& user
+        const HintedUser& user
         );
 
     void update(
@@ -67,7 +67,7 @@ public:
         time_t time_,
         int64_t actual_,
         bool crc32Checked_,
-                const HintedUser& user
+        const HintedUser& user
         );
 
     double getTransferredPercentage() const;

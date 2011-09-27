@@ -172,7 +172,7 @@ public:
     * @param len Buffer size on entry, bytes actually read on exit
     * @return Length of data in buffer
     */
-        size_t read(void* rbuf, size_t& len) {
+    size_t read(void* rbuf, size_t& len) {
         uint8_t* rb = (uint8_t*)rbuf;
 
         size_t totalRead = 0;

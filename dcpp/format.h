@@ -38,15 +38,15 @@ namespace dcpp {
 
 template<typename T>
 boost::basic_format<T> dcpp_fmt(const std::basic_string<T>& t) {
-	boost::basic_format<T> fmt;
-	fmt.exceptions(boost::io::no_error_bits);
-	fmt.parse(t);
-	return fmt;
+    boost::basic_format<T> fmt;
+    fmt.exceptions(boost::io::no_error_bits);
+    fmt.parse(t);
+    return fmt;
 }
 
 template<typename T>
 boost::basic_format<T> dcpp_fmt(const T* t) {
-	return dcpp_fmt(std::basic_string<T>(t));
+    return dcpp_fmt(std::basic_string<T>(t));
 }
 
 }

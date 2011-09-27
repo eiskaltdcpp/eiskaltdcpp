@@ -24,31 +24,31 @@ namespace dcpp {
 
 class DebugManagerListener {
 public:
-template<int I>	struct X { enum { TYPE = I };  };
+template<int I> struct X { enum { TYPE = I };  };
 
-	typedef X<0> DebugCommand;
-	typedef X<0> DebugDetection;
+    typedef X<0> DebugCommand;
+    typedef X<0> DebugDetection;
 
-	virtual void on(DebugDetection, const string&) noexcept { }
-	virtual void on(DebugCommand, const string&, int, const string&) noexcept { }
+    virtual void on(DebugDetection, const string&) noexcept { }
+    virtual void on(DebugCommand, const string&, int, const string&) noexcept { }
 };
 
 class DebugManager : public Singleton<DebugManager>, public Speaker<DebugManagerListener> {
 public:
-	void SendCommandMessage(const string& mess, int typeDir, const string& ip) {
-		fire(DebugManagerListener::DebugCommand(), mess, typeDir, ip);
-	}
-	void SendDetectionMessage(const string& mess) {
-		fire(DebugManagerListener::DebugDetection(), mess);
-	}
-	enum {
-		HUB_IN, HUB_OUT, CLIENT_IN, CLIENT_OUT
-	};
+    void SendCommandMessage(const string& mess, int typeDir, const string& ip) {
+        fire(DebugManagerListener::DebugCommand(), mess, typeDir, ip);
+    }
+    void SendDetectionMessage(const string& mess) {
+        fire(DebugManagerListener::DebugDetection(), mess);
+    }
+    enum {
+        HUB_IN, HUB_OUT, CLIENT_IN, CLIENT_OUT
+    };
 
 private:
-	friend class Singleton<DebugManager>;
-	DebugManager() noexcept { };
-	~DebugManager() noexcept { };
+    friend class Singleton<DebugManager>;
+    DebugManager() noexcept { };
+    ~DebugManager() noexcept { };
 };
 #define COMMAND_DEBUG(a,b,c) DebugManager::getInstance()->SendCommandMessage(a,b,c);
 #define DETECTION_DEBUG(m) DebugManager::getInstance()->SendDetectionMessage(m);

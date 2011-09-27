@@ -85,20 +85,20 @@ private:
 
 /** User pointer associated to a hub url */
 struct HintedUser {
-        UserPtr user;
-        string hint;
+    UserPtr user;
+    string hint;
 
-        explicit HintedUser(const UserPtr& user_, const string& hint_) : user(user_), hint(hint_) { }
+    explicit HintedUser(const UserPtr& user_, const string& hint_) : user(user_), hint(hint_) { }
 
-        bool operator==(const UserPtr& rhs) const {
-                return user == rhs;
-        }
-        bool operator==(const HintedUser& rhs) const {
-                return user == rhs.user;
-                // ignore the hint, we don't want lists with multiple instances of the same user...
-        }
+    bool operator==(const UserPtr& rhs) const {
+        return user == rhs;
+    }
+    bool operator==(const HintedUser& rhs) const {
+        return user == rhs.user;
+        // ignore the hint, we don't want lists with multiple instances of the same user...
+    }
 
-        operator UserPtr() const { return user; }
+    operator UserPtr() const { return user; }
 };
 
 /** One of possibly many identities of a user, mainly for UI purposes */

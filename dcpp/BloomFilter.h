@@ -26,65 +26,65 @@ namespace dcpp {
 template<size_t N>
 class BloomFilter {
 public:
-	BloomFilter(size_t tableSize) { table.resize(tableSize); }
-	~BloomFilter() { }
+    BloomFilter(size_t tableSize) { table.resize(tableSize); }
+    ~BloomFilter() { }
 
-	void add(const string& s) {xadd(s, N); }
-	bool match(const StringList& s) const {
-		for(StringList::const_iterator i = s.begin(); i != s.end(); ++i) {
-			if(!match(*i))
-				return false;
-		}
-		return true;
-	}
-	bool match(const string& s) const {
-		if(s.length() >= N) {
-			string::size_type l = s.length() - N;
-			for(string::size_type i = 0; i <= l; ++i) {
-				if(!table[getPos(s, i, N)]) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-	void clear() {
-		size_t s = table.size();
-		table.clear();
-		table.resize(s);
-	}
+    void add(const string& s) {xadd(s, N); }
+    bool match(const StringList& s) const {
+        for(StringList::const_iterator i = s.begin(); i != s.end(); ++i) {
+            if(!match(*i))
+                return false;
+        }
+        return true;
+    }
+    bool match(const string& s) const {
+        if(s.length() >= N) {
+            string::size_type l = s.length() - N;
+            for(string::size_type i = 0; i <= l; ++i) {
+                if(!table[getPos(s, i, N)]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    void clear() {
+        size_t s = table.size();
+        table.clear();
+        table.resize(s);
+    }
 #ifdef TESTER
-	void print_table_status() {
-		int tot = 0;
-		for (unsigned int i = 0; i < table.size(); ++i) if (table[i] == true) ++tot;
+    void print_table_status() {
+        int tot = 0;
+        for (unsigned int i = 0; i < table.size(); ++i) if (table[i] == true) ++tot;
 
-		std::cout << "table status: " << tot << " of " << table.size()
-			<< " filled, for an occupancy percentage of " << (100.*tot)/table.size()
-			<< "%" << std::endl;
-	}
+        std::cout << "table status: " << tot << " of " << table.size()
+            << " filled, for an occupancy percentage of " << (100.*tot)/table.size()
+            << "%" << std::endl;
+    }
 #endif
 private:
-	void xadd(const string& s, size_t n) {
-		if(s.length() >= n) {
-			string::size_type l = s.length() - n;
-			for(string::size_type i = 0; i <= l; ++i) {
-				table[getPos(s, i, n)] = true;
-			}
-		}
-	}
+    void xadd(const string& s, size_t n) {
+        if(s.length() >= n) {
+            string::size_type l = s.length() - n;
+            for(string::size_type i = 0; i <= l; ++i) {
+                table[getPos(s, i, n)] = true;
+            }
+        }
+    }
 
-	/* This is roughly how boost::hash does it */
-	size_t getPos(const string& s, size_t i, size_t l) const {
-		size_t h = 0;
-		const char* c = s.data() + i;
-		const char* end = s.data() + i + l;
-		for(; c < end; ++c) {
-			h ^= *c + 0x9e3779b9 + (h<<6) + (h>>2);
-		}
-		return (h % table.size());
-	}
+    /* This is roughly how boost::hash does it */
+    size_t getPos(const string& s, size_t i, size_t l) const {
+        size_t h = 0;
+        const char* c = s.data() + i;
+        const char* end = s.data() + i + l;
+        for(; c < end; ++c) {
+            h ^= *c + 0x9e3779b9 + (h<<6) + (h>>2);
+        }
+        return (h % table.size());
+    }
 
-	vector<bool> table;
+    vector<bool> table;
 };
 
 } // namespace dcpp

@@ -25,36 +25,36 @@ namespace dcpp {
 
 class BZFilter {
 public:
-	BZFilter();
-	~BZFilter();
-	/**
-	* Compress data.
-	* @param in Input data
-	* @param insize Input size (Set to 0 to indicate that no more data will follow)
-	* @param out Output buffer
-	* @param outsize Output size, set to compressed size on return.
-	* @return True if there's more processing to be done.
-	*/
-	bool operator()(const void* in, size_t& insize, void* out, size_t& outsize);
+    BZFilter();
+    ~BZFilter();
+    /**
+    * Compress data.
+    * @param in Input data
+    * @param insize Input size (Set to 0 to indicate that no more data will follow)
+    * @param out Output buffer
+    * @param outsize Output size, set to compressed size on return.
+    * @return True if there's more processing to be done.
+    */
+    bool operator()(const void* in, size_t& insize, void* out, size_t& outsize);
 private:
-	bz_stream zs;
+    bz_stream zs;
 };
 
 class UnBZFilter {
 public:
-	UnBZFilter();
-	~UnBZFilter();
-	/**
-	* Decompress data.
-	* @param in Input data
-	* @param insize Input size (Set to 0 to indicate that no more data will follow)
-	* @param out Output buffer
-	* @param outsize Output size, set to decompressed size on return.
-	* @return True if there's more processing to be done
-	*/
-	bool operator()(const void* in, size_t& insize, void* out, size_t& outsize);
+    UnBZFilter();
+    ~UnBZFilter();
+    /**
+    * Decompress data.
+    * @param in Input data
+    * @param insize Input size (Set to 0 to indicate that no more data will follow)
+    * @param out Output buffer
+    * @param outsize Output size, set to decompressed size on return.
+    * @return True if there's more processing to be done
+    */
+    bool operator()(const void* in, size_t& insize, void* out, size_t& outsize);
 private:
-	bz_stream zs;
+    bz_stream zs;
 };
 
 } // namespace dcpp

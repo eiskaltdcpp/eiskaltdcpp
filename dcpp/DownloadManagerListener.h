@@ -39,45 +39,45 @@ namespace dcpp {
  */
 class DownloadManagerListener {
 public:
-	virtual ~DownloadManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~DownloadManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> Complete;
-	typedef X<1> Failed;
-	typedef X<2> Starting;
-	typedef X<3> Tick;
-	typedef X<4> Requesting;
+    typedef X<0> Complete;
+    typedef X<1> Failed;
+    typedef X<2> Starting;
+    typedef X<3> Tick;
+    typedef X<4> Requesting;
 
-	/**
-	 * This is the first message sent before a download starts.
-	 * No other messages will be sent before this.
-	 */
-	virtual void on(Requesting, Download*) noexcept { }
+    /**
+     * This is the first message sent before a download starts.
+     * No other messages will be sent before this.
+     */
+    virtual void on(Requesting, Download*) noexcept { }
 
-	/**
-	 * This is the first message sent before a download starts.
-	 */
-	virtual void on(Starting, Download*) noexcept { }
+    /**
+     * This is the first message sent before a download starts.
+     */
+    virtual void on(Starting, Download*) noexcept { }
 
-	/**
-	 * Sent once a second if something has actually been downloaded.
-	 */
-	virtual void on(Tick, const DownloadList&) noexcept { }
+    /**
+     * Sent once a second if something has actually been downloaded.
+     */
+    virtual void on(Tick, const DownloadList&) noexcept { }
 
-	/**
-	 * This is the last message sent before a download is deleted.
-	 * No more messages will be sent after it.
-	 */
-	virtual void on(Complete, Download*) noexcept { }
+    /**
+     * This is the last message sent before a download is deleted.
+     * No more messages will be sent after it.
+     */
+    virtual void on(Complete, Download*) noexcept { }
 
-	/**
-	 * This indicates some sort of failure with a particular download.
-	 * No more messages will be sent after it.
-	 *
-	 * @remarks Should send an error code instead of a string and let the GUI
-	 * display an error string.
-	 */
-	virtual void on(Failed, Download*, const string&) noexcept { }
+    /**
+     * This indicates some sort of failure with a particular download.
+     * No more messages will be sent after it.
+     *
+     * @remarks Should send an error code instead of a string and let the GUI
+     * display an error string.
+     */
+    virtual void on(Failed, Download*, const string&) noexcept { }
 };
 
 } // namespace dcpp

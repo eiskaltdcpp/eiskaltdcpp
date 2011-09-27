@@ -26,12 +26,12 @@ namespace dcpp {
 
 class HashManagerListener {
 public:
-	virtual ~HashManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~HashManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> TTHDone;
+    typedef X<0> TTHDone;
 
-	virtual void on(TTHDone, const string& /* fileName */, const TTHValue& /* root */) noexcept = 0;
+    virtual void on(TTHDone, const string& /* fileName */, const TTHValue& /* root */) noexcept = 0;
 };
 
 }

@@ -74,10 +74,10 @@ public:
     string findHub(const string& ipPort) const;
     string findHubEncoding(const string& aUrl) const;
 
-        /**
-        * @param priv discard any user that doesn't match the hint.
-        * @return OnlineUser* found by CID and hint; might be only by CID if priv is false.
-        */
+    /**
+    * @param priv discard any user that doesn't match the hint.
+    * @return OnlineUser* found by CID and hint; might be only by CID if priv is false.
+    */
     OnlineUser* findOnlineUser(const HintedUser& user, bool priv);
     OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl, bool priv);
 

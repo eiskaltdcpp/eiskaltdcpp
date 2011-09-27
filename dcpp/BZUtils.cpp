@@ -27,80 +27,80 @@ namespace dcpp {
 using std::max;
 
 BZFilter::BZFilter() {
-	memset(&zs, 0, sizeof(zs));
+    memset(&zs, 0, sizeof(zs));
 
-	if(BZ2_bzCompressInit(&zs, 9, 0, 30) != BZ_OK) {
-		throw Exception(_("Error during compression"));
-	}
+    if(BZ2_bzCompressInit(&zs, 9, 0, 30) != BZ_OK) {
+        throw Exception(_("Error during compression"));
+    }
 }
 
 BZFilter::~BZFilter() {
-	dcdebug("BZFilter end, %u/%u = %.04f\n", zs.total_out_lo32, zs.total_in_lo32, (float)zs.total_out_lo32 / max((float)zs.total_in_lo32, (float)1));
-	BZ2_bzCompressEnd(&zs);
+    dcdebug("BZFilter end, %u/%u = %.04f\n", zs.total_out_lo32, zs.total_in_lo32, (float)zs.total_out_lo32 / max((float)zs.total_in_lo32, (float)1));
+    BZ2_bzCompressEnd(&zs);
 }
 
 bool BZFilter::operator()(const void* in, size_t& insize, void* out, size_t& outsize) {
-	if(outsize == 0)
-		return 0;
+    if(outsize == 0)
+        return 0;
 
-	zs.avail_in = insize;
-	zs.next_in = (char*)in;
-	zs.avail_out = outsize;
-	zs.next_out = (char*)out;
+    zs.avail_in = insize;
+    zs.next_in = (char*)in;
+    zs.avail_out = outsize;
+    zs.next_out = (char*)out;
 
-	if(insize == 0) {
-		int err = ::BZ2_bzCompress(&zs, BZ_FINISH);
-		if(err != BZ_FINISH_OK && err != BZ_STREAM_END)
-			throw Exception(_("Error during compression"));
+    if(insize == 0) {
+        int err = ::BZ2_bzCompress(&zs, BZ_FINISH);
+        if(err != BZ_FINISH_OK && err != BZ_STREAM_END)
+            throw Exception(_("Error during compression"));
 
-		outsize = outsize - zs.avail_out;
-		insize = insize - zs.avail_in;
-		return err == BZ_FINISH_OK;
-	} else {
-		int err = ::BZ2_bzCompress(&zs, BZ_RUN);
-		if(err != BZ_RUN_OK)
-			throw Exception(_("Error during compression"));
+        outsize = outsize - zs.avail_out;
+        insize = insize - zs.avail_in;
+        return err == BZ_FINISH_OK;
+    } else {
+        int err = ::BZ2_bzCompress(&zs, BZ_RUN);
+        if(err != BZ_RUN_OK)
+            throw Exception(_("Error during compression"));
 
-		outsize = outsize - zs.avail_out;
-		insize = insize - zs.avail_in;
-		return true;
-	}
+        outsize = outsize - zs.avail_out;
+        insize = insize - zs.avail_in;
+        return true;
+    }
 }
 
 UnBZFilter::UnBZFilter() {
-	memset(&zs, 0, sizeof(zs));
+    memset(&zs, 0, sizeof(zs));
 
-	if(BZ2_bzDecompressInit(&zs, 0, 0) != BZ_OK)
-		throw Exception(_("Error during decompression"));
+    if(BZ2_bzDecompressInit(&zs, 0, 0) != BZ_OK)
+        throw Exception(_("Error during decompression"));
 
 }
 
 UnBZFilter::~UnBZFilter() {
-	dcdebug("UnBZFilter end, %u/%u = %.04f\n", zs.total_out_lo32, zs.total_in_lo32, (float)zs.total_out_lo32 / max((float)zs.total_in_lo32, (float)1));
-	BZ2_bzDecompressEnd(&zs);
+    dcdebug("UnBZFilter end, %u/%u = %.04f\n", zs.total_out_lo32, zs.total_in_lo32, (float)zs.total_out_lo32 / max((float)zs.total_in_lo32, (float)1));
+    BZ2_bzDecompressEnd(&zs);
 }
 
 bool UnBZFilter::operator()(const void* in, size_t& insize, void* out, size_t& outsize) {
-	if(outsize == 0)
-		return 0;
+    if(outsize == 0)
+        return 0;
 
-	zs.avail_in = insize;
-	zs.next_in = (char*)in;
-	zs.avail_out = outsize;
-	zs.next_out = (char*)out;
+    zs.avail_in = insize;
+    zs.next_in = (char*)in;
+    zs.avail_out = outsize;
+    zs.next_out = (char*)out;
 
-	int err = ::BZ2_bzDecompress(&zs);
+    int err = ::BZ2_bzDecompress(&zs);
 
-	// No more input data, and inflate didn't think it has reached the end...
-	if(insize == 0 && zs.avail_out != 0 && err != BZ_STREAM_END)
-		throw Exception(_("Error during decompression"));
+    // No more input data, and inflate didn't think it has reached the end...
+    if(insize == 0 && zs.avail_out != 0 && err != BZ_STREAM_END)
+        throw Exception(_("Error during decompression"));
 
-	if(err != BZ_OK && err != BZ_STREAM_END)
-		throw Exception(_("Error during decompression"));
+    if(err != BZ_OK && err != BZ_STREAM_END)
+        throw Exception(_("Error during decompression"));
 
-	outsize = outsize - zs.avail_out;
-	insize = insize - zs.avail_in;
-	return err == BZ_OK;
+    outsize = outsize - zs.avail_out;
+    insize = insize - zs.avail_in;
+    return err == BZ_OK;
 }
 
 } // namespace dcpp

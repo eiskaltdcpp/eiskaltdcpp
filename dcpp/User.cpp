@@ -44,9 +44,9 @@ bool Identity::isTcpActive(const Client* c) const {
 }
 
 bool Identity::isUdpActive() const {
-        if(getIp().empty() || getUdpPort().empty())
-                return false;
-        return (!user->isSet(User::NMDC)) ? supports(AdcHub::UDP4_FEATURE) : !user->isSet(User::PASSIVE);
+    if(getIp().empty() || getUdpPort().empty())
+        return false;
+    return (!user->isSet(User::NMDC)) ? supports(AdcHub::UDP4_FEATURE) : !user->isSet(User::PASSIVE);
 }
 
 void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility, bool dht) const {

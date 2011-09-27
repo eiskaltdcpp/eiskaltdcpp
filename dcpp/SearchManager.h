@@ -61,9 +61,9 @@ public:
         TYPE_LAST
     };
 private:
-        static const char* types[TYPE_LAST];
+    static const char* types[TYPE_LAST];
 public:
-        static const char* getTypeStr(int type);
+    static const char* getTypeStr(int type);
 
     void search(const string& aName, int64_t aSize, TypeModes aTypeMode, SizeModes aSizeMode, const string& aToken, void* aOwner = NULL);
     void search(const string& aName, const string& aSize, TypeModes aTypeMode, SizeModes aSizeMode, const string& aToken, void* aOwner = NULL) {

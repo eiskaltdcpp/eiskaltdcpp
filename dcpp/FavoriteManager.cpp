@@ -57,7 +57,7 @@ FavoriteManager::~FavoriteManager() {
 UserCommand FavoriteManager::addUserCommand(int type, int ctx, int flags, const string& name, const string& command, const string& to, const string& hub) {
     // No dupes, add it...
     Lock l(cs);
-        userCommands.push_back(UserCommand(lastId++, type, ctx, flags, name, command, to, hub));
+    userCommands.push_back(UserCommand(lastId++, type, ctx, flags, name, command, to, hub));
     UserCommand& uc = userCommands.back();
     if(!uc.isSet(UserCommand::FLAG_NOSAVE))
         save();
@@ -149,8 +149,8 @@ void FavoriteManager::removeHubUserCommands(int ctx, const string& hub) {
 void FavoriteManager::addFavoriteUser(const UserPtr& aUser) {
     Lock l(cs);
     if(users.find(aUser->getCID()) == users.end()) {
-                StringList urls = ClientManager::getInstance()->getHubs(aUser->getCID(), Util::emptyString);
-                StringList nicks = ClientManager::getInstance()->getNicks(aUser->getCID(), Util::emptyString);
+        StringList urls = ClientManager::getInstance()->getHubs(aUser->getCID(), Util::emptyString);
+        StringList nicks = ClientManager::getInstance()->getNicks(aUser->getCID(), Util::emptyString);
 
         /// @todo make this an error probably...
         if(urls.empty())
@@ -293,38 +293,38 @@ private:
 };
 
 bool FavoriteManager::onHttpFinished(bool fromHttp) noexcept {
-        MemoryInputStream mis(downloadBuf);
-        bool success = true;
+    MemoryInputStream mis(downloadBuf);
+    bool success = true;
 
-        Lock l(cs);
-        HubEntryList& list = publicListMatrix[publicListServer];
-        list.clear();
+    Lock l(cs);
+    HubEntryList& list = publicListMatrix[publicListServer];
+    list.clear();
 
     try {
-                XmlListLoader loader(list);
+        XmlListLoader loader(list);
 
-                if((listType == TYPE_BZIP2) && (!downloadBuf.empty())) {
-                        FilteredInputStream<UnBZFilter, false> f(&mis);
-                        SimpleXMLReader(&loader).parse(f);
-                } else {
-                        SimpleXMLReader(&loader).parse(mis);
-                }
-        } catch(const Exception&) {
-                success = false;
-                fire(FavoriteManagerListener::Corrupted(), fromHttp ? publicListServer : Util::emptyString);
+        if((listType == TYPE_BZIP2) && (!downloadBuf.empty())) {
+            FilteredInputStream<UnBZFilter, false> f(&mis);
+            SimpleXMLReader(&loader).parse(f);
+        } else {
+            SimpleXMLReader(&loader).parse(mis);
         }
-
-    if(fromHttp) {
-                try {
-                        File f(Util::getHubListsPath() + Util::validateFileName(publicListServer), File::WRITE, File::CREATE | File::TRUNCATE);
-                        f.write(downloadBuf);
-                        f.close();
-                } catch(const FileException&) { }
+    } catch(const Exception&) {
+        success = false;
+        fire(FavoriteManagerListener::Corrupted(), fromHttp ? publicListServer : Util::emptyString);
     }
 
-        downloadBuf = Util::emptyString;
+    if(fromHttp) {
+        try {
+            File f(Util::getHubListsPath() + Util::validateFileName(publicListServer), File::WRITE, File::CREATE | File::TRUNCATE);
+            f.write(downloadBuf);
+            f.close();
+        } catch(const FileException&) { }
+    }
 
-        return success;
+    downloadBuf = Util::emptyString;
+
+    return success;
 }
 
 void FavoriteManager::save() {
@@ -342,10 +342,10 @@ void FavoriteManager::save() {
         xml.stepIn();
 
         for(FavHubGroups::const_iterator i = favHubGroups.begin(), iend = favHubGroups.end(); i != iend; ++i) {
-                xml.addTag("Group");
-                xml.addChildAttrib("Name", i->first);
-                xml.addChildAttrib("Private", i->second.priv);
-                xml.addChildAttrib("Connect", i->second.connect);
+            xml.addTag("Group");
+            xml.addChildAttrib("Name", i->first);
+            xml.addChildAttrib("Private", i->second.priv);
+            xml.addChildAttrib("Connect", i->second.connect);
         }
 
         for(FavoriteHubEntryList::const_iterator i = favoriteHubs.begin(), iend = favoriteHubs.end(); i != iend; ++i) {
@@ -573,7 +573,7 @@ void FavoriteManager::userUpdated(const OnlineUser& info) {
 }
 
 FavoriteHubEntryPtr FavoriteManager::getFavoriteHubEntry(const string& aServer) const {
-        for(FavoriteHubEntryList::const_iterator i = favoriteHubs.begin(), iend = favoriteHubs.end(); i != iend; ++i) {
+    for(FavoriteHubEntryList::const_iterator i = favoriteHubs.begin(), iend = favoriteHubs.end(); i != iend; ++i) {
         FavoriteHubEntry* hub = *i;
         if(Util::stricmp(hub->getServer(), aServer) == 0) {
             return hub;
@@ -583,27 +583,27 @@ FavoriteHubEntryPtr FavoriteManager::getFavoriteHubEntry(const string& aServer) 
 }
 
 FavoriteHubEntryList FavoriteManager::getFavoriteHubs(const string& group) const {
-        FavoriteHubEntryList ret;
-        for(FavoriteHubEntryList::const_iterator i = favoriteHubs.begin(), iend = favoriteHubs.end(); i != iend; ++i)
-                if((*i)->getGroup() == group)
-                        ret.push_back(*i);
-        return ret;
+    FavoriteHubEntryList ret;
+    for(FavoriteHubEntryList::const_iterator i = favoriteHubs.begin(), iend = favoriteHubs.end(); i != iend; ++i)
+        if((*i)->getGroup() == group)
+            ret.push_back(*i);
+    return ret;
 }
 
 bool FavoriteManager::isPrivate(const string& url) const {
-        if(url.empty())
-                return false;
-
-        FavoriteHubEntry* fav = getFavoriteHubEntry(url);
-        if(fav) {
-                const string& name = fav->getGroup();
-                if(!name.empty()) {
-                        FavHubGroups::const_iterator group = favHubGroups.find(name);
-                        if(group != favHubGroups.end())
-                                return group->second.priv;
-                }
-        }
+    if(url.empty())
         return false;
+
+    FavoriteHubEntry* fav = getFavoriteHubEntry(url);
+    if(fav) {
+        const string& name = fav->getGroup();
+        if(!name.empty()) {
+            FavHubGroups::const_iterator group = favHubGroups.find(name);
+            if(group != favHubGroups.end())
+                return group->second.priv;
+        }
+    }
+    return false;
 }
 
 bool FavoriteManager::hasSlot(const UserPtr& aUser) const {
@@ -676,27 +676,27 @@ void FavoriteManager::refresh(bool forceDownload /* = false */) {
         string path = Util::getHubListsPath() + Util::validateFileName(publicListServer);
         if(File::getSize(path) > 0) {
             useHttp = false;
-                        string fileDate;
+            string fileDate;
             {
                 Lock l(cs);
                 publicListMatrix[publicListServer].clear();
             }
             listType = (Util::stricmp(path.substr(path.size() - 4), ".bz2") == 0) ? TYPE_BZIP2 : TYPE_NORMAL;
             try {
-                                File cached(path, File::READ, File::OPEN);
-                                downloadBuf = cached.read();
-                                char buf[20];
-                                time_t fd = cached.getLastModified();
-                                if (strftime(buf, 20, "%x", localtime(&fd))) {
-                                        fileDate = string(buf);
-                                }
+                File cached(path, File::READ, File::OPEN);
+                downloadBuf = cached.read();
+                char buf[20];
+                time_t fd = cached.getLastModified();
+                if (strftime(buf, 20, "%x", localtime(&fd))) {
+                    fileDate = string(buf);
+                }
             } catch(const FileException&) {
                 downloadBuf = Util::emptyString;
             }
             if(!downloadBuf.empty()) {
-                                if (onHttpFinished(false)) {
-                                        fire(FavoriteManagerListener::LoadedFromCache(), publicListServer, fileDate);
-                                }
+                if (onHttpFinished(false)) {
+                    fire(FavoriteManagerListener::LoadedFromCache(), publicListServer, fileDate);
+                }
                 return;
             }
         }
@@ -779,21 +779,21 @@ void FavoriteManager::on(Failed, HttpConnection*, const string& aLine) noexcept 
     }
 }
 void FavoriteManager::on(Complete, HttpConnection*, const string& aLine, bool fromCoral) noexcept {
-        bool parseSuccess = false;
+    bool parseSuccess = false;
 
     c->removeListener(this);
-        if(useHttp) {
-                parseSuccess = onHttpFinished(true);
-        }
+    if(useHttp) {
+        parseSuccess = onHttpFinished(true);
+    }
     running = false;
-        if(parseSuccess) {
-                fire(FavoriteManagerListener::DownloadFinished(), aLine, fromCoral);
-        }
+    if(parseSuccess) {
+        fire(FavoriteManagerListener::DownloadFinished(), aLine, fromCoral);
+    }
 }
 
 void FavoriteManager::on(Retried, HttpConnection*, const bool Connected) noexcept {
-        if (Connected)
-                downloadBuf = Util::emptyString;
+    if (Connected)
+        downloadBuf = Util::emptyString;
 }
 
 void FavoriteManager::on(Redirected, HttpConnection*, const string& aLine) noexcept {
@@ -814,28 +814,24 @@ void FavoriteManager::on(UserUpdated, const OnlineUser& user) noexcept {
 }
 
 //NOTE: freedcpp
-void FavoriteManager::on(UserDisconnected, const UserPtr& user) noexcept
+void FavoriteManager::on(UserDisconnected, const UserPtr& user) noexcept {
+    Lock l(cs);
+
+    FavoriteMap::iterator i = users.find(user->getCID());
+    if (i != users.end())
     {
-        Lock l(cs);
-
-        FavoriteMap::iterator i = users.find(user->getCID());
-        if (i != users.end())
-        {
-            i->second.setLastSeen(GET_TIME());
-                fire(FavoriteManagerListener::StatusChanged(), i->second);
-            save();
-        }
+        i->second.setLastSeen(GET_TIME());
+        fire(FavoriteManagerListener::StatusChanged(), i->second);
+        save();
     }
+}
 
-void FavoriteManager::on(UserConnected, const UserPtr& user) noexcept
-    {
-        Lock l(cs);
+void FavoriteManager::on(UserConnected, const UserPtr& user) noexcept {
+    Lock l(cs);
 
-        FavoriteMap::iterator i = users.find(user->getCID());
-        if (i != users.end())
-        {
-                fire(FavoriteManagerListener::StatusChanged(), i->second);
-    }
+    FavoriteMap::iterator i = users.find(user->getCID());
+    if (i != users.end())
+        fire(FavoriteManagerListener::StatusChanged(), i->second);
 }
 //NOTE: freedcpp
 } // namespace dcpp

@@ -308,7 +308,6 @@ private:
     virtual int run();
 
     // QueueManagerListener
-    //virtual void on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) noexcept;
     virtual void on(QueueManagerListener::FileMoved, const string& n) noexcept;
     // HashManagerListener
     virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) noexcept;

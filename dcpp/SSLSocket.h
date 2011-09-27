@@ -33,49 +33,49 @@ namespace dcpp {
 class SSLSocketException : public SocketException {
 public:
 #ifdef _DEBUG
-	SSLSocketException(const string& aError) noexcept : SocketException("SSLSocketException: " + aError) { }
+    SSLSocketException(const string& aError) noexcept : SocketException("SSLSocketException: " + aError) { }
 #else //_DEBUG
-	SSLSocketException(const string& aError) noexcept : SocketException(aError) { }
+    SSLSocketException(const string& aError) noexcept : SocketException(aError) { }
 #endif // _DEBUG
 
-	virtual ~SSLSocketException() throw() { }
+    virtual ~SSLSocketException() throw() { }
 };
 
 class CryptoManager;
 
 class SSLSocket : public Socket {
 public:
-	virtual ~SSLSocket() { }
+    virtual ~SSLSocket() { }
 
-	virtual void accept(const Socket& listeningSocket);
-	virtual void connect(const string& aIp, uint16_t aPort);
-	virtual int read(void* aBuffer, int aBufLen);
-	virtual int write(const void* aBuffer, int aLen);
-	virtual int wait(uint32_t millis, int waitFor);
-	virtual void shutdown() noexcept;
-	virtual void close() noexcept;
+    virtual void accept(const Socket& listeningSocket);
+    virtual void connect(const string& aIp, uint16_t aPort);
+    virtual int read(void* aBuffer, int aBufLen);
+    virtual int write(const void* aBuffer, int aLen);
+    virtual int wait(uint32_t millis, int waitFor);
+    virtual void shutdown() noexcept;
+    virtual void close() noexcept;
 
-	virtual bool isSecure() const noexcept { return true; }
-	virtual bool isTrusted() const noexcept;
-	virtual std::string getCipherName() const noexcept;
-	virtual vector<uint8_t> getKeyprint() const noexcept;
+    virtual bool isSecure() const noexcept { return true; }
+    virtual bool isTrusted() const noexcept;
+    virtual std::string getCipherName() const noexcept;
+    virtual vector<uint8_t> getKeyprint() const noexcept;
 
-	virtual bool waitConnected(uint32_t millis);
-	virtual bool waitAccepted(uint32_t millis);
+    virtual bool waitConnected(uint32_t millis);
+    virtual bool waitAccepted(uint32_t millis);
 
 
 private:
-	friend class CryptoManager;
+    friend class CryptoManager;
 
-	SSLSocket(SSL_CTX* context);
-	SSLSocket(const SSLSocket&);
-	SSLSocket& operator=(const SSLSocket&);
+    SSLSocket(SSL_CTX* context);
+    SSLSocket(const SSLSocket&);
+    SSLSocket& operator=(const SSLSocket&);
 
-	SSL_CTX* ctx;
-	ssl::SSL ssl;
+    SSL_CTX* ctx;
+    ssl::SSL ssl;
 
-	int checkSSL(int ret);
-	bool waitWant(int ret, uint32_t millis);
+    int checkSSL(int ret);
+    bool waitWant(int ret, uint32_t millis);
 };
 
 } // namespace dcpp

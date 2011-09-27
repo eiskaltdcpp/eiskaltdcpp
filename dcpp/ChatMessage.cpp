@@ -26,30 +26,30 @@
 namespace dcpp {
 
 string ChatMessage::format() const {
-        string tmp;
+    string tmp;
 
-        if(timestamp) {
-                tmp += '[';
-                tmp += _("Sent ") + Util::getShortTimeString(timestamp) + "] ";
+    if(timestamp) {
+        tmp += '[';
+        tmp += _("Sent ") + Util::getShortTimeString(timestamp) + "] ";
+    }
+
+    const string& nick = from->getIdentity().getNick();
+    // let's *not* obey the spec here and add a space after the star. :P
+    tmp += (thirdPerson ? "* " + nick + ' ' : '<' + nick + "> ") + text;
+
+    // Check all '<' and '[' after newlines as they're probably pastes...
+    size_t i = 0;
+    while( (i = tmp.find('\n', i)) != string::npos) {
+        if(i + 1 < tmp.length()) {
+            if(tmp[i+1] == '[' || tmp[i+1] == '<') {
+                tmp.insert(i+1, "- ");
+                i += 2;
+            }
         }
+        i++;
+    }
 
-        const string& nick = from->getIdentity().getNick();
-        // let's *not* obey the spec here and add a space after the star. :P
-        tmp += (thirdPerson ? "* " + nick + ' ' : '<' + nick + "> ") + text;
-
-        // Check all '<' and '[' after newlines as they're probably pastes...
-        size_t i = 0;
-        while( (i = tmp.find('\n', i)) != string::npos) {
-                if(i + 1 < tmp.length()) {
-                        if(tmp[i+1] == '[' || tmp[i+1] == '<') {
-                                tmp.insert(i+1, "- ");
-                                i += 2;
-                        }
-                }
-                i++;
-        }
-
-        return Text::toDOS(tmp);
+    return Text::toDOS(tmp);
 }
 
 } // namespace dcpp

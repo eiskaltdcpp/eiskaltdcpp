@@ -87,22 +87,22 @@ private:
 class FastCriticalSection {
 public:
 #ifdef FIX_FOR_OLD_BOOST
-	// We have to use a pthread (nonrecursive) mutex, didn't find any test_and_set on linux...
-	FastCriticalSection() {
-		static pthread_mutex_t fastmtx = PTHREAD_MUTEX_INITIALIZER;
-		mtx = fastmtx;
-	}
-	~FastCriticalSection() { pthread_mutex_destroy(&mtx); }
-	void lock() { pthread_mutex_lock(&mtx); }
-	void unlock() { pthread_mutex_unlock(&mtx); }
+    // We have to use a pthread (nonrecursive) mutex, didn't find any test_and_set on linux...
+    FastCriticalSection() {
+        static pthread_mutex_t fastmtx = PTHREAD_MUTEX_INITIALIZER;
+        mtx = fastmtx;
+    }
+    ~FastCriticalSection() { pthread_mutex_destroy(&mtx); }
+    void lock() { pthread_mutex_lock(&mtx); }
+    void unlock() { pthread_mutex_unlock(&mtx); }
 private:
-	pthread_mutex_t mtx;
+    pthread_mutex_t mtx;
 #else
-	void lock() { mtx.lock(); }
-	void unlock() { mtx.unlock(); }
+    void lock() { mtx.lock(); }
+    void unlock() { mtx.unlock(); }
 private:
-	typedef boost::signals2::mutex mutex_t;
-	mutex_t mtx;
+    typedef boost::signals2::mutex mutex_t;
+    mutex_t mtx;
 #endif
 };
 

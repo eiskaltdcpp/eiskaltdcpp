@@ -65,7 +65,7 @@ void HttpConnection::downloadFile(const string& aUrl) {
         file = currentUrl;
     }
 
-        if(BOOLSETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
+    if(BOOLSETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
         if(server.length() > CORAL_SUFFIX.length() && server.compare(server.length() - CORAL_SUFFIX.length(), CORAL_SUFFIX.length(), CORAL_SUFFIX) !=0) {
             server += CORAL_SUFFIX;
         } else {
@@ -117,7 +117,7 @@ void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
 
 void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexcept {
     if(!ok) {
-                dcdebug("%s\n",aLine.c_str());
+        dcdebug("%s\n",aLine.c_str());
         if(aLine.find("200") == string::npos) {
             if(aLine.find("301") != string::npos || aLine.find("302") != string::npos){
                 moved302 = true;

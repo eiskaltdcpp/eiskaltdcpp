@@ -217,19 +217,19 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             return;
         }
 
-                ChatMessage chatMessage = { unescape(message), findUser(nick) };
+        ChatMessage chatMessage = { unescape(message), findUser(nick) };
 
-                if(!chatMessage.from) {
+        if(!chatMessage.from) {
             OnlineUser& o = getUser(nick);
             // Assume that messages from unknown users come from the hub
             o.getIdentity().setHub(true);
             o.getIdentity().setHidden(true);
             fire(ClientListener::UserUpdated(), this, o);
 
-                        chatMessage.from = &o;
+            chatMessage.from = &o;
         }
 
-                fire(ClientListener::Message(), this, chatMessage);
+        fire(ClientListener::Message(), this, chatMessage);
         return;
     }
 
@@ -496,7 +496,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         }
 
         if(port.empty())
-                return;
+            return;
         // For simplicity, we make the assumption that users on a hub have the same character encoding
         ConnectionManager::getInstance()->nmdcConnect(server, static_cast<uint16_t>(Util::toInt(port)), getMyNick(), getHubUrl(), getEncoding(), secure);
     } else if(cmd == "$RevConnectToMe") {
@@ -584,9 +584,9 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             if(j == string::npos)
                 return;
             string name = unescape(param.substr(i, j-i));
-                        // NMDC uses '\' as a separator but both ADC and our internal representation use '/'
-                        Util::replace("/", "//", name);
-                        Util::replace("\\", "/", name);
+            // NMDC uses '\' as a separator but both ADC and our internal representation use '/'
+            Util::replace("/", "//", name);
+            Util::replace("\\", "/", name);
             i = j+1;
             string command = unescape(param.substr(i, param.length() - i));
             fire(ClientListener::HubUserCommand(), this, type, ctx, name, command);
@@ -628,8 +628,8 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 feat.push_back("TLS");
 
 #ifdef WITH_DHT
-                if(BOOLSETTING(USE_DHT))
-                    feat.push_back("DHT0");
+            if(BOOLSETTING(USE_DHT))
+                feat.push_back("DHT0");
 #endif
 
                 supports(feat);
@@ -871,7 +871,7 @@ void NmdcHub::myInfo(bool alwaysSend) {
         modeChar = 'A';
     else
         modeChar = 'P';
-string uploadSpeed;
+    string uploadSpeed;
     int upLimit = ThrottleManager::getInstance()->getUpLimit();
     if (upLimit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
         uploadSpeed = Util::toString(upLimit) + " KiB/s";
@@ -979,7 +979,7 @@ string NmdcHub::validateMessage(string tmp, bool reverse) {
 }
 
 void NmdcHub::privateMessage(const string& nick, const string& message) {
-        send("$To: " + fromUtf8(nick) + " From: " + fromUtf8(getMyNick()) + " $" + fromUtf8(escape("<" + getMyNick() + "> " + message)) + "|");
+    send("$To: " + fromUtf8(nick) + " From: " + fromUtf8(getMyNick()) + " $" + fromUtf8(escape("<" + getMyNick() + "> " + message)) + "|");
 }
 
 void NmdcHub::privateMessage(const OnlineUser& aUser, const string& aMessage, bool /*thirdPerson*/) {
@@ -1020,11 +1020,11 @@ void NmdcHub::clearFlooders(uint64_t aTick) {
 }
 
 bool NmdcHub::isProtectedIP(const string& ip) {
-        if(find(protectedIPs.begin(), protectedIPs.end(), ip) != protectedIPs.end()) {
-                fire(ClientListener::StatusMessage(), this, str(F_("This hub is trying to use your client to spam %1%, please urge hub owner to fix this") % ip));
-                return true;
-        }
-        return false;
+    if(find(protectedIPs.begin(), protectedIPs.end(), ip) != protectedIPs.end()) {
+        fire(ClientListener::StatusMessage(), this, str(F_("This hub is trying to use your client to spam %1%, please urge hub owner to fix this") % ip));
+        return true;
+    }
+    return false;
 }
 
 void NmdcHub::on(Connected) noexcept {
@@ -1063,24 +1063,24 @@ void NmdcHub::on(Second, uint64_t aTick) noexcept {
 }
 
 void NmdcHub::on(Minute, uint64_t aTick) noexcept {
-        if(aTick > (lastProtectedIPsUpdate + 24*3600*1000)) {
-                protectedIPs.clear();
+    if(aTick > (lastProtectedIPsUpdate + 24*3600*1000)) {
+        protectedIPs.clear();
 
-                protectedIPs.push_back("dcpp.net");
-                protectedIPs.push_back("hublist.org");
-                protectedIPs.push_back("openhublist.org");
-                protectedIPs.push_back("dchublist.com");
-                protectedIPs.push_back("hublista.hu");
-                protectedIPs.push_back("adcportal.com");
-                for(StringIter i = protectedIPs.begin(); i != protectedIPs.end();) {
-                        *i = Socket::resolve(*i);
-                        if(Util::isPrivateIp(*i))
-                                i = protectedIPs.erase(i);
-                        else
-                                i++;
-                }
-                lastProtectedIPsUpdate = aTick;
+        protectedIPs.push_back("dcpp.net");
+        protectedIPs.push_back("hublist.org");
+        protectedIPs.push_back("openhublist.org");
+        protectedIPs.push_back("dchublist.com");
+        protectedIPs.push_back("hublista.hu");
+        protectedIPs.push_back("adcportal.com");
+        for(StringIter i = protectedIPs.begin(); i != protectedIPs.end();) {
+            *i = Socket::resolve(*i);
+            if(Util::isPrivateIp(*i))
+                i = protectedIPs.erase(i);
+            else
+                i++;
         }
+        lastProtectedIPsUpdate = aTick;
+    }
 }
 
 #ifdef LUA_SCRIPT

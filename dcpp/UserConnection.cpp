@@ -48,14 +48,14 @@ const string UserConnection::UPLOAD = "Upload";
 const string UserConnection::DOWNLOAD = "Download";
 
 void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw () {
-        if(aLine.length() < 2) {
-                fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
+    if(aLine.length() < 2) {
+        fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
         return;
-        }
+    }
 
     if(aLine[0] == 'C' && !isSet(FLAG_NMDC)) {
         if(!Text::validateUtf8(aLine)) {
-                        fire(UserConnectionListener::ProtocolError(), this, _("Non-UTF-8 data in an ADC connection"));
+            fire(UserConnectionListener::ProtocolError(), this, _("Non-UTF-8 data in an ADC connection"));
             return;
         }
         dispatch(aLine);
@@ -63,7 +63,7 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
     } else if(aLine[0] == '$') {
         setFlag(FLAG_NMDC);
     } else {
-                fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
+        fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
         return;
     }
     COMMAND_DEBUG(aLine, DebugManager::CLIENT_IN, getRemoteIp());
@@ -143,15 +143,15 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
 
 #ifdef LUA_SCRIPT
 bool UserConnectionScriptInstance::onUserConnectionMessageIn(UserConnection* aConn, const string& aLine) {
-        Lock l(cs);
-        MakeCall("dcpp", "UserDataIn", 1, aConn, aLine);
-        return GetLuaBool();
+    Lock l(cs);
+    MakeCall("dcpp", "UserDataIn", 1, aConn, aLine);
+    return GetLuaBool();
 }
 
 bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aConn, const string& aLine) {
-        Lock l(cs);
-        MakeCall("dcpp", "UserDataOut", 1, aConn, aLine);
-        return GetLuaBool();
+    Lock l(cs);
+    MakeCall("dcpp", "UserDataOut", 1, aConn, aLine);
+    return GetLuaBool();
 }
 #endif
 
@@ -195,15 +195,15 @@ void UserConnection::supports(const StringList& feat) {
 }
 
 void UserConnection::handle(AdcCommand::STA t, const AdcCommand& c) {
-        if(c.getParameters().size() >= 2) {
-                const string& code = c.getParam(0);
-                if(!code.empty() && code[0] - '0' == AdcCommand::SEV_FATAL) {
-                        fire(UserConnectionListener::ProtocolError(), this, c.getParam(1));
-                        return;
-                }
+    if(c.getParameters().size() >= 2) {
+        const string& code = c.getParam(0);
+        if(!code.empty() && code[0] - '0' == AdcCommand::SEV_FATAL) {
+            fire(UserConnectionListener::ProtocolError(), this, c.getParam(1));
+            return;
         }
+    }
 
-        fire(t, this, c);
+    fire(t, this, c);
 }
 
 void UserConnection::on(Connected) noexcept {

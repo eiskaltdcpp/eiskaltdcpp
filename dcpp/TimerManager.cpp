@@ -35,13 +35,13 @@ TimerManager::TimerManager() {
 #ifdef TIMER_OLD_BOOST
     gettimeofday(&tv, NULL);
 #else
-        // This mutex will be unlocked only upon shutdown
-        boostmtx.lock();
+    // This mutex will be unlocked only upon shutdown
+    boostmtx.lock();
 #endif
 }
 
 TimerManager::~TimerManager() {
-        dcassert(listeners.size() == 0);
+    dcassert(listeners.size() == 0);
 }
 
 void TimerManager::shutdown() {
@@ -50,7 +50,7 @@ void TimerManager::shutdown() {
 #else
     boostmtx.unlock();
 #endif
-        join();
+    join();
 }
 
 int TimerManager::run() {
@@ -95,12 +95,12 @@ int TimerManager::run() {
 
 uint64_t TimerManager::getTick() {
 #ifdef TIMER_OLD_BOOST
-        timeval tv2;
-        gettimeofday(&tv2, NULL);
-        return static_cast<uint64_t>(((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000));
+    timeval tv2;
+    gettimeofday(&tv2, NULL);
+    return static_cast<uint64_t>(((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000));
 #else
-        static ptime start = microsec_clock::universal_time();
-        return (microsec_clock::universal_time() - start).total_milliseconds();
+    static ptime start = microsec_clock::universal_time();
+    return (microsec_clock::universal_time() - start).total_milliseconds();
 #endif
 }
 

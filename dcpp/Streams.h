@@ -163,17 +163,16 @@ public:
     using OutputStream::write;
 
     BufferedOutputStream(OutputStream* aStream, size_t aBufSize = SETTING(BUFFER_SIZE) * 1024) : s(aStream), pos(0), buf(aBufSize) { }
-        virtual ~BufferedOutputStream() {
+    virtual ~BufferedOutputStream() {
         try {
             // We must do this in order not to lose bytes when a download
             // is disconnected prematurely
             flush();
-        } catch(const Exception&) {
-        }
+        } catch(const Exception&) { }
         if(managed) delete s;
     }
 
-        virtual size_t flush() {
+    virtual size_t flush() {
         if(pos > 0)
             s->write(&buf[0], pos);
         pos = 0;
@@ -181,7 +180,7 @@ public:
         return 0;
     }
 
-        virtual size_t write(const void* wbuf, size_t len) {
+    virtual size_t write(const void* wbuf, size_t len) {
         uint8_t* b = (uint8_t*)wbuf;
         size_t l2 = len;
         size_t bufSize = buf.size();
@@ -212,11 +211,11 @@ private:
 class StringOutputStream : public OutputStream {
 public:
     StringOutputStream(string& out) : str(out) { }
-        virtual ~StringOutputStream() { }
+    virtual ~StringOutputStream() { }
     using OutputStream::write;
 
-        virtual size_t flush() { return 0; }
-        virtual size_t write(const void* buf, size_t len) {
+    virtual size_t flush() { return 0; }
+    virtual size_t write(const void* buf, size_t len) {
         str.append((char*)buf, len);
         return len;
     }

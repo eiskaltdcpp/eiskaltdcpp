@@ -126,20 +126,20 @@ public:
 
         struct DirData
 #ifdef _WIN32
-                : public WIN32_FIND_DATAW
+            : public WIN32_FIND_DATAW
 #endif
         {
-                DirData();
+            DirData();
 
-                string getFileName();
-                bool isDirectory();
-                bool isHidden();
-                bool isLink();
-                int64_t getSize();
-                uint32_t getLastWriteTime();
+            string getFileName();
+            bool isDirectory();
+            bool isHidden();
+            bool isLink();
+            int64_t getSize();
+            uint32_t getLastWriteTime();
 #ifndef _WIN32
-                dirent* ent;
-                string base;
+            dirent* ent;
+            string base;
 #endif
         };
 

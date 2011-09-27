@@ -45,7 +45,7 @@ root(new Directory(NULL, Util::emptyString, false, false))
 }
 
 DirectoryListing::~DirectoryListing() {
-        delete root;
+    delete root;
 }
 
 UserPtr DirectoryListing::getUserFromFilename(const string& fileName) {
@@ -90,12 +90,12 @@ void DirectoryListing::loadFile(const string& name) {
     // For now, we detect type by ending...
     string ext = Util::getFileExt(name);
 
-        dcpp::File ff(name, dcpp::File::READ, dcpp::File::OPEN);
-        if(Util::stricmp(ext, ".bz2") == 0) {
+    dcpp::File ff(name, dcpp::File::READ, dcpp::File::OPEN);
+    if(Util::stricmp(ext, ".bz2") == 0) {
         FilteredInputStream<UnBZFilter, false> f(&ff);
-                loadXML(f, false);
+        loadXML(f, false);
     } else if(Util::stricmp(ext, ".xml") == 0) {
-                loadXML(ff, false);
+        loadXML(ff, false);
     }
 }
 
@@ -120,14 +120,14 @@ private:
 };
 
 string DirectoryListing::updateXML(const string& xml) {
-        MemoryInputStream mis(xml);
-        return loadXML(mis, true);
+    MemoryInputStream mis(xml);
+    return loadXML(mis, true);
 }
 
 string DirectoryListing::loadXML(InputStream& is, bool updating) {
     ListLoader ll(getRoot(), updating);
 
-        dcpp::SimpleXMLReader(&ll).parse(is, SETTING(MAX_FILELIST_SIZE) ? (size_t)SETTING(MAX_FILELIST_SIZE)*1024*1024 : 0);
+    dcpp::SimpleXMLReader(&ll).parse(is, SETTING(MAX_FILELIST_SIZE) ? (size_t)SETTING(MAX_FILELIST_SIZE)*1024*1024 : 0);
 
     return ll.getBase();
 }
@@ -259,19 +259,19 @@ string DirectoryListing::getPath(const Directory* d) const {
 }
 
 StringList DirectoryListing::getLocalPaths(const File* f) const {
-        try {
-                return ShareManager::getInstance()->getRealPaths(Util::toAdcFile(getPath(f) + f->getName()));
-        } catch(const ShareException&) {
-                return StringList();
-        }
+    try {
+        return ShareManager::getInstance()->getRealPaths(Util::toAdcFile(getPath(f) + f->getName()));
+    } catch(const ShareException&) {
+        return StringList();
     }
+}
 
 StringList DirectoryListing::getLocalPaths(const Directory* d) const {
-        try {
-                return ShareManager::getInstance()->getRealPaths(Util::toAdcFile(getPath(d)));
-        } catch(const ShareException&) {
-                return StringList();
-        }
+    try {
+        return ShareManager::getInstance()->getRealPaths(Util::toAdcFile(getPath(d)));
+    } catch(const ShareException&) {
+        return StringList();
+    }
 }
 
 void DirectoryListing::download(Directory* aDir, const string& aTarget, bool highPrio) {
@@ -309,7 +309,7 @@ void DirectoryListing::download(const string& aDir, const string& aTarget, bool 
 void DirectoryListing::download(File* aFile, const string& aTarget, bool view, bool highPrio) {
     int flags = (view ? (QueueItem::FLAG_TEXT | QueueItem::FLAG_CLIENT_VIEW) : 0);
 
-        QueueManager::getInstance()->add(aTarget, aFile->getSize(), aFile->getTTH(), getUser(), flags);
+    QueueManager::getInstance()->add(aTarget, aFile->getSize(), aFile->getTTH(), getUser(), flags);
 
     if(highPrio)
         QueueManager::getInstance()->setPriority(aTarget, QueueItem::HIGHEST);
@@ -349,11 +349,11 @@ struct DirectoryEmpty {
 };
 
 void DirectoryListing::Directory::filterList(DirectoryListing& dirList) {
-        DirectoryListing::Directory* d = dirList.getRoot();
+    DirectoryListing::Directory* d = dirList.getRoot();
 
-        TTHSet l;
-        d->getHashList(l);
-        filterList(l);
+    TTHSet l;
+    d->getHashList(l);
+    filterList(l);
 }
 
 void DirectoryListing::Directory::filterList(DirectoryListing::Directory::TTHSet& l) {

@@ -293,10 +293,10 @@ public:
 
     static unsigned toUInt(const string& s) {
         if(s.empty())
-                return 0;
+            return 0;
         int ret = toInt(s);
         if(ret < 0)
-                return 0;
+            return 0;
         return ret;
     }
 
@@ -369,8 +369,8 @@ public:
             ret += *i;
             if(i + 1 != iend)
                 ret += sep;
-    }
-            return ret;
+        }
+        return ret;
     }
     template<typename string_t>
     static inline string_t toString(const typename string_t::value_type* sep, const std::vector<string_t>& lst) {

@@ -28,28 +28,28 @@ using std::string;
 
 class BufferedSocketListener {
 public:
-	virtual ~BufferedSocketListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~BufferedSocketListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> Connecting;
-	typedef X<1> Connected;
-	typedef X<2> Line;
-	typedef X<3> Data;
-	typedef X<4> BytesSent;
-	typedef X<5> ModeChange;
-	typedef X<6> TransmitDone;
-	typedef X<7> Failed;
-	typedef X<8> Updated;
+    typedef X<0> Connecting;
+    typedef X<1> Connected;
+    typedef X<2> Line;
+    typedef X<3> Data;
+    typedef X<4> BytesSent;
+    typedef X<5> ModeChange;
+    typedef X<6> TransmitDone;
+    typedef X<7> Failed;
+    typedef X<8> Updated;
 
-	virtual void on(Connecting) noexcept { }
-	virtual void on(Connected) noexcept { }
-	virtual void on(Line, const string&) noexcept { }
-	virtual void on(Data, uint8_t*, size_t) noexcept { }
-	virtual void on(BytesSent, size_t, size_t) noexcept { }
-	virtual void on(ModeChange) noexcept { }
-	virtual void on(TransmitDone) noexcept { }
-	virtual void on(Failed, const string&) noexcept { }
-	virtual void on(Updated) noexcept { }
+    virtual void on(Connecting) noexcept { }
+    virtual void on(Connected) noexcept { }
+    virtual void on(Line, const string&) noexcept { }
+    virtual void on(Data, uint8_t*, size_t) noexcept { }
+    virtual void on(BytesSent, size_t, size_t) noexcept { }
+    virtual void on(ModeChange) noexcept { }
+    virtual void on(TransmitDone) noexcept { }
+    virtual void on(Failed, const string&) noexcept { }
+    virtual void on(Updated) noexcept { }
 };
 
 } // namespace dcpp

@@ -70,8 +70,7 @@ public:
         leaves.push_back(root);
     }
 
-    ~MerkleTree() {
-    }
+    ~MerkleTree() { }
 
     static int64_t calcBlockSize(int64_t aFileSize, int maxLevels) {
         int64_t tmp = baseBlockSize;

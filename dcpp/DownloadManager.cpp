@@ -135,7 +135,7 @@ void DownloadManager::addConnection(UserConnectionPtr conn) {
         QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);
         removeConnection(conn);
         return;
-	}
+    }
     conn->addListener(this);
     checkDownloads(conn);
 }

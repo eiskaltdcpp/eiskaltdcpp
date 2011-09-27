@@ -26,21 +26,21 @@ namespace ssl {
 template<typename T, void (*Release)(T*)>
 class scoped_handle {
 public:
-	explicit scoped_handle(T* t_ = 0) : t(t_) { }
-	~scoped_handle() { Release(t); }
+    explicit scoped_handle(T* t_ = 0) : t(t_) { }
+    ~scoped_handle() { Release(t); }
 
-	operator T*() { return t; }
-	operator const T*() const { return t; }
+    operator T*() { return t; }
+    operator const T*() const { return t; }
 
-	T* operator->() { return t; }
-	const T* operator->() const { return t; }
+    T* operator->() { return t; }
+    const T* operator->() const { return t; }
 
-	void reset(T* t_ = NULL) { Release(t); t = t_; }
+    void reset(T* t_ = NULL) { Release(t); t = t_; }
 private:
-	scoped_handle(const scoped_handle<T, Release>&);
-	scoped_handle<T, Release>& operator=(const scoped_handle<T, Release>&);
+    scoped_handle(const scoped_handle<T, Release>&);
+    scoped_handle<T, Release>& operator=(const scoped_handle<T, Release>&);
 
-	T* t;
+    T* t;
 };
 
 typedef scoped_handle<ASN1_INTEGER, ASN1_INTEGER_free> ASN1_INTEGER;

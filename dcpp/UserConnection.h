@@ -38,8 +38,8 @@ namespace dcpp {
 #ifdef LUA_SCRIPT
 class UserConnectionScriptInstance : public ScriptInstance {
 protected:
-        bool onUserConnectionMessageIn(UserConnection* aConn, const string& aLine);
-        bool onUserConnectionMessageOut(UserConnection* aConn, const string& aLine);
+    bool onUserConnectionMessageIn(UserConnection* aConn, const string& aLine);
+    bool onUserConnectionMessageOut(UserConnection* aConn, const string& aLine);
 };
 #endif
 
@@ -139,7 +139,7 @@ public:
     void setDataMode(int64_t aBytes = -1) { dcassert(socket); socket->setDataMode(aBytes); }
     void setLineMode(size_t rollback) { dcassert(socket); socket->setLineMode(rollback); }
 
-        void connect(const string& aServer, uint16_t aPort, uint16_t localPort, const BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException);
+    void connect(const string& aServer, uint16_t aPort, uint16_t localPort, const BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException);
     void accept(const Socket& aServer) throw(SocketException, ThreadException);
 
     void updated() { if(socket) socket->updated(); }
@@ -154,7 +154,7 @@ public:
 
     const UserPtr& getUser() const { return user; }
     UserPtr& getUser() { return user; }
-        const HintedUser getHintedUser() const { return HintedUser(user, hubUrl); }
+    const HintedUser getHintedUser() const { return HintedUser(user, hubUrl); }
 
     bool isSecure() const { return socket && socket->isSecure(); }
     bool isTrusted() const { return socket && socket->isTrusted(); }

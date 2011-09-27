@@ -25,21 +25,21 @@
 namespace dcpp {
 
 bool UserCommand::adc(const string& h) {
-        return h.compare(0, 6, "adc://") == 0 || h.compare(0, 7, "adcs://") == 0;
+    return h.compare(0, 6, "adc://") == 0 || h.compare(0, 7, "adcs://") == 0;
 }
 
 const StringList& UserCommand::getDisplayName() const {
-        return displayName;
+    return displayName;
 }
 
 void UserCommand::setDisplayName() {
-        string name_ = name;
-        Util::replace("//", "\t", name_);
-        StringTokenizer<string> t(name_, '/');
-        for(StringList::const_iterator i = t.getTokens().begin(), iend = t.getTokens().end(); i != iend; ++i) {
-                displayName.push_back(*i);
-                Util::replace("\t", "/", displayName.back());
-        }
+    string name_ = name;
+    Util::replace("//", "\t", name_);
+    StringTokenizer<string> t(name_, '/');
+    for(StringList::const_iterator i = t.getTokens().begin(), iend = t.getTokens().end(); i != iend; ++i) {
+        displayName.push_back(*i);
+        Util::replace("\t", "/", displayName.back());
+    }
 }
 
 } // namespace dcpp

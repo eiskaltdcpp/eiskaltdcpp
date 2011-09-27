@@ -777,7 +777,7 @@ msgstr "CLIENT IN"
 
 #: ../ui/cmddebug.ui:84
 msgid "CLIENT OUT"
-msgstr "CLIENT IN"
+msgstr "CLIENT OUT"
 
 #: ../src/cmddebug.cc:33
 msgid "CMD"

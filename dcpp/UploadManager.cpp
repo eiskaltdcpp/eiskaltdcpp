@@ -167,68 +167,68 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                 sourceFile = target;
 
                 try {
-                        File* f = new File(sourceFile, File::READ, File::OPEN | File::SHARED);
+                    File* f = new File(sourceFile, File::READ, File::OPEN | File::SHARED);
 
-                        start = aStartPos;
-                        fileSize = f->getSize();
-                        size = (aBytes == -1) ? fileSize - start : aBytes;
+                    start = aStartPos;
+                    fileSize = f->getSize();
+                    size = (aBytes == -1) ? fileSize - start : aBytes;
 
-                        if((start + size) > fileSize) {
-                                aSource.fileNotAvail();
-                                delete f;
-                                return false;
-                        }
+                    if((start + size) > fileSize) {
+                            aSource.fileNotAvail();
+                            delete f;
+                            return false;
+                    }
 
-                        f->setPos(start);
-                        is = f;
+                    f->setPos(start);
+                    is = f;
 
-                        if((start + size) < fileSize) {
-                                is = new LimitedInputStream<true>(is, size);
-                        }
+                    if((start + size) < fileSize) {
+                            is = new LimitedInputStream<true>(is, size);
+                    }
 
-                        partial = true;
-                        type = Transfer::TYPE_FILE;
-                        goto ok;
+                    partial = true;
+                    type = Transfer::TYPE_FILE;
+                    goto ok;
                 } catch(const Exception&) {
-                        aSource.fileNotAvail();
-                        //aSource.disconnect();
-                        delete is;
-                        return false;
+                    aSource.fileNotAvail();
+                    //aSource.disconnect();
+                    delete is;
+                    return false;
                 }
             } else {
                 // Share finished file
                 target = FinishedManager::getInstance()->getTarget(fileHash.toBase32());
 
                 if(!target.empty() && Util::fileExists(target)){
-                        sourceFile = target;
-                        try {
-                            File* f = new File(sourceFile, File::READ, File::OPEN | File::SHARED);
+                    sourceFile = target;
+                    try {
+                        File* f = new File(sourceFile, File::READ, File::OPEN | File::SHARED);
 
-                            start = aStartPos;
-                            int64_t sz = f->getSize();
-                            size = (aBytes == -1) ? sz - start : aBytes;
-                            fileSize = sz;
+                        start = aStartPos;
+                        int64_t sz = f->getSize();
+                        size = (aBytes == -1) ? sz - start : aBytes;
+                        fileSize = sz;
 
-                            if((start + size) > sz) {
-                                aSource.fileNotAvail();
-                                delete f;
-                                return false;
-                            }
-
-                            f->setPos(start);
-                            is = f;
-                            if((start + size) < sz) {
-                                is = new LimitedInputStream<true>(is, size);
-                            }
-
-                            partial = true;
-                            type = Transfer::TYPE_FILE;
-                            goto ok;
-                        }catch(const Exception&){
+                        if((start + size) > sz) {
                             aSource.fileNotAvail();
-                            delete is;
+                            delete f;
                             return false;
                         }
+
+                        f->setPos(start);
+                        is = f;
+                        if((start + size) < sz) {
+                            is = new LimitedInputStream<true>(is, size);
+                        }
+
+                        partial = true;
+                        type = Transfer::TYPE_FILE;
+                        goto ok;
+                    }catch(const Exception&){
+                        aSource.fileNotAvail();
+                        delete is;
+                        return false;
+                    }
                 }
             }
         }
@@ -451,21 +451,21 @@ void UploadManager::on(UserConnectionListener::TransmitDone, UserConnection* aSo
 }
 
 void UploadManager::notifyQueuedUsers() {
-        Lock l(cs);
-        int freeSlots = getFreeSlots()*2;               //because there will be non-connecting users
+    Lock l(cs);
+    int freeSlots = getFreeSlots()*2;               //because there will be non-connecting users
 
-        //while all contacted users may not connect, many probably will; it's fine that the rest are filled with randomly allocated slots
-        while (freeSlots) {
-                //get rid of offline users
-                while (!waitingUsers.empty() && !waitingUsers.front().first.user->isOnline()) waitingUsers.pop_front();
-                if (waitingUsers.empty()) break;                //no users to notify
+    //while all contacted users may not connect, many probably will; it's fine that the rest are filled with randomly allocated slots
+    while (freeSlots) {
+        //get rid of offline users
+        while (!waitingUsers.empty() && !waitingUsers.front().first.user->isOnline()) waitingUsers.pop_front();
+        if (waitingUsers.empty()) break;                //no users to notify
 
-                // FIXME: record and replay a client url hint URL
-                ClientManager::getInstance()->connect(waitingUsers.front().first, Util::toString(Util::rand()));
-                --freeSlots;
+        // FIXME: record and replay a client url hint URL
+        ClientManager::getInstance()->connect(waitingUsers.front().first, Util::toString(Util::rand()));
+        --freeSlots;
 
-                waitingUsers.pop_front();
-        }
+        waitingUsers.pop_front();
+    }
 }
 
 void UploadManager::addFailedUpload(const UserConnection& source, string filename) {
@@ -633,7 +633,7 @@ void UploadManager::on(TimerManagerListener::Second, uint64_t) noexcept {
     if(!uploads.empty())
         fire(UploadManagerListener::Tick(), UploadList(uploads));
 
-		//notifyQueuedUsers();
+        //notifyQueuedUsers();
 }
 
 void UploadManager::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) noexcept {

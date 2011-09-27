@@ -92,19 +92,18 @@ static string getDownloadsPath(const string& def) {
 
     if(!shell32) {
         shell32 = ::LoadLibrary(_T("Shell32.dll"));
-        if(shell32)
-        {
+        if(shell32) {
             getKnownFolderPath = (_SHGetKnownFolderPath)::GetProcAddress(shell32, "SHGetKnownFolderPath");
 
             if(getKnownFolderPath) {
-                 PWSTR path = NULL;
-                 // Defined in KnownFolders.h.
-                 static GUID downloads = {0x374de290, 0x123f, 0x4565, {0x91, 0x64, 0x39, 0xc4, 0x92, 0x5e, 0x46, 0x7b}};
-                 if(getKnownFolderPath(downloads, 0, NULL, &path) == S_OK) {
-                     string ret = Text::fromT((const tstring&)path) + "\\";
-                     ::CoTaskMemFree(path);
-                     return ret;
-                 }
+                PWSTR path = NULL;
+                // Defined in KnownFolders.h.
+                static GUID downloads = {0x374de290, 0x123f, 0x4565, {0x91, 0x64, 0x39, 0xc4, 0x92, 0x5e, 0x46, 0x7b}};
+                if(getKnownFolderPath(downloads, 0, NULL, &path) == S_OK) {
+                    string ret = Text::fromT((const tstring&)path) + "\\";
+                    ::CoTaskMemFree(path);
+                    return ret;
+                }
             }
         }
     }
@@ -412,15 +411,15 @@ string Util::validateFileName(string tmp) {
 }
 
 bool Util::checkExtension(const string& tmp) {
-        for(int i = 0; i < tmp.length(); i++) {
-                if (tmp[i] < 0 || tmp[i] == 32 || tmp[i] == ':') {
-                        return false;
-                }
+    for(int i = 0; i < tmp.length(); i++) {
+        if (tmp[i] < 0 || tmp[i] == 32 || tmp[i] == ':') {
+            return false;
         }
-        if(tmp.find_first_of(badChars, 0) != string::npos) {
-                return false;
-        }
-        return true;
+    }
+    if(tmp.find_first_of(badChars, 0) != string::npos) {
+        return false;
+    }
+    return true;
 }
 
 string Util::cleanPathChars(string aNick) {
@@ -454,135 +453,135 @@ string Util::getShortTimeString(time_t t) {
  * dchub:// -> port 411
  */
 void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment) {
-        size_t fragmentEnd = url.size();
-        size_t fragmentStart = url.rfind('#');
+    size_t fragmentEnd = url.size();
+    size_t fragmentStart = url.rfind('#');
 
-        size_t queryEnd;
-        if(fragmentStart == string::npos) {
-                queryEnd = fragmentStart = fragmentEnd;
+    size_t queryEnd;
+    if(fragmentStart == string::npos) {
+            queryEnd = fragmentStart = fragmentEnd;
+    } else {
+            dcdebug("f");
+            queryEnd = fragmentStart;
+            fragmentStart++;
+    }
+
+    size_t queryStart = url.rfind('?', queryEnd);
+    size_t fileEnd;
+
+    //if(queryStart == string::npos) {
+            fileEnd = queryStart = queryEnd;
+    //} else {
+            //dcdebug("q");
+            //fileEnd = queryStart;
+            //queryStart++;
+    //}
+
+    size_t protoStart = 0;
+    size_t protoEnd = url.find("://", protoStart);
+
+    size_t authorityStart = protoEnd == string::npos ? protoStart : protoEnd + 3;
+    size_t authorityEnd = url.find_first_of("/#?", authorityStart);
+
+    size_t fileStart;
+    if(authorityEnd == string::npos) {
+            authorityEnd = fileStart = fileEnd;
+    } else {
+            dcdebug("a");
+            fileStart = authorityEnd;
+    }
+
+    protocol = url.substr(protoStart, protoEnd - protoStart);
+
+    if(authorityEnd > authorityStart) {
+        dcdebug("x");
+        size_t portStart = string::npos;
+        if(url[authorityStart] == '[') {
+            // IPv6?
+            size_t hostEnd = url.find(']');
+            if(hostEnd == string::npos) {
+                    return;
+            }
+
+            host = url.substr(authorityStart, hostEnd - authorityStart);
+            if(hostEnd + 1 < url.size() && url[hostEnd + 1] == ':') {
+                portStart = hostEnd + 1;
+            }
         } else {
-                dcdebug("f");
-                queryEnd = fragmentStart;
-                fragmentStart++;
+            size_t hostEnd;
+            portStart = url.find(':', authorityStart);
+            if(portStart != string::npos && portStart > authorityEnd) {
+                    portStart = string::npos;
+            }
+
+            if(portStart == string::npos) {
+                hostEnd = authorityEnd;
+            } else {
+                hostEnd = portStart;
+                portStart++;
+            }
+
+            dcdebug("h");
+            host = url.substr(authorityStart, hostEnd - authorityStart);
         }
 
-        size_t queryStart = url.rfind('?', queryEnd);
-        size_t fileEnd;
-
-        //if(queryStart == string::npos) {
-                fileEnd = queryStart = queryEnd;
-        //} else {
-                //dcdebug("q");
-                //fileEnd = queryStart;
-                //queryStart++;
-        //}
-
-        size_t protoStart = 0;
-        size_t protoEnd = url.find("://", protoStart);
-
-        size_t authorityStart = protoEnd == string::npos ? protoStart : protoEnd + 3;
-        size_t authorityEnd = url.find_first_of("/#?", authorityStart);
-
-        size_t fileStart;
-        if(authorityEnd == string::npos) {
-                authorityEnd = fileStart = fileEnd;
+        if(portStart == string::npos) {
+            if(protocol == "http") {
+                port = 80;
+            } else if(protocol == "https") {
+                port = 443;
+            } else if(protocol == "dchub") {
+                port = 411;
+            } else {
+                port = 411;
+            }
         } else {
-                dcdebug("a");
-                fileStart = authorityEnd;
+            dcdebug("p");
+            port = static_cast<uint16_t>(Util::toInt(url.substr(portStart, authorityEnd - portStart)));
         }
+    }
 
-        protocol = url.substr(protoStart, protoEnd - protoStart);
-
-        if(authorityEnd > authorityStart) {
-                dcdebug("x");
-                size_t portStart = string::npos;
-                if(url[authorityStart] == '[') {
-                        // IPv6?
-                        size_t hostEnd = url.find(']');
-                        if(hostEnd == string::npos) {
-                                return;
-                        }
-
-                        host = url.substr(authorityStart, hostEnd - authorityStart);
-                        if(hostEnd + 1 < url.size() && url[hostEnd + 1] == ':') {
-                                portStart = hostEnd + 1;
-                        }
-                } else {
-                        size_t hostEnd;
-                        portStart = url.find(':', authorityStart);
-                        if(portStart != string::npos && portStart > authorityEnd) {
-                                portStart = string::npos;
-                        }
-
-                        if(portStart == string::npos) {
-                                hostEnd = authorityEnd;
-                        } else {
-                                hostEnd = portStart;
-                                portStart++;
-                        }
-
-                        dcdebug("h");
-                        host = url.substr(authorityStart, hostEnd - authorityStart);
-                }
-
-                if(portStart == string::npos) {
-                        if(protocol == "http") {
-                                port = 80;
-                        } else if(protocol == "https") {
-                                port = 443;
-                        } else if(protocol == "dchub") {
-                                port = 411;
-                        } else {
-                            port = 411;
-                        }
-                } else {
-                        dcdebug("p");
-                        port = static_cast<uint16_t>(Util::toInt(url.substr(portStart, authorityEnd - portStart)));
-                }
-        }
-
-        dcdebug("\n");
-        path = url.substr(fileStart, fileEnd - fileStart);
-        query = url.substr(queryStart, queryEnd - queryStart);
-        fragment = url.substr(fragmentStart, fragmentEnd - fragmentStart);
+    dcdebug("\n");
+    path = url.substr(fileStart, fileEnd - fileStart);
+    query = url.substr(queryStart, queryEnd - queryStart);
+    fragment = url.substr(fragmentStart, fragmentEnd - fragmentStart);
 
 #ifdef USE_IDNA
-        //printf("%s\n",host.c_str());
-        char *p;
-        if (idna_to_ascii_8z(host.c_str(), &p, 0) == IDNA_SUCCESS) {
-            host = string(p);
-        }
-        free(p);
-        //printf ("ACE label (length %d): '%s'\n", strlen (p), p);
-        //printf ("%s\n", host.c_str());
+    //printf("%s\n",host.c_str());
+    char *p;
+    if (idna_to_ascii_8z(host.c_str(), &p, 0) == IDNA_SUCCESS) {
+        host = string(p);
+    }
+    free(p);
+    //printf ("ACE label (length %d): '%s'\n", strlen (p), p);
+    //printf ("%s\n", host.c_str());
 #endif
-        //printf("protocol:%s\n host:%s\n port:%d\n path:%s\n query:%s\n fragment:%s\n", protocol.c_str(), host.c_str(), port, path.c_str(), query.c_str(), fragment.c_str());
+    //printf("protocol:%s\n host:%s\n port:%d\n path:%s\n query:%s\n fragment:%s\n", protocol.c_str(), host.c_str(), port, path.c_str(), query.c_str(), fragment.c_str());
 }
 
 map<string, string> Util::decodeQuery(const string& query) {
-        map<string, string> ret;
-        size_t start = 0;
-        while(start < query.size()) {
-                size_t eq = query.find('=', start);
-                if(eq == string::npos) {
-                        break;
-                }
-
-                size_t param = eq + 1;
-                size_t end = query.find('&', param);
-
-                if(end == string::npos) {
-                        end = query.size();
-                }
-
-                if(eq > start && end > param) {
-                        ret[query.substr(start, eq-start)] = query.substr(param, end - param);
-                }
-
-                start = end + 1;
+    map<string, string> ret;
+    size_t start = 0;
+    while(start < query.size()) {
+        size_t eq = query.find('=', start);
+        if(eq == string::npos) {
+            break;
         }
 
-        return ret;
+        size_t param = eq + 1;
+        size_t end = query.find('&', param);
+
+        if(end == string::npos) {
+            end = query.size();
+        }
+
+        if(eq > start && end > param) {
+            ret[query.substr(start, eq-start)] = query.substr(param, end - param);
+        }
+
+        start = end + 1;
+    }
+
+    return ret;
 }
 
 string Util::getAwayMessage() {
@@ -610,34 +609,34 @@ string Util::formatBytes(int64_t aBytes) {
 
 string Util::formatExactSize(int64_t aBytes) {
 #ifdef _WIN32
-        TCHAR tbuf[128];
-        TCHAR number[64];
-        NUMBERFMT nf;
-        _sntprintf(number, 64, _T("%I64d"), aBytes);
-        TCHAR Dummy[16];
-        TCHAR sep[2] = _T(",");
+    TCHAR tbuf[128];
+    TCHAR number[64];
+    NUMBERFMT nf;
+    _sntprintf(number, 64, _T("%I64d"), aBytes);
+    TCHAR Dummy[16];
+    TCHAR sep[2] = _T(",");
 
-        /*No need to read these values from the system because they are not
-        used to format the exact size*/
-        nf.NumDigits = 0;
-        nf.LeadingZero = 0;
-        nf.NegativeOrder = 0;
-        nf.lpDecimalSep = sep;
+    /*No need to read these values from the system because they are not
+    used to format the exact size*/
+    nf.NumDigits = 0;
+    nf.LeadingZero = 0;
+    nf.NegativeOrder = 0;
+    nf.lpDecimalSep = sep;
 
-        GetLocaleInfo( LOCALE_SYSTEM_DEFAULT, LOCALE_SGROUPING, Dummy, 16 );
-        nf.Grouping = Util::toInt(Text::fromT(Dummy));
-        GetLocaleInfo( LOCALE_SYSTEM_DEFAULT, LOCALE_STHOUSAND, Dummy, 16 );
-        nf.lpThousandSep = Dummy;
+    GetLocaleInfo( LOCALE_SYSTEM_DEFAULT, LOCALE_SGROUPING, Dummy, 16 );
+    nf.Grouping = Util::toInt(Text::fromT(Dummy));
+    GetLocaleInfo( LOCALE_SYSTEM_DEFAULT, LOCALE_STHOUSAND, Dummy, 16 );
+    nf.lpThousandSep = Dummy;
 
-        GetNumberFormat(LOCALE_USER_DEFAULT, 0, number, &nf, tbuf, sizeof(tbuf)/sizeof(tbuf[0]));
+    GetNumberFormat(LOCALE_USER_DEFAULT, 0, number, &nf, tbuf, sizeof(tbuf)/sizeof(tbuf[0]));
 
-        char buf[128];
-        _snprintf(buf, sizeof(buf), _("%s B"), Text::fromT(tbuf).c_str());
-        return buf;
+    char buf[128];
+    _snprintf(buf, sizeof(buf), _("%s B"), Text::fromT(tbuf).c_str());
+    return buf;
 #else
-        char buf[128];
-        snprintf(buf, sizeof(buf), _("%'lld B"), (long long int)aBytes);
-        return string(buf);
+    char buf[128];
+    snprintf(buf, sizeof(buf), _("%'lld B"), (long long int)aBytes);
+    return string(buf);
 #endif
 }
 
@@ -777,21 +776,21 @@ static wchar_t utf8ToLC(ccp& str) {
 }
 
 string Util::toString(const string& sep, const StringList& lst) {
-        string ret;
-        for(StringList::const_iterator i = lst.begin(), iend = lst.end(); i != iend; ++i) {
-                ret += *i;
-                if(i + 1 != iend)
-                        ret += sep;
-        }
-        return ret;
+    string ret;
+    for(StringList::const_iterator i = lst.begin(), iend = lst.end(); i != iend; ++i) {
+        ret += *i;
+        if(i + 1 != iend)
+            ret += sep;
+    }
+    return ret;
 }
 
 string Util::toString(const StringList& lst) {
-        if(lst.empty())
-                return emptyString;
-        if(lst.size() == 1)
-                return lst[0];
-        return '[' + toString(",", lst) + ']';
+    if(lst.empty())
+        return emptyString;
+    if(lst.size() == 1)
+        return lst[0];
+    return '[' + toString(",", lst) + ']';
 }
 
 string::size_type Util::findSubString(const string& aString, const string& aSubString, string::size_type start) noexcept {
@@ -953,7 +952,7 @@ string Util::formatParams(const string& msg, const StringMap& params, bool filte
             break;
         }
         string name = result.substr(j + 2, k - j - 2);
-                StringMap::const_iterator smi = params.find(name);
+        StringMap::const_iterator smi = params.find(name);
         if(smi == params.end()) {
             result.erase(j, k-j + 1);
             i = j;
@@ -1010,12 +1009,12 @@ string Util::formatTime(const string &msg, const time_t t) {
         }
 
 #ifdef _WIN32
-                if(!Text::validateUtf8(buf))
+        if(!Text::validateUtf8(buf))
 #endif
-                {
-                        buf = Text::toUtf8(buf);
-                }
-                return buf;
+        {
+            buf = Text::toUtf8(buf);
+        }
+        return buf;
     }
     return Util::emptyString;
 }
@@ -1210,12 +1209,12 @@ void Util::setAway(bool aAway) {
  }
 
 string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
-	string ret = Util::emptyString;
+    string ret = Util::emptyString;
 
-	if(!aIp.empty()) {
-		string cc = Util::getIpCountry(aIp);
-		bool showIp = BOOLSETTING(USE_IP) || sIp;
-		bool showCc = (BOOLSETTING(GET_USER_COUNTRY) || sCC) && !cc.empty();
+    if(!aIp.empty()) {
+        string cc = Util::getIpCountry(aIp);
+        bool showIp = BOOLSETTING(USE_IP) || sIp;
+        bool showCc = (BOOLSETTING(GET_USER_COUNTRY) || sCC) && !cc.empty();
 
         if(showIp) {
             int ll = 15 - aIp.size();
@@ -1225,15 +1224,15 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
                 ret = "[" + tmp + aIp + "] ";
             } else
                 ret = "[" + aIp + "] ";
-		}
+        }
         //printf("%s\n",ret.c_str());
-		if(showCc) {
-			ret += "[" + cc + "] ";
+        if(showCc) {
+            ret += "[" + cc + "] ";
         //printf("%s\n",ret.c_str());
-		}
+        }
         //printf("%s\n",ret.c_str());
-	}
-	return Text::toT(ret);
+    }
+    return Text::toT(ret);
 }
 
 bool Util::fileExists(const string &aFile) {

@@ -43,7 +43,7 @@ struct StringTask : public Task {
 
 class TaskQueue {
 public:
-        typedef pair<int, unique_ptr<Task>> Pair;
+    typedef pair<int, unique_ptr<Task>> Pair;
     typedef vector<Pair> List;
 
     TaskQueue() {
@@ -53,7 +53,7 @@ public:
         clear();
     }
 
-        void add(int type, std::unique_ptr<Task> && data) { Lock l(cs); tasks.push_back(make_pair(type, move(data))); }
+    void add(int type, std::unique_ptr<Task> && data) { Lock l(cs); tasks.push_back(make_pair(type, move(data))); }
     void get(List& list) { Lock l(cs); swap(tasks, list); }
     void clear() {
         List tmp;

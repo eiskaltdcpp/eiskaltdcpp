@@ -79,15 +79,15 @@ size_t ClientManager::getUserCount() const {
 }
 
 StringList ClientManager::getHubs(const CID& cid, const string& hintUrl) {
-        return getHubs(cid, hintUrl, FavoriteManager::getInstance()->isPrivate(hintUrl));
+    return getHubs(cid, hintUrl, FavoriteManager::getInstance()->isPrivate(hintUrl));
 }
 
 StringList ClientManager::getHubNames(const CID& cid, const string& hintUrl) {
-        return getHubNames(cid, hintUrl, FavoriteManager::getInstance()->isPrivate(hintUrl));
+    return getHubNames(cid, hintUrl, FavoriteManager::getInstance()->isPrivate(hintUrl));
 }
 
 StringList ClientManager::getNicks(const CID& cid, const string& hintUrl) {
-        return getNicks(cid, hintUrl, FavoriteManager::getInstance()->isPrivate(hintUrl));
+    return getNicks(cid, hintUrl, FavoriteManager::getInstance()->isPrivate(hintUrl));
 }
 
 StringList ClientManager::getHubs(const CID& cid, const string& hintUrl, bool priv) {
@@ -148,25 +148,25 @@ StringList ClientManager::getNicks(const CID& cid, const string& hintUrl, bool p
 }
 
 string ClientManager::getField(const CID& cid, const string& hint, const char* field) const {
-        Lock l(cs);
+    Lock l(cs);
 
-        OnlinePairC p;
-        OnlineUser* u = findOnlineUserHint(cid, hint, p);
-        if(u) {
-                string value = u->getIdentity().get(field);
-                if(!value.empty()) {
-                        return value;
-                }
+    OnlinePairC p;
+    OnlineUser* u = findOnlineUserHint(cid, hint, p);
+    if(u) {
+        string value = u->getIdentity().get(field);
+        if(!value.empty()) {
+            return value;
         }
+    }
 
-        for(OnlineIterC i = p.first; i != p.second; ++i) {
-                string value = i->second->getIdentity().get(field);
-                if(!value.empty()) {
-                        return value;
-                }
+    for(OnlineIterC i = p.first; i != p.second; ++i) {
+        string value = i->second->getIdentity().get(field);
+        if(!value.empty()) {
+            return value;
         }
+    }
 
-        return Util::emptyString;
+    return Util::emptyString;
 }
 
 string ClientManager::getConnection(const CID& cid) const {
@@ -379,19 +379,19 @@ OnlineUser* ClientManager::findOnlineUser(const HintedUser& user, bool priv) {
 }
 
 OnlineUser* ClientManager::findOnlineUser(const CID& cid, const string& hintUrl, bool priv) {
-        OnlinePairC p;
-        OnlineUser* u = findOnlineUserHint(cid, hintUrl, p);
-        if(u) // found an exact match (CID + hint).
-                return u;
+    OnlinePairC p;
+    OnlineUser* u = findOnlineUserHint(cid, hintUrl, p);
+    if(u) // found an exact match (CID + hint).
+        return u;
 
-        if(p.first == p.second) // no user found with the given CID.
-                return 0;
+    if(p.first == p.second) // no user found with the given CID.
+        return 0;
 
-        // if the hint hub is private, don't allow connecting to the same user from another hub.
-        if(priv)
-                return 0;
+    // if the hint hub is private, don't allow connecting to the same user from another hub.
+    if(priv)
+        return 0;
 
-        // ok, hub not private, return a random user that matches the given CID but not the hint.
+    // ok, hub not private, return a random user that matches the given CID but not the hint.
     return p.first->second;
 }
 
@@ -402,7 +402,7 @@ void ClientManager::connect(const HintedUser& user, const string& token) {
     OnlineUser* u = findOnlineUser(user, priv);
 
     if(u) {
-            u->getClient().connect(*u, token);
+        u->getClient().connect(*u, token);
     }
 }
 
@@ -418,25 +418,25 @@ void ClientManager::privateMessage(const HintedUser& user, const string& msg, bo
 }
 
 void ClientManager::userCommand(const HintedUser& user, const UserCommand& uc, StringMap& params, bool compatibility) {
-        Lock l(cs);
-        /** @todo we allow wrong hints for now ("false" param of findOnlineUser) because users
-         * extracted from search results don't always have a correct hint; see
-         * SearchManager::onRES(const AdcCommand& cmd, ...). when that is done, and SearchResults are
-         * switched to storing only reliable HintedUsers (found with the token of the ADC command),
-         * change this call to findOnlineUserHint. */
-        OnlineUser* ou = findOnlineUser(user.user->getCID(), user.hint.empty() ? uc.getHub() : user.hint, false);
-        if(!ou 
+    Lock l(cs);
+    /** @todo we allow wrong hints for now ("false" param of findOnlineUser) because users
+     * extracted from search results don't always have a correct hint; see
+     * SearchManager::onRES(const AdcCommand& cmd, ...). when that is done, and SearchResults are
+     * switched to storing only reliable HintedUsers (found with the token of the ADC command),
+     * change this call to findOnlineUserHint. */
+    OnlineUser* ou = findOnlineUser(user.user->getCID(), user.hint.empty() ? uc.getHub() : user.hint, false);
+    if(!ou
 #ifdef WITH_DHT
-               || ou->getClientBase().type == ClientBase::DHT
+       || ou->getClientBase().type == ClientBase::DHT
 #endif
                                                              )
-                return;
+        return;
 
-        ou->getIdentity().getParams(params, "user", compatibility);
-        ou->getClient().getHubIdentity().getParams(params, "hub", false);
-        ou->getClient().getMyIdentity().getParams(params, "my", compatibility);
-        ou->getClient().escapeParams(params);
-        ou->getClient().sendUserCmd(uc, params);
+    ou->getIdentity().getParams(params, "user", compatibility);
+    ou->getClient().getHubIdentity().getParams(params, "hub", false);
+    ou->getClient().getMyIdentity().getParams(params, "my", compatibility);
+    ou->getClient().escapeParams(params);
+    ou->getClient().sendUserCmd(uc, params);
 }
 
 void ClientManager::send(AdcCommand& cmd, const CID& cid) {
@@ -445,11 +445,11 @@ void ClientManager::send(AdcCommand& cmd, const CID& cid) {
     if(i != onlineUsers.end()) {
         OnlineUser& u = *i->second;
         if(cmd.getType() == AdcCommand::TYPE_UDP && !u.getIdentity().isUdpActive()) {
-            if(u.getUser()->isNMDC() 
+            if(u.getUser()->isNMDC()
 #ifdef WITH_DHT
-                                     || u.getClientBase().getType() == Client::DHT
+                || u.getClientBase().getType() == Client::DHT
 #endif
-                                                                                  )
+                                                              )
                 return;
             cmd.setType(AdcCommand::TYPE_DIRECT);
             cmd.setTo(u.getIdentity().getSID());
@@ -638,73 +638,73 @@ CID ClientManager::getMyCID() {
 }
 
 void ClientManager::updateNick(const OnlineUser& user) noexcept {
-        if(!user.getIdentity().getNick().empty()) {
-    Lock l(cs);
-                NickMap::iterator i = nicks.find(user.getUser()->getCID());
-                if(i == nicks.end()) {
-                        nicks[user.getUser()->getCID()] = std::make_pair(user.getIdentity().getNick(), false);
-                } else {
-                        i->second.first = user.getIdentity().getNick();
-                }
+    if(!user.getIdentity().getNick().empty()) {
+        Lock l(cs);
+        NickMap::iterator i = nicks.find(user.getUser()->getCID());
+        if(i == nicks.end()) {
+                nicks[user.getUser()->getCID()] = std::make_pair(user.getIdentity().getNick(), false);
+        } else {
+                i->second.first = user.getIdentity().getNick();
         }
     }
+}
 
 void ClientManager::loadUsers() {
-        try {
-                SimpleXML xml;
-                xml.fromXML(File(getUsersFile(), File::READ, File::OPEN).read());
+    try {
+        SimpleXML xml;
+        xml.fromXML(File(getUsersFile(), File::READ, File::OPEN).read());
 
-                if(xml.findChild("Users")) {
-                        xml.stepIn();
+        if(xml.findChild("Users")) {
+            xml.stepIn();
 
-                        {
-                                Lock l(cs);
-                                while(xml.findChild("User")) {
-                                        nicks[CID(xml.getChildAttrib("CID"))] = std::make_pair(xml.getChildAttrib("Nick"), false);
-                                }
-                        }
-
-                        xml.stepOut();
+            {
+                Lock l(cs);
+                while(xml.findChild("User")) {
+                    nicks[CID(xml.getChildAttrib("CID"))] = std::make_pair(xml.getChildAttrib("Nick"), false);
                 }
-        } catch(const Exception&) { }
-    }
+            }
+
+            xml.stepOut();
+        }
+    } catch(const Exception&) { }
+}
 
 void ClientManager::saveUsers() const {
-        try {
-                SimpleXML xml;
-                xml.addTag("Users");
-                xml.stepIn();
+    try {
+        SimpleXML xml;
+        xml.addTag("Users");
+        xml.stepIn();
 
-                {
-                        Lock l(cs);
-                        for(NickMap::const_iterator i = nicks.begin(), iend = nicks.end(); i != iend; ++i) {
-                                if(i->second.second) {
-                                        xml.addTag("User");
-                                        xml.addChildAttrib("CID", i->first.toBase32());
-                                        xml.addChildAttrib("Nick", i->second.first);
-                                }
-                        }
+        {
+            Lock l(cs);
+            for(NickMap::const_iterator i = nicks.begin(), iend = nicks.end(); i != iend; ++i) {
+                if(i->second.second) {
+                    xml.addTag("User");
+                    xml.addChildAttrib("CID", i->first.toBase32());
+                    xml.addChildAttrib("Nick", i->second.first);
                 }
+            }
+        }
 
-                xml.stepOut();
+        xml.stepOut();
 
-                const string fName = getUsersFile();
-                File out(fName + ".tmp", File::WRITE, File::CREATE | File::TRUNCATE);
-                BufferedOutputStream<false> f(&out);
-                f.write(SimpleXML::utf8Header);
-                xml.toXML(&f);
-                f.flush();
-                out.close();
-                File::deleteFile(fName);
-                File::renameFile(fName + ".tmp", fName);
-        } catch(const Exception&) { }
+        const string fName = getUsersFile();
+        File out(fName + ".tmp", File::WRITE, File::CREATE | File::TRUNCATE);
+        BufferedOutputStream<false> f(&out);
+        f.write(SimpleXML::utf8Header);
+        xml.toXML(&f);
+        f.flush();
+        out.close();
+        File::deleteFile(fName);
+        File::renameFile(fName + ".tmp", fName);
+    } catch(const Exception&) { }
 }
 
 void ClientManager::saveUser(const CID& cid) {
-        Lock l(cs);
-        NickMap::iterator i = nicks.find(cid);
-        if(i != nicks.end())
-                i->second.second = true;
+    Lock l(cs);
+    NickMap::iterator i = nicks.find(cid);
+    if(i != nicks.end())
+        i->second.second = true;
 }
 
 void ClientManager::on(Connected, Client* c) noexcept {
@@ -746,26 +746,26 @@ void ClientManager::on(HubUserCommand, Client* client, int aType, int ctx, const
 }
 int ClientManager::getMode(const string& aHubUrl) const {
 
-        if(aHubUrl.empty())
-                return SETTING(INCOMING_CONNECTIONS);
+    if(aHubUrl.empty())
+        return SETTING(INCOMING_CONNECTIONS);
 
-        int mode = 0;
-        const FavoriteHubEntry* hub = FavoriteManager::getInstance()->getFavoriteHubEntry(aHubUrl);
-        if(hub) {
-            switch(hub->getMode()) {
-                    case 1 :
-                            mode = SettingsManager::INCOMING_DIRECT;
-                            break;
-                    case 2 :
-                            mode = SettingsManager::INCOMING_FIREWALL_PASSIVE;
-                            break;
-                    default:
-                            mode = SETTING(INCOMING_CONNECTIONS);
-            }
-        } else {
+    int mode = 0;
+    const FavoriteHubEntry* hub = FavoriteManager::getInstance()->getFavoriteHubEntry(aHubUrl);
+    if(hub) {
+        switch(hub->getMode()) {
+            case 1 :
+                mode = SettingsManager::INCOMING_DIRECT;
+                break;
+            case 2 :
+                mode = SettingsManager::INCOMING_FIREWALL_PASSIVE;
+                break;
+            default:
                 mode = SETTING(INCOMING_CONNECTIONS);
         }
-        return mode;
+    } else {
+        mode = SETTING(INCOMING_CONNECTIONS);
+    }
+    return mode;
 }
 
 void ClientManager::cancelSearch(void* aOwner) {
@@ -777,62 +777,61 @@ void ClientManager::cancelSearch(void* aOwner) {
 }
 
 #ifdef WITH_DHT
-OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const
-{
-        Lock l(cs);
+OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const {
+    Lock l(cs);
 
-        OnlinePairC op = onlineUsers.equal_range(cid);
-        for(OnlineIterC i = op.first; i != op.second; ++i) {
-                OnlineUser* ou = i->second;
+    OnlinePairC op = onlineUsers.equal_range(cid);
+    for(OnlineIterC i = op.first; i != op.second; ++i) {
+        OnlineUser* ou = i->second;
 
-                // user not in DHT, so don't bother with other hubs
-                if(!ou->getUser()->isSet(User::DHT))
-                        break;
+        // user not in DHT, so don't bother with other hubs
+        if(!ou->getUser()->isSet(User::DHT))
+            break;
 
-                if(ou->getClientBase().getType() == Client::DHT)
-                        return ou;
-        }
+        if(ou->getClientBase().getType() == Client::DHT)
+            return ou;
+    }
 
-        return NULL;
+    return NULL;
 }
 #endif
 
 #ifdef LUA_SCRIPT
 bool ClientManager::ucExecuteLua(const string& ucCommand, StringMap& params) noexcept {
-        bool executedlua = false;
-        string::size_type i, j, k;
-        i = j = k = 0;
-        string tmp = ucCommand;
-        while( (i = tmp.find("%[lua:", i)) != string::npos) {
-                i += 6;
-                j = tmp.find(']', i);
-                if(j == string::npos)
-                        break;
-                string chunk = tmp.substr(i, j-i);
-                // for making possible using %[nick] and similar parameters too
-                // !%!{nick!}
-                k = 0;
-                while( (k = chunk.find("!%")) != string::npos) {
-                        chunk.erase(k, 2);
-                        chunk.insert(k, "%");
-                }
-                k = 0;
-                while( (k = chunk.find("!{")) != string::npos) {
-                        chunk.erase(k, 2);
-                        chunk.insert(k, "[");
-                }
-                k = 0;
-                while( (k = chunk.find("!}")) != string::npos) {
-                        chunk.erase(k, 2);
-                        chunk.insert(k, "]");
-                }
-                //@todo: use filter? I opted for no here, but this means Lua has to be careful about
-                //filtering if it cares.
-                ScriptManager::getInstance()->EvaluateChunk(Util::formatParams(chunk, params, false));
-                executedlua = true;
-                i = j + 1;
+    bool executedlua = false;
+    string::size_type i, j, k;
+    i = j = k = 0;
+    string tmp = ucCommand;
+    while( (i = tmp.find("%[lua:", i)) != string::npos) {
+        i += 6;
+        j = tmp.find(']', i);
+        if(j == string::npos)
+            break;
+        string chunk = tmp.substr(i, j-i);
+        // for making possible using %[nick] and similar parameters too
+        // !%!{nick!}
+        k = 0;
+        while( (k = chunk.find("!%")) != string::npos) {
+            chunk.erase(k, 2);
+            chunk.insert(k, "%");
         }
-        return executedlua;
+        k = 0;
+        while( (k = chunk.find("!{")) != string::npos) {
+            chunk.erase(k, 2);
+            chunk.insert(k, "[");
+        }
+        k = 0;
+        while( (k = chunk.find("!}")) != string::npos) {
+            chunk.erase(k, 2);
+            chunk.insert(k, "]");
+        }
+        //@todo: use filter? I opted for no here, but this means Lua has to be careful about
+        //filtering if it cares.
+        ScriptManager::getInstance()->EvaluateChunk(Util::formatParams(chunk, params, false));
+        executedlua = true;
+        i = j + 1;
+    }
+    return executedlua;
 }
 #endif // LUA_SCRIPT
 } // namespace dcpp

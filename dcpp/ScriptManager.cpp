@@ -60,8 +60,7 @@ LUALIB_API int lua_dofile (lua_State *L, const char *filename) {
   return aux_do(L, luaL_loadfile(L, filename));
 }
 
-LUALIB_API int lua_dobuffer (lua_State *L, const char *buff, size_t size,
-                          const char *name) {
+LUALIB_API int lua_dobuffer (lua_State *L, const char *buff, size_t size, const char *name) {
   return aux_do(L, luaL_loadbuffer(L, buff, size, name));
 }
 
@@ -220,8 +219,8 @@ int LuaManager::GetSetting(lua_State* L) {
 int LuaManager::ToUtf8(lua_State* L) {
     /* arguments: string */
     if(lua_gettop(L) == 1 && lua_isstring(L, -1) ) {
-            lua_pushstring(L, Text::acpToUtf8(lua_tostring(L, -1)).c_str());
-            return 1;
+        lua_pushstring(L, Text::acpToUtf8(lua_tostring(L, -1)).c_str());
+        return 1;
     } else {
         lua_pushliteral(L, "ToUtf8: string needed as argument");
         lua_error(L);
@@ -232,8 +231,8 @@ int LuaManager::ToUtf8(lua_State* L) {
 int LuaManager::FromUtf8(lua_State* L) {
     /* arguments: string */
     if(lua_gettop(L) == 1 && lua_isstring(L, -1) ) {
-            lua_pushstring(L, Text::utf8ToAcp(lua_tostring(L, -1)).c_str());
-            return 1;
+        lua_pushstring(L, Text::utf8ToAcp(lua_tostring(L, -1)).c_str());
+        return 1;
     } else {
         lua_pushliteral(L, "FromUtf8: string needed as argument");
         lua_error(L);

@@ -27,16 +27,16 @@ namespace dcpp {
 using std::string;
 
 struct ChatMessage {
-        string text;
+    string text;
 
-        const OnlineUser* from;
-        const OnlineUser* to;
-        const OnlineUser* replyTo;
+    const OnlineUser* from;
+    const OnlineUser* to;
+    const OnlineUser* replyTo;
 
-        bool thirdPerson;
-        time_t timestamp;
+    bool thirdPerson;
+    time_t timestamp;
 
-        string format() const;
+    string format() const;
 };
 
 } // namespace dcpp

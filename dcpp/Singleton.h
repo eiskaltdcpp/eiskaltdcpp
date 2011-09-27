@@ -58,10 +58,10 @@ public:
     }
 
 protected:
-        static T* instance;
+    static T* instance;
 private:
-        Singleton(const Singleton&);
-        Singleton& operator=(const Singleton&);
+    Singleton(const Singleton&);
+    Singleton& operator=(const Singleton&);
 
 };
 

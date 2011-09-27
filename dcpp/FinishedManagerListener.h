@@ -38,11 +38,11 @@ public:
     typedef X<6> RemovedAll;
 
     virtual void on(AddedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
-        virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) noexcept { }
+    virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) noexcept { }
     virtual void on(UpdatedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
-        virtual void on(UpdatedUser, bool, const HintedUser&) noexcept { }
+    virtual void on(UpdatedUser, bool, const HintedUser&) noexcept { }
     virtual void on(RemovedFile, bool, const string&) noexcept { }
-        virtual void on(RemovedUser, bool, const HintedUser&) noexcept { }
+    virtual void on(RemovedUser, bool, const HintedUser&) noexcept { }
     virtual void on(RemovedAll, bool) noexcept { }
 };
 

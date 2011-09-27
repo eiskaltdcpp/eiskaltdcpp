@@ -27,18 +27,18 @@ namespace dcpp {
 
 class Upload : public Transfer, public Flags {
 public:
-	enum Flags {
-		FLAG_ZUPLOAD = 1 << 0,
-		FLAG_PENDING_KICK = 1 << 1
-	};
+    enum Flags {
+        FLAG_ZUPLOAD = 1 << 0,
+        FLAG_PENDING_KICK = 1 << 1
+    };
 
-	Upload(UserConnection& conn, const string& path, const TTHValue& tth);
-	virtual ~Upload();
+    Upload(UserConnection& conn, const string& path, const TTHValue& tth);
+    virtual ~Upload();
 
-	virtual void getParams(const UserConnection& aSource, StringMap& params);
+    virtual void getParams(const UserConnection& aSource, StringMap& params);
 
-	GETSET(int64_t, fileSize, FileSize);
-	GETSET(InputStream*, stream, Stream);
+    GETSET(int64_t, fileSize, FileSize);
+    GETSET(InputStream*, stream, Stream);
 };
 
 } // namespace dcpp
