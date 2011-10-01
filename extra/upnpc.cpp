@@ -41,13 +41,7 @@ using namespace dcpp;
 
 bool UPnPc::init()
 {
-    UPNPDev *devices = upnpDiscover(5000, SettingsManager::getInstance()->isDefault(SettingsManager::BIND_ADDRESS) ? 0 : SETTING(BIND_ADDRESS).c_str(), 0, 0
-#ifdef MINIUPNPC16
-                                        , 0, 0);
-#else
-                                        );
-#endif
-
+    UPNPDev *devices = upnpDiscover(5000, SettingsManager::getInstance()->isDefault(SettingsManager::BIND_ADDRESS) ? 0 : SETTING(BIND_ADDRESS).c_str(), 0, 0);
     if (!devices)
         return false;
 
@@ -61,14 +55,8 @@ bool UPnPc::init()
 bool UPnPc::add(const unsigned short port, const UPnP::Protocol protocol, const string& description)
 {
     const string port_ = Util::toString(port);
-
     return UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port_.c_str(), port_.c_str(),
-        Util::getLocalIp().c_str(), description.c_str(), protocols[protocol], NULL
-#ifdef MINIUPNPC16
-                                                                                    , 0) == UPNPCOMMAND_SUCCESS;
-#else
-                                                                                    ) == UPNPCOMMAND_SUCCESS;
-#endif
+        Util::getLocalIp().c_str(), description.c_str(), protocols[protocol], NULL) == UPNPCOMMAND_SUCCESS;
 }
 
 bool UPnPc::remove(const unsigned short port, const UPnP::Protocol protocol)

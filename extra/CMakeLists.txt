@@ -16,10 +16,6 @@ endif(NOT USE_MINIUPNP)
 
 add_library(extra STATIC ${extra_SRCS})
 
-if (MINIUPNPC16)
-    add_definitions (-DMINIUPNPC16)
-endif (MINIUPNPC16)
-
 if (WIN32)
     set_property(TARGET extra PROPERTY COMPILE_FLAGS)
 else(WIN32)
