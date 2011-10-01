@@ -170,7 +170,7 @@ Copyright:
 License:
  LGPL-3
  .
- On Debian systems, the complete text of the GNU General
+ On Debian systems, the complete text of the GNU Lesser General
  Public License can be found in `/usr/share/common-licenses/LGPL-3'.
 
 Files:
@@ -245,7 +245,7 @@ License:
  ensure the GNU General Public License version 3.0 requirements will be
  met: http://www.gnu.org/copyleft/gpl.html.
  .
- If you have questions regarding the use of this file, please contact
+ If you have questions regarding the use of these files, please contact
  Nokia at qt-info@nokia.com.
 
 Files:
