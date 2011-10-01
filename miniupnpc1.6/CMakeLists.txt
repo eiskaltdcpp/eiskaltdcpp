@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR})
 
-aux_source_directory(${PROJECT_SOURCE_DIR} miniupnpc_SRCS)
+aux_source_directory(${PROJECT_SOURCE_DIR}/miniupnpc miniupnpc_SRCS)
 add_definitions (-DSTATICLIB)
 
 if (WIN32)
