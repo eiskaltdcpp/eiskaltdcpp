@@ -110,11 +110,11 @@ namespace dht
 
 		Lock l(cs);
 		std::unordered_multiset<uint32_t>& packetsPerIp = receivedPackets[ip];
-		packetsPerIp.insert(cmd.getCommand());
+                packetsPerIp.insert(cmd.getCommand());
 
 		if(packetsPerIp.count(cmd.getCommand()) > maxAllowedPacketsPerMinute)
 		{
-			dcdebug("Request flood detected (%d) from %s. Packet dropped.\n", packetsPerIp.count(cmd.getCommand()), ip.c_str());
+                        dcdebug("Request flood detected (%li) from %s. Packet dropped.\n", (long int)packetsPerIp.count(cmd.getCommand()), ip.c_str());
 			return false;
 		}
 

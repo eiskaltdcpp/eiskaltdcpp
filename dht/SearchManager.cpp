@@ -38,6 +38,7 @@ namespace dht
 		{
 			case TYPE_NODE: IndexManager::getInstance()->setPublish(true); break;
 			case TYPE_STOREFILE: IndexManager::getInstance()->decPublishing(); break;
+                        default: break;
 		}
 	}
 

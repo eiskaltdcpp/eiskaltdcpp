@@ -83,7 +83,7 @@ uint32_t ipfilter::MaskForBits(uint32_t bits){
     uint32_t mask = 0xFFFFFFFF;
     uint32_t bit  = 0xFFFFFFFE;
 
-    for (int i = 0; i < bits; i++, bit <<= 1)
+    for (unsigned i = 0; i < bits; i++, bit <<= 1)
         mask &= bit;
 
     return mask;
@@ -285,7 +285,7 @@ bool ipfilter::OK(const string &exp, eDIRECTION direction){
     uint32_t src = ipfilter::StringToUint32(str_src);
     IPFilterElem *el;
 
-    for (int i = 0; i < rules.size(); i++){
+    for (unsigned i = 0; i < rules.size(); i++){
         el = rules.at(i);
 
 #ifdef _DEBUG_IPFILTER_
@@ -345,14 +345,20 @@ void ipfilter::step(uint32_t ip, eTableAction act, bool down){
     if (!el)
         return;
 
-    int index;
-    for (int itt = 0; itt < rules.size(); itt++) {
+    int index = -1;
+
+    for (unsigned itt = 0; itt < rules.size(); itt++) {
         if (rules.at(itt) == el) {
             index=itt;break;
         }
     }
+
+    if (index < 0)
+        return;
+
     int control = (down?(rules.size()-1):0);
     int inc = (down?1:-1);
+
 #ifdef _DEBUG_IPFILTER_
     fprintf(stdout,"\tat place this element:\n");
     fprintf(stdout,"\t\tMASK: 0x%x\n"
@@ -449,7 +455,7 @@ void ipfilter::saveList(){
     File f(file, File::WRITE, File::CREATE | File::TRUNCATE);
     f.write(signature+"\n");
 
-    for (int i = 0; i < rules.size(); i++) {
+    for (unsigned i = 0; i < rules.size(); i++) {
         string prefix;
         IPFilterElem *el = rules.at(i);
 

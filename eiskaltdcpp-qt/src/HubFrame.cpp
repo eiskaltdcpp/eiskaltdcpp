@@ -784,6 +784,8 @@ HubFrame::~HubFrame(){
     if (!Menu::counter)
         Menu::deleteInstance();
 
+    treeView_USERS->setModel(NULL);
+
     delete model;
     delete proxy;
 
@@ -2386,6 +2388,7 @@ void HubFrame::clearUsers(){
         model->blockSignals(true);
         model->clear();
         model->blockSignals(false);
+        treeView_USERS->setModel(model);
     }
 
     total_shared = 0;
