@@ -104,6 +104,7 @@ option (USE_IDNA "Use libidn for punycode generation" ON)
 option (CHECK_GTK3 "Check ability build with gtk 3.x.x" OFF)
 option (USE_GTK3 "GTK3 interface" OFF)
 option (USE_CLI "Command line interface" OFF)
+option (MINIUPNPC16 "Use miniupnpc 1.6" ON)
 
 if (PERL_REGEX)
     find_package(Pcre REQUIRED)
