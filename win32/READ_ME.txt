@@ -81,6 +81,7 @@ Unpack files from mingw32-lua-* and mingw32-qtscriptgenerator-* archives to appr
        *.dll.a *.a   to %QTSDKDIR%\mingw\lib\
        *.dll         to %QTSDKDIR%\mingw\bin\ )
 Unpack files from bzip2-*, libbz2-*, libz-*, gettext-*, libgettextpo-*, libintl-*, libiconv-*, libidn-* and aspell-* archives to %QTSDKDIR%\mingw\
+If the libidn-* have a file "lib/Libidn.dll" delete it.
 Check variables.bat for correct paths and run:
 	configure.bat
 	build.bat
