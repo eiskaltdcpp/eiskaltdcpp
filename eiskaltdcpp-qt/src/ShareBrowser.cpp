@@ -217,9 +217,16 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
             title = tr("Listing: ") + nick;
     }
 
-    init();
-
     setAttribute(Qt::WA_DeleteOnClose);
+
+    AsyncRunner *runner = new AsyncRunner(this);
+    boost::function<void()> f = boost::bind(&ShareBrowser::buildList, this);
+
+    runner->setRunFunction(f);
+    connect(runner, SIGNAL(finished()), this, SLOT(init()), Qt::QueuedConnection);
+    connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()), Qt::QueuedConnection);
+
+    runner->start();
 }
 
 ShareBrowser::~ShareBrowser(){
@@ -275,8 +282,6 @@ bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
 void ShareBrowser::init(){
     frame_FILTER->setVisible(false);
 
-    buildList();
-
     initModels();
 
     lineEdit_FILTER->installEventFilter(this);
@@ -315,8 +320,6 @@ void ShareBrowser::init(){
     connect(tree_model, SIGNAL(layoutChanged()), this, SLOT(slotLayoutUpdated()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     connect(toolButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
-
-    setAttribute(Qt::WA_DeleteOnClose);
 
     continueInit();
 }

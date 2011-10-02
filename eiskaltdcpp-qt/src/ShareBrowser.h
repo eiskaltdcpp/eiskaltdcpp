@@ -112,6 +112,7 @@ protected:
     virtual bool eventFilter(QObject *, QEvent *);
 
 private Q_SLOTS:
+    void init();
     void slotFilter();
     void slotRightPaneClicked(const QModelIndex&);
     void slotRightPaneSelChanged(const QItemSelection&, const QItemSelection&);
@@ -124,7 +125,6 @@ private Q_SLOTS:
     void slotSearchJumpTo(FileBrowserItem*);
 
 private:
-    void init();
     void continueInit();
 
     void load();
