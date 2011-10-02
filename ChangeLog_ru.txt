@@ -1,3 +1,10 @@
+--- 2.2.5 2011-10-30 ---
+*** common changes ***
+*** eiskaltdcpp-qt ***
+*** eiskaltdcpp-gtk ***
+*** eiskaltdcpp-daemon ***
+*** eiskaltdcpp-cli ***
+
 --- 2.2.4 2011-10-02 ---
 *** common changes ***
 * Частичная синхронизация с ядром DC++ (0.785).
