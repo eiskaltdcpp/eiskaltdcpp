@@ -478,14 +478,13 @@ if (APPLE)
   install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
 
   INSTALL(CODE "
-    file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")" COMPONENT Runtime)
+    file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
 
   INSTALL(CODE "
     file(GLOB_RECURSE QTPLUGINS
       \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
     include(BundleUtilities)
-    fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")
-    " COMPONENT Runtime)
+    fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
     set(CPACK_BINARY_DRAGNDROP ON)
 
 endif (APPLE)
