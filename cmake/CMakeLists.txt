@@ -365,9 +365,6 @@ if(CREATE_MO)
 				WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
 				COMMENT "mo-update [eiskaltdcpp-gtk-${LANG}]: Creating mo file."
 			)
-			install(FILES
-			    ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo
-					DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES)
 
 			set(mo-update-SRC ${mo-update-SRC}
 			    ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo
@@ -376,10 +373,6 @@ if(CREATE_MO)
 			    ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo
 			)
 			endif (USE_GTK)
-
-			install(FILES
-			    ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo
-					DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES)
 
 			set(mo-update-SRC ${mo-update-SRC}
 			    ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo

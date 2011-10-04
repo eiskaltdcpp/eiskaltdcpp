@@ -134,3 +134,9 @@ else (APPLE)
     install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-gtk.1.gz DESTINATION ${SHARE_DIR}/man/man1)
   endif (UNIX)
 endif (APPLE)
+
+foreach(LANG ${LANGUAGES})
+    install(FILES
+        ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo
+            DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES)
+endforeach(LANG ${LANGUAGES})
