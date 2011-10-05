@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<emoticons-map name="default">
+	<emoticon file="smile.png">
+		<name text=":)"/>
+		<name text=":-)"/>
+	</emoticon>
+	<emoticon file="smile-big.png">
+		<name text=":-D"/>
+		<name text=":-d"/>
+		<name text=":D"/>
+		<name text=":d"/>
+	</emoticon>
+	<emoticon file="wink.png">
+		<name text=";-)"/>
+		<name text=";)"/>
+	</emoticon>
+	<emoticon file="tongue.png">
+		<name text=":P"/>
+		<name text=":-P"/>
+		<name text=":-p"/>
+		<name text=":p"/>
+	</emoticon>
+	<emoticon file="shock.png">
+		<name text="=-O"/>
+		<name text="=-o"/>
+	</emoticon>
+	<emoticon file="kiss.png">
+		<name text=":-*"/>
+	</emoticon>
+	<emoticon file="glasses-cool.png">
+		<name text="8-)"/>
+	</emoticon>
+	<emoticon file="embarrassed.png">
+		<name text=":-["/>
+	</emoticon>
+	<emoticon file="crying.png">
+		<name text=":'("/>
+	</emoticon>
+	<emoticon file="thinking.png">
+		<name text=":-/"/>
+		<name text=":-\\"/>
+	</emoticon>
+	<emoticon file="angel.png">
+		<name text="O:-)"/>
+		<name text="o:-)"/>
+	</emoticon>
+	<emoticon file="shut-mouth.png">
+		<name text=":-X"/>
+	</emoticon>
+	<emoticon file="moneymouth.png">
+		<name text=":-$"/>
+	</emoticon>
+	<emoticon file="foot-in-mouth.png">
+		<name text=":-!"/>
+	</emoticon>
+	<emoticon file="shout.png">
+		<name text=">:o"/>
+		<name text=">:O"/>
+	</emoticon>
+	<emoticon file="skywalker.png">
+		<name text="C:-)"/>
+		<name text="c:-)"/>
+		<name text="C:)"/>
+		<name text="c:)"/>
+	</emoticon>
+	<emoticon file="monkey.png">
+		<name text=":-(|)"/>
+		<name text=":(|)"/>
+		<name text="8-|)"/>
+	</emoticon>
+	<emoticon file="sad.png">
+		<name text=":-("/>
+		<name text=":("/>
+	</emoticon>
+	<emoticon file="cyclops.png">
+		<name text="O-)"/>
+		<name text="o-)"/>
+	</emoticon>
+</emoticons-map>

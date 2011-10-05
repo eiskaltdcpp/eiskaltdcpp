@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<emoticons-map name="nerdcore">
+	<emoticon file="thumbs_down.png">
+		<name text="(n)"/>
+		<name text=":no:"/>
+		<name text=":(n)"/>
+	</emoticon>
+	<emoticon file="thumbs_up.png">
+		<name text="(y)"/>
+		<name text=":(y)"/>
+		<name text=":yes:"/>
+	</emoticon>
+	<emoticon file="oh_my.png">
+		<name text="8-|"/>
+		<name text=":oh_my:"/>
+	</emoticon>
+	<emoticon file="omg.png">
+		<name text=":O"/>
+		<name text=":omg:"/>
+		<name text="8-O"/>
+		<name text=":-O"/>
+	</emoticon>
+	<emoticon file="eek.png">
+		<name text=":o"/>
+		<name text=":-o"/>
+	</emoticon>
+	<emoticon file="brow.png">
+		<name text=":brow:"/>
+	</emoticon>
+	<emoticon file="sad.png">
+		<name text=":("/>
+		<name text=":-("/>
+	</emoticon>
+	<emoticon file="cry.png">
+		<name text=":'("/>
+		<name text=":'-("/>
+	</emoticon>
+	<emoticon file="geek.png">
+		<name text=":geek:"/>
+	</emoticon>
+	<emoticon file="O_O.png">
+		<name text="O_O"/>
+		<name text="0_0"/>
+	</emoticon>
+	<emoticon file="errm.png">
+		<name text="&lt;_&lt;"/>
+		<name text=":erm:"/>
+		<name text=":errm:"/>
+	</emoticon>
+	<emoticon file="lol.png">
+		<name text=":lol:"/>
+	</emoticon>
+	<emoticon file="neutral.png">
+		<name text=":|"/>
+		<name text=":-|"/>
+		<name text=":neutral:"/>
+	</emoticon>
+	<emoticon file="w00t.png">
+		<name text=":w00t:"/>
+	</emoticon>
+	<emoticon file="naughty.png">
+		<name text=":naughty:"/>
+	</emoticon>
+	<emoticon file="whatever.png">
+		<name text=":whatever:"/>
+	</emoticon>
+	<emoticon file="angry.png">
+		<name text=":x"/>
+		<name text=":-x"/>
+		<name text=":X"/>
+		<name text=":-X"/>
+		<name text="&gt;:["/>
+		<name text="&gt;:-["/>
+		<name text=":["/>
+		<name text=":-["/>
+	</emoticon>
+	<emoticon file="cool.png">
+		<name text="(8)"/>
+		<name text=":cool:"/>
+		<name text="8-)"/>
+	</emoticon>
+	<emoticon file="excited.png">
+		<name text=":excited:"/>
+	</emoticon>
+	<emoticon file="fear.png">
+		<name text=":fear:"/>
+	</emoticon>
+	<emoticon file="frustrated.png">
+		<name text="&gt;_&lt;"/>
+	</emoticon>
+	<emoticon file="grin.png">
+		<name text=":D"/>
+		<name text=":-D"/>
+		<name text=":d"/>
+		<name text=":biggrin:"/>
+	</emoticon>
+	<emoticon file="hmph.png">
+		<name text=":hmph:"/>
+		<name text=":-/"/>
+		<name text=":-\"/>
+		<name text=":\"/>
+	</emoticon>
+	<emoticon file="nervous.png">
+		<name text="^^"/>
+		<name text=":nervous:"/>
+		<name text="^_^"/>
+	</emoticon>
+	<emoticon file="o_0.png">
+		<name text="o_0"/>
+	</emoticon>
+	<emoticon file="panda.png">
+		<name text=":panda:"/>
+	</emoticon>
+	<emoticon file="pirate.png">
+		<name text=":ahoy:"/>
+		<name text=":pirate:"/>
+	</emoticon>
+	<emoticon file="puke.png">
+		<name text=":sick:"/>
+		<name text=":puke:"/>
+	</emoticon>
+	<emoticon file="retard.png">
+		<name text=":retard:"/>
+	</emoticon>
+	<emoticon file="roll.png">
+		<name text=":roll:"/>
+	</emoticon>
+	<emoticon file="shy.png">
+		<name text=":shy:"/>
+		<name text=":embarrased:"/>
+		<name text=":blush:"/>
+		<name text=":$"/>
+	</emoticon>
+	<emoticon file="sketchy.png">
+		<name text=":sketchy:"/>
+	</emoticon>
+	<emoticon file="sly.png">
+		<name text=":]"/>
+		<name text=":sly:"/>
+	</emoticon>
+	<emoticon file="smile.png">
+		<name text=":)"/>
+		<name text=":-)"/>
+		<name text=":smile:"/>
+	</emoticon>
+	<emoticon file="rosey.png">
+		<name text=":}"/>
+		<name text=":-}"/>
+	</emoticon>
+	<emoticon file="sulk.png">
+		<name text=":sulk:"/>
+	</emoticon>
+	<emoticon file="suspicious.png">
+		<name text=":&gt;"/>
+		<name text=":suspicious:"/>
+	</emoticon>
+	<emoticon file="thinker.png">
+		<name text=":thinker:"/>
+	</emoticon>
+	<emoticon file="tongue-2.png">
+		<name text=":P"/>
+		<name text=":-P"/>
+	</emoticon>
+	<emoticon file="tongue-3.png">
+		<name text=":p"/>
+		<name text=":-p"/>
+	</emoticon>
+	<emoticon file="tongue-1.png">
+		<name text=";P"/>
+		<name text=";-P"/>
+	</emoticon>
+	<emoticon file="tongue-4.png">
+		<name text=";p"/>
+		<name text=";-p"/>
+		<name text=":tongue:"/>
+	</emoticon>
+	<emoticon file="umm.png">
+		<name text=":umm:"/>
+	</emoticon>
+	<emoticon file="whistle.png">
+		<name text=":whistle:"/>
+	</emoticon>
+	<emoticon file="wink.png">
+		<name text=":wink:"/>
+		<name text=";)"/>
+		<name text=";-)"/>
+	</emoticon>
+	<emoticon file="squirmish.png">
+		<name text=":S"/>
+		<name text=":s"/>
+		<name text=":squirmish:"/>
+	</emoticon>
+	<emoticon file="crego.png">
+		<name text=":crego:"/>
+		<name text=":pimp:"/>
+	</emoticon>
+	<emoticon file="question.png">
+		<name text=":?:"/>
+		<name text="??"/>
+	</emoticon>
+	<emoticon file="exclamation.png">
+		<name text=":!:"/>
+		<name text="!!"/>
+	</emoticon>
+	<emoticon file="arrow_l.png">
+		<name text="&lt;--"/>
+		<name text=":larrow:"/>
+	</emoticon>
+	<emoticon file="arrow_r.png">
+		<name text=":arrow:"/>
+		<name text="--&gt;"/>
+		<name text=":rarrow:"/>
+	</emoticon>
+	<emoticon file="idea.png">
+		<name text=":idea:"/>
+	</emoticon>
+	<emoticon file="love.png">
+		<name text=":love:"/>
+	</emoticon>
+	<emoticon file="heart.png">
+		<name Text="&lt;3"/>
+		<name text=":heart:"/>
+	</emoticon>
+	<emoticon file="martini.png">
+		<name text=":martini:"/>
+	</emoticon>
+	<emoticon file="beer.png">
+		<name text=":beer:"/>
+	</emoticon>
+	<emoticon file="rockinl.png">
+		<name text="_\m/"/>
+		<name text="\m/"/>
+		<name text="\m\"/>
+		<name text="\m\"/>
+	</emoticon>
+	<emoticon file="headphonel.png">
+		<name text="(]"/>
+		<name text=":left_headphone:"/>
+	</emoticon>
+	<emoticon file="o.0.png">
+		<name text="(o.0)"/>
+	</emoticon>
+	<emoticon file="headphoner.png">
+		<name text="[)"/>
+		<name text=":right_headphone:"/>
+	</emoticon>
+	<emoticon file="rockinr.png">
+		<name text="m/_/"/>
+		<name text="/m/"/>
+	</emoticon>
+	<emoticon file="shout.png">
+		<name text="|-O"/>
+		<name text="|O"/>
+	</emoticon>
+</emoticons-map>

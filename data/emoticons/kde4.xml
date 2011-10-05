@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<emoticons-map name="kde4">
+
+<emoticon file="angry.png">
+	<name text=":-@"/>
+	<name text=":@"/>
+	<name text="&gt;:-("/>
+	<name text="&gt;:("/>
+</emoticon>
+
+<emoticon file="bat.png">
+	<name text=":-["/>
+	<name text=":["/>
+</emoticon>
+
+<emoticon file="beer.png">
+	<name text="(B)"/>
+	<name text="(b)"/>
+</emoticon>
+
+<emoticon file="cake.png">
+	<name text="(^)"/>
+</emoticon>
+
+<emoticon file="camera.png">
+	<name text="(P)"/>
+	<name text="(p)"/>
+</emoticon>
+
+<emoticon file="cat.png">
+	<name text="(@)"/>
+</emoticon>
+
+<emoticon file="clock.png">
+	<name text="(O)"/>
+	<name text="(o)"/>
+</emoticon>
+
+<emoticon file="cocktail.png">
+	<name text="(D)"/>
+	<name text="(d)"/>
+</emoticon>
+
+<emoticon file="confused.png">
+	<name text=":-S"/>
+	<name text=":S"/>
+	<name text=":-s"/>
+	<name text=":s"/>
+</emoticon>
+
+<emoticon file="cry.png">
+	<name text=":'("/>
+	<name text=":'-("/>
+	<name text=";-("/>
+	<name text=";("/>
+</emoticon>
+
+<emoticon file="cup.png">
+	<name text="(C)"/>
+	<name text="(c)"/>
+</emoticon>
+
+<emoticon file="dog.png">
+	<name text="(&amp;)"/>
+</emoticon>
+
+<emoticon file="embarassed.png">
+	<name text=":-$"/>
+	<name text=":$"/>
+</emoticon>
+
+<emoticon file="email.png">
+	<name text="(E)"/>
+	<name text="(e)"/>
+</emoticon>
+
+<emoticon file="film.png">
+	<name text="(~)"/>
+</emoticon>
+
+<emoticon file="kiss.png">
+	<name text="(K)"/>
+	<name text="(k)"/>
+	<name text=":-X"/>
+	<name text=":X"/>
+	<name text=":-x"/>
+	<name text=":x"/>
+</emoticon>
+
+<emoticon file="lightbulb.png">
+	<name text="(I)"/>
+	<name text="(i)"/>
+</emoticon>
+
+<emoticon file="love.png">
+	<name text="(L)"/>
+	<name text="(l)"/>
+</emoticon>
+
+<emoticon file="note.png">
+	<name text="(8)"/>
+</emoticon>
+
+<emoticon file="omg.png">
+	<name text=":-O"/>
+	<name text=":O"/>
+	<name text=":-o"/>
+	<name text=":o"/>
+</emoticon>
+
+<emoticon file="phone.png">
+	<name text="(T)"/>
+	<name text="(t)"/>
+</emoticon>
+
+<emoticon file="present.png">
+	<name text="(G)"/>
+	<name text="(g)"/>
+</emoticon>
+
+<emoticon file="rose.png">
+	<name text="(F)"/>
+	<name text="(f)"/>
+</emoticon>
+
+<emoticon file="sad.png">
+	<name text=":-("/>
+	<name text=":("/>
+</emoticon>
+
+<emoticon file="shade.png">
+	<name text="(H)"/>
+	<name text="(h)"/>
+	<name text="8-)"/>
+	<name text="8)"/>
+</emoticon>
+
+<emoticon file="smile.png">
+	<name text=":-)"/>
+	<name text=":)"/>
+	<name text=":o)"/>
+</emoticon>
+
+<emoticon file="star.png">
+	<name text="(*)"/>
+</emoticon>
+
+<emoticon file="teeth.png">
+	<name text=":-D"/>
+	<name text=":D"/>
+</emoticon>
+
+<emoticon file="thumbs_down.png">
+	<name text="(N)"/>
+	<name text="(n)"/>
+</emoticon>
+
+<emoticon file="thumbs_up.png">
+	<name text="(Y)"/>
+	<name text="(y)"/>
+</emoticon>
+
+<emoticon file="tongue.png">
+	<name text=":-P"/>
+	<name text=":P"/>
+	<name text=":-p"/>
+	<name text=":p"/>
+</emoticon>
+
+<emoticon file="unlove.png">
+	<name text="(U)"/>
+	<name text="(u)"/>
+</emoticon>
+
+<emoticon file="wilted_rose.png">
+	<name text="(W)"/>
+	<name text="(w)"/>
+</emoticon>
+
+<emoticon file="wink.png">
+	<name text=";-)"/>
+	<name text=";)"/>
+</emoticon>
+
+</emoticons-map>
