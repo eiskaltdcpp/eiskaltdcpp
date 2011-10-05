@@ -1,8 +1,4 @@
-if (UNIX AND NOT APPLE)
-  project (${PROJECT_NAME_GLOBAL}-qt)
-else (UNIX AND NOT APPLE)
-  project (${PROJECT_NAME_GLOBAL})
-endif (UNIX AND NOT APPLE)
+project (${PROJECT_NAME_GLOBAL}-qt)
 
 cmake_minimum_required (VERSION 2.6)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
@@ -240,15 +236,15 @@ if (MINGW AND WIN32)
     set(CMAKE_RC_COMPILER windres)
   endif (CMAKE_CROSSCOMPILING)
   ADD_CUSTOM_COMMAND (OUTPUT
-            "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o"
+            "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
             COMMAND ${CMAKE_RC_COMPILER}
             -I"${CMAKE_CURRENT_SOURCE_DIR}/"
-            -i "${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp-qt.rc"
-            -o "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o"
+            -i "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.rc"
+            -o "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
             )
-  SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o)
+  SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o)
 elseif (NOT MINGW AND WIN32)
-  SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp-qt.rc")
+  SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.rc")
 endif (MINGW AND WIN32)
 
 if (USE_ASPELL)
@@ -307,9 +303,9 @@ set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc
 
 if (UNIX)
   EXECUTE_PROCESS (
-                OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz
+                OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE eiskaltdcpp-qt.1
+                INPUT_FILE ${PROJECT_NAME}.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
 
@@ -370,7 +366,7 @@ if (APPLE)
   list (APPEND SRCS ${MACOSICON})
 endif (APPLE)
 
-add_executable (eiskaltdcpp-qt MACOSX_BUNDLE WIN32 src/main.cpp
+add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
                 ${SRCS}
@@ -397,15 +393,15 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-  target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp iconv)
+  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp iconv)
 else (APPLE)
-  target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp)
+  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp)
 endif (APPLE)
 
 if (APPLE)
-  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
+  set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
 else (APPLE)
-  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-qt")
+  set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")
 endif (APPLE)
 
 if (WIN32 OR HAIKU)
@@ -419,7 +415,7 @@ endif (WIN32 OR HAIKU)
 
 
 
-  install (TARGETS eiskaltdcpp-qt
+  install (TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 if (APPLE)
@@ -441,7 +437,7 @@ if (APPLE)
 
 # doesn't work this way :(
 #  set (MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
-  set_target_properties(eiskaltdcpp-qt PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
+  set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
 
   set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
   set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
@@ -463,14 +459,14 @@ endif (APPLE)
   install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icons" PATTERN ".svn" EXCLUDE)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
 if (APPLE)
-  install (FILES eiskaltdcpp-qt.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+  install (FILES ${PROJECT_NAME}.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
+  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
   install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 else (APPLE)
   install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
   if (UNIX AND NOT HAIKU)
-    install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
-    install (FILES eiskaltdcpp-qt.desktop DESTINATION ${SHARE_DIR}/applications)
+    install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+    install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
   endif (UNIX AND NOT HAIKU)
 endif (APPLE)
 
