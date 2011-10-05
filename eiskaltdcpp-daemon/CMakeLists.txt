@@ -1,4 +1,4 @@
-project(nasdc)
+project(${PROJECT_NAME_GLOBAL}-daemon)
 cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/common ${PROJECT_SOURCE_DIR}/gnu ${PROJECT_SOURCE_DIR}/.. )
@@ -30,7 +30,7 @@ endif (WITH_DHT)
 
 if (HAVE_DAEMON)
     add_definitions(-DHAVE_DAEMON)
-endif()
+endif(HAVE_DAEMON)
 
 if (WIN32)
   list (APPEND nasdc_SRCS ../win32/applink.c)
@@ -45,11 +45,11 @@ if (ENABLE_STACKTRACE)
 endif (ENABLE_STACKTRACE)
 
 # actual target:
-add_executable (nasdc MACOSX_BUNDLE WIN32
+add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
 
-target_link_libraries (nasdc dcpp ${XMLRPCLIBS})
+target_link_libraries (${PROJECT_NAME} dcpp ${XMLRPCLIBS})
 
 if (UNIX)
  set (BINDIR bin)
@@ -64,22 +64,20 @@ if (CMAKE_BUILD_TYPE STREQUAL Debug)
     add_definitions(-D_DEBUG)
 endif()
 
-set_property (TARGET nasdc PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-daemon")
-
-install (TARGETS nasdc
+install (TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 
 if (UNIX)
   execute_process (
-                OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-daemon.1.gz
+                OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE eiskaltdcpp-daemon.1
+                INPUT_FILE ${PROJECT_NAME}.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
 
 if (APPLE)
-  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-daemon.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
 elseif (UNIX AND NOT APPLE)
-  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-daemon.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${SHARE_DIR}/man/man1)
 endif (APPLE)

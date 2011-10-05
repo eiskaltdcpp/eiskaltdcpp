@@ -463,7 +463,7 @@ if (USE_GTK OR USE_GTK3)
 endif (USE_GTK OR USE_GTK3)
 
 if (NO_UI_DAEMON OR XMLRPC_DAEMON)
-  add_subdirectory (nasdc)
+  add_subdirectory (eiskaltdcpp-daemon)
 endif ()
 
 if (USE_CLI)
