@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-09-07 00:45+0300\n"
-"PO-Revision-Date: 2011-09-14 15:00+0200\n"
+"PO-Revision-Date: 2011-10-07 14:11+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
 "Language: hu\n"
@@ -709,7 +709,7 @@ msgstr "Alternatív letöltési helyek automatikus keresése"
 
 #: ../ui/settingsdialog.ui:2392
 msgid "Automatically update external IP (restart required)"
-msgstr "Külső IP cím autómatikus frissítése (újraindítás szükséges)"
+msgstr "Külső IP cím automatikus frissítése (újraindítás szükséges)"
 
 #: ../src/hub.cc:1959 ../src/privatemessage.cc:984 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
