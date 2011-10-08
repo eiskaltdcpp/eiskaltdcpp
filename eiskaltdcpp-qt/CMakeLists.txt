@@ -118,6 +118,7 @@ set (MOC_HDRS
             src/CustomFontModel.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
+	    src/EiskaltApp.h
             src/EmoticonDialog.h
             src/EmoticonFactory.h
             src/EmoticonObject.h

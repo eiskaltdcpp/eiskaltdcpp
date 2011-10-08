@@ -11,6 +11,7 @@
 #include "ShortcutManager.h"
 #include "MainWindow.h"
 #include "ShortcutGetter.h"
+#include "WulforSettings.h"
 
 #include <QMap>
 #include <QKeySequence>
