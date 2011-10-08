@@ -75,7 +75,7 @@ private Q_SLOTS:
             if (mins <= mins_done)
                 dcpp::Util::setAway(true);
         }
-        else if (!has_activity && !dcpp::Util::getManualAway())
+        else if (has_activity && !dcpp::Util::getManualAway())
             dcpp::Util::setAway(false);
     }
 
