@@ -357,7 +357,7 @@ if (ENABLE_STACKTRACE)
 endif (ENABLE_STACKTRACE)
 
 if (APPLE)
-  set (MACOSICON "${PROJECT_SOURCE_DIR}/../icons/icon_128x128.icns")
+  set (MACOSICON "${PROJECT_SOURCE_DIR}/../data/icons/icon_128x128.icns")
   set (MACOSICONINBUNDLE "icon_128x128.icns")
   # set how it shows up in the Info.plist file
   SET(MACOSX_BUNDLE_ICON_FILE ${MACOSICONINBUNDLE})
