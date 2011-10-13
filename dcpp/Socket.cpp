@@ -22,6 +22,7 @@
 #include "format.h"
 #include "SettingsManager.h"
 #include "TimerManager.h"
+#include "LogManager.h"
 
 #ifdef __MINGW32__
 #ifndef EADDRNOTAVAIL
@@ -344,7 +345,11 @@ int Socket::getSocketOptInt(int option) {
 
 void Socket::setSocketOpt(int option, int val) {
     int len = sizeof(val);
-    check(::setsockopt(sock, SOL_SOCKET, option, (char*)&val, len));
+    
+    try {
+		check(::setsockopt(sock, SOL_SOCKET, option, (char*)&val, len));
+	}
+	catch ( ... ) {}
 }
 
 int Socket::read(void* aBuffer, int aBufLen) {
