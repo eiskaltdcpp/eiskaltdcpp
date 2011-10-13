@@ -64,7 +64,6 @@ CHECK_INCLUDE_FILES ("sys/types.h;sys/statvfs.h;limits.h;stdbool.h;stdint.h" FS_
 
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-find_package (X11)
 find_package (PkgConfig)
 find_package (BZip2 REQUIRED)
 find_package (ZLIB REQUIRED)
@@ -74,7 +73,6 @@ find_package (Gettext REQUIRED)
 find_package (Iconv REQUIRED)
 find_package (Subversion)
 find_package (Git)
-
 
 option (USE_QT "Qt interface" ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
@@ -106,6 +104,10 @@ option (USE_GTK3 "GTK3 interface" OFF)
 option (USE_CLI "Command line interface" OFF)
 option (MINIUPNPC16 "Use miniupnpc 1.6" OFF)
 option (HAIKU_PKG "Make Haiku package" OFF)
+
+if (USE_QT OR USE_GTK)
+    find_package (X11)
+endif(USE_QT OR USE_GTK)
 
 if (PERL_REGEX)
     find_package(Pcre REQUIRED)
