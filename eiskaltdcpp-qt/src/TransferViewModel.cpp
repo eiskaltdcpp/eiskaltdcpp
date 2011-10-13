@@ -100,6 +100,9 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
         }
         case Qt::DisplayRole:
         {
+			if (item->download && item->childCount() == 1)//This parent item has hidden child, so just copy child column text into parent
+				return data(createIndex(0, index.column(), reinterpret_cast<void*>(item->childItems.first())), role);
+			
             if (index.column() == COLUMN_TRANSFER_SPEED)
                 return WulforUtil::formatBytes(item->data(COLUMN_TRANSFER_SPEED).toDouble()) + tr("/s");
             else if (index.column() == COLUMN_TRANSFER_SIZE)
