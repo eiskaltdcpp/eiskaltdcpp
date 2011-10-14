@@ -22,8 +22,12 @@
 
 #include <xmlrpc-c/base.hpp>
 #include <xmlrpc-c/registry.hpp>
+
+#if defined(USE_XMLRPC_ABYSS)
 #include <xmlrpc-c/server_abyss.hpp>
+#elif defined(USE_XMLRPC_PSTREAM)
 #include <xmlrpc-c/server_pstream.hpp>
+#endif
 
 #include "ServerManager.h"
 
