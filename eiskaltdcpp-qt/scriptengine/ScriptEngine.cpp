@@ -46,6 +46,7 @@ static QScriptValue parseChatLinks(QScriptContext*, QScriptEngine*);
 static QScriptValue parseMagnetAlias(QScriptContext*, QScriptEngine*);
 static QScriptValue eval(QScriptContext*, QScriptEngine*);
 static QScriptValue includeFile(QScriptContext*, QScriptEngine*);
+static QScriptValue printErr(QScriptContext*, QScriptEngine*);
 
 ScriptEngine::ScriptEngine() :
         QObject(NULL)
@@ -168,6 +169,9 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
 
     QScriptValue getMagnet = engine.newFunction(getMagnets);
     engine.globalObject().setProperty("getMagnets", getMagnet, QScriptValue::ReadOnly);
+	
+    QScriptValue printE = engine.newFunction(printErr);
+    engine.globalObject().setProperty("printErr", printE, QScriptValue::ReadOnly);
 
     QScriptValue import = engine.newFunction(importExtension);
     engine.globalObject().setProperty("Import", import, QScriptValue::ReadOnly);
@@ -509,3 +513,19 @@ static QScriptValue includeFile(QScriptContext *ctx, QScriptEngine *engine){
 
     return ret;
 }
+
+QScriptValue printErr(QScriptContext *ctx, QScriptEngine *engine){
+	if (ctx->argumentCount() < 1)
+        return engine->undefinedValue();
+    
+    QString out = ctx->argument(0).toString();
+    
+    for (int i = 1; i < ctx->argumentCount(); i++)
+        out = out.arg(ctx->argument(i).toString());
+   
+    qWarning() << qPrintable(out);
+    
+    return engine->undefinedValue();
+}
+
+
