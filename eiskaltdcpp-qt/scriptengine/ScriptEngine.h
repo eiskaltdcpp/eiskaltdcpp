@@ -70,6 +70,8 @@ private:
 };
 
 Q_DECLARE_METATYPE(ScriptEngine*)
+#ifndef USE_QML
 Q_DECLARE_METATYPE(QList<QObject*>)
+#endif
 
 #endif // SCRIPTENGINE_H
