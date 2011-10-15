@@ -107,6 +107,7 @@ set (SRCS
             src/WulforUtil.cpp
             src/ChatEdit.cpp
             src/qtsingleapp/qtsinglecoreapplication.cpp
+            src/codeeditor/codeeditor.cpp
             )
 set (MOC_HDRS
             src/ActionCustomizer.h
@@ -118,7 +119,7 @@ set (MOC_HDRS
             src/CustomFontModel.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
-	    src/EiskaltApp.h
+            src/EiskaltApp.h
             src/EmoticonDialog.h
             src/EmoticonFactory.h
             src/EmoticonObject.h
@@ -182,6 +183,7 @@ set (MOC_HDRS
             src/WulforUtil.h
             src/ChatEdit.h
             src/qtsingleapp/qtsinglecoreapplication.h
+            src/codeeditor/codeeditor.h
             )
 set (UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui

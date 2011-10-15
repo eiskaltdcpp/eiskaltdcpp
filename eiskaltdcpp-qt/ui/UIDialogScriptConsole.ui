@@ -22,7 +22,7 @@
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <widget class="QWidget" name="layoutWidget">
+     <widget class="QWidget" name="layoutWidget1">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="label">
@@ -70,7 +70,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QTextEdit" name="textEdit_INPUT">
+          <widget class="CodeEditor" name="textEdit_INPUT">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -135,6 +135,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CodeEditor</class>
+   <extends>QPlainTextEdit</extends>
+   <header>codeeditor/codeeditor.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>

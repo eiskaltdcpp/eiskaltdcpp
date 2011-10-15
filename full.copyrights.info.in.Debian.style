@@ -156,6 +156,10 @@ License: GPL-3 or LGPL-2.1 or Qt-Commercial-License
  If you have questions regarding the use of these files, please contact
  Nokia at <qt-info@nokia.com>.
 
+Files: eiskaltdcpp-qt/src/codeeditor/*
+Copyright: 2011 Nokia Corporation and/or its subsidiary(-ies).
+License: BSD-3-clause
+
 Files: eiskaltdcpp-gtk/src/* eiskaltdcpp-gtk/ui/*
 Copyright: 2004-2010 Jens Oknelid <paskharen@gmail.com>
  2009-2010 freedcpp (http://code.google.com/p/freedcpp)
