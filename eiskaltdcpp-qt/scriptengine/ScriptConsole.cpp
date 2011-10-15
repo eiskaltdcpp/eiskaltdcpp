@@ -29,8 +29,6 @@ ScriptConsole::ScriptConsole(QWidget *parent) :
     QScriptValue myPrintErr = engine.newFunction(myPrintErrFunc);
     myPrint.setData(engine.newQObject(textEdit_OUTPUT));
     engine.globalObject().setProperty("printErr", myPrintErr);
-    
-    textEdit_OUTPUT->setReadOnly(true);
 
     connect(pushButton_START, SIGNAL(clicked()), this, SLOT(startEvaluation()));
     connect(pushButton_STOP, SIGNAL(clicked()), this, SLOT(stopEvaluation()));

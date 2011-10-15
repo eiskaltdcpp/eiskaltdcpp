@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>653</width>
-    <height>615</height>
+    <width>592</width>
+    <height>440</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="label">
@@ -39,6 +39,9 @@
          <property name="undoRedoEnabled">
           <bool>false</bool>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
          <property name="acceptRichText">
           <bool>false</bool>
          </property>
@@ -46,7 +49,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -80,6 +83,13 @@
        </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QPushButton" name="pushButton_CLEAR">
+           <property name="text">
+            <string>Clear</string>
+           </property>
+          </widget>
+         </item>
          <item>
           <spacer name="verticalSpacer">
            <property name="orientation">
@@ -156,6 +166,22 @@
     <hint type="destinationlabel">
      <x>286</x>
      <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_CLEAR</sender>
+   <signal>clicked()</signal>
+   <receiver>textEdit_OUTPUT</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>538</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>114</y>
     </hint>
    </hints>
   </connection>
