@@ -23,6 +23,7 @@
 
 ServerThread *ServersS = NULL;
 bool bServerRunning = false, bServerTerminated = false, bIsRestart = false, bIsClose = false;
+uint lport = 3121;
 #ifdef _WIN32
     #ifdef _SERVICE
         bool bService = false;

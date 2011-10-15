@@ -147,6 +147,7 @@ static struct option opts[] = {
     { "confdir", required_argument, NULL, 'c'},
     { "localdir",required_argument, NULL, 'l'},
     { "pidfile", required_argument, NULL, 'p'},
+    { "port",    required_argument, NULL, 'P'},
     { NULL,      0,                 NULL, 0}
 };
 
@@ -158,8 +159,13 @@ void writePidFile(char *path)
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hp:c:l:vd", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hp:c:l:P:vd", opts, NULL)) != -1) {
         switch (ch) {
+            case 'P':
+#if defined(USE_XMLRPC_ABYSS)
+                lport = (unsigned int) atoi (optarg);
+#endif
+                break;
             case 'd':
                 bDaemon = true;
                 break;

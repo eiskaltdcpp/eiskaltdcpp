@@ -115,7 +115,14 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
     xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
 #if defined(USE_XMLRPC_ABYSS)
-    server.run();
+    server = new xmlrpc_c::serverAbyss(xmlrpc_c::serverAbyss::constrOpt()
+                                      .registryP(&xmlrpcRegistry)
+                                      .portNumber(lport)
+                                      .logFileName("/tmp/xmlrpc_log")
+                                      .serverOwnsSignals(false)
+                                      .uriPath("/eiskaltdcpp")
+                                      );
+    server->run();
 #elif defined(USE_XMLRPC_PSTREAM)
     server.runSerial();
 #endif
@@ -141,7 +148,8 @@ void ServerThread::Close()
     TimerManager::getInstance()->removeListener(this);
     SearchManager::getInstance()->removeListener(this);
 #ifdef XMLRPC_DAEMON
-    server.terminate();
+    server->terminate();
+    delete server;
 #endif
 
     ConnectionManager::getInstance()->disconnect();

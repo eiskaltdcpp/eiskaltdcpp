@@ -69,13 +69,7 @@ bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth)
 
 xmlrpc_c::registry xmlrpcRegistry;
 #if defined(USE_XMLRPC_ABYSS)
-xmlrpc_c::serverAbyss server(xmlrpc_c::serverAbyss::constrOpt()
-                                      .registryP(&xmlrpcRegistry)
-                                      .portNumber(8080)
-                                      .logFileName("/tmp/xmlrpc_log")
-                                      .serverOwnsSignals(false)
-                                      .uriPath("/eiskaltdcpp")
-                                  );
+xmlrpc_c::serverAbyss * server;
 #elif defined(USE_XMLRPC_PSTREAM)
 xmlrpc_c::serverPstream server(xmlrpc_c::serverPstream::constrOpt()
                                    .registryP(&xmlrpcRegistry)
