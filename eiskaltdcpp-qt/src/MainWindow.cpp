@@ -89,7 +89,8 @@ MainWindow::MainWindow (QWidget *parent):
         sideDock(NULL),
         sideTree(NULL),
         menuPanels(NULL),
-        wcontainer(NULL)
+        wcontainer(NULL),
+        scriptConsole(NULL)
 
 {
     exitBegin = false;
@@ -2189,9 +2190,11 @@ void MainWindow::slotToolsJS(){
 
 void MainWindow::slotToolsJSConsole(){
 #ifdef USE_JS
-    ScriptConsole sc(this);
-    sc.setWindowModality(Qt::NonModal);
-    sc.exec();
+    if (!scriptConsole)
+        scriptConsole = new ScriptConsole(this);
+    
+    scriptConsole->setWindowModality(Qt::NonModal);
+    scriptConsole->show();
 #endif
 }
 

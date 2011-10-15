@@ -61,6 +61,9 @@ class DownloadQueue;
 class ToolBar;
 class MainWindow;
 class MultiLineToolBar;
+#ifdef USE_JS
+class ScriptConsole;
+#endif
 
 extern const char * const EISKALTDCPP_VERSION;
 extern const char * const EISKALTDCPP_WND_TITLE;
@@ -371,6 +374,7 @@ friend class dcpp::Singleton<MainWindow>;
 #ifdef USE_JS
         QAction *toolsJS;
         QAction *toolsJSConsole;
+        ScriptConsole *scriptConsole;
 #endif
         QAction *toolsSwitchSpeedLimit;
 
