@@ -118,7 +118,7 @@ int ServerThread::run()
     server = new xmlrpc_c::serverAbyss(xmlrpc_c::serverAbyss::constrOpt()
                                       .registryP(&xmlrpcRegistry)
                                       .portNumber(lport)
-                                      .logFileName("/tmp/xmlrpc_log")
+                                      .logFileName("/tmp/eiskaltdcpp-daemon.xmlrpc.log")
                                       .serverOwnsSignals(false)
                                       .uriPath("/eiskaltdcpp")
                                       );
