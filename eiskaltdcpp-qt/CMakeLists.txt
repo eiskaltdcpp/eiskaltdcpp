@@ -107,7 +107,6 @@ set (SRCS
             src/WulforUtil.cpp
             src/ChatEdit.cpp
             src/qtsingleapp/qtsinglecoreapplication.cpp
-            src/codeeditor/codeeditor.cpp
             )
 set (MOC_HDRS
             src/ActionCustomizer.h
@@ -183,7 +182,6 @@ set (MOC_HDRS
             src/WulforUtil.h
             src/ChatEdit.h
             src/qtsingleapp/qtsinglecoreapplication.h
-            src/codeeditor/codeeditor.h
             )
 set (UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui
@@ -264,6 +262,7 @@ if (USE_JS)
         scriptengine/ScriptConsole.cpp
         scriptengine/ScriptEngine.cpp
         scriptengine/ScriptConsole.cpp
+        src/codeeditor/codeeditor.cpp
         src/ScriptManagerDialog.cpp)
   list (APPEND MOC_HDRS
         scriptengine/ClientManagerScript.h
@@ -273,6 +272,7 @@ if (USE_JS)
         scriptengine/ScriptConsole.h
         scriptengine/ScriptEngine.h
         scriptengine/ScriptConsole.h
+        src/codeeditor/codeeditor.h
         src/ScriptManagerDialog.h)
 endif (USE_JS)
 
