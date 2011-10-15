@@ -22,6 +22,7 @@ bool ServerStart();
 void ServerStop();
 
 extern bool bServerRunning, bServerTerminated, bIsRestart, bIsClose;
+extern uint lport;
 #ifdef _WIN32
     #ifdef _SERVICE
         extern bool bService;
