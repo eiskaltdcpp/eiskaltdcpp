@@ -32,6 +32,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QtDebug>
+#include <QScriptValueIterator>
 
 #ifndef CLIENT_SCRIPTS_DIR
 #define CLIENT_SCRIPTS_DIR
@@ -47,6 +48,8 @@ static QScriptValue parseMagnetAlias(QScriptContext*, QScriptEngine*);
 static QScriptValue eval(QScriptContext*, QScriptEngine*);
 static QScriptValue includeFile(QScriptContext*, QScriptEngine*);
 static QScriptValue printErr(QScriptContext*, QScriptEngine*);
+QScriptValue ScriptVarMapToScriptValue(QScriptEngine* eng, const VarMap& map);
+void ScriptVarMapFromScriptValue( const QScriptValue& value, VarMap& map);
 
 ScriptEngine::ScriptEngine() :
         QObject(NULL)
@@ -199,6 +202,8 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
     linkParser.setProperty("parseMagnetAlias", linkParser_parseMagnet, QScriptValue::ReadOnly);
     
     qScriptRegisterSequenceMetaType< QList<QObject*> >(&engine);
+    qScriptRegisterMetaType<VarMap>(&engine, ScriptVarMapToScriptValue, ScriptVarMapFromScriptValue);
+    qScriptRegisterMetaType<VarMap>(&engine, ScriptVarMapToScriptValue, ScriptVarMapFromScriptValue);
 
     engine.globalObject().setProperty("LinkParser", linkParser, QScriptValue::ReadOnly);
 
@@ -530,4 +535,25 @@ QScriptValue printErr(QScriptContext *ctx, QScriptEngine *engine){
     return engine->undefinedValue();
 }
 
+QScriptValue ScriptVarMapToScriptValue(QScriptEngine* eng, const VarMap& map)
+{
+    QScriptValue a = eng->newObject();
+    VarMap::const_iterator it(map.begin());
+    
+    for(; it != map.end(); ++it) {
+        QString prop = it.key();
+        
+        a.setProperty(prop, qScriptValueFromValue(eng, it.value()));
+    }
 
+    return a;
+}
+ 
+void ScriptVarMapFromScriptValue( const QScriptValue& value, VarMap& map){
+    QScriptValueIterator itr(value);
+    
+    while(itr.hasNext()){
+       itr.next();
+       map[itr.name()] = qscriptvalue_cast<VarMap::mapped_type>(itr.value());
+    }
+}
