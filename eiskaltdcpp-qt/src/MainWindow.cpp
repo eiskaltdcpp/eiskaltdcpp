@@ -2195,6 +2195,7 @@ void MainWindow::slotToolsJSConsole(){
     
     scriptConsole->setWindowModality(Qt::NonModal);
     scriptConsole->show();
+    scriptConsole->raise();
 #endif
 }
 
