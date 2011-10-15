@@ -69,6 +69,8 @@ private:
     QMap<QString, ScriptObject*> scripts;
 };
 
+Q_DECLARE_METATYPE(QObject*)
 Q_DECLARE_METATYPE(ScriptEngine*)
+Q_DECLARE_METATYPE(QList<QObject*>)
 
 #endif // SCRIPTENGINE_H

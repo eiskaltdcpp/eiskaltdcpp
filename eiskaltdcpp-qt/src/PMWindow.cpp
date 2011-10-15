@@ -171,7 +171,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
         {
             QString msg = plainTextEdit_INPUT->toPlainText();
 
-            HubFrame *fr = HubManager::getInstance()->getHub(hubUrl);
+            HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
 
             if (fr){
                 if (!fr->parseForCmd(msg, this))
@@ -216,7 +216,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
             textEdit_CHAT->viewport()->setCursor(Qt::IBeamCursor);
     }
     else if (e->type() == QEvent::MouseButtonDblClick){
-        HubFrame *fr = HubManager::getInstance()->getHub(hubUrl);
+        HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
         bool cursoratnick = false;
         QString nick = "",nickstatus="",nickmessage="";
         QString cid = "";
@@ -486,7 +486,7 @@ void PMWindow::prevMsg(){
 }
 
 void PMWindow::slotHub(){
-    HubFrame *fr = HubManager::getInstance()->getHub(hubUrl);
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
 
     if (fr)
         MainWindow::getInstance()->mapWidgetOnArena(fr);

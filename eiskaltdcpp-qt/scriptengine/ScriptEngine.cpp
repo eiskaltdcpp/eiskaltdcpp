@@ -197,6 +197,8 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
     QScriptValue linkParser_parseMagnet = engine.newFunction(parseMagnetAlias);
     linkParser.setProperty("parse", linkParser_parse, QScriptValue::ReadOnly);
     linkParser.setProperty("parseMagnetAlias", linkParser_parseMagnet, QScriptValue::ReadOnly);
+    
+    qScriptRegisterSequenceMetaType< QList<QObject*> >(&engine);
 
     engine.globalObject().setProperty("LinkParser", linkParser, QScriptValue::ReadOnly);
 

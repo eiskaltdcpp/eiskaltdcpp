@@ -56,9 +56,9 @@ protected:
 
 public Q_SLOTS:
     QObject *getHubObject();
-    QList<HubFrame*> getHubs() const;
-    HubFrame *getHub(const QString &);
-    HubFrame *activeHub() const;
+    QList<QObject*> getHubs() const;
+    QObject *getHub(const QString &);
+    QObject *activeHub() const;
 
 private Q_SLOTS:
     void slotHubUpdated();

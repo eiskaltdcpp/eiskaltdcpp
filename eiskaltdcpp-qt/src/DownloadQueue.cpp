@@ -678,9 +678,14 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             VarMap::const_iterator it = rmap.constBegin();
             dcpp::CID cid(_tq(getCID(rmap)));
             QString nick = ((++it).key());
-            QList<HubFrame*> list = HubManager::getInstance()->getHubs();
+            QList<QObject*> list = HubManager::getInstance()->getHubs();
 
-            foreach (HubFrame *fr, list){
+            foreach (QObject *obj, list){
+                HubFrame *fr = qobject_cast<HubFrame*>(obj);
+                
+                if (!fr)
+                    continue;
+                
                 if (fr->hasCID(cid, nick)){
                     fr->createPMWindow(cid);
 

@@ -1440,7 +1440,7 @@ void MainWindow::newHubFrame(QString address, QString enc){
 
     address = QUrl::fromPercentEncoding(address.toAscii());
 
-    HubFrame *fr = HubManager::getInstance()->getHub(address);
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(address));
 
     if (fr){
         mapWidgetOnArena(fr);
@@ -2065,7 +2065,7 @@ void MainWindow::slotOpenMagnet(){
 }
 
 void MainWindow::slotHubsReconnect(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
 
     if (fr)
         fr->reconnect();
@@ -2303,7 +2303,7 @@ void MainWindow::slotFind(){
 }
 
 void MainWindow::slotChatDisable(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
 
     if (fr)
         fr->disableChat();
@@ -2768,7 +2768,7 @@ void MainWindow::slotAboutQt(){
 }
 
 void MainWindow::nextMsg(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
 
     if (fr)
         fr->nextMsg();
@@ -2790,7 +2790,7 @@ void MainWindow::nextMsg(){
 }
 
 void MainWindow::prevMsg(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
 
     if (fr)
         fr->prevMsg();
