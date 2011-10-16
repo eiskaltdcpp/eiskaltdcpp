@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-09-07 00:38+0300\n"
+"POT-Creation-Date: 2011-10-16 13:21+0300\n"
 "PO-Revision-Date: 2011-09-14 14:52+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
@@ -34,37 +34,37 @@ msgstr "Felhasználó(k) átirányítása"
 msgid "Auto-connect group (converted)"
 msgstr "Automatikusan csatlakozó hubok csoportja (konvertált)"
 
-#: ../Socket.cpp:85
+#: ../Socket.cpp:86
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Ismeretlen hiba: 0x%1$x"
 
-#: ../Socket.cpp:220 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../Socket.cpp:221 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
 #: ../ConnectionManager.cpp:186
 msgid "Connection timeout"
 msgstr "Időtúllépés"
 
-#: ../Socket.cpp:228 ../Socket.cpp:236 ../Socket.cpp:269 ../Socket.cpp:273
-#: ../Socket.cpp:297 ../Socket.cpp:312
+#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:298 ../Socket.cpp:313
 msgid "The socks server failed establish a connection"
 msgstr "Nem sikerült a socks kiszolgálóhoz kapcsolódni"
 
-#: ../Socket.cpp:301
+#: ../Socket.cpp:302
 msgid "The socks server requires authentication"
 msgstr "A socks kiszolgáló hitelesítést igényel"
 
-#: ../Socket.cpp:315
+#: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
 msgstr ""
 "A socks kiszolgáló nem támogatja a bejelentkezési név / jelszó hitelesítést"
 
-#: ../Socket.cpp:329 ../Socket.cpp:333
+#: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
 "A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói név/"
 "jelszó?)"
 
-#: ../Socket.cpp:466
+#: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -211,23 +211,23 @@ msgstr ""
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../QueueManager.cpp:2169 ../QueueManager.cpp:2175 ../QueueManager.cpp:2181
+#: ../QueueManager.cpp:2166 ../QueueManager.cpp:2172 ../QueueManager.cpp:2178
 msgid "Offline"
 msgstr "Kilépett"
 
-#: ../AdcHub.cpp:156
+#: ../AdcHub.cpp:155
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) CID-je {%3%} ugyanaz, mint %4% (%5%)-é, kihagyva"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2198
+#: ../AdcHub.cpp:192 ../Transfer.cpp:91 ../QueueManager.cpp:2195
 msgid "%1%/s"
 msgstr "%1%/s"
 
-#: ../AdcHub.cpp:228
+#: ../AdcHub.cpp:227
 msgid "Failed to negotiate base protocol"
 msgstr "Az alap protokoll egyeztetése sikertelen"
 
-#: ../AdcHub.cpp:234
+#: ../AdcHub.cpp:233
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -235,15 +235,15 @@ msgstr ""
 "A hub vélhetően régi verziójú ADC protokollt használ, kérlek szólj a "
 "tulajnak, hogy frissítsen"
 
-#: ../AdcHub.cpp:305
+#: ../AdcHub.cpp:304
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1%-t kirúgta %2%: %3%"
 
-#: ../AdcHub.cpp:308
+#: ../AdcHub.cpp:307
 msgid "%1% was kicked: %2%"
 msgstr "%1% kirúgva: %2%"
 
-#: ../AdcHub.cpp:680
+#: ../AdcHub.cpp:679
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 
@@ -255,42 +255,42 @@ msgstr "Végtelen átirányítási kör (%1%)"
 msgid "Sent "
 msgstr "Elküldve"
 
-#: ../Util.cpp:595
+#: ../Util.cpp:594
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:597
+#: ../Util.cpp:596
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:599
+#: ../Util.cpp:598
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:601
+#: ../Util.cpp:600
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:603
+#: ../Util.cpp:602
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:605
+#: ../Util.cpp:604
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:635
+#: ../Util.cpp:634
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:639
+#: ../Util.cpp:638
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -411,36 +411,36 @@ msgstr ""
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
-#: ../ShareManager.cpp:447
+#: ../ShareManager.cpp:446
 msgid "No directory specified"
 msgstr "Nincs könyvtár megadva"
 
-#: ../ShareManager.cpp:451
+#: ../ShareManager.cpp:450
 msgid "Directory is hidden"
 msgstr "Rejtett könyvtár"
 
-#: ../ShareManager.cpp:455
+#: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
 msgstr "Az ideiglenes letöltési könyvtár nem megosztható"
 
-#: ../ShareManager.cpp:643
+#: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
 "Érvénytelen fájlnév található a következő könyvtárban indexelésekor: %1%"
 
-#: ../ShareManager.cpp:661
+#: ../ShareManager.cpp:660
 msgid "User has chosen not to share file: %1% (Size: %2%)"
 msgstr ""
 "A felhasználó azt választotta, hogy a következő fájlt nem osztja meg: %1% "
 "(Méret: %2%)"
 
-#: ../ShareManager.cpp:682
+#: ../ShareManager.cpp:681
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr ""
 "A felhasználó azt választotta, hogy a következő ideiglenes fájlt nem osztja "
 "meg: %1% (Méret: %2%)"
 
-#: ../ShareManager.cpp:770
+#: ../ShareManager.cpp:769
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
@@ -448,7 +448,7 @@ msgstr ""
 "Többször meglévő fájl nem lesz megosztva: %1% (Méret: %2% B) Megegyezik "
 "ezzel: %3%"
 
-#: ../ShareManager.cpp:792
+#: ../ShareManager.cpp:790
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -456,19 +456,19 @@ msgstr ""
 "A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, "
 "mielőtt újra frissíteni próbálnál!"
 
-#: ../ShareManager.cpp:813
+#: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
 msgstr "Hiba a fájl-lista frissítésekor: %1%"
 
-#: ../ShareManager.cpp:835
+#: ../ShareManager.cpp:833
 msgid "File list refresh initiated"
 msgstr "A fájl-lista frissítése elkezdődött"
 
-#: ../ShareManager.cpp:860
+#: ../ShareManager.cpp:858
 msgid "File list refresh finished"
 msgstr "A fájl-lista frissítése befejeződött"
 
-#: ../ShareManager.cpp:942
+#: ../ShareManager.cpp:940
 msgid "File list %1% generated"
 msgstr "Fájl-lista %1% létrehozva"
 
@@ -630,39 +630,39 @@ msgstr "Nem szükséges részlet"
 msgid "Searching TTH alternates for: %1%"
 msgstr "TTH alternatíva keresése: %1%"
 
-#: ../QueueManager.cpp:684 ../QueueManager.cpp:747
+#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
 msgid "A file with the same hash already exists in your share"
 msgstr "A megosztásodban már van egy fájl ugyanezzel a hash-hel"
 
-#: ../QueueManager.cpp:710 ../QueueManager.cpp:789
+#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
 msgid "This file is already queued"
 msgstr "A fájl már a sorban van"
 
-#: ../QueueManager.cpp:725 ../QueueManager.cpp:801
+#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
 msgid "A file with a different size already exists in the queue"
 msgstr "Egy különböző mérettel rendelkező fájl már van a sorban"
 
-#: ../QueueManager.cpp:729
+#: ../QueueManager.cpp:727
 msgid "A file with different tth root already exists in the queue"
 msgstr "Egy különböző TTH gyökerű fájl már van a sorban"
 
-#: ../QueueManager.cpp:741
+#: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
 msgstr "Saját magadtól próbálsz meg letölteni!"
 
-#: ../QueueManager.cpp:804
+#: ../QueueManager.cpp:802
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Egy különböző TTH gyökerű fájl már van a sorban"
 
-#: ../QueueManager.cpp:808
+#: ../QueueManager.cpp:806
 msgid "This file has already finished downloading"
 msgstr "Ennek a fájlnak a letöltése már befejeződött"
 
-#: ../QueueManager.cpp:845 ../QueueManager.cpp:854
+#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
 msgstr "A cél fájlneve túl hosszú"
 
-#: ../QueueManager.cpp:850 ../QueueManager.cpp:858
+#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -670,40 +670,40 @@ msgstr ""
 "Érvénytelen célfájl (hiányzó könyvtár, ellenőrizd az alapértelmezett "
 "letöltési könyvtár beállításait)"
 
-#: ../QueueManager.cpp:866
+#: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
 msgstr "A fájl már létezik a megadott helyen"
 
-#: ../QueueManager.cpp:879 ../QueueManager.cpp:883
+#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
 msgstr "Dupla forrás: %1%"
 
-#: ../QueueManager.cpp:1152
+#: ../QueueManager.cpp:1149
 msgid "Target removed"
 msgstr "Cél eltávolítva"
 
-#: ../QueueManager.cpp:1160
+#: ../QueueManager.cpp:1157
 msgid "Target file is missing or wrong size"
 msgstr "A cél fájl hiányzik vagy nem megfelelő méretű"
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1206
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "Sikertelen áthelyezés [%1% ide: %2% (%3%)]; átnevezve erre: %4%"
 
-#: ../QueueManager.cpp:1212
+#: ../QueueManager.cpp:1209
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 "Sikertelen áthelyezés [%1% ide: %2% (%3%)], vagy átnevezés [erre: %4% (%5)]"
 
-#: ../QueueManager.cpp:1410
+#: ../QueueManager.cpp:1407
 msgid "Unable to open filelist: %1%"
 msgstr "Nem sikerült megnyitni a fájl-listát: %1%"
 
-#: ../QueueManager.cpp:1433
+#: ../QueueManager.cpp:1430
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Találat: %2% fájl"
 
-#: ../QueueManager.cpp:2037 ../QueueManager.cpp:2046
+#: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 inkonzisztencia (SFV-Ellenőrzéskor)"
 

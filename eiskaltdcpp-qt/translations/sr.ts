@@ -168,6 +168,18 @@ Keys:
         <source>Stop</source>
         <translation>Stop</translation>
     </message>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished">Očisti</translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueue</name>

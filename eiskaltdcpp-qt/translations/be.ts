@@ -174,6 +174,18 @@ EiskaltDC++ — гэта міжплятформавая праґрама, яка
         <source>Stop</source>
         <translation>Спыніць</translation>
     </message>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished">Ачысьціць</translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueue</name>
