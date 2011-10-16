@@ -137,6 +137,11 @@ void SpyFrame::on(dcpp::ClientManagerListener::IncomingSearch, const string &s) 
 
     emit coreIncomingSearch(_q(s).replace("$", " "), isTTH);
 
-    if (checkBox_AUTOSCROLLING->isChecked())
-        treeView->scrollToBottom();
+    if (checkBox_AUTOSCROLLING->isChecked()){
+        treeView->scrollToTop();
+        model->setSort(false);
+    }
+    else{
+        model->setSort(true);
+    }
 }

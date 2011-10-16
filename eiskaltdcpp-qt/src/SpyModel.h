@@ -27,6 +27,8 @@ public:
     ~SpyItem();
 
     void appendChild(SpyItem *child);
+    void insertChild(SpyItem *item, int pos = 0);
+    void moveUp(SpyItem *child);
 
     SpyItem *child(int row);
     int childCount() const;
@@ -72,6 +74,8 @@ public:
     /** sort list */
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
     virtual void sort();
+    /** set autosort list */
+    void setSort(bool sort);
 
     /** Clear model and redraw view*/
     void clearModel();
@@ -85,6 +89,7 @@ private:
     boost::object_pool<SpyItem> pool;
     /** */
     SpyItem *rootItem;
+    bool isSort;
     int sortColumn;
     Qt::SortOrder sortOrder;
     /** */
