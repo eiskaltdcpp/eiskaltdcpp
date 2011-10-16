@@ -3667,6 +3667,8 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
     else
         third = message.thirdPerson;
 
+    map["HUBURL"] = _q(client->getHubUrl());
+    
     if(message.to && message.replyTo)
     {
         //private message
@@ -3682,7 +3684,6 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         else if (isBot && BOOLSETTING(IGNORE_BOT_PMS))
             return;
 
-        VarMap map;
         CID id           = user->getUser()->getCID();
         QString nick     =  _q(message.from->getIdentity().getNick());
         bool isInSandBox = false;
