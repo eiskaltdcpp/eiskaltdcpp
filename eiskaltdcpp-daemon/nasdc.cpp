@@ -128,6 +128,7 @@ void printHelp() {
            "  -h, --help\t Show this message\n"
            "  -v, --version\t Show version string\n"
 #ifndef _WIN32
+           "  -P <port>, --port=<port>\t Set port for XMLRPC (default: 3121)\n"
            "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
            "  -c <dir>,  --confdir=<dir>\t Store config in <dir>\n"
            "  -l <dir>,  --localdir=<dir>\t Store local data (cache, temp files) in <dir> (defaults is equal confdir)\n"
