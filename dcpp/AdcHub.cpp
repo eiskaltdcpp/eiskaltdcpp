@@ -55,6 +55,7 @@ const string AdcHub::BAS0_SUPPORT("ADBAS0");
 const string AdcHub::TIGR_SUPPORT("ADTIGR");
 const string AdcHub::UCM0_SUPPORT("ADUCM0");
 const string AdcHub::BLO0_SUPPORT("ADBLO0");
+const string AdcHub::ZLIF_SUPPORT("ADZLIF");
 #ifdef WITH_DHT
 const string AdcHub::DHT0_SUPPORT("ADDHT0");
 #endif
@@ -648,6 +649,20 @@ void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
     dcdebug("triggering connecting attempt in RNT: remote port = %s, local IP = %s, local port = %d\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort());
     ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_SERVER, token, secure);
 }
+void AdcHub::handle(AdcCommand::ZON, AdcCommand& c) noexcept {
+    try {
+        sock->setMode(BufferedSocket::MODE_ZPIPE);
+    } catch (const Exception& e) {
+        dcdebug("AdcHub::handleZON failed with error: %s\n", e.getError().c_str());
+    }
+}
+void AdcHub::handle(AdcCommand::ZOF, AdcCommand& c) noexcept {
+    try {
+        sock->setMode(BufferedSocket::MODE_LINE);
+    } catch (const Exception& e) {
+        dcdebug("AdcHub::handleZOF failed with error: %s\n", e.getError().c_str());
+    }
+}
 
 void AdcHub::connect(const OnlineUser& user, const string& token) {
     connect(user, token, CryptoManager::getInstance()->TLSOk() && user.getUser()->isSet(User::TLS));
@@ -1090,6 +1105,7 @@ void AdcHub::on(Connected c) noexcept {
     if(BOOLSETTING(SEND_BLOOM)) {
         cmd.addParam(BLO0_SUPPORT);
     }
+    cmd.addParam(ZLIF_SUPPORT);
 #ifdef WITH_DHT
     if (BOOLSETTING(USE_DHT))
         cmd.addParam(DHT0_SUPPORT);

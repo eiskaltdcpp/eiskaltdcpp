@@ -41,13 +41,7 @@ Client::Client(const string& hubURL, char separator_, bool secure_) :
     string file, proto, query, fragment;
     Util::decodeUrl(hubURL, proto, address, port, file, query, fragment);
 
-    if(!query.empty()) {
-        auto q = Util::decodeQuery(query);
-        auto kp = q.find("kp");
-        if(kp != q.end()) {
-            keyprint = kp->second;
-        }
-    }
+    keyprint = Util::decodeQuery(query)["kp"];
 
     TimerManager::getInstance()->addListener(this);
 }
