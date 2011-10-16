@@ -760,7 +760,7 @@ Keys:
         <translation></translation>
     </message>
     <message>
-        <source>%1 become offline</source>
+        <source>%1 is now offline</source>
         <translation>%1 postao van veze</translation>
     </message>
     <message>

@@ -2073,7 +2073,7 @@ void HubFrame::userRemoved(const dcpp::UserPtr &user, qlonglong share){
     }
 
     if (FavoriteManager::getInstance()->isFavoriteUser(user))
-        Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become offline").arg(nick));
+        Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now offline").arg(nick));
 
     model->removeUser(user);
 }

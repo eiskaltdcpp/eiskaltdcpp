@@ -1258,7 +1258,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2076"/>
-        <source>%1 become offline</source>
+        <source>%1 is now offline</source>
         <translation>%1 покидает сеть</translation>
     </message>
     <message>

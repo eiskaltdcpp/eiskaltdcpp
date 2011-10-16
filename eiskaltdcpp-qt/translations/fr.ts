@@ -846,7 +846,7 @@ Utilisateur favoris</translation>
         <translation>Favoris</translation>
     </message>
     <message>
-        <source>%1 become offline</source>
+        <source>%1 is now offline</source>
         <translation>%1 sont hors-ligne</translation>
     </message>
     <message>
