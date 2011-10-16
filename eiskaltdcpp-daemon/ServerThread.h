@@ -25,6 +25,8 @@
 #include "dcpp/SearchResult.h"
 #include "dcpp/Singleton.h"
 
+extern bool isVerbose;
+
 class ServerThread :
         private TimerManagerListener,
         private QueueManagerListener,

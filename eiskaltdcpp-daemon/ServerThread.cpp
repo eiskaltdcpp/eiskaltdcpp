@@ -36,6 +36,8 @@
 #include "xmlrpcserver.h"
 #endif
 
+bool isVerbose = false;
+
 ServerThread::ClientMap ServerThread::clientsMap;
 
 //----------------------------------------------------------------------------
@@ -229,11 +231,14 @@ void ServerThread::on(Connecting, Client* cur) noexcept {
     }
     else if (i != clientsMap.end() && clientsMap[cur->getHubUrl()].curclient == NULL)
         clientsMap[cur->getHubUrl()].curclient = cur;
-    //cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
+
+    if (isVerbose)
+        cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 }
 
 void ServerThread::on(Connected, Client* cur) noexcept {
-    //cout << "Connect success to " <<  cur->getHubUrl() << "\n";
+    if (isVerbose)
+        cout << "Connect success to " <<  cur->getHubUrl() << "\n";
 }
 
 void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) noexcept {
@@ -249,11 +254,13 @@ void ServerThread::on(UserRemoved, Client*, const OnlineUserPtr& user) noexcept 
 }
 
 void ServerThread::on(Redirect, Client* cur, const string& line) noexcept {
-    //cout <<  "Redirected to" << line << "\n";
+    if (isVerbose)
+        cout <<  "Redirected to" << line << "\n";
 }
 
 void ServerThread::on(Failed, Client* cur, const string& line) noexcept {
-    //cout <<  "Connect failed [ " << cur->getHubUrl() << " ] :"<< line << "\n";
+    if (isVerbose)
+        cout <<  "Connect failed [ " << cur->getHubUrl() << " ] :"<< line << "\n";
 }
 
 void ServerThread::on(GetPassword, Client* cur) noexcept {
@@ -306,7 +313,8 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
         }
     }
 
-    //cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << "\n";
+    if (isVerbose)
+        cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << "\n";
 }
 
 void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusFlags) noexcept
@@ -322,7 +330,8 @@ void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusF
         LOG(LogManager::STATUS, params);
     }
 
-    //cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] " << "*"<< msg<< "\n";
+    if (isVerbose)
+        cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] " << "*"<< msg<< "\n";
 }
 
 void ServerThread::on(NickTaken, Client*) noexcept {

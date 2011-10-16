@@ -17,6 +17,7 @@
 
 #include "utility.h"
 #include "ServerManager.h"
+#include "ServerThread.h"
 
 #include "VersionGlobal.h"
 
@@ -128,6 +129,7 @@ void printHelp() {
            "  -h, --help\t Show this message\n"
            "  -v, --version\t Show version string\n"
 #ifndef _WIN32
+           "  -V, --verbose\t Verbose mode\n"
            "  -P <port>, --port=<port>\t Set port for XMLRPC (default: 3121)\n"
            "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
            "  -c <dir>,  --confdir=<dir>\t Store config in <dir>\n"
@@ -145,6 +147,7 @@ static struct option opts[] = {
     { "help",    no_argument,       NULL, 'h'},
     { "version", no_argument,       NULL, 'v'},
     { "daemon",  no_argument,       NULL, 'd'},
+    { "verbose", no_argument,       NULL, 'V'},
     { "confdir", required_argument, NULL, 'c'},
     { "localdir",required_argument, NULL, 'l'},
     { "pidfile", required_argument, NULL, 'p'},
@@ -166,6 +169,9 @@ void parseArgs(int argc, char* argv[]) {
 #if defined(USE_XMLRPC_ABYSS)
                 lport = (unsigned int) atoi (optarg);
 #endif
+                break;
+            case 'V':
+                isVerbose = true;
                 break;
             case 'd':
                 bDaemon = true;
@@ -209,7 +215,7 @@ int main(int argc, char* argv[])
 {
 	parseArgs(argc, argv);
 
-    sTitle = "eiskaltdcpp-daemon [nasdc] (EiskaltDC++ core 2.2)";
+    sTitle = "eiskaltdcpp-daemon (EiskaltDC++ core 2.2)";
 
 #ifdef _DEBUG
     sTitle += " [debug]";
