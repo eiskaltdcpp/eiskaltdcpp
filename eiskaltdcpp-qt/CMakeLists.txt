@@ -219,8 +219,6 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UITransferView.ui
             ui/UISettingsUC.ui
             ui/UIUserCommands.ui
-            ui/UIScriptManager.ui
-            ui/UIDialogScriptConsole.ui
             ui/UIActionCustomizer.ui
             ui/UIHubManager.ui
             )
@@ -274,6 +272,9 @@ if (USE_JS)
         scriptengine/ScriptConsole.h
         src/codeeditor/codeeditor.h
         src/ScriptManagerDialog.h)
+  list (APPEND UI_FORMS
+        ui/UIScriptManager.ui
+        ui/UIDialogScriptConsole.ui)
 endif (USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})

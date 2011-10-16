@@ -89,9 +89,7 @@ MainWindow::MainWindow (QWidget *parent):
         sideDock(NULL),
         sideTree(NULL),
         menuPanels(NULL),
-        wcontainer(NULL),
-        scriptConsole(NULL)
-
+        wcontainer(NULL)
 {
     exitBegin = false;
 
@@ -113,6 +111,10 @@ MainWindow::MainWindow (QWidget *parent):
     init();
 
     retranslateUi();
+
+#ifdef USE_JS
+    scriptConsole = NULL;
+#endif
 
     LogManager::getInstance()->addListener(this);
     TimerManager::getInstance()->addListener(this);
