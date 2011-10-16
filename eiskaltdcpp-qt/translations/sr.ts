@@ -816,7 +816,7 @@ Keys:
         <translation>Razgovor je bio opozvan</translation>
     </message>
     <message>
-        <source>%1 become online</source>
+        <source>%1 is now online</source>
         <translation>%1 postaje na vezi</translation>
     </message>
     <message>

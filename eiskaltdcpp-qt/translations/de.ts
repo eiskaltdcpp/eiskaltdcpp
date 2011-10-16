@@ -1303,7 +1303,7 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2020"/>
-        <source>%1 become online</source>
+        <source>%1 is now online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

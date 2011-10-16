@@ -838,7 +838,7 @@ Utilisateur favoris</translation>
         <translation>%1 sont hors-ligne</translation>
     </message>
     <message>
-        <source>%1 become online</source>
+        <source>%1 is now online</source>
         <translation>%1 sont en ligne</translation>
     </message>
     <message>

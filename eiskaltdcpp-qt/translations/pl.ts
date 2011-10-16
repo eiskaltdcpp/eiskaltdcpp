@@ -1262,7 +1262,7 @@ Ulubiony użytkownik</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2020"/>
-        <source>%1 become online</source>
+        <source>%1 is now online</source>
         <translation>%1 online</translation>
     </message>
     <message>

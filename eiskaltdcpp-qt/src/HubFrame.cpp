@@ -2019,7 +2019,7 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
                        cid, user);
 
         if (FavoriteManager::getInstance()->isFavoriteUser(user))
-            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become online").arg(nick));
+            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now online").arg(nick));
 
         if (pm.contains(nick)){
             PMWindow *wnd = pm[nick];

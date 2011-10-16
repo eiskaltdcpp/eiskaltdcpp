@@ -1001,7 +1001,7 @@ Favorite user</source>
         <translation> далучаецца да гутаркі</translation>
     </message>
     <message>
-        <source>%1 become online</source>
+        <source>%1 is now online</source>
         <translation>%1 далучаецца</translation>
     </message>
     <message>
