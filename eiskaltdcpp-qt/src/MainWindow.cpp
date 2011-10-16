@@ -63,6 +63,7 @@
 #ifdef USE_JS
 #include "ScriptManagerDialog.h"
 #include "scriptengine/ScriptConsole.h"
+#include "scriptengine/ScriptEngine.h"
 #endif
 
 #include "dcpp/ShareManager.h"
@@ -708,6 +709,7 @@ void MainWindow::initActions(){
 
         toolsJSConsole = new QAction("", this);
         toolsJSConsole->setObjectName("toolsJSConsole");
+        SM->registerShortcut(toolsJSConsole, tr("Ctrl+Alt+J"));
         toolsJSConsole->setIcon(WU->getPixmap(WulforUtil::eiCONSOLE));
         connect(toolsJSConsole, SIGNAL(triggered()), this, SLOT(slotToolsJSConsole()));
 #endif
@@ -2189,6 +2191,17 @@ void MainWindow::slotToolsJS(){
     ScriptManagerDialog(this).exec();
 #endif
 }
+
+void MainWindow::slotJSFileChanged(const QString &script){
+#ifdef USE_JS
+    if (QMessageBox::warning(this, 
+                             tr("Script Engine"), 
+                             QString("\'%1\' has been changed. Reload it?").arg(script), 
+                             QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
+        ScriptEngine::getInstance()->loadScript(script);
+#endif
+}
+
 
 void MainWindow::slotToolsJSConsole(){
 #ifdef USE_JS

@@ -13,6 +13,7 @@
 #include <QObject>
 #include <QtScript/QScriptEngine>
 #include <QtScript/QScriptValue>
+#include <QFileSystemWatcher>
 
 #include <QMetaType>
 
@@ -39,8 +40,9 @@ friend class dcpp::Singleton<ScriptEngine>;
 
 public:
 
-signals:
-
+Q_SIGNALS:
+    void scriptChanged(const QString &script);
+    
 public Q_SLOTS:
     void loadScripts();
     void loadScript(const QString&);
@@ -50,6 +52,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void slotWSKeyChanged(const QString &key, const QString &value);
+    void slotScriptChanged(const QString &script);
 
 private:
     ScriptEngine();
@@ -67,6 +70,8 @@ private:
     void registerDynamicMembers(QScriptEngine &);
 
     QMap<QString, ScriptObject*> scripts;
+    
+    QFileSystemWatcher watcher;
 };
 
 Q_DECLARE_METATYPE(ScriptEngine*)

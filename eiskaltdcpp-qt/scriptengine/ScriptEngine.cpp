@@ -55,6 +55,7 @@ ScriptEngine::ScriptEngine() :
         QObject(NULL)
 {
     connect (WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotWSKeyChanged(QString,QString)));
+    connect(&watcher, SIGNAL(fileChanged(QString)), this, SLOT(slotScriptChanged(QString)));
 
     loadScripts();
 }
@@ -76,8 +77,10 @@ void ScriptEngine::loadScripts(){
 void ScriptEngine::loadScript(const QString &path){
     QFile f(path);
 
-    if (!f.exists() || scripts.contains(path))
+    if (!f.exists())
         return;
+    
+    stopScript(path);
 
     if (path.endsWith(".js", Qt::CaseInsensitive))
         loadJSScript(path);
@@ -105,6 +108,8 @@ void ScriptEngine::loadJSScript(const QString &file){
     obj->engine.globalObject().setProperty("SCRIPT_PATH", scriptPath);
 
     scripts.insert(file, obj);
+    
+    watcher.addPath(file);
 
     obj->engine.evaluate(data);
 
@@ -255,6 +260,13 @@ void ScriptEngine::slotWSKeyChanged(const QString &key, const QString &value){
                 stopScript(it.key());
         }
     }
+}
+
+void ScriptEngine::slotScriptChanged(const QString &script){
+    if (!QFile::exists(script))
+        stopScript(script);
+    else
+        emit scriptChanged(script);
 }
 
 static QScriptValue shellExec(QScriptContext *ctx, QScriptEngine *engine){

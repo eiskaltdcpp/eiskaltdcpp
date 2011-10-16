@@ -222,6 +222,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsSettings();
         void slotToolsJS();
         void slotToolsJSConsole();
+        void slotJSFileChanged(const QString&);
         void slotToolsTransfer(bool);
         void slotToolsSwitchSpeedLimit();
         void slotPanelMenuActionClicked();

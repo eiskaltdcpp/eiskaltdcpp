@@ -163,6 +163,7 @@ int main(int argc, char *argv[])
 
 #ifdef USE_JS
     ScriptEngine::newInstance();
+    QObject::connect(ScriptEngine::getInstance(), SIGNAL(scriptChanged(QString)), MainWindow::getInstance(), SLOT(slotJSFileChanged(QString)));
 #endif
 
     FinishedUploads::newInstance();
