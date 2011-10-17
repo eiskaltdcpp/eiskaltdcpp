@@ -27,6 +27,8 @@
 #include <xmlrpc-c/server_abyss.hpp>
 #elif defined(USE_XMLRPC_PSTREAM)
 #include <xmlrpc-c/server_pstream.hpp>
+#elif defined(USE_XMLRPC_CGI)
+#include <xmlrpc-c/server_cgi.hpp>
 #endif
 
 #include "ServerManager.h"
@@ -45,7 +47,7 @@ bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth)
     fprintf(stderr,"split:%s\n",magnet.c_str());
     fflush(stderr);
 #endif
-    tmp = magnet.substr(8);	//magnet:?
+    tmp = magnet.substr(8); //magnet:?
 #ifdef _DEBUG
     fprintf(stderr,"split:%s\n",tmp.c_str());
     fflush(stderr);
@@ -71,10 +73,9 @@ xmlrpc_c::registry xmlrpcRegistry;
 #if defined(USE_XMLRPC_ABYSS)
 xmlrpc_c::serverAbyss * server;
 #elif defined(USE_XMLRPC_PSTREAM)
-xmlrpc_c::serverPstream server(xmlrpc_c::serverPstream::constrOpt()
-                                   .registryP(&xmlrpcRegistry)
-                                   .socketFd(STDIN_FILENO)
-                                  );
+xmlrpc_c::serverPstream * server;
+#elif defined(USE_XMLRPC_CGI)
+xmlrpc_c::serverCgi * server;
 #endif
 
 class magnetAddMethod : public xmlrpc_c::method {

@@ -25,8 +25,6 @@
 #include "dcpp/SearchResult.h"
 #include "dcpp/Singleton.h"
 
-extern bool isVerbose;
-
 class ServerThread :
         private TimerManagerListener,
         private QueueManagerListener,
@@ -103,7 +101,7 @@ private:
     uint64_t lastUpdate;
 
     CriticalSection shutcs;
-    static const int maxLines = 1000;
+    static const unsigned int maxLines = 50;
 };
 
 #endif /* SERVERTHREAD_H_ */

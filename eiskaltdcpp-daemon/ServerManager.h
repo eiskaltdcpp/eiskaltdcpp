@@ -22,7 +22,11 @@ bool ServerStart();
 void ServerStop();
 
 extern bool bServerRunning, bServerTerminated, bIsRestart, bIsClose;
-extern uint lport;
+extern unsigned short int lport;
+extern bool isVerbose;
+extern unsigned int maxLines;
+extern string xmlrpcLog, xmlrpcUriPath;
+
 #ifdef _WIN32
     #ifdef _SERVICE
         extern bool bService;

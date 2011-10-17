@@ -17,7 +17,6 @@
 
 #include "utility.h"
 #include "ServerManager.h"
-#include "ServerThread.h"
 
 #include "VersionGlobal.h"
 
@@ -134,6 +133,8 @@ void printHelp() {
            "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
            "  -c <dir>,  --confdir=<dir>\t Store config in <dir>\n"
            "  -l <dir>,  --localdir=<dir>\t Store local data (cache, temp files) in <dir> (defaults is equal confdir)\n"
+           "  -L <file>,  --rpclog=<file>\t Write xmlrpc log to <file> (default: /tmp/eiskaltdcpp-daemon.xmlrpc.log)\n"
+           "  -U <uripath>,  --uripath=<uripath>\t Set UriPath for xmlrpc abyss server to <uripath> (default: /eiskaltdcpp)\n"
 #endif // _WIN32
            );
 }
@@ -152,6 +153,8 @@ static struct option opts[] = {
     { "localdir",required_argument, NULL, 'l'},
     { "pidfile", required_argument, NULL, 'p'},
     { "port",    required_argument, NULL, 'P'},
+    { "rpclog",  required_argument, NULL, 'L'},
+    { "uripath", required_argument, NULL, 'U'},
     { NULL,      0,                 NULL, 0}
 };
 
@@ -163,11 +166,21 @@ void writePidFile(char *path)
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hp:c:l:P:vd", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hvdVp:c:l:P:L:", opts, NULL)) != -1) {
         switch (ch) {
             case 'P':
 #if defined(USE_XMLRPC_ABYSS)
-                lport = (unsigned int) atoi (optarg);
+                lport = (unsigned short int) atoi (optarg);
+#endif
+                break;
+            case 'L':
+#if defined(USE_XMLRPC_ABYSS)
+                xmlrpcLog.assign(optarg,1024);
+#endif
+                break;
+           case 'U':
+#if defined(USE_XMLRPC_ABYSS)
+                xmlrpcUriPath.assign(optarg,1024);
 #endif
                 break;
             case 'V':
@@ -213,7 +226,7 @@ void parseArgs(int argc, char* argv[]) {
 
 int main(int argc, char* argv[])
 {
-	parseArgs(argc, argv);
+    parseArgs(argc, argv);
 
     sTitle = "eiskaltdcpp-daemon (EiskaltDC++ core 2.2)";
 
@@ -226,7 +239,7 @@ int main(int argc, char* argv[])
         override[Util::PATH_USER_CONFIG] = config_dir;
         override[Util::PATH_USER_LOCAL] = config_dir;
     }
-	if (local_dir[0] != 0)
+    if (local_dir[0] != 0)
         override[Util::PATH_USER_LOCAL] = local_dir;
     Util::initialize(override);
 

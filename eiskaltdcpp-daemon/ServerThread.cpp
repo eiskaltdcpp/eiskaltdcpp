@@ -36,7 +36,10 @@
 #include "xmlrpcserver.h"
 #endif
 
+unsigned short int lport = 3121;
 bool isVerbose = false;
+string xmlrpcLog = "/tmp/eiskaltdcpp-daemon.xmlrpc.log";
+string xmlrpcUriPath = "/eiskaltdcpp";
 
 ServerThread::ClientMap ServerThread::clientsMap;
 
@@ -67,7 +70,7 @@ int ServerThread::run()
 
     try {
         File::ensureDirectory(SETTING(LOG_DIRECTORY));
-    } catch (const FileException) {	}
+    } catch (const FileException) { }
 
     startSocket(false);
     autoConnect();
@@ -120,13 +123,21 @@ int ServerThread::run()
     server = new xmlrpc_c::serverAbyss(xmlrpc_c::serverAbyss::constrOpt()
                                       .registryP(&xmlrpcRegistry)
                                       .portNumber(lport)
-                                      .logFileName("/tmp/eiskaltdcpp-daemon.xmlrpc.log")
+                                      .logFileName(xmlrpcLog)
                                       .serverOwnsSignals(false)
-                                      .uriPath("/eiskaltdcpp")
+                                      .uriPath(xmlrpcUriPath)
                                       );
     server->run();
 #elif defined(USE_XMLRPC_PSTREAM)
-    server.runSerial();
+    server = xmlrpc_c::serverPstream(xmlrpc_c::serverPstream::constrOpt()
+                                   .registryP(&xmlrpcRegistry)
+                                   .socketFd(STDIN_FILENO)
+                                  );
+    server->runSerial();
+#elif defined(USE_XMLRPC_CGI)
+    server = xmlrpc_c::serverCgi(xmlrpc_c::serverCgi::constrOpt()
+                                  .registryP(&xmlrpcRegistry));
+    server->processCall();
 #endif
 
 #endif
