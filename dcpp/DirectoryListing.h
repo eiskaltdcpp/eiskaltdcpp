@@ -26,6 +26,7 @@
 
 #include "MerkleTree.h"
 #include "Streams.h"
+#include "MediaInfo.h"
 
 namespace dcpp {
 
@@ -68,6 +69,7 @@ public:
         GETSET(Directory*, parent, Parent);
         GETSET(TTHValue, tthRoot, TTH);
         GETSET(bool, adls, Adls);
+        MediaInfo mediaInfo;
     };
 
     class Directory : public FastAlloc<Directory>, boost::noncopyable {

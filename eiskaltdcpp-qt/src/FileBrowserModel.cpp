@@ -166,6 +166,22 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
 
                 return tr("File marked as a duplicate of another file: %1").arg(path+_q(file->getName()));
             }
+            
+            QString tooltip = "";
+            
+            if (item->file){
+                DirectoryListing::File *f = item->file;
+                
+                if (!f->mediaInfo.video_info.empty() || !f->mediaInfo.video_info.empty()){
+                    MediaInfo &mi = f->mediaInfo;
+                    
+                    tooltip = QString("<b>Media Info:</b><br/>"
+                                      "&nbsp;&nbsp;<b>Video:</b> %1<br/>"
+                                      "&nbsp;&nbsp;<b>Audio:</b> %2<br/>"
+                                      "&nbsp;&nbsp;<b>Bitrate:</b> %3<br/>"
+                                      "&nbsp;&nbsp;<b>Resolution:</b> %4<br/><br/>").arg(_q(mi.video_info)).arg(_q(mi.audio_info)).arg(mi.bitrate).arg(_q(mi.resolution));
+                }
+            }
 
             TTHValue t(_tq(item->data(COLUMN_FILEBROWSER_TTH).toString()));
             ShareManager *SM = ShareManager::getInstance();
@@ -173,9 +189,12 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
             try{
                 QString toolTip = _q(SM->toReal(SM->toVirtual(t)));
 
-                return tr("File already exists: %1").arg(toolTip);
+                return tooltip + tr("File already exists: %1").arg(toolTip);
             }catch( ... ){};
 
+            if (!tooltip.isEmpty())
+                return tooltip;
+            
             break;
         }
         case Qt::FontRole:

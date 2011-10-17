@@ -140,6 +140,10 @@ static const string sFile = "File";
 static const string sName = "Name";
 static const string sSize = "Size";
 static const string sTTH = "TTH";
+static const string sBR = "BR";
+static const string sWH = "WH";
+static const string sMVideo = "MV";
+static const string sMAudio = "MA";
 
 void ListLoader::startTag(const string& name, StringPairList& attribs, bool simple) {
     if(inListing) {
@@ -169,7 +173,13 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
                     }
                 }
             }
+            
             DirectoryListing::File* f = new DirectoryListing::File(cur, n, size, tth);
+            f->mediaInfo.video_info = getAttrib(attribs, sMVideo, 3);
+            f->mediaInfo.audio_info = getAttrib(attribs, sMAudio, 3);
+            f->mediaInfo.resolution = getAttrib(attribs, sWH, 3);
+            f->mediaInfo.bitrate    = atoi(getAttrib(attribs, sBR, 4).c_str());
+            
             cur->files.push_back(f);
         } else if(name == sDirectory) {
             const string& n = getAttrib(attribs, sName, 0);

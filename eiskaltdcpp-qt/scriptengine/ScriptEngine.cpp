@@ -54,6 +54,8 @@ void ScriptVarMapFromScriptValue( const QScriptValue& value, VarMap& map);
 ScriptEngine::ScriptEngine() :
         QObject(NULL)
 {
+    setObjectName("ScriptEngine");
+    
     connect (WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotWSKeyChanged(QString,QString)));
     connect(&watcher, SIGNAL(fileChanged(QString)), this, SLOT(slotScriptChanged(QString)));
 
@@ -159,8 +161,6 @@ void ScriptEngine::stopScript(const QString &path){
 }
 
 void ScriptEngine::prepareThis(QScriptEngine &engine){
-    setObjectName("ScriptEngine");
-
     QScriptValue me = engine.newQObject(&engine);
     engine.globalObject().setProperty(objectName(), me);
 
