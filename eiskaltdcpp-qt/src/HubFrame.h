@@ -180,6 +180,7 @@ public Q_SLOTS:
     void disableChat();
     void clearChat();
     void addStatus(QString);
+    QString getHubUrl();
     void sendMsg(const QString&);
 
     void reloadSomeSettings();

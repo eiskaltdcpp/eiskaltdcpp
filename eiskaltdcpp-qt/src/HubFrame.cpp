@@ -1842,6 +1842,14 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
     return true;
 }
 
+QString HubFrame::getHubUrl() {
+    if (client)
+        return _q(client->getHubUrl());
+    
+    return "";
+}
+
+
 void HubFrame::addStatus(QString msg){
     if (chatDisabled)
         return;
