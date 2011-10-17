@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 
         app.sendMessage(args.join("\n"));
 #else
-    if ( be_roster->IsRunning("application/x-vnd.Eiskaltdcpp++") {
+    if ( be_roster->IsRunning("application/x-vnd.Eiskaltdcpp++")) {
 #endif
         return 0;
     }

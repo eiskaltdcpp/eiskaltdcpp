@@ -34,7 +34,7 @@ endif (USE_QT_SQLITE)
 
 include (${QT_USE_FILE})
 
-set (SRCS
+list (APPEND SRCS
             src/ActionCustomizer.cpp
             src/ADLS.cpp
             src/ADLSModel.cpp
@@ -105,10 +105,11 @@ set (SRCS
             src/UserListModel.cpp
             src/WulforSettings.cpp
             src/WulforUtil.cpp
-            src/ChatEdit.cpp
-            src/qtsingleapp/qtsinglecoreapplication.cpp
-            )
-set (MOC_HDRS
+            src/ChatEdit.cpp)
+if (NOT HAIKU)
+        list(APPEND SRCS src/qtsingleapp/qtsinglecoreapplication.cpp)
+endif (NOT HAIKU)
+list(APPEND MOC_HDRS
             src/ActionCustomizer.h
             src/ADLS.h
             src/ADLSModel.h
@@ -183,7 +184,10 @@ set (MOC_HDRS
             src/ChatEdit.h
             src/qtsingleapp/qtsinglecoreapplication.h
             )
-set (UI_FORMS ui/UIAbout.ui
+if (NOT HAIKU)
+        list(APPEND MOC_HDRS src/qtsingleapp/qtsinglecoreapplication.h)
+endif (NOT HAIKU)
+list(APPEND UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui
             ui/UIADLSearch.ui
             ui/UIADLSearchEditor.ui
