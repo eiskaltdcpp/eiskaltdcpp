@@ -188,9 +188,12 @@ Keys for cmake
 -DWITH_LUASCRIPTS=ON/OFF (default: OFF)
     If ON install luascripts/
 -DUSE_MINIUPNP=ON/OFF (default: OFF)
-    use or not use miniupnpc lib
+    use or not use miniupnpc lib version 1.5.x
+-DMINIUPNPC16=ON/OFF (default: OFF)
+    use or not use miniupnpc lib version 1.6.x
 -DLOCAL_MINIUPNP=ON/OFF (default: OFF)
-    If ON use local miniupnpc lib (not set this in ON if you not set USE_MINIUPNP in ON)
+    If ON use local miniupnpc lib
+    (not set this in ON if you not set USE_MINIUPNP or MINIUPNPC16 in ON)
 -DWITH_SOUNDS=ON/OFF (default: OFF)
     If ON install sounds/
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)

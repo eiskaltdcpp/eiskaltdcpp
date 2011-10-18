@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp-daemon" 1 "16 Oct 2011"
+.TH "eiskaltdcpp-daemon" 1 "18 Oct 2011"
 .SH "NAME"
 eiskaltdcpp-daemon \- simple daemon controllable via XML-RPC
 .SH "SYNOPSIS"
@@ -31,6 +31,12 @@ Store config in <dir>
 .TP
 .BR "\-l <dir>",  \-\-localdir=<dir>"
 Store local data (cache, temp files) in <dir> (defaults is equal confdir)
+.TP
+.BR "\-L <file>",  \-\-rpclog=<file>"
+Write xmlrpc log to <file> (default: /tmp/eiskaltdcpp-daemon.xmlrpc.log)
+.TP
+.BR "\-U <uripath>",  \-\-uripath=<uripath>"
+Set UriPath for xmlrpc abyss server to <uripath> (default: /eiskaltdcpp)
 .TP
 .BR "\-h,  \-\-help"
 Display help and exit

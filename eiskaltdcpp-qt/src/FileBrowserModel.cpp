@@ -179,7 +179,9 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
                                       "&nbsp;&nbsp;<b>Video:</b> %1<br/>"
                                       "&nbsp;&nbsp;<b>Audio:</b> %2<br/>"
                                       "&nbsp;&nbsp;<b>Bitrate:</b> %3<br/>"
-                                      "&nbsp;&nbsp;<b>Resolution:</b> %4<br/><br/>").arg(_q(mi.video_info)).arg(_q(mi.audio_info)).arg(mi.bitrate).arg(_q(mi.resolution));
+                                      "&nbsp;&nbsp;<b>Resolution:</b> %4<br/><br/>")
+                                      .arg(_q(mi.video_info)).arg(_q(mi.audio_info))
+                                      .arg(mi.bitrate).arg(_q(mi.resolution));
                 }
             }
 
