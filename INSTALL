@@ -188,12 +188,11 @@ Keys for cmake
 -DWITH_LUASCRIPTS=ON/OFF (default: OFF)
     If ON install luascripts/
 -DUSE_MINIUPNP=ON/OFF (default: OFF)
-    use or not use miniupnpc lib version 1.5.x
--DMINIUPNPC16=ON/OFF (default: OFF)
-    use or not use miniupnpc lib version 1.6.x
+    use or not use miniupnpc lib
+-DMINIUPNPC16=ON/OFF (default: OFF {miniupnpc 1.5.x})
+    switch compability with miniupnpc lib version 1.6.x/1.5.x
 -DLOCAL_MINIUPNP=ON/OFF (default: OFF)
     If ON use local miniupnpc lib
-    (not set this in ON if you not set USE_MINIUPNP or MINIUPNPC16 in ON)
 -DWITH_SOUNDS=ON/OFF (default: OFF)
     If ON install sounds/
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
@@ -280,4 +279,3 @@ sudo apt-get install dh-make-perl
 sudo dh-make-perl --install --cpan Term::ShellUI
 # If that doesn't work for some reason use CPAN:
 sudo cpan Term::ShellUI
-
