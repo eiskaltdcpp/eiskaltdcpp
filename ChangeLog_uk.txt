@@ -3,6 +3,7 @@
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***
+* Додані опції командного рядка: --verbose, --port, --rpclog, --uripath
 *** eiskaltdcpp-cli ***
 
 --- 2.2.4 2011-10-02 ---

@@ -81,7 +81,7 @@ list (APPEND SRCS
             src/SettingsConnection.cpp
             src/SettingsDownloads.cpp
             src/SettingsGUI.cpp
-	    src/SettingsHistory.cpp
+            src/SettingsHistory.cpp
             src/SettingsLog.cpp
             src/SettingsNotification.cpp
             src/SettingsPersonal.cpp
@@ -152,7 +152,7 @@ list(APPEND MOC_HDRS
             src/SettingsConnection.h
             src/SettingsDownloads.h
             src/SettingsGUI.h
-	    src/SettingsHistory.h
+            src/SettingsHistory.h
             src/SettingsLog.h
             src/SettingsNotification.h
             src/SettingsPersonal.h
@@ -214,7 +214,7 @@ list(APPEND UI_FORMS ui/UIAbout.ui
             ui/UISettingsConnection.ui
             ui/UISettingsDownloads.ui
             ui/UISettingsGUI.ui
-	    ui/UISettingsHistory.ui
+            ui/UISettingsHistory.ui
             ui/UISettingsLog.ui
             ui/UISettingsNotification.ui
             ui/UISettingsPersonal.ui
