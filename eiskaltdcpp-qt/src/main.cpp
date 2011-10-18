@@ -20,7 +20,7 @@ using namespace std;
 #include "dcpp/QueueManager.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
-#include "EiskaltApp.h"
+
 #include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
@@ -31,6 +31,8 @@ using namespace std;
 #include "EmoticonFactory.h"
 #include "FinishedTransfers.h"
 #include "QueuedUsers.h"
+#include "EiskaltApp.h"
+
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
@@ -60,7 +62,7 @@ void parseCmdLine(const QStringList &);
 #ifndef Q_WS_WIN
 #include <unistd.h>
 #include <signal.h>
-#ifndef __HAIKU__
+#ifndef Q_WS_HAIKU
 #include <execinfo.h>
 
 #ifdef ENABLE_STACKTRACE
@@ -75,7 +77,7 @@ void installHandlers();
 void migrateConfig();
 #endif
 
-#else//WIN32
+#else //WIN32
 #include <locale.h>
 #endif
 
@@ -92,9 +94,9 @@ int main(int argc, char *argv[])
     if (app.isRunning()){
         QStringList args = app.arguments();
         args.removeFirst();//remove path to executable
-
+#ifndef Q_WS_HAIKU
         app.sendMessage(args.join("\n"));
-
+#endif
         return 0;
     }
 
