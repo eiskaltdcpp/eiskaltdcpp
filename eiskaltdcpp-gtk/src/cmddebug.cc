@@ -93,25 +93,25 @@ void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& m
             case dcpp::DebugManager::HUB_IN :
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_in_button"))) == TRUE)
                 {
-                    addCmd("Hub:\t[Incoming][" + ip + "]\t \t"+mess, ip);
+                    addCmd("Hub:\t[Incoming][" + ip + "]\t\t"+mess, ip);
                 }
                 break;
             case dcpp::DebugManager::HUB_OUT :
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_out_button"))) == TRUE)
                 {
-                    addCmd("Hub:\t[Outgoing][" + ip + "]\t \t"+mess, ip);
+                    addCmd("Hub:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
                 }
                 break;
             case dcpp::DebugManager::CLIENT_IN:
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_in_button"))) == TRUE)
                 {
-                    addCmd("Client:\t[Incoming][" + ip + "]\t \t"+mess, ip);
+                    addCmd("Client:\t[Incoming][" + ip + "]\t\t"+mess, ip);
                 }
                 break;
             case dcpp::DebugManager::CLIENT_OUT:
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_out_button"))) == TRUE)
                 {
-                    addCmd("Client:\t[Outgoing][" + ip + "]\t \t"+mess, ip);
+                    addCmd("Client:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
                 }
                 break;
             default: break;

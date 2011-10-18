@@ -202,7 +202,7 @@ void WulforManager::processGuiQueue()
 		gdk_threads_enter();
 
 		g_mutex_lock(guiQueueMutex);
-		while (guiFuncs.size() > 0)
+		while (!guiFuncs.empty())
 		{
 			func = guiFuncs.front();
 			guiFuncs.erase(guiFuncs.begin());
@@ -238,7 +238,7 @@ void WulforManager::processClientQueue()
 
 		g_mutex_lock(clientCallMutex);
 		g_mutex_lock(clientQueueMutex);
-		while (clientFuncs.size() > 0)
+		while (!clientFuncs.empty())
 		{
 			func = clientFuncs.front();
 			clientFuncs.erase(clientFuncs.begin());
@@ -358,6 +358,7 @@ void WulforManager::deleteEntry_gui(Entry *entry)
 		else
 			++fIt;
 	}
+
 	g_mutex_unlock(guiQueueMutex);
 
 	// Remove the bookentry from the list.
