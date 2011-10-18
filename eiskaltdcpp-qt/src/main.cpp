@@ -31,11 +31,8 @@ using namespace std;
 #include "EmoticonFactory.h"
 #include "FinishedTransfers.h"
 #include "QueuedUsers.h"
-#ifndef _HAIKU_
 #include "EiskaltApp.h"
-#else
-#include <app/Roster.h>
-#endif
+
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
@@ -89,21 +86,15 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     setlocale(LC_ALL, "");
 
-#ifndef _HAIKU_
     EiskaltApp app(argc, argv);
-#endif
     int ret = 0;
 
-#ifndef _HAIKU_
     parseCmdLine(app.arguments());
+
     if (app.isRunning()){
         QStringList args = app.arguments();
         args.removeFirst();//remove path to executable
-
-        app.sendMessage(args.join("\n"));
-#else
-    if ( be_roster->IsRunning("application/x-vnd.Eiskaltdcpp++")) {
-#endif
+        app.sendMessage(args.join("\n"))
         return 0;
     }
 
