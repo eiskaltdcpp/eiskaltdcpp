@@ -62,7 +62,7 @@ void parseCmdLine(const QStringList &);
 #ifndef Q_WS_WIN
 #include <unistd.h>
 #include <signal.h>
-#ifndef __HAIKU__
+#ifndef Q_WS_HAIKU
 #include <execinfo.h>
 
 #ifdef ENABLE_STACKTRACE
@@ -77,7 +77,7 @@ void installHandlers();
 void migrateConfig();
 #endif
 
-#else//WIN32
+#else //WIN32
 #include <locale.h>
 #endif
 
@@ -94,7 +94,9 @@ int main(int argc, char *argv[])
     if (app.isRunning()){
         QStringList args = app.arguments();
         args.removeFirst();//remove path to executable
-        app.sendMessage(args.join("\n"))
+#ifndef Q_WS_HAIKU
+        app.sendMessage(args.join("\n"));
+#endif
         return 0;
     }
 

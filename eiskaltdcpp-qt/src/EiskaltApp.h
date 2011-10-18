@@ -14,12 +14,12 @@
 #include <QEvent>
 #include <QTimer>
 #include <QSessionManager>
-#ifdef __HAIKU__
+#ifdef Q_WS_HAIKU
 #include <Roster.h>
 #endif
 #include "WulforSettings.h"
 #include "MainWindow.h"
-#ifndef _HAIKI_
+#ifndef Q_WS_HAIKU
 #include "qtsingleapp/qtsinglecoreapplication.h"
 #endif
 
@@ -88,7 +88,7 @@ private:
     int counter;
     bool has_activity;
 };
-#ifndef _HAIKU_
+#ifndef Q_WS_HAIKU
 class EiskaltApp: public QtSingleCoreApplication {
 Q_OBJECT
 public:
@@ -101,7 +101,7 @@ EiskaltApp(int argc, char *argv[]): QApplication(argc, argv){
 #endif
         installEventFilter(&ef);
     }
-#ifdef _HAIKI_
+#ifdef Q_WS_HAIKU
     bool isRunning() {
         return be_roster->IsRunning("application/x-vnd.Eiskaltdcpp++");
     }
