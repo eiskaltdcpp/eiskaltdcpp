@@ -172,7 +172,7 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
             if (item->file){
                 DirectoryListing::File *f = item->file;
                 
-                if (!f->mediaInfo.video_info.empty() || !f->mediaInfo.video_info.empty()){
+                if (!f->mediaInfo.video_info.empty() || !f->mediaInfo.audio_info.empty()){
                     MediaInfo &mi = f->mediaInfo;
                     
                     tooltip = QString("<b>Media Info:</b><br/>"
