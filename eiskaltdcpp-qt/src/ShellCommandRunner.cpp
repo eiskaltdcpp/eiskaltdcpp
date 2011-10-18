@@ -13,13 +13,13 @@
 #include <cstdio>
 
 /** */
-ShellCommandRunner::ShellCommandRunner(QString a, QObject * parent) : QThread(parent) {
+ShellCommandRunner::ShellCommandRunner(QString a, QObject * parent) : QThread(parent), _exitCode(-1) {
     args = a;
     stop = false;
     useArgList = false;
 }
 
-ShellCommandRunner::ShellCommandRunner(QString cmd, QStringList argList, QObject * parent) : QThread(parent) {
+ShellCommandRunner::ShellCommandRunner(QString cmd, QStringList argList, QObject * parent) : QThread(parent), _exitCode(-1) {
     this->argList = argList;
     this->cmd = cmd;
     useArgList = true;
@@ -37,6 +37,7 @@ ShellCommandRunner::~ShellCommandRunner() {
 
 /** */
 void ShellCommandRunner::run() {
+    _exitCode = 1;
     QString output;
     bool succeeded = false;
     QProcess process;
@@ -69,21 +70,22 @@ void ShellCommandRunner::run() {
 
     if ((process.state() == QProcess::NotRunning)) {
         if (process.exitStatus() == QProcess::NormalExit) {
-            int exitcode = process.exitCode();
-            if (exitcode == 0) {
+            _exitCode = process.exitCode();
+            if (_exitCode == 0) {
                 output = QString(process.readAllStandardOutput()).trimmed();
-                if (output.isEmpty()) {
+                
+                if (output.isEmpty())
                     output = tr("Command produced no visible output.");
-                } else {
+                else
                     succeeded = true;
-                }
             } else {
-                output = tr("Process exited with status") + " " + QString::number(exitcode);
+                output = tr("Process exited with status") + " " + QString::number(_exitCode);
             }
         } else {
             output = tr("Process was killed or crashed.");
         }
     } else {
+        _exitCode = 1;
         output = tr("Process still running after 2 minutes, killing process...");
         process.terminate();
         QThread::msleep(1000);
@@ -94,10 +96,8 @@ void ShellCommandRunner::run() {
         }
     }
 
-    if (stop == false) // stop is only set to true when things are being deleted
-    {
+    if (!stop) // stop is only set to true when things are being deleted
         emit finished(succeeded, output);
-    }
 }
 
 /** */
