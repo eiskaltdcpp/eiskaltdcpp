@@ -14,9 +14,9 @@
 #include <QEvent>
 #include <QTimer>
 #include <QSessionManager>
+#include <Roster.h>
 #include "WulforSettings.h"
 #include "MainWindow.h"
-#include "qtsingleapp/qtsinglecoreapplication.h"
 
 class EiskaltEventFilter: public QObject{
 Q_OBJECT
@@ -84,12 +84,15 @@ private:
     bool has_activity;
 };
 
-class EiskaltApp: public QtSingleCoreApplication {
+class EiskaltApp: public QApplication {
 Q_OBJECT
 public:
-    EiskaltApp(int argc, char *argv[]): QtSingleCoreApplication(argc, argv, "EiskaltDCPP")
+    EiskaltApp(int argc, char *argv[]): QApplication(argc, argv)
     {
         installEventFilter(&ef);
+    }
+    bool isRunning() {
+        return be_roster->IsRunning("application/x-vnd.Eiskaltdcpp++");
     }
 
     void commitData(QSessionManager& manager){

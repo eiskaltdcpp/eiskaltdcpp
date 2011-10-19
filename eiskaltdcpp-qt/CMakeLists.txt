@@ -120,7 +120,6 @@ list(APPEND MOC_HDRS
             src/CustomFontModel.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
-            src/EiskaltApp.h
             src/EmoticonDialog.h
             src/EmoticonFactory.h
             src/EmoticonObject.h
@@ -184,10 +183,14 @@ list(APPEND MOC_HDRS
             src/WulforSettings.h
             src/WulforUtil.h
             src/ChatEdit.h
-            src/qtsingleapp/qtsinglecoreapplication.h
             )
 if (NOT HAIKU)
-        list(APPEND MOC_HDRS src/qtsingleapp/qtsinglecoreapplication.h)
+        list(APPEND MOC_HDRS
+                    src/EiskaltApp.h
+                    src/qtsingleapp/qtsinglecoreapplication.h)
+else (NOT HAIKU)
+        list(APPEND MOC_HDRS
+                    src/EiskaltApp_haiku.h)
 endif (NOT HAIKU)
 list(APPEND UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui

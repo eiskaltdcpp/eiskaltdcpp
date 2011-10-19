@@ -31,8 +31,11 @@ using namespace std;
 #include "EmoticonFactory.h"
 #include "FinishedTransfers.h"
 #include "QueuedUsers.h"
+#ifdef Q_WS_HAIKU
+#include "EiskaltApp_haiku.h"
+#else
 #include "EiskaltApp.h"
-
+#endif
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
