@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: eiskaltdcpp 2.2.1-1\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-16 13:21+0300\n"
-"PO-Revision-Date: 2011-06-06 22:55+0200\n"
+"PO-Revision-Date: 2011-10-19 21:52+0200\n"
 "Last-Translator: Chris Leick <c.leick@vollbio.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
 "Language: de\n"
@@ -194,6 +194,8 @@ msgid ""
 "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
 "\">Help</a>"
 msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3862
 msgid "<b>Add player</b>"
@@ -536,6 +538,9 @@ msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
 msgstr ""
+"Regel 192.168.1.0/23 hinzufügen, wobei Richtung eingehend und Aktion "
+"erlaubt ist, sowie 192.168.6.0/24, wobei Richtung ein- oder ausgehend "
+"und Aktion verwerfen ist.
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -701,7 +706,7 @@ msgstr "Automatische Suche nach alternativen Download-Orten"
 
 #: ../ui/settingsdialog.ui:2392
 msgid "Automatically update external IP (restart required)"
-msgstr ""
+msgstr "Automatische Aktualisierung der externen IP (Neustart erforderlich)"
 
 #: ../src/hub.cc:1959 ../src/privatemessage.cc:984 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
@@ -744,9 +749,8 @@ msgid "Bold Authors of message in chat"
 msgstr "Fettgedruckte Verfasser von Nachrichten im Chat"
 
 #: ../ui/settingsdialog.ui:4912
-#, fuzzy
 msgid "Browse file..."
-msgstr "Durchsuchen …"
+msgstr "Datei durchsuchen …"
 
 #: ../ui/mainwindow.ui:2176
 msgid "Browse the list of public hubs"
@@ -1016,9 +1020,8 @@ msgid "DETECTION"
 msgstr "ERKENNUNG"
 
 #: ../ui/settingsdialog.ui:2492
-#, fuzzy
 msgid "DHT Port"
-msgstr "Port"
+msgstr "DHT-Port"
 
 #: ../src/previewmenu.cc:89 ../src/emoticonsdialog.cc:106
 #: ../ui/settingsdialog.ui:5451 ../ui/settingsdialog.ui:6152
@@ -1242,9 +1245,8 @@ msgid "Drop sources below"
 msgstr "Quellen unterhalb verwerfen"
 
 #: ../ui/settingsdialog.ui:2423
-#, fuzzy
 msgid "DynDNS Address"
-msgstr "Adresse"
+msgstr "DynDNS-Adresse"
 
 #: ../ui/settingsdialog.ui:1138
 msgid "E-Mail"
@@ -1300,9 +1302,8 @@ msgid "Encoding"
 msgstr "Kodierung"
 
 #: ../src/transfers.cc:66
-#, fuzzy
 msgid "Encryption"
-msgstr "Beschreibung"
+msgstr "Verschlüsselung"
 
 #: ../ui/mainwindow.ui:2494
 msgid "Enter line for user command"
@@ -1359,9 +1360,8 @@ msgid "Execute code (bash)"
 msgstr "Code ausführen (Bash)"
 
 #: ../ui/mainwindow.ui:1982
-#, fuzzy
 msgid "Exit"
-msgstr "_Beenden"
+msgstr "Beenden"
 
 #: ../ui/mainwindow.ui:801
 msgid "Exit EiskaltDC++ Gtk?"
@@ -1791,15 +1791,15 @@ msgstr "Ungültige Erweiterung: "
 
 #: ../src/hub.cc:2130
 msgid "Ipfilter is disable"
-msgstr ""
+msgstr "Ip-Filter ist deaktiviert"
 
 #: ../src/hub.cc:2123
 msgid "Ipfilter is enable"
-msgstr ""
+msgstr "IP-Filter ist aktiviert"
 
 #: ../src/hub.cc:1989
 msgid "Ipfilter on/off"
-msgstr ""
+msgstr "IP-Filter an/aus"
 
 #: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:342
 msgid "Items: "
@@ -1841,9 +1841,8 @@ msgid "Left position"
 msgstr "Linke Position"
 
 #: ../ui/settingsdialog.ui:2359
-#, fuzzy
 msgid "Limits"
-msgstr "<b>Beschränkungen</b>"
+msgstr "Beschränkungen"
 
 #: ../src/settingsdialog.cc:873 ../src/settingsdialog.cc:3435
 #: ../src/settingsdialog.cc:3448 ../src/settingsdialog.cc:3465
@@ -2021,11 +2020,11 @@ msgstr "Minimale Slot-Größe"
 
 #: ../src/settingsdialog.cc:1034
 msgid "Minimize to tray on startup"
-msgstr ""
+msgstr "Beim Systemstart in den Infobereich der Kontrollleiste minimieren"
 
 #: ../ui/favoritehubs.ui:312
 msgid "Minimum search interval (seconds):"
-msgstr ""
+msgstr "Minimales Suchintervall (Sekunden):"
 
 #: ../ui/settingsdialog.ui:7910
 msgid "Modify"
@@ -2044,9 +2043,8 @@ msgid "Move Up"
 msgstr "Nach oben verschieben"
 
 #: ../src/hub.cc:1991
-#, fuzzy
 msgid "Move rule up/down"
-msgstr "Nach unten verschieben"
+msgstr "Regel nach oben/unten verschieben"
 
 #: ../ui/downloadqueue.ui:7
 msgid "Move to..."
@@ -2332,7 +2330,7 @@ msgstr "Bilder"
 
 #: ../src/transfers.cc:891
 msgid "Plain"
-msgstr ""
+msgstr "Einfach"
 
 #: ../ui/settingsdialog.ui:4856
 msgid "Play"
@@ -2496,9 +2494,8 @@ msgid "Remove image"
 msgstr "Bild entfernen"
 
 #: ../src/hub.cc:1992
-#, fuzzy
 msgid "Remove rules from list"
-msgstr "_Benutzer aus Warteschlange entfernen"
+msgstr "Regeln aus der Liste entfernen"
 
 #: ../src/settingsdialog.cc:974
 msgid "Remove slow filelists"
@@ -2696,9 +2693,8 @@ msgid "Show IP's' in chats"
 msgstr "IPs in Chats anzeigen"
 
 #: ../ui/mainwindow.ui:1952
-#, fuzzy
 msgid "Show Interface"
-msgstr "Schnittstelle _anzeigen"
+msgstr "Schnittstelle anzeigen"
 
 #: ../src/hub.cc:1966 ../ui/hub.ui:48
 msgid "Show favorites list"
@@ -2710,9 +2706,8 @@ msgid "Show help"
 msgstr "Hilfe anzeigen"
 
 #: ../src/hub.cc:1990
-#, fuzzy
 msgid "Show ipfilter rules list"
-msgstr "Favoritenliste anzeigen"
+msgstr "Liste der IP-Filter-Regeln anzeigen"
 
 #: ../src/settingsdialog.cc:1023
 msgid "Show joins / parts in chat by default"
@@ -2732,9 +2727,8 @@ msgstr "Nur anzeigen, wenn die Anwendung nicht aktiv ist"
 
 #: ../src/hub.cc:1978 ../src/privatemessage.cc:994 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
-#, fuzzy
 msgid "Show ratio [send in chat]"
-msgstr "Land des Benutzers im Chat anzeigen"
+msgstr "Größenverhältnis anzeigen [im Chat senden]"
 
 #: ../src/settingsdialog.cc:1020
 msgid "Show status icon in the system tray"
@@ -3046,7 +3040,6 @@ msgid "Transfers::updateTransfer, CID not found %s\n"
 msgstr "Transfers::updateTransfer, CID nicht gefunden %s\n"
 
 #: ../ui/mainwindow.ui:604
-#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -3111,22 +3104,22 @@ msgid ""
 msgstr ""
 "Übersetzer\n"
 "\n"
-" russische Übersetzung\n"
+" Russische Übersetzung\n"
 "\n"
 " Boris Pek\n"
 " (tehnick-8@mail.ru)\n"
 "\n"
-" weißrussische Übersetzung\n"
+" Weißrussische Übersetzung\n"
 "\n"
 " Paval Shalamitski aka Klyok\n"
 " (i.kliok@gmail.com)\n"
 "\n"
-" ungarische Übersetzung\n"
+" Ungarische Übersetzung\n"
 "\n"
 " Akos Berki aka sumo\n"
 " (husumo@gmail.com)\n"
 "\n"
-" französische Übersetzung\n"
+" Französische Übersetzung\n"
 "\n"
 " Alexandre Wallimann aka Ale\n"
 " (alexandre.wallimann@gmail.com)\n"
@@ -3164,6 +3157,11 @@ msgstr ""
 "\n"
 " Uhlik\n"
 " (uhlikx@seznam.cz)\n"
+"\n"
+" Deutsche Übersetzung\n"
+"\n"
+" Chris Leick\n"
+" (c.leick@vollbio.de)\n"
 
 #: ../ui/settingsdialog.ui:7695
 msgid "Trusted certificates path"
@@ -3289,7 +3287,7 @@ msgstr "Blinkendes Symbol verwenden"
 
 #: ../ui/settingsdialog.ui:2461
 msgid "Use DHT"
-msgstr ""
+msgstr "DHT benutzen"
 
 #: ../src/hub.cc:1708 ../src/privatemessage.cc:1155
 msgid "Use Emoticons"
@@ -3453,7 +3451,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1022
 msgid "View status messages in main chat"
-msgstr "Statusnachrichten im Hauptchat ansehen"
+msgstr "Statusnachrichten im Haupt-Chat ansehen"
 
 #: ../ui/mainwindow.ui:2202
 msgid "View the files to be downloaded"
@@ -3655,7 +3653,7 @@ msgstr "Einer Warteschlan_ge zuordnen"
 
 #: ../ui/favoritehubs.ui:271
 msgid "_Mode:"
-msgstr ""
+msgstr "_Modus:"
 
 #: ../ui/downloadqueue.ui:155
 msgid "_Move"
@@ -3810,9 +3808,8 @@ msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 
 #: ../ui/settingsdialog.ui:4872
-#, fuzzy
 msgid "in program"
-msgstr "Das Programm beenden"
+msgstr "im Programm"
 
 #: ../src/hub.cc:3076
 msgid "loading error"
@@ -3829,7 +3826,7 @@ msgstr "Herkunft des Projekts: "
 
 #: ../src/hub.cc:1943 ../src/privatemessage.cc:957
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
-msgstr ""
+msgstr "Verhältnis: %1% (Uploads: %2%, Downloads: %3% )"
 
 #: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2210
 #: ../src/mainwindow.cc:2212 ../ui/settingsdialog.ui:3523
@@ -3864,164 +3861,3 @@ msgstr "Kopfende/warten/Frame:"
 #: ../src/searchspy.cc:295 ../src/searchspy.cc:363
 msgid "waiting..."
 msgstr "Warten …"
-
-#~ msgid ""
-#~ "Filename\n"
-#~ "Directory\n"
-#~ "Full Path"
-#~ msgstr ""
-#~ "Dateiname\n"
-#~ "Verzeichnis\n"
-#~ "vollständiger Pfad"
-
-# http://de.wikipedia.org/wiki/Kibibyte
-#~ msgid ""
-#~ "B\n"
-#~ "KiB\n"
-#~ "MiB\n"
-#~ "GiB"
-#~ msgstr ""
-#~ "B\n"
-#~ "KiB\n"
-#~ "MiB\n"
-#~ "GiB"
-
-#~ msgid ""
-#~ "Normal\n"
-#~ "At least\n"
-#~ "At most"
-#~ msgstr ""
-#~ "Normal\n"
-#~ "Mindestens\n"
-#~ "Höchstens"
-
-#~ msgid ""
-#~ "No grouping\n"
-#~ "Filename\n"
-#~ "Path\n"
-#~ "Size\n"
-#~ "Connection\n"
-#~ "TTH\n"
-#~ "Nick\n"
-#~ "Hub\n"
-#~ "File type\n"
-#~ msgstr ""
-#~ "Nicht gruppiert\n"
-#~ "Dateiname\n"
-#~ "Pfad\n"
-#~ "Größe\n"
-#~ "Verbindung\n"
-#~ "TTH\n"
-#~ "Nick\n"
-#~ "Hub\n"
-#~ "Dateityp\n"
-
-#~ msgid ""
-#~ "Developers\n"
-#~ " Boris Pek (tehnick-8@mail.ru)\n"
-#~ " Eugene Petrov (dhamp@ya.ru)\n"
-#~ "\n"
-#~ "Contributors\n"
-#~ " troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/\n"
-#~ " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
-#~ msgstr ""
-#~ "Entwickler\n"
-#~ " Boris Pek (tehnick-8@mail.ru)\n"
-#~ " Eugene Petrov (dhamp@ya.ru)\n"
-#~ "\n"
-#~ "Beitragende\n"
-#~ " troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/\n"
-#~ " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
-
-#~ msgid ""
-#~ "Top\n"
-#~ "Left\n"
-#~ "Right\n"
-#~ "Bottom"
-#~ msgstr ""
-#~ "Oben\n"
-#~ "Links\n"
-#~ "Rechts\n"
-#~ "Unten"
-
-#~ msgid ""
-#~ "Icons\n"
-#~ "Text\n"
-#~ "Both\n"
-#~ "Both horizontal\n"
-#~ "Hidden\n"
-#~ "System default"
-#~ msgstr ""
-#~ "Symbole\n"
-#~ "Text\n"
-#~ "Beides\n"
-#~ "Beides horizontal\n"
-#~ "Versteckt\n"
-#~ "Systemvorgabe"
-
-#~ msgid ""
-#~ "Midnight\n"
-#~ "1AM\n"
-#~ "2AM\n"
-#~ "3AM\n"
-#~ "4AM\n"
-#~ "5AM\n"
-#~ "6AM\n"
-#~ "7AM\n"
-#~ "8AM\n"
-#~ "9AM\n"
-#~ "10AM\n"
-#~ "11AM\n"
-#~ "Noon\n"
-#~ "1PM\n"
-#~ "2PM\n"
-#~ "3PM\n"
-#~ "4PM\n"
-#~ "5PM\n"
-#~ "6PM\n"
-#~ "7PM\n"
-#~ "8PM\n"
-#~ "9PM\n"
-#~ "10PM\n"
-#~ "11PM"
-#~ msgstr ""
-#~ "Mitternacht\n"
-#~ "01\n"
-#~ "02\n"
-#~ "03\n"
-#~ "04\n"
-#~ "05\n"
-#~ "06\n"
-#~ "07\n"
-#~ "08\n"
-#~ "09\n"
-#~ "10\n"
-#~ "11AM\n"
-#~ "Mittag\n"
-#~ "13\n"
-#~ "14\n"
-#~ "15\n"
-#~ "16\n"
-#~ "17\n"
-#~ "18\n"
-#~ "19\n"
-#~ "20\n"
-#~ "21\n"
-#~ "22\n"
-#~ "23"
-
-#~ msgid ""
-#~ "Bandwidth\n"
-#~ "Limiting"
-#~ msgstr ""
-#~ "Bandbreite\n"
-#~ "Beschränkung"
-
-#~ msgid "Searching too soon, retry in "
-#~ msgstr "Suche zu früh, neuer Versuch in "
-
-#~ msgid " s"
-#~ msgstr " s"
-
-#~ msgid "Change core setting "
-#~ msgstr "Ändern von Kerneinstellung "
