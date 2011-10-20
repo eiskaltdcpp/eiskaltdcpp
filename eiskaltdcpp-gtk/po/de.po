@@ -540,7 +540,7 @@ msgid ""
 msgstr ""
 "Regel 192.168.1.0/23 hinzufügen, wobei Richtung eingehend und Aktion "
 "erlaubt ist, sowie 192.168.6.0/24, wobei Richtung ein- oder ausgehend "
-"und Aktion verwerfen ist.
+"und Aktion verwerfen ist."
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
