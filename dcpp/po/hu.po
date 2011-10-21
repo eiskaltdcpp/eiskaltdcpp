@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-16 13:21+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2011-09-14 14:52+0200\n"
 "Last-Translator: Attila Mándy <husumo@gmail.com>\n"
 "Language-Team: Hungarian <eiskaltdc@googlecode.com>\n"
@@ -215,19 +215,19 @@ msgstr ""
 msgid "Offline"
 msgstr "Kilépett"
 
-#: ../AdcHub.cpp:155
+#: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) CID-je {%3%} ugyanaz, mint %4% (%5%)-é, kihagyva"
 
-#: ../AdcHub.cpp:192 ../Transfer.cpp:91 ../QueueManager.cpp:2195
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
 msgid "%1%/s"
 msgstr "%1%/s"
 
-#: ../AdcHub.cpp:227
+#: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
 msgstr "Az alap protokoll egyeztetése sikertelen"
 
-#: ../AdcHub.cpp:233
+#: ../AdcHub.cpp:234
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -235,15 +235,15 @@ msgstr ""
 "A hub vélhetően régi verziójú ADC protokollt használ, kérlek szólj a "
 "tulajnak, hogy frissítsen"
 
-#: ../AdcHub.cpp:304
+#: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1%-t kirúgta %2%: %3%"
 
-#: ../AdcHub.cpp:307
+#: ../AdcHub.cpp:308
 msgid "%1% was kicked: %2%"
 msgstr "%1% kirúgva: %2%"
 
-#: ../AdcHub.cpp:679
+#: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nem figyel kapcsolatokra - kérlek, indítsd újra a %1%-t"
 
@@ -492,7 +492,7 @@ msgstr "<Kulcsszava(k)>"
 msgid "Discard"
 msgstr "Eldob"
 
-#: ../DirectoryListing.cpp:177
+#: ../DirectoryListing.cpp:187
 msgid "Directory missing name attribute"
 msgstr "Hiányzik a könyvtár név attribútuma"
 

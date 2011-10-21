@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-16 13:21+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2010-10-03 13:18+0200\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -25,16 +25,16 @@ msgstr ""
 "X-Language: be_BY\n"
 "X-Source-Language: C\n"
 
-#: ../src/hub.cc:1037 ../src/hub.cc:1116 ../src/privatemessage.cc:544
-#: ../src/privatemessage.cc:623
+#: ../src/hub.cc:1037 ../src/hub.cc:1116 ../src/privatemessage.cc:550
+#: ../src/privatemessage.cc:629
 msgid " *** Emoticons limit"
 msgstr " *** Абмежаваньне на пачуцьцезнакі"
 
-#: ../src/hub.cc:1032 ../src/privatemessage.cc:539
+#: ../src/hub.cc:1032 ../src/privatemessage.cc:545
 msgid " *** Emoticons mode off"
 msgstr " *** Пачуцьцезнакі не ўжываюцца"
 
-#: ../src/hub.cc:1027 ../src/privatemessage.cc:534
+#: ../src/hub.cc:1027 ../src/privatemessage.cc:540
 msgid " *** Emoticons not loaded"
 msgstr " *** Пачуцьцезнакі не прачыталі"
 
@@ -46,7 +46,7 @@ msgstr " + сыстэмныя значкі"
 msgid " Users"
 msgstr " Карыстальнікі"
 
-#: ../src/hub.cc:2709
+#: ../src/hub.cc:2720
 msgid " added to favorites list"
 msgstr " дадалі да сьпісу ўлюбёнцаў"
 
@@ -54,7 +54,7 @@ msgstr " дадалі да сьпісу ўлюбёнцаў"
 msgid " dropped"
 msgstr " адкінулі"
 
-#: ../src/hub.cc:1866
+#: ../src/hub.cc:1877
 msgid " empty..."
 msgstr " парожні…"
 
@@ -82,11 +82,11 @@ msgstr " сыходзіць"
 msgid " has quit hub "
 msgstr " сыходзіць з асяродку "
 
-#: ../src/hub.cc:1839 ../src/hub.cc:2641 ../src/privatemessage.cc:1326
+#: ../src/hub.cc:1850 ../src/hub.cc:2652 ../src/privatemessage.cc:1338
 msgid " is favorite user"
 msgstr " — улюбёнец"
 
-#: ../src/hub.cc:1857 ../src/hub.cc:2680 ../src/privatemessage.cc:1347
+#: ../src/hub.cc:1868 ../src/hub.cc:2691 ../src/privatemessage.cc:1359
 msgid " is not favorite user"
 msgstr " — не ўлюбёнец"
 
@@ -102,11 +102,11 @@ msgstr " засталося"
 msgid " of "
 msgstr " з "
 
-#: ../src/hub.cc:2736
+#: ../src/hub.cc:2747
 msgid " removed from favorites list"
 msgstr " выкрасьлілі з улюбёнцаў"
 
-#: ../src/settingsmanager.cc:513
+#: ../src/settingsmanager.cc:514
 msgid " to "
 msgstr " да "
 
@@ -146,11 +146,11 @@ msgstr ""
 "\n"
 "За падрабязнасьцямі зьвяртайцеся да man strftime."
 
-#: ../src/hub.cc:2288
+#: ../src/hub.cc:2299
 msgid "': type /help for a list of available commands"
 msgstr "»: надрукуйце «/help», каб атрымаць сьпіс даступных загадаў"
 
-#: ../src/hub.cc:1958 ../src/privatemessage.cc:983
+#: ../src/hub.cc:1969 ../src/privatemessage.cc:995
 msgid "*** Available commands:"
 msgstr "*** Даступныя загады:"
 
@@ -192,7 +192,7 @@ msgstr "0 прасеяных"
 msgid "0 items"
 msgstr "0 пунктаў"
 
-#: ../src/privatemessage.cc:999
+#: ../src/privatemessage.cc:1011
 msgid ": type /help for a list of available commands"
 msgstr ": надрукуйце «/help», каб атрымаць сьпіс даступных загадаў"
 
@@ -530,7 +530,7 @@ msgstr "Дадаць"
 msgid "Add / Remove"
 msgstr "Дадаць / Выкрасьліць"
 
-#: ../src/hub.cc:1963 ../ui/hub.ui:39
+#: ../src/hub.cc:1974 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
 msgstr "Дадаць асяродак да ўлюбёных"
 
@@ -539,7 +539,7 @@ msgid "Add finished files to share instantly (if shared)"
 msgstr ""
 "Адразу ж дадаваць апрацаваныя файлы да абагуленага (калі яны абагуляюцца)"
 
-#: ../src/hub.cc:1993
+#: ../src/hub.cc:2004
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
@@ -556,7 +556,7 @@ msgstr "Дадаць файл у чаргу сьцягваць"
 msgid "Add to favorites"
 msgstr "Дадаць да ўлюбёных"
 
-#: ../src/hub.cc:1964 ../src/privatemessage.cc:988 ../ui/privatemessage.ui:48
+#: ../src/hub.cc:1975 ../src/privatemessage.cc:1000 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
 msgstr "Дадаць карыстальніка да ўлюбёнцаў"
 
@@ -588,23 +588,23 @@ msgstr "Адрас"
 msgid "Advanced"
 msgstr "Адмысловыя"
 
-#: ../src/hub.cc:1988
+#: ../src/hub.cc:1999
 msgid "Alias A executing"
 msgstr "Выконваецца назоўка A"
 
-#: ../src/hub.cc:1985
+#: ../src/hub.cc:1996
 msgid "Alias List"
 msgstr "Сьпіс назовак"
 
-#: ../src/hub.cc:1986
+#: ../src/hub.cc:1997
 msgid "Alias Remove A"
 msgstr "Выкрасьліць назоўку A"
 
-#: ../src/hub.cc:1987
+#: ../src/hub.cc:1998
 msgid "Alias add uname -a as A"
 msgstr "Дадаць назоўку A для «uname -a»"
 
-#: ../src/hub.cc:2187
+#: ../src/hub.cc:2198
 msgid "Aliases not found."
 msgstr "Назовак не знайшлі."
 
@@ -708,18 +708,18 @@ msgstr "Самарушна шукаць іншыя крыніцы"
 msgid "Automatically update external IP (restart required)"
 msgstr "Самарушна абнаўляць вонкавы IP (трэба запусьціць нанова)"
 
-#: ../src/hub.cc:1959 ../src/privatemessage.cc:984 ../ui/privatemessage.ui:12
+#: ../src/hub.cc:1970 ../src/privatemessage.cc:996 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
 msgid "Away mode message on/off"
 msgstr "Перайсьці ў стан «адсутнічаю» ці вярнуцца"
 
-#: ../src/hub.cc:1795 ../src/hub.cc:1808 ../src/hub.cc:1960
-#: ../src/privatemessage.cc:872 ../src/privatemessage.cc:886
-#: ../src/privatemessage.cc:985 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
+#: ../src/hub.cc:1806 ../src/hub.cc:1819 ../src/hub.cc:1971
+#: ../src/privatemessage.cc:884 ../src/privatemessage.cc:898
+#: ../src/privatemessage.cc:997 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
 msgid "Away mode off"
 msgstr "Выйшлі са стану «адсутнічаю»"
 
-#: ../src/hub.cc:1802 ../src/privatemessage.cc:880
+#: ../src/hub.cc:1813 ../src/privatemessage.cc:892
 msgid "Away mode on: "
 msgstr "Перайшлі ў стан «адсутнічаю»: "
 
@@ -833,7 +833,7 @@ msgstr "Падлічыць скарот (TTH) файла"
 msgid "Certificate file"
 msgstr "Файл пасьведчаньня"
 
-#: ../src/settingsmanager.cc:513
+#: ../src/settingsmanager.cc:514
 msgid "Change setting "
 msgstr "Зьмяніць налады "
 
@@ -861,7 +861,7 @@ msgstr "Спраўджваць кожныя"
 msgid "Choose a File"
 msgstr "Абярыце файл"
 
-#: ../src/hub.cc:2570 ../src/privatemessage.cc:1233 ../src/mainwindow.cc:1215
+#: ../src/hub.cc:2581 ../src/privatemessage.cc:1245 ../src/mainwindow.cc:1215
 #: ../src/mainwindow.cc:1283 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8026
 msgid "Choose a directory"
@@ -875,11 +875,11 @@ msgstr "Абярыце файл"
 msgid "Clear"
 msgstr "Ачысьціць"
 
-#: ../src/privatemessage.cc:986 ../ui/privatemessage.ui:30
+#: ../src/privatemessage.cc:998 ../ui/privatemessage.ui:30
 msgid "Clear PM"
 msgstr "Ачысьціць асабістыя паведамленьні"
 
-#: ../src/hub.cc:1961 ../ui/hub.ui:30
+#: ../src/hub.cc:1972 ../ui/hub.ui:30
 msgid "Clear chat"
 msgstr "Ачысьціць гутарку"
 
@@ -891,11 +891,11 @@ msgstr "Ачысьціць ваконца пошуку"
 msgid "Clear search box after each search"
 msgstr "Ачышчаць кожнага разу поле пошуку"
 
-#: ../src/privatemessage.cc:987 ../ui/privatemessage.ui:39
+#: ../src/privatemessage.cc:999 ../ui/privatemessage.ui:39
 msgid "Close PM"
 msgstr "Зачыніць асабістыя паведамленьні"
 
-#: ../src/hub.cc:1962
+#: ../src/hub.cc:1973
 msgid "Close chat"
 msgstr "Зачыніць гутарку"
 
@@ -946,7 +946,7 @@ msgstr "Пацьвярджаць, калі сьціраем улюбёны ас�
 msgid "Connect"
 msgstr "Злучыцца"
 
-#: ../src/hub.cc:3427
+#: ../src/hub.cc:3438
 msgid "Connect failed: "
 msgstr "Не ўдалося злучыцца: "
 
@@ -958,11 +958,11 @@ msgstr "Злучыцца з асяродкам"
 msgid "Connect to hub"
 msgstr "Злучыцца з асяродкам"
 
-#: ../src/hub.cc:1970 ../ui/hub.ui:57
+#: ../src/hub.cc:1981 ../ui/hub.ui:57
 msgid "Connect to the hub"
 msgstr "Злучыцца з асяродкам"
 
-#: ../src/hub.cc:3371 ../src/transfers.cc:1024
+#: ../src/hub.cc:3382 ../src/transfers.cc:1024
 msgid "Connected"
 msgstr "Злучыліся"
 
@@ -974,7 +974,7 @@ msgstr "Злучаемся"
 msgid "Connecting (forced)..."
 msgstr "Злучаемся (прымусова)…"
 
-#: ../src/hub.cc:3364
+#: ../src/hub.cc:3375
 msgid "Connecting to "
 msgstr "Злучаемся з "
 
@@ -1158,12 +1158,12 @@ msgid "Download failed: "
 msgstr "Не ўдалося сьцягнуць: "
 
 #: ../src/transfers.cc:1085 ../src/settingsdialog.cc:1079
-#: ../src/settingsdialog.cc:1247 ../src/settingsmanager.cc:233
+#: ../src/settingsdialog.cc:1247 ../src/settingsmanager.cc:234
 msgid "Download finished"
 msgstr "Скончылі сьцягваць"
 
 #: ../src/settingsdialog.cc:1080 ../src/settingsdialog.cc:1251
-#: ../src/settingsmanager.cc:235
+#: ../src/settingsmanager.cc:236
 msgid "Download finished file list"
 msgstr "Скончылі сьцягваць сьпіс файлаў"
 
@@ -1175,19 +1175,19 @@ msgstr "Скончылі сьцягваць: "
 msgid "Download image"
 msgstr "Сьцягнуць відарыс"
 
-#: ../src/hub.cc:1909
+#: ../src/hub.cc:1920
 msgid "Download image: disable"
 msgstr "Відарысы: ня сьцягваць"
 
-#: ../src/hub.cc:1911
+#: ../src/hub.cc:1922
 msgid "Download image: unlimit"
 msgstr "Відарысы: сьцягваць усе"
 
-#: ../src/hub.cc:1913
+#: ../src/hub.cc:1924
 msgid "Download limit image: "
 msgstr "Абмежаваньне сьцягваць відарысы: "
 
-#: ../src/hub.cc:1976
+#: ../src/hub.cc:1987
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
 "Відарысы: 0 — ня сьцягваць; n<0 — сьцягваць усе; пуста — паказаць бягучы стан"
@@ -1257,15 +1257,15 @@ msgstr "Правіць перавагі"
 msgid "Emoticons"
 msgstr "Пачуцьцезнакі"
 
-#: ../src/hub.cc:1893 ../src/privatemessage.cc:928
+#: ../src/hub.cc:1904 ../src/privatemessage.cc:940
 msgid "Emoticons mode off"
 msgstr "Пачуцьцезнакі не ўжываюцца"
 
-#: ../src/hub.cc:1898 ../src/privatemessage.cc:933
+#: ../src/hub.cc:1909 ../src/privatemessage.cc:945
 msgid "Emoticons mode on"
 msgstr "Пачуцьцезнакі ўжываюцца"
 
-#: ../src/hub.cc:1979 ../src/privatemessage.cc:992
+#: ../src/hub.cc:1990 ../src/privatemessage.cc:1004
 msgid "Emoticons on/off"
 msgstr "Ужываць або не пачуцьцезнакі"
 
@@ -1318,11 +1318,11 @@ msgstr "Упішыце значэньне "
 msgid "Error"
 msgstr "Памылка"
 
-#: ../src/settingsmanager.cc:516
+#: ../src/settingsmanager.cc:517
 msgid "Error: params have been not 2!"
 msgstr "Памылка: парамэтраў ня два!"
 
-#: ../src/settingsmanager.cc:512
+#: ../src/settingsmanager.cc:513
 msgid "Error: setting not found!"
 msgstr "Памылка: не знайшлі налады!"
 
@@ -1347,11 +1347,11 @@ msgstr "Дакладны памер"
 msgid "Exact size"
 msgstr "Дакладны памер"
 
-#: ../src/hub.cc:1982
+#: ../src/hub.cc:1993
 msgid "Execute Lua Chunk"
 msgstr "Выканаць скрыпт Lua"
 
-#: ../src/hub.cc:1984
+#: ../src/hub.cc:1995
 msgid "Execute code (bash)"
 msgstr "Выканаць код (bash)"
 
@@ -1412,11 +1412,11 @@ msgstr "Улюбёнец"
 msgid "Favorite Users"
 msgstr "Улюбёнцы"
 
-#: ../src/hub.cc:2959
+#: ../src/hub.cc:2970
 msgid "Favorite hub added"
 msgstr "Дадалі ўлюбёны асяродак"
 
-#: ../src/hub.cc:2964
+#: ../src/hub.cc:2975
 msgid "Favorite hub already exists"
 msgstr "Асяродак ужо ёсьць ва ўлюбёных"
 
@@ -1425,12 +1425,12 @@ msgid "Favorite name"
 msgstr "Назва ўлюбёнага"
 
 #: ../src/settingsdialog.cc:1085 ../src/settingsdialog.cc:1267
-#: ../src/settingsmanager.cc:243
+#: ../src/settingsmanager.cc:244
 msgid "Favorite user joined"
 msgstr "Улюбёнец далучыўся"
 
 #: ../src/settingsdialog.cc:1086 ../src/settingsdialog.cc:1271
-#: ../src/settingsmanager.cc:245
+#: ../src/settingsmanager.cc:246
 msgid "Favorite user quit"
 msgstr "Улюбёнец выйшаў"
 
@@ -1581,15 +1581,15 @@ msgstr "Галоўны тэкст"
 msgid "Generate certificates"
 msgstr "Стварыць пасьведчаньні"
 
-#: ../src/hub.cc:1967 ../src/privatemessage.cc:990 ../ui/privatemessage.ui:66
+#: ../src/hub.cc:1978 ../src/privatemessage.cc:1002 ../ui/privatemessage.ui:66
 msgid "Get file list"
 msgstr "Атрымаць сьпіс файлаў"
 
-#: ../src/hub.cc:2776 ../src/favoritehubs.cc:339
+#: ../src/hub.cc:2787 ../src/favoritehubs.cc:339
 msgid "Global hub default"
 msgstr "Звычайная кадоўка асяродкаў"
 
-#: ../src/hub.cc:1968 ../src/privatemessage.cc:991 ../ui/privatemessage.ui:75
+#: ../src/hub.cc:1979 ../src/privatemessage.cc:1003 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
 msgstr "Даць дадатковую шчыліну"
 
@@ -1683,12 +1683,12 @@ msgid "Hub Name"
 msgstr "Назва асяродку"
 
 #: ../src/settingsdialog.cc:1083 ../src/settingsdialog.cc:1259
-#: ../src/settingsmanager.cc:241
+#: ../src/settingsmanager.cc:242
 msgid "Hub connected"
 msgstr "Злучыліся з асяродкам"
 
 #: ../src/settingsdialog.cc:1084 ../src/settingsdialog.cc:1263
-#: ../src/settingsmanager.cc:239
+#: ../src/settingsmanager.cc:240
 msgid "Hub disconnected"
 msgstr "Асяродак адлучаны"
 
@@ -1758,11 +1758,11 @@ msgstr "Не зважаць на асабістыя паведамленьні �
 msgid "Ignore private messages from the hub"
 msgstr "Не зважаць на асабістыя паведамленьні ад асяродку"
 
-#: ../src/hub.cc:3497
+#: ../src/hub.cc:3508
 msgid "Ignored private message from bot "
 msgstr "Не зважаем на асабістыя паведамленьні ад бота "
 
-#: ../src/hub.cc:3490
+#: ../src/hub.cc:3501
 msgid "Ignored private message from hub"
 msgstr "Не зважаем на асабістыя паведамленьні ад асяродку"
 
@@ -1783,15 +1783,15 @@ msgstr "Ствараецца паказьнік файлаў…"
 msgid "Invalid extension: "
 msgstr "Хібнае пашырэньне: "
 
-#: ../src/hub.cc:2130
+#: ../src/hub.cc:2141
 msgid "Ipfilter is disable"
 msgstr "Сіта IP ня дзейнічае"
 
-#: ../src/hub.cc:2123
+#: ../src/hub.cc:2134
 msgid "Ipfilter is enable"
 msgstr "Сіта IP дзейнічае"
 
-#: ../src/hub.cc:1989
+#: ../src/hub.cc:2000
 msgid "Ipfilter on/off"
 msgstr "Задзейнічаць (on) ці не (off) сіта IP"
 
@@ -1849,7 +1849,7 @@ msgstr "Сьпіс"
 msgid "List: "
 msgstr "Сьпіс: "
 
-#: ../src/hub.cc:1981
+#: ../src/hub.cc:1992
 msgid "Load Lua file"
 msgstr "Прачытаць файл Lua"
 
@@ -2035,7 +2035,7 @@ msgstr "Пасунуць да-долу"
 msgid "Move Up"
 msgstr "Пасунуць угору"
 
-#: ../src/hub.cc:1991
+#: ../src/hub.cc:2002
 msgid "Move rule up/down"
 msgstr "Пасунуць правіла вышэй (up) або ніжэй (down)"
 
@@ -2109,9 +2109,9 @@ msgid "Next"
 msgstr "Наперад"
 
 #: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:367
-#: ../src/hub.cc:382 ../src/hub.cc:402 ../src/hub.cc:450 ../src/hub.cc:1236
-#: ../src/hub.cc:1534 ../src/hub.cc:1587 ../src/hub.cc:2314 ../src/hub.cc:2345
-#: ../src/hub.cc:2630 ../src/hub.cc:2669 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:382 ../src/hub.cc:402 ../src/hub.cc:450 ../src/hub.cc:1242
+#: ../src/hub.cc:1545 ../src/hub.cc:1598 ../src/hub.cc:2325 ../src/hub.cc:2356
+#: ../src/hub.cc:2641 ../src/hub.cc:2680 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583
@@ -2123,7 +2123,7 @@ msgstr "Наперад"
 msgid "Nick"
 msgstr "Мянушка"
 
-#: ../src/hub.cc:3594
+#: ../src/hub.cc:3605
 msgid "Nick already taken"
 msgstr "Мянушку ўжо занялі"
 
@@ -2167,7 +2167,7 @@ msgstr "Звычайнае"
 msgid "Normal priority max size"
 msgstr "Звычайнае: найвялікшы памер"
 
-#: ../src/hub.cc:1841 ../src/hub.cc:1876 ../src/hub.cc:1886 ../src/hub.cc:2030
+#: ../src/hub.cc:1852 ../src/hub.cc:1887 ../src/hub.cc:1897 ../src/hub.cc:2041
 msgid "Not found user: "
 msgstr "Не знайшлі карыстальніка: "
 
@@ -2365,9 +2365,9 @@ msgstr "Асабістае паведамленьне (таксама ўстал
 msgid "Private key file"
 msgstr "Файл асабістага ключа"
 
-#: ../src/hub.cc:1972 ../src/settingsdialog.cc:1082
+#: ../src/hub.cc:1983 ../src/settingsdialog.cc:1082
 #: ../src/settingsdialog.cc:1135 ../src/settingsdialog.cc:1255
-#: ../src/settingsmanager.cc:237
+#: ../src/settingsmanager.cc:238
 msgid "Private message"
 msgstr "Асабістае паведамленьне"
 
@@ -2424,7 +2424,7 @@ msgstr "Нанова _дадаць крыніцу"
 msgid "Re_connect"
 msgstr "Нанова _злучыцца"
 
-#: ../src/hub.cc:1973 ../ui/hub.ui:75
+#: ../src/hub.cc:1984 ../ui/hub.ui:75
 msgid "Rebuild hash"
 msgstr "Нанова стварыць скароты"
 
@@ -2479,7 +2479,7 @@ msgstr "_Выкрасьліць крыніцу"
 msgid "Remove image"
 msgstr "Сьцерці відарыс"
 
-#: ../src/hub.cc:1992
+#: ../src/hub.cc:2003
 msgid "Remove rules from list"
 msgstr "Выкрасьліць правілы са сьпісу"
 
@@ -2487,7 +2487,7 @@ msgstr "Выкрасьліць правілы са сьпісу"
 msgid "Remove slow filelists"
 msgstr "Выкрасьляць павольныя сьпісы файлаў"
 
-#: ../src/hub.cc:1965 ../src/privatemessage.cc:989 ../ui/privatemessage.ui:57
+#: ../src/hub.cc:1976 ../src/privatemessage.cc:1001 ../ui/privatemessage.ui:57
 msgid "Remove user favorite"
 msgstr "Выкрасьліць карыстальніка з улюбёнцаў"
 
@@ -2523,7 +2523,7 @@ msgstr "Запускаецца…"
 msgid "SJIS"
 msgstr "SJIS"
 
-#: ../src/hub.cc:1971 ../ui/hub.ui:66
+#: ../src/hub.cc:1982 ../ui/hub.ui:66
 msgid "Say a third person"
 msgstr "Мовіць ад трэцяе асобы"
 
@@ -2582,7 +2582,7 @@ msgid "Search options"
 msgstr "Можнасьці пошуку"
 
 # ???«Выявілі назолу ў пошуку»
-#: ../src/hub.cc:3601
+#: ../src/hub.cc:3612
 msgid "Search spam detected from "
 msgstr "Выявілі непажаданы пошук ад "
 
@@ -2651,7 +2651,7 @@ msgstr "Вызначыць _пяршынства"
 msgid "Set download limit image"
 msgstr "Абмежаваць хуткасьць сьцягваць відарысы"
 
-#: ../src/hub.cc:1919
+#: ../src/hub.cc:1930
 msgid "Set download limit image: "
 msgstr "Вызначылі абмежаваньне сьцягваць малюнкі: "
 
@@ -2682,16 +2682,16 @@ msgstr "Паказваць адрасы IP ў гутарцы"
 msgid "Show Interface"
 msgstr "Паказаць інтэрфэйс"
 
-#: ../src/hub.cc:1966 ../ui/hub.ui:48
+#: ../src/hub.cc:1977 ../ui/hub.ui:48
 msgid "Show favorites list"
 msgstr "Паказаць сьпіс улюбёнцаў"
 
-#: ../src/hub.cc:1969 ../src/privatemessage.cc:995 ../ui/privatemessage.ui:102
-#: ../ui/hub.ui:111
+#: ../src/hub.cc:1980 ../src/privatemessage.cc:1007
+#: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
 msgid "Show help"
 msgstr "Паказаць даведку"
 
-#: ../src/hub.cc:1990
+#: ../src/hub.cc:2001
 msgid "Show ipfilter rules list"
 msgstr "Паказаць сьпіс правілаў сіта IP"
 
@@ -2711,7 +2711,7 @@ msgstr "Паказваць толькі цалкам сьцягнутае"
 msgid "Show only when the application is not active."
 msgstr "Паказваць толькі калі праґрама — нядзейная"
 
-#: ../src/hub.cc:1978 ../src/privatemessage.cc:994 ../ui/privatemessage.ui:93
+#: ../src/hub.cc:1989 ../src/privatemessage.cc:1006 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
 msgid "Show ratio [send in chat]"
 msgstr "Паказаць суадносіны [даслаць у гутарку]"
@@ -2732,7 +2732,7 @@ msgstr "Паказаць найлепшае пошуку"
 msgid "Show user country in chat"
 msgstr "Паказваць краіну карыстальніка ў гутарцы"
 
-#: ../src/hub.cc:1977 ../src/privatemessage.cc:993 ../ui/privatemessage.ui:84
+#: ../src/hub.cc:1988 ../src/privatemessage.cc:1005 ../ui/privatemessage.ui:84
 #: ../ui/hub.ui:93
 msgid "Show version"
 msgstr "Паказаць вэрсію"
@@ -2775,11 +2775,11 @@ msgstr "Памер: 0 Б"
 msgid "Skip zero-byte files"
 msgstr "Прапускаць файлы нулявога памеру"
 
-#: ../src/privatemessage.cc:1379
+#: ../src/privatemessage.cc:1391
 msgid "Slot granted"
 msgstr "Далі шчыліну"
 
-#: ../src/hub.cc:2880 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2891 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Далі шчыліну карыстальніку "
 
@@ -3168,7 +3168,7 @@ msgstr "Спасылка"
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: ../src/hub.cc:2905
+#: ../src/hub.cc:2916
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "Не магу злучыцца: з запытаным асяродкам ужо злучыліся"
 
@@ -3199,11 +3199,11 @@ msgstr "Каталёґ яшчэ ня сьцягнутага"
 msgid "Unknown"
 msgstr "Невядома"
 
-#: ../src/privatemessage.cc:999
+#: ../src/privatemessage.cc:1011
 msgid "Unknown command "
 msgstr "Невядомы загад "
 
-#: ../src/hub.cc:2288
+#: ../src/hub.cc:2299
 msgid "Unknown command '"
 msgstr "Невядомы загад «"
 
@@ -3215,7 +3215,7 @@ msgstr "Абнавіць"
 msgid "Update frame search"
 msgstr "Абнавіць ваконца пошуку"
 
-#: ../src/hub.cc:1974
+#: ../src/hub.cc:1985
 msgid "Update own file list"
 msgstr "Абнавіць уласны сьпіс файлаў"
 
@@ -3276,7 +3276,7 @@ msgstr "Мігцець значкам"
 msgid "Use DHT"
 msgstr "Задзейнічаць DHT"
 
-#: ../src/hub.cc:1708 ../src/privatemessage.cc:1155
+#: ../src/hub.cc:1719 ../src/privatemessage.cc:1167
 msgid "Use Emoticons"
 msgstr "Ужываць пачуцьцезнакі"
 
@@ -3352,7 +3352,7 @@ msgstr "Апісаньне карыстальніка"
 msgid "User commands"
 msgstr "Загады карыстальніка"
 
-#: ../src/hub.cc:1866
+#: ../src/hub.cc:1877
 msgid "User favorite list:"
 msgstr "Сьпіс улюбёнцаў:"
 
@@ -3364,11 +3364,11 @@ msgstr "Карыстальнік за сетказаслонаю (dc)"
 msgid "User firewall (normal)"
 msgstr "Карыстальнік за сетказаслонаю (звычайны)"
 
-#: ../src/hub.cc:1975
+#: ../src/hub.cc:1986
 msgid "User list show/hide"
 msgstr "Паказаць або схаваць сьпіс карыстальнікаў"
 
-#: ../src/hub.cc:2851 ../src/hub.cc:2871
+#: ../src/hub.cc:2862 ../src/hub.cc:2882
 msgid "User not found"
 msgstr "Не знайшлі карыстальніка"
 
@@ -3388,7 +3388,7 @@ msgstr "Карыстальнік — апэратар за сетказасло�
 msgid "User operator firewall (normal)"
 msgstr "Карыстальнік — апэратар за сетказаслонаю (звычайны)"
 
-#: ../src/privatemessage.cc:1314
+#: ../src/privatemessage.cc:1326
 msgid "User went offline"
 msgstr "Карыстальнік адлучыўся"
 
@@ -3746,7 +3746,7 @@ msgstr "Загады _карыстальніка"
 msgid "_Widgets"
 msgstr "_Ваконцы"
 
-#: ../src/hub.cc:3089
+#: ../src/hub.cc:3100
 msgid "bad image"
 msgstr "кепскі відарыс"
 
@@ -3787,7 +3787,7 @@ msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgid "in program"
 msgstr "у праґраме"
 
-#: ../src/hub.cc:3076
+#: ../src/hub.cc:3087
 msgid "loading error"
 msgstr "далі хібу, калі чыталі"
 
@@ -3795,11 +3795,11 @@ msgstr "далі хібу, калі чыталі"
 msgid "none"
 msgstr "няма"
 
-#: ../src/hub.cc:1924 ../src/privatemessage.cc:938
+#: ../src/hub.cc:1935 ../src/privatemessage.cc:950
 msgid "project home: "
 msgstr "бачына праекту: "
 
-#: ../src/hub.cc:1943 ../src/privatemessage.cc:957
+#: ../src/hub.cc:1954 ../src/privatemessage.cc:969
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "суадносіны: %1% (зацягнулі: %2%, сьцягнулі: %3%)"
 

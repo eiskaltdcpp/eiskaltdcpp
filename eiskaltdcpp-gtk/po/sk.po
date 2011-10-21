@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-16 13:21+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2010-10-31 18:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: Slovenčina <kde-i18n-doc@kde.org>\n"
@@ -18,16 +18,16 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../src/hub.cc:1037 ../src/hub.cc:1116 ../src/privatemessage.cc:544
-#: ../src/privatemessage.cc:623
+#: ../src/hub.cc:1037 ../src/hub.cc:1116 ../src/privatemessage.cc:550
+#: ../src/privatemessage.cc:629
 msgid " *** Emoticons limit"
 msgstr "*** Obmedzenia smajlíkov"
 
-#: ../src/hub.cc:1032 ../src/privatemessage.cc:539
+#: ../src/hub.cc:1032 ../src/privatemessage.cc:545
 msgid " *** Emoticons mode off"
 msgstr "*** Vypnúť smajlíkov"
 
-#: ../src/hub.cc:1027 ../src/privatemessage.cc:534
+#: ../src/hub.cc:1027 ../src/privatemessage.cc:540
 msgid " *** Emoticons not loaded"
 msgstr "*** Smajlíkovia neboli načítaný"
 
@@ -39,7 +39,7 @@ msgstr " + systémové ikony"
 msgid " Users"
 msgstr "Užívatelia"
 
-#: ../src/hub.cc:2709
+#: ../src/hub.cc:2720
 msgid " added to favorites list"
 msgstr "pridať do obľúbeného zoznamu"
 
@@ -47,7 +47,7 @@ msgstr "pridať do obľúbeného zoznamu"
 msgid " dropped"
 msgstr " dropped"
 
-#: ../src/hub.cc:1866
+#: ../src/hub.cc:1877
 msgid " empty..."
 msgstr "prázdny..."
 
@@ -75,11 +75,11 @@ msgstr "opustil"
 msgid " has quit hub "
 msgstr "opustil hub"
 
-#: ../src/hub.cc:1839 ../src/hub.cc:2641 ../src/privatemessage.cc:1326
+#: ../src/hub.cc:1850 ../src/hub.cc:2652 ../src/privatemessage.cc:1338
 msgid " is favorite user"
 msgstr "je obľúbený užívateľ"
 
-#: ../src/hub.cc:1857 ../src/hub.cc:2680 ../src/privatemessage.cc:1347
+#: ../src/hub.cc:1868 ../src/hub.cc:2691 ../src/privatemessage.cc:1359
 msgid " is not favorite user"
 msgstr "nie je obľúbený užívateľ"
 
@@ -95,11 +95,11 @@ msgstr "ostáva"
 msgid " of "
 msgstr "z"
 
-#: ../src/hub.cc:2736
+#: ../src/hub.cc:2747
 msgid " removed from favorites list"
 msgstr "odstrániť z obľúbeného zoznamu"
 
-#: ../src/settingsmanager.cc:513
+#: ../src/settingsmanager.cc:514
 msgid " to "
 msgstr ""
 
@@ -131,11 +131,11 @@ msgid ""
 "see man strftime for details."
 msgstr ""
 
-#: ../src/hub.cc:2288
+#: ../src/hub.cc:2299
 msgid "': type /help for a list of available commands"
 msgstr "': napíš /help pre zobrazenie zoznamu dostupných príkazov"
 
-#: ../src/hub.cc:1958 ../src/privatemessage.cc:983
+#: ../src/hub.cc:1969 ../src/privatemessage.cc:995
 msgid "*** Available commands:"
 msgstr "*** Dostupné príkazy:"
 
@@ -177,7 +177,7 @@ msgstr "0 filtrovaných"
 msgid "0 items"
 msgstr "0 položiek"
 
-#: ../src/privatemessage.cc:999
+#: ../src/privatemessage.cc:1011
 msgid ": type /help for a list of available commands"
 msgstr ": napíš /help pre zobrazenie zoznamu dostupných príkazov"
 
@@ -515,7 +515,7 @@ msgstr ""
 msgid "Add / Remove"
 msgstr "Vymazať"
 
-#: ../src/hub.cc:1963 ../ui/hub.ui:39
+#: ../src/hub.cc:1974 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
 msgstr "Pridať hub k obľúbeným"
 
@@ -523,7 +523,7 @@ msgstr "Pridať hub k obľúbeným"
 msgid "Add finished files to share instantly (if shared)"
 msgstr "Pridať stiahnuté súbory okamžite na zdieľanie"
 
-#: ../src/hub.cc:1993
+#: ../src/hub.cc:2004
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
@@ -537,7 +537,7 @@ msgstr ""
 msgid "Add to favorites"
 msgstr ""
 
-#: ../src/hub.cc:1964 ../src/privatemessage.cc:988 ../ui/privatemessage.ui:48
+#: ../src/hub.cc:1975 ../src/privatemessage.cc:1000 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
 msgstr "Pridať užívateľa k obľúbeným"
 
@@ -569,23 +569,23 @@ msgstr "Adresa"
 msgid "Advanced"
 msgstr ""
 
-#: ../src/hub.cc:1988
+#: ../src/hub.cc:1999
 msgid "Alias A executing"
 msgstr ""
 
-#: ../src/hub.cc:1985
+#: ../src/hub.cc:1996
 msgid "Alias List"
 msgstr "Zoznam aliasov"
 
-#: ../src/hub.cc:1986
+#: ../src/hub.cc:1997
 msgid "Alias Remove A"
 msgstr "Vymazať Alias A"
 
-#: ../src/hub.cc:1987
+#: ../src/hub.cc:1998
 msgid "Alias add uname -a as A"
 msgstr ""
 
-#: ../src/hub.cc:2187
+#: ../src/hub.cc:2198
 msgid "Aliases not found."
 msgstr "Aliasy nenájdené"
 
@@ -688,18 +688,18 @@ msgstr "Automaticky hľadať alternatívy pre sťahovanie"
 msgid "Automatically update external IP (restart required)"
 msgstr ""
 
-#: ../src/hub.cc:1959 ../src/privatemessage.cc:984 ../ui/privatemessage.ui:12
+#: ../src/hub.cc:1970 ../src/privatemessage.cc:996 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
 msgid "Away mode message on/off"
 msgstr "Zanechanie správy v režime \"Preč\" zap./vyp."
 
-#: ../src/hub.cc:1795 ../src/hub.cc:1808 ../src/hub.cc:1960
-#: ../src/privatemessage.cc:872 ../src/privatemessage.cc:886
-#: ../src/privatemessage.cc:985 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
+#: ../src/hub.cc:1806 ../src/hub.cc:1819 ../src/hub.cc:1971
+#: ../src/privatemessage.cc:884 ../src/privatemessage.cc:898
+#: ../src/privatemessage.cc:997 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
 msgid "Away mode off"
 msgstr "Režim \"Preč\" vypnutý"
 
-#: ../src/hub.cc:1802 ../src/privatemessage.cc:880
+#: ../src/hub.cc:1813 ../src/privatemessage.cc:892
 msgid "Away mode on: "
 msgstr "Režim \"Preč\" zapnutý"
 
@@ -814,7 +814,7 @@ msgstr "Prepočítavanie TTH"
 msgid "Certificate file"
 msgstr ""
 
-#: ../src/settingsmanager.cc:513
+#: ../src/settingsmanager.cc:514
 msgid "Change setting "
 msgstr ""
 
@@ -842,7 +842,7 @@ msgstr ""
 msgid "Choose a File"
 msgstr ""
 
-#: ../src/hub.cc:2570 ../src/privatemessage.cc:1233 ../src/mainwindow.cc:1215
+#: ../src/hub.cc:2581 ../src/privatemessage.cc:1245 ../src/mainwindow.cc:1215
 #: ../src/mainwindow.cc:1283 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8026
 msgid "Choose a directory"
@@ -856,11 +856,11 @@ msgstr ""
 msgid "Clear"
 msgstr "Vyčistiť"
 
-#: ../src/privatemessage.cc:986 ../ui/privatemessage.ui:30
+#: ../src/privatemessage.cc:998 ../ui/privatemessage.ui:30
 msgid "Clear PM"
 msgstr "Vyčistiť PM"
 
-#: ../src/hub.cc:1961 ../ui/hub.ui:30
+#: ../src/hub.cc:1972 ../ui/hub.ui:30
 msgid "Clear chat"
 msgstr "Zmazať chat"
 
@@ -872,11 +872,11 @@ msgstr ""
 msgid "Clear search box after each search"
 msgstr "Vymazať políčko pre vyhľadávanie po každom vyhľadaní"
 
-#: ../src/privatemessage.cc:987 ../ui/privatemessage.ui:39
+#: ../src/privatemessage.cc:999 ../ui/privatemessage.ui:39
 msgid "Close PM"
 msgstr "Zatvoriť PM"
 
-#: ../src/hub.cc:1962
+#: ../src/hub.cc:1973
 msgid "Close chat"
 msgstr "Zatvoriť chat"
 
@@ -927,7 +927,7 @@ msgstr "Opýtať sa na potvrdenie pred vymazaním hubu"
 msgid "Connect"
 msgstr "Pripojiť"
 
-#: ../src/hub.cc:3427
+#: ../src/hub.cc:3438
 msgid "Connect failed: "
 msgstr "Spojenie neúspešné"
 
@@ -939,11 +939,11 @@ msgstr ""
 msgid "Connect to hub"
 msgstr "Pripojiť k hubu"
 
-#: ../src/hub.cc:1970 ../ui/hub.ui:57
+#: ../src/hub.cc:1981 ../ui/hub.ui:57
 msgid "Connect to the hub"
 msgstr "Pripojiť sa ku hubu"
 
-#: ../src/hub.cc:3371 ../src/transfers.cc:1024
+#: ../src/hub.cc:3382 ../src/transfers.cc:1024
 msgid "Connected"
 msgstr "Pripojený"
 
@@ -955,7 +955,7 @@ msgstr "Pripájanie"
 msgid "Connecting (forced)..."
 msgstr "Pripájanie (vynútené)..."
 
-#: ../src/hub.cc:3364
+#: ../src/hub.cc:3375
 msgid "Connecting to "
 msgstr "Pripájam sa k"
 
@@ -1139,12 +1139,12 @@ msgid "Download failed: "
 msgstr "Sťahovanie neúspešné:"
 
 #: ../src/transfers.cc:1085 ../src/settingsdialog.cc:1079
-#: ../src/settingsdialog.cc:1247 ../src/settingsmanager.cc:233
+#: ../src/settingsdialog.cc:1247 ../src/settingsmanager.cc:234
 msgid "Download finished"
 msgstr "Sťahovanie ukončené"
 
 #: ../src/settingsdialog.cc:1080 ../src/settingsdialog.cc:1251
-#: ../src/settingsmanager.cc:235
+#: ../src/settingsmanager.cc:236
 msgid "Download finished file list"
 msgstr "Sťahovanie zoznamu súborov ukončené"
 
@@ -1156,19 +1156,19 @@ msgstr "Sťahovanie ukončené"
 msgid "Download image"
 msgstr ""
 
-#: ../src/hub.cc:1909
+#: ../src/hub.cc:1920
 msgid "Download image: disable"
 msgstr "Sťahovanie obrázkov: vypnuté"
 
-#: ../src/hub.cc:1911
+#: ../src/hub.cc:1922
 msgid "Download image: unlimit"
 msgstr "Sťahovanie obrázkov: neobmedzené"
 
-#: ../src/hub.cc:1913
+#: ../src/hub.cc:1924
 msgid "Download limit image: "
 msgstr "Obmedzenia pre sťahovanie obrázkov:"
 
-#: ../src/hub.cc:1976
+#: ../src/hub.cc:1987
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
 "Obmedzenie pre sťahovanie obrázkov: 0 - deaktivované, n < 0 - neobmedzené, "
@@ -1240,15 +1240,15 @@ msgstr "Upraviť voľby"
 msgid "Emoticons"
 msgstr ""
 
-#: ../src/hub.cc:1893 ../src/privatemessage.cc:928
+#: ../src/hub.cc:1904 ../src/privatemessage.cc:940
 msgid "Emoticons mode off"
 msgstr "Režim smajlíkov vypnutý"
 
-#: ../src/hub.cc:1898 ../src/privatemessage.cc:933
+#: ../src/hub.cc:1909 ../src/privatemessage.cc:945
 msgid "Emoticons mode on"
 msgstr "Režim smajlíkov zapnutý"
 
-#: ../src/hub.cc:1979 ../src/privatemessage.cc:992
+#: ../src/hub.cc:1990 ../src/privatemessage.cc:1004
 msgid "Emoticons on/off"
 msgstr "Zapnúť/Vypnúť smajlíkov"
 
@@ -1302,11 +1302,11 @@ msgstr "Zadať hodnotu pre"
 msgid "Error"
 msgstr "Chyba"
 
-#: ../src/settingsmanager.cc:516
+#: ../src/settingsmanager.cc:517
 msgid "Error: params have been not 2!"
 msgstr ""
 
-#: ../src/settingsmanager.cc:512
+#: ../src/settingsmanager.cc:513
 #, fuzzy
 msgid "Error: setting not found!"
 msgstr "Užívateľ nenájdený"
@@ -1332,11 +1332,11 @@ msgstr "Veľkosť"
 msgid "Exact size"
 msgstr ""
 
-#: ../src/hub.cc:1982
+#: ../src/hub.cc:1993
 msgid "Execute Lua Chunk"
 msgstr ""
 
-#: ../src/hub.cc:1984
+#: ../src/hub.cc:1995
 msgid "Execute code (bash)"
 msgstr ""
 
@@ -1400,11 +1400,11 @@ msgstr "Obľúbený užívateľ"
 msgid "Favorite Users"
 msgstr "Obľúbený užívatelia"
 
-#: ../src/hub.cc:2959
+#: ../src/hub.cc:2970
 msgid "Favorite hub added"
 msgstr "Obľúbený hub pridaný"
 
-#: ../src/hub.cc:2964
+#: ../src/hub.cc:2975
 msgid "Favorite hub already exists"
 msgstr "Obľúbený hub už existuje"
 
@@ -1413,12 +1413,12 @@ msgid "Favorite name"
 msgstr "Obľúbené meno"
 
 #: ../src/settingsdialog.cc:1085 ../src/settingsdialog.cc:1267
-#: ../src/settingsmanager.cc:243
+#: ../src/settingsmanager.cc:244
 msgid "Favorite user joined"
 msgstr "Obľúbený užívateľ sa pripojil"
 
 #: ../src/settingsdialog.cc:1086 ../src/settingsdialog.cc:1271
-#: ../src/settingsmanager.cc:245
+#: ../src/settingsmanager.cc:246
 msgid "Favorite user quit"
 msgstr "Obľúbený užívateľ sa odpojil"
 
@@ -1567,15 +1567,15 @@ msgstr "Obyčajný text"
 msgid "Generate certificates"
 msgstr ""
 
-#: ../src/hub.cc:1967 ../src/privatemessage.cc:990 ../ui/privatemessage.ui:66
+#: ../src/hub.cc:1978 ../src/privatemessage.cc:1002 ../ui/privatemessage.ui:66
 msgid "Get file list"
 msgstr "Stiahnúť zoznam súborov"
 
-#: ../src/hub.cc:2776 ../src/favoritehubs.cc:339
+#: ../src/hub.cc:2787 ../src/favoritehubs.cc:339
 msgid "Global hub default"
 msgstr ""
 
-#: ../src/hub.cc:1968 ../src/privatemessage.cc:991 ../ui/privatemessage.ui:75
+#: ../src/hub.cc:1979 ../src/privatemessage.cc:1003 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
 msgstr "Udeliť extra slot"
 
@@ -1669,12 +1669,12 @@ msgid "Hub Name"
 msgstr "Názov Hubu"
 
 #: ../src/settingsdialog.cc:1083 ../src/settingsdialog.cc:1259
-#: ../src/settingsmanager.cc:241
+#: ../src/settingsmanager.cc:242
 msgid "Hub connected"
 msgstr "Hub pripojený"
 
 #: ../src/settingsdialog.cc:1084 ../src/settingsdialog.cc:1263
-#: ../src/settingsmanager.cc:239
+#: ../src/settingsmanager.cc:240
 msgid "Hub disconnected"
 msgstr "Hub opojený"
 
@@ -1744,11 +1744,11 @@ msgstr "Ignorovať súkromné správy od botov"
 msgid "Ignore private messages from the hub"
 msgstr "Ignorovať súkromné správy z hubu"
 
-#: ../src/hub.cc:3497
+#: ../src/hub.cc:3508
 msgid "Ignored private message from bot "
 msgstr "Ignorovať súkromné správy od Bota"
 
-#: ../src/hub.cc:3490
+#: ../src/hub.cc:3501
 msgid "Ignored private message from hub"
 msgstr "Ignorovať súkromné správy z hubu"
 
@@ -1769,15 +1769,15 @@ msgstr "Indexovanie súborov..."
 msgid "Invalid extension: "
 msgstr ""
 
-#: ../src/hub.cc:2130
+#: ../src/hub.cc:2141
 msgid "Ipfilter is disable"
 msgstr ""
 
-#: ../src/hub.cc:2123
+#: ../src/hub.cc:2134
 msgid "Ipfilter is enable"
 msgstr ""
 
-#: ../src/hub.cc:1989
+#: ../src/hub.cc:2000
 msgid "Ipfilter on/off"
 msgstr ""
 
@@ -1836,7 +1836,7 @@ msgstr "Zoznam:"
 msgid "List: "
 msgstr "Zoznam:"
 
-#: ../src/hub.cc:1981
+#: ../src/hub.cc:1992
 msgid "Load Lua file"
 msgstr "Načítať Lua súbor"
 
@@ -2022,7 +2022,7 @@ msgstr "Posunúť nadol"
 msgid "Move Up"
 msgstr "Posunúť nahor"
 
-#: ../src/hub.cc:1991
+#: ../src/hub.cc:2002
 #, fuzzy
 msgid "Move rule up/down"
 msgstr "Posunúť nadol"
@@ -2097,9 +2097,9 @@ msgid "Next"
 msgstr "Ďalší"
 
 #: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:367
-#: ../src/hub.cc:382 ../src/hub.cc:402 ../src/hub.cc:450 ../src/hub.cc:1236
-#: ../src/hub.cc:1534 ../src/hub.cc:1587 ../src/hub.cc:2314 ../src/hub.cc:2345
-#: ../src/hub.cc:2630 ../src/hub.cc:2669 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:382 ../src/hub.cc:402 ../src/hub.cc:450 ../src/hub.cc:1242
+#: ../src/hub.cc:1545 ../src/hub.cc:1598 ../src/hub.cc:2325 ../src/hub.cc:2356
+#: ../src/hub.cc:2641 ../src/hub.cc:2680 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583
@@ -2111,7 +2111,7 @@ msgstr "Ďalší"
 msgid "Nick"
 msgstr "Prezývka"
 
-#: ../src/hub.cc:3594
+#: ../src/hub.cc:3605
 msgid "Nick already taken"
 msgstr "Prezývka prijatá"
 
@@ -2155,7 +2155,7 @@ msgstr "Normálna"
 msgid "Normal priority max size"
 msgstr ""
 
-#: ../src/hub.cc:1841 ../src/hub.cc:1876 ../src/hub.cc:1886 ../src/hub.cc:2030
+#: ../src/hub.cc:1852 ../src/hub.cc:1887 ../src/hub.cc:1897 ../src/hub.cc:2041
 msgid "Not found user: "
 msgstr "Užívateľ nenájdený:"
 
@@ -2349,9 +2349,9 @@ msgstr ""
 msgid "Private key file"
 msgstr ""
 
-#: ../src/hub.cc:1972 ../src/settingsdialog.cc:1082
+#: ../src/hub.cc:1983 ../src/settingsdialog.cc:1082
 #: ../src/settingsdialog.cc:1135 ../src/settingsdialog.cc:1255
-#: ../src/settingsmanager.cc:237
+#: ../src/settingsmanager.cc:238
 msgid "Private message"
 msgstr "Súkromná správa"
 
@@ -2408,7 +2408,7 @@ msgstr ""
 msgid "Re_connect"
 msgstr "Znov_u pripojiť"
 
-#: ../src/hub.cc:1973 ../ui/hub.ui:75
+#: ../src/hub.cc:1984 ../ui/hub.ui:75
 msgid "Rebuild hash"
 msgstr "Prerobiť hash"
 
@@ -2462,7 +2462,7 @@ msgstr ""
 msgid "Remove image"
 msgstr ""
 
-#: ../src/hub.cc:1992
+#: ../src/hub.cc:2003
 #, fuzzy
 msgid "Remove rules from list"
 msgstr "Odstrániť užívateľa z _fronty"
@@ -2471,7 +2471,7 @@ msgstr "Odstrániť užívateľa z _fronty"
 msgid "Remove slow filelists"
 msgstr "Vymazať pomalé zoznamy súborov"
 
-#: ../src/hub.cc:1965 ../src/privatemessage.cc:989 ../ui/privatemessage.ui:57
+#: ../src/hub.cc:1976 ../src/privatemessage.cc:1001 ../ui/privatemessage.ui:57
 msgid "Remove user favorite"
 msgstr "Odstrániť užívateľa z obľúbených"
 
@@ -2507,7 +2507,7 @@ msgstr "Prebiehajúci"
 msgid "SJIS"
 msgstr "SJIS"
 
-#: ../src/hub.cc:1971 ../ui/hub.ui:66
+#: ../src/hub.cc:1982 ../ui/hub.ui:66
 msgid "Say a third person"
 msgstr "Hovorí"
 
@@ -2565,7 +2565,7 @@ msgstr ""
 msgid "Search options"
 msgstr "Možnosti vyhľadávania"
 
-#: ../src/hub.cc:3601
+#: ../src/hub.cc:3612
 msgid "Search spam detected from "
 msgstr ""
 
@@ -2634,7 +2634,7 @@ msgstr ""
 msgid "Set download limit image"
 msgstr ""
 
-#: ../src/hub.cc:1919
+#: ../src/hub.cc:1930
 msgid "Set download limit image: "
 msgstr "Nastaviť obmedzenia pre sťahovanie obrázkov:"
 
@@ -2665,16 +2665,16 @@ msgstr ""
 msgid "Show Interface"
 msgstr ""
 
-#: ../src/hub.cc:1966 ../ui/hub.ui:48
+#: ../src/hub.cc:1977 ../ui/hub.ui:48
 msgid "Show favorites list"
 msgstr "Zobraziť obľúbené zoznamy"
 
-#: ../src/hub.cc:1969 ../src/privatemessage.cc:995 ../ui/privatemessage.ui:102
-#: ../ui/hub.ui:111
+#: ../src/hub.cc:1980 ../src/privatemessage.cc:1007
+#: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
 msgid "Show help"
 msgstr "Zobraziť nápovedu"
 
-#: ../src/hub.cc:1990
+#: ../src/hub.cc:2001
 #, fuzzy
 msgid "Show ipfilter rules list"
 msgstr "Zobraziť obľúbené zoznamy"
@@ -2695,7 +2695,7 @@ msgstr ""
 msgid "Show only when the application is not active."
 msgstr ""
 
-#: ../src/hub.cc:1978 ../src/privatemessage.cc:994 ../ui/privatemessage.ui:93
+#: ../src/hub.cc:1989 ../src/privatemessage.cc:1006 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
 msgid "Show ratio [send in chat]"
 msgstr ""
@@ -2716,7 +2716,7 @@ msgstr ""
 msgid "Show user country in chat"
 msgstr ""
 
-#: ../src/hub.cc:1977 ../src/privatemessage.cc:993 ../ui/privatemessage.ui:84
+#: ../src/hub.cc:1988 ../src/privatemessage.cc:1005 ../ui/privatemessage.ui:84
 #: ../ui/hub.ui:93
 msgid "Show version"
 msgstr "Zobraziť verziu"
@@ -2759,11 +2759,11 @@ msgstr "Veľkosť: 0 B"
 msgid "Skip zero-byte files"
 msgstr "Preskočiť súbory, ktoré majú 0 bytov"
 
-#: ../src/privatemessage.cc:1379
+#: ../src/privatemessage.cc:1391
 msgid "Slot granted"
 msgstr "Slot udelený"
 
-#: ../src/hub.cc:2880 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2891 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Slot udelený"
 
@@ -3088,7 +3088,7 @@ msgstr "URL"
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: ../src/hub.cc:2905
+#: ../src/hub.cc:2916
 msgid "Unable to connect: already connected to the requested hub"
 msgstr ""
 "Nie je možné sa pripojiť k požadovanému hubu(práve ste k nemu pripojený)"
@@ -3120,11 +3120,11 @@ msgstr ""
 msgid "Unknown"
 msgstr "Neznámy"
 
-#: ../src/privatemessage.cc:999
+#: ../src/privatemessage.cc:1011
 msgid "Unknown command "
 msgstr "Príkaz neznámy"
 
-#: ../src/hub.cc:2288
+#: ../src/hub.cc:2299
 msgid "Unknown command '"
 msgstr "Príkaz neznámy"
 
@@ -3136,7 +3136,7 @@ msgstr "Aktualizovať"
 msgid "Update frame search"
 msgstr ""
 
-#: ../src/hub.cc:1974
+#: ../src/hub.cc:1985
 msgid "Update own file list"
 msgstr "Aktualizovať vlastný zoznam súborov"
 
@@ -3198,7 +3198,7 @@ msgstr "Použiť blikajúcu stavovú ikonu"
 msgid "Use DHT"
 msgstr ""
 
-#: ../src/hub.cc:1708 ../src/privatemessage.cc:1155
+#: ../src/hub.cc:1719 ../src/privatemessage.cc:1167
 msgid "Use Emoticons"
 msgstr "Použiť smajlíkov"
 
@@ -3272,7 +3272,7 @@ msgstr "Popis Užívateľa"
 msgid "User commands"
 msgstr "Užívateľské príkazy"
 
-#: ../src/hub.cc:1866
+#: ../src/hub.cc:1877
 msgid "User favorite list:"
 msgstr "Obľúbený zoznam užívateľa:"
 
@@ -3284,11 +3284,11 @@ msgstr "Užívateľ firewall (dc)"
 msgid "User firewall (normal)"
 msgstr "Užívateľ firewall (normal)"
 
-#: ../src/hub.cc:1975
+#: ../src/hub.cc:1986
 msgid "User list show/hide"
 msgstr "Zobraziť/skryť užívateľov zoznam"
 
-#: ../src/hub.cc:2851 ../src/hub.cc:2871
+#: ../src/hub.cc:2862 ../src/hub.cc:2882
 msgid "User not found"
 msgstr "Užívateľ nenájdený"
 
@@ -3308,7 +3308,7 @@ msgstr "Užívateľ operátor firewall (dc)"
 msgid "User operator firewall (normal)"
 msgstr "Užívateľ operátor firewall (normal)"
 
-#: ../src/privatemessage.cc:1314
+#: ../src/privatemessage.cc:1326
 msgid "User went offline"
 msgstr "Užívateľ sa odhlásil"
 
@@ -3658,7 +3658,7 @@ msgstr "Užívateľ_ské príkazy"
 msgid "_Widgets"
 msgstr "_Widgety"
 
-#: ../src/hub.cc:3089
+#: ../src/hub.cc:3100
 msgid "bad image"
 msgstr "zlé zobrazenie (bad image)"
 
@@ -3699,7 +3699,7 @@ msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgid "in program"
 msgstr ""
 
-#: ../src/hub.cc:3076
+#: ../src/hub.cc:3087
 msgid "loading error"
 msgstr "chyba pri načítaní"
 
@@ -3707,11 +3707,11 @@ msgstr "chyba pri načítaní"
 msgid "none"
 msgstr ""
 
-#: ../src/hub.cc:1924 ../src/privatemessage.cc:938
+#: ../src/hub.cc:1935 ../src/privatemessage.cc:950
 msgid "project home: "
 msgstr "Domovská stránka projektu:"
 
-#: ../src/hub.cc:1943 ../src/privatemessage.cc:957
+#: ../src/hub.cc:1954 ../src/privatemessage.cc:969
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr ""
 

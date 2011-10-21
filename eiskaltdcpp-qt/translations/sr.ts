@@ -1905,6 +1905,14 @@ Omiljeni korisnik</translation>
         <source>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Ctrl+Alt+J</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2529,6 +2537,10 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>History</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5038,6 +5050,25 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Don&apos;t show icons in menus (need restart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UISettingsHistory</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Oblik</translation>
+    </message>
+    <message>
+        <source>Clear search history on program exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear download directories history on program exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear now</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

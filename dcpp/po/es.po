@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcpp\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-16 13:21+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2011-05-23 18:25+0200\n"
 "Last-Translator: Gustavo Alvarez <gustavoalvarez@ono.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -213,19 +213,19 @@ msgstr ""
 msgid "Offline"
 msgstr "Desconectado"
 
-#: ../AdcHub.cpp:155
+#: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) tiene el mismo CID {%3%} como  %4% (%5%), ignorando"
 
-#: ../AdcHub.cpp:192 ../Transfer.cpp:91 ../QueueManager.cpp:2195
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
 msgid "%1%/s"
 msgstr "%1%/s"
 
-#: ../AdcHub.cpp:227
+#: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
 msgstr "No se ha podido negociar el protocolo base"
 
-#: ../AdcHub.cpp:233
+#: ../AdcHub.cpp:234
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -233,15 +233,15 @@ msgstr ""
 "El Hub probablemente utiliza una versión antigua de ADC, por favor, Insta al "
 "administrador que lo actualice"
 
-#: ../AdcHub.cpp:304
+#: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1% ha sido expulsado de %2%: %3%"
 
-#: ../AdcHub.cpp:307
+#: ../AdcHub.cpp:308
 msgid "%1% was kicked: %2%"
 msgstr "%1% ha sido expulsado: %2%"
 
-#: ../AdcHub.cpp:679
+#: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
 msgstr "No escuchando conexiones - por favor reinicie %1%"
 
@@ -486,7 +486,7 @@ msgstr "<Ingrese cadena>"
 msgid "Discard"
 msgstr "Descartar"
 
-#: ../DirectoryListing.cpp:177
+#: ../DirectoryListing.cpp:187
 msgid "Directory missing name attribute"
 msgstr "Atributo de nombre falta del directorio."
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-16 13:21+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2010-12-20 19:57+0200\n"
 "Last-Translator: Rusi Dimitrov <dimitrov.rusi@gmail.com>\n"
 "Language-Team: Bulgarian < >\n"
@@ -212,19 +212,19 @@ msgstr ""
 msgid "Offline"
 msgstr "Извън линия"
 
-#: ../AdcHub.cpp:155
+#: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) има същия CID {%3%} като %4% (%5%), игнорира се"
 
-#: ../AdcHub.cpp:192 ../Transfer.cpp:91 ../QueueManager.cpp:2195
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
 msgid "%1%/s"
 msgstr "%1%/s"
 
-#: ../AdcHub.cpp:227
+#: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
 msgstr "Грешка при преговаряне за базов протокол"
 
-#: ../AdcHub.cpp:233
+#: ../AdcHub.cpp:234
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -232,15 +232,15 @@ msgstr ""
 "Хъба вероятно използва стара версия на ADC, помолете собственика му да го "
 "надгради"
 
-#: ../AdcHub.cpp:304
+#: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1% бе изгонен от %2%: %3%"
 
-#: ../AdcHub.cpp:307
+#: ../AdcHub.cpp:308
 msgid "%1% was kicked: %2%"
 msgstr "%1% бе изгонен: %2%"
 
-#: ../AdcHub.cpp:679
+#: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
 msgstr "Не се следи за връзки - моля, рестартирайте %1%"
 
@@ -483,7 +483,7 @@ msgstr "<Въведете низ>"
 msgid "Discard"
 msgstr "Отхвърляне"
 
-#: ../DirectoryListing.cpp:177
+#: ../DirectoryListing.cpp:187
 msgid "Directory missing name attribute"
 msgstr "Липсва атрибут за име на директорията"
 

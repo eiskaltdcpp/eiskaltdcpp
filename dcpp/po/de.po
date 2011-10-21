@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eiskaltdcpp 2.2.1-1\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-16 13:21+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2011-06-14 21:08+0200\n"
 "Last-Translator: Chris Leick <c.leick@vollbio.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
@@ -219,21 +219,21 @@ msgstr ""
 msgid "Offline"
 msgstr "offline"
 
-#: ../AdcHub.cpp:155
+#: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) hat die gleiche CID {%3%} wie %4% (%5%), wird ignoriert"
 
-#: ../AdcHub.cpp:192 ../Transfer.cpp:91 ../QueueManager.cpp:2195
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
 msgid "%1%/s"
 msgstr "%1%/s"
 
-#: ../AdcHub.cpp:227
+#: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
 msgstr "Das Aushandeln des Basisprotokolls ist fehlgeschlagen."
 
 # ADC = Active Directory Connector
 # http://www.msxfaq.de/migration/adc.htm
-#: ../AdcHub.cpp:233
+#: ../AdcHub.cpp:234
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -241,15 +241,15 @@ msgstr ""
 "Der Hub verwendet möglicherweise eine alte Version des ADC. Bitte raten Sie "
 "dem Besitzer zu einem Upgrade."
 
-#: ../AdcHub.cpp:304
+#: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1% wurde von %2% hinausgeworfen: %3%"
 
-#: ../AdcHub.cpp:307
+#: ../AdcHub.cpp:308
 msgid "%1% was kicked: %2%"
 msgstr "%1% wurde hinausgeworfen: %2%"
 
-#: ../AdcHub.cpp:679
+#: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
 msgstr "Es wird nicht auf Verbindungen gewartet – bitte starten Sie %1% neu."
 
@@ -504,7 +504,7 @@ msgstr "<Zeichenkette eingeben>"
 msgid "Discard"
 msgstr "verwerfen"
 
-#: ../DirectoryListing.cpp:177
+#: ../DirectoryListing.cpp:187
 msgid "Directory missing name attribute"
 msgstr "Dem Verzeichnis fehlt das Namensattribut."
 

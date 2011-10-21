@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-16 13:21+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2010-10-03 13:18+0200\n"
 "Last-Translator: Клёк <i.kliok@gmail.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -213,19 +213,19 @@ msgstr ""
 msgid "Offline"
 msgstr "Ня ў сетцы"
 
-#: ../AdcHub.cpp:155
+#: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
 
-#: ../AdcHub.cpp:192 ../Transfer.cpp:91 ../QueueManager.cpp:2195
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
 msgid "%1%/s"
 msgstr "%1%/с"
 
-#: ../AdcHub.cpp:227
+#: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
 msgstr "Не ўдалося дамовіцца пра галоўны пратакол"
 
-#: ../AdcHub.cpp:233
+#: ../AdcHub.cpp:234
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -233,15 +233,15 @@ msgstr ""
 "Магчыма, асяродак выкарыстоўвае старую вэрсію ADC. Калі ласка, паспрыяйце, "
 "каб уладальнік абнавіў яе"
 
-#: ../AdcHub.cpp:304
+#: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%2% даў высьпятка карыстальніку %1%: %3%"
 
-#: ../AdcHub.cpp:307
+#: ../AdcHub.cpp:308
 msgid "%1% was kicked: %2%"
 msgstr "Карыстальніку %1% далі высьпятка: %2%"
 
-#: ../AdcHub.cpp:679
+#: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
 msgstr "Ня чую злучэньняў — калі ласка, запусьціце %1% нанова"
 
@@ -482,7 +482,7 @@ msgstr "<Упішыце радок>"
 msgid "Discard"
 msgstr "Адкінуць"
 
-#: ../DirectoryListing.cpp:177
+#: ../DirectoryListing.cpp:187
 msgid "Directory missing name attribute"
 msgstr "Каталёґ ня мае назвы"
 

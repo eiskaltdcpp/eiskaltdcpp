@@ -1936,6 +1936,14 @@ Favorite user</source>
         <source>Connectivity Manager: Warning</source>
         <translation>Кіраўнік злучэньняў: перасьцярога</translation>
     </message>
+    <message>
+        <source>Ctrl+Alt+J</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2520,6 +2528,10 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <source>Shortcuts</source>
         <translation>Выклічнікі</translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5071,6 +5083,25 @@ them is usually available only to operators</source>
     <message>
         <source>Force emoticon parsing</source>
         <translation>Прымусіць разьбіраць пачуцьцезнакі</translation>
+    </message>
+</context>
+<context>
+    <name>UISettingsHistory</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <source>Clear search history on program exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear download directories history on program exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear now</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
