@@ -21,7 +21,7 @@ using namespace std;
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
 
-#ifdef Q_WS_HAIKU
+#ifdef __HAIKU__
 #include "EiskaltApp_haiku.h"
 #endif
 
@@ -36,7 +36,7 @@ using namespace std;
 #include "FinishedTransfers.h"
 #include "QueuedUsers.h"
 
-#ifndef Q_WS_HAIKU
+#ifndef __HAIKU__
 #include "EiskaltApp.h"
 #endif
 
@@ -68,7 +68,7 @@ void parseCmdLine(const QStringList &);
 #ifndef Q_WS_WIN
 #include <unistd.h>
 #include <signal.h>
-#ifndef Q_WS_HAIKU
+#ifndef __HAIKU__
 #include <execinfo.h>
 
 #ifdef ENABLE_STACKTRACE
@@ -100,13 +100,13 @@ int main(int argc, char *argv[])
     if (app.isRunning()){
         QStringList args = app.arguments();
         args.removeFirst();//remove path to executable
-#ifndef Q_WS_HAIKU
+#ifndef __HAIKU__
         app.sendMessage(args.join("\n"));
 #endif
         return 0;
     }
 
-#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
+#if !defined (Q_WS_WIN) && !defined (__HAIKU__)
     installHandlers();
 #endif
 
@@ -228,7 +228,7 @@ void parseCmdLine(const QStringList &args){
     }
 }
 
-#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
+#if !defined (Q_WS_WIN) && !defined (__HAIKU__)
 
 void installHandlers(){
     struct sigaction sa;
