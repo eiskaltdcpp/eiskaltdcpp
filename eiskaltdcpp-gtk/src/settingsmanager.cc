@@ -156,6 +156,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("fav-show-joins", 0));
     defaultInt.insert(IntMap::value_type("show-joins", 0));
     defaultInt.insert(IntMap::value_type("show-preferences-on-startup", 1));
+    defaultInt.insert(IntMap::value_type("use-native-back-color-for-text", 1));
 
     defaultString.insert(StringMap::value_type("magnet-choose-dir", SETTING(DOWNLOAD_DIRECTORY)));
     defaultString.insert(StringMap::value_type("downloadqueue-order", ""));
@@ -502,11 +503,11 @@ const std::string WulforSettingsManager::parseCmd(const std::string cmd)
 {
     StringTokenizer<string> sl(cmd, ' ');
         if (sl.getTokens().size() == 2) {
-            if (intMap.find(sl.getTokens().at(0)) != intMap.end() && defaultInt.find(sl.getTokens().at(0)) != defaultInt.end()) {
+            if (intMap.find(sl.getTokens().at(0)) != intMap.end() || defaultInt.find(sl.getTokens().at(0)) != defaultInt.end()) {
                 int i = atoi(sl.getTokens().at(1).c_str());
                 WSET(sl.getTokens().at(0), i);
             }
-            else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end() && defaultString.find(sl.getTokens().at(0)) != defaultString.end())
+            else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end() || defaultString.find(sl.getTokens().at(0)) != defaultString.end())
                 WSET(sl.getTokens().at(0), sl.getTokens().at(1));
             else
                 return _("Error: setting not found!");

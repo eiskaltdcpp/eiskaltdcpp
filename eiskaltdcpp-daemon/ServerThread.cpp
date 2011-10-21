@@ -134,10 +134,6 @@ int ServerThread::run()
                                    .socketFd(STDIN_FILENO)
                                   );
     server->runSerial();
-#elif defined(USE_XMLRPC_CGI)
-    server = xmlrpc_c::serverCgi(xmlrpc_c::serverCgi::constrOpt()
-                                  .registryP(&xmlrpcRegistry));
-    server->processCall();
 #endif
 
 #endif

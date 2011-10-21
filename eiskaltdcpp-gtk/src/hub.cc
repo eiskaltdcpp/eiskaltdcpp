@@ -1209,7 +1209,13 @@ void Hub::preferences_gui()
     {
         getSettingTag_gui(wsm, (TypeTag)i, fore, back, bold, italic);
 
+        WGETB("use-native-back-color-for-text") ?
         g_object_set(TagsMap[i],
+            "foreground", fore.c_str(),
+            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+            NULL) :
+            g_object_set(TagsMap[i],
             "foreground", fore.c_str(),
             "background", back.c_str(),
             "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
@@ -1338,8 +1344,13 @@ GtkTextTag* Hub::createTag_gui(const string &tagname, TypeTag type)
         int bold, italic;
 
         getSettingTag_gui(wsm, type, fore, back, bold, italic);
-
-        tag = gtk_text_buffer_create_tag(chatBuffer, tagname.c_str(),
+        tag = WGETB("use-native-back-color-for-text") ?
+            gtk_text_buffer_create_tag(chatBuffer, tagname.c_str(),
+            "foreground", fore.c_str(),
+            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+            NULL) :
+            gtk_text_buffer_create_tag(chatBuffer, tagname.c_str(),
             "foreground", fore.c_str(),
             "background", back.c_str(),
             "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,

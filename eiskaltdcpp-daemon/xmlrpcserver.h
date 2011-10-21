@@ -27,8 +27,6 @@
 #include <xmlrpc-c/server_abyss.hpp>
 #elif defined(USE_XMLRPC_PSTREAM)
 #include <xmlrpc-c/server_pstream.hpp>
-#elif defined(USE_XMLRPC_CGI)
-#include <xmlrpc-c/server_cgi.hpp>
 #endif
 
 #include "ServerManager.h"
@@ -74,8 +72,6 @@ xmlrpc_c::registry xmlrpcRegistry;
 xmlrpc_c::serverAbyss * server;
 #elif defined(USE_XMLRPC_PSTREAM)
 xmlrpc_c::serverPstream * server;
-#elif defined(USE_XMLRPC_CGI)
-xmlrpc_c::serverCgi * server;
 #endif
 
 class magnetAddMethod : public xmlrpc_c::method {
