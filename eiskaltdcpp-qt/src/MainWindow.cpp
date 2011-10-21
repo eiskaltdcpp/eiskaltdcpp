@@ -212,6 +212,11 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
     saveSettings();
 
+    if (WBGET("app/clear-search-history-on-exit", false))
+        WSSET(WS_SEARCH_HISTORY, "");
+    if (WBGET("app/clear-download-directories-history-on-exit", false))
+        WSSET(WS_DOWNLOAD_DIR_HISTORY, "");
+
     if (sideDock)
         sideDock->hide();
 

@@ -12,12 +12,13 @@ Q_OBJECT
 public:
     explicit SettingsHistory(QWidget* = NULL);
     virtual ~SettingsHistory();
-    
+
 public Q_SLOTS:
     void ok();
-    
+
 private Q_SLOTS:
-    void slotDeleteHistory();
+    void slotClearSearchHistory();
+    void slotClearDirectoriesHistory();
 };
 
 #endif // SETTINGSHISTORY_H

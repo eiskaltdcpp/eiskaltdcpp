@@ -5,7 +5,10 @@
 SettingsHistory::SettingsHistory(QWidget *parent): QWidget(parent) {
     setupUi(this);
     
-    connect(pushButton_DEL, SIGNAL(clicked(bool)), this, SLOT(slotDeleteHistory()));
+    connect(pushButton_ClearSearchHistory, SIGNAL(clicked(bool)),
+            this, SLOT(slotClearSearchHistory()));
+    connect(pushButton_ClearDirectoriesHistory, SIGNAL(clicked(bool)),
+            this, SLOT(slotClearDirectoriesHistory()));
 }
 
 SettingsHistory::~SettingsHistory() {
@@ -13,19 +16,14 @@ SettingsHistory::~SettingsHistory() {
 }
 
 void SettingsHistory::ok(){
-    // Do nothing
+    WBSET("app/clear-search-history-on-exit", checkBox_SearchHistory->isChecked());
+    WBSET("app/clear-download-directories-history-on-exit", checkBox_DirectoriesHistory->isChecked());
 }
 
-void SettingsHistory::slotDeleteHistory() {
-    if (checkBox_DH->isChecked()){
-        WSSET(WS_DOWNLOAD_DIR_HISTORY, "");
-    }
-    
-    if (checkBox_SH->isChecked()){
-        WSSET(WS_SEARCH_HISTORY, "");
-    }
+void SettingsHistory::slotClearSearchHistory() {
+    WSSET(WS_SEARCH_HISTORY, "");
 }
 
-
-
-
+void SettingsHistory::slotClearDirectoriesHistory() {
+    WSSET(WS_DOWNLOAD_DIR_HISTORY, "");
+}
