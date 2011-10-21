@@ -21,6 +21,10 @@ using namespace std;
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
 
+#ifdef Q_WS_HAIKU
+#include "EiskaltApp_haiku.h"
+#endif
+
 #include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
@@ -31,9 +35,8 @@ using namespace std;
 #include "EmoticonFactory.h"
 #include "FinishedTransfers.h"
 #include "QueuedUsers.h"
-#ifdef Q_WS_HAIKU
-#include "EiskaltApp_haiku.h"
-#else
+
+#ifndef Q_WS_HAIKU
 #include "EiskaltApp.h"
 #endif
 
