@@ -139,20 +139,17 @@ void startup(void (*f)(void*, const string&), void* p) {
 }
 
 void shutdown() {
-    DynDNS::deleteInstance();
-#ifndef _WIN32 //*nix system
-    ThrottleManager::getInstance()->shutdown();
-#endif
     DebugManager::deleteInstance();
+    DynDNS::deleteInstance();
+#ifdef WITH_DHT
+    dht::DHT::deleteInstance();
+#endif
+    ThrottleManager::getInstance()->shutdown();
 #ifdef LUA_SCRIPT
     ScriptManager::deleteInstance();
 #endif
     TimerManager::getInstance()->shutdown();
     HashManager::getInstance()->shutdown();
-
-#ifdef _WIN32
-    ThrottleManager::getInstance()->shutdown();
-#endif
 
     ConnectionManager::getInstance()->shutdown();
     UPnPManager::getInstance()->close();
@@ -165,9 +162,6 @@ void shutdown() {
         ipfilter::getInstance()->shutdown();
     SettingsManager::getInstance()->save();
 
-#ifdef WITH_DHT
-    dht::DHT::deleteInstance();
-#endif
     WindowManager::deleteInstance();
     UPnPManager::deleteInstance();
     ConnectivityManager::deleteInstance();

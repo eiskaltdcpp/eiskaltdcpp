@@ -27,7 +27,7 @@ public:
 template<int I> struct X { enum { TYPE = I };  };
 
     typedef X<0> DebugCommand;
-    typedef X<0> DebugDetection;
+    typedef X<1> DebugDetection;
 
     virtual void on(DebugDetection, const string&) noexcept { }
     virtual void on(DebugCommand, const string&, int, const string&) noexcept { }
@@ -50,8 +50,8 @@ private:
     DebugManager() noexcept { };
     ~DebugManager() noexcept { };
 };
-#define COMMAND_DEBUG(a,b,c) DebugManager::getInstance()->SendCommandMessage(a,b,c);
-#define DETECTION_DEBUG(m) DebugManager::getInstance()->SendDetectionMessage(m);
+#define COMMAND_DEBUG(a,b,c) if (DebugManager::getInstance()) DebugManager::getInstance()->SendCommandMessage(a,b,c);
+#define DETECTION_DEBUG(m) if (DebugManager::getInstance()) DebugManager::getInstance()->SendDetectionMessage(m);
 
 } // namespace dcpp
 

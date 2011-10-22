@@ -446,6 +446,9 @@ void ADLSearchManager::matchListing(DirectoryListing& aDirList) noexcept {
     params["userNI"] = ClientManager::getInstance()->getNicks(aDirList.getUser())[0];
     params["userCID"] = aDirList.getUser().user->getCID().toBase32();
 
+    if (BOOLSETTING(USE_ADL_ONLY_OWN_LIST) && params["userCID"] != ClientManager::getInstance()->getMe()->getCID().toBase32())
+        return;
+
     setUser(aDirList.getUser());
 
     DestDirList destDirs;

@@ -94,7 +94,9 @@ const string SettingsManager::settingTags[] =
     "SlotsAlternateLimiting", "SlotsPrimaryLimiting", "KeepFinishedFiles",
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
-    "BindIface", "MinimumSearchInterval", "EnableDynDNS", "SENTRY",
+    "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
+    "UseADLOnlyOnOwnList",
+    "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
@@ -297,6 +299,8 @@ SettingsManager::SettingsManager()
     setDefault(MINIMUM_SEARCH_INTERVAL, 60);
     setDefault(DYNDNS_SERVER, "http://checkip.dyndns.org/index.html");
     setDefault(DYNDNS_ENABLE, false);
+    setDefault(ALLOW_UPLOAD_MULTI_HUB, true);
+    setDefault(USE_ADL_ONLY_OWN_LIST, false);
     setSearchTypeDefaults();
 }
 
