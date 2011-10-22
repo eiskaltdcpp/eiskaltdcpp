@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2011-07-06 20:58+0200\n"
+"PO-Revision-Date: 2011-10-22 18:17+0200\n"
 "Last-Translator: Gustavo Alvarez <gustavoalvarez@ono.com>\n"
 "Language-Team: Spanish <>\n"
 "Language: es\n"
@@ -705,7 +705,7 @@ msgstr "Buscar automáticamente sitios de descarga alternativos"
 
 #: ../ui/settingsdialog.ui:2392
 msgid "Automatically update external IP (restart required)"
-msgstr ""
+msgstr "Actualización automática de la IP externa (se necesita reiniciar)"
 
 #: ../src/hub.cc:1970 ../src/privatemessage.cc:996 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
@@ -1018,9 +1018,8 @@ msgid "DETECTION"
 msgstr "DETECCIÓN"
 
 #: ../ui/settingsdialog.ui:2492
-#, fuzzy
 msgid "DHT Port"
-msgstr "Puerto"
+msgstr "Puerto DHT"
 
 #: ../src/previewmenu.cc:89 ../src/emoticonsdialog.cc:106
 #: ../ui/settingsdialog.ui:5451 ../ui/settingsdialog.ui:6152
@@ -1243,9 +1242,8 @@ msgid "Drop sources below"
 msgstr "Abandonar fuentes por debajo de"
 
 #: ../ui/settingsdialog.ui:2423
-#, fuzzy
 msgid "DynDNS Address"
-msgstr "Dirección"
+msgstr "Dirección DynDNS"
 
 #: ../ui/settingsdialog.ui:1138
 msgid "E-Mail"
@@ -1300,9 +1298,8 @@ msgid "Encoding"
 msgstr "Codificación"
 
 #: ../src/transfers.cc:66
-#, fuzzy
 msgid "Encryption"
-msgstr "Descripción"
+msgstr "Encriptación"
 
 #: ../ui/mainwindow.ui:2494
 msgid "Enter line for user command"
@@ -1359,9 +1356,8 @@ msgid "Execute code (bash)"
 msgstr "Ejecutar código (bash)"
 
 #: ../ui/mainwindow.ui:1982
-#, fuzzy
 msgid "Exit"
-msgstr "_Salir"
+msgstr "Salir"
 
 #: ../ui/mainwindow.ui:801
 msgid "Exit EiskaltDC++ Gtk?"
@@ -1840,9 +1836,8 @@ msgid "Left position"
 msgstr "Posición izquierda"
 
 #: ../ui/settingsdialog.ui:2359
-#, fuzzy
 msgid "Limits"
-msgstr "<b>Limites</b> "
+msgstr "Limites"
 
 #: ../src/settingsdialog.cc:873 ../src/settingsdialog.cc:3435
 #: ../src/settingsdialog.cc:3448 ../src/settingsdialog.cc:3465
@@ -2023,7 +2018,7 @@ msgstr "Minimizar a la bandeja de sistema al iniciar"
 
 #: ../ui/favoritehubs.ui:312
 msgid "Minimum search interval (seconds):"
-msgstr ""
+msgstr "Intervalo mínimo de búsqueda (segundos):"
 
 #: ../ui/settingsdialog.ui:7910
 msgid "Modify"
@@ -2325,7 +2320,7 @@ msgstr "Imágenes"
 
 #: ../src/transfers.cc:891
 msgid "Plain"
-msgstr ""
+msgstr "Simple"
 
 #: ../ui/settingsdialog.ui:4856
 msgid "Play"
@@ -2684,9 +2679,8 @@ msgid "Show IP's' in chats"
 msgstr "Mostrar IPs en los chats"
 
 #: ../ui/mainwindow.ui:1952
-#, fuzzy
 msgid "Show Interface"
-msgstr "_Mostrar interface"
+msgstr "Mostrar interface"
 
 #: ../src/hub.cc:1977 ../ui/hub.ui:48
 msgid "Show favorites list"
@@ -3280,7 +3274,7 @@ msgstr "Usar icono parpadeante"
 
 #: ../ui/settingsdialog.ui:2461
 msgid "Use DHT"
-msgstr ""
+msgstr "Usar DHT"
 
 #: ../src/hub.cc:1719 ../src/privatemessage.cc:1167
 msgid "Use Emoticons"
@@ -3636,7 +3630,7 @@ msgstr "_Encontrar coincidencia"
 
 #: ../ui/favoritehubs.ui:271
 msgid "_Mode:"
-msgstr ""
+msgstr "_Modo:"
 
 #: ../ui/downloadqueue.ui:155
 msgid "_Move"

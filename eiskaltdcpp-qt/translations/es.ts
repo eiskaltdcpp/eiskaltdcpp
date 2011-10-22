@@ -207,17 +207,17 @@ Keys:
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Salida</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="65"/>
         <source>Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Código</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="89"/>
         <source>Clear</source>
-        <translation type="unfinished">Limpiar</translation>
+        <translation>Limpiar</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="109"/>
@@ -2062,7 +2062,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="717"/>
         <source>Ctrl+Alt+J</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+J</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="913"/>
@@ -2233,7 +2233,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2203"/>
         <source>Script Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Motor de scripts</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2430"/>
@@ -2851,7 +2851,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="91"/>
         <source>Stop</source>
-        <translation type="unfinished">Parar</translation>
+        <translation>Parar</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="141"/>
@@ -3189,7 +3189,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="88"/>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Historial</translation>
     </message>
 </context>
 <context>
@@ -6308,23 +6308,23 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Forma</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="44"/>
         <source>Clear search history on program exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpiar historial de busquedas al cerrar el programa</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="57"/>
         <source>Clear download directories history on program exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpiar historial de directorios de descarga al cerrar el programa</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="67"/>
         <location filename="../ui/UISettingsHistory.ui" line="74"/>
         <source>Clear now</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpiar ahora</translation>
     </message>
 </context>
 <context>
