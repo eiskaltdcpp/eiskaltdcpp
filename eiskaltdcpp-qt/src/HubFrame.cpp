@@ -1002,6 +1002,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void HubFrame::closeEvent(QCloseEvent *e){
+    blockSignals(true);
+    
     QObject::disconnect(this, NULL, this, NULL);
 
     MainWindow *MW = MainWindow::getInstance();
@@ -1021,8 +1023,6 @@ void HubFrame::closeEvent(QCloseEvent *e){
     updater->stop();
 
     save();
-
-    blockSignals(true);
 
     PMMap::const_iterator it = pm.constBegin();
 
@@ -1048,16 +1048,18 @@ void HubFrame::closeEvent(QCloseEvent *e){
         delete r;
     }
 
-    blockSignals(false);
-
     if (isVisible())
         HubManager::getInstance()->setActiveHub(NULL);
 
     setAttribute(Qt::WA_DeleteOnClose);
 
     e->accept();
-
-    emit closeRequest();
+    
+    blockSignals(false);
+    {
+        emit closeRequest();
+    }
+    blockSignals(true);
 }
 
 void HubFrame::showEvent(QShowEvent *e){
@@ -2242,8 +2244,6 @@ void HubFrame::newMsg(const VarMap &map){
             break;
         }
     }
-
-    emit newMessage(this, _q(client->getHubUrl()), map["CID"].toString(), nick, message);
 
     if (message.indexOf(_q(client->getMyNick())) >= 0){
         msg_color = WS_CHAT_SAY_NICK;

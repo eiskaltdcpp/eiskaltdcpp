@@ -160,7 +160,6 @@ public:
     QString getCIDforNick(QString nick) { return model->CIDforNick(nick, _q(client->getHubUrl())); }
 
 Q_SIGNALS:
-    void newMessage(HubFrame*, const QString &hubUrl, const QString &cid, const QString &nick, const QString &msg);
     void coreConnecting(QString);
     void coreConnected(QString);
     void coreUserUpdated(VarMap map, const dcpp::UserPtr &user, bool join);
