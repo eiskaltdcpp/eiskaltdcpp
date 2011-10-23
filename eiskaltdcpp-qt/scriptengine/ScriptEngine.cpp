@@ -21,6 +21,7 @@
 #include "SearchFrame.h"
 #include "ShellCommandRunner.h"
 #include "WulforSettings.h"
+#include "DebugHelper.h"
 
 #include "scriptengine/ClientManagerScript.h"
 #include "scriptengine/HashManagerScript.h"
@@ -31,7 +32,6 @@
 #include <QDir>
 #include <QFile>
 #include <QTextStream>
-#include <QtDebug>
 #include <QScriptValueIterator>
 
 #ifndef CLIENT_SCRIPTS_DIR
@@ -54,15 +54,24 @@ void ScriptVarMapFromScriptValue( const QScriptValue& value, VarMap& map);
 ScriptEngine::ScriptEngine() :
         QObject(NULL)
 {
+    DEBUG_BLOCK
+    
     setObjectName("ScriptEngine");
     
-    connect (WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotWSKeyChanged(QString,QString)));
+    syncTimer = new QTimer(this);
+    syncTimer->setInterval(1000);
+    syncTimer->setSingleShot(true);
+    
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotWSKeyChanged(QString,QString)));
     connect(&watcher, SIGNAL(fileChanged(QString)), this, SLOT(slotScriptChanged(QString)));
+    connect(syncTimer, SIGNAL(timeout()), this ,SLOT(slotProcessChangedFiles()));
 
     loadScripts();
 }
 
 ScriptEngine::~ScriptEngine(){
+    DEBUG_BLOCK
+    
     stopScripts();
 
     ClientManagerScript::deleteInstance();
@@ -70,6 +79,8 @@ ScriptEngine::~ScriptEngine(){
 }
 
 void ScriptEngine::loadScripts(){
+    DEBUG_BLOCK
+    
     QStringList enabled = QString(QByteArray::fromBase64(WSGET(WS_APP_ENABLED_SCRIPTS).toAscii())).split("\n");
 
     foreach (QString s, enabled)
@@ -77,6 +88,8 @@ void ScriptEngine::loadScripts(){
 }
 
 void ScriptEngine::loadScript(const QString &path){
+    DEBUG_BLOCK
+    
     QFile f(path);
 
     if (!f.exists())
@@ -93,6 +106,8 @@ void ScriptEngine::loadScript(const QString &path){
 }
 
 void ScriptEngine::loadJSScript(const QString &file){
+    DEBUG_BLOCK
+    
     QFile f(file);
 
     if (!f.open(QIODevice::ReadOnly))
@@ -123,6 +138,8 @@ void ScriptEngine::loadJSScript(const QString &file){
 
 #ifdef USE_QML
 void ScriptEngine::loadQMLScript(const QString &file){
+    DEBUG_BLOCK
+    
     DeclarativeWidget *wgt = new DeclarativeWidget(file);
 
     MainWindow::getInstance()->addArenaWidget(wgt);
@@ -132,6 +149,8 @@ void ScriptEngine::loadQMLScript(const QString &file){
 #endif
 
 void ScriptEngine::stopScripts(){
+    DEBUG_BLOCK
+    
     QMap<QString, ScriptObject*> s = scripts;
     QMap<QString, ScriptObject*>::iterator it = s.begin();
 
@@ -142,6 +161,8 @@ void ScriptEngine::stopScripts(){
 }
 
 void ScriptEngine::stopScript(const QString &path){
+    DEBUG_BLOCK
+    
     if (!scripts.contains(path))
         return;
 
@@ -162,7 +183,19 @@ void ScriptEngine::stopScript(const QString &path){
     delete obj;
 }
 
+void ScriptEngine::slotProcessChangedFiles() {
+    DEBUG_BLOCK
+    
+    foreach(const QString &file , changedFiles)
+        emit scriptChanged(file);
+    
+    changedFiles.clear();
+}
+
+
 void ScriptEngine::prepareThis(QScriptEngine &engine){
+    DEBUG_BLOCK
+    
     QScriptValue me = engine.newQObject(&engine);
     engine.globalObject().setProperty(objectName(), me);
 
@@ -221,6 +254,8 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
 }
 
 void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
+    DEBUG_BLOCK
+    
     static QStringList staticMembers = QStringList() << "AntiSpam"          << "DownloadQueue"  << "FavoriteHubs"
                                                      << "Notification"      << "HubManager"     << "ClientManagerScript"
                                                      << "LogManagerScript"  << "FavoriteUsers"  << "HashManagerScript"
@@ -234,6 +269,8 @@ void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
 }
 
 void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
+    DEBUG_BLOCK
+    
     static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame" << "ShellCommandRunner" << "MainWindowScript"
                                                       << "ScriptWidget";
 
@@ -245,6 +282,8 @@ void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
 }
 
 void ScriptEngine::slotWSKeyChanged(const QString &key, const QString &value){
+    DEBUG_BLOCK
+    
     if (key == WS_APP_ENABLED_SCRIPTS){
         QStringList enabled = QString(QByteArray::fromBase64(value.toAscii())).split("\n", QString::SkipEmptyParts);
         QMap<QString, ScriptObject*>::iterator it;
@@ -265,10 +304,15 @@ void ScriptEngine::slotWSKeyChanged(const QString &key, const QString &value){
 }
 
 void ScriptEngine::slotScriptChanged(const QString &script){
+    DEBUG_BLOCK
+    
     if (!QFile::exists(script))
         stopScript(script);
-    else
-        emit scriptChanged(script);
+    else if (!changedFiles.contains(script)){
+        changedFiles.push_back(script);
+     
+        syncTimer->start();
+    }
 }
 
 static QScriptValue shellExec(QScriptContext *ctx, QScriptEngine *engine){

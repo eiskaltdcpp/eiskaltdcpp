@@ -14,7 +14,7 @@
 #include <QtScript/QScriptEngine>
 #include <QtScript/QScriptValue>
 #include <QFileSystemWatcher>
-
+#include <QTimer>
 #include <QMetaType>
 
 #include <QList>
@@ -53,6 +53,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void slotWSKeyChanged(const QString &key, const QString &value);
     void slotScriptChanged(const QString &script);
+    void slotProcessChangedFiles();
 
 private:
     ScriptEngine();
@@ -72,6 +73,8 @@ private:
     QMap<QString, ScriptObject*> scripts;
     
     QFileSystemWatcher watcher;
+    QStringList changedFiles;
+    QTimer *syncTimer;
 };
 
 Q_DECLARE_METATYPE(ScriptEngine*)
