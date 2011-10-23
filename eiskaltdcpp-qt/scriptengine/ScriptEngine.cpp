@@ -145,6 +145,8 @@ void ScriptEngine::stopScript(const QString &path){
     if (!scripts.contains(path))
         return;
 
+    watcher.removePath(path);
+    
     ScriptObject *obj = scripts.value(path);
 
     obj->engine.globalObject().property("deinit").call();
