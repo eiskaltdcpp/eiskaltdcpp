@@ -32,7 +32,7 @@ using namespace dcpp;
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i);
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
-    : QAbstractItemModel(parent), iconsScaled(false), restrictionsLoaded(false), listing(NULL)
+    : QAbstractItemModel(parent), iconsScaled(false), restrictionsLoaded(false), listing(NULL), ownList(false)
 {
     rootItem = new FileBrowserItem(QList<QVariant>() << tr("") << tr("") << tr("") << tr(""), NULL);
 
@@ -118,7 +118,7 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         }
         case Qt::ForegroundRole:
         {
-            if (item->dir)
+            if (item->dir || ownList)
                 break;
 
             TTHValue t(_tq(item->data(COLUMN_FILEBROWSER_TTH).toString()));
@@ -188,11 +188,13 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
             TTHValue t(_tq(item->data(COLUMN_FILEBROWSER_TTH).toString()));
             ShareManager *SM = ShareManager::getInstance();
 
-            try{
-                QString toolTip = _q(SM->toReal(SM->toVirtual(t)));
+            if (!ownList){
+                try{
+                    QString toolTip = _q(SM->toReal(SM->toVirtual(t)));
 
-                return tooltip + tr("File already exists: %1").arg(toolTip);
-            }catch( ... ){};
+                    return tooltip + tr("File already exists: %1").arg(toolTip);
+                }catch( ... ){};
+            }
 
             if (!tooltip.isEmpty())
                 return tooltip;

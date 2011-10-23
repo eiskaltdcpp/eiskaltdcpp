@@ -330,8 +330,10 @@ void ShareBrowser::continueInit(){
 
     load();
 
-    if (user == ClientManager::getInstance()->getMe())
+    if (user == ClientManager::getInstance()->getMe()){
         tree_model->loadRestrictions();
+        list_model->setOwnList(true);
+    }
 
     if (!jump_to.isEmpty()){
         FileBrowserItem *root = tree_model->getRootElem();
