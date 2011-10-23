@@ -76,17 +76,18 @@ void ShellCommandRunner::run() {
                 
                 if (output.isEmpty())
                     output = tr("Command produced no visible output.");
-                else
-                    succeeded = true;
+                
+                succeeded = true;
             } else {
-                output = tr("Process exited with status") + " " + QString::number(_exitCode);
+                output = QString(process.readAllStandardError()).trimmed();
             }
         } else {
-            output = tr("Process was killed or crashed.");
+            output = QString(process.readAllStandardError()).trimmed();
         }
     } else {
         _exitCode = 1;
-        output = tr("Process still running after 2 minutes, killing process...");
+        output = QString(process.readAllStandardError()).trimmed();
+        
         process.terminate();
         QThread::msleep(1000);
         process.close();

@@ -42,7 +42,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     /** emitted when the command has finished */
-    void finished(bool ok, QString output);
+    void finished(bool ok, const QString &output);
 
 private:
     /** used to cancel the thread */
