@@ -1962,6 +1962,13 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
     }
 }
 
+bool HubFrame::isOP(const QString& nick) {
+    UserListItem *item = model->itemForNick(nick, _q(client->getHubUrl()));
+    
+    return (item? item->isOp : false);
+}
+
+
 void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
     map["NICK"] = _q(id.getNick());
     map["SHARE"] = qlonglong(id.getBytesShared());
