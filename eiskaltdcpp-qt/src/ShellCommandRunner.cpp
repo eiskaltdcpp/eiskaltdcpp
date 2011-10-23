@@ -75,7 +75,7 @@ void ShellCommandRunner::run() {
                 output = QString(process.readAllStandardOutput()).trimmed();
                 
                 if (output.isEmpty())
-                    output = tr("Command produced no visible output.");
+                    output = "";
                 
                 succeeded = true;
             } else {
