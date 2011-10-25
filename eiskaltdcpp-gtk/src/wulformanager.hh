@@ -23,6 +23,9 @@
 #define WULFOR_MANAGER_HH
 
 #include <gtk/gtk.h>
+#ifdef USE_GTK3
+#include <gdk/gdkkeysyms-compat.h>
+#endif
 #include <glib.h>
 #include <string>
 

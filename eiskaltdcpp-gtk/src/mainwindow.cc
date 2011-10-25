@@ -346,7 +346,11 @@ MainWindow::~MainWindow()
 
     gtk_window_get_position(window, &posX, &posY);
     gtk_window_get_size(window, &sizeX, &sizeY);
+#ifdef USE_GTK3
+    gdkState = gdk_window_get_state(gtk_widget_get_window(GTK_WIDGET(window)));
+#else
     gdkState = gdk_window_get_state(GTK_WIDGET(window)->window);
+#endif
     transferPanePosition = sizeY - gtk_paned_get_position(GTK_PANED(getWidget("pane")));
 
     if (!(gdkState & GDK_WINDOW_STATE_MAXIMIZED))
@@ -1492,8 +1496,10 @@ void MainWindow::onTopToolbarToggled_gui(GtkWidget *widget, gpointer data)
 
    GtkWidget *parent = mw->getWidget("hbox4");
    GtkWidget *child = mw->getWidget("toolbar1");
+#ifndef USE_GTK3
    if (child->parent != GTK_WIDGET(parent))
        return;
+#endif
    g_object_ref(child);
    gtk_container_remove(GTK_CONTAINER(parent), child);
    parent = mw->getWidget("vbox1");
@@ -1510,8 +1516,10 @@ void MainWindow::onLeftToolbarToggled_gui(GtkWidget *widget, gpointer data)
 
    GtkWidget *parent = mw->getWidget("vbox1");
    GtkWidget *child = mw->getWidget("toolbar1");
+#ifndef USE_GTK3
    if (child->parent != GTK_WIDGET(parent))
        return;
+#endif
    g_object_ref(child);
    gtk_container_remove(GTK_CONTAINER(parent), child);
    parent = mw->getWidget("hbox4");
@@ -2044,7 +2052,11 @@ void MainWindow::onShowInterfaceToggled_gui(GtkCheckMenuItem *item, gpointer dat
     {
         GdkWindowState state;
         gtk_window_get_position(win, &x, &y);
+#ifdef USE_GTK3
+        state = gdk_window_get_state(gtk_widget_get_window(GTK_WIDGET(win)));
+#else
         state = gdk_window_get_state(GTK_WIDGET(win)->window);
+#endif
         isMaximized = (state & GDK_WINDOW_STATE_MAXIMIZED);
         isIconified = (state & GDK_WINDOW_STATE_ICONIFIED);
         gtk_widget_hide(GTK_WIDGET(win));

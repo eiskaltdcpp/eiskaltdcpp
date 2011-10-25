@@ -77,9 +77,16 @@ string Entry::generateID()
 
 GtkWidget *Entry::getWidget(const string &name)
 {
-    dcassert(xml && !name.empty());
+    //dcassert(xml && !name.empty());
     GtkWidget *widget = GTK_WIDGET(gtk_builder_get_object(xml,name.c_str()));
-    dcassert(widget);
+    bool b = GTK_IS_WIDGET(widget);
+    if (!b) {
+        g_print("gtk_builder_get_object name: %s\n",name.c_str());
+        g_print("oh lol, NULL here, this staff not widget\n");
+        g_print("try get widget...");
+        GtkWidget *widget = GTK_WIDGET(gtk_builder_get_object(xml,name.c_str()));
+    }
+    //dcassert(widget);
     return widget;
 }
 

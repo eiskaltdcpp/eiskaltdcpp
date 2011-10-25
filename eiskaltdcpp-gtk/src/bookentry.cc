@@ -32,7 +32,12 @@ BookEntry::BookEntry(const EntryType type, const string &text, const string &ui,
     bold(FALSE),
     urgent(FALSE)
 {
+#if GTK_CHECK_VERSION(3, 2, 0)
+    labelBox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,5);
+#else
     labelBox = gtk_hbox_new(FALSE, 5);
+#endif
+
 
     eventBox = gtk_event_box_new();
     gtk_event_box_set_above_child(GTK_EVENT_BOX(eventBox), TRUE);
@@ -55,11 +60,13 @@ BookEntry::BookEntry(const EntryType type, const string &text, const string &ui,
     gtk_button_set_relief(GTK_BUTTON(closeButton), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(closeButton), FALSE);
 
+#ifndef USE_GTK3
     // Shrink the padding around the close button
     GtkRcStyle *rcstyle = gtk_rc_style_new();
     rcstyle->xthickness = rcstyle->ythickness = 0;
     gtk_widget_modify_style(closeButton, rcstyle);
     g_object_unref(rcstyle);
+#endif
 
     // Add the stock icon to the close button
     GtkWidget *image = gtk_image_new_from_stock(GTK_STOCK_CLOSE, GTK_ICON_SIZE_MENU);
@@ -218,6 +225,9 @@ void BookEntry::updateLabel_gui()
     char *markup = g_markup_printf_escaped(format, truncatedLabelText.c_str());
     gtk_label_set_markup(label, markup);
     g_free(markup);
+#ifdef USE_GTK3
+    gtk_widget_queue_draw (GTK_WIDGET (label));
+#endif
 }
 
 const string& BookEntry::getLabelText()
