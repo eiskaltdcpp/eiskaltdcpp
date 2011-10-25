@@ -37,6 +37,7 @@
 #endif
 
 unsigned short int lport = 3121;
+string lip = "127.0.0.1";
 bool isVerbose = false;
 string xmlrpcLog = "/tmp/eiskaltdcpp-daemon.xmlrpc.log";
 string xmlrpcUriPath = "/eiskaltdcpp";
@@ -119,19 +120,23 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("search.getresults", returnSearchResultsMethodP);
     xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
     xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
+    sock.create();
+    sock.setSocketOpt(SO_REUSEADDR, 1);
+    sock.bind(lport, lip);
 #if defined(USE_XMLRPC_ABYSS)
     server = new xmlrpc_c::serverAbyss(xmlrpc_c::serverAbyss::constrOpt()
                                       .registryP(&xmlrpcRegistry)
-                                      .portNumber(lport)
+                                      .socketFd(sock.sock)
                                       .logFileName(xmlrpcLog)
                                       .serverOwnsSignals(false)
                                       .uriPath(xmlrpcUriPath)
                                       );
     server->run();
 #elif defined(USE_XMLRPC_PSTREAM)
-    server = xmlrpc_c::serverPstream(xmlrpc_c::serverPstream::constrOpt()
+    sock.listen();
+    server = new xmlrpc_c::serverPstream(xmlrpc_c::serverPstream::constrOpt()
                                    .registryP(&xmlrpcRegistry)
-                                   .socketFd(STDIN_FILENO)
+                                   .socketFd(sock.sock)
                                   );
     server->runSerial();
 #endif

@@ -130,10 +130,11 @@ void printHelp() {
 #ifndef _WIN32
            "  -V, --verbose\t Verbose mode\n"
            "  -P <port>, --port=<port>\t Set port for XMLRPC (default: 3121)\n"
+           "  -L <ip>, --ip=<ip>\t Set ip for XMLRPC (default: 127.0.0.1)\n"
            "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
            "  -c <dir>,  --confdir=<dir>\t Store config in <dir>\n"
            "  -l <dir>,  --localdir=<dir>\t Store local data (cache, temp files) in <dir> (defaults is equal confdir)\n"
-           "  -L <file>,  --rpclog=<file>\t Write xmlrpc log to <file> (default: /tmp/eiskaltdcpp-daemon.xmlrpc.log)\n"
+           "  -S <file>,  --rpclog=<file>\t Write xmlrpc log to <file> (default: /tmp/eiskaltdcpp-daemon.xmlrpc.log)\n"
            "  -U <uripath>,  --uripath=<uripath>\t Set UriPath for xmlrpc abyss server to <uripath> (default: /eiskaltdcpp)\n"
 #endif // _WIN32
            );
@@ -153,8 +154,9 @@ static struct option opts[] = {
     { "localdir",required_argument, NULL, 'l'},
     { "pidfile", required_argument, NULL, 'p'},
     { "port",    required_argument, NULL, 'P'},
-    { "rpclog",  required_argument, NULL, 'L'},
+    { "rpclog",  required_argument, NULL, 'S'},
     { "uripath", required_argument, NULL, 'U'},
+    { "ip",      required_argument, NULL, 'L'},
     { NULL,      0,                 NULL, 0}
 };
 
@@ -169,19 +171,16 @@ void parseArgs(int argc, char* argv[]) {
     while((ch = getopt_long(argc, argv, "hvdVp:c:l:P:L:", opts, NULL)) != -1) {
         switch (ch) {
             case 'P':
-#if defined(USE_XMLRPC_ABYSS)
                 lport = (unsigned short int) atoi (optarg);
-#endif
                 break;
             case 'L':
-#if defined(USE_XMLRPC_ABYSS)
+                lip.assign(optarg,50);
+                break;
+            case 'S':
                 xmlrpcLog.assign(optarg,1024);
-#endif
                 break;
            case 'U':
-#if defined(USE_XMLRPC_ABYSS)
                 xmlrpcUriPath.assign(optarg,1024);
-#endif
                 break;
             case 'V':
                 isVerbose = true;

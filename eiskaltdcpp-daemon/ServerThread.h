@@ -24,6 +24,7 @@
 #include "dcpp/SearchManagerListener.h"
 #include "dcpp/SearchResult.h"
 #include "dcpp/Singleton.h"
+#include "dcpp/Socket.h"
 
 class ServerThread :
         private TimerManagerListener,
@@ -100,6 +101,7 @@ private:
     int64_t lastDown;
     uint64_t lastUpdate;
 
+    dcpp::Socket sock;
     CriticalSection shutcs;
     static const unsigned int maxLines = 50;
 };

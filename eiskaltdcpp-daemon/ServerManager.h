@@ -25,7 +25,7 @@ extern bool bServerRunning, bServerTerminated, bIsRestart, bIsClose;
 extern unsigned short int lport;
 extern bool isVerbose;
 extern unsigned int maxLines;
-extern string xmlrpcLog, xmlrpcUriPath;
+extern string xmlrpcLog, xmlrpcUriPath, lip;
 
 #ifdef _WIN32
     #ifdef _SERVICE
