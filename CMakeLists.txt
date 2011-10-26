@@ -122,9 +122,8 @@ if (LUA_SCRIPT)
     add_definitions ( -DLUA_SCRIPT )
     message (STATUS "Building with Lua scripts support")
 else (LUA_SCRIPT)
-    #set (LUA_INCLUDE_DIR " ")
-    #set (LUA_LIBRARIES " ")
-    #set (LUA_SCRIPT OFF)
+    set (LUA_INCLUDE_DIR )
+    set (LUA_LIBRARIES )
     message (STATUS "Building without Lua scripts support")
 endif(LUA_SCRIPT)
 
@@ -249,12 +248,12 @@ file(DOWNLOAD http://eiskaltdc.googlecode.com/files/${boost_file_name} ${CMAKE_C
 message (STATUS "${boost_logs}")
 message (STATUS "${boost_status}")
 endif (NOT BOOST_TAR_EXISTS)
-file(GLOB BOOST_TAR_EXISTS  *.tar.gz)
+file(GLOB BOOST_TAR_EXISTS *.tar.gz)
 FIND_PROGRAM (TAR_CMD tar)
   EXECUTE_PROCESS (
                 COMMAND ${TAR_CMD} -xf ${BOOST_TAR_EXISTS}
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
-set (Boost_INCLUDE_DIR "./")
+                WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
+set (Boost_INCLUDE_DIR ${PROJECT_BINARY_DIR})
 if (HAIKU)
 EXECUTE_PROCESS (
                 COMMAND patch -p0 -i haiku/boost.diff

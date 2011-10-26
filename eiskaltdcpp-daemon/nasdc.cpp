@@ -168,7 +168,7 @@ void writePidFile(char *path)
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hvdVp:c:l:P:L:", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hvdVp:c:l:P:L:S:", opts, NULL)) != -1) {
         switch (ch) {
             case 'P':
                 lport = (unsigned short int) atoi (optarg);
