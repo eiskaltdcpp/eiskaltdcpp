@@ -41,6 +41,7 @@ public Q_SLOTS:
     bool isConnected(const QString& aUrl) const;
     bool isActive() const;
 
+    void sendPM(const QString &cid, const QString &hubUrl, const QString &msg);    
     QString getMyCID() const;
 
 Q_SIGNALS:
