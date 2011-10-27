@@ -2226,6 +2226,14 @@ void HubFrame::addAsFavorite(){
     }
 }
 
+void HubFrame::disablePrivateMessages(bool disable) {
+    if (disable)
+        disconnect(this, SIGNAL(corePrivateMsg(VarMap)), this, SLOT(newPm(VarMap)));
+    else
+        connect(this, SIGNAL(corePrivateMsg(VarMap)), this, SLOT(newPm(VarMap)), Qt::QueuedConnection);
+}
+
+
 void HubFrame::newMsg(const VarMap &map){
     QString output = "";
 

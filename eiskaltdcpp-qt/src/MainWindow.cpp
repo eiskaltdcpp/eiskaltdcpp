@@ -256,12 +256,8 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
             it.value()->close();
     }
 
-    if (HubManager::getInstance()){
-        HubManager::getInstance()->setUnload(true);
-        HubManager::getInstance()->close();
-
+    if (HubManager::getInstance())
         HubManager::getInstance()->release();
-    }
 
     c_e->accept();
 }
@@ -2132,10 +2128,6 @@ void MainWindow::slotToolsQueuedUsers(){
 }
 
 void MainWindow::slotToolsHubManager(){
-    if (!HubManager::getInstance())
-        HubManager::newInstance();
-
-    toggleSingletonWidget(HubManager::getInstance());
 }
 
 void MainWindow::slotToolsFinishedDownloads(){

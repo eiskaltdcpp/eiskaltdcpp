@@ -181,6 +181,7 @@ public Q_SLOTS:
     void addStatus(QString);
     QString getHubUrl();
     void sendMsg(const QString&);
+    void disablePrivateMessages(bool disable);//disconnect corePrivateMsg from this
 
     void reloadSomeSettings();
     void slotHideFindFrame();

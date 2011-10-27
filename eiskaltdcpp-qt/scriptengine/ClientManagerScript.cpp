@@ -11,6 +11,7 @@
 #include "WulforUtil.h"
 
 #include "dcpp/CID.h"
+#include "dcpp/User.h"
 
 static QStringList toQStringList(const dcpp::StringList &list){
     QStringList ret;
@@ -32,6 +33,19 @@ ClientManagerScript::ClientManagerScript(QObject *parent) :
 ClientManagerScript::~ClientManagerScript(){
     CM->removeListener(this);
 }
+
+
+void ClientManagerScript::sendPM(const QString& cid, const QString& hubUrl, const QString& msg){
+    dcpp::UserPtr user = CM->findUser(CID(_tq(cid)));
+
+    if (user && user->isOnline()){
+        if (msg.isEmpty() || msg == "\n")
+            return;
+
+        CM->privateMessage(HintedUser(user, _tq(hubUrl)), _tq(msg), false);
+    }
+}
+
 
 quint64 ClientManagerScript::getUserCount() const{
     return CM->getUserCount();
