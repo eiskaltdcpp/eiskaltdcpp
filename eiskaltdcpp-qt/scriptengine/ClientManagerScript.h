@@ -34,6 +34,7 @@ public Q_SLOTS:
 
     QStringList getHubs(const QString& cid) const;
     QStringList getHubNames(const QString& cid) const;
+    QStringList getHubNames(const QString& cid, const QString& hubUrl) const;
     QStringList getNicks(const QString& cid) const;
     QStringList getConnectedHubs() const;
     QString getConnection(const QString& cid) const;

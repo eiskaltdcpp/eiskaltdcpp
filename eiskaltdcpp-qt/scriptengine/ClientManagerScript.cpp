@@ -60,13 +60,18 @@ QStringList ClientManagerScript::getHubs(const QString& cid) const{
 }
 
 QStringList ClientManagerScript::getHubNames(const QString& cid) const{
-    StringList hubs = ClientManager::getInstance()->getHubNames(dcpp::CID(_tq(cid)), "");
+    return getHubNames(cid, "");
+}
 
+QStringList ClientManagerScript::getHubNames(const QString& cid, const QString& hubUrl) const{
+    StringList hubs = ClientManager::getInstance()->getHubNames(dcpp::CID(_tq(cid)), _tq(hubUrl));
+    
     if (hubs.empty())
         return QStringList();
     else
         return toQStringList(hubs);
 }
+
 
 QStringList ClientManagerScript::getNicks(const QString& cid) const{
     const dcpp::Identity &user = CM->getOnlineUserIdentity(CM->getUser(dcpp::CID(_tq(cid))));
