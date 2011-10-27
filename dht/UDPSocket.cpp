@@ -91,7 +91,7 @@ namespace dht
 			socket->create(Socket::TYPE_UDP);
 			socket->setSocketOpt(SO_REUSEADDR, 1);
 			socket->setSocketOpt(SO_RCVBUF, SETTING(SOCKET_IN_BUFFER));
-			port = socket->bind(static_cast<uint16_t>(SETTING(DHT_PORT)), SETTING(BIND_ADDRESS));
+			port = socket->bind(static_cast<uint16_t>(SETTING(DHT_PORT)), SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
 
 			start();
 		}

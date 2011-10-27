@@ -135,7 +135,7 @@ void Socket::accept(const Socket& listeningSocket) {
 }
 
 
-static string getIfaceI4 (const string &iface){
+string Socket::getIfaceI4 (const string &iface){
 #ifdef _WIN32
     return "0.0.0.0";
 #else
@@ -157,7 +157,7 @@ static string getIfaceI4 (const string &iface){
                     s = inet_ntoa(((struct sockaddr_in*)sa)->sin_addr);
             }
 
-            close(sock);
+            ::close(sock);
         }
     }
 
@@ -170,7 +170,7 @@ uint16_t Socket::bind(uint16_t aPort, const string& aIp /* = 0.0.0.0 */) {
 
     sock_addr.sin_family = AF_INET;
     sock_addr.sin_port = htons(aPort);
-    sock_addr.sin_addr.s_addr = inet_addr((SETTING(BIND_IFACE)? getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : aIp.c_str()));
+    sock_addr.sin_addr.s_addr = inet_addr(aIp.c_str());
 
     if(::bind(sock, (sockaddr *)&sock_addr, sizeof(sock_addr)) == SOCKET_ERROR) {
         dcdebug("Bind failed, retrying with INADDR_ANY: %s\n", SocketException(getLastError()).getError().c_str());
@@ -345,7 +345,7 @@ int Socket::getSocketOptInt(int option) {
 
 void Socket::setSocketOpt(int option, int val) {
     int len = sizeof(val);
-    
+
     try {
 		check(::setsockopt(sock, SOL_SOCKET, option, (char*)&val, len));
 	}

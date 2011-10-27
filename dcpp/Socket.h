@@ -179,6 +179,7 @@ public:
 
     /** When socks settings are updated, this has to be called... */
     static void socksUpdated();
+    string getIfaceI4 (const string &iface);
 
     GETSET(string, ip, Ip);
     socket_t sock;
