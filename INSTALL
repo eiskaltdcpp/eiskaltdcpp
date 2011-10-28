@@ -189,8 +189,6 @@ Keys for cmake
     If ON install luascripts/
 -DUSE_MINIUPNP=ON/OFF (default: OFF)
     use or not use miniupnpc lib
--DMINIUPNPC16=ON/OFF (default: OFF {miniupnpc 1.5.x})
-    switch compability with miniupnpc lib version 1.6.x/1.5.x
 -DLOCAL_MINIUPNP=ON/OFF (default: OFF)
     If ON use local miniupnpc lib
 -DWITH_SOUNDS=ON/OFF (default: OFF)
