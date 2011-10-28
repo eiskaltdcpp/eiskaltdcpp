@@ -15,10 +15,25 @@ if (NOT USE_MINIUPNP)
 endif(NOT USE_MINIUPNP)
 
 add_library(extra STATIC ${extra_SRCS})
-
-if (MINIUPNPC16)
+if (USE_MINIUPNP AND NOT LOCAL_MINIUPNP)
+set (CMAKE_REQUIRED_INCLUDES ${MINIUPNP_INCLUDE_DIR})
+set (CMAKE_REQUIRED_LIBRARIES ${MINIUPNP_LIBRARY})
+check_cxx_source_compiles("
+    #include <miniupnpc/miniupnpc.h>
+    #include <miniupnpc/upnpcommands.h>
+    #include <miniupnpc/upnperrors.h>
+    int main()
+    {
+        UPNPDev *devices = upnpDiscover(5000, 0, 0, 0, 0, 0);
+        return 0;
+    }" MINIUPNPC16)
+    if (MINIUPNPC16)
+        add_definitions (-DMINIUPNPC16)
+    endif(MINIUPNPC16)
+elseif (USE_MINIUPNP AND LOCAL_MINIUPNP)
     add_definitions (-DMINIUPNPC16)
-endif (MINIUPNPC16)
+endif (USE_MINIUPNP AND NOT LOCAL_MINIUPNP)
+
 
 if (WIN32)
     set_property(TARGET extra PROPERTY COMPILE_FLAGS)
