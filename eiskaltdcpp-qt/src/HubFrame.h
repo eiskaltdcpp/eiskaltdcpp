@@ -168,12 +168,13 @@ Q_SIGNALS:
     void coreFollow(QString);
     void coreFailed();
     void corePassword();
-    void coreMessage(VarMap);
-    void corePrivateMsg(VarMap);
+    void coreMessage(const VarMap&);
+    void corePrivateMsg(const VarMap&);
     void coreHubUpdated();
     void coreFavoriteUserAdded(QString);
     void coreFavoriteUserRemoved(QString);
     void closeRequest();
+    void highlighted(const VarMap&);
 
 public Q_SLOTS:
     void disableChat();

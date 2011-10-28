@@ -2248,7 +2248,7 @@ void HubFrame::newMsg(const VarMap &map){
     foreach (const QString &word, kwords){
         if (message.contains(word, Qt::CaseInsensitive)){
             msg_color = WS_CHAT_SAY_NICK;
-
+            
             break;
         }
     }
@@ -2258,6 +2258,9 @@ void HubFrame::newMsg(const VarMap &map){
 
         Notification::getInstance()->showMessage(Notification::NICKSAY, getArenaTitle().left(20), nick + ": " + message);
     }
+    
+    if (msg_color == WS_CHAT_MSG_COLOR)
+        emit highlighted(map);
 
     bool third = map["3RD"].toBool();
 
