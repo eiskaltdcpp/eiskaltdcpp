@@ -2259,7 +2259,7 @@ void HubFrame::newMsg(const VarMap &map){
         Notification::getInstance()->showMessage(Notification::NICKSAY, getArenaTitle().left(20), nick + ": " + message);
     }
     
-    if (msg_color == WS_CHAT_MSG_COLOR)
+    if (msg_color == WS_CHAT_SAY_NICK)
         emit highlighted(map);
 
     bool third = map["3RD"].toBool();
