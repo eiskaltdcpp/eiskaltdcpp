@@ -181,6 +181,7 @@ public Q_SLOTS:
     void clearChat();
     void addStatus(QString);
     QString getHubUrl();
+    QString getMyNick();
     void sendMsg(const QString&);
     void disablePrivateMessages(bool disable);//disconnect corePrivateMsg from this
 

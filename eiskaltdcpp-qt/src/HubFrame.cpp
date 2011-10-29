@@ -1851,6 +1851,12 @@ QString HubFrame::getHubUrl() {
     return "";
 }
 
+QString HubFrame::getMyNick() {
+    if (client)
+        return _q(client->getMyNick());
+    
+    return "";
+}
 
 void HubFrame::addStatus(QString msg){
     if (chatDisabled)
@@ -3749,6 +3755,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         map["NICK"]  = nick;
         map["MSG"]   = msg;
         map["TIME"]  = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
+        map["ECHO"]  = isEcho;
 
         QString color = WS_CHAT_PRIV_USER_COLOR;
 
