@@ -2242,12 +2242,14 @@ void HubFrame::newMsg(const VarMap &map){
     QString time = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";;
     QString color = map["CLR"].toString();
     QString msg_color = WS_CHAT_MSG_COLOR;
+    QString trigger = "";
 
     const QStringList &kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
 
     foreach (const QString &word, kwords){
         if (message.contains(word, Qt::CaseInsensitive)){
             msg_color = WS_CHAT_SAY_NICK;
+            trigger = word;
             
             break;
         }
@@ -2255,12 +2257,17 @@ void HubFrame::newMsg(const VarMap &map){
 
     if (message.indexOf(_q(client->getMyNick())) >= 0){
         msg_color = WS_CHAT_SAY_NICK;
-
+        trigger = _q(client->getMyNick());
+            
         Notification::getInstance()->showMessage(Notification::NICKSAY, getArenaTitle().left(20), nick + ": " + message);
     }
     
-    if (msg_color == WS_CHAT_SAY_NICK)
-        emit highlighted(map);
+    if (msg_color == WS_CHAT_SAY_NICK){
+        VarMap tmap = map;
+        tmap["TRIGGER"] = trigger;
+        
+        emit highlighted(tmap);
+    }
 
     bool third = map["3RD"].toBool();
 
