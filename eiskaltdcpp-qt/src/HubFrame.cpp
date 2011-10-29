@@ -1851,6 +1851,13 @@ QString HubFrame::getHubUrl() {
     return "";
 }
 
+QString HubFrame::getHubName() {
+    if (client)
+        return _q(client->getHubName());
+    
+    return "";
+}
+
 QString HubFrame::getMyNick() {
     if (client)
         return _q(client->getMyNick());
