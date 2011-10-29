@@ -128,7 +128,7 @@ void ScriptEngine::loadJSScript(const QString &file){
     
     watcher.addPath(file);
 
-    obj->engine.evaluate(data);
+    obj->engine.evaluate(data, file);
 
     if (obj->engine.hasUncaughtException()){
         foreach (QString s, obj->engine.uncaughtExceptionBacktrace())
