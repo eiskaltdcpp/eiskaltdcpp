@@ -1759,9 +1759,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         out += tr("/back - set away-mode off\n");
         out += tr("/browse <nick> - browse user files\n");
         out += tr("/clear - clear chat window\n");
-        out += tr("/kword add <keyword> - add user-defined keyword\n");
+        out += tr("/kword add <keyword> - add user-defined keyword which will be highlighted in the chat\n");
         out += tr("/kword purge <keyword> - remove user-defined keyword\n");
-        out += tr("/kword list - list all keywords\n");
+        out += tr("/kword list - full list of keywords which will be highlighted in the chat\n");
         out += tr("/magnet - default action with magnet (0-ask, 1-search, 2-download)\n");
         out += tr("/close - close this hub\n");
         out += tr("/fav - add this hub to favorites\n");

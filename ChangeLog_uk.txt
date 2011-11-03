@@ -1,9 +1,9 @@
---- 2.2.5 2011-10-30 ---
+--- 2.2.5 2011-11-13 ---
 *** common changes ***
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***
-* Додані опції командного рядка: --verbose, --port, --rpclog, --uripath
+* Додані опції командного рядка: --verbose, --ip, --port, --rpclog, --uripath
 *** eiskaltdcpp-cli ***
 
 --- 2.2.4 2011-10-02 ---

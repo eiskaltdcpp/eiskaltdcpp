@@ -6404,12 +6404,12 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="44"/>
         <source>Clear search history on program exit</source>
-        <translation>Очистить историю поисковых запросов при выходе</translation>
+        <translation>Очищать историю поисковых запросов при выходе</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="57"/>
         <source>Clear download directories history on program exit</source>
-        <translation>Очистить историю каталогов загрузки при выходе</translation>
+        <translation>Очищать историю каталогов загрузки при выходе</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="67"/>
