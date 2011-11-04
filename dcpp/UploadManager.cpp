@@ -511,6 +511,16 @@ const UploadManager::FileSet& UploadManager::getWaitingUserFiles(const UserPtr& 
 }
 
 void UploadManager::addConnection(UserConnectionPtr conn) {
+    Lock l(cs);
+    if (!BOOLSETTING(ALLOW_UPLOAD_MULTI_HUB)) {
+        for(UploadList::iterator i = uploads.begin(); i != uploads.end(); ++i) {
+            if ((*i)->getUserConnection().getRemoteIp() == conn->getRemoteIp()) {
+                removeConnection(conn);
+                return;
+            }
+        }
+    }
+
     if (BOOLSETTING(IPFILTER) && !ipfilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_OUT)) {
         conn->error("Your IP is Blocked!");// TODO translate
         LogManager::getInstance()->message(_("IPFilter: Blocked incoming connection to ") + conn->getRemoteIp()); // TODO translate
