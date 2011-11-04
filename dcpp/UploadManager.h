@@ -107,6 +107,7 @@ private:
     virtual ~UploadManager();
 
     bool getAutoSlot();
+    bool hasUpload ( UserConnection& aSource );
     void removeConnection(UserConnection* aConn);
     void removeUpload(Upload* aUpload);
 

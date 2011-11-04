@@ -41,6 +41,7 @@ namespace dcpp {
 
 static const string UPLOAD_AREA = "Uploads";
 
+
 UploadManager::UploadManager() noexcept : running(0), extra(0), lastGrant(0), limits(NULL), lastFreeSlots(-1) {
     ClientManager::getInstance()->addListener(this);
     TimerManager::getInstance()->addListener(this);
@@ -57,6 +58,18 @@ UploadManager::~UploadManager() {
         }
         Thread::sleep(100);
     }
+}
+
+bool UploadManager::hasUpload ( UserConnection& aSource ) {
+    HintedUser usr = aSource.getHintedUser();
+
+    for ( UploadList::const_iterator i = uploads.begin(); i != uploads.end(); ++i ) {
+        Upload* u = *i;
+        if ( u->getHintedUser() == usr)
+            return true;
+    }
+
+    return false;
 }
 
 bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, const string& aFile, int64_t aStartPos, int64_t aBytes, bool listRecursive) {
@@ -250,7 +263,7 @@ ok:
         bool hasReserved = (reservedSlots.find(aSource.getUser()) != reservedSlots.end());
         bool isFavorite = FavoriteManager::getInstance()->hasSlot(aSource.getUser());
 
-        if(!(hasReserved || isFavorite || getFreeSlots() > 0 || getAutoSlot())) {
+        if(!(hasReserved || isFavorite || getFreeSlots() > 0 || getAutoSlot() || hasUpload(aSource))) {
             bool supportsFree = aSource.isSet(UserConnection::FLAG_SUPPORTS_MINISLOTS);
             bool allowedFree = aSource.isSet(UserConnection::FLAG_HASEXTRASLOT) || aSource.isSet(UserConnection::FLAG_OP) || getFreeExtraSlots() > 0;
             if(free && supportsFree && allowedFree) {
