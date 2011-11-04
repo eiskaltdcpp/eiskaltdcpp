@@ -65,7 +65,8 @@ bool UploadManager::hasUpload ( UserConnection& aSource ) {
 
     for ( UploadList::const_iterator i = uploads.begin(); i != uploads.end(); ++i ) {
         Upload* u = *i;
-        if ( u->getHintedUser() == usr)
+        printf("%s (%s) -> %s\n", u->getHintedUser().user->getCID().toBase32().c_str(), usr.user->getCID().toBase32().c_str(), u->getHintedUser().hint.c_str());
+        if ( u->getHintedUser().user->getCID().toBase32() == usr.user->getCID().toBase32())
             return true;
     }
 
