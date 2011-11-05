@@ -915,7 +915,7 @@ Favorite user</source>
     <message>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword
 </source>
-        <translation>/kword add &lt;ключавое_слова&gt; — дадаць вызначае карыстальнікам ключавое слова
+        <translation type="obsolete">/kword add &lt;ключавое_слова&gt; — дадаць вызначае карыстальнікам ключавое слова
 </translation>
     </message>
     <message>
@@ -927,7 +927,7 @@ Favorite user</source>
     <message>
         <source>/kword list - list all keywords
 </source>
-        <translation>/kword list — пералічыць усе ключавыя словы
+        <translation type="obsolete">/kword list — пералічыць усе ключавыя словы
 </translation>
     </message>
     <message>
@@ -1152,12 +1152,22 @@ Favorite user</source>
         <source>Chat cleared.</source>
         <translation>Гутарку ачысьцілі.</translation>
     </message>
+    <message>
+        <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/kword list - full list of keywords which will be highlighted in the chat
+</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubManager</name>
     <message>
         <source>Hub Manager</source>
-        <translation>Кіраўнік асяродкаў</translation>
+        <translation type="obsolete">Кіраўнік асяродкаў</translation>
     </message>
 </context>
 <context>
@@ -2864,19 +2874,19 @@ Downloaded: %3 Uploaded: %4</source>
     <name>ShellCommandRunner</name>
     <message>
         <source>Command produced no visible output.</source>
-        <translation>Загад ня даў бачнага выніку.</translation>
+        <translation type="obsolete">Загад ня даў бачнага выніку.</translation>
     </message>
     <message>
         <source>Process exited with status</source>
-        <translation>Працэс скончыўся са станам</translation>
+        <translation type="obsolete">Працэс скончыўся са станам</translation>
     </message>
     <message>
         <source>Process was killed or crashed.</source>
-        <translation>Працэс забілі або ён аварыйна скончыўся.</translation>
+        <translation type="obsolete">Працэс забілі або ён аварыйна скончыўся.</translation>
     </message>
     <message>
         <source>Process still running after 2 minutes, killing process...</source>
-        <translation>Працэс працягвае працаваць ужо 2 хвіліны — забіваем яго…</translation>
+        <translation type="obsolete">Працэс працягвае працаваць ужо 2 хвіліны — забіваем яго…</translation>
     </message>
 </context>
 <context>
@@ -4368,6 +4378,10 @@ p, li { white-space: pre-wrap; }
         <source>hour(s)</source>
         <translation>гадз.</translation>
     </message>
+    <message>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -5101,6 +5115,18 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Clear now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of search history elements to store:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of download directiries history elements to store:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Memorize TTH search phrases</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

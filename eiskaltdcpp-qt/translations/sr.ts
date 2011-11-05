@@ -1103,17 +1103,7 @@ Omiljeni korisnik</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>/kword add &lt;keyword&gt; - add user-defined keyword
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>/kword list - list all keywords
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1121,11 +1111,14 @@ Omiljeni korisnik</translation>
         <source>Search text</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>HubManager</name>
     <message>
-        <source>Hub Manager</source>
+        <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/kword list - full list of keywords which will be highlighted in the chat
+</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2871,25 +2864,6 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
 </context>
 <context>
-    <name>ShellCommandRunner</name>
-    <message>
-        <source>Command produced no visible output.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Process exited with status</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Process was killed or crashed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Process still running after 2 minutes, killing process...</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ShortcutGetter</name>
     <message>
         <source>Modify shortcut</source>
@@ -4359,6 +4333,10 @@ p, li { white-space: pre-wrap; }
         <source>Reconnect to hub (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -5069,6 +5047,18 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Clear now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of search history elements to store:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of download directiries history elements to store:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Memorize TTH search phrases</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

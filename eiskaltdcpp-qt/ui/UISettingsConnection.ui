@@ -768,7 +768,7 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
        <item>
         <widget class="QCheckBox" name="checkBox_ALLOW_SIM_UPLOADS">
          <property name="text">
-          <string>Allow simultaneous uploads by one user</string>
+          <string>Allow simultaneous uploads by one user from few NMDC hubs</string>
          </property>
         </widget>
        </item>

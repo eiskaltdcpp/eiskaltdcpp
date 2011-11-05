@@ -1147,7 +1147,7 @@ Kedvenc felhasználó</translation>
     <message>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword
 </source>
-        <translation>/kword add &lt;kulcsszó&gt; - kiemelt szó hozzáadása
+        <translation type="obsolete">/kword add &lt;kulcsszó&gt; - kiemelt szó hozzáadása
 </translation>
     </message>
     <message>
@@ -1159,19 +1159,29 @@ Kedvenc felhasználó</translation>
     <message>
         <source>/kword list - list all keywords
 </source>
-        <translation>/kword list - kiemelt szavak listázása
+        <translation type="obsolete">/kword list - kiemelt szavak listázása
 </translation>
     </message>
     <message>
         <source>Search text</source>
         <translation>Szöveg keresése</translation>
     </message>
+    <message>
+        <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/kword list - full list of keywords which will be highlighted in the chat
+</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubManager</name>
     <message>
         <source>Hub Manager</source>
-        <translation>Hub kezelő</translation>
+        <translation type="obsolete">Hub kezelő</translation>
     </message>
 </context>
 <context>
@@ -2927,19 +2937,19 @@ Letöltve: %3 Feltöltve: %4</translation>
     <name>ShellCommandRunner</name>
     <message>
         <source>Command produced no visible output.</source>
-        <translation>A parancsnak nincs látható kimenete.</translation>
+        <translation type="obsolete">A parancsnak nincs látható kimenete.</translation>
     </message>
     <message>
         <source>Process exited with status</source>
-        <translation>A folyamat kilépett a következő státuszüzenettel </translation>
+        <translation type="obsolete">A folyamat kilépett a következő státuszüzenettel </translation>
     </message>
     <message>
         <source>Process was killed or crashed.</source>
-        <translation>A folyamat kilőve, vagy összeomlott.</translation>
+        <translation type="obsolete">A folyamat kilőve, vagy összeomlott.</translation>
     </message>
     <message>
         <source>Process still running after 2 minutes, killing process...</source>
-        <translation>A folyamat 2 perc után sem állt le, folyamat kilövése...</translation>
+        <translation type="obsolete">A folyamat 2 perc után sem állt le, folyamat kilövése...</translation>
     </message>
 </context>
 <context>
@@ -4448,6 +4458,10 @@ p, li { white-space: pre-wrap; }
         <source>Reconnect to hub (seconds)</source>
         <translation>Újracsatlakozás a hubhoz (másodpercben)</translation>
     </message>
+    <message>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -5164,6 +5178,18 @@ a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
         <source>Clear now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of search history elements to store:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of download directiries history elements to store:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Memorize TTH search phrases</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

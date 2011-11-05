@@ -1115,17 +1115,7 @@ Utilisateur favoris</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>/kword add &lt;keyword&gt; - add user-defined keyword
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>/kword list - list all keywords
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1133,12 +1123,22 @@ Utilisateur favoris</translation>
         <source>Search text</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/kword list - full list of keywords which will be highlighted in the chat
+</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HubManager</name>
     <message>
         <source>Hub Manager</source>
-        <translation>Gestionnaire de serveurs</translation>
+        <translation type="obsolete">Gestionnaire de serveurs</translation>
     </message>
 </context>
 <context>
@@ -2893,19 +2893,19 @@ Téléchargé: %3 Envoyé: %4</translation>
     <name>ShellCommandRunner</name>
     <message>
         <source>Command produced no visible output.</source>
-        <translation>La commande n&apos;a rien produit.</translation>
+        <translation type="obsolete">La commande n&apos;a rien produit.</translation>
     </message>
     <message>
         <source>Process exited with status</source>
-        <translation>Le processus a quitté avec le statut</translation>
+        <translation type="obsolete">Le processus a quitté avec le statut</translation>
     </message>
     <message>
         <source>Process was killed or crashed.</source>
-        <translation>Le processus a planté ou a été tué.</translation>
+        <translation type="obsolete">Le processus a planté ou a été tué.</translation>
     </message>
     <message>
         <source>Process still running after 2 minutes, killing process...</source>
-        <translation>Processus toujours en cours après 2 minutes, fermeture du processus...</translation>
+        <translation type="obsolete">Processus toujours en cours après 2 minutes, fermeture du processus...</translation>
     </message>
 </context>
 <context>
@@ -4405,6 +4405,10 @@ p, li { white-space: pre-wrap; }
         <source>Reconnect to hub (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -5091,6 +5095,18 @@ them is usually available only to operators</source>
     </message>
     <message>
         <source>Clear now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of search history elements to store:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number of download directiries history elements to store:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Memorize TTH search phrases</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
