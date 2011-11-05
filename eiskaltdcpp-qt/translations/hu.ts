@@ -4458,10 +4458,6 @@ p, li { white-space: pre-wrap; }
         <source>Reconnect to hub (seconds)</source>
         <translation>Újracsatlakozás a hubhoz (másodpercben)</translation>
     </message>
-    <message>
-        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -4855,6 +4851,10 @@ elemeket sem a sorból - ezeket kézzel kell kitörölnöd.</translation>
     <message>
         <source>Keep downloaded files</source>
         <translation>Letöltött fájlok megtartása</translation>
+    </message>
+    <message>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

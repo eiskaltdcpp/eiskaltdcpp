@@ -4378,10 +4378,6 @@ p, li { white-space: pre-wrap; }
         <source>hour(s)</source>
         <translation>гадз.</translation>
     </message>
-    <message>
-        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -4791,6 +4787,10 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <source>Advanced</source>
         <translation>Адмысловыя</translation>
+    </message>
+    <message>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -3270,13 +3270,13 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Рабочие SOCKS5 серверы не обнаружены!</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="158"/>
-        <location filename="../src/SettingsConnection.cpp" line="166"/>
+        <location filename="../src/SettingsConnection.cpp" line="157"/>
+        <location filename="../src/SettingsConnection.cpp" line="165"/>
         <source>Program need root privileges to open ports less than 1024</source>
         <translation>Программе нужны привилегии root, чтобы открыть порты ниже 1024</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="354"/>
+        <location filename="../src/SettingsConnection.cpp" line="352"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
@@ -3284,28 +3284,28 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>SettingsDownloads</name>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="156"/>
-        <location filename="../src/SettingsDownloads.cpp" line="191"/>
+        <location filename="../src/SettingsDownloads.cpp" line="161"/>
+        <location filename="../src/SettingsDownloads.cpp" line="196"/>
         <source>Select directory</source>
         <translation>Укажите каталог</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="173"/>
+        <location filename="../src/SettingsDownloads.cpp" line="178"/>
         <source>New</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="179"/>
+        <location filename="../src/SettingsDownloads.cpp" line="184"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="186"/>
+        <location filename="../src/SettingsDownloads.cpp" line="191"/>
         <source>Enter alias for directory</source>
         <translation>Укажите псевдоним для каталога</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="186"/>
+        <location filename="../src/SettingsDownloads.cpp" line="191"/>
         <source>Alias</source>
         <translation>Псевдоним</translation>
     </message>
@@ -5399,9 +5399,8 @@ SOCKS5-прокси это не то же самое, что HTTP-прокси.
         <translation>Автоматически обновлять внешний IP (требуется перезапуск)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="771"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation>Разрешить одновременную загрузку одному пользователю с нескольких NMDC хабов</translation>
+        <translation type="obsolete">Разрешить одновременную загрузку одному пользователю с нескольких NMDC хабов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="401"/>
@@ -5445,12 +5444,12 @@ SOCKS5-прокси это не то же самое, что HTTP-прокси.
         <translation>Дополнительно</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="799"/>
+        <location filename="../ui/UISettingsConnection.ui" line="792"/>
         <source>Reconnect to hub (seconds)</source>
         <translation>Переподключение к хабу (секунд)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="838"/>
+        <location filename="../ui/UISettingsConnection.ui" line="831"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -5466,42 +5465,42 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="853"/>
+        <location filename="../ui/UISettingsConnection.ui" line="846"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="858"/>
+        <location filename="../ui/UISettingsConnection.ui" line="851"/>
         <source>Low delay</source>
         <translation>Небольшая задержка</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="863"/>
+        <location filename="../ui/UISettingsConnection.ui" line="856"/>
         <source>Throughput</source>
         <translation>Производительность</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="868"/>
+        <location filename="../ui/UISettingsConnection.ui" line="861"/>
         <source>Reliability</source>
         <translation>Надёжность</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="873"/>
+        <location filename="../ui/UISettingsConnection.ui" line="866"/>
         <source>Minimal cost</source>
         <translation>Минимальное значение</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="883"/>
+        <location filename="../ui/UISettingsConnection.ui" line="876"/>
         <source>Enable DHT</source>
         <translation>Включить DHT</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="907"/>
+        <location filename="../ui/UISettingsConnection.ui" line="900"/>
         <source>DHT port</source>
         <translation>Порт DHT</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="822"/>
+        <location filename="../ui/UISettingsConnection.ui" line="815"/>
         <source>Type-of-Service (ToS)</source>
         <translation>Тип сервиса (ToS)</translation>
     </message>
@@ -5922,6 +5921,11 @@ from the queue either, you must do that manually.</source>
 расположения соответствующий элемент не будет удалён из очереди.
 Если вы отключите эту опцию, существующие элементы со статусом
 &apos;Завершено&apos; не будут удалены из очереди, вы должны сделать это вручную.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="916"/>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
+        <translation>Разрешить одновременную загрузку одному пользователю с нескольких NMDC хабов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="642"/>

@@ -4333,10 +4333,6 @@ p, li { white-space: pre-wrap; }
         <source>Reconnect to hub (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -4726,6 +4722,10 @@ from the queue either, you must do that manually.</source>
     </message>
     <message>
         <source>Keep downloaded files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

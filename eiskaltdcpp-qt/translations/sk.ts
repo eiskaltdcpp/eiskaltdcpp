@@ -3235,13 +3235,13 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="158"/>
-        <location filename="../src/SettingsConnection.cpp" line="166"/>
+        <location filename="../src/SettingsConnection.cpp" line="157"/>
+        <location filename="../src/SettingsConnection.cpp" line="165"/>
         <source>Program need root privileges to open ports less than 1024</source>
         <translation>Program potrebuje nastaviť práva root(a) na otvorenie portu nižšieho ako 1024</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="354"/>
+        <location filename="../src/SettingsConnection.cpp" line="352"/>
         <source>Warning</source>
         <translation>Varovanie</translation>
     </message>
@@ -3249,28 +3249,28 @@ Stiahnuté: %3 Uploadované: %4</translation>
 <context>
     <name>SettingsDownloads</name>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="156"/>
-        <location filename="../src/SettingsDownloads.cpp" line="191"/>
+        <location filename="../src/SettingsDownloads.cpp" line="161"/>
+        <location filename="../src/SettingsDownloads.cpp" line="196"/>
         <source>Select directory</source>
         <translation>Vybrať adresár</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="173"/>
+        <location filename="../src/SettingsDownloads.cpp" line="178"/>
         <source>New</source>
         <translation>Nový</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="179"/>
+        <location filename="../src/SettingsDownloads.cpp" line="184"/>
         <source>Delete</source>
         <translation>Vymazať</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="186"/>
+        <location filename="../src/SettingsDownloads.cpp" line="191"/>
         <source>Enter alias for directory</source>
         <translation>Vytvoriť alias pre priečinok</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="186"/>
+        <location filename="../src/SettingsDownloads.cpp" line="191"/>
         <source>Alias</source>
         <translation>Alias</translation>
     </message>
@@ -5289,17 +5289,17 @@ Ak máš nainštalovaný firewall, tak bude možno potrebné nastaviť tvoj fire
         <translation>Automaticky aktualizovať extérnu IP adresu (potrebný reštart)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="799"/>
+        <location filename="../ui/UISettingsConnection.ui" line="792"/>
         <source>Reconnect to hub (seconds)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="883"/>
+        <location filename="../ui/UISettingsConnection.ui" line="876"/>
         <source>Enable DHT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="907"/>
+        <location filename="../ui/UISettingsConnection.ui" line="900"/>
         <source>DHT port</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5340,12 +5340,7 @@ Ak máš nainštalovaný firewall, tak bude možno potrebné nastaviť tvoj fire
         <translation>Rozšírené</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="771"/>
-        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="838"/>
+        <location filename="../ui/UISettingsConnection.ui" line="831"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -5361,32 +5356,32 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="853"/>
+        <location filename="../ui/UISettingsConnection.ui" line="846"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="858"/>
+        <location filename="../ui/UISettingsConnection.ui" line="851"/>
         <source>Low delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="863"/>
+        <location filename="../ui/UISettingsConnection.ui" line="856"/>
         <source>Throughput</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="868"/>
+        <location filename="../ui/UISettingsConnection.ui" line="861"/>
         <source>Reliability</source>
         <translation type="unfinished">Spoľahlivos</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="873"/>
+        <location filename="../ui/UISettingsConnection.ui" line="866"/>
         <source>Minimal cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="822"/>
+        <location filename="../ui/UISettingsConnection.ui" line="815"/>
         <source>Type-of-Service (ToS)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5819,6 +5814,11 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="899"/>
         <source>Segment size (in MB, 0 = auto segment size)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="916"/>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
