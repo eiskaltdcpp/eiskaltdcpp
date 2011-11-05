@@ -116,6 +116,7 @@ public:
     };
 
     short getNumber() { return (short)((((size_t)this)>>2) & 0x7fff); }
+    BufferedSocket const* getSocket() { return socket; }
 
     // NMDC stuff
     void myNick(const string& aNick) { send("$MyNick " + Text::fromUtf8(aNick, encoding) + '|'); }

@@ -61,13 +61,21 @@ UploadManager::~UploadManager() {
 }
 
 bool UploadManager::hasUpload ( UserConnection& aSource ) {
-    HintedUser usr = aSource.getHintedUser();
+    if (!aSource.getSocket())
+        return false;
 
     for ( UploadList::const_iterator i = uploads.begin(); i != uploads.end(); ++i ) {
         Upload* u = *i;
-        printf("%s (%s) -> %s\n", u->getHintedUser().user->getCID().toBase32().c_str(), usr.user->getCID().toBase32().c_str(), u->getHintedUser().hint.c_str());
-        if ( u->getHintedUser().user->getCID().toBase32() == usr.user->getCID().toBase32())
+        const string l_srcip = aSource.getSocket()->getIp();
+        const int64_t l_share = ClientManager::getInstance()->getBytesShared(aSource.getUser());
+        
+        if (u && u->getUserConnection().getSocket() &&
+            l_srcip == u->getUserConnection().getSocket()->getIp() &&
+            u->getUser() && l_share == ClientManager::getInstance()->getBytesShared(u->getUser())
+           )
+        {
             return true;
+        }
     }
 
     return false;
@@ -110,10 +118,20 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                 fileSize = size = xml.size();
             } else {
                 {
+                    ShareManager *SM = ShareManager::getInstance();
                     string msg;
                     if ( aFile != Transfer::USER_LIST_NAME_BZ && aFile != Transfer::USER_LIST_NAME &&
-                         !limits.IsUserAllowed(ShareManager::getInstance()->toVirtual(ShareManager::getInstance()->getTTH(aFile)), aSource.getUser(), &msg) )
+                         !limits.IsUserAllowed(SM->toVirtual(SM->getTTH(aFile)), aSource.getUser(), &msg)
+                       )
                     {
+                        throw ShareException(msg);
+                    }
+                    else if ( aFile != Transfer::USER_LIST_NAME_BZ && aFile != Transfer::USER_LIST_NAME && 
+                              hasUpload(aSource)
+                            )
+                    {
+                        msg = _("Connection already exists.");
+                        
                         throw ShareException(msg);
                     }
                 }
@@ -264,7 +282,7 @@ ok:
         bool hasReserved = (reservedSlots.find(aSource.getUser()) != reservedSlots.end());
         bool isFavorite = FavoriteManager::getInstance()->hasSlot(aSource.getUser());
 
-        if(!(hasReserved || isFavorite || getFreeSlots() > 0 || getAutoSlot() || hasUpload(aSource))) {
+        if(!(hasReserved || isFavorite || getFreeSlots() > 0 || getAutoSlot())) {
             bool supportsFree = aSource.isSet(UserConnection::FLAG_SUPPORTS_MINISLOTS);
             bool allowedFree = aSource.isSet(UserConnection::FLAG_HASEXTRASLOT) || aSource.isSet(UserConnection::FLAG_OP) || getFreeExtraSlots() > 0;
             if(free && supportsFree && allowedFree) {

@@ -100,6 +100,17 @@ public:
         }
         return Identity();
     }
+    
+    int64_t getBytesShared(const UserPtr& p) const{
+        int64_t l_share = 0;
+        {
+            Lock l ( cs );
+            OnlineIterC i = onlineUsers.find ( *const_cast<CID*> ( &p->getCID() ) );
+            if ( i != onlineUsers.end() )
+                l_share = i->second->getIdentity().getBytesShared();
+        }
+        return l_share;
+    }
 
     void setIPUser(const UserPtr& user, const string& IP, uint16_t udpPort = 0) {
         if(IP.empty())
