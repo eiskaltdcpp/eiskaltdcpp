@@ -307,7 +307,8 @@ void SearchFrame::Menu::addTempPath(const QString &path){
     if (!temp_pathes.contains(path) && !path.isEmpty() && QDir(path).exists()){
         temp_pathes.push_front(path);
 
-        if (temp_pathes.count() > 5)
+        uint maxItemsNumber = WIGET("download-directory-history-items-number", 5);
+        while (temp_pathes.count() > maxItemsNumber)
             temp_pathes.removeLast();
 
         QString raw = temp_pathes.join("\n");
@@ -937,8 +938,9 @@ void SearchFrame::slotStartSearch(){
 
         lineEdit_SEARCHSTR->setMenu(m);
 
-        if (searchHistory.count() > 10)
-            searchHistory.removeLast();
+        uint maxItemsNumber = WIGET("search-history-items-number", 10);
+        while (searchHistory.count() > maxItemsNumber)
+                searchHistory.removeLast();
 
         QString hist = searchHistory.join("\n");
         WSSET(WS_SEARCH_HISTORY, hist.toAscii().toBase64());

@@ -731,7 +731,8 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             if (!temp_pathes.contains(target)){
                 temp_pathes.push_front(target);
 
-                if (temp_pathes.count() > 5)
+                uint maxItemsNumber = WIGET("download-directory-history-items-number", 5);
+                while (temp_pathes.count() > maxItemsNumber)
                     temp_pathes.removeLast();
 
                 QString raw = temp_pathes.join("\n");
