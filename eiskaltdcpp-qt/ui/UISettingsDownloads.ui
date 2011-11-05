@@ -911,6 +911,13 @@ from the queue either, you must do that manually.</string>
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="checkBox_ALLOW_SIM_UPLOADS">
+         <property name="text">
+          <string>Allow simultaneous uploads by one user from few NMDC hubs</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

@@ -301,7 +301,7 @@ SettingsManager::SettingsManager()
     setDefault(DYNDNS_ENABLE, false);
     setDefault(ALLOW_UPLOAD_MULTI_HUB, true);
     setDefault(USE_ADL_ONLY_OWN_LIST, false);
-    setDefault(ALLOW_SIM_UPLOADS, false);
+    setDefault(ALLOW_SIM_UPLOADS, true);
     setSearchTypeDefaults();
 }
 

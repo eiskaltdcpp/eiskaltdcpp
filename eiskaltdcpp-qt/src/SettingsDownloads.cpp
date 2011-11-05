@@ -88,6 +88,8 @@ void SettingsDownloads::ok(){
 
     for (; it != other_settings.constEnd(); ++it)
         SM->set(it.key(), listWidget->item(it.value())->checkState() == Qt::Checked);
+    
+    SM->set(SettingsManager::ALLOW_SIM_UPLOADS, checkBox_ALLOW_SIM_UPLOADS->isChecked());
 }
 
 void SettingsDownloads::init(){
@@ -149,6 +151,9 @@ void SettingsDownloads::init(){
 
         for (; it != other_settings.constEnd(); ++it)
             listWidget->item(it.value())->setCheckState(((bool)SettingsManager::getInstance()->get(it.key()))? Qt::Checked : Qt::Unchecked);
+    }
+    {
+        checkBox_ALLOW_SIM_UPLOADS->setCheckState(SETTING(ALLOW_SIM_UPLOADS)? Qt::Checked : Qt::Unchecked);
     }
 }
 
