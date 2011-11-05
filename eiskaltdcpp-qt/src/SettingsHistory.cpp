@@ -9,6 +9,9 @@ SettingsHistory::SettingsHistory(QWidget *parent): QWidget(parent) {
             this, SLOT(slotClearSearchHistory()));
     connect(pushButton_ClearDirectoriesHistory, SIGNAL(clicked(bool)),
             this, SLOT(slotClearDirectoriesHistory()));
+    
+    checkBox_SearchHistory->setChecked(WBGET("app/clear-search-history-on-exit", false));
+    checkBox_DirectoriesHistory->setChecked(WBGET("app/clear-download-directories-history-on-exit", false));
 }
 
 SettingsHistory::~SettingsHistory() {
