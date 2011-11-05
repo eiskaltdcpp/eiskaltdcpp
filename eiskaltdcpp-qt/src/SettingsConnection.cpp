@@ -145,6 +145,7 @@ void SettingsConnection::ok(){
     SM->set(SettingsManager::IP_TOS_VALUE, comboBox_TOS->itemData(comboBox_TOS->currentIndex()).toInt());
     SM->set(SettingsManager::DYNDNS_SERVER, lineEdit_DYNDNS_SERVER->text().toStdString());
     SM->set(SettingsManager::DYNDNS_ENABLE, checkBox_DYNDNS->isChecked());
+    SM->set(SettingsManager::ALLOW_SIM_UPLOADS, checkBox_ALLOW_SIM_UPLOADS->isChecked());
 
 #ifdef WITH_DHT
     SM->set(SettingsManager::USE_DHT, groupBox_DHT->isChecked());
@@ -188,6 +189,7 @@ void SettingsConnection::init(){
     spinBox_RECONNECT_DELAY->setValue(SETTING(RECONNECT_DELAY));
     checkBox_DONTOVERRIDE->setCheckState( SETTING(NO_IP_OVERRIDE)? Qt::Checked : Qt::Unchecked );
     checkBox_DYNDNS->setCheckState( BOOLSETTING(DYNDNS_ENABLE) ? Qt::Checked : Qt::Unchecked );
+    checkBox_ALLOW_SIM_UPLOADS->setCheckState(SETTING(ALLOW_SIM_UPLOADS)? Qt::Checked : Qt::Unchecked);
     lineEdit_DYNDNS_SERVER->setText(QString::fromStdString(SETTING(DYNDNS_SERVER)));
 
 #ifdef WITH_DHT

@@ -61,7 +61,7 @@ UploadManager::~UploadManager() {
 }
 
 bool UploadManager::hasUpload ( UserConnection& aSource ) {
-    if (!aSource.getSocket())
+    if (!aSource.getSocket() || SETTING(ALLOW_SIM_UPLOADS))
         return false;
 
     for ( UploadList::const_iterator i = uploads.begin(); i != uploads.end(); ++i ) {

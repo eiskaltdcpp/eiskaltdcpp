@@ -766,6 +766,13 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
+        <widget class="QCheckBox" name="checkBox_ALLOW_SIM_UPLOADS">
+         <property name="text">
+          <string>Allow simultaneous uploads by one user</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <layout class="QGridLayout" name="gridLayout_11">
          <item row="0" column="0">
           <spacer name="horizontalSpacer_7">
