@@ -929,7 +929,11 @@ void SearchFrame::slotStartSearch(){
     quint64 llsize = (quint64)lsize;
 
     if (!searchHistory.contains(s)){
-        searchHistory.push_front(s);
+        bool isTTH = s.contains(QRegExp("[A-Z0-9]",Qt::CaseSensitive)) &&
+                     s.length() == 39;
+
+        if ((WBGET("memorize-tth-search-phrases", false) && isTTH) || !isTTH)
+            searchHistory.push_front(s);
 
         QMenu *m = new QMenu();
 

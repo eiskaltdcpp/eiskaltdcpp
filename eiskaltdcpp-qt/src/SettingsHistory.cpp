@@ -10,6 +10,7 @@ SettingsHistory::SettingsHistory(QWidget *parent): QWidget(parent) {
     connect(pushButton_ClearDirectoriesHistory, SIGNAL(clicked(bool)),
             this, SLOT(slotClearDirectoriesHistory()));
     
+    checkBox_TTHSearchHistory->setChecked(WBGET("memorize-tth-search-phrases", false));
     checkBox_SearchHistory->setChecked(WBGET("app/clear-search-history-on-exit", false));
     checkBox_DirectoriesHistory->setChecked(WBGET("app/clear-download-directories-history-on-exit", false));
     
@@ -24,6 +25,26 @@ SettingsHistory::~SettingsHistory() {
 void SettingsHistory::ok(){
     WBSET("app/clear-search-history-on-exit", checkBox_SearchHistory->isChecked());
     WBSET("app/clear-download-directories-history-on-exit", checkBox_DirectoriesHistory->isChecked());
+    
+    { // memorize-tth-search-phrases
+    WBSET("memorize-tth-search-phrases", checkBox_TTHSearchHistory->isChecked());
+    
+    if (!checkBox_TTHSearchHistory->isChecked()){
+        QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
+        QStringList searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+        
+        QString text = "";
+        for (int k = searchHistory.count()-1; k >= 0; k--){
+            text = searchHistory.at(k);
+            if (text.contains(QRegExp("[A-Z0-9]",Qt::CaseSensitive)) &&
+                text.length() == 39) // isTTH
+            searchHistory.removeAt(k);
+        }
+        
+        QString hist = searchHistory.join("\n");
+        WSSET(WS_SEARCH_HISTORY, hist.toAscii().toBase64());
+    }
+    }
     
     { // search-history-items-number
     QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
