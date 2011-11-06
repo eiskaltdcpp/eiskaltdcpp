@@ -535,7 +535,7 @@ void TransferView::slotContextMenu(const QPoint &){
             dcpp::CID cid(_tq(i->cid));
             QString hubUrl = i->data(COLUMN_TRANSFER_HOST).toString();
 
-            fr = HubManager::getInstance()->getHub(hubUrl);
+            fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
 
             if (fr)
                 fr->createPMWindow(cid);

@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -24,11 +24,11 @@
 namespace dcpp {
 
 CID CID::generate() {
-	uint8_t data[CID::SIZE];
-	for(size_t i = 0; i < sizeof(data); ++i) {
-		data[i] = (uint8_t)Util::rand();
-	}
-	return CID(data);
+    uint8_t data[CID::SIZE];
+    for(size_t i = 0; i < sizeof(data); ++i) {
+        data[i] = (uint8_t)Util::rand();
+    }
+    return CID(data);
 }
 
 

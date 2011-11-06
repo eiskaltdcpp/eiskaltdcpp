@@ -784,6 +784,8 @@ HubFrame::~HubFrame(){
     if (!Menu::counter)
         Menu::deleteInstance();
 
+    treeView_USERS->setModel(NULL);
+
     delete model;
     delete proxy;
 
@@ -1000,6 +1002,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void HubFrame::closeEvent(QCloseEvent *e){
+    blockSignals(true);
+    
     QObject::disconnect(this, NULL, this, NULL);
 
     MainWindow *MW = MainWindow::getInstance();
@@ -1019,8 +1023,6 @@ void HubFrame::closeEvent(QCloseEvent *e){
     updater->stop();
 
     save();
-
-    blockSignals(true);
 
     PMMap::const_iterator it = pm.constBegin();
 
@@ -1046,16 +1048,18 @@ void HubFrame::closeEvent(QCloseEvent *e){
         delete r;
     }
 
-    blockSignals(false);
-
     if (isVisible())
         HubManager::getInstance()->setActiveHub(NULL);
 
     setAttribute(Qt::WA_DeleteOnClose);
 
     e->accept();
-
-    emit closeRequest();
+    
+    blockSignals(false);
+    {
+        emit closeRequest();
+    }
+    blockSignals(true);
 }
 
 void HubFrame::showEvent(QShowEvent *e){
@@ -1755,9 +1759,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         out += tr("/back - set away-mode off\n");
         out += tr("/browse <nick> - browse user files\n");
         out += tr("/clear - clear chat window\n");
-        out += tr("/kword add <keyword> - add user-defined keyword\n");
+        out += tr("/kword add <keyword> - add user-defined keyword which will be highlighted in the chat\n");
         out += tr("/kword purge <keyword> - remove user-defined keyword\n");
-        out += tr("/kword list - list all keywords\n");
+        out += tr("/kword list - full list of keywords which will be highlighted in the chat\n");
         out += tr("/magnet - default action with magnet (0-ask, 1-search, 2-download)\n");
         out += tr("/close - close this hub\n");
         out += tr("/fav - add this hub to favorites\n");
@@ -1838,6 +1842,27 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         return false;
 
     return true;
+}
+
+QString HubFrame::getHubUrl() {
+    if (client)
+        return _q(client->getHubUrl());
+    
+    return "";
+}
+
+QString HubFrame::getHubName() {
+    if (client)
+        return _q(client->getHubName());
+    
+    return "";
+}
+
+QString HubFrame::getMyNick() {
+    if (client)
+        return _q(client->getMyNick());
+    
+    return "";
 }
 
 void HubFrame::addStatus(QString msg){
@@ -1952,6 +1977,13 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
     }
 }
 
+bool HubFrame::isOP(const QString& nick) {
+    UserListItem *item = model->itemForNick(nick, _q(client->getHubUrl()));
+    
+    return (item? item->isOp : false);
+}
+
+
 void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
     map["NICK"] = _q(id.getNick());
     map["SHARE"] = qlonglong(id.getBytesShared());
@@ -2017,7 +2049,7 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
                        cid, user);
 
         if (FavoriteManager::getInstance()->isFavoriteUser(user))
-            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become online").arg(nick));
+            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now online").arg(nick));
 
         if (pm.contains(nick)){
             PMWindow *wnd = pm[nick];
@@ -2071,7 +2103,7 @@ void HubFrame::userRemoved(const dcpp::UserPtr &user, qlonglong share){
     }
 
     if (FavoriteManager::getInstance()->isFavoriteUser(user))
-        Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 become offline").arg(nick));
+        Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now offline").arg(nick));
 
     model->removeUser(user);
 }
@@ -2207,6 +2239,14 @@ void HubFrame::addAsFavorite(){
     }
 }
 
+void HubFrame::disablePrivateMessages(bool disable) {
+    if (disable)
+        disconnect(this, SIGNAL(corePrivateMsg(VarMap)), this, SLOT(newPm(VarMap)));
+    else
+        connect(this, SIGNAL(corePrivateMsg(VarMap)), this, SLOT(newPm(VarMap)), Qt::QueuedConnection);
+}
+
+
 void HubFrame::newMsg(const VarMap &map){
     QString output = "";
 
@@ -2215,23 +2255,31 @@ void HubFrame::newMsg(const VarMap &map){
     QString time = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";;
     QString color = map["CLR"].toString();
     QString msg_color = WS_CHAT_MSG_COLOR;
+    QString trigger = "";
 
     const QStringList &kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
 
     foreach (const QString &word, kwords){
         if (message.contains(word, Qt::CaseInsensitive)){
             msg_color = WS_CHAT_SAY_NICK;
-
+            trigger = word;
+            
             break;
         }
     }
 
-    emit newMessage(this, _q(client->getHubUrl()), map["CID"].toString(), nick, message);
-
     if (message.indexOf(_q(client->getMyNick())) >= 0){
         msg_color = WS_CHAT_SAY_NICK;
-
+        trigger = _q(client->getMyNick());
+            
         Notification::getInstance()->showMessage(Notification::NICKSAY, getArenaTitle().left(20), nick + ": " + message);
+    }
+    
+    if (msg_color == WS_CHAT_SAY_NICK){
+        VarMap tmap = map;
+        tmap["TRIGGER"] = trigger;
+        
+        emit highlighted(tmap);
     }
 
     bool third = map["3RD"].toBool();
@@ -2386,6 +2434,7 @@ void HubFrame::clearUsers(){
         model->blockSignals(true);
         model->clear();
         model->blockSignals(false);
+        treeView_USERS->setModel(model);
     }
 
     total_shared = 0;
@@ -3664,6 +3713,8 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
     else
         third = message.thirdPerson;
 
+    map["HUBURL"] = _q(client->getHubUrl());
+    
     if(message.to && message.replyTo)
     {
         //private message
@@ -3679,7 +3730,6 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         else if (isBot && BOOLSETTING(IGNORE_BOT_PMS))
             return;
 
-        VarMap map;
         CID id           = user->getUser()->getCID();
         QString nick     =  _q(message.from->getIdentity().getNick());
         bool isInSandBox = false;
@@ -3712,6 +3762,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         map["NICK"]  = nick;
         map["MSG"]   = msg;
         map["TIME"]  = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
+        map["ECHO"]  = isEcho;
 
         QString color = WS_CHAT_PRIV_USER_COLOR;
 

@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -133,9 +133,9 @@ void DownloadManager::addConnection(UserConnectionPtr conn) {
         conn->error("Your IP is Blocked!");
         LogManager::getInstance()->message(_("IPFilter: Blocked outgoing connection to ") + conn->getRemoteIp());
         QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);
-        removeConnection(conn);
+        conn->disconnect();
         return;
-	}
+    }
     conn->addListener(this);
     checkDownloads(conn);
 }

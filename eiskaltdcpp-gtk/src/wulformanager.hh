@@ -23,6 +23,9 @@
 #define WULFOR_MANAGER_HH
 
 #include <gtk/gtk.h>
+#ifdef USE_GTK3
+#include <gdk/gdkkeysyms-compat.h>
+#endif
 #include <glib.h>
 #include <string>
 
@@ -78,8 +81,8 @@ class WulforManager
 		static WulforManager *manager;
 		MainWindow *mainWin;
 		std::string path;
-		std::vector<FuncBase *> guiFuncs;
-		std::vector<FuncBase *> clientFuncs;
+		std::list<FuncBase *> guiFuncs;
+		std::list<FuncBase *> clientFuncs;
 		std::unordered_map<std::string, Entry *> entries;
 		gint guiCondValue;
 		gint clientCondValue;

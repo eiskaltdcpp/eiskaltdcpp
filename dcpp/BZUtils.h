@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_BZUTILS_H
@@ -25,36 +25,36 @@ namespace dcpp {
 
 class BZFilter {
 public:
-	BZFilter();
-	~BZFilter();
-	/**
-	* Compress data.
-	* @param in Input data
-	* @param insize Input size (Set to 0 to indicate that no more data will follow)
-	* @param out Output buffer
-	* @param outsize Output size, set to compressed size on return.
-	* @return True if there's more processing to be done.
-	*/
-	bool operator()(const void* in, size_t& insize, void* out, size_t& outsize);
+    BZFilter();
+    ~BZFilter();
+    /**
+    * Compress data.
+    * @param in Input data
+    * @param insize Input size (Set to 0 to indicate that no more data will follow)
+    * @param out Output buffer
+    * @param outsize Output size, set to compressed size on return.
+    * @return True if there's more processing to be done.
+    */
+    bool operator()(const void* in, size_t& insize, void* out, size_t& outsize);
 private:
-	bz_stream zs;
+    bz_stream zs;
 };
 
 class UnBZFilter {
 public:
-	UnBZFilter();
-	~UnBZFilter();
-	/**
-	* Decompress data.
-	* @param in Input data
-	* @param insize Input size (Set to 0 to indicate that no more data will follow)
-	* @param out Output buffer
-	* @param outsize Output size, set to decompressed size on return.
-	* @return True if there's more processing to be done
-	*/
-	bool operator()(const void* in, size_t& insize, void* out, size_t& outsize);
+    UnBZFilter();
+    ~UnBZFilter();
+    /**
+    * Decompress data.
+    * @param in Input data
+    * @param insize Input size (Set to 0 to indicate that no more data will follow)
+    * @param out Output buffer
+    * @param outsize Output size, set to decompressed size on return.
+    * @return True if there's more processing to be done
+    */
+    bool operator()(const void* in, size_t& insize, void* out, size_t& outsize);
 private:
-	bz_stream zs;
+    bz_stream zs;
 };
 
 } // namespace dcpp

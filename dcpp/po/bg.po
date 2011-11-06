@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-09-07 00:38+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2010-12-20 19:57+0200\n"
 "Last-Translator: Rusi Dimitrov <dimitrov.rusi@gmail.com>\n"
 "Language-Team: Bulgarian < >\n"
@@ -30,34 +30,34 @@ msgstr "Пренасочване на потребител(и)"
 msgid "Auto-connect group (converted)"
 msgstr "Групирано авто-свързване (конвертирано)"
 
-#: ../Socket.cpp:85
+#: ../Socket.cpp:86
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Неизвестна грешка: 0x%1$x"
 
-#: ../Socket.cpp:220 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../Socket.cpp:221 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
 #: ../ConnectionManager.cpp:186
 msgid "Connection timeout"
 msgstr "Времето за свързване изтече"
 
-#: ../Socket.cpp:228 ../Socket.cpp:236 ../Socket.cpp:269 ../Socket.cpp:273
-#: ../Socket.cpp:297 ../Socket.cpp:312
+#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:298 ../Socket.cpp:313
 msgid "The socks server failed establish a connection"
 msgstr "Socks сървъра не можа да установи връзка"
 
-#: ../Socket.cpp:301
+#: ../Socket.cpp:302
 msgid "The socks server requires authentication"
 msgstr "Socks сървъра изисква идентификация (име и парола)"
 
-#: ../Socket.cpp:315
+#: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Socks сървъра не поддържа идентификация с име / парола"
 
-#: ../Socket.cpp:329 ../Socket.cpp:333
+#: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr "Грешка при свързването със Socks сървъра. (грешно име / парола?)"
 
-#: ../Socket.cpp:466
+#: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../QueueManager.cpp:2169 ../QueueManager.cpp:2175 ../QueueManager.cpp:2181
+#: ../QueueManager.cpp:2166 ../QueueManager.cpp:2172 ../QueueManager.cpp:2178
 msgid "Offline"
 msgstr "Извън линия"
 
@@ -216,7 +216,7 @@ msgstr "Извън линия"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) има същия CID {%3%} като %4% (%5%), игнорира се"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2198
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -240,7 +240,7 @@ msgstr "%1% бе изгонен от %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% бе изгонен: %2%"
 
-#: ../AdcHub.cpp:680
+#: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
 msgstr "Не се следи за връзки - моля, рестартирайте %1%"
 
@@ -252,42 +252,42 @@ msgstr ""
 msgid "Sent "
 msgstr "Изпратен"
 
-#: ../Util.cpp:595
+#: ../Util.cpp:594
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:597
+#: ../Util.cpp:596
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:599
+#: ../Util.cpp:598
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:601
+#: ../Util.cpp:600
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:603
+#: ../Util.cpp:602
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:605
+#: ../Util.cpp:604
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:635
+#: ../Util.cpp:634
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:639
+#: ../Util.cpp:638
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -407,31 +407,31 @@ msgstr "Грешка при махане пренасочването на по�
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
-#: ../ShareManager.cpp:447
+#: ../ShareManager.cpp:446
 msgid "No directory specified"
 msgstr "Не е определена папка"
 
-#: ../ShareManager.cpp:451
+#: ../ShareManager.cpp:450
 msgid "Directory is hidden"
 msgstr "Директорията е скрита"
 
-#: ../ShareManager.cpp:455
+#: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
 msgstr "Временната директория не може да бъде споделяна"
 
-#: ../ShareManager.cpp:643
+#: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
 msgstr "Намерено е неправилно име на файл, докато се хешира папка %1%"
 
-#: ../ShareManager.cpp:661
+#: ../ShareManager.cpp:660
 msgid "User has chosen not to share file: %1% (Size: %2%)"
 msgstr "Потребителя е избрал да не се споделя: %1% (размер %2%)"
 
-#: ../ShareManager.cpp:682
+#: ../ShareManager.cpp:681
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr "Потребителя е избрал да не се споделя временен файл: %1% (размер: %2%)"
 
-#: ../ShareManager.cpp:770
+#: ../ShareManager.cpp:769
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
@@ -439,7 +439,7 @@ msgstr ""
 "Повтарящия се файл няма да бъде споделен: %1% (размер: %2% B) Дупликата "
 "съвпада със: %3%"
 
-#: ../ShareManager.cpp:792
+#: ../ShareManager.cpp:790
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -447,19 +447,19 @@ msgstr ""
 "В момента тече опресняване на списъка с файловете, моля изчакайте преди да "
 "опитате да обновите отново"
 
-#: ../ShareManager.cpp:813
+#: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
 msgstr "Грешка при опресняване на списъка с файлове: %1%"
 
-#: ../ShareManager.cpp:835
+#: ../ShareManager.cpp:833
 msgid "File list refresh initiated"
 msgstr "Започва опресняване на списъка с файлове"
 
-#: ../ShareManager.cpp:860
+#: ../ShareManager.cpp:858
 msgid "File list refresh finished"
 msgstr "Опресняването на списъка с файлове завърши"
 
-#: ../ShareManager.cpp:942
+#: ../ShareManager.cpp:940
 msgid "File list %1% generated"
 msgstr "Списъка с файлове %1% е генериран"
 
@@ -483,7 +483,7 @@ msgstr "<Въведете низ>"
 msgid "Discard"
 msgstr "Отхвърляне"
 
-#: ../DirectoryListing.cpp:177
+#: ../DirectoryListing.cpp:187
 msgid "Directory missing name attribute"
 msgstr "Липсва атрибут за име на директорията"
 
@@ -621,39 +621,39 @@ msgstr "Ненужна част"
 msgid "Searching TTH alternates for: %1%"
 msgstr "Търсене на TTH алтернативи за: %1%"
 
-#: ../QueueManager.cpp:684 ../QueueManager.cpp:747
+#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
 msgid "A file with the same hash already exists in your share"
 msgstr "Файл със същия хеш вече съществува в споделеното от вас"
 
-#: ../QueueManager.cpp:710 ../QueueManager.cpp:789
+#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
 msgid "This file is already queued"
 msgstr "Този файл вече е на опашката"
 
-#: ../QueueManager.cpp:725 ../QueueManager.cpp:801
+#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
 msgid "A file with a different size already exists in the queue"
 msgstr "Файл с различна големина вече съществува в опашката"
 
-#: ../QueueManager.cpp:729
+#: ../QueueManager.cpp:727
 msgid "A file with different tth root already exists in the queue"
 msgstr "Файл с различен TTH root вече съществува в опашката"
 
-#: ../QueueManager.cpp:741
+#: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
 msgstr "Опитвате се да сваляте файлове от себе си!"
 
-#: ../QueueManager.cpp:804
+#: ../QueueManager.cpp:802
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Файл с различен TTH root вече съществува в опашката"
 
-#: ../QueueManager.cpp:808
+#: ../QueueManager.cpp:806
 msgid "This file has already finished downloading"
 msgstr "Този файл вече е свален"
 
-#: ../QueueManager.cpp:845 ../QueueManager.cpp:854
+#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
 msgstr "Прекалено дълго име на файла-цел"
 
-#: ../QueueManager.cpp:850 ../QueueManager.cpp:858
+#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -661,40 +661,40 @@ msgstr ""
 "Невалиден целеви файл (липсваща папка - проверете папката за сваляне по "
 "подразбиране)"
 
-#: ../QueueManager.cpp:866
+#: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
 msgstr "Файла вече същестува в целевото място"
 
-#: ../QueueManager.cpp:879 ../QueueManager.cpp:883
+#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
 msgstr "Повтарящ се източник: %1%"
 
-#: ../QueueManager.cpp:1152
+#: ../QueueManager.cpp:1149
 msgid "Target removed"
 msgstr "Целта е премахната"
 
-#: ../QueueManager.cpp:1160
+#: ../QueueManager.cpp:1157
 msgid "Target file is missing or wrong size"
 msgstr "Избрания файл липсва или е с грешен размер"
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1206
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "Не може да се премести %1% в %2% (%3%); преименува се в %4%"
 
-#: ../QueueManager.cpp:1212
+#: ../QueueManager.cpp:1209
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 "Не може да се премести %1% в %2% (%3%), нито да се преименува в %4% (%5%)"
 
-#: ../QueueManager.cpp:1410
+#: ../QueueManager.cpp:1407
 msgid "Unable to open filelist: %1%"
 msgstr "Грешка при отваряне на списъка с файлове: %1%"
 
-#: ../QueueManager.cpp:1433
+#: ../QueueManager.cpp:1430
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Съвпадащи %2% файла"
 
-#: ../QueueManager.cpp:2037 ../QueueManager.cpp:2046
+#: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 несъвпадение (SFV-проверка)"
 

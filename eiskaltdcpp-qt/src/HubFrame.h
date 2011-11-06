@@ -160,7 +160,6 @@ public:
     QString getCIDforNick(QString nick) { return model->CIDforNick(nick, _q(client->getHubUrl())); }
 
 Q_SIGNALS:
-    void newMessage(HubFrame*, const QString &hubUrl, const QString &cid, const QString &nick, const QString &msg);
     void coreConnecting(QString);
     void coreConnected(QString);
     void coreUserUpdated(VarMap map, const dcpp::UserPtr &user, bool join);
@@ -169,18 +168,23 @@ Q_SIGNALS:
     void coreFollow(QString);
     void coreFailed();
     void corePassword();
-    void coreMessage(VarMap);
-    void corePrivateMsg(VarMap);
+    void coreMessage(const VarMap&);
+    void corePrivateMsg(const VarMap&);
     void coreHubUpdated();
     void coreFavoriteUserAdded(QString);
     void coreFavoriteUserRemoved(QString);
     void closeRequest();
+    void highlighted(const VarMap&);
 
 public Q_SLOTS:
     void disableChat();
     void clearChat();
     void addStatus(QString);
+    QString getHubUrl();
+    QString getHubName();
+    QString getMyNick();
     void sendMsg(const QString&);
+    void disablePrivateMessages(bool disable);//disconnect corePrivateMsg from this
 
     void reloadSomeSettings();
     void slotHideFindFrame();
@@ -190,6 +194,7 @@ public Q_SLOTS:
 
     void getStatistic(quint64 &users, quint64 &share) const;
     bool isConnected() const;
+    bool isOP(const QString &nick);
 
     void browseUserFiles(const QString&, bool=false);
 

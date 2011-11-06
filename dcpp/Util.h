@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_UTIL_H
@@ -262,7 +262,11 @@ public:
 #ifdef _WIN32
         return _atoi64(aString.c_str());
 #else
+    #ifndef __HAIKU__
         return strtoq(aString.c_str(), (char **)NULL, 10);
+    #else
+        return strtoll(aString.c_str(), (char **)NULL, 10);
+    #endif
 #endif
     }
 
@@ -289,10 +293,10 @@ public:
 
     static unsigned toUInt(const string& s) {
         if(s.empty())
-                return 0;
+            return 0;
         int ret = toInt(s);
         if(ret < 0)
-                return 0;
+            return 0;
         return ret;
     }
 
@@ -365,8 +369,8 @@ public:
             ret += *i;
             if(i + 1 != iend)
                 ret += sep;
-    }
-            return ret;
+        }
+        return ret;
     }
     template<typename string_t>
     static inline string_t toString(const typename string_t::value_type* sep, const std::vector<string_t>& lst) {

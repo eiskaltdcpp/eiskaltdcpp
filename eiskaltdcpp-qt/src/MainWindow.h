@@ -48,14 +48,10 @@
 #include "dcpp/Util.h"
 #include "dcpp/version.h"
 
-#include "qtsingleapp/qtlockedfile.h"
-#include "qtsingleapp/qtsingleapplication.h"
-
 #include "ArenaWidget.h"
 #include "ArenaWidgetContainer.h"
 #include "HistoryInterface.h"
 #include "LineEdit.h"
-#include "WulforSettings.h"
 #include "ShortcutManager.h"
 
 #include "ui_UIAbout.h"
@@ -65,6 +61,9 @@ class DownloadQueue;
 class ToolBar;
 class MainWindow;
 class MultiLineToolBar;
+#ifdef USE_JS
+class ScriptConsole;
+#endif
 
 extern const char * const EISKALTDCPP_VERSION;
 extern const char * const EISKALTDCPP_WND_TITLE;
@@ -223,6 +222,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsSettings();
         void slotToolsJS();
         void slotToolsJSConsole();
+        void slotJSFileChanged(const QString&);
         void slotToolsTransfer(bool);
         void slotToolsSwitchSpeedLimit();
         void slotPanelMenuActionClicked();
@@ -375,6 +375,7 @@ friend class dcpp::Singleton<MainWindow>;
 #ifdef USE_JS
         QAction *toolsJS;
         QAction *toolsJSConsole;
+        ScriptConsole *scriptConsole;
 #endif
         QAction *toolsSwitchSpeedLimit;
 
@@ -420,89 +421,5 @@ friend class dcpp::Singleton<MainWindow>;
 };
 
 Q_DECLARE_METATYPE(MainWindow*)
-
-class EiskaltEventFilter: public QObject{
-Q_OBJECT
-public:
-    EiskaltEventFilter(): has_activity(true), counter(0) {
-        timer.setInterval(60000);
-
-        connect(&timer, SIGNAL(timeout()), this, SLOT(tick()));
-
-        timer.start();
-    }
-
-    virtual ~EiskaltEventFilter() {}
-
-protected:
-    virtual bool eventFilter(QObject *obj, QEvent *event){
-        if ((event->type() == QEvent::MouseButtonPress) ||
-            (event->type() == QEvent::MouseButtonRelease) ||
-            (event->type() == QEvent::MouseButtonDblClick) ||
-            (event->type() == QEvent::MouseMove) ||
-            (event->type() == QEvent::KeyPress) ||
-            (event->type() == QEvent::KeyRelease) ||
-            (event->type() == QEvent::Wheel))
-        {
-            has_activity = true;
-            counter = 0;
-
-            if (WBGET(WB_APP_AUTOAWAY_BY_TIMER) && !dcpp::Util::getManualAway()){
-                dcpp::Util::setAway(false);
-            }
-        }
-        else {
-            has_activity = false;
-        }
-
-        return QObject::eventFilter(obj, event);
-    }
-
-private Q_SLOTS:
-    void tick(){
-        if (!has_activity)
-            ++counter;
-
-        if (WBGET(WB_APP_AUTOAWAY_BY_TIMER)){
-            int mins = WIGET(WI_APP_AUTOAWAY_INTERVAL);
-
-            if (!mins)
-                return;
-
-            int mins_done = (counter*timer.interval()/1000)/60;
-
-            if (mins <= mins_done){
-                dcpp::Util::setAway(true);
-            }
-        }
-    }
-
-private:
-    QTimer timer;
-    int counter;
-    bool has_activity;
-};
-
-class EiskaltApp: public QtSingleApplication{
-Q_OBJECT
-public:
-    EiskaltApp(int argc, char *argv[]): QtSingleApplication("EiskaltDCPP", argc, argv){
-        installEventFilter(&ef);
-    }
-
-    void commitData(QSessionManager& manager){
-        if (MainWindow::getInstance()){
-            MainWindow::getInstance()->beginExit();
-            MainWindow::getInstance()->close();
-        }
-
-        manager.release();
-    }
-
-    void saveState(QSessionManager &){ /** Do nothing */ }
-
-private:
-    EiskaltEventFilter ef;
-};
 
 #endif //MAINWINDOW_H_

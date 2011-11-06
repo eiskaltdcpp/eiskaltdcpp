@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_SETTINGS_MANAGER_H
@@ -113,7 +113,8 @@ public:
         SLOTS_ALTERNATE_LIMITING, SLOTS_PRIMARY, KEEP_FINISHED_FILES,
         SHOW_FREE_SLOTS_DESC, USE_IP, OVERLAP_CHUNKS, CASESENSITIVE_FILELIST,
         IPFILTER, TEXT_COLOR, USE_LUA, ALLOW_NATT, IP_TOS_VALUE, SEGMENT_SIZE,
-        BIND_IFACE, MINIMUM_SEARCH_INTERVAL, DYNDNS_ENABLE,
+        BIND_IFACE, MINIMUM_SEARCH_INTERVAL, DYNDNS_ENABLE, ALLOW_UPLOAD_MULTI_HUB,
+        USE_ADL_ONLY_OWN_LIST,
         INT_LAST };
 
     enum Int64Setting { INT64_FIRST = INT_LAST + 1,
@@ -238,18 +239,18 @@ public:
     };
 
     bool getType(const char* name, int& n, int& type) const;
-	// Search types
-	void validateSearchTypeName(const string& name) const;
-	void setSearchTypeDefaults();
-	void addSearchType(const string& name, const StringList& extensions, bool validated = false);
-	void delSearchType(const string& name);
-	void renameSearchType(const string& oldName, const string& newName);
-	void modSearchType(const string& name, const StringList& extensions);
+    // Search types
+    void validateSearchTypeName(const string& name) const;
+    void setSearchTypeDefaults();
+    void addSearchType(const string& name, const StringList& extensions, bool validated = false);
+    void delSearchType(const string& name);
+    void renameSearchType(const string& oldName, const string& newName);
+    void modSearchType(const string& name, const StringList& extensions);
 
-	const SearchTypes& getSearchTypes() const {
-	    return searchTypes;
-	}
-	const StringList& getExtensions(const string& name);
+    const SearchTypes& getSearchTypes() const {
+        return searchTypes;
+    }
+    const StringList& getExtensions(const string& name);
 private:
     friend class Singleton<SettingsManager>;
     SettingsManager();
@@ -271,10 +272,10 @@ private:
 
     string getConfigFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "DCPlusPlus.xml"; }
 
-        // Search types
-        SearchTypes searchTypes; // name, extlist
+    // Search types
+    SearchTypes searchTypes; // name, extlist
 
-        SearchTypesIter getSearchType(const string& name);
+    SearchTypesIter getSearchType(const string& name);
 };
 
 // Shorthand accessor macros

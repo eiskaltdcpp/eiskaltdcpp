@@ -217,9 +217,16 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
             title = tr("Listing: ") + nick;
     }
 
-    init();
-
     setAttribute(Qt::WA_DeleteOnClose);
+
+    AsyncRunner *runner = new AsyncRunner(this);
+    boost::function<void()> f = boost::bind(&ShareBrowser::buildList, this);
+
+    runner->setRunFunction(f);
+    connect(runner, SIGNAL(finished()), this, SLOT(init()), Qt::QueuedConnection);
+    connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()), Qt::QueuedConnection);
+
+    runner->start();
 }
 
 ShareBrowser::~ShareBrowser(){
@@ -275,8 +282,6 @@ bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
 void ShareBrowser::init(){
     frame_FILTER->setVisible(false);
 
-    buildList();
-
     initModels();
 
     lineEdit_FILTER->installEventFilter(this);
@@ -316,8 +321,6 @@ void ShareBrowser::init(){
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     connect(toolButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
 
-    setAttribute(Qt::WA_DeleteOnClose);
-
     continueInit();
 }
 
@@ -327,8 +330,10 @@ void ShareBrowser::continueInit(){
 
     load();
 
-    if (user == ClientManager::getInstance()->getMe())
+    if (user == ClientManager::getInstance()->getMe()){
         tree_model->loadRestrictions();
+        list_model->setOwnList(true);
+    }
 
     if (!jump_to.isEmpty()){
         FileBrowserItem *root = tree_model->getRootElem();
@@ -512,14 +517,21 @@ void ShareBrowser::slotRightPaneClicked(const QModelIndex &index){
         return;
     }
 
-    label_PATH->setText(label_PATH->text()+"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString());
+    QString parent_path = label_PATH->text();
+    QModelIndex parent_index = tree_model->createIndexForItem(tree_model->createRootForPath(parent_path));
 
-    FileBrowserItem *tree_item = tree_model->createRootForPath(label_PATH->text());
+    parent_path = parent_path +"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString();
+    parent_index = tree_model->createIndexForItem(tree_model->createRootForPath(parent_path));
 
-    QModelIndex tree_index = tree_model->createIndexForItem(tree_item);
+    if (!parent_index.isValid())
+        return;
 
-    treeView_LPANE->selectionModel()->select(tree_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
-    treeView_LPANE->scrollTo(tree_index, QAbstractItemView::PositionAtCenter);
+    if (tree_model->canFetchMore(parent_index))
+        tree_model->fetchMore(parent_index);
+
+    treeView_LPANE->selectionModel()->clear();
+    treeView_LPANE->selectionModel()->select(parent_index, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+    treeView_LPANE->scrollTo(parent_index, QAbstractItemView::PositionAtCenter);
 }
 
 void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){

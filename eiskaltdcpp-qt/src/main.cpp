@@ -20,6 +20,11 @@ using namespace std;
 #include "dcpp/QueueManager.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
+
+#ifdef __HAIKU__
+#include "EiskaltApp_haiku.h"
+#endif
+
 #include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
@@ -30,6 +35,10 @@ using namespace std;
 #include "EmoticonFactory.h"
 #include "FinishedTransfers.h"
 #include "QueuedUsers.h"
+
+#ifndef __HAIKU__
+#include "EiskaltApp.h"
+#endif
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
@@ -43,6 +52,7 @@ using namespace std;
 #include <QMainWindow>
 #include <QRegExp>
 #include <QObject>
+#include <QTextCodec>
 
 #ifdef DBUS_NOTIFY
 #include <QtDBus>
@@ -73,28 +83,30 @@ void installHandlers();
 void migrateConfig();
 #endif
 
-#else//WIN32
+#else //WIN32
 #include <locale.h>
 #endif
 
 int main(int argc, char *argv[])
 {
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+    setlocale(LC_ALL, "");
+
     EiskaltApp app(argc, argv);
     int ret = 0;
 
     parseCmdLine(app.arguments());
 
-#if !defined (Q_WS_HAIKU)
     if (app.isRunning()){
-        app.sendMessage(app.arguments().join("\n"));
-
+        QStringList args = app.arguments();
+        args.removeFirst();//remove path to executable
+#ifndef __HAIKU__
+        app.sendMessage(args.join("\n"));
+#endif
         return 0;
     }
-#endif
 
-    setlocale(LC_ALL, "");
-
-#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
+#if !defined (Q_WS_WIN) && !defined (__HAIKU__)
     installHandlers();
 #endif
 
@@ -134,7 +146,6 @@ int main(int argc, char *argv[])
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
 
     app.connect(&app, SIGNAL(messageReceived(QString)), MainWindow::getInstance(), SLOT(parseInstanceLine(QString)));
-    app.setActivationWindow(MainWindow::getInstance(), true);
 
     HubManager::newInstance();
 
@@ -160,6 +171,7 @@ int main(int argc, char *argv[])
 
 #ifdef USE_JS
     ScriptEngine::newInstance();
+    QObject::connect(ScriptEngine::getInstance(), SIGNAL(scriptChanged(QString)), MainWindow::getInstance(), SLOT(slotJSFileChanged(QString)));
 #endif
 
     FinishedUploads::newInstance();
@@ -216,7 +228,7 @@ void parseCmdLine(const QStringList &args){
     }
 }
 
-#if !defined (Q_WS_WIN) && !defined (Q_WS_HAIKU)
+#if !defined (Q_WS_WIN) && !defined (__HAIKU__)
 
 void installHandlers(){
     struct sigaction sa;

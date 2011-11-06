@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_CLIENT_MANAGER_H
@@ -74,10 +74,10 @@ public:
     string findHub(const string& ipPort) const;
     string findHubEncoding(const string& aUrl) const;
 
-        /**
-        * @param priv discard any user that doesn't match the hint.
-        * @return OnlineUser* found by CID and hint; might be only by CID if priv is false.
-        */
+    /**
+    * @param priv discard any user that doesn't match the hint.
+    * @return OnlineUser* found by CID and hint; might be only by CID if priv is false.
+    */
     OnlineUser* findOnlineUser(const HintedUser& user, bool priv);
     OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl, bool priv);
 

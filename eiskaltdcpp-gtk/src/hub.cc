@@ -99,7 +99,11 @@ Hub::Hub(const string &address, const string &encoding):
     {
         PangoFontDescription *fontDesc = pango_font_description_new();
         pango_font_description_set_family(fontDesc, "Mono");
+#ifdef USE_GTK3
+        gtk_widget_override_font(getWidget("chatText"), fontDesc);
+#else
         gtk_widget_modify_font(getWidget("chatText"), fontDesc);
+#endif
         pango_font_description_free(fontDesc);
     }
 
@@ -289,7 +293,11 @@ Hub::~Hub()
 
     if (handCursor)
     {
+#ifdef USE_GTK3
+        g_object_unref(handCursor);
+#else
         gdk_cursor_unref(handCursor);
+#endif
         handCursor = NULL;
     }
 
@@ -561,8 +569,11 @@ void Hub::getPassword_gui()
         NULL);
     gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_OK);
-
+#if GTK_CHECK_VERSION(3, 2, 0)
+    GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL,0);
+#else
     GtkWidget *box = gtk_vbox_new(TRUE, 0);
+#endif
     GtkWidget *entry = gtk_entry_new();
     g_object_set(entry, "can-focus", TRUE, "visibility", FALSE, "activates-default", TRUE, NULL);
 
@@ -576,7 +587,11 @@ void Hub::getPassword_gui()
     gtk_frame_set_label_widget(GTK_FRAME(frame), label);
 
     gtk_container_add(GTK_CONTAINER(frame), box);
+#ifdef USE_GTK3
+    gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dialog)), frame);
+#else
     gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dialog)->vbox), frame);
+#endif
 
     g_object_set_data(G_OBJECT(dialog), "password-entry", (gpointer) entry);
 
@@ -869,7 +884,9 @@ void Hub::applyTags_gui(const string cid, const string &line)
                 gtk_text_view_add_child_at_anchor(GTK_TEXT_VIEW(getWidget("chatText")), event_box, anchor);
                 g_object_set_data_full(G_OBJECT(event_box), "magnet", g_strdup(image_magnet.c_str()), g_free);
                 g_object_set_data_full(G_OBJECT(event_box), "cid", g_strdup(cid.c_str()), g_free);
+#ifndef USE_GTK3
                 g_signal_connect(G_OBJECT(image), "expose-event", G_CALLBACK(expose), NULL);
+#endif
                 g_signal_connect(G_OBJECT(event_box), "event", G_CALLBACK(onImageEvent_gui), (gpointer)this);
                 gtk_widget_show_all(event_box);
 
@@ -1149,8 +1166,11 @@ void Hub::updateCursor_gui(GtkWidget *widget)
     GtkTextIter iter;
     GSList *tagList;
     GtkTextTag *newTag = NULL;
-
+#ifdef USE_GTK3
+    gdk_window_get_pointer(gtk_widget_get_window(widget)  , &x, &y, NULL);
+#else
     gdk_window_get_pointer(widget->window, &x, &y, NULL);
+#endif
 
     // Check for tags under the cursor, and change mouse cursor appropriately
     gtk_text_view_window_to_buffer_coords(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_WIDGET, x, y, &buf_x, &buf_y);
@@ -1180,7 +1200,13 @@ void Hub::updateCursor_gui(GtkWidget *widget)
         if (newTag != NULL)
         {
             // Cursor is entering a tag.
+#ifdef USE_GTK3
+            gchar *tmp;
+            g_object_get(G_OBJECT(newTag),"name",&tmp,NULL);
+            selectedTagStr = string(tmp);
+#else
             selectedTagStr = newTag->name;
+#endif
 
             if (find(TagsMap, TagsMap + TAG_MYNICK, newTag) == TagsMap + TAG_MYNICK)
             {
@@ -1209,7 +1235,13 @@ void Hub::preferences_gui()
     {
         getSettingTag_gui(wsm, (TypeTag)i, fore, back, bold, italic);
 
+        WGETB("use-native-back-color-for-text") ?
         g_object_set(TagsMap[i],
+            "foreground", fore.c_str(),
+            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+            NULL) :
+            g_object_set(TagsMap[i],
             "foreground", fore.c_str(),
             "background", back.c_str(),
             "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
@@ -1338,8 +1370,13 @@ GtkTextTag* Hub::createTag_gui(const string &tagname, TypeTag type)
         int bold, italic;
 
         getSettingTag_gui(wsm, type, fore, back, bold, italic);
-
-        tag = gtk_text_buffer_create_tag(chatBuffer, tagname.c_str(),
+        tag = WGETB("use-native-back-color-for-text") ?
+            gtk_text_buffer_create_tag(chatBuffer, tagname.c_str(),
+            "foreground", fore.c_str(),
+            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+            NULL) :
+            gtk_text_buffer_create_tag(chatBuffer, tagname.c_str(),
             "foreground", fore.c_str(),
             "background", back.c_str(),
             "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
@@ -1567,10 +1604,18 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
 gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
 {
     Hub *hub = (Hub *)data;
+#ifdef USE_GTK3
+    gchar *tmp;
+    g_object_get(G_OBJECT(tag),"name",&tmp,NULL);
+    hub->selectedTagStr = string(tmp);
+    string tagName(tmp);
+#endif
 
     if (event->type == GDK_2BUTTON_PRESS)
     {
+#ifndef USE_GTK3
         string tagName = tag->name;
+#endif
         hub->nickToChat_gui(tagName.substr(tagPrefix.size()));
 
         return TRUE;
@@ -1578,7 +1623,9 @@ gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
     else if (event->type == GDK_BUTTON_PRESS)
     {
         GtkTreeIter nickIter;
+#ifndef USE_GTK3
         string tagName = tag->name;
+#endif
 
         if (hub->findNick_gui(tagName.substr(tagPrefix.size()), &nickIter))
         {
@@ -1725,15 +1772,22 @@ void Hub::onChatScroll_gui(GtkAdjustment *adjustment, gpointer data)
 {
     Hub *hub = (Hub *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
+#ifdef USE_GTK3
+    hub->scrollToBottom = value >= ( gtk_adjustment_get_upper(adjustment) - gtk_adjustment_get_page_size (adjustment));
+#else
     hub->scrollToBottom = value >= (adjustment->upper-adjustment->page_size);
+#endif
 }
 
 void Hub::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
 {
     Hub *hub = (Hub *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
-
+#ifdef USE_GTK3
+    if (hub->scrollToBottom && value < (gtk_adjustment_get_upper(adjustment)-gtk_adjustment_get_page_size (adjustment)))
+#else
     if (hub->scrollToBottom && value < (adjustment->upper-adjustment->page_size))
+#endif
     {
         GtkTextIter iter;
 
@@ -3256,13 +3310,13 @@ void Hub::openImage_gui(string target)
        target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + target;
     WulforUtil::openURI(target);
 }
-
+#ifndef USE_GTK3
 gboolean Hub::expose(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 {
     GTK_WIDGET_CLASS(GTK_WIDGET_GET_CLASS(widget))->expose_event(widget, event);
     return true;
 }
-
+#endif
 void Hub::onItalicButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
     Hub *hub = (Hub*) data;

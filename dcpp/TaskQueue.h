@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_TASK_H
@@ -43,7 +43,7 @@ struct StringTask : public Task {
 
 class TaskQueue {
 public:
-        typedef pair<int, unique_ptr<Task>> Pair;
+    typedef pair<int, unique_ptr<Task>> Pair;
     typedef vector<Pair> List;
 
     TaskQueue() {
@@ -53,7 +53,7 @@ public:
         clear();
     }
 
-        void add(int type, std::unique_ptr<Task> && data) { Lock l(cs); tasks.push_back(make_pair(type, move(data))); }
+    void add(int type, std::unique_ptr<Task> && data) { Lock l(cs); tasks.push_back(make_pair(type, move(data))); }
     void get(List& list) { Lock l(cs); swap(tasks, list); }
     void clear() {
         List tmp;

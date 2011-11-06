@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -110,7 +110,7 @@ void FinishedManager::clearULs() {
 void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
     if(t->getType() == Transfer::TYPE_FILE || (t->getType() == Transfer::TYPE_FULL_LIST && BOOLSETTING(LOG_FILELIST_TRANSFERS))) {
         string file = t->getPath();
-                const HintedUser& user = t->getHintedUser();
+        const HintedUser& user = t->getHintedUser();
 
         uint64_t milliSeconds = GET_TICK() - t->getStart();
         time_t time = GET_TIME();
@@ -212,39 +212,39 @@ void FinishedManager::on(UploadManagerListener::Failed, Upload* u, const string&
 }
 
 string FinishedManager::getTarget(const string& aTTH){
-        if(aTTH.empty()) return Util::emptyString;
+    if(aTTH.empty()) return Util::emptyString;
 
+    {
+        Lock l(cs);
+
+        for(FinishedItem::FinishedItemList::const_iterator i = downloads.begin(); i != downloads.end(); i++)
         {
-                Lock l(cs);
-
-                for(FinishedItem::FinishedItemList::const_iterator i = downloads.begin(); i != downloads.end(); i++)
-                {
-                        if((*i).getTTH() == aTTH)
-                                return (*i).getTarget();
-                }
+            if((*i).getTTH() == aTTH)
+                return (*i).getTarget();
         }
+    }
 
-        return Util::emptyString;
+    return Util::emptyString;
 }
 
 
 bool FinishedManager::handlePartialRequest(const TTHValue& tth, vector<uint16_t>& outPartialInfo)
 {
 
-        string target = getTarget(tth.toBase32());
+    string target = getTarget(tth.toBase32());
 
-        if(target.empty()) return false;
+    if(target.empty()) return false;
 
-        int64_t fileSize = File::getSize(target);
+    int64_t fileSize = File::getSize(target);
 
-        if(fileSize < PARTIAL_SHARE_MIN_SIZE)
-                return false;
+    if(fileSize < PARTIAL_SHARE_MIN_SIZE)
+        return false;
 
-        uint16_t len = TigerTree::calcBlocks(fileSize,(int)100);
-        outPartialInfo.push_back(0);
-        outPartialInfo.push_back(len);
+    uint16_t len = TigerTree::calcBlocks(fileSize,(int)100);
+    outPartialInfo.push_back(0);
+    outPartialInfo.push_back(len);
 
-        return true;
+    return true;
 }
 
 } // namespace dcpp

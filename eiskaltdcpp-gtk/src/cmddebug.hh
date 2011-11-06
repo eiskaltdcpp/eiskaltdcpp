@@ -38,15 +38,12 @@ class cmddebug:
         cmddebug();
         virtual ~cmddebug();
         virtual void show();
-        //GUI FCE
         void add_gui(std::string file);
 
     private:
-        // Client functions
         void ini_client();
         void addCmd(const std::string& cmd,const std::string& ip);
 
-        //DebugManager
         void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept;
         void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept;
 

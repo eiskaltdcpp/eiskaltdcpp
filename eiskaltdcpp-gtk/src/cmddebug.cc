@@ -93,25 +93,25 @@ void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& m
             case dcpp::DebugManager::HUB_IN :
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_in_button"))) == TRUE)
                 {
-                    addCmd("Hub:\t[Incoming][" + ip + "]\t \t"+mess, ip);
+                    addCmd("Hub:\t[Incoming][" + ip + "]\t\t"+mess, ip);
                 }
                 break;
             case dcpp::DebugManager::HUB_OUT :
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_out_button"))) == TRUE)
                 {
-                    addCmd("Hub:\t[Outgoing][" + ip + "]\t \t"+mess, ip);
+                    addCmd("Hub:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
                 }
                 break;
             case dcpp::DebugManager::CLIENT_IN:
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_in_button"))) == TRUE)
                 {
-                    addCmd("Client:\t[Incoming][" + ip + "]\t \t"+mess, ip);
+                    addCmd("Client:\t[Incoming][" + ip + "]\t\t"+mess, ip);
                 }
                 break;
             case dcpp::DebugManager::CLIENT_OUT:
                 if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_out_button"))) == TRUE)
                 {
-                    addCmd("Client:\t[Outgoing][" + ip + "]\t \t"+mess, ip);
+                    addCmd("Client:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
                 }
                 break;
             default: break;
@@ -121,15 +121,22 @@ void cmddebug::onScroll_gui(GtkAdjustment *adjustment, gpointer data)
 {
     cmddebug *cmd = (cmddebug *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
+#ifdef USE_GTK3
+    cmd->scrollToBottom = value >= (gtk_adjustment_get_upper(adjustment) - gtk_adjustment_get_page_size (adjustment));
+#else
     cmd->scrollToBottom = value >= (adjustment->upper-adjustment->page_size);
+#endif
 }
 
 void cmddebug::onResize_gui(GtkAdjustment *adjustment, gpointer data)
 {
     cmddebug *cmd = (cmddebug *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
-
+#ifdef USE_GTK3
+    if (cmd->scrollToBottom && value < (gtk_adjustment_get_upper(adjustment) - gtk_adjustment_get_page_size (adjustment)))
+#else
     if (cmd->scrollToBottom && value < (adjustment->upper-adjustment->page_size))
+#endif
     {
         GtkTextIter iter;
         gtk_text_buffer_get_end_iter(cmd->buffer, &iter);

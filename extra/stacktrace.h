@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <execinfo.h>
 #include <cxxabi.h>
+#include "VersionGlobal.h"
 
 /** Print a demangled stack backtrace of the caller function to FILE* out. */
 static inline void print_stacktrace(FILE *out = stderr, unsigned int max_frames = 63)
@@ -100,6 +101,7 @@ static inline void print_stacktrace(FILE *out = stderr, unsigned int max_frames 
 #ifndef _WIN32
 void printBacktrace(int){
     std::cerr << "\n\n*************************************************************\n";
+    std::cerr << "EiskaltDC++ version: " << EISKALTDCPP_VERSION << " " << EISKALTDCPP_VERSION_SFX << "\n";
     std::cerr << "Oops! Please report a bug at http://code.google.com/p/eiskaltdc/issues/list provide the following backtrace:\n";
     print_stacktrace();
 

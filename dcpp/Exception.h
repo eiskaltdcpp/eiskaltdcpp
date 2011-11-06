@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_EXCEPTION_H
@@ -30,15 +30,15 @@ using std::string;
 class Exception : public std::exception
 {
 public:
-        Exception() { }
-        Exception(const string& aError) : error(aError) { dcdrun(if(error.size()>0)) dcdebug("Thrown: %s\n", error.c_str()); }
+    Exception() { }
+    Exception(const string& aError) : error(aError) { dcdrun(if(error.size()>0)) dcdebug("Thrown: %s\n", error.c_str()); }
 
-        virtual const char* what() const throw() { return getError().c_str(); }
+    virtual const char* what() const throw() { return getError().c_str(); }
 
-        virtual ~Exception() throw() { }
-        virtual const string& getError() const { return error; }
+    virtual ~Exception() throw() { }
+    virtual const string& getError() const { return error; }
 protected:
-        string error;
+    string error;
 };
 
 #ifdef _DEBUG

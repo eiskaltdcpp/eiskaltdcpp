@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-09-07 00:38+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2009-02-06 21:06+0000\n"
 "Last-Translator: oracle <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -30,34 +30,34 @@ msgstr "Preusmeri korisnika(e)"
 msgid "Auto-connect group (converted)"
 msgstr ""
 
-#: ../Socket.cpp:85
+#: ../Socket.cpp:86
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Nepoznata greška: 0x%1$x"
 
-#: ../Socket.cpp:220 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../Socket.cpp:221 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
 #: ../ConnectionManager.cpp:186
 msgid "Connection timeout"
 msgstr "Vreme povezivanja je isteklo"
 
-#: ../Socket.cpp:228 ../Socket.cpp:236 ../Socket.cpp:269 ../Socket.cpp:273
-#: ../Socket.cpp:297 ../Socket.cpp:312
+#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:298 ../Socket.cpp:313
 msgid "The socks server failed establish a connection"
 msgstr "Socks server nije uspeo uspostaviti vezu"
 
-#: ../Socket.cpp:301
+#: ../Socket.cpp:302
 msgid "The socks server requires authentication"
 msgstr "Socks server zahteva proveru"
 
-#: ../Socket.cpp:315
+#: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Socks server ne podržava proveru korisničko ime / lozinka"
 
-#: ../Socket.cpp:329 ../Socket.cpp:333
+#: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr "Socks server provera nije uspela (loše korisničko ime / lozinka?)"
 
-#: ../Socket.cpp:466
+#: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -197,7 +197,7 @@ msgstr ""
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../QueueManager.cpp:2169 ../QueueManager.cpp:2175 ../QueueManager.cpp:2181
+#: ../QueueManager.cpp:2166 ../QueueManager.cpp:2172 ../QueueManager.cpp:2178
 msgid "Offline"
 msgstr "Nije na mreži"
 
@@ -205,7 +205,7 @@ msgstr "Nije na mreži"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) ima isti CID {%3%} as %4% (%5%), ignorišem"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2198
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
 msgid "%1%/s"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr "%1% je izbačen od %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% je izbačen: %2%"
 
-#: ../AdcHub.cpp:680
+#: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
 msgstr "Ne osluškujem konekcije - molim restartujte %1%"
 
@@ -241,42 +241,42 @@ msgstr ""
 msgid "Sent "
 msgstr ""
 
-#: ../Util.cpp:595
+#: ../Util.cpp:594
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:597
+#: ../Util.cpp:596
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:599
+#: ../Util.cpp:598
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:601
+#: ../Util.cpp:600
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:603
+#: ../Util.cpp:602
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:605
+#: ../Util.cpp:604
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:635
+#: ../Util.cpp:634
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:639
+#: ../Util.cpp:638
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -400,34 +400,34 @@ msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
 msgid "UPnP: %1%"
 msgstr ""
 
-#: ../ShareManager.cpp:447
+#: ../ShareManager.cpp:446
 msgid "No directory specified"
 msgstr "Nije određen direktorijum"
 
-#: ../ShareManager.cpp:451
+#: ../ShareManager.cpp:450
 #, fuzzy
 msgid "Directory is hidden"
 msgstr "Direktorijum se već deli"
 
-#: ../ShareManager.cpp:455
+#: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
 msgstr "Direktorijum za privremeno preuzimanje se ne može deliti"
 
-#: ../ShareManager.cpp:643
+#: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
 
-#: ../ShareManager.cpp:661
+#: ../ShareManager.cpp:660
 #, fuzzy
 msgid "User has chosen not to share file: %1% (Size: %2%)"
 msgstr "Hashovanje nije uspelo: %1%"
 
-#: ../ShareManager.cpp:682
+#: ../ShareManager.cpp:681
 #, fuzzy
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr "Hashovanje nije uspelo: %1%"
 
-#: ../ShareManager.cpp:770
+#: ../ShareManager.cpp:769
 #, fuzzy
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
@@ -436,7 +436,7 @@ msgstr ""
 "Duplikat datoteke neće biti deljen: %1%%2% (Veličina: %3% B) Duplikat "
 "potvrđen sa: %4%%5%"
 
-#: ../ShareManager.cpp:792
+#: ../ShareManager.cpp:790
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -444,19 +444,19 @@ msgstr ""
 "Osvežavanje liste deljenih datoteka je u toku, molim sačekajte da se završi "
 "pre ponovnog pokretanja"
 
-#: ../ShareManager.cpp:813
+#: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
 msgstr "Osvežavanje liste deljenih datoteka nije uspelo: %1%"
 
-#: ../ShareManager.cpp:835
+#: ../ShareManager.cpp:833
 msgid "File list refresh initiated"
 msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
 
-#: ../ShareManager.cpp:860
+#: ../ShareManager.cpp:858
 msgid "File list refresh finished"
 msgstr "Osvežavanje liste deljenih datoteka završeno"
 
-#: ../ShareManager.cpp:942
+#: ../ShareManager.cpp:940
 #, fuzzy
 msgid "File list %1% generated"
 msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
@@ -481,7 +481,7 @@ msgstr "<Unesite tekst>"
 msgid "Discard"
 msgstr "Odbaci"
 
-#: ../DirectoryListing.cpp:177
+#: ../DirectoryListing.cpp:187
 msgid "Directory missing name attribute"
 msgstr "Direktorijumu nedostaje atribut ime"
 
@@ -619,41 +619,41 @@ msgstr ""
 msgid "Searching TTH alternates for: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:684 ../QueueManager.cpp:747
+#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
 msgid "A file with the same hash already exists in your share"
 msgstr "Datoteka sa istim hashom već postoji u vašim deljenim datotekama"
 
-#: ../QueueManager.cpp:710 ../QueueManager.cpp:789
+#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
 msgid "This file is already queued"
 msgstr "Ova datoteka se već deli"
 
-#: ../QueueManager.cpp:725 ../QueueManager.cpp:801
+#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
 msgid "A file with a different size already exists in the queue"
 msgstr "Datoteka različite veličine već postoji u redu"
 
-#: ../QueueManager.cpp:729
+#: ../QueueManager.cpp:727
 msgid "A file with different tth root already exists in the queue"
 msgstr "Datoteka različite tth osnove već postoji u redu"
 
-#: ../QueueManager.cpp:741
+#: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
 msgstr "Pokušavate skidati od samog sebe!"
 
-#: ../QueueManager.cpp:804
+#: ../QueueManager.cpp:802
 #, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Datoteka različite tth osnove već postoji u redu"
 
-#: ../QueueManager.cpp:808
+#: ../QueueManager.cpp:806
 #, fuzzy
 msgid "This file has already finished downloading"
 msgstr "Ova datoteka se već deli"
 
-#: ../QueueManager.cpp:845 ../QueueManager.cpp:854
+#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
 msgstr "Ime odredišne datoteke je predugačko"
 
-#: ../QueueManager.cpp:850 ../QueueManager.cpp:858
+#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -661,41 +661,41 @@ msgstr ""
 "Neispravna odredišna datoteka (nema direktorijuma, proveri podešavanje "
 "standardnog direktorijuma za preuzimanje)"
 
-#: ../QueueManager.cpp:866
+#: ../QueueManager.cpp:864
 #, fuzzy
 msgid "File already exists at the target location"
 msgstr "Datoteka iste ili veće veličine već postoji na ciljnoj lokaciji"
 
-#: ../QueueManager.cpp:879 ../QueueManager.cpp:883
+#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
 msgstr "Izvor duplikata: %1%"
 
-#: ../QueueManager.cpp:1152
+#: ../QueueManager.cpp:1149
 msgid "Target removed"
 msgstr "Odredište obrisano"
 
-#: ../QueueManager.cpp:1160
+#: ../QueueManager.cpp:1157
 msgid "Target file is missing or wrong size"
 msgstr "Odredišna datoteka nedostaje ili je pogrešne veličine"
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1206
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr ""
 
-#: ../QueueManager.cpp:1212
+#: ../QueueManager.cpp:1209
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 
-#: ../QueueManager.cpp:1410
+#: ../QueueManager.cpp:1407
 msgid "Unable to open filelist: %1%"
 msgstr "Ne mogu otvoriti listu datoteka: %1%"
 
-#: ../QueueManager.cpp:1433
+#: ../QueueManager.cpp:1430
 #, fuzzy
 msgid "%1%: Matched %2% file"
 msgstr "%1% je izbačen: %2%"
 
-#: ../QueueManager.cpp:2037 ../QueueManager.cpp:2046
+#: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 neusaglašenost (SFV-Check)"
 

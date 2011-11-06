@@ -11,7 +11,7 @@
 *
 * You should have received a copy of the GNU General Public License
 * along with this program; if not, write to the Free Software
-* Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
 #include "stdinc.h"
@@ -23,13 +23,13 @@ namespace dcpp {
 namespace ssl {
 
 vector<uint8_t> X509_digest(::X509* x509, const ::EVP_MD* md) {
-	unsigned int n;
-	unsigned char buf[EVP_MAX_MD_SIZE];
+    unsigned int n;
+    unsigned char buf[EVP_MAX_MD_SIZE];
 
-	if (!X509_digest(x509, md, buf, &n)) {
-		return vector<uint8_t>(); // Throw instead?
-	}
-	return vector<uint8_t>(buf, buf+n);
+    if (!X509_digest(x509, md, buf, &n)) {
+        return vector<uint8_t>(); // Throw instead?
+    }
+    return vector<uint8_t>(buf, buf+n);
 }
 
 }

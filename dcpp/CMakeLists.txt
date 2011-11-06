@@ -89,3 +89,13 @@ install (TARGETS dcpp
             LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP
             BUNDLE DESTINATION ${LIBDIR1})
 endif (LINK STREQUAL SHARED)
+
+if (WITH_DEV_FILES)
+    install (FILES ${DCPP_HDRS} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/)
+endif (WITH_DEV_FILES)
+
+foreach(LANG ${LANGUAGES})
+    install(FILES
+        ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo
+            DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES)
+endforeach(LANG ${LANGUAGES})

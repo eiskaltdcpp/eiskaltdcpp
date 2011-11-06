@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdafx.h"
@@ -110,11 +110,11 @@ namespace dht
 
 		Lock l(cs);
 		std::unordered_multiset<uint32_t>& packetsPerIp = receivedPackets[ip];
-		packetsPerIp.insert(cmd.getCommand());
+                packetsPerIp.insert(cmd.getCommand());
 
 		if(packetsPerIp.count(cmd.getCommand()) > maxAllowedPacketsPerMinute)
 		{
-			dcdebug("Request flood detected (%d) from %s. Packet dropped.\n", packetsPerIp.count(cmd.getCommand()), ip.c_str());
+                        dcdebug("Request flood detected (%li) from %s. Packet dropped.\n", (long int)packetsPerIp.count(cmd.getCommand()), ip.c_str());
 			return false;
 		}
 

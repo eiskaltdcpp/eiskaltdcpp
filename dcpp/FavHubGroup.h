@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_FAVHUBGROUP_H
@@ -22,14 +22,14 @@
 namespace dcpp {
 
 struct FavHubGroupProperties {
-	/**
-	* Designates a private group; hubs in a private group don't share their users with any other
-	* hub when trying to match an online user, and are not shared with any peer.
-	*/
-	bool priv;
+    /**
+    * Designates a private group; hubs in a private group don't share their users with any other
+    * hub when trying to match an online user, and are not shared with any peer.
+    */
+    bool priv;
 
-	/** Connect to all hubs in this group when the program starts. */
-	bool connect;
+    /** Connect to all hubs in this group when the program starts. */
+    bool connect;
 };
 
 typedef std::unordered_map<string, FavHubGroupProperties> FavHubGroups;

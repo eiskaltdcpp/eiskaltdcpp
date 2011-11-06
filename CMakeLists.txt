@@ -1,5 +1,5 @@
 project (eiskaltdcpp)
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 2.6.3)
 
 if (APPLE)
   set (PROJECT_NAME_GLOBAL EiskaltDC++)
@@ -8,7 +8,7 @@ else (APPLE)
 endif (APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.2.4")
+set (VERSION "2.2.5")
 set (SOVERSION "2.2")
 set (VERSION_SUFFIX "GIT")
 
@@ -64,7 +64,6 @@ CHECK_INCLUDE_FILES ("sys/types.h;sys/statvfs.h;limits.h;stdbool.h;stdint.h" FS_
 
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-find_package (X11)
 find_package (PkgConfig)
 find_package (BZip2 REQUIRED)
 find_package (ZLIB REQUIRED)
@@ -74,7 +73,6 @@ find_package (Gettext REQUIRED)
 find_package (Iconv REQUIRED)
 find_package (Subversion)
 find_package (Git)
-
 
 option (USE_QT "Qt interface" ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
@@ -97,7 +95,7 @@ option (WITH_DEV_FILES "Install development files (headers for libeiskaltdcpp)" 
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
 option (NO_UI_DAEMON "Daemon without any UI" OFF)
-option (XMLRPC_DAEMON "Mаке daemon without UI as xmlrpc server" OFF)
+option (XMLRPC_DAEMON "Make daemon as xmlrpc server" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
@@ -105,6 +103,11 @@ option (JSONRPC_DAEMON "Mаке daemon without UI as jsonrpc server" OFF)
 option (CHECK_GTK3 "Check ability build with gtk 3.x.x" OFF)
 option (USE_GTK3 "GTK3 interface" OFF)
 option (USE_CLI "Command line interface" OFF)
+option (HAIKU_PKG "Make Haiku package" OFF)
+
+if (USE_QT OR USE_GTK)
+    find_package (X11)
+endif(USE_QT OR USE_GTK)
 
 if (PERL_REGEX)
     find_package(Pcre REQUIRED)
@@ -119,18 +122,18 @@ if (LUA_SCRIPT)
     add_definitions ( -DLUA_SCRIPT )
     message (STATUS "Building with Lua scripts support")
 else (LUA_SCRIPT)
-    #set (LUA_INCLUDE_DIR " ")
-    #set (LUA_LIBRARIES " ")
-    #set (LUA_SCRIPT OFF)
+    set (LUA_INCLUDE_DIR )
+    set (LUA_LIBRARIES )
     message (STATUS "Building without Lua scripts support")
 endif(LUA_SCRIPT)
 
 if (USE_MINIUPNP)
     message (STATUS "Building with UPNP support (miniupnpc)")
-
+    set (MINIUPNP_INCLUDE_DIR)
+    set (MINIUPNP_LIBRARY)
   if (LOCAL_MINIUPNP)
-    add_subdirectory(miniupnpc)
-    set (MINIUPNP_INCLUDE_DIR "./")
+    add_subdirectory(upnp)
+    set (MINIUPNP_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/upnp")
     set (MINIUPNP_LIBRARY "miniupnpc")
   else (LOCAL_MINIUPNP)
     find_package (Miniupnpc REQUIRED)
@@ -244,12 +247,12 @@ file(DOWNLOAD http://eiskaltdc.googlecode.com/files/${boost_file_name} ${CMAKE_C
 message (STATUS "${boost_logs}")
 message (STATUS "${boost_status}")
 endif (NOT BOOST_TAR_EXISTS)
-file(GLOB BOOST_TAR_EXISTS  *.tar.gz)
+file(GLOB BOOST_TAR_EXISTS *.tar.gz)
 FIND_PROGRAM (TAR_CMD tar)
   EXECUTE_PROCESS (
                 COMMAND ${TAR_CMD} -xf ${BOOST_TAR_EXISTS}
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
-set (Boost_INCLUDE_DIR "./")
+                WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
+set (Boost_INCLUDE_DIR ${PROJECT_BINARY_DIR})
 if (HAIKU)
 EXECUTE_PROCESS (
                 COMMAND patch -p0 -i haiku/boost.diff
@@ -447,6 +450,7 @@ endif (NOT DEFINED linguas)
 message (STATUS "Translations: ${LANGUAGES}")
 
 add_subdirectory(extra)
+add_subdirectory(data)
 
 if (WITH_DHT)
   add_subdirectory (dht)
@@ -462,9 +466,8 @@ if (USE_GTK OR USE_GTK3)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK OR USE_GTK3)
 
-
 if (NO_UI_DAEMON OR XMLRPC_DAEMON OR JSONRPC_DAEMON)
-    add_subdirectory (nasdc)
+  add_subdirectory (eiskaltdcpp-daemon)
 endif ()
 
 if (USE_CLI)
@@ -475,8 +478,13 @@ if (JSONRPC_DAEMON)
 add_subdirectory (json)
 endif (JSONRPC_DAEMON)
 
+if (HAIKU AND HAIKU_PKG)
+  add_subdirectory (haiku)
+endif ()
+
+
 CONFIGURE_FILE(
-  "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
   IMMEDIATE @ONLY)
 ADD_CUSTOM_TARGET(uninstall
@@ -487,47 +495,3 @@ if(GETTEXT_FOUND)
     option (CREATE_MO "Create mo files" ON)
     add_subdirectory(cmake)
 endif(GETTEXT_FOUND)
-
-if (USE_QT OR USE_GTK)
-
-    if (WITH_EXAMPLES)
-        install (DIRECTORY examples/ DESTINATION ${CLIENT_DATA_DIR}/examples
-        FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
-        PATTERN ".svn" EXCLUDE )
-        install (FILES update_geoip DESTINATION ${CLIENT_DATA_DIR}
-        PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
-    endif (WITH_EXAMPLES)
-
-    if (WITH_LUASCRIPTS AND LUA_SCRIPT)
-        install (DIRECTORY luascripts/ DESTINATION ${CLIENT_DATA_DIR}/luascripts
-        PATTERN ".svn" EXCLUDE )
-    endif (WITH_LUASCRIPTS AND LUA_SCRIPT)
-
-    if (WITH_SOUNDS)
-        install (DIRECTORY sounds/ DESTINATION ${CLIENT_DATA_DIR}/sounds
-        PATTERN ".svn" EXCLUDE )
-    endif (WITH_SOUNDS)
-
-    if (WITH_EMOTICONS)
-        install (DIRECTORY emoticons/ DESTINATION ${CLIENT_DATA_DIR}/emoticons
-        PATTERN ".svn" EXCLUDE)
-    endif (WITH_EMOTICONS)
-
-    if (WITH_DEV_FILES)
-        install (FILES ${DCPP_HDRS} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/)
-    endif (WITH_DEV_FILES)
-
-list(APPEND iconsize 16 22 24 32 48 64 128)
-foreach (isize ${iconsize})
-  if (NOT HAIKU)
-    install (FILES icons/icon_${isize}x${isize}.png DESTINATION ${CLIENT_ICONS_DEST1}/hicolor/${isize}x${isize}/apps RENAME eiskaltdcpp.png)
-  endif (NOT HAIKU)
-endforeach (isize)
-if (APPLE)
-  install (FILES icons/icon_128x128.png DESTINATION ${PROJECT_NAME_GLOBAL}.app/pixmaps/ RENAME eiskaltdcpp.png)
-else (APPLE)
-  if (NOT HAIKU)
-    install (FILES icons/icon_128x128.png DESTINATION ${SHARE_DIR}/pixmaps/ RENAME eiskaltdcpp.png)
-  endif (NOT HAIKU)
-endif (APPLE)
-endif (USE_QT OR USE_GTK)

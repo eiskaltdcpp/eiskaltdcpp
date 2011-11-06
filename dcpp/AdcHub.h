@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_ADC_HUB_H
@@ -79,6 +79,7 @@ public:
     static const string TIGR_SUPPORT;
     static const string UCM0_SUPPORT;
     static const string BLO0_SUPPORT;
+    static const string ZLIF_SUPPORT;
 #ifdef WITH_DHT
     static const string DHT0_SUPPORT;
 #endif
@@ -136,6 +137,8 @@ private:
     void handle(AdcCommand::PSR, AdcCommand& c) noexcept;
     void handle(AdcCommand::NAT, AdcCommand& c) noexcept;
     void handle(AdcCommand::RNT, AdcCommand& c) noexcept;
+    void handle(AdcCommand::ZON, AdcCommand& c) noexcept;
+    void handle(AdcCommand::ZOF, AdcCommand& c) noexcept;
 
     template<typename T> void handle(T, AdcCommand&) { }
 

@@ -22,29 +22,55 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 use warnings;
+no warnings qw( uninitialized );
 use strict;
 use RPC::XML::Client;
 use RPC::XML::Parser;
 use Term::ShellUI;
 use Cwd;
-
-# preparing terminal
-binmode STDOUT, ':utf8';
+use Getopt::Long;
+use Env qw[$XDG_CONFIG_HOME];
 
 # use non-standart paths
 BEGIN {
     unshift @INC, 
-         "~/.config/eiskaltdc++/",
-         "/usr/local/share/eiskaltdcpp/cli", "/usr/share/eiskaltdcpp/cli"
+	 "$XDG_CONFIG_HOME/eiskaltdc++",
+	 "~/.config/eiskaltdc++/",
+	 "/usr/local/share/eiskaltdcpp/cli",
+	 "/usr/share/eiskaltdcpp/cli"
 }
+
+# preparing terminal
+binmode STDOUT, ':utf8';
 
 # configuration
 our %config;
+$config{version}=0.2;
 require "config.pl";
+my $version,my $help;
+GetOptions ('v|version' => \$version, 'h|help' => \$help);
+if ($version)
+{
+	print("Command line interface version: $config{version}\n");
+	exit(1);
+}
+if ($help)
+{
+	print(  "Using:
+\teiskaltdcpp-cli
+\teiskaltdcpp-cli <Key>
+This is command line interface for eiskaltdcpp-daemon written on perl.
+EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
+
+Keys:
+\t-h, --help\t Show this message
+\t-v, --version\t Show version string\n");
+	exit(1);
+}
 print("Configuration:\n");
 foreach (keys %config)
 {
-	print("$_:\t$config{$_}\n");
+	print("$_: $config{$_}\n");
 }
 
 my $P = RPC::XML::Parser->new();
@@ -57,13 +83,14 @@ sub get_commands
 {
 	return 
 	{
-
+		# v0.2
 		"help" => 
 		{ 
 			desc => "Print helpful information",
 			args => sub { shift->help_args(undef, @_); },
 			method => sub { shift->help_call(undef, @_); } 
 		},
+		# v0.2
 		"hub.add" =>
 		{
 			desc => "Add a new hub and connect. Parameters: s/'huburl', s/'encoding'",
@@ -71,6 +98,7 @@ sub get_commands
 			maxargs => 2,
 			proc => \&hubadd
 		},
+		# v0.2
 		"hub.del" =>
 		{
 			desc => "Disconnect hub and delete from autoconnect. Parameters: s/'huburl'",
@@ -80,6 +108,7 @@ sub get_commands
 			proc => \&hubdel
 
 		},
+		# v0.2
 		"hub.say" =>
 		{
 			desc => "Send a public message to hub. Parameters: s/'huburl', s/'message'",
@@ -89,6 +118,7 @@ sub get_commands
 			maxargs => 2,
 			proc => \&hubsay
 		},
+		# v0.2
 		"hub.pm" =>
 		{
 			desc => "Send a private message to nick on hub. Parameters: s/'huburl', s/'nick', s/'message'",
@@ -99,6 +129,7 @@ sub get_commands
 			proc => \&hubpm
 
 		},
+		# v0.2
 		"hub.list" =>
 		{
 			desc => "Get a list of hubs, configured to connect to. Parameters: s/'separator'",
@@ -114,14 +145,13 @@ sub get_commands
 			maxargs => 2,
 			proc => \&hubgetchat
 		},
+		# v0.2
 		"daemon.stop" =>
 		{
-			desc => "Disconnect from hubs and exit. Parameters: i/1",
-			minargs => 1,
-			maxargs => 1,
+			desc => "Disconnect from hubs and exit. Parameters: none",
 			proc => \&daemonstop
-
 		},
+		# v0.2
 		"magnet.add" =>
 		{
 			desc => "Add a magnet to download queue, and fetch it to download directory. Parameters: s/'magnet', s/'download directory'",
@@ -130,6 +160,7 @@ sub get_commands
 			maxargs => 2,
 			proc => \&magnetadd
 		},
+		# v0.2
 		"share.add" =>
 		{
 			desc => "Add a directory to share as virtual name. Parameters: s/'directory',s/'virtual name'",
@@ -138,6 +169,7 @@ sub get_commands
 			maxargs => 2,
 			proc => \&shareadd
 		},
+		# v0.2
 		"share.rename" =>
 		{
 			desc => "Give a new virtual name to shared directory. Parameters: s/'directory',s/'virtual name'",
@@ -146,6 +178,7 @@ sub get_commands
 			maxargs => 2,
 			proc => \&sharerename
 		},
+		# v0.2
 		"share.del" =>
 		{
 			desc => "Unshare directory with virtual name. Parameters: Parameters: s/'virtual name'",
@@ -153,19 +186,20 @@ sub get_commands
 			maxargs => 1,
 			proc => \&sharedel
 		},
+		# v0.2
 		"share.list" =>
 		{
 			desc => "Get a list of shared directories. Parameters: s/'separator'",
 			maxargs => 1,
 			proc => \&sharelist
 		},
+		# v0.2
 		"share.refresh" =>
 		{
-			desc => "Refresh a share, hash new files. Parameters: i/1",
-			minargs => 1,
-			maxargs => 1,
+			desc => "Refresh a share, hash new files. Parameters: none",
 			proc => \&sharerefresh
 		},
+		# v0.2
 		"list.download" =>
 		{
 			desc => "Download a file list from nick on huburl. Parameters: s/'huburl', s/'nick'",
@@ -173,6 +207,7 @@ sub get_commands
 			maxargs => 2,
 			proc => \&listdownload
 		},
+		# v0.2
 		"search.send" =>
 		{
 			desc => "Start hub search. Parameters: s/'search string'",
@@ -180,16 +215,23 @@ sub get_commands
 			maxargs => 1,
 			proc => \&searchsend
 		},
-		"search.list" =>
+		# v0.2
+		"search.getresults" =>
 		{
-			desc => "Get search results. Parameters: s/'index of search', s/'huburls'",
-			minargs => 2,
-			maxargs => 2,
-			proc => \&searchlist
+			desc => "Get search results. Parameters: none",
+			proc => \&searchgetresults
 		},
-		"search.retresults" => 
+		# v0.2
+		"show.version" =>
 		{
-			desc => "Not implemented"
+			desc => "Show daemon version. Parameters: none",
+			proc => \&showversion
+		},
+		# v0.2
+		"show.ratio" =>
+		{
+			desc => "Show client ration. Parameters: none",
+			proc => \&showratio
 		},
 		"prompt" =>
 		{
@@ -261,17 +303,17 @@ sub hublist($)
 	print $$res."\n";
 }
 
-sub hubretchat($$)
+sub hubgetchat($$)
 {
-	my $req=RPC::XML::request->new('hub.retchat', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1] || $config{separator}));
+	my $req=RPC::XML::request->new('hub.getchat', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1] || $config{separator}));
 	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
 	my $res = $P->parse($resp->as_string());
 	print $$res."\n";
 }
 
-sub daemonstop($)
+sub daemonstop()
 {
-	my $req=RPC::XML::request->new('daemon.stop', RPC::XML::int->new($_[0]));
+	my $req=RPC::XML::request->new('daemon.stop');
 	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
 	my $res = $P->parse($resp->as_string());
 	print $$res."\n";
@@ -311,16 +353,15 @@ sub sharedel($)
 
 sub sharelist($)
 {
-	if (defined($_[0])) {print('>',$_[0],'<')}
 	my $req=RPC::XML::request->new('share.list', RPC::XML::string->new($_[0] || $config{separator}));
 	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
 	my $res = $P->parse($resp->as_string());
 	print $$res."\n";
 }
 
-sub sharerefresh($)
+sub sharerefresh()
 {
-	my $req=RPC::XML::request->new('share.refresh', RPC::XML::int->new($_[0]));
+	my $req=RPC::XML::request->new('share.refresh');
 	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
 	my $res = $P->parse($resp->as_string());
 	print $$res."\n";
@@ -342,9 +383,36 @@ sub searchsend($)
 	print $$res."\n";
 }
 
-sub searchlist($$)
+sub searchgetresults()
 {
-	my $req=RPC::XML::request->new('search.list', RPC::XML::string->new($_[0]), RPC::XML::string->new($_[1]));
+	my $req=RPC::XML::request->new('search.getresults');
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	foreach (@$res)
+	{
+		foreach ($_)
+		{
+			my %result=%$_;
+			foreach (keys %result)
+			{
+				print("$_ => ${$result{$_}}\n");
+			}
+		}
+
+	}
+}
+
+sub showversion()
+{
+	my $req=RPC::XML::request->new('show.version');
+	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
+	my $res = $P->parse($resp->as_string());
+	print $$res."\n";
+}
+
+sub showratio()
+{
+	my $req=RPC::XML::request->new('show.ratio');
 	my $resp = $cli->send_request($req) or die "Can not send request to hub url $config{eiskaltURL}: $_\n";
 	my $res = $P->parse($resp->as_string());
 	print $$res."\n";
@@ -352,80 +420,26 @@ sub searchlist($$)
 
 
 
-
-
 __END__
 
 
 =pod
-
-			#desc => "Start hub search. Parameters: s/'search string', i/type, i/sizemode, i/sizetype, d/size, s/'huburls'",
-			#doc => qq[Start hub search. Parameters: s/'search string', i/type, i/sizemode, i/sizetype, d/size, s/'huburls'
-	
-#type is an integer, one of the following:
-#"2" is for search 7z ,ace ,arj ,bz2 ,gz ,lha ,lzh ,rar ,tar ,z ,zip files
-#"1" is for search ape ,flac ,m4a ,mid ,mp3 ,mpc ,ogg ,ra ,wav ,wma files
-#"4" is for search app ,bat ,cmd ,com ,dll ,exe ,jar ,msi ,ps1 ,vbs ,wsf files
-#"3" is for search doc ,docx ,htm ,html ,nfo ,odf ,odp ,ods ,odt ,pdf ,ppt ,pptx ,rtf ,txt ,xls ,xlsx ,xml ,xps files
-#"6" is for search 3gp ,asf ,asx ,avi ,divx ,flv ,mkv ,mov ,mp4 ,mpeg ,mpg ,ogm ,pxp ,qt ,rm ,rmvb ,swf ,vob ,webm ,wmv files
-#"5" is for search bmp ,cdr ,eps ,gif ,ico ,img ,jpeg ,jpg ,png ,ps ,psd ,sfw ,tga ,tif ,webp files
-#"7" is for search iso ,mdf ,mds ,nrg ,vcd ,bwt ,ccd ,cdi ,pdi ,cue ,isz ,img ,vc4 files
-
-#sizemode and sizetype is commonly 0, size is commonly 0.0 (decimal value)],
-			#minargs => 2,
-			#maxargs => 6,
-			#proc => sub {}
-
-
-
-args
-maxargs
-minargs
-proc
-method
-
-        "cd" => { desc => "Change to directory DIR",
-                      args => sub { shift->complete_onlydirs(@_); },
-                      maxargs => 1,
-                      proc => sub { chdir($_[0] || $ENV{HOME} || $ENV{LOGDIR}) or print("Could not cd: $!\n") } },
-        "delete" => { desc => "Delete FILEs",
-                      args => sub { shift->complete_onlyfiles(@_); },
-                      minargs => 1,
-                      proc => sub { danger() && (unlink(@_) or warn "Could not delete: $!\n") } },
-        "?" => { syn => "help" },
-        "help" => { desc => "Print helpful information",
-                      args => sub { shift->help_args(undef, @_); },
-                      method => sub { shift->help_call(undef, @_); } },
-        "ls" => { syn => "list" },
-        "dir" => { syn => "ls" },
-        "list" => { desc => "List files in DIRs",
-                      args => sub { shift->complete_onlydirs(@_); },
-                      proc => sub { system('ls', '-FClg', @_); } },
-        "pwd" => { desc => "Print the current working directory",
-                      maxargs => 0,
-                      proc => sub { system('pwd'); } },
-        "quit" => { desc => "Quit using Fileman",
-                      maxargs => 0,
-                      method => sub { shift->exit_requested(1); } },
-        "rename" => { desc => "Rename FILE to NEWNAME",
-                      args => sub { shift->complete_files(@_); },
-                      minargs => 2, maxargs => 2,
-                      proc => sub { danger() && system('mv', @_); } },
-        "stat" => { desc => "Print out statistics on FILEs",
-                      args => sub { shift->complete_files(@_); },
-                      proc => \&print_stats },
-        "cat" => { syn => "view" },
-        "view" => { desc => "View the contents of FILEs",
-                      args => sub { shift->complete_onlyfiles(@_); },
-                      proc => sub { system('cat', @_); } },
-# these demonstrate how parts of Term::ShellUI work:
-        echo => { desc => "Echoes the command-line arguments",
-                      proc => sub { print join(" ", @_), "\n"; } },
-        tok => { desc => "Print command-line arguments with clear separations",
-                      proc => sub { print "<" . join(">, <", @_), ">\n"; } },
-        debug_complete => { desc => "Turn on completion debugging",
-                      minargs => 1, maxargs => 1, args => "0=off 1=some, 2=more, 3=tons",
-                      proc => sub { $term->{debug_complete} = $_[0] },
-			},
+    xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
+    xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
+    xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
+    xmlrpcRegistry.addMethod("hub.del", hubDelMethodP);
+    xmlrpcRegistry.addMethod("hub.say", hubSayMethodP);
+    xmlrpcRegistry.addMethod("hub.pm", hubSayPrivateMethodP);
+    xmlrpcRegistry.addMethod("hub.list", listHubsMethodP);
+    xmlrpcRegistry.addMethod("hub.getchat", getChatPubMethodP);
+    xmlrpcRegistry.addMethod("share.add", addDirInShareMethodP);
+    xmlrpcRegistry.addMethod("share.rename", renameDirInShareMethodP);
+    xmlrpcRegistry.addMethod("share.del", delDirFromShareMethodP);
+    xmlrpcRegistry.addMethod("share.list", listShareMethodP);
+    xmlrpcRegistry.addMethod("share.refresh", refreshShareMethodP);
+    xmlrpcRegistry.addMethod("list.download", getFileListMethodP);
+    xmlrpcRegistry.addMethod("search.send", sendSearchMethodP);
+    xmlrpcRegistry.addMethod("search.getresults", returnSearchResultsMethodP);
+    xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
+    xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
 =cut
-

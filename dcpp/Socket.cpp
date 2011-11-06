@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -22,6 +22,7 @@
 #include "format.h"
 #include "SettingsManager.h"
 #include "TimerManager.h"
+#include "LogManager.h"
 
 #ifdef __MINGW32__
 #ifndef EADDRNOTAVAIL
@@ -134,7 +135,7 @@ void Socket::accept(const Socket& listeningSocket) {
 }
 
 
-static string getIfaceI4 (const string &iface){
+string Socket::getIfaceI4 (const string &iface){
 #ifdef _WIN32
     return "0.0.0.0";
 #else
@@ -156,7 +157,7 @@ static string getIfaceI4 (const string &iface){
                     s = inet_ntoa(((struct sockaddr_in*)sa)->sin_addr);
             }
 
-            close(sock);
+            ::close(sock);
         }
     }
 
@@ -169,7 +170,7 @@ uint16_t Socket::bind(uint16_t aPort, const string& aIp /* = 0.0.0.0 */) {
 
     sock_addr.sin_family = AF_INET;
     sock_addr.sin_port = htons(aPort);
-    sock_addr.sin_addr.s_addr = inet_addr((SETTING(BIND_IFACE)? getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : aIp.c_str()));
+    sock_addr.sin_addr.s_addr = inet_addr(aIp.c_str());
 
     if(::bind(sock, (sockaddr *)&sock_addr, sizeof(sock_addr)) == SOCKET_ERROR) {
         dcdebug("Bind failed, retrying with INADDR_ANY: %s\n", SocketException(getLastError()).getError().c_str());
@@ -344,7 +345,11 @@ int Socket::getSocketOptInt(int option) {
 
 void Socket::setSocketOpt(int option, int val) {
     int len = sizeof(val);
-    check(::setsockopt(sock, SOL_SOCKET, option, (char*)&val, len));
+
+    try {
+		check(::setsockopt(sock, SOL_SOCKET, option, (char*)&val, len));
+	}
+	catch ( ... ) {}
 }
 
 int Socket::read(void* aBuffer, int aBufLen) {

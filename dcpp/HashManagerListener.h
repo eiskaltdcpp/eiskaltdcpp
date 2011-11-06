@@ -13,7 +13,7 @@
 *
 * You should have received a copy of the GNU General Public License
 * along with this program; if not, write to the Free Software
-* Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
 #ifndef HASHMANAGERLISTENER_H_
@@ -26,12 +26,12 @@ namespace dcpp {
 
 class HashManagerListener {
 public:
-	virtual ~HashManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~HashManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> TTHDone;
+    typedef X<0> TTHDone;
 
-	virtual void on(TTHDone, const string& /* fileName */, const TTHValue& /* root */) noexcept = 0;
+    virtual void on(TTHDone, const string& /* fileName */, const TTHValue& /* root */) noexcept = 0;
 };
 
 }

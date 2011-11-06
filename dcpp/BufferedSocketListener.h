@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_BUFFEREDSOCKETLISTENER_H_
@@ -28,28 +28,28 @@ using std::string;
 
 class BufferedSocketListener {
 public:
-	virtual ~BufferedSocketListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~BufferedSocketListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> Connecting;
-	typedef X<1> Connected;
-	typedef X<2> Line;
-	typedef X<3> Data;
-	typedef X<4> BytesSent;
-	typedef X<5> ModeChange;
-	typedef X<6> TransmitDone;
-	typedef X<7> Failed;
-	typedef X<8> Updated;
+    typedef X<0> Connecting;
+    typedef X<1> Connected;
+    typedef X<2> Line;
+    typedef X<3> Data;
+    typedef X<4> BytesSent;
+    typedef X<5> ModeChange;
+    typedef X<6> TransmitDone;
+    typedef X<7> Failed;
+    typedef X<8> Updated;
 
-	virtual void on(Connecting) noexcept { }
-	virtual void on(Connected) noexcept { }
-	virtual void on(Line, const string&) noexcept { }
-	virtual void on(Data, uint8_t*, size_t) noexcept { }
-	virtual void on(BytesSent, size_t, size_t) noexcept { }
-	virtual void on(ModeChange) noexcept { }
-	virtual void on(TransmitDone) noexcept { }
-	virtual void on(Failed, const string&) noexcept { }
-	virtual void on(Updated) noexcept { }
+    virtual void on(Connecting) noexcept { }
+    virtual void on(Connected) noexcept { }
+    virtual void on(Line, const string&) noexcept { }
+    virtual void on(Data, uint8_t*, size_t) noexcept { }
+    virtual void on(BytesSent, size_t, size_t) noexcept { }
+    virtual void on(ModeChange) noexcept { }
+    virtual void on(TransmitDone) noexcept { }
+    virtual void on(Failed, const string&) noexcept { }
+    virtual void on(Updated) noexcept { }
 };
 
 } // namespace dcpp

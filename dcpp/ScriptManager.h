@@ -13,7 +13,7 @@
 *
 * You should have received a copy of the GNU General Public License
 * along with this program; if not, write to the Free Software
-* Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
 #if !defined(SCRIPTMANAGER_H__INCLUDED_)
@@ -43,8 +43,8 @@ class ScriptManagerListener {
     };
 
 struct LuaManager  {
-        static const char className[];
-        static Lunar<LuaManager>::RegType methods[];
+    static const char className[];
+    static Lunar<LuaManager>::RegType methods[];
 
     LuaManager(lua_State* /* L */) { }
         int SendClientMessage(lua_State* L);
@@ -108,25 +108,24 @@ class ScriptInstance {
         void EvaluateChunk(const string& chunk);
 };
 
-class ScriptManager: public ScriptInstance, public Singleton<ScriptManager>, public Speaker<ScriptManagerListener>,
-        private ClientManagerListener, private TimerManagerListener
-     {
-        Socket s;
+class ScriptManager: public ScriptInstance, public Singleton<ScriptManager>, public Speaker<ScriptManagerListener>, private ClientManagerListener, private TimerManagerListener
+{
+    Socket s;
 
-        friend class Singleton<ScriptManager>;
-        ScriptManager();
-        virtual ~ScriptManager() throw () { if (L) lua_close(L); if(timerEnabled) TimerManager::getInstance()->removeListener(this); }
-    public:
-        void load();
-        void  SendDebugMessage(const string& s);
-        GETSET(bool , timerEnabled, TimerEnabled);
-    private:
-        friend struct LuaManager;
-        friend class ScriptInstance;
+    friend class Singleton<ScriptManager>;
+    ScriptManager();
+    virtual ~ScriptManager() throw () { if (L) lua_close(L); if(timerEnabled) TimerManager::getInstance()->removeListener(this); }
+public:
+    void load();
+    void  SendDebugMessage(const string& s);
+    GETSET(bool , timerEnabled, TimerEnabled);
+private:
+    friend struct LuaManager;
+    friend class ScriptInstance;
 
-        virtual void on(ClientConnected, Client* aClient) noexcept;
-        virtual void on(ClientDisconnected, Client* aClient) noexcept;
-        virtual void on(Second, uint64_t /* ticks */) noexcept;
+    virtual void on(ClientConnected, Client* aClient) noexcept;
+    virtual void on(ClientDisconnected, Client* aClient) noexcept;
+    virtual void on(Second, uint64_t /* ticks */) noexcept;
 
 
 };

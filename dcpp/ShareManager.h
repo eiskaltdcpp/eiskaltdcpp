@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_SHARE_MANAGER_H
@@ -308,7 +308,6 @@ private:
     virtual int run();
 
     // QueueManagerListener
-    //virtual void on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t speed) noexcept;
     virtual void on(QueueManagerListener::FileMoved, const string& n) noexcept;
     // HashManagerListener
     virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) noexcept;

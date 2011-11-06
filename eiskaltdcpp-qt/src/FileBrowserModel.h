@@ -125,6 +125,8 @@ public:
     void clear();
     /** */
     void repaint();
+    /** */
+    void setOwnList(bool _own){ ownList = _own; }
 
 signals:
     void rootChanged(FileBrowserItem*,FileBrowserItem*);
@@ -150,6 +152,8 @@ private:
     QMap<QString, unsigned> restrict_map;
     /** */
     bool restrictionsLoaded;
+    /** */
+    bool ownList;
 };
 
 #endif // FBMODEL_H

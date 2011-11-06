@@ -11,7 +11,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef __DEBUGMANAGER_H
@@ -24,34 +24,34 @@ namespace dcpp {
 
 class DebugManagerListener {
 public:
-template<int I>	struct X { enum { TYPE = I };  };
+template<int I> struct X { enum { TYPE = I };  };
 
-	typedef X<0> DebugCommand;
-	typedef X<0> DebugDetection;
+    typedef X<0> DebugCommand;
+    typedef X<1> DebugDetection;
 
-	virtual void on(DebugDetection, const string&) noexcept { }
-	virtual void on(DebugCommand, const string&, int, const string&) noexcept { }
+    virtual void on(DebugDetection, const string&) noexcept { }
+    virtual void on(DebugCommand, const string&, int, const string&) noexcept { }
 };
 
 class DebugManager : public Singleton<DebugManager>, public Speaker<DebugManagerListener> {
 public:
-	void SendCommandMessage(const string& mess, int typeDir, const string& ip) {
-		fire(DebugManagerListener::DebugCommand(), mess, typeDir, ip);
-	}
-	void SendDetectionMessage(const string& mess) {
-		fire(DebugManagerListener::DebugDetection(), mess);
-	}
-	enum {
-		HUB_IN, HUB_OUT, CLIENT_IN, CLIENT_OUT
-	};
+    void SendCommandMessage(const string& mess, int typeDir, const string& ip) {
+        fire(DebugManagerListener::DebugCommand(), mess, typeDir, ip);
+    }
+    void SendDetectionMessage(const string& mess) {
+        fire(DebugManagerListener::DebugDetection(), mess);
+    }
+    enum {
+        HUB_IN, HUB_OUT, CLIENT_IN, CLIENT_OUT
+    };
 
 private:
-	friend class Singleton<DebugManager>;
-	DebugManager() noexcept { };
-	~DebugManager() noexcept { };
+    friend class Singleton<DebugManager>;
+    DebugManager() noexcept { };
+    ~DebugManager() noexcept { };
 };
-#define COMMAND_DEBUG(a,b,c) DebugManager::getInstance()->SendCommandMessage(a,b,c);
-#define DETECTION_DEBUG(m) DebugManager::getInstance()->SendDetectionMessage(m);
+#define COMMAND_DEBUG(a,b,c) if (DebugManager::getInstance()) DebugManager::getInstance()->SendCommandMessage(a,b,c);
+#define DETECTION_DEBUG(m) if (DebugManager::getInstance()) DebugManager::getInstance()->SendDetectionMessage(m);
 
 } // namespace dcpp
 

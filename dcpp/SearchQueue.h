@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #pragma once
@@ -24,56 +24,56 @@ namespace dcpp {
 
 struct SearchCore
 {
-	int32_t		sizeType;
-	int64_t		size;
-	int32_t		fileType;
-	string		query;
-	string		token;
-	StringList	exts;
-	set<void*>	owners;
+    int32_t     sizeType;
+    int64_t     size;
+    int32_t     fileType;
+    string      query;
+    string      token;
+    StringList  exts;
+    set<void*>  owners;
 
-	bool operator==(const SearchCore& rhs) const {
-		 return this->sizeType == rhs.sizeType &&
-		 		this->size == rhs.size &&
-		 		this->fileType == rhs.fileType &&
-		 		this->query == rhs.query &&
-				this->token == rhs.token;
-	}
+    bool operator==(const SearchCore& rhs) const {
+         return this->sizeType == rhs.sizeType &&
+                this->size == rhs.size &&
+                this->fileType == rhs.fileType &&
+                this->query == rhs.query &&
+                this->token == rhs.token;
+    }
 };
 
 class SearchQueue
 {
 public:
 
-	SearchQueue(uint32_t aInterval = 0)
-		: lastSearchTime(0), interval(aInterval)
-	{
-	}
+    SearchQueue(uint32_t aInterval = 0)
+        : lastSearchTime(0), interval(aInterval)
+    {
+    }
 
-	bool add(const SearchCore& s);
-	bool pop(SearchCore& s);
+    bool add(const SearchCore& s);
+    bool pop(SearchCore& s);
 
-	void clear()
-	{
-		Lock l(cs);
-		searchQueue.clear();
-	}
+    void clear()
+    {
+        Lock l(cs);
+        searchQueue.clear();
+    }
 
-	bool cancelSearch(void* aOwner);
+    bool cancelSearch(void* aOwner);
 
-	/** return 0 means not in queue */
-	uint64_t getSearchTime(void* aOwner);
+    /** return 0 means not in queue */
+    uint64_t getSearchTime(void* aOwner);
 
-	/**
-		by milli-seconds
-		0 means no interval, no auto search and manual search is sent immediately
-	*/
-	uint32_t interval;
+    /**
+        by milli-seconds
+        0 means no interval, no auto search and manual search is sent immediately
+    */
+    uint32_t interval;
 
 private:
-	deque<SearchCore>   searchQueue;
-	uint64_t       lastSearchTime;
-	CriticalSection cs;
+    deque<SearchCore>   searchQueue;
+    uint64_t       lastSearchTime;
+    CriticalSection cs;
 };
 
 }

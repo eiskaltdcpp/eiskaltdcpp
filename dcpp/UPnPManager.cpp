@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -134,8 +134,8 @@ int UPnPManager::run() {
 
 void UPnPManager::close(UPnP& impl) {
         if(impl.hasRules()) {
-                log(impl.close() ? str(F_("Successfully removed port mappings with the %1% interface") % impl.getName()) :
-                        str(F_("Failed to remove port mappings with the %1% interface") % impl.getName()));
+            log(impl.close() ? str(F_("Successfully removed port mappings with the %1% interface") % impl.getName()) :
+                            str(F_("Failed to remove port mappings with the %1% interface") % impl.getName()));
         }
 }
 
@@ -144,7 +144,7 @@ void UPnPManager::log(const string& message) {
 }
 #ifdef USE_MINIUPNP
 void UPnPManager::runMiniUPnP() {
-        addImplementation(new UPnPc());
+    addImplementation(new UPnPc());
 }
 #endif
 } // namespace dcpp

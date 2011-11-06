@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -57,7 +57,7 @@ FinishedFileItem::FinishedFileItem(
     int64_t fileSize_,
     int64_t actual_,
     bool crc32Checked_,
-        const HintedUser& user
+    const HintedUser& user
     ) :
 FinishedItemBase(transferred_, milliSeconds_, time_),
 fileSize(fileSize_),
@@ -73,7 +73,7 @@ void FinishedFileItem::update(
     time_t time_,
     int64_t actual_,
     bool crc32Checked_,
-        const HintedUser& user
+    const HintedUser& user
     )
 {
     FinishedItemBase::update(transferred_, milliSeconds_, time_);
@@ -85,9 +85,9 @@ void FinishedFileItem::update(
 
         HintedUserList::iterator i = find(users.begin(), users.end(), user);
         if(i == users.end())
-        users.push_back(user);
+            users.push_back(user);
         else
-                *i = user; // update, the hint might have changed
+            *i = user; // update, the hint might have changed
 }
 
 double FinishedFileItem::getTransferredPercentage() const {

@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_USER_CONNECTION_H
@@ -38,8 +38,8 @@ namespace dcpp {
 #ifdef LUA_SCRIPT
 class UserConnectionScriptInstance : public ScriptInstance {
 protected:
-        bool onUserConnectionMessageIn(UserConnection* aConn, const string& aLine);
-        bool onUserConnectionMessageOut(UserConnection* aConn, const string& aLine);
+    bool onUserConnectionMessageIn(UserConnection* aConn, const string& aLine);
+    bool onUserConnectionMessageOut(UserConnection* aConn, const string& aLine);
 };
 #endif
 
@@ -139,7 +139,7 @@ public:
     void setDataMode(int64_t aBytes = -1) { dcassert(socket); socket->setDataMode(aBytes); }
     void setLineMode(size_t rollback) { dcassert(socket); socket->setLineMode(rollback); }
 
-        void connect(const string& aServer, uint16_t aPort, uint16_t localPort, const BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException);
+    void connect(const string& aServer, uint16_t aPort, uint16_t localPort, const BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException);
     void accept(const Socket& aServer) throw(SocketException, ThreadException);
 
     void updated() { if(socket) socket->updated(); }
@@ -154,7 +154,7 @@ public:
 
     const UserPtr& getUser() const { return user; }
     UserPtr& getUser() { return user; }
-        const HintedUser getHintedUser() const { return HintedUser(user, hubUrl); }
+    const HintedUser getHintedUser() const { return HintedUser(user, hubUrl); }
 
     bool isSecure() const { return socket && socket->isSecure(); }
     bool isTrusted() const { return socket && socket->isTrusted(); }

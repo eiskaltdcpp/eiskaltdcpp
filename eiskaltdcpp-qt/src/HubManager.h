@@ -14,10 +14,7 @@
 #include <QHash>
 #include <QMap>
 #include <QMetaType>
-#include <QMenu>
-#include <QCloseEvent>
 
-#include "ui_UIHubManager.h"
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
 
@@ -27,43 +24,26 @@
 class HubFrame;
 
 class HubManager :
-        public QWidget,
-        public ArenaWidget,
-        public dcpp::Singleton<HubManager>,
-        private Ui::UIHubManager
+        public QObject,
+        public dcpp::Singleton<HubManager>
 {
 Q_OBJECT
-Q_INTERFACES(ArenaWidget)
 
 friend class dcpp::Singleton<HubManager>;
 friend class HubFrame;
 typedef QHash<QString, HubFrame*> HubHash;
 
 public:
-    QWidget *getWidget() { return this; }
-    QString getArenaTitle() { return tr("Hub Manager"); }
-    QString getArenaShortTitle() { return getArenaTitle(); }
-    QMenu *getMenu() { return NULL; }
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiSERVER); }
-
-    ArenaWidget::Role role() const { return ArenaWidget::HubManager; }
 
 Q_SIGNALS:
-    void newMessage(HubFrame*, const QString &hubUrl, const QString &cid, const QString &nick, const QString &msg);
-
-protected:
-    virtual void closeEvent(QCloseEvent *);
+    void hubRegistered(QObject*);
+    void hubUnregistered(QObject*);
 
 public Q_SLOTS:
     QObject *getHubObject();
-    QList<HubFrame*> getHubs() const;
-    HubFrame *getHub(const QString &);
-    HubFrame *activeHub() const;
-
-private Q_SLOTS:
-    void slotHubUpdated();
-    void slotContextMenu();
-    void slotHubClosed();
+    QList<QObject*> getHubs() const;
+    QObject *getHub(const QString &);
+    QObject *activeHub() const;
 
 private:
     explicit HubManager();
@@ -75,8 +55,6 @@ private:
 
     HubHash hubs;
     HubFrame *active;
-
-    QMap<HubFrame*,QTreeWidgetItem*> items;
 };
 
 Q_DECLARE_METATYPE(HubManager*)

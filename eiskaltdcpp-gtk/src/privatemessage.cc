@@ -48,7 +48,11 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     {
         PangoFontDescription *fontDesc = pango_font_description_new();
         pango_font_description_set_family(fontDesc, "Mono");
+#ifdef USE_GTK3
+        gtk_widget_override_font(getWidget("text"), fontDesc);
+#else
         gtk_widget_modify_font(getWidget("text"), fontDesc);
+#endif
         pango_font_description_free(fontDesc);
     }
 
@@ -167,7 +171,11 @@ PrivateMessage::~PrivateMessage()
 
     if (handCursor)
     {
+#ifdef USE_GTK3
+        g_object_unref(handCursor);
+#else
         gdk_cursor_unref(handCursor);
+#endif
         handCursor = NULL;
     }
 
@@ -219,8 +227,11 @@ void PrivateMessage::addMessage_gui(string message, Msg::TypeMsg typemsg)
     if (WGETB("sound-pm"))
     {
         MainWindow *mw = WulforManager::get()->getMainWindow();
+#ifdef USE_GTK3
+        GdkWindowState state = gdk_window_get_state(gtk_widget_get_window(mw->getContainer())  );
+#else
         GdkWindowState state = gdk_window_get_state(mw->getContainer()->window);
-
+#endif
         if ((state & GDK_WINDOW_STATE_ICONIFIED) || mw->currentPage_gui() != getContainer())
             Sound::get()->playSound(Sound::PRIVATE_MESSAGE);
         else if (WGETB("sound-pm-open")) Sound::get()->playSound(Sound::PRIVATE_MESSAGE);
@@ -243,7 +254,13 @@ void PrivateMessage::preferences_gui()
     {
         getSettingTag_gui(wsm, (TypeTag)i, fore, back, bold, italic);
 
+        WGETB("use-native-back-color-for-text") ?
         g_object_set(TagsMap[i],
+            "foreground", fore.c_str(),
+            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+            NULL) :
+            g_object_set(TagsMap[i],
             "foreground", fore.c_str(),
             "background", back.c_str(),
             "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
@@ -749,7 +766,13 @@ GtkTextTag* PrivateMessage::createTag_gui(const string &tagname, TypeTag type)
 
         getSettingTag_gui(wsm, type, fore, back, bold, italic);
 
-        tag = gtk_text_buffer_create_tag(messageBuffer, tagname.c_str(),
+        tag = WGETB("use-native-back-color-for-text") ?
+            gtk_text_buffer_create_tag(messageBuffer, tagname.c_str(),
+            "foreground", fore.c_str(),
+            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+            NULL) :
+            gtk_text_buffer_create_tag(messageBuffer, tagname.c_str(),
             "foreground", fore.c_str(),
             "background", back.c_str(),
             "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
@@ -766,8 +789,11 @@ void PrivateMessage::updateCursor(GtkWidget *widget)
     GtkTextIter iter;
     GSList *tagList;
     GtkTextTag *newTag = NULL;
-
+#ifdef USE_GTK3
+    gdk_window_get_pointer(gtk_widget_get_window(widget), &x, &y, NULL);
+#else
     gdk_window_get_pointer(widget->window, &x, &y, NULL);
+#endif
 
     // Check for tags under the cursor, and change mouse cursor appropriately
     gtk_text_view_window_to_buffer_coords(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_WIDGET, x, y, &buf_x, &buf_y);
@@ -798,7 +824,13 @@ void PrivateMessage::updateCursor(GtkWidget *widget)
         if (newTag != NULL)
         {
             // Cursor is entering a tag.
+#ifdef USE_GTK3
+            gchar *tmp;
+            g_object_get(G_OBJECT(newTag),"name",&tmp,NULL);
+            selectedTagStr = string(tmp);
+#else
             selectedTagStr = newTag->name;
+#endif
 
             if (find(TagsMap, TagsMap + TAG_URL, newTag) == TagsMap + TAG_URL)
             {
@@ -1045,7 +1077,13 @@ gboolean PrivateMessage::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, 
 
     if (event->type == GDK_BUTTON_PRESS)
     {
+#ifdef USE_GTK3
+        gchar *tmp;
+        g_object_get(G_OBJECT(tag),"name",&tmp,NULL);
+        pm->selectedTagStr = string(tmp);
+#else
         pm->selectedTagStr = tag->name;
+#endif
 
         switch (event->button.button)
         {
@@ -1069,7 +1107,13 @@ gboolean PrivateMessage::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, G
 
     if (event->type == GDK_BUTTON_PRESS)
     {
+#ifdef USE_GTK3
+        gchar *tmp;
+        g_object_get(G_OBJECT(tag),"name",&tmp,NULL);
+        pm->selectedTagStr = string(tmp);
+#else
         pm->selectedTagStr = tag->name;
+#endif
 
         switch (event->button.button)
         {
@@ -1093,7 +1137,13 @@ gboolean PrivateMessage::onMagnetTagEvent_gui(GtkTextTag *tag, GObject *textView
 
     if (event->type == GDK_BUTTON_PRESS)
     {
+#ifdef USE_GTK3
+        gchar *tmp;
+        g_object_get(G_OBJECT(tag),"name",&tmp,NULL);
+        pm->selectedTagStr = string(tmp);
+#else
         pm->selectedTagStr = tag->name;
+#endif
 
         switch (event->button.button)
         {
@@ -1173,7 +1223,11 @@ void PrivateMessage::onChatScroll_gui(GtkAdjustment *adjustment, gpointer data)
 {
     PrivateMessage *pm = (PrivateMessage *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
+#ifdef USE_GTK3
+    pm->scrollToBottom = value >= (gtk_adjustment_get_upper(adjustment) - gtk_adjustment_get_page_size (adjustment));
+#else
     pm->scrollToBottom = value >= (adjustment->upper-adjustment->page_size);
+#endif
 }
 
 void PrivateMessage::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
@@ -1181,7 +1235,11 @@ void PrivateMessage::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
     PrivateMessage *pm = (PrivateMessage *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
 
+#ifdef USE_GTK3
+    if (pm->scrollToBottom && value < (gtk_adjustment_get_upper(adjustment) - gtk_adjustment_get_page_size (adjustment)))
+#else
     if (pm->scrollToBottom && value < (adjustment->upper-adjustment->page_size))
+#endif
     {
         GtkTextIter iter;
 

@@ -71,7 +71,7 @@ Build Depends
 zlib
 bzip2
 gcc   (>= 4.4.0)
-cmake (>= 2.6.0)
+cmake (>= 2.6.3)
 iconv (libc on GNU/Linux)
 pkg-config
 ----------------
@@ -190,7 +190,7 @@ Keys for cmake
 -DUSE_MINIUPNP=ON/OFF (default: OFF)
     use or not use miniupnpc lib
 -DLOCAL_MINIUPNP=ON/OFF (default: OFF)
-    If ON use local miniupnpc lib (not set this in ON if you not set USE_MINIUPNP in ON)
+    If ON use local miniupnpc lib
 -DWITH_SOUNDS=ON/OFF (default: OFF)
     If ON install sounds/
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
@@ -250,7 +250,9 @@ sudo gmake install
 *******************************************************************************
 Mac OS X specific notes
 *******************************************************************************
-# For generate native bundle on Mac OS X use:
+# If you need program without unnecessary features just configure cmake like this:
+cmake -DCMAKE_BUILD_TYPE=Release -DUSE_MINIUPNP=ON -DFREE_SPACE_BAR_C=ON -DLOCAL_MINIUPNP=ON -DWITH_SOUNDS=ON -DCMAKE_C_COMPILER=/opt/local/bin/gcc-mp-4.4 -DCMAKE_CXX_COMPILER=/opt/local/bin/g++-mp-4.4
+# For generate native app bundle in Mac OS X use:
 cpack -G DragNDrop
 
 
@@ -275,4 +277,3 @@ sudo apt-get install dh-make-perl
 sudo dh-make-perl --install --cpan Term::ShellUI
 # If that doesn't work for some reason use CPAN:
 sudo cpan Term::ShellUI
-

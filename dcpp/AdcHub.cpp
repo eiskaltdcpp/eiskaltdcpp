@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -21,7 +21,6 @@
 #include "AdcHub.h"
 
 #include <boost/scoped_array.hpp>
-#include <boost/format.hpp>
 
 #include "ChatMessage.h"
 #include "ClientManager.h"
@@ -56,6 +55,7 @@ const string AdcHub::BAS0_SUPPORT("ADBAS0");
 const string AdcHub::TIGR_SUPPORT("ADTIGR");
 const string AdcHub::UCM0_SUPPORT("ADUCM0");
 const string AdcHub::BLO0_SUPPORT("ADBLO0");
+const string AdcHub::ZLIF_SUPPORT("ADZLIF");
 #ifdef WITH_DHT
 const string AdcHub::DHT0_SUPPORT("ADDHT0");
 #endif
@@ -261,19 +261,19 @@ void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) noexcept {
 
         string temp;
         if(c.getParam("PM", 1, temp)) { // add PM<group-cid> as well
-                message.to = findUser(c.getTo());
-                if(!message.to)
-            return;
+            message.to = findUser(c.getTo());
+            if(!message.to)
+                return;
 
-                message.replyTo = findUser(AdcCommand::toSID(temp));
-                if(!message.replyTo)
-                        return;
-    }
+            message.replyTo = findUser(AdcCommand::toSID(temp));
+            if(!message.replyTo)
+                return;
+        }
 
         message.thirdPerson = c.hasFlag("ME", 1);
 
         if(c.getParam("TS", 1, temp))
-                message.timestamp = Util::toInt64(temp);
+            message.timestamp = Util::toInt64(temp);
 
         fire(ClientListener::Message(), this, message);
 }
@@ -303,7 +303,7 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) noexcept {
 
         if(source) {
             tmp = str(F_("%1% was kicked by %2%: %3%") % victim->getIdentity().getNick() %
-                source->getIdentity().getNick() % tmp);
+            source->getIdentity().getNick() % tmp);
         } else {
             tmp = str(F_("%1% was kicked: %2%") % victim->getIdentity().getNick() % tmp);
         }
@@ -326,7 +326,7 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) noexcept {
             }
         }
                 if(!victim && c.getParam("MS", 1, tmp)) {
-                        fire(ClientListener::StatusMessage(), this, tmp, ClientListener::FLAG_NORMAL);
+                    fire(ClientListener::StatusMessage(), this, tmp, ClientListener::FLAG_NORMAL);
                 }
         if(c.getParam("RD", 1, tmp)) {
             fire(ClientListener::Redirect(), this, tmp);
@@ -338,7 +338,7 @@ void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) noexcept {
     OnlineUser* u = findUser(c.getFrom());
     if(!u || u->getUser() == ClientManager::getInstance()->getMe())
         return;
-        if(c.getParameters().size() < 3)
+    if(c.getParameters().size() < 3)
         return;
 
     const string& protocol = c.getParam(0);
@@ -459,7 +459,7 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) noexcept {
     if(c.getParameters().size() < 2)
         return;
 
-        OnlineUser* u = c.getFrom() == AdcCommand::HUB_SID ? &getUser(c.getFrom(), CID()) : findUser(c.getFrom());
+    OnlineUser* u = c.getFrom() == AdcCommand::HUB_SID ? &getUser(c.getFrom(), CID()) : findUser(c.getFrom());
     if(!u)
         return;
 
@@ -468,24 +468,24 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) noexcept {
         return;
     }
 
-        switch(Util::toInt(c.getParam(0).substr(1))) {
+    switch(Util::toInt(c.getParam(0).substr(1))) {
 
-        case AdcCommand::ERROR_BAD_PASSWORD:
-                {
-        setPassword(Util::emptyString);
-                        break;
-                }
+    case AdcCommand::ERROR_BAD_PASSWORD:
+            {
+                setPassword(Util::emptyString);
+                break;
+            }
 
-        case AdcCommand::ERROR_COMMAND_ACCESS:
-                {
-                        string tmp;
-                        if(c.getParam("FC", 1, tmp) && tmp.size() == 4)
-                                forbiddenCommands.insert(AdcCommand::toFourCC(tmp.c_str()));
-                        break;
-                }
+    case AdcCommand::ERROR_COMMAND_ACCESS:
+            {
+                string tmp;
+                if(c.getParam("FC", 1, tmp) && tmp.size() == 4)
+                    forbiddenCommands.insert(AdcCommand::toFourCC(tmp.c_str()));
+                break;
+            }
 
-        case AdcCommand::ERROR_PROTOCOL_UNSUPPORTED:
-                {
+    case AdcCommand::ERROR_PROTOCOL_UNSUPPORTED:
+            {
                 string tmp;
                 if(c.getParam("PR", 1, tmp)) {
                     if(tmp == CLIENT_PROTOCOL) {
@@ -498,8 +498,8 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) noexcept {
                 ConnectionManager::getInstance()->force(u->getUser());
                 }
                 return;
-                }
-        }
+            }
+    }
     ChatMessage message = { c.getParam(1), u };
     fire(ClientListener::Message(), this, message);
 }
@@ -593,61 +593,75 @@ void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) noexcept {
     if (!BOOLSETTING(ALLOW_NATT))
         return;
 
-       OnlineUser* u = findUser(c.getFrom());
-       if(!u || u->getUser() == ClientManager::getInstance()->getMe() || c.getParameters().size() < 3)
-               return;
+    OnlineUser* u = findUser(c.getFrom());
+    if(!u || u->getUser() == ClientManager::getInstance()->getMe() || c.getParameters().size() < 3)
+        return;
 
-       const string& protocol = c.getParam(0);
-       const string& port = c.getParam(1);
-       const string& token = c.getParam(2);
+    const string& protocol = c.getParam(0);
+    const string& port = c.getParam(1);
+    const string& token = c.getParam(2);
 
-       // bool secure = secureAvail(c.getFrom(), protocol, token);
-       bool secure = false;
-       if(protocol == CLIENT_PROTOCOL) {
-               // Nothing special
-       } else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && CryptoManager::getInstance()->TLSOk()) {
-               secure = true;
-       } else {
-               unknownProtocol(c.getFrom(), protocol, token);
-               return;
-       }
+    // bool secure = secureAvail(c.getFrom(), protocol, token);
+    bool secure = false;
+    if(protocol == CLIENT_PROTOCOL) {
+        // Nothing special
+    } else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && CryptoManager::getInstance()->TLSOk()) {
+        secure = true;
+    } else {
+        unknownProtocol(c.getFrom(), protocol, token);
+        return;
+    }
 
-       // Trigger connection attempt sequence locally ...
-       dcdebug("triggering connecting attempt in NAT: remote port = %s, local IP = %s, local port = %d\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort());
-       ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_CLIENT, token, secure);
+    // Trigger connection attempt sequence locally ...
+    dcdebug("triggering connecting attempt in NAT: remote port = %s, local IP = %s, local port = %d\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort());
+    ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_CLIENT, token, secure);
 
-       // ... and signal other client to do likewise.
-       send(AdcCommand(AdcCommand::CMD_RNT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(protocol).
-               addParam(Util::toString(sock->getLocalPort())).addParam(token));
+    // ... and signal other client to do likewise.
+    send(AdcCommand(AdcCommand::CMD_RNT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(protocol).
+           addParam(Util::toString(sock->getLocalPort())).addParam(token));
 }
 
 void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
-       // Sent request for NAT traversal cooperation, which
-       // was acknowledged (with requisite local port information).
-       	if(!BOOLSETTING(ALLOW_NATT))
-            return;
+    // Sent request for NAT traversal cooperation, which
+    // was acknowledged (with requisite local port information).
+    if(!BOOLSETTING(ALLOW_NATT))
+        return;
 
-       OnlineUser* u = findUser(c.getFrom());
-       if(!u || u->getUser() == ClientManager::getInstance()->getMe() || c.getParameters().size() < 3)
-               return;
+    OnlineUser* u = findUser(c.getFrom());
+    if(!u || u->getUser() == ClientManager::getInstance()->getMe() || c.getParameters().size() < 3)
+        return;
 
-       const string& protocol = c.getParam(0);
-       const string& port = c.getParam(1);
-       const string& token = c.getParam(2);
+    const string& protocol = c.getParam(0);
+    const string& port = c.getParam(1);
+    const string& token = c.getParam(2);
 
-       bool secure = false;
-       if(protocol == CLIENT_PROTOCOL) {
-               // Nothing special
-       } else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && CryptoManager::getInstance()->TLSOk()) {
-               secure = true;
-       } else {
-               unknownProtocol(c.getFrom(), protocol, token);
-               return;
-       }
+    bool secure = false;
+    if(protocol == CLIENT_PROTOCOL) {
+        // Nothing special
+    } else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && CryptoManager::getInstance()->TLSOk()) {
+        secure = true;
+    } else {
+        unknownProtocol(c.getFrom(), protocol, token);
+        return;
+    }
 
-       // Trigger connection attempt sequence locally
-       dcdebug("triggering connecting attempt in RNT: remote port = %s, local IP = %s, local port = %d\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort());
-       ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_SERVER, token, secure);
+    // Trigger connection attempt sequence locally
+    dcdebug("triggering connecting attempt in RNT: remote port = %s, local IP = %s, local port = %d\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort());
+    ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_SERVER, token, secure);
+}
+void AdcHub::handle(AdcCommand::ZON, AdcCommand& c) noexcept {
+    try {
+        sock->setMode(BufferedSocket::MODE_ZPIPE);
+    } catch (const Exception& e) {
+        dcdebug("AdcHub::handleZON failed with error: %s\n", e.getError().c_str());
+    }
+}
+void AdcHub::handle(AdcCommand::ZOF, AdcCommand& c) noexcept {
+    try {
+        sock->setMode(BufferedSocket::MODE_LINE);
+    } catch (const Exception& e) {
+        dcdebug("AdcHub::handleZOF failed with error: %s\n", e.getError().c_str());
+    }
 }
 
 void AdcHub::connect(const OnlineUser& user, const string& token) {
@@ -708,25 +722,25 @@ void AdcHub::privateMessage(const OnlineUser& user, const string& aMessage, bool
 }
 
 void AdcHub::sendUserCmd(const UserCommand& command, const StringMap& params) {
-        if(state != STATE_NORMAL)
-                return;
-        string cmd = Util::formatParams(command.getCommand(), params, false);
-        if(command.isChat()) {
-                if(command.getTo().empty()) {
-                        hubMessage(cmd);
-                } else {
-                        const string& to = command.getTo();
-                        Lock l(cs);
-                        for(SIDMap::const_iterator i = users.begin(); i != users.end(); ++i) {
-                                if(i->second->getIdentity().getNick() == to) {
-                                        privateMessage(*i->second, cmd);
-                                        return;
-                                }
-                        }
-                }
+    if(state != STATE_NORMAL)
+        return;
+    string cmd = Util::formatParams(command.getCommand(), params, false);
+    if(command.isChat()) {
+        if(command.getTo().empty()) {
+            hubMessage(cmd);
         } else {
-                send(cmd);
+            const string& to = command.getTo();
+            Lock l(cs);
+            for(SIDMap::const_iterator i = users.begin(); i != users.end(); ++i) {
+                if(i->second->getIdentity().getNick() == to) {
+                    privateMessage(*i->second, cmd);
+                    return;
+                }
+            }
         }
+    } else {
+        send(cmd);
+    }
 }
 
 const vector<StringList>& AdcHub::getSearchExts() {
@@ -1063,12 +1077,12 @@ void AdcHub::send(const AdcCommand& cmd) {
 }
 
 void AdcHub::unknownProtocol(uint32_t target, const string& protocol, const string& token) {
-       AdcCommand cmd(AdcCommand::SEV_FATAL, AdcCommand::ERROR_PROTOCOL_UNSUPPORTED, "Protocol unknown", AdcCommand::TYPE_DIRECT);
-       cmd.setTo(target);
-       cmd.addParam("PR", protocol);
-       cmd.addParam("TO", token);
+    AdcCommand cmd(AdcCommand::SEV_FATAL, AdcCommand::ERROR_PROTOCOL_UNSUPPORTED, "Protocol unknown", AdcCommand::TYPE_DIRECT);
+    cmd.setTo(target);
+    cmd.addParam("PR", protocol);
+    cmd.addParam("TO", token);
 
-       send(cmd);
+    send(cmd);
 }
 
 void AdcHub::on(Connected c) noexcept {
@@ -1091,6 +1105,7 @@ void AdcHub::on(Connected c) noexcept {
     if(BOOLSETTING(SEND_BLOOM)) {
         cmd.addParam(BLO0_SUPPORT);
     }
+    cmd.addParam(ZLIF_SUPPORT);
 #ifdef WITH_DHT
     if (BOOLSETTING(USE_DHT))
         cmd.addParam(DHT0_SUPPORT);
@@ -1129,9 +1144,9 @@ void AdcHub::on(Second s, uint64_t aTick) noexcept {
 }
 #ifdef LUA_SCRIPT
 bool AdcScriptInstance::onClientMessage(AdcHub* aClient, const string& aLine) {
-        Lock l(cs);
-        MakeCall("adch", "DataArrival", 1, aClient, aLine);
-        return GetLuaBool();
+    Lock l(cs);
+    MakeCall("adch", "DataArrival", 1, aClient, aLine);
+    return GetLuaBool();
 
 }
 #endif

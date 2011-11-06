@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPP_DCPLUSPLUS_DEBUG_H_
@@ -32,8 +32,8 @@
 
 #define dcassert(exp) \
 do { if (!(exp)) { \
-	dcdebug("Assertion hit in %s(%d): " #exp "\n", __FILE__, __LINE__); \
-	if(1 == _CrtDbgReport(_CRT_ASSERT, __FILE__, __LINE__, NULL, #exp)) \
+    dcdebug("Assertion hit in %s(%d): " #exp "\n", __FILE__, __LINE__); \
+    if(1 == _CrtDbgReport(_CRT_ASSERT, __FILE__, __LINE__, NULL, #exp)) \
 _CrtDbgBreak(); } } while(false)
 #else
 #define dcassert(exp) assert(exp)

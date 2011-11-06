@@ -63,6 +63,7 @@
 #ifdef USE_JS
 #include "ScriptManagerDialog.h"
 #include "scriptengine/ScriptConsole.h"
+#include "scriptengine/ScriptEngine.h"
 #endif
 
 #include "dcpp/ShareManager.h"
@@ -90,7 +91,6 @@ MainWindow::MainWindow (QWidget *parent):
         sideTree(NULL),
         menuPanels(NULL),
         wcontainer(NULL)
-
 {
     exitBegin = false;
 
@@ -112,6 +112,10 @@ MainWindow::MainWindow (QWidget *parent):
     init();
 
     retranslateUi();
+
+#ifdef USE_JS
+    scriptConsole = NULL;
+#endif
 
     LogManager::getInstance()->addListener(this);
     TimerManager::getInstance()->addListener(this);
@@ -208,6 +212,11 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
     saveSettings();
 
+    if (WBGET("app/clear-search-history-on-exit", false))
+        WSSET(WS_SEARCH_HISTORY, "");
+    if (WBGET("app/clear-download-directories-history-on-exit", false))
+        WSSET(WS_DOWNLOAD_DIR_HISTORY, "");
+
     if (sideDock)
         sideDock->hide();
 
@@ -247,12 +256,8 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
             it.value()->close();
     }
 
-    if (HubManager::getInstance()){
-        HubManager::getInstance()->setUnload(true);
-        HubManager::getInstance()->close();
-
+    if (HubManager::getInstance())
         HubManager::getInstance()->release();
-    }
 
     c_e->accept();
 }
@@ -407,8 +412,6 @@ void MainWindow::init(){
     addDockWidget(Qt::BottomDockWidgetArea, transfer_dock);
 
     transfer_dock->hide();
-
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
     setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 
@@ -707,6 +710,7 @@ void MainWindow::initActions(){
 
         toolsJSConsole = new QAction("", this);
         toolsJSConsole->setObjectName("toolsJSConsole");
+        SM->registerShortcut(toolsJSConsole, tr("Ctrl+Alt+J"));
         toolsJSConsole->setIcon(WU->getPixmap(WulforUtil::eiCONSOLE));
         connect(toolsJSConsole, SIGNAL(triggered()), this, SLOT(slotToolsJSConsole()));
 #endif
@@ -1441,7 +1445,7 @@ void MainWindow::newHubFrame(QString address, QString enc){
 
     address = QUrl::fromPercentEncoding(address.toAscii());
 
-    HubFrame *fr = HubManager::getInstance()->getHub(address);
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(address));
 
     if (fr){
         mapWidgetOnArena(fr);
@@ -2066,7 +2070,7 @@ void MainWindow::slotOpenMagnet(){
 }
 
 void MainWindow::slotHubsReconnect(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
 
     if (fr)
         fr->reconnect();
@@ -2124,10 +2128,6 @@ void MainWindow::slotToolsQueuedUsers(){
 }
 
 void MainWindow::slotToolsHubManager(){
-    if (!HubManager::getInstance())
-        HubManager::newInstance();
-
-    toggleSingletonWidget(HubManager::getInstance());
 }
 
 void MainWindow::slotToolsFinishedDownloads(){
@@ -2189,11 +2189,25 @@ void MainWindow::slotToolsJS(){
 #endif
 }
 
+void MainWindow::slotJSFileChanged(const QString &script){
+#ifdef USE_JS
+    if (QMessageBox::warning(this, 
+                             tr("Script Engine"), 
+                             QString("\'%1\' has been changed. Reload it?").arg(script), 
+                             QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
+        ScriptEngine::getInstance()->loadScript(script);
+#endif
+}
+
+
 void MainWindow::slotToolsJSConsole(){
 #ifdef USE_JS
-    ScriptConsole sc(this);
-    sc.setWindowModality(Qt::NonModal);
-    sc.exec();
+    if (!scriptConsole)
+        scriptConsole = new ScriptConsole(this);
+    
+    scriptConsole->setWindowModality(Qt::NonModal);
+    scriptConsole->show();
+    scriptConsole->raise();
 #endif
 }
 
@@ -2301,7 +2315,7 @@ void MainWindow::slotFind(){
 }
 
 void MainWindow::slotChatDisable(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
 
     if (fr)
         fr->disableChat();
@@ -2766,7 +2780,7 @@ void MainWindow::slotAboutQt(){
 }
 
 void MainWindow::nextMsg(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
 
     if (fr)
         fr->nextMsg();
@@ -2788,7 +2802,7 @@ void MainWindow::nextMsg(){
 }
 
 void MainWindow::prevMsg(){
-    HubFrame *fr = HubManager::getInstance()->activeHub();
+    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
 
     if (fr)
         fr->prevMsg();

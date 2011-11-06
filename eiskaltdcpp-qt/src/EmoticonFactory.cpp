@@ -26,12 +26,17 @@
 static const QString EmoticonSectionName = "emoticons-map";
 static const QString EmoticonSubsectionName = "emoticon";
 static const QString EmoticonTextSectionName = "name";
+
+#if !defined (Q_WS_WIN)
+static const QString EmotionPath = CLIENT_DATA_DIR "/emoticons/";
+#else
 static QString EmotionPath = CLIENT_DATA_DIR "/emoticons/";
+#endif
 
 EmoticonFactory::EmoticonFactory() :
     QObject(NULL)
 {
-#ifdef WIN32
+#if defined (Q_WS_WIN)
     EmotionPath.prepend( qApp->applicationDirPath()+QDir::separator() );
 #endif
     currentTheme = "";
@@ -49,7 +54,7 @@ void EmoticonFactory::load(){
 
     currentTheme = emoTheme;
 
-    if (!QDir(EmotionPath+emoTheme).exists() || emoTheme.isEmpty())
+    if (!QDir(EmotionPath+emoTheme).exists())
         return;
 
     QString xmlFile = EmotionPath+emoTheme+".xml";

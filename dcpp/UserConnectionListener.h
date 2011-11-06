@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef USERCONNECTIONLISTENER_H_
@@ -46,14 +46,14 @@ public:
     typedef X<16> MyNick;
     typedef X<17> TransmitDone;
     typedef X<18> Supports;
-        typedef X<19> ProtocolError;
-        typedef X<20> FileNotAvailable;
+    typedef X<19> ProtocolError;
+    typedef X<20> FileNotAvailable;
 
     virtual void on(BytesSent, UserConnection*, size_t, size_t) noexcept { }
     virtual void on(Connected, UserConnection*) noexcept { }
     virtual void on(Data, UserConnection*, const uint8_t*, size_t) noexcept { }
     virtual void on(Failed, UserConnection*, const string&) noexcept { }
-        virtual void on(ProtocolError, UserConnection*, const string&) noexcept { }
+    virtual void on(ProtocolError, UserConnection*, const string&) noexcept { }
     virtual void on(CLock, UserConnection*, const string&, const string&) noexcept { }
     virtual void on(Key, UserConnection*, const string&) noexcept { }
     virtual void on(Direction, UserConnection*, const string&, const string&) noexcept { }

@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -45,7 +45,7 @@ const char* SearchManager::types[TYPE_LAST] = {
         N_("CD Image")
 };
 const char* SearchManager::getTypeStr(int type) {
-        return _(types[type]);
+    return _(types[type]);
 }
 
 SearchManager::SearchManager() :
@@ -76,11 +76,11 @@ string SearchManager::normalizeWhitespace(const string& aString){
 }
 
 void SearchManager::search(const string& aName, int64_t aSize, TypeModes aTypeMode /* = TYPE_ANY */, SizeModes aSizeMode /* = SIZE_ATLEAST */, const string& aToken /* = Util::emptyString */, void* aOwner /* = NULL */) {
-        ClientManager::getInstance()->search(aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aOwner);
+    ClientManager::getInstance()->search(aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aOwner);
 }
 
 uint64_t SearchManager::search(StringList& who, const string& aName, int64_t aSize /* = 0 */, TypeModes aTypeMode /* = TYPE_ANY */, SizeModes aSizeMode /* = SIZE_ATLEAST */, const string& aToken /* = Util::emptyString */, const StringList& aExtList, void* aOwner /* = NULL */) {
-        return ClientManager::getInstance()->search(who, aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aExtList, aOwner);
+    return ClientManager::getInstance()->search(who, aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aExtList, aOwner);
 }
 
 void SearchManager::listen() {
@@ -92,7 +92,7 @@ void SearchManager::listen() {
         socket->create(Socket::TYPE_UDP);
         socket->setBlocking(true);
         socket->setSocketOpt(SO_REUSEADDR, 1);
-        port = socket->bind(static_cast<uint16_t>(SETTING(UDP_PORT)), SETTING(BIND_ADDRESS));
+        port = socket->bind(static_cast<uint16_t>(SETTING(UDP_PORT)), SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
         start();
     } catch(...) {
         socket.reset();
@@ -277,7 +277,7 @@ int SearchManager::UdpQueue::run() {
         string tth;
         if(hubName.compare(0, 4, "TTH:") == 0) {
             tth = hubName.substr(4);
-                        StringList names = ClientManager::getInstance()->getHubNames(user->getCID(), Util::emptyString);
+            StringList names = ClientManager::getInstance()->getHubNames(user->getCID(), Util::emptyString);
             hubName = names.empty() ? _("Offline") : Util::toString(names);
         }
 
@@ -390,49 +390,49 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
     PartsInfo partialInfo;
 
     for(StringIterC i = cmd.getParameters().begin(); i != cmd.getParameters().end(); ++i) {
-            const string& str = *i;
-            if(str.compare(0, 2, "U4") == 0) {
-                    udpPort = static_cast<uint16_t>(Util::toInt(str.substr(2)));
-            } else if(str.compare(0, 2, "NI") == 0) {
-                    nick = str.substr(2);
-            } else if(str.compare(0, 2, "HI") == 0) {
-                    hubIpPort = str.substr(2);
-            } else if(str.compare(0, 2, "TR") == 0) {
-                    tth = str.substr(2);
-            } else if(str.compare(0, 2, "PC") == 0) {
-                    partialCount = Util::toUInt32(str.substr(2))*2;
-            } else if(str.compare(0, 2, "PI") == 0) {
-                    StringTokenizer<string> tok(str.substr(2), ',');
-                    for(StringIter i = tok.getTokens().begin(); i != tok.getTokens().end(); ++i) {
-                            partialInfo.push_back((uint16_t)Util::toInt(*i));
-                    }
+        const string& str = *i;
+        if(str.compare(0, 2, "U4") == 0) {
+            udpPort = static_cast<uint16_t>(Util::toInt(str.substr(2)));
+        } else if(str.compare(0, 2, "NI") == 0) {
+            nick = str.substr(2);
+        } else if(str.compare(0, 2, "HI") == 0) {
+            hubIpPort = str.substr(2);
+        } else if(str.compare(0, 2, "TR") == 0) {
+            tth = str.substr(2);
+        } else if(str.compare(0, 2, "PC") == 0) {
+            partialCount = Util::toUInt32(str.substr(2))*2;
+        } else if(str.compare(0, 2, "PI") == 0) {
+            StringTokenizer<string> tok(str.substr(2), ',');
+            for(StringIter i = tok.getTokens().begin(); i != tok.getTokens().end(); ++i) {
+                partialInfo.push_back((uint16_t)Util::toInt(*i));
             }
+        }
     }
 
     string url = ClientManager::getInstance()->findHub(hubIpPort);
     if(!from || from == ClientManager::getInstance()->getMe()) {
-            // for NMDC support
+        // for NMDC support
 
-            if(nick.empty() || hubIpPort.empty()) {
-                    return;
-            }
+        if(nick.empty() || hubIpPort.empty()) {
+            return;
+        }
 
-            from = ClientManager::getInstance()->findUser(nick, url);
+        from = ClientManager::getInstance()->findUser(nick, url);
+        if(!from) {
+            // Could happen if hub has multiple URLs / IPs
+            from = ClientManager::getInstance()->findLegacyUser(nick);
             if(!from) {
-                    // Could happen if hub has multiple URLs / IPs
-                    from = ClientManager::getInstance()->findLegacyUser(nick);
-                    if(!from) {
-                            dcdebug("Search result from unknown user");
-                            return;
-                    }
+                dcdebug("Search result from unknown user");
+                return;
             }
+        }
     }
 
     ClientManager::getInstance()->setIPUser(from, remoteIp, udpPort);
 
     if(partialInfo.size() != partialCount) {
-            // what to do now ? just ignore partial search result :-/
-            return;
+        // what to do now ? just ignore partial search result :-/
+        return;
     }
 
     PartsInfo outPartialInfo;
@@ -472,14 +472,14 @@ void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpA
     if(results.empty()) {
         string tth;
         if(!adc.getParam("TR", 0, tth))
-                return;
+            return;
 
         PartsInfo partialInfo;
         if(!QueueManager::getInstance()->handlePartialSearch(TTHValue(tth), partialInfo)) {
-                // if not found, try to find in finished list
-                if(!FinishedManager::getInstance()->handlePartialRequest(TTHValue(tth), partialInfo)) {
-                        return;
-                }
+            // if not found, try to find in finished list
+            if(!FinishedManager::getInstance()->handlePartialRequest(TTHValue(tth), partialInfo)) {
+                return;
+            }
         }
 
         AdcCommand cmd = toPSR(true, Util::emptyString, hubIpPort, tth, partialInfo);
@@ -496,28 +496,28 @@ void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpA
 }
 
 string SearchManager::getPartsString(const PartsInfo& partsInfo) const {
-        string ret;
+    string ret;
 
-        for(PartsInfo::const_iterator i = partsInfo.begin(); i < partsInfo.end(); i+=2){
-                ret += Util::toString(*i) + "," + Util::toString(*(i+1)) + ",";
-        }
+    for(PartsInfo::const_iterator i = partsInfo.begin(); i < partsInfo.end(); i+=2){
+        ret += Util::toString(*i) + "," + Util::toString(*(i+1)) + ",";
+    }
 
-        return ret.substr(0, ret.size()-1);
+    return ret.substr(0, ret.size()-1);
 }
 
 AdcCommand SearchManager::toPSR(bool wantResponse, const string& myNick, const string& hubIpPort, const string& tth, const vector<uint16_t>& partialInfo) const {
-        AdcCommand cmd(AdcCommand::CMD_PSR, AdcCommand::TYPE_UDP);
+    AdcCommand cmd(AdcCommand::CMD_PSR, AdcCommand::TYPE_UDP);
 
-        if(!myNick.empty())
-                cmd.addParam("NI", Text::utf8ToAcp(myNick));
+    if(!myNick.empty())
+        cmd.addParam("NI", Text::utf8ToAcp(myNick));
 
-        cmd.addParam("HI", hubIpPort);
-        cmd.addParam("U4", Util::toString(wantResponse && ClientManager::getInstance()->isActive(hubIpPort) ? SearchManager::getInstance()->getPort() : 0));
-        cmd.addParam("TR", tth);
-        cmd.addParam("PC", Util::toString(partialInfo.size() / 2));
-        cmd.addParam("PI", getPartsString(partialInfo));
+    cmd.addParam("HI", hubIpPort);
+    cmd.addParam("U4", Util::toString(wantResponse && ClientManager::getInstance()->isActive(hubIpPort) ? SearchManager::getInstance()->getPort() : 0));
+    cmd.addParam("TR", tth);
+    cmd.addParam("PC", Util::toString(partialInfo.size() / 2));
+    cmd.addParam("PI", getPartsString(partialInfo));
 
-        return cmd;
+    return cmd;
 }
 
 } // namespace dcpp

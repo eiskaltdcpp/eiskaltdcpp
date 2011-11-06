@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_CRITICAL_SECTION_H
@@ -87,22 +87,22 @@ private:
 class FastCriticalSection {
 public:
 #ifdef FIX_FOR_OLD_BOOST
-	// We have to use a pthread (nonrecursive) mutex, didn't find any test_and_set on linux...
-	FastCriticalSection() {
-		static pthread_mutex_t fastmtx = PTHREAD_MUTEX_INITIALIZER;
-		mtx = fastmtx;
-	}
-	~FastCriticalSection() { pthread_mutex_destroy(&mtx); }
-	void lock() { pthread_mutex_lock(&mtx); }
-	void unlock() { pthread_mutex_unlock(&mtx); }
+    // We have to use a pthread (nonrecursive) mutex, didn't find any test_and_set on linux...
+    FastCriticalSection() {
+        static pthread_mutex_t fastmtx = PTHREAD_MUTEX_INITIALIZER;
+        mtx = fastmtx;
+    }
+    ~FastCriticalSection() { pthread_mutex_destroy(&mtx); }
+    void lock() { pthread_mutex_lock(&mtx); }
+    void unlock() { pthread_mutex_unlock(&mtx); }
 private:
-	pthread_mutex_t mtx;
+    pthread_mutex_t mtx;
 #else
-	void lock() { mtx.lock(); }
-	void unlock() { mtx.unlock(); }
+    void lock() { mtx.lock(); }
+    void unlock() { mtx.unlock(); }
 private:
-	typedef boost::signals2::mutex mutex_t;
-	mutex_t mtx;
+    typedef boost::signals2::mutex mutex_t;
+    mutex_t mtx;
 #endif
 };
 

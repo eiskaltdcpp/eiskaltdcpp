@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -39,36 +39,36 @@ namespace dcpp {
  */
 int ThrottleManager::read(Socket* sock, void* buffer, size_t len)
 {
-	int64_t readSize = -1;
-	size_t downs = DownloadManager::getInstance()->getDownloadCount();
-	auto downLimit = getDownLimit(); // avoid even intra-function races
-	if(!BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || downLimit == 0 || downs == 0)
-		return sock->read(buffer, len);
+    int64_t readSize = -1;
+    size_t downs = DownloadManager::getInstance()->getDownloadCount();
+    auto downLimit = getDownLimit(); // avoid even intra-function races
+    if(!BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || downLimit == 0 || downs == 0)
+        return sock->read(buffer, len);
 
-	{
-		Lock l(downCS);
+    {
+        Lock l(downCS);
 
-		if(downTokens > 0)
-		{
-			int64_t slice = (downLimit * 1024) / downs;
-			readSize = min(slice, min(static_cast<int64_t>(len), downTokens));
+        if(downTokens > 0)
+        {
+            int64_t slice = (downLimit * 1024) / downs;
+            readSize = min(slice, min(static_cast<int64_t>(len), downTokens));
 
-			// read from socket
-			readSize = sock->read(buffer, static_cast<size_t>(readSize));
+            // read from socket
+            readSize = sock->read(buffer, static_cast<size_t>(readSize));
 
-			if(readSize > 0)
-				downTokens -= readSize;
-		}
-	}
+            if(readSize > 0)
+                downTokens -= readSize;
+        }
+    }
 
-	if(readSize != -1)
-	{
-		Thread::yield(); // give a chance to other transfers to get a token
-		return readSize;
-	}
+    if(readSize != -1)
+    {
+        Thread::yield(); // give a chance to other transfers to get a token
+        return readSize;
+    }
 
-	waitToken();
-	return -1;	// from BufferedSocket: -1 = retry, 0 = connection close
+    waitToken();
+    return -1;  // from BufferedSocket: -1 = retry, 0 = connection close
 }
 
 /*
@@ -77,76 +77,76 @@ int ThrottleManager::read(Socket* sock, void* buffer, size_t len)
  */
 int ThrottleManager::write(Socket* sock, void* buffer, size_t& len)
 {
-	bool gotToken = false;
-	size_t ups = UploadManager::getInstance()->getUploadCount();
-	auto upLimit = getUpLimit(); // avoid even intra-function races
-	if(!BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || upLimit == 0 || ups == 0)
-		return sock->write(buffer, len);
+    bool gotToken = false;
+    size_t ups = UploadManager::getInstance()->getUploadCount();
+    auto upLimit = getUpLimit(); // avoid even intra-function races
+    if(!BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || upLimit == 0 || ups == 0)
+        return sock->write(buffer, len);
 
-	{
-		Lock l(upCS);
+    {
+        Lock l(upCS);
 
-		if(upTokens > 0)
-		{
-			size_t slice = (upLimit * 1024) / ups;
-			len = min(slice, min(len, static_cast<size_t>(upTokens)));
-			upTokens -= len;
+        if(upTokens > 0)
+        {
+            size_t slice = (upLimit * 1024) / ups;
+            len = min(slice, min(len, static_cast<size_t>(upTokens)));
+            upTokens -= len;
 
-			gotToken = true; // token successfuly assigned
-		}
-	}
+            gotToken = true; // token successfuly assigned
+        }
+    }
 
-	if(gotToken)
-	{
-		// write to socket
-		int sent = sock->write(buffer, len);
+    if(gotToken)
+    {
+        // write to socket
+        int sent = sock->write(buffer, len);
 
-		Thread::yield(); // give a chance to other transfers get a token
-		return sent;
-	}
+        Thread::yield(); // give a chance to other transfers get a token
+        return sent;
+    }
 
-	waitToken();
-	return 0;	// from BufferedSocket: -1 = failed, 0 = retry
+    waitToken();
+    return 0;   // from BufferedSocket: -1 = failed, 0 = retry
 }
 
 SettingsManager::IntSetting ThrottleManager::getCurSetting(SettingsManager::IntSetting setting) {
-	SettingsManager::IntSetting upLimit   = SettingsManager::MAX_UPLOAD_SPEED_MAIN;
-	SettingsManager::IntSetting downLimit = SettingsManager::MAX_DOWNLOAD_SPEED_MAIN;
-	SettingsManager::IntSetting slots     = SettingsManager::SLOTS_PRIMARY;
+    SettingsManager::IntSetting upLimit   = SettingsManager::MAX_UPLOAD_SPEED_MAIN;
+    SettingsManager::IntSetting downLimit = SettingsManager::MAX_DOWNLOAD_SPEED_MAIN;
+    SettingsManager::IntSetting slots     = SettingsManager::SLOTS_PRIMARY;
 
-	if(BOOLSETTING(TIME_DEPENDENT_THROTTLE)) {
-		time_t currentTime;
-		time(&currentTime);
-		int currentHour = localtime(&currentTime)->tm_hour;
-		if((SETTING(BANDWIDTH_LIMIT_START) < SETTING(BANDWIDTH_LIMIT_END) &&
-			currentHour >= SETTING(BANDWIDTH_LIMIT_START) && currentHour < SETTING(BANDWIDTH_LIMIT_END)) ||
-			(SETTING(BANDWIDTH_LIMIT_START) > SETTING(BANDWIDTH_LIMIT_END) &&
-			(currentHour >= SETTING(BANDWIDTH_LIMIT_START) || currentHour < SETTING(BANDWIDTH_LIMIT_END))))
-		{
-			upLimit   = SettingsManager::MAX_UPLOAD_SPEED_ALTERNATE;
-			downLimit = SettingsManager::MAX_DOWNLOAD_SPEED_ALTERNATE;
-			slots     = SettingsManager::SLOTS_ALTERNATE_LIMITING;
-		}
-	}
+    if(BOOLSETTING(TIME_DEPENDENT_THROTTLE)) {
+        time_t currentTime;
+        time(&currentTime);
+        int currentHour = localtime(&currentTime)->tm_hour;
+        if((SETTING(BANDWIDTH_LIMIT_START) < SETTING(BANDWIDTH_LIMIT_END) &&
+            currentHour >= SETTING(BANDWIDTH_LIMIT_START) && currentHour < SETTING(BANDWIDTH_LIMIT_END)) ||
+            (SETTING(BANDWIDTH_LIMIT_START) > SETTING(BANDWIDTH_LIMIT_END) &&
+            (currentHour >= SETTING(BANDWIDTH_LIMIT_START) || currentHour < SETTING(BANDWIDTH_LIMIT_END))))
+        {
+            upLimit   = SettingsManager::MAX_UPLOAD_SPEED_ALTERNATE;
+            downLimit = SettingsManager::MAX_DOWNLOAD_SPEED_ALTERNATE;
+            slots     = SettingsManager::SLOTS_ALTERNATE_LIMITING;
+        }
+    }
 
-	switch (setting) {
-		case SettingsManager::MAX_UPLOAD_SPEED_MAIN:
-			return upLimit;
-		case SettingsManager::MAX_DOWNLOAD_SPEED_MAIN:
-			return downLimit;
-		case SettingsManager::SLOTS:
-			return slots;
-		default:
-			return setting;
-	}
+    switch (setting) {
+        case SettingsManager::MAX_UPLOAD_SPEED_MAIN:
+            return upLimit;
+        case SettingsManager::MAX_DOWNLOAD_SPEED_MAIN:
+            return downLimit;
+        case SettingsManager::SLOTS:
+            return slots;
+        default:
+            return setting;
+    }
 }
 
 int ThrottleManager::getUpLimit() {
-	return SettingsManager::getInstance()->get(getCurSetting(SettingsManager::MAX_UPLOAD_SPEED_MAIN));
+    return SettingsManager::getInstance()->get(getCurSetting(SettingsManager::MAX_UPLOAD_SPEED_MAIN));
 }
 
 int ThrottleManager::getDownLimit() {
-	return SettingsManager::getInstance()->get(getCurSetting(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN));
+    return SettingsManager::getInstance()->get(getCurSetting(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN));
 }
 
 void ThrottleManager::setSetting(SettingsManager::IntSetting setting, int value) {
@@ -155,133 +155,133 @@ void ThrottleManager::setSetting(SettingsManager::IntSetting setting, int value)
 }
 
 bool ThrottleManager::getCurThrottling() {
-	Lock l(stateCS);
-	return activeWaiter != -1;
+    Lock l(stateCS);
+    return activeWaiter != -1;
 }
 
 void ThrottleManager::waitToken() {
-	// no tokens, wait for them, so long as throttling still active
-	// avoid keeping stateCS lock on whole function
-	CriticalSection *curCS = 0;
-	{
-		Lock l(stateCS);
-		if (activeWaiter != -1)
-			curCS = &waitCS[activeWaiter];
-	}
-	// possible post-CS aW shifts: 0->1/1->0: lock lands in wrong place, will
-	// either fall through immediately or wait depending on whether in
-	// stateCS-protected transition elsewhere; 0/1-> -1: falls through. Both harmless.
-	if (curCS)
-		Lock l(*curCS);
+    // no tokens, wait for them, so long as throttling still active
+    // avoid keeping stateCS lock on whole function
+    CriticalSection *curCS = 0;
+    {
+        Lock l(stateCS);
+        if (activeWaiter != -1)
+            curCS = &waitCS[activeWaiter];
+    }
+    // possible post-CS aW shifts: 0->1/1->0: lock lands in wrong place, will
+    // either fall through immediately or wait depending on whether in
+    // stateCS-protected transition elsewhere; 0/1-> -1: falls through. Both harmless.
+    if (curCS)
+        Lock l(*curCS);
 }
 
 ThrottleManager::~ThrottleManager(void)
 {
-	shutdown();
-	TimerManager::getInstance()->removeListener(this);
+    shutdown();
+    TimerManager::getInstance()->removeListener(this);
 }
 
 #ifdef _WIN32
 
 void ThrottleManager::shutdown() {
-	Lock l(stateCS);
-	if (activeWaiter != -1) {
-		waitCS[activeWaiter].unlock();
-		activeWaiter = -1;
-	}
+    Lock l(stateCS);
+    if (activeWaiter != -1) {
+        waitCS[activeWaiter].unlock();
+        activeWaiter = -1;
+    }
 }
 #else //*nix
 
 void ThrottleManager::shutdown()
 {
-	bool wait = false;
-	{
-		Lock l(stateCS);
-		if (activeWaiter != -1)
-		{
-			n_lock = activeWaiter;
-			activeWaiter = -1;
-			halt = 1;
-			wait = true;
-		}
-	}
+    bool wait = false;
+    {
+        Lock l(stateCS);
+        if (activeWaiter != -1)
+        {
+            n_lock = activeWaiter;
+            activeWaiter = -1;
+            halt = 1;
+            wait = true;
+        }
+    }
 
-	// wait shutdown...
-	if (wait)
-	{
-		Lock l(shutdownCS);
-	}
+    // wait shutdown...
+    if (wait)
+    {
+        Lock l(shutdownCS);
+    }
 }
 #endif //*nix
 
 // TimerManagerListener
 void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noexcept
 {
-	int newSlots = SettingsManager::getInstance()->get(getCurSetting(SettingsManager::SLOTS));
-	if(newSlots != SETTING(SLOTS)) {
-		setSetting(SettingsManager::SLOTS, newSlots);
-	}
+    int newSlots = SettingsManager::getInstance()->get(getCurSetting(SettingsManager::SLOTS));
+    if(newSlots != SETTING(SLOTS)) {
+        setSetting(SettingsManager::SLOTS, newSlots);
+    }
 
-	{
-		Lock l(stateCS);
-
-#ifndef _WIN32 //*nix
-
-		if (halt == 1)
-		{
-			halt = -1;
-
-			// unlock shutdown and token wait
-			dcassert(n_lock == 0 || n_lock == 1);
-			waitCS[n_lock].unlock();
-			shutdownCS.unlock();
-
-			return;
-		}
-		else if (halt == -1)
-		{
-			return;
-		}
-#endif
-		if (activeWaiter == -1)
-		{
-			// This will create slight weirdness for the read/write calls between
-			// here and the first activeWaiter-toggle below.
-			waitCS[activeWaiter = 0].lock();
+    {
+        Lock l(stateCS);
 
 #ifndef _WIN32 //*nix
 
-			// lock shutdown
-			shutdownCS.lock();
+        if (halt == 1)
+        {
+            halt = -1;
+
+            // unlock shutdown and token wait
+            dcassert(n_lock == 0 || n_lock == 1);
+            waitCS[n_lock].unlock();
+            shutdownCS.unlock();
+
+            return;
+        }
+        else if (halt == -1)
+        {
+            return;
+        }
 #endif
-		}
-	}
+        if (activeWaiter == -1)
+        {
+            // This will create slight weirdness for the read/write calls between
+            // here and the first activeWaiter-toggle below.
+            waitCS[activeWaiter = 0].lock();
 
-	int downLimit = getDownLimit();
-	int upLimit   = getUpLimit();
+#ifndef _WIN32 //*nix
 
-	// readd tokens
-	{
-		Lock l(downCS);
-		downTokens = downLimit * 1024;
-	}
+            // lock shutdown
+            shutdownCS.lock();
+#endif
+        }
+    }
 
-	{
-		Lock l(upCS);
-		upTokens = upLimit * 1024;
-	}
+    int downLimit = getDownLimit();
+    int upLimit   = getUpLimit();
 
-	// let existing events drain out (fairness).
-	// www.cse.wustl.edu/~schmidt/win32-cv-1.html documents various
-	// fairer strategies, but when only broadcasting, irrelevant
-	{
-		Lock l(stateCS);
+    // readd tokens
+    {
+        Lock l(downCS);
+        downTokens = downLimit * 1024;
+    }
 
-		dcassert(activeWaiter == 0 || activeWaiter == 1);
-		waitCS[1-activeWaiter].lock();
-		activeWaiter = 1-activeWaiter;
-		waitCS[1-activeWaiter].unlock();
-	}
+    {
+        Lock l(upCS);
+        upTokens = upLimit * 1024;
+    }
+
+    // let existing events drain out (fairness).
+    // www.cse.wustl.edu/~schmidt/win32-cv-1.html documents various
+    // fairer strategies, but when only broadcasting, irrelevant
+    {
+        Lock l(stateCS);
+
+        dcassert(activeWaiter == 0 || activeWaiter == 1);
+        waitCS[1-activeWaiter].lock();
+        activeWaiter = 1-activeWaiter;
+        waitCS[1-activeWaiter].unlock();
+    }
 }
 
-}	// namespace dcpp
+}   // namespace dcpp

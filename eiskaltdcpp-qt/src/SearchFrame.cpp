@@ -1339,7 +1339,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 QString hubUrl = item->data(COLUMN_SF_HOST).toString();
                 dcpp::CID cid(_tq(item->cid));
 
-                fr = HubManager::getInstance()->getHub(hubUrl);
+                fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
 
                 if (fr)
                     fr->createPMWindow(cid);

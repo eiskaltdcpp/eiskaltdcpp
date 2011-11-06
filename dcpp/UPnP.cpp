@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -23,26 +23,26 @@
 namespace dcpp {
 
 const char* UPnP::protocols[PROTOCOL_LAST] = {
-	"TCP",
-	"UDP"
+    "TCP",
+    "UDP"
 };
 
 bool UPnP::open(const unsigned short port, const Protocol protocol, const string& description) {
-	if(!add(port, protocol, description))
-		return false;
+    if(!add(port, protocol, description))
+        return false;
 
-	rules.push_back(make_pair(port, protocol));
-	return true;
+    rules.push_back(make_pair(port, protocol));
+    return true;
 }
 
 bool UPnP::close() {
-	bool ret = true;
+    bool ret = true;
 
-	for(std::vector<rule>::const_iterator i = rules.begin(), iend = rules.end(); i != iend; ++i)
-		ret &= remove(i->first, i->second);
-	rules.clear();
+    for(std::vector<rule>::const_iterator i = rules.begin(), iend = rules.end(); i != iend; ++i)
+        ret &= remove(i->first, i->second);
+    rules.clear();
 
-	return ret;
+    return ret;
 }
 
 bool UPnP::hasRules() const {

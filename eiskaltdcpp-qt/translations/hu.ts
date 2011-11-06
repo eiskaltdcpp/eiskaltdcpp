@@ -175,6 +175,18 @@ Kapcsolók:
         <source>Stop</source>
         <translation>Állj</translation>
     </message>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished">Töröl</translation>
+    </message>
 </context>
 <context>
     <name>DownloadQueue</name>
@@ -927,11 +939,11 @@ Kedvenc felhasználó</translation>
         <translation>Kedvencek</translation>
     </message>
     <message>
-        <source>%1 become offline</source>
+        <source>%1 is now offline</source>
         <translation>%1 offline</translation>
     </message>
     <message>
-        <source>%1 become online</source>
+        <source>%1 is now online</source>
         <translation>%1 online</translation>
     </message>
     <message>
@@ -1938,6 +1950,14 @@ Kedvenc felhasználó</translation>
         <source>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</source>
         <translation>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(2.2.3 és újabb)&lt;br/&gt;</translation>
     </message>
+    <message>
+        <source>Ctrl+Alt+J</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Engine</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiLineToolBar</name>
@@ -2571,6 +2591,10 @@ Letöltve: %3 Feltöltve: %4</translation>
     <message>
         <source>Preferences</source>
         <translation>Beállítások</translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5122,6 +5146,25 @@ a hub operátoraitól kaphatsz</translation>
     <message>
         <source>Don&apos;t show icons in menus (need restart)</source>
         <translation>Ikonok elrejtése a menükben (újraindítás szükséges)</translation>
+    </message>
+</context>
+<context>
+    <name>UISettingsHistory</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear search history on program exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear download directories history on program exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear now</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

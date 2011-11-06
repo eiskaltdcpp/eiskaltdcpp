@@ -202,10 +202,10 @@ void WulforManager::processGuiQueue()
 		gdk_threads_enter();
 
 		g_mutex_lock(guiQueueMutex);
-		while (guiFuncs.size() > 0)
+		while (!guiFuncs.empty())
 		{
 			func = guiFuncs.front();
-			guiFuncs.erase(guiFuncs.begin());
+			guiFuncs.pop_front();
 			g_mutex_unlock(guiQueueMutex);
 
 			func->call();
@@ -238,10 +238,10 @@ void WulforManager::processClientQueue()
 
 		g_mutex_lock(clientCallMutex);
 		g_mutex_lock(clientQueueMutex);
-		while (clientFuncs.size() > 0)
+		while (!clientFuncs.empty())
 		{
 			func = clientFuncs.front();
-			clientFuncs.erase(clientFuncs.begin());
+			clientFuncs.pop_front();
 			g_mutex_unlock(clientQueueMutex);
 
 			func->call();
@@ -327,7 +327,7 @@ void WulforManager::insertEntry_gui(Entry *entry)
 void WulforManager::deleteEntry_gui(Entry *entry)
 {
 	const string &id = entry->getID();
-	vector<FuncBase *>::iterator fIt;
+	list<FuncBase *>::iterator fIt;
 
 	g_mutex_lock(clientCallMutex);
 
@@ -358,6 +358,7 @@ void WulforManager::deleteEntry_gui(Entry *entry)
 		else
 			++fIt;
 	}
+
 	g_mutex_unlock(guiQueueMutex);
 
 	// Remove the bookentry from the list.

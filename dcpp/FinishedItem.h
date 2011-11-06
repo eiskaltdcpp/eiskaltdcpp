@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_FINISHED_ITEM_H
@@ -58,7 +58,7 @@ public:
         int64_t fileSize_,
         int64_t actual_,
         bool crc32Checked_,
-                const HintedUser& user
+        const HintedUser& user
         );
 
     void update(
@@ -67,7 +67,7 @@ public:
         time_t time_,
         int64_t actual_,
         bool crc32Checked_,
-                const HintedUser& user
+        const HintedUser& user
         );
 
     double getTransferredPercentage() const;

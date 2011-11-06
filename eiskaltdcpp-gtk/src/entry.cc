@@ -40,7 +40,7 @@ Entry::Entry(const EntryType type, const string &ui, const string &id):
             gtk_builder_add_from_file(xml,file.c_str(),&error);
             if(error != NULL)
             {
-                g_print("GTKBUILDER EROR file => %s ,\n => %s",file.c_str(),error->message);
+                g_print("GTKBUILDER ERROR file => %s ,\n => %s",file.c_str(),error->message);
                 gtk_main_quit();
             }
     }

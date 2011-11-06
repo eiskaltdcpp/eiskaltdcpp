@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_LOG_MANAGER_LISTENER_H
@@ -25,11 +25,11 @@ namespace dcpp {
 
 class LogManagerListener {
 public:
-	virtual ~LogManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~LogManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> Message;
-	virtual void on(Message, time_t, const string&) noexcept { }
+    typedef X<0> Message;
+    virtual void on(Message, time_t, const string&) noexcept { }
 };
 
 } // namespace dcpp

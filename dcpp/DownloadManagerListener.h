@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_DOWNLOADMANAGERLISTENER_H_
@@ -39,45 +39,45 @@ namespace dcpp {
  */
 class DownloadManagerListener {
 public:
-	virtual ~DownloadManagerListener() { }
-	template<int I>	struct X { enum { TYPE = I }; };
+    virtual ~DownloadManagerListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
 
-	typedef X<0> Complete;
-	typedef X<1> Failed;
-	typedef X<2> Starting;
-	typedef X<3> Tick;
-	typedef X<4> Requesting;
+    typedef X<0> Complete;
+    typedef X<1> Failed;
+    typedef X<2> Starting;
+    typedef X<3> Tick;
+    typedef X<4> Requesting;
 
-	/**
-	 * This is the first message sent before a download starts.
-	 * No other messages will be sent before this.
-	 */
-	virtual void on(Requesting, Download*) noexcept { }
+    /**
+     * This is the first message sent before a download starts.
+     * No other messages will be sent before this.
+     */
+    virtual void on(Requesting, Download*) noexcept { }
 
-	/**
-	 * This is the first message sent before a download starts.
-	 */
-	virtual void on(Starting, Download*) noexcept { }
+    /**
+     * This is the first message sent before a download starts.
+     */
+    virtual void on(Starting, Download*) noexcept { }
 
-	/**
-	 * Sent once a second if something has actually been downloaded.
-	 */
-	virtual void on(Tick, const DownloadList&) noexcept { }
+    /**
+     * Sent once a second if something has actually been downloaded.
+     */
+    virtual void on(Tick, const DownloadList&) noexcept { }
 
-	/**
-	 * This is the last message sent before a download is deleted.
-	 * No more messages will be sent after it.
-	 */
-	virtual void on(Complete, Download*) noexcept { }
+    /**
+     * This is the last message sent before a download is deleted.
+     * No more messages will be sent after it.
+     */
+    virtual void on(Complete, Download*) noexcept { }
 
-	/**
-	 * This indicates some sort of failure with a particular download.
-	 * No more messages will be sent after it.
-	 *
-	 * @remarks Should send an error code instead of a string and let the GUI
-	 * display an error string.
-	 */
-	virtual void on(Failed, Download*, const string&) noexcept { }
+    /**
+     * This indicates some sort of failure with a particular download.
+     * No more messages will be sent after it.
+     *
+     * @remarks Should send an error code instead of a string and let the GUI
+     * display an error string.
+     */
+    virtual void on(Failed, Download*, const string&) noexcept { }
 };
 
 } // namespace dcpp

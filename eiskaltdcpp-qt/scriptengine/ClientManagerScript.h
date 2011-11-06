@@ -34,6 +34,7 @@ public Q_SLOTS:
 
     QStringList getHubs(const QString& cid) const;
     QStringList getHubNames(const QString& cid) const;
+    QStringList getHubNames(const QString& cid, const QString& hubUrl) const;
     QStringList getNicks(const QString& cid) const;
     QStringList getConnectedHubs() const;
     QString getConnection(const QString& cid) const;
@@ -41,6 +42,7 @@ public Q_SLOTS:
     bool isConnected(const QString& aUrl) const;
     bool isActive() const;
 
+    void sendPM(const QString &cid, const QString &hubUrl, const QString &msg);    
     QString getMyCID() const;
 
 Q_SIGNALS:

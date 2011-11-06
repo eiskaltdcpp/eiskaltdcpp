@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_FINISHED_MANAGER_LISTENER_H
@@ -38,11 +38,11 @@ public:
     typedef X<6> RemovedAll;
 
     virtual void on(AddedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
-        virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) noexcept { }
+    virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) noexcept { }
     virtual void on(UpdatedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
-        virtual void on(UpdatedUser, bool, const HintedUser&) noexcept { }
+    virtual void on(UpdatedUser, bool, const HintedUser&) noexcept { }
     virtual void on(RemovedFile, bool, const string&) noexcept { }
-        virtual void on(RemovedUser, bool, const HintedUser&) noexcept { }
+    virtual void on(RemovedUser, bool, const HintedUser&) noexcept { }
     virtual void on(RemovedAll, bool) noexcept { }
 };
 

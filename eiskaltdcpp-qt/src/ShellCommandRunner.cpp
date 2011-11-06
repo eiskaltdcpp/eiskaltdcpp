@@ -2,7 +2,7 @@
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
@@ -13,13 +13,13 @@
 #include <cstdio>
 
 /** */
-ShellCommandRunner::ShellCommandRunner(QString a, QObject * parent) : QThread(parent) {
+ShellCommandRunner::ShellCommandRunner(QString a, QObject * parent) : QThread(parent), _exitCode(-1) {
     args = a;
     stop = false;
     useArgList = false;
 }
 
-ShellCommandRunner::ShellCommandRunner(QString cmd, QStringList argList, QObject * parent) : QThread(parent) {
+ShellCommandRunner::ShellCommandRunner(QString cmd, QStringList argList, QObject * parent) : QThread(parent), _exitCode(-1) {
     this->argList = argList;
     this->cmd = cmd;
     useArgList = true;
@@ -37,6 +37,7 @@ ShellCommandRunner::~ShellCommandRunner() {
 
 /** */
 void ShellCommandRunner::run() {
+    _exitCode = 1;
     QString output;
     bool succeeded = false;
     QProcess process;
@@ -69,22 +70,24 @@ void ShellCommandRunner::run() {
 
     if ((process.state() == QProcess::NotRunning)) {
         if (process.exitStatus() == QProcess::NormalExit) {
-            int exitcode = process.exitCode();
-            if (exitcode == 0) {
+            _exitCode = process.exitCode();
+            if (_exitCode == 0) {
                 output = QString(process.readAllStandardOutput()).trimmed();
-                if (output.isEmpty()) {
-                    output = tr("Command produced no visible output.");
-                } else {
-                    succeeded = true;
-                }
+                
+                if (output.isEmpty())
+                    output = "";
+                
+                succeeded = true;
             } else {
-                output = tr("Process exited with status") + " " + QString::number(exitcode);
+                output = QString(process.readAllStandardError()).trimmed();
             }
         } else {
-            output = tr("Process was killed or crashed.");
+            output = QString(process.readAllStandardError()).trimmed();
         }
     } else {
-        output = tr("Process still running after 2 minutes, killing process...");
+        _exitCode = 1;
+        output = QString(process.readAllStandardError()).trimmed();
+        
         process.terminate();
         QThread::msleep(1000);
         process.close();
@@ -94,10 +97,8 @@ void ShellCommandRunner::run() {
         }
     }
 
-    if (stop == false) // stop is only set to true when things are being deleted
-    {
+    if (!stop) // stop is only set to true when things are being deleted
         emit finished(succeeded, output);
-    }
 }
 
 /** */

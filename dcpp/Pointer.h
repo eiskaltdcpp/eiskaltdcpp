@@ -13,15 +13,13 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_POINTER_H
 #define DCPLUSPLUS_DCPP_POINTER_H
 
 #include <boost/intrusive_ptr.hpp>
-//#include "Thread.h"
-//#include <boost/smart_ptr/detail/atomic_count.hpp>
 #include <boost/detail/atomic_count.hpp>
 #include "noexcept.h"
 
@@ -50,7 +48,6 @@ private:
     friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) {++p->ref;}
     friend void intrusive_ptr_release(intrusive_ptr_base* p) { if(--p->ref == 0) { delete static_cast<T*>(p); } }
 
-    //volatile long ref;
     boost::detail::atomic_count ref;
 };
 

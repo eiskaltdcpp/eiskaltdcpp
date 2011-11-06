@@ -13,7 +13,8 @@
 #include <QObject>
 #include <QtScript/QScriptEngine>
 #include <QtScript/QScriptValue>
-
+#include <QFileSystemWatcher>
+#include <QTimer>
 #include <QMetaType>
 
 #include <QList>
@@ -39,8 +40,9 @@ friend class dcpp::Singleton<ScriptEngine>;
 
 public:
 
-signals:
-
+Q_SIGNALS:
+    void scriptChanged(const QString &script);
+    
 public Q_SLOTS:
     void loadScripts();
     void loadScript(const QString&);
@@ -50,6 +52,8 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void slotWSKeyChanged(const QString &key, const QString &value);
+    void slotScriptChanged(const QString &script);
+    void slotProcessChangedFiles();
 
 private:
     ScriptEngine();
@@ -67,8 +71,15 @@ private:
     void registerDynamicMembers(QScriptEngine &);
 
     QMap<QString, ScriptObject*> scripts;
+    
+    QFileSystemWatcher watcher;
+    QStringList changedFiles;
+    QTimer *syncTimer;
 };
 
 Q_DECLARE_METATYPE(ScriptEngine*)
+#ifndef USE_QML
+Q_DECLARE_METATYPE(QList<QObject*>)
+#endif
 
 #endif // SCRIPTENGINE_H

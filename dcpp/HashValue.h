@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_HASH_VALUE_H
@@ -49,12 +49,12 @@ struct HashValue : FastAlloc<HashValue<Hasher> >{
 namespace std {
 template<typename T>
 struct hash<dcpp::HashValue<T> > {
-        size_t operator()(const dcpp::HashValue<T>& rhs) const {
-            // RVO should handle this as efficiently as reinterpret_cast
-            size_t hvHash;
-            memcpy(&hvHash, rhs.data, sizeof(size_t));
-            return hvHash;
-        }
+    size_t operator()(const dcpp::HashValue<T>& rhs) const {
+        // RVO should handle this as efficiently as reinterpret_cast
+        size_t hvHash;
+        memcpy(&hvHash, rhs.data, sizeof(size_t));
+        return hvHash;
+    }
 };
 }
 

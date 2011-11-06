@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -41,13 +41,7 @@ Client::Client(const string& hubURL, char separator_, bool secure_) :
     string file, proto, query, fragment;
     Util::decodeUrl(hubURL, proto, address, port, file, query, fragment);
 
-    if(!query.empty()) {
-        auto q = Util::decodeQuery(query);
-        auto kp = q.find("kp");
-        if(kp != q.end()) {
-            keyprint = kp->second;
-        }
-    }
+    keyprint = Util::decodeQuery(query)["kp"];
 
     TimerManager::getInstance()->addListener(this);
 }
@@ -122,7 +116,7 @@ void Client::reloadSettings(bool updateNick) {
 }
 
 bool Client::isActive() const {
-        return ClientManager::getInstance()->isActive(hubUrl);
+    return ClientManager::getInstance()->isActive(hubUrl);
 }
 
 void Client::connect() {
@@ -297,22 +291,22 @@ void Client::on(Second, uint64_t aTick) noexcept {
 }
 #ifdef LUA_SCRIPT
 string ClientScriptInstance::formatChatMessage(const tstring& aLine) {
-        Lock l(cs);
-        // this string is probably in UTF-8.  Does lua want/need strings in the active code page?
-        string processed = Text::fromT(aLine);
-        MakeCall("dcpp", "FormatChatText", 1, (Client*)this, processed);
+    Lock l(cs);
+    // this string is probably in UTF-8.  Does lua want/need strings in the active code page?
+    string processed = Text::fromT(aLine);
+    MakeCall("dcpp", "FormatChatText", 1, (Client*)this, processed);
 
-        if (lua_isstring(L, -1)) processed = lua_tostring(L, -1);
+    if (lua_isstring(L, -1)) processed = lua_tostring(L, -1);
 
-        lua_settop(L, 0);
-        return Text::toT(processed);
+    lua_settop(L, 0);
+    return Text::toT(processed);
 }
 
 bool ClientScriptInstance::onHubFrameEnter(Client* aClient, const string& aLine) {
-        Lock l(cs);
-        // ditto the comment above
-        MakeCall("dcpp", "OnCommandEnter", 1, aClient, aLine);
-        return GetLuaBool();
+    Lock l(cs);
+    // ditto the comment above
+    MakeCall("dcpp", "OnCommandEnter", 1, aClient, aLine);
+    return GetLuaBool();
 }
 #endif
 } // namespace dcpp

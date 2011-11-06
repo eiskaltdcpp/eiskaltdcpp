@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -25,21 +25,21 @@
 namespace dcpp {
 
 bool UserCommand::adc(const string& h) {
-        return h.compare(0, 6, "adc://") == 0 || h.compare(0, 7, "adcs://") == 0;
+    return h.compare(0, 6, "adc://") == 0 || h.compare(0, 7, "adcs://") == 0;
 }
 
 const StringList& UserCommand::getDisplayName() const {
-        return displayName;
+    return displayName;
 }
 
 void UserCommand::setDisplayName() {
-        string name_ = name;
-        Util::replace("//", "\t", name_);
-        StringTokenizer<string> t(name_, '/');
-        for(StringList::const_iterator i = t.getTokens().begin(), iend = t.getTokens().end(); i != iend; ++i) {
-                displayName.push_back(*i);
-                Util::replace("\t", "/", displayName.back());
-        }
+    string name_ = name;
+    Util::replace("//", "\t", name_);
+    StringTokenizer<string> t(name_, '/');
+    for(StringList::const_iterator i = t.getTokens().begin(), iend = t.getTokens().end(); i != iend; ++i) {
+        displayName.push_back(*i);
+        Util::replace("\t", "/", displayName.back());
+    }
 }
 
 } // namespace dcpp

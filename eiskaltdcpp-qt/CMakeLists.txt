@@ -1,8 +1,4 @@
-if (UNIX AND NOT APPLE)
-  project (${PROJECT_NAME_GLOBAL}-qt)
-else (UNIX AND NOT APPLE)
-  project (${PROJECT_NAME_GLOBAL})
-endif (UNIX AND NOT APPLE)
+project (${PROJECT_NAME_GLOBAL}-qt)
 
 cmake_minimum_required (VERSION 2.6)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
@@ -38,7 +34,7 @@ endif (USE_QT_SQLITE)
 
 include (${QT_USE_FILE})
 
-set (SRCS
+list (APPEND SRCS
             src/ActionCustomizer.cpp
             src/ADLS.cpp
             src/ADLSModel.cpp
@@ -85,6 +81,7 @@ set (SRCS
             src/SettingsConnection.cpp
             src/SettingsDownloads.cpp
             src/SettingsGUI.cpp
+            src/SettingsHistory.cpp
             src/SettingsLog.cpp
             src/SettingsNotification.cpp
             src/SettingsPersonal.cpp
@@ -109,19 +106,11 @@ set (SRCS
             src/UserListModel.cpp
             src/WulforSettings.cpp
             src/WulforUtil.cpp
-            src/ChatEdit.cpp
-            src/qtsingleapp/qtsingleapplication.cpp
-            src/qtsingleapp/qtlocalpeer.cpp
-            src/qtsingleapp/qtsinglecoreapplication.cpp
-            src/qtsingleapp/qtlockedfile.cpp
-            )
-if (WIN32)
-  list (APPEND SRCS ../win32/applink.c)
-  list (APPEND SRCS src/qtsingleapp/qtlockedfile_win.cpp)
-else (WIN32)
-  list (APPEND SRCS src/qtsingleapp/qtlockedfile_unix.cpp)
-endif (WIN32)
-set (MOC_HDRS
+            src/ChatEdit.cpp)
+if (NOT HAIKU)
+        list(APPEND SRCS src/qtsingleapp/qtsinglecoreapplication.cpp)
+endif (NOT HAIKU)
+list(APPEND MOC_HDRS
             src/ActionCustomizer.h
             src/ADLS.h
             src/ADLSModel.h
@@ -162,6 +151,7 @@ set (MOC_HDRS
             src/SettingsConnection.h
             src/SettingsDownloads.h
             src/SettingsGUI.h
+            src/SettingsHistory.h
             src/SettingsLog.h
             src/SettingsNotification.h
             src/SettingsPersonal.h
@@ -193,12 +183,16 @@ set (MOC_HDRS
             src/WulforSettings.h
             src/WulforUtil.h
             src/ChatEdit.h
-            src/qtsingleapp/qtlockedfile.h
-            src/qtsingleapp/qtsingleapplication.h
-            src/qtsingleapp/qtsinglecoreapplication.h
-            src/qtsingleapp/qtlocalpeer.h
             )
-set (UI_FORMS ui/UIAbout.ui
+if (NOT HAIKU)
+        list(APPEND MOC_HDRS
+                    src/EiskaltApp.h
+                    src/qtsingleapp/qtsinglecoreapplication.h)
+else (NOT HAIKU)
+        list(APPEND MOC_HDRS
+                    src/EiskaltApp_haiku.h)
+endif (NOT HAIKU)
+list(APPEND UI_FORMS ui/UIAbout.ui
             ui/UIAntiSpam.ui
             ui/UIADLSearch.ui
             ui/UIADLSearchEditor.ui
@@ -223,6 +217,7 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UISettingsConnection.ui
             ui/UISettingsDownloads.ui
             ui/UISettingsGUI.ui
+            ui/UISettingsHistory.ui
             ui/UISettingsLog.ui
             ui/UISettingsNotification.ui
             ui/UISettingsPersonal.ui
@@ -234,11 +229,13 @@ set (UI_FORMS ui/UIAbout.ui
             ui/UITransferView.ui
             ui/UISettingsUC.ui
             ui/UIUserCommands.ui
-            ui/UIScriptManager.ui
-            ui/UIDialogScriptConsole.ui
             ui/UIActionCustomizer.ui
             ui/UIHubManager.ui
             )
+
+if (WIN32)
+  list (APPEND SRCS ../win32/applink.c)
+endif (WIN32)
 
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)
@@ -248,15 +245,15 @@ if (MINGW AND WIN32)
     set(CMAKE_RC_COMPILER windres)
   endif (CMAKE_CROSSCOMPILING)
   ADD_CUSTOM_COMMAND (OUTPUT
-            "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o"
+            "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
             COMMAND ${CMAKE_RC_COMPILER}
             -I"${CMAKE_CURRENT_SOURCE_DIR}/"
-            -i "${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp-qt.rc"
-            -o "${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o"
+            -i "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.rc"
+            -o "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
             )
-  SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/eiskaltdcpp-qt_rc.o)
+  SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o)
 elseif (NOT MINGW AND WIN32)
-  SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/eiskaltdcpp-qt.rc")
+  SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.rc")
 endif (MINGW AND WIN32)
 
 if (USE_ASPELL)
@@ -273,6 +270,7 @@ if (USE_JS)
         scriptengine/ScriptConsole.cpp
         scriptengine/ScriptEngine.cpp
         scriptengine/ScriptConsole.cpp
+        src/codeeditor/codeeditor.cpp
         src/ScriptManagerDialog.cpp)
   list (APPEND MOC_HDRS
         scriptengine/ClientManagerScript.h
@@ -282,7 +280,11 @@ if (USE_JS)
         scriptengine/ScriptConsole.h
         scriptengine/ScriptEngine.h
         scriptengine/ScriptConsole.h
+        src/codeeditor/codeeditor.h
         src/ScriptManagerDialog.h)
+  list (APPEND UI_FORMS
+        ui/UIScriptManager.ui
+        ui/UIDialogScriptConsole.ui)
 endif (USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})
@@ -315,9 +317,9 @@ set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc
 
 if (UNIX)
   EXECUTE_PROCESS (
-                OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz
+                OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE eiskaltdcpp-qt.1
+                INPUT_FILE ${PROJECT_NAME}.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
 
@@ -368,7 +370,7 @@ if (ENABLE_STACKTRACE)
 endif (ENABLE_STACKTRACE)
 
 if (APPLE)
-  set (MACOSICON "${PROJECT_SOURCE_DIR}/../icons/icon_128x128.icns")
+  set (MACOSICON "${PROJECT_SOURCE_DIR}/../data/icons/icon_128x128.icns")
   set (MACOSICONINBUNDLE "icon_128x128.icns")
   # set how it shows up in the Info.plist file
   SET(MACOSX_BUNDLE_ICON_FILE ${MACOSICONINBUNDLE})
@@ -378,7 +380,7 @@ if (APPLE)
   list (APPEND SRCS ${MACOSICON})
 endif (APPLE)
 
-add_executable (eiskaltdcpp-qt MACOSX_BUNDLE WIN32 src/main.cpp
+add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
                 ${SRCS}
@@ -405,15 +407,18 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-  target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp iconv)
+  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp iconv)
 else (APPLE)
-  target_link_libraries (eiskaltdcpp-qt ${LIBS} dcpp)
+  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp)
 endif (APPLE)
+if (HAIKU)
+    target_link_libraries (${PROJECT_NAME} ${LIBS} network be)
+endif (HAIKU)
 
 if (APPLE)
-  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
+  set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
 else (APPLE)
-  set_property (TARGET eiskaltdcpp-qt PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-qt")
+  set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")
 endif (APPLE)
 
 if (WIN32 OR HAIKU)
@@ -427,7 +432,7 @@ endif (WIN32 OR HAIKU)
 
 
 
-  install (TARGETS eiskaltdcpp-qt
+  install (TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 if (APPLE)
@@ -449,7 +454,7 @@ if (APPLE)
 
 # doesn't work this way :(
 #  set (MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
-  set_target_properties(eiskaltdcpp-qt PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
+  set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
 
   set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
   set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
@@ -471,14 +476,14 @@ endif (APPLE)
   install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icons" PATTERN ".svn" EXCLUDE)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
 if (APPLE)
-  install (FILES eiskaltdcpp-qt.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+  install (FILES ${PROJECT_NAME}.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
+  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
   install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 else (APPLE)
   install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
   if (UNIX AND NOT HAIKU)
-    install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt.1.gz DESTINATION ${SHARE_DIR}/man/man1)
-    install (FILES eiskaltdcpp-qt.desktop DESTINATION ${SHARE_DIR}/applications)
+    install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+    install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
   endif (UNIX AND NOT HAIKU)
 endif (APPLE)
 
@@ -486,14 +491,13 @@ if (APPLE)
   install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
 
   INSTALL(CODE "
-    file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")" COMPONENT Runtime)
+    file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
 
   INSTALL(CODE "
     file(GLOB_RECURSE QTPLUGINS
       \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
     include(BundleUtilities)
-    fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")
-    " COMPONENT Runtime)
+    fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
     set(CPACK_BINARY_DRAGNDROP ON)
 
 endif (APPLE)

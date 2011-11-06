@@ -100,6 +100,9 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
         }
         case Qt::DisplayRole:
         {
+            if (item->download && index.column() != COLUMN_TRANSFER_SIZE && item->childCount() == 1)//This parent item has hidden child, so just copy child column text into parent
+				return data(createIndex(0, index.column(), reinterpret_cast<void*>(item->childItems.first())), role);
+			
             if (index.column() == COLUMN_TRANSFER_SPEED)
                 return WulforUtil::formatBytes(item->data(COLUMN_TRANSFER_SPEED).toDouble()) + tr("/s");
             else if (index.column() == COLUMN_TRANSFER_SIZE)
@@ -250,6 +253,21 @@ int TransferViewModel::rowCount(const QModelIndex &parent) const
         parentItem = static_cast<TransferViewItem*>(parent.internalPointer());
 
     return parentItem->childCount();
+}
+
+bool TransferViewModel::hasChildren(const QModelIndex &parent) const{
+    if (!parent.isValid())
+        return (rootItem->childCount() > 0);
+
+    TransferViewItem *parentItem = static_cast<TransferViewItem*>(parent.internalPointer());
+
+    if (!parentItem)
+        return false;
+
+    if (parentItem->download && parentItem->childCount() == 1)
+        return false;
+
+    return (parentItem->childCount() > 0);
 }
 
 void TransferViewModel::sort(int column, Qt::SortOrder order) {
@@ -591,11 +609,13 @@ void TransferViewModel::finishParent(const VarMap &params){
     p->updateColumn(COLUMN_TRANSFER_STATS, tr("Finished"));
     p->percent = 100.0;
     p->finished = true;
+    p->updateColumn(COLUMN_TRANSFER_SPEED, qlonglong(0));
 
     foreach (TransferViewItem *i, p->childItems){
         i->updateColumn(COLUMN_TRANSFER_STATS, tr("Finished"));
         i->percent = 100.0;
         i->finished = true;
+        i->updateColumn(COLUMN_TRANSFER_SPEED, qlonglong(0));
     }
 
     emit layoutChanged();

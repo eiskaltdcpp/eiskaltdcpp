@@ -18,6 +18,8 @@ if (USE_GTK)
     set(GTK_INCLUDE_DIRS ${GTK2_INCLUDE_DIRS})
     set(GTK_LIBRARIES ${GTK2_LIBRARIES})
 elseif (USE_GTK3)
+    add_definitions(-DUSE_GTK3 -DGSEAL_ENABLE)
+    #add_definitions(-DGTK_DISABLE_SINGLE_INCLUDES -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED)
     set(GTK_INCLUDE_DIRS ${GTK3_INCLUDE_DIRS})
     set(GTK_LIBRARIES ${GTK3_LIBRARIES})
 endif(USE_GTK)
@@ -44,7 +46,7 @@ if (LUA_SCRIPT)
   list (APPEND LIBS ${LUA_LIBRARIES})
 endif (LUA_SCRIPT)
 
-add_executable (eiskaltdcpp-gtk MACOSX_BUNDLE WIN32
+add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
                 ${gtk_srcs}
                 )
 
@@ -91,9 +93,9 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-  target_link_libraries (eiskaltdcpp-gtk ${LIBS} dcpp iconv intl)
+  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp iconv intl)
 else (APPLE)
-  target_link_libraries (eiskaltdcpp-gtk ${LIBS} dcpp)
+  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp)
 endif (APPLE)
 
 if (UNIX)
@@ -107,14 +109,14 @@ endif (UNIX)
 
 if (UNIX)
   EXECUTE_PROCESS (
-                OUTPUT_FILE ${PROJECT_BINARY_DIR}/eiskaltdcpp-gtk.1.gz
+                OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE eiskaltdcpp-gtk.1
+                INPUT_FILE ${PROJECT_NAME}.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
 
-  set_property (TARGET eiskaltdcpp-gtk PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}-gtk")
-  install (TARGETS eiskaltdcpp-gtk
+  set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")
+  install (TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 
@@ -126,11 +128,17 @@ endif (UNIX)
     PATTERN ".svn" EXCLUDE)
 
 if (APPLE)
-  install (FILES eiskaltdcpp-gtk.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-gtk.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
+  install (FILES ${PROJECT_NAME}.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
+  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
 else (APPLE)
   if (UNIX)
-    install (FILES eiskaltdcpp-gtk.desktop DESTINATION ${SHARE_DIR}/applications)
-    install (FILES ${PROJECT_BINARY_DIR}/eiskaltdcpp-gtk.1.gz DESTINATION ${SHARE_DIR}/man/man1)
+    install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
+    install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${SHARE_DIR}/man/man1)
   endif (UNIX)
 endif (APPLE)
+
+foreach(LANG ${LANGUAGES})
+    install(FILES
+        ${PROJECT_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/${PROJECT_NAME}.mo
+            DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES)
+endforeach(LANG ${LANGUAGES})

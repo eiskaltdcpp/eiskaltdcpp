@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dcplusplus\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-09-07 00:38+0300\n"
+"POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2008-04-26 10:35+0000\n"
 "Last-Translator: Stary <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -30,34 +30,34 @@ msgstr "Přesměrovat uživatele"
 msgid "Auto-connect group (converted)"
 msgstr ""
 
-#: ../Socket.cpp:85
+#: ../Socket.cpp:86
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Neznámá chyba: 0x%1$x"
 
-#: ../Socket.cpp:220 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../Socket.cpp:221 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
 #: ../ConnectionManager.cpp:186
 msgid "Connection timeout"
 msgstr "Čas pro připojení vypršel"
 
-#: ../Socket.cpp:228 ../Socket.cpp:236 ../Socket.cpp:269 ../Socket.cpp:273
-#: ../Socket.cpp:297 ../Socket.cpp:312
+#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:298 ../Socket.cpp:313
 msgid "The socks server failed establish a connection"
 msgstr "Socket Server nedokázal navázat spojení"
 
-#: ../Socket.cpp:301
+#: ../Socket.cpp:302
 msgid "The socks server requires authentication"
 msgstr "Socket Server vyžaduje autorizaci"
 
-#: ../Socket.cpp:315
+#: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Socket Server nepodporuje autorizaci"
 
-#: ../Socket.cpp:329 ../Socket.cpp:333
+#: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr "Socket Server přihlášení odmítl (neplatné jméno / heslo)"
 
-#: ../Socket.cpp:466
+#: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -197,7 +197,7 @@ msgstr ""
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../QueueManager.cpp:2169 ../QueueManager.cpp:2175 ../QueueManager.cpp:2181
+#: ../QueueManager.cpp:2166 ../QueueManager.cpp:2172 ../QueueManager.cpp:2178
 msgid "Offline"
 msgstr "Nepřipojen"
 
@@ -205,7 +205,7 @@ msgstr "Nepřipojen"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) má stejné CID {%3%} jako %4% (%5%), ignoruji"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2198
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
 msgid "%1%/s"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr "%1% byl vykopnut uživatelem %2%: %3%"
 msgid "%1% was kicked: %2%"
 msgstr "%1% byl vykopnut: %2%"
 
-#: ../AdcHub.cpp:680
+#: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nenaslouchá připojením - prosím restartujte %1%"
 
@@ -241,42 +241,42 @@ msgstr ""
 msgid "Sent "
 msgstr ""
 
-#: ../Util.cpp:595
+#: ../Util.cpp:594
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:597
+#: ../Util.cpp:596
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:599
+#: ../Util.cpp:598
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:601
+#: ../Util.cpp:600
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:603
+#: ../Util.cpp:602
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:605
+#: ../Util.cpp:604
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:635
+#: ../Util.cpp:634
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:639
+#: ../Util.cpp:638
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -401,34 +401,34 @@ msgstr "Nepodařilo se vytvořit připojení"
 msgid "UPnP: %1%"
 msgstr ""
 
-#: ../ShareManager.cpp:447
+#: ../ShareManager.cpp:446
 msgid "No directory specified"
 msgstr "Nebyl zvolen adresář"
 
-#: ../ShareManager.cpp:451
+#: ../ShareManager.cpp:450
 #, fuzzy
 msgid "Directory is hidden"
 msgstr "Složka je již sdílena"
 
-#: ../ShareManager.cpp:455
+#: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
 msgstr "Není možné sdílet pracovní adresář neztažených souborů"
 
-#: ../ShareManager.cpp:643
+#: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
 
-#: ../ShareManager.cpp:661
+#: ../ShareManager.cpp:660
 #, fuzzy
 msgid "User has chosen not to share file: %1% (Size: %2%)"
 msgstr "Hashování selhalo: %1%"
 
-#: ../ShareManager.cpp:682
+#: ../ShareManager.cpp:681
 #, fuzzy
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr "Hashování selhalo: %1%"
 
-#: ../ShareManager.cpp:770
+#: ../ShareManager.cpp:769
 #, fuzzy
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
@@ -436,25 +436,25 @@ msgid ""
 msgstr ""
 "Duplicitní soubor nebude sdílen: %1%%2% (Velikost: %3% B) Duplicita s: %4%%5%"
 
-#: ../ShareManager.cpp:792
+#: ../ShareManager.cpp:790
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
 msgstr "Probíhá obnovení seznamu souborů, prosím počkejte"
 
-#: ../ShareManager.cpp:813
+#: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
 msgstr "Nemohu obnovit seznam souborů: %1%"
 
-#: ../ShareManager.cpp:835
+#: ../ShareManager.cpp:833
 msgid "File list refresh initiated"
 msgstr "Zahájení obnovení seznamu souborů"
 
-#: ../ShareManager.cpp:860
+#: ../ShareManager.cpp:858
 msgid "File list refresh finished"
 msgstr "Obnovení seznamu souborů dokončeno"
 
-#: ../ShareManager.cpp:942
+#: ../ShareManager.cpp:940
 #, fuzzy
 msgid "File list %1% generated"
 msgstr "Zahájení obnovení seznamu souborů"
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Discard"
 msgstr "Zahodit"
 
-#: ../DirectoryListing.cpp:177
+#: ../DirectoryListing.cpp:187
 msgid "Directory missing name attribute"
 msgstr ""
 
@@ -623,42 +623,42 @@ msgstr ""
 msgid "Searching TTH alternates for: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:684 ../QueueManager.cpp:747
+#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
 msgid "A file with the same hash already exists in your share"
 msgstr "Soubor se stejným hashem již sdílíte"
 
-#: ../QueueManager.cpp:710 ../QueueManager.cpp:789
+#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
 msgid "This file is already queued"
 msgstr "Tento soubor je již ve frontě"
 
-#: ../QueueManager.cpp:725 ../QueueManager.cpp:801
+#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
 msgid "A file with a different size already exists in the queue"
 msgstr "Stejný soubor s jinou velikostí již je ve frontě"
 
-#: ../QueueManager.cpp:729
+#: ../QueueManager.cpp:727
 #, fuzzy
 msgid "A file with different tth root already exists in the queue"
 msgstr "Stejný soubor s jiným tth indexem (tth root) je již ve frontě"
 
-#: ../QueueManager.cpp:741
+#: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
 msgstr "Snažíte se stahovat od sebe!"
 
-#: ../QueueManager.cpp:804
+#: ../QueueManager.cpp:802
 #, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
 msgstr "Stejný soubor s jiným tth indexem (tth root) je již ve frontě"
 
-#: ../QueueManager.cpp:808
+#: ../QueueManager.cpp:806
 #, fuzzy
 msgid "This file has already finished downloading"
 msgstr "Tento soubor je již ve frontě"
 
-#: ../QueueManager.cpp:845 ../QueueManager.cpp:854
+#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
 msgstr "Cílové jméno souboru je příliš dlouhé"
 
-#: ../QueueManager.cpp:850 ../QueueManager.cpp:858
+#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
@@ -666,43 +666,43 @@ msgstr ""
 "Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro "
 "stáhnuté soubory)"
 
-#: ../QueueManager.cpp:866
+#: ../QueueManager.cpp:864
 #, fuzzy
 msgid "File already exists at the target location"
 msgstr ""
 "Soubor se stejnou nebo vetsi velikosti je uz na miste kam chcete stahovat"
 
-#: ../QueueManager.cpp:879 ../QueueManager.cpp:883
+#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
 msgstr "Duplicitní zdroj: %1%"
 
-#: ../QueueManager.cpp:1152
+#: ../QueueManager.cpp:1149
 msgid "Target removed"
 msgstr "Cíl odebrán"
 
-#: ../QueueManager.cpp:1160
+#: ../QueueManager.cpp:1157
 #, fuzzy
 msgid "Target file is missing or wrong size"
 msgstr "Cílové jméno souboru je příliš dlouhé"
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1206
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr ""
 
-#: ../QueueManager.cpp:1212
+#: ../QueueManager.cpp:1209
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 
-#: ../QueueManager.cpp:1410
+#: ../QueueManager.cpp:1407
 msgid "Unable to open filelist: %1%"
 msgstr "Nemohu otevřít seznam souborů: %1%"
 
-#: ../QueueManager.cpp:1433
+#: ../QueueManager.cpp:1430
 #, fuzzy
 msgid "%1%: Matched %2% file"
 msgstr "%1% byl vykopnut: %2%"
 
-#: ../QueueManager.cpp:2037 ../QueueManager.cpp:2046
+#: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 nesuhlasí (SFV kontrola)"
 

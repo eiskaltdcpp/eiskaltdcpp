@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_WIN32_UPNP_H
@@ -24,33 +24,33 @@ namespace dcpp {
 class UPnP : boost::noncopyable
 {
 public:
-	UPnP() { }
-	virtual ~UPnP() { }
+    UPnP() { }
+    virtual ~UPnP() { }
 
-	virtual bool init() = 0;
+    virtual bool init() = 0;
 
-	enum Protocol {
-		PROTOCOL_TCP,
-		PROTOCOL_UDP,
-		PROTOCOL_LAST
-	};
+    enum Protocol {
+        PROTOCOL_TCP,
+        PROTOCOL_UDP,
+        PROTOCOL_LAST
+    };
 
-	bool open(const unsigned short port, const Protocol protocol, const string& description);
-	bool close();
-	bool hasRules() const;
+    bool open(const unsigned short port, const Protocol protocol, const string& description);
+    bool close();
+    bool hasRules() const;
 
-	virtual string getExternalIP() = 0;
-	virtual const string& getName() const = 0;
+    virtual string getExternalIP() = 0;
+    virtual const string& getName() const = 0;
 
 protected:
-	static const char* protocols[PROTOCOL_LAST];
+    static const char* protocols[PROTOCOL_LAST];
 
 private:
-	virtual bool add(const unsigned short port, const Protocol protocol, const string& description) = 0;
-	virtual bool remove(const unsigned short port, const Protocol protocol) = 0;
+    virtual bool add(const unsigned short port, const Protocol protocol, const string& description) = 0;
+    virtual bool remove(const unsigned short port, const Protocol protocol) = 0;
 
-	typedef std::pair<unsigned short, Protocol> rule;
-	std::vector<rule> rules;
+    typedef std::pair<unsigned short, Protocol> rule;
+    std::vector<rule> rules;
 };
 
 } // namespace dcpp

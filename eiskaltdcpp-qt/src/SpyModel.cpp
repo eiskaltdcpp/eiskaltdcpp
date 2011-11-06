@@ -241,9 +241,15 @@ void SpyModel::addResult(const QString &file, bool isTTH)
     if (parent == rootItem)
         hashes.insert(_file, item);
 
-    parent->appendChild(item);
+    if(parent != rootItem){
+        parent->appendChild(item);
+        rootItem->moveUp(parent);
+    }else{
+        parent->insertChild(item, 0);
+    }
 
-    sort();
+    if(isSort)
+        sort();
 
     emit layoutChanged();
 }
@@ -263,6 +269,10 @@ void SpyModel::clearModel(){
     emit layoutChanged();
 }
 
+void SpyModel::setSort(bool sort){
+    isSort = sort;
+}
+
 SpyItem::SpyItem(const QList<QVariant> &data, SpyItem *parent) :
     isTTH(false),
     itemData(data),
@@ -278,6 +288,14 @@ SpyItem::~SpyItem()
 
 void SpyItem::appendChild(SpyItem *item) {
     childItems.append(item);
+}
+
+void SpyItem::insertChild(SpyItem *item, int pos) {
+    childItems.insert(pos, item);
+}
+
+void SpyItem::moveUp(SpyItem *item) {
+    childItems.move(childItems.indexOf(item), 0);
 }
 
 SpyItem *SpyItem::child(int row) {

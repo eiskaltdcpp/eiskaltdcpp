@@ -17,6 +17,7 @@
 #include "SettingsLog.h"
 #include "SettingsUC.h"
 #include "SettingsShortcuts.h"
+#include "SettingsHistory.h"
 
 #include "WulforUtil.h"
 
@@ -83,6 +84,11 @@ void Settings::init(){
     SettingsShortcuts *sshs = new SettingsShortcuts(this);
     connect(this, SIGNAL(timeToDie()), sshs, SLOT(ok()));
     widgets.insert(item, 8);
+    
+    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiEDIT), tr("History"), listWidget);
+    SettingsHistory *shist = new SettingsHistory(this);
+    connect(this, SIGNAL(timeToDie()), shist, SLOT(ok()));
+    widgets.insert(item, 9);
 
     stackedWidget->insertWidget(0, personal);
     stackedWidget->insertWidget(1, connection);
@@ -93,6 +99,7 @@ void Settings::init(){
     stackedWidget->insertWidget(6, logs);
     stackedWidget->insertWidget(7, ucs);
     stackedWidget->insertWidget(8, sshs);
+    stackedWidget->insertWidget(9, shist);
 
     stackedWidget->setCurrentIndex(0);
 

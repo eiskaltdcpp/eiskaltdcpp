@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_ADC_COMMAND_H
@@ -111,6 +111,8 @@ public:
     C(PUB, 'P','U','B');
     C(NAT, 'N','A','T');
     C(RNT, 'R','N','T');
+    C(ZON, 'Z','O','N');
+    C(ZOF, 'Z','O','F');
 #undef C
 
     static const uint32_t HUB_SID = 0xffffffff;     // No client will have this sid
@@ -207,6 +209,8 @@ public:
                 C(PSR);
                 C(NAT);
                 C(RNT);
+                C(ZON);
+                C(ZOF);
             default:
                 dcdebug("Unknown ADC command: %.50s\n", aLine.c_str());
                 break;

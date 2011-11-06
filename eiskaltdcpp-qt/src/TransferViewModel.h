@@ -101,6 +101,8 @@ public:
     /** */
     QModelIndex parent(const QModelIndex &index) const;
     /** */
+    bool hasChildren(const QModelIndex &parent) const;
+    /** */
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
     int columnCount(const QModelIndex &parent = QModelIndex()) const;

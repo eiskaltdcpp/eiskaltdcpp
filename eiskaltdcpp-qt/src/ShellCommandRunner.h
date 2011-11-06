@@ -37,10 +37,12 @@ public Q_SLOTS:
     virtual void run();
     /** Cancel the shell command e.g. if the chat is closed */
     void cancel();
+    /** Return exit code*/
+    int exitCode() const { return _exitCode; }
 
 Q_SIGNALS:
     /** emitted when the command has finished */
-    void finished(bool ok, QString output);
+    void finished(bool ok, const QString &output);
 
 private:
     /** used to cancel the thread */
@@ -51,6 +53,7 @@ private:
     QString args;
     QStringList argList;
     QString cmd;
+    int _exitCode;
 };
 
 #endif // ShellCommandRunner_U

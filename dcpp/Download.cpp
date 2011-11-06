@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -31,7 +31,7 @@ Download::Download(UserConnection& conn, QueueItem& qi, const string& path, bool
 {
     conn.setDownload(this);
 
-        QueueItem::SourceConstIter source = qi.getSource(getUser());
+    QueueItem::SourceConstIter source = qi.getSource(getUser());
 
     if(qi.isSet(QueueItem::FLAG_PARTIAL_LIST)) {
         setType(TYPE_PARTIAL_LIST);
@@ -60,10 +60,10 @@ Download::Download(UserConnection& conn, QueueItem& qi, const string& path, bool
 
             // set overlapped flag to original segment
             for(DownloadList::const_iterator i = qi.getDownloads().begin(); i != qi.getDownloads().end(); ++i) {
-                    if((*i)->getSegment().contains(getSegment())) {
-                            (*i)->setOverlapped(true);
-                            break;
-                    }
+                if((*i)->getSegment().contains(getSegment())) {
+                    (*i)->setOverlapped(true);
+                    break;
+                }
             }
         }
     }

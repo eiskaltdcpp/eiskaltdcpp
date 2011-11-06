@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef _THROTTLEMANAGER_H
@@ -26,72 +26,72 @@
 
 namespace dcpp
 {
-	/**
-	 * Manager for throttling traffic flow.
-	 * Inspired by Token Bucket algorithm: http://en.wikipedia.org/wiki/Token_bucket
-	 */
-	class ThrottleManager :
-		public Singleton<ThrottleManager>, private TimerManagerListener
-	{
-	public:
+/**
+ * Manager for throttling traffic flow.
+ * Inspired by Token Bucket algorithm: http://en.wikipedia.org/wiki/Token_bucket
+ */
+class ThrottleManager :
+    public Singleton<ThrottleManager>, private TimerManagerListener
+{
+public:
 
-		/*
-		 * Throttles traffic and reads a packet from the network
-		 */
-		int read(Socket* sock, void* buffer, size_t len);
+    /*
+     * Throttles traffic and reads a packet from the network
+     */
+    int read(Socket* sock, void* buffer, size_t len);
 
-		/*
-		 * Throttles traffic and writes a packet to the network
-		 * Handle this a little bit differently than downloads due to OpenSSL stupidity
-		 */
-		int write(Socket* sock, void* buffer, size_t& len);
+    /*
+     * Throttles traffic and writes a packet to the network
+     * Handle this a little bit differently than downloads due to OpenSSL stupidity
+     */
+    int write(Socket* sock, void* buffer, size_t& len);
 
-		static SettingsManager::IntSetting getCurSetting(SettingsManager::IntSetting setting);
+    static SettingsManager::IntSetting getCurSetting(SettingsManager::IntSetting setting);
 
-		static int getUpLimit();
-		static int getDownLimit();
+    static int getUpLimit();
+    static int getDownLimit();
 
-		static void setSetting(SettingsManager::IntSetting setting, int value);
+    static void setSetting(SettingsManager::IntSetting setting, int value);
 
-		void shutdown();
-	private:
-		// stack up throttled read & write threads
-		CriticalSection stateCS;
-		CriticalSection waitCS[2];
-		long activeWaiter;
+    void shutdown();
+private:
+    // stack up throttled read & write threads
+    CriticalSection stateCS;
+    CriticalSection waitCS[2];
+    long activeWaiter;
 
 #ifndef _WIN32 //*nix
 
-		// shutdown wait
-		CriticalSection shutdownCS;
-		long n_lock, halt;
+    // shutdown wait
+    CriticalSection shutdownCS;
+    long n_lock, halt;
 #endif
-		// download limiter
-		CriticalSection	downCS;
-		int64_t			downTokens;
+    // download limiter
+    CriticalSection downCS;
+    int64_t         downTokens;
 
-		// upload limiter
-		CriticalSection	upCS;
-		int64_t			upTokens;
+    // upload limiter
+    CriticalSection upCS;
+    int64_t         upTokens;
 
-		friend class Singleton<ThrottleManager>;
+    friend class Singleton<ThrottleManager>;
 
-		ThrottleManager(void) : activeWaiter(-1), downTokens(0), upTokens(0)
-		{
+    ThrottleManager(void) : activeWaiter(-1), downTokens(0), upTokens(0)
+    {
 #ifndef _WIN32 //*nix
-			n_lock = halt = 0;
+        n_lock = halt = 0;
 #endif
-			TimerManager::getInstance()->addListener(this);
-		}
+        TimerManager::getInstance()->addListener(this);
+    }
 
-		~ThrottleManager(void);
+    ~ThrottleManager(void);
 
-		bool getCurThrottling();
-		void waitToken();
+    bool getCurThrottling();
+    void waitToken();
 
-		// TimerManagerListener
-		void on(TimerManagerListener::Second, uint64_t /* aTick */) noexcept;
-	};
+    // TimerManagerListener
+    void on(TimerManagerListener::Second, uint64_t /* aTick */) noexcept;
+};
 
-}	// namespace dcpp
-#endif	// _THROTTLEMANAGER_H
+}   // namespace dcpp
+#endif  // _THROTTLEMANAGER_H

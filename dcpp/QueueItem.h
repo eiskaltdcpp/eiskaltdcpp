@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_QUEUE_ITEM_H
@@ -33,8 +33,7 @@ class QueueManager;
 class QueueItem : public Flags, public FastAlloc<QueueItem> {
 public:
     typedef QueueItem* Ptr;
-        //typedef std::list<Ptr> List;
-        typedef deque<Ptr> List;
+    typedef deque<Ptr> List;
     typedef List::iterator Iter;
     typedef unordered_map<string*, Ptr, noCaseStringHash, noCaseStringEq> StringMap;
     typedef StringMap::iterator StringIter;
@@ -73,27 +72,27 @@ public:
         FLAG_PARTIAL_LIST = 0x200
     };
 
-        /**
-         * Source parts info
-         * Meaningful only when Source::FLAG_PARTIAL is set
-         */
-        class PartialSource : public FastAlloc<PartialSource>, public intrusive_ptr_base<PartialSource> {
-        public:
-                PartialSource(const string& aMyNick, const string& aHubIpPort, const string& aIp, uint16_t udp) :
-                  myNick(aMyNick), hubIpPort(aHubIpPort), ip(aIp), udpPort(udp), nextQueryTime(0), pendingQueryCount(0) { }
+    /**
+     * Source parts info
+     * Meaningful only when Source::FLAG_PARTIAL is set
+     */
+    class PartialSource : public FastAlloc<PartialSource>, public intrusive_ptr_base<PartialSource> {
+    public:
+        PartialSource(const string& aMyNick, const string& aHubIpPort, const string& aIp, uint16_t udp) :
+          myNick(aMyNick), hubIpPort(aHubIpPort), ip(aIp), udpPort(udp), nextQueryTime(0), pendingQueryCount(0) { }
 
-                ~PartialSource() { }
+        ~PartialSource() { }
 
-                typedef boost::intrusive_ptr<PartialSource> Ptr;
+        typedef boost::intrusive_ptr<PartialSource> Ptr;
 
-                GETSET(PartsInfo, partialInfo, PartialInfo);
-                GETSET(string, myNick, MyNick);                 // for NMDC support only
-                GETSET(string, hubIpPort, HubIpPort);
-                GETSET(string, ip, Ip);
-                GETSET(uint64_t, nextQueryTime, NextQueryTime);
-                GETSET(uint16_t, udpPort, UdpPort);
-                GETSET(uint8_t, pendingQueryCount, PendingQueryCount);
-        };
+        GETSET(PartsInfo, partialInfo, PartialInfo);
+        GETSET(string, myNick, MyNick);                 // for NMDC support only
+        GETSET(string, hubIpPort, HubIpPort);
+        GETSET(string, ip, Ip);
+        GETSET(uint64_t, nextQueryTime, NextQueryTime);
+        GETSET(uint16_t, udpPort, UdpPort);
+        GETSET(uint8_t, pendingQueryCount, PendingQueryCount);
+    };
 
 
     class Source : public Flags {
@@ -109,10 +108,10 @@ public:
             FLAG_BAD_TREE = 0x40,
             FLAG_NO_TREE = 0x80,
             FLAG_SLOW_SOURCE = 0x100,
-                        FLAG_PARTIAL    = 0x200,
-                        FLAG_NO_NEED_PARTS      = 0x250,
-                        FLAG_TTH_INCONSISTENCY  = 0x300,
-                        FLAG_UNTRUSTED = 0x400,
+            FLAG_PARTIAL    = 0x200,
+            FLAG_NO_NEED_PARTS      = 0x250,
+            FLAG_TTH_INCONSISTENCY  = 0x300,
+            FLAG_UNTRUSTED = 0x400,
             FLAG_MASK = FLAG_FILE_NOT_AVAILABLE
                 | FLAG_PASSIVE | FLAG_REMOVED | FLAG_CRC_FAILED | FLAG_CRC_WARN
                 | FLAG_BAD_TREE | FLAG_NO_TREE | FLAG_SLOW_SOURCE | FLAG_TTH_INCONSISTENCY | FLAG_UNTRUSTED
@@ -153,7 +152,7 @@ public:
 
     int countOnlineUsers() const;
     bool hasOnlineUsers() const { return countOnlineUsers() > 0; }
-        void getOnlineUsers(HintedUserList& l) const;
+    void getOnlineUsers(HintedUserList& l) const;
 
     SourceList& getSources() { return sources; }
     const SourceList& getSources() const { return sources; }
@@ -185,28 +184,28 @@ public:
         if(len <= 0) return false;
 
         for(SegmentSet::const_iterator i = done.begin(); i != done.end(); ++i) {
-                int64_t first  = (*i).getStart();
-                int64_t second = (*i).getEnd();
+            int64_t first  = (*i).getStart();
+            int64_t second = (*i).getEnd();
 
-                if(first <= startPos && startPos < second){
-                        len = min(len, second - startPos);
-                        return true;
-                }
+            if(first <= startPos && startPos < second){
+                len = min(len, second - startPos);
+                return true;
+            }
         }
 
         return false;
     }
 
     /** Next segment that is not done and not being downloaded, zero-sized segment returned if there is none is found */
-        Segment getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t lastSpeed, const PartialSource::Ptr partialSource) const;
-        /**
-         * Is specified parts needed by this download?
-         */
-        bool isNeededPart(const PartsInfo& partsInfo, int64_t blockSize);
-        /**
-         * Get shared parts info, max 255 parts range pairs
-         */
-        void getPartialInfo(PartsInfo& partialInfo, int64_t blockSize) const;
+    Segment getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t lastSpeed, const PartialSource::Ptr partialSource) const;
+    /**
+     * Is specified parts needed by this download?
+     */
+    bool isNeededPart(const PartsInfo& partsInfo, int64_t blockSize);
+    /**
+     * Get shared parts info, max 255 parts range pairs
+     */
+    void getPartialInfo(PartsInfo& partialInfo, int64_t blockSize) const;
 
 
     void addSegment(const Segment& segment);
@@ -251,7 +250,7 @@ private:
     SourceList badSources;
     string tempTarget;
 
-        void addSource(const HintedUser& aUser);
+    void addSource(const HintedUser& aUser);
     void removeSource(const UserPtr& aUser, int reason);
 };
 

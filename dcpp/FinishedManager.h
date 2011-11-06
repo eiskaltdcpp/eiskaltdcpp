@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #ifndef DCPLUSPLUS_DCPP_FINISHED_MANAGER_H
@@ -39,30 +39,30 @@ namespace dcpp {
 class FinishedItem
 {
 public:
-        typedef vector<FinishedItem> FinishedItemList;
+    typedef vector<FinishedItem> FinishedItemList;
 //      typedef FinishedItemList::const_iterator;
 
-        FinishedItem(string const& aTarget, const UserPtr& aUser, string const& aHub,
-                int64_t aSize, int64_t aSpeed, time_t aTime,
-                const string& aTTH = Util::emptyString) :
-                target(aTarget), user(aUser), hub(aHub), size(aSize), avgSpeed(aSpeed),
-                time(aTime), tth(aTTH)
-        {
-        }
+    FinishedItem(string const& aTarget, const UserPtr& aUser, string const& aHub,
+            int64_t aSize, int64_t aSpeed, time_t aTime,
+            const string& aTTH = Util::emptyString) :
+            target(aTarget), user(aUser), hub(aHub), size(aSize), avgSpeed(aSpeed),
+            time(aTime), tth(aTTH)
+    {
+    }
 
-        int imageIndex() const;
+    int imageIndex() const;
 
-        GETSET(string, target, Target);
-        GETSET(string, hub, Hub);
-        GETSET(string, tth, TTH);
+    GETSET(string, target, Target);
+    GETSET(string, hub, Hub);
+    GETSET(string, tth, TTH);
 
-        GETSET(int64_t, size, Size);
-        GETSET(int64_t, avgSpeed, AvgSpeed);
-        GETSET(time_t, time, Time);
-        GETSET(UserPtr, user, User);
+    GETSET(int64_t, size, Size);
+    GETSET(int64_t, avgSpeed, AvgSpeed);
+    GETSET(time_t, time, Time);
+    GETSET(UserPtr, user, User);
 
 private:
-        friend class FinishedManager;
+    friend class FinishedManager;
 
 };
 /**/

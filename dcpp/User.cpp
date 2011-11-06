@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -44,9 +44,9 @@ bool Identity::isTcpActive(const Client* c) const {
 }
 
 bool Identity::isUdpActive() const {
-        if(getIp().empty() || getUdpPort().empty())
-                return false;
-        return (!user->isSet(User::NMDC)) ? supports(AdcHub::UDP4_FEATURE) : !user->isSet(User::PASSIVE);
+    if(getIp().empty() || getUdpPort().empty())
+        return false;
+    return (!user->isSet(User::NMDC)) ? supports(AdcHub::UDP4_FEATURE) : !user->isSet(User::PASSIVE);
 }
 
 void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility, bool dht) const {

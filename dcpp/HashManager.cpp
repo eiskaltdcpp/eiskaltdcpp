@@ -13,7 +13,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 #include "stdinc.h"
@@ -371,8 +371,8 @@ void HashManager::HashStore::load() {
         Util::migrate(getIndexFile());
 
         HashLoader l(*this);
-                File f(getIndexFile(), File::READ, File::OPEN);
-                SimpleXMLReader(&l).parse(f);
+        File f(getIndexFile(), File::READ, File::OPEN);
+        SimpleXMLReader(&l).parse(f);
     } catch (const Exception&) {
         // ...
     }
@@ -680,31 +680,31 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
 
     int64_t pos = 0;
     int64_t size_read = 0;
-        void *buf = NULL;
+    void *buf = NULL;
     bool ok = false;
 
-        // Prepare and setup a signal handler in case of SIGBUS during mmapped file reads.
-        // SIGBUS can be sent when the file is truncated or in case of read errors.
-        struct sigaction act, oldact;
-        sigset_t signalset;
+    // Prepare and setup a signal handler in case of SIGBUS during mmapped file reads.
+    // SIGBUS can be sent when the file is truncated or in case of read errors.
+    struct sigaction act, oldact;
+    sigset_t signalset;
 
-        sigemptyset(&signalset);
+    sigemptyset(&signalset);
 
-        act.sa_handler = NULL;
+    act.sa_handler = NULL;
 #ifndef __HAIKU__
-        act.sa_sigaction = sigbus_handler;
+    act.sa_sigaction = sigbus_handler;
 #endif
-        act.sa_mask = signalset;
+    act.sa_mask = signalset;
 #ifdef SA_SIGINFO
-        act.sa_flags = SA_SIGINFO | SA_RESETHAND;
+    act.sa_flags = SA_SIGINFO | SA_RESETHAND;
 #else
-        act.sa_flags = NULL;
+    act.sa_flags = NULL;
 #endif
-        if (sigaction(SIGBUS, &act, &oldact) == -1) {
-            dcdebug("Failed to set signal handler for fastHash\n");
-            close(fd);
-            return false;   // Better luck with the slow hash.
-        }
+    if (sigaction(SIGBUS, &act, &oldact) == -1) {
+        dcdebug("Failed to set signal handler for fastHash\n");
+        close(fd);
+        return false;   // Better luck with the slow hash.
+    }
 
     uint64_t lastRead = GET_TICK();
     unsigned long mmap_flags = static_cast<bool>(SETTING(HASH_BUFFER_PRIVATE))? MAP_PRIVATE : MAP_SHARED;
@@ -717,34 +717,34 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         mmap_flags |= MAP_NORESERVE;
 #endif
     while (pos < size && !stop) {
-            size_read = std::min(size - pos, BUF_SIZE);
-            buf = mmap(0, size_read, PROT_READ, mmap_flags, fd, pos);
-            if(buf == MAP_FAILED) {
-            dcdebug("Error calling mmap for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
+        size_read = std::min(size - pos, BUF_SIZE);
+        buf = mmap(0, size_read, PROT_READ, mmap_flags, fd, pos);
+        if(buf == MAP_FAILED) {
+        dcdebug("Error calling mmap for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
+        break;
+        }
+
+        if (sigsetjmp(sb_env, 1)) {
+            dcdebug("Caught SIGBUS for file %s\n", filename.c_str());
             break;
-            }
+        }
 
-            if (sigsetjmp(sb_env, 1)) {
-                dcdebug("Caught SIGBUS for file %s\n", filename.c_str());
-                break;
-            }
+        if (posix_madvise(buf, size_read, POSIX_MADV_SEQUENTIAL | POSIX_MADV_WILLNEED) == -1) {
+            dcdebug("Error calling madvise for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
+            break;
+        }
 
-            if (posix_madvise(buf, size_read, POSIX_MADV_SEQUENTIAL | POSIX_MADV_WILLNEED) == -1) {
-                dcdebug("Error calling madvise for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
-                break;
+        if(SETTING(MAX_HASH_SPEED) > 0) {
+        uint64_t now = GET_TICK();
+        uint64_t minTime = size_read * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
+            if(lastRead + minTime> now) {
+            uint64_t diff = now - lastRead;
+            Thread::sleep(minTime - diff);
             }
-
-            if(SETTING(MAX_HASH_SPEED) > 0) {
-            uint64_t now = GET_TICK();
-            uint64_t minTime = size_read * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
-                if(lastRead + minTime> now) {
-                uint64_t diff = now - lastRead;
-                    Thread::sleep(minTime - diff);
-                }
-                lastRead = lastRead + minTime;
-            } else {
-                lastRead = GET_TICK();
-            }
+            lastRead = lastRead + minTime;
+        } else {
+            lastRead = GET_TICK();
+        }
 
         tth.update(buf, size_read);
         if(xcrc32)
@@ -760,14 +760,14 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
             break;
         }
 
-                buf = NULL;
+        buf = NULL;
         pos += size_read;
 
         instantPause();
 
         if (pos == size) {
             ok = true;
-                }
+        }
     }
 
     if (buf != NULL && buf != MAP_FAILED && munmap(buf, size_read) == -1) {
@@ -776,9 +776,9 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
 
     close(fd);
 
-        if (sigaction(SIGBUS, &oldact, NULL) == -1) {
-            dcdebug("Failed to reset old signal handler for SIGBUS\n");
-        }
+    if (sigaction(SIGBUS, &oldact, NULL) == -1) {
+        dcdebug("Failed to reset old signal handler for SIGBUS\n");
+    }
 
     return ok;
 }
@@ -856,51 +856,51 @@ int HashManager::Hasher::run() {
 #else
                 if(!BOOLSETTING(FAST_HASH) || !fastHash(fname, 0, fastTTH, size, xcrc32)) {
 #endif
-                        tth = &slowTTH;
-                        crc32 = CRC32Filter();
-                        uint64_t lastRead = GET_TICK();
+                    tth = &slowTTH;
+                    crc32 = CRC32Filter();
+                    uint64_t lastRead = GET_TICK();
 
-                        do {
-                            size_t bufSize = BUF_SIZE;
-                            if(SETTING(MAX_HASH_SPEED)> 0) {
-                                uint64_t now = GET_TICK();
-                                uint64_t minTime = n * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
-                                if(lastRead + minTime> now) {
-                                    Thread::sleep(minTime - (now - lastRead));
-                                }
-                                lastRead = lastRead + minTime;
-                            } else {
-                                lastRead = GET_TICK();
+                    do {
+                        size_t bufSize = BUF_SIZE;
+                        if(SETTING(MAX_HASH_SPEED)> 0) {
+                            uint64_t now = GET_TICK();
+                            uint64_t minTime = n * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
+                            if(lastRead + minTime> now) {
+                                Thread::sleep(minTime - (now - lastRead));
                             }
-                            n = f.read(buf, bufSize);
-                            tth->update(buf, n);
-                            if(xcrc32)
-                                (*xcrc32)(buf, n);
+                            lastRead = lastRead + minTime;
+                        } else {
+                            lastRead = GET_TICK();
+                        }
+                        n = f.read(buf, bufSize);
+                        tth->update(buf, n);
+                        if(xcrc32)
+                            (*xcrc32)(buf, n);
 
-                            {
-                                Lock l(cs);
-                                currentSize = max(static_cast<uint64_t>(currentSize - n), static_cast<uint64_t>(0));
-                            }
-                            sizeLeft -= n;
+                        {
+                            Lock l(cs);
+                            currentSize = max(static_cast<uint64_t>(currentSize - n), static_cast<uint64_t>(0));
+                        }
+                        sizeLeft -= n;
 
-                        instantPause();
-                        }while (n> 0 && !stop);
-                    } else {
-                        sizeLeft = 0;
-                    }
+                    instantPause();
+                    } while (n> 0 && !stop);
+                } else {
+                    sizeLeft = 0;
+                }
 
-                    f.close();
-                    tth->finalize();
-                    uint64_t end = GET_TICK();
-                    int64_t speed = 0;
-                    if(end> start) {
-                        speed = size * _LL(1000) / (end - start);
-                    }
-                    if(xcrc32 && xcrc32->getValue() != sfv.getCRC()) {
-                        LogManager::getInstance()->message(str(F_("%1% not shared; calculated CRC32 does not match the one found in SFV file.") % Util::addBrackets(fname)));
-                    } else {
+                f.close();
+                tth->finalize();
+                uint64_t end = GET_TICK();
+                int64_t speed = 0;
+                if(end> start) {
+                    speed = size * _LL(1000) / (end - start);
+                }
+                if(xcrc32 && xcrc32->getValue() != sfv.getCRC()) {
+                    LogManager::getInstance()->message(str(F_("%1% not shared; calculated CRC32 does not match the one found in SFV file.") % Util::addBrackets(fname)));
+                } else {
                     HashManager::getInstance()->hashDone(fname, timestamp, *tth, speed, size);
-                    }
+                }
                 } catch(const FileException& e) {
                     LogManager::getInstance()->message(str(F_("Error hashing %1%: %2%") % Util::addBrackets(fname) % e.getError()));
                 }
