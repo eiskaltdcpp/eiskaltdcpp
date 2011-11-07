@@ -464,7 +464,7 @@ void ShareBrowser::goUp(QTreeView *view){
     if (view != treeView_RPANE)
         return;
 
-    QStringList paths = label_PATH->text().split("\\", QString::SkipEmptyParts);
+    QStringList paths = lineEdit_PATH->text().split("\\", QString::SkipEmptyParts);
 
     if (paths.empty())//is it possible?
         return;
@@ -524,7 +524,7 @@ void ShareBrowser::slotRightPaneClicked(const QModelIndex &index){
         return;
     }
 
-    QString parent_path = label_PATH->text();
+    QString parent_path = lineEdit_PATH->text();
     QModelIndex parent_index = tree_model->createIndexForItem(tree_model->createRootForPath(parent_path));
 
     parent_path = parent_path +"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString();
@@ -640,7 +640,7 @@ void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection &sel, const QItem
         p.dir = item->dir;
         p.index = index;
 
-        label_PATH->setText(tree_model->createRemotePath(item));
+        lineEdit_PATH->setText(tree_model->createRemotePath(item));
         p.path_tesxt = tree_model->createRemotePath(item);
 
         pathHistory.append(p);
@@ -709,7 +709,7 @@ void ShareBrowser::slotButtonUp(){
             sparent.dir = item->parent()->dir;
 
             sparent.path_tesxt = tree_model->createRemotePath(item->parent());
-            label_PATH->setText(tree_model->createRemotePath(item->parent()));
+            lineEdit_PATH->setText(tree_model->createRemotePath(item->parent()));
 
             slotRightPaneClicked(index.parent());
 
@@ -736,7 +736,7 @@ void ShareBrowser::slotButtonBack(){
 
         SelPair sp= *pathHistory_iter;
         changeRoot(sp.dir);
-        label_PATH->setText(sp.path_tesxt);
+        lineEdit_PATH->setText(sp.path_tesxt);
 
         slotRightPaneClicked(sp.index);
 
@@ -759,7 +759,7 @@ void ShareBrowser::slotButtonForvard(){
 
         SelPair sp= *pathHistory_iter;
         changeRoot(sp.dir);
-        label_PATH->setText(sp.path_tesxt);
+        lineEdit_PATH->setText(sp.path_tesxt);
 
         slotRightPaneClicked(sp.index);
 

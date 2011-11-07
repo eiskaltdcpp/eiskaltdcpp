@@ -91,16 +91,6 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLabel" name="label_PATH">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QToolButton" name="toolButton_BACK">
            <property name="text">
             <string>Back</string>
@@ -118,6 +108,19 @@
           <widget class="QToolButton" name="toolButton_UP">
            <property name="text">
             <string>Up</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_PATH">
+           <property name="maxLength">
+            <number>1000000</number>
+           </property>
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
