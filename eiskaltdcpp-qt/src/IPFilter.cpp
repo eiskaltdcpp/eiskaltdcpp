@@ -86,7 +86,7 @@ quint32 IPFilter::MaskForBits(quint32 bits){
 }
 
 bool IPFilter::ParseString(QString exp, quint32 &ip, quint32 &mask, eTableAction &act){
-    if (exp == "" || exp.isNull())
+    if (exp.isEmpty())
         return false;
 
     if (exp.indexOf("/0") >= 0){

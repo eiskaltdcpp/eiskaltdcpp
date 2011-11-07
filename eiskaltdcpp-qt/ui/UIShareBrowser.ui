@@ -93,21 +93,21 @@
          <item>
           <widget class="QToolButton" name="toolButton_BACK">
            <property name="text">
-            <string>Back</string>
+            <string>←</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QToolButton" name="toolButton_FORVARD">
            <property name="text">
-            <string>Forward</string>
+            <string>→</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QToolButton" name="toolButton_UP">
            <property name="text">
-            <string>Up</string>
+            <string>↑</string>
            </property>
           </widget>
          </item>
