@@ -346,7 +346,7 @@ MainWindow::~MainWindow()
 
     gtk_window_get_position(window, &posX, &posY);
     gtk_window_get_size(window, &sizeX, &sizeY);
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
     gdkState = gdk_window_get_state(gtk_widget_get_window(GTK_WIDGET(window)));
 #else
     gdkState = gdk_window_get_state(GTK_WIDGET(window)->window);
@@ -1496,7 +1496,7 @@ void MainWindow::onTopToolbarToggled_gui(GtkWidget *widget, gpointer data)
 
    GtkWidget *parent = mw->getWidget("hbox4");
    GtkWidget *child = mw->getWidget("toolbar1");
-#ifndef USE_GTK3
+#if !GTK_CHECK_VERSION(3, 0, 0)
    if (child->parent != GTK_WIDGET(parent))
        return;
 #endif
@@ -1516,7 +1516,7 @@ void MainWindow::onLeftToolbarToggled_gui(GtkWidget *widget, gpointer data)
 
    GtkWidget *parent = mw->getWidget("vbox1");
    GtkWidget *child = mw->getWidget("toolbar1");
-#ifndef USE_GTK3
+#if !GTK_CHECK_VERSION(3, 0, 0)
    if (child->parent != GTK_WIDGET(parent))
        return;
 #endif
@@ -2052,7 +2052,7 @@ void MainWindow::onShowInterfaceToggled_gui(GtkCheckMenuItem *item, gpointer dat
     {
         GdkWindowState state;
         gtk_window_get_position(win, &x, &y);
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
         state = gdk_window_get_state(gtk_widget_get_window(GTK_WIDGET(win)));
 #else
         state = gdk_window_get_state(GTK_WIDGET(win)->window);

@@ -60,7 +60,7 @@ BookEntry::BookEntry(const EntryType type, const string &text, const string &ui,
     gtk_button_set_relief(GTK_BUTTON(closeButton), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(closeButton), FALSE);
 
-#ifndef USE_GTK3
+#if !GTK_CHECK_VERSION(3, 0, 0)
     // Shrink the padding around the close button
     GtkRcStyle *rcstyle = gtk_rc_style_new();
     rcstyle->xthickness = rcstyle->ythickness = 0;
@@ -225,7 +225,7 @@ void BookEntry::updateLabel_gui()
     char *markup = g_markup_printf_escaped(format, truncatedLabelText.c_str());
     gtk_label_set_markup(label, markup);
     g_free(markup);
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
     gtk_widget_queue_draw (GTK_WIDGET (label));
 #endif
 }

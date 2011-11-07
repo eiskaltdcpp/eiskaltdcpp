@@ -222,8 +222,16 @@ bool JsonRpcMethods::ReturnSearchResults(const Json::Value& root, Json::Value& r
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     vector<StringMap> tmp;
+    Json::Value parameters;
     ServerThread::getInstance()->returnSearchResults(tmp);
-    //response["result"] = tmp;
+    for (vector<StringMap>::iterator i = tmp.begin(); i != tmp.end(); ++i) {
+            Json::Value param;
+            for (StringMap::iterator kk = (*i).begin(); kk != (*i).end(); ++kk) {
+                param[kk->first] = kk->second;
+            }
+            //parameters[(int)i] = param;
+        }
+    response["result"] = parameters;
     std::cout << "ReturnSearchResults (response): " << response << std::endl;
     return true;
 }

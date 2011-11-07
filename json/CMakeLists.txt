@@ -6,6 +6,8 @@ include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include/)
 aux_source_directory(${PROJECT_SOURCE_DIR}/src jsonrpcpp_SRCS)
 aux_source_directory(${PROJECT_SOURCE_DIR}/lib_json jsoncpp_SRCS)
 
+add_definitions(-DJSON_USE_SIMPLE_INTERNAL_ALLOCATOR)
+
 add_library (jsoncpp STATIC ${jsoncpp_SRCS})
 add_library (jsonrpcpp STATIC ${jsonrpcpp_SRCS})
 
