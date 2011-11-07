@@ -236,6 +236,8 @@ ShareBrowser::~ShareBrowser(){
 
     delete proxy;
 
+    pathHistory.clear();
+
     Menu::deleteInstance();
 
 #if (HAVE_MALLOC_TRIM)
@@ -320,6 +322,9 @@ void ShareBrowser::init(){
     connect(tree_model, SIGNAL(layoutChanged()), this, SLOT(slotLayoutUpdated()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     connect(toolButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
+    connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotButtonBack()));
+    connect(toolButton_FORVARD, SIGNAL(clicked()), this, SLOT(slotButtonForvard()));
+    connect(toolButton_UP, SIGNAL(clicked()), this, SLOT(slotButtonUp()));
 
     continueInit();
 }
@@ -353,6 +358,8 @@ void ShareBrowser::continueInit(){
     MainWindow::getInstance()->addArenaWidget(this);
     MainWindow::getInstance()->addArenaWidgetOnToolbar(this);
     MainWindow::getInstance()->mapWidgetOnArena(this);
+
+    pathHistory.clear();
 }
 
 
@@ -613,6 +620,8 @@ static bool onlyFirstColumn(const QModelIndex &index){
 }
 
 void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection &sel, const QItemSelection &des){
+
+
     QItemSelectionModel *selection_model = treeView_LPANE->selectionModel();
     QModelIndexList selected  = selection_model->selectedRows(0);
 
@@ -622,11 +631,20 @@ void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection &sel, const QItem
     QModelIndex index = selected.at(0);
 
     if (index.isValid()){
+
+        SelPair p;
+
         FileBrowserItem *item = static_cast<FileBrowserItem*>(index.internalPointer());
 
         changeRoot(item->dir);
+        p.dir = item->dir;
+        p.index = index;
 
         label_PATH->setText(tree_model->createRemotePath(item));
+        p.path_tesxt = tree_model->createRemotePath(item);
+
+        pathHistory.append(p);
+        pathHistory_iter = pathHistory.end();
 
         QModelIndexList deselected_idx = des.indexes();
         QFuture<QModelIndex> dsel_filter    = QtConcurrent::filtered(deselected_idx, onlyFirstColumn);
@@ -661,8 +679,92 @@ void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection &sel, const QItem
                 treeView_RPANE->selectionModel()->select(i, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
                 treeView_RPANE->selectionModel()->setCurrentIndex(i, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
             }
-        }
+        }        
+    }
+}
 
+void ShareBrowser::slotButtonUp(){
+
+    QItemSelectionModel *selection_model = treeView_LPANE->selectionModel();
+    QModelIndexList selected  = selection_model->selectedRows(0);
+
+    if (selected.size() > 1 || selected.empty())
+        return;
+
+    QModelIndex index = selected.at(0);
+
+    if (index.isValid()){
+
+        FileBrowserItem *item = static_cast<FileBrowserItem*>(index.internalPointer());
+
+        if (NULL != item->parent()){
+
+            disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+                    this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+
+            SelPair sparent;
+            sparent.index = index.parent();
+
+            changeRoot(item->parent()->dir);
+            sparent.dir = item->parent()->dir;
+
+            sparent.path_tesxt = tree_model->createRemotePath(item->parent());
+            label_PATH->setText(tree_model->createRemotePath(item->parent()));
+
+            slotRightPaneClicked(index.parent());
+
+            pathHistory.append(sparent);
+            pathHistory_iter = pathHistory.end();
+
+            connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+                    this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+        }
+    }
+}
+
+void ShareBrowser::slotButtonBack(){
+    if ( (pathHistory_iter != NULL)
+            && (pathHistory.size() >0)){
+
+        disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+                this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+
+        if(pathHistory.end() == pathHistory_iter)
+            pathHistory_iter--;
+        if(pathHistory.begin() != pathHistory_iter)
+            pathHistory_iter--;
+
+        SelPair sp= *pathHistory_iter;
+        changeRoot(sp.dir);
+        label_PATH->setText(sp.path_tesxt);
+
+        slotRightPaneClicked(sp.index);
+
+        connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+                this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+    }
+}
+
+void ShareBrowser::slotButtonForvard(){
+    if ( (pathHistory_iter != NULL)
+            && (pathHistory.size() >0)){
+
+        disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+                this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+
+        if (pathHistory.end() == pathHistory_iter)
+            pathHistory_iter--;
+        else if (pathHistory_iter != &pathHistory.last())
+            pathHistory_iter++;
+
+        SelPair sp= *pathHistory_iter;
+        changeRoot(sp.dir);
+        label_PATH->setText(sp.path_tesxt);
+
+        slotRightPaneClicked(sp.index);
+
+        connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+                this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
     }
 }
 

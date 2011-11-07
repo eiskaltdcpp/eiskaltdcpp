@@ -123,6 +123,9 @@ private Q_SLOTS:
     void slotSettingsChanged(const QString&, const QString&);
     void slotStartSearch();
     void slotSearchJumpTo(FileBrowserItem*);
+    void slotButtonBack();
+    void slotButtonForvard();
+    void slotButtonUp();
 
 private:
     void continueInit();
@@ -141,9 +144,19 @@ private:
     void goUp(QTreeView *);
     void goDown(QTreeView *);
 
+    struct SelPair
+    {
+        dcpp::DirectoryListing::Directory *dir;
+        QString path_tesxt;
+        QModelIndex index;
+    };
+
     QMenu *arena_menu;
 
     QSortFilterProxyModel *proxy;
+
+    QVector<SelPair>::iterator pathHistory_iter;
+    QVector <SelPair> pathHistory;
 
     QString nick;
     QString file;

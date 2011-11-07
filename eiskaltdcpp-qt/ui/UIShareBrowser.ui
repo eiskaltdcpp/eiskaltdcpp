@@ -89,14 +89,39 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QLabel" name="label_PATH">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_PATH">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="toolButton_BACK">
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="toolButton_FORVARD">
+           <property name="text">
+            <string>Forward</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="toolButton_UP">
+           <property name="text">
+            <string>Up</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QTreeView" name="treeView_RPANE">
