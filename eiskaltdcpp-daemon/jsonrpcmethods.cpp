@@ -208,7 +208,7 @@ bool JsonRpcMethods::SendSearch(const Json::Value& root, Json::Value& response)
     std::cout << "SendSearch (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    if (ServerThread::getInstance()->sendSearchonHubs(root["searchstring"].asString(), 0, 0, 0, 0, ""))
+    if (ServerThread::getInstance()->sendSearchonHubs(root["searchstring"].asString(), root["searchtype"].asInt(), root["sizemode"].asInt(), root["sizetype"].asInt(), root["sizetype"].asDouble(), root["huburls"].asString()))
         response["result"] = 0;
     else
         response["result"] = 1;
@@ -229,7 +229,7 @@ bool JsonRpcMethods::ReturnSearchResults(const Json::Value& root, Json::Value& r
             for (StringMap::iterator kk = (*i).begin(); kk != (*i).end(); ++kk) {
                 param[kk->first] = kk->second;
             }
-            //parameters[(int)i] = param;
+            //parameters[string(i)] = param;
         }
     response["result"] = parameters;
     std::cout << "ReturnSearchResults (response): " << response << std::endl;

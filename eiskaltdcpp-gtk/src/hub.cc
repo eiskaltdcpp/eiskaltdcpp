@@ -1820,9 +1820,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
 
 #ifdef LUA_SCRIPT
     bool script_ret = false;
-    if (((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, text)) {
-        script_ret = true;
-    }
+    script_ret = ((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, Text::fromT(text));
 #endif
     // Process special commands
     if (text[0] == '/')
@@ -2122,7 +2120,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
         }
         else if (script_ret)
-            ((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, text);
+            ;
 #endif
         else if (command == "ip" && !param.empty())
         {
