@@ -2083,34 +2083,29 @@ void MainWindow::slotToolsADLS(){
     toggleSingletonWidget(ADLS::getInstance());
 }
 
-void MainWindow::slotToolsSearch(){
+void MainWindow::slotToolsSearch() {
     SearchFrame *sf = new SearchFrame();
 
-    QLineEdit *le = qobject_cast<QLineEdit *>(sender());
+    QLineEdit *le = qobject_cast<QLineEdit *> ( sender() );
 
-    if (le == searchLineEdit){
-        QString text = searchLineEdit->text();
-        bool isTTH = false;
+    if ( le != searchLineEdit )
+        return;
 
-        if (!text.isEmpty()){
-            if (text.startsWith("magnet:")){
-                QString link = text;
-                QString tth = "", name = "";
-                int64_t size = 0;
+    QString text = searchLineEdit->text();
+    bool isTTH = false;
 
-                WulforUtil::splitMagnet(link, size, tth, name);
+    if ( text.startsWith ( "magnet:" ) ) {
+        QString link = text;
+        QString tth = "", name = "";
+        int64_t size = 0;
 
-                text  = tth;
-                isTTH = true;
-            }
-            else if (text.length() == 39){
-                if (text.contains(QRegExp("[A-Z0-9]",Qt::CaseSensitive)))
-                    isTTH = true;
-            }
-        }
+        WulforUtil::splitMagnet ( link, size, tth, name );
 
-        sf->fastSearch(text, isTTH);
+        text  = tth;
+        isTTH = true;
     }
+
+    sf->fastSearch ( text, isTTH || WulforUtil::isTTH ( text ) );
 }
 
 void MainWindow::slotToolsDownloadQueue(){

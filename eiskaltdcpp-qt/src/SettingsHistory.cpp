@@ -1,6 +1,7 @@
 #include "SettingsHistory.h"
 
 #include "WulforSettings.h"
+#include "WulforUtil.h"
 
 SettingsHistory::SettingsHistory(QWidget *parent): QWidget(parent) {
     setupUi(this);
@@ -36,9 +37,9 @@ void SettingsHistory::ok(){
         QString text = "";
         for (int k = searchHistory.count()-1; k >= 0; k--){
             text = searchHistory.at(k);
-            if (text.contains(QRegExp("[A-Z0-9]",Qt::CaseSensitive)) &&
-                text.length() == 39) // isTTH
-            searchHistory.removeAt(k);
+            
+            if (WulforUtil::isTTH(text))
+                searchHistory.removeAt(k);
         }
         
         QString hist = searchHistory.join("\n");

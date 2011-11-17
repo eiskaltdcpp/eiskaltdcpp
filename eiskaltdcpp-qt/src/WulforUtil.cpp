@@ -43,6 +43,7 @@
 #include <QPushButton>
 #include <QFrame>
 #include <QHBoxLayout>
+#include <QRegExp>
 
 #include "SearchFrame.h"
 
@@ -1165,3 +1166,8 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
 
     return usr_menu;
 }
+
+bool WulforUtil::isTTH ( const QString& text ) {
+    return ((text.length() == 39) && (QRegExp("[A-Z0-9]+").exactMatch(text))); 
+}
+

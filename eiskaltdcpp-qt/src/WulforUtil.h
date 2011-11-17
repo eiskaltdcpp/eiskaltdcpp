@@ -175,6 +175,8 @@ public:
     QString compactToolTipText(QString, int, QString);
 
     QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* = 0);
+    
+    static bool isTTH(const QString &text);
 
 public Q_SLOTS:
     const QPixmap &getPixmap(Icons);
