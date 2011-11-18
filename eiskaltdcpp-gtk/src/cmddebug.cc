@@ -54,12 +54,10 @@ void cmddebug::add_gui(string file)
 {
     if (file.empty())
         return;
-    string line;
-    line="";
 
     gtk_text_buffer_get_end_iter(buffer, &iter);
 
-    line +=Text::toUtf8("["+Util::getShortTimeString()+"]"+file+"\n\0");
+    string line = Text::toUtf8("["+Util::getTimeString()+"]"+file+"\n\0");
 
     gtk_text_buffer_insert(buffer, &iter, line.c_str(), line.size());
     gtk_text_buffer_get_end_iter(buffer, &iter);
@@ -79,6 +77,7 @@ void cmddebug::add_gui(string file)
 
 void cmddebug::ini_client()
 {
+    start();
     DebugManager::getInstance()->addListener(this);
 }
 
@@ -148,16 +147,15 @@ void cmddebug::onResize_gui(GtkAdjustment *adjustment, gpointer data)
 void cmddebug::addCmd(const std::string& cmd,const std::string& ip) {
     string message;
     //g_print("CMD %s\n",cmd.c_str());
+    //g_print("CMDSIZE %d\n",cmdList.size());
+
     if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE) {
         if (strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
-            message = cmd;
+            cmdList.push_back(cmd);
     }
     else
-        message = cmd;
-
-    typedef Func1<cmddebug, string> F1;
-    F1 *func = new F1(this, &cmddebug::add_gui, message);
-    WulforManager::get()->dispatchGuiFunc(func);
+        cmdList.push_back(cmd);
+    s.signal();
 }
 
 void cmddebug::on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept

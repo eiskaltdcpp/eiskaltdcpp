@@ -190,7 +190,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBoxText" id="comboboxentrySearch">
+                  <object class="GtkComboBox" id="comboboxentrySearch">
                     <property name="width_request">200</property>
                     <property name="visible">True</property>
                     <property name="has_entry">True</property>
@@ -202,16 +202,6 @@
                       <attributes>
                         <attribute name="text">0</attribute>
                       </attributes>
-                    </child>
-                    <child internal-child="entry">
-                      <object class="GtkEntry" id="comboboxentry-entry1">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="primary_icon_activatable">False</property>
-                        <property name="secondary_icon_activatable">False</property>
-                        <property name="primary_icon_sensitive">True</property>
-                        <property name="secondary_icon_sensitive">True</property>
-                      </object>
                     </child>
                   </object>
                   <packing>
