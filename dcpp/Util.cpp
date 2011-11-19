@@ -296,7 +296,7 @@ string Util::getLoginName() {
     string loginName = "unknown";
     
 #ifndef _WIN32
-    const char *envUserName = getenv("USER");
+    const char *envUserName = getenv("LOGNAME");
     loginName = envUserName? Text::toUtf8(envUserName) : loginName;
 #endif
     
@@ -1157,6 +1157,7 @@ string Util::toAdcFile(const string& file) {
     }
     return ret;
 }
+
 string Util::toNmdcFile(const string& file) {
     if(file.empty())
         return Util::emptyString;
