@@ -261,7 +261,7 @@ int LuaManager::GetScriptsPath(lua_State* L) {
 
     if(!Util::fileExists(scripts_path)) {
 #ifdef WIN32
-        scripts_path = Text::utf8ToAcp(Util::getPath(Util::PATH_RESOURCES)) + "resources" + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR;
+        scripts_path = Text::utf8ToAcp(Util::getPath(Util::PATH_GLOBAL_CONFIG)) + "resources" + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR;
 #else //WIN32
         scripts_path = string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR;
 #endif //WIN32
@@ -388,14 +388,14 @@ void ScriptInstance::EvaluateFile(const string& fn) {
         string test_path_1;
 #ifdef WIN32
         test_path_0 = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn;
-        test_path_1 = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "resources" + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn;
+        test_path_1 = Text::utf8ToAcp(Util::getPath(Util::PATH_GLOBAL_CONFIG)) + "resources" + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn;
 
         if(Util::fileExists(test_path_0))
             script_full_name = test_path_0;
         else if(Util::fileExists(test_path_1))
             script_full_name = test_path_1;
         else {
-            //LogManager::getInstance()->message("File '" + fn + "' not found!");
+            LogManager::getInstance()->message("File '" + fn + "' not found!");
             dcdebug("File '%s' not found!",fn.c_str()); // temporary
             return;
         }
@@ -408,7 +408,7 @@ void ScriptInstance::EvaluateFile(const string& fn) {
         else if(Util::fileExists(test_path_1))
             script_full_name = test_path_1;
         else {
-            //LogManager::getInstance()->message("File '" + fn + "' not found!");
+            LogManager::getInstance()->message("File '" + fn + "' not found!");
             printf("File '%s' not found!",fn.c_str()); // temporary
             return;
         }
