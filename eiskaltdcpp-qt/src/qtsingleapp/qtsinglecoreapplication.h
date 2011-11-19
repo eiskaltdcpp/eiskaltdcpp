@@ -21,7 +21,8 @@ public:
     virtual ~QtSingleCoreApplication();
 
     bool isRunning();
-
+    QSharedMemory& getSharedMemory(){ return sharedMemory; }
+    
 public Q_SLOTS:
     bool sendMessage(QString message);
     void checkForMessage();

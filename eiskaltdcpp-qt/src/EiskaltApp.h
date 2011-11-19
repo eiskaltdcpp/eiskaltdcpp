@@ -87,7 +87,7 @@ private:
 class EiskaltApp: public QtSingleCoreApplication {
 Q_OBJECT
 public:
-    EiskaltApp(int argc, char *argv[]): QtSingleCoreApplication(argc, argv, "EiskaltDCPP")
+    EiskaltApp(int argc, char *argv[], const QString& uniqKey): QtSingleCoreApplication(argc, argv, uniqKey)
     {
         installEventFilter(&ef);
     }

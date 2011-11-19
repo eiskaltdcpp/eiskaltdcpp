@@ -292,6 +292,17 @@ void Util::migrate(const string& file) {
     File::renameFile(old, file);
 }
 
+string Util::getLoginName() {
+    string loginName = "unknown";
+    
+#ifndef _WIN32
+    const char *envUserName = getenv("USER");
+    loginName = envUserName? Text::toUtf8(envUserName) : loginName;
+#endif
+    
+    return loginName;
+}
+
 void Util::loadBootConfig() {
     // Load boot settings
     try {
