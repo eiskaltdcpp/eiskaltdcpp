@@ -62,10 +62,6 @@ add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                 -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/gtk/icons"
                 )
 
-if (CHECK_GTK3)
-    add_definitions(-DGTK_DISABLE_SINGLE_INCLUDES -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED)
-endif (CHECK_GTK3)
-
 if (WITH_DHT)
   add_definitions ( -DWITH_DHT )
 endif (WITH_DHT)

@@ -151,6 +151,8 @@ Search::Search():
 
     gtk_combo_box_set_active (GTK_COMBO_BOX(getWidget("comboboxGroupBy")),5);
 
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("togglebuttonSidePanel")), TRUE);
+
     // Connect the signals to their callback functions.
     g_signal_connect(getContainer(), "focus-in-event", G_CALLBACK(onFocusIn_gui), (gpointer)this);
     g_signal_connect(getWidget("checkbuttonFilter"), "toggled", G_CALLBACK(onFilterButtonToggled_gui), (gpointer)this);
@@ -181,6 +183,8 @@ Search::Search():
     g_signal_connect(getWidget("comboboxUnit"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
     g_signal_connect(getWidget("comboboxFile"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
     g_signal_connect(getWidget("comboboxGroupBy"), "changed", G_CALLBACK(onGroupByComboBoxChanged_gui), (gpointer)this);
+    g_signal_connect(getWidget("togglebuttonSidePanel"), "toggled", G_CALLBACK(onSidePanelToggled_gui), (gpointer)this);
+    g_signal_connect(getWidget("buttonClear"), "clicked", G_CALLBACK(onClearButtonClicked_gui), (gpointer)this);
 }
 
 Search::~Search()
@@ -1951,4 +1955,24 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
         return FALSE;
 
     return TRUE;
+}
+
+void Search::onSidePanelToggled_gui(GtkWidget *widget, gpointer data)
+{
+    Search *s = (Search *)data;
+    GtkWidget *sidepanel = (GtkWidget *)s->getWidget("sidePanel");
+
+    if (gtk_widget_get_visible(sidepanel))
+        gtk_widget_hide(sidepanel);
+    else
+        gtk_widget_show_all(sidepanel);
+}
+
+void Search::onClearButtonClicked_gui(GtkWidget *widget, gpointer data)
+{
+    Search *s = (Search *)data;
+    gtk_tree_store_clear(s->resultStore);
+    s->results.clear();
+    gtk_entry_set_text(GTK_ENTRY(s->searchEntry), "");
+    gtk_entry_set_text(GTK_ENTRY(s->getWidget("entrySize")), "");
 }
