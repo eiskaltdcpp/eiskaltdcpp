@@ -2154,7 +2154,7 @@ void MainWindow::slotToolsAntiSpam(){
     toolsAntiSpam->setChecked(AntiSpam::getInstance() != NULL);
 }
 
-void MainWindow::slotToolsIPFilter(){
+void MainWindow::slotToolsIPFilter(){   
     IPFilterFrame fr(this);
 
     fr.exec();

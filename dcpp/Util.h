@@ -149,6 +149,9 @@ public:
 
     /** Migrate from pre-localmode config location */
     static void migrate(const string& file);
+    
+    /** */
+    static string getLoginName();
 
     /** Path of file lists */
     static string getListPath() { return getPath(PATH_FILE_LISTS); }

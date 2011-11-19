@@ -104,10 +104,6 @@ void printBacktrace(int){
     std::cerr << "EiskaltDC++ version: " << EISKALTDCPP_VERSION << " " << EISKALTDCPP_VERSION_SFX << "\n";
     std::cerr << "Oops! Please report a bug at http://code.google.com/p/eiskaltdc/issues/list provide the following backtrace:\n";
     print_stacktrace();
-
-    raise(SIGINT);
-
-    std::abort();
 }
 #endif
 
