@@ -1,6 +1,6 @@
 !include MUI2.nsh
 
-!define PRODUCT_DISPLAY_VERSION      "2.2.4"
+!define PRODUCT_DISPLAY_VERSION      "2.2.5"
 !define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
@@ -8,8 +8,11 @@
 !define PRODUCT_UNINST_ROOT_KEY      "HKLM"
 !define PRODUCT_INSTALL_DIR          "$PROGRAMFILES\EiskaltDC++"
 !define MUI_ICON                     "installer\eiskaltdcpp.ico"
+;!define MUI_UNICON                   "installer\eiskaltdcpp.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "installer\icon_164x314.bmp"
 !define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "installer\icon_164x314.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 !define MUI_WELCOMEPAGE_TITLE_3LINES
 !define MUI_FINISHPAGE_TITLE_3LINES
 !define MUI_FINISHPAGE_NOAUTOCLOSE
@@ -81,7 +84,8 @@ Section "EiskaltDC++"
   ;File "installer\zlib1.dll"
   ;File "installer\libgcc_s_sjlj-1.dll"
 
-  ;File "installer\libstdc++-6.dll"
+  File "installer\libstdc++-6.dll"
+
   ;File "installer\libpcrecpp-0.dll"
   ;File "installer\libpcre-0.dll"
 

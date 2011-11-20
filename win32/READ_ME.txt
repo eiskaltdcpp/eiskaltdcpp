@@ -6,18 +6,17 @@ and run in command line: git clone git://github.com/negativ/eiskaltdcpp.git
 *******************************************************************************
 Build Depends
 *******************************************************************************
-Qt_SDK_Win_offline_v1_1_3_en.exe or Qt_SDK_Win_online_v1_1_3_en.exe or later
-	http://get.qt.nokia.com/qtsdk/Qt_SDK_Win_offline_v1_1_3_en.exe (offline installer)
-	ftp://ftp.qt.nokia.com/qtsdk/Qt_SDK_Win_offline_v1_1_3_en.exe  (offline installer)
-	http://get.qt.nokia.com/qtsdk/Qt_SDK_Win_online_v1_1_3_en.exe  (online installer)
-	ftp://ftp.qt.nokia.com/qtsdk/Qt_SDK_Win_online_v1_1_3_en.exe   (online installer)
+mingw-get-inst-20111118.exe or later
+	http://sourceforge.net/projects/mingw/files/Installer/mingw-get-inst/mingw-get-inst-20111118/mingw-get-inst-20111118.exe/download
+
+qt-win-opensource-4.7.4-mingw.exe or later
+	http://get.qt.nokia.com/qt/source/qt-win-opensource-4.7.4-mingw.exe
 
 Win32OpenSSL-1_0_0e.exe or later
 	http://www.slproweb.com/download/Win32OpenSSL-1_0_0e.exe
-	http://www.shininglightpro.com/download/Win32OpenSSL-1_0_0e.exe
 
-cmake-2.8.5-win32-x86.exe or later
-	http://www.cmake.org/files/v2.8/cmake-2.8.5-win32-x86.exe
+cmake-2.8.6-win32-x86.exe or later
+	http://www.cmake.org/files/v2.8/cmake-2.8.6-win32-x86.exe
 
 nsis-2.46-setup.exe or later
 	http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46-setup.exe/download
@@ -25,32 +24,32 @@ nsis-2.46-setup.exe or later
 boost_1_47_0.tar.bz2 or later
 	http://sourceforge.net/projects/boost/files/boost/1.47.0/boost_1_47_0.tar.bz2/download
 
-bzip2-1.0.6-1-mingw32-dev.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/bzip2/1.0.6-1/bzip2-1.0.6-1-mingw32-dev.tar.lzma/download
+bzip2-1.0.6-4-mingw32-dev.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/bzip2/bzip2-1.0.6-4/bzip2-1.0.6-4-mingw32-dev.tar.lzma/download
 
-libbz2-1.0.6-1-mingw32-dll-2.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/bzip2/1.0.6-1/libbz2-1.0.6-1-mingw32-dll-2.tar.lzma/download
+libbz2-1.0.6-4-mingw32-dll-2.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/bzip2/bzip2-1.0.6-4/libbz2-1.0.6-4-mingw32-dll-2.tar.lzma/download
 
-libz-1.2.5-1-mingw32-dev.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/zlib/zlib-1.2.5-1/libz-1.2.5-1-mingw32-dev.tar.lzma/download
+libz-1.2.5-4-mingw32-dev.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/zlib/zlib-1.2.5-4/libz-1.2.5-4-mingw32-dev.tar.lzma/download
 
-libz-1.2.5-1-mingw32-dll-1.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/zlib/zlib-1.2.5-1/libz-1.2.5-1-mingw32-dll-1.tar.lzma/download
+libz-1.2.5-4-mingw32-dll-1.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/zlib/zlib-1.2.5-4/libz-1.2.5-4-mingw32-dll-1.tar.lzma/download
 
-gettext-0.17-1-mingw32-dev.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.17-1/gettext-0.17-1-mingw32-dev.tar.lzma/download
+gettext-0.18.1.1-2-mingw32-dev.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.18.1.1-2/gettext-0.18.1.1-2-mingw32-dev.tar.lzma/download
 
-libgettextpo-0.17-1-mingw32-dll-0.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.17-1/libgettextpo-0.17-1-mingw32-dll-0.tar.lzma/download
+libgettextpo-0.18.1.1-2-mingw32-dll-0.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.18.1.1-2/libgettextpo-0.18.1.1-2-mingw32-dll-0.tar.lzma/download
 
-libintl-0.17-1-mingw32-dll-8.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.17-1/libintl-0.17-1-mingw32-dll-8.tar.lzma/download
+libintl-0.18.1.1-2-mingw32-dll-8.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/gettext/gettext-0.18.1.1-2/libintl-0.18.1.1-2-mingw32-dll-8.tar.lzma/download
 
-libiconv-1.13.1-1-mingw32-dev.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/libiconv/libiconv-1.13.1-1/libiconv-1.13.1-1-mingw32-dev.tar.lzma/download
+libiconv-1.14-2-mingw32-dev.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/libiconv/libiconv-1.14-2/libiconv-1.14-2-mingw32-dev.tar.lzma/download
 
-libiconv-1.13.1-1-mingw32-dll-2.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/libiconv/libiconv-1.13.1-1/libiconv-1.13.1-1-mingw32-dll-2.tar.lzma/download
+libiconv-1.14-2-mingw32-dll-2.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/libiconv/libiconv-1.14-2/libiconv-1.14-2-mingw32-dll-2.tar.lzma/download
 
 mingw32-lua-5.1.4-2.zip or later
 	http://sourceforge.net/projects/mingw-cross/files/[LIB] Lua/mingw32-lua-5.1.4-2/mingw32-lua-5.1.4-2.zip/download
@@ -71,22 +70,30 @@ mingw32-qtscriptgenerator-git-26-10-2010.tar.xz or later
 Compilation in MS Windows
 *******************************************************************************
 Install:
-	Qt_SDK_Win_*.exe
+	mingw-get-inst-*.exe (need C and C++ compilers)
+	qt-win-opensource-*.exe
 	Win32OpenSSL-*.exe
 	cmake-*.exe
 	nsis-*.exe
-Unpack directory boost from boost* archive to %QTSDKDIR%\mingw\include\.
-Unpack files from mingw32-lua-* and mingw32-qtscriptgenerator-* archives to appropriate subdirectories in %QTSDKDIR%\mingw\
-( i.e. *.h should go to %QTSDKDIR%\mingw\include\
-       *.dll.a *.a   to %QTSDKDIR%\mingw\lib\
-       *.dll         to %QTSDKDIR%\mingw\bin\ )
-Unpack files from bzip2-*, libbz2-*, libz-*, gettext-*, libgettextpo-*, libintl-*, libiconv-*, libidn-* and aspell-* archives to %QTSDKDIR%\mingw\
-If the libidn-* have a file "lib/Libidn.dll" delete it.
+
+Make directory mingw32-depends and go into it, create directories there: aspell, boost, gettext, libbz2, libiconv, libidn, libz, lua.
+
+Unpack directory boost from boost* archive to mingw32-depends\boost\include\
+Unpack bzip2-*, libbz2-* archives to mingw32-depends\libbz2\
+Unpack libz-* archives to mingw32-depends\libz\
+Unpack gettext-*, libgettextpo-*, libintl-* archives to mingw32-depends\gettext\
+Unpack libiconv-* archives to mingw32-depends\libiconv\
+Unpack mingw32-lua-* archive to mingw32-depends\lua\
+Unpack aspell-* archives to mingw32-depends\aspell\
+Unpack libidn-* archive to mingw32-depends\libidn\
+Unpack mingw32-qtscriptgenerator-* archive to mingw32-depends\
+--Note: If the libidn-* archive have a file "lib/Libidn.dll" delete it.
+
 Check variables.bat for correct paths and run:
 	configure.bat
 	build.bat
 	install.bat
-Program with all necessary files is now available in EiskaltDC++ directory.
+
 If you need installer run:
 	create_installer.bat
 
@@ -95,26 +102,26 @@ Compilation in Linux ( cross-compile )
 *******************************************************************************
 Install packages for cross-compile - mingw*
 Install package cmake
-Install(in "wine") qt-sdk-win-opensource-*.exe and Win32OpenSSL-*.exe
-Make directory "win32-depends" and unpack dependencies(above) with this structure directories:
-	--> win32-depends
-		--> bin (*.dll)
-		--> include(*.h or subdirectory with headers, example "openssl")
-		--> lib (*.dll.a *.a)
-Edit file Toolchain-mingw32.cmake, correct these variables in accordance with your system:
-MINGW32_NAME
-QT_WIN32_PREFIX
-add in CMAKE_FIND_ROOT_PATH path to directory win32-depends and path to openssl directory from wine installation
-Check cmake flags in file configure.sh and path to eiskaltdcpp sources directory
-Build:
-	./configure.sh
-	make
-	make install
-
---Note
-gcc finds the header files only if they are in the system directory, example "/usr/i486-mingw32"
-
 Install package nsis
-Make directory "installer" and copy there files and directories listed in file EiskaltDC++.nsi (Section "EiskaltDC++")
-Create installer:
-	makensis EiskaltDC++.nsi
+Install(in "wine") qt-win-opensource-*.exe and Win32OpenSSL-*.exe
+
+Make directory mingw32-depends and go into it, create directories there: aspell, boost, gettext, libbz2, libiconv, libidn, libz, lua.
+
+Unpack directory boost from boost* archive to mingw32-depends\boost\include\
+Unpack bzip2-*, libbz2-* archives to mingw32-depends\libbz2\
+Unpack libz-* archives to mingw32-depends\libz\
+Unpack gettext-*, libgettextpo-*, libintl-* archives to mingw32-depends\gettext\
+Unpack libiconv-* archives to mingw32-depends\libiconv\
+Unpack mingw32-lua-* archive to mingw32-depends\lua\
+Unpack aspell-* archives to mingw32-depends\aspell\
+Unpack libidn-* archive to mingw32-depends\libidn\
+Unpack mingw32-qtscriptgenerator-* archive to mingw32-depends\
+--Note: If the libidn-* archive have a file "lib/Libidn.dll" delete it.
+
+Check variables.sh for correct paths and run:
+        ./configure.sh
+        ./build.sh
+        ./install.sh
+
+If you need installer run:
+        ./create_installer.sh
