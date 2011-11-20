@@ -248,10 +248,6 @@ ShareBrowser::~ShareBrowser(){
 void ShareBrowser::closeEvent(QCloseEvent *e){
     save();
 
-    MainWindow::getInstance()->remWidgetFromArena(this);
-    MainWindow::getInstance()->remArenaWidget(this);
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-
     QWidget::closeEvent(e);
 }
 
@@ -355,9 +351,7 @@ void ShareBrowser::continueInit(){
         }
     }
 
-    MainWindow::getInstance()->addArenaWidget(this);
-    MainWindow::getInstance()->addArenaWidgetOnToolbar(this);
-    MainWindow::getInstance()->mapWidgetOnArena(this);
+    registerThis();
 
     pathHistory.clear();
 }

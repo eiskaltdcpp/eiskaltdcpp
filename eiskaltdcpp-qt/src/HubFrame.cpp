@@ -22,6 +22,7 @@
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
+#include "ArenaWidgetManager.h"
 
 #include "UserListModel.h"
 
@@ -775,6 +776,8 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     out_messages_unsent = false;
 
     FavoriteManager::getInstance()->addListener(this);
+    
+    registerThis();
 }
 
 
@@ -1005,12 +1008,6 @@ void HubFrame::closeEvent(QCloseEvent *e){
     blockSignals(true);
     
     QObject::disconnect(this, NULL, this, NULL);
-
-    MainWindow *MW = MainWindow::getInstance();
-
-    MW->remArenaWidgetFromToolbar(this);
-    MW->remWidgetFromArena(this);
-    MW->remArenaWidget(this);
 
     FavoriteManager::getInstance()->removeListener(this);
 
@@ -1940,15 +1937,12 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         connect(p, SIGNAL(inputTextMenu()), this, SLOT(slotInputContextMenu()));
         connect(p->textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
 
-        MainWindow::getInstance()->addArenaWidget(p);
-        MainWindow::getInstance()->addArenaWidgetOnToolbar(p, WBGET(WB_CHAT_KEEPFOCUS));
-
         p->setCompleter(completer, model);
         p->addOutput(output);
         p->setAttribute(Qt::WA_DeleteOnClose);
 
         if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
-            MainWindow::getInstance()->mapWidgetOnArena(p);
+            ArenaWidgetManager::getInstance()->activate(p);
 
             p->requestFocus();
         }
@@ -1967,7 +1961,7 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         it.value()->addOutput(output);
 
         if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
-            MainWindow::getInstance()->mapWidgetOnArena(it.value());
+            ArenaWidgetManager::getInstance()->activate(it.value());
 
             it.value()->requestFocus();
         }
@@ -2592,14 +2586,11 @@ void HubFrame::slotReconnect(){
 void HubFrame::slotMapOnArena(){
     MainWindow *MW = MainWindow::getInstance();
 
-    MW->mapWidgetOnArena(this);
+    ArenaWidgetManager::getInstance()->activate(this);
 }
 
 void HubFrame::slotClose(){
-    MainWindow::getInstance()->remArenaWidget(this);
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-
-    close();
+    ArenaWidgetManager::getInstance()->rem(this);
 }
 
 void HubFrame::slotPMClosed(QString cid){
@@ -2669,7 +2660,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                     addPM(item->cid, "", false);
 
                 if (pm.contains(item->cid)){
-                    MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);
+                    ArenaWidgetManager::getInstance()->activate(pm[cid]);
                     pm[cid]->requestFocus();
                 }
             }
@@ -2997,7 +2988,7 @@ void HubFrame::slotChatMenu(const QPoint &){
             addPM(cid, "", false);
 
             if (pm.contains(cid))
-                MainWindow::getInstance()->mapWidgetOnArena(pm[cid]);
+                ArenaWidgetManager::getInstance()->activate(pm[cid]);
 
             break;
         }
@@ -3102,9 +3093,7 @@ void HubFrame::slotShowWnd(){
     if (isVisible())
         return;
 
-   MainWindow *MW = MainWindow::getInstance();
-
-   MW->mapWidgetOnArena(this);
+   ArenaWidgetManager::getInstance()->activate(this);
 }
 
 void HubFrame::slotShellFinished(bool ok, QString output){

@@ -32,7 +32,10 @@ QueuedUsers::QueuedUsers(){
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
 
     UploadManager::getInstance()->addListener(this);
-    MainWindow::getInstance()->addArenaWidget(this);
+    
+    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton) );
+    
+    registerThis();
 }
 
 QueuedUsers::~QueuedUsers(){
@@ -43,16 +46,9 @@ void QueuedUsers::closeEvent(QCloseEvent *e){
     if (isUnload()){
         WVSET("queued-users/headerstate", treeView_USERS->header()->saveState());
 
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-        MainWindow::getInstance()->remArenaWidget(this);
-
         e->accept();
     }
     else {
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-
         e->ignore();
     }
 }

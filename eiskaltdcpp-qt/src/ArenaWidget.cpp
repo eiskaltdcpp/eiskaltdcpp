@@ -15,12 +15,17 @@
 
 #include "WulforUtil.h"
 #include "MainWindow.h"
+#include "ArenaWidgetManager.h"
 
-ArenaWidget::ArenaWidget(): _arenaUnload(true), toolBtn(NULL)
+ArenaWidget::ArenaWidget(): _arenaUnload(true), toolBtn(NULL), flags(ArenaWidget::NoFlags)
 {
 }
 
 ArenaWidget::~ArenaWidget(){
+}
+
+void ArenaWidget::registerThis() {
+    ArenaWidgetManager::getInstance()->add(this);
 }
 
 ScriptWidget::ScriptWidget(){

@@ -30,6 +30,7 @@
 #include <QDir>
 #include <QInputDialog>
 
+#include "ArenaWidgetManager.h"
 #include "HubFrame.h"
 #include "HubManager.h"
 #include "HashProgress.h"
@@ -73,6 +74,8 @@
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 
+//TODO: Broken showing arenawidgets in main menu
+
 using namespace std;
 
 static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
@@ -89,8 +92,7 @@ MainWindow::MainWindow (QWidget *parent):
         _progress_dialog(NULL),
         sideDock(NULL),
         sideTree(NULL),
-        menuPanels(NULL),
-        wcontainer(NULL)
+        menuPanels(NULL)
 {
     exitBegin = false;
 
@@ -432,6 +434,8 @@ void MainWindow::init(){
     loadSettings();
 
     connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotExit()));
+    
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this, SLOT(mapWidgetOnArena(ArenaWidget*)));
 
 #ifdef LUA_SCRIPT
     ScriptManager::getInstance()->load();
@@ -1286,7 +1290,7 @@ void MainWindow::initToolbar(){
 
         addToolBar(mBar);
 
-        wcontainer = static_cast<ArenaWidgetContainer*>(mBar);
+        //wcontainer = static_cast<ArenaWidgetContainer*>(mBar);
     }
     else if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR) && !WBGET(WB_MAINWINDOW_USE_M_TABBAR)){
 
@@ -1349,6 +1353,7 @@ void MainWindow::initSideBar(){
 
     addDockWidget(Qt::LeftDockWidgetArea, sideDock);
 
+    //FIXME
     connect(sideDock, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSideBarDockMenu()));
     connect(sideTree, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotSideBarDblClicked(QModelIndex)));
     connect(sideTree, SIGNAL(clicked(QModelIndex)),     this, SLOT(slotSidebarHook(QModelIndex)));
@@ -1448,7 +1453,7 @@ void MainWindow::newHubFrame(QString address, QString enc){
     HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(address));
 
     if (fr){
-        mapWidgetOnArena(fr);
+        ArenaWidgetManager::getInstance()->activate(fr);
 
         return;
     }
@@ -1456,10 +1461,7 @@ void MainWindow::newHubFrame(QString address, QString enc){
     fr = new HubFrame(NULL, address, enc);
     fr->setAttribute(Qt::WA_DeleteOnClose);
 
-    addArenaWidget(fr);
-    addArenaWidgetOnToolbar(fr);
-
-    mapWidgetOnArena(fr);
+    ArenaWidgetManager::getInstance()->activate(fr);
 }
 
 void MainWindow::updateStatus(const QMap<QString, QString> &map){
@@ -1708,8 +1710,6 @@ void MainWindow::slotFileBrowseFilelist(){
 }
 
 void MainWindow::redrawToolPanel(){
-    wcontainer->redraw();
-
     QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
     QHash<QAction*, ArenaWidget*>::iterator end = menuWidgetsHash.end();
 
@@ -1734,45 +1734,16 @@ void MainWindow::redrawToolPanel(){
         Notify->resetTrayIcon();
 }
 
-void MainWindow::addArenaWidget(ArenaWidget *wgt){
-    if (!arenaWidgets.contains(wgt) && wgt && wgt->getWidget()){
-        arenaWidgets.push_back(wgt);
-        arenaMap[wgt] = wgt->getWidget();
-    }
-}
-
-void MainWindow::remArenaWidget(ArenaWidget *awgt){
-    if (arenaWidgets.contains(awgt)){
-        arenaWidgets.removeAt(arenaWidgets.indexOf(awgt));
-        arenaMap.erase(arenaMap.find(awgt));
-
-        if (arena->widget() == awgt->getWidget()){
-            arena->setWidget(NULL);
-
-            chatClear->setEnabled(false);
-            findInWidget->setEnabled(false);
-            chatDisable->setEnabled(false);
-        }
-    }
-}
-
 void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
-    if (!arenaWidgets.contains(awgt))
-        return;
-
-    if (arena->widget() == awgt->getWidget()){
-        wcontainer->mapped(awgt);
-
-        awgt->requestFocus();
-
+    if (!(awgt && awgt->getWidget())){
+        arena->setWidget(NULL);
+        
         return;
     }
-
-    arena->setWidget(arenaMap[awgt]);
+    
+    arena->setWidget(awgt->getWidget());
 
     setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
-
-    wcontainer->mapped(awgt);
 
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
@@ -1790,63 +1761,6 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
     awgt->requestFocus();
-}
-
-void MainWindow::remWidgetFromArena(ArenaWidget *awgt){
-    if (!arenaWidgets.contains(awgt))
-        return;
-
-    if (awgt->toolButton())
-        awgt->toolButton()->setChecked(false);
-
-    if (arena->widget() == awgt->getWidget()){
-        awgt->getWidget()->hide();
-        arena->setWidget(NULL);
-
-        setWindowTitle(QString("%1").arg(EISKALTDCPP_WND_TITLE));
-    }
-}
-
-void MainWindow::addArenaWidgetOnToolbar(ArenaWidget *awgt, bool keepFocus){
-    if (!arenaWidgets.contains(awgt))
-        return;
-
-    QAction *act = new QAction(awgt->getArenaShortTitle(), this);
-    act->setIcon(awgt->getPixmap());
-
-    connect(act, SIGNAL(triggered()), this, SLOT(slotWidgetsToggle()));
-
-    menuWidgetsActions.push_back(act);
-    menuWidgetsHash.insert(act, awgt);
-
-    menuWidgets->clear();
-    menuWidgets->addActions(menuWidgetsActions);
-
-    if (awgt->toolButton())
-        awgt->toolButton()->setChecked(true);
-
-    wcontainer->insertWidget(awgt);
-}
-
-void MainWindow::remArenaWidgetFromToolbar(ArenaWidget *awgt){
-    QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
-    for (; it != menuWidgetsHash.end(); ++it){
-        if (it.value() == awgt){
-            menuWidgetsActions.removeAt(menuWidgetsActions.indexOf(it.key()));
-            menuWidgetsHash.erase(it);
-
-            menuWidgets->clear();
-
-            menuWidgets->addActions(menuWidgetsActions);
-
-            break;
-        }
-    }
-
-    if (awgt->toolButton())
-        awgt->toolButton()->setChecked(false);
-
-    wcontainer->removeWidget(awgt);
 }
 
 void MainWindow::addActionOnToolBar(QAction *new_act){
@@ -1877,7 +1791,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
         a->setToolButton(act);
     }
 
-    if (wcontainer->hasWidget(a)){
+    /*if (wcontainer->hasWidget(a)){
         QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
         for (; it != menuWidgetsHash.end(); ++it){
             if (it.value() == a){
@@ -1912,7 +1826,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
 
         wcontainer->insertWidget(a);
         wcontainer->mapped(a);
-    }
+    }*/
 }
 
 void MainWindow::toggleMainMenu(bool showMenu){
@@ -2323,7 +2237,7 @@ void MainWindow::slotWidgetsToggle(){
     if (it == menuWidgetsHash.end())
         return;
 
-    mapWidgetOnArena(it.value());
+    ArenaWidgetManager::getInstance()->activate(it.value());
 }
 
 void MainWindow::slotQC(){

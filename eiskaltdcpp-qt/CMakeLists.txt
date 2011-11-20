@@ -41,6 +41,7 @@ list (APPEND SRCS
             src/Antispam.cpp
             src/AntiSpamFrame.cpp
             src/ArenaWidget.cpp
+            src/ArenaWidgetManager.cpp
             src/ArenaWidgetContainer.cpp
             src/CustomFontModel.cpp
             src/DownloadQueue.cpp
@@ -117,7 +118,9 @@ list(APPEND MOC_HDRS
             src/Antispam.h
             src/AntiSpamFrame.h
             src/ArenaWidget.h
+            src/ArenaWidgetManager.h
             src/CustomFontModel.h
+            src/DebugHelper.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
             src/EmoticonDialog.h

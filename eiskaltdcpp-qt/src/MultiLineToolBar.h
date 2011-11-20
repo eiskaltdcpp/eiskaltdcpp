@@ -19,19 +19,12 @@
 class QWheelEvent;
 
 /** Wrapper for TabFrame */
-class MultiLineToolBar :
-        public QToolBar,
-        public ArenaWidgetContainer
+class MultiLineToolBar : public QToolBar
 {
 Q_OBJECT
 public:
     explicit MultiLineToolBar(QWidget *parent = 0);
     virtual ~MultiLineToolBar();
-
-    virtual void removeWidget(ArenaWidget *awgt);
-    virtual void insertWidget(ArenaWidget *awgt);
-    virtual bool hasWidget(ArenaWidget *awgt) const;
-    virtual void redraw();
 
 protected:
     virtual void wheelEvent(QWheelEvent *);
@@ -41,9 +34,6 @@ signals:
     void prevTab();
     void moveTabRight();
     void moveTabLeft();
-
-public Q_SLOTS:
-    virtual void mapped(ArenaWidget *awgt);
 
 private Q_SLOTS:
     void slotContextMenu();

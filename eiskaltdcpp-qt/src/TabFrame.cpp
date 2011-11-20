@@ -13,6 +13,7 @@
 #include "TabButton.h"
 #include "MainWindow.h"
 #include "WulforUtil.h"
+#include "ArenaWidgetManager.h"
 
 #include <QtGui>
 #include <QPushButton>
@@ -167,8 +168,12 @@ void TabFrame::redraw() {
 
     for  (it = tbtn_map.begin(); it != tbtn_map.end(); ++it){
         TabButton *btn = const_cast<TabButton*>(it.key());
-
-        btn->resetGeometry();
+        ArenaWidget *awgt = const_cast<ArenaWidget*>(it.value());
+        
+        if (awgt->state() & ArenaWidget::Hidden)
+            btn->hide();
+        else
+            btn->resetGeometry();
     }
 }
 
@@ -193,7 +198,7 @@ void TabFrame::historyPop(){
         TabButton *btn = qobject_cast<TabButton*>(item->widget());
 
         if (btn)
-            MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[btn]);
+            ArenaWidgetManager::getInstance()->activate(tbtn_map[btn]);
 
         return;
     }
@@ -202,7 +207,7 @@ void TabFrame::historyPop(){
 
     ArenaWidget *awgt = history.takeLast();
 
-    MainWindow::getInstance()->mapWidgetOnArena(awgt);
+    ArenaWidgetManager::getInstance()->activate(awgt);
 }
 
 void TabFrame::buttonClicked(){
@@ -213,7 +218,7 @@ void TabFrame::buttonClicked(){
 
     btn->setFocus();
 
-    MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[btn]);
+    ArenaWidgetManager::getInstance()->activate(tbtn_map[btn]);
 }
 
 void TabFrame::closeRequsted() {
@@ -223,8 +228,7 @@ void TabFrame::closeRequsted() {
         return;
 
     ArenaWidget *awgt = const_cast<ArenaWidget*>(tbtn_map[btn]);
-
-    awgt->getWidget()->close();
+    ArenaWidgetManager::getInstance()->rem(awgt);
 
     redraw();
 }
@@ -249,7 +253,7 @@ void TabFrame::nextTab(){
     if (!next)
         return;
 
-    MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[next]);
+    ArenaWidgetManager::getInstance()->activate(tbtn_map[next]);
 }
 
 void TabFrame::prevTab(){
@@ -272,7 +276,7 @@ void TabFrame::prevTab(){
     if (!next)
         return;
 
-    MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[next]);
+   ArenaWidgetManager::getInstance()->activate(tbtn_map[next]);
 }
 
 void TabFrame::slotShorcuts(){
@@ -289,7 +293,7 @@ void TabFrame::slotShorcuts(){
         if (!next)
             return;
 
-        MainWindow::getInstance()->mapWidgetOnArena(tbtn_map[next]);
+        ArenaWidgetManager::getInstance()->activate(tbtn_map[next]);
     }
 }
 
@@ -303,12 +307,12 @@ void TabFrame::slotContextMenu() {
 
     if (awgt && awgt->getMenu())
         awgt->getMenu()->exec(btn->mapToGlobal(btn->rect().bottomLeft()));
-    else if (awgt && awgt->getWidget()){
+    else if (awgt){
         QMenu *m = new QMenu(this);
         m->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close"));
 
         if (m->exec(QCursor::pos()))
-            awgt->getWidget()->close();
+            removeWidget(awgt);
     }
 }
 

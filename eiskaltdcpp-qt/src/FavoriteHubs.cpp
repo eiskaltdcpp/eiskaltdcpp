@@ -34,32 +34,23 @@ FavoriteHubs::FavoriteHubs(QWidget *parent):
     init();
 
     FavoriteManager::getInstance()->addListener(this);
+    
+    registerThis();
 }
 
 FavoriteHubs::~FavoriteHubs(){
     FavoriteManager::getInstance()->removeListener(this);
-
-    MainWindow::getInstance()->remArenaWidget(this);
 
     delete model;
 }
 
 void FavoriteHubs::closeEvent(QCloseEvent *e){
     if (isUnload()){
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-        MainWindow::getInstance()->remArenaWidget(this);
-
         save();
-
-        //setAttribute(Qt::WA_DeleteOnClose);
 
         e->accept();
     }
     else {
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-
         e->ignore();
     }
 }
@@ -142,9 +133,6 @@ void FavoriteHubs::init(){
     treeView->viewport()->setAcceptDrops(false); // temporary
     treeView->setDragEnabled(false); // temporary
     treeView->setAcceptDrops(false); // temporary
-    //treeView->setDragDropMode(QAbstractItemView::InternalMove);
-
-    MainWindow::getInstance()->addArenaWidget(this);
 
     WulforUtil *WU = WulforUtil::getInstance();
 
@@ -173,6 +161,8 @@ void FavoriteHubs::init(){
     connect(connectButton, SIGNAL(clicked()), this, SLOT(slotConnectButtonClicked()));
 
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    
+    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton) );
 }
 
 void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor){

@@ -16,6 +16,7 @@
 #include "EmoticonFactory.h"
 #include "EmoticonDialog.h"
 #include "FlowLayout.h"
+#include "ArenaWidgetManager.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/ClientManager.h"
@@ -133,6 +134,8 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
 
     out_messages_index = 0;
     out_messages_unsent = false;
+    
+    registerThis();
 }
 
 void PMWindow::setCompleter(QCompleter *completer, UserListModel *model) {
@@ -272,12 +275,8 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
 void PMWindow::closeEvent(QCloseEvent *c_e){
     emit privateMessageClosed(cid);
 
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-    MainWindow::getInstance()->remArenaWidget(this);
-
     hasMessages = false;
     hasHighlightMessages = false;
-    MainWindow::getInstance()->redrawToolPanel();
 
     c_e->accept();
 }
@@ -291,7 +290,7 @@ void PMWindow::showEvent(QShowEvent *e){
         MainWindow::getInstance()->redrawToolPanel();
     }
 
-    MainWindow::getInstance()->mapWidgetOnArena(this);
+    ArenaWidgetManager::getInstance()->activate(this);
 }
 
 void PMWindow::slotActivate(){
@@ -489,7 +488,7 @@ void PMWindow::slotHub(){
     HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
 
     if (fr)
-        MainWindow::getInstance()->mapWidgetOnArena(fr);
+        ArenaWidgetManager::getInstance()->activate(fr);
 }
 
 void PMWindow::slotShare(){

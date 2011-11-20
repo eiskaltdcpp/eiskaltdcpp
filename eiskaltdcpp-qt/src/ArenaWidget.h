@@ -42,6 +42,12 @@ public:
         QueuedUsers,
         NoRole  //Not valid for widgets
     };
+    
+    enum Flags {
+        NoFlags=0,
+        Singleton=1,
+        Hidden=2
+    };
 
     ArenaWidget();
 
@@ -52,6 +58,9 @@ public:
     virtual QAction *toolButton() { return toolBtn; }
     virtual void  setToolButton(QAction *btn) { if (btn) toolBtn = btn; }
     virtual const QPixmap &getPixmap(){ return _pxmap; }
+    
+    Flags state() const { return flags; }
+    Flags setState(Flags f) { flags = f; }
 
     virtual void requestFilter() {}
     virtual void requestFocus() {}
@@ -62,15 +71,18 @@ public:
     virtual Role role() const = 0;
 
 protected:
-    ~ArenaWidget();
+    virtual ~ArenaWidget();
+    void registerThis();
 
 private:
     bool _arenaUnload;
     QAction *toolBtn;
     QPixmap _pxmap;
+    Flags flags;
 };
 
 Q_DECLARE_INTERFACE (ArenaWidget, "com.NegatiV.EiskaltDCPP.ArenaWidget/1.0")
+Q_DECLARE_METATYPE(ArenaWidget*)
 
 class ScriptWidget :
     public QObject,

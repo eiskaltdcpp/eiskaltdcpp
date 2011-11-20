@@ -35,9 +35,6 @@ PublicHubs::PublicHubs(QWidget *parent) :
 
     FavoriteManager::getInstance()->addListener(this);
 
-    MainWindow *MW = MainWindow::getInstance();
-    MW->addArenaWidget(this);
-
     QString hubs = _q(SettingsManager::getInstance()->get(SettingsManager::HUBLIST_SERVERS));
 
     comboBox_HUBS->addItems(hubs.split(";"));
@@ -76,6 +73,10 @@ PublicHubs::PublicHubs(QWidget *parent) :
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
     connect(comboBox_HUBS, SIGNAL(activated(int)), this, SLOT(slotHubChanged(int)));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    
+    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton) );
+    
+    registerThis();
 }
 
 PublicHubs::~PublicHubs(){
@@ -103,18 +104,11 @@ bool PublicHubs::eventFilter(QObject *obj, QEvent *e){
 
 void PublicHubs::closeEvent(QCloseEvent *e){
     if (isUnload()){
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-        MainWindow::getInstance()->remArenaWidget(this);
-
         WSSET(WS_PUBLICHUBS_STATE, treeView->header()->saveState().toBase64());
 
         e->accept();
     }
     else {
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-
         e->ignore();
     }
 }

@@ -66,8 +66,8 @@ class SearchFrame : public QWidget,
 
     typedef QMap<QString, QVariant> VarMap;
 
-    class Menu : public Singleton<Menu>{
-    friend class Singleton<Menu>;
+    class Menu : public dcpp::Singleton<Menu>{
+    friend class dcpp::Singleton<Menu>;
 
     public:
         enum Action{

@@ -197,6 +197,8 @@ DownloadQueue::DownloadQueue(QWidget *parent):
     QueueManager::getInstance()->addListener(this);
 
     setUnload(false);
+    
+    registerThis();
 }
 
 DownloadQueue::~DownloadQueue(){
@@ -207,20 +209,11 @@ DownloadQueue::~DownloadQueue(){
 
 void DownloadQueue::closeEvent(QCloseEvent *e){
     if (isUnload()){
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-        MainWindow::getInstance()->remArenaWidget(this);
-
-        //setAttribute(Qt::WA_DeleteOnClose);
-
         save();
 
         e->accept();
     }
     else {
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-
         e->ignore();
     }
 }
@@ -302,9 +295,7 @@ void DownloadQueue::init(){
 
     treeView_TARGET->expandAll();
 
-    MainWindow *MW = MainWindow::getInstance();
-
-    MW->addArenaWidget(this);
+    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton) );
 }
 
 void DownloadQueue::load(){

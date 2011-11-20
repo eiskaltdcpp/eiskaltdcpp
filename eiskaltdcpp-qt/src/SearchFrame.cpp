@@ -363,6 +363,8 @@ SearchFrame::SearchFrame(QWidget *parent):
         str_model->setData(str_model->index(i, 0), Qt::Checked, Qt::CheckStateRole);
 
     SearchManager::getInstance()->addListener(this);
+    
+    registerThis();
 }
 
 SearchFrame::~SearchFrame(){
@@ -370,9 +372,6 @@ SearchFrame::~SearchFrame(){
 
     SearchManager::getInstance()->removeListener(this);
     ClientManager::getInstance()->removeListener(this);
-
-    MainWindow::getInstance()->remArenaWidget(this);
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
 
     if (completer)
         completer->deleteLater();
@@ -505,13 +504,7 @@ void SearchFrame::init(){
 
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
 
-    MainWindow *mwnd = MainWindow::getInstance();
-
     load();
-
-    mwnd->addArenaWidget(this);
-    mwnd->addArenaWidgetOnToolbar(this);
-    mwnd->mapWidgetOnArena(this);
 
     setAttribute(Qt::WA_DeleteOnClose);
 

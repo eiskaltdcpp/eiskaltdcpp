@@ -35,6 +35,7 @@ using namespace std;
 #include "EmoticonFactory.h"
 #include "FinishedTransfers.h"
 #include "QueuedUsers.h"
+#include "ArenaWidgetManager.h"
 
 #ifndef __HAIKU__
 #include "EiskaltApp.h"
@@ -141,6 +142,8 @@ int main(int argc, char *argv[])
         std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
 
     app.setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+    
+    ArenaWidgetManager::newInstance();
 
     MainWindow::newInstance();
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
@@ -195,6 +198,8 @@ int main(int argc, char *argv[])
 #ifdef USE_JS
     ScriptEngine::deleteInstance();
 #endif
+    
+    ArenaWidgetManager::deleteInstance();
 
     MainWindow::deleteInstance();
 

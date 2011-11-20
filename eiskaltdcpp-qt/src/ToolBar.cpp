@@ -14,6 +14,7 @@
 #include <QMouseEvent>
 
 #include "ArenaWidget.h"
+#include "ArenaWidgetManager.h"
 #include "MainWindow.h"
 #include "PMWindow.h"
 #include "WulforSettings.h"
@@ -163,7 +164,7 @@ void ToolBar::slotIndexChanged(int index){
     if (!awgt || !awgt->getWidget())
         return;
 
-    MainWindow::getInstance()->mapWidgetOnArena(awgt);
+    ArenaWidgetManager::getInstance()->activate(awgt);
 }
 
 void ToolBar::slotTabMoved(int from, int to){

@@ -31,6 +31,10 @@ ADLS::ADLS(QWidget *parent):
     setupUi(this);
 
     init();
+    
+    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton) );
+    
+    registerThis();
 }
 
 ADLS::~ADLS(){
@@ -42,20 +46,11 @@ ADLS::~ADLS(){
 
 void ADLS::closeEvent(QCloseEvent *e){
     if (isUnload()){
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-        MainWindow::getInstance()->remArenaWidget(this);
-
         save();
-
-        //setAttribute(Qt::WA_DeleteOnClose);
 
         e->accept();
     }
     else {
-        MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-        MainWindow::getInstance()->remWidgetFromArena(this);
-
         e->ignore();
     }
 }
@@ -104,8 +99,6 @@ void ADLS::init(){
     treeView->setDragEnabled(false); // temporary
     treeView->setAcceptDrops(false); // temporary
     //treeView->setDragDropMode(QAbstractItemView::InternalMove);
-
-    MainWindow::getInstance()->addArenaWidget(this);
 
     WulforUtil *WU = WulforUtil::getInstance();
 

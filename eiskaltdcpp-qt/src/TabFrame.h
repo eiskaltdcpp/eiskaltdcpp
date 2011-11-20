@@ -34,12 +34,11 @@ public:
     virtual QSize sizeHint() const;
     virtual QSize minimumSizeHint() const;
 
+public Q_SLOTS:
     virtual void removeWidget(ArenaWidget *awgt);
     virtual void insertWidget(ArenaWidget *awgt);
     virtual bool hasWidget(ArenaWidget *awgt) const;
     virtual void redraw();
-
-public Q_SLOTS:
     virtual void mapped(ArenaWidget *awgt);
     virtual void nextTab();
     virtual void prevTab();
