@@ -980,13 +980,15 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1762"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword add &lt;palabra&gt; - añade la palabra definida para que sea marcada en el chat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1764"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword list - lista las palabras que deben ser marcadas en el chat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2101"/>
@@ -1292,23 +1294,11 @@ Usuario favorito</translation>
         <translation>/clear - limpia la ventana del chat
 </translation>
     </message>
-    <message>
-        <source>/kword add &lt;keyword&gt; - add user-defined keyword
-</source>
-        <translation type="obsolete">/kword add &lt;palabraclave&gt; - añadir palabra clave definida por el usuario
-</translation>
-    </message>
-    <message>
+<message>
         <location filename="../src/HubFrame.cpp" line="1763"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
         <translation>/kword purge &lt;palabraclave&gt; - elimina palabra clave definida por el usuario
-</translation>
-    </message>
-    <message>
-        <source>/kword list - list all keywords
-</source>
-        <translation type="obsolete">/kword list - lista todas las palabras clave
 </translation>
     </message>
     <message>
@@ -1478,10 +1468,6 @@ Usuario favorito</translation>
 </context>
 <context>
     <name>HubManager</name>
-    <message>
-        <source>Hub Manager</source>
-        <translation type="obsolete">Hub Manager</translation>
-    </message>
 </context>
 <context>
     <name>IPFilter</name>
@@ -3610,25 +3596,6 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/SettingsSharing.cpp" line="526"/>
         <source>Error</source>
         <translation></translation>
-    </message>
-</context>
-<context>
-    <name>ShellCommandRunner</name>
-    <message>
-        <source>Command produced no visible output.</source>
-        <translation type="obsolete">El comando no ha producido una salida visible.</translation>
-    </message>
-    <message>
-        <source>Process exited with status</source>
-        <translation type="obsolete">El proceso se ha salido con el status</translation>
-    </message>
-    <message>
-        <source>Process was killed or crashed.</source>
-        <translation type="obsolete">El proceso se ha muerto o ha fallado.</translation>
-    </message>
-    <message>
-        <source>Process still running after 2 minutes, killing process...</source>
-        <translation type="obsolete">El procesoaún está en marcha despues de 2 minutos, matando proceso...</translation>
     </message>
 </context>
 <context>
@@ -5833,7 +5800,7 @@ en la cola, o bien, debe eliminarlos manualmente.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir multiples subidas por un mismo usuario desde algunos NMDC-hubs</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="642"/>
@@ -6339,17 +6306,17 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="87"/>
         <source>Number of search history elements to store:</source>
-        <translation type="unfinished"></translation>
+        <translation>Número de elementos del historial de búsqueda para almacenar:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="113"/>
         <source>Number of download directiries history elements to store:</source>
-        <translation type="unfinished"></translation>
+        <translation>Número de elementos del historial de directiries de descarga para almacenar:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="152"/>
         <source>Memorize TTH search phrases</source>
-        <translation type="unfinished"></translation>
+        <translation>Memorizar frases de búsqueda TTH</translation>
     </message>
 </context>
 <context>

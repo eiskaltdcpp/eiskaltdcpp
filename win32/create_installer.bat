@@ -1,63 +1,62 @@
 call variables.bat
 
-set DIRINSTALLER=%BUILDDIR%\installer
+mingw32-make -k install DESTDIR=%BUILD_DIR%
 
-mingw32-make -k install DESTDIR=%BUILDDIR%
+xcopy /E /R /Y /I "%BUILD_DIR%\Program Files\EiskaltDC++\*"            %INSTALLER_DIR%
+rmdir /s /q "%BUILD_DIR%\Program Files"
 
-xcopy /E /R /Y /I "%BUILDDIR%\Program Files\EiskaltDC++\*"            %DIRINSTALLER%
-rmdir /s /q "%BUILDDIR%\Program Files"
+strip "%INSTALLER_DIR%\eiskaltdcpp-qt.exe"
+strip "%INSTALLER_DIR%\eiskaltdcpp-daemon.exe"
 
-strip "%DIRINSTALLER%\eiskaltdcpp-qt.exe"
-strip "%DIRINSTALLER%\eiskaltdcpp-daemon.exe"
+copy /Y "%SOURCES_DIR%\icons\eiskaltdcpp.ico"                          %INSTALLER_DIR%
+copy /Y "%SOURCES_DIR%\icons\icon_164x314.bmp"                         %INSTALLER_DIR%
+copy /Y "%SOURCES_DIR%\win32\dcppboot.xml"                             %INSTALLER_DIR%
+copy /Y "%SOURCES_DIR%\LICENSE"                                        %INSTALLER_DIR%
+echo [Paths] > "%INSTALLER_DIR%\qt.conf"
+echo Plugins = ./plugins >> "%INSTALLER_DIR%\qt.conf"
 
-copy /Y "%SOURCESDIR%\icons\eiskaltdcpp.ico"                          %DIRINSTALLER%
-copy /Y "%SOURCESDIR%\icons\icon_164x314.bmp"                         %DIRINSTALLER%
-copy /Y "%SOURCESDIR%\win32\dcppboot.xml"                             %DIRINSTALLER%
-copy /Y "%SOURCESDIR%\LICENSE"                                        %DIRINSTALLER%
-echo [Paths] > "%DIRINSTALLER%\qt.conf"
-echo Plugins = ./plugins >> "%DIRINSTALLER%\qt.conf"
+copy /Y "%QT_MINGW32_DIR%\bin\QtCore4.dll"                                     %INSTALLER_DIR%
+copy /Y "%QT_MINGW32_DIR%\bin\QtGui4.dll"                                      %INSTALLER_DIR%
+copy /Y "%QT_MINGW32_DIR%\bin\QtNetwork4.dll"                                  %INSTALLER_DIR%
+copy /Y "%QT_MINGW32_DIR%\bin\QtXml4.dll"                                      %INSTALLER_DIR%
+copy /Y "%QT_MINGW32_DIR%\bin\QtScript4.dll"                                   %INSTALLER_DIR%
+copy /Y "%QT_MINGW32_DIR%\bin\QtDeclarative4.dll"                              %INSTALLER_DIR%
+copy /Y "%QT_MINGW32_DIR%\bin\QtSql4.dll"                                      %INSTALLER_DIR%
+copy /Y "%QT_MINGW32_DIR%\bin\QtXmlPatterns4.dll"                              %INSTALLER_DIR%
 
-copy /Y "%QTDIR%\bin\QtCore4.dll"                                     %DIRINSTALLER%
-copy /Y "%QTDIR%\bin\QtGui4.dll"                                      %DIRINSTALLER%
-copy /Y "%QTDIR%\bin\QtNetwork4.dll"                                  %DIRINSTALLER%
-copy /Y "%QTDIR%\bin\QtXml4.dll"                                      %DIRINSTALLER%
-copy /Y "%QTDIR%\bin\QtScript4.dll"                                   %DIRINSTALLER%
-copy /Y "%QTDIR%\bin\QtDeclarative4.dll"                              %DIRINSTALLER%
-copy /Y "%QTDIR%\bin\QtSql4.dll"                                      %DIRINSTALLER%
-copy /Y "%QTDIR%\bin\QtXmlPatterns4.dll"                              %DIRINSTALLER%
+mkdir "%INSTALLER_DIR%\script\"
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_core.dll"                  %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_gui.dll"                   %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_network.dll"               %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_opengl.dll"                %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_phonon.dll"                %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_sql.dll"                   %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_svg.dll"                   %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_uitools.dll"               %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_webkit.dll"                %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_xml.dll"                   %INSTALLER_DIR%\script\
+copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_xmlpatterns.dll"           %INSTALLER_DIR%\script\
 
-mkdir "%DIRINSTALLER%\script\"
-copy /Y "%MINGW%\bin\qtscript_core.dll"                               %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_gui.dll"                                %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_network.dll"                            %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_opengl.dll"                             %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_phonon.dll"                             %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_sql.dll"                                %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_svg.dll"                                %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_uitools.dll"                            %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_webkit.dll"                             %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_xml.dll"                                %DIRINSTALLER%\script\
-copy /Y "%MINGW%\bin\qtscript_xmlpatterns.dll"                        %DIRINSTALLER%\script\
+copy /Y "%MINGW32_DIR%\bin\libstdc++-6.dll"                                 %INSTALLER_DIR%
+copy /Y "%MINGW32_DIR%\bin\libgcc_s_dw2-1.dll"                              %INSTALLER_DIR%
+copy /Y "%MINGW32_DIR%\bin\mingwm10.dll"                                    %INSTALLER_DIR%
 
-copy /Y "%MINGW%\bin\libgcc_s_dw2-1.dll"                              %DIRINSTALLER%
-copy /Y "%MINGW%\bin\mingwm10.dll"                                    %DIRINSTALLER%
+copy /Y "%GETTEXT_DIR%\bin\libintl-8.dll"                             %INSTALLER_DIR%
+copy /Y "%LIBICONV_DIR%\bin\libiconv-2.dll"                           %INSTALLER_DIR%
+copy /Y "%LIBZ_DIR%\bin\libz-1.dll"                                   %INSTALLER_DIR%
+copy /Y "%LIBBZ2_DIR%\bin\libbz2-2.dll"                               %INSTALLER_DIR%
+copy /Y "%LUA_DIR%\bin\lua51.dll"                                     %INSTALLER_DIR%
+copy /Y "%LIBIDN_DIR%\bin\libidn-11.dll"                              %INSTALLER_DIR%
+copy /Y "%ASPELL_DIR%\bin\libaspell-15.dll"                           %INSTALLER_DIR%
 
-copy /Y "%MINGW%\bin\libintl-8.dll"                                   %DIRINSTALLER%
-copy /Y "%MINGW%\bin\libiconv-2.dll"                                  %DIRINSTALLER%
-copy /Y "%MINGW%\bin\libz-1.dll"                                      %DIRINSTALLER%
-copy /Y "%MINGW%\bin\libbz2-2.dll"                                    %DIRINSTALLER%
-copy /Y "%MINGW%\bin\lua51.dll"                                       %DIRINSTALLER%
-copy /Y "%MINGW%\bin\libidn-11.dll"                                   %DIRINSTALLER%
-copy /Y "%MINGW%\bin\libaspell-15.dll"                                %DIRINSTALLER%
+mkdir "%INSTALLER_DIR%\aspell\data\"
+mkdir "%INSTALLER_DIR%\aspell\dict\"
+copy /Y "%ASPELL_DIR%\lib\aspell-0.60\*"                              %INSTALLER_DIR%\aspell\data\
 
-mkdir "%DIRINSTALLER%\aspell\data\"
-mkdir "%DIRINSTALLER%\aspell\dict\"
-copy /Y "%MINGW%\lib\aspell-0.60\*"                                   %DIRINSTALLER%\aspell\data\
+copy /Y "%SystemRoot%\System32\ssleay32.dll"                          %INSTALLER_DIR%
+copy /Y "%SystemRoot%\System32\libeay32.dll"                          %INSTALLER_DIR%
 
-copy /Y "%SystemRoot%\System32\ssleay32.dll"                          %DIRINSTALLER%
-copy /Y "%SystemRoot%\System32\libeay32.dll"                          %DIRINSTALLER%
+mkdir "%INSTALLER_DIR%\plugins\sqldrivers\"
+copy /Y "%QT_MINGW32_DIR%\plugins\sqldrivers\qsqlite4.dll"                     %INSTALLER_DIR%\plugins\sqldrivers\
 
-mkdir "%DIRINSTALLER%\plugins\sqldrivers\"
-copy /Y "%QTDIR%\plugins\sqldrivers\qsqlite4.dll"                     %DIRINSTALLER%\plugins\sqldrivers\
-
-"%ProgramFiles%\NSIS\makensis.exe" "%BUILDDIR%\EiskaltDC++.nsi"
+"%ProgramFiles%\NSIS\makensis.exe" "%BUILD_DIR%\EiskaltDC++.nsi"
