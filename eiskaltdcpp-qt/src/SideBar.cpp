@@ -11,10 +11,16 @@
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 #include "MainWindow.h"
+#include "ArenaWidgetManager.h"
+#include "QuickConnect.h"
+#include "SearchFrame.h"
 
 #include "PMWindow.h"
 
 #include <QPainter>
+#include <QEvent>
+#include <QMenu>
+#include <QItemSelectionModel>
 
 #define CREATE_ROOT_EL(a, b, c, d, e) \
     do { \
@@ -31,6 +37,8 @@
             map[ArenaWidget::type_el]->title = text; \
     } while (0)
 
+static const QString &SIDEBAR_SHOW_CLOSEBUTTONS = "mainwindow/sidebar-with-close-buttons";
+    
 SideBarModel::SideBarModel(QObject *parent) :
     QAbstractItemModel(parent)
 {
@@ -434,4 +442,155 @@ QSize SideBarDelegate::sizeHint(const QStyleOptionViewItem &option, const QModel
     const int HEIGHT = PXHEIGHT+MARGIN*4;
 
     return QSize( 200, HEIGHT );
+}
+
+SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(NULL) {
+    installEventFilter(this);
+
+    _model = new SideBarModel(this);
+    
+    setModel(_model);
+    setItemsExpandable(true);
+    setHeaderHidden(true);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    setItemDelegate(new SideBarDelegate(this));
+    expandAll();
+    
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this, SLOT(activated(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     this, SLOT(added(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this, SLOT(removed(ArenaWidget*)));
+    
+    connect(this, SIGNAL(doubleClicked(QModelIndex)),   this,   SLOT(slotSideBarDblClicked(QModelIndex)));
+    connect(this, SIGNAL(clicked(QModelIndex)),         this,   SLOT(slotSidebarHook(QModelIndex)));
+    connect(this, SIGNAL(clicked(QModelIndex)),         _model, SLOT(slotIndexClicked(QModelIndex)));
+    connect(this, SIGNAL(activated(QModelIndex)),       _model, SLOT(slotIndexClicked(QModelIndex)));
+    
+    connect(_model,    SIGNAL(mapWidget(ArenaWidget*)), ArenaWidgetManager::getInstance(),  SLOT(activate(ArenaWidget*)));
+}
+
+SideBarView::~SideBarView() {
+
+}
+
+bool SideBarView::eventFilter ( QObject *obj, QEvent *e) {
+    if (obj == this && e->type() == QEvent::Resize) {
+        if (WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true)){
+            header()->resizeSection(0, contentsRect().width() - 20);
+            header()->resizeSection(1, 18);
+        }
+        else{
+            header()->resizeSection(0, contentsRect().width());
+            header()->resizeSection(1, 0);
+        }
+    }
+    
+    return QObject::eventFilter (obj , e);
+}
+
+void SideBarView::activated ( ArenaWidget *awgt ) {
+    _model->mapped(awgt);
+}
+
+void SideBarView::added ( ArenaWidget *awgt ) {
+    _model->insertWidget(awgt);
+}
+
+void SideBarView::removed ( ArenaWidget *awgt ) {
+    _model->removeWidget(awgt);
+}
+
+void SideBarView::slotSidebarContextMenu(){
+    QItemSelectionModel *s_m = selectionModel();
+    QModelIndexList selected = s_m->selectedRows(0);
+
+    if (selected.size() < 1)
+        return;
+
+    SideBarItem *item = reinterpret_cast<SideBarItem*>(selected.at(0).internalPointer());
+
+    QMenu *menu = NULL;
+    if (item && item->childCount() > 0){
+        menu = new QMenu(this);
+        menu->addAction(WICON(WulforUtil::eiEDITDELETE), tr("Close all"));
+
+        if (menu->exec(QCursor::pos())){
+            QList<SideBarItem*> childs = item->childItems;
+
+            foreach (SideBarItem *i, childs){
+                if (i && i->getWidget())
+                    ArenaWidgetManager::getInstance()->rem(i->getWidget());
+            }
+        }
+
+        menu->deleteLater();
+
+        return;
+    }
+    else if (item && item->getWidget()){
+        menu = item->getWidget()->getMenu();
+
+        if(!menu){
+            menu = new QMenu(this);
+            menu->addAction(WICON(WulforUtil::eiEDITDELETE), tr("Close"));
+
+            if (menu->exec(QCursor::pos()))
+                ArenaWidgetManager::getInstance()->rem(item->getWidget());
+
+            menu->deleteLater();
+        }
+        else
+            menu->exec(QCursor::pos());
+    }
+}
+
+void SideBarView::slotSidebarHook(const QModelIndex &index){
+    if (index.column() == 1){
+        SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
+
+        if (item->getWidget()){
+            switch (item->getWidget()->role()){
+            case ArenaWidget::Hub:
+            case ArenaWidget::PrivateMessage:
+            case ArenaWidget::Search:
+            case ArenaWidget::ShareBrowser:
+            case ArenaWidget::CustomWidget:
+                ArenaWidgetManager::getInstance()->rem(item->getWidget());
+                break;
+            default:
+                break;
+            }
+        }
+    }
+}
+
+void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
+    if (index.column() != 0)
+        return;
+
+    SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
+
+    if (!_model->isRootItem(item) || item->childCount() > 0)
+        return;
+
+    switch (_model->rootItemRole(item)){
+    case ArenaWidget::Search:
+        {
+            SearchFrame *sf = new SearchFrame();
+
+            break;
+        }
+    case ArenaWidget::Hub:
+        {
+            QuickConnect qc;
+
+            qc.exec();
+
+            break;
+        }
+    default:
+        break;
+    }
+
+    setExpanded(index, true);
 }

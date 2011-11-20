@@ -80,8 +80,11 @@ void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
 void ArenaWidgetManager::activate ( ArenaWidget *awgt ) {
     DEBUG_BLOCK
     
-    if (!widgets.contains(awgt))
+    if (!widgets.contains(awgt)){
         emit activated(reinterpret_cast<ArenaWidget*>(NULL));
+        
+        return;
+    }
     
     if (awgt->state() & ArenaWidget::Hidden){
         awgt->setState(ArenaWidget::Flags(awgt->state() & (~ArenaWidget::Hidden)));

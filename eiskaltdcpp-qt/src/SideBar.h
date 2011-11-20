@@ -12,12 +12,15 @@
 
 #include <QAbstractItemModel>
 #include <QMap>
+#include <QTreeView>
 #include <QStack>
 #include <QStyledItemDelegate>
 #include <QStyleOptionViewItem>
 
 #include "ArenaWidget.h"
 #include "ArenaWidgetContainer.h"
+
+class QEvent;
 
 class SideBarDelegate:
         public QStyledItemDelegate
@@ -134,6 +137,29 @@ private:
     SideBarItem *rootItem;
 
     QStack<ArenaWidget*> historyStack;
+};
+
+class SideBarView: public QTreeView {
+Q_OBJECT
+
+public:
+    SideBarView(QWidget *parent=0);
+    virtual ~SideBarView();
+    
+private Q_SLOTS:
+    void added(ArenaWidget*);
+    void removed(ArenaWidget*);
+    void activated(ArenaWidget*);
+    
+    void slotSidebarContextMenu();
+    void slotSidebarHook(const QModelIndex &index);
+    void slotSideBarDblClicked(const QModelIndex&);
+    
+protected:
+    virtual bool eventFilter(QObject *, QEvent *);
+    
+private:
+    SideBarModel *_model;
 };
 
 #endif // SIDEBAR_H

@@ -223,11 +223,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotHideProgressSpace();
         void slotHideLastStatus();
         void slotHideUsersStatistics();
-        void slotSidebarContextMenu();
-        void slotSidebarHook(const QModelIndex&);
-        void slotSideBarDblClicked(const QModelIndex&);
         void slotSideBarDockMenu();
-        void slotSelectSidebarIndex(const QModelIndex&);
         void slotExit();
         void slotToolbarCustomization();
         void slotToolbarCustomizerDone(const QList<QAction*> &enabled);
@@ -298,11 +294,6 @@ friend class dcpp::Singleton<MainWindow>;
         QDockWidget *transfer_dock;
         QDockWidget *sideDock;
 
-        QTreeView *sideTree;
-
-        ArenaWidgetContainer *wcontainer;
-
-        MultiLineToolBar *mBar; // multi-line ToolBar
         ToolBar *tBar; // default ToolBar
         ToolBar *fBar; //for actions
         ToolBar *sBar; //for fast search

@@ -86,12 +86,10 @@ MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
         statusLabel(NULL),
         tBar(NULL),
-        mBar(NULL),
         fBar(NULL),
         sBar(NULL),
         _progress_dialog(NULL),
         sideDock(NULL),
-        sideTree(NULL),
         menuPanels(NULL)
 {
     exitBegin = false;
@@ -341,16 +339,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
 
         return true;
     }
-    else if (obj == sideTree && sideTree && e->type() == QEvent::Resize) {
-        if (WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true)){
-            sideTree->header()->resizeSection(0, sideTree->contentsRect().width() - 20);
-            sideTree->header()->resizeSection(1, 18);
-        }
-        else{
-            sideTree->header()->resizeSection(0, sideTree->contentsRect().width());
-            sideTree->header()->resizeSection(1, 0);
-        }
-    }
+
     return QMainWindow::eventFilter(obj, e);
 }
 
@@ -458,8 +447,6 @@ void MainWindow::loadSettings(){
         else
             sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
     }
-    else if (mBar)
-        mBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
     else if (tBar)
         tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
@@ -1261,12 +1248,14 @@ void MainWindow::initToolbar(){
 
     if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR) && WBGET(WB_MAINWINDOW_USE_M_TABBAR)){
 
-        mBar = new MultiLineToolBar(this);
+        MultiLineToolBar *mBar = new MultiLineToolBar(this);
         mBar->setContextMenuPolicy(Qt::CustomContextMenu);
-
+        mBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+        
+        connect(nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
+        connect(prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
+        
         addToolBar(mBar);
-
-        //wcontainer = static_cast<ArenaWidgetContainer*>(mBar);
     }
     else if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR) && !WBGET(WB_MAINWINDOW_USE_M_TABBAR)){
 
@@ -1279,17 +1268,9 @@ void MainWindow::initToolbar(){
         tBar->setContextMenuPolicy(Qt::CustomContextMenu);
 
         addToolBar(tBar);
-
-        wcontainer = static_cast<ArenaWidgetContainer*>(tBar);
-    }
-
-    if (tBar){
+        
         connect(nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
         connect(prevTabShortCut, SIGNAL(triggered()), tBar, SLOT(prevTab()));
-    }
-    else if (mBar){
-        connect(nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
-        connect(prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
     }
 
     sBar = new ToolBar(this);
@@ -1306,38 +1287,17 @@ void MainWindow::initSideBar(){
     if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
         return;
 
-    SideBarModel *model = new SideBarModel(this);
-    sideTree = new QTreeView(this);
     sideDock = new QDockWidget("", this);
 
-    sideDock->setWidget(sideTree);
+    sideDock->setWidget(new SideBarView(this));
     sideDock->setFeatures(sideDock->features() & (~QDockWidget::DockWidgetClosable));
     sideDock->setObjectName("sideDock");
     sideDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     sideDock->setContextMenuPolicy(Qt::CustomContextMenu);
-    sideTree->setModel(model);
-    sideTree->setItemsExpandable(true);
-    sideTree->setHeaderHidden(true);
-    sideTree->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    sideTree->setContextMenuPolicy(Qt::CustomContextMenu);
-    sideTree->setItemDelegate(new SideBarDelegate(sideTree));
-    sideTree->expandAll();
-
-    sideTree->installEventFilter(this);
-
-    wcontainer = static_cast<ArenaWidgetContainer*>(model);
 
     addDockWidget(Qt::LeftDockWidgetArea, sideDock);
 
-    //FIXME
     connect(sideDock, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSideBarDockMenu()));
-    connect(sideTree, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotSideBarDblClicked(QModelIndex)));
-    connect(sideTree, SIGNAL(clicked(QModelIndex)),     this, SLOT(slotSidebarHook(QModelIndex)));
-    connect(sideTree, SIGNAL(clicked(QModelIndex)),    model, SLOT(slotIndexClicked(QModelIndex)));
-    connect(sideTree, SIGNAL(activated(QModelIndex)),  model, SLOT(slotIndexClicked(QModelIndex)));
-    connect(sideTree, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSidebarContextMenu()));
-    connect(model,    SIGNAL(mapWidget(ArenaWidget*)), this,  SLOT(mapWidgetOnArena(ArenaWidget*)));
-    connect(model,    SIGNAL(selectIndex(QModelIndex)),this,  SLOT(slotSelectSidebarIndex(QModelIndex)));
 }
 
 QObject *MainWindow::getToolBar(){
@@ -2130,8 +2090,6 @@ void MainWindow::slotPanelMenuActionClicked(){
     if (act == panelsWidgets){
         if (tBar)
             tBar->setVisible(panelsWidgets->isChecked());
-        else if (mBar)
-            mBar->setVisible(panelsWidgets->isChecked());
         else if (sideDock)
             sideDock->setVisible(panelsWidgets->isChecked());
         WBSET(WB_WIDGETS_PANEL_VISIBLE, panelsWidgets->isChecked());
@@ -2492,111 +2450,6 @@ void MainWindow::slotCloseCurrentWidget(){
         arena->widget()->close();
 }
 
-void MainWindow::slotSidebarContextMenu(){
-    QItemSelectionModel *s_m =sideTree->selectionModel();
-    QModelIndexList selected = s_m->selectedRows(0);
-
-    if (selected.size() < 1)
-        return;
-
-    SideBarItem *item = reinterpret_cast<SideBarItem*>(selected.at(0).internalPointer());
-
-    QMenu *menu = NULL;
-    if (item && item->childCount() > 0){
-        menu = new QMenu(this);
-        menu->addAction(WICON(WulforUtil::eiEDITDELETE), tr("Close all"));
-
-        if (menu->exec(QCursor::pos())){
-            QList<SideBarItem*> childs = item->childItems;
-
-            foreach (SideBarItem *i, childs){
-                if (i && i->getWidget())
-                    i->getWidget()->getWidget()->close();
-            }
-        }
-
-        menu->deleteLater();
-
-        return;
-    }
-    else if (item && item->getWidget()){
-        menu = item->getWidget()->getMenu();
-
-        if(!menu){
-            menu = new QMenu(this);
-            menu->addAction(WICON(WulforUtil::eiEDITDELETE), tr("Close"));
-
-            if (menu->exec(QCursor::pos()))
-                item->getWidget()->getWidget()->close();
-
-            menu->deleteLater();
-        }
-        else
-            menu->exec(QCursor::pos());
-    }
-}
-
-void MainWindow::slotSidebarHook(const QModelIndex &index){
-    if (index.column() == 1){
-        SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
-
-        if (item->getWidget()){
-            switch (item->getWidget()->role()){
-            case ArenaWidget::Hub:
-            case ArenaWidget::PrivateMessage:
-            case ArenaWidget::Search:
-            case ArenaWidget::ShareBrowser:
-            case ArenaWidget::CustomWidget:
-                item->getWidget()->getWidget()->close();
-                break;
-            default:
-                break;
-            }
-        }
-    }
-}
-
-void MainWindow::slotSideBarDblClicked(const QModelIndex &index){
-    if (index.column() != 0)
-        return;
-    SideBarModel *model = reinterpret_cast<SideBarModel*>(sideTree->model());
-    SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
-
-    if (!model->isRootItem(item) || item->childCount() > 0)
-        return;
-
-    switch (model->rootItemRole(item)){
-    case ArenaWidget::Search:
-        {
-            slotToolsSearch();
-
-            break;
-        }
-    case ArenaWidget::Hub:
-        {
-            slotQC();
-
-            break;
-        }
-    case ArenaWidget::ShareBrowser:
-        {
-            slotFileBrowseFilelist();
-
-            break;
-        }
-    case ArenaWidget::PrivateMessage:
-        {
-            slotFileOpenLogFile();
-
-            break;
-        }
-    default:
-        break;
-    }
-
-    sideTree->setExpanded(index, true);
-}
-
 void MainWindow::slotSideBarDockMenu(){
     QMenu *m = new QMenu(this);
     QAction *act = new QAction(tr("Show close buttons"), m);
@@ -2617,12 +2470,6 @@ void MainWindow::slotSideBarDockMenu(){
     }
 
     m->deleteLater();
-}
-
-void MainWindow::slotSelectSidebarIndex(const QModelIndex &index){
-    QItemSelectionModel *s_m =sideTree->selectionModel();
-
-    s_m->select(index, QItemSelectionModel::Clear|QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
 }
 
 void MainWindow::slotAboutQt(){
