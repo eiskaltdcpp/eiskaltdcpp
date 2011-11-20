@@ -44,6 +44,7 @@ list (APPEND SRCS
             src/ArenaWidgetManager.cpp
             src/ArenaWidgetContainer.cpp
             src/CustomFontModel.cpp
+            src/DebugHelper.cpp
             src/DownloadQueue.cpp
             src/DownloadQueueModel.cpp
             src/EmoticonDialog.cpp

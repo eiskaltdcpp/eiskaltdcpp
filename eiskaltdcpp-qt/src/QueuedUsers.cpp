@@ -33,7 +33,7 @@ QueuedUsers::QueuedUsers(){
 
     UploadManager::getInstance()->addListener(this);
     
-    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton) );
+    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
     
     registerThis();
 }

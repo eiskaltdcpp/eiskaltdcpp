@@ -200,6 +200,8 @@ int main(int argc, char *argv[])
 #endif
     
     ArenaWidgetManager::deleteInstance();
+    
+    HubManager::getInstance()->release();
 
     MainWindow::deleteInstance();
 

@@ -168,7 +168,7 @@ private:
         slotSwitchOnlyFull(false);
         slotTypeChanged(0);
         
-        ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton) );
+        ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
         
         registerThis();
     }

@@ -237,30 +237,6 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     if (ConnectionManager::getInstance())
         ConnectionManager::getInstance()->disconnect();
 
-    QMap< ArenaWidget*, QWidget* > map = arenaMap;
-    QMap< ArenaWidget*, QWidget* >::iterator it = map.begin();
-
-    for(; it != map.end(); ++it){
-        dcpp::ISingleton *sg = dynamic_cast< dcpp::ISingleton* >(it.value());
-
-        if (sg && sg != dynamic_cast< dcpp::ISingleton* >(HubManager::getInstance())){
-            it.key()->setUnload(true);
-            it.value()->close();
-
-            sg->release();
-
-            continue;
-        }
-        else if (sg == dynamic_cast< dcpp::ISingleton* >(HubManager::getInstance()))
-            continue;//Do not remove HubManager
-
-        if (arenaMap.contains(it.key()))//some widgets can autodelete itself from arena widgets
-            it.value()->close();
-    }
-
-    if (HubManager::getInstance())
-        HubManager::getInstance()->release();
-
     c_e->accept();
 }
 
@@ -1781,8 +1757,8 @@ void MainWindow::remActionFromToolBar(QAction *act){
 
 void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     if (!a)
-        return;
-
+        throw std::runtime_error(_tq(Q_FUNC_INFO) + ": NULL argument");
+    
     if (sender() && qobject_cast<QAction*>(sender()) && a->getWidget()){
         QAction *act = reinterpret_cast<QAction*>(sender());;
 
@@ -1790,43 +1766,8 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
 
         a->setToolButton(act);
     }
-
-    /*if (wcontainer->hasWidget(a)){
-        QHash<QAction*, ArenaWidget*>::iterator it = menuWidgetsHash.begin();
-        for (; it != menuWidgetsHash.end(); ++it){
-            if (it.value() == a){
-                menuWidgetsActions.removeAt(menuWidgetsActions.indexOf(it.key()));
-                menuWidgetsHash.erase(it);
-
-                menuWidgets->clear();
-
-                menuWidgets->addActions(menuWidgetsActions);
-
-                break;
-            }
-        }
-
-        remWidgetFromArena(a);
-
-        wcontainer->removeWidget(a);
-    }
-    else {
-        QAction *act = new QAction(a->getArenaShortTitle(), this);
-        act->setIcon(a->getPixmap());
-
-        connect(act, SIGNAL(triggered()), this, SLOT(slotWidgetsToggle()));
-
-        menuWidgetsActions.push_back(act);
-        menuWidgetsHash.insert(act, a);
-
-        menuWidgets->clear();
-        menuWidgets->addActions(menuWidgetsActions);
-
-        mapWidgetOnArena(a);
-
-        wcontainer->insertWidget(a);
-        wcontainer->mapped(a);
-    }*/
+   
+    ArenaWidgetManager::getInstance()->toggle(a);
 }
 
 void MainWindow::toggleMainMenu(bool showMenu){

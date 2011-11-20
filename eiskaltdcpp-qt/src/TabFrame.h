@@ -37,6 +37,7 @@ public:
 public Q_SLOTS:
     virtual void removeWidget(ArenaWidget *awgt);
     virtual void insertWidget(ArenaWidget *awgt);
+    virtual void updated(ArenaWidget *awgt);
     virtual bool hasWidget(ArenaWidget *awgt) const;
     virtual void redraw();
     virtual void mapped(ArenaWidget *awgt);

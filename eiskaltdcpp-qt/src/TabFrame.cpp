@@ -14,6 +14,7 @@
 #include "MainWindow.h"
 #include "WulforUtil.h"
 #include "ArenaWidgetManager.h"
+#include "DebugHelper.h"
 
 #include <QtGui>
 #include <QPushButton>
@@ -25,6 +26,8 @@
 TabFrame::TabFrame(QWidget *parent) :
     QFrame(parent)
 {
+    DEBUG_BLOCK
+    
     setAcceptDrops(true);
 
     fr_layout = new FlowLayout(this);
@@ -53,6 +56,8 @@ TabFrame::TabFrame(QWidget *parent) :
 
 
 TabFrame::~TabFrame(){
+    DEBUG_BLOCK
+    
     QMap<TabButton*, ArenaWidget*>::iterator it = tbtn_map.begin();
 
     for  (; it != tbtn_map.end(); ++it){
@@ -96,6 +101,8 @@ QSize TabFrame::minimumSizeHint() const{
 }
 
 void TabFrame::removeWidget(ArenaWidget *awgt){
+    DEBUG_BLOCK
+    
     if (!awgt_map.contains(awgt))
         return;
 
@@ -109,10 +116,15 @@ void TabFrame::removeWidget(ArenaWidget *awgt){
 
     historyPurge(awgt);
     historyPop();
+    
+     if (awgt->toolButton())
+        awgt->toolButton()->setChecked(false);
 }
 
 void TabFrame::insertWidget(ArenaWidget *awgt){
-    if (awgt_map.contains(awgt))
+    DEBUG_BLOCK
+    
+    if (awgt_map.contains(awgt) || (awgt && (awgt->state() & ArenaWidget::Hidden)) || !awgt)
         return;
 
     TabButton *btn = new TabButton();
@@ -126,6 +138,9 @@ void TabFrame::insertWidget(ArenaWidget *awgt){
 
     awgt_map.insert(awgt, btn);
     tbtn_map.insert(btn, awgt);
+    
+    if (awgt->toolButton())
+        awgt->toolButton()->setChecked(true);
 
     connect(btn, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
     connect(btn, SIGNAL(clicked()), this, SLOT(buttonClicked()));
@@ -134,10 +149,14 @@ void TabFrame::insertWidget(ArenaWidget *awgt){
 }
 
 bool TabFrame::hasWidget(ArenaWidget *awgt) const{
+    DEBUG_BLOCK
+    
     return awgt_map.contains(awgt);
 }
 
 void TabFrame::mapped(ArenaWidget *awgt){
+    DEBUG_BLOCK
+    
     if (!awgt_map.contains(awgt))
         return;
 
@@ -149,7 +168,20 @@ void TabFrame::mapped(ArenaWidget *awgt){
     historyPush(awgt);
 }
 
+void TabFrame::updated ( ArenaWidget* awgt ) {
+    DEBUG_BLOCK
+    
+    if (awgt->state() & ArenaWidget::Hidden){
+        removeWidget(awgt);
+    }
+    else if (!awgt_map.contains(awgt)){
+        insertWidget(awgt);
+    }
+}
+
 void TabFrame::redraw() {
+    DEBUG_BLOCK
+    
     QMap<TabButton*, ArenaWidget*>::iterator it = tbtn_map.begin();
     int maxWidth = 0;
 
@@ -171,24 +203,30 @@ void TabFrame::redraw() {
         ArenaWidget *awgt = const_cast<ArenaWidget*>(it.value());
         
         if (awgt->state() & ArenaWidget::Hidden)
-            btn->hide();
+            continue;
         else
             btn->resetGeometry();
     }
 }
 
 void TabFrame::historyPush(ArenaWidget *awgt){
+    DEBUG_BLOCK
+    
     historyPurge(awgt);
 
     history.push_back(awgt);
 }
 
 void TabFrame::historyPurge(ArenaWidget *awgt){
+    DEBUG_BLOCK
+    
     if (history.contains(awgt))
         history.removeAt(history.indexOf(awgt));
 }
 
 void TabFrame::historyPop(){
+    DEBUG_BLOCK
+    
     if (history.isEmpty() && fr_layout->count() > 0){
         QLayoutItem *item = fr_layout->itemAt(0);
 
@@ -211,6 +249,8 @@ void TabFrame::historyPop(){
 }
 
 void TabFrame::buttonClicked(){
+    DEBUG_BLOCK
+    
     TabButton *btn = qobject_cast<TabButton*>(sender());
 
     if (!(btn && tbtn_map.contains(btn)))
@@ -222,6 +262,8 @@ void TabFrame::buttonClicked(){
 }
 
 void TabFrame::closeRequsted() {
+    DEBUG_BLOCK
+    
     TabButton *btn = qobject_cast<TabButton*>(sender());
 
     if (!(btn && tbtn_map.contains(btn)))
@@ -229,11 +271,11 @@ void TabFrame::closeRequsted() {
 
     ArenaWidget *awgt = const_cast<ArenaWidget*>(tbtn_map[btn]);
     ArenaWidgetManager::getInstance()->rem(awgt);
-
-    redraw();
 }
 
 void TabFrame::nextTab(){
+    DEBUG_BLOCK
+    
     TabButton *next = NULL;
 
     for (int i = 0; i < fr_layout->count(); i++){
@@ -257,6 +299,8 @@ void TabFrame::nextTab(){
 }
 
 void TabFrame::prevTab(){
+    DEBUG_BLOCK
+    
     TabButton *next = NULL;
 
     for (int i = 0; i < fr_layout->count(); i++){
@@ -280,6 +324,8 @@ void TabFrame::prevTab(){
 }
 
 void TabFrame::slotShorcuts(){
+    DEBUG_BLOCK
+    
     QShortcut *sh = qobject_cast<QShortcut*>(sender());
 
     if (!sh)
@@ -298,6 +344,8 @@ void TabFrame::slotShorcuts(){
 }
 
 void TabFrame::slotContextMenu() {
+    DEBUG_BLOCK
+    
     TabButton *btn = qobject_cast<TabButton*>(sender());
 
     if (!(btn && tbtn_map.contains(btn)))
@@ -312,11 +360,13 @@ void TabFrame::slotContextMenu() {
         m->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close"));
 
         if (m->exec(QCursor::pos()))
-            removeWidget(awgt);
+            ArenaWidgetManager::getInstance()->rem(awgt);
     }
 }
 
 void TabFrame::slotDropped(TabButton *dropped){
+    DEBUG_BLOCK
+    
     TabButton *on = qobject_cast<TabButton*>(sender());
 
     if (!(on && dropped && on != dropped))
@@ -326,6 +376,8 @@ void TabFrame::slotDropped(TabButton *dropped){
 }
 
 void TabFrame::moveLeft(){
+    DEBUG_BLOCK
+    
     for (int i = 0; i < fr_layout->count(); i++){
         QLayoutItem *item = const_cast<QLayoutItem*>(fr_layout->itemAt(i));
         TabButton *t = qobject_cast<TabButton*>(item->widget());
@@ -339,6 +391,8 @@ void TabFrame::moveLeft(){
 }
 
 void TabFrame::moveRight(){
+    DEBUG_BLOCK
+    
     for (int i = 0; i < fr_layout->count(); i++){
         QLayoutItem *item = const_cast<QLayoutItem*>(fr_layout->itemAt(i));
         TabButton *t = qobject_cast<TabButton*>(item->widget());

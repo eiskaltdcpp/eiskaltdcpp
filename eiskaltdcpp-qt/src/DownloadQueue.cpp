@@ -295,7 +295,7 @@ void DownloadQueue::init(){
 
     treeView_TARGET->expandAll();
 
-    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton) );
+    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
 }
 
 void DownloadQueue::load(){

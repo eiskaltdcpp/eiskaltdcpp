@@ -44,9 +44,9 @@ public:
     };
     
     enum Flags {
-        NoFlags=0,
-        Singleton=1,
-        Hidden=2
+        NoFlags     =0x00000000,
+        Singleton   =0x00000001,
+        Hidden      =0x00000002
     };
 
     ArenaWidget();

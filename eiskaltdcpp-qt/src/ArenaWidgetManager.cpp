@@ -11,47 +11,37 @@
 
 #include "ArenaWidget.h"
 #include "DebugHelper.h"
+#include "WulforUtil.h"
 
 #include <assert.h>
-#include <iostream>
 
 ArenaWidgetManager::ArenaWidgetManager() : QObject(NULL) {
     DEBUG_BLOCK
 }
 
-ArenaWidgetManager::ArenaWidgetManager(const ArenaWidgetManager &m) {
-    DEBUG_BLOCK
-}
-
 ArenaWidgetManager::~ArenaWidgetManager(){
     DEBUG_BLOCK
-}
-
-ArenaWidgetManager &ArenaWidgetManager::operator=(const ArenaWidgetManager &) { 
-    DEBUG_BLOCK
     
-    return *this; 
+    foreach ( ArenaWidget *awgt , widgets ) {
+        if ( awgt == dynamic_cast<ArenaWidget*> ( awgt->getWidget() ) ) { // ArenaWidget is a parent class of Widget
+            awgt->getWidget()->setAttribute ( Qt::WA_DeleteOnClose );
+            awgt->setUnload(true);
+            awgt->getWidget()->close();
+        }
+        else 
+            assert(0);
+    }
 }
 
 void ArenaWidgetManager::add ( ArenaWidget *awgt) {
     DEBUG_BLOCK
     
-    if (!awgt){
+    if (!awgt || widgets.contains(awgt)){
         assert(0);
         
         return;
     }
-    
-    bool exists = widgets.contains(awgt);
-    
-    if (exists && (awgt->state() & ArenaWidget::Hidden)){
-        awgt->setState(ArenaWidget::Flags(awgt->state() & ~ArenaWidget::Hidden));
         
-        emit updated(awgt);
-        
-        return;
-    }
-    
     widgets.push_back(awgt);
     
     emit added(awgt);
@@ -59,7 +49,7 @@ void ArenaWidgetManager::add ( ArenaWidget *awgt) {
 
 void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
     DEBUG_BLOCK
-    assert(0);
+
     if (!(awgt && widgets.contains(awgt))){
         assert(0);
         
@@ -88,10 +78,28 @@ void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
 }
 
 void ArenaWidgetManager::activate ( ArenaWidget *awgt ) {
+    DEBUG_BLOCK
+    
     if (!widgets.contains(awgt))
         emit activated(reinterpret_cast<ArenaWidget*>(NULL));
+    
+    if (awgt->state() & ArenaWidget::Hidden){
+        awgt->setState(ArenaWidget::Flags(awgt->state() & (~ArenaWidget::Hidden)));
+        
+        emit updated(awgt);
+    }
     
     emit activated(awgt);
 }
 
-
+void ArenaWidgetManager::toggle ( ArenaWidget *awgt) {
+    DEBUG_BLOCK
+    
+    if (!(awgt->state() & ArenaWidget::Singleton))
+        return;
+    
+    if (awgt->state() & ArenaWidget::Hidden)
+        activate(awgt);
+    else
+        rem(awgt);
+}

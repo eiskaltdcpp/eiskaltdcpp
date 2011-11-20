@@ -12,6 +12,8 @@
 
 //#ifndef QT_NO_DEBUG
 
+#include <QString>
+
 #include <iostream>
 class DebugHelper{
 public:
@@ -32,8 +34,6 @@ public:
 private:
     static QString whitespace;
 };
-
-QString DebugHelper::whitespace = "";
 
 #define DEBUG_BLOCK DebugHelper _dbg_helper_; \
                     std::cout << (_dbg_helper_ << Q_FUNC_INFO) << std::endl;

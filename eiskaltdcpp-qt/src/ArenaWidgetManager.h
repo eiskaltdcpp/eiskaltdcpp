@@ -27,6 +27,7 @@ public Q_SLOTS:
     void add(ArenaWidget*);
     void rem(ArenaWidget*);
     void activate(ArenaWidget*);
+    void toggle(ArenaWidget*);
     
 Q_SIGNALS:
     void added(ArenaWidget*);

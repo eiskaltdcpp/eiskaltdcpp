@@ -32,7 +32,7 @@ ADLS::ADLS(QWidget *parent):
 
     init();
     
-    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton) );
+    ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
     
     registerThis();
 }
