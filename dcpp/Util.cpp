@@ -295,10 +295,15 @@ void Util::migrate(const string& file) {
 string Util::getLoginName() {
     string loginName = "unknown";
     
-#ifndef _WIN32
+#ifdef _WIN32
+    char winUserName[UNLEN + 1]; // UNLEN is defined in LMCONS.H
+    DWORD winUserNameSize = sizeof(winUserName);
+    if(GetUserNameA(winUserName, &winUserNameSize))
+        loginName = Text::toUtf8(winUserName);
+#else // not _WIN32
     const char *envUserName = getenv("LOGNAME");
     loginName = envUserName? Text::toUtf8(envUserName) : loginName;
-#endif
+#endif // _WIN32
     
     return loginName;
 }
