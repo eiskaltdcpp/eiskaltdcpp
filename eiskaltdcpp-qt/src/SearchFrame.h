@@ -164,6 +164,7 @@ private Q_SLOTS:
     void slotStartSearch();
     void slotStopSearch();
     void slotChangeProxyColumn(int);
+    void slotClose();
 
     void slotSettingsChanged(const QString &key, const QString &value);
 

@@ -166,12 +166,6 @@ int main(int argc, char *argv[])
 
     Notification::newInstance();
 
-    if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
-        MainWindow::getInstance()->show();
-
-    MainWindow::getInstance()->autoconnect();
-    MainWindow::getInstance()->parseCmdLine();
-
 #ifdef USE_JS
     ScriptEngine::newInstance();
     QObject::connect(ScriptEngine::getInstance(), SIGNAL(scriptChanged(QString)), MainWindow::getInstance(), SLOT(slotJSFileChanged(QString)));
@@ -180,6 +174,12 @@ int main(int argc, char *argv[])
     FinishedUploads::newInstance();
     FinishedDownloads::newInstance();
     QueuedUsers::newInstance();
+    
+    MainWindow::getInstance()->autoconnect();
+    MainWindow::getInstance()->parseCmdLine();
+    
+    if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
+        MainWindow::getInstance()->show();
 
     ret = app.exec();
 

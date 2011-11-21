@@ -30,6 +30,7 @@
 #include "SearchBlacklistDialog.h"
 #include "WulforUtil.h"
 #include "Magnet.h"
+#include "ArenaWidgetManager.h"
 
 #include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
@@ -377,7 +378,7 @@ SearchFrame::~SearchFrame(){
         completer->deleteLater();
 
     delete model;
-    delete arena_menu;
+    arena_menu->deleteLater();
     delete timer;
     proxy->deleteLater();
 }
@@ -485,7 +486,7 @@ void SearchFrame::init(){
 
     connect(focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(setFocus()));
     connect(focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(selectAll()));
-    connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
+    connect(close_wnd, SIGNAL(triggered()), this, SLOT(slotClose()));
     connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
     connect(pushButton_STOP, SIGNAL(clicked()), this, SLOT(slotStopSearch()));
     connect(pushButton_CLEAR, SIGNAL(clicked()), this, SLOT(slotClear()));
@@ -1609,6 +1610,10 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
     getParams(map, aResult);
 
     emit coreSR(map);
+}
+
+void SearchFrame::slotClose() {
+    ArenaWidgetManager::getInstance()->rem(this);
 }
 
 void SearchFrame::on(ClientConnected, Client* c) noexcept{

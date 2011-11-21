@@ -119,7 +119,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
         }
     }
 
-    connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
+    connect(close_wnd, SIGNAL(triggered()), this, SLOT(slotClose()));
     connect(pushButton_HUB, SIGNAL(clicked()), this, SLOT(slotHub()));
     connect(pushButton_SHARE, SIGNAL(clicked()), this, SLOT(slotShare()));
     connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
@@ -143,7 +143,11 @@ void PMWindow::setCompleter(QCompleter *completer, UserListModel *model) {
 }
 
 PMWindow::~PMWindow(){
-    delete arena_menu;
+    arena_menu->deleteLater();
+}
+
+void PMWindow::slotClose() {
+    ArenaWidgetManager::getInstance()->rem(this);
 }
 
 bool PMWindow::eventFilter(QObject *obj, QEvent *e){
@@ -289,8 +293,6 @@ void PMWindow::showEvent(QShowEvent *e){
         hasHighlightMessages = false;
         MainWindow::getInstance()->redrawToolPanel();
     }
-
-    ArenaWidgetManager::getInstance()->activate(this);
 }
 
 void PMWindow::slotActivate(){

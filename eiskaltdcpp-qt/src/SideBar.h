@@ -154,6 +154,7 @@ private Q_SLOTS:
     void slotSidebarContextMenu();
     void slotSidebarHook(const QModelIndex &index);
     void slotSideBarDblClicked(const QModelIndex&);
+    void slotWidgetActivated(QModelIndex i);
     
 protected:
     virtual bool eventFilter(QObject *, QEvent *);

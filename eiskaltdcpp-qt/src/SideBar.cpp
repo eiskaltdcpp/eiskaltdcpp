@@ -211,9 +211,6 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
         break;
     }
 
-    if (!(typeid(*awgt) == typeid(PMWindow) && WBGET(WB_CHAT_KEEPFOCUS)))
-        emit mapWidget(awgt);
-
     emit layoutChanged();
 }
 
@@ -461,12 +458,14 @@ SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(NULL) {
     connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     this, SLOT(added(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this, SLOT(removed(ArenaWidget*)));
     
-    connect(this, SIGNAL(doubleClicked(QModelIndex)),   this,   SLOT(slotSideBarDblClicked(QModelIndex)));
-    connect(this, SIGNAL(clicked(QModelIndex)),         this,   SLOT(slotSidebarHook(QModelIndex)));
-    connect(this, SIGNAL(clicked(QModelIndex)),         _model, SLOT(slotIndexClicked(QModelIndex)));
-    connect(this, SIGNAL(activated(QModelIndex)),       _model, SLOT(slotIndexClicked(QModelIndex)));
+    connect(this, SIGNAL(doubleClicked(QModelIndex)),           this,   SLOT(slotSideBarDblClicked(QModelIndex)));
+    connect(this, SIGNAL(customContextMenuRequested(QPoint)),   this,   SLOT(slotSidebarContextMenu()));
+    connect(this, SIGNAL(clicked(QModelIndex)),                 this,   SLOT(slotSidebarHook(QModelIndex)));
+    connect(this, SIGNAL(clicked(QModelIndex)),                 _model, SLOT(slotIndexClicked(QModelIndex)));
+   // connect(this, SIGNAL(activated(QModelIndex)),               _model, SLOT(slotIndexClicked(QModelIndex)));
     
-    connect(_model,    SIGNAL(mapWidget(ArenaWidget*)), ArenaWidgetManager::getInstance(),  SLOT(activate(ArenaWidget*)));
+    connect(_model,    SIGNAL(mapWidget(ArenaWidget*)),     ArenaWidgetManager::getInstance(),  SLOT(activate(ArenaWidget*)));
+    connect(_model,    SIGNAL(selectIndex(QModelIndex)),    this,                               SLOT(slotWidgetActivated(QModelIndex)));
 }
 
 SideBarView::~SideBarView() {
@@ -510,6 +509,7 @@ void SideBarView::slotSidebarContextMenu(){
     SideBarItem *item = reinterpret_cast<SideBarItem*>(selected.at(0).internalPointer());
 
     QMenu *menu = NULL;
+    
     if (item && item->childCount() > 0){
         menu = new QMenu(this);
         menu->addAction(WICON(WulforUtil::eiEDITDELETE), tr("Close all"));
@@ -522,10 +522,8 @@ void SideBarView::slotSidebarContextMenu(){
                     ArenaWidgetManager::getInstance()->rem(i->getWidget());
             }
         }
-
+        
         menu->deleteLater();
-
-        return;
     }
     else if (item && item->getWidget()){
         menu = item->getWidget()->getMenu();
@@ -536,7 +534,7 @@ void SideBarView::slotSidebarContextMenu(){
 
             if (menu->exec(QCursor::pos()))
                 ArenaWidgetManager::getInstance()->rem(item->getWidget());
-
+            
             menu->deleteLater();
         }
         else
@@ -593,4 +591,9 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
     }
 
     setExpanded(index, true);
+}
+
+void SideBarView::slotWidgetActivated ( QModelIndex i ) {
+    selectionModel()->clearSelection();
+    selectionModel()->select(i, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
 }

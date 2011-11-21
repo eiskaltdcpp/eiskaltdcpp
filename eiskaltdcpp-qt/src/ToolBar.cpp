@@ -121,7 +121,7 @@ void ToolBar::initTabs(){
 }
 
 void ToolBar::insertWidget(ArenaWidget *awgt){
-    if (!awgt || !awgt->getWidget() || map.contains(awgt))
+    if (!awgt || !awgt->getWidget() || (awgt->state() & ArenaWidget::Hidden) || map.contains(awgt))
         return;
 
     int index = tabbar->addTab(awgt->getPixmap(), awgt->getArenaShortTitle().left(32));
@@ -200,7 +200,7 @@ void ToolBar::slotClose(int index){
     if (!awgt || !awgt->getWidget())
         return;
 
-    awgt->getWidget()->close();
+    ArenaWidgetManager::getInstance()->rem(awgt);
 }
 
 void ToolBar::slotContextMenu(const QPoint &p){

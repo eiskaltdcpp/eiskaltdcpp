@@ -14,6 +14,7 @@
 #include "SearchFrame.h"
 #include "Magnet.h"
 #include "ShareBrowserSearch.h"
+#include "ArenaWidgetManager.h"
 
 #include "dcpp/SettingsManager.h"
 #include "dcpp/FavoriteManager.h"
@@ -307,7 +308,7 @@ void ShareBrowser::init(){
     connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
 
-    connect(close_wnd, SIGNAL(triggered()), this, SLOT(close()));
+    connect(close_wnd, SIGNAL(triggered()), this, SLOT(slotClose()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
 
     connect(treeView_RPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
@@ -1080,4 +1081,8 @@ void ShareBrowser::slotSearchJumpTo(FileBrowserItem *tree_item){
 void ShareBrowser::slotSettingsChanged(const QString &key, const QString&){
     if (key == WS_TRANSLATION_FILE)
         retranslateUi(this);
+}
+
+void ShareBrowser::slotClose() {
+    ArenaWidgetManager::getInstance()->rem(this);
 }

@@ -2658,11 +2658,6 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
                 if (item)
                     addPM(item->cid, "", false);
-
-                if (pm.contains(item->cid)){
-                    ArenaWidgetManager::getInstance()->activate(pm[cid]);
-                    pm[cid]->requestFocus();
-                }
             }
 
             break;

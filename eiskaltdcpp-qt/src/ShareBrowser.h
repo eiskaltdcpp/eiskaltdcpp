@@ -126,6 +126,7 @@ private Q_SLOTS:
     void slotButtonBack();
     void slotButtonForvard();
     void slotButtonUp();
+    void slotClose();
 
 private:
     void continueInit();

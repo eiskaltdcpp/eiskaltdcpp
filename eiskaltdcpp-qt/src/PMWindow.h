@@ -70,6 +70,7 @@ private Q_SLOTS:
     void slotFindAll();
     void slotFindForward() { findText(0); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
+    void slotClose();
 
 Q_SIGNALS:
     void privateMessageClosed(QString);

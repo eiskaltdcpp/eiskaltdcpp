@@ -15,6 +15,8 @@
 
 #include <assert.h>
 
+#include <QApplication>
+
 ArenaWidgetManager::ArenaWidgetManager() : QObject(NULL) {
     DEBUG_BLOCK
 }
@@ -68,10 +70,12 @@ void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
     
     emit removed(awgt);
     
+    QApplication::processEvents();
+    
     if (awgt == dynamic_cast<ArenaWidget*>(awgt->getWidget())){ // ArenaWidget is a parent class of Widget
-        awgt->getWidget()->setAttribute(Qt::WA_DeleteOnClose);
-        
+        awgt->getWidget()->setAttribute(Qt::WA_DeleteOnClose, false);
         awgt->getWidget()->close();
+        awgt->getWidget()->deleteLater();
     }
     else
         assert(0);//We do not know what to do with this object...
