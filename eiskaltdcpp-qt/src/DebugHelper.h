@@ -10,7 +10,7 @@
 #ifndef DEBUGHELPER_H
 #define DEBUGHELPER_H
 
-//#ifndef QT_NO_DEBUG
+#ifndef QT_NO_DEBUG
 
 #include <QString>
 
@@ -38,10 +38,10 @@ private:
 #define DEBUG_BLOCK DebugHelper _dbg_helper_; \
                     std::cout << (_dbg_helper_ << Q_FUNC_INFO) << std::endl;
                     
-//#else // QT_NO_DEBUG
+#else // QT_NO_DEBUG
 
-//#define DEBUG_BLOCK
+#define DEBUG_BLOCK
 
-//#endif //QT_NO_DEBUG
+#endif //QT_NO_DEBUG
                     
 #endif // DEBUGHELPER_H

@@ -19,6 +19,7 @@
 #include <QtGui>
 #include <QPushButton>
 #include <QWheelEvent>
+#include <QTimer>
 
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
@@ -52,6 +53,13 @@ TabFrame::TabFrame(QWidget *parent) :
 
         connect(s, SIGNAL(activated()), this, SLOT(slotShorcuts()));
     }
+    
+    QTimer *timer = new QTimer(this);
+    timer->setInterval(1000);
+    timer->setSingleShot(false);
+    timer->start();
+    
+    connect(timer, SIGNAL(timeout()), this, SLOT(redraw()));
 }
 
 

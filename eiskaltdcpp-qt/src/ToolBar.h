@@ -35,11 +35,6 @@ public:
     ToolBar(QWidget* = NULL);
     virtual ~ToolBar();
 
-    void insertWidget(ArenaWidget *a);
-    void removeWidget(ArenaWidget*);
-    void redraw();
-    void initTabs();
-
     virtual bool hasWidget(ArenaWidget*) const;
     void mapWidget(ArenaWidget*);
 
@@ -51,9 +46,9 @@ protected:
     virtual void showEvent(QShowEvent *);
 
 public Q_SLOTS:
-    void mapped(ArenaWidget*);
     void nextTab();
     void prevTab();
+    void initTabs();
 
 private Q_SLOTS:
     void slotIndexChanged(int);
@@ -61,6 +56,12 @@ private Q_SLOTS:
     void slotClose(int);
     void slotContextMenu(const QPoint&);
     void slotShorcuts();
+    void insertWidget(ArenaWidget *a);
+    void removeWidget(ArenaWidget*);
+    void updated(ArenaWidget*);
+    void mapped(ArenaWidget*);
+    void redraw();
+
 
 private:
     ArenaWidget *findWidgetForIndex(int);

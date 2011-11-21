@@ -145,7 +145,10 @@ friend class dcpp::Singleton<MainWindow>;
         void setUnload(bool b){ isUnload = b; }
 
         ArenaWidget *widgetForRole(ArenaWidget::Role) const;
-
+        
+    Q_SIGNALS:
+        void redrawWidgetPanels();
+        
     public Q_SLOTS:
          QObject *getToolBar();
 
@@ -182,7 +185,10 @@ friend class dcpp::Singleton<MainWindow>;
     private Q_SLOTS:
         /** Show widget on arena */
         void mapWidgetOnArena(ArenaWidget*);
-        
+        void removeWidget(ArenaWidget *awgt);
+        void insertWidget(ArenaWidget *awgt);
+        void updated(ArenaWidget *awgt);
+    
         void slotOpenMagnet();
         void slotFileOpenLogFile();
         void slotFileOpenDownloadDirectory();
@@ -294,7 +300,6 @@ friend class dcpp::Singleton<MainWindow>;
         QDockWidget *transfer_dock;
         QDockWidget *sideDock;
 
-        ToolBar *tBar; // default ToolBar
         ToolBar *fBar; //for actions
         ToolBar *sBar; //for fast search
 
@@ -380,7 +385,6 @@ friend class dcpp::Singleton<MainWindow>;
         QAction *chatClear;
 
         QMenu *menuWidgets;
-        QList<QAction*> menuWidgetsActions;
         QHash<QAction*, ArenaWidget*> menuWidgetsHash;
 
         QMenu   *menuAbout;

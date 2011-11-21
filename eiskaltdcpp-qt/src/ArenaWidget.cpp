@@ -17,7 +17,19 @@
 #include "MainWindow.h"
 #include "ArenaWidgetManager.h"
 
-ArenaWidget::ArenaWidget(): _arenaUnload(true), toolBtn(NULL), flags(ArenaWidget::NoFlags)
+ArenaWidget::Flags operator|(const ArenaWidget::Flags &a, const ArenaWidget::Flags &b){
+    return ArenaWidget::Flags(static_cast<unsigned>(a) | static_cast<unsigned>(b));
+}
+
+ArenaWidget::Flags operator&(const ArenaWidget::Flags &a, const ArenaWidget::Flags &b){
+    return ArenaWidget::Flags(static_cast<unsigned>(a) & static_cast<unsigned>(b));
+}
+
+ArenaWidget::Flags operator^(const ArenaWidget::Flags &a, const ArenaWidget::Flags &b){
+    return ArenaWidget::Flags(static_cast<unsigned>(a) ^ static_cast<unsigned>(b));
+}
+
+ArenaWidget::ArenaWidget(): _arenaUnload(true), toolBtn(NULL), flags(ArenaWidget::NoFlags | ArenaWidget::RaiseOnStart)
 {
 }
 

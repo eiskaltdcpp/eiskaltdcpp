@@ -9,9 +9,9 @@
 
 #include "DebugHelper.h"
 
-//#ifndef QT_NO_DEBUG
+#ifndef QT_NO_DEBUG
 
 QString DebugHelper::whitespace = "";
 
-//#endif //QT_NO_DEBUG
+#endif //QT_NO_DEBUG
 

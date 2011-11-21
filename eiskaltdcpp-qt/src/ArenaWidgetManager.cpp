@@ -47,6 +47,9 @@ void ArenaWidgetManager::add ( ArenaWidget *awgt) {
     widgets.push_back(awgt);
     
     emit added(awgt);
+    
+    if ((awgt->state() & ArenaWidget::RaiseOnStart) && !(awgt->state() & ArenaWidget::Hidden))
+        activate(awgt);
 }
 
 void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {

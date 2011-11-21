@@ -114,10 +114,10 @@ public:
     bool isRootItem(const SideBarItem *) const;
     ArenaWidget::Role rootItemRole(const SideBarItem *) const;
     void mapped(ArenaWidget *awgt);
-    void redraw() { emit layoutChanged(); }
 
 public Q_SLOTS:
     void slotIndexClicked(const QModelIndex&);
+    void redraw() { emit layoutChanged(); }
 
 private Q_SLOTS:
     void slotSettingsChanged(const QString &key, const QString &value);

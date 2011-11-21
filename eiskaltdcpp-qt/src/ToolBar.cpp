@@ -116,6 +116,18 @@ void ToolBar::initTabs(){
     connect(tabbar, SIGNAL(tabMoved(int,int)), this, SLOT(slotTabMoved(int,int)));
     connect(tabbar, SIGNAL(tabCloseRequested(int)), this, SLOT(slotClose(int)));
     connect(tabbar, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
+    
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     this, SLOT(insertWidget(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this, SLOT(removeWidget(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this, SLOT(mapped(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(updated(ArenaWidget*)),   this, SLOT(updated(ArenaWidget*)));
+    
+    QTimer *timer = new QTimer(this);
+    timer->setInterval(1000);
+    timer->setSingleShot(false);
+    timer->start();
+    
+    connect(timer, SIGNAL(timeout()), this, SLOT(redraw()));
 
     addWidget(tabbar);
 }
@@ -152,6 +164,17 @@ void ToolBar::removeWidget(ArenaWidget *awgt){
             tabbar->hide();
 
         tabbar->removeTab(index);
+    }
+}
+
+void ToolBar::updated ( ArenaWidget *awgt ) {
+    if (!awgt)
+        return;
+    
+    if ( awgt->state() & ArenaWidget::Hidden ) {
+        removeWidget ( awgt );
+    } else if ( !map.contains(awgt)) {
+        insertWidget ( awgt );
     }
 }
 

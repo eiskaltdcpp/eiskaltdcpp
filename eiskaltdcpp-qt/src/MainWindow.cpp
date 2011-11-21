@@ -74,8 +74,6 @@
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 
-//TODO: Broken showing arenawidgets in main menu
-
 using namespace std;
 
 static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
@@ -85,7 +83,6 @@ static const QString &SIDEBAR_SHOW_CLOSEBUTTONS = "mainwindow/sidebar-with-close
 MainWindow::MainWindow (QWidget *parent):
         QMainWindow(parent),
         statusLabel(NULL),
-        tBar(NULL),
         fBar(NULL),
         sBar(NULL),
         _progress_dialog(NULL),
@@ -401,6 +398,9 @@ void MainWindow::init(){
     connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotExit()));
     
     connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this, SLOT(mapWidgetOnArena(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     this, SLOT(insertWidget(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this, SLOT(removeWidget(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(updated(ArenaWidget*)),   this, SLOT(updated(ArenaWidget*)));
 
 #ifdef LUA_SCRIPT
     ScriptManager::getInstance()->load();
@@ -446,9 +446,11 @@ void MainWindow::loadSettings(){
             sideDock->hide();
         else
             sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+    } else if ( findChild<MultiLineToolBar*> ( "multiLineTabbar" ) ) {
+        findChild<MultiLineToolBar*> ( "multiLineTabbar" )->setVisible ( WBGET ( WB_WIDGETS_PANEL_VISIBLE ) );
+    } else if ( findChild<ToolBar*> ( "tBar" ) ) {
+        findChild<ToolBar*> ( "tBar" )->setVisible ( WBGET ( WB_WIDGETS_PANEL_VISIBLE ) );
     }
-    else if (tBar)
-        tBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
     panelsWidgets->setChecked(WBGET(WB_WIDGETS_PANEL_VISIBLE));
 
@@ -1259,7 +1261,7 @@ void MainWindow::initToolbar(){
     }
     else if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR) && !WBGET(WB_MAINWINDOW_USE_M_TABBAR)){
 
-        tBar = new ToolBar(this);
+        ToolBar *tBar = new ToolBar(this);
         tBar->setObjectName("tBar");
         tBar->initTabs();
         tBar->setMovable(true);
@@ -1280,6 +1282,7 @@ void MainWindow::initToolbar(){
     sBar->setMovable(true);
     sBar->setFloatable(true);
     sBar->setAllowedAreas(Qt::AllToolBarAreas);
+    
     addToolBar(sBar);
 }
 
@@ -1668,6 +1671,8 @@ void MainWindow::redrawToolPanel(){
 
     if (!has_unread)
         Notify->resetTrayIcon();
+    
+    emit redrawWidgetPanels();
 }
 
 void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
@@ -1697,6 +1702,38 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     chatDisable->setEnabled(role == ArenaWidget::Hub);
 
     awgt->requestFocus();
+}
+
+void MainWindow::insertWidget ( ArenaWidget* awgt ) {
+    if (!awgt || (awgt && (awgt->state() & ArenaWidget::Hidden)))
+        return;
+    
+    QAction *act = menuWidgets->addAction(awgt->getPixmap(), awgt->getArenaShortTitle());
+    
+    menuWidgetsHash.insert(act, awgt);
+    
+    connect(act, SIGNAL(triggered(bool)), this, SLOT(slotWidgetsToggle()));
+}
+
+void MainWindow::removeWidget ( ArenaWidget* awgt ) {
+    QAction *act = menuWidgetsHash.key(awgt);
+    
+    if (!act)
+        return;
+    
+    menuWidgetsHash.remove(act);
+    
+    act->deleteLater();
+}
+
+void MainWindow::updated ( ArenaWidget* awgt ) {
+    if (!awgt)
+        return;
+    
+    if (awgt->state() & ArenaWidget::Hidden)
+        removeWidget(awgt);
+    else
+        insertWidget(awgt);
 }
 
 void MainWindow::addActionOnToolBar(QAction *new_act){
@@ -2088,10 +2125,15 @@ void MainWindow::slotPanelMenuActionClicked(){
         return;
 
     if (act == panelsWidgets){
-        if (tBar)
-            tBar->setVisible(panelsWidgets->isChecked());
+        if (findChild<MultiLineToolBar*>("multiLineTabbar")){
+            findChild<MultiLineToolBar*>("multiLineTabbar")->setVisible(panelsWidgets->isChecked());
+        }
+        else if (findChild<ToolBar*>("tBar")){
+            findChild<ToolBar*>("tBar")->setVisible(panelsWidgets->isChecked());
+        }
         else if (sideDock)
             sideDock->setVisible(panelsWidgets->isChecked());
+        
         WBSET(WB_WIDGETS_PANEL_VISIBLE, panelsWidgets->isChecked());
     }
     else if (act == panelsTools){

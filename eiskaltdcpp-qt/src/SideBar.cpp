@@ -462,7 +462,13 @@ SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(NULL) {
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),   this,   SLOT(slotSidebarContextMenu()));
     connect(this, SIGNAL(clicked(QModelIndex)),                 this,   SLOT(slotSidebarHook(QModelIndex)));
     connect(this, SIGNAL(clicked(QModelIndex)),                 _model, SLOT(slotIndexClicked(QModelIndex)));
-   // connect(this, SIGNAL(activated(QModelIndex)),               _model, SLOT(slotIndexClicked(QModelIndex)));
+   
+    QTimer *timer = new QTimer(this);
+    timer->setInterval(1000);
+    timer->setSingleShot(false);
+    timer->start();
+    
+    connect(timer, SIGNAL(timeout()), _model, SLOT(redraw()));
     
     connect(_model,    SIGNAL(mapWidget(ArenaWidget*)),     ArenaWidgetManager::getInstance(),  SLOT(activate(ArenaWidget*)));
     connect(_model,    SIGNAL(selectIndex(QModelIndex)),    this,                               SLOT(slotWidgetActivated(QModelIndex)));
