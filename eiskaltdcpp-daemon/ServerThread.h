@@ -53,7 +53,7 @@ public:
     string getFileList_client(const string& hub, const string& nick, bool match);
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
     bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
-    void returnSearchResults(vector<StringMap>& resultarray);
+    void returnSearchResults(vector<StringMap>& resultarray, const string& huburl);
     void addStringinSearchList(const string& s);
     void listShare (string& listshare, const string& sseparator);
     bool delDirFromShare(const string& sdirectory);

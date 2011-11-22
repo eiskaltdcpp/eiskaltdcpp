@@ -675,8 +675,10 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     return true;
 }
 
-void ServerThread::returnSearchResults(vector<StringMap>& resultarray) {
+void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const string& huburl) {
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        if (!huburl.empty() && i->first != huburl)
+            continue;
         SearchResultList::const_iterator kk;
         for (kk = clientsMap[i->first].cursearchresult.begin(); kk != clientsMap[i->first].cursearchresult.end(); ++kk) {
             StringMap resultMap;

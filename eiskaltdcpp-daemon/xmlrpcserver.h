@@ -54,12 +54,7 @@ public:
 
         string name,tth;int64_t size;
         bool ok = splitMagnet(smagnet, name, size, tth);
-#ifdef _DEBUG
-        fprintf(stderr,"tth: %s\n",tth.c_str());
-        fprintf(stderr,"size: %d\n",size);
-        fprintf(stderr,"name: %s\n",name.c_str());
-        fflush(stderr);
-#endif
+        if (isVerbose) std::cout << "splitMagnet: \n tth: " << tth << "\n size: " << size << "\n name: " << name << std::endl;
         if (ok && ServerThread::getInstance()->addInQueue(sddir, name, size, tth))
             *retvalP = xmlrpc_c::value_int(0);
         else
@@ -406,8 +401,9 @@ public:
     execute(xmlrpc_c::paramList const& paramList,
             xmlrpc_c::value *   const  retvalP) {
 
+        string const shuburl(paramList.getString(0));
         vector<StringMap> tmp;
-        ServerThread::getInstance()->returnSearchResults(tmp);
+        ServerThread::getInstance()->returnSearchResults(tmp,shuburl);
         vector<xmlrpc_c::value> tmp_array_in;
         for (vector<StringMap>::iterator i = tmp.begin(); i != tmp.end(); ++i) {
             map<string, xmlrpc_c::value> tmp_struct_in;
