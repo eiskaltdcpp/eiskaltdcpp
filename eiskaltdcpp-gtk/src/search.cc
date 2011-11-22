@@ -548,6 +548,9 @@ void Search::search_gui()
 
     if (WGETB("clearsearch")) // Only clear if the search was sent.
         gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
+
+    if (gtk_widget_get_visible(getWidget("sidePanel")) && !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkDontHideSideOnSearch"))))
+        gtk_widget_hide(getWidget("sidePanel"));
 }
 
 void Search::addResult_gui(const SearchResultPtr result)

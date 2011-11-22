@@ -177,6 +177,7 @@ class MainWindow:
         static void onTTHFileDialog_gui(GtkWidget *widget, gpointer data);
         static void onTTHFileButton_gui(GtkWidget *widget, gpointer data);
         static void onDebugCMD(GtkWidget *widget, gpointer data);
+        static void onFreeSpaceBar(GtkWidget *widget, gpointer data);
 
         // Client functions
         void autoConnect_client();

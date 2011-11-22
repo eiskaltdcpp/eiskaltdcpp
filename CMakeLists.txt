@@ -103,6 +103,7 @@ option (JSONRPC_DAEMON "Mаке daemon without UI as jsonrpc server" OFF)
 option (USE_GTK3 "GTK3 interface" OFF)
 option (USE_CLI "Command line interface" OFF)
 option (HAIKU_PKG "Make Haiku package" OFF)
+option (CHECK_GTK_DEPRECATED "Check gtk backend for deprecated function" OFF)
 
 if (USE_QT OR USE_GTK)
     find_package (X11)

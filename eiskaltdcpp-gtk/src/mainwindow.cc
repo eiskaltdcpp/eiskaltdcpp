@@ -53,6 +53,9 @@
 #include "WulforUtil.hh"
 #include "VersionGlobal.h"
 #include "cmddebug.hh"
+#ifdef FREE_SPACE_BAR_C
+#include "extra/freespace.h"
+#endif
 
 using namespace std;
 using namespace dcpp;
@@ -173,7 +176,7 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("MagnetDialog"), "delete-event", G_CALLBACK(onDeleteEventMagnetDialog_gui), (gpointer) this);
 
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("transferCheckButton")), TRUE);
-
+    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("freeSpaceBarItem")), WGETB("show-free-space-bar"));
     // About dialog
     gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"),
         EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
@@ -260,8 +263,7 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("TTHFileMenu"), "activate", G_CALLBACK(onTTHFileDialog_gui), (gpointer)this);
     g_signal_connect(getWidget("buttonfile"), "clicked", G_CALLBACK(onTTHFileButton_gui), (gpointer)this);
     g_signal_connect(getWidget("cmdDebugMenuItem"), "activate", G_CALLBACK(onDebugCMD), (gpointer)this);
-    //GtkWidget *buttonf = getWidget("filechooserbutton");
-    //g_signal_connect(buttonf, "dialog",G_CALLBACK(onFileTTHSet), (gpointer)this);
+    g_signal_connect(getWidget("freeSpaceBarItem"), "activate", G_CALLBACK(onFreeSpaceBar), (gpointer)this);
 
     // Help menu
     g_object_set_data_full(G_OBJECT(getWidget("homeMenuItem")), "link",
@@ -320,6 +322,8 @@ MainWindow::MainWindow():
         gtk_window_maximize(window);
     if (WGETI("minimize-tray"))
         gtk_widget_hide(GTK_WIDGET(window));
+    if (!WGETI("show-free-space-bar"))
+        gtk_widget_hide(getWidget("progressbarFreeSpaceBar"));
 #ifdef LUA_SCRIPT
     ScriptManager::getInstance()->load();
     if (BOOLSETTING(USE_LUA)){
@@ -328,6 +332,7 @@ MainWindow::MainWindow():
         ScriptManager::getInstance()->EvaluateFile(defaultluascript);
     }
 #endif
+    gtk_widget_hide(getWidget("progressbarHashProgress"));
 }
 
 MainWindow::~MainWindow()
@@ -338,6 +343,8 @@ MainWindow::~MainWindow()
 
     GList *list = (GList *)g_object_get_data(G_OBJECT(getWidget("book")), "page-rotation-list");
     g_list_free(list);
+
+    WSET("show-free-space-bar", gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(getWidget("freeSpaceBarItem"))));
 
     // Save window state and position
     gint posX, posY, sizeX, sizeY, transferPanePosition;
@@ -684,6 +691,7 @@ void MainWindow::setStats_gui(string hubs, string downloadSpeed,
     gtk_label_set_text(GTK_LABEL(getWidget("labelDownloaded")), downloaded.c_str());
     gtk_label_set_text(GTK_LABEL(getWidget("labelUploadSpeed")), uploadSpeed.c_str());
     gtk_label_set_text(GTK_LABEL(getWidget("labelUploaded")), uploaded.c_str());
+
 }
 
 BookEntry* MainWindow::findBookEntry(const EntryType type, const string &id)
@@ -2013,6 +2021,23 @@ void MainWindow::onAboutClicked_gui(GtkWidget *widget, gpointer data)
     gtk_widget_hide(mw->getWidget("aboutDialog"));
 }
 
+void MainWindow::onFreeSpaceBar(GtkWidget *widget, gpointer data)
+{
+    MainWindow *mw = (MainWindow *)data;
+    GtkWidget *freespacebar = mw->getWidget("progressbarFreeSpaceBar");
+    //GtkCheckMenuItem *item = GTK_CHECK_MENU_ITEM(mw->getWidget("freeSpaceBarItem"));
+
+    //// Toggle the "Show Interface" check menu item. This will in turn invoke its callback.
+    //gboolean active = gtk_check_menu_item_get_active(item);
+    //gtk_check_menu_item_set_active(item, !active);
+
+    WSET("show-free-space-bar", gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(mw->getWidget("freeSpaceBarItem"))));
+
+    if (gtk_widget_get_visible(freespacebar))
+        gtk_widget_hide(freespacebar);
+    else
+        gtk_widget_show_all(freespacebar);
+}
 // void MainWindow::onAboutDialogActivateLink_gui(GtkAboutDialog *dialog, const gchar *link, gpointer data)
 // {
 //     WulforUtil::openURI(link);
@@ -2242,6 +2267,26 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) noexcept
         F2 *f2 = new F2(this, &MainWindow::updateStatusIconTooltip_gui, downloadSpeed, uploadSpeed);
         WulforManager::get()->dispatchGuiFunc(f2);
     }
+
+    if (WGETB("show-free-space-bar")) {
+#ifdef FREE_SPACE_BAR_C
+        std::string s = SETTING(DOWNLOAD_DIRECTORY);
+        unsigned long long available = 0;
+        unsigned long long total = 0;
+        if (!s.empty()) {
+            if (FreeSpace::FreeDiscSpace(s, &available, &total) == false) {
+                available = 0;
+                total = 0;
+            }
+        }
+        float percent = 1.0f*(total-available)/total;
+        string format = _("Free ") + Util::formatBytes(available);
+        //g_print("%s %f\n", format.c_str(), percent);
+        gtk_progress_bar_set_text(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), format.c_str());
+        gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), percent);
+#endif //FREE_SPACE_BAR_C
+    }
+
 }
 void MainWindow::onTTHFileDialog_gui(GtkWidget *widget, gpointer data)
 {
