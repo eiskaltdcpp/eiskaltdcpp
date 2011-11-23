@@ -99,10 +99,11 @@ option (XMLRPC_DAEMON "Make daemon as xmlrpc server" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
-option (CHECK_GTK3 "Check ability build with gtk 3.x.x" OFF)
+option (JSONRPC_DAEMON "Mаке daemon without UI as jsonrpc server" OFF)
 option (USE_GTK3 "GTK3 interface" OFF)
 option (USE_CLI "Command line interface" OFF)
 option (HAIKU_PKG "Make Haiku package" OFF)
+option (CHECK_GTK_DEPRECATED "Check gtk backend for deprecated function" OFF)
 
 if (USE_QT OR USE_GTK)
     find_package (X11)
@@ -465,7 +466,7 @@ if (USE_GTK OR USE_GTK3)
   add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK OR USE_GTK3)
 
-if (NO_UI_DAEMON OR XMLRPC_DAEMON)
+if (NO_UI_DAEMON OR XMLRPC_DAEMON OR JSONRPC_DAEMON)
   add_subdirectory (eiskaltdcpp-daemon)
 endif ()
 
@@ -473,9 +474,14 @@ if (USE_CLI)
   add_subdirectory (eiskaltdcpp-cli)
 endif ()
 
+if (JSONRPC_DAEMON)
+add_subdirectory (json)
+endif (JSONRPC_DAEMON)
+
 if (HAIKU AND HAIKU_PKG)
   add_subdirectory (haiku)
 endif ()
+
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"

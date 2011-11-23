@@ -19,7 +19,7 @@ dcpp:setListener( "ownChatOut", "uptime",
 	function( hub, text )
 		local s = string.lower( text )
 		if text == "/uptime" then
-			DC():PrintDebug( "Uptime: "..uptime.format() )
+			hub:addLine(  "Uptime: "..uptime.format() )
 			return 1
 		elseif text == "/uptime show" then
 			hub:sendChat( "My DC++ client uptime is: "..uptime.format() )

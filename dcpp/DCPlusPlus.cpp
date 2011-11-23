@@ -36,7 +36,7 @@
 #include "ResourceManager.h"
 #include "ThrottleManager.h"
 #include "ADLSearch.h"
-#include "WindowManager.h"
+//#include "WindowManager.h"
 #include "StringTokenizer.h"
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
@@ -95,7 +95,7 @@ void startup(void (*f)(void*, const string&), void* p) {
     ADLSearchManager::newInstance();
     ConnectivityManager::newInstance();
     UPnPManager::newInstance();
-    WindowManager::newInstance();
+    //WindowManager::newInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
 #endif
@@ -155,14 +155,14 @@ void shutdown() {
     UPnPManager::getInstance()->close();
 
     BufferedSocket::waitShutdown();
-    WindowManager::getInstance()->prepareSave();
+    //WindowManager::getInstance()->prepareSave();
     QueueManager::getInstance()->saveQueue(true);
     ClientManager::getInstance()->saveUsers();
     if (ipfilter::getInstance())
         ipfilter::getInstance()->shutdown();
     SettingsManager::getInstance()->save();
 
-    WindowManager::deleteInstance();
+    //WindowManager::deleteInstance();
     UPnPManager::deleteInstance();
     ConnectivityManager::deleteInstance();
     ADLSearchManager::deleteInstance();

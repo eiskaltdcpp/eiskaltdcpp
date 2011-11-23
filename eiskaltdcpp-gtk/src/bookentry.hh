@@ -68,7 +68,7 @@ class BookEntry : public Entry
 		bool bold;
 		bool urgent;
 		static const glong labelSize = 20; ///@todo: make a preference?
-                GtkWidget *icon;
+		GtkWidget *icon;
 };
 
 #else

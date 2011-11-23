@@ -13,7 +13,6 @@
 
 //---------------------------------------------------------------------------
 #include "stdafx.h"
-#include "dcpp/DCPlusPlus.h"
 //---------------------------------------------------------------------------
 #include "utility.h"
 #include "ServerThread.h"
@@ -32,8 +31,14 @@
 #include "dcpp/StringTokenizer.h"
 
 #include "dcpp/version.h"
+
 #ifdef XMLRPC_DAEMON
 #include "xmlrpcserver.h"
+#endif
+
+#ifdef JSONRPC_DAEMON
+#include "json/src/jsonrpc.h"
+#include "jsonrpcmethods.h"
 #endif
 
 unsigned short int lport = 3121;
@@ -43,7 +48,9 @@ string xmlrpcLog = "/tmp/eiskaltdcpp-daemon.xmlrpc.log";
 string xmlrpcUriPath = "/eiskaltdcpp";
 
 ServerThread::ClientMap ServerThread::clientsMap;
-
+#ifdef JSONRPC_DAEMON
+Json::Rpc::TcpServer * jsonserver;
+#endif
 //----------------------------------------------------------------------------
 ServerThread::ServerThread() : lastUp(0), lastDown(0), lastUpdate(GET_TICK())
 {
@@ -143,6 +150,43 @@ int ServerThread::run()
 
 #endif
 
+#ifdef JSONRPC_DAEMON
+    jsonserver = new Json::Rpc::TcpServer(lip, lport);
+    JsonRpcMethods a;
+    if(!networking::init())
+        std::cerr << "JSONRPC: Networking initialization failed" << std::endl;
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::Print, std::string("print")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MagnetAdd, std::string("magnet.add")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::StopDaemon, std::string("daemon.stop")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubAdd, std::string("hub.add")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubDel, std::string("hub.del")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSay, std::string("hub.say")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSayPM, std::string("hub.pm")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListHubs, std::string("hub.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::AddDirInShare, std::string("share.add")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RenameDirInShare, std::string("share.rename")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DelDirFromShare, std::string("share.del")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListShare, std::string("share.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RefreshShare, std::string("share.refresh")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetFileList, std::string("list.download")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetChatPub, std::string("hub.getchat")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SendSearch, std::string("search.send")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ReturnSearchResults, std::string("search.getresults")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowVersion, std::string("show.version")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowRatio, std::string("show.ratio")));
+    if(!jsonserver->Bind())
+        std::cout << "JSONRPC: Bind failed" << std::endl;
+    if(!jsonserver->Listen())
+        std::cout << "JSONRPC: Listen failed" << std::endl;
+
+    std::cout << "JSONRPC: Start JSON-RPC TCP server" << std::endl;
+    json_run = true;
+    while(json_run)
+    {
+        jsonserver->WaitMessage(1000);
+    }
+#endif
+
     return 0;
 }
 bool ServerThread::disconnect_all(){
@@ -164,6 +208,13 @@ void ServerThread::Close()
 #ifdef XMLRPC_DAEMON
     server->terminate();
     delete server;
+#endif
+#ifdef JSONRPC_DAEMON
+    json_run = false;
+    std::cout << "JSONRPC: Stop JSON-RPC TCP server" << std::endl;
+    jsonserver->Close();
+    networking::cleanup();
+    delete jsonserver;
 #endif
 
     ConnectionManager::getInstance()->disconnect();
@@ -624,8 +675,10 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     return true;
 }
 
-void ServerThread::returnSearchResults(vector<StringMap>& resultarray) {
+void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const string& huburl) {
     for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+        if (!huburl.empty() && i->first != huburl)
+            continue;
         SearchResultList::const_iterator kk;
         for (kk = clientsMap[i->first].cursearchresult.begin(); kk != clientsMap[i->first].cursearchresult.end(); ++kk) {
             StringMap resultMap;
@@ -637,4 +690,55 @@ void ServerThread::returnSearchResults(vector<StringMap>& resultarray) {
 
 void ServerThread::addStringinSearchList(const string& s) {
     retlistsearchs.push_back(s);
+}
+
+void ServerThread::listShare(string& listshare, const string& sseparator) {
+    StringPairList directories = ShareManager::getInstance()->getDirectories();
+    for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+        listshare.append("\n");
+        listshare.append(it->second+sseparator);
+        listshare.append(it->first+sseparator);
+        listshare.append(Util::formatBytes(ShareManager::getInstance()->getShareSize(it->second))+sseparator);
+        listshare.append("\n");
+    }
+}
+
+bool ServerThread::delDirFromShare(const string& sdirectory) {
+    StringPairList directories = ShareManager::getInstance()->getDirectories();
+    for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+        if (it->first.compare(sdirectory) == 0) {
+            ShareManager::getInstance()->removeDirectory(it->second);
+            ShareManager::getInstance()->refresh(true);
+            return true;
+        }
+    }
+    return false;
+}
+
+bool ServerThread::renameDirInShare(const string& sdirectory, const string& svirtname) {
+    StringPairList directories = ShareManager::getInstance()->getDirectories();
+    for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+        if (it->second.compare(sdirectory) == 0) {
+            ShareManager::getInstance()->renameDirectory(sdirectory,svirtname);
+            ShareManager::getInstance()->refresh(true);
+            return true;
+        }
+    }
+    return false;
+}
+
+bool ServerThread::addDirInShare(const string& sdirectory, const string& svirtname) {
+    if (Util::fileExists(sdirectory.c_str())) {
+        ShareManager::getInstance()->addDirectory(sdirectory,svirtname);
+        ShareManager::getInstance()->refresh(true);
+        return true;
+    }
+    return false;
+}
+
+bool ServerThread::addInQueue(const string& sddir, const string& name, const int64_t& size, const string& tth) {
+    if (!sddir.empty())
+        QueueManager::getInstance()->add(sddir+PATH_SEPARATOR_STR+name, size, TTHValue(tth));
+    else
+        QueueManager::getInstance()->add(name, size, TTHValue(tth));
 }

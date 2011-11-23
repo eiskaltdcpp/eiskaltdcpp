@@ -53,8 +53,13 @@ public:
     string getFileList_client(const string& hub, const string& nick, bool match);
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
     bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
-    void returnSearchResults(vector<StringMap>& resultarray);
+    void returnSearchResults(vector<StringMap>& resultarray, const string& huburl);
     void addStringinSearchList(const string& s);
+    void listShare (string& listshare, const string& sseparator);
+    bool delDirFromShare(const string& sdirectory);
+    bool renameDirInShare(const string& sdirectory, const string& svirtname);
+    bool addDirInShare(const string& sdirectory, const string& svirtname);
+    bool addInQueue(const string& sddir, const string& name, const int64_t& size, const string& tth);
 
 private:
 
@@ -75,6 +80,7 @@ private:
     typedef unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
+    bool json_run;
 
     // TimerManagerListener
     virtual void on(TimerManagerListener::Second, uint64_t aTick) noexcept;

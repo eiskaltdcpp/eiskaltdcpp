@@ -15,8 +15,8 @@
 #define SERVERMANAGER_H_
 
 class ServerThread;
-
-void callBack(void* x, const string& a);
+#include <string>
+void callBack(void* x, const std::string& a);
 void ServerInitialize();
 bool ServerStart();
 void ServerStop();
@@ -25,7 +25,7 @@ extern bool bServerRunning, bServerTerminated, bIsRestart, bIsClose;
 extern unsigned short int lport;
 extern bool isVerbose;
 extern unsigned int maxLines;
-extern string xmlrpcLog, xmlrpcUriPath, lip;
+extern std::string xmlrpcLog, xmlrpcUriPath, lip;
 
 #ifdef _WIN32
     #ifdef _SERVICE

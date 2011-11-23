@@ -133,7 +133,7 @@ void DownloadManager::addConnection(UserConnectionPtr conn) {
         conn->error("Your IP is Blocked!");
         LogManager::getInstance()->message(_("IPFilter: Blocked outgoing connection to ") + conn->getRemoteIp());
         QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);
-        removeConnection(conn);
+        conn->disconnect();
         return;
     }
     conn->addListener(this);

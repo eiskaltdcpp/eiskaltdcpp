@@ -12,10 +12,6 @@
 #ifndef XMLRPCSERVER_H_
 #define XMLRPCSERVER_H_
 
-#include "dcpp/Util.h"
-#include "dcpp/StringTokenizer.h"
-#include "dcpp/format.h"
-
 #include <cassert>
 #include <stdexcept>
 #include <iostream>
@@ -24,48 +20,15 @@
 #include <xmlrpc-c/registry.hpp>
 
 #if defined(USE_XMLRPC_ABYSS)
-#include <xmlrpc-c/server_abyss.hpp>
+    #include <xmlrpc-c/server_abyss.hpp>
 #elif defined(USE_XMLRPC_PSTREAM)
-#include <xmlrpc-c/server_pstream.hpp>
+    #include <xmlrpc-c/server_pstream.hpp>
 #endif
 
+#include "utility.h"
 #include "ServerManager.h"
 
 using namespace std;
-
-bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth) {
-    name = "Unknown";
-    size = 0;
-    tth = "Unknown";
-    string tmp;
-
-    if (magnet.empty() && magnet.find("urn:tree:tiger") == string::npos)
-        return false;
-#ifdef _DEBUG
-    fprintf(stderr,"split:%s\n",magnet.c_str());
-    fflush(stderr);
-#endif
-    tmp = magnet.substr(8); //magnet:?
-#ifdef _DEBUG
-    fprintf(stderr,"split:%s\n",tmp.c_str());
-    fflush(stderr);
-#endif
-    StringTokenizer<string> st(tmp, "&");
-    for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-        string str;
-        str=*i;
-#ifdef _DEBUG
-        fprintf(stderr,"token: %s\n",str.c_str());fflush(stderr);
-#endif
-        if (str.compare(0, 3, "xt=") == 0)
-            tth=str.substr(3+15);
-        else if (str.compare(0, 3, "xl=") == 0)
-            size = Util::toInt64(str.substr(3));
-        else if (str.compare(0, 3, "dn=") == 0)
-            name = Util::encodeURI(str.substr(3), true);
-    }
-    return true;
-}
 
 xmlrpc_c::registry xmlrpcRegistry;
 #if defined(USE_XMLRPC_ABYSS)
@@ -91,20 +54,9 @@ public:
 
         string name,tth;int64_t size;
         bool ok = splitMagnet(smagnet, name, size, tth);
-        if (ok){
-            if (!sddir.empty())
-                name = sddir+PATH_SEPARATOR_STR+name;
-            else
-                name = SETTING(DOWNLOAD_DIRECTORY) + name;
-#ifdef _DEBUG
-            fprintf(stderr,"tth: %s\n",tth.c_str());
-            fprintf(stderr,"size: %d\n",size);
-            fprintf(stderr,"name: %s\n",name.c_str());
-            fflush(stderr);
-#endif
-            QueueManager::getInstance()->add(name, size, TTHValue(tth));
+        if (isVerbose) std::cout << "splitMagnet: \n tth: " << tth << "\n size: " << size << "\n name: " << name << std::endl;
+        if (ok && ServerThread::getInstance()->addInQueue(sddir, name, size, tth))
             *retvalP = xmlrpc_c::value_int(0);
-        }
         else
             *retvalP = xmlrpc_c::value_int(1);
     }
@@ -127,7 +79,6 @@ public:
 };
 
 class hubAddMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     hubAddMethod() {
         this->_signature = "i:ss";
@@ -147,7 +98,6 @@ public:
 };
 
 class hubDelMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     hubDelMethod() {
         this->_signature = "i:s";
@@ -166,7 +116,6 @@ public:
 };
 
 class hubSayMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     hubSayMethod() {
         this->_signature = "i:ss";
@@ -180,7 +129,6 @@ public:
         string const shub(paramList.getString(0));
         string const smess(paramList.getString(1));
         paramList.verifyEnd(2);
-        ServerThread svT;
         if (ServerThread::getInstance()->findHubInConnectedClients(shub)) {
             ServerThread::getInstance()->sendMessage(shub,smess);
             *retvalP = xmlrpc_c::value_int(0);
@@ -190,7 +138,6 @@ public:
 };
 
 class hubSayPrivateMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     hubSayPrivateMethod() {
         this->_signature = "i:sss";
@@ -211,7 +158,6 @@ public:
 };
 
 class listHubsMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     listHubsMethod() {
         this->_signature = "i:s";
@@ -230,7 +176,6 @@ public:
 };
 
 class showVersionMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     showVersionMethod() {
         this->_signature = "i:s";
@@ -250,7 +195,6 @@ public:
 };
 
 class showRatioMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     showRatioMethod() {
         this->_signature = "i:s";
@@ -298,11 +242,9 @@ public:
         string const svirtname(paramList.getString(1));
         paramList.verifyEnd(2);
         try {
-            if (Util::fileExists(sdirectory.c_str())) {
-                ShareManager::getInstance()->addDirectory(sdirectory,svirtname);
-                ShareManager::getInstance()->refresh(true);
+            if (ServerThread::getInstance()->addDirInShare(sdirectory, svirtname))
                 *retvalP = xmlrpc_c::value_int(0);
-            } else
+            else
                 *retvalP = xmlrpc_c::value_int(1);
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
@@ -325,18 +267,10 @@ public:
         string const svirtname(paramList.getString(1));
         paramList.verifyEnd(2);
         try {
-            StringPairList directories = ShareManager::getInstance()->getDirectories();
-            string tmp;
-            for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
-                if (it->second.compare(sdirectory) == 0) {
-                    tmp = it->first;
-                    ShareManager::getInstance()->renameDirectory(sdirectory,svirtname);
-                    ShareManager::getInstance()->refresh(true);
-                    *retvalP = xmlrpc_c::value_int(0);
-                    return;
-                }
-            }
-            *retvalP = xmlrpc_c::value_int(1);
+            if (ServerThread::getInstance()->renameDirInShare(sdirectory, svirtname))
+                *retvalP = xmlrpc_c::value_int(0);
+            else
+                *retvalP = xmlrpc_c::value_int(1);
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }
@@ -356,16 +290,10 @@ public:
 
         string const sdirectory(paramList.getString(0));
         paramList.verifyEnd(1);
-        StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
-            if (it->first.compare(sdirectory) == 0) {
-                ShareManager::getInstance()->removeDirectory(it->second);
-                ShareManager::getInstance()->refresh(true);
-                *retvalP = xmlrpc_c::value_int(0);
-                return;
-            }
-        }
-        *retvalP = xmlrpc_c::value_int(1);
+        if (ServerThread::getInstance()->delDirFromShare(sdirectory))
+            *retvalP = xmlrpc_c::value_int(0);
+        else
+            *retvalP = xmlrpc_c::value_int(1);
     }
 };
 
@@ -381,16 +309,8 @@ public:
             xmlrpc_c::value *   const  retvalP) {
 
         string const sseparator(paramList.getString(0));
-        paramList.verifyEnd(1);
-        string listshare;
-        StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
-            listshare.append("\n");
-            listshare.append(it->second+sseparator);
-            listshare.append(it->first+sseparator);
-            listshare.append(Util::formatBytes(ShareManager::getInstance()->getShareSize(it->second))+sseparator);
-            listshare.append("\n");
-        }
+        paramList.verifyEnd(1); string listshare;
+        ServerThread::getInstance()->listShare(listshare, sseparator);
         *retvalP = xmlrpc_c::value_string(listshare);
     }
 };
@@ -413,7 +333,6 @@ public:
 };
 
 class getFileListMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     getFileListMethod() {
         this->_signature = "i:ss";
@@ -433,7 +352,6 @@ public:
 };
 
 class getChatPubMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     getChatPubMethod() {
         this->_signature = "i:ss";
@@ -453,11 +371,10 @@ public:
 };
 
 class sendSearchMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     sendSearchMethod() {
         this->_signature = "i:s";
-        this->_help = "This method send search. Рarams: search string, type, sizemode, sizetype, size, huburls";
+        this->_help = "This method send search. Рarams: search string";
     }
 
     void
@@ -474,7 +391,6 @@ public:
 };
 
 class returnSearchResultsMethod : public xmlrpc_c::method {
-    friend class ServerThread;
 public:
     returnSearchResultsMethod() {
         this->_signature = "i:s";
@@ -485,8 +401,9 @@ public:
     execute(xmlrpc_c::paramList const& paramList,
             xmlrpc_c::value *   const  retvalP) {
 
+        string const shuburl(paramList.getString(0));
         vector<StringMap> tmp;
-        ServerThread::getInstance()->returnSearchResults(tmp);
+        ServerThread::getInstance()->returnSearchResults(tmp,shuburl);
         vector<xmlrpc_c::value> tmp_array_in;
         for (vector<StringMap>::iterator i = tmp.begin(); i != tmp.end(); ++i) {
             map<string, xmlrpc_c::value> tmp_struct_in;

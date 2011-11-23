@@ -105,6 +105,8 @@ class Search:
 		static void onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data);
 		static void onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data);
 		static void onRemoveClicked_gui(GtkMenuItem *item, gpointer data);
+		static void onSidePanelToggled_gui(GtkWidget *widget, gpointer data);
+		static void onClearButtonClicked_gui(GtkWidget *widget, gpointer data);
 
 		// GUI functions
 		void parseSearchResult_gui(dcpp::SearchResultPtr result, dcpp::StringMap &resultMap);
