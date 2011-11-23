@@ -768,7 +768,7 @@ void DownloadQueue::slotUpdateStats(quint64 files, quint64 size){
     if (label_STATS->isHidden())
         label_STATS->show();
 
-    label_STATS->setText(QString("Total files: <b>%1</b> Total size: <b>%2</b>").arg(files).arg(WulforUtil::formatBytes(size)));
+    label_STATS->setText(tr("Total files: <b>%1</b> Total size: <b>%2</b>").arg(files).arg(WulforUtil::formatBytes(size)));
 }
 
 void DownloadQueue::slotSettingsChanged(const QString &key, const QString &value){

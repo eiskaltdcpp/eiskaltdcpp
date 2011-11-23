@@ -249,27 +249,27 @@ int LuaManager::GetConfigPath(lua_State* L) {
     lua_pushstring(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + PATH_SEPARATOR).c_str());
     return 1;
 }
+
 int LuaManager::GetConfigScriptsPath(lua_State* L) {
     lua_pushstring(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + PATH_SEPARATOR).c_str());
     return 1;
 }
+
 int LuaManager::GetScriptsPath(lua_State* L) {
-    string scriptspath;
-    #ifdef WIN32
-        scriptspath = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR;
-    #else //WIN32
-        string full_fn((Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR).c_str());
-        struct stat stFileInfo;
-        if (stat(full_fn.c_str(),&stFileInfo) == 0){
-            scriptspath = full_fn;
-        }
-        else{
-            scriptspath = string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR;
-        }
-    #endif //WIN32
-    lua_pushstring(L, scriptspath.c_str());
+    string scripts_path;
+    scripts_path = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR;
+
+    if(!Util::fileExists(scripts_path)) {
+#ifdef WIN32
+        scripts_path = Text::utf8ToAcp(Util::getPath(Util::PATH_GLOBAL_CONFIG)) + "resources" + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR;
+#else //WIN32
+        scripts_path = string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR;
+#endif //WIN32
+    }
+    lua_pushstring(L, scripts_path.c_str());
     return 1;
 }
+
 int LuaManager::GetClientIp(lua_State* L) {
     /* arguments: client */
     UserConnection* uc = (UserConnection*)lua_touserdata(L, 1);
@@ -380,18 +380,41 @@ void ScriptInstance::EvaluateChunk(const string& chunk) {
 
 void ScriptInstance::EvaluateFile(const string& fn) {
     Lock l(cs);
-    #ifdef WIN32
-        lua_dofile(L, (Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn).c_str());
-    #else //WIN32
-        string full_fn((Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn).c_str());
-        struct stat stFileInfo;
-        if (stat(full_fn.c_str(),&stFileInfo) == 0){
-            lua_dofile(L, full_fn.c_str());
+    string script_full_name;
+    if(Util::fileExists(fn)) {
+        script_full_name = fn;
+    } else {
+        string test_path_0;
+        string test_path_1;
+#ifdef WIN32
+        test_path_0 = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn;
+        test_path_1 = Text::utf8ToAcp(Util::getPath(Util::PATH_GLOBAL_CONFIG)) + "resources" + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn;
+
+        if(Util::fileExists(test_path_0))
+            script_full_name = test_path_0;
+        else if(Util::fileExists(test_path_1))
+            script_full_name = test_path_1;
+        else {
+            LogManager::getInstance()->message("File '" + fn + "' not found!");
+            dcdebug("File '%s' not found!",fn.c_str()); // temporary
+            return;
         }
-        else{
-            lua_dofile(L, (string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn).c_str());
+#else //WIN32
+        test_path_0 = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn;
+        test_path_1 = string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn;
+
+        if(Util::fileExists(test_path_0))
+            script_full_name = test_path_0;
+        else if(Util::fileExists(test_path_1))
+            script_full_name = test_path_1;
+        else {
+            LogManager::getInstance()->message("File '" + fn + "' not found!");
+            printf("File '%s' not found!",fn.c_str()); // temporary
+            return;
         }
-    #endif //WIN32
+#endif //WIN32
+    }
+    lua_dofile(L, script_full_name.c_str());
 }
 
 void ScriptManager::SendDebugMessage(const string &mess) {

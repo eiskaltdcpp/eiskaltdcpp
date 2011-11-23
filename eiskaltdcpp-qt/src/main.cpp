@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     setlocale(LC_ALL, "");
 
-    EiskaltApp app(argc, argv);
+    EiskaltApp app(argc, argv, _q(dcpp::Util::getLoginName()+"EDCPP"));
     int ret = 0;
 
     parseCmdLine(app.arguments());
@@ -230,6 +230,25 @@ void parseCmdLine(const QStringList &args){
 
 #if !defined (Q_WS_WIN) && !defined (__HAIKU__)
 
+void catchSIGSEGV(int sigNum) {
+    std::cout << "Catching SIGSEGV signal..." << std::endl;
+
+#ifdef ENABLE_STACKTRACE
+    printBacktrace(sigNum);
+#endif // ENABLE_STACKTRACE
+    
+    EiskaltApp *eapp = dynamic_cast<EiskaltApp*>(qApp);
+    
+    if (eapp) {
+        eapp->getSharedMemory().unlock();
+        eapp->getSharedMemory().detach();
+    }
+    
+    raise(SIGINT);
+    
+    std::abort();
+}
+
 void installHandlers(){
     struct sigaction sa;
     memset(&sa, 0, sizeof(sa));
@@ -238,9 +257,7 @@ void installHandlers(){
         std::cout << QObject::tr("Cannot handle SIGPIPE").toStdString() << std::endl;
     }
 
-#ifdef ENABLE_STACKTRACE
-    signal(SIGSEGV, printBacktrace);
-#endif // ENABLE_STACKTRACE
+    signal(SIGSEGV, catchSIGSEGV);
 
     std::cout << QObject::tr("Signal handlers installed.").toStdString() << std::endl;
 }

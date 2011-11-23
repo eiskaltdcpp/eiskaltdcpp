@@ -108,7 +108,7 @@
 EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
 
 Keys:
-  -h, --help	 Show this message
+  -h, --help     Show this message
   -v, --version	 Show version string</source>
         <translation>Použití:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
@@ -207,17 +207,17 @@ Keys:
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Výstup</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="65"/>
         <source>Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Kód</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="89"/>
         <source>Clear</source>
-        <translation type="unfinished">Vyčistit</translation>
+        <translation>Vyčistit</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="109"/>
@@ -992,13 +992,13 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1762"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword add &lt;keyword&gt; - vloží uživatelem definované klíčové slovo které bude zvýrazňováno v chatu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1764"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/kword list - kompletní seznam klíčových slov pro zvýrazňování v chatu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2101"/>
@@ -2081,7 +2081,7 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="713"/>
         <source>Ctrl+Alt+J</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Alt+J</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="909"/>
@@ -2252,7 +2252,7 @@ Oblíbený uživatel</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2195"/>
         <source>Script Engine</source>
-        <translation type="unfinished"></translation>
+        <translation>Script Engine</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2422"/>
@@ -3256,7 +3256,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="88"/>
         <source>History</source>
-        <translation type="unfinished"></translation>
+        <translation>Historie</translation>
     </message>
 </context>
 <context>
@@ -5937,7 +5937,7 @@ z fronty stahování, musíte je odebrat ručně.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit součesné odesílání jednomu uživateli z nových NMDC hubů</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="642"/>
@@ -6422,38 +6422,38 @@ jsou obvykle dostupné operátorům</translation>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="44"/>
         <source>Clear search history on program exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyčistit historii hledání při ukončení programu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="57"/>
         <source>Clear download directories history on program exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyčistit historii složek pro stahování při ukončení programu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="67"/>
         <location filename="../ui/UISettingsHistory.ui" line="74"/>
         <source>Clear now</source>
-        <translation type="unfinished"></translation>
+        <translation>Vyčistit teď</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="87"/>
         <source>Number of search history elements to store:</source>
-        <translation type="unfinished"></translation>
+        <translation>Počet uložených záznamů v historii hledání</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="113"/>
         <source>Number of download directiries history elements to store:</source>
-        <translation type="unfinished"></translation>
+        <translation>Počet uložených záznamů v historii složek pro stahování</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="152"/>
         <source>Memorize TTH search phrases</source>
-        <translation type="unfinished"></translation>
+        <translation>Pamatovat fráze z TTH hledání</translation>
     </message>
 </context>
 <context>

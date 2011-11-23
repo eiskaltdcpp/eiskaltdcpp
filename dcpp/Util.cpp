@@ -292,6 +292,22 @@ void Util::migrate(const string& file) {
     File::renameFile(old, file);
 }
 
+string Util::getLoginName() {
+    string loginName = "unknown";
+    
+#ifdef _WIN32
+    char winUserName[UNLEN + 1]; // UNLEN is defined in LMCONS.H
+    DWORD winUserNameSize = sizeof(winUserName);
+    if(GetUserNameA(winUserName, &winUserNameSize))
+        loginName = Text::toUtf8(winUserName);
+#else // not _WIN32
+    const char *envUserName = getenv("LOGNAME");
+    loginName = envUserName? Text::toUtf8(envUserName) : loginName;
+#endif // _WIN32
+    
+    return loginName;
+}
+
 void Util::loadBootConfig() {
     // Load boot settings
     try {
@@ -1146,6 +1162,7 @@ string Util::toAdcFile(const string& file) {
     }
     return ret;
 }
+
 string Util::toNmdcFile(const string& file) {
     if(file.empty())
         return Util::emptyString;
