@@ -53,6 +53,7 @@ public:
     friend Flags operator|(const Flags &a, const Flags &b);
     friend Flags operator&(const Flags &a, const Flags &b);
     friend Flags operator^(const Flags &a, const Flags &b);
+    friend Flags operator~(const Flags &a);
 
     ArenaWidget();
 

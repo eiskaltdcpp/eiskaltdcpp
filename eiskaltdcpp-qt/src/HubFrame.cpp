@@ -1941,7 +1941,7 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         p->addOutput(output);
         p->setAttribute(Qt::WA_DeleteOnClose);
 
-        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
+        if (!(keepfocus && WBGET(WB_CHAT_KEEPFOCUS))){
             ArenaWidgetManager::getInstance()->activate(p);
 
             p->requestFocus();
@@ -1960,7 +1960,7 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
 
         it.value()->addOutput(output);
 
-        if (!keepfocus || !WBGET(WB_CHAT_KEEPFOCUS)){
+        if (!(keepfocus && WBGET(WB_CHAT_KEEPFOCUS))){
             ArenaWidgetManager::getInstance()->activate(it.value());
 
             it.value()->requestFocus();

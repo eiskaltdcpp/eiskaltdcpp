@@ -135,6 +135,8 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     out_messages_index = 0;
     out_messages_unsent = false;
     
+    setState(state() & ~ArenaWidget::RaiseOnStart);// Do not allow PMWindow to be automatically showed by default
+
     registerThis();
 }
 

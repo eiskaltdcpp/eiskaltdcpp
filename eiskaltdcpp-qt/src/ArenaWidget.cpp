@@ -29,6 +29,10 @@ ArenaWidget::Flags operator^(const ArenaWidget::Flags &a, const ArenaWidget::Fla
     return ArenaWidget::Flags(static_cast<unsigned>(a) ^ static_cast<unsigned>(b));
 }
 
+ArenaWidget::Flags operator~ ( const ArenaWidget::Flags& a ) {
+    return ArenaWidget::Flags(~(static_cast<unsigned>(a)));
+}
+
 ArenaWidget::ArenaWidget(): _arenaUnload(true), toolBtn(NULL), flags(ArenaWidget::NoFlags | ArenaWidget::RaiseOnStart)
 {
 }
