@@ -41,7 +41,8 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     hubUrl(hubUrl),
     historyIndex(0),
     sentAwayMessage(FALSE),
-    scrollToBottom(TRUE)
+    scrollToBottom(TRUE),
+    offline(false)
 {
     // Intialize the chat window
     if (WGETB("use-oem-monofont"))
@@ -1456,5 +1457,6 @@ void PrivateMessage::on(ClientManagerListener::UserDisconnected, const UserPtr& 
             typedef Func1<PrivateMessage, bool> F1;
             F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
             WulforManager::get()->dispatchGuiFunc(func);
+            offline = true;
         }
 }

@@ -43,6 +43,7 @@ class PrivateMessage:
 		void addMessage_gui(std::string message, Msg::TypeMsg typemsg);
 		void addStatusMessage_gui(std::string message, Msg::TypeMsg typemsg);
 		void preferences_gui();
+		bool getIsOffline() { return offline;}
 
 	private:
 		typedef enum
@@ -102,9 +103,9 @@ class PrivateMessage:
 		void getFileList_client();
 		void grantSlot_client();
 
-                // client callback
-                virtual void on(dcpp::ClientManagerListener::UserConnected, const dcpp::UserPtr& aUser) noexcept;
-                virtual void on(dcpp::ClientManagerListener::UserDisconnected, const dcpp::UserPtr& aUser) noexcept;
+		// client callback
+		virtual void on(dcpp::ClientManagerListener::UserConnected, const dcpp::UserPtr& aUser) noexcept;
+		virtual void on(dcpp::ClientManagerListener::UserDisconnected, const dcpp::UserPtr& aUser) noexcept;
 
 		GtkTextBuffer *messageBuffer;
 		GtkTextMark *mark, *start_mark, *end_mark, *tag_mark, *emot_mark;
@@ -125,6 +126,7 @@ class PrivateMessage:
 		bool useEmoticons;
 		gint totalEmoticons;
 		EmoticonsDialog *emotdialog;
+		bool offline;
 };
 
 #else

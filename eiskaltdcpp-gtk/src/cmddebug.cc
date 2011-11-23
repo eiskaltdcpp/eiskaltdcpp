@@ -75,7 +75,7 @@ void cmddebug::add_gui(string file)
 
 }
 
-void cmddebug::ini_client()
+void cmddebug::init()
 {
     start();
     DebugManager::getInstance()->addListener(this);
@@ -83,7 +83,7 @@ void cmddebug::ini_client()
 
 void cmddebug::show()
 {
-    ini_client();
+    init();
 }
 
 void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept

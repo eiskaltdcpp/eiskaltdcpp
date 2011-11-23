@@ -73,6 +73,7 @@ class MainWindow:
         void showSearchSpy_gui();
         void showSearchADL_gui();
         void showCmdDebug_gui();
+        void showUploadQueue_gui();
         void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string hubUrl = "", std::string message = "", bool useSetting = FALSE);
         void addPrivateStatusMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string message = "");
         void showPublicHubs_gui();
@@ -178,6 +179,13 @@ class MainWindow:
         static void onTTHFileButton_gui(GtkWidget *widget, gpointer data);
         static void onDebugCMD(GtkWidget *widget, gpointer data);
         static void onFreeSpaceBar(GtkWidget *widget, gpointer data);
+        static void onUploadQueueClicked_gui(GtkWidget *widget, gpointer data);
+        /**/
+        static void onCloseAllHub_gui(GtkWidget *widget, gpointer data);
+        static void onCloseAllPM_gui(GtkWidget *widget, gpointer data);
+        static void onCloseAllSearch_gui(GtkWidget *widget, gpointer data);
+        static void onCloseAlloffPM_gui(GtkWidget *widget, gpointer data);
+        static void onReconectAllHub_gui(GtkWidget *widget, gpointer data);
 
         // Client functions
         void autoConnect_client();

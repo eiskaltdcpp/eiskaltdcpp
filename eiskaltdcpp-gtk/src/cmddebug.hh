@@ -41,7 +41,7 @@ class cmddebug:
 
     private:
         void add_gui(std::string file);
-        void ini_client();
+        void init();
         void addCmd(const std::string& cmd,const std::string& ip);
 
         dcpp::CriticalSection cs;

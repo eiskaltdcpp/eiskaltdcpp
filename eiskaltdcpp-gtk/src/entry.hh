@@ -50,7 +50,8 @@ class Entry
             USER_COMMAND_MENU,
             SEARCH_SPY,
             SEARCH_ADL,
-            CMD
+            CMD,
+            UPLOADQUEUE
         } EntryType;
 
         Entry() : xml(NULL) {}
