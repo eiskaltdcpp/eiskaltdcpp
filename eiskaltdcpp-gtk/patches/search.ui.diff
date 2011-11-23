@@ -4,7 +4,7 @@
                    </packing>
                  </child>
                  <child>
--                  <object class="GtkComboBoxText" id="comboboxentrySearch">
+-                  <object class="GtkComboBox" id="comboboxentrySearch">
 +                  <object class="GtkComboBoxEntry" id="comboboxentrySearch">
                      <property name="width_request">200</property>
                      <property name="visible">True</property>
@@ -13,20 +13,24 @@
                      <property name="can_focus">True</property>
                      <property name="model">liststore1</property>
                      <child>
---- a/eiskaltdcpp-gtk/ui/publichubs.ui
-+++ b/eiskaltdcpp-gtk/ui/publichubs.ui
-@@ -258,6 +258,8 @@
-                 <child>
-                   <object class="GtkComboBox" id="hubListBox">
-                     <property name="visible">True</property>
--                    <property name="has_entry">True</property>
--                    <property name="entry_text_column">0</property>
-                     <property name="can_focus">False</property>
+@@ -203,6 +201,16 @@
+                         <attribute name="text">0</attribute>
+                       </attributes>
+                     </child>
++                    <child internal-child="entry">
++                      <object class="GtkEntry" id="comboboxentry-entry1">
++                        <property name="visible">True</property>
++                        <property name="can_focus">True</property>
++                        <property name="primary_icon_activatable">False</property>
++                        <property name="secondary_icon_activatable">False</property>
++                        <property name="primary_icon_sensitive">True</property>
++                        <property name="secondary_icon_sensitive">True</property>
++                      </object>
++                    </child>
                    </object>
                    <packing>
---- a/eiskaltdcpp-gtk/ui/search.ui
-+++ b/eiskaltdcpp-gtk/ui/search.ui
-@@ -335,6 +335,8 @@
+                     <property name="expand">False</property>
+@@ -325,8 +333,6 @@
                  <child>
                    <object class="GtkComboBox" id="comboboxFile">
                      <property name="visible">True</property>
@@ -35,3 +39,4 @@
                      <property name="can_focus">False</property>
                      <property name="model">liststore4</property>
                      <child>
+

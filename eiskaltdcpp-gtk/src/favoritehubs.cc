@@ -77,7 +77,7 @@ FavoriteHubs::FavoriteHubs():
 	// Treat "Name" as the default col instead of "Auto Connect"
 	gtk_tree_view_set_search_column(favoriteView.get(), favoriteView.col(_("Name")));
 	GtkTreeViewColumn *column = gtk_tree_view_get_column(favoriteView.get(), favoriteView.col(_("Name")));
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
 	gtk_widget_grab_focus(gtk_tree_view_column_get_button(column));
 #else
 	gtk_widget_grab_focus(column->button);

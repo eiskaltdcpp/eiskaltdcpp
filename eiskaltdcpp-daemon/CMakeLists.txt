@@ -1,7 +1,7 @@
 project(${PROJECT_NAME_GLOBAL}-daemon)
 cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
-include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/common ${PROJECT_SOURCE_DIR}/gnu ${PROJECT_SOURCE_DIR}/.. )
+include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/common ${PROJECT_SOURCE_DIR}/gnu ${PROJECT_SOURCE_DIR}/.. ${PROJECT_SOURCE_DIR}/../json/include)
 aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
 
 if (XMLRPC_DAEMON)
@@ -23,6 +23,18 @@ if (XMLRPC_DAEMON)
     set (XMLRPCLIBS ${XMLRPC_LIBRARIES})
     add_definitions (-DXMLRPC_DAEMON )
 endif (XMLRPC_DAEMON)
+
+if (JSONRPC_DAEMON)
+set(JSONRPCLIBS jsonrpcpp)
+add_definitions (-DJSONRPC_DAEMON)
+add_executable (jsonclient MACOSX_BUNDLE WIN32
+                client.cpp
+                )
+target_link_libraries (jsonclient ${JSONRPCLIBS})
+list (REMOVE_ITEM nasdc_SRCS ${PROJECT_SOURCE_DIR}/client.cpp)
+else (JSONRPC_DAEMON)
+list (REMOVE_ITEM nasdc_SRCS ${PROJECT_SOURCE_DIR}/jsonrpcmethods.cpp ${PROJECT_SOURCE_DIR}/client.cpp)
+endif (JSONRPC_DAEMON)
 
 if (WITH_DHT)
   add_definitions ( -DWITH_DHT )
@@ -49,7 +61,7 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
 
-target_link_libraries (${PROJECT_NAME} dcpp ${XMLRPCLIBS})
+target_link_libraries (${PROJECT_NAME} dcpp ${XMLRPCLIBS} ${JSONRPCLIBS})
 
 if (UNIX)
  set (BINDIR bin)

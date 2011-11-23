@@ -234,13 +234,13 @@ void EmoticonsDialog::build()
 		if ((++columns*rows) < (guint)sizetable) rows++;
 
 	/* set options dialog */
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
 	GdkRGBA color;
 #else
 	GdkColor color;
 #endif
 	string back = "#faddab";
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
 	if(gdk_rgba_parse(&color,back.c_str()))
 		gtk_widget_override_background_color(dialog,GTK_STATE_FLAG_NORMAL,&color);
 #else
@@ -322,7 +322,7 @@ void EmoticonsDialog::position()
 	gint Wx, Wy, Dh, Dw,
 		Bx, By, Bw;
 
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
 	GtkAllocation allocation;///GTK3
 
 	gtk_widget_get_preferred_size (dialog,&requisition,NULL);
@@ -366,7 +366,7 @@ void EmoticonsDialog::position()
 
 void EmoticonsDialog::graber()
 {
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
 	gdk_device_grab(gtk_get_current_event_device(),gtk_widget_get_window(dialog), GDK_OWNERSHIP_NONE,TRUE,(GdkEventMask) (GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK),NULL,GDK_CURRENT_TIME);
 #else
 	/* grabs the pointer (usually a mouse) */

@@ -99,7 +99,7 @@ Hub::Hub(const string &address, const string &encoding):
     {
         PangoFontDescription *fontDesc = pango_font_description_new();
         pango_font_description_set_family(fontDesc, "Mono");
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
         gtk_widget_override_font(getWidget("chatText"), fontDesc);
 #else
         gtk_widget_modify_font(getWidget("chatText"), fontDesc);
@@ -293,7 +293,7 @@ Hub::~Hub()
 
     if (handCursor)
     {
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
         g_object_unref(handCursor);
 #else
         gdk_cursor_unref(handCursor);
@@ -587,7 +587,7 @@ void Hub::getPassword_gui()
     gtk_frame_set_label_widget(GTK_FRAME(frame), label);
 
     gtk_container_add(GTK_CONTAINER(frame), box);
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
     gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dialog)), frame);
 #else
     gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dialog)->vbox), frame);
@@ -884,7 +884,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                 gtk_text_view_add_child_at_anchor(GTK_TEXT_VIEW(getWidget("chatText")), event_box, anchor);
                 g_object_set_data_full(G_OBJECT(event_box), "magnet", g_strdup(image_magnet.c_str()), g_free);
                 g_object_set_data_full(G_OBJECT(event_box), "cid", g_strdup(cid.c_str()), g_free);
-#ifndef USE_GTK3
+#if !GTK_CHECK_VERSION(3, 0, 0)
                 g_signal_connect(G_OBJECT(image), "expose-event", G_CALLBACK(expose), NULL);
 #endif
                 g_signal_connect(G_OBJECT(event_box), "event", G_CALLBACK(onImageEvent_gui), (gpointer)this);
@@ -1166,7 +1166,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
     GtkTextIter iter;
     GSList *tagList;
     GtkTextTag *newTag = NULL;
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
     gdk_window_get_pointer(gtk_widget_get_window(widget)  , &x, &y, NULL);
 #else
     gdk_window_get_pointer(widget->window, &x, &y, NULL);
@@ -1200,7 +1200,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
         if (newTag != NULL)
         {
             // Cursor is entering a tag.
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
             gchar *tmp;
             g_object_get(G_OBJECT(newTag),"name",&tmp,NULL);
             selectedTagStr = string(tmp);
@@ -1604,7 +1604,7 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
 gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
 {
     Hub *hub = (Hub *)data;
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
     gchar *tmp;
     g_object_get(G_OBJECT(tag),"name",&tmp,NULL);
     hub->selectedTagStr = string(tmp);
@@ -1613,7 +1613,7 @@ gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
 
     if (event->type == GDK_2BUTTON_PRESS)
     {
-#ifndef USE_GTK3
+#if !GTK_CHECK_VERSION(3, 0, 0)
         string tagName = tag->name;
 #endif
         hub->nickToChat_gui(tagName.substr(tagPrefix.size()));
@@ -1623,7 +1623,7 @@ gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
     else if (event->type == GDK_BUTTON_PRESS)
     {
         GtkTreeIter nickIter;
-#ifndef USE_GTK3
+#if !GTK_CHECK_VERSION(3, 0, 0)
         string tagName = tag->name;
 #endif
 
@@ -1772,7 +1772,7 @@ void Hub::onChatScroll_gui(GtkAdjustment *adjustment, gpointer data)
 {
     Hub *hub = (Hub *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
     hub->scrollToBottom = value >= ( gtk_adjustment_get_upper(adjustment) - gtk_adjustment_get_page_size (adjustment));
 #else
     hub->scrollToBottom = value >= (adjustment->upper-adjustment->page_size);
@@ -1783,7 +1783,7 @@ void Hub::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
 {
     Hub *hub = (Hub *)data;
     gdouble value = gtk_adjustment_get_value(adjustment);
-#ifdef USE_GTK3
+#if GTK_CHECK_VERSION(3, 0, 0)
     if (hub->scrollToBottom && value < (gtk_adjustment_get_upper(adjustment)-gtk_adjustment_get_page_size (adjustment)))
 #else
     if (hub->scrollToBottom && value < (adjustment->upper-adjustment->page_size))
@@ -1820,9 +1820,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
 
 #ifdef LUA_SCRIPT
     bool script_ret = false;
-    if (((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, text)) {
-        script_ret = true;
-    }
+    script_ret = ((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, Text::fromT(text));
 #endif
     // Process special commands
     if (text[0] == '/')
@@ -2122,7 +2120,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             ScriptManager::getInstance()->EvaluateFile(Text::fromT(param));
         }
         else if (script_ret)
-            ((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, text);
+            ;
 #endif
         else if (command == "ip" && !param.empty())
         {
@@ -3310,7 +3308,7 @@ void Hub::openImage_gui(string target)
        target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + target;
     WulforUtil::openURI(target);
 }
-#ifndef USE_GTK3
+#if !GTK_CHECK_VERSION(3, 0, 0)
 gboolean Hub::expose(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 {
     GTK_WIDGET_CLASS(GTK_WIDGET_GET_CLASS(widget))->expose_event(widget, event);

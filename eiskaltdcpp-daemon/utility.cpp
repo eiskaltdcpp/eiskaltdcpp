@@ -61,3 +61,38 @@ void Log(const string & sData) {
 
     fclose(fw);
 }
+#include "dcpp/Util.h"
+#include "dcpp/StringTokenizer.h"
+bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth) {
+    name = "Unknown";
+    size = 0;
+    tth = "Unknown";
+    string tmp;
+
+    if (magnet.empty() && magnet.find("urn:tree:tiger") == string::npos)
+        return false;
+#ifdef _DEBUG
+    fprintf(stderr,"split:%s\n",magnet.c_str());
+    fflush(stderr);
+#endif
+    tmp = magnet.substr(8);	//magnet:?
+#ifdef _DEBUG
+    fprintf(stderr,"split:%s\n",tmp.c_str());
+    fflush(stderr);
+#endif
+    StringTokenizer<string> st(tmp, "&");
+    for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+        string str;
+        str=*i;
+#ifdef _DEBUG
+        fprintf(stderr,"token: %s\n",str.c_str());fflush(stderr);
+#endif
+        if (str.compare(0, 3, "xt=") == 0)
+            tth=str.substr(3+15);
+        else if (str.compare(0, 3, "xl=") == 0)
+            size = Util::toInt64(str.substr(3));
+        else if (str.compare(0, 3, "dn=") == 0)
+            name = Util::encodeURI(str.substr(3), true);
+    }
+    return true;
+}

@@ -706,7 +706,7 @@ vector<string> Util::getLocalIPs() {
 }
 string Util::getLocalIp() {
 #ifdef HAVE_IFADDRS_H
-    return getLocalIPs()[0];
+    return getLocalIPs().empty() ? "0.0.0.0" : getLocalIPs()[0];
 #else
     string tmp;
 

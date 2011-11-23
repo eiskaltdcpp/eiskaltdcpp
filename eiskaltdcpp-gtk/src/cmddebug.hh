@@ -32,21 +32,45 @@
 
 class cmddebug:
     public BookEntry,
-    private dcpp::DebugManagerListener
+    private dcpp::DebugManagerListener, public dcpp::Thread
 {
     public:
         cmddebug();
         virtual ~cmddebug();
         virtual void show();
-        //GUI FCE
-        void add_gui(std::string file);
 
     private:
-        // Client functions
-        void ini_client();
+        void add_gui(std::string file);
+        void init();
         void addCmd(const std::string& cmd,const std::string& ip);
 
-        //DebugManager
+        dcpp::CriticalSection cs;
+        dcpp::Semaphore s;
+        std::deque<std::string> cmdList;
+        virtual int run() {
+            setThreadPriority(dcpp::Thread::LOW);
+            std::string x;
+
+            while(true) {
+                s.wait();
+
+                {
+                    dcpp::Lock l(cs);
+
+                    if(cmdList.empty()) continue;
+
+                    x = cmdList.front();
+                    cmdList.pop_front();
+
+                }
+                typedef Func1<cmddebug,std::string> F1;
+                F1 *func = new F1(this, &cmddebug::add_gui, x);
+                WulforManager::get()->dispatchGuiFunc(func);
+            }
+
+        return 0;
+        }
+
         void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept;
         void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept;
 
