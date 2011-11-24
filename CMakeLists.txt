@@ -475,7 +475,7 @@ if (USE_CLI)
 endif ()
 
 if (JSONRPC_DAEMON)
-add_subdirectory (json)
+  add_subdirectory (json)
 endif (JSONRPC_DAEMON)
 
 if (HAIKU AND HAIKU_PKG)

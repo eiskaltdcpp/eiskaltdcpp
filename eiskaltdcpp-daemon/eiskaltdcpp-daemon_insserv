@@ -5,7 +5,8 @@
 # Required-Stop:     $local_fs $remote_fs $network
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Start or stop the EiskaltDC++ daemon.
+# Short-Description: Start daemon at boot time
+# Description:       Enable service provided by daemon.
 ### END INIT INFO
 
 NAME=eiskaltdcpp-daemon
@@ -64,9 +65,12 @@ case "$1" in
         start_daemon
         log_end_msg 0
         ;;
+    status)
+        status_of_proc $DAEMON "$NAME" && exit 0 || exit $?
+        ;;
     *)
-        echo "Usage: /etc/init.d/$NAME {start|stop|reload|force-reload|restart}"
-        exit 2
+        echo "Usage: /etc/init.d/$NAME {start|stop|reload|force-reload|restart|status}"
+        exit 1
         ;;
 esac
 

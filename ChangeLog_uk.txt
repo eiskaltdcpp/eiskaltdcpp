@@ -1,4 +1,4 @@
---- 2.2.5 2011-11-20 ---
+--- 2.2.5 2011-12-18 ---
 *** common changes ***
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***

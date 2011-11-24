@@ -162,6 +162,8 @@ Keys for cmake
 -----------------
 -DUSE_GTK=ON/OFF (default: OFF)
     build EiskaltDC++ with Gtk interface (based on FreeDC++ and LinuxDC++)
+-DUSE_GTK3=ON/OFF (default: OFF)
+    build EiskaltDC++ with Gtk interface using Gtk3 library
 -DUSE_LIBGNOME2=ON/OFF (default: OFF)
     Enable/disable sound notifications support in EiskaltDC++ Gtk
 -DUSE_LIBNOTIFY=ON/OFF (default: ON)
@@ -173,6 +175,8 @@ Keys for cmake
     build daemon (without any UI)
 -DXMLRPC_DAEMON=ON/OFF (default: OFF)
     make this daemon as xmlrpc server
+-DJSONRPC_DAEMON=ON/OFF (default: OFF)
+    make this daemon as json server
 -----------------
 :eiskaltdcpp-cli:
 ----------------
