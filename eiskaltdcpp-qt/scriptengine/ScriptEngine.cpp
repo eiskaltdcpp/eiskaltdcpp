@@ -472,12 +472,6 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
             QString enc = context->argument(1).toString();
 
             HubFrame *fr = new HubFrame(MainWindow::getInstance(), hub, enc);
-            fr->setAttribute(Qt::WA_DeleteOnClose);
-
-            MainWindow::getInstance()->addArenaWidget(fr);
-            MainWindow::getInstance()->mapWidgetOnArena(fr);
-
-            MainWindow::getInstance()->addArenaWidgetOnToolbar(fr);
 
             obj = qobject_cast<QObject*>(fr);
         }
