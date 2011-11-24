@@ -387,6 +387,8 @@ void SearchFrame::closeEvent(QCloseEvent *e){
     save();
 
     setAttribute(Qt::WA_DeleteOnClose);
+    
+    QWidget::disconnect(this, NULL, this, NULL);
 
     e->accept();
 }

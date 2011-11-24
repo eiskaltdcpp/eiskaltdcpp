@@ -2488,8 +2488,10 @@ void MainWindow::slotUnixSignal(int sig){
 }
 
 void MainWindow::slotCloseCurrentWidget(){
-    if (arena->widget())
-        arena->widget()->close();
+    ArenaWidget *awgt = dynamic_cast<ArenaWidget*>(arena->widget());
+    
+    if (awgt)
+        ArenaWidgetManager::getInstance()->rem(awgt);
 }
 
 void MainWindow::slotSideBarDockMenu(){
