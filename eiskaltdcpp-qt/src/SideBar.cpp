@@ -206,7 +206,13 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
         }
     default:
         roots[awgt->role()]->setWdget(awgt);
-        ind = index(roots[awgt->role()]->row(), 0, QModelIndex());
+        
+        SideBarItem *root  = roots[awgt->role()];
+        
+        ind = index(root->row(), 0, QModelIndex());
+        
+        if (root->getWidget() && root->getWidget()->toolButton())
+            root->getWidget()->toolButton()->setChecked(true);
 
         break;
     }
@@ -248,8 +254,27 @@ void SideBarModel::removeWidget(ArenaWidget *awgt){
             break;
         }
     default:
-        break;
+        {
+           SideBarItem *root  = roots[awgt->role()];
+           
+           if (root->getWidget() && root->getWidget()->toolButton())
+               root->getWidget()->toolButton()->setChecked(false);
+           
+           historyPop();
+        }
     }
+}
+
+void SideBarModel::toggled ( ArenaWidget* awgt ) {
+    if (!awgt)
+        return;
+    
+    if (awgt->toolButton()){
+        awgt->toolButton()->setChecked(false);
+        awgt->toolButton()->setCheckable(false);
+    }
+    
+    ArenaWidgetManager::getInstance()->activate(awgt);
 }
 
 bool SideBarModel::hasWidget(ArenaWidget *awgt) const{
@@ -454,9 +479,11 @@ SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(NULL) {
     setItemDelegate(new SideBarDelegate(this));
     expandAll();
     
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this, SLOT(activated(ArenaWidget*)));
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     this, SLOT(added(ArenaWidget*)));
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this, SLOT(removed(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this,   SLOT(activated(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     this,   SLOT(added(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this,   SLOT(removed(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), _model, SLOT(mapped(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(toggled(ArenaWidget*)),   _model, SLOT(toggled(ArenaWidget*)));
     
     connect(this, SIGNAL(doubleClicked(QModelIndex)),           this,   SLOT(slotSideBarDblClicked(QModelIndex)));
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),   this,   SLOT(slotSidebarContextMenu()));

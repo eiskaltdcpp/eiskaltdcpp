@@ -30,6 +30,7 @@ MultiLineToolBar::MultiLineToolBar(QWidget *parent) :
     connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   frame, SLOT(removeWidget(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(updated(ArenaWidget*)),   frame, SLOT(updated(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), frame, SLOT(mapped(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(toggled(ArenaWidget*)),   frame, SLOT(toggled(ArenaWidget*)));
     connect(this, SIGNAL(nextTab()), frame, SLOT(nextTab()));
     connect(this, SIGNAL(prevTab()), frame, SLOT(prevTab()));
     connect(this, SIGNAL(moveTabLeft()), frame, SLOT(moveLeft()));

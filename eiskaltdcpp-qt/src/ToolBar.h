@@ -60,6 +60,7 @@ private Q_SLOTS:
     void removeWidget(ArenaWidget*);
     void updated(ArenaWidget*);
     void mapped(ArenaWidget*);
+    void toggled(ArenaWidget*);
     void redraw();
 
 

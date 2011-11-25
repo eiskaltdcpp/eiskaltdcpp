@@ -121,6 +121,7 @@ void ToolBar::initTabs(){
     connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this, SLOT(removeWidget(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this, SLOT(mapped(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(updated(ArenaWidget*)),   this, SLOT(updated(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(toggled(ArenaWidget*)),   this, SLOT(toggled(ArenaWidget*)));
     
     QTimer *timer = new QTimer(this);
     timer->setInterval(1000);
@@ -188,6 +189,19 @@ void ToolBar::slotIndexChanged(int index){
         return;
 
     ArenaWidgetManager::getInstance()->activate(awgt);
+}
+
+void ToolBar::toggled ( ArenaWidget *awgt) {
+    if (!awgt)
+        return;
+        
+    if (!(awgt->state() & ArenaWidget::Singleton))
+        return;
+    
+    if (awgt->state() & ArenaWidget::Hidden)
+        ArenaWidgetManager::getInstance()->activate(awgt);
+    else
+        ArenaWidgetManager::getInstance()->rem(awgt);
 }
 
 void ToolBar::slotTabMoved(int from, int to){

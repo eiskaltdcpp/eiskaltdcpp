@@ -34,6 +34,7 @@ Q_SIGNALS:
     void removed(ArenaWidget*);
     void updated(ArenaWidget*);
     void activated(ArenaWidget*);
+    void toggled(ArenaWidget*);
     
 private:
     ArenaWidgetManager();

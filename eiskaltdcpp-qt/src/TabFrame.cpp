@@ -412,3 +412,17 @@ void TabFrame::moveRight(){
         }
     }
 }
+
+void TabFrame::toggled ( ArenaWidget* awgt ) {
+    if (!awgt)
+        return;
+    
+    if (!(awgt->state() & ArenaWidget::Singleton))
+        return;
+    
+    if (awgt->state() & ArenaWidget::Hidden)
+        ArenaWidgetManager::getInstance()->activate(awgt);
+    else
+        ArenaWidgetManager::getInstance()->rem(awgt);
+}
+

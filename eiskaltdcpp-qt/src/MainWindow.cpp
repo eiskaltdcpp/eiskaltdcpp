@@ -1318,6 +1318,7 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         {
             if (!DownloadQueue::getInstance()) DownloadQueue::newInstance();
             awgt = DownloadQueue::getInstance();
+            awgt->setToolButton(toolsDownloadQueue);
 
             break;
         }
@@ -1325,6 +1326,7 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         {
             if (!FinishedUploads::getInstance()) FinishedUploads::newInstance();
             awgt = FinishedUploads::getInstance();
+            awgt->setToolButton(toolsFinishedUploads);
 
             break;
         }
@@ -1332,6 +1334,7 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         {
             if (!FinishedDownloads::getInstance()) FinishedDownloads::newInstance();
             awgt = FinishedDownloads::getInstance();
+            awgt->setToolButton(toolsFinishedDownloads);
 
             break;
         }
@@ -1339,6 +1342,7 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         {
             if (!FavoriteHubs::getInstance()) FavoriteHubs::newInstance();
             awgt = FavoriteHubs::getInstance();
+            awgt->setToolButton(hubsFavoriteHubs);
 
             break;
         }
@@ -1346,6 +1350,7 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         {
             if (!FavoriteUsers::getInstance()) FavoriteUsers::newInstance();
             awgt = FavoriteUsers::getInstance();
+            awgt->setToolButton(hubsFavoriteUsers);
 
             break;
         }
@@ -1353,6 +1358,7 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         {
             if (!PublicHubs::getInstance()) PublicHubs::newInstance();
             awgt = PublicHubs::getInstance();
+            awgt->setToolButton(hubsPublicHubs);
 
             break;
         }
@@ -1360,6 +1366,7 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         {
             if (!SpyFrame::getInstance()) SpyFrame::newInstance();
             awgt = SpyFrame::getInstance();
+            awgt->setToolButton(toolsSpy);
 
             break;
         }
@@ -1367,12 +1374,14 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
         {
             if (!ADLS::getInstance()) ADLS::newInstance();
             awgt = ADLS::getInstance();
+            awgt->setToolButton(toolsADLS);
 
             break;
         }
     case ArenaWidget::QueuedUsers:
         {
             awgt = QueuedUsers::getInstance();// QueuedUsers::newInstance() called at startup
+            awgt->setToolButton(toolsQueuedUsers);
 
             break;
         }
@@ -1929,10 +1938,7 @@ void MainWindow::slotHubsReconnect(){
 }
 
 void MainWindow::slotToolsADLS(){
-    if (!ADLS::getInstance())
-        ADLS::newInstance();
-
-    toggleSingletonWidget(ADLS::getInstance());
+    toggleSingletonWidget(widgetForRole(ArenaWidget::ADLS));
 }
 
 void MainWindow::slotToolsSearch() {
@@ -1961,41 +1967,26 @@ void MainWindow::slotToolsSearch() {
 }
 
 void MainWindow::slotToolsDownloadQueue(){
-    if (!DownloadQueue::getInstance())
-        DownloadQueue::newInstance();
-
-    toggleSingletonWidget(DownloadQueue::getInstance());
+    toggleSingletonWidget(widgetForRole(ArenaWidget::Downloads));
 }
 
 void MainWindow::slotToolsQueuedUsers(){
-    if (!QueuedUsers::getInstance())
-        QueuedUsers::newInstance();
-
-    toggleSingletonWidget(QueuedUsers::getInstance());
+    toggleSingletonWidget(widgetForRole(ArenaWidget::QueuedUsers));
 }
 
 void MainWindow::slotToolsHubManager(){
 }
 
 void MainWindow::slotToolsFinishedDownloads(){
-    if (!FinishedDownloads::getInstance())
-        FinishedDownloads::newInstance();
-
-    toggleSingletonWidget(FinishedDownloads::getInstance());
+    toggleSingletonWidget(widgetForRole(ArenaWidget::FinishedDownloads));
 }
 
 void MainWindow::slotToolsFinishedUploads(){
-   if (!FinishedUploads::getInstance())
-        FinishedUploads::newInstance();
-
-    toggleSingletonWidget(FinishedUploads::getInstance());
+   toggleSingletonWidget(widgetForRole(ArenaWidget::FinishedUploads));
 }
 
 void MainWindow::slotToolsSpy(){
-    if (!SpyFrame::getInstance())
-        SpyFrame::newInstance();
-
-    toggleSingletonWidget(SpyFrame::getInstance());
+    toggleSingletonWidget(widgetForRole(ArenaWidget::Spy));
 }
 
 void MainWindow::slotToolsAntiSpam(){
@@ -2059,24 +2050,15 @@ void MainWindow::slotToolsJSConsole(){
 }
 
 void MainWindow::slotHubsFavoriteHubs(){
-    if (!FavoriteHubs::getInstance())
-        FavoriteHubs::newInstance();
-
-    toggleSingletonWidget(FavoriteHubs::getInstance());
+    toggleSingletonWidget(widgetForRole(ArenaWidget::FavoriteHubs));
 }
 
 void MainWindow::slotHubsPublicHubs(){
-    if (!PublicHubs::getInstance())
-        PublicHubs::newInstance();
-
-    toggleSingletonWidget(PublicHubs::getInstance());
+    toggleSingletonWidget(widgetForRole(ArenaWidget::PublicHubs));
 }
 
 void MainWindow::slotHubsFavoriteUsers(){
-    if (!FavoriteUsers::getInstance())
-        FavoriteUsers::newInstance();
-
-    toggleSingletonWidget(FavoriteUsers::getInstance());
+    toggleSingletonWidget(widgetForRole(ArenaWidget::FavoriteUsers));
 }
 
 void MainWindow::slotToolsCopyWindowTitle(){

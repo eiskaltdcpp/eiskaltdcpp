@@ -41,6 +41,7 @@ public Q_SLOTS:
     virtual bool hasWidget(ArenaWidget *awgt) const;
     virtual void redraw();
     virtual void mapped(ArenaWidget *awgt);
+    virtual void toggled(ArenaWidget *awgt);
     virtual void nextTab();
     virtual void prevTab();
     void moveRight();

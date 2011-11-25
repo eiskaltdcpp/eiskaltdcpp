@@ -104,12 +104,8 @@ void ArenaWidgetManager::activate ( ArenaWidget *awgt ) {
 
 void ArenaWidgetManager::toggle ( ArenaWidget *awgt) {
     DEBUG_BLOCK
-    
-    if (!(awgt->state() & ArenaWidget::Singleton))
+    if (!awgt)
         return;
     
-    if (awgt->state() & ArenaWidget::Hidden)
-        activate(awgt);
-    else
-        rem(awgt);
+    emit toggled(awgt);
 }
