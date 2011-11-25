@@ -81,9 +81,7 @@ void DeclarativeWidget::closeEvent(QCloseEvent *e){
 
     setAttribute(Qt::WA_DeleteOnClose);
 
-    MainWindow::getInstance()->remArenaWidget(this);
-    MainWindow::getInstance()->remArenaWidgetFromToolbar(this);
-    MainWindow::getInstance()->remWidgetFromArena(this);
+    ArenaWidgetManager::getInstance()->rem(this);
 }
 
 QWidget *DeclarativeWidget::getWidget(){
