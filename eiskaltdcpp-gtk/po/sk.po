@@ -1,22 +1,22 @@
-# Language sk translations for PACKAGE package.
+# English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
-# This file is distributed under the same license as the PACKAGE package.
-#
+# This file is distributed under the same license as the work package.
+# 
+# Translators:
 # Automatically generated, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2010-10-31 18:21+0100\n"
-"Last-Translator: \n"
-"Language-Team: Slovenčina <kde-i18n-doc@kde.org>\n"
-"Language: sk\n"
+"PO-Revision-Date: 2011-11-25 12:53+0000\n"
+"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../src/hub.cc:1037 ../src/hub.cc:1116 ../src/privatemessage.cc:550
 #: ../src/privatemessage.cc:629
@@ -183,8 +183,8 @@ msgstr ": napíš /help pre zobrazenie zoznamu dostupných príkazov"
 
 #: ../ui/settingsdialog.ui:6779
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:3862
@@ -256,9 +256,8 @@ msgid "<b>Enter your password</b>"
 msgstr "<b>Zadať heslo</b>"
 
 #: ../src/settingsdialog.cc:2055
-#, fuzzy
 msgid "<b>Extension</b>"
-msgstr "<b>Popos</b>"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:3089
 msgid "<b>Favorite download to directories</b>"
@@ -330,9 +329,8 @@ msgstr ""
 "<b>Názov ,pod ktorým ostatný užívatelia budú vidieť tento priečinok</b>"
 
 #: ../src/settingsdialog.cc:1954
-#, fuzzy
 msgid "<b>New name</b>"
-msgstr "<b>Typ zdroja</b>"
+msgstr ""
 
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8722
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
@@ -476,7 +474,8 @@ msgstr "<b>súbor:</b> "
 
 #: ../ui/favoritehubs.ui:475
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr "<small>Poznámka: Nechať nezaškrtnuté pre štandartné nastavenia</small>"
+msgstr ""
+"<small>Poznámka: Nechať nezaškrtnuté pre štandartné nastavenia</small>"
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
@@ -511,9 +510,8 @@ msgid "Add"
 msgstr ""
 
 #: ../ui/mainwindow.ui:2331
-#, fuzzy
 msgid "Add / Remove"
-msgstr "Vymazať"
+msgstr ""
 
 #: ../src/hub.cc:1974 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
@@ -728,9 +726,8 @@ msgid "Bold Authors of message in chat"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:4912
-#, fuzzy
 msgid "Browse file..."
-msgstr "Prehľadávať..."
+msgstr ""
 
 #: ../ui/mainwindow.ui:2176
 msgid "Browse the list of public hubs"
@@ -1224,9 +1221,8 @@ msgid "Drop sources below"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2423
-#, fuzzy
 msgid "DynDNS Address"
-msgstr "Adresa"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:1138
 msgid "E-Mail"
@@ -1281,9 +1277,8 @@ msgid "Encoding"
 msgstr "Kódovanie"
 
 #: ../src/transfers.cc:66
-#, fuzzy
 msgid "Encryption"
-msgstr "Popis"
+msgstr ""
 
 #: ../ui/mainwindow.ui:2494
 msgid "Enter line for user command"
@@ -1307,9 +1302,8 @@ msgid "Error: params have been not 2!"
 msgstr ""
 
 #: ../src/settingsmanager.cc:513
-#, fuzzy
 msgid "Error: setting not found!"
-msgstr "Užívateľ nenájdený"
+msgstr ""
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:285
 #: ../src/downloadqueue.cc:392
@@ -1341,9 +1335,8 @@ msgid "Execute code (bash)"
 msgstr ""
 
 #: ../ui/mainwindow.ui:1982
-#, fuzzy
 msgid "Exit"
-msgstr "Ukonč_iť"
+msgstr ""
 
 #: ../ui/mainwindow.ui:801
 msgid "Exit EiskaltDC++ Gtk?"
@@ -1358,9 +1351,8 @@ msgid "Export..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:2054
-#, fuzzy
 msgid "Extension edition"
-msgstr "Rozšírenia"
+msgstr ""
 
 #: ../src/settingsdialog.cc:914 ../src/settingsdialog.cc:949
 #: ../src/settingsdialog.cc:1588 ../src/settingsdialog.cc:1729
@@ -1386,9 +1378,8 @@ msgstr "Obľúbené Huby"
 
 #: ../src/settingsdialog.cc:890 ../src/settingsdialog.cc:904
 #: ../src/settingsdialog.cc:3554
-#, fuzzy
 msgid "Favorite Name"
-msgstr "Obľúbené meno"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1150
 msgid "Favorite User"
@@ -1828,9 +1819,8 @@ msgstr ""
 #: ../src/settingsdialog.cc:3448 ../src/settingsdialog.cc:3465
 #: ../src/publichubs.cc:63 ../src/publichubs.cc:340 ../src/publichubs.cc:365
 #: ../src/publichubs.cc:415
-#, fuzzy
 msgid "List"
-msgstr "Zoznam:"
+msgstr ""
 
 #: ../src/sharebrowser.cc:38 ../src/sharebrowser.cc:57
 msgid "List: "
@@ -2023,9 +2013,8 @@ msgid "Move Up"
 msgstr "Posunúť nahor"
 
 #: ../src/hub.cc:2002
-#, fuzzy
 msgid "Move rule up/down"
-msgstr "Posunúť nadol"
+msgstr ""
 
 #: ../ui/downloadqueue.ui:7
 msgid "Move to..."
@@ -2172,7 +2161,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2830
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1228 ../ui/settingsdialog.ui:5613
@@ -2463,9 +2453,8 @@ msgid "Remove image"
 msgstr ""
 
 #: ../src/hub.cc:2003
-#, fuzzy
 msgid "Remove rules from list"
-msgstr "Odstrániť užívateľa z _fronty"
+msgstr ""
 
 #: ../src/settingsdialog.cc:974
 msgid "Remove slow filelists"
@@ -2572,9 +2561,8 @@ msgstr ""
 #: ../src/settingsdialog.cc:1586 ../src/settingsdialog.cc:1778
 #: ../src/settingsdialog.cc:1811 ../src/settingsdialog.cc:1897
 #: ../src/settingsdialog.cc:1946 ../src/settingsdialog.cc:1994
-#, fuzzy
 msgid "Search type"
-msgstr "Search Spy"
+msgstr ""
 
 #: ../ui/search.ui:423
 msgid "Search within local results"
@@ -2639,7 +2627,8 @@ msgid "Set download limit image: "
 msgstr "Nastaviť obmedzenia pre sťahovanie obrázkov:"
 
 #: ../src/settingsdialog.cc:972
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Nastaviť najnižšiu prioritu pre novopridané súbory, ktoré sú väčšie než "
 "nastavená hodnota pre súbory s nízkou prioritou."
@@ -2675,9 +2664,8 @@ msgid "Show help"
 msgstr "Zobraziť nápovedu"
 
 #: ../src/hub.cc:2001
-#, fuzzy
 msgid "Show ipfilter rules list"
-msgstr "Zobraziť obľúbené zoznamy"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1023
 msgid "Show joins / parts in chat by default"
@@ -2772,9 +2760,8 @@ msgid "Slots"
 msgstr "Sloty"
 
 #: ../ui/mainwindow.ui:1371
-#, fuzzy
 msgid "Small icons"
-msgstr "štandartné ikony"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:7308
 msgid "Socket read buffer"
@@ -2967,9 +2954,8 @@ msgid "Top (number of matches, more than)"
 msgstr ""
 
 #: ../ui/mainwindow.ui:1344
-#, fuzzy
 msgid "Top position"
-msgstr "Aplikácia"
+msgstr ""
 
 #: ../ui/searchspy.ui:256
 msgid "Top: >"
@@ -3103,8 +3089,8 @@ msgstr "Nie je možné načítať zoznam súborov: Neplatný názov zoznamu súb
 
 #: ../src/mainwindow.cc:2133
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Nie je možné otvoriť %1 port. Nie je možné hľadať alebo sťahovať súbory "
@@ -3190,9 +3176,8 @@ msgid "Use"
 msgstr "Použiť"
 
 #: ../ui/mainwindow.ui:1967
-#, fuzzy
 msgid "Use Blinking Icon"
-msgstr "Použiť blikajúcu stavovú ikonu"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:2461
 msgid "Use DHT"
@@ -3232,7 +3217,8 @@ msgstr "Použiť smajlíkov"
 
 #: ../src/settingsdialog.cc:1508
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr "Použiť rýchlu metódu hashovania (vypnúť ak máte problémy s hashovaním)"
+msgstr ""
+"Použiť rýchlu metódu hashovania (vypnúť ak máte problémy s hashovaním)"
 
 #: ../src/settingsdialog.cc:1027
 msgid "Use magnet split"
@@ -3333,8 +3319,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3363,9 +3348,8 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:992 ../src/settingsdialog.cc:3603
 #: ../src/settingsdialog.cc:3672
-#, fuzzy
 msgid "Virtual Name"
-msgstr "Virtuálne meno"
+msgstr ""
 
 #: ../src/settingsdialog.cc:2929
 msgid "Virtual name"
@@ -3528,9 +3512,8 @@ msgid "_Lowest"
 msgstr ""
 
 #: ../ui/mainwindow.ui:1024
-#, fuzzy
 msgid "_Magnet Choice"
-msgstr "Magnet Voľba"
+msgstr ""
 
 #: ../ui/search.ui:790
 msgid "_Match Queue"
@@ -3749,62 +3732,13 @@ msgstr ""
 msgid "waiting..."
 msgstr "vyčkávanie"
 
-#~ msgid ""
-#~ "Filename\n"
-#~ "Directory\n"
-#~ "Full Path"
-#~ msgstr ""
-#~ "Názov súboru\n"
-#~ " Priečinok\n"
-#~ " Plná cesta"
-
-#~ msgid ""
-#~ "B\n"
-#~ "KiB\n"
-#~ "MiB\n"
-#~ "GiB"
-#~ msgstr ""
-#~ "B\n"
-#~ "KiB\n"
-#~ "MiB\n"
-#~ "GiB"
-
-#~ msgid ""
-#~ "Normal\n"
-#~ "At least\n"
-#~ "At most"
-#~ msgstr ""
-#~ "Normálny\n"
-#~ "Najmenej\n"
-#~ "Najviac"
-
-#~ msgid ""
-#~ "No grouping\n"
-#~ "Filename\n"
-#~ "Path\n"
-#~ "Size\n"
-#~ "Connection\n"
-#~ "TTH\n"
-#~ "Nick\n"
-#~ "Hub\n"
-#~ "File type\n"
-#~ msgstr ""
-#~ "Nezaradené\n"
-#~ "Názov súboru\n"
-#~ "Cesta\n"
-#~ "Spojenie\n"
-#~ "TTH\n"
-#~ "Prezývka\n"
-#~ "Hub\n"
-#~ "Typ súboru\n"
-
 #~ msgid "Searching too soon, retry in "
-#~ msgstr "Hľadáte príliľ rýchlo, skúste neskôr"
+#~ msgstr "Searching too soon, retry in "
 
-#, fuzzy
 #~ msgid " s"
 #~ msgstr "s"
 
-#, fuzzy
 #~ msgid "No use temp directory"
-#~ msgstr "Vybrať priečinok"
+#~ msgstr "Choose a directory"
+
+

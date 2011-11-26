@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="es_ES">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.0">
 <context>
     <name>ADLS</name>
     <message>
@@ -285,7 +283,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="65"/>
         <source>Normal</source>
-        <translation></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="68"/>
@@ -501,7 +499,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="120"/>
         <source>Normal</source>
-        <translation></translation>
+        <translation>Normal</translation>
     </message>
 </context>
 <context>
@@ -537,12 +535,12 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>Nick</source>
-        <translation></translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>Password</source>
-        <translation></translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
@@ -557,7 +555,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="58"/>
         <source>******</source>
-        <translation></translation>
+        <translation>******</translation>
     </message>
 </context>
 <context>
@@ -631,12 +629,12 @@ Keys:
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Nick</source>
-        <translation></translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Hub</source>
-        <translation></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
@@ -669,7 +667,7 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="279"/>
         <source>TTH</source>
-        <translation></translation>
+        <translation>TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="103"/>
@@ -782,7 +780,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Check sum</source>
-        <translation></translation>
+        <translation>Check sum</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
@@ -832,7 +830,7 @@ Keys:
         <location filename="../src/HashProgress.cpp" line="127"/>
         <location filename="../src/HashProgress.cpp" line="138"/>
         <source>-:--:--</source>
-        <translation></translation>
+        <translation>-:--:--</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="132"/>
@@ -936,12 +934,12 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="151"/>
         <source>Nick</source>
-        <translation></translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="152"/>
         <source>IP</source>
-        <translation></translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="153"/>
@@ -951,7 +949,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="154"/>
         <source>Tag</source>
-        <translation></translation>
+        <translation>Tag</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="156"/>
@@ -1122,6 +1120,13 @@ Keys:
         <translation>El chat ha sido limpiado</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1753"/>
+        <source>/aspell on/off - enable/disable spell checking
+</source>
+        <translation>/aspell on/off - habilitar/deshabilitar Chequeo escritura
+</translation>
+    </message>
+    <message>
         <location filename="../src/HubFrame.cpp" line="2052"/>
         <source>%1 is now online</source>
         <translation>%1 ha quedado conectado</translation>
@@ -1147,56 +1152,14 @@ Keys:
         <translation>Añadir al diccionario</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3627"/>
-        <source>Connecting to %1</source>
-        <translation>Conectando con %1</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3633"/>
-        <source>Connected to %1</source>
-        <translation>Conectado a %1</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3685"/>
-        <source>Fail: %1...</source>
-        <translation>Fallo: %1...</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3874"/>
-        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation>Lo siento, pero tu nick &quot;%1&quot; está siendo usado por otro usuario.</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3880"/>
-        <source>Search flood detected: %1</source>
-        <translation>Flood de búsqueda detectado: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="1400"/>
-        <source>Hub role: Operator</source>
-        <translation>Rol del Hub: Operador</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="127"/>
-        <location filename="../src/HubFrame.cpp" line="1209"/>
-        <source>Copy</source>
-        <translation>Copiar</translation>
-    </message>
-    <message>
         <location filename="../src/HubFrame.cpp" line="128"/>
         <source>Search text</source>
         <translation>Buscar texto</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="161"/>
-        <source>Copy data</source>
-        <translation>Copiar datos</translation>
-    </message>
-    <message>
         <location filename="../src/HubFrame.cpp" line="251"/>
         <location filename="../src/HubFrame.cpp" line="337"/>
         <source>[User went offline]</source>
-        <translatorcomment>&quot;went&quot; es &quot;fue&quot;. pero queda mejor así</translatorcomment>
         <translation>[Usuario está online]</translation>
     </message>
     <message>
@@ -1208,18 +1171,6 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="685"/>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="1207"/>
-        <source>Show widget</source>
-        <translation>Mostrar widget</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="1405"/>
-        <source>
-Favorite user</source>
-        <translation>
-Usuario favorito</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1589"/>
@@ -1234,13 +1185,6 @@ Usuario favorito</translation>
         <source>List of keywords:
 </source>
         <translation>Lista de palabras clave:
-</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="1753"/>
-        <source>/aspell on/off - enable/disable spell checking
-</source>
-        <translation>/aspell on/off - habilitar/deshabilitar Chequeo escritura
 </translation>
     </message>
     <message>
@@ -1261,8 +1205,6 @@ Usuario favorito</translation>
         <location filename="../src/HubFrame.cpp" line="1757"/>
         <source>/alias list - list all aliases
 </source>
-        <translatorcomment>/alias list - listar todos los Alias
-</translatorcomment>
         <translation>/alias list - list all aliases
 </translation>
     </message>
@@ -1294,7 +1236,7 @@ Usuario favorito</translation>
         <translation>/clear - limpia la ventana del chat
 </translation>
     </message>
-<message>
+    <message>
         <location filename="../src/HubFrame.cpp" line="1763"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
@@ -1384,6 +1326,64 @@ Usuario favorito</translation>
         <translation>/lua &lt;chunk&gt; - ejecutar pedazo de codigo LUA</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="2571"/>
+        <source>Users count: %3/%1 | Total share: %2</source>
+        <translation>Cantidad de usuarios: %3/%1 | Total compartido: %2</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3627"/>
+        <source>Connecting to %1</source>
+        <translation>Conectando con %1</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3633"/>
+        <source>Connected to %1</source>
+        <translation>Conectado a %1</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3685"/>
+        <source>Fail: %1...</source>
+        <translation>Fallo: %1...</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3874"/>
+        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
+        <translation>Lo siento, pero tu nick &quot;%1&quot; está siendo usado por otro usuario.</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3880"/>
+        <source>Search flood detected: %1</source>
+        <translation>Flood de búsqueda detectado: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1400"/>
+        <source>Hub role: Operator</source>
+        <translation>Rol del Hub: Operador</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="127"/>
+        <location filename="../src/HubFrame.cpp" line="1209"/>
+        <source>Copy</source>
+        <translation>Copiar</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="161"/>
+        <source>Copy data</source>
+        <translation>Copiar datos</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1207"/>
+        <source>Show widget</source>
+        <translation>Mostrar widget</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1405"/>
+        <source>
+Favorite user</source>
+        <translation>
+Usuario favorito</translation>
+    </message>
+    <message>
         <location filename="../src/HubFrame.cpp" line="2040"/>
         <source> joins the chat</source>
         <translation> se ha unido al chat</translation>
@@ -1427,7 +1427,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="2485"/>
         <source>Stored password sent...</source>
-        <translation>contraseña almacenada enviada...</translation>
+        <translation>Contraseña almacenada enviada...</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2488"/>
@@ -1439,11 +1439,6 @@ Usuario favorito</translation>
         <location filename="../src/HubFrame.cpp" line="3675"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>La petición de re-dirección recibió un Hub al que ya está conectado</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="2571"/>
-        <source>Users count: %3/%1 | Total share: %2</source>
-        <translation>Cantidad de usuarios: %3/%1 | Total compartido: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2577"/>
@@ -1465,9 +1460,6 @@ Usuario favorito</translation>
         <source>Chat enabled.</source>
         <translation>Chat habilitado.</translation>
     </message>
-</context>
-<context>
-    <name>HubManager</name>
 </context>
 <context>
     <name>IPFilter</name>
@@ -1568,7 +1560,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/Magnet.cpp" line="192"/>
         <source>Error</source>
-        <translation></translation>
+        <translation>Error</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="192"/>
@@ -1603,37 +1595,37 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="631"/>
         <source>Ctrl+O</source>
-        <translation></translation>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="546"/>
         <source>Ctrl+L</source>
-        <translation></translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="591"/>
         <source>Ctrl+R</source>
-        <translation></translation>
+        <translation>Crtl+R</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="603"/>
         <source>Ctrl+H</source>
-        <translation></translation>
+        <translation>Ctrl+H</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="643"/>
         <source>Ctrl+T</source>
-        <translation></translation>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="651"/>
         <source>Ctrl+D</source>
-        <translation></translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="739"/>
         <source>Ctrl+S</source>
-        <translation></translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1133"/>
@@ -1662,12 +1654,12 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="584"/>
         <source>Ctrl+Q</source>
-        <translation></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="776"/>
         <source>Ctrl+F</source>
-        <translation></translation>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1080"/>
@@ -1758,7 +1750,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1140"/>
         <source>&amp;Hubs</source>
-        <translation></translation>
+        <translation>&amp;Hubs</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1152"/>
@@ -1783,7 +1775,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1217"/>
         <source>&amp;Widgets</source>
-        <translation></translation>
+        <translation>&amp;Widgets</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1219"/>
@@ -1864,22 +1856,22 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="572"/>
         <source>Ctrl+E</source>
-        <translation></translation>
+        <translation>Ctrl+E</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="597"/>
         <source>Ctrl+N</source>
-        <translation></translation>
+        <translation>Ctrl+N</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="609"/>
         <source>Ctrl+P</source>
-        <translation></translation>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="615"/>
         <source>Ctrl+U</source>
-        <translation></translation>
+        <translation>Ctrl+U</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1182"/>
@@ -1926,7 +1918,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1160"/>
         <source>Hub Manager</source>
-        <translation></translation>
+        <translation>Hub Manager</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1189"/>
@@ -2163,7 +2155,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1481"/>
         <source>/s</source>
-        <translation></translation>
+        <translation>/s</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1544"/>
@@ -2183,7 +2175,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1585"/>
         <source>%p%</source>
-        <translation></translation>
+        <translation>%p%</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1691"/>
@@ -2586,7 +2578,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="29"/>
         <source>Max hubs</source>
-        <translation></translation>
+        <translation>Hubs max.</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="29"/>
@@ -2679,7 +2671,7 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/PublicHubsList.cpp" line="71"/>
         <location filename="../src/PublicHubsList.cpp" line="95"/>
         <source>Link</source>
-        <translation></translation>
+        <translation>Enlace</translation>
     </message>
 </context>
 <context>
@@ -2851,7 +2843,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="141"/>
         <source>Hubs</source>
-        <translation></translation>
+        <translation>Hubs</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="148"/>
@@ -2866,27 +2858,27 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="166"/>
         <source>B</source>
-        <translation></translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="171"/>
         <source>KiB</source>
-        <translation></translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="176"/>
         <source>MiB</source>
-        <translation></translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="181"/>
         <source>GiB</source>
-        <translation></translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="193"/>
         <source>Normal</source>
-        <translation></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="198"/>
@@ -3071,7 +3063,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Ext</source>
-        <translation></translation>
+        <translation>Ext</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
@@ -3096,7 +3088,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchModel.cpp" line="52"/>
         <source>Nick</source>
-        <translation></translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
@@ -3111,17 +3103,17 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchModel.cpp" line="54"/>
         <source>IP</source>
-        <translation></translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="54"/>
         <source>Hub</source>
-        <translation></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="54"/>
         <source>Host</source>
-        <translation></translation>
+        <translation>Host</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="133"/>
@@ -3139,7 +3131,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="43"/>
         <source>Personal</source>
-        <translation></translation>
+        <translation>Personal</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="48"/>
@@ -3159,7 +3151,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="63"/>
         <source>GUI</source>
-        <translation></translation>
+        <translation>GUI</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="68"/>
@@ -3169,7 +3161,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="73"/>
         <source>Logs</source>
-        <translation></translation>
+        <translation>Registros</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="78"/>
@@ -3232,7 +3224,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="191"/>
         <source>Alias</source>
-        <translation></translation>
+        <translation>Alias</translation>
     </message>
 </context>
 <context>
@@ -3320,7 +3312,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="247"/>
         <source>Bot</source>
-        <translation></translation>
+        <translation>Bot</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="251"/>
@@ -3460,7 +3452,7 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/SettingsSharing.cpp" line="334"/>
         <location filename="../src/SettingsSharing.cpp" line="370"/>
         <source>Error</source>
-        <translation></translation>
+        <translation>Error</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="359"/>
@@ -3595,7 +3587,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="526"/>
         <source>Error</source>
-        <translation></translation>
+        <translation>Error</translation>
     </message>
 </context>
 <context>
@@ -3645,7 +3637,7 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/SideBar.cpp" line="41"/>
         <location filename="../src/SideBar.cpp" line="365"/>
         <source>Hubs</source>
-        <translation></translation>
+        <translation>Hubs</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="42"/>
@@ -3728,7 +3720,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="121"/>
         <source>Widgets</source>
-        <translation></translation>
+        <translation>Widgets</translation>
     </message>
 </context>
 <context>
@@ -3912,7 +3904,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferView.cpp" line="364"/>
         <source>TTH: </source>
-        <translation></translation>
+        <translation>TTH: </translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="569"/>
@@ -3928,24 +3920,24 @@ que continuará trabajando cuando el widget esté oculto.
         <location filename="../src/TransferView.cpp" line="598"/>
         <location filename="../src/TransferView.cpp" line="774"/>
         <source>[S]</source>
-        <translation></translation>
+        <translation>[S]</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="600"/>
         <location filename="../src/TransferView.cpp" line="776"/>
         <source>[U]</source>
-        <translation></translation>
+        <translation>[U]</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="604"/>
         <source>[T]</source>
-        <translation></translation>
+        <translation>[T]</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="606"/>
         <location filename="../src/TransferView.cpp" line="779"/>
         <source>[Z]</source>
-        <translation></translation>
+        <translation>[Z]</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="608"/>
@@ -3955,7 +3947,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferView.cpp" line="609"/>
         <source> (%1%)</source>
-        <translation></translation>
+        <translation> (%1%)</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="663"/>
@@ -4038,12 +4030,12 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferViewModel.cpp" line="48"/>
         <source>Host</source>
-        <translation></translation>
+        <translation>Host</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="48"/>
         <source>IP</source>
-        <translation></translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="49"/>
@@ -4053,7 +4045,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferViewModel.cpp" line="107"/>
         <source>/s</source>
-        <translation></translation>
+        <translation>/s</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="299"/>
@@ -4079,7 +4071,7 @@ que continuará trabajando cuando el widget esté oculto.
         <location filename="../src/TransferViewModel.cpp" line="565"/>
         <location filename="../src/TransferViewModel.cpp" line="567"/>
         <source>TTH: </source>
-        <translation></translation>
+        <translation>TTH: </translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="609"/>
@@ -4103,7 +4095,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/UCModel.cpp" line="85"/>
         <source>Hub</source>
-        <translation></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="151"/>
@@ -4237,9 +4229,13 @@ que continuará trabajando cuando el widget esté oculto.
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;⏎
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;⏎
+p, li { white-space: pre-wrap; }⏎
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;⏎
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="61"/>
@@ -4251,15 +4247,25 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Copyright (c) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;Copyright (c) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;⏎
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;⏎
+p, li { white-space: pre-wrap; }⏎
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;⏎
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;Copyright (c) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;⏎
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;⏎
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;⏎
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;⏎
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;⏎
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;⏎
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="85"/>
@@ -4276,9 +4282,13 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;⏎
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;⏎
+p, li { white-space: pre-wrap; }⏎
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;⏎
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -4319,7 +4329,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="20"/>
         <source>AntiSpam</source>
-        <translation></translation>
+        <translation>AntiSpam</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="46"/>
@@ -4361,21 +4371,21 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="197"/>
         <location filename="../ui/UIAntiSpam.ui" line="263"/>
         <source>+</source>
-        <translation></translation>
+        <translation>+</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="144"/>
         <location filename="../ui/UIAntiSpam.ui" line="210"/>
         <location filename="../ui/UIAntiSpam.ui" line="276"/>
         <source>-</source>
-        <translation></translation>
+        <translation>-</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="157"/>
         <location filename="../ui/UIAntiSpam.ui" line="223"/>
         <location filename="../ui/UIAntiSpam.ui" line="289"/>
         <source>C</source>
-        <translation></translation>
+        <translation>C</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="171"/>
@@ -4405,7 +4415,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="330"/>
         <location filename="../ui/UIAntiSpam.ui" line="385"/>
         <source>&gt;&gt;&gt;</source>
-        <translation></translation>
+        <translation>&gt;&gt;&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
@@ -4418,7 +4428,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="356"/>
         <location filename="../ui/UIAntiSpam.ui" line="372"/>
         <source>&lt;&lt;&lt;</source>
-        <translation></translation>
+        <translation>&lt;&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
@@ -4460,7 +4470,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
-        <translation></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="31"/>
@@ -4516,7 +4526,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="152"/>
         <source>000.000.000.000; </source>
-        <translation></translation>
+        <translation>000.000.000.000; </translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="162"/>
@@ -4566,12 +4576,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="221"/>
         <source>If hub requires password, define it here.</source>
-        <translation>si el Hub requiere password, defínalo aquí.</translation>
+        <translation>si el Hub requiere contraseña, defínalo aquí.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="241"/>
         <source>Nick</source>
-        <translation></translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="248"/>
@@ -4581,7 +4591,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="255"/>
         <source>Password</source>
-        <translation></translation>
+        <translation>Contraseña</translation>
     </message>
 </context>
 <context>
@@ -4734,12 +4744,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="98"/>
         <source>&lt;</source>
-        <translation></translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="101"/>
         <source>Shift+F3</source>
-        <translation></translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="108"/>
@@ -4749,12 +4759,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="111"/>
         <source>&gt;</source>
-        <translation></translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="114"/>
         <source>F3</source>
-        <translation></translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="121"/>
@@ -4764,7 +4774,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="124"/>
         <source>A</source>
-        <translation></translation>
+        <translation>A</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="137"/>
@@ -4774,7 +4784,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="281"/>
         <source>Last status message on hub</source>
-        <translation></translation>
+        <translation>Último mensaje de status en el Hub</translation>
     </message>
 </context>
 <context>
@@ -4787,12 +4797,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
-        <translation></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
         <source>URL</source>
-        <translation></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="43"/>
@@ -4895,7 +4905,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UIMagnet.ui" line="58"/>
         <source>TTH</source>
-        <translation></translation>
+        <translation>TTH</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="65"/>
@@ -5114,7 +5124,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
         <source>Select this mode if your computer is connected directly to the internet.
 Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
-this option and usually you don&apos;t need to alter anything more in the
+this option and usually you don't need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation>Seleccionar este modo si su equipo se conecta directamente a internet.
@@ -5142,7 +5152,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="319"/>
         <source>000.000.000.000; </source>
-        <translation></translation>
+        <translation>000.000.000.000; </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="161"/>
@@ -5182,12 +5192,12 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="297"/>
         <source>SOCKS5</source>
-        <translation></translation>
+        <translation>SHOKS5</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="332"/>
         <source>IP</source>
-        <translation></translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="339"/>
@@ -5197,7 +5207,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="346"/>
         <source>Password</source>
-        <translation></translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="353"/>
@@ -5207,7 +5217,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="366"/>
         <source>00000; </source>
-        <translation></translation>
+        <translation>00000; </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="373"/>
@@ -5223,6 +5233,21 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
         <location filename="../ui/UISettingsConnection.ui" line="430"/>
         <source>Automatically update external IP (restart required)</source>
         <translation>Actualizar automaticamente la IP externa (necesita reiniciar)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="792"/>
+        <source>Reconnect to hub (seconds)</source>
+        <translation>Reconectar al Hub (segundos)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="876"/>
+        <source>Enable DHT</source>
+        <translation>Habilitar DHT</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="900"/>
+        <source>DHT port</source>
+        <translation>Puerto DHT</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="401"/>
@@ -5261,25 +5286,31 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
         <translation>Avanzado</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="792"/>
-        <source>Reconnect to hub (seconds)</source>
-        <translation>Reconectar al Hub (segundos)</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="831"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn't matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &quot;Low delay&quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &quot;Throughput&quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &quot;Reliability&quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &quot;Minimal cost&quot;&lt;/span&gt; should be used for &quot;filler data&quot; where slow transmission doesn't matter&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&quot;Low delay&quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="846"/>
@@ -5305,16 +5336,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsConnection.ui" line="866"/>
         <source>Minimal cost</source>
         <translation>Coste Mínimo</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="876"/>
-        <source>Enable DHT</source>
-        <translation>Habilitar DHT</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="900"/>
-        <source>DHT port</source>
-        <translation>Puerto DHT</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="815"/>
@@ -5359,7 +5380,7 @@ Este modo tiene serias limitaciones:
         <source>Select this mode if you are behind a firewall/router that supports
 the UPnP standard for program auto-configuration.
 Most routers do support UPnP but you may need to enable it
-in the router&apos;s configuration page.
+in the router's configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
         <translation>Selecciona esta opcion si está detrás de un cortafuegos/router que 
@@ -5399,7 +5420,7 @@ El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
         <location filename="../ui/UISettingsConnection.ui" line="699"/>
         <location filename="../ui/UISettingsConnection.ui" line="732"/>
         <source>KiB/s</source>
-        <translation></translation>
+        <translation>KiB/s</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="540"/>
@@ -5493,7 +5514,7 @@ El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="269"/>
         <source>Alias</source>
-        <translation></translation>
+        <translation>Alias</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="278"/>
@@ -5539,7 +5560,7 @@ El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
         <source>This is another method of limiting simultaneous downloads,
 designed to prevent new downloads if your existing downloads
-exceed a specific threshold. It&apos;s measured in kibibytes per second,
+exceed a specific threshold. It's measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
         <translation>Esto es otro método de limitar las descargas simultaneas,
 diseñado para prevenir nuevas descargas si sus descargas
@@ -5685,7 +5706,7 @@ pero no serán eliminadas de la cola.</translation>
         <source>Every few minutes, the client will search for files in your
 Download Queue to find more download locations (more users/sources).
 The autosearch will find exact matches by searching via hash.
-The drawback is that it may won&apos;t find much more sources
+The drawback is that it may won't find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
         <translation>Cada pocos minutos, el cuente busca en la cola de descargas
@@ -5698,11 +5719,11 @@ alguna regla intervalo.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="712"/>
-        <source>Enable to automatically download a user&apos;s list and match them
-as sources for files in your Download Queue when they&apos;ve been
-discovered as a source for one of the files you&apos;re downloading.
+        <source>Enable to automatically download a user's list and match them
+as sources for files in your Download Queue when they've been
+discovered as a source for one of the files you're downloading.
 If you download files in sets, that user is probably a source
-for many more files you&apos;re downloading. Enable if unsure.
+for many more files you're downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
@@ -5744,16 +5765,16 @@ que ya existen en uno de su cola de descarga.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="791"/>
         <source>Enable this option if you want to keep downloaded filelists 
 in the download queue after they have been finished.
-After downloaded the queue items will have &apos;Finished&apos; status
+After downloaded the queue items will have 'Finished' status
 and you can delete these finished entries anytime later.
 Note that if you physically move/delete your downloaded files from
-their target location, it won&apos;t result automatic deletion of
+their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won&apos;t remove existing finished items
+If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Habilita esta opción si desea mantener la lista de archivos descargados 
 en la cola de descarga después de que hayan finalizado.
-Después de terminar la cola de descargas, éstas tendrán el estado de &apos;Finalizado&apos;
+Después de terminar la cola de descargas, éstas tendrán el estado de 'Finalizado'
 pudiendo eliminar esas entradas de la lista cuando quiera.
 Tenga en cuenta que si mueve/elimina físicamente los archivos descargados desde
 su ubicación de destino, las entradas correspondientes a la cola de descarga no se 
@@ -5770,15 +5791,15 @@ en la cola de descargas, debe hacerlo manualmente.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
         <source>Enable this option if you want to keep downloaded files and folders
 in the download queue after they have been finished.
-After downloaded the queue items will have &apos;Finished&apos; status
+After downloaded the queue items will have 'Finished' status
 and you can delete these finished entries anytime later.
 Using this function you can keep track of what files are already
 downloaded right there in the download queue without the need
 of checking the Finished Downloads window.
 Note that if you physically move/delete your downloaded files from
-their target location, it won&apos;t result automatic deletion of
+their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won&apos;t remove existing finished items
+If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Habilitar esta opción si desea conservar los archivos y carpetas descargados
 en la cola de descarga después de haber sido terminada.
@@ -5843,7 +5864,6 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="709"/>
         <source>Automatically match queue for auto search hits</source>
-        <translatorcomment>alternativa?¿</translatorcomment>
         <translation>Igualar automáticamente auto-búsquedas en la cola</translation>
     </message>
     <message>
@@ -5988,7 +6008,7 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="247"/>
         <source>Chat</source>
-        <translation></translation>
+        <translation>Chat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="263"/>
@@ -6071,8 +6091,8 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="346"/>
-        <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated
+        <source>If checked, you'll see emoticons even in the middle of words.
+If unchecked, you'll see emoticons only if they are isolated
 from other words by spaces.</source>
         <translation>Si es seleccionado, Verá los emoticonos en el medio de las palabras.
 Si es de-seleccionado, Verá los emorticonos solo cuando estén solos
@@ -6113,12 +6133,12 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
         <source>1024</source>
-        <translation></translation>
+        <translation>1024</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="479"/>
         <source>1000</source>
-        <translation></translation>
+        <translation>1000</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="496"/>
@@ -6128,7 +6148,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="509"/>
         <source>hh:mm:ss</source>
-        <translation></translation>
+        <translation>hh:mm:ss</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="541"/>
@@ -6164,12 +6184,12 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="652"/>
         <source>:</source>
-        <translation></translation>
+        <translation>:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="657"/>
         <source>,</source>
-        <translation></translation>
+        <translation>,</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="685"/>
@@ -6195,7 +6215,7 @@ solo estará disponible para los operadores</translation>
         <location filename="../ui/UISettingsGUI.ui" line="750"/>
         <location filename="../ui/UISettingsGUI.ui" line="808"/>
         <source>Color</source>
-        <translation></translation>
+        <translation>Color</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="770"/>
@@ -6206,7 +6226,6 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="799"/>
         <source>Highlighting of already shared files</source>
-        <translatorcomment>Destacar archivos ya compartidos</translatorcomment>
         <translation>Destacar si </translation>
     </message>
     <message>
@@ -6366,12 +6385,12 @@ solo estará disponible para los operadores</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Ayuda&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -6486,7 +6505,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="149"/>
         <source>D-Bus</source>
-        <translation></translation>
+        <translation>D-Bus</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="253"/>
@@ -6500,7 +6519,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="355"/>
-        <source>If your sound files&apos; format is unsupported by Qt, you can define
+        <source>If your sound files' format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
         <translation>Si el formato del sonido no está soportado por Qt, 
@@ -6528,7 +6547,7 @@ Por ejemplo: /usr/bin/mplayer</translation>
         <location filename="../ui/UISettingsNotification.ui" line="278"/>
         <location filename="../ui/UISettingsNotification.ui" line="310"/>
         <source>Test</source>
-        <translation></translation>
+        <translation>Test</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="343"/>
@@ -6551,7 +6570,7 @@ Por ejemplo: /usr/bin/mplayer</translation>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="54"/>
         <source>Nick</source>
-        <translation></translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="38"/>
@@ -6577,7 +6596,7 @@ se puede cambiar en las propiedades de los Hubs favoritos.</translation>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="69"/>
         <source>E-Mail</source>
-        <translation></translation>
+        <translation>E-Mail</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="76"/>
@@ -6618,7 +6637,7 @@ de la rapidez con la fuente que es probable que sean para otros usuarios.</trans
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="186"/>
         <source>MiB/s</source>
-        <translation></translation>
+        <translation>MiB/s</translation>
     </message>
 </context>
 <context>
@@ -6662,12 +6681,12 @@ Nota: esta opcion requiere un refresco de la lista, y puede causar que el client
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="290"/>
         <source>2</source>
-        <translation></translation>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="295"/>
         <source>4</source>
-        <translation></translation>
+        <translation>4</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="496"/>
@@ -6785,10 +6804,10 @@ si su sistema se vuelve lento cuando se hashean archivos.</translation>
         <location filename="../ui/UISettingsSharing.ui" line="520"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
-one slot for each hub that they&apos;re on with you.
+one slot for each hub that they're on with you.
 EiskaltDC++ supports uploading file lists and files below 64 KiB
 to other DC++ users without requiring a slot.
-There&apos;s a max of 3 connections in addition to normal slots,
+There's a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
@@ -6809,27 +6828,27 @@ EiskaltDC++ le vuelve a conceder un Slot a dicho usuario.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="285"/>
         <source>1</source>
-        <translation></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="300"/>
         <source>8</source>
-        <translation></translation>
+        <translation>8</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="305"/>
         <source>16</source>
-        <translation></translation>
+        <translation>16</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="310"/>
         <source>32</source>
-        <translation></translation>
+        <translation>32</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="315"/>
         <source>64</source>
-        <translation></translation>
+        <translation>64</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="346"/>
@@ -6988,17 +7007,17 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../ui/UIUserCommands.ui" line="42"/>
         <source>Chat</source>
-        <translation></translation>
+        <translation>Chat</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="49"/>
         <source>Raw</source>
-        <translation></translation>
+        <translation>Raw</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="56"/>
         <source>PM</source>
-        <translation></translation>
+        <translation>PM</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="66"/>
@@ -7008,7 +7027,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
@@ -7081,7 +7100,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../src/UserListModel.cpp" line="162"/>
         <source>Nick</source>
-        <translation></translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="163"/>
@@ -7091,7 +7110,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../src/UserListModel.cpp" line="164"/>
         <source>Tag</source>
-        <translation></translation>
+        <translation>Tag</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="165"/>
@@ -7111,7 +7130,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../src/UserListModel.cpp" line="168"/>
         <source>IP</source>
-        <translation></translation>
+        <translation>IP</translation>
     </message>
 </context>
 <context>
@@ -7140,57 +7159,57 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
         <location filename="../src/WulforUtil.cpp" line="913"/>
         <location filename="../src/WulforUtil.cpp" line="927"/>
         <source>%1 B</source>
-        <translation></translation>
+        <translation>%1 B</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="915"/>
         <source>%1 KiB</source>
-        <translation></translation>
+        <translation>%1 KiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="917"/>
         <source>%1 MiB</source>
-        <translation></translation>
+        <translation>%1 MiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="919"/>
         <source>%1 GiB</source>
-        <translation></translation>
+        <translation>%1 GiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="921"/>
         <source>%1 TiB</source>
-        <translation></translation>
+        <translation>%1 TiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="923"/>
         <source>%1 PiB</source>
-        <translation></translation>
+        <translation>%1 PiB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="929"/>
         <source>%1 KB</source>
-        <translation></translation>
+        <translation>%1 KB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="931"/>
         <source>%1 MB</source>
-        <translation></translation>
+        <translation>%1 MB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="933"/>
         <source>%1 GB</source>
-        <translation></translation>
+        <translation>%1 GB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="935"/>
         <source>%1 TB</source>
-        <translation></translation>
+        <translation>%1 TB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="937"/>
         <source>%1 PB</source>
-        <translation></translation>
+        <translation>%1 PB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="1000"/>
