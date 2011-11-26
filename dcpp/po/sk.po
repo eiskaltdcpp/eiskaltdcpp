@@ -1,22 +1,22 @@
-# Slovak translation for dcplusplus
-# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
-# This file is distributed under the same license as the dcplusplus package.
+# English translations for work package.
+# Copyright (C) 2010 EiskaltDC++\ team
+# This file is distributed under the same license as the work package.
+# 
+# Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: dcplusplus\n"
+"Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2009-03-24 12:27+0000\n"
-"Last-Translator: helix84 <Unknown>\n"
-"Language-Team: Slovak <sk@li.org>\n"
-"Language: sk\n"
+"PO-Revision-Date: 2011-11-25 12:12+0000\n"
+"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-05 15:21+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -63,8 +63,8 @@ msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 msgstr ""
-"Nepodarilo sa nastaviť SOCKS server, aby robil UDP relé (skontrolujte adresu "
-"a port SOCKS)"
+"Nepodarilo sa nastaviť SOCKS server, aby robil UDP relé (skontrolujte adresu"
+" a port SOCKS)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -87,9 +87,8 @@ msgid "Unable to create thread"
 msgstr "Nepodarilo sa vytvoriť vlákno"
 
 #: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
-#, fuzzy
 msgid "Invalid data"
-msgstr "Neplatná veľkosť"
+msgstr ""
 
 #: ../UserConnection.cpp:58
 msgid "Non-UTF-8 data in an ADC connection"
@@ -101,7 +100,8 @@ msgstr ""
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:93
@@ -134,9 +134,8 @@ msgid "DHT (UDP)"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:167
-#, fuzzy
 msgid "Connectivity: "
-msgstr "Chyba konektivity: %1%"
+msgstr ""
 
 #: ../UploadManager.cpp:238
 msgid "Unable to send file %1%: %2%"
@@ -155,9 +154,8 @@ msgid "downloaded from"
 msgstr ""
 
 #: ../SettingsManager.cpp:510
-#, fuzzy
 msgid "Invalid search type name"
-msgstr "Neplatná veľkosť"
+msgstr ""
 
 #: ../SettingsManager.cpp:514 ../SettingsManager.cpp:536
 msgid "This search type already exists"
@@ -299,14 +297,12 @@ msgid "Hashing failed: %1%"
 msgstr "Nepodarilo sa hašovanie: %1%"
 
 #: ../HashManager.cpp:94
-#, fuzzy
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Skončilo hašovanie: %1% (%2%/s)"
+msgstr ""
 
 #: ../HashManager.cpp:97
-#, fuzzy
 msgid "Finished hashing: %1% (%2%)"
-msgstr "Skončilo hašovanie: %1% (%2%/s)"
+msgstr ""
 
 #: ../HashManager.cpp:100
 msgid "Finished hashing: %1%"
@@ -339,18 +335,16 @@ msgid "Error hashing %1%: %2%"
 msgstr "Chyba pri vytváraní hašu %1%: %2%"
 
 #: ../UPnPManager.cpp:45
-#, fuzzy
 msgid "No UPnP implementation available"
-msgstr "Nie sú dostupné sloty"
+msgstr ""
 
 #: ../UPnPManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
 #: ../UPnPManager.cpp:81
-#, fuzzy
 msgid "Failed to initialize the %1% interface"
-msgstr "Nepodarilo sa vytvoriť vlákno"
+msgstr ""
 
 #: ../UPnPManager.cpp:85
 msgid " Transfer Port (%1% TCP)"
@@ -384,19 +378,16 @@ msgid "Failed to get external IP"
 msgstr ""
 
 #: ../UPnPManager.cpp:128
-#, fuzzy
 msgid "Failed to create port mappings"
-msgstr "Nepodarilo sa vytvoriť vlákno"
+msgstr ""
 
 #: ../UPnPManager.cpp:137
-#, fuzzy
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Nepodarilo sa vytvoriť vlákno"
+msgstr ""
 
 #: ../UPnPManager.cpp:138
-#, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Nepodarilo sa vytvoriť vlákno"
+msgstr ""
 
 #: ../UPnPManager.cpp:143
 msgid "UPnP: %1%"
@@ -407,9 +398,8 @@ msgid "No directory specified"
 msgstr "Nebol zadaný adresár"
 
 #: ../ShareManager.cpp:450
-#, fuzzy
 msgid "Directory is hidden"
-msgstr "Adresár je už zdieľaný"
+msgstr ""
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
@@ -420,14 +410,12 @@ msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
 
 #: ../ShareManager.cpp:660
-#, fuzzy
 msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr "Nepodarilo sa hašovanie: %1%"
+msgstr ""
 
 #: ../ShareManager.cpp:681
-#, fuzzy
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr "Nepodarilo sa hašovanie: %1%"
+msgstr ""
 
 #: ../ShareManager.cpp:769
 msgid ""
@@ -438,8 +426,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Prebieha obnovenie zoznamu súborov, počkajte prosím, kým skončí, než ho "
 "skúsite znova obnoviť"
@@ -457,9 +445,8 @@ msgid "File list refresh finished"
 msgstr "Obnovenie zoznamu súborov bolo dokončené"
 
 #: ../ShareManager.cpp:940
-#, fuzzy
 msgid "File list %1% generated"
-msgstr "Obnovenie zoznamu súborov sa začalo"
+msgstr ""
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -592,9 +579,8 @@ msgid "Video"
 msgstr ""
 
 #: ../SearchManager.cpp:43
-#, fuzzy
 msgid "Directory"
-msgstr "Adresár je už zdieľaný"
+msgstr ""
 
 #: ../SearchManager.cpp:44
 msgid "TTH"
@@ -633,23 +619,20 @@ msgid "A file with a different size already exists in the queue"
 msgstr "Súbor s inou veľkosťou sa už nachádza vo fronte"
 
 #: ../QueueManager.cpp:727
-#, fuzzy
 msgid "A file with different tth root already exists in the queue"
-msgstr "Súbor s iným koreňom TTH sa už nachádza vo fronte"
+msgstr ""
 
 #: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
 msgstr "Pokúšate sa sťahovať sám od seba!"
 
 #: ../QueueManager.cpp:802
-#, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
-msgstr "Súbor s iným koreňom TTH sa už nachádza vo fronte"
+msgstr ""
 
 #: ../QueueManager.cpp:806
-#, fuzzy
 msgid "This file has already finished downloading"
-msgstr "Tento súbor sa už nachádza vo fronte"
+msgstr ""
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
@@ -664,11 +647,8 @@ msgstr ""
 "adresára pre sťahovanie)"
 
 #: ../QueueManager.cpp:864
-#, fuzzy
 msgid "File already exists at the target location"
 msgstr ""
-"Súbor s rovnakou alebo väčšou veľkosťou sa už na danom cieľovom mieste "
-"nachádza"
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
@@ -695,9 +675,8 @@ msgid "Unable to open filelist: %1%"
 msgstr "Nepodarilo sa otvoriť zoznam súborov: %1%"
 
 #: ../QueueManager.cpp:1430
-#, fuzzy
 msgid "%1%: Matched %2% file"
-msgstr "%1% bol vykopnutý: %2%"
+msgstr ""
 
 #: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -712,4 +691,6 @@ msgid "TTH inconsistency"
 msgstr "nekonzistencia TTH"
 
 #~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Požiadavka o čítanie za koncom údajov"
+#~ msgstr "Request to seek beyond the end of data"
+
+

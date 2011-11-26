@@ -1,24 +1,23 @@
-# Ukrainian translations for work package.
+# English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
+# Translators:
 # Automatically generated, 2010.
 # Boris Pek <tehnick-8@mail.ru>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: work 2\n"
+"Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2011-02-02 23:46+0300\n"
-"Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
-"Language: uk\n"
+"PO-Revision-Date: 2011-11-25 12:55+0000\n"
+"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 1.0\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../src/hub.cc:1037 ../src/hub.cc:1116 ../src/privatemessage.cc:550
 #: ../src/privatemessage.cc:629
@@ -193,8 +192,8 @@ msgstr ": /help для отримання списку доступних ком
 
 #: ../ui/settingsdialog.ui:6779
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:3862
@@ -250,14 +249,12 @@ msgid "<b>Default away message</b>"
 msgstr "<b>повідомлення в режимі \"відійшов\"</b>"
 
 #: ../ui/favoriteusers.ui:96
-#, fuzzy
 msgid "<b>Description</b>"
-msgstr "<b>Опис</b>"
+msgstr ""
 
 #: ../ui/adlsearch.ui:295
-#, fuzzy
 msgid "<b>Destination Directory</b>"
-msgstr "<b>Тека призначення</b>"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:2724
 msgid "<b>Directories</b>"
@@ -268,9 +265,8 @@ msgid "<b>Enter your password</b>"
 msgstr "<b>Введіть свій пароль</b>"
 
 #: ../src/settingsdialog.cc:2055
-#, fuzzy
 msgid "<b>Extension</b>"
-msgstr "<b>Розширення</b>"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:3089
 msgid "<b>Favorite download to directories</b>"
@@ -325,28 +321,24 @@ msgid "<b>Main Toolbar Style</b>"
 msgstr "<b>Стиль панелі інструментів</b>"
 
 #: ../ui/adlsearch.ui:211
-#, fuzzy
 msgid "<b>Max FileSize</b>"
-msgstr "<b>Макс розмір файлу</b>"
+msgstr ""
 
 #: ../ui/adlsearch.ui:178
-#, fuzzy
 msgid "<b>Min FileSize</b>"
-msgstr "<b>Мін розмір файлу</b>"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1701
-#, fuzzy
 msgid "<b>Name of the new search type</b>"
-msgstr "<b>Ім'я нового типу пошуку</b>"
+msgstr ""
 
 #: ../src/settingsdialog.cc:2932
 msgid "<b>Name under which the others see the directory</b>"
 msgstr "<b>Ім'я каталога, котре будуть бачити інші користувачі</b>"
 
 #: ../src/settingsdialog.cc:1954
-#, fuzzy
 msgid "<b>New name</b>"
-msgstr "<b>Нове ім'я</b>"
+msgstr ""
 
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8722
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
@@ -407,9 +399,8 @@ msgid "<b>Public Hubs list</b>"
 msgstr "<b>Список публічних хабів</b>"
 
 #: ../ui/adlsearch.ui:94
-#, fuzzy
 msgid "<b>Search String</b>"
-msgstr "<b>Рядок пошуку</b>"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:7990
 msgid "<b>Search types</b>"
@@ -428,9 +419,8 @@ msgid "<b>Shared directories</b>"
 msgstr "<b>Розшарені теки</b>"
 
 #: ../ui/adlsearch.ui:252
-#, fuzzy
 msgid "<b>Size Type</b>"
-msgstr "<b>Тип</b>"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:4838
 msgid "<b>Sounds</b>"
@@ -511,9 +501,8 @@ msgid "ADL Search"
 msgstr "ADL Пошук"
 
 #: ../ui/adlsearch.ui:8
-#, fuzzy
 msgid "ADLSearch Properties"
-msgstr "Властивості ADLПошуку"
+msgstr ""
 
 #: ../ui/mainwindow.ui:1477
 msgid "About EiskaltDC++"
@@ -748,9 +737,8 @@ msgid "Bold Authors of message in chat"
 msgstr "Виділяти ніки в чаті жирним"
 
 #: ../ui/settingsdialog.ui:4912
-#, fuzzy
 msgid "Browse file..."
-msgstr "Огляд..."
+msgstr ""
 
 #: ../ui/mainwindow.ui:2176
 msgid "Browse the list of public hubs"
@@ -873,9 +861,8 @@ msgid "Chose A File"
 msgstr "Виберіть файл"
 
 #: ../ui/searchspy.ui:124 ../ui/searchspy.ui:341
-#, fuzzy
 msgid "Clear"
-msgstr "Очистити"
+msgstr ""
 
 #: ../src/privatemessage.cc:998 ../ui/privatemessage.ui:30
 msgid "Clear PM"
@@ -957,9 +944,8 @@ msgid "Connect to a hub"
 msgstr "Підключитися до хабу"
 
 #: ../ui/favoriteusers.ui:204
-#, fuzzy
 msgid "Connect to hub"
-msgstr "Підключитися до хабу"
+msgstr ""
 
 #: ../src/hub.cc:1981 ../ui/hub.ui:57
 msgid "Connect to the hub"
@@ -1022,9 +1008,8 @@ msgid "DETECTION"
 msgstr "ТРАСУВАННЯ"
 
 #: ../ui/settingsdialog.ui:2492
-#, fuzzy
 msgid "DHT Port"
-msgstr "Порт"
+msgstr ""
 
 #: ../src/previewmenu.cc:89 ../src/emoticonsdialog.cc:106
 #: ../ui/settingsdialog.ui:5451 ../ui/settingsdialog.ui:6152
@@ -1096,9 +1081,8 @@ msgid "Do not close the program, hide in the system tray"
 msgstr "Не закривати програму, згортати до трею"
 
 #: ../ui/settingsdialog.ui:2650
-#, fuzzy
 msgid "Do not use unfinished downloads directory"
-msgstr "Не використовувати теку незавершених завантажень"
+msgstr ""
 
 #: ../ui/mainwindow.ui:859
 msgid "Do you really want to exit?"
@@ -1138,9 +1122,8 @@ msgid "Download"
 msgstr "Завантаження"
 
 #: ../ui/adlsearch.ui:327
-#, fuzzy
 msgid "Download Matches"
-msgstr "Завантажити Співпадіння"
+msgstr ""
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:1049
 #: ../src/settingsdialog.cc:1429 ../ui/mainwindow.ui:1194
@@ -1148,14 +1131,12 @@ msgid "Download Queue"
 msgstr "Черга завантажень"
 
 #: ../ui/privatemessage.ui:178 ../ui/search.ui:714 ../ui/hub.ui:221
-#, fuzzy
 msgid "Download _to..."
-msgstr "Завантажити _до..."
+msgstr ""
 
 #: ../ui/search.ui:728
-#, fuzzy
 msgid "Download _whole directory"
-msgstr "Завантажити _усю теку"
+msgstr ""
 
 #: ../src/transfers.cc:964
 msgid "Download complete..."
@@ -1184,19 +1165,16 @@ msgid "Download image"
 msgstr "Завантаження картинки"
 
 #: ../src/hub.cc:1920
-#, fuzzy
 msgid "Download image: disable"
-msgstr "Завантаження картинки: вимк."
+msgstr ""
 
 #: ../src/hub.cc:1922
-#, fuzzy
 msgid "Download image: unlimit"
-msgstr "Завантаження картинки: необмежено"
+msgstr ""
 
 #: ../src/hub.cc:1924
-#, fuzzy
 msgid "Download limit image: "
-msgstr "Обмеження завантаження картинки: "
+msgstr ""
 
 #: ../src/hub.cc:1987
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
@@ -1225,9 +1203,8 @@ msgid "Download to"
 msgstr "Завантажити до"
 
 #: ../ui/sharebrowser.ui:89 ../ui/sharebrowser.ui:135
-#, fuzzy
 msgid "Download to..."
-msgstr "Завантажити до..."
+msgstr ""
 
 #: ../ui/search.ui:737
 msgid "Download whole director_y to..."
@@ -1255,9 +1232,8 @@ msgid "Drop sources below"
 msgstr "Скидання якщо нижче"
 
 #: ../ui/settingsdialog.ui:2423
-#, fuzzy
 msgid "DynDNS Address"
-msgstr "Адреса"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:1138
 msgid "E-Mail"
@@ -1312,9 +1288,8 @@ msgid "Encoding"
 msgstr "Кодування"
 
 #: ../src/transfers.cc:66
-#, fuzzy
 msgid "Encryption"
-msgstr "Опис"
+msgstr ""
 
 #: ../ui/mainwindow.ui:2494
 msgid "Enter line for user command"
@@ -1371,9 +1346,8 @@ msgid "Execute code (bash)"
 msgstr "Виконати код (bash)"
 
 #: ../ui/mainwindow.ui:1982
-#, fuzzy
 msgid "Exit"
-msgstr "_Вихід"
+msgstr ""
 
 #: ../ui/mainwindow.ui:801
 msgid "Exit EiskaltDC++ Gtk?"
@@ -1388,9 +1362,8 @@ msgid "Export..."
 msgstr "Експорт..."
 
 #: ../src/settingsdialog.cc:2054
-#, fuzzy
 msgid "Extension edition"
-msgstr "Розширене видання"
+msgstr ""
 
 #: ../src/settingsdialog.cc:914 ../src/settingsdialog.cc:949
 #: ../src/settingsdialog.cc:1588 ../src/settingsdialog.cc:1729
@@ -1405,9 +1378,8 @@ msgid "External / WAN IP"
 msgstr "Зовнішній / WAN IP"
 
 #: ../ui/favoritehubs.ui:15
-#, fuzzy
 msgid "Favorite Hub Properties"
-msgstr "Властивості обраного хабу"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1313 ../src/settingsdialog.cc:1367
 #: ../src/settingsdialog.cc:1428 ../src/favoritehubs.cc:31
@@ -1417,9 +1389,8 @@ msgstr "Обрані Хаби"
 
 #: ../src/settingsdialog.cc:890 ../src/settingsdialog.cc:904
 #: ../src/settingsdialog.cc:3554
-#, fuzzy
 msgid "Favorite Name"
-msgstr "Улюблене ім'я"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1150
 msgid "Favorite User"
@@ -1476,9 +1447,8 @@ msgid "File not available"
 msgstr "Файл не доступний"
 
 #: ../ui/search.ui:327
-#, fuzzy
 msgid "File type"
-msgstr "Тип файла"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:647
 msgid "Filelist Menu"
@@ -1527,9 +1497,8 @@ msgid "Find"
 msgstr "Знайдено"
 
 #: ../ui/sharebrowser.ui:196
-#, fuzzy
 msgid "Find files"
-msgstr "Знайдено файлів"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1047 ../src/settingsdialog.cc:1315
 #: ../src/settingsdialog.cc:1389 ../src/settingsdialog.cc:1430
@@ -1854,9 +1823,8 @@ msgid "Left position"
 msgstr "Ліворуч"
 
 #: ../ui/settingsdialog.ui:2359
-#, fuzzy
 msgid "Limits"
-msgstr "<b>Обмеження</b>"
+msgstr ""
 
 #: ../src/settingsdialog.cc:873 ../src/settingsdialog.cc:3435
 #: ../src/settingsdialog.cc:3448 ../src/settingsdialog.cc:3465
@@ -1938,9 +1906,8 @@ msgid "Magnet Properties / Choice"
 msgstr "Властивості магнетів / Вибір"
 
 #: ../ui/sharebrowser.ui:423
-#, fuzzy
 msgid "Match Queue"
-msgstr "Співпадінь Черги"
+msgstr ""
 
 #: ../src/sharebrowser.cc:1056
 msgid "Matched "
@@ -1956,9 +1923,8 @@ msgstr "Макс Хабів"
 
 #: ../src/adlsearch.cc:44 ../src/adlsearch.cc:64 ../src/adlsearch.cc:115
 #: ../src/adlsearch.cc:215
-#, fuzzy
 msgid "Max Size"
-msgstr "Макс. розмір"
+msgstr ""
 
 #: ../src/publichubs.cc:50 ../src/publichubs.cc:165
 msgid "Max Users"
@@ -2010,9 +1976,8 @@ msgstr "Мін Шара"
 
 #: ../src/adlsearch.cc:43 ../src/adlsearch.cc:63 ../src/adlsearch.cc:114
 #: ../src/adlsearch.cc:214
-#, fuzzy
 msgid "Min Size"
-msgstr "Мін. розмір"
+msgstr ""
 
 #: ../src/publichubs.cc:48 ../src/publichubs.cc:163
 msgid "Min Slots"
@@ -2059,9 +2024,8 @@ msgid "Move Up"
 msgstr "Вгору"
 
 #: ../src/hub.cc:2002
-#, fuzzy
 msgid "Move rule up/down"
-msgstr "Вниз"
+msgstr ""
 
 #: ../ui/downloadqueue.ui:7
 msgid "Move to..."
@@ -2209,7 +2173,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr "Примітка: Нові файли будуть додані до шари лише після хешування!"
 
 #: ../ui/settingsdialog.ui:2830
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 "Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
 
@@ -2239,14 +2204,12 @@ msgid "Only users with free slots"
 msgstr "Тільки у користувачів з вільними слотами "
 
 #: ../ui/mainwindow.ui:972
-#, fuzzy
 msgid "Open _file list..."
-msgstr "Відкрити _список файлів..."
+msgstr ""
 
 #: ../ui/mainwindow.ui:983
-#, fuzzy
 msgid "Open _own file list"
-msgstr "Відкрити _свій список файлів"
+msgstr ""
 
 #: ../ui/finishedtransfers.ui:167
 msgid "Open containing _folder"
@@ -2286,9 +2249,8 @@ msgstr "Оператор"
 
 #: ../src/settingsdialog.cc:1317 ../src/settingsdialog.cc:1375
 #: ../ui/mainwindow.ui:2026 ../ui/mainwindow.ui:2416
-#, fuzzy
 msgid "Own file list"
-msgstr "Свій список файлів"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:536 ../ui/settingsdialog.ui:5590
 msgid "PM"
@@ -2399,9 +2361,8 @@ msgid "Private message"
 msgstr "Приватне повідомлення"
 
 #: ../ui/adlsearch.ui:466 ../ui/adlsearch.ui:544
-#, fuzzy
 msgid "Properties"
-msgstr "Властивості"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1321 ../src/settingsdialog.cc:1371
 #: ../src/settingsdialog.cc:1427 ../src/publichubs.cc:29
@@ -2449,9 +2410,8 @@ msgid "Re-_add source"
 msgstr "Знову _додати джерело"
 
 #: ../ui/mainwindow.ui:1088
-#, fuzzy
 msgid "Re_connect"
-msgstr "Пере_підключення"
+msgstr ""
 
 #: ../src/hub.cc:1984 ../ui/hub.ui:75
 msgid "Rebuild hash"
@@ -2492,9 +2452,8 @@ msgid "Remote client does not fully support TTH - cannot download"
 msgstr "Віддалений клієнт не повністю підтримує ТТН - неможливо завантажити"
 
 #: ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:7938
-#, fuzzy
 msgid "Remove"
-msgstr "Видалити"
+msgstr ""
 
 #: ../ui/finishedtransfers.ui:191
 msgid "Remove All"
@@ -2509,9 +2468,8 @@ msgid "Remove image"
 msgstr "Видалити картинку"
 
 #: ../src/hub.cc:2003
-#, fuzzy
 msgid "Remove rules from list"
-msgstr "Видалити користувача з _черги"
+msgstr ""
 
 #: ../src/settingsdialog.cc:974
 msgid "Remove slow filelists"
@@ -2522,9 +2480,8 @@ msgid "Remove user favorite"
 msgstr "Видалити користувача з обраних"
 
 #: ../ui/downloadqueue.ui:345 ../ui/search.ui:826
-#, fuzzy
 msgid "Remove user from _queue"
-msgstr "Видалити користувача з _черги"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:7924
 msgid "Rename"
@@ -2619,9 +2576,8 @@ msgstr "Виявлено пошуковий спам від "
 #: ../src/settingsdialog.cc:1586 ../src/settingsdialog.cc:1778
 #: ../src/settingsdialog.cc:1811 ../src/settingsdialog.cc:1897
 #: ../src/settingsdialog.cc:1946 ../src/settingsdialog.cc:1994
-#, fuzzy
 msgid "Search type"
-msgstr "Тип пошуку"
+msgstr ""
 
 #: ../ui/search.ui:423
 msgid "Search within local results"
@@ -2648,9 +2604,8 @@ msgid "Send PM when double clicked in the user list"
 msgstr "Відсилати ПП при подвійному кліку на користувачі у списку"
 
 #: ../ui/downloadqueue.ui:297 ../ui/search.ui:799
-#, fuzzy
 msgid "Send _private message"
-msgstr "Надіслати _приватне повідомлення"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:867
 msgid "Send once per nick"
@@ -2687,10 +2642,11 @@ msgid "Set download limit image: "
 msgstr "Вставити обмеження завантаження: "
 
 #: ../src/settingsdialog.cc:972
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
-"Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького "
-"пріоритету"
+"Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького"
+" пріоритету"
 
 #: ../ui/settingsdialog.ui:4052
 msgid "Share hidden files"
@@ -2710,9 +2666,8 @@ msgid "Show IP's' in chats"
 msgstr "Показувати ІР у чатах"
 
 #: ../ui/mainwindow.ui:1952
-#, fuzzy
 msgid "Show Interface"
-msgstr "_Показати інтерфейс"
+msgstr ""
 
 #: ../src/hub.cc:1977 ../ui/hub.ui:48
 msgid "Show favorites list"
@@ -2724,9 +2679,8 @@ msgid "Show help"
 msgstr "Показати допомогу"
 
 #: ../src/hub.cc:2001
-#, fuzzy
 msgid "Show ipfilter rules list"
-msgstr "Показати список обраних"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1023
 msgid "Show joins / parts in chat by default"
@@ -2737,9 +2691,8 @@ msgid "Show magnet dialog"
 msgstr "Показати діалог магнета"
 
 #: ../ui/finishedtransfers.ui:128
-#, fuzzy
 msgid "Show only completely finished downloads"
-msgstr "Переглянути список завантажених файлів"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:5544
 msgid "Show only when the application is not active."
@@ -2747,9 +2700,8 @@ msgstr "Показувати лише, коли програма не актив
 
 #: ../src/hub.cc:1989 ../src/privatemessage.cc:1006 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
-#, fuzzy
 msgid "Show ratio [send in chat]"
-msgstr "Показувати країну у чаті"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1020
 msgid "Show status icon in the system tray"
@@ -3001,8 +2953,8 @@ msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
-"Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/"
-"Завантаження/Черга)"
+"Для початку завантаження файлу увімкніть автопошук альтернатив "
+"(Налаштування/Завантаження/Черга)"
 
 #: ../ui/settingsdialog.ui:5914
 msgid "Toolbar"
@@ -3060,7 +3012,6 @@ msgid "Transfers::updateTransfer, CID not found %s\n"
 msgstr "Передачі::оновленняПередач, CID не знайдено %s\n"
 
 #: ../ui/mainwindow.ui:604
-#, fuzzy
 msgid ""
 "Translators\n"
 "\n"
@@ -3123,61 +3074,6 @@ msgid ""
 " Chris Leick\n"
 " (c.leick@vollbio.de)\n"
 msgstr ""
-"Перекладачі\n"
-"\n"
-" Російський переклад\n"
-"\n"
-" Uladzimir Bely\n"
-" (wiselord1983@gmail.com)\n"
-"\n"
-" Білоруський переклад\n"
-"\n"
-" Paval Shalamitski aka Klyok\n"
-" (i.kliok@gmail.com)\n"
-"\n"
-" Венгерський переклад\n"
-"\n"
-" Akos Berki aka sumo\n"
-" (husumo@gmail.com)\n"
-"\n"
-" Французький переклад\n"
-"\n"
-" Alexandre Wallimann aka Ale\n"
-" (alexandre.wallimann@gmail.com)\n"
-"\n"
-" Польський переклад\n"
-"\n"
-" Arahael\n"
-"\n"
-" Український переклад\n"
-"\n"
-" Dmytro Demenko\n"
-" (dmytro.demenko@gmail.com)\n"
-"\n"
-" Сербський переклад\n"
-"\n"
-" Miroslav Petrovic\n"
-" (miroslav031@gmail.com)\n"
-"\n"
-" Іспанський переклад\n"
-"\n"
-" Gustavo Alvarez aka sL1pKn07\n"
-" (sl1pkn07@gmail.com)\n"
-"\n"
-" Болгарський переклад\n"
-"\n"
-" Rusi Dimitrov aka PsyTrip\n"
-" (dimitrov.rusi@gmail.com)\n"
-"\n"
-" Словацький переклад\n"
-"\n"
-" Martin Durisin\n"
-" (martin.durisin@gmail.com)\n"
-"\n"
-" Чеський переклад\n"
-"\n"
-" Uhlik\n"
-" (uhlikx@seznam.cz)\n"
 
 #: ../ui/settingsdialog.ui:7695
 msgid "Trusted certificates path"
@@ -3212,8 +3108,8 @@ msgstr "Не можливо завантажити список файлів: Н
 
 #: ../src/mainwindow.cc:2133
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати "
@@ -3327,9 +3223,8 @@ msgid "Use UPnP to let client cofigure my router"
 msgstr "Використовувати UPnP, щоб налаштувати клієнт через роутер"
 
 #: ../ui/settingsdialog.ui:1873
-#, fuzzy
 msgid "Use bandwidth limits"
-msgstr "Обмежувати пропускну здатність"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1028
 msgid "Use blinking status icon"
@@ -3378,9 +3273,8 @@ msgid "User Description"
 msgstr "Опис"
 
 #: ../ui/sharebrowser.ui:109 ../ui/sharebrowser.ui:182 ../ui/transfers.ui:90
-#, fuzzy
 msgid "User commands"
-msgstr "Команди користувача"
+msgstr ""
 
 #: ../src/hub.cc:1877
 msgid "User favorite list:"
@@ -3443,8 +3337,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3453,8 +3346,7 @@ msgstr ""
 "Використовується:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та "
-"ADC протоколи.\n"
+"EiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та ADC протоколи.\n"
 "\n"
 "Ключі:\n"
 "  -h, --help\t Показати це повідомлення\n"
@@ -3482,14 +3374,12 @@ msgstr "Переглянути список відданих файлів"
 
 #: ../src/settingsdialog.cc:992 ../src/settingsdialog.cc:3603
 #: ../src/settingsdialog.cc:3672
-#, fuzzy
 msgid "Virtual Name"
-msgstr "Віртуальне Ім'я"
+msgstr ""
 
 #: ../src/settingsdialog.cc:2929
-#, fuzzy
 msgid "Virtual name"
-msgstr "Віртуальне ім'я"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:6267
 msgid "Waiting (seconds)"
@@ -3561,9 +3451,8 @@ msgid "[Z]"
 msgstr "[Z]"
 
 #: ../ui/search.ui:808 ../ui/hub.ui:578 ../ui/transfers.ui:63
-#, fuzzy
 msgid "_Add to favorites"
-msgstr "_Додати хаб до обраних"
+msgstr ""
 
 #: ../ui/favoritehubs.ui:149
 msgid "_Address:"
@@ -3571,9 +3460,8 @@ msgstr "_Адреса:"
 
 #: ../ui/downloadqueue.ui:283 ../ui/search.ui:781 ../ui/hub.ui:545
 #: ../ui/favoriteusers.ui:159 ../ui/transfers.ui:36
-#, fuzzy
 msgid "_Browse file list"
-msgstr "_Список файлів"
+msgstr ""
 
 #: ../ui/transfers.ui:145
 msgid "_Close connection"
@@ -3602,14 +3490,12 @@ msgid "_Copy picture"
 msgstr "_Копіювати картинку"
 
 #: ../ui/favoritehubs.ui:184
-#, fuzzy
 msgid "_Description:"
-msgstr "_Опис:"
+msgstr ""
 
 #: ../ui/privatemessage.ui:169 ../ui/search.ui:705 ../ui/hub.ui:212
-#, fuzzy
 msgid "_Download"
-msgstr "_Завантажити"
+msgstr ""
 
 #: ../ui/favoritehubs.ui:216
 msgid "_Encoding:"
@@ -3620,23 +3506,20 @@ msgid "_Exit"
 msgstr "_Вихід"
 
 #: ../ui/mainwindow.ui:965
-#, fuzzy
 msgid "_File"
-msgstr "_Файл"
+msgstr ""
 
 #: ../ui/transfers.ui:130
 msgid "_Force attempt"
 msgstr "_Примусово"
 
 #: ../ui/search.ui:817 ../ui/transfers.ui:72
-#, fuzzy
 msgid "_Grant extra slot"
-msgstr "_Виділити екстра слот"
+msgstr ""
 
 #: ../ui/hub.ui:602 ../ui/favoriteusers.ui:186
-#, fuzzy
 msgid "_Grant slot"
-msgstr "_Виділити слот"
+msgstr ""
 
 #: ../ui/mainwindow.ui:1403
 msgid "_Help"
@@ -3655,19 +3538,16 @@ msgid "_Lowest"
 msgstr "_Найнижчий"
 
 #: ../ui/mainwindow.ui:1024
-#, fuzzy
 msgid "_Magnet Choice"
-msgstr "_Властивості магнетів"
+msgstr ""
 
 #: ../ui/search.ui:790
-#, fuzzy
 msgid "_Match Queue"
-msgstr "_Співпадіння Черги"
+msgstr ""
 
 #: ../ui/hub.ui:554 ../ui/favoriteusers.ui:168 ../ui/transfers.ui:45
-#, fuzzy
 msgid "_Match queue"
-msgstr "_Співпадіння черги"
+msgstr ""
 
 #: ../ui/favoritehubs.ui:271
 msgid "_Mode:"
@@ -3718,9 +3598,8 @@ msgid "_Previous widget"
 msgstr "_Попередній віджет"
 
 #: ../ui/hub.ui:563 ../ui/favoriteusers.ui:177
-#, fuzzy
 msgid "_Private message"
-msgstr "_Приватне повідомлення"
+msgstr ""
 
 #: ../ui/privatemessage.ui:216 ../ui/hub.ui:259
 msgid "_Properties/Choice"
@@ -3731,9 +3610,8 @@ msgid "_Quick connect"
 msgstr "_Швидке з'єднання"
 
 #: ../ui/mainwindow.ui:995
-#, fuzzy
 msgid "_Refresh file list"
-msgstr "_Оновити список файлів"
+msgstr ""
 
 #: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
 #: ../ui/downloadqueue.ui:359 ../ui/search.ui:855 ../ui/searchspy.ui:108
@@ -3746,9 +3624,8 @@ msgid "_Remove from favorites"
 msgstr "_Видалити з обраних"
 
 #: ../ui/hub.ui:611 ../ui/favoriteusers.ui:195 ../ui/transfers.ui:81
-#, fuzzy
 msgid "_Remove user from queue"
-msgstr "_Видалити користувача з черги"
+msgstr ""
 
 #: ../ui/search.ui:585
 msgid "_Search"
@@ -3779,9 +3656,8 @@ msgid "_Tools"
 msgstr "_Інструменти"
 
 #: ../ui/favoritehubs.ui:436
-#, fuzzy
 msgid "_User Description:"
-msgstr "_Опис користувача:"
+msgstr ""
 
 #: ../ui/search.ui:835 ../ui/hub.ui:620
 msgid "_User commands"
@@ -3829,14 +3705,12 @@ msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog_uk.txt"
 
 #: ../ui/settingsdialog.ui:4872
-#, fuzzy
 msgid "in program"
-msgstr "Вийти з програми"
+msgstr ""
 
 #: ../src/hub.cc:3087
-#, fuzzy
 msgid "loading error"
-msgstr "помилка завантаження"
+msgstr ""
 
 #: ../src/transfers.cc:1106
 msgid "none"
@@ -3884,207 +3758,13 @@ msgstr "вгору/очікування/фрейм: "
 msgid "waiting..."
 msgstr "очікування..."
 
-#~ msgid ""
-#~ "Filename\n"
-#~ "Directory\n"
-#~ "Full Path"
-#~ msgstr ""
-#~ "Ім'я файлу\n"
-#~ "Тека\n"
-#~ "Повний шлях"
-
-#~ msgid ""
-#~ "B\n"
-#~ "KiB\n"
-#~ "MiB\n"
-#~ "GiB"
-#~ msgstr ""
-#~ "Б\n"
-#~ "КБ\n"
-#~ "МБ\n"
-#~ "ГБ"
-
-#~ msgid ""
-#~ "Normal\n"
-#~ "At least\n"
-#~ "At most"
-#~ msgstr ""
-#~ "Нормальний\n"
-#~ "Не менше\n"
-#~ "Не більше"
-
-#~ msgid ""
-#~ "No grouping\n"
-#~ "Filename\n"
-#~ "Path\n"
-#~ "Size\n"
-#~ "Connection\n"
-#~ "TTH\n"
-#~ "Nick\n"
-#~ "Hub\n"
-#~ "File type\n"
-#~ msgstr ""
-#~ "Не групувати\n"
-#~ "Файл\n"
-#~ "Шлях\n"
-#~ "Розмір\n"
-#~ "З'єднання\n"
-#~ "TTH\n"
-#~ "Нік\n"
-#~ "Хаб\n"
-#~ "Тип\n"
-
-#~ msgid ""
-#~ "Developers\n"
-#~ " Boris Pek (tehnick-8@mail.ru)\n"
-#~ " Eugene Petrov (dhamp@ya.ru)\n"
-#~ "\n"
-#~ "Contributors\n"
-#~ " troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/\n"
-#~ " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
-#~ msgstr ""
-#~ "Розробники\n"
-#~ " Boris Pek (tehnick-8@mail.ru)\n"
-#~ " Eugene Petrov (dhamp@ya.ru)\n"
-#~ "\n"
-#~ "Співавтори\n"
-#~ " troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/\n"
-#~ " Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/\n"
-
-#~ msgid ""
-#~ "Top\n"
-#~ "Left\n"
-#~ "Right\n"
-#~ "Bottom"
-#~ msgstr ""
-#~ "Згори\n"
-#~ "Зліва\n"
-#~ "Справа\n"
-#~ "Знизу"
-
-#~ msgid ""
-#~ "Icons\n"
-#~ "Text\n"
-#~ "Both\n"
-#~ "Both horizontal\n"
-#~ "Hidden\n"
-#~ "System default"
-#~ msgstr ""
-#~ "Іконки\n"
-#~ "Текст\n"
-#~ "Both\n"
-#~ "Both horizontal\n"
-#~ "Приховані\n"
-#~ "По замовчуванню"
-
-#~ msgid ""
-#~ "Midnight\n"
-#~ "1AM\n"
-#~ "2AM\n"
-#~ "3AM\n"
-#~ "4AM\n"
-#~ "5AM\n"
-#~ "6AM\n"
-#~ "7AM\n"
-#~ "8AM\n"
-#~ "9AM\n"
-#~ "10AM\n"
-#~ "11AM\n"
-#~ "Noon\n"
-#~ "1PM\n"
-#~ "2PM\n"
-#~ "3PM\n"
-#~ "4PM\n"
-#~ "5PM\n"
-#~ "6PM\n"
-#~ "7PM\n"
-#~ "8PM\n"
-#~ "9PM\n"
-#~ "10PM\n"
-#~ "11PM"
-#~ msgstr ""
-#~ "Midnight\n"
-#~ "1AM\n"
-#~ "2AM\n"
-#~ "3AM\n"
-#~ "4AM\n"
-#~ "5AM\n"
-#~ "6AM\n"
-#~ "7AM\n"
-#~ "8AM\n"
-#~ "9AM\n"
-#~ "10AM\n"
-#~ "11AM\n"
-#~ "Noon\n"
-#~ "1PM\n"
-#~ "2PM\n"
-#~ "3PM\n"
-#~ "4PM\n"
-#~ "5PM\n"
-#~ "6PM\n"
-#~ "7PM\n"
-#~ "8PM\n"
-#~ "9PM\n"
-#~ "10PM\n"
-#~ "11PM"
-
-#~ msgid ""
-#~ "Bandwidth\n"
-#~ "Limiting"
-#~ msgstr ""
-#~ "Обмеження\n"
-#~ "Пропуску"
-
 #~ msgid "Searching too soon, retry in "
-#~ msgstr "Надто часті запити, спробуйте через "
+#~ msgstr "Searching too soon, retry in "
 
-#, fuzzy
 #~ msgid " s"
-#~ msgstr "с"
+#~ msgstr "s"
 
-#~ msgid "Change core setting "
-#~ msgstr "Вибрати налаштування ядра"
+#~ msgid "No use temp directory"
+#~ msgstr "Choose a directory"
 
-#~ msgid "gtk-cancel"
-#~ msgstr "gtk-cancel"
 
-#~ msgid "gtk-ok"
-#~ msgstr "gtk-ok"
-
-#~ msgid "gtk-open"
-#~ msgstr "gtk-open"
-
-#~ msgid "gtk-help"
-#~ msgstr "gtk-help"
-
-#~ msgid "gtk-apply"
-#~ msgstr "gtk-apply"
-
-#~ msgid "gtk-edit"
-#~ msgstr "gtk-edit"
-
-#~ msgid "Small toolbar"
-#~ msgstr "Панель інструментів"
-
-#~ msgid "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog.txt"
-#~ msgstr "http://eiskaltdc.googlecode.com/svn/branches/trunk/ChangeLog_uk.txt"
-
-#~ msgid ""
-#~ "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
-#~ "\n"
-#~ "EiskaltDC++ version: %s - %s (%s)\n"
-#~ "DC++ core version: %s"
-#~ msgstr ""
-#~ "Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n"
-#~ "\n"
-#~ "EiskaltDC++ версія: %s - %s (%s)\n"
-#~ "DC++ версія ядра: %s"
-
-#~ msgid "sh"
-#~ msgstr "sh"
-
-#~ msgid "luafile"
-#~ msgstr "lua-файл"
-
-#~ msgid "Hub: "
-#~ msgstr "Хаб: "

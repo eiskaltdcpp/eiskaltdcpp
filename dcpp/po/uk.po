@@ -1,22 +1,22 @@
-# Ukrainian translations for the DC++ package.
-# Copyright (C) 2008 The translators
-# This file is distributed under the same license as the DC++ package.
+# English translations for work package.
+# Copyright (C) 2010 EiskaltDC++\ team
+# This file is distributed under the same license as the work package.
+# 
+# Translators:
 #  <mayteks@users.sourceforge.net>, 2008.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: dcpp\n"
+"Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2008-05-04 16:18+0000\n"
-"Last-Translator: Dmytro Demenko <dmytro.demenko@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2011-11-25 11:36+0000\n"
+"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -87,25 +87,22 @@ msgid "Unable to create thread"
 msgstr "Неможливо створити потік"
 
 #: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
-#, fuzzy
 msgid "Invalid data"
-msgstr "Невірні дані"
+msgstr ""
 
 #: ../UserConnection.cpp:58
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Дані не в UTF-8 у ADC з'єднанні"
 
 #: ../ConnectivityManager.cpp:78
-#, fuzzy
 msgid "Determining the best connectivity settings..."
-msgstr "Визначення типу з'єднання..."
+msgstr ""
 
 #: ../ConnectivityManager.cpp:83
-#, fuzzy
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
-"Неможливо відкрити порт(и) %1%. Вам необхідно налаштувати підключення вручну"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -131,19 +128,16 @@ msgstr ""
 "встановити своє підключення вручну для кращого зв'язку"
 
 #: ../ConnectivityManager.cpp:140
-#, fuzzy
 msgid "Transfer (TCP)"
-msgstr " Порт передачі (%1% TCP)"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:146
-#, fuzzy
 msgid "Search (UDP)"
-msgstr " Порт для пошуку (%1% UDP)"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:152
-#, fuzzy
 msgid "DHT (UDP)"
-msgstr " DHT Порт (%1% UDP)"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:167
 msgid "Connectivity: "
@@ -378,9 +372,8 @@ msgid " Search Port (%1% UDP)"
 msgstr " Порт для пошуку (%1% UDP)"
 
 #: ../UPnPManager.cpp:100
-#, fuzzy
 msgid " DHT Port (%1% UDP)"
-msgstr " DHT Порт (%1% UDP)"
+msgstr ""
 
 #: ../UPnPManager.cpp:107
 msgid ""
@@ -399,14 +392,12 @@ msgid "Failed to create port mappings"
 msgstr "Неможливо створити перенаправлення портів"
 
 #: ../UPnPManager.cpp:137
-#, fuzzy
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Успішно видалено відображення портів з %1% iнтерфейсу"
+msgstr ""
 
 #: ../UPnPManager.cpp:138
-#, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Не вдалося видалити відображення портів з %1% iнтерфейсу"
+msgstr ""
 
 #: ../UPnPManager.cpp:143
 msgid "UPnP: %1%"
@@ -417,9 +408,8 @@ msgid "No directory specified"
 msgstr "Папка не вказана"
 
 #: ../ShareManager.cpp:450
-#, fuzzy
 msgid "Directory is hidden"
-msgstr "Директорія прихована"
+msgstr ""
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
@@ -446,8 +436,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Виконується оновлення списку файлів, будь ласка, зачекайте закінчення перед "
 "спробою оновити знов"
@@ -647,14 +637,12 @@ msgid "You're trying to download from yourself!"
 msgstr "Ви намагаєтесь завантажити у себе!"
 
 #: ../QueueManager.cpp:802
-#, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
-msgstr "Файл з іншим коренем TTH уже існує в черзі"
+msgstr ""
 
 #: ../QueueManager.cpp:806
-#, fuzzy
 msgid "This file has already finished downloading"
-msgstr "Цей файл вже завантажено"
+msgstr ""
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
@@ -669,9 +657,8 @@ msgstr ""
 "завантаження за вмовчуванням)"
 
 #: ../QueueManager.cpp:864
-#, fuzzy
 msgid "File already exists at the target location"
-msgstr "Файл вже існує в папці призначення"
+msgstr ""
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
@@ -713,14 +700,7 @@ msgstr "Записано більше байтів ніж потрібно"
 msgid "TTH inconsistency"
 msgstr "Незбіг TTH"
 
-#~ msgid "Hashing file: %1% (Size: %2%)"
-#~ msgstr "Хешується файл: %1% (Розмір: %2%)"
-
-#~ msgid "TCP/TLS"
-#~ msgstr "TCP/TLS"
-
-#~ msgid "UDP"
-#~ msgstr "UDP"
-
 #~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Запит пошуку поза областю даних"
+#~ msgstr "Request to seek beyond the end of data"
+
+

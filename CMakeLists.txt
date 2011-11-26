@@ -463,7 +463,7 @@ list (APPEND AllLanguages
             hu
             pl
             ru
-            sr
+            sr@latin
             sk
             uk
             )

@@ -1,22 +1,22 @@
-# Czech translation for dcplusplus
-# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
-# This file is distributed under the same license as the dcplusplus package.
+# English translations for work package.
+# Copyright (C) 2010 EiskaltDC++\ team
+# This file is distributed under the same license as the work package.
+# 
+# Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: dcplusplus\n"
+"Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2008-04-26 10:35+0000\n"
-"Last-Translator: Stary <Unknown>\n"
-"Language-Team: Czech <cs@li.org>\n"
-"Language: cs\n"
+"PO-Revision-Date: 2011-11-25 12:15+0000\n"
+"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"Language-Team: Czech (http://www.transifex.net/projects/p/eiskaltdcpp/team/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-05 15:21+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -86,9 +86,8 @@ msgid "Unable to create thread"
 msgstr "Nepodařilo se vytvořit připojení"
 
 #: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
-#, fuzzy
 msgid "Invalid data"
-msgstr "Neplatná velikost"
+msgstr ""
 
 #: ../UserConnection.cpp:58
 msgid "Non-UTF-8 data in an ADC connection"
@@ -100,7 +99,8 @@ msgstr ""
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:93
@@ -133,9 +133,8 @@ msgid "DHT (UDP)"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:167
-#, fuzzy
 msgid "Connectivity: "
-msgstr "Spojení ukončeno"
+msgstr ""
 
 #: ../UploadManager.cpp:238
 msgid "Unable to send file %1%: %2%"
@@ -297,14 +296,12 @@ msgid "Hashing failed: %1%"
 msgstr "Hashování selhalo: %1%"
 
 #: ../HashManager.cpp:94
-#, fuzzy
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Dokončeno hashování: %1% (%2%/s)"
+msgstr ""
 
 #: ../HashManager.cpp:97
-#, fuzzy
 msgid "Finished hashing: %1% (%2%)"
-msgstr "Dokončeno hashování: %1% (%2%/s)"
+msgstr ""
 
 #: ../HashManager.cpp:100
 msgid "Finished hashing: %1%"
@@ -338,18 +335,16 @@ msgid "Error hashing %1%: %2%"
 msgstr "Chyba hashování %1%: %2%"
 
 #: ../UPnPManager.cpp:45
-#, fuzzy
 msgid "No UPnP implementation available"
-msgstr "Nejsou volné žádné sloty"
+msgstr ""
 
 #: ../UPnPManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
 #: ../UPnPManager.cpp:81
-#, fuzzy
 msgid "Failed to initialize the %1% interface"
-msgstr "Nepodařilo se vytvořit připojení"
+msgstr ""
 
 #: ../UPnPManager.cpp:85
 msgid " Transfer Port (%1% TCP)"
@@ -383,19 +378,16 @@ msgid "Failed to get external IP"
 msgstr ""
 
 #: ../UPnPManager.cpp:128
-#, fuzzy
 msgid "Failed to create port mappings"
-msgstr "Nepodařilo se vytvořit připojení"
+msgstr ""
 
 #: ../UPnPManager.cpp:137
-#, fuzzy
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Nepodařilo se vytvořit připojení"
+msgstr ""
 
 #: ../UPnPManager.cpp:138
-#, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Nepodařilo se vytvořit připojení"
+msgstr ""
 
 #: ../UPnPManager.cpp:143
 msgid "UPnP: %1%"
@@ -406,9 +398,8 @@ msgid "No directory specified"
 msgstr "Nebyl zvolen adresář"
 
 #: ../ShareManager.cpp:450
-#, fuzzy
 msgid "Directory is hidden"
-msgstr "Složka je již sdílena"
+msgstr ""
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
@@ -419,27 +410,23 @@ msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
 
 #: ../ShareManager.cpp:660
-#, fuzzy
 msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr "Hashování selhalo: %1%"
+msgstr ""
 
 #: ../ShareManager.cpp:681
-#, fuzzy
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr "Hashování selhalo: %1%"
+msgstr ""
 
 #: ../ShareManager.cpp:769
-#, fuzzy
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"Duplicitní soubor nebude sdílen: %1%%2% (Velikost: %3% B) Duplicita s: %4%%5%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr "Probíhá obnovení seznamu souborů, prosím počkejte"
 
 #: ../ShareManager.cpp:811
@@ -455,9 +442,8 @@ msgid "File list refresh finished"
 msgstr "Obnovení seznamu souborů dokončeno"
 
 #: ../ShareManager.cpp:940
-#, fuzzy
 msgid "File list %1% generated"
-msgstr "Zahájení obnovení seznamu souborů"
+msgstr ""
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -488,14 +474,12 @@ msgid "No private key file chosen"
 msgstr ""
 
 #: ../CryptoManager.cpp:137
-#, fuzzy
 msgid "No certificate file chosen"
-msgstr "TLS zakázáno, chybí certifikát"
+msgstr ""
 
 #: ../CryptoManager.cpp:149
-#, fuzzy
 msgid "Error generating certificate"
-msgstr "Vygenerovaný nový TLS certifikát"
+msgstr ""
 
 #: ../CryptoManager.cpp:212
 msgid "TLS disabled, no certificate file set"
@@ -556,14 +540,12 @@ msgid "All download slots taken"
 msgstr "Všechny download sloty jsou obsazené"
 
 #: ../ConnectionManager.cpp:248
-#, fuzzy
 msgid "Connectivity restored"
-msgstr "Spojení ukončeno"
+msgstr ""
 
 #: ../ConnectionManager.cpp:256
-#, fuzzy
 msgid "Connectivity error: %1%"
-msgstr "Spojení ukončeno"
+msgstr ""
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -594,9 +576,8 @@ msgid "Video"
 msgstr ""
 
 #: ../SearchManager.cpp:43
-#, fuzzy
 msgid "Directory"
-msgstr "Složka je již sdílena"
+msgstr ""
 
 #: ../SearchManager.cpp:44
 msgid "TTH"
@@ -611,9 +592,8 @@ msgid "Search enabled again"
 msgstr ""
 
 #: ../SearchManager.cpp:158
-#, fuzzy
 msgid "Search disabled: %1%"
-msgstr "Hashování selhalo: %1%"
+msgstr ""
 
 #: ../QueueManager.cpp:243
 msgid "No needed part"
@@ -636,23 +616,20 @@ msgid "A file with a different size already exists in the queue"
 msgstr "Stejný soubor s jinou velikostí již je ve frontě"
 
 #: ../QueueManager.cpp:727
-#, fuzzy
 msgid "A file with different tth root already exists in the queue"
-msgstr "Stejný soubor s jiným tth indexem (tth root) je již ve frontě"
+msgstr ""
 
 #: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
 msgstr "Snažíte se stahovat od sebe!"
 
 #: ../QueueManager.cpp:802
-#, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
-msgstr "Stejný soubor s jiným tth indexem (tth root) je již ve frontě"
+msgstr ""
 
 #: ../QueueManager.cpp:806
-#, fuzzy
 msgid "This file has already finished downloading"
-msgstr "Tento soubor je již ve frontě"
+msgstr ""
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
@@ -663,14 +640,12 @@ msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
 msgstr ""
-"Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro "
-"stáhnuté soubory)"
+"Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro"
+" stáhnuté soubory)"
 
 #: ../QueueManager.cpp:864
-#, fuzzy
 msgid "File already exists at the target location"
 msgstr ""
-"Soubor se stejnou nebo vetsi velikosti je uz na miste kam chcete stahovat"
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
@@ -681,9 +656,8 @@ msgid "Target removed"
 msgstr "Cíl odebrán"
 
 #: ../QueueManager.cpp:1157
-#, fuzzy
 msgid "Target file is missing or wrong size"
-msgstr "Cílové jméno souboru je příliš dlouhé"
+msgstr ""
 
 #: ../QueueManager.cpp:1206
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
@@ -698,35 +672,22 @@ msgid "Unable to open filelist: %1%"
 msgstr "Nemohu otevřít seznam souborů: %1%"
 
 #: ../QueueManager.cpp:1430
-#, fuzzy
 msgid "%1%: Matched %2% file"
-msgstr "%1% byl vykopnut: %2%"
+msgstr ""
 
 #: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 nesuhlasí (SFV kontrola)"
 
 #: ../Streams.h:144
-#, fuzzy
 msgid "More bytes written than requested"
-msgstr "Bylo odoslane vic dat nez bylo ocekavane"
+msgstr ""
 
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "TTH nesouhlasí"
 
 #~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Požadavek o hledání mimo rozsah dat"
+#~ msgstr "Request to seek beyond the end of data"
 
-#~ msgid "Directory already shared"
-#~ msgstr "Složka je již sdílena"
 
-#~ msgid "Remove all subdirectories before adding this one"
-#~ msgstr "Odstraňte všechny podadresáře, než přidáte tento"
-
-#~ msgid "uploaded to"
-#~ msgstr "odesláno do"
-
-#~ msgid "A file of equal or larger size already exists at the target location"
-#~ msgstr ""
-#~ "Soubor se stejnou nebo vetsi velikosti je uz na miste kam chcete stahovat"

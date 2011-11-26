@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: work 2\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-22 01:46+0300\n"
+"POT-Creation-Date: 2011-11-26 22:59+0200\n"
 "PO-Revision-Date: 2010-07-30 00:20+0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/hub.cc:1037 ../src/hub.cc:1116 ../src/privatemessage.cc:550
-#: ../src/privatemessage.cc:629
+#: ../src/hub.cc:1054 ../src/hub.cc:1133 ../src/privatemessage.cc:562
+#: ../src/privatemessage.cc:641
 msgid " *** Emoticons limit"
 msgstr " *** Emoticons limit"
 
-#: ../src/hub.cc:1032 ../src/privatemessage.cc:545
+#: ../src/hub.cc:1049 ../src/privatemessage.cc:557
 msgid " *** Emoticons mode off"
 msgstr " *** Emoticons mode off"
 
-#: ../src/hub.cc:1027 ../src/privatemessage.cc:540
+#: ../src/hub.cc:1044 ../src/privatemessage.cc:552
 msgid " *** Emoticons not loaded"
 msgstr " *** Emoticons not loaded"
 
@@ -34,19 +34,19 @@ msgstr " *** Emoticons not loaded"
 msgid " + system icons"
 msgstr " + system icons"
 
-#: ../src/hub.cc:438 ../src/hub.cc:456
+#: ../src/hub.cc:446 ../src/hub.cc:464
 msgid " Users"
 msgstr " Users"
 
-#: ../src/hub.cc:2720
+#: ../src/hub.cc:2761
 msgid " added to favorites list"
 msgstr " added to favorites list"
 
-#: ../src/search.cc:1844
+#: ../src/search.cc:1851
 msgid " dropped"
 msgstr " dropped"
 
-#: ../src/hub.cc:1877
+#: ../src/hub.cc:1918
 msgid " empty..."
 msgstr " empty..."
 
@@ -54,35 +54,35 @@ msgstr " empty..."
 msgid " files"
 msgstr " files"
 
-#: ../src/search.cc:1831
+#: ../src/search.cc:1838
 msgid " filtered"
 msgstr " filtered"
 
-#: ../src/hub.cc:421 ../src/hub.cc:432
+#: ../src/hub.cc:429 ../src/hub.cc:440
 msgid " has joined"
 msgstr " has joined"
 
-#: ../src/hub.cc:422 ../src/hub.cc:431
+#: ../src/hub.cc:430 ../src/hub.cc:439
 msgid " has joined hub "
 msgstr " has joined hub "
 
-#: ../src/hub.cc:463 ../src/hub.cc:473
+#: ../src/hub.cc:471 ../src/hub.cc:481
 msgid " has quit"
 msgstr " has quit"
 
-#: ../src/hub.cc:462 ../src/hub.cc:472
+#: ../src/hub.cc:470 ../src/hub.cc:480
 msgid " has quit hub "
 msgstr " has quit hub "
 
-#: ../src/hub.cc:1850 ../src/hub.cc:2652 ../src/privatemessage.cc:1338
+#: ../src/hub.cc:1891 ../src/hub.cc:2693 ../src/privatemessage.cc:1385
 msgid " is favorite user"
 msgstr " is favorite user"
 
-#: ../src/hub.cc:1868 ../src/hub.cc:2691 ../src/privatemessage.cc:1359
+#: ../src/hub.cc:1909 ../src/hub.cc:2732 ../src/privatemessage.cc:1406
 msgid " is not favorite user"
 msgstr " is not favorite user"
 
-#: ../src/search.cc:625
+#: ../src/search.cc:632
 msgid " items"
 msgstr " items"
 
@@ -94,15 +94,15 @@ msgstr " left"
 msgid " of "
 msgstr " of "
 
-#: ../src/hub.cc:2747
+#: ../src/hub.cc:2788
 msgid " removed from favorites list"
 msgstr " removed from favorites list"
 
-#: ../src/settingsmanager.cc:514
+#: ../src/settingsmanager.cc:515
 msgid " to "
 msgstr ""
 
-#: ../src/transfers.cc:582 ../src/search.cc:665
+#: ../src/transfers.cc:582 ../src/search.cc:672
 msgid " user(s)"
 msgstr " user(s)"
 
@@ -118,7 +118,7 @@ msgstr " users"
 msgid "%) from "
 msgstr "%) from "
 
-#: ../ui/settingsdialog.ui:4515
+#: ../ui/settingsdialog.ui:4516
 msgid ""
 "%a abbreviated weekday name.\n"
 "%b abbreviated month name.\n"
@@ -130,11 +130,11 @@ msgid ""
 "see man strftime for details."
 msgstr ""
 
-#: ../src/hub.cc:2299
+#: ../src/hub.cc:2340
 msgid "': type /help for a list of available commands"
 msgstr "': type /help for a list of available commands"
 
-#: ../src/hub.cc:1969 ../src/privatemessage.cc:995
+#: ../src/hub.cc:2010 ../src/privatemessage.cc:1016
 msgid "*** Available commands:"
 msgstr "*** Available commands:"
 
@@ -143,7 +143,7 @@ msgid "*** T E S T ***"
 msgstr "*** T E S T ***"
 
 #: ../src/settingsdialog.cc:1359 ../ui/mainwindow.ui:251
-#: ../ui/mainwindow.ui:2334 ../ui/mainwindow.ui:2352
+#: ../ui/mainwindow.ui:2433 ../ui/mainwindow.ui:2451
 msgid "+/-"
 msgstr ""
 
@@ -164,54 +164,54 @@ msgstr "...must not be empty"
 msgid "0 B (0.00%)"
 msgstr ""
 
-#: ../src/hub.cc:502
+#: ../src/hub.cc:510
 msgid "0 Users"
 msgstr "0 Users"
 
-#: ../src/search.cc:539
+#: ../src/search.cc:543
 msgid "0 filtered"
 msgstr "0 filtered"
 
-#: ../src/search.cc:538
+#: ../src/search.cc:542
 msgid "0 items"
 msgstr "0 items"
 
-#: ../src/privatemessage.cc:1011
+#: ../src/privatemessage.cc:1032
 msgid ": type /help for a list of available commands"
 msgstr ": type /help for a list of available commands"
 
-#: ../ui/settingsdialog.ui:6779
+#: ../ui/settingsdialog.ui:6780
 msgid ""
 "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
 "\">Help</a>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3862
+#: ../ui/settingsdialog.ui:3863
 #, fuzzy
 msgid "<b>Add player</b>"
 msgstr "<b>file:</b> "
 
-#: ../ui/settingsdialog.ui:3654
+#: ../ui/settingsdialog.ui:3655
 msgid "<b>Auto-drop settings</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4694
+#: ../ui/settingsdialog.ui:4695
 msgid "<b>Auto-open on startup</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3332
+#: ../ui/settingsdialog.ui:3333
 msgid "<b>Auto-priority settings</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5045
+#: ../ui/settingsdialog.ui:5046
 msgid "<b>Available styles</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7742
+#: ../ui/settingsdialog.ui:7743
 msgid "<b>Certificate Paths</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6177
+#: ../ui/settingsdialog.ui:6178
 #, fuzzy
 msgid "<b>Colors</b>"
 msgstr "<b>file:</b> "
@@ -220,7 +220,7 @@ msgstr "<b>file:</b> "
 msgid "<b>Command Type</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4780
+#: ../ui/settingsdialog.ui:4781
 msgid "<b>Confirmation Dialog Options</b>"
 msgstr ""
 
@@ -232,11 +232,11 @@ msgstr ""
 msgid "<b>Context</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5720
+#: ../ui/settingsdialog.ui:5721
 msgid "<b>Current theme name:</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4490
+#: ../ui/settingsdialog.ui:4491
 msgid "<b>Default away message</b>"
 msgstr ""
 
@@ -250,11 +250,11 @@ msgstr "Description"
 msgid "<b>Destination Directory</b>"
 msgstr "Description"
 
-#: ../ui/settingsdialog.ui:2724
+#: ../ui/settingsdialog.ui:2725
 msgid "<b>Directories</b>"
 msgstr ""
 
-#: ../src/hub.cc:575
+#: ../src/hub.cc:586
 msgid "<b>Enter your password</b>"
 msgstr "<b>Enter your password</b>"
 
@@ -263,7 +263,7 @@ msgstr "<b>Enter your password</b>"
 msgid "<b>Extension</b>"
 msgstr "Description"
 
-#: ../ui/settingsdialog.ui:3089
+#: ../ui/settingsdialog.ui:3090
 msgid "<b>Favorite download to directories</b>"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr ""
 msgid "<b>Filter</b>"
 msgstr "<b>file:</b> "
 
-#: ../ui/settingsdialog.ui:6368
+#: ../ui/settingsdialog.ui:6369
 #, fuzzy
 msgid "<b>Frame</b>"
 msgstr "<b>file:</b> "
@@ -286,12 +286,12 @@ msgstr ""
 msgid "<b>Hub</b>"
 msgstr "<b>file:</b> "
 
-#: ../ui/settingsdialog.ui:5355
+#: ../ui/settingsdialog.ui:5356
 #, fuzzy
 msgid "<b>Icon size</b>"
 msgstr "Icon size"
 
-#: ../ui/settingsdialog.ui:5656
+#: ../ui/settingsdialog.ui:5657
 msgid "<b>Icons</b>"
 msgstr ""
 
@@ -299,16 +299,16 @@ msgstr ""
 msgid "<b>Identification</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1575
+#: ../ui/settingsdialog.ui:1576
 msgid "<b>Incoming connection settings</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2844
+#: ../ui/settingsdialog.ui:2845
 #, fuzzy
 msgid "<b>Limits</b>"
 msgstr "<b>file:</b> "
 
-#: ../ui/settingsdialog.ui:6795
+#: ../ui/settingsdialog.ui:6796
 msgid "<b>Logging</b>"
 msgstr ""
 
@@ -317,7 +317,7 @@ msgstr ""
 msgid "<b>Magnet properties</b>"
 msgstr "Magnet Properties / Choice"
 
-#: ../ui/settingsdialog.ui:4437
+#: ../ui/settingsdialog.ui:4438
 msgid "<b>Main Toolbar Style</b>"
 msgstr ""
 
@@ -345,28 +345,28 @@ msgstr ""
 msgid "<b>New name</b>"
 msgstr "<b>file:</b> "
 
-#: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8722
+#: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8723
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5277
+#: ../ui/settingsdialog.ui:5278
 #, fuzzy
 msgid "<b>Notify</b>"
 msgstr "Notify"
 
-#: ../ui/settingsdialog.ui:4327
+#: ../ui/settingsdialog.ui:4328
 msgid "<b>Options</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7784
+#: ../ui/settingsdialog.ui:7785
 msgid "<b>Other Security Options</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3692
+#: ../ui/settingsdialog.ui:3693
 msgid "<b>Other queue options</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1839
+#: ../ui/settingsdialog.ui:1840
 msgid "<b>Outgoing connection settings</b>"
 msgstr ""
 
@@ -374,24 +374,24 @@ msgstr ""
 msgid "<b>Parameters</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1211
+#: ../ui/settingsdialog.ui:1212
 msgid "<b>Personal Information</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3749
+#: ../ui/settingsdialog.ui:3750
 msgid "<b>Players list</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5081
+#: ../ui/settingsdialog.ui:5082
 msgid "<b>Preview styles</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4977
+#: ../ui/settingsdialog.ui:4978
 #, fuzzy
 msgid "<b>Private message sound</b>"
 msgstr "Private message"
 
-#: ../ui/settingsdialog.ui:5570
+#: ../ui/settingsdialog.ui:5571
 #, fuzzy
 msgid "<b>Private message</b>"
 msgstr "Private message"
@@ -401,7 +401,7 @@ msgstr "Private message"
 msgid "<b>Processing file:</b>"
 msgstr "<b>file:</b> "
 
-#: ../ui/settingsdialog.ui:2964
+#: ../ui/settingsdialog.ui:2965
 #, fuzzy
 msgid "<b>Public Hubs list</b>"
 msgstr "Public Hubs"
@@ -411,20 +411,20 @@ msgstr "Public Hubs"
 msgid "<b>Search String</b>"
 msgstr "Search String"
 
-#: ../ui/settingsdialog.ui:7990
+#: ../ui/settingsdialog.ui:7991
 #, fuzzy
 msgid "<b>Search types</b>"
 msgstr "Timestamp"
 
-#: ../ui/settingsdialog.ui:2132
+#: ../ui/settingsdialog.ui:2133
 msgid "<b>Secondary Transfer Rate Limiting</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2324
+#: ../ui/settingsdialog.ui:2325
 msgid "<b>Secondary Transfer Rate Settings</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4132
+#: ../ui/settingsdialog.ui:4133
 msgid "<b>Shared directories</b>"
 msgstr ""
 
@@ -433,7 +433,7 @@ msgstr ""
 msgid "<b>Size Type</b>"
 msgstr "Timestamp"
 
-#: ../ui/settingsdialog.ui:4838
+#: ../ui/settingsdialog.ui:4839
 #, fuzzy
 msgid "<b>Sounds</b>"
 msgstr "Sounds"
@@ -447,11 +447,11 @@ msgstr "Timestamp"
 msgid "<b>Statistics</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4385
+#: ../ui/settingsdialog.ui:4386
 msgid "<b>Tab Position</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4616
+#: ../ui/settingsdialog.ui:4617
 msgid "<b>Tab bolding on content change</b>"
 msgstr ""
 
@@ -459,25 +459,25 @@ msgstr ""
 msgid "<b>Text sent to hub</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5692
+#: ../ui/settingsdialog.ui:5693
 msgid "<b>Text styles</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4540
+#: ../ui/settingsdialog.ui:4541
 #, fuzzy
 msgid "<b>Timestamps</b>"
 msgstr "Timestamp"
 
-#: ../ui/settingsdialog.ui:5322
+#: ../ui/settingsdialog.ui:5323
 #, fuzzy
 msgid "<b>Title</b>"
 msgstr "<b>file:</b> "
 
-#: ../ui/settingsdialog.ui:5894
+#: ../ui/settingsdialog.ui:5895
 msgid "<b>Toolbar buttons</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2013
+#: ../ui/settingsdialog.ui:2014
 msgid "<b>Transfer Rate Limiting</b>"
 msgstr ""
 
@@ -489,11 +489,11 @@ msgstr ""
 msgid "<b>What would you like to do?</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4737
+#: ../ui/settingsdialog.ui:4738
 msgid "<b>Window Options</b>"
 msgstr ""
 
-#: ../src/mainwindow.cc:2186
+#: ../src/mainwindow.cc:2232
 msgid "<b>file:</b> "
 msgstr "<b>file:</b> "
 
@@ -505,11 +505,11 @@ msgstr ""
 msgid "?"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2265 ../ui/mainwindow.ui:2448
+#: ../ui/mainwindow.ui:2364 ../ui/mainwindow.ui:2547
 msgid "ADL"
 msgstr ""
 
-#: ../src/adlsearch.cc:31 ../ui/mainwindow.ui:2262
+#: ../src/adlsearch.cc:31 ../ui/mainwindow.ui:2362
 #, fuzzy
 msgid "ADL Search"
 msgstr "Search"
@@ -519,7 +519,7 @@ msgstr "Search"
 msgid "ADLSearch Properties"
 msgstr "Search String"
 
-#: ../ui/mainwindow.ui:1477
+#: ../ui/mainwindow.ui:1686
 msgid "About EiskaltDC++"
 msgstr ""
 
@@ -527,20 +527,20 @@ msgstr ""
 msgid "Accept custom user commands from hub"
 msgstr "Accept custom user commands from hub"
 
-#: ../ui/settingsdialog.ui:1431
+#: ../ui/settingsdialog.ui:1432
 msgid "Active"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7896
+#: ../ui/settingsdialog.ui:7897
 #, fuzzy
 msgid "Add"
 msgstr "Added"
 
-#: ../ui/mainwindow.ui:2331
+#: ../ui/mainwindow.ui:2431
 msgid "Add / Remove"
 msgstr ""
 
-#: ../src/hub.cc:1974 ../ui/hub.ui:39
+#: ../src/hub.cc:2015 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
 msgstr "Add a hub to favorites"
 
@@ -548,7 +548,7 @@ msgstr "Add a hub to favorites"
 msgid "Add finished files to share instantly (if shared)"
 msgstr "Add finished files to share instantly (if shared)"
 
-#: ../src/hub.cc:2004
+#: ../src/hub.cc:2045
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
@@ -558,12 +558,17 @@ msgstr ""
 msgid "Add this file to your download queue"
 msgstr ""
 
+#: ../ui/uploadqueue.ui:60
+#, fuzzy
+msgid "Add to Favorite Users"
+msgstr "Add a hub to favorites"
+
 #: ../ui/publichubs.ui:418
 #, fuzzy
 msgid "Add to favorites"
 msgstr "Add a hub to favorites"
 
-#: ../src/hub.cc:1975 ../src/privatemessage.cc:1000 ../ui/privatemessage.ui:48
+#: ../src/hub.cc:2016 ../src/privatemessage.cc:1021 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
 msgstr "Add user to favorites list"
 
@@ -576,42 +581,42 @@ msgstr ""
 msgid "Added"
 msgstr "Added"
 
-#: ../ui/settingsdialog.ui:6003
+#: ../ui/settingsdialog.ui:6004
 msgid "Adding string or TTH in the top"
 msgstr ""
 
-#: ../src/favoritehubs.cc:59 ../src/favoritehubs.cc:135
-#: ../src/favoritehubs.cc:149 ../src/favoritehubs.cc:222
-#: ../src/favoritehubs.cc:244 ../src/favoritehubs.cc:297
-#: ../src/favoritehubs.cc:311 ../src/favoritehubs.cc:443
-#: ../src/favoritehubs.cc:458 ../src/favoritehubs.cc:469
+#: ../src/favoritehubs.cc:59 ../src/favoritehubs.cc:139
+#: ../src/favoritehubs.cc:153 ../src/favoritehubs.cc:226
+#: ../src/favoritehubs.cc:248 ../src/favoritehubs.cc:301
+#: ../src/favoritehubs.cc:315 ../src/favoritehubs.cc:447
+#: ../src/favoritehubs.cc:462 ../src/favoritehubs.cc:473
 #: ../src/publichubs.cc:44 ../src/publichubs.cc:159 ../src/publichubs.cc:269
 #: ../src/publichubs.cc:294
 msgid "Address"
 msgstr "Address"
 
-#: ../ui/settingsdialog.ui:2552 ../ui/settingsdialog.ui:6860
-#: ../ui/settingsdialog.ui:7849
+#: ../ui/settingsdialog.ui:2553 ../ui/settingsdialog.ui:6861
+#: ../ui/settingsdialog.ui:7850
 msgid "Advanced"
 msgstr ""
 
-#: ../src/hub.cc:1999
+#: ../src/hub.cc:2040
 msgid "Alias A executing"
 msgstr ""
 
-#: ../src/hub.cc:1996
+#: ../src/hub.cc:2037
 msgid "Alias List"
 msgstr ""
 
-#: ../src/hub.cc:1997
+#: ../src/hub.cc:2038
 msgid "Alias Remove A"
 msgstr ""
 
-#: ../src/hub.cc:1998
+#: ../src/hub.cc:2039
 msgid "Alias add uname -a as A"
 msgstr ""
 
-#: ../src/hub.cc:2198
+#: ../src/hub.cc:2239
 #, fuzzy
 msgid "Aliases not found."
 msgstr "User not found"
@@ -632,7 +637,7 @@ msgstr ""
 msgid "Amarok player"
 msgstr "Amarok player"
 
-#: ../ui/settingsdialog.ui:4578 ../ui/settingsdialog.ui:6411
+#: ../ui/settingsdialog.ui:4579 ../ui/settingsdialog.ui:6412
 msgid "Appearance"
 msgstr ""
 
@@ -642,7 +647,7 @@ msgstr ""
 msgid "Application"
 msgstr "Application"
 
-#: ../ui/settingsdialog.ui:3805
+#: ../ui/settingsdialog.ui:3806
 #, fuzzy
 msgid "Application:"
 msgstr "Application"
@@ -651,11 +656,11 @@ msgstr "Application"
 msgid "Apply settings"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3833
+#: ../ui/settingsdialog.ui:3834
 msgid "Apply to Extensions: (avi;mov;divx)"
 msgstr ""
 
-#: ../src/favoritehubs.cc:429
+#: ../src/favoritehubs.cc:433
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
 msgstr "Are you sure you want to delete favorite hub \"%s\"?"
@@ -665,8 +670,8 @@ msgid "Are you sure you want to delete favorite user(s)?"
 msgstr "Are you sure you want to delete favorite user(s)?"
 
 #: ../src/favoritehubs.cc:56 ../src/favoritehubs.cc:73
-#: ../src/favoritehubs.cc:127 ../src/favoritehubs.cc:303
-#: ../src/favoritehubs.cc:470 ../src/favoritehubs.cc:472
+#: ../src/favoritehubs.cc:131 ../src/favoritehubs.cc:307
+#: ../src/favoritehubs.cc:474 ../src/favoritehubs.cc:476
 msgid "Auto Connect"
 msgstr "Auto Connect"
 
@@ -681,7 +686,7 @@ msgstr "Auto Connect"
 msgid "Auto grant slot"
 msgstr "Auto grant slot"
 
-#: ../ui/settingsdialog.ui:7334
+#: ../ui/settingsdialog.ui:7335
 msgid "Auto refresh time"
 msgstr ""
 
@@ -705,7 +710,7 @@ msgstr "Automatically follow redirects"
 msgid "Automatically match queue for auto search hits"
 msgstr "Automatically match queue for auto search hits"
 
-#: ../ui/settingsdialog.ui:4159
+#: ../ui/settingsdialog.ui:4160
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
 
@@ -713,65 +718,70 @@ msgstr ""
 msgid "Automatically search for alternative download locations"
 msgstr "Automatically search for alternative download locations"
 
-#: ../ui/settingsdialog.ui:2392
+#: ../ui/settingsdialog.ui:2393
 msgid "Automatically update external IP (restart required)"
 msgstr ""
 
-#: ../src/hub.cc:1970 ../src/privatemessage.cc:996 ../ui/privatemessage.ui:12
+#: ../src/hub.cc:2011 ../src/privatemessage.cc:1017 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
 msgid "Away mode message on/off"
 msgstr "Away mode message on/off"
 
-#: ../src/hub.cc:1806 ../src/hub.cc:1819 ../src/hub.cc:1971
-#: ../src/privatemessage.cc:884 ../src/privatemessage.cc:898
-#: ../src/privatemessage.cc:997 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
+#: ../src/hub.cc:1847 ../src/hub.cc:1860 ../src/hub.cc:2012
+#: ../src/privatemessage.cc:905 ../src/privatemessage.cc:919
+#: ../src/privatemessage.cc:1018 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
 msgid "Away mode off"
 msgstr "Away mode off"
 
-#: ../src/hub.cc:1813 ../src/privatemessage.cc:892
+#: ../src/hub.cc:1854 ../src/privatemessage.cc:913
 msgid "Away mode on: "
 msgstr "Away mode on: "
 
-#: ../ui/settingsdialog.ui:7513 ../ui/settingsdialog.ui:7526
+#: ../ui/settingsdialog.ui:7514 ../ui/settingsdialog.ui:7527
 msgid "B"
 msgstr ""
 
-#: ../src/hashdialog.cc:70 ../ui/settingsdialog.ui:3553
+#: ../src/hashdialog.cc:70 ../ui/settingsdialog.ui:3554
 msgid "B/s"
 msgstr "B/s"
 
-#: ../ui/settingsdialog.ui:5121
+#: ../ui/settingsdialog.ui:5122
 msgid "Back color"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7295
+#: ../ui/settingsdialog.ui:7296
 #, fuzzy
 msgid "Bind address"
 msgstr "Address"
 
-#: ../ui/settingsdialog.ui:5185
+#: ../ui/settingsdialog.ui:5186
 msgid "Black/White"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5101
+#: ../ui/settingsdialog.ui:5102
 msgid "Bold Authors of message in chat"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4912
+#: ../ui/uploadqueue.ui:87
+#, fuzzy
+msgid "Browse FileList"
+msgstr "Get file list"
+
+#: ../ui/settingsdialog.ui:4913
 #, fuzzy
 msgid "Browse file..."
 msgstr "Browse..."
 
-#: ../ui/mainwindow.ui:2176
+#: ../ui/mainwindow.ui:2276
 msgid "Browse the list of public hubs"
 msgstr ""
 
-#: ../src/search.cc:332 ../src/search.cc:403 ../src/sharebrowser.cc:481
+#: ../src/search.cc:336 ../src/search.cc:407 ../src/sharebrowser.cc:481
 #: ../src/sharebrowser.cc:549 ../ui/privatemessage.ui:188 ../ui/hub.ui:231
-#: ../ui/mainwindow.ui:319 ../ui/settingsdialog.ui:2628
-#: ../ui/settingsdialog.ui:2698 ../ui/settingsdialog.ui:6471
-#: ../ui/settingsdialog.ui:7597 ../ui/settingsdialog.ui:7614
-#: ../ui/settingsdialog.ui:7631
+#: ../ui/mainwindow.ui:319 ../ui/settingsdialog.ui:2629
+#: ../ui/settingsdialog.ui:2699 ../ui/settingsdialog.ui:6472
+#: ../ui/settingsdialog.ui:7598 ../ui/settingsdialog.ui:7615
+#: ../ui/settingsdialog.ui:7632
 msgid "Browse..."
 msgstr "Browse..."
 
@@ -800,7 +810,7 @@ msgstr ""
 msgid "CMD"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1182
+#: ../ui/mainwindow.ui:1314
 msgid "CMD Debug"
 msgstr ""
 
@@ -836,20 +846,20 @@ msgstr "CRC Checked"
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 inconsistency (SFV-Check)"
 
-#: ../ui/mainwindow.ui:1038
+#: ../ui/mainwindow.ui:1170
 #, fuzzy
 msgid "Calculate file TTH"
 msgstr "Select filelist to browse"
 
-#: ../ui/settingsdialog.ui:7710
+#: ../ui/settingsdialog.ui:7711
 msgid "Certificate file"
 msgstr ""
 
-#: ../src/settingsmanager.cc:514
+#: ../src/settingsmanager.cc:515
 msgid "Change setting "
 msgstr ""
 
-#: ../ui/mainwindow.ui:1460
+#: ../ui/mainwindow.ui:1669
 msgid "Changelog (git)"
 msgstr ""
 
@@ -865,18 +875,18 @@ msgstr ""
 msgid "Chat Menu"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3493
+#: ../ui/settingsdialog.ui:3494
 msgid "Check every"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:8096
+#: ../ui/settingsdialog.ui:8097
 #, fuzzy
 msgid "Choose a File"
 msgstr "Choose a directory"
 
-#: ../src/hub.cc:2581 ../src/privatemessage.cc:1245 ../src/mainwindow.cc:1215
-#: ../src/mainwindow.cc:1283 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
-#: ../ui/settingsdialog.ui:8026
+#: ../src/hub.cc:2622 ../src/privatemessage.cc:1292 ../src/mainwindow.cc:1236
+#: ../src/mainwindow.cc:1304 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../ui/settingsdialog.ui:8027
 msgid "Choose a directory"
 msgstr "Choose a directory"
 
@@ -885,16 +895,16 @@ msgstr "Choose a directory"
 msgid "Chose A File"
 msgstr "Choose a directory"
 
-#: ../ui/searchspy.ui:124 ../ui/searchspy.ui:341
+#: ../ui/search.ui:278 ../ui/searchspy.ui:124 ../ui/searchspy.ui:341
 #, fuzzy
 msgid "Clear"
 msgstr "Clear PM"
 
-#: ../src/privatemessage.cc:998 ../ui/privatemessage.ui:30
+#: ../src/privatemessage.cc:1019 ../ui/privatemessage.ui:30
 msgid "Clear PM"
 msgstr "Clear PM"
 
-#: ../src/hub.cc:1972 ../ui/hub.ui:30
+#: ../src/hub.cc:2013 ../ui/hub.ui:30
 msgid "Clear chat"
 msgstr "Clear chat"
 
@@ -906,15 +916,35 @@ msgstr "Clear frame search"
 msgid "Clear search box after each search"
 msgstr "Clear search box after each search"
 
-#: ../src/privatemessage.cc:999 ../ui/privatemessage.ui:39
+#: ../src/privatemessage.cc:1020 ../ui/privatemessage.ui:39
 msgid "Close PM"
 msgstr "Close PM"
 
-#: ../src/hub.cc:1973
+#: ../ui/mainwindow.ui:1486
+#, fuzzy
+msgid "Close all PM"
+msgstr "Close PM"
+
+#: ../ui/mainwindow.ui:1477
+#, fuzzy
+msgid "Close all hubs"
+msgstr "Close tab"
+
+#: ../ui/mainwindow.ui:1495
+#, fuzzy
+msgid "Close all search"
+msgstr "Clear frame search"
+
+#: ../src/hub.cc:2014
 msgid "Close chat"
 msgstr "Close chat"
 
-#: ../src/bookentry.cc:70 ../src/bookentry.cc:75
+#: ../ui/mainwindow.ui:1504
+#, fuzzy
+msgid "Close offline PM"
+msgstr "Close PM"
+
+#: ../src/bookentry.cc:77 ../src/bookentry.cc:82
 msgid "Close tab"
 msgstr "Close tab"
 
@@ -926,7 +956,7 @@ msgstr "Closing connection..."
 msgid "Color select"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5238
+#: ../ui/settingsdialog.ui:5239
 msgid "Colors & Fonts"
 msgstr ""
 
@@ -940,11 +970,11 @@ msgstr ""
 msgid "Command name already exists"
 msgstr "Command name already exists"
 
-#: ../ui/settingsdialog.ui:2889
+#: ../ui/settingsdialog.ui:2890
 msgid "Configure Public Hub Lists"
 msgstr ""
 
-#: ../ui/publichubs.ui:10 ../ui/settingsdialog.ui:8573
+#: ../ui/publichubs.ui:10 ../ui/settingsdialog.ui:8574
 msgid "Configure hub lists"
 msgstr ""
 
@@ -957,11 +987,11 @@ msgid "Confirm favorite hub removal"
 msgstr "Confirm favorite hub removal"
 
 #: ../src/settingsdialog.cc:1326 ../src/settingsdialog.cc:1365
-#: ../ui/mainwindow.ui:2103 ../ui/mainwindow.ui:2376
+#: ../ui/mainwindow.ui:2202 ../ui/mainwindow.ui:2475
 msgid "Connect"
 msgstr "Connect"
 
-#: ../src/hub.cc:3438
+#: ../src/hub.cc:3479
 msgid "Connect failed: "
 msgstr "Connect failed: "
 
@@ -975,11 +1005,11 @@ msgstr "Connect to the hub"
 msgid "Connect to hub"
 msgstr "Connect to the hub"
 
-#: ../src/hub.cc:1981 ../ui/hub.ui:57
+#: ../src/hub.cc:2022 ../ui/hub.ui:57
 msgid "Connect to the hub"
 msgstr "Connect to the hub"
 
-#: ../src/hub.cc:3382 ../src/transfers.cc:1024
+#: ../src/hub.cc:3423 ../src/transfers.cc:1024
 msgid "Connected"
 msgstr "Connected"
 
@@ -991,7 +1021,7 @@ msgstr "Connecting"
 msgid "Connecting (forced)..."
 msgstr "Connecting (forced)..."
 
-#: ../src/hub.cc:3375
+#: ../src/hub.cc:3416
 msgid "Connecting to "
 msgstr "Connecting to "
 
@@ -999,13 +1029,13 @@ msgstr "Connecting to "
 msgid "Connecting..."
 msgstr "Connecting..."
 
-#: ../src/hub.cc:75 ../src/hub.cc:386 ../src/hub.cc:406 ../src/search.cc:92
-#: ../src/search.cc:606 ../src/search.cc:691 ../src/search.cc:824
-#: ../ui/settingsdialog.ui:1859 ../ui/settingsdialog.ui:2565
+#: ../src/hub.cc:75 ../src/hub.cc:394 ../src/hub.cc:414 ../src/search.cc:92
+#: ../src/search.cc:613 ../src/search.cc:698 ../src/search.cc:831
+#: ../ui/settingsdialog.ui:1860 ../ui/settingsdialog.ui:2566
 msgid "Connection"
 msgstr "Connection"
 
-#: ../src/mainwindow.cc:2135
+#: ../src/mainwindow.cc:2181
 msgid "Connectivity Manager: Warning"
 msgstr ""
 
@@ -1018,7 +1048,7 @@ msgstr "Count"
 msgid "Country"
 msgstr "Country"
 
-#: ../src/mainwindow.cc:178
+#: ../src/mainwindow.cc:182
 #, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
@@ -1035,17 +1065,17 @@ msgstr ""
 msgid "DETECTION"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2492
+#: ../ui/settingsdialog.ui:2493
 msgid "DHT Port"
 msgstr ""
 
 #: ../src/previewmenu.cc:89 ../src/emoticonsdialog.cc:106
-#: ../ui/settingsdialog.ui:5451 ../ui/settingsdialog.ui:6152
-#: ../ui/settingsdialog.ui:6343 ../ui/settingsdialog.ui:7952
+#: ../ui/settingsdialog.ui:5452 ../ui/settingsdialog.ui:6153
+#: ../ui/settingsdialog.ui:6344 ../ui/settingsdialog.ui:7953
 msgid "Default"
 msgstr "Default"
 
-#: ../ui/settingsdialog.ui:2598
+#: ../ui/settingsdialog.ui:2599
 msgid "Default download directory"
 msgstr ""
 
@@ -1054,12 +1084,12 @@ msgstr ""
 msgid "Default hub encoding"
 msgstr "default icons"
 
-#: ../ui/settingsdialog.ui:5799
+#: ../ui/settingsdialog.ui:5800
 #, fuzzy
 msgid "Default icons"
 msgstr "default icons"
 
-#: ../ui/settingsdialog.ui:5169
+#: ../ui/settingsdialog.ui:5170
 #, fuzzy
 msgid "Default styles"
 msgstr "Default"
@@ -1068,11 +1098,11 @@ msgstr "Default"
 msgid "Delete item"
 msgstr ""
 
-#: ../src/hub.cc:73 ../src/hub.cc:384 ../src/hub.cc:404
+#: ../src/hub.cc:73 ../src/hub.cc:392 ../src/hub.cc:412
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:372 ../src/favoriteusers.cc:397
 #: ../src/favoriteusers.cc:586 ../src/favoritehubs.cc:58
-#: ../src/favoritehubs.cc:129 ../src/favoritehubs.cc:298
+#: ../src/favoritehubs.cc:133 ../src/favoritehubs.cc:302
 #: ../src/publichubs.cc:42 ../src/publichubs.cc:157 ../src/publichubs.cc:293
 #: ../ui/settingsdialog.ui:1124 ../ui/favoriteusers.ui:213
 msgid "Description"
@@ -1090,7 +1120,7 @@ msgstr "Directory"
 msgid "Dir"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1780
+#: ../ui/settingsdialog.ui:1781
 #, fuzzy
 msgid "Direct connection"
 msgstr "Connection"
@@ -1099,9 +1129,9 @@ msgstr "Connection"
 #: ../src/settingsdialog.cc:993 ../src/settingsdialog.cc:1329
 #: ../src/settingsdialog.cc:3555 ../src/settingsdialog.cc:3575
 #: ../src/settingsdialog.cc:3604 ../src/settingsdialog.cc:3618
-#: ../src/settingsdialog.cc:3673 ../src/search.cc:1641
+#: ../src/settingsdialog.cc:3673 ../src/search.cc:1648
 #: ../src/UserCommandMenu.cc:66 ../src/sharebrowser.cc:289
-#: ../ui/settingsdialog.ui:6445
+#: ../ui/settingsdialog.ui:6446
 msgid "Directory"
 msgstr "Directory"
 
@@ -1113,7 +1143,7 @@ msgstr "Directory or favorite name already exists"
 msgid "Do not close the program, hide in the system tray"
 msgstr "Do not close the program, hide in the system tray"
 
-#: ../ui/settingsdialog.ui:2650
+#: ../ui/settingsdialog.ui:2651
 #, fuzzy
 msgid "Do not use unfinished downloads directory"
 msgstr "Finished Downloads"
@@ -1122,7 +1152,7 @@ msgstr "Finished Downloads"
 msgid "Do you really want to exit?"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1481
+#: ../ui/settingsdialog.ui:1482
 msgid "Don't allow hub/UPnP to override"
 msgstr ""
 
@@ -1137,6 +1167,10 @@ msgstr "Don't download files already in share"
 #: ../src/settingsdialog.cc:980
 msgid "Don't download files already in the queue"
 msgstr "Don't download files already in the queue"
+
+#: ../ui/search.ui:585
+msgid "Don't hide side panel on search"
+msgstr ""
 
 #: ../src/settingsdialog.cc:975
 msgid "Don't remove the source when auto-dropping, only disconnect"
@@ -1161,16 +1195,16 @@ msgid "Download Matches"
 msgstr "Download: "
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:1049
-#: ../src/settingsdialog.cc:1429 ../ui/mainwindow.ui:1194
+#: ../src/settingsdialog.cc:1429 ../ui/mainwindow.ui:1326
 msgid "Download Queue"
 msgstr "Download Queue"
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:714 ../ui/hub.ui:221
+#: ../ui/privatemessage.ui:178 ../ui/search.ui:703 ../ui/hub.ui:221
 #, fuzzy
 msgid "Download _to..."
 msgstr "Download starting..."
 
-#: ../ui/search.ui:728
+#: ../ui/search.ui:717
 #, fuzzy
 msgid "Download _whole directory"
 msgstr "Choose a directory"
@@ -1184,12 +1218,12 @@ msgid "Download failed: "
 msgstr "Download failed: "
 
 #: ../src/transfers.cc:1085 ../src/settingsdialog.cc:1079
-#: ../src/settingsdialog.cc:1247 ../src/settingsmanager.cc:234
+#: ../src/settingsdialog.cc:1247 ../src/settingsmanager.cc:235
 msgid "Download finished"
 msgstr "Download finished"
 
 #: ../src/settingsdialog.cc:1080 ../src/settingsdialog.cc:1251
-#: ../src/settingsmanager.cc:236
+#: ../src/settingsmanager.cc:237
 msgid "Download finished file list"
 msgstr "Download finished file list"
 
@@ -1202,22 +1236,22 @@ msgstr "Download finished: "
 msgid "Download image"
 msgstr "Downloaded"
 
-#: ../src/hub.cc:1920
+#: ../src/hub.cc:1961
 #, fuzzy
 msgid "Download image: disable"
 msgstr "Download finished"
 
-#: ../src/hub.cc:1922
+#: ../src/hub.cc:1963
 #, fuzzy
 msgid "Download image: unlimit"
 msgstr "Download failed: "
 
-#: ../src/hub.cc:1924
+#: ../src/hub.cc:1965
 #, fuzzy
 msgid "Download limit image: "
 msgstr "Download starting: "
 
-#: ../src/hub.cc:1987
+#: ../src/hub.cc:2028
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
 
@@ -1225,7 +1259,7 @@ msgstr ""
 msgid "Download removed"
 msgstr "Download removed"
 
-#: ../ui/mainwindow.ui:1651
+#: ../ui/mainwindow.ui:1871
 #, fuzzy
 msgid "Download speed"
 msgstr "Downloaded"
@@ -1238,7 +1272,7 @@ msgstr "Download starting..."
 msgid "Download starting: "
 msgstr "Download starting: "
 
-#: ../ui/settingsdialog.ui:3102
+#: ../ui/settingsdialog.ui:3103
 #, fuzzy
 msgid "Download to"
 msgstr "Download: "
@@ -1248,12 +1282,12 @@ msgstr "Download: "
 msgid "Download to..."
 msgstr "Download starting..."
 
-#: ../ui/search.ui:737
+#: ../ui/search.ui:726
 #, fuzzy
 msgid "Download whole director_y to..."
 msgstr "Download complete..."
 
-#: ../src/mainwindow.cc:657
+#: ../src/mainwindow.cc:675
 msgid "Download: "
 msgstr "Download: "
 
@@ -1266,16 +1300,16 @@ msgstr "Downloaded"
 msgid "Downloaded "
 msgstr "Downloaded "
 
-#: ../ui/settingsdialog.ui:2981 ../ui/settingsdialog.ui:3970
+#: ../ui/settingsdialog.ui:2982 ../ui/settingsdialog.ui:3971
 #, fuzzy
 msgid "Downloads"
 msgstr "Download"
 
-#: ../ui/settingsdialog.ui:3629
+#: ../ui/settingsdialog.ui:3630
 msgid "Drop sources below"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2423
+#: ../ui/settingsdialog.ui:2424
 #, fuzzy
 msgid "DynDNS Address"
 msgstr "Address"
@@ -1285,7 +1319,7 @@ msgstr "Address"
 msgid "E-Mail"
 msgstr "eMail"
 
-#: ../ui/mainwindow.ui:1997
+#: ../ui/mainwindow.ui:2097
 #, fuzzy
 msgid "Edit the preferences"
 msgstr "Preferences"
@@ -1295,15 +1329,15 @@ msgstr "Preferences"
 msgid "Emoticons"
 msgstr "Use Emoticons"
 
-#: ../src/hub.cc:1904 ../src/privatemessage.cc:940
+#: ../src/hub.cc:1945 ../src/privatemessage.cc:961
 msgid "Emoticons mode off"
 msgstr "Emoticons mode off"
 
-#: ../src/hub.cc:1909 ../src/privatemessage.cc:945
+#: ../src/hub.cc:1950 ../src/privatemessage.cc:966
 msgid "Emoticons mode on"
 msgstr "Emoticons mode on"
 
-#: ../src/hub.cc:1990 ../src/privatemessage.cc:1004
+#: ../src/hub.cc:2031 ../src/privatemessage.cc:1025
 msgid "Emoticons on/off"
 msgstr "Emoticons on/off"
 
@@ -1329,9 +1363,9 @@ msgstr "Enable segmented downloads"
 msgid "Enabled"
 msgstr ""
 
-#: ../src/favoritehubs.cc:63 ../src/favoritehubs.cc:137
-#: ../src/favoritehubs.cc:223 ../src/favoritehubs.cc:245
-#: ../src/favoritehubs.cc:302 ../src/favoritehubs.cc:459
+#: ../src/favoritehubs.cc:63 ../src/favoritehubs.cc:141
+#: ../src/favoritehubs.cc:227 ../src/favoritehubs.cc:249
+#: ../src/favoritehubs.cc:306 ../src/favoritehubs.cc:463
 msgid "Encoding"
 msgstr "Encoding"
 
@@ -1340,7 +1374,7 @@ msgstr "Encoding"
 msgid "Encryption"
 msgstr "Description"
 
-#: ../ui/mainwindow.ui:2494
+#: ../ui/mainwindow.ui:2593
 #, fuzzy
 msgid "Enter line for user command"
 msgstr "Enter value for "
@@ -1349,7 +1383,7 @@ msgstr "Enter value for "
 msgid "Enter text to search for"
 msgstr ""
 
-#: ../src/mainwindow.cc:1149
+#: ../src/mainwindow.cc:1170
 msgid "Enter value for "
 msgstr "Enter value for "
 
@@ -1358,11 +1392,11 @@ msgstr "Enter value for "
 msgid "Error"
 msgstr "Error"
 
-#: ../src/settingsmanager.cc:517
+#: ../src/settingsmanager.cc:518
 msgid "Error: params have been not 2!"
 msgstr ""
 
-#: ../src/settingsmanager.cc:513
+#: ../src/settingsmanager.cc:514
 #, fuzzy
 msgid "Error: setting not found!"
 msgstr "User not found"
@@ -1372,14 +1406,14 @@ msgstr "User not found"
 msgid "Errors"
 msgstr "Errors"
 
-#: ../ui/settingsdialog.ui:4943
+#: ../ui/settingsdialog.ui:4944
 msgid "Every time a private message is received"
 msgstr ""
 
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
 #: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386 ../src/search.cc:94
-#: ../src/search.cc:117 ../src/search.cc:608 ../src/search.cc:685
-#: ../src/search.cc:694 ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
+#: ../src/search.cc:117 ../src/search.cc:615 ../src/search.cc:692
+#: ../src/search.cc:701 ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
 #: ../src/sharebrowser.cc:287 ../src/sharebrowser.cc:318
 msgid "Exact Size"
 msgstr "Exact Size"
@@ -1389,15 +1423,15 @@ msgstr "Exact Size"
 msgid "Exact size"
 msgstr "Exact Size"
 
-#: ../src/hub.cc:1993
+#: ../src/hub.cc:2034
 msgid "Execute Lua Chunk"
 msgstr ""
 
-#: ../src/hub.cc:1995
+#: ../src/hub.cc:2036
 msgid "Execute code (bash)"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1982
+#: ../ui/mainwindow.ui:2079
 msgid "Exit"
 msgstr ""
 
@@ -1405,11 +1439,11 @@ msgstr ""
 msgid "Exit EiskaltDC++ Gtk?"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7568
+#: ../ui/settingsdialog.ui:7569
 msgid "Experts Only"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5756
+#: ../ui/settingsdialog.ui:5757
 msgid "Export..."
 msgstr ""
 
@@ -1426,7 +1460,7 @@ msgstr "Extensions"
 msgid "Extensions"
 msgstr "Extensions"
 
-#: ../ui/settingsdialog.ui:1468
+#: ../ui/settingsdialog.ui:1469
 msgid "External / WAN IP"
 msgstr ""
 
@@ -1437,7 +1471,7 @@ msgstr "Favorite Hubs"
 
 #: ../src/settingsdialog.cc:1313 ../src/settingsdialog.cc:1367
 #: ../src/settingsdialog.cc:1428 ../src/favoritehubs.cc:31
-#: ../ui/mainwindow.ui:1100 ../ui/mainwindow.ui:2126
+#: ../ui/mainwindow.ui:1232 ../ui/mainwindow.ui:2226
 msgid "Favorite Hubs"
 msgstr "Favorite Hubs"
 
@@ -1453,30 +1487,30 @@ msgstr "Favorite User"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1314
 #: ../src/settingsdialog.cc:1369 ../src/settingsdialog.cc:1432
-#: ../ui/mainwindow.ui:1130 ../ui/mainwindow.ui:2142
+#: ../ui/mainwindow.ui:1262 ../ui/mainwindow.ui:2242
 msgid "Favorite Users"
 msgstr "Favorite Users"
 
-#: ../src/hub.cc:2970
+#: ../src/hub.cc:3011
 msgid "Favorite hub added"
 msgstr "Favorite hub added"
 
-#: ../src/hub.cc:2975
+#: ../src/hub.cc:3016
 msgid "Favorite hub already exists"
 msgstr "Favorite hub already exists"
 
-#: ../src/settingsdialog.cc:3537 ../ui/settingsdialog.ui:8466
+#: ../src/settingsdialog.cc:3537 ../ui/settingsdialog.ui:8467
 #, fuzzy
 msgid "Favorite name"
 msgstr "Favorite User"
 
 #: ../src/settingsdialog.cc:1085 ../src/settingsdialog.cc:1267
-#: ../src/settingsmanager.cc:244
+#: ../src/settingsmanager.cc:245
 msgid "Favorite user joined"
 msgstr "Favorite user joined"
 
 #: ../src/settingsdialog.cc:1086 ../src/settingsdialog.cc:1271
-#: ../src/settingsmanager.cc:246
+#: ../src/settingsmanager.cc:247
 msgid "Favorite user quit"
 msgstr "Favorite user quit"
 
@@ -1503,11 +1537,6 @@ msgstr "Filename"
 msgid "File not available"
 msgstr "File not available"
 
-#: ../ui/search.ui:327
-#, fuzzy
-msgid "File type"
-msgstr "File list"
-
 #: ../ui/settingsdialog.ui:647
 #, fuzzy
 msgid "Filelist Menu"
@@ -1519,11 +1548,11 @@ msgstr "File list"
 #: ../src/downloadqueue.cc:791 ../src/downloadqueue.cc:842
 #: ../src/transfers.cc:62 ../src/transfers.cc:713
 #: ../src/finishedtransfers.cc:57 ../src/finishedtransfers.cc:231
-#: ../src/search.cc:86 ../src/search.cc:119 ../src/search.cc:347
-#: ../src/search.cc:601 ../src/search.cc:642 ../src/search.cc:647
-#: ../src/search.cc:815 ../src/search.cc:863 ../src/search.cc:873
-#: ../src/search.cc:1186 ../src/search.cc:1225 ../src/search.cc:1282
-#: ../src/search.cc:1586 ../src/search.cc:1899 ../src/sharebrowser.cc:75
+#: ../src/search.cc:86 ../src/search.cc:119 ../src/search.cc:351
+#: ../src/search.cc:608 ../src/search.cc:649 ../src/search.cc:654
+#: ../src/search.cc:822 ../src/search.cc:870 ../src/search.cc:880
+#: ../src/search.cc:1193 ../src/search.cc:1232 ../src/search.cc:1289
+#: ../src/search.cc:1593 ../src/search.cc:1906 ../src/sharebrowser.cc:75
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:93
 #: ../src/sharebrowser.cc:279 ../src/sharebrowser.cc:309
 #: ../src/sharebrowser.cc:513 ../src/sharebrowser.cc:607
@@ -1543,7 +1572,7 @@ msgstr "Files: "
 msgid "Filter by IP"
 msgstr ""
 
-#: ../ui/search.ui:467
+#: ../ui/search.ui:514
 #, fuzzy
 msgid "Filter files already in share"
 msgstr "Don't download files already in share"
@@ -1563,36 +1592,36 @@ msgstr " files"
 
 #: ../src/settingsdialog.cc:1047 ../src/settingsdialog.cc:1315
 #: ../src/settingsdialog.cc:1389 ../src/settingsdialog.cc:1430
-#: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1206
-#: ../ui/mainwindow.ui:2222 ../ui/mainwindow.ui:2472
+#: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1338
+#: ../ui/mainwindow.ui:2321 ../ui/mainwindow.ui:2571
 msgid "Finished Downloads"
 msgstr "Finished Downloads"
 
 #: ../src/settingsdialog.cc:1048 ../src/settingsdialog.cc:1316
 #: ../src/settingsdialog.cc:1391 ../src/settingsdialog.cc:1431
-#: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1217
-#: ../ui/mainwindow.ui:2239 ../ui/mainwindow.ui:2480
+#: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1349
+#: ../ui/mainwindow.ui:2338 ../ui/mainwindow.ui:2579
 msgid "Finished Uploads"
 msgstr "Finished Uploads"
 
-#: ../ui/settingsdialog.ui:1447
+#: ../ui/settingsdialog.ui:1448
 msgid "Firewall (passive, last resort)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1500
+#: ../ui/settingsdialog.ui:1501
 msgid "Firewall with manual port forward"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4068
+#: ../ui/settingsdialog.ui:4069
 msgid "Follow Links"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:8415
+#: ../ui/settingsdialog.ui:8416
 msgid "Font select"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6518 ../ui/settingsdialog.ui:6577
-#: ../ui/settingsdialog.ui:6636 ../ui/settingsdialog.ui:6695
+#: ../ui/settingsdialog.ui:6519 ../ui/settingsdialog.ui:6578
+#: ../ui/settingsdialog.ui:6637 ../ui/settingsdialog.ui:6696
 #, fuzzy
 msgid "Format"
 msgstr "Normal"
@@ -1601,11 +1630,11 @@ msgstr "Normal"
 msgid "Found a match"
 msgstr "Found a match"
 
-#: ../ui/settingsdialog.ui:6226
+#: ../ui/settingsdialog.ui:6227
 msgid "Frame (size)"
 msgstr ""
 
-#: ../ui/searchspy.ui:326 ../ui/settingsdialog.ui:6209
+#: ../ui/searchspy.ui:326 ../ui/settingsdialog.ui:6210
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
@@ -1613,6 +1642,10 @@ msgstr ""
 
 #: ../ui/searchspy.ui:314
 msgid "Frame:"
+msgstr ""
+
+#: ../src/mainwindow.cc:2292
+msgid "Free "
 msgstr ""
 
 #: ../src/downloadqueue.cc:1359
@@ -1627,23 +1660,28 @@ msgstr ""
 msgid "General text"
 msgstr "General text"
 
-#: ../ui/settingsdialog.ui:7801
+#: ../ui/settingsdialog.ui:7802
 msgid "Generate certificates"
 msgstr ""
 
-#: ../src/hub.cc:1978 ../src/privatemessage.cc:1002 ../ui/privatemessage.ui:66
+#: ../src/hub.cc:2019 ../src/privatemessage.cc:1023 ../ui/privatemessage.ui:66
 msgid "Get file list"
 msgstr "Get file list"
 
-#: ../src/hub.cc:2787 ../src/favoritehubs.cc:339
+#: ../src/hub.cc:2828 ../src/favoritehubs.cc:343
 msgid "Global hub default"
 msgstr ""
 
-#: ../src/hub.cc:1979 ../src/privatemessage.cc:1003 ../ui/privatemessage.ui:75
+#: ../ui/uploadqueue.ui:51
+#, fuzzy
+msgid "Grant Slot"
+msgstr "Grant extra slot"
+
+#: ../src/hub.cc:2020 ../src/privatemessage.cc:1024 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
 msgstr "Grant extra slot"
 
-#: ../ui/search.ui:371
+#: ../ui/search.ui:418
 msgid "Group by"
 msgstr ""
 
@@ -1655,7 +1693,7 @@ msgstr ""
 msgid "Grouped by Users"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2928
+#: ../ui/settingsdialog.ui:2929
 msgid "HTTP Proxy (for hublist only)"
 msgstr ""
 
@@ -1672,11 +1710,11 @@ msgid "H_igh"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1319 ../src/settingsdialog.cc:1379
-#: ../ui/mainwindow.ui:2060 ../ui/mainwindow.ui:2432
+#: ../ui/mainwindow.ui:2159 ../ui/mainwindow.ui:2531
 msgid "Hash"
 msgstr "Hash"
 
-#: ../ui/mainwindow.ui:1390
+#: ../ui/mainwindow.ui:1599
 msgid "Hide tools panel"
 msgstr ""
 
@@ -1684,7 +1722,7 @@ msgstr ""
 msgid "High"
 msgstr "High"
 
-#: ../ui/settingsdialog.ui:3189
+#: ../ui/settingsdialog.ui:3190
 msgid "High priority max size"
 msgstr ""
 
@@ -1692,11 +1730,11 @@ msgstr ""
 msgid "Highest"
 msgstr "Highest"
 
-#: ../ui/settingsdialog.ui:3313
+#: ../ui/settingsdialog.ui:3314
 msgid "Highest priority max size"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1410
+#: ../ui/mainwindow.ui:1619
 msgid "Homepage"
 msgstr ""
 
@@ -1705,8 +1743,8 @@ msgstr ""
 #: ../src/settingsdialog.cc:3777 ../src/settingsdialog.cc:3868
 #: ../src/settingsdialog.cc:3891 ../src/settingsdialog.cc:3910
 #: ../src/finishedtransfers.cc:79 ../src/finishedtransfers.cc:188
-#: ../src/search.cc:93 ../src/search.cc:607 ../src/search.cc:704
-#: ../src/search.cc:833
+#: ../src/search.cc:93 ../src/search.cc:614 ../src/search.cc:711
+#: ../src/search.cc:840
 msgid "Hub"
 msgstr "Hub"
 
@@ -1734,21 +1772,21 @@ msgid "Hub Name"
 msgstr "Hub Name"
 
 #: ../src/settingsdialog.cc:1083 ../src/settingsdialog.cc:1259
-#: ../src/settingsmanager.cc:242
+#: ../src/settingsmanager.cc:243
 msgid "Hub connected"
 msgstr "Hub connected"
 
 #: ../src/settingsdialog.cc:1084 ../src/settingsdialog.cc:1263
-#: ../src/settingsmanager.cc:240
+#: ../src/settingsmanager.cc:241
 msgid "Hub disconnected"
 msgstr "Hub disconnected"
 
-#: ../ui/search.ui:499 ../ui/mainwindow.ui:2129 ../ui/mainwindow.ui:2384
+#: ../ui/search.ui:546 ../ui/mainwindow.ui:2228 ../ui/mainwindow.ui:2483
 #, fuzzy
 msgid "Hubs"
 msgstr "Hubs: "
 
-#: ../ui/mainwindow.ui:1600
+#: ../ui/mainwindow.ui:1820
 msgid "Hubs (normal / registered / op)"
 msgstr ""
 
@@ -1756,7 +1794,7 @@ msgstr ""
 msgid "Hubs: "
 msgstr "Hubs: "
 
-#: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:609
+#: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:616
 msgid "IP"
 msgstr ""
 
@@ -1795,7 +1833,7 @@ msgstr "Icon"
 msgid "Icon size"
 msgstr "Icon size"
 
-#: ../ui/settingsdialog.ui:5409
+#: ../ui/settingsdialog.ui:5410
 #, fuzzy
 msgid "Icon..."
 msgstr "Icon"
@@ -1816,19 +1854,19 @@ msgstr "Ignore private messages from bots"
 msgid "Ignore private messages from the hub"
 msgstr "Ignore private messages from the hub"
 
-#: ../src/hub.cc:3508
+#: ../src/hub.cc:3549
 msgid "Ignored private message from bot "
 msgstr "Ignored private message from bot "
 
-#: ../src/hub.cc:3501
+#: ../src/hub.cc:3542
 msgid "Ignored private message from hub"
 msgstr "Ignored private message from hub"
 
-#: ../ui/settingsdialog.ui:5770
+#: ../ui/settingsdialog.ui:5771
 msgid "Import..."
 msgstr ""
 
-#: ../ui/mainwindow.ui:1007
+#: ../ui/mainwindow.ui:1139
 msgid "Indexing Progress"
 msgstr ""
 
@@ -1841,15 +1879,15 @@ msgstr ""
 msgid "Invalid extension: "
 msgstr ""
 
-#: ../src/hub.cc:2141
+#: ../src/hub.cc:2182
 msgid "Ipfilter is disable"
 msgstr ""
 
-#: ../src/hub.cc:2134
+#: ../src/hub.cc:2175
 msgid "Ipfilter is enable"
 msgstr ""
 
-#: ../src/hub.cc:2000
+#: ../src/hub.cc:2041
 msgid "Ipfilter on/off"
 msgstr ""
 
@@ -1877,10 +1915,10 @@ msgstr ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
 
-#: ../ui/settingsdialog.ui:3219 ../ui/settingsdialog.ui:3235
-#: ../ui/settingsdialog.ui:3269 ../ui/settingsdialog.ui:3285
-#: ../ui/settingsdialog.ui:3507 ../ui/settingsdialog.ui:7219
-#: ../ui/settingsdialog.ui:7478
+#: ../ui/settingsdialog.ui:3220 ../ui/settingsdialog.ui:3236
+#: ../ui/settingsdialog.ui:3270 ../ui/settingsdialog.ui:3286
+#: ../ui/settingsdialog.ui:3508 ../ui/settingsdialog.ui:7220
+#: ../ui/settingsdialog.ui:7479
 msgid "KiB"
 msgstr ""
 
@@ -1888,11 +1926,11 @@ msgstr ""
 msgid "L_ow"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1354
+#: ../ui/mainwindow.ui:1563
 msgid "Left position"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2359
+#: ../ui/settingsdialog.ui:2360
 #, fuzzy
 msgid "Limits"
 msgstr "<b>file:</b> "
@@ -1909,12 +1947,12 @@ msgstr "List: "
 msgid "List: "
 msgstr "List: "
 
-#: ../src/hub.cc:1992
+#: ../src/hub.cc:2033
 #, fuzzy
 msgid "Load Lua file"
 msgstr "Loading file list"
 
-#: ../src/mainwindow.cc:1943
+#: ../src/mainwindow.cc:1968
 msgid "Loading file list"
 msgstr "Loading file list"
 
@@ -1923,39 +1961,39 @@ msgstr "Loading file list"
 msgid "Loading: "
 msgstr "Encoding"
 
-#: ../ui/settingsdialog.ui:6611
+#: ../ui/settingsdialog.ui:6612
 #, fuzzy
 msgid "Log downloads"
 msgstr "Download"
 
-#: ../ui/settingsdialog.ui:6761
+#: ../ui/settingsdialog.ui:6762
 #, fuzzy
 msgid "Log filelist transfers"
 msgstr "Loading file list"
 
-#: ../ui/settingsdialog.ui:6493
+#: ../ui/settingsdialog.ui:6494
 msgid "Log main chat"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6552
+#: ../ui/settingsdialog.ui:6553
 msgid "Log private chat"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6745
+#: ../ui/settingsdialog.ui:6746
 #, fuzzy
 msgid "Log status messages"
 msgstr "Status message"
 
-#: ../ui/settingsdialog.ui:6729
+#: ../ui/settingsdialog.ui:6730
 #, fuzzy
 msgid "Log system messages"
 msgstr "System message"
 
-#: ../ui/settingsdialog.ui:6670
+#: ../ui/settingsdialog.ui:6671
 msgid "Log uploads"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6815
+#: ../ui/settingsdialog.ui:6816
 msgid "Logs"
 msgstr ""
 
@@ -1963,7 +2001,7 @@ msgstr ""
 msgid "Low"
 msgstr "Low"
 
-#: ../ui/settingsdialog.ui:3203
+#: ../ui/settingsdialog.ui:3204
 msgid "Low priority size"
 msgstr ""
 
@@ -1976,11 +2014,11 @@ msgstr "Lowest"
 msgid "Magnet"
 msgstr "Magnet Choice"
 
-#: ../src/mainwindow.cc:1276
+#: ../src/mainwindow.cc:1297
 msgid "Magnet Choice"
 msgstr "Magnet Choice"
 
-#: ../src/mainwindow.cc:1206
+#: ../src/mainwindow.cc:1227
 msgid "Magnet Properties / Choice"
 msgstr "Magnet Properties / Choice"
 
@@ -1993,7 +2031,7 @@ msgstr "Matched "
 msgid "Matched "
 msgstr "Matched "
 
-#: ../ui/settingsdialog.ui:6079
+#: ../ui/settingsdialog.ui:6080
 #, fuzzy
 msgid "Matches"
 msgstr "Matched "
@@ -2012,16 +2050,16 @@ msgstr "Exact Size"
 msgid "Max Users"
 msgstr "Max Users"
 
-#: ../ui/settingsdialog.ui:7056
+#: ../ui/settingsdialog.ui:7057
 #, fuzzy
 msgid "Max filelist size"
 msgstr "Get file list"
 
-#: ../ui/settingsdialog.ui:7017
+#: ../ui/settingsdialog.ui:7018
 msgid "Max hash speed"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3477
+#: ../ui/settingsdialog.ui:3478
 msgid "Max inactivity"
 msgstr ""
 
@@ -2029,27 +2067,27 @@ msgstr ""
 msgid "Max upload speed (MiB/s)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1978 ../ui/settingsdialog.ui:2235
+#: ../ui/settingsdialog.ui:1979 ../ui/settingsdialog.ui:2236
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1924 ../ui/settingsdialog.ui:2181
+#: ../ui/settingsdialog.ui:1925 ../ui/settingsdialog.ui:2182
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5523
+#: ../ui/settingsdialog.ui:5524
 msgid "Maximum message length (0 = infinite)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2775
+#: ../ui/settingsdialog.ui:2776
 msgid "Maximum simultaneous downloads (0 = infinite)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7232
+#: ../ui/settingsdialog.ui:7233
 msgid "MiB"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7195
+#: ../ui/settingsdialog.ui:7196
 msgid "MiB/s"
 msgstr ""
 
@@ -2067,22 +2105,22 @@ msgstr "Size: "
 msgid "Min Slots"
 msgstr "Min Slots"
 
-#: ../ui/settingsdialog.ui:3615
+#: ../ui/settingsdialog.ui:3616
 #, fuzzy
 msgid "Min elapsed"
 msgstr "Min Share"
 
-#: ../ui/settingsdialog.ui:3461
+#: ../ui/settingsdialog.ui:3462
 #, fuzzy
 msgid "Min filesize"
 msgstr " files"
 
-#: ../ui/settingsdialog.ui:3601
+#: ../ui/settingsdialog.ui:3602
 #, fuzzy
 msgid "Min sources online"
 msgstr " user(s) online"
 
-#: ../ui/settingsdialog.ui:7043
+#: ../ui/settingsdialog.ui:7044
 msgid "Mini slot size"
 msgstr ""
 
@@ -2094,7 +2132,7 @@ msgstr ""
 msgid "Minimum search interval (seconds):"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7910
+#: ../ui/settingsdialog.ui:7911
 msgid "Modify"
 msgstr ""
 
@@ -2110,7 +2148,7 @@ msgstr ""
 msgid "Move Up"
 msgstr ""
 
-#: ../src/hub.cc:2002
+#: ../src/hub.cc:2043
 msgid "Move rule up/down"
 msgstr ""
 
@@ -2152,10 +2190,10 @@ msgstr ""
 #: ../src/settingsdialog.cc:3867 ../src/settingsdialog.cc:3890
 #: ../src/settingsdialog.cc:3909 ../src/favoritehubs.cc:57
 #: ../src/favoritehubs.cc:78 ../src/favoritehubs.cc:79
-#: ../src/favoritehubs.cc:128 ../src/favoritehubs.cc:296
-#: ../src/favoritehubs.cc:425 ../src/publichubs.cc:41 ../src/publichubs.cc:156
-#: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:235
-#: ../src/search.cc:251 ../ui/settingsdialog.ui:714
+#: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:300
+#: ../src/favoritehubs.cc:429 ../src/publichubs.cc:41 ../src/publichubs.cc:156
+#: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:239
+#: ../src/search.cc:255 ../ui/settingsdialog.ui:714
 msgid "Name"
 msgstr "Name"
 
@@ -2163,7 +2201,7 @@ msgstr "Name"
 msgid "Name and command must not be empty"
 msgstr "Name and command must not be empty"
 
-#: ../ui/settingsdialog.ui:3777
+#: ../ui/settingsdialog.ui:3778
 #, fuzzy
 msgid "Name:"
 msgstr "Name"
@@ -2176,7 +2214,7 @@ msgstr "New list"
 msgid "New search type"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5965
+#: ../ui/settingsdialog.ui:5966
 msgid "New string or TTH"
 msgstr ""
 
@@ -2184,22 +2222,22 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:367
-#: ../src/hub.cc:382 ../src/hub.cc:402 ../src/hub.cc:450 ../src/hub.cc:1242
-#: ../src/hub.cc:1545 ../src/hub.cc:1598 ../src/hub.cc:2325 ../src/hub.cc:2356
-#: ../src/hub.cc:2641 ../src/hub.cc:2680 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:375
+#: ../src/hub.cc:390 ../src/hub.cc:410 ../src/hub.cc:458 ../src/hub.cc:1268
+#: ../src/hub.cc:1571 ../src/hub.cc:1634 ../src/hub.cc:2366 ../src/hub.cc:2397
+#: ../src/hub.cc:2682 ../src/hub.cc:2721 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583
-#: ../src/favoritehubs.cc:60 ../src/favoritehubs.cc:130
-#: ../src/favoritehubs.cc:299 ../src/finishedtransfers.cc:78
-#: ../src/finishedtransfers.cc:187 ../src/search.cc:87 ../src/search.cc:600
-#: ../src/search.cc:666 ../src/search.cc:700 ../src/search.cc:830
+#: ../src/favoritehubs.cc:60 ../src/favoritehubs.cc:134
+#: ../src/favoritehubs.cc:303 ../src/finishedtransfers.cc:78
+#: ../src/finishedtransfers.cc:187 ../src/search.cc:87 ../src/search.cc:607
+#: ../src/search.cc:673 ../src/search.cc:707 ../src/search.cc:837
 #: ../ui/settingsdialog.ui:1152
 msgid "Nick"
 msgstr "Nick"
 
-#: ../src/hub.cc:3605
+#: ../src/hub.cc:3646
 msgid "Nick already taken"
 msgstr "Nick already taken"
 
@@ -2219,7 +2257,7 @@ msgstr "No errors"
 msgid "No matches"
 msgstr "No matches"
 
-#: ../ui/settingsdialog.ui:2759
+#: ../ui/settingsdialog.ui:2760
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
 msgstr ""
 
@@ -2231,7 +2269,7 @@ msgstr "No search text entered"
 msgid "No users"
 msgstr "No users"
 
-#: ../ui/settingsdialog.ui:5437
+#: ../ui/settingsdialog.ui:5438
 msgid "None icon"
 msgstr ""
 
@@ -2239,35 +2277,35 @@ msgstr ""
 msgid "Normal"
 msgstr "Normal"
 
-#: ../ui/settingsdialog.ui:3299
+#: ../ui/settingsdialog.ui:3300
 msgid "Normal priority max size"
 msgstr ""
 
-#: ../src/hub.cc:1852 ../src/hub.cc:1887 ../src/hub.cc:1897 ../src/hub.cc:2041
+#: ../src/hub.cc:1893 ../src/hub.cc:1928 ../src/hub.cc:1938 ../src/hub.cc:2082
 msgid "Not found user: "
 msgstr "Not found user: "
 
-#: ../ui/settingsdialog.ui:7976
+#: ../ui/settingsdialog.ui:7977
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4564 ../ui/settingsdialog.ui:4633
+#: ../ui/settingsdialog.ui:4565 ../ui/settingsdialog.ui:4634
 msgid "Note: Most of these options require that you restart the application"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4020
+#: ../ui/settingsdialog.ui:4021
 msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2830
+#: ../ui/settingsdialog.ui:2831
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
-#: ../src/settingsdialog.cc:1228 ../ui/settingsdialog.ui:5613
+#: ../src/settingsdialog.cc:1228 ../ui/settingsdialog.ui:5614
 msgid "Notify"
 msgstr "Notify"
 
-#: ../ui/searchspy.ui:268 ../ui/settingsdialog.ui:6291
+#: ../ui/searchspy.ui:268 ../ui/settingsdialog.ui:6292
 msgid "Number of matches for the top"
 msgstr ""
 
@@ -2284,16 +2322,16 @@ msgstr "Online"
 msgid "Only show joins / parts for favorite users"
 msgstr "Only show joins / parts for favorite users"
 
-#: ../ui/search.ui:444
+#: ../ui/search.ui:491
 msgid "Only users with free slots"
 msgstr ""
 
-#: ../ui/mainwindow.ui:972
+#: ../ui/mainwindow.ui:1104
 #, fuzzy
 msgid "Open _file list..."
 msgstr "Get file list"
 
-#: ../ui/mainwindow.ui:983
+#: ../ui/mainwindow.ui:1115
 #, fuzzy
 msgid "Open _own file list"
 msgstr "Update own file list"
@@ -2328,7 +2366,7 @@ msgstr "Open new private messages from other users in the background"
 msgid "Open new window when using /join"
 msgstr "Open new window when using /join"
 
-#: ../ui/mainwindow.ui:2023
+#: ../ui/mainwindow.ui:2123
 #, fuzzy
 msgid "Open own file list"
 msgstr "Update own file list"
@@ -2338,21 +2376,21 @@ msgid "Operator"
 msgstr "Operator"
 
 #: ../src/settingsdialog.cc:1317 ../src/settingsdialog.cc:1375
-#: ../ui/mainwindow.ui:2026 ../ui/mainwindow.ui:2416
+#: ../ui/mainwindow.ui:2125 ../ui/mainwindow.ui:2515
 #, fuzzy
 msgid "Own file list"
 msgstr "Get file list"
 
-#: ../ui/settingsdialog.ui:536 ../ui/settingsdialog.ui:5590
+#: ../ui/settingsdialog.ui:536 ../ui/settingsdialog.ui:5591
 #, fuzzy
 msgid "PM"
 msgstr "PM: "
 
-#: ../ui/settingsdialog.ui:7030
+#: ../ui/settingsdialog.ui:7031
 msgid "PM history"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1324
+#: ../ui/mainwindow.ui:1533
 msgid "Panels"
 msgstr ""
 
@@ -2360,18 +2398,18 @@ msgstr ""
 msgid "Passive user"
 msgstr "Passive user"
 
-#: ../src/favoritehubs.cc:61 ../src/favoritehubs.cc:131
-#: ../ui/settingsdialog.ui:1699
+#: ../src/favoritehubs.cc:61 ../src/favoritehubs.cc:135
+#: ../ui/settingsdialog.ui:1700
 msgid "Password"
 msgstr "Password"
 
 #: ../src/downloadqueue.cc:71 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/transfers.cc:64 ../src/transfers.cc:714
 #: ../src/finishedtransfers.cc:58 ../src/finishedtransfers.cc:232
-#: ../src/finishedtransfers.cc:504 ../src/search.cc:90 ../src/search.cc:348
-#: ../src/search.cc:604 ../src/search.cc:681 ../src/search.cc:818
-#: ../src/search.cc:872 ../src/search.cc:1185 ../src/search.cc:1224
-#: ../src/search.cc:1281 ../src/search.cc:1343 ../src/search.cc:1900
+#: ../src/finishedtransfers.cc:504 ../src/search.cc:90 ../src/search.cc:352
+#: ../src/search.cc:611 ../src/search.cc:688 ../src/search.cc:825
+#: ../src/search.cc:879 ../src/search.cc:1192 ../src/search.cc:1231
+#: ../src/search.cc:1288 ../src/search.cc:1350 ../src/search.cc:1907
 msgid "Path"
 msgstr "Path"
 
@@ -2389,11 +2427,11 @@ msgstr "Paused"
 msgid "Paused..."
 msgstr "Paused"
 
-#: ../ui/settingsdialog.ui:1228
+#: ../ui/settingsdialog.ui:1229
 msgid "Personal"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4239
+#: ../ui/settingsdialog.ui:4240
 msgid "Pictures"
 msgstr ""
 
@@ -2401,7 +2439,7 @@ msgstr ""
 msgid "Plain"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4856
+#: ../ui/settingsdialog.ui:4857
 msgid "Play"
 msgstr ""
 
@@ -2409,11 +2447,11 @@ msgstr ""
 msgid "Popup box to input password for hubs"
 msgstr "Popup box to input password for hubs"
 
-#: ../ui/settingsdialog.ui:1733
+#: ../ui/settingsdialog.ui:1734
 msgid "Port"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1420
+#: ../ui/settingsdialog.ui:1421
 msgid "Ports"
 msgstr ""
 
@@ -2423,12 +2461,12 @@ msgid "Predefined"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1320 ../src/settingsdialog.cc:1373
-#: ../ui/mainwindow.ui:2000 ../ui/mainwindow.ui:2408
+#: ../ui/mainwindow.ui:2099 ../ui/mainwindow.ui:2507
 #: ../ui/settingsdialog.ui:960
 msgid "Preferences"
 msgstr "Preferences"
 
-#: ../ui/finishedtransfers.ui:156 ../ui/settingsdialog.ui:3954
+#: ../ui/finishedtransfers.ui:156 ../ui/settingsdialog.ui:3955
 #: ../ui/transfers.ui:110
 msgid "Preview"
 msgstr ""
@@ -2442,14 +2480,14 @@ msgstr "Priority"
 msgid "Private Message (also sets urgency hint)"
 msgstr "Private Message (also sets urgency hint)"
 
-#: ../ui/settingsdialog.ui:7725
+#: ../ui/settingsdialog.ui:7726
 #, fuzzy
 msgid "Private key file"
 msgstr "Private message"
 
-#: ../src/hub.cc:1983 ../src/settingsdialog.cc:1082
+#: ../src/hub.cc:2024 ../src/settingsdialog.cc:1082
 #: ../src/settingsdialog.cc:1135 ../src/settingsdialog.cc:1255
-#: ../src/settingsmanager.cc:238
+#: ../src/settingsmanager.cc:239
 msgid "Private message"
 msgstr "Private message"
 
@@ -2460,32 +2498,32 @@ msgstr "Magnet Properties / Choice"
 
 #: ../src/settingsdialog.cc:1321 ../src/settingsdialog.cc:1371
 #: ../src/settingsdialog.cc:1427 ../src/publichubs.cc:29
-#: ../ui/mainwindow.ui:1112 ../ui/mainwindow.ui:2179 ../ui/mainwindow.ui:2400
+#: ../ui/mainwindow.ui:1244 ../ui/mainwindow.ui:2278 ../ui/mainwindow.ui:2499
 msgid "Public Hubs"
 msgstr "Public Hubs"
 
-#: ../ui/settingsdialog.ui:2875
+#: ../ui/settingsdialog.ui:2876
 #, fuzzy
 msgid "Public Hubs list URL"
 msgstr "Public Hubs"
 
 #: ../src/settingsdialog.cc:1322 ../src/settingsdialog.cc:1387
-#: ../ui/mainwindow.ui:2205 ../ui/mainwindow.ui:2464
-#: ../ui/settingsdialog.ui:3712
+#: ../ui/mainwindow.ui:2304 ../ui/mainwindow.ui:2563
+#: ../ui/settingsdialog.ui:3713
 msgid "Queue"
 msgstr "Queue"
 
-#: ../ui/mainwindow.ui:2100
+#: ../ui/mainwindow.ui:2200
 #, fuzzy
 msgid "Quick connect to the hub"
 msgstr "Connect to the hub"
 
 #: ../src/settingsdialog.cc:1325 ../src/settingsdialog.cc:1393
-#: ../ui/mainwindow.ui:2308 ../ui/mainwindow.ui:2488
+#: ../ui/mainwindow.ui:2407 ../ui/mainwindow.ui:2587
 msgid "Quit"
 msgstr "Quit"
 
-#: ../ui/mainwindow.ui:2305
+#: ../ui/mainwindow.ui:2405
 msgid "Quit the program"
 msgstr ""
 
@@ -2506,32 +2544,37 @@ msgstr ""
 msgid "Re-_add source"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1088
+#: ../ui/mainwindow.ui:1220
 #, fuzzy
 msgid "Re_connect"
 msgstr "Connect"
 
-#: ../src/hub.cc:1984 ../ui/hub.ui:75
+#: ../src/hub.cc:2025 ../ui/hub.ui:75
 msgid "Rebuild hash"
 msgstr "Rebuild hash"
 
 #: ../src/settingsdialog.cc:1327 ../src/settingsdialog.cc:1363
-#: ../ui/mainwindow.ui:2086 ../ui/mainwindow.ui:2368
+#: ../ui/mainwindow.ui:2185 ../ui/mainwindow.ui:2467
 #, fuzzy
 msgid "Reconnect"
 msgstr "Connect"
 
-#: ../ui/mainwindow.ui:2083
+#: ../ui/mainwindow.ui:1513
+#, fuzzy
+msgid "Reconnect all hubs"
+msgstr "Connect to the hub"
+
+#: ../ui/mainwindow.ui:2183
 #, fuzzy
 msgid "Reconnect to the hub"
 msgstr "Connect to the hub"
 
 #: ../src/settingsdialog.cc:1318 ../src/settingsdialog.cc:1377
-#: ../ui/mainwindow.ui:2043 ../ui/mainwindow.ui:2424
+#: ../ui/mainwindow.ui:2142 ../ui/mainwindow.ui:2523
 msgid "Refresh"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2040
+#: ../ui/mainwindow.ui:2140
 #, fuzzy
 msgid "Refresh file list"
 msgstr "Get file list"
@@ -2552,7 +2595,7 @@ msgstr ""
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr "Remote client does not fully support TTH - cannot download"
 
-#: ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:7938
+#: ../ui/adlsearch.ui:508 ../ui/uploadqueue.ui:69 ../ui/settingsdialog.ui:7939
 msgid "Remove"
 msgstr ""
 
@@ -2568,7 +2611,7 @@ msgstr ""
 msgid "Remove image"
 msgstr ""
 
-#: ../src/hub.cc:2003
+#: ../src/hub.cc:2044
 #, fuzzy
 msgid "Remove rules from list"
 msgstr "Remove user favorite"
@@ -2577,16 +2620,16 @@ msgstr "Remove user favorite"
 msgid "Remove slow filelists"
 msgstr "Remove slow filelists"
 
-#: ../src/hub.cc:1976 ../src/privatemessage.cc:1001 ../ui/privatemessage.ui:57
+#: ../src/hub.cc:2017 ../src/privatemessage.cc:1022 ../ui/privatemessage.ui:57
 msgid "Remove user favorite"
 msgstr "Remove user favorite"
 
-#: ../ui/downloadqueue.ui:345 ../ui/search.ui:826
+#: ../ui/downloadqueue.ui:345 ../ui/search.ui:815
 #, fuzzy
 msgid "Remove user from _queue"
 msgstr "Remove user favorite"
 
-#: ../ui/settingsdialog.ui:7924
+#: ../ui/settingsdialog.ui:7925
 #, fuzzy
 msgid "Rename"
 msgstr "Filename"
@@ -2595,7 +2638,7 @@ msgstr "Filename"
 msgid "Rename a search type"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1432
+#: ../ui/mainwindow.ui:1641
 msgid "Report a Bug"
 msgstr ""
 
@@ -2615,21 +2658,21 @@ msgstr "Running..."
 msgid "SJIS"
 msgstr ""
 
-#: ../src/hub.cc:1982 ../ui/hub.ui:66
+#: ../src/hub.cc:2023 ../ui/hub.ui:66
 msgid "Say a third person"
 msgstr "Say a third person"
 
 #: ../src/settingsdialog.cc:1052 ../src/settingsdialog.cc:1323
 #: ../src/settingsdialog.cc:1381 ../src/search.cc:41 ../src/search.cc:72
-#: ../src/search.cc:79 ../src/search.cc:234 ../src/search.cc:432
-#: ../src/search.cc:1067 ../src/search.cc:1068 ../src/search.cc:1878
-#: ../ui/searchspy.ui:94 ../ui/searchspy.ui:402 ../ui/mainwindow.ui:1156
-#: ../ui/mainwindow.ui:2162 ../ui/mainwindow.ui:2440
-#: ../ui/settingsdialog.ui:8003
+#: ../src/search.cc:79 ../src/search.cc:238 ../src/search.cc:436
+#: ../src/search.cc:1074 ../src/search.cc:1075 ../src/search.cc:1885
+#: ../ui/searchspy.ui:94 ../ui/searchspy.ui:402 ../ui/mainwindow.ui:1288
+#: ../ui/mainwindow.ui:2261 ../ui/mainwindow.ui:2539
+#: ../ui/settingsdialog.ui:8004
 msgid "Search"
 msgstr "Search"
 
-#: ../src/settingsdialog.cc:1330 ../ui/mainwindow.ui:1168
+#: ../src/settingsdialog.cc:1330 ../ui/mainwindow.ui:1300
 #, fuzzy
 msgid "Search ADL"
 msgstr "Search: "
@@ -2641,8 +2684,8 @@ msgstr "Search: "
 
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:1053
 #: ../src/settingsdialog.cc:1324 ../src/settingsdialog.cc:1385
-#: ../src/settingsdialog.cc:1433 ../ui/mainwindow.ui:1234
-#: ../ui/mainwindow.ui:2279 ../ui/settingsdialog.ui:6395
+#: ../src/settingsdialog.cc:1433 ../ui/mainwindow.ui:1375
+#: ../ui/mainwindow.ui:2379 ../ui/settingsdialog.ui:6396
 msgid "Search Spy"
 msgstr "Search Spy"
 
@@ -2655,31 +2698,26 @@ msgstr "Search Spy"
 msgid "Search String"
 msgstr "Search String"
 
-#: ../ui/search.ui:184
+#: ../ui/search.ui:174
 #, fuzzy
 msgid "Search for"
 msgstr "Searching for "
 
-#: ../ui/search.ui:556
-#, fuzzy
-msgid "Search for a file"
-msgstr "Searching for "
-
-#: ../ui/mainwindow.ui:2159
+#: ../ui/mainwindow.ui:2259
 msgid "Search for files to download"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7282
+#: ../ui/settingsdialog.ui:7283
 #, fuzzy
 msgid "Search history"
 msgstr "Search Spy"
 
-#: ../ui/search.ui:413
+#: ../ui/search.ui:460
 #, fuzzy
 msgid "Search options"
 msgstr "Search String"
 
-#: ../src/hub.cc:3612
+#: ../src/hub.cc:3653
 msgid "Search spam detected from "
 msgstr "Search spam detected from "
 
@@ -2690,24 +2728,24 @@ msgstr "Search spam detected from "
 msgid "Search type"
 msgstr "Search Spy"
 
-#: ../ui/search.ui:423
+#: ../ui/search.ui:470
 msgid "Search within local results"
 msgstr ""
 
-#: ../src/search.cc:537
+#: ../src/search.cc:541
 msgid "Searching for "
 msgstr "Searching for "
 
-#: ../ui/settingsdialog.ui:7833
+#: ../ui/settingsdialog.ui:7834
 msgid "Security Certificates"
 msgstr ""
 
-#: ../src/mainwindow.cc:2249
+#: ../src/mainwindow.cc:2315
 #, fuzzy
 msgid "Select file to Get TTH"
 msgstr "Select filelist to browse"
 
-#: ../src/mainwindow.cc:1906 ../ui/mainwindow.ui:876
+#: ../src/mainwindow.cc:1931 ../ui/mainwindow.ui:876
 msgid "Select filelist to browse"
 msgstr "Select filelist to browse"
 
@@ -2715,7 +2753,12 @@ msgstr "Select filelist to browse"
 msgid "Send PM when double clicked in the user list"
 msgstr "Send PM when double clicked in the user list"
 
-#: ../ui/downloadqueue.ui:297 ../ui/search.ui:799
+#: ../ui/uploadqueue.ui:78
+#, fuzzy
+msgid "Send Private Message"
+msgstr "Private message"
+
+#: ../ui/downloadqueue.ui:297 ../ui/search.ui:788
 #, fuzzy
 msgid "Send _private message"
 msgstr "Private message"
@@ -2728,7 +2771,7 @@ msgstr ""
 msgid "Send unknown /commands to the hub"
 msgstr "Send unknown /commands to the hub"
 
-#: ../src/search.cc:542
+#: ../src/search.cc:546
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr ""
@@ -2738,7 +2781,7 @@ msgstr ""
 msgid "Separator"
 msgstr "Separator"
 
-#: ../src/settingsdialog.cc:1361 ../ui/mainwindow.ui:2360
+#: ../src/settingsdialog.cc:1361 ../ui/mainwindow.ui:2459
 #, fuzzy
 msgid "Separators"
 msgstr "Separator"
@@ -2752,7 +2795,7 @@ msgstr "Priority"
 msgid "Set download limit image"
 msgstr ""
 
-#: ../src/hub.cc:1930
+#: ../src/hub.cc:1971
 msgid "Set download limit image: "
 msgstr ""
 
@@ -2761,16 +2804,16 @@ msgid "Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Set lowest priority for newly added files larger than low priority size"
 
-#: ../ui/settingsdialog.ui:4052
+#: ../ui/settingsdialog.ui:4053
 msgid "Share hidden files"
 msgstr ""
 
-#: ../src/hub.cc:72 ../src/hub.cc:366 ../src/hub.cc:383 ../src/hub.cc:403
-#: ../src/hub.cc:451 ../src/publichubs.cc:46 ../src/publichubs.cc:161
+#: ../src/hub.cc:72 ../src/hub.cc:374 ../src/hub.cc:391 ../src/hub.cc:411
+#: ../src/hub.cc:459 ../src/publichubs.cc:46 ../src/publichubs.cc:161
 msgid "Shared"
 msgstr "Shared"
 
-#: ../ui/settingsdialog.ui:4277
+#: ../ui/settingsdialog.ui:4278
 #, fuzzy
 msgid "Sharing"
 msgstr "Shared"
@@ -2779,20 +2822,24 @@ msgstr "Shared"
 msgid "Show IP's' in chats"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1952
+#: ../ui/mainwindow.ui:2052
 msgid "Show Interface"
 msgstr ""
 
-#: ../src/hub.cc:1977 ../ui/hub.ui:48
+#: ../src/hub.cc:2018 ../ui/hub.ui:48
 msgid "Show favorites list"
 msgstr "Show favorites list"
 
-#: ../src/hub.cc:1980 ../src/privatemessage.cc:1007
+#: ../ui/mainwindow.ui:1396
+msgid "Show free space bar"
+msgstr ""
+
+#: ../src/hub.cc:2021 ../src/privatemessage.cc:1028
 #: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
 msgid "Show help"
 msgstr "Show help"
 
-#: ../src/hub.cc:2001
+#: ../src/hub.cc:2042
 #, fuzzy
 msgid "Show ipfilter rules list"
 msgstr "Show favorites list"
@@ -2810,11 +2857,11 @@ msgstr ""
 msgid "Show only completely finished downloads"
 msgstr "Finished Downloads"
 
-#: ../ui/settingsdialog.ui:5544
+#: ../ui/settingsdialog.ui:5545
 msgid "Show only when the application is not active."
 msgstr ""
 
-#: ../src/hub.cc:1989 ../src/privatemessage.cc:1006 ../ui/privatemessage.ui:93
+#: ../src/hub.cc:2030 ../src/privatemessage.cc:1027 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
 msgid "Show ratio [send in chat]"
 msgstr ""
@@ -2836,12 +2883,17 @@ msgstr ""
 msgid "Show user country in chat"
 msgstr ""
 
-#: ../src/hub.cc:1988 ../src/privatemessage.cc:1005 ../ui/privatemessage.ui:84
+#: ../src/hub.cc:2029 ../src/privatemessage.cc:1026 ../ui/privatemessage.ui:84
 #: ../ui/hub.ui:93
 msgid "Show version"
 msgstr "Show version"
 
-#: ../ui/mainwindow.ui:1560
+#: ../ui/search.ui:292
+#, fuzzy
+msgid "Show/Hide side panel"
+msgstr "Show favorites list"
+
+#: ../ui/mainwindow.ui:1781
 msgid "Show/Hide transfers panel"
 msgstr ""
 
@@ -2860,9 +2912,9 @@ msgstr ""
 #: ../src/transfers.cc:727 ../src/settingsdialog.cc:994
 #: ../src/settingsdialog.cc:1000 ../src/settingsdialog.cc:3605
 #: ../src/settingsdialog.cc:3674 ../src/search.cc:89 ../src/search.cc:116
-#: ../src/search.cc:603 ../src/search.cc:686 ../src/search.cc:695
-#: ../src/search.cc:821 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
-#: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317 ../ui/search.ui:239
+#: ../src/search.cc:610 ../src/search.cc:693 ../src/search.cc:702
+#: ../src/search.cc:828 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
+#: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317 ../ui/search.ui:330
 #: ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Size"
@@ -2880,32 +2932,32 @@ msgstr "Size: 0 B"
 msgid "Skip zero-byte files"
 msgstr "Skip zero-byte files"
 
-#: ../src/privatemessage.cc:1391
+#: ../src/privatemessage.cc:1438
 msgid "Slot granted"
 msgstr "Slot granted"
 
-#: ../src/hub.cc:2891 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2932 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Slot granted to "
 
-#: ../src/search.cc:91 ../src/search.cc:118 ../src/search.cc:602
+#: ../src/search.cc:91 ../src/search.cc:118 ../src/search.cc:609
 msgid "Slots"
 msgstr "Slots"
 
-#: ../ui/mainwindow.ui:1371
+#: ../ui/mainwindow.ui:1580
 #, fuzzy
 msgid "Small icons"
 msgstr " + system icons"
 
-#: ../ui/settingsdialog.ui:7308
+#: ../ui/settingsdialog.ui:7309
 msgid "Socket read buffer"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7321
+#: ../ui/settingsdialog.ui:7322
 msgid "Socket write buffer"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1749
+#: ../ui/settingsdialog.ui:1750
 msgid "Socks IP"
 msgstr ""
 
@@ -2913,11 +2965,11 @@ msgstr ""
 msgid "Sort favorite users first"
 msgstr "Sort favorite users first"
 
-#: ../src/settingsdialog.cc:1062 ../ui/settingsdialog.ui:4997
+#: ../src/settingsdialog.cc:1062 ../ui/settingsdialog.ui:4998
 msgid "Sounds"
 msgstr "Sounds"
 
-#: ../ui/mainwindow.ui:1421
+#: ../ui/mainwindow.ui:1630
 msgid "Source (git)"
 msgstr ""
 
@@ -2937,7 +2989,7 @@ msgstr "Source too slow"
 msgid "Speed"
 msgstr "Speed"
 
-#: ../ui/mainwindow.ui:2282 ../ui/mainwindow.ui:2456
+#: ../ui/mainwindow.ui:2381 ../ui/mainwindow.ui:2555
 msgid "Spy"
 msgstr ""
 
@@ -2945,7 +2997,7 @@ msgstr ""
 msgid "Start a search for this file"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6041
+#: ../ui/settingsdialog.ui:6042
 msgid "State of preparedness"
 msgstr ""
 
@@ -2965,7 +3017,7 @@ msgstr "Status message"
 msgid "System default"
 msgstr "System default"
 
-#: ../ui/settingsdialog.ui:5813
+#: ../ui/settingsdialog.ui:5814
 #, fuzzy
 msgid "System icons"
 msgstr " + system icons"
@@ -2981,10 +3033,10 @@ msgstr "TIS-620 (Thai)"
 
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:287
 #: ../src/downloadqueue.cc:394 ../src/downloadqueue.cc:722
-#: ../src/downloadqueue.cc:750 ../src/search.cc:96 ../src/search.cc:350
-#: ../src/search.cc:354 ../src/search.cc:360 ../src/search.cc:610
-#: ../src/search.cc:697 ../src/search.cc:827 ../src/search.cc:878
-#: ../src/search.cc:1147 ../src/search.cc:1312 ../src/search.cc:1588
+#: ../src/downloadqueue.cc:750 ../src/search.cc:96 ../src/search.cc:354
+#: ../src/search.cc:358 ../src/search.cc:364 ../src/search.cc:617
+#: ../src/search.cc:704 ../src/search.cc:834 ../src/search.cc:885
+#: ../src/search.cc:1154 ../src/search.cc:1319 ../src/search.cc:1595
 #: ../src/sharebrowser.cc:78 ../src/sharebrowser.cc:291
 #: ../src/sharebrowser.cc:321 ../src/sharebrowser.cc:516
 #: ../src/sharebrowser.cc:972 ../src/sharebrowser.cc:1006
@@ -2996,42 +3048,42 @@ msgstr ""
 msgid "TTH: "
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4650
+#: ../ui/settingsdialog.ui:4651
 msgid "Tabs"
 msgstr ""
 
-#: ../src/hub.cc:74 ../src/hub.cc:385 ../src/hub.cc:405
+#: ../src/hub.cc:74 ../src/hub.cc:393 ../src/hub.cc:413
 msgid "Tag"
 msgstr "Tag"
 
-#: ../ui/settingsdialog.ui:5380
+#: ../ui/settingsdialog.ui:5381
 msgid "Test"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5137
+#: ../ui/settingsdialog.ui:5138
 msgid "Text color"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5153
+#: ../ui/settingsdialog.ui:5154
 msgid "Text style"
 msgstr ""
 
-#: ../ui/searchspy.ui:297 ../ui/settingsdialog.ui:6250
+#: ../ui/searchspy.ui:297 ../ui/settingsdialog.ui:6251
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
 msgstr ""
 
-#: ../src/favoritehubs.cc:394
+#: ../src/favoritehubs.cc:398
 msgid "The name and address fields are required"
 msgstr "The name and address fields are required"
 
-#: ../ui/settingsdialog.ui:5827
+#: ../ui/settingsdialog.ui:5828
 #, fuzzy
 msgid "Theme default"
 msgstr "System default"
 
-#: ../ui/settingsdialog.ui:5855
+#: ../ui/settingsdialog.ui:5856
 msgid "Themes"
 msgstr ""
 
@@ -3068,17 +3120,17 @@ msgstr "Title"
 msgid "To (empty for selected user)"
 msgstr ""
 
-#: ../ui/mainwindow.ui:292
+#: ../ui/mainwindow.ui:293
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5914
+#: ../ui/settingsdialog.ui:5915
 msgid "Toolbar"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1334
+#: ../ui/mainwindow.ui:1543
 msgid "Tools panel"
 msgstr ""
 
@@ -3086,11 +3138,11 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6308
+#: ../ui/settingsdialog.ui:6309
 msgid "Top (number of matches, more than)"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1344
+#: ../ui/mainwindow.ui:1553
 #, fuzzy
 msgid "Top position"
 msgstr "Application"
@@ -3099,12 +3151,12 @@ msgstr "Application"
 msgid "Top: >"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1702
+#: ../ui/mainwindow.ui:1922
 #, fuzzy
 msgid "Total received"
 msgstr "Total size: "
 
-#: ../ui/mainwindow.ui:1779
+#: ../ui/mainwindow.ui:1999
 #, fuzzy
 msgid "Total sent"
 msgstr "Total size: "
@@ -3113,7 +3165,7 @@ msgstr "Total size: "
 msgid "Total size: "
 msgstr "Total size: "
 
-#: ../ui/settingsdialog.ui:4037
+#: ../ui/settingsdialog.ui:4038
 #, fuzzy
 msgid "Total size: 0 B"
 msgstr "Total size: "
@@ -3197,12 +3249,12 @@ msgid ""
 " (c.leick@vollbio.de)\n"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7695
+#: ../ui/settingsdialog.ui:7696
 msgid "Trusted certificates path"
 msgstr ""
 
-#: ../src/search.cc:88 ../src/search.cc:605 ../src/search.cc:709
-#: ../src/search.cc:836 ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289
+#: ../src/search.cc:88 ../src/search.cc:612 ../src/search.cc:716
+#: ../src/search.cc:843 ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289
 #: ../src/sharebrowser.cc:310
 msgid "Type"
 msgstr "Type"
@@ -3215,7 +3267,7 @@ msgstr "URL"
 msgid "UTF-8"
 msgstr ""
 
-#: ../src/hub.cc:2916
+#: ../src/hub.cc:2957
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "Unable to connect: already connected to the requested hub"
 
@@ -3223,11 +3275,11 @@ msgstr "Unable to connect: already connected to the requested hub"
 msgid "Unable to load file list: "
 msgstr "Unable to load file list: "
 
-#: ../src/mainwindow.cc:1931
+#: ../src/mainwindow.cc:1956
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Unable to load file list: Invalid file list name"
 
-#: ../src/mainwindow.cc:2133
+#: ../src/mainwindow.cc:2179
 #, fuzzy
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
@@ -3237,7 +3289,7 @@ msgstr ""
 "File transfers will not work correctly until you change settings or turn off "
 "any application that might be using the TCP/TLS port."
 
-#: ../ui/settingsdialog.ui:2668
+#: ../ui/settingsdialog.ui:2669
 #, fuzzy
 msgid "Unfinished downloads directory"
 msgstr "Finished Downloads"
@@ -3247,11 +3299,11 @@ msgstr "Finished Downloads"
 msgid "Unknown"
 msgstr "Unknown"
 
-#: ../src/privatemessage.cc:1011
+#: ../src/privatemessage.cc:1032
 msgid "Unknown command "
 msgstr "Unknown command "
 
-#: ../src/hub.cc:2299
+#: ../src/hub.cc:2340
 msgid "Unknown command '"
 msgstr "Unknown command '"
 
@@ -3263,11 +3315,11 @@ msgstr ""
 msgid "Update frame search"
 msgstr "Update frame search"
 
-#: ../src/hub.cc:1985
+#: ../src/hub.cc:2026
 msgid "Update own file list"
 msgstr "Update own file list"
 
-#: ../ui/settingsdialog.ui:6117
+#: ../ui/settingsdialog.ui:6118
 msgid "Updating string or TTH"
 msgstr ""
 
@@ -3275,7 +3327,12 @@ msgstr ""
 msgid "Upload"
 msgstr "Upload"
 
-#: ../ui/settingsdialog.ui:2289
+#: ../src/uploadqueue.cc:36 ../ui/mainwindow.ui:1363
+#, fuzzy
+msgid "Upload Queue"
+msgstr "Download Queue"
+
+#: ../ui/settingsdialog.ui:2290
 #, fuzzy
 msgid "Upload Slots"
 msgstr "Upload: "
@@ -3288,12 +3345,12 @@ msgstr "Upload complete..."
 msgid "Upload finished"
 msgstr "Upload finished"
 
-#: ../ui/settingsdialog.ui:4201
+#: ../ui/settingsdialog.ui:4202
 #, fuzzy
 msgid "Upload slots"
 msgstr "Upload: "
 
-#: ../ui/mainwindow.ui:1728
+#: ../ui/mainwindow.ui:1948
 #, fuzzy
 msgid "Upload speed"
 msgstr "Uploaded "
@@ -3302,7 +3359,7 @@ msgstr "Uploaded "
 msgid "Upload starting..."
 msgstr "Upload starting..."
 
-#: ../src/mainwindow.cc:657
+#: ../src/mainwindow.cc:675
 msgid "Upload: "
 msgstr "Upload: "
 
@@ -3319,16 +3376,16 @@ msgstr "Uploaded "
 msgid "Use"
 msgstr "Use"
 
-#: ../ui/mainwindow.ui:1967
+#: ../ui/mainwindow.ui:2067
 #, fuzzy
 msgid "Use Blinking Icon"
 msgstr "Use blinking status icon"
 
-#: ../ui/settingsdialog.ui:2461
+#: ../ui/settingsdialog.ui:2462
 msgid "Use DHT"
 msgstr ""
 
-#: ../src/hub.cc:1719 ../src/privatemessage.cc:1167
+#: ../src/hub.cc:1755 ../src/privatemessage.cc:1206
 msgid "Use Emoticons"
 msgstr "Use Emoticons"
 
@@ -3336,7 +3393,7 @@ msgstr "Use Emoticons"
 msgid "Use OEM monospaced font for chat windows"
 msgstr "Use OEM monospaced font for chat windows"
 
-#: ../ui/settingsdialog.ui:1659
+#: ../ui/settingsdialog.ui:1660
 msgid "Use SOCKS5 server to resolve hostnames"
 msgstr ""
 
@@ -3344,11 +3401,11 @@ msgstr ""
 msgid "Use TLS when remote client supports it"
 msgstr "Use TLS when remote client supports it"
 
-#: ../ui/settingsdialog.ui:1260
+#: ../ui/settingsdialog.ui:1261
 msgid "Use UPnP to let client cofigure my router"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1873
+#: ../ui/settingsdialog.ui:1874
 #, fuzzy
 msgid "Use bandwidth limits"
 msgstr "Use magnet split"
@@ -3369,7 +3426,7 @@ msgstr "Use fast hashing method (disable if you have problems with hashing)"
 msgid "Use magnet split"
 msgstr "Use magnet split"
 
-#: ../ui/settingsdialog.ui:2039
+#: ../ui/settingsdialog.ui:2040
 msgid "Use second set of bandwidth limits"
 msgstr ""
 
@@ -3390,13 +3447,13 @@ msgstr "User (dc)"
 msgid "User (normal)"
 msgstr "User (normal)"
 
-#: ../ui/settingsdialog.ui:6988
+#: ../ui/settingsdialog.ui:6989
 #, fuzzy
 msgid "User Commands"
 msgstr "User (normal)"
 
-#: ../src/favoritehubs.cc:62 ../src/favoritehubs.cc:136
-#: ../src/favoritehubs.cc:301
+#: ../src/favoritehubs.cc:62 ../src/favoritehubs.cc:140
+#: ../src/favoritehubs.cc:305
 msgid "User Description"
 msgstr "User Description"
 
@@ -3405,7 +3462,7 @@ msgstr "User Description"
 msgid "User commands"
 msgstr "Unknown command "
 
-#: ../src/hub.cc:1877
+#: ../src/hub.cc:1918
 msgid "User favorite list:"
 msgstr "User favorite list:"
 
@@ -3417,11 +3474,11 @@ msgstr "User firewall (dc)"
 msgid "User firewall (normal)"
 msgstr "User firewall (normal)"
 
-#: ../src/hub.cc:1986
+#: ../src/hub.cc:2027
 msgid "User list show/hide"
 msgstr "User list show/hide"
 
-#: ../src/hub.cc:2862 ../src/hub.cc:2882
+#: ../src/hub.cc:2903 ../src/hub.cc:2923
 msgid "User not found"
 msgstr "User not found"
 
@@ -3441,19 +3498,19 @@ msgstr "User operator firewall (dc)"
 msgid "User operator firewall (normal)"
 msgstr "User operator firewall (normal)"
 
-#: ../src/privatemessage.cc:1326
+#: ../src/privatemessage.cc:1373
 msgid "User went offline"
 msgstr "User went offline"
 
-#: ../ui/settingsdialog.ui:1646
+#: ../ui/settingsdialog.ui:1647
 #, fuzzy
 msgid "Username"
 msgstr "User"
 
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
-#: ../src/publichubs.cc:58 ../src/publichubs.cc:158 ../ui/mainwindow.ui:2145
-#: ../ui/mainwindow.ui:2392
+#: ../src/publichubs.cc:58 ../src/publichubs.cc:158 ../ui/mainwindow.ui:2244
+#: ../ui/mainwindow.ui:2491
 msgid "Users"
 msgstr "Users"
 
@@ -3479,20 +3536,20 @@ msgstr ""
 msgid "View status messages in main chat"
 msgstr "View status messages in main chat"
 
-#: ../ui/mainwindow.ui:2202
+#: ../ui/mainwindow.ui:2302
 msgid "View the files to be downloaded"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2057
+#: ../ui/mainwindow.ui:2157
 msgid "View the hashing progress"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2219
+#: ../ui/mainwindow.ui:2319
 #, fuzzy
 msgid "View the list of finished downloads"
 msgstr "Finished Downloads"
 
-#: ../ui/mainwindow.ui:2236
+#: ../ui/mainwindow.ui:2336
 msgid "View the list of finished uploads"
 msgstr ""
 
@@ -3507,11 +3564,11 @@ msgstr "Filename"
 msgid "Virtual name"
 msgstr "Filename"
 
-#: ../ui/settingsdialog.ui:6267
+#: ../ui/settingsdialog.ui:6268
 msgid "Waiting (seconds)"
 msgstr ""
 
-#: ../src/hub.cc:536
+#: ../src/hub.cc:544
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr ""
@@ -3530,23 +3587,23 @@ msgstr "Waiting to retry"
 msgid "Waiting:"
 msgstr "Rating"
 
-#: ../src/mainwindow.cc:299
+#: ../src/mainwindow.cc:308
 msgid "Welcome to "
 msgstr "Welcome to "
 
-#: ../ui/settingsdialog.ui:4958
+#: ../ui/settingsdialog.ui:4959
 msgid "When a private message window is opened"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1443
+#: ../ui/mainwindow.ui:1652
 msgid "Wiki of project"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4800
+#: ../ui/settingsdialog.ui:4801
 msgid "Windows"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7269
+#: ../ui/settingsdialog.ui:7270
 msgid "Write buffer size"
 msgstr ""
 
@@ -3578,7 +3635,7 @@ msgstr "[U]"
 msgid "[Z]"
 msgstr "[Z]"
 
-#: ../ui/search.ui:808 ../ui/hub.ui:578 ../ui/transfers.ui:63
+#: ../ui/search.ui:797 ../ui/hub.ui:578 ../ui/transfers.ui:63
 #, fuzzy
 msgid "_Add to favorites"
 msgstr "Add a hub to favorites"
@@ -3588,7 +3645,7 @@ msgstr "Add a hub to favorites"
 msgid "_Address:"
 msgstr "Address"
 
-#: ../ui/downloadqueue.ui:283 ../ui/search.ui:781 ../ui/hub.ui:545
+#: ../ui/downloadqueue.ui:283 ../ui/search.ui:770 ../ui/hub.ui:545
 #: ../ui/favoriteusers.ui:159 ../ui/transfers.ui:36
 #, fuzzy
 msgid "_Browse file list"
@@ -3599,7 +3656,7 @@ msgstr "Get file list"
 msgid "_Close connection"
 msgstr "Closing connection..."
 
-#: ../ui/mainwindow.ui:1300
+#: ../ui/mainwindow.ui:1457
 #, fuzzy
 msgid "_Close widget"
 msgstr "Close tab"
@@ -3609,7 +3666,7 @@ msgstr "Close tab"
 msgid "_Copy link"
 msgstr ""
 
-#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:766
+#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:755
 #: ../ui/hub.ui:244 ../ui/sharebrowser.ui:164
 msgid "_Copy magnet"
 msgstr ""
@@ -3629,7 +3686,7 @@ msgstr "My nick"
 msgid "_Description:"
 msgstr "Description"
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:705 ../ui/hub.ui:212
+#: ../ui/privatemessage.ui:169 ../ui/search.ui:694 ../ui/hub.ui:212
 #, fuzzy
 msgid "_Download"
 msgstr "Download"
@@ -3639,11 +3696,11 @@ msgstr "Download"
 msgid "_Encoding:"
 msgstr "Encoding"
 
-#: ../ui/mainwindow.ui:1050
+#: ../ui/mainwindow.ui:1182
 msgid "_Exit"
 msgstr ""
 
-#: ../ui/mainwindow.ui:965
+#: ../ui/mainwindow.ui:1097
 #, fuzzy
 msgid "_File"
 msgstr "File"
@@ -3652,7 +3709,7 @@ msgstr "File"
 msgid "_Force attempt"
 msgstr ""
 
-#: ../ui/search.ui:817 ../ui/transfers.ui:72
+#: ../ui/search.ui:806 ../ui/transfers.ui:72
 #, fuzzy
 msgid "_Grant extra slot"
 msgstr "Grant extra slot"
@@ -3662,7 +3719,7 @@ msgstr "Grant extra slot"
 msgid "_Grant slot"
 msgstr "Grant extra slot"
 
-#: ../ui/mainwindow.ui:1403
+#: ../ui/mainwindow.ui:1612
 msgid "_Help"
 msgstr ""
 
@@ -3671,7 +3728,7 @@ msgstr ""
 msgid "_Highest"
 msgstr "Highest"
 
-#: ../ui/mainwindow.ui:1069
+#: ../ui/mainwindow.ui:1201
 #, fuzzy
 msgid "_Hubs"
 msgstr "Hubs: "
@@ -3681,12 +3738,12 @@ msgstr "Hubs: "
 msgid "_Lowest"
 msgstr "Lowest"
 
-#: ../ui/mainwindow.ui:1024
+#: ../ui/mainwindow.ui:1156
 #, fuzzy
 msgid "_Magnet Choice"
 msgstr "Magnet Choice"
 
-#: ../ui/search.ui:790
+#: ../ui/search.ui:779
 #, fuzzy
 msgid "_Match Queue"
 msgstr "Matched "
@@ -3713,7 +3770,7 @@ msgstr ""
 msgid "_Name:"
 msgstr "Name"
 
-#: ../ui/mainwindow.ui:1293
+#: ../ui/mainwindow.ui:1450
 msgid "_Next widget"
 msgstr ""
 
@@ -3740,12 +3797,12 @@ msgstr "Password"
 msgid "_Paused"
 msgstr "Paused"
 
-#: ../ui/mainwindow.ui:1252
+#: ../ui/mainwindow.ui:1409
 #, fuzzy
 msgid "_Preferences"
 msgstr "Preferences"
 
-#: ../ui/mainwindow.ui:1282
+#: ../ui/mainwindow.ui:1439
 msgid "_Previous widget"
 msgstr ""
 
@@ -3759,18 +3816,18 @@ msgstr "Private message"
 msgid "_Properties/Choice"
 msgstr "Magnet Properties / Choice"
 
-#: ../ui/mainwindow.ui:1076
+#: ../ui/mainwindow.ui:1208
 #, fuzzy
 msgid "_Quick connect"
 msgstr "Hub connected"
 
-#: ../ui/mainwindow.ui:995
+#: ../ui/mainwindow.ui:1127
 #, fuzzy
 msgid "_Refresh file list"
 msgstr "Get file list"
 
 #: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
-#: ../ui/downloadqueue.ui:359 ../ui/search.ui:855 ../ui/searchspy.ui:108
+#: ../ui/downloadqueue.ui:359 ../ui/search.ui:844 ../ui/searchspy.ui:108
 #: ../ui/searchspy.ui:417 ../ui/favoriteusers.ui:228
 msgid "_Remove"
 msgstr ""
@@ -3785,12 +3842,12 @@ msgstr "Remove user favorite"
 msgid "_Remove user from queue"
 msgstr "Remove user favorite"
 
-#: ../ui/search.ui:585
+#: ../ui/search.ui:256
 #, fuzzy
 msgid "_Search"
 msgstr "Search"
 
-#: ../ui/search.ui:757
+#: ../ui/search.ui:746
 #, fuzzy
 msgid "_Search by TTH"
 msgstr "Search Spy"
@@ -3814,7 +3871,7 @@ msgstr "Private message"
 msgid "_Send public message"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1149
+#: ../ui/mainwindow.ui:1281
 msgid "_Tools"
 msgstr ""
 
@@ -3823,16 +3880,16 @@ msgstr ""
 msgid "_User Description:"
 msgstr "User Description"
 
-#: ../ui/search.ui:835 ../ui/hub.ui:620
+#: ../ui/search.ui:824 ../ui/hub.ui:620
 #, fuzzy
 msgid "_User commands"
 msgstr "Unknown command "
 
-#: ../ui/mainwindow.ui:1271
+#: ../ui/mainwindow.ui:1428
 msgid "_Widgets"
 msgstr ""
 
-#: ../src/hub.cc:3100
+#: ../src/hub.cc:3141
 msgid "bad image"
 msgstr ""
 
@@ -3844,7 +3901,7 @@ msgstr "default icons"
 msgid "default theme"
 msgstr "default theme"
 
-#: ../src/hub.cc:77 ../src/hub.cc:388 ../src/hub.cc:408
+#: ../src/hub.cc:77 ../src/hub.cc:396 ../src/hub.cc:416
 msgid "eMail"
 msgstr "eMail"
 
@@ -3853,11 +3910,11 @@ msgstr "eMail"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr ""
 
-#: ../src/mainwindow.cc:2176
+#: ../src/mainwindow.cc:2222
 msgid "file list from "
 msgstr "file list from "
 
-#: ../ui/settingsdialog.ui:2070
+#: ../ui/settingsdialog.ui:2071
 #, fuzzy
 msgid "from"
 msgstr "%) from "
@@ -3866,15 +3923,15 @@ msgstr "%) from "
 msgid "from Coral"
 msgstr ""
 
-#: ../src/mainwindow.cc:285
+#: ../src/mainwindow.cc:294
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4872
+#: ../ui/settingsdialog.ui:4873
 msgid "in program"
 msgstr ""
 
-#: ../src/hub.cc:3087
+#: ../src/hub.cc:3128
 #, fuzzy
 msgid "loading error"
 msgstr "No errors"
@@ -3883,17 +3940,17 @@ msgstr "No errors"
 msgid "none"
 msgstr ""
 
-#: ../src/hub.cc:1935 ../src/privatemessage.cc:950
+#: ../src/hub.cc:1976 ../src/privatemessage.cc:971
 msgid "project home: "
 msgstr ""
 
-#: ../src/hub.cc:1954 ../src/privatemessage.cc:969
+#: ../src/hub.cc:1995 ../src/privatemessage.cc:990
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr ""
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2210
-#: ../src/mainwindow.cc:2212 ../ui/settingsdialog.ui:3523
-#: ../ui/settingsdialog.ui:3539 ../ui/settingsdialog.ui:3585
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2256
+#: ../src/mainwindow.cc:2258 ../ui/settingsdialog.ui:3524
+#: ../ui/settingsdialog.ui:3540 ../ui/settingsdialog.ui:3586
 msgid "s"
 msgstr "s"
 
@@ -3906,11 +3963,11 @@ msgstr "Search"
 msgid "selected style failed"
 msgstr "selected style failed"
 
-#: ../ui/settingsdialog.ui:5733
+#: ../ui/settingsdialog.ui:5734
 msgid "theme"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2100
+#: ../ui/settingsdialog.ui:2101
 msgid "to"
 msgstr ""
 
@@ -3925,6 +3982,14 @@ msgstr "top/waiting/frame: "
 #: ../src/searchspy.cc:295 ../src/searchspy.cc:363
 msgid "waiting..."
 msgstr "waiting..."
+
+#, fuzzy
+#~ msgid "File type"
+#~ msgstr "File list"
+
+#, fuzzy
+#~ msgid "Search for a file"
+#~ msgstr "Searching for "
 
 #~ msgid "Searching too soon, retry in "
 #~ msgstr "Searching too soon, retry in "

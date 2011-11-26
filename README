@@ -5,7 +5,7 @@ DC hub software.
 
 The minimum number of our patches to original DC++ kernel makes it easy to
 upgrade to new versions and ensures compatibility with other clients.
-Unfortunately, the number of patches are growing...
+Unfortunately, the number of patches is growing...
 
 Home page: http://code.google.com/p/eiskaltdc/
 

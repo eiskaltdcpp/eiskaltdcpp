@@ -1,22 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR EiskaltDC++\ team
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# English translations for work package.
+# Copyright (C) 2010 EiskaltDC++\ team
+# This file is distributed under the same license as the work package.
+# 
+# Translators:
 # PsyTrip <dimitrov.rusi@gmail.com>, 2010.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2010-12-20 19:57+0200\n"
-"Last-Translator: Rusi Dimitrov <dimitrov.rusi@gmail.com>\n"
-"Language-Team: Bulgarian < >\n"
-"Language: Bulgarian\n"
+"PO-Revision-Date: 2011-11-25 11:41+0000\n"
+"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -94,16 +94,14 @@ msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Не-UTF-8 данни в ADC връзка"
 
 #: ../ConnectivityManager.cpp:78
-#, fuzzy
 msgid "Determining the best connectivity settings..."
-msgstr "Определяне типа на свързване..."
+msgstr ""
 
 #: ../ConnectivityManager.cpp:83
-#, fuzzy
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
-"Грешка при отваряне на %1% порт(а). Трябва да зададете ръчно вашата връзка"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -128,19 +126,16 @@ msgstr ""
 "настроите връзката ръчно за по-добра свързаност"
 
 #: ../ConnectivityManager.cpp:140
-#, fuzzy
 msgid "Transfer (TCP)"
-msgstr " Порт за прехвърляне (%1% TCP)"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:146
-#, fuzzy
 msgid "Search (UDP)"
-msgstr " Търсене на порт (%1% UDP)"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:152
-#, fuzzy
 msgid "DHT (UDP)"
-msgstr "DHT порт (%1% UDP)"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:167
 msgid "Connectivity: "
@@ -394,14 +389,12 @@ msgid "Failed to create port mappings"
 msgstr "Грешка при създаване пренасочването на порт"
 
 #: ../UPnPManager.cpp:137
-#, fuzzy
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Успешно пренасочване на портове "
+msgstr ""
 
 #: ../UPnPManager.cpp:138
-#, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Грешка при махане пренасочването на порт"
+msgstr ""
 
 #: ../UPnPManager.cpp:143
 msgid "UPnP: %1%"
@@ -429,7 +422,8 @@ msgstr "Потребителя е избрал да не се споделя: %1
 
 #: ../ShareManager.cpp:681
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr "Потребителя е избрал да не се споделя временен файл: %1% (размер: %2%)"
+msgstr ""
+"Потребителя е избрал да не се споделя временен файл: %1% (размер: %2%)"
 
 #: ../ShareManager.cpp:769
 msgid ""
@@ -441,8 +435,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "В момента тече опресняване на списъка с файловете, моля изчакайте преди да "
 "опитате да обновите отново"
@@ -706,14 +700,7 @@ msgstr "Записани са повече байтове от заявения 
 msgid "TTH inconsistency"
 msgstr "ТТH несъвпадение"
 
-#~ msgid "Hashing file: %1% (Size: %2%)"
-#~ msgstr "Хеширане на файл: %1% (размер: %2%)"
-
-#~ msgid "TCP/TLS"
-#~ msgstr "TCP/TLS"
-
-#~ msgid "UDP"
-#~ msgstr "UDP"
-
 #~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Искане за търсене след края на данните"
+#~ msgstr "Request to seek beyond the end of data"
+
+

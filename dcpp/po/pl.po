@@ -1,22 +1,22 @@
-# Polish translations for the DC++ package.
-# Copyright (C) 2008 The translators
-# This file is distributed under the same license as the DC++ package.
+# English translations for work package.
+# Copyright (C) 2010 EiskaltDC++\ team
+# This file is distributed under the same license as the work package.
+# 
+# Translators:
 #  <k4r0l@users.sourceforge.net>, 2008.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: dcpp\n"
+"Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2009-03-03 22:46+0000\n"
-"Last-Translator: LadyStardust <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2011-11-25 12:02+0000\n"
+"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"Language-Team: Polish (http://www.transifex.net/projects/p/eiskaltdcpp/team/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -88,9 +88,8 @@ msgid "Unable to create thread"
 msgstr "Nie można utworzyć wątku"
 
 #: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
-#, fuzzy
 msgid "Invalid data"
-msgstr "Nieprawidłowy rozmiar"
+msgstr ""
 
 #: ../UserConnection.cpp:58
 msgid "Non-UTF-8 data in an ADC connection"
@@ -102,7 +101,8 @@ msgstr ""
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:93
@@ -135,9 +135,8 @@ msgid "DHT (UDP)"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:167
-#, fuzzy
 msgid "Connectivity: "
-msgstr "Błąd łączenia: %1%"
+msgstr ""
 
 #: ../UploadManager.cpp:238
 msgid "Unable to send file %1%: %2%"
@@ -160,9 +159,8 @@ msgid "Invalid search type name"
 msgstr ""
 
 #: ../SettingsManager.cpp:514 ../SettingsManager.cpp:536
-#, fuzzy
 msgid "This search type already exists"
-msgstr "Nazwa wirtualnego katalogu już istnieje"
+msgstr ""
 
 #: ../SettingsManager.cpp:568
 msgid "No such search type"
@@ -300,14 +298,12 @@ msgid "Hashing failed: %1%"
 msgstr "Hashowanie zakończone niepowodzeniem: %1%"
 
 #: ../HashManager.cpp:94
-#, fuzzy
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Zakończono hashowanie: %1% (%2%/s)"
+msgstr ""
 
 #: ../HashManager.cpp:97
-#, fuzzy
 msgid "Finished hashing: %1% (%2%)"
-msgstr "Zakończono hashowanie: %1% (%2%/s)"
+msgstr ""
 
 #: ../HashManager.cpp:100
 msgid "Finished hashing: %1%"
@@ -341,18 +337,16 @@ msgid "Error hashing %1%: %2%"
 msgstr "Błąd hashowania %1%: %2%"
 
 #: ../UPnPManager.cpp:45
-#, fuzzy
 msgid "No UPnP implementation available"
-msgstr "Plik niedostępny"
+msgstr ""
 
 #: ../UPnPManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr ""
 
 #: ../UPnPManager.cpp:81
-#, fuzzy
 msgid "Failed to initialize the %1% interface"
-msgstr "Zainicjowano odświeżenie listy plików"
+msgstr ""
 
 #: ../UPnPManager.cpp:85
 msgid " Transfer Port (%1% TCP)"
@@ -386,19 +380,16 @@ msgid "Failed to get external IP"
 msgstr ""
 
 #: ../UPnPManager.cpp:128
-#, fuzzy
 msgid "Failed to create port mappings"
-msgstr "Nie można utworzyć wątku"
+msgstr ""
 
 #: ../UPnPManager.cpp:137
-#, fuzzy
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Zainicjowano odświeżenie listy plików"
+msgstr ""
 
 #: ../UPnPManager.cpp:138
-#, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Zainicjowano odświeżenie listy plików"
+msgstr ""
 
 #: ../UPnPManager.cpp:143
 msgid "UPnP: %1%"
@@ -409,9 +400,8 @@ msgid "No directory specified"
 msgstr "Brak zdefiniowanego katalogu"
 
 #: ../ShareManager.cpp:450
-#, fuzzy
 msgid "Directory is hidden"
-msgstr "Katalog jest już udostępniony"
+msgstr ""
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
@@ -422,28 +412,23 @@ msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
 
 #: ../ShareManager.cpp:660
-#, fuzzy
 msgid "User has chosen not to share file: %1% (Size: %2%)"
-msgstr "Hashowanie zakończone niepowodzeniem: %1%"
+msgstr ""
 
 #: ../ShareManager.cpp:681
-#, fuzzy
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr "Hashowanie zakończone niepowodzeniem: %1%"
+msgstr ""
 
 #: ../ShareManager.cpp:769
-#, fuzzy
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"Zduplikowany plik nie zostanie udostępniony: %1%%2% (Rozmiar: %3% B) "
-"Porównano z: %4%%5%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Odświeżanie listy plików w toku, proszę poczekać do zakończenia przed "
 "ponownym odświeżeniem"
@@ -461,9 +446,8 @@ msgid "File list refresh finished"
 msgstr "Odświeżanie listy plików zakończone"
 
 #: ../ShareManager.cpp:940
-#, fuzzy
 msgid "File list %1% generated"
-msgstr "Zainicjowano odświeżenie listy plików"
+msgstr ""
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -644,14 +628,12 @@ msgid "You're trying to download from yourself!"
 msgstr "Próbujesz pobrać sam od siebie!"
 
 #: ../QueueManager.cpp:802
-#, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
-msgstr "Plik o innym głównym TTH znajduje się już w kolejce"
+msgstr ""
 
 #: ../QueueManager.cpp:806
-#, fuzzy
 msgid "This file has already finished downloading"
-msgstr "Ten plik jest już w kolejce"
+msgstr ""
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
@@ -666,11 +648,8 @@ msgstr ""
 "katalogu pobierania)"
 
 #: ../QueueManager.cpp:864
-#, fuzzy
 msgid "File already exists at the target location"
 msgstr ""
-"Plik o podobnym lub większym rozmiarze znajduje się już w lokalizacji "
-"docelowej"
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
@@ -697,9 +676,8 @@ msgid "Unable to open filelist: %1%"
 msgstr "Nie można otworzyć listy plików: %1%"
 
 #: ../QueueManager.cpp:1430
-#, fuzzy
 msgid "%1%: Matched %2% file"
-msgstr "%1% został wykopany: %2%"
+msgstr ""
 
 #: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -714,4 +692,6 @@ msgid "TTH inconsistency"
 msgstr "Niezgodność TTH"
 
 #~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Poproś o wyszukanie poza końcem danych"
+#~ msgstr "Request to seek beyond the end of data"
+
+

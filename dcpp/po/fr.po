@@ -1,22 +1,22 @@
-# French translations for the DC++ package.
-# Copyright (C) 2008 The translators
-# This file is distributed under the same license as the DC++ package.
+# English translations for work package.
+# Copyright (C) 2010 EiskaltDC++\ team
+# This file is distributed under the same license as the work package.
+# 
+# Translators:
 #  <spok@users.sourceforge.net>, 2008.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: dcpp\n"
+"Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2009-02-22 14:17+0000\n"
-"Last-Translator: poy <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2011-11-25 11:45+0000\n"
+"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"Language-Team: French (http://www.transifex.net/projects/p/eiskaltdcpp/team/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-04 21:36+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -58,8 +58,8 @@ msgstr ""
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
-"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot "
-"de passe ?)"
+"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot"
+" de passe ?)"
 
 #: ../Socket.cpp:471
 msgid ""
@@ -90,26 +90,22 @@ msgid "Unable to create thread"
 msgstr "Création du fil impossile"
 
 #: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
-#, fuzzy
 msgid "Invalid data"
-msgstr "Taille invalide"
+msgstr ""
 
 #: ../UserConnection.cpp:58
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Donnée non UTF-8 dans une connexion ADC"
 
 #: ../ConnectivityManager.cpp:78
-#, fuzzy
 msgid "Determining the best connectivity settings..."
-msgstr "Détection du type de connexion"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:83
-#, fuzzy
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
-"Impossible d'ouvrir le(s) port(s) %1%. Vous devez configurer votre connexion "
-"manuellement"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -133,24 +129,20 @@ msgstr ""
 "configurer manuellement pour de meilleurs transferts"
 
 #: ../ConnectivityManager.cpp:140
-#, fuzzy
 msgid "Transfer (TCP)"
-msgstr "Transfert de port (%1% TCP)"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:146
-#, fuzzy
 msgid "Search (UDP)"
-msgstr " Recherche de port (%1% UDP)"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:152
-#, fuzzy
 msgid "DHT (UDP)"
-msgstr " Port DHT (%1% UDP)"
+msgstr ""
 
 #: ../ConnectivityManager.cpp:167
-#, fuzzy
 msgid "Connectivity: "
-msgstr "Connection: "
+msgstr ""
 
 #: ../UploadManager.cpp:238
 msgid "Unable to send file %1%: %2%"
@@ -173,9 +165,8 @@ msgid "Invalid search type name"
 msgstr "Type de nom de recherche invalide"
 
 #: ../SettingsManager.cpp:514 ../SettingsManager.cpp:536
-#, fuzzy
 msgid "This search type already exists"
-msgstr "Ce type de recherche existe déjà"
+msgstr ""
 
 #: ../SettingsManager.cpp:568
 msgid "No such search type"
@@ -315,14 +306,12 @@ msgid "Hashing failed: %1%"
 msgstr "Scan échoué : %1%"
 
 #: ../HashManager.cpp:94
-#, fuzzy
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Scan terminé : %1% (%2%/s)"
+msgstr ""
 
 #: ../HashManager.cpp:97
-#, fuzzy
 msgid "Finished hashing: %1% (%2%)"
-msgstr "Scan terminé : %1% (%2%/s)"
+msgstr ""
 
 #: ../HashManager.cpp:100
 msgid "Finished hashing: %1%"
@@ -356,18 +345,16 @@ msgid "Error hashing %1%: %2%"
 msgstr "Erreur lors du scan de %1% : %2%"
 
 #: ../UPnPManager.cpp:45
-#, fuzzy
 msgid "No UPnP implementation available"
-msgstr "pas d'implémentation UPnP disponible"
+msgstr ""
 
 #: ../UPnPManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Nouvelle tentative de redirection de port UPnP en cours..."
 
 #: ../UPnPManager.cpp:81
-#, fuzzy
 msgid "Failed to initialize the %1% interface"
-msgstr "Échec de l'initialisation de l'interface %1%"
+msgstr ""
 
 #: ../UPnPManager.cpp:85
 msgid " Transfer Port (%1% TCP)"
@@ -403,18 +390,16 @@ msgid "Failed to get external IP"
 msgstr "Échec de la détection de l'IP externe"
 
 #: ../UPnPManager.cpp:128
-#, fuzzy
 msgid "Failed to create port mappings"
-msgstr "Échec de la redirection des ports"
+msgstr ""
 
 #: ../UPnPManager.cpp:137
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Suppression des redirections de ports réussie avec l'interface %1%"
 
 #: ../UPnPManager.cpp:138
-#, fuzzy
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Échec de la suppression des redirections de ports avec l'interface %1%"
+msgstr ""
 
 #: ../UPnPManager.cpp:143
 msgid "UPnP: %1%"
@@ -425,9 +410,8 @@ msgid "No directory specified"
 msgstr "Pas de dossier spécifié"
 
 #: ../ShareManager.cpp:450
-#, fuzzy
 msgid "Directory is hidden"
-msgstr "Dossier caché"
+msgstr ""
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
@@ -444,8 +428,8 @@ msgstr "L'utilisateur a choisit de ne pas partager le fichier: %1%"
 #: ../ShareManager.cpp:681
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr ""
-"L'utilisateur a choisit de ne pas partager le fichier temporaire: %1% (Size: "
-"%2%)"
+"L'utilisateur a choisit de ne pas partager le fichier temporaire: %1% (Size:"
+" %2%)"
 
 #: ../ShareManager.cpp:769
 msgid ""
@@ -456,8 +440,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "La mise à jour de la liste de fichiers est en cours, veuillez attendre "
 "qu'elle se termine avant de ré-essayer"
@@ -475,9 +459,8 @@ msgid "File list refresh finished"
 msgstr "Mise à jour de la liste de fichiers terminée"
 
 #: ../ShareManager.cpp:940
-#, fuzzy
 msgid "File list %1% generated"
-msgstr "Liste de fichiers générée"
+msgstr ""
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -662,16 +645,12 @@ msgid "You're trying to download from yourself!"
 msgstr "Vous essayez de télécharger depuis vous-même !"
 
 #: ../QueueManager.cpp:802
-#, fuzzy
 msgid "A file with a different TTH root already exists in the queue"
 msgstr ""
-"Un fichier avec une clé TTH différente existe déjà dans la liste de "
-"téléchargement"
 
 #: ../QueueManager.cpp:806
-#, fuzzy
 msgid "This file has already finished downloading"
-msgstr "Ce fichier est déjà dans la liste de téléchargements terminés"
+msgstr ""
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
@@ -686,9 +665,8 @@ msgstr ""
 "téléchargements par défaut)"
 
 #: ../QueueManager.cpp:864
-#, fuzzy
 msgid "File already exists at the target location"
-msgstr "Le même fichier existe déjà dans l'emplacement cible"
+msgstr ""
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
@@ -716,9 +694,8 @@ msgid "Unable to open filelist: %1%"
 msgstr "Impossible d'ouvrir la liste de fichiers : %1%"
 
 #: ../QueueManager.cpp:1430
-#, fuzzy
 msgid "%1%: Matched %2% file"
-msgstr "%1% correspond au fichier: %2%"
+msgstr ""
 
 #: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -732,15 +709,7 @@ msgstr "Plus d'octets écris que prévus"
 msgid "TTH inconsistency"
 msgstr "Incohérence de TTH"
 
-#, fuzzy
-#~ msgid "Hashing file: %1% (Size: %2%)"
-#~ msgstr "Scan du fichier : %1% (Size: %2%)"
-
-#~ msgid "TCP/TLS"
-#~ msgstr "TCP/TLS"
-
-#~ msgid "UDP"
-#~ msgstr "UDP"
-
 #~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Demande de recherche au-delà de la fin des données"
+#~ msgstr "Request to seek beyond the end of data"
+
+
