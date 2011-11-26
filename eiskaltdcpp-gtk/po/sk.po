@@ -1,33 +1,33 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-# 
+#
 # Translators:
 # Automatically generated, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-22 01:46+0300\n"
+"POT-Creation-Date: 2011-11-26 22:59+0200\n"
 "PO-Revision-Date: 2011-11-25 12:53+0000\n"
 "Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
 "Language-Team: none\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
-#: ../src/hub.cc:1037 ../src/hub.cc:1116 ../src/privatemessage.cc:550
-#: ../src/privatemessage.cc:629
+#: ../src/hub.cc:1054 ../src/hub.cc:1133 ../src/privatemessage.cc:562
+#: ../src/privatemessage.cc:641
 msgid " *** Emoticons limit"
 msgstr "*** Obmedzenia smajlíkov"
 
-#: ../src/hub.cc:1032 ../src/privatemessage.cc:545
+#: ../src/hub.cc:1049 ../src/privatemessage.cc:557
 msgid " *** Emoticons mode off"
 msgstr "*** Vypnúť smajlíkov"
 
-#: ../src/hub.cc:1027 ../src/privatemessage.cc:540
+#: ../src/hub.cc:1044 ../src/privatemessage.cc:552
 msgid " *** Emoticons not loaded"
 msgstr "*** Smajlíkovia neboli načítaný"
 
@@ -35,19 +35,19 @@ msgstr "*** Smajlíkovia neboli načítaný"
 msgid " + system icons"
 msgstr " + systémové ikony"
 
-#: ../src/hub.cc:438 ../src/hub.cc:456
+#: ../src/hub.cc:446 ../src/hub.cc:464
 msgid " Users"
 msgstr "Užívatelia"
 
-#: ../src/hub.cc:2720
+#: ../src/hub.cc:2761
 msgid " added to favorites list"
 msgstr "pridať do obľúbeného zoznamu"
 
-#: ../src/search.cc:1844
+#: ../src/search.cc:1851
 msgid " dropped"
 msgstr " dropped"
 
-#: ../src/hub.cc:1877
+#: ../src/hub.cc:1918
 msgid " empty..."
 msgstr "prázdny..."
 
@@ -55,35 +55,35 @@ msgstr "prázdny..."
 msgid " files"
 msgstr "súbor"
 
-#: ../src/search.cc:1831
+#: ../src/search.cc:1838
 msgid " filtered"
 msgstr "filtrované"
 
-#: ../src/hub.cc:421 ../src/hub.cc:432
+#: ../src/hub.cc:429 ../src/hub.cc:440
 msgid " has joined"
 msgstr "sa pripojil"
 
-#: ../src/hub.cc:422 ../src/hub.cc:431
+#: ../src/hub.cc:430 ../src/hub.cc:439
 msgid " has joined hub "
 msgstr "sa pripojil k hubu"
 
-#: ../src/hub.cc:463 ../src/hub.cc:473
+#: ../src/hub.cc:471 ../src/hub.cc:481
 msgid " has quit"
 msgstr "opustil"
 
-#: ../src/hub.cc:462 ../src/hub.cc:472
+#: ../src/hub.cc:470 ../src/hub.cc:480
 msgid " has quit hub "
 msgstr "opustil hub"
 
-#: ../src/hub.cc:1850 ../src/hub.cc:2652 ../src/privatemessage.cc:1338
+#: ../src/hub.cc:1891 ../src/hub.cc:2693 ../src/privatemessage.cc:1385
 msgid " is favorite user"
 msgstr "je obľúbený užívateľ"
 
-#: ../src/hub.cc:1868 ../src/hub.cc:2691 ../src/privatemessage.cc:1359
+#: ../src/hub.cc:1909 ../src/hub.cc:2732 ../src/privatemessage.cc:1406
 msgid " is not favorite user"
 msgstr "nie je obľúbený užívateľ"
 
-#: ../src/search.cc:625
+#: ../src/search.cc:632
 msgid " items"
 msgstr "položky"
 
@@ -95,15 +95,15 @@ msgstr "ostáva"
 msgid " of "
 msgstr "z"
 
-#: ../src/hub.cc:2747
+#: ../src/hub.cc:2788
 msgid " removed from favorites list"
 msgstr "odstrániť z obľúbeného zoznamu"
 
-#: ../src/settingsmanager.cc:514
+#: ../src/settingsmanager.cc:515
 msgid " to "
 msgstr ""
 
-#: ../src/transfers.cc:582 ../src/search.cc:665
+#: ../src/transfers.cc:582 ../src/search.cc:672
 msgid " user(s)"
 msgstr "užívateľ(ia)"
 
@@ -119,7 +119,7 @@ msgstr "užívatelia"
 msgid "%) from "
 msgstr "%) z"
 
-#: ../ui/settingsdialog.ui:4515
+#: ../ui/settingsdialog.ui:4516
 msgid ""
 "%a abbreviated weekday name.\n"
 "%b abbreviated month name.\n"
@@ -131,11 +131,11 @@ msgid ""
 "see man strftime for details."
 msgstr ""
 
-#: ../src/hub.cc:2299
+#: ../src/hub.cc:2340
 msgid "': type /help for a list of available commands"
 msgstr "': napíš /help pre zobrazenie zoznamu dostupných príkazov"
 
-#: ../src/hub.cc:1969 ../src/privatemessage.cc:995
+#: ../src/hub.cc:2010 ../src/privatemessage.cc:1016
 msgid "*** Available commands:"
 msgstr "*** Dostupné príkazy:"
 
@@ -144,7 +144,7 @@ msgid "*** T E S T ***"
 msgstr "*** T E S T ***"
 
 #: ../src/settingsdialog.cc:1359 ../ui/mainwindow.ui:251
-#: ../ui/mainwindow.ui:2334 ../ui/mainwindow.ui:2352
+#: ../ui/mainwindow.ui:2433 ../ui/mainwindow.ui:2451
 msgid "+/-"
 msgstr ""
 
@@ -165,53 +165,53 @@ msgstr "...nemôže byť prázdny"
 msgid "0 B (0.00%)"
 msgstr ""
 
-#: ../src/hub.cc:502
+#: ../src/hub.cc:510
 msgid "0 Users"
 msgstr "0 Užívateľov"
 
-#: ../src/search.cc:539
+#: ../src/search.cc:543
 msgid "0 filtered"
 msgstr "0 filtrovaných"
 
-#: ../src/search.cc:538
+#: ../src/search.cc:542
 msgid "0 items"
 msgstr "0 položiek"
 
-#: ../src/privatemessage.cc:1011
+#: ../src/privatemessage.cc:1032
 msgid ": type /help for a list of available commands"
 msgstr ": napíš /help pre zobrazenie zoznamu dostupných príkazov"
 
-#: ../ui/settingsdialog.ui:6779
+#: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3862
+#: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3654
+#: ../ui/settingsdialog.ui:3655
 msgid "<b>Auto-drop settings</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4694
+#: ../ui/settingsdialog.ui:4695
 msgid "<b>Auto-open on startup</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3332
+#: ../ui/settingsdialog.ui:3333
 msgid "<b>Auto-priority settings</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5045
+#: ../ui/settingsdialog.ui:5046
 msgid "<b>Available styles</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7742
+#: ../ui/settingsdialog.ui:7743
 msgid "<b>Certificate Paths</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6177
+#: ../ui/settingsdialog.ui:6178
 msgid "<b>Colors</b>"
 msgstr ""
 
@@ -219,7 +219,7 @@ msgstr ""
 msgid "<b>Command Type</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4780
+#: ../ui/settingsdialog.ui:4781
 msgid "<b>Confirmation Dialog Options</b>"
 msgstr ""
 
@@ -231,11 +231,11 @@ msgstr ""
 msgid "<b>Context</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5720
+#: ../ui/settingsdialog.ui:5721
 msgid "<b>Current theme name:</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4490
+#: ../ui/settingsdialog.ui:4491
 msgid "<b>Default away message</b>"
 msgstr ""
 
@@ -247,11 +247,11 @@ msgstr "<b>Popos</b>"
 msgid "<b>Destination Directory</b>"
 msgstr "<b>Cieľový adresár<b>"
 
-#: ../ui/settingsdialog.ui:2724
+#: ../ui/settingsdialog.ui:2725
 msgid "<b>Directories</b>"
 msgstr ""
 
-#: ../src/hub.cc:575
+#: ../src/hub.cc:586
 msgid "<b>Enter your password</b>"
 msgstr "<b>Zadať heslo</b>"
 
@@ -259,7 +259,7 @@ msgstr "<b>Zadať heslo</b>"
 msgid "<b>Extension</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3089
+#: ../ui/settingsdialog.ui:3090
 msgid "<b>Favorite download to directories</b>"
 msgstr ""
 
@@ -267,7 +267,7 @@ msgstr ""
 msgid "<b>Filter</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6368
+#: ../ui/settingsdialog.ui:6369
 msgid "<b>Frame</b>"
 msgstr ""
 
@@ -279,11 +279,11 @@ msgstr ""
 msgid "<b>Hub</b>"
 msgstr "<b>Hub</b>"
 
-#: ../ui/settingsdialog.ui:5355
+#: ../ui/settingsdialog.ui:5356
 msgid "<b>Icon size</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5656
+#: ../ui/settingsdialog.ui:5657
 msgid "<b>Icons</b>"
 msgstr ""
 
@@ -291,15 +291,15 @@ msgstr ""
 msgid "<b>Identification</b>"
 msgstr "<b>Identifikácia</b>"
 
-#: ../ui/settingsdialog.ui:1575
+#: ../ui/settingsdialog.ui:1576
 msgid "<b>Incoming connection settings</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2844
+#: ../ui/settingsdialog.ui:2845
 msgid "<b>Limits</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6795
+#: ../ui/settingsdialog.ui:6796
 msgid "<b>Logging</b>"
 msgstr ""
 
@@ -307,7 +307,7 @@ msgstr ""
 msgid "<b>Magnet properties</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4437
+#: ../ui/settingsdialog.ui:4438
 msgid "<b>Main Toolbar Style</b>"
 msgstr ""
 
@@ -332,27 +332,27 @@ msgstr ""
 msgid "<b>New name</b>"
 msgstr ""
 
-#: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8722
+#: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8723
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5277
+#: ../ui/settingsdialog.ui:5278
 msgid "<b>Notify</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4327
+#: ../ui/settingsdialog.ui:4328
 msgid "<b>Options</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7784
+#: ../ui/settingsdialog.ui:7785
 msgid "<b>Other Security Options</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3692
+#: ../ui/settingsdialog.ui:3693
 msgid "<b>Other queue options</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1839
+#: ../ui/settingsdialog.ui:1840
 msgid "<b>Outgoing connection settings</b>"
 msgstr ""
 
@@ -360,23 +360,23 @@ msgstr ""
 msgid "<b>Parameters</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1211
+#: ../ui/settingsdialog.ui:1212
 msgid "<b>Personal Information</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3749
+#: ../ui/settingsdialog.ui:3750
 msgid "<b>Players list</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5081
+#: ../ui/settingsdialog.ui:5082
 msgid "<b>Preview styles</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4977
+#: ../ui/settingsdialog.ui:4978
 msgid "<b>Private message sound</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5570
+#: ../ui/settingsdialog.ui:5571
 msgid "<b>Private message</b>"
 msgstr ""
 
@@ -384,7 +384,7 @@ msgstr ""
 msgid "<b>Processing file:</b>"
 msgstr "<b>Spracuvávanie súboru:</b>"
 
-#: ../ui/settingsdialog.ui:2964
+#: ../ui/settingsdialog.ui:2965
 msgid "<b>Public Hubs list</b>"
 msgstr ""
 
@@ -392,19 +392,19 @@ msgstr ""
 msgid "<b>Search String</b>"
 msgstr "<b>Hľadaný reťazec</b>"
 
-#: ../ui/settingsdialog.ui:7990
+#: ../ui/settingsdialog.ui:7991
 msgid "<b>Search types</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2132
+#: ../ui/settingsdialog.ui:2133
 msgid "<b>Secondary Transfer Rate Limiting</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2324
+#: ../ui/settingsdialog.ui:2325
 msgid "<b>Secondary Transfer Rate Settings</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4132
+#: ../ui/settingsdialog.ui:4133
 msgid "<b>Shared directories</b>"
 msgstr ""
 
@@ -412,7 +412,7 @@ msgstr ""
 msgid "<b>Size Type</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4838
+#: ../ui/settingsdialog.ui:4839
 msgid "<b>Sounds</b>"
 msgstr ""
 
@@ -424,11 +424,11 @@ msgstr "<b>Typ zdroja</b>"
 msgid "<b>Statistics</b>"
 msgstr "<b>Štatistiky</b>"
 
-#: ../ui/settingsdialog.ui:4385
+#: ../ui/settingsdialog.ui:4386
 msgid "<b>Tab Position</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4616
+#: ../ui/settingsdialog.ui:4617
 msgid "<b>Tab bolding on content change</b>"
 msgstr ""
 
@@ -436,23 +436,23 @@ msgstr ""
 msgid "<b>Text sent to hub</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5692
+#: ../ui/settingsdialog.ui:5693
 msgid "<b>Text styles</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4540
+#: ../ui/settingsdialog.ui:4541
 msgid "<b>Timestamps</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5322
+#: ../ui/settingsdialog.ui:5323
 msgid "<b>Title</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5894
+#: ../ui/settingsdialog.ui:5895
 msgid "<b>Toolbar buttons</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2013
+#: ../ui/settingsdialog.ui:2014
 msgid "<b>Transfer Rate Limiting</b>"
 msgstr ""
 
@@ -464,28 +464,27 @@ msgstr "<b>Meno, pod ktorým uvidíte priečinok</b>"
 msgid "<b>What would you like to do?</b>"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4737
+#: ../ui/settingsdialog.ui:4738
 msgid "<b>Window Options</b>"
 msgstr ""
 
-#: ../src/mainwindow.cc:2186
+#: ../src/mainwindow.cc:2232
 msgid "<b>file:</b> "
 msgstr "<b>súbor:</b> "
 
 #: ../ui/favoritehubs.ui:475
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr ""
-"<small>Poznámka: Nechať nezaškrtnuté pre štandartné nastavenia</small>"
+msgstr "<small>Poznámka: Nechať nezaškrtnuté pre štandartné nastavenia</small>"
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
 msgstr "?"
 
-#: ../ui/mainwindow.ui:2265 ../ui/mainwindow.ui:2448
+#: ../ui/mainwindow.ui:2364 ../ui/mainwindow.ui:2547
 msgid "ADL"
 msgstr ""
 
-#: ../src/adlsearch.cc:31 ../ui/mainwindow.ui:2262
+#: ../src/adlsearch.cc:31 ../ui/mainwindow.ui:2362
 msgid "ADL Search"
 msgstr "ADL Hľadanie"
 
@@ -493,7 +492,7 @@ msgstr "ADL Hľadanie"
 msgid "ADLSearch Properties"
 msgstr "ADLSearch Vlastnosti"
 
-#: ../ui/mainwindow.ui:1477
+#: ../ui/mainwindow.ui:1686
 msgid "About EiskaltDC++"
 msgstr "Informácie o  EiskaltDC++"
 
@@ -501,19 +500,19 @@ msgstr "Informácie o  EiskaltDC++"
 msgid "Accept custom user commands from hub"
 msgstr "Akceptovať voliteľné užívateľské príkazy z hubu"
 
-#: ../ui/settingsdialog.ui:1431
+#: ../ui/settingsdialog.ui:1432
 msgid "Active"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7896
+#: ../ui/settingsdialog.ui:7897
 msgid "Add"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2331
+#: ../ui/mainwindow.ui:2431
 msgid "Add / Remove"
 msgstr ""
 
-#: ../src/hub.cc:1974 ../ui/hub.ui:39
+#: ../src/hub.cc:2015 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
 msgstr "Pridať hub k obľúbeným"
 
@@ -521,7 +520,7 @@ msgstr "Pridať hub k obľúbeným"
 msgid "Add finished files to share instantly (if shared)"
 msgstr "Pridať stiahnuté súbory okamžite na zdieľanie"
 
-#: ../src/hub.cc:2004
+#: ../src/hub.cc:2045
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
@@ -531,11 +530,16 @@ msgstr ""
 msgid "Add this file to your download queue"
 msgstr ""
 
+#: ../ui/uploadqueue.ui:60
+#, fuzzy
+msgid "Add to Favorite Users"
+msgstr "Obľúbený užívatelia"
+
 #: ../ui/publichubs.ui:418
 msgid "Add to favorites"
 msgstr ""
 
-#: ../src/hub.cc:1975 ../src/privatemessage.cc:1000 ../ui/privatemessage.ui:48
+#: ../src/hub.cc:2016 ../src/privatemessage.cc:1021 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
 msgstr "Pridať užívateľa k obľúbeným"
 
@@ -548,42 +552,42 @@ msgstr "Pridať..."
 msgid "Added"
 msgstr "Pridané"
 
-#: ../ui/settingsdialog.ui:6003
+#: ../ui/settingsdialog.ui:6004
 msgid "Adding string or TTH in the top"
 msgstr ""
 
-#: ../src/favoritehubs.cc:59 ../src/favoritehubs.cc:135
-#: ../src/favoritehubs.cc:149 ../src/favoritehubs.cc:222
-#: ../src/favoritehubs.cc:244 ../src/favoritehubs.cc:297
-#: ../src/favoritehubs.cc:311 ../src/favoritehubs.cc:443
-#: ../src/favoritehubs.cc:458 ../src/favoritehubs.cc:469
+#: ../src/favoritehubs.cc:59 ../src/favoritehubs.cc:139
+#: ../src/favoritehubs.cc:153 ../src/favoritehubs.cc:226
+#: ../src/favoritehubs.cc:248 ../src/favoritehubs.cc:301
+#: ../src/favoritehubs.cc:315 ../src/favoritehubs.cc:447
+#: ../src/favoritehubs.cc:462 ../src/favoritehubs.cc:473
 #: ../src/publichubs.cc:44 ../src/publichubs.cc:159 ../src/publichubs.cc:269
 #: ../src/publichubs.cc:294
 msgid "Address"
 msgstr "Adresa"
 
-#: ../ui/settingsdialog.ui:2552 ../ui/settingsdialog.ui:6860
-#: ../ui/settingsdialog.ui:7849
+#: ../ui/settingsdialog.ui:2553 ../ui/settingsdialog.ui:6861
+#: ../ui/settingsdialog.ui:7850
 msgid "Advanced"
 msgstr ""
 
-#: ../src/hub.cc:1999
+#: ../src/hub.cc:2040
 msgid "Alias A executing"
 msgstr ""
 
-#: ../src/hub.cc:1996
+#: ../src/hub.cc:2037
 msgid "Alias List"
 msgstr "Zoznam aliasov"
 
-#: ../src/hub.cc:1997
+#: ../src/hub.cc:2038
 msgid "Alias Remove A"
 msgstr "Vymazať Alias A"
 
-#: ../src/hub.cc:1998
+#: ../src/hub.cc:2039
 msgid "Alias add uname -a as A"
 msgstr ""
 
-#: ../src/hub.cc:2198
+#: ../src/hub.cc:2239
 msgid "Aliases not found."
 msgstr "Aliasy nenájdené"
 
@@ -603,7 +607,7 @@ msgstr ""
 msgid "Amarok player"
 msgstr "Amarok player"
 
-#: ../ui/settingsdialog.ui:4578 ../ui/settingsdialog.ui:6411
+#: ../ui/settingsdialog.ui:4579 ../ui/settingsdialog.ui:6412
 msgid "Appearance"
 msgstr ""
 
@@ -613,7 +617,7 @@ msgstr ""
 msgid "Application"
 msgstr "Aplikácia"
 
-#: ../ui/settingsdialog.ui:3805
+#: ../ui/settingsdialog.ui:3806
 msgid "Application:"
 msgstr ""
 
@@ -621,11 +625,11 @@ msgstr ""
 msgid "Apply settings"
 msgstr "Použiť nastavenia"
 
-#: ../ui/settingsdialog.ui:3833
+#: ../ui/settingsdialog.ui:3834
 msgid "Apply to Extensions: (avi;mov;divx)"
 msgstr ""
 
-#: ../src/favoritehubs.cc:429
+#: ../src/favoritehubs.cc:433
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
 msgstr "Ste si istý, že chcete vymazať tento obľúbený hub \"%s\"?"
@@ -635,8 +639,8 @@ msgid "Are you sure you want to delete favorite user(s)?"
 msgstr "Ste si istý, že chcete vymazať užívateľa(ov) spomedzi obľúbených?"
 
 #: ../src/favoritehubs.cc:56 ../src/favoritehubs.cc:73
-#: ../src/favoritehubs.cc:127 ../src/favoritehubs.cc:303
-#: ../src/favoritehubs.cc:470 ../src/favoritehubs.cc:472
+#: ../src/favoritehubs.cc:131 ../src/favoritehubs.cc:307
+#: ../src/favoritehubs.cc:474 ../src/favoritehubs.cc:476
 msgid "Auto Connect"
 msgstr "Automatické pripojenie"
 
@@ -650,7 +654,7 @@ msgstr "Automatick_y pripojiť pri štarte"
 msgid "Auto grant slot"
 msgstr "Automaticky udeliť slot"
 
-#: ../ui/settingsdialog.ui:7334
+#: ../ui/settingsdialog.ui:7335
 msgid "Auto refresh time"
 msgstr ""
 
@@ -674,7 +678,7 @@ msgstr "Automacky nasledovať presmerovania"
 msgid "Automatically match queue for auto search hits"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4159
+#: ../ui/settingsdialog.ui:4160
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
 
@@ -682,63 +686,68 @@ msgstr ""
 msgid "Automatically search for alternative download locations"
 msgstr "Automaticky hľadať alternatívy pre sťahovanie"
 
-#: ../ui/settingsdialog.ui:2392
+#: ../ui/settingsdialog.ui:2393
 msgid "Automatically update external IP (restart required)"
 msgstr ""
 
-#: ../src/hub.cc:1970 ../src/privatemessage.cc:996 ../ui/privatemessage.ui:12
+#: ../src/hub.cc:2011 ../src/privatemessage.cc:1017 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
 msgid "Away mode message on/off"
 msgstr "Zanechanie správy v režime \"Preč\" zap./vyp."
 
-#: ../src/hub.cc:1806 ../src/hub.cc:1819 ../src/hub.cc:1971
-#: ../src/privatemessage.cc:884 ../src/privatemessage.cc:898
-#: ../src/privatemessage.cc:997 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
+#: ../src/hub.cc:1847 ../src/hub.cc:1860 ../src/hub.cc:2012
+#: ../src/privatemessage.cc:905 ../src/privatemessage.cc:919
+#: ../src/privatemessage.cc:1018 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
 msgid "Away mode off"
 msgstr "Režim \"Preč\" vypnutý"
 
-#: ../src/hub.cc:1813 ../src/privatemessage.cc:892
+#: ../src/hub.cc:1854 ../src/privatemessage.cc:913
 msgid "Away mode on: "
 msgstr "Režim \"Preč\" zapnutý"
 
-#: ../ui/settingsdialog.ui:7513 ../ui/settingsdialog.ui:7526
+#: ../ui/settingsdialog.ui:7514 ../ui/settingsdialog.ui:7527
 msgid "B"
 msgstr ""
 
-#: ../src/hashdialog.cc:70 ../ui/settingsdialog.ui:3553
+#: ../src/hashdialog.cc:70 ../ui/settingsdialog.ui:3554
 msgid "B/s"
 msgstr "B/s"
 
-#: ../ui/settingsdialog.ui:5121
+#: ../ui/settingsdialog.ui:5122
 msgid "Back color"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7295
+#: ../ui/settingsdialog.ui:7296
 msgid "Bind address"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5185
+#: ../ui/settingsdialog.ui:5186
 msgid "Black/White"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5101
+#: ../ui/settingsdialog.ui:5102
 msgid "Bold Authors of message in chat"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4912
+#: ../ui/uploadqueue.ui:87
+#, fuzzy
+msgid "Browse FileList"
+msgstr "_Stiahnúť zoznam súbrov"
+
+#: ../ui/settingsdialog.ui:4913
 msgid "Browse file..."
 msgstr ""
 
-#: ../ui/mainwindow.ui:2176
+#: ../ui/mainwindow.ui:2276
 msgid "Browse the list of public hubs"
 msgstr ""
 
-#: ../src/search.cc:332 ../src/search.cc:403 ../src/sharebrowser.cc:481
+#: ../src/search.cc:336 ../src/search.cc:407 ../src/sharebrowser.cc:481
 #: ../src/sharebrowser.cc:549 ../ui/privatemessage.ui:188 ../ui/hub.ui:231
-#: ../ui/mainwindow.ui:319 ../ui/settingsdialog.ui:2628
-#: ../ui/settingsdialog.ui:2698 ../ui/settingsdialog.ui:6471
-#: ../ui/settingsdialog.ui:7597 ../ui/settingsdialog.ui:7614
-#: ../ui/settingsdialog.ui:7631
+#: ../ui/mainwindow.ui:319 ../ui/settingsdialog.ui:2629
+#: ../ui/settingsdialog.ui:2699 ../ui/settingsdialog.ui:6472
+#: ../ui/settingsdialog.ui:7598 ../ui/settingsdialog.ui:7615
+#: ../ui/settingsdialog.ui:7632
 msgid "Browse..."
 msgstr "Prehľadávať..."
 
@@ -767,7 +776,7 @@ msgstr ""
 msgid "CMD"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1182
+#: ../ui/mainwindow.ui:1314
 msgid "CMD Debug"
 msgstr ""
 
@@ -803,19 +812,19 @@ msgstr "CRC Checked"
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 inconsistency (SFV-Check)"
 
-#: ../ui/mainwindow.ui:1038
+#: ../ui/mainwindow.ui:1170
 msgid "Calculate file TTH"
 msgstr "Prepočítavanie TTH"
 
-#: ../ui/settingsdialog.ui:7710
+#: ../ui/settingsdialog.ui:7711
 msgid "Certificate file"
 msgstr ""
 
-#: ../src/settingsmanager.cc:514
+#: ../src/settingsmanager.cc:515
 msgid "Change setting "
 msgstr ""
 
-#: ../ui/mainwindow.ui:1460
+#: ../ui/mainwindow.ui:1669
 msgid "Changelog (git)"
 msgstr "Zoznam zmien (git)"
 
@@ -831,17 +840,17 @@ msgstr ""
 msgid "Chat Menu"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3493
+#: ../ui/settingsdialog.ui:3494
 msgid "Check every"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:8096
+#: ../ui/settingsdialog.ui:8097
 msgid "Choose a File"
 msgstr ""
 
-#: ../src/hub.cc:2581 ../src/privatemessage.cc:1245 ../src/mainwindow.cc:1215
-#: ../src/mainwindow.cc:1283 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
-#: ../ui/settingsdialog.ui:8026
+#: ../src/hub.cc:2622 ../src/privatemessage.cc:1292 ../src/mainwindow.cc:1236
+#: ../src/mainwindow.cc:1304 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../ui/settingsdialog.ui:8027
 msgid "Choose a directory"
 msgstr "Vybrať priečinok"
 
@@ -849,15 +858,15 @@ msgstr "Vybrať priečinok"
 msgid "Chose A File"
 msgstr ""
 
-#: ../ui/searchspy.ui:124 ../ui/searchspy.ui:341
+#: ../ui/search.ui:278 ../ui/searchspy.ui:124 ../ui/searchspy.ui:341
 msgid "Clear"
 msgstr "Vyčistiť"
 
-#: ../src/privatemessage.cc:998 ../ui/privatemessage.ui:30
+#: ../src/privatemessage.cc:1019 ../ui/privatemessage.ui:30
 msgid "Clear PM"
 msgstr "Vyčistiť PM"
 
-#: ../src/hub.cc:1972 ../ui/hub.ui:30
+#: ../src/hub.cc:2013 ../ui/hub.ui:30
 msgid "Clear chat"
 msgstr "Zmazať chat"
 
@@ -869,15 +878,35 @@ msgstr ""
 msgid "Clear search box after each search"
 msgstr "Vymazať políčko pre vyhľadávanie po každom vyhľadaní"
 
-#: ../src/privatemessage.cc:999 ../ui/privatemessage.ui:39
+#: ../src/privatemessage.cc:1020 ../ui/privatemessage.ui:39
 msgid "Close PM"
 msgstr "Zatvoriť PM"
 
-#: ../src/hub.cc:1973
+#: ../ui/mainwindow.ui:1486
+#, fuzzy
+msgid "Close all PM"
+msgstr "Zatvoriť PM"
+
+#: ../ui/mainwindow.ui:1477
+#, fuzzy
+msgid "Close all hubs"
+msgstr "Zatvoriť tab"
+
+#: ../ui/mainwindow.ui:1495
+#, fuzzy
+msgid "Close all search"
+msgstr "Zatvoriť chat"
+
+#: ../src/hub.cc:2014
 msgid "Close chat"
 msgstr "Zatvoriť chat"
 
-#: ../src/bookentry.cc:70 ../src/bookentry.cc:75
+#: ../ui/mainwindow.ui:1504
+#, fuzzy
+msgid "Close offline PM"
+msgstr "Zatvoriť PM"
+
+#: ../src/bookentry.cc:77 ../src/bookentry.cc:82
 msgid "Close tab"
 msgstr "Zatvoriť tab"
 
@@ -889,7 +918,7 @@ msgstr "Ukončovanie pripojenia..."
 msgid "Color select"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5238
+#: ../ui/settingsdialog.ui:5239
 msgid "Colors & Fonts"
 msgstr ""
 
@@ -903,11 +932,11 @@ msgstr ""
 msgid "Command name already exists"
 msgstr "Príkaz existuje"
 
-#: ../ui/settingsdialog.ui:2889
+#: ../ui/settingsdialog.ui:2890
 msgid "Configure Public Hub Lists"
 msgstr ""
 
-#: ../ui/publichubs.ui:10 ../ui/settingsdialog.ui:8573
+#: ../ui/publichubs.ui:10 ../ui/settingsdialog.ui:8574
 msgid "Configure hub lists"
 msgstr ""
 
@@ -920,11 +949,11 @@ msgid "Confirm favorite hub removal"
 msgstr "Opýtať sa na potvrdenie pred vymazaním hubu"
 
 #: ../src/settingsdialog.cc:1326 ../src/settingsdialog.cc:1365
-#: ../ui/mainwindow.ui:2103 ../ui/mainwindow.ui:2376
+#: ../ui/mainwindow.ui:2202 ../ui/mainwindow.ui:2475
 msgid "Connect"
 msgstr "Pripojiť"
 
-#: ../src/hub.cc:3438
+#: ../src/hub.cc:3479
 msgid "Connect failed: "
 msgstr "Spojenie neúspešné"
 
@@ -936,11 +965,11 @@ msgstr ""
 msgid "Connect to hub"
 msgstr "Pripojiť k hubu"
 
-#: ../src/hub.cc:1981 ../ui/hub.ui:57
+#: ../src/hub.cc:2022 ../ui/hub.ui:57
 msgid "Connect to the hub"
 msgstr "Pripojiť sa ku hubu"
 
-#: ../src/hub.cc:3382 ../src/transfers.cc:1024
+#: ../src/hub.cc:3423 ../src/transfers.cc:1024
 msgid "Connected"
 msgstr "Pripojený"
 
@@ -952,7 +981,7 @@ msgstr "Pripájanie"
 msgid "Connecting (forced)..."
 msgstr "Pripájanie (vynútené)..."
 
-#: ../src/hub.cc:3375
+#: ../src/hub.cc:3416
 msgid "Connecting to "
 msgstr "Pripájam sa k"
 
@@ -960,13 +989,13 @@ msgstr "Pripájam sa k"
 msgid "Connecting..."
 msgstr "Pripájanie"
 
-#: ../src/hub.cc:75 ../src/hub.cc:386 ../src/hub.cc:406 ../src/search.cc:92
-#: ../src/search.cc:606 ../src/search.cc:691 ../src/search.cc:824
-#: ../ui/settingsdialog.ui:1859 ../ui/settingsdialog.ui:2565
+#: ../src/hub.cc:75 ../src/hub.cc:394 ../src/hub.cc:414 ../src/search.cc:92
+#: ../src/search.cc:613 ../src/search.cc:698 ../src/search.cc:831
+#: ../ui/settingsdialog.ui:1860 ../ui/settingsdialog.ui:2566
 msgid "Connection"
 msgstr "Spojenie"
 
-#: ../src/mainwindow.cc:2135
+#: ../src/mainwindow.cc:2181
 msgid "Connectivity Manager: Warning"
 msgstr "Manažér pripojenia : Varovanie"
 
@@ -979,7 +1008,7 @@ msgstr "Počet"
 msgid "Country"
 msgstr "Krajina"
 
-#: ../src/mainwindow.cc:178
+#: ../src/mainwindow.cc:182
 #, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
@@ -996,17 +1025,17 @@ msgstr ""
 msgid "DETECTION"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2492
+#: ../ui/settingsdialog.ui:2493
 msgid "DHT Port"
 msgstr ""
 
 #: ../src/previewmenu.cc:89 ../src/emoticonsdialog.cc:106
-#: ../ui/settingsdialog.ui:5451 ../ui/settingsdialog.ui:6152
-#: ../ui/settingsdialog.ui:6343 ../ui/settingsdialog.ui:7952
+#: ../ui/settingsdialog.ui:5452 ../ui/settingsdialog.ui:6153
+#: ../ui/settingsdialog.ui:6344 ../ui/settingsdialog.ui:7953
 msgid "Default"
 msgstr "Štandartne"
 
-#: ../ui/settingsdialog.ui:2598
+#: ../ui/settingsdialog.ui:2599
 msgid "Default download directory"
 msgstr ""
 
@@ -1014,11 +1043,11 @@ msgstr ""
 msgid "Default hub encoding"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5799
+#: ../ui/settingsdialog.ui:5800
 msgid "Default icons"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5169
+#: ../ui/settingsdialog.ui:5170
 msgid "Default styles"
 msgstr ""
 
@@ -1026,11 +1055,11 @@ msgstr ""
 msgid "Delete item"
 msgstr "Zmazať položku"
 
-#: ../src/hub.cc:73 ../src/hub.cc:384 ../src/hub.cc:404
+#: ../src/hub.cc:73 ../src/hub.cc:392 ../src/hub.cc:412
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:372 ../src/favoriteusers.cc:397
 #: ../src/favoriteusers.cc:586 ../src/favoritehubs.cc:58
-#: ../src/favoritehubs.cc:129 ../src/favoritehubs.cc:298
+#: ../src/favoritehubs.cc:133 ../src/favoritehubs.cc:302
 #: ../src/publichubs.cc:42 ../src/publichubs.cc:157 ../src/publichubs.cc:293
 #: ../ui/settingsdialog.ui:1124 ../ui/favoriteusers.ui:213
 msgid "Description"
@@ -1047,7 +1076,7 @@ msgstr "Cieľový priečinok"
 msgid "Dir"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1780
+#: ../ui/settingsdialog.ui:1781
 msgid "Direct connection"
 msgstr ""
 
@@ -1055,9 +1084,9 @@ msgstr ""
 #: ../src/settingsdialog.cc:993 ../src/settingsdialog.cc:1329
 #: ../src/settingsdialog.cc:3555 ../src/settingsdialog.cc:3575
 #: ../src/settingsdialog.cc:3604 ../src/settingsdialog.cc:3618
-#: ../src/settingsdialog.cc:3673 ../src/search.cc:1641
+#: ../src/settingsdialog.cc:3673 ../src/search.cc:1648
 #: ../src/UserCommandMenu.cc:66 ../src/sharebrowser.cc:289
-#: ../ui/settingsdialog.ui:6445
+#: ../ui/settingsdialog.ui:6446
 msgid "Directory"
 msgstr "Priečinok"
 
@@ -1069,7 +1098,7 @@ msgstr "Priečinok alebo obľúbené meno práve existuje"
 msgid "Do not close the program, hide in the system tray"
 msgstr "Nevypínať program, iba ho ukryť na lištu"
 
-#: ../ui/settingsdialog.ui:2650
+#: ../ui/settingsdialog.ui:2651
 msgid "Do not use unfinished downloads directory"
 msgstr ""
 
@@ -1077,7 +1106,7 @@ msgstr ""
 msgid "Do you really want to exit?"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1481
+#: ../ui/settingsdialog.ui:1482
 msgid "Don't allow hub/UPnP to override"
 msgstr ""
 
@@ -1092,6 +1121,10 @@ msgstr "Nesťahovať súbory, ktoré sú zdieľané"
 #: ../src/settingsdialog.cc:980
 msgid "Don't download files already in the queue"
 msgstr "Nesťahovať súbory, ktoré sú práve vo fronte sťahovania"
+
+#: ../ui/search.ui:585
+msgid "Don't hide side panel on search"
+msgstr ""
 
 #: ../src/settingsdialog.cc:975
 msgid "Don't remove the source when auto-dropping, only disconnect"
@@ -1115,15 +1148,15 @@ msgid "Download Matches"
 msgstr ""
 
 #: ../src/downloadqueue.cc:34 ../src/settingsdialog.cc:1049
-#: ../src/settingsdialog.cc:1429 ../ui/mainwindow.ui:1194
+#: ../src/settingsdialog.cc:1429 ../ui/mainwindow.ui:1326
 msgid "Download Queue"
 msgstr "Fronta sťahovania"
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:714 ../ui/hub.ui:221
+#: ../ui/privatemessage.ui:178 ../ui/search.ui:703 ../ui/hub.ui:221
 msgid "Download _to..."
 msgstr "Stiahnúť _do..."
 
-#: ../ui/search.ui:728
+#: ../ui/search.ui:717
 msgid "Download _whole directory"
 msgstr "Stiahnúť _celý priečinok"
 
@@ -1136,12 +1169,12 @@ msgid "Download failed: "
 msgstr "Sťahovanie neúspešné:"
 
 #: ../src/transfers.cc:1085 ../src/settingsdialog.cc:1079
-#: ../src/settingsdialog.cc:1247 ../src/settingsmanager.cc:234
+#: ../src/settingsdialog.cc:1247 ../src/settingsmanager.cc:235
 msgid "Download finished"
 msgstr "Sťahovanie ukončené"
 
 #: ../src/settingsdialog.cc:1080 ../src/settingsdialog.cc:1251
-#: ../src/settingsmanager.cc:236
+#: ../src/settingsmanager.cc:237
 msgid "Download finished file list"
 msgstr "Sťahovanie zoznamu súborov ukončené"
 
@@ -1153,19 +1186,19 @@ msgstr "Sťahovanie ukončené"
 msgid "Download image"
 msgstr ""
 
-#: ../src/hub.cc:1920
+#: ../src/hub.cc:1961
 msgid "Download image: disable"
 msgstr "Sťahovanie obrázkov: vypnuté"
 
-#: ../src/hub.cc:1922
+#: ../src/hub.cc:1963
 msgid "Download image: unlimit"
 msgstr "Sťahovanie obrázkov: neobmedzené"
 
-#: ../src/hub.cc:1924
+#: ../src/hub.cc:1965
 msgid "Download limit image: "
 msgstr "Obmedzenia pre sťahovanie obrázkov:"
 
-#: ../src/hub.cc:1987
+#: ../src/hub.cc:2028
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
 "Obmedzenie pre sťahovanie obrázkov: 0 - deaktivované, n < 0 - neobmedzené, "
@@ -1175,7 +1208,7 @@ msgstr ""
 msgid "Download removed"
 msgstr "Sťahovanie vymazané"
 
-#: ../ui/mainwindow.ui:1651
+#: ../ui/mainwindow.ui:1871
 msgid "Download speed"
 msgstr ""
 
@@ -1187,7 +1220,7 @@ msgstr "Sťahovanie začína..."
 msgid "Download starting: "
 msgstr "Sťahovanie začalo:"
 
-#: ../ui/settingsdialog.ui:3102
+#: ../ui/settingsdialog.ui:3103
 msgid "Download to"
 msgstr ""
 
@@ -1195,11 +1228,11 @@ msgstr ""
 msgid "Download to..."
 msgstr "Stiahnúť do..."
 
-#: ../ui/search.ui:737
+#: ../ui/search.ui:726
 msgid "Download whole director_y to..."
 msgstr "Stiahnúť cely priečino_k do..."
 
-#: ../src/mainwindow.cc:657
+#: ../src/mainwindow.cc:675
 msgid "Download: "
 msgstr "Sťahovanie:"
 
@@ -1212,15 +1245,15 @@ msgstr "Stiahnuté"
 msgid "Downloaded "
 msgstr "Stiahnuté"
 
-#: ../ui/settingsdialog.ui:2981 ../ui/settingsdialog.ui:3970
+#: ../ui/settingsdialog.ui:2982 ../ui/settingsdialog.ui:3971
 msgid "Downloads"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3629
+#: ../ui/settingsdialog.ui:3630
 msgid "Drop sources below"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2423
+#: ../ui/settingsdialog.ui:2424
 msgid "DynDNS Address"
 msgstr ""
 
@@ -1228,7 +1261,7 @@ msgstr ""
 msgid "E-Mail"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1997
+#: ../ui/mainwindow.ui:2097
 msgid "Edit the preferences"
 msgstr "Upraviť voľby"
 
@@ -1236,15 +1269,15 @@ msgstr "Upraviť voľby"
 msgid "Emoticons"
 msgstr ""
 
-#: ../src/hub.cc:1904 ../src/privatemessage.cc:940
+#: ../src/hub.cc:1945 ../src/privatemessage.cc:961
 msgid "Emoticons mode off"
 msgstr "Režim smajlíkov vypnutý"
 
-#: ../src/hub.cc:1909 ../src/privatemessage.cc:945
+#: ../src/hub.cc:1950 ../src/privatemessage.cc:966
 msgid "Emoticons mode on"
 msgstr "Režim smajlíkov zapnutý"
 
-#: ../src/hub.cc:1990 ../src/privatemessage.cc:1004
+#: ../src/hub.cc:2031 ../src/privatemessage.cc:1025
 msgid "Emoticons on/off"
 msgstr "Zapnúť/Vypnúť smajlíkov"
 
@@ -1270,9 +1303,9 @@ msgstr ""
 msgid "Enabled"
 msgstr "Zapnutý"
 
-#: ../src/favoritehubs.cc:63 ../src/favoritehubs.cc:137
-#: ../src/favoritehubs.cc:223 ../src/favoritehubs.cc:245
-#: ../src/favoritehubs.cc:302 ../src/favoritehubs.cc:459
+#: ../src/favoritehubs.cc:63 ../src/favoritehubs.cc:141
+#: ../src/favoritehubs.cc:227 ../src/favoritehubs.cc:249
+#: ../src/favoritehubs.cc:306 ../src/favoritehubs.cc:463
 msgid "Encoding"
 msgstr "Kódovanie"
 
@@ -1280,7 +1313,7 @@ msgstr "Kódovanie"
 msgid "Encryption"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2494
+#: ../ui/mainwindow.ui:2593
 msgid "Enter line for user command"
 msgstr ""
 
@@ -1288,7 +1321,7 @@ msgstr ""
 msgid "Enter text to search for"
 msgstr "Zadajte text pre vyhľadávanie"
 
-#: ../src/mainwindow.cc:1149
+#: ../src/mainwindow.cc:1170
 msgid "Enter value for "
 msgstr "Zadať hodnotu pre"
 
@@ -1297,11 +1330,11 @@ msgstr "Zadať hodnotu pre"
 msgid "Error"
 msgstr "Chyba"
 
-#: ../src/settingsmanager.cc:517
+#: ../src/settingsmanager.cc:518
 msgid "Error: params have been not 2!"
 msgstr ""
 
-#: ../src/settingsmanager.cc:513
+#: ../src/settingsmanager.cc:514
 msgid "Error: setting not found!"
 msgstr ""
 
@@ -1310,14 +1343,14 @@ msgstr ""
 msgid "Errors"
 msgstr "Chyby"
 
-#: ../ui/settingsdialog.ui:4943
+#: ../ui/settingsdialog.ui:4944
 msgid "Every time a private message is received"
 msgstr ""
 
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:87
 #: ../src/downloadqueue.cc:279 ../src/downloadqueue.cc:386 ../src/search.cc:94
-#: ../src/search.cc:117 ../src/search.cc:608 ../src/search.cc:685
-#: ../src/search.cc:694 ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
+#: ../src/search.cc:117 ../src/search.cc:615 ../src/search.cc:692
+#: ../src/search.cc:701 ../src/sharebrowser.cc:79 ../src/sharebrowser.cc:95
 #: ../src/sharebrowser.cc:287 ../src/sharebrowser.cc:318
 msgid "Exact Size"
 msgstr "Veľkosť"
@@ -1326,15 +1359,15 @@ msgstr "Veľkosť"
 msgid "Exact size"
 msgstr ""
 
-#: ../src/hub.cc:1993
+#: ../src/hub.cc:2034
 msgid "Execute Lua Chunk"
 msgstr ""
 
-#: ../src/hub.cc:1995
+#: ../src/hub.cc:2036
 msgid "Execute code (bash)"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1982
+#: ../ui/mainwindow.ui:2079
 msgid "Exit"
 msgstr ""
 
@@ -1342,11 +1375,11 @@ msgstr ""
 msgid "Exit EiskaltDC++ Gtk?"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7568
+#: ../ui/settingsdialog.ui:7569
 msgid "Experts Only"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5756
+#: ../ui/settingsdialog.ui:5757
 msgid "Export..."
 msgstr ""
 
@@ -1362,7 +1395,7 @@ msgstr ""
 msgid "Extensions"
 msgstr "Rozšírenia"
 
-#: ../ui/settingsdialog.ui:1468
+#: ../ui/settingsdialog.ui:1469
 msgid "External / WAN IP"
 msgstr ""
 
@@ -1372,7 +1405,7 @@ msgstr "Vlastnosti obľúbného hubu"
 
 #: ../src/settingsdialog.cc:1313 ../src/settingsdialog.cc:1367
 #: ../src/settingsdialog.cc:1428 ../src/favoritehubs.cc:31
-#: ../ui/mainwindow.ui:1100 ../ui/mainwindow.ui:2126
+#: ../ui/mainwindow.ui:1232 ../ui/mainwindow.ui:2226
 msgid "Favorite Hubs"
 msgstr "Obľúbené Huby"
 
@@ -1387,29 +1420,29 @@ msgstr "Obľúbený užívateľ"
 
 #: ../src/favoriteusers.cc:34 ../src/settingsdialog.cc:1314
 #: ../src/settingsdialog.cc:1369 ../src/settingsdialog.cc:1432
-#: ../ui/mainwindow.ui:1130 ../ui/mainwindow.ui:2142
+#: ../ui/mainwindow.ui:1262 ../ui/mainwindow.ui:2242
 msgid "Favorite Users"
 msgstr "Obľúbený užívatelia"
 
-#: ../src/hub.cc:2970
+#: ../src/hub.cc:3011
 msgid "Favorite hub added"
 msgstr "Obľúbený hub pridaný"
 
-#: ../src/hub.cc:2975
+#: ../src/hub.cc:3016
 msgid "Favorite hub already exists"
 msgstr "Obľúbený hub už existuje"
 
-#: ../src/settingsdialog.cc:3537 ../ui/settingsdialog.ui:8466
+#: ../src/settingsdialog.cc:3537 ../ui/settingsdialog.ui:8467
 msgid "Favorite name"
 msgstr "Obľúbené meno"
 
 #: ../src/settingsdialog.cc:1085 ../src/settingsdialog.cc:1267
-#: ../src/settingsmanager.cc:244
+#: ../src/settingsmanager.cc:245
 msgid "Favorite user joined"
 msgstr "Obľúbený užívateľ sa pripojil"
 
 #: ../src/settingsdialog.cc:1086 ../src/settingsdialog.cc:1271
-#: ../src/settingsmanager.cc:246
+#: ../src/settingsmanager.cc:247
 msgid "Favorite user quit"
 msgstr "Obľúbený užívateľ sa odpojil"
 
@@ -1435,10 +1468,6 @@ msgstr ""
 msgid "File not available"
 msgstr "Súbor neprístupný"
 
-#: ../ui/search.ui:327
-msgid "File type"
-msgstr "Typ súboru"
-
 #: ../ui/settingsdialog.ui:647
 msgid "Filelist Menu"
 msgstr ""
@@ -1449,11 +1478,11 @@ msgstr ""
 #: ../src/downloadqueue.cc:791 ../src/downloadqueue.cc:842
 #: ../src/transfers.cc:62 ../src/transfers.cc:713
 #: ../src/finishedtransfers.cc:57 ../src/finishedtransfers.cc:231
-#: ../src/search.cc:86 ../src/search.cc:119 ../src/search.cc:347
-#: ../src/search.cc:601 ../src/search.cc:642 ../src/search.cc:647
-#: ../src/search.cc:815 ../src/search.cc:863 ../src/search.cc:873
-#: ../src/search.cc:1186 ../src/search.cc:1225 ../src/search.cc:1282
-#: ../src/search.cc:1586 ../src/search.cc:1899 ../src/sharebrowser.cc:75
+#: ../src/search.cc:86 ../src/search.cc:119 ../src/search.cc:351
+#: ../src/search.cc:608 ../src/search.cc:649 ../src/search.cc:654
+#: ../src/search.cc:822 ../src/search.cc:870 ../src/search.cc:880
+#: ../src/search.cc:1193 ../src/search.cc:1232 ../src/search.cc:1289
+#: ../src/search.cc:1593 ../src/search.cc:1906 ../src/sharebrowser.cc:75
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:93
 #: ../src/sharebrowser.cc:279 ../src/sharebrowser.cc:309
 #: ../src/sharebrowser.cc:513 ../src/sharebrowser.cc:607
@@ -1473,7 +1502,7 @@ msgstr "Zložky"
 msgid "Filter by IP"
 msgstr ""
 
-#: ../ui/search.ui:467
+#: ../ui/search.ui:514
 msgid "Filter files already in share"
 msgstr "Filtrovať súbory, ktoré sú zdieľané"
 
@@ -1491,36 +1520,36 @@ msgstr "Hľadať súbory"
 
 #: ../src/settingsdialog.cc:1047 ../src/settingsdialog.cc:1315
 #: ../src/settingsdialog.cc:1389 ../src/settingsdialog.cc:1430
-#: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1206
-#: ../ui/mainwindow.ui:2222 ../ui/mainwindow.ui:2472
+#: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1338
+#: ../ui/mainwindow.ui:2321 ../ui/mainwindow.ui:2571
 msgid "Finished Downloads"
 msgstr "Ukončené sťahovania"
 
 #: ../src/settingsdialog.cc:1048 ../src/settingsdialog.cc:1316
 #: ../src/settingsdialog.cc:1391 ../src/settingsdialog.cc:1431
-#: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1217
-#: ../ui/mainwindow.ui:2239 ../ui/mainwindow.ui:2480
+#: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1349
+#: ../ui/mainwindow.ui:2338 ../ui/mainwindow.ui:2579
 msgid "Finished Uploads"
 msgstr "Ukončené odovzdávania"
 
-#: ../ui/settingsdialog.ui:1447
+#: ../ui/settingsdialog.ui:1448
 msgid "Firewall (passive, last resort)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1500
+#: ../ui/settingsdialog.ui:1501
 msgid "Firewall with manual port forward"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4068
+#: ../ui/settingsdialog.ui:4069
 msgid "Follow Links"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:8415
+#: ../ui/settingsdialog.ui:8416
 msgid "Font select"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6518 ../ui/settingsdialog.ui:6577
-#: ../ui/settingsdialog.ui:6636 ../ui/settingsdialog.ui:6695
+#: ../ui/settingsdialog.ui:6519 ../ui/settingsdialog.ui:6578
+#: ../ui/settingsdialog.ui:6637 ../ui/settingsdialog.ui:6696
 msgid "Format"
 msgstr ""
 
@@ -1528,11 +1557,11 @@ msgstr ""
 msgid "Found a match"
 msgstr "Zhoda nájdená"
 
-#: ../ui/settingsdialog.ui:6226
+#: ../ui/settingsdialog.ui:6227
 msgid "Frame (size)"
 msgstr ""
 
-#: ../ui/searchspy.ui:326 ../ui/settingsdialog.ui:6209
+#: ../ui/searchspy.ui:326 ../ui/settingsdialog.ui:6210
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
@@ -1540,6 +1569,10 @@ msgstr ""
 
 #: ../ui/searchspy.ui:314
 msgid "Frame:"
+msgstr ""
+
+#: ../src/mainwindow.cc:2292
+msgid "Free "
 msgstr ""
 
 #: ../src/downloadqueue.cc:1359
@@ -1554,23 +1587,28 @@ msgstr "GB18030"
 msgid "General text"
 msgstr "Obyčajný text"
 
-#: ../ui/settingsdialog.ui:7801
+#: ../ui/settingsdialog.ui:7802
 msgid "Generate certificates"
 msgstr ""
 
-#: ../src/hub.cc:1978 ../src/privatemessage.cc:1002 ../ui/privatemessage.ui:66
+#: ../src/hub.cc:2019 ../src/privatemessage.cc:1023 ../ui/privatemessage.ui:66
 msgid "Get file list"
 msgstr "Stiahnúť zoznam súborov"
 
-#: ../src/hub.cc:2787 ../src/favoritehubs.cc:339
+#: ../src/hub.cc:2828 ../src/favoritehubs.cc:343
 msgid "Global hub default"
 msgstr ""
 
-#: ../src/hub.cc:1979 ../src/privatemessage.cc:1003 ../ui/privatemessage.ui:75
+#: ../ui/uploadqueue.ui:51
+#, fuzzy
+msgid "Grant Slot"
+msgstr "_Udeliť slot"
+
+#: ../src/hub.cc:2020 ../src/privatemessage.cc:1024 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
 msgstr "Udeliť extra slot"
 
-#: ../ui/search.ui:371
+#: ../ui/search.ui:418
 msgid "Group by"
 msgstr "Zoradiť podľa"
 
@@ -1582,7 +1620,7 @@ msgstr ""
 msgid "Grouped by Users"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2928
+#: ../ui/settingsdialog.ui:2929
 msgid "HTTP Proxy (for hublist only)"
 msgstr ""
 
@@ -1599,11 +1637,11 @@ msgid "H_igh"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1319 ../src/settingsdialog.cc:1379
-#: ../ui/mainwindow.ui:2060 ../ui/mainwindow.ui:2432
+#: ../ui/mainwindow.ui:2159 ../ui/mainwindow.ui:2531
 msgid "Hash"
 msgstr "Hash"
 
-#: ../ui/mainwindow.ui:1390
+#: ../ui/mainwindow.ui:1599
 msgid "Hide tools panel"
 msgstr ""
 
@@ -1611,7 +1649,7 @@ msgstr ""
 msgid "High"
 msgstr "Vysoká"
 
-#: ../ui/settingsdialog.ui:3189
+#: ../ui/settingsdialog.ui:3190
 msgid "High priority max size"
 msgstr ""
 
@@ -1619,11 +1657,11 @@ msgstr ""
 msgid "Highest"
 msgstr "Najvyššia"
 
-#: ../ui/settingsdialog.ui:3313
+#: ../ui/settingsdialog.ui:3314
 msgid "Highest priority max size"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1410
+#: ../ui/mainwindow.ui:1619
 msgid "Homepage"
 msgstr "Domovská stránka"
 
@@ -1632,8 +1670,8 @@ msgstr "Domovská stránka"
 #: ../src/settingsdialog.cc:3777 ../src/settingsdialog.cc:3868
 #: ../src/settingsdialog.cc:3891 ../src/settingsdialog.cc:3910
 #: ../src/finishedtransfers.cc:79 ../src/finishedtransfers.cc:188
-#: ../src/search.cc:93 ../src/search.cc:607 ../src/search.cc:704
-#: ../src/search.cc:833
+#: ../src/search.cc:93 ../src/search.cc:614 ../src/search.cc:711
+#: ../src/search.cc:840
 msgid "Hub"
 msgstr "Hub"
 
@@ -1660,20 +1698,20 @@ msgid "Hub Name"
 msgstr "Názov Hubu"
 
 #: ../src/settingsdialog.cc:1083 ../src/settingsdialog.cc:1259
-#: ../src/settingsmanager.cc:242
+#: ../src/settingsmanager.cc:243
 msgid "Hub connected"
 msgstr "Hub pripojený"
 
 #: ../src/settingsdialog.cc:1084 ../src/settingsdialog.cc:1263
-#: ../src/settingsmanager.cc:240
+#: ../src/settingsmanager.cc:241
 msgid "Hub disconnected"
 msgstr "Hub opojený"
 
-#: ../ui/search.ui:499 ../ui/mainwindow.ui:2129 ../ui/mainwindow.ui:2384
+#: ../ui/search.ui:546 ../ui/mainwindow.ui:2228 ../ui/mainwindow.ui:2483
 msgid "Hubs"
 msgstr "Huby"
 
-#: ../ui/mainwindow.ui:1600
+#: ../ui/mainwindow.ui:1820
 msgid "Hubs (normal / registered / op)"
 msgstr ""
 
@@ -1681,7 +1719,7 @@ msgstr ""
 msgid "Hubs: "
 msgstr "Huby:"
 
-#: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:609
+#: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:616
 msgid "IP"
 msgstr ""
 
@@ -1715,7 +1753,7 @@ msgstr "Ikona"
 msgid "Icon size"
 msgstr "Veľkosť ikón"
 
-#: ../ui/settingsdialog.ui:5409
+#: ../ui/settingsdialog.ui:5410
 msgid "Icon..."
 msgstr ""
 
@@ -1735,19 +1773,19 @@ msgstr "Ignorovať súkromné správy od botov"
 msgid "Ignore private messages from the hub"
 msgstr "Ignorovať súkromné správy z hubu"
 
-#: ../src/hub.cc:3508
+#: ../src/hub.cc:3549
 msgid "Ignored private message from bot "
 msgstr "Ignorovať súkromné správy od Bota"
 
-#: ../src/hub.cc:3501
+#: ../src/hub.cc:3542
 msgid "Ignored private message from hub"
 msgstr "Ignorovať súkromné správy z hubu"
 
-#: ../ui/settingsdialog.ui:5770
+#: ../ui/settingsdialog.ui:5771
 msgid "Import..."
 msgstr ""
 
-#: ../ui/mainwindow.ui:1007
+#: ../ui/mainwindow.ui:1139
 msgid "Indexing Progress"
 msgstr "Prebieha indexovanie"
 
@@ -1760,15 +1798,15 @@ msgstr "Indexovanie súborov..."
 msgid "Invalid extension: "
 msgstr ""
 
-#: ../src/hub.cc:2141
+#: ../src/hub.cc:2182
 msgid "Ipfilter is disable"
 msgstr ""
 
-#: ../src/hub.cc:2134
+#: ../src/hub.cc:2175
 msgid "Ipfilter is enable"
 msgstr ""
 
-#: ../src/hub.cc:2000
+#: ../src/hub.cc:2041
 msgid "Ipfilter on/off"
 msgstr ""
 
@@ -1796,10 +1834,10 @@ msgstr ""
 "Ponechať duplikátne súbory vo vašom zozname súborov (duplikáty nezväčšujú "
 "vašu veľkosť zdieľania)"
 
-#: ../ui/settingsdialog.ui:3219 ../ui/settingsdialog.ui:3235
-#: ../ui/settingsdialog.ui:3269 ../ui/settingsdialog.ui:3285
-#: ../ui/settingsdialog.ui:3507 ../ui/settingsdialog.ui:7219
-#: ../ui/settingsdialog.ui:7478
+#: ../ui/settingsdialog.ui:3220 ../ui/settingsdialog.ui:3236
+#: ../ui/settingsdialog.ui:3270 ../ui/settingsdialog.ui:3286
+#: ../ui/settingsdialog.ui:3508 ../ui/settingsdialog.ui:7220
+#: ../ui/settingsdialog.ui:7479
 msgid "KiB"
 msgstr ""
 
@@ -1807,11 +1845,11 @@ msgstr ""
 msgid "L_ow"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1354
+#: ../ui/mainwindow.ui:1563
 msgid "Left position"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2359
+#: ../ui/settingsdialog.ui:2360
 msgid "Limits"
 msgstr ""
 
@@ -1826,11 +1864,11 @@ msgstr ""
 msgid "List: "
 msgstr "Zoznam:"
 
-#: ../src/hub.cc:1992
+#: ../src/hub.cc:2033
 msgid "Load Lua file"
 msgstr "Načítať Lua súbor"
 
-#: ../src/mainwindow.cc:1943
+#: ../src/mainwindow.cc:1968
 msgid "Loading file list"
 msgstr "Načítavanie zoznamu súborov"
 
@@ -1838,35 +1876,35 @@ msgstr "Načítavanie zoznamu súborov"
 msgid "Loading: "
 msgstr "Načítavanie:"
 
-#: ../ui/settingsdialog.ui:6611
+#: ../ui/settingsdialog.ui:6612
 msgid "Log downloads"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6761
+#: ../ui/settingsdialog.ui:6762
 msgid "Log filelist transfers"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6493
+#: ../ui/settingsdialog.ui:6494
 msgid "Log main chat"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6552
+#: ../ui/settingsdialog.ui:6553
 msgid "Log private chat"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6745
+#: ../ui/settingsdialog.ui:6746
 msgid "Log status messages"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6729
+#: ../ui/settingsdialog.ui:6730
 msgid "Log system messages"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6670
+#: ../ui/settingsdialog.ui:6671
 msgid "Log uploads"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6815
+#: ../ui/settingsdialog.ui:6816
 msgid "Logs"
 msgstr ""
 
@@ -1874,7 +1912,7 @@ msgstr ""
 msgid "Low"
 msgstr "Nízka"
 
-#: ../ui/settingsdialog.ui:3203
+#: ../ui/settingsdialog.ui:3204
 msgid "Low priority size"
 msgstr ""
 
@@ -1886,11 +1924,11 @@ msgstr "Najnižšia"
 msgid "Magnet"
 msgstr ""
 
-#: ../src/mainwindow.cc:1276
+#: ../src/mainwindow.cc:1297
 msgid "Magnet Choice"
 msgstr "Magnet Voľba"
 
-#: ../src/mainwindow.cc:1206
+#: ../src/mainwindow.cc:1227
 msgid "Magnet Properties / Choice"
 msgstr "Magnet Vlastnosti / Voľby"
 
@@ -1902,7 +1940,7 @@ msgstr ""
 msgid "Matched "
 msgstr "Zhodný"
 
-#: ../ui/settingsdialog.ui:6079
+#: ../ui/settingsdialog.ui:6080
 msgid "Matches"
 msgstr ""
 
@@ -1919,15 +1957,15 @@ msgstr "Max veľkosť"
 msgid "Max Users"
 msgstr "Max počet užívateľov"
 
-#: ../ui/settingsdialog.ui:7056
+#: ../ui/settingsdialog.ui:7057
 msgid "Max filelist size"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7017
+#: ../ui/settingsdialog.ui:7018
 msgid "Max hash speed"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3477
+#: ../ui/settingsdialog.ui:3478
 msgid "Max inactivity"
 msgstr ""
 
@@ -1935,27 +1973,27 @@ msgstr ""
 msgid "Max upload speed (MiB/s)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1978 ../ui/settingsdialog.ui:2235
+#: ../ui/settingsdialog.ui:1979 ../ui/settingsdialog.ui:2236
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1924 ../ui/settingsdialog.ui:2181
+#: ../ui/settingsdialog.ui:1925 ../ui/settingsdialog.ui:2182
 msgid "Maximum Upload Rate (KiB/s) (0 = infinite)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5523
+#: ../ui/settingsdialog.ui:5524
 msgid "Maximum message length (0 = infinite)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2775
+#: ../ui/settingsdialog.ui:2776
 msgid "Maximum simultaneous downloads (0 = infinite)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7232
+#: ../ui/settingsdialog.ui:7233
 msgid "MiB"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7195
+#: ../ui/settingsdialog.ui:7196
 msgid "MiB/s"
 msgstr ""
 
@@ -1972,19 +2010,19 @@ msgstr "Min veľkosť"
 msgid "Min Slots"
 msgstr "Min množstvo slotov"
 
-#: ../ui/settingsdialog.ui:3615
+#: ../ui/settingsdialog.ui:3616
 msgid "Min elapsed"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3461
+#: ../ui/settingsdialog.ui:3462
 msgid "Min filesize"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:3601
+#: ../ui/settingsdialog.ui:3602
 msgid "Min sources online"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7043
+#: ../ui/settingsdialog.ui:7044
 msgid "Mini slot size"
 msgstr ""
 
@@ -1996,7 +2034,7 @@ msgstr ""
 msgid "Minimum search interval (seconds):"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7910
+#: ../ui/settingsdialog.ui:7911
 msgid "Modify"
 msgstr ""
 
@@ -2012,7 +2050,7 @@ msgstr "Posunúť nadol"
 msgid "Move Up"
 msgstr "Posunúť nahor"
 
-#: ../src/hub.cc:2002
+#: ../src/hub.cc:2043
 msgid "Move rule up/down"
 msgstr ""
 
@@ -2054,10 +2092,10 @@ msgstr "Pre_zývka:"
 #: ../src/settingsdialog.cc:3867 ../src/settingsdialog.cc:3890
 #: ../src/settingsdialog.cc:3909 ../src/favoritehubs.cc:57
 #: ../src/favoritehubs.cc:78 ../src/favoritehubs.cc:79
-#: ../src/favoritehubs.cc:128 ../src/favoritehubs.cc:296
-#: ../src/favoritehubs.cc:425 ../src/publichubs.cc:41 ../src/publichubs.cc:156
-#: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:235
-#: ../src/search.cc:251 ../ui/settingsdialog.ui:714
+#: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:300
+#: ../src/favoritehubs.cc:429 ../src/publichubs.cc:41 ../src/publichubs.cc:156
+#: ../src/publichubs.cc:292 ../src/search.cc:73 ../src/search.cc:239
+#: ../src/search.cc:255 ../ui/settingsdialog.ui:714
 msgid "Name"
 msgstr "Meno"
 
@@ -2065,7 +2103,7 @@ msgstr "Meno"
 msgid "Name and command must not be empty"
 msgstr "Názov a príkaz nemôžu byť prázdne "
 
-#: ../ui/settingsdialog.ui:3777
+#: ../ui/settingsdialog.ui:3778
 msgid "Name:"
 msgstr ""
 
@@ -2077,7 +2115,7 @@ msgstr "Nový zoznam"
 msgid "New search type"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5965
+#: ../ui/settingsdialog.ui:5966
 msgid "New string or TTH"
 msgstr ""
 
@@ -2085,22 +2123,22 @@ msgstr ""
 msgid "Next"
 msgstr "Ďalší"
 
-#: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:367
-#: ../src/hub.cc:382 ../src/hub.cc:402 ../src/hub.cc:450 ../src/hub.cc:1242
-#: ../src/hub.cc:1545 ../src/hub.cc:1598 ../src/hub.cc:2325 ../src/hub.cc:2356
-#: ../src/hub.cc:2641 ../src/hub.cc:2680 ../src/favoriteusers.cc:45
+#: ../src/hub.cc:71 ../src/hub.cc:91 ../src/hub.cc:93 ../src/hub.cc:375
+#: ../src/hub.cc:390 ../src/hub.cc:410 ../src/hub.cc:458 ../src/hub.cc:1268
+#: ../src/hub.cc:1571 ../src/hub.cc:1634 ../src/hub.cc:2366 ../src/hub.cc:2397
+#: ../src/hub.cc:2682 ../src/hub.cc:2721 ../src/favoriteusers.cc:45
 #: ../src/favoriteusers.cc:60 ../src/favoriteusers.cc:61
 #: ../src/favoriteusers.cc:109 ../src/favoriteusers.cc:373
 #: ../src/favoriteusers.cc:426 ../src/favoriteusers.cc:583
-#: ../src/favoritehubs.cc:60 ../src/favoritehubs.cc:130
-#: ../src/favoritehubs.cc:299 ../src/finishedtransfers.cc:78
-#: ../src/finishedtransfers.cc:187 ../src/search.cc:87 ../src/search.cc:600
-#: ../src/search.cc:666 ../src/search.cc:700 ../src/search.cc:830
+#: ../src/favoritehubs.cc:60 ../src/favoritehubs.cc:134
+#: ../src/favoritehubs.cc:303 ../src/finishedtransfers.cc:78
+#: ../src/finishedtransfers.cc:187 ../src/search.cc:87 ../src/search.cc:607
+#: ../src/search.cc:673 ../src/search.cc:707 ../src/search.cc:837
 #: ../ui/settingsdialog.ui:1152
 msgid "Nick"
 msgstr "Prezývka"
 
-#: ../src/hub.cc:3605
+#: ../src/hub.cc:3646
 msgid "Nick already taken"
 msgstr "Prezývka prijatá"
 
@@ -2120,7 +2158,7 @@ msgstr "Bez chýb"
 msgid "No matches"
 msgstr "Bez zhody"
 
-#: ../ui/settingsdialog.ui:2759
+#: ../ui/settingsdialog.ui:2760
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
 msgstr ""
 
@@ -2132,7 +2170,7 @@ msgstr "Nebol zadaný text pre vyhľadávanie"
 msgid "No users"
 msgstr "Žiadny užívatelia"
 
-#: ../ui/settingsdialog.ui:5437
+#: ../ui/settingsdialog.ui:5438
 msgid "None icon"
 msgstr ""
 
@@ -2140,36 +2178,35 @@ msgstr ""
 msgid "Normal"
 msgstr "Normálna"
 
-#: ../ui/settingsdialog.ui:3299
+#: ../ui/settingsdialog.ui:3300
 msgid "Normal priority max size"
 msgstr ""
 
-#: ../src/hub.cc:1852 ../src/hub.cc:1887 ../src/hub.cc:1897 ../src/hub.cc:2041
+#: ../src/hub.cc:1893 ../src/hub.cc:1928 ../src/hub.cc:1938 ../src/hub.cc:2082
 msgid "Not found user: "
 msgstr "Užívateľ nenájdený:"
 
-#: ../ui/settingsdialog.ui:7976
+#: ../ui/settingsdialog.ui:7977
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4564 ../ui/settingsdialog.ui:4633
+#: ../ui/settingsdialog.ui:4565 ../ui/settingsdialog.ui:4634
 msgid "Note: Most of these options require that you restart the application"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4020
+#: ../ui/settingsdialog.ui:4021
 msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2830
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+#: ../ui/settingsdialog.ui:2831
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
-#: ../src/settingsdialog.cc:1228 ../ui/settingsdialog.ui:5613
+#: ../src/settingsdialog.cc:1228 ../ui/settingsdialog.ui:5614
 msgid "Notify"
 msgstr "Oznamovať"
 
-#: ../ui/searchspy.ui:268 ../ui/settingsdialog.ui:6291
+#: ../ui/searchspy.ui:268 ../ui/settingsdialog.ui:6292
 msgid "Number of matches for the top"
 msgstr ""
 
@@ -2186,15 +2223,15 @@ msgstr "Pripojený"
 msgid "Only show joins / parts for favorite users"
 msgstr ""
 
-#: ../ui/search.ui:444
+#: ../ui/search.ui:491
 msgid "Only users with free slots"
 msgstr "Iba užívatelia s voľnými slotmi"
 
-#: ../ui/mainwindow.ui:972
+#: ../ui/mainwindow.ui:1104
 msgid "Open _file list..."
 msgstr "Otvoriť _zoznam súborov..."
 
-#: ../ui/mainwindow.ui:983
+#: ../ui/mainwindow.ui:1115
 msgid "Open _own file list"
 msgstr "Otvoriť _zoznam vlastných súborov"
 
@@ -2226,7 +2263,7 @@ msgstr "Otvoriť súkromnú správu od užívateľov na pozadí"
 msgid "Open new window when using /join"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2023
+#: ../ui/mainwindow.ui:2123
 msgid "Open own file list"
 msgstr ""
 
@@ -2235,19 +2272,19 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: ../src/settingsdialog.cc:1317 ../src/settingsdialog.cc:1375
-#: ../ui/mainwindow.ui:2026 ../ui/mainwindow.ui:2416
+#: ../ui/mainwindow.ui:2125 ../ui/mainwindow.ui:2515
 msgid "Own file list"
 msgstr "Vlastný zoznam súborov"
 
-#: ../ui/settingsdialog.ui:536 ../ui/settingsdialog.ui:5590
+#: ../ui/settingsdialog.ui:536 ../ui/settingsdialog.ui:5591
 msgid "PM"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7030
+#: ../ui/settingsdialog.ui:7031
 msgid "PM history"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1324
+#: ../ui/mainwindow.ui:1533
 msgid "Panels"
 msgstr ""
 
@@ -2255,18 +2292,18 @@ msgstr ""
 msgid "Passive user"
 msgstr "Pasívny užívateľ"
 
-#: ../src/favoritehubs.cc:61 ../src/favoritehubs.cc:131
-#: ../ui/settingsdialog.ui:1699
+#: ../src/favoritehubs.cc:61 ../src/favoritehubs.cc:135
+#: ../ui/settingsdialog.ui:1700
 msgid "Password"
 msgstr "Heslo"
 
 #: ../src/downloadqueue.cc:71 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/transfers.cc:64 ../src/transfers.cc:714
 #: ../src/finishedtransfers.cc:58 ../src/finishedtransfers.cc:232
-#: ../src/finishedtransfers.cc:504 ../src/search.cc:90 ../src/search.cc:348
-#: ../src/search.cc:604 ../src/search.cc:681 ../src/search.cc:818
-#: ../src/search.cc:872 ../src/search.cc:1185 ../src/search.cc:1224
-#: ../src/search.cc:1281 ../src/search.cc:1343 ../src/search.cc:1900
+#: ../src/finishedtransfers.cc:504 ../src/search.cc:90 ../src/search.cc:352
+#: ../src/search.cc:611 ../src/search.cc:688 ../src/search.cc:825
+#: ../src/search.cc:879 ../src/search.cc:1192 ../src/search.cc:1231
+#: ../src/search.cc:1288 ../src/search.cc:1350 ../src/search.cc:1907
 msgid "Path"
 msgstr "Cesta"
 
@@ -2282,11 +2319,11 @@ msgstr "Pozastavený"
 msgid "Paused..."
 msgstr "Pozastavené..."
 
-#: ../ui/settingsdialog.ui:1228
+#: ../ui/settingsdialog.ui:1229
 msgid "Personal"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4239
+#: ../ui/settingsdialog.ui:4240
 msgid "Pictures"
 msgstr ""
 
@@ -2294,7 +2331,7 @@ msgstr ""
 msgid "Plain"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4856
+#: ../ui/settingsdialog.ui:4857
 msgid "Play"
 msgstr ""
 
@@ -2302,11 +2339,11 @@ msgstr ""
 msgid "Popup box to input password for hubs"
 msgstr "Vyskakovací box pre zadávanie hesiel na huby"
 
-#: ../ui/settingsdialog.ui:1733
+#: ../ui/settingsdialog.ui:1734
 msgid "Port"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1420
+#: ../ui/settingsdialog.ui:1421
 msgid "Ports"
 msgstr ""
 
@@ -2316,12 +2353,12 @@ msgid "Predefined"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1320 ../src/settingsdialog.cc:1373
-#: ../ui/mainwindow.ui:2000 ../ui/mainwindow.ui:2408
+#: ../ui/mainwindow.ui:2099 ../ui/mainwindow.ui:2507
 #: ../ui/settingsdialog.ui:960
 msgid "Preferences"
 msgstr "Predvoľby"
 
-#: ../ui/finishedtransfers.ui:156 ../ui/settingsdialog.ui:3954
+#: ../ui/finishedtransfers.ui:156 ../ui/settingsdialog.ui:3955
 #: ../ui/transfers.ui:110
 msgid "Preview"
 msgstr ""
@@ -2335,13 +2372,13 @@ msgstr "Priorita"
 msgid "Private Message (also sets urgency hint)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7725
+#: ../ui/settingsdialog.ui:7726
 msgid "Private key file"
 msgstr ""
 
-#: ../src/hub.cc:1983 ../src/settingsdialog.cc:1082
+#: ../src/hub.cc:2024 ../src/settingsdialog.cc:1082
 #: ../src/settingsdialog.cc:1135 ../src/settingsdialog.cc:1255
-#: ../src/settingsmanager.cc:238
+#: ../src/settingsmanager.cc:239
 msgid "Private message"
 msgstr "Súkromná správa"
 
@@ -2351,30 +2388,30 @@ msgstr "Vlastnosti"
 
 #: ../src/settingsdialog.cc:1321 ../src/settingsdialog.cc:1371
 #: ../src/settingsdialog.cc:1427 ../src/publichubs.cc:29
-#: ../ui/mainwindow.ui:1112 ../ui/mainwindow.ui:2179 ../ui/mainwindow.ui:2400
+#: ../ui/mainwindow.ui:1244 ../ui/mainwindow.ui:2278 ../ui/mainwindow.ui:2499
 msgid "Public Hubs"
 msgstr "Verejné Huby"
 
-#: ../ui/settingsdialog.ui:2875
+#: ../ui/settingsdialog.ui:2876
 msgid "Public Hubs list URL"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1322 ../src/settingsdialog.cc:1387
-#: ../ui/mainwindow.ui:2205 ../ui/mainwindow.ui:2464
-#: ../ui/settingsdialog.ui:3712
+#: ../ui/mainwindow.ui:2304 ../ui/mainwindow.ui:2563
+#: ../ui/settingsdialog.ui:3713
 msgid "Queue"
 msgstr "Fronta"
 
-#: ../ui/mainwindow.ui:2100
+#: ../ui/mainwindow.ui:2200
 msgid "Quick connect to the hub"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1325 ../src/settingsdialog.cc:1393
-#: ../ui/mainwindow.ui:2308 ../ui/mainwindow.ui:2488
+#: ../ui/mainwindow.ui:2407 ../ui/mainwindow.ui:2587
 msgid "Quit"
 msgstr "Zatvoriť"
 
-#: ../ui/mainwindow.ui:2305
+#: ../ui/mainwindow.ui:2405
 msgid "Quit the program"
 msgstr ""
 
@@ -2394,29 +2431,34 @@ msgstr ""
 msgid "Re-_add source"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1088
+#: ../ui/mainwindow.ui:1220
 msgid "Re_connect"
 msgstr "Znov_u pripojiť"
 
-#: ../src/hub.cc:1984 ../ui/hub.ui:75
+#: ../src/hub.cc:2025 ../ui/hub.ui:75
 msgid "Rebuild hash"
 msgstr "Prerobiť hash"
 
 #: ../src/settingsdialog.cc:1327 ../src/settingsdialog.cc:1363
-#: ../ui/mainwindow.ui:2086 ../ui/mainwindow.ui:2368
+#: ../ui/mainwindow.ui:2185 ../ui/mainwindow.ui:2467
 msgid "Reconnect"
 msgstr "Opätovne sa pripojiť"
 
-#: ../ui/mainwindow.ui:2083
+#: ../ui/mainwindow.ui:1513
+#, fuzzy
+msgid "Reconnect all hubs"
+msgstr "Pripojiť k hubu"
+
+#: ../ui/mainwindow.ui:2183
 msgid "Reconnect to the hub"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1318 ../src/settingsdialog.cc:1377
-#: ../ui/mainwindow.ui:2043 ../ui/mainwindow.ui:2424
+#: ../ui/mainwindow.ui:2142 ../ui/mainwindow.ui:2523
 msgid "Refresh"
 msgstr "Obnoviť"
 
-#: ../ui/mainwindow.ui:2040
+#: ../ui/mainwindow.ui:2140
 msgid "Refresh file list"
 msgstr ""
 
@@ -2436,7 +2478,7 @@ msgstr ""
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr "Vzdialený klient nemá plnú podporu TTH - nieje možné sťahovanie"
 
-#: ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:7938
+#: ../ui/adlsearch.ui:508 ../ui/uploadqueue.ui:69 ../ui/settingsdialog.ui:7939
 msgid "Remove"
 msgstr "Vymazať"
 
@@ -2452,7 +2494,7 @@ msgstr ""
 msgid "Remove image"
 msgstr ""
 
-#: ../src/hub.cc:2003
+#: ../src/hub.cc:2044
 msgid "Remove rules from list"
 msgstr ""
 
@@ -2460,15 +2502,15 @@ msgstr ""
 msgid "Remove slow filelists"
 msgstr "Vymazať pomalé zoznamy súborov"
 
-#: ../src/hub.cc:1976 ../src/privatemessage.cc:1001 ../ui/privatemessage.ui:57
+#: ../src/hub.cc:2017 ../src/privatemessage.cc:1022 ../ui/privatemessage.ui:57
 msgid "Remove user favorite"
 msgstr "Odstrániť užívateľa z obľúbených"
 
-#: ../ui/downloadqueue.ui:345 ../ui/search.ui:826
+#: ../ui/downloadqueue.ui:345 ../ui/search.ui:815
 msgid "Remove user from _queue"
 msgstr "Odstrániť užívateľa z _fronty"
 
-#: ../ui/settingsdialog.ui:7924
+#: ../ui/settingsdialog.ui:7925
 msgid "Rename"
 msgstr ""
 
@@ -2476,7 +2518,7 @@ msgstr ""
 msgid "Rename a search type"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1432
+#: ../ui/mainwindow.ui:1641
 msgid "Report a Bug"
 msgstr "Nahlásiť problém"
 
@@ -2496,21 +2538,21 @@ msgstr "Prebiehajúci"
 msgid "SJIS"
 msgstr "SJIS"
 
-#: ../src/hub.cc:1982 ../ui/hub.ui:66
+#: ../src/hub.cc:2023 ../ui/hub.ui:66
 msgid "Say a third person"
 msgstr "Hovorí"
 
 #: ../src/settingsdialog.cc:1052 ../src/settingsdialog.cc:1323
 #: ../src/settingsdialog.cc:1381 ../src/search.cc:41 ../src/search.cc:72
-#: ../src/search.cc:79 ../src/search.cc:234 ../src/search.cc:432
-#: ../src/search.cc:1067 ../src/search.cc:1068 ../src/search.cc:1878
-#: ../ui/searchspy.ui:94 ../ui/searchspy.ui:402 ../ui/mainwindow.ui:1156
-#: ../ui/mainwindow.ui:2162 ../ui/mainwindow.ui:2440
-#: ../ui/settingsdialog.ui:8003
+#: ../src/search.cc:79 ../src/search.cc:238 ../src/search.cc:436
+#: ../src/search.cc:1074 ../src/search.cc:1075 ../src/search.cc:1885
+#: ../ui/searchspy.ui:94 ../ui/searchspy.ui:402 ../ui/mainwindow.ui:1288
+#: ../ui/mainwindow.ui:2261 ../ui/mainwindow.ui:2539
+#: ../ui/settingsdialog.ui:8004
 msgid "Search"
 msgstr "Hľadať"
 
-#: ../src/settingsdialog.cc:1330 ../ui/mainwindow.ui:1168
+#: ../src/settingsdialog.cc:1330 ../ui/mainwindow.ui:1300
 msgid "Search ADL"
 msgstr "Hľadanie ADL"
 
@@ -2520,8 +2562,8 @@ msgstr ""
 
 #: ../src/searchspy.cc:36 ../src/settingsdialog.cc:1053
 #: ../src/settingsdialog.cc:1324 ../src/settingsdialog.cc:1385
-#: ../src/settingsdialog.cc:1433 ../ui/mainwindow.ui:1234
-#: ../ui/mainwindow.ui:2279 ../ui/settingsdialog.ui:6395
+#: ../src/settingsdialog.cc:1433 ../ui/mainwindow.ui:1375
+#: ../ui/mainwindow.ui:2379 ../ui/settingsdialog.ui:6396
 msgid "Search Spy"
 msgstr "Search Spy"
 
@@ -2534,27 +2576,23 @@ msgstr "Search Spy"
 msgid "Search String"
 msgstr "Hľadať reťazec"
 
-#: ../ui/search.ui:184
+#: ../ui/search.ui:174
 msgid "Search for"
 msgstr "Hľadať"
 
-#: ../ui/search.ui:556
-msgid "Search for a file"
-msgstr "Hľadať súbor"
-
-#: ../ui/mainwindow.ui:2159
+#: ../ui/mainwindow.ui:2259
 msgid "Search for files to download"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7282
+#: ../ui/settingsdialog.ui:7283
 msgid "Search history"
 msgstr ""
 
-#: ../ui/search.ui:413
+#: ../ui/search.ui:460
 msgid "Search options"
 msgstr "Možnosti vyhľadávania"
 
-#: ../src/hub.cc:3612
+#: ../src/hub.cc:3653
 msgid "Search spam detected from "
 msgstr ""
 
@@ -2564,23 +2602,23 @@ msgstr ""
 msgid "Search type"
 msgstr ""
 
-#: ../ui/search.ui:423
+#: ../ui/search.ui:470
 msgid "Search within local results"
 msgstr "Hľadať v rámci miestnych výsledkov"
 
-#: ../src/search.cc:537
+#: ../src/search.cc:541
 msgid "Searching for "
 msgstr "Hľadanie"
 
-#: ../ui/settingsdialog.ui:7833
+#: ../ui/settingsdialog.ui:7834
 msgid "Security Certificates"
 msgstr ""
 
-#: ../src/mainwindow.cc:2249
+#: ../src/mainwindow.cc:2315
 msgid "Select file to Get TTH"
 msgstr "Zvoliť súbor na prevziati TTH"
 
-#: ../src/mainwindow.cc:1906 ../ui/mainwindow.ui:876
+#: ../src/mainwindow.cc:1931 ../ui/mainwindow.ui:876
 msgid "Select filelist to browse"
 msgstr "Zvoliľ zoznam zúborov na prehliadanie"
 
@@ -2588,7 +2626,12 @@ msgstr "Zvoliľ zoznam zúborov na prehliadanie"
 msgid "Send PM when double clicked in the user list"
 msgstr "Dvojklik myšou na užívateľa pošle správu"
 
-#: ../ui/downloadqueue.ui:297 ../ui/search.ui:799
+#: ../ui/uploadqueue.ui:78
+#, fuzzy
+msgid "Send Private Message"
+msgstr "Poslať _súkromnú správau"
+
+#: ../ui/downloadqueue.ui:297 ../ui/search.ui:788
 msgid "Send _private message"
 msgstr "Poslať _súkromnú správau"
 
@@ -2600,7 +2643,7 @@ msgstr ""
 msgid "Send unknown /commands to the hub"
 msgstr "Poslať neznáme /príkazy hubu"
 
-#: ../src/search.cc:542
+#: ../src/search.cc:546
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr ""
@@ -2610,7 +2653,7 @@ msgstr ""
 msgid "Separator"
 msgstr "Oddeľovač"
 
-#: ../src/settingsdialog.cc:1361 ../ui/mainwindow.ui:2360
+#: ../src/settingsdialog.cc:1361 ../ui/mainwindow.ui:2459
 msgid "Separators"
 msgstr "Oddeľovače"
 
@@ -2622,27 +2665,26 @@ msgstr ""
 msgid "Set download limit image"
 msgstr ""
 
-#: ../src/hub.cc:1930
+#: ../src/hub.cc:1971
 msgid "Set download limit image: "
 msgstr "Nastaviť obmedzenia pre sťahovanie obrázkov:"
 
 #: ../src/settingsdialog.cc:972
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
+msgid "Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Nastaviť najnižšiu prioritu pre novopridané súbory, ktoré sú väčšie než "
 "nastavená hodnota pre súbory s nízkou prioritou."
 
-#: ../ui/settingsdialog.ui:4052
+#: ../ui/settingsdialog.ui:4053
 msgid "Share hidden files"
 msgstr ""
 
-#: ../src/hub.cc:72 ../src/hub.cc:366 ../src/hub.cc:383 ../src/hub.cc:403
-#: ../src/hub.cc:451 ../src/publichubs.cc:46 ../src/publichubs.cc:161
+#: ../src/hub.cc:72 ../src/hub.cc:374 ../src/hub.cc:391 ../src/hub.cc:411
+#: ../src/hub.cc:459 ../src/publichubs.cc:46 ../src/publichubs.cc:161
 msgid "Shared"
 msgstr "Zdieľané"
 
-#: ../ui/settingsdialog.ui:4277
+#: ../ui/settingsdialog.ui:4278
 msgid "Sharing"
 msgstr ""
 
@@ -2650,20 +2692,24 @@ msgstr ""
 msgid "Show IP's' in chats"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1952
+#: ../ui/mainwindow.ui:2052
 msgid "Show Interface"
 msgstr ""
 
-#: ../src/hub.cc:1977 ../ui/hub.ui:48
+#: ../src/hub.cc:2018 ../ui/hub.ui:48
 msgid "Show favorites list"
 msgstr "Zobraziť obľúbené zoznamy"
 
-#: ../src/hub.cc:1980 ../src/privatemessage.cc:1007
+#: ../ui/mainwindow.ui:1396
+msgid "Show free space bar"
+msgstr ""
+
+#: ../src/hub.cc:2021 ../src/privatemessage.cc:1028
 #: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
 msgid "Show help"
 msgstr "Zobraziť nápovedu"
 
-#: ../src/hub.cc:2001
+#: ../src/hub.cc:2042
 msgid "Show ipfilter rules list"
 msgstr ""
 
@@ -2679,11 +2725,11 @@ msgstr ""
 msgid "Show only completely finished downloads"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5544
+#: ../ui/settingsdialog.ui:5545
 msgid "Show only when the application is not active."
 msgstr ""
 
-#: ../src/hub.cc:1989 ../src/privatemessage.cc:1006 ../ui/privatemessage.ui:93
+#: ../src/hub.cc:2030 ../src/privatemessage.cc:1027 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
 msgid "Show ratio [send in chat]"
 msgstr ""
@@ -2704,12 +2750,16 @@ msgstr ""
 msgid "Show user country in chat"
 msgstr ""
 
-#: ../src/hub.cc:1988 ../src/privatemessage.cc:1005 ../ui/privatemessage.ui:84
+#: ../src/hub.cc:2029 ../src/privatemessage.cc:1026 ../ui/privatemessage.ui:84
 #: ../ui/hub.ui:93
 msgid "Show version"
 msgstr "Zobraziť verziu"
 
-#: ../ui/mainwindow.ui:1560
+#: ../ui/search.ui:292
+msgid "Show/Hide side panel"
+msgstr ""
+
+#: ../ui/mainwindow.ui:1781
 msgid "Show/Hide transfers panel"
 msgstr ""
 
@@ -2727,9 +2777,9 @@ msgstr "Vypnúť libdcpp..."
 #: ../src/transfers.cc:727 ../src/settingsdialog.cc:994
 #: ../src/settingsdialog.cc:1000 ../src/settingsdialog.cc:3605
 #: ../src/settingsdialog.cc:3674 ../src/search.cc:89 ../src/search.cc:116
-#: ../src/search.cc:603 ../src/search.cc:686 ../src/search.cc:695
-#: ../src/search.cc:821 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
-#: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317 ../ui/search.ui:239
+#: ../src/search.cc:610 ../src/search.cc:693 ../src/search.cc:702
+#: ../src/search.cc:828 ../src/sharebrowser.cc:76 ../src/sharebrowser.cc:94
+#: ../src/sharebrowser.cc:286 ../src/sharebrowser.cc:317 ../ui/search.ui:330
 #: ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Veľkosť"
@@ -2747,31 +2797,31 @@ msgstr "Veľkosť: 0 B"
 msgid "Skip zero-byte files"
 msgstr "Preskočiť súbory, ktoré majú 0 bytov"
 
-#: ../src/privatemessage.cc:1391
+#: ../src/privatemessage.cc:1438
 msgid "Slot granted"
 msgstr "Slot udelený"
 
-#: ../src/hub.cc:2891 ../src/favoriteusers.cc:510
+#: ../src/hub.cc:2932 ../src/favoriteusers.cc:510
 msgid "Slot granted to "
 msgstr "Slot udelený"
 
-#: ../src/search.cc:91 ../src/search.cc:118 ../src/search.cc:602
+#: ../src/search.cc:91 ../src/search.cc:118 ../src/search.cc:609
 msgid "Slots"
 msgstr "Sloty"
 
-#: ../ui/mainwindow.ui:1371
+#: ../ui/mainwindow.ui:1580
 msgid "Small icons"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7308
+#: ../ui/settingsdialog.ui:7309
 msgid "Socket read buffer"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7321
+#: ../ui/settingsdialog.ui:7322
 msgid "Socket write buffer"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1749
+#: ../ui/settingsdialog.ui:1750
 msgid "Socks IP"
 msgstr ""
 
@@ -2779,11 +2829,11 @@ msgstr ""
 msgid "Sort favorite users first"
 msgstr "Zobraziť najprv obľúbených užívateľov"
 
-#: ../src/settingsdialog.cc:1062 ../ui/settingsdialog.ui:4997
+#: ../src/settingsdialog.cc:1062 ../ui/settingsdialog.ui:4998
 msgid "Sounds"
 msgstr "Zvuky"
 
-#: ../ui/mainwindow.ui:1421
+#: ../ui/mainwindow.ui:1630
 msgid "Source (git)"
 msgstr "Zdroj (git)"
 
@@ -2803,7 +2853,7 @@ msgstr "Zdroj je príliš pomalý"
 msgid "Speed"
 msgstr "Rýchlosť"
 
-#: ../ui/mainwindow.ui:2282 ../ui/mainwindow.ui:2456
+#: ../ui/mainwindow.ui:2381 ../ui/mainwindow.ui:2555
 msgid "Spy"
 msgstr ""
 
@@ -2811,7 +2861,7 @@ msgstr ""
 msgid "Start a search for this file"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6041
+#: ../ui/settingsdialog.ui:6042
 msgid "State of preparedness"
 msgstr ""
 
@@ -2831,7 +2881,7 @@ msgstr "Správa o statuse"
 msgid "System default"
 msgstr "Štandartne nastavený systém"
 
-#: ../ui/settingsdialog.ui:5813
+#: ../ui/settingsdialog.ui:5814
 msgid "System icons"
 msgstr ""
 
@@ -2845,10 +2895,10 @@ msgstr "TIS-620"
 
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:287
 #: ../src/downloadqueue.cc:394 ../src/downloadqueue.cc:722
-#: ../src/downloadqueue.cc:750 ../src/search.cc:96 ../src/search.cc:350
-#: ../src/search.cc:354 ../src/search.cc:360 ../src/search.cc:610
-#: ../src/search.cc:697 ../src/search.cc:827 ../src/search.cc:878
-#: ../src/search.cc:1147 ../src/search.cc:1312 ../src/search.cc:1588
+#: ../src/downloadqueue.cc:750 ../src/search.cc:96 ../src/search.cc:354
+#: ../src/search.cc:358 ../src/search.cc:364 ../src/search.cc:617
+#: ../src/search.cc:704 ../src/search.cc:834 ../src/search.cc:885
+#: ../src/search.cc:1154 ../src/search.cc:1319 ../src/search.cc:1595
 #: ../src/sharebrowser.cc:78 ../src/sharebrowser.cc:291
 #: ../src/sharebrowser.cc:321 ../src/sharebrowser.cc:516
 #: ../src/sharebrowser.cc:972 ../src/sharebrowser.cc:1006
@@ -2860,41 +2910,41 @@ msgstr ""
 msgid "TTH: "
 msgstr ""
 
-#: ../ui/settingsdialog.ui:4650
+#: ../ui/settingsdialog.ui:4651
 msgid "Tabs"
 msgstr ""
 
-#: ../src/hub.cc:74 ../src/hub.cc:385 ../src/hub.cc:405
+#: ../src/hub.cc:74 ../src/hub.cc:393 ../src/hub.cc:413
 msgid "Tag"
 msgstr "Označiť"
 
-#: ../ui/settingsdialog.ui:5380
+#: ../ui/settingsdialog.ui:5381
 msgid "Test"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5137
+#: ../ui/settingsdialog.ui:5138
 msgid "Text color"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5153
+#: ../ui/settingsdialog.ui:5154
 msgid "Text style"
 msgstr ""
 
-#: ../ui/searchspy.ui:297 ../ui/settingsdialog.ui:6250
+#: ../ui/searchspy.ui:297 ../ui/settingsdialog.ui:6251
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
 msgstr ""
 
-#: ../src/favoritehubs.cc:394
+#: ../src/favoritehubs.cc:398
 msgid "The name and address fields are required"
 msgstr "Pole pre meno a adresu sú povinné"
 
-#: ../ui/settingsdialog.ui:5827
+#: ../ui/settingsdialog.ui:5828
 msgid "Theme default"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5855
+#: ../ui/settingsdialog.ui:5856
 msgid "Themes"
 msgstr ""
 
@@ -2931,17 +2981,17 @@ msgstr "Názov"
 msgid "To (empty for selected user)"
 msgstr ""
 
-#: ../ui/mainwindow.ui:292
+#: ../ui/mainwindow.ui:293
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5914
+#: ../ui/settingsdialog.ui:5915
 msgid "Toolbar"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1334
+#: ../ui/mainwindow.ui:1543
 msgid "Tools panel"
 msgstr ""
 
@@ -2949,11 +2999,11 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:6308
+#: ../ui/settingsdialog.ui:6309
 msgid "Top (number of matches, more than)"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1344
+#: ../ui/mainwindow.ui:1553
 msgid "Top position"
 msgstr ""
 
@@ -2961,11 +3011,11 @@ msgstr ""
 msgid "Top: >"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1702
+#: ../ui/mainwindow.ui:1922
 msgid "Total received"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1779
+#: ../ui/mainwindow.ui:1999
 msgid "Total sent"
 msgstr ""
 
@@ -2973,7 +3023,7 @@ msgstr ""
 msgid "Total size: "
 msgstr "Celková veľkosť"
 
-#: ../ui/settingsdialog.ui:4037
+#: ../ui/settingsdialog.ui:4038
 msgid "Total size: 0 B"
 msgstr ""
 
@@ -3056,12 +3106,12 @@ msgid ""
 " (c.leick@vollbio.de)\n"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7695
+#: ../ui/settingsdialog.ui:7696
 msgid "Trusted certificates path"
 msgstr ""
 
-#: ../src/search.cc:88 ../src/search.cc:605 ../src/search.cc:709
-#: ../src/search.cc:836 ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289
+#: ../src/search.cc:88 ../src/search.cc:612 ../src/search.cc:716
+#: ../src/search.cc:843 ../src/sharebrowser.cc:77 ../src/sharebrowser.cc:289
 #: ../src/sharebrowser.cc:310
 msgid "Type"
 msgstr "Typ"
@@ -3074,7 +3124,7 @@ msgstr "URL"
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: ../src/hub.cc:2916
+#: ../src/hub.cc:2957
 msgid "Unable to connect: already connected to the requested hub"
 msgstr ""
 "Nie je možné sa pripojiť k požadovanému hubu(práve ste k nemu pripojený)"
@@ -3083,21 +3133,21 @@ msgstr ""
 msgid "Unable to load file list: "
 msgstr "Nie je možné načítať zoznam súborov:"
 
-#: ../src/mainwindow.cc:1931
+#: ../src/mainwindow.cc:1956
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Nie je možné načítať zoznam súborov: Neplatný názov zoznamu súborov"
 
-#: ../src/mainwindow.cc:2133
+#: ../src/mainwindow.cc:2179
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Nie je možné otvoriť %1 port. Nie je možné hľadať alebo sťahovať súbory "
 "pokiaľ si nezmeníte alebo nezatvoríte aplikácie , ktoré by mohli využívať "
 "tento port."
 
-#: ../ui/settingsdialog.ui:2668
+#: ../ui/settingsdialog.ui:2669
 msgid "Unfinished downloads directory"
 msgstr ""
 
@@ -3106,11 +3156,11 @@ msgstr ""
 msgid "Unknown"
 msgstr "Neznámy"
 
-#: ../src/privatemessage.cc:1011
+#: ../src/privatemessage.cc:1032
 msgid "Unknown command "
 msgstr "Príkaz neznámy"
 
-#: ../src/hub.cc:2299
+#: ../src/hub.cc:2340
 msgid "Unknown command '"
 msgstr "Príkaz neznámy"
 
@@ -3122,11 +3172,11 @@ msgstr "Aktualizovať"
 msgid "Update frame search"
 msgstr ""
 
-#: ../src/hub.cc:1985
+#: ../src/hub.cc:2026
 msgid "Update own file list"
 msgstr "Aktualizovať vlastný zoznam súborov"
 
-#: ../ui/settingsdialog.ui:6117
+#: ../ui/settingsdialog.ui:6118
 msgid "Updating string or TTH"
 msgstr ""
 
@@ -3134,7 +3184,12 @@ msgstr ""
 msgid "Upload"
 msgstr "Odovzdanie"
 
-#: ../ui/settingsdialog.ui:2289
+#: ../src/uploadqueue.cc:36 ../ui/mainwindow.ui:1363
+#, fuzzy
+msgid "Upload Queue"
+msgstr "Fronta sťahovania"
+
+#: ../ui/settingsdialog.ui:2290
 msgid "Upload Slots"
 msgstr ""
 
@@ -3146,11 +3201,11 @@ msgstr "Odovzdávanie ukončené..."
 msgid "Upload finished"
 msgstr "Odovzdávanie ukončené"
 
-#: ../ui/settingsdialog.ui:4201
+#: ../ui/settingsdialog.ui:4202
 msgid "Upload slots"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1728
+#: ../ui/mainwindow.ui:1948
 msgid "Upload speed"
 msgstr ""
 
@@ -3158,7 +3213,7 @@ msgstr ""
 msgid "Upload starting..."
 msgstr "Odovzdávanie začína..."
 
-#: ../src/mainwindow.cc:657
+#: ../src/mainwindow.cc:675
 msgid "Upload: "
 msgstr "Odovzdávanie:"
 
@@ -3175,15 +3230,15 @@ msgstr "Odovzdané"
 msgid "Use"
 msgstr "Použiť"
 
-#: ../ui/mainwindow.ui:1967
+#: ../ui/mainwindow.ui:2067
 msgid "Use Blinking Icon"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2461
+#: ../ui/settingsdialog.ui:2462
 msgid "Use DHT"
 msgstr ""
 
-#: ../src/hub.cc:1719 ../src/privatemessage.cc:1167
+#: ../src/hub.cc:1755 ../src/privatemessage.cc:1206
 msgid "Use Emoticons"
 msgstr "Použiť smajlíkov"
 
@@ -3191,7 +3246,7 @@ msgstr "Použiť smajlíkov"
 msgid "Use OEM monospaced font for chat windows"
 msgstr "Použiť OEM font pre užívateľov používajúcich windows"
 
-#: ../ui/settingsdialog.ui:1659
+#: ../ui/settingsdialog.ui:1660
 msgid "Use SOCKS5 server to resolve hostnames"
 msgstr ""
 
@@ -3199,11 +3254,11 @@ msgstr ""
 msgid "Use TLS when remote client supports it"
 msgstr "Použiť TLS ak to podporuje klient"
 
-#: ../ui/settingsdialog.ui:1260
+#: ../ui/settingsdialog.ui:1261
 msgid "Use UPnP to let client cofigure my router"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:1873
+#: ../ui/settingsdialog.ui:1874
 msgid "Use bandwidth limits"
 msgstr ""
 
@@ -3217,14 +3272,13 @@ msgstr "Použiť smajlíkov"
 
 #: ../src/settingsdialog.cc:1508
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr ""
-"Použiť rýchlu metódu hashovania (vypnúť ak máte problémy s hashovaním)"
+msgstr "Použiť rýchlu metódu hashovania (vypnúť ak máte problémy s hashovaním)"
 
 #: ../src/settingsdialog.cc:1027
 msgid "Use magnet split"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2039
+#: ../ui/settingsdialog.ui:2040
 msgid "Use second set of bandwidth limits"
 msgstr ""
 
@@ -3245,12 +3299,12 @@ msgstr "Užívateľ (dc)"
 msgid "User (normal)"
 msgstr "Užívateľ (normal)"
 
-#: ../ui/settingsdialog.ui:6988
+#: ../ui/settingsdialog.ui:6989
 msgid "User Commands"
 msgstr ""
 
-#: ../src/favoritehubs.cc:62 ../src/favoritehubs.cc:136
-#: ../src/favoritehubs.cc:301
+#: ../src/favoritehubs.cc:62 ../src/favoritehubs.cc:140
+#: ../src/favoritehubs.cc:305
 msgid "User Description"
 msgstr "Popis Užívateľa"
 
@@ -3258,7 +3312,7 @@ msgstr "Popis Užívateľa"
 msgid "User commands"
 msgstr "Užívateľské príkazy"
 
-#: ../src/hub.cc:1877
+#: ../src/hub.cc:1918
 msgid "User favorite list:"
 msgstr "Obľúbený zoznam užívateľa:"
 
@@ -3270,11 +3324,11 @@ msgstr "Užívateľ firewall (dc)"
 msgid "User firewall (normal)"
 msgstr "Užívateľ firewall (normal)"
 
-#: ../src/hub.cc:1986
+#: ../src/hub.cc:2027
 msgid "User list show/hide"
 msgstr "Zobraziť/skryť užívateľov zoznam"
 
-#: ../src/hub.cc:2862 ../src/hub.cc:2882
+#: ../src/hub.cc:2903 ../src/hub.cc:2923
 msgid "User not found"
 msgstr "Užívateľ nenájdený"
 
@@ -3294,18 +3348,18 @@ msgstr "Užívateľ operátor firewall (dc)"
 msgid "User operator firewall (normal)"
 msgstr "Užívateľ operátor firewall (normal)"
 
-#: ../src/privatemessage.cc:1326
+#: ../src/privatemessage.cc:1373
 msgid "User went offline"
 msgstr "Užívateľ sa odhlásil"
 
-#: ../ui/settingsdialog.ui:1646
+#: ../ui/settingsdialog.ui:1647
 msgid "Username"
 msgstr ""
 
 #: ../src/downloadqueue.cc:70 ../src/downloadqueue.cc:276
 #: ../src/downloadqueue.cc:383 ../src/publichubs.cc:43 ../src/publichubs.cc:57
-#: ../src/publichubs.cc:58 ../src/publichubs.cc:158 ../ui/mainwindow.ui:2145
-#: ../ui/mainwindow.ui:2392
+#: ../src/publichubs.cc:58 ../src/publichubs.cc:158 ../ui/mainwindow.ui:2244
+#: ../ui/mainwindow.ui:2491
 msgid "Users"
 msgstr "Užívatelia"
 
@@ -3319,7 +3373,8 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3330,19 +3385,19 @@ msgstr ""
 msgid "View status messages in main chat"
 msgstr "Zobraziť správu o stave v hlavnom chate"
 
-#: ../ui/mainwindow.ui:2202
+#: ../ui/mainwindow.ui:2302
 msgid "View the files to be downloaded"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2057
+#: ../ui/mainwindow.ui:2157
 msgid "View the hashing progress"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2219
+#: ../ui/mainwindow.ui:2319
 msgid "View the list of finished downloads"
 msgstr ""
 
-#: ../ui/mainwindow.ui:2236
+#: ../ui/mainwindow.ui:2336
 msgid "View the list of finished uploads"
 msgstr ""
 
@@ -3355,11 +3410,11 @@ msgstr ""
 msgid "Virtual name"
 msgstr "Virtuálne meno"
 
-#: ../ui/settingsdialog.ui:6267
+#: ../ui/settingsdialog.ui:6268
 msgid "Waiting (seconds)"
 msgstr ""
 
-#: ../src/hub.cc:536
+#: ../src/hub.cc:544
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr "Čakám na zadanie hesla"
@@ -3376,23 +3431,23 @@ msgstr "Čakám na opätovný pokus"
 msgid "Waiting:"
 msgstr "Čakám:"
 
-#: ../src/mainwindow.cc:299
+#: ../src/mainwindow.cc:308
 msgid "Welcome to "
 msgstr "Vitajte na "
 
-#: ../ui/settingsdialog.ui:4958
+#: ../ui/settingsdialog.ui:4959
 msgid "When a private message window is opened"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1443
+#: ../ui/mainwindow.ui:1652
 msgid "Wiki of project"
 msgstr "Wiki projektu"
 
-#: ../ui/settingsdialog.ui:4800
+#: ../ui/settingsdialog.ui:4801
 msgid "Windows"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:7269
+#: ../ui/settingsdialog.ui:7270
 msgid "Write buffer size"
 msgstr ""
 
@@ -3424,7 +3479,7 @@ msgstr "[U]"
 msgid "[Z]"
 msgstr "[Z]"
 
-#: ../ui/search.ui:808 ../ui/hub.ui:578 ../ui/transfers.ui:63
+#: ../ui/search.ui:797 ../ui/hub.ui:578 ../ui/transfers.ui:63
 msgid "_Add to favorites"
 msgstr "_Pridať k obľúbeným"
 
@@ -3432,7 +3487,7 @@ msgstr "_Pridať k obľúbeným"
 msgid "_Address:"
 msgstr "_Adresa:"
 
-#: ../ui/downloadqueue.ui:283 ../ui/search.ui:781 ../ui/hub.ui:545
+#: ../ui/downloadqueue.ui:283 ../ui/search.ui:770 ../ui/hub.ui:545
 #: ../ui/favoriteusers.ui:159 ../ui/transfers.ui:36
 msgid "_Browse file list"
 msgstr "_Stiahnúť zoznam súbrov"
@@ -3441,7 +3496,7 @@ msgstr "_Stiahnúť zoznam súbrov"
 msgid "_Close connection"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1300
+#: ../ui/mainwindow.ui:1457
 msgid "_Close widget"
 msgstr "_Zatvoriť widget"
 
@@ -3450,7 +3505,7 @@ msgstr "_Zatvoriť widget"
 msgid "_Copy link"
 msgstr ""
 
-#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:766
+#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:755
 #: ../ui/hub.ui:244 ../ui/sharebrowser.ui:164
 msgid "_Copy magnet"
 msgstr "_Kopírovať magnet"
@@ -3467,7 +3522,7 @@ msgstr "_Kopírovať obrázok"
 msgid "_Description:"
 msgstr "Pop_is:"
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:705 ../ui/hub.ui:212
+#: ../ui/privatemessage.ui:169 ../ui/search.ui:694 ../ui/hub.ui:212
 msgid "_Download"
 msgstr "_Stiahnúť"
 
@@ -3475,11 +3530,11 @@ msgstr "_Stiahnúť"
 msgid "_Encoding:"
 msgstr "_Kódovanie:"
 
-#: ../ui/mainwindow.ui:1050
+#: ../ui/mainwindow.ui:1182
 msgid "_Exit"
 msgstr "Ukonč_iť"
 
-#: ../ui/mainwindow.ui:965
+#: ../ui/mainwindow.ui:1097
 msgid "_File"
 msgstr "_Súbor"
 
@@ -3487,7 +3542,7 @@ msgstr "_Súbor"
 msgid "_Force attempt"
 msgstr ""
 
-#: ../ui/search.ui:817 ../ui/transfers.ui:72
+#: ../ui/search.ui:806 ../ui/transfers.ui:72
 msgid "_Grant extra slot"
 msgstr "_Udeliť extra slot"
 
@@ -3495,7 +3550,7 @@ msgstr "_Udeliť extra slot"
 msgid "_Grant slot"
 msgstr "_Udeliť slot"
 
-#: ../ui/mainwindow.ui:1403
+#: ../ui/mainwindow.ui:1612
 msgid "_Help"
 msgstr "_Pomoc"
 
@@ -3503,7 +3558,7 @@ msgstr "_Pomoc"
 msgid "_Highest"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1069
+#: ../ui/mainwindow.ui:1201
 msgid "_Hubs"
 msgstr "Hub_y"
 
@@ -3511,11 +3566,11 @@ msgstr "Hub_y"
 msgid "_Lowest"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1024
+#: ../ui/mainwindow.ui:1156
 msgid "_Magnet Choice"
 msgstr ""
 
-#: ../ui/search.ui:790
+#: ../ui/search.ui:779
 msgid "_Match Queue"
 msgstr ""
 
@@ -3539,7 +3594,7 @@ msgstr ""
 msgid "_Name:"
 msgstr "_Meno:"
 
-#: ../ui/mainwindow.ui:1293
+#: ../ui/mainwindow.ui:1450
 msgid "_Next widget"
 msgstr "_Nasledujúci widget"
 
@@ -3563,11 +3618,11 @@ msgstr "_Heslo:"
 msgid "_Paused"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1252
+#: ../ui/mainwindow.ui:1409
 msgid "_Preferences"
 msgstr "_Nastavenia"
 
-#: ../ui/mainwindow.ui:1282
+#: ../ui/mainwindow.ui:1439
 msgid "_Previous widget"
 msgstr "_Predchádzajúci widget"
 
@@ -3579,16 +3634,16 @@ msgstr " Súkrom_ná správa"
 msgid "_Properties/Choice"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1076
+#: ../ui/mainwindow.ui:1208
 msgid "_Quick connect"
 msgstr "_Rýchle pripojenie"
 
-#: ../ui/mainwindow.ui:995
+#: ../ui/mainwindow.ui:1127
 msgid "_Refresh file list"
 msgstr "O_bnoviť zoznam súborov"
 
 #: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
-#: ../ui/downloadqueue.ui:359 ../ui/search.ui:855 ../ui/searchspy.ui:108
+#: ../ui/downloadqueue.ui:359 ../ui/search.ui:844 ../ui/searchspy.ui:108
 #: ../ui/searchspy.ui:417 ../ui/favoriteusers.ui:228
 msgid "_Remove"
 msgstr "_Vymazať"
@@ -3601,11 +3656,11 @@ msgstr ""
 msgid "_Remove user from queue"
 msgstr "_Odstrániť užívateľa z fronty"
 
-#: ../ui/search.ui:585
+#: ../ui/search.ui:256
 msgid "_Search"
 msgstr "_Hľadať"
 
-#: ../ui/search.ui:757
+#: ../ui/search.ui:746
 msgid "_Search by TTH"
 msgstr "_Hľadať podľa TTH"
 
@@ -3625,7 +3680,7 @@ msgstr ""
 msgid "_Send public message"
 msgstr ""
 
-#: ../ui/mainwindow.ui:1149
+#: ../ui/mainwindow.ui:1281
 msgid "_Tools"
 msgstr "Nástroj_e"
 
@@ -3633,15 +3688,15 @@ msgstr "Nástroj_e"
 msgid "_User Description:"
 msgstr "P_opis užívateľa:"
 
-#: ../ui/search.ui:835 ../ui/hub.ui:620
+#: ../ui/search.ui:824 ../ui/hub.ui:620
 msgid "_User commands"
 msgstr "Užívateľ_ské príkazy"
 
-#: ../ui/mainwindow.ui:1271
+#: ../ui/mainwindow.ui:1428
 msgid "_Widgets"
 msgstr "_Widgety"
 
-#: ../src/hub.cc:3100
+#: ../src/hub.cc:3141
 msgid "bad image"
 msgstr "zlé zobrazenie (bad image)"
 
@@ -3653,7 +3708,7 @@ msgstr "štandartné ikony"
 msgid "default theme"
 msgstr "štandartná téma"
 
-#: ../src/hub.cc:77 ../src/hub.cc:388 ../src/hub.cc:408
+#: ../src/hub.cc:77 ../src/hub.cc:396 ../src/hub.cc:416
 msgid "eMail"
 msgstr "eMail"
 
@@ -3662,11 +3717,11 @@ msgstr "eMail"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr ""
 
-#: ../src/mainwindow.cc:2176
+#: ../src/mainwindow.cc:2222
 msgid "file list from "
 msgstr "zoznam súborov od"
 
-#: ../ui/settingsdialog.ui:2070
+#: ../ui/settingsdialog.ui:2071
 msgid "from"
 msgstr ""
 
@@ -3674,15 +3729,15 @@ msgstr ""
 msgid "from Coral"
 msgstr ""
 
-#: ../src/mainwindow.cc:285
+#: ../src/mainwindow.cc:294
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 
-#: ../ui/settingsdialog.ui:4872
+#: ../ui/settingsdialog.ui:4873
 msgid "in program"
 msgstr ""
 
-#: ../src/hub.cc:3087
+#: ../src/hub.cc:3128
 msgid "loading error"
 msgstr "chyba pri načítaní"
 
@@ -3690,17 +3745,17 @@ msgstr "chyba pri načítaní"
 msgid "none"
 msgstr ""
 
-#: ../src/hub.cc:1935 ../src/privatemessage.cc:950
+#: ../src/hub.cc:1976 ../src/privatemessage.cc:971
 msgid "project home: "
 msgstr "Domovská stránka projektu:"
 
-#: ../src/hub.cc:1954 ../src/privatemessage.cc:969
+#: ../src/hub.cc:1995 ../src/privatemessage.cc:990
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr ""
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2210
-#: ../src/mainwindow.cc:2212 ../ui/settingsdialog.ui:3523
-#: ../ui/settingsdialog.ui:3539 ../ui/settingsdialog.ui:3585
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2256
+#: ../src/mainwindow.cc:2258 ../ui/settingsdialog.ui:3524
+#: ../ui/settingsdialog.ui:3540 ../ui/settingsdialog.ui:3586
 msgid "s"
 msgstr "s"
 
@@ -3712,11 +3767,11 @@ msgstr "hľadanieADL"
 msgid "selected style failed"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:5733
+#: ../ui/settingsdialog.ui:5734
 msgid "theme"
 msgstr ""
 
-#: ../ui/settingsdialog.ui:2100
+#: ../ui/settingsdialog.ui:2101
 msgid "to"
 msgstr ""
 
@@ -3732,6 +3787,12 @@ msgstr ""
 msgid "waiting..."
 msgstr "vyčkávanie"
 
+#~ msgid "File type"
+#~ msgstr "Typ súboru"
+
+#~ msgid "Search for a file"
+#~ msgstr "Hľadať súbor"
+
 #~ msgid "Searching too soon, retry in "
 #~ msgstr "Searching too soon, retry in "
 
@@ -3740,5 +3801,3 @@ msgstr "vyčkávanie"
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
-
-
