@@ -12,5 +12,5 @@ TRANSLATIONS = translations/en.ts \
     translations/pl.ts \
     translations/ru.ts \
     translations/sk.ts \
-    translations/sr.ts \
+    translations/sr@latin.ts \
     translations/uk.ts

@@ -87,8 +87,8 @@ void SettingsGUI::init(){
                 lang = tr("French");
             else if (f == "pl.qm")
                 lang = tr("Polish");
-            else if (f == "sr.qm")
-                lang = tr("Serbian");
+            else if (f == "sr@latin.qm")
+                lang = tr("Serbian (Latin)");
             else if (f == "uk.qm")
                 lang = tr("Ukrainian");
             else if (f == "es.qm")
