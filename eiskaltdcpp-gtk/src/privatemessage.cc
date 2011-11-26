@@ -1447,6 +1447,7 @@ void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUs
             typedef Func1<PrivateMessage, bool> F1;
             F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
             WulforManager::get()->dispatchGuiFunc(func);
+            offline = false;
         }
 }
 

@@ -388,6 +388,39 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
    ${GMP_INCLUDE_DIR}
    )
 
+add_subdirectory(extra)
+add_subdirectory(data)
+
+if (WITH_DHT)
+  add_subdirectory (dht)
+endif (WITH_DHT)
+
+add_subdirectory (dcpp)
+
+if (USE_QT)
+  add_subdirectory (eiskaltdcpp-qt)
+endif (USE_QT)
+
+if (USE_GTK OR USE_GTK3)
+  add_subdirectory (eiskaltdcpp-gtk)
+endif (USE_GTK OR USE_GTK3)
+
+if (NO_UI_DAEMON OR XMLRPC_DAEMON OR JSONRPC_DAEMON)
+  add_subdirectory (eiskaltdcpp-daemon)
+endif ()
+
+if (USE_CLI)
+  add_subdirectory (eiskaltdcpp-cli)
+endif ()
+
+if (JSONRPC_DAEMON)
+add_subdirectory (json)
+endif (JSONRPC_DAEMON)
+
+if (HAIKU AND HAIKU_PKG)
+  add_subdirectory (haiku)
+endif ()
+
 message(STATUS "CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
 message(STATUS "CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
@@ -448,39 +481,6 @@ else (NOT DEFINED linguas)
   endif (NOT linguas)
 endif (NOT DEFINED linguas)
 message (STATUS "Translations: ${LANGUAGES}")
-
-add_subdirectory(extra)
-add_subdirectory(data)
-
-if (WITH_DHT)
-  add_subdirectory (dht)
-endif (WITH_DHT)
-
-add_subdirectory (dcpp)
-
-if (USE_QT)
-  add_subdirectory (eiskaltdcpp-qt)
-endif (USE_QT)
-
-if (USE_GTK OR USE_GTK3)
-  add_subdirectory (eiskaltdcpp-gtk)
-endif (USE_GTK OR USE_GTK3)
-
-if (NO_UI_DAEMON OR XMLRPC_DAEMON OR JSONRPC_DAEMON)
-  add_subdirectory (eiskaltdcpp-daemon)
-endif ()
-
-if (USE_CLI)
-  add_subdirectory (eiskaltdcpp-cli)
-endif ()
-
-if (JSONRPC_DAEMON)
-  add_subdirectory (json)
-endif (JSONRPC_DAEMON)
-
-if (HAIKU AND HAIKU_PKG)
-  add_subdirectory (haiku)
-endif ()
 
 
 CONFIGURE_FILE(

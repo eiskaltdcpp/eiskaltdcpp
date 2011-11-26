@@ -129,8 +129,8 @@ void printHelp() {
            "  -v, --version\t Show version string\n"
 #ifndef _WIN32
            "  -V, --verbose\t Verbose mode\n"
-           "  -P <port>, --port=<port>\t Set port for XMLRPC (default: 3121)\n"
-           "  -L <ip>, --ip=<ip>\t Set IP address for XMLRPC (default: 127.0.0.1)\n"
+           "  -P <port>, --port=<port>\t Set port for XMLRPC or JSONRPC (default: 3121)\n"
+           "  -L <ip>, --ip=<ip>\t Set IP address for XMLRPC or JSONRPC (default: 127.0.0.1)\n"
            "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
            "  -c <dir>,  --confdir=<dir>\t Store config in <dir>\n"
            "  -l <dir>,  --localdir=<dir>\t Store local data (cache, temp files) in <dir> (defaults is equal confdir)\n"
