@@ -2049,7 +2049,7 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="713"/>
         <source>Ctrl+Alt+J</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl + Alt + J</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="909"/>
@@ -6307,7 +6307,7 @@ a hub operátoraitól kaphatsz</translation>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="44"/>
         <source>Clear search history on program exit</source>
-        <translation type="unfinished"/>
+        <translation>Keresési előzmények törlése kilépéskor</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="57"/>
