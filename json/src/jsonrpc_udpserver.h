@@ -62,6 +62,16 @@ namespace Json
         virtual bool Recv(int fd);
 
         /**
+         * \brief Send data.
+         * \param data data to send
+         * \param addr sockaddr address
+         * \param addrlen sizeof addr
+         * \return number of bytes sent or -1 if error
+         */
+        ssize_t Send(const std::string& data, const struct sockaddr* addr, 
+            socklen_t addrlen);
+
+        /**
          * \brief Wait message.
          *
          * This function do a select() on the socket and Process() immediately 

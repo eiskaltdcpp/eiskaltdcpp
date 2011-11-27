@@ -180,7 +180,6 @@ endif (USE_QT)
 
 if (NOT USE_QT)
     set (USE_ASPELL OFF)
-    set (FREE_SPACE_BAR_C OFF)
 endif (NOT USE_QT)
 
 if (NOT USE_ASPELL)

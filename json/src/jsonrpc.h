@@ -34,13 +34,13 @@
  * major * 10000 + minor * 100 + micro\n
  * So version 1.2.3 produces 10203.
  */
-#define JSONRPC_CPP_VERSION 300
+#define JSONRPC_CPP_VERSION 400
 
 /**
  * \def JSONRPC_CPP_VERSION_STRING
  * \brief JsonRpc-Cpp version in string format.
  */
-#define JSONRPC_CPP_VERSION_STRING "0.3.0"
+#define JSONRPC_CPP_VERSION_STRING "0.4.0"
 
 /* include from external jsoncpp lib */
 #include <json/json.h>
