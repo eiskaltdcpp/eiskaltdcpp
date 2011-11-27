@@ -670,7 +670,7 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="167"/>
         <source>File marked as a duplicate of another file: %1</source>
-        <translation>File marked as a duplicate of another file: %1</translation>
+        <translation>Fajl označen kao duplikat drugog fajla: %1</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="195"/>
@@ -971,7 +971,8 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1762"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
-        <translation>/  &lt;keyword&gt; - Додавање кориснички дефинисане кључне речи које ће бити истакнуте у Цхат</translation>
+        <translation>/ kword add&lt;keyword&gt; - dodavanje korisnički definisane ključne reči koje će biti istaknute u razgovor
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1764"/>
@@ -1048,13 +1049,13 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1693"/>
         <location filename="../src/HubFrame.cpp" line="1695"/>
         <source>Away mode off</source>
-        <translation>Režim isključen</translation>
+        <translation>Režim otsutnosti isključen</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1491"/>
         <location filename="../src/HubFrame.cpp" line="1493"/>
         <source>Away mode on: </source>
-        <translation>Away mode on:</translation>
+        <translation>Režim otsutnosti uključen:</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1511"/>
@@ -1085,13 +1086,13 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1657"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
-        <translation>ratio: %1 (uploads: %2, downloads: %3)</translation>
+        <translation>odnos: %1 (otpremanja: %2, preuzimanja: %3)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1684"/>
         <location filename="../src/HubFrame.cpp" line="1686"/>
         <source>Aspell switched %1</source>
-        <translation>Aspell switched %1</translation>
+        <translation>Aspell uključen %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1684"/>
@@ -1115,7 +1116,7 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1753"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation>/aspell on/off - enable/disable spell checking
+        <translation>/aspell uklj/isklj - uključi/isključi proveru pravopisa
 </translation>
     </message>
     <message>
@@ -1218,7 +1219,7 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1760"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
-        <translation>/browse &lt;nick&gt; - browse user files
+        <translation>/pregledaj &lt;nadimak&gt; - pregledaj korisnikove fajlove
 </translation>
     </message>
     <message>
@@ -1366,7 +1367,7 @@ Omiljeni korisnik</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="2040"/>
         <source> joins the chat</source>
-        <translation>  Pridruži se razgovoru</translation>
+        <translation>Pridruži se razgovoru</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2128"/>
@@ -2190,7 +2191,7 @@ Omiljeni korisnik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1967"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation>Не може се отворити% 1 порта. Претраживање или пренос фајлова неће радити све док не промените подешавања или искључите било коју апликацију која би могла да користе тај порт. Ne može se otvoriti %1 port. Pretraga ili fajl transferi neće raditi korektno dok ne promenite podešavanja ili isključite bilo koju aplikaciju koja bi mogla da koristi taj port.
+        <translation>Ne može se otvoriti %1 port. Pretraga ili fajl transferi neće raditi korektno dok ne promenite podešavanja ili isključite bilo koju aplikaciju koja bi mogla da koristi taj port.
 </translation>
     </message>
     <message>
@@ -2236,7 +2237,7 @@ Omiljeni korisnik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2509"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation>EiskaltDC++ je grafički klijent za Direct Connect i ADC protokole.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Glavna strana: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</translation>
+        <translation>EiskaltDC++ je grafički klijent za direktno povezivanje i ADC protokole.&lt;br/&gt;&lt;br/&gt;DC++ osnovna verzija: %1 (izmenjeno)&lt;br/&gt;&lt;br/&gt;Glavna strana: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2526"/>

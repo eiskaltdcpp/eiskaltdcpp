@@ -109,9 +109,9 @@ Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
         <translation>Zastosowanie:
-  eiskaltdcpp &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp &lt;opcje&gt;
-EiskaltDC++ - program dla systemów UNIX-like, dla protokołu Direct Connect i ADC.
+  eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
+  eiskaltdcpp-qt &lt;opcje&gt;
+EiskaltDC++ - wielosystemowy program, dla protokołu Direct Connect i ADC.
 
 Opcje:
   -h, --help	 Pokaż pomoc
@@ -978,13 +978,15 @@ Opcje:
         <location filename="../src/HubFrame.cpp" line="1762"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
-        <translation type="unfinished"/>
+        <translation>/kword add &lt;keyword&gt; - Dodawanie zdefiniowanych przez użytkownika słów kluczowych, które zostaną podświetlone na czacie
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1764"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
-        <translation type="unfinished"/>
+        <translation>/kword list - lista słów które zostaną podśwetlone na chacie
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2101"/>
@@ -1301,7 +1303,8 @@ Opcje:
         <location filename="../src/HubFrame.cpp" line="1777"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished"/>
+        <translation>/lua &lt;chunk&gt; - wykonaj lua
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2571"/>
@@ -1593,12 +1596,12 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="643"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="651"/>
         <source>Ctrl+D</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="739"/>
@@ -1632,7 +1635,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="584"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="776"/>
@@ -1783,7 +1786,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1968"/>
         <source>Connectivity Manager: Warning</source>
-        <translation type="unfinished"/>
+        <translation>Connectivity Manager: Ostrzeżenie</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1986"/>
@@ -1799,7 +1802,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2486"/>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="unfinished"/>
+        <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1142"/>
@@ -1876,7 +1879,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1094"/>
         <source>Hashing progress</source>
-        <translation type="unfinished"/>
+        <translation>Trwa hashowanie</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1123"/>
@@ -2027,7 +2030,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="713"/>
         <source>Ctrl+Alt+J</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+J</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="909"/>
@@ -2128,7 +2131,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1475"/>
         <source>%1 / %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1481"/>
@@ -2188,7 +2191,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1967"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"/>
+        <translation>Nie można otworzyć %1 portu. Wyszukiwanie lub transfer plików nie działa poprawnie dopóki nie zmienisz ustawień lub wyłączysz aplikację, która może korzystać z tego portu.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2058"/>
@@ -2198,7 +2201,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2195"/>
         <source>Script Engine</source>
-        <translation type="unfinished"/>
+        <translation>Silnik Skryptów</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2422"/>
@@ -2233,7 +2236,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2509"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>EiskaltDC++ to graficzny klient protokołu Direct Connect i ADC.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Wysłano: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Pobrano: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2526"/>
@@ -2444,17 +2447,17 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/Notification.cpp" line="96"/>
         <source>Additional</source>
-        <translation type="unfinished"/>
+        <translation>Dodatkowy</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="97"/>
         <source>Supress sound notifications</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącz powiadomienia dźwiękowe</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="98"/>
         <source>Supress text notifications</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącz powiadomienia tekstowe</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="110"/>
@@ -2477,7 +2480,10 @@ Ulubiony użytkownik</translation>
 Download: %1 Upload: %2
 Statistics
 Downloaded: %3 Uploaded: %4</source>
-        <translation type="unfinished"/>
+        <translation>Szybkość
+Pobieranie: %1 Wysyłanie: %2
+Statystyki
+Pobrano: %3 Wysłano: %4</translation>
     </message>
 </context>
 <context>
@@ -2495,7 +2501,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="306"/>
         <source>%1 on hub %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 na hub %2</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="336"/>
@@ -2606,12 +2612,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="303"/>
         <source>Hub list downloaded... (%1 %2) </source>
-        <translation type="unfinished"/>
+        <translation>Pobieranie listy hubów... (%1 %2) </translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="303"/>
         <source>from Coral</source>
-        <translation type="unfinished"/>
+        <translation>z Coral</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="307"/>
@@ -2621,12 +2627,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="312"/>
         <source>Cached hub list is corrupted or unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Buforowana lista hubów jest uszkodzona lub nieobsługiwana</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="314"/>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
-        <translation type="unfinished"/>
+        <translation>Pobrana lista hubów jest uszkodzona lub nieobsługiwana (%1)</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.h" line="41"/>
@@ -2654,27 +2660,27 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/main.cpp" line="63"/>
         <source>Loading: </source>
-        <translation type="unfinished"/>
+        <translation>Ładowanie:</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="138"/>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"/>
+        <translation>Ikony listy użytkowników zostały załadowane</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="141"/>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"/>
+        <translation>Ikony aplikacji zostały załadowane</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="183"/>
         <source>Shutting down libdcpp...</source>
-        <translation type="unfinished"/>
+        <translation>Wyłączanie libdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="211"/>
         <source>Quit...</source>
-        <translation type="unfinished"/>
+        <translation>Zamknij...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="238"/>
@@ -2739,7 +2745,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="345"/>
         <source>TTH</source>
-        <translation type="unfinished"/>
+        <translation>TTH</translation>
     </message>
 </context>
 <context>
@@ -2747,12 +2753,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="58"/>
         <source>Add new</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj nowy</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="59"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Usuń</translation>
     </message>
 </context>
 <context>
@@ -2760,12 +2766,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>Filename</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa pliku</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>TTH</source>
-        <translation type="unfinished"/>
+        <translation>TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
@@ -2775,7 +2781,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="180"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="279"/>
@@ -2813,7 +2819,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="91"/>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Stop</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="141"/>
@@ -2908,7 +2914,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="70"/>
         <source>Magnet</source>
-        <translation type="unfinished"/>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="81"/>
@@ -2973,17 +2979,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="129"/>
         <source>Blacklist...</source>
-        <translation type="unfinished"/>
+        <translation>Czarna lista...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="132"/>
         <source>Blacklist</source>
-        <translation type="unfinished"/>
+        <translation>Czarna lista</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="135"/>
         <source>Add to Blacklist</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj do czarnej listy</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="241"/>
@@ -3093,7 +3099,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="133"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished"/>
+        <translation>Plik już istnieje: %1</translation>
     </message>
 </context>
 <context>
@@ -3151,7 +3157,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="88"/>
         <source>History</source>
-        <translation type="unfinished"/>
+        <translation>Historia</translation>
     </message>
 </context>
 <context>
@@ -3267,12 +3273,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="101"/>
         <source>Czech</source>
-        <translation type="unfinished"/>
+        <translation>Czeski</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="103"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Niemiecki</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="239"/>
