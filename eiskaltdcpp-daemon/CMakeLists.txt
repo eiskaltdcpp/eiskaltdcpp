@@ -6,7 +6,7 @@ aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
 
 if (JSONRPC_DAEMON AND XMLRPC_DAEMON)
     message("   Build both JSONRPC and XMLRPC interfaces is prohibited for now, set XMLRPC_DAEMON=OFF")
-    set (XMLRPC_DAEMON 0 CACHE BOOL "Make daemon as xmlrpc server" FORCE)
+    set (XMLRPC_DAEMON OFF CACHE BOOL "Make daemon as xmlrpc server" FORCE)
 endif (JSONRPC_DAEMON AND XMLRPC_DAEMON)
 
 if (JSONRPC_DAEMON)

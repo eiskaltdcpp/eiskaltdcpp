@@ -64,6 +64,14 @@ namespace Json
         virtual bool Recv(int fd);
 
         /**
+         * \brief Send data.
+         * \param fd file descriptor of the client TCP socket
+         * \param data data to send
+         * \return number of bytes sent or -1 if error
+         */
+        ssize_t Send(int fd, const std::string& data);
+
+        /**
          * \brief Wait message.
          *
          * This function do a select() on the socket and Process() immediately 

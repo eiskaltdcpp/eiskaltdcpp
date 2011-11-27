@@ -28,6 +28,9 @@
 
 #include "netstring.h"
 
+#include <cstring>
+#include <cerrno>
+
 namespace Json 
 {
 
@@ -45,6 +48,19 @@ namespace Json
       {
         Close();
       }
+    }
+    
+    ssize_t TcpServer::Send(int fd, const std::string& data)
+    {
+      std::string rep = data;
+
+      /* encoding if any */
+      if(GetEncapsulatedFormat() == Json::Rpc::NETSTRING)
+      {
+        rep = netstring::encode(rep);
+      }
+
+      return ::send(fd, rep.c_str(), rep.length(), 0);
     }
 
     bool TcpServer::Recv(int fd)
@@ -87,12 +103,21 @@ namespace Json
             rep = netstring::encode(rep);
           }
 
-          if(send(fd, rep.c_str(), rep.length(), 0) == -1)
+          int bytesToSend = rep.length();
+          const char* ptrBuffer = rep.c_str();
+          do
           {
-            /* error */
-            std::cerr << "Error while sending data" << std::endl;
-            return false;
-          }
+            int retVal = send(fd, ptrBuffer, bytesToSend, 0);
+            if(retVal == -1)
+            {
+              /* error */
+              std::cerr << "Error while sending data: " 
+                        << strerror(errno) << std::endl;
+              return false;
+            }
+            bytesToSend -= retVal;
+            ptrBuffer += retVal;
+          }while(bytesToSend > 0);
         }
 
         return true;

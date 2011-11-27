@@ -43,6 +43,20 @@ namespace Json
     {
     }
 
+    ssize_t UdpServer::Send(const std::string& data, const struct sockaddr* addr,
+        socklen_t addrlen)
+    {
+      std::string rep = data;
+
+      /* encoding if any */
+      if(GetEncapsulatedFormat() == Json::Rpc::NETSTRING)
+      {
+        rep = netstring::encode(rep);
+      }
+
+      return ::sendto(m_sock, rep.c_str(), rep.length(), 0, (struct sockaddr*)addr, addrlen);
+    }
+
     bool UdpServer::Recv(int fd)
     {
       Json::Value response;

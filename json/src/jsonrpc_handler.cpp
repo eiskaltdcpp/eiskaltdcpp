@@ -199,8 +199,8 @@ namespace Json
       if(root.isArray())
       {
         /* batched call */
-        size_t i = 0;
-        size_t j = 0;
+        Json::Value::ArrayIndex i = 0;
+        Json::Value::ArrayIndex j = 0;
         
         for(i = 0 ; i < root.size() ; i++)
         {
