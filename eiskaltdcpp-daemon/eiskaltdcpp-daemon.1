@@ -1,6 +1,6 @@
-.TH "eiskaltdcpp-daemon" 1 "03 Nov 2011"
+.TH "eiskaltdcpp-daemon" 1 "27 Nov 2011"
 .SH "NAME"
-eiskaltdcpp-daemon \- simple daemon controllable via XML-RPC
+eiskaltdcpp-daemon \- simple daemon controllable via XMLRPC or JSONRPC
 .SH "SYNOPSIS"
 .PP
 .B eiskaltdcpp-daemon
@@ -21,10 +21,10 @@ Run program as daemon
 Verbose mode
 .TP
 .BR "\-P <port>",  \-\-port=<port>"
-Set port for XMLRPC (default: 3121)
+Set port for XMLRPC or JSONRPC (default: 3121)
 .TP
 .BR "\-L <ip>",  \-\-ip=<ip>"
-Set IP address for XMLRPC (default: 127.0.0.1)
+Set IP address for XMLRPC or JSONRPC (default: 127.0.0.1)
 .TP
 .BR "\-p file",  \-\-pidfile=<file>"
 Write daemon process ID to <file>
@@ -52,7 +52,11 @@ Show version information and exit
 Directory with user configuration files
 .SH "DOCUMENTATION"
 .TP
-Detail documentation about available XML-RPC methods can be found in our wiki: \fBhttp://code.google.com/p/eiskaltdc/wiki/XMLRPC\fR
+Detail documentation about available XMLRPC and JSONRPC methods can be found in our wiki:
+.br
+\fBhttp://code.google.com/p/eiskaltdc/wiki/XMLRPC\fR
+.br
+\fBhttp://code.google.com/p/eiskaltdc/wiki/JSONRPC\fR
 .SH AUTHOR
 This program was written by EiskaltDC++ developers team (see file AUTHORS).
 .br
