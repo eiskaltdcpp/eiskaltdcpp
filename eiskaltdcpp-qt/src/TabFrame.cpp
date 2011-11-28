@@ -248,8 +248,11 @@ void TabFrame::historyPop(){
 
         return;
     }
-    else if (history.isEmpty())
+    else if (history.isEmpty()){
+        ArenaWidgetManager::getInstance()->activate(NULL);
+        
         return;
+    }
 
     ArenaWidget *awgt = history.takeLast();
 
