@@ -1,7 +1,7 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-# 
+#
 # Translators:
 # Gustavo Alvarez <gustavoalvarez@ono.com>, 2011.
 #  <renatux@users.sourceforge.net>, 2008.
@@ -13,11 +13,12 @@ msgstr ""
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2011-11-25 11:44+0000\n"
 "Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/eiskaltdcpp/team/es/)\n"
+"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/"
+"eiskaltdcpp/team/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -103,8 +104,7 @@ msgstr "Determinando la mejor configuración de conexión..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "No se puede habilitar el/los puerto(s) %1%. Debería configurar su conexión "
 "manualmente"
@@ -230,8 +230,8 @@ msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
 msgstr ""
-"El Hub probablemente utiliza una versión antigua de ADC, por favor, Insta al"
-" administrador que lo actualice"
+"El Hub probablemente utiliza una versión antigua de ADC, por favor, Insta al "
+"administrador que lo actualice"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -385,8 +385,8 @@ msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
 msgstr ""
-"Creado mapa de puertos satisfactoriamente (TCP: %1%, UDP: %2%, TLS: %3%), el"
-" mapeo ha sido usado en la interface %4%"
+"Creado mapa de puertos satisfactoriamente (TCP: %1%, UDP: %2%, TLS: %3%), el "
+"mapeo ha sido usado en la interface %4%"
 
 #: ../UPnPManager.cpp:118
 msgid "Failed to get external IP"
@@ -423,8 +423,7 @@ msgstr "La carpeta temporal de descargas NO puede compartirse"
 #: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
-"Encontrado nombre de archivo invalido mientras que se hasheaba la carpeta "
-"%1%"
+"Encontrado nombre de archivo invalido mientras que se hasheaba la carpeta %1%"
 
 #: ../ShareManager.cpp:660
 msgid "User has chosen not to share file: %1% (Size: %2%)"
@@ -440,13 +439,13 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"El archivo duplicado %1% no será compartido (Tamaño: %2% B) Comparado con el"
-" duplicado: %3%"
+"El archivo duplicado %1% no será compartido (Tamaño: %2% B) Comparado con el "
+"duplicado: %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "Refresco de la lista en progreso, por favor espere a que termine este "
 "proceso antes que comenzar de nuevo"
@@ -711,5 +710,3 @@ msgstr "Incoherencia TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
-
-

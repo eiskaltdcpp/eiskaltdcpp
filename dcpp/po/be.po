@@ -1,7 +1,7 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-# 
+#
 # Translators:
 # Pavał Šałamicki aka Klyok, 2010.
 # Клёк <i.kliok@gmail.com>, 2010.
@@ -13,11 +13,12 @@ msgstr ""
 "PO-Revision-Date: 2011-11-25 11:35+0000\n"
 "Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
 "Language-Team: none\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -64,8 +65,8 @@ msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 msgstr ""
-"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт"
-" SOCKS)"
+"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт "
+"SOCKS)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -101,10 +102,8 @@ msgstr "Вызначаюцца найлепшыя налады злучэньн�
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr ""
-"Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr "Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -436,8 +435,8 @@ msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "Сьпіс файлаў зараз абнаўляецца. Калі ласка, пачакайце, пакуль ён абновіцца, "
 "каб паспрабаваць абнавіць ізноў."
@@ -703,5 +702,3 @@ msgstr "Разыходжаньне TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
-
-

@@ -1,7 +1,7 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-# 
+#
 # Translators:
 # Attila Mándy <husumo@gmail.com>, 2010, 2011.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
@@ -13,11 +13,12 @@ msgstr ""
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
 "PO-Revision-Date: 2011-11-25 11:57+0000\n"
 "Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
+"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/"
+"team/hu/)\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -59,8 +60,8 @@ msgstr ""
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
-"A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói "
-"név/jelszó?)"
+"A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói név/"
+"jelszó?)"
 
 #: ../Socket.cpp:471
 msgid ""
@@ -104,8 +105,7 @@ msgstr "Legjobb kapcsolat beállítások felderítése..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani"
 
@@ -121,16 +121,16 @@ msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
-"Helyi hálózat és lehetséges NAT észlelve, kísérlet a portok feltérképezésére"
-" UPnP használatával ..."
+"Helyi hálózat és lehetséges NAT észlelve, kísérlet a portok feltérképezésére "
+"UPnP használatával ..."
 
 #: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
 msgstr ""
-"Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az aktív mód"
-" beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
+"Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az aktív mód "
+"beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
 
 #: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
@@ -449,8 +449,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, "
 "mielőtt újra frissíteni próbálnál!"
@@ -716,5 +716,3 @@ msgstr "TTH inkonzisztencia"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
-
-
