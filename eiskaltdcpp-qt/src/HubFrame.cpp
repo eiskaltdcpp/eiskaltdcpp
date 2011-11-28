@@ -899,7 +899,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 if (index.isValid()){
                     UserListItem *i = reinterpret_cast<UserListItem*>(index.internalPointer());
 
-                    nick = i->nick;
+                    nick = i->getNick();
                     cid = i->cid;
                 }
             }
@@ -971,7 +971,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                 if (index.isValid()){
                     UserListItem *i = reinterpret_cast<UserListItem*>(index.internalPointer());
 
-                    nick = i->nick;
+                    nick = i->getNick();
                     cid = i->cid;
                 }
             }
@@ -1384,21 +1384,21 @@ bool HubFrame::isConnected() const {
 QString HubFrame::getUserInfo(UserListItem *item){
     QString ttip = "";
 
-    ttip += model->headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->nick + "\n";
-    ttip += model->headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->comm + "\n";
-    ttip += model->headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->email + "\n";
-    ttip += model->headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->ip + "\n";
+    ttip += model->headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->getNick() + "\n";
+    ttip += model->headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->getComment() + "\n";
+    ttip += model->headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->getEmail() + "\n";
+    ttip += model->headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->getIP() + "\n";
     ttip += model->headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + ": " +
-            WulforUtil::formatBytes(item->share) + "\n";
-    ttip += model->headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->tag + "\n";
-    ttip += model->headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->conn + "\n";
+            WulforUtil::formatBytes(item->getShare()) + "\n";
+    ttip += model->headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->getTag() + "\n";
+    ttip += model->headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + ": " + item->getConnection() + "\n";
 
-    if (item->isOp)
+    if (item->isOP())
         ttip += tr("Hub role: Operator");
     else
         ttip += tr("Hub role: User");
 
-    if (FavoriteManager::getInstance()->isFavoriteUser(item->ptr))
+    if (item->isFav())
         ttip += tr("\nFavorite user");
 
     return ttip;
@@ -1974,7 +1974,7 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
 bool HubFrame::isOP(const QString& nick) {
     UserListItem *item = model->itemForNick(nick, _q(client->getHubUrl()));
     
-    return (item? item->isOp : false);
+    return (item? item->isOP() : false);
 }
 
 
@@ -2010,18 +2010,10 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
     if (item){
         bool isOp = map["ISOP"].toBool();
 
-        total_shared -= item->share;
-
-        item->nick = nick;
-        item->comm = map["COMM"].toString();
-        item->conn = map["CONN"].toString();
-        item->email= map["EMAIL"].toString();
-        item->ip   = map["IP"].toString();
-        item->share= map["SHARE"].toULongLong();
-        item->tag  = map["TAG"].toString();
-        item->isOp = isOp;
-        item->px = WU->getUserIcon(user, map["AWAY"].toBool(), item->isOp, map["SPEED"].toString());
-
+        total_shared -= item->getShare();
+ 
+        item->updateIdentity();
+        
         model->repaintItem(item);
         model->needResort();
     }
@@ -2035,12 +2027,7 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
             } while (0);
         }
 
-        model->addUser(nick, map["SHARE"].toULongLong(),
-                       map["COMM"].toString(), map["TAG"].toString(),
-                       map["CONN"].toString(), map["IP"].toString(),
-                       map["EMAIL"].toString(), map["ISOP"].toBool(),
-                       map["AWAY"].toBool(), map["SPEED"].toString(),
-                       cid, user);
+        model->addUser(nick, cid, user);
 
         if (FavoriteManager::getInstance()->isFavoriteUser(user))
             Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now online").arg(nick));
@@ -2071,7 +2058,7 @@ void HubFrame::userRemoved(const dcpp::UserPtr &user, qlonglong share){
     UserListItem *item = model->itemForPtr(user);
 
     if (item)
-        nick = item->nick;
+        nick = item->getNick();
 
     if (pm.contains(cid)){
         pmUserOffline(cid);
@@ -2187,7 +2174,6 @@ void HubFrame::changeFavStatus(const QString &id) {
         bool bFav = FavoriteManager::getInstance()->isFavoriteUser(user);
 
         if (item) {
-            item->fav = bFav;
             QModelIndex ixb = model->index(item->row(), COLUMN_NICK);
             QModelIndex ixe = model->index(item->row(), COLUMN_EMAIL);
 
@@ -2600,6 +2586,42 @@ void HubFrame::slotPMClosed(QString cid){
         pm.erase(it);
 }
 
+template < QString (UserListItem::*func)() const >
+static void copyTagToClipboard(QModelIndexList &list){
+    QString ret = "";
+    UserListItem *item = NULL;
+    
+    foreach ( QModelIndex i, list ) {
+        item = reinterpret_cast<UserListItem*> ( i.internalPointer() );
+
+        if ( ret.length() > 0 )
+            ret += "\n";
+
+        if ( item )
+            ret += (item->*func)();
+    }
+
+    qApp->clipboard()->setText ( ret, QClipboard::Clipboard );
+}
+
+template < qulonglong (UserListItem::*func)() const >
+static void copyTagToClipboard(QModelIndexList &list){
+    QString ret = "";
+    UserListItem *item = NULL;
+    
+    foreach ( QModelIndex i, list ) {
+        item = reinterpret_cast<UserListItem*> ( i.internalPointer() );
+
+        if ( ret.length() > 0 )
+            ret += "\n";
+
+        if ( item )
+            ret += WulforUtil::formatBytes((item->*func)());
+    }
+
+    qApp->clipboard()->setText ( ret, QClipboard::Clipboard );
+}
+
 void HubFrame::slotUserListMenu(const QPoint&){
     QItemSelectionModel *selection_model = treeView_USERS->selectionModel();
     QModelIndexList proxy_list = selection_model->selectedRows(0);
@@ -2682,73 +2704,25 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::CopyNick:
         {
-            QString ret = "";
-
-            foreach(QModelIndex i, list){
-                item = reinterpret_cast<UserListItem*>(i.internalPointer());
-
-                if (ret.length() > 0)
-                    ret += "\n";
-
-                if (item)
-                    ret += item->nick;
-            }
-
-            qApp->clipboard()->setText(ret, QClipboard::Clipboard);
+            copyTagToClipboard<&UserListItem::getNick> (list);
 
             break;
         }
         case Menu::CopyIP:
         {
-            QString ret = "";
-
-            foreach(QModelIndex i, list){
-                item = reinterpret_cast<UserListItem*>(i.internalPointer());
-
-                if (ret.length() > 0)
-                    ret += "\n";
-
-                if (item)
-                    ret += item->ip;
-            }
-
-            qApp->clipboard()->setText(ret, QClipboard::Clipboard);
+            copyTagToClipboard<&UserListItem::getIP> (list);
 
             break;
         }
         case Menu::CopyShare:
         {
-            QString ret = "";
-
-            foreach(QModelIndex i, list){
-                item = reinterpret_cast<UserListItem*>(i.internalPointer());
-
-                if (ret.length() > 0)
-                    ret += "\n";
-
-                if (item)
-                    ret += WulforUtil::formatBytes(item->share);
-            }
-
-            qApp->clipboard()->setText(ret, QClipboard::Clipboard);
+            copyTagToClipboard<&UserListItem::getShare> (list);
 
             break;
         }
         case Menu::CopyTag:
         {
-            QString ret = "";
-
-            foreach(QModelIndex i, list){
-                item = reinterpret_cast<UserListItem*>(i.internalPointer());
-
-                if (ret.length() > 0)
-                    ret += "\n";
-
-                if (item)
-                    ret += item->tag;
-            }
-
-            qApp->clipboard()->setText(ret, QClipboard::Clipboard);
+            copyTagToClipboard<&UserListItem::getTag> (list);
 
             break;
         }
@@ -2814,7 +2788,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 foreach(QModelIndex i, list){
                     item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
-                    (*AntiSpam::getInstance()) << eIN_WHITE << item->nick;
+                    (*AntiSpam::getInstance()) << eIN_WHITE << item->getNick();
                 }
             }
 
@@ -2826,7 +2800,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 foreach(QModelIndex i, list){
                     item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
-                    (*AntiSpam::getInstance()) << eIN_BLACK << item->nick;
+                    (*AntiSpam::getInstance()) << eIN_BLACK << item->getNick();
                 }
             }
 

@@ -79,13 +79,13 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
         case Qt::DisplayRole:
         {
             switch (index.column()) {
-                case COLUMN_NICK: return item->nick;
-                case COLUMN_COMMENT: return item->comm;
-                case COLUMN_TAG: return item->tag;
-                case COLUMN_CONN: return item->conn;
-                case COLUMN_EMAIL: return item->email;
-                case COLUMN_SHARE: return WulforUtil::formatBytes(item->share);
-                case COLUMN_IP: return item->ip;
+                case COLUMN_NICK: return item->getNick();
+                case COLUMN_COMMENT: return item->getComment();
+                case COLUMN_TAG: return item->getTag();
+                case COLUMN_CONN: return item->getConnection();
+                case COLUMN_EMAIL: return item->getEmail();
+                case COLUMN_SHARE: return WulforUtil::formatBytes(item->getShare());
+                case COLUMN_IP: return item->getIP();
             }
 
             break;
@@ -95,37 +95,36 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
             if (index.column() != COLUMN_NICK)
                 break;
 
-            if (item->px)
-                return (*item->px);
+            return (*WU->getUserIcon(item->ptr, item->isAway(), item->isOP(), item->getConnection()));
 
             break;
         }
         case Qt::ToolTipRole:
         {
             if (index.column() == COLUMN_SHARE)
-                return QString::number(item->share);
+                return QString::number(item->getShare());
             else {
                 QString ttip = "";
 
-                ttip =  "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->nick + "<br/>";
-                ttip += "<b>" + headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->comm + "<br/>";
-                ttip += "<b>" + headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->email + "<br/>";
-                ttip += "<b>" + headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->ip + "<br/>";
+                ttip =  "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getNick() + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getComment() + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getEmail() + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getIP() + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " +
-                        WulforUtil::formatBytes(item->share) + "<br/>";
+                        WulforUtil::formatBytes(item->getShare()) + "<br/>";
 
-                QString tag = item->tag;
+                QString tag = item->getTag();
                 WulforUtil::getInstance()->textToHtml(tag, true);
 
                 ttip += "<b>" + headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + tag + "<br/>";
-                ttip += "<b>" + headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->conn + "<br/>";
+                ttip += "<b>" + headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getConnection() + "<br/>";
 
-                if (item->isOp)
+                if (item->isOP())
                     ttip += tr("<b>Hub role</b>: Operator");
                 else
                     ttip += tr("<b>Hub role</b>: User");
 
-                if (FavoriteManager::getInstance()->isFavoriteUser(item->ptr))
+                if (item->isFav())
                     ttip += tr("<br/><b>Favorite user</b>");
 
                 return ttip;
@@ -145,7 +144,7 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
             QFont font;
             font.setBold(true);
 
-            if (item->fav && WBGET(WB_CHAT_HIGHLIGHT_FAVS))
+            if (item->isFav() && WBGET(WB_CHAT_HIGHLIGHT_FAVS))
                 return font;
 
             break;
@@ -187,32 +186,32 @@ struct Compare {
     private:
         typedef bool (*AttrComp)(const UserListItem* l, const UserListItem* r);
         AttrComp static getAttrComp(const int column) {
-            static AttrComp attrs[7] = { AttrCmp<QString, &UserListItem::nick>,
-                                         AttrCmp<qulonglong, &UserListItem::share>,
-                                         AttrCmp<QString, &UserListItem::comm>,
-                                         AttrCmp<QString, &UserListItem::tag>,
-                                         AttrCmp<QString, &UserListItem::conn>,
+            static AttrComp attrs[7] = { AttrCmp<QString, &UserListItem::getNick>,
+                                         AttrCmp<qulonglong, &UserListItem::getShare>,
+                                         AttrCmp<QString, &UserListItem::getComment>,
+                                         AttrCmp<QString, &UserListItem::getTag>,
+                                         AttrCmp<QString, &UserListItem::getConnection>,
                                          IPCmp,
-                                         AttrCmp<QString, &UserListItem::email> };
+                                         AttrCmp<QString, &UserListItem::getEmail> };
 
             return attrs[column];//column number checked in UserListModel::sort
         }
-        template <typename T, T (UserListItem::*attr)>
+        template <typename T, T (UserListItem::*attr)() const >
         bool static AttrCmp(const UserListItem * l, const UserListItem * r) {
-            if (l->isOp != r->isOp)
-                return l->isOp;
-            else if (l->fav != r->fav)
-                return l->fav;
+            if (l->isOP() != r->isOP())
+                return l->isOP();
+            else if (l->isFav() != r->isFav())
+                return l->isFav();
             else
-                return Cmp(l->*attr, r->*attr);;
+                return Cmp((const_cast<UserListItem*>(l)->*attr)(), (const_cast<UserListItem*>(r)->*attr)());
         }
 
         bool static IPCmp(const UserListItem * l, const UserListItem * r){
-            if (l->isOp != r->isOp)
-                return l->isOp;
-            else if (!(l->ip.isEmpty() || r->ip.isEmpty())){
-                QString ip1 = l->ip;
-                QString ip2 = r->ip;
+            if (l->isOP() != r->isOP())
+                return l->isOP();
+            else if (!(l->getIP().isEmpty() || r->getIP().isEmpty())){
+                QString ip1 = l->getIP();
+                QString ip2 = r->getIP();
 
                 quint32 l_ip = ip1.section('.',0,0).toULong();
                 l_ip <<= 8;
@@ -340,26 +339,7 @@ void UserListModel::removeUser(const UserPtr &ptr) {
     endRemoveRows();
 }
 
-void UserListModel::addUser(const UserMap &map, const UserPtr &ptr){
-    addUser(map["NICK"].toString(), map["SHARE"].toULongLong(),
-            map["COMM"].toString(), map["TAG"].toString(),
-            map["CONN"].toString(), map["IP"].toString(),
-            map["EMAIL"].toString(), map["ISOP"].toBool(),
-            map["AWAY"].toBool(), map["SPEED"].toString(),
-            map["CID"].toString(), ptr);
-}
-
 void UserListModel::addUser(const QString& nick,
-                            const qlonglong share,
-                            const QString& comment,
-                            const QString& tag,
-                            const QString& conn,
-                            const QString& ip,
-                            const QString& email,
-
-                            bool isOp,
-                            bool isAway,
-                            const QString& speed,
                             const QString& cid,
                             const UserPtr &ptr)
 {
@@ -371,20 +351,8 @@ void UserListModel::addUser(const QString& nick,
 
     UserListItem *item;
 
-    item = new UserListItem(rootItem);
-
-    item->px = WU->getUserIcon(ptr, isAway, isOp, speed);
-    item->nick = nick;
-    item->share = share;
-    item->comm = comment;
-    item->tag = tag;
-    item->conn = conn;
-    item->ip = ip;
-    item->email = email;
-    item->isOp = isOp;
+    item = new UserListItem(rootItem, ptr);
     item->cid = cid;
-    item->ptr = ptr;
-    item->fav = FavoriteManager::getInstance()->isFavoriteUser(ptr);
 
     users.insert(ptr, item);
 
@@ -458,10 +426,10 @@ QStringList UserListModel::matchNicksContaining(const QString & part, bool strip
     }
 
     for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
-        QString nick_lc = (*it)->nick.toLower();
+        QString nick_lc = (*it)->getNick().toLower();
 
         if (nick_lc.contains(part)) {
-                matches << (*it)->nick;
+                matches << (*it)->getNick();
         }
     }
 
@@ -476,10 +444,10 @@ QStringList UserListModel::matchNicksStartingWith(const QString & part, bool str
     }
 
     for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
-        QString nick_lc = (*it)->nick.toLower();
+        QString nick_lc = (*it)->getNick().toLower();
 
         if (nick_lc.startsWith(part)) {
-            matches << (*it)->nick;
+            matches << (*it)->getNick();
         }
     }
 
@@ -494,10 +462,10 @@ QStringList UserListModel::matchNicksAny(const QString &part, bool stripTags) co
     }
 
     for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
-        QString nick_lc = (*it)->nick.toLower();
+        QString nick_lc = (*it)->getNick().toLower();
 
         if (nick_lc.startsWith(part) || nick_lc.contains(part)) {
-            matches << (*it)->nick;
+            matches << (*it)->getNick();
         }
     }
 
@@ -526,9 +494,10 @@ void UserListModel::repaintItem(const UserListItem *item){
     repaintData(createIndex(r, COLUMN_NICK, const_cast<UserListItem*>(item)), createIndex(r, COLUMN_EMAIL, const_cast<UserListItem*>(item)));
 }
 
-UserListItem::UserListItem(UserListItem *parent) :
-    isOp(false), px(NULL), parentItem(parent), fav(false)
+UserListItem::UserListItem(UserListItem *parent, dcpp::UserPtr p) :
+    parentItem(parent), ptr(p)
 {
+    updateIdentity();
 }
 
 UserListItem::~UserListItem()
@@ -561,4 +530,49 @@ int UserListItem::row() const {
         return parentItem->childItems.indexOf(const_cast<UserListItem*>(this));
 
     return 0;
+}
+
+qulonglong UserListItem::getShare()  const{
+    return id.getBytesShared();
+}
+
+QString UserListItem::getComment()  const{
+    return _q(id.getDescription());
+}
+
+QString UserListItem::getConnection()  const{
+    return _q(id.getConnection());
+}
+
+QString UserListItem::getEmail()  const{
+    return _q(id.getEmail());
+}
+
+QString UserListItem::getIP()  const{
+    return _q(id.getIp());
+}   
+
+QString UserListItem::getNick()  const{
+    return _q(id.getNick());
+}
+
+QString UserListItem::getTag()  const{
+    return _q(id.getTag());
+}
+
+bool UserListItem::isOP()  const{
+    return id.isOp();
+}
+
+bool UserListItem::isFav()  const{
+    return FavoriteManager::getInstance()->isFavoriteUser(ptr);
+}
+
+bool UserListItem::isAway() const {
+    return id.isAway();
+}
+
+void UserListItem::updateIdentity() {
+    if (ptr != NULL)
+        id = dcpp::ClientManager::getInstance()->getOnlineUserIdentity(ptr);
 }

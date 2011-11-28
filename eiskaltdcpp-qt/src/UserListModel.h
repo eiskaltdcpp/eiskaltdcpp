@@ -28,6 +28,7 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
+#include "dcpp/ClientManager.h"
 
 using namespace dcpp;
 
@@ -37,18 +38,7 @@ namespace dcpp{
     inline uint qHash(const boost::intrusive_ptr<dcpp::User> &ptr){
         ulong key = (ulong)(void*)ptr.get();
 
-#if ULONG_MAX >= 18446744073709551615UL
-        //hash a 64 bit virtual address to a hash table index
-        key = (~key) + (key << 18); // key = (key << 18) - key - 1;
-        key = key ^ (key >> 31);
-        key = key + (key << 2) + (key << 4);
-        key = key ^ (key >> 11);
-        key = key + (key << 6);
-        key = key ^ (key >> 22);
-        return uint(key);
-#else
-        return uint(key);
-#endif
+        return ::qHash(key);
     }
 }
 
@@ -74,7 +64,7 @@ typedef QHash<QString, QVariant> UserMap;
 class UserListItem: public PoolItem<UserListItem> {
 
 public:
-    UserListItem(UserListItem* = NULL);
+    UserListItem(UserListItem* = NULL, dcpp::UserPtr p = dcpp::UserPtr(NULL));
     virtual ~UserListItem();
 
     void appendChild(UserListItem *child);
@@ -86,20 +76,26 @@ public:
     UserListItem *parent();
     QList<UserListItem*> childItems;
 
-    bool isOp: 1;
-    bool fav: 1;
-    QString nick;
-    qulonglong share;
-    QString comm;
-    QString tag;
-    QString conn;
-    QString ip;
-    QString email;
     QString cid;
-    QPixmap *px;
+    
+    inline const dcpp::Identity &getIdentity() { return id; }   
+    QString      getNick() const;
+    qulonglong   getShare() const;
+    QString      getComment() const;
+    QString      getTag() const;
+    QString      getIP() const;
+    QString      getConnection() const;
+    QString      getEmail() const;
+    bool         isOP() const;
+    bool         isFav() const;
+    bool         isAway() const;
+    
+    void         updateIdentity();
+    
     UserPtr ptr;
 private:
     UserListItem *parentItem;
+    dcpp::Identity id;
 };
 
 class UserListModel : public QAbstractItemModel {
@@ -122,18 +118,7 @@ public:
     void clear();
     void removeUser(const UserPtr&);
 
-    void addUser (const UserMap &map, const UserPtr&);
     void addUser (  const QString& nick,
-                    const qlonglong share = 0,
-                    const QString& comment = QString(),
-                    const QString& tag = QString(),
-                    const QString& conn = QString(),
-                    const QString& ip = QString(),
-                    const QString& email = QString(),
-
-                    bool isOp = false,
-                    bool isAway = false,
-                    const QString& speed = QString(),
                     const QString& cid= QString(),
                     const UserPtr& = UserPtr()
                 );
