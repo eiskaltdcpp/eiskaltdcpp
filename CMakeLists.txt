@@ -442,14 +442,6 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
 
                 ")
 
-if (NOT HAIKU)
-  if (UNIX AND NOT APPLE)
-    set (CLIENT_ICONS_DEST1 ${SHARE_DIR}/icons)
-  else ()
-    set (CLIENT_ICONS_DEST1 ${CLIENT_ICONS_DEST})
-  endif ()
-endif (NOT HAIKU)
-
 option (LANGUAGES "Using translations")
 list (APPEND AllLanguages
             be
