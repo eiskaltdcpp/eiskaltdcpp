@@ -119,6 +119,7 @@ public Q_SLOTS:
     void redraw() { emit layoutChanged(); }
     void mapped(ArenaWidget *awgt);
     void toggled(ArenaWidget *awgt);
+    void updated(ArenaWidget *awgt);
 
 private Q_SLOTS:
     void slotSettingsChanged(const QString &key, const QString &value);

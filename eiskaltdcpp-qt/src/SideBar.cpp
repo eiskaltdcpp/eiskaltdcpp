@@ -326,6 +326,14 @@ void SideBarModel::mapped(ArenaWidget *awgt){
     emit selectIndex(s);
 }
 
+void SideBarModel::updated ( ArenaWidget* awgt ) {
+    if (!(awgt  && (awgt->state() & ArenaWidget::Singleton) && !historyStack.isEmpty()))
+        return;
+    
+    if ((awgt->state() & ArenaWidget::Hidden) && (historyStack.last() == awgt))
+        historyPop();
+}
+
 bool SideBarModel::isRootItem(const SideBarItem *item) const{
     QMap<ArenaWidget::Role, SideBarItem*>::const_iterator it = roots.begin();
 
@@ -488,6 +496,7 @@ SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(NULL) {
     connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this,   SLOT(removed(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), _model, SLOT(mapped(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(toggled(ArenaWidget*)),   _model, SLOT(toggled(ArenaWidget*)));
+    connect(ArenaWidgetManager::getInstance(), SIGNAL(updated(ArenaWidget*)),   _model, SLOT(updated(ArenaWidget*)));
     
     connect(this, SIGNAL(doubleClicked(QModelIndex)),           this,   SLOT(slotSideBarDblClicked(QModelIndex)));
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),   this,   SLOT(slotSidebarContextMenu()));
