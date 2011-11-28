@@ -14,6 +14,7 @@
 #include "ArenaWidgetManager.h"
 #include "QuickConnect.h"
 #include "SearchFrame.h"
+#include "ShareBrowser.h"
 
 #include "PMWindow.h"
 
@@ -21,6 +22,9 @@
 #include <QEvent>
 #include <QMenu>
 #include <QItemSelectionModel>
+#include <QFileDialog>
+#include <QDesktopServices>
+#include <QDir>
 
 #define CREATE_ROOT_EL(a, b, c, d, e) \
     do { \
@@ -560,6 +564,9 @@ void SideBarView::slotSidebarContextMenu(){
     }
     else if (item && item->getWidget()){
         menu = item->getWidget()->getMenu();
+        
+        if (!menu && (item->getWidget()->state() & ArenaWidget::Singleton))
+            return;
 
         if(!menu){
             menu = new QMenu(this);
@@ -617,6 +624,43 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
 
             qc.exec();
 
+            break;
+        }
+    //FIXME: Next code duplicates methods from MainWindow
+    case ArenaWidget::ShareBrowser:
+        {
+           QString file = QFileDialog::getOpenFileName ( this, tr ( "Choose file to open" ),
+                       QString::fromStdString ( Util::getPath ( Util::PATH_FILE_LISTS ) ),
+                       tr ( "Modern XML Filelists" ) + " (*.xml.bz2);;" +
+                       tr ( "Modern XML Filelists uncompressed" ) + " (*.xml);;" +
+                       tr ( "All files" ) + " (*)" );
+
+            if ( file.isEmpty() )
+                return;
+
+            file = QDir::toNativeSeparators ( file );
+            UserPtr user = dcpp::DirectoryListing::getUserFromFilename ( _tq ( file ) );
+
+            if ( user )
+                new ShareBrowser ( user, file, "" );
+            
+            break;
+        }
+    case ArenaWidget::PrivateMessage:
+        {
+             QString f = QFileDialog::getOpenFileName(this, tr("Open log file"),_q(SETTING(LOG_DIRECTORY)), tr("Log files (*.log);;All files (*.*)"));
+
+            if ( !f.isEmpty() ) {
+                f = QDir::toNativeSeparators ( f );
+
+                if ( f.startsWith ( "/" ) )
+                    f = "file://" + f;
+                else
+                    f = "file:///" + f;
+
+                QDesktopServices::openUrl ( f );
+            }
+            
             break;
         }
     default:
