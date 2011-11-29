@@ -293,11 +293,14 @@ int DownloadQueueModel::rowCount(const QModelIndex &parent) const
 static void sortRecursive(int column, Qt::SortOrder order, DownloadQueueItem *i){
     if (column == -1 || !i || i->childCount() == 0)
         return;
+    
+    static Compare<Qt::AscendingOrder> acomp;
+    static Compare<Qt::DescendingOrder> dcomp;
 
     if (order == Qt::AscendingOrder)
-        Compare<Qt::AscendingOrder>().sort(column, i->childItems);
+        acomp.sort(column, i->childItems);
     else if (order == Qt::DescendingOrder)
-        Compare<Qt::DescendingOrder>().sort(column, i->childItems);
+        dcomp.sort(column, i->childItems);
 
     foreach(DownloadQueueItem *ii, i->childItems)
         sortRecursive(column, order, ii);
@@ -489,25 +492,6 @@ QModelIndex DownloadQueueModel::createIndexForItem(DownloadQueueItem *item){
         return QModelIndex();
 
     return createIndex(item->row(), 0, item);
-    /*QStack<DownloadQueueItem*> stack;
-    DownloadQueueItem *root = item->parent();
-
-    while (root && (root != rootItem)){
-        stack.push(root);
-
-        root = root->parent();
-    }
-
-    QModelIndex parent = QModelIndex();
-    QModelIndex child;
-
-    while (!stack.empty()){
-        DownloadQueueItem *el = stack.pop();
-
-        parent = index(el->row(), COLUMN_DOWNLOADQUEUE_NAME, parent);
-    }
-
-    return index(item->row(), COLUMN_DOWNLOADQUEUE_NAME, parent);*/
 }
 
 DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
@@ -635,8 +619,8 @@ int DownloadQueueItem::columnCount() const {
     return itemData.count();
 }
 
-QVariant DownloadQueueItem::data(int column) const {
-    return itemData.value(column);
+const QVariant &DownloadQueueItem::data(int column) const {
+    return itemData.at(column);
 }
 
 DownloadQueueItem *DownloadQueueItem::parent() {

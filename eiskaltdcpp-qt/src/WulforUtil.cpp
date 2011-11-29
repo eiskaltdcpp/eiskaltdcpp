@@ -655,7 +655,7 @@ void WulforUtil::initFileTypes(){
     m_FileTypeMap["TS"]    = eiFILETYPE_VIDEO;
 }
 
-QPixmap WulforUtil::getPixmapForFile(const QString &file){
+const QPixmap &WulforUtil::getPixmapForFile(const QString &file){
     QString ext = QFileInfo(file).suffix().toUpper();
 
     if (m_FileTypeMap.contains(ext))

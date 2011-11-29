@@ -328,15 +328,16 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
     QueueItem::SourceConstIter it = item->getSources().begin();
 
     for (; it != item->getSources().end(); ++it){
-        UserPtr usr = it->getUser();
+        HintedUser usr = it->getUser();
+        const dcpp::CID &cid = usr.user->getCID();
 
-        if (usr->isOnline())
+        if (usr.user->isOnline())
             ++online;
 
-        nick = WulforUtil::getInstance()->getNicks(usr->getCID());
+        nick = WulforUtil::getInstance()->getNicks(cid, _q(usr.hint));
 
         if (!nick.isEmpty()){
-            source[nick] = _q(usr->getCID().toBase32());
+            source[nick] = _q(cid.toBase32());
             user_list.push_back(nick);
         }
     }
@@ -458,6 +459,8 @@ void DownloadQueue::loadList(){
     }
 
     QueueManager::getInstance()->unlockQueue();
+    
+    queue_model->sort();
 }
 
 void DownloadQueue::addFile(const DownloadQueue::VarMap &map){

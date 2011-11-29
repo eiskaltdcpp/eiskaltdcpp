@@ -58,7 +58,7 @@ public:
     DownloadQueueItem *child(int row);
     int childCount() const;
     int columnCount() const;
-    QVariant data(int column) const;
+    const QVariant &data(int column) const;
     int row() const;
     DownloadQueueItem *parent();
     void updateColumn(int, QVariant);
@@ -95,6 +95,7 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    virtual void sort() { sort(getSortColumn(), getSortOrder()); }
 
     /** */
     DownloadQueueItem *addItem(const QMap<QString, QVariant> &);

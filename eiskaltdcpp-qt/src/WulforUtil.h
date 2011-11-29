@@ -143,7 +143,7 @@ public:
 
     const QString &getIconsPath() { return app_icons_path; }
 
-    QPixmap getPixmapForFile(const QString&);
+    const QPixmap &getPixmapForFile(const QString&);
 
     void textToHtml(QString&,bool=true);
 
