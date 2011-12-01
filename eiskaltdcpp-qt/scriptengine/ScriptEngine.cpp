@@ -141,10 +141,6 @@ void ScriptEngine::loadQMLScript(const QString &file){
     DEBUG_BLOCK
     
     DeclarativeWidget *wgt = new DeclarativeWidget(file);
-
-    MainWindow::getInstance()->addArenaWidget(wgt);
-    MainWindow::getInstance()->addArenaWidgetOnToolbar(wgt);
-    MainWindow::getInstance()->mapWidgetOnArena(wgt);
 }
 #endif
 

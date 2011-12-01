@@ -71,6 +71,8 @@ DeclarativeWidget::DeclarativeWidget(const QString &file) : QWidget(NULL) {
 
     setLayout(new QVBoxLayout());
     layout()->addWidget(view);
+    
+    registerThis();
 }
 
 DeclarativeWidget::~DeclarativeWidget(){
