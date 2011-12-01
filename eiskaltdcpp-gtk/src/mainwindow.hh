@@ -120,6 +120,7 @@ class MainWindow:
         void setToolbarMenu_gui(const std::string &item_key, const std::string &button_key, const std::string &key);
         void updateFavoriteHubMenu_gui(ListParamPair list);
         void checkToolbarMenu_gui();
+        void updateFreespaceBar_gui(std::string freespace, float freepercent);
 
         // GUI Callbacks
         static gboolean onWindowState_gui(GtkWidget *widget, GdkEventWindowState *event, gpointer data);

@@ -638,28 +638,28 @@ void Search::addResult_gui(const SearchResultPtr result)
 /*
   * Move top level row to be under a newly created grouping parent.
   */
- GtkTreeIter Search::createParentRow_gui(GtkTreeIter *child, const string &groupStr, gint position /* = -1 */)
- {
-         GtkTreeIter parent;
-         GroupType groupBy = (GroupType)gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxGroupBy")));
-         string filename = groupStr;
+GtkTreeIter Search::createParentRow_gui(GtkTreeIter *child, const string &groupStr, gint position /* = -1 */)
+{
+    GtkTreeIter parent;
+    GroupType groupBy = (GroupType)gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxGroupBy")));
+    string filename = groupStr;
 
-         // As a special case, use the first child's filename for TTH grouping
-         if (groupBy == TTH)
-                 filename = resultView.getString(child, _("Filename"), GTK_TREE_MODEL(resultStore));
+    // As a special case, use the first child's filename for TTH grouping
+    if (groupBy == TTH)
+         filename = resultView.getString(child, _("Filename"), GTK_TREE_MODEL(resultStore));
 
-         // Insert the new parent row
-         gtk_tree_store_insert_with_values(resultStore, &parent, NULL, position,
-                         resultView.col("Icon"), GTK_STOCK_DND_MULTIPLE,
-                         resultView.col(_("Filename")), filename.c_str(),
-                         -1);
+    // Insert the new parent row
+    gtk_tree_store_insert_with_values(resultStore, &parent, NULL, position,
+                 resultView.col("Icon"), GTK_STOCK_DND_MULTIPLE,
+                 resultView.col(_("Filename")), filename.c_str(),
+                 -1);
 
-         // Move the row to be a child of the new parent
-         GtkTreeIter newChild = WulforUtil::copyRow_gui(resultStore, child, &parent);
-         gtk_tree_store_remove(resultStore, child);
-         *child = newChild;
+    // Move the row to be a child of the new parent
+    GtkTreeIter newChild = WulforUtil::copyRow_gui(resultStore, child, &parent);
+    gtk_tree_store_remove(resultStore, child);
+    *child = newChild;
 
-         return parent;
+    return parent;
 }
 
 
@@ -1084,7 +1084,7 @@ void Search::onDownloadClicked_gui(GtkMenuItem *item, gpointer data)
 {
     Search *s = (Search *)data;
 
-   string target = SETTING(DOWNLOAD_DIRECTORY);
+    string target = SETTING(DOWNLOAD_DIRECTORY);
     s->download_gui(target);
 }
 
@@ -1100,30 +1100,30 @@ void Search::onDownloadToClicked_gui(GtkMenuItem *item, gpointer data)
 {
     Search *s = (Search *)data;
 
-	gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
+    gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
 
-	// Fix crash, if the dialog gets programmatically destroyed.
-	if (response == GTK_RESPONSE_NONE)
-		return;
+    // Fix crash, if the dialog gets programmatically destroyed.
+    if (response == GTK_RESPONSE_NONE)
+        return;
 
-	gtk_widget_hide(s->getWidget("dirChooserDialog"));
+    gtk_widget_hide(s->getWidget("dirChooserDialog"));
 
-	if (response == GTK_RESPONSE_OK)
-	{
-		int count = gtk_tree_selection_count_selected_rows(s->selection);
-		gchar *temp = gtk_file_chooser_get_current_folder(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")));
+    if (response == GTK_RESPONSE_OK)
+    {
+        int count = gtk_tree_selection_count_selected_rows(s->selection);
+        gchar *temp = gtk_file_chooser_get_current_folder(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")));
 
-		if (temp)
-		{
-			string target = Text::toUtf8(temp);
-			g_free(temp);
+        if (temp)
+        {
+            string target = Text::toUtf8(temp);
+            g_free(temp);
 
-			if (target[target.length() - 1] != PATH_SEPARATOR)
-				target += PATH_SEPARATOR;
+            if (target[target.length() - 1] != PATH_SEPARATOR)
+                target += PATH_SEPARATOR;
 
-			 s->download_gui(target);
-		}
-	}
+             s->download_gui(target);
+        }
+    }
 }
 
 void Search::onDownloadToMatchClicked_gui(GtkMenuItem *item, gpointer data)
@@ -1318,7 +1318,7 @@ void Search::onSearchByTTHClicked_gui(GtkMenuItem *item, gpointer data)
             {
                 string tth = s->resultView.getString(&iter, _("TTH"));
                 if (!tth.empty())
-                                        s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
+                    s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
             }
             gtk_tree_path_free(path);
         }

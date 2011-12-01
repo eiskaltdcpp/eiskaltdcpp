@@ -81,8 +81,8 @@ class WulforManager
 		static WulforManager *manager;
 		MainWindow *mainWin;
 		std::string path;
-		std::list<FuncBase *> guiFuncs;
-		std::list<FuncBase *> clientFuncs;
+		std::deque<FuncBase *> guiFuncs;
+		std::deque<FuncBase *> clientFuncs;
 		std::unordered_map<std::string, Entry *> entries;
 		gint guiCondValue;
 		gint clientCondValue;

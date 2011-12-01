@@ -698,7 +698,6 @@ void MainWindow::setStats_gui(string hubs, string downloadSpeed,
 	gtk_label_set_text(GTK_LABEL(getWidget("labelDownloaded")), downloaded.c_str());
 	gtk_label_set_text(GTK_LABEL(getWidget("labelUploadSpeed")), uploadSpeed.c_str());
 	gtk_label_set_text(GTK_LABEL(getWidget("labelUploaded")), uploaded.c_str());
-
 }
 
 BookEntry* MainWindow::findBookEntry(const EntryType type, const string &id)
@@ -2276,7 +2275,6 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) noexcept
 		F2 *f2 = new F2(this, &MainWindow::updateStatusIconTooltip_gui, downloadSpeed, uploadSpeed);
 		WulforManager::get()->dispatchGuiFunc(f2);
 	}
-
 	if (WGETB("show-free-space-bar")) {
 #ifdef FREE_SPACE_BAR_C
 		std::string s = SETTING(DOWNLOAD_DIRECTORY);
@@ -2288,11 +2286,12 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) noexcept
 				total = 0;
 			}
 		}
-		float percent = 1.0f*(total-available)/total;
-		string format = _("Free ") + Util::formatBytes(available);
+		float freepercent = 1.0f*(total-available)/total;
+		string freespace = _("Free ") + Util::formatBytes(available);
 		//g_print("%s %f\n", format.c_str(), percent);
-		gtk_progress_bar_set_text(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), format.c_str());
-		gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), percent);
+		typedef Func2<MainWindow, string, float> F2;
+		F2 *f2 = new F2(this, &MainWindow::updateFreespaceBar_gui, freespace, freepercent);
+		WulforManager::get()->dispatchGuiFunc(f2);
 #endif //FREE_SPACE_BAR_C
 	}
 
@@ -2452,5 +2451,11 @@ void MainWindow::showUploadQueue_gui()
 		addBookEntry_gui(entry);
 	}
 	raisePage_gui(entry->getContainer());
+
+}
+void MainWindow::updateFreespaceBar_gui(string freespace, float freepercent)
+{
+	gtk_progress_bar_set_text(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), freespace.c_str());
+	gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), freepercent);
 
 }
