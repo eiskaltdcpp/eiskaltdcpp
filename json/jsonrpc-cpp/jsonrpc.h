@@ -18,7 +18,7 @@
 
 /**
  * \file jsonrpc.h
- * \brief Version information and all 
+ * \brief Version information and all
  * related include files in order to JsonRpc-Cpp.
  * \author Sebastien Vincent
  */
@@ -29,7 +29,7 @@
 /**
  * \def JSONRPC_CPP_VERSION
  * \brief JsonRpc-Cpp version in integer format.
- * 
+ *
  * The number is the result of the following computation:\n
  * major * 10000 + minor * 100 + micro\n
  * So version 1.2.3 produces 10203.
@@ -62,7 +62,7 @@
  * \namespace Json
  * \brief JSON (JavaScript Object Notation).
  */
-namespace Json 
+namespace Json
 {
   /**
    * \namespace Json::Rpc

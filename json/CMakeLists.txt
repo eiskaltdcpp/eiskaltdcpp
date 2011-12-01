@@ -1,14 +1,21 @@
 project(jsonrpcpp)
 cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
-include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include/)
+include_directories(${PROJECT_SOURCE_DIR})
 
-aux_source_directory(${PROJECT_SOURCE_DIR}/src jsonrpcpp_SRCS)
-aux_source_directory(${PROJECT_SOURCE_DIR}/lib_json jsoncpp_SRCS)
+aux_source_directory(${PROJECT_SOURCE_DIR}/jsonrpc-cpp jsonrpcpp_SRCS)
 
-#add_definitions(-DJSON_USE_SIMPLE_INTERNAL_ALLOCATOR)
+#option (LOCAL_JSONCPP "Use local JsonCpp" ON)
+#if (LOCAL_JSONCPP)
+    set (JSONCPP jsoncpp)
+    include_directories(${PROJECT_SOURCE_DIR}/jsoncpp/include/)
+    aux_source_directory(${PROJECT_SOURCE_DIR}/jsoncpp/src jsoncpp_SRCS)
+    add_library (jsoncpp STATIC ${jsoncpp_SRCS})
+#else (LOCAL_JSONCPP)
+    #find_package(JsonCpp)
+    #include_directories(${JSONCPP_INCLUDE_DIR})
+    #set (JSONCPP ${JSONCPP_LIBRARY})
+#endif (LOCAL_JSONCPP)
 
-add_library (jsoncpp STATIC ${jsoncpp_SRCS})
-add_library (jsonrpcpp STATIC ${jsonrpcpp_SRCS})
-
-target_link_libraries (jsonrpcpp jsoncpp)
+add_library (jsonrpc-cpp STATIC ${jsonrpcpp_SRCS})
+target_link_libraries (jsonrpc-cpp ${JSONCPP})
