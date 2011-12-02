@@ -1,7 +1,8 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
+# Translators:
 # Translators:
 # Automatically generated, 2010.
 #   <miroslav031@gmail.com>, 2011.
@@ -10,16 +11,14 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-11-28 23:03+0200\n"
-"PO-Revision-Date: 2011-11-28 18:13+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: Serbian (Latin) (http://www.transifex.net/projects/p/"
-"eiskaltdcpp/team/sr@latin/)\n"
-"Language: sr@latin\n"
+"PO-Revision-Date: 2011-11-29 12:51+0000\n"
+"Last-Translator: miroslav <miroslav031@gmail.com>\n"
+"Language-Team: Serbian (Latin) (http://www.transifex.net/projects/p/eiskaltdcpp/team/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: sr@latin\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../src/hub.cc:1054 ../src/hub.cc:1133 ../src/privatemessage.cc:562
 #: ../src/privatemessage.cc:641
@@ -194,11 +193,11 @@ msgstr ": Тip/ pomoć za listu dostupnih komandi"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -549,7 +548,7 @@ msgstr "Stavi ovaj fajl u red za preuzimanje"
 
 #: ../ui/uploadqueue.ui:60
 msgid "Add to Favorite Users"
-msgstr ""
+msgstr "Dodaj hab u omiljene"
 
 #: ../ui/publichubs.ui:418
 msgid "Add to favorites"
@@ -747,7 +746,7 @@ msgstr "Podebljaj autorske poruke u razgovoru"
 
 #: ../ui/uploadqueue.ui:87
 msgid "Browse FileList"
-msgstr ""
+msgstr "Dobavi fajl listu"
 
 #: ../ui/settingsdialog.ui:4913
 msgid "Browse file..."
@@ -899,15 +898,15 @@ msgstr "Zatvori PP"
 
 #: ../ui/mainwindow.ui:1486
 msgid "Close all PM"
-msgstr ""
+msgstr "Zatvori privatnu poruku"
 
 #: ../ui/mainwindow.ui:1477
 msgid "Close all hubs"
-msgstr ""
+msgstr "Zatvori karticu"
 
 #: ../ui/mainwindow.ui:1495
 msgid "Close all search"
-msgstr ""
+msgstr "Očisti okvir za pretragu"
 
 #: ../src/hub.cc:2014
 msgid "Close chat"
@@ -915,7 +914,7 @@ msgstr "Zatvori razgovor"
 
 #: ../ui/mainwindow.ui:1504
 msgid "Close offline PM"
-msgstr ""
+msgstr "Zatvori privatnu poruku"
 
 #: ../src/bookentry.cc:77 ../src/bookentry.cc:82
 msgid "Close tab"
@@ -1135,7 +1134,7 @@ msgstr "Ne preuzimajte fajlove koji su u redu"
 
 #: ../ui/search.ui:585
 msgid "Don't hide side panel on search"
-msgstr ""
+msgstr "Ne sakrivaj panel kod pretrage"
 
 #: ../src/settingsdialog.cc:975
 msgid "Don't remove the source when auto-dropping, only disconnect"
@@ -1585,7 +1584,7 @@ msgstr "Okvir:"
 
 #: ../src/mainwindow.cc:2292
 msgid "Free "
-msgstr ""
+msgstr "Slobodno"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
@@ -1613,7 +1612,7 @@ msgstr "Globalni hab podrazumevano"
 
 #: ../ui/uploadqueue.ui:51
 msgid "Grant Slot"
-msgstr ""
+msgstr "Odobri dodatni slot"
 
 #: ../src/hub.cc:2020 ../src/privatemessage.cc:1024 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
@@ -2200,8 +2199,8 @@ msgstr "Nije nadjen korisnik:"
 #: ../ui/settingsdialog.ui:7977
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
-"Napomena: Prilagodjeni tip pretrage će biti primenjen na ADC habovima!Цустом "
-"Сеарцх типови ће бити примењен на АДЦ-чвориштима!"
+"Napomena: Prilagodjeni tip pretrage će biti primenjen na ADC habovima!Цустом"
+" Сеарцх типови ће бити примењен на АДЦ-чвориштима!"
 
 #: ../ui/settingsdialog.ui:4565 ../ui/settingsdialog.ui:4634
 msgid "Note: Most of these options require that you restart the application"
@@ -2214,7 +2213,8 @@ msgstr ""
 "додају деле само једном они су хасх!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Napomena: jer promena brzine preuzimanja nije  100% precizna..."
 
 #: ../src/settingsdialog.cc:1228 ../ui/settingsdialog.ui:5614
@@ -2461,7 +2461,7 @@ msgstr "Poveži"
 
 #: ../ui/mainwindow.ui:1513
 msgid "Reconnect all hubs"
-msgstr ""
+msgstr "Poveži se na hab"
 
 #: ../ui/mainwindow.ui:2183
 msgid "Reconnect to the hub"
@@ -2642,7 +2642,7 @@ msgstr "Pošalji PP duplim klikom na listu korisnika"
 
 #: ../ui/uploadqueue.ui:78
 msgid "Send Private Message"
-msgstr ""
+msgstr "Privatna poruka"
 
 #: ../ui/downloadqueue.ui:297 ../ui/search.ui:788
 msgid "Send _private message"
@@ -2683,7 +2683,8 @@ msgid "Set download limit image: "
 msgstr "Postavi limit preuzimanja:"
 
 #: ../src/settingsdialog.cc:972
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Postavi najniži prioritet za novododate fajlove veće nego najniža veličina "
 "prioriteta"
@@ -2715,7 +2716,7 @@ msgstr "Pokaži listu omiljenog"
 
 #: ../ui/mainwindow.ui:1396
 msgid "Show free space bar"
-msgstr ""
+msgstr "Pokaži slobodan prostor"
 
 #: ../src/hub.cc:2021 ../src/privatemessage.cc:1028
 #: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
@@ -2770,7 +2771,7 @@ msgstr "Pokaži verziju"
 
 #: ../ui/search.ui:292
 msgid "Show/Hide side panel"
-msgstr ""
+msgstr "Pokaži listu omiljenog"
 
 #: ../ui/mainwindow.ui:1781
 msgid "Show/Hide transfers panel"
@@ -3215,8 +3216,8 @@ msgstr "Nemogućnost da se učita fajl lista: Neispravno ime fajl liste"
 
 #: ../src/mainwindow.cc:2179
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Prenos fajlova neće raditi kako treba sve dok ne promenite podešavanja ili "
@@ -3261,7 +3262,7 @@ msgstr "Otpremanje"
 
 #: ../src/uploadqueue.cc:36 ../ui/mainwindow.ui:1363
 msgid "Upload Queue"
-msgstr ""
+msgstr "Red za preuzimanje"
 
 #: ../ui/settingsdialog.ui:2290
 msgid "Upload Slots"
@@ -3447,8 +3448,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3457,14 +3457,11 @@ msgstr ""
 "Korišćenje:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ je  cross-platform program koji koristi direktno povezivanje i "
-"ADC protokol.\n"
+"EiskaltDC++ je  cross-platform program koji koristi direktno povezivanje i ADC protokol.\n"
 "\n"
 "Keys:\n"
-"  -h, --help<span class=\"whitespace other\" title=\"Tab\">»</span> Pokaži "
-"ovu poruku\n"
-"  -v, --version<span class=\"whitespace other\" title=\"Tab\">»</span> Show "
-"version string\n"
+"  -h, --help<span class=\"whitespace other\" title=\"Tab\">»</span> Pokaži ovu poruku\n"
+"  -v, --version<span class=\"whitespace other\" title=\"Tab\">»</span> Show version string\n"
 
 #: ../src/settingsdialog.cc:1022
 msgid "View status messages in main chat"
@@ -3886,3 +3883,5 @@ msgstr "čekanje ..."
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+
