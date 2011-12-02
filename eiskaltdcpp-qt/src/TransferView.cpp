@@ -17,6 +17,7 @@
 #include "SearchFrame.h"
 #include "DownloadQueue.h"
 #include "IPFilter.h"
+#include "ArenaWidgetFactory.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/User.h"
@@ -331,7 +332,7 @@ void TransferView::searchAlternates(const QString &tth){
     if (tth.isEmpty())
         return;
 
-    SearchFrame *sfr = new SearchFrame();
+    SearchFrame *sfr = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
     sfr->searchAlternates(tth);
 }
 

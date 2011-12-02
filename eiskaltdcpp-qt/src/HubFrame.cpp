@@ -7,6 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
+#include "ArenaWidgetFactory.h"
 #include "HubFrame.h"
 #include "MainWindow.h"
 #include "PMWindow.h"
@@ -776,8 +777,6 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     out_messages_unsent = false;
 
     FavoriteManager::getInstance()->addListener(this);
-    
-    registerThis();
 }
 
 
@@ -1929,7 +1928,7 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
     bool redirectToMainChat = WBGET("hubframe/redirect-pm-to-main-chat", true);
 
     if (!pm.contains(cid)){
-        PMWindow *p = new PMWindow(cid, _q(client->getHubUrl().c_str()));
+        PMWindow *p = ArenaWidgetFactory::getInstance()->create<PMWindow, QString, QString>(cid, _q(client->getHubUrl()));
         p->textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
 
         connect(p, SIGNAL(privateMessageClosed(QString)), this, SLOT(slotPMClosed(QString)));
@@ -2915,7 +2914,7 @@ void HubFrame::slotChatMenu(const QPoint &){
             if (ret.isEmpty())
                 break;
 
-            SearchFrame *sf = new SearchFrame(this);
+            SearchFrame *sf = ArenaWidgetFactory::getInstance()->create<SearchFrame, QWidget*>(this);
             sf->fastSearch(ret, false);
 
             break;

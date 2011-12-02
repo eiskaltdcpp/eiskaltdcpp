@@ -10,6 +10,7 @@
 #include "ScriptEngine.h"
 
 #include "ArenaWidget.h"
+#include "ArenaWidgetFactory.h"
 #include "MainWindow.h"
 #include "Antispam.h"
 #include "DownloadQueue.h"
@@ -467,14 +468,13 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
             QString hub = context->argument(0).toString();
             QString enc = context->argument(1).toString();
 
-            HubFrame *fr = new HubFrame(MainWindow::getInstance(), hub, enc);
+            HubFrame *fr = ArenaWidgetFactory::getInstance()->create<HubFrame, MainWindow*, QString, QString>(MainWindow::getInstance(), hub, enc);
 
             obj = qobject_cast<QObject*>(fr);
         }
     }
     else if (className == "SearchFrame"){
-        SearchFrame *fr = new SearchFrame();
-        fr->setAttribute(Qt::WA_DeleteOnClose);
+        SearchFrame *fr = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
 
         obj = qobject_cast<QObject*>(fr);
     }

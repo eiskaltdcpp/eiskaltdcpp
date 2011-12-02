@@ -72,8 +72,6 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     FavoriteManager::getInstance()->addListener(this);
 
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
-    
-    registerThis();
 }
 
 FavoriteUsers::~FavoriteUsers(){

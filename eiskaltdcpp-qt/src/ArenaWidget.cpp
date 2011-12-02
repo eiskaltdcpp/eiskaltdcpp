@@ -40,10 +40,6 @@ ArenaWidget::ArenaWidget(): _arenaUnload(true), toolBtn(NULL), flags(ArenaWidget
 ArenaWidget::~ArenaWidget(){
 }
 
-void ArenaWidget::registerThis() {
-    ArenaWidgetManager::getInstance()->add(this);
-}
-
 ScriptWidget::ScriptWidget(){
     _wgt = NULL;
     _menu = NULL;
@@ -71,8 +67,6 @@ DeclarativeWidget::DeclarativeWidget(const QString &file) : QWidget(NULL) {
 
     setLayout(new QVBoxLayout());
     layout()->addWidget(view);
-    
-    registerThis();
 }
 
 DeclarativeWidget::~DeclarativeWidget(){

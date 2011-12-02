@@ -16,15 +16,16 @@
 #include "dcpp/Singleton.h"
 
 class ArenaWidget;
+class ArenaWidgetFactory;
 
 class ArenaWidgetManager: public QObject, public dcpp::Singleton<ArenaWidgetManager>
 {
 Q_OBJECT
 
 friend class dcpp::Singleton<ArenaWidgetManager>;
+friend class ArenaWidgetFactory;
 
 public Q_SLOTS:
-    void add(ArenaWidget*);
     void rem(ArenaWidget*);
     void activate(ArenaWidget*);
     void toggle(ArenaWidget*);
@@ -41,6 +42,8 @@ private:
     ArenaWidgetManager(const ArenaWidgetManager &m);
     virtual ~ArenaWidgetManager();
     ArenaWidgetManager &operator=(const ArenaWidgetManager &);
+    
+    void add(ArenaWidget*);
     
     QList<ArenaWidget*> widgets;
 };

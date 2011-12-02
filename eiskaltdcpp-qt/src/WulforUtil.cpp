@@ -10,6 +10,7 @@
 #include "MainWindow.h"
 #include "Magnet.h"
 #include "WulforUtil.h"
+#include "ArenaWidgetFactory.h"
 #include "icons/gv.xpm"
 
 #ifdef HAVE_IFADDRS_H
@@ -751,7 +752,7 @@ bool WulforUtil::openUrl(const QString &url){
             if (!hub.isEmpty())
                 WulforUtil::openUrl(hub);
 
-            SearchFrame *sfr = new SearchFrame();
+            SearchFrame *sfr = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
             sfr->fastSearch(keywords, false);
         }
         else {

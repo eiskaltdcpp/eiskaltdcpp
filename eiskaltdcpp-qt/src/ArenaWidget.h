@@ -78,7 +78,6 @@ public:
 
 protected:
     virtual ~ArenaWidget();
-    void registerThis();
 
 private:
     bool _arenaUnload;

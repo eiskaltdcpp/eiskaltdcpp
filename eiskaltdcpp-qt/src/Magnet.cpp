@@ -25,6 +25,7 @@
 #include "WulforUtil.h"
 #include "SearchFrame.h"
 #include "MainWindow.h"
+#include "ArenaWidgetFactory.h"
 
 using namespace dcpp;
 
@@ -193,7 +194,7 @@ void Magnet::download(const QString &name, const qulonglong &size, const QString
     }
 }
 void Magnet::search(const QString &tth) {
-    SearchFrame *fr = new SearchFrame();
+    SearchFrame *fr = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
     fr->setAttribute(Qt::WA_DeleteOnClose);
 
     fr->searchAlternates(tth);

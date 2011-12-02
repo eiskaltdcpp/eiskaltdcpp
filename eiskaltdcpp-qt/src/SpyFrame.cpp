@@ -12,6 +12,7 @@
 #include "SpyModel.h"
 #include "WulforUtil.h"
 #include "SearchFrame.h"
+#include "ArenaWidgetFactory.h"
 
 #include <QMenu>
 #include <QMessageBox>
@@ -38,8 +39,6 @@ SpyFrame::SpyFrame(QWidget *parent) :
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
-    
-    registerThis();
 }
 
 SpyFrame::~SpyFrame(){
@@ -102,7 +101,7 @@ void SpyFrame::contextMenu(){
     if (!ret)
         return;
 
-    SearchFrame *fr = new SearchFrame(this);
+    SearchFrame *fr = ArenaWidgetFactory::getInstance()->create<SearchFrame, QWidget*>(this);
     QString src = item->data(COLUMN_SPY_STRING).toString();
 
     if (item->isTTH){

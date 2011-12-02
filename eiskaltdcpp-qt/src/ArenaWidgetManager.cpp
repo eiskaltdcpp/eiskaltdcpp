@@ -80,8 +80,10 @@ void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
         awgt->getWidget()->close();
         awgt->getWidget()->deleteLater();
     }
-    else
-        assert(0);//We do not know what to do with this object...
+    else {
+        awgt->getWidget()->setAttribute(Qt::WA_DeleteOnClose, true);
+        awgt->getWidget()->close();
+    }
 }
 
 void ArenaWidgetManager::activate ( ArenaWidget *awgt ) {

@@ -12,6 +12,7 @@
 #include "WulforSettings.h"
 #include "MainWindow.h"
 #include "ArenaWidgetManager.h"
+#include "ArenaWidgetFactory.h"
 #include "QuickConnect.h"
 #include "SearchFrame.h"
 #include "ShareBrowser.h"
@@ -623,7 +624,7 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
     switch (_model->rootItemRole(item)){
     case ArenaWidget::Search:
         {
-            SearchFrame *sf = new SearchFrame();
+            SearchFrame *sf = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
 
             break;
         }
@@ -651,7 +652,7 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
             UserPtr user = dcpp::DirectoryListing::getUserFromFilename ( _tq ( file ) );
 
             if ( user )
-                new ShareBrowser ( user, file, "" );
+                ArenaWidgetFactory::getInstance()->create<ShareBrowser, UserPtr, QString, QString> ( user, file, "" );
             
             break;
         }
