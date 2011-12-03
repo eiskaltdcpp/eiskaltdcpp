@@ -558,7 +558,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
     switch (act){
         case Menu::Alternates:
         {
-            SearchFrame *sf = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
+            SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
             foreach (DownloadQueueItem *i, items)
                 sf->searchAlternates(i->data(COLUMN_DOWNLOADQUEUE_TTH).toString());

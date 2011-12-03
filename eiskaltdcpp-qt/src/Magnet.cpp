@@ -194,7 +194,7 @@ void Magnet::download(const QString &name, const qulonglong &size, const QString
     }
 }
 void Magnet::search(const QString &tth) {
-    SearchFrame *fr = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
+    SearchFrame *fr = ArenaWidgetFactory().create<SearchFrame>();
     fr->setAttribute(Qt::WA_DeleteOnClose);
 
     fr->searchAlternates(tth);

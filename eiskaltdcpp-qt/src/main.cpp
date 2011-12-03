@@ -20,12 +20,12 @@ using namespace std;
 #include "dcpp/QueueManager.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
+#include "dcpp/Singleton.h"
 
 #ifdef __HAIKU__
 #include "EiskaltApp_haiku.h"
 #endif
 
-#include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 #include "HubManager.h"
@@ -37,6 +37,7 @@ using namespace std;
 #include "QueuedUsers.h"
 #include "ArenaWidgetManager.h"
 #include "ArenaWidgetFactory.h"
+#include "MainWindow.h"
 
 #ifndef __HAIKU__
 #include "EiskaltApp.h"
@@ -145,8 +146,6 @@ int main(int argc, char *argv[])
     app.setWindowIcon(WICON(WulforUtil::eiICON_APPL));
     
     ArenaWidgetManager::newInstance();
-    
-    ArenaWidgetFactory::newInstance();
 
     MainWindow::newInstance();
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
@@ -174,9 +173,9 @@ int main(int argc, char *argv[])
     QObject::connect(ScriptEngine::getInstance(), SIGNAL(scriptChanged(QString)), MainWindow::getInstance(), SLOT(slotJSFileChanged(QString)));
 #endif
     
-    ArenaWidgetFactory::getInstance()->create< SingletonWidgetType, FinishedUploads >();
-    ArenaWidgetFactory::getInstance()->create< SingletonWidgetType, FinishedDownloads >();
-    ArenaWidgetFactory::getInstance()->create< SingletonWidgetType, QueuedUsers >();
+    ArenaWidgetFactory().create< dcpp::Singleton, FinishedUploads >();
+    ArenaWidgetFactory().create< dcpp::Singleton, FinishedDownloads >();
+    ArenaWidgetFactory().create< dcpp::Singleton, QueuedUsers >();
     
     MainWindow::getInstance()->autoconnect();
     MainWindow::getInstance()->parseCmdLine();
@@ -201,8 +200,6 @@ int main(int argc, char *argv[])
 #ifdef USE_JS
     ScriptEngine::deleteInstance();
 #endif
-    
-    ArenaWidgetFactory::deleteInstance();
     
     ArenaWidgetManager::deleteInstance();
     

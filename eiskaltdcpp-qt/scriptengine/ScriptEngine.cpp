@@ -468,13 +468,13 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
             QString hub = context->argument(0).toString();
             QString enc = context->argument(1).toString();
 
-            HubFrame *fr = ArenaWidgetFactory::getInstance()->create<HubFrame, MainWindow*, QString, QString>(MainWindow::getInstance(), hub, enc);
+            HubFrame *fr = ArenaWidgetFactory().create<HubFrame, MainWindow*, QString, QString>(MainWindow::getInstance(), hub, enc);
 
             obj = qobject_cast<QObject*>(fr);
         }
     }
     else if (className == "SearchFrame"){
-        SearchFrame *fr = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
+        SearchFrame *fr = ArenaWidgetFactory().create<SearchFrame>();
 
         obj = qobject_cast<QObject*>(fr);
     }

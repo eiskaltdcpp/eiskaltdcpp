@@ -1317,63 +1317,63 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
     switch (r){
     case ArenaWidget::Downloads:
         {
-            awgt = ArenaWidgetFactory::getInstance()->create<SingletonWidgetType, DownloadQueue>();
+            awgt = ArenaWidgetFactory().create<dcpp::Singleton, DownloadQueue>();
             awgt->setToolButton(toolsDownloadQueue);
 
             break;
         }
     case ArenaWidget::FinishedUploads:
         {
-            awgt = ArenaWidgetFactory::getInstance()->create<SingletonWidgetType, FinishedUploads>();
+            awgt = ArenaWidgetFactory().create<dcpp::Singleton, FinishedUploads>();
             awgt->setToolButton(toolsFinishedUploads);
 
             break;
         }
     case ArenaWidget::FinishedDownloads:
         {
-            awgt = ArenaWidgetFactory::getInstance()->create<SingletonWidgetType, FinishedDownloads>();
+            awgt = ArenaWidgetFactory().create<dcpp::Singleton, FinishedDownloads>();
             awgt->setToolButton(toolsFinishedDownloads);
 
             break;
         }
     case ArenaWidget::FavoriteHubs:
         {
-            awgt = ArenaWidgetFactory::getInstance()->create<SingletonWidgetType, FavoriteHubs>();
+            awgt = ArenaWidgetFactory().create<dcpp::Singleton, FavoriteHubs>();
             awgt->setToolButton(hubsFavoriteHubs);
 
             break;
         }
     case ArenaWidget::FavoriteUsers:
         {
-            awgt = ArenaWidgetFactory::getInstance()->create<SingletonWidgetType, FavoriteUsers>();
+            awgt = ArenaWidgetFactory().create<dcpp::Singleton, FavoriteUsers>();
             awgt->setToolButton(hubsFavoriteUsers);
 
             break;
         }
     case ArenaWidget::PublicHubs:
         {
-            awgt = ArenaWidgetFactory::getInstance()->create<SingletonWidgetType, PublicHubs>();
+            awgt = ArenaWidgetFactory().create<dcpp::Singleton, PublicHubs>();
             awgt->setToolButton(hubsPublicHubs);
 
             break;
         }
     case ArenaWidget::Spy:
         {
-            awgt = ArenaWidgetFactory::getInstance()->create<SingletonWidgetType, SpyFrame>();
+            awgt = ArenaWidgetFactory().create<dcpp::Singleton, SpyFrame>();
             awgt->setToolButton(toolsSpy);
 
             break;
         }
     case ArenaWidget::ADLS:
         {
-            awgt = ArenaWidgetFactory::getInstance()->create<SingletonWidgetType, ADLS>();
+            awgt = ArenaWidgetFactory().create<dcpp::Singleton, ADLS>();
             awgt->setToolButton(toolsADLS);
 
             break;
         }
     case ArenaWidget::QueuedUsers:
         {
-            awgt = ArenaWidgetFactory::getInstance()->create<SingletonWidgetType, QueuedUsers>();
+            awgt = ArenaWidgetFactory().create<dcpp::Singleton, QueuedUsers>();
             awgt->setToolButton(toolsQueuedUsers);
 
             break;
@@ -1399,7 +1399,7 @@ void MainWindow::newHubFrame(QString address, QString enc){
         return;
     }
     
-    fr = ArenaWidgetFactory::getInstance()->create<HubFrame, QWidget*, QString, QString>(this, address, enc);
+    fr = ArenaWidgetFactory().create<HubFrame, QWidget*, QString, QString>(this, address, enc);
 
     ArenaWidgetManager::getInstance()->activate(fr);
 }
@@ -1643,7 +1643,7 @@ void MainWindow::slotFileBrowseFilelist(){
     UserPtr user = DirectoryListing::getUserFromFilename(_tq(file));
 
     if (user) {
-        ArenaWidgetFactory::getInstance()->create<ShareBrowser, UserPtr, QString, QString>(user, file, "");
+        ArenaWidgetFactory().create<ShareBrowser, UserPtr, QString, QString>(user, file, "");
     } else {
         setStatusMessage(tr("Unable to load file list: Invalid file list name"));
     }
@@ -1821,7 +1821,7 @@ void MainWindow::showPortsError(const string& port) {
     QMessageBox::warning(this, tr("Connectivity Manager: Warning"), msg, QMessageBox::Ok);
 }
 void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const QString &jump_to){
-    ArenaWidgetFactory::getInstance()->create<ShareBrowser, UserPtr, QString, QString>(usr, file, jump_to);
+    ArenaWidgetFactory().create<ShareBrowser, UserPtr, QString, QString>(usr, file, jump_to);
 }
 
 void MainWindow::reloadSomeSettings(){
@@ -1862,7 +1862,7 @@ void MainWindow::slotFileBrowseOwnFilelist(){
     UserPtr user = ClientManager::getInstance()->getMe();
     QString file = QString::fromStdString(ShareManager::getInstance()->getOwnListFile());
 
-    ArenaWidgetFactory::getInstance()->create<ShareBrowser, UserPtr, QString, QString>(user, file, "");
+    ArenaWidgetFactory().create<ShareBrowser, UserPtr, QString, QString>(user, file, "");
 }
 
 void MainWindow::slotFileHashProgress(){
@@ -1934,7 +1934,7 @@ void MainWindow::slotToolsADLS(){
 }
 
 void MainWindow::slotToolsSearch() {
-    SearchFrame *sf = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
+    SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
     QLineEdit *le = qobject_cast<QLineEdit *> ( sender() );
 

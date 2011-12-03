@@ -752,7 +752,7 @@ bool WulforUtil::openUrl(const QString &url){
             if (!hub.isEmpty())
                 WulforUtil::openUrl(hub);
 
-            SearchFrame *sfr = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
+            SearchFrame *sfr = ArenaWidgetFactory().create<SearchFrame>();
             sfr->fastSearch(keywords, false);
         }
         else {

@@ -1928,7 +1928,7 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
     bool redirectToMainChat = WBGET("hubframe/redirect-pm-to-main-chat", true);
 
     if (!pm.contains(cid)){
-        PMWindow *p = ArenaWidgetFactory::getInstance()->create<PMWindow, QString, QString>(cid, _q(client->getHubUrl()));
+        PMWindow *p = ArenaWidgetFactory().create<PMWindow, QString, QString>(cid, _q(client->getHubUrl()));
         p->textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
 
         connect(p, SIGNAL(privateMessageClosed(QString)), this, SLOT(slotPMClosed(QString)));
@@ -2914,7 +2914,7 @@ void HubFrame::slotChatMenu(const QPoint &){
             if (ret.isEmpty())
                 break;
 
-            SearchFrame *sf = ArenaWidgetFactory::getInstance()->create<SearchFrame, QWidget*>(this);
+            SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame, QWidget*>(this);
             sf->fastSearch(ret, false);
 
             break;

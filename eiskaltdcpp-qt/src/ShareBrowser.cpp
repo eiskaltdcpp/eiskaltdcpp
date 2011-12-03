@@ -855,7 +855,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 
                 if (item->file){//search alternates only for files
                     QString tth = item->data(COLUMN_FILEBROWSER_TTH).toString();
-                    SearchFrame *sf = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
+                    SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
                     sf->searchAlternates(tth);
 

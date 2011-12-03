@@ -101,7 +101,7 @@ void SpyFrame::contextMenu(){
     if (!ret)
         return;
 
-    SearchFrame *fr = ArenaWidgetFactory::getInstance()->create<SearchFrame, QWidget*>(this);
+    SearchFrame *fr = ArenaWidgetFactory().create<SearchFrame, QWidget*>(this);
     QString src = item->data(COLUMN_SPY_STRING).toString();
 
     if (item->isTTH){

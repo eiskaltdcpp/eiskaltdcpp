@@ -10,28 +10,22 @@
 #ifndef ARENAWIDGETFACTORY_H
 #define ARENAWIDGETFACTORY_H
 
-#include "dcpp/Singleton.h"
-
 #include "ArenaWidgetManager.h"
 
-
-template <class T>
-struct SingletonWidgetType {
-    typedef dcpp::Singleton<T> Singleton;
-};
+#include "dcpp/Singleton.h"
 
 class NullType {};
 
-template <typename H, typename T>
-struct TypeList{
-    typedef H head;
-    typedef T tail;
-};
-
-class ArenaWidgetFactory : public dcpp::Singleton<ArenaWidgetFactory>{
-friend class dcpp::Singleton<ArenaWidgetFactory>;
-
+class ArenaWidgetFactory {
 public:
+
+    ArenaWidgetFactory(){
+        
+    }
+    
+    virtual ~ArenaWidgetFactory(){
+        
+    }
     
     template <class T, typename P1 = NullType, typename P2 = NullType, typename P3 = NullType, typename P4 = NullType, typename P5 = NullType>
     T *create() {
@@ -87,27 +81,17 @@ public:
         return t;
     }
     
-    template < template < class > class Type = SingletonWidgetType, class T > 
-    T *create () {
-        typedef typename Type<T>::Singleton S;
+    template < template < class > class Type = dcpp::Singleton, class T > 
+    T *create () {       
+        if (!T::getInstance())
+            T::newInstance();
         
-        if (!S::getInstance())
-            S::newInstance();
+        ArenaWidgetManager::getInstance()->add(T::getInstance());
         
-        ArenaWidgetManager::getInstance()->add(S::getInstance());
-        
-        return S::getInstance();
+        return T::getInstance();
     }
     
-private:
-    ArenaWidgetFactory(){
-        
-    }
-    
-    virtual ~ArenaWidgetFactory(){
-        
-    }
-    
+private:    
     ArenaWidgetFactory(const ArenaWidgetFactory &);
     ArenaWidgetFactory& operator=(const ArenaWidgetFactory&);
 };

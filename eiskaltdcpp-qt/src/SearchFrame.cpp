@@ -1215,7 +1215,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only one file
-                    SearchFrame *sf = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
+                    SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
                     sf->searchAlternates(item->data(COLUMN_SF_TTH).toString());
 

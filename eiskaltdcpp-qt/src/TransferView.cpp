@@ -332,7 +332,7 @@ void TransferView::searchAlternates(const QString &tth){
     if (tth.isEmpty())
         return;
 
-    SearchFrame *sfr = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
+    SearchFrame *sfr = ArenaWidgetFactory().create<SearchFrame>();
     sfr->searchAlternates(tth);
 }
 

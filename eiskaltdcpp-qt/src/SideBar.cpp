@@ -624,7 +624,7 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
     switch (_model->rootItemRole(item)){
     case ArenaWidget::Search:
         {
-            SearchFrame *sf = ArenaWidgetFactory::getInstance()->create<SearchFrame>();
+            SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
             break;
         }
@@ -652,7 +652,7 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
             UserPtr user = dcpp::DirectoryListing::getUserFromFilename ( _tq ( file ) );
 
             if ( user )
-                ArenaWidgetFactory::getInstance()->create<ShareBrowser, UserPtr, QString, QString> ( user, file, "" );
+                ArenaWidgetFactory().create<ShareBrowser, UserPtr, QString, QString> ( user, file, "" );
             
             break;
         }
