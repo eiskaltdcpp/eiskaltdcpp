@@ -229,6 +229,9 @@ MainWindow::MainWindow (QWidget *parent):
     d->_progress_dialog = NULL;
     d->sideDock = NULL;
     d->menuPanels = NULL;
+#ifdef USE_JS
+    d->scriptConsole = NULL;
+#endif
     
     d->exitBegin = false;
 
@@ -250,10 +253,6 @@ MainWindow::MainWindow (QWidget *parent):
     init();
 
     retranslateUi();
-
-#ifdef USE_JS
-    scriptConsole = NULL;
-#endif
 
     LogManager::getInstance()->addListener(this);
     TimerManager::getInstance()->addListener(this);
