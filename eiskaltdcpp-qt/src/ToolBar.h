@@ -18,14 +18,11 @@
 #include <QList>
 
 #include "ArenaWidget.h"
-#include "ArenaWidgetContainer.h"
 
 class ArenaWidget;
 class MainWindow;
 
-class ToolBar :
-    public QToolBar,
-    public ArenaWidgetContainer
+class ToolBar : public QToolBar
 {
     Q_OBJECT
 

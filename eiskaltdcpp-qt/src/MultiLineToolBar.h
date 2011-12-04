@@ -13,7 +13,6 @@
 #include <QToolBar>
 
 #include "ArenaWidget.h"
-#include "ArenaWidgetContainer.h"
 #include "TabFrame.h"
 
 class QWheelEvent;
