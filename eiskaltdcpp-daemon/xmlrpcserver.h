@@ -418,4 +418,24 @@ public:
         *retvalP = tmp_array_out;
     }
 };
+class setPriorityQueueItemMethod : public xmlrpc_c::method {
+public:
+    setPriorityQueueItemMethod() {
+        this->_signature = "i:si";
+        this->_help = "This method set priority on target. Рarams: target, priority";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const starget(paramList.getString(0));
+        int const ipriority(paramList.getInt(1));
+        paramList.verifyEnd(2);
+        if (ServerThread::getInstance()->setPriorityQueueItem(starget, ipriority))
+            *retvalP = xmlrpc_c::value_int(0);
+        else
+            *retvalP = xmlrpc_c::value_int(1);
+    }
+};
 #endif

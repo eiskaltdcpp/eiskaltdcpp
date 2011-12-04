@@ -25,7 +25,7 @@
 #include <cstdio>
 #include <cstdlib>
 
-#include "json/src/jsonrpc.h"
+#include "json/jsonrpc-cpp/jsonrpc.h"
 
 /**
  * \brief Entry point of the program.
@@ -60,7 +60,8 @@ int main(int argc, char** argv)
   /* build JSON-RPC query */
   query["jsonrpc"] = "2.0";
   query["id"] = 1;
-  query["method"] = "print";
+  query["method"] = "share.list";
+  query["params"]["separator"] = " | ";
 
   queryStr = writer.write(query);
   std::cout << "Query is: " << queryStr << std::endl;

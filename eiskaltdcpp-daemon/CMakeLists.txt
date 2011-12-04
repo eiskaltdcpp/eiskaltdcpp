@@ -1,7 +1,7 @@
 project(${PROJECT_NAME_GLOBAL}-daemon)
 cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
-include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/common ${PROJECT_SOURCE_DIR}/gnu ${PROJECT_SOURCE_DIR}/.. ${PROJECT_SOURCE_DIR}/../json/include)
+include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/..)
 aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
 
 if (JSONRPC_DAEMON AND XMLRPC_DAEMON)
@@ -11,7 +11,8 @@ endif (JSONRPC_DAEMON AND XMLRPC_DAEMON)
 
 if (JSONRPC_DAEMON)
     message (STATUS "Build daemon with JSONRPC interface")
-    set(JSONRPCLIBS jsonrpcpp)
+    include_directories(${PROJECT_SOURCE_DIR}/../json/jsoncpp/include/)
+    set(JSONRPCLIBS jsonrpc-cpp)
     add_definitions (-DJSONRPC_DAEMON)
     add_executable (jsonclient MACOSX_BUNDLE WIN32
                     client.cpp

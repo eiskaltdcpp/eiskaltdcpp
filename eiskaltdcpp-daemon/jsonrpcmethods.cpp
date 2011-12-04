@@ -35,9 +35,9 @@ bool JsonRpcMethods::MagnetAdd(const Json::Value& root, Json::Value& response)
     response["id"] = root["id"];
     std::string name,tth;int64_t size;
 
-    bool ok = splitMagnet(root["magnet"].asString(), name, size, tth);
+    bool ok = splitMagnet(root["params"]["magnet"].asString(), name, size, tth);
     if (isVerbose) std::cout << "splitMagnet: \n tth: " << tth << "\n size: " << size << "\n name: " << name << std::endl;
-    if (ok && ServerThread::getInstance()->addInQueue(root["directory"].asString(), name, size, tth))
+    if (ok && ServerThread::getInstance()->addInQueue(root["params"]["directory"].asString(), name, size, tth))
         response["result"] = 0;
     else
         response["result"] = 1;
@@ -50,7 +50,7 @@ bool JsonRpcMethods::HubAdd(const Json::Value& root, Json::Value& response)
     if (isVerbose) std::cout << "HubAdd (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    ServerThread::getInstance()->connectClient(root["huburl"].asString(), root["enc"].asString());
+    ServerThread::getInstance()->connectClient(root["params"]["huburl"].asString(), root["params"]["enc"].asString());
     response["result"] = "Connecting to " + root["huburl"].asString();
     if (isVerbose) std::cout << "HubAdd (response): " << response << std::endl;
     return true;
@@ -60,7 +60,7 @@ bool JsonRpcMethods::HubDel(const Json::Value& root, Json::Value& response)
     if (isVerbose) std::cout << "HubDel (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    ServerThread::getInstance()->disconnectClient(root["huburl"].asString());
+    ServerThread::getInstance()->disconnectClient(root["params"]["huburl"].asString());
     response["result"] = 0;
     if (isVerbose) std::cout << "HubDel (response): " << response << std::endl;
     return true;
@@ -71,8 +71,8 @@ bool JsonRpcMethods::HubSay(const Json::Value& root, Json::Value& response)
     if (isVerbose) std::cout << "HubSay (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    if (ServerThread::getInstance()->findHubInConnectedClients(root["huburl"].asString())) {
-        ServerThread::getInstance()->sendMessage(root["huburl"].asString(),root["message"].asString());
+    if (ServerThread::getInstance()->findHubInConnectedClients(root["params"]["huburl"].asString())) {
+        ServerThread::getInstance()->sendMessage(root["params"]["huburl"].asString(),root["params"]["message"].asString());
         response["result"] = 0;
     } else
         response["result"] = 1;
@@ -85,7 +85,7 @@ bool JsonRpcMethods::HubSayPM(const Json::Value& root, Json::Value& response)
     if (isVerbose) std::cout << "HubSayPM (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    string tmp = ServerThread::getInstance()->sendPrivateMessage(root["huburl"].asString(), root["nick"].asString(), root["message"].asString());
+    string tmp = ServerThread::getInstance()->sendPrivateMessage(root["params"]["huburl"].asString(), root["params"]["nick"].asString(), root["params"]["message"].asString());
     response["result"] = tmp;
     if (isVerbose) std::cout << "HubSayPM (response): " << response << std::endl;
     return true;
@@ -97,7 +97,7 @@ bool JsonRpcMethods::ListHubs(const Json::Value& root, Json::Value& response)
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     string listhubs;
-    ServerThread::getInstance()->listConnectedClients(listhubs, root["separator"].asString());
+    ServerThread::getInstance()->listConnectedClients(listhubs, root["params"]["separator"].asString());
     response["result"] = listhubs;
     if (isVerbose) std::cout << "ListHubs (response): " << response << std::endl;
     return true;
@@ -109,7 +109,7 @@ bool JsonRpcMethods::AddDirInShare(const Json::Value& root, Json::Value& respons
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     try {
-        if (ServerThread::getInstance()->addDirInShare(root["directory"].asString(), root["virtname"].asString()))
+        if (ServerThread::getInstance()->addDirInShare(root["params"]["directory"].asString(), root["params"]["virtname"].asString()))
             response["result"] = 0;
         else
             response["result"] = 1;
@@ -126,7 +126,7 @@ bool JsonRpcMethods::RenameDirInShare(const Json::Value& root, Json::Value& resp
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     try {
-        if (ServerThread::getInstance()->renameDirInShare(root["directory"].asString(), root["virtname"].asString()))
+        if (ServerThread::getInstance()->renameDirInShare(root["params"]["directory"].asString(), root["params"]["virtname"].asString()))
             response["result"] = 0;
         else
             response["result"] = 1;
@@ -142,7 +142,7 @@ bool JsonRpcMethods::DelDirFromShare(const Json::Value& root, Json::Value& respo
     if (isVerbose) std::cout << "DelDirFromShare (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    if (ServerThread::getInstance()->delDirFromShare(root["directory"].asString()))
+    if (ServerThread::getInstance()->delDirFromShare(root["params"]["directory"].asString()))
         response["result"] = 0;
     else
         response["result"] = 1;
@@ -156,7 +156,7 @@ bool JsonRpcMethods::ListShare(const Json::Value& root, Json::Value& response)
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     string listshare;
-    ServerThread::getInstance()->listShare(listshare, root["separator"].asString());
+    ServerThread::getInstance()->listShare(listshare, root["params"]["separator"].asString());
     response["result"] = listshare;
     if (isVerbose) std::cout << "ListShare (response): " << response << std::endl;
     return true;
@@ -180,7 +180,7 @@ bool JsonRpcMethods::GetFileList(const Json::Value& root, Json::Value& response)
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     string tmp;
-    tmp = ServerThread::getInstance()->getFileList_client(root["huburl"].asString(), root["nick"].asString(), false);
+    tmp = ServerThread::getInstance()->getFileList_client(root["params"]["huburl"].asString(), root["params"]["nick"].asString(), false);
     response["result"] = tmp;
     if (isVerbose) std::cout << "GetFileList (response): " << response << std::endl;
     return true;
@@ -192,7 +192,7 @@ bool JsonRpcMethods::GetChatPub(const Json::Value& root, Json::Value& response)
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     string retchat;
-    ServerThread::getInstance()->getChatPubFromClient(retchat, root["huburl"].asString(), root["separator"].asString());
+    ServerThread::getInstance()->getChatPubFromClient(retchat, root["params"]["huburl"].asString(), root["params"]["separator"].asString());
     response["result"] = retchat;
     if (isVerbose) std::cout << "GetChatPub (response): " << response << std::endl;
     return true;
@@ -203,7 +203,7 @@ bool JsonRpcMethods::SendSearch(const Json::Value& root, Json::Value& response)
     if (isVerbose) std::cout << "SendSearch (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    if (ServerThread::getInstance()->sendSearchonHubs(root["searchstring"].asString(), root["searchtype"].asInt(), root["sizemode"].asInt(), root["sizetype"].asInt(), root["sizetype"].asDouble(), root["huburls"].asString()))
+    if (ServerThread::getInstance()->sendSearchonHubs(root["params"]["searchstring"].asString(), root["params"]["searchtype"].asInt(), root["params"]["sizemode"].asInt(), root["params"]["sizetype"].asInt(), root["params"]["sizetype"].asDouble(), root["params"]["huburls"].asString()))
         response["result"] = 0;
     else
         response["result"] = 1;
@@ -218,7 +218,7 @@ bool JsonRpcMethods::ReturnSearchResults(const Json::Value& root, Json::Value& r
     response["id"] = root["id"];
     vector<StringMap> tmp;
     Json::Value parameters;
-    ServerThread::getInstance()->returnSearchResults(tmp, root["huburl"].asString());
+    ServerThread::getInstance()->returnSearchResults(tmp, root["params"]["huburl"].asString());
     vector<StringMap>::iterator i = tmp.begin();int k = 0;
     while (i != tmp.end()) {
             Json::Value param;
@@ -273,25 +273,14 @@ bool JsonRpcMethods::ShowRatio(const Json::Value& root, Json::Value& response)
     return true;
 }
 
-Json::Value JsonRpcMethods::GetDescription()
-{
-  Json::FastWriter writer;
-  Json::Value root;
-  Json::Value parameters;
-  Json::Value param1;
-
-  root["description"] = "Print";
-
-  /* type of parameter named arg1 */
-  param1["type"] = "integer";
-  param1["description"] = "argument 1";
-
-  /* push it into the parameters list */
-  parameters["arg1"] = param1;
-  root["parameters"] = parameters;
-
-  /* no value returned */
-  root["returns"] = Json::Value::null;
-
-  return root;
+bool JsonRpcMethods::SetPriorityQueueItem(const Json::Value& root, Json::Value& response) {
+    if (isVerbose) std::cout << "SetPriorityQueueItem (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    if (ServerThread::getInstance()->setPriorityQueueItem(root["params"]["target"].asString(), root["params"]["priority"].asInt()))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
+    if (isVerbose) std::cout << "SetPriorityQueueItem (response): " << response << std::endl;
+    return true;
 }

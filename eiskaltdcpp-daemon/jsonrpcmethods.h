@@ -6,12 +6,6 @@
 class JsonRpcMethods
 {
   public:
-    /**
-     * \brief Reply with success.
-     * \param root JSON-RPC request
-     * \param response JSON-RPC response
-     * \return true if correctly processed, false otherwise
-     //*/
     bool Print(const Json::Value& root, Json::Value& response);
 
     bool StopDaemon(const Json::Value& root, Json::Value& response);
@@ -32,12 +26,8 @@ class JsonRpcMethods
     bool ReturnSearchResults(const Json::Value& root, Json::Value& response);
     bool ShowVersion(const Json::Value& root, Json::Value& response);
     bool ShowRatio(const Json::Value& root, Json::Value& response);
+    bool SetPriorityQueueItem(const Json::Value& root, Json::Value& response);
 
-    /**
-     * \brief Get the description in JSON format.
-     * \return JSON description
-     */
-    Json::Value GetDescription();
 };
 
 #endif /* JSON_RPC_METHODS_H */

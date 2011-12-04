@@ -37,7 +37,7 @@
 #endif
 
 #ifdef JSONRPC_DAEMON
-#include "json/src/jsonrpc.h"
+#include "json/jsonrpc-cpp/jsonrpc.h"
 #include "jsonrpcmethods.h"
 #endif
 
@@ -109,6 +109,7 @@ int ServerThread::run()
     xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
     xmlrpc_c::methodPtr const showVersionMethodP(new showVersionMethod);
     xmlrpc_c::methodPtr const showRatioMethodP(new showRatioMethod);
+    xmlrpc_c::methodPtr const setPriorityQueueItemMethodP(new setPriorityQueueItemMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
     xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
@@ -127,6 +128,7 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("search.getresults", returnSearchResultsMethodP);
     xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
     xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
+    xmlrpcRegistry.addMethod("queue.setpriority", setPriorityQueueItemMethodP);
     sock.create();
     sock.setSocketOpt(SO_REUSEADDR, 1);
     sock.bind(lport, lip);
@@ -174,6 +176,7 @@ int ServerThread::run()
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ReturnSearchResults, std::string("search.getresults")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowVersion, std::string("show.version")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowRatio, std::string("show.ratio")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SetPriorityQueueItem, std::string("queue.setpriority")));
     if(!jsonserver->Bind())
         std::cout << "JSONRPC: Bind failed" << std::endl;
     if(!jsonserver->Listen())
@@ -688,10 +691,6 @@ void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const str
     }
 }
 
-void ServerThread::addStringinSearchList(const string& s) {
-    retlistsearchs.push_back(s);
-}
-
 void ServerThread::listShare(string& listshare, const string& sseparator) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
     for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
@@ -742,3 +741,40 @@ bool ServerThread::addInQueue(const string& sddir, const string& name, const int
     else
         QueueManager::getInstance()->add(name, size, TTHValue(tth));
 }
+
+bool ServerThread::setPriorityQueueItem(const string& target, const uint& priority) {
+
+    if (!target.empty()) {
+        QueueItem::Priority p;
+        switch (p) {
+            case 0: p = QueueItem::PAUSED; break;
+            case 1: p = QueueItem::LOWEST; break;
+            case 2: p = QueueItem::LOW; break;
+            case 3: p = QueueItem::NORMAL; break;
+            case 4: p = QueueItem::HIGH; break;
+            case 5: p = QueueItem::HIGHEST; break;
+            default: break;
+        }
+
+        if (target[target.length() - 1] == PATH_SEPARATOR)
+        {
+            string *file;
+            const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+
+            for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it)
+            {
+                file = it->first;
+                if (file->length() >= target.length() && file->substr(0, target.length()) == target)
+                    QueueManager::getInstance()->setPriority(*file, p);
+            }
+            QueueManager::getInstance()->unlockQueue();
+            return true;
+        } else {
+            QueueManager::getInstance()->setPriority(target, p);
+            return true;
+        }
+    }
+    return false;
+}
+
+
