@@ -1,24 +1,25 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
+# Translators:
 # Translators:
 # Attila Mándy <husumo@gmail.com>, 2010, 2011.
 # Automatically generated, 2010.
+# Márk Lutring <marcus@elitemail.hu>, 2011.
 # sumo <husumo@elitemail.hu>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-11-28 23:03+0200\n"
-"PO-Revision-Date: 2011-11-28 18:13+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/"
-"team/hu/)\n"
-"Language: hu\n"
+"PO-Revision-Date: 2011-12-01 19:51+0000\n"
+"Last-Translator: Marcus <marcus@elitemail.hu>\n"
+"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/hub.cc:1054 ../src/hub.cc:1133 ../src/privatemessage.cc:562
@@ -194,11 +195,11 @@ msgstr ": a használható parancsokat a /help használatával érheted el"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Segítség</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Segítség</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -549,7 +550,7 @@ msgstr "A fájl hozzáadása a letöltési sorhoz"
 
 #: ../ui/uploadqueue.ui:60
 msgid "Add to Favorite Users"
-msgstr ""
+msgstr "Hub hozzáadása a kedvencekhez"
 
 #: ../ui/publichubs.ui:418
 msgid "Add to favorites"
@@ -650,8 +651,7 @@ msgstr ""
 #: ../src/favoritehubs.cc:433
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
-"Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
+msgstr "Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
 
 #: ../src/favoriteusers.cc:438
 msgid "Are you sure you want to delete favorite user(s)?"
@@ -908,11 +908,11 @@ msgstr "PM bezárása"
 
 #: ../ui/mainwindow.ui:1486
 msgid "Close all PM"
-msgstr ""
+msgstr "PM bezárása"
 
 #: ../ui/mainwindow.ui:1477
 msgid "Close all hubs"
-msgstr ""
+msgstr "Lap bezárása"
 
 #: ../ui/mainwindow.ui:1495
 msgid "Close all search"
@@ -924,7 +924,7 @@ msgstr "Chat bezárása"
 
 #: ../ui/mainwindow.ui:1504
 msgid "Close offline PM"
-msgstr ""
+msgstr "PM bezárása"
 
 #: ../src/bookentry.cc:77 ../src/bookentry.cc:82
 msgid "Close tab"
@@ -1144,7 +1144,7 @@ msgstr "Ne töltse le azokat a fájlokat, amik már a Letöltési sorban vannak"
 
 #: ../ui/search.ui:585
 msgid "Don't hide side panel on search"
-msgstr ""
+msgstr "Ne rejtse el az oldal panelt keresésnél"
 
 #: ../src/settingsdialog.cc:975
 msgid "Don't remove the source when auto-dropping, only disconnect"
@@ -1592,7 +1592,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2292
 msgid "Free "
-msgstr ""
+msgstr "Szabad "
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
@@ -1620,7 +1620,7 @@ msgstr ""
 
 #: ../ui/uploadqueue.ui:51
 msgid "Grant Slot"
-msgstr ""
+msgstr "Extra slot biztosítása"
 
 #: ../src/hub.cc:2020 ../src/privatemessage.cc:1024 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
@@ -1865,7 +1865,7 @@ msgstr "A_lacsony"
 
 #: ../ui/mainwindow.ui:1563
 msgid "Left position"
-msgstr ""
+msgstr "Baloldalt"
 
 #: ../ui/settingsdialog.ui:2360
 msgid "Limits"
@@ -2178,7 +2178,8 @@ msgstr "Nincsenek találatok"
 
 #: ../ui/settingsdialog.ui:2760
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr "Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
+msgstr ""
+"Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
 
 #: ../src/sharebrowser.cc:844
 msgid "No search text entered"
@@ -2222,7 +2223,8 @@ msgstr ""
 "megosztásra!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 "Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
 
@@ -2310,7 +2312,7 @@ msgstr "PM előzmény"
 
 #: ../ui/mainwindow.ui:1533
 msgid "Panels"
-msgstr ""
+msgstr "Panelek"
 
 #: ../src/downloadqueue.cc:1355
 msgid "Passive user"
@@ -2470,7 +2472,7 @@ msgstr "Újracsatlakozás"
 
 #: ../ui/mainwindow.ui:1513
 msgid "Reconnect all hubs"
-msgstr ""
+msgstr "Kapcsolódás a hubhoz"
 
 #: ../ui/mainwindow.ui:2183
 msgid "Reconnect to the hub"
@@ -2488,12 +2490,13 @@ msgstr "Fájl-lista frissítése"
 #: ../src/settingsdialog.cc:1509
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr ""
-"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása "
-"a rendszerben"
+"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása"
+" a rendszerben"
 
 #: ../src/settingsdialog.cc:1510
 msgid "Register with the OS to handle magnet: URL links"
-msgstr "A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
+msgstr ""
+"A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
 
 #: ../ui/mainwindow.ui:389
 msgid "Remember choice"
@@ -2518,7 +2521,7 @@ msgstr "Fo_rrás eltávolítása"
 
 #: ../ui/hub.ui:171
 msgid "Remove image"
-msgstr ""
+msgstr "Kép eltávolítása"
 
 #: ../src/hub.cc:2044
 msgid "Remove rules from list"
@@ -2654,7 +2657,7 @@ msgstr "Privát üzenet küldése dupla kattintásra a felhasználói listában"
 
 #: ../ui/uploadqueue.ui:78
 msgid "Send Private Message"
-msgstr ""
+msgstr "Privát üzenet"
 
 #: ../ui/downloadqueue.ui:297 ../ui/search.ui:788
 msgid "Send _private message"
@@ -2695,7 +2698,8 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:972
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új "
 "fájlokhoz"
@@ -2727,7 +2731,7 @@ msgstr "Kedvencek mutatása"
 
 #: ../ui/mainwindow.ui:1396
 msgid "Show free space bar"
-msgstr ""
+msgstr "Szabadhely sáv megjelenítése"
 
 #: ../src/hub.cc:2021 ../src/privatemessage.cc:1028
 #: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
@@ -2782,7 +2786,7 @@ msgstr "Verzió mutatása"
 
 #: ../ui/search.ui:292
 msgid "Show/Hide side panel"
-msgstr ""
+msgstr "Kedvencek lista megjelenítése"
 
 #: ../ui/mainwindow.ui:1781
 msgid "Show/Hide transfers panel"
@@ -3020,7 +3024,7 @@ msgstr "Eszköztár"
 
 #: ../ui/mainwindow.ui:1543
 msgid "Tools panel"
-msgstr ""
+msgstr "Eszköztár"
 
 #: ../ui/searchspy.ui:10 ../ui/searchspy.ui:373
 msgid "Top"
@@ -3032,7 +3036,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1553
 msgid "Top position"
-msgstr ""
+msgstr "Alkalmazás"
 
 #: ../ui/searchspy.ui:256
 msgid "Top: >"
@@ -3225,8 +3229,8 @@ msgstr "Fájl-lista betöltése sikertelen: Nem megfelelő fájl-lista név"
 
 #: ../src/mainwindow.cc:2179
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog "
@@ -3272,7 +3276,7 @@ msgstr "Feltöltés"
 
 #: ../src/uploadqueue.cc:36 ../ui/mainwindow.ui:1363
 msgid "Upload Queue"
-msgstr ""
+msgstr "Letöltési sor"
 
 #: ../ui/settingsdialog.ui:2290
 msgid "Upload Slots"
@@ -3459,8 +3463,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3469,8 +3472,7 @@ msgstr ""
 "Használat:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp <Kapcsoló>\n"
-"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC "
-"protokollok használatára.\n"
+"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC protokollok használatára.\n"
 "\n"
 "Kapcsolók:\n"
 "  -h, --help\t\t Help megjelenítése\n"
@@ -3839,7 +3841,7 @@ msgstr "hiba betöltése"
 
 #: ../src/transfers.cc:1106
 msgid "none"
-msgstr ""
+msgstr "nincs"
 
 #: ../src/hub.cc:1976 ../src/privatemessage.cc:971
 msgid "project home: "
@@ -3897,3 +3899,5 @@ msgstr "várakozás..."
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+

@@ -34,8 +34,6 @@ FavoriteHubs::FavoriteHubs(QWidget *parent):
     init();
 
     FavoriteManager::getInstance()->addListener(this);
-    
-    registerThis();
 }
 
 FavoriteHubs::~FavoriteHubs(){

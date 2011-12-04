@@ -19,6 +19,7 @@
 #if !defined(DCPP_ATOMIC_H)
 #define DCPP_ATOMIC_H
 #include "CriticalSection.h"
+#include <boost/version.hpp>
 #include <boost/interprocess/detail/atomic.hpp>
 #include <boost/cstdint.hpp>
 
@@ -55,7 +56,23 @@ public:
                 return operator=(static_cast<value_type>(other));
         }
 
+#if BOOST_VERSION >= 104800
         // type cast
+        operator value_type() const {
+                return boost::interprocess::ipcdetail::atomic_read32(&m_value);
+        }
+
+        // increment
+        void inc() { boost::interprocess::ipcdetail::atomic_inc32(&m_value); }
+
+        // decrement
+        void dec() { boost::interprocess::ipcdetail::atomic_dec32(&m_value); }
+
+private:
+        mutable value_type m_value;
+        void assign(value_type val) { boost::interprocess::ipcdetail::atomic_write32(&m_value, val); }
+#else
+                // type cast
         operator value_type() const {
                 return boost::interprocess::detail::atomic_read32(&m_value);
         }
@@ -69,6 +86,7 @@ public:
 private:
         mutable value_type m_value;
         void assign(value_type val) { boost::interprocess::detail::atomic_write32(&m_value, val); }
+#endif //BOOST_VERSION
 };
 
 // int32_t

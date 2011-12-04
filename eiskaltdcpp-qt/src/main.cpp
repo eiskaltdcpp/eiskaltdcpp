@@ -20,12 +20,12 @@ using namespace std;
 #include "dcpp/QueueManager.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/Thread.h"
+#include "dcpp/Singleton.h"
 
 #ifdef __HAIKU__
 #include "EiskaltApp_haiku.h"
 #endif
 
-#include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 #include "HubManager.h"
@@ -36,6 +36,8 @@ using namespace std;
 #include "FinishedTransfers.h"
 #include "QueuedUsers.h"
 #include "ArenaWidgetManager.h"
+#include "ArenaWidgetFactory.h"
+#include "MainWindow.h"
 
 #ifndef __HAIKU__
 #include "EiskaltApp.h"
@@ -170,10 +172,10 @@ int main(int argc, char *argv[])
     ScriptEngine::newInstance();
     QObject::connect(ScriptEngine::getInstance(), SIGNAL(scriptChanged(QString)), MainWindow::getInstance(), SLOT(slotJSFileChanged(QString)));
 #endif
-
-    FinishedUploads::newInstance();
-    FinishedDownloads::newInstance();
-    QueuedUsers::newInstance();
+    
+    ArenaWidgetFactory().create< dcpp::Singleton, FinishedUploads >();
+    ArenaWidgetFactory().create< dcpp::Singleton, FinishedDownloads >();
+    ArenaWidgetFactory().create< dcpp::Singleton, QueuedUsers >();
     
     MainWindow::getInstance()->autoconnect();
     MainWindow::getInstance()->parseCmdLine();

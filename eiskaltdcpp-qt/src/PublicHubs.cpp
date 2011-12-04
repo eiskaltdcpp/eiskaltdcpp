@@ -75,8 +75,6 @@ PublicHubs::PublicHubs(QWidget *parent) :
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
-    
-    registerThis();
 }
 
 PublicHubs::~PublicHubs(){

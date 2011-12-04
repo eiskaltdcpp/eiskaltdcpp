@@ -15,6 +15,7 @@
 #include "Magnet.h"
 #include "ShareBrowserSearch.h"
 #include "ArenaWidgetManager.h"
+#include "ArenaWidgetFactory.h"
 
 #include "dcpp/SettingsManager.h"
 #include "dcpp/FavoriteManager.h"
@@ -351,8 +352,6 @@ void ShareBrowser::continueInit(){
             treeView_LPANE->scrollTo(jump_index, QAbstractItemView::PositionAtCenter);
         }
     }
-
-    registerThis();
 
     pathHistory.clear();
 }
@@ -856,7 +855,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 
                 if (item->file){//search alternates only for files
                     QString tth = item->data(COLUMN_FILEBROWSER_TTH).toString();
-                    SearchFrame *sf = new SearchFrame();
+                    SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
                     sf->searchAlternates(tth);
 

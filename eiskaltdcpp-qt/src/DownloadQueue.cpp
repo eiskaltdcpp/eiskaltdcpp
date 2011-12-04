@@ -19,6 +19,7 @@
 #include <QDir>
 
 #include "DownloadQueueModel.h"
+#include "ArenaWidgetFactory.h"
 #include "MainWindow.h"
 #include "SearchFrame.h"
 #include "HubFrame.h"
@@ -197,8 +198,6 @@ DownloadQueue::DownloadQueue(QWidget *parent):
     QueueManager::getInstance()->addListener(this);
 
     setUnload(false);
-    
-    registerThis();
 }
 
 DownloadQueue::~DownloadQueue(){
@@ -559,7 +558,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
     switch (act){
         case Menu::Alternates:
         {
-            SearchFrame *sf = new SearchFrame();
+            SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
             foreach (DownloadQueueItem *i, items)
                 sf->searchAlternates(i->data(COLUMN_DOWNLOADQUEUE_TTH).toString());

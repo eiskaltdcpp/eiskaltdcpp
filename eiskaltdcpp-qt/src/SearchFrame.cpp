@@ -31,6 +31,7 @@
 #include "WulforUtil.h"
 #include "Magnet.h"
 #include "ArenaWidgetManager.h"
+#include "ArenaWidgetFactory.h"
 
 #include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
@@ -364,8 +365,6 @@ SearchFrame::SearchFrame(QWidget *parent):
         str_model->setData(str_model->index(i, 0), Qt::Checked, Qt::CheckStateRole);
 
     SearchManager::getInstance()->addListener(this);
-    
-    registerThis();
 }
 
 SearchFrame::~SearchFrame(){
@@ -1216,7 +1215,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only one file
-                    SearchFrame *sf = new SearchFrame();
+                    SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
                     sf->searchAlternates(item->data(COLUMN_SF_TTH).toString());
 

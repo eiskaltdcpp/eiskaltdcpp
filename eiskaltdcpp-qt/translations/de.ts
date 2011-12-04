@@ -4281,12 +4281,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="29"/>
         <source>&gt;&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&gt;&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="45"/>
         <source>&lt;&lt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
@@ -6798,17 +6798,17 @@ the granted slot will not be closed.</source>
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="96"/>
         <source>←</source>
-        <translation type="unfinished"/>
+        <translation>←</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="103"/>
         <source>→</source>
-        <translation type="unfinished"/>
+        <translation>→</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="110"/>
         <source>↑</source>
-        <translation type="unfinished"/>
+        <translation>↑</translation>
     </message>
 </context>
 <context>
