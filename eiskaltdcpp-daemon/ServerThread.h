@@ -59,7 +59,7 @@ public:
     bool renameDirInShare(const string& sdirectory, const string& svirtname);
     bool addDirInShare(const string& sdirectory, const string& svirtname);
     bool addInQueue(const string& sddir, const string& name, const int64_t& size, const string& tth);
-    bool setPriorityQueueItem(const string& target, const uint& priority);
+    bool setPriorityQueueItem(const string& target, const unsigned int& priority);
 
 private:
 

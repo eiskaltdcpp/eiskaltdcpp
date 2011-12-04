@@ -742,7 +742,7 @@ bool ServerThread::addInQueue(const string& sddir, const string& name, const int
         QueueManager::getInstance()->add(name, size, TTHValue(tth));
 }
 
-bool ServerThread::setPriorityQueueItem(const string& target, const uint& priority) {
+bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int& priority) {
 
     if (!target.empty()) {
         QueueItem::Priority p;
