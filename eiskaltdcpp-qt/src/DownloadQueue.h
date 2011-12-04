@@ -17,7 +17,6 @@
 #include <QAction>
 #include <QMap>
 #include <QMetaType>
-#include <QShortcut>
 
 #include <dcpp/stdinc.h>
 
@@ -32,6 +31,7 @@
 class DownloadQueueModel;
 class DownloadQueueItem;
 class DownloadQueueDelegate;
+class DownloadQueuePrivate;
 
 class DownloadQueue :
         public QWidget,
@@ -149,17 +149,10 @@ private:
     void getItems(const QModelIndexList &list, QList<DownloadQueueItem*> &items);
 
     QString getCID(const VarMap&);
-
-    QShortcut *deleteShortcut;
-
-    DownloadQueueModel *queue_model;
-    DownloadQueueModel *file_model;
-    DownloadQueueDelegate *delegate;
-
-    Menu *menu;
-
-    SourceMap sources;
-    SourceMap badSources;
+    
+    Q_DECLARE_PRIVATE(DownloadQueue);
+    
+    DownloadQueuePrivate *d_ptr;
 };
 
 Q_DECLARE_METATYPE(DownloadQueue*)

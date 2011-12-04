@@ -17,6 +17,7 @@
 #include <QClipboard>
 #include <QHeaderView>
 #include <QDir>
+#include <QShortcut>
 
 #include "DownloadQueueModel.h"
 #include "ArenaWidgetFactory.h"
@@ -38,6 +39,23 @@
 #endif
 
 using namespace dcpp;
+
+class DownloadQueuePrivate {
+    typedef QMap<QString, QVariant> VarMap;
+    typedef QMap<QString, QMap<QString, QString> > SourceMap;
+    
+public:
+    QShortcut *deleteShortcut;
+
+    DownloadQueueModel *queue_model;
+    DownloadQueueModel *file_model;
+    DownloadQueueDelegate *delegate;
+
+    DownloadQueue::Menu *menu;
+
+    SourceMap sources;
+    SourceMap badSources;
+};
 
 DownloadQueue::Menu::Menu(){
     menu = new QMenu();
@@ -189,7 +207,7 @@ QVariant DownloadQueue::Menu::getArg(){
 }
 
 DownloadQueue::DownloadQueue(QWidget *parent):
-        QWidget(parent)
+        QWidget(parent), d_ptr(new DownloadQueuePrivate())
 {
     setupUi(this);
 
@@ -202,8 +220,10 @@ DownloadQueue::DownloadQueue(QWidget *parent):
 
 DownloadQueue::~DownloadQueue(){
     QueueManager::getInstance()->removeListener(this);
+    Q_D(DownloadQueue);
 
-    delete menu;
+    delete d->menu;
+    delete d_ptr;
 }
 
 void DownloadQueue::closeEvent(QCloseEvent *e){
@@ -252,12 +272,14 @@ void DownloadQueue::requestDelete(){
 }
 
 void DownloadQueue::init(){
-    queue_model = new DownloadQueueModel(this);
+    Q_D(DownloadQueue);
+    
+    d->queue_model = new DownloadQueueModel(this);
 
-    delegate = new DownloadQueueDelegate(queue_model);
+    d->delegate = new DownloadQueueDelegate(d->queue_model);
 
-    treeView_TARGET->setItemDelegate(delegate);
-    treeView_TARGET->setModel(queue_model);
+    treeView_TARGET->setItemDelegate(d->delegate);
+    treeView_TARGET->setModel(d->queue_model);
     treeView_TARGET->setItemsExpandable(true);
     treeView_TARGET->setRootIsDecorated(true);
     treeView_TARGET->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -265,8 +287,8 @@ void DownloadQueue::init(){
 
     label_STATS->hide();
 
-    deleteShortcut = new QShortcut(QKeySequence(Qt::Key_Delete), this);
-    deleteShortcut->setContext(Qt::WidgetWithChildrenShortcut);
+    d->deleteShortcut = new QShortcut(QKeySequence(Qt::Key_Delete), this);
+    d->deleteShortcut->setContext(Qt::WidgetWithChildrenShortcut);
 
     connect(this, SIGNAL(coreAdded(VarMap)),            this, SLOT(addFile(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreRemoved(VarMap)),          this, SLOT(remFile(VarMap)), Qt::QueuedConnection);
@@ -275,16 +297,16 @@ void DownloadQueue::init(){
     connect(this, SIGNAL(coreMoved(VarMap)),            this, SLOT(remFile(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreMoved(VarMap)),            this, SLOT(addFile(VarMap)), Qt::QueuedConnection);
 
-    connect(deleteShortcut, SIGNAL(activated()), this, SLOT(requestDelete()));
+    connect(d->deleteShortcut, SIGNAL(activated()), this, SLOT(requestDelete()));
     connect(treeView_TARGET, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_TARGET->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
-    connect(queue_model, SIGNAL(needExpand(QModelIndex)), treeView_TARGET, SLOT(expand(QModelIndex)));
-    connect(queue_model, SIGNAL(rowRemoved(QModelIndex)), this, SLOT(slotCollapseRow(QModelIndex)));
-    connect(queue_model, SIGNAL(updateStats(quint64,quint64)), this, SLOT(slotUpdateStats(quint64,quint64)));
+    connect(d->queue_model, SIGNAL(needExpand(QModelIndex)), treeView_TARGET, SLOT(expand(QModelIndex)));
+    connect(d->queue_model, SIGNAL(rowRemoved(QModelIndex)), this, SLOT(slotCollapseRow(QModelIndex)));
+    connect(d->queue_model, SIGNAL(updateStats(quint64,quint64)), this, SLOT(slotUpdateStats(quint64,quint64)));
     connect(pushButton_EXPAND,      SIGNAL(clicked()), treeView_TARGET, SLOT(expandAll()));
     connect(pushButton_COLLAPSE,    SIGNAL(clicked()), treeView_TARGET, SLOT(collapseAll()));
 
-    menu = new Menu();
+    d->menu = new Menu();
 
     setAttribute(Qt::WA_DeleteOnClose);
 
@@ -345,8 +367,10 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
         params["USERS"] = user_list.join(", ");
     else
         params["USERS"] = tr("No users...");
+    
+    Q_D(DownloadQueue);
 
-    sources[_q(item->getTarget())] = source;
+    d->sources[_q(item->getTarget())] = source;
 
     if (item->isWaiting())
         params["STATUS"] = tr("%1 of %2 user(s) online").arg(online).arg(item->getSources().size());
@@ -396,7 +420,7 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
     if (params["ERRORS"].toString().isEmpty())
         params["ERRORS"] = tr("No errors");
 
-    badSources[_q(item->getTarget())] = source;
+    d->badSources[_q(item->getTarget())] = source;
 
     params["ADDED"] = _q(Util::formatTime("%Y-%m-%d %H:%M", item->getAdded()));
     params["TTH"] = _q(item->getTTH().toBase32());
@@ -404,10 +428,12 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
 }
 
 QStringList DownloadQueue::getSources(){
-    SourceMap::iterator s_it = sources.begin();
+    Q_D(DownloadQueue);
+    
+    SourceMap::iterator s_it = d->sources.begin();
     QStringList ret;
 
-    for (; s_it != sources.end(); ++s_it){
+    for (; s_it != d->sources.end(); ++s_it){
         QString target = s_it.key();
         QString users;
         QMap<QString, QString>::iterator it = s_it.value().begin();
@@ -433,8 +459,9 @@ void DownloadQueue::removeTarget(const QString &target){
 
 void DownloadQueue::removeSource(const QString &cid, const QString &target){
     QueueManager *QM = QueueManager::getInstance();
+    Q_D(DownloadQueue);
 
-    if (sources.contains(target) && !cid.isEmpty()){
+    if (d->sources.contains(target) && !cid.isEmpty()){
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
         if (user){
@@ -459,29 +486,37 @@ void DownloadQueue::loadList(){
 
     QueueManager::getInstance()->unlockQueue();
     
-    queue_model->sort();
+    Q_D(DownloadQueue);
+    
+    d->queue_model->sort();
 }
 
 void DownloadQueue::addFile(const DownloadQueue::VarMap &map){
-    queue_model->addItem(map);
+    Q_D(DownloadQueue);
+    
+    d->queue_model->addItem(map);
 }
 
 void DownloadQueue::remFile(const VarMap &map){
-    if (queue_model->remItem(map)){
-        SourceMap::iterator it = sources.find(map["TARGET"].toString());
+    Q_D(DownloadQueue);
+    
+    if (d->queue_model->remItem(map)){
+        SourceMap::iterator it = d->sources.find(map["TARGET"].toString());
 
-        if (it != sources.end())
-            sources.erase(it);
+        if (it != d->sources.end())
+            d->sources.erase(it);
 
-        it = badSources.find(map["TARGET"].toString());
+        it = d->badSources.find(map["TARGET"].toString());
 
-        if (it != badSources.end())
-            badSources.erase(it);
+        if (it != d->badSources.end())
+            d->badSources.erase(it);
     }
 }
 
 void DownloadQueue::updateFile(const DownloadQueue::VarMap &map){
-    queue_model->updItem(map);
+    Q_D(DownloadQueue);
+    
+    d->queue_model->updItem(map);
 }
 
 QString DownloadQueue::getCID(const VarMap &map){
@@ -490,7 +525,7 @@ QString DownloadQueue::getCID(const VarMap &map){
 
     VarMap::const_iterator it = map.constBegin();
 
-    return ((++it).value()).toString();
+    return (it.value()).toString();
 }
 
 void DownloadQueue::getChilds(DownloadQueueItem *i, QList<DownloadQueueItem *> &list){
@@ -541,10 +576,12 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
     if (target.isEmpty())
         return;
+    
+    Q_D(DownloadQueue);
 
-    Menu::Action act = menu->exec(sources, target, items.size() > 1);
+    Menu::Action act = d->menu->exec(d->sources, target, items.size() > 1);
     QueueManager *QM = QueueManager::getInstance();
-    QVariant arg = menu->getArg();
+    QVariant arg = d->menu->getArg();
     VarMap rmap;
 
     /** Now re-read selected indexes and remove broken items */
@@ -652,7 +689,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             rmap = arg.toMap();
             QString cid = getCID(rmap);
 
-            if (sources.contains(target) && !cid.isEmpty()){
+            if (d->sources.contains(target) && !cid.isEmpty()){
                 UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
                 if (user){
@@ -693,7 +730,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             rmap = arg.toMap();
             QString cid = getCID(rmap);
 
-            if (sources.contains(target) && !cid.isEmpty()){
+            if (d->sources.contains(target) && !cid.isEmpty()){
                 UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
                 if (user){
@@ -711,7 +748,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             rmap = arg.toMap();
             QString cid = getCID(rmap);
 
-            if (sources.contains(target) && !cid.isEmpty()){
+            if (d->sources.contains(target) && !cid.isEmpty()){
                 UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
                 if (user){

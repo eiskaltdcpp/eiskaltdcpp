@@ -46,32 +46,62 @@ static inline void printRoot(DownloadQueueItem *i, const QString &dlmtr){
 }
 #endif
 
+class DownloadQueueModelPrivate{
+public:
+    /** */
+    quint64 total_files;
+    /** */
+    quint64 total_size;
+    /** */
+    int sortColumn;
+    /** */
+    Qt::SortOrder sortOrder;
+    /** */
+    DownloadQueueItem *rootItem;
+    /** */
+    bool iconsScaled;
+    /** */
+    QSize iconsSize;
+};
+
 DownloadQueueModel::DownloadQueueModel(QObject *parent)
-    : QAbstractItemModel(parent), iconsScaled(false), total_files(0), total_size(0)
+    : QAbstractItemModel(parent), d_ptr(new DownloadQueueModelPrivate())
 {
+    Q_D(DownloadQueueModel);
+    
+    d->iconsScaled = false; 
+    d->total_files = 0;
+    d->total_size  = 0;
+    
     QList<QVariant> rootData;
     rootData << tr("Name") << tr("Status") << tr("Size") << tr("Downloaded")
              << tr("Priority") << tr("User") << tr("Path") << tr("Exact size")
              << tr("Errors") << tr("Added") << tr("TTH");
 
-    rootItem = new DownloadQueueItem(rootData, NULL);
+    d->rootItem = new DownloadQueueItem(rootData, NULL);
 
-    sortColumn = COLUMN_DOWNLOADQUEUE_NAME;
-    sortOrder = Qt::DescendingOrder;
+    d->sortColumn = COLUMN_DOWNLOADQUEUE_NAME;
+    d->sortOrder = Qt::DescendingOrder;
 }
 
 DownloadQueueModel::~DownloadQueueModel()
 {
-    if (rootItem)
-        delete rootItem;
+    Q_D(DownloadQueueModel);
+    
+    if (d->rootItem)
+        delete d->rootItem;
+    
+    delete d;
 }
 
 int DownloadQueueModel::columnCount(const QModelIndex &parent) const
 {
+    Q_D(const static DownloadQueueModel);
+    
     if (parent.isValid())
         return static_cast<DownloadQueueItem*>(parent.internalPointer())->columnCount();
     else
-        return rootItem->columnCount();
+        return d->rootItem->columnCount();
 }
 
 QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
@@ -242,16 +272,17 @@ QVariant DownloadQueueModel::headerData(int section, Qt::Orientation orientation
     return QVariant();
 }
 
-QModelIndex DownloadQueueModel::index(int row, int column, const QModelIndex &parent)
-            const
+QModelIndex DownloadQueueModel::index(int row, int column, const QModelIndex &parent) const
 {
+    Q_D(const static DownloadQueueModel);
+    
     if (!hasIndex(row, column, parent))
         return QModelIndex();
 
     DownloadQueueItem *parentItem;
 
     if (!parent.isValid())
-        parentItem = rootItem;
+        parentItem = d->rootItem;
     else
         parentItem = static_cast<DownloadQueueItem*>(parent.internalPointer());
 
@@ -264,13 +295,15 @@ QModelIndex DownloadQueueModel::index(int row, int column, const QModelIndex &pa
 
 QModelIndex DownloadQueueModel::parent(const QModelIndex &index) const
 {
+    Q_D(const static DownloadQueueModel);
+    
     if (!index.isValid())
         return QModelIndex();
 
     DownloadQueueItem *childItem = static_cast<DownloadQueueItem*>(index.internalPointer());
     DownloadQueueItem *parentItem = childItem->parent();
 
-    if (parentItem == rootItem || !parentItem)
+    if (parentItem == d->rootItem || !parentItem)
         return QModelIndex();
 
     return createIndex(parentItem->row(), 0, parentItem);
@@ -278,12 +311,14 @@ QModelIndex DownloadQueueModel::parent(const QModelIndex &index) const
 
 int DownloadQueueModel::rowCount(const QModelIndex &parent) const
 {
+    Q_D(const static DownloadQueueModel);
     DownloadQueueItem *parentItem;
+    
     if (parent.column() > 0)
         return 0;
 
     if (!parent.isValid())
-        parentItem = rootItem;
+        parentItem = d->rootItem;
     else
         parentItem = static_cast<DownloadQueueItem*>(parent.internalPointer());
 
@@ -307,15 +342,17 @@ static void sortRecursive(int column, Qt::SortOrder order, DownloadQueueItem *i)
 }
 
 void DownloadQueueModel::sort(int column, Qt::SortOrder order) {
-    sortColumn = column;
-    sortOrder = order;
+    Q_D(DownloadQueueModel);
+    
+    d->sortColumn = column;
+    d->sortOrder = order;
 
-    if (!rootItem || rootItem->childItems.empty() || column < 0 || column > columnCount()-1)
+    if (!d->rootItem || d->rootItem->childItems.empty() || column < 0 || column > columnCount()-1)
         return;
 
     emit layoutAboutToBeChanged();
 
-    sortRecursive(column, order, rootItem);
+    sortRecursive(column, order, d->rootItem);
 
     emit layoutChanged();
 }
@@ -345,11 +382,13 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
 
     child = new DownloadQueueItem(childData, droot);
     droot->appendChild(child);
+    
+    Q_D(static DownloadQueueModel);
 
-    total_files++;
-    total_size += childData.at(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
+    d->total_files++;
+    d->total_size += childData.at(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
 
-    emit updateStats(total_files, total_size);
+    emit updateStats(d->total_files, d->total_size);
 
     counter++;
 
@@ -362,7 +401,8 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
 }
 
 void DownloadQueueModel::updItem(const QMap<QString, QVariant> &map){
-    DownloadQueueItem *item = createPath(map["PATH"].toString());;
+    DownloadQueueItem *item = createPath(map["PATH"].toString());
+    Q_D(static DownloadQueueModel);
 
     QString target_name = map["FNAME"].toString();
     DownloadQueueItem *target = findTarget(item, target_name);
@@ -372,7 +412,7 @@ void DownloadQueueModel::updItem(const QMap<QString, QVariant> &map){
 
     item = target;
 
-    total_size -= item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
+    d->total_size -= item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
 
     item->updateColumn(COLUMN_DOWNLOADQUEUE_STATUS, map["STATUS"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_DOWN, (map["DOWN"].toLongLong() > 0? map["DOWN"] : 0));
@@ -382,9 +422,9 @@ void DownloadQueueModel::updItem(const QMap<QString, QVariant> &map){
     item->updateColumn(COLUMN_DOWNLOADQUEUE_USER, map["USERS"]);
     item->updateColumn(COLUMN_DOWNLOADQUEUE_ERR, map["ERRORS"]);
 
-    total_size += item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
+    d->total_size += item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
 
-    emit updateStats(total_files, total_size);
+    emit updateStats(d->total_files, d->total_size);
     emit layoutChanged();
 }
 
@@ -399,9 +439,11 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
 
     if (!target)
         return false;
+    
+    Q_D(static DownloadQueueModel);
 
-    total_size -= target->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
-    total_files--;
+    d->total_size -= target->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
+    d->total_files--;
 
     if (item->childCount() > 1){
         beginRemoveRows(createIndexForItem(item), target->row(), target->row());
@@ -420,7 +462,7 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
         DownloadQueueItem *_t = NULL;
 
         while (true){
-            if ((p == rootItem) || (p->childCount() > 1) || !p->parent())
+            if ((p == d->rootItem) || (p->childCount() > 1) || !p->parent())
                 break;
 
             beginRemoveRows(createIndexForItem(p->parent()), p->row(), p->row());
@@ -440,7 +482,7 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
         }
     }
 
-    emit updateStats(total_files, total_size);
+    emit updateStats(d->total_files, d->total_size);
 
     return true;
 }
@@ -448,54 +490,70 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
 void DownloadQueueModel::setRootElem(DownloadQueueItem *root, bool del_old, bool controlNull){
     if (controlNull && !root)
         return;
+    
+    Q_D(DownloadQueueModel);
 
-    if (del_old && root != rootItem){//prevent deleting own root element
-        delete rootItem;
+    if (del_old && root != d->rootItem){//prevent deleting own root element
+        delete d->rootItem;
 
-        rootItem = NULL;
+        d->rootItem = NULL;
     }
 
-    rootItem = root;
-
-    if (rootItem){
+    if (d->rootItem = root){
         emit layoutChanged();
     }
 }
 
 DownloadQueueItem *DownloadQueueModel::getRootElem() const{
-    return rootItem;
+    Q_D(const DownloadQueueModel);
+    
+    return d->rootItem;
 }
 
 void DownloadQueueModel::setIconsScaled(bool scaled, const QSize &size){
-    iconsScaled = scaled;
-    iconsSize = size;
+    Q_D(DownloadQueueModel);
+    
+    d->iconsScaled = scaled;
+    d->iconsSize = size;
 }
 
 int DownloadQueueModel::getSortColumn() const {
-    return sortColumn;
+    Q_D(const DownloadQueueModel);
+    
+    return d->sortColumn;
 }
 
 void DownloadQueueModel::setSortColumn(int c) {
-    sortColumn = c;
+    Q_D(DownloadQueueModel);
+    
+    d->sortColumn = c;
 }
 
 Qt::SortOrder DownloadQueueModel::getSortOrder() const {
-    return sortOrder;
+    Q_D(const DownloadQueueModel);
+    
+    return d->sortOrder;
 }
 
 void DownloadQueueModel::setSortOrder(Qt::SortOrder o) {
-    sortOrder = o;
+    Q_D(DownloadQueueModel);
+
+    d->sortOrder = o;
 }
 
 QModelIndex DownloadQueueModel::createIndexForItem(DownloadQueueItem *item){
-    if (!rootItem || !item || item == rootItem)
+    Q_D(DownloadQueueModel);
+    
+    if (!d->rootItem || !item || item == d->rootItem)
         return QModelIndex();
 
     return createIndex(item->row(), 0, item);
 }
 
 DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
-    if (!rootItem)
+    Q_D(static DownloadQueueModel);
+    
+    if (!d->rootItem)
         return NULL;
 
     QString _path = path;
@@ -503,7 +561,7 @@ DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
 
     QStringList list = _path.split("/", QString::SkipEmptyParts);
 
-    DownloadQueueItem *root = rootItem;
+    DownloadQueueItem *root = d->rootItem;
 
     bool found = false;
 
@@ -552,9 +610,11 @@ DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
 
 void DownloadQueueModel::clear(){
     blockSignals(true);
+    
+    Q_D(DownloadQueueModel);
 
-    qDeleteAll(rootItem->childItems);
-    rootItem->childItems.clear();
+    qDeleteAll(d->rootItem->childItems);
+    d->rootItem->childItems.clear();
 
     blockSignals(false);
 

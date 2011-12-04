@@ -74,6 +74,8 @@ private:
     DownloadQueueItem *parentItem;
 };
 
+class DownloadQueueModelPrivate;
+
 class DownloadQueueModel: public QAbstractItemModel
 {
     Q_OBJECT
@@ -136,23 +138,13 @@ Q_SIGNALS:
     void needExpand(const QModelIndex &item);
     void updateStats(quint64 files, quint64 size);
 
-private:
-    /** */
-    quint64 total_files;
-    /** */
-    quint64 total_size;
+private:   
     /** */
     DownloadQueueItem *findTarget(const DownloadQueueItem*, const QString&);
-    /** */
-    int sortColumn;
-    /** */
-    Qt::SortOrder sortOrder;
-    /** */
-    DownloadQueueItem *rootItem;
-    /** */
-    bool iconsScaled;
-    /** */
-    QSize iconsSize;
+    
+    Q_DECLARE_PRIVATE(DownloadQueueModel);
+    
+    DownloadQueueModelPrivate *d_ptr;
 };
 
 #endif //DOWNLOADQUEUEMODEL_H
