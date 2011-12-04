@@ -10,14 +10,16 @@ set QT_MINGW32_DIR=%SystemDrive%\Qt\4.7.4
 set MINGW32_DEPENDS_DIR=%SystemDrive%\mingw32-depends
 set ASPELL_DIR=%MINGW32_DEPENDS_DIR%\aspell
 set BOOST_DIR=%MINGW32_DEPENDS_DIR%\boost
-set BOOST_HEADERS_DIR=%BOOST_DIR%\include
 set GETTEXT_DIR=%MINGW32_DEPENDS_DIR%\gettext
-set GETTEXT_HEADERS_DIR=%GETTEXT_DIR%\include
 set LIBBZ2_DIR=%MINGW32_DEPENDS_DIR%\libbz2
 set LIBICONV_DIR=%MINGW32_DEPENDS_DIR%\libiconv
 set LIBIDN_DIR=%MINGW32_DEPENDS_DIR%\libidn
 set LIBZ_DIR=%MINGW32_DEPENDS_DIR%\libz
 set LUA_DIR=%MINGW32_DEPENDS_DIR%\lua
+
+@rem Note: since paths to headers will be used in the GCC flags it must use slash "/" instead backslash "\".
+set BOOST_HEADERS_DIR=C:/mingw32-depends/boost/include
+set GETTEXT_HEADERS_DIR=C:/mingw32-depends/gettext/include
 
 set PATH=%QT_MINGW32_DIR%\bin
 set PATH=%PATH%;%MINGW32_DIR%\bin
