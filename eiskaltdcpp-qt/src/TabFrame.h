@@ -17,14 +17,11 @@
 #include <QShortcut>
 
 #include "ArenaWidget.h"
-#include "ArenaWidgetContainer.h"
 
 class FlowLayout;
 class TabButton;
 
-class TabFrame :
-        public QFrame,
-        public ArenaWidgetContainer
+class TabFrame : public QFrame
 {
 Q_OBJECT
 public:

@@ -42,7 +42,6 @@ list (APPEND SRCS
             src/AntiSpamFrame.cpp
             src/ArenaWidget.cpp
             src/ArenaWidgetManager.cpp
-            src/ArenaWidgetContainer.cpp
             src/CustomFontModel.cpp
             src/DebugHelper.cpp
             src/DownloadQueue.cpp

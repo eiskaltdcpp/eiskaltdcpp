@@ -18,7 +18,6 @@
 #include <QStyleOptionViewItem>
 
 #include "ArenaWidget.h"
-#include "ArenaWidgetContainer.h"
 
 class QEvent;
 
@@ -83,9 +82,7 @@ private:
     ArenaWidget *awgt;
 };
 
-class SideBarModel :
-        public QAbstractItemModel,
-        public ArenaWidgetContainer
+class SideBarModel : public QAbstractItemModel
 {
 Q_OBJECT
 

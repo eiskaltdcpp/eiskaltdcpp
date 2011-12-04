@@ -13,26 +13,16 @@
 #include <QApplication>
 #include <QWidget>
 #include <QMainWindow>
-#include <QDockWidget>
-#include <QLabel>
 #include <QList>
 #include <QMenuBar>
 #include <QMenu>
-#include <QAction>
-#include <QStatusBar>
 #include <QCloseEvent>
 #include <QShowEvent>
 #include <QTabBar>
 #include <QToolBar>
 #include <QHash>
 #include <QSessionManager>
-#include <QShortcut>
-#include <QKeySequence>
-#include <QToolButton>
-#include <QRegExp>
-#include <QTreeView>
-#include <QMetaType>
-#include <QTimer>
+
 
 #include "dcpp/stdinc.h"
 #include "dcpp/ConnectionManager.h"
@@ -49,7 +39,6 @@
 #include "dcpp/version.h"
 
 #include "ArenaWidget.h"
-#include "ArenaWidgetContainer.h"
 #include "HistoryInterface.h"
 #include "LineEdit.h"
 #include "ShortcutManager.h"
@@ -100,6 +89,7 @@ public:
 };
 
 class HashProgress;
+class MainWindowPrivate;
 
 class MainWindow:
         public QMainWindow,
@@ -142,7 +132,7 @@ friend class dcpp::Singleton<MainWindow>;
         void reloadSomeSettings();
 
         /** */
-        void setUnload(bool b){ isUnload = b; }
+        void setUnload(bool b);
 
         ArenaWidget *widgetForRole(ArenaWidget::Role) const;
         
@@ -283,125 +273,12 @@ friend class dcpp::Singleton<MainWindow>;
         void toggleSingletonWidget(ArenaWidget *a);
 
         void updateHashProgressStatus();
-
+        
+        Q_DECLARE_PRIVATE(MainWindow)
+        
         HashProgress *progress_dialog(); // Lazy initialization for _progress_dialog;
-        bool isUnload;
-        bool exitBegin;
 
-        // position and geometry
-        bool showMax;
-        int w;
-        int h;
-        int xPos;
-        int yPos;
-
-        // Widgets
-        QDockWidget *arena;
-        QDockWidget *transfer_dock;
-        QDockWidget *sideDock;
-
-        ToolBar *fBar; //for actions
-        ToolBar *sBar; //for fast search
-
-        LineEdit   *searchLineEdit;
-        QStringList core_msg_history;
-        QLabel *statusLabel;
-        QLabel *statusSPLabel;
-        QLabel *statusDLabel;
-        QLabel *statusTRLabel;
-        QLabel *msgLabel;
-        QProgressBar *progressSpace;
-        QProgressBar *progressHashing;
-        HashProgress *_progress_dialog; // Hashing progress dialog
-
-        QMenu   *menuFile;
-        QAction *fileOpenMagnet;
-        QAction *fileFileListBrowser;
-        QAction *fileFileHasher;
-        QAction *fileFileListBrowserLocal;
-        QAction *fileRefreshShareHashProgress;
-        QAction *fileOpenLogFile;
-        QAction *fileOpenDownloadDirectory;
-        QAction *fileHideWindow;
-        QAction *fileQuit;
-
-        QMenu   *menuHubs;
-        QAction *hubsHubReconnect;
-        QAction *hubsQuickConnect;
-        QAction *hubsFavoriteHubs;
-        QAction *hubsPublicHubs;
-        QAction *hubsFavoriteUsers;
-
-        QMenu   *menuTools;
-        QAction *toolsSearch;
-        QAction *toolsADLS;
-        QAction *toolsTransfers;
-        QAction *toolsDownloadQueue;
-        QAction *toolsQueuedUsers;
-        QAction *toolsFinishedDownloads;
-        QAction *toolsFinishedUploads;
-        QAction *toolsSpy;
-        QAction *toolsAntiSpam;
-        QAction *toolsIPFilter;
-        QAction *menuAwayAction;
-        QAction *toolsHubManager;
-        // submenu
-        QMenu   *menuAway;
-        QActionGroup *awayGroup;
-        QAction *toolsAwayOn;
-        QAction *toolsAwayOff;
-        QAction *toolsAutoAway;
-        // end
-        QAction *toolsHideProgressSpace;
-        QAction *toolsHideLastStatus;
-        QAction *toolsHideUsersStatisctics;
-        QAction *toolsCopyWindowTitle;
-        QAction *toolsOptions;
-#ifdef USE_JS
-        QAction *toolsJS;
-        QAction *toolsJSConsole;
-        ScriptConsole *scriptConsole;
-#endif
-        QAction *toolsSwitchSpeedLimit;
-
-        QMenu   *menuPanels;
-        // submenu
-        QMenu   *sh_menu;
-        // end
-        QAction *panelsWidgets;
-        QAction *panelsTools;
-        QAction *panelsSearch;
-
-        // Standalone shortcuts
-        QAction *prevTabShortCut;
-        QAction *nextTabShortCut;
-        QAction *prevMsgShortCut;
-        QAction *nextMsgShortCut;
-        QAction *closeWidgetShortCut;
-        QAction *toggleMainMenuShortCut;
-
-        QAction *chatDisable;
-        QAction *findInWidget;
-        QAction *chatClear;
-
-        QMenu *menuWidgets;
-        QHash<QAction*, ArenaWidget*> menuWidgetsHash;
-
-        QMenu   *menuAbout;
-        QAction *aboutHomepage;
-        QAction *aboutSource;
-        QAction *aboutIssues;
-        QAction *aboutWiki;
-        QAction *aboutChangelog;
-        QAction *aboutClient;
-        QAction *aboutQt;
-
-        ActionList toolBarActions;
-        ActionList fileMenuActions;
-        ActionList hubsMenuActions;
-        ActionList toolsMenuActions;
-        ArenaWidgetList arenaWidgets;
-        ArenaWidgetMap arenaMap;
+        MainWindowPrivate *d_ptr;
 };
 
 Q_DECLARE_METATYPE(MainWindow*)

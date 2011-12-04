@@ -2012,8 +2012,7 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
         total_shared -= item->getShare();
  
         item->updateIdentity();
-        
-        model->repaintItem(item);
+
         model->needResort();
     }
     else{
