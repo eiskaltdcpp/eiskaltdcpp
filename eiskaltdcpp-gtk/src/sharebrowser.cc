@@ -77,6 +77,10 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     fileView.insertColumn(_("Type"), G_TYPE_STRING, TreeView::STRING, 50);
     fileView.insertColumn(_("TTH"), G_TYPE_STRING, TreeView::STRING, 150);
     fileView.insertColumn(_("Exact Size"), G_TYPE_STRING, TreeView::STRINGR, 105);
+    fileView.insertColumn(_("Bitrate"), G_TYPE_STRING, TreeView::STRING, 50);
+    fileView.insertColumn(_("Resolution"), G_TYPE_STRING, TreeView::STRING, 70);
+    fileView.insertColumn(_("Video"), G_TYPE_STRING, TreeView::STRING, 100);
+    fileView.insertColumn(_("Audio"), G_TYPE_STRING, TreeView::STRING, 70);
     fileView.insertHiddenColumn("DL File", G_TYPE_POINTER);
     fileView.insertHiddenColumn("Icon", G_TYPE_STRING);
     fileView.insertHiddenColumn("Size Order", G_TYPE_INT64);
@@ -319,6 +323,10 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
             fileView.col("Size Order"), size,
             fileView.col("DL File"), (gpointer)(*it_file),
             fileView.col(_("TTH")), (*it_file)->getTTH().toBase32().c_str(),
+            fileView.col(_("Bitrate")), ((*it_file)->mediaInfo.bitrate) ? (Util::toString((*it_file)->mediaInfo.bitrate)).c_str() : Util::emptyString.c_str(),
+            fileView.col(_("Resolution")), !(*it_file)->mediaInfo.video_info.empty() ? (*it_file)->mediaInfo.resolution.c_str() : Util::emptyString.c_str(),
+            fileView.col(_("Video")), (*it_file)->mediaInfo.video_info.c_str(),
+            fileView.col(_("Audio")), (*it_file)->mediaInfo.audio_info.c_str(),
             -1);
 
         currentSize += size;
@@ -1121,7 +1129,7 @@ int ShareBrowser::ItemInfo::compareItems(ItemInfo* a, ItemInfo* b, int col) {
                 default: break;// strcmp(a->columns[col].c_str(), b->columns[col].c_str());
                 }
         }
-        
+
         return -1;
 }
 
