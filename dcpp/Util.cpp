@@ -32,6 +32,7 @@
 #ifdef _WIN32
 #include "w.h"
 #include "shlobj.h"
+#include "lmcons.h"
 #else
 #include <sys/socket.h>
 #include <netinet/in.h>
