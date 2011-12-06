@@ -83,6 +83,10 @@ void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
     else {
         awgt->getWidget()->setAttribute(Qt::WA_DeleteOnClose, true);
         awgt->getWidget()->close();
+        
+        if (ScriptWidget *wgt = dynamic_cast<ScriptWidget*>(awgt)){
+            delete wgt;
+        }
     }
 }
 

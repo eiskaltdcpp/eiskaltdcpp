@@ -141,7 +141,7 @@ void ScriptEngine::loadJSScript(const QString &file){
 void ScriptEngine::loadQMLScript(const QString &file){
     DEBUG_BLOCK
     
-    DeclarativeWidget *wgt = new DeclarativeWidget(file);
+    DeclarativeWidget *wgt = ArenaWidgetFactory().create<DeclarativeWidget, QString>(file);
 }
 #endif
 
@@ -388,22 +388,13 @@ static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngi
         obj = qobject_cast<QObject*>(AntiSpam::getInstance());
     }
     else if (className == "DownloadQueue"){
-        if (!DownloadQueue::getInstance())
-            DownloadQueue::newInstance();
-
-        obj = qobject_cast<QObject*>(DownloadQueue::getInstance());
+        obj = qobject_cast<QObject*>(ArenaWidgetFactory().create<dcpp::Singleton, DownloadQueue>());
     }
     else if (className == "FavoriteHubs"){
-        if (!FavoriteHubs::getInstance())
-            FavoriteHubs::newInstance();
-
-        obj = qobject_cast<QObject*>(FavoriteHubs::getInstance());
+        obj = qobject_cast<QObject*>(ArenaWidgetFactory().create<dcpp::Singleton, FavoriteHubs>());
     }
     else if (className == "FavoriteUsers"){
-        if (!FavoriteUsers::getInstance())
-            FavoriteUsers::newInstance();
-
-        obj = qobject_cast<QObject*>(FavoriteUsers::getInstance());
+        obj = qobject_cast<QObject*>(ArenaWidgetFactory().create<dcpp::Singleton, FavoriteUsers>());
     }
     else if (className == "Notification"){
         if (Notification::getInstance()){
@@ -413,9 +404,6 @@ static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngi
         }
     }
     else if (className == "HubManager"){
-        if (!HubManager::getInstance())
-            HubManager::newInstance();
-
         obj = qobject_cast<QObject*>(HubManager::getInstance());
     }
     else if (className == "ClientManagerScript"){
@@ -496,9 +484,7 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
         obj = qobject_cast<QObject*>(new MainWindowScript(engine, MainWindow::getInstance()));
     }
     else if (className == "ScriptWidget"){
-        ScriptWidget *wgt = new ScriptWidget();
-
-        obj = qobject_cast<QObject*>(wgt);
+        obj = qobject_cast<QObject*>(ArenaWidgetFactory().create<ScriptWidget>());
     }
 
     return engine->newQObject(obj, QScriptEngine::AutoOwnership);
