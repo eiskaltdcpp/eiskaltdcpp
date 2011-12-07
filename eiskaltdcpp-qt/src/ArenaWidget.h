@@ -65,8 +65,8 @@ public:
     virtual void  setToolButton(QAction *btn) { if (btn) toolBtn = btn; }
     virtual const QPixmap &getPixmap(){ return _pxmap; }
     
-    Flags state() const { return flags; }
-    Flags setState(Flags f) { flags = f; }
+    virtual Flags state() const { return flags; }
+    virtual Flags setState(Flags f) { flags = f; }
 
     virtual void requestFilter() {}
     virtual void requestFocus() {}
@@ -88,6 +88,7 @@ private:
 
 Q_DECLARE_INTERFACE (ArenaWidget, "com.NegatiV.EiskaltDCPP.ArenaWidget/1.0")
 Q_DECLARE_METATYPE(ArenaWidget*)
+Q_DECLARE_METATYPE(ArenaWidget::Flags);
 
 class ScriptWidget :
     public QObject,
@@ -97,6 +98,8 @@ Q_OBJECT
 Q_INTERFACES(ArenaWidget)
 
 public:
+    Q_ENUMS (ArenaWidget::Flags);
+    
     ScriptWidget();
     virtual ~ScriptWidget();
 
@@ -105,6 +108,7 @@ public:
     Q_PROPERTY(QWidget* widget READ getWidget WRITE setWidget)
     Q_PROPERTY(QMenu*   menu READ getMenu WRITE setMenu)
     Q_PROPERTY(QPixmap  pixmap READ getPixmap WRITE setPixmap)
+    Q_PROPERTY(Flags    flags READ state WRITE setState)
 
 public Q_SLOTS:
     virtual QWidget *getWidget();
@@ -112,6 +116,7 @@ public Q_SLOTS:
     virtual QString getArenaShortTitle();
     virtual QMenu *getMenu();
     virtual const QPixmap &getPixmap();
+    virtual ArenaWidget::Flags state() const { return ArenaWidget::state(); }
 
     virtual void  setWidget(QWidget*);
     virtual void  setArenaTitle(QString);
@@ -120,6 +125,7 @@ public Q_SLOTS:
     virtual void  setPixmap(const QPixmap&);
 
     virtual Role role() const { return ArenaWidget::CustomWidget; }
+    virtual ArenaWidget::Flags setState(ArenaWidget::Flags f) { ArenaWidget::setState(f); }
 private:
     QWidget *_wgt;
     QString _arenaTitle;

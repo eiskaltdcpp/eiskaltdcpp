@@ -59,6 +59,9 @@ ScriptEngine::ScriptEngine() :
     
     setObjectName("ScriptEngine");
     
+    qRegisterMetaType<ArenaWidget::Flags>("Flags");
+    qRegisterMetaType<ArenaWidget::Flags>("ArenaWidget::Flags");
+    
     syncTimer = new QTimer(this);
     syncTimer->setInterval(1000);
     syncTimer->setSingleShot(true);
@@ -237,6 +240,9 @@ void ScriptEngine::prepareThis(QScriptEngine &engine){
     QScriptValue linkParser_parseMagnet = engine.newFunction(parseMagnetAlias);
     linkParser.setProperty("parse", linkParser_parse, QScriptValue::ReadOnly);
     linkParser.setProperty("parseMagnetAlias", linkParser_parseMagnet, QScriptValue::ReadOnly);
+    
+    QScriptValue widgetManager = engine.newQObject(ArenaWidgetManager::getInstance());
+    engine.globalObject().setProperty("WidgetManager", widgetManager, QScriptValue::ReadOnly);
     
     qScriptRegisterSequenceMetaType< QList<QObject*> >(&engine);
     qScriptRegisterMetaType<VarMap>(&engine, ScriptVarMapToScriptValue, ScriptVarMapFromScriptValue);

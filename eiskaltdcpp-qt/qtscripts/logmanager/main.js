@@ -1,8 +1,6 @@
 Import("qt.core");
 Import("qt.gui");
 
-var script_widget = null;
-
 function LogWidget(parent) {
   QWidget.call(this, parent);
   
@@ -31,54 +29,22 @@ LogWidget.prototype.newMessage = function(timeStamp, message) {
   this.textEdit_OUTPUT.append("<b>[" + timeStamp +"]</b> " + message); 
 }
 
-function hideMe() {
-  MainWindow.remArenaWidgetFromToolbar(script_widget);
-  MainWindow.remWidgetFromArena(script_widget);
-  MainWindow.remArenaWidget(script_widget);
-
-  script_widget.shown = false;
-
-  MainWindow.ToolBar.LogManager.checked = false;
-}
-
-function showMe() {
-  MainWindow.addArenaWidget(script_widget);
-  MainWindow.addArenaWidgetOnToolbar(script_widget);
-  MainWindow.mapWidgetOnArena(script_widget);
-
-  MainWindow.ToolBar.LogManager.checked = true;
-  
-  script_widget.shown = true;
-}
-
-LogWidget.prototype.closeEvent = function(e) {
-  hideMe();
-
-  e.accept();
-}
-
 function toggleScriptWidget(){
-  if (script_widget == null){
-    script_widget = new ScriptWidget();
-    script_widget.title             = "LogManager View";
-    script_widget.shortTitle        = script_widget.title;
-    script_widget.widget            = new LogWidget(null);
-    script_widget.pixmap	    = new QPixmap(SCRIPT_PATH+"log_file.png");
+  var script_widget = new ScriptWidget();
+    
+  script_widget.title             = "LogManager View";
+  script_widget.shortTitle        = script_widget.title;
+  script_widget.widget            = new LogWidget(null);
+  script_widget.pixmap	          = new QPixmap(SCRIPT_PATH+"log_file.png");
 
-    script_widget.shown    	    = false;
-  }
-
-  if (script_widget.shown)
-    hideMe();
-  else
-    showMe();
+  WidgetManager.activate(script_widget);
 }
 
 var a = new MainWindowScript();
 a.addToolButton("LogManager", "LogManager View", new QIcon(SCRIPT_PATH+"log_file.png"));
 
 MainWindow.ToolBar.LogManager.triggered.connect(toggleScriptWidget);
-MainWindow.ToolBar.LogManager.checkable = true;
+MainWindow.ToolBar.LogManager.checkable = false;
 
 function deinit(){
   a.remToolButton("LogManager");

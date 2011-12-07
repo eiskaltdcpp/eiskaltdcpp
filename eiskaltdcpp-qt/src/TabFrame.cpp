@@ -417,6 +417,8 @@ void TabFrame::moveRight(){
 }
 
 void TabFrame::toggled ( ArenaWidget* awgt ) {
+    DEBUG_BLOCK
+    
     if (!awgt)
         return;
     
