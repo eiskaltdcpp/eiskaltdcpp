@@ -229,7 +229,9 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
     connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()), Qt::QueuedConnection);
 
     runner->start();
-}
+    
+    setState(state() | ArenaWidget::Hidden);
+ }
 
 ShareBrowser::~ShareBrowser(){
     delete tree_model;
@@ -354,6 +356,8 @@ void ShareBrowser::continueInit(){
     }
 
     pathHistory.clear();
+    
+    ArenaWidgetManager::getInstance()->activate(this);
 }
 
 
@@ -412,9 +416,7 @@ void ShareBrowser::buildList(){
         ADLSearchManager::getInstance()->matchListing(listing);
     }
     catch (const Exception &e){
-        QMessageBox::critical(this, file, _q(e.what()), QMessageBox::Ok);
-
-        close();
+        LogManager::getInstance()->message(e.what());
     }
 }
 
