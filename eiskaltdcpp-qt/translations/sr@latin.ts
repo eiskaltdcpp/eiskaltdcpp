@@ -763,7 +763,7 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Full</source>
-        <translation>Potpun</translation>
+        <translation>Kompletan</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
@@ -4189,7 +4189,7 @@ Da li želite da zaustavite?</translation>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="104"/>
         <source>Full path</source>
-        <translation>Puna putanja</translation>
+        <translation>Kompletna putanja</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="115"/>
@@ -4709,7 +4709,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="46"/>
         <source>Full only</source>
-        <translation>Samo potpun</translation>
+        <translation>Samo kompletne</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="66"/>
@@ -6683,8 +6683,7 @@ the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
-        <translation>Delite fajlove sa atributom Skriveni i fajlove unutar fascikli koje su postavljene
-kao Skrivene.
+        <translation>Delite fajlove sa atributom Skriveni i fajlove unutar fascikli koje su postavljene kao skrivene.
 Uz ovu opciju fajlovi koji počinju sa . (tačka) neće biti deljeni.
 Napomena: ova opcija zahteva i osvežavanje fajl liste.</translation>
     </message>

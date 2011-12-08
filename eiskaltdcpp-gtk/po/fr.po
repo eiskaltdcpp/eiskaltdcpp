@@ -1,22 +1,23 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
 # Translators:
+# Translators:
+# Alexandre  <adressalacon@gmail.com>, 2011.
 # Automatically generated, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-11-28 23:03+0200\n"
-"PO-Revision-Date: 2011-11-28 18:13+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: French (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
-"fr/)\n"
-"Language: fr\n"
+"PO-Revision-Date: 2011-12-06 17:06+0000\n"
+"Last-Translator: Jellyffs <adressalacon@gmail.com>\n"
+"Language-Team: French (http://www.transifex.net/projects/p/eiskaltdcpp/team/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #: ../src/hub.cc:1054 ../src/hub.cc:1133 ../src/privatemessage.cc:562
@@ -34,7 +35,7 @@ msgstr " *** Smileys non chargés"
 
 #: ../src/settingsdialog.cc:2364
 msgid " + system icons"
-msgstr ""
+msgstr " + icônes systèmes"
 
 #: ../src/hub.cc:446 ../src/hub.cc:464
 msgid " Users"
@@ -42,11 +43,11 @@ msgstr " Utilisateurs"
 
 #: ../src/hub.cc:2761
 msgid " added to favorites list"
-msgstr ""
+msgstr "ajouté aux favoris"
 
 #: ../src/search.cc:1851
 msgid " dropped"
-msgstr ""
+msgstr "abandonné"
 
 #: ../src/hub.cc:1918
 msgid " empty..."
@@ -54,11 +55,11 @@ msgstr " vide..."
 
 #: ../src/finishedtransfers.cc:259 ../src/sharebrowser.cc:1056
 msgid " files"
-msgstr ""
+msgstr "fichiers"
 
 #: ../src/search.cc:1838
 msgid " filtered"
-msgstr ""
+msgstr "filtré"
 
 #: ../src/hub.cc:429 ../src/hub.cc:440
 msgid " has joined"
@@ -86,11 +87,11 @@ msgstr " n'est pas un utilisateur favoris"
 
 #: ../src/search.cc:632
 msgid " items"
-msgstr ""
+msgstr "objets"
 
 #: ../src/hashdialog.cc:70 ../src/hashdialog.cc:79 ../src/hashdialog.cc:88
 msgid " left"
-msgstr ""
+msgstr "restant"
 
 #: ../src/downloadqueue.cc:1287
 msgid " of "
@@ -98,15 +99,15 @@ msgstr " de "
 
 #: ../src/hub.cc:2788
 msgid " removed from favorites list"
-msgstr ""
+msgstr "retiré des favoris"
 
 #: ../src/settingsmanager.cc:515
 msgid " to "
-msgstr ""
+msgstr "à"
 
 #: ../src/transfers.cc:582 ../src/search.cc:672
 msgid " user(s)"
-msgstr ""
+msgstr "utilisateur(s)"
 
 #: ../src/downloadqueue.cc:1287
 msgid " user(s) online"
@@ -114,11 +115,11 @@ msgstr " utilisateurs en ligne"
 
 #: ../src/finishedtransfers.cc:268
 msgid " users"
-msgstr ""
+msgstr "utilisateurs"
 
 #: ../src/transfers.cc:582
 msgid "%) from "
-msgstr ""
+msgstr "%) depuis"
 
 #: ../ui/settingsdialog.ui:4516
 msgid ""
@@ -131,36 +132,44 @@ msgid ""
 "\n"
 "see man strftime for details."
 msgstr ""
+"%a abréviation du jour de la semaine.\n"
+"%b abréviation du nom de mois.\n"
+"%H heure en mode 24h.\n"
+"%M minute en chiffre (de 00 à 59).\n"
+"%S seconde en chiffre (de 00 à 59).\n"
+"%% a literal '%' character.\n"
+"\n"
+"voir man strftime pour plus de détails."
 
 #: ../src/hub.cc:2340
 msgid "': type /help for a list of available commands"
-msgstr ""
+msgstr "': tapez /help pour la liste des commandes disponibles"
 
 #: ../src/hub.cc:2010 ../src/privatemessage.cc:1016
 msgid "*** Available commands:"
-msgstr ""
+msgstr "*** Commandes disponibles:"
 
 #: ../src/settingsdialog.cc:2137
 msgid "*** T E S T ***"
-msgstr ""
+msgstr "*** T E S T ***"
 
 #: ../src/settingsdialog.cc:1359 ../ui/mainwindow.ui:251
 #: ../ui/mainwindow.ui:2433 ../ui/mainwindow.ui:2451
 msgid "+/-"
-msgstr ""
+msgstr "+/-"
 
 #: ../src/hashdialog.cc:71 ../src/hashdialog.cc:83
 msgid "-:--:-- left"
-msgstr ""
+msgstr "-:--:-- restant"
 
 #: ../src/settingsdialog.cc:2316 ../src/settingsdialog.cc:2340
 msgid "...must be *.theme"
-msgstr ""
+msgstr "...doit être *.theme"
 
 #: ../src/settingsdialog.cc:2219 ../src/settingsdialog.cc:2248
 #: ../src/settingsdialog.cc:2285
 msgid "...must not be empty"
-msgstr ""
+msgstr "...ne doit pas être vide"
 
 #: ../src/downloadqueue.cc:1313
 msgid "0 B (0.00%)"
@@ -172,85 +181,87 @@ msgstr "0 utilisateur"
 
 #: ../src/search.cc:543
 msgid "0 filtered"
-msgstr ""
+msgstr "0 filtré"
 
 #: ../src/search.cc:542
 msgid "0 items"
-msgstr ""
+msgstr "0 objet"
 
 #: ../src/privatemessage.cc:1032
 msgid ": type /help for a list of available commands"
-msgstr ""
+msgstr ": tapez /help pour la liste des commandes disponibles"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/settingsdialog.ui:3655
 msgid "<b>Auto-drop settings</b>"
-msgstr ""
+msgstr "<b>paramètres de l'auto-drop</b>"
 
 #: ../ui/settingsdialog.ui:4695
 msgid "<b>Auto-open on startup</b>"
-msgstr ""
+msgstr "<b>Ouverture auto au démarrage</b>"
 
 #: ../ui/settingsdialog.ui:3333
 msgid "<b>Auto-priority settings</b>"
-msgstr ""
+msgstr "<b>Paramètres de priorité auto</b>"
 
 #: ../ui/settingsdialog.ui:5046
 msgid "<b>Available styles</b>"
-msgstr ""
+msgstr "<b>Styles disponibles</b>"
 
 #: ../ui/settingsdialog.ui:7743
 msgid "<b>Certificate Paths</b>"
-msgstr ""
+msgstr "<b>Chemins des certificats</b>"
 
 #: ../ui/settingsdialog.ui:6178
 msgid "<b>Colors</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/settingsdialog.ui:590
 msgid "<b>Command Type</b>"
-msgstr ""
+msgstr "<b>Type de commande</b>"
 
 #: ../ui/settingsdialog.ui:4781
 msgid "<b>Confirmation Dialog Options</b>"
-msgstr ""
+msgstr "<b>Options de confirmation de la boîte de dialogue</b>"
 
 #: ../ui/mainwindow.ui:781
 msgid "<b>Connect to address:</b>"
-msgstr ""
+msgstr "<b>Se connecter à l'adresse:</b>"
 
 #: ../ui/settingsdialog.ui:683
 msgid "<b>Context</b>"
-msgstr ""
+msgstr "<b>Contexte</b>"
 
 #: ../ui/settingsdialog.ui:5721
 msgid "<b>Current theme name:</b>"
-msgstr ""
+msgstr "<b>Nom du thème actuel:</b>"
 
 #: ../ui/settingsdialog.ui:4491
 msgid "<b>Default away message</b>"
-msgstr ""
+msgstr "<b>Message d'absence par défaut</b>"
 
 #: ../ui/favoriteusers.ui:96
 msgid "<b>Description</b>"
-msgstr ""
+msgstr "Description"
 
 #: ../ui/adlsearch.ui:295
 msgid "<b>Destination Directory</b>"
-msgstr ""
+msgstr "Description"
 
 #: ../ui/settingsdialog.ui:2725
 msgid "<b>Directories</b>"
-msgstr ""
+msgstr "<b>Répertoires</b>"
 
 #: ../src/hub.cc:586
 msgid "<b>Enter your password</b>"
@@ -258,7 +269,7 @@ msgstr "<b>Entrez votre mot de passe</b>"
 
 #: ../src/settingsdialog.cc:2055
 msgid "<b>Extension</b>"
-msgstr ""
+msgstr "Description"
 
 #: ../ui/settingsdialog.ui:3090
 msgid "<b>Favorite download to directories</b>"
@@ -266,59 +277,59 @@ msgstr ""
 
 #: ../ui/publichubs.ui:236
 msgid "<b>Filter</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/settingsdialog.ui:6369
 msgid "<b>Frame</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/publichubs.ui:292
 msgid "<b>Hub List</b>"
-msgstr ""
+msgstr "<b>Liste des serveurs</b>"
 
 #: ../ui/favoritehubs.ui:80
 msgid "<b>Hub</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/settingsdialog.ui:5356
 msgid "<b>Icon size</b>"
-msgstr ""
+msgstr "Taille de l'icône"
 
 #: ../ui/settingsdialog.ui:5657
 msgid "<b>Icons</b>"
-msgstr ""
+msgstr "<b>Icônes</b>"
 
 #: ../ui/favoritehubs.ui:351
 msgid "<b>Identification</b>"
-msgstr ""
+msgstr "<b>Identification</b>"
 
 #: ../ui/settingsdialog.ui:1576
 msgid "<b>Incoming connection settings</b>"
-msgstr ""
+msgstr "<b>Paramètres de la connexion entrante</b>"
 
 #: ../ui/settingsdialog.ui:2845
 msgid "<b>Limits</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/settingsdialog.ui:6796
 msgid "<b>Logging</b>"
-msgstr ""
+msgstr "<b>Logging</b>"
 
 #: ../ui/mainwindow.ui:260
 msgid "<b>Magnet properties</b>"
-msgstr ""
+msgstr "Propriétés / choix du magnet"
 
 #: ../ui/settingsdialog.ui:4438
 msgid "<b>Main Toolbar Style</b>"
-msgstr ""
+msgstr "<b>Style de la barre principale</b>"
 
 #: ../ui/adlsearch.ui:211
 msgid "<b>Max FileSize</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/adlsearch.ui:178
 msgid "<b>Min FileSize</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../src/settingsdialog.cc:1701
 msgid "<b>Name of the new search type</b>"
@@ -326,71 +337,73 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:2932
 msgid "<b>Name under which the others see the directory</b>"
-msgstr ""
+msgstr "<b>Nom de dossier visible par les autres utilisateurs</b>"
 
 #: ../src/settingsdialog.cc:1954
 msgid "<b>New name</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8723
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
+"<b>Note:</b> Éditez les url dans la liste en les cliquant une fois "
+"lorsqu'elles sont sélectionnées. "
 
 #: ../ui/settingsdialog.ui:5278
 msgid "<b>Notify</b>"
-msgstr ""
+msgstr "Notifier"
 
 #: ../ui/settingsdialog.ui:4328
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Options</b>"
 
 #: ../ui/settingsdialog.ui:7785
 msgid "<b>Other Security Options</b>"
-msgstr ""
+msgstr "<b>Autres options de sécurité</b>"
 
 #: ../ui/settingsdialog.ui:3693
 msgid "<b>Other queue options</b>"
-msgstr ""
+msgstr "<b>Autres options de la file d'attente</b>"
 
 #: ../ui/settingsdialog.ui:1840
 msgid "<b>Outgoing connection settings</b>"
-msgstr ""
+msgstr "<b>Paramètres de la connexion sortante</b>"
 
 #: ../ui/settingsdialog.ui:887
 msgid "<b>Parameters</b>"
-msgstr ""
+msgstr "<b>Paramètres</b>"
 
 #: ../ui/settingsdialog.ui:1212
 msgid "<b>Personal Information</b>"
-msgstr ""
+msgstr "<b>Information Personelle</b>"
 
 #: ../ui/settingsdialog.ui:3750
 msgid "<b>Players list</b>"
-msgstr ""
+msgstr "<b>Liste des lecteurs</b>"
 
 #: ../ui/settingsdialog.ui:5082
 msgid "<b>Preview styles</b>"
-msgstr ""
+msgstr "<b>Styles des aperçus</b>"
 
 #: ../ui/settingsdialog.ui:4978
 msgid "<b>Private message sound</b>"
-msgstr ""
+msgstr "Message privé"
 
 #: ../ui/settingsdialog.ui:5571
 msgid "<b>Private message</b>"
-msgstr ""
+msgstr "Message privé"
 
 #: ../ui/hash.ui:55
 msgid "<b>Processing file:</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/settingsdialog.ui:2965
 msgid "<b>Public Hubs list</b>"
-msgstr ""
+msgstr "Serveurs Publics"
 
 #: ../ui/adlsearch.ui:94
 msgid "<b>Search String</b>"
-msgstr ""
+msgstr "Chaîne de recherche"
 
 #: ../ui/settingsdialog.ui:7991
 msgid "<b>Search types</b>"
@@ -398,15 +411,15 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:2133
 msgid "<b>Secondary Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Limitation du taux de transfert secondaire</b>"
 
 #: ../ui/settingsdialog.ui:2325
 msgid "<b>Secondary Transfer Rate Settings</b>"
-msgstr ""
+msgstr "<b>Paramètres du taux de transfert secondaire</b>"
 
 #: ../ui/settingsdialog.ui:4133
 msgid "<b>Shared directories</b>"
-msgstr ""
+msgstr "<b>Répertoires partagés</b>"
 
 #: ../ui/adlsearch.ui:252
 msgid "<b>Size Type</b>"
@@ -414,7 +427,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:4839
 msgid "<b>Sounds</b>"
-msgstr ""
+msgstr "Sons"
 
 #: ../ui/adlsearch.ui:128
 msgid "<b>Source Type</b>"
@@ -422,23 +435,23 @@ msgstr ""
 
 #: ../ui/hash.ui:124
 msgid "<b>Statistics</b>"
-msgstr ""
+msgstr "<b>Statistiques</b>"
 
 #: ../ui/settingsdialog.ui:4386
 msgid "<b>Tab Position</b>"
-msgstr ""
+msgstr "<b>Positionnement de l'onglet</b>"
 
 #: ../ui/settingsdialog.ui:4617
 msgid "<b>Tab bolding on content change</b>"
-msgstr ""
+msgstr "<b>Mise en gras de l'onglet si nouveau contenu</b>"
 
 #: ../ui/settingsdialog.ui:930
 msgid "<b>Text sent to hub</b>"
-msgstr ""
+msgstr "<b>Texte envoyé au serveur</b>"
 
 #: ../ui/settingsdialog.ui:5693
 msgid "<b>Text styles</b>"
-msgstr ""
+msgstr "<b>Styles du texte</b>"
 
 #: ../ui/settingsdialog.ui:4541
 msgid "<b>Timestamps</b>"
@@ -446,89 +459,92 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5323
 msgid "<b>Title</b>"
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/settingsdialog.ui:5895
 msgid "<b>Toolbar buttons</b>"
-msgstr ""
+msgstr "<b>Boutons de la barre d'outils</b>"
 
 #: ../ui/settingsdialog.ui:2014
 msgid "<b>Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Limitation du taux de transfert</b>"
 
 #: ../src/settingsdialog.cc:3539
 msgid "<b>Under what name you see the directory</b>"
-msgstr ""
+msgstr "<b>Sous quel nom vous voyez le répertoire</b>"
 
 #: ../ui/mainwindow.ui:429
 msgid "<b>What would you like to do?</b>"
-msgstr ""
+msgstr "<b>What would you like to do?</b>"
 
 #: ../ui/settingsdialog.ui:4738
 msgid "<b>Window Options</b>"
-msgstr ""
+msgstr "<b>Options de la fenêtre</b>"
 
 #: ../src/mainwindow.cc:2232
 msgid "<b>file:</b> "
-msgstr ""
+msgstr "<b>fichier:</b> "
 
 #: ../ui/favoritehubs.ui:475
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr ""
+msgstr "<small>Note: ne pas cocher pour les valeurs par défaut</small>"
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: ../ui/mainwindow.ui:2364 ../ui/mainwindow.ui:2547
 msgid "ADL"
-msgstr ""
+msgstr "ADL"
 
 #: ../src/adlsearch.cc:31 ../ui/mainwindow.ui:2362
 msgid "ADL Search"
-msgstr ""
+msgstr "Recherche"
 
 #: ../ui/adlsearch.ui:8
 msgid "ADLSearch Properties"
-msgstr ""
+msgstr "Chaîne de Recherche"
 
 #: ../ui/mainwindow.ui:1686
 msgid "About EiskaltDC++"
-msgstr ""
+msgstr "A propos de EiskaltDC++"
 
 #: ../src/settingsdialog.cc:1504
 msgid "Accept custom user commands from hub"
-msgstr ""
+msgstr "Accepter les commandes utilisateurs personnalisées du serveur"
 
 #: ../ui/settingsdialog.ui:1432
 msgid "Active"
-msgstr ""
+msgstr "Actif"
 
 #: ../ui/settingsdialog.ui:7897
 msgid "Add"
-msgstr ""
+msgstr "Ajouté"
 
 #: ../ui/mainwindow.ui:2431
 msgid "Add / Remove"
-msgstr ""
+msgstr "Ajouter / Retirer"
 
 #: ../src/hub.cc:2015 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
-msgstr ""
+msgstr "Ajouter un serveur aux favoris"
 
 #: ../src/settingsdialog.cc:1506
 msgid "Add finished files to share instantly (if shared)"
 msgstr ""
+"Ajouter les fichiers téléchargés au partage immédiatement (si partagé)"
 
 #: ../src/hub.cc:2045
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
 msgstr ""
+"Ajoutez la règle 192.168.1.0/23 où l'entrée et l'action sont autorisées et "
+"192.168.6.0/24 où l'entrée / sortie et l'action sont refusées."
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
-msgstr ""
+msgstr "Ajouter ce fichier à votre liste de téléchargement"
 
 #: ../ui/uploadqueue.ui:60
 msgid "Add to Favorite Users"
@@ -536,15 +552,15 @@ msgstr ""
 
 #: ../ui/publichubs.ui:418
 msgid "Add to favorites"
-msgstr ""
+msgstr "Ajouter un serveur aux favoris"
 
 #: ../src/hub.cc:2016 ../src/privatemessage.cc:1021 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
-msgstr ""
+msgstr "Ajouter l'utilisateur aux favoris"
 
 #: ../ui/adlsearch.ui:452 ../ui/adlsearch.ui:535
 msgid "Add..."
-msgstr ""
+msgstr "Ajouter..."
 
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:286
 #: ../src/downloadqueue.cc:393
@@ -2184,7 +2200,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1228 ../ui/settingsdialog.ui:5614
@@ -2654,7 +2671,8 @@ msgid "Set download limit image: "
 msgstr "Spécifiez la limite de téléchargement de l'image: "
 
 #: ../src/settingsdialog.cc:972
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:4053
@@ -3120,8 +3138,8 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2179
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 
@@ -3350,8 +3368,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3780,3 +3797,5 @@ msgstr ""
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+

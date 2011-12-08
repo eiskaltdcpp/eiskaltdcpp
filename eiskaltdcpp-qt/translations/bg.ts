@@ -5340,7 +5340,18 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn't matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Задайте в полето типа на услугата (TOS), която се изпраща на всеки &lt;a href=&quot;http://bg.wikipedia.org/wiki/Internet_Protocol&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP пакет&lt;/span&gt;&lt;/a&gt;, произхождащ от това гнездо. Използва се, за да се даде приоритет на пакетите в мрежата. TOS е един байт. Това са някои стандартни TOS настройки: &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Ниска латентност&amp;quot;&lt;/span&gt; за свеждане до минимум забавянето на интерактивния трафик&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Пропускателна способност&amp;quot;&lt;/span&gt; за оптимизиране на пропускателната способност&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Надеждност&amp;quot;&lt;/span&gt; за оптимизиране на надеждността&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Минимални разходи&amp;quot;&lt;/span&gt; трябва да се използва за &quot;пълнеж на данни&quot;, където бавното предаване не е от значение&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Най-много една от тези TOS стойности може да бъде уточнена. По подразбиране, Linux изпраща на първо място пакети данни &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Ниска латентност&amp;quot;&lt;/span&gt;, но точното поведение зависи от избраната система за управление на опашката.&lt;span style=&quot; font-weight:600;&quot;&gt; Внимание! Тази опция се нуждае от привилегии на супер потребител!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="846"/>
@@ -5350,7 +5361,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="851"/>
         <source>Low delay</source>
-        <translation>Ниско закъснение</translation>
+        <translation>Ниска латентност</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="856"/>
@@ -5360,7 +5371,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="861"/>
         <source>Reliability</source>
-        <translation>Надежност</translation>
+        <translation>Надеждност</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="866"/>
@@ -5370,7 +5381,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="815"/>
         <source>Type-of-Service (ToS)</source>
-        <translation>Вид на услугата (ToS)</translation>
+        <translation>Тип на услугата (ToS)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="506"/>
