@@ -202,24 +202,11 @@ namespace {
 
 template <Qt::SortOrder order>
 struct Compare {
+    typedef bool (*AttrComp)(const DownloadQueueItem * l, const DownloadQueueItem * r);
+    
     void static sort(unsigned column, QList<DownloadQueueItem*>& items) {
         if (column > COLUMN_DOWNLOADQUEUE_TTH)
             return;
-        
-        typedef bool (*AttrComp)(const DownloadQueueItem * l, const DownloadQueueItem * r);
-        
-        static AttrComp attrs[11] = {       AttrCmp<COLUMN_DOWNLOADQUEUE_NAME>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
-                                            NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
-                                            NumCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
-                                            NumCmp<COLUMN_DOWNLOADQUEUE_PRIO>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_USER>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_PATH>,
-                                            NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_ERR>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_ADDED>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_TTH>
-                                        };
         
         qStableSort(items.begin(), items.end(), [&attrs,column](const DownloadQueueItem *l, const DownloadQueueItem *r) { return attrs[column](l, r); });
     }
@@ -227,21 +214,6 @@ struct Compare {
     void static insertSorted(unsigned column, QList<DownloadQueueItem*>& items, DownloadQueueItem* item) {
         if (column > COLUMN_DOWNLOADQUEUE_TTH)
             return items.end();
-        
-        typedef bool (*AttrComp)(const DownloadQueueItem * l, const DownloadQueueItem * r);
-        
-        static AttrComp attrs[11] = {       AttrCmp<COLUMN_DOWNLOADQUEUE_NAME>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
-                                            NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
-                                            NumCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
-                                            NumCmp<COLUMN_DOWNLOADQUEUE_PRIO>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_USER>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_PATH>,
-                                            NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_ERR>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_ADDED>,
-                                            AttrCmp<COLUMN_DOWNLOADQUEUE_TTH>
-                                        };
                                         
         QList<DownloadQueueItem*>::iterator it = qLowerBound(items.begin(), 
                                                              items.end(), 
@@ -268,7 +240,23 @@ struct Compare {
        }
         template <typename T>
         bool static Cmp(const T& l, const T& r);
+        
+        static AttrComp attrs[11];
 };
+
+template <Qt::SortOrder order>
+typename Compare<order>::AttrComp Compare<order>::attrs[11] = { AttrCmp<COLUMN_DOWNLOADQUEUE_NAME>,
+                                                                AttrCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
+                                                                NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
+                                                                NumCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
+                                                                NumCmp<COLUMN_DOWNLOADQUEUE_PRIO>,
+                                                                AttrCmp<COLUMN_DOWNLOADQUEUE_USER>,
+                                                                AttrCmp<COLUMN_DOWNLOADQUEUE_PATH>,
+                                                                NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
+                                                                AttrCmp<COLUMN_DOWNLOADQUEUE_ERR>,
+                                                                AttrCmp<COLUMN_DOWNLOADQUEUE_ADDED>,
+                                                                AttrCmp<COLUMN_DOWNLOADQUEUE_TTH>
+                                                              };
 
 template <> template <typename T>
 bool inline Compare<Qt::AscendingOrder>::Cmp(const T& l, const T& r) {
