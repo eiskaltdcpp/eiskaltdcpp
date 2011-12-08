@@ -387,6 +387,37 @@ include_directories(${eiskaltdcpp_BINARY_DIR}
    ${GMP_INCLUDE_DIR}
    )
 
+option (LANGUAGES "Using translations")
+list (APPEND AllLanguages
+            be
+            bg
+            cs
+            de
+            en
+            es
+            fr
+            hu
+            pl
+            ru
+            sr@latin
+            sk
+            uk
+            )
+if (NOT DEFINED linguas)
+  set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
+else (NOT DEFINED linguas)
+  if (NOT linguas)
+    set (LANGUAGES "" CACHE STRING "Using translations" FORCE)
+  elseif (linguas STREQUAL *)
+        set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
+  else (NOT linguas)
+    string(REGEX MATCHALL [a-zA-Z_]+
+           linguas1 ${linguas})
+    set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
+  endif (NOT linguas)
+endif (NOT DEFINED linguas)
+message (STATUS "Translations: ${LANGUAGES}")
+
 add_subdirectory(extra)
 add_subdirectory(data)
 
@@ -420,6 +451,12 @@ if (HAIKU AND HAIKU_PKG)
   add_subdirectory (haiku)
 endif ()
 
+if(GETTEXT_FOUND)
+    option (UPDATE_PO "Update po files" OFF)
+    option (CREATE_MO "Create mo files" ON)
+    add_subdirectory(cmake)
+endif(GETTEXT_FOUND)
+
 message(STATUS "CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
 message(STATUS "CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
@@ -442,47 +479,9 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
 
                 ")
 
-option (LANGUAGES "Using translations")
-list (APPEND AllLanguages
-            be
-            bg
-            cs
-            de
-            en
-            es
-            fr
-            hu
-            pl
-            ru
-            sr@latin
-            sk
-            uk
-            )
-if (NOT DEFINED linguas)
-  set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
-else (NOT DEFINED linguas)
-  if (NOT linguas)
-    set (LANGUAGES "" CACHE STRING "Using translations" FORCE)
-  elseif (linguas STREQUAL *)
-        set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
-  else (NOT linguas)
-    string(REGEX MATCHALL [a-zA-Z_]+
-           linguas1 ${linguas})
-    set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
-  endif (NOT linguas)
-endif (NOT DEFINED linguas)
-message (STATUS "Translations: ${LANGUAGES}")
-
-
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
   IMMEDIATE @ONLY)
 ADD_CUSTOM_TARGET(uninstall
   "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-
-if(GETTEXT_FOUND)
-    option (UPDATE_PO "Update po files" OFF)
-    option (CREATE_MO "Create mo files" ON)
-    add_subdirectory(cmake)
-endif(GETTEXT_FOUND)
