@@ -35,13 +35,12 @@
 #include "dcpp/Client.h"
 #include "dcpp/FavoriteManagerListener.h"
 
-#include "UserListModel.h"
 #include "ArenaWidget.h"
-#include "EmoticonFactory.h"
 #include "WulforUtil.h"
 
 class ShellCommandRunner;
 class PMWindow;
+class HubFramePrivate;
 
 using namespace dcpp;
 
@@ -157,7 +156,7 @@ public:
     void requestFocus() { plainTextEdit_INPUT->setFocus(); }
     ArenaWidget::Role role() const { return ArenaWidget::Hub; }
 
-    QString getCIDforNick(QString nick) { return model->CIDforNick(nick, _q(client->getHubUrl())); }
+    QString getCIDforNick(QString nick);
 
 Q_SIGNALS:
     void coreConnecting(QString);
@@ -292,36 +291,9 @@ private:
     virtual void on(ClientListener::NickTaken, Client*) noexcept;
     virtual void on(ClientListener::SearchFlood, Client*, const string&) noexcept;
 
-    QTimer *updater;
-
-    QMenu *arenaMenu;
-
-    Client *client;
-
-    // Work data
-    QTextCodec *codec;
-
-    quint64 total_shared;
-    QString hub_title;
-
-    bool chatDisabled;
-    bool hasMessages;
-    bool hasHighlightMessages;
-    bool drawLine;
-
-    QStringList status_msg_history;
-    QStringList out_messages;
-    int out_messages_index;
-    bool out_messages_unsent;
-
-    PMMap pm;
-    ShellList shell_list;
-
-    // Userlist data and some helpful functions
-    UserListModel *model;
-    UserListProxyModel *proxy;
-
-    QCompleter * completer;
+    Q_DECLARE_PRIVATE(HubFrame);
+    
+    HubFramePrivate *d_ptr;
 };
 
 Q_DECLARE_METATYPE(HubFrame*)

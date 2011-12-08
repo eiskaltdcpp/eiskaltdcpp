@@ -175,27 +175,43 @@ namespace {
 
 template <Qt::SortOrder order>
 struct Compare {
-    void static sort(int col, QList<UserListItem*>& items) {
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
+    void static sort(unsigned column, QList<UserListItem*>& items) {
+        if (column > COLUMN_EMAIL)
+            return;
+        
+        typedef bool (*AttrComp)(const UserListItem* l, const UserListItem* r);
+        
+        static AttrComp attrs[7] = {    AttrCmp<QString, &UserListItem::getNick>,
+                                        AttrCmp<qulonglong, &UserListItem::getShare>,
+                                        AttrCmp<QString, &UserListItem::getComment>,
+                                        AttrCmp<QString, &UserListItem::getTag>,
+                                        AttrCmp<QString, &UserListItem::getConnection>,
+                                        IPCmp,
+                                        AttrCmp<QString, &UserListItem::getEmail> };
+
+        qStableSort(items.begin(), items.end(), [&attrs,column] (const UserListItem *l, const UserListItem *r) { return attrs[column](l, r); });
     }
 
-    QList<UserListItem*>::iterator static insertSorted(int col, QList<UserListItem*>& items, UserListItem* item) {
-        return qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+    QList<UserListItem*>::iterator static insertSorted(unsigned column, QList<UserListItem*>& items, UserListItem* item) {
+        if (column > COLUMN_EMAIL)
+            return items.end();
+         
+        typedef bool (*AttrComp)(const UserListItem* l, const UserListItem* r);
+        
+        static AttrComp attrs[7] = {    AttrCmp<QString, &UserListItem::getNick>,
+                                        AttrCmp<qulonglong, &UserListItem::getShare>,
+                                        AttrCmp<QString, &UserListItem::getComment>,
+                                        AttrCmp<QString, &UserListItem::getTag>,
+                                        AttrCmp<QString, &UserListItem::getConnection>,
+                                        IPCmp,
+                                        AttrCmp<QString, &UserListItem::getEmail> };
+
+        return qLowerBound(items.begin(), items.end(), item, [&attrs,column] (const UserListItem *l, const UserListItem *r) { return attrs[column](l, r); });
     }
 
     private:
         typedef bool (*AttrComp)(const UserListItem* l, const UserListItem* r);
-        AttrComp static getAttrComp(const int column) {
-            static AttrComp attrs[7] = { AttrCmp<QString, &UserListItem::getNick>,
-                                         AttrCmp<qulonglong, &UserListItem::getShare>,
-                                         AttrCmp<QString, &UserListItem::getComment>,
-                                         AttrCmp<QString, &UserListItem::getTag>,
-                                         AttrCmp<QString, &UserListItem::getConnection>,
-                                         IPCmp,
-                                         AttrCmp<QString, &UserListItem::getEmail> };
 
-            return attrs[column];//column number checked in UserListModel::sort
-        }
         template <typename T, T (UserListItem::*attr)() const >
         bool static AttrCmp(const UserListItem * l, const UserListItem * r) {
             if (l->isOP() != r->isOP())

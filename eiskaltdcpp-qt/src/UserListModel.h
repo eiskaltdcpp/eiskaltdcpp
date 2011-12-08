@@ -51,13 +51,13 @@ public:
     virtual void sort(int column, Qt::SortOrder order);
 };
 
-#define COLUMN_NICK     0
-#define COLUMN_SHARE    1
-#define COLUMN_COMMENT  2
-#define COLUMN_TAG      3
-#define COLUMN_CONN     4
-#define COLUMN_IP       5
-#define COLUMN_EMAIL    6
+const static unsigned COLUMN_NICK       = 0;
+const static unsigned COLUMN_SHARE      = 1;
+const static unsigned COLUMN_COMMENT    = 2;
+const static unsigned COLUMN_TAG        = 3;
+const static unsigned COLUMN_CONN       = 4;
+const static unsigned COLUMN_IP         = 5;
+const static unsigned COLUMN_EMAIL      = 6;
 
 typedef QHash<QString, QVariant> UserMap;
 
