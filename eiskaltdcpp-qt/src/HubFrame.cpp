@@ -1503,7 +1503,7 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
 
     bool script_ret = false;
 #ifdef LUA_SCRIPT
-    script_ret = ((ClientScriptInstance *) (this->client))->onHubFrameEnter(this->client, msg.toStdString());
+    script_ret = ((ClientScriptInstance *) (d->client))->onHubFrameEnter(d->client, msg.toStdString());
 #endif
     if (!script_ret && !parseForCmd(msg, this))
         d->client->hubMessage(msg.toStdString(), thirdPerson);
