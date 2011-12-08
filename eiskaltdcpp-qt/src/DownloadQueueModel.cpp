@@ -202,19 +202,13 @@ namespace {
 
 template <Qt::SortOrder order>
 struct Compare {
-    void static sort(int col, QList<DownloadQueueItem*>& items) {
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
-    }
-
-    void static insertSorted(int col, QList<DownloadQueueItem*>& items, DownloadQueueItem* item) {
-        QList<DownloadQueueItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
-        items.insert(it, item);
-    }
-
-    private:
+    void static sort(unsigned column, QList<DownloadQueueItem*>& items) {
+        if (column > COLUMN_DOWNLOADQUEUE_TTH)
+            return;
+        
         typedef bool (*AttrComp)(const DownloadQueueItem * l, const DownloadQueueItem * r);
-        AttrComp static getAttrComp(const int column) {
-            static AttrComp attrs[11] = {   AttrCmp<COLUMN_DOWNLOADQUEUE_NAME>,
+        
+        static AttrComp attrs[11] = {       AttrCmp<COLUMN_DOWNLOADQUEUE_NAME>,
                                             AttrCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
                                             NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
                                             NumCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
@@ -226,9 +220,38 @@ struct Compare {
                                             AttrCmp<COLUMN_DOWNLOADQUEUE_ADDED>,
                                             AttrCmp<COLUMN_DOWNLOADQUEUE_TTH>
                                         };
+        
+        qStableSort(items.begin(), items.end(), [&attrs,column](const DownloadQueueItem *l, const DownloadQueueItem *r) { return attrs[column](l, r); });
+    }
 
-            return attrs[column];
-        }
+    void static insertSorted(unsigned column, QList<DownloadQueueItem*>& items, DownloadQueueItem* item) {
+        if (column > COLUMN_DOWNLOADQUEUE_TTH)
+            return items.end();
+        
+        typedef bool (*AttrComp)(const DownloadQueueItem * l, const DownloadQueueItem * r);
+        
+        static AttrComp attrs[11] = {       AttrCmp<COLUMN_DOWNLOADQUEUE_NAME>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
+                                            NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
+                                            NumCmp<COLUMN_DOWNLOADQUEUE_DOWN>,
+                                            NumCmp<COLUMN_DOWNLOADQUEUE_PRIO>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_USER>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_PATH>,
+                                            NumCmp<COLUMN_DOWNLOADQUEUE_ESIZE>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_ERR>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_ADDED>,
+                                            AttrCmp<COLUMN_DOWNLOADQUEUE_TTH>
+                                        };
+                                        
+        QList<DownloadQueueItem*>::iterator it = qLowerBound(items.begin(), 
+                                                             items.end(), 
+                                                             item, [&attrs,column](const DownloadQueueItem *l, const DownloadQueueItem *r) { 
+                                                                        return attrs[column](l, r); 
+                                                                   });
+        items.insert(it, item);
+    }
+
+    private:
         template <int i>
         bool static AttrCmp(const DownloadQueueItem * l, const DownloadQueueItem * r) {
             if (l->dir != r->dir){
