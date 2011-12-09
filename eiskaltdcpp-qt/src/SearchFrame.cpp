@@ -32,6 +32,7 @@
 #include "Magnet.h"
 #include "ArenaWidgetManager.h"
 #include "ArenaWidgetFactory.h"
+#include "DownloadToHistory.h"
 
 #include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
@@ -201,8 +202,7 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
 
-    QString raw = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
-    QStringList temp_pathes = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    QStringList temp_pathes = DownloadToDirHistory::get();
 
     if (!temp_pathes.isEmpty()){
         foreach (QString t, temp_pathes){
@@ -303,19 +303,10 @@ QMenu *SearchFrame::Menu::buildUserCmdMenu(QList<QString> hub_list){
 }
 
 void SearchFrame::Menu::addTempPath(const QString &path){
-    QString raw = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
-    QStringList temp_pathes = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    QStringList temp_pathes = DownloadToDirHistory::get();
+    temp_pathes.push_front(path);
 
-    if (!temp_pathes.contains(path) && !path.isEmpty() && QDir(path).exists()){
-        temp_pathes.push_front(path);
-
-        uint maxItemsNumber = WIGET("download-directory-history-items-number", 5);
-        while (temp_pathes.count() > maxItemsNumber)
-            temp_pathes.removeLast();
-
-        QString raw = temp_pathes.join("\n");
-        WSSET(WS_DOWNLOAD_DIR_HISTORY, raw.toAscii().toBase64());
-    }
+    DownloadToDirHistory::put(temp_pathes);
 }
 
 SearchFrame::SearchFrame(QWidget *parent):

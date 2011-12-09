@@ -121,6 +121,7 @@ list(APPEND MOC_HDRS
             src/ArenaWidgetManager.h
             src/CustomFontModel.h
             src/DebugHelper.h
+            src/DownloadToHistory.h
             src/DownloadQueue.h
             src/DownloadQueueModel.h
             src/EmoticonDialog.h

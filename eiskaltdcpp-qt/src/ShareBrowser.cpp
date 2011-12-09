@@ -16,6 +16,7 @@
 #include "ShareBrowserSearch.h"
 #include "ArenaWidgetManager.h"
 #include "ArenaWidgetFactory.h"
+#include "DownloadToHistory.h"
 
 #include "dcpp/SettingsManager.h"
 #include "dcpp/FavoriteManager.h"
@@ -138,8 +139,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
 
-    QString raw = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
-    QStringList temp_pathes = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    QStringList temp_pathes = DownloadToDirHistory::get();
 
     if (!temp_pathes.isEmpty()){
         foreach (QString t, temp_pathes){
@@ -823,19 +823,10 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 
             old_target = target;
 
-            QString raw = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
-            QStringList temp_pathes = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
-
-            if (!temp_pathes.contains(target)){
-                temp_pathes.push_front(target);
-
-                uint maxItemsNumber = WIGET("download-directory-history-items-number", 5);
-                while (temp_pathes.count() > maxItemsNumber)
-                    temp_pathes.removeLast();
-
-                QString raw = temp_pathes.join("\n");
-                WSSET(WS_DOWNLOAD_DIR_HISTORY, raw.toAscii().toBase64());
-            }
+            QStringList temp_pathes = DownloadToDirHistory::get();
+            temp_pathes.push_front(target);
+            
+            DownloadToDirHistory::put(temp_pathes);
 
             if (!target.isEmpty()){
                 foreach (QModelIndex index, list){

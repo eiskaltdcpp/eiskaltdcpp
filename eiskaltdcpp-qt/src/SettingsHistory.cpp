@@ -2,6 +2,7 @@
 
 #include "WulforSettings.h"
 #include "WulforUtil.h"
+#include "DownloadToHistory.h"
 
 SettingsHistory::SettingsHistory(QWidget *parent): QWidget(parent) {
     setupUi(this);
@@ -67,22 +68,10 @@ void SettingsHistory::ok(){
     }
     
     { // download-directory-history-items-number
-    QString raw = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
-    QStringList temp_pathes = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
-    uint maxItemsNumber = WIGET("download-directory-history-items-number", 5);
-    
-    if (spinBox_DirectoriesHistory->value() != maxItemsNumber){
-        maxItemsNumber = spinBox_DirectoriesHistory->value();
-        WISET("download-directory-history-items-number", maxItemsNumber);
+        WISET("download-directory-history-items-number", spinBox_DirectoriesHistory->value());
         
-        if (!temp_pathes.isEmpty()){
-            while (temp_pathes.count() > maxItemsNumber)
-                temp_pathes.removeLast();
-            
-            QString raw = temp_pathes.join("\n");
-            WSSET(WS_DOWNLOAD_DIR_HISTORY, raw.toAscii().toBase64());
-        }
-    }
+        QStringList list = DownloadToDirHistory::get();
+        DownloadToDirHistory::put(list);
     }
 }
 
