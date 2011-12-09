@@ -223,26 +223,30 @@ namespace {
 
 template <Qt::SortOrder order>
 struct Compare {
-    void static sort(int col, QList<FileBrowserItem*>& items) {
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
+    typedef bool (*AttrComp)(const FileBrowserItem * l, const FileBrowserItem * r);
+    
+    void static sort(unsigned  column, QList<FileBrowserItem*>& items) {
+        if (column > COLUMN_FILEBROWSER_TTH)
+            return;
+        
+        qStableSort(items.begin(), items.end(), [&attrs,column](const FileBrowserItem *l, const FileBrowserItem *r) { return attrs[column](l, r); } );
     }
 
-    void static insertSorted(int col, QList<FileBrowserItem*>& items, FileBrowserItem* item) {
-        QList<FileBrowserItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+    void static insertSorted(unsigned column, QList<FileBrowserItem*>& items, FileBrowserItem* item) {
+        if (column > COLUMN_FILEBROWSER_TTH)
+            return;
+        
+        QList<FileBrowserItem*>::iterator it = qLowerBound(items.begin(), 
+                                                           items.end(), 
+                                                           item, 
+                                                           [&attrs,column](const FileBrowserItem *l, const FileBrowserItem *r) {
+                                                                return attrs[column](l, r);
+                                                            } );
         items.insert(it, item);
     }
 
     private:
-        typedef bool (*AttrComp)(const FileBrowserItem * l, const FileBrowserItem * r);
-        AttrComp static getAttrComp(const int column) {
-            static AttrComp attrs[4] = {    AttrCmp<COLUMN_FILEBROWSER_NAME>,
-                                            NumCmp<COLUMN_FILEBROWSER_ESIZE>,
-                                            NumCmp<COLUMN_FILEBROWSER_ESIZE>,
-                                            AttrCmp<COLUMN_FILEBROWSER_TTH>
-                                       };
-
-            return attrs[column];
-        }
+        
         template <int i>
         bool static AttrCmp(const FileBrowserItem * l, const FileBrowserItem * r) {
             if ((l->dir && !r->dir) || (!l->dir && r->dir)){
@@ -259,7 +263,16 @@ struct Compare {
        }
         template <typename T>
         bool static Cmp(const T& l, const T& r);
+        
+        static AttrComp attrs[4];
 };
+
+template <Qt::SortOrder order>
+typename Compare<order>::AttrComp Compare<order>::attrs[4] = {  AttrCmp<COLUMN_FILEBROWSER_NAME>,
+                                                                NumCmp<COLUMN_FILEBROWSER_ESIZE>,
+                                                                NumCmp<COLUMN_FILEBROWSER_ESIZE>,
+                                                                AttrCmp<COLUMN_FILEBROWSER_TTH>
+                                                             };
 
 template <> template <typename T>
 bool inline Compare<Qt::AscendingOrder>::Cmp(const T& l, const T& r) {

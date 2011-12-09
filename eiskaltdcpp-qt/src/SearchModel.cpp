@@ -225,37 +225,29 @@ namespace {
 
 template <Qt::SortOrder order>
 struct Compare {
-    void static sort(int col, QList<SearchItem*>& items) {
-#ifdef _DEBUG_MODEL_
-        qDebug() << "Sorting by " << col << " column and " << WulforUtil::getInstance()->sortOrderToInt(order) << " order.";
-#endif
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
+    typedef bool (*AttrComp)(const SearchItem * l, const SearchItem * r);
+    
+    void static sort(unsigned column, QList<SearchItem*>& items) {
+        if (column > COLUMN_SF_HOST)
+            return;
+        
+        qStableSort(items.begin(), items.end(), [&attrs,column] (const SearchItem *l, const SearchItem *r) { return attrs[column](l, r); });
     }
 
-    QList<SearchItem*>::iterator static insertSorted(int col, QList<SearchItem*>& items, SearchItem* item) {
-        return qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+    QList<SearchItem*>::iterator static insertSorted(unsigned column, QList<SearchItem*>& items, SearchItem* item) {
+        if (column > COLUMN_SF_HOST)
+            return items.end();
+        
+        return qLowerBound(items.begin(), 
+                           items.end(), 
+                           item, 
+                           [&attrs,column] (const SearchItem *l, const SearchItem *r) { 
+                               return attrs[column](l, r); 
+                               
+                           });
     }
 
     private:
-        typedef bool (*AttrComp)(const SearchItem * l, const SearchItem * r);
-        AttrComp static getAttrComp(const int column) {
-            static AttrComp attrs[13] = {   NumCmp<COLUMN_SF_COUNT>,
-                                            AttrCmp<COLUMN_SF_FILENAME>,
-                                            AttrCmp<COLUMN_SF_EXTENSION>,
-                                            NumCmp<COLUMN_SF_ESIZE>,
-                                            NumCmp<COLUMN_SF_ESIZE>,
-                                            AttrCmp<COLUMN_SF_TTH>,
-                                            AttrCmp<COLUMN_SF_PATH>,
-                                            AttrCmp<COLUMN_SF_NICK>,
-                                            NumCmp<COLUMN_SF_FREESLOTS>,
-                                            NumCmp<COLUMN_SF_ALLSLOTS>,
-                                            AttrCmp<COLUMN_SF_IP>,
-                                            AttrCmp<COLUMN_SF_HUB>,
-                                            AttrCmp<COLUMN_SF_HOST>
-                                        };
-
-            return attrs[column];//column number checked in SearchModel::sort
-        }
         template <int i>
         bool static AttrCmp(const SearchItem * l, const SearchItem * r) {
             return Cmp(QString::localeAwareCompare(l->data(i).toString(), r->data(i).toString()), 0);
@@ -270,7 +262,25 @@ struct Compare {
         }
         template <typename T>
         bool static Cmp(const T& l, const T& r);
+        
+        static AttrComp attrs[13];
 };
+
+template <Qt::SortOrder order>
+typename Compare<order>::AttrComp Compare<order>::attrs[13] = { NumCmp<COLUMN_SF_COUNT>,
+                                                                AttrCmp<COLUMN_SF_FILENAME>,
+                                                                AttrCmp<COLUMN_SF_EXTENSION>,
+                                                                NumCmp<COLUMN_SF_ESIZE>,
+                                                                NumCmp<COLUMN_SF_ESIZE>,
+                                                                AttrCmp<COLUMN_SF_TTH>,
+                                                                AttrCmp<COLUMN_SF_PATH>,
+                                                                AttrCmp<COLUMN_SF_NICK>,
+                                                                NumCmp<COLUMN_SF_FREESLOTS>,
+                                                                NumCmp<COLUMN_SF_ALLSLOTS>,
+                                                                AttrCmp<COLUMN_SF_IP>,
+                                                                AttrCmp<COLUMN_SF_HUB>,
+                                                                AttrCmp<COLUMN_SF_HOST>
+                                                                };
 
 template <> template <typename T>
 bool inline Compare<Qt::AscendingOrder>::Cmp(const T& l, const T& r) {
