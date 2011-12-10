@@ -9,6 +9,10 @@ if (JSONRPC_DAEMON AND XMLRPC_DAEMON)
     set (XMLRPC_DAEMON OFF CACHE BOOL "Make daemon as xmlrpc server" FORCE)
 endif (JSONRPC_DAEMON AND XMLRPC_DAEMON)
 
+if (WIN32)
+  set (WIN32_LIBS "ws2_32")
+endif (WIN32)
+
 if (JSONRPC_DAEMON)
     message (STATUS "Build daemon with JSONRPC interface")
     include_directories(${PROJECT_SOURCE_DIR}/../json/jsoncpp/include/)
@@ -17,7 +21,7 @@ if (JSONRPC_DAEMON)
     add_executable (jsonclient MACOSX_BUNDLE WIN32
                     client.cpp
                     )
-    target_link_libraries (jsonclient ${JSONRPCLIBS})
+    target_link_libraries (jsonclient ${JSONRPCLIBS} ${WIN32_LIBS})
     list (REMOVE_ITEM nasdc_SRCS ${PROJECT_SOURCE_DIR}/client.cpp)
 else (JSONRPC_DAEMON)
     list (REMOVE_ITEM nasdc_SRCS ${PROJECT_SOURCE_DIR}/jsonrpcmethods.cpp ${PROJECT_SOURCE_DIR}/client.cpp)
