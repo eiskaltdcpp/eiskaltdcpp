@@ -1098,7 +1098,7 @@ Kapcsolók:
     <message>
         <location filename="../src/HubFrame.cpp" line="1654"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
-        <translation>arány: %1 (feltöltés: %2, letöltés: %3)</translation>
+        <translation>aránya: %1 (feltöltés: %2, letöltés: %3)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1681"/>
