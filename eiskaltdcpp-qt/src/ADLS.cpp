@@ -9,7 +9,6 @@
 
 #include "ADLS.h"
 #include "ADLSModel.h"
-#include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 

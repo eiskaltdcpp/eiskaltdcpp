@@ -21,9 +21,9 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/CID.h"
+#include "dcpp/File.h"
 
 #include "WulforUtil.h"
-#include "MainWindow.h"
 
 using namespace dcpp;
 

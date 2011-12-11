@@ -14,7 +14,6 @@
 #include <QVBoxLayout>
 
 #include "WulforUtil.h"
-#include "MainWindow.h"
 #include "ArenaWidgetManager.h"
 
 ArenaWidget::Flags operator|(const ArenaWidget::Flags &a, const ArenaWidget::Flags &b){

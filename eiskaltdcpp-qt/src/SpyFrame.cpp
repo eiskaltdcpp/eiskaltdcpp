@@ -8,7 +8,6 @@
 ***************************************************************************/
 
 #include "SpyFrame.h"
-#include "MainWindow.h"
 #include "SpyModel.h"
 #include "WulforUtil.h"
 #include "SearchFrame.h"

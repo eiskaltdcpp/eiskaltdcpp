@@ -9,7 +9,6 @@
 
 #include "ArenaWidgetFactory.h"
 #include "HubFrame.h"
-#include "MainWindow.h"
 #include "PMWindow.h"
 #include "WulforUtil.h"
 #include "Antispam.h"
@@ -24,6 +23,7 @@
 #include "SpellCheck.h"
 #endif
 #include "ArenaWidgetManager.h"
+#include "MainWindow.h"
 
 #include "UserListModel.h"
 #include "EmoticonFactory.h"

@@ -9,10 +9,12 @@
 
 #include "FavoriteHubs.h"
 #include "FavoriteHubModel.h"
-#include "MainWindow.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
+#include "VersionGlobal.h"
+#include "MainWindow.h"
 
+#include "dcpp/version.h"
 #include "dcpp/stdinc.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/SettingsManager.h"

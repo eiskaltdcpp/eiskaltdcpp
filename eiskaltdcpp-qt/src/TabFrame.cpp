@@ -11,7 +11,6 @@
 
 #include "FlowLayout.h"
 #include "TabButton.h"
-#include "MainWindow.h"
 #include "WulforUtil.h"
 #include "ArenaWidgetManager.h"
 #include "DebugHelper.h"

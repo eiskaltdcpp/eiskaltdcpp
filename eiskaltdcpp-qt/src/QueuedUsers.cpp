@@ -8,7 +8,6 @@
 ***************************************************************************/
 
 #include "QueuedUsers.h"
-#include "MainWindow.h"
 #include "WulforSettings.h"
 
 #include "dcpp/UploadManager.h"

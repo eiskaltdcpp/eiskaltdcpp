@@ -8,7 +8,6 @@
 ***************************************************************************/
 
 #include "FavoriteUsers.h"
-#include "MainWindow.h"
 #include "WulforUtil.h"
 #include "FavoriteUsersModel.h"
 

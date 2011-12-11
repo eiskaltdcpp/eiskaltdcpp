@@ -21,7 +21,6 @@
 
 #include "DownloadQueueModel.h"
 #include "ArenaWidgetFactory.h"
-#include "MainWindow.h"
 #include "SearchFrame.h"
 #include "HubFrame.h"
 #include "HubManager.h"

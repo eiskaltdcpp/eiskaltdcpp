@@ -37,7 +37,6 @@
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
 #include "FinishedTransfersModel.h"
-#include "MainWindow.h"
 #include "ShareBrowser.h"
 
 using namespace dcpp;

@@ -9,7 +9,6 @@
 
 #include "HubManager.h"
 #include "HubFrame.h"
-#include "MainWindow.h"
 
 #include <QtDebug>
 
