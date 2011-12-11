@@ -2049,7 +2049,7 @@ void MainWindow::slotFileOpenLogFile(){
         else
             f = "file:///" + f;
 
-        QDesktopServices::openUrl(f);
+        QDesktopServices::openUrl(QUrl(f));
     }
 }
 

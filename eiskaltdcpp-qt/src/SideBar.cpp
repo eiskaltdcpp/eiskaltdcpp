@@ -26,6 +26,7 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 #include <QDir>
+#include <QUrl>
 
 #define CREATE_ROOT_EL(a, b, c, d, e) \
     do { \
@@ -668,7 +669,7 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
                 else
                     f = "file:///" + f;
 
-                QDesktopServices::openUrl ( f );
+                QDesktopServices::openUrl ( QUrl(f) );
             }
             
             break;

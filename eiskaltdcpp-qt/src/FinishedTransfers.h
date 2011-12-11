@@ -470,7 +470,7 @@ private:
                 else
                     f.prepend("file:///");
 
-                QDesktopServices::openUrl(f);
+                QDesktopServices::openUrl(QUrl(f));
             }
         }
         else if (ret == open_dir){
@@ -482,7 +482,7 @@ private:
                 else
                     f.prepend("file:///");
 
-                QDesktopServices::openUrl(f);
+                QDesktopServices::openUrl(QUrl(f));
             }
         }
 
