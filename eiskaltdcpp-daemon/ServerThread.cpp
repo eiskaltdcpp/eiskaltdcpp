@@ -736,10 +736,15 @@ bool ServerThread::addDirInShare(const string& sdirectory, const string& svirtna
 }
 
 bool ServerThread::addInQueue(const string& sddir, const string& name, const int64_t& size, const string& tth) {
+    if (name.empty() && tth.empty())
+        return false;
+
     if (!sddir.empty())
         QueueManager::getInstance()->add(sddir+PATH_SEPARATOR_STR+name, size, TTHValue(tth));
     else
         QueueManager::getInstance()->add(name, size, TTHValue(tth));
+
+    return true;
 }
 
 bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int& priority) {

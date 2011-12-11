@@ -66,7 +66,7 @@ public:
     virtual const QPixmap &getPixmap(){ return _pxmap; }
     
     virtual Flags state() const { return flags; }
-    virtual Flags setState(Flags f) { flags = f; }
+    virtual Flags setState(Flags f) { flags = f; return flags; }
 
     virtual void requestFilter() {}
     virtual void requestFocus() {}
