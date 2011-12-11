@@ -1054,7 +1054,7 @@ void ShareBrowser::slotFilter(){
 }
 
 void ShareBrowser::slotStartSearch(){
-    ShareBrowserSearch *sb_search = new ShareBrowserSearch(this);
+    ShareBrowserSearch *sb_search = new ShareBrowserSearch(tree_model, this);
 
     sb_search->setSearchRoot(tree_root);
     connect(sb_search, SIGNAL(indexClicked(FileBrowserItem*)), this, SLOT(slotSearchJumpTo(FileBrowserItem*)));

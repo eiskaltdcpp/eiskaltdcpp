@@ -18,13 +18,14 @@
 #include "ui_UIShareBrowserSearch.h"
 
 class FileBrowserItem;
+class FileBrowserModel;
 class QCloseEvent;
 
 class ShareBrowserSearch: public QDialog, protected Ui::UIShareBrowserSearch{
     Q_OBJECT
 
 public:
-    ShareBrowserSearch(QWidget * = NULL);
+    ShareBrowserSearch(FileBrowserModel *model, QWidget *parent = NULL);
     virtual ~ShareBrowserSearch();
 
     void setSearchRoot(FileBrowserItem *);
@@ -48,6 +49,7 @@ private:
     QRegExp regexp;
     QList<QTreeWidgetItem*> items;
     QHash<QTreeWidgetItem*,FileBrowserItem*> hash;
+    FileBrowserModel *model;
 };
 
 #endif

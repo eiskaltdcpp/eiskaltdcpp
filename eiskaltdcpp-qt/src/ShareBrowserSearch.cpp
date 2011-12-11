@@ -18,8 +18,13 @@
 #include <boost/bind.hpp>
 #include <boost/function.hpp>
 
-ShareBrowserSearch::ShareBrowserSearch(QWidget *parent): QDialog(parent), searchRoot(NULL) {
+ShareBrowserSearch::ShareBrowserSearch(FileBrowserModel *model, QWidget *parent): QDialog(parent), searchRoot(NULL) {
+    if ( !model )
+        throw 0;
+    
     setupUi(this);
+    
+    this->model = model;
 
     if (WVGET("sharebrowsersearch/size").isValid())
         resize(WVGET("sharebrowsersearch/size").toSize());
@@ -91,7 +96,7 @@ void ShareBrowserSearch::slotGotItem(QString item, FileBrowserItem *path){
     if (!path || item.isEmpty())
         return;
 
-    QTreeWidgetItem *i = new QTreeWidgetItem(QStringList() << item << getPath(path), 0);
+    QTreeWidgetItem *i = new QTreeWidgetItem(treeWidget, QStringList() << item << getPath(path), 0);
 
     items.push_back(i);
     hash.insert(i, path);
@@ -111,6 +116,13 @@ void ShareBrowserSearch::slotItemActivated(QTreeWidgetItem *item, int){
 void ShareBrowserSearch::findMatches(FileBrowserItem *item){
     if (!item)
         return;
+    
+    QModelIndex index = model->createIndexForItem(item);
+    
+    if (model->canFetchMore(index))  
+        model->fetchMore(index);
+    
+    QString fname = "";
 
     foreach(FileBrowserItem *i, item->childItems){
         if (i->dir){
@@ -120,7 +132,9 @@ void ShareBrowserSearch::findMatches(FileBrowserItem *item){
             DirectoryListing::File::Iter it_file;
 
             for (it_file = files->begin(); it_file != files->end(); ++it_file){
-                if (regexp.exactMatch(_q((*it_file)->getName())))
+                fname = _q((*it_file)->getName());
+                
+                if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || fname.indexOf(regexp) >= 0 || regexp.exactMatch(fname))
                     emit gotItem(_q((*it_file)->getName()), i);
             }
         }
