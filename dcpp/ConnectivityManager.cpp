@@ -77,13 +77,13 @@ void ConnectivityManager::detectConnection() {
 
    log(_("Determining the best connectivity settings..."));
    try {
-       listen();
+        listen();
    } catch(const Exception& e) {
-       SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_PASSIVE);
-       log(str(F_("Unable to open %1% port(s); connectivity settings must be configured manually") % e.getError()));
-       fire(ConnectivityManagerListener::Finished());
-                running = false;
-       return;
+        SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_PASSIVE);
+        log(str(F_("Unable to open %1% port(s); connectivity settings must be configured manually") % e.getError()));
+        fire(ConnectivityManagerListener::Finished());
+        running = false;
+        return;
    }
 
    autoDetected = true;
@@ -108,7 +108,7 @@ void ConnectivityManager::setup(bool settingsChanged) {
    if(BOOLSETTING(AUTO_DETECT_CONNECTION)) {
        if (!autoDetected) detectConnection();
    } else {
-        if(autoDetected || settingsChanged || SearchManager::getInstance()->getPort() != SETTING(UDP_PORT) || ConnectionManager::getInstance()->getPort() != SETTING(TCP_PORT) || ConnectionManager::getInstance()->getSecurePort() != SETTING(TLS_PORT) || SETTING(BIND_ADDRESS) != lastBind) {
+        if(autoDetected || (settingsChanged && (SearchManager::getInstance()->getPort() != SETTING(UDP_PORT) || ConnectionManager::getInstance()->getPort() != SETTING(TCP_PORT) || ConnectionManager::getInstance()->getSecurePort() != SETTING(TLS_PORT) || SETTING(BIND_ADDRESS) != lastBind))) {
            if(settingsChanged || SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP) {
                UPnPManager::getInstance()->close();
            }

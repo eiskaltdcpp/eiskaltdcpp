@@ -30,11 +30,11 @@
 #include <string>
 #include <list>
 
-#include <json/json.h>
+#include <jsoncpp/json.h>
 
 #include "jsonrpc_common.h"
 
-namespace Json 
+namespace Json
 {
 
   namespace Rpc
@@ -83,7 +83,7 @@ namespace Json
      * a method of this class. See Handler class documentation for an example
      * of how to use RpcMethod class.
      *
-     * \warning As class keep pointer of object reference, you should take 
+     * \warning As class keep pointer of object reference, you should take
      * care at the lifetime of object you pass in RpcMethod constructor,
      * else it could lead to crash your program.
      */
@@ -229,7 +229,7 @@ namespace Json
          * \param response JSON-RPC response (could be Json::Value::null)
          * \return true if the request has been correctly processed, false otherwise
          * (may be caused by parsed error, ...)
-         * \note in case msg is a notification, response is equal to Json::Value::null 
+         * \note in case msg is a notification, response is equal to Json::Value::null
          * and the return value is true.
          */
         bool Process(const std::string& msg, Json::Value& response);
@@ -240,7 +240,7 @@ namespace Json
          * \param response JSON-RPC response (could be Json::Value::null)
          * \return true if the request has been correctly processed, false otherwise (may be
          * caused by parsed error, ...)
-         * \note in case msg is a notification, response is equal to Json::Value::null 
+         * \note in case msg is a notification, response is equal to Json::Value::null
          * and the return value is true.
          */
         bool Process(const char* msg, Json::Value& response);
@@ -295,9 +295,9 @@ namespace Json
          * \brief Process a JSON-RPC object message.
          * \param root JSON-RPC message as Json::Value
          * \param response JSON-RPC response that will be filled in this method
-         * \return true if the request has been correctly processed, false otherwise 
+         * \return true if the request has been correctly processed, false otherwise
          * (may be caused by parsed error, ...)
-         * \note In case msg is a notification, response is equal to Json::Value::null 
+         * \note In case msg is a notification, response is equal to Json::Value::null
          * and the return value is true.
          */
         bool Process(const Json::Value& root, Json::Value& response);

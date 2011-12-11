@@ -2,7 +2,7 @@
 #ifndef JSON_RPC_METHODS_H
 #define JSON_RPC_METHODS_H
 
-#include <json/json.h>
+#include <jsoncpp/json.h>
 class JsonRpcMethods
 {
   public:
