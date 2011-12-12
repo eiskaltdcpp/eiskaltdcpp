@@ -1874,7 +1874,8 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
         return;
     }
     
-    d->arena->setWidget(awgt->getWidget());
+    if (d->arena->widget() != awgt->getWidget())
+        d->arena->setWidget(awgt->getWidget());
 
     setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
 
