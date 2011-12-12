@@ -66,7 +66,7 @@ public:
     virtual const QPixmap &getPixmap(){ return _pxmap; }
     
     virtual Flags state() const { return flags; }
-    virtual Flags setState(Flags f) { flags = f; return flags; }
+    virtual void  setState(Flags f) { flags = f; }
 
     virtual void requestFilter() {}
     virtual void requestFocus() {}
@@ -125,7 +125,7 @@ public Q_SLOTS:
     virtual void  setPixmap(const QPixmap&);
 
     virtual Role role() const { return ArenaWidget::CustomWidget; }
-    virtual ArenaWidget::Flags setState(ArenaWidget::Flags f) { ArenaWidget::setState(f); }
+    virtual void setState(ArenaWidget::Flags f) { ArenaWidget::setState(f); }
 private:
     QWidget *_wgt;
     QString _arenaTitle;
