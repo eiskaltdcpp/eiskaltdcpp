@@ -679,6 +679,7 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         return false;
     }
 
+    const int maxHashSpeed = SETTING(MAX_HASH_SPEED);
     int64_t pos = 0;
     int64_t size_read = 0;
     void *buf = NULL;
@@ -735,13 +736,15 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
             break;
         }
 
-        if(SETTING(MAX_HASH_SPEED) > 0) {
-        uint64_t now = GET_TICK();
-        uint64_t minTime = size_read * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
+        if(maxHashSpeed > 0) {
+            uint64_t now = GET_TICK();
+            uint64_t minTime = size_read * 1000LL / (maxHashSpeed * 1024LL * 1024LL);
+            
             if(lastRead + minTime> now) {
-            uint64_t diff = now - lastRead;
-            Thread::sleep(minTime - diff);
+                uint64_t diff = now - lastRead;
+                Thread::sleep(minTime - diff);
             }
+            
             lastRead = lastRead + minTime;
         } else {
             lastRead = GET_TICK();
