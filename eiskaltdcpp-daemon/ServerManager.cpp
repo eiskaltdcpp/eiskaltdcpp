@@ -45,7 +45,8 @@ void ServerInitialize()
 bool ServerStart()
 {
     dcpp::startup(callBack, NULL);
-    ServersS = new ServerThread();
+    ServerThread::newInstance();
+    ServersS = ServerThread::getInstance();
 
     if(ServersS == NULL)
         return false;
@@ -64,7 +65,7 @@ void ServerStop()
     fprintf(stdout,"waiting\n");
     ServersS->WaitFor();
     fprintf(stdout,"waiting finished\n");
-    delete ServersS;
+    ServersS->release();
 
     ServersS = NULL;
     fprintf(stdout,"library stops\n");
