@@ -37,9 +37,6 @@ class ServerThread :
 {
 
 public:
-    ServerThread();
-    ~ServerThread();
-
     void Resume();
     void Close();
     void WaitFor();
@@ -62,6 +59,10 @@ public:
     bool setPriorityQueueItem(const string& target, const unsigned int& priority);
 
 private:
+    friend class Singleton<ServerThread>;
+
+    ServerThread();
+    virtual ~ServerThread();
 
     virtual int run();
     void startSocket(bool changed);
