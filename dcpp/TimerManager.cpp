@@ -87,6 +87,7 @@ int TimerManager::run() {
             nextMin = 0;
         }
     }
+    boostmtx.unlock();
 #endif
 
     dcdebug("TimerManager done\n");
