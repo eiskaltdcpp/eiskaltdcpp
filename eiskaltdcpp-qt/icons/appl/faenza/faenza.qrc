@@ -29,6 +29,9 @@
         <file alias="freespace.png">freespace.png</file>
         <file alias="go-down.png">go-down.png</file>
         <file alias="go-down-search.png">go-down-search.png</file>
+        <file alias="go-previous.png">go-previous.png</file>
+        <file alias="go-next.png">go-next.png</file>
+        <file alias="go-top.png">go-top.png</file>
         <file alias="go-up.png">go-up.png</file>
         <file alias="go-up-search.png">go-up-search.png</file>
         <file alias="gui.png">gui.png</file>

@@ -334,6 +334,9 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiUPLIST]       = FROMTHEME("go-up-search", resourceFound);
     m_PixmapMap[eiZOOM_IN]      = FROMTHEME("zoom-in", resourceFound);
     m_PixmapMap[eiZOOM_OUT]     = FROMTHEME("zoom-out", resourceFound);
+    m_PixmapMap[eiTOP]          = FROMTHEME("go-top", resourceFound);
+    m_PixmapMap[eiNEXT]         = FROMTHEME("go-next", resourceFound);
+    m_PixmapMap[eiPREVIOUS]     = FROMTHEME("go-previous", resourceFound);
 
     m_PixmapMap[eiFILETYPE_APPLICATION] = FROMTHEME("application-x-executable", resourceFound);
     m_PixmapMap[eiFILETYPE_ARCHIVE]     = FROMTHEME("application-x-archive", resourceFound);

@@ -220,7 +220,11 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
     }
 
     setAttribute(Qt::WA_DeleteOnClose);
-
+    
+    toolButton_UP->setIcon(WICON(WulforUtil::eiTOP));
+    toolButton_FORVARD->setIcon(WICON(WulforUtil::eiNEXT));
+    toolButton_BACK->setIcon(WICON(WulforUtil::eiPREVIOUS));
+    
     AsyncRunner *runner = new AsyncRunner(this);
     boost::function<void()> f = boost::bind(&ShareBrowser::buildList, this);
 
