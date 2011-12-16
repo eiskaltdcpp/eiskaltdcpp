@@ -89,24 +89,28 @@ void FavoriteHubs::init(){
     fakeADCTags = QStringList();
 
     fakeNMDCTags << QString("%1").arg(fullVersionString)
-            << QString("EiskaltDC++ V:%1").arg(VERSIONSTRING)
-            << "++ V:0.75"
             << "++ V:0.777"
+            << "++ V:0.782"
             << "StrgDC++ V:2.42"
             << "ApexDC++ V:1.3.6"
-            << "FlylinkDC++ V:(r400)"
+            << "ApexDC++ V:1.5.1"
+            << "FlylinkDC++ V:r500"
+            << "FlylinkDC++ V:r500-x64"
+            << "FlylinkDC++ V:r501-beta60"
             << "HomeDC++ V:2.22"
-            << "FakeDC V:1.0";
+            << "FakeDC++ V:1.3";
 
     fakeADCTags << QString("%1").arg(fullADCVersionString)
-            << QString("EiskaltDC++ %1").arg(VERSIONSTRING)
-            << "++ 0.75"
             << "++ 0.777"
+            << "++ 0.782"
             << "StrgDC++ 2.42"
             << "ApexDC++ 1.3.6"
-            << "FlylinkDC++ V:(r400)"
+            << "ApexDC++ 1.5.1"
+            << "FlylinkDC++ r500"
+            << "FlylinkDC++ r500-x64"
+            << "FlylinkDC++ r501-beta60"
             << "HomeDC++ 2.22"
-            << "FakeDC 1.0";
+            << "FakeDC++ 1.3";
 
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
