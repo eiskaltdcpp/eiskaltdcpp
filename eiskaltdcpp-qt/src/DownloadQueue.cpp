@@ -247,7 +247,7 @@ void DownloadQueue::requestDelete(){
 
     QList<DownloadQueueItem*> items;
 
-    foreach (QModelIndex i, list){
+    foreach (const QModelIndex &i, list){
         DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(i.internalPointer());
 
         if (!item)
@@ -550,7 +550,7 @@ void DownloadQueue::getItems(const QModelIndexList &list, QList<DownloadQueueIte
     if (list.isEmpty())
         return;
 
-    foreach (QModelIndex i, list){
+    foreach (const QModelIndex &i, list){
         DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(i.internalPointer());
 
         getChilds(item, items);

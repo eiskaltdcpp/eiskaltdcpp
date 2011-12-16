@@ -413,7 +413,7 @@ Qt::ItemFlags ShareDirModel::flags(const QModelIndex& index) const{
 
     QString fp = filePath(index);
 
-    foreach (QString file, checked){
+    foreach (const QString &file, checked){
 #if QT_VERSION >= 0x040500
         if (fp.startsWith(file) && (fp.split(QDir::separator()).length() != file.split(QDir::separator()).length()) && fp != file){
 #else
@@ -438,7 +438,7 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
         case Qt::CheckStateRole:
         {
             if (index.column() == 0){
-                foreach (QString f, checked){
+                foreach (const QString &f, checked){
                     if (fp.startsWith(f) && fp.length() == f.length())
                         return Qt::Checked;
                 }
@@ -460,10 +460,10 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
         case Qt::FontRole:
         {
             if (index.column() == 0){
-                QFont font;
+                static QFont font;
                 font.setBold(true);
 
-                foreach (QString f, checked){
+                foreach (const QString &f, checked){
                     if (f == fp)
                         return font;
                 }
@@ -538,7 +538,7 @@ void ShareDirModel::setAlias(const QModelIndex &index, const QString &alias){
 }
 
 void ShareDirModel::beginExpanding(){
-    foreach (QString f, checked){
+    foreach (const QString &f, checked){
         QStack<QModelIndex> stack;
         QModelIndex i = index(f);
 

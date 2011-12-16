@@ -98,7 +98,7 @@ bool FavoriteUsers::eventFilter(QObject *obj, QEvent *e){
                 QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
                 QList<FavoriteUserItem*> items;
 
-                foreach(QModelIndex i, indexes)
+                foreach(const QModelIndex &i, indexes)
                     items.push_back(reinterpret_cast<FavoriteUserItem*>(i.internalPointer()));
 
                 foreach (FavoriteUserItem *i, items)
@@ -230,7 +230,7 @@ void FavoriteUsers::slotContextMenu(){
     QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
     QList<FavoriteUserItem*> items;
 
-    foreach(QModelIndex i, indexes)
+    foreach(const QModelIndex &i, indexes)
         items.push_back(reinterpret_cast<FavoriteUserItem*>(i.internalPointer()));
 
     if (items.size() < 1)

@@ -215,7 +215,7 @@ void SpyModel::addResult(const QString &file, bool isTTH)
 {
     QString _temp;
 
-    foreach (QChar ch, file)
+    foreach (const QChar &ch, file)
         _temp += ((ch.isPrint() || ch == ' ')? ch : ' ');//remove all non-printable chars except space
 
     QString &_file = _temp;

@@ -68,7 +68,7 @@ void QueuedUsers::slotContextMenu(){
     m->addAction(tr("Grant slot"));
 
     if (m->exec(QCursor::pos())){
-        foreach (QModelIndex i, indexes){
+        foreach (const QModelIndex &i, indexes){
             QueuedUserItem *item = reinterpret_cast<QueuedUserItem*>(i.internalPointer());
 
             if (!item)

@@ -51,7 +51,7 @@ void SettingsGUI::init(){
 
         comboBox_THEMES->addItem(tr("Default (need to restart)"));
 
-        foreach (QString s, styles)
+        foreach (const QString &s, styles)
             comboBox_THEMES->addItem(s);
 
         comboBox_THEMES->setCurrentIndex(styles.indexOf(WSGET(WS_APP_THEME)) >= 0? (styles.indexOf(WSGET(WS_APP_THEME))+1) : 0);
@@ -120,7 +120,7 @@ void SettingsGUI::init(){
 #endif//WIN32
         i = 0;
         k = -1;
-        foreach (QString f, QDir(users).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+        foreach (const QString &f, QDir(users).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_USERS->addItem(f);
 
@@ -139,7 +139,7 @@ void SettingsGUI::init(){
 #endif//WIN32
         i = 0;
         k = -1;
-        foreach (QString f, QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+        foreach (const QString &f, QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_ICONS->addItem(f);
 
@@ -158,7 +158,7 @@ void SettingsGUI::init(){
 #endif//WIN32
         comboBox_EMOT->setCurrentIndex(0);
         i = 0;
-        foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+        foreach (const QString &f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_EMOT->addItem(f);
 

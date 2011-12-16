@@ -1091,8 +1091,8 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
     dcpp::StringList hubs;
     QMap<QString, QMenu*> registered_menus;
 
-    foreach (QString s, hub_list)
-        hubs.push_back(s.toStdString());
+    foreach (const QString &s, hub_list)
+        hubs.push_back(_tq(s));
 
     hubs.push_back("");
 

@@ -68,7 +68,7 @@ void SearchBlackListDialog::slotContextMenu(){
         s_m->select(model->addEmptyItem(), QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
     }
     else if (ret && !indexes.isEmpty()){
-        foreach (QModelIndex index, indexes){
+        foreach (const QModelIndex &index, indexes){
             SearchBlackListItem *i = reinterpret_cast<SearchBlackListItem*>(index.internalPointer());
 
             if (!i)

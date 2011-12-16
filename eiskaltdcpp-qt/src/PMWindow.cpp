@@ -581,7 +581,7 @@ void PMWindow::slotSmileContextMenu(){
     QMenu *m = new QMenu(this);
     QAction * a = NULL;
 
-    foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+    foreach (const QString &f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
             QAction * act = m->addAction(f);
             act->setCheckable(true);

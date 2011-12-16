@@ -1407,7 +1407,7 @@ void MainWindow::initToolbar(){
     if (enabled_actions.isEmpty())
         d->fBar->addActions(d->toolBarActions);
     else {
-        foreach (QString objName, enabled_actions){
+        foreach (const QString &objName, enabled_actions){
             QAction *act = findChild<QAction*>(objName);
 
             if (act)
@@ -1768,7 +1768,7 @@ void MainWindow::autoconnect(){
 void MainWindow::parseCmdLine(){
     QStringList args = qApp->arguments();
 
-    foreach (QString arg, args){
+    foreach (const QString &arg, args){
         if (arg.startsWith("magnet:?")){
             Magnet m(this);
             m.setLink(arg);
@@ -1795,7 +1795,7 @@ void MainWindow::parseInstanceLine(QString data){
 
     QStringList args = data.split("\n", QString::SkipEmptyParts);
 
-    foreach (QString arg, args){
+    foreach (const QString &arg, args){
         if (arg.startsWith("magnet:?xt=urn:tree:tiger:")){
             Magnet m(this);
             m.setLink(arg);

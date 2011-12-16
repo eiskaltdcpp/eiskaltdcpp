@@ -396,7 +396,7 @@ private:
         QModelIndexList p_indexes = s_model->selectedRows(0);
         QModelIndexList indexes;
 
-        foreach (QModelIndex i, p_indexes)
+        foreach (const QModelIndex &i, p_indexes)
             indexes.push_back(proxy->mapToSource(i));
 
         if (indexes.size() < 1)
@@ -408,7 +408,7 @@ private:
             FinishedTransfersItem *item = NULL;
             QString file;
 
-            foreach (QModelIndex i, indexes){
+            foreach (const QModelIndex &i, indexes){
                 item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
                 file = item->data(COLUMN_FINISHED_TARGET).toString();
 
@@ -420,7 +420,7 @@ private:
             FinishedTransfersItem *item = NULL;
             QString file_list;
 
-            foreach (QModelIndex i, indexes){
+            foreach (const QModelIndex &i, indexes){
                 item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
                 file_list = item->data(COLUMN_FINISHED_PATH).toString();
 
@@ -429,7 +429,7 @@ private:
                     files.append(file_list.split("; ", QString::SkipEmptyParts));
 #else
                     QStringList s = file_list.split("; ", QString::SkipEmptyParts);
-                    foreach (QString i, s)
+                    foreach (const QString &i, s)
                         files.push_back(i);
 #endif
                 }

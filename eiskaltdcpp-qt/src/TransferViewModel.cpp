@@ -559,7 +559,7 @@ void TransferViewModel::updateParent(TransferViewItem *p){
 
     QString hubs_str = "";
 
-    foreach(QString s, hubs)
+    foreach(const QString &s, hubs)
         hubs += s + " ";
 
     if (vstr(p->data(COLUMN_TRANSFER_FNAME)).startsWith(tr("TTH: "))){

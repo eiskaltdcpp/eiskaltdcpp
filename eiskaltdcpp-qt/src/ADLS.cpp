@@ -286,7 +286,7 @@ void ADLS::slotUpButtonClicked(){
     QItemSelectionModel *s_model = treeView->selectionModel();
     QModelIndexList list = s_model->selectedRows(0);
 
-    foreach (QModelIndex i, list)
+    foreach (const QModelIndex &i, list)
         s_model->select(model->moveUp(i), QItemSelectionModel::ClearAndSelect|QItemSelectionModel::Rows);
 }
 
@@ -294,7 +294,7 @@ void ADLS::slotDownButtonClicked(){
     QItemSelectionModel *s_model = treeView->selectionModel();
     QModelIndexList list = s_model->selectedRows(0);
 
-    foreach (QModelIndex i, list)
+    foreach (const QModelIndex &i, list)
          s_model->select(model->moveDown(i), QItemSelectionModel::ClearAndSelect|QItemSelectionModel::Rows);
 }
 

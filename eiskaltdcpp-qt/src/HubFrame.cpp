@@ -1687,7 +1687,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             {
                 QString str = tr("List of keywords:\n");
 
-                foreach (const QString s, kwords)
+                foreach (const QString &s, kwords)
                     str += "\t" + s + "\n";
 
                 if (fr == this)
@@ -2705,7 +2705,7 @@ static void copyTagToClipboard(QModelIndexList &list){
     QString ret = "";
     UserListItem *item = NULL;
     
-    foreach ( QModelIndex i, list ) {
+    foreach ( const QModelIndex &i, list ) {
         item = reinterpret_cast<UserListItem*> ( i.internalPointer() );
 
         if ( ret.length() > 0 )
@@ -2723,7 +2723,7 @@ static void copyTagToClipboard(QModelIndexList &list){
     QString ret = "";
     UserListItem *item = NULL;
     
-    foreach ( QModelIndex i, list ) {
+    foreach ( const QModelIndex &i, list ) {
         item = reinterpret_cast<UserListItem*> ( i.internalPointer() );
 
         if ( ret.length() > 0 )
@@ -2767,7 +2767,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
     QModelIndexList list;
 
     if (treeView_USERS->model() != d->model){
-        foreach(QModelIndex i, proxy_list)
+        foreach(const QModelIndex &i, proxy_list)
             list.push_back(d->proxy->mapToSource(i));
     }
     else
@@ -2780,7 +2780,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::BrowseFilelist:
         {
-            foreach(QModelIndex i, list){
+            foreach(const QModelIndex &i, list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2791,7 +2791,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::PrivateMessage:
         {
-            foreach(QModelIndex i, list){
+            foreach(const QModelIndex &i, list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2804,7 +2804,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         {
             QString ttip = "";
 
-            foreach(QModelIndex i, list){
+            foreach(const QModelIndex &i, list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2844,7 +2844,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::MatchQueue:
         {
-            foreach(QModelIndex i, list){
+            foreach(const QModelIndex &i, list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2855,7 +2855,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::FavoriteAdd:
         {
-            foreach(QModelIndex i, list){
+            foreach(const QModelIndex &i, list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2866,7 +2866,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::FavoriteRem:
         {
-            foreach(QModelIndex i, list){
+            foreach(const QModelIndex &i, list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2877,7 +2877,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::GrantSlot:
         {
-            foreach(QModelIndex i, list){
+            foreach(const QModelIndex &i, list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2888,7 +2888,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::RemoveQueue:
         {
-            foreach(QModelIndex i, list){
+            foreach(const QModelIndex &i, list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2901,7 +2901,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         {
 
             if (AntiSpam::getInstance()){
-                foreach(QModelIndex i, list){
+                foreach(const QModelIndex &i, list){
                     item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                     (*AntiSpam::getInstance()) << eIN_WHITE << item->getNick();
@@ -2913,7 +2913,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         case Menu::AntiSpamBlack:
         {
             if (AntiSpam::getInstance()){
-                foreach(QModelIndex i, list){
+                foreach(const QModelIndex &i, list){
                     item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                     (*AntiSpam::getInstance()) << eIN_BLACK << item->getNick();
@@ -3448,7 +3448,7 @@ void HubFrame::slotSmileContextMenu(){
 
     QMenu *m = new QMenu(this);
 
-    foreach (QString f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+    foreach (const QString &f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
             QAction * act = m->addAction(f);
             act->setCheckable(true);
@@ -3551,7 +3551,7 @@ void HubFrame::slotInputContextMenu(){
                 ss = new QMenu(tr("Suggestions"), this);
 
 
-                foreach (QString s, list)
+                foreach (const QString &s, list)
                     ss->addAction(s);
 
                 m->addMenu(ss);

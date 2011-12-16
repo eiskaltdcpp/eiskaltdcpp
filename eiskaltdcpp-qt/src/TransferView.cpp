@@ -417,7 +417,7 @@ void TransferView::slotContextMenu(const QPoint &){
 
     QList<TransferViewItem*> items;
 
-    foreach (QModelIndex index, list){
+    foreach (const QModelIndex &index, list){
         TransferViewItem *i = reinterpret_cast<TransferViewItem*>(index.internalPointer());
 
         if (i->childCount() > 0){
@@ -453,7 +453,7 @@ void TransferView::slotContextMenu(const QPoint &){
                 tths.push_back(i->tth);
         }
 
-        foreach (QString tth, tths)
+        foreach (const QString &tth, tths)
             searchAlternates(tth);
 
         break;

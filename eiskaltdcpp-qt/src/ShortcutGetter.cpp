@@ -375,7 +375,7 @@ void ShortcutGetter::setText()
 	if ( lKeys.contains("Meta") )
 		seq << "Meta";
 			
-	foreach ( QString s, lKeys ) {
+	foreach (const QString &s, lKeys ) {
 		//qDebug("setText: s: '%s'", s.toUtf8().data());
 		if ( s != "Shift" && s != "Ctrl"
 			&& s != "Alt" && s != "Meta" )

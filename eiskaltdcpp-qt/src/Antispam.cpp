@@ -372,7 +372,7 @@ void AntiSpam::loadSettings() {
 #if QT_VERSION >= 0x040500
                     keys.append(words);
 #else
-                    foreach (QString s, words)
+                    foreach (const QString &s, words)
                         keys.append(s);
 #endif
 
@@ -432,7 +432,7 @@ void AntiSpam::setKeys(const QList<QString> &keys) {
 #if QT_VERSION >= 0x040500
     this->keys.append(keys);
 #else
-    foreach (QString s, keys)
+    foreach (const QString &s, keys)
         this->keys.append(s);
 #endif
 

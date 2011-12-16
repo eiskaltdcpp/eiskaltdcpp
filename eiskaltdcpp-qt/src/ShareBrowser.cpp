@@ -142,7 +142,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     QStringList temp_pathes = DownloadToDirHistory::get();
 
     if (!temp_pathes.isEmpty()){
-        foreach (QString t, temp_pathes){
+        foreach (const QString &t, temp_pathes){
             QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act->setToolTip(t);
             act->setData(t);
@@ -600,7 +600,7 @@ void ShareBrowser::slotRightPaneSelChanged(const QItemSelection &, const QItemSe
     QModelIndexList list = selection_model->selectedRows(0);
     quint64 selected_size = 0;
 
-    foreach (QModelIndex i, list)
+    foreach (const QModelIndex &i, list)
         selected_size += (reinterpret_cast<FileBrowserItem*>(i.internalPointer()))->data(COLUMN_FILEBROWSER_ESIZE).toULongLong();
 
     QString status = QString(tr("Total size: %1")).arg(WulforUtil::formatBytes(current_size));
@@ -773,7 +773,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
     QModelIndexList selected  = selection_model->selectedRows(0);
 
     if (view == treeView_RPANE && treeView_RPANE->model() == proxy){
-        foreach (QModelIndex i, selected)
+        foreach (const QModelIndex &i, selected)
             list.push_back(proxy->mapToSource(i));
     }
     else
@@ -792,7 +792,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         case Menu::Download:
         {
-            foreach (QModelIndex index, list){
+            foreach (const QModelIndex &index, list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 if (item->file)
@@ -827,7 +827,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             DownloadToDirHistory::put(temp_pathes);
 
             if (!target.isEmpty()){
-                foreach (QModelIndex index, list){
+                foreach (const QModelIndex &index, list){
                     FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                     if (item->file)
@@ -841,7 +841,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         case Menu::Alternates:
         {
-            foreach (QModelIndex index, list){
+            foreach (const QModelIndex &index, list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 if (item->file){//search alternates only for files
@@ -862,7 +862,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             QString path, tth, magnet;
             qlonglong size;
 
-            foreach (QModelIndex index, list){
+            foreach (const QModelIndex &index, list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 path = item->data(COLUMN_FILEBROWSER_NAME).toString();
@@ -887,7 +887,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             QString path, tth, magnet;
             qlonglong size;
 
-            foreach (QModelIndex index, list){
+            foreach (const QModelIndex &index, list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 path = item->data(COLUMN_FILEBROWSER_NAME).toString();
@@ -911,7 +911,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             QString path, tth, magnet;
             qlonglong size;
 
-            foreach (QModelIndex index, list){
+            foreach (const QModelIndex &index, list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 path = item->data(COLUMN_FILEBROWSER_NAME).toString();
@@ -960,7 +960,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         {
             ShareManager *SM = ShareManager::getInstance();
 
-            foreach (QModelIndex index, list){
+            foreach (const QModelIndex &index, list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 if (!item)
