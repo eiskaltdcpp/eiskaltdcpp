@@ -420,13 +420,7 @@ bool SearchModel::addResult
     else
         it = dcomp.insertSorted(sortColumn, parent->childItems, item);
 
-    const int pos = it - parent->childItems.begin();
-
-    //beginInsertRows(createIndexForItem(parent), pos, pos);
-    //{
-        parent->childItems.insert(it, item);
-    //}
-    //endInsertRows();// Crash (???)
+    parent->childItems.insert(it, item);
 
     emit layoutChanged();
 

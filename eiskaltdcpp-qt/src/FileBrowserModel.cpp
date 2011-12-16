@@ -666,12 +666,16 @@ FileBrowserItem::FileBrowserItem(const FileBrowserItem &item){
     dir = item.dir;
     file = item.file;
     isDuplicate = item.isDuplicate;
+    childItems = item.childItems;
+    parentItem = item.parentItem;
 }
 void FileBrowserItem::operator=(const FileBrowserItem &item){
     itemData = item.itemData;
     dir = item.dir;
     file = item.file;
     isDuplicate = item.isDuplicate;
+    childItems = item.childItems;
+    parentItem = item.parentItem;
 }
 
 FileBrowserItem::~FileBrowserItem()

@@ -12,7 +12,7 @@
 #include <QtDebug>
 
 SpyModel::SpyModel(QObject *parent):
-        QAbstractItemModel(parent), sortColumn(0), sortOrder(Qt::DescendingOrder)
+        QAbstractItemModel(parent), sortColumn(0), sortOrder(Qt::DescendingOrder), isSort(false)
 {
     QList<QVariant> rootData;
     rootData << tr("Count") << tr("Search string");

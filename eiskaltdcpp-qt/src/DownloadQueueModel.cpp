@@ -662,6 +662,8 @@ DownloadQueueItem::DownloadQueueItem(const DownloadQueueItem &item){
     childItems = QList<DownloadQueueItem*> ();
 }
 void DownloadQueueItem::operator=(const DownloadQueueItem &item){
+    parentItem = item.parentItem;
+    childItems = item.childItems;
     itemData = item.itemData;
     dir = item.dir;
 }

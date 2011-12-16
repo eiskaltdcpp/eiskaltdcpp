@@ -725,10 +725,8 @@ void ShareBrowser::slotButtonBack(){
         disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                 this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
 
-        if(pathHistory.end() == pathHistory_iter)
-            pathHistory_iter--;
-        if(pathHistory.begin() != pathHistory_iter)
-            pathHistory_iter--;
+        if(pathHistory.end() == pathHistory_iter || pathHistory.begin() != pathHistory_iter)
+            --pathHistory_iter;
 
         SelPair sp= *pathHistory_iter;
         changeRoot(sp.dir);
@@ -749,9 +747,9 @@ void ShareBrowser::slotButtonForvard(){
                 this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
 
         if (pathHistory.end() == pathHistory_iter)
-            pathHistory_iter--;
+            --pathHistory_iter;
         else if (pathHistory_iter != &pathHistory.last())
-            pathHistory_iter++;
+            ++pathHistory_iter;
 
         SelPair sp= *pathHistory_iter;
         changeRoot(sp.dir);

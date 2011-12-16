@@ -277,7 +277,7 @@ bool FavoriteHubModel::removeItem(const QModelIndex &el){
     if (!el.isValid())
         return false;
 
-    FavoriteHubItem *item = (FavoriteHubItem*)el.internalPointer();
+    FavoriteHubItem *item = static_cast<FavoriteHubItem*>(el.internalPointer());
 
     if (!item || !rootItem->childItems.contains(item))
         return false;

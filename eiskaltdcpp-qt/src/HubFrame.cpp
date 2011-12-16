@@ -2089,7 +2089,6 @@ void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
 void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, bool join){
     Q_D(HubFrame);
     
-    static WulforUtil *WU = WulforUtil::getInstance();
     static WulforSettings *WS = WulforSettings::getInstance();
     static bool showFavJoinsOnly = WS->getBool(WB_CHAT_SHOW_JOINS_FAV);
 
@@ -2102,8 +2101,6 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
     QString nick = map["NICK"].toString();
 
     if (item){
-        bool isOp = map["ISOP"].toBool();
-
         d->total_shared -= item->getShare();
  
         item->updateIdentity();
@@ -2687,8 +2684,6 @@ void HubFrame::slotReconnect(){
 }
 
 void HubFrame::slotMapOnArena(){
-    MainWindow *MW = MainWindow::getInstance();
-
     ArenaWidgetManager::getInstance()->activate(this);
 }
 

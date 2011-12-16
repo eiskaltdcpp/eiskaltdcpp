@@ -268,7 +268,7 @@ bool ADLSModel::removeItem(const QModelIndex &el){
     if (!el.isValid())
         return false;
 
-    ADLSItem *item = (ADLSItem*)el.internalPointer();
+    ADLSItem *item = static_cast<ADLSItem*>(el.internalPointer());
 
     if (!item || !rootItem->childItems.contains(item))
         return false;

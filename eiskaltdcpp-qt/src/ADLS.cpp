@@ -334,8 +334,6 @@ void ADLS::updateEntry(ADLSearch &entry, StrMap &map){
 
 }
 void ADLS::getParams(const ADLSEditor &editor, StrMap &map){
-    WulforUtil *WU = WulforUtil::getInstance();
-
     map["SSTRING"]      = editor.lineEdit_SSTRING->text();
     map["DIRECTORY"]    = editor.lineEdit_DIRECTORY->text();
     map["AUTOQUEUE"]    = editor.checkBox_DOWNLOAD->isChecked();
