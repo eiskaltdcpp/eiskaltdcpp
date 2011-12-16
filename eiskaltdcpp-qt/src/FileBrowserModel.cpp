@@ -169,6 +169,10 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
             
             QString tooltip = "";
             
+            if (item->dir){
+                tooltip = item->data(COLUMN_FILEBROWSER_NAME).toString();
+            }
+            
             if (item->file){
                 DirectoryListing::File *f = item->file;
                 
