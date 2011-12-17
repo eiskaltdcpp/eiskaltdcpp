@@ -193,7 +193,7 @@ int ServerThread::run()
     return 0;
 }
 bool ServerThread::disconnect_all(){
-    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; ++i) {
         if (clientsMap[i->first].curclient != NULL)
             disconnectClient(i->first);
     }
@@ -454,7 +454,7 @@ void ServerThread::sendMessage(const string& hubUrl, const string& message) {
 }
 
 void ServerThread::listConnectedClients(string& listhubs,const string& separator) {
-    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; ++i) {
         if (clientsMap[i->first].curclient !=NULL) {
             listhubs.append(i->first);
             listhubs.append(separator);
@@ -679,7 +679,7 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
 }
 
 void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const string& huburl) {
-    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; ++i) {
         if (!huburl.empty() && i->first != huburl)
             continue;
         SearchResultList::const_iterator kk;
