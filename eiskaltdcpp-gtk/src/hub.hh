@@ -225,9 +225,6 @@ class Hub:
         EmoticonsDialog *emotdialog;
         bool PasswordDialog;
         bool WaitingPassword;
-#if !GTK_CHECK_VERSION(2, 12, 0)
-        GtkTooltips *tips;
-#endif
         int ImgLimit;
         GtkTextTag *BoldTag, *UnderlineTag, *ItalicTag;
 };

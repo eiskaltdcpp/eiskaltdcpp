@@ -179,15 +179,9 @@ void Settings::saveSettings_client()
         sm->set(SettingsManager::NICK, gtk_entry_get_text(GTK_ENTRY(getWidget("nickEntry"))));
         sm->set(SettingsManager::EMAIL, gtk_entry_get_text(GTK_ENTRY(getWidget("emailEntry"))));
         sm->set(SettingsManager::DESCRIPTION, gtk_entry_get_text(GTK_ENTRY(getWidget("descriptionEntry"))));
-#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
         sm->set(SettingsManager::UPLOAD_SPEED, SettingsManager::connectionSpeeds[gtk_combo_box_get_active(GTK_COMBO_BOX(connectionSpeedComboBox))]);
 
         gchar *encoding = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")));
-#else
-        sm->set(SettingsManager::UPLOAD_SPEED, SettingsManager::connectionSpeeds[gtk_combo_box_get_active(connectionSpeedComboBox)]);
-
-        gchar *encoding = gtk_combo_box_get_active_text(GTK_COMBO_BOX(getWidget("comboboxCharset")));
-#endif
         WSET("default-charset", string(encoding));
         g_free(encoding);
     }
@@ -705,35 +699,21 @@ void Settings::initPersonal_gui()
     gtk_entry_set_text(GTK_ENTRY(getWidget("nickEntry")), SETTING(NICK).c_str());
     gtk_entry_set_text(GTK_ENTRY(getWidget("emailEntry")), SETTING(EMAIL).c_str());
     gtk_entry_set_text(GTK_ENTRY(getWidget("descriptionEntry")), SETTING(DESCRIPTION).c_str());
-#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
     connectionSpeedComboBox = GTK_COMBO_BOX_TEXT(gtk_combo_box_text_new());
-#else
-    connectionSpeedComboBox = GTK_COMBO_BOX(gtk_combo_box_new_text());
-#endif
     gtk_box_pack_start(GTK_BOX(getWidget("connectionBox")), GTK_WIDGET(connectionSpeedComboBox), FALSE, TRUE, 0);
     gtk_widget_show_all(GTK_WIDGET(connectionSpeedComboBox));
 
     for (StringIter i = SettingsManager::connectionSpeeds.begin(); i != SettingsManager::connectionSpeeds.end(); ++i)
     {
-#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
         gtk_combo_box_text_append_text(connectionSpeedComboBox, (*i).c_str());
         if (SETTING(UPLOAD_SPEED) == *i)
             gtk_combo_box_set_active(GTK_COMBO_BOX(connectionSpeedComboBox), i - SettingsManager::connectionSpeeds.begin());
-#else
-        gtk_combo_box_append_text(connectionSpeedComboBox, (*i).c_str());
-        if (SETTING(UPLOAD_SPEED) == *i)
-            gtk_combo_box_set_active(connectionSpeedComboBox, i - SettingsManager::connectionSpeeds.begin());
-#endif
     }
 
     // Fill charset drop-down list
     vector<string> &charsets = WulforUtil::getCharsets();
     for (vector<string>::const_iterator it = charsets.begin(); it != charsets.end(); ++it)
-#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")), it->c_str());
-#else
-        gtk_combo_box_append_text(GTK_COMBO_BOX(getWidget("comboboxCharset")), it->c_str());
-#endif
 
     gtk_entry_set_text(GTK_ENTRY(getWidget("comboboxentryCharset")), WGETS("default-charset").c_str());
 }
@@ -751,11 +731,7 @@ void Settings::initConnection_gui()
     // Fill IP address combo box
     vector<string> addresses = WulforUtil::getLocalIPs();
     for (vector<string>::const_iterator it = addresses.begin(); it != addresses.end(); ++it)
-#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("ipComboboxEntry")), it->c_str());
-#else
-        gtk_combo_box_append_text(GTK_COMBO_BOX(getWidget("ipComboboxEntry")), it->c_str());
-#endif
 
     gtk_entry_set_text(GTK_ENTRY(getWidget("tcpEntry")), Util::toString(SETTING(TCP_PORT)).c_str());
     gtk_entry_set_text(GTK_ENTRY(getWidget("udpEntry")), Util::toString(SETTING(UDP_PORT)).c_str());

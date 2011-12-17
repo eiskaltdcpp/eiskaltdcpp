@@ -40,9 +40,6 @@ class EmoticonsDialog
 		GtkWidget *Menu;       // packs menu
 		GtkWidget *dialog;     // emoticons dialog
 
-#if !GTK_CHECK_VERSION(2, 12, 0)
-		GtkTooltips *tooltips; // tooltips for all icon widgets
-#endif
 		int icon_width;
 		int icon_height;
 		std::string currIconSize;

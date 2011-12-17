@@ -180,11 +180,7 @@ class Settings:
         void moveUserCommand_client(std::string name, std::string hub, int pos);
         void generateCertificates_client();
 
-#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
         GtkComboBoxText *connectionSpeedComboBox;
-#else
-        GtkComboBox *connectionSpeedComboBox;
-#endif
         GtkListStore *downloadToStore, *publicListStore, *queueStore,
             *shareStore, *appearanceStore, *tabStore, *windowStore1,
             *windowStore2, *windowStore3, *advancedStore, *certificatesStore, *userCommandStore,

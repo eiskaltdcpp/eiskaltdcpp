@@ -484,11 +484,7 @@ void Search::search_gui()
         }
         else
         {
-#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
             gchar *tmp = g_strdup(gtk_entry_get_text (GTK_ENTRY(gtk_bin_get_child(GTK_BIN((GTK_COMBO_BOX(getWidget("comboboxFile"))))))));
-#else
-            gchar *tmp = gtk_combo_box_get_active_text(GTK_COMBO_BOX(getWidget("comboboxFile")));
-#endif
             ftypeStr = tmp;
             g_free(tmp);
             ftype = SearchManager::TYPE_ANY;
