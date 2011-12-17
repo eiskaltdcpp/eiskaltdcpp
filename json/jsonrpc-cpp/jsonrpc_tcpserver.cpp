@@ -31,7 +31,7 @@
 #include <cstring>
 #include <cerrno>
 
-namespace Json 
+namespace Json
 {
 
   namespace Rpc
@@ -49,7 +49,7 @@ namespace Json
         Close();
       }
     }
-    
+
     ssize_t TcpServer::Send(int fd, const std::string& data)
     {
       std::string rep = data;
@@ -58,6 +58,15 @@ namespace Json
       if(GetEncapsulatedFormat() == Json::Rpc::NETSTRING)
       {
         rep = netstring::encode(rep);
+      }
+      if (GetEncapsulatedFormat() == Json::Rpc::HTTP_POST)
+      {
+        std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json\r\nContent-Length: ";
+        char v[16];
+        snprintf(v, sizeof(v), "%u", rep.size());
+        tmp += v;
+        tmp += "\r\n\r\n";
+        rep = tmp + rep;
       }
 
       return ::send(fd, rep.c_str(), rep.length(), 0);
@@ -89,6 +98,17 @@ namespace Json
             return false;
           }
         }
+        if (GetEncapsulatedFormat() == Json::Rpc::HTTP_POST)
+        {
+            if (0 == msg.compare(0,15,"POST / HTTP/1.1"))
+            {
+                msg = msg.substr(msg.find("\r\n{"));
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         m_jsonHandler.Process(msg, response);
 
@@ -102,6 +122,15 @@ namespace Json
           {
             rep = netstring::encode(rep);
           }
+          if (GetEncapsulatedFormat() == Json::Rpc::HTTP_POST)
+          {
+            std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json\r\nContent-Length: ";
+            char v[16];
+            snprintf(v, sizeof(v), "%u", rep.size());
+            tmp += v;
+            tmp += "\r\n\r\n";
+            rep = tmp + rep;
+          }
 
           int bytesToSend = rep.length();
           const char* ptrBuffer = rep.c_str();
@@ -111,7 +140,7 @@ namespace Json
             if(retVal == -1)
             {
               /* error */
-              std::cerr << "Error while sending data: " 
+              std::cerr << "Error while sending data: "
                         << strerror(errno) << std::endl;
               return false;
             }
@@ -237,7 +266,7 @@ namespace Json
         ::close((*it));
       }
       m_clients.erase(m_clients.begin(), m_clients.end());
-      
+
       /* listen socket should be closed in Server destructor */
     }
 

@@ -181,7 +181,7 @@ int ServerThread::run()
         std::cout << "JSONRPC: Bind failed" << std::endl;
     if(!jsonserver->Listen())
         std::cout << "JSONRPC: Listen failed" << std::endl;
-
+    jsonserver->SetEncapsulatedFormat(Json::Rpc::HTTP_POST);
     std::cout << "JSONRPC: Start JSON-RPC TCP server" << std::endl;
     json_run = true;
     while(json_run)
