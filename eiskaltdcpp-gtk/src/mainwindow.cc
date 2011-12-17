@@ -1675,12 +1675,8 @@ gboolean MainWindow::onButtonReleasePage_gui(GtkWidget *widget, GdkEventButton *
 {
 	gint width, height;
 
-#if (((GTK_MAJOR_VERSION == 2) && (GTK_MINOR_VERSION >= 24)) || GTK_MAJOR_VERSION > 2)
 	width  = gdk_window_get_width (event->window);
 	height = gdk_window_get_height(event->window);
-#else
-	gdk_drawable_get_size(event->window, &width, &height);
-#endif
 
 	// If middle mouse button was released when hovering over tab label
 	if (event->button == 2 && event->x >= 0 && event->y >= 0

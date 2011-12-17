@@ -122,10 +122,6 @@ Hub::Hub(const string &address, const string &encoding):
 
     handCursor = gdk_cursor_new(GDK_HAND2);
 
-#if !GTK_CHECK_VERSION(2, 12, 0)
-	tips = gtk_tooltips_new();
-	g_object_ref_sink(tips);
-#endif
 	// image magnet
 	imageLoad.first = "";
 	imageLoad.second = NULL;
@@ -303,9 +299,6 @@ Hub::~Hub()
 
     delete emotdialog;
 
-#if !GTK_CHECK_VERSION(2, 12, 0)
-    g_object_unref(tips);
-#endif
     g_object_unref(getWidget("nickMenu"));
     g_object_unref(getWidget("magnetMenu"));
     g_object_unref(getWidget("linkMenu"));
@@ -892,11 +885,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
                 imageList.insert(ImageList::value_type(image, tth));
                 string text = "name: " + name + "\n" + "size: " + Util::formatBytes(size);
-#if GTK_CHECK_VERSION(2, 12, 0)
                 gtk_widget_set_tooltip_text(event_box, text.c_str());
-#else
-                gtk_tooltips_set_tip(tips, event_box, text.c_str(), text.c_str());
-#endif
                 g_signal_connect(G_OBJECT(image), "destroy", G_CALLBACK(onImageDestroy_gui), (gpointer)this);
 
                 if (ImgLimit)
@@ -3126,11 +3115,7 @@ void Hub::loadImage_gui(string target, string tth)
    if (!g_file_test(target.c_str(), G_FILE_TEST_EXISTS))
    {
        string text = _("loading error");
-#if GTK_CHECK_VERSION(2, 12, 0)
        gtk_widget_set_tooltip_text(imageLoad.second, text.c_str());
-#else
-       gtk_tooltips_set_tip(tips, imageLoad.second, text.c_str(), text.c_str());
-#endif
        return;
    }
 
@@ -3139,11 +3124,7 @@ void Hub::loadImage_gui(string target, string tth)
    if (!source)
    {
        string text = _("bad image");
-#if GTK_CHECK_VERSION(2, 12, 0)
        gtk_widget_set_tooltip_text(imageLoad.second, text.c_str());
-#else
-       gtk_tooltips_set_tip(tips, imageLoad.second, text.c_str(), text.c_str());
-#endif
        return;
    }
 
@@ -3171,11 +3152,7 @@ void Hub::loadImage_gui(string target, string tth)
    int64_t size;
    WulforUtil::splitMagnet(magnet, name, size, tth);
    string text = "name: " + name + "\n" + "size: " + Util::formatBytes(size);
-#if GTK_CHECK_VERSION(2, 12, 0)
    gtk_widget_set_tooltip_text(imageLoad.second, text.c_str());
-#else
-   gtk_tooltips_set_tip(tips, imageLoad.second, text.c_str(), t.c_str());
-#endif
    imageLoad.first = "";
    imageLoad.second = NULL;
 }
