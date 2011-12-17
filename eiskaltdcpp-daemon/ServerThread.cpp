@@ -78,7 +78,7 @@ int ServerThread::run()
 
     try {
         File::ensureDirectory(SETTING(LOG_DIRECTORY));
-    } catch (const FileException) { }
+    } catch (const FileException&) { }
 
     startSocket(false);
     autoConnect();
