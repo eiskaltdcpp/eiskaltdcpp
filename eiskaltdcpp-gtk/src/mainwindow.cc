@@ -176,7 +176,7 @@ MainWindow::MainWindow():
 	g_signal_connect(getWidget("MagnetDialog"), "response", G_CALLBACK(onResponseMagnetDialog_gui), (gpointer) this);
 	g_signal_connect(getWidget("MagnetDialog"), "delete-event", G_CALLBACK(onDeleteEventMagnetDialog_gui), (gpointer) this);
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("transferCheckButton")), TRUE);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("transferCheckButton")), WGETB("show-transfers"));
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("freeSpaceBarItem")), WGETB("show-free-space-bar"));
 	// About dialog
 	gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"),
@@ -331,6 +331,8 @@ MainWindow::MainWindow():
 		gtk_widget_hide(GTK_WIDGET(window));
 	if (!WGETI("show-free-space-bar"))
 		gtk_widget_hide(getWidget("progressbarFreeSpaceBar"));
+    if (!WGETI("show-transfers"))
+        gtk_widget_hide(transfers->getContainer());
 #ifdef LUA_SCRIPT
 	ScriptManager::getInstance()->load();
 	if (BOOLSETTING(USE_LUA)){
@@ -1861,6 +1863,8 @@ void MainWindow::onTransferToggled_gui(GtkWidget *widget, gpointer data)
 {
 	MainWindow *mw = (MainWindow *)data;
 	GtkWidget *transfer = mw->transfers->getContainer();
+
+    WSET("show-transfers", gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(mw->getWidget("transferCheckButton"))));
 
 	if (gtk_widget_get_visible(transfer))
 		gtk_widget_hide(transfer);
