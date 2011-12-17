@@ -149,7 +149,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
         posArray.reserve(partialSource->getPartialInfo().size());
 
         // Convert block index to file position
-        for(PartsInfo::const_iterator i = partialSource->getPartialInfo().begin(); i != partialSource->getPartialInfo().end(); i++)
+        for(PartsInfo::const_iterator i = partialSource->getPartialInfo().begin(); i != partialSource->getPartialInfo().end(); ++i)
             posArray.push_back(min(getSize(), (int64_t)(*i) * blockSize));
     }
 
@@ -293,7 +293,7 @@ void QueueItem::addSegment(const Segment& segment) {
 
     for(SegmentSet::iterator i = ++done.begin() ; i != done.end(); ) {
         SegmentSet::iterator prev = i;
-        prev--;
+        --prev;
         if(prev->getEnd() >= i->getStart()) {
             Segment big(prev->getStart(), i->getEnd() - prev->getStart());
             done.erase(prev);
@@ -312,7 +312,7 @@ bool QueueItem::isNeededPart(const PartsInfo& partsInfo, int64_t blockSize)
     SegmentConstIter i  = done.begin();
     for(PartsInfo::const_iterator j = partsInfo.begin(); j != partsInfo.end(); j+=2) {
         while(i != done.end() && (*i).getEnd() <= (*j) * blockSize)
-            i++;
+            ++i;
 
         if(i == done.end() || !((*i).getStart() <= (*j) * blockSize && (*i).getEnd() >= (*(j+1)) * blockSize))
                 return true;
@@ -327,7 +327,7 @@ void QueueItem::getPartialInfo(PartsInfo& partialInfo, int64_t blockSize) const 
     partialInfo.reserve(maxSize);
 
     SegmentConstIter i = done.begin();
-    for(; i != done.end() && partialInfo.size() < maxSize; i++) {
+    for(; i != done.end() && partialInfo.size() < maxSize; ++i) {
 
         uint16_t s = (uint16_t)((*i).getStart() / blockSize);
         uint16_t e = (uint16_t)(((*i).getEnd() - 1) / blockSize + 1);
