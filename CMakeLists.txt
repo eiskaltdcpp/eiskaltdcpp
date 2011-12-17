@@ -105,9 +105,9 @@ option (USE_CLI "Command line interface" OFF)
 option (HAIKU_PKG "Make Haiku package" OFF)
 option (CHECK_GTK_DEPRECATED "Check gtk backend for deprecated function" OFF)
 
-if (USE_QT OR USE_GTK)
+if (USE_QT OR USE_GTK OR USE_GTK3)
     find_package (X11)
-endif(USE_QT OR USE_GTK)
+endif(USE_QT OR USE_GTK OR USE_GTK3)
 
 if (PERL_REGEX)
     find_package(Pcre REQUIRED)
