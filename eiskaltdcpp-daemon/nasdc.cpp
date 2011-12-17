@@ -289,12 +289,12 @@ int main(int argc, char* argv[])
     }
 
     if (sigaction(SIGQUIT, &sigact, NULL) == -1) {
-        printf("Cannot create sigaction SIGQUIT! ", strerror(errno));
+        printf("Cannot create sigaction SIGQUIT! %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
     if (!bDaemon && sigaction(SIGHUP, &sigact, NULL) == -1) {
-        printf("Cannot create sigaction SIGHUP! ", strerror(errno));
+        printf("Cannot create sigaction SIGHUP! %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 #endif
