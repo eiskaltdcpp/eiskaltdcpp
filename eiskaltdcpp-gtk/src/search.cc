@@ -1106,7 +1106,6 @@ void Search::onDownloadToClicked_gui(GtkMenuItem *item, gpointer data)
 
     if (response == GTK_RESPONSE_OK)
     {
-        int count = gtk_tree_selection_count_selected_rows(s->selection);
         gchar *temp = gtk_file_chooser_get_current_folder(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")));
 
         if (temp)

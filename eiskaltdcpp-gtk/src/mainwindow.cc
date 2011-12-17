@@ -2363,7 +2363,7 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
 				gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
 			} catch(...) { }
 
-			delete buf;
+			delete &buf;
 		}
 		delete tth;
 
