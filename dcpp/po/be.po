@@ -1,7 +1,7 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
 # Translators:
 # Pavał Šałamicki aka Klyok, 2010.
 # Клёк <i.kliok@gmail.com>, 2010.
@@ -10,15 +10,14 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2011-11-25 11:35+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: none\n"
-"Language: be\n"
+"PO-Revision-Date: 2011-12-17 13:49+0000\n"
+"Last-Translator: Ехе Кім Урґ <yehekim@gmail.com>\n"
+"Language-Team: Belarusian (http://www.transifex.net/projects/p/eiskaltdcpp/team/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: be\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -65,8 +64,8 @@ msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 msgstr ""
-"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт "
-"SOCKS)"
+"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт"
+" SOCKS)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -102,8 +101,10 @@ msgstr "Вызначаюцца найлепшыя налады злучэньн�
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr "Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr ""
+"Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -148,7 +149,7 @@ msgstr "Не магу даслаць файл %1%: %2%"
 
 #: ../UploadManager.cpp:516
 msgid "IPFilter: Blocked incoming connection to "
-msgstr "Сіта IP: затрымалі ўваходнае злучэньне з "
+msgstr "Сіта IP: забаранілі ўваходнае злучэньне з "
 
 #: ../UploadManager.cpp:579
 msgid "Disconnected user leaving the hub: %1%"
@@ -180,7 +181,7 @@ msgstr "Зьмяніць наладу асновы "
 
 #: ../SettingsManager.cpp:604
 msgid " to "
-msgstr " на "
+msgstr " да "
 
 #: ../SettingsManager.cpp:606
 msgid "Error: params have been not 2!"
@@ -356,7 +357,7 @@ msgstr "Не ўдалося задзейнічаць інтэрфэйс %1%"
 
 #: ../UPnPManager.cpp:85
 msgid " Transfer Port (%1% TCP)"
-msgstr "  Порт перадаваньня (%1% TCP)"
+msgstr " Порт перадаваньня (%1% TCP)"
 
 #: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
 #: ../UPnPManager.cpp:101
@@ -393,11 +394,11 @@ msgstr "Не ўдалося адлюстраваць порты"
 
 #: ../UPnPManager.cpp:137
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Пасьпяхова зьнішчылі адлюстраваньні портаў на інтэрфэйсе %1%"
+msgstr "Пасьпяхова зьнішчылі люстры портаў на інтэрфэйсе %1%"
 
 #: ../UPnPManager.cpp:138
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Не ўдалося зьнішчыць адлюстраваньні портаў на інтэрфэйсе %1%"
+msgstr "Не ўдалося зьнішчыць люстры портаў на інтэрфэйсе %1%"
 
 #: ../UPnPManager.cpp:143
 msgid "UPnP: %1%"
@@ -435,8 +436,8 @@ msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Сьпіс файлаў зараз абнаўляецца. Калі ласка, пачакайце, пакуль ён абновіцца, "
 "каб паспрабаваць абнавіць ізноў."
@@ -645,7 +646,7 @@ msgstr "Гэта файл ужо сьцягнулі"
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
-msgstr "Прызначаная назва файла задаўгая"
+msgstr "Прызначылі задаўгую назву файла"
 
 #: ../QueueManager.cpp:848 ../QueueManager.cpp:856
 msgid ""
@@ -653,7 +654,7 @@ msgid ""
 "setting)"
 msgstr ""
 "Хібнае прызначэньне (адсутнічае каталёґ; спраўдзіце перадвызначаныя налады "
-"каталёґу сьцягваць)"
+"каталёґа сьцягваць)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -702,3 +703,5 @@ msgstr "Разыходжаньне TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
+
+
