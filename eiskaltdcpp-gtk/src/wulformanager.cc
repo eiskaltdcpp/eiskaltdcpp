@@ -339,7 +339,7 @@ void WulforManager::deleteEntry_gui(Entry *entry)
 		if ((*fIt)->getID() == id)
 		{
 			delete *fIt;
-			clientFuncs.erase(fIt);
+			fIt = clientFuncs.erase(fIt);
 		}
 		else
 			++fIt;
@@ -353,7 +353,7 @@ void WulforManager::deleteEntry_gui(Entry *entry)
 		if ((*fIt)->getID() == id)
 		{
 			delete *fIt;
-			guiFuncs.erase(fIt);
+			fIt = guiFuncs.erase(fIt);
 		}
 		else
 			++fIt;
