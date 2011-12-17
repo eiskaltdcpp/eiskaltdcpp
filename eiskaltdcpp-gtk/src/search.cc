@@ -319,9 +319,9 @@ void Search::popupMenu_gui()
 
     // Add favorite download directories
     StringPairList spl = FavoriteManager::getInstance()->getFavoriteDirs();
-    if (spl.size() > 0)
+    if (!spl.empty())
     {
-        for (StringPairIter i = spl.begin(); i != spl.end(); i++)
+        for (StringPairIter i = spl.begin(); i != spl.end(); ++i)
         {
             menuItem = gtk_menu_item_new_with_label(i->second.c_str());
             g_object_set_data_full(G_OBJECT(menuItem), "fav", g_strdup(i->first.c_str()), g_free);
@@ -374,7 +374,7 @@ void Search::popupMenu_gui()
         StringList targets;
         QueueManager::getInstance()->getTargets(TTHValue(tth), targets);
 
-        if (targets.size() > static_cast<size_t>(0))
+        if (!targets.empty())
         {
             menuItem = gtk_separator_menu_item_new();
             gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("downloadMenu")), menuItem);
@@ -391,9 +391,9 @@ void Search::popupMenu_gui()
 
     spl.clear();
     spl = FavoriteManager::getInstance()->getFavoriteDirs();
-    if (spl.size() > 0)
+    if (!spl.empty())
     {
-        for (StringPairIter i = spl.begin(); i != spl.end(); i++)
+        for (StringPairIter i = spl.begin(); i != spl.end(); ++i)
         {
             menuItem = gtk_menu_item_new_with_label(i->second.c_str());
             g_object_set_data_full(G_OBJECT(menuItem), "fav", g_strdup(i->first.c_str()), g_free);
@@ -558,7 +558,7 @@ void Search::addResult_gui(const SearchResultPtr result)
     bool foundParent = FALSE;
 
     vector<SearchResultPtr> &existingResults = results[result->getUser()->getCID().toBase32()];
-    for (vector<SearchResultPtr>::iterator it = existingResults.begin(); it != existingResults.end(); it++)
+    for (vector<SearchResultPtr>::iterator it = existingResults.begin(); it != existingResults.end(); ++it)
     {
         // Check if it's a duplicate
         if (result->getFile() == (*it)->getFile())

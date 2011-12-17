@@ -473,7 +473,7 @@ void ShareBrowser::popupFileMenu_gui()
 
     // Build file download menu
     StringPairList spl = FavoriteManager::getInstance()->getFavoriteDirs();
-    if (spl.size() > 0)
+    if (!spl.empty())
     {
         for (StringPairIter i = spl.begin(); i != spl.end(); ++i)
         {
@@ -541,7 +541,7 @@ void ShareBrowser::popupDirMenu_gui()
     dirUserCommandMenu->cleanMenu_gui();
 
     StringPairList spl = FavoriteManager::getInstance()->getFavoriteDirs();
-    if (spl.size() > 0)
+    if (!spl.empty())
     {
         for (StringPairIter i = spl.begin(); i != spl.end(); ++i)
         {
@@ -655,7 +655,7 @@ void ShareBrowser::find_gui()
         dir = dirView.getValue<gpointer, DirectoryListing::Directory *>(&iter, "DL Dir");
         std::sort(dir->files.begin(), dir->files.end(), DirectoryListing::File::FileSort());
 
-        for (file = dir->files.begin(), cursorPos = dir->directories.size(); file != dir->files.end(); file++, cursorPos++)
+        for (file = dir->files.begin(), cursorPos = dir->directories.size(); file != dir->files.end(); ++file, ++cursorPos)
         {
             name = Text::toLower((*file)->getName());
 

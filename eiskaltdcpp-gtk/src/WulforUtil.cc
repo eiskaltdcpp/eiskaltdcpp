@@ -189,7 +189,7 @@ string WulforUtil::getTextFromMenu(GtkMenuItem *item)
 
 vector<string>& WulforUtil::getCharsets()
 {
-    if (charsets.size() == 0)
+    if (charsets.empty())
     {
         charsets.push_back(ENCODING_LOCALE);
         //charsets.push_back(_("UTF-8 (Unicode)"));

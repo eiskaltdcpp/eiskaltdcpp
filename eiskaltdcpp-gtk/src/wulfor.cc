@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
 
     connection = bacon_message_connection_new(GUI_PACKAGE);
 
-    if (connection != NULL)
+    if (connection)
         dcdebug("eiskaltdcpp-gtk: connection yes...\n");
     else
         dcdebug("eiskaltdcpp-gtk: connection no...\n");

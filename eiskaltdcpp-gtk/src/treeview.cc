@@ -89,7 +89,7 @@ string TreeView::getString(GtkTreeIter *i, const string &column, GtkTreeModel *m
 void TreeView::insertColumn(const string &title, const GType &gtype, const columnType type, const int width, const string &linkedCol)
 {
     // All insertColumn's have to be called before any insertHiddenColumn's.
-    dcassert(hiddenColumns.size() == 0);
+    dcassert(hiddenColumns.empty());
 
     // Title must be unique.
     dcassert(!title.empty() && columns.find(title) == columns.end());
@@ -103,7 +103,7 @@ void TreeView::insertColumn(const string &title, const GType &gtype, const colum
     const string &linkedCol, const string &linkedTextColor)
 {
     // All insertColumn's have to be called before any insertHiddenColumn's.
-    dcassert(hiddenColumns.size() == 0);
+    dcassert(hiddenColumns.empty());
 
     // Title must be unique.
     dcassert(!title.empty() && columns.find(title) == columns.end());
@@ -136,7 +136,7 @@ void TreeView::finalize()
     if (!name.empty())
         restoreSettings();
 
-    for (SortedColIter iter = sortedColumns.begin(); iter != sortedColumns.end(); iter++)
+    for (SortedColIter iter = sortedColumns.begin(); iter != sortedColumns.end(); ++iter)
     {
         Column& col = columns[iter->second];
         addColumn_gui(col);
@@ -193,9 +193,9 @@ GType* TreeView::getGTypes()
         return gtypes;
     gtypes = new GType[count];
 
-    for (SortedColIter iter = sortedColumns.begin(); iter != sortedColumns.end(); iter++)
+    for (SortedColIter iter = sortedColumns.begin(); iter != sortedColumns.end(); ++iter)
         gtypes[i++] = columns[iter->second].gtype;
-    for (SortedColIter iter = sortedHiddenColumns.begin(); iter != sortedHiddenColumns.end(); iter++)
+    for (SortedColIter iter = sortedHiddenColumns.begin(); iter != sortedHiddenColumns.end(); ++iter)
         gtypes[i++] = hiddenColumns[iter->second].gtype;
 
     return gtypes;
@@ -413,7 +413,7 @@ void TreeView::toggleColumnVisibility(GtkMenuItem *item, gpointer data)
     string title = string(gtk_label_get_text(GTK_LABEL(gtk_bin_get_child(GTK_BIN(item)))));
 
     // Function col(title) doesn't work here, so we have to find column manually.
-    for (iter = tv->sortedColumns.begin(); iter != tv->sortedColumns.end(); iter++)
+    for (iter = tv->sortedColumns.begin(); iter != tv->sortedColumns.end(); ++iter)
     {
         column = gtk_tree_view_get_column(tv->view, iter->first);
         if (string(gtk_tree_view_column_get_title(column)) == title)
@@ -481,7 +481,7 @@ void TreeView::saveSettings()
     GtkTreeViewColumn *col;
     gint width;
 
-    dcassert(columns.size() > 0);
+    dcassert(!columns.empty());
 
     for (size_t i = 0; i < columns.size(); i++)
     {

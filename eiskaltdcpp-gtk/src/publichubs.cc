@@ -146,7 +146,7 @@ void PublicHubs::updateList_gui()
 	gtk_tree_sortable_get_sort_column_id(GTK_TREE_SORTABLE(hubStore), &sortColumn, &sortType);
 	gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(hubStore), GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID, sortType);
 
-	for (i = hubs.begin(); i != hubs.end(); i++)
+	for (i = hubs.begin(); i != hubs.end(); ++i)
 	{
 		if (filter.getPattern().empty() || filter.match(i->getName()) ||
 			filter.match(i->getDescription()) || filter.match(i->getServer()))
