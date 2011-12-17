@@ -144,14 +144,14 @@ bool SimpleXML::findChild(const string& aName) noexcept {
     dcassert(current != NULL);
 
     if(found && currentChild != current->children.end())
-        currentChild++;
+        ++currentChild;
 
     while(currentChild!=current->children.end()) {
         if((*currentChild)->name == aName) {
             found = true;
             return true;
         } else
-            currentChild++;
+            ++currentChild;
     }
     return false;
 }

@@ -559,7 +559,7 @@ void SimpleXMLReader::parse(InputStream& stream, size_t maxSize) {
             error("Greater than maximum allowed size");
 
         if(len == 0) {
-            if(elements.size() == 0) {
+            if(elements.empty()) {
                 // Fine...
                 return;
             }
