@@ -2,7 +2,7 @@
 *** common changes ***
 * Reorganized the source tree.
 * Added ZLIF support into core.
-* Added core settings: UseADLOnlyOnOwnList, AllowUploadOverMultiHubs.
+* Added core settings: UseADLOnlyOnOwnList, AllowUploadOverMultiHubs, AllowSimUploads.
 * Added ability to build the program with miniupnpc version 1.6. Support for version 1.5 saved. The local copy of miniupnpc is updated to version 1.6.
 * Fixed program crash when using of changed value of IpTOSValue (default -1) without root privileges.
 *** eiskaltdcpp-qt ***
@@ -10,6 +10,8 @@
 * Now GCC >= 4.4.5 is required for build. (Possibilities from c++0x are used)
 * Fixed build in Haiku OS. System algorithm to test run only one instance of the program is used now.
 *** eiskaltdcpp-gtk ***
+* Support of builds with Gtk < 2.24 was discontinued.
+* Added ability to build with Gtk3 (option -DUSE_GTK3 for cmake). This is an experimental mode. Various shortcomings are possible.
 *** eiskaltdcpp-daemon ***
 * Added command line options: --verbose, --ip, --port, --rpclog, --uripath
 * Added JSON interface. More detail: http://code.google.com/p/eiskaltdc/wiki/JSONRPC
