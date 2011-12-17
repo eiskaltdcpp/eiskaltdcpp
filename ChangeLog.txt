@@ -1,4 +1,4 @@
---- 2.2.5 2011-12-18 ---
+--- 2.2.5 2011-12-24 ---
 *** common changes ***
 * Reorganized the source tree.
 * Added ZLIF support into core.
