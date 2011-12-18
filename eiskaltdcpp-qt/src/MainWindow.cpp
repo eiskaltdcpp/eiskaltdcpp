@@ -598,10 +598,8 @@ void MainWindow::loadSettings(){
 
     QString dockwidgetsState = WSGET(WS_MAINWINDOW_STATE);
 
-    if (!dockwidgetsState.isEmpty()){
+    if (!dockwidgetsState.isEmpty())
         this->restoreState(QByteArray::fromBase64(dockwidgetsState.toAscii()));
-        qDebug() << dockwidgetsState;
-    }
 
     d->fBar->setVisible(WBGET(WB_TOOLS_PANEL_VISIBLE));
     d->panelsTools->setChecked(WBGET(WB_TOOLS_PANEL_VISIBLE));
@@ -664,7 +662,6 @@ void MainWindow::saveSettings(){
 
     QString dockwidgetsState = QString::fromAscii(saveState().toBase64());
     WSSET(WS_MAINWINDOW_STATE, dockwidgetsState);
-    qDebug() << dockwidgetsState;
 
     stateIsSaved = true;
 }
