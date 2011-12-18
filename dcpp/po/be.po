@@ -1,7 +1,7 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-# 
+#
 # Translators:
 # Pavał Šałamicki aka Klyok, 2010.
 # Клёк <i.kliok@gmail.com>, 2010.
@@ -9,15 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-22 01:46+0300\n"
+"POT-Creation-Date: 2011-12-18 22:09+0200\n"
 "PO-Revision-Date: 2011-12-17 13:49+0000\n"
 "Last-Translator: Ехе Кім Урґ <yehekim@gmail.com>\n"
-"Language-Team: Belarusian (http://www.transifex.net/projects/p/eiskaltdcpp/team/be/)\n"
+"Language-Team: Belarusian (http://www.transifex.net/projects/p/eiskaltdcpp/"
+"team/be/)\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -64,8 +66,8 @@ msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 msgstr ""
-"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт"
-" SOCKS)"
+"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт "
+"SOCKS)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -101,10 +103,8 @@ msgstr "Вызначаюцца найлепшыя налады злучэньн�
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr ""
-"Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr "Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -143,47 +143,52 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Злучэньне: "
 
-#: ../UploadManager.cpp:238
+#: ../UploadManager.cpp:133
+#, fuzzy
+msgid "Connection already exists."
+msgstr "Злучэньне зачынілі"
+
+#: ../UploadManager.cpp:270
 msgid "Unable to send file %1%: %2%"
 msgstr "Не магу даслаць файл %1%: %2%"
 
-#: ../UploadManager.cpp:516
+#: ../UploadManager.cpp:557
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "Сіта IP: забаранілі ўваходнае злучэньне з "
 
-#: ../UploadManager.cpp:579
+#: ../UploadManager.cpp:620
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Карыстальнік адлучыўся і выходзіць з асяродку: %1%"
 
-#: ../SettingsManager.cpp:181
+#: ../SettingsManager.cpp:183
 msgid "downloaded from"
 msgstr "сьцягнулі з"
 
-#: ../SettingsManager.cpp:510
+#: ../SettingsManager.cpp:515
 msgid "Invalid search type name"
 msgstr "Хібная назва віду пошуку"
 
-#: ../SettingsManager.cpp:514 ../SettingsManager.cpp:536
+#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
 msgid "This search type already exists"
 msgstr "Гэты від пошуку ўжо існуе"
 
-#: ../SettingsManager.cpp:568
+#: ../SettingsManager.cpp:573
 msgid "No such search type"
 msgstr "Такі від пошуку не існуе"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
 msgstr "Памылка: не знайшлі налады!"
 
-#: ../SettingsManager.cpp:604
+#: ../SettingsManager.cpp:609
 msgid "Change core setting "
 msgstr "Зьмяніць наладу асновы "
 
-#: ../SettingsManager.cpp:604
+#: ../SettingsManager.cpp:609
 msgid " to "
 msgstr " да "
 
-#: ../SettingsManager.cpp:606
+#: ../SettingsManager.cpp:611
 msgid "Error: params have been not 2!"
 msgstr "Памылка: парамэтраў ня два!"
 
@@ -249,42 +254,42 @@ msgstr "Бясконцая пятля перанакіроўваньня (%1%)"
 msgid "Sent "
 msgstr "Даслалі "
 
-#: ../Util.cpp:594
+#: ../Util.cpp:611
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:596
+#: ../Util.cpp:613
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КіБ"
 
-#: ../Util.cpp:598
+#: ../Util.cpp:615
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МіБ"
 
-#: ../Util.cpp:600
+#: ../Util.cpp:617
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ҐіБ"
 
-#: ../Util.cpp:602
+#: ../Util.cpp:619
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТіБ"
 
-#: ../Util.cpp:604
+#: ../Util.cpp:621
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПіБ"
 
-#: ../Util.cpp:634
+#: ../Util.cpp:651
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:638
+#: ../Util.cpp:655
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
@@ -300,46 +305,46 @@ msgstr "Далі хібу, калі сьціскалі"
 msgid "Error during decompression"
 msgstr "Далі хібу, калі распакоўвалі"
 
-#: ../HashManager.cpp:87 ../HashManager.cpp:287
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
 msgid "Hashing failed: %1%"
 msgstr "Не ўдалося стварыць скароты: %1%"
 
-#: ../HashManager.cpp:94
+#: ../HashManager.cpp:95
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Скароты стварылі: %1% (%2% на %3%/с)"
 
-#: ../HashManager.cpp:97
+#: ../HashManager.cpp:98
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Скароты стварылі: %1% (%2%)"
 
-#: ../HashManager.cpp:100
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
 msgstr "Скончылі ствараць скароты: %1%"
 
-#: ../HashManager.cpp:129 ../HashManager.cpp:343
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
 msgid "Error saving hash data: %1%"
 msgstr "Далі хібу, калі захоўвалі зьвесткі скаротаў: %1%"
 
-#: ../HashManager.cpp:142
+#: ../HashManager.cpp:143
 msgid "Unable to read hash data file"
 msgstr "Не магу прачытаць файл зьвестак скаротаў"
 
-#: ../HashManager.cpp:475
+#: ../HashManager.cpp:476
 msgid "Error creating hash data file: %1%"
 msgstr "Далі хібу, калі стваралі файл зьвестак скаротаў: %1%"
 
-#: ../HashManager.cpp:801
+#: ../HashManager.cpp:805
 msgid "Hash database rebuilt"
 msgstr "Адбудавалі базу зьвестак"
 
-#: ../HashManager.cpp:900
+#: ../HashManager.cpp:904
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% не абагулілі: падлічаная сума CRC32 не адпавядае той, што знайшлі ў "
 "файле SFV."
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:909
 msgid "Error hashing %1%: %2%"
 msgstr "Не ўдалося стварыць скарот да %1%: %2%"
 
@@ -436,8 +441,8 @@ msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "Сьпіс файлаў зараз абнаўляецца. Калі ласка, пачакайце, пакуль ён абновіцца, "
 "каб паспрабаваць абнавіць ізноў."
@@ -474,7 +479,7 @@ msgstr "Адлучаны"
 msgid "<Enter string>"
 msgstr "<Упішыце радок>"
 
-#: ../ADLSearch.cpp:484
+#: ../ADLSearch.cpp:487
 msgid "Discard"
 msgstr "Адкінуць"
 
@@ -703,5 +708,3 @@ msgstr "Разыходжаньне TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
-
-

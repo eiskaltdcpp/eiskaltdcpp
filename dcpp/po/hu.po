@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-22 01:46+0300\n"
+"POT-Creation-Date: 2011-12-18 22:09+0200\n"
 "PO-Revision-Date: 2011-11-25 11:57+0000\n"
 "Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
 "Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/"
@@ -148,47 +148,52 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Kapcsolatok: "
 
-#: ../UploadManager.cpp:238
+#: ../UploadManager.cpp:133
+#, fuzzy
+msgid "Connection already exists."
+msgstr "Kapcsolat lezárva"
+
+#: ../UploadManager.cpp:270
 msgid "Unable to send file %1%: %2%"
 msgstr "A fájl küldése sikertelen: %1%: %2%"
 
-#: ../UploadManager.cpp:516
+#: ../UploadManager.cpp:557
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 
-#: ../UploadManager.cpp:579
+#: ../UploadManager.cpp:620
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
-#: ../SettingsManager.cpp:181
+#: ../SettingsManager.cpp:183
 msgid "downloaded from"
 msgstr "letöltve"
 
-#: ../SettingsManager.cpp:510
+#: ../SettingsManager.cpp:515
 msgid "Invalid search type name"
 msgstr "Érvénytelen keresési feltétel"
 
-#: ../SettingsManager.cpp:514 ../SettingsManager.cpp:536
+#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
 msgid "This search type already exists"
 msgstr "A megadott keresési feltétel már létezik"
 
-#: ../SettingsManager.cpp:568
+#: ../SettingsManager.cpp:573
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
 msgstr "Hiba: Beállítás nem található!"
 
-#: ../SettingsManager.cpp:604
+#: ../SettingsManager.cpp:609
 msgid "Change core setting "
 msgstr "Alapbeállítás megváltoztatása: "
 
-#: ../SettingsManager.cpp:604
+#: ../SettingsManager.cpp:609
 msgid " to "
 msgstr ""
 
-#: ../SettingsManager.cpp:606
+#: ../SettingsManager.cpp:611
 msgid "Error: params have been not 2!"
 msgstr "Hiba: nem lehet 2 paraméter!"
 
@@ -254,42 +259,42 @@ msgstr "Végtelen átirányítási kör (%1%)"
 msgid "Sent "
 msgstr "Elküldve"
 
-#: ../Util.cpp:594
+#: ../Util.cpp:611
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:596
+#: ../Util.cpp:613
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:598
+#: ../Util.cpp:615
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:600
+#: ../Util.cpp:617
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:602
+#: ../Util.cpp:619
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:604
+#: ../Util.cpp:621
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:634
+#: ../Util.cpp:651
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:638
+#: ../Util.cpp:655
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -305,45 +310,45 @@ msgstr "Hiba a tömörítéskor"
 msgid "Error during decompression"
 msgstr "Hiba a kicsomagoláskor"
 
-#: ../HashManager.cpp:87 ../HashManager.cpp:287
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
 msgid "Hashing failed: %1%"
 msgstr "Sikertelen indexelés: %1%"
 
-#: ../HashManager.cpp:94
+#: ../HashManager.cpp:95
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Indexelés befejezve: %1% (%2% at %3%/s)"
 
-#: ../HashManager.cpp:97
+#: ../HashManager.cpp:98
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Indexelés befejezve: %1% (%2%)"
 
-#: ../HashManager.cpp:100
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
 msgstr "Indexelés befejezve: %1%"
 
-#: ../HashManager.cpp:129 ../HashManager.cpp:343
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
 msgid "Error saving hash data: %1%"
 msgstr "Hiba a hash adatok mentésekor: %1%"
 
-#: ../HashManager.cpp:142
+#: ../HashManager.cpp:143
 msgid "Unable to read hash data file"
 msgstr "A hash adatfájl beolvasása nem lehetséges"
 
-#: ../HashManager.cpp:475
+#: ../HashManager.cpp:476
 msgid "Error creating hash data file: %1%"
 msgstr "Hiba a hash adatfájl létrehozásakor: %1%"
 
-#: ../HashManager.cpp:801
+#: ../HashManager.cpp:805
 msgid "Hash database rebuilt"
 msgstr "A hash adatbázis újraépítve"
 
-#: ../HashManager.cpp:900
+#: ../HashManager.cpp:904
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% nincs megosztva. A kiszámított CRC32 nem egyezik az SFV fájlban lévővel."
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:909
 msgid "Error hashing %1%: %2%"
 msgstr "Hiba a következő hashelésekor: %1%: %2%"
 
@@ -487,7 +492,7 @@ msgstr "Szétkapcsolva"
 msgid "<Enter string>"
 msgstr "<Kulcsszava(k)>"
 
-#: ../ADLSearch.cpp:484
+#: ../ADLSearch.cpp:487
 msgid "Discard"
 msgstr "Eldob"
 
