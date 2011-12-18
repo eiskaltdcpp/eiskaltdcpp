@@ -822,7 +822,6 @@ int HashManager::Hasher::run() {
 
         if(!fname.empty()) {
             int64_t size = File::getSize(fname);
-            int64_t sizeLeft = size;
 #ifdef _WIN32
             if(buf == NULL) {
                 virtualBuf = true;
@@ -851,7 +850,6 @@ int HashManager::Hasher::run() {
                 if(sfv.hasCRC())
                 xcrc32 = &crc32;
 
-                size_t n = 0;
                 TigerTree fastTTH(bs);
                 tth = &fastTTH;
 
@@ -863,7 +861,7 @@ int HashManager::Hasher::run() {
                     tth = &slowTTH;
                     crc32 = CRC32Filter();
                     uint64_t lastRead = GET_TICK();
-
+                    size_t n = 0;
                     do {
                         size_t bufSize = BUF_SIZE;
                         if(SETTING(MAX_HASH_SPEED)> 0) {
@@ -885,12 +883,9 @@ int HashManager::Hasher::run() {
                             Lock l(cs);
                             currentSize = max(static_cast<uint64_t>(currentSize - n), static_cast<uint64_t>(0));
                         }
-                        sizeLeft -= n;
 
                     instantPause();
                     } while (n> 0 && !stop);
-                } else {
-                    sizeLeft = 0;
                 }
 
                 f.close();
@@ -964,10 +959,10 @@ void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
             SM->set(SettingsManager::HASHING_START_DELAY, delay);
         }
 
-        string  curFile;
-        int64_t bytesLeft;
-        size_t  filesLeft = -1;
         if (!ShareManager::getInstance()->isRefreshing()){
+            string  curFile;
+            int64_t bytesLeft;
+            size_t  filesLeft = -1;
             getStats(curFile, bytesLeft, filesLeft);
             //fprintf(stdout,"filesLeft %d\n", filesLeft); fflush(stdout);
 

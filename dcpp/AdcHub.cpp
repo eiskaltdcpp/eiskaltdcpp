@@ -402,7 +402,7 @@ void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) noexcept {
 }
 
 void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) noexcept {
-    if(c.getParameters().size() < 1)
+    if(c.getParameters().empty())
         return;
     const string& name = c.getParam(0);
     bool rem = c.hasFlag("RM", 1);
@@ -1044,7 +1044,7 @@ void AdcHub::info(bool /*alwaysSend*/) {
 
     addParam(lastInfoMap, c, "SU", su);
 
-    if(c.getParameters().size() > 0) {
+    if(!c.getParameters().empty()) {
         send(c);
     }
 }

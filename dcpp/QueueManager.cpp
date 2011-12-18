@@ -579,7 +579,6 @@ struct PartsInfoReqParam{
 void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
     string fn;
     string searchString;
-    bool online = false;
     vector<const PartsInfoReqParam*> params;
     TTHValue* tthPub = NULL;
     {
@@ -589,7 +588,7 @@ void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
         PFSSourceList sl;
         fileQueue.findPFSSources(sl);
 
-        for(PFSSourceList::const_iterator i = sl.begin(); i != sl.end(); i++){
+        for(PFSSourceList::const_iterator i = sl.begin(); i != sl.end(); ++i){
             QueueItem::PartialSource::Ptr source = (*i->first).getPartialSource();
             const QueueItem* qi = i->second;
 
@@ -626,7 +625,6 @@ void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
             QueueItem* qi = fileQueue.findAutoSearch(recent);
             if(qi) {
                 searchString = qi->getTTH().toBase32();
-                online = qi->hasOnlineUsers();
                 recent.push_back(qi->getTarget());
                 nextSearch = aTick + (SETTING(AUTO_SEARCH_TIME) * 60000);
                 if (BOOLSETTING(REPORT_ALTERNATES))
@@ -635,7 +633,7 @@ void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
         }
     }
     // Request parts info from partial file sharing sources
-    for(vector<const PartsInfoReqParam*>::const_iterator i = params.begin(); i != params.end(); i++){
+    for(vector<const PartsInfoReqParam*>::const_iterator i = params.begin(); i != params.end(); ++i){
         const PartsInfoReqParam* param = *i;
         dcassert(param->udpPort > 0);
 
@@ -706,7 +704,7 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
     {
         QueueItem::List ql;
         fileQueue.find(ql, root);
-        if (ql.size() > 0)
+        if (!ql.empty())
             throw QueueException(_("This file is already queued"));
     }
 
@@ -771,7 +769,7 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
         if(BOOLSETTING(DONT_DL_ALREADY_QUEUED) && !(aFlags & QueueItem::FLAG_USER_LIST)) {
             QueueItem::List ql;
             fileQueue.find(ql, root);
-            if (ql.size() > 0) {
+            if (!ql.empty()) {
                 // Found one or more existing queue items, lets see if we can add the source to them
                 bool sourceAdded = false;
                 for(QueueItem::Iter i = ql.begin(); i != ql.end(); ++i) {
@@ -1244,7 +1242,6 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
     string fl_fname;
     HintedUser fl_user(UserPtr(), Util::emptyString);
     int fl_flag = 0;
-    bool downloadList = false;
 
     {
         Lock l(cs);
@@ -1271,8 +1268,6 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
                 } else {
                     // partial filelist probably failed, redownload full list
                     dcassert(!finished);
-
-                    downloadList = true;
                     fl_flag = q->getFlags() & ~QueueItem::FLAG_PARTIAL_LIST;
                 }
                 fire(QueueManagerListener::Removed(), q);
@@ -2100,7 +2095,7 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
     dcassert(sl.empty());
     const int32_t maxElements = 10;
     sl.reserve(maxElements);
-    for(Buffer::iterator i = buffer.begin(); i != buffer.end() && sl.size() < maxElements; i++){
+    for(Buffer::iterator i = buffer.begin(); i != buffer.end() && sl.size() < maxElements; ++i){
         sl.push_back(i->second);
     }
 }
@@ -2111,7 +2106,7 @@ TTHValue* QueueManager::FileQueue::findPFSPubTTH()
     uint64_t now = GET_TICK();
     QueueItem::Ptr cand = NULL;
 
-    for(QueueItem::StringIter i = queue.begin(); i != queue.end(); i++)
+    for(QueueItem::StringIter i = queue.begin(); i != queue.end(); ++i)
     {
         QueueItem::Ptr qi = i->second;
         if(qi && qi->getSize() >= PARTIAL_SHARE_MIN_SIZE && now >= qi->getNextPublishingTime() && qi->getPriority() > QueueItem::PAUSED && qi->isRunning())

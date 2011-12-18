@@ -166,13 +166,13 @@ namespace dht
 		xml.stepIn();
 
 		Lock l(cs);
-		for(TTHMap::const_iterator i = tthList.begin(); i != tthList.end(); i++)
+		for(TTHMap::const_iterator i = tthList.begin(); i != tthList.end(); ++i)
 		{
 			xml.addTag("File");
 			xml.addChildAttrib("TTH", i->first.toBase32());
 
 			xml.stepIn();
-			for(SourceList::const_iterator j = i->second.begin(); j != i->second.end(); j++)
+			for(SourceList::const_iterator j = i->second.begin(); j != i->second.end(); ++j)
 			{
 				const Source& source = *j;
 

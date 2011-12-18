@@ -38,7 +38,7 @@ namespace dht
 	{
 		uint8_t distance[CID::SIZE];
 
-		for(int i = 0; i < CID::SIZE; i++)
+		for(int i = 0; i < CID::SIZE; ++i)
 		{
 			distance[i] = cid1.data()[i] ^ cid2.data()[i];
 		}
@@ -95,7 +95,7 @@ namespace dht
 			case AdcCommand::CMD_RES: // default value of requestCmd
 
 				Lock l(cs);
-				for(std::list<OutPacket>::iterator i = sentPackets.begin(); i != sentPackets.end(); i++)
+				for(std::list<OutPacket>::iterator i = sentPackets.begin(); i != sentPackets.end(); ++i)
 				{
 					if(i->cmd == requestCmd && i->ip == ip)
 					{

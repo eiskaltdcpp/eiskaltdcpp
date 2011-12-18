@@ -31,7 +31,7 @@ class Exception : public std::exception
 {
 public:
     Exception() { }
-    Exception(const string& aError) : error(aError) { dcdrun(if(error.size()>0)) dcdebug("Thrown: %s\n", error.c_str()); }
+    Exception(const string& aError) : error(aError) { dcdrun(if(!error.empty())) dcdebug("Thrown: %s\n", error.c_str()); }
 
     virtual const char* what() const throw() { return getError().c_str(); }
 

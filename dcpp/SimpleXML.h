@@ -121,7 +121,7 @@ public:
         checkChildSelected();
         const string& tmp = getChildAttrib(aName);
 
-        return (tmp.size() > 0) && tmp[0] == '1';
+        return !tmp.empty() && tmp[0] == '1';
     }
 
     void fromXML(const string& aXML);

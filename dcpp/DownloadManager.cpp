@@ -74,7 +74,7 @@ void DownloadManager::on(TimerManagerListener::Second, uint64_t aTick) noexcept 
             }
         }
 
-        if(tickList.size() > 0)
+        if(!tickList.empty())
             fire(DownloadManagerListener::Tick(), tickList);
 
 

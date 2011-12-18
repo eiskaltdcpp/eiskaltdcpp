@@ -489,7 +489,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
     SearchResultList l;
     ShareManager::getInstance()->search(l, aString, aSearchType, aSize, aFileType, aClient, isPassive ? 5 : 10);
 //      dcdebug("Found %d items (%s)\n", l.size(), aString.c_str());
-    if(l.size() > 0) {
+    if(!l.empty()) {
         if(isPassive) {
             string name = aSeeker.substr(4);
             // Good, we have a passive seeker, those are easier...
@@ -502,7 +502,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
                 str += '|';
             }
 
-            if(str.size() > 0)
+            if(!str.empty())
                 aClient->send(str);
 
         } else {

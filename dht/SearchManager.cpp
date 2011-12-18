@@ -61,7 +61,7 @@ namespace dht
 		// send search request to the first ALPHA closest nodes
 		size_t nodesCount = min((size_t)SEARCH_ALPHA, possibleNodes.size());
 		Node::Map::iterator it;
-		for(size_t i = 0; i < nodesCount; i++)
+		for(size_t i = 0; i < nodesCount; ++i)
 		{
 			it = possibleNodes.begin();
 			Node::Ptr node = it->second;
@@ -121,7 +121,7 @@ namespace dht
 		//IndexManager::SourceList sources;
 		//if(IndexManager::getInstance()->findResult(TTHValue(tth), sources))
 		//{
-		//	for(IndexManager::SourceList::const_iterator i = sources.begin(); i != sources.end(); i++)
+		//	for(IndexManager::SourceList::const_iterator i = sources.begin(); i != sources.end(); ++i)
 		//	{
 		//		// create user as offline (only TCP connected users will be online)
 		//		UserPtr u = ClientManager::getInstance()->getUser(i->getCID());
@@ -241,7 +241,7 @@ namespace dht
 				{
 					// yes, we got sources for this file
 					unsigned int n = MAX_SEARCH_RESULTS;
-					for(IndexManager::SourceList::const_iterator i = sources.begin(); i != sources.end() && n > 0; i++, n--)
+					for(IndexManager::SourceList::const_iterator i = sources.begin(); i != sources.end() && n > 0; ++i, n--)
 					{
 						xml.addTag("Source");
 						xml.addChildAttrib("CID", i->getCID().toBase32());
@@ -272,7 +272,7 @@ namespace dht
 				DHT::getInstance()->getClosestNodes(CID(term), nodes, count, 2);
 
 				// add nodelist in XML format
-				for(Node::Map::const_iterator i = nodes.begin(); i != nodes.end(); i++)
+				for(Node::Map::const_iterator i = nodes.begin(); i != nodes.end(); ++i)
 				{
 					xml.addTag("Node");
 					xml.addChildAttrib("CID", i->second->getUser()->getCID().toBase32());
@@ -441,7 +441,7 @@ namespace dht
 	{
 		// send PUB command to K nodes
 		int n = K;
-		for(Node::Map::const_iterator i = nodes.begin(); i != nodes.end() && n > 0; i++, n--)
+		for(Node::Map::const_iterator i = nodes.begin(); i != nodes.end() && n > 0; ++i, --n)
 		{
 			const Node::Ptr& node = i->second;
 
@@ -534,7 +534,7 @@ namespace dht
 	bool SearchManager::isAlreadySearchingFor(const string& term)
 	{
 		Lock l(cs);
-		for(SearchMap::const_iterator i = searches.begin(); i != searches.end(); i++)
+		for(SearchMap::const_iterator i = searches.begin(); i != searches.end(); ++i)
 		{
 			if(i->second->term == term)
 				return true;
