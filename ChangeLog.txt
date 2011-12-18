@@ -7,8 +7,15 @@
 * Fixed program crash when using of changed value of IpTOSValue (default -1) without root privileges.
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Regression are possible.
-* Now GCC >= 4.4.5 is required for build. (Possibilities from c++0x are used)
+* Now GCC >= 4.5.0 is required for build. (Possibilities from c++0x are used)
 * Fixed build in Haiku OS. System algorithm to test run only one instance of the program is used now.
+* A lot of new methods now available using QtScript. See:
+  http://code.google.com/p/eiskaltdc/wiki/Scripting
+  http://code.google.com/p/eiskaltdc/wiki/Scripting_QtScript_Example_Scripts
+  http://code.google.com/p/eiskaltdc/wiki/Scripting_Working_With_QtScript
+  [Thanks to OmegaPhil for an updated documentation]
+* Hot reloading of scripts (QtScript) when they have been changed.
+* Dialog of scripting (QtScript) is appreciably improved.
 *** eiskaltdcpp-gtk ***
 * Support of builds with Gtk < 2.24 was discontinued.
 * Added ability to build with Gtk3 (option -DUSE_GTK3 for cmake). This is an experimental mode. Various shortcomings are possible.

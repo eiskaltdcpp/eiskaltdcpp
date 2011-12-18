@@ -70,7 +70,7 @@ Build Depends
 --------
 zlib
 bzip2
-gcc   (>= 4.4.5)
+gcc   (>= 4.5.0)
 cmake (>= 2.6.3)
 iconv (libc on GNU/Linux)
 pkg-config
