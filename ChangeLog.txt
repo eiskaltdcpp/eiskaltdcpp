@@ -5,6 +5,7 @@
 * Added core settings: UseADLOnlyOnOwnList, AllowUploadOverMultiHubs, AllowSimUploads.
 * Added ability to build the program with miniupnpc version 1.6. Support for version 1.5 saved. The local copy of miniupnpc is updated to version 1.6.
 * Fixed program crash when using of changed value of IpTOSValue (default -1) without root privileges.
+* Added recognition of additional fields from file lists of FlylinkDC++: bitrate audio, video and resolution.
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Regression are possible.
 * Now GCC >= 4.5.0 is required for build. (Possibilities from c++0x are used)
@@ -16,9 +17,13 @@
   [Thanks to OmegaPhil for an updated documentation]
 * Hot reloading of scripts (QtScript) when they have been changed.
 * Dialog of scripting (QtScript) is appreciably improved.
+* Improved method of sorting in Search Spy widget. [Thanks to Mikhail Krasikau]
+* Added recognition of additional fields from file lists of FlylinkDC++: bitrate audio, video and resolution. The information is displayed in a tooltip for a file.
+* Added ability to clear search history and download directories history on exit or manualy.
 *** eiskaltdcpp-gtk ***
 * Support of builds with Gtk < 2.24 was discontinued.
 * Added ability to build with Gtk3 (option -DUSE_GTK3 for cmake). This is an experimental mode. Various shortcomings are possible.
+* Added recognition of additional fields from file lists of FlylinkDC++: bitrate audio, video and resolution. The information is displayed in additional columns.
 *** eiskaltdcpp-daemon ***
 * Added command line options: --verbose, --ip, --port, --rpclog, --uripath
 * Added JSON interface. More detail: http://code.google.com/p/eiskaltdc/wiki/JSONRPC
