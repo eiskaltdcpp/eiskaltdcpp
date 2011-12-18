@@ -21,10 +21,10 @@
 #include "dcpp/User.h"
 #include "dcpp/DirectoryListing.h"
 
-const static unsigned COLUMN_FILEBROWSER_NAME   = 0;
-const static unsigned COLUMN_FILEBROWSER_SIZE   = 1;
-const static unsigned COLUMN_FILEBROWSER_ESIZE  = 2;
-const static unsigned COLUMN_FILEBROWSER_TTH    = 3;
+static const unsigned COLUMN_FILEBROWSER_NAME   = 0;
+static const unsigned COLUMN_FILEBROWSER_SIZE   = 1;
+static const unsigned COLUMN_FILEBROWSER_ESIZE  = 2;
+static const unsigned COLUMN_FILEBROWSER_TTH    = 3;
 
 
 class FileBrowserItem

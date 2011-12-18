@@ -32,19 +32,19 @@ public:
     virtual void sort(int column, Qt::SortOrder order);
 };
 
-const static unsigned COLUMN_SF_COUNT          = 0;
-const static unsigned COLUMN_SF_FILENAME       = 1;
-const static unsigned COLUMN_SF_EXTENSION      = 2;
-const static unsigned COLUMN_SF_SIZE           = 3;
-const static unsigned COLUMN_SF_ESIZE          = 4;
-const static unsigned COLUMN_SF_TTH            = 5;
-const static unsigned COLUMN_SF_PATH           = 6;
-const static unsigned COLUMN_SF_NICK           = 7;
-const static unsigned COLUMN_SF_FREESLOTS      = 8;
-const static unsigned COLUMN_SF_ALLSLOTS       = 9;
-const static unsigned COLUMN_SF_IP             = 10;
-const static unsigned COLUMN_SF_HUB            = 11;
-const static unsigned COLUMN_SF_HOST           = 12;
+static const unsigned COLUMN_SF_COUNT          = 0;
+static const unsigned COLUMN_SF_FILENAME       = 1;
+static const unsigned COLUMN_SF_EXTENSION      = 2;
+static const unsigned COLUMN_SF_SIZE           = 3;
+static const unsigned COLUMN_SF_ESIZE          = 4;
+static const unsigned COLUMN_SF_TTH            = 5;
+static const unsigned COLUMN_SF_PATH           = 6;
+static const unsigned COLUMN_SF_NICK           = 7;
+static const unsigned COLUMN_SF_FREESLOTS      = 8;
+static const unsigned COLUMN_SF_ALLSLOTS       = 9;
+static const unsigned COLUMN_SF_IP             = 10;
+static const unsigned COLUMN_SF_HUB            = 11;
+static const unsigned COLUMN_SF_HOST           = 12;
 
 class SearchListException{
     public:

@@ -202,7 +202,7 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         list_model(NULL),
         proxy(NULL)
 {
-    setupUi(this);
+    
 
     nick = WulforUtil::getInstance()->getNicks(user->getCID());;
 
@@ -218,12 +218,6 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         else
             title = tr("Listing: ") + nick;
     }
-
-    setAttribute(Qt::WA_DeleteOnClose);
-    
-    toolButton_UP->setIcon(WICON(WulforUtil::eiTOP));
-    toolButton_FORVARD->setIcon(WICON(WulforUtil::eiNEXT));
-    toolButton_BACK->setIcon(WICON(WulforUtil::eiPREVIOUS));
     
     AsyncRunner *runner = new AsyncRunner(this);
     boost::function<void()> f = boost::bind(&ShareBrowser::buildList, this);
@@ -286,6 +280,14 @@ bool ShareBrowser::eventFilter(QObject *obj, QEvent *e){
 }
 
 void ShareBrowser::init(){
+    setupUi(this);
+
+    setAttribute(Qt::WA_DeleteOnClose);
+    
+    toolButton_UP->setIcon(WICON(WulforUtil::eiTOP));
+    toolButton_FORVARD->setIcon(WICON(WulforUtil::eiNEXT));
+    toolButton_BACK->setIcon(WICON(WulforUtil::eiPREVIOUS));
+    
     frame_FILTER->setVisible(false);
 
     initModels();

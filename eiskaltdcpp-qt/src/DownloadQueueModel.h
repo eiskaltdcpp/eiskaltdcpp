@@ -20,17 +20,17 @@
 #include "dcpp/User.h"
 #include "dcpp/DirectoryListing.h"
 
-const static unsigned COLUMN_DOWNLOADQUEUE_NAME     = 0;
-const static unsigned COLUMN_DOWNLOADQUEUE_STATUS   = 1;
-const static unsigned COLUMN_DOWNLOADQUEUE_SIZE     = 2;
-const static unsigned COLUMN_DOWNLOADQUEUE_DOWN     = 3;
-const static unsigned COLUMN_DOWNLOADQUEUE_PRIO     = 4;
-const static unsigned COLUMN_DOWNLOADQUEUE_USER     = 5;
-const static unsigned COLUMN_DOWNLOADQUEUE_PATH     = 6;
-const static unsigned COLUMN_DOWNLOADQUEUE_ESIZE    = 7;
-const static unsigned COLUMN_DOWNLOADQUEUE_ERR      = 8;
-const static unsigned COLUMN_DOWNLOADQUEUE_ADDED    = 9;
-const static unsigned COLUMN_DOWNLOADQUEUE_TTH      = 10;
+static const unsigned COLUMN_DOWNLOADQUEUE_NAME     = 0;
+static const unsigned COLUMN_DOWNLOADQUEUE_STATUS   = 1;
+static const unsigned COLUMN_DOWNLOADQUEUE_SIZE     = 2;
+static const unsigned COLUMN_DOWNLOADQUEUE_DOWN     = 3;
+static const unsigned COLUMN_DOWNLOADQUEUE_PRIO     = 4;
+static const unsigned COLUMN_DOWNLOADQUEUE_USER     = 5;
+static const unsigned COLUMN_DOWNLOADQUEUE_PATH     = 6;
+static const unsigned COLUMN_DOWNLOADQUEUE_ESIZE    = 7;
+static const unsigned COLUMN_DOWNLOADQUEUE_ERR      = 8;
+static const unsigned COLUMN_DOWNLOADQUEUE_ADDED    = 9;
+static const unsigned COLUMN_DOWNLOADQUEUE_TTH      = 10;
 
 class DownloadQueueDelegate:
         public QStyledItemDelegate
