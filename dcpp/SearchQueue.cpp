@@ -33,7 +33,7 @@ bool SearchQueue::add(const SearchCore& s)
 
     Lock l(cs);
 
-    for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); i++)
+    for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); ++i)
     {
         // check dupe
         if(*i == s) {
@@ -61,7 +61,7 @@ bool SearchQueue::add(const SearchCore& s)
             added = true;
         } else {
             // Insert before the automatic searches (manual search)
-            for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); i++) {
+            for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); ++i) {
                 if(i->token == "auto") {
                     searchQueue.insert(i, s);
                     added = true;
@@ -104,7 +104,7 @@ uint64_t SearchQueue::getSearchTime(void* aOwner){
 
     uint64_t x = max(lastSearchTime, GET_TICK() - interval);
 
-    for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); i++){
+    for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); ++i){
         x += interval;
 
         if(i->owners.count(aOwner))
@@ -120,7 +120,7 @@ bool SearchQueue::cancelSearch(void* aOwner){
     dcassert(aOwner);
 
     Lock l(cs);
-    for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); i++){
+    for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); ++i){
         if(i->owners.count(aOwner)){
             i->owners.erase(aOwner);
             if(i->owners.empty())

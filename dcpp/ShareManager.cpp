@@ -469,7 +469,7 @@ void ShareManager::addDirectory(const string& realPath, const string& virtualNam
             }
         }
     }
-    for(list<string>::const_iterator i = removeMap.begin(); i != removeMap.end(); i++) {
+    for(list<string>::const_iterator i = removeMap.begin(); i != removeMap.end(); ++i) {
         removeDirectory(*i);
     }
 
@@ -596,7 +596,7 @@ ShareManager::DirList::const_iterator ShareManager::getByVirtual(const string& v
 
 int64_t ShareManager::getShareSize(const string& realPath) const noexcept {
     Lock l(cs);
-    dcassert(realPath.size()>0);
+    dcassert(!realPath.empty());
     StringMap::const_iterator i = shares.find(realPath);
 
     if(i != shares.end()) {
@@ -1265,7 +1265,7 @@ void ShareManager::search(SearchResultList& results, const string& aString, int 
         return;
 
     StringSearch::List ssl;
-    for(StringList::iterator i = sl.begin(); i != sl.end(); ++i) {
+    for(StringIter i = sl.begin(); i != sl.end(); ++i) {
         if(!i->empty()) {
             ssl.push_back(StringSearch(*i));
         }

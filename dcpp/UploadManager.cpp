@@ -97,7 +97,6 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
 
     bool userlist = (aFile == Transfer::USER_LIST_NAME_BZ || aFile == Transfer::USER_LIST_NAME);
     bool free = userlist;
-    bool partial = false;
 
     string sourceFile;
     Transfer::Type type;
@@ -218,7 +217,6 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                             is = new LimitedInputStream<true>(is, size);
                     }
 
-                    partial = true;
                     type = Transfer::TYPE_FILE;
                     goto ok;
                 } catch(const Exception&) {
@@ -253,7 +251,6 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                             is = new LimitedInputStream<true>(is, size);
                         }
 
-                        partial = true;
                         type = Transfer::TYPE_FILE;
                         goto ok;
                     }catch(const Exception&){

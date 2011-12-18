@@ -64,8 +64,8 @@ void ADLSearch::Prepare(StringMap& params) {
 
         // Split into substrings
         StringTokenizer<string> st(stringParams, ' ');
-        for(StringList::iterator i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-            if(i->size() > 0) {
+        for(StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+            if(!i->empty()) {
                 // Add substring search
                 stringSearchList.push_back(StringSearch(*i));
             }
@@ -186,7 +186,7 @@ bool ADLSearch::SearchAll(const string& s) {
                 return false;
             }
         }
-        return (stringSearchList.size() != 0);
+        return !stringSearchList.empty();
     #ifdef USE_PCRE
     }
     #endif
@@ -245,7 +245,7 @@ void ADLSearchManager::Load()
                     }
 
                     // Add search to collection
-                    if(search.searchString.size() > 0) {
+                    if(!search.searchString.empty()) {
                         collection.push_back(search);
                     }
 
@@ -279,7 +279,7 @@ void ADLSearchManager::Save()
         // Save all searches
         for(SearchCollection::iterator i = collection.begin(); i != collection.end(); ++i) {
             ADLSearch& search = *i;
-            if(search.searchString.size() == 0) {
+            if(search.searchString.empty()) {
                 continue;
             }
             string type = "type";
@@ -336,7 +336,7 @@ void ADLSearchManager::MatchesFile(DestDirList& destDirVector, DirectoryListing:
     }
 
     // Prepare to match searches
-    if(currentFile->getName().size() < 1) {
+    if(currentFile->getName().empty()) {
         return;
     }
 
@@ -378,7 +378,7 @@ void ADLSearchManager::MatchesDirectory(DestDirList& destDirVector, DirectoryLis
     }
 
     // Prepare to match searches
-    if(currentDir->getName().size() < 1) {
+    if(currentDir->getName().empty()) {
         return;
     }
 
@@ -409,7 +409,7 @@ void ADLSearchManager::PrepareDestinationDirectories(DestDirList& destDirVector,
     // Scan all loaded searches
     for(SearchCollection::iterator is = collection.begin(); is != collection.end(); ++is) {
         // Check empty destination directory
-        if(is->destDir.size() == 0) {
+        if(is->destDir.empty()) {
             // Set to default
             is->ddIndex = 0;
             continue;
@@ -488,7 +488,7 @@ void ADLSearchManager::FinalizeDestinationDirectories(DestDirList& destDirVector
 
     // Add non-empty destination directories to the top level
     for(vector<DestDir>::iterator id = destDirVector.begin(); id != destDirVector.end(); ++id) {
-        if(id->dir->files.size() == 0 && id->dir->directories.size() == 0) {
+        if(id->dir->files.empty() && id->dir->directories.empty()) {
             delete (id->dir);
         } else if(Util::stricmp(id->dir->getName(), szDiscard) == 0) {
             delete (id->dir);

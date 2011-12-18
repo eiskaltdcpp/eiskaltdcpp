@@ -593,7 +593,7 @@ bool SettingsManager::getType(const char* name, int& n, int& type) const {
     return false;
 }
 
-const std::string SettingsManager::parseCoreCmd(const std::string &cmd) {
+const std::string SettingsManager::parseCoreCmd(const std::string& cmd) {
     StringTokenizer<string> sl(cmd, ' ');
         if (sl.getTokens().size() == 2) {
             int n,type;

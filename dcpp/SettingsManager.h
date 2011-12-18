@@ -219,7 +219,7 @@ public:
 
     void unset(size_t key) { isSet[key] = false; }
 
-    const std::string parseCoreCmd(const std::string &cmd);
+    const std::string parseCoreCmd(const std::string& cmd);
 
     void load() {
         Util::migrate(getConfigFile());

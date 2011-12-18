@@ -560,7 +560,7 @@ namespace dht
 				{
 					// when we received more firewalled statuses, we will be firewalled
 					int fw = 0;	string lastIP;
-					for(std::unordered_map< string, std::pair<string, uint16_t> >::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); i++)
+					for(std::unordered_map< string, std::pair<string, uint16_t> >::const_iterator i = firewalledChecks.begin(); i != firewalledChecks.end(); ++i)
 					{
 						string ip = i->second.first;
 						uint16_t udpPort = i->second.second;
@@ -652,7 +652,7 @@ namespace dht
 			DHT::getInstance()->getClosestNodes(CID::generate(), nodes, 20, 2);
 
 			// add nodelist in XML format
-			for(Node::Map::const_iterator i = nodes.begin(); i != nodes.end(); i++)
+			for(Node::Map::const_iterator i = nodes.begin(); i != nodes.end(); ++i)
 			{
 				xml.addTag("Node");
 				xml.addChildAttrib("CID", i->second->getUser()->getCID().toBase32());

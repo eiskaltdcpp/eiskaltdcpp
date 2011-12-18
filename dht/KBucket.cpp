@@ -356,7 +356,7 @@ namespace dht
 		Node::Map closestToMe;
 		getClosestNodes(CID::generate(), closestToMe, 50, 3);
 
-		for(Node::Map::const_iterator j = closestToMe.begin(); j != closestToMe.end(); j++)
+		for(Node::Map::const_iterator j = closestToMe.begin(); j != closestToMe.end(); ++j)
 		{
 			const Node::Ptr& node = j->second;
 
@@ -374,7 +374,7 @@ namespace dht
 			StringMap params;
 			node->getIdentity().getParams(params, Util::emptyString, false, true);
 
-			for(StringMap::const_iterator i = params.begin(); i != params.end(); i++)
+			for(StringMap::const_iterator i = params.begin(); i != params.end(); ++i)
 				xml.addChildAttrib(i->first, i->second);
 		}
 

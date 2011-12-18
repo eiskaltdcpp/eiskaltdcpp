@@ -217,7 +217,7 @@ string FinishedManager::getTarget(const string& aTTH){
     {
         Lock l(cs);
 
-        for(FinishedItem::FinishedItemList::const_iterator i = downloads.begin(); i != downloads.end(); i++)
+        for(FinishedItem::FinishedItemList::const_iterator i = downloads.begin(); i != downloads.end(); ++i)
         {
             if((*i).getTTH() == aTTH)
                 return (*i).getTarget();

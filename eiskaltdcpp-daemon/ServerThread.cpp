@@ -611,7 +611,7 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
         for (StringIter i = sl.getTokens().begin(); i != sl.getTokens().end(); ++i) {
             clients.push_back((*i));
         }
-        if (clients.size() < 1)
+        if (clients.empty())
             return false;
     } else {
         ClientIter i = clientsMap.begin();

@@ -212,7 +212,7 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
         }
     } else if(name == sFileListing) {
         const string& b = getAttrib(attribs, sBase, 2);
-        if(b.size() >= 1 && b[0] == '/' && b[b.size()-1] == '/') {
+        if(!b.empty() && b[0] == '/' && b[b.size()-1] == '/') {
             base = b;
         }
         StringList sl = StringTokenizer<string>(base.substr(1), '/').getTokens();
@@ -352,7 +352,7 @@ private:
 
 struct DirectoryEmpty {
     bool operator()(const DirectoryListing::Directory::Ptr i) const {
-        bool r = i->getFileCount() + i->directories.size() == 0;
+        bool r = i->getFileCount() == 0 && i->directories.empty();
         if (r) DeleteFunction()(i);
         return r;
     }

@@ -41,7 +41,7 @@ TimerManager::TimerManager() {
 }
 
 TimerManager::~TimerManager() {
-    dcassert(listeners.size() == 0);
+    dcassert(listeners.empty());
 }
 
 void TimerManager::shutdown() {

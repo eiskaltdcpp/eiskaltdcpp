@@ -144,7 +144,6 @@ void NmdcHub::clearUsers() {
 void NmdcHub::updateFromTag(Identity& id, const string& tag) {
     StringTokenizer<string> tok(tag, ',');
     string::size_type j;
-    size_t slots = 1;
     id.set("US", Util::emptyString);
     for(StringIter i = tok.getTokens().begin(); i != tok.getTokens().end(); ++i) {
         if(i->length() < 2)
@@ -159,7 +158,6 @@ void NmdcHub::updateFromTag(Identity& id, const string& tag) {
             id.set("HO", t.getTokens()[2]);
         } else if(i->compare(0, 2, "S:") == 0) {
             id.set("SL", i->substr(2));
-            slots = Util::toUInt32(i->substr(2));
         } else if((j = i->find("V:")) != string::npos) {
             i->erase(i->begin(), i->begin() + j + 2);
             id.set("VE", *i);
@@ -318,7 +316,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         i = j + 1;
         string terms = unescape(param.substr(i));
 
-        if(terms.size() > 0) {
+        if(!terms.empty()) {
             if(seeker.compare(0, 4, "Hub:") == 0) {
                 OnlineUser* u = findUser(seeker.substr(4));
 
@@ -1077,7 +1075,7 @@ void NmdcHub::on(Minute, uint64_t aTick) noexcept {
             if(Util::isPrivateIp(*i))
                 i = protectedIPs.erase(i);
             else
-                i++;
+                ++i;
         }
         lastProtectedIPsUpdate = aTick;
     }
