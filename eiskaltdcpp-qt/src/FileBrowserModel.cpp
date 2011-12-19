@@ -233,7 +233,7 @@ struct Compare {
         if (column > COLUMN_FILEBROWSER_TTH)
             return;
         
-        qStableSort(items.begin(), items.end(), [&attrs,column](const FileBrowserItem *l, const FileBrowserItem *r) { return attrs[column](l, r); } );
+        qStableSort(items.begin(), items.end(), attrs[column] );
     }
 
     void static insertSorted(unsigned column, QList<FileBrowserItem*>& items, FileBrowserItem* item) {
@@ -243,9 +243,8 @@ struct Compare {
         QList<FileBrowserItem*>::iterator it = qLowerBound(items.begin(), 
                                                            items.end(), 
                                                            item, 
-                                                           [&attrs,column](const FileBrowserItem *l, const FileBrowserItem *r) {
-                                                                return attrs[column](l, r);
-                                                            } );
+                                                           attrs[column]
+                                                          );
         items.insert(it, item);
     }
 
