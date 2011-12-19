@@ -6371,7 +6371,7 @@ jsou obvykle dostupné operátorům</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="113"/>
-        <source>Number of download directiries history elements to store:</source>
+        <source>Number of download directories history elements to store:</source>
         <translation>Počet uložených záznamů v historii složek pro stahování</translation>
     </message>
     <message>

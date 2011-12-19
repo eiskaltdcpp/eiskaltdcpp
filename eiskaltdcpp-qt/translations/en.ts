@@ -6378,8 +6378,8 @@ them is usually available only to operators</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="113"/>
-        <source>Number of download directiries history elements to store:</source>
-        <translation>Number of download directiries history elements to store:</translation>
+        <source>Number of download directories history elements to store:</source>
+        <translation>Number of download directories history elements to store:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="152"/>
