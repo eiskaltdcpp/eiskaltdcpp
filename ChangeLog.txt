@@ -8,7 +8,7 @@
 * Added recognition of additional fields from file lists of FlylinkDC++: bitrate audio, video and resolution.
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Regression are possible.
-* Now GCC >= 4.5.0 is required for build. (Possibilities from c++0x are used)
+* Now GCC >= 4.5.0 is required for build. (Possibilities from C++11 are used)
 * Fixed build in Haiku OS. System algorithm to test run only one instance of the program is used now.
 * A lot of new methods now available using QtScript. See:
   http://code.google.com/p/eiskaltdc/wiki/Scripting
