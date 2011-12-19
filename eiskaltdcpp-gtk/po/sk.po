@@ -1,7 +1,8 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
+# Translators:
 # Translators:
 # Automatically generated, 2010.
 msgid ""
@@ -9,13 +10,13 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-11-28 18:13+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"PO-Revision-Date: 2011-12-18 20:57+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: none\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
@@ -183,8 +184,8 @@ msgstr ": napíš /help pre zobrazenie zoznamu dostupných príkazov"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:3863
@@ -474,7 +475,8 @@ msgstr "<b>súbor:</b> "
 
 #: ../ui/favoritehubs.ui:475
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr "<small>Poznámka: Nechať nezaškrtnuté pre štandartné nastavenia</small>"
+msgstr ""
+"<small>Poznámka: Nechať nezaškrtnuté pre štandartné nastavenia</small>"
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
@@ -2200,7 +2202,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1204 ../ui/settingsdialog.ui:5614
@@ -2673,7 +2676,8 @@ msgid "Set download limit image: "
 msgstr "Nastaviť obmedzenia pre sťahovanie obrázkov:"
 
 #: ../src/settingsdialog.cc:948
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Nastaviť najnižšiu prioritu pre novopridané súbory, ktoré sú väčšie než "
 "nastavená hodnota pre súbory s nízkou prioritou."
@@ -3142,8 +3146,8 @@ msgstr "Nie je možné načítať zoznam súborov: Neplatný názov zoznamu súb
 
 #: ../src/mainwindow.cc:2178
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Nie je možné otvoriť %1 port. Nie je možné hľadať alebo sťahovať súbory "
@@ -3274,7 +3278,8 @@ msgstr "Použiť smajlíkov"
 
 #: ../src/settingsdialog.cc:1484
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr "Použiť rýchlu metódu hashovania (vypnúť ak máte problémy s hashovaním)"
+msgstr ""
+"Použiť rýchlu metódu hashovania (vypnúť ak máte problémy s hashovaním)"
 
 #: ../src/settingsdialog.cc:1003
 msgid "Use magnet split"
@@ -3375,8 +3380,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3807,3 +3811,5 @@ msgstr "vyčkávanie"
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+

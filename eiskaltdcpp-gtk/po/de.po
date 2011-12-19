@@ -1,7 +1,8 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
+# Translators:
 # Translators:
 # Chris Leick <c.leick@vollbio.de>, 2011.
 msgid ""
@@ -9,13 +10,13 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-11-28 18:13+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: none\n"
-"Language: de\n"
+"PO-Revision-Date: 2011-12-18 20:57+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: German (http://www.transifex.net/projects/p/eiskaltdcpp/team/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
@@ -141,7 +142,8 @@ msgstr ""
 
 #: ../src/hub.cc:2329
 msgid "': type /help for a list of available commands"
-msgstr "«: Geben Sie /help ein, um eine Liste verfügbarer Befehle zu erhalten."
+msgstr ""
+"«: Geben Sie /help ein, um eine Liste verfügbarer Befehle zu erhalten."
 
 #: ../src/hub.cc:1999 ../src/privatemessage.cc:1016
 msgid "*** Available commands:"
@@ -191,11 +193,11 @@ msgstr ": Geben Sie /help ein, um eine Liste verfügbarer Befehle zu erhalten."
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -537,8 +539,8 @@ msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
 msgstr ""
-"Regel 192.168.1.0/23 hinzufügen, wobei Richtung eingehend und Aktion erlaubt "
-"ist, sowie 192.168.6.0/24, wobei Richtung ein- oder ausgehend und Aktion "
+"Regel 192.168.1.0/23 hinzufügen, wobei Richtung eingehend und Aktion erlaubt"
+" ist, sowie 192.168.6.0/24, wobei Richtung ein- oder ausgehend und Aktion "
 "verwerfen ist."
 
 #: ../ui/mainwindow.ui:288
@@ -690,7 +692,8 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1476
 msgid "Automatically disconnect users who leave the hub"
-msgstr "Verbindungen von Benutzern, die den Hub verlassen, automatisch trennen"
+msgstr ""
+"Verbindungen von Benutzern, die den Hub verlassen, automatisch trennen"
 
 #: ../src/settingsdialog.cc:1472
 msgid "Automatically follow redirects"
@@ -703,8 +706,8 @@ msgstr "Warteschlange für automatische Suchtreffer automatisch anpassen"
 #: ../ui/settingsdialog.ui:4160
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
-"Automatisch zusätzlichen Slot öffnen, wenn Geschwindigkeit darunter liegt (0 "
-"= deaktiviert)"
+"Automatisch zusätzlichen Slot öffnen, wenn Geschwindigkeit darunter liegt (0"
+" = deaktiviert)"
 
 #: ../src/settingsdialog.cc:952
 msgid "Automatically search for alternative download locations"
@@ -2230,7 +2233,8 @@ msgstr ""
 "Wert errechnet wurde!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 "Hinweis: Aufgrund sich ändernder Download-Geschwindigkeiten ist dies nicht "
 "100%ig genau …"
@@ -2502,7 +2506,8 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1486
 msgid "Register with the OS to handle magnet: URL links"
-msgstr "Mit dem Betriebssystem registrieren, um Magnet:-URL-Links zu handhaben"
+msgstr ""
+"Mit dem Betriebssystem registrieren, um Magnet:-URL-Links zu handhaben"
 
 #: ../ui/mainwindow.ui:389
 msgid "Remember choice"
@@ -2511,7 +2516,8 @@ msgstr "Auswahl merken"
 #: ../src/downloadqueue.cc:1363
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr ""
-"Ferner Client unterstützt TTH nicht vollständig - Herunterladen nicht möglich"
+"Ferner Client unterstützt TTH nicht vollständig - Herunterladen nicht "
+"möglich"
 
 #: ../ui/adlsearch.ui:508 ../ui/uploadqueue.ui:69 ../ui/settingsdialog.ui:7939
 msgid "Remove"
@@ -2708,7 +2714,8 @@ msgid "Set download limit image: "
 msgstr "Download-Begrenzung für Bild setzen: "
 
 #: ../src/settingsdialog.cc:948
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Niedrigste Priorität für neu hinzugefügte Dateien setzen, die größer sind "
 "als die Größe der niedrigen Priorität"
@@ -3241,8 +3248,8 @@ msgstr "Dateiliste kann nicht geladen werden: ungültiger Dateilistenname"
 
 #: ../src/mainwindow.cc:2178
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Port %1% kann nicht geöffnet werden. Suche oder Datenübertragung wird nicht "
@@ -3374,8 +3381,8 @@ msgstr "Gefühlsymbole benutzen"
 #: ../src/settingsdialog.cc:1484
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr ""
-"Schnelle Hashing-Methode benutzen (Deaktivieren Sie dies, falls Sie Probleme "
-"mit dem Hashing haben.)"
+"Schnelle Hashing-Methode benutzen (Deaktivieren Sie dies, falls Sie Probleme"
+" mit dem Hashing haben.)"
 
 #: ../src/settingsdialog.cc:1003
 msgid "Use magnet split"
@@ -3476,8 +3483,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3918,3 +3924,5 @@ msgstr "Warten …"
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+

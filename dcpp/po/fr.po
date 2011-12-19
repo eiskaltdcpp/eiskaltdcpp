@@ -1,22 +1,22 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
 # Translators:
+# Alexandre Wallimann <adressalacon@gmail.com>, 2011.
 #  <spok@users.sourceforge.net>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-11-25 11:45+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: French (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
-"fr/)\n"
-"Language: fr\n"
+"PO-Revision-Date: 2011-12-19 13:40+0000\n"
+"Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>\n"
+"Language-Team: French (http://www.transifex.net/projects/p/eiskaltdcpp/team/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -29,7 +29,7 @@ msgstr "Rediriger l(es) utilisateur(s)"
 
 #: ../FavoriteManager.cpp:489
 msgid "Auto-connect group (converted)"
-msgstr ""
+msgstr "Auto-connect group (converted)"
 
 #: ../Socket.cpp:86
 #, c-format
@@ -59,8 +59,8 @@ msgstr ""
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
-"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot "
-"de passe ?)"
+"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot"
+" de passe ?)"
 
 #: ../Socket.cpp:471
 msgid ""
@@ -92,7 +92,7 @@ msgstr "Création du fil impossile"
 
 #: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
 msgid "Invalid data"
-msgstr ""
+msgstr "Taille invalide"
 
 #: ../UserConnection.cpp:58
 msgid "Non-UTF-8 data in an ADC connection"
@@ -100,12 +100,15 @@ msgstr "Donnée non UTF-8 dans une connexion ADC"
 
 #: ../ConnectivityManager.cpp:78
 msgid "Determining the best connectivity settings..."
-msgstr ""
+msgstr "Recherche des meilleurs paramètres de connexion..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
+"Impossible d'ouvrir le(s) port(s) %1% ; les paramètres doivent être "
+"configurés manuellement"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -130,22 +133,21 @@ msgstr ""
 
 #: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
-msgstr ""
+msgstr "Transfert (TCP)"
 
 #: ../ConnectivityManager.cpp:146
 msgid "Search (UDP)"
-msgstr ""
+msgstr "Recherche (UDP)"
 
 #: ../ConnectivityManager.cpp:152
 msgid "DHT (UDP)"
-msgstr ""
+msgstr "DHT (UDP)"
 
 #: ../ConnectivityManager.cpp:167
 msgid "Connectivity: "
-msgstr ""
+msgstr "Connexion restaurée"
 
 #: ../UploadManager.cpp:133
-#, fuzzy
 msgid "Connection already exists."
 msgstr "Connexion fermée"
 
@@ -163,7 +165,7 @@ msgstr "Déconnexion de l'utilisateur : %1% (sorti du hub)"
 
 #: ../SettingsManager.cpp:183
 msgid "downloaded from"
-msgstr ""
+msgstr "téléchargé depuis"
 
 #: ../SettingsManager.cpp:515
 msgid "Invalid search type name"
@@ -171,7 +173,7 @@ msgstr "Type de nom de recherche invalide"
 
 #: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
 msgid "This search type already exists"
-msgstr ""
+msgstr "Cette recherche existe déjà"
 
 #: ../SettingsManager.cpp:573
 msgid "No such search type"
@@ -179,19 +181,19 @@ msgstr "Pas de type de recherche de la sorte"
 
 #: ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
-msgstr ""
+msgstr "Erreur: paramètre absent !"
 
 #: ../SettingsManager.cpp:609
 msgid "Change core setting "
-msgstr ""
+msgstr "Changez les paramètres du noyau "
 
 #: ../SettingsManager.cpp:609
 msgid " to "
-msgstr ""
+msgstr " à "
 
 #: ../SettingsManager.cpp:611
 msgid "Error: params have been not 2!"
-msgstr ""
+msgstr "Erreur: wtf ?"
 
 #: ../NmdcHub.cpp:293
 msgid "%1% (Nick unknown)"
@@ -249,7 +251,7 @@ msgstr "Échec dans l'écoute des connexions - veuillez relancer %1%"
 
 #: ../HttpConnection.cpp:166
 msgid "Endless redirection loop (%1%)"
-msgstr ""
+msgstr "Redirection loop sans fin (%1%)"
 
 #: ../ChatMessage.cpp:33
 msgid "Sent "
@@ -312,11 +314,11 @@ msgstr "Scan échoué : %1%"
 
 #: ../HashManager.cpp:95
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr ""
+msgstr "Scan terminé: %1% (%2% à %3%/s)"
 
 #: ../HashManager.cpp:98
 msgid "Finished hashing: %1% (%2%)"
-msgstr ""
+msgstr "Scan terminé: %1% (%2%)"
 
 #: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
@@ -351,7 +353,7 @@ msgstr "Erreur lors du scan de %1% : %2%"
 
 #: ../UPnPManager.cpp:45
 msgid "No UPnP implementation available"
-msgstr ""
+msgstr "Fichier non disponible"
 
 #: ../UPnPManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
@@ -359,7 +361,7 @@ msgstr "Nouvelle tentative de redirection de port UPnP en cours..."
 
 #: ../UPnPManager.cpp:81
 msgid "Failed to initialize the %1% interface"
-msgstr ""
+msgstr "Rafraîchissement de la liste de fichier"
 
 #: ../UPnPManager.cpp:85
 msgid " Transfer Port (%1% TCP)"
@@ -396,7 +398,7 @@ msgstr "Échec de la détection de l'IP externe"
 
 #: ../UPnPManager.cpp:128
 msgid "Failed to create port mappings"
-msgstr ""
+msgstr "Impossible de créer un thread"
 
 #: ../UPnPManager.cpp:137
 msgid "Successfully removed port mappings with the %1% interface"
@@ -404,7 +406,7 @@ msgstr "Suppression des redirections de ports réussie avec l'interface %1%"
 
 #: ../UPnPManager.cpp:138
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr ""
+msgstr "Rafraîchissement de la liste de fichier"
 
 #: ../UPnPManager.cpp:143
 msgid "UPnP: %1%"
@@ -416,7 +418,7 @@ msgstr "Pas de dossier spécifié"
 
 #: ../ShareManager.cpp:450
 msgid "Directory is hidden"
-msgstr ""
+msgstr "Répertoire déjà partagé"
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
@@ -433,8 +435,8 @@ msgstr "L'utilisateur a choisit de ne pas partager le fichier: %1%"
 #: ../ShareManager.cpp:681
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
 msgstr ""
-"L'utilisateur a choisit de ne pas partager le fichier temporaire: %1% (Size: "
-"%2%)"
+"L'utilisateur a choisit de ne pas partager le fichier temporaire: %1% (Size:"
+" %2%)"
 
 #: ../ShareManager.cpp:769
 msgid ""
@@ -445,8 +447,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "La mise à jour de la liste de fichiers est en cours, veuillez attendre "
 "qu'elle se termine avant de ré-essayer"
@@ -465,7 +467,7 @@ msgstr "Mise à jour de la liste de fichiers terminée"
 
 #: ../ShareManager.cpp:940
 msgid "File list %1% generated"
-msgstr ""
+msgstr "Rafraîchissement de la liste de fichier"
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -651,11 +653,11 @@ msgstr "Vous essayez de télécharger depuis vous-même !"
 
 #: ../QueueManager.cpp:802
 msgid "A file with a different TTH root already exists in the queue"
-msgstr ""
+msgstr "Un fichier avec un TTH différent existe déjà dans la file d'attente"
 
 #: ../QueueManager.cpp:806
 msgid "This file has already finished downloading"
-msgstr ""
+msgstr "Ce fichier existe déjà dans la file d'attente"
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
@@ -672,6 +674,7 @@ msgstr ""
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
 msgstr ""
+"Un fichier de taille égale ou supérieure existe déjà à cette destination"
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
@@ -700,7 +703,7 @@ msgstr "Impossible d'ouvrir la liste de fichiers : %1%"
 
 #: ../QueueManager.cpp:1430
 msgid "%1%: Matched %2% file"
-msgstr ""
+msgstr "%1%: %2% fichier(s) correspond(ent)"
 
 #: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -716,3 +719,5 @@ msgstr "Incohérence de TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
+
+
