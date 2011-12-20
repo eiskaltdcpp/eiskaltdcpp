@@ -46,7 +46,7 @@ binmode STDOUT, ':utf8';
 # configuration
 our %config;
 $config{version}=0.2;
-require "config.pl";
+require "cli-xmlrpc-config.pl";
 my $version,my $help;
 GetOptions ('v|version' => \$version, 'h|help' => \$help);
 if ($version)

@@ -26,8 +26,9 @@
 * Added recognition of additional fields from file lists of FlylinkDC++: bitrate audio, video and resolution. The information is displayed in additional columns.
 *** eiskaltdcpp-daemon ***
 * Added command line options: --verbose, --ip, --port, --rpclog, --uripath
-* Added JSON interface. More detail: http://code.google.com/p/eiskaltdc/wiki/JSONRPC
+* Added JSON-RPC interface. More detail: http://code.google.com/p/eiskaltdc/wiki/JSONRPC
 *** eiskaltdcpp-cli ***
+* Added a simple console interface to control the daemon via JSON-RPC.
 
 --- 2.2.4 2011-10-02 ---
 *** common changes ***

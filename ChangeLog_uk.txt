@@ -26,8 +26,9 @@
 * Додано розпізнавання додаткових полів із файл-листів FlylinkDC++: бітрейти аудіо, відео та розрішення. Інформація відображається у додаткових стовпцях.
 *** eiskaltdcpp-daemon ***
 * Додані опції командного рядка: --verbose, --ip, --port, --rpclog, --uripath
-* Доданий JSON інтерфейс. докладніше: http://code.google.com/p/eiskaltdc/wiki/JSONRPC
+* Доданий JSON-RPC інтерфейс. докладніше: http://code.google.com/p/eiskaltdc/wiki/JSONRPC
 *** eiskaltdcpp-cli ***
+* Доданий простий консольний інтерфейс для управління демоном через JSON-RPC.
 
 --- 2.2.4 2011-10-02 ---
 *** common changes ***

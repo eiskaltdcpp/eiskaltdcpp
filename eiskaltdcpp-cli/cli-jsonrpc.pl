@@ -43,7 +43,7 @@ binmode STDOUT, ':utf8';
 # configuration
 our %config;
 $config{version}=0.1;
-require "jconfig.pl";
+require "cli-jsonrpc-config.pl";
 my $version,my $help;
 GetOptions ('v|version' => \$version, 'h|help' => \$help);
 if ($version)
