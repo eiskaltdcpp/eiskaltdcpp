@@ -178,6 +178,9 @@ MainWindow::MainWindow():
 
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("transferCheckButton")), WGETB("show-transfers"));
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("freeSpaceBarItem")), WGETB("show-free-space-bar"));
+#if GTK_CHECK_VERSION(3,0,0)
+	gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), TRUE);
+#endif
 	// About dialog
 	gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"),
 		EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
@@ -2334,14 +2337,11 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
 			TTH = tth->toBase32();
 			string magnetlink = "magnet:?xt=urn:tree:tiger:" + TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
 			f.close();
-			//g_print("%s\n",TTH.c_str());
 			gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
-			//g_print("%s\n",magnetlink.c_str());
 			gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
 		} else {
 			char *buf = new char[512*1024];
 			try {
-				//File f(Text::fromT(string(temp)),File::READ, File::OPEN);
 				TigerTree tth(TigerTree::calcBlockSize(f.getSize(), 1));
 				if(f.getSize() > 0) {
 						size_t n = 512*1024;
@@ -2357,9 +2357,7 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
 				TTH = tth.getRoot().toBase32();
 				string magnetlink = "magnet:?xt=urn:tree:tiger:"+ TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
 				f.close();
-				//g_print("%s\n",TTH.c_str());
 				gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
-				//g_print("%s\n",magnetlink.c_str());
 				gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
 			} catch(...) { }
 

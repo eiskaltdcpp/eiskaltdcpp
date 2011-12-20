@@ -1,7 +1,7 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
 # Translators:
 # Chris Leick <c.leick@vollbio.de>, 2011.
 msgid ""
@@ -9,13 +9,13 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-11-25 11:42+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: none\n"
-"Language: de\n"
+"PO-Revision-Date: 2011-12-18 20:58+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: German (http://www.transifex.net/projects/p/eiskaltdcpp/team/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -52,14 +52,14 @@ msgstr "Der SOCKS-Server verlangt Authentifizierung."
 #: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
 msgstr ""
-"Der SOCKS-Server unterstützt keine Authentifizierung mittels Anmeldename und "
-"Passwort"
+"Der SOCKS-Server unterstützt keine Authentifizierung mittels Anmeldename und"
+" Passwort"
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
-"Die Authentifizierung des SOCKS-Servers ist fehlgeschlagen. (Anmeldename/"
-"Passwort falsch?)"
+"Die Authentifizierung des SOCKS-Servers ist fehlgeschlagen. "
+"(Anmeldename/Passwort falsch?)"
 
 #: ../Socket.cpp:471
 msgid ""
@@ -103,7 +103,8 @@ msgstr "Beste Verbindungseinstellungen werden festgelegt …"
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 "%1% Port(s) können nicht geöffnet werden; Verbindungseinstellungen müssen "
 "manuell konfiguriert werden"
@@ -120,8 +121,8 @@ msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
-"lokales Netzwerk mit möglicher NAT entdeckt; es wird versucht, die Ports mit "
-"UPnP abzubilden …"
+"lokales Netzwerk mit möglicher NAT entdeckt; es wird versucht, die Ports mit"
+" UPnP abzubilden …"
 
 #: ../ConnectivityManager.cpp:128
 msgid ""
@@ -129,8 +130,8 @@ msgid ""
 "connection manually for better connectivity"
 msgstr ""
 "Die automatische Einrichtung des aktiven Modus ist fehlgeschlagen. "
-"Vielleicht möchten Sie für eine bessere Verbindungsfähigkeit Ihre Verbindung "
-"manuell einrichten."
+"Vielleicht möchten Sie für eine bessere Verbindungsfähigkeit Ihre Verbindung"
+" manuell einrichten."
 
 #: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
@@ -149,9 +150,8 @@ msgid "Connectivity: "
 msgstr "Verbindungsfähigkeit:"
 
 #: ../UploadManager.cpp:133
-#, fuzzy
 msgid "Connection already exists."
-msgstr "Verbindung geschlossen"
+msgstr ""
 
 #: ../UploadManager.cpp:270
 msgid "Unable to send file %1%: %2%"
@@ -346,8 +346,8 @@ msgstr "Hash-Datenbank neu erstellt"
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
-"%1% nicht gemeinsam benutzt; berechnete CRC32 passt nicht zur gefundenen SFV-"
-"Datei"
+"%1% nicht gemeinsam benutzt; berechnete CRC32 passt nicht zur gefundenen "
+"SFV-Datei"
 
 #: ../HashManager.cpp:909
 msgid "Error hashing %1%: %2%"
@@ -372,7 +372,8 @@ msgstr " Übertragungsport (%1% TCP)"
 #: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
 #: ../UPnPManager.cpp:101
 msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr "Die Netzwerkschnittstelle %1% konnte den Port  %2% %3% nicht zuordnen."
+msgstr ""
+"Die Netzwerkschnittstelle %1% konnte den Port  %2% %3% nicht zuordnen."
 
 #: ../UPnPManager.cpp:90
 msgid " Encrypted Transfer Port (%1% TCP)"
@@ -404,7 +405,8 @@ msgstr "Portzuordnungen konnten nicht erstellt werden."
 
 #: ../UPnPManager.cpp:137
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Portzuordnungen mit der Schnittstelle %1% wurden erfolgreich entfernt."
+msgstr ""
+"Portzuordnungen mit der Schnittstelle %1% wurden erfolgreich entfernt."
 
 #: ../UPnPManager.cpp:138
 msgid "Failed to remove port mappings with the %1% interface"
@@ -455,8 +457,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Die Dateiliste wird gerade erneuert. Bitte warten Sie, bis dies "
 "abgeschlossen ist, bevor Sie die Liste erneut erneuern."
@@ -733,3 +735,5 @@ msgstr "TTH-Unstimmigkeit"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
+
+

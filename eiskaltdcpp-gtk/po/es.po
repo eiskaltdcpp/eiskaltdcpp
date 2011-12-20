@@ -1,7 +1,8 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
+# Translators:
 # Translators:
 # Automatically generated, 2010.
 # Gustavo Alvarez <gustavoalvarez@ono.com>, 2011.
@@ -11,14 +12,13 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-11-28 18:13+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
-"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/"
-"eiskaltdcpp/team/es/)\n"
-"Language: es\n"
+"PO-Revision-Date: 2011-12-18 20:57+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/eiskaltdcpp/team/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
@@ -194,11 +194,11 @@ msgstr ": introduce /help para ver la lista de comandos disponibles"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Ayuda</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Ayuda</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -347,8 +347,8 @@ msgstr "<b>Nuevo nombre</b> "
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8723
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
-"<b>Nota:</b> Editar URL en la lista haciendo clic en ellos una vez cuando se "
-"selecciona"
+"<b>Nota:</b> Editar URL en la lista haciendo clic en ellos una vez cuando se"
+" selecciona"
 
 #: ../ui/settingsdialog.ui:5278
 msgid "<b>Notify</b>"
@@ -2223,14 +2223,15 @@ msgstr "Nota: muchos de estas opciones requieres reiniciar la aplicación"
 #: ../ui/settingsdialog.ui:4021
 msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
-"Nota: ¡Los nuevos archivos serán añadidos a compartir solo cuando hayan sido "
-"hasheados!"
+"Nota: ¡Los nuevos archivos serán añadidos a compartir solo cuando hayan sido"
+" hasheados!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
-"Nota: Téngalo en cuenta, porque de cambiar las velocidades de descarga, esto "
-"no es fiable al 100% ..."
+"Nota: Téngalo en cuenta, porque de cambiar las velocidades de descarga, esto"
+" no es fiable al 100% ..."
 
 #: ../src/settingsdialog.cc:1204 ../ui/settingsdialog.ui:5614
 msgid "Notify"
@@ -2703,10 +2704,11 @@ msgid "Set download limit image: "
 msgstr "Configurar descarga imagen limite: "
 
 #: ../src/settingsdialog.cc:948
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
-"Establecer prioridad más baja para los nuevos archivos agregados más grandes "
-"que el tamaño de baja prioridad"
+"Establecer prioridad más baja para los nuevos archivos agregados más grandes"
+" que el tamaño de baja prioridad"
 
 #: ../ui/settingsdialog.ui:4053
 msgid "Share hidden files"
@@ -2969,8 +2971,8 @@ msgid ""
 "reduces the dynamics (updating) frame"
 msgstr ""
 "El incremento en el tiempo de espera incrementa el la posibilidad de "
-"añadirlas al principio de la lista, pero reduce el dinamismo (actualización) "
-"del cuadro"
+"añadirlas al principio de la lista, pero reduce el dinamismo (actualización)"
+" del cuadro"
 
 #: ../src/favoritehubs.cc:390
 msgid "The name and address fields are required"
@@ -3022,8 +3024,8 @@ msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
-"Para que empiece a descargar el archivo necesita encender la autobusqueda de "
-"alternativas (Opciones/Descargas/Cola)"
+"Para que empiece a descargar el archivo necesita encender la autobusqueda de"
+" alternativas (Opciones/Descargas/Cola)"
 
 #: ../ui/settingsdialog.ui:5915
 msgid "Toolbar"
@@ -3233,12 +3235,13 @@ msgstr "No se puede cargar lista de archivos: "
 #: ../src/mainwindow.cc:1955
 msgid "Unable to load file list: Invalid file list name"
 msgstr ""
-"No se puede cargar lista de archivos: Nombre de la lista de archivos invalida"
+"No se puede cargar lista de archivos: Nombre de la lista de archivos "
+"invalida"
 
 #: ../src/mainwindow.cc:2178
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "No se puede habilitar e puerto %1%. La búsqueda y la transferencia de "
@@ -3471,8 +3474,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3481,8 +3483,7 @@ msgstr ""
 "Uso:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ es un programa de plataforma-cruzada (multisistema) que usa los "
-"protocolos Direct Connect y ADC \n"
+"EiskaltDC++ es un programa de plataforma-cruzada (multisistema) que usa los protocolos Direct Connect y ADC \n"
 "\n"
 "Opciones:\n"
 "  -h, --help\t muestra este mensaje\n"
@@ -3914,3 +3915,5 @@ msgstr "espere..."
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+

@@ -10,7 +10,7 @@
 #ifndef DEBUGHELPER_H
 #define DEBUGHELPER_H
 
-#ifndef QT_NO_DEBUG
+#ifdef _DEBUG
 
 #include <QString>
 

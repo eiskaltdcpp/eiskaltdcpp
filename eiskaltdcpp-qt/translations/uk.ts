@@ -6333,7 +6333,7 @@ them is usually available only to operators</source>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="113"/>
-        <source>Number of download directiries history elements to store:</source>
+        <source>Number of download directories history elements to store:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

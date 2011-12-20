@@ -181,14 +181,14 @@ struct Compare {
         if (column > COLUMN_EMAIL)
             return;
 
-        qStableSort(items.begin(), items.end(), [&attrs,column] (const UserListItem *l, const UserListItem *r) { return attrs[column](l, r); });
+        qStableSort(items.begin(), items.end(), attrs[column]);
     }
 
     QList<UserListItem*>::iterator static insertSorted(unsigned column, QList<UserListItem*>& items, UserListItem* item) {
         if (column > COLUMN_EMAIL)
             return items.end();
 
-        return qLowerBound(items.begin(), items.end(), item, [&attrs,column] (const UserListItem *l, const UserListItem *r) { return attrs[column](l, r); });
+        return qLowerBound(items.begin(), items.end(), item, attrs[column] );
     }
 
     private:

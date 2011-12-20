@@ -1,7 +1,8 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
+# Translators:
 # Translators:
 # Automatically generated, 2010.
 # Boris Pek <tehnick-8@mail.ru>, 2010.
@@ -10,15 +11,14 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-11-28 18:13+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"PO-Revision-Date: 2011-12-18 20:57+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: none\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
 #: ../src/privatemessage.cc:641
@@ -193,8 +193,8 @@ msgstr ": /help для отримання списку доступних ком
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:3863
@@ -2214,7 +2214,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr "Примітка: Нові файли будуть додані до шари лише після хешування!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 "Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
 
@@ -2690,10 +2691,11 @@ msgid "Set download limit image: "
 msgstr "Вставити обмеження завантаження: "
 
 #: ../src/settingsdialog.cc:948
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
-"Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького "
-"пріоритету"
+"Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького"
+" пріоритету"
 
 #: ../ui/settingsdialog.ui:4053
 msgid "Share hidden files"
@@ -3008,8 +3010,8 @@ msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
-"Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/"
-"Завантаження/Черга)"
+"Для початку завантаження файлу увімкніть автопошук альтернатив "
+"(Налаштування/Завантаження/Черга)"
 
 #: ../ui/settingsdialog.ui:5915
 msgid "Toolbar"
@@ -3163,8 +3165,8 @@ msgstr "Не можливо завантажити список файлів: Н
 
 #: ../src/mainwindow.cc:2178
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати "
@@ -3396,8 +3398,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3406,8 +3407,7 @@ msgstr ""
 "Використовується:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та "
-"ADC протоколи.\n"
+"EiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та ADC протоколи.\n"
 "\n"
 "Ключі:\n"
 "  -h, --help\t Показати це повідомлення\n"
@@ -3837,3 +3837,5 @@ msgstr "очікування..."
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+

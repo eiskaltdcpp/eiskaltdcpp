@@ -1,7 +1,7 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
 # Translators:
 # Translators:
 # Attila Mándy <husumo@gmail.com>, 2010, 2011.
@@ -13,14 +13,13 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-12-13 12:33+0000\n"
-"Last-Translator: sumo <husumo@gmail.com>\n"
-"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/"
-"team/hu/)\n"
-"Language: hu\n"
+"PO-Revision-Date: 2011-12-18 20:57+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
@@ -196,11 +195,11 @@ msgstr ": a használható parancsokat a /help használatával érheted el"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Segítség</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Segítség</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -652,8 +651,7 @@ msgstr ""
 #: ../src/favoritehubs.cc:425
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
-"Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
+msgstr "Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
 
 #: ../src/favoriteusers.cc:438
 msgid "Are you sure you want to delete favorite user(s)?"
@@ -2188,7 +2186,8 @@ msgstr "Nincsenek találatok"
 
 #: ../ui/settingsdialog.ui:2760
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr "Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
+msgstr ""
+"Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
 
 #: ../src/sharebrowser.cc:852
 msgid "No search text entered"
@@ -2232,7 +2231,8 @@ msgstr ""
 "megosztásra!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 "Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
 
@@ -2498,12 +2498,13 @@ msgstr "Fájl-lista frissítése"
 #: ../src/settingsdialog.cc:1485
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr ""
-"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása "
-"a rendszerben"
+"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása"
+" a rendszerben"
 
 #: ../src/settingsdialog.cc:1486
 msgid "Register with the OS to handle magnet: URL links"
-msgstr "A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
+msgstr ""
+"A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
 
 #: ../ui/mainwindow.ui:389
 msgid "Remember choice"
@@ -2709,7 +2710,8 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:948
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új "
 "fájlokhoz"
@@ -3239,8 +3241,8 @@ msgstr "Fájl-lista betöltése sikertelen: Nem megfelelő fájl-lista név"
 
 #: ../src/mainwindow.cc:2178
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog "
@@ -3473,8 +3475,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3483,8 +3484,7 @@ msgstr ""
 "Használat:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp <Kapcsoló>\n"
-"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC "
-"protokollok használatára.\n"
+"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC protokollok használatára.\n"
 "\n"
 "Kapcsolók:\n"
 "  -h, --help\t\t Help megjelenítése\n"
@@ -3915,3 +3915,5 @@ msgstr "várakozás..."
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+
