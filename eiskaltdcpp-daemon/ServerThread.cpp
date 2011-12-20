@@ -529,7 +529,7 @@ string ServerThread::getFileList_client(const string& hub, const string& nick, b
 void ServerThread::getChatPubFromClient(string& chat, const string& hub, const string& separator) {
     ClientIter it = clientsMap.find(hub);
     if (it != clientsMap.end()) {
-        for (int i =0; i < it->second.curchat.size(); ++i) {
+        for (unsigned int i = 0; i < it->second.curchat.size(); ++i) {
             chat += it->second.curchat.at(i);
             chat.append(separator);
         }
@@ -751,14 +751,14 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
 
     if (!target.empty()) {
         QueueItem::Priority p;
-        switch (p) {
+        switch (priority) {
             case 0: p = QueueItem::PAUSED; break;
             case 1: p = QueueItem::LOWEST; break;
             case 2: p = QueueItem::LOW; break;
             case 3: p = QueueItem::NORMAL; break;
             case 4: p = QueueItem::HIGH; break;
             case 5: p = QueueItem::HIGHEST; break;
-            default: break;
+            default: p = QueueItem::PAUSED; break;
         }
 
         if (target[target.length() - 1] == PATH_SEPARATOR)

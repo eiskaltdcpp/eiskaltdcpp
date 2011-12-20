@@ -45,8 +45,8 @@ public:
     FinishedItem(string const& aTarget, const UserPtr& aUser, string const& aHub,
             int64_t aSize, int64_t aSpeed, time_t aTime,
             const string& aTTH = Util::emptyString) :
-            target(aTarget), user(aUser), hub(aHub), size(aSize), avgSpeed(aSpeed),
-            time(aTime), tth(aTTH)
+            target(aTarget),  hub(aHub), tth(aTTH), size(aSize), avgSpeed(aSpeed),
+            time(aTime), user(aUser)
     {
     }
 
