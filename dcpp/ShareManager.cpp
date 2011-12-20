@@ -744,7 +744,7 @@ void ShareManager::updateIndices(Directory& dir) {
     dir.size = 0;
 
     for(Directory::File::Set::iterator i = dir.files.begin(); i != dir.files.end(); ) {
-        updateIndices(dir, i++);
+        updateIndices(dir, ++i);
     }
 }
 
@@ -1467,7 +1467,7 @@ void ShareManager::on(QueueManagerListener::FileMoved, const string& n) noexcept
     if(BOOLSETTING(ADD_FINISHED_INSTANTLY)) {
         // Check if finished download is supposed to be shared
         Lock l(cs);
-        for(StringMapIter i = shares.begin(); i != shares.end(); i++) {
+        for(StringMapIter i = shares.begin(); i != shares.end(); ++i) {
             if(Util::strnicmp(i->first, n, i->first.size()) == 0 && n[i->first.size() - 1] == PATH_SEPARATOR) {
                 try {
                     // Schedule for hashing, it'll be added automatically later on...

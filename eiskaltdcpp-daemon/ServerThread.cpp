@@ -413,7 +413,7 @@ void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) 
     if (result == NULL) {
         return;
     }
-    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; i++) {
+    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; ++i) {
         if (clientsMap[i->first].curclient != NULL && i->first == result->getHubURL()) {
             clientsMap[i->first].cursearchresult.push_back(result);
         }
