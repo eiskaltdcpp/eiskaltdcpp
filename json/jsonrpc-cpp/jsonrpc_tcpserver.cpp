@@ -176,7 +176,7 @@ namespace Json
       FD_SET(m_sock, &fdsr);
 #endif
 
-      for(std::list<int>::iterator it = m_clients.begin() ; it != m_clients.end() ; it++)
+      for(std::list<int>::iterator it = m_clients.begin() ; it != m_clients.end() ; ++it)
       {
 #ifdef _WIN32
         FD_SET((SOCKET)(*it), &fdsr);
@@ -199,7 +199,7 @@ namespace Json
           Accept();
         }
 
-        for(std::list<int>::iterator it = m_clients.begin() ; it != m_clients.end() ; it++)
+        for(std::list<int>::iterator it = m_clients.begin() ; it != m_clients.end() ; ++it)
         {
           if(FD_ISSET((*it), &fdsr))
           {
@@ -208,7 +208,7 @@ namespace Json
         }
 
         /* remove disconnect socket descriptor */
-        for(std::list<int>::iterator it = m_purge.begin() ; it != m_purge.end() ; it++)
+        for(std::list<int>::iterator it = m_purge.begin() ; it != m_purge.end() ; ++it)
         {
           m_clients.remove((*it));
         }
@@ -261,7 +261,7 @@ namespace Json
     void TcpServer::Close()
     {
       /* close all client sockets */
-      for(std::list<int>::iterator it = m_clients.begin() ; it != m_clients.end() ; it++)
+      for(std::list<int>::iterator it = m_clients.begin() ; it != m_clients.end() ; ++it)
       {
         ::close((*it));
       }
