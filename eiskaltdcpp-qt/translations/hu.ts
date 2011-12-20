@@ -2227,7 +2227,7 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2237"/>
         <source>Script Engine</source>
-        <translation type="unfinished"/>
+        <translation>Szkript motor</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2483"/>

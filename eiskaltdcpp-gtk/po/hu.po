@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Translators:
+# Translators:
 # Attila Mándy <husumo@gmail.com>, 2010, 2011.
 # Automatically generated, 2010.
 # Márk Lutring <marcus@elitemail.hu>, 2011.
@@ -13,8 +14,8 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-12-18 20:57+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"PO-Revision-Date: 2011-12-20 13:26+0000\n"
+"Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -659,7 +660,7 @@ msgstr "Biztos, hogy törlöd a kijelölt kedvenc felhasználót?"
 
 #: ../src/sharebrowser.cc:83 ../src/sharebrowser.cc:329
 msgid "Audio"
-msgstr ""
+msgstr "Hang"
 
 #: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:69
 #: ../src/favoritehubs.cc:127 ../src/favoritehubs.cc:303
@@ -752,7 +753,7 @@ msgstr "Kötési cím"
 
 #: ../src/sharebrowser.cc:80 ../src/sharebrowser.cc:326
 msgid "Bitrate"
-msgstr ""
+msgstr "Bitráta"
 
 #: ../ui/settingsdialog.ui:5186
 msgid "Black/White"
@@ -764,7 +765,7 @@ msgstr "Üzenet küldőjének neve kiemelése a chaten"
 
 #: ../ui/uploadqueue.ui:87
 msgid "Browse FileList"
-msgstr ""
+msgstr "Fájllista letöltése"
 
 #: ../ui/settingsdialog.ui:4913
 msgid "Browse file..."
@@ -1120,7 +1121,7 @@ msgstr "Könyvtár"
 
 #: ../src/settingsdialog.cc:3536
 msgid "Directory or favorite name already exists"
-msgstr ""
+msgstr "Könyvtár vagy a kedvenc neve már létezik"
 
 #: ../src/settingsdialog.cc:1006
 msgid "Do not close the program, hide in the system tray"
@@ -2565,7 +2566,7 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:81 ../src/sharebrowser.cc:327
 msgid "Resolution"
-msgstr ""
+msgstr "Felbontás"
 
 #: ../ui/hash.ui:21
 msgid "Run in background"
@@ -3048,7 +3049,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1553
 msgid "Top position"
-msgstr ""
+msgstr "Alkalmazás"
 
 #: ../ui/searchspy.ui:256
 msgid "Top: >"
@@ -3436,11 +3437,11 @@ msgstr "Felhasználó nem található"
 
 #: ../src/settingsdialog.cc:1281
 msgid "User operator (dc)"
-msgstr ""
+msgstr "Felhasználó operátor (dc)"
 
 #: ../src/settingsdialog.cc:1285
 msgid "User operator (normal)"
-msgstr ""
+msgstr "Felhasználó operátor (normál)"
 
 #: ../src/settingsdialog.cc:1280
 msgid "User operator firewall (dc)"
@@ -3492,7 +3493,7 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:82 ../src/sharebrowser.cc:328
 msgid "Video"
-msgstr ""
+msgstr "Videó"
 
 #: ../src/settingsdialog.cc:998
 msgid "View status messages in main chat"
@@ -3694,7 +3695,7 @@ msgstr ""
 
 #: ../ui/favoritehubs.ui:271
 msgid "_Mode:"
-msgstr ""
+msgstr "_Mód:"
 
 #: ../ui/downloadqueue.ui:155
 msgid "_Move"

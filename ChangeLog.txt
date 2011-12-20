@@ -10,7 +10,7 @@
 * Refactoring of source code. Regressions are possible.
 * Now GCC >= 4.5.0 is required for build. (Features from C++11 are used)
 * Fixed build in Haiku OS. System algorithm to test run only one instance of the program is used now.
-* A lot of new methods now available using QtScript. See:
+* A lot of new methods are now available using QtScript. See:
   http://code.google.com/p/eiskaltdc/wiki/Scripting
   http://code.google.com/p/eiskaltdc/wiki/Scripting_QtScript_Example_Scripts
   http://code.google.com/p/eiskaltdc/wiki/Scripting_Working_With_QtScript
