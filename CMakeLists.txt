@@ -101,7 +101,8 @@ option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
 option (JSONRPC_DAEMON "Make daemon as jsonrpc server" OFF)
 option (USE_GTK3 "GTK3 interface" OFF)
-option (USE_CLI "Command line interface" OFF)
+option (USE_CLI_XMLRPC "Command line interface to control daemon via XMLRPC" OFF)
+option (USE_CLI_JSONRPC "Command line interface to control daemon via JSONRPC" OFF)
 option (HAIKU_PKG "Make Haiku package" OFF)
 option (CHECK_GTK_DEPRECATED "Check gtk backend for deprecated function" OFF)
 
@@ -429,7 +430,7 @@ if (NO_UI_DAEMON OR XMLRPC_DAEMON OR JSONRPC_DAEMON)
   add_subdirectory (eiskaltdcpp-daemon)
 endif ()
 
-if (USE_CLI)
+if (USE_CLI_XMLRPC OR USE_CLI_JSONRPC)
   add_subdirectory (eiskaltdcpp-cli)
 endif ()
 

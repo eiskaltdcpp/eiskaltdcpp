@@ -40,8 +40,9 @@ libxmlrpc-c++4 (>= 1.19.0) (optional, see cmake keys)
 :eiskaltdcpp-cli:
 -----------------
 perl (>= 5.10)
-RPC::XML perl module (librpc-xml-perl)
 Term::ShellUI perl module
+RPC::XML  perl module (librpc-xml-perl)  (optional, see cmake keys)
+JSON::RPC perl module (libjson-rpc-perl) (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -181,8 +182,10 @@ Keys for cmake
 -----------------
 :eiskaltdcpp-cli:
 ----------------
--DUSE_CLI=ON/OFF (default: OFF)
-    use command line interface
+-DUSE_CLI_XMLRPC=ON/OFF (default: OFF)
+    use command line interface to control daemon via XMLRPC
+-DUSE_CLI_JSONRPC=ON/OFF (default: OFF)
+    use command line interface to control daemon via JSONRPC
 --------
 :common:
 --------
