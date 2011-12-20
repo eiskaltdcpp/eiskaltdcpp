@@ -743,8 +743,8 @@ void ShareManager::updateIndices(Directory& dir) {
 
     dir.size = 0;
 
-    for(Directory::File::Set::iterator i = dir.files.begin(); i != dir.files.end(); ) {
-        updateIndices(dir, ++i);
+    for(Directory::File::Set::iterator i = dir.files.begin(); i != dir.files.end(); ++i) {
+        updateIndices(dir, i);
     }
 }
 
