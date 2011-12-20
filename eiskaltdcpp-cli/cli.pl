@@ -74,7 +74,8 @@ foreach (keys %config)
 }
 
 my $P = RPC::XML::Parser->new();
-my $cli = RPC::XML::Client->new($config{eiskaltURL}) or die "Can not connect to hub url $config{eiskaltURL}: $_\n";
+my $cli = RPC::XML::Client->new($config{eiskaltURL}, useragent => ['ssl_opts' => {verify_hostname => 0}]) or die "Can not connect to hub url $config{eiskaltURL}: $_\n";
+$cli->credentials("Eiskaltdcpp XML-RPC Management",$config{user},$config{password});
 my $term = new Term::ShellUI(commands => get_commands(), history_file => $config{hist_file}, history_max => $config{hist_max});
 $term->prompt("$config{eiskaltHostPort} $config{prompt}");
 $term->run();
