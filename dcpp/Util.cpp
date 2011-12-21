@@ -295,7 +295,7 @@ void Util::migrate(const string& file) {
 
 string Util::getLoginName() {
     string loginName = "unknown";
-    
+
 #ifdef _WIN32
     char winUserName[UNLEN + 1]; // UNLEN is defined in LMCONS.H
     DWORD winUserNameSize = sizeof(winUserName);
@@ -305,7 +305,7 @@ string Util::getLoginName() {
     const char *envUserName = getenv("LOGNAME");
     loginName = envUserName? Text::toUtf8(envUserName) : loginName;
 #endif // _WIN32
-    
+
     return loginName;
 }
 
@@ -428,7 +428,7 @@ string Util::validateFileName(string tmp) {
 }
 
 bool Util::checkExtension(const string& tmp) {
-    for(int i = 0; i < tmp.length(); i++) {
+    for(unsigned int i = 0; i < tmp.length(); i++) {
         if (tmp[i] < 0 || tmp[i] == 32 || tmp[i] == ':') {
             return false;
         }

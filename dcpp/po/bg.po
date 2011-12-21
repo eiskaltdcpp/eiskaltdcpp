@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2011-12-05 13:10+0000\n"
+"POT-Creation-Date: 2011-12-18 22:09+0200\n"
+"PO-Revision-Date: 2011-12-19 12:57+0000\n"
 "Last-Translator: psytrip <astral_86@mail.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -144,47 +144,51 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Свързването е възстановено"
 
-#: ../UploadManager.cpp:238
+#: ../UploadManager.cpp:133
+msgid "Connection already exists."
+msgstr "Връзката е затворена"
+
+#: ../UploadManager.cpp:270
 msgid "Unable to send file %1%: %2%"
 msgstr "Не може да изпрати файл %1%: %2%"
 
-#: ../UploadManager.cpp:516
+#: ../UploadManager.cpp:557
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IP-филтър: Блокиране на входящи връзки към"
 
-#: ../UploadManager.cpp:579
+#: ../UploadManager.cpp:620
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Прекъснат потребител напуска хъба: %1%"
 
-#: ../SettingsManager.cpp:181
+#: ../SettingsManager.cpp:183
 msgid "downloaded from"
 msgstr "сваляне от"
 
-#: ../SettingsManager.cpp:510
+#: ../SettingsManager.cpp:515
 msgid "Invalid search type name"
 msgstr "Неправилно име за тип търсене"
 
-#: ../SettingsManager.cpp:514 ../SettingsManager.cpp:536
+#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
 msgid "This search type already exists"
 msgstr "Този тип търсене вече съществува"
 
-#: ../SettingsManager.cpp:568
+#: ../SettingsManager.cpp:573
 msgid "No such search type"
 msgstr "Няма такъв тип търсене"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
 msgstr "Грешка: настройката не е намерена!"
 
-#: ../SettingsManager.cpp:604
+#: ../SettingsManager.cpp:609
 msgid "Change core setting "
 msgstr "Промяна настройките на ядрото"
 
-#: ../SettingsManager.cpp:604
+#: ../SettingsManager.cpp:609
 msgid " to "
 msgstr "до"
 
-#: ../SettingsManager.cpp:606
+#: ../SettingsManager.cpp:611
 msgid "Error: params have been not 2!"
 msgstr "Грешка: параметрите не може да са 2!"
 
@@ -250,42 +254,42 @@ msgstr "Безкрайно циклично пренасочване (%1%)"
 msgid "Sent "
 msgstr "Изпратен"
 
-#: ../Util.cpp:594
+#: ../Util.cpp:611
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:596
+#: ../Util.cpp:613
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:598
+#: ../Util.cpp:615
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:600
+#: ../Util.cpp:617
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:602
+#: ../Util.cpp:619
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:604
+#: ../Util.cpp:621
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:634
+#: ../Util.cpp:651
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:638
+#: ../Util.cpp:655
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -301,46 +305,46 @@ msgstr "Грешка при компресиране"
 msgid "Error during decompression"
 msgstr "Грешка при декомпресиране"
 
-#: ../HashManager.cpp:87 ../HashManager.cpp:287
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
 msgid "Hashing failed: %1%"
 msgstr "Търсенето е отново позволено"
 
-#: ../HashManager.cpp:94
+#: ../HashManager.cpp:95
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Завършено хеширане: %1% (%2% с %3%/s)"
 
-#: ../HashManager.cpp:97
+#: ../HashManager.cpp:98
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Завършено хеширане: %1% (%2%)"
 
-#: ../HashManager.cpp:100
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
 msgstr "Завършено хеширане: %1%"
 
-#: ../HashManager.cpp:129 ../HashManager.cpp:343
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
 msgid "Error saving hash data: %1%"
 msgstr "Грешка при четене на хеш файла"
 
-#: ../HashManager.cpp:142
+#: ../HashManager.cpp:143
 msgid "Unable to read hash data file"
 msgstr "Грешка при четене на хеш файла"
 
-#: ../HashManager.cpp:475
+#: ../HashManager.cpp:476
 msgid "Error creating hash data file: %1%"
 msgstr "Грешка при четене на хеш файла"
 
-#: ../HashManager.cpp:801
+#: ../HashManager.cpp:805
 msgid "Hash database rebuilt"
 msgstr "Базата-данни с хешове е построена наново"
 
-#: ../HashManager.cpp:900
+#: ../HashManager.cpp:904
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% не е споделен; изчислената CRC32 сума не съвпада с намерената в SFV "
 "файла."
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:909
 msgid "Error hashing %1%: %2%"
 msgstr "Грешка при хеширане %1%: %2%"
 
@@ -478,7 +482,7 @@ msgstr "Връзката е прекъсната"
 msgid "<Enter string>"
 msgstr "<Въведете низ>"
 
-#: ../ADLSearch.cpp:484
+#: ../ADLSearch.cpp:487
 msgid "Discard"
 msgstr "Отхвърляне"
 

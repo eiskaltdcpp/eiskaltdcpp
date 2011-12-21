@@ -59,7 +59,7 @@ namespace dht
 		{
 			// no user duplicites
 			SourceList& sources = i->second;
-			for(SourceList::iterator s = sources.begin(); s != sources.end(); s++)
+			for(SourceList::iterator s = sources.begin(); s != sources.end(); ++s)
 			{
 				if(node->getUser()->getCID() == (*s).getCID())
 				{

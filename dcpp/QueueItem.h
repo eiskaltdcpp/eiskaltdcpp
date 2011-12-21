@@ -89,8 +89,8 @@ public:
         GETSET(string, myNick, MyNick);                 // for NMDC support only
         GETSET(string, hubIpPort, HubIpPort);
         GETSET(string, ip, Ip);
-        GETSET(uint64_t, nextQueryTime, NextQueryTime);
         GETSET(uint16_t, udpPort, UdpPort);
+        GETSET(uint64_t, nextQueryTime, NextQueryTime);
         GETSET(uint8_t, pendingQueryCount, PendingQueryCount);
     };
 
@@ -144,8 +144,9 @@ public:
     QueueItem(const QueueItem& rhs) :
         Flags(rhs), done(rhs.done), downloads(rhs.downloads), target(rhs.target),
         size(rhs.size), priority(rhs.priority), added(rhs.added), tthRoot(rhs.tthRoot),
-        sources(rhs.sources), badSources(rhs.badSources), tempTarget(rhs.tempTarget),
-         nextPublishingTime(rhs.nextPublishingTime)
+        nextPublishingTime(rhs.nextPublishingTime), sources(rhs.sources), badSources(rhs.badSources),
+        tempTarget(rhs.tempTarget)
+
     { }
 
     virtual ~QueueItem() { }
@@ -238,10 +239,10 @@ public:
     GETSET(DownloadList, downloads, Downloads);
     GETSET(string, target, Target);
     GETSET(int64_t, size, Size);
-    GETSET(uint64_t, nextPublishingTime, NextPublishingTime);
     GETSET(Priority, priority, Priority);
     GETSET(time_t, added, Added);
     GETSET(TTHValue, tthRoot, TTH);
+    GETSET(uint64_t, nextPublishingTime, NextPublishingTime);
 private:
     QueueItem& operator=(const QueueItem&);
 

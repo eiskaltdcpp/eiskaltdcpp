@@ -1,21 +1,21 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
 # Translators:
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-10-22 01:46+0300\n"
-"PO-Revision-Date: 2011-11-25 12:12+0000\n"
-"Last-Translator: Tehnick <tehnick-8@yandex.ru>\n"
+"POT-Creation-Date: 2011-12-18 22:09+0200\n"
+"PO-Revision-Date: 2011-12-18 20:58+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: none\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../FavoriteManager.cpp:429
@@ -63,8 +63,8 @@ msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 msgstr ""
-"Nepodarilo sa nastaviť SOCKS server, aby robil UDP relé (skontrolujte adresu "
-"a port SOCKS)"
+"Nepodarilo sa nastaviť SOCKS server, aby robil UDP relé (skontrolujte adresu"
+" a port SOCKS)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -100,7 +100,8 @@ msgstr ""
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:93
@@ -136,47 +137,51 @@ msgstr ""
 msgid "Connectivity: "
 msgstr ""
 
-#: ../UploadManager.cpp:238
+#: ../UploadManager.cpp:133
+msgid "Connection already exists."
+msgstr ""
+
+#: ../UploadManager.cpp:270
 msgid "Unable to send file %1%: %2%"
 msgstr "Nepodarilo sa poslať súbor %1%: %2%"
 
-#: ../UploadManager.cpp:516
+#: ../UploadManager.cpp:557
 msgid "IPFilter: Blocked incoming connection to "
 msgstr ""
 
-#: ../UploadManager.cpp:579
+#: ../UploadManager.cpp:620
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Používateľ, ktorý opustil hub, bol odpojený: %1%"
 
-#: ../SettingsManager.cpp:181
+#: ../SettingsManager.cpp:183
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:510
+#: ../SettingsManager.cpp:515
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:514 ../SettingsManager.cpp:536
+#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:568
+#: ../SettingsManager.cpp:573
 msgid "No such search type"
 msgstr ""
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
 msgstr ""
 
-#: ../SettingsManager.cpp:604
+#: ../SettingsManager.cpp:609
 msgid "Change core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:604
+#: ../SettingsManager.cpp:609
 msgid " to "
 msgstr ""
 
-#: ../SettingsManager.cpp:606
+#: ../SettingsManager.cpp:611
 msgid "Error: params have been not 2!"
 msgstr ""
 
@@ -240,42 +245,42 @@ msgstr ""
 msgid "Sent "
 msgstr ""
 
-#: ../Util.cpp:594
+#: ../Util.cpp:611
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:596
+#: ../Util.cpp:613
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:598
+#: ../Util.cpp:615
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:600
+#: ../Util.cpp:617
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:602
+#: ../Util.cpp:619
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:604
+#: ../Util.cpp:621
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:634
+#: ../Util.cpp:651
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:638
+#: ../Util.cpp:655
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -291,45 +296,45 @@ msgstr "Chyba počas kompresie"
 msgid "Error during decompression"
 msgstr "Chyba počas dekompresie"
 
-#: ../HashManager.cpp:87 ../HashManager.cpp:287
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
 msgid "Hashing failed: %1%"
 msgstr "Nepodarilo sa hašovanie: %1%"
 
-#: ../HashManager.cpp:94
+#: ../HashManager.cpp:95
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr ""
 
-#: ../HashManager.cpp:97
+#: ../HashManager.cpp:98
 msgid "Finished hashing: %1% (%2%)"
 msgstr ""
 
-#: ../HashManager.cpp:100
+#: ../HashManager.cpp:101
 msgid "Finished hashing: %1%"
 msgstr "Skončilo hašovanie: %1%"
 
-#: ../HashManager.cpp:129 ../HashManager.cpp:343
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
 msgid "Error saving hash data: %1%"
 msgstr "Chyba pri ukladaní hašov: %1%"
 
-#: ../HashManager.cpp:142
+#: ../HashManager.cpp:143
 msgid "Unable to read hash data file"
 msgstr "Nepodarilo sa prečítať súbor s hašmi"
 
-#: ../HashManager.cpp:475
+#: ../HashManager.cpp:476
 msgid "Error creating hash data file: %1%"
 msgstr "Chyba pri vytváraní dátového súboru hašov: %1%"
 
-#: ../HashManager.cpp:801
+#: ../HashManager.cpp:805
 msgid "Hash database rebuilt"
 msgstr "Databáza hašov znovu zostavená"
 
-#: ../HashManager.cpp:900
+#: ../HashManager.cpp:904
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% nie je zdieľaný; vypočítaný CRC32 sa nezhoduje so súčtom v SFV súbore."
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:909
 msgid "Error hashing %1%: %2%"
 msgstr "Chyba pri vytváraní hašu %1%: %2%"
 
@@ -425,8 +430,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Prebieha obnovenie zoznamu súborov, počkajte prosím, kým skončí, než ho "
 "skúsite znova obnoviť"
@@ -463,7 +468,7 @@ msgstr "Odpojený"
 msgid "<Enter string>"
 msgstr "<Zadajte reťazec>"
 
-#: ../ADLSearch.cpp:484
+#: ../ADLSearch.cpp:487
 msgid "Discard"
 msgstr "Zahodiť"
 
@@ -691,3 +696,5 @@ msgstr "nekonzistencia TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
+
+

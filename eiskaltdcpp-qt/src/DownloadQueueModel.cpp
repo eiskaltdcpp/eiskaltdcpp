@@ -208,7 +208,7 @@ struct Compare {
         if (column > COLUMN_DOWNLOADQUEUE_TTH)
             return;
         
-        qStableSort(items.begin(), items.end(), [&attrs,column](const DownloadQueueItem *l, const DownloadQueueItem *r) { return attrs[column](l, r); });
+        qStableSort(items.begin(), items.end(), attrs[column]);
     }
 
     void static insertSorted(unsigned column, QList<DownloadQueueItem*>& items, DownloadQueueItem* item) {
@@ -217,9 +217,9 @@ struct Compare {
                                         
         QList<DownloadQueueItem*>::iterator it = qLowerBound(items.begin(), 
                                                              items.end(), 
-                                                             item, [&attrs,column](const DownloadQueueItem *l, const DownloadQueueItem *r) { 
-                                                                        return attrs[column](l, r); 
-                                                                   });
+                                                             item,
+                                                             attrs[column]
+                                                             );
         items.insert(it, item);
     }
 

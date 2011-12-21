@@ -110,7 +110,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Number of download directiries history elements to store:</string>
+      <string>Number of download directories history elements to store:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

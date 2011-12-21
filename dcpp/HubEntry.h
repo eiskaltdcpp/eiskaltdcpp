@@ -74,7 +74,7 @@ public:
     encoding(rhs.getEncoding()), mode(rhs.mode),
     overrideId(rhs.overrideId), clientId(rhs.clientId),
     externalIP(""), useInternetIp(false), disableChat(false),
-    nick(rhs.nick), searchInterval(rhs.searchInterval)
+    searchInterval(rhs.searchInterval), nick(rhs.nick)
     { }
     ~FavoriteHubEntry() noexcept { }
 
@@ -91,7 +91,6 @@ public:
     GETSET(string, password, Password);
     GETSET(bool, connect, Connect);
     GETSET(string, encoding, Encoding);
-    GETSET(uint32_t, searchInterval, SearchInterval);
     GETSET(int, mode, Mode); // 0 = default, 1 = active, 2 = passive
     GETSET(bool, overrideId, OverrideId);
     GETSET(string, clientId, ClientId);
@@ -99,6 +98,7 @@ public:
     GETSET(bool, useInternetIp, UseInternetIP);
     GETSET(bool, disableChat, DisableChat);
     GETSET(string, group, Group);
+    GETSET(uint32_t, searchInterval, SearchInterval);
 private:
     string nick;
 };

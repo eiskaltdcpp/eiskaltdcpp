@@ -2122,7 +2122,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                             return;
                         QIPList list = ipfilter::getInstance()->getRules();
                         string tmp = "ipfilter rules list:\n";
-                        for (int i = 0; i < list.size(); i++) {
+                        for (unsigned int i = 0; i < list.size(); ++i) {
 
                             IPFilterElem *el = list.at(i);
                             string prefix = (el->action == etaDROP?"!":"");

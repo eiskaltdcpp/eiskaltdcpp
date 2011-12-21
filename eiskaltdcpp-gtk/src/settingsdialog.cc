@@ -210,11 +210,12 @@ void Settings::saveSettings_client()
         if (port > 0 && port <= 65535)
             sm->set(SettingsManager::UDP_PORT, port);
         port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("tlsEntry"))));
-        if (port > 0 && port <= 65535)
+        if (port > 0 && port <= 65535) {
             if (port != SETTING(TCP_PORT))
                 sm->set(SettingsManager::TLS_PORT, port);
             else
                 sm->set(SettingsManager::TLS_PORT, port+1);
+        }
 
         // Outgoing connection
         int type = SETTING(OUTGOING_CONNECTIONS);
@@ -267,15 +268,16 @@ void Settings::saveSettings_client()
                 gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("enableDynDNSCheckButton"))));
         sm->set(SettingsManager::DYNDNS_SERVER,
                 gtk_entry_get_text(GTK_ENTRY(getWidget("dyndnsEntry"))));
-    
+
         sm->set(SettingsManager::USE_DHT,
                 gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton"))));
         int port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("dhtEntry"))));
-        if (port > 0 && port <= 65535)
+        if (port > 0 && port <= 65535) {
             if (port != SETTING(UDP_PORT))
                 sm->set(SettingsManager::DHT_PORT, port);
             else
                 sm->set(SettingsManager::DHT_PORT, port+1);
+        }
     }
     }
 
@@ -812,7 +814,7 @@ void Settings::initConnection_gui()
 #ifdef WITH_DHT
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton")), BOOLSETTING(USE_DHT));
         gtk_entry_set_text(GTK_ENTRY(getWidget("dhtEntry")), Util::toString(SETTING(DHT_PORT)).c_str());
-        
+
         onDHTCheckToggled_gui(NULL, (gpointer)this);
         g_signal_connect(getWidget("useDHTCheckButton"), "toggled", G_CALLBACK(onDHTCheckToggled_gui), (gpointer)this);
 #else
@@ -3073,15 +3075,22 @@ void Settings::selectTextStyle_gui(const int select)
         showErrorDialog(_("selected style failed"));
         return;
     }
-
+#if GTK_CHECK_VERSION(3, 2, 0)
+    GtkWidget *fontSelDialog = gtk_font_chooser_dialog_new(_("Select Font"), GTK_WINDOW(getContainer()));
+    gint response = gtk_dialog_run(GTK_DIALOG(fontSelDialog));
+    gtk_widget_hide(fontSelDialog);
+#else
     gint response = gtk_dialog_run(GTK_DIALOG(getWidget("fontSelectionDialog")));
     gtk_widget_hide(getWidget("fontSelectionDialog"));
-
+#endif
     if (response == GTK_RESPONSE_OK)
     {
+#if GTK_CHECK_VERSION(3, 2, 0)
+        gchar *temp = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(fontSelDialog));
+#else
         GtkFontSelection *fontsel = GTK_FONT_SELECTION(getWidget("fontsel-font_selection"));
         gchar *temp = gtk_font_selection_get_font_name(fontsel);
-
+#endif
         if (temp)
         {
             string font_name = temp;

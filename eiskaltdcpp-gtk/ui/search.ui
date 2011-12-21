@@ -289,7 +289,7 @@
         </child>
         <child>
           <object class="GtkToggleButton" id="togglebuttonSidePanel">
-            <property name="label" translatable="yes">Show/Hide side panel</property>
+            <property name="label" translatable="yes">Hide side panel</property>
             <property name="use_action_appearance">False</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>

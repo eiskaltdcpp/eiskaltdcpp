@@ -42,7 +42,7 @@ namespace dcpp {
 static const string UPLOAD_AREA = "Uploads";
 
 
-UploadManager::UploadManager() noexcept : running(0), extra(0), lastGrant(0), limits(NULL), lastFreeSlots(-1) {
+UploadManager::UploadManager() noexcept : extra(0), lastGrant(0), running(0), limits(NULL), lastFreeSlots(-1) {
     ClientManager::getInstance()->addListener(this);
     TimerManager::getInstance()->addListener(this);
 }
@@ -68,7 +68,7 @@ bool UploadManager::hasUpload ( UserConnection& aSource ) {
         Upload* u = *i;
         const string l_srcip = aSource.getSocket()->getIp();
         const int64_t l_share = ClientManager::getInstance()->getBytesShared(aSource.getUser());
-        
+
         if (u && u->getUserConnection().getSocket() &&
             l_srcip == u->getUserConnection().getSocket()->getIp() &&
             u->getUser() && l_share == ClientManager::getInstance()->getBytesShared(u->getUser())
@@ -125,12 +125,12 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                     {
                         throw ShareException(msg);
                     }
-                    else if ( aFile != Transfer::USER_LIST_NAME_BZ && aFile != Transfer::USER_LIST_NAME && 
+                    else if ( aFile != Transfer::USER_LIST_NAME_BZ && aFile != Transfer::USER_LIST_NAME &&
                               hasUpload(aSource)
                             )
                     {
                         msg = _("Connection already exists.");
-                        
+
                         throw ShareException(msg);
                     }
                 }

@@ -178,6 +178,9 @@ MainWindow::MainWindow():
 
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("transferCheckButton")), WGETB("show-transfers"));
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("freeSpaceBarItem")), WGETB("show-free-space-bar"));
+#if GTK_CHECK_VERSION(3,0,0)
+	gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), TRUE);
+#endif
 	// About dialog
 	gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"),
 		EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
@@ -331,8 +334,8 @@ MainWindow::MainWindow():
 		gtk_widget_hide(GTK_WIDGET(window));
 	if (!WGETI("show-free-space-bar"))
 		gtk_widget_hide(getWidget("progressbarFreeSpaceBar"));
-    if (!WGETI("show-transfers"))
-        gtk_widget_hide(transfers->getContainer());
+	if (!WGETI("show-transfers"))
+		gtk_widget_hide(transfers->getContainer());
 #ifdef LUA_SCRIPT
 	ScriptManager::getInstance()->load();
 	if (BOOLSETTING(USE_LUA)){
@@ -947,7 +950,7 @@ Search *MainWindow::addSearch_gui()
 	addBookEntry_gui(entry);
 	raisePage_gui(entry->getContainer());
 	size_t t = entry->getID().find(":") + 1;
-    EntryList.push_back(entry->getID().substr(t));
+	EntryList.push_back(entry->getID().substr(t));
 	return entry;
 }
 
@@ -1860,7 +1863,7 @@ void MainWindow::onTransferToggled_gui(GtkWidget *widget, gpointer data)
 	MainWindow *mw = (MainWindow *)data;
 	GtkWidget *transfer = mw->transfers->getContainer();
 
-    WSET("show-transfers", gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(mw->getWidget("transferCheckButton"))));
+	WSET("show-transfers", gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(mw->getWidget("transferCheckButton"))));
 
 	if (gtk_widget_get_visible(transfer))
 		gtk_widget_hide(transfer);
@@ -1870,7 +1873,7 @@ void MainWindow::onTransferToggled_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onHashClicked_gui(GtkWidget *widget, gpointer data)
 {
-	gint response = WulforManager::get()->openHashDialog_gui();
+	WulforManager::get()->openHashDialog_gui();
 }
 
 void MainWindow::onSearchClicked_gui(GtkWidget *widget, gpointer data)
@@ -1887,8 +1890,8 @@ void MainWindow::onSearchSpyClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onSearchADLClicked_gui(GtkWidget *widget, gpointer data)
 {
-		MainWindow *mw = (MainWindow *)data;
-		mw->showSearchADL_gui();
+	MainWindow *mw = (MainWindow *)data;
+	mw->showSearchADL_gui();
 }
 
 void MainWindow::onDownloadQueueClicked_gui(GtkWidget *widget, gpointer data)
@@ -2334,14 +2337,11 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
 			TTH = tth->toBase32();
 			string magnetlink = "magnet:?xt=urn:tree:tiger:" + TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
 			f.close();
-			//g_print("%s\n",TTH.c_str());
 			gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
-			//g_print("%s\n",magnetlink.c_str());
 			gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
 		} else {
 			char *buf = new char[512*1024];
 			try {
-				//File f(Text::fromT(string(temp)),File::READ, File::OPEN);
 				TigerTree tth(TigerTree::calcBlockSize(f.getSize(), 1));
 				if(f.getSize() > 0) {
 						size_t n = 512*1024;
@@ -2357,9 +2357,7 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
 				TTH = tth.getRoot().toBase32();
 				string magnetlink = "magnet:?xt=urn:tree:tiger:"+ TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
 				f.close();
-				//g_print("%s\n",TTH.c_str());
 				gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrymagnet")),magnetlink.c_str());
-				//g_print("%s\n",magnetlink.c_str());
 				gtk_entry_set_text(GTK_ENTRY(mw->getWidget("entrytthfileresult")),TTH.c_str());
 			} catch(...) { }
 
@@ -2400,7 +2398,7 @@ void MainWindow::onCloseAllPM_gui(GtkWidget *widget, gpointer data)
 void MainWindow::onCloseAllSearch_gui(GtkWidget *widget, gpointer data)
 {
 	MainWindow *mw = (MainWindow *)data;
-    typedef Func1<MainWindow,BookEntry*> F1;
+	typedef Func1<MainWindow,BookEntry*> F1;
 	for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
 		BookEntry *entry = mw->findBookEntry(Entry::SEARCH, *it);
 		if (entry != NULL) {

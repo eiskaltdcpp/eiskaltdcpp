@@ -205,7 +205,7 @@ namespace dht
 	 */
 	void KBucket::getClosestNodes(const CID& cid, Node::Map& closest, unsigned int max, uint8_t maxType) const
 	{
-		for(NodeList::const_iterator it = nodes.begin(); it != nodes.end(); it++)
+		for(NodeList::const_iterator it = nodes.begin(); it != nodes.end(); ++it)
 		{
 			const Node::Ptr& node = *it;
 			if(node->getType() <= maxType && node->isIpVerified() && !node->getUser()->isSet(User::PASSIVE))
@@ -294,7 +294,7 @@ namespace dht
 
 #ifdef _DEBUG
 		int verified = 0; int types[5] = { 0 };
-		for(NodeList::const_iterator j = nodes.begin(); j != nodes.end(); j++)
+		for(NodeList::const_iterator j = nodes.begin(); j != nodes.end(); ++j)
 		{
 			Node::Ptr n = *j;
 			if(n->isIpVerified()) verified++;

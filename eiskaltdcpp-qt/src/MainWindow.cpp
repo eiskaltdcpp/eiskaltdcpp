@@ -596,10 +596,10 @@ void MainWindow::loadSettings(){
     if (sz.width() > 0 && sz.height() > 0)
         this->resize(sz);
 
-    QString wstate = WSGET(WS_MAINWINDOW_STATE);
+    QString dockwidgetsState = WSGET(WS_MAINWINDOW_STATE);
 
-    if (!wstate.isEmpty())
-        this->restoreState(QByteArray::fromBase64(wstate.toAscii()));
+    if (!dockwidgetsState.isEmpty())
+        this->restoreState(QByteArray::fromBase64(dockwidgetsState.toAscii()));
 
     d->fBar->setVisible(WBGET(WB_TOOLS_PANEL_VISIBLE));
     d->panelsTools->setChecked(WBGET(WB_TOOLS_PANEL_VISIBLE));
@@ -660,7 +660,8 @@ void MainWindow::saveSettings(){
     if (WBGET(WB_MAINWINDOW_REMEMBER))
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
-    WSSET(WS_MAINWINDOW_STATE, saveState().toBase64());
+    QString dockwidgetsState = QString::fromAscii(saveState().toBase64());
+    WSSET(WS_MAINWINDOW_STATE, dockwidgetsState);
 
     stateIsSaved = true;
 }

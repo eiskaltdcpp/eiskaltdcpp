@@ -28,8 +28,8 @@ libaspell (optional, see cmake keys)
 -----------------
 gettext
 libpango
-libgtk2 (>= 2.18)
-libglib2 (>= 2.18)
+libgtk2 (>= 2.24)
+libglib2 (>= 2.24)
 libnotify (>= 0.4.1) (optional, see cmake keys)
 libgnome2 (optional, see cmake keys)
 --------------------
@@ -40,8 +40,9 @@ libxmlrpc-c++4 (>= 1.19.0) (optional, see cmake keys)
 :eiskaltdcpp-cli:
 -----------------
 perl (>= 5.10)
-RPC::XML perl module (librpc-xml-perl)
 Term::ShellUI perl module
+RPC::XML  perl module (librpc-xml-perl)  (optional, see cmake keys)
+JSON::RPC perl module (libjson-rpc-perl) (optional, see cmake keys)
 
 
 *******************************************************************************
@@ -70,7 +71,7 @@ Build Depends
 --------
 zlib
 bzip2
-gcc   (>= 4.4.5)
+gcc   (>= 4.5.0)
 cmake (>= 2.6.3)
 iconv (libc on GNU/Linux)
 pkg-config
@@ -91,7 +92,8 @@ libaspell-dev (optional, see cmake keys)
 -----------------
 :eiskaltdcpp-gtk:
 -----------------
-libgtk2.0-dev
+libgtk2.0-dev (optional, see cmake keys)
+libgtk-3-dev  (optional, see cmake keys)
 libnotify-dev (optional, see cmake keys)
 libgnome2-dev (optional, see cmake keys)
 --------------------
@@ -180,8 +182,10 @@ Keys for cmake
 -----------------
 :eiskaltdcpp-cli:
 ----------------
--DUSE_CLI=ON/OFF (default: OFF)
-    use command line interface
+-DUSE_CLI_XMLRPC=ON/OFF (default: OFF)
+    use command line interface to control daemon via XMLRPC
+-DUSE_CLI_JSONRPC=ON/OFF (default: OFF)
+    use command line interface to control daemon via JSONRPC
 --------
 :common:
 --------

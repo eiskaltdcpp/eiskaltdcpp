@@ -25,13 +25,14 @@ ArenaWidgetManager::~ArenaWidgetManager(){
     DEBUG_BLOCK
     
     foreach ( ArenaWidget *awgt , widgets ) {
-        if ( awgt == dynamic_cast<ArenaWidget*> ( awgt->getWidget() ) ) { // ArenaWidget is a parent class of Widget
+        if (dcpp::ISingleton *isingleton = dynamic_cast<dcpp::ISingleton*>(awgt)){
+            isingleton->release();
+        }
+        else if ( awgt == dynamic_cast<ArenaWidget*> ( awgt->getWidget() ) ) { // ArenaWidget is a parent class of Widget
             awgt->getWidget()->setAttribute ( Qt::WA_DeleteOnClose );
             awgt->setUnload(true);
             awgt->getWidget()->close();
         }
-        else 
-            assert(0);
     }
 }
 

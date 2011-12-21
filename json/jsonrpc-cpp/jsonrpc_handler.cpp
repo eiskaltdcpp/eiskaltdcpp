@@ -49,7 +49,7 @@ namespace Json
     Handler::~Handler()
     {
       /* delete all objects from the list */
-      for(std::list<CallbackMethod*>::const_iterator it = m_methods.begin() ; it != m_methods.end() ; it++)
+      for(std::list<CallbackMethod*>::const_iterator it = m_methods.begin() ; it != m_methods.end() ; ++it)
       {
         delete (*it);
       }
@@ -69,7 +69,7 @@ namespace Json
         return;
       }
 
-      for(std::list<CallbackMethod*>::iterator it = m_methods.begin() ; it != m_methods.end() ; it++)
+      for(std::list<CallbackMethod*>::iterator it = m_methods.begin() ; it != m_methods.end() ; ++it)
       {
         if((*it)->GetName() == name)
         {
@@ -86,7 +86,7 @@ namespace Json
       response["jsonrpc"] = "2.0";
       response["id"] = msg["id"];
 
-      for(std::list<CallbackMethod*>::iterator it = m_methods.begin() ; it != m_methods.end() ; it++)
+      for(std::list<CallbackMethod*>::iterator it = m_methods.begin() ; it != m_methods.end() ; ++it)
       {
         methods[(*it)->GetName()] = (*it)->GetDescription();
       }
@@ -231,7 +231,7 @@ namespace Json
 
     CallbackMethod* Handler::Lookup(const std::string& name) const
     {
-      for(std::list<CallbackMethod*>::const_iterator it = m_methods.begin() ; it != m_methods.end() ; it++)
+      for(std::list<CallbackMethod*>::const_iterator it = m_methods.begin() ; it != m_methods.end() ; ++it)
       {
         if((*it)->GetName() == name)
         {

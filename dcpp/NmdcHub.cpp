@@ -860,8 +860,6 @@ void NmdcHub::myInfo(bool alwaysSend) {
 
     char StatusMode = Identity::NORMAL;
 
-    string::size_type i;
-
     char modeChar = '?';
     if(SETTING(OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5)
         modeChar = '5';
