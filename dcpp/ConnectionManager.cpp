@@ -226,6 +226,11 @@ ConnectionManager::Server::Server(bool secure_, uint16_t aPort, const string& ip
 static const uint32_t POLL_TIMEOUT = 250;
 
 int ConnectionManager::Server::run() noexcept {
+    {
+        char threadName[17];
+        snprintf(threadName, sizeof threadName, "Server_%u", port);
+        setThreadName(threadName);
+    }
     while(!die) {
         try {
             while(!die) {

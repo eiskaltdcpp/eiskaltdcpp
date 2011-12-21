@@ -54,6 +54,7 @@ void TimerManager::shutdown() {
 }
 
 int TimerManager::run() {
+    setThreadName("TimerManager");
     int nextMin = 0;
 #ifdef TIMER_OLD_BOOST
     uint64_t x = getTick();

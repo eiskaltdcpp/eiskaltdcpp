@@ -204,6 +204,7 @@ namespace dht
 	 */
 	int UDPSocket::run()
 	{
+		setThreadName("UDPSocket");
 #ifdef _WIN32
 		// Try to avoid the Win2000/XP problem where recvfrom reports
 		// WSAECONNRESET after sendto gets "ICMP port unreachable"

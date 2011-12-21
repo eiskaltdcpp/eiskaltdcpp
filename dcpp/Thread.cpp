@@ -19,6 +19,10 @@
 #include "stdinc.h"
 #include "Thread.h"
 
+#ifndef _WIN32
+#include "sys/prctl.h"
+#endif
+
 #include "format.h"
 
 namespace dcpp {
@@ -39,5 +43,28 @@ void Thread::start() {
     }
 }
 #endif
+
+void Thread::setThreadName(const char* const threadName) const {
+#if defined(__HAIKU__)
+    // TODO, see http://haiku-os.org/legacy-docs/bebook/TheKernelKit_ThreadsAndTeams.html#rename_thread
+#elif defined(APPLE) && (DARWIN_MAJOR_VERSION >= 10)
+    // pthread_setname_np is supported starting Mac OS X 10.6
+
+    // Mac OS X allegedly truncates thread names to 63 chars
+    pthread_setname_np(threadName);
+#elif defined(_WIN32)
+    // TODO, see http://msdn.microsoft.com/en-us/library/xcb2z8hs.aspx
+#elif defined(__linux__)
+    /* I'm using the old prctl way here because the only new feature of pthread_setname_np
+     * is that it can be called from outside the thread (not necessary and less portable)
+     * and because it would require at least Linux 2.6.33 and glibc 2.12.
+     *
+     * Linux truncates thread names to TASK_COMM_LEN chars (default: 16)
+     */
+    prctl(PR_SET_NAME, threadName);
+#elif defined(BSD)
+    // TODO, see http://www.unix.com/man-page/All/3/PTHREAD_SET_NAME_NP/
+#endif
+} // setThreadName()
 
 } // namespace dcpp

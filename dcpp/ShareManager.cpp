@@ -822,6 +822,7 @@ StringPairList ShareManager::getDirectories() const noexcept {
 }
 
 int ShareManager::run() {
+    setThreadName("ShareManager");
 
     StringPairList dirs = getDirectories();
     // Don't need to refresh if no directories are shared
