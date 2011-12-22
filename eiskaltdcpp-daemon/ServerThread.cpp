@@ -127,6 +127,7 @@ int ServerThread::run() {
     xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
     xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
     xmlrpcRegistry.addMethod("queue.setpriority", setPriorityQueueItemMethodP);
+    xmlrpcRegistry.setShutdown(new systemShutdownMethod);
     sock.create();
     sock.setSocketOpt(SO_REUSEADDR, 1);
     sock.bind(lport, lip);

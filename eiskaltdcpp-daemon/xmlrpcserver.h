@@ -41,7 +41,7 @@ class magnetAddMethod : public xmlrpc_c::method {
 public:
     magnetAddMethod() {
         this->_signature = "i:ss";
-        this->_help = "This method adds a magnet to queue. Params: magnet, download directory";
+        this->_help = "Adds a magnet link to the queue. Params: magnet link, download directory; returns: 0 on success, non-zero otherwise";
     }
 
     void
@@ -52,7 +52,8 @@ public:
         string const sddir(paramList.getString(1));
         paramList.verifyEnd(2);
 
-        string name,tth;int64_t size;
+        string name, tth;
+        int64_t size;
         bool ok = splitMagnet(smagnet, name, size, tth);
         if (isVerbose) std::cout << "splitMagnet: \n tth: " << tth << "\n size: " << size << "\n name: " << name << std::endl;
         if (ok && ServerThread::getInstance()->addInQueue(sddir, name, size, tth))
@@ -65,16 +66,16 @@ public:
 class stopDaemonMethod : public xmlrpc_c::method {
 public:
     stopDaemonMethod() {
-        this->_signature = "i:s";
-        this->_help = "This method can stop daemon. Params: none";
+        this->_signature = "s:";
+        this->_help = "(DEPRECATED) Stops the daemon. Params: none; returns: deprecation warning";
     }
 
     void
     execute(xmlrpc_c::paramList const& paramList,
             xmlrpc_c::value *   const  retvalP) {
 
-        *retvalP = xmlrpc_c::value_int(0);
-        bServerTerminated=true;
+        *retvalP = xmlrpc_c::value_string("This method is deprecated. Please use system.shutdown instead.");
+        bServerTerminated = true;
     }
 };
 
@@ -82,7 +83,7 @@ class hubAddMethod : public xmlrpc_c::method {
 public:
     hubAddMethod() {
         this->_signature = "i:ss";
-        this->_help = "This method add connect to new hub. Params: huburl, encoding";
+        this->_help = "Adds a new hub and connects to it. Params: hub URL, encoding; returns: 0";
     }
 
     void
@@ -93,7 +94,7 @@ public:
         string const senc(paramList.getString(1));
         paramList.verifyEnd(2);
         ServerThread::getInstance()->connectClient(shub, senc);
-        *retvalP = xmlrpc_c::value_string("Connecting to " + shub);
+        *retvalP = xmlrpc_c::value_int(0);
     }
 };
 
@@ -101,7 +102,7 @@ class hubDelMethod : public xmlrpc_c::method {
 public:
     hubDelMethod() {
         this->_signature = "i:s";
-        this->_help = "This method disconnect from hub. Params: huburl";
+        this->_help = "Disconnects from a hub. Params: hub URL; returns: 0";
     }
 
     void
@@ -119,7 +120,7 @@ class hubSayMethod : public xmlrpc_c::method {
 public:
     hubSayMethod() {
         this->_signature = "i:ss";
-        this->_help = "This method add message on hub. Params: huburl, message";
+        this->_help = "Sends a message on a hub. Params: hub URL, message; returns: 0 on success, non-zero otherwise";
     }
 
     void
@@ -130,7 +131,7 @@ public:
         string const smess(paramList.getString(1));
         paramList.verifyEnd(2);
         if (ServerThread::getInstance()->findHubInConnectedClients(shub)) {
-            ServerThread::getInstance()->sendMessage(shub,smess);
+            ServerThread::getInstance()->sendMessage(shub, smess);
             *retvalP = xmlrpc_c::value_int(0);
         } else
             *retvalP = xmlrpc_c::value_int(1);
@@ -140,8 +141,8 @@ public:
 class hubSayPrivateMethod : public xmlrpc_c::method {
 public:
     hubSayPrivateMethod() {
-        this->_signature = "i:sss";
-        this->_help = "This method add private message on hub. Params: huburl, nick, message";
+        this->_signature = "s:sss";
+        this->_help = "Sends a private message on a hub. Params: hub URL, nick, message; returns: error string";
     }
 
     void
@@ -160,8 +161,8 @@ public:
 class listHubsMethod : public xmlrpc_c::method {
 public:
     listHubsMethod() {
-        this->_signature = "i:s";
-        this->_help = "This method return list of connected hubs in string. Рarams: separator";
+        this->_signature = "s:s";
+        this->_help = "Returns a list of connected hubs. Params: separator";
     }
 
     void
@@ -178,8 +179,8 @@ public:
 class showVersionMethod : public xmlrpc_c::method {
 public:
     showVersionMethod() {
-        this->_signature = "i:s";
-        this->_help = "This method return full client version in string. Рarams: none";
+        this->_signature = "s:";
+        this->_help = "Returns full client version. Рarams: none";
     }
 
     void
@@ -197,8 +198,9 @@ public:
 class showRatioMethod : public xmlrpc_c::method {
 public:
     showRatioMethod() {
-        this->_signature = "i:s";
-        this->_help = "This method return client ratio in string. Рarams: none";
+        this->_signature = "s:";
+        this->_help = "Returns upload/download ratio and absolute upload and download. "
+                      "Рarams: none; returns: \"ratio: X (uploads: Y, downloads: Z)\"";
     }
 
     void
@@ -215,12 +217,12 @@ public:
             ratio = 0;
 
         char ratio_c[32];
-        sprintf(ratio_c,"%.3f", ratio);
+        sprintf(ratio_c, "%.3f", ratio);
 
         string uploaded = Util::formatBytes(up);
         string downloaded = Util::formatBytes(down);
 
-        string line = str(dcpp_fmt("ratio: %1% (uploads: %2%, downloads: %3% )")
+        string line = str(dcpp_fmt("ratio: %1% (uploads: %2%, downloads: %3%)")
         % string(ratio_c) % uploaded % downloaded);
 
         *retvalP = xmlrpc_c::value_string(line);
@@ -230,8 +232,8 @@ public:
 class addDirInShareMethod : public xmlrpc_c::method {
 public:
     addDirInShareMethod() {
-        this->_signature = "i:ss";
-        this->_help = "This method add dir in share. Рarams: directory,virtual name";
+        this->_signature = "s:ss";
+        this->_help = "Adds a directory to the share. Рarams: directory, virtual name; returns: error string";
     }
 
     void
@@ -243,9 +245,9 @@ public:
         paramList.verifyEnd(2);
         try {
             if (ServerThread::getInstance()->addDirInShare(sdirectory, svirtname))
-                *retvalP = xmlrpc_c::value_int(0);
+                *retvalP = xmlrpc_c::value_string("Directory added to share");
             else
-                *retvalP = xmlrpc_c::value_int(1);
+                *retvalP = xmlrpc_c::value_string("Directory doesn't exist");
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }
@@ -255,8 +257,8 @@ public:
 class renameDirInShareMethod : public xmlrpc_c::method {
 public:
     renameDirInShareMethod() {
-        this->_signature = "i:ss";
-        this->_help = "This method rename dir in share. Рarams: directory,virtual name";
+        this->_signature = "s:ss";
+        this->_help = "Renames a directory in the share. Рarams: directory, new virtual name; returns: error string";
     }
 
     void
@@ -268,9 +270,9 @@ public:
         paramList.verifyEnd(2);
         try {
             if (ServerThread::getInstance()->renameDirInShare(sdirectory, svirtname))
-                *retvalP = xmlrpc_c::value_int(0);
+                *retvalP = xmlrpc_c::value_string("Directory has been renamed");
             else
-                *retvalP = xmlrpc_c::value_int(1);
+                *retvalP = xmlrpc_c::value_string("Directory not found");
         } catch (const ShareException& e) {
             *retvalP = xmlrpc_c::value_string(e.getError());
         }
@@ -281,7 +283,7 @@ class delDirFromShareMethod : public xmlrpc_c::method {
 public:
     delDirFromShareMethod() {
         this->_signature = "i:s";
-        this->_help = "This method delete dir from share. Рarams: virt name of directory";
+        this->_help = "Deletes a directory from the share. Рarams: virtual name of directory; returns: 0 on success, non-zero otherwise";
     }
 
     void
@@ -300,8 +302,8 @@ public:
 class listShareMethod : public xmlrpc_c::method {
 public:
     listShareMethod() {
-        this->_signature = "i:s";
-        this->_help = "This method return list of shared directories in string. Рarams: separator";
+        this->_signature = "s:s";
+        this->_help = "Returns a list of shared directories. Рarams: separator";
     }
 
     void
@@ -309,7 +311,8 @@ public:
             xmlrpc_c::value *   const  retvalP) {
 
         string const sseparator(paramList.getString(0));
-        paramList.verifyEnd(1); string listshare;
+        paramList.verifyEnd(1);
+        string listshare;
         ServerThread::getInstance()->listShare(listshare, sseparator);
         *retvalP = xmlrpc_c::value_string(listshare);
     }
@@ -319,7 +322,7 @@ class refreshShareMethod : public xmlrpc_c::method {
 public:
     refreshShareMethod() {
         this->_signature = "i:s";
-        this->_help = "This method run refresh. Рarams: none";
+        this->_help = "Refreshes the share. Рarams: none; returns: 0";
     }
 
     void
@@ -335,8 +338,8 @@ public:
 class getFileListMethod : public xmlrpc_c::method {
 public:
     getFileListMethod() {
-        this->_signature = "i:ss";
-        this->_help = "This method get file list from user by nick and huburl. Рarams: huburl, nick";
+        this->_signature = "s:ss";
+        this->_help = "Adds the file list of a user to the download queue. Рarams: hub URL, nick; returns: error string";
     }
 
     void
@@ -345,8 +348,8 @@ public:
 
         string const shub(paramList.getString(0));
         string const snick(paramList.getString(1));
-        paramList.verifyEnd(2); string tmp;
-        tmp = ServerThread::getInstance()->getFileList_client(shub, snick, false);
+        paramList.verifyEnd(2);
+        string tmp = ServerThread::getInstance()->getFileList_client(shub, snick, false);
         *retvalP = xmlrpc_c::value_string(tmp);
     }
 };
@@ -354,8 +357,8 @@ public:
 class getChatPubMethod : public xmlrpc_c::method {
 public:
     getChatPubMethod() {
-        this->_signature = "i:ss";
-        this->_help = "This method return last message in chat on target hub. Рarams: huburl, separator";
+        this->_signature = "s:ss";
+        this->_help = "Returns a list of unread public chat messages on a hub. Рarams: hub URL, separator";
     }
 
     void
@@ -364,7 +367,8 @@ public:
 
         string const shub(paramList.getString(0));
         string const sseparator(paramList.getString(1));
-        paramList.verifyEnd(2); string retchat;
+        paramList.verifyEnd(2);
+        string retchat;
         ServerThread::getInstance()->getChatPubFromClient(retchat, shub, sseparator);
         *retvalP = xmlrpc_c::value_string(retchat);
     }
@@ -374,7 +378,7 @@ class sendSearchMethod : public xmlrpc_c::method {
 public:
     sendSearchMethod() {
         this->_signature = "i:s";
-        this->_help = "This method send search. Рarams: search string";
+        this->_help = "Starts a search on all hubs. Params: search string; returns: 0 on success, non-zero otherwise";
     }
 
     void
@@ -393,8 +397,8 @@ public:
 class returnSearchResultsMethod : public xmlrpc_c::method {
 public:
     returnSearchResultsMethod() {
-        this->_signature = "i:s";
-        this->_help = "This method return search results list. Рarams: none";
+        this->_signature = "A:s";
+        this->_help = "Returns a list of search results on a certain hub. Params: hub URL; returns: array of search results";
     }
 
     void
@@ -403,7 +407,7 @@ public:
 
         string const shuburl(paramList.getString(0));
         vector<StringMap> tmp;
-        ServerThread::getInstance()->returnSearchResults(tmp,shuburl);
+        ServerThread::getInstance()->returnSearchResults(tmp, shuburl);
         vector<xmlrpc_c::value> tmp_array_in;
         for (vector<StringMap>::iterator i = tmp.begin(); i != tmp.end(); ++i) {
             map<string, xmlrpc_c::value> tmp_struct_in;
@@ -418,11 +422,12 @@ public:
         *retvalP = tmp_array_out;
     }
 };
+
 class setPriorityQueueItemMethod : public xmlrpc_c::method {
 public:
     setPriorityQueueItemMethod() {
         this->_signature = "i:si";
-        this->_help = "This method set priority on target. Рarams: target, priority";
+        this->_help = "Sets the priority of a target. Params: target, priority in range from 0 (paused) to 5 (highest); returns: 0 on success; non-zero otherwise";
     }
 
     void
@@ -436,6 +441,17 @@ public:
             *retvalP = xmlrpc_c::value_int(0);
         else
             *retvalP = xmlrpc_c::value_int(1);
+    }
+};
+
+class systemShutdownMethod : public xmlrpc_c::registry::shutdown {
+public:
+    ~systemShutdownMethod() {}
+
+    void
+    doit(std::string const& comment, void * const callInfo) const {
+        if (isVerbose) std::cout << "Shutting down, comment: " << comment << std::endl;
+        bServerTerminated = true;
     }
 };
 #endif
