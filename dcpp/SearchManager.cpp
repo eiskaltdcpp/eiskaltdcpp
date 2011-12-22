@@ -117,6 +117,7 @@ void SearchManager::disconnect() noexcept {
 
 #define BUFSIZE 8192
 int SearchManager::run() {
+    setThreadName("SearchManager");
     boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
     int len;
     sockaddr_in remoteAddr = { 0 };
@@ -170,6 +171,7 @@ int SearchManager::run() {
 }
 
 int SearchManager::UdpQueue::run() {
+    setThreadName("UdpQueue");
     string x = Util::emptyString;
     string remoteIp = Util::emptyString;
     stop = false;

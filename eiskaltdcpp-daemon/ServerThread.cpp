@@ -52,9 +52,7 @@ ServerThread::ClientMap ServerThread::clientsMap;
 Json::Rpc::TcpServer * jsonserver;
 #endif
 //----------------------------------------------------------------------------
-ServerThread::ServerThread() : lastUp(0), lastDown(0), lastUpdate(GET_TICK())
-{
-
+ServerThread::ServerThread() : lastUp(0), lastDown(0), lastUpdate(GET_TICK()) {
 }
 //---------------------------------------------------------------------------
 
@@ -68,8 +66,8 @@ void ServerThread::Resume() {
 }
 //---------------------------------------------------------------------------
 
-int ServerThread::run()
-{
+int ServerThread::run() {
+    setThreadName("ServerThread");
     dcpp::TimerManager::getInstance()->start();
     TimerManager::getInstance()->addListener(this);
     QueueManager::getInstance()->addListener(this);
@@ -86,7 +84,7 @@ int ServerThread::run()
     ScriptManager::getInstance()->load();
     if (BOOLSETTING(USE_LUA)) {
         // Start as late as possible, as we might (formatting.lua) need to examine settings
-        string defaultluascript="startup.lua";
+        string defaultluascript = "startup.lua";
         ScriptManager::getInstance()->EvaluateFile(defaultluascript);
     }
 #endif
@@ -129,6 +127,7 @@ int ServerThread::run()
     xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
     xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
     xmlrpcRegistry.addMethod("queue.setpriority", setPriorityQueueItemMethodP);
+    xmlrpcRegistry.setShutdown(new systemShutdownMethod);
     sock.create();
     sock.setSocketOpt(SO_REUSEADDR, 1);
     sock.bind(lport, lip);
@@ -155,7 +154,7 @@ int ServerThread::run()
 #ifdef JSONRPC_DAEMON
     jsonserver = new Json::Rpc::TcpServer(lip, lport);
     JsonRpcMethods a;
-    if(!networking::init())
+    if (!networking::init())
         std::cerr << "JSONRPC: Networking initialization failed" << std::endl;
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::Print, std::string("print")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MagnetAdd, std::string("magnet.add")));
@@ -177,31 +176,30 @@ int ServerThread::run()
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowVersion, std::string("show.version")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowRatio, std::string("show.ratio")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SetPriorityQueueItem, std::string("queue.setpriority")));
-    if(!jsonserver->Bind())
+    if (!jsonserver->Bind())
         std::cout << "JSONRPC: Bind failed" << std::endl;
-    if(!jsonserver->Listen())
+    if (!jsonserver->Listen())
         std::cout << "JSONRPC: Listen failed" << std::endl;
     jsonserver->SetEncapsulatedFormat(Json::Rpc::HTTP_POST);
     std::cout << "JSONRPC: Start JSON-RPC TCP server" << std::endl;
     json_run = true;
-    while(json_run)
-    {
+    while (json_run) {
         jsonserver->WaitMessage(1000);
     }
 #endif
 
     return 0;
 }
-bool ServerThread::disconnect_all(){
-    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; ++i) {
+
+bool ServerThread::disconnect_all() {
+    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
         if (clientsMap[i->first].curclient != NULL)
             disconnectClient(i->first);
     }
     return true;
 }
 //---------------------------------------------------------------------------
-void ServerThread::Close()
-{
+void ServerThread::Close() {
     SearchManager::getInstance()->disconnect();
 
     LogManager::getInstance()->removeListener(this);
@@ -231,26 +229,24 @@ void ServerThread::WaitFor() {
 
 //----------------------------------------------------------------------------
 
-void ServerThread::autoConnect()
-{
+void ServerThread::autoConnect() {
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
-    for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
+    for (FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
         FavoriteHubEntry* entry = *i;
         if (entry->getConnect()) {
             string address = entry->getServer();
             string encoding = entry->getEncoding();
-            connectClient(address,encoding);
+            connectClient(address, encoding);
         }
     }
 }
 
-void ServerThread::connectClient(const string& address, const string& encoding)
-{
+void ServerThread::connectClient(const string& address, const string& encoding) {
     if (ClientManager::getInstance()->isConnected(address))
-        printf("Already connected to %s\n",address.c_str());
+        printf("Already connected to %s\n", address.c_str());
     string tmp;
     ClientIter i = clientsMap.find(address);
-    if(i != clientsMap.end())
+    if (i != clientsMap.end())
         return;
     if (address.substr(0, 6) == "adc://" || address.substr(0, 7) == "adcs://")
         tmp = "UTF-8";
@@ -262,19 +258,18 @@ void ServerThread::connectClient(const string& address, const string& encoding)
     client->connect();
 }
 
-void ServerThread::disconnectClient(const string& address){
+void ServerThread::disconnectClient(const string& address) {
     ClientIter i = clientsMap.find(address);
-    if(i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
         Client* cl = i->second.curclient;
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
-        clientsMap[i->first].curclient=NULL;
+        clientsMap[i->first].curclient = NULL;
     }
 }
 //----------------------------------------------------------------------------
-void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) noexcept
-{
+void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
     //int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
     int64_t upDiff = Socket::getTotalUp() - lastUp;
     int64_t downDiff = Socket::getTotalDown() - lastDown;
@@ -284,49 +279,45 @@ void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) noexcept
     SM->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downDiff);
 
     lastUpdate = aTick;
-    lastUp = Socket::getTotalUp();
+    lastUp   = Socket::getTotalUp();
     lastDown = Socket::getTotalDown();
 }
 
 void ServerThread::on(Connecting, Client* cur) noexcept {
     ClientIter i = clientsMap.find(cur->getHubUrl());
-    if(i == clientsMap.end()) {
+    if (i == clientsMap.end()) {
         CurHub curhub;
         curhub.curclient = cur;
         clientsMap[cur->getHubUrl()] = curhub;
-    }
-    else if (i != clientsMap.end() && clientsMap[cur->getHubUrl()].curclient == NULL)
+    } else if (i != clientsMap.end() && clientsMap[cur->getHubUrl()].curclient == NULL)
         clientsMap[cur->getHubUrl()].curclient = cur;
 
     if (isVerbose)
-        cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
+        cout << "Connecting to " << cur->getHubUrl() << "..." << endl;
 }
 
 void ServerThread::on(Connected, Client* cur) noexcept {
     if (isVerbose)
-        cout << "Connect success to " <<  cur->getHubUrl() << "\n";
+        cout << "Connected successfully to " << cur->getHubUrl() << endl;
 }
 
 void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) noexcept {
-
 }
 
 void ServerThread::on(UsersUpdated, Client*, const OnlineUserList& aList) noexcept {
-
 }
 
 void ServerThread::on(UserRemoved, Client*, const OnlineUserPtr& user) noexcept {
-
 }
 
 void ServerThread::on(Redirect, Client* cur, const string& line) noexcept {
     if (isVerbose)
-        cout <<  "Redirected to" << line << "\n";
+        cout << "Redirected to " << line << endl;
 }
 
 void ServerThread::on(Failed, Client* cur, const string& line) noexcept {
     if (isVerbose)
-        cout <<  "Connect failed [ " << cur->getHubUrl() << " ] :"<< line << "\n";
+        cout <<  "Connection failed [ " << cur->getHubUrl() << " ]: " << line << endl;
 }
 
 void ServerThread::on(GetPassword, Client* cur) noexcept {
@@ -339,11 +330,9 @@ void ServerThread::on(GetPassword, Client* cur) noexcept {
 }
 
 void ServerThread::on(HubUpdated, Client*) noexcept {
-
 }
 
-void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& message) noexcept
-{
+void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& message) noexcept {
     Lock l(shutcs);
     StringMap params;
     string msg = message.format();
@@ -370,7 +359,7 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
             string tmp = "[" + Util::getTimeString() + "] " + msg;
             clientsMap[cl->getHubUrl()].curchat.push_back(tmp);
         }
-        if(BOOLSETTING(LOG_MAIN_CHAT)) {
+        if (BOOLSETTING(LOG_MAIN_CHAT)) {
             params["message"] = Text::fromUtf8(msg);
             cl->getHubIdentity().getParams(params, "hub", false);
             params["hubURL"] = cl->getHubUrl();
@@ -380,14 +369,13 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
     }
 
     if (isVerbose)
-        cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << "\n";
+        cout << cl->getHubUrl() << priv << ": [" << Util::getTimeString() << "] " << msg << endl;
 }
 
-void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusFlags) noexcept
-{
+void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusFlags) noexcept {
     string msg = line;
 
-    if(BOOLSETTING(LOG_STATUS_MESSAGES)) {
+    if (BOOLSETTING(LOG_STATUS_MESSAGES)) {
         StringMap params;
         cl->getHubIdentity().getParams(params, "hub", false);
         params["hubURL"] = cl->getHubUrl();
@@ -397,30 +385,27 @@ void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusF
     }
 
     if (isVerbose)
-        cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] " << "*"<< msg<< "\n";
+        cout << cl->getHubUrl() << " [" << Util::getTimeString() << "] *" << msg << endl;
 }
 
 void ServerThread::on(NickTaken, Client*) noexcept {
-
 }
 
 void ServerThread::on(SearchFlood, Client*, const string& line) noexcept {
-
 }
 
-void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept {
-
+void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept {
     if (result == NULL) {
         return;
     }
-    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; ++i) {
+    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
         if (clientsMap[i->first].curclient != NULL && i->first == result->getHubURL()) {
             clientsMap[i->first].cursearchresult.push_back(result);
         }
     }
 }
 
-void ServerThread::startSocket(bool changed){
+void ServerThread::startSocket(bool changed) {
     if (changed)
         ConnectivityManager::getInstance()->updateLast();
     try {
@@ -433,7 +418,7 @@ void ServerThread::startSocket(bool changed){
 
 void ServerThread::showPortsError(const string& port) {
     fprintf(stdout,
-            "\n\t\tConnectivity Manager: Warning\n\n Unable to open %s port. "
+            "\n\t\tConnectivity Manager: Warning\n\n Unable to open port %s. "
             "Searching or file transfers will\n not work correctly "
             "until you change settings or turn off\n any application "
             "that might be using that port.\n\n",
@@ -443,19 +428,19 @@ void ServerThread::showPortsError(const string& port) {
 
 void ServerThread::sendMessage(const string& hubUrl, const string& message) {
     ClientIter i = clientsMap.find(hubUrl);
-    if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
+    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
         Client* client = i->second.curclient;
         if (client && !message.empty()) {
-            bool thirdPerson = !message.compare(0,3,"/me");
-            //printf("%s\t%s\n'",message.c_str(),message.substr(4).c_str());
+            bool thirdPerson = !message.compare(0, 3, "/me");
+            //printf("%s\t%s\n'", message.c_str(), message.substr(4).c_str());
             client->hubMessage(thirdPerson ? message.substr(4) : message , thirdPerson);
         }
     }
 }
 
-void ServerThread::listConnectedClients(string& listhubs,const string& separator) {
-    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; ++i) {
-        if (clientsMap[i->first].curclient !=NULL) {
+void ServerThread::listConnectedClients(string& listhubs, const string& separator) {
+    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
+        if (clientsMap[i->first].curclient != NULL) {
             listhubs.append(i->first);
             listhubs.append(separator);
         }
@@ -464,22 +449,20 @@ void ServerThread::listConnectedClients(string& listhubs,const string& separator
 
 bool ServerThread::findHubInConnectedClients(const string& hub) {
     ClientIter i = clientsMap.find(hub);
-    if(i != clientsMap.end())
-        return true;
-    return false;
+    return i != clientsMap.end();
 }
 
-string ServerThread::sendPrivateMessage(const string& hub,const string& nick, const string& message) {
+string ServerThread::sendPrivateMessage(const string& hub, const string& nick, const string& message) {
     ClientIter i = clientsMap.find(hub);
-    if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
+    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
         Client* client = i->second.curclient;
         if (client && !message.empty()) {
-            bool thirdPerson = !message.compare(0,3,"/me");
+            bool thirdPerson = !message.compare(0, 3, "/me");
             UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
             if (user && user->isOnline())
             {
                 ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
-                return "Private message sent to "+ nick + " at " + hub;
+                return "Private message sent to " + nick + " at " + hub;
             }
             else
             {
@@ -494,7 +477,7 @@ string ServerThread::sendPrivateMessage(const string& hub,const string& nick, co
 string ServerThread::getFileList_client(const string& hub, const string& nick, bool match) {
     string message = "";
     ClientIter i = clientsMap.find(hub);
-    if(i != clientsMap.end() && clientsMap[i->first].curclient !=NULL) {
+    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
         if (!nick.empty()) {
             try {
                 //UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
@@ -504,19 +487,15 @@ string ServerThread::getFileList_client(const string& hub, const string& nick, b
                     if (user == ClientManager::getInstance()->getMe()) {
                         // Don't download file list, open locally instead
                         //WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
-                    }
-                    else if (match) {
+                    } else if (match) {
                         QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);
-                    }
-                    else {
+                    } else {
                         QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);
                     }
-                }
-                else {
+                } else {
                     message = _("User not found");
                 }
-            }
-            catch (const Exception &e) {
+            } catch (const Exception &e) {
                 message = e.getError();
                 LogManager::getInstance()->message(message);
             }
@@ -535,10 +514,10 @@ void ServerThread::getChatPubFromClient(string& chat, const string& hub, const s
         }
         clientsMap[hub].curchat.clear();
     } else
-        chat = "Huburl is invalid";
+        chat = "Hub URL is invalid";
 }
 
-void ServerThread::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap) {
+void ServerThread::parseSearchResult_gui(SearchResultPtr result, StringMap& resultMap) {
     if (result->getType() == SearchResult::TYPE_FILE) {
         string file = revertSeparator(result->getFile());
         if (file.rfind('/') == tstring::npos) {
@@ -588,7 +567,7 @@ void ServerThread::parseSearchResult_gui(SearchResultPtr result, StringMap &resu
     resultMap["Free Slots"] = Util::toString(result->getFreeSlots());
 }
 
-string ServerThread::revertSeparator(const string &ps) {
+string ServerThread::revertSeparator(const string& ps) {
     string str = ps;
     for (string::iterator it = str.begin(); it != str.end(); ++it) {
 #ifdef _WIN32
@@ -616,7 +595,7 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     } else {
         ClientIter i = clientsMap.begin();
         while (i != clientsMap.end()) {
-            clients.push_back(i->first);++i;
+            clients.push_back(i->first); ++i;
         }
     }
     string ssearch;
@@ -626,8 +605,7 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     ssearch = ssearch.substr(0, std::max(ssearch.size(), static_cast<string::size_type>(1)) - 1);
 
     double llsize = lsize;
-    switch (sizetype)
-    {
+    switch (sizetype) {
         case 1:
             llsize *= 1024.0;
             break;
@@ -645,31 +623,22 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
         mode = SearchManager::SIZE_DONTCARE;
     int ftype = searchtype;
     string ftypeStr;
-    if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_LAST)
-    {
+    if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_LAST) {
         ftypeStr = SearchManager::getInstance()->getTypeStr(ftype);
-    }
-    else
-    {
+    } else {
         ftype = SearchManager::TYPE_ANY;
     }
     // Get ADC searchtype extensions if any is selected
     StringList exts;
-    try
-    {
-        if (ftype == SearchManager::TYPE_ANY)
-        {
+    try {
+        if (ftype == SearchManager::TYPE_ANY) {
             // Custom searchtype
             exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
-        }
-        else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE)
-        {
+        } else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE) {
             // Predefined searchtype
             exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
         }
-    }
-    catch (const SearchTypeException&)
-    {
+    } catch (const SearchTypeException&) {
         ftype = SearchManager::TYPE_ANY;
     }
 
@@ -679,7 +648,7 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
 }
 
 void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const string& huburl) {
-    for(ClientIter i = clientsMap.begin() ; i != clientsMap.end() ; ++i) {
+    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
         if (!huburl.empty() && i->first != huburl)
             continue;
         SearchResultList::const_iterator kk;
@@ -695,9 +664,9 @@ void ServerThread::listShare(string& listshare, const string& sseparator) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
     for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
         listshare.append("\n");
-        listshare.append(it->second+sseparator);
-        listshare.append(it->first+sseparator);
-        listshare.append(Util::formatBytes(ShareManager::getInstance()->getShareSize(it->second))+sseparator);
+        listshare.append(it->second + sseparator);
+        listshare.append(it->first + sseparator);
+        listshare.append(Util::formatBytes(ShareManager::getInstance()->getShareSize(it->second)) + sseparator);
         listshare.append("\n");
     }
 }
@@ -718,7 +687,7 @@ bool ServerThread::renameDirInShare(const string& sdirectory, const string& svir
     StringPairList directories = ShareManager::getInstance()->getDirectories();
     for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
         if (it->second.compare(sdirectory) == 0) {
-            ShareManager::getInstance()->renameDirectory(sdirectory,svirtname);
+            ShareManager::getInstance()->renameDirectory(sdirectory, svirtname);
             ShareManager::getInstance()->refresh(true);
             return true;
         }
@@ -728,7 +697,7 @@ bool ServerThread::renameDirInShare(const string& sdirectory, const string& svir
 
 bool ServerThread::addDirInShare(const string& sdirectory, const string& svirtname) {
     if (Util::fileExists(sdirectory.c_str())) {
-        ShareManager::getInstance()->addDirectory(sdirectory,svirtname);
+        ShareManager::getInstance()->addDirectory(sdirectory, svirtname);
         ShareManager::getInstance()->refresh(true);
         return true;
     }
@@ -739,47 +708,41 @@ bool ServerThread::addInQueue(const string& sddir, const string& name, const int
     if (name.empty() && tth.empty())
         return false;
 
-    if (!sddir.empty())
-        QueueManager::getInstance()->add(sddir+PATH_SEPARATOR_STR+name, size, TTHValue(tth));
-    else
+    if (sddir.empty())
         QueueManager::getInstance()->add(name, size, TTHValue(tth));
+    else
+        QueueManager::getInstance()->add(sddir + PATH_SEPARATOR_STR + name, size, TTHValue(tth));
 
     return true;
 }
 
 bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int& priority) {
+    if (target.empty())
+        return false;
 
-    if (!target.empty()) {
-        QueueItem::Priority p;
-        switch (priority) {
-            case 0: p = QueueItem::PAUSED; break;
-            case 1: p = QueueItem::LOWEST; break;
-            case 2: p = QueueItem::LOW; break;
-            case 3: p = QueueItem::NORMAL; break;
-            case 4: p = QueueItem::HIGH; break;
-            case 5: p = QueueItem::HIGHEST; break;
-            default: p = QueueItem::PAUSED; break;
-        }
-
-        if (target[target.length() - 1] == PATH_SEPARATOR)
-        {
-            string *file;
-            const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
-
-            for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it)
-            {
-                file = it->first;
-                if (file->length() >= target.length() && file->substr(0, target.length()) == target)
-                    QueueManager::getInstance()->setPriority(*file, p);
-            }
-            QueueManager::getInstance()->unlockQueue();
-            return true;
-        } else {
-            QueueManager::getInstance()->setPriority(target, p);
-            return true;
-        }
+    QueueItem::Priority p;
+    switch (priority) {
+        case 0:  p = QueueItem::PAUSED;  break;
+        case 1:  p = QueueItem::LOWEST;  break;
+        case 2:  p = QueueItem::LOW;     break;
+        case 3:  p = QueueItem::NORMAL;  break;
+        case 4:  p = QueueItem::HIGH;    break;
+        case 5:  p = QueueItem::HIGHEST; break;
+        default: p = QueueItem::PAUSED;  break;
     }
-    return false;
+
+    if (target[target.length() - 1] == PATH_SEPARATOR) {
+        string *file;
+        const QueueItem::StringMap& ll = QueueManager::getInstance()->lockQueue();
+
+        for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+            file = it->first;
+            if (file->length() >= target.length() && file->substr(0, target.length()) == target)
+                QueueManager::getInstance()->setPriority(*file, p);
+        }
+        QueueManager::getInstance()->unlockQueue();
+    } else {
+        QueueManager::getInstance()->setPriority(target, p);
+    }
+    return true;
 }
-
-
