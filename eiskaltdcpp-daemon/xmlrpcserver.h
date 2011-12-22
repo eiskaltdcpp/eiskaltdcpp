@@ -180,7 +180,7 @@ class showVersionMethod : public xmlrpc_c::method {
 public:
     showVersionMethod() {
         this->_signature = "s:";
-        this->_help = "Returns full client version. Рarams: none";
+        this->_help = "Returns full client version. Params: none";
     }
 
     void
@@ -200,7 +200,7 @@ public:
     showRatioMethod() {
         this->_signature = "s:";
         this->_help = "Returns upload/download ratio and absolute upload and download. "
-                      "Рarams: none; returns: \"ratio: X (uploads: Y, downloads: Z)\"";
+                      "Params: none; returns: \"ratio: X (uploads: Y, downloads: Z)\"";
     }
 
     void
@@ -233,7 +233,7 @@ class addDirInShareMethod : public xmlrpc_c::method {
 public:
     addDirInShareMethod() {
         this->_signature = "s:ss";
-        this->_help = "Adds a directory to the share. Рarams: directory, virtual name; returns: error string";
+        this->_help = "Adds a directory to the share. Params: directory, virtual name; returns: error string";
     }
 
     void
@@ -258,7 +258,7 @@ class renameDirInShareMethod : public xmlrpc_c::method {
 public:
     renameDirInShareMethod() {
         this->_signature = "s:ss";
-        this->_help = "Renames a directory in the share. Рarams: directory, new virtual name; returns: error string";
+        this->_help = "Renames a directory in the share. Params: directory, new virtual name; returns: error string";
     }
 
     void
@@ -283,7 +283,7 @@ class delDirFromShareMethod : public xmlrpc_c::method {
 public:
     delDirFromShareMethod() {
         this->_signature = "i:s";
-        this->_help = "Deletes a directory from the share. Рarams: virtual name of directory; returns: 0 on success, non-zero otherwise";
+        this->_help = "Deletes a directory from the share. Params: virtual name of directory; returns: 0 on success, non-zero otherwise";
     }
 
     void
@@ -303,7 +303,7 @@ class listShareMethod : public xmlrpc_c::method {
 public:
     listShareMethod() {
         this->_signature = "s:s";
-        this->_help = "Returns a list of shared directories. Рarams: separator";
+        this->_help = "Returns a list of shared directories. Params: separator";
     }
 
     void
@@ -322,7 +322,7 @@ class refreshShareMethod : public xmlrpc_c::method {
 public:
     refreshShareMethod() {
         this->_signature = "i:s";
-        this->_help = "Refreshes the share. Рarams: none; returns: 0";
+        this->_help = "Refreshes the share. Params: none; returns: 0";
     }
 
     void
@@ -339,7 +339,7 @@ class getFileListMethod : public xmlrpc_c::method {
 public:
     getFileListMethod() {
         this->_signature = "s:ss";
-        this->_help = "Adds the file list of a user to the download queue. Рarams: hub URL, nick; returns: error string";
+        this->_help = "Adds the file list of a user to the download queue. Params: hub URL, nick; returns: error string";
     }
 
     void
@@ -358,7 +358,7 @@ class getChatPubMethod : public xmlrpc_c::method {
 public:
     getChatPubMethod() {
         this->_signature = "s:ss";
-        this->_help = "Returns a list of unread public chat messages on a hub. Рarams: hub URL, separator";
+        this->_help = "Returns a list of unread public chat messages on a hub. Params: hub URL, separator";
     }
 
     void
