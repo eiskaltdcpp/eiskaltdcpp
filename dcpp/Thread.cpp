@@ -45,6 +45,10 @@ void Thread::start() {
 #endif
 
 void Thread::setThreadName(const char* const threadName) const {
+#ifndef _DEBUG
+    return;
+#endif
+
 #if defined(__HAIKU__)
     // TODO, see http://haiku-os.org/legacy-docs/bebook/TheKernelKit_ThreadsAndTeams.html#rename_thread
 #elif defined(APPLE) && (DARWIN_MAJOR_VERSION >= 10)
