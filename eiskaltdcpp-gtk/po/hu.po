@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-12-20 13:26+0000\n"
+"PO-Revision-Date: 2011-12-21 10:48+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -442,7 +442,7 @@ msgstr "<b>Statisztikák</b>"
 
 #: ../ui/settingsdialog.ui:4386
 msgid "<b>Tab Position</b>"
-msgstr "<b>Tab pozíció</b>"
+msgstr "<b>Lap helye</b>"
 
 #: ../ui/settingsdialog.ui:4617
 msgid "<b>Tab bolding on content change</b>"

@@ -383,7 +383,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="800"/>
         <source>Total files: &lt;b&gt;%1&lt;/b&gt; Total size: &lt;b&gt;%2&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Archivos totales : &lt;b&gt;%1&lt;/b&gt; Tamaño total: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.h" line="89"/>
@@ -996,7 +996,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="2173"/>
         <source> left the chat</source>
-        <translation>Dejar el canal</translation>
+        <translation> Dejar el canal</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2123"/>
@@ -1067,7 +1067,7 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1569"/>
         <location filename="../src/HubFrame.cpp" line="1571"/>
         <source>Away mode on: </source>
-        <translation>Modo ausente encendido:</translation>
+        <translation>Modo ausente encendido: </translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1589"/>
@@ -1165,7 +1165,7 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="291"/>
         <location filename="../src/HubFrame.cpp" line="377"/>
         <source>[User went offline]</source>
-        <translation>[Usuario está online]</translation>
+        <translation>[el usuario está offline]</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="523"/>
@@ -1648,7 +1648,7 @@ Usuario favorito</translation>
         <location filename="../src/MainWindow.cpp" line="1318"/>
         <location filename="../src/MainWindow.cpp" line="2422"/>
         <source>Hide free space bar</source>
-        <translation>Ocultar barra de espacio libre</translation>
+        <translation>Modo ausente encendido: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1321"/>
@@ -3262,7 +3262,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="91"/>
         <source>Serbian (Latin)</source>
-        <translation type="unfinished"/>
+        <translation>Serbio(Latin)</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="93"/>
@@ -3520,7 +3520,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="219"/>
         <source>Listing: </source>
-        <translation>Listado:</translation>
+        <translation>Listado: </translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="391"/>
@@ -3723,42 +3723,42 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="563"/>
         <source>Close all</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar todo</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="584"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="643"/>
         <source>Choose file to open</source>
-        <translation type="unfinished"/>
+        <translation>Elegir archivo para abrir</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="645"/>
         <source>Modern XML Filelists</source>
-        <translation type="unfinished"/>
+        <translation>Lista de archivos XML moderno</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="646"/>
         <source>Modern XML Filelists uncompressed</source>
-        <translation type="unfinished"/>
+        <translation>Lista de archivos XML moderno descomprimido</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="647"/>
         <source>All files</source>
-        <translation type="unfinished"/>
+        <translation>Todos los Archivos</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="662"/>
         <source>Open log file</source>
-        <translation type="unfinished"/>
+        <translation>Abrir Archivo log</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="662"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Archivos log (*.log);;Todos los archivos (*.*)</translation>
     </message>
 </context>
 <context>
@@ -4349,12 +4349,12 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
-        <translation>SubirSubir</translation>
+        <translation>Subir</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="95"/>
         <source>Down</source>
-        <translation>BajarBajar</translation>
+        <translation>Bajar</translation>
     </message>
 </context>
 <context>
@@ -4362,7 +4362,7 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="14"/>
         <source>AntiSpam configuration</source>
-        <translation>configuración del AntiSpam</translation>
+        <translation>Configuración del AntiSpam</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="20"/>
@@ -4693,7 +4693,7 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/UIFileHasher.ui" line="80"/>
         <source>Get magnet</source>
-        <translation>Cojer Imán</translation>
+        <translation>Obtener Imán</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
@@ -6103,7 +6103,7 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
         <location filename="../ui/UISettingsGUI.ui" line="419"/>
         <location filename="../ui/UISettingsGUI.ui" line="438"/>
         <source>Get file list</source>
-        <translation>Cojer lista de archivos</translation>
+        <translation>Obtener lista de archivos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="424"/>
@@ -6693,7 +6693,7 @@ de la rapidez con la fuente que es probable que sean para otros usuarios.</trans
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation>Aquí se especificarán las plantillas usadas para configurar que archivos no desea que se compartan.</translation>
+        <translation>Aquí se especificarán las plantillas usadas para configurar que archivos no desea que se compartan. </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
@@ -6972,17 +6972,17 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="96"/>
         <source>←</source>
-        <translation type="unfinished"/>
+        <translation>←</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="103"/>
         <source>→</source>
-        <translation type="unfinished"/>
+        <translation>→</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="110"/>
         <source>↑</source>
-        <translation type="unfinished"/>
+        <translation>↑</translation>
     </message>
 </context>
 <context>

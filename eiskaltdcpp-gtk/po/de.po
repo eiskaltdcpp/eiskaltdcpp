@@ -4,14 +4,17 @@
 # 
 # Translators:
 # Translators:
+# Translators:
 # Chris Leick <c.leick@vollbio.de>, 2011.
+#   <kgeorgokitsos@yahoo.de>, 2011.
+#   <tilkax@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-12-18 20:57+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"PO-Revision-Date: 2011-12-22 07:51+0000\n"
+"Last-Translator: kge <kgeorgokitsos@yahoo.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/eiskaltdcpp/team/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -549,7 +552,7 @@ msgstr "Fügen Sie diese Datei Ihrer Download-Warteschlange hinzu."
 
 #: ../ui/uploadqueue.ui:60
 msgid "Add to Favorite Users"
-msgstr ""
+msgstr "Hub zu Favoriten hinzufügen"
 
 #: ../ui/publichubs.ui:418
 msgid "Add to favorites"
@@ -658,7 +661,7 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:83 ../src/sharebrowser.cc:329
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 #: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:69
 #: ../src/favoritehubs.cc:127 ../src/favoritehubs.cc:303
@@ -750,7 +753,7 @@ msgstr "Bind-Adresse"
 
 #: ../src/sharebrowser.cc:80 ../src/sharebrowser.cc:326
 msgid "Bitrate"
-msgstr ""
+msgstr "Bitrate"
 
 #: ../ui/settingsdialog.ui:5186
 msgid "Black/White"
@@ -762,7 +765,7 @@ msgstr "Fettgedruckte Verfasser von Nachrichten im Chat"
 
 #: ../ui/uploadqueue.ui:87
 msgid "Browse FileList"
-msgstr ""
+msgstr "Dateiliste herunterladen"
 
 #: ../ui/settingsdialog.ui:4913
 msgid "Browse file..."
@@ -914,15 +917,15 @@ msgstr "PM schließen"
 
 #: ../ui/mainwindow.ui:1486
 msgid "Close all PM"
-msgstr ""
+msgstr "Nachricht schließen"
 
 #: ../ui/mainwindow.ui:1477
 msgid "Close all hubs"
-msgstr ""
+msgstr "Tab schließen"
 
 #: ../ui/mainwindow.ui:1495
 msgid "Close all search"
-msgstr ""
+msgstr "Framesuche löschen"
 
 #: ../src/hub.cc:2003
 msgid "Close chat"
@@ -930,7 +933,7 @@ msgstr "Chat schließen"
 
 #: ../ui/mainwindow.ui:1504
 msgid "Close offline PM"
-msgstr ""
+msgstr "Nachricht schließen"
 
 #: ../src/bookentry.cc:76
 msgid "Close tab"
@@ -1150,7 +1153,7 @@ msgstr "Keine Dateien herunterladen, die bereits in der Warteschlange sind"
 
 #: ../ui/search.ui:585
 msgid "Don't hide side panel on search"
-msgstr ""
+msgstr "Sidebar bei Suche nicht verbergen"
 
 #: ../src/settingsdialog.cc:951
 msgid "Don't remove the source when auto-dropping, only disconnect"
@@ -1602,7 +1605,7 @@ msgstr "Frame:"
 
 #: ../src/mainwindow.cc:2290
 msgid "Free "
-msgstr ""
+msgstr "Frei"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
@@ -1630,7 +1633,7 @@ msgstr "Globaler Vorgabe-Hub"
 
 #: ../ui/uploadqueue.ui:51
 msgid "Grant Slot"
-msgstr ""
+msgstr "Extraslot gewähren"
 
 #: ../src/hub.cc:2009 ../src/privatemessage.cc:1024 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
@@ -2483,7 +2486,7 @@ msgstr "Erneut verbinden"
 
 #: ../ui/mainwindow.ui:1513
 msgid "Reconnect all hubs"
-msgstr ""
+msgstr "Mit diesem Hub verbinden"
 
 #: ../ui/mainwindow.ui:2183
 msgid "Reconnect to the hub"
@@ -2569,7 +2572,7 @@ msgstr "Wird angefragt"
 
 #: ../src/sharebrowser.cc:81 ../src/sharebrowser.cc:327
 msgid "Resolution"
-msgstr ""
+msgstr "Auflösung"
 
 #: ../ui/hash.ui:21
 msgid "Run in background"
@@ -2673,7 +2676,7 @@ msgstr "Bei Doppelklick in der Benutzerliste PM senden"
 
 #: ../ui/uploadqueue.ui:78
 msgid "Send Private Message"
-msgstr ""
+msgstr "Private Nachricht"
 
 #: ../ui/downloadqueue.ui:297 ../ui/search.ui:788
 msgid "Send _private message"
@@ -2747,7 +2750,7 @@ msgstr "Favoritenliste anzeigen"
 
 #: ../ui/mainwindow.ui:1396
 msgid "Show free space bar"
-msgstr ""
+msgstr "\"Freier Speicherplatz\"-Leiste anzeigen"
 
 #: ../src/hub.cc:2010 ../src/privatemessage.cc:1028
 #: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
@@ -2802,7 +2805,7 @@ msgstr "Version anzeigen"
 
 #: ../ui/search.ui:292
 msgid "Show/Hide side panel"
-msgstr ""
+msgstr "Favoriten anzeigen"
 
 #: ../ui/mainwindow.ui:1781
 msgid "Show/Hide transfers panel"
@@ -3295,7 +3298,7 @@ msgstr "Upload"
 
 #: ../src/uploadqueue.cc:36 ../ui/mainwindow.ui:1363
 msgid "Upload Queue"
-msgstr ""
+msgstr "Download-Warteschlange"
 
 #: ../ui/settingsdialog.ui:2290
 msgid "Upload Slots"
@@ -3501,7 +3504,7 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:82 ../src/sharebrowser.cc:328
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../src/settingsdialog.cc:998
 msgid "View status messages in main chat"
@@ -3821,15 +3824,15 @@ msgstr "Widge_ts"
 
 #: ../src/hub.cc:3126
 msgid "bad image"
-msgstr "falsches Bild"
+msgstr "Bild fehlerhaft"
 
 #: ../src/settingsdialog.cc:2331
 msgid "default icons"
-msgstr "Vorgabesymbole"
+msgstr "Standardsymbole"
 
 #: ../src/settingsdialog.cc:2363
 msgid "default theme"
-msgstr "Vorgabe-Theme"
+msgstr "Standard-Theme"
 
 #: ../src/hub.cc:77 ../src/hub.cc:389 ../src/hub.cc:409
 msgid "eMail"
@@ -3884,7 +3887,7 @@ msgstr "s"
 
 #: ../src/settingsdialog.cc:1359
 msgid "searchADL"
-msgstr "suchADL"
+msgstr "Suche"
 
 #: ../src/settingsdialog.cc:2972 ../src/settingsdialog.cc:3073
 msgid "selected style failed"
@@ -3892,7 +3895,7 @@ msgstr "Verwenden des ausgewählten Stils gescheitert"
 
 #: ../ui/settingsdialog.ui:5734
 msgid "theme"
-msgstr "Theme"
+msgstr "Thema"
 
 #: ../ui/settingsdialog.ui:2101
 msgid "to"
