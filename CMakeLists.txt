@@ -384,6 +384,7 @@ list (APPEND AllLanguages
             bg
             cs
             de
+            el
             en
             es
             fr

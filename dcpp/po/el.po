@@ -1,0 +1,722 @@
+# English translations for work package.
+# Copyright (C) 2010 EiskaltDC++\ team
+# This file is distributed under the same license as the work package.
+# 
+# Translators:
+# Translators:
+#   <kgeorgokitsos@yahoo.de>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: EiskaltDC++\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
+"POT-Creation-Date: 2011-12-18 22:09+0200\n"
+"PO-Revision-Date: 2011-12-22 09:09+0000\n"
+"Last-Translator: kge <kgeorgokitsos@yahoo.de>\n"
+"Language-Team: Greek (http://www.transifex.net/projects/p/eiskaltdcpp/team/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: ../FavoriteManager.cpp:429
+msgid "Kick user(s)"
+msgstr "Αποβολή χρήστη(-ών)"
+
+#: ../FavoriteManager.cpp:433
+msgid "Redirect user(s)"
+msgstr "Προώθησε χρήστη(-ες)"
+
+#: ../FavoriteManager.cpp:489
+msgid "Auto-connect group (converted)"
+msgstr "Αυτόματη σύνδεση ομάδας (μετατράπηκε)"
+
+#: ../Socket.cpp:86
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Άγνωστο λάθος: 0x%1$x"
+
+#: ../Socket.cpp:221 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../ConnectionManager.cpp:186
+msgid "Connection timeout"
+msgstr "Λήξη χρόνου σύνδεσης"
+
+#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:298 ../Socket.cpp:313
+msgid "The socks server failed establish a connection"
+msgstr "Απέτυχε η σύνδεση του εξυπηρετητή socks"
+
+#: ../Socket.cpp:302
+msgid "The socks server requires authentication"
+msgstr "Ο εξυπηρετητής socks απαιτεί πιστοποίηση"
+
+#: ../Socket.cpp:316
+msgid "The socks server doesn't support login / password authentication"
+msgstr ""
+"Ο εξυπηρετητής socks δεν υποστηρίζει πιστοποίηση με όνομα χρήστη /  κωδικό"
+
+#: ../Socket.cpp:330 ../Socket.cpp:334
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr ""
+"πιστοποίηση του εξυπηρετητή socks απέτυχε (λάθος όνομα χρήστη / κωδικός)"
+
+#: ../Socket.cpp:471
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr ""
+"Αδυναμία ρύθμισης του εξυπηρετητή socks για αναμετάδοση UDP (ελέγξτε "
+"διεύθυνση και θύρα socks)"
+
+#: ../DCPlusPlus.cpp:122
+msgid "Hash database"
+msgstr "Βάση δεδομένων αποτυπώματος"
+
+#: ../DCPlusPlus.cpp:125
+msgid "Shared Files"
+msgstr "Κοινόχρηστα Αρχεία"
+
+#: ../DCPlusPlus.cpp:134
+msgid "Download Queue"
+msgstr "Ουρά Μεταφόρτωσης"
+
+#: ../DCPlusPlus.cpp:137
+msgid "Users"
+msgstr "Χρήστες"
+
+#: ../Thread.cpp:30 ../Thread.cpp:38
+msgid "Unable to create thread"
+msgstr "Αδυναμία δημιουργίας νήματος"
+
+#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
+msgid "Invalid data"
+msgstr "Μη έγκυρο μέγεθος"
+
+#: ../UserConnection.cpp:58
+msgid "Non-UTF-8 data in an ADC connection"
+msgstr "Δεδομένα μη-UTF-8 σε σύνδεση ADC"
+
+#: ../ConnectivityManager.cpp:78
+msgid "Determining the best connectivity settings..."
+msgstr "Καθορισμός της καλύτερης ρύθμισης συνδέσεων... "
+
+#: ../ConnectivityManager.cpp:83
+msgid ""
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr ""
+"Αδυναμία να ανοιχτεί η(οι) θύρα(-ες) %1%. ρυθμίσεις συνδέσεων πρέπει να "
+"δοθούν χειροκίνητα"
+
+#: ../ConnectivityManager.cpp:93
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+"Ανιχνεύτηκε δημόσια διεύθυνση IP, επιλέχτηκε ενεργή λειτουργία με απευθείας "
+"σύνδεση"
+
+#: ../ConnectivityManager.cpp:100
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+"Ανιχνεύτηκε τοπικό δίκτυο, πιθανών με NAT, προσπάθεια αντιστοίχισης θυρών με"
+" UPnP..."
+
+#: ../ConnectivityManager.cpp:128
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+"Αυτόματη ρύθμιση της ενεργής λειτουργίας απέτυχε. Παρακαλώ ρυθμίστε την "
+"σύνδεση χειροκίνητα για καλύτερη διασύνδεση"
+
+#: ../ConnectivityManager.cpp:140
+msgid "Transfer (TCP)"
+msgstr "Μεταφορά (TCP)"
+
+#: ../ConnectivityManager.cpp:146
+msgid "Search (UDP)"
+msgstr "Αναζήτηση (UDP)"
+
+#: ../ConnectivityManager.cpp:152
+msgid "DHT (UDP)"
+msgstr "DHT (UDP)"
+
+#: ../ConnectivityManager.cpp:167
+msgid "Connectivity: "
+msgstr "Επαναφορά σύνδεσης"
+
+#: ../UploadManager.cpp:133
+msgid "Connection already exists."
+msgstr "Η σύνδεση έκλεισε"
+
+#: ../UploadManager.cpp:270
+msgid "Unable to send file %1%: %2%"
+msgstr "Αδύνατο να σταλθεί το αρχείο %1%: %2%"
+
+#: ../UploadManager.cpp:557
+msgid "IPFilter: Blocked incoming connection to "
+msgstr "IPFilter: Φραγή εισερχόμενης σύνδεσης σε "
+
+#: ../UploadManager.cpp:620
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Αποσυνδεδεμένος χρήστης αποχωρεί από τον κόμβο: %1%"
+
+#: ../SettingsManager.cpp:183
+msgid "downloaded from"
+msgstr "έχει ληφθεί από"
+
+#: ../SettingsManager.cpp:515
+msgid "Invalid search type name"
+msgstr "Μη έγκυρο όνομα τύπου αναζήτησης"
+
+#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+msgid "This search type already exists"
+msgstr "Αυτός ο τύπος αναζήτησης υπάρχει ήδη"
+
+#: ../SettingsManager.cpp:573
+msgid "No such search type"
+msgstr "Δεν υπάρχει τέτοιος τύπος αναζήτησης"
+
+#: ../SettingsManager.cpp:608
+msgid "Error: setting not found!"
+msgstr "Σφάλμα: η ρύθμιση δεν βρέθηκε! "
+
+#: ../SettingsManager.cpp:609
+msgid "Change core setting "
+msgstr "Αλλαγή ρύθμισής πυρήνα  "
+
+#: ../SettingsManager.cpp:609
+msgid " to "
+msgstr " σε "
+
+#: ../SettingsManager.cpp:611
+msgid "Error: params have been not 2!"
+msgstr "Σφάλμα: παράμετροι δεν είναι 2!"
+
+#: ../NmdcHub.cpp:293
+msgid "%1% (Nick unknown)"
+msgstr "%1% (Άγνωστο ψευδώνυμο)"
+
+#: ../NmdcHub.cpp:672
+msgid "Hub topic:"
+msgstr "Θέμα κόμβου:"
+
+#: ../NmdcHub.cpp:1024
+msgid ""
+"This hub is trying to use your client to spam %1%, please urge hub owner to "
+"fix this"
+msgstr ""
+"Αυτός ο κόμβος προσπαθεί να χρησιμοποιήσει τον πελάτη σας για spam %1%, "
+"παρακαλώ να πείσετε των ιδιοκτήτη του κόμβου να το διορθώσει"
+
+#: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
+#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
+#: ../QueueManager.cpp:2166 ../QueueManager.cpp:2172 ../QueueManager.cpp:2178
+msgid "Offline"
+msgstr "Χωρίς σύνδεση"
+
+#: ../AdcHub.cpp:156
+msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+msgstr "%1% (%2%) έχει ίδιο CID {%3%} όπως %4% (%5%), παράβλεψη"
+
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
+msgid "%1%/s"
+msgstr "%1%/s"
+
+#: ../AdcHub.cpp:228
+msgid "Failed to negotiate base protocol"
+msgstr "Αποτυχία διαπραγματεύσεων βασικού πρωτοκόλλου "
+
+#: ../AdcHub.cpp:234
+msgid ""
+"Hub probably uses an old version of ADC, please encourage the owner to "
+"upgrade"
+msgstr ""
+"Πιθανών ο κόμβος να χρησιμοποιεί παλιά έκδοση ADC, παρακαλώ να ενθαρρύνετε "
+"τον ιδιοκτήτη να αναβαθμίσει"
+
+#: ../AdcHub.cpp:305
+msgid "%1% was kicked by %2%: %3%"
+msgstr "%1% αποβλήθηκε από %2%: %3%"
+
+#: ../AdcHub.cpp:308
+msgid "%1% was kicked: %2%"
+msgstr "%1% αποβλήθηκε: %2%"
+
+#: ../AdcHub.cpp:694
+msgid "Not listening for connections - please restart %1%"
+msgstr "Δεν παρακολουθούνται συνδέσεις - παρακαλώ επανακινήστε %1%"
+
+#: ../HttpConnection.cpp:166
+msgid "Endless redirection loop (%1%)"
+msgstr "Ατελείωτος βρόγχος προώθησης (%1%)"
+
+#: ../ChatMessage.cpp:33
+msgid "Sent "
+msgstr "Σταλμένα "
+
+#: ../Util.cpp:611
+#, c-format
+msgid "%d B"
+msgstr "%d B"
+
+#: ../Util.cpp:613
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:615
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:617
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:619
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:621
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:651
+#, c-format
+msgid "%s B"
+msgstr "%s B"
+
+#: ../Util.cpp:655
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld B"
+
+#: ../ZUtils.cpp:36 ../ZUtils.cpp:57 ../ZUtils.cpp:79 ../ZUtils.cpp:89
+#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62
+msgid "Error during compression"
+msgstr "Σφάλμα κατά την διάρκεια συμπίεσης"
+
+#: ../ZUtils.cpp:103 ../ZUtils.cpp:126 ../CryptoManager.cpp:372
+#: ../CryptoManager.cpp:391 ../CryptoManager.cpp:405 ../BZUtils.cpp:74
+#: ../BZUtils.cpp:96 ../BZUtils.cpp:99
+msgid "Error during decompression"
+msgstr "Σφάλμα κατά την διάρκεια αποσυμπίεσης"
+
+#: ../HashManager.cpp:88 ../HashManager.cpp:288
+msgid "Hashing failed: %1%"
+msgstr "Αναζήτηση επανενεργοποιήθηκε"
+
+#: ../HashManager.cpp:95
+msgid "Finished hashing: %1% (%2% at %3%/s)"
+msgstr "Αποτύπωση ολοκληρώθηκε: %1% (%2% σε %3%/s)"
+
+#: ../HashManager.cpp:98
+msgid "Finished hashing: %1% (%2%)"
+msgstr "Αποτύπωση ολοκληρώθηκε: %1% (%2%)"
+
+#: ../HashManager.cpp:101
+msgid "Finished hashing: %1%"
+msgstr "Αποτύπωση ολοκληρώθηκε: %1%"
+
+#: ../HashManager.cpp:130 ../HashManager.cpp:344
+msgid "Error saving hash data: %1%"
+msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου δεδομένων αποτύπωσης "
+
+#: ../HashManager.cpp:143
+msgid "Unable to read hash data file"
+msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου δεδομένων αποτύπωσης"
+
+#: ../HashManager.cpp:476
+msgid "Error creating hash data file: %1%"
+msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου δεδομένων αποτύπωσης"
+
+#: ../HashManager.cpp:805
+msgid "Hash database rebuilt"
+msgstr "Ανακατασκευάστηκε η βάση δεδομένων αποτύπωσης"
+
+#: ../HashManager.cpp:904
+msgid ""
+"%1% not shared; calculated CRC32 does not match the one found in SFV file."
+msgstr ""
+"%1% δεν μοιράστηκε; το υπολογισμένο CRC32 δεν ταιριάζε με αυτό που βρίσκεται"
+" στο αρχείο SFV."
+
+#: ../HashManager.cpp:909
+msgid "Error hashing %1%: %2%"
+msgstr "Σφάλμα αποτύπωσης %1%: %2%"
+
+#: ../UPnPManager.cpp:45
+msgid "No UPnP implementation available"
+msgstr "Το αρχείο δεν είναι διαθέσιμο"
+
+#: ../UPnPManager.cpp:50
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr "Μια άλλη προσπάθεια αντιστοίχηση θυρών είναι σε εξέλιξη "
+
+#: ../UPnPManager.cpp:81
+msgid "Failed to initialize the %1% interface"
+msgstr "Εκκίνηση ανανέωσης λίστας αρχείων"
+
+#: ../UPnPManager.cpp:85
+msgid " Transfer Port (%1% TCP)"
+msgstr " Θύρα Μεταφοράς (%1% TCP)"
+
+#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
+#: ../UPnPManager.cpp:101
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr "Η διεπαφή  %1% απέτυχε να αντιστοιχήσει τη θύρα %2% %3%"
+
+#: ../UPnPManager.cpp:90
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr "Κρυπτογραφημένη Θύρα Μεταφοράς (%1% TCP)"
+
+#: ../UPnPManager.cpp:95
+msgid " Search Port (%1% UDP)"
+msgstr " Θύρα Αναζήτησης (%1% UDP)"
+
+#: ../UPnPManager.cpp:100
+msgid " DHT Port (%1% UDP)"
+msgstr " Θύρα DHT (%1% UDP)"
+
+#: ../UPnPManager.cpp:107
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr ""
+"Επιτυχή δημιουργία αντιστοίχησης θυρών (TCP: %1%, UDP: %2%, TLS: %3%), "
+"αντιστοίχηση χρησιμοποιώντας την διεπαφή %4%"
+
+#: ../UPnPManager.cpp:118
+msgid "Failed to get external IP"
+msgstr "Αποτυχία ανάκτησης εξωτερικού IP"
+
+#: ../UPnPManager.cpp:128
+msgid "Failed to create port mappings"
+msgstr "Αδυναμία δημιουργίας νήματος"
+
+#: ../UPnPManager.cpp:137
+msgid "Successfully removed port mappings with the %1% interface"
+msgstr "Έναρξη ανανέωσης λίστας αρχείων"
+
+#: ../UPnPManager.cpp:138
+msgid "Failed to remove port mappings with the %1% interface"
+msgstr "Έναρξη ανανέωσης λίστας αρχείων"
+
+#: ../UPnPManager.cpp:143
+msgid "UPnP: %1%"
+msgstr "UPnP: %1%"
+
+#: ../ShareManager.cpp:446
+msgid "No directory specified"
+msgstr "Δεν ορίστηκε κατάλογος"
+
+#: ../ShareManager.cpp:450
+msgid "Directory is hidden"
+msgstr "Ο κατάλογος μοιράζεται ήδη"
+
+#: ../ShareManager.cpp:454
+msgid "The temporary download directory cannot be shared"
+msgstr "Ο προσωρινώς κατάλογος λήψεων δεν μπορεί να μοιραστεί"
+
+#: ../ShareManager.cpp:642
+msgid "Invalid file name found while hashing folder %1%"
+msgstr ""
+"Βρέθηκε μη έγκυρο όνομα αρχείου καάτα την διάρκεια αποτύπωσης του κατάλογου "
+"%1%"
+
+#: ../ShareManager.cpp:660
+msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgstr "Ο χρήστης επέλεξε να μην μοιραστεί το αρχείο: %1% (Μέγεθος: %2%)"
+
+#: ../ShareManager.cpp:681
+msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgstr ""
+"Ο χρήστης επέλεξε να μην μοιραστεί το προσωρινό αρχείο: %1% (Μέγεθος: %2%)"
+
+#: ../ShareManager.cpp:769
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr ""
+"Το διπλότυπο αρχείο δεν θα μοιραστεί: %1% (Μέγεθος: %2% B) Ταίριασμα "
+"διπλότυπου με: %3%"
+
+#: ../ShareManager.cpp:790
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr ""
+"Ανανέωση λίστας αρχείων σε εξέλιξη, παρακαλώ περιμένετε να ολοκληρωθεί πριν "
+"ανανεώσετε ξανά"
+
+#: ../ShareManager.cpp:811
+msgid "File list refresh failed: %1%"
+msgstr "Ολοκληρώθηκε η ανανέωση της λίστας αρχείων"
+
+#: ../ShareManager.cpp:833
+msgid "File list refresh initiated"
+msgstr "Εκκίνηση ανανέωσης της λίστας αρχείων"
+
+#: ../ShareManager.cpp:858
+msgid "File list refresh finished"
+msgstr "Ολοκληρώθηκε η ανανέωση της λίστας αρχείων"
+
+#: ../ShareManager.cpp:940
+msgid "File list %1% generated"
+msgstr "Εκκίνηση ανανέωσης της λίστας αρχείων"
+
+#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Τερματίστηκε η σύνδεση"
+
+#: ../BufferedSocket.cpp:275
+msgid "Maximum command length exceeded"
+msgstr "Υπέρβαση μεγίστου μήκος εντολής"
+
+#: ../BufferedSocket.cpp:452
+msgid "Disconnected"
+msgstr "Αποσυνδέθηκε"
+
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Εισάγετε συμβολοσειρά>"
+
+#: ../ADLSearch.cpp:487
+msgid "Discard"
+msgstr "Απόρριψη"
+
+#: ../DirectoryListing.cpp:187
+msgid "Directory missing name attribute"
+msgstr "Κατάλογος δεν έχει γνώρισμα ονόματος"
+
+#: ../CryptoManager.cpp:134
+msgid "No private key file chosen"
+msgstr "Δεν έχει επιλεχθεί αρχείο ιδιωτικού κλειδιού "
+
+#: ../CryptoManager.cpp:137
+msgid "No certificate file chosen"
+msgstr "Δεν έχει επιλεχθεί αρχείο πιστοποιητικού"
+
+#: ../CryptoManager.cpp:149
+msgid "Error generating certificate"
+msgstr "Σφάλμα παραγωγής πιστοποιητικού"
+
+#: ../CryptoManager.cpp:212
+msgid "TLS disabled, no certificate file set"
+msgstr "Απενεργοποιήθηκε TLS, δεν ορίστηκε αρχείο πιστοποιητικού"
+
+#: ../CryptoManager.cpp:220
+msgid "Generated new TLS certificate"
+msgstr "Δημιουργήθηκε νέο πιστοποιητικό TLS "
+
+#: ../CryptoManager.cpp:222
+msgid "TLS disabled, failed to generate certificate: %1%"
+msgstr "Απενεργοποιήθηκε TLS, δεν ορίστηκε αρχείο πιστοποιητικού"
+
+#: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
+#: ../CryptoManager.cpp:240
+msgid "Failed to load certificate file"
+msgstr "Αποτυχία φόρτωσης αρχείου πιστοποιητικού"
+
+#: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
+#: ../CryptoManager.cpp:258
+msgid "Failed to load private key"
+msgstr "Αποτυχία φόρτωσης αρχείου ιδιωτικού κλειδιού"
+
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "Σφάλμα SSL: %1% (%2%, %3%)"
+
+#: ../DownloadManager.cpp:134
+msgid "IPFilter: Blocked outgoing connection to "
+msgstr "IPFilter: Αποτροπή εξερχόμενης σύνδεσης σε "
+
+#: ../DownloadManager.cpp:229
+msgid "Invalid size"
+msgstr "Μη έγκυρο μέγεθος"
+
+#: ../DownloadManager.cpp:234
+msgid "Response does not match request"
+msgstr "Απάντηση δεν αντιστοιχεί στην αίτηση"
+
+#: ../DownloadManager.cpp:241
+msgid "Could not open target file: %1%"
+msgstr "Αδύνατο το άνοιγμα του αρχείου προορισμού: %1%"
+
+#: ../DownloadManager.cpp:320
+msgid "Full tree does not match TTH root"
+msgstr "Πλήρες δέντρο δεν αντιστοιχεί στη ρίζα TTH"
+
+#: ../DownloadManager.cpp:385
+msgid "No slots available"
+msgstr "Δεν υπάρχουν διαθέσιμες θέσεις"
+
+#: ../DownloadManager.cpp:496
+msgid "%1%: File not available"
+msgstr "Το αρχείο δεν είναι διαθέσιμο"
+
+#: ../ConnectionManager.cpp:179
+msgid "All download slots taken"
+msgstr "Όλες οι θέσεις μεταφόρτωσης είναι κατειλημμένες"
+
+#: ../ConnectionManager.cpp:248
+msgid "Connectivity restored"
+msgstr "Αποκατάσταση συνδεσιμότητας"
+
+#: ../ConnectionManager.cpp:256
+msgid "Connectivity error: %1%"
+msgstr "Αποκατάσταση συνδεσιμότητας"
+
+#: ../SearchManager.cpp:36
+msgid "Any"
+msgstr "Οποιοδήποτε"
+
+#: ../SearchManager.cpp:37
+msgid "Audio"
+msgstr "Ήχος"
+
+#: ../SearchManager.cpp:38
+msgid "Compressed"
+msgstr "Συμπιεσμένο"
+
+#: ../SearchManager.cpp:39
+msgid "Document"
+msgstr "Έγγραφο"
+
+#: ../SearchManager.cpp:40
+msgid "Executable"
+msgstr "Εκτελέσιμο"
+
+#: ../SearchManager.cpp:41
+msgid "Picture"
+msgstr "Εικόνα"
+
+#: ../SearchManager.cpp:42
+msgid "Video"
+msgstr "Βίντεο"
+
+#: ../SearchManager.cpp:43
+msgid "Directory"
+msgstr "Φάκελος"
+
+#: ../SearchManager.cpp:44
+msgid "TTH"
+msgstr "TTH"
+
+#: ../SearchManager.cpp:45
+msgid "CD Image"
+msgstr "Εικόνα CD"
+
+#: ../SearchManager.cpp:150
+msgid "Search enabled again"
+msgstr "Ενεργοποιήθηκε πάλι η αναζήτηση"
+
+#: ../SearchManager.cpp:158
+msgid "Search disabled: %1%"
+msgstr "Ενεργοποιήθηκε πάλι η αναζήτηση"
+
+#: ../QueueManager.cpp:243
+msgid "No needed part"
+msgstr "Μέρος δεν χρειάζεται "
+
+#: ../QueueManager.cpp:633
+msgid "Searching TTH alternates for: %1%"
+msgstr "Αναζητούνται εναλλακτικά ΤΤΗ για: %1%"
+
+#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
+msgid "A file with the same hash already exists in your share"
+msgstr "Υπάρχει ήδη αρχείο με ίδιο αποτύπωμα στο κοινόχρηστό σας"
+
+#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
+msgid "This file is already queued"
+msgstr "Το αρχείο είναι ήδη στην ουρά"
+
+#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
+msgid "A file with a different size already exists in the queue"
+msgstr "Υπάρχει ήδη αρχείο με διαφορετικό μέγεθος στην ουρά"
+
+#: ../QueueManager.cpp:727
+msgid "A file with different tth root already exists in the queue"
+msgstr "Υπάρχει ήδη αρχείο με διαφορετική ρίζα ΤΤΗ στην ουρά"
+
+#: ../QueueManager.cpp:739
+msgid "You're trying to download from yourself!"
+msgstr "Προσπαθείτε να μεταφορτώσετε από τον εαυτό σας!"
+
+#: ../QueueManager.cpp:802
+msgid "A file with a different TTH root already exists in the queue"
+msgstr "Υπάρχει ήδη αρχείο με διαφορετική ρίζα ΤΤΗ στην ουρά"
+
+#: ../QueueManager.cpp:806
+msgid "This file has already finished downloading"
+msgstr "Αυτό το αρχείο είναι ήδη σε αναμονή"
+
+#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
+msgid "Target filename too long"
+msgstr "Πολύ μακρύ όνομα αρχείου προορισμού"
+
+#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
+msgid ""
+"Invalid target file (missing directory, check default download directory "
+"setting)"
+msgstr ""
+"Μη έγκυρο αρχείο προορισμού (λείπει φάκελος, ελέγξτε την ρύθμιση του "
+"προεπιλεγμένου κατάλογο λήψης)"
+
+#: ../QueueManager.cpp:864
+msgid "File already exists at the target location"
+msgstr ""
+"Ένα αρχείο με ίδιο ή μεγαλύτερο μέγεθος υπάρχει ήδη στην τοποθεσία "
+"προορισμού"
+
+#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
+msgid "Duplicate source: %1%"
+msgstr "Διπλότυπη πηγή: %1%"
+
+#: ../QueueManager.cpp:1149
+msgid "Target removed"
+msgstr "Αφαιρέθηκε ο προορισμός"
+
+#: ../QueueManager.cpp:1157
+msgid "Target file is missing or wrong size"
+msgstr "Το αρχείο προορισμού λείπει ή έχει λάθος μέγεθος"
+
+#: ../QueueManager.cpp:1206
+msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
+msgstr "Αδυναμία μετακίνησης %1% σε %2% (%3%). μετονομάστηκε σε %4%"
+
+#: ../QueueManager.cpp:1209
+msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
+msgstr ""
+"Αδυναμία μετακίνησης %1% σε %2% (%3%) ούτε να μετονομαστεί σε %4% (%5%)"
+
+#: ../QueueManager.cpp:1407
+msgid "Unable to open filelist: %1%"
+msgstr "Αδυναμία να ανοιχτεί λίστα αρχείων: %1%"
+
+#: ../QueueManager.cpp:1430
+msgid "%1%: Matched %2% file"
+msgstr "%1%: Ταίριασε αρχείο %2%"
+
+#: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr "Ασυνέπεια CRC32 (Έλεγχος SFV)"
+
+#: ../Streams.h:144
+msgid "More bytes written than requested"
+msgstr "Γράφηκαν περισσότερα bytes απ' ότι αιτήθηκαν"
+
+#: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
+msgid "TTH inconsistency"
+msgstr "Ασυνέπεια TTH"
+
+#~ msgid "Request to seek beyond the end of data"
+#~ msgstr "Request to seek beyond the end of data"
+
+
