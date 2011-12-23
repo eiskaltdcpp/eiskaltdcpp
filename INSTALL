@@ -156,7 +156,7 @@ Keys for cmake
 -DUSE_JS=ON/OFF (default: OFF)
     Enable/disable QtScript basic support
 -DUSE_QT_QML=ON/OFF (default: OFF)
-    Enable/disable Qt Declarative Ui support. Work only with Qt >= 4.7.0
+    Enable/disable Qt Declarative UI support. Work only with Qt >= 4.7.0
 -DUSE_QT_SQLITE=ON/OFF (default: OFF)
     Build with SQLite support. (This is experimental option)
  -----------------
