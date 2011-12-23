@@ -104,12 +104,14 @@ Section "EiskaltDC++"
 SectionEnd
 
 Section "Start Menu Shortcuts"
+  SetShellVarContext all
   CreateDirectory "$SMPROGRAMS\EiskaltDC++"
   CreateShortCut  "$SMPROGRAMS\EiskaltDC++\EiskaltDC++.lnk" "$INSTDIR\eiskaltdcpp-qt.exe"
   CreateShortCut  "$SMPROGRAMS\EiskaltDC++\Uninstall.lnk"   "$INSTDIR\uninstall.exe"
 SectionEnd
 
 Section "Uninstall"
+  SetShellVarContext all
   RMDir /r "$SMPROGRAMS\EiskaltDC++"
   RMDir /r "$INSTDIR"
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY}
