@@ -19,7 +19,7 @@
 #include "stdinc.h"
 #include "Thread.h"
 
-#ifndef _WIN32
+#if !defined(_WIN32) && !defined(APPLE)
 #include "sys/prctl.h"
 #endif
 
@@ -55,7 +55,7 @@ void Thread::setThreadName(const char* const threadName) const {
     // pthread_setname_np is supported starting Mac OS X 10.6
 
     // Mac OS X allegedly truncates thread names to 63 chars
-    pthread_setname_np(threadName);
+    // pthread_setname_np(threadName);
 #elif defined(_WIN32)
     // TODO, see http://msdn.microsoft.com/en-us/library/xcb2z8hs.aspx
 #elif defined(__linux__)
