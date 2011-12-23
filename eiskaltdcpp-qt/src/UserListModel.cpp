@@ -30,13 +30,6 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
     stripper.setPattern("\\[.*\\]");
     stripper.setMinimal(true);
 
-    _needResort = false;
-
-    t = new QTimer();
-    t->setSingleShot(true);
-    t->setInterval(7000);
-    connect(t, SIGNAL(timeout()), this, SLOT(slotResort()));
-
     rootItem = new UserListItem(NULL);
 
     WU = WulforUtil::getInstance();
@@ -45,8 +38,6 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
 
 UserListModel::~UserListModel() {
     delete rootItem;
-
-    t->deleteLater();
 }
 
 
@@ -317,15 +308,6 @@ void UserListModel::clear() {
     emit layoutChanged();
 }
 
-void UserListModel::needResort(){
-    if (_needResort)
-        return;
-
-    _needResort = true;
-
-    t->start();
-}
-
 void UserListModel::removeUser(const UserPtr &ptr) {
     USRMap::iterator iter = users.find(ptr);
 
@@ -344,6 +326,46 @@ void UserListModel::removeUser(const UserPtr &ptr) {
     users.erase(iter);
 
     endRemoveRows();
+}
+
+void UserListModel::updateUser(UserListItem *item) {
+    if (!item || item->parent() != rootItem)
+        return;
+    
+    item->updateIdentity();
+    
+    if (sortColumn == -1)
+        return;
+        
+    static AscendingCompare  acomp = AscendingCompare();
+    static DescendingCompare dcomp = DescendingCompare();
+    
+    const int itemRow = item->row();
+    
+    beginRemoveRows(QModelIndex(), itemRow, itemRow);
+    {
+        rootItem->childItems.removeAt(itemRow);
+    }
+    endRemoveRows();
+    
+    QList<UserListItem*>::iterator it = rootItem->childItems.end();
+
+    if (sortOrder == Qt::AscendingOrder)
+        it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
+    else if (sortOrder == Qt::DescendingOrder)
+        it = dcomp.insertSorted(sortColumn, rootItem->childItems, item);
+    
+    const int pos = it - rootItem->childItems.begin();
+    
+    beginInsertRows(QModelIndex(), pos, pos);
+    {
+        rootItem->childItems.insert(it, item);
+    }
+    endInsertRows();
+}
+
+void UserListModel::updateUser(const UserPtr &ptr) {
+    updateUser(itemForPtr(ptr));
 }
 
 void UserListModel::addUser(const QString& nick,

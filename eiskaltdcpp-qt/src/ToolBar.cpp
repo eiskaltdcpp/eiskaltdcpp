@@ -12,6 +12,7 @@
 
 #include <QMenu>
 #include <QMouseEvent>
+#include <QTimer>
 
 #include "ArenaWidget.h"
 #include "ArenaWidgetManager.h"

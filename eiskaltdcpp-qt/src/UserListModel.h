@@ -17,7 +17,6 @@
 #include <QList>
 #include <QStringList>
 #include <QRegExp>
-#include <QTimer>
 
 #ifndef _WIN32
 #include <limits.h>
@@ -122,6 +121,9 @@ public:
                     const QString& cid= QString(),
                     const UserPtr& = UserPtr()
                 );
+    
+    void updateUser(const UserPtr&);
+    void updateUser(UserListItem *);
 
     UserListItem *itemForPtr(const UserPtr&);
     UserListItem *itemForNick(const QString&, const QString&);
@@ -146,10 +148,6 @@ public:
     void repaint() { emit layoutChanged(); }
     void repaintItem(const UserListItem *item);
     inline void repaintData(const QModelIndex &left, const QModelIndex &right){ emit dataChanged(left, right); }
-    void needResort();
-
-private slots:
-    void slotResort(){ sort(sortColumn, sortOrder); _needResort = false; users.squeeze();}
 
 private:
     UserListItem *rootItem;
@@ -161,9 +159,6 @@ private:
     int sortColumn;
     Qt::SortOrder sortOrder;
     QRegExp stripper;
-
-    QTimer *t;
-    bool _needResort;
 
     WulforUtil *WU;
 };

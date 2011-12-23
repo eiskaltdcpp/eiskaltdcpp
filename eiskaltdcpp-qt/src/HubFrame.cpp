@@ -2103,9 +2103,7 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
     if (item){
         d->total_shared -= item->getShare();
  
-        item->updateIdentity();
-
-        d->model->needResort();
+        d->model->updateUser(item);
     }
     else{
         if (join && WS->getBool(WB_CHAT_SHOW_JOINS)){
