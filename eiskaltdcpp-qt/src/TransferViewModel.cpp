@@ -147,31 +147,18 @@ namespace {
 
 template <Qt::SortOrder order>
 struct Compare {
-    void static sort(int col, QList<TransferViewItem*>& items) {
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
+    void static sort(unsigned col, QList<TransferViewItem*>& items) {
+        qStableSort(items.begin(), items.end(), attrs[col]);
     }
 
-    void static insertSorted(int col, QList<TransferViewItem*>& items, TransferViewItem* item) {
-        QList<TransferViewItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+    void static insertSorted(unsigned col, QList<TransferViewItem*>& items, TransferViewItem* item) {
+        QList<TransferViewItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, attrs[col]);
         items.insert(it, item);
     }
 
     private:
         typedef bool (*AttrComp)(const TransferViewItem * l, const TransferViewItem * r);
-        AttrComp static getAttrComp(const int column) {
-            static AttrComp attrs[9] = {   AttrCmp<COLUMN_TRANSFER_USERS>,
-                                           NumCmp<COLUMN_TRANSFER_SPEED>,
-                                           AttrCmp<COLUMN_TRANSFER_STATS>,
-                                           NumCmp<COLUMN_TRANSFER_SIZE>,
-                                           NumCmp<COLUMN_TRANSFER_TLEFT>,
-                                           AttrCmp<COLUMN_TRANSFER_FNAME>,
-                                           AttrCmp<COLUMN_TRANSFER_HOST>,
-                                           AttrCmp<COLUMN_TRANSFER_IP>,
-                                           AttrCmp<COLUMN_TRANSFER_ENCRYPTION>
-                                       };
 
-            return attrs[column];
-        }
         template <int i>
         bool static AttrCmp(const TransferViewItem * l, const TransferViewItem * r) {
             return Cmp(QString::localeAwareCompare(l->data(i).toString(), r->data(i).toString()), 0);
@@ -182,7 +169,20 @@ struct Compare {
        }
         template <typename T>
         bool static Cmp(const T& l, const T& r);
+        
+        static AttrComp attrs[9];
 };
+template <Qt::SortOrder order>
+typename Compare<order>::AttrComp Compare<order>::attrs[9] = {   AttrCmp<COLUMN_TRANSFER_USERS>,
+                                                                 NumCmp<COLUMN_TRANSFER_SPEED>,
+                                                                 AttrCmp<COLUMN_TRANSFER_STATS>,
+                                                                 NumCmp<COLUMN_TRANSFER_SIZE>,
+                                                                 NumCmp<COLUMN_TRANSFER_TLEFT>,
+                                                                 AttrCmp<COLUMN_TRANSFER_FNAME>,
+                                                                 AttrCmp<COLUMN_TRANSFER_HOST>,
+                                                                 AttrCmp<COLUMN_TRANSFER_IP>,
+                                                                 AttrCmp<COLUMN_TRANSFER_ENCRYPTION>
+                                                             };
 
 template <> template <typename T>
 bool inline Compare<Qt::AscendingOrder>::Cmp(const T& l, const T& r) {
