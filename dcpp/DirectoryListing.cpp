@@ -101,7 +101,13 @@ void DirectoryListing::loadFile(const string& name) {
 
 class ListLoader : public dcpp::SimpleXMLReader::CallBack {
 public:
-    ListLoader(DirectoryListing::Directory* root, bool aUpdating) : cur(root), base("/"), inListing(false), updating(aUpdating) {
+    ListLoader(DirectoryListing::Directory* root, bool aUpdating) : cur(root), 
+                                                                    base("/"), 
+                                                                    inListing(false), 
+                                                                    updating(aUpdating),
+                                                                    m_is_mediainfo_list(false),
+                                                                    m_is_first_check_mediainfo_list(false)
+    {
     }
 
     virtual ~ListLoader() { }
@@ -117,6 +123,8 @@ private:
     string base;
     bool inListing;
     bool updating;
+    bool m_is_mediainfo_list;
+    bool m_is_first_check_mediainfo_list;
 };
 
 string DirectoryListing::updateXML(const string& xml) {
@@ -144,6 +152,7 @@ static const string sBR = "BR";
 static const string sWH = "WH";
 static const string sMVideo = "MV";
 static const string sMAudio = "MA";
+static const string sTS = "TS";
 
 void ListLoader::startTag(const string& name, StringPairList& attribs, bool simple) {
     if(inListing) {
@@ -175,10 +184,24 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
             }
             
             DirectoryListing::File* f = new DirectoryListing::File(cur, n, size, tth);
-            f->mediaInfo.video_info = getAttrib(attribs, sMVideo, 3);
-            f->mediaInfo.audio_info = getAttrib(attribs, sMAudio, 3);
-            f->mediaInfo.resolution = getAttrib(attribs, sWH, 3);
-            f->mediaInfo.bitrate    = atoi(getAttrib(attribs, sBR, 4).c_str());
+            
+            string l_ts = "";
+            
+            if (!m_is_first_check_mediainfo_list){
+                m_is_first_check_mediainfo_list = true;
+                l_ts = getAttrib(attribs, sTS, 3);
+                m_is_mediainfo_list = !l_ts.empty();
+            }
+            else if (m_is_mediainfo_list) {
+                l_ts = getAttrib(attribs, sTS, 3);
+            }
+            
+            if (!l_ts.empty()){
+                f->mediaInfo.video_info = getAttrib(attribs, sMVideo, 3);
+                f->mediaInfo.audio_info = getAttrib(attribs, sMAudio, 3);
+                f->mediaInfo.resolution = getAttrib(attribs, sWH, 3);
+                f->mediaInfo.bitrate    = atoi(getAttrib(attribs, sBR, 4).c_str());
+            }
             
             cur->files.push_back(f);
         } else if(name == sDirectory) {
