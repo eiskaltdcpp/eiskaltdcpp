@@ -19,8 +19,10 @@
 #include "stdinc.h"
 #include "Thread.h"
 
+#ifdef _DEBUG
 #if !defined(_WIN32) && !defined(APPLE)
 #include "sys/prctl.h"
+#endif
 #endif
 
 #include "format.h"
@@ -45,9 +47,7 @@ void Thread::start() {
 #endif
 
 void Thread::setThreadName(const char* const threadName) const {
-#ifndef _DEBUG
-    return;
-#endif
+#ifdef _DEBUG
 
 #if defined(__HAIKU__)
     // TODO, see http://haiku-os.org/legacy-docs/bebook/TheKernelKit_ThreadsAndTeams.html#rename_thread
@@ -69,6 +69,8 @@ void Thread::setThreadName(const char* const threadName) const {
 #elif defined(BSD)
     // TODO, see http://www.unix.com/man-page/All/3/PTHREAD_SET_NAME_NP/
 #endif
+    
+#endif // _DEBUG
 } // setThreadName()
 
 } // namespace dcpp
