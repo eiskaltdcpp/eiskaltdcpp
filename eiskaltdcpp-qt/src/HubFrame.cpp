@@ -2089,8 +2089,10 @@ void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
 void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, bool join){
     Q_D(HubFrame);
     
-    static WulforSettings *WS = WulforSettings::getInstance();
-    static bool showFavJoinsOnly = WS->getBool(WB_CHAT_SHOW_JOINS_FAV);
+    static WulforSettings *WS       = WulforSettings::getInstance();
+    static bool showFavJoinsOnly    = WS->getBool(WB_CHAT_SHOW_JOINS_FAV);
+    static bool showJoins           = WS->getBool(WB_CHAT_SHOW_JOINS);
+    const  bool isFavorite          = FavoriteManager::getInstance()->isFavoriteUser(user);
 
     if (!d->model)
         return;
@@ -2106,9 +2108,9 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
         d->model->updateUser(item);
     }
     else{
-        if (join && WS->getBool(WB_CHAT_SHOW_JOINS)){
+        if (join && showJoins){
             do {
-                if (showFavJoinsOnly && !FavoriteManager::getInstance()->isFavoriteUser(user))
+                if (showFavJoinsOnly && !isFavorite)
                     break;
 
                 addStatus(nick + tr(" joins the chat"));
@@ -2117,7 +2119,7 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
 
         d->model->addUser(nick, cid, user);
 
-        if (FavoriteManager::getInstance()->isFavoriteUser(user))
+        if (isFavorite)
             Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now online").arg(nick));
 
         if (d->pm.contains(nick)){
