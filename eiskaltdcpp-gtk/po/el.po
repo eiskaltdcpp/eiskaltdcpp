@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-12-22 11:02+0000\n"
+"PO-Revision-Date: 2011-12-23 08:54+0000\n"
 "Last-Translator: kge <kgeorgokitsos@yahoo.de>\n"
 "Language-Team: Greek (http://www.transifex.net/projects/p/eiskaltdcpp/team/el/)\n"
 "MIME-Version: 1.0\n"
@@ -63,7 +63,7 @@ msgstr "φίλτρο"
 
 #: ../src/hub.cc:422 ../src/hub.cc:433
 msgid " has joined"
-msgstr "δυνδέθηκε"
+msgstr "συνδέθηκε"
 
 #: ../src/hub.cc:423 ../src/hub.cc:432
 msgid " has joined hub "
@@ -447,101 +447,105 @@ msgstr "<b>Έντονη καρτέλα όταν αλλάζει το περιεχ
 
 #: ../ui/settingsdialog.ui:930
 msgid "<b>Text sent to hub</b>"
-msgstr ""
+msgstr "<b>Κείμενο στάλθηκε στον κόμβο</b>"
 
 #: ../ui/settingsdialog.ui:5693
 msgid "<b>Text styles</b>"
-msgstr ""
+msgstr "<b>Στυλ κείμενου</b>"
 
 #: ../ui/settingsdialog.ui:4541
 msgid "<b>Timestamps</b>"
-msgstr ""
+msgstr "Χρονική σφραγίδα"
 
 #: ../ui/settingsdialog.ui:5323
 msgid "<b>Title</b>"
-msgstr ""
+msgstr "<b>αρχείο:</b> "
 
 #: ../ui/settingsdialog.ui:5895
 msgid "<b>Toolbar buttons</b>"
-msgstr ""
+msgstr "<b>Κουμπιά εργαλειοθήκης</b>"
 
 #: ../ui/settingsdialog.ui:2014
 msgid "<b>Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Περιορισμός Ταχύτητας Μεταφοράς</b>"
 
 #: ../src/settingsdialog.cc:3515
 msgid "<b>Under what name you see the directory</b>"
-msgstr ""
+msgstr "<b>Όνομα που βλέπετε εσείς το φάκελο</b>"
 
 #: ../ui/mainwindow.ui:429
 msgid "<b>What would you like to do?</b>"
-msgstr ""
+msgstr "<b>Τι θα θέλατε να κάνετε;</b>"
 
 #: ../ui/settingsdialog.ui:4738
 msgid "<b>Window Options</b>"
-msgstr ""
+msgstr "<b>Ρυθμίσεις Παραθυριών</b>"
 
 #: ../src/mainwindow.cc:2231
 msgid "<b>file:</b> "
-msgstr ""
+msgstr "<b>αρχείο:</b> "
 
 #: ../ui/favoritehubs.ui:475
 msgid "<small>Note: Leave unchecked for default values</small>"
 msgstr ""
+"<small>Σημείωση: Αφήστε αποεπιλεγμένο για προκαθορισμένες τιμές</small>"
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
-msgstr ""
+msgstr ";"
 
 #: ../ui/mainwindow.ui:2364 ../ui/mainwindow.ui:2547
 msgid "ADL"
-msgstr ""
+msgstr "ADL"
 
 #: ../src/adlsearch.cc:31 ../ui/mainwindow.ui:2362
 msgid "ADL Search"
-msgstr ""
+msgstr "Αναζήτηση"
 
 #: ../ui/adlsearch.ui:8
 msgid "ADLSearch Properties"
-msgstr ""
+msgstr "Συμβολοσειρά αναζήτησης"
 
 #: ../ui/mainwindow.ui:1686
 msgid "About EiskaltDC++"
-msgstr ""
+msgstr "Σχετικά με το EiskaltDC++"
 
 #: ../src/settingsdialog.cc:1480
 msgid "Accept custom user commands from hub"
-msgstr ""
+msgstr "Αποδοχή προσαρμοσμένων εντολών χρήστη από τον κόμβο"
 
 #: ../ui/settingsdialog.ui:1432
 msgid "Active"
-msgstr ""
+msgstr "Ενεργό"
 
 #: ../ui/settingsdialog.ui:7897
 msgid "Add"
-msgstr ""
+msgstr "Προστέθηκε"
 
 #: ../ui/mainwindow.ui:2431
 msgid "Add / Remove"
-msgstr ""
+msgstr "Προσθήκη / Αφαίρεση"
 
 #: ../src/hub.cc:2004 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
-msgstr ""
+msgstr "Προσθήκη κόμβου στα αγαπημένα"
 
 #: ../src/settingsdialog.cc:1482
 msgid "Add finished files to share instantly (if shared)"
-msgstr ""
+msgstr "Άμεση προσθήκη ολοκληρωμένων αρχείων στα κοινόχρηστα (αν μοιράζονται)"
 
 #: ../src/hub.cc:2034
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
 msgstr ""
+"Πρόσθεσε κανόνα 192.168.1.0/23 όπου κατεύθυνση είναι εισερχόμενη και δράση "
+"είναι vα επιτρέπεται και 192.168.6.0/24 όπου κατεύθυνση είναι εισερχόμενη ή "
+"εξερχόμενη και δράση είναι απόρριψη"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
-msgstr ""
+msgstr "Πρόσθεσε αυτό το αρχείο στην ουρά λήψεων"
 
 #: ../ui/uploadqueue.ui:60
 msgid "Add to Favorite Users"
@@ -549,24 +553,24 @@ msgstr ""
 
 #: ../ui/publichubs.ui:418
 msgid "Add to favorites"
-msgstr ""
+msgstr "Πρόσθεσε κόμβο στα αγαπημένα"
 
 #: ../src/hub.cc:2005 ../src/privatemessage.cc:1021 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
-msgstr ""
+msgstr "Πρόσθεσε χρήστη στη λίστα αγαπημένων"
 
 #: ../ui/adlsearch.ui:452 ../ui/adlsearch.ui:535
 msgid "Add..."
-msgstr ""
+msgstr "Πρόσθεσε..."
 
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:286
 #: ../src/downloadqueue.cc:393
 msgid "Added"
-msgstr ""
+msgstr "Προστέθηκε"
 
 #: ../ui/settingsdialog.ui:6004
 msgid "Adding string or TTH in the top"
-msgstr ""
+msgstr "Προσθήκη συμβολοσειράς ή TTH στην κορυφή"
 
 #: ../src/favoritehubs.cc:55 ../src/favoritehubs.cc:135
 #: ../src/favoritehubs.cc:149 ../src/favoritehubs.cc:222
@@ -576,79 +580,80 @@ msgstr ""
 #: ../src/publichubs.cc:44 ../src/publichubs.cc:159 ../src/publichubs.cc:269
 #: ../src/publichubs.cc:294
 msgid "Address"
-msgstr ""
+msgstr "διεύθυνση"
 
 #: ../ui/settingsdialog.ui:2553 ../ui/settingsdialog.ui:6861
 #: ../ui/settingsdialog.ui:7850
 msgid "Advanced"
-msgstr ""
+msgstr "Για προχωρημένους"
 
 #: ../src/hub.cc:2029
 msgid "Alias A executing"
-msgstr ""
+msgstr "Ψευδώνυμο Α εκτελείται"
 
 #: ../src/hub.cc:2026
 msgid "Alias List"
-msgstr ""
+msgstr "Λίστα Ψευδώνυμων"
 
 #: ../src/hub.cc:2027
 msgid "Alias Remove A"
-msgstr ""
+msgstr "Ψευδώνυμο Αφαίρεση Α"
 
 #: ../src/hub.cc:2028
 msgid "Alias add uname -a as A"
-msgstr ""
+msgstr "Ψευδώνυμο προσθήκη uname -a ως Α"
 
 #: ../src/hub.cc:2228
 msgid "Aliases not found."
-msgstr ""
+msgstr "Δεν βρέθηκε ο χρήστης"
 
 #: ../src/settingsdialog.cc:1552
 msgid "Allow TLS connections to clients without trusted certificate"
-msgstr ""
+msgstr "Επιτρέπονται συνδέσεις TLS σε πελάτες χωρίς έμπιστο πιστοποιητικό"
 
 #: ../src/settingsdialog.cc:1551
 msgid "Allow TLS connections to hubs without trusted certificate"
-msgstr ""
+msgstr "Επιτρέπονται συνδέσεις TLS σε κόμβους χωρίς έμπιστο πιστοποιητικό"
 
 #: ../src/settingsdialog.cc:1489
 msgid "Allow overlap chunks"
-msgstr ""
+msgstr "Να επιτρέπονται κομμάτια που επικαλύπτονται"
 
 #: ../src/settingsdialog.cc:916
 msgid "Amarok player"
-msgstr ""
+msgstr "Ο αναπαραγωγέας amarok"
 
 #: ../ui/settingsdialog.ui:4579 ../ui/settingsdialog.ui:6412
 msgid "Appearance"
-msgstr ""
+msgstr "Εμφάνιση"
 
 #: ../src/settingsdialog.cc:889 ../src/settingsdialog.cc:924
 #: ../src/settingsdialog.cc:2795 ../src/settingsdialog.cc:2829
 #: ../src/settingsdialog.cc:2847 ../src/settingsdialog.cc:2878
 msgid "Application"
-msgstr ""
+msgstr "Εφαρμογή"
 
 #: ../ui/settingsdialog.ui:3806
 msgid "Application:"
-msgstr ""
+msgstr "Εφαρμογή"
 
 #: ../ui/searchspy.ui:242
 msgid "Apply settings"
-msgstr ""
+msgstr "Εφαρμογή ρυθμήσεων"
 
 #: ../ui/settingsdialog.ui:3834
 msgid "Apply to Extensions: (avi;mov;divx)"
-msgstr ""
+msgstr "Εφαρμογή στις Επεκτάσεις: (avi;mov;divx)"
 
 #: ../src/favoritehubs.cc:425
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
+msgstr "Είστε σίγουρος ότι θέλετε να διαγράψετε τον αγαπημένο κόμβο \"%s\";"
 
 #: ../src/favoriteusers.cc:438
 msgid "Are you sure you want to delete favorite user(s)?"
 msgstr ""
+"Είστε σίγουρος ότι θέλετε να διαγράψετε τον αγαπημένο(-ους) χρήστη(-ες) "
 
 #: ../src/sharebrowser.cc:83 ../src/sharebrowser.cc:329
 msgid "Audio"
@@ -658,25 +663,25 @@ msgstr ""
 #: ../src/favoritehubs.cc:127 ../src/favoritehubs.cc:303
 #: ../src/favoritehubs.cc:466 ../src/favoritehubs.cc:468
 msgid "Auto Connect"
-msgstr ""
+msgstr "Αυτόματη σύνδεση"
 
 #: ../ui/favoritehubs.ui:91
 msgid "Auto connect on _startup"
-msgstr ""
+msgstr "Αυτόματη σύνδεση"
 
 #: ../src/favoriteusers.cc:44 ../src/favoriteusers.cc:65
 #: ../src/favoriteusers.cc:108 ../src/favoriteusers.cc:470
 #: ../src/favoriteusers.cc:472
 msgid "Auto grant slot"
-msgstr ""
+msgstr "Αυτόματη έγκριση υποδοχής"
 
 #: ../ui/settingsdialog.ui:7335
 msgid "Auto refresh time"
-msgstr ""
+msgstr "Χρόνος αυτόματης ενημέρωσης"
 
 #: ../src/settingsdialog.cc:1471
 msgid "Auto-away on minimize (and back on restore)"
-msgstr ""
+msgstr "Αυτόματα απών κατά την ελαχιστοποίηση (και επιστροφή στην επαναφορά)"
 
 #: ../src/settingsdialog.cc:949
 msgid "Auto-drop slow sources for all queue items (except filelists)"
