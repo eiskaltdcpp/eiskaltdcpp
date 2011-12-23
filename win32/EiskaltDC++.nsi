@@ -86,8 +86,8 @@ Section "EiskaltDC++"
 
   File "installer\libstdc++-6.dll"
 
-  ;File "installer\libpcrecpp-0.dll"
-  ;File "installer\libpcre-0.dll"
+  File "installer\libpcrecpp-0.dll"
+  File "installer\libpcre-0.dll"
 
   File /r "installer\aspell"
   File /r "installer\plugins"

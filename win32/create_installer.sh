@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source ./variables.sh
+. ./variables.sh
 
 make -k install DESTDIR=$INSTALL_DIR
 
@@ -42,8 +42,8 @@ cp "$MINGW32_DEPENDS_DIR/script/qtscript_xml.dll"         "$INSTALLER_DIR/script
 cp "$MINGW32_DEPENDS_DIR/script/qtscript_xmlpatterns.dll" "$INSTALLER_DIR/script/"
 
 cp "$QT_MINGW32_DIR/bin/libgcc_s_dw2-1.dll"               "$INSTALLER_DIR"
-cp "$MINGW32_DIR/bin/libgcc_s_sjlj-1.dll"                 "$INSTALLER_DIR"
-cp "$MINGW32_DIR/bin/libstdc++-6.dll"                     "$INSTALLER_DIR"
+#cp "$MINGW32_DIR/bin/libgcc_s_sjlj-1.dll"                 "$INSTALLER_DIR"
+#cp "$MINGW32_DIR/bin/libstdc++-6.dll"                     "$INSTALLER_DIR"
 cp "$MINGW32_DIR/bin/mingwm10.dll"                        "$INSTALLER_DIR"
 
 cp "$GETTEXT_DIR/bin/libintl-8.dll"                       "$INSTALLER_DIR"
@@ -53,15 +53,15 @@ cp "$LIBBZ2_DIR/bin/libbz2-2.dll"                         "$INSTALLER_DIR"
 cp "$LUA_DIR/bin/lua51.dll"                               "$INSTALLER_DIR"
 cp "$LIBIDN_DIR/bin/libidn-11.dll"                        "$INSTALLER_DIR"
 cp "$ASPELL_DIR/bin/libaspell-15.dll"                     "$INSTALLER_DIR"
-#cp "$PCRE_DIR/bin/libpcre-0.dll"                          "$INSTALLER_DIR"
-#cp "$PCRE_DIR/bin/libpcrecpp-0.dll"                       "$INSTALLER_DIR"
+cp "$PCRE_DIR/bin/libpcre-0.dll"                          "$INSTALLER_DIR"
+cp "$PCRE_DIR/bin/libpcrecpp-0.dll"                       "$INSTALLER_DIR"
 
 mkdir -p "$INSTALLER_DIR/aspell/data/"
 mkdir -p "$INSTALLER_DIR/aspell/dict/"
 cp $ASPELL_DIR/lib/aspell-0.60/*                          "$INSTALLER_DIR/aspell/data/"
 
-cp "$OPENSSL_DIR/ssleay32.dll"                            "$INSTALLER_DIR"
-cp "$OPENSSL_DIR/libeay32.dll"                            "$INSTALLER_DIR"
+cp "$OPENSSL_DIR/bin/ssleay32.dll"                        "$INSTALLER_DIR"
+cp "$OPENSSL_DIR/bin/libeay32.dll"                        "$INSTALLER_DIR"
 
 mkdir -p "$INSTALLER_DIR/plugins/sqldrivers/"
 cp "$QT_MINGW32_DIR/plugins/sqldrivers/qsqlite4.dll"      "$INSTALLER_DIR/plugins/sqldrivers/"

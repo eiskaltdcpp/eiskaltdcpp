@@ -42,13 +42,15 @@ copy /Y "%LIBBZ2_DIR%\bin\libbz2-2.dll"                         "%INSTALL_DIR%"
 copy /Y "%LUA_DIR%\bin\lua51.dll"                               "%INSTALL_DIR%"
 copy /Y "%LIBIDN_DIR%\bin\libidn-11.dll"                        "%INSTALL_DIR%"
 copy /Y "%ASPELL_DIR%\bin\libaspell-15.dll"                     "%INSTALL_DIR%"
+copy /Y "%PCRE_DIR%\bin\libpcre-0.dll"                          "%INSTALL_DIR%"
+copy /Y "%PCRE_DIR%\bin\libpcrecpp-0.dll"                       "%INSTALL_DIR%"
 
 mkdir "%INSTALL_DIR%\aspell\data\"
 mkdir "%INSTALL_DIR%\aspell\dict\"
 copy /Y "%ASPELL_DIR%\lib\aspell-0.60\*"                        "%INSTALL_DIR%\aspell\data\"
 
-copy /Y "%SystemRoot%\System32\ssleay32.dll"                    "%INSTALL_DIR%"
-copy /Y "%SystemRoot%\System32\libeay32.dll"                    "%INSTALL_DIR%"
+copy /Y "%OPENSSL_DIR%\bin\ssleay32.dll"                        "%INSTALL_DIR%"
+copy /Y "%OPENSSL_DIR%\bin\libeay32.dll"                        "%INSTALL_DIR%"
 
 mkdir "%INSTALL_DIR%\plugins\sqldrivers\"
 copy /Y "%QT_MINGW32_DIR%\plugins\sqldrivers\qsqlite4.dll"      "%INSTALL_DIR%\plugins\sqldrivers\"
