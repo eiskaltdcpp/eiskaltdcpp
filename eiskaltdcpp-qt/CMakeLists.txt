@@ -318,7 +318,7 @@ if (UNIX)
   EXECUTE_PROCESS (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE ${PROJECT_NAME}.1
+                INPUT_FILE eiskaltdcpp-qt.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
 endif (UNIX)
 
