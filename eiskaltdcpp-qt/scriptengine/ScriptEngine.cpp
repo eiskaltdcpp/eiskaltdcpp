@@ -310,8 +310,6 @@ void ScriptEngine::slotScriptChanged(const QString &script){
         stopScript(script);
     else if (!changedFiles.contains(script)){
         changedFiles.push_back(script);
-     
-        syncTimer->start();
     }
 }
 
