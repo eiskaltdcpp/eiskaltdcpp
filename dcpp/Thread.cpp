@@ -19,10 +19,8 @@
 #include "stdinc.h"
 #include "Thread.h"
 
-#ifdef _DEBUG
-#if !defined(_WIN32) && !defined(APPLE)
+#if defined(_DEBUG) && defined(__linux__)
 #include "sys/prctl.h"
-#endif
 #endif
 
 #include "format.h"
