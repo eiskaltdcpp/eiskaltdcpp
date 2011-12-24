@@ -24,6 +24,7 @@
 #endif
 #include "ArenaWidgetManager.h"
 #include "MainWindow.h"
+#include "GlobalTimer.h"
 
 #include "UserListModel.h"
 #include "EmoticonFactory.h"
@@ -67,8 +68,6 @@ class HubFramePrivate {
     typedef QMap<QString, QVariant> VarMap;
     typedef QList<ShellCommandRunner*> ShellList;
 public:
-    QTimer *updater;
-
     QMenu *arenaMenu;
 
     Client *client;
@@ -834,8 +833,6 @@ HubFrame::~HubFrame(){
 
     delete d->model;
     delete d->proxy;
-
-    delete d->updater;
     
     delete d;
 }
@@ -1066,8 +1063,6 @@ void HubFrame::closeEvent(QCloseEvent *e){
     d->client->disconnect(true);
     ClientManager::getInstance()->putClient(d->client);
 
-    d->updater->stop();
-
     save();
 
     PMMap::const_iterator it = d->pm.constBegin();
@@ -1137,10 +1132,6 @@ void HubFrame::hideEvent(QHideEvent *e){
 void HubFrame::init(){
     Q_D(HubFrame);
     
-    d->updater = new QTimer();
-    d->updater->setInterval(5000);
-    d->updater->setSingleShot(false);
-
     d->model = new UserListModel(this);
     d->proxy = NULL;
 
@@ -1206,7 +1197,7 @@ void HubFrame::init(){
     connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
     connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
-    connect(d->updater, SIGNAL(timeout()), this, SLOT(slotUsersUpdated()));
+    connect(GlobalTimer::getInstance(), SIGNAL(second()), this, SLOT(slotUsersUpdated()));
     connect(textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
@@ -1237,8 +1228,6 @@ void HubFrame::init(){
     updateStyles();
 
     load();
-
-    d->updater->start();
 
     d->completer = new QCompleter(this);
 #if QT_VERSION >= 0x040600

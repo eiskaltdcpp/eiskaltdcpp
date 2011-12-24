@@ -57,6 +57,7 @@ list (APPEND SRCS
             src/FinishedTransfers.cpp
             src/FinishedTransfersModel.cpp
             src/FlowLayout.cpp
+            src/GlobalTimer.cpp
             src/HashProgress.cpp
             src/HubFrame.cpp
             src/HubManager.cpp
@@ -136,6 +137,7 @@ list(APPEND MOC_HDRS
             src/FinishedTransfers.h
             src/FinishedTransfersModel.h
             src/FlowLayout.h
+            src/GlobalTimer.h
             src/HashProgress.h
             src/HubFrame.h
             src/HubManager.h

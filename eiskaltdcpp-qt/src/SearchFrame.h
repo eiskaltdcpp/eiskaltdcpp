@@ -207,7 +207,6 @@ private:
     QList<dcpp::Client*> client_list;
 
     QTimer *timer;
-    QTimer *timer1;
 
     QCompleter *completer;
 

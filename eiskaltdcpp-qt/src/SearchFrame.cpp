@@ -33,6 +33,7 @@
 #include "ArenaWidgetManager.h"
 #include "ArenaWidgetFactory.h"
 #include "DownloadToHistory.h"
+#include "GlobalTimer.h"
 
 #include "dcpp/CID.h"
 #include "dcpp/ClientManager.h"
@@ -319,7 +320,6 @@ SearchFrame::SearchFrame(QWidget *parent):
         results(0L),
         filterShared(SearchFrame::None),
         withFreeSlots(false),
-        timer1(NULL),
         saveFileType(true),
         proxy(NULL),
         completer(NULL),
@@ -361,9 +361,6 @@ SearchFrame::SearchFrame(QWidget *parent):
 SearchFrame::~SearchFrame(){
     Menu::deleteInstance();
 
-    SearchManager::getInstance()->removeListener(this);
-    ClientManager::getInstance()->removeListener(this);
-
     if (completer)
         completer->deleteLater();
 
@@ -374,6 +371,12 @@ SearchFrame::~SearchFrame(){
 }
 
 void SearchFrame::closeEvent(QCloseEvent *e){
+    SearchManager::getInstance()->removeListener(this);
+    ClientManager::getInstance()->removeListener(this);
+    
+    if (timer)
+        timer->stop();
+    
     save();
 
     setAttribute(Qt::WA_DeleteOnClose);
@@ -400,9 +403,6 @@ bool SearchFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void SearchFrame::init(){
-    timer1 = new QTimer(this);
-    timer1->setInterval(1000);
-
     model = new SearchModel(NULL);
     str_model = new SearchStringListModel(this);
 
@@ -485,7 +485,7 @@ void SearchFrame::init(){
     connect(treeView_RESULTS, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotResultDoubleClicked(QModelIndex)));
     connect(treeView_RESULTS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_RESULTS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
-    connect(timer1, SIGNAL(timeout()), this, SLOT(slotTimer()));
+    connect(GlobalTimer::getInstance(), SIGNAL(second()), this, SLOT(slotTimer()));
     connect(pushButton_SIDEPANEL, SIGNAL(clicked()), this, SLOT(slotToggleSidePanel()));
     connect(lineEdit_SEARCHSTR, SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
 	connect(lineEdit_SIZE,      SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
@@ -503,8 +503,6 @@ void SearchFrame::init(){
 
     QList<int> panes = splitter->sizes();
     left_pane_old_size = panes[0];
-
-    timer1->start();
 
     lineEdit_SEARCHSTR->setFocus();
 }

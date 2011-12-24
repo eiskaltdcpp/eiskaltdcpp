@@ -12,13 +12,13 @@
 
 #include <QMenu>
 #include <QMouseEvent>
-#include <QTimer>
 
 #include "ArenaWidget.h"
 #include "ArenaWidgetManager.h"
 #include "MainWindow.h"
 #include "PMWindow.h"
 #include "WulforSettings.h"
+#include "GlobalTimer.h"
 
 ToolBar::ToolBar(QWidget *parent):
     QToolBar(parent),
@@ -123,13 +123,8 @@ void ToolBar::initTabs(){
     connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this, SLOT(mapped(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(updated(ArenaWidget*)),   this, SLOT(updated(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(toggled(ArenaWidget*)),   this, SLOT(toggled(ArenaWidget*)));
-    
-    QTimer *timer = new QTimer(this);
-    timer->setInterval(1000);
-    timer->setSingleShot(false);
-    timer->start();
-    
-    connect(timer, SIGNAL(timeout()), this, SLOT(redraw()));
+       
+    connect(GlobalTimer::getInstance(), SIGNAL(second()), this, SLOT(redraw()));
 
     addWidget(tabbar);
 }

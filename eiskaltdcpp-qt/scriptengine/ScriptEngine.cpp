@@ -23,6 +23,7 @@
 #include "ShellCommandRunner.h"
 #include "WulforSettings.h"
 #include "DebugHelper.h"
+#include "GlobalTimer.h"
 
 #include "scriptengine/ClientManagerScript.h"
 #include "scriptengine/HashManagerScript.h"
@@ -61,14 +62,10 @@ ScriptEngine::ScriptEngine() :
     
     qRegisterMetaType<ArenaWidget::Flags>("Flags");
     qRegisterMetaType<ArenaWidget::Flags>("ArenaWidget::Flags");
-    
-    syncTimer = new QTimer(this);
-    syncTimer->setInterval(1000);
-    syncTimer->setSingleShot(true);
-    
+        
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotWSKeyChanged(QString,QString)));
     connect(&watcher, SIGNAL(fileChanged(QString)), this, SLOT(slotScriptChanged(QString)));
-    connect(syncTimer, SIGNAL(timeout()), this ,SLOT(slotProcessChangedFiles()));
+    connect(GlobalTimer::getInstance(), SIGNAL(second()), this ,SLOT(slotProcessChangedFiles()));
 
     loadScripts();
 }

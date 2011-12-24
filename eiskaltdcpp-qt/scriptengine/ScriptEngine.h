@@ -14,7 +14,6 @@
 #include <QtScript/QScriptEngine>
 #include <QtScript/QScriptValue>
 #include <QFileSystemWatcher>
-#include <QTimer>
 #include <QMetaType>
 
 #include <QList>
@@ -74,7 +73,6 @@ private:
     
     QFileSystemWatcher watcher;
     QStringList changedFiles;
-    QTimer *syncTimer;
 };
 
 Q_DECLARE_METATYPE(ScriptEngine*)

@@ -38,6 +38,7 @@ using namespace std;
 #include "ArenaWidgetManager.h"
 #include "ArenaWidgetFactory.h"
 #include "MainWindow.h"
+#include "GlobalTimer.h"
 
 #ifndef __HAIKU__
 #include "EiskaltApp.h"
@@ -127,6 +128,8 @@ int main(int argc, char *argv[])
     app.setOrganizationName("EiskaltDC++ Team");
     app.setApplicationName("EiskaltDC++ Qt");
     app.setApplicationVersion(EISKALTDCPP_VERSION);
+    
+    GlobalTimer::newInstance();
 
     WulforSettings::newInstance();
     WulforSettings::getInstance()->load();
@@ -209,6 +212,8 @@ int main(int argc, char *argv[])
 
     WulforUtil::deleteInstance();
     WulforSettings::deleteInstance();
+    
+    GlobalTimer::deleteInstance();
 
     dcpp::shutdown();
 
