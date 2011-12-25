@@ -10,6 +10,8 @@
   without root privileges.
 * Added recognition of additional fields from file lists of FlylinkDC++:
   bitrate audio, video and resolution.
+* Cleanup of code, small optimizations.
+* Small improvements for Lua scripts support in MS Windows.
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Regressions are possible.
 * Now GCC >= 4.5.0 is required for build. (Features from C++11 are used)
@@ -29,6 +31,16 @@
   for a file.
 * Added ability to clear search history and download directories history on exit
   or manualy.
+* Added some options in settings dialog: ALLOW_SIM_UPLOADS (allow simultaneous
+  uploads by user from different hubs), search-history-items-number,
+  download-directory-history-items-number, memorize-tth-search-phrases
+* Added buttons for navigation in the file list widget: back, forward, up.
+* Shared memory is freed when program in falling down by the signal SIGSEGV.
+  Without this program is run only the second time. Actual for unix-like
+  systems only, in MS Windows bug was absent.
+* Fixed a simultaneous operation of the program for multiple users in unix-like
+  systems. The environment variable LOGNAME is used to identify the current
+  user.
 *** eiskaltdcpp-gtk ***
 * Support of builds with Gtk < 2.24 was discontinued.
 * Added ability to build with Gtk3 (option -DUSE_GTK3 for cmake).
