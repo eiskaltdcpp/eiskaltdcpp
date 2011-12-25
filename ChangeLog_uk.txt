@@ -13,6 +13,9 @@
 * Чистка коду, дрібні оптимізації.
 * Невеликі поліпшення підтримки Lua-скриптів у MS Windows.
 * Виправлена збірка з Boost >= 1.48.
+* Для роботи перекладачів тепер використовується веб-сервіс Transifex:
+  http://code.google.com/p/eiskaltdc/wiki/MakingTranslations
+  https://www.transifex.net/projects/p/eiskaltdcpp/
 *** eiskaltdcpp-qt ***
 * Рефакторинг сирцевого коду. Можливі регресії.
 * Тепер для сбiрки потрібен GCC >= 4.5.0. (Використовуються можливості C++11)

@@ -13,6 +13,9 @@
 * Cleanup of code, small optimizations.
 * Small improvements for Lua scripts support in MS Windows.
 * Fixed build with Boost >= 1.48.
+* Transifex web service is used for translators now:
+  http://code.google.com/p/eiskaltdc/wiki/MakingTranslations
+  https://www.transifex.net/projects/p/eiskaltdcpp/
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Regressions are possible.
 * Now GCC >= 4.5.0 is required for build. (Features from C++11 are used)
