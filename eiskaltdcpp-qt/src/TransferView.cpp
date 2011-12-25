@@ -447,14 +447,27 @@ void TransferView::slotContextMenu(const QPoint &){
     case Menu::SearchAlternates:
     {
         QStringList tths;
-
-        foreach(TransferViewItem *i, items){
-            if (!tths.contains(i->tth))
-                tths.push_back(i->tth);
-        }
-
-        foreach (const QString &tth, tths)
-            searchAlternates(tth);
+        QString tth_str = "";
+        std::for_each(items.begin(), items.end(), 
+                      [&](const TransferViewItem *item) {
+                          tth_str = "";
+                          
+                          if (item->download)
+                            tth_str = item->tth;
+                          else {
+                            const TTHValue *tth = dcpp::HashManager::getInstance()->getFileTTHif(_tq(item->target));
+                
+                            if (tth)
+                                tth_str = _q(tth->toBase32());
+                          }
+                          
+                          if (!tth_str.isEmpty() && !tths.contains(tth_str)){
+                            tths.push_back(tth_str);
+                              
+                            searchAlternates(tth_str);
+                          }
+                      }
+                     );
 
         break;
     }
