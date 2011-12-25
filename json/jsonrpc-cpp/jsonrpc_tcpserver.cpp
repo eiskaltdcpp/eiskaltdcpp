@@ -61,7 +61,7 @@ namespace Json
       }
       if (GetEncapsulatedFormat() == Json::Rpc::HTTP_POST)
       {
-        std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json\r\nContent-Length: ";
+        std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: ";
         char v[16];
         snprintf(v, sizeof(v), "%u", rep.size());
         tmp += v;
@@ -124,7 +124,7 @@ namespace Json
           }
           if (GetEncapsulatedFormat() == Json::Rpc::HTTP_POST)
           {
-            std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json\r\nContent-Length: ";
+            std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: ";
             char v[16];
             snprintf(v, sizeof(v), "%u", rep.size());
             tmp += v;
