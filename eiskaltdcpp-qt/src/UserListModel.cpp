@@ -435,16 +435,8 @@ UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){
     return (it == rootItem->childItems.end()? NULL : *it);
 }
 
-QString UserListModel::CIDforNick(const QString &nick, const QString &aHubUrl){
-    Q_UNUSED(aHubUrl);
-
-    QModelIndexList indexes = match(index(0, COLUMN_NICK, QModelIndex()), Qt::DisplayRole, nick, 1, Qt::MatchExactly);
-
-    if (indexes.size() != 1)
-        return "";
-
-    QModelIndex i = indexes.takeFirst();
-    UserListItem *item = reinterpret_cast<UserListItem*>(i.internalPointer());
+QString UserListModel::CIDforNick(const QString &nick, const QString &){
+    UserListItem *item = itemForNick(nick, "");
 
     return (item? item->cid : "");
 }
