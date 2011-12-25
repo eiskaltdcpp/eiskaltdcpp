@@ -167,6 +167,7 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetChatPub, std::string("hub.getchat")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SendSearch, std::string("search.send")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ReturnSearchResults, std::string("search.getresults")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ClearSearchResults, std::string("search.clear")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowVersion, std::string("show.version")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowRatio, std::string("show.ratio")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SetPriorityQueueItem, std::string("queue.setpriority")));
@@ -654,6 +655,16 @@ void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const str
             resultarray.push_back(resultMap);
         }
     }
+}
+
+bool ServerThread::clearSearchResults(const string& huburl) {
+    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
+        if (!huburl.empty() && i->first != huburl)
+            continue;
+        clientsMap[i->first].cursearchresult.clear();
+        return true;
+    }
+    return false;
 }
 
 void ServerThread::listShare(string& listshare, const string& sseparator) {

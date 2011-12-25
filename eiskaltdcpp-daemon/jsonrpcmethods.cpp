@@ -336,3 +336,15 @@ bool JsonRpcMethods::ListQueue(const Json::Value& root, Json::Value& response) {
     if (isVerbose) std::cout << "ListQueue (response): " << response << std::endl;
     return true;
 }
+
+bool JsonRpcMethods::ClearSearchResults(const Json::Value& root, Json::Value& response) {
+    if (isVerbose) std::cout << "ClearSearchResults (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    if (ServerThread::getInstance()->clearSearchResults(root["params"]["huburl"].asString()))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
+    if (isVerbose) std::cout << "ClearSearchResults (response): " << response << std::endl;
+    return true;
+}

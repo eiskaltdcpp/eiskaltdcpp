@@ -51,7 +51,7 @@ public:
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
     bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
     void returnSearchResults(vector<StringMap>& resultarray, const string& huburl);
-    void clearSearchResults(const string& huburl);
+    bool clearSearchResults(const string& huburl);
     void listShare (string& listshare, const string& sseparator);
     bool delDirFromShare(const string& sdirectory);
     bool renameDirInShare(const string& sdirectory, const string& svirtname);
