@@ -1,4 +1,4 @@
---- 2.2.5 2011-12-24 ---
+--- 2.2.5 2011-12-25 ---
 *** common changes ***
 * Reorganized the source tree.
 * Added ZLIF support into core.
@@ -12,6 +12,7 @@
   bitrate audio, video and resolution.
 * Cleanup of code, small optimizations.
 * Small improvements for Lua scripts support in MS Windows.
+* Fixed build with Boost >= 1.48.
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Regressions are possible.
 * Now GCC >= 4.5.0 is required for build. (Features from C++11 are used)
@@ -41,6 +42,7 @@
 * Fixed a simultaneous operation of the program for multiple users.
   The environment variable LOGNAME is used to identify the current user
   in unix-like systems and GetUserNameA is used in MS Windows.
+* Fixed search of alternatives for uploads.
 *** eiskaltdcpp-gtk ***
 * Support of builds with Gtk < 2.24 was discontinued.
 * Added ability to build with Gtk3 (option -DUSE_GTK3 for cmake).
@@ -48,6 +50,10 @@
 * Added recognition of additional fields from file lists of FlylinkDC++:
   bitrate audio, video and resolution. The information is displayed
   in additional columns.
+* Fixed chat command /ws.
+* Search widget is appreciably redesigned.
+* Free space indicator was added into main window.
+* Added options: use-native-back-color-for-text, show-transfers.
 *** eiskaltdcpp-daemon ***
 * Added command line options: --verbose, --ip, --port, --rpclog, --uripath
 * Added JSON-RPC interface. More detail:
