@@ -124,7 +124,7 @@ private Q_SLOTS:
     void slotStartSearch();
     void slotSearchJumpTo(FileBrowserItem*);
     void slotButtonBack();
-    void slotButtonForvard();
+    void slotButtonForward();
     void slotButtonUp();
     void slotClose();
 

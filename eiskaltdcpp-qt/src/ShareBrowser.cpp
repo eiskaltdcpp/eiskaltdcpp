@@ -285,7 +285,7 @@ void ShareBrowser::init(){
     setAttribute(Qt::WA_DeleteOnClose);
     
     toolButton_UP->setIcon(WICON(WulforUtil::eiTOP));
-    toolButton_FORVARD->setIcon(WICON(WulforUtil::eiNEXT));
+    toolButton_FORWARD->setIcon(WICON(WulforUtil::eiNEXT));
     toolButton_BACK->setIcon(WICON(WulforUtil::eiPREVIOUS));
     
     frame_FILTER->setVisible(false);
@@ -329,7 +329,7 @@ void ShareBrowser::init(){
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     connect(toolButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotButtonBack()));
-    connect(toolButton_FORVARD, SIGNAL(clicked()), this, SLOT(slotButtonForvard()));
+    connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotButtonForward()));
     connect(toolButton_UP, SIGNAL(clicked()), this, SLOT(slotButtonUp()));
 
     continueInit();
@@ -745,7 +745,7 @@ void ShareBrowser::slotButtonBack(){
     }
 }
 
-void ShareBrowser::slotButtonForvard(){
+void ShareBrowser::slotButtonForward(){
     if ( (pathHistory_iter != NULL)
             && (pathHistory.size() >0)){
 
