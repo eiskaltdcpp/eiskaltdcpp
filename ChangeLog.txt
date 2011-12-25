@@ -2,14 +2,21 @@
 *** common changes ***
 * Reorganized the source tree.
 * Added ZLIF support into core.
-* Added core settings: UseADLOnlyOnOwnList, AllowUploadOverMultiHubs, AllowSimUploads.
-* Added ability to build the program with miniupnpc version 1.6. Support for version 1.5 saved. The local copy of miniupnpc is updated to version 1.6.
-* Fixed program crash when using of changed value of IpTOSValue (default -1) without root privileges.
-* Added recognition of additional fields from file lists of FlylinkDC++: bitrate audio, video and resolution.
+* Added core settings: UseADLOnlyOnOwnList, AllowUploadOverMultiHubs,
+  AllowSimUploads.
+* Added ability to build the program with miniupnpc version 1.6. Support
+  for version 1.5 saved. The local copy of miniupnpc is updated to version 1.6.
+* Fixed program crash when using of changed value of IpTOSValue (default -1)
+  without root privileges.
+* Added recognition of additional fields from file lists of FlylinkDC++:
+  bitrate audio, video and resolution.
+* Cleanup of code, small optimizations.
+* Small improvements for Lua scripts support in MS Windows.
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Regressions are possible.
 * Now GCC >= 4.5.0 is required for build. (Features from C++11 are used)
-* Fixed build in Haiku OS. System algorithm to test run only one instance of the program is used now.
+* Fixed build in Haiku OS. System algorithm to test run only one instance
+  of the program is used now.
 * A lot of new methods are now available using QtScript. See:
   http://code.google.com/p/eiskaltdc/wiki/Scripting
   http://code.google.com/p/eiskaltdc/wiki/Scripting_QtScript_Example_Scripts
@@ -17,16 +24,34 @@
   [Thanks to OmegaPhil for an updated documentation]
 * Hot reloading of scripts (QtScript) when they have been changed.
 * Dialog of scripting (QtScript) is appreciably improved.
-* Improved method of sorting in Search Spy widget. [Thanks to Mikhail Krasikau]
-* Added recognition of additional fields from file lists of FlylinkDC++: bitrate audio, video and resolution. The information is displayed in a tooltip for a file.
-* Added ability to clear search history and download directories history on exit or manualy.
+* Improved method of sorting in Search Spy widget.
+  [Thanks to Mikhail Krasikau]
+* Added recognition of additional fields from file lists of FlylinkDC++:
+  bitrate audio, video and resolution. The information is displayed in a tooltip
+  for a file.
+* Added ability to clear search history and download directories history on exit
+  or manualy.
+* Added some options in settings dialog: ALLOW_SIM_UPLOADS (allow simultaneous
+  uploads by user from different hubs), search-history-items-number,
+  download-directory-history-items-number, memorize-tth-search-phrases
+* Added buttons for navigation in the file list widget: back, forward, up.
+* Shared memory is freed when program in falling down by the signal SIGSEGV.
+  Without this program is run only the second time. Actual for unix-like
+  systems only, in MS Windows bug was absent.
+* Fixed a simultaneous operation of the program for multiple users.
+  The environment variable LOGNAME is used to identify the current user
+  in unix-like systems and GetUserNameA is used in MS Windows.
 *** eiskaltdcpp-gtk ***
 * Support of builds with Gtk < 2.24 was discontinued.
-* Added ability to build with Gtk3 (option -DUSE_GTK3 for cmake). This is an experimental mode. Various shortcomings are possible.
-* Added recognition of additional fields from file lists of FlylinkDC++: bitrate audio, video and resolution. The information is displayed in additional columns.
+* Added ability to build with Gtk3 (option -DUSE_GTK3 for cmake).
+  This is an experimental mode. Various shortcomings are possible.
+* Added recognition of additional fields from file lists of FlylinkDC++:
+  bitrate audio, video and resolution. The information is displayed
+  in additional columns.
 *** eiskaltdcpp-daemon ***
 * Added command line options: --verbose, --ip, --port, --rpclog, --uripath
-* Added JSON-RPC interface. More detail: http://code.google.com/p/eiskaltdc/wiki/JSONRPC
+* Added JSON-RPC interface. More detail:
+  http://code.google.com/p/eiskaltdc/wiki/JSONRPC
 *** eiskaltdcpp-cli ***
 * Added a simple console interface to control the daemon via JSON-RPC.
 
@@ -34,27 +59,45 @@
 *** common changes ***
 * Partial synchronization with DC++ kernel (0.785).
 * Now GCC >= 4.4.0 is required for build.
-* Added support for DHT (http://www.adcportal.com/wiki/StrongDC++_DHT). This option is disabled in the settings by default. It is possible to completely remove support for DHT during configuration (option -DWITH_DHT for cmake). DHT requires white external IPv4 for a work. See also: http://en.wikipedia.org/wiki/Distributed_hash_table
+* Added support for DHT (http://www.adcportal.com/wiki/StrongDC++_DHT).
+  This option is disabled in the settings by default. It is possible to
+  completely remove support for DHT during configuration (option -DWITH_DHT
+  for cmake). DHT requires white external IPv4 for a work. See also:
+  http://en.wikipedia.org/wiki/Distributed_hash_table
 * Fixed build in Mac OS X.
 *** eiskaltdcpp-qt ***
 * Added some options in settings dialog: DHT, DHT_PORT
 * Fixed wrong logging of private chats.
-* Added Stop button in the search widget, which only stops adding new elements to the frame. Responses to the search query will still come from other clients, but will be ignored. This is caused by peculiarities of the protocol...
-* Improvement in the search widget: pressing Return key in size entry field starts searching.
-* Added possibility to connect to hubs on encoded URLs (for example: dchub://%D1%85%D0%B0%D0%B1.%D1%81%D0%BC%D0%BE%D0%BB%D0%BD%D0%B5%D1%82.%D1%80%D1%84)
-* Implemented delayed filling model in the file list widget, which significantly reduces memory consumption and does not create a short GUI frieze. Especially noticeable when opening large file lists.
+* Added Stop button in the search widget, which only stops adding new elements
+  to the frame. Responses to the search query will still come from other
+  clients, but will be ignored. This is caused by peculiarities
+  of the protocol...
+* Improvement in the search widget: pressing Return key in size entry field
+  starts searching.
+* Added possibility to connect to hubs on encoded URLs, for example:
+  dchub://%D1%85%D0%B0%D0%B1.%D1%81%D0%BC%D0%BE%D0%BB%D0%BD%D0%B5%D1%82.%D1%80%D1%84
+* Implemented delayed filling model in the file list widget, which significantly
+  reduces memory consumption and does not create a short GUI frieze. Especially
+  noticeable when opening large file lists.
 * Fixed definition of user availability status in the favorite users widget.
-* Fixed display the progress of over 100% in downloads progress indicator in the active transfers widget.
-* Changed algorithm to test run only one instance of the program. Now QSharedMemory is used.
+* Fixed display the progress of over 100% in downloads progress indicator
+  in the active transfers widget.
+* Changed algorithm to test run only one instance of the program.
+  Now QSharedMemory is used.
 *** eiskaltdcpp-gtk ***
-* Migrating from Libglade to GtkBuilder. Compatibility with the code base of LinuxDC++ and FreeDC++ was partially lost.
-* Transition to Gtk+ version 2.24 was made: there are no deprecated elements in code now. Support of older versions (only Gtk >= 2.18) is temporarily retained by using the insertions in code and additional patches.
-* Added some options in settings dialog: DHT, DHT_PORT, DYNDNS_ENABLE, DYNDNS_SERVER
+* Migrating from Libglade to GtkBuilder. Compatibility with the code base of
+  LinuxDC++ and FreeDC++ was partially lost.
+* Transition to Gtk+ version 2.24 was made: there are no deprecated elements
+  in code now. Support of older versions (only Gtk >= 2.18) is temporarily
+  retained by using the insertions in code and additional patches.
+* Added some options in settings dialog: DHT, DHT_PORT, DYNDNS_ENABLE,
+  DYNDNS_SERVER
 * Some improvements in settings dialog.
-* Improvement in the search widget: pressing Return key in size entry field starts searching.
+* Improvement in the search widget: pressing Return key in size entry field
+  starts searching.
 *** eiskaltdcpp-daemon ***
-* Added new XML-RPC methods: search.send, search.getresults, show.version, show.ratio
-  (more detail: http://code.google.com/p/eiskaltdc/wiki/XMLRPC)
+* Added new XML-RPC methods: search.send, search.getresults, show.version,
+  show.ratio (more detail: http://code.google.com/p/eiskaltdc/wiki/XMLRPC)
 *** eiskaltdcpp-cli ***
 * Added a simple console interface to control the daemon via XML-RPC.
 
@@ -64,53 +107,80 @@
 * Fixed bug with connecting to ADC hubs on armel architechture.
 * Thanks to Chris Leick the German translation is now available.
 * Common code for updating IP from DynDNS (moved from Qt GUI).
-* Summary statistics (downloaded/uploaded) moved into the core (current values ​​in the Qt GUI will be dropped).
-* Fixed problem with hashing files, which contain in their names characters missing in the standard 8-bytes locales, but present in Unicode locales. (Affects only MS Windows)
+* Summary statistics (downloaded/uploaded) moved into the core (current values
+  ​​in the Qt GUI will be dropped).
+* Fixed problem with hashing files, which contain in their names characters
+  missing in the standard 8-bytes locales, but present in Unicode locales.
+  (Affects only MS Windows)
 * Updated app icons in faenza theme.
 * Fixed build in Mac OS X.
 * A lot of fixes and cleanup of code (fixed some compiler warnings and etc).
 *** eiskaltdcpp-qt ***
 * Added new chat command: /dcpps (for changing settings of DC++ core)
 * Added some options in favorite hub settings dialog: MINIMUM_SEARCH_INTERVAL
-* Async loading of history from databases was implemented in widget of finished transfers.
-* Added temporary limitation to the number of items loaded from the databases on program startup (only 500 elements from the history of finished transfers). It will be simple history navigation in this widget later.
+* Async loading of history from databases was implemented in widget of finished
+  transfers.
+* Added temporary limitation to the number of items loaded from the databases
+  on program startup (only 500 elements from the history of finished transfers).
+  It will be simple history navigation in this widget later.
 * Added the possibility of searching using patterns in the file list widget.
 * Fixed bug with incorrect menu item 'About program' in Mac OS X.
 * Fixed chat context menu on ADC hubs.
 * Added new theme with monochrome app icons.
 *** eiskaltdcpp-gtk ***
-* Added saving of information about the general traffic (downloaded/uploaded) between sessions.
+* Added saving of information about the general traffic (downloaded/uploaded)
+  between sessions.
 * Added new chat commands: /ip (IPFilter rules), /ratio, /version
-* Added some options in favorite hub settings dialog: Mode (connection type), MINIMUM_SEARCH_INTERVAL
+* Added some options in favorite hub settings dialog: Mode (connection type),
+  MINIMUM_SEARCH_INTERVAL
 *** eiskaltdcpp-daemon ***
 * New XML-RPC methods.
-* Full list of currently available methods: magnet.add, daemon.stop, hub.del, hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del, share.list, share.refresh
+* Full list of currently available methods: magnet.add, daemon.stop, hub.del,
+  hub.say, hub.pm, hub.list, hub.retchat, share.add, share.rename, share.del,
+  share.list, share.refresh
 * There is no web-ui for daemon control yet.
 
 --- 2.2.2 2011-04-24 ---
 *** common changes ***
 * Partial synchronization with DC++ kernel (0.785).
 * Align ip-address in a chat (only for monospaced fonts).
-* Added configuration options: ENABLE_STACKTRACE, WITH_DEV_FILES and EISKALTDCPP_INCLUDE_DIR.
-* Resolving Internationalized Domain Names (libidn is used) [rfc3490]. (Enabled by default, see file INSTALL)
+* Added configuration options: ENABLE_STACKTRACE, WITH_DEV_FILES and
+  EISKALTDCPP_INCLUDE_DIR.
+* Resolving Internationalized Domain Names (libidn is used) [rfc3490].
+  (Enabled by default, see file INSTALL)
 * Possible fix to fix migrating from older releases (<2.1.0) without rehashing.
-* Added option of hashing delay on programs startup (60 seconds by default). If the delay is equal -1, hashing process will not be resumed. This option is very useful to accelerate GUI launching, because it is not waiting DC++ kernel.
+* Added option of hashing delay on programs startup (60 seconds by default).
+  If the delay is equal -1, hashing process will not be resumed.
+  This option is very useful to accelerate GUI launching, because
+  it is not waiting DC++ kernel.
 * Added separate file for logging completely finished downloads.
 * Ability to bind to a network interface.
 * Fixes to improve Lua-scripts.
 * Bugfixes.
 *** eiskaltdcpp-qt ***
 * Added ability to build program on Haiku-OS (see file INSTALL).
-* Fixed loading of emoticons from emoticon packs. It was support files only in PNG format, but now it can load images in any standart format.
+* Fixed loading of emoticons from emoticon packs. It was support files only
+  in PNG format, but now it can load images in any standart format.
 * Improvements in the dialog with black list of search results.
-* Fixed highlighting of status messages in a chat: the color is now applied to full message.
-* Improvement in the search widget: tooltip shows where is the file located if it exists in the share.
-* Ability to specify TLS_PORT equal TCP_PORT was eliminated in the settings dialog. (This was frequent users mistake)
-* Added some options in settings dialog: BIND_IFACE (bind to a network interface), HASHING_START_DELAY (hashing delay on startup), LOG_FILE_FINISHED_DOWNLOAD (separate file for logging completely finished downloads).
-* Added tooltip for already shared files in file list viewing widget (now it is available for other's lists of files too).
-* Fixed option of filtering completely finished downloads in transfers widget (it didn't work with localization).
-* Personal chat widget now uses the limitation of the maximum number of messages. Some users had a significant increase of memory usage when receiving many messages from bots.
-* Added ability to open an incompletely downloaded files from the list of downloads.
+* Fixed highlighting of status messages in a chat: the color is now applied to
+  full message.
+* Improvement in the search widget: tooltip shows where is the file located
+  if it exists in the share.
+* Ability to specify TLS_PORT equal TCP_PORT was eliminated in the settings
+  dialog. (This was frequent users mistake)
+* Added some options in settings dialog: BIND_IFACE (bind to a network
+  interface), HASHING_START_DELAY (hashing delay on startup),
+  LOG_FILE_FINISHED_DOWNLOAD (separate file for logging completely finished
+  downloads).
+* Added tooltip for already shared files in file list viewing widget (now it is
+  available for other's lists of files too).
+* Fixed option of filtering completely finished downloads in transfers widget
+  (it didn't work with localization).
+* Personal chat widget now uses the limitation of the maximum number
+  of messages. Some users had a significant increase of memory usage when
+  receiving many messages from bots.
+* Added ability to open an incompletely downloaded files from the list
+  of downloads.
 * In chat menu was added the item for searching selected text.
 * Added additional widget for viewing Queued Users.
 * Allowed searching alternates for uploads.
@@ -119,14 +189,18 @@
 * Now EiskaltDC++ Qt is available as a plugin for the LeechCraft (https://github.com/0xd34df00d/leechcraft) project.
 *** eiskaltdcpp-gtk ***
 * Fixed initialization of the toolbar.
-* "Emoticons not loaded" messages is now disabled, when emoticons is switched off.
-* Added some options in settings dialog: "sound-command", "minimize-tray" (minimize to tray on startup)
-* Ability to specify TLS_PORT equal TCP_PORT was eliminated in the settings dialog. (This was frequent users mistake)
+* "Emoticons not loaded" messages is now disabled, when emoticons is
+  switched off.
+* Added some options in settings dialog: "sound-command", "minimize-tray"
+  (minimize to tray on startup)
+* Ability to specify TLS_PORT equal TCP_PORT was eliminated in the settings
+  dialog. (This was frequent users mistake)
 * Added MimeType section in .desktop file.
 *** eiskaltdcpp-daemon ***
 * Added ability to build program on Haiku-OS (see file INSTALL).
 * Added command line options: --pidfile, --confdir, --localdir
-* Added example script for launching daemon on system startup in Debian-based systems.
+* Added example script for launching daemon on system startup in Debian-based
+  systems.
 * Disabled the forced change of access rights to the created files (644).
 * New XML-RPC methods.
 
@@ -134,121 +208,178 @@
 *** common changes ***
 * Fixed build under MS Windows.
 * Partial synchronization with DC++ kernel (0.785).
-* Fixed support for Lua-scripts. (It was broken in version 2.2.0 when was sync with DC++ kernel)
-* Fixed bug with "empty share" at startup. Now after updating the list of files will be done back up, which is used when the program starts. Note: an empty list of files is not an empty share! (Many people were wrong in this regard)
-* Fixed the answering function for search queries on the ADC-hubs. (Bug was added in version 2.2.0 when was sync with DC++ kernel)
+* Fixed support for Lua-scripts. (It was broken in version 2.2.0 when was
+  sync with DC++ kernel)
+* Fixed bug with "empty share" at startup. Now after updating the list of files
+  will be done back up, which is used when the program starts. Note: an empty
+  list of files is not an empty share! (Many people were wrong in this regard)
+* Fixed the answering function for search queries on the ADC-hubs.
+  (Bug was added in version 2.2.0 when was sync with DC++ kernel)
 * Added ability to disable segmenting and to change segment size (in MiB).
 *** eiskaltdcpp-qt ***
-* Fixed a crash program when using the filter in the search results when new query results come.
-* Algorithm for adding separator (horizontal line) for unread messages in the chat was updated. Now it works fine.
+* Fixed a crash program when using the filter in the search results when
+  new query results come.
+* Algorithm for adding separator (horizontal line) for unread messages
+  in the chat was updated. Now it works fine.
 * Added item view 'properties of magnet links' to all related menu.
 * Added support for search links (magnets with kt-keyword). (See also: https://bugs.launchpad.net/dcplusplus/+bug/674545)
-* Fixed keyboard shortcut Ctrl+C in a personal chat. (Bug was added in version 2.2.0)
-* Added option to show only completely finished transfers in finished transfers widget. A simple filter is used: incomplete downloads can hide and show again.
-* Code of work with database (SQLite is used) found to be stable. Some columns have been added to finished transfers tables, it is recommended to delete old files to avoid possible problems: ~/.config/eiskaltdc++/*.sqlite
+* Fixed keyboard shortcut Ctrl+C in a personal chat.
+  (Bug was added in version 2.2.0)
+* Added option to show only completely finished transfers in finished transfers
+  widget. A simple filter is used: incomplete downloads can hide and show again.
+* Code of work with database (SQLite is used) found to be stable. Some columns
+  have been added to finished transfers tables, it is recommended to delete
+  old files to avoid possible problems: ~/.config/eiskaltdc++/*.sqlite
 * Some fixes for user commands.
 * Added ability to highlight user-defined keywords in chat.
 * Added ability to customize the color of download/upload progressbars.
 * Added option to play sound when personal chat is active.
 * Improvements in the scrolling algorithm of history of sent messages.
-* Fixed crash when deleting the active (editable) elements from the black list of search results. Added ability to sort the list.
+* Fixed crash when deleting the active (editable) elements from the black list
+  of search results. Added ability to sort the list.
 * Now user commands menu are not shown if commands list on hub is empty.
 * Added option to hide icons in menus. (Useful for Mac OS X users)
-* Changed the response for blank nick when the program starts: now a dialog to enter a nickname is opened instead of the general preferences dialog.
+* Changed the response for blank nick when the program starts: now a dialog
+  to enter a nickname is opened instead of the general preferences dialog.
 * Added ability to use aspell in the assembly under MS Windows.
 * Added ability to specify BIND_ADDRESS in the preferences dialog.
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
-* Fixed saving of number of upload slots in the preferences dialog. (Bug was added in version 2.2.0)
-* Added option to display only the transmission is completed in the widget programs. A hard algorithm is used: incomplete downloads are removed from the list and will not be added to it.
+* Fixed saving of number of upload slots in the preferences dialog.
+  (Bug was added in version 2.2.0)
+* Added option to display only the transmission is completed in the widget
+  programs. A hard algorithm is used: incomplete downloads are removed from
+  the list and will not be added to it.
 * Hotkeys were synchronized with EiskaltDC++ Qt.
 * Fixed builds with libnotify >= 0.7.0.
 * Changed the parser of magnet-links.
-* Fixed issue with loading emoticons. (In the xml-files emoticon packs it was pointed standalone = "no" instead of "yes")
+* Fixed issue with loading emoticons. (In the xml-files emoticon packs it was
+  pointed standalone = "no" instead of "yes")
 * Added the ability to play audio notifications without using libgnome.
 *** eiskaltdcpp-daemon ***
 * Fixed sending a password when connecting to hubs with registration.
-* Rewrote the code that is responsible for using of threads. Now program can be builded in MS Windows.
-  Note: This binary can't be run as a service of Windows, because the process must be run on behalf of an existing user (for access to the settings).
+* Rewrote the code that is responsible for using of threads. Now program
+  can be builded in MS Windows. Note: This binary can't be run as a service
+  of Windows, because the process must be run on behalf of an existing user
+  (for access to the settings).
 * XML-RPC access to the program is now in active development but not yet ready.
 
 --- 2.2.0 2011-01-16 ---
 *** common changes ***
-* Completed the transition to the 0.770 kernel. Version 0.770 is conditional, since it's used the patches from more recent revisions. However, full synchronization with lastest DC++ kernel is not planned because of some of its shortcomings. For example: 1) a deeper connection to libboost; 2) using of the code, which requires -std=c++0x and gcc >= 4.5.x; 3) using settings of the graphical window in the kernel config.
+* Completed the transition to the 0.770 kernel. Version 0.770 is conditional,
+  since it's used the patches from more recent revisions. However, full
+  synchronization with lastest DC++ kernel is not planned because of some
+  of its shortcomings. For example: 1) a deeper connection to libboost;
+  2) using of the code, which requires -std=c++0x and gcc >= 4.5.x;
+  3) using settings of the graphical window in the kernel config.
 * Broken support for Lua-scripts. Build the program with -DLUA_SCRIPT=OFF.
 * Thanks to Uhlik the Czech translation is now available.
-* Now limit on share size doesn't apply to favorite users and users with granted slots.
-* Added partial file sharing extension (PFSR). It allow you to download files that clients have not completely downloaded or was previously downloaded but not shared immediately. (PFSR is taken from the StrongDC++ project) [see also http://www.adcportal.com/wiki/PFSR_-_Partial_file_sharing]
-* Fixed incorrect use of speed limits: if this value is greater than zero, then the restriction applies even if it was disabled in settings. (Bug was added in version 2.1.0)
-* Fixed deadlock when downloading files with extremely long names. Type of file system is now irrelevant.
+* Now limit on share size doesn't apply to favorite users and users with
+  granted slots.
+* Added partial file sharing extension (PFSR). It allow you to download files
+  that clients have not completely downloaded or was previously downloaded but
+  not shared immediately. (PFSR is taken from the StrongDC++ project)
+  [see also http://www.adcportal.com/wiki/PFSR_-_Partial_file_sharing]
+* Fixed incorrect use of speed limits: if this value is greater than zero, then
+  the restriction applies even if it was disabled in settings.
+  (Bug was added in version 2.1.0)
+* Fixed deadlock when downloading files with extremely long names. Type of file
+  system is now irrelevant.
 * Added ToS (Type-of-Service) socket option.
 *** eiskaltdcpp-qt ***
 * Fixed parsing of emoticons in new messages. Now more fast and correct.
 * Improvements in the search widget.
 * Highlight duplicates in share.
 * Implemented blacklist for search results.
-* Added separator (horizontal line) for unread messages in the chat. (Default is switched off) (This is experimental option)
+* Added separator (horizontal line) for unread messages in the chat.
+  (Default is switched off) (This is experimental option)
 * Added an option of the connection type in the favorite hubs settings.
 * Added a speed limit button to the tools panel.
 * Added ability of redirecting new personal messages to the main chat.
-* Now you can set share restrictions in the share browser widget. Just open own file list and use the menu.
+* Now you can set share restrictions in the share browser widget.
+  Just open own file list and use the menu.
 * Disabled colorize of progress-bar in transfers widget.
 * Added open directory item to the context menu for own file list.
 * Added item to copy web-magnets in all related menu.
 * Added search frame for a personal chat.
 * Fixed possible deadlock when connecting to DynDNS.
-* Print backtrace in console when receiving the signal SIGSEGV (segmentation fault).
-* Fixed mistake of selecting another user in context menu of the chat. (Bug was added in version 2.1.0)
-* Fixed bug of displaying search results when searching directories. It was shown only one result before applying sorting.
-* Fixed bug of displaying file names in UTF-8 in the file list widget under MS Windows.
-* Fixed opening shared directory with non ASCII symbols in the file list widget under MS Windows.
+* Print backtrace in console when receiving the signal SIGSEGV
+  (segmentation fault).
+* Fixed mistake of selecting another user in context menu of the chat.
+  (Bug was added in version 2.1.0)
+* Fixed bug of displaying search results when searching directories.
+  It was shown only one result before applying sorting.
+* Fixed bug of displaying file names in UTF-8 in the file list widget
+  in MS Windows.
+* Fixed opening shared directory with non ASCII symbols in the file list widget
+  in MS Windows.
 * Reworked dialog of sending hub commands.
 * Fixed bug with sending away messages to the bots on NMDC hubs.
 * Fixed restoring wide-open window mode at startup.
 * Fixed problem with inability to set a hotkey Esc in the settings.
-* Support for BBСode tags [s][/s], [code][/code], [url][/url] and [color][/color] in the chat.
+* Support for BBСode tags [s][/s], [code][/code], [url][/url] and
+  [color][/color] in the chat.
 * Support for nested BBСode tags.
 * Fixed tray icon action on left mouse click in MS Windows.
 * Fixed blurred program icon on the taskbar in MS Windows 7.
 * Open magnet link item was added into main menu.
-* Improvement in the magnet-link properties dialog: rapid selection of previously used directories for downloading.
+* Improvement in the magnet-link properties dialog: rapid selection of
+  previously used directories for downloading.
 * Removed unnecessary dependencies during linking on Mac OS X.
-* Fixed small bug AntiSpam module for the main chat. (It was added in version 2.1.0)
+* Fixed small bug AntiSpam module for the main chat.
+  (It was added in version 2.1.0)
 * Fixed a false light files as duplicates in the results of ADL-search.
-* Fixed using %[userNI] in the logs of the chat. (Bug was added in version 2.1.0)
-* Added a column with information about using of encryption in the transfers list.
-* Fixed a program crash when getting in the search results entries with a blank file name.
-* When window is activate input field will receive focus again. (The problem was added in version 2.1.0)
-* Changed algorithm to test run only one instance of the program. Now QtSingleApplication is used.
-* Added support of SQLite database. Now it is used for saving finished transfers list. (Disabled by default, see file INSTALL) (This is experimental option)
+* Fixed using %[userNI] in the logs of the chat.
+  (Bug was added in version 2.1.0)
+* Added a column with information about using of encryption in the transfers
+  list.
+* Fixed a program crash when getting in the search results entries with
+  a blank file name.
+* When window is activate input field will receive focus again.
+  (The problem was added in version 2.1.0)
+* Changed algorithm to test run only one instance of the program.
+  Now QtSingleApplication is used.
+* Added support of SQLite database. Now it is used for saving finished
+  transfers list. (Disabled by default, see file INSTALL)
+  (This is experimental option)
 * Correction of the notification system with an active personal correspondence.
 * Double click on the free space indicator now opens the download directory.
 * Removed support for *bold* and _underlined_ text like in Psi.
 * Improved hot change the interface language without restarting the program.
-* Added the ability to scale the preferences dialog to a smaller size. The window size is remembered.
+* Added the ability to scale the preferences dialog to a smaller size.
+  The window size is remembered.
 * Extended settings dialog.
 *** eiskaltdcpp-gtk ***
 * Improvements in the search widget.
-* Fixed path to lock file of launched program (it was ~/.dc++/). Now it launches only one instance of the DC-client and magnet-links are correctly intercepted by it.
-* Added hot keys Left/Right to expand the directory tree in the widget view a list of files.
+* Fixed path to lock file of launched program (it was ~/.dc++/). Now it
+  launches only one instance of the DC-client and magnet-links are correctly
+  intercepted by it.
+* Added hot keys Left/Right to expand the directory tree in the widget view
+  a list of files.
 * Extended settings dialog.
 *** eiskaltdcpp-daemon ***
 * Development has begun. Attention: the program is not yet ready to use!
 * At the moment it is uncontrollable demon. You can only run it and kill.
-* Launched process (see man-page) picks up the settings from configuration files that are created manually or by using graphical interface on Qt or Gtk. The result: initiated downloads is continuing, users can access to your share and so on.
+* Launched process (see man-page) picks up the settings from configuration files
+  that are created manually or by using graphical interface on Qt or Gtk.
+  The result: initiated downloads is continuing, users can access to your share
+  and so on.
 
 --- 2.1.1 2010-11-21 ---
 *** common changes ***
 * Fixed TigerHash for ARM architecture.
 * -DUSE_MINIUPNP is set to OFF by default.
 * Fixed issue with blocking ports on restarting the program.
-* Added ability to use pcre library for regex in perl style (see option PERL_REGEX in file INSTALL). Currently it uses only in ADL Search.
+* Added ability to use pcre library for regex in perl style (see option
+  PERL_REGEX in file INSTALL). Currently it uses only in ADL Search.
 *** eiskaltdcpp-qt ***
-* Fixed crash when deleting last characters in the input field of the chat by using the Backspace. (The problem manifested only with Qt 4.7.1)
+* Fixed crash when deleting last characters in the input field of the chat
+  by using the Backspace. (The problem manifested only with Qt 4.7.1)
 * Optimized link parser. Very long new chat messages are displayed much faster.
 * Fixed opening torrent's magnet links from chat.
 * Added ability to forced change the background color in the chat.
-* Fixed wrong icon path for App Bundle in Mac OS X. (The problem was added in 2.1.0)
+* Fixed wrong icon path for App Bundle in Mac OS X.
+  (The problem was added in 2.1.0)
 * BBСode support in the chat ([b][/b], [u][/u], [i][/i]).
 * Support for *bold* and _underlined_ text like in Psi.
 *** eiskaltdcpp-gtk ***
@@ -258,19 +389,36 @@
 
 --- 2.1.0 2010-11-07 ---
 *** common changes ***
-* libeiskaltdcpp library was separated from the basic binary file for unix-like systems.
+* libeiskaltdcpp library was separated from the basic binary file for unix-like
+  systems.
 * Added localization of kernel messages. Gettext used.
 * Added ability to use Lua-scripts (see the file INSTALL).
 * Added ability to use miniUPnP for connection (see file INSTALL).
 * Added set of sound files from the FlylinkDC++ project.
 * Kernel (dcpp) was partially updated to version 0.777.
-* Added NATT (see http://www.adcportal.com/wiki/index.php/NATT_-_NAT_traversal)
-* Made the possibility of using a case-sensitive file-list (CaseSensitiveFilelist option in SettingManager). If you have directories in which located are files of file.txt, FILE.txt and/or File.txt, now it will not cause problems with the permanent updating of the share and all these files will be simultaneously available to other users for downloading. By default this option is disabled, because it can cause a violation of compatibility with other DC-clients. (see discussion: https://bugs.launchpad.net/linuxdcpp/bug/311818)
-* Note: when upgrading to this version of program, after restarts, it will be forced once fully rehashing your files. This is due to the fact that now file hashes are stored in case-sensitive form. The way a file-list will be formed from these hashes depends on the option described above. By default, the file names in file-list are stored in lowercase, in accordance with the specification.
+* Added NATT. See: http://www.adcportal.com/wiki/index.php/NATT_-_NAT_traversal
+* Made the possibility of using a case-sensitive file-list
+  (CaseSensitiveFilelist option in SettingManager). If you have directories in
+  which located are files of file.txt, FILE.txt and/or File.txt, now it will not
+  cause problems with the permanent updating of the share and all these files
+  will be simultaneously available to other users for downloading. By default
+  this option is disabled, because it can cause a violation of compatibility
+  with other DC-clients.
+  (see discussion: https://bugs.launchpad.net/linuxdcpp/bug/311818)
+* Note: when upgrading to this version of program, after restarts, it will be
+  forced once fully rehashing your files. This is due to the fact that now file
+  hashes are stored in case-sensitive form. The way a file-list will be formed
+  from these hashes depends on the option described above. By default, the file
+  names in file-list are stored in lowercase, in accordance with
+  the specification.
 *** eiskaltdcpp-qt ***
-* Now when you hide main menu (Ctrl+M), the corresponding button will be added to the toolbar.
-* Added ability to customize the list of actions on toolbar. (Right click on toolbar --> Customize)
-* Added option to display the ip-addresses of users in the chat. (Depending on hub configuration: information about them is usually available only to operators)
+* Now when you hide main menu (Ctrl+M), the corresponding button will be added
+  to the toolbar.
+* Added ability to customize the list of actions on toolbar.
+  (Right click on toolbar --> Customize)
+* Added option to display the ip-addresses of users in the chat. (Depending on
+  hub configuration: information about them is usually available only to
+  operators)
 * Fixed a problem with minimum width of main window in Mac OS X.
 * Multi-line widgets panel (tabs).
 * Added ability to hide close buttons from tabs (see context menu on the panel).
@@ -279,17 +427,24 @@
 * Thanks to Martin Durisin the Slovak translation is now available.
 * Added ability to build program without libupnp and QtDBus (see file INSTALL).
 * Added ability to build program on MS Windows (see file win32/READ_ME.txt).
-* Added a hash progress indicator in the status line. Combined menu 'Refresh share' and 'Hash progress'.
+* Added a hash progress indicator in the status line. Combined menu
+  'Refresh share' and 'Hash progress'.
 * Extended settings dialog.
-* Removed extra code (option -DFREE_SPACE_BAR for cmake). Assemblies with -DFREE_SPACE_BAR_C=ON work stably on all supported platforms.
+* Removed extra code (option -DFREE_SPACE_BAR for cmake). Assemblies with
+  -DFREE_SPACE_BAR_C=ON work stably on all supported platforms.
 * Added ability to configure connection via UPnP (used miniupnp).
 * Removed the possibility to build with libupnp 1.6 .* (USE_LIBUPNP option).
 * Added /luafile and /lua chat commands (see man-page or /help in chat).
 * Added widget for ADL-search configuration.
 * Auto-away interval (watching for user activity).
-* Changed functions working with smilies. It is now possible to use the original emoticon packs from other customers at no additional modifications. Smiley-packs which supplied with the program are common for Qt and Gtk interfaces.
-* Added ability to use Qt regular expressions in userlist filter (enter ##<regexp> in filter)
-* Added logging anti-spam bot (antispam.log file in ~/.config/eiskaltdc++/ or in a different directory, depending on build options).
+* Changed functions working with smilies. It is now possible to use the original
+  emoticon packs from other customers at no additional modifications.
+  Smiley-packs which supplied with the program are common for Qt and
+  Gtk interfaces.
+* Added ability to use Qt regular expressions in userlist filter
+  (enter ##<regexp> in filter)
+* Added logging anti-spam bot (antispam.log file in ~/.config/eiskaltdc++/
+  or in a different directory, depending on build options).
 * Added shortcut manager.
 * Added support of Qt Declarative UI (work only with Qt >= 4.7.0).
 * Added emoticons panel (see suitable option in Settings-->GUI-->Chat)
@@ -297,7 +452,8 @@
 *** eiskaltdcpp-gtk ***
 * Added Gtk interface based on code of FreeDC++ and LinuxDC++.
 * The interface is localized using gettext.
-* Default icons for Gtk interface synchronized with default icons from Qt interface.
+* Default icons for Gtk interface synchronized with default icons from
+  Qt interface.
 * Added widget for ADL-search configuration.
 * Added ability to configure connection via UPnP (used miniupnp).
 * Added /sh and /alias chat commands (see man-page or /help in chat).
@@ -307,30 +463,48 @@
 
 --- 2.0.3 2010-06-08 ---
 * Fixed display of unread messages using the tray icon.
-* Fixed potential problems with search using locales other than UTF-8. (Now kernel takes default encoding specified in the preferences rather than local ones, as it was before)
-* Added graphical configuration of user commands in the Settings dialog. (In previous versions it was necessary to edit xml-config manually)
+* Fixed potential problems with search using locales other than UTF-8. (Now
+  kernel takes default encoding specified in the preferences rather than
+  local ones, as it was before)
+* Added graphical configuration of user commands in the Settings dialog.
+  (In previous versions it was necessary to edit xml-config manually)
 * Thanks to Dmytro Demenko the Ukrainian translation is now available.
 * Thanks to Miroslav Petrovic the Serbian translation is now available.
-* Preferences moved to $XDG_CONFIG_HOME/eiskaltdc++/ directory (environment variable $XDG_CONFIG_HOME mostly often defined as ~/.config/). Preferences directory will be automatically moved at first start after the upgrade. Using $XDG_CONFIG_HOME can be disabled during the configuration, see file INSTALL.
-* Added ability to place templates with predefined program settings to /usr/share/eiskaltdcpp/config/ directory (depends on cmake options, see file INSTALL). This templates (instead of default settings) will be copied to personal user preferences directory when you first start program.
-* Added drag'n'drop of files to messages input field. If file is shared, magnet link will be placed to input field instead of file path.
-* Chat command /sh now supports macro <magnet show=alternative filename>path to file</magnet>. You can find how to use it in 'examples' directory.
-* Improved anti-spam module, all the previously planned functionality is now available.
-* Added option to change the representation of size (kibibyte (KiB) <=> kilobyte (KB), etc.), see man-page.
+* Preferences moved to $XDG_CONFIG_HOME/eiskaltdc++/ directory (environment
+  variable $XDG_CONFIG_HOME mostly often defined as ~/.config/). Preferences
+  directory will be automatically moved at first start after the upgrade.
+  Using $XDG_CONFIG_HOME can be disabled during the configuration,
+  see file INSTALL.
+* Added ability to place templates with predefined program settings to
+  /usr/share/eiskaltdcpp/config/ directory (depends on cmake options,
+  see file INSTALL). This templates (instead of default settings) will be copied
+  to personal user preferences directory when you first start program.
+* Added drag'n'drop of files to messages input field. If file is shared, magnet
+  link will be placed to input field instead of file path.
+* Chat command /sh now supports macro
+  <magnet show=alternative filename>path to file</magnet>.
+  You can find how to use it in 'examples' directory.
+* Improved anti-spam module, all the previously planned functionality is now
+  available.
+* Added option to change the representation of size
+  (kibibyte (KiB) <=> kilobyte (KB), etc.), see man-page.
 * Added QtScript basic support (disabled by default, see file INSTALL).
 * Added support for system icon theme (disabled by default, see file INSTALL).
-* Added some JS-script examples (LogViewer, Amarok: Now Playing, Konsole), improved interaction with DC++ core and client.
+* Added some JS-script examples (LogViewer, Amarok: Now Playing, Konsole),
+  improved interaction with DC++ core and client.
 * Auto-resizing input widget in chats. (Use Shift+Enter for carriage return)
 * Bugfixes.
 
 --- 2.0.2 2010-05-04 ---
 * Thanks to Alexandre Wallimann the French translation is now available.
 * Thanks to Arahael the Polish translation is now available.
-* Added ability to use the side dock with list of widgets instead of a one-line panel with tabs.
+* Added ability to use the side dock with list of widgets instead of a one-line
+  panel with tabs.
 * Added ability to build with Qt >= 4.4.0. Previously required Qt >= 4.5.0.
 * Added filter in search widget.
 * Improvements in notifications about new messages in chat (different icons).
-* Fixed bug with fall of program when using search. Bug present in all previous revisions.
+* Fixed bug with fall of program when using search. Bug present in all previous
+  revisions.
 * Changed default logs format.
 * Improvements in text boxes.
 * Added submenu in user list to copy bits of users info.
@@ -350,7 +524,8 @@
 * Added option in preference dialog to limit hashing speed.
 * Added ability to pause hashing process.
 * Added ability to limit upload to users according their own share size.
-* Fixed problems during restoring program from system tray in Gnome and Mac OS X.
+* Fixed problems during restoring program from system tray in Gnome
+  and in Mac OS X.
 * Added history of sent messages, their number can be configured.
 * Added search history, their number can be configured.
 * Improved configuration of file exceptions from share.
@@ -359,13 +534,16 @@
 
 --- 2.0 2010-03-22 ---
 * Migration to the dc++ core (v0.75) and respectively support ADC.
-* Full-featured chat (parsing magnets, links, emoticons, search in the chat, filtering in users list, chat commands).
-* Full-featured search engine and file-browser (lights already shared files, etc.).
+* Full-featured chat (parsing magnets, links, emoticons, search in the chat,
+  filtering in users list, chat commands).
+* Full-featured search engine and file-browser (lights already shared files,
+  etc.).
 * Group transfers in connection manager.
 * Separate download manager.
 * Download and upload lists.
 * Favourite users (autoslots and etc.); favourite hubs.
-* Text (using default Qt tray messages or using standart D-Bus system manager notices) and sound notifications.
+* Text (using default Qt tray messages or using standart D-Bus system manager
+  notices) and sound notifications.
 * Support of themes, icons and emoticon-packs.
 * The ability to not share files by mask.
 * UPnP Support.
