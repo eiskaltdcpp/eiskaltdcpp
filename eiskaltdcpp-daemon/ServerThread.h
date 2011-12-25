@@ -51,12 +51,19 @@ public:
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
     bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
     void returnSearchResults(vector<StringMap>& resultarray, const string& huburl);
+    void clearSearchResults(const string& huburl);
     void listShare (string& listshare, const string& sseparator);
     bool delDirFromShare(const string& sdirectory);
     bool renameDirInShare(const string& sdirectory, const string& svirtname);
     bool addDirInShare(const string& sdirectory, const string& svirtname);
     bool addInQueue(const string& sddir, const string& name, const int64_t& size, const string& tth);
     bool setPriorityQueueItem(const string& target, const unsigned int& priority);
+    void getQueueParams(QueueItem* item, StringMap& params);
+    void listQueueTargets(string& listqueue, const string& sseparator);
+    void listQueue(unordered_map<string,StringMap>& listqueue);
+    bool moveQueueItem(const string& source, const string& target);
+    bool removeQueueItem(const string& target);
+    void updatelistQueueTargets();
 
 private:
     friend class Singleton<ServerThread>;
@@ -69,13 +76,17 @@ private:
     void autoConnect();
     void showPortsError(const std::string& port);
     bool disconnect_all();
-    void parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap);
+    void parseSearchResult(SearchResultPtr result, StringMap &resultMap);
     string revertSeparator(const string &ps);
     typedef struct {
             deque<string> curchat;
             Client* curclient;
             SearchResultList cursearchresult;
     } CurHub;
+
+    typedef unordered_map <unsigned int, string> QueueMap;
+    typedef QueueMap::const_iterator QueueIter;
+    QueueMap queuesMap;
 
     typedef unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
@@ -102,6 +113,12 @@ private:
 
     //SearchManagerListener
     virtual void on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept;
+
+    //QueueManagerListener
+    virtual void on(Added, QueueItem*) noexcept;
+    virtual void on(Finished, QueueItem*, const string&, int64_t) noexcept;
+    virtual void on(Removed, QueueItem*) noexcept;
+    virtual void on(Moved, QueueItem*, const string&) noexcept;
 
     int64_t lastUp;
     int64_t lastDown;

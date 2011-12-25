@@ -183,7 +183,7 @@ protected:
         STATE_IDENTIFY,     ///< Nick setup
         STATE_VERIFY,       ///< Checking password
         STATE_NORMAL,       ///< Running
-        STATE_DISCONNECTED, ///< Nothing in particular
+        STATE_DISCONNECTED  ///< Nothing in particular
     } state;
     SearchQueue searchQueue;
     BufferedSocket* sock;

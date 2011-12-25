@@ -11,12 +11,10 @@
 
 // Created on: 17.08.2009
 
-//---------------------------------------------------------------------------
 #include "stdafx.h"
-//---------------------------------------------------------------------------
 #include "utility.h"
 #include "ServerThread.h"
-//---------------------------------------------------------------------------
+
 #include "dcpp/ClientManager.h"
 #include "dcpp/Client.h"
 #include "dcpp/ConnectionManager.h"
@@ -29,7 +27,6 @@
 #include "dcpp/ChatMessage.h"
 #include "dcpp/Text.h"
 #include "dcpp/StringTokenizer.h"
-
 #include "dcpp/version.h"
 
 #ifdef XMLRPC_DAEMON
@@ -51,20 +48,17 @@ ServerThread::ClientMap ServerThread::clientsMap;
 #ifdef JSONRPC_DAEMON
 Json::Rpc::TcpServer * jsonserver;
 #endif
-//----------------------------------------------------------------------------
+
 ServerThread::ServerThread() : lastUp(0), lastDown(0), lastUpdate(GET_TICK()) {
 }
-//---------------------------------------------------------------------------
 
 ServerThread::~ServerThread() {
     join();
 }
-//---------------------------------------------------------------------------
 
 void ServerThread::Resume() {
     start();
 }
-//---------------------------------------------------------------------------
 
 int ServerThread::run() {
     setThreadName("ServerThread");
@@ -176,6 +170,11 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowVersion, std::string("show.version")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowRatio, std::string("show.ratio")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SetPriorityQueueItem, std::string("queue.setpriority")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MoveQueueItem, std::string("queue.move")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RemoveQueueItem, std::string("queue.remove")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueueTargets, std::string("queue.listtargets")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list")));
+
     if (!jsonserver->Bind())
         std::cout << "JSONRPC: Bind failed" << std::endl;
     if (!jsonserver->Listen())
@@ -198,7 +197,7 @@ bool ServerThread::disconnect_all() {
     }
     return true;
 }
-//---------------------------------------------------------------------------
+
 void ServerThread::Close() {
     SearchManager::getInstance()->disconnect();
 
@@ -221,13 +220,10 @@ void ServerThread::Close() {
     ConnectionManager::getInstance()->disconnect();
     disconnect_all();
 }
-//---------------------------------------------------------------------------
 
 void ServerThread::WaitFor() {
     join();
 }
-
-//----------------------------------------------------------------------------
 
 void ServerThread::autoConnect() {
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
@@ -268,7 +264,7 @@ void ServerThread::disconnectClient(const string& address) {
         clientsMap[i->first].curclient = NULL;
     }
 }
-//----------------------------------------------------------------------------
+
 void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
     //int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
     int64_t upDiff = Socket::getTotalUp() - lastUp;
@@ -284,6 +280,11 @@ void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
 }
 
 void ServerThread::on(Connecting, Client* cur) noexcept {
+    if (isVerbose)
+        cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
+}
+
+void ServerThread::on(Connected, Client* cur) noexcept {
     ClientIter i = clientsMap.find(cur->getHubUrl());
     if (i == clientsMap.end()) {
         CurHub curhub;
@@ -294,11 +295,6 @@ void ServerThread::on(Connecting, Client* cur) noexcept {
 
     if (isVerbose)
         cout << "Connecting to " << cur->getHubUrl() << "..." << endl;
-}
-
-void ServerThread::on(Connected, Client* cur) noexcept {
-    if (isVerbose)
-        cout << "Connected successfully to " << cur->getHubUrl() << endl;
 }
 
 void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) noexcept {
@@ -517,7 +513,7 @@ void ServerThread::getChatPubFromClient(string& chat, const string& hub, const s
         chat = "Hub URL is invalid";
 }
 
-void ServerThread::parseSearchResult_gui(SearchResultPtr result, StringMap& resultMap) {
+void ServerThread::parseSearchResult(SearchResultPtr result, StringMap &resultMap) {
     if (result->getType() == SearchResult::TYPE_FILE) {
         string file = revertSeparator(result->getFile());
         if (file.rfind('/') == tstring::npos) {
@@ -654,7 +650,7 @@ void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const str
         SearchResultList::const_iterator kk;
         for (kk = clientsMap[i->first].cursearchresult.begin(); kk != clientsMap[i->first].cursearchresult.end(); ++kk) {
             StringMap resultMap;
-            parseSearchResult_gui(*kk, resultMap);
+            parseSearchResult(*kk, resultMap);
             resultarray.push_back(resultMap);
         }
     }
@@ -746,3 +742,196 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
     }
     return true;
 }
+
+void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
+	string nick;
+	int online = 0;
+
+	params["Filename"] = item->getTargetFileName();
+	params["Path"] = Util::getFilePath(item->getTarget());
+	params["Target"] = item->getTarget();
+
+	params["Users"] = "";
+	for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
+		if (it->getUser().user->isOnline())
+			++online;
+
+		if (params["Users"].size() > 0)
+			params["Users"] += ", ";
+
+		nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+		params["Users"] += nick;
+	}
+	if (params["Users"].empty())
+		params["Users"] = _("No users");
+
+	// Status
+	if (item->isWaiting())
+		params["Status"] = Util::toString(online) + _(" of ") + Util::toString(item->getSources().size()) + _(" user(s) online");
+	else
+		params["Status"] = _("Running...");
+
+	// Size
+	params["Size Sort"] = Util::toString(item->getSize());
+	if (item->getSize() < 0) {
+		params["Size"] = _("Unknown");
+		params["Exact Size"] = _("Unknown");
+	} else {
+		params["Size"] = Util::formatBytes(item->getSize());
+		params["Exact Size"] = Util::formatExactSize(item->getSize());
+	}
+
+	// Downloaded
+	params["Downloaded Sort"] = Util::toString(item->getDownloadedBytes());
+	if (item->getSize() > 0) {
+		double percent = (double)item->getDownloadedBytes() * 100.0 / (double)item->getSize();
+		params["Downloaded"] = Util::formatBytes(item->getDownloadedBytes()) + " (" + Util::toString(percent) + "%)";
+	} else {
+		params["Downloaded"] = _("0 B (0.00%)");
+	}
+
+	// Priority
+	switch (item->getPriority()) {
+		case QueueItem::PAUSED: params["Priority"] = _("Paused"); break;
+		case QueueItem::LOWEST: params["Priority"] = _("Lowest"); break;
+		case QueueItem::LOW: params["Priority"] = _("Low"); break;
+		case QueueItem::HIGH: params["Priority"] = _("High"); break;
+		case QueueItem::HIGHEST: params["Priority"] = _("Highest"); break;
+		default: params["Priority"] = _("Normal"); break;
+	}
+
+	// Error
+	params["Errors"] = "";
+	for (QueueItem::SourceConstIter it = item->getBadSources().begin(); it != item->getBadSources().end(); ++it) {
+		nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+
+		if (!it->isSet(QueueItem::Source::FLAG_REMOVED)) {
+			if (params["Errors"].size() > 0)
+				params["Errors"] += ", ";
+			params["Errors"] += nick + " (";
+
+			if (it->isSet(QueueItem::Source::FLAG_FILE_NOT_AVAILABLE))
+				params["Errors"] += _("File not available");
+			else if (it->isSet(QueueItem::Source::FLAG_PASSIVE))
+				params["Errors"] += _("Passive user");
+			else if (it->isSet(QueueItem::Source::FLAG_CRC_FAILED))
+				params["Errors"] += _("CRC32 inconsistency (SFV-Check)");
+			else if (it->isSet(QueueItem::Source::FLAG_BAD_TREE))
+				params["Errors"] += _("Full tree does not match TTH root");
+			else if (it->isSet(QueueItem::Source::FLAG_SLOW_SOURCE))
+				params["Errors"] += _("Source too slow");
+			else if (it->isSet(QueueItem::Source::FLAG_NO_TTHF))
+				params["Errors"] += _("Remote client does not fully support TTH - cannot download");
+
+			params["Errors"] += ")";
+		}
+	}
+	if (params["Errors"].empty())
+		params["Errors"] = _("No errors");
+
+	// Added
+	params["Added"] = Util::formatTime("%Y-%m-%d %H:%M", item->getAdded());
+
+	// TTH
+	params["TTH"] = item->getTTH().toBase32();
+}
+
+void ServerThread::listQueueTargets(string& listqueue, const string& sseparator) {
+    const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+
+    for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+        listqueue.append(*it->first);
+        listqueue.append(sseparator);
+    }
+    QueueManager::getInstance()->unlockQueue();
+}
+
+void ServerThread::updatelistQueueTargets() {
+    const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+    queuesMap.clear();
+    QueueItem::StringMap::const_iterator it = ll.begin(); unsigned int i = 0;
+    while (it != ll.end()) {
+        queuesMap[i] = *it->first;
+         ++it, ++i;
+    }
+    QueueManager::getInstance()->unlockQueue();
+}
+
+void ServerThread::on(Added, QueueItem* item) noexcept {
+    queuesMap[queuesMap.size()+1] = item->getTarget();
+
+}
+
+void ServerThread::on(Finished, QueueItem*, const string&, int64_t) noexcept {
+
+}
+
+void ServerThread::on(Removed, QueueItem*) noexcept {
+
+}
+
+void ServerThread::on(Moved, QueueItem*, const string&) noexcept {
+
+}
+
+void ServerThread::listQueue(unordered_map<string,StringMap>& listqueue) {
+    const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+
+    for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+        StringMap sm;
+        getQueueParams(it->second,sm);
+        listqueue[*it->first] = sm;
+    }
+    QueueManager::getInstance()->unlockQueue();
+}
+
+bool ServerThread::moveQueueItem(const string& source, const string& target) {
+    if (!source.empty() && !target.empty()) {
+        if (target[target.length() - 1] == PATH_SEPARATOR) {
+            // Can't modify QueueItem::StringMap in the loop, so we have to queue them.
+            vector<string> targets;
+            string *file;
+            const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+
+            for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it)
+            {
+                file = it->first;
+                if (file->length() >= source.length() && file->substr(0, source.length()) == source)
+                    targets.push_back(*file);
+            }
+            QueueManager::getInstance()->unlockQueue();
+
+            for (vector<string>::const_iterator it = targets.begin(); it != targets.end(); ++it)
+                QueueManager::getInstance()->move(*it, target + it->substr(source.length()));
+        } else {
+            QueueManager::getInstance()->move(source, target);
+        }
+        return true;
+    }
+    return false;
+}
+
+bool ServerThread::removeQueueItem(const string& target) {
+    if (!target.empty()) {
+        if (target[target.length() - 1] == PATH_SEPARATOR) {
+            string *file;
+            vector<string> targets;
+            const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+
+            for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+                file = it->first;
+                if (file->length() >= target.length() && file->substr(0, target.length()) == target)
+                    targets.push_back(*file);
+            }
+            QueueManager::getInstance()->unlockQueue();
+
+            for (vector<string>::const_iterator it = targets.begin(); it != targets.end(); ++it)
+                QueueManager::getInstance()->remove(*it);
+        } else {
+            QueueManager::getInstance()->remove(target);
+        }
+        return true;
+    }
+    return false;
+}
+

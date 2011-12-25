@@ -50,7 +50,7 @@ namespace Json
     {
       RAW, /**< Raw format. */
       NETSTRING, /**< Encapsulate the message with NetString (see http://cr.yp.to/proto/netstrings.txt). */
-      HTTP_POST, /**< Encapsulate the message in HTTP POST. Only for TcpServer*/
+      HTTP_POST /**< Encapsulate the message in HTTP POST. Only for TcpServer*/
 #if 0
       HTTP_GET, /**< Encapsulate the message in HTTP GET. */
 #endif

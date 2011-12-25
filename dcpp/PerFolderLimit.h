@@ -52,6 +52,6 @@ public:
   void RenewList(string const *config_name=NULL);
 };
 
-};
+}
 
 #endif

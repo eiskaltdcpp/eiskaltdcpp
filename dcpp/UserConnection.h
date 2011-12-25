@@ -111,7 +111,7 @@ public:
         STATE_IDLE, // No more downloads for the moment
 
         // Up & down
-        STATE_RUNNING,      // Transmitting data
+        STATE_RUNNING       // Transmitting data
 
     };
 
