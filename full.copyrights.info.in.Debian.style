@@ -184,6 +184,17 @@ Copyright: 1991, 1993 The Regents of the University of California
  2005-2010 Thomas Bernard (http://miniupnp.free.fr/)
 License: BSD-3-clause
 
+Files: json/jsoncpp/*
+Copyright: 2007-2010 Baptiste Lepilleur
+License: Expat or public-domain
+ Distributed under MIT license, or Public Domain if desired and recognized
+ in your jurisdiction. See file LICENSE for detail or copy at
+ http://jsoncpp.sourceforge.net/LICENSE
+
+Files: json/jsonrpc-cpp/*
+Copyright: 2008-2011 Sebastien Vincent <sebastien.vincent@cppextrem.com>
+License: LGPL-3+
+
 Files: debian/*
 Copyright: 2010-2011 Boris Pek <tehnick-8@mail.ru>
 License: GPL-2+
@@ -251,6 +262,22 @@ License: GPL-3+
  .
  On Debian systems, the complete text of the GNU General Public License
  can be found in `/usr/share/common-licenses/GPL-3'.
+
+License: LGPL-3+
+ This program is free software: you can redistribute it and/or modify it under
+ the terms of the GNU Lesser General Public License as published by the Free
+ Software Foundation, either version 3 of the License, or (at your option)
+ any later version.
+ .
+ This program is distributed in the hope that it will be useful, but WITHOUT ANY
+ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along with
+ this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU Lesser General Public License
+ can be found in `/usr/share/common-licenses/LGPL-3'.
 
 License: LGPL-3
  This program is free software: you can redistribute it and/or modify it under
