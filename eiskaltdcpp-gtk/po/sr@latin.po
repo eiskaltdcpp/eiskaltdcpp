@@ -470,7 +470,7 @@ msgid "<b>Transfer Rate Limiting</b>"
 msgstr "<b>Ograničenje transfera</b>"
 
 #: ../src/settingsdialog.cc:3515
-msgid "<b>Under what name you see the directory</b>"
+msgid "<b>Name, under which you see the directory</b>"
 msgstr "<b>Pod kojim imenom vidite fasciklu</b>"
 
 #: ../ui/mainwindow.ui:429
@@ -568,7 +568,7 @@ msgid "Added"
 msgstr "Dodato"
 
 #: ../ui/settingsdialog.ui:6004
-msgid "Adding string or TTH in the top"
+msgid "Adding string or TTH to the top"
 msgstr "Dodavanje niza ili TTH u vrh"
 
 #: ../src/favoritehubs.cc:55 ../src/favoritehubs.cc:135

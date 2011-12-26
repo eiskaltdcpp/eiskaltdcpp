@@ -455,7 +455,7 @@ msgid "<b>Transfer Rate Limiting</b>"
 msgstr ""
 
 #: ../src/settingsdialog.cc:3515
-msgid "<b>Under what name you see the directory</b>"
+msgid "<b>Name, under which you see the directory</b>"
 msgstr ""
 
 #: ../ui/mainwindow.ui:429
@@ -550,7 +550,7 @@ msgid "Added"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:6004
-msgid "Adding string or TTH in the top"
+msgid "Adding string or TTH to the top"
 msgstr ""
 
 #: ../src/favoritehubs.cc:55 ../src/favoritehubs.cc:135
