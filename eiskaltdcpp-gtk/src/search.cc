@@ -1635,7 +1635,7 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
     else
     {
         string path = WulforUtil::linuxSeparator(result->getFile());
-        resultMap["Filename"] = WulforUtil::linuxSeparator(result->getFileName());
+        resultMap["Filename"] = Util::getLastDir(path);
         resultMap["Path"] = Util::getFilePath(path.substr(0, path.length() - 1)); // getFilePath just returns path unless we chop the last / off
         if (resultMap["Path"].find("/") == string::npos)
             resultMap["Path"] = "";

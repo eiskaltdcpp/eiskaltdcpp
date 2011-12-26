@@ -42,7 +42,7 @@ public:
     int64_t aSize, const string& aFile, const string& aHubName,
     const string& aHubURL, const string& ip, TTHValue aTTH, const string& aToken);
 
-    string getFileName() const;
+    string getBaseName() const;
     string toSR(const Client& client) const;
     AdcCommand toRES(char type) const;
 

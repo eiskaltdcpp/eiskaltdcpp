@@ -728,7 +728,7 @@ void SearchFrame::getParams(SearchFrame::VarMap &map, const dcpp::SearchResultPt
 
     map["SIZE"]    = qulonglong(ptr->getSize());
 
-    QString fname = _q(ptr->getFileName());
+    QString fname = _q(ptr->getFile());
     const QStringList &fname_parts = fname.split('\\', QString::SkipEmptyParts);
 
     map["FILE"] = fname_parts.isEmpty()? fname : fname_parts.last();

@@ -76,18 +76,16 @@ AdcCommand SearchResult::toRES(char type) const {
     return cmd;
 }
 
-string SearchResult::getFileName() const {
+// file:      path\to\something  --> "something"
+// file:      path\to\something\ --> ""
+// directory: path\to\something  --> "something"
+// directory: path\to\something\ --> "something"
+string SearchResult::getBaseName() const {
     if(getType() == TYPE_FILE)
-        return Util::getFileName(getFile());
+        return Util::getFileName(getFile(), '\\');
 
-    if(getFile().size() < 2)
-        return getFile();
-
-    string::size_type i = getFile().rfind('\\', getFile().length() - 2);
-    if(i == string::npos)
-        return getFile();
-
-    return getFile().substr(i + 1);
+    dcassert(getType() == TYPE_DIRECTORY);
+    return Util::getLastDir(getFile(), '\\');
 }
 
 }
