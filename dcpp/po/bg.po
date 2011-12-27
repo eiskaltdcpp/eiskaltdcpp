@@ -1,23 +1,21 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
 # Translators:
-#   <astral_86@mail.bg>, 2011.
-# PsyTrip <dimitrov.rusi@gmail.com>, 2010.
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-26 02:27+0200\n"
-"PO-Revision-Date: 2011-12-19 12:57+0000\n"
-"Last-Translator: psytrip <astral_86@mail.bg>\n"
-"Language-Team: Bulgarian (http://www.transifex.net/projects/p/eiskaltdcpp/"
-"team/bg/)\n"
-"Language: bg\n"
+"PO-Revision-Date: 2011-12-27 15:45+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Bulgarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -101,7 +99,8 @@ msgstr "Определяне на най-добрите настройки за 
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 "Не може да отвори %1% порт(а); трябва да конфигурирате ръчно настройките за "
 "свързване"
@@ -431,7 +430,8 @@ msgstr "Потребителя е избрал да не се споделя: %1
 
 #: ../ShareManager.cpp:681
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr "Потребителя е избрал да не се споделя временен файл: %1% (размер: %2%)"
+msgstr ""
+"Потребителя е избрал да не се споделя временен файл: %1% (размер: %2%)"
 
 #: ../ShareManager.cpp:769
 msgid ""
@@ -443,8 +443,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "В момента тече опресняване на списъка с файловете, моля изчакайте преди да "
 "опитате да обновите отново"
@@ -710,3 +710,5 @@ msgstr "ТТH несъвпадение"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
+
+

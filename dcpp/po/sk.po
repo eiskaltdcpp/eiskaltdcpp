@@ -1,21 +1,21 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
 # Translators:
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-26 02:27+0200\n"
-"PO-Revision-Date: 2011-12-18 20:58+0000\n"
+"PO-Revision-Date: 2011-12-27 15:59+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: none\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../FavoriteManager.cpp:429
@@ -63,8 +63,8 @@ msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
 msgstr ""
-"Nepodarilo sa nastaviť SOCKS server, aby robil UDP relé (skontrolujte adresu "
-"a port SOCKS)"
+"Nepodarilo sa nastaviť SOCKS server, aby robil UDP relé (skontrolujte adresu"
+" a port SOCKS)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -100,7 +100,8 @@ msgstr ""
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:93
@@ -429,8 +430,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Prebieha obnovenie zoznamu súborov, počkajte prosím, kým skončí, než ho "
 "skúsite znova obnoviť"
@@ -695,3 +696,5 @@ msgstr "nekonzistencia TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
+
+
