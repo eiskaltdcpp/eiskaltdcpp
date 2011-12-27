@@ -389,6 +389,7 @@ list (APPEND AllLanguages
             es
             fr
             hu
+            it
             pl
             ru
             sr@latin
