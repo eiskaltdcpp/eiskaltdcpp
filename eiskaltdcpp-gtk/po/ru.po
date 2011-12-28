@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2011-12-26 02:29+0200\n"
-"PO-Revision-Date: 2011-12-26 02:28+0200\n"
+"PO-Revision-Date: 2011-12-27 23:20+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@mail.ru>\n"
 "Language-Team: Russian <tehnick-8@mail.ru>\n"
 "Language: ru\n"
@@ -323,7 +323,7 @@ msgstr "<b>Свойства магнетов</b>"
 
 #: ../ui/settingsdialog.ui:4438
 msgid "<b>Main Toolbar Style</b>"
-msgstr "<b>Стиль панели инсрументов</b>"
+msgstr "<b>Стиль панели инструментов</b>"
 
 #: ../ui/adlsearch.ui:211
 msgid "<b>Max FileSize</b>"
