@@ -18,6 +18,7 @@
 #include <QItemSelectionModel>
 #include <QDesktopServices>
 #include <QHeaderView>
+#include <QUrl>
 
 #include <boost/bind.hpp>
 
