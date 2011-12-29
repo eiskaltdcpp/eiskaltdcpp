@@ -37,7 +37,7 @@ class ScriptManagerListener {
         typedef List::iterator Iter;
 
         enum Types {
-        DEBUG_MESSAGE,
+        DEBUG_MESSAGE
         };
         virtual void onAction(Types, const string&) noexcept = 0;
     };
