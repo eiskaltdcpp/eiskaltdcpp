@@ -420,29 +420,23 @@ UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){
     return item;
 }
 
-UserListItem *UserListModel::itemForNick(const QString &nick, const QString &aHubUrl){
-    if (!nick.isEmpty()){
-        dcpp::UserPtr ptr = dcpp::ClientManager::getInstance()->getUser(_tq(nick), _tq(aHubUrl));
+UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){   
+    if (nick.isEmpty())
+        return NULL;
+    
+    UserListItem *item = NULL;
+    
+    QList<UserListItem*>::iterator it = std::find_if(rootItem->childItems.begin(), rootItem->childItems.end(),
+                                                     [&nick] (const UserListItem *i) {
+                                                        return (i->getNick() == nick);
+                                                     }
+                                                    );
 
-        USRMap::const_iterator ut = users.find(ptr);
-
-        if (ut != users.constEnd())
-            return ut.value();
-    }
-
-    return NULL;
+    return (it == rootItem->childItems.end()? NULL : *it);
 }
 
-QString UserListModel::CIDforNick(const QString &nick, const QString &aHubUrl){
-    Q_UNUSED(aHubUrl);
-
-    QModelIndexList indexes = match(index(0, COLUMN_NICK, QModelIndex()), Qt::DisplayRole, nick, 1, Qt::MatchExactly);
-
-    if (indexes.size() != 1)
-        return "";
-
-    QModelIndex i = indexes.takeFirst();
-    UserListItem *item = reinterpret_cast<UserListItem*>(i.internalPointer());
+QString UserListModel::CIDforNick(const QString &nick, const QString &){
+    UserListItem *item = itemForNick(nick, "");
 
     return (item? item->cid : "");
 }

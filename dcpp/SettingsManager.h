@@ -235,7 +235,7 @@ public:
     enum Types {
         TYPE_STRING,
         TYPE_INT,
-        TYPE_INT64,
+        TYPE_INT64
     };
 
     bool getType(const char* name, int& n, int& type) const;

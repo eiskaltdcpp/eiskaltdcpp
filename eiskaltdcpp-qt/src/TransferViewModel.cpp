@@ -44,7 +44,7 @@ TransferViewModel::TransferViewModel(QObject *parent)
     : QAbstractItemModel(parent), iconsScaled(false)
 {
     QList<QVariant> rootData;
-    rootData << tr("Users") << tr("Speed") << tr("Status") << tr("Size")
+    rootData << tr("Users") << tr("Speed") << tr("Status") << tr("Flags") << tr("Size")
              << tr("Time left") << tr("File name") << tr("Host") << tr("IP")
              << tr("Encryption");
 
@@ -53,6 +53,7 @@ TransferViewModel::TransferViewModel(QObject *parent)
     column_map.insert("USER", COLUMN_TRANSFER_USERS);
     column_map.insert("SPEED", COLUMN_TRANSFER_SPEED);
     column_map.insert("STAT", COLUMN_TRANSFER_STATS);
+    column_map.insert("FLAGS", COLUMN_TRANSFER_FLAGS);
     column_map.insert("ESIZE", COLUMN_TRANSFER_SIZE);
     column_map.insert("TLEFT", COLUMN_TRANSFER_TLEFT);
     column_map.insert("FNAME", COLUMN_TRANSFER_FNAME);
@@ -170,12 +171,13 @@ struct Compare {
         template <typename T>
         bool static Cmp(const T& l, const T& r);
         
-        static AttrComp attrs[9];
+        static AttrComp attrs[10];
 };
 template <Qt::SortOrder order>
-typename Compare<order>::AttrComp Compare<order>::attrs[9] = {   AttrCmp<COLUMN_TRANSFER_USERS>,
+typename Compare<order>::AttrComp Compare<order>::attrs[10] = {  AttrCmp<COLUMN_TRANSFER_USERS>,
                                                                  NumCmp<COLUMN_TRANSFER_SPEED>,
                                                                  AttrCmp<COLUMN_TRANSFER_STATS>,
+                                                                 AttrCmp<COLUMN_TRANSFER_FLAGS>,
                                                                  NumCmp<COLUMN_TRANSFER_SIZE>,
                                                                  NumCmp<COLUMN_TRANSFER_TLEFT>,
                                                                  AttrCmp<COLUMN_TRANSFER_FNAME>,
@@ -342,7 +344,7 @@ void TransferViewModel::addConnection(const VarMap &params){
 
     QList<QVariant> data;
 
-    data << params["USER"] << "" << params["STAT"] << "" << "" << params["FNAME"] << params["HOST"] << "" << "";
+    data << params["USER"] << "" << params["STAT"] << "" << "" << "" << params["FNAME"] << params["HOST"] << "" << "";
     TransferViewItem *item = new TransferViewItem(data, (to && bGroup) ? to : rootItem);
 
     item->download = vbol(params["DOWN"]);
@@ -472,7 +474,7 @@ TransferViewItem *TransferViewModel::getParent(const QString &target, const VarM
 
     QList<QVariant> data;
 
-    data << params["USER"] << 0 << "" << params["ESIZE"]
+    data << params["USER"] << 0 << "" << "" << params["ESIZE"]
          << params["TLEFT"] << params["FNAME"] << params["HOST"] << "" << "";
 
     p = new TransferViewItem(data, rootItem);
@@ -513,7 +515,6 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     if (!p || p->childCount() < 1 || p == rootItem)
         return;
 
-    QString users;
     QList<QString> hubs;
     int active = 0;
     double speed = 0.0;
@@ -529,11 +530,6 @@ void TransferViewModel::updateParent(TransferViewItem *p){
             active++;
             speed += vdbl(i->data(COLUMN_TRANSFER_SPEED));
         }
-
-        if (!users.isEmpty())
-            users += ", ";
-
-        users += vstr(i->data(COLUMN_TRANSFER_USERS));
 
         if (!hubs.contains(vstr(i->data(COLUMN_TRANSFER_HOST))))
             hubs.append(vstr(i->data(COLUMN_TRANSFER_HOST)));
@@ -555,7 +551,7 @@ void TransferViewModel::updateParent(TransferViewItem *p){
         p->updateColumn(COLUMN_TRANSFER_STATS, tr("Waiting for slot "));
 
     QString stat = vstr(p->data(COLUMN_TRANSFER_STATS)) + WulforUtil::formatBytes(p->dpos)
-                   + QString(" (%1%)").arg(progress, 0, 'f', 1)  + QString(tr(" from %1/%2 user(s)")).arg(active).arg(p->childCount());
+                   + QString(" (%1%)").arg(progress, 0, 'f', 1);
 
     QString hubs_str = "";
 
@@ -569,7 +565,8 @@ void TransferViewModel::updateParent(TransferViewItem *p){
         p->updateColumn(COLUMN_TRANSFER_FNAME, name);
     }
 
-    p->updateColumn(COLUMN_TRANSFER_USERS, users);
+    p->updateColumn(COLUMN_TRANSFER_USERS, tr("%1/%2").arg(active).arg(p->childCount()));
+    p->updateColumn(COLUMN_TRANSFER_FLAGS, "");
     p->updateColumn(COLUMN_TRANSFER_TLEFT, timeLeft);
     p->updateColumn(COLUMN_TRANSFER_HOST, hubs_str);
     p->updateColumn(COLUMN_TRANSFER_SPEED, speed);

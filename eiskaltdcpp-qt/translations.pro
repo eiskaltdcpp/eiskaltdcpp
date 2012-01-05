@@ -6,9 +6,11 @@ TRANSLATIONS = translations/en.ts \
     translations/bg.ts \
     translations/cs.ts \
     translations/de.ts \
+    translations/el.ts \
     translations/es.ts \
     translations/fr.ts \
     translations/hu.ts \
+    translations/it.ts \
     translations/pl.ts \
     translations/ru.ts \
     translations/sk.ts \

@@ -8,7 +8,7 @@ else (APPLE)
 endif (APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.2.5")
+set (VERSION "2.2.6")
 set (SOVERSION "2.2")
 set (VERSION_SUFFIX "GIT")
 
@@ -389,6 +389,7 @@ list (APPEND AllLanguages
             es
             fr
             hu
+            it
             pl
             ru
             sr@latin

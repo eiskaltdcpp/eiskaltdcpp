@@ -221,12 +221,11 @@ bool JsonRpcMethods::ReturnSearchResults(const Json::Value& root, Json::Value& r
     ServerThread::getInstance()->returnSearchResults(tmp, root["params"]["huburl"].asString());
     vector<StringMap>::iterator i = tmp.begin();int k = 0;
     while (i != tmp.end()) {
-            Json::Value param;
-            for (StringMap::iterator kk = (*i).begin(); kk != (*i).end(); ++kk) {
-                parameters[k][kk->first] = kk->second;
-            }
-            ++i; ++k;
+        for (StringMap::iterator kk = (*i).begin(); kk != (*i).end(); ++kk) {
+            parameters[k][kk->first] = kk->second;
         }
+        ++i; ++k;
+    }
     response["result"] = parameters;
     if (isVerbose) std::cout << "ReturnSearchResults (response): " << response << std::endl;
     return true;
@@ -282,5 +281,70 @@ bool JsonRpcMethods::SetPriorityQueueItem(const Json::Value& root, Json::Value& 
     else
         response["result"] = 1;
     if (isVerbose) std::cout << "SetPriorityQueueItem (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::MoveQueueItem(const Json::Value& root, Json::Value& response) {
+    if (isVerbose) std::cout << "MoveQueueItem (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    if (ServerThread::getInstance()->moveQueueItem(root["params"]["target"].asString(), root["params"]["target"].asString()))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
+    if (isVerbose) std::cout << "MoveQueueItem (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::RemoveQueueItem(const Json::Value& root, Json::Value& response) {
+    if (isVerbose) std::cout << "removeQueueItem (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    if (ServerThread::getInstance()->removeQueueItem(root["params"]["target"].asString()))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
+    if (isVerbose) std::cout << "removeQueueItem (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::ListQueueTargets(const Json::Value& root, Json::Value& response) {
+    if (isVerbose) std::cout << "ListQueueTargets (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    string tmp;
+    ServerThread::getInstance()->listQueueTargets(tmp, root["params"]["separator"].asString());
+    response["result"] = tmp;
+    if (isVerbose) std::cout << "ListQueueTargets (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::ListQueue(const Json::Value& root, Json::Value& response) {
+    if (isVerbose) std::cout << "ListQueue (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    Json::Value parameters;
+    unordered_map<string,StringMap> listqueue;
+    ServerThread::getInstance()->listQueue(listqueue);
+    unordered_map<string,StringMap>::iterator i = listqueue.begin();
+    while (i != listqueue.end()) {
+        for (StringMap::iterator kk = i->second.begin(); kk != i->second.end(); ++kk) {
+            parameters[i->first][kk->first] = kk->second;
+        }
+    }
+    response["result"] = parameters;
+    if (isVerbose) std::cout << "ListQueue (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::ClearSearchResults(const Json::Value& root, Json::Value& response) {
+    if (isVerbose) std::cout << "ClearSearchResults (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    if (ServerThread::getInstance()->clearSearchResults(root["params"]["huburl"].asString()))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
+    if (isVerbose) std::cout << "ClearSearchResults (response): " << response << std::endl;
     return true;
 }

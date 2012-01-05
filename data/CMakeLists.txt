@@ -1,6 +1,6 @@
 project(data)
 
-if (USE_QT OR USE_GTK)
+if (USE_QT OR USE_GTK OR USE_GTK3)
     if (WITH_EXAMPLES)
         install (DIRECTORY examples/ DESTINATION ${CLIENT_DATA_DIR}/examples
         FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
@@ -45,4 +45,4 @@ else (APPLE)
     install (FILES icons/icon_128x128.png DESTINATION ${SHARE_DIR}/pixmaps/ RENAME eiskaltdcpp.png)
   endif (NOT HAIKU)
 endif (APPLE)
-endif (USE_QT OR USE_GTK)
+endif (USE_QT OR USE_GTK OR USE_GTK3)

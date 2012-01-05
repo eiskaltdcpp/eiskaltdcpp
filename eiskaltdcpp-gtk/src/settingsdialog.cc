@@ -3521,7 +3521,7 @@ void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
             GtkWidget *dialog = s->getWidget("nameDialog");
 			gtk_window_set_title(GTK_WINDOW(dialog), _("Favorite name"));
 			gtk_entry_set_text(GTK_ENTRY(s->getWidget("nameDialogEntry")), "");
-			gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Under what name you see the directory</b>"));
+			gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Name, under which you see the directory</b>"));
 			response = gtk_dialog_run(GTK_DIALOG(dialog));
 			gtk_widget_hide(dialog);
 

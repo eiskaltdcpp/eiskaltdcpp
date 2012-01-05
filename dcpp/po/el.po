@@ -1,22 +1,22 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-# 
+#
 # Translators:
 # Translators:
-#   <kgeorgokitsos@yahoo.de>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-12-22 09:09+0000\n"
-"Last-Translator: kge <kgeorgokitsos@yahoo.de>\n"
-"Language-Team: Greek (http://www.transifex.net/projects/p/eiskaltdcpp/team/el/)\n"
+"POT-Creation-Date: 2011-12-27 23:16+0200\n"
+"PO-Revision-Date: 2011-12-27 15:47+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Greek (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
+"el/)\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -84,7 +84,7 @@ msgstr "Ουρά Μεταφόρτωσης"
 msgid "Users"
 msgstr "Χρήστες"
 
-#: ../Thread.cpp:30 ../Thread.cpp:38
+#: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "Αδυναμία δημιουργίας νήματος"
 
@@ -102,8 +102,7 @@ msgstr "Καθορισμός της καλύτερης ρύθμισης συνδ
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "Αδυναμία να ανοιχτεί η(οι) θύρα(-ες) %1%. ρυθμίσεις συνδέσεων πρέπει να "
 "δοθούν χειροκίνητα"
@@ -120,8 +119,8 @@ msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
-"Ανιχνεύτηκε τοπικό δίκτυο, πιθανών με NAT, προσπάθεια αντιστοίχισης θυρών με"
-" UPnP..."
+"Ανιχνεύτηκε τοπικό δίκτυο, πιθανών με NAT, προσπάθεια αντιστοίχισης θυρών με "
+"UPnP..."
 
 #: ../ConnectivityManager.cpp:128
 msgid ""
@@ -147,19 +146,19 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Επαναφορά σύνδεσης"
 
-#: ../UploadManager.cpp:133
+#: ../UploadManager.cpp:132
 msgid "Connection already exists."
 msgstr "Η σύνδεση έκλεισε"
 
-#: ../UploadManager.cpp:270
+#: ../UploadManager.cpp:267
 msgid "Unable to send file %1%: %2%"
 msgstr "Αδύνατο να σταλθεί το αρχείο %1%: %2%"
 
-#: ../UploadManager.cpp:557
+#: ../UploadManager.cpp:554
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Φραγή εισερχόμενης σύνδεσης σε "
 
-#: ../UploadManager.cpp:620
+#: ../UploadManager.cpp:617
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Αποσυνδεδεμένος χρήστης αποχωρεί από τον κόμβο: %1%"
 
@@ -195,15 +194,15 @@ msgstr " σε "
 msgid "Error: params have been not 2!"
 msgstr "Σφάλμα: παράμετροι δεν είναι 2!"
 
-#: ../NmdcHub.cpp:293
+#: ../NmdcHub.cpp:291
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Άγνωστο ψευδώνυμο)"
 
-#: ../NmdcHub.cpp:672
+#: ../NmdcHub.cpp:670
 msgid "Hub topic:"
 msgstr "Θέμα κόμβου:"
 
-#: ../NmdcHub.cpp:1024
+#: ../NmdcHub.cpp:1020
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -212,8 +211,8 @@ msgstr ""
 "παρακαλώ να πείσετε των ιδιοκτήτη του κόμβου να το διορθώσει"
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
-#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../QueueManager.cpp:2166 ../QueueManager.cpp:2172 ../QueueManager.cpp:2178
+#: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
+#: ../QueueManager.cpp:2163 ../QueueManager.cpp:2169 ../QueueManager.cpp:2175
 msgid "Offline"
 msgstr "Χωρίς σύνδεση"
 
@@ -221,7 +220,7 @@ msgstr "Χωρίς σύνδεση"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) έχει ίδιο CID {%3%} όπως %4% (%5%), παράβλεψη"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -336,18 +335,18 @@ msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου �
 msgid "Error creating hash data file: %1%"
 msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου δεδομένων αποτύπωσης"
 
-#: ../HashManager.cpp:805
+#: ../HashManager.cpp:806
 msgid "Hash database rebuilt"
 msgstr "Ανακατασκευάστηκε η βάση δεδομένων αποτύπωσης"
 
-#: ../HashManager.cpp:904
+#: ../HashManager.cpp:900
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
-"%1% δεν μοιράστηκε; το υπολογισμένο CRC32 δεν ταιριάζε με αυτό που βρίσκεται"
-" στο αρχείο SFV."
+"%1% δεν μοιράστηκε; το υπολογισμένο CRC32 δεν ταιριάζε με αυτό που βρίσκεται "
+"στο αρχείο SFV."
 
-#: ../HashManager.cpp:909
+#: ../HashManager.cpp:905
 msgid "Error hashing %1%: %2%"
 msgstr "Σφάλμα αποτύπωσης %1%: %2%"
 
@@ -359,32 +358,32 @@ msgstr "Το αρχείο δεν είναι διαθέσιμο"
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Μια άλλη προσπάθεια αντιστοίχηση θυρών είναι σε εξέλιξη "
 
-#: ../UPnPManager.cpp:81
+#: ../UPnPManager.cpp:82
 msgid "Failed to initialize the %1% interface"
 msgstr "Εκκίνηση ανανέωσης λίστας αρχείων"
 
-#: ../UPnPManager.cpp:85
+#: ../UPnPManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
 msgstr " Θύρα Μεταφοράς (%1% TCP)"
 
-#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
-#: ../UPnPManager.cpp:101
+#: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "Η διεπαφή  %1% απέτυχε να αντιστοιχήσει τη θύρα %2% %3%"
 
-#: ../UPnPManager.cpp:90
+#: ../UPnPManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr "Κρυπτογραφημένη Θύρα Μεταφοράς (%1% TCP)"
 
-#: ../UPnPManager.cpp:95
+#: ../UPnPManager.cpp:96
 msgid " Search Port (%1% UDP)"
 msgstr " Θύρα Αναζήτησης (%1% UDP)"
 
-#: ../UPnPManager.cpp:100
+#: ../UPnPManager.cpp:101
 msgid " DHT Port (%1% UDP)"
 msgstr " Θύρα DHT (%1% UDP)"
 
-#: ../UPnPManager.cpp:107
+#: ../UPnPManager.cpp:108
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -392,23 +391,23 @@ msgstr ""
 "Επιτυχή δημιουργία αντιστοίχησης θυρών (TCP: %1%, UDP: %2%, TLS: %3%), "
 "αντιστοίχηση χρησιμοποιώντας την διεπαφή %4%"
 
-#: ../UPnPManager.cpp:118
+#: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
 msgstr "Αποτυχία ανάκτησης εξωτερικού IP"
 
-#: ../UPnPManager.cpp:128
+#: ../UPnPManager.cpp:129
 msgid "Failed to create port mappings"
 msgstr "Αδυναμία δημιουργίας νήματος"
 
-#: ../UPnPManager.cpp:137
+#: ../UPnPManager.cpp:138
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Έναρξη ανανέωσης λίστας αρχείων"
 
-#: ../UPnPManager.cpp:138
+#: ../UPnPManager.cpp:139
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Έναρξη ανανέωσης λίστας αρχείων"
 
-#: ../UPnPManager.cpp:143
+#: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -449,8 +448,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "Ανανέωση λίστας αρχείων σε εξέλιξη, παρακαλώ περιμένετε να ολοκληρωθεί πριν "
 "ανανεώσετε ξανά"
@@ -459,15 +458,15 @@ msgstr ""
 msgid "File list refresh failed: %1%"
 msgstr "Ολοκληρώθηκε η ανανέωση της λίστας αρχείων"
 
-#: ../ShareManager.cpp:833
+#: ../ShareManager.cpp:834
 msgid "File list refresh initiated"
 msgstr "Εκκίνηση ανανέωσης της λίστας αρχείων"
 
-#: ../ShareManager.cpp:858
+#: ../ShareManager.cpp:859
 msgid "File list refresh finished"
 msgstr "Ολοκληρώθηκε η ανανέωση της λίστας αρχείων"
 
-#: ../ShareManager.cpp:940
+#: ../ShareManager.cpp:941
 msgid "File list %1% generated"
 msgstr "Εκκίνηση ανανέωσης της λίστας αρχείων"
 
@@ -491,7 +490,7 @@ msgstr "<Εισάγετε συμβολοσειρά>"
 msgid "Discard"
 msgstr "Απόρριψη"
 
-#: ../DirectoryListing.cpp:187
+#: ../DirectoryListing.cpp:210
 msgid "Directory missing name attribute"
 msgstr "Κατάλογος δεν έχει γνώρισμα ονόματος"
 
@@ -565,11 +564,11 @@ msgstr "Το αρχείο δεν είναι διαθέσιμο"
 msgid "All download slots taken"
 msgstr "Όλες οι θέσεις μεταφόρτωσης είναι κατειλημμένες"
 
-#: ../ConnectionManager.cpp:248
+#: ../ConnectionManager.cpp:253
 msgid "Connectivity restored"
 msgstr "Αποκατάσταση συνδεσιμότητας"
 
-#: ../ConnectionManager.cpp:256
+#: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
 msgstr "Αποκατάσταση συνδεσιμότητας"
 
@@ -613,11 +612,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "Εικόνα CD"
 
-#: ../SearchManager.cpp:150
+#: ../SearchManager.cpp:151
 msgid "Search enabled again"
 msgstr "Ενεργοποιήθηκε πάλι η αναζήτηση"
 
-#: ../SearchManager.cpp:158
+#: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
 msgstr "Ενεργοποιήθηκε πάλι η αναζήτηση"
 
@@ -672,8 +671,7 @@ msgstr ""
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
 msgstr ""
-"Ένα αρχείο με ίδιο ή μεγαλύτερο μέγεθος υπάρχει ήδη στην τοποθεσία "
-"προορισμού"
+"Ένα αρχείο με ίδιο ή μεγαλύτερο μέγεθος υπάρχει ήδη στην τοποθεσία προορισμού"
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
@@ -696,15 +694,15 @@ msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 "Αδυναμία μετακίνησης %1% σε %2% (%3%) ούτε να μετονομαστεί σε %4% (%5%)"
 
-#: ../QueueManager.cpp:1407
+#: ../QueueManager.cpp:1404
 msgid "Unable to open filelist: %1%"
 msgstr "Αδυναμία να ανοιχτεί λίστα αρχείων: %1%"
 
-#: ../QueueManager.cpp:1430
+#: ../QueueManager.cpp:1427
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Ταίριασε αρχείο %2%"
 
-#: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
+#: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Ασυνέπεια CRC32 (Έλεγχος SFV)"
 
@@ -718,5 +716,3 @@ msgstr "Ασυνέπεια TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
-
-

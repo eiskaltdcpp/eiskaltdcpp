@@ -602,17 +602,26 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
 }
 
 void ShareBrowser::slotRightPaneSelChanged(const QItemSelection &, const QItemSelection &){
-    QItemSelectionModel *selection_model = treeView_RPANE->selectionModel();
-    QModelIndexList list = selection_model->selectedRows(0);
-    quint64 selected_size = 0;
+    QModelIndexList list        = treeView_RPANE->selectionModel()->selectedRows(COLUMN_FILEBROWSER_NAME);
+    qulonglong selected_size    = 0;
+    quint32    total_selected   = 0;
 
-    foreach (const QModelIndex &i, list)
-        selected_size += (reinterpret_cast<FileBrowserItem*>(i.internalPointer()))->data(COLUMN_FILEBROWSER_ESIZE).toULongLong();
+    std::for_each(list.begin(), list.end(),  
+                  [&total_selected, &selected_size](const QModelIndex &i) {
+                      selected_size += reinterpret_cast<FileBrowserItem*>(i.internalPointer())->data(COLUMN_FILEBROWSER_ESIZE).toULongLong();
+                      total_selected++;
+                  } 
+                 );
+   
+    QString status;
+    
+    if (total_selected > 0)
+        status = tr("Selected %1 from %2 items; ").arg(total_selected).arg(list_root->childCount());
+    
+    status += tr("Total size: %1").arg(WulforUtil::formatBytes(current_size));
 
-    QString status = QString(tr("Total size: %1")).arg(WulforUtil::formatBytes(current_size));
-
-    if (selected_size)
-        status += QString(tr("; Selected: %1")).arg(WulforUtil::formatBytes(selected_size));
+    if (selected_size > 0)
+        status += tr("; Selected: %1").arg(WulforUtil::formatBytes(selected_size));
 
     label_RIGHT->setText(status);
 }

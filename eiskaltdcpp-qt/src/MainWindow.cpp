@@ -2233,6 +2233,12 @@ void MainWindow::slotToolsJS(){
 
 void MainWindow::slotJSFileChanged(const QString &script){
 #ifdef USE_JS
+    if (!isVisible()){
+        show();
+        
+        raise();
+    }
+    
     if (QMessageBox::warning(this, 
                              tr("Script Engine"), 
                              QString("\'%1\' has been changed. Reload it?").arg(script), 

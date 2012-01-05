@@ -212,8 +212,11 @@ struct Compare {
     }
 
     void static insertSorted(unsigned column, QList<DownloadQueueItem*>& items, DownloadQueueItem* item) {
-        if (column > COLUMN_DOWNLOADQUEUE_TTH)
-            return items.end();
+        if (column > COLUMN_DOWNLOADQUEUE_TTH){
+            items.push_back(item);
+            
+            return;
+        }
                                         
         QList<DownloadQueueItem*>::iterator it = qLowerBound(items.begin(), 
                                                              items.end(), 
@@ -510,9 +513,8 @@ void DownloadQueueModel::setRootElem(DownloadQueueItem *root, bool del_old, bool
         d->rootItem = NULL;
     }
 
-    if (d->rootItem = root){
+    if (d->rootItem = root)
         emit layoutChanged();
-    }
 }
 
 DownloadQueueItem *DownloadQueueModel::getRootElem() const{

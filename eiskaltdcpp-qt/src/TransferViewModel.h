@@ -17,15 +17,16 @@
 #include <QMultiHash>
 #include <QSize>
 
-#define COLUMN_TRANSFER_USERS       0
-#define COLUMN_TRANSFER_SPEED       1
-#define COLUMN_TRANSFER_STATS       2
-#define COLUMN_TRANSFER_SIZE        3
-#define COLUMN_TRANSFER_TLEFT       4
-#define COLUMN_TRANSFER_FNAME       5
-#define COLUMN_TRANSFER_HOST        6
-#define COLUMN_TRANSFER_IP          7
-#define COLUMN_TRANSFER_ENCRYPTION  8
+static const int COLUMN_TRANSFER_USERS       = 0;
+static const int COLUMN_TRANSFER_SPEED       = 1;
+static const int COLUMN_TRANSFER_STATS       = 2;
+static const int COLUMN_TRANSFER_FLAGS       = 3;
+static const int COLUMN_TRANSFER_SIZE        = 4;
+static const int COLUMN_TRANSFER_TLEFT       = 5;
+static const int COLUMN_TRANSFER_FNAME       = 6;
+static const int COLUMN_TRANSFER_HOST        = 7;
+static const int COLUMN_TRANSFER_IP          = 8;
+static const int COLUMN_TRANSFER_ENCRYPTION  = 9;
 
 class TransferViewDelegate:
         public QStyledItemDelegate

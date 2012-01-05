@@ -1,22 +1,24 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-# 
+#
 # Translators:
-# Boris Pek <tehnick-8@mail.ru>, 2010, 2011.
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-12-19 19:46+0000\n"
+"POT-Creation-Date: 2011-12-27 23:16+0200\n"
+"PO-Revision-Date: 2011-12-27 15:43+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Russian (http://www.transifex.net/projects/p/eiskaltdcpp/team/ru/)\n"
+"Language-Team: Russian (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
+"ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -81,7 +83,7 @@ msgstr "Очередь"
 msgid "Users"
 msgstr "Пользователи"
 
-#: ../Thread.cpp:30 ../Thread.cpp:38
+#: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "Невозможно создать поток"
 
@@ -99,8 +101,7 @@ msgstr "Определение наилучших настроек соедин�
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "Невозможно открыть порт(ы) %1%. Настройки подключения должны быть "
 "установлены вручную"
@@ -109,8 +110,7 @@ msgstr ""
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr ""
-"Публичный IP-адрес обнаружен, выбирается активный режим с прямым "
-"подключением"
+"Публичный IP-адрес обнаружен, выбирается активный режим с прямым подключением"
 
 #: ../ConnectivityManager.cpp:100
 msgid ""
@@ -125,8 +125,8 @@ msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
 msgstr ""
-"Автоматическая установка активного режима провалилась. Вы можете попробовать"
-" установить свое подключение вручную для лучшей связи"
+"Автоматическая установка активного режима провалилась. Вы можете попробовать "
+"установить свое подключение вручную для лучшей связи"
 
 #: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
@@ -144,19 +144,19 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Подключение: "
 
-#: ../UploadManager.cpp:133
+#: ../UploadManager.cpp:132
 msgid "Connection already exists."
 msgstr "Соединение уже существует."
 
-#: ../UploadManager.cpp:270
+#: ../UploadManager.cpp:267
 msgid "Unable to send file %1%: %2%"
 msgstr "Невозможно передать файл %1%: %2%"
 
-#: ../UploadManager.cpp:557
+#: ../UploadManager.cpp:554
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: заблокировано входящее соединение к "
 
-#: ../UploadManager.cpp:620
+#: ../UploadManager.cpp:617
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Пользователь %1% отключился и покинул хаб"
 
@@ -192,25 +192,25 @@ msgstr " в "
 msgid "Error: params have been not 2!"
 msgstr "Ошибка: не два параметра!"
 
-#: ../NmdcHub.cpp:293
+#: ../NmdcHub.cpp:291
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Ник неизвестен)"
 
-#: ../NmdcHub.cpp:672
+#: ../NmdcHub.cpp:670
 msgid "Hub topic:"
 msgstr "Тема хаба:"
 
-#: ../NmdcHub.cpp:1024
+#: ../NmdcHub.cpp:1020
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
 msgstr ""
-"Этот хаб пытается использовать ваш клиент для спама %1%, пожалуйста сообщите"
-" владельцу хаба, чтобы он исправил это"
+"Этот хаб пытается использовать ваш клиент для спама %1%, пожалуйста сообщите "
+"владельцу хаба, чтобы он исправил это"
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
-#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../QueueManager.cpp:2166 ../QueueManager.cpp:2172 ../QueueManager.cpp:2178
+#: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
+#: ../QueueManager.cpp:2163 ../QueueManager.cpp:2169 ../QueueManager.cpp:2175
 msgid "Offline"
 msgstr "Не в сети"
 
@@ -218,7 +218,7 @@ msgstr "Не в сети"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) имеет такой же CID {%3%} как %4% (%5%), игнорирован"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
 msgid "%1%/s"
 msgstr "%1%/c"
 
@@ -333,16 +333,16 @@ msgstr "Невозможно считать хэш файла"
 msgid "Error creating hash data file: %1%"
 msgstr "Ошибка создания файла данных хэша: %1%"
 
-#: ../HashManager.cpp:805
+#: ../HashManager.cpp:806
 msgid "Hash database rebuilt"
 msgstr "Хеш базы данных обновлен"
 
-#: ../HashManager.cpp:904
+#: ../HashManager.cpp:900
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr "%1% не расшарен из-за несоответсвия хеш-суммы (CRC32)."
 
-#: ../HashManager.cpp:909
+#: ../HashManager.cpp:905
 msgid "Error hashing %1%: %2%"
 msgstr "Ошибка хэширования %1%: %2%"
 
@@ -354,56 +354,56 @@ msgstr "Нет доступной реализации UPnP"
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Другая попытка проброса портов через UPnP еще не завершена..."
 
-#: ../UPnPManager.cpp:81
+#: ../UPnPManager.cpp:82
 msgid "Failed to initialize the %1% interface"
 msgstr "Не удалось инициализировать интерфейс %1%"
 
-#: ../UPnPManager.cpp:85
+#: ../UPnPManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
 msgstr " Порт передачи (%1% TCP)"
 
-#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
-#: ../UPnPManager.cpp:101
+#: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "Попытка пробросить порт %2% на %3% провалилась для интерфейса %1%"
 
-#: ../UPnPManager.cpp:90
+#: ../UPnPManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr " Порт шифрованной передачи (%1% TCP)"
 
-#: ../UPnPManager.cpp:95
+#: ../UPnPManager.cpp:96
 msgid " Search Port (%1% UDP)"
 msgstr " Порт для поиска (%1% UDP)"
 
-#: ../UPnPManager.cpp:100
+#: ../UPnPManager.cpp:101
 msgid " DHT Port (%1% UDP)"
 msgstr " DHT порт (%1% UDP)"
 
-#: ../UPnPManager.cpp:107
+#: ../UPnPManager.cpp:108
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
 msgstr ""
-"Успешно выполнен проброс портов (TCP: %1%, UDP: %2%, TLS: %3%), используется"
-" интерфейс %4%"
+"Успешно выполнен проброс портов (TCP: %1%, UDP: %2%, TLS: %3%), используется "
+"интерфейс %4%"
 
-#: ../UPnPManager.cpp:118
+#: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
 msgstr "Не удалось получить внешний IP"
 
-#: ../UPnPManager.cpp:128
+#: ../UPnPManager.cpp:129
 msgid "Failed to create port mappings"
 msgstr "Невозможно создать перенаправление портов"
 
-#: ../UPnPManager.cpp:137
+#: ../UPnPManager.cpp:138
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Успешно удален проброс портов с интерфейса %1%"
 
-#: ../UPnPManager.cpp:138
+#: ../UPnPManager.cpp:139
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Не удалось удалить проброс портов с интерфейса %1%"
 
-#: ../UPnPManager.cpp:143
+#: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -440,8 +440,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "Выполняется обновление списка файлов, пожалуйста, дождитесь окончания, "
 "прежде чем обновлять список вновь"
@@ -450,15 +450,15 @@ msgstr ""
 msgid "File list refresh failed: %1%"
 msgstr "Не удалось обновить список файлов: %1%"
 
-#: ../ShareManager.cpp:833
+#: ../ShareManager.cpp:834
 msgid "File list refresh initiated"
 msgstr "Запущено обновление списка файлов"
 
-#: ../ShareManager.cpp:858
+#: ../ShareManager.cpp:859
 msgid "File list refresh finished"
 msgstr "Обновление списка файлов завершено"
 
-#: ../ShareManager.cpp:940
+#: ../ShareManager.cpp:941
 msgid "File list %1% generated"
 msgstr "Запущено обновление списка файлов %1%"
 
@@ -482,7 +482,7 @@ msgstr "<Введите строку>"
 msgid "Discard"
 msgstr "Отклонить"
 
-#: ../DirectoryListing.cpp:187
+#: ../DirectoryListing.cpp:210
 msgid "Directory missing name attribute"
 msgstr "Отсутствует имя папки"
 
@@ -556,11 +556,11 @@ msgstr "%1%: Файл недоступен"
 msgid "All download slots taken"
 msgstr "Все слоты закачек заняты"
 
-#: ../ConnectionManager.cpp:248
+#: ../ConnectionManager.cpp:253
 msgid "Connectivity restored"
 msgstr "Соединение восстановлено"
 
-#: ../ConnectionManager.cpp:256
+#: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
 msgstr "Ошибка соединения: %1%"
 
@@ -604,11 +604,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "CD образ"
 
-#: ../SearchManager.cpp:150
+#: ../SearchManager.cpp:151
 msgid "Search enabled again"
 msgstr "Поиск снова включен"
 
-#: ../SearchManager.cpp:158
+#: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
 msgstr "Поиск отключен: %1%"
 
@@ -685,15 +685,15 @@ msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 "Не смог переместить %1% в %2% (%3%) и не смог переименовать в %4% (%5%)"
 
-#: ../QueueManager.cpp:1407
+#: ../QueueManager.cpp:1404
 msgid "Unable to open filelist: %1%"
 msgstr "Невозможно открыть список файлов: %1%"
 
-#: ../QueueManager.cpp:1430
+#: ../QueueManager.cpp:1427
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Согласован файл %2%"
 
-#: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
+#: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 несоответствие (SFV-проверка)"
 
@@ -707,5 +707,3 @@ msgstr "Несовпадение TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
-
-

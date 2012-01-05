@@ -12,7 +12,7 @@
 
 #include <QObject>
 #include "dcpp/Singleton.h"
-#include <auto_ptr.h>
+#include <memory>
 
 class QTimer;
 
@@ -36,7 +36,7 @@ private:
     virtual ~GlobalTimer();
     GlobalTimer &operator=(const GlobalTimer&);
     
-    std::auto_ptr<QTimer> timer;
+    std::unique_ptr<QTimer> timer;
     quint64 tickCount;
 };
 

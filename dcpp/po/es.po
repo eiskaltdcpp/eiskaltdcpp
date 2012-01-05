@@ -1,26 +1,22 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-# 
+#
 # Translators:
 # Translators:
-# Guatavo Alvarez Lopez <sl1pkn07@gmail.com>, 2011.
-# Gustavo Alvarez <gustavoalvarez@ono.com>, 2011.
-# Gustavo Alvarez Lopez <sl1pkn07@gmail.com>, 2011.
-#  <renatux@users.sourceforge.net>, 2008.
-# sL1pKn07 <sl1pkn07@gmail.com>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-12-18 22:09+0200\n"
-"PO-Revision-Date: 2011-12-22 12:06+0000\n"
-"Last-Translator: Gustavo Alvarez Lopez <sl1pkn07@gmail.com>\n"
-"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/eiskaltdcpp/team/es/)\n"
+"POT-Creation-Date: 2011-12-27 23:16+0200\n"
+"PO-Revision-Date: 2011-12-27 15:44+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/"
+"eiskaltdcpp/team/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -88,7 +84,7 @@ msgstr "Cola de Descargas"
 msgid "Users"
 msgstr "Usuarios"
 
-#: ../Thread.cpp:30 ../Thread.cpp:38
+#: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
 msgstr "No se puede crear tarea"
 
@@ -106,8 +102,7 @@ msgstr "Determinando la mejor configuración de conexión..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "No se puede habilitar el/los puerto(s) %1%. Debería configurar su conexión "
 "manualmente"
@@ -150,19 +145,19 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Conectividad: "
 
-#: ../UploadManager.cpp:133
+#: ../UploadManager.cpp:132
 msgid "Connection already exists."
 msgstr "Conexión cerrada"
 
-#: ../UploadManager.cpp:270
+#: ../UploadManager.cpp:267
 msgid "Unable to send file %1%: %2%"
 msgstr "Imposible enviar archivo  %1%: %2%"
 
-#: ../UploadManager.cpp:557
+#: ../UploadManager.cpp:554
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Bloqueada conexión de entrada a "
 
-#: ../UploadManager.cpp:620
+#: ../UploadManager.cpp:617
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Usuario desconectado ha dejado el hub: %1%"
 
@@ -198,15 +193,15 @@ msgstr "a"
 msgid "Error: params have been not 2!"
 msgstr "Error: ¡no me ha dado 2 parámetros!"
 
-#: ../NmdcHub.cpp:293
+#: ../NmdcHub.cpp:291
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nick desconocido)"
 
-#: ../NmdcHub.cpp:672
+#: ../NmdcHub.cpp:670
 msgid "Hub topic:"
 msgstr "Tópic del Hub :"
 
-#: ../NmdcHub.cpp:1024
+#: ../NmdcHub.cpp:1020
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -215,8 +210,8 @@ msgstr ""
 "favor, inste al dueño del hub que arregle esto"
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
-#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../QueueManager.cpp:2166 ../QueueManager.cpp:2172 ../QueueManager.cpp:2178
+#: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
+#: ../QueueManager.cpp:2163 ../QueueManager.cpp:2169 ../QueueManager.cpp:2175
 msgid "Offline"
 msgstr "Desconectado"
 
@@ -224,7 +219,7 @@ msgstr "Desconectado"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) tiene el mismo CID {%3%} como  %4% (%5%), ignorando"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2195
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -237,8 +232,8 @@ msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
 msgstr ""
-"El Hub probablemente utiliza una versión antigua de ADC, por favor, Insta al"
-" administrador que lo actualice"
+"El Hub probablemente utiliza una versión antigua de ADC, por favor, Insta al "
+"administrador que lo actualice"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -339,18 +334,18 @@ msgstr "No se pudo leer el archivo índice Hash"
 msgid "Error creating hash data file: %1%"
 msgstr "Error al crear el archivo índice del Hash: %1%"
 
-#: ../HashManager.cpp:805
+#: ../HashManager.cpp:806
 msgid "Hash database rebuilt"
 msgstr "Base de datos del Hash reconstruido"
 
-#: ../HashManager.cpp:904
+#: ../HashManager.cpp:900
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% No compartido; el CRC32 calculado no concuerda con el encontrado en el "
 "archivo SFV."
 
-#: ../HashManager.cpp:909
+#: ../HashManager.cpp:905
 msgid "Error hashing %1%: %2%"
 msgstr "Error en el Indexado %1%: %2%"
 
@@ -362,56 +357,56 @@ msgstr "Implementación UPnP no disponible"
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Otra mapa de puertos UPnP está funcionando ahora..."
 
-#: ../UPnPManager.cpp:81
+#: ../UPnPManager.cpp:82
 msgid "Failed to initialize the %1% interface"
 msgstr "Fallo al inicializar la interface %1%"
 
-#: ../UPnPManager.cpp:85
+#: ../UPnPManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
 msgstr "Puerto de Transferencia (%1% TCP)"
 
-#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
-#: ../UPnPManager.cpp:101
+#: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "La interface %1% ha fallado con el mapa los puertos %2% %3%"
 
-#: ../UPnPManager.cpp:90
+#: ../UPnPManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr "Puerto de Transferencia Encriptado (%1% TCP)"
 
-#: ../UPnPManager.cpp:95
+#: ../UPnPManager.cpp:96
 msgid " Search Port (%1% UDP)"
 msgstr "Puerto de búsqueda (1%% UDP)"
 
-#: ../UPnPManager.cpp:100
+#: ../UPnPManager.cpp:101
 msgid " DHT Port (%1% UDP)"
 msgstr "Puerto DHT (%1% UDP)"
 
-#: ../UPnPManager.cpp:107
+#: ../UPnPManager.cpp:108
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
 msgstr ""
-"Creado mapa de puertos satisfactoriamente (TCP: %1%, UDP: %2%, TLS: %3%), el"
-" mapeo ha sido usado en la interface %4%"
+"Creado mapa de puertos satisfactoriamente (TCP: %1%, UDP: %2%, TLS: %3%), el "
+"mapeo ha sido usado en la interface %4%"
 
-#: ../UPnPManager.cpp:118
+#: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
 msgstr "Fallo al recibir  IP externa"
 
-#: ../UPnPManager.cpp:128
+#: ../UPnPManager.cpp:129
 msgid "Failed to create port mappings"
 msgstr "Fallo al crear la tabla de puertos"
 
-#: ../UPnPManager.cpp:137
+#: ../UPnPManager.cpp:138
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Eliminado con éxito las asignaciones de puerto con la interfaz %1%"
 
-#: ../UPnPManager.cpp:138
+#: ../UPnPManager.cpp:139
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "No se pudo eliminar asignaciones de puertos con la interfaz %1%"
 
-#: ../UPnPManager.cpp:143
+#: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -430,8 +425,7 @@ msgstr "La carpeta temporal de descargas NO puede compartirse"
 #: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
-"Encontrado nombre de archivo invalido mientras que se hasheaba la carpeta "
-"%1%"
+"Encontrado nombre de archivo invalido mientras que se hasheaba la carpeta %1%"
 
 #: ../ShareManager.cpp:660
 msgid "User has chosen not to share file: %1% (Size: %2%)"
@@ -447,13 +441,13 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"El archivo duplicado %1% no será compartido (Tamaño: %2% B) Comparado con el"
-" duplicado: %3%"
+"El archivo duplicado %1% no será compartido (Tamaño: %2% B) Comparado con el "
+"duplicado: %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "Refresco de la lista en progreso, por favor espere a que termine este "
 "proceso antes que comenzar de nuevo"
@@ -462,15 +456,15 @@ msgstr ""
 msgid "File list refresh failed: %1%"
 msgstr "Refresco de la lista Fallido: %1%"
 
-#: ../ShareManager.cpp:833
+#: ../ShareManager.cpp:834
 msgid "File list refresh initiated"
 msgstr "Refresco de la lista Iniciada"
 
-#: ../ShareManager.cpp:858
+#: ../ShareManager.cpp:859
 msgid "File list refresh finished"
 msgstr "Refresco de la lista Terminada"
 
-#: ../ShareManager.cpp:940
+#: ../ShareManager.cpp:941
 msgid "File list %1% generated"
 msgstr "Lista de ficheros %1% generada"
 
@@ -494,7 +488,7 @@ msgstr "<Ingrese cadena>"
 msgid "Discard"
 msgstr "Descartar"
 
-#: ../DirectoryListing.cpp:187
+#: ../DirectoryListing.cpp:210
 msgid "Directory missing name attribute"
 msgstr "Atributo de nombre falta del directorio."
 
@@ -568,11 +562,11 @@ msgstr "%1%: Archivo no disponible"
 msgid "All download slots taken"
 msgstr "Todos los slots de descarga están ocupados"
 
-#: ../ConnectionManager.cpp:248
+#: ../ConnectionManager.cpp:253
 msgid "Connectivity restored"
 msgstr "Conectividad restaurada"
 
-#: ../ConnectionManager.cpp:256
+#: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
 msgstr "Error de conectividad: %1%"
 
@@ -616,11 +610,11 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "Imagen CD"
 
-#: ../SearchManager.cpp:150
+#: ../SearchManager.cpp:151
 msgid "Search enabled again"
 msgstr "Búsqueda habilitada nuevamente"
 
-#: ../SearchManager.cpp:158
+#: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
 msgstr "Búsqueda desactivada: %1%"
 
@@ -696,15 +690,15 @@ msgstr "No se puede mover %1% a %2% (%3%); renombrando a %4%"
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr "No se puede mover %1% to %2% (%3%) tampoco renombrar a %4% (%5%)"
 
-#: ../QueueManager.cpp:1407
+#: ../QueueManager.cpp:1404
 msgid "Unable to open filelist: %1%"
 msgstr "Imposible abrir Lista de Archivos: %1%"
 
-#: ../QueueManager.cpp:1430
+#: ../QueueManager.cpp:1427
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Emparejado %2% archivo"
 
-#: ../QueueManager.cpp:2034 ../QueueManager.cpp:2043
+#: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Error de CRC32  (SFV-Check)"
 
@@ -718,5 +712,3 @@ msgstr "Incoherencia TTH"
 
 #~ msgid "Request to seek beyond the end of data"
 #~ msgstr "Request to seek beyond the end of data"
-
-

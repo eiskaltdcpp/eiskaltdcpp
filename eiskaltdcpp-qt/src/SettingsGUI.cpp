@@ -103,6 +103,8 @@ void SettingsGUI::init(){
                 lang = tr("German");
             else if (f == "el.qm")
                 lang = tr("Greek");
+            else if (f == "it.qm")
+                lang = tr("Italian");
 
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);
