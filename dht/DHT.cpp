@@ -600,8 +600,8 @@ namespace dht
 						firewalled = false;
 					}
 
-					// if(BOOLSETTING(UPDATE_IP))
-					SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, externalIP);
+					 if(!BOOLSETTING(NO_IP_OVERRIDE))
+						SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, externalIP);
 
 					firewalledChecks.clear();
 					firewalledWanted.clear();
