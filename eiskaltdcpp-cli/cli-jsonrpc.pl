@@ -26,13 +26,13 @@ use JSON::RPC::Client;
 use Term::ShellUI;
 use Data::Dump qw[dump];
 use Getopt::Long;
-use Env qw[$XDG_CONFIG_HOME];
+use Env qw[$XDG_CONFIG_HOME $HOME];
 
 # use non-standart paths
 BEGIN {
     unshift @INC, 
 	 "$XDG_CONFIG_HOME/eiskaltdc++",
-	 "~/.config/eiskaltdc++/",
+	 "$HOME/.config/eiskaltdc++/",
 	 "/usr/local/share/eiskaltdcpp/cli",
 	 "/usr/share/eiskaltdcpp/cli"
 }
