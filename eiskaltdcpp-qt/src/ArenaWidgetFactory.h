@@ -11,10 +11,7 @@
 #define ARENAWIDGETFACTORY_H
 
 #include "ArenaWidgetManager.h"
-
 #include "dcpp/Singleton.h"
-
-class NullType {};
 
 class ArenaWidgetFactory {
 public:
@@ -27,54 +24,9 @@ public:
         
     }
     
-    template <class T, typename P1 = NullType, typename P2 = NullType, typename P3 = NullType, typename P4 = NullType, typename P5 = NullType>
-    T *create() {
-        T *t = new T();
-        
-        ArenaWidgetManager::getInstance()->add(t);
-        
-        return t;
-    }
-    
-    template <class T, typename P1, typename P2 = NullType, typename P3 = NullType, typename P4 = NullType, typename P5 = NullType>
-    T *create(const P1 &p1) {
-        T *t = new T(p1);
-        
-        ArenaWidgetManager::getInstance()->add(t);
-        
-        return t;
-    }
-    
-    template <class T, typename P1, typename P2, typename P3 = NullType, typename P4 = NullType, typename P5 = NullType>
-    T *create(const P1 &p1, const P2 &p2) {
-        T *t = new T(p1, p2);
-        
-        ArenaWidgetManager::getInstance()->add(t);
-        
-        return t;
-    }
-    
-    template <class T, typename P1, typename P2, typename P3, typename P4 = NullType, typename P5 = NullType>
-    T *create(const P1 &p1, const P2 &p2, const P3 &p3) {
-        T *t = new T(p1, p2, p3);
-        
-        ArenaWidgetManager::getInstance()->add(t);
-        
-        return t;
-    }
-    
-    template <class T, typename P1, typename P2, typename P3, typename P4, typename P5 = NullType>
-    T *create(const P1 &p1, const P2 &p2, const P3 &p3, const P4 &p4) {
-        T *t = new T(p1, p2, p3, p4);
-        
-        ArenaWidgetManager::getInstance()->add(t);
-        
-        return t;
-    }
-    
-    template <class T, typename P1, typename P2, typename P3, typename P4, typename P5>
-    T *create(const P1 &p1, const P2 &p2, const P3 &p3, const P4 &p4, const P5 &p5) {
-        T *t = new T(p1, p2, p3, p4, p5);
+    template <class T, typename ... Params>
+    T *create(const Params& ... args) {
+        T *t = new T(args ...);
         
         ArenaWidgetManager::getInstance()->add(t);
         
