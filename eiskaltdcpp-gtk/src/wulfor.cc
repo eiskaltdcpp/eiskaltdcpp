@@ -21,6 +21,7 @@
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+#include <gdk/gdkx.h>
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
@@ -126,7 +127,8 @@ int main(int argc, char *argv[])
     dcpp::startup(callBack, NULL);
 
     dcpp::TimerManager::getInstance()->start();
-
+    
+    XInitThreads();
     g_thread_init(NULL);
     gdk_threads_init();
     gtk_init(&argc, &argv);
