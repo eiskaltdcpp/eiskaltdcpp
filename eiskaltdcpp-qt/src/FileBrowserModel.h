@@ -63,7 +63,7 @@ class FileBrowserModel: public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    FileBrowserModel(QObject* = NULL);
+    FileBrowserModel(QObject* = nullptr);
     virtual ~FileBrowserModel();
 
     /** */
@@ -100,7 +100,7 @@ public:
     /** */
     QString createRemotePath(FileBrowserItem *) const;
     /** */
-    FileBrowserItem *createRootForPath(const QString&, FileBrowserItem *pathRoot = NULL);
+    FileBrowserItem *createRootForPath(const QString&, FileBrowserItem *pathRoot = nullptr);
     /** */
     QModelIndex createIndexForItem(FileBrowserItem*);
 

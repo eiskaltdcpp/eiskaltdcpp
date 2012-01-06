@@ -19,7 +19,7 @@ class SettingsHistory: public QWidget, protected Ui::UISettingsHistory
 Q_OBJECT
 
 public:
-    explicit SettingsHistory(QWidget* = NULL);
+    explicit SettingsHistory(QWidget* = nullptr);
     virtual ~SettingsHistory();
 
 public Q_SLOTS:

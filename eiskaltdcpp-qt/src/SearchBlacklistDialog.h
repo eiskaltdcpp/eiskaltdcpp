@@ -20,7 +20,7 @@ class SearchBlackListDelegate:
     Q_OBJECT
 
 public:
-    SearchBlackListDelegate(QObject* = NULL);
+    SearchBlackListDelegate(QObject* = nullptr);
     virtual ~SearchBlackListDelegate();
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
@@ -34,7 +34,7 @@ private:
 class SearchBlackListItem{
 
 public:
-    SearchBlackListItem(SearchBlackListItem* = NULL);
+    SearchBlackListItem(SearchBlackListItem* = nullptr);
     virtual ~SearchBlackListItem();
 
     void appendChild(SearchBlackListItem *child);
@@ -93,7 +93,7 @@ class SearchBlackListDialog:
 {
     Q_OBJECT
 public:
-    SearchBlackListDialog(QWidget* = NULL);
+    SearchBlackListDialog(QWidget* = nullptr);
     virtual ~SearchBlackListDialog();
 
 protected:

@@ -223,14 +223,14 @@ MainWindow::MainWindow (QWidget *parent):
 {
     Q_D(MainWindow);
     
-    d->statusLabel = NULL;
-    d->fBar = NULL;
-    d->sBar = NULL;
-    d->_progress_dialog = NULL;
-    d->sideDock = NULL;
-    d->menuPanels = NULL;
+    d->statusLabel = nullptr;
+    d->fBar = nullptr;
+    d->sBar = nullptr;
+    d->_progress_dialog = nullptr;
+    d->sideDock = nullptr;
+    d->menuPanels = nullptr;
 #ifdef USE_JS
-    d->scriptConsole = NULL;
+    d->scriptConsole = nullptr;
 #endif
     
     d->exitBegin = false;
@@ -294,7 +294,7 @@ MainWindow::MainWindow (QWidget *parent):
 HashProgress* MainWindow::progress_dialog() {
     Q_D(MainWindow);
     
-    if( d->_progress_dialog == NULL )
+    if( d->_progress_dialog == nullptr )
         d->_progress_dialog = new HashProgress(this);
     
     return d->_progress_dialog;
@@ -514,7 +514,7 @@ void MainWindow::init(){
 
     d->arena = new QDockWidget();
 #if QT_VERSION >= 0x040500
-    d->arena->setWidget(NULL);
+    d->arena->setWidget(nullptr);
     d->arena->setFloating(false);
 #endif
     d->arena->setContentsMargins(0, 0, 0, 0);
@@ -526,7 +526,7 @@ void MainWindow::init(){
 
     d->transfer_dock = new QDockWidget(this);
 #if QT_VERSION >= 0x040500
-    d->transfer_dock->setWidget(NULL);
+    d->transfer_dock->setWidget(nullptr);
     d->transfer_dock->setFloating(false);
 #endif
     d->transfer_dock->setObjectName("transfer_dock");
@@ -815,14 +815,14 @@ void MainWindow::initActions(){
         d->toolsAntiSpam->setObjectName("toolsAntiSpam");
         d->toolsAntiSpam->setIcon(WU->getPixmap(WulforUtil::eiSPAM));
         d->toolsAntiSpam->setCheckable(true);
-        d->toolsAntiSpam->setChecked(AntiSpam::getInstance() != NULL);
+        d->toolsAntiSpam->setChecked(AntiSpam::getInstance() != nullptr);
         connect(d->toolsAntiSpam, SIGNAL(triggered()), this, SLOT(slotToolsAntiSpam()));
 
         d->toolsIPFilter = new QAction("", this);
         d->toolsIPFilter->setObjectName("toolsIPFilter");
         d->toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
         d->toolsIPFilter->setCheckable(true);
-        d->toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
+        d->toolsIPFilter->setChecked(IPFilter::getInstance() != nullptr);
         connect(d->toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
 
         d->toolsAwayOn = new QAction("", this);
@@ -1122,7 +1122,7 @@ void MainWindow::initActions(){
 void MainWindow::initMenuBar(){
 #ifdef Q_WS_MAC
     setMenuBar(new QMenuBar());
-    menuBar()->setParent(NULL);
+    menuBar()->setParent(nullptr);
     connect(this, SIGNAL(destroyed()), menuBar(), SLOT(deleteLater()));
 #endif
     
@@ -1488,13 +1488,13 @@ QObject *MainWindow::getToolBar(){
     Q_D(MainWindow);
     
     if (!d->fBar)
-        return NULL;
+        return nullptr;
 
     return qobject_cast<QObject*>(reinterpret_cast<QToolBar*>(d->fBar->qt_metacast("QToolBar")));
 }
 
 ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
-    ArenaWidget *awgt = NULL;
+    ArenaWidget *awgt = nullptr;
     Q_D(const MainWindow);
 
     switch (r){
@@ -1843,8 +1843,8 @@ void MainWindow::redrawToolPanel(){
     QHash<QAction*, ArenaWidget*>::iterator it = d->menuWidgetsHash.begin();
     QHash<QAction*, ArenaWidget*>::iterator end = d->menuWidgetsHash.end();
 
-    ArenaWidget *awgt = NULL;
-    PMWindow *pm = NULL;
+    ArenaWidget *awgt = nullptr;
+    PMWindow *pm = nullptr;
     bool has_unread = false;
 
     for(; it != end; ++it){//also redraw all widget menu items and change window title if needed
@@ -1870,7 +1870,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     Q_D(MainWindow);
     
     if (!(awgt && awgt->getWidget())){
-        d->arena->setWidget(NULL);
+        d->arena->setWidget(nullptr);
         
         return;
     }
@@ -1956,7 +1956,7 @@ void MainWindow::remActionFromToolBar(QAction *act){
 
 void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     if (!a)
-        throw std::runtime_error(_tq(Q_FUNC_INFO) + ": NULL argument");
+        throw std::runtime_error(_tq(Q_FUNC_INFO) + ": nullptr argument");
     
     if (sender() && qobject_cast<QAction*>(sender()) && a->getWidget()){
         QAction *act = reinterpret_cast<QAction*>(sender());;
@@ -1970,7 +1970,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
 }
 
 void MainWindow::toggleMainMenu(bool showMenu){
-    static QAction *compactMenus = NULL;
+    static QAction *compactMenus = nullptr;
 
     menuBar()->setVisible(showMenu);
     
@@ -1989,7 +1989,7 @@ void MainWindow::toggleMainMenu(bool showMenu){
             }
             else {
                 compactMenus->menu()->deleteLater();
-                compactMenus->setMenu(NULL);
+                compactMenus->setMenu(nullptr);
             }
 
             QMenu *m = new QMenu(this);
@@ -2194,7 +2194,7 @@ void MainWindow::slotToolsAntiSpam(){
     
     Q_D(MainWindow);
 
-    d->toolsAntiSpam->setChecked(AntiSpam::getInstance() != NULL);
+    d->toolsAntiSpam->setChecked(AntiSpam::getInstance() != nullptr);
 }
 
 void MainWindow::slotToolsIPFilter(){   
@@ -2204,7 +2204,7 @@ void MainWindow::slotToolsIPFilter(){
     
     Q_D(MainWindow);
 
-    d->toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
+    d->toolsIPFilter->setChecked(IPFilter::getInstance() != nullptr);
 }
 
 void MainWindow::slotToolsAutoAway(){
@@ -2304,7 +2304,7 @@ void MainWindow::slotToolsTransfer(bool toggled){
         d->transfer_dock->setWidget(TransferView::getInstance());
     }
     else {
-        d->transfer_dock->setWidget(NULL);
+        d->transfer_dock->setWidget(nullptr);
         d->transfer_dock->setVisible(false);
     }
 }
@@ -2729,7 +2729,7 @@ void MainWindow::slotSideBarDockMenu(){
 
     m->addAction(act);
 
-    if (m->exec(QCursor::pos()) != NULL){
+    if (m->exec(QCursor::pos()) != nullptr){
         WBSET(SIDEBAR_SHOW_CLOSEBUTTONS, act->isChecked());
 
         //repaint rows!

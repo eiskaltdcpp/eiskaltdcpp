@@ -243,7 +243,7 @@ void TabFrame::historyPop(){
         return;
     }
     else if (history.isEmpty()){
-        ArenaWidgetManager::getInstance()->activate(NULL);
+        ArenaWidgetManager::getInstance()->activate(nullptr);
         
         return;
     }
@@ -281,7 +281,7 @@ void TabFrame::closeRequsted() {
 void TabFrame::nextTab(){
     DEBUG_BLOCK
     
-    TabButton *next = NULL;
+    TabButton *next = nullptr;
 
     for (int i = 0; i < fr_layout->count(); i++){
         TabButton *t = qobject_cast<TabButton*>(fr_layout->itemAt(i)->widget());
@@ -306,7 +306,7 @@ void TabFrame::nextTab(){
 void TabFrame::prevTab(){
     DEBUG_BLOCK
     
-    TabButton *next = NULL;
+    TabButton *next = nullptr;
 
     for (int i = 0; i < fr_layout->count(); i++){
         TabButton *t = qobject_cast<TabButton*>(fr_layout->itemAt(i)->widget());

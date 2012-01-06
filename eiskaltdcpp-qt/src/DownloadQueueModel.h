@@ -38,7 +38,7 @@ class DownloadQueueDelegate:
     Q_OBJECT
 
 public:
-    DownloadQueueDelegate(QObject* = NULL);
+    DownloadQueueDelegate(QObject* = nullptr);
     virtual ~DownloadQueueDelegate();
 
     virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
@@ -80,7 +80,7 @@ class DownloadQueueModel: public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    DownloadQueueModel(QObject* = NULL);
+    DownloadQueueModel(QObject* = nullptr);
     virtual ~DownloadQueueModel();
 
     /** */

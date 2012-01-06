@@ -37,7 +37,7 @@
 #include <QMessageBox>
 
 TransferView::Menu::Menu():
-        menu(NULL),
+        menu(nullptr),
         selectedColumn(0)
 {
     WulforUtil *WU = WulforUtil::getInstance();
@@ -136,7 +136,7 @@ TransferView::Menu::Action TransferView::Menu::exec(){
 
 TransferView::TransferView(QWidget *parent):
         QWidget(parent),
-        model(NULL)
+        model(nullptr)
 {
     setupUi(this);
 
@@ -506,11 +506,11 @@ void TransferView::slotContextMenu(const QPoint &){
                 const TTHValue *tth = HashManager::getInstance()->getFileTTHif(_tq(i->target));
                 QFileInfo fi(i->target);
 
-                if ( tth == NULL ) {
+                if ( tth == nullptr ) {
                     QString str = QDir::toNativeSeparators(fi.canonicalFilePath() ); // try to follow symlinks
                     tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
                 }
-                if (tth != NULL)
+                if (tth != nullptr)
                     data += WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32())) + "\n";
             }
         }
@@ -543,7 +543,7 @@ void TransferView::slotContextMenu(const QPoint &){
     }
     case Menu::SendPM:
     {
-        HubFrame *fr = NULL;
+        HubFrame *fr = nullptr;
 
         foreach(TransferViewItem *i, items){
             dcpp::CID cid(_tq(i->cid));

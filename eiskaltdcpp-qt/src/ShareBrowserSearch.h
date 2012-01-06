@@ -25,7 +25,7 @@ class ShareBrowserSearch: public QDialog, protected Ui::UIShareBrowserSearch{
     Q_OBJECT
 
 public:
-    ShareBrowserSearch(FileBrowserModel *model, QWidget *parent = NULL);
+    ShareBrowserSearch(FileBrowserModel *model, QWidget *parent = nullptr);
     virtual ~ShareBrowserSearch();
 
     void setSearchRoot(FileBrowserItem *);

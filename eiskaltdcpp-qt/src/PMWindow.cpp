@@ -38,8 +38,8 @@ static inline void clearLayout(QLayout *l){
     if (!l)
         return;
 
-    QLayoutItem *item = NULL;
-    while ((item = l->takeAt(0)) != NULL){
+    QLayoutItem *item = nullptr;
+    while ((item = l->takeAt(0)) != nullptr){
         l->removeWidget(item->widget());
         item->widget()->deleteLater();
 
@@ -52,7 +52,7 @@ static inline void clearLayout(QLayout *l){
 PMWindow::PMWindow(QString cid, QString hubUrl):
         cid(cid),
         hubUrl(hubUrl),
-        arena_menu(NULL),
+        arena_menu(nullptr),
         hasMessages(false),
         hasHighlightMessages(false)
 {
@@ -579,7 +579,7 @@ void PMWindow::slotSmileContextMenu(){
 #endif//WIN32
 
     QMenu *m = new QMenu(this);
-    QAction * a = NULL;
+    QAction * a = nullptr;
 
     foreach (const QString &f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){

@@ -78,7 +78,7 @@ DownloadQueueModel::DownloadQueueModel(QObject *parent)
              << tr("Priority") << tr("User") << tr("Path") << tr("Exact size")
              << tr("Errors") << tr("Added") << tr("TTH");
 
-    d->rootItem = new DownloadQueueItem(rootData, NULL);
+    d->rootItem = new DownloadQueueItem(rootData, nullptr);
 
     d->sortColumn = COLUMN_DOWNLOADQUEUE_NAME;
     d->sortOrder = Qt::DescendingOrder;
@@ -377,9 +377,9 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
     DownloadQueueItem *droot = createPath(map["PATH"].toString());
 
     if (!droot)
-        return NULL;
+        return nullptr;
 
-    DownloadQueueItem *child = NULL;
+    DownloadQueueItem *child = nullptr;
     QList<QVariant> childData;
 
     childData << map["FNAME"]
@@ -473,7 +473,7 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
     else {
 
         DownloadQueueItem *p = item;
-        DownloadQueueItem *_t = NULL;
+        DownloadQueueItem *_t = nullptr;
 
         while (true){
             if ((p == d->rootItem) || (p->childCount() > 1) || !p->parent())
@@ -510,7 +510,7 @@ void DownloadQueueModel::setRootElem(DownloadQueueItem *root, bool del_old, bool
     if (del_old && root != d->rootItem){//prevent deleting own root element
         delete d->rootItem;
 
-        d->rootItem = NULL;
+        d->rootItem = nullptr;
     }
 
     if (d->rootItem = root)
@@ -567,7 +567,7 @@ DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
     Q_D(static DownloadQueueModel);
     
     if (!d->rootItem)
-        return NULL;
+        return nullptr;
 
     QString _path = path;
     _path.replace("\\", "/");
@@ -639,7 +639,7 @@ void DownloadQueueModel::repaint(){
 }
 
 DownloadQueueItem *DownloadQueueModel::findTarget(const DownloadQueueItem *item, const QString &name){
-    DownloadQueueItem *target = NULL;
+    DownloadQueueItem *target = nullptr;
 
     foreach(DownloadQueueItem *i, item->childItems){
         if (i->data(COLUMN_DOWNLOADQUEUE_NAME).toString() == name){
@@ -660,7 +660,7 @@ DownloadQueueItem::DownloadQueueItem(const QList<QVariant> &data, DownloadQueueI
 DownloadQueueItem::DownloadQueueItem(const DownloadQueueItem &item){
     itemData = item.itemData;
     dir = item.dir;
-    parentItem = NULL;
+    parentItem = nullptr;
     childItems = QList<DownloadQueueItem*> ();
 }
 void DownloadQueueItem::operator=(const DownloadQueueItem &item){
@@ -718,10 +718,10 @@ void DownloadQueueItem::updateColumn(int column, QVariant var){
 
 DownloadQueueItem *DownloadQueueItem::nextSibling(){
     if (!parent())
-        return NULL;
+        return nullptr;
 
     if (row() == (parent()->childCount()-1))
-        return NULL;
+        return nullptr;
 
     return parent()->child(row()+1);
 }

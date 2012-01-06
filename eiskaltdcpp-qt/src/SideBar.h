@@ -27,7 +27,7 @@ class SideBarDelegate:
     Q_OBJECT
 
 public:
-    SideBarDelegate(QObject* = NULL);
+    SideBarDelegate(QObject* = nullptr);
     virtual ~SideBarDelegate();
 
     virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
@@ -40,7 +40,7 @@ class SideBarItem
 {
 
 public:
-    SideBarItem(ArenaWidget *wgt = NULL, SideBarItem *parent = NULL): parentItem(parent), awgt(wgt) {}
+    SideBarItem(ArenaWidget *wgt = nullptr, SideBarItem *parent = nullptr): parentItem(parent), awgt(wgt) {}
     virtual ~SideBarItem() { qDeleteAll(childItems); }
 
     void appendChild(SideBarItem *i){

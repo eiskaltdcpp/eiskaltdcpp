@@ -22,7 +22,7 @@ class FavoriteUserItem{
 
 public:
 
-    FavoriteUserItem(const QList<QVariant> &data, FavoriteUserItem *parent = NULL);
+    FavoriteUserItem(const QList<QVariant> &data, FavoriteUserItem *parent = nullptr);
     ~FavoriteUserItem();
 
     void appendChild(FavoriteUserItem *child);
@@ -78,7 +78,7 @@ public:
         if (itemHash.contains(cid))
             return itemHash.value(cid);
 
-        return NULL;
+        return nullptr;
     }
 
     QStringList getUsers() const;

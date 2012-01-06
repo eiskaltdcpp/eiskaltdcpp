@@ -64,14 +64,14 @@ void SettingsShortcuts::slotIndexClicked(const QModelIndex &index){
 }
 
 ShortcutsModel::ShortcutsModel(QObject * parent) : QAbstractItemModel(parent) {
-    rootItem = new ShortcutItem(NULL);
+    rootItem = new ShortcutItem(nullptr);
 
     MainWindow *MW = MainWindow::getInstance();
     QMap<QString, QKeySequence> shs;
     shs = ShortcutManager::getInstance()->getShortcuts();
 
     QMap<QString, QKeySequence>::iterator it = shs.begin();
-    const QAction *act = NULL;
+    const QAction *act = nullptr;
 
     for (; it != shs.end(); ++it){
         act = MW->findChild<QAction* >(it.key());
@@ -99,7 +99,7 @@ ShortcutsModel::~ShortcutsModel() {
 void ShortcutsModel::save(){
     QHash<ShortcutItem*, QString>::iterator it = items.begin();
     MainWindow *MW = MainWindow::getInstance();
-    QAction *act = NULL;
+    QAction *act = nullptr;
 
     for (; it != items.end(); ++it){
         act = MW->findChild<QAction* >(it.value());

@@ -25,7 +25,7 @@ using namespace dcpp;
 
 ADLS::ADLS(QWidget *parent):
         QWidget(parent),
-        model(NULL)
+        model(nullptr)
 {
     setupUi(this);
 
@@ -65,7 +65,7 @@ QString ADLS::getArenaShortTitle(){
 }
 
 QMenu *ADLS::getMenu(){
-    return NULL;
+    return nullptr;
 }
 
 void ADLS::load(){
@@ -302,7 +302,7 @@ ADLSItem *ADLS::getItem(){
     QItemSelectionModel *s_model = treeView->selectionModel();
     QModelIndexList list = s_model->selectedRows(0);
 
-    ADLSItem *item = NULL;
+    ADLSItem *item = nullptr;
     if (!list.isEmpty())
         item = static_cast<ADLSItem*>(list.first().internalPointer());
 

@@ -41,7 +41,7 @@ class PublicHubItem{
 
 public:
 
-    PublicHubItem(const QList<QVariant> &data, PublicHubItem *parent = NULL);
+    PublicHubItem(const QList<QVariant> &data, PublicHubItem *parent = nullptr);
     ~PublicHubItem();
 
     void appendChild(PublicHubItem *child);

@@ -150,7 +150,7 @@ private Q_SLOTS:
     void downloadComplete(QString);
     \
 private:
-    TransferView(QWidget* = NULL);
+    TransferView(QWidget* = nullptr);
     virtual ~TransferView();
 
     void load();

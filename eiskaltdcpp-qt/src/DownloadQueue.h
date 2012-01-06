@@ -89,7 +89,7 @@ public:
     QString  getArenaTitle(){ return tr("Download Queue"); }
     QString  getArenaShortTitle(){ return getArenaTitle(); }
     QWidget *getWidget(){ return this; }
-    QMenu   *getMenu(){ return NULL; }
+    QMenu   *getMenu(){ return nullptr; }
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiDOWNLOAD); }
 
     ArenaWidget::Role role() const { return ArenaWidget::Downloads; }
@@ -135,7 +135,7 @@ Q_SIGNALS:
     void coreStatusUpdated(VarMap);
 
 private:
-    DownloadQueue(QWidget* = NULL);
+    DownloadQueue(QWidget* = nullptr);
     virtual ~DownloadQueue();
 
     void init();

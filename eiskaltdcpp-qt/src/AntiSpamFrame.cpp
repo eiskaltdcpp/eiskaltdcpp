@@ -103,7 +103,7 @@ void AntiSpamFrame::slotAntiSpamSwitch() {
         AntiSpam::getInstance()->saveLists();
 
         AntiSpam::deleteInstance();
-    } else if (b && (AntiSpam::getInstance() == NULL)) {
+    } else if (b && (AntiSpam::getInstance() == nullptr)) {
         AntiSpam::newInstance();
 
         AntiSpam::getInstance()->loadSettings();
@@ -217,7 +217,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, QString nick) {
 
         AntiSpam::getInstance()->move(nick, state);
 
-        QTreeWidget *tree = NULL;
+        QTreeWidget *tree = nullptr;
 
         switch (e) {
             case eIN_BLACK:
@@ -232,7 +232,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, QString nick) {
         }
         remItemFromTree(tree, nick);
 
-        tree = NULL;
+        tree = nullptr;
         switch (state) {
             case eIN_BLACK:
                 tree = treeWidget_BLACK;
@@ -249,7 +249,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, QString nick) {
         return true;
     }
 
-    QTreeWidget *tree = NULL;
+    QTreeWidget *tree = nullptr;
 
     (*AntiSpam::getInstance()) << state << nick;
 
@@ -270,7 +270,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, QString nick) {
 }
 
 void AntiSpamFrame::addItemToTree(QTreeWidget *tree, QString text) {
-    if (tree == NULL || text == "")
+    if (tree == nullptr || text == "")
         return;
 
     QTreeWidgetItem *it = new QTreeWidgetItem(tree);
@@ -279,7 +279,7 @@ void AntiSpamFrame::addItemToTree(QTreeWidget *tree, QString text) {
 }
 
 void AntiSpamFrame::remItemFromTree(QTreeWidget *tree, QString text) {
-    if (tree == NULL || text == "")
+    if (tree == nullptr || text == "")
         return;
 
     QTreeWidgetItemIterator it(tree, QTreeWidgetItemIterator::NotHidden);

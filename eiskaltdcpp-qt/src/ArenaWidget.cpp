@@ -32,7 +32,7 @@ ArenaWidget::Flags operator~ ( const ArenaWidget::Flags& a ) {
     return ArenaWidget::Flags(~(static_cast<unsigned>(a)));
 }
 
-ArenaWidget::ArenaWidget(): _arenaUnload(true), toolBtn(NULL), flags(ArenaWidget::NoFlags | ArenaWidget::RaiseOnStart)
+ArenaWidget::ArenaWidget(): _arenaUnload(true), toolBtn(nullptr), flags(ArenaWidget::NoFlags | ArenaWidget::RaiseOnStart)
 {
 }
 
@@ -40,8 +40,8 @@ ArenaWidget::~ArenaWidget(){
 }
 
 ScriptWidget::ScriptWidget(){
-    _wgt = NULL;
-    _menu = NULL;
+    _wgt = nullptr;
+    _menu = nullptr;
 }
 
 ScriptWidget::~ScriptWidget(){
@@ -60,7 +60,7 @@ void  ScriptWidget::setMenu(QMenu *_m) { _menu = _m; }
 void  ScriptWidget::setPixmap(const QPixmap &px) { pxm = px; }
 
 #ifdef USE_QML
-DeclarativeWidget::DeclarativeWidget(const QString &file) : QWidget(NULL) {
+DeclarativeWidget::DeclarativeWidget(const QString &file) : QWidget(nullptr) {
     view = new QDeclarativeView();
     view->setSource(QUrl::fromLocalFile(file));
 
@@ -94,7 +94,7 @@ QString DeclarativeWidget::getArenaShortTitle(){
 }
 
 QMenu *DeclarativeWidget::getMenu(){
-    return NULL;
+    return nullptr;
 }
 
 const QPixmap &DeclarativeWidget::getPixmap(){

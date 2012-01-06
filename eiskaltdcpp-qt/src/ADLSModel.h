@@ -24,7 +24,7 @@ class ADLSItem{
 
 public:
 
-    ADLSItem(const QList<QVariant> &data, ADLSItem *parent = NULL);
+    ADLSItem(const QList<QVariant> &data, ADLSItem *parent = nullptr);
     ~ADLSItem();
 
     void appendChild(ADLSItem *child);

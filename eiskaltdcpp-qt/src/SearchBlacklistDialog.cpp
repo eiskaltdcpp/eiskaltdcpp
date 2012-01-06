@@ -55,8 +55,8 @@ void SearchBlackListDialog::slotContextMenu(){
     QModelIndexList indexes = s_m->selectedRows(0);
 
     QMenu *menu = new QMenu(this);
-    QAction *add = new QAction(WICON(WulforUtil::eiEDITADD), tr("Add new"), NULL);
-    QAction *rem = new QAction(WICON(WulforUtil::eiEDITDELETE), tr("Remove"), NULL);
+    QAction *add = new QAction(WICON(WulforUtil::eiEDITADD), tr("Add new"), nullptr);
+    QAction *rem = new QAction(WICON(WulforUtil::eiEDITDELETE), tr("Remove"), nullptr);
 
     menu->addActions(QList<QAction*>() << add << rem);
 
@@ -85,7 +85,7 @@ SearchBlackListModel::SearchBlackListModel(QObject * parent) :
         QAbstractItemModel(parent),
         sortColumn(COLUMN_SBL_KEY)
 {
-    rootItem = new SearchBlackListItem(NULL);
+    rootItem = new SearchBlackListItem(nullptr);
 
     SearchBlacklist *SB = SearchBlacklist::getInstance();
 

@@ -17,7 +17,7 @@
 
 #include <QApplication>
 
-ArenaWidgetManager::ArenaWidgetManager() : QObject(NULL) {
+ArenaWidgetManager::ArenaWidgetManager() : QObject(nullptr) {
     DEBUG_BLOCK
 }
 
@@ -95,7 +95,7 @@ void ArenaWidgetManager::activate ( ArenaWidget *awgt ) {
     DEBUG_BLOCK
     
     if (!widgets.contains(awgt)){
-        emit activated(reinterpret_cast<ArenaWidget*>(NULL));
+        emit activated(nullptr);
         
         return;
     }

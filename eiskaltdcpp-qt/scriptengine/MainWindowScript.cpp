@@ -16,7 +16,7 @@ MainWindowScript::MainWindowScript(QScriptEngine *engine, QObject *parent) :
     engine(engine),
     QObject(parent)
 {
-    Q_ASSERT_X(engine != NULL, Q_FUNC_INFO, "engine == NULL");
+    Q_ASSERT_X(engine != nullptr, Q_FUNC_INFO, "engine == nullptr");
 }
 
 MainWindowScript::~MainWindowScript(){

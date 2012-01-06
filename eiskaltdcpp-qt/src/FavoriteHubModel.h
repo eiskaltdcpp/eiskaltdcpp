@@ -26,7 +26,7 @@ class FavoriteHubItem{
 
 public:
 
-    FavoriteHubItem(const QList<QVariant> &data, FavoriteHubItem *parent = NULL);
+    FavoriteHubItem(const QList<QVariant> &data, FavoriteHubItem *parent = nullptr);
     ~FavoriteHubItem();
 
     void appendChild(FavoriteHubItem *child);

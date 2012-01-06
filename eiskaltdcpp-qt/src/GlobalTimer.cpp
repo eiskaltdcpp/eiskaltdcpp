@@ -11,7 +11,7 @@
 
 #include <QTimer>
 
-GlobalTimer::GlobalTimer() : QObject(NULL), timer(new QTimer()), tickCount(0) {
+GlobalTimer::GlobalTimer() : QObject(nullptr), timer(new QTimer()), tickCount(0) {
     timer->setInterval(1000);
     timer->setSingleShot(false);
     

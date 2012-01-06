@@ -224,7 +224,7 @@ void SpyModel::addResult(const QString &file, bool isTTH)
         return;
 
     SpyItem *item;
-    SpyItem * parent = NULL;
+    SpyItem * parent = nullptr;
 
     if (hashes.contains(_file))
         parent = hashes[_file];

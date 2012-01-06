@@ -30,7 +30,7 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
     stripper.setPattern("\\[.*\\]");
     stripper.setMinimal(true);
 
-    rootItem = new UserListItem(NULL);
+    rootItem = new UserListItem(nullptr);
 
     WU = WulforUtil::getInstance();
 }
@@ -415,16 +415,16 @@ void UserListModel::addUser(const QString& nick,
 UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){
     USRMap::iterator iter = users.find(ptr);
 
-    UserListItem *item = (iter != users.end())? (iter.value()) : (NULL);
+    UserListItem *item = (iter != users.end())? (iter.value()) : (nullptr);
 
     return item;
 }
 
 UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){   
     if (nick.isEmpty())
-        return NULL;
+        return nullptr;
     
-    UserListItem *item = NULL;
+    UserListItem *item = nullptr;
     
     QList<UserListItem*>::iterator it = std::find_if(rootItem->childItems.begin(), rootItem->childItems.end(),
                                                      [&nick] (const UserListItem *i) {
@@ -432,7 +432,7 @@ UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){
                                                      }
                                                     );
 
-    return (it == rootItem->childItems.end()? NULL : *it);
+    return (it == rootItem->childItems.end()? nullptr : *it);
 }
 
 QString UserListModel::CIDforNick(const QString &nick, const QString &){
@@ -596,6 +596,6 @@ bool UserListItem::isAway() const {
 }
 
 void UserListItem::updateIdentity() {
-    if (ptr != NULL)
+    if (ptr != nullptr)
         id = dcpp::ClientManager::getInstance()->getOnlineUserIdentity(ptr);
 }

@@ -18,8 +18,8 @@
 
 SpellCheck::SpellCheck(QObject *parent) :
     QObject(parent),
-    config(NULL),
-    spell_checker(NULL)
+    config(nullptr),
+    spell_checker(nullptr)
 {
     config = new_aspell_config();
 
@@ -39,7 +39,7 @@ SpellCheck::SpellCheck(QObject *parent) :
 
             printf("%s\n", aspell_error_message(error));
 
-            config = NULL;
+            config = nullptr;
         }
         else
             spell_checker = to_aspell_speller(error);
@@ -74,7 +74,7 @@ void SpellCheck::suggestions(const QString &word, QStringList &list){
     AspellStringEnumeration *elements = aspell_word_list_elements(suggestions);
 
     const char * sugg;
-    while ((sugg = aspell_string_enumeration_next(elements)) != NULL ){
+    while ((sugg = aspell_string_enumeration_next(elements)) != nullptr ){
         list.append(QString::fromUtf8(sugg, strlen(sugg)));
     }
 

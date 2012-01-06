@@ -23,7 +23,7 @@ class UCDialog: public QDialog, public Ui::UIUserCommands{
 Q_OBJECT
 
 public:
-    UCDialog(QWidget *parent = NULL);
+    UCDialog(QWidget *parent = nullptr);
 
     unsigned long getCtx()  const;
     unsigned long getType();
@@ -43,7 +43,7 @@ class UCItem{
 
 public:
 
-    UCItem(UCItem *parent = NULL);
+    UCItem(UCItem *parent = nullptr);
     ~UCItem();
 
     void appendChild(UCItem *child);

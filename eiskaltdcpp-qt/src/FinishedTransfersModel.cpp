@@ -244,7 +244,7 @@ struct FileCompare {
                     return NumCmp<COLUMN_FINISHED_ELAPS>;
             }
 
-            return NULL;
+            return nullptr;
         }
         template <int i>
         bool static AttrCmp(const FinishedTransfersItem * l, const FinishedTransfersItem * r) {
@@ -303,7 +303,7 @@ struct UserCompare {
                     return AttrCmp<COLUMN_FINISHED_ELAPS>;
             }
 
-            return NULL;
+            return nullptr;
         }
         template <int i>
         bool static AttrCmp(const FinishedTransfersItem * l, const FinishedTransfersItem * r) {
@@ -477,7 +477,7 @@ void FinishedTransfersModel::switchViewType(FinishedTransfersModel::ViewType t){
 
 FinishedTransfersItem *FinishedTransfersModel::findFile(const QString &fname){
     if (fname.isEmpty())
-        return NULL;
+        return nullptr;
 
     QHash<QString, FinishedTransfersItem* >::const_iterator it = file_hash.find(fname);
 
@@ -508,7 +508,7 @@ FinishedTransfersItem *FinishedTransfersModel::findFile(const QString &fname){
 
 FinishedTransfersItem *FinishedTransfersModel::findUser(const QString &cid){
     if (cid.isEmpty())
-        return NULL;
+        return nullptr;
 
     QHash<QString, FinishedTransfersItem* >::const_iterator it = user_hash.find(cid);
 
@@ -557,7 +557,7 @@ void FinishedTransfersItem::appendChild(FinishedTransfersItem *item) {
 }
 
 FinishedTransfersItem *FinishedTransfersItem::child(int row) {
-    return ((row >= 0 && row <= childItems.count()-1)? childItems.value(row) : NULL);
+    return ((row >= 0 && row <= childItems.count()-1)? childItems.value(row) : nullptr);
 }
 
 int FinishedTransfersItem::childCount() const {

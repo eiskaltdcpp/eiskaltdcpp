@@ -37,7 +37,7 @@ SettingsSharing::SettingsSharing(QWidget *parent):
 {
     setupUi(this);
 
-    model = NULL;
+    model = nullptr;
 
     init();
 }
@@ -281,7 +281,7 @@ void SettingsSharing::slotSimpleShareModeChanged(){
 void SettingsSharing::slotContextMenu(const QPoint &){
     QList<QTreeWidgetItem*> selected = treeWidget_SIMPLE_MODE->selectedItems();
     QMenu *menu = new QMenu();
-    QAction *add_new = NULL, *rem = NULL, *rename = NULL;
+    QAction *add_new = nullptr, *rem = nullptr, *rename = nullptr;
     WulforUtil *WU = WulforUtil::getInstance();
 
     add_new = new QAction(WU->getPixmap(WulforUtil::eiEDITADD), tr("Add"), menu);

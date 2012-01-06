@@ -34,7 +34,7 @@ private:
 class ScriptManagerItem{
 
 public:
-    ScriptManagerItem(ScriptManagerItem* = NULL);
+    ScriptManagerItem(ScriptManagerItem* = nullptr);
     virtual ~ScriptManagerItem();
 
     void appendChild(ScriptManagerItem *child);
@@ -59,7 +59,7 @@ private:
 class ScriptManagerModel: public QAbstractItemModel{
     Q_OBJECT
 public:
-    ScriptManagerModel(QObject* = NULL);
+    ScriptManagerModel(QObject* = nullptr);
     virtual ~ScriptManagerModel();
 
     int rowCount(const QModelIndex &parent) const;

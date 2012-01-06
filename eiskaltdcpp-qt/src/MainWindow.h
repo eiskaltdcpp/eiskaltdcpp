@@ -67,7 +67,7 @@ class About:
 Q_OBJECT
 
 public:
-    About(QWidget *parent = NULL): QDialog(parent){ setupUi(this); }
+    About(QWidget *parent = nullptr): QDialog(parent){ setupUi(this); }
 
     void printHelp() const {
         QString msg =   tr("Using:\n"
@@ -248,7 +248,7 @@ friend class dcpp::Singleton<MainWindow>;
         void notifyMessage(int, const QString&, const QString&);
 
     private:
-        MainWindow (QWidget *parent=NULL);
+        MainWindow (QWidget *parent=nullptr);
         virtual ~MainWindow();
 
         /** LogManagerListener */

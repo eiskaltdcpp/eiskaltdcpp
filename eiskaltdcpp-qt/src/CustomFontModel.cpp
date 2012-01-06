@@ -28,7 +28,7 @@ CustomFontModel::CustomFontModel(QObject *parent)
     QList<QVariant> rootData;
     rootData << tr("Description") << tr("Font");
 
-    rootItem = new CustomFontItem(rootData, NULL);
+    rootItem = new CustomFontItem(rootData, nullptr);
 
     addNewFont(WS_APP_FONT,         tr("Application"));
     addNewFont(WS_CHAT_FONT,        tr("Public Chat: Chat"));

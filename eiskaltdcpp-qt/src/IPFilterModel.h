@@ -20,7 +20,7 @@ class IPFilterModelItem{
 
 public:
 
-    IPFilterModelItem(const QList<QVariant> &data, IPFilterModelItem *parent = NULL);
+    IPFilterModelItem(const QList<QVariant> &data, IPFilterModelItem *parent = nullptr);
     ~IPFilterModelItem();
 
     void appendChild(IPFilterModelItem *child);

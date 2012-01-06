@@ -29,7 +29,7 @@ using namespace dcpp;
 
 FavoriteHubs::FavoriteHubs(QWidget *parent):
         QWidget(parent),
-        model(NULL)
+        model(nullptr)
 {
     setupUi(this);
 
@@ -68,7 +68,7 @@ QString FavoriteHubs::getArenaShortTitle(){
 }
 
 QMenu *FavoriteHubs::getMenu(){
-    return NULL;
+    return nullptr;
 }
 
 void FavoriteHubs::load(){
@@ -182,7 +182,7 @@ static bool isValidIP(const QString &ip){
         return false;
 
     QStringList l = ip.split(".", QString::SkipEmptyParts);
-    QIntValidator v(0, 255, NULL);
+    QIntValidator v(0, 255, nullptr);
 
     bool valid = true;
     int pos = 0;
@@ -493,7 +493,7 @@ void FavoriteHubs::on(FavoriteAdded, const FavoriteHubEntryPtr entry) noexcept{
 
 void FavoriteHubs::on(FavoriteRemoved, const FavoriteHubEntryPtr entry) noexcept{
     QString server = _q(entry->getServer());
-    FavoriteHubItem *item = NULL;
+    FavoriteHubItem *item = nullptr;
 
     QList<FavoriteHubItem*> list = model->getItems();
 
@@ -575,7 +575,7 @@ FavoriteHubItem *FavoriteHubs::getItem(){
     QItemSelectionModel *s_model = treeView->selectionModel();
     QModelIndexList list = s_model->selectedRows(0);
 
-    FavoriteHubItem *item = NULL;
+    FavoriteHubItem *item = nullptr;
     if (!list.isEmpty())
         item = static_cast<FavoriteHubItem*>(list.first().internalPointer());
 

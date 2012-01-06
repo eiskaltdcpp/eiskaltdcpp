@@ -19,7 +19,7 @@ ADLSModel::ADLSModel(QObject *parent)
     rootData << tr("Checked") << tr("Search String") << tr("Type source")
              << tr("Name directory") << tr("Min. Size") << tr("Max. Size") << tr("Type Size");
 
-    rootItem = new ADLSItem(rootData, NULL);
+    rootItem = new ADLSItem(rootData, nullptr);
 }
 
 ADLSModel::~ADLSModel()
@@ -150,7 +150,7 @@ bool ADLSModel::removeRow(int row, const QModelIndex &parent){
 }
 
 bool ADLSModel::insertRows(int position, int rows, const QModelIndex &index){
-    ADLSItem *from = NULL;
+    ADLSItem *from = nullptr;
 
     beginRemoveRows(QModelIndex(), position, position);
     {
@@ -307,7 +307,7 @@ QModelIndex ADLSModel::moveDown(const QModelIndex &index){
     if (index.row() >= rootItem->childCount() - 1)
         return QModelIndex();
 
-    ADLSItem *item = NULL;
+    ADLSItem *item = nullptr;
 
     beginRemoveRows(QModelIndex(), index.row(), index.row());
     {
@@ -328,7 +328,7 @@ QModelIndex ADLSModel::moveUp(const QModelIndex &index){
     if (index.row() < 1)
         return QModelIndex();
 
-    ADLSItem *item = NULL;
+    ADLSItem *item = nullptr;
 
     beginRemoveRows(QModelIndex(), index.row(), index.row());
     {

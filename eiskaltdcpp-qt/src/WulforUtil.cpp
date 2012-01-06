@@ -849,11 +849,11 @@ QStringList WulforUtil::getLocalIfaces(){
     struct ifaddrs *ifap;
 
     if (getifaddrs(&ifap) == 0){
-        for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next){
+        for (struct ifaddrs *i = ifap; i != nullptr; i = i->ifa_next){
             struct sockaddr *sa = i->ifa_addr;
 
             // If the interface is up, is not a loopback and it has an address
-            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL && !ifaces.contains(i->ifa_name))
+            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != nullptr && !ifaces.contains(i->ifa_name))
                 ifaces.push_back(i->ifa_name);
         }
 
@@ -871,12 +871,12 @@ QStringList WulforUtil::getLocalIPs(){
     struct ifaddrs *ifap;
 
     if (getifaddrs(&ifap) == 0){
-        for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next){
+        for (struct ifaddrs *i = ifap; i != nullptr; i = i->ifa_next){
             struct sockaddr *sa = i->ifa_addr;
 
             // If the interface is up, is not a loopback and it has an address
-            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL){
-                void* src = NULL;
+            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != nullptr){
+                void* src = nullptr;
                 socklen_t len;
 
                 // IPv4 address
@@ -893,7 +893,7 @@ QStringList WulforUtil::getLocalIPs(){
                 }
 
                 // Convert the binary address to a string and add it to the output list
-                if (src != NULL){
+                if (src != nullptr){
                     char address[len];
                     inet_ntop(sa->sa_family, src, address, len);
                     addresses.push_back(address);
@@ -1047,7 +1047,7 @@ void WulforUtil::headerMenu(QTreeView *tree){
     if (!tree || !tree->model() || !tree->header())
         return;
 
-    QMenu * mcols = new QMenu(NULL);
+    QMenu * mcols = new QMenu(nullptr);
     QAbstractItemModel *model = tree->model();
     QAction * column;
 
@@ -1089,7 +1089,7 @@ void WulforUtil::headerMenu(QTreeView *tree){
 
 QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* parent){
     if (hub_list.empty())
-        return NULL;
+        return nullptr;
 
     dcpp::StringList hubs;
     QMap<QString, QMenu*> registered_menus;
@@ -1119,7 +1119,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
             separator = false;
 
             QString raw_name = _q(uc.getName());
-            QAction *action = NULL;
+            QAction *action = nullptr;
 
             raw_name.replace("//", "\t");
 

@@ -22,7 +22,7 @@
 class ShortcutItem{
 
 public:
-    ShortcutItem(ShortcutItem* = NULL);
+    ShortcutItem(ShortcutItem* = nullptr);
     virtual ~ShortcutItem();
 
     void appendChild(ShortcutItem *child);

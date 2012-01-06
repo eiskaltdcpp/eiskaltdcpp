@@ -46,7 +46,7 @@ public:
     virtual QWidget *getWidget() { return this; }
     virtual QString getArenaTitle() { return tr("Favourite users"); }
     virtual QString getArenaShortTitle() { return getArenaTitle(); }
-    virtual QMenu *getMenu() { return NULL; }
+    virtual QMenu *getMenu() { return nullptr; }
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiFAVUSERS); }
     ArenaWidget::Role role() const { return ArenaWidget::FavoriteUsers; }
 
@@ -79,7 +79,7 @@ private Q_SLOTS:
     void remUser(const QString &);
 
 private:
-    FavoriteUsers(QWidget *parent = NULL);
+    FavoriteUsers(QWidget *parent = nullptr);
     virtual ~FavoriteUsers();
 
     void handleRemove(const QString &);
