@@ -87,7 +87,7 @@ bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth)
 #ifdef _DEBUG
         fprintf(stderr,"token: %s\n",str.c_str());fflush(stderr);
 #endif
-        if (str.compare(0, 3, "xt=") == 0)
+        if (str.compare(0, 18, "xt=urn:tree:tiger:") == 0)
             tth=str.substr(3+15);
         else if (str.compare(0, 3, "xl=") == 0)
             size = Util::toInt64(str.substr(3));

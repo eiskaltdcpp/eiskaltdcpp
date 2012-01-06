@@ -41,7 +41,7 @@ using namespace dcpp;
 
 const string WulforUtil::ENCODING_LOCALE = _("System default");
 vector<string> WulforUtil::charsets;
-const string WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
+const string WulforUtil::magnetSignature = "magnet:?";
 GtkIconFactory* WulforUtil::iconFactory = NULL;
 
 vector<int> WulforUtil::splitString(const string &str, const string &delimiter)
@@ -328,7 +328,7 @@ bool WulforUtil::splitMagnet(const string &magnet, string &name, int64_t &size, 
     for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
         string str;
         str=*i;
-        if (str.compare(0, 3, "xt=") == 0)
+        if (str.compare(0, 18, "xt=urn:tree:tiger:") == 0)
             tth=str.substr(3+15);
         else if (str.compare(0, 3, "xl=") == 0)
             size = Util::toInt64(str.substr(3));
