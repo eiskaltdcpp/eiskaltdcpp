@@ -622,7 +622,7 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
     switch (_model->rootItemRole(item)){
     case ArenaWidget::Search:
         {
-            SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
+            ArenaWidgetFactory().create<SearchFrame>();
 
             break;
         }

@@ -670,29 +670,6 @@ TransferViewItem::TransferViewItem(const QList<QVariant> &data, TransferViewItem
 {
 }
 
-TransferViewItem::TransferViewItem(const TransferViewItem &item){
-    itemData = item.itemData;
-    download = item.download;
-    cid = item.cid;
-    target = item.target;
-    percent = item.percent;
-    dpos = item.dpos;
-    fail = item.fail;
-    tth = item.tth;
-    finished = item.finished;
-}
-void TransferViewItem::operator=(const TransferViewItem &item){
-    itemData = item.itemData;
-    download = item.download;
-    cid = item.cid;
-    target = item.target;
-    percent = item.percent;
-    dpos = item.dpos;
-    fail = item.fail;
-    tth = item.tth;
-    finished = item.finished;
-}
-
 TransferViewItem::~TransferViewItem()
 {
     if (childItems.size() > 0)
