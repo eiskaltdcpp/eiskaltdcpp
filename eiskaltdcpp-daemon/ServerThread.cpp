@@ -250,9 +250,11 @@ void ServerThread::connectClient(const string& address, const string& encoding) 
     else if (encoding.empty())
         tmp = Text::systemCharset;
     Client* client = ClientManager::getInstance()->getClient(address);
-    client->setEncoding(tmp);
-    client->addListener(this);
-    client->connect();
+    if (client) {
+        client->setEncoding(tmp);
+        client->addListener(this);
+        client->connect();
+    }
 }
 
 void ServerThread::disconnectClient(const string& address) {

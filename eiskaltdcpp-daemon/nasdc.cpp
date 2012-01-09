@@ -134,8 +134,10 @@ void printHelp() {
            "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
            "  -c <dir>,  --confdir=<dir>\t Store config in <dir>\n"
            "  -l <dir>,  --localdir=<dir>\t Store local data (cache, temp files) in <dir> (defaults is equal confdir)\n"
+#ifdef XMLRPC_DAEMON
            "  -S <file>,  --rpclog=<file>\t Write xmlrpc log to <file> (default: /tmp/eiskaltdcpp-daemon.xmlrpc.log)\n"
            "  -U <uripath>,  --uripath=<uripath>\t Set UriPath for xmlrpc abyss server to <uripath> (default: /eiskaltdcpp)\n"
+#endif
 #endif // _WIN32
            );
 }

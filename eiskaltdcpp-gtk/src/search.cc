@@ -65,7 +65,7 @@ Search::Search():
     gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxSize")), 1);
     gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxUnit")), 2);
     gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxFile")), 0);
-    gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxGroupBy")), (int)NOGROUPING);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxGroupBy")), (int)TTH);
 
     // Initialize hub list treeview
     hubView.setView(GTK_TREE_VIEW(getWidget("treeviewHubs")));
@@ -148,8 +148,6 @@ Search::Search():
             }
     }
     gtk_combo_box_set_active(combo_box, 0);
-
-    gtk_combo_box_set_active (GTK_COMBO_BOX(getWidget("comboboxGroupBy")),5);
 
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("togglebuttonSidePanel")), TRUE);
 
@@ -426,7 +424,8 @@ void Search::search_gui()
     StringList clients;
     GtkTreeIter iter;
 
-    string text = gtk_entry_get_text(GTK_ENTRY(searchEntry));
+    string text = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxentrySearch")));
+    //gtk_entry_get_text(GTK_ENTRY(searchEntry));
     if (text.empty())
         return;
 
@@ -477,38 +476,39 @@ void Search::search_gui()
     int ftype = gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxFile")));
 
 //NOTE: core 0.770
-        string ftypeStr;
-        if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_LAST)
-        {
-                ftypeStr = SearchManager::getInstance()->getTypeStr(ftype);
-        }
-        else
-        {
-            gchar *tmp = g_strdup(gtk_entry_get_text (GTK_ENTRY(gtk_bin_get_child(GTK_BIN((GTK_COMBO_BOX(getWidget("comboboxFile"))))))));
-            ftypeStr = tmp;
-            g_free(tmp);
-            ftype = SearchManager::TYPE_ANY;
-        }
+    string ftypeStr;
+    if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_LAST)
+    {
+        ftypeStr = SearchManager::getInstance()->getTypeStr(ftype);
+    }
+    else
+    {
+        //gchar *tmp = g_strdup(gtk_entry_get_text (GTK_ENTRY(gtk_bin_get_child(GTK_BIN((GTK_COMBO_BOX(getWidget("comboboxFile"))))))));
+        //ftypeStr = tmp;
+        //g_free(tmp);
+        ftypeStr = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxFile")));
+        ftype = SearchManager::TYPE_ANY;
+    }
 
-        // Get ADC searchtype extensions if any is selected
-        StringList exts;
-        try
+    // Get ADC searchtype extensions if any is selected
+    StringList exts;
+    try
+    {
+        if (ftype == SearchManager::TYPE_ANY)
         {
-                if (ftype == SearchManager::TYPE_ANY)
-                {
-                        // Custom searchtype
-                        exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
-                }
-                else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE)
-                {
-                        // Predefined searchtype
-                        exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
-                }
+            // Custom searchtype
+            exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
         }
-        catch (const SearchTypeException&)
+        else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE)
         {
-                ftype = SearchManager::TYPE_ANY;
+            // Predefined searchtype
+            exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
         }
+    }
+    catch (const SearchTypeException&)
+    {
+        ftype = SearchManager::TYPE_ANY;
+    }
 
     isHash = (ftype == SearchManager::TYPE_TTH);
 
@@ -542,8 +542,9 @@ void Search::search_gui()
     dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());//NOTE: core 0.770
     SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);//NOTE: core 0.770
 
-    if (WGETB("clearsearch")) // Only clear if the search was sent.
-        gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
+    //if (WGETB("clearsearch")) // Only clear if the search was sent.
+        //gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
+    // !! fail!!
 
     if (gtk_widget_get_visible(getWidget("sidePanel")) && !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkDontHideSideOnSearch"))))
         gtk_widget_hide(getWidget("sidePanel"));

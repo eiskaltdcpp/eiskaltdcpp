@@ -180,7 +180,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkComboBox" id="comboboxFile">
+          <object class="GtkComboBoxText" id="comboboxFile">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="model">liststore4</property>
@@ -200,7 +200,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkComboBox" id="comboboxentrySearch">
+          <object class="GtkComboBoxText" id="comboboxentrySearch">
             <property name="width_request">200</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
