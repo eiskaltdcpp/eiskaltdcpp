@@ -149,7 +149,7 @@ and obtain your external IP address as well.</string>
              <item row="4" column="0" colspan="2">
               <widget class="QCheckBox" name="checkBox_DONTOVERRIDE">
                <property name="text">
-                <string>Don't allow Hub/UPnP to override</string>
+                <string>Don't allow Hub/UPnP/DHT to override</string>
                </property>
               </widget>
              </item>
