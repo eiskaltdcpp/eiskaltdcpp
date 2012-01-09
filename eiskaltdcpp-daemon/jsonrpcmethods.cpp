@@ -214,7 +214,7 @@ bool JsonRpcMethods::SendSearch(const Json::Value& root, Json::Value& response)
     if (isVerbose) std::cout << "SendSearch (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    if (ServerThread::getInstance()->sendSearchonHubs(root["params"]["searchstring"].asString(), root["params"]["searchtype"].asInt(), root["params"]["sizemode"].asInt(), root["params"]["sizetype"].asInt(), root["params"]["sizetype"].asDouble(), root["params"]["huburls"].asString()))
+    if (ServerThread::getInstance()->sendSearchonHubs(root["params"]["searchstring"].asString(), root["params"]["searchtype"].asInt(), root["params"]["sizemode"].asInt(), root["params"]["sizetype"].asInt(), root["params"]["size"].asDouble(), root["params"]["huburls"].asString()))
         response["result"] = 0;
     else
         response["result"] = 1;

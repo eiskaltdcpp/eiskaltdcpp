@@ -1,5 +1,6 @@
 API Layers:
-Управление потоками (очередью) скачивания/закачивания
+
+УПРАВЛЕНИЕ ПОТОКАМИ (ОЧЕРЕДЬЮ) СКАЧИВАНИЯ/ЗАКАЧИВАНИЯ
 	Просмотр очереди
 	Просмотр конкретного элемента очереди
 	Установка приоритета элемента очереди
@@ -7,36 +8,114 @@ API Layers:
 	Список источников для конкретного элемента очереди
 	Добавление источника к элементу очереди.
 	Удаление источника для элемента очереди.
-Работа с файллистами
+РАБОТА С ФАЙЛЛИСТАМИ
 	Скачивание файллиста
 	Просмотр файллиста
 	Постановка файла из файллиста в очередь
 	Постановка директории из файллиста в очередь
-Управление шарой
-	Добавление
-	Удаление
-	Переименование
-	Листинг
-	Рефреш
+УПРАВЛЕНИЕ ШАРОЙ
+	Добавление (done):
+	share.add
+    Small Description: Add dir in share.
+    Args: directory(string), virtual name (string)
+    Return: 0 | 1 (integer)
+
+	Удаление (done):
+	share.del
+    Small Description: Delete dir from share.
+    Args: virtual name of directory (string)
+    Return: 0 | 1 (integer)
+
+	Переименование (done):
+	share.rename
+    Small Description: Rename dir in share
+    Args: directory(string), virtual name (string)
+    Return: { 0 | 1 (integer) } || {ShareException? (string)}
+
+	Листинг (done):
+	share.list
+    Small Description: Return list of shared directories in string
+    Args: separator(string)
+    Return: @list of shared directoriess in string with separator@ (string)
+
+	Обновлние (done):
+	share.refresh
+    Small Description: Run refresh share.
+    Args : none
+    Return: 0 | 1 (integer)
+
 	perfolderlimits api (?)
-Управление хабами
+
+УПРАВЛЕНИЕ ХАБАМИ
 	Добавление
-	Удаление
-	Листинг
-Чат
-	Сообщение в чат
+	Удаление (done):
+	hub.del
+    Small Description: Disconnect from hub.
+    Args: Huburl(string)
+    Return: 0 | 1 (integer)
+
+	Листинг (done):
+	hub.list
+    Small Description: Return list of connected hubs in string.
+    Args: separator (string)
+    Return: @list of hubs in string with separator@ (string)
+
+ЧАТ
+	Сообщение в чат (done):
+	hub.say
+    Small Description: Add message on hub.
+    Args: huburl (string), message (string)
+    Return: 0 | 1 (integer)
+
 	Сообщение в приват юзеру
+	hub.pm
+    Small Description: Add private message on hub.
+    Args: huburl (string), nick(string), message (string)
+    Return: "Message send on hub: @huburl@" | "@huburl@ not connected" (string)
+
 	Возврат сообщений чата с указанного хаба
+	hub.getchat
+    Small Description: Return last messages in chat on target hub
+    Args: huburl(string), separator(string)
+    Return: @last messages on huburl@ (string)
+
 	antispam api (?)
-Поиск
-	Инициация поиска
-	Просмотр результатов поиска
-	Очистить полученные результаты для указанного хаба/все.
+
+ПОИСК
+	Инициация поиска (done?):
+	search.send
+    Small Description: Send search on all hubs by string.
+    Args: search string(string), seatchtype (int), sizemode (int), sizetype(int), size (double), huburls (string, separator=";")
+    Return: 0 | 1 (integer)
+
+	Просмотр результатов поиска (done):
+	search.getresults
+    Small Description: Get search results from all | set huburl.
+    Args: huburl(string)
+    Return: @search results@ (array of map)
+
+	Очистить полученные результаты для указанного хаба/все. (proporsal, done):
+	search.clear
+    Small Description: Remove search results by huburl.
+    Args: huburl (string)
+    Return: 0 | 1 (integer)
+
 	Останов поиска
 	Постановка результатов поиска в очередь
-Статистика
-	Версия
-	Байт принято/отдано
+
+СТАТИСТИКА
+	Версия (done):
+	show.version
+    Small Description: Return full client version in string.
+    Args: none
+    Return: @version@ (string)
+
+	Байт принято/отдано (done):
+	show.ratio
+    Small Description: Return client ratio in string.
+    Args: none
+    Return: @ratio@ (string)
+
 Ипфильтр
 	Добавление
 	Удаление
