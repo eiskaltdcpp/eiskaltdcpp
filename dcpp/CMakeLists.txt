@@ -41,7 +41,6 @@ add_library (dcpp ${LINK} ${dcpp_srcs})
 if (WITH_DHT)
   add_definitions ( -DWITH_DHT )
   set (DHT_LIB "dht")
- # add_dependencies(dcpp ${DHT_LIB})
 endif (WITH_DHT)
 
 if (PERL_REGEX)

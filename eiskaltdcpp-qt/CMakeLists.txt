@@ -3,6 +3,36 @@ project (${PROJECT_NAME_GLOBAL}-qt)
 cmake_minimum_required (VERSION 2.6)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+if (USE_QT_QML)
+  find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork QtDeclarative REQUIRED)
+  message (STATUS "Building with Qt Declarative UI support")
+  set (USE_JS ON)
+else (USE_QT_QML)
+  find_package (Qt4 4.4.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+  message (STATUS "Building without Qt Declarative UI support")
+endif (USE_QT_QML)
+
+if (DBUS_NOTIFY)
+    find_package (Qt4 4.4.0 COMPONENTS QtDBus REQUIRED)
+    message (STATUS "Building with Qt DBus support")
+else (DBUS_NOTIFY)
+    message (STATUS "Building without Qt DBus support")
+endif (DBUS_NOTIFY)
+
+if (USE_JS)
+    find_package (Qt4 4.4.0 COMPONENTS QtScript REQUIRED)
+message (STATUS "Building with Qt Script support")
+else (USE_JS)
+    message (STATUS "Building without Qt Script support")
+endif (USE_JS)
+
+if (USE_QT_SQLITE)
+    find_package (Qt4 4.4.0 COMPONENTS QtSql REQUIRED)
+    message (STATUS "Building with Qt SQLite support")
+else (USE_QT_SQLITE)
+    message (STATUS "Building without Qt SQLite support")
+endif (USE_QT_SQLITE)
+
 set (QT_USE_QTNETWORK 1)
 set (QT_USE_QTXML 1)
 set (QT_USE_QTWEBKIT 0)
@@ -34,210 +64,24 @@ endif (USE_QT_SQLITE)
 
 include (${QT_USE_FILE})
 
-list (APPEND SRCS
-            src/ActionCustomizer.cpp
-            src/ADLS.cpp
-            src/ADLSModel.cpp
-            src/Antispam.cpp
-            src/AntiSpamFrame.cpp
-            src/ArenaWidget.cpp
-            src/ArenaWidgetManager.cpp
-            src/CustomFontModel.cpp
-            src/DebugHelper.cpp
-            src/DownloadQueue.cpp
-            src/DownloadQueueModel.cpp
-            src/EmoticonDialog.cpp
-            src/EmoticonFactory.cpp
-            src/FileHasher.cpp
-            src/FavoriteHubModel.cpp
-            src/FavoriteHubs.cpp
-            src/FavoriteUsers.cpp
-            src/FavoriteUsersModel.cpp
-            src/FileBrowserModel.cpp
-            src/FinishedTransfers.cpp
-            src/FinishedTransfersModel.cpp
-            src/FlowLayout.cpp
-            src/GlobalTimer.cpp
-            src/HashProgress.cpp
-            src/HubFrame.cpp
-            src/HubManager.cpp
-            src/IPFilter.cpp
-            src/IPFilterFrame.cpp
-            src/IPFilterModel.cpp
-            src/LineEdit.cpp
-            src/Magnet.cpp
-            src/MainWindow.cpp
-            src/MultiLineToolBar.cpp
-            src/Notification.cpp
-            src/PMWindow.cpp
-            src/PublicHubs.cpp
-            src/PublicHubsList.cpp
-            src/PublicHubModel.cpp
-            src/QuickConnect.cpp
-            src/QueuedUsers.cpp
-            src/SearchBlacklist.cpp
-            src/SearchBlacklistDialog.cpp
-            src/SearchFrame.cpp
-            src/SearchModel.cpp
-            src/Settings.cpp
-            src/SettingsConnection.cpp
-            src/SettingsDownloads.cpp
-            src/SettingsGUI.cpp
-            src/SettingsHistory.cpp
-            src/SettingsLog.cpp
-            src/SettingsNotification.cpp
-            src/SettingsPersonal.cpp
-            src/SettingsSharing.cpp
-            src/SettingsShortcuts.cpp
-            src/SettingsUC.cpp
-            src/ShareBrowser.cpp
-            src/ShareBrowserSearch.cpp
-            src/ShellCommandRunner.cpp
-            src/ShortcutManager.cpp
-            src/ShortcutEdit.cpp
-            src/ShortcutGetter.cpp
-            src/SideBar.cpp
-            src/SpyFrame.cpp
-            src/SpyModel.cpp
-            src/TabButton.cpp
-            src/TabFrame.cpp
-            src/ToolBar.cpp
-            src/TransferView.cpp
-            src/TransferViewModel.cpp
-            src/UCModel.cpp
-            src/UserListModel.cpp
-            src/WulforSettings.cpp
-            src/WulforUtil.cpp
-            src/ChatEdit.cpp)
+aux_source_directory(${PROJECT_SOURCE_DIR}/src SRCS)
+
 if (NOT HAIKU)
         list(APPEND SRCS src/qtsingleapp/qtsinglecoreapplication.cpp)
 endif (NOT HAIKU)
-list(APPEND MOC_HDRS
-            src/ActionCustomizer.h
-            src/ADLS.h
-            src/ADLSModel.h
-            src/Antispam.h
-            src/AntiSpamFrame.h
-            src/ArenaWidget.h
-            src/ArenaWidgetManager.h
-            src/CustomFontModel.h
-            src/DebugHelper.h
-            src/DownloadToHistory.h
-            src/DownloadQueue.h
-            src/DownloadQueueModel.h
-            src/EmoticonDialog.h
-            src/EmoticonFactory.h
-            src/EmoticonObject.h
-            src/FileHasher.h
-            src/FavoriteHubModel.h
-            src/FavoriteHubs.h
-            src/FavoriteUsers.h
-            src/FavoriteUsersModel.h
-            src/FileBrowserModel.h
-            src/FinishedTransfers.h
-            src/FinishedTransfersModel.h
-            src/FlowLayout.h
-            src/GlobalTimer.h
-            src/HashProgress.h
-            src/HubFrame.h
-            src/HubManager.h
-            src/IPFilter.h
-            src/IPFilterFrame.h
-            src/IPFilterModel.h
-            src/LineEdit.h
-            src/Magnet.h
-            src/MainWindow.h
-            src/MultiLineToolBar.h
-            src/Notification.h
-            src/PMWindow.h
-            src/PublicHubs.h
-            src/PublicHubsList.h
-            src/PublicHubModel.h
-            src/Settings.h
-            src/SettingsConnection.h
-            src/SettingsDownloads.h
-            src/SettingsGUI.h
-            src/SettingsHistory.h
-            src/SettingsLog.h
-            src/SettingsNotification.h
-            src/SettingsPersonal.h
-            src/SettingsSharing.h
-            src/SettingsShortcuts.h
-            src/SettingsUC.h
-            src/ShareBrowserSearch.h
-            src/ShortcutEdit.h
-            src/SideBar.h
-            src/QuickConnect.h
-            src/QueuedUsers.h
-            src/SearchBlacklist.h
-            src/SearchBlacklistDialog.h
-            src/SearchFrame.h
-            src/SearchModel.h
-            src/ShareBrowser.h
-            src/ShellCommandRunner.h
-            src/ShortcutManager.h
-            src/ShortcutGetter.h
-            src/SpyFrame.h
-            src/SpyModel.h
-            src/TabButton.h
-            src/TabFrame.h
-            src/ToolBar.h
-            src/TransferView.h
-            src/TransferViewModel.h
-            src/UCModel.h
-            src/UserListModel.h
-            src/WulforSettings.h
-            src/WulforUtil.h
-            src/ChatEdit.h
-            )
+
+file (GLOB MOC_HDRS ${PROJECT_SOURCE_DIR}/src/*.h)
+
 if (NOT HAIKU)
         list(APPEND MOC_HDRS
-                    src/EiskaltApp.h
                     src/qtsingleapp/qtsinglecoreapplication.h)
+        list(REMOVE_ITEM MOC_HDRS
+                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_haiku.h)
 else (NOT HAIKU)
-        list(APPEND MOC_HDRS
-                    src/EiskaltApp_haiku.h)
+        list(REMOVE_ITEM MOC_HDRS
+                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
 endif (NOT HAIKU)
-list(APPEND UI_FORMS ui/UIAbout.ui
-            ui/UIAntiSpam.ui
-            ui/UIADLSearch.ui
-            ui/UIADLSearchEditor.ui
-            ui/HubFrame.ui
-            ui/PrivateMessage.ui
-            ui/UIDownloadQueue.ui
-            ui/UIFavoriteHubs.ui
-            ui/UIFavoriteHubEditor.ui
-            ui/UIFavoriteUsers.ui
-            ui/UIFinishedTransfers.ui
-            ui/UIHashProgressDialog.ui
-            ui/UIIPFilter.ui
-            ui/UIMagnet.ui
-            ui/UIFileHasher.ui
-            ui/UIPublicHubs.ui
-            ui/UIPublicHubsList.ui
-            ui/UIQuickConnect.ui
-            ui/UIQueuedUsers.ui
-            ui/UISearchBlacklist.ui
-            ui/UISearchFrame.ui
-            ui/UISettings.ui
-            ui/UISettingsConnection.ui
-            ui/UISettingsDownloads.ui
-            ui/UISettingsGUI.ui
-            ui/UISettingsHistory.ui
-            ui/UISettingsLog.ui
-            ui/UISettingsNotification.ui
-            ui/UISettingsPersonal.ui
-            ui/UISettingsSharing.ui
-            ui/UISettingsShortcuts.ui
-            ui/UIShareBrowser.ui
-            ui/UIShareBrowserSearch.ui
-            ui/UISpy.ui
-            ui/UITransferView.ui
-            ui/UISettingsUC.ui
-            ui/UIUserCommands.ui
-            ui/UIActionCustomizer.ui
-            ui/UIHubManager.ui
-            )
+file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
 if (WIN32)
   list (APPEND SRCS ../win32/applink.c)
@@ -257,36 +101,31 @@ elseif (NOT MINGW AND WIN32)
   SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.rc")
 endif (MINGW AND WIN32)
 
-if (USE_ASPELL)
-  list (APPEND SRCS src/SpellCheck.cpp)
-  list (APPEND MOC_HDRS src/SpellCheck.h)
-endif (USE_ASPELL)
+if (NOT USE_ASPELL)
+  list (REMOVE_ITEM SRCS src/SpellCheck.cpp)
+  list (REMOVE_ITEM MOC_HDRS src/SpellCheck.h)
+endif (NOT USE_ASPELL)
 
 if (USE_JS)
+  file (GLOB scriptengine_srcs ${PROJECT_SOURCE_DIR}/scriptengine/*.cpp)
+  file (GLOB scriptengine_hdrs ${PROJECT_SOURCE_DIR}/scriptengine/*.h)
   list (APPEND SRCS
-        scriptengine/ClientManagerScript.cpp
-        scriptengine/HashManagerScript.cpp
-        scriptengine/LogManagerScript.cpp
-        scriptengine/MainWindowScript.cpp
-        scriptengine/ScriptConsole.cpp
-        scriptengine/ScriptEngine.cpp
-        scriptengine/ScriptConsole.cpp
-        src/codeeditor/codeeditor.cpp
-        src/ScriptManagerDialog.cpp)
+        ${scriptengine_srcs}
+        src/codeeditor/codeeditor.cpp)
   list (APPEND MOC_HDRS
-        scriptengine/ClientManagerScript.h
-        scriptengine/HashManagerScript.h
-        scriptengine/LogManagerScript.h
-        scriptengine/MainWindowScript.h
-        scriptengine/ScriptConsole.h
-        scriptengine/ScriptEngine.h
-        scriptengine/ScriptConsole.h
-        src/codeeditor/codeeditor.h
-        src/ScriptManagerDialog.h)
-  list (APPEND UI_FORMS
-        ui/UIScriptManager.ui
-        ui/UIDialogScriptConsole.ui)
+        ${scriptengine_hdrs}
+        src/codeeditor/codeeditor.h)
 endif (USE_JS)
+
+if (NOT USE_JS)
+  list (REMOVE_ITEM UI_FORMS
+        ${PROJECT_SOURCE_DIR}/ui/UIScriptManager.ui
+        ${PROJECT_SOURCE_DIR}/ui/UIDialogScriptConsole.ui)
+  list (REMOVE_ITEM SRCS
+        ${PROJECT_SOURCE_DIR}/src/ScriptManagerDialog.cpp)
+  list (REMOVE_ITEM MOC_HDRS
+        ${PROJECT_SOURCE_DIR}/src/ScriptManagerDialog.h)
+endif (NOT USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})
   list (APPEND COMPILED_TRANSLATIONS ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
@@ -322,6 +161,7 @@ if (UNIX)
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE eiskaltdcpp-qt.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+    install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)
 
 EXECUTE_PROCESS (
@@ -409,29 +249,17 @@ endif (APPLE)
 
 if (APPLE)
   target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp iconv)
+elseif (HAIKU)
+  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp network be)
 else (APPLE)
   target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp)
 endif (APPLE)
-if (HAIKU)
-    target_link_libraries (${PROJECT_NAME} ${LIBS} network be)
-endif (HAIKU)
 
 if (APPLE)
   set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
 else (APPLE)
   set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")
 endif (APPLE)
-
-if (WIN32 OR HAIKU)
-    set (BINDIR .)
-elseif (UNIX)
-    set (BINDIR bin)
-    if (APPLE)
-        set (BUNDLEDIR .)
-    endif ()
-endif (WIN32 OR HAIKU)
-
-
 
   install (TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION ${BINDIR}
@@ -451,12 +279,7 @@ if (APPLE)
     set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-stable-${CMAKE_SYSTEM_PROCESSOR}")
   endif ()
   set (MACOSX_BUNDLE_INFO_STRING "DC and ADC client")
-  #set (MACOSX_BUNDLE_ICON_FILE ${MACOSICONINBUNDLE})
-
-# doesn't work this way :(
-#  set (MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
   set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
-
   set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
   set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
   set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
@@ -478,12 +301,10 @@ endif (APPLE)
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
 if (APPLE)
   install (FILES eiskaltdcpp-qt.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
   install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 else (APPLE)
   install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
   if (UNIX AND NOT HAIKU)
-    install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${SHARE_DIR}/man/man1)
     install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
   endif (UNIX AND NOT HAIKU)
 endif (APPLE)

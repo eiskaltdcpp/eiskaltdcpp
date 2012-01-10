@@ -66,15 +66,6 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
 
 target_link_libraries (${PROJECT_NAME} dcpp ${XMLRPCLIBS} ${JSONRPCLIBS})
 
-if (UNIX)
- set (BINDIR bin)
- if (APPLE)
-    set (BUNDLEDIR .)
- endif ()
-elseif (WIN32)
-  set (BINDIR .)
-endif (UNIX)
-
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
     add_definitions(-D_DEBUG)
 endif()
@@ -89,10 +80,5 @@ if (UNIX)
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE ${PROJECT_NAME}.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)
-
-if (APPLE)
-  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
-elseif (UNIX AND NOT APPLE)
-  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${SHARE_DIR}/man/man1)
-endif (APPLE)
