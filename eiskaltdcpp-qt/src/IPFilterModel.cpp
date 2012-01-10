@@ -24,7 +24,7 @@ IPFilterModel::IPFilterModel(QObject *parent)
     QList<QVariant> rootData;
     rootData << tr("IP/Mask") << tr("Direction");
 
-    rootItem = new IPFilterModelItem(rootData, nullptr);
+    rootItem = new IPFilterModelItem(rootData, NULL);
 }
 
 IPFilterModel::~IPFilterModel()

@@ -39,7 +39,7 @@ public:
 
     QString getArenaShortTitle() { return tr("Search Spy"); }
     QString getArenaTitle() {return getArenaShortTitle(); }
-    QMenu *getMenu() {return nullptr; }
+    QMenu *getMenu() {return NULL; }
     QWidget *getWidget() { return this; }
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiSPY); }
     ArenaWidget::Role role() const { return ArenaWidget::Spy; }

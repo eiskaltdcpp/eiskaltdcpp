@@ -28,7 +28,7 @@ PublicHubModel::PublicHubModel(QObject *parent)
              << tr("Country") << tr("Shared") << tr("Min share") << tr("Min slots")
              << tr("Max hubs") << tr("Max users") << tr("Reliability") << tr("Rating");
 
-    rootItem = new PublicHubItem(rootData, nullptr);
+    rootItem = new PublicHubItem(rootData, NULL);
 }
 
 PublicHubModel::~PublicHubModel()
@@ -257,7 +257,7 @@ void PublicHubModel::addResult(const QList<QVariant> &data, dcpp::HubEntry *entr
 
 
 PublicHubItem::PublicHubItem(const QList<QVariant> &data, PublicHubItem *parent) :
-    itemData(data), parentItem(parent), entry(nullptr)
+    itemData(data), parentItem(parent), entry(NULL)
 {
 }
 

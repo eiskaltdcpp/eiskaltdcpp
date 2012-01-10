@@ -20,7 +20,7 @@ FavoriteHubModel::FavoriteHubModel(QObject *parent)
              << tr("Address") << tr("Nick") << tr("Password") << tr("User description")
              << tr("Remote encoding");
 
-    rootItem = new FavoriteHubItem(rootData, nullptr);
+    rootItem = new FavoriteHubItem(rootData, NULL);
 }
 
 FavoriteHubModel::~FavoriteHubModel()
@@ -159,7 +159,7 @@ bool FavoriteHubModel::removeRow(int row, const QModelIndex &parent){
 }
 
 bool FavoriteHubModel::insertRows(int position, int rows, const QModelIndex &index){
-    FavoriteHubItem *from = nullptr;
+    FavoriteHubItem *from = NULL;
 
     beginRemoveRows(QModelIndex(), position, position);
     {
@@ -316,7 +316,7 @@ QModelIndex FavoriteHubModel::moveDown(const QModelIndex &index){
     if (index.row() >= rootItem->childCount() - 1)
         return QModelIndex();
 
-    FavoriteHubItem *item = nullptr;
+    FavoriteHubItem *item = NULL;
 
     beginRemoveRows(QModelIndex(), index.row(), index.row());
     {
@@ -337,7 +337,7 @@ QModelIndex FavoriteHubModel::moveUp(const QModelIndex &index){
     if (index.row() < 1)
         return QModelIndex();
 
-    FavoriteHubItem *item = nullptr;
+    FavoriteHubItem *item = NULL;
 
     beginRemoveRows(QModelIndex(), index.row(), index.row());
     {

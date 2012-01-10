@@ -30,7 +30,7 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
     stripper.setPattern("\\[.*\\]");
     stripper.setMinimal(true);
 
-    rootItem = new UserListItem(nullptr);
+    rootItem = new UserListItem(NULL);
 
     WU = WulforUtil::getInstance();
 }
@@ -415,16 +415,16 @@ void UserListModel::addUser(const QString& nick,
 UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){
     USRMap::iterator iter = users.find(ptr);
 
-    UserListItem *item = (iter != users.end())? (iter.value()) : (nullptr);
+    UserListItem *item = (iter != users.end())? (iter.value()) : (NULL);
 
     return item;
 }
 
 UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){   
     if (nick.isEmpty())
-        return nullptr;
+        return NULL;
     
-    UserListItem *item = nullptr;
+    UserListItem *item = NULL;
     
     QList<UserListItem*>::iterator it = std::find_if(rootItem->childItems.begin(), rootItem->childItems.end(),
                                                      [&nick] (const UserListItem *i) {
@@ -432,7 +432,7 @@ UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){
                                                      }
                                                     );
 
-    return (it == rootItem->childItems.end()? nullptr : *it);
+    return (it == rootItem->childItems.end()? NULL : *it);
 }
 
 QString UserListModel::CIDforNick(const QString &nick, const QString &){
@@ -584,11 +584,11 @@ QString UserListItem::getTag()  const{
 }
 
 bool UserListItem::isOP()  const{
-    return id.isOp();
+    return _isOp;
 }
 
 bool UserListItem::isFav()  const{
-    return FavoriteManager::getInstance()->isFavoriteUser(ptr);
+    return _isFav;
 }
 
 bool UserListItem::isAway() const {
@@ -596,6 +596,9 @@ bool UserListItem::isAway() const {
 }
 
 void UserListItem::updateIdentity() {
-    if (ptr != nullptr)
-        id = dcpp::ClientManager::getInstance()->getOnlineUserIdentity(ptr);
+    if (ptr != NULL){
+        id      = dcpp::ClientManager::getInstance()->getOnlineUserIdentity(ptr);
+        _isOp   = id.isOp();
+        _isFav  = dcpp::FavoriteManager::getInstance()->isFavoriteUser(ptr);
+    }
 }

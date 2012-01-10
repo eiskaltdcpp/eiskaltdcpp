@@ -23,7 +23,7 @@ class HashProgress :
 {
     Q_OBJECT
 public:
-    HashProgress(QWidget* = nullptr);
+    HashProgress(QWidget* = NULL);
     virtual ~HashProgress();
     enum { IDLE, RUNNING, LISTUPDATE, PAUSED, DELAYED };
     static unsigned getHashStatus();

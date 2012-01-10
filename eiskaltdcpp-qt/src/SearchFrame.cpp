@@ -73,13 +73,13 @@ SearchFrame::Menu::Menu(){
 
     magnet_menu = new QMenu(tr("Magnet"));
 
-    QAction *down       = new QAction(tr("Download"), nullptr);
+    QAction *down       = new QAction(tr("Download"), NULL);
     down->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
     down_to             = new QMenu(tr("Download to..."));
     down_to->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD_AS));
 
-    QAction *down_wh    = new QAction(tr("Download Whole Directory"), nullptr);
+    QAction *down_wh    = new QAction(tr("Download Whole Directory"), NULL);
     down_wh->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
     down_wh_to          = new QMenu(tr("Download Whole Directory to..."));
@@ -88,31 +88,31 @@ SearchFrame::Menu::Menu(){
     QAction *sep        = new QAction(menu);
     sep->setSeparator(true);
 
-    QAction *find_tth   = new QAction(tr("Search TTH"), nullptr);
+    QAction *find_tth   = new QAction(tr("Search TTH"), NULL);
     find_tth->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
 
-    QAction *magnet     = new QAction(tr("Copy magnet"), nullptr);
+    QAction *magnet     = new QAction(tr("Copy magnet"), NULL);
     magnet->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
 
-    QAction *magnet_web     = new QAction(tr("Copy web-magnet"), nullptr);
+    QAction *magnet_web     = new QAction(tr("Copy web-magnet"), NULL);
     magnet_web->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
 
-    QAction *magnet_info    = new QAction(tr("Properties of magnet"), nullptr);
+    QAction *magnet_info    = new QAction(tr("Properties of magnet"), NULL);
     magnet_info->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
 
-    QAction *browse     = new QAction(tr("Browse files"), nullptr);
+    QAction *browse     = new QAction(tr("Browse files"), NULL);
     browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
-    QAction *match      = new QAction(tr("Match Queue"), nullptr);
+    QAction *match      = new QAction(tr("Match Queue"), NULL);
     match->setIcon(WU->getPixmap(WulforUtil::eiDOWN));
 
-    QAction *send_pm    = new QAction(tr("Send Private Message"), nullptr);
+    QAction *send_pm    = new QAction(tr("Send Private Message"), NULL);
     send_pm->setIcon(WU->getPixmap(WulforUtil::eiMESSAGE));
 
-    QAction *add_to_fav = new QAction(tr("Add to favorites"), nullptr);
+    QAction *add_to_fav = new QAction(tr("Add to favorites"), NULL);
     add_to_fav->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
 
-    QAction *grant      = new QAction(tr("Grant extra slot"), nullptr);
+    QAction *grant      = new QAction(tr("Grant extra slot"), NULL);
     grant->setIcon(WU->getPixmap(WulforUtil::eiEDITADD));
 
     QAction *sep1       = new QAction(menu);
@@ -124,19 +124,19 @@ SearchFrame::Menu::Menu(){
     QAction *sep3       = new QAction(menu);
     sep3->setSeparator(true);
 
-    QAction *rem_queue  = new QAction(tr("Remove from Queue"), nullptr);
+    QAction *rem_queue  = new QAction(tr("Remove from Queue"), NULL);
     rem_queue->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
-    QAction *rem        = new QAction(tr("Remove"), nullptr);
+    QAction *rem        = new QAction(tr("Remove"), NULL);
     rem->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
 
     black_list_menu     = new QMenu(tr("Blacklist..."));
     black_list_menu->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
 
-    QAction *blacklist = new QAction(tr("Blacklist"), nullptr);
+    QAction *blacklist = new QAction(tr("Blacklist"), NULL);
     blacklist->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
 
-    QAction *add_to_blacklist = new QAction(tr("Add to Blacklist"), nullptr);
+    QAction *add_to_blacklist = new QAction(tr("Add to Blacklist"), NULL);
     add_to_blacklist->setIcon(WU->getPixmap(WulforUtil::eiEDITADD));
 
     black_list_menu->addActions(QList<QAction*>()
@@ -188,7 +188,7 @@ SearchFrame::Menu::~Menu(){
 
 SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList()){
     foreach(QAction *a, action_list)
-        a->setParent(nullptr);
+        a->setParent(NULL);
 
     qDeleteAll(down_to->actions());
     qDeleteAll(down_wh_to->actions());
@@ -298,7 +298,7 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
 
 QMenu *SearchFrame::Menu::buildUserCmdMenu(QList<QString> hub_list){
     if (hub_list.empty())
-        return nullptr;
+        return NULL;
 
     return WulforUtil::getInstance()->buildUserCmdMenu(hub_list, UserCommand::CONTEXT_SEARCH);
 }
@@ -314,15 +314,15 @@ SearchFrame::SearchFrame(QWidget *parent):
         arena_title(tr("Search window")),
         QWidget(parent),
         isHash(false),
-        arena_menu(nullptr),
-        timer(nullptr),
+        arena_menu(NULL),
+        timer(NULL),
         dropped(0L),
         results(0L),
         filterShared(SearchFrame::None),
         withFreeSlots(false),
         saveFileType(true),
-        proxy(nullptr),
-        completer(nullptr),
+        proxy(NULL),
+        completer(NULL),
         stop(false)
 {
     if (!SearchBlacklist::getInstance())
@@ -361,7 +361,7 @@ SearchFrame::SearchFrame(QWidget *parent):
 SearchFrame::~SearchFrame(){
     Menu::deleteInstance();
     
-    treeView_RESULTS->setModel(nullptr);
+    treeView_RESULTS->setModel(NULL);
 
     if (completer)
         completer->deleteLater();
@@ -385,7 +385,7 @@ void SearchFrame::closeEvent(QCloseEvent *e){
 
     setAttribute(Qt::WA_DeleteOnClose);
     
-    QWidget::disconnect(this, nullptr, this, nullptr);
+    QWidget::disconnect(this, NULL, this, NULL);
 
     e->accept();
 }
@@ -407,7 +407,7 @@ bool SearchFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void SearchFrame::init(){
-    model = new SearchModel(nullptr);
+    model = new SearchModel(NULL);
     str_model = new SearchStringListModel(this);
 
     for (int i = 0; i < model->columnCount(); i++)
@@ -1324,7 +1324,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::SendPM:
         {
-            HubFrame *fr = nullptr;
+            HubFrame *fr = NULL;
 
             foreach (const QModelIndex &i, list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
@@ -1555,7 +1555,7 @@ void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) noexcept {
-    if (currentSearch.empty() || aResult == nullptr || stop == true)
+    if (currentSearch.empty() || aResult == NULL || stop == true)
         return;
 
     if (!aResult->getToken().empty() && token != _q(aResult->getToken())){

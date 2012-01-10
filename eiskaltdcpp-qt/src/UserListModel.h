@@ -63,7 +63,7 @@ typedef QHash<QString, QVariant> UserMap;
 class UserListItem: public PoolItem<UserListItem> {
 
 public:
-    UserListItem(UserListItem* = nullptr, dcpp::UserPtr p = dcpp::UserPtr(nullptr));
+    UserListItem(UserListItem* = NULL, dcpp::UserPtr p = dcpp::UserPtr(NULL));
     virtual ~UserListItem();
 
     void appendChild(UserListItem *child);
@@ -93,6 +93,8 @@ public:
     
     UserPtr ptr;
 private:
+    bool _isOp: 1;
+    bool _isFav: 1;
     UserListItem *parentItem;
     dcpp::Identity id;
 };

@@ -34,7 +34,7 @@ class ADLSEditor:
         public Ui::UIADLSEditor
 {
     public:
-        ADLSEditor(QWidget *parent = nullptr):
+        ADLSEditor(QWidget *parent = NULL):
                 QDialog(parent)
         {
             setupUi(this);
@@ -82,7 +82,7 @@ private Q_SLOTS:
 
 private:
     typedef ADLSearchManager::SearchCollection::size_type VectorSize;
-    ADLS(QWidget* = nullptr);
+    ADLS(QWidget* = NULL);
     virtual ~ADLS();
 
     void load();

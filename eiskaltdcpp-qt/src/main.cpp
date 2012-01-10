@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
     migrateConfig();
 #endif
 
-    dcpp::startup(callBack, nullptr);
+    dcpp::startup(callBack, NULL);
     dcpp::TimerManager::getInstance()->start();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
@@ -267,7 +267,7 @@ void installHandlers(){
     struct sigaction sa;
     memset(&sa, 0, sizeof(sa));
     sa.sa_handler = SIG_IGN;
-    if (sigaction(SIGPIPE, &sa, nullptr) == -1){
+    if (sigaction(SIGPIPE, &sa, NULL) == -1){
         std::cout << QObject::tr("Cannot handle SIGPIPE").toStdString() << std::endl;
     }
 

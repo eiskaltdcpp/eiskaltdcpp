@@ -20,7 +20,7 @@
 using namespace dcpp;
 
 PublicHubs::PublicHubs(QWidget *parent) :
-    QWidget(parent), proxy(nullptr)
+    QWidget(parent), proxy(NULL)
 {
     setupUi(this);
 
@@ -171,7 +171,7 @@ void PublicHubs::slotContextMenu(){
     m->deleteLater();
 
     if (ret == connect){
-        PublicHubItem * item = nullptr;
+        PublicHubItem * item = NULL;
         MainWindow *MW = MainWindow::getInstance();
 
         foreach (const QModelIndex &i, indexes){
@@ -180,11 +180,11 @@ void PublicHubs::slotContextMenu(){
             if (item)
                 MW->newHubFrame(item->data(COLUMN_PHUB_ADDRESS).toString(), "");
 
-            item = nullptr;
+            item = NULL;
         }
     }
     else if (ret == add_fav){
-        PublicHubItem * item = nullptr;
+        PublicHubItem * item = NULL;
 
         foreach (const QModelIndex &i, indexes){
             item = reinterpret_cast<PublicHubItem*>(i.internalPointer());
@@ -196,11 +196,11 @@ void PublicHubs::slotContextMenu(){
                 catch (const std::exception&){}
             }
 
-            item = nullptr;
+            item = NULL;
         }
     }
     else if (ret == copy){
-        PublicHubItem * item = nullptr;
+        PublicHubItem * item = NULL;
         QString out = "";
 
         foreach (const QModelIndex &i, indexes){
@@ -209,7 +209,7 @@ void PublicHubs::slotContextMenu(){
             if (item)
                 out += item->data(COLUMN_PHUB_ADDRESS).toString() + "\n";
 
-            item = nullptr;
+            item = NULL;
         }
 
         if (!out.isEmpty())
@@ -241,7 +241,7 @@ void PublicHubs::slotFilter(){
         disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
 
         delete proxy;
-        proxy = nullptr;
+        proxy = NULL;
     }
     else {
         proxy = new PublicHubProxyModel();

@@ -132,7 +132,7 @@ void Magnet::download() {
 }
 
 void Magnet::slotBrowse(){
-    QMenu *down_to = nullptr;
+    QMenu *down_to = NULL;
     QString aliases, paths;
 
     aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());

@@ -160,8 +160,8 @@ void FlowLayout::place(QWidget *on, QWidget *what){
     if (!(on && what))
         return;
 
-    QLayoutItem *i_on = nullptr;
-    QLayoutItem *i_what = nullptr;
+    QLayoutItem *i_on = NULL;
+    QLayoutItem *i_what = NULL;
 
     foreach (QLayoutItem *item, itemList) {
         if (item->widget() == on)

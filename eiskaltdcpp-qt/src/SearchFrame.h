@@ -44,7 +44,7 @@ class SearchItem;
 
 class SearchStringListModel: public QStringListModel{
 public:
-    SearchStringListModel(QObject *parent = nullptr): QStringListModel(parent){}
+    SearchStringListModel(QObject *parent = NULL): QStringListModel(parent){}
     virtual ~SearchStringListModel(){}
 
     QVariant data(const QModelIndex &index, int role) const;
@@ -121,7 +121,7 @@ public:
         Highlight
     };
 
-    SearchFrame(QWidget* = nullptr);
+    SearchFrame(QWidget* = NULL);
     virtual ~SearchFrame();
 
     QWidget *getWidget();

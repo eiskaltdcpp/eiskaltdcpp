@@ -48,7 +48,7 @@ TransferViewModel::TransferViewModel(QObject *parent)
              << tr("Time left") << tr("File name") << tr("Host") << tr("IP")
              << tr("Encryption");
 
-    rootItem = new TransferViewItem(rootData, nullptr);
+    rootItem = new TransferViewItem(rootData, NULL);
 
     column_map.insert("USER", COLUMN_TRANSFER_USERS);
     column_map.insert("SPEED", COLUMN_TRANSFER_SPEED);
@@ -331,7 +331,7 @@ void TransferViewModel::addConnection(const VarMap &params){
 
     bool bGroup = false;
     TransferViewItem *i;
-    TransferViewItem *to = nullptr;
+    TransferViewItem *to = NULL;
     bool bDownload = vbol(params["DOWN"]);
 
     if (findTransfer(vstr(params["CID"]), vbol(params["DOWN"]), &i)) {
@@ -675,7 +675,7 @@ TransferViewItem::~TransferViewItem()
     if (childItems.size() > 0)
         qDeleteAll(childItems);
 
-    parentItem = nullptr;
+    parentItem = NULL;
 }
 
 void TransferViewItem::appendChild(TransferViewItem *item) {

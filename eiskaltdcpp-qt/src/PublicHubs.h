@@ -41,7 +41,7 @@ public:
     QString  getArenaTitle(){ return tr("Public Hubs"); }
     QString  getArenaShortTitle(){ return getArenaTitle(); }
     QWidget *getWidget(){ return this; }
-    QMenu   *getMenu(){ return nullptr; }
+    QMenu   *getMenu(){ return NULL; }
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiSERVER); }
     void requestFilter() { slotFilter(); }
     ArenaWidget::Role role() const { return ArenaWidget::PublicHubs; }
@@ -75,7 +75,7 @@ Q_SIGNALS:
     void coreCacheLoaded(const QString&);
 
 private:
-    PublicHubs(QWidget *parent = nullptr);
+    PublicHubs(QWidget *parent = NULL);
     ~PublicHubs();
 
     void updateList();

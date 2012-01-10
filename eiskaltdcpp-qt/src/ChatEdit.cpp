@@ -20,7 +20,7 @@
 #include <QFileInfo>
 #include <QDir>
 
-ChatEdit::ChatEdit(QWidget *parent) : QTextEdit(parent), cc(nullptr)
+ChatEdit::ChatEdit(QWidget *parent) : QTextEdit(parent), cc(NULL)
 {
     setMinimumHeight(10);
 
@@ -260,11 +260,11 @@ void ChatEdit::dropEvent(QDropEvent *e)
 
                 if ( fi.exists() && fi.isFile() && !str.isEmpty() ) {
                     const TTHValue *tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
-                    if ( tth == nullptr ) {
+                    if ( tth == NULL ) {
                         str = QDir::toNativeSeparators( fi.canonicalFilePath() ); // try to follow symlinks
                         tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
                     }
-                    if (tth != nullptr)
+                    if (tth != NULL)
                         urlStr = WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32()));
                 }
             };

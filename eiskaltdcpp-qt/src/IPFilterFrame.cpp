@@ -27,7 +27,7 @@
 IPFilterFrame::IPFilterFrame(QWidget *parent) : QDialog(parent) {
     setupUi(this);
 
-    model = nullptr;
+    model = NULL;
 
     InitDocument();
 }
@@ -237,7 +237,7 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
             if ((ip != old_ip) || (mask != old_mask) || (act != old_act)){
                 const QIPHash &hash = IPFilter::getInstance()->getHash();
                 QIPHash::const_iterator it = hash.find(old_ip);
-                IPFilterElem *el = nullptr;
+                IPFilterElem *el = NULL;
 
                 while (it != hash.end() && it.key() == old_ip){
                     IPFilterElem *t = it.value();

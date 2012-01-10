@@ -34,7 +34,7 @@ static QString EmotionPath = CLIENT_DATA_DIR "/emoticons/";
 #endif
 
 EmoticonFactory::EmoticonFactory() :
-    QObject(nullptr)
+    QObject(NULL)
 {
 #if defined (Q_WS_WIN)
     EmotionPath.prepend( qApp->applicationDirPath()+QDir::separator() );

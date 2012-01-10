@@ -22,7 +22,7 @@
 
 ToolBar::ToolBar(QWidget *parent):
     QToolBar(parent),
-    tabbar(nullptr)
+    tabbar(NULL)
 {
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
@@ -201,8 +201,8 @@ void ToolBar::toggled ( ArenaWidget *awgt) {
 }
 
 void ToolBar::slotTabMoved(int from, int to){
-    ArenaWidget *from_wgt = nullptr;
-    ArenaWidget *to_wgt   = nullptr;
+    ArenaWidget *from_wgt = NULL;
+    ArenaWidget *to_wgt   = NULL;
 
     WidgetMap::iterator it = map.begin();
 
@@ -249,7 +249,7 @@ void ToolBar::slotContextMenu(const QPoint &p){
 
         m->addAction(act);
 
-        if (m->exec(QCursor::pos()) != nullptr){
+        if (m->exec(QCursor::pos()) != NULL){
             WBSET(WB_APP_TBAR_SHOW_CL_BTNS, act->isChecked());
             tabbar->setTabsClosable(act->isChecked());
         }
@@ -279,7 +279,7 @@ void ToolBar::slotShorcuts(){
 
 ArenaWidget *ToolBar::findWidgetForIndex(int index){
     if (index < 0)
-        return nullptr;
+        return NULL;
 
     WidgetMap::const_iterator it = map.begin();
 
@@ -288,7 +288,7 @@ ArenaWidget *ToolBar::findWidgetForIndex(int index){
             return const_cast<ArenaWidget*>(it.key());
     }
 
-    return nullptr;
+    return NULL;
 }
 
 void ToolBar::redraw(){

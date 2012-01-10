@@ -42,7 +42,7 @@ class QModelIndex;
 class AsyncRunner: public QThread{
 Q_OBJECT
 public:
-    AsyncRunner(QObject * = nullptr);
+    AsyncRunner(QObject * = NULL);
     virtual ~AsyncRunner();
 
     virtual void run();
@@ -79,7 +79,7 @@ class ShareBrowser : public  QWidget,
             None
         };
 
-        Action exec(const dcpp::UserPtr& = dcpp::UserPtr(nullptr));
+        Action exec(const dcpp::UserPtr& = dcpp::UserPtr(NULL));
 
         QString getTarget() { return target; }
 

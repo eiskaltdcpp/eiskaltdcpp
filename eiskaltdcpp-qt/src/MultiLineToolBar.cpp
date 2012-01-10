@@ -60,7 +60,7 @@ void MultiLineToolBar::slotContextMenu(){
 
     m->addAction(act);
 
-    if (m->exec(QCursor::pos()) != nullptr){
+    if (m->exec(QCursor::pos()) != NULL){
         WBSET(WB_APP_TBAR_SHOW_CL_BTNS, act->isChecked());
     }
 

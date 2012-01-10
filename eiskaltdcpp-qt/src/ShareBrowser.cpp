@@ -196,11 +196,11 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         current_size(0),
         itemsCount(0),
         listing(HintedUser(user, "")),
-        tree_root(nullptr),
-        list_root(nullptr),
-        tree_model(nullptr),
-        list_model(nullptr),
-        proxy(nullptr)
+        tree_root(NULL),
+        list_root(NULL),
+        tree_model(NULL),
+        list_model(NULL),
+        proxy(NULL)
 {
     
 
@@ -447,7 +447,7 @@ void ShareBrowser::goDown(QTreeView *view){
         return;
 
     QModelIndex index = selected.at(0);
-    FileBrowserItem *item = nullptr;
+    FileBrowserItem *item = NULL;
 
     if (view->model() == proxy)
         item = static_cast<FileBrowserItem*>(proxy->mapToSource(index).internalPointer());
@@ -510,7 +510,7 @@ void ShareBrowser::slotRightPaneClicked(const QModelIndex &index){
     if (!index.isValid())
         return;
 
-    FileBrowserItem *item = nullptr;
+    FileBrowserItem *item = NULL;
 
     if (treeView_RPANE->model() == proxy)
         item = static_cast<FileBrowserItem*>(proxy->mapToSource(index).internalPointer());
@@ -708,7 +708,7 @@ void ShareBrowser::slotButtonUp(){
 
         FileBrowserItem *item = static_cast<FileBrowserItem*>(index.internalPointer());
 
-        if (nullptr != item->parent()){
+        if (NULL != item->parent()){
 
             disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                     this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
@@ -734,7 +734,7 @@ void ShareBrowser::slotButtonUp(){
 }
 
 void ShareBrowser::slotButtonBack(){
-    if ( (pathHistory_iter != nullptr)
+    if ( (pathHistory_iter != NULL)
             && (pathHistory.size() >0)){
 
         disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
@@ -755,7 +755,7 @@ void ShareBrowser::slotButtonBack(){
 }
 
 void ShareBrowser::slotButtonForward(){
-    if ( (pathHistory_iter != nullptr)
+    if ( (pathHistory_iter != NULL)
             && (pathHistory.size() >0)){
 
         disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
@@ -797,7 +797,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
     if (!Menu::getInstance())
         Menu::newInstance();
 
-    Menu::Action act = Menu::getInstance()->exec(view == treeView_LPANE? user : dcpp::UserPtr(nullptr));
+    Menu::Action act = Menu::getInstance()->exec(view == treeView_LPANE? user : dcpp::UserPtr(NULL));
     QString target = _q(SETTING(DOWNLOAD_DIRECTORY));
 
     switch (act){
@@ -1043,10 +1043,10 @@ void ShareBrowser::slotFilter(){
         disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
 
         delete proxy;
-        proxy = nullptr;
+        proxy = NULL;
     }
     else {
-        proxy = new QSortFilterProxyModel(nullptr);
+        proxy = new QSortFilterProxyModel(NULL);
         proxy->setDynamicSortFilter(true);
         proxy->setFilterFixedString(lineEdit_FILTER->text());
         proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);

@@ -13,7 +13,7 @@
 #include <QtDebug>
 
 HubManager::HubManager():
-        active(nullptr)
+        active(NULL)
 {
 }
 
@@ -52,7 +52,7 @@ QObject *HubManager::getHub(const QString &url){
         return it.value();
     }
 
-    return nullptr;
+    return NULL;
 }
 
 QList<QObject*> HubManager::getHubs() const {

@@ -367,7 +367,7 @@ bool SearchModel::addResult
     if (size > 0)
         ext = file_info.suffix().toUpper();
 
-    SearchItem * parent = nullptr;
+    SearchItem * parent = NULL;
 
     if (!isDir && tths.contains(tth)) {
         parent = tths[tth];

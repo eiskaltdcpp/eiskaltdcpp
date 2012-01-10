@@ -26,7 +26,7 @@
 class SearchProxyModel: public QSortFilterProxyModel {
 Q_OBJECT
 public:
-    SearchProxyModel(QObject *parent = nullptr): QSortFilterProxyModel(parent){}
+    SearchProxyModel(QObject *parent = NULL): QSortFilterProxyModel(parent){}
     virtual ~SearchProxyModel(){}
 
     virtual void sort(int column, Qt::SortOrder order);

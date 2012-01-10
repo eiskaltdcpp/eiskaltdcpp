@@ -138,7 +138,7 @@ void IPFilter::addToRules(QString exp, eDIRECTION direction) {
     if (!ParseString(exp, exp_ip, exp_mask, act))
         return;
 
-    IPFilterElem *el = nullptr;
+    IPFilterElem *el = NULL;
 
     if (list_ip.contains(exp_ip)) {
 #ifdef _DEBUG_IPFILTER_
@@ -314,7 +314,7 @@ bool IPFilter::OK(const QString &exp, eDIRECTION direction){
 }
 
 void IPFilter::step(quint32 ip, eTableAction act, bool down){
-    IPFilterElem *el = nullptr;
+    IPFilterElem *el = NULL;
 
     QIPHash::const_iterator it = list_ip.find(ip);
 

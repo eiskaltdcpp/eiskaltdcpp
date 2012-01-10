@@ -19,7 +19,7 @@ using namespace dcpp;
 
 UCModel::UCModel(QObject *parent): QAbstractItemModel(parent)
 {
-    rootItem = new UCItem(nullptr);
+    rootItem = new UCItem(NULL);
 }
 
 UCModel::~UCModel()

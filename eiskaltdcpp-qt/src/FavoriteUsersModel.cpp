@@ -26,7 +26,7 @@ FavoriteUsersModel::FavoriteUsersModel(QObject *parent)
     QList<QVariant> rootData;
     rootData << tr("Nick") << tr("Hub") << tr("Last seen") << tr("Description");
 
-    rootItem = new FavoriteUserItem(rootData, nullptr);
+    rootItem = new FavoriteUserItem(rootData, NULL);
 }
 
 FavoriteUsersModel::~FavoriteUsersModel()
