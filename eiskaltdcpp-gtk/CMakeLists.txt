@@ -4,6 +4,26 @@ cmake_minimum_required (VERSION 2.6)
 
 set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 
+if (USE_GTK)
+    find_package (GTK2 REQUIRED gtk)
+elseif (USE_GTK3)
+    find_package (GTK3 REQUIRED gtk)
+endif (USE_GTK)
+
+if (USE_LIBGNOME2)
+    message (STATUS "Building with LibGnome2 support")
+    find_package (LibGnome2 REQUIRED)
+else (USE_LIBGNOME2)
+    message (STATUS "Building without LibGnome2 support")
+endif (USE_LIBGNOME2)
+
+if (USE_LIBNOTIFY)
+    message (STATUS "Building with libnotify support")
+    set (LIBNOTIFY "-lnotify")
+else (USE_LIBNOTIFY)
+    message (STATUS "Building without libnotify support")
+endif (USE_LIBNOTIFY)
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 aux_source_directory(${PROJECT_SOURCE_DIR}/src gtk_srcs)
 file (GLOB gtk_hdrs ${PROJECT_SOURCE_DIR}/src/*.hh)
@@ -19,7 +39,6 @@ if (USE_GTK)
     set(GTK_LIBRARIES ${GTK2_LIBRARIES})
 elseif (USE_GTK3)
     add_definitions(-DGSEAL_ENABLE)
-    #add_definitions(-DGTK_DISABLE_SINGLE_INCLUDES -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED)
     set(GTK_INCLUDE_DIRS ${GTK3_INCLUDE_DIRS})
     set(GTK_LIBRARIES ${GTK3_LIBRARIES})
 endif(USE_GTK)
@@ -103,20 +122,12 @@ else (APPLE)
 endif (APPLE)
 
 if (UNIX)
- set (BINDIR bin)
- if (APPLE)
-    set (BUNDLEDIR .)
- endif ()
-elseif (WIN32)
-  set (BINDIR .)
-endif (UNIX)
-
-if (UNIX)
   EXECUTE_PROCESS (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE ${PROJECT_NAME}.1
                 WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+    install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)
 
   set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")
@@ -133,11 +144,9 @@ endif (UNIX)
 
 if (APPLE)
   install (FILES ${PROJECT_NAME}.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
-  install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${PROJECT_NAME_GLOBAL}.app/man/man1)
 else (APPLE)
   if (UNIX)
     install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
-    install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${SHARE_DIR}/man/man1)
   endif (UNIX)
 endif (APPLE)
 
