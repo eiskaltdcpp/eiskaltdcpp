@@ -831,8 +831,8 @@ HubFrame::~HubFrame(){
 
     treeView_USERS->setModel(NULL);
 
-    delete d->model;
     delete d->proxy;
+    delete d->model;
     
     delete d;
 }
@@ -937,7 +937,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             else if (isUserList){
                 QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
 
-                if (treeView_USERS->model() == d->proxy)
+                if (d->proxy && treeView_USERS->model() == d->proxy)
                     index = d->proxy->mapToSource(index);
 
                 if (index.isValid()){
@@ -1009,7 +1009,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             else if (isUserList){
                 QModelIndex index = treeView_USERS->indexAt(treeView_USERS->viewport()->mapFromGlobal(QCursor::pos()));
 
-                if (treeView_USERS->model() == d->proxy)
+                if (d->proxy && treeView_USERS->model() == d->proxy)
                     index = d->proxy->mapToSource(index);
 
                 if (index.isValid()){
@@ -2646,7 +2646,7 @@ void HubFrame::slotActivate(){
 void HubFrame::slotUsersUpdated(){
     Q_D(HubFrame);
     
-    if (treeView_USERS->model() == d->proxy){
+    if (d->proxy && treeView_USERS->model() == d->proxy){
         label_USERSTATE->setText(QString(tr("Users count: %3/%1 | Total share: %2"))
                                  .arg(d->model->rowCount())
                                  .arg(WulforUtil::formatBytes(d->total_shared))
@@ -2734,7 +2734,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
     
     Q_D(HubFrame);
 
-    if (treeView_USERS->model() != d->model){
+    if (d->proxy && treeView_USERS->model() == d->proxy){
         QModelIndex i = d->proxy->mapToSource(proxy_list.at(0));
         cid = reinterpret_cast<UserListItem*>(i.internalPointer())->cid;
     }
@@ -2753,7 +2753,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
     QModelIndexList list;
 
-    if (treeView_USERS->model() != d->model){
+    if (d->proxy && treeView_USERS->model() == d->proxy){
         foreach(const QModelIndex &i, proxy_list)
             list.push_back(d->proxy->mapToSource(i));
     }
