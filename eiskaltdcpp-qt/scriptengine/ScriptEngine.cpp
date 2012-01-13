@@ -54,7 +54,7 @@ QScriptValue ScriptVarMapToScriptValue(QScriptEngine* eng, const VarMap& map);
 void ScriptVarMapFromScriptValue( const QScriptValue& value, VarMap& map);
 
 ScriptEngine::ScriptEngine() :
-        QObject(nullptr)
+        QObject(NULL)
 {
     DEBUG_BLOCK
     
@@ -353,7 +353,7 @@ static QScriptValue getMagnets(QScriptContext *ctx, QScriptEngine *engine){
 
         const dcpp::TTHValue *tth = dcpp::HashManager::getInstance()->getFileTTHif(_tq(f));
 
-        if (tth != nullptr)
+        if (tth != NULL)
             magnets.push_back(WulforUtil::getInstance()->makeMagnet(f.split(QDir::separator(), QString::SkipEmptyParts).last(),
                                                                     file.size(),
                                                                     _q(tth->toBase32())
@@ -377,7 +377,7 @@ static QScriptValue staticMemberConstructor(QScriptContext *context, QScriptEngi
     QScriptValue self = context->callee();
     const QString className = self.property("className").toString();
 
-    QObject *obj = nullptr;
+    QObject *obj = NULL;
 
     if (className == "AntiSpam"){
         if (!AntiSpam::getInstance()){
@@ -450,7 +450,7 @@ static QScriptValue dynamicMemberConstructor(QScriptContext *context, QScriptEng
     QScriptValue self = context->callee();
     const QString className = self.property("className").toString();
 
-    QObject *obj = nullptr;
+    QObject *obj = NULL;
 
     if (className == "HubFrame"){
         if (context->argumentCount() == 2){

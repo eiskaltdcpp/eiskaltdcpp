@@ -30,7 +30,7 @@ ScriptManagerDialog::ScriptManagerDialog(QWidget *parent) :
 {
     setupUi(this);
 
-    model = new ScriptManagerModel(nullptr);
+    model = new ScriptManagerModel(NULL);
     connect(this, SIGNAL(accepted()), model, SLOT(save()));
 
     treeView->setModel(model);
@@ -43,7 +43,7 @@ ScriptManagerDialog::~ScriptManagerDialog(){
 }
 
 ScriptManagerModel::ScriptManagerModel(QObject * parent) : QAbstractItemModel(parent) {
-    rootItem = new ScriptManagerItem(nullptr);
+    rootItem = new ScriptManagerItem(NULL);
 
     load();
 }
