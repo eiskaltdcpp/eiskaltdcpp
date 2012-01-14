@@ -1,124 +1,96 @@
 API Layers:
-
+-----------------------
 УПРАВЛЕНИЕ ПОТОКАМИ (ОЧЕРЕДЬЮ) СКАЧИВАНИЯ/ЗАКАЧИВАНИЯ
-	Просмотр очереди
+	(wip) Просмотр очереди (queue.list)
+	(wip) Просмотр всех элементов очереди (queue.listtargets)
+	(wip) Move queue item from source to target (queue.move, требует пояснения зачем это)
+	(wip) Удаление элемента очереди (queue.remove)
+	(+) Постановка в очередь магнета (magne.add)
 	Просмотр конкретного элемента очереди
 	Установка приоритета элемента очереди
 	Старт/стоп элемента очереди
 	Список источников для конкретного элемента очереди
 	Добавление источника к элементу очереди.
 	Удаление источника для элемента очереди.
+-----------------------
 РАБОТА С ФАЙЛЛИСТАМИ
 	Скачивание файллиста
 	Просмотр файллиста
-	Постановка файла из файллиста в очередь
-	Постановка директории из файллиста в очередь
+	Постановка файла из файллиста в очередь с указанием директории назначения
+	Постановка директории из файллиста в очередь с указанием директории назначения
+-----------------------
 УПРАВЛЕНИЕ ШАРОЙ
-	Добавление (done):
-	share.add
-    Small Description: Add dir in share.
-    Args: directory(string), virtual name (string)
-    Return: 0 | 1 (integer)
-
-	Удаление (done):
-	share.del
-    Small Description: Delete dir from share.
-    Args: virtual name of directory (string)
-    Return: 0 | 1 (integer)
-
-	Переименование (done):
-	share.rename
-    Small Description: Rename dir in share
-    Args: directory(string), virtual name (string)
-    Return: { 0 | 1 (integer) } || {ShareException? (string)}
-
-	Листинг (done):
-	share.list
-    Small Description: Return list of shared directories in string
-    Args: separator(string)
-    Return: @list of shared directoriess in string with separator@ (string)
-
-	Обновлние (done):
-	share.refresh
-    Small Description: Run refresh share.
-    Args : none
-    Return: 0 | 1 (integer)
-
-	perfolderlimits api (?)
-
+	(+) Добавление (share.add)
+		Args: directory(string), virtual name (string)
+		Return: 0 | 1 (integer)
+	(+) Удаление (share.del)
+		Args: virtual name of directory (string)
+		Return: 0 | 1 (integer)
+	(+) Переименование (share.rename)
+		Args: directory(string), virtual name (string)
+		Return: { 0 | 1 (integer) } || {ShareException? (string)}
+	(+) Листинг (share.list)
+		Args: separator(string)
+		Return: @list of shared directoriess in string with separator@ (string)
+	(+) Обновлние (share.refresh)
+		Args : none
+		Return: 0 | 1 (integer)
+	(wip) perfolderlimits api (?)
+-----------------------
 УПРАВЛЕНИЕ ХАБАМИ
-	Добавление
-	Удаление (done):
-	hub.del
-    Small Description: Disconnect from hub.
-    Args: Huburl(string)
-    Return: 0 | 1 (integer)
-
-	Листинг (done):
-	hub.list
-    Small Description: Return list of connected hubs in string.
-    Args: separator (string)
-    Return: @list of hubs in string with separator@ (string)
-
+	(+) Добавление (hub.add)
+		Args: directory(string), virtual name (string)
+		Return: 0 | 1 (integer) 
+	(+) Удаление (hub.del)
+		Args: Huburl(string)
+		Return: 0 | 1 (integer)
+	(+) Листинг (hub.list)
+		Args: separator (string)
+		Return: @list of hubs in string with separator@ (string)
+-----------------------
 ЧАТ
-	Сообщение в чат (done):
-	hub.say
-    Small Description: Add message on hub.
-    Args: huburl (string), message (string)
-    Return: 0 | 1 (integer)
-
-	Сообщение в приват юзеру
-	hub.pm
-    Small Description: Add private message on hub.
-    Args: huburl (string), nick(string), message (string)
-    Return: "Message send on hub: @huburl@" | "@huburl@ not connected" (string)
-
-	Возврат сообщений чата с указанного хаба
-	hub.getchat
-    Small Description: Return last messages in chat on target hub
-    Args: huburl(string), separator(string)
-    Return: @last messages on huburl@ (string)
-
-	antispam api (?)
-
+	(+) Сообщение в чат (hub.say)
+		Args: huburl (string), message (string)
+		Return: 0 | 1 (integer)
+	(+) Сообщение в приват юзеру (hub.pm)
+		Args: huburl (string), nick(string), message (string)
+		Return: "Message send on hub: @huburl@" | "@huburl@ not connected" (string)
+	(+) Возврат сообщений чата с указанного хаба (hub.getchat)
+		Args: huburl(string), separator(string)
+		Return: @last messages on huburl@ (string)
+-----------------------
 ПОИСК
-	Инициация поиска (done?):
-	search.send
-    Small Description: Send search on all hubs by string.
-    Args: search string(string), seatchtype (int), sizemode (int), sizetype(int), size (double), huburls (string, separator=";")
-    Return: 0 | 1 (integer)
-
-	Просмотр результатов поиска (done):
-	search.getresults
-    Small Description: Get search results from all | set huburl.
-    Args: huburl(string)
-    Return: @search results@ (array of map)
-
-	Очистить полученные результаты для указанного хаба/все. (proporsal, done):
-	search.clear
-    Small Description: Remove search results by huburl.
-    Args: huburl (string)
-    Return: 0 | 1 (integer)
-
+	(wip) Инициация поиска (search.send)
+		Args: search string(string), seatchtype (int), sizemode (int), sizetype(int), size (double), huburls (string, separator=";")
+		Return: 0 | 1 (integer)
+	(wip) Просмотр результатов поиска (search.getresults, нужна нумерация для постановки в очередь)
+		Args: huburl(string)
+		Return: @search results@ (array of map)
+	(wip) Очистить полученные результаты для указанного хаба/все. (search.clear)
+		Args: huburl (string)
+		Return: 0 | 1 (integer)
 	Останов поиска
 	Постановка результатов поиска в очередь
-
+-----------------------
 СТАТИСТИКА
-	Версия (done):
-	show.version
-    Small Description: Return full client version in string.
-    Args: none
-    Return: @version@ (string)
-
-	Байт принято/отдано (done):
-	show.ratio
-    Small Description: Return client ratio in string.
-    Args: none
-    Return: @ratio@ (string)
-
-Ипфильтр
+	(+) Версия (show.version)
+    		Args: none
+		Return: @version@ (string)
+	(+) Байт принято/отдано (show.ratio)
+		Args: none
+		Return: @ratio@ (string)
+-----------------------
+IPFILTER
 	Добавление
 	Удаление
 	Список
 	Вкл/выкл
+-----------------------
+УПРАВЛЕНИЕ ДЕМОНОМ
+	(+) Стоп демона (daemon.stop)
+
+
+Пожелания:
+	Выполнение команды и выход (./cli.pl -c show.version)
+
 
