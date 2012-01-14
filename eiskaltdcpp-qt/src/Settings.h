@@ -25,9 +25,23 @@ class Settings :
 
     typedef QMap<QListWidgetItem*, int> WidgetMap;
 public:
+    enum class Page: int {
+        Personal=0,
+        Connection,
+        Downloads,
+        Sharing,
+        GUI,
+        Notifications,
+        Logs,
+        UserCommands,
+        Shortcuts,
+        History
+    };
+
     Settings();
     virtual ~Settings();
 
+    void navigate(enum Page, int tab = -1);
 signals:
     void timeToDie();
 

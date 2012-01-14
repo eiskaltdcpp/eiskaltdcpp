@@ -18,6 +18,7 @@
 #include "WulforSettings.h"
 #include "MainWindow.h"
 #include "ShellCommandRunner.h"
+#include "Settings.h"
 
 static int getBitPos(unsigned eventId){
     for (unsigned i = 0; i < (sizeof(unsigned)*8); i++){
@@ -108,10 +109,12 @@ void Notification::enableTray(bool enable){
         menuAdditional->addActions(QList<QAction*>() << actSupressTxt << actSupressSnd);
 
         QAction *show_hide = new QAction(tr("Show/Hide window"), menu);
+        QAction *setup_speed_lim = new QAction(tr("Setup speed limits"), menu);
         QAction *close_app = new QAction(tr("Exit"), menu);
         QAction *sep = new QAction(menu);
         sep->setSeparator(true);
 
+        setup_speed_lim->setIcon(WICON(WulforUtil::eiSPEED_LIMIT_ON));
         show_hide->setIcon(WICON(WulforUtil::eiHIDEWINDOW));
         close_app->setIcon(WICON(WulforUtil::eiEXIT));
 
@@ -121,8 +124,10 @@ void Notification::enableTray(bool enable){
                 this, SLOT(slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason)));
         connect(actSupressTxt, SIGNAL(triggered()), this, SLOT(slotSupress()));
         connect(actSupressSnd, SIGNAL(triggered()), this, SLOT(slotSupress()));
+        connect(setup_speed_lim, SIGNAL(triggered()), this, SLOT(slotShowSpeedLimits()));
 
         menu->addAction(show_hide);
+        menu->addAction(setup_speed_lim);
         menu->addMenu(menuAdditional);
         menu->addActions(QList<QAction*>() << sep << close_app);
 
@@ -282,6 +287,16 @@ void Notification::slotShowHide(){
 void Notification::slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason r){
     if (r == QSystemTrayIcon::Trigger)
         slotShowHide();
+}
+
+void Notification::slotShowSpeedLimits(){
+    MainWindow::getInstance()->show();
+    MainWindow::getInstance()->raise();
+
+    Settings settings;
+    settings.navigate(Settings::Page::Connection, 1);
+
+    settings.exec();
 }
 
 void Notification::slotCmdFinished(bool, QString){

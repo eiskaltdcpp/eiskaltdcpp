@@ -96,6 +96,7 @@ private Q_SLOTS:
     void slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason);
     void slotCmdFinished(bool, QString);
     void slotCheckTray();
+    void slotShowSpeedLimits();
     void slotSupress();
 
 private:

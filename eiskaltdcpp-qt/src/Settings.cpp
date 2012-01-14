@@ -21,6 +21,8 @@
 
 #include "WulforUtil.h"
 
+#include <QTableWidget>
+
 Settings::Settings(): is_dirty(false)
 {
     setupUi(this);
@@ -43,63 +45,63 @@ void Settings::init(){
     QListWidgetItem *item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiUSERS), tr("Personal"), listWidget);
     SettingsPersonal *personal = new SettingsPersonal(this);
     connect(this, SIGNAL(timeToDie()), personal, SLOT(ok()));
-    widgets.insert(item, 0);
+    widgets.insert(item, (int)Page::Personal);
 
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiCONNECT), tr("Connection"), listWidget);
     SettingsConnection *connection = new SettingsConnection(this);
     connect(this, SIGNAL(timeToDie()), connection, SLOT(ok()));
-    widgets.insert(item, 1);
+    widgets.insert(item, (int)Page::Connection);
 
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiDOWNLOAD), tr("Downloads"), listWidget);
     SettingsDownloads *downloads = new SettingsDownloads(this);
     connect(this, SIGNAL(timeToDie()), downloads, SLOT(ok()));
-    widgets.insert(item, 2);
+    widgets.insert(item, (int)Page::Downloads);
 
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Sharing"), listWidget);
     SettingsSharing *sharing = new SettingsSharing(this);
     connect(this, SIGNAL(timeToDie()), sharing, SLOT(ok()));
-    widgets.insert(item, 3);
+    widgets.insert(item, (int)Page::Sharing);
 
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiGUI), tr("GUI"), listWidget);
     SettingsGUI *gui = new SettingsGUI(this);
     connect(this, SIGNAL(timeToDie()), gui, SLOT(ok()));
-    widgets.insert(item, 4);
+    widgets.insert(item, (int)Page::GUI);
 
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiMESSAGE), tr("Notifications"), listWidget);
     SettingsNotification *notify = new SettingsNotification(this);
     connect(this, SIGNAL(timeToDie()), notify, SLOT(ok()));
-    widgets.insert(item, 5);
+    widgets.insert(item, (int)Page::Notifications);
 
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiOPEN_LOG_FILE), tr("Logs"), listWidget);
     SettingsLog *logs = new SettingsLog(this);
     connect(this, SIGNAL(timeToDie()), logs, SLOT(ok()));
-    widgets.insert(item, 6);
+    widgets.insert(item, (int)Page::Logs);
 
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiUSERS), tr("User Commands"), listWidget);
     SettingsUC *ucs = new SettingsUC(this);
     connect(this, SIGNAL(timeToDie()), ucs, SLOT(ok()));
-    widgets.insert(item, 7);
+    widgets.insert(item, (int)Page::UserCommands);
 
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiEDIT), tr("Shortcuts"), listWidget);
     SettingsShortcuts *sshs = new SettingsShortcuts(this);
     connect(this, SIGNAL(timeToDie()), sshs, SLOT(ok()));
-    widgets.insert(item, 8);
+    widgets.insert(item, (int)Page::Shortcuts);
     
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiEDIT), tr("History"), listWidget);
     SettingsHistory *shist = new SettingsHistory(this);
     connect(this, SIGNAL(timeToDie()), shist, SLOT(ok()));
-    widgets.insert(item, 9);
+    widgets.insert(item, (int)Page::History);
 
-    stackedWidget->insertWidget(0, personal);
-    stackedWidget->insertWidget(1, connection);
-    stackedWidget->insertWidget(2, downloads);
-    stackedWidget->insertWidget(3, sharing);
-    stackedWidget->insertWidget(4, gui);
-    stackedWidget->insertWidget(5, notify);
-    stackedWidget->insertWidget(6, logs);
-    stackedWidget->insertWidget(7, ucs);
-    stackedWidget->insertWidget(8, sshs);
-    stackedWidget->insertWidget(9, shist);
+    stackedWidget->insertWidget((int)Page::Personal, personal);
+    stackedWidget->insertWidget((int)Page::Connection, connection);
+    stackedWidget->insertWidget((int)Page::Downloads, downloads);
+    stackedWidget->insertWidget((int)Page::Sharing, sharing);
+    stackedWidget->insertWidget((int)Page::GUI, gui);
+    stackedWidget->insertWidget((int)Page::Notifications, notify);
+    stackedWidget->insertWidget((int)Page::Logs, logs);
+    stackedWidget->insertWidget((int)Page::UserCommands, ucs);
+    stackedWidget->insertWidget((int)Page::Shortcuts, sshs);
+    stackedWidget->insertWidget((int)Page::History, shist);
 
     stackedWidget->setCurrentIndex(0);
 
@@ -124,4 +126,18 @@ void Settings::dirty(){
     is_dirty = true;
 
     WVSET("settings/dialog-size", size());
+}
+
+void Settings::navigate(enum Settings::Page pg, int tab){
+    listWidget->setCurrentRow((int)pg);
+    stackedWidget->setCurrentIndex((int)pg);
+
+    if (tab < 0)
+        return;
+
+    QWidget *wgt = stackedWidget->currentWidget();
+    QTabWidget *tabwgt = wgt->findChild<QTabWidget*>("tabWidget");
+
+    if (tabwgt)
+        tabwgt->setCurrentIndex(tab);
 }
