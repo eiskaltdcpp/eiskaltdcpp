@@ -218,6 +218,8 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         else
             title = tr("Listing: ") + nick;
     }
+
+    connect(this, SIGNAL(die(QString)), this, SLOT(slotDie(QString)), Qt::QueuedConnection);
     
     AsyncRunner *runner = new AsyncRunner(this);
     boost::function<void()> f = boost::bind(&ShareBrowser::buildList, this);
@@ -312,7 +314,6 @@ void ShareBrowser::init(){
     QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
-    //connect(treeView_LPANE, SIGNAL(clicked(const QModelIndex&)), this, SLOT(slotLeftPaneClicked(QModelIndex)));
     connect(treeView_LPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
     connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
@@ -422,7 +423,7 @@ void ShareBrowser::buildList(){
         ADLSearchManager::getInstance()->matchListing(listing);
     }
     catch (const Exception &e){
-        LogManager::getInstance()->message(e.what());
+        emit die(tr("Share browser error: %1").arg(_q(e.what())));
     }
 }
 
@@ -1090,4 +1091,10 @@ void ShareBrowser::slotSettingsChanged(const QString &key, const QString&){
 
 void ShareBrowser::slotClose() {
     ArenaWidgetManager::getInstance()->rem(this);
+}
+
+void ShareBrowser::slotDie(const QString &msg){
+    QMessageBox::warning(MainWindow::getInstance(), tr("Share browser"), msg, QMessageBox::Ok);
+
+    slotClose();
 }

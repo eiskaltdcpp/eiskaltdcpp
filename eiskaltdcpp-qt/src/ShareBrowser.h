@@ -111,6 +111,9 @@ protected:
     virtual void closeEvent(QCloseEvent *);
     virtual bool eventFilter(QObject *, QEvent *);
 
+Q_SIGNALS:
+    void die(const QString &msg);
+
 private Q_SLOTS:
     void init();
     void slotFilter();
@@ -127,6 +130,7 @@ private Q_SLOTS:
     void slotButtonForward();
     void slotButtonUp();
     void slotClose();
+    void slotDie(const QString &msg);
 
 private:
     void continueInit();
