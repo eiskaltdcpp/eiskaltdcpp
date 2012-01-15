@@ -356,7 +356,7 @@ void FinishedTransfersModel::sort(int column, Qt::SortOrder order) {
 }
 
 void FinishedTransfersModel::clearModel(){
-    blockSignals(true);
+    beginResetModel();
     {
         qDeleteAll(userItem->childItems);
         qDeleteAll(fileItem->childItems);
@@ -367,9 +367,7 @@ void FinishedTransfersModel::clearModel(){
         file_hash.clear();
         user_hash.clear();
     }
-    blockSignals(false);
-
-    emit layoutChanged();
+    endResetModel();
 }
 
 void FinishedTransfersModel::addFile(const QMap<QString, QVariant> &params){
