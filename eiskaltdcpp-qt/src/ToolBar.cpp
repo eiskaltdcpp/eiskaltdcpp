@@ -130,10 +130,13 @@ void ToolBar::initTabs(){
 }
 
 void ToolBar::insertWidget(ArenaWidget *awgt){
-    if (!awgt || !awgt->getWidget() || (awgt->state() & ArenaWidget::Hidden) || map.contains(awgt))
+    if (!(awgt && awgt->getWidget()) || (awgt->state() & ArenaWidget::Hidden) || map.contains(awgt))
         return;
 
     int index = tabbar->addTab(awgt->getPixmap(), awgt->getArenaShortTitle().left(32));
+
+    if (awgt->toolButton())
+        awgt->toolButton()->setChecked(true);
 
     if (index >= 0){
         map.insert(awgt, index);
@@ -161,6 +164,9 @@ void ToolBar::removeWidget(ArenaWidget *awgt){
             tabbar->hide();
 
         tabbar->removeTab(index);
+
+        if (awgt->toolButton())
+            awgt->toolButton()->setChecked(false);
     }
 }
 

@@ -39,11 +39,8 @@ ArenaWidgetManager::~ArenaWidgetManager(){
 void ArenaWidgetManager::add ( ArenaWidget *awgt) {
     DEBUG_BLOCK
     
-    if (!awgt || widgets.contains(awgt)){
-        assert(0);
-        
+    if (!awgt || widgets.contains(awgt))
         return;
-    }
         
     widgets.push_back(awgt);
     
