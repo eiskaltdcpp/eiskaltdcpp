@@ -162,12 +162,12 @@ public:
 
     static string translateError(int aError);
 
-        static string getFilePath(const string& path, char separator = PATH_SEPARATOR) {
-                string::size_type i = path.rfind(separator);
+    static string getFilePath(const string& path, char separator = PATH_SEPARATOR) {
+        string::size_type i = path.rfind(separator);
         return (i != string::npos) ? path.substr(0, i + 1) : path;
     }
-        static string getFileName(const string& path, char separator = PATH_SEPARATOR) {
-                string::size_type i = path.rfind(separator);
+    static string getFileName(const string& path, char separator = PATH_SEPARATOR) {
+        string::size_type i = path.rfind(separator);
         return (i != string::npos) ? path.substr(i + 1) : path;
     }
     static string getFileExt(const string& path) {
@@ -206,13 +206,13 @@ public:
     static void replace(const string_t& search, const string_t& replacement, string_t& str) {
         typename string_t::size_type i = 0;
         while((i = str.find(search, i)) != string_t::npos) {
-                str.replace(i, search.size(), replacement);
-                i += replacement.size();
+            str.replace(i, search.size(), replacement);
+            i += replacement.size();
         }
     }
     template<typename string_t>
     static inline void replace(const typename string_t::value_type* search, const typename string_t::value_type* replacement, string_t& str) {
-            replace(string_t(search), string_t(replacement), str);
+        replace(string_t(search), string_t(replacement), str);
     }
 
     static void decodeUrl(const string& aUrl, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment);
