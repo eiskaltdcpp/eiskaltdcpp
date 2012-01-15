@@ -384,6 +384,9 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     if (ConnectionManager::getInstance())
         ConnectionManager::getInstance()->disconnect();
 
+    d->arena->hide();
+    d->arena->setWidget(NULL);
+
     c_e->accept();
 }
 
