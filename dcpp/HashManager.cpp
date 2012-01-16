@@ -32,20 +32,206 @@
 #include <setjmp.h>
 #endif
 
+#ifdef USE_XATTR
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#endif
+
+#warning "USE_XATTR"
+#include "attr/attributes.h"
+
 namespace dcpp {
 
 #define HASH_FILE_VERSION_STRING "2"
 static const uint32_t HASH_FILE_VERSION = 2;
 const int64_t HashManager::MIN_BLOCK_SIZE = 64 * 1024;
+const string HashManager::StreamStore::g_streamName(".gltth");
+
+namespace {
+    template<typename T>
+    class AutoArray
+    {
+            typedef T* TPtr;
+        public:
+            explicit AutoArray(TPtr t) : p(t) { }
+            explicit AutoArray(size_t size) : p(new T[size]) { }
+            ~AutoArray()
+            {
+                delete[] p;
+            }
+            operator TPtr()
+            {
+                return p;
+            }
+            TPtr get()
+            {
+                return p;
+            }
+            AutoArray& operator=(TPtr t)
+            {
+                delete[] p;
+                p = t;
+                return *this;
+            }
+        private:
+            AutoArray(const AutoArray&);
+            AutoArray& operator=(const AutoArray&);
+
+            TPtr p;
+    };
+}
+
+inline void HashManager::StreamStore::setCheckSum(TTHStreamHeader& p_header) {
+    p_header.magic = g_MAGIC;
+    uint32_t l_sum = 0;
+
+    for (size_t i = 0; i < sizeof(TTHStreamHeader) / sizeof(uint32_t); i++)
+        l_sum ^= ((uint32_t*) & p_header)[i];
+
+    p_header.checksum ^= l_sum;
+}
+
+inline bool HashManager::StreamStore::validateCheckSum(const TTHStreamHeader& p_header) {
+    if (p_header.magic != g_MAGIC)
+        return false;
+
+    uint32_t l_sum = 0;
+
+    for (size_t i = 0; i < sizeof(TTHStreamHeader) / sizeof(uint32_t); i++)
+        l_sum ^= ((uint32_t*) & p_header)[i];
+
+    return (l_sum == 0);
+}
+
+#ifdef USE_XATTR
+static uint64_t getTimeStamp(const string &fname){
+    struct stat st;
+
+    if (::stat(fname.c_str(), &st) == 0)
+        return (uint64_t)st.st_mtime;
+
+    return 0;
+}
+#endif
+
+bool HashManager::StreamStore::loadTree(const string& p_filePath, int64_t p_FileSize)
+{
+#warning "USE_XATTR"
+#warning "Check timestamp"
+    try
+    {
+        const int64_t fileSize      = (p_FileSize == -1) ? File::getSize(p_filePath) : p_FileSize;
+        const size_t hdrSz = sizeof(TTHStreamHeader);
+        const size_t totalSz = ATTR_MAX_VALUELEN;
+        int blockSize = totalSz;
+        TTHStreamHeader h;
+
+        AutoArray<uint8_t> buf(totalSz);
+
+        if (attr_get(p_filePath.c_str(), ".gltth", (char*)(void*)buf, &blockSize, 0) == 0){
+            memcpy(&h, buf, hdrSz);
+
+            size_t datalen = blockSize - hdrSz;
+            AutoArray<uint8_t> tail(datalen);
+
+            memcpy(tail, (uint8_t*)buf + hdrSz, datalen);
+
+            TigerTree p_Tree = TigerTree(fileSize, h.blockSize, tail);
+
+            printf("%s : %s\n", p_Tree.getRoot().toBase32().c_str(), h.root.toBase32().c_str());
+
+            if (!(p_Tree.getRoot() == h.root)){
+                printf("Failed.\n");
+
+                return false;
+            }
+            else
+                return true;
+        }
+        else {
+            printf("Attribute not found.\n");
+            return false;
+        }
+
+        return false;
+    }
+    catch (const Exception& )
+    {
+        LogManager::getInstance()->message("Cannot get extended attributes for file.");// [+]IRainman
+        return false;
+    }
+
+    return true;
+}
+
+bool HashManager::StreamStore::saveTree(const string& p_filePath, const TigerTree& p_Tree)
+{
+    try
+    {
+        TTHStreamHeader h;
+
+        h.fileSize = File::getSize(p_filePath);
+        h.timeStamp = getTimeStamp(p_filePath);
+        h.root = p_Tree.getRoot();
+        h.blockSize = p_Tree.getBlockSize();
+        setCheckSum(h);
+        {
+            const size_t sz = sizeof(TTHStreamHeader) + p_Tree.getLeaves().size() * TTHValue::BYTES;
+            AutoArray<uint8_t> buf(sz);
+
+            memcpy(buf, &h, sizeof(TTHStreamHeader));
+            memcpy(buf + sizeof(TTHStreamHeader), p_Tree.getLeaves()[0].data, p_Tree.getLeaves().size() * TTHValue::BYTES);
+
+            if (attr_set(p_filePath.c_str(), ".gltth", (char*)(void*)&buf, sz, 0) == 0){
+                printf("Succesfully saved header.\n");
+
+                return true;
+            }
+            else {
+                printf ("%i. Cannot save the header.\n", errno);
+
+                perror("Error");
+
+                return false;
+            }
+        }
+
+        return false;
+    }
+    catch (const Exception& e)
+    {
+        LogManager::getInstance()->message("Cannot get extended attributes");//
+        return false;
+    }
+    return true;
+}
+
+void HashManager::StreamStore::deleteStream(const string& p_filePath)
+{
+    try
+    {
+#warning "Remove file attribute"
+    }
+    catch(const FileException& e)
+    {
+        LogManager::getInstance()->message("Cannot delete stream");
+    }
+}
+
 
 bool HashManager::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp) {
     Lock l(cs);
+
     const TTHValue* tthold = getFileTTHif(Text::toLower(aFileName));
     const TTHValue* tth = getFileTTHif(aFileName);
     if (tthold != NULL && tth == NULL) {
         TigerTree tt(MIN_BLOCK_SIZE);
         store.getTree(*tthold, tt);
         hashDone(aFileName, aTimeStamp, tt, 0, aSize);
+
+        m_streamstore.saveTree(aFileName, tt);
+
         return true;
     }
     else if (!store.checkTTH(aFileName, aSize, aTimeStamp)) {
@@ -84,6 +270,7 @@ void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const T
     try {
         Lock l(cs);
         store.addFile(aFileName, aTimeStamp, tth, true);
+        m_streamstore.saveTree(aFileName, tth);
     } catch (const Exception& e) {
         LogManager::getInstance()->message(str(F_("Hashing failed: %1%") % e.getError()));
         return;
@@ -670,6 +857,10 @@ static void sigbus_handler(int signum
 }
 
 bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree& tth, int64_t size, CRC32Filter* xcrc32) {
+    static StreamStore streamStore;
+
+    streamStore.loadTree(filename, -1);
+
     static const int64_t BUF_BYTES = (SETTING(HASH_BUFFER_SIZE_MB) >= 1)? SETTING(HASH_BUFFER_SIZE_MB)*1024*1024 : 0x800000;
     static const int64_t BUF_SIZE = BUF_BYTES - (BUF_BYTES % getpagesize());
 
@@ -783,6 +974,8 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
     if (sigaction(SIGBUS, &oldact, NULL) == -1) {
         dcdebug("Failed to reset old signal handler for SIGBUS\n");
     }
+
+    streamStore.saveTree(filename, tth);
 
     return ok;
 }
