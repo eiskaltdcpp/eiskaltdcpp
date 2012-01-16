@@ -197,9 +197,70 @@ MainWindow::MainWindow():
 		gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), logo);
 		g_object_unref(logo);
 	}
+	
+	// set authors
+	string authors =
+		_("Developers\n") +
+		string("  Boris Pek <tehnick-8@mail.ru>\n")+
+		string("  Eugene Petrov <dhamp@ya.ru>\n")+
+		string("\n")+
+		_("Contributors\n")+
+		string("  troll <troll.freedcpp@gmail.com>\n")+
+		string("    http://code.google.com/p/freedcpp/\n")+
+		string("  Mank <mank@jabbim.cz>\n")+
+		string("    http://sourceforge.net/projects/freedcppmv/\n");
+	const gchar *authors_[] = {authors.c_str(), NULL};
+	gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), authors_);
+	
+	string translator_credits =
+		_("Russian translation\n")+
+		string("  Boris Pek aka Tehnick <tehnick-8@mail.ru>\n")+
+		string("\n")+
+		_("Belarusian translation\n")+
+		string("  Paval Shalamitski aka Klyok <i.kliok@gmail.com>\n")+
+		string("\n")+
+		_("Hungarian translation\n")+
+		string("  Akos Berki aka sumo <husumo@gmail.com>\n")+
+		string("  Márk Lutring <marcus@elitemail.hu>\n")+
+		string("\n")+
+		_("French translation\n")+
+		string("  Alexandre Wallimann aka Ale <alexandre.wallimann@gmail.com>\n")+
+		string("\n")+
+		_("Polish translation\n")+
+		string("  Arahael <arahael@gmail.com>\n")+
+		string("\n")+
+		_("Ukrainian translation\n")+
+		string("  Dmytro Demenko <dmytro.demenko@gmail.com>\n")+
+		string("\n")+
+		_("Serbian (Latin) translation\n")+
+		string("  Miroslav Petrovic <miroslav031@gmail.com>\n")+
+		string("\n")+
+		_("Spanish translation\n")+
+		string("  Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
+		string("\n")+
+		_("Bulgarian translation\n")+
+		string("  Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>\n")+
+		string("\n")+
+		_("Slovak translation\n")+
+		string("  Martin Durisin <martin.durisin@gmail.com>\n")+
+		string("\n")+
+		_("Czech translation\n")+
+		string("  Uhlik <uhlikx@seznam.cz>\n")+
+		string("\n")+
+		_("German translation\n")+
+		string("  Chris Leick <c.leick@vollbio.de>\n")+
+		string("  Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
+		string("  Tillmann Karras <tilkax@gmail.com>\n")+
+		string("\n")+
+		_("Greek translation\n")+
+		string("  Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
+		string("\n")+
+		_("Italian translation\n")+
+		string("  Stefano Simoncelli <netcelli@gmail.com>\n")+
+		string("\n");
+	gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
+		(const gchar *)translator_credits.c_str());
 
-	//gtk_about_dialog_set_email_hook((GtkAboutDialogActivateLinkFunc)onAboutDialogActivateLink_gui, (gpointer)this, NULL);
-	//gtk_about_dialog_set_url_hook((GtkAboutDialogActivateLinkFunc)onAboutDialogActivateLink_gui, (gpointer)this, NULL);
 	// This has to be set in code in order to activate the link
 	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), "http://eiskaltdc.googlecode.com");
 	gtk_window_set_transient_for(GTK_WINDOW(getWidget("aboutDialog")), window);

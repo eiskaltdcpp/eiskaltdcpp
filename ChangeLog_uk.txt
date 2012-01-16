@@ -1,5 +1,7 @@
 --- 2.2.6 2012-02-05 ---
 *** common changes ***
+* Завдяки Konstantinos Georgokitsos доступний грецький переклад.
+* Завдяки Stefano Simoncelli доступний італійський переклад.
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***

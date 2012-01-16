@@ -593,75 +593,8 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/
     </property>
-    <property name="authors">Developers
- Boris Pek (tehnick-8@mail.ru)
- Eugene Petrov (dhamp@ya.ru)
-
-Contributors
- troll (troll.freedcpp@gmail.com) http://code.google.com/p/freedcpp/
- Mank (mank@jabbim.cz) http://sourceforge.net/projects/freedcppmv/
-</property>
-    <property name="translator_credits" translatable="yes">Translators
-
- Russian translation
-
- Boris Pek
- (tehnick-8@mail.ru)
-
- Belarusian translation
-
- Paval Shalamitski aka Klyok
- (i.kliok@gmail.com)
-
- Hungarian translation
-
- Akos Berki aka sumo
- (husumo@gmail.com)
-
- French translation
-
- Alexandre Wallimann aka Ale
- (alexandre.wallimann@gmail.com)
-
- Polish translation
-
- Arahael
-
- Ukrainian translation
-
- Dmytro Demenko
- (dmytro.demenko@gmail.com)
-
- Serbian translation
-
- Miroslav Petrovic
- (miroslav031@gmail.com)
-
- Spanish translation
-
- Gustavo Alvarez aka sL1pKn07
- (sl1pkn07@gmail.com)
-
- Bulgarian translation
-
- Rusi Dimitrov aka PsyTrip
- (dimitrov.rusi@gmail.com)
-
- Slovak translation
-
- Martin Durisin
- (martin.durisin@gmail.com)
-
- Czech translation
-
- Uhlik
- (uhlikx@seznam.cz)
-
- German translation
-
- Chris Leick
- (c.leick@vollbio.de)
-</property>
+    <property name="authors"></property>
+    <property name="translator_credits"></property>
     <property name="wrap_license">True</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox3">
