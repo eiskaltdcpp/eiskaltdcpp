@@ -244,19 +244,13 @@ private:
             TTHValue root;
         };
 
-        struct XAttrBlock {
-            StreamStore::TTHStreamHeader hdr;
-            uint8_t data[ATTR_MAX_VALUELEN - sizeof(StreamStore::TTHStreamHeader)];
-        };
-
-        bool loadTree(const string& p_filePath, int64_t p_aFileSize = -1);
+        bool loadTree(const string& p_filePath, TigerTree &tree, int64_t p_aFileSize = -1);
         bool saveTree(const string& p_filePath, const TigerTree& p_Tree);
         void deleteStream(const string& p_filePath);
 
     private:
-        static const uint32_t g_MAGIC = 0x676c2b2b;
+        static const uint32_t g_MAGIC = 0x2b2b6c67;
         static const string g_streamName;
-        XAttrBlock xattr_block;
 
         void setCheckSum(TTHStreamHeader& p_header);
         bool validateCheckSum(const TTHStreamHeader& p_header);
