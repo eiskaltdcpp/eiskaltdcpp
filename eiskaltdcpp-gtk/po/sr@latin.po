@@ -1,26 +1,25 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
 # Translators:
 # Translators:
 # Translators:
-#   <miroslav031@gmail.com>, 2011.
+# Translators:
+#   <miroslav031@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-01-17 00:24+0200\n"
-"PO-Revision-Date: 2011-12-28 20:16+0000\n"
+"PO-Revision-Date: 2012-01-17 13:48+0000\n"
 "Last-Translator: miroslav <miroslav031@gmail.com>\n"
-"Language-Team: Serbian (Latin) (http://www.transifex.net/projects/p/"
-"eiskaltdcpp/team/sr@latin/)\n"
-"Language: sr@latin\n"
+"Language-Team: Serbian (Latin) (http://www.transifex.net/projects/p/eiskaltdcpp/team/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: sr@latin\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
 #: ../src/privatemessage.cc:641
@@ -195,11 +194,11 @@ msgstr ": Тip/ pomoć za listu dostupnih komandi"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -741,6 +740,8 @@ msgstr "Povratak boje"
 #: ../src/mainwindow.cc:219
 msgid "Belarusian translation\n"
 msgstr ""
+"Beloruski prevod\n"
+"\n"
 
 #: ../ui/settingsdialog.ui:7296
 msgid "Bind address"
@@ -781,7 +782,7 @@ msgstr "Pregledaj..."
 
 #: ../src/mainwindow.cc:241
 msgid "Bulgarian translation\n"
-msgstr ""
+msgstr "Bugarski prevod\n"
 
 #: ../src/settingsdialog.cc:1288
 msgid "Button smile"
@@ -1029,7 +1030,7 @@ msgstr "Menadžer konekcije: Upozorenje"
 
 #: ../src/mainwindow.cc:207
 msgid "Contributors\n"
-msgstr ""
+msgstr "Saradnici\n"
 
 #: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
@@ -1042,7 +1043,7 @@ msgstr "Zemlja"
 
 #: ../src/mainwindow.cc:247
 msgid "Czech translation\n"
-msgstr ""
+msgstr "Češki prevod\n"
 
 #: ../src/mainwindow.cc:185
 #, c-format
@@ -1108,7 +1109,7 @@ msgstr "Fascikla"
 
 #: ../src/mainwindow.cc:203
 msgid "Developers\n"
-msgstr ""
+msgstr "Programeri\n"
 
 #: ../src/sharebrowser.cc:103 ../src/sharebrowser.cc:221
 #: ../src/sharebrowser.cc:240 ../src/sharebrowser.cc:573
@@ -1147,7 +1148,6 @@ msgid "Do you really want to exit?"
 msgstr "Da li želite da napustite?"
 
 #: ../ui/settingsdialog.ui:1482
-#, fuzzy
 msgid "Don't allow Hub/UPnP/DHT to override"
 msgstr "Ne dozvolite hub/UPnP da prevazidju"
 
@@ -1619,7 +1619,7 @@ msgstr "Slobodno"
 
 #: ../src/mainwindow.cc:226
 msgid "French translation\n"
-msgstr ""
+msgstr "Francuski prevod\n"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
@@ -1639,7 +1639,7 @@ msgstr "Generalni sertifikat"
 
 #: ../src/mainwindow.cc:250
 msgid "German translation\n"
-msgstr ""
+msgstr "Nemački prevod\n"
 
 #: ../src/hub.cc:2008 ../src/privatemessage.cc:1023 ../ui/privatemessage.ui:66
 msgid "Get file list"
@@ -1659,7 +1659,7 @@ msgstr "Odobri dodatni slot"
 
 #: ../src/mainwindow.cc:255
 msgid "Greek translation\n"
-msgstr ""
+msgstr "Grčki prevod\n"
 
 #: ../ui/search.ui:418
 msgid "Group by"
@@ -1778,7 +1778,7 @@ msgstr "Habovi: "
 
 #: ../src/mainwindow.cc:222
 msgid "Hungarian translation\n"
-msgstr ""
+msgstr "Madjarski prevod\n"
 
 #: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:613
 msgid "IP"
@@ -1874,6 +1874,8 @@ msgstr "Ipfilter uklj/isklj"
 #: ../src/mainwindow.cc:258
 msgid "Italian translation\n"
 msgstr ""
+"Italijanski prevod\n"
+"\n"
 
 #: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:350
 msgid "Items: "
@@ -2254,8 +2256,8 @@ msgstr "Nije nadjen korisnik:"
 #: ../ui/settingsdialog.ui:7977
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
-"Napomena: Prilagodjeni tip pretrage će biti primenjen na ADC habovima!Цустом "
-"Сеарцх типови ће бити примењен на АДЦ-чвориштима!"
+"Napomena: Prilagodjeni tip pretrage će biti primenjen na ADC habovima!Цустом"
+" Сеарцх типови ће бити примењен на АДЦ-чвориштима!"
 
 #: ../ui/settingsdialog.ui:4565 ../ui/settingsdialog.ui:4634
 msgid "Note: Most of these options require that you restart the application"
@@ -2268,7 +2270,8 @@ msgstr ""
 "додају деле само једном они су хасх!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Napomena: jer promena brzine preuzimanja nije  100% precizna..."
 
 #: ../src/settingsdialog.cc:1206 ../ui/settingsdialog.ui:5614
@@ -2406,7 +2409,7 @@ msgstr "Emituj"
 
 #: ../src/mainwindow.cc:229
 msgid "Polish translation\n"
-msgstr ""
+msgstr "Poljski prevod\n"
 
 #: ../src/settingsdialog.cc:1422
 msgid "Popup box to input password for hubs"
@@ -2612,7 +2615,7 @@ msgstr "Pokretanje ..."
 
 #: ../src/mainwindow.cc:216
 msgid "Russian translation\n"
-msgstr ""
+msgstr "Ruski prevod\n"
 
 #: ../src/WulforUtil.cc:219
 msgid "SJIS"
@@ -2743,6 +2746,8 @@ msgstr "Razmak"
 #: ../src/mainwindow.cc:235
 msgid "Serbian (Latin) translation\n"
 msgstr ""
+"Srpski (lat) prevod\n"
+"\n"
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
@@ -2757,7 +2762,8 @@ msgid "Set download limit image: "
 msgstr "Postavi limit preuzimanja:"
 
 #: ../src/settingsdialog.cc:950
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Postavi najniži prioritet za novododate fajlove veće nego najniža veličina "
 "prioriteta"
@@ -2894,7 +2900,7 @@ msgstr "Slotovi"
 
 #: ../src/mainwindow.cc:244
 msgid "Slovak translation\n"
-msgstr ""
+msgstr "Slovački prevod\n"
 
 #: ../ui/mainwindow.ui:1513
 msgid "Small icons"
@@ -2935,7 +2941,7 @@ msgstr "Prespor izvor"
 
 #: ../src/mainwindow.cc:238
 msgid "Spanish translation\n"
-msgstr ""
+msgstr "Španski prevod\n"
 
 #: ../src/transfers.cc:61 ../src/transfers.cc:557 ../src/transfers.cc:593
 #: ../src/transfers.cc:761 ../src/finishedtransfers.cc:61
@@ -3157,7 +3163,7 @@ msgstr "UTF-8"
 
 #: ../src/mainwindow.cc:232
 msgid "Ukrainian translation\n"
-msgstr ""
+msgstr "Ukrajinski prevod\n"
 
 #: ../src/hub.cc:2950
 msgid "Unable to connect: already connected to the requested hub"
@@ -3173,8 +3179,8 @@ msgstr "Nemogućnost da se učita fajl lista: Neispravno ime fajl liste"
 
 #: ../src/mainwindow.cc:2242
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Prenos fajlova neće raditi kako treba sve dok ne promenite podešavanja ili "
@@ -3405,8 +3411,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3415,14 +3420,11 @@ msgstr ""
 "Korišćenje:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ je  cross-platform program koji koristi direktno povezivanje i "
-"ADC protokol.\n"
+"EiskaltDC++ je  cross-platform program koji koristi direktno povezivanje i ADC protokol.\n"
 "\n"
 "Keys:\n"
-"  -h, --help<span class=\"whitespace other\" title=\"Tab\">»</span> Pokaži "
-"ovu poruku\n"
-"  -v, --version<span class=\"whitespace other\" title=\"Tab\">»</span> Show "
-"version string\n"
+"  -h, --help<span class=\"whitespace other\" title=\"Tab\">»</span> Pokaži ovu poruku\n"
+"  -v, --version<span class=\"whitespace other\" title=\"Tab\">»</span> Show version string\n"
 
 #: ../src/sharebrowser.cc:82 ../src/sharebrowser.cc:328
 msgid "Video"
@@ -3896,63 +3898,63 @@ msgstr "čekanje ..."
 #~ " Chris Leick\n"
 #~ " (c.leick@vollbio.de)\n"
 #~ msgstr ""
-#~ "Prevodioci\n"
+#~ "Translators\n"
 #~ "\n"
-#~ " Ruski prevod\n"
+#~ " Russian translation\n"
 #~ "\n"
 #~ " Boris Pek\n"
 #~ " (tehnick-8@mail.ru)\n"
 #~ "\n"
-#~ " Beloruski prevod\n"
+#~ " Belarusian translation\n"
 #~ "\n"
 #~ " Paval Shalamitski aka Klyok\n"
 #~ " (i.kliok@gmail.com)\n"
 #~ "\n"
-#~ " Madjarski prevod\n"
+#~ " Hungarian translation\n"
 #~ "\n"
 #~ " Akos Berki aka sumo\n"
 #~ " (husumo@gmail.com)\n"
 #~ "\n"
-#~ " Francuski prevod\n"
+#~ " French translation\n"
 #~ "\n"
 #~ " Alexandre Wallimann aka Ale\n"
 #~ " (alexandre.wallimann@gmail.com)\n"
 #~ "\n"
-#~ " Poljski prevod\n"
+#~ " Polish translation\n"
 #~ "\n"
 #~ " Arahael\n"
 #~ "\n"
-#~ " Ukrainski prevod\n"
+#~ " Ukrainian translation\n"
 #~ "\n"
 #~ " Dmytro Demenko\n"
 #~ " (dmytro.demenko@gmail.com)\n"
 #~ "\n"
-#~ " Srpski prevod\n"
+#~ " Serbian translation\n"
 #~ "\n"
-#~ " Miroslav Petrović\n"
+#~ " Miroslav Petrovic\n"
 #~ " (miroslav031@gmail.com)\n"
 #~ "\n"
-#~ " Španski prevod\n"
+#~ " Spanish translation\n"
 #~ "\n"
 #~ " Gustavo Alvarez aka sL1pKn07\n"
 #~ " (sl1pkn07@gmail.com)\n"
 #~ "\n"
-#~ " Bugarski prevod\n"
+#~ " Bulgarian translation\n"
 #~ "\n"
 #~ " Rusi Dimitrov aka PsyTrip\n"
 #~ " (dimitrov.rusi@gmail.com)\n"
 #~ "\n"
-#~ " Slovački prevod\n"
+#~ " Slovak translation\n"
 #~ "\n"
 #~ " Martin Durisin\n"
 #~ " (martin.durisin@gmail.com)\n"
 #~ "\n"
-#~ " Češki prevod\n"
+#~ " Czech translation\n"
 #~ "\n"
 #~ " Uhlik\n"
 #~ " (uhlikx@seznam.cz)\n"
 #~ "\n"
-#~ " Nemački prevod\n"
+#~ " German translation\n"
 #~ "\n"
 #~ " Chris Leick\n"
 #~ " (c.leick@vollbio.de)\n"
@@ -3971,3 +3973,5 @@ msgstr "čekanje ..."
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+

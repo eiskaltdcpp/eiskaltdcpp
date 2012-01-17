@@ -1,7 +1,8 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
+# Translators:
 # Translators:
 # Translators:
 # Translators:
@@ -11,14 +12,13 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-01-17 00:24+0200\n"
-"PO-Revision-Date: 2012-01-14 22:16+0000\n"
+"PO-Revision-Date: 2012-01-17 13:12+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
-"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/"
-"team/hu/)\n"
-"Language: hu\n"
+"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
@@ -194,11 +194,11 @@ msgstr ": a használható parancsokat a /help használatával érheted el"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Segítség</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Segítség</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -282,7 +282,7 @@ msgstr "<b>Szűrő</b>"
 
 #: ../ui/settingsdialog.ui:6369
 msgid "<b>Frame</b>"
-msgstr ""
+msgstr "<b>fájl:</b> "
 
 #: ../ui/publichubs.ui:292
 msgid "<b>Hub List</b>"
@@ -650,8 +650,7 @@ msgstr ""
 #: ../src/favoritehubs.cc:425
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
-"Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
+msgstr "Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
 
 #: ../src/favoriteusers.cc:438
 msgid "Are you sure you want to delete favorite user(s)?"
@@ -744,11 +743,11 @@ msgstr "B/s"
 
 #: ../ui/settingsdialog.ui:5122
 msgid "Back color"
-msgstr ""
+msgstr "Betű háttérszín"
 
 #: ../src/mainwindow.cc:219
 msgid "Belarusian translation\n"
-msgstr ""
+msgstr "Fehérorosz fordítás\n"
 
 #: ../ui/settingsdialog.ui:7296
 msgid "Bind address"
@@ -789,7 +788,7 @@ msgstr "Böngészés..."
 
 #: ../src/mainwindow.cc:241
 msgid "Bulgarian translation\n"
-msgstr ""
+msgstr "Bolgár fordítás\n"
 
 #: ../src/settingsdialog.cc:1288
 msgid "Button smile"
@@ -1037,7 +1036,7 @@ msgstr "Kapcsolat kezelő: Figyelmeztetés"
 
 #: ../src/mainwindow.cc:207
 msgid "Contributors\n"
-msgstr ""
+msgstr "Közreműködők\n"
 
 #: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
@@ -1050,7 +1049,7 @@ msgstr "Ország"
 
 #: ../src/mainwindow.cc:247
 msgid "Czech translation\n"
-msgstr ""
+msgstr "Cseh fordítás\n"
 
 #: ../src/mainwindow.cc:185
 #, c-format
@@ -1116,7 +1115,7 @@ msgstr "Célkönyvtár"
 
 #: ../src/mainwindow.cc:203
 msgid "Developers\n"
-msgstr ""
+msgstr "Fejlesztők\n"
 
 #: ../src/sharebrowser.cc:103 ../src/sharebrowser.cc:221
 #: ../src/sharebrowser.cc:240 ../src/sharebrowser.cc:573
@@ -1155,9 +1154,8 @@ msgid "Do you really want to exit?"
 msgstr "Tényleg ki akarsz lépni?"
 
 #: ../ui/settingsdialog.ui:1482
-#, fuzzy
 msgid "Don't allow Hub/UPnP/DHT to override"
-msgstr "Ne engedje a hubnak/UPnP-nek felülírni"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1477
 msgid "Don't delete file lists when exiting"
@@ -1625,7 +1623,7 @@ msgstr "Szabad "
 
 #: ../src/mainwindow.cc:226
 msgid "French translation\n"
-msgstr ""
+msgstr "Francia fordítás\n"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
@@ -1645,7 +1643,7 @@ msgstr "Tanúsítvány létrehozása"
 
 #: ../src/mainwindow.cc:250
 msgid "German translation\n"
-msgstr ""
+msgstr "Német fordítás\n"
 
 #: ../src/hub.cc:2008 ../src/privatemessage.cc:1023 ../ui/privatemessage.ui:66
 msgid "Get file list"
@@ -1665,7 +1663,7 @@ msgstr "Extra slot biztosítása"
 
 #: ../src/mainwindow.cc:255
 msgid "Greek translation\n"
-msgstr ""
+msgstr "Görög fordítás\n"
 
 #: ../ui/search.ui:418
 msgid "Group by"
@@ -1784,7 +1782,7 @@ msgstr "Hubok: "
 
 #: ../src/mainwindow.cc:222
 msgid "Hungarian translation\n"
-msgstr ""
+msgstr "Magyar fordítás\n"
 
 #: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:613
 msgid "IP"
@@ -1879,7 +1877,7 @@ msgstr "Ipfilter ki/be"
 
 #: ../src/mainwindow.cc:258
 msgid "Italian translation\n"
-msgstr ""
+msgstr "Olasz fordítás\n"
 
 #: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:350
 msgid "Items: "
@@ -2231,7 +2229,8 @@ msgstr "Nincsenek találatok"
 
 #: ../ui/settingsdialog.ui:2760
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr "Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
+msgstr ""
+"Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
 
 #: ../src/sharebrowser.cc:852
 msgid "No search text entered"
@@ -2275,7 +2274,8 @@ msgstr ""
 "megosztásra!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 "Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
 
@@ -2414,7 +2414,7 @@ msgstr "Lejátszás"
 
 #: ../src/mainwindow.cc:229
 msgid "Polish translation\n"
-msgstr ""
+msgstr "Lengyel fordítás\n"
 
 #: ../src/settingsdialog.cc:1422
 msgid "Popup box to input password for hubs"
@@ -2545,12 +2545,13 @@ msgstr "Fájl-lista frissítése"
 #: ../src/settingsdialog.cc:1487
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr ""
-"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása "
-"a rendszerben"
+"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása"
+" a rendszerben"
 
 #: ../src/settingsdialog.cc:1488
 msgid "Register with the OS to handle magnet: URL links"
-msgstr "A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
+msgstr ""
+"A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
 
 #: ../ui/mainwindow.ui:389
 msgid "Remember choice"
@@ -2623,7 +2624,7 @@ msgstr "Fut..."
 
 #: ../src/mainwindow.cc:216
 msgid "Russian translation\n"
-msgstr ""
+msgstr "Orosz fordítás\n"
 
 #: ../src/WulforUtil.cc:219
 msgid "SJIS"
@@ -2753,7 +2754,7 @@ msgstr "Elválasztók"
 
 #: ../src/mainwindow.cc:235
 msgid "Serbian (Latin) translation\n"
-msgstr ""
+msgstr "Szerb (latin) fordítás\n"
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
@@ -2768,7 +2769,8 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:950
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új "
 "fájlokhoz"
@@ -2825,7 +2827,7 @@ msgstr "Csak a teljesen befejezett letöltések mutatása"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "Show only when the application is not active."
-msgstr ""
+msgstr "Csak akkor jelenítse meg, ha az alkalmazás nem aktív"
 
 #: ../src/hub.cc:2019 ../src/privatemessage.cc:1027 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
@@ -2905,7 +2907,7 @@ msgstr "Slotok"
 
 #: ../src/mainwindow.cc:244
 msgid "Slovak translation\n"
-msgstr ""
+msgstr "Szlovák  fordítás\n"
 
 #: ../ui/mainwindow.ui:1513
 msgid "Small icons"
@@ -2946,7 +2948,7 @@ msgstr "A forrás túl lassú"
 
 #: ../src/mainwindow.cc:238
 msgid "Spanish translation\n"
-msgstr ""
+msgstr "Spanyol fordítás\n"
 
 #: ../src/transfers.cc:61 ../src/transfers.cc:557 ../src/transfers.cc:593
 #: ../src/transfers.cc:761 ../src/finishedtransfers.cc:61
@@ -3166,7 +3168,7 @@ msgstr "UTF-8"
 
 #: ../src/mainwindow.cc:232
 msgid "Ukrainian translation\n"
-msgstr ""
+msgstr "Ukrán fordítás\n"
 
 #: ../src/hub.cc:2950
 msgid "Unable to connect: already connected to the requested hub"
@@ -3182,8 +3184,8 @@ msgstr "Fájl-lista betöltése sikertelen: Nem megfelelő fájl-lista név"
 
 #: ../src/mainwindow.cc:2242
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog "
@@ -3416,8 +3418,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3426,8 +3427,7 @@ msgstr ""
 "Használat:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp <Kapcsoló>\n"
-"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC "
-"protokollok használatára.\n"
+"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC protokollok használatára.\n"
 "\n"
 "Kapcsolók:\n"
 "  -h, --help\t\t Help megjelenítése\n"
@@ -3906,63 +3906,63 @@ msgstr "várakozás..."
 #~ " Chris Leick\n"
 #~ " (c.leick@vollbio.de)\n"
 #~ msgstr ""
-#~ "Fordítók\n"
+#~ "Translators\n"
 #~ "\n"
-#~ " Orosz fordítás\n"
+#~ " Russian translation\n"
 #~ "\n"
-#~ " Uladzimir Bely\n"
-#~ " (wiselord1983@gmail.com)\n"
+#~ " Boris Pek\n"
+#~ " (tehnick-8@mail.ru)\n"
 #~ "\n"
-#~ " Belorusz fordítás\n"
+#~ " Belarusian translation\n"
 #~ "\n"
 #~ " Paval Shalamitski aka Klyok\n"
 #~ " (i.kliok@gmail.com)\n"
 #~ "\n"
-#~ " Magyar fordítás\n"
+#~ " Hungarian translation\n"
 #~ "\n"
-#~ " Attila Mándy aka sumo\n"
+#~ " Akos Berki aka sumo\n"
 #~ " (husumo@gmail.com)\n"
 #~ "\n"
-#~ " Francia fordítás\n"
+#~ " French translation\n"
 #~ "\n"
 #~ " Alexandre Wallimann aka Ale\n"
 #~ " (alexandre.wallimann@gmail.com)\n"
 #~ "\n"
-#~ " Lengyel fordítás\n"
+#~ " Polish translation\n"
 #~ "\n"
 #~ " Arahael\n"
 #~ "\n"
-#~ " Ukrán fordítás\n"
+#~ " Ukrainian translation\n"
 #~ "\n"
 #~ " Dmytro Demenko\n"
 #~ " (dmytro.demenko@gmail.com)\n"
 #~ "\n"
-#~ " Szerb fordítás\n"
+#~ " Serbian translation\n"
 #~ "\n"
 #~ " Miroslav Petrovic\n"
 #~ " (miroslav031@gmail.com)\n"
 #~ "\n"
-#~ " Spanyol fordítás\n"
+#~ " Spanish translation\n"
 #~ "\n"
 #~ " Gustavo Alvarez aka sL1pKn07\n"
 #~ " (sl1pkn07@gmail.com)\n"
 #~ "\n"
-#~ " Bolgár fordítás\n"
+#~ " Bulgarian translation\n"
 #~ "\n"
 #~ " Rusi Dimitrov aka PsyTrip\n"
 #~ " (dimitrov.rusi@gmail.com)\n"
 #~ "\n"
-#~ " Szlovák fordítás\n"
+#~ " Slovak translation\n"
 #~ "\n"
 #~ " Martin Durisin\n"
 #~ " (martin.durisin@gmail.com)\n"
 #~ "\n"
-#~ " Cseh fordítás\n"
+#~ " Czech translation\n"
 #~ "\n"
 #~ " Uhlik\n"
 #~ " (uhlikx@seznam.cz)\n"
 #~ "\n"
-#~ " Német fordítás\n"
+#~ " German translation\n"
 #~ "\n"
 #~ " Chris Leick\n"
 #~ " (c.leick@vollbio.de)\n"
@@ -3981,3 +3981,5 @@ msgstr "várakozás..."
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+
