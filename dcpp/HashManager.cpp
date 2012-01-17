@@ -127,9 +127,9 @@ bool HashManager::StreamStore::loadTree(const string& p_filePath, TigerTree &tre
     if (attr_get(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf, &blockSize, 0) == 0){
         memcpy(&h, buf, hdrSz);
 
-        if (h.timeStamp != getTimeStamp(p_filePath) || !validateCheckSum(h)){ // File was modified and we should reset attr.
-            deleteStream(p_filePath);                                         // I'm not sure that FlylinkDC++ saves timestamp
-                                                                              // in UNIX time format so this check need testing.
+        if ( /* h.timeStamp != getTimeStamp(p_filePath) || */ !validateCheckSum(h)){ // File was modified and we should reset attr.
+            deleteStream(p_filePath);                                                // I'm not sure that FlylinkDC++ saves timestamp
+                                                                                     // in UNIX time format so this check need testing.
             return false;
         }
 
