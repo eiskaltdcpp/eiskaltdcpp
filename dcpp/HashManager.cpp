@@ -32,20 +32,171 @@
 #include <setjmp.h>
 #endif
 
+#ifdef USE_XATTR
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include "attr/attributes.h"
+#endif
+
 namespace dcpp {
 
 #define HASH_FILE_VERSION_STRING "2"
 static const uint32_t HASH_FILE_VERSION = 2;
 const int64_t HashManager::MIN_BLOCK_SIZE = 64 * 1024;
+const string HashManager::StreamStore::g_streamName(".gltth");
+
+namespace {
+    template<typename T>
+    class AutoArray
+    {
+            typedef T* TPtr;
+        public:
+            explicit AutoArray(TPtr t) : p(t) { }
+            explicit AutoArray(size_t size) : p(new T[size]) { }
+            ~AutoArray()
+            {
+                delete[] p;
+            }
+            operator TPtr()
+            {
+                return p;
+            }
+            TPtr get()
+            {
+                return p;
+            }
+            AutoArray& operator=(TPtr t)
+            {
+                delete[] p;
+                p = t;
+                return *this;
+            }
+        private:
+            AutoArray(const AutoArray&);
+            AutoArray& operator=(const AutoArray&);
+
+            TPtr p;
+    };
+}
+
+inline void HashManager::StreamStore::setCheckSum(TTHStreamHeader& p_header) {
+    p_header.magic = g_MAGIC;
+    uint32_t l_sum = 0;
+
+    for (size_t i = 0; i < sizeof(TTHStreamHeader) / sizeof(uint32_t); i++)
+        l_sum ^= ((uint32_t*) & p_header)[i];
+
+    p_header.checksum ^= l_sum;
+}
+
+inline bool HashManager::StreamStore::validateCheckSum(const TTHStreamHeader& p_header) {
+    if (p_header.magic != g_MAGIC)
+        return false;
+
+    uint32_t l_sum = 0;
+
+    for (size_t i = 0; i < sizeof(TTHStreamHeader) / sizeof(uint32_t); i++)
+        l_sum ^= ((uint32_t*) & p_header)[i];
+
+    return (l_sum == 0);
+}
+
+#ifdef USE_XATTR
+static uint64_t getTimeStamp(const string &fname){
+    struct stat st;
+
+    if (::stat(fname.c_str(), &st) == 0)
+        return (uint64_t)st.st_mtime;
+
+    return 0;
+}
+#endif
+
+bool HashManager::StreamStore::loadTree(const string& p_filePath, TigerTree &tree, int64_t p_aFileSize)
+{
+#ifdef USE_XATTR
+    const int64_t fileSize  = (p_aFileSize == -1) ? File::getSize(p_filePath) : p_aFileSize;
+    const size_t hdrSz      = sizeof(TTHStreamHeader);
+    const size_t totalSz    = ATTR_MAX_VALUELEN;
+    int blockSize           = totalSz;
+    TTHStreamHeader h;
+
+    AutoArray<uint8_t> buf(totalSz);
+
+    if (attr_get(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf, &blockSize, 0) == 0){
+        memcpy(&h, buf, hdrSz);
+
+        if (h.timeStamp != getTimeStamp(p_filePath) || !validateCheckSum(h)){ // File was modified and we should reset attr.
+            deleteStream(p_filePath);                                         // I'm not sure that FlylinkDC++ saves timestamp
+                                                                              // in UNIX time format so this check need testing.
+            return false;
+        }
+
+        size_t datalen = blockSize - hdrSz;
+        AutoArray<uint8_t> tail(datalen);
+
+        memcpy(tail, (uint8_t*)buf + hdrSz, datalen);
+
+        TigerTree p_Tree = TigerTree(fileSize, h.blockSize, tail);
+
+        if (p_Tree.getRoot() == h.root){
+            tree = p_Tree;
+
+            return true;
+        }
+        else
+            return false;
+    }
+#endif //USE_XATTR
+    return false;
+}
+
+bool HashManager::StreamStore::saveTree(const string& p_filePath, const TigerTree& p_Tree)
+{
+#ifdef USE_XATTR
+    TTHStreamHeader h;
+
+    h.fileSize = File::getSize(p_filePath);
+    h.timeStamp = getTimeStamp(p_filePath);
+    h.root = p_Tree.getRoot();
+    h.blockSize = p_Tree.getBlockSize();
+
+    setCheckSum(h);
+    {
+        const size_t sz = sizeof(TTHStreamHeader) + p_Tree.getLeaves().size() * TTHValue::BYTES;
+        AutoArray<uint8_t> buf(sz);
+
+        memcpy(buf, &h, sizeof(TTHStreamHeader));
+        memcpy(buf + sizeof(TTHStreamHeader), p_Tree.getLeaves()[0].data, p_Tree.getLeaves().size() * TTHValue::BYTES);
+
+        return (attr_set(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf, sz, 0) == 0);
+    }
+#endif //USE_XATTR
+    return false;
+}
+
+void HashManager::StreamStore::deleteStream(const string& p_filePath)
+{
+#ifdef USE_XATTR
+    printf("Resetting Xattr for %s\n", p_filePath.c_str());
+    attr_remove(p_filePath.c_str(), g_streamName.c_str(), 0);
+#endif //USE_XATTR
+}
+
 
 bool HashManager::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp) {
     Lock l(cs);
+
     const TTHValue* tthold = getFileTTHif(Text::toLower(aFileName));
     const TTHValue* tth = getFileTTHif(aFileName);
     if (tthold != NULL && tth == NULL) {
         TigerTree tt(MIN_BLOCK_SIZE);
         store.getTree(*tthold, tt);
         hashDone(aFileName, aTimeStamp, tt, 0, aSize);
+
+        m_streamstore.saveTree(aFileName, tt);
+
         return true;
     }
     else if (!store.checkTTH(aFileName, aSize, aTimeStamp)) {
@@ -84,6 +235,7 @@ void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const T
     try {
         Lock l(cs);
         store.addFile(aFileName, aTimeStamp, tth, true);
+        m_streamstore.saveTree(aFileName, tth);
     } catch (const Exception& e) {
         LogManager::getInstance()->message(str(F_("Hashing failed: %1%") % e.getError()));
         return;
@@ -670,6 +822,13 @@ static void sigbus_handler(int signum
 }
 
 bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree& tth, int64_t size, CRC32Filter* xcrc32) {
+    static StreamStore streamStore;
+
+    if (streamStore.loadTree(filename, tth, -1)){
+        printf ("%s: hash [%s] was loaded from Xattr.\n", filename.c_str(), tth.getRoot().toBase32().c_str());
+        return true;
+    }
+
     static const int64_t BUF_BYTES = (SETTING(HASH_BUFFER_SIZE_MB) >= 1)? SETTING(HASH_BUFFER_SIZE_MB)*1024*1024 : 0x800000;
     static const int64_t BUF_SIZE = BUF_BYTES - (BUF_BYTES % getpagesize());
 
@@ -783,6 +942,9 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
     if (sigaction(SIGBUS, &oldact, NULL) == -1) {
         dcdebug("Failed to reset old signal handler for SIGBUS\n");
     }
+
+    if (ok)
+        streamStore.saveTree(filename, tth);
 
     return ok;
 }

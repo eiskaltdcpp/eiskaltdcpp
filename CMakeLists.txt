@@ -72,6 +72,7 @@ find_package (Threads REQUIRED)
 find_package (Gettext REQUIRED)
 find_package (Iconv REQUIRED)
 find_package (Git)
+find_package (Xattr)
 
 option (USE_QT "Qt interface" ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
@@ -116,6 +117,10 @@ endif (PERL_REGEX)
 if (USE_IDNA)
     find_package(IDNA REQUIRED)
 endif(USE_IDNA)
+
+if (XATTR_FOUND)
+    message (STATUS "Building with libattr support")
+endif (XATTR_FOUND)
 
 if (LUA_SCRIPT)
     find_package (Lua51 REQUIRED)
