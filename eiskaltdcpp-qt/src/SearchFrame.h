@@ -11,20 +11,15 @@
 #define SEARCHFRAME_H
 
 #include <QWidget>
-#include <QListWidget>
-#include <QListWidgetItem>
 #include <QModelIndex>
 #include <QMap>
 #include <QList>
 #include <QMenu>
-#include <QTimer>
 #include <QCloseEvent>
-#include <QTimer>
-#include <QCustomEvent>
-#include <QCompleter>
 #include <QMetaType>
-#include <QShortcut>
 #include <QStringListModel>
+
+#include <memory>
 
 #include "ui_UISearchFrame.h"
 #include "ArenaWidget.h"
@@ -38,9 +33,8 @@
 
 using namespace dcpp;
 
-class SearchModel;
-class SearchProxyModel;
 class SearchItem;
+class SearchFramePrivate;
 
 class SearchStringListModel: public QStringListModel{
 public:
@@ -191,39 +185,6 @@ private:
     void grant(const VarMap&);
     void removeSource(const VarMap&);
 
-    QString arena_title;
-    QString token;
-
-    TStringList currentSearch;
-
-    qulonglong dropped;
-    qulonglong results;
-    AlreadySharedAction filterShared;
-    bool withFreeSlots;
-
-    QStringList hubs;
-    QStringList searchHistory;
-
-    QList<dcpp::Client*> client_list;
-
-    QTimer *timer;
-
-    QCompleter *completer;
-
-    QMenu *arena_menu;
-
-    QShortcut *focusShortcut;
-
-    bool saveFileType;
-
-    SearchModel *model;
-    SearchStringListModel *str_model;
-    SearchProxyModel *proxy;
-
-    bool isHash;
-    bool stop;
-    int left_pane_old_size;
-
     // SearchManagerListener
     virtual void on(SearchManagerListener::SR, const SearchResultPtr& aResult) noexcept;
 
@@ -231,6 +192,9 @@ private:
     virtual void on(ClientConnected, Client* c) noexcept;
     virtual void on(ClientUpdated, Client* c) noexcept;
     virtual void on(ClientDisconnected, Client* c) noexcept;
+
+    Q_DECLARE_PRIVATE (SearchFrame)
+    SearchFramePrivate* d_ptr;
 };
 
 Q_DECLARE_METATYPE(SearchFrame*)

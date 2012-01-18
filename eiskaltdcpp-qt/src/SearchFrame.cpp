@@ -20,6 +20,12 @@
 #include <QMessageBox>
 #include <QStringListModel>
 #include <QKeyEvent>
+#include <QTimer>
+#include <QShortcut>
+#include <QStringListModel>
+#include <QCompleter>
+#include <QListWidget>
+#include <QListWidgetItem>
 
 #include "SearchFrame.h"
 #include "MainWindow.h"
@@ -46,6 +52,42 @@
 #include <QtDebug>
 
 using namespace dcpp;
+
+class SearchFramePrivate{
+public:
+    QString arena_title;
+    QString token;
+
+    TStringList currentSearch;
+
+    qulonglong dropped;
+    qulonglong results;
+    SearchFrame::AlreadySharedAction filterShared;
+    bool withFreeSlots;
+
+    QStringList hubs;
+    QStringList searchHistory;
+
+    QList<dcpp::Client*> client_list;
+
+    QTimer *timer;
+
+    QCompleter *completer;
+
+    QMenu *arena_menu;
+
+    QShortcut *focusShortcut;
+
+    bool saveFileType;
+
+    SearchModel *model;
+    SearchStringListModel *str_model;
+    SearchProxyModel *proxy;
+
+    bool isHash;
+    bool stop;
+    int left_pane_old_size;
+};
 
 QVariant SearchStringListModel::data(const QModelIndex &index, int role) const{
     if (role != Qt::CheckStateRole || !index.isValid())
@@ -310,23 +352,25 @@ void SearchFrame::Menu::addTempPath(const QString &path){
     DownloadToDirHistory::put(temp_pathes);
 }
 
-SearchFrame::SearchFrame(QWidget *parent):
-        arena_title(tr("Search window")),
-        QWidget(parent),
-        isHash(false),
-        arena_menu(NULL),
-        timer(NULL),
-        dropped(0L),
-        results(0L),
-        filterShared(SearchFrame::None),
-        withFreeSlots(false),
-        saveFileType(true),
-        proxy(NULL),
-        completer(NULL),
-        stop(false)
+SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFramePrivate())
 {
     if (!SearchBlacklist::getInstance())
         SearchBlacklist::newInstance();
+
+    Q_D(SearchFrame);
+
+    d->isHash = false;
+    d->arena_menu = NULL;
+    d->timer = NULL;
+    d->dropped = 0L;
+    d->results = 0L;
+    d->filterShared = SearchFrame::None;
+    d->withFreeSlots = false;
+    d->saveFileType = true;
+    d->proxy = NULL;
+    d->completer = NULL;
+    d->stop = false;
+    d->arena_title = tr("Search");
 
     setupUi(this);
 
@@ -344,42 +388,49 @@ SearchFrame::SearchFrame(QWidget *parent):
         if(!client->isConnected())
             continue;
 
-        hubs.push_back(_q(client->getHubUrl()));
-        client_list.push_back(client);
+        d->hubs.push_back(_q(client->getHubUrl()));
+        d->client_list.push_back(client);
     }
 
     clientMgr->unlock();
 
-    str_model->setStringList(hubs);
+    d->str_model->setStringList(d->hubs);
 
-    for (int i = 0; i < str_model->rowCount(); i++)
-        str_model->setData(str_model->index(i, 0), Qt::Checked, Qt::CheckStateRole);
+    for (int i = 0; i < d->str_model->rowCount(); i++)
+       d-> str_model->setData(d->str_model->index(i, 0), Qt::Checked, Qt::CheckStateRole);
 
     SearchManager::getInstance()->addListener(this);
 }
 
 SearchFrame::~SearchFrame(){
     Menu::deleteInstance();
+
+    Q_D(SearchFrame);
     
     treeView_RESULTS->setModel(NULL);
 
-    if (completer)
-        completer->deleteLater();
+    if (d->completer)
+        d->completer->deleteLater();
     
-    if (proxy)
-        proxy->deleteLater();
+    if (d->proxy)
+        d->proxy->deleteLater();
 
-    delete model;
-    arena_menu->deleteLater();
-    delete timer;
+    d->arena_menu->deleteLater();
+
+    delete d->model;
+    delete d->timer;
+
+    delete d_ptr;
 }
 
 void SearchFrame::closeEvent(QCloseEvent *e){
     SearchManager::getInstance()->removeListener(this);
     ClientManager::getInstance()->removeListener(this);
+
+    Q_D(SearchFrame);
     
-    if (timer)
-        timer->stop();
+    if (d->timer)
+        d->timer->stop();
     
     save();
 
@@ -407,11 +458,13 @@ bool SearchFrame::eventFilter(QObject *obj, QEvent *e){
 }
 
 void SearchFrame::init(){
-    model = new SearchModel(NULL);
-    str_model = new SearchStringListModel(this);
+    Q_D(SearchFrame);
 
-    for (int i = 0; i < model->columnCount(); i++)
-        comboBox_FILTERCOLUMNS->addItem(model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
+    d->model = new SearchModel(NULL);
+    d->str_model = new SearchStringListModel(this);
+
+    for (int i = 0; i < d->model->columnCount(); i++)
+        comboBox_FILTERCOLUMNS->addItem(d->model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
 
     comboBox_FILTERCOLUMNS->setCurrentIndex(COLUMN_SF_FILENAME);
 
@@ -421,15 +474,15 @@ void SearchFrame::init(){
 
     toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
 
-    treeView_RESULTS->setModel(model);
+    treeView_RESULTS->setModel(d->model);
     treeView_RESULTS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_RESULTS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    treeView_HUBS->setModel(str_model);
+    treeView_HUBS->setModel(d->str_model);
 
-    arena_menu = new QMenu(this->windowTitle());
-    QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
-    arena_menu->addAction(close_wnd);
+    d->arena_menu = new QMenu(this->windowTitle());
+    QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), d->arena_menu);
+    d->arena_menu->addAction(close_wnd);
     const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
     QStringList filetypes;
     // Predefined
@@ -460,15 +513,15 @@ void SearchFrame::init(){
         comboBox_FILETYPES->setItemIcon(i, WICON(icons.at(i)));
 
     QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
-    searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    d->searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
     QMenu *m = new QMenu();
 
-    foreach (const QString &s, searchHistory)
+    foreach (const QString &s, d->searchHistory)
         m->addAction(s);
 
-    focusShortcut = new QShortcut(QKeySequence(Qt::Key_F6), this);
-    focusShortcut->setContext(Qt::WidgetWithChildrenShortcut);
+    d->focusShortcut = new QShortcut(QKeySequence(Qt::Key_F6), this);
+    d->focusShortcut->setContext(Qt::WidgetWithChildrenShortcut);
 
     lineEdit_SEARCHSTR->setMenu(m);
     lineEdit_SEARCHSTR->setPixmap(WICON(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
@@ -478,10 +531,10 @@ void SearchFrame::init(){
     connect(this, SIGNAL(coreClientConnected(QString)),    this, SLOT(onHubAdded(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreClientDisconnected(QString)), this, SLOT(onHubRemoved(QString)),Qt::QueuedConnection);
     connect(this, SIGNAL(coreClientUpdated(QString)),      this, SLOT(onHubChanged(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreSR(VarMap)),                   this, SLOT(addResult(VarMap)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreSR(VarMap)),                  this, SLOT(addResult(VarMap)), Qt::QueuedConnection);
 
-    connect(focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(setFocus()));
-    connect(focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(selectAll()));
+    connect(d->focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(setFocus()));
+    connect(d->focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(selectAll()));
     connect(close_wnd, SIGNAL(triggered()), this, SLOT(slotClose()));
     connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
     connect(pushButton_STOP, SIGNAL(clicked()), this, SLOT(slotStopSearch()));
@@ -506,18 +559,20 @@ void SearchFrame::init(){
     setAttribute(Qt::WA_DeleteOnClose);
 
     QList<int> panes = splitter->sizes();
-    left_pane_old_size = panes[0];
+    d->left_pane_old_size = panes[0];
 
     lineEdit_SEARCHSTR->setFocus();
 }
 
 void SearchFrame::load(){
+    Q_D(SearchFrame);
+
     treeView_RESULTS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SEARCH_STATE).toAscii()));
     treeView_RESULTS->setSortingEnabled(true);
 
-    filterShared = static_cast<SearchFrame::AlreadySharedAction>(WIGET(WI_SEARCH_SHARED_ACTION));
+    d->filterShared = static_cast<SearchFrame::AlreadySharedAction>(WIGET(WI_SEARCH_SHARED_ACTION));
 
-    comboBox_SHARED->setCurrentIndex(static_cast<int>(filterShared));
+    comboBox_SHARED->setCurrentIndex(static_cast<int>(d->filterShared));
 
     checkBox_FILTERSLOTS->setChecked(WBGET(WB_SEARCHFILTER_NOFREE));
     checkBox_HIDEPANEL->setChecked(WBGET(WB_SEARCH_DONTHIDEPANEL));
@@ -529,20 +584,22 @@ void SearchFrame::load(){
     QString raw = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
     QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
-    completer = new QCompleter(list, lineEdit_SEARCHSTR);
-    completer->setCaseSensitivity(Qt::CaseInsensitive);
-    completer->setWrapAround(false);
+    d->completer = new QCompleter(list, lineEdit_SEARCHSTR);
+    d->completer->setCaseSensitivity(Qt::CaseInsensitive);
+    d->completer->setWrapAround(false);
 
-    lineEdit_SEARCHSTR->setCompleter(completer);
+    lineEdit_SEARCHSTR->setCompleter(d->completer);
 }
 
 void SearchFrame::save(){
-    WSSET(WS_SEARCH_STATE, treeView_RESULTS->header()->saveState().toBase64());
-    WISET(WI_SEARCH_SORT_COLUMN, model->getSortColumn());
-    WISET(WI_SEARCH_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(model->getSortOrder()));
-    WISET(WI_SEARCH_SHARED_ACTION, static_cast<int>(filterShared));
+    Q_D(SearchFrame);
 
-    if (saveFileType)
+    WSSET(WS_SEARCH_STATE, treeView_RESULTS->header()->saveState().toBase64());
+    WISET(WI_SEARCH_SORT_COLUMN, d->model->getSortColumn());
+    WISET(WI_SEARCH_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(d->model->getSortOrder()));
+    WISET(WI_SEARCH_SHARED_ACTION, static_cast<int>(d->filterShared));
+
+    if (d->saveFileType)
         WISET(WI_SEARCH_LAST_TYPE, comboBox_FILETYPES->currentIndex());
 
     WBSET(WB_SEARCHFILTER_NOFREE, checkBox_FILTERSLOTS->isChecked());
@@ -550,15 +607,17 @@ void SearchFrame::save(){
 }
 
 void SearchFrame::initSecond(){
-    if (!timer){
-        timer = new QTimer(this);
-        timer->setInterval(1000);
-        timer->setSingleShot(true);
+    /*Q_D(SearchFrame);
 
-        connect(timer, SIGNAL(timeout()), this, SLOT(timerTick()));
+    if (!d->timer){
+        d->timer = new QTimer(this);
+        d->timer->setInterval(1000);
+        d->timer->setSingleShot(true);
+
+        connect(d->timer, SIGNAL(timeout()), this, SLOT(timerTick()));
     }
 
-    timer->start();
+    d->timer->start();*/
 }
 
 QWidget *SearchFrame::getWidget(){
@@ -566,7 +625,9 @@ QWidget *SearchFrame::getWidget(){
 }
 
 QString SearchFrame::getArenaTitle(){
-    return arena_title;
+    Q_D(SearchFrame);
+
+    return d->arena_title;
 }
 
 QString SearchFrame::getArenaShortTitle(){
@@ -574,7 +635,9 @@ QString SearchFrame::getArenaShortTitle(){
 }
 
 QMenu *SearchFrame::getMenu(){
-    return arena_menu;
+    Q_D(SearchFrame);
+
+    return d->arena_menu;
 }
 
 const QPixmap &SearchFrame::getPixmap(){
@@ -691,40 +754,46 @@ void SearchFrame::timerTick(){
 }
 
 void SearchFrame::onHubAdded(const QString &info){
-    if (hubs.contains(info) || info.isEmpty())
+    Q_D(SearchFrame);
+
+    if (d->hubs.contains(info) || info.isEmpty())
         return;
 
-    hubs.push_back(info);
-    client_list.push_back(ClientManager::getInstance()->getClient(_tq(info)));
+    d->hubs.push_back(info);
+    d->client_list.push_back(ClientManager::getInstance()->getClient(_tq(info)));
 
-    str_model->setStringList(hubs);
+    d->str_model->setStringList(d->hubs);
 }
 
 void SearchFrame::onHubChanged(const QString &info){
-    if (!hubs.contains(info) || info.isEmpty())
+    Q_D(SearchFrame);
+
+    if (!d->hubs.contains(info) || info.isEmpty())
         return;
 
     Client *cl = ClientManager::getInstance()->getClient(_tq(info));
-    if (!cl || client_list.indexOf(cl) < 0)
+    if (!cl || d->client_list.indexOf(cl) < 0)
         return;
 
-    hubs.removeAt(client_list.indexOf(cl));
-    client_list.removeAt(client_list.indexOf(cl));
+    d->hubs.removeAt(d->client_list.indexOf(cl));
+    d->client_list.removeAt(d->client_list.indexOf(cl));
 
-    hubs.push_back(info);
-    client_list.push_back(cl);
+    d->hubs.push_back(info);
+    d->client_list.push_back(cl);
 
-    str_model->setStringList(hubs);
+    d->str_model->setStringList(d->hubs);
 }
 
 void SearchFrame::onHubRemoved(const QString &info){
-    if (!hubs.contains(info) || info.isEmpty())
+    Q_D(SearchFrame);
+
+    if (!d->hubs.contains(info) || info.isEmpty())
         return;
 
-    client_list.removeAt(hubs.indexOf(info));
-    hubs.removeAt(hubs.indexOf(info));
+    d->client_list.removeAt(d->hubs.indexOf(info));
+    d->hubs.removeAt(d->hubs.indexOf(info));
 
-    str_model->setStringList(hubs);
+    d->str_model->setStringList(d->hubs);
 }
 
 void SearchFrame::getParams(SearchFrame::VarMap &map, const dcpp::SearchResultPtr &ptr){
@@ -806,23 +875,24 @@ bool SearchFrame::getWholeDirParams(SearchFrame::VarMap &params, SearchItem *ite
 }
 
 void SearchFrame::addResult(const QMap<QString, QVariant> &map){
+    Q_D(SearchFrame);
     static SearchBlacklist *SB = SearchBlacklist::getInstance();
 
     try {
         if (SB->ok(map["FILE"].toString(), SearchBlacklist::NAME) && SB->ok(map["TTH"].toString(), SearchBlacklist::TTH)){
-            if (model->addResult(map["FILE"].toString(),
-                                 map["SIZE"].toULongLong(),
-                                 map["TTH"].toString(),
-                                 map["PATH"].toString(),
-                                 map["NICK"].toString(),
-                                 map["FSLS"].toULongLong(),
-                                 map["ASLS"].toULongLong(),
-                                 map["IP"].toString(),
-                                 map["HUB"].toString(),
-                                 map["HOST"].toString(),
-                                 map["CID"].toString(),
-                                 map["ISDIR"].toBool()))
-                results++;
+            if (d->model->addResult(map["FILE"].toString(),
+                                    map["SIZE"].toULongLong(),
+                                    map["TTH"].toString(),
+                                    map["PATH"].toString(),
+                                    map["NICK"].toString(),
+                                    map["FSLS"].toULongLong(),
+                                    map["ASLS"].toULongLong(),
+                                    map["IP"].toString(),
+                                    map["HUB"].toString(),
+                                    map["HOST"].toString(),
+                                    map["CID"].toString(),
+                                    map["ISDIR"].toBool()))
+                d->results++;
         }
     }
     catch (const SearchListException&){}
@@ -832,24 +902,28 @@ void SearchFrame::searchAlternates(const QString &tth){
     if (tth.isEmpty())
         return;
 
+    Q_D(SearchFrame);
+
     lineEdit_SEARCHSTR->setText(tth);
     comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_TTH);
     lineEdit_SIZE->setText("");
 
     slotStartSearch();
 
-    saveFileType = false;
+    d->saveFileType = false;
 }
 
 void SearchFrame::searchFile(const QString &file){
     if (file.isEmpty())
         return;
 
+    Q_D(SearchFrame);
+
     lineEdit_SEARCHSTR->setText(file);
     comboBox_FILETYPES->setCurrentIndex(SearchManager::TYPE_ANY);
     lineEdit_SIZE->setText("");
 
-    saveFileType = false;
+    d->saveFileType = false;
 
     slotStartSearch();
 }
@@ -875,7 +949,9 @@ void SearchFrame::slotStartSearch(){
         return;
     }
 
-    stop=false;
+    Q_D(SearchFrame);
+
+    d->stop = false;
 
     if (lineEdit_SEARCHSTR->text().trimmed().isEmpty())
         return;
@@ -884,8 +960,8 @@ void SearchFrame::slotStartSearch(){
     QString s = lineEdit_SEARCHSTR->text().trimmed();
     StringList clients;
 
-    for (int i = 0; i < str_model->rowCount(); i++){
-        QModelIndex index = str_model->index(i, 0);
+    for (int i = 0; i < d->str_model->rowCount(); i++){
+        QModelIndex index = d->str_model->index(i, 0);
 
         if (index.data(Qt::CheckStateRole).toInt() == Qt::Checked)
             clients.push_back(_tq(index.data().toString()));
@@ -916,35 +992,35 @@ void SearchFrame::slotStartSearch(){
 
     quint64 llsize = (quint64)lsize;
 
-    if (!searchHistory.contains(s)){
+    if (!d->searchHistory.contains(s)){
         bool isTTH = WulforUtil::isTTH(s);
 
         if ((WBGET("memorize-tth-search-phrases", false) && isTTH) || !isTTH)
-            searchHistory.push_front(s);
+            d->searchHistory.push_front(s);
 
         QMenu *m = new QMenu();
 
-        foreach (const QString &s, searchHistory)
+        foreach (const QString &s, d->searchHistory)
             m->addAction(s);
 
         lineEdit_SEARCHSTR->setMenu(m);
 
         uint maxItemsNumber = WIGET("search-history-items-number", 10);
-        while (searchHistory.count() > maxItemsNumber)
-                searchHistory.removeLast();
+        while (d->searchHistory.count() > maxItemsNumber)
+                d->searchHistory.removeLast();
 
-        QString hist = searchHistory.join("\n");
+        QString hist = d->searchHistory.join("\n");
         WSSET(WS_SEARCH_HISTORY, hist.toAscii().toBase64());
     }
 
     {
-        currentSearch = StringTokenizer<tstring>(s.toStdString(), ' ').getTokens();
+        d->currentSearch = StringTokenizer<tstring>(s.toStdString(), ' ').getTokens();
         s = "";
 
         //strip out terms beginning with -
-        for(TStringList::iterator si = currentSearch.begin(); si != currentSearch.end(); ) {
+        for(TStringList::iterator si = d->currentSearch.begin(); si != d->currentSearch.end(); ) {
             if(si->empty()) {
-                si = currentSearch.erase(si);
+                si = d->currentSearch.erase(si);
                 continue;
             }
 
@@ -954,7 +1030,7 @@ void SearchFrame::slotStartSearch(){
             ++si;
         }
 
-        token = _q(Util::toString(Util::rand()));
+        d->token = _q(Util::toString(Util::rand()));
     }
 
     SearchManager::SizeModes searchMode((SearchManager::SizeModes)comboBox_SIZETYPE->currentIndex());
@@ -963,16 +1039,15 @@ void SearchFrame::slotStartSearch(){
         searchMode = SearchManager::SIZE_DONTCARE;
 
     int ftype = comboBox_FILETYPES->currentIndex();
-    isHash = (ftype == SearchManager::TYPE_TTH);
 
-    filterShared = static_cast<AlreadySharedAction>(comboBox_SHARED->currentIndex());
+    d->isHash = (ftype == SearchManager::TYPE_TTH);
+    d->filterShared = static_cast<AlreadySharedAction>(comboBox_SHARED->currentIndex());
+    d->withFreeSlots = checkBox_FILTERSLOTS->isChecked();
 
-    withFreeSlots = checkBox_FILTERSLOTS->isChecked();
+    d->model->setFilterRole(static_cast<int>(d->filterShared));
+    d->model->clearModel();
 
-    model->setFilterRole(static_cast<int>(filterShared));
-    model->clearModel();
-
-    dropped = results = 0;
+    d->dropped = d->results = 0;
 
     string ftypeStr;
     if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_LAST)
@@ -998,39 +1073,43 @@ void SearchFrame::slotStartSearch(){
         ftype = SearchManager::TYPE_ANY;
     }
 
-    SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype, searchMode, token.toStdString(), exts);
+    SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype, searchMode, d->token.toStdString(), exts);
 
     if (!checkBox_HIDEPANEL->isChecked()){
         QList<int> panes = splitter->sizes();
 
         panes[1] = panes[0] + panes[1];
 
-        left_pane_old_size = panes[0] > 15 ? panes[0] : left_pane_old_size;
+        d->left_pane_old_size = panes[0] > 15 ? panes[0] : d->left_pane_old_size;
 
         panes[0] = 0;
 
         splitter->setSizes(panes);
     }
 
-    arena_title = tr("Search - %1").arg(s);
+    d->arena_title = tr("Search - %1").arg(s);
 
     MW->redrawToolPanel();
 }
 
 void SearchFrame::slotClear(){
+    Q_D(SearchFrame);
+
     treeView_RESULTS->clearSelection();
-    model->clearModel();
+    d->model->clearModel();
     lineEdit_SEARCHSTR->clear();
     lineEdit_SIZE->setText("");
 
-    dropped = results = 0;
+    d->dropped = d->results = 0;
 }
 
 void SearchFrame::slotResultDoubleClicked(const QModelIndex &index){
     if (!index.isValid() || !index.internalPointer())
         return;
 
-    QModelIndex i = proxy? proxy->mapToSource(index) : index;
+    Q_D(SearchFrame);
+
+    QModelIndex i = d->proxy? d->proxy->mapToSource(index) : index;
 
     SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
     VarMap params;
@@ -1055,16 +1134,13 @@ void SearchFrame::slotResultDoubleClicked(const QModelIndex &index){
 void SearchFrame::slotContextMenu(const QPoint &){
     QItemSelectionModel *selection_model = treeView_RESULTS->selectionModel();
     QModelIndexList list = selection_model->selectedRows(0);
+    Q_D(SearchFrame);
 
     if (list.size() < 1)
         return;
 
-    if (proxy){
-        QModelIndexList _list;
-        foreach (const QModelIndex &i, list)
-            _list.push_back(proxy->mapToSource(i));
-        list = _list;
-    }
+    if (d->proxy)
+        std::transform(list.begin(), list.end(), list.begin(), [&d](QModelIndex i) { return d->proxy->mapToSource(i); } );
 
     if (!Menu::getInstance())
         Menu::newInstance();
@@ -1386,9 +1462,9 @@ void SearchFrame::slotContextMenu(const QPoint &){
              foreach (const QModelIndex &i, list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
-                model->removeItem(item);
+                d->model->removeItem(item);
 
-                model->repaint();
+                d->model->repaint();
             }
 
             break;
@@ -1474,9 +1550,11 @@ void SearchFrame::slotHeaderMenu(const QPoint&){
 }
 
 void SearchFrame::slotTimer(){
-    if (dropped == results && dropped == 0){
+    Q_D(SearchFrame);
 
-        if (currentSearch.empty())
+    if (d->dropped == d->results && d->dropped == 0){
+
+        if (d->currentSearch.empty())
             status->hide();
         else {
             status->show();
@@ -1490,7 +1568,7 @@ void SearchFrame::slotTimer(){
         if (!status->isVisible())
             status->show();
 
-        QString text = QString(tr("Found: <b>%1</b>  Dropped: <b>%2</b>")).arg(results).arg(dropped);
+        QString text = QString(tr("Found: <b>%1</b>  Dropped: <b>%2</b>")).arg(d->results).arg(d->dropped);
 
         status->setText(text);
     }
@@ -1498,14 +1576,15 @@ void SearchFrame::slotTimer(){
 
 void SearchFrame::slotToggleSidePanel(){
     QList<int> panes = splitter->sizes();
+    Q_D(SearchFrame);
 
     if (panes[0] < 15){//left pane can't have width less than 15px
-        panes[0] = left_pane_old_size;
-        panes[1] = panes[1]-left_pane_old_size;
+        panes[0] = d->left_pane_old_size;
+        panes[1] = panes[1] - d->left_pane_old_size;
     }
     else {
         panes[1] = panes[0] + panes[1];
-        left_pane_old_size = panes[0];
+        d->left_pane_old_size = panes[0];
         panes[0] = 0;
     }
 
@@ -1513,22 +1592,24 @@ void SearchFrame::slotToggleSidePanel(){
 }
 
 void SearchFrame::slotFilter(){
-    if (frame_FILTER->isVisible()){
-        treeView_RESULTS->setModel(model);
+    Q_D(SearchFrame);
 
-        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+    if (frame_FILTER->isVisible()){
+        treeView_RESULTS->setModel(d->model);
+
+        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), d->proxy, SLOT(setFilterFixedString(QString)));
     }
     else {
-        proxy = (proxy? proxy : (new SearchProxyModel(this)));
-        proxy->setDynamicSortFilter(true);
-        proxy->setFilterFixedString(lineEdit_FILTER->text());
-        proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
-        proxy->setFilterKeyColumn(comboBox_FILTERCOLUMNS->currentIndex());
-        proxy->setSourceModel(model);
+        d->proxy = (d->proxy? d->proxy : (new SearchProxyModel(this)));
+        d->proxy->setDynamicSortFilter(true);
+        d->proxy->setFilterFixedString(lineEdit_FILTER->text());
+        d->proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+        d->proxy->setFilterKeyColumn(comboBox_FILTERCOLUMNS->currentIndex());
+        d->proxy->setSourceModel(d->model);
 
-        treeView_RESULTS->setModel(proxy);
+        treeView_RESULTS->setModel(d->proxy);
 
-        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), d->proxy, SLOT(setFilterFixedString(QString)));
 
         if (!lineEdit_SEARCHSTR->selectedText().isEmpty()){
             lineEdit_FILTER->setText(lineEdit_SEARCHSTR->selectedText());
@@ -1545,8 +1626,10 @@ void SearchFrame::slotFilter(){
 }
 
 void SearchFrame::slotChangeProxyColumn(int col){
-    if (proxy)
-        proxy->setFilterKeyColumn(col);
+    Q_D(SearchFrame);
+
+    if (d->proxy)
+        d->proxy->setFilterKeyColumn(col);
 }
 
 void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
@@ -1555,47 +1638,49 @@ void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
 }
 
 void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) noexcept {
-    if (currentSearch.empty() || aResult == NULL || stop == true)
+    Q_D(SearchFrame);
+
+    if (d->currentSearch.empty() || aResult == NULL || d->stop == true)
         return;
 
-    if (!aResult->getToken().empty() && token != _q(aResult->getToken())){
-        dropped++;
+    if (!aResult->getToken().empty() && d->token != _q(aResult->getToken())){
+        d->dropped++;
 
         return;
     }
 
-    if(isHash) {
-        if(aResult->getType() != SearchResult::TYPE_FILE || TTHValue(Text::fromT(currentSearch[0])) != aResult->getTTH()) {
-            dropped++;
+    if(d->isHash) {
+        if(aResult->getType() != SearchResult::TYPE_FILE || TTHValue(Text::fromT(d->currentSearch[0])) != aResult->getTTH()) {
+            d->dropped++;
 
             return;
         }
     }
     else {
-        for(TStringIter j = currentSearch.begin(); j != currentSearch.end(); ++j) {
+        for(TStringIter j = d->currentSearch.begin(); j != d->currentSearch.end(); ++j) {
             if((*j->begin() != ('-') && Util::findSubString(aResult->getFile(), *j) == tstring::npos) ||
                (*j->begin() == ('-') && j->size() != 1 && Util::findSubString(aResult->getFile(), j->substr(1)) != tstring::npos)
               )
            {
-                    dropped++;
+                    d->dropped++;
 
                     return;
            }
         }
     }
 
-    if (filterShared == Filter && aResult->getType() == SearchResult::TYPE_FILE){
+    if (d->filterShared == Filter && aResult->getType() == SearchResult::TYPE_FILE){
         const TTHValue& t = aResult->getTTH();
 
         if (ShareManager::getInstance()->isTTHShared(t)) {
-            dropped++;
+            d->dropped++;
 
             return;
         }
     }
 
-    if (withFreeSlots && aResult->getFreeSlots() == 0){
-        dropped++;
+    if (d->withFreeSlots && aResult->getFreeSlots() == 0){
+        d->dropped++;
 
         return;
     }
@@ -1622,5 +1707,7 @@ void SearchFrame::on(ClientDisconnected, Client* c) noexcept{
     emit coreClientDisconnected((_q(c->getHubUrl())));
 }
 void SearchFrame::slotStopSearch(){
-    stop = true;
+    Q_D(SearchFrame);
+
+    d->stop = true;
 }
