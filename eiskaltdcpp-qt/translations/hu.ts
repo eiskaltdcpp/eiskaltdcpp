@@ -2282,12 +2282,12 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2610"/>
         <source>&amp;nbsp; (maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&amp;nbsp; (karbantartó és fejlesztő 1.89.0-tól kezdve)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2613"/>
         <source>&amp;nbsp; (maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&amp;nbsp; (karbantartó és fejlesztő 0.40.10-től kezdve)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2616"/>
@@ -4177,7 +4177,7 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../src/TransferView.cpp" line="799"/>
         <source>Uploaded %1 (%2%) </source>
-        <translation>Feltöltve %1 (%2%) </translation>
+        <translation>%1 feltöltve (%2%) </translation>
     </message>
     <message>
         <source> Uploaded %1 (%2%) </source>
@@ -4219,7 +4219,7 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="47"/>
         <source>Flags</source>
-        <translation type="unfinished"/>
+        <translation>Jelzők</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="48"/>
@@ -5389,7 +5389,7 @@ hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsol
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="152"/>
         <source>Don&apos;t allow Hub/UPnP/DHT to override</source>
-        <translation type="unfinished"/>
+        <translation>Ne engedje a hubnak/UPnP-nek/DHT-nek felülírni</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="261"/>

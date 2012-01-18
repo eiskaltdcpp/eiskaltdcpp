@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-01-17 00:24+0200\n"
-"PO-Revision-Date: 2012-01-17 13:12+0000\n"
+"PO-Revision-Date: 2012-01-18 10:18+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -1155,7 +1155,7 @@ msgstr "Tényleg ki akarsz lépni?"
 
 #: ../ui/settingsdialog.ui:1482
 msgid "Don't allow Hub/UPnP/DHT to override"
-msgstr ""
+msgstr "Ne engedje a hubnak/UPnP-nek felülírni"
 
 #: ../src/settingsdialog.cc:1477
 msgid "Don't delete file lists when exiting"
