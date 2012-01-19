@@ -59,7 +59,9 @@ void printHelp()
 
 void printVersion()
 {
-    printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+    printf("%s version: %s (%s)\n", APPNAME, EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+    printf("GTK+ version: %d.%d.%d\n", gtk_major_version, gtk_minor_version, gtk_micro_version);
+    printf("Glib version: %d.%d.%d\n", glib_major_version, glib_minor_version, glib_micro_version);
 }
 
 BaconMessageConnection *connection = NULL;
@@ -127,7 +129,7 @@ int main(int argc, char *argv[])
     dcpp::startup(callBack, NULL);
 
     dcpp::TimerManager::getInstance()->start();
-    
+
     XInitThreads();
     g_thread_init(NULL);
     gdk_threads_init();
