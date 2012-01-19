@@ -299,7 +299,7 @@ bool JsonRpcMethods::MoveQueueItem(const Json::Value& root, Json::Value& respons
     if (isVerbose) std::cout << "MoveQueueItem (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    if (ServerThread::getInstance()->moveQueueItem(root["params"]["target"].asString(), root["params"]["target"].asString()))
+    if (ServerThread::getInstance()->moveQueueItem(root["params"]["source"].asString(), root["params"]["target"].asString()))
         response["result"] = 0;
     else
         response["result"] = 1;
