@@ -1,7 +1,8 @@
 # English translations for work package.
 # Copyright (C) 2010 EiskaltDC++\ team
 # This file is distributed under the same license as the work package.
-#
+# 
+# Translators:
 # Translators:
 # Translators:
 # Translators:
@@ -11,14 +12,13 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-01-17 00:24+0200\n"
-"PO-Revision-Date: 2012-01-11 00:57+0000\n"
+"PO-Revision-Date: 2012-01-19 04:41+0000\n"
 "Last-Translator: Gustavo Alvarez Lopez <sl1pkn07@gmail.com>\n"
-"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/"
-"eiskaltdcpp/team/es/)\n"
-"Language: es\n"
+"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/eiskaltdcpp/team/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
@@ -32,7 +32,7 @@ msgstr " *** Modo Emoticonos Apagado"
 
 #: ../src/hub.cc:1033 ../src/privatemessage.cc:552
 msgid " *** Emoticons not loaded"
-msgstr " *** Emoticonos no Cargados"
+msgstr "  *** Emoticonos no Cargados"
 
 #: ../src/settingsdialog.cc:2342
 msgid " + system icons"
@@ -44,11 +44,11 @@ msgstr " Usuarios"
 
 #: ../src/hub.cc:2754
 msgid " added to favorites list"
-msgstr "  añadido a lista de favoritos"
+msgstr " añadido a lista de favoritos"
 
 #: ../src/search.cc:1847
 msgid " dropped"
-msgstr "  abandonado"
+msgstr " abandonado"
 
 #: ../src/hub.cc:1907
 msgid " empty..."
@@ -194,11 +194,11 @@ msgstr ": introduce /help para ver la lista de comandos disponibles"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Ayuda</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Ayuda</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -210,7 +210,7 @@ msgstr "<b>Opciones de Auto-abandono</b>"
 
 #: ../ui/settingsdialog.ui:4695
 msgid "<b>Auto-open on startup</b>"
-msgstr "<b>Auto-abrir al inicio</b>"
+msgstr "<b>Abrir automáticamente al inicio</b>"
 
 #: ../ui/settingsdialog.ui:3333
 msgid "<b>Auto-priority settings</b>"
@@ -351,8 +351,8 @@ msgstr "<b>archivo:</b> "
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8723
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
 msgstr ""
-"<b>Nota:</b> Editar URL en la lista haciendo clic en ellos una vez cuando se "
-"selecciona"
+"<b>Nota:</b> Editar URL en la lista haciendo clic en ellos una vez cuando se"
+" selecciona"
 
 #: ../ui/settingsdialog.ui:5278
 msgid "<b>Notify</b>"
@@ -663,11 +663,11 @@ msgstr "Audio"
 #: ../src/favoritehubs.cc:127 ../src/favoritehubs.cc:303
 #: ../src/favoritehubs.cc:466 ../src/favoritehubs.cc:468
 msgid "Auto Connect"
-msgstr "Auto-conectar"
+msgstr "Conectar automáticamente"
 
 #: ../ui/favoritehubs.ui:91
 msgid "Auto connect on _startup"
-msgstr "Auto-conectar"
+msgstr "Conectar automáticamente"
 
 #: ../src/favoriteusers.cc:44 ../src/favoriteusers.cc:65
 #: ../src/favoriteusers.cc:108 ../src/favoriteusers.cc:470
@@ -677,17 +677,17 @@ msgstr "Conceder slot automáticamente"
 
 #: ../ui/settingsdialog.ui:7335
 msgid "Auto refresh time"
-msgstr "Tiempo de Auto-refresco"
+msgstr "Tiempo de refresco automático"
 
 #: ../src/settingsdialog.cc:1473
 msgid "Auto-away on minimize (and back on restore)"
-msgstr "Auto-Ausente al minimizar (y volver al restaurar)"
+msgstr "Ausentar al minimizar (y volver al restaurar)"
 
 #: ../src/settingsdialog.cc:951
 msgid "Auto-drop slow sources for all queue items (except filelists)"
 msgstr ""
-"Auto-abandonar fuentes lentas de todos los objetos en cola (excepto listas "
-"de archivos)"
+"Abandonar automáticamente las fuentes lentas de todos los objetos en cola "
+"(excepto listas de archivos)"
 
 #: ../src/settingsdialog.cc:1478
 msgid "Automatically disconnect users who leave the hub"
@@ -699,7 +699,7 @@ msgstr "Seguir automáticamente redirecciones"
 
 #: ../src/settingsdialog.cc:955
 msgid "Automatically match queue for auto search hits"
-msgstr "Igualar automáticamente auto-búsquedas en la cola"
+msgstr "Emparejar automáticamente las búsquedas automáticas en la cola"
 
 #: ../ui/settingsdialog.ui:4160
 msgid "Automatically open extra slot if speed is below (0 = disable)"
@@ -744,7 +744,7 @@ msgstr "Color del fondo"
 
 #: ../src/mainwindow.cc:219
 msgid "Belarusian translation\n"
-msgstr ""
+msgstr "Traducción al Bieloruso\n"
 
 #: ../ui/settingsdialog.ui:7296
 msgid "Bind address"
@@ -785,7 +785,7 @@ msgstr "Explorar..."
 
 #: ../src/mainwindow.cc:241
 msgid "Bulgarian translation\n"
-msgstr ""
+msgstr "Traducción al Búlgaro\n"
 
 #: ../src/settingsdialog.cc:1288
 msgid "Button smile"
@@ -1033,7 +1033,7 @@ msgstr "Manager de conectividad: Atención"
 
 #: ../src/mainwindow.cc:207
 msgid "Contributors\n"
-msgstr ""
+msgstr "Contribuidores\n"
 
 #: ../src/searchspy.cc:55 ../src/searchspy.cc:154 ../src/searchspy.cc:268
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:431
@@ -1046,7 +1046,7 @@ msgstr "País"
 
 #: ../src/mainwindow.cc:247
 msgid "Czech translation\n"
-msgstr ""
+msgstr "Traducción al Checo\n"
 
 #: ../src/mainwindow.cc:185
 #, c-format
@@ -1112,7 +1112,7 @@ msgstr "Directorio de destino"
 
 #: ../src/mainwindow.cc:203
 msgid "Developers\n"
-msgstr ""
+msgstr "Desarrolladores\n"
 
 #: ../src/sharebrowser.cc:103 ../src/sharebrowser.cc:221
 #: ../src/sharebrowser.cc:240 ../src/sharebrowser.cc:573
@@ -1151,9 +1151,8 @@ msgid "Do you really want to exit?"
 msgstr "¿De verdad quiere salir?"
 
 #: ../ui/settingsdialog.ui:1482
-#, fuzzy
 msgid "Don't allow Hub/UPnP/DHT to override"
-msgstr "No permitir anulación Hub/UPnP"
+msgstr "No permitir hub/UPnP para anular"
 
 #: ../src/settingsdialog.cc:1477
 msgid "Don't delete file lists when exiting"
@@ -1624,7 +1623,7 @@ msgstr "Libre "
 
 #: ../src/mainwindow.cc:226
 msgid "French translation\n"
-msgstr ""
+msgstr "Traducción al Francés\n"
 
 #: ../src/downloadqueue.cc:1359
 msgid "Full tree does not match TTH root"
@@ -1644,7 +1643,7 @@ msgstr "Generar certificados"
 
 #: ../src/mainwindow.cc:250
 msgid "German translation\n"
-msgstr ""
+msgstr "Traducción al Alemán\n"
 
 #: ../src/hub.cc:2008 ../src/privatemessage.cc:1023 ../ui/privatemessage.ui:66
 msgid "Get file list"
@@ -1664,7 +1663,7 @@ msgstr "Conceder slot extra"
 
 #: ../src/mainwindow.cc:255
 msgid "Greek translation\n"
-msgstr ""
+msgstr "Traducción al Griego\n"
 
 #: ../ui/search.ui:418
 msgid "Group by"
@@ -1783,7 +1782,7 @@ msgstr "Hubs: "
 
 #: ../src/mainwindow.cc:222
 msgid "Hungarian translation\n"
-msgstr ""
+msgstr "Traducción al Húngaro\n"
 
 #: ../src/transfers.cc:65 ../src/search.cc:95 ../src/search.cc:613
 msgid "IP"
@@ -1878,7 +1877,7 @@ msgstr "ipfilter encendido/apagado"
 
 #: ../src/mainwindow.cc:258
 msgid "Italian translation\n"
-msgstr ""
+msgstr "Traducción al Italiano\n"
 
 #: ../src/downloadqueue.cc:236 ../src/sharebrowser.cc:350
 msgid "Items: "
@@ -2268,14 +2267,15 @@ msgstr "Nota: muchos de estas opciones requieres reiniciar la aplicación"
 #: ../ui/settingsdialog.ui:4021
 msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
-"Nota: ¡Los nuevos archivos serán añadidos a compartir solo cuando hayan sido "
-"hasheados!"
+"Nota: ¡Los nuevos archivos serán añadidos a compartir solo cuando hayan sido"
+" hasheados!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
-"Nota: Téngalo en cuenta, porque de cambiar las velocidades de descarga, esto "
-"no es fiable al 100% ..."
+"Nota: Téngalo en cuenta, porque de cambiar las velocidades de descarga, esto"
+" no es fiable al 100% ..."
 
 #: ../src/settingsdialog.cc:1206 ../ui/settingsdialog.ui:5614
 msgid "Notify"
@@ -2412,7 +2412,7 @@ msgstr "Reproducir"
 
 #: ../src/mainwindow.cc:229
 msgid "Polish translation\n"
-msgstr ""
+msgstr "Traducción al Polaco\n"
 
 #: ../src/settingsdialog.cc:1422
 msgid "Popup box to input password for hubs"
@@ -2618,7 +2618,7 @@ msgstr "Funcionando..."
 
 #: ../src/mainwindow.cc:216
 msgid "Russian translation\n"
-msgstr ""
+msgstr "Traducción al Ruso\n"
 
 #: ../src/WulforUtil.cc:219
 msgid "SJIS"
@@ -2749,7 +2749,7 @@ msgstr "Separador"
 
 #: ../src/mainwindow.cc:235
 msgid "Serbian (Latin) translation\n"
-msgstr ""
+msgstr "Traducción al Servio (Latín)\n"
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
@@ -2764,10 +2764,11 @@ msgid "Set download limit image: "
 msgstr "Configurar descarga imagen limite: "
 
 #: ../src/settingsdialog.cc:950
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
-"Establecer prioridad más baja para los nuevos archivos agregados más grandes "
-"que el tamaño de baja prioridad"
+"Establecer prioridad más baja para los nuevos archivos agregados más grandes"
+" que el tamaño de baja prioridad"
 
 #: ../ui/settingsdialog.ui:4053
 msgid "Share hidden files"
@@ -2901,7 +2902,7 @@ msgstr "Slots"
 
 #: ../src/mainwindow.cc:244
 msgid "Slovak translation\n"
-msgstr ""
+msgstr "Traducción al Eslovaco\n"
 
 #: ../ui/mainwindow.ui:1513
 msgid "Small icons"
@@ -2942,7 +2943,7 @@ msgstr "Fuente muy lenta"
 
 #: ../src/mainwindow.cc:238
 msgid "Spanish translation\n"
-msgstr ""
+msgstr "Traducción al Español\n"
 
 #: ../src/transfers.cc:61 ../src/transfers.cc:557 ../src/transfers.cc:593
 #: ../src/transfers.cc:761 ../src/finishedtransfers.cc:61
@@ -3034,8 +3035,8 @@ msgid ""
 "reduces the dynamics (updating) frame"
 msgstr ""
 "El incremento en el tiempo de espera incrementa el la posibilidad de "
-"añadirlas al principio de la lista, pero reduce el dinamismo (actualización) "
-"del cuadro"
+"añadirlas al principio de la lista, pero reduce el dinamismo (actualización)"
+" del cuadro"
 
 #: ../src/favoritehubs.cc:390
 msgid "The name and address fields are required"
@@ -3087,8 +3088,8 @@ msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
 msgstr ""
-"Para que empiece a descargar el archivo necesita encender la autobusqueda de "
-"alternativas (Opciones/Descargas/Cola)"
+"Para que empiece a descargar el archivo necesita encender la autobusqueda de"
+" alternativas (Opciones/Descargas/Cola)"
 
 #: ../ui/settingsdialog.ui:5915
 msgid "Toolbar"
@@ -3165,7 +3166,7 @@ msgstr "UTF-8"
 
 #: ../src/mainwindow.cc:232
 msgid "Ukrainian translation\n"
-msgstr ""
+msgstr "Traducción al Ucraniano\n"
 
 #: ../src/hub.cc:2950
 msgid "Unable to connect: already connected to the requested hub"
@@ -3178,12 +3179,13 @@ msgstr "No se puede cargar lista de archivos: "
 #: ../src/mainwindow.cc:2019
 msgid "Unable to load file list: Invalid file list name"
 msgstr ""
-"No se puede cargar lista de archivos: Nombre de la lista de archivos invalida"
+"No se puede cargar lista de archivos: Nombre de la lista de archivos "
+"invalida"
 
 #: ../src/mainwindow.cc:2242
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "No se puede habilitar e puerto %1%. La búsqueda y la transferencia de "
@@ -3416,8 +3418,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3426,8 +3427,7 @@ msgstr ""
 "Uso:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ es un programa de plataforma-cruzada (multisistema) que usa los "
-"protocolos Direct Connect y ADC \n"
+"EiskaltDC++ es un programa de plataforma-cruzada (multisistema) que usa los protocolos Direct Connect y ADC \n"
 "\n"
 "Opciones:\n"
 "  -h, --help\t muestra este mensaje\n"
@@ -3907,58 +3907,58 @@ msgstr "espere..."
 #~ " Chris Leick\n"
 #~ " (c.leick@vollbio.de)\n"
 #~ msgstr ""
-#~ "Traductores\n"
+#~ "Translators\n"
 #~ "\n"
-#~ " Traducción al Ruso\n"
+#~ " Russian translation\n"
 #~ "\n"
 #~ " Boris Pek\n"
 #~ " (tehnick-8@mail.ru)\n"
 #~ "\n"
-#~ " Traducción al Bielorruso\n"
+#~ " Belarusian translation\n"
 #~ "\n"
 #~ " Paval Shalamitski aka Klyok\n"
 #~ " (i.kliok@gmail.com)\n"
 #~ "\n"
-#~ " Traducción al Húngaro\n"
+#~ " Hungarian translation\n"
 #~ "\n"
 #~ " Akos Berki aka sumo\n"
 #~ " (husumo@gmail.com)\n"
 #~ "\n"
-#~ " Traducción al Francés\n"
+#~ " French translation\n"
 #~ "\n"
 #~ " Alexandre Wallimann aka Ale\n"
 #~ " (alexandre.wallimann@gmail.com)\n"
 #~ "\n"
-#~ " Traducción al Polaco\n"
+#~ " Polish translation\n"
 #~ "\n"
 #~ " Arahael\n"
 #~ "\n"
-#~ " Traducción al Ucraniano\n"
+#~ " Ukrainian translation\n"
 #~ "\n"
 #~ " Dmytro Demenko\n"
 #~ " (dmytro.demenko@gmail.com)\n"
 #~ "\n"
-#~ " Traducción al Serbio\n"
+#~ " Serbian translation\n"
 #~ "\n"
 #~ " Miroslav Petrovic\n"
 #~ " (miroslav031@gmail.com)\n"
 #~ "\n"
-#~ " Traducción al Español\n"
+#~ " Spanish translation\n"
 #~ "\n"
 #~ " Gustavo Alvarez aka sL1pKn07\n"
 #~ " (sl1pkn07@gmail.com)\n"
 #~ "\n"
-#~ " Traducción al Búlgaro\n"
+#~ " Bulgarian translation\n"
 #~ "\n"
 #~ " Rusi Dimitrov aka PsyTrip\n"
 #~ " (dimitrov.rusi@gmail.com)\n"
 #~ "\n"
-#~ " Traducción al Eslovaco\n"
+#~ " Slovak translation\n"
 #~ "\n"
 #~ " Martin Durisin\n"
 #~ " (martin.durisin@gmail.com)\n"
 #~ "\n"
-#~ " Traducción al Checoslovaco\n"
+#~ " Czech translation\n"
 #~ "\n"
 #~ " Uhlik\n"
 #~ " (uhlikx@seznam.cz)\n"
@@ -3982,3 +3982,5 @@ msgstr "espere..."
 
 #~ msgid "No use temp directory"
 #~ msgstr "Choose a directory"
+
+
