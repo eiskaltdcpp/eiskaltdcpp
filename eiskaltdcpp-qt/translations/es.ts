@@ -3392,7 +3392,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="91"/>
         <source>Serbian (Latin)</source>
-        <translation>Serbio(Latin)</translation>
+        <translation>Serbio (Latin)</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="93"/>
@@ -4170,7 +4170,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferView.cpp" line="772"/>
         <source>Upload starting...</source>
-        <translation>empezando subida...</translation>
+        <translation>Empezando subida...</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="799"/>
@@ -4184,7 +4184,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferView.cpp" line="816"/>
         <source>Upload complete</source>
-        <translation>subida completada</translation>
+        <translation>Subida completada</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="828"/>
@@ -4242,7 +4242,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferViewModel.cpp" line="49"/>
         <source>Encryption</source>
-        <translation>Encriptación</translation>
+        <translation>Cifrado</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="108"/>
@@ -4296,7 +4296,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/UCModel.cpp" line="84"/>
         <source>Command</source>
-        <translation>Comandos</translation>
+        <translation>Comando</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="85"/>
@@ -4502,7 +4502,7 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="14"/>
         <source>Dialog</source>
-        <translation>DialogoDiálogo</translation>
+        <translation>Dialogo</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="29"/>
@@ -4782,7 +4782,7 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="221"/>
         <source>If hub requires password, define it here.</source>
-        <translation>si el Hub requiere contraseña, defínalo aquí.</translation>
+        <translation>Si el Hub requiere contraseña, defínalo aquí.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="241"/>
@@ -4945,7 +4945,7 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/HubFrame.ui" line="95"/>
         <source>Previous (Shift+F3)</source>
-        <translation>anterior (Shift+F3)</translation>
+        <translation>Anterior (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="98"/>
@@ -5018,7 +5018,7 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/UIHubManager.ui" line="48"/>
         <source>Share</source>
-        <translation>Compartdo</translation>
+        <translation>Compartido</translation>
     </message>
 </context>
 <context>
@@ -5031,7 +5031,7 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/UIIPFilter.ui" line="165"/>
         <source>OK</source>
-        <translation>Aceptar</translation>
+        <translation>ACEPTAR</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="158"/>
@@ -5051,12 +5051,12 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/UIIPFilter.ui" line="141"/>
         <source>UP</source>
-        <translation>Subir</translation>
+        <translation>SUBIR</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="148"/>
         <source>DOWN</source>
-        <translation>Bajar</translation>
+        <translation>BAJAR</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="108"/>
@@ -5287,7 +5287,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="100"/>
         <source>OK</source>
-        <translation>Aceptar</translation>
+        <translation>ACEPTAR</translation>
     </message>
 </context>
 <context>
@@ -5382,7 +5382,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Auto detect connection</source>
-        <translation>Detectar automáticamente la conexión</translation>
+        <translation>Detectar  la conexión automáticamente</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="152"/>
@@ -5402,7 +5402,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="297"/>
         <source>SOCKS5</source>
-        <translation>SHOKS5</translation>
+        <translation>SOCKS5</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="332"/>
@@ -5432,7 +5432,7 @@ para que EiskaltDC++ pueda tener acceso a internet.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="373"/>
         <source>Use to resolve hostnames</source>
-        <translation>Utilice los nombres de host</translation>
+        <translation>Usar para resolver los nombres de host</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="427"/>
@@ -5550,7 +5550,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="815"/>
         <source>Type-of-Service (ToS)</source>
-        <translation>Terminos del Servicio (en inglés TOS)</translation>
+        <translation>Terminos del Servicio (en inglés ToS)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="506"/>
@@ -5646,7 +5646,7 @@ El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="623"/>
         <source>hour(s)</source>
-        <translation>Hora(s)</translation>
+        <translation>hora(s)</translation>
     </message>
 </context>
 <context>
@@ -5764,7 +5764,7 @@ El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="440"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation>Chequear cada &quot;X&quot; segundo(s) si la fuente es lenta (por defecto: 10 s)</translation>
+        <translation>Comprobar cada &quot;X&quot; segundo(s) si la fuente es lenta (por defecto: 10 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
@@ -5772,17 +5772,17 @@ El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It's measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation>Esto es otro método de limitar las descargas simultaneas,
+        <translation>Este es otro método de limitar las descargas simultaneas,
 diseñado para prevenir nuevas descargas si sus descargas
-han sobrepasado un umbral especifico. está medida en KiB/s,
-el valor 0 deshabilitará este limite.</translation>
+han sobrepasado un umbral especifico. la medida está  en KiB/s,
+este limite se deshabilitará si el valor es 0.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
         <translation>Este es el limite de descargas simultaneas.
-Al valor 0 significa sin limite.</translation>
+El valor 0 significa sin limite.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="181"/>
@@ -5791,7 +5791,7 @@ the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
         <translation>Este proxy HTTP solo es usado cuando se requiera
 una lista especifica de Hubs públicos
-Esto no se usa para subidas, descargas o conexiones a Hubs.</translation>
+Esto no se usa para las subidas, descargas o conexiones a Hubs.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="293"/>
@@ -6297,15 +6297,15 @@ o &quot;Eliminar listas de archivos lentas&quot; (o las dos a la vez).</translat
         <location filename="../ui/UISettingsGUI.ui" line="457"/>
         <location filename="../ui/UISettingsGUI.ui" line="493"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation>Vista en kibibytes (KiB) o kilobytes (KB), etc.</translation>
+        <translation>Mostrar en kibibytes (KiB) o kilobytes (KB), etc.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="346"/>
         <source>If checked, you'll see emoticons even in the middle of words.
 If unchecked, you'll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation>Si es seleccionado, Verá los emoticonos en el medio de las palabras.
-Si es de-seleccionado, Verá los emorticonos solo cuando estén solos
+        <translation>Si es marcado, Verá los emoticonos en el medio de las palabras.
+Si es desmarcado, Verá los emorticonos solo cuando estén solos
 entre las palabras, separados por espacios.</translation>
     </message>
     <message>
@@ -6333,12 +6333,12 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="365"/>
         <source>Autohide emoticons panel</source>
-        <translation>Autoesconder panel de emoticonos</translation>
+        <translation>Esconde automáticamente el  panel de emoticonos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="460"/>
         <source>Application unit base</source>
-        <translation>Unidad base</translation>
+        <translation>Unidad base de la aplicación</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
@@ -6368,7 +6368,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="555"/>
         <source>Ask</source>
-        <translation>Pregunta</translation>
+        <translation>Pedir</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="560"/>
@@ -6404,7 +6404,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="685"/>
         <source>Show country of users in chat</source>
-        <translation>Mostrar pais de los usuarios en el chat</translation>
+        <translation>Mostrar país de los usuarios en el chat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="713"/>
@@ -6414,12 +6414,12 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="719"/>
         <source>Text colors in chat</source>
-        <translation>Texto de color en el chat</translation>
+        <translation>Color texto del chat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="741"/>
         <source>Highlighting of search results in the chat</source>
-        <translation>Destacar de la búsqueda resultados en el chat</translation>
+        <translation>Resaltado de los resultados de la búsqueda  en el chat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="750"/>
@@ -6436,12 +6436,12 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="799"/>
         <source>Highlighting of already shared files</source>
-        <translation>Destacar si </translation>
+        <translation>Resaltado si los archivos se han compartido </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="854"/>
         <source>Transfer colors</source>
-        <translation>Transferir colores</translation>
+        <translation>Colores de las transferencias</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="877"/>
@@ -6451,7 +6451,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="904"/>
         <source>Reset</source>
-        <translation>Resetear</translation>
+        <translation>Reiniciar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="916"/>
@@ -6506,7 +6506,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="291"/>
         <source>Redirect messages from Bot to the main chat</source>
-        <translation>Re-direccionar mensajes desde el bot al chat principal</translation>
+        <translation>Redireccionar mensajes desde el bot al chat principal</translation>
     </message>
 </context>
 <context>
@@ -6540,7 +6540,7 @@ solo estará disponible para los operadores</translation>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="113"/>
         <source>Number of download directories history elements to store:</source>
-        <translation>Número de elementos del historial de directiries de descarga para almacenar:</translation>
+        <translation>Número de elementos del historial de directorios de descarga para almacenar:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="152"/>
@@ -6629,7 +6629,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsLog.ui" line="209"/>
         <source>Own filelist uploads</source>
-        <translation>Subidas de archivos propios</translation>
+        <translation>Lista de subidas de archivos propios</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="188"/>
@@ -6657,7 +6657,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>
         <source>Ask confirm before exit</source>
-        <translation>Preguntar confirmación antes de salir</translation>
+        <translation>Pedir confirmación antes de salir</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="40"/>
@@ -6685,7 +6685,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="70"/>
         <source>Favorite user join/part</source>
-        <translation>Unión/Salida de usuario favorito</translation>
+        <translation>Entrada/Salida de usuario favorito</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="77"/>
@@ -6695,12 +6695,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="91"/>
         <source>Enable notifications with not active main window</source>
-        <translation>Habilitar notificaciones sin ventana principal activa</translation>
+        <translation>Habilitar notificaciones sin la ventana principal activa</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="98"/>
         <source>Enable notifications with active main window</source>
-        <translation>Habilitar notificaciones con ventana principal activa</translation>
+        <translation>Habilitar notificaciones con la ventana principal activa</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="124"/>
@@ -6842,7 +6842,7 @@ de la rapidez con la fuente que es probable que sean para otros usuarios.</trans
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="199"/>
         <source>Default hub encoding</source>
-        <translation>Codificación por defecto del hub</translation>
+        <translation>Codificación por defecto del Hub</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="186"/>
@@ -6902,7 +6902,7 @@ Nota: esta opcion requiere un refresco de la lista, y puede causar que el client
         <location filename="../ui/UISettingsSharing.ui" line="496"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation>Aquí se ajustará  el limite de velocidad del HASH
+        <translation>Aquí puede ajustar  el limite de velocidad del HASH
 si su sistema se vuelve lento cuando se hashean archivos.</translation>
     </message>
     <message>
@@ -7003,7 +7003,7 @@ si su sistema se vuelve lento cuando se hashean archivos.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="451"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
-        <translation>Tiempo de autorefresco (minutos, 0 = off)</translation>
+        <translation>Tiempo de refresco automático (minutos, 0 = off)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="483"/>
@@ -7023,7 +7023,7 @@ Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
         <translation>Configura el numero de Slots que pueden ser usados por otros usuarios para descargar sus archivos.
 Cada usuario remoto solo puede usar un Slot por Hub al que esté conectado.
-EiskaltDC++ soporta subidas de listas de archivo menores a 64KiB hacia otro usuario del DC++
+EiskaltDC++ soporta subidas de listas de archivo menores de 64KiB hacia otro usuario del DC++
 sin tener que que tener un Slot libre.
 Hay un máximo de 3 conexiones aparte de los Slots normales, estos son llamados &quot;minislots&quot;
 
@@ -7282,7 +7282,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../ui/UIUserCommands.ui" line="146"/>
         <source>Command</source>
-        <translation>Comandos</translation>
+        <translation>Comando</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="153"/>
@@ -7350,7 +7350,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../src/UserListModel.cpp" line="157"/>
         <source>Share</source>
-        <translation>Compartir</translation>
+        <translation>Compartido</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="158"/>
