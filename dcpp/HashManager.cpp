@@ -32,11 +32,12 @@
 #include <setjmp.h>
 #endif
 
+#include <memory>
+
 #ifdef USE_XATTR
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <memory>
 #include "attr/attributes.h"
 #endif
 
@@ -295,9 +296,9 @@ bool HashManager::HashStore::loadTree(File& f, const TreeInfo& ti, const TTHValu
     try {
         f.setPos(ti.getIndex());
         size_t datalen = TigerTree::calcBlocks(ti.getSize(), ti.getBlockSize()) * TTHValue::BYTES;
-        boost::scoped_array<uint8_t> buf(new uint8_t[datalen]);
-        f.read(&buf[0], datalen);
-        tt = TigerTree(ti.getSize(), ti.getBlockSize(), &buf[0]);
+        std::unique_ptr<uint8_t[]> buf(new uint8_t[datalen]);
+        f.read((void*)buf.get(), datalen);
+        tt = TigerTree(ti.getSize(), ti.getBlockSize(), buf.get());
         if (!(tt.getRoot() == root))
             return false;
     } catch (const Exception&) {
