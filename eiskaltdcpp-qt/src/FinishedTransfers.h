@@ -20,8 +20,6 @@
 #include <QHeaderView>
 #include <QUrl>
 
-#include <boost/bind.hpp>
-
 #ifdef USE_QT_SQLITE
 #include <QtSql>
 #endif

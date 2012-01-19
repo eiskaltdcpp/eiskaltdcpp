@@ -15,9 +15,6 @@
 #include <QCloseEvent>
 #include <QDir>
 
-#include <boost/bind.hpp>
-#include <boost/function.hpp>
-
 ShareBrowserSearch::ShareBrowserSearch(FileBrowserModel *model, QWidget *parent): QDialog(parent), searchRoot(NULL) {
     if ( !model )
         throw 0;
@@ -70,8 +67,7 @@ void ShareBrowserSearch::slotStartSearch(){
     setWindowTitle(tr("Search - %1").arg(lineEdit_SEARCHSTR->text()));
 
     AsyncRunner *runner = new AsyncRunner(this);
-    boost::function<void()> f = boost::bind(&ShareBrowserSearch::findMatches, this, searchRoot);
-    runner->setRunFunction(f);
+    runner->setRunFunction([this]() { this->findMatches(this->searchRoot); });
 
     connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
 

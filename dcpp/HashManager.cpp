@@ -81,7 +81,7 @@ static uint64_t getTimeStamp(const string &fname){
        For more information about portable conversion of linux time to windows filetime see
        ntfs-3g_ntfsprogs/include/ntfs-3g/ntfstime.h from NTFS-3G sources. */
     if (::stat(fname.c_str(), &st) == 0)
-        return (uint64_t)st.st_mtime * SIGNIFIC_VALUE + NTFS_TIME_OFFSET;
+        return (uint64_t)st.st_mtime * SIGNIFIC_VALUE + NTFS_TIME_OFFSET + st.st_mtim.tv_nsec/100;
 
     return 0;
 }
@@ -102,14 +102,12 @@ bool HashManager::StreamStore::loadTree(const string& p_filePath, TigerTree &tre
     if (attr_get(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), &blockSize, 0) == 0){
         memcpy(&h, buf.get(), hdrSz);
 
-        printf("%s: timestamps header=0x%llx, current=0x%llx, difference(should be <10M)=%lld\n",
+        printf("%s: timestamps header=0x%llx, current=0x%llx, difference(should be zero)=%lld\n",
                p_filePath.c_str(), h.timeStamp, getTimeStamp(p_filePath), h.timeStamp - getTimeStamp(p_filePath));
 
-        if (!(h.timeStamp - getTimeStamp(p_filePath) < SIGNIFIC_VALUE) || !validateCheckSum(h)){ // File was modified and we should reset attr.
-            deleteStream(p_filePath);                                                            // FlylinkDC++ saves timestamp in windows FILETIME format
-                                                                                                 // which is different from UNIX time format provided by stat.
-                                                                                                 // As linux stat commonly does not provide nanoseconds for modification time
-                                                                                                 // thus difference in 10M should be ignored.
+        if (!(h.timeStamp == getTimeStamp(p_filePath) && validateCheckSum(h))){ // File was modified and we should reset attr.
+            deleteStream(p_filePath);
+
             return false;
         }
 

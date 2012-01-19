@@ -19,9 +19,7 @@
 #include <QtGui>
 #include <QPushButton>
 #include <QWheelEvent>
-
-#include <boost/function.hpp>
-#include <boost/bind.hpp>
+#include <functional>
 
 TabFrame::TabFrame(QWidget *parent) :
     QFrame(parent)
@@ -82,7 +80,10 @@ bool TabFrame::eventFilter(QObject *obj, QEvent *e){
     if (btn && (e->type() == QEvent::Wheel) && w_e){
         int numDegrees = (w_e->delta() < 0)? (-1*w_e->delta()/8) : (w_e->delta()/8);
         int numSteps = numDegrees/15;
-        boost::function<void()> f = (w_e->delta() < 0)? boost::bind(&TabFrame::nextTab, this) : boost::bind(&TabFrame::prevTab, this);
+        std::function<void()> f = [this]() { this->nextTab(); };
+
+        if (w_e->delta() < 0)
+            f = [this]() { this->prevTab(); };
 
         for (int i = 0; i < numSteps; i++)
             f();
