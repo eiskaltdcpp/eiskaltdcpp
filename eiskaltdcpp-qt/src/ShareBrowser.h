@@ -19,8 +19,6 @@
 #include <QCloseEvent>
 #include <QSortFilterProxyModel>
 
-#include <boost/function.hpp>
-
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
 #include "ui_UIShareBrowser.h"
@@ -47,10 +45,10 @@ public:
 
     virtual void run();
 
-    void setRunFunction(const boost::function<void()> &f);
+    void setRunFunction(const std::function<void()> &f);
 
 private:
-    boost::function<void()> runFunc;
+    std::function<void()> runFunc;
 };
 
 class ShareBrowser : public  QWidget,

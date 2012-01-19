@@ -43,8 +43,6 @@
 #include <QInputDialog>
 #include <QDesktopServices>
 
-#include <boost/bind.hpp>
-
 using namespace dcpp;
 
 AsyncRunner::AsyncRunner(QObject *parent): QThread(parent){
@@ -59,7 +57,7 @@ void AsyncRunner::run(){
     runFunc();
 }
 
-void AsyncRunner::setRunFunction(const boost::function<void()> &f){
+void AsyncRunner::setRunFunction(const std::function<void()> &f){
     runFunc = f;
 }
 
@@ -222,9 +220,8 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
     connect(this, SIGNAL(die(QString)), this, SLOT(slotDie(QString)), Qt::QueuedConnection);
     
     AsyncRunner *runner = new AsyncRunner(this);
-    boost::function<void()> f = boost::bind(&ShareBrowser::buildList, this);
 
-    runner->setRunFunction(f);
+    runner->setRunFunction([this]() { this->buildList(); });
     connect(runner, SIGNAL(finished()), this, SLOT(init()), Qt::QueuedConnection);
     connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()), Qt::QueuedConnection);
 

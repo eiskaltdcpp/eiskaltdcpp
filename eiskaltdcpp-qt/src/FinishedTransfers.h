@@ -210,9 +210,8 @@ private:
         FinishedManager::getInstance()->unlockLists();
 
         AsyncRunner *runner = new AsyncRunner(this);
-        boost::function<void()> f = boost::bind(&FinishedTransfers<isUpload>::loadListFromDB, this);
 
-        runner->setRunFunction(f);
+        runner->setRunFunction([this]() { this->loadListFromDB(); });
         connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
 
         runner->start();
