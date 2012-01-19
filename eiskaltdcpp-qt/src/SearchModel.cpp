@@ -395,6 +395,8 @@ bool SearchModel::addResult
         tths.insert(tth, item);
     else {
         if (sortColumn == COLUMN_SF_COUNT){
+            parent->appendChild(item);
+
             sort(sortColumn, sortOrder);
 
             return true;
