@@ -36,6 +36,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <memory>
 #include "attr/attributes.h"
 #endif
 
@@ -45,40 +46,6 @@ namespace dcpp {
 static const uint32_t HASH_FILE_VERSION = 2;
 const int64_t HashManager::MIN_BLOCK_SIZE = 64 * 1024;
 const string HashManager::StreamStore::g_streamName(".gltth");
-
-namespace {
-    template<typename T>
-    class AutoArray
-    {
-            typedef T* TPtr;
-        public:
-            explicit AutoArray(TPtr t) : p(t) { }
-            explicit AutoArray(size_t size) : p(new T[size]) { }
-            ~AutoArray()
-            {
-                delete[] p;
-            }
-            operator TPtr()
-            {
-                return p;
-            }
-            TPtr get()
-            {
-                return p;
-            }
-            AutoArray& operator=(TPtr t)
-            {
-                delete[] p;
-                p = t;
-                return *this;
-            }
-        private:
-            AutoArray(const AutoArray&);
-            AutoArray& operator=(const AutoArray&);
-
-            TPtr p;
-    };
-}
 
 inline void HashManager::StreamStore::setCheckSum(TTHStreamHeader& p_header) {
     p_header.magic = g_MAGIC;
@@ -103,15 +70,22 @@ inline bool HashManager::StreamStore::validateCheckSum(const TTHStreamHeader& p_
 }
 
 #ifdef USE_XATTR
+static const uint64_t SIGNIFIC_VALUE    = 10000000;
+static const uint64_t NTFS_TIME_OFFSET  = ((uint64_t)(369 * 365 + 89) * 24 * 3600 * SIGNIFIC_VALUE);
+
 static uint64_t getTimeStamp(const string &fname){
     struct stat st;
 
+    /* WARNING: this is not completly portable conversion!
+       For more information about portable conversion of linux time to windows filetime see
+       ntfs-3g_ntfsprogs/include/ntfs-3g/ntfstime.h from NTFS-3G sources. */
     if (::stat(fname.c_str(), &st) == 0)
-        return (uint64_t)st.st_mtime;
+        return (uint64_t)st.st_mtime * SIGNIFIC_VALUE + NTFS_TIME_OFFSET;
 
     return 0;
 }
-#endif
+
+#endif // USE_XATTR
 
 bool HashManager::StreamStore::loadTree(const string& p_filePath, TigerTree &tree, int64_t p_aFileSize)
 {
@@ -122,23 +96,28 @@ bool HashManager::StreamStore::loadTree(const string& p_filePath, TigerTree &tre
     int blockSize           = totalSz;
     TTHStreamHeader h;
 
-    AutoArray<uint8_t> buf(totalSz);
+    std::unique_ptr<uint8_t[]> buf(new uint8_t[totalSz]);
 
-    if (attr_get(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf, &blockSize, 0) == 0){
-        memcpy(&h, buf, hdrSz);
+    if (attr_get(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), &blockSize, 0) == 0){
+        memcpy(&h, buf.get(), hdrSz);
 
-        if ( /* h.timeStamp != getTimeStamp(p_filePath) || */ !validateCheckSum(h)){ // File was modified and we should reset attr.
-            deleteStream(p_filePath);                                                // I'm not sure that FlylinkDC++ saves timestamp
-                                                                                     // in UNIX time format so this check need testing.
+        printf("%s: timestamps header=0x%llx, current=0x%llx, difference(should be <10M)=%lld\n",
+               p_filePath.c_str(), h.timeStamp, getTimeStamp(p_filePath), h.timeStamp - getTimeStamp(p_filePath));
+
+        if (!(h.timeStamp - getTimeStamp(p_filePath) < SIGNIFIC_VALUE) || !validateCheckSum(h)){ // File was modified and we should reset attr.
+            deleteStream(p_filePath);                                                            // FlylinkDC++ saves timestamp in windows FILETIME format
+                                                                                                 // which is different from UNIX time format provided by stat.
+                                                                                                 // As linux stat commonly does not provide nanoseconds for modification time
+                                                                                                 // thus difference in 10M should be ignored.
             return false;
         }
 
-        size_t datalen = blockSize - hdrSz;
-        AutoArray<uint8_t> tail(datalen);
+        const size_t datalen = blockSize - hdrSz;
+        std::unique_ptr<uint8_t[]> tail(new uint8_t[datalen]);
 
-        memcpy(tail, (uint8_t*)buf + hdrSz, datalen);
+        memcpy(tail.get(), (uint8_t*)buf.get() + hdrSz, datalen);
 
-        TigerTree p_Tree = TigerTree(fileSize, h.blockSize, tail);
+        TigerTree p_Tree = TigerTree(fileSize, h.blockSize, tail.get());
 
         if (p_Tree.getRoot() == h.root){
             tree = p_Tree;
@@ -165,12 +144,12 @@ bool HashManager::StreamStore::saveTree(const string& p_filePath, const TigerTre
     setCheckSum(h);
     {
         const size_t sz = sizeof(TTHStreamHeader) + p_Tree.getLeaves().size() * TTHValue::BYTES;
-        AutoArray<uint8_t> buf(sz);
+        std::unique_ptr<uint8_t[]> buf(new uint8_t[sz]);
 
-        memcpy(buf, &h, sizeof(TTHStreamHeader));
-        memcpy(buf + sizeof(TTHStreamHeader), p_Tree.getLeaves()[0].data, p_Tree.getLeaves().size() * TTHValue::BYTES);
+        memcpy(buf.get(), &h, sizeof(TTHStreamHeader));
+        memcpy(buf.get() + sizeof(TTHStreamHeader), p_Tree.getLeaves()[0].data, p_Tree.getLeaves().size() * TTHValue::BYTES);
 
-        return (attr_set(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf, sz, 0) == 0);
+        return (attr_set(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), sz, 0) == 0);
     }
 #endif //USE_XATTR
     return false;
