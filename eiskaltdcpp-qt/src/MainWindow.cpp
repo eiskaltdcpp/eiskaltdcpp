@@ -2234,19 +2234,49 @@ void MainWindow::slotToolsJS(){
 #endif
 }
 
+#ifdef USE_JS
+namespace {
+    enum class ScriptChangedAction: int {
+        DoNothing=0,
+        AskUser,
+        ReloadIt
+    };
+}
+#endif
+
 void MainWindow::slotJSFileChanged(const QString &script){
 #ifdef USE_JS
-    if (!isVisible()){
-        show();
-        
-        raise();
-    }
-    
-    if (QMessageBox::warning(this, 
-                             tr("Script Engine"), 
-                             QString("\'%1\' has been changed. Reload it?").arg(script), 
-                             QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
+    enum ScriptChangedAction act = (enum ScriptChangedAction)WIGET("scriptmanager/script-changed-action", 0);
+    bool ask = false;
+
+    switch (act){
+    case ScriptChangedAction::DoNothing:
+        break;
+    case ScriptChangedAction::AskUser:
+        ask = true;
+    case ScriptChangedAction::ReloadIt:
+    {
+        auto raiseMe = [this]() -> bool {
+            if (!this->isVisible()){
+                this->show();
+                this->raise();
+            }
+
+            return true;
+        };
+
+        if (ask && raiseMe() && (QMessageBox::warning(this,
+                                                      tr("Script Engine"),
+                                                      QString("\'%1\' has been changed. Reload it?").arg(script),
+                                                      QMessageBox::Yes, QMessageBox::No) != QMessageBox::Yes))
+            break;
+
+
         ScriptEngine::getInstance()->loadScript(script);
+
+        break;
+    }
+    }
 #endif
 }
 
