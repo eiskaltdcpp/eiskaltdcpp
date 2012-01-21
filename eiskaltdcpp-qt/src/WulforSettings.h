@@ -217,18 +217,18 @@ private:
     QTranslator qtTranslator;
 };
 
-inline QString WSGET(const QString &key, const QString &default_value = ""){ return WulforSettings::getInstance()->getStr(key, default_value); }
-inline void WSSET(const QString &key, const QString &value) { WulforSettings::getInstance()->setStr(key, value); }
+static const auto WSGET = [](const QString &key, const QString &default_value = "") -> QString { return WulforSettings::getInstance()->getStr(key, default_value); };
+static const auto WSSET = [](const QString &key, const QString &value) { WulforSettings::getInstance()->setStr(key, value); };
 
-inline int WIGET(const QString &key, const int &default_value = -1){ return WulforSettings::getInstance()->getInt(key, default_value);}
-inline void WISET(const QString &key, const int &value){ WulforSettings::getInstance()->setInt(key, value); }
+static const auto WIGET = [](const QString &key, const int &default_value = -1) -> int { return WulforSettings::getInstance()->getInt(key, default_value); };
+static const auto WISET = [](const QString &key, const int &value) { WulforSettings::getInstance()->setInt(key, value); };
 
-inline bool WBGET(const QString &key, const bool &default_value = false) { return WulforSettings::getInstance()->getBool(key, default_value);}
-inline void WBSET(const QString &key, const bool &value){ WulforSettings::getInstance()->setBool(key, value); }
+static const auto WBGET = [](const QString &key, const bool &default_value = false) -> bool { return WulforSettings::getInstance()->getBool(key, default_value); };
+static const auto WBSET = [](const QString &key, const bool &value){ WulforSettings::getInstance()->setBool(key, value); };
 
-inline QVariant WVGET(const QString &key, const QVariant &default_value = QVariant()) { return WulforSettings::getInstance()->getVar(key, default_value);}
-inline void WVSET(const QString &key, const QVariant &value){ WulforSettings::getInstance()->setVar(key, value); }
+static const auto WVGET = [](const QString &key, const QVariant &default_value = QVariant()) -> QVariant { return WulforSettings::getInstance()->getVar(key, default_value); };
+static const auto WVSET = [](const QString &key, const QVariant &value){ WulforSettings::getInstance()->setVar(key, value); };
 
-inline void WSCMD(const QString &cmd){ WulforSettings::getInstance()->parseCmd(cmd); }
+static const auto WSCMD = [](const QString &cmd){ WulforSettings::getInstance()->parseCmd(cmd); };
 
 #endif // WULFORSETTINGS_H
