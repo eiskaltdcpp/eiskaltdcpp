@@ -2,35 +2,50 @@ API Layers:
 -----------------------
 УПРАВЛЕНИЕ ПОТОКАМИ (ОЧЕРЕДЬЮ) СКАЧИВАНИЯ/ЗАКАЧИВАНИЯ
 	(wip) Просмотр очереди (queue.list)
+		Args: none
+		Return: @queue list {all targets with all params}@ (string)
 	(wip) Просмотр всех элементов очереди (queue.listtargets)
-	(wip) Move queue item from source to target (queue.move, требует пояснения зачем это)
+		Args: separator (string)
+		Return: @all targets in queue@ (string)
+	(wip) Modify target arg for queue item (queue.move, требует пояснения зачем это)
+		Args: source (string), target (string)
+		Return: 0 | 1 (integer)
 	(wip) Удаление элемента очереди (queue.remove)
-	(+) Постановка в очередь магнета (magne.add)
+		Args: target (string)
+		Return: 0 | 1 (integer)
+	(+) Постановка в очередь магнета (magnet.add)
+		Args: magnet (string)
+		Return: 0 | 1 (integer)
 	Просмотр конкретного элемента очереди
 	Установка приоритета элемента очереди
-	Старт/стоп элемента очереди
+		Args: target (string), priority (integer; 0-PAUSED, 1-LOWEST, 2-LOW, 3-NORMAL, 4-HIGH, 5-HIGHEST)
+		Return: 0 | 1 (integer)
+	Старт/стоп элемента очереди (при наличии ОЧЕРЕДЬ::Установка приоритета элемента очереди - оно надо?)
 	Список источников для конкретного элемента очереди
 	Добавление источника к элементу очереди.
 	Удаление источника для элемента очереди.
+	Добавление элемента очереди.
 -----------------------
 РАБОТА С ФАЙЛЛИСТАМИ
-	Скачивание файллиста
+	Скачивание файллиста (list.download)
+		Args: huburl (string), nick (string)
+		Return: 0 | 1 (integer)
 	Просмотр файллиста
-	Постановка файла из файллиста в очередь с указанием директории назначения
-	Постановка директории из файллиста в очередь с указанием директории назначения
+	Постановка файла из файллиста в очередь с указанием директории назначения (и снова ОЧЕРЕДЬ::Добавление элемента очереди)
+	Постановка директории из файллиста в очередь с указанием директории назначения (опять же ОЧЕРЕДЬ::Добавление элемента очереди)
 -----------------------
 УПРАВЛЕНИЕ ШАРОЙ
 	(+) Добавление (share.add)
-		Args: directory(string), virtual name (string)
+		Args: directory (string), virtual name (string)
 		Return: 0 | 1 (integer)
 	(+) Удаление (share.del)
 		Args: virtual name of directory (string)
 		Return: 0 | 1 (integer)
 	(+) Переименование (share.rename)
-		Args: directory(string), virtual name (string)
+		Args: directory (string), virtual name (string)
 		Return: { 0 | 1 (integer) } || {ShareException? (string)}
 	(+) Листинг (share.list)
-		Args: separator(string)
+		Args: separator (string)
 		Return: @list of shared directoriess in string with separator@ (string)
 	(+) Обновлние (share.refresh)
 		Args : none
@@ -39,10 +54,10 @@ API Layers:
 -----------------------
 УПРАВЛЕНИЕ ХАБАМИ
 	(+) Добавление (hub.add)
-		Args: directory(string), virtual name (string)
-		Return: 0 | 1 (integer) 
+		Args: huburl (string), enc (string)
+		Return: 0 | 1 (integer)
 	(+) Удаление (hub.del)
-		Args: Huburl(string)
+		Args: huburl (string)
 		Return: 0 | 1 (integer)
 	(+) Листинг (hub.list)
 		Args: separator (string)
@@ -61,20 +76,20 @@ API Layers:
 -----------------------
 ПОИСК
 	(wip) Инициация поиска (search.send)
-		Args: search string(string), seatchtype (int), sizemode (int), sizetype(int), size (double), huburls (string, separator=";")
+		Args: searchstring (string), seatchtype (int), sizemode (int), sizetype (int), size (double), huburls (string, separator=";")
 		Return: 0 | 1 (integer)
 	(wip) Просмотр результатов поиска (search.getresults, нужна нумерация для постановки в очередь)
-		Args: huburl(string)
+		Args: huburl (string)
 		Return: @search results@ (array of map)
 	(wip) Очистить полученные результаты для указанного хаба/все. (search.clear)
 		Args: huburl (string)
 		Return: 0 | 1 (integer)
-	Останов поиска
-	Постановка результатов поиска в очередь
+	Останов поиска (прекращение добавления результатов?)
+	Постановка результатов поиска в очередь (ОЧЕРЕДЬ::Добавление элемента очереди vs ПОИСК::Постановка результатов поиска в очередь)
 -----------------------
 СТАТИСТИКА
 	(+) Версия (show.version)
-    		Args: none
+		Args: none
 		Return: @version@ (string)
 	(+) Байт принято/отдано (show.ratio)
 		Args: none
@@ -88,6 +103,8 @@ IPFILTER
 -----------------------
 УПРАВЛЕНИЕ ДЕМОНОМ
 	(+) Стоп демона (daemon.stop)
+		Args: none
+		Return: 0 | 1 (integer)
 
 
 Пожелания:
