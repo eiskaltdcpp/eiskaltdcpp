@@ -150,12 +150,8 @@ void PublicHubs::slotContextMenu(){
     if (indexes.isEmpty())
         return;
 
-    if (proxy){
-        QModelIndexList list;
-        foreach (const QModelIndex &i, indexes)
-            list.push_back(proxy->mapToSource(i));
-        indexes = list;
-    }
+    if (proxy)
+        std::transform(indexes.begin(), indexes.end(), indexes.begin(), [&proxy](QModelIndex i) { return proxy->mapToSource(i); });
 
     WulforUtil *WU = WulforUtil::getInstance();
 

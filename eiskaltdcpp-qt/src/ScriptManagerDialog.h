@@ -27,6 +27,9 @@ public:
     explicit ScriptManagerDialog(QWidget *parent = 0);
     virtual ~ScriptManagerDialog();
 
+private Q_SLOTS:
+    void slotSetChangedAction(int index);
+
 private:
     ScriptManagerModel *model;
 };

@@ -32,14 +32,21 @@ ScriptManagerDialog::ScriptManagerDialog(QWidget *parent) :
 
     model = new ScriptManagerModel(NULL);
     connect(this, SIGNAL(accepted()), model, SLOT(save()));
+    connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotSetChangedAction(int)));
 
     treeView->setModel(model);
+
+    comboBox->setCurrentIndex(WIGET("scriptmanager/script-changed-action", 0));
 
     setWindowTitle(tr("Script Manager"));
 }
 
 ScriptManagerDialog::~ScriptManagerDialog(){
     delete model;
+}
+
+void ScriptManagerDialog::slotSetChangedAction(int index){
+    WISET("scriptmanager/script-changed-action", index);
 }
 
 ScriptManagerModel::ScriptManagerModel(QObject * parent) : QAbstractItemModel(parent) {

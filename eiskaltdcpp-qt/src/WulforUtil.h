@@ -39,20 +39,8 @@
 
 using namespace dcpp;
 
-#ifndef GCC_VERSION
-#define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100  + __GNUC_PATCHLEVEL__)
-#endif
-
-#if  GCC_VERSION >= 40500
-    static const auto _q = [](const std::string &s) { return QString::fromStdString(s); };
-    static const auto _tq = [](const QString &s) { return s.toStdString(); };
-#else
-    inline QString _q (const std::string &s) __attribute__((always_inline));
-    inline std::string _tq(const QString &s) __attribute__((always_inline));
-
-    inline QString _q (const std::string &s) { return QString::fromStdString(s); }
-    inline std::string _tq(const QString &s) { return s.toStdString(); }
-#endif // GCC_VERSION >= 40500
+static const auto _q = [](const std::string &s) { return QString::fromStdString(s); };
+static const auto _tq = [](const QString &s) { return s.toStdString(); };
 
 typedef QMap<QString, QVariant> VarMap;
 
