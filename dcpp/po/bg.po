@@ -1,22 +1,20 @@
-# English translations for work package.
-# Copyright (C) 2010 EiskaltDC++\ team
-# This file is distributed under the same license as the work package.
-#
-# Translators:
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR EiskaltDC++ team
+# This file is distributed under the same license as the PACKAGE package.
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-12-27 23:16+0200\n"
-"PO-Revision-Date: 2011-12-27 15:45+0000\n"
+"POT-Creation-Date: 2012-01-22 23:38+0200\n"
+"PO-Revision-Date: 2012-01-22 21:56+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Bulgarian (http://www.transifex.net/projects/p/eiskaltdcpp/"
-"team/bg/)\n"
-"Language: bg\n"
+"Language-Team: Bulgarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -100,7 +98,8 @@ msgstr "Определяне на най-добрите настройки за 
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 "Не може да отвори %1% порт(а); трябва да конфигурирате ръчно настройките за "
 "свързване"
@@ -304,46 +303,46 @@ msgstr "Грешка при компресиране"
 msgid "Error during decompression"
 msgstr "Грешка при декомпресиране"
 
-#: ../HashManager.cpp:88 ../HashManager.cpp:288
+#: ../HashManager.cpp:218 ../HashManager.cpp:418
 msgid "Hashing failed: %1%"
 msgstr "Търсенето е отново позволено"
 
-#: ../HashManager.cpp:95
+#: ../HashManager.cpp:225
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Завършено хеширане: %1% (%2% с %3%/s)"
 
-#: ../HashManager.cpp:98
+#: ../HashManager.cpp:228
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Завършено хеширане: %1% (%2%)"
 
-#: ../HashManager.cpp:101
+#: ../HashManager.cpp:231
 msgid "Finished hashing: %1%"
 msgstr "Завършено хеширане: %1%"
 
-#: ../HashManager.cpp:130 ../HashManager.cpp:344
+#: ../HashManager.cpp:260 ../HashManager.cpp:474
 msgid "Error saving hash data: %1%"
 msgstr "Грешка при четене на хеш файла"
 
-#: ../HashManager.cpp:143
+#: ../HashManager.cpp:273
 msgid "Unable to read hash data file"
 msgstr "Грешка при четене на хеш файла"
 
-#: ../HashManager.cpp:476
+#: ../HashManager.cpp:606
 msgid "Error creating hash data file: %1%"
 msgstr "Грешка при четене на хеш файла"
 
-#: ../HashManager.cpp:806
+#: ../HashManager.cpp:946
 msgid "Hash database rebuilt"
 msgstr "Базата-данни с хешове е построена наново"
 
-#: ../HashManager.cpp:900
+#: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% не е споделен; изчислената CRC32 сума не съвпада с намерената в SFV "
 "файла."
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
 msgstr "Грешка при хеширане %1%: %2%"
 
@@ -430,7 +429,8 @@ msgstr "Потребителя е избрал да не се споделя: %1
 
 #: ../ShareManager.cpp:681
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr "Потребителя е избрал да не се споделя временен файл: %1% (размер: %2%)"
+msgstr ""
+"Потребителя е избрал да не се споделя временен файл: %1% (размер: %2%)"
 
 #: ../ShareManager.cpp:769
 msgid ""
@@ -442,8 +442,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "В момента тече опресняване на списъка с файловете, моля изчакайте преди да "
 "опитате да обновите отново"
@@ -707,5 +707,4 @@ msgstr "Записани са повече байтове от заявения 
 msgid "TTH inconsistency"
 msgstr "ТТH несъвпадение"
 
-#~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Request to seek beyond the end of data"
+

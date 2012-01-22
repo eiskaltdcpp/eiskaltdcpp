@@ -1,21 +1,20 @@
-# English translations for work package.
-# Copyright (C) 2010 EiskaltDC++\ team
-# This file is distributed under the same license as the work package.
-#
-# Translators:
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR EiskaltDC++ team
+# This file is distributed under the same license as the PACKAGE package.
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-12-27 23:16+0200\n"
-"PO-Revision-Date: 2011-12-27 15:40+0000\n"
+"POT-Creation-Date: 2012-01-22 23:38+0200\n"
+"PO-Revision-Date: 2012-01-22 21:56+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: none\n"
-"Language: en\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -87,7 +86,7 @@ msgstr "Unable to create thread"
 
 #: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
 msgid "Invalid data"
-msgstr "Invalid size"
+msgstr "Invalid data"
 
 #: ../UserConnection.cpp:58
 msgid "Non-UTF-8 data in an ADC connection"
@@ -99,9 +98,11 @@ msgstr "Determining the best connectivity settings..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -139,11 +140,11 @@ msgstr "DHT (UDP)"
 
 #: ../ConnectivityManager.cpp:167
 msgid "Connectivity: "
-msgstr "Connectivity restored"
+msgstr "Connectivity: "
 
 #: ../UploadManager.cpp:132
 msgid "Connection already exists."
-msgstr "Connection closed"
+msgstr "Connection already exists."
 
 #: ../UploadManager.cpp:267
 msgid "Unable to send file %1%: %2%"
@@ -302,51 +303,51 @@ msgstr "Error during compression"
 msgid "Error during decompression"
 msgstr "Error during decompression"
 
-#: ../HashManager.cpp:88 ../HashManager.cpp:288
+#: ../HashManager.cpp:218 ../HashManager.cpp:418
 msgid "Hashing failed: %1%"
-msgstr "Search enabled again"
+msgstr "Hashing failed: %1%"
 
-#: ../HashManager.cpp:95
+#: ../HashManager.cpp:225
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Finished hashing: %1% (%2% at %3%/s)"
 
-#: ../HashManager.cpp:98
+#: ../HashManager.cpp:228
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Finished hashing: %1% (%2%)"
 
-#: ../HashManager.cpp:101
+#: ../HashManager.cpp:231
 msgid "Finished hashing: %1%"
 msgstr "Finished hashing: %1%"
 
-#: ../HashManager.cpp:130 ../HashManager.cpp:344
+#: ../HashManager.cpp:260 ../HashManager.cpp:474
 msgid "Error saving hash data: %1%"
-msgstr "Unable to read hash data file"
+msgstr "Error saving hash data: %1%"
 
-#: ../HashManager.cpp:143
+#: ../HashManager.cpp:273
 msgid "Unable to read hash data file"
 msgstr "Unable to read hash data file"
 
-#: ../HashManager.cpp:476
+#: ../HashManager.cpp:606
 msgid "Error creating hash data file: %1%"
-msgstr "Unable to read hash data file"
+msgstr "Error creating hash data file: %1%"
 
-#: ../HashManager.cpp:806
+#: ../HashManager.cpp:946
 msgid "Hash database rebuilt"
 msgstr "Hash database rebuilt"
 
-#: ../HashManager.cpp:900
+#: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
 msgstr "Error hashing %1%: %2%"
 
 #: ../UPnPManager.cpp:45
 msgid "No UPnP implementation available"
-msgstr "File not available"
+msgstr "No UPnP implementation available"
 
 #: ../UPnPManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
@@ -354,7 +355,7 @@ msgstr "Another UPnP port mapping attempt is in progress..."
 
 #: ../UPnPManager.cpp:82
 msgid "Failed to initialize the %1% interface"
-msgstr "File list refresh initiated"
+msgstr "Failed to initialize the %1% interface"
 
 #: ../UPnPManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
@@ -391,15 +392,15 @@ msgstr "Failed to get external IP"
 
 #: ../UPnPManager.cpp:129
 msgid "Failed to create port mappings"
-msgstr "Unable to create thread"
+msgstr "Failed to create port mappings"
 
 #: ../UPnPManager.cpp:138
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr "File list refresh initiated"
+msgstr "Successfully removed port mappings with the %1% interface"
 
 #: ../UPnPManager.cpp:139
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "File list refresh initiated"
+msgstr "Failed to remove port mappings with the %1% interface"
 
 #: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
@@ -411,7 +412,7 @@ msgstr "No directory specified"
 
 #: ../ShareManager.cpp:450
 msgid "Directory is hidden"
-msgstr "Directory already shared"
+msgstr "Directory is hidden"
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
@@ -439,15 +440,15 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 
 #: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
-msgstr "File list refresh finished"
+msgstr "File list refresh failed: %1%"
 
 #: ../ShareManager.cpp:834
 msgid "File list refresh initiated"
@@ -459,7 +460,7 @@ msgstr "File list refresh finished"
 
 #: ../ShareManager.cpp:941
 msgid "File list %1% generated"
-msgstr "File list refresh initiated"
+msgstr "File list %1% generated"
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -507,7 +508,7 @@ msgstr "Generated new TLS certificate"
 
 #: ../CryptoManager.cpp:222
 msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "TLS disabled, no certificate file set"
+msgstr "TLS disabled, failed to generate certificate: %1%"
 
 #: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
 #: ../CryptoManager.cpp:240
@@ -549,7 +550,7 @@ msgstr "No slots available"
 
 #: ../DownloadManager.cpp:496
 msgid "%1%: File not available"
-msgstr "File not available"
+msgstr "%1%: File not available"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -561,7 +562,7 @@ msgstr "Connectivity restored"
 
 #: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
-msgstr "Connectivity restored"
+msgstr "Connectivity error: %1%"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -609,7 +610,7 @@ msgstr "Search enabled again"
 
 #: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
-msgstr "Search enabled again"
+msgstr "Search disabled: %1%"
 
 #: ../QueueManager.cpp:243
 msgid "No needed part"
@@ -641,11 +642,11 @@ msgstr "You're trying to download from yourself!"
 
 #: ../QueueManager.cpp:802
 msgid "A file with a different TTH root already exists in the queue"
-msgstr "A file with different tth root already exists in the queue"
+msgstr "A file with a different TTH root already exists in the queue"
 
 #: ../QueueManager.cpp:806
 msgid "This file has already finished downloading"
-msgstr "This file is already queued"
+msgstr "This file has already finished downloading"
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
@@ -661,7 +662,7 @@ msgstr ""
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
-msgstr "A file of equal or larger size already exists at the target location"
+msgstr "File already exists at the target location"
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
@@ -703,5 +704,4 @@ msgstr "More bytes written than requested"
 msgid "TTH inconsistency"
 msgstr "TTH inconsistency"
 
-#~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Request to seek beyond the end of data"
+

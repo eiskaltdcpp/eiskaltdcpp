@@ -454,22 +454,6 @@ Keys:
         <translation>TTH</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="171"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="188"/>
-        <source>No errors</source>
-        <translation>Bez grešaka</translation>
-    </message>
-    <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="190"/>
-        <source>&lt;b&gt;Added: &lt;/b&gt; %1
-&lt;b&gt;Path: &lt;/b&gt; %2
-&lt;b&gt;Errors: &lt;/b&gt; %3
-</source>
-        <translation>&lt;b&gt;Dodato: &lt;/b&gt; %1
-&lt;b&gt;Putanja: &lt;/b&gt; %2
-&lt;b&gt;Greške: &lt;/b&gt; %3</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="135"/>
         <source>Paused</source>
         <translation>Pauzirano</translation>
@@ -498,6 +482,22 @@ Keys:
         <location filename="../src/DownloadQueueModel.cpp" line="150"/>
         <source>Normal</source>
         <translation>Normalan</translation>
+    </message>
+    <message>
+        <location filename="../src/DownloadQueueModel.cpp" line="171"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="188"/>
+        <source>No errors</source>
+        <translation>Bez grešaka</translation>
+    </message>
+    <message>
+        <location filename="../src/DownloadQueueModel.cpp" line="190"/>
+        <source>&lt;b&gt;Added: &lt;/b&gt; %1
+&lt;b&gt;Path: &lt;/b&gt; %2
+&lt;b&gt;Errors: &lt;/b&gt; %3
+</source>
+        <translation>&lt;b&gt;Dodato: &lt;/b&gt; %1
+&lt;b&gt;Putanja: &lt;/b&gt; %2
+&lt;b&gt;Greške: &lt;/b&gt; %3</translation>
     </message>
 </context>
 <context>
@@ -648,6 +648,21 @@ Keys:
 <context>
     <name>FileBrowserModel</name>
     <message>
+        <location filename="../src/FileBrowserModel.cpp" line="103"/>
+        <source>%1 [%2 Gb]</source>
+        <translation>%1 [%2 Gb]</translation>
+    </message>
+    <message>
+        <location filename="../src/FileBrowserModel.cpp" line="167"/>
+        <source>File marked as a duplicate of another file: %1</source>
+        <translation>Fajl označen kao duplikat drugog fajla: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/FileBrowserModel.cpp" line="199"/>
+        <source>File already exists: %1</source>
+        <translation>Fajl već postoji: %1</translation>
+    </message>
+    <message>
         <location filename="../src/FileBrowserModel.cpp" line="295"/>
         <source>Name</source>
         <translation>Ime</translation>
@@ -666,21 +681,6 @@ Keys:
         <location filename="../src/FileBrowserModel.cpp" line="295"/>
         <source>TTH</source>
         <translation>TTH</translation>
-    </message>
-    <message>
-        <location filename="../src/FileBrowserModel.cpp" line="103"/>
-        <source>%1 [%2 Gb]</source>
-        <translation>%1 [%2 Gb]</translation>
-    </message>
-    <message>
-        <location filename="../src/FileBrowserModel.cpp" line="167"/>
-        <source>File marked as a duplicate of another file: %1</source>
-        <translation>Fajl označen kao duplikat drugog fajla: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/FileBrowserModel.cpp" line="199"/>
-        <source>File already exists: %1</source>
-        <translation>Fajl već postoji: %1</translation>
     </message>
 </context>
 <context>
@@ -712,12 +712,12 @@ Keys:
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="442"/>
+        <location filename="../src/FinishedTransfers.h" line="439"/>
         <source>Open file</source>
         <translation>Otvori fajl</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="443"/>
+        <location filename="../src/FinishedTransfers.h" line="440"/>
         <source>Open directory</source>
         <translation>Otvori fasciklu</translation>
     </message>
@@ -795,29 +795,14 @@ Keys:
 <context>
     <name>HashProgress</name>
     <message>
-        <location filename="../src/HashProgress.cpp" line="226"/>
-        <source>Resume</source>
-        <translation>Rezime</translation>
-    </message>
-    <message>
-        <location filename="../src/HashProgress.cpp" line="222"/>
-        <source>Pause</source>
-        <translation>Pauza</translation>
-    </message>
-    <message>
-        <location filename="../src/HashProgress.cpp" line="218"/>
-        <source>Start</source>
-        <translation>Start</translation>
+        <location filename="../src/HashProgress.cpp" line="95"/>
+        <source>Refreshing file list</source>
+        <translation>Osveži fajl listu</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="125"/>
         <source>-.-- files/h, %1 files left</source>
         <translation>-.-- files/h, %1 files left</translation>
-    </message>
-    <message>
-        <location filename="../src/HashProgress.cpp" line="95"/>
-        <source>Refreshing file list</source>
-        <translation>Osveži fajl listu</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="126"/>
@@ -850,9 +835,35 @@ Keys:
         <source>Done</source>
         <translation>Obavljeno</translation>
     </message>
+    <message>
+        <location filename="../src/HashProgress.cpp" line="218"/>
+        <source>Start</source>
+        <translation>Start</translation>
+    </message>
+    <message>
+        <location filename="../src/HashProgress.cpp" line="222"/>
+        <source>Pause</source>
+        <translation>Pauza</translation>
+    </message>
+    <message>
+        <location filename="../src/HashProgress.cpp" line="226"/>
+        <source>Resume</source>
+        <translation>Rezime</translation>
+    </message>
 </context>
 <context>
     <name>HubFrame</name>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="166"/>
+        <location filename="../src/HubFrame.cpp" line="1252"/>
+        <source>Copy</source>
+        <translation>Kopiraj</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="167"/>
+        <source>Search text</source>
+        <translation>Pretraga teksta</translation>
+    </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="168"/>
         <source>Copy nick</source>
@@ -955,6 +966,17 @@ Keys:
         <translation>Sve</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="200"/>
+        <source>Copy data</source>
+        <translation>Kopiraj podatke</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="290"/>
+        <location filename="../src/HubFrame.cpp" line="376"/>
+        <source>[User went offline]</source>
+        <translation>[Korisnik je van mreže]</translation>
+    </message>
+    <message>
         <location filename="../src/HubFrame.cpp" line="308"/>
         <location filename="../src/HubFrame.cpp" line="403"/>
         <source>AntiSpam</source>
@@ -973,34 +995,20 @@ Keys:
         <translation>Dodaj na belu</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1829"/>
-        <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
-</source>
-        <translation>/ kword add&lt;keyword&gt; - dodavanje korisnički definisane ključne reči koje će biti istaknute u razgovor
+        <location filename="../src/HubFrame.cpp" line="522"/>
+        <source>Invalid keywords</source>
+        <translation>Nevažeće ključne reči
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1831"/>
-        <source>/kword list - full list of keywords which will be highlighted in the chat
-</source>
-        <translation>/kword list - full list of keywords which will be highlighted in the chat
-</translation>
+        <location filename="../src/HubFrame.cpp" line="724"/>
+        <source>%1 (%2)</source>
+        <translation>%1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2160"/>
-        <source> left the chat</source>
-        <translation>napustio razgovor</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="2110"/>
-        <location filename="../src/HubFrame.cpp" line="2165"/>
-        <source>Favorites</source>
-        <translation>Favoriti</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="2165"/>
-        <source>%1 is now offline</source>
-        <translation>%1 postao van veze</translation>
+        <location filename="../src/HubFrame.cpp" line="763"/>
+        <source>not shared</source>
+        <translation>nije deljeno</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1247"/>
@@ -1011,6 +1019,11 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1249"/>
         <source>Reconnect</source>
         <translation>Ponovo poveži</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1250"/>
+        <source>Show widget</source>
+        <translation>Pokaži widžet</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1253"/>
@@ -1044,9 +1057,36 @@ Keys:
         <translation>Nije povezan</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1409"/>
+        <source>Chat cleared.</source>
+        <translation>Razgovor opozvan.</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1421"/>
+        <source>Chat disabled.</source>
+        <translation>Razgovor onemogućen.</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1428"/>
+        <source>Chat enabled.</source>
+        <translation>Razgovor omogućen.</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1464"/>
+        <source>Hub role: Operator</source>
+        <translation>Hab uloga: Operater</translation>
+    </message>
+    <message>
         <location filename="../src/HubFrame.cpp" line="1466"/>
         <source>Hub role: User</source>
         <translation>Hab uloga: Korisnik</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1469"/>
+        <source>
+Favorite user</source>
+        <translation>
+Omiljeni korisnik</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1544"/>
@@ -1089,6 +1129,20 @@ Keys:
         <translation>Pseudonim %1 =&gt; %2 bio dodat</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1656"/>
+        <location filename="../src/HubFrame.cpp" line="1658"/>
+        <location filename="../src/HubFrame.cpp" line="1665"/>
+        <location filename="../src/HubFrame.cpp" line="1667"/>
+        <source>Invalid command syntax.</source>
+        <translation>Nevažeća sintaksa komande</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1677"/>
+        <source>List of keywords:
+</source>
+        <translation>Lista ključnih reči:</translation>
+    </message>
+    <message>
         <location filename="../src/HubFrame.cpp" line="1724"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
         <translation>odnos: %1 (otpremanja: %2, preuzimanja: %3)</translation>
@@ -1123,67 +1177,6 @@ Keys:
 </source>
         <translation>/aspell uklj/isklj - uključi/isključi proveru pravopisa
 </translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="2110"/>
-        <source>%1 is now online</source>
-        <translation>%1 postaje na vezi</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="2123"/>
-        <source>User online.</source>
-        <translation>Korisnik na vezi.</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="763"/>
-        <source>not shared</source>
-        <translation>nije deljeno</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3538"/>
-        <source>Suggestions</source>
-        <translation>Sugestije</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3532"/>
-        <source>Add to dictionary</source>
-        <translation>Dodaj u rečnik</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="167"/>
-        <source>Search text</source>
-        <translation>Pretraga teksta</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="290"/>
-        <location filename="../src/HubFrame.cpp" line="376"/>
-        <source>[User went offline]</source>
-        <translation>[Korisnik je van mreže]</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="522"/>
-        <source>Invalid keywords</source>
-        <translation>Nevažeće ključne reči
-</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="724"/>
-        <source>%1 (%2)</source>
-        <translation>%1 (%2)</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="1656"/>
-        <location filename="../src/HubFrame.cpp" line="1658"/>
-        <location filename="../src/HubFrame.cpp" line="1665"/>
-        <location filename="../src/HubFrame.cpp" line="1667"/>
-        <source>Invalid command syntax.</source>
-        <translation>Nevažeća sintaksa komande</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="1677"/>
-        <source>List of keywords:
-</source>
-        <translation>Lista ključnih reči:</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1822"/>
@@ -1234,10 +1227,24 @@ Keys:
         <translation>/ čist - čist prozor za razgovor</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1829"/>
+        <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
+</source>
+        <translation>/ kword add&lt;keyword&gt; - dodavanje korisnički definisane ključne reči koje će biti istaknute u razgovor
+</translation>
+    </message>
+    <message>
         <location filename="../src/HubFrame.cpp" line="1830"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
         <translation>/ kword čist &lt;ključna reč&gt; - Uklonite korisnički definisane ključne reči</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="1831"/>
+        <source>/kword list - full list of keywords which will be highlighted in the chat
+</source>
+        <translation>/kword list - full list of keywords which will be highlighted in the chat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1832"/>
@@ -1312,67 +1319,35 @@ Keys:
         <translation>/ lua &lt;komad&gt; izvršava Lua komad</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2650"/>
-        <source>Users count: %3/%1 | Total share: %2</source>
-        <translation>Korisnički brojač: %3/%1 | Ukupno deljeno: %2</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3707"/>
-        <source>Connecting to %1</source>
-        <translation>Povezivanje na  %1</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3715"/>
-        <source>Connected to %1</source>
-        <translation>Povezano na  %1</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3767"/>
-        <source>Fail: %1...</source>
-        <translation>Ne: %1...</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3961"/>
-        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation> Izvini, ali nadimak &quot;%1&quot; je već uzeo drugi korisnik.</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="3967"/>
-        <source>Search flood detected: %1</source>
-        <translation>Fludovanje otkriveno: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="1464"/>
-        <source>Hub role: Operator</source>
-        <translation>Hab uloga: Operater</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="166"/>
-        <location filename="../src/HubFrame.cpp" line="1252"/>
-        <source>Copy</source>
-        <translation>Kopiraj</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="200"/>
-        <source>Copy data</source>
-        <translation>Kopiraj podatke</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="1250"/>
-        <source>Show widget</source>
-        <translation>Pokaži widžet</translation>
-    </message>
-    <message>
-        <location filename="../src/HubFrame.cpp" line="1469"/>
-        <source>
-Favorite user</source>
-        <translation>
-Omiljeni korisnik</translation>
-    </message>
-    <message>
         <location filename="../src/HubFrame.cpp" line="2103"/>
         <source> joins the chat</source>
         <translation>Pridruži se razgovoru</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="2110"/>
+        <location filename="../src/HubFrame.cpp" line="2165"/>
+        <source>Favorites</source>
+        <translation>Favoriti</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="2110"/>
+        <source>%1 is now online</source>
+        <translation>%1 postaje na vezi</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="2123"/>
+        <source>User online.</source>
+        <translation>Korisnik na vezi.</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="2160"/>
+        <source> left the chat</source>
+        <translation>napustio razgovor</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="2165"/>
+        <source>%1 is now offline</source>
+        <translation>%1 postao van veze</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2189"/>
@@ -1427,24 +1402,49 @@ Omiljeni korisnik</translation>
         <translation>Preusmeravanje zahteva primljenog na hab koji je već povezan</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="2650"/>
+        <source>Users count: %3/%1 | Total share: %2</source>
+        <translation>Korisnički brojač: %3/%1 | Ukupno deljeno: %2</translation>
+    </message>
+    <message>
         <location filename="../src/HubFrame.cpp" line="2656"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Broj korisnika: %1 | Ukupno deljeno: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1409"/>
-        <source>Chat cleared.</source>
-        <translation>Razgovor opozvan.</translation>
+        <location filename="../src/HubFrame.cpp" line="3532"/>
+        <source>Add to dictionary</source>
+        <translation>Dodaj u rečnik</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1421"/>
-        <source>Chat disabled.</source>
-        <translation>Razgovor onemogućen.</translation>
+        <location filename="../src/HubFrame.cpp" line="3538"/>
+        <source>Suggestions</source>
+        <translation>Sugestije</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1428"/>
-        <source>Chat enabled.</source>
-        <translation>Razgovor omogućen.</translation>
+        <location filename="../src/HubFrame.cpp" line="3707"/>
+        <source>Connecting to %1</source>
+        <translation>Povezivanje na  %1</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3715"/>
+        <source>Connected to %1</source>
+        <translation>Povezano na  %1</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3767"/>
+        <source>Fail: %1...</source>
+        <translation>Ne: %1...</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3961"/>
+        <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
+        <translation> Izvini, ali nadimak &quot;%1&quot; je već uzeo drugi korisnik.</translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="3967"/>
+        <source>Search flood detected: %1</source>
+        <translation>Fludovanje otkriveno: %1</translation>
     </message>
 </context>
 <context>
@@ -1503,14 +1503,14 @@ Omiljeni korisnik</translation>
         <translation>Uvezi listu</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="374"/>
-        <source>All Files (*)</source>
-        <translation>Svi fajlovi(*)</translation>
-    </message>
-    <message>
         <location filename="../src/IPFilterFrame.cpp" line="373"/>
         <source>Export list</source>
         <translation>Izvezi listu</translation>
+    </message>
+    <message>
+        <location filename="../src/IPFilterFrame.cpp" line="374"/>
+        <source>All Files (*)</source>
+        <translation>Svi fajlovi(*)</translation>
     </message>
 </context>
 <context>
@@ -1544,6 +1544,11 @@ Omiljeni korisnik</translation>
         <translation>Pregledaj</translation>
     </message>
     <message>
+        <location filename="../src/Magnet.cpp" line="176"/>
+        <source>Select directory</source>
+        <translation>Izaberi fasciklu</translation>
+    </message>
+    <message>
         <location filename="../src/Magnet.cpp" line="193"/>
         <source>Error</source>
         <translation>Greška</translation>
@@ -1554,11 +1559,6 @@ Omiljeni korisnik</translation>
  %1</source>
         <translation>Greške prilikom preuzimanja fajla:
 %1</translation>
-    </message>
-    <message>
-        <location filename="../src/Magnet.cpp" line="176"/>
-        <source>Select directory</source>
-        <translation>Izaberi fasciklu</translation>
     </message>
 </context>
 <context>
@@ -1577,425 +1577,6 @@ Omiljeni korisnik</translation>
         <location filename="../src/MainWindow.cpp" line="346"/>
         <source>Exit program?</source>
         <translation>Izlaz programa?</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="772"/>
-        <source>Ctrl+O</source>
-        <translation>Ctrl+O</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="687"/>
-        <source>Ctrl+L</source>
-        <translation>Ctrl+L</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="732"/>
-        <source>Ctrl+R</source>
-        <translation>Ctrl+R</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="744"/>
-        <source>Ctrl+H</source>
-        <translation>Ctrl+H</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="784"/>
-        <source>Ctrl+T</source>
-        <translation>Ctrl+T</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="792"/>
-        <source>Ctrl+D</source>
-        <translation>Ctrl+D</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="880"/>
-        <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1282"/>
-        <location filename="../src/MainWindow.cpp" line="2299"/>
-        <source>Hide window</source>
-        <translation>Sakrij prozor</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1285"/>
-        <location filename="../src/MainWindow.cpp" line="2297"/>
-        <source>Show/hide find frame</source>
-        <translation>Pokaži/sakrij naći okvir</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1321"/>
-        <location filename="../src/MainWindow.cpp" line="2431"/>
-        <source>Hide free space bar</source>
-        <translation>Sakrij bar slobodnog prostora</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1324"/>
-        <location filename="../src/MainWindow.cpp" line="2426"/>
-        <source>Show free space bar</source>
-        <translation>Pokaži bar slobodnog prostora</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="725"/>
-        <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="917"/>
-        <source>Ctrl+F</source>
-        <translation>Ctrl+F</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1225"/>
-        <source>Space free</source>
-        <translation>Slobodan prostor</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1266"/>
-        <source>&amp;File</source>
-        <translation>&amp;Fajl</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1270"/>
-        <location filename="../src/MainWindow.cpp" line="2047"/>
-        <source>Open log file</source>
-        <translation>Otvori log fajl</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1274"/>
-        <source>Open filelist...</source>
-        <translation>Otvori fajl listu...</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1278"/>
-        <source>Open own filelist</source>
-        <translation>Otvori sopstvenu listu</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1280"/>
-        <location filename="../src/MainWindow.cpp" line="1663"/>
-        <source>Refresh share</source>
-        <translation>Osveži deljeno</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1672"/>
-        <location filename="../src/MainWindow.cpp" line="1682"/>
-        <location filename="../src/MainWindow.cpp" line="1698"/>
-        <location filename="../src/MainWindow.cpp" line="1713"/>
-        <source>Hash progress</source>
-        <translation>Napredak obnavljanja</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1303"/>
-        <source>Transfers</source>
-        <translation>Transferi</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1305"/>
-        <source>Download queue</source>
-        <translation>Red za preuzimanje</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1311"/>
-        <source>Finished downloads</source>
-        <translation>Završeno preuzimanje</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1313"/>
-        <source>Finished uploads</source>
-        <translation>Završeno otpremanje</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1315"/>
-        <source>Search Spy</source>
-        <translation>Pretraga špijuna</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1317"/>
-        <source>AntiSpam module</source>
-        <translation>AntiSpam modul</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1319"/>
-        <source>IPFilter module</source>
-        <translation>IPFilter modul</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1295"/>
-        <source>Public hubs</source>
-        <translation>Javni habovi</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1326"/>
-        <location filename="../src/MainWindow.cpp" line="2447"/>
-        <source>Hide last status message</source>
-        <translation>Sakrij poslednju statusnu poruku</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1289"/>
-        <source>&amp;Hubs</source>
-        <translation>&amp;Habovi</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1301"/>
-        <source>&amp;Tools</source>
-        <translation>&amp;Alati</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1336"/>
-        <source>Away message</source>
-        <translation>Poruka u odsustvu</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1360"/>
-        <source>Clear chat</source>
-        <translation>Očisti razgovor</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1364"/>
-        <source>Disable/enable chat</source>
-        <translation>Onemogući/Omogući razgovor</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1366"/>
-        <source>&amp;Widgets</source>
-        <translation>&amp;Vidžeti</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1368"/>
-        <source>&amp;Panels</source>
-        <translation>&amp;Paneli</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1371"/>
-        <source>Widgets panel</source>
-        <translation>Panel vidžeta</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1375"/>
-        <source>Tools panel</source>
-        <translation>Panel alata</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1632"/>
-        <source>Free %1</source>
-        <translation>Slobodno %1</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1635"/>
-        <source>Free %1 of %2</source>
-        <translation>Slobodno %1 of %2</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2027"/>
-        <source>Connectivity Manager: Warning</source>
-        <translation>Menadžer povezivanja: Upozorenje</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2047"/>
-        <source>Log files (*.log);;All files (*.*)</source>
-        <translation>Log fajlova (*.log);;All files (*.*)</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1329"/>
-        <location filename="../src/MainWindow.cpp" line="2445"/>
-        <source>Show last status message</source>
-        <translation>Pokaži poslednju statusnu poruku</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2561"/>
-        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1291"/>
-        <source>Reconnect to hub</source>
-        <translation>Ponovo poveži na hab</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1195"/>
-        <source>Counts</source>
-        <translation>Brojanje</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1293"/>
-        <source>Favourite hubs</source>
-        <translation>Omiljeni habovi</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1297"/>
-        <source>Favourite users</source>
-        <translation>Omiljeni korisnici</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1348"/>
-        <source>Search</source>
-        <translation>Pretraži</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1299"/>
-        <source>Quick connect</source>
-        <translation>Brzo poveži</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="713"/>
-        <source>Ctrl+E</source>
-        <translation>Ctrl+E</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="738"/>
-        <source>Ctrl+N</source>
-        <translation>Ctrl+N</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="750"/>
-        <source>Ctrl+P</source>
-        <translation>Ctrl+P</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="756"/>
-        <source>Ctrl+U</source>
-        <translation>Ctrl+U</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1331"/>
-        <location filename="../src/MainWindow.cpp" line="2469"/>
-        <source>Hide users statistics</source>
-        <translation>Sakrij statistiku korisnika</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1334"/>
-        <location filename="../src/MainWindow.cpp" line="2467"/>
-        <source>Show users statistics</source>
-        <translation>Pokaži statistiku korisnika</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1048"/>
-        <source>Next widget</source>
-        <translation>Sledeći vidžet</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1049"/>
-        <source>Previous widget</source>
-        <translation>Prethodni vidžet</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1239"/>
-        <source>Hashing progress</source>
-        <translation>Hash napredak</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1272"/>
-        <source>Open download directory</source>
-        <translation>Otvori fasciklu preuzimanja</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1276"/>
-        <source>Calculate file TTH</source>
-        <translation>Izračunajte TTH fajl</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1287"/>
-        <source>Quit</source>
-        <translation>Napusti</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1309"/>
-        <source>Hub Manager</source>
-        <translation>Hab menadžer</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1338"/>
-        <source>On</source>
-        <translation>Uključi</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1340"/>
-        <source>Off</source>
-        <translation>Isključi</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1342"/>
-        <source>Away when not visible</source>
-        <translation>Kad nije vidljiv</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1344"/>
-        <source>Copy window title</source>
-        <translation>Kopiraj naslov prozora</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1350"/>
-        <source>ADLSearch</source>
-        <translation>ADL pretraga</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1355"/>
-        <source>Scripts Manager</source>
-        <translation>Menadžer skripti</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1357"/>
-        <source>Script Console</source>
-        <translation>Skripta konzole</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1362"/>
-        <source>Find/Filter</source>
-        <translation>Pronaći/Filter</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1373"/>
-        <source>Widgets side dock</source>
-        <translation>Vidžet traka</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1377"/>
-        <source>Fast search panel</source>
-        <translation>Panel brze pretrage</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1379"/>
-        <source>&amp;Help</source>
-        <translation>&amp;Pomoć</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1381"/>
-        <source>Homepage</source>
-        <translation>Početna strana</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1385"/>
-        <source>Report a Bug</source>
-        <translation>Izveštaj o greškama</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1387"/>
-        <source>Wiki of project</source>
-        <translation>Wiki projekta</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1391"/>
-        <source>About EiskaltDC++</source>
-        <translation>O programu EiskaltDC++</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1393"/>
-        <source>About Qt</source>
-        <translation>O Qt</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1399"/>
-        <source>Main layout</source>
-        <translation>Glavni raspored</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="1396"/>
-        <location filename="../src/MainWindow.cpp" line="1426"/>
-        <source>Actions</source>
-        <translation>Akcije</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="450"/>
@@ -2023,9 +1604,64 @@ Omiljeni korisnik</translation>
         <translation>Ctrl+I</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="687"/>
+        <source>Ctrl+L</source>
+        <translation>Ctrl+L</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="713"/>
+        <source>Ctrl+E</source>
+        <translation>Ctrl+E</translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="719"/>
         <source>Ctrl+Alt+H</source>
         <translation>Ctrl+Alt+H</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="725"/>
+        <source>Ctrl+Q</source>
+        <translation>Ctrl+Q</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="732"/>
+        <source>Ctrl+R</source>
+        <translation>Ctrl+R</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="738"/>
+        <source>Ctrl+N</source>
+        <translation>Ctrl+N</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="744"/>
+        <source>Ctrl+H</source>
+        <translation>Ctrl+H</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="750"/>
+        <source>Ctrl+P</source>
+        <translation>Ctrl+P</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="756"/>
+        <source>Ctrl+U</source>
+        <translation>Ctrl+U</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="772"/>
+        <source>Ctrl+O</source>
+        <translation>Ctrl+O</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="784"/>
+        <source>Ctrl+T</source>
+        <translation>Ctrl+T</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="792"/>
+        <source>Ctrl+D</source>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="798"/>
@@ -2036,6 +1672,26 @@ Omiljeni korisnik</translation>
         <location filename="../src/MainWindow.cpp" line="854"/>
         <source>Ctrl+Alt+J</source>
         <translation>Ctrl+Alt+J</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="880"/>
+        <source>Ctrl+S</source>
+        <translation>Ctrl+S</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="917"/>
+        <source>Ctrl+F</source>
+        <translation>Ctrl+F</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1048"/>
+        <source>Next widget</source>
+        <translation>Sledeći vidžet</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1049"/>
+        <source>Previous widget</source>
+        <translation>Prethodni vidžet</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1050"/>
@@ -2088,6 +1744,11 @@ Omiljeni korisnik</translation>
         <translation>Ctrl+M</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="1195"/>
+        <source>Counts</source>
+        <translation>Brojanje</translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="1201"/>
         <source>Download/Upload speed</source>
         <translation>Preuzimanje/Otpremanje brzina</translation>
@@ -2098,10 +1759,119 @@ Omiljeni korisnik</translation>
         <translation>Preuzeto/Otpremljeno</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="1225"/>
+        <source>Space free</source>
+        <translation>Slobodan prostor</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1239"/>
+        <source>Hashing progress</source>
+        <translation>Hash napredak</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1266"/>
+        <source>&amp;File</source>
+        <translation>&amp;Fajl</translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="1268"/>
         <location filename="../src/MainWindow.cpp" line="2118"/>
         <source>Open magnet link</source>
         <translation>Otvori magnet link</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1270"/>
+        <location filename="../src/MainWindow.cpp" line="2047"/>
+        <source>Open log file</source>
+        <translation>Otvori log fajl</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1272"/>
+        <source>Open download directory</source>
+        <translation>Otvori fasciklu preuzimanja</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1274"/>
+        <source>Open filelist...</source>
+        <translation>Otvori fajl listu...</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1276"/>
+        <source>Calculate file TTH</source>
+        <translation>Izračunajte TTH fajl</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1278"/>
+        <source>Open own filelist</source>
+        <translation>Otvori sopstvenu listu</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1280"/>
+        <location filename="../src/MainWindow.cpp" line="1663"/>
+        <source>Refresh share</source>
+        <translation>Osveži deljeno</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1282"/>
+        <location filename="../src/MainWindow.cpp" line="2329"/>
+        <source>Hide window</source>
+        <translation>Sakrij prozor</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1285"/>
+        <location filename="../src/MainWindow.cpp" line="2327"/>
+        <source>Show/hide find frame</source>
+        <translation>Pokaži/sakrij naći okvir</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1287"/>
+        <source>Quit</source>
+        <translation>Napusti</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1289"/>
+        <source>&amp;Hubs</source>
+        <translation>&amp;Habovi</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1291"/>
+        <source>Reconnect to hub</source>
+        <translation>Ponovo poveži na hab</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1293"/>
+        <source>Favourite hubs</source>
+        <translation>Omiljeni habovi</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1295"/>
+        <source>Public hubs</source>
+        <translation>Javni habovi</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1297"/>
+        <source>Favourite users</source>
+        <translation>Omiljeni korisnici</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1299"/>
+        <source>Quick connect</source>
+        <translation>Brzo poveži</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1301"/>
+        <source>&amp;Tools</source>
+        <translation>&amp;Alati</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1303"/>
+        <source>Transfers</source>
+        <translation>Transferi</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1305"/>
+        <source>Download queue</source>
+        <translation>Red za preuzimanje</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1307"/>
@@ -2109,9 +1879,110 @@ Omiljeni korisnik</translation>
         <translation>Korisnici u redu za slanje</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="1309"/>
+        <source>Hub Manager</source>
+        <translation>Hab menadžer</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1311"/>
+        <source>Finished downloads</source>
+        <translation>Završeno preuzimanje</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1313"/>
+        <source>Finished uploads</source>
+        <translation>Završeno otpremanje</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1315"/>
+        <source>Search Spy</source>
+        <translation>Pretraga špijuna</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1317"/>
+        <source>AntiSpam module</source>
+        <translation>AntiSpam modul</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1319"/>
+        <source>IPFilter module</source>
+        <translation>IPFilter modul</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1321"/>
+        <location filename="../src/MainWindow.cpp" line="2461"/>
+        <source>Hide free space bar</source>
+        <translation>Sakrij bar slobodnog prostora</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1324"/>
+        <location filename="../src/MainWindow.cpp" line="2456"/>
+        <source>Show free space bar</source>
+        <translation>Pokaži bar slobodnog prostora</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1326"/>
+        <location filename="../src/MainWindow.cpp" line="2477"/>
+        <source>Hide last status message</source>
+        <translation>Sakrij poslednju statusnu poruku</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1329"/>
+        <location filename="../src/MainWindow.cpp" line="2475"/>
+        <source>Show last status message</source>
+        <translation>Pokaži poslednju statusnu poruku</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1331"/>
+        <location filename="../src/MainWindow.cpp" line="2499"/>
+        <source>Hide users statistics</source>
+        <translation>Sakrij statistiku korisnika</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1334"/>
+        <location filename="../src/MainWindow.cpp" line="2497"/>
+        <source>Show users statistics</source>
+        <translation>Pokaži statistiku korisnika</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1336"/>
+        <source>Away message</source>
+        <translation>Poruka u odsustvu</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1338"/>
+        <source>On</source>
+        <translation>Uključi</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1340"/>
+        <source>Off</source>
+        <translation>Isključi</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1342"/>
+        <source>Away when not visible</source>
+        <translation>Kad nije vidljiv</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1344"/>
+        <source>Copy window title</source>
+        <translation>Kopiraj naslov prozora</translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="1346"/>
         <source>Preferences</source>
         <translation>Podešavanja</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1348"/>
+        <source>Search</source>
+        <translation>Pretraži</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1350"/>
+        <source>ADLSearch</source>
+        <translation>ADL pretraga</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1352"/>
@@ -2119,14 +1990,110 @@ Omiljeni korisnik</translation>
         <translation>Limit brzine Uklj/Isklj</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="1355"/>
+        <source>Scripts Manager</source>
+        <translation>Menadžer skripti</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1357"/>
+        <source>Script Console</source>
+        <translation>Skripta konzole</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1360"/>
+        <source>Clear chat</source>
+        <translation>Očisti razgovor</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1362"/>
+        <source>Find/Filter</source>
+        <translation>Pronaći/Filter</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1364"/>
+        <source>Disable/enable chat</source>
+        <translation>Onemogući/Omogući razgovor</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1366"/>
+        <source>&amp;Widgets</source>
+        <translation>&amp;Vidžeti</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1368"/>
+        <source>&amp;Panels</source>
+        <translation>&amp;Paneli</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1371"/>
+        <source>Widgets panel</source>
+        <translation>Panel vidžeta</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1373"/>
+        <source>Widgets side dock</source>
+        <translation>Vidžet traka</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1375"/>
+        <source>Tools panel</source>
+        <translation>Panel alata</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1377"/>
+        <source>Fast search panel</source>
+        <translation>Panel brze pretrage</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1379"/>
+        <source>&amp;Help</source>
+        <translation>&amp;Pomoć</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1381"/>
+        <source>Homepage</source>
+        <translation>Početna strana</translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="1383"/>
         <source>Source (git)</source>
         <translation>Izvor (git)</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="1385"/>
+        <source>Report a Bug</source>
+        <translation>Izveštaj o greškama</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1387"/>
+        <source>Wiki of project</source>
+        <translation>Wiki projekta</translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="1389"/>
         <source>Changelog (git)</source>
         <translation>Hronologija promena (git)</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1391"/>
+        <source>About EiskaltDC++</source>
+        <translation>O programu EiskaltDC++</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1393"/>
+        <source>About Qt</source>
+        <translation>O Qt</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1396"/>
+        <location filename="../src/MainWindow.cpp" line="1426"/>
+        <source>Actions</source>
+        <translation>Akcije</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1399"/>
+        <source>Main layout</source>
+        <translation>Glavni raspored</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1604"/>
@@ -2142,6 +2109,24 @@ Omiljeni korisnik</translation>
         <location filename="../src/MainWindow.cpp" line="1611"/>
         <source>/s</source>
         <translation>/s</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1632"/>
+        <source>Free %1</source>
+        <translation>Slobodno %1</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1635"/>
+        <source>Free %1 of %2</source>
+        <translation>Slobodno %1 of %2</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1672"/>
+        <location filename="../src/MainWindow.cpp" line="1682"/>
+        <location filename="../src/MainWindow.cpp" line="1698"/>
+        <location filename="../src/MainWindow.cpp" line="1713"/>
+        <source>Hash progress</source>
+        <translation>Napredak obnavljanja</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1675"/>
@@ -2200,357 +2185,240 @@ Omiljeni korisnik</translation>
 </translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="2027"/>
+        <source>Connectivity Manager: Warning</source>
+        <translation>Menadžer povezivanja: Upozorenje</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2047"/>
+        <source>Log files (*.log);;All files (*.*)</source>
+        <translation>Log fajlova (*.log);;All files (*.*)</translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="2118"/>
         <source>Enter magnet link:</source>
         <translation>Unesite magnet link:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2246"/>
+        <location filename="../src/MainWindow.cpp" line="2269"/>
         <source>Script Engine</source>
         <translation>Skripta pogona</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2492"/>
+        <location filename="../src/MainWindow.cpp" line="2522"/>
         <source>Button style</source>
         <translation>Dugme stil</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2493"/>
+        <location filename="../src/MainWindow.cpp" line="2523"/>
         <source>Icons only</source>
         <translation>Samo ikone</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2494"/>
+        <location filename="../src/MainWindow.cpp" line="2524"/>
         <source>Text only</source>
         <translation>Samo tekst</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2495"/>
+        <location filename="../src/MainWindow.cpp" line="2525"/>
         <source>Text beside icons</source>
         <translation>Tekst pored ikone</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2496"/>
+        <location filename="../src/MainWindow.cpp" line="2526"/>
         <source>Text under icons</source>
         <translation>Tekst ispod ikona</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2506"/>
+        <location filename="../src/MainWindow.cpp" line="2536"/>
         <source>Customize</source>
         <translation>Prilagodjavanje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2584"/>
+        <location filename="../src/MainWindow.cpp" line="2591"/>
+        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2614"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
         <translation>EiskaltDC++ je grafički klijent za direktno povezivanje i ADC protokole.&lt;br/&gt;&lt;br/&gt;DC++ osnovna verzija: %1 (izmenjeno)&lt;br/&gt;&lt;br/&gt;Glavna strana: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total ot: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total pr: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Odnos: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2601"/>
+        <location filename="../src/MainWindow.cpp" line="2631"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation>Koristite &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; za prijavljivanje grešaka.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2604"/>
+        <location filename="../src/MainWindow.cpp" line="2634"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Programeri&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2607"/>
+        <location filename="../src/MainWindow.cpp" line="2637"/>
         <source>&amp;nbsp; (main developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (glavni programer 0.4.10 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2610"/>
+        <location filename="../src/MainWindow.cpp" line="2640"/>
         <source>&amp;nbsp; (maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (programer i održavanje 1.89.0 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2613"/>
+        <location filename="../src/MainWindow.cpp" line="2643"/>
         <source>&amp;nbsp; (maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (programer i održavanje 0.4.10 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2616"/>
+        <location filename="../src/MainWindow.cpp" line="2646"/>
         <source>&amp;nbsp; (developer 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (programer 2.0.3 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2618"/>
+        <location filename="../src/MainWindow.cpp" line="2648"/>
         <source>&lt;b&gt;Logo&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Logo&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2621"/>
+        <location filename="../src/MainWindow.cpp" line="2651"/>
         <source>&amp;nbsp; (version 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (verzija 0.4.10 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2625"/>
+        <location filename="../src/MainWindow.cpp" line="2655"/>
         <source>&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Ruski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2628"/>
+        <location filename="../src/MainWindow.cpp" line="2658"/>
         <source>&amp;nbsp; (for 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (za 0.4.10 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2631"/>
-        <location filename="../src/MainWindow.cpp" line="2669"/>
-        <location filename="../src/MainWindow.cpp" line="2674"/>
-        <location filename="../src/MainWindow.cpp" line="2679"/>
+        <location filename="../src/MainWindow.cpp" line="2661"/>
+        <location filename="../src/MainWindow.cpp" line="2699"/>
+        <location filename="../src/MainWindow.cpp" line="2704"/>
+        <location filename="../src/MainWindow.cpp" line="2709"/>
         <source>&amp;nbsp; (for 2.1.0 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (za 2.1.0 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2633"/>
+        <location filename="../src/MainWindow.cpp" line="2663"/>
         <source>&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Beloruski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2636"/>
+        <location filename="../src/MainWindow.cpp" line="2666"/>
         <source>&amp;nbsp; (for 1.0.40 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (za 1.0.40 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2638"/>
+        <location filename="../src/MainWindow.cpp" line="2668"/>
         <source>&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Madjarski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2641"/>
+        <location filename="../src/MainWindow.cpp" line="2671"/>
         <source>&amp;nbsp; (for 2.0.1 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (za 2.0.1 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2644"/>
-        <location filename="../src/MainWindow.cpp" line="2689"/>
-        <location filename="../src/MainWindow.cpp" line="2692"/>
-        <location filename="../src/MainWindow.cpp" line="2697"/>
+        <location filename="../src/MainWindow.cpp" line="2674"/>
+        <location filename="../src/MainWindow.cpp" line="2719"/>
+        <location filename="../src/MainWindow.cpp" line="2722"/>
+        <location filename="../src/MainWindow.cpp" line="2727"/>
         <source>&amp;nbsp; (for 2.2.5 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (za 2.2.5 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2646"/>
+        <location filename="../src/MainWindow.cpp" line="2676"/>
         <source>&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Francuski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2649"/>
-        <location filename="../src/MainWindow.cpp" line="2654"/>
+        <location filename="../src/MainWindow.cpp" line="2679"/>
+        <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>&amp;nbsp; (for 2.0.2 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (za 2.0.2 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2651"/>
+        <location filename="../src/MainWindow.cpp" line="2681"/>
         <source>&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Poljski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2656"/>
+        <location filename="../src/MainWindow.cpp" line="2686"/>
         <source>&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Ukrajinski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2659"/>
-        <location filename="../src/MainWindow.cpp" line="2664"/>
+        <location filename="../src/MainWindow.cpp" line="2689"/>
+        <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&amp;nbsp; (for 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (za 2.0.3 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2661"/>
+        <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>&amp;nbsp;&lt;u&gt;Serbian (Latin) translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Srpski (lat) prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2666"/>
+        <location filename="../src/MainWindow.cpp" line="2696"/>
         <source>&amp;nbsp;&lt;u&gt;Spanish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Španski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2671"/>
+        <location filename="../src/MainWindow.cpp" line="2701"/>
         <source>&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Bugarski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2676"/>
+        <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Slovački prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2681"/>
+        <location filename="../src/MainWindow.cpp" line="2711"/>
         <source>&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Češki prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2684"/>
+        <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>&amp;nbsp; (for 2.2.0 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (za 2.2.0 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2686"/>
+        <location filename="../src/MainWindow.cpp" line="2716"/>
         <source>&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Nemački prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2694"/>
+        <location filename="../src/MainWindow.cpp" line="2724"/>
         <source>&amp;nbsp;&lt;u&gt;Greek translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Grčki prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2699"/>
+        <location filename="../src/MainWindow.cpp" line="2729"/>
         <source>&amp;nbsp;&lt;u&gt;Italian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Italijanski prevod&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2702"/>
+        <location filename="../src/MainWindow.cpp" line="2732"/>
         <source>&amp;nbsp; (for 2.2.6 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (za 2.2.6 i kasnije)&lt;br/&gt;</translation>
     </message>
     <message>
-        <source>&lt;br/&gt;&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Andrey Karlov&lt;br/&gt;&amp;nbsp;&amp;lt;dein.negativ@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(main developer 0.4.10 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 1.89.0 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Eugene Petrov&lt;br/&gt;&amp;nbsp;&amp;lt;dhamp@ya.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(maintainer and developer 0.4.10 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Alexandr Tkachev&lt;br/&gt;&amp;nbsp;&amp;lt;tka4ev@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(developer 2.0.3 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&lt;b&gt;Logo and Splash Screen Logo&lt;/b&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&lt;b&gt;Logo and Splash Screen Logo&lt;/b&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(version 0.4.10 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Translators&lt;/b&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Translators&lt;/b&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Uladzimir Bely&lt;br/&gt;&amp;nbsp;&amp;lt;wiselord1983@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 0.4.10 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Boris Pek  aka  Tehnick&lt;br/&gt;&amp;nbsp;&amp;lt;tehnick-8@mail.ru&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Paval Shalamitski  aka  Klyok&lt;br/&gt;&amp;nbsp;&amp;lt;i.kliok@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 1.0.40 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Akos Berki  aka  sumo&lt;br/&gt;&amp;nbsp;&amp;lt;husumo@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.1 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Alexandre Wallimann  aka  Ale&lt;br/&gt;&amp;nbsp;&amp;lt;alexandre.wallimann@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Arahael&lt;br/&gt;&amp;nbsp;(for 2.0.2 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Dmytro Demenko&lt;br/&gt;&amp;nbsp;&amp;lt;dmytro.demenko@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Serbian translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Miroslav Petrovic&lt;br/&gt;&amp;nbsp;&amp;lt;miroslav031@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.0.3 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Spanish translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Spanish translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Gustavo Alvarez aka sL1pKn07&lt;br/&gt;&amp;nbsp;&amp;lt;sl1pkn07@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Rusi Dimitrov aka PsyTrip&lt;br/&gt;&amp;nbsp;&amp;lt;dimitrov.rusi@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Martin Durisin&lt;br/&gt;&amp;nbsp;&amp;lt;martin.durisin@gmail.com&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.1.0 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Uhlik&lt;br/&gt;&amp;nbsp;&amp;lt;uhlikx@seznam.cz&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.0 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</source>
-        <translation type="obsolete">&lt;br/&gt;&amp;nbsp;Chris Leick&lt;br/&gt;&amp;nbsp;&amp;lt;c.leick@vollbio.de&amp;gt;&lt;br/&gt;&amp;nbsp;(for 2.2.3 and later)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2725"/>
+        <location filename="../src/MainWindow.cpp" line="2755"/>
         <source>Show close buttons</source>
         <translation>Pokaži dugmad za zatvaranje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2812"/>
+        <location filename="../src/MainWindow.cpp" line="2842"/>
         <source>Download Queue</source>
         <translation>Red za preuzimanje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2812"/>
+        <location filename="../src/MainWindow.cpp" line="2842"/>
         <source>All downloads complete</source>
         <translation>Sva preuzimanja kompletna</translation>
     </message>
@@ -2708,52 +2576,52 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Preuzmi javnu hub listu...</translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="163"/>
+        <location filename="../src/PublicHubs.cpp" line="159"/>
         <source>Connect</source>
         <translation>Poveži </translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="164"/>
+        <location filename="../src/PublicHubs.cpp" line="160"/>
         <source>Add to favorites</source>
         <translation>Dodaj u omiljene</translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="165"/>
+        <location filename="../src/PublicHubs.cpp" line="161"/>
         <source>Copy &amp;address to clipboard</source>
         <translation>Kopiraj &amp;adresu u clipboard</translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="287"/>
+        <location filename="../src/PublicHubs.cpp" line="283"/>
         <source>Downloading public hub list... (%1)</source>
         <translation>Preuzmi javnu hab listu... (%1)</translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="291"/>
+        <location filename="../src/PublicHubs.cpp" line="287"/>
         <source>Download failed: %1</source>
         <translation>Preuzimanje nije uspelo : %1</translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="295"/>
+        <location filename="../src/PublicHubs.cpp" line="291"/>
         <source>Hub list downloaded... (%1 %2) </source>
         <translation>Preuzeta hab lista... (%1 %2) </translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="295"/>
+        <location filename="../src/PublicHubs.cpp" line="291"/>
         <source>from Coral</source>
         <translation>od Coral</translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="299"/>
+        <location filename="../src/PublicHubs.cpp" line="295"/>
         <source>Hub list loaded from cache...</source>
         <translation>Hab lista učitana iz keša...</translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="304"/>
+        <location filename="../src/PublicHubs.cpp" line="300"/>
         <source>Cached hub list is corrupted or unsupported</source>
         <translation>Keširana hab lista je oštećena ili nepodržana</translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="306"/>
+        <location filename="../src/PublicHubs.cpp" line="302"/>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
         <translation>Preuzeta hab lista je oštećena ili nepodržana (%1)</translation>
     </message>
@@ -2853,7 +2721,7 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>ScriptManagerDialog</name>
     <message>
-        <location filename="../src/ScriptManagerDialog.cpp" line="38"/>
+        <location filename="../src/ScriptManagerDialog.cpp" line="41"/>
         <source>Script Manager</source>
         <translation>Menadžer skripti</translation>
     </message>
@@ -2921,6 +2789,7 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="53"/>
+        <location filename="../src/SearchFrame.cpp" line="373"/>
         <source>Search</source>
         <translation>Pretraži</translation>
     </message>
@@ -2995,9 +2864,19 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Najveća</translation>
     </message>
     <message>
+        <location filename="../ui/UISearchFrame.ui" line="214"/>
+        <source>Don&apos;t hide this panel when search</source>
+        <translation>Ne krij ovaj panel kad se pretražuje</translation>
+    </message>
+    <message>
         <location filename="../ui/UISearchFrame.ui" line="230"/>
         <source>Already shared files</source>
         <translation>Već deljeni fajlovi</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISearchFrame.ui" line="243"/>
+        <source>Do nothing</source>
+        <translation>Ne radi ništa</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="248"/>
@@ -3010,144 +2889,129 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Istaknuti</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="243"/>
-        <source>Do nothing</source>
-        <translation>Ne radi ništa</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISearchFrame.ui" line="214"/>
-        <source>Don&apos;t hide this panel when search</source>
-        <translation>Ne krij ovaj panel kad se pretražuje</translation>
-    </message>
-    <message>
-        <location filename="../src/SearchFrame.cpp" line="76"/>
-        <source>Download</source>
-        <translation>Preuzimanje</translation>
-    </message>
-    <message>
-        <location filename="../src/SearchFrame.cpp" line="82"/>
-        <source>Download Whole Directory</source>
-        <translation>Preuzmi celu fasciklu</translation>
-    </message>
-    <message>
-        <location filename="../src/SearchFrame.cpp" line="79"/>
-        <source>Download to...</source>
-        <translation>Preuzmi u...</translation>
-    </message>
-    <message>
-        <location filename="../src/SearchFrame.cpp" line="74"/>
+        <location filename="../src/SearchFrame.cpp" line="116"/>
         <source>Magnet</source>
         <translation>Magnet</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="85"/>
+        <location filename="../src/SearchFrame.cpp" line="118"/>
+        <source>Download</source>
+        <translation>Preuzimanje</translation>
+    </message>
+    <message>
+        <location filename="../src/SearchFrame.cpp" line="121"/>
+        <source>Download to...</source>
+        <translation>Preuzmi u...</translation>
+    </message>
+    <message>
+        <location filename="../src/SearchFrame.cpp" line="124"/>
+        <source>Download Whole Directory</source>
+        <translation>Preuzmi celu fasciklu</translation>
+    </message>
+    <message>
+        <location filename="../src/SearchFrame.cpp" line="127"/>
         <source>Download Whole Directory to...</source>
         <translation>Preuzmi ceo direkorijum u ...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="91"/>
+        <location filename="../src/SearchFrame.cpp" line="133"/>
         <source>Search TTH</source>
         <translation>Pretraži TTH</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="94"/>
+        <location filename="../src/SearchFrame.cpp" line="136"/>
         <source>Copy magnet</source>
         <translation>Kopiraj magnet link</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="97"/>
+        <location filename="../src/SearchFrame.cpp" line="139"/>
         <source>Copy web-magnet</source>
         <translation>Kopiraj web-magnet</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="100"/>
+        <location filename="../src/SearchFrame.cpp" line="142"/>
         <source>Properties of magnet</source>
         <translation>Magnet svojstva</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="103"/>
+        <location filename="../src/SearchFrame.cpp" line="145"/>
         <source>Browse files</source>
         <translation>Pregledaj fajlove</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="106"/>
+        <location filename="../src/SearchFrame.cpp" line="148"/>
         <source>Match Queue</source>
         <translation>Složi red</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="109"/>
+        <location filename="../src/SearchFrame.cpp" line="151"/>
         <source>Send Private Message</source>
         <translation>Pošalji privatnu poruku</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="112"/>
+        <location filename="../src/SearchFrame.cpp" line="154"/>
         <source>Add to favorites</source>
         <translation>Dodaj u omiljene</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="115"/>
+        <location filename="../src/SearchFrame.cpp" line="157"/>
         <source>Grant extra slot</source>
         <translation>Odobri ekstra slot</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="127"/>
+        <location filename="../src/SearchFrame.cpp" line="169"/>
         <source>Remove from Queue</source>
         <translation>Ukloni iz reda</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="130"/>
+        <location filename="../src/SearchFrame.cpp" line="172"/>
         <source>Remove</source>
         <translation>Ukloni</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="133"/>
+        <location filename="../src/SearchFrame.cpp" line="175"/>
         <source>Blacklist...</source>
         <translation>Crna lista...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="136"/>
+        <location filename="../src/SearchFrame.cpp" line="178"/>
         <source>Blacklist</source>
         <translation>Crna Lista</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="139"/>
+        <location filename="../src/SearchFrame.cpp" line="181"/>
         <source>Add to Blacklist</source>
         <translation>Dodaj na crnu listu</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="244"/>
-        <location filename="../src/SearchFrame.cpp" line="247"/>
+        <location filename="../src/SearchFrame.cpp" line="286"/>
+        <location filename="../src/SearchFrame.cpp" line="289"/>
         <source>Browse</source>
         <translation>Pregledaj</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="314"/>
-        <source>Search window</source>
-        <translation>Pretraži prozor</translation>
-    </message>
-    <message>
-        <location filename="../src/SearchFrame.cpp" line="431"/>
+        <location filename="../src/SearchFrame.cpp" line="484"/>
         <source>Close</source>
         <translation>Zatvori</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1015"/>
+        <location filename="../src/SearchFrame.cpp" line="1090"/>
         <source>Search - %1</source>
         <translation>Pretraži - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1120"/>
-        <location filename="../src/SearchFrame.cpp" line="1178"/>
+        <location filename="../src/SearchFrame.cpp" line="1196"/>
+        <location filename="../src/SearchFrame.cpp" line="1254"/>
         <source>Select directory</source>
         <translation>Izaberi fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1484"/>
+        <location filename="../src/SearchFrame.cpp" line="1562"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bez rezultata&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1493"/>
+        <location filename="../src/SearchFrame.cpp" line="1571"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Pronadjeno: &lt;b&gt;%1&lt;/b&gt;     Ispalo: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -3531,16 +3395,6 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Ime</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="287"/>
-        <source>Add</source>
-        <translation>Dodaj</translation>
-    </message>
-    <message>
-        <location filename="../src/SettingsSharing.cpp" line="296"/>
-        <source>Remove</source>
-        <translation>Obriši</translation>
-    </message>
-    <message>
         <location filename="../src/SettingsSharing.cpp" line="206"/>
         <location filename="../src/SettingsSharing.cpp" line="235"/>
         <source>Add item</source>
@@ -3558,9 +3412,19 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Promeni fasciklu</translation>
     </message>
     <message>
+        <location filename="../src/SettingsSharing.cpp" line="287"/>
+        <source>Add</source>
+        <translation>Dodaj</translation>
+    </message>
+    <message>
         <location filename="../src/SettingsSharing.cpp" line="291"/>
         <source>Rename</source>
         <translation>Preimenuj</translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsSharing.cpp" line="296"/>
+        <source>Remove</source>
+        <translation>Obriši</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="334"/>
@@ -3577,136 +3441,136 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>ShareBrowser</name>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="74"/>
-        <source>Download</source>
-        <translation>Preuzmi</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="76"/>
-        <source>Download to...</source>
-        <translation>Preuzmi u...</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="79"/>
-        <source>Search for alternates</source>
-        <translation>Traži alternativu</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="81"/>
-        <source>Copy magnet</source>
-        <translation>Kopiraj magnet link</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="83"/>
-        <source>Copy web-magnet</source>
-        <translation>Kopiraj web-magnet</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="85"/>
-        <source>Properties of magnet</source>
-        <translation>Svojstva magneta</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="88"/>
-        <source>Add to favorites</source>
-        <translation>Dodaj u omiljene</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="90"/>
-        <source>Add restriction</source>
-        <translation>Dodaj ograničenja</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="91"/>
-        <source>Remove restriction</source>
-        <translation>Obriši ograničenja</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="92"/>
-        <source>Open directory</source>
-        <translation>Otvori fasciklu</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="168"/>
-        <source>Browse</source>
-        <translation>Pregledaj</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="217"/>
-        <source>Own files</source>
-        <translation>Sopstveni fajlovi</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="219"/>
-        <source>Listing: </source>
-        <translation>Listing: </translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="392"/>
-        <source>Total share size: %1;  Files: %2</source>
-        <translation>Ukupno deljena veličina: %1;  Fajlovi: %2</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="426"/>
-        <source>Share browser error: %1</source>
-        <translation>Greška deljenog pretraživača: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="620"/>
-        <source>Selected %1 from %2 items; </source>
-        <translation>Izabrano %1 od %2 stavke; </translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="958"/>
-        <source>Enter restriction size (in GB)</source>
-        <translation>Unesite veličinu ograničenja (in GB)</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="1097"/>
-        <source>Share browser</source>
-        <translation>Deljeni pretraživač</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="312"/>
-        <source>Filebrowser</source>
-        <translation>Pregledač fajlova</translation>
-    </message>
-    <message>
-        <location filename="../src/ShareBrowser.cpp" line="71"/>
+        <location filename="../src/ShareBrowser.cpp" line="69"/>
         <source>Restrictions</source>
         <translation>Ograničenja</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="72"/>
+        <location filename="../src/ShareBrowser.cpp" line="70"/>
         <source>Magnet</source>
         <translation>Magnet</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="314"/>
+        <location filename="../src/ShareBrowser.cpp" line="72"/>
+        <source>Download</source>
+        <translation>Preuzmi</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="74"/>
+        <source>Download to...</source>
+        <translation>Preuzmi u...</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="77"/>
+        <source>Search for alternates</source>
+        <translation>Traži alternativu</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="79"/>
+        <source>Copy magnet</source>
+        <translation>Kopiraj magnet link</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="81"/>
+        <source>Copy web-magnet</source>
+        <translation>Kopiraj web-magnet</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="83"/>
+        <source>Properties of magnet</source>
+        <translation>Svojstva magneta</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="86"/>
+        <source>Add to favorites</source>
+        <translation>Dodaj u omiljene</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="88"/>
+        <source>Add restriction</source>
+        <translation>Dodaj ograničenja</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="89"/>
+        <source>Remove restriction</source>
+        <translation>Obriši ograničenja</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="90"/>
+        <source>Open directory</source>
+        <translation>Otvori fasciklu</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="166"/>
+        <source>Browse</source>
+        <translation>Pregledaj</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="215"/>
+        <source>Own files</source>
+        <translation>Sopstveni fajlovi</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="217"/>
+        <source>Listing: </source>
+        <translation>Listing: </translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="309"/>
+        <source>Filebrowser</source>
+        <translation>Pregledač fajlova</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="311"/>
         <source>Close</source>
         <translation>Zatvori</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="598"/>
-        <location filename="../src/ShareBrowser.cpp" line="622"/>
+        <location filename="../src/ShareBrowser.cpp" line="389"/>
+        <source>Total share size: %1;  Files: %2</source>
+        <translation>Ukupno deljena veličina: %1;  Fajlovi: %2</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="423"/>
+        <source>Share browser error: %1</source>
+        <translation>Greška deljenog pretraživača: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="595"/>
+        <location filename="../src/ShareBrowser.cpp" line="619"/>
         <source>Total size: %1</source>
         <translation>Ukupna veličina: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="625"/>
+        <location filename="../src/ShareBrowser.cpp" line="617"/>
+        <source>Selected %1 from %2 items; </source>
+        <translation>Izabrano %1 od %2 stavke; </translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="622"/>
         <source>; Selected: %1</source>
         <translation>; Izabrano: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="828"/>
+        <location filename="../src/ShareBrowser.cpp" line="825"/>
         <source>Select directory</source>
         <translation>Izaberi fasciklu</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="955"/>
+        <source>Enter restriction size (in GB)</source>
+        <translation>Unesite veličinu ograničenja (in GB)</translation>
+    </message>
+    <message>
+        <location filename="../src/ShareBrowser.cpp" line="1094"/>
+        <source>Share browser</source>
+        <translation>Deljeni pretraživač</translation>
     </message>
 </context>
 <context>
     <name>ShareBrowserSearch</name>
     <message>
-        <location filename="../src/ShareBrowserSearch.cpp" line="70"/>
+        <location filename="../src/ShareBrowserSearch.cpp" line="67"/>
         <source>Search - %1</source>
         <translation>Pretraga - %1</translation>
     </message>
@@ -3904,6 +3768,12 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Stop</translation>
     </message>
     <message>
+        <location filename="../src/SpyFrame.cpp" line="53"/>
+        <location filename="../src/SpyFrame.h" line="40"/>
+        <source>Search Spy</source>
+        <translation>Pretraga špijuna</translation>
+    </message>
+    <message>
         <location filename="../src/SpyFrame.cpp" line="54"/>
         <source>Search Spy is now running.
 It will continue to work when the widget is hidden.
@@ -3923,12 +3793,6 @@ Da li želite da zaustavite?</translation>
         <source>Search</source>
         <translation>Pretraži</translation>
     </message>
-    <message>
-        <location filename="../src/SpyFrame.cpp" line="53"/>
-        <location filename="../src/SpyFrame.h" line="40"/>
-        <source>Search Spy</source>
-        <translation>Pretraga špijuna</translation>
-    </message>
 </context>
 <context>
     <name>SpyModel</name>
@@ -3946,7 +3810,7 @@ Da li želite da zaustavite?</translation>
 <context>
     <name>TabFrame</name>
     <message>
-        <location filename="../src/TabFrame.cpp" line="365"/>
+        <location filename="../src/TabFrame.cpp" line="366"/>
         <source>Close</source>
         <translation>Zatvori</translation>
     </message>
@@ -4156,10 +4020,6 @@ Da li želite da zaustavite?</translation>
         <translation> Otpremljeno %1 (%2%)  </translation>
     </message>
     <message>
-        <source> Uploaded %1 (%2%) </source>
-        <translation type="obsolete"> Uploaded %1 (%2%) </translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="816"/>
         <source>Upload complete</source>
         <translation>Otpremanje kompletno</translation>
@@ -4189,13 +4049,13 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="47"/>
-        <source>Size</source>
-        <translation>Veličina</translation>
+        <source>Flags</source>
+        <translation>Zastave</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="47"/>
-        <source>Flags</source>
-        <translation>Zastave</translation>
+        <source>Size</source>
+        <translation>Veličina</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="48"/>
@@ -4241,10 +4101,6 @@ Da li želite da zaustavite?</translation>
         <location filename="../src/TransferViewModel.cpp" line="551"/>
         <source>Waiting for slot </source>
         <translation>Čekanje na slot </translation>
-    </message>
-    <message>
-        <source> from %1/%2 user(s)</source>
-        <translation type="obsolete"> from %1/%2 user(s)</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="561"/>
@@ -4334,14 +4190,9 @@ Da li želite da zaustavite?</translation>
         <translation>Omiljeni hab.</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="78"/>
-        <source>Type source</source>
-        <translation>Tip izvora</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="94"/>
-        <source>Filename</source>
-        <translation>Ime fajla</translation>
+        <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
+        <source>Search string</source>
+        <translation>Pretraži nisku</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
@@ -4350,9 +4201,14 @@ Da li želite da zaustavite?</translation>
         <translation>Fascikla</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
-        <source>Search string</source>
-        <translation>Pretraži nisku</translation>
+        <location filename="../ui/UIADLSearchEditor.ui" line="78"/>
+        <source>Type source</source>
+        <translation>Tip izvora</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIADLSearchEditor.ui" line="94"/>
+        <source>Filename</source>
+        <translation>Ime fajla</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="104"/>
@@ -4385,14 +4241,14 @@ Da li želite da zaustavite?</translation>
         <translation>GiB</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="242"/>
-        <source>On</source>
-        <translation>Uključi</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="229"/>
         <source>Download</source>
         <translation>Preuzimanje</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIADLSearchEditor.ui" line="242"/>
+        <source>On</source>
+        <translation>Uključi</translation>
     </message>
 </context>
 <context>
@@ -4403,9 +4259,27 @@ Da li želite da zaustavite?</translation>
         <translation>O programu EiskaltDC++</translation>
     </message>
     <message>
+        <location filename="../ui/UIAbout.ui" line="20"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
         <location filename="../ui/UIAbout.ui" line="38"/>
         <source>About program</source>
         <translation>O programu</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIAbout.ui" line="61"/>
+        <source>Authors</source>
+        <translation>Autori</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="67"/>
@@ -4422,9 +4296,14 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="61"/>
-        <source>Authors</source>
-        <translation>Autori</translation>
+        <location filename="../ui/UIAbout.ui" line="85"/>
+        <source>Translation</source>
+        <translation>Prevod</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIAbout.ui" line="103"/>
+        <source>License</source>
+        <translation>Licenca</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="109"/>
@@ -4450,29 +4329,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.(sp)(sp)See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.(sp)(sp)If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIAbout.ui" line="85"/>
-        <source>Translation</source>
-        <translation>Prevod</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIAbout.ui" line="103"/>
-        <source>License</source>
-        <translation>Licenca</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIAbout.ui" line="20"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -4662,14 +4518,34 @@ p, li { white-space: pre-wrap; }
         <translation>Poveži na startu</translation>
     </message>
     <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="41"/>
+        <source>Disable chat</source>
+        <translation>Isključi razgovor</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
+        <source>Name</source>
+        <translation>Ime</translation>
+    </message>
+    <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="57"/>
         <source>Favorite hub name.</source>
         <translation>Omiljeni hab.</translation>
     </message>
     <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="64"/>
+        <source>Address</source>
+        <translation>Adresa</translation>
+    </message>
+    <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="71"/>
         <source>IP address or DNS name of hub.</source>
         <translation>IP adresa ili  DNS ime haba.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="78"/>
+        <source>Description</source>
+        <translation>Opis</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
@@ -4678,24 +4554,29 @@ p, li { white-space: pre-wrap; }
         <translation>Ovaj opis će se pojaviti u listi korisnika.</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
-        <source>Name</source>
-        <translation>Ime</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="64"/>
-        <source>Address</source>
-        <translation>Adresa</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="78"/>
-        <source>Description</source>
-        <translation>Opis</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="92"/>
         <source>Encoding</source>
         <translation>Kodiranje</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="102"/>
+        <source>Mode</source>
+        <translation>Režim</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="110"/>
+        <source>Default</source>
+        <translation>Podrazumevano</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="115"/>
+        <source>Active</source>
+        <translation>Aktivan</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="120"/>
+        <source>Passive</source>
+        <translation>Pasivan</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="128"/>
@@ -4721,31 +4602,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="180"/>
         <source>Minimum search interval (seconds)</source>
         <translation>Minimalni interval pretrage (sekunde)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="41"/>
-        <source>Disable chat</source>
-        <translation>Isključi razgovor</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="110"/>
-        <source>Default</source>
-        <translation>Podrazumevano</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="115"/>
-        <source>Active</source>
-        <translation>Aktivan</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="120"/>
-        <source>Passive</source>
-        <translation>Pasivan</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="102"/>
-        <source>Mode</source>
-        <translation>Režim</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="202"/>
@@ -4855,6 +4711,11 @@ p, li { white-space: pre-wrap; }
         <translation>Oblik</translation>
     </message>
     <message>
+        <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
+        <source>Show</source>
+        <translation>Pokaži</translation>
+    </message>
+    <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="30"/>
         <source>Files</source>
         <translation>Fajlovi</translation>
@@ -4863,11 +4724,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFinishedTransfers.ui" line="35"/>
         <source>Users</source>
         <translation>Korisnici</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
-        <source>Show</source>
-        <translation>Pokaži</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="43"/>
@@ -4893,9 +4749,9 @@ p, li { white-space: pre-wrap; }
         <translation>Hash napredak</translation>
     </message>
     <message>
-        <location filename="../ui/UIHashProgressDialog.ui" line="136"/>
-        <source>Hide</source>
-        <translation>Sakriven</translation>
+        <location filename="../ui/UIHashProgressDialog.ui" line="109"/>
+        <source>Close on finish</source>
+        <translation>Zatvori na kraju</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="129"/>
@@ -4903,9 +4759,9 @@ p, li { white-space: pre-wrap; }
         <translation>Start</translation>
     </message>
     <message>
-        <location filename="../ui/UIHashProgressDialog.ui" line="109"/>
-        <source>Close on finish</source>
-        <translation>Zatvori na kraju</translation>
+        <location filename="../ui/UIHashProgressDialog.ui" line="136"/>
+        <source>Hide</source>
+        <translation>Sakriven</translation>
     </message>
 </context>
 <context>
@@ -5007,14 +4863,9 @@ p, li { white-space: pre-wrap; }
         <translation>IP Filter</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="165"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIIPFilter.ui" line="158"/>
-        <source>Add</source>
-        <translation>Dodaj</translation>
+        <location filename="../ui/UIIPFilter.ui" line="47"/>
+        <source>Enable IPFilter</source>
+        <translation>Omogući IPFilter</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="54"/>
@@ -5025,16 +4876,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIIPFilter.ui" line="61"/>
         <source>Import</source>
         <translation>Uvezi</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIIPFilter.ui" line="141"/>
-        <source>UP</source>
-        <translation>Gore</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIIPFilter.ui" line="148"/>
-        <source>DOWN</source>
-        <translation>Dole</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="108"/>
@@ -5057,9 +4898,24 @@ p, li { white-space: pre-wrap; }
         <translation>Van</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="47"/>
-        <source>Enable IPFilter</source>
-        <translation>Omogući IPFilter</translation>
+        <location filename="../ui/UIIPFilter.ui" line="141"/>
+        <source>UP</source>
+        <translation>Gore</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIIPFilter.ui" line="148"/>
+        <source>DOWN</source>
+        <translation>Dole</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIIPFilter.ui" line="158"/>
+        <source>Add</source>
+        <translation>Dodaj</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIIPFilter.ui" line="165"/>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -5068,22 +4924,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIMagnet.ui" line="20"/>
         <source>Form</source>
         <translation>Oblik</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIMagnet.ui" line="137"/>
-        <source>Adds magnet to download queue. If autosearch for alternatives is enabled
-in options, file will be downloaded without opening search dialog.</source>
-        <translation>Dodaje magnet link u red za preuzimanje. Fajl će biti preuzet bez otvaranja dijaloga za pretragu.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIMagnet.ui" line="161"/>
-        <source>Cancel</source>
-        <translation>Otkaži</translation>
-    </message>
-    <message>
-        <location filename="../ui/UIMagnet.ui" line="130"/>
-        <source>Search</source>
-        <translation>Pretraži</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="58"/>
@@ -5111,9 +4951,25 @@ in options, file will be downloaded without opening search dialog.</source>
         <translation>Otvara se dijalog za pretragu.</translation>
     </message>
     <message>
+        <location filename="../ui/UIMagnet.ui" line="130"/>
+        <source>Search</source>
+        <translation>Pretraži</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIMagnet.ui" line="137"/>
+        <source>Adds magnet to download queue. If autosearch for alternatives is enabled
+in options, file will be downloaded without opening search dialog.</source>
+        <translation>Dodaje magnet link u red za preuzimanje. Fajl će biti preuzet bez otvaranja dijaloga za pretragu.</translation>
+    </message>
+    <message>
         <location filename="../ui/UIMagnet.ui" line="141"/>
         <source>Add to queue</source>
         <translation>Dodaj u red</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIMagnet.ui" line="161"/>
+        <source>Cancel</source>
+        <translation>Otkaži</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="170"/>
@@ -5248,6 +5104,26 @@ in options, file will be downloaded without opening search dialog.</source>
         <source>Dialog</source>
         <translation>Dijalog</translation>
     </message>
+    <message>
+        <location filename="../ui/UIScriptManager.ui" line="21"/>
+        <source>Do nothing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../ui/UIScriptManager.ui" line="26"/>
+        <source>Ask user</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../ui/UIScriptManager.ui" line="31"/>
+        <source>Reload it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../ui/UIScriptManager.ui" line="39"/>
+        <source>When script changed</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UISearchBlacklistDialog</name>
@@ -5288,14 +5164,9 @@ in options, file will be downloaded without opening search dialog.</source>
         <translation>Povezivanje</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="80"/>
-        <source>Firewall with port forwarding</source>
-        <translation>Zaštitini zid sa prosledjivanjem porta</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="63"/>
-        <source>Active mode</source>
-        <translation>Aktivan režim</translation>
+        <location filename="../ui/UISettingsConnection.ui" line="33"/>
+        <source>Auto detect connection</source>
+        <translation>Auto detekcija konekcije</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="40"/>
@@ -5317,9 +5188,60 @@ ovu opciju i obično ne treba više menjati parametre veze.
 Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna dodatna konfiguracija zaštitnog zida za pristup EiskaltDC++.</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsConnection.ui" line="63"/>
+        <source>Active mode</source>
+        <translation>Aktivan režim</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="73"/>
+        <source>Select this mode if you are behind a firewall (router), and will set up
+the TCP, UDP and TLS port forwarding on your own.
+You will need to specify the external IP address of your router using
+the setting below if you want downloads to work properly.
+Use this mode only if the previous ones are not options for you.</source>
+        <translation>Izaberite ovaj režim ako se nalazite iza zaštitnog zida i podesite
+sa prosledjivanjem TCP, UDP i TLS.
+Moraćete da navedete svoju spoljnu IP adresu rutera
+ako želite da ispravno radi preuzimanje.
+Koristite ovaj režim samo ako prethodne opcije nisu za vas.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="80"/>
+        <source>Firewall with port forwarding</source>
+        <translation>Zaštitini zid sa prosledjivanjem porta</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="90"/>
+        <source>Select this mode if none of the previous modes apply. In this mode,
+EiskaltDC++ will not try to make inbound connections, only outbound ones.
+This mode carries some serious limitations:
+  * only 5 results per user will be returned in response to searches;
+  * you will not be able to download from other passive users;
+  * you may won&apos;t be able to search and/or download on certain hubs.</source>
+        <translation>Izaberite ovaj režim ako ništa od prethodnih nije primenljivo. U ovom modu,
+EiskaltDC++ neće probati dolazeće veze, nego samo odlazeće.
+Ovaj režim nosi neka ozbiljna ograničenja.
+</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsConnection.ui" line="98"/>
         <source>Passive mode</source>
         <translation>Pasivan režim</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="105"/>
+        <source>Select this mode if you are behind a firewall/router that supports
+the UPnP standard for program auto-configuration.
+Most routers do support UPnP but you may need to enable it
+in the router's configuration page.
+This way EiskaltDC++ will automatically open the ports it needs
+and obtain your external IP address as well.</source>
+        <translation>Izaberite ovaj režim ako ste iza zaštitnog zida koji podržava
+UPnP standard za program autokonfiguracije.
+Većina rutera ne podržava UPnP, pa ćete morati da to omogućite 
+na ruterovoj konfiguracionoj stranici.
+Na taj način EiskaldDC++ će automatski otvoriti portove i
+dobiti svoju spoljnu IP adresu.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="113"/>
@@ -5332,9 +5254,9 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
         <translation>Spoljna/WAN IP:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="319"/>
-        <source>000.000.000.000; </source>
-        <translation>000.000.000.000;  </translation>
+        <location filename="../ui/UISettingsConnection.ui" line="152"/>
+        <source>Don&apos;t allow Hub/UPnP/DHT to override</source>
+        <translation>Ne dozvolite hub/UPnP da prevazidju</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="161"/>
@@ -5352,18 +5274,14 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
         <translation>TLS port</translation>
     </message>
     <message>
-        <source>Don&apos;t allow Hub/UPnP to override</source>
-        <translation type="obsolete">Don&apos;t allow Hub/UPnP to override</translation>
+        <location filename="../ui/UISettingsConnection.ui" line="235"/>
+        <source>Bind to address</source>
+        <translation>Poveži na adresu</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="33"/>
-        <source>Auto detect connection</source>
-        <translation>Auto detekcija konekcije</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="152"/>
-        <source>Don&apos;t allow Hub/UPnP/DHT to override</source>
-        <translation>Ne dozvolite hub/UPnP da prevazidju</translation>
+        <location filename="../ui/UISettingsConnection.ui" line="245"/>
+        <source>Bind to interface</source>
+        <translation>Poveži na interfejs</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="261"/>
@@ -5371,14 +5289,39 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
         <translation>Odlazne veze</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsConnection.ui" line="276"/>
+        <source>Select this mode if you can make unrestricted outbound connections.
+This includes connecting to any IP address on any port.
+Choose this option if unsure.</source>
+        <translation>Izaberite ovaj režim ako možete napraviti neograničen broj spoljnih konekcija.
+Ovo uključuje povezivanje na bilo koju IP adresu i bilo koji port.
+Izaberite ovu opciju, ako niste sigurni.</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsConnection.ui" line="281"/>
         <source>Direct connection</source>
         <translation>Direktno povezivanje</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsConnection.ui" line="291"/>
+        <source>Select this mode if you want to make outbound connections through
+a SOCKS proxy. The caveats for Passive mode also apply here.
+SOCKS5 proxies are not the same as HTTP proxies.
+DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
+        <translation>Izaberite ovaj režim ako želite da napravite izlazne konekcije kroz
+SOCKS proxy. Napomene za pasivan režim se primenjuju ovde.
+SOCKS5 proxies nisu isti kao za HTTP proxies.
+DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsConnection.ui" line="297"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="319"/>
+        <source>000.000.000.000; </source>
+        <translation>000.000.000.000;  </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="332"/>
@@ -5411,6 +5354,11 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
         <translation>Koristi za rešavanje host imena</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsConnection.ui" line="401"/>
+        <source>DynDNS Address:</source>
+        <translation>DynDNS adresa:</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsConnection.ui" line="427"/>
         <source>When enabled can hang program on exit.</source>
         <translation>Kada je omogućena možete prekinuti program na izlazu.</translation>
@@ -5421,45 +5369,50 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
         <translation>Automatsko ažuriranje spoljašne IP (zahteva restart)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="792"/>
-        <source>Reconnect to hub (seconds)</source>
-        <translation>Ponovno konekcija na hab (sekundi)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="876"/>
-        <source>Enable DHT</source>
-        <translation>Omogući DHT</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="900"/>
-        <source>DHT port</source>
-        <translation>DHT port</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="401"/>
-        <source>DynDNS Address:</source>
-        <translation>DynDNS adresa:</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="235"/>
-        <source>Bind to address</source>
-        <translation>Poveži na adresu</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="245"/>
-        <source>Bind to interface</source>
-        <translation>Poveži na interfejs</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="454"/>
         <location filename="../ui/UISettingsConnection.ui" line="469"/>
         <source>Limits</source>
         <translation>Ograničenja</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsConnection.ui" line="475"/>
+        <source>Enable Throttle</source>
+        <translation>Omogući Thr</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="506"/>
+        <location filename="../ui/UISettingsConnection.ui" line="658"/>
+        <source>Download</source>
+        <translation>Preuzimanje</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="520"/>
+        <location filename="../ui/UISettingsConnection.ui" line="554"/>
+        <location filename="../ui/UISettingsConnection.ui" line="699"/>
+        <location filename="../ui/UISettingsConnection.ui" line="732"/>
+        <source>KiB/s</source>
+        <translation>KiB/s</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="540"/>
+        <location filename="../ui/UISettingsConnection.ui" line="685"/>
+        <source>Upload</source>
+        <translation>Otpremanje</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsConnection.ui" line="583"/>
         <source>Alternate speed limit at time from </source>
         <translation>Alternativno ograničenje brzine na vreme od</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="609"/>
+        <source>to</source>
+        <translation>za</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="623"/>
+        <source>hour(s)</source>
+        <translation>sat(i)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="722"/>
@@ -5470,6 +5423,16 @@ Medjutim, ako imate softverski zaštitni zid instaliran, možda je potrebna doda
         <location filename="../ui/UISettingsConnection.ui" line="765"/>
         <source>Advanced</source>
         <translation>Napredno</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="792"/>
+        <source>Reconnect to hub (seconds)</source>
+        <translation>Ponovno konekcija na hab (sekundi)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="815"/>
+        <source>Type-of-Service (ToS)</source>
+        <translation>Tip servisa (ToS)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="831"/>
@@ -5524,105 +5487,14 @@ p, li { white-space: pre-wrap; }
         <translation>Minimalni troškovi</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="815"/>
-        <source>Type-of-Service (ToS)</source>
-        <translation>Tip servisa (ToS)</translation>
+        <location filename="../ui/UISettingsConnection.ui" line="876"/>
+        <source>Enable DHT</source>
+        <translation>Omogući DHT</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="506"/>
-        <location filename="../ui/UISettingsConnection.ui" line="658"/>
-        <source>Download</source>
-        <translation>Preuzimanje</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="73"/>
-        <source>Select this mode if you are behind a firewall (router), and will set up
-the TCP, UDP and TLS port forwarding on your own.
-You will need to specify the external IP address of your router using
-the setting below if you want downloads to work properly.
-Use this mode only if the previous ones are not options for you.</source>
-        <translation>Izaberite ovaj režim ako se nalazite iza zaštitnog zida i podesite
-sa prosledjivanjem TCP, UDP i TLS.
-Moraćete da navedete svoju spoljnu IP adresu rutera
-ako želite da ispravno radi preuzimanje.
-Koristite ovaj režim samo ako prethodne opcije nisu za vas.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="90"/>
-        <source>Select this mode if none of the previous modes apply. In this mode,
-EiskaltDC++ will not try to make inbound connections, only outbound ones.
-This mode carries some serious limitations:
-  * only 5 results per user will be returned in response to searches;
-  * you will not be able to download from other passive users;
-  * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation>Izaberite ovaj režim ako ništa od prethodnih nije primenljivo. U ovom modu,
-EiskaltDC++ neće probati dolazeće veze, nego samo odlazeće.
-Ovaj režim nosi neka ozbiljna ograničenja.
-</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="105"/>
-        <source>Select this mode if you are behind a firewall/router that supports
-the UPnP standard for program auto-configuration.
-Most routers do support UPnP but you may need to enable it
-in the router's configuration page.
-This way EiskaltDC++ will automatically open the ports it needs
-and obtain your external IP address as well.</source>
-        <translation>Izaberite ovaj režim ako ste iza zaštitnog zida koji podržava
-UPnP standard za program autokonfiguracije.
-Većina rutera ne podržava UPnP, pa ćete morati da to omogućite 
-na ruterovoj konfiguracionoj stranici.
-Na taj način EiskaldDC++ će automatski otvoriti portove i
-dobiti svoju spoljnu IP adresu.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="276"/>
-        <source>Select this mode if you can make unrestricted outbound connections.
-This includes connecting to any IP address on any port.
-Choose this option if unsure.</source>
-        <translation>Izaberite ovaj režim ako možete napraviti neograničen broj spoljnih konekcija.
-Ovo uključuje povezivanje na bilo koju IP adresu i bilo koji port.
-Izaberite ovu opciju, ako niste sigurni.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="291"/>
-        <source>Select this mode if you want to make outbound connections through
-a SOCKS proxy. The caveats for Passive mode also apply here.
-SOCKS5 proxies are not the same as HTTP proxies.
-DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation>Izaberite ovaj režim ako želite da napravite izlazne konekcije kroz
-SOCKS proxy. Napomene za pasivan režim se primenjuju ovde.
-SOCKS5 proxies nisu isti kao za HTTP proxies.
-DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="475"/>
-        <source>Enable Throttle</source>
-        <translation>Omogući Thr</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="520"/>
-        <location filename="../ui/UISettingsConnection.ui" line="554"/>
-        <location filename="../ui/UISettingsConnection.ui" line="699"/>
-        <location filename="../ui/UISettingsConnection.ui" line="732"/>
-        <source>KiB/s</source>
-        <translation>KiB/s</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="540"/>
-        <location filename="../ui/UISettingsConnection.ui" line="685"/>
-        <source>Upload</source>
-        <translation>Otpremanje</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="609"/>
-        <source>to</source>
-        <translation>za</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsConnection.ui" line="623"/>
-        <source>hour(s)</source>
-        <translation>sat(i)</translation>
+        <location filename="../ui/UISettingsConnection.ui" line="900"/>
+        <source>DHT port</source>
+        <translation>DHT port</translation>
     </message>
 </context>
 <context>
@@ -5658,6 +5530,23 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
         <translation>Ograničenja</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="106"/>
+        <source>This is another method of limiting simultaneous downloads,
+designed to prevent new downloads if your existing downloads
+exceed a specific threshold. It's measured in kibibytes per second,
+and a value of zero will disable this limit.</source>
+        <translation>Ovo je još jedan od načina ograničavanja istovremenog preuzimanja,
+dizajniran da spreči nova preuzimanja ako postojeće preuzimanje
+prelazi odredjeni prag. Vrednost nula će onemogućiti ovo ograničenje.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="119"/>
+        <source>This limits the number of simultaneous downloads.
+A value of 0 means no limit.</source>
+        <translation>Ovo ograničava broj istovremenih preuzimanja.
+Vrednost 0 znači da nema ograničenja.</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="133"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
         <translation>Maksimum istovremenih preuzimanja (0 = beskonačno)</translation>
@@ -5676,6 +5565,15 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="172"/>
         <source>Public Hub lists</source>
         <translation>Javne hab liste</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="181"/>
+        <source>This HTTP proxy will only be used to request
+the Public Hub List specified above.
+It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
+        <translation>Ovaj HTTP proxy će biti korišćen samo na zahrev
+javne hab liste.
+Ne koristi se za otpremanje, preuzimanje ili povezivanje na hab.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="190"/>
@@ -5713,62 +5611,6 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
         <translation>Podešavanja prioriteta</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="343"/>
-        <source>Highest priority max size (KiB)</source>
-        <translation>Najviši prioritet max veličina (KiB)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="359"/>
-        <source>High priority max size (KiB)</source>
-        <translation>Visok prioritet max veličina (KiB)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="375"/>
-        <source>Normal priority max size (KiB)</source>
-        <translation>Normalan prioritet max veličina (KiB)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="391"/>
-        <source>Low priority max size (KiB)</source>
-        <translation>Nizak prioritet max veličina (KiB)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="420"/>
-        <source>Auto-drop settings</source>
-        <translation>Podešavanja prekida</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="440"/>
-        <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation>Proverite svakih x sekundi ako je izvor spor. (podrazumevano: 10s)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="106"/>
-        <source>This is another method of limiting simultaneous downloads,
-designed to prevent new downloads if your existing downloads
-exceed a specific threshold. It's measured in kibibytes per second,
-and a value of zero will disable this limit.</source>
-        <translation>Ovo je još jedan od načina ograničavanja istovremenog preuzimanja,
-dizajniran da spreči nova preuzimanja ako postojeće preuzimanje
-prelazi odredjeni prag. Vrednost nula će onemogućiti ovo ograničenje.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="119"/>
-        <source>This limits the number of simultaneous downloads.
-A value of 0 means no limit.</source>
-        <translation>Ovo ograničava broj istovremenih preuzimanja.
-Vrednost 0 znači da nema ograničenja.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="181"/>
-        <source>This HTTP proxy will only be used to request
-the Public Hub List specified above.
-It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation>Ovaj HTTP proxy će biti korišćen samo na zahrev
-javne hab liste.
-Ne koristi se za otpremanje, preuzimanje ili povezivanje na hab.</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="293"/>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
@@ -5798,6 +5640,31 @@ and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</sour
  i normalne veličine, biće postavljeni sa niskim prioritetom.  (podrazumevano: 0 KiB)</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="343"/>
+        <source>Highest priority max size (KiB)</source>
+        <translation>Najviši prioritet max veličina (KiB)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="359"/>
+        <source>High priority max size (KiB)</source>
+        <translation>Visok prioritet max veličina (KiB)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="375"/>
+        <source>Normal priority max size (KiB)</source>
+        <translation>Normalan prioritet max veličina (KiB)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="391"/>
+        <source>Low priority max size (KiB)</source>
+        <translation>Nizak prioritet max veličina (KiB)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="420"/>
+        <source>Auto-drop settings</source>
+        <translation>Podešavanja prekida</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="429"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
@@ -5805,11 +5672,28 @@ the source will be dropped. (default: 1024 B/s)</source>
 izvor će biti odbačen.  (podrazumevano: 1024 B/s)</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="440"/>
+        <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
+        <translation>Proverite svakih x sekundi ako je izvor spor. (podrazumevano: 10s)</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="450"/>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
         <translation>Količina vremena (u sekundama) koja mora da prodje od pokretanja
 preuzimanja  izvor može da povuče. (podrazumevano: 15 s)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="461"/>
+        <source>This is the maximal time since the last chunk of data for
+the file was received. It is meant to improve speed measurement
+accuracy and to prevent dropping sources that are going to be
+disconnected only because of their current inactivity. (default: 10 s)</source>
+        <translation>Ovo je maksimalno vreme od posledljeg komada podataka za
+fajl koji je primljen. Namenjena je da se pobljša brzina tačnost
+i sprečavanje padanja izvora koji će biti
+isključen samo zbog njihove trenutne neaktivnosti. (podrazumevano:10 s)
+</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="474"/>
@@ -5873,6 +5757,11 @@ su postavljene na najniži prioritet.
 Ako je isključeno, fajlovi će biti postavljeni na normalni prioritet.</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="642"/>
+        <source>Auto-drop slow sources for all queue items (except filelists)</source>
+        <translation>Prekini spore izvore za sve stavke (osim fajl liste)</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="645"/>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
@@ -5882,11 +5771,37 @@ Da bi omogućili autodrop, uključite ili &quot;&quot;Prekini spore izvore za sv
 ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="658"/>
+        <source>Remove slow filelists</source>
+        <translation>Ukloni spore fajl liste</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="661"/>
+        <source>With this option enabled, EiskaltDC++ will delete a file list whose speed
+was recognized as too slow.
+To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
+or &quot;Remove slow file lists&quot; (or both of them).</source>
+        <translation>Sa ovom omogućenom opcijom, EiskaltDC++ će obrisati fajl liste čija brzina
+je prepoznata kao veoma spora.
+Da bi omogućili autodrop, uključite ili &quot;Prekini spore izvore za sve stavke&quot;
+ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="675"/>
+        <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
+        <translation>Ne uklanjaj izvor kod prekida, samo isključi</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="678"/>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
         <translation>Sa ovom opcijom omogućenom, izvori će biti samo isključeni
 ali ne i uklonjeni iz reda.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="690"/>
+        <source>Automatically search for alternative download locations</source>
+        <translation>Automatski traži alternativne lokacije za preuzimanje</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="693"/>
@@ -5902,6 +5817,11 @@ Auto pretraga će naći tačne pogotke preko hash pretrage.
 Nedostatak je da ne može naći mnogo više izvora
 i da će sprečiti ručno pretraživanje haba gde je unapred
 definisan tražeći interval.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="709"/>
+        <source>Automatically match queue for auto search hits</source>
+        <translation>Automatsko podešavanje reda za auto pretragu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="712"/>
@@ -5922,6 +5842,11 @@ vremena koje je potrebno da se završi preuzimanje i
  da ćete preuzeti mnoge fajl liste.</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="730"/>
+        <source>Skip zero-byte files</source>
+        <translation>Preskoči nulte fajlove</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="733"/>
         <source>When this option is enabled, any zero byte files you
 try to download will be silently skipped.
@@ -5933,6 +5858,11 @@ Ponekad prazni fajlovi sadrže informacije o svojim imenovanjima.
 Medjutim, svaki fajl, čak i prazan, će zauzimati neki prostor na disku.</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="747"/>
+        <source>Don&apos;t download files already in share</source>
+        <translation>Ne preuzimaj fajlove već deljene</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="750"/>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
@@ -5940,11 +5870,26 @@ which already exist in one of your shared directories.</source>
 koji već postoje u jednoj od deljenih fascikli.</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="762"/>
+        <source>Don&apos;t download files already in the queue</source>
+        <translation>Ne preuzimaj fajlove već u redu</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="765"/>
         <source>This option will stop you from downloading files
 which already exist in your queue.</source>
         <translation>Ova opcija će zaustaviti preuzimanje fajlova
 koji već stoje u redu.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="777"/>
+        <source>SFV Check</source>
+        <translation>SFV provera</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="788"/>
+        <source>Keep downloaded filelists</source>
+        <translation>Čuvaj preuzete fajl liste</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="791"/>
@@ -6001,94 +5946,6 @@ Ako onemogućite ovu funkciJu, to neće ukloniti postojeće završene stavke
 iz reda, već to morate da uradite  ručno.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="899"/>
-        <source>Segment size (in MB, 0 = auto segment size)</source>
-        <translation>Segmentna veličina (u MB, 0 = auto segmentna veličina)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="916"/>
-        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation>Dozvolite simultano otpremanje jednom korisniku sa nekoliko NMDC habova</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="642"/>
-        <source>Auto-drop slow sources for all queue items (except filelists)</source>
-        <translation>Prekini spore izvore za sve stavke (osim fajl liste)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="461"/>
-        <source>This is the maximal time since the last chunk of data for
-the file was received. It is meant to improve speed measurement
-accuracy and to prevent dropping sources that are going to be
-disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation>Ovo je maksimalno vreme od posledljeg komada podataka za
-fajl koji je primljen. Namenjena je da se pobljša brzina tačnost
-i sprečavanje padanja izvora koji će biti
-isključen samo zbog njihove trenutne neaktivnosti. (podrazumevano:10 s)
-</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="658"/>
-        <source>Remove slow filelists</source>
-        <translation>Ukloni spore fajl liste</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="661"/>
-        <source>With this option enabled, EiskaltDC++ will delete a file list whose speed
-was recognized as too slow.
-To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
-or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation>Sa ovom omogućenom opcijom, EiskaltDC++ će obrisati fajl liste čija brzina
-je prepoznata kao veoma spora.
-Da bi omogućili autodrop, uključite ili &quot;Prekini spore izvore za sve stavke&quot;
-ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="675"/>
-        <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
-        <translation>Ne uklanjaj izvor kod prekida, samo isključi</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="690"/>
-        <source>Automatically search for alternative download locations</source>
-        <translation>Automatski traži alternativne lokacije za preuzimanje</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="709"/>
-        <source>Automatically match queue for auto search hits</source>
-        <translation>Automatsko podešavanje reda za auto pretragu</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="788"/>
-        <source>Keep downloaded filelists</source>
-        <translation>Čuvaj preuzete fajl liste</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="876"/>
-        <source>Interval for auto search alternates (minutes)</source>
-        <translation>Interval za naizmeničnu automatsku pretragu (minuti)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="730"/>
-        <source>Skip zero-byte files</source>
-        <translation>Preskoči nulte fajlove</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="747"/>
-        <source>Don&apos;t download files already in share</source>
-        <translation>Ne preuzimaj fajlove već deljene</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="762"/>
-        <source>Don&apos;t download files already in the queue</source>
-        <translation>Ne preuzimaj fajlove već u redu</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="777"/>
-        <source>SFV Check</source>
-        <translation>SFV provera</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsDownloads.ui" line="829"/>
         <source>Compressed transfers</source>
         <translation>Kompresovani transferi</translation>
@@ -6102,6 +5959,21 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="855"/>
         <source>Advanced</source>
         <translation>Napredno</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="876"/>
+        <source>Interval for auto search alternates (minutes)</source>
+        <translation>Interval za naizmeničnu automatsku pretragu (minuti)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="899"/>
+        <source>Segment size (in MB, 0 = auto segment size)</source>
+        <translation>Segmentna veličina (u MB, 0 = auto segmentna veličina)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="916"/>
+        <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
+        <translation>Dozvolite simultano otpremanje jednom korisniku sa nekoliko NMDC habova</translation>
     </message>
 </context>
 <context>
@@ -6140,6 +6012,11 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <location filename="../ui/UISettingsGUI.ui" line="95"/>
         <source>Change</source>
         <translation>Promeni</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="105"/>
+        <source>Show icon in system tray</source>
+        <translation>Prikaži ikonu u sistemskoj kaseti</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="114"/>
@@ -6183,6 +6060,11 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <translation>Probaj da koristiš sistemske ikone (potreban restart)</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsGUI.ui" line="207"/>
+        <source>Don&apos;t show icons in menus (need restart)</source>
+        <translation>Ne prikazuj ikone u menijima (potreban restart)</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsGUI.ui" line="215"/>
         <source>Use default ToolBar (need restart)</source>
         <translation>Koristi podrazumevanu traku sa alatima (potreban restart)</translation>
@@ -6203,24 +6085,49 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <translation>Razgovor</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsGUI.ui" line="253"/>
+        <source>Show joins</source>
+        <translation>Prikaži pristupanja</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsGUI.ui" line="263"/>
         <source>Show joins only for favorite users</source>
         <translation>Prikaži pristupanje samo za omiljene korisnike</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="678"/>
-        <source>Show ip-addresses of users in chat</source>
-        <translation>Pokaži IP-adresu korisnika u razgovoru</translation>
+        <location filename="../ui/UISettingsGUI.ui" line="270"/>
+        <source>Show hidden users</source>
+        <translation>Prikaži skrivene korisnike</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="667"/>
-        <source>Highlight favorite users in user list</source>
-        <translation>Istakni omiljene korisnike u korisničkoj listi</translation>
+        <location filename="../ui/UISettingsGUI.ui" line="277"/>
+        <source>Ignore private messages from Hub</source>
+        <translation>Ingnoriši privatne hab poruke</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="284"/>
+        <source>Ignore private messages from Bot</source>
+        <translation>Ignoriši privatne bot poruke</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="291"/>
+        <source>Redirect messages from Bot to the main chat</source>
+        <translation>Preusmeri bot poruke u glavni prozor</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="298"/>
+        <source>Redirect new personal messages to the main chat</source>
+        <translation>Preusmeravanje nove privatne poruke u glavni razgovor</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="305"/>
         <source>Do not change focus on new incoming private messages</source>
         <translation>Ne menjajte fokus na novu dolaznu privatnu porukua</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="315"/>
+        <source>Use separator for unread messages in the chat</source>
+        <translation>Koristite razmak za nepročitane poruke u razgovoru</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="322"/>
@@ -6233,9 +6140,33 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <translation>Koristi  Ctrl+Enter za slanje poruka</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="298"/>
-        <source>Redirect new personal messages to the main chat</source>
-        <translation>Preusmeravanje nove privatne poruke u glavni razgovor</translation>
+        <location filename="../ui/UISettingsGUI.ui" line="339"/>
+        <source>Enable emoticons</source>
+        <translation>Omogući emotikone</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="346"/>
+        <source>If checked, you'll see emoticons even in the middle of words.
+If unchecked, you'll see emoticons only if they are isolated
+from other words by spaces.</source>
+        <translation>Ako je provereno, videćete smajlije čak i u sredini reči
+Ako je neprovereno, videćete emotikone samo ako su oni odvojeni
+od drugi reči sa razmacima.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="351"/>
+        <source>Force emoticon parsing</source>
+        <translation>Prinudno razdvoj emotikon</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="358"/>
+        <source>Use emoticons panel</source>
+        <translation>Koristi panel emotikona</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="365"/>
+        <source>Autohide emoticons panel</source>
+        <translation>Auto-nestajanje emotikon panela</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="386"/>
@@ -6266,55 +6197,10 @@ ili &quot;Ukloni spore fajl liste&quot; (ili oboje).</translation>
         <translation>Privatna poruka</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="522"/>
-        <source>Middle click action</source>
-        <translation>Akcija srednji klik</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="692"/>
-        <source>Parse BBCode</source>
-        <translation>Analiza BBCode</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="457"/>
         <location filename="../ui/UISettingsGUI.ui" line="493"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
         <translation>pokaži kibibyte (KiB) ili kilobyte (KB), itd.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="346"/>
-        <source>If checked, you'll see emoticons even in the middle of words.
-If unchecked, you'll see emoticons only if they are isolated
-from other words by spaces.</source>
-        <translation>Ako je provereno, videćete smajlije čak i u sredini reči
-Ako je neprovereno, videćete emotikone samo ako su oni odvojeni
-od drugi reči sa razmacima.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="674"/>
-        <source>Depending on hub configuration: information about
-them is usually available only to operators</source>
-        <translation>Zavisno od konfiguracije haba: informacije o njima su obično dostupne samo operatorima</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="358"/>
-        <source>Use emoticons panel</source>
-        <translation>Koristi panel emotikona</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="207"/>
-        <source>Don&apos;t show icons in menus (need restart)</source>
-        <translation>Ne prikazuj ikone u menijima (potreban restart)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="315"/>
-        <source>Use separator for unread messages in the chat</source>
-        <translation>Koristite razmak za nepročitane poruke u razgovoru</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="365"/>
-        <source>Autohide emoticons panel</source>
-        <translation>Auto-nestajanje emotikon panela</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="460"/>
@@ -6340,6 +6226,11 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="509"/>
         <source>hh:mm:ss</source>
         <translation>čč:mm:ss</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="522"/>
+        <source>Middle click action</source>
+        <translation>Akcija srednji klik</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="541"/>
@@ -6368,6 +6259,11 @@ them is usually available only to operators</source>
         <translation>Zapamti odlazne poruke (0 = ne pamti)</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsGUI.ui" line="612"/>
+        <source>Maximum paragraphs</source>
+        <translation>Maksimum znakova</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsGUI.ui" line="638"/>
         <source>Separator in chat</source>
         <translation>Razdvajanje u razgovoru</translation>
@@ -6383,9 +6279,30 @@ them is usually available only to operators</source>
         <translation>,</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsGUI.ui" line="667"/>
+        <source>Highlight favorite users in user list</source>
+        <translation>Istakni omiljene korisnike u korisničkoj listi</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="674"/>
+        <source>Depending on hub configuration: information about
+them is usually available only to operators</source>
+        <translation>Zavisno od konfiguracije haba: informacije o njima su obično dostupne samo operatorima</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="678"/>
+        <source>Show ip-addresses of users in chat</source>
+        <translation>Pokaži IP-adresu korisnika u razgovoru</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsGUI.ui" line="685"/>
         <source>Show country of users in chat</source>
         <translation>Pokaži zemlju korisnika u razgovoru</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="692"/>
+        <source>Parse BBCode</source>
+        <translation>Analiza BBCode</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="713"/>
@@ -6444,51 +6361,6 @@ them is usually available only to operators</source>
         <source>Fonts</source>
         <translation>Fontovi</translation>
     </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="253"/>
-        <source>Show joins</source>
-        <translation>Prikaži pristupanja</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="270"/>
-        <source>Show hidden users</source>
-        <translation>Prikaži skrivene korisnike</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="612"/>
-        <source>Maximum paragraphs</source>
-        <translation>Maksimum znakova</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="339"/>
-        <source>Enable emoticons</source>
-        <translation>Omogući emotikone</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="105"/>
-        <source>Show icon in system tray</source>
-        <translation>Prikaži ikonu u sistemskoj kaseti</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="351"/>
-        <source>Force emoticon parsing</source>
-        <translation>Prinudno razdvoj emotikon</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="277"/>
-        <source>Ignore private messages from Hub</source>
-        <translation>Ingnoriši privatne hab poruke</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="284"/>
-        <source>Ignore private messages from Bot</source>
-        <translation>Ignoriši privatne bot poruke</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="291"/>
-        <source>Redirect messages from Bot to the main chat</source>
-        <translation>Preusmeri bot poruke u glavni prozor</translation>
-    </message>
 </context>
 <context>
     <name>UISettingsHistory</name>
@@ -6537,6 +6409,11 @@ them is usually available only to operators</source>
         <translation>Oblik</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsLog.ui" line="20"/>
+        <source>Log directory</source>
+        <translation>Log fascikla</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsLog.ui" line="29"/>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
         <translation>Svi logovi generisani od EiskaltDC++ će biti stavljeni u ovu podfasciklu.</translation>
@@ -6545,47 +6422,6 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsLog.ui" line="46"/>
         <source>Private messages</source>
         <translation>Privatne poruke</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsLog.ui" line="81"/>
-        <source>Main chat</source>
-        <translation>Glavni razgovor</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsLog.ui" line="116"/>
-        <source>Downloads</source>
-        <translation>Preuzimanje</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsLog.ui" line="151"/>
-        <source>Uploads</source>
-        <translation>Otpremanje</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsLog.ui" line="202"/>
-        <source>Auto search alternates</source>
-        <translation>Auto pretraga alternativa</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsLog.ui" line="218"/>
-        <source>Finished Downloads</source>
-        <translation>Završena preuzimanja</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsLog.ui" line="253"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;Pomoć&lt;/a&gt;&lt;/span&gt; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsLog.ui" line="20"/>
-        <source>Log directory</source>
-        <translation>Log fascikla</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="58"/>
@@ -6606,9 +6442,19 @@ p, li { white-space: pre-wrap; }
         <translation>Tekst</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="209"/>
-        <source>Own filelist uploads</source>
-        <translation>Sopstvena lista otpremljenog</translation>
+        <location filename="../ui/UISettingsLog.ui" line="81"/>
+        <source>Main chat</source>
+        <translation>Glavni razgovor</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="116"/>
+        <source>Downloads</source>
+        <translation>Preuzimanje</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="151"/>
+        <source>Uploads</source>
+        <translation>Otpremanje</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="188"/>
@@ -6619,6 +6465,32 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsLog.ui" line="195"/>
         <source>Status messages</source>
         <translation>Status poruka</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="202"/>
+        <source>Auto search alternates</source>
+        <translation>Auto pretraga alternativa</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="209"/>
+        <source>Own filelist uploads</source>
+        <translation>Sopstvena lista otpremljenog</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="218"/>
+        <source>Finished Downloads</source>
+        <translation>Završena preuzimanja</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="253"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; &lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;Pomoć&lt;/a&gt;&lt;/span&gt; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -6682,6 +6554,11 @@ p, li { white-space: pre-wrap; }
         <translation>Omogući obaveštenja sa aktivnim glavnim prozorom</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsNotification.ui" line="105"/>
+        <source>Change icon when main window is visible</source>
+        <translation>Promeni ikonu kad je glavni prozor vidljiv</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsNotification.ui" line="124"/>
         <source>Notification module</source>
         <translation>Modul obaveštenja</translation>
@@ -6695,30 +6572,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsNotification.ui" line="149"/>
         <source>D-Bus</source>
         <translation>D-Bus</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsNotification.ui" line="253"/>
-        <source>Play sound on active PM window</source>
-        <translation>Emituj zvuk kod aktivnog PM prozor</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsNotification.ui" line="295"/>
-        <source>Favorite user event</source>
-        <translation>Radnja omiljenog korisnika</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsNotification.ui" line="355"/>
-        <source>If your sound files' format is unsupported by Qt, you can define
-custom media player here to play them.
-For example: /usr/bin/mplayer</source>
-        <translation>Ako format tvog zvučnog fajla nije podržan u Qt, možeš odrediti
-drugi muzički plejer da ga emituje
-Na primer: /usr/bin/mplayer</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsNotification.ui" line="105"/>
-        <source>Change icon when main window is visible</source>
-        <translation>Promeni ikonu kad je glavni prozor vidljiv</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="177"/>
@@ -6739,9 +6592,28 @@ Na primer: /usr/bin/mplayer</translation>
         <translation>Test</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsNotification.ui" line="253"/>
+        <source>Play sound on active PM window</source>
+        <translation>Emituj zvuk kod aktivnog PM prozor</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsNotification.ui" line="295"/>
+        <source>Favorite user event</source>
+        <translation>Radnja omiljenog korisnika</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsNotification.ui" line="343"/>
         <source>Use external command</source>
         <translation>Koristi spoljnu komandu</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsNotification.ui" line="355"/>
+        <source>If your sound files' format is unsupported by Qt, you can define
+custom media player here to play them.
+For example: /usr/bin/mplayer</source>
+        <translation>Ako format tvog zvučnog fajla nije podržan u Qt, možeš odrediti
+drugi muzički plejer da ga emituje
+Na primer: /usr/bin/mplayer</translation>
     </message>
 </context>
 <context>
@@ -6750,16 +6622,6 @@ Na primer: /usr/bin/mplayer</translation>
         <location filename="../ui/UISettingsPersonal.ui" line="20"/>
         <source>Form</source>
         <translation>Oblik</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="110"/>
-        <source>This field is for sharing your email address, if you wish it.</source>
-        <translation>Ovo polje je za deljenje vaše e-mail adrese, ako to želite.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="54"/>
-        <source>Nick</source>
-        <translation>Nadimak</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="38"/>
@@ -6773,6 +6635,11 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
 who sends private message to you.</source>
         <translation>Ako ste u gostujućem režimu, ova poruka će biti poslata svima
 koji vam budu poslali privatnu poruku.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsPersonal.ui" line="54"/>
+        <source>Nick</source>
+        <translation>Nadimak</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="61"/>
@@ -6801,6 +6668,11 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <translation>Auto interval (min)</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsPersonal.ui" line="110"/>
+        <source>This field is for sharing your email address, if you wish it.</source>
+        <translation>Ovo polje je za deljenje vaše e-mail adrese, ako to želite.</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsPersonal.ui" line="151"/>
         <source>Line speed (upload)</source>
         <translation>Brzina linije(otpremanje)</translation>
@@ -6816,14 +6688,14 @@ molimo vas da izaberete najbljiži svom.
 Nemojte stavljati u svoju brzinu preuzimanja; ova postavka je mera.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="199"/>
-        <source>Default hub encoding</source>
-        <translation>Podrazumevano hab kodiranje</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsPersonal.ui" line="186"/>
         <source>MiB/s</source>
         <translation>MiB/s</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsPersonal.ui" line="199"/>
+        <source>Default hub encoding</source>
+        <translation>Podrazumevano hab kodiranje</translation>
     </message>
 </context>
 <context>
@@ -6837,59 +6709,6 @@ Nemojte stavljati u svoju brzinu preuzimanja; ova postavka je mera.</translation
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
         <translation>Osnovno</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="129"/>
-        <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation>Ovde možete da navedete šablone za fajlove koje ne želite da delite.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="194"/>
-        <source>Advanced</source>
-        <translation>Napredno</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="219"/>
-        <source>Share files with the Hidden attribute set and files inside directory with
-the Hidden attribute set.
-With this option off, files starting with a . (full stop) will not be shared.
-Note: this option requires a refresh of the file list,
-and may cause the client to appear to freeze.</source>
-        <translation>Delite fajlove sa atributom Skriveni i fajlove unutar fascikli koje su postavljene kao skrivene.
-Uz ovu opciju fajlovi koji počinju sa . (tačka) neće biti deljeni.
-Napomena: ova opcija zahteva i osvežavanje fajl liste.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="331"/>
-        <source>FastHash options (restart needed)</source>
-        <translation>Brze Hash opcije (restart potreban)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="290"/>
-        <source>2</source>
-        <translation>2</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="295"/>
-        <source>4</source>
-        <translation>4</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="496"/>
-        <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
-        <translation>Možeš limitirati brzinu osvežavanja ovde
-ako tvoj sistem počinje sporo.</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="255"/>
-        <source>Use fast hash</source>
-        <translation>Koristite brzo obnavljanje</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="226"/>
-        <source>Share hidden files</source>
-        <translation>Deli sakrivene fajlove</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="33"/>
@@ -6912,6 +6731,11 @@ ako tvoj sistem počinje sporo.</translation>
         <translation>Veličina</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsSharing.ui" line="98"/>
+        <source>Total shared: %1</source>
+        <translation>Ukupno deljeno: %1</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsSharing.ui" line="116"/>
         <source>Exceptions</source>
         <translation>Izuzeci</translation>
@@ -6920,6 +6744,11 @@ ako tvoj sistem počinje sporo.</translation>
         <location filename="../ui/UISettingsSharing.ui" line="122"/>
         <source>Don&apos;t share files and folders containing:</source>
         <translation>Nemoj deliti fajlove i foldere koji sadrže:</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="129"/>
+        <source>Here you can specify templates for files you don&apos;t want to share. </source>
+        <translation>Ovde možete da navedete šablone za fajlove koje ne želite da delite.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
@@ -6942,9 +6771,30 @@ ako tvoj sistem počinje sporo.</translation>
         <translation>Obriši</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsSharing.ui" line="194"/>
+        <source>Advanced</source>
+        <translation>Napredno</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsSharing.ui" line="206"/>
         <source>Follow symlinks</source>
         <translation>Prati sim. linkove</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="219"/>
+        <source>Share files with the Hidden attribute set and files inside directory with
+the Hidden attribute set.
+With this option off, files starting with a . (full stop) will not be shared.
+Note: this option requires a refresh of the file list,
+and may cause the client to appear to freeze.</source>
+        <translation>Delite fajlove sa atributom Skriveni i fajlove unutar fascikli koje su postavljene kao skrivene.
+Uz ovu opciju fajlovi koji počinju sa . (tačka) neće biti deljeni.
+Napomena: ova opcija zahteva i osvežavanje fajl liste.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="226"/>
+        <source>Share hidden files</source>
+        <translation>Deli sakrivene fajlove</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="239"/>
@@ -6957,55 +6807,9 @@ ako tvoj sistem počinje sporo.</translation>
         <translation>Auto brisanje nepostojećih fascikli</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="339"/>
-        <source>Private page mapping</source>
-        <translation>Privatna strana mapiranja</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="360"/>
-        <source>Proactive read from disk</source>
-        <translation>Proaktivno pročitati sa diska</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="380"/>
-        <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
-        <translation>Automatski otvori eksta slot ako je brzina ispod (KiB/s, 0 = infinite)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="416"/>
-        <source>Hashing delay on startup (seconds, -1 = infinity)</source>
-        <translation>Hash kašnjenje na startu (secondi, -1 = infinity)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="451"/>
-        <source>Auto refresh time (minutes, 0 = off)</source>
-        <translation>Automatski osveži vreme (minuti, 0 = off)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="483"/>
-        <source>Max hash speed (MB/s) (0 = infinite)</source>
-        <translation>Maks hash brzina (MB/s) (0 = infinite)</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="520"/>
-        <source>Configure the number of slots that other users can occupy
-to download files from you. A remote user can use only
-one slot for each hub that they're on with you.
-EiskaltDC++ supports uploading file lists and files below 64 KiB
-to other DC++ users without requiring a slot.
-There's a max of 3 connections in addition to normal slots,
-these are called mini slots.
-Note: If a user leaves the hub, EiskaltDC++ will close his slots;
-if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
-        <translation>Configure the number of slots that other users can occupy
-to download files from you. A remote user can use only
-one slot for each hub that they're on with you.
-EiskaltDC++ supports uploading file lists and files below 64 KiB
-to other DC++ users without requiring a slot.
-There's a max of 3 connections in addition to normal slots,
-these are called mini slots.
-Note: If a user leaves the hub, EiskaltDC++ will close his slots;
-if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</translation>
+        <location filename="../ui/UISettingsSharing.ui" line="255"/>
+        <source>Use fast hash</source>
+        <translation>Koristite brzo obnavljanje</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="268"/>
@@ -7016,6 +6820,16 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
         <location filename="../ui/UISettingsSharing.ui" line="285"/>
         <source>1</source>
         <translation>1</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="290"/>
+        <source>2</source>
+        <translation>2</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="295"/>
+        <source>4</source>
+        <translation>4</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="300"/>
@@ -7038,9 +6852,29 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
         <translation>64</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsSharing.ui" line="331"/>
+        <source>FastHash options (restart needed)</source>
+        <translation>Brze Hash opcije (restart potreban)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="339"/>
+        <source>Private page mapping</source>
+        <translation>Privatna strana mapiranja</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsSharing.ui" line="346"/>
         <source>No reserve</source>
         <translation>Bez rezerve</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="360"/>
+        <source>Proactive read from disk</source>
+        <translation>Proaktivno pročitati sa diska</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="380"/>
+        <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
+        <translation>Automatski otvori eksta slot ako je brzina ispod (KiB/s, 0 = infinite)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="396"/>
@@ -7056,10 +6890,32 @@ Ako se originalna brzina otpremanja poveća,
 odobreni slot neće biti zatvoren.</translation>
     </message>
     <message>
+        <location filename="../ui/UISettingsSharing.ui" line="416"/>
+        <source>Hashing delay on startup (seconds, -1 = infinity)</source>
+        <translation>Hash kašnjenje na startu (secondi, -1 = infinity)</translation>
+    </message>
+    <message>
         <location filename="../ui/UISettingsSharing.ui" line="432"/>
         <location filename="../ui/UISettingsSharing.ui" line="467"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Ovde se može postaviti interval za auto obnavljanje deljenog.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="451"/>
+        <source>Auto refresh time (minutes, 0 = off)</source>
+        <translation>Automatski osveži vreme (minuti, 0 = off)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="483"/>
+        <source>Max hash speed (MB/s) (0 = infinite)</source>
+        <translation>Maks hash brzina (MB/s) (0 = infinite)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="496"/>
+        <source>You can limit maximum hash speed here
+if your system becomes slow while hasing files.</source>
+        <translation>Možeš limitirati brzinu osvežavanja ovde
+ako tvoj sistem počinje sporo.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
@@ -7067,9 +6923,25 @@ odobreni slot neće biti zatvoren.</translation>
         <translation>Slotovi za otpremanje</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="98"/>
-        <source>Total shared: %1</source>
-        <translation>Ukupno deljeno: %1</translation>
+        <location filename="../ui/UISettingsSharing.ui" line="520"/>
+        <source>Configure the number of slots that other users can occupy
+to download files from you. A remote user can use only
+one slot for each hub that they're on with you.
+EiskaltDC++ supports uploading file lists and files below 64 KiB
+to other DC++ users without requiring a slot.
+There's a max of 3 connections in addition to normal slots,
+these are called mini slots.
+Note: If a user leaves the hub, EiskaltDC++ will close his slots;
+if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
+        <translation>Configure the number of slots that other users can occupy
+to download files from you. A remote user can use only
+one slot for each hub that they're on with you.
+EiskaltDC++ supports uploading file lists and files below 64 KiB
+to other DC++ users without requiring a slot.
+There's a max of 3 connections in addition to normal slots,
+these are called mini slots.
+Note: If a user leaves the hub, EiskaltDC++ will close his slots;
+if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</translation>
     </message>
 </context>
 <context>
@@ -7163,11 +7035,6 @@ odobreni slot neće biti zatvoren.</translation>
         <translation>Oblik</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="62"/>
-        <source>Start</source>
-        <translation>Start</translation>
-    </message>
-    <message>
         <location filename="../ui/UISpy.ui" line="35"/>
         <source>Ignore TTH search</source>
         <translation>Ignorisanje TTH pretrage</translation>
@@ -7176,6 +7043,11 @@ odobreni slot neće biti zatvoren.</translation>
         <location filename="../ui/UISpy.ui" line="42"/>
         <source>Autoscrolling</source>
         <translation>Autoskrolovanje</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISpy.ui" line="62"/>
+        <source>Start</source>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../ui/UISpy.ui" line="69"/>

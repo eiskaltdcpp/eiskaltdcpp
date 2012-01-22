@@ -1,22 +1,20 @@
-# English translations for work package.
-# Copyright (C) 2010 EiskaltDC++\ team
-# This file is distributed under the same license as the work package.
-#
-# Translators:
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR EiskaltDC++ team
+# This file is distributed under the same license as the PACKAGE package.
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2011-12-27 23:16+0200\n"
-"PO-Revision-Date: 2011-12-27 15:46+0000\n"
+"POT-Creation-Date: 2012-01-22 23:38+0200\n"
+"PO-Revision-Date: 2012-01-22 21:56+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Czech (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
-"cs/)\n"
-"Language: cs\n"
+"Language-Team: Czech (http://www.transifex.net/projects/p/eiskaltdcpp/team/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../FavoriteManager.cpp:429
@@ -100,8 +98,10 @@ msgstr "Ustavuji nejlepší nastavení spojení..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr "Nemohu otevřít %1% port(y); Nastavení spojení musí být nastaveno ručně"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr ""
+"Nemohu otevřít %1% port(y); Nastavení spojení musí být nastaveno ručně"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -299,46 +299,46 @@ msgstr "Chyba pocesu komprese"
 msgid "Error during decompression"
 msgstr "Chyba během dekomprese"
 
-#: ../HashManager.cpp:88 ../HashManager.cpp:288
+#: ../HashManager.cpp:218 ../HashManager.cpp:418
 msgid "Hashing failed: %1%"
 msgstr "Hashování selhalo: %1%"
 
-#: ../HashManager.cpp:95
+#: ../HashManager.cpp:225
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Dokončeno hashování: %1% (%2% v %3%/s)"
 
-#: ../HashManager.cpp:98
+#: ../HashManager.cpp:228
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Hashování dokončeno: %1% (%2%)"
 
-#: ../HashManager.cpp:101
+#: ../HashManager.cpp:231
 msgid "Finished hashing: %1%"
 msgstr "Dokončeno hashování: %1%"
 
-#: ../HashManager.cpp:130 ../HashManager.cpp:344
+#: ../HashManager.cpp:260 ../HashManager.cpp:474
 msgid "Error saving hash data: %1%"
 msgstr "Chyba při ukládání hashe: %1%"
 
-#: ../HashManager.cpp:143
+#: ../HashManager.cpp:273
 msgid "Unable to read hash data file"
 msgstr "Nelze číst hash souborů"
 
-#: ../HashManager.cpp:476
+#: ../HashManager.cpp:606
 msgid "Error creating hash data file: %1%"
 msgstr "Chyba vytváření souboru hashe: %1%"
 
-#: ../HashManager.cpp:806
+#: ../HashManager.cpp:946
 msgid "Hash database rebuilt"
 msgstr "Hash databáze obnovena"
 
-#: ../HashManager.cpp:900
+#: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru "
 "SFV."
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
 msgstr "Chyba hashování %1%: %2%"
 
@@ -433,8 +433,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr "Probíhá obnovení seznamu souborů, prosím počkejte"
 
 #: ../ShareManager.cpp:811
@@ -648,8 +648,8 @@ msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
 msgstr ""
-"Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro "
-"stáhnuté soubory)"
+"Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro"
+" stáhnuté soubory)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -695,5 +695,4 @@ msgstr ""
 msgid "TTH inconsistency"
 msgstr "TTH nesouhlasí"
 
-#~ msgid "Request to seek beyond the end of data"
-#~ msgstr "Request to seek beyond the end of data"
+

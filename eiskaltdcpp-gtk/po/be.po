@@ -1,25 +1,21 @@
-# English translations for work package.
-# Copyright (C) 2010 EiskaltDC++\ team
-# This file is distributed under the same license as the work package.
-#
-# Translators:
-# Translators:
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR EiskaltDC++ team
+# This file is distributed under the same license as the PACKAGE package.
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-01-17 00:24+0200\n"
-"PO-Revision-Date: 2011-12-28 08:00+0000\n"
+"POT-Creation-Date: 2012-01-22 23:38+0200\n"
+"PO-Revision-Date: 2012-01-22 21:54+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Belarusian (http://www.transifex.net/projects/p/eiskaltdcpp/"
-"team/be/)\n"
-"Language: be\n"
+"Language-Team: Belarusian (http://www.transifex.net/projects/p/eiskaltdcpp/team/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: be\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
 #: ../src/privatemessage.cc:641
@@ -194,11 +190,11 @@ msgstr ": надрукуйце «/help», каб атрымаць сьпіс д�
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Дапамога</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Дапамога</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -1147,9 +1143,8 @@ msgid "Do you really want to exit?"
 msgstr "Ці сапраўды вы хочаце выйсьці?"
 
 #: ../ui/settingsdialog.ui:1482
-#, fuzzy
 msgid "Don't allow Hub/UPnP/DHT to override"
-msgstr "Не замяняецца асяродкам ці UPnP"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1477
 msgid "Don't delete file lists when exiting"
@@ -1242,7 +1237,8 @@ msgstr "Абмежаваньне сьцягваць відарысы: "
 #: ../src/hub.cc:2017
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
-"Відарысы: 0 — ня сьцягваць; n<0 — сьцягваць усе; пуста — паказаць бягучы стан"
+"Відарысы: 0 — ня сьцягваць; n<0 — сьцягваць усе; пуста — паказаць бягучы "
+"стан"
 
 #: ../src/transfers.cc:1091
 msgid "Download removed"
@@ -1937,7 +1933,7 @@ msgstr "Прачытаць файл Lua"
 msgid "Loading file list"
 msgstr "Чытаецца сьпіс файлаў"
 
-#: ../src/wulfor.cc:75
+#: ../src/wulfor.cc:77
 msgid "Loading: "
 msgstr "Чытаецца: "
 
@@ -2258,8 +2254,8 @@ msgstr "Уважце: абраныя віды пошуку будуць прац
 #: ../ui/settingsdialog.ui:4565 ../ui/settingsdialog.ui:4634
 msgid "Note: Most of these options require that you restart the application"
 msgstr ""
-"Уважце: зьмяненьні ў большасьці можнасьцяў пачынаюць дзейнічаць па наступным "
-"запуску праґрамы"
+"Уважце: зьмяненьні ў большасьці можнасьцяў пачынаюць дзейнічаць па наступным"
+" запуску праґрамы"
 
 #: ../ui/settingsdialog.ui:4021
 msgid "Note: New files are added to the share only once they've been hashed!"
@@ -2268,7 +2264,8 @@ msgstr ""
 "створацца скароты!"
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Уважце: хуткасьць зьмяняецца, таму гэта вызначаецца недакладна…"
 
 #: ../src/settingsdialog.cc:1206 ../ui/settingsdialog.ui:5614
@@ -2488,7 +2485,7 @@ msgstr "Выйсьці"
 msgid "Quit the program"
 msgstr "Выйсьці з праґрамы"
 
-#: ../src/wulfor.cc:153
+#: ../src/wulfor.cc:155
 msgid "Quit..."
 msgstr "Выйсьці…"
 
@@ -2759,7 +2756,8 @@ msgid "Set download limit image: "
 msgstr "Вызначылі абмежаваньне сьцягваць малюнкі: "
 
 #: ../src/settingsdialog.cc:950
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Калі дадаецца файл, большы за памер для нізкага пяршынства, надаваць яму "
 "найніжэйшае пяршынства"
@@ -2852,7 +2850,7 @@ msgstr "Паказаць або схаваць панэль перадавана
 msgid "Show/Hide user list"
 msgstr "Паказаць або схаваць сьпіс карыстальнікаў"
 
-#: ../src/wulfor.cc:151
+#: ../src/wulfor.cc:153
 msgid "Shutting down libdcpp..."
 msgstr "Спыняецца libdcpp…"
 
@@ -3175,8 +3173,8 @@ msgstr "Не магу прачытаць сьпіс файлаў: хібная �
 
 #: ../src/mainwindow.cc:2242
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Не магу адчыніць порт %1%. Файлы ня будуць перадавацца без памылак і пошук "
@@ -3410,8 +3408,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3420,8 +3417,7 @@ msgstr ""
 "Як карыстацца:\n"
 "  eiskaltdcpp-gtk <маґніт-спасылка> <dchub://спасылка> <adc(s)://спасылка>\n"
 "  eiskaltdcpp-gtk <ключ>\n"
-"EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы "
-"Direct Connect і ADC.\n"
+"EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы Direct Connect і ADC.\n"
 "\n"
 "\n"
 "Ключы:\n"
@@ -3838,140 +3834,4 @@ msgstr "найлепшыя/чакаюць/бачныя: "
 msgid "waiting..."
 msgstr "чакаем…"
 
-#~ msgid ""
-#~ "Translators\n"
-#~ "\n"
-#~ " Russian translation\n"
-#~ "\n"
-#~ " Boris Pek\n"
-#~ " (tehnick-8@mail.ru)\n"
-#~ "\n"
-#~ " Belarusian translation\n"
-#~ "\n"
-#~ " Paval Shalamitski aka Klyok\n"
-#~ " (i.kliok@gmail.com)\n"
-#~ "\n"
-#~ " Hungarian translation\n"
-#~ "\n"
-#~ " Akos Berki aka sumo\n"
-#~ " (husumo@gmail.com)\n"
-#~ "\n"
-#~ " French translation\n"
-#~ "\n"
-#~ " Alexandre Wallimann aka Ale\n"
-#~ " (alexandre.wallimann@gmail.com)\n"
-#~ "\n"
-#~ " Polish translation\n"
-#~ "\n"
-#~ " Arahael\n"
-#~ "\n"
-#~ " Ukrainian translation\n"
-#~ "\n"
-#~ " Dmytro Demenko\n"
-#~ " (dmytro.demenko@gmail.com)\n"
-#~ "\n"
-#~ " Serbian translation\n"
-#~ "\n"
-#~ " Miroslav Petrovic\n"
-#~ " (miroslav031@gmail.com)\n"
-#~ "\n"
-#~ " Spanish translation\n"
-#~ "\n"
-#~ " Gustavo Alvarez aka sL1pKn07\n"
-#~ " (sl1pkn07@gmail.com)\n"
-#~ "\n"
-#~ " Bulgarian translation\n"
-#~ "\n"
-#~ " Rusi Dimitrov aka PsyTrip\n"
-#~ " (dimitrov.rusi@gmail.com)\n"
-#~ "\n"
-#~ " Slovak translation\n"
-#~ "\n"
-#~ " Martin Durisin\n"
-#~ " (martin.durisin@gmail.com)\n"
-#~ "\n"
-#~ " Czech translation\n"
-#~ "\n"
-#~ " Uhlik\n"
-#~ " (uhlikx@seznam.cz)\n"
-#~ "\n"
-#~ " German translation\n"
-#~ "\n"
-#~ " Chris Leick\n"
-#~ " (c.leick@vollbio.de)\n"
-#~ msgstr ""
-#~ "Перакладчыкі\n"
-#~ "\n"
-#~ " Расейская мова\n"
-#~ "\n"
-#~ " Boris Pek\n"
-#~ " (tehnick-8@mail.ru)\n"
-#~ "\n"
-#~ " Беларуская мова\n"
-#~ "\n"
-#~ " Павал «Клёк» Шаламіцкі\n"
-#~ " (i.kliok@gmail.com)\n"
-#~ "\n"
-#~ " Вугорская мова\n"
-#~ "\n"
-#~ " Akos Berki aka sumo\n"
-#~ " (husumo@gmail.com)\n"
-#~ "\n"
-#~ " Француская мова\n"
-#~ "\n"
-#~ " Alexandre Wallimann aka Ale\n"
-#~ " (alexandre.wallimann@gmail.com)\n"
-#~ "\n"
-#~ " Польская мова\n"
-#~ "\n"
-#~ " Arahael\n"
-#~ "\n"
-#~ " Украінская мова\n"
-#~ "\n"
-#~ " Dmytro Demenko\n"
-#~ " (dmytro.demenko@gmail.com)\n"
-#~ "\n"
-#~ " Сэрбская мова\n"
-#~ "\n"
-#~ " Miroslav Petrovic\n"
-#~ " (miroslav031@gmail.com)\n"
-#~ "\n"
-#~ " Гішпанская мова\n"
-#~ "\n"
-#~ " Gustavo Alvarez aka sL1pKn07\n"
-#~ " (sl1pkn07@gmail.com)\n"
-#~ "\n"
-#~ " Баўгарская мова\n"
-#~ "\n"
-#~ " Rusi Dimitrov aka PsyTrip\n"
-#~ " (dimitrov.rusi@gmail.com)\n"
-#~ "\n"
-#~ " Славацкая мова\n"
-#~ "\n"
-#~ " Martin Durisin\n"
-#~ " (martin.durisin@gmail.com)\n"
-#~ "\n"
-#~ " Чэская мова\n"
-#~ "\n"
-#~ " Uhlik\n"
-#~ " (uhlikx@seznam.cz)\n"
-#~ "\n"
-#~ " Нямецкая мова\n"
-#~ "\n"
-#~ " Chris Leick\n"
-#~ " (c.leick@vollbio.de)\n"
 
-#~ msgid "File type"
-#~ msgstr "File list"
-
-#~ msgid "Search for a file"
-#~ msgstr "Searching for "
-
-#~ msgid "Searching too soon, retry in "
-#~ msgstr "Searching too soon, retry in "
-
-#~ msgid " s"
-#~ msgstr "s"
-
-#~ msgid "No use temp directory"
-#~ msgstr "Choose a directory"

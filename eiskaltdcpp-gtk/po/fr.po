@@ -1,23 +1,20 @@
-# English translations for work package.
-# Copyright (C) 2010 EiskaltDC++\ team
-# This file is distributed under the same license as the work package.
-#
-# Translators:
-# Translators:
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR EiskaltDC++ team
+# This file is distributed under the same license as the PACKAGE package.
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-01-17 00:24+0200\n"
-"PO-Revision-Date: 2011-12-28 08:01+0000\n"
+"POT-Creation-Date: 2012-01-22 23:38+0200\n"
+"PO-Revision-Date: 2012-01-22 21:54+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: French (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
-"fr/)\n"
-"Language: fr\n"
+"Language-Team: French (http://www.transifex.net/projects/p/eiskaltdcpp/team/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #: ../src/hub.cc:1043 ../src/hub.cc:1122 ../src/privatemessage.cc:562
@@ -193,11 +190,11 @@ msgstr ": tapez /help pour la liste des commandes disponibles"
 
 #: ../ui/settingsdialog.ui:6780
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3863
 msgid "<b>Add player</b>"
@@ -531,7 +528,8 @@ msgstr "Ajouter un serveur aux favoris"
 
 #: ../src/settingsdialog.cc:1484
 msgid "Add finished files to share instantly (if shared)"
-msgstr "Ajouter les fichiers téléchargés au partage immédiatement (si partagé)"
+msgstr ""
+"Ajouter les fichiers téléchargés au partage immédiatement (si partagé)"
 
 #: ../src/hub.cc:2034
 msgid ""
@@ -683,8 +681,8 @@ msgstr "\"Absence\" auto lors de la réduction de fenêtre (et inversement)"
 #: ../src/settingsdialog.cc:951
 msgid "Auto-drop slow sources for all queue items (except filelists)"
 msgstr ""
-"Déconnecter automatiquement les sources lentes de toutes les files d'attente "
-"(sauf listes de fichiers)"
+"Déconnecter automatiquement les sources lentes de toutes les files d'attente"
+" (sauf listes de fichiers)"
 
 #: ../src/settingsdialog.cc:1478
 msgid "Automatically disconnect users who leave the hub"
@@ -703,7 +701,8 @@ msgstr ""
 #: ../ui/settingsdialog.ui:4160
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
-"Ouvrir un slot automatiquement si la vitesse est inférieure à (0 = désactivé)"
+"Ouvrir un slot automatiquement si la vitesse est inférieure à (0 = "
+"désactivé)"
 
 #: ../src/settingsdialog.cc:954
 msgid "Automatically search for alternative download locations"
@@ -1892,8 +1891,8 @@ msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
 msgstr ""
-"Garder les doublons dans votre liste de fichier (ils ne comptent pas dans la "
-"taille de votre partage)"
+"Garder les doublons dans votre liste de fichier (ils ne comptent pas dans la"
+" taille de votre partage)"
 
 #: ../ui/settingsdialog.ui:3220 ../ui/settingsdialog.ui:3236
 #: ../ui/settingsdialog.ui:3270 ../ui/settingsdialog.ui:3286
@@ -1933,7 +1932,7 @@ msgstr "Chargement de la liste"
 msgid "Loading file list"
 msgstr "Chargement de la liste"
 
-#: ../src/wulfor.cc:75
+#: ../src/wulfor.cc:77
 msgid "Loading: "
 msgstr "Encodage"
 
@@ -2260,7 +2259,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2831
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1206 ../ui/settingsdialog.ui:5614
@@ -2480,7 +2480,7 @@ msgstr ""
 msgid "Quit the program"
 msgstr ""
 
-#: ../src/wulfor.cc:153
+#: ../src/wulfor.cc:155
 msgid "Quit..."
 msgstr ""
 
@@ -2750,7 +2750,8 @@ msgid "Set download limit image: "
 msgstr "Spécifiez la limite de téléchargement de l'image: "
 
 #: ../src/settingsdialog.cc:950
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:4053
@@ -2841,7 +2842,7 @@ msgstr ""
 msgid "Show/Hide user list"
 msgstr ""
 
-#: ../src/wulfor.cc:151
+#: ../src/wulfor.cc:153
 msgid "Shutting down libdcpp..."
 msgstr ""
 
@@ -3160,8 +3161,8 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2242
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 
@@ -3390,8 +3391,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3810,17 +3810,4 @@ msgstr ""
 msgid "waiting..."
 msgstr ""
 
-#~ msgid "File type"
-#~ msgstr "File list"
 
-#~ msgid "Search for a file"
-#~ msgstr "Searching for "
-
-#~ msgid "Searching too soon, retry in "
-#~ msgstr "Searching too soon, retry in "
-
-#~ msgid " s"
-#~ msgstr "s"
-
-#~ msgid "No use temp directory"
-#~ msgstr "Choose a directory"

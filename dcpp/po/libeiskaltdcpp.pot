@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-01-17 00:06+0200\n"
+"POT-Creation-Date: 2012-01-22 23:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -289,44 +289,44 @@ msgstr ""
 msgid "Error during decompression"
 msgstr ""
 
-#: ../HashManager.cpp:88 ../HashManager.cpp:288
+#: ../HashManager.cpp:218 ../HashManager.cpp:418
 msgid "Hashing failed: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:95
+#: ../HashManager.cpp:225
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr ""
 
-#: ../HashManager.cpp:98
+#: ../HashManager.cpp:228
 msgid "Finished hashing: %1% (%2%)"
 msgstr ""
 
-#: ../HashManager.cpp:101
+#: ../HashManager.cpp:231
 msgid "Finished hashing: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:130 ../HashManager.cpp:344
+#: ../HashManager.cpp:260 ../HashManager.cpp:474
 msgid "Error saving hash data: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:143
+#: ../HashManager.cpp:273
 msgid "Unable to read hash data file"
 msgstr ""
 
-#: ../HashManager.cpp:476
+#: ../HashManager.cpp:606
 msgid "Error creating hash data file: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:806
+#: ../HashManager.cpp:946
 msgid "Hash database rebuilt"
 msgstr ""
 
-#: ../HashManager.cpp:900
+#: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 
-#: ../HashManager.cpp:905
+#: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
 msgstr ""
 
