@@ -263,6 +263,25 @@ void catchSIGSEGV(int sigNum) {
     std::abort();
 }
 
+void catchSIGABRT(int sigNum) {
+    std::cout << "Catching SIGABRT signal..." << std::endl;
+
+#ifdef ENABLE_STACKTRACE
+    printBacktrace(sigNum);
+#endif // ENABLE_STACKTRACE
+    
+    EiskaltApp *eapp = dynamic_cast<EiskaltApp*>(qApp);
+    
+    if (eapp) {
+        eapp->getSharedMemory().unlock();
+        eapp->getSharedMemory().detach();
+    }
+    
+    raise(SIGINT);
+    
+    //std::abort();
+}
+
 void installHandlers(){
     struct sigaction sa;
     memset(&sa, 0, sizeof(sa));
@@ -272,6 +291,7 @@ void installHandlers(){
     }
 
     signal(SIGSEGV, catchSIGSEGV);
+    signal(SIGABRT, catchSIGABRT);
 
     std::cout << QObject::tr("Signal handlers installed.").toStdString() << std::endl;
 }
