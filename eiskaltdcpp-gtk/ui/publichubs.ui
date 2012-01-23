@@ -358,7 +358,6 @@
           <object class="GtkStatusbar" id="statusMain">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="has_resize_grip">False</property>
           </object>
           <packing>
             <property name="expand">True</property>
@@ -371,7 +370,6 @@
             <property name="width_request">100</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="has_resize_grip">False</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -384,7 +382,6 @@
             <property name="width_request">100</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="has_resize_grip">False</property>
           </object>
           <packing>
             <property name="expand">False</property>

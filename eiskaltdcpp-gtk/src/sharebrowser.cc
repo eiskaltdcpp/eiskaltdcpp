@@ -47,6 +47,14 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     updateFileView(TRUE),
     skipHits(0)
 {
+#if !GTK_CHECK_VERSION(3,0,0)
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("mainStatus")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("itemsStatus")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("sizeStatus")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("filesStatus")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("totalStatus")),FALSE);
+#endif
+
     // Use the nick from the file name in case the user is offline and core only returns CID
     nick = WulforUtil::getNicks(user, "");//NOTE: core 0.762
     if (nick.find(user->getCID().toBase32(), 1) != string::npos)
@@ -334,7 +342,7 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
     }
 
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), sortColumn, sortType);
-    gtk_tree_view_scroll_to_point(fileView.get(), 0, 0);
+    //gtk_tree_view_scroll_to_point(fileView.get(), 0, 0);
     updateStatus_gui();
     updateFileView = TRUE;
 }

@@ -48,6 +48,12 @@ FinishedTransfers::FinishedTransfers(const EntryType type, const string &title, 
 	totalBytes(0),
 	totalTime(0)
 {
+#if !GTK_CHECK_VERSION(3,0,0)
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("averegeSpeed")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("totalSize")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("totalItems")),FALSE);
+#endif
+
 	// menu
 	g_object_ref_sink(getWidget("menu"));
 

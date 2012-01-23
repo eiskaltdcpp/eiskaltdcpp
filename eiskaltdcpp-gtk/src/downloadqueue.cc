@@ -37,6 +37,14 @@ DownloadQueue::DownloadQueue():
 	currentSize(0),
 	totalSize(0)
 {
+#if !GTK_CHECK_VERSION(3,0,0)
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusItems")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusFileSize")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusFiles")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusTotalSize")),FALSE);
+#endif
+
 	// Configure the dialogs
 	File::ensureDirectory(SETTING(DOWNLOAD_DIRECTORY));
 	gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(getWidget("dirChooserDialog")), Text::fromUtf8(SETTING(DOWNLOAD_DIRECTORY)).c_str());

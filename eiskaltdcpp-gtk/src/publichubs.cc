@@ -30,6 +30,12 @@ PublicHubs::PublicHubs():
 	hubs(0),
 	filter("")
 {
+#if !GTK_CHECK_VERSION(3,0,0)
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusHubs")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusUsers")),FALSE);
+#endif
+
 	// Configure the dialog
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("configureDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
 

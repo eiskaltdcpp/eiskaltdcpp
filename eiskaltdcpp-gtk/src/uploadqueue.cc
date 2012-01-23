@@ -35,6 +35,10 @@ using namespace dcpp;
 UploadQueue::UploadQueue():
 BookEntry(Entry::UPLOADQUEUE, _("Upload Queue"), "uploadqueue.ui")
 {
+#if !GTK_CHECK_VERSION(3,0,0)
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar1")),FALSE);
+#endif
+
 	users.setView(GTK_TREE_VIEW(getWidget("viewUsers")));
 	users.insertColumn("User", G_TYPE_STRING, TreeView::STRING, 80);
 	users.insertColumn("File", G_TYPE_STRING, TreeView::STRING, 150);

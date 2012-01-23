@@ -33,6 +33,10 @@ using namespace dcpp;
 FavoriteUsers::FavoriteUsers():
 	BookEntry(Entry::FAVORITE_USERS, _("Favorite Users"), "favoriteusers.ui")
 {
+#if !GTK_CHECK_VERSION(3,0,0)
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),FALSE);
+#endif
+
 	// Configure the dialog
 	gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("DescriptionDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
 

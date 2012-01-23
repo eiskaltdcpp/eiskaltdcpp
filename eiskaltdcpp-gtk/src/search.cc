@@ -41,6 +41,12 @@ Search::Search():
     BookEntry(Entry::SEARCH, _("Search"), "search.ui", generateID()),
     previousGrouping(NOGROUPING)
 {
+#if !GTK_CHECK_VERSION(3,0,0)
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar1")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar2")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar3")),FALSE);
+#endif
+
     // Initialize the search entries combo box
     if (searchEntriesModel == NULL)
         searchEntriesModel = gtk_combo_box_get_model(GTK_COMBO_BOX(getWidget("comboboxentrySearch")));

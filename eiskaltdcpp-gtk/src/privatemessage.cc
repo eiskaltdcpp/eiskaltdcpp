@@ -44,6 +44,10 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     scrollToBottom(TRUE),
     offline(false)
 {
+#if !GTK_CHECK_VERSION(3,0,0)
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),FALSE);
+#endif
+
     // Intialize the chat window
     if (WGETB("use-oem-monofont"))
     {
