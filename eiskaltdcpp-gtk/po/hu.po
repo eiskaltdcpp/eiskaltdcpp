@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Márk Lutring <marcus@elitemail.hu>, 2012.
+# Szabolcs Molnár <fleet@elitemail.hu>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-01-22 23:38+0200\n"
-"PO-Revision-Date: 2012-01-22 21:54+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"PO-Revision-Date: 2012-01-23 10:17+0000\n"
+"Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +38,7 @@ msgstr " + rendszer ikonok"
 
 #: ../src/hub.cc:439 ../src/hub.cc:457
 msgid " Users"
-msgstr " Felhasználó"
+msgstr " felhasználó"
 
 #: ../src/hub.cc:2754
 msgid " added to favorites list"
@@ -175,7 +176,7 @@ msgstr "0 B (0.00%)"
 
 #: ../src/hub.cc:503
 msgid "0 Users"
-msgstr "0 Felhasználó"
+msgstr "0 felhasználó"
 
 #: ../src/search.cc:539
 msgid "0 filtered"
@@ -335,11 +336,11 @@ msgstr "<b>Az új keresési típus neve</b>"
 
 #: ../src/settingsdialog.cc:2910
 msgid "<b>Name under which the others see the directory</b>"
-msgstr ""
+msgstr "<b>Név, ami alatt mások látják a könyvtárat</b>"
 
 #: ../src/settingsdialog.cc:3524
 msgid "<b>Name, under which you see the directory</b>"
-msgstr ""
+msgstr "<b>Név, ami alatt ön látja a könyvtárat</b>"
 
 #: ../src/settingsdialog.cc:1932
 msgid "<b>New name</b>"
@@ -365,7 +366,7 @@ msgstr "<b>Egyéb Biztonsági Beállítások</b>"
 
 #: ../ui/settingsdialog.ui:3693
 msgid "<b>Other queue options</b>"
-msgstr ""
+msgstr "<b>Egyéb sor beállítások</b>"
 
 #: ../ui/settingsdialog.ui:1840
 msgid "<b>Outgoing connection settings</b>"
@@ -928,7 +929,7 @@ msgstr "Lap bezárása"
 
 #: ../ui/mainwindow.ui:1428
 msgid "Close all search"
-msgstr ""
+msgstr "Minden keresés bezárása"
 
 #: ../src/hub.cc:2003
 msgid "Close chat"
@@ -1362,7 +1363,7 @@ msgstr ""
 
 #: ../ui/sharebrowser.ui:278
 msgid "Enter text to search for"
-msgstr ""
+msgstr "Adja meg a keresni kívánt szöveget"
 
 #: ../src/mainwindow.cc:1235
 msgid "Enter value for "
@@ -1602,7 +1603,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:6227
 msgid "Frame (size)"
-msgstr ""
+msgstr "Képkocka (méret)"
 
 #: ../ui/searchspy.ui:326 ../ui/settingsdialog.ui:6210
 msgid ""
@@ -1612,7 +1613,7 @@ msgstr ""
 
 #: ../ui/searchspy.ui:314
 msgid "Frame:"
-msgstr ""
+msgstr "Képkocka:"
 
 #: ../src/mainwindow.cc:2354
 msgid "Free "
@@ -2403,7 +2404,7 @@ msgstr "Képek"
 
 #: ../src/transfers.cc:888
 msgid "Plain"
-msgstr ""
+msgstr "Plain"
 
 #: ../ui/settingsdialog.ui:4857
 msgid "Play"
@@ -2705,7 +2706,7 @@ msgstr "Biztonsági Tanúsítványok"
 
 #: ../src/settingsdialog.cc:3079
 msgid "Select Font"
-msgstr ""
+msgstr "Betű kiválasztása"
 
 #: ../src/mainwindow.cc:2378
 msgid "Select file to Get TTH"

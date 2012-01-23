@@ -5132,22 +5132,22 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Ne tegyen semmit</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="26"/>
         <source>Ask user</source>
-        <translation type="unfinished"/>
+        <translation>Kérdezze a felhasználót</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="31"/>
         <source>Reload it</source>
-        <translation type="unfinished"/>
+        <translation>Töltse újra</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="39"/>
         <source>When script changed</source>
-        <translation type="unfinished"/>
+        <translation>Ha a szkript megváltozik</translation>
     </message>
 </context>
 <context>
