@@ -49,6 +49,7 @@ void WulforManager::start(int argc, char **argv)
 	gdk_threads_enter();
 	manager->createMainWindow();
 	gdk_threads_leave();
+	dcpp::Text::hubDefaultCharset = WGETS("default-charset");
 }
 
 void WulforManager::stop()
