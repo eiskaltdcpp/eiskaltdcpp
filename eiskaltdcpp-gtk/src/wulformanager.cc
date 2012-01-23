@@ -46,6 +46,10 @@ void WulforManager::start(int argc, char **argv)
 	dcassert(!manager);
 	manager = new WulforManager();
 
+    std::string lang = WGETS("translation-lang");
+    if (!lang.empty())
+        dcpp::Util::setLang(lang);
+
 	gdk_threads_enter();
 	manager->createMainWindow();
 	gdk_threads_leave();

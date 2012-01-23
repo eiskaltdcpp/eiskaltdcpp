@@ -2042,6 +2042,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         else if (command == "lang" && !param.empty())
         {
             Util::setLang(param);
+            WSET("translation-lang", param);
         }
         else if (command == "dcpps" && !param.empty())
         {
