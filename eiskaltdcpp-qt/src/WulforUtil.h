@@ -21,8 +21,6 @@
 #include <QHttp>
 #include <QHttpHeader>
 
-#include <boost/pool/pool_alloc.hpp>
-
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"
 #include "dcpp/ClientManager.h"
@@ -175,7 +173,7 @@ public:
     QString compactToolTipText(QString, int, QString);
 
     QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* = 0);
-    
+
     static bool isTTH(const QString &text);
 
 public Q_SLOTS:

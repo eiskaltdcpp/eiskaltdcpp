@@ -163,14 +163,12 @@ else (FREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)
 
 if (LOCAL_BOOST)
-file(GLOB BOOST_TAR_EXISTS  *.tar.gz)
-if (NOT BOOST_TAR_EXISTS)
 set (boost_file_name "boost.tar.gz")
-file(DOWNLOAD http://eiskaltdc.googlecode.com/files/${boost_file_name} ${CMAKE_CURRENT_SOURCE_DIR}/${boost_file_name} LOG boost_logs STATUS boost_status)
-message (STATUS "${boost_logs}")
-message (STATUS "${boost_status}")
+file(GLOB BOOST_TAR_EXISTS ${PROJECT_BINARY_DIR}/${boost_file_name})
+if (NOT BOOST_TAR_EXISTS)
+file(DOWNLOAD http://eiskaltdc.googlecode.com/files/${boost_file_name} ${PROJECT_BINARY_DIR}/${boost_file_name})
 endif (NOT BOOST_TAR_EXISTS)
-file(GLOB BOOST_TAR_EXISTS *.tar.gz)
+file(GLOB BOOST_TAR_EXISTS ${PROJECT_BINARY_DIR}/${boost_file_name})
 FIND_PROGRAM (TAR_CMD tar)
   EXECUTE_PROCESS (
                 COMMAND ${TAR_CMD} -xf ${BOOST_TAR_EXISTS}
@@ -179,7 +177,7 @@ set (Boost_INCLUDE_DIR ${PROJECT_BINARY_DIR})
 if (HAIKU)
 EXECUTE_PROCESS (
                 COMMAND patch -p0 -i haiku/boost.diff
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+                WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
 endif()
 message (STATUS "USED LOCAL BOOST HEADERS")
 else (LOCAL_BOOST)
