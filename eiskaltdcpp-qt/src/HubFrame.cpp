@@ -141,12 +141,20 @@ HubFrame::Menu *HubFrame::Menu::instance = NULL;
 unsigned HubFrame::Menu::counter = 0;
 
 void HubFrame::Menu::newInstance(){
-    delete instance;
+    counter++;
+
+    if (instance)
+        return;
 
     instance = new Menu();
 }
 
 void HubFrame::Menu::deleteInstance(){
+    counter--;
+
+    if (counter)
+        return;
+
     delete instance;
 
     instance = NULL;
@@ -781,10 +789,7 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
     
     setupUi(this);
 
-    if (!Menu::getInstance())
-        Menu::newInstance();
-
-    Menu::counter++;
+    Menu::newInstance();
 
     d->client = ClientManager::getInstance()->getClient(hub.toStdString());
     d->client->addListener(this);
@@ -823,11 +828,8 @@ HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
 
 HubFrame::~HubFrame(){
     Q_D(HubFrame);
-    
-    Menu::counter--;
 
-    if (!Menu::counter)
-        Menu::deleteInstance();
+    Menu::deleteInstance();
 
     treeView_USERS->setModel(NULL);
 

@@ -99,7 +99,6 @@ class HubFrame :
         static void newInstance();
         static void deleteInstance();
         static Menu *getInstance();
-        static unsigned counter;
 
         Action execUserMenu(Client*, const QString&);
         Action execChatMenu(Client*, const QString&, bool pmw);
@@ -116,6 +115,7 @@ class HubFrame :
         QMap<QAction*, Action> chat_actions_map; //chat menu has separators and because of it all actions are mapped
         QString last_user_cmd;
         static Menu *instance;
+        static unsigned counter;
     };
 
 public:
