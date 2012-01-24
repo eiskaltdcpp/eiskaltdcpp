@@ -244,8 +244,8 @@ void parseCmdLine(const QStringList &args){
 
 #if !defined (Q_WS_WIN) && !defined (__HAIKU__)
 
-void catchSIGSEGV(int sigNum) {
-    std::cout << "Catching SIGSEGV signal..." << std::endl;
+void catchSIG(int sigNum) {
+    psignal(sigNum, "Catching signal ");
 
 #ifdef ENABLE_STACKTRACE
     printBacktrace(sigNum);
@@ -263,37 +263,29 @@ void catchSIGSEGV(int sigNum) {
     std::abort();
 }
 
-void catchSIGABRT(int sigNum) {
-    std::cout << "Catching SIGABRT signal..." << std::endl;
+template <int sigNum = 0, int ... Params>
+void catchSignals() {
+    if (!sigNum)
+        return;
 
-#ifdef ENABLE_STACKTRACE
-    printBacktrace(sigNum);
-#endif // ENABLE_STACKTRACE
-    
-    EiskaltApp *eapp = dynamic_cast<EiskaltApp*>(qApp);
-    
-    if (eapp) {
-        eapp->getSharedMemory().unlock();
-        eapp->getSharedMemory().detach();
-    }
-    
-    raise(SIGINT);
-    
-    //std::abort();
+    psignal(sigNum, "Installing handler for");
+
+    signal(sigNum, catchSIG);
+
+    catchSignals<Params ... >();
 }
 
 void installHandlers(){
     struct sigaction sa;
     memset(&sa, 0, sizeof(sa));
     sa.sa_handler = SIG_IGN;
-    if (sigaction(SIGPIPE, &sa, NULL) == -1){
-        std::cout << QObject::tr("Cannot handle SIGPIPE").toStdString() << std::endl;
-    }
 
-    signal(SIGSEGV, catchSIGSEGV);
-    signal(SIGABRT, catchSIGABRT);
+    if (sigaction(SIGPIPE, &sa, NULL) == -1)
+        printf("Cannot handle SIGPIPE\n");
 
-    std::cout << QObject::tr("Signal handlers installed.").toStdString() << std::endl;
+    catchSignals<SIGSEGV, SIGABRT, SIGBUS, SIGKILL, SIGTERM>();
+
+    printf("Signal handlers installed.\n");
 }
 
 #endif
