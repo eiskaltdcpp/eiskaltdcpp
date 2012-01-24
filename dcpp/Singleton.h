@@ -37,7 +37,6 @@ public:
     virtual ~Singleton() { }
 
     static T* getInstance() {
-        dcassert(instance);
         return instance;
     }
 
@@ -49,8 +48,8 @@ public:
     }
 
     static void deleteInstance() {
-        if(instance)
-            delete instance;
+        delete instance;
+
         instance = NULL;
     }
     virtual void release(){
