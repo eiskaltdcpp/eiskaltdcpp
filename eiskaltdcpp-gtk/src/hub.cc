@@ -2045,11 +2045,6 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             string msg = WSCMD(param);
             hub->addStatusMessage_gui(msg, Msg::SYSTEM, Sound::NONE);
         }
-        else if (command == "lang" && !param.empty())
-        {
-            Util::setLang(param);
-            WSET("translation-lang", param);
-        }
         else if (command == "dcpps" && !param.empty())
         {
             string msg = SettingsManager::getInstance()->parseCoreCmd (param);

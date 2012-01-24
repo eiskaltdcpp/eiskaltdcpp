@@ -195,11 +195,14 @@ class Settings:
 
         typedef std::map<std::string, int> IntMap;
         typedef std::map<std::string, std::string> StringMap;
+        typedef std::vector<std::string> StringVector;
 
         IntMap defaultIntTheme;
         IntMap intMapTheme;
         StringMap stringMapTheme;
         StringMap defaultStringTheme;
+        StringVector vectorLangFullNames;
+        StringVector vectorLangShortNames;
 
         bool loadFileTheme(const std::string &file);
         void saveFileTheme(const std::string &file);

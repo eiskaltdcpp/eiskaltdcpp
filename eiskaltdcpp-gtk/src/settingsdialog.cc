@@ -324,6 +324,13 @@ void Settings::saveSettings_client()
     }
 
     { // Appearance
+        int lang_ind = gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("languageComboBox")));
+        WSET("translation-lang",vectorLangShortNames.at(lang_ind));
+#if GTK_CHECK_VERSION(3, 0, 0)
+        if (!vectorLangShortNames.at(lang_ind).empty())
+            Util::setLang(vectorLangShortNames.at(lang_ind));
+#endif
+
         saveOptionsView_gui(appearanceView, sm);
 
         WSET("tab-position", gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("tabPositionComboBox"))));
@@ -992,6 +999,50 @@ void Settings::initAppearance_gui()
     WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
 
     { // Appearance
+        vectorLangFullNames.push_back(_("System default"));
+        vectorLangShortNames.push_back("");
+        vectorLangFullNames.push_back(_("English"));
+        vectorLangShortNames.push_back("en");
+        vectorLangFullNames.push_back(_("Russian"));
+        vectorLangShortNames.push_back("ru");
+        vectorLangFullNames.push_back(_("Belarusian"));
+        vectorLangShortNames.push_back("be");
+        vectorLangFullNames.push_back(_("Hungarian"));
+        vectorLangShortNames.push_back("hu");
+        vectorLangFullNames.push_back(_("French"));
+        vectorLangShortNames.push_back("fr");
+        vectorLangFullNames.push_back(_("Polish"));
+        vectorLangShortNames.push_back("pl");
+        vectorLangFullNames.push_back(_("Serbian (Latin)"));
+        vectorLangShortNames.push_back("sr@latin");
+        vectorLangFullNames.push_back(_("Ukrainian"));
+        vectorLangShortNames.push_back("uk");
+        vectorLangFullNames.push_back(_("Spanish"));
+        vectorLangShortNames.push_back("es");
+        vectorLangFullNames.push_back(_("Bulgarian"));
+        vectorLangShortNames.push_back("bg");
+        vectorLangFullNames.push_back(_("Slovak"));
+        vectorLangShortNames.push_back("sk");
+        vectorLangFullNames.push_back(_("Czech"));
+        vectorLangShortNames.push_back("cs");
+        vectorLangFullNames.push_back(_("German"));
+        vectorLangShortNames.push_back("de");
+        vectorLangFullNames.push_back(_("Greek"));
+        vectorLangShortNames.push_back("el");
+        vectorLangFullNames.push_back(_("Italian"));
+        vectorLangShortNames.push_back("it");
+        
+        // Fill language drop-down list
+        int lang_ind = 0;
+        for (int i=0; i<vectorLangFullNames.size(); ++i)
+        {
+            gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("languageComboBox")),
+                                           vectorLangFullNames.at(i).c_str());
+            if(!strcmp(vectorLangShortNames.at(i).c_str(), WGETS("translation-lang").c_str()))
+                lang_ind = i;
+        }
+        gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("languageComboBox")), lang_ind);
+
         createOptionsView_gui(appearanceView, appearanceStore, "appearanceOptionsTreeView");
 
         addOption_gui(appearanceStore, _("Filter kick and NMDC debug messages"), SettingsManager::FILTER_MESSAGES);
