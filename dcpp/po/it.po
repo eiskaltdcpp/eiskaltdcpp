@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Stefano  <netcelli@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-01-22 23:38+0200\n"
+"POT-Creation-Date: 2012-01-25 20:30+0200\n"
 "PO-Revision-Date: 2012-01-22 21:56+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Italian (http://www.transifex.net/projects/p/eiskaltdcpp/team/it/)\n"
+"Language-Team: Italian (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
+"it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -97,8 +98,7 @@ msgstr "Determinazione in corso delle impostazioni migliori di connessione..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "Impossibile aprire la porta(e) %1%; le impostazioni sulla connettività "
 "devono essere configurate manualmente"
@@ -201,8 +201,8 @@ msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
 msgstr ""
-"L'hub stà tentando di utilizzare il tuo client per inviare il messaggio spam"
-" %1%, segnalalo al proprietario dell'hub per correggere il problema"
+"L'hub stà tentando di utilizzare il tuo client per inviare il messaggio spam "
+"%1%, segnalalo al proprietario dell'hub per correggere il problema"
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
@@ -227,8 +227,8 @@ msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
 msgstr ""
-"L'hub sta utilizzando una versione vecchia del protocollo ADC, incoraggia il"
-" proprietario dell'hub ad aggiornarlo"
+"L'hub sta utilizzando una versione vecchia del protocollo ADC, incoraggia il "
+"proprietario dell'hub ad aggiornarlo"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -432,13 +432,13 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"I file duplicati non saranno condivisi: %1% (Dimensione: %2%) Corrispondenza"
-" rispetto: %3%"
+"I file duplicati non saranno condivisi: %1% (Dimensione: %2%) Corrispondenza "
+"rispetto: %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "Aggiornamento lista file in corso, attendi il termine prima di riprovare ad "
 "aggiornarla nuovamente"
@@ -677,8 +677,7 @@ msgstr "Impossibile spostare %1% in %2% (%3%); rinominato in %4%"
 
 #: ../QueueManager.cpp:1209
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"Impossibile spostare %1% in %2% (%3%) neppure rinominarlo in %4% (%5%)"
+msgstr "Impossibile spostare %1% in %2% (%3%) neppure rinominarlo in %4% (%5%)"
 
 #: ../QueueManager.cpp:1404
 msgid "Unable to open filelist: %1%"
@@ -699,5 +698,3 @@ msgstr "Sono stati scritti più byte di quelli richiesti"
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
 msgstr "Inconsistenza TTH"
-
-
