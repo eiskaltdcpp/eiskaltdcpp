@@ -77,7 +77,7 @@ public:
         int64_t maxHashes = ((int64_t)1) << (maxLevels - 1);
         while((maxHashes * tmp) < aFileSize)
             tmp *= 2;
-        return tmp*2;
+        return tmp;
     }
 
     static size_t calcBlocks(int64_t aFileSize, int64_t aBlockSize) {
