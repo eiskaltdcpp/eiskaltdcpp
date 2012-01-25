@@ -186,12 +186,6 @@
             <property name="model">liststore4</property>
             <property name="has_entry">True</property>
             <property name="entry_text_column">0</property>
-            <child>
-              <object class="GtkCellRendererText" id="cellrenderertext4"/>
-              <attributes>
-                <attribute name="text">0</attribute>
-              </attributes>
-            </child>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -207,12 +201,6 @@
             <property name="model">liststore1</property>
             <property name="has_entry">True</property>
             <property name="entry_text_column">0</property>
-            <child>
-              <object class="GtkCellRendererText" id="cellrenderertext1"/>
-              <attributes>
-                <attribute name="text">0</attribute>
-              </attributes>
-            </child>
           </object>
           <packing>
             <property name="expand">True</property>
