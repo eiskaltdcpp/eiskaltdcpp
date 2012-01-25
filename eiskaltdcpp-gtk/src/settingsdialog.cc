@@ -325,7 +325,7 @@ void Settings::saveSettings_client()
 
     { // Appearance
         int lang_ind = gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("languageComboBox")));
-        if (lang_ind > 0)
+        if (lang_ind >= 0)
             WSET("translation-lang",vectorLangShortNames.at(lang_ind));
 
         saveOptionsView_gui(appearanceView, sm);
