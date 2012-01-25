@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-01-22 23:38+0200\n"
-"PO-Revision-Date: 2012-01-23 10:17+0000\n"
+"PO-Revision-Date: 2012-01-24 13:33+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr " felhasználó"
 
 #: ../src/hub.cc:2754
 msgid " added to favorites list"
-msgstr " hozzáadva a favoritokhoz"
+msgstr " hozzáadva a kedvencekhez"
 
 #: ../src/search.cc:1847
 msgid " dropped"
@@ -446,7 +446,7 @@ msgstr "<b>Lap helye</b>"
 
 #: ../ui/settingsdialog.ui:4617
 msgid "<b>Tab bolding on content change</b>"
-msgstr "<b>Tab szövegének vastagítása, ha a tartalom változik</b>"
+msgstr "<b>Lap szövegének vastagítása, ha a tartalom változik</b>"
 
 #: ../ui/settingsdialog.ui:930
 msgid "<b>Text sent to hub</b>"
@@ -643,7 +643,7 @@ msgstr "Beállítások mentése"
 
 #: ../ui/settingsdialog.ui:3834
 msgid "Apply to Extensions: (avi;mov;divx)"
-msgstr ""
+msgstr "Alkalmazás kiterjesztésekhez: (avi;mov;divx)"
 
 #: ../src/favoritehubs.cc:425
 #, c-format
@@ -941,7 +941,7 @@ msgstr "PM bezárása"
 
 #: ../src/bookentry.cc:76
 msgid "Close tab"
-msgstr "Tab bezárása"
+msgstr "Lap bezárása"
 
 #: ../src/transfers.cc:403
 msgid "Closing connection..."
@@ -1595,11 +1595,11 @@ msgstr "Betűkészlet kiválasztás"
 #: ../ui/settingsdialog.ui:6519 ../ui/settingsdialog.ui:6578
 #: ../ui/settingsdialog.ui:6637 ../ui/settingsdialog.ui:6696
 msgid "Format"
-msgstr ""
+msgstr "Formátum"
 
 #: ../src/sharebrowser.cc:637 ../src/sharebrowser.cc:680
 msgid "Found a match"
-msgstr ""
+msgstr "Találat"
 
 #: ../ui/settingsdialog.ui:6227
 msgid "Frame (size)"
@@ -2606,7 +2606,7 @@ msgstr "Hiba jelentése"
 
 #: ../src/transfers.cc:900
 msgid "Requesting"
-msgstr ""
+msgstr "Kérés"
 
 #: ../src/sharebrowser.cc:81 ../src/sharebrowser.cc:327
 msgid "Resolution"
@@ -3014,7 +3014,7 @@ msgstr "TTH: "
 
 #: ../ui/settingsdialog.ui:4651
 msgid "Tabs"
-msgstr "Tabok"
+msgstr "Lapok"
 
 #: ../src/hub.cc:74 ../src/hub.cc:386 ../src/hub.cc:406
 msgid "Tag"
@@ -3101,7 +3101,7 @@ msgstr "Eszköztár"
 
 #: ../ui/searchspy.ui:10 ../ui/searchspy.ui:373
 msgid "Top"
-msgstr ""
+msgstr "Fent"
 
 #: ../ui/settingsdialog.ui:6309
 msgid "Top (number of matches, more than)"
@@ -3109,7 +3109,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1486
 msgid "Top position"
-msgstr "Alkalmazás"
+msgstr "Felül"
 
 #: ../ui/searchspy.ui:256
 msgid "Top: >"
@@ -3270,7 +3270,7 @@ msgstr "Feltöltve "
 #: ../src/settingsdialog.cc:1205 ../src/settingsdialog.cc:1220
 #: ../src/settingsdialog.cc:1321 ../src/settingsdialog.cc:1331
 msgid "Use"
-msgstr ""
+msgstr "Használ"
 
 #: ../ui/mainwindow.ui:2000
 msgid "Use Blinking Icon"
@@ -3361,11 +3361,11 @@ msgstr "Kedvenc felhasználók listája: "
 
 #: ../src/settingsdialog.cc:1281
 msgid "User firewall (dc)"
-msgstr ""
+msgstr "Felhasználó tűzfal mögül (dc)"
 
 #: ../src/settingsdialog.cc:1285
 msgid "User firewall (normal)"
-msgstr ""
+msgstr "Felhasználó tűzfal mögül (normál)"
 
 #: ../src/hub.cc:2016
 msgid "User list show/hide"
@@ -3385,11 +3385,11 @@ msgstr "Felhasználó operátor (normál)"
 
 #: ../src/settingsdialog.cc:1282
 msgid "User operator firewall (dc)"
-msgstr ""
+msgstr "Operátor tűzfal mögül (dc)"
 
 #: ../src/settingsdialog.cc:1286
 msgid "User operator firewall (normal)"
-msgstr ""
+msgstr "Operátor tűzfal mögül (normál)"
 
 #: ../src/privatemessage.cc:1373
 msgid "User went offline"
@@ -3480,7 +3480,7 @@ msgstr "Várakozás szabad slotra "
 
 #: ../src/transfers.cc:1059
 msgid "Waiting to retry"
-msgstr ""
+msgstr "Várakozás újrapróbálkozásra"
 
 #: ../ui/searchspy.ui:285
 msgid "Waiting:"

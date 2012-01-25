@@ -2013,12 +2013,12 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1355"/>
         <source>Scripts Manager</source>
-        <translation>Script kezelő</translation>
+        <translation>Szkript kezelő</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>
         <source>Script Console</source>
-        <translation>Script konzol</translation>
+        <translation>Szkript konzol</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1360"/>
@@ -2088,7 +2088,7 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1387"/>
         <source>Wiki of project</source>
-        <translation>A project Wiki oldala</translation>
+        <translation>A projekt Wiki oldala</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1389"/>
@@ -2738,7 +2738,7 @@ Letöltve: %3 Feltöltve: %4</translation>
     <message>
         <location filename="../scriptengine/ScriptConsole.cpp" line="23"/>
         <source>Script Console</source>
-        <translation>Script konzol</translation>
+        <translation>Szkript konzol</translation>
     </message>
 </context>
 <context>
@@ -2746,7 +2746,7 @@ Letöltve: %3 Feltöltve: %4</translation>
     <message>
         <location filename="../src/ScriptManagerDialog.cpp" line="41"/>
         <source>Script Manager</source>
-        <translation>Script kezelő</translation>
+        <translation>Szkript kezelő</translation>
     </message>
 </context>
 <context>
