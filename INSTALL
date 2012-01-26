@@ -40,9 +40,12 @@ libxmlrpc-c++4 (>= 1.19.0) (optional, see cmake keys)
 :eiskaltdcpp-cli:
 -----------------
 perl (>= 5.10)
-Term::ShellUI perl module
-RPC::XML  perl module (librpc-xml-perl)  (optional, see cmake keys)
-JSON::RPC perl module (libjson-rpc-perl) (optional, see cmake keys)
+perl modules:
+    Getopt::Long  (libgetopt-long-descriptive-perl)
+    Data::Dump    (libdata-dump-perl)
+    Term::ShellUI (libterm-shellui-perl)
+    RPC::XML      (librpc-xml-perl)  (optional, see cmake keys)
+    JSON::RPC     (libjson-rpc-perl) (optional, see cmake keys)
 
 
 *******************************************************************************
