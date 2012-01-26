@@ -123,6 +123,13 @@ void Util::initialize(PathsMap pathOverrides) {
 
     sgenrand((unsigned long)time(NULL));
 
+    // Override core generated paths
+    for (PathsMap::const_iterator it = pathOverrides.begin(); it != pathOverrides.end(); ++it)
+    {
+        if (!it->second.empty())
+            paths[it->first] = it->second;
+    }
+
 #ifdef _WIN32
     TCHAR buf[MAX_PATH+1] = { 0 };
     ::GetModuleFileName(NULL, buf, MAX_PATH);
@@ -130,91 +137,94 @@ void Util::initialize(PathsMap pathOverrides) {
     string exePath = Util::getFilePath(Text::fromT(buf));
 
     // Global config path is DC++ executable path...
-    paths[PATH_GLOBAL_CONFIG] = exePath;
+    if (Util::getPath(Util::PATH_GLOBAL_CONFIG).empty())
+        paths[PATH_GLOBAL_CONFIG] = exePath;
+    if (Util::getPath(Util::PATH_USER_CONFIG).empty()) {
+        paths[PATH_USER_CONFIG] = paths[PATH_GLOBAL_CONFIG];
 
-    paths[PATH_USER_CONFIG] = paths[PATH_GLOBAL_CONFIG];
+        loadBootConfig();
 
-    loadBootConfig();
-
-    if(!File::isAbsolute(paths[PATH_USER_CONFIG])) {
-        paths[PATH_USER_CONFIG] = paths[PATH_GLOBAL_CONFIG] + paths[PATH_USER_CONFIG];
-    }
-
-    paths[PATH_USER_CONFIG] = validateFileName(paths[PATH_USER_CONFIG]);
-
-    if(localMode) {
-        paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
-    } else {
-        if(::SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf) == S_OK) {
-            paths[PATH_USER_CONFIG] = Text::fromT(buf) + "\\EiskaltDC++\\";
+        if(!File::isAbsolute(paths[PATH_USER_CONFIG])) {
+            paths[PATH_USER_CONFIG] = paths[PATH_GLOBAL_CONFIG] + paths[PATH_USER_CONFIG];
         }
 
-        paths[PATH_USER_LOCAL] = ::SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf) == S_OK ? Text::fromT(buf) + "\\EiskaltDC++\\" : paths[PATH_USER_CONFIG];
+        paths[PATH_USER_CONFIG] = validateFileName(paths[PATH_USER_CONFIG]);
     }
+    if (Util::getPath(Util::PATH_USER_LOCAL).empty()) {
+        if(localMode) {
+            paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
+        } else {
+            if(::SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf) == S_OK) {
+                paths[PATH_USER_CONFIG] = Text::fromT(buf) + "\\EiskaltDC++\\";
+            }
 
-    paths[PATH_RESOURCES] = exePath;
+            paths[PATH_USER_LOCAL] = ::SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf) == S_OK ? Text::fromT(buf) + "\\EiskaltDC++\\" : paths[PATH_USER_CONFIG];
+        }
+    }
+    if (Util::getPath(Util::PATH_RESOURCES).empty())
+        paths[PATH_RESOURCES] = exePath;
 
     // libintl doesn't support wide path names so we use the short (8.3) format.
     // https://sourceforge.net/forum/message.php?msg_id=4882703
     tstring localePath_ = Text::toT(exePath) + _T("locale\\");
     memset(buf, 0, sizeof(buf));
     ::GetShortPathName(localePath_.c_str(), buf, sizeof(buf)/sizeof(TCHAR));
-
-    paths[PATH_LOCALE] = Text::fromT(buf);
-    paths[PATH_DOWNLOADS] = getDownloadsPath(paths[PATH_USER_CONFIG]);
+    if (Util::getPath(Util::PATH_LOCALE).empty())
+        paths[PATH_LOCALE] = Text::fromT(buf);
+    if (Util::getPath(Util::PATH_DOWNLOADS).empty())
+        paths[PATH_DOWNLOADS] = getDownloadsPath(paths[PATH_USER_CONFIG]);
 
 #else
-    paths[PATH_GLOBAL_CONFIG] = "/etc/";
+    if (Util::getPath(Util::PATH_GLOBAL_CONFIG).empty())
+        paths[PATH_GLOBAL_CONFIG] = "/etc/";
     const char* home_ = getenv("HOME");
     string home = home_ ? Text::toUtf8(home_) : "/tmp/";
 
+    if (Util::getPath(Util::PATH_USER_CONFIG).empty()) {
 #ifdef FORCE_XDG
-    const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
-    string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
-    paths[PATH_USER_CONFIG] = xdg_config_home + "/eiskaltdc++/";
+        const char *xdg_config_home_ = getenv("XDG_CONFIG_HOME");
+        string xdg_config_home = xdg_config_home_? Text::toUtf8(xdg_config_home_) : (home+"/.config");
+        paths[PATH_USER_CONFIG] = xdg_config_home + "/eiskaltdc++/";
 #elif defined __HAIKU__
-    paths[PATH_USER_CONFIG] = home + "/config/settings/eiskaltdc++/";
+        paths[PATH_USER_CONFIG] = home + "/config/settings/eiskaltdc++/";
 #else
-    paths[PATH_USER_CONFIG] = home + "/.eiskaltdc++/";
+        paths[PATH_USER_CONFIG] = home + "/.eiskaltdc++/";
 #endif
 
-    loadBootConfig();
+        loadBootConfig();
 
-    if(!File::isAbsolute(paths[PATH_USER_CONFIG])) {
-        paths[PATH_USER_CONFIG] = paths[PATH_GLOBAL_CONFIG] + paths[PATH_USER_CONFIG];
+        if(!File::isAbsolute(paths[PATH_USER_CONFIG])) {
+            paths[PATH_USER_CONFIG] = paths[PATH_GLOBAL_CONFIG] + paths[PATH_USER_CONFIG];
+        }
+
+        paths[PATH_USER_CONFIG] = validateFileName(paths[PATH_USER_CONFIG]);
     }
-
-    paths[PATH_USER_CONFIG] = validateFileName(paths[PATH_USER_CONFIG]);
 
     if(localMode) {
         // @todo implement...
     }
-
-    paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
-
-    paths[PATH_RESOURCES] = paths[PATH_USER_CONFIG];
-    paths[PATH_LOCALE] = LOCALEDIR;
-
+    if (Util::getPath(Util::PATH_USER_LOCAL).empty())
+        paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
+    if (Util::getPath(Util::PATH_RESOURCES).empty())
+        paths[PATH_RESOURCES] = paths[PATH_USER_CONFIG];
+    if (Util::getPath(Util::PATH_LOCALE).empty())
+        paths[PATH_LOCALE] = LOCALEDIR;
+    if (Util::getPath(Util::PATH_DOWNLOADS).empty()) {
 #ifdef FORCE_XDG
-    const char *xdg_config_down_ = getenv("XDG_DOWNLOAD_DIR");
-    string xdg_config_down = xdg_config_down_? (Text::toUtf8(xdg_config_down_)+"/") : (home+"/Downloads/");
-    paths[PATH_DOWNLOADS] = xdg_config_down;
+        const char *xdg_config_down_ = getenv("XDG_DOWNLOAD_DIR");
+        string xdg_config_down = xdg_config_down_? (Text::toUtf8(xdg_config_down_)+"/") : (home+"/Downloads/");
+        paths[PATH_DOWNLOADS] = xdg_config_down;
 #else
-    paths[PATH_DOWNLOADS] = home + "/Downloads/";
+        paths[PATH_DOWNLOADS] = home + "/Downloads/";
 #endif
-
-#endif
-
-    paths[PATH_FILE_LISTS] = paths[PATH_USER_LOCAL] + "FileLists" PATH_SEPARATOR_STR;
-    paths[PATH_HUB_LISTS] = paths[PATH_USER_LOCAL] + "HubLists" PATH_SEPARATOR_STR;
-    paths[PATH_NOTEPAD] = paths[PATH_USER_CONFIG] + "Notepad.txt";
-
-    // Override core generated paths
-    for (PathsMap::const_iterator it = pathOverrides.begin(); it != pathOverrides.end(); ++it)
-    {
-        if (!it->second.empty())
-            paths[it->first] = it->second;
     }
+#endif
+    if (Util::getPath(Util::PATH_FILE_LISTS).empty())
+        paths[PATH_FILE_LISTS] = paths[PATH_USER_LOCAL] + "FileLists" PATH_SEPARATOR_STR;
+    if (Util::getPath(Util::PATH_HUB_LISTS).empty())
+        paths[PATH_HUB_LISTS] = paths[PATH_USER_LOCAL] + "HubLists" PATH_SEPARATOR_STR;
+    if (Util::getPath(Util::PATH_NOTEPAD).empty())
+        paths[PATH_NOTEPAD] = paths[PATH_USER_CONFIG] + "Notepad.txt";
 
     File::ensureDirectory(paths[PATH_USER_CONFIG]);
     File::ensureDirectory(paths[PATH_USER_LOCAL]);

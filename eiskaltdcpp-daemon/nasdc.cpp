@@ -243,6 +243,29 @@ int main(int argc, char* argv[])
     if (local_dir[0] != 0)
         override[Util::PATH_USER_LOCAL] = local_dir;
     Util::initialize(override);
+    
+#ifdef _DEBUG
+    printf("PATH_GLOBAL_CONFIG: %s\n\
+            PATH_USER_CONFIG: %s\n\
+            PATH_USER_LOCAL: %s\n\
+            PATH_RESOURCES: %s\n\
+            PATH_LOCALE: %s\n\
+            PATH_DOWNLOADS: %s\n\
+            PATH_FILE_LISTS %s\n\
+            PATH_HUB_LISTS: %s\n\
+            PATH_NOTEPAD: %s\n",
+            Util::getPath(Util::PATH_GLOBAL_CONFIG).c_str(),
+            Util::getPath(Util::PATH_USER_CONFIG).c_str(),
+            Util::getPath(Util::PATH_USER_LOCAL).c_str(),
+            Util::getPath(Util::PATH_RESOURCES).c_str(),
+            Util::getPath(Util::PATH_LOCALE).c_str(),
+            Util::getPath(Util::PATH_DOWNLOADS).c_str(),
+            Util::getPath(Util::PATH_FILE_LISTS).c_str(),
+            Util::getPath(Util::PATH_HUB_LISTS).c_str(),
+            Util::getPath(Util::PATH_NOTEPAD).c_str()
+                                    );
+    fflush(stdout);
+#endif
 
     PATH = Util::getPath(Util::PATH_USER_CONFIG);
 #ifndef _WIN32
