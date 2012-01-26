@@ -33,8 +33,6 @@ static const int LABELWIDTH     = 20;
 static const int CLOSEPXWIDTH   = 14;
 static const int PXWIDTH        = 16;
 
-int TabButton::maxWidth = 0;
-
 TabButton::TabButton(QWidget *parent) :
     QPushButton(parent), isLeftBtnHold(false)
 {
@@ -172,30 +170,28 @@ void TabButton::paintEvent(QPaintEvent *e){
 
     qApp->style()->drawControl(QStyle::CE_PushButton, &option, &p);
 
-    if (checked){
+    auto getGradient = [this](const int centralFactor, const int sideFactor) -> QLinearGradient {
         QLinearGradient gr(0, 0, width(), 0);
+
         gr.setSpread(QGradient::PadSpread);
         gr.setColorAt(0.00, palette().background().color());
-        gr.setColorAt(0.25, palette().highlight().color().lighter(105));
-        gr.setColorAt(0.50, palette().highlight().color());
-        gr.setColorAt(0.75, palette().highlight().color().lighter(105));
+        gr.setColorAt(0.25, palette().highlight().color().lighter(sideFactor));
+        gr.setColorAt(0.50, palette().highlight().color().lighter(centralFactor));
+        gr.setColorAt(0.75, palette().highlight().color().lighter(sideFactor));
         gr.setColorAt(1.00, palette().background().color());
 
-        p.fillRect(0, 0, width(), 1, gr);
-        p.fillRect(0, height()-1, width(), 1, gr);
-    }
-    else if (mouseOver){
-        QLinearGradient gr(0, 0, width(), 0);
-        gr.setSpread(QGradient::PadSpread);
-        gr.setColorAt(0.00, palette().background().color());
-        gr.setColorAt(0.25, palette().highlight().color().lighter(110));
-        gr.setColorAt(0.50, palette().highlight().color().lighter(105));
-        gr.setColorAt(0.75, palette().highlight().color().lighter(110));
-        gr.setColorAt(1.00, palette().background().color());
+        return gr;
+    };
 
+    auto drawButtonLines = [&](const QLinearGradient &gr) -> void {
         p.fillRect(0, 0, width(), 1, gr);
         p.fillRect(0, height()-1, width(), 1, gr);
-    }
+    };
+
+    if (checked)
+        drawButtonLines( getGradient(100, 105) );
+    else if (mouseOver)
+        drawButtonLines( getGradient(105, 110) );
 
     p.end();
 }

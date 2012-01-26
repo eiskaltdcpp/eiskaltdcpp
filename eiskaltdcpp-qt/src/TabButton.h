@@ -33,8 +33,6 @@ public:
     int normalWidth() const;
     int normalHeight() const;
 
-    static void setMaxWidth(int w) { maxWidth = (w >= 0)? w : 0; }
-
 protected:
     virtual void resizeEvent(QResizeEvent *);
     virtual bool eventFilter(QObject *, QEvent *);
@@ -58,7 +56,6 @@ private:
     QLabel *px_label;
     int parentHeight;
     bool isLeftBtnHold;
-    static int maxWidth;
 };
 
 #endif // TABBUTTON_H

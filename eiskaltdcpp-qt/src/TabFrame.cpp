@@ -186,7 +186,6 @@ void TabFrame::redraw() {
     DEBUG_BLOCK
     
     QMap<TabButton*, ArenaWidget*>::iterator it = tbtn_map.begin();
-    int maxWidth = 0;
 
     for  (; it != tbtn_map.end(); ++it){
         TabButton *btn = const_cast<TabButton*>(it.key());
@@ -196,15 +195,6 @@ void TabFrame::redraw() {
         btn->setToolTip(WulforUtil::getInstance()->compactToolTipText(awgt->getArenaTitle(), 60, "\n"));
         btn->setWidgetIcon(awgt->getPixmap());
 
-        maxWidth = qMax(maxWidth, btn->normalWidth());//recalculate maximal width
-    }
-
-    TabButton::setMaxWidth(maxWidth);
-
-    for  (it = tbtn_map.begin(); it != tbtn_map.end(); ++it){
-        TabButton *btn = const_cast<TabButton*>(it.key());
-        ArenaWidget *awgt = const_cast<ArenaWidget*>(it.value());
-        
         if (awgt->state() & ArenaWidget::Hidden)
             continue;
         else
