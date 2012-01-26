@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-01-25 20:57+0200\n"
-"PO-Revision-Date: 2012-01-25 19:01+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"PO-Revision-Date: 2012-01-25 21:37+0000\n"
+"Last-Translator: miroslav <miroslav031@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.net/projects/p/eiskaltdcpp/team/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -309,7 +309,7 @@ msgstr "<b>Podešavanje dolazne konekcije</b>"
 
 #: ../ui/settingsdialog.ui:4328
 msgid "<b>Language</b>"
-msgstr ""
+msgstr "<b>Logovanje</b>"
 
 #: ../ui/settingsdialog.ui:2859
 msgid "<b>Limits</b>"
@@ -742,7 +742,7 @@ msgstr "Povratak boje"
 
 #: ../src/settingsdialog.cc:1005
 msgid "Belarusian"
-msgstr ""
+msgstr "Beloruski prevod"
 
 #: ../src/mainwindow.cc:219
 msgid "Belarusian translation\n"
@@ -789,7 +789,7 @@ msgstr "Pregledaj..."
 
 #: ../src/settingsdialog.cc:1019
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bugarski"
 
 #: ../src/mainwindow.cc:241
 msgid "Bulgarian translation\n"
@@ -1054,7 +1054,7 @@ msgstr "Zemlja"
 
 #: ../src/settingsdialog.cc:1023
 msgid "Czech"
-msgstr ""
+msgstr "Češki"
 
 #: ../src/mainwindow.cc:247
 msgid "Czech translation\n"
@@ -1369,7 +1369,7 @@ msgstr "Opis"
 
 #: ../src/settingsdialog.cc:1001
 msgid "English"
-msgstr ""
+msgstr "Engleski"
 
 #: ../ui/mainwindow.ui:2526
 msgid "Enter line for user command"
@@ -1639,7 +1639,7 @@ msgstr "Slobodno"
 
 #: ../src/settingsdialog.cc:1009
 msgid "French"
-msgstr ""
+msgstr "Francuski"
 
 #: ../src/mainwindow.cc:226
 msgid "French translation\n"
@@ -1663,7 +1663,7 @@ msgstr "Generalni sertifikat"
 
 #: ../src/settingsdialog.cc:1025
 msgid "German"
-msgstr ""
+msgstr "Nemački"
 
 #: ../src/mainwindow.cc:250
 msgid "German translation\n"
@@ -1687,7 +1687,7 @@ msgstr "Odobri dodatni slot"
 
 #: ../src/settingsdialog.cc:1027
 msgid "Greek"
-msgstr ""
+msgstr "Grčki"
 
 #: ../src/mainwindow.cc:255
 msgid "Greek translation\n"
@@ -1810,7 +1810,7 @@ msgstr "Habovi: "
 
 #: ../src/settingsdialog.cc:1007
 msgid "Hungarian"
-msgstr ""
+msgstr "Madjarski"
 
 #: ../src/mainwindow.cc:222
 msgid "Hungarian translation\n"
@@ -1909,7 +1909,7 @@ msgstr "Ipfilter uklj/isklj"
 
 #: ../src/settingsdialog.cc:1029
 msgid "Italian"
-msgstr ""
+msgstr "Italijanski"
 
 #: ../src/mainwindow.cc:258
 msgid "Italian translation\n"
@@ -2449,7 +2449,7 @@ msgstr "Emituj"
 
 #: ../src/settingsdialog.cc:1011
 msgid "Polish"
-msgstr ""
+msgstr "Poljski"
 
 #: ../src/mainwindow.cc:229
 msgid "Polish translation\n"
@@ -2659,7 +2659,7 @@ msgstr "Pokretanje ..."
 
 #: ../src/settingsdialog.cc:1003
 msgid "Russian"
-msgstr ""
+msgstr "Ruski"
 
 #: ../src/mainwindow.cc:216
 msgid "Russian translation\n"
@@ -2793,7 +2793,7 @@ msgstr "Razmak"
 
 #: ../src/settingsdialog.cc:1013
 msgid "Serbian (Latin)"
-msgstr ""
+msgstr "Srpski (lat) prevod"
 
 #: ../src/mainwindow.cc:235
 msgid "Serbian (Latin) translation\n"
@@ -2952,7 +2952,7 @@ msgstr "Slotovi"
 
 #: ../src/settingsdialog.cc:1021
 msgid "Slovak"
-msgstr ""
+msgstr "Slovački"
 
 #: ../src/mainwindow.cc:244
 msgid "Slovak translation\n"
@@ -2997,7 +2997,7 @@ msgstr "Prespor izvor"
 
 #: ../src/settingsdialog.cc:1017
 msgid "Spanish"
-msgstr ""
+msgstr "Španski"
 
 #: ../src/mainwindow.cc:238
 msgid "Spanish translation\n"
@@ -3223,7 +3223,7 @@ msgstr "UTF-8"
 
 #: ../src/settingsdialog.cc:1015
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrajinski"
 
 #: ../src/mainwindow.cc:232
 msgid "Ukrainian translation\n"
