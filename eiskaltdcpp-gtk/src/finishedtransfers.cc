@@ -49,7 +49,7 @@ FinishedTransfers::FinishedTransfers(const EntryType type, const string &title, 
 	totalTime(0)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("averegeSpeed")),FALSE);
+	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("averageSpeed")),FALSE);
 	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("totalSize")),FALSE);
 	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("totalItems")),FALSE);
 #endif
