@@ -170,22 +170,22 @@ void TabButton::paintEvent(QPaintEvent *e){
 
     qApp->style()->drawControl(QStyle::CE_PushButton, &option, &p);
 
-    auto getGradient = [this](const int centralFactor, const int sideFactor) -> QLinearGradient {
-        QLinearGradient gr(0, 0, width(), 0);
+    auto getGradient = [&,this](const int centralFactor, const int sideFactor) -> QLinearGradient {
+        QLinearGradient gr(0, 0, this->width(), 0);
 
         gr.setSpread(QGradient::PadSpread);
-        gr.setColorAt(0.00, palette().background().color());
-        gr.setColorAt(0.25, palette().highlight().color().lighter(sideFactor));
-        gr.setColorAt(0.50, palette().highlight().color().lighter(centralFactor));
-        gr.setColorAt(0.75, palette().highlight().color().lighter(sideFactor));
-        gr.setColorAt(1.00, palette().background().color());
+        gr.setColorAt(0.00, this->palette().background().color());
+        gr.setColorAt(0.25, this->palette().highlight().color().lighter(sideFactor));
+        gr.setColorAt(0.50, this->palette().highlight().color().lighter(centralFactor));
+        gr.setColorAt(0.75, this->palette().highlight().color().lighter(sideFactor));
+        gr.setColorAt(1.00, this->palette().background().color());
 
         return gr;
     };
 
-    auto drawButtonLines = [&](const QLinearGradient &gr) -> void {
-        p.fillRect(0, 0, width(), 1, gr);
-        p.fillRect(0, height()-1, width(), 1, gr);
+    auto drawButtonLines = [&,this](const QLinearGradient &gr) -> void {
+        p.fillRect(0, 0, this->width(), 1, gr);
+        p.fillRect(0, this->height()-1, this->width(), 1, gr);
     };
 
     if (checked)
