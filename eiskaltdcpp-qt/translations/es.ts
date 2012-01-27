@@ -2155,7 +2155,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1687"/>
         <source>Delayed</source>
-        <translation>Retraso</translation>
+        <translation>Retardo</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1702"/>
@@ -6914,7 +6914,7 @@ Si la velocidad de subida original es incrementada, el Slot concedido no será c
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="416"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
-        <translation>Retraso del Hasheo a iniciar (Segundos, -1 = infinito)</translation>
+        <translation>Retardo del Hasheo al iniciar (Segundos, -1 = infinito)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="432"/>
