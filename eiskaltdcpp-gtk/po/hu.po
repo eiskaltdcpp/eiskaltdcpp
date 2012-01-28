@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-01-25 20:57+0200\n"
-"PO-Revision-Date: 2012-01-25 19:01+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"PO-Revision-Date: 2012-01-28 09:19+0000\n"
+"Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/team/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -310,7 +310,7 @@ msgstr "<b>Bejövő kapcsolatok beállításai</b>"
 
 #: ../ui/settingsdialog.ui:4328
 msgid "<b>Language</b>"
-msgstr ""
+msgstr "<b>Naplózás</b>"
 
 #: ../ui/settingsdialog.ui:2859
 msgid "<b>Limits</b>"
@@ -751,7 +751,7 @@ msgstr "Betű háttérszín"
 
 #: ../src/settingsdialog.cc:1005
 msgid "Belarusian"
-msgstr ""
+msgstr "Fehérorosz fordítás"
 
 #: ../src/mainwindow.cc:219
 msgid "Belarusian translation\n"
@@ -796,7 +796,7 @@ msgstr "Böngészés..."
 
 #: ../src/settingsdialog.cc:1019
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bolgár"
 
 #: ../src/mainwindow.cc:241
 msgid "Bulgarian translation\n"
@@ -1061,7 +1061,7 @@ msgstr "Ország"
 
 #: ../src/settingsdialog.cc:1023
 msgid "Czech"
-msgstr ""
+msgstr "Cseh"
 
 #: ../src/mainwindow.cc:247
 msgid "Czech translation\n"
@@ -1377,7 +1377,7 @@ msgstr "Titkosítás"
 
 #: ../src/settingsdialog.cc:1001
 msgid "English"
-msgstr ""
+msgstr "Angol"
 
 #: ../ui/mainwindow.ui:2526
 msgid "Enter line for user command"
@@ -1644,7 +1644,7 @@ msgstr "Szabad "
 
 #: ../src/settingsdialog.cc:1009
 msgid "French"
-msgstr ""
+msgstr "Francia"
 
 #: ../src/mainwindow.cc:226
 msgid "French translation\n"
@@ -1668,7 +1668,7 @@ msgstr "Tanúsítvány létrehozása"
 
 #: ../src/settingsdialog.cc:1025
 msgid "German"
-msgstr ""
+msgstr "Német"
 
 #: ../src/mainwindow.cc:250
 msgid "German translation\n"
@@ -1692,7 +1692,7 @@ msgstr "Extra slot biztosítása"
 
 #: ../src/settingsdialog.cc:1027
 msgid "Greek"
-msgstr ""
+msgstr "Görög"
 
 #: ../src/mainwindow.cc:255
 msgid "Greek translation\n"
@@ -1815,7 +1815,7 @@ msgstr "Hubok: "
 
 #: ../src/settingsdialog.cc:1007
 msgid "Hungarian"
-msgstr ""
+msgstr "Magyar"
 
 #: ../src/mainwindow.cc:222
 msgid "Hungarian translation\n"
@@ -1914,7 +1914,7 @@ msgstr "Ipfilter ki/be"
 
 #: ../src/settingsdialog.cc:1029
 msgid "Italian"
-msgstr ""
+msgstr "Olasz"
 
 #: ../src/mainwindow.cc:258
 msgid "Italian translation\n"
@@ -2016,7 +2016,7 @@ msgstr "Feltöltések naplózása"
 
 #: ../ui/settingsdialog.ui:6883
 msgid "Logs"
-msgstr "Logok"
+msgstr "Naplók"
 
 #: ../src/downloadqueue.cc:1334
 msgid "Low"
@@ -2455,7 +2455,7 @@ msgstr "Lejátszás"
 
 #: ../src/settingsdialog.cc:1011
 msgid "Polish"
-msgstr ""
+msgstr "Lengyel"
 
 #: ../src/mainwindow.cc:229
 msgid "Polish translation\n"
@@ -2669,7 +2669,7 @@ msgstr "Fut..."
 
 #: ../src/settingsdialog.cc:1003
 msgid "Russian"
-msgstr ""
+msgstr "Orosz"
 
 #: ../src/mainwindow.cc:216
 msgid "Russian translation\n"
@@ -2803,7 +2803,7 @@ msgstr "Elválasztók"
 
 #: ../src/settingsdialog.cc:1013
 msgid "Serbian (Latin)"
-msgstr ""
+msgstr "Szerb (Latin) fordítás"
 
 #: ../src/mainwindow.cc:235
 msgid "Serbian (Latin) translation\n"
@@ -2960,7 +2960,7 @@ msgstr "Slotok"
 
 #: ../src/settingsdialog.cc:1021
 msgid "Slovak"
-msgstr ""
+msgstr "Szlovák"
 
 #: ../src/mainwindow.cc:244
 msgid "Slovak translation\n"
@@ -3005,7 +3005,7 @@ msgstr "A forrás túl lassú"
 
 #: ../src/settingsdialog.cc:1017
 msgid "Spanish"
-msgstr ""
+msgstr "Spanyol"
 
 #: ../src/mainwindow.cc:238
 msgid "Spanish translation\n"
@@ -3229,7 +3229,7 @@ msgstr "UTF-8"
 
 #: ../src/settingsdialog.cc:1015
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrán"
 
 #: ../src/mainwindow.cc:232
 msgid "Ukrainian translation\n"

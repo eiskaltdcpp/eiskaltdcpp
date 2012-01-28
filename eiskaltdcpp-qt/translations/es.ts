@@ -68,7 +68,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Search String</source>
-        <translation>Buscar en el campo</translation>
+        <translation>Cadena de Búsqueda</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
@@ -83,17 +83,17 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Min. Size</source>
-        <translation>Tamaño Min.</translation>
+        <translation>Tamaño Mín.</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Max. Size</source>
-        <translation>Tamaño Max.</translation>
+        <translation>Tamaño Máx.</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Type Size</source>
-        <translation>Tamaño del Tipo</translation>
+        <translation>Unidad</translation>
     </message>
 </context>
 <context>
@@ -108,14 +108,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -v, --version	 Show version string</source>
-        <translation>Using:
+        <translation>Uso:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
-  eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ es un programa de plataforma cruzada para usar el protocolo Dirrect Connect y ADC.
+  eiskaltdcpp-qt &lt;Opción&gt;
+EiskaltDC++ es un multiplataforma cruzada que usa los protocolos Direct Connect y ADC.
 
-Keys:
+Opciones:
   -h, --help	 Mostrar este mensaje
-  -v, --version	 Muestra la version del programa</translation>
+  -v, --version	 Muestra la versióon del programa</translation>
     </message>
 </context>
 <context>
@@ -152,12 +152,12 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="171"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation>%1: Mandando mensaje &quot;Intentelo de nuevo&quot;.</translation>
+        <translation>%1: Mandando mensaje &quot;Inténtelo de nuevo&quot;.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="178"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation>Hey, esto es el bot Antispam. Así que la pregunta es &quot;%1&quot;</translation>
+        <translation>Hey, esto es el bot Antispam. La pregunta es &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -233,27 +233,27 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="61"/>
         <source>Magnet</source>
-        <translation>Imán</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="63"/>
         <source>Search for alternates</source>
-        <translation>Búsqueda de suplentes</translation>
+        <translation>Búscar alternativos</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="64"/>
         <source>Copy magnet</source>
-        <translation>Copiar Imán</translation>
+        <translation>Copiar Magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="65"/>
         <source>Copy web-magnet</source>
-        <translation>Copiar Imán Web</translation>
+        <translation>Copiar Magnet para Web</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="66"/>
         <source>Properties of magnet</source>
-        <translation>Propiedades del imán</translation>
+        <translation>Propiedades del magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="67"/>
@@ -273,12 +273,12 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="77"/>
         <source>Lowest</source>
-        <translation>Mas bajo</translation>
+        <translation>Más baja</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="80"/>
         <source>Low</source>
-        <translation>Bajo</translation>
+        <translation>Baja</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="83"/>
@@ -288,12 +288,12 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="86"/>
         <source>High</source>
-        <translation>Alto</translation>
+        <translation>Alta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="89"/>
         <source>Highest</source>
-        <translation>Más alto</translation>
+        <translation>Más alta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="95"/>
@@ -363,7 +363,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="413"/>
         <source>Remote client does not fully support TTH - cannot download</source>
-        <translation>El cliente remoto no es totalmente compatible con TTH - no se puede descargar</translation>
+        <translation>El cliente remoto no es del todo compatible con TTH - no se puede descargar</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="420"/>
@@ -467,22 +467,22 @@ Keys:
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="138"/>
         <source>Lowest</source>
-        <translation>Mas bajo</translation>
+        <translation>Mas baja</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="141"/>
         <source>Low</source>
-        <translation>Bajo</translation>
+        <translation>Baja</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="144"/>
         <source>High</source>
-        <translation>Alto</translation>
+        <translation>Alta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="147"/>
         <source>Highest</source>
-        <translation>Mas alto</translation>
+        <translation>Mas alta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="150"/>
@@ -785,7 +785,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Check sum</source>
-        <translation>Check sum</translation>
+        <translation>Suma de verificación</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
@@ -855,7 +855,7 @@ Keys:
     <message>
         <location filename="../src/HashProgress.cpp" line="226"/>
         <source>Resume</source>
-        <translation>Resumir</translation>
+        <translation>Continuar</translation>
     </message>
 </context>
 <context>
@@ -1840,7 +1840,7 @@ Usuario favorito</translation>
         <location filename="../src/MainWindow.cpp" line="1285"/>
         <location filename="../src/MainWindow.cpp" line="2327"/>
         <source>Show/hide find frame</source>
-        <translation>Mostrar/Ocultar cuadro de búsquedas</translation>
+        <translation>Mostrar/Ocultar cuadro de búsqueda</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1287"/>
@@ -2230,7 +2230,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2523"/>
         <source>Icons only</source>
-        <translation>Solo iconos</translation>
+        <translation>Sólo iconos</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2524"/>
@@ -2245,7 +2245,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2526"/>
         <source>Text under icons</source>
-        <translation>Texto debajo de los iconos</translation>
+        <translation>Texto bajo de los iconos</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2536"/>
@@ -2581,7 +2581,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="29"/>
         <source>Reliability</source>
-        <translation>Confiabilidad</translation>
+        <translation>Fiabilidad</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="29"/>
@@ -2677,7 +2677,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/main.cpp" line="144"/>
         <source>UserList icons has been loaded</source>
-        <translation>los iconos de la lista de usuarios han sido cargados</translation>
+        <translation>Los iconos de la lista de usuarios han sido cargados</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="147"/>
@@ -4839,7 +4839,7 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/HubFrame.ui" line="137"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation>Ocultar cuadro de búsqueda (Ctrl+F)</translation>
+        <translation>Ocultar barra de búsqueda (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="281"/>
@@ -5033,7 +5033,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/PrivateMessage.ui" line="83"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation>Ocultar cuadro de búsqueda (Ctrl+F)</translation>
+        <translation>Ocultar barra de búsqueda (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="93"/>
@@ -5300,12 +5300,12 @@ cuando lo necesite.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="235"/>
         <source>Bind to address</source>
-        <translation>Ligar a dirección</translation>
+        <translation>Enlazar a dirección</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="245"/>
         <source>Bind to interface</source>
-        <translation>Ligar a interface</translation>
+        <translation>Enlazar a interfaz</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="261"/>
@@ -5456,7 +5456,7 @@ El soporte SOCKS5 de DC++ no incluye soporte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="815"/>
         <source>Type-of-Service (ToS)</source>
-        <translation>Terminos del Servicio (en inglés ToS)</translation>
+        <translation>Tipo De Servicio (en inglés ToS)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="831"/>
@@ -5493,22 +5493,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="851"/>
         <source>Low delay</source>
-        <translation>Retardo bajo</translation>
+        <translation>Baja Latencia</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="856"/>
         <source>Throughput</source>
-        <translation>Rendimiento</translation>
+        <translation>Transferencia</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="861"/>
         <source>Reliability</source>
-        <translation>Confiabilidad</translation>
+        <translation>Fiabilidad</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="866"/>
         <source>Minimal cost</source>
-        <translation>Coste Mínimo</translation>
+        <translation>Bajo coste</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="876"/>
@@ -6167,9 +6167,9 @@ en la cola, o bien, debe eliminarlos manualmente.</translation>
         <source>If checked, you'll see emoticons even in the middle of words.
 If unchecked, you'll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation>Si es marcado, Verá los emoticonos en el medio de las palabras.
-Si es desmarcado, Verá los emorticonos solo cuando estén solos
-entre las palabras, separados por espacios.</translation>
+        <translation>Si está marcado, veras los emoticonos incluso en medio de las palabras.
+Si está desmarcado, veras los emoticonos solo cuando estén separados
+de otras palabras por espacios.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="351"/>
@@ -6184,7 +6184,7 @@ entre las palabras, separados por espacios.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="365"/>
         <source>Autohide emoticons panel</source>
-        <translation>Esconde automáticamente el  panel de emoticonos</translation>
+        <translation>Esconder automáticamente el  panel de emoticonos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="386"/>
