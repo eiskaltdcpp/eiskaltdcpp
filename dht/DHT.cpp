@@ -78,8 +78,8 @@ namespace dht
 
 		if(!bucket)
 		{
-// 			if(BOOLSETTING(UPDATE_IP))
-			SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, Util::emptyString);
+			if(!BOOLSETTING(NO_IP_OVERRIDE))
+				SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, Util::emptyString);
 
 			bucket = new KBucket();
 
@@ -600,7 +600,7 @@ namespace dht
 						firewalled = false;
 					}
 
-					 if(!BOOLSETTING(NO_IP_OVERRIDE))
+					if(!BOOLSETTING(NO_IP_OVERRIDE))
 						SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, externalIP);
 
 					firewalledChecks.clear();
