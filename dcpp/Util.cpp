@@ -209,6 +209,8 @@ void Util::initialize(PathsMap pathOverrides) {
         const char *xdg_data_home_ = getenv("XDG_DATA_HOME");
         string xdg_data_home = xdg_data_home_? Text::toUtf8(xdg_data_home_) : (home+"/.local/share");
         paths[PATH_USER_LOCAL] = xdg_data_home + "/eiskaltdc++/";
+#elif defined __HAIKU__
+        paths[PATH_USER_LOCAL] = home + "/config/data/eiskaltdc++/";
 #else
         paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
 #endif
