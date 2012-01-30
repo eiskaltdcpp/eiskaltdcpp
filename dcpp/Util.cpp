@@ -203,8 +203,17 @@ void Util::initialize(PathsMap pathOverrides) {
     if(localMode) {
         // @todo implement...
     }
-    if (Util::getPath(Util::PATH_USER_LOCAL).empty())
+    
+    if (Util::getPath(Util::PATH_USER_LOCAL).empty()) {
+#ifdef FORCE_XDG
+        const char *xdg_data_home_ = getenv("XDG_DATA_HOME");
+        string xdg_data_home = xdg_data_home_? Text::toUtf8(xdg_data_home_) : (home+"/.local/share");
+        paths[PATH_USER_LOCAL] = xdg_data_home + "/eiskaltdc++/";
+#else
         paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
+#endif
+    }
+    
     if (Util::getPath(Util::PATH_RESOURCES).empty())
         paths[PATH_RESOURCES] = paths[PATH_USER_CONFIG];
     if (Util::getPath(Util::PATH_LOCALE).empty())
