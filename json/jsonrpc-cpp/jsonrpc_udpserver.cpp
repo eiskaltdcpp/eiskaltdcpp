@@ -28,7 +28,7 @@
 
 #include "netstring.h"
 
-namespace Json 
+namespace Json
 {
 
   namespace Rpc
@@ -91,20 +91,7 @@ namespace Json
         /* in case of notification message received, the response could be Json::Value::null */
         if(response != Json::Value::null)
         {
-          std::string rep = m_jsonHandler.GetString(response);
-
-          /* encoding */
-          if(GetEncapsulatedFormat() == Json::Rpc::NETSTRING)
-          {
-            rep = netstring::encode(rep);
-          }
-
-          if(::sendto(fd, rep.c_str(), rep.length(), 0, (struct sockaddr*)&addr, addrlen) == -1)
-          {
-            /* error */
-            std::cerr << "Error while sending"  << std::endl;
-            return false;
-          }
+          Send(m_jsonHandler.GetString(response),(struct sockaddr*)&addr, addrlen);
         }
 
         return true;

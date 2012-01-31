@@ -102,7 +102,7 @@ namespace Json
         {
             if (0 == msg.compare(0,15,"POST / HTTP/1.1"))
             {
-                printf("orig_msg: %s\n\n", msg.c_str());
+                printf("orig_msg: %s|::|\n\n", msg.c_str());
                 fflush(stdout);
                 size_t istart = msg.find("Content-Length: ");
                 size_t iend = msg.find("\r\n\r\n{");
@@ -111,7 +111,7 @@ namespace Json
                 fflush(stdout);
                 if (iend != std::string::npos)
                 {
-                    msg = msg.substr(iend+4);
+                    msg = msg.substr(iend+4, content_msg_size);
                     printf("msg: %s msg_size: %d\n", msg.c_str(), msg.size());
                     fflush(stdout);
                     if (content_msg_size != msg.size())
@@ -131,38 +131,7 @@ namespace Json
         /* in case of notification message received, the response could be Json::Value::null */
         if(response != Json::Value::null)
         {
-          std::string rep = m_jsonHandler.GetString(response);
-
-          /* encoding */
-          if(GetEncapsulatedFormat() == Json::Rpc::NETSTRING)
-          {
-            rep = netstring::encode(rep);
-          }
-          if (GetEncapsulatedFormat() == Json::Rpc::HTTP_POST)
-          {
-            std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: ";
-            char v[16];
-            snprintf(v, sizeof(v), "%u", rep.size());
-            tmp += v;
-            tmp += "\r\n\r\n";
-            rep = tmp + rep;
-          }
-
-          int bytesToSend = rep.length();
-          const char* ptrBuffer = rep.c_str();
-          do
-          {
-            int retVal = send(fd, ptrBuffer, bytesToSend, 0);
-            if(retVal == -1)
-            {
-              /* error */
-              std::cerr << "Error while sending data: "
-                        << strerror(errno) << std::endl;
-              return false;
-            }
-            bytesToSend -= retVal;
-            ptrBuffer += retVal;
-          }while(bytesToSend > 0);
+          Send(fd, m_jsonHandler.GetString(response));
         }
 
         return true;
