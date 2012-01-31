@@ -359,3 +359,12 @@ bool JsonRpcMethods::ClearSearchResults(const Json::Value& root, Json::Value& re
     if (isVerbose) std::cout << "ClearSearchResults (response): " << response << std::endl;
     return true;
 }
+
+bool JsonRpcMethods::AddQueueItem(const Json::Value& root, Json::Value& response){
+    if (isVerbose) std::cout << "AddQueueItem (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    
+    if (isVerbose) std::cout << "AddQueueItem (response): " << response << std::endl;
+    return true;
+}

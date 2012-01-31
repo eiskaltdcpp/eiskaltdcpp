@@ -64,6 +64,7 @@ public:
     bool moveQueueItem(const string& source, const string& target);
     bool removeQueueItem(const string& target);
     void updatelistQueueTargets();
+    void getItemSources(QueueItem* item, string& sources, unsigned int online, const string& separator);
 
 private:
     friend class Singleton<ServerThread>;

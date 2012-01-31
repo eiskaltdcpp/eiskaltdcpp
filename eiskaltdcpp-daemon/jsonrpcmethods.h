@@ -42,6 +42,8 @@ class JsonRpcMethods
     bool ListQueueTargets(const Json::Value& root, Json::Value& response);
     bool ListQueue(const Json::Value& root, Json::Value& response);
     bool ClearSearchResults(const Json::Value& root, Json::Value& response);
+    bool AddQueueItem(const Json::Value& root, Json::Value& response);
+    
 
 };
 

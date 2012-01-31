@@ -756,6 +756,16 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
     return true;
 }
 
+void ServerThread::getItemSources(QueueItem* item, string& sources, unsigned int online, const string& separator) {
+    string nick;
+    for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
+        if (!sources.empty())
+            sources += separator;
+        nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+        sources += nick;
+    }
+}
+
 void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
 	string nick;
 	int online = 0;
@@ -765,16 +775,18 @@ void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
 	params["Target"] = item->getTarget();
 
 	params["Users"] = "";
-	for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
-		if (it->getUser().user->isOnline())
-			++online;
+	//for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
+		//if (it->getUser().user->isOnline())
+			//++online;
 
-		if (params["Users"].size() > 0)
-			params["Users"] += ", ";
+		//if (params["Users"].size() > 0)
+			//params["Users"] += ", ";
 
-		nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
-		params["Users"] += nick;
-	}
+		//nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+		//params["Users"] += nick;
+	//}
+    getItemSources(item, params["Users"], online, ", ");
+    
 	if (params["Users"].empty())
 		params["Users"] = _("No users");
 
