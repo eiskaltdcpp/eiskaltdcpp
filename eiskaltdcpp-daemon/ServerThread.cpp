@@ -756,7 +756,7 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
     return true;
 }
 
-void ServerThread::getItemSources(QueueItem* item, string& sources, unsigned int online, const string& separator) {
+void ServerThread::getItemSources(QueueItem* item, string& sources, unsigned int& online, const string& separator) {
     string nick;
     for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
         if (!sources.empty())
@@ -765,16 +765,25 @@ void ServerThread::getItemSources(QueueItem* item, string& sources, unsigned int
         sources += nick;
     }
 }
+void ServerThread::getItemSourcesbyTarget(const string& target, string& sources, unsigned int& online, const string& separator) {
+    const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+    for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+        if (target == *it->first)
+            getItemSources(it->second, sources, online, separator);
+    }
+    QueueManager::getInstance()->unlockQueue();
+}
 
 void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
 	string nick;
-	int online = 0;
+	unsigned int online = 0;
 
 	params["Filename"] = item->getTargetFileName();
 	params["Path"] = Util::getFilePath(item->getTarget());
 	params["Target"] = item->getTarget();
 
 	params["Users"] = "";
+    
 	//for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
 		//if (it->getUser().user->isOnline())
 			//++online;
@@ -785,7 +794,8 @@ void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
 		//nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
 		//params["Users"] += nick;
 	//}
-    getItemSources(item, params["Users"], online, ", ");
+    
+    getItemSources(item, params["Users"], online, ", " );
     
 	if (params["Users"].empty())
 		params["Users"] = _("No users");
@@ -959,4 +969,6 @@ bool ServerThread::removeQueueItem(const string& target) {
     }
     return false;
 }
+
+
 
