@@ -1,4 +1,4 @@
-Format: http://anonscm.debian.org/viewvc/dep/web/deps/dep5.mdwn?revision=248
+Format: http://anonscm.debian.org/viewvc/dep/web/deps/dep5/index.html?revision=248
 Debianized-By: Boris Pek <tehnick-8@mail.ru>
 Debianized-Date: Sat, 06 Feb 2010 03:43:21 +0300
 Upstream-Name: EiskaltDC++
@@ -195,7 +195,7 @@ Copyright: 2008-2011 Sebastien Vincent <sebastien.vincent@cppextrem.com>
 License: LGPL-3+
 
 Files: debian/*
-Copyright: 2010-2011 Boris Pek <tehnick-8@mail.ru>
+Copyright: 2010-2012 Boris Pek <tehnick-8@mail.ru>
 License: GPL-2+
 
 License: GPL-2
