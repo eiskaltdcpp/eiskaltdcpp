@@ -4,8 +4,8 @@ cmake_minimum_required (VERSION 2.6)
 
 aux_source_directory(${PROJECT_SOURCE_DIR} dcpp_srcs)
 file (GLOB dcpp_hdrs ${PROJECT_SOURCE_DIR}/*.h)
-set (DCPP_SRCS @dcpp_srcs@ PARENT_SCOPE)
-set (DCPP_HDRS @dcpp_hdrs@ PARENT_SCOPE)
+set (DCPP_SRCS @dcpp_srcs@)
+set (DCPP_HDRS @dcpp_hdrs@)
 
 if (NOT LUA_SCRIPT)
   list (REMOVE_ITEM dcpp_srcs ${CMAKE_CURRENT_SOURCE_DIR}/ScriptManager.cpp)
