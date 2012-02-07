@@ -41,6 +41,7 @@
 unsigned short int lport = 3121;
 string lip = "127.0.0.1";
 bool isVerbose = false;
+bool isDebug = false;
 string xmlrpcLog = "/tmp/eiskaltdcpp-daemon.xmlrpc.log";
 string xmlrpcUriPath = "/eiskaltdcpp";
 
@@ -175,6 +176,7 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RemoveQueueItem, std::string("queue.remove")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueueTargets, std::string("queue.listtargets")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetSourcesItem, std::string("queue.getsources")));
 
     if (!jsonserver->Bind())
         std::cout << "JSONRPC: Bind failed" << std::endl;
@@ -756,7 +758,7 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
     return true;
 }
 
-void ServerThread::getItemSources(QueueItem* item, string& sources, unsigned int& online, const string& separator) {
+void ServerThread::getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online) {
     string nick;
     for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
         if (!sources.empty())
@@ -765,11 +767,11 @@ void ServerThread::getItemSources(QueueItem* item, string& sources, unsigned int
         sources += nick;
     }
 }
-void ServerThread::getItemSourcesbyTarget(const string& target, string& sources, unsigned int& online, const string& separator) {
+void ServerThread::getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
     for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
         if (target == *it->first)
-            getItemSources(it->second, sources, online, separator);
+            getItemSources(it->second, separator, sources, online);
     }
     QueueManager::getInstance()->unlockQueue();
 }
@@ -795,7 +797,7 @@ void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
 		//params["Users"] += nick;
 	//}
     
-    getItemSources(item, params["Users"], online, ", " );
+    getItemSources(item, ", ", params["Users"], online);
     
 	if (params["Users"].empty())
 		params["Users"] = _("No users");
