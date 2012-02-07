@@ -1351,7 +1351,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="2112"/>
         <source>%1 is now online</source>
-        <translation>%1 está conectado</translation>
+        <translation>%1 se ha conectado</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2125"/>
@@ -1366,7 +1366,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="2167"/>
         <source>%1 is now offline</source>
-        <translation>%1 ha quedado desconectado</translation>
+        <translation>%1 se ha desconectado</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2191"/>
