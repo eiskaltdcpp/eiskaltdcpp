@@ -273,7 +273,7 @@ Opciones:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="77"/>
         <source>Lowest</source>
-        <translation>Más baja</translation>
+        <translation>Mínima</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="80"/>
@@ -293,7 +293,7 @@ Opciones:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="89"/>
         <source>Highest</source>
-        <translation>Más alta</translation>
+        <translation>Máxima</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="95"/>
@@ -3938,7 +3938,7 @@ que continuará trabajando cuando el widget esté oculto.
     <message>
         <location filename="../src/TransferView.cpp" line="87"/>
         <source>Force attempt</source>
-        <translation>Intentar a la fuerza</translation>
+        <translation>Forzar Conexión</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="90"/>
@@ -4621,7 +4621,7 @@ p, li { white-space: pre-wrap; }⏎
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="180"/>
         <source>Minimum search interval (seconds)</source>
-        <translation>Intervalo de bbusqueda (segundos)</translation>
+        <translation>Intervalo de búsqueda (segundos)</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="202"/>
@@ -5138,7 +5138,7 @@ en las opciones, el archivo será descargado sin abrir el diálogo de búsqueda.
     <message>
         <location filename="../ui/UIScriptManager.ui" line="31"/>
         <source>Reload it</source>
-        <translation>Recargandolo</translation>
+        <translation>Recargarlo</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="39"/>
