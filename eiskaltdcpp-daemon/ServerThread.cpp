@@ -46,7 +46,7 @@ string xmlrpcUriPath = "/eiskaltdcpp";
 
 ServerThread::ClientMap ServerThread::clientsMap;
 #ifdef JSONRPC_DAEMON
-Json::Rpc::TcpServer * jsonserver;
+Json::Rpc::HTTPServer * jsonserver;
 #endif
 
 ServerThread::ServerThread() : lastUp(0), lastDown(0), lastUpdate(GET_TICK()) {
@@ -146,10 +146,10 @@ int ServerThread::run() {
 #endif
 
 #ifdef JSONRPC_DAEMON
-    jsonserver = new Json::Rpc::TcpServer(lip, lport);
+    jsonserver = new Json::Rpc::HTTPServer(lip, lport);
     JsonRpcMethods a;
-    if (!networking::init())
-        std::cerr << "JSONRPC: Networking initialization failed" << std::endl;
+    //if (!networking::init())
+        //std::cerr << "JSONRPC: Networking initialization failed" << std::endl;
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::Print, std::string("print")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MagnetAdd, std::string("magnet.add")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::StopDaemon, std::string("daemon.stop")));
@@ -176,16 +176,17 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueueTargets, std::string("queue.listtargets")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list")));
 
-    if (!jsonserver->Bind())
-        std::cout << "JSONRPC: Bind failed" << std::endl;
-    if (!jsonserver->Listen())
-        std::cout << "JSONRPC: Listen failed" << std::endl;
-    jsonserver->SetEncapsulatedFormat(Json::Rpc::HTTP_POST);
+    //if (!jsonserver->Bind())
+        //std::cout << "JSONRPC: Bind failed" << std::endl;
+    //if (!jsonserver->Listen())
+        //std::cout << "JSONRPC: Listen failed" << std::endl;
+    //jsonserver->SetEncapsulatedFormat(Json::Rpc::HTTP_POST);
+    jsonserver->startPolling();
     std::cout << "JSONRPC: Start JSON-RPC TCP server" << std::endl;
-    json_run = true;
-    while (json_run) {
-        jsonserver->WaitMessage(1000);
-    }
+    //json_run = true;
+    //while (json_run) {
+        //jsonserver->WaitMessage(1000);
+    //}
 #endif
 
     return 0;
@@ -211,10 +212,11 @@ void ServerThread::Close() {
     delete server;
 #endif
 #ifdef JSONRPC_DAEMON
-    json_run = false;
+    //json_run = false;
+    jsonserver->stopPolling();
     std::cout << "JSONRPC: Stop JSON-RPC TCP server" << std::endl;
-    jsonserver->Close();
-    networking::cleanup();
+    //jsonserver->Close();
+    //networking::cleanup();
     delete jsonserver;
 #endif
 

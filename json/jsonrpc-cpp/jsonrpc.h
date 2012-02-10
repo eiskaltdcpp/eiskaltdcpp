@@ -51,6 +51,7 @@
 #include "jsonrpc_server.h"
 #include "jsonrpc_udpserver.h"
 #include "jsonrpc_tcpserver.h"
+#include "jsonrpc_httpserver.h"
 #include "jsonrpc_client.h"
 #include "jsonrpc_udpclient.h"
 #include "jsonrpc_tcpclient.h"

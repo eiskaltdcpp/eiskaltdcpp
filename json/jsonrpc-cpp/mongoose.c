@@ -1600,7 +1600,7 @@ static struct mg_connection *mg_connect(struct mg_connection *conn,
     cry(conn, "%s: SSL is not initialized", __func__);
   } else if ((he = gethostbyname(host)) == NULL) {
     cry(conn, "%s: gethostbyname(%s): %s", __func__, host, strerror(ERRNO));
-  } else if ((sock = socket(PF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET) {
+  } else if ((sock = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET) {
     cry(conn, "%s: socket: %s", __func__, strerror(ERRNO));
   } else {
     sin.sin_family = AF_INET;

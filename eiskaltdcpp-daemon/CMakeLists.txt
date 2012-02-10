@@ -64,7 +64,7 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
 
-target_link_libraries (${PROJECT_NAME} dcpp ${XMLRPCLIBS} ${JSONRPCLIBS})
+target_link_libraries (${PROJECT_NAME} dcpp ${XMLRPCLIBS} ${JSONRPCLIBS} dl)
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
     add_definitions(-D_DEBUG)
