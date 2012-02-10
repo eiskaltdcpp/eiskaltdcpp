@@ -13,11 +13,11 @@ API Layers:
 	(wip) Удаление элемента очереди (queue.remove)
 		Args: target (string)
 		Return: 0 | 1 (integer)
-	(+) Постановка в очередь магнета (magnet.add)
+	(broken) Постановка в очередь магнета (magnet.add)
 		Args: magnet (string)
 		Return: 0 | 1 (integer)
 	Просмотр конкретного элемента очереди
-	Установка приоритета элемента очереди
+	(wip) Установка приоритета элемента очереди
 		Args: target (string), priority (integer; 0-PAUSED, 1-LOWEST, 2-LOW, 3-NORMAL, 4-HIGH, 5-HIGHEST)
 		Return: 0 | 1 (integer)
 	Список источников для конкретного элемента очереди
@@ -26,7 +26,7 @@ API Layers:
 	Добавление элемента очереди.
 -----------------------
 РАБОТА С ФАЙЛЛИСТАМИ
-	Скачивание файллиста (list.download)
+	(broken) Скачивание файллиста (list.download)
 		Args: huburl (string), nick (string)
 		Return: 0 | 1 (integer)
 	Просмотр файллиста
@@ -49,6 +49,7 @@ API Layers:
 	(+) Обновлние (share.refresh)
 		Args : none
 		Return: 0 | 1 (integer)
+	Показать статус хеширования
 	(wip) perfolderlimits api (?)
 -----------------------
 УПРАВЛЕНИЕ ХАБАМИ
@@ -80,7 +81,7 @@ API Layers:
 	(wip) Просмотр результатов поиска (search.getresults, нужна нумерация для постановки в очередь)
 		Args: huburl (string)
 		Return: @search results@ (array of map)
-	(wip) Очистить полученные результаты для указанного хаба/все. (search.clear)
+	(+) Очистить полученные результаты для указанного хаба/все. (search.clear)
 		Args: huburl (string)
 		Return: 0 | 1 (integer)
 	Останов поиска (прекращение добавления результатов для такого-то поиска, разбор поиска и результатов будет в cli)
