@@ -24,7 +24,8 @@
 
 #include "jsonrpc_httpserver.h"
 #include <string>
-#include <string.h>
+#include <cstring>
+#include <cstdlib>
 
 namespace Json 
 {
