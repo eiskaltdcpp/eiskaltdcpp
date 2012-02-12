@@ -1074,7 +1074,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
         disconnect(w, SIGNAL(privateMessageClosed(QString)), this, SLOT(slotPMClosed(QString)));
 
-        w->close();
+        ArenaWidgetManager::getInstance()->rem(w);
     }
 
     d->pm.clear();
