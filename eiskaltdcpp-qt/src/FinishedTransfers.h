@@ -61,6 +61,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     virtual void slotTypeChanged(int) = 0;
     virtual void slotClear() = 0;
+    virtual void slotItemDoubleClicked(const QModelIndex &) = 0;
     virtual void slotContextMenu() = 0;
     virtual void slotHeaderMenu() = 0;
     virtual void slotSwitchOnlyFull(bool) = 0;
@@ -159,6 +160,7 @@ private:
         QObject::connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
         QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
         QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
+        QObject::connect(treeView, SIGNAL(doubleClicked(const QModelIndex&)), this, SLOT(slotItemDoubleClicked(const QModelIndex &)));
         QObject::connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
         QObject::connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
         QObject::connect(checkBox_FULL, SIGNAL(toggled(bool)), this, SLOT(slotSwitchOnlyFull(bool)));
@@ -387,6 +389,64 @@ private:
 #endif
     }
 
+    void openFile(QString file){
+        if (!file.startsWith("/"))
+            file.prepend("/");
+
+        int sep = file.lastIndexOf(QDir::separator());
+        QString name = file.right(sep);
+        QString path = file.left(sep);
+
+        QDir test(path);
+        if (!test.exists(file)){
+            QStringList files = test.entryList(QStringList("*"+name+"*"), QDir::Files, QDir::Name);
+
+            if (files.size() > 0)
+                file = path + QDir::separator() + files.first();
+        }
+
+        if (file.startsWith("/"))
+            file.prepend("file://");
+        else
+            file.prepend("file:///");
+
+        QDesktopServices::openUrl(QUrl(file));
+    }
+
+    void slotItemDoubleClicked(const QModelIndex &proxyIndex){
+        Q_UNUSED(proxyIndex);
+
+        if (comboBox->currentIndex() != 0)
+            return;
+
+        QItemSelectionModel *s_model = treeView->selectionModel();
+        QModelIndexList p_indexes = s_model->selectedRows(0);
+        QModelIndexList indexes;
+
+        foreach (const QModelIndex &i, p_indexes)
+            indexes.push_back(proxy->mapToSource(i));
+
+        if (indexes.size() < 1)
+            return;
+
+        QStringList files;
+        FinishedTransfersItem *item = NULL;
+        QString file;
+        bool full;
+
+        foreach (const QModelIndex &i, indexes){
+            item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
+            file = item->data(COLUMN_FINISHED_TARGET).toString();
+            full = item->data(COLUMN_FINISHED_FULL).toBool();
+
+            if (!file.isEmpty() && full)
+                files.push_back(file);
+        }
+
+        foreach (QString f, files)
+            openFile(f);
+    }
+
     void slotContextMenu(){
         static WulforUtil *WU = WulforUtil::getInstance();
 
@@ -447,29 +507,8 @@ private:
         delete m;
 
         if (ret == open_f){
-            foreach (QString f, files){
-                if (!f.startsWith("/"))
-                    f.prepend("/");
-
-                int sep = f.lastIndexOf(QDir::separator());
-                QString name = f.right(sep);
-                QString path = f.left(sep);
-
-                QDir test(path);
-                if (!test.exists(f)){
-                    QStringList files = test.entryList(QStringList("*"+name+"*"), QDir::Files, QDir::Name);
-
-                    if (files.size() > 0)
-                        f = path + QDir::separator() + files.first();
-                }
-
-                if (f.startsWith("/"))
-                    f.prepend("file://");
-                else
-                    f.prepend("file:///");
-
-                QDesktopServices::openUrl(QUrl(f));
-            }
+            foreach (QString f, files)
+                openFile(f);
         }
         else if (ret == open_dir){
             foreach (QString f, files){
