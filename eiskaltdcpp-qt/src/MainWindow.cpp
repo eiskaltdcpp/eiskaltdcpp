@@ -1969,7 +1969,10 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
         a->setToolButton(act);
     }
    
-    ArenaWidgetManager::getInstance()->toggle(a);
+    if (!a->getWidget()->isVisible())
+        ArenaWidgetManager::getInstance()->activate(a);
+    else
+        ArenaWidgetManager::getInstance()->toggle(a);
 }
 
 void MainWindow::toggleMainMenu(bool showMenu){
