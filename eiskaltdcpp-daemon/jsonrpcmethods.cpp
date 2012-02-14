@@ -191,8 +191,10 @@ bool JsonRpcMethods::GetFileList(const Json::Value& root, Json::Value& response)
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     string tmp;
-    tmp = ServerThread::getInstance()->getFileList_client(root["params"]["huburl"].asString(), root["params"]["nick"].asString(), false);
-    response["result"] = tmp;
+    if (ServerThread::getInstance()->getFileList(root["params"]["huburl"].asString(), root["params"]["nick"].asString(), false))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
     if (isVerbose) std::cout << "GetFileList (response): " << response << std::endl;
     return true;
 }
