@@ -873,11 +873,16 @@ void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
 }
 
 void ServerThread::listQueueTargets(string& listqueue, const string& sseparator) {
+    string separator;
+    if (sseparator.empty())
+        separator = "\n";
+    else
+        separator = sseparator;
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
     for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
-        listqueue.append(*it->first);
-        listqueue.append(sseparator);
+        listqueue += *it->first;
+        listqueue += separator;
     }
     QueueManager::getInstance()->unlockQueue();
 }
@@ -912,7 +917,6 @@ void ServerThread::on(Moved, QueueItem*, const string&) noexcept {
 
 void ServerThread::listQueue(unordered_map<string,StringMap>& listqueue) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
-
     for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
         StringMap sm;
         getQueueParams(it->second,sm);
