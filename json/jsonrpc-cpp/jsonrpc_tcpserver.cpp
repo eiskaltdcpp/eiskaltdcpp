@@ -30,6 +30,7 @@
 
 #include <cstring>
 #include <cerrno>
+#include <cstdlib>
 
 namespace Json
 {
@@ -102,18 +103,15 @@ namespace Json
         {
             if (0 == msg.compare(0,15,"POST / HTTP/1.1"))
             {
-                printf("orig_msg: %s|::|\n\n", msg.c_str());
-                fflush(stdout);
+                //printf("orig_msg: %s\n\n", msg.c_str()); fflush(stdout);
                 size_t istart = msg.find("Content-Length: ");
                 size_t iend = msg.find("\r\n\r\n{");
-                size_t content_msg_size = atoi(msg.substr(istart+16,iend-istart-16).c_str());
-                printf("content_msg_size: %d\n", content_msg_size);
-                fflush(stdout);
+                size_t content_msg_size = ::atoi(msg.substr(istart+16,iend-istart-16).c_str());
+                //printf("content_msg_size: %d\n", content_msg_size); fflush(stdout);
                 if (iend != std::string::npos)
                 {
-                    msg = msg.substr(iend+4, content_msg_size);
-                    printf("msg: %s msg_size: %d\n", msg.c_str(), msg.size());
-                    fflush(stdout);
+                    msg = msg.substr(iend+4);
+                    //printf("msg: %s msg_size: %d\n", msg.c_str(), msg.size()); fflush(stdout);
                     if (content_msg_size != msg.size())
                     {
                         return false;

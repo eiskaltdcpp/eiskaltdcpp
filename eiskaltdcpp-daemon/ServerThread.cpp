@@ -475,8 +475,7 @@ string ServerThread::sendPrivateMessage(const string& hub, const string& nick, c
     return "Huburl is invalid";
 }
 
-string ServerThread::getFileList_client(const string& hub, const string& nick, bool match) {
-    string message = "";
+bool ServerThread::getFileList(const string& hub, const string& nick, bool match) {
     ClientIter i = clientsMap.find(hub);
     if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
         if (!nick.empty()) {
@@ -493,17 +492,17 @@ string ServerThread::getFileList_client(const string& hub, const string& nick, b
                     } else {
                         QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);
                     }
+                    return true;
                 } else {
-                    message = _("User not found");
+                    return false;
                 }
             } catch (const Exception &e) {
-                message = e.getError();
-                LogManager::getInstance()->message(message);
+                LogManager::getInstance()->message(e.getError());
             }
         }
     }
 
-    return message;
+    return false;
 }
 
 void ServerThread::getChatPubFromClient(string& chat, const string& hub, const string& separator) {

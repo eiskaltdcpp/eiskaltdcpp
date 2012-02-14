@@ -77,6 +77,7 @@ my $res;
 # creating and configuring client
 my $client = new JSON::RPC::Client;
 $client->version("2.0");
+$client->ua->timeout(10);
 #$client->ua->credentials('http://127.0.0.1:3121', 'jsonrpc', 'user' => 'password');
 
 # creating shell
@@ -227,6 +228,22 @@ sub get_commands
 			minargs => 2,
 			maxargs => 2,
 			proc => \&qsetprio
+		},
+		"queue.list" =>
+		{
+			desc => "Show queue, including all targets. Parameters: none",
+			proc => \&qlist
+		},
+		"queue.listtargets" =>
+		{
+			desc => "Show  all targets. Parameters: none",
+			proc => \&qlisttargets
+		},
+		"search.clear" =>
+		{
+			desc => "Clear search results. Parameters: huburl",
+			maxargs => 1,
+			proc => \&searchclear
 		},
 		# last
 		"prompt" =>
@@ -764,6 +781,76 @@ sub qsetprio($$)
 	delete($obj->{'params'});
 }
 
+sub qlist()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.list';
+	print("===Request===\n".dump($obj)."\n");
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
+
+sub qlisttargets()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.listtargets';
+	print("===Request===\n".dump($obj)."\n");
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
+
+sub searchclear($)
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'search.clear';
+	if (defined($_[0])) {$obj->{'params'}->{'huburl'}=$_[0]};
+	print("===Request===\n".dump($obj)."\n");
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
 __END__
 
 =pod
