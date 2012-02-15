@@ -719,7 +719,7 @@ bool ServerThread::addInQueue(const string& sddir, const string& name, const int
         return false;
 
     if (sddir.empty())
-        QueueManager::getInstance()->add(name, size, TTHValue(tth));
+        QueueManager::getInstance()->add(SETTING(DOWNLOAD_DIRECTORY) + PATH_SEPARATOR_STR + name, size, TTHValue(tth));
     else
         QueueManager::getInstance()->add(sddir + PATH_SEPARATOR_STR + name, size, TTHValue(tth));
 

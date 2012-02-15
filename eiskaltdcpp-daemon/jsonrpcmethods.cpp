@@ -339,7 +339,7 @@ bool JsonRpcMethods::ListQueue(const Json::Value& root, Json::Value& response) {
     unordered_map<string,StringMap> listqueue;
     ServerThread::getInstance()->listQueue(listqueue);
     unordered_map<string,StringMap>::iterator i = listqueue.begin();
-    while (i != listqueue.end()) {
+    for (unordered_map<string,StringMap>::iterator i = listqueue.begin(); i != listqueue.end(); ++i) {
         for (StringMap::iterator kk = i->second.begin(); kk != i->second.end(); ++kk) {
             parameters[i->first][kk->first] = kk->second;
         }
@@ -380,5 +380,13 @@ bool JsonRpcMethods::GetSourcesItem(const Json::Value& root, Json::Value& respon
     response["result"]["sources"] = sources;
     response["result"]["online"] = online;
     if (isDebug) std::cout << "GetSourcesItem (response): " << response << std::endl;
+    return true;
+}
+bool JsonRpcMethods::GetHashStatus(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "GetHashStatus (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    
+    if (isDebug) std::cout << "GetHashStatus (response): " << response << std::endl;
     return true;
 }
