@@ -2724,6 +2724,9 @@ void MainWindow::slotAboutClient(){
         QString("&nbsp; Tillmann Karras &lt;tilkax@gmail.com&gt;<br/>")+
         tr("&nbsp; (for 2.2.5 and later)<br/>")+
         QString("<br/>")+
+        QString("&nbsp; Benjamin Weber &lt;be.w@mail.ru&gt;<br/>")+
+        tr("&nbsp; (for 2.2.6 and later)<br/>")+
+        QString("<br/>")+
         tr("&nbsp;<u>Greek translation</u><br/>")+
         QString("<br/>")+
         QString("&nbsp; Konstantinos Georgokitsos &lt;kgeorgokitsos@yahoo.de&gt;<br/>")+
