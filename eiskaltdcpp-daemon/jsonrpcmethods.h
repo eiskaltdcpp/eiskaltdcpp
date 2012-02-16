@@ -44,7 +44,8 @@ class JsonRpcMethods
     bool ClearSearchResults(const Json::Value& root, Json::Value& response);
     bool AddQueueItem(const Json::Value& root, Json::Value& response);
     bool GetSourcesItem(const Json::Value& root, Json::Value& response);
-    
+    bool GetHashStatus(const Json::Value& root, Json::Value& response);
+
 
 };
 

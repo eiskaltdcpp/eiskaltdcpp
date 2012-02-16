@@ -375,7 +375,7 @@ bool JsonRpcMethods::GetSourcesItem(const Json::Value& root, Json::Value& respon
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     string sources;
-    unsigned int online;
+    unsigned int online = 0;
     ServerThread::getInstance()->getItemSourcesbyTarget(root["params"]["target"].asString(), root["params"]["separator"].asString(), sources, online);
     response["result"]["sources"] = sources;
     response["result"]["online"] = online;

@@ -757,20 +757,28 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
     return true;
 }
 
-void ServerThread::getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online) {
+void ServerThread::getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online_tmp) {
     string nick;
     for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
+        if (it->getUser().user->isOnline())
+            ++online_tmp;
+        //printf("++online_tmp: %u\n", online_tmp);fflush(stdout);
         if (!sources.empty())
             sources += separator;
         nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
         sources += nick;
     }
+    //printf("online_tmp: %u\n", online_tmp);fflush(stdout);
 }
 void ServerThread::getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
     for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
-        if (target == *it->first)
+        //printf("target: %s\n *it->first: %s\n", target.c_str(),(*it->first).c_str());fflush(stdout);
+        if (target == *it->first) {
             getItemSources(it->second, separator, sources, online);
+            //printf("online1: %u\n", online);fflush(stdout);
+        }
+        //printf("online2: %u\n", online);fflush(stdout);
     }
     QueueManager::getInstance()->unlockQueue();
 }
