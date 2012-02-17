@@ -251,6 +251,7 @@ MainWindow::MainWindow():
 		string("  Chris Leick <c.leick@vollbio.de>\n")+
 		string("  Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
 		string("  Tillmann Karras <tilkax@gmail.com>\n")+
+		string("  Benjamin Weber <be.w@mail.ru>\n")+
 		string("\n")+
 		_("Greek translation\n")+
 		string("  Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
