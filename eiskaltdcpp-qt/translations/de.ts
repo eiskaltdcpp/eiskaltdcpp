@@ -3284,12 +3284,12 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="105"/>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>Griechisch</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="107"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>Italienisch</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="243"/>
@@ -4029,7 +4029,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="799"/>
         <source>Uploaded %1 (%2%) </source>
-        <translation type="unfinished"/>
+        <translation>Hochgeladen %1 (%2%) </translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="816"/>
@@ -4123,7 +4123,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="568"/>
         <source>%1/%2</source>
-        <translation type="unfinished"/>
+        <translation>%1/%2</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="606"/>
@@ -5656,12 +5656,12 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="501"/>
         <source>Drop sources below (B/s)</source>
-        <translation type="unfinished"/>
+        <translation>Verwerfe Quelle unter (B/s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="517"/>
         <source>Check every (s)</source>
-        <translation type="unfinished"/>
+        <translation>Prüfe jede (s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="533"/>
@@ -5686,7 +5686,7 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="610"/>
         <source>Other options</source>
-        <translation type="unfinished"/>
+        <translation>Weitere Optionen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="626"/>
@@ -5862,7 +5862,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="855"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Erweitert</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="876"/>
@@ -5885,7 +5885,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="24"/>
@@ -6046,7 +6046,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="339"/>
         <source>Enable emoticons</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere Emoticons</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="346"/>
@@ -6073,7 +6073,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="386"/>
         <source>Chat (extended)</source>
-        <translation type="unfinished"/>
+        <translation>Chat (erweitert)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="400"/>
@@ -6127,7 +6127,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="509"/>
         <source>hh:mm:ss</source>
-        <translation type="unfinished"/>
+        <translation>hh:mm:ss</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="522"/>
@@ -6142,18 +6142,18 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="555"/>
         <source>Ask</source>
-        <translation type="unfinished"/>
+        <translation>Fragen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="560"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Suchen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="565"/>
         <location filename="../ui/UISettingsGUI.ui" line="870"/>
         <source>Download</source>
-        <translation type="unfinished"/>
+        <translation>Download</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="583"/>
@@ -6209,7 +6209,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="713"/>
         <source>Colors</source>
-        <translation type="unfinished"/>
+        <translation>Farben</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="719"/>
@@ -6225,7 +6225,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="750"/>
         <location filename="../ui/UISettingsGUI.ui" line="808"/>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>Farben</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="770"/>
@@ -6261,7 +6261,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="959"/>
         <source>Fonts</source>
-        <translation type="unfinished"/>
+        <translation>Schriftarten</translation>
     </message>
 </context>
 <context>
@@ -6285,7 +6285,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsHistory.ui" line="67"/>
         <location filename="../ui/UISettingsHistory.ui" line="74"/>
         <source>Clear now</source>
-        <translation type="unfinished"/>
+        <translation>Jetzt leeren</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="87"/>
@@ -6323,7 +6323,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="46"/>
         <source>Private messages</source>
-        <translation type="unfinished"/>
+        <translation>Private Nachricht</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="58"/>
@@ -6332,7 +6332,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsLog.ui" line="163"/>
         <location filename="../ui/UISettingsLog.ui" line="230"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation>Datei</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="68"/>
@@ -6346,32 +6346,32 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="81"/>
         <source>Main chat</source>
-        <translation type="unfinished"/>
+        <translation>Hauptchat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="116"/>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Downloads</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="151"/>
         <source>Uploads</source>
-        <translation type="unfinished"/>
+        <translation>Uploads</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="188"/>
         <source>System messages</source>
-        <translation type="unfinished"/>
+        <translation>System-Nachrichten</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="195"/>
         <source>Status messages</source>
-        <translation type="unfinished"/>
+        <translation>Status-Nachrichten</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="202"/>
         <source>Auto search alternates</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch nach alternativen suchen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="209"/>
@@ -6381,7 +6381,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="218"/>
         <source>Finished Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Beendete Downloads</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="253"/>
@@ -6398,12 +6398,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="24"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Text</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>
@@ -6413,25 +6413,25 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="40"/>
         <source>Enable notifications</source>
-        <translation type="unfinished"/>
+        <translation>Benachrichtigungen aktivieren</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="49"/>
         <location filename="../ui/UISettingsNotification.ui" line="192"/>
         <source>Your nick is mentioned in main chat</source>
-        <translation type="unfinished"/>
+        <translation>Dein Nick wurde im Hauptchat erwähnt</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="56"/>
         <location filename="../ui/UISettingsNotification.ui" line="224"/>
         <source>Private message</source>
-        <translation type="unfinished"/>
+        <translation>Private Nachricht</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="63"/>
         <location filename="../ui/UISettingsNotification.ui" line="263"/>
         <source>Transfer done</source>
-        <translation type="unfinished"/>
+        <translation>Übertragung beendet</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="70"/>
@@ -6441,17 +6441,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="77"/>
         <source>Allow other types of notifications</source>
-        <translation type="unfinished"/>
+        <translation>Erlaube andere Arten von Benachrichtigungen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="91"/>
         <source>Enable notifications with not active main window</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere Benachrichtigungen bei nicht aktivem Hauptfenster</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="98"/>
         <source>Enable notifications with active main window</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere Benachrichtigungen bei aktivem Hauptfenster</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="105"/>
@@ -6461,12 +6461,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="124"/>
         <source>Notification module</source>
-        <translation type="unfinished"/>
+        <translation>Benachrichtigungsmodul</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="144"/>
         <source>Default (Qt)</source>
-        <translation type="unfinished"/>
+        <translation>Standard (Qt)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="149"/>
@@ -6476,12 +6476,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="177"/>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Sound</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="183"/>
         <source>Enable sounds</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere Töne</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="207"/>
@@ -6489,22 +6489,22 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsNotification.ui" line="278"/>
         <location filename="../ui/UISettingsNotification.ui" line="310"/>
         <source>Test</source>
-        <translation type="unfinished"/>
+        <translation>Test</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="253"/>
         <source>Play sound on active PM window</source>
-        <translation type="unfinished"/>
+        <translation>Spiele Sound bei aktivem Nachrichtenfenster</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="295"/>
         <source>Favorite user event</source>
-        <translation type="unfinished"/>
+        <translation>Ereignis eines bevorzugten Benutzers</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="343"/>
         <source>Use external command</source>
-        <translation type="unfinished"/>
+        <translation>Benutze externes Kommando</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="355"/>
@@ -6519,7 +6519,7 @@ For example: /usr/bin/mplayer</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="20"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="38"/>
@@ -6552,12 +6552,12 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="76"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Beschreibung</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="83"/>
         <source>Away message</source>
-        <translation type="unfinished"/>
+        <translation>Abwesenheitsnachricht</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="90"/>
@@ -6598,7 +6598,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
@@ -6608,12 +6608,12 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="33"/>
         <source>View share in simple mode</source>
-        <translation type="unfinished"/>
+        <translation>Zeige Freigaben im einfachen Modus</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="65"/>
         <source>Path</source>
-        <translation type="unfinished"/>
+        <translation>Pfad</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="70"/>
@@ -6623,7 +6623,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="75"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Größe</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="98"/>
@@ -6633,7 +6633,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="116"/>
         <source>Exceptions</source>
-        <translation type="unfinished"/>
+        <translation>Ausnahmen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="122"/>
@@ -6658,17 +6658,17 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="158"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Ändern</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Löschen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Erweitert</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="206"/>
@@ -6687,7 +6687,7 @@ and may cause the client to appear to freeze.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="226"/>
         <source>Share hidden files</source>
-        <translation type="unfinished"/>
+        <translation>Verstecke Dateien teilen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="239"/>
@@ -6702,7 +6702,7 @@ and may cause the client to appear to freeze.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="255"/>
         <source>Use fast hash</source>
-        <translation type="unfinished"/>
+        <translation>Benutze schnelles Hash</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="268"/>
