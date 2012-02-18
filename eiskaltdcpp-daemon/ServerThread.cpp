@@ -24,6 +24,7 @@
 #include "dcpp/QueueManager.h"
 #include "dcpp/SearchManager.h"
 #include "dcpp/ConnectivityManager.h"
+#include "dcpp/HashManager.h"
 #include "dcpp/ChatMessage.h"
 #include "dcpp/Text.h"
 #include "dcpp/StringTokenizer.h"
@@ -177,6 +178,8 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueueTargets, std::string("queue.listtargets")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetSourcesItem, std::string("queue.getsources")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHashStatus, std::string("hash.status")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
 
     if (!jsonserver->Bind())
         std::cout << "JSONRPC: Bind failed" << std::endl;
@@ -983,5 +986,6 @@ bool ServerThread::removeQueueItem(const string& target) {
     return false;
 }
 
-
-
+bool ServerThread::getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft) {
+    HashManager::getInstance()->getStats(target, bytesLeft, filesLeft);
+}
