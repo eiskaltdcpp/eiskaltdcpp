@@ -10,13 +10,13 @@ mingw-get-inst-20111118.exe or later
 	http://sourceforge.net/projects/mingw/files/Installer/mingw-get-inst/mingw-get-inst-20111118/mingw-get-inst-20111118.exe/download
 
 qt-win-opensource-4.7.4-mingw.exe or later
-	http://get.qt.nokia.com/qt/source/qt-win-opensource-4.8.0-mingw.exe
+	http://get.qt.nokia.com/qt/source/qt-win-opensource-4.7.4-mingw.exe
 
-Win32OpenSSL-1_0_0e.exe or later
-	http://www.slproweb.com/download/Win32OpenSSL-1_0_0e.exe
+Win32OpenSSL-1_0_0g.exe or later
+	http://www.slproweb.com/download/Win32OpenSSL-1_0_0g.exe
 
-cmake-2.8.6-win32-x86.exe or later
-	http://www.cmake.org/files/v2.8/cmake-2.8.6-win32-x86.exe
+cmake-2.8.7-win32-x86.exe or later
+	http://www.cmake.org/files/v2.8/cmake-2.8.7-win32-x86.exe
 
 nsis-2.46-setup.exe or later
 	http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46-setup.exe/download
