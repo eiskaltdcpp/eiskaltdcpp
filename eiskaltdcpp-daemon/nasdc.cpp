@@ -129,6 +129,7 @@ void printHelp() {
            "  -v, --version\t Show version string\n"
 #ifndef _WIN32
            "  -V, --verbose\t Verbose mode\n"
+           "  -D, --debug\t Debug mode\n"
            "  -P <port>, --port=<port>\t Set port for XMLRPC or JSONRPC (default: 3121)\n"
            "  -L <ip>,   --ip=<ip>\t\t Set IP address for XMLRPC or JSONRPC (default: 127.0.0.1)\n"
            "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
@@ -152,6 +153,7 @@ static struct option opts[] = {
     { "version", no_argument,       NULL, 'v'},
     { "daemon",  no_argument,       NULL, 'd'},
     { "verbose", no_argument,       NULL, 'V'},
+    { "debug",   no_argument,       NULL, 'D'},
     { "confdir", required_argument, NULL, 'c'},
     { "localdir",required_argument, NULL, 'l'},
     { "pidfile", required_argument, NULL, 'p'},
@@ -170,7 +172,7 @@ void writePidFile(char *path)
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hvdVp:c:l:P:L:S:", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hvdVDp:c:l:P:L:S:", opts, NULL)) != -1) {
         switch (ch) {
             case 'P':
                 lport = (unsigned short int) atoi (optarg);
@@ -186,6 +188,9 @@ void parseArgs(int argc, char* argv[]) {
                 break;
             case 'V':
                 isVerbose = true;
+                break;
+            case 'D':
+                isDebug = true;
                 break;
             case 'd':
                 bDaemon = true;

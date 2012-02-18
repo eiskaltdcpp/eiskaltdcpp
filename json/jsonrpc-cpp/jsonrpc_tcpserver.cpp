@@ -129,38 +129,7 @@ namespace Json
         /* in case of notification message received, the response could be Json::Value::null */
         if(response != Json::Value::null)
         {
-          std::string rep = m_jsonHandler.GetString(response);
-
-          /* encoding */
-          if(GetEncapsulatedFormat() == Json::Rpc::NETSTRING)
-          {
-            rep = netstring::encode(rep);
-          }
-          if (GetEncapsulatedFormat() == Json::Rpc::HTTP_POST)
-          {
-            std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: ";
-            char v[16];
-            snprintf(v, sizeof(v), "%u", rep.size());
-            tmp += v;
-            tmp += "\r\n\r\n";
-            rep = tmp + rep;
-          }
-
-          int bytesToSend = rep.length();
-          const char* ptrBuffer = rep.c_str();
-          do
-          {
-            int retVal = send(fd, ptrBuffer, bytesToSend, 0);
-            if(retVal == -1)
-            {
-              /* error */
-              std::cerr << "Error while sending data: "
-                        << strerror(errno) << std::endl;
-              return false;
-            }
-            bytesToSend -= retVal;
-            ptrBuffer += retVal;
-          }while(bytesToSend > 0);
+          Send(fd, m_jsonHandler.GetString(response));
         }
 
         return true;

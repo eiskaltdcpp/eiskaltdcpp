@@ -24,6 +24,7 @@ void ServerStop();
 extern bool bServerRunning, bServerTerminated, bIsRestart, bIsClose;
 extern unsigned short int lport;
 extern bool isVerbose;
+extern bool isDebug;
 extern unsigned int maxLines;
 extern std::string xmlrpcLog, xmlrpcUriPath, lip;
 
