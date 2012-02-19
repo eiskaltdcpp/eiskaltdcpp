@@ -13,8 +13,15 @@ endif (USE_GTK)
 if (USE_LIBGNOME2)
     message (STATUS "Building with LibGnome2 support")
     find_package (LibGnome2 REQUIRED)
-else (USE_LIBGNOME2)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/sound.cc ${PROJECT_SOURCE_DIR}/src/settingsdialog.cc PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP APPEND)
+    message (STATUS "Building without LibCanberra support")
+elseif (USE_LIBCANBERRA)
     message (STATUS "Building without LibGnome2 support")
+    message (STATUS "Building with LibCanberra support")
+    find_package (LibCanberra REQUIRED)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/sound.cc ${PROJECT_SOURCE_DIR}/src/settingsdialog.cc PROPERTY COMPILE_DEFINITIONS USE_LIBCANBERRA APPEND)
+else (USE_LIBGNOME2)
+    message (STATUS "Building without LibGnome2 or LibCanberra support")
 endif (USE_LIBGNOME2)
 
 if (USE_LIBNOTIFY)
@@ -46,6 +53,7 @@ endif(USE_GTK)
 include_directories (
         ${GTK_INCLUDE_DIRS}
         ${LIBGNOME2_INCLUDE_DIRS}
+        ${CANBERRA_INCLUDE_DIR}
         ${PROJECT_SOURCE_DIR}
         ${PROJECT_SOURCE_DIR}/..
         ${Boost_INCLUDE_DIRS}
@@ -54,6 +62,7 @@ list(APPEND LIBS
         ${X11_LIBRARIES}
         ${GTK_LIBRARIES}
         ${LIBGNOME2_LIBRARIES}
+        ${CANBERRA_LIBRARY}
         ${Boost_LIBRARIES}
         ${ICONV_LIBRARIES}
         ${LIBNOTIFY}

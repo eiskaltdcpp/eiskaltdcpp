@@ -20,7 +20,10 @@
  */
 
 #ifdef USE_LIBGNOME2
-#include <libgnome/gnome-sound.h>
+	#include <libgnome/gnome-sound.h>
+#endif
+#ifdef USE_LIBCANBERRA
+	#include <canberra-gtk.h>
 #endif
 
 #include "settingsmanager.hh"
@@ -32,6 +35,10 @@ using namespace std;
 using namespace dcpp;
 
 Sound *Sound::pSound = NULL;
+
+#ifdef USE_LIBCANBERRA
+ca_context *context;
+#endif
 
 void Sound::start()
 {
@@ -57,6 +64,9 @@ void Sound::sound_init()
 #ifdef USE_LIBGNOME2
 	gnome_sound_init(NULL);
 	dcdebug("Sound::sound_init: Esound connection %d...\n", gnome_sound_connection_get());
+#elif USE_LIBCANBERRA
+	int res = ca_context_create(&context);
+	dcdebug("Sound::sound_init: connection %d...\n", res);
 #endif
 }
 
@@ -129,6 +139,8 @@ void Sound::playSound(const string &target)
 {
 #ifdef USE_LIBGNOME2
 	gnome_sound_play(Text::fromUtf8(target).c_str());
+#elif USE_LIBCANBERRA
+	ca_context_play(context, 1,CA_PROP_MEDIA_FILENAME, target.c_str(), NULL);
 #else
 	WulforUtil::openURItoApp(WulforSettingsManager::getInstance()->getString("sound-command") + " \"" +target+"\"");
 #endif
@@ -138,5 +150,7 @@ void Sound::sound_finalize()
 {
 #ifdef USE_LIBGNOME2
 	gnome_sound_shutdown();
+#elif USE_LIBCANBERRA
+	ca_context_destroy(context);
 #endif
 }

@@ -32,6 +32,7 @@ libgtk2 (>= 2.24)
 libglib2 (>= 2.24)
 libnotify (>= 0.4.1) (optional, see cmake keys)
 libgnome2 (optional, see cmake keys)
+libcanberra (optional, see cmake keys)
 --------------------
 :eiskaltdcpp-daemon:
 --------------------
@@ -99,6 +100,7 @@ libgtk2.0-dev (optional, see cmake keys)
 libgtk-3-dev  (optional, see cmake keys)
 libnotify-dev (optional, see cmake keys)
 libgnome2-dev (optional, see cmake keys)
+libcanberra-dev (optional, see cmake keys)
 --------------------
 :eiskaltdcpp-daemon:
 --------------------
@@ -170,7 +172,9 @@ Keys for cmake
 -DUSE_GTK3=ON/OFF (default: OFF)
     build EiskaltDC++ with Gtk interface using Gtk3 library
 -DUSE_LIBGNOME2=ON/OFF (default: OFF)
-    Enable/disable sound notifications support in EiskaltDC++ Gtk
+    Enable/disable sound notifications support over libgnome2 in EiskaltDC++ Gtk
+-DUSE_LIBCANBERRA=ON/OFF (default: OFF)
+    Enable/disable sound notifications support over libcanberra in EiskaltDC++ Gtk
 -DUSE_LIBNOTIFY=ON/OFF (default: ON)
     Enable/disable popup notifications support in EiskaltDC++ Gtk
 --------------------

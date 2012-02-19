@@ -1119,7 +1119,7 @@ void Settings::initAppearance_gui()
 
         gtk_entry_set_text(GTK_ENTRY(getWidget("soundCommandEntry")), wsm->getString("sound-command").c_str());
 
-#ifdef USE_LIBGNOME2
+#if defined(USE_LIBGNOME2) || defined(USE_LIBCANBERRA)
         gtk_widget_hide((GtkWidget*)GTK_LABEL(getWidget("soundCommandLabel")));
         gtk_widget_hide((GtkWidget*)GTK_ENTRY(getWidget("soundCommandEntry")));
 #endif
