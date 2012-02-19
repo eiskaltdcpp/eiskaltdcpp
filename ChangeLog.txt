@@ -1,4 +1,4 @@
---- 2.2.6 2012-02-12 ---
+--- 2.2.6 2012-02-19 ---
 *** common changes ***
 * Thanks to Konstantinos Georgokitsos the Greek translation is now available.
 * Thanks to Stefano Simoncelli the Italian translation is now available.
