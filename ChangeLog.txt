@@ -1,8 +1,22 @@
---- 2.2.6 2012-02-19 ---
+--- 2.2.6 2012-02-20 ---
 *** common changes ***
 * Thanks to Konstantinos Georgokitsos the Greek translation is now available.
 * Thanks to Stefano Simoncelli the Italian translation is now available.
+* Fixed rewriting external IP when DHT is used.
 *** eiskaltdcpp-qt ***
+* Refactoring of source code. Fixed regressions that have been added in
+  version 2.2.5.
+* Fixed program crash on closing hub tabs when there are open tabs with private
+  chat rooms. (Bug was added in version 2.1.0)
+* Show count of selected items in the file list widget.
+* Small improvements in the panel of active transfers.
+* Item for fast setting of rate limiting was added in the context menu on
+  tray icon.
+* Used catching of signals SIGSEGV, SIGABRT, SIGBUS, SIGKILL and SIGTERM
+  to release the shared memory before exiting the program.
+  (Not actual in MS Windows)
+* Added possibility to open downloaded file on double clicking it in the widget
+  of finished transfers. [Thanks to Viranch Mehta]
 *** eiskaltdcpp-gtk ***
 * Improved support of Gtk3.
 * Added language switcher in settings dialog.
