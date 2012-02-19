@@ -585,7 +585,7 @@
     <property name="can_focus">False</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
-    <property name="copyright">Copyright © EiskaltDC++ 2010</property>
+    <property name="copyright">Copyright © EiskaltDC++ 2010-2012</property>
     <property name="license">
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
 

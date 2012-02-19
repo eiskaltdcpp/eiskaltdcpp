@@ -394,8 +394,8 @@ bool JsonRpcMethods::GetHashStatus(const Json::Value& root, Json::Value& respons
     ServerThread::getInstance()->getHashStatus(tmp, bytes, files, status);
     response["result"]["currentfile"]=tmp;
     response["result"]["status"]=status;
-    response["result"]["bytesleft"]=bytes;
-    response["result"]["filesleft"]=files;
+    response["result"]["bytesleft"]=Json::Value::Int64(bytes);
+    response["result"]["filesleft"]=Json::Value::Int64(files);
     if (isDebug) std::cout << "GetHashStatus (response): " << response << std::endl;
     return true;
 }
