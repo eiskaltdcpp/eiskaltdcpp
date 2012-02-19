@@ -4,8 +4,18 @@
 * Благодаря Stefano Simoncelli доступен итальянский перевод.
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
+* Улучшена поддержка Gtk3.
+* Добавлен переключатель языка в диалоге настроек.
+* Исправлена ошибка с дублированием записей в элементах GtkComboBoxText.
+* Добавлена поддержка libcanberra для звукового оповещения (опция
+  -DUSE_LIBCANBERRA для cmake).
+* Исправлено падение программы в диалоговом окне прогресса хэширования.
 *** eiskaltdcpp-daemon ***
+* Добавлена опция командной строки: --debug
+* Добавлены новые методы JSON-RPC: methods.list, hash.pause, hash.status,
+  queue.getsources
 *** eiskaltdcpp-cli ***
+* Добавлены новые методы JSON-RPC: queue.list, queue.listtargets, search.clear
 
 --- 2.2.5 2011-12-25 ---
 *** common changes ***
