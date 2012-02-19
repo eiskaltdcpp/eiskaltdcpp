@@ -46,6 +46,7 @@ class JsonRpcMethods
     bool GetSourcesItem(const Json::Value& root, Json::Value& response);
     bool GetHashStatus(const Json::Value& root, Json::Value& response);
     bool GetMethodList(const Json::Value& root, Json::Value& response);
+    bool PauseHash(const Json::Value& root, Json::Value& response);
 
 
 };

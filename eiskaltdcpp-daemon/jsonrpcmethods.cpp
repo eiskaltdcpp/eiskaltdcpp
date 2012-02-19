@@ -390,22 +390,35 @@ bool JsonRpcMethods::GetHashStatus(const Json::Value& root, Json::Value& respons
     if (isDebug) std::cout << "GetHashStatus (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    string tmp = " "; int64_t bytes = 0; size_t files = 0;
-    ServerThread::getInstance()->getHashStatus(tmp, bytes, files);
+    string tmp = " ",status = " "; int64_t bytes = 0; size_t files = 0;
+    ServerThread::getInstance()->getHashStatus(tmp, bytes, files, status);
     response["result"]["currentfile"]=tmp;
+    response["result"]["status"]=status;
     response["result"]["bytesleft"]=Json::Value::Int64(bytes);
     response["result"]["filesleft"]=Json::Value::Int64(files);
     if (isDebug) std::cout << "GetHashStatus (response): " << response << std::endl;
     return true;
 }
+
 bool JsonRpcMethods::GetMethodList(const Json::Value& root, Json::Value& response) {
     if (isDebug) std::cout << "GetHashStatus (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    string tmp;
+    //string tmp;
     //ServerThread::getInstance()->getMethodList(tmp);
     response["result"] = "print|magnet.add|daemon.stop|hub.add|hub.del|hub.say|hub.pm|hub.list|share.add|share.rename|share.del|share.list|share.refresh|list.download|hub.getchat|search.send|search.getresults|show.version|show.ratio|queue.setpriority|queue.move|queue.remove|queue.listtargets|queue.list|queue.getsources|hash.status|methods.list";
     if (isDebug) std::cout << "GetHashStatus (response): " << response << std::endl;
     return true;
 }
 
+bool JsonRpcMethods::PauseHash(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "PauseHash (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    if (ServerThread::getInstance()->pauseHash())
+        response["result"] = 0;
+    else
+        response["result"] = 1;
+    if (isDebug) std::cout << "PauseHash (response): " << response << std::endl;
+    return true;
+}

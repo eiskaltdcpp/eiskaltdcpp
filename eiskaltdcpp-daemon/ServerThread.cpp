@@ -180,6 +180,7 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetSourcesItem, std::string("queue.getsources")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHashStatus, std::string("hash.status")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause")));
 
     if (!jsonserver->Bind())
         std::cout << "JSONRPC: Bind failed" << std::endl;
@@ -986,6 +987,16 @@ bool ServerThread::removeQueueItem(const string& target) {
     return false;
 }
 
-bool ServerThread::getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft) {
+void ServerThread::getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status) {
     HashManager::getInstance()->getStats(target, bytesLeft, filesLeft);
+    status = HashManager::getInstance()->isHashingPaused() ? "pause" : bytesLeft > 0 ? "hashing" : "idle";
+}
+
+bool ServerThread::pauseHash() {
+    bool paused = HashManager::getInstance()->isHashingPaused();
+    if (paused)
+        HashManager::getInstance()->resumeHashing();
+    else
+        HashManager::getInstance()->pauseHashing();
+    return !paused;
 }

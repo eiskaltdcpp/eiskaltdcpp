@@ -66,7 +66,8 @@ public:
     void updatelistQueueTargets();
     void getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online);
     void getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online);
-    bool getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft);
+    void getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status);
+    bool pauseHash(); 
 
 private:
     friend class Singleton<ServerThread>;
