@@ -234,7 +234,7 @@ void parseCmdLine(const QStringList &args){
 
             exit(0);
         }
-        else if (arg == "-v" || arg == "--version"){
+        else if (arg == "-V" || arg == "--version"){
             About().printVersion();
 
             exit(0);

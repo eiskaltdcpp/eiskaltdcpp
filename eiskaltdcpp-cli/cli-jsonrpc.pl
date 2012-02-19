@@ -45,7 +45,7 @@ our %config;
 $config{version}=0.1;
 require "cli-jsonrpc-config.pl";
 my $version,my $help;
-GetOptions ('v|version' => \$version, 'h|help' => \$help);
+GetOptions ('V|version' => \$version, 'h|help' => \$help);
 if ($version)
 {
 	print("Command line JSON-RPC interface version: $config{version}\n"); exit(1);
@@ -60,7 +60,7 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 
 Keys:
 \t-h, --help\t Show this message
-\t-v, --version\t Show version string\n");
+\t-V, --version\t Show version string\n");
 	exit(1);
 }
 print("Configuration:\n");

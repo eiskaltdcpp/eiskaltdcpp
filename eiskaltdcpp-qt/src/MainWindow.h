@@ -77,7 +77,7 @@ public:
                         "\n"
                         "Keys:\n"
                         "  -h, --help\t Show this message\n"
-                        "  -v, --version\t Show version string"
+                        "  -V, --version\t Show version string"
                         );
 
         printf("%s\n", msg.toUtf8().constData());

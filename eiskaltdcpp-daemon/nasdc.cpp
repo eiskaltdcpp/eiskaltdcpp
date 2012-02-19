@@ -126,9 +126,9 @@ void printHelp() {
            "Keys:\n"
            "  -d, --daemon\t Run program as daemon\n"
            "  -h, --help\t Show this message\n"
-           "  -v, --version\t Show version string\n"
+           "  -V, --version\t Show version string\n"
 #ifndef _WIN32
-           "  -V, --verbose\t Verbose mode\n"
+           "  -v, --verbose\t Verbose mode\n"
            "  -D, --debug\t Debug mode\n"
            "  -P <port>, --port=<port>\t Set port for XMLRPC or JSONRPC (default: 3121)\n"
            "  -L <ip>,   --ip=<ip>\t\t Set IP address for XMLRPC or JSONRPC (default: 127.0.0.1)\n"
@@ -150,9 +150,9 @@ void printVersion() {
 #ifndef _WIN32
 static struct option opts[] = {
     { "help",    no_argument,       NULL, 'h'},
-    { "version", no_argument,       NULL, 'v'},
+    { "version", no_argument,       NULL, 'V'},
     { "daemon",  no_argument,       NULL, 'd'},
-    { "verbose", no_argument,       NULL, 'V'},
+    { "verbose", no_argument,       NULL, 'v'},
     { "debug",   no_argument,       NULL, 'D'},
     { "confdir", required_argument, NULL, 'c'},
     { "localdir",required_argument, NULL, 'l'},
@@ -172,7 +172,7 @@ void writePidFile(char *path)
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hvdVDp:c:l:P:L:S:", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hVdvDp:c:l:P:L:S:", opts, NULL)) != -1) {
         switch (ch) {
             case 'P':
                 lport = (unsigned short int) atoi (optarg);
@@ -186,7 +186,7 @@ void parseArgs(int argc, char* argv[]) {
            case 'U':
                 xmlrpcUriPath.assign(optarg,1024);
                 break;
-            case 'V':
+            case 'v':
                 isVerbose = true;
                 break;
             case 'D':
@@ -204,7 +204,7 @@ void parseArgs(int argc, char* argv[]) {
             case 'l':
                 strncpy(local_dir, optarg, 1024);
                 break;
-            case 'v':
+            case 'V':
                 printVersion();
                 exit(0);
             case 'h':
