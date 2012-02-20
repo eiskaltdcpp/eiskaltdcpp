@@ -3,6 +3,10 @@
 * Thanks to Konstantinos Georgokitsos the Greek translation is now available.
 * Thanks to Stefano Simoncelli the Italian translation is now available.
 * Fixed rewriting external IP when DHT is used.
+* Added support for reading and writing full TTH tree in the file attribute.
+  The implementation is compatible with FlylinkDC++. Not all file systems allow
+  to store data required size. If program can not record the attributes,
+  it processes the files as before.
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Fixed regressions that have been added in
   version 2.2.5.
@@ -17,10 +21,6 @@
   (Not actual in MS Windows)
 * Added possibility to open downloaded file on double clicking it in the widget
   of finished transfers. [Thanks to Viranch Mehta]
-* Added support for reading and writing full TTH tree in the file attribute.
-  The implementation is compatible with FlylinkDC++. Not all file systems allow
-  to store data required size. If program can not record the attributes,
-  it processes the files as before.
 * Fixed adding items to the list of search results when using the sort by the
   number of sources.
 * Added option to select the action when changes in active scripts (QtScript):
