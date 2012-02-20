@@ -17,6 +17,16 @@
   (Not actual in MS Windows)
 * Added possibility to open downloaded file on double clicking it in the widget
   of finished transfers. [Thanks to Viranch Mehta]
+* Added support for reading and writing full TTH tree in the file attribute.
+  The implementation is compatible with FlylinkDC++. Not all file systems allow
+  to store data required size. If program can not record the attributes,
+  it processes the files as before.
+* Fixed adding items to the list of search results when using the sort by the
+  number of sources.
+* Added option to select the action when changes in active scripts (QtScript):
+  do nothing, ask the user or restart scripts.
+* Fixed loading of large file lists when the restriction on the maximum file
+  size is enabled: now such file lists are ignored.
 *** eiskaltdcpp-gtk ***
 * Improved support of Gtk3.
 * Added language switcher in settings dialog.
