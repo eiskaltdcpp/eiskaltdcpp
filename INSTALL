@@ -19,9 +19,9 @@ libidn (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
-libqtcore4, libqtgui4, libqt4-network, libqt4-xml (>= 4.4.0)
-libqt4-script (>= 4.4.0) (optional, see cmake keys)
-libqt4-dbus (>= 4.4.0) (optional, see cmake keys)
+libqtcore4, libqtgui4, libqt4-network, libqt4-xml (>= 4.6.0)
+libqt4-script (>= 4.6.0) (optional, see cmake keys)
+libqt4-dbus (>= 4.6.0) (optional, see cmake keys)
 libaspell (optional, see cmake keys)
 -----------------
 :eiskaltdcpp-gtk:
@@ -91,7 +91,7 @@ libidn (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
-qt4 (>=4.4.0)
+qt4 (>= 4.6.0)
 libaspell-dev (optional, see cmake keys)
 -----------------
 :eiskaltdcpp-gtk:

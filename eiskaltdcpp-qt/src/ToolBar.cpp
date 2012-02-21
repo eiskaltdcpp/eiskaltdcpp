@@ -83,13 +83,11 @@ void ToolBar::showEvent(QShowEvent *e){
 void ToolBar::initTabs(){
     tabbar = new QTabBar(parentWidget());
     tabbar->setObjectName("arenaTabbar");
-#if QT_VERSION >= 0x040500
     tabbar->setTabsClosable(WBGET(WB_APP_TBAR_SHOW_CL_BTNS));
     tabbar->setDocumentMode(true);
     tabbar->setMovable(true);
     tabbar->setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);
     tabbar->setExpanding(false);
-#endif
     tabbar->setContextMenuPolicy(Qt::CustomContextMenu);
     tabbar->setSizePolicy(QSizePolicy::Expanding, tabbar->sizePolicy().verticalPolicy());
     tabbar->setAcceptDrops(true);

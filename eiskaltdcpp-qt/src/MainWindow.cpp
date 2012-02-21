@@ -516,10 +516,8 @@ void MainWindow::init(){
     connect(this, SIGNAL(coreUpdateStats(QMap<QString,QString>)), this, SLOT(updateStatus(QMap<QString,QString>)), Qt::QueuedConnection);
 
     d->arena = new QDockWidget();
-#if QT_VERSION >= 0x040500
     d->arena->setWidget(NULL);
     d->arena->setFloating(false);
-#endif
     d->arena->setContentsMargins(0, 0, 0, 0);
     d->arena->setAllowedAreas(Qt::RightDockWidgetArea);
     d->arena->setFeatures(QDockWidget::NoDockWidgetFeatures);
@@ -528,10 +526,8 @@ void MainWindow::init(){
     d->arena->setMinimumSize( 10, 10 );
 
     d->transfer_dock = new QDockWidget(this);
-#if QT_VERSION >= 0x040500
     d->transfer_dock->setWidget(NULL);
     d->transfer_dock->setFloating(false);
-#endif
     d->transfer_dock->setObjectName("transfer_dock");
     d->transfer_dock->setAllowedAreas(Qt::BottomDockWidgetArea);
     d->transfer_dock->setFeatures(QDockWidget::NoDockWidgetFeatures);

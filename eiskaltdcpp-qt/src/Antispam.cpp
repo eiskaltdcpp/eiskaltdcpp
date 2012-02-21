@@ -364,19 +364,14 @@ void AntiSpam::loadSettings() {
 
             if (line == "")
 		keys.append("10");
-	    else{
-                QList<QString> words = line.split("|", QString::SkipEmptyParts);
-
-		if (!keys.empty())
-		    keys.clear();
-#if QT_VERSION >= 0x040500
-                    keys.append(words);
-#else
-                    foreach (const QString &s, words)
-                        keys.append(s);
-#endif
-
-	    }
+        else {
+            QList<QString> words = line.split("|", QString::SkipEmptyParts);
+            
+            if (!keys.empty())
+                keys.clear();
+            
+            keys.append(words);
+        }
         } else if (line.indexOf("|ATTEMPTS|") != -1){
             line = line.right(line.length() - 10);
             line.replace("\n", "");
@@ -426,16 +421,10 @@ void AntiSpam::setPhrase(QString &phrase) {
 
 void AntiSpam::setKeys(const QList<QString> &keys) {
     if (keys.empty())
-	return;
+        return;
 
     this->keys.clear();
-#if QT_VERSION >= 0x040500
     this->keys.append(keys);
-#else
-    foreach (const QString &s, keys)
-        this->keys.append(s);
-#endif
-
 }
 
 QList<QString> AntiSpam::getKeys() {

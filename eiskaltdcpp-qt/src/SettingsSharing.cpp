@@ -414,11 +414,7 @@ Qt::ItemFlags ShareDirModel::flags(const QModelIndex& index) const{
     QString fp = filePath(index);
 
     foreach (const QString &file, checked){
-#if QT_VERSION >= 0x040500
         if (fp.startsWith(file) && (fp.split(QDir::separator()).length() != file.split(QDir::separator()).length()) && fp != file){
-#else
-        if (fp.startsWith(file) && (fp.split(QDir::separator()).size() != file.split(QDir::separator()).size()) && fp != file){
-#endif
             f &= ~(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 
             break;

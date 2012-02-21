@@ -194,10 +194,8 @@ void SettingsGUI::init(){
         else
             comboBox_TABBAR->setCurrentIndex(0);
 
-#if defined(Q_WS_X11) && QT_VERSION >= 0x040600
+#if defined(Q_WS_X11)
         checkBox_ICONTHEME->setChecked(WBGET("app/use-icon-theme", false));
-#else
-        checkBox_ICONTHEME->hide();
 #endif
         checkBox_HIDE_ICONS_IN_MENU->setChecked(WBGET("mainwindow/dont-show-icons-in-menus", false));
     }

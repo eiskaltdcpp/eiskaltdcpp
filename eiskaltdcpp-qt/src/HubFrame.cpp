@@ -1232,9 +1232,7 @@ void HubFrame::init(){
     load();
 
     d->completer = new QCompleter(this);
-#if QT_VERSION >= 0x040600
     d->completer->setMaxVisibleItems(10); // This property was introduced in Qt 4.6.
-#endif
     plainTextEdit_INPUT->setCompleter(d->completer, d->model);
 
     slotSettingsChanged(WS_APP_EMOTICON_THEME, WSGET(WS_APP_EMOTICON_THEME));//toggle emoticon button
@@ -2943,21 +2941,13 @@ void HubFrame::slotChatMenu(const QPoint &){
         row_counter++;
     }
 
-#if QT_VERSION >= 0x040600
     if (nick_exp.captureCount() >= 2)
         nick = nick_exp.cap(1);
     else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.captureCount() >= 2)
         nick = thirdPerson_exp.cap(1);
-#else
-    // QRegExp::captureCount() function was introduced in Qt 4.6,
-    if (nick_exp.capturedTexts().size() >= 2)
-        nick = nick_exp.cap(1);
-    else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.capturedTexts().size() >= 2)
-        nick = thirdPerson_exp.cap(1);
-#endif
 
     Q_D(HubFrame);
-        
+
     QString cid = d->model->CIDforNick(nick, _q(d->client->getHubUrl()));
 
     if (cid.isEmpty()){

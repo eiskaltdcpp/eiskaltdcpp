@@ -483,13 +483,7 @@ private:
                 file_list = item->data(COLUMN_FINISHED_PATH).toString();
 
                 if (!file_list.isEmpty()){
-#if QT_VERSION >= 0x040500
                     files.append(file_list.split("; ", QString::SkipEmptyParts));
-#else
-                    QStringList s = file_list.split("; ", QString::SkipEmptyParts);
-                    foreach (const QString &i, s)
-                        files.push_back(i);
-#endif
                 }
 
             }
