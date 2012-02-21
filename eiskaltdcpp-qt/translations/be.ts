@@ -109,14 +109,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 
 Keys:
   -h, --help	 Show this message
-  -v, --version	 Show version string</source>
+  -V, --version	 Show version string</source>
         <translation>Як карыстацца:
   eiskaltdcpp-qt &lt;маґніт-спасылка&gt; &lt;dchub://спасылка&gt; &lt;adc(s)://спасылка&gt;
   eiskaltdcpp-qt &lt;ключ&gt;
 EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы Direct Connect і ADC.
 Ключы:
   -h, --help	 Паказвае гэтае паведамленьне
-  -v, --version	 Паказвае радок з вэрсіяй</translation>
+  -V, --version	 Паказвае радок з вэрсіяй</translation>
     </message>
 </context>
 <context>
@@ -720,12 +720,12 @@ EiskaltDC++ — гэта міжплятформавая праґрама, яка
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="439"/>
+        <location filename="../src/FinishedTransfers.h" line="499"/>
         <source>Open file</source>
         <translation>Адчыніць файл</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="440"/>
+        <location filename="../src/FinishedTransfers.h" line="500"/>
         <source>Open directory</source>
         <translation>Адчыніць каталёґ</translation>
     </message>
@@ -1797,13 +1797,13 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1268"/>
-        <location filename="../src/MainWindow.cpp" line="2118"/>
+        <location filename="../src/MainWindow.cpp" line="2121"/>
         <source>Open magnet link</source>
         <translation>Адчыніць маґніт-спасылку</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1270"/>
-        <location filename="../src/MainWindow.cpp" line="2047"/>
+        <location filename="../src/MainWindow.cpp" line="2050"/>
         <source>Open log file</source>
         <translation>Адчыніць файл справаздачы</translation>
     </message>
@@ -1835,13 +1835,13 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1282"/>
-        <location filename="../src/MainWindow.cpp" line="2329"/>
+        <location filename="../src/MainWindow.cpp" line="2332"/>
         <source>Hide window</source>
         <translation>Схаваць ваконца</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1285"/>
-        <location filename="../src/MainWindow.cpp" line="2327"/>
+        <location filename="../src/MainWindow.cpp" line="2330"/>
         <source>Show/hide find frame</source>
         <translation>Паказаць або схаваць форму пошуку</translation>
     </message>
@@ -1932,37 +1932,37 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1321"/>
-        <location filename="../src/MainWindow.cpp" line="2461"/>
+        <location filename="../src/MainWindow.cpp" line="2464"/>
         <source>Hide free space bar</source>
         <translation>Схаваць стужку вольнае прасторы</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1324"/>
-        <location filename="../src/MainWindow.cpp" line="2456"/>
+        <location filename="../src/MainWindow.cpp" line="2459"/>
         <source>Show free space bar</source>
         <translation>Паказаць стужку вольнае прасторы</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1326"/>
-        <location filename="../src/MainWindow.cpp" line="2477"/>
+        <location filename="../src/MainWindow.cpp" line="2480"/>
         <source>Hide last status message</source>
         <translation>Схаваць апошняе апісаньне стану</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1329"/>
-        <location filename="../src/MainWindow.cpp" line="2475"/>
+        <location filename="../src/MainWindow.cpp" line="2478"/>
         <source>Show last status message</source>
         <translation>Паказаць апошняе апісаньне стану</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1331"/>
-        <location filename="../src/MainWindow.cpp" line="2499"/>
+        <location filename="../src/MainWindow.cpp" line="2502"/>
         <source>Hide users statistics</source>
         <translation>Схаваць статыстыку карыстальнікаў</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1334"/>
-        <location filename="../src/MainWindow.cpp" line="2497"/>
+        <location filename="../src/MainWindow.cpp" line="2500"/>
         <source>Show users statistics</source>
         <translation>Паказаць статыстыку карыстальнікаў</translation>
     </message>
@@ -2196,250 +2196,251 @@ Favorite user</source>
         <translation>Не магу прачытаць сьпіс файлаў: хібная назва сьпісу файлаў</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1989"/>
+        <location filename="../src/MainWindow.cpp" line="1992"/>
         <source>Menu</source>
         <translation>Мэню</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2026"/>
+        <location filename="../src/MainWindow.cpp" line="2029"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
         <translation>Не магу адчыніць порт %1. Файлы ня будуць перадавацца без памылак і пошук ня будзе працаваць належным чынам, пакуль вы ня зьменіце налады ці ня спыніце ўсе праґрамы, што выкарыстоўваюць гэты порт.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2027"/>
+        <location filename="../src/MainWindow.cpp" line="2030"/>
         <source>Connectivity Manager: Warning</source>
         <translation>Кіраўнік злучэньняў: перасьцярога</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2047"/>
+        <location filename="../src/MainWindow.cpp" line="2050"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation>Файлы справаздачы (*.log);;Усе файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2118"/>
+        <location filename="../src/MainWindow.cpp" line="2121"/>
         <source>Enter magnet link:</source>
         <translation>Упішыце маґніт-спасылку:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2269"/>
+        <location filename="../src/MainWindow.cpp" line="2272"/>
         <source>Script Engine</source>
         <translation>Рухавік скрыптоў</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2522"/>
+        <location filename="../src/MainWindow.cpp" line="2525"/>
         <source>Button style</source>
         <translation>Выгляд кнопак</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2523"/>
+        <location filename="../src/MainWindow.cpp" line="2526"/>
         <source>Icons only</source>
         <translation>Толькі значкі</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2524"/>
+        <location filename="../src/MainWindow.cpp" line="2527"/>
         <source>Text only</source>
         <translation>Толькі тэкст</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2525"/>
+        <location filename="../src/MainWindow.cpp" line="2528"/>
         <source>Text beside icons</source>
         <translation>Тэкст збоку ад значкаў</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2526"/>
+        <location filename="../src/MainWindow.cpp" line="2529"/>
         <source>Text under icons</source>
         <translation>Тэкст пад значкамі</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2536"/>
+        <location filename="../src/MainWindow.cpp" line="2539"/>
         <source>Customize</source>
         <translation>Наставіць</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2591"/>
+        <location filename="../src/MainWindow.cpp" line="2594"/>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
         <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2614"/>
+        <location filename="../src/MainWindow.cpp" line="2617"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
         <translation>EiskaltDC++ — графічны кліент да пратаколаў Direct Connect і ADC.&lt;br/&gt;&lt;br/&gt;Вэрсія асновы DC++: %1 (зьмененая)&lt;br/&gt;&lt;br/&gt;Хатняя бачына: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Разам зацягнулі: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Разам сьцягнулі: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Суадносіны: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2631"/>
+        <location filename="../src/MainWindow.cpp" line="2634"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation>Калі ласка, паведамляйце пра хібы тут: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; .&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2634"/>
+        <location filename="../src/MainWindow.cpp" line="2637"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2637"/>
+        <location filename="../src/MainWindow.cpp" line="2640"/>
         <source>&amp;nbsp; (main developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2640"/>
+        <location filename="../src/MainWindow.cpp" line="2643"/>
         <source>&amp;nbsp; (maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2643"/>
+        <location filename="../src/MainWindow.cpp" line="2646"/>
         <source>&amp;nbsp; (maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2646"/>
+        <location filename="../src/MainWindow.cpp" line="2649"/>
         <source>&amp;nbsp; (developer 2.0.3 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2648"/>
+        <location filename="../src/MainWindow.cpp" line="2651"/>
         <source>&lt;b&gt;Logo&lt;/b&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2651"/>
+        <location filename="../src/MainWindow.cpp" line="2654"/>
         <source>&amp;nbsp; (version 0.4.10 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2655"/>
+        <location filename="../src/MainWindow.cpp" line="2658"/>
         <source>&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2658"/>
+        <location filename="../src/MainWindow.cpp" line="2661"/>
         <source>&amp;nbsp; (for 0.4.10 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2661"/>
-        <location filename="../src/MainWindow.cpp" line="2699"/>
-        <location filename="../src/MainWindow.cpp" line="2704"/>
-        <location filename="../src/MainWindow.cpp" line="2709"/>
+        <location filename="../src/MainWindow.cpp" line="2664"/>
+        <location filename="../src/MainWindow.cpp" line="2702"/>
+        <location filename="../src/MainWindow.cpp" line="2707"/>
+        <location filename="../src/MainWindow.cpp" line="2712"/>
         <source>&amp;nbsp; (for 2.1.0 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2663"/>
+        <location filename="../src/MainWindow.cpp" line="2666"/>
         <source>&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2666"/>
+        <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>&amp;nbsp; (for 1.0.40 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2668"/>
+        <location filename="../src/MainWindow.cpp" line="2671"/>
         <source>&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2671"/>
+        <location filename="../src/MainWindow.cpp" line="2674"/>
         <source>&amp;nbsp; (for 2.0.1 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2674"/>
-        <location filename="../src/MainWindow.cpp" line="2719"/>
+        <location filename="../src/MainWindow.cpp" line="2677"/>
         <location filename="../src/MainWindow.cpp" line="2722"/>
-        <location filename="../src/MainWindow.cpp" line="2727"/>
+        <location filename="../src/MainWindow.cpp" line="2725"/>
+        <location filename="../src/MainWindow.cpp" line="2733"/>
         <source>&amp;nbsp; (for 2.2.5 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2676"/>
+        <location filename="../src/MainWindow.cpp" line="2679"/>
         <source>&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2679"/>
-        <location filename="../src/MainWindow.cpp" line="2684"/>
+        <location filename="../src/MainWindow.cpp" line="2682"/>
+        <location filename="../src/MainWindow.cpp" line="2687"/>
         <source>&amp;nbsp; (for 2.0.2 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2681"/>
+        <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2686"/>
+        <location filename="../src/MainWindow.cpp" line="2689"/>
         <source>&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2689"/>
-        <location filename="../src/MainWindow.cpp" line="2694"/>
+        <location filename="../src/MainWindow.cpp" line="2692"/>
+        <location filename="../src/MainWindow.cpp" line="2697"/>
         <source>&amp;nbsp; (for 2.0.3 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2691"/>
+        <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&amp;nbsp;&lt;u&gt;Serbian (Latin) translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2696"/>
+        <location filename="../src/MainWindow.cpp" line="2699"/>
         <source>&amp;nbsp;&lt;u&gt;Spanish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2701"/>
+        <location filename="../src/MainWindow.cpp" line="2704"/>
         <source>&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2706"/>
+        <location filename="../src/MainWindow.cpp" line="2709"/>
         <source>&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2711"/>
+        <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2714"/>
+        <location filename="../src/MainWindow.cpp" line="2717"/>
         <source>&amp;nbsp; (for 2.2.0 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2716"/>
+        <location filename="../src/MainWindow.cpp" line="2719"/>
         <source>&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2724"/>
+        <location filename="../src/MainWindow.cpp" line="2730"/>
         <source>&amp;nbsp;&lt;u&gt;Greek translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2729"/>
+        <location filename="../src/MainWindow.cpp" line="2735"/>
         <source>&amp;nbsp;&lt;u&gt;Italian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2732"/>
+        <location filename="../src/MainWindow.cpp" line="2728"/>
+        <location filename="../src/MainWindow.cpp" line="2738"/>
         <source>&amp;nbsp; (for 2.2.6 and later)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2755"/>
+        <location filename="../src/MainWindow.cpp" line="2761"/>
         <source>Show close buttons</source>
         <translation>Паказваць кнопкі «зачыніць»</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2842"/>
+        <location filename="../src/MainWindow.cpp" line="2848"/>
         <source>Download Queue</source>
         <translation>Чарга сьцягванага</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2842"/>
+        <location filename="../src/MainWindow.cpp" line="2848"/>
         <source>All downloads complete</source>
         <translation>Сьцягнулі ўсё</translation>
     </message>
@@ -3833,7 +3834,7 @@ Do you want to stop it?
 <context>
     <name>TabFrame</name>
     <message>
-        <location filename="../src/TabFrame.cpp" line="366"/>
+        <location filename="../src/TabFrame.cpp" line="356"/>
         <source>Close</source>
         <translation>Зачыніць</translation>
     </message>
