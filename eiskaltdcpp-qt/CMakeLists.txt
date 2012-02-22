@@ -102,9 +102,16 @@ elseif (NOT MINGW AND WIN32)
 endif (MINGW AND WIN32)
 
 if (NOT USE_ASPELL)
+    message (STATUS "Building without Aspell support")
+elseif (USE_ASPELL)
+    find_package (ASPELL REQUIRED)
+    message (STATUS "Building with Aspell support")
+endif (NOT USE_ASPELL)
+
+if (NOT ASPELL_FOUND)
   list (REMOVE_ITEM SRCS src/SpellCheck.cpp)
   list (REMOVE_ITEM MOC_HDRS src/SpellCheck.h)
-endif (NOT USE_ASPELL)
+endif (NOT ASPELL_FOUND)
 
 if (USE_JS)
   file (GLOB scriptengine_srcs ${PROJECT_SOURCE_DIR}/scriptengine/*.cpp)

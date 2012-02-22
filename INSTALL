@@ -152,8 +152,8 @@ Keys for cmake
 ----------------
 -DUSE_QT=ON/OFF (default: ON)
     build EiskaltDC++ with Qt interface
--DUSE_ASPELL=ON/OFF (default: not set)
-    forced use or not use aspell
+-DUSE_ASPELL=ON/OFF (default: OFF)
+    use or not use aspell
 -DFREE_SPACE_BAR_C=ON/OFF (default: ON)
     free space bar in status panel
 -DDBUS_NOTIFY=ON/OFF (default: ON)
