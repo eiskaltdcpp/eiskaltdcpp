@@ -109,8 +109,8 @@ elseif (USE_ASPELL)
 endif (NOT USE_ASPELL)
 
 if (NOT ASPELL_FOUND)
-  list (REMOVE_ITEM SRCS src/SpellCheck.cpp)
-  list (REMOVE_ITEM MOC_HDRS src/SpellCheck.h)
+  list (REMOVE_ITEM SRCS ${PROJECT_SOURCE_DIR}/src/SpellCheck.cpp)
+  list (REMOVE_ITEM MOC_HDRS ${PROJECT_SOURCE_DIR}/src/SpellCheck.h)
 endif (NOT ASPELL_FOUND)
 
 if (USE_JS)
