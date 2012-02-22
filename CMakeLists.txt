@@ -149,10 +149,10 @@ if (NOT BOOST_TAR_EXISTS)
 file(DOWNLOAD http://eiskaltdc.googlecode.com/files/${boost_file_name} ${PROJECT_BINARY_DIR}/${boost_file_name})
 endif (NOT BOOST_TAR_EXISTS)
 file(GLOB BOOST_TAR_EXISTS ${PROJECT_BINARY_DIR}/${boost_file_name})
-FIND_PROGRAM (TAR_CMD tar)
-  EXECUTE_PROCESS (
-                COMMAND ${TAR_CMD} -xf ${BOOST_TAR_EXISTS}
-                WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
+find_program (TAR_CMD tar)
+mark_as_advanced(TAR_CMD)
+execute_process (COMMAND ${TAR_CMD} -xf ${BOOST_TAR_EXISTS}
+                 WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
 set (Boost_INCLUDE_DIR ${PROJECT_BINARY_DIR})
 if (HAIKU)
 EXECUTE_PROCESS (
@@ -170,10 +170,6 @@ else (LOCAL_BOOST)
     endif()
 endif(LOCAL_BOOST)
 
-if (NOT CMAKE_INSTALL_PREFIX)
-  set (CMAKE_INSTALL_PREFIX "/usr")
-endif (NOT CMAKE_INSTALL_PREFIX)
-
 if (LIB_INSTALL_DIR)
   set (LIBDIR ${LIB_INSTALL_DIR})
 endif (LIB_INSTALL_DIR)
@@ -182,13 +178,6 @@ if (NOT LIBDIR)
   set (LIBDIR "lib")
 endif (NOT LIBDIR)
 message (STATUS "Library directory: ${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
-
-if (WITH_DEV_FILES)
-  if (NOT EISKALTDCPP_INCLUDE_DIR)
-    set (EISKALTDCPP_INCLUDE_DIR "${CMAKE_INSTALL_PREFIX}/include/eiskaltdcpp")
-  endif (NOT EISKALTDCPP_INCLUDE_DIR)
-  message (STATUS "Headers of libeiskaltdcpp will be installed to: ${EISKALTDCPP_INCLUDE_DIR}")
-endif (WITH_DEV_FILES)
 
 if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
