@@ -1,7 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Translators:
 # Translators:
 # Translators:
@@ -10,15 +11,14 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-02-21 22:19+0200\n"
-"PO-Revision-Date: 2012-01-25 19:01+0000\n"
+"PO-Revision-Date: 2012-02-22 06:36+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../src/hub.cc:1049 ../src/hub.cc:1128 ../src/privatemessage.cc:566
 #: ../src/privatemessage.cc:645
@@ -131,15 +131,7 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr ""
-"%a скорочено день тижня.\n"
-"%b скорочено ім'я місяця.\n"
-"%H година, як десятинне число в 24-часовому форматі.\n"
-"%M хвилина, як десятинне число (від 00 до 59).\n"
-"%S секунда, як десятинне число (від 00 до 59).\n"
-"%% символ '%'.\n"
-"\n"
-"див. детальніше man strftime."
+msgstr "%a скорочено день тижня.\n%b скорочено ім'я місяця.\n%H година, як десятинне число в 24-часовому форматі.\n%M хвилина, як десятинне число (від 00 до 59).\n%S секунда, як десятинне число (від 00 до 59).\n%% символ '%'.\n\nдив. детальніше man strftime."
 
 #: ../src/hub.cc:2335
 msgid "': type /help for a list of available commands"
@@ -193,8 +185,8 @@ msgstr ": /help для отримання списку доступних ком
 
 #: ../ui/settingsdialog.ui:6847
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:3855
@@ -351,9 +343,7 @@ msgstr ""
 
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8832
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr ""
-"<b>Примітка:</b> Для зміни посилань в цьому списку достатньо одного кліка "
-"після виділення"
+msgstr "<b>Примітка:</b> Для зміни посилань в цьому списку достатньо одного кліка після виділення"
 
 #: ../ui/settingsdialog.ui:5335
 msgid "<b>Notify</b>"
@@ -489,9 +479,7 @@ msgstr "<b>файл:</b> "
 
 #: ../ui/favoritehubs.ui:469
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr ""
-"<small>Примітка: Зніміть прапорець, якщо хочете залишити значення по "
-"замовчуванню</small>"
+msgstr "<small>Примітка: Зніміть прапорець, якщо хочете залишити значення по замовчуванню</small>"
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
@@ -1062,11 +1050,7 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr ""
-"Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n"
-"\n"
-"EiskaltDC++ версія: %s (%s)\n"
-"DC++ версія ядра: %s"
+msgstr "Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n\nEiskaltDC++ версія: %s (%s)\nDC++ версія ядра: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1251,9 +1235,7 @@ msgstr ""
 
 #: ../src/hub.cc:2023
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr ""
-"Обмеження завантаження картинки: 0 - викнено, n < 0 - необмежено, пусто - "
-"інформація"
+msgstr "Обмеження завантаження картинки: 0 - викнено, n < 0 - необмежено, пусто - інформація"
 
 #: ../src/transfers.cc:1091
 msgid "Download removed"
@@ -1621,9 +1603,7 @@ msgstr "Кадр (розмір)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr ""
-"Розмір кадра визначає ширину огляду, великі значення впливають на "
-"продуктивність"
+msgstr "Розмір кадра визначає ширину огляду, великі значення впливають на продуктивність"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -2287,8 +2267,7 @@ msgstr "Не знайдено користувача: "
 
 #: ../ui/settingsdialog.ui:8034
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr ""
-"Примітка: Вказані пошукові типи будуть застосовуватися тільки для ADC хабів!"
+msgstr "Примітка: Вказані пошукові типи будуть застосовуватися тільки для ADC хабів!"
 
 #: ../ui/settingsdialog.ui:4605 ../ui/settingsdialog.ui:4675
 msgid "Note: Most of these options require that you restart the application"
@@ -2299,9 +2278,9 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr "Примітка: Нові файли будуть додані до шари лише після хешування!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
-msgstr ""
-"Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
+msgstr "Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
 
 #: ../src/settingsdialog.cc:1254 ../ui/settingsdialog.ui:5673
 msgid "Notify"
@@ -2422,9 +2401,7 @@ msgstr "Пауза..."
 
 #: ../ui/settingsdialog.ui:1267
 msgid "Personal"
-msgstr ""
-"Персональна\n"
-" інформація"
+msgstr "Персональна\n інформація"
 
 #: ../ui/settingsdialog.ui:4236
 msgid "Pictures"
@@ -2803,10 +2780,9 @@ msgid "Set download limit image: "
 msgstr "Вставити обмеження завантаження: "
 
 #: ../src/settingsdialog.cc:954
-msgid "Set lowest priority for newly added files larger than low priority size"
-msgstr ""
-"Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького "
-"пріоритету"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
+msgstr "Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького пріоритету"
 
 #: ../ui/settingsdialog.ui:4049
 msgid "Share hidden files"
@@ -3079,9 +3055,7 @@ msgstr "Стиль тексту"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr ""
-"Збільшення часу очікування збільшує ймовірність додання в топ, але знижує "
-"динаміку (оновлення) кадра"
+msgstr "Збільшення часу очікування збільшує ймовірність додання в топ, але знижує динаміку (оновлення) кадра"
 
 #: ../src/favoritehubs.cc:390
 msgid "The name and address fields are required"
@@ -3132,9 +3106,7 @@ msgstr "Кому (пусто для вибраного користувача)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr ""
-"Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/"
-"Завантаження/Черга)"
+msgstr "Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/Завантаження/Черга)"
 
 #: ../ui/settingsdialog.ui:5983
 msgid "Toolbar"
@@ -3219,8 +3191,7 @@ msgstr ""
 
 #: ../src/hub.cc:2952
 msgid "Unable to connect: already connected to the requested hub"
-msgstr ""
-"Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
+msgstr "Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
 
 #: ../src/sharebrowser.cc:185
 msgid "Unable to load file list: "
@@ -3232,13 +3203,10 @@ msgstr "Не можливо завантажити список файлів: Н
 
 #: ../src/mainwindow.cc:2243
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
-msgstr ""
-"Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати "
-"коректно поки ви не зміните налаштування або інший додаток не припинить "
-"використовувати цей порт."
+msgstr "Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати коректно поки ви не зміните налаштування або інший додаток не припинить використовувати цей порт."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3465,22 +3433,12 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr ""
-"Використовується:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та "
-"ADC протоколи.\n"
-"\n"
-"Ключі:\n"
-"  -h, --help\t Показати це повідомлення\n"
-"  -V, --version\t Показати версію\n"
+msgstr "Використовується:\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n  eiskaltdcpp-gtk <Key>\nEiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та ADC протоколи.\n\nКлючі:\n  -h, --help\t Показати це повідомлення\n  -V, --version\t Показати версію\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:336
 msgid "Video"
