@@ -80,9 +80,6 @@ PublicHubs::PublicHubs():
 
 	// Initialize the hub lists combo box
 	gtk_combo_box_set_model(GTK_COMBO_BOX(getWidget("hubListBox")), GTK_TREE_MODEL(listsStore));
-	GtkCellRenderer *cell = gtk_cell_renderer_text_new();
-	gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(GTK_COMBO_BOX(getWidget("hubListBox"))), cell, FALSE);
-	gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(GTK_COMBO_BOX(getWidget("hubListBox"))), cell, "text", 0);
 
 	// Connect the signals to their callback functions.
 	g_signal_connect(getContainer(), "focus-in-event", G_CALLBACK(onFocusIn_gui), (gpointer)this);
