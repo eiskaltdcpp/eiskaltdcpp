@@ -349,7 +349,7 @@ public:
         string const shub(paramList.getString(0));
         string const snick(paramList.getString(1));
         paramList.verifyEnd(2);
-        string tmp = ServerThread::getInstance()->getFileList_client(shub, snick, false);
+        string tmp = ServerThread::getInstance()->getFileList(shub, snick, false);
         *retvalP = xmlrpc_c::value_string(tmp);
     }
 };
