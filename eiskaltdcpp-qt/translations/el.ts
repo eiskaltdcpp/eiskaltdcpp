@@ -5520,13 +5520,17 @@ p, li { white-space: pre-wrap; }
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It's measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation type="unfinished"/>
+        <translation>Αυτή είναι μια άλλη μέθοδο περιορισμού ταυτόχρονων λήψεων,
+αποκλείοντας νέες λήψεις αν οι τρέχοντες λήψεις
+υπερβαίνουν ένα συγκεκριμένο όριο. Μετριέται σε kibibytes άνα δευτερόλεπτο,
+και μια μηδενική τιμή θα απενεργοποίηση αυτό το όριο.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
-        <translation type="unfinished"/>
+        <translation>Αυτό περιορίζει τον αριθμό ταυτοχρόνων λήψεων.
+Μια τιμή του 0 σημαίνει κανένα όριο. </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="133"/>
@@ -5553,7 +5557,8 @@ A value of 0 means no limit.</source>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation type="unfinished"/>
+        <translation>Αυτός ο μεσολαβητής θα χρησιμοποιηθεί μόνο για την λήψη
+της Δημόσιας Λίστας Κόμβων που εξειδικεύονται πάρα πάνω.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="190"/>
@@ -5594,7 +5599,8 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
         <location filename="../ui/UISettingsDownloads.ui" line="293"/>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Αρχεία με ίδιο ή χαμηλότερο του εισαγώμενου μέγεθος
+Θα μπούνε σε ύψιστη προτεραιότητα. (προκαθορισμένη: 64 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="304"/>
@@ -5617,27 +5623,27 @@ and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</sour
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="343"/>
         <source>Highest priority max size (KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Ύψιστη προτεραιότητα μέγ. μέγεθος (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="359"/>
         <source>High priority max size (KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Ψιλή προτεραιότητα μέγ. μέγεθος (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="375"/>
         <source>Normal priority max size (KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Κανονική προτεραιότητα μέγ. μέγεθος (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="391"/>
         <source>Low priority max size (KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Χαμηλή προτεραιότητα μέγ. μέγεθος (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="420"/>
         <source>Auto-drop settings</source>
-        <translation type="unfinished"/>
+        <translation>Ρυθμίσεις αυτόματης περίβλεψης</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="429"/>
@@ -5648,7 +5654,7 @@ the source will be dropped. (default: 1024 B/s)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="440"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation type="unfinished"/>
+        <translation>Έλεγχος κάθε χ δευτερόλεπτο(α) αν η πηγή είναι αργή. (προκαθορισμένη: 10 δ)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="450"/>
