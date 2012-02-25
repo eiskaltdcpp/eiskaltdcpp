@@ -203,6 +203,8 @@ int main(int argc, char *argv[])
 #ifdef USE_JS
     ScriptEngine::deleteInstance();
 #endif
+
+    GlobalTimer::deleteInstance();
     
     ArenaWidgetManager::deleteInstance();
     
@@ -211,9 +213,8 @@ int main(int argc, char *argv[])
     MainWindow::deleteInstance();
 
     WulforUtil::deleteInstance();
+
     WulforSettings::deleteInstance();
-    
-    GlobalTimer::deleteInstance();
 
     dcpp::shutdown();
 

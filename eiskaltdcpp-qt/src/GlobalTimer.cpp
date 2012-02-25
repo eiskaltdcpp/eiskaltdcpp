@@ -21,7 +21,9 @@ GlobalTimer::GlobalTimer() : QObject(NULL), timer(new QTimer()), tickCount(0) {
 }
 
 GlobalTimer::~GlobalTimer() {
+    timer->stop();
 
+    disconnect(this, 0, 0, 0);
 }
 
 void GlobalTimer::slotTick() {
