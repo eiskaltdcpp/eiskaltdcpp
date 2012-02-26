@@ -16,6 +16,7 @@ liblua5.1 (optional, see cmake keys)
 libpcrecpp0 (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 libidn (optional, see cmake keys)
+libattr (optional)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -88,6 +89,7 @@ liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 libidn (optional, see cmake keys)
+libattr-dev (optional)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
