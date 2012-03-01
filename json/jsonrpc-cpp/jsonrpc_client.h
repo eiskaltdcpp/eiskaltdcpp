@@ -126,7 +126,26 @@ namespace Json
          */
         socklen_t m_sockaddrlen;
 
-      private:
+        /**
+         * \brief Protected constructor so our inherited classes
+         * don't need to call the default constructor
+         */
+        Client();
+
+        /**
+         * \brief Protected SetAddress so out inherited classes
+         * don't need to call the default constructor
+         */
+        void SetAddress(const std::string& address);
+
+        /**
+         * \brief Protected SetPort so out inherited classes
+         * don't need to call the default constructor
+         */
+        void SetPort(uint16_t port);
+      
+      private:  
+    
         /**
          * \brief Network address or FQDN.
          */

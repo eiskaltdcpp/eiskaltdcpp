@@ -151,6 +151,7 @@ namespace networking
 
     for(p = res ; p ; p = p->ai_next)
     {
+      int on = 1;
       sock = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
 
       if(sock == -1)
@@ -159,12 +160,13 @@ namespace networking
       }
 
 #ifndef _WIN32
-      int on = 1;
       setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(int));
 
       /* accept IPv6 OR IPv4 on the same socket */
       on = 1;
       setsockopt(sock, IPPROTO_IPV6, IPV6_V6ONLY, &on, sizeof(on));
+#else
+      on = 0;
 #endif
 
       if(::bind(sock, p->ai_addr, p->ai_addrlen) == -1)

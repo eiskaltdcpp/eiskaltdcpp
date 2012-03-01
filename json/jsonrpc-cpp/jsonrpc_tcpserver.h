@@ -69,7 +69,7 @@ namespace Json
          * \param data data to send
          * \return number of bytes sent or -1 if error
          */
-        ssize_t Send(int fd, const std::string& data);
+        virtual ssize_t Send(int fd, const std::string& data);
 
         /**
          * \brief Wait message.
