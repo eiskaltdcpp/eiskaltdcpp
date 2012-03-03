@@ -2095,7 +2095,7 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
 
     // copy to results
     dcassert(sl.empty());
-    const int32_t maxElements = 10;
+    const uint8_t maxElements = 10;
     sl.reserve(maxElements);
     for(Buffer::iterator i = buffer.begin(); i != buffer.end() && sl.size() < maxElements; ++i){
         sl.push_back(i->second);
