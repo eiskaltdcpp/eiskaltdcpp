@@ -238,7 +238,7 @@ Keys for cmake
 -DENABLE_STACKTRACE=ON/OFF (default: OFF)
     Show stacktrace when program receive SIGSEGV
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
-    build type
+    build type (please use RelWithDebInfo for debug mode, not Debug)
 And other standart cmake keys...
 
 ---------
@@ -283,7 +283,7 @@ Instructions are available in the file: win32/READ_ME.txt
 Haiku-OS specific notes
 *******************************************************************************
 To configure program use command like this:
-cmake -DLOCAL_BOOST=ON -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp -DCMAKE_CXX_FLAGS="-DTIMER_OLD_BOOST" -DCMAKE_SHARE_DIR=/boot/apps/Eiskaltdcpp -DCMAKE_CLIENT_DATA_DIR=/boot/apps/Eiskaltdcpp ..
+cmake -DLOCAL_BOOST=ON -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp -DCMAKE_CXX_FLAGS="-DTIMER_OLD_BOOST" -DSHARE_DIR=/boot/apps/Eiskaltdcpp ..
 
 
 *******************************************************************************
