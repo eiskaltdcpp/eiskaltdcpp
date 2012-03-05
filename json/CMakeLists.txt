@@ -4,7 +4,9 @@ cmake_minimum_required(VERSION 2.6)
 include_directories(${PROJECT_SOURCE_DIR})
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/jsonrpc-cpp jsonrpcpp_SRCS)
-
+file (GLOB client_staff ${PROJECT_SOURCE_DIR}/jsonrpc-cpp/*client*)
+list(REMOVE_ITEM jsonrpcpp_SRCS ${client_staff})
+    
 #option (LOCAL_JSONCPP "Use local JsonCpp" ON)
 #if (LOCAL_JSONCPP)
     set (JSONCPP_LIBRARY jsoncpp)
