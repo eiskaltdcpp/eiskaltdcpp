@@ -854,49 +854,49 @@ string Search::getGroupingColumn(GroupType groupBy)
 }
 
 void Search::download_gui(const string &target)
- {
-         if (target.empty() || gtk_tree_selection_count_selected_rows(selection) <= 0)
-                 return;
+{
+    if (target.empty() || gtk_tree_selection_count_selected_rows(selection) <= 0)
+         return;
 
-         GtkTreeIter iter;
-         GtkTreePath *path;
-         GroupType groupBy = (GroupType)gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxGroupBy")));
-         GList *list = gtk_tree_selection_get_selected_rows(selection, NULL);
-         typedef Func6<Search, string, string, string, int64_t, string, string> F6;
+    GtkTreeIter iter;
+    GtkTreePath *path;
+    GroupType groupBy = (GroupType)gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxGroupBy")));
+    GList *list = gtk_tree_selection_get_selected_rows(selection, NULL);
+    typedef Func6<Search, string, string, string, int64_t, string, string> F6;
 
-         for (GList *i = list; i; i = i->next)
-         {
-                 path = (GtkTreePath *)i->data;
-                 if (gtk_tree_model_get_iter(sortedFilterModel, &iter, path))
-                 {
-                         bool parent = gtk_tree_model_iter_has_child(sortedFilterModel, &iter);
-                         string filename = resultView.getString(&iter, _("Filename"));
+    for (GList *i = list; i; i = i->next)
+    {
+        path = (GtkTreePath *)i->data;
+        if (gtk_tree_model_get_iter(sortedFilterModel, &iter, path))
+        {
+            bool parent = gtk_tree_model_iter_has_child(sortedFilterModel, &iter);
+            string filename = resultView.getString(&iter, _("Filename"));
 
-                         do
-                         {
-                                 if (!gtk_tree_model_iter_has_child(sortedFilterModel, &iter))
-                                 {
-                                         // User parent filename when grouping by TTH to avoid downloading the same file multiple times
-                                         if (groupBy != TTH)
-                                         {
-                                                 filename = resultView.getString(&iter, _("Path"));
-                                                 filename += resultView.getString(&iter, _("Filename"));
-                                         }
+            do
+            {
+                if (!gtk_tree_model_iter_has_child(sortedFilterModel, &iter))
+                {
+                    // User parent filename when grouping by TTH to avoid downloading the same file multiple times
+                    if (groupBy != TTH || resultView.getString(&iter, _("Type")) == _("Directory"))
+                    {
+                        filename = resultView.getString(&iter, _("Path"));
+                        filename += resultView.getString(&iter, _("Filename"));
+                    }
 
-                                         string cid = resultView.getString(&iter, "CID");
-                                         int64_t size = resultView.getValue<int64_t>(&iter, "Real Size");
-                                         string tth = resultView.getString(&iter, _("TTH"));
-                                         string hubUrl = resultView.getString(&iter, "Hub URL");
-                                         F6 *func = new F6(this, &Search::download_client, target, cid, filename, size, tth, hubUrl);
-                                         WulforManager::get()->dispatchClientFunc(func);
-                                 }
-                         }
-                         while (parent && WulforUtil::getNextIter_gui(sortedFilterModel, &iter, TRUE, FALSE));
-                 }
-                 gtk_tree_path_free(path);
-         }
-         g_list_free(list);
- }
+                    string cid = resultView.getString(&iter, "CID");
+                    int64_t size = resultView.getValue<int64_t>(&iter, "Real Size");
+                    string tth = resultView.getString(&iter, _("TTH"));
+                    string hubUrl = resultView.getString(&iter, "Hub URL");
+                    F6 *func = new F6(this, &Search::download_client, target, cid, filename, size, tth, hubUrl);
+                    WulforManager::get()->dispatchClientFunc(func);
+                }
+            }
+            while (parent && WulforUtil::getNextIter_gui(sortedFilterModel, &iter, TRUE, FALSE));
+        }
+        gtk_tree_path_free(path);
+    }
+    g_list_free(list);
+}
 
 gboolean Search::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data)
 {
@@ -1642,7 +1642,7 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
     else
     {
         string path = WulforUtil::linuxSeparator(result->getFile());
-        resultMap["Filename"] = Util::getLastDir(path);
+        resultMap["Filename"] = Util::getLastDir(path) + PATH_SEPARATOR;
         resultMap["Path"] = Util::getFilePath(path.substr(0, path.length() - 1)); // getFilePath just returns path unless we chop the last / off
         if (resultMap["Path"].find("/") == string::npos)
             resultMap["Path"] = "";

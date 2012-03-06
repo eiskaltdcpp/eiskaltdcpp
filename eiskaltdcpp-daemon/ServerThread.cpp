@@ -541,7 +541,7 @@ void ServerThread::parseSearchResult(SearchResultPtr result, StringMap &resultMa
         resultMap["Shared"] = Util::toString(ShareManager::getInstance()->isTTHShared(result->getTTH()));
     } else {
         string path = revertSeparator(result->getFile());
-        resultMap["Filename"] = Util::getLastDir(path);
+        resultMap["Filename"] = Util::getLastDir(path) + PATH_SEPARATOR;
         resultMap["Path"] = Util::getFilePath(path.substr(0, path.length() - 1)); // getFilePath just returns path unless we chop the last / off
         if (resultMap["Path"].find("/") == string::npos)
             resultMap["Path"] = "";
