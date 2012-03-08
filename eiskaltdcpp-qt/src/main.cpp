@@ -284,7 +284,7 @@ void installHandlers(){
     if (sigaction(SIGPIPE, &sa, NULL) == -1)
         printf("Cannot handle SIGPIPE\n");
 
-    catchSignals<SIGSEGV, SIGABRT, SIGBUS, SIGKILL, SIGTERM>();
+    catchSignals<SIGSEGV, SIGABRT, SIGBUS, SIGTERM>();
 
     printf("Signal handlers installed.\n");
 }
