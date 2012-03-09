@@ -91,6 +91,7 @@ option (USE_CLI_JSONRPC "Command line interface to control daemon via JSONRPC" O
 option (HAIKU_PKG "Make Haiku package" OFF)
 option (CHECK_GTK_DEPRECATED "Check gtk backend for deprecated function" OFF)
 option (USE_LIBCANBERRA "Use LibCanberra in GTK interface (sound notification)" OFF)
+option (INSTALL_RUNTIME_PATH "Install rpath" OFF)
 
 if (USE_QT OR USE_GTK OR USE_GTK3)
     find_package (X11)
@@ -177,7 +178,12 @@ endif (LIB_INSTALL_DIR)
 if (NOT LIBDIR)
   set (LIBDIR "lib")
 endif (NOT LIBDIR)
+
 message (STATUS "Library directory: ${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
+
+if (INSTALL_RUNTIME_PATH)
+    set (CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
+endif (INSTALL_RUNTIME_PATH)
 
 if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
@@ -361,19 +367,18 @@ message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
 message(STATUS "CMAKE will use this libs (and headers) during build:
 
-                miniupnpc (headers):${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
-                lua (headers): ${LUA_LIBRARIES} (${LUA_INCLUDE_DIR})
-                boost (headers): ${Boost_LIBRARIES} (${Boost_INCLUDE_DIR})
-                bzip2 (headers): ${BZIP2_LIBRARIES} (${BZIP2_INCLUDE_DIR})
-                zlib (headers): ${ZLIB_LIBRARIES} (${ZLIB_INCLUDE_DIR})
-                openssl (headers): ${OPENSSL_LIBRARIES} (${OPENSSL_INCLUDE_DIR})
-                iconv (headers): ${ICONV_LIBRARIES} (${ICONV_INCLUDE_DIR})
-                aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
-                gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
-                pcre(cpp) (headers): ${PCRE_LIBRARIES} (${PCRE_INCLUDE_DIR})
-                idna (headers): ${IDNA_LIBRARIES} (${IDNA_INCLUDE_DIR})
-
-                ")
+    miniupnpc (headers):${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
+    lua (headers): ${LUA_LIBRARIES} (${LUA_INCLUDE_DIR})
+    boost (headers): ${Boost_LIBRARIES} (${Boost_INCLUDE_DIR})
+    bzip2 (headers): ${BZIP2_LIBRARIES} (${BZIP2_INCLUDE_DIR})
+    zlib (headers): ${ZLIB_LIBRARIES} (${ZLIB_INCLUDE_DIR})
+    openssl (headers): ${OPENSSL_LIBRARIES} (${OPENSSL_INCLUDE_DIR})
+    iconv (headers): ${ICONV_LIBRARIES} (${ICONV_INCLUDE_DIR})
+    aspell (headers): ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
+    gettext (headers): ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
+    pcre(cpp) (headers): ${PCRE_LIBRARIES} (${PCRE_INCLUDE_DIR})
+    idna (headers): ${IDNA_LIBRARIES} (${IDNA_INCLUDE_DIR})
+    ")
 
 CONFIGURE_FILE(
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
