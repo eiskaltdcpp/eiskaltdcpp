@@ -31,7 +31,7 @@ namespace dht
 {
 
 	IndexManager::IndexManager(void) :
-		nextRepublishTime(GET_TICK()), publishing(0), publish(false)
+		publish(false), publishing(0), nextRepublishTime(GET_TICK())
 	{
 	}
 

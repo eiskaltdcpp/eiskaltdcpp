@@ -52,7 +52,7 @@ void printHelp()
             "\n"
             "Keys:\n"
             "  -h, --help\t Show this message\n"
-            "  -v, --version\t Show version string\n"
+            "  -V, --version\t Show version string\n"
             )
            );
 }
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
             printHelp();
             exit(0);
     }
-            else if (!strcmp(argv[i],"--version") || !strcmp(argv[i],"-v")){
+            else if (!strcmp(argv[i],"--version") || !strcmp(argv[i],"-V")){
                 printVersion();
                 exit(0);
             }

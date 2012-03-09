@@ -456,9 +456,7 @@ void FinishedTransfersModel::remUser(const QString &cid){
 }
 
 void FinishedTransfersModel::switchViewType(FinishedTransfersModel::ViewType t){
-#if QT_VERSION >= 0x040600
     beginResetModel();
-#endif
     switch (t){
         case FileView:
             rootItem = fileItem;
@@ -467,9 +465,7 @@ void FinishedTransfersModel::switchViewType(FinishedTransfersModel::ViewType t){
             rootItem = userItem;
             break;
     }
-#if QT_VERSION >= 0x040600
     endResetModel();
-#endif
     sort();
 }
 

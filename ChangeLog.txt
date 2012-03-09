@@ -1,11 +1,52 @@
---- 2.2.6 2012-02-12 ---
+--- 2.2.7 2012-03-25 ---
 *** common changes ***
-* Thanks to Konstantinos Georgokitsos the Greek translation is now available.
-* Thanks to Stefano Simoncelli the Italian translation is now available.
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***
 *** eiskaltdcpp-cli ***
+
+--- 2.2.6 2012-02-20 ---
+*** common changes ***
+* Thanks to Konstantinos Georgokitsos the Greek translation is now available.
+* Thanks to Stefano Simoncelli the Italian translation is now available.
+* Fixed rewriting external IP when DHT is used.
+* Added support for reading and writing full TTH tree in the file attribute.
+  The implementation is compatible with FlylinkDC++. Not all file systems allow
+  to store data required size. If program can not record the attributes,
+  it processes the files as before.
+*** eiskaltdcpp-qt ***
+* Refactoring of source code. Fixed regressions that have been added in
+  version 2.2.5.
+* Fixed program crash on closing hub tabs when there are open tabs with private
+  chat rooms. (Bug was added in version 2.1.0)
+* Show count of selected items in the file list widget.
+* Small improvements in the panel of active transfers.
+* Item for fast setting of rate limiting was added in the context menu on
+  tray icon.
+* Used catching of signals SIGSEGV, SIGABRT, SIGBUS and SIGTERM to release
+  the shared memory before exiting the program.
+  (Not actual in MS Windows)
+* Added possibility to open downloaded file on double clicking it in the widget
+  of finished transfers. [Thanks to Viranch Mehta]
+* Fixed adding items to the list of search results when using the sort by the
+  number of sources.
+* Added option to select the action when changes in active scripts (QtScript):
+  do nothing, ask the user or restart scripts.
+* Fixed loading of large file lists when the restriction on the maximum file
+  size is enabled: now such file lists are ignored.
+*** eiskaltdcpp-gtk ***
+* Improved support of Gtk3.
+* Added language switcher in settings dialog.
+* Fixed bug with duplication of entries in GtkComboBoxText elements.
+* Added support of libcanberra for sound notification (option -DUSE_LIBCANBERRA
+  for cmake).
+* Fixed program crash in "Indexing progress" dialog window.
+*** eiskaltdcpp-daemon ***
+* Added command line option: --debug
+* Added new JSON-RPC methods: methods.list, hash.pause, hash.status,
+  queue.getsources
+*** eiskaltdcpp-cli ***
+* Added new JSON-RPC methods: queue.list, queue.listtargets, search.clear
 
 --- 2.2.5 2011-12-25 ---
 *** common changes ***

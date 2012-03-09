@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -10,15 +10,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-01-25 20:57+0200\n"
+"POT-Creation-Date: 2012-02-21 22:19+0200\n"
 "PO-Revision-Date: 2012-01-25 21:37+0000\n"
 "Last-Translator: miroslav <miroslav031@gmail.com>\n"
-"Language-Team: Serbian (Latin) (http://www.transifex.net/projects/p/eiskaltdcpp/team/sr@latin/)\n"
+"Language-Team: Serbian (Latin) (http://www.transifex.net/projects/p/"
+"eiskaltdcpp/team/sr@latin/)\n"
+"Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sr@latin\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../src/hub.cc:1049 ../src/hub.cc:1128 ../src/privatemessage.cc:566
 #: ../src/privatemessage.cc:645
@@ -193,11 +195,11 @@ msgstr ": Тip/ pomoć za listu dostupnih komandi"
 
 #: ../ui/settingsdialog.ui:6847
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 msgstr ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -485,7 +487,7 @@ msgstr "<b>Šta želite da uradite?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Оpcije prozora</b>"
 
-#: ../src/mainwindow.cc:2295
+#: ../src/mainwindow.cc:2296
 msgid "<b>file:</b> "
 msgstr "<b>fajl:</b> "
 
@@ -892,8 +894,8 @@ msgstr "Proveri svaki"
 msgid "Choose a File"
 msgstr "Izaberi fasciklu"
 
-#: ../src/hub.cc:2617 ../src/privatemessage.cc:1296 ../src/mainwindow.cc:1301
-#: ../src/mainwindow.cc:1369 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/hub.cc:2617 ../src/privatemessage.cc:1296 ../src/mainwindow.cc:1302
+#: ../src/mainwindow.cc:1370 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8084
 msgid "Choose a directory"
 msgstr "Izaberi fasciklu"
@@ -902,7 +904,7 @@ msgstr "Izaberi fasciklu"
 msgid "Chose A File"
 msgstr "Izaberi fasciklu"
 
-#: ../ui/search.ui:264 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
+#: ../ui/search.ui:266 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
 msgid "Clear"
 msgstr "Očisti PP"
 
@@ -1035,7 +1037,7 @@ msgstr "Povezivanje..."
 msgid "Connection"
 msgstr "Priključak"
 
-#: ../src/mainwindow.cc:2244
+#: ../src/mainwindow.cc:2245
 msgid "Connectivity Manager: Warning"
 msgstr "Menadžer konekcije: Upozorenje"
 
@@ -1178,7 +1180,7 @@ msgstr "Ne preuzimajte fajlove već u deljenju"
 msgid "Don't download files already in the queue"
 msgstr "Ne preuzimajte fajlove koji su u redu"
 
-#: ../ui/search.ui:571
+#: ../ui/search.ui:573
 msgid "Don't hide side panel on search"
 msgstr "Ne sakrivaj panel kod pretrage"
 
@@ -1208,11 +1210,11 @@ msgstr "Preuzimanje: "
 msgid "Download Queue"
 msgstr "Red za preuzimanje"
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:686 ../ui/hub.ui:221
+#: ../ui/privatemessage.ui:178 ../ui/search.ui:688 ../ui/hub.ui:221
 msgid "Download _to..."
 msgstr "Preuzimanje počinje..."
 
-#: ../ui/search.ui:700
+#: ../ui/search.ui:702
 msgid "Download _whole directory"
 msgstr "Izaberi fasciklu"
 
@@ -1282,11 +1284,11 @@ msgstr "Preuzimanje:"
 msgid "Download to..."
 msgstr "Preuzimanje započeto..."
 
-#: ../ui/search.ui:709
+#: ../ui/search.ui:711
 msgid "Download whole director_y to..."
 msgstr "Preuzimanje kompletno..."
 
-#: ../src/mainwindow.cc:741
+#: ../src/mainwindow.cc:742
 msgid "Download: "
 msgstr "Preuzimanje:"
 
@@ -1379,7 +1381,7 @@ msgstr "Unesi vrednost za"
 msgid "Enter text to search for"
 msgstr "Unesi za pretragu za"
 
-#: ../src/mainwindow.cc:1235
+#: ../src/mainwindow.cc:1236
 msgid "Enter value for "
 msgstr "Unesi vrednost za"
 
@@ -1561,7 +1563,7 @@ msgstr "Fajlovi:"
 msgid "Filter by IP"
 msgstr "IP filter"
 
-#: ../ui/search.ui:500
+#: ../ui/search.ui:502
 msgid "Filter files already in share"
 msgstr "Ne preuzimaj već deljene fajlove"
 
@@ -1633,7 +1635,7 @@ msgstr ""
 msgid "Frame:"
 msgstr "Okvir:"
 
-#: ../src/mainwindow.cc:2354
+#: ../src/mainwindow.cc:2355
 msgid "Free "
 msgstr "Slobodno"
 
@@ -1689,11 +1691,11 @@ msgstr "Odobri dodatni slot"
 msgid "Greek"
 msgstr "Grčki"
 
-#: ../src/mainwindow.cc:255
+#: ../src/mainwindow.cc:256
 msgid "Greek translation\n"
 msgstr "Grčki prevod\n"
 
-#: ../ui/search.ui:404
+#: ../ui/search.ui:406
 msgid "Group by"
 msgstr "Grupisano"
 
@@ -1726,7 +1728,7 @@ msgstr "V_isok"
 msgid "Hash"
 msgstr "Hash"
 
-#: ../ui/search.ui:278
+#: ../ui/search.ui:280
 msgid "Hide side panel"
 msgstr "Pokaži listu omiljenog"
 
@@ -1796,7 +1798,7 @@ msgstr "Hab povezan"
 msgid "Hub disconnected"
 msgstr "Hab isključen"
 
-#: ../ui/search.ui:532 ../ui/mainwindow.ui:2161 ../ui/mainwindow.ui:2416
+#: ../ui/search.ui:534 ../ui/mainwindow.ui:2161 ../ui/mainwindow.ui:2416
 msgid "Hubs"
 msgstr "Habovi: "
 
@@ -1911,7 +1913,7 @@ msgstr "Ipfilter uklj/isklj"
 msgid "Italian"
 msgstr "Italijanski"
 
-#: ../src/mainwindow.cc:258
+#: ../src/mainwindow.cc:259
 msgid "Italian translation\n"
 msgstr ""
 "Italijanski prevod\n"
@@ -1975,7 +1977,7 @@ msgstr "Lista:"
 msgid "Load Lua file"
 msgstr "Učitavanje fajl liste"
 
-#: ../src/mainwindow.cc:2031
+#: ../src/mainwindow.cc:2032
 msgid "Loading file list"
 msgstr "Učitavanje fajl liste"
 
@@ -2031,11 +2033,11 @@ msgstr "Najniži"
 msgid "Magnet"
 msgstr "Izbor magneta"
 
-#: ../src/mainwindow.cc:1362
+#: ../src/mainwindow.cc:1363
 msgid "Magnet Choice"
 msgstr "Izbor magneta"
 
-#: ../src/mainwindow.cc:1292
+#: ../src/mainwindow.cc:1293
 msgid "Magnet Properties / Choice"
 msgstr "Svojstva magneta / Izbor"
 
@@ -2296,8 +2298,8 @@ msgstr "Nije nadjen korisnik:"
 #: ../ui/settingsdialog.ui:8034
 msgid "Note: Custom search types will only be applied to ADC hubs!"
 msgstr ""
-"Napomena: Prilagodjeni tip pretrage će biti primenjen na ADC habovima!Цустом"
-" Сеарцх типови ће бити примењен на АДЦ-чвориштима!"
+"Napomena: Prilagodjeni tip pretrage će biti primenjen na ADC habovima!Цустом "
+"Сеарцх типови ће бити примењен на АДЦ-чвориштима!"
 
 #: ../ui/settingsdialog.ui:4605 ../ui/settingsdialog.ui:4675
 msgid "Note: Most of these options require that you restart the application"
@@ -2310,8 +2312,7 @@ msgstr ""
 "додају деле само једном они су хасх!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Napomena: jer promena brzine preuzimanja nije  100% precizna..."
 
 #: ../src/settingsdialog.cc:1254 ../ui/settingsdialog.ui:5673
@@ -2335,7 +2336,7 @@ msgstr "Na mreži"
 msgid "Only show joins / parts for favorite users"
 msgstr "Pokaži samo priključi /napusti za omiljene korisnike"
 
-#: ../ui/search.ui:477
+#: ../ui/search.ui:479
 msgid "Only users with free slots"
 msgstr "Samo korisnici sa slobodnim slotovima"
 
@@ -2625,7 +2626,7 @@ msgstr "Ukloni spore fajl liste"
 msgid "Remove user favorite"
 msgstr "Ukloni omiljenog korisnika"
 
-#: ../ui/downloadqueue.ui:345 ../ui/search.ui:798
+#: ../ui/downloadqueue.ui:345 ../ui/search.ui:800
 msgid "Remove user from _queue"
 msgstr "Ukloni omiljenog korisnika"
 
@@ -2719,7 +2720,7 @@ msgstr "Pretraga fajlova za preuzimanje"
 msgid "Search history"
 msgstr "Pretraga špijuna"
 
-#: ../ui/search.ui:446
+#: ../ui/search.ui:448
 msgid "Search options"
 msgstr "Pretraga niza"
 
@@ -2733,7 +2734,7 @@ msgstr "Pretraga spama detektovanog od"
 msgid "Search type"
 msgstr "Pretraga špijuna"
 
-#: ../ui/search.ui:456
+#: ../ui/search.ui:458
 msgid "Search within local results"
 msgstr "Pretraga sa lokalnim rezultatima"
 
@@ -2749,11 +2750,11 @@ msgstr "Bezbedonosni sertifikat"
 msgid "Select Font"
 msgstr "Izaberi font"
 
-#: ../src/mainwindow.cc:2378
+#: ../src/mainwindow.cc:2379
 msgid "Select file to Get TTH"
 msgstr "Odaberi fajl listu za pregled"
 
-#: ../src/mainwindow.cc:1994 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:1995 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Odaberi fajl listu za pregled"
 
@@ -2765,7 +2766,7 @@ msgstr "Pošalji PP duplim klikom na listu korisnika"
 msgid "Send Private Message"
 msgstr "Privatna poruka"
 
-#: ../ui/downloadqueue.ui:297 ../ui/search.ui:771
+#: ../ui/downloadqueue.ui:297 ../ui/search.ui:773
 msgid "Send _private message"
 msgstr "Privatna poruka"
 
@@ -2814,8 +2815,7 @@ msgid "Set download limit image: "
 msgstr "Postavi limit preuzimanja:"
 
 #: ../src/settingsdialog.cc:954
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
+msgid "Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Postavi najniži prioritet za novododate fajlove veće nego najniža veličina "
 "prioriteta"
@@ -2920,7 +2920,7 @@ msgstr "Zatvaranje  libdcpp..."
 #: ../src/settingsdialog.cc:3707 ../src/search.cc:95 ../src/search.cc:122
 #: ../src/search.cc:613 ../src/search.cc:696 ../src/search.cc:705
 #: ../src/search.cc:831 ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:106
-#: ../src/sharebrowser.cc:298 ../src/sharebrowser.cc:329 ../ui/search.ui:316
+#: ../src/sharebrowser.cc:298 ../src/sharebrowser.cc:329 ../ui/search.ui:318
 #: ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Veličina"
@@ -3237,14 +3237,14 @@ msgstr "Nemogućnost povezivanja: već povezan na traženi hab"
 msgid "Unable to load file list: "
 msgstr "Nemogućnost da se učita fajl lista:"
 
-#: ../src/mainwindow.cc:2019
+#: ../src/mainwindow.cc:2020
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Nemogućnost da se učita fajl lista: Neispravno ime fajl liste"
 
-#: ../src/mainwindow.cc:2242
+#: ../src/mainwindow.cc:2243
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Prenos fajlova neće raditi kako treba sve dok ne promenite podešavanja ili "
@@ -3315,7 +3315,7 @@ msgstr "Otpremljeno"
 msgid "Upload starting..."
 msgstr "Otpremanje počelo..."
 
-#: ../src/mainwindow.cc:741
+#: ../src/mainwindow.cc:742
 msgid "Upload: "
 msgstr "Otpremanje"
 
@@ -3475,20 +3475,24 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
-"  -v, --version\t Show version string\n"
+"  -V, --version\t Show version string\n"
 msgstr ""
 "Korišćenje:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ je  cross-platform program koji koristi direktno povezivanje i ADC protokol.\n"
+"EiskaltDC++ je  cross-platform program koji koristi direktno povezivanje i "
+"ADC protokol.\n"
 "\n"
 "Keys:\n"
-"  -h, --help<span class=\"whitespace other\" title=\"Tab\">»</span> Pokaži ovu poruku\n"
-"  -v, --version<span class=\"whitespace other\" title=\"Tab\">»</span> Show version string\n"
+"  -h, --help<span class=\"whitespace other\" title=\"Tab\">»</span> Pokaži "
+"ovu poruku\n"
+"  -V, --version<span class=\"whitespace other\" title=\"Tab\">»</span> Show "
+"version string\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:336
 msgid "Video"
@@ -3544,7 +3548,7 @@ msgstr "Čekanje za ponovo"
 msgid "Waiting:"
 msgstr "Оcena"
 
-#: ../src/mainwindow.cc:372
+#: ../src/mainwindow.cc:373
 msgid "Welcome to "
 msgstr "Dobrodošli u"
 
@@ -3592,7 +3596,7 @@ msgstr "[U]"
 msgid "[Z]"
 msgstr "[Z]"
 
-#: ../ui/search.ui:780 ../ui/hub.ui:575 ../ui/transfers.ui:63
+#: ../ui/search.ui:782 ../ui/hub.ui:575 ../ui/transfers.ui:63
 msgid "_Add to favorites"
 msgstr "Dodaj hab u omiljeno"
 
@@ -3600,7 +3604,7 @@ msgstr "Dodaj hab u omiljeno"
 msgid "_Address:"
 msgstr "Adresa"
 
-#: ../ui/downloadqueue.ui:283 ../ui/search.ui:753 ../ui/hub.ui:542
+#: ../ui/downloadqueue.ui:283 ../ui/search.ui:755 ../ui/hub.ui:542
 #: ../ui/favoriteusers.ui:158 ../ui/transfers.ui:36
 msgid "_Browse file list"
 msgstr "Dobavi fajl listu"
@@ -3618,7 +3622,7 @@ msgstr "Zatvori karticu"
 msgid "_Copy link"
 msgstr "_Kopiraj link"
 
-#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:738
+#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:740
 #: ../ui/hub.ui:244 ../ui/sharebrowser.ui:164
 msgid "_Copy magnet"
 msgstr "_Kopiraj magnet"
@@ -3635,7 +3639,7 @@ msgstr "Moj nadimak"
 msgid "_Description:"
 msgstr "Opis"
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:677 ../ui/hub.ui:212
+#: ../ui/privatemessage.ui:169 ../ui/search.ui:679 ../ui/hub.ui:212
 msgid "_Download"
 msgstr "Preuzimanje"
 
@@ -3655,7 +3659,7 @@ msgstr "Fajl"
 msgid "_Force attempt"
 msgstr "_Prisili pokušaj"
 
-#: ../ui/search.ui:789 ../ui/transfers.ui:72
+#: ../ui/search.ui:791 ../ui/transfers.ui:72
 msgid "_Grant extra slot"
 msgstr "Odobri dodatni slot"
 
@@ -3683,7 +3687,7 @@ msgstr "Najniži"
 msgid "_Magnet Choice"
 msgstr "Magnet izbor"
 
-#: ../ui/search.ui:762
+#: ../ui/search.ui:764
 msgid "_Match Queue"
 msgstr "Uparen"
 
@@ -3756,7 +3760,7 @@ msgid "_Refresh file list"
 msgstr "Dobavi fajl listu"
 
 #: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
-#: ../ui/downloadqueue.ui:359 ../ui/search.ui:827 ../ui/searchspy.ui:108
+#: ../ui/downloadqueue.ui:359 ../ui/search.ui:829 ../ui/searchspy.ui:108
 #: ../ui/searchspy.ui:416 ../ui/favoriteusers.ui:227
 msgid "_Remove"
 msgstr "_Ukloni"
@@ -3769,11 +3773,11 @@ msgstr "Ukloni omiljenog korisnika"
 msgid "_Remove user from queue"
 msgstr "Ukloni omiljenog korisnika"
 
-#: ../ui/search.ui:242
+#: ../ui/search.ui:244
 msgid "_Search"
 msgstr "Pretraga"
 
-#: ../ui/search.ui:729
+#: ../ui/search.ui:731
 msgid "_Search by TTH"
 msgstr "Pretraga špijuna"
 
@@ -3801,7 +3805,7 @@ msgstr "_Alati"
 msgid "_User Description:"
 msgstr "Opis korisnika"
 
-#: ../ui/search.ui:807 ../ui/hub.ui:617
+#: ../ui/search.ui:809 ../ui/hub.ui:617
 msgid "_User commands"
 msgstr "Nepoznata komanda"
 
@@ -3830,7 +3834,7 @@ msgstr "Email"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: load theme %s...\n"
 
-#: ../src/mainwindow.cc:2285
+#: ../src/mainwindow.cc:2286
 msgid "file list from "
 msgstr "fajl lista od"
 
@@ -3842,7 +3846,7 @@ msgstr "%) od"
 msgid "from Coral"
 msgstr "od Coral"
 
-#: ../src/mainwindow.cc:358
+#: ../src/mainwindow.cc:359
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 
@@ -3866,8 +3870,8 @@ msgstr "Glavni projekat:"
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "odnos: %1% (otpremanje: %2%, preuzimanje: %3% )"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2319
-#: ../src/mainwindow.cc:2321 ../ui/settingsdialog.ui:3522
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2320
+#: ../src/mainwindow.cc:2322 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "s"
@@ -3899,5 +3903,3 @@ msgstr "top/čekanje/okvir: "
 #: ../src/searchspy.cc:299 ../src/searchspy.cc:367
 msgid "waiting..."
 msgstr "čekanje ..."
-
-

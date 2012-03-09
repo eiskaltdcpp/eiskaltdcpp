@@ -310,7 +310,7 @@ string WulforUtil::makeMagnet(const string &name, const int64_t size, const stri
     string::size_type i = name.find_last_of("/\\");
     string path = (i != string::npos) ? name.substr(i + 1) : name;
 
-    return magnetSignature + tth + "&xl=" + Util::toString(size) + "&dn=" + Util::encodeURI(path);
+    return magnetSignature + "xt=urn:tree:tiger:" + tth + "&xl=" + Util::toString(size) + "&dn=" + Util::encodeURI(path);
 }
 
 bool WulforUtil::splitMagnet(const string &magnet, string &name, int64_t &size, string &tth)

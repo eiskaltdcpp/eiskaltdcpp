@@ -43,7 +43,7 @@
 namespace dht
 {
 
-	DHT::DHT(void) : bucket(NULL), lastPacket(0), dirty(false), requestFWCheck(true), firewalled(true)
+	DHT::DHT(void) : bucket(NULL), lastPacket(0), firewalled(true), requestFWCheck(true), dirty(false)
 	{
 		lastExternalIP = Util::getLocalIp(); // hack
 		type = ClientBase::DHT;

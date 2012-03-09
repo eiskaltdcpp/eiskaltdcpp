@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-01-25 20:57+0200\n"
+"POT-Creation-Date: 2012-02-21 22:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -470,7 +470,7 @@ msgstr ""
 msgid "<b>Window Options</b>"
 msgstr ""
 
-#: ../src/mainwindow.cc:2295
+#: ../src/mainwindow.cc:2296
 msgid "<b>file:</b> "
 msgstr ""
 
@@ -872,8 +872,8 @@ msgstr ""
 msgid "Choose a File"
 msgstr ""
 
-#: ../src/hub.cc:2617 ../src/privatemessage.cc:1296 ../src/mainwindow.cc:1301
-#: ../src/mainwindow.cc:1369 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/hub.cc:2617 ../src/privatemessage.cc:1296 ../src/mainwindow.cc:1302
+#: ../src/mainwindow.cc:1370 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8084
 msgid "Choose a directory"
 msgstr ""
@@ -882,7 +882,7 @@ msgstr ""
 msgid "Chose A File"
 msgstr ""
 
-#: ../ui/search.ui:264 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
+#: ../ui/search.ui:266 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
 msgid "Clear"
 msgstr ""
 
@@ -1015,7 +1015,7 @@ msgstr ""
 msgid "Connection"
 msgstr ""
 
-#: ../src/mainwindow.cc:2244
+#: ../src/mainwindow.cc:2245
 msgid "Connectivity Manager: Warning"
 msgstr ""
 
@@ -1154,7 +1154,7 @@ msgstr ""
 msgid "Don't download files already in the queue"
 msgstr ""
 
-#: ../ui/search.ui:571
+#: ../ui/search.ui:573
 msgid "Don't hide side panel on search"
 msgstr ""
 
@@ -1184,11 +1184,11 @@ msgstr ""
 msgid "Download Queue"
 msgstr ""
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:686 ../ui/hub.ui:221
+#: ../ui/privatemessage.ui:178 ../ui/search.ui:688 ../ui/hub.ui:221
 msgid "Download _to..."
 msgstr ""
 
-#: ../ui/search.ui:700
+#: ../ui/search.ui:702
 msgid "Download _whole directory"
 msgstr ""
 
@@ -1258,11 +1258,11 @@ msgstr ""
 msgid "Download to..."
 msgstr ""
 
-#: ../ui/search.ui:709
+#: ../ui/search.ui:711
 msgid "Download whole director_y to..."
 msgstr ""
 
-#: ../src/mainwindow.cc:741
+#: ../src/mainwindow.cc:742
 msgid "Download: "
 msgstr ""
 
@@ -1355,7 +1355,7 @@ msgstr ""
 msgid "Enter text to search for"
 msgstr ""
 
-#: ../src/mainwindow.cc:1235
+#: ../src/mainwindow.cc:1236
 msgid "Enter value for "
 msgstr ""
 
@@ -1537,7 +1537,7 @@ msgstr ""
 msgid "Filter by IP"
 msgstr ""
 
-#: ../ui/search.ui:500
+#: ../ui/search.ui:502
 msgid "Filter files already in share"
 msgstr ""
 
@@ -1606,7 +1606,7 @@ msgstr ""
 msgid "Frame:"
 msgstr ""
 
-#: ../src/mainwindow.cc:2354
+#: ../src/mainwindow.cc:2355
 msgid "Free "
 msgstr ""
 
@@ -1662,11 +1662,11 @@ msgstr ""
 msgid "Greek"
 msgstr ""
 
-#: ../src/mainwindow.cc:255
+#: ../src/mainwindow.cc:256
 msgid "Greek translation\n"
 msgstr ""
 
-#: ../ui/search.ui:404
+#: ../ui/search.ui:406
 msgid "Group by"
 msgstr ""
 
@@ -1699,7 +1699,7 @@ msgstr ""
 msgid "Hash"
 msgstr ""
 
-#: ../ui/search.ui:278
+#: ../ui/search.ui:280
 msgid "Hide side panel"
 msgstr ""
 
@@ -1769,7 +1769,7 @@ msgstr ""
 msgid "Hub disconnected"
 msgstr ""
 
-#: ../ui/search.ui:532 ../ui/mainwindow.ui:2161 ../ui/mainwindow.ui:2416
+#: ../ui/search.ui:534 ../ui/mainwindow.ui:2161 ../ui/mainwindow.ui:2416
 msgid "Hubs"
 msgstr ""
 
@@ -1884,7 +1884,7 @@ msgstr ""
 msgid "Italian"
 msgstr ""
 
-#: ../src/mainwindow.cc:258
+#: ../src/mainwindow.cc:259
 msgid "Italian translation\n"
 msgstr ""
 
@@ -1944,7 +1944,7 @@ msgstr ""
 msgid "Load Lua file"
 msgstr ""
 
-#: ../src/mainwindow.cc:2031
+#: ../src/mainwindow.cc:2032
 msgid "Loading file list"
 msgstr ""
 
@@ -2000,11 +2000,11 @@ msgstr ""
 msgid "Magnet"
 msgstr ""
 
-#: ../src/mainwindow.cc:1362
+#: ../src/mainwindow.cc:1363
 msgid "Magnet Choice"
 msgstr ""
 
-#: ../src/mainwindow.cc:1292
+#: ../src/mainwindow.cc:1293
 msgid "Magnet Properties / Choice"
 msgstr ""
 
@@ -2299,7 +2299,7 @@ msgstr ""
 msgid "Only show joins / parts for favorite users"
 msgstr ""
 
-#: ../ui/search.ui:477
+#: ../ui/search.ui:479
 msgid "Only users with free slots"
 msgstr ""
 
@@ -2589,7 +2589,7 @@ msgstr ""
 msgid "Remove user favorite"
 msgstr ""
 
-#: ../ui/downloadqueue.ui:345 ../ui/search.ui:798
+#: ../ui/downloadqueue.ui:345 ../ui/search.ui:800
 msgid "Remove user from _queue"
 msgstr ""
 
@@ -2683,7 +2683,7 @@ msgstr ""
 msgid "Search history"
 msgstr ""
 
-#: ../ui/search.ui:446
+#: ../ui/search.ui:448
 msgid "Search options"
 msgstr ""
 
@@ -2697,7 +2697,7 @@ msgstr ""
 msgid "Search type"
 msgstr ""
 
-#: ../ui/search.ui:456
+#: ../ui/search.ui:458
 msgid "Search within local results"
 msgstr ""
 
@@ -2713,11 +2713,11 @@ msgstr ""
 msgid "Select Font"
 msgstr ""
 
-#: ../src/mainwindow.cc:2378
+#: ../src/mainwindow.cc:2379
 msgid "Select file to Get TTH"
 msgstr ""
 
-#: ../src/mainwindow.cc:1994 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:1995 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr ""
 
@@ -2729,7 +2729,7 @@ msgstr ""
 msgid "Send Private Message"
 msgstr ""
 
-#: ../ui/downloadqueue.ui:297 ../ui/search.ui:771
+#: ../ui/downloadqueue.ui:297 ../ui/search.ui:773
 msgid "Send _private message"
 msgstr ""
 
@@ -2879,7 +2879,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:3707 ../src/search.cc:95 ../src/search.cc:122
 #: ../src/search.cc:613 ../src/search.cc:696 ../src/search.cc:705
 #: ../src/search.cc:831 ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:106
-#: ../src/sharebrowser.cc:298 ../src/sharebrowser.cc:329 ../ui/search.ui:316
+#: ../src/sharebrowser.cc:298 ../src/sharebrowser.cc:329 ../ui/search.ui:318
 #: ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr ""
@@ -3192,11 +3192,11 @@ msgstr ""
 msgid "Unable to load file list: "
 msgstr ""
 
-#: ../src/mainwindow.cc:2019
+#: ../src/mainwindow.cc:2020
 msgid "Unable to load file list: Invalid file list name"
 msgstr ""
 
-#: ../src/mainwindow.cc:2242
+#: ../src/mainwindow.cc:2243
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -3268,7 +3268,7 @@ msgstr ""
 msgid "Upload starting..."
 msgstr ""
 
-#: ../src/mainwindow.cc:741
+#: ../src/mainwindow.cc:742
 msgid "Upload: "
 msgstr ""
 
@@ -3433,7 +3433,7 @@ msgid ""
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
-"  -v, --version\t Show version string\n"
+"  -V, --version\t Show version string\n"
 msgstr ""
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:336
@@ -3490,7 +3490,7 @@ msgstr ""
 msgid "Waiting:"
 msgstr ""
 
-#: ../src/mainwindow.cc:372
+#: ../src/mainwindow.cc:373
 msgid "Welcome to "
 msgstr ""
 
@@ -3538,7 +3538,7 @@ msgstr ""
 msgid "[Z]"
 msgstr ""
 
-#: ../ui/search.ui:780 ../ui/hub.ui:575 ../ui/transfers.ui:63
+#: ../ui/search.ui:782 ../ui/hub.ui:575 ../ui/transfers.ui:63
 msgid "_Add to favorites"
 msgstr ""
 
@@ -3546,7 +3546,7 @@ msgstr ""
 msgid "_Address:"
 msgstr ""
 
-#: ../ui/downloadqueue.ui:283 ../ui/search.ui:753 ../ui/hub.ui:542
+#: ../ui/downloadqueue.ui:283 ../ui/search.ui:755 ../ui/hub.ui:542
 #: ../ui/favoriteusers.ui:158 ../ui/transfers.ui:36
 msgid "_Browse file list"
 msgstr ""
@@ -3564,7 +3564,7 @@ msgstr ""
 msgid "_Copy link"
 msgstr ""
 
-#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:738
+#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:740
 #: ../ui/hub.ui:244 ../ui/sharebrowser.ui:164
 msgid "_Copy magnet"
 msgstr ""
@@ -3581,7 +3581,7 @@ msgstr ""
 msgid "_Description:"
 msgstr ""
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:677 ../ui/hub.ui:212
+#: ../ui/privatemessage.ui:169 ../ui/search.ui:679 ../ui/hub.ui:212
 msgid "_Download"
 msgstr ""
 
@@ -3601,7 +3601,7 @@ msgstr ""
 msgid "_Force attempt"
 msgstr ""
 
-#: ../ui/search.ui:789 ../ui/transfers.ui:72
+#: ../ui/search.ui:791 ../ui/transfers.ui:72
 msgid "_Grant extra slot"
 msgstr ""
 
@@ -3629,7 +3629,7 @@ msgstr ""
 msgid "_Magnet Choice"
 msgstr ""
 
-#: ../ui/search.ui:762
+#: ../ui/search.ui:764
 msgid "_Match Queue"
 msgstr ""
 
@@ -3702,7 +3702,7 @@ msgid "_Refresh file list"
 msgstr ""
 
 #: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
-#: ../ui/downloadqueue.ui:359 ../ui/search.ui:827 ../ui/searchspy.ui:108
+#: ../ui/downloadqueue.ui:359 ../ui/search.ui:829 ../ui/searchspy.ui:108
 #: ../ui/searchspy.ui:416 ../ui/favoriteusers.ui:227
 msgid "_Remove"
 msgstr ""
@@ -3715,11 +3715,11 @@ msgstr ""
 msgid "_Remove user from queue"
 msgstr ""
 
-#: ../ui/search.ui:242
+#: ../ui/search.ui:244
 msgid "_Search"
 msgstr ""
 
-#: ../ui/search.ui:729
+#: ../ui/search.ui:731
 msgid "_Search by TTH"
 msgstr ""
 
@@ -3747,7 +3747,7 @@ msgstr ""
 msgid "_User Description:"
 msgstr ""
 
-#: ../ui/search.ui:807 ../ui/hub.ui:617
+#: ../ui/search.ui:809 ../ui/hub.ui:617
 msgid "_User commands"
 msgstr ""
 
@@ -3776,7 +3776,7 @@ msgstr ""
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr ""
 
-#: ../src/mainwindow.cc:2285
+#: ../src/mainwindow.cc:2286
 msgid "file list from "
 msgstr ""
 
@@ -3788,7 +3788,7 @@ msgstr ""
 msgid "from Coral"
 msgstr ""
 
-#: ../src/mainwindow.cc:358
+#: ../src/mainwindow.cc:359
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr ""
 
@@ -3812,8 +3812,8 @@ msgstr ""
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr ""
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2319
-#: ../src/mainwindow.cc:2321 ../ui/settingsdialog.ui:3522
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2320
+#: ../src/mainwindow.cc:2322 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr ""

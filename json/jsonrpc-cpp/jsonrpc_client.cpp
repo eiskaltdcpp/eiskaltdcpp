@@ -32,6 +32,10 @@ namespace Json
   namespace Rpc
   {
 
+    Client::Client()
+    {
+    }
+
     Client::Client(const std::string& address, uint16_t port)
     {
       m_sock = -1;
@@ -68,6 +72,16 @@ namespace Json
     std::string Client::GetAddress() const
     {
       return m_address;
+    }
+
+    void Client::SetAddress(const std::string& address)
+    {
+        m_address = address;
+    }
+
+    void Client::SetPort(uint16_t port)
+    {
+        m_port = port;
     }
 
     uint16_t Client::GetPort() const

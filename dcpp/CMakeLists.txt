@@ -95,7 +95,11 @@ install (TARGETS dcpp
 endif (LINK STREQUAL SHARED)
 
 if (WITH_DEV_FILES)
-    install (FILES ${dcpp_hdrs} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/)
+    if (NOT EISKALTDCPP_INCLUDE_DIR)
+        set (EISKALTDCPP_INCLUDE_DIR "${CMAKE_INSTALL_PREFIX}/include/eiskaltdcpp")
+    endif (NOT EISKALTDCPP_INCLUDE_DIR)
+    message (STATUS "Headers of libeiskaltdcpp will be installed to: ${EISKALTDCPP_INCLUDE_DIR}")
+    install (FILES ${dcpp_hdrs} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/dcpp/)
 endif (WITH_DEV_FILES)
 
 foreach(LANG ${LANGUAGES})

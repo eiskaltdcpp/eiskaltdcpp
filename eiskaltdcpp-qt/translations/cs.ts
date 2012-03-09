@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="cs">
 <context>
     <name>ADLS</name>
     <message>
@@ -107,7 +109,7 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 
 Keys:
   -h, --help	 Show this message
-  -v, --version	 Show version string</source>
+  -V, --version	 Show version string</source>
         <translation>Using:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
@@ -115,7 +117,7 @@ EiskaltDC++ je multiplatformní program která používá Direct Connect a ADC p
 
 Keys:
   -h, --help&lt;span class=&quot;whitespace other&quot; title=&quot;Tab&quot;&gt;»&lt;/span&gt; Zobrazí tuto zprávu
-  -v, --version&lt;span class=&quot;whitespace other&quot; title=&quot;Tab&quot;&gt;»&lt;/span&gt; Zobrazí verzi</translation>
+  -V, --version&lt;span class=&quot;whitespace other&quot; title=&quot;Tab&quot;&gt;»&lt;/span&gt; Zobrazí verzi</translation>
     </message>
 </context>
 <context>
@@ -719,12 +721,12 @@ Keys:
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="439"/>
+        <location filename="../src/FinishedTransfers.h" line="499"/>
         <source>Open file</source>
         <translation>Otevřít soubor</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="440"/>
+        <location filename="../src/FinishedTransfers.h" line="500"/>
         <source>Open directory</source>
         <translation>Otevřít složku</translation>
     </message>
@@ -1793,13 +1795,13 @@ Oblíbený uživatel</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1268"/>
-        <location filename="../src/MainWindow.cpp" line="2118"/>
+        <location filename="../src/MainWindow.cpp" line="2121"/>
         <source>Open magnet link</source>
         <translation>Otevřít magnet</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1270"/>
-        <location filename="../src/MainWindow.cpp" line="2047"/>
+        <location filename="../src/MainWindow.cpp" line="2050"/>
         <source>Open log file</source>
         <translation>Otevřít soubor záznamu</translation>
     </message>
@@ -1831,13 +1833,13 @@ Oblíbený uživatel</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1282"/>
-        <location filename="../src/MainWindow.cpp" line="2329"/>
+        <location filename="../src/MainWindow.cpp" line="2332"/>
         <source>Hide window</source>
         <translation>Skrýt okno</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1285"/>
-        <location filename="../src/MainWindow.cpp" line="2327"/>
+        <location filename="../src/MainWindow.cpp" line="2330"/>
         <source>Show/hide find frame</source>
         <translation>Ukázat/skrýt rámeček hledání</translation>
     </message>
@@ -1928,37 +1930,37 @@ Oblíbený uživatel</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1321"/>
-        <location filename="../src/MainWindow.cpp" line="2461"/>
+        <location filename="../src/MainWindow.cpp" line="2464"/>
         <source>Hide free space bar</source>
         <translation>Skrýt ukazatel volného místa</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1324"/>
-        <location filename="../src/MainWindow.cpp" line="2456"/>
+        <location filename="../src/MainWindow.cpp" line="2459"/>
         <source>Show free space bar</source>
         <translation>Ukázat ukazatel volného místa</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1326"/>
-        <location filename="../src/MainWindow.cpp" line="2477"/>
+        <location filename="../src/MainWindow.cpp" line="2480"/>
         <source>Hide last status message</source>
         <translation>Skrýt poslední stavovou zprávu</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1329"/>
-        <location filename="../src/MainWindow.cpp" line="2475"/>
+        <location filename="../src/MainWindow.cpp" line="2478"/>
         <source>Show last status message</source>
         <translation>Zobrazit poslední stavovou zprávu</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1331"/>
-        <location filename="../src/MainWindow.cpp" line="2499"/>
+        <location filename="../src/MainWindow.cpp" line="2502"/>
         <source>Hide users statistics</source>
         <translation>Skrýt statistiku uživatelů</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1334"/>
-        <location filename="../src/MainWindow.cpp" line="2497"/>
+        <location filename="../src/MainWindow.cpp" line="2500"/>
         <source>Show users statistics</source>
         <translation>Zobrazit statistiku uživatelů</translation>
     </message>
@@ -2192,250 +2194,251 @@ Oblíbený uživatel</translation>
         <translation>Nemohu nahrát seznam souborů: Nesprávný název seznamu souborů</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1989"/>
+        <location filename="../src/MainWindow.cpp" line="1992"/>
         <source>Menu</source>
         <translation>Menu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2026"/>
+        <location filename="../src/MainWindow.cpp" line="2029"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
         <translation>Nemohu otevřít port %1. Hledání a přenos souborů nebude správně pracovat.Změňte nastavení nebo vypněte všechny aplikace které mohou tento port používat.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2027"/>
+        <location filename="../src/MainWindow.cpp" line="2030"/>
         <source>Connectivity Manager: Warning</source>
         <translation>Manažer konektivity: Varování</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2047"/>
+        <location filename="../src/MainWindow.cpp" line="2050"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation>Soubory záznamů (*.log);;Všechny soubory (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2118"/>
+        <location filename="../src/MainWindow.cpp" line="2121"/>
         <source>Enter magnet link:</source>
         <translation>Vlož magnet:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2269"/>
+        <location filename="../src/MainWindow.cpp" line="2272"/>
         <source>Script Engine</source>
         <translation>Script Engine</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2522"/>
+        <location filename="../src/MainWindow.cpp" line="2525"/>
         <source>Button style</source>
         <translation>Vzhled tlačítek</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2523"/>
+        <location filename="../src/MainWindow.cpp" line="2526"/>
         <source>Icons only</source>
         <translation>Pouze ikony</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2524"/>
+        <location filename="../src/MainWindow.cpp" line="2527"/>
         <source>Text only</source>
         <translation>Pouze text</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2525"/>
+        <location filename="../src/MainWindow.cpp" line="2528"/>
         <source>Text beside icons</source>
         <translation>Text vedle ikon</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2526"/>
+        <location filename="../src/MainWindow.cpp" line="2529"/>
         <source>Text under icons</source>
         <translation>Text pod ikonami</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2536"/>
+        <location filename="../src/MainWindow.cpp" line="2539"/>
         <source>Customize</source>
         <translation>Upravit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2591"/>
+        <location filename="../src/MainWindow.cpp" line="2594"/>
         <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
         <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2614"/>
+        <location filename="../src/MainWindow.cpp" line="2617"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
         <translation>EiskaltDC++ je grafický klient pro Direct Connect a ADC protokoly.&lt;br/&gt;&lt;br/&gt;DC++ core verze: %1 (upraveno)&lt;br/&gt;&lt;br/&gt;Domovská stránka: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Celkem odesláno: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Celkem staženo: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Poměr: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2631"/>
+        <location filename="../src/MainWindow.cpp" line="2634"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation>Použijte &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; k nahlášení chyb.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2634"/>
+        <location filename="../src/MainWindow.cpp" line="2637"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Vývojáři&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2637"/>
+        <location filename="../src/MainWindow.cpp" line="2640"/>
         <source>&amp;nbsp; (main developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (hlavní vývojář pro 0.4.10 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2640"/>
+        <location filename="../src/MainWindow.cpp" line="2643"/>
         <source>&amp;nbsp; (maintainer and developer 1.89.0 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (správce a vývojář pro 1.89.0 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2643"/>
+        <location filename="../src/MainWindow.cpp" line="2646"/>
         <source>&amp;nbsp; (maintainer and developer 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (správce a vývojář pro 0.4.10 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2646"/>
+        <location filename="../src/MainWindow.cpp" line="2649"/>
         <source>&amp;nbsp; (developer 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (vývojář pro 2.0.3 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2648"/>
+        <location filename="../src/MainWindow.cpp" line="2651"/>
         <source>&lt;b&gt;Logo&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Logo&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2651"/>
+        <location filename="../src/MainWindow.cpp" line="2654"/>
         <source>&amp;nbsp; (version 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (verze 0.4.10 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2655"/>
+        <location filename="../src/MainWindow.cpp" line="2658"/>
         <source>&amp;nbsp;&lt;u&gt;Russian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Ruský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2658"/>
+        <location filename="../src/MainWindow.cpp" line="2661"/>
         <source>&amp;nbsp; (for 0.4.10 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (pro 0.4.10 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2661"/>
-        <location filename="../src/MainWindow.cpp" line="2699"/>
-        <location filename="../src/MainWindow.cpp" line="2704"/>
-        <location filename="../src/MainWindow.cpp" line="2709"/>
+        <location filename="../src/MainWindow.cpp" line="2664"/>
+        <location filename="../src/MainWindow.cpp" line="2702"/>
+        <location filename="../src/MainWindow.cpp" line="2707"/>
+        <location filename="../src/MainWindow.cpp" line="2712"/>
         <source>&amp;nbsp; (for 2.1.0 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (pro 2.1.0 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2663"/>
+        <location filename="../src/MainWindow.cpp" line="2666"/>
         <source>&amp;nbsp;&lt;u&gt;Belarusian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Běloruský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2666"/>
+        <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>&amp;nbsp; (for 1.0.40 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (pro 1.0.40 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2668"/>
+        <location filename="../src/MainWindow.cpp" line="2671"/>
         <source>&amp;nbsp;&lt;u&gt;Hungarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Maďarský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2671"/>
+        <location filename="../src/MainWindow.cpp" line="2674"/>
         <source>&amp;nbsp; (for 2.0.1 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (pro 2.0.1 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2674"/>
-        <location filename="../src/MainWindow.cpp" line="2719"/>
+        <location filename="../src/MainWindow.cpp" line="2677"/>
         <location filename="../src/MainWindow.cpp" line="2722"/>
-        <location filename="../src/MainWindow.cpp" line="2727"/>
+        <location filename="../src/MainWindow.cpp" line="2725"/>
+        <location filename="../src/MainWindow.cpp" line="2733"/>
         <source>&amp;nbsp; (for 2.2.5 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (pro 2.2.5 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2676"/>
+        <location filename="../src/MainWindow.cpp" line="2679"/>
         <source>&amp;nbsp;&lt;u&gt;French translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Francouzský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2679"/>
-        <location filename="../src/MainWindow.cpp" line="2684"/>
+        <location filename="../src/MainWindow.cpp" line="2682"/>
+        <location filename="../src/MainWindow.cpp" line="2687"/>
         <source>&amp;nbsp; (for 2.0.2 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (pro 2.0.2 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2681"/>
+        <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>&amp;nbsp;&lt;u&gt;Polish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Polský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2686"/>
+        <location filename="../src/MainWindow.cpp" line="2689"/>
         <source>&amp;nbsp;&lt;u&gt;Ukrainian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Ukrajinský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2689"/>
-        <location filename="../src/MainWindow.cpp" line="2694"/>
+        <location filename="../src/MainWindow.cpp" line="2692"/>
+        <location filename="../src/MainWindow.cpp" line="2697"/>
         <source>&amp;nbsp; (for 2.0.3 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (pro 2.0.3 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2691"/>
+        <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&amp;nbsp;&lt;u&gt;Serbian (Latin) translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Srbský (Latinka) překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2696"/>
+        <location filename="../src/MainWindow.cpp" line="2699"/>
         <source>&amp;nbsp;&lt;u&gt;Spanish translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Španělský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2701"/>
+        <location filename="../src/MainWindow.cpp" line="2704"/>
         <source>&amp;nbsp;&lt;u&gt;Bulgarian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Bulharský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2706"/>
+        <location filename="../src/MainWindow.cpp" line="2709"/>
         <source>&amp;nbsp;&lt;u&gt;Slovak translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Slovvenský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2711"/>
+        <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>&amp;nbsp;&lt;u&gt;Czech translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Český překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2714"/>
+        <location filename="../src/MainWindow.cpp" line="2717"/>
         <source>&amp;nbsp; (for 2.2.0 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (pro 2.2.0 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2716"/>
+        <location filename="../src/MainWindow.cpp" line="2719"/>
         <source>&amp;nbsp;&lt;u&gt;German translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Německý překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2724"/>
+        <location filename="../src/MainWindow.cpp" line="2730"/>
         <source>&amp;nbsp;&lt;u&gt;Greek translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Řecký překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2729"/>
+        <location filename="../src/MainWindow.cpp" line="2735"/>
         <source>&amp;nbsp;&lt;u&gt;Italian translation&lt;/u&gt;&lt;br/&gt;</source>
         <translation>&amp;nbsp;&lt;u&gt;Italský překlad&lt;/u&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2732"/>
+        <location filename="../src/MainWindow.cpp" line="2728"/>
+        <location filename="../src/MainWindow.cpp" line="2738"/>
         <source>&amp;nbsp; (for 2.2.6 and later)&lt;br/&gt;</source>
         <translation>&amp;nbsp; (pro 2.2.6 a novější)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2755"/>
+        <location filename="../src/MainWindow.cpp" line="2761"/>
         <source>Show close buttons</source>
         <translation>Ukázat tlačítka pro zavření</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2842"/>
+        <location filename="../src/MainWindow.cpp" line="2848"/>
         <source>Download Queue</source>
         <translation>Fronta stahování</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2842"/>
+        <location filename="../src/MainWindow.cpp" line="2848"/>
         <source>All downloads complete</source>
         <translation>Všechna stahování jsou dokončena</translation>
     </message>
@@ -3829,7 +3832,7 @@ Chcete jej vypnout?
 <context>
     <name>TabFrame</name>
     <message>
-        <location filename="../src/TabFrame.cpp" line="366"/>
+        <location filename="../src/TabFrame.cpp" line="356"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
@@ -4282,12 +4285,12 @@ Chcete jej vypnout?
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -4306,12 +4309,12 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -4329,24 +4332,24 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;Copyright (c) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Copyright (c) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;Copyright (c) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;Tento program je free software: můžete jej šířit a/nebo modifikovat v rámci podmínek uvedených v GNU General Public Licence podle Free Software Foundation, buď ve verzi 3, nebo (podle vašeho umínění) jakékoliv novější verze.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;Tento program je šířen v naději že bude užitečný, ale BEZ ZÁRUKY; neposkytují se ani odvozené záruky PRODEJNOSTI anebo VHODNOSTI PRO URČITÝ ÚČEL.  Více v GNU General Public License.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Copyright (c) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Tento program je free software: můžete jej šířit a/nebo modifikovat v rámci podmínek uvedených v GNU General Public Licence podle Free Software Foundation, buď ve verzi 3, nebo (podle vašeho umínění) jakékoliv novější verze.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Tento program je šířen v naději že bude užitečný, ale BEZ ZÁRUKY; neposkytují se ani odvozené záruky PRODEJNOSTI anebo VHODNOSTI PRO URČITÝ ÚČEL.  Více v GNU General Public License.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Kopii GNU General Public License by jste měli obdržet zároveň s tímto programem.  Pokud se tak nestalo, navštivte &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
@@ -5198,7 +5201,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
         <source>Select this mode if your computer is connected directly to the internet.
 Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
-this option and usually you don't need to alter anything more in the
+this option and usually you don&apos;t need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation>Vyberte tento mód pokud je váš počítač připojen přímo k Internetu.
@@ -5256,7 +5259,7 @@ Tento mód obsahuje vážná omezení:
         <source>Select this mode if you are behind a firewall/router that supports
 the UPnP standard for program auto-configuration.
 Most routers do support UPnP but you may need to enable it
-in the router's configuration page.
+in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
         <translation>Vyberte tento mód pokud jste za firewallem/routerem který podporuje
@@ -5462,19 +5465,19 @@ DC++ SOCKS5 podpora nezahrnuje GSSAPI.</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn't matter&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Nastavit Type-Of-Service (TOS) pole které je odesláno s každým &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP paketem&lt;/span&gt;&lt;/a&gt; pocházejícím z tohoto soketu. To je určeno pro přižazení Priority paketům v síti. TOS je byte. Jsou definovány standarty pro TOS: &lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Nízká prodleva&amp;quot;&lt;/span&gt; pro minimalizování prodlevy v interaktivni komunikaci&lt;/p&gt;
@@ -5556,7 +5559,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
         <source>This is another method of limiting simultaneous downloads,
 designed to prevent new downloads if your existing downloads
-exceed a specific threshold. It's measured in kibibytes per second,
+exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
         <translation>Tohle je další možnost limitování souběžného stahování,
 Upravený k zabránění nového stahování pokud současné stahování
@@ -5830,7 +5833,7 @@ ale nebudou odebrány z fronty.</translation>
         <source>Every few minutes, the client will search for files in your
 Download Queue to find more download locations (more users/sources).
 The autosearch will find exact matches by searching via hash.
-The drawback is that it may won't find much more sources
+The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
         <translation>Každých pár minut bude klient vyhledává soubory ve vaší
@@ -5847,11 +5850,11 @@ je přednastaven limit na hledání.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="712"/>
-        <source>Enable to automatically download a user's list and match them
-as sources for files in your Download Queue when they've been
-discovered as a source for one of the files you're downloading.
+        <source>Enable to automatically download a user&apos;s list and match them
+as sources for files in your Download Queue when they&apos;ve been
+discovered as a source for one of the files you&apos;re downloading.
 If you download files in sets, that user is probably a source
-for many more files you're downloading. Enable if unsure.
+for many more files you&apos;re downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
@@ -5916,16 +5919,16 @@ již existujících ve vaší frontě pro stahování.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="791"/>
         <source>Enable this option if you want to keep downloaded filelists 
 in the download queue after they have been finished.
-After downloaded the queue items will have 'Finished' status
+After downloaded the queue items will have &apos;Finished&apos; status
 and you can delete these finished entries anytime later.
 Note that if you physically move/delete your downloaded files from
-their target location, it won't result automatic deletion of
+their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won't remove existing finished items
+If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Zapněte tuto volbu pokud chcete zachovat stažené seznamy souborů
 ve frontě stahování i po jejich stažení.
-Po stažení zařazených položek budou tyto mít status 'Dokončeno'
+Po stažení zařazených položek budou tyto mít status &apos;Dokončeno&apos;
 a můžete je kdykoliv smazat.
 Pokud fyzicky smažete stažené soubory z disku,
 nebudou poté automaticky odebrány z fronty stahování.
@@ -5941,19 +5944,19 @@ musíte je také odebrat manuálně.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
         <source>Enable this option if you want to keep downloaded files and folders
 in the download queue after they have been finished.
-After downloaded the queue items will have 'Finished' status
+After downloaded the queue items will have &apos;Finished&apos; status
 and you can delete these finished entries anytime later.
 Using this function you can keep track of what files are already
 downloaded right there in the download queue without the need
 of checking the Finished Downloads window.
 Note that if you physically move/delete your downloaded files from
-their target location, it won't result automatic deletion of
+their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won't remove existing finished items
+If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Zapněte tuto volbu pokud chcete zachovat stažené soubory a složky
 ve frontě stahování po jejich dokončení.
-Po stažení budou mít stažené položky ve frontě status 'Hotovo'
+Po stažení budou mít stažené položky ve frontě status &apos;Hotovo&apos;
 a tyto položky můžete později kdykoliv smazat.
 Použitím této funkce můžete lehce sledovat které soubory byli již
 staženy přímo zde ve frontě stahování bez potřeby
@@ -6164,8 +6167,8 @@ z fronty stahování, musíte je odebrat ručně.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="346"/>
-        <source>If checked, you'll see emoticons even in the middle of words.
-If unchecked, you'll see emoticons only if they are isolated
+        <source>If checked, you&apos;ll see emoticons even in the middle of words.
+If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
         <translation>Pokud je zatrženo, uvidíte smajlíky i uprostřed slov.
 Pokud není zatrženo, budou zobrazeny pouze smajlíky
@@ -6507,12 +6510,12 @@ seznamu souborů</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
@@ -6631,7 +6634,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="355"/>
-        <source>If your sound files' format is unsupported by Qt, you can define
+        <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
         <translation>Pokud formát vašich zvukových souborů neni podporován Qt,
@@ -6953,10 +6956,10 @@ pokud je váš systém při hashování zpomalený.</translation>
         <location filename="../ui/UISettingsSharing.ui" line="520"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
-one slot for each hub that they're on with you.
+one slot for each hub that they&apos;re on with you.
 EiskaltDC++ supports uploading file lists and files below 64 KiB
 to other DC++ users without requiring a slot.
-There's a max of 3 connections in addition to normal slots,
+There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>

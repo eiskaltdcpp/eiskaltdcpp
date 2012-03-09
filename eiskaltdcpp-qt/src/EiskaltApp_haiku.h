@@ -105,7 +105,10 @@ public:
     }
 
     void saveState(QSessionManager &){ /** Do nothing */ }
-
+    
+Q_SIGNALS:
+    void messageReceived(const QString &message);
+    
 private:
     EiskaltEventFilter ef;
 };

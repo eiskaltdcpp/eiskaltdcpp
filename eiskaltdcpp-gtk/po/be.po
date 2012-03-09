@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -9,15 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-01-25 20:57+0200\n"
+"POT-Creation-Date: 2012-02-21 22:19+0200\n"
 "PO-Revision-Date: 2012-01-25 19:01+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Belarusian (http://www.transifex.net/projects/p/eiskaltdcpp/team/be/)\n"
+"Language-Team: Belarusian (http://www.transifex.net/projects/p/eiskaltdcpp/"
+"team/be/)\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../src/hub.cc:1049 ../src/hub.cc:1128 ../src/privatemessage.cc:566
 #: ../src/privatemessage.cc:645
@@ -192,11 +194,11 @@ msgstr ": надрукуйце «/help», каб атрымаць сьпіс д�
 
 #: ../ui/settingsdialog.ui:6847
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 msgstr ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Дапамога</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Дапамога</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -483,7 +485,7 @@ msgstr "<b>Што вы хочаце рабіць?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Можнасьці вокнаў</b>"
 
-#: ../src/mainwindow.cc:2295
+#: ../src/mainwindow.cc:2296
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
@@ -890,8 +892,8 @@ msgstr "Спраўджваць кожныя"
 msgid "Choose a File"
 msgstr "Абярыце файл"
 
-#: ../src/hub.cc:2617 ../src/privatemessage.cc:1296 ../src/mainwindow.cc:1301
-#: ../src/mainwindow.cc:1369 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/hub.cc:2617 ../src/privatemessage.cc:1296 ../src/mainwindow.cc:1302
+#: ../src/mainwindow.cc:1370 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8084
 msgid "Choose a directory"
 msgstr "Абярыце каталёґ"
@@ -900,7 +902,7 @@ msgstr "Абярыце каталёґ"
 msgid "Chose A File"
 msgstr "Абярыце файл"
 
-#: ../ui/search.ui:264 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
+#: ../ui/search.ui:266 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
 msgid "Clear"
 msgstr "Ачысьціць"
 
@@ -1033,7 +1035,7 @@ msgstr "Злучаемся…"
 msgid "Connection"
 msgstr "Злучэньне"
 
-#: ../src/mainwindow.cc:2244
+#: ../src/mainwindow.cc:2245
 msgid "Connectivity Manager: Warning"
 msgstr "Кіраўнік злучэньняў: перасьцярога"
 
@@ -1176,7 +1178,7 @@ msgstr "Ня сьцягваць файлы, што ўжо маем абагул�
 msgid "Don't download files already in the queue"
 msgstr "Ня сьцягваць файлы, што ўжо стаяць у чарзе"
 
-#: ../ui/search.ui:571
+#: ../ui/search.ui:573
 msgid "Don't hide side panel on search"
 msgstr "Не хаваць бакавую паліцу, калі шукаем"
 
@@ -1206,11 +1208,11 @@ msgstr "Сьцягваць сабе"
 msgid "Download Queue"
 msgstr "Чарга сьцягванага"
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:686 ../ui/hub.ui:221
+#: ../ui/privatemessage.ui:178 ../ui/search.ui:688 ../ui/hub.ui:221
 msgid "Download _to..."
 msgstr "Сьцягнуць _у…"
 
-#: ../ui/search.ui:700
+#: ../ui/search.ui:702
 msgid "Download _whole directory"
 msgstr "Сьцягнуць увесь _каталёґ"
 
@@ -1255,8 +1257,7 @@ msgstr "Абмежаваньне сьцягваць відарысы: "
 #: ../src/hub.cc:2023
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
-"Відарысы: 0 — ня сьцягваць; n<0 — сьцягваць усе; пуста — паказаць бягучы "
-"стан"
+"Відарысы: 0 — ня сьцягваць; n<0 — сьцягваць усе; пуста — паказаць бягучы стан"
 
 #: ../src/transfers.cc:1091
 msgid "Download removed"
@@ -1282,11 +1283,11 @@ msgstr "Сьцягнуць у"
 msgid "Download to..."
 msgstr "Сьцягнуць у…"
 
-#: ../ui/search.ui:709
+#: ../ui/search.ui:711
 msgid "Download whole director_y to..."
 msgstr "Сьцягнуць увесь _каталёґ у…"
 
-#: ../src/mainwindow.cc:741
+#: ../src/mainwindow.cc:742
 msgid "Download: "
 msgstr "Сьцягнулі: "
 
@@ -1379,7 +1380,7 @@ msgstr "Упішыце радок карыстальніцкага загаду"
 msgid "Enter text to search for"
 msgstr "Упішыце тэкст, які трэба шукаць"
 
-#: ../src/mainwindow.cc:1235
+#: ../src/mainwindow.cc:1236
 msgid "Enter value for "
 msgstr "Упішыце значэньне "
 
@@ -1561,7 +1562,7 @@ msgstr "Файлаў: "
 msgid "Filter by IP"
 msgstr "Прасейваць па IP"
 
-#: ../ui/search.ui:500
+#: ../ui/search.ui:502
 msgid "Filter files already in share"
 msgstr "Прасейваць файлы, што ўжо маюцца ў абагуленым"
 
@@ -1632,7 +1633,7 @@ msgstr ""
 msgid "Frame:"
 msgstr "Кадар:"
 
-#: ../src/mainwindow.cc:2354
+#: ../src/mainwindow.cc:2355
 msgid "Free "
 msgstr "Вольных "
 
@@ -1688,11 +1689,11 @@ msgstr "Даць дадатковую шчыліну"
 msgid "Greek"
 msgstr ""
 
-#: ../src/mainwindow.cc:255
+#: ../src/mainwindow.cc:256
 msgid "Greek translation\n"
 msgstr ""
 
-#: ../ui/search.ui:404
+#: ../ui/search.ui:406
 msgid "Group by"
 msgstr "Аб’ядноўваць паводле"
 
@@ -1725,7 +1726,7 @@ msgstr "_Высокае"
 msgid "Hash"
 msgstr "Стварэньне скаротаў"
 
-#: ../ui/search.ui:278
+#: ../ui/search.ui:280
 msgid "Hide side panel"
 msgstr ""
 
@@ -1795,7 +1796,7 @@ msgstr "Злучыліся з асяродкам"
 msgid "Hub disconnected"
 msgstr "Асяродак адлучыўся"
 
-#: ../ui/search.ui:532 ../ui/mainwindow.ui:2161 ../ui/mainwindow.ui:2416
+#: ../ui/search.ui:534 ../ui/mainwindow.ui:2161 ../ui/mainwindow.ui:2416
 msgid "Hubs"
 msgstr "Асяродкі"
 
@@ -1910,7 +1911,7 @@ msgstr "Задзейнічаць (on) ці не (off) сіта IP"
 msgid "Italian"
 msgstr ""
 
-#: ../src/mainwindow.cc:258
+#: ../src/mainwindow.cc:259
 msgid "Italian translation\n"
 msgstr ""
 
@@ -1972,7 +1973,7 @@ msgstr "Сьпіс: "
 msgid "Load Lua file"
 msgstr "Прачытаць файл Lua"
 
-#: ../src/mainwindow.cc:2031
+#: ../src/mainwindow.cc:2032
 msgid "Loading file list"
 msgstr "Чытаецца сьпіс файлаў"
 
@@ -2028,11 +2029,11 @@ msgstr "Найніжэйшае"
 msgid "Magnet"
 msgstr "Маґніт-спасылка"
 
-#: ../src/mainwindow.cc:1362
+#: ../src/mainwindow.cc:1363
 msgid "Magnet Choice"
 msgstr "Выбар па маґніт-спасылцы"
 
-#: ../src/mainwindow.cc:1292
+#: ../src/mainwindow.cc:1293
 msgid "Magnet Properties / Choice"
 msgstr "Уласьцівасьці маґніт-спасылкі (выбар)"
 
@@ -2297,8 +2298,8 @@ msgstr "Уважце: абраныя віды пошуку будуць прац
 #: ../ui/settingsdialog.ui:4605 ../ui/settingsdialog.ui:4675
 msgid "Note: Most of these options require that you restart the application"
 msgstr ""
-"Уважце: зьмяненьні ў большасьці можнасьцяў пачынаюць дзейнічаць па наступным"
-" запуску праґрамы"
+"Уважце: зьмяненьні ў большасьці можнасьцяў пачынаюць дзейнічаць па наступным "
+"запуску праґрамы"
 
 #: ../ui/settingsdialog.ui:4017
 msgid "Note: New files are added to the share only once they've been hashed!"
@@ -2307,8 +2308,7 @@ msgstr ""
 "створацца скароты!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Уважце: хуткасьць зьмяняецца, таму гэта вызначаецца недакладна…"
 
 #: ../src/settingsdialog.cc:1254 ../ui/settingsdialog.ui:5673
@@ -2332,7 +2332,7 @@ msgstr "У сетцы"
 msgid "Only show joins / parts for favorite users"
 msgstr "Паведамляць, калі ўлюбёнец увайшоў ці выйшаў"
 
-#: ../ui/search.ui:477
+#: ../ui/search.ui:479
 msgid "Only users with free slots"
 msgstr "Толькі тыя, хто мае вольныя шчыліны"
 
@@ -2623,7 +2623,7 @@ msgstr "Выкрасьляць павольныя сьпісы файлаў"
 msgid "Remove user favorite"
 msgstr "Выкрасьліць карыстальніка з улюбёнцаў"
 
-#: ../ui/downloadqueue.ui:345 ../ui/search.ui:798
+#: ../ui/downloadqueue.ui:345 ../ui/search.ui:800
 msgid "Remove user from _queue"
 msgstr "_Выкрасьліць карыстальніка з чаргі"
 
@@ -2717,7 +2717,7 @@ msgstr "Шукаць, што можна сьцягнуць"
 msgid "Search history"
 msgstr "Гісторыя пошуку"
 
-#: ../ui/search.ui:446
+#: ../ui/search.ui:448
 msgid "Search options"
 msgstr "Можнасьці пошуку"
 
@@ -2731,7 +2731,7 @@ msgstr "Выявілі непажаданы пошук ад "
 msgid "Search type"
 msgstr "Від крыніцы"
 
-#: ../ui/search.ui:456
+#: ../ui/search.ui:458
 msgid "Search within local results"
 msgstr "Шукаць сярод знойдзенага"
 
@@ -2747,11 +2747,11 @@ msgstr "Пасьведчаньні бясьпекі"
 msgid "Select Font"
 msgstr ""
 
-#: ../src/mainwindow.cc:2378
+#: ../src/mainwindow.cc:2379
 msgid "Select file to Get TTH"
 msgstr "Абярыце файл, скарот якога трэба вылічыць"
 
-#: ../src/mainwindow.cc:1994 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:1995 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Абярыце сьпіс файлаў"
 
@@ -2764,7 +2764,7 @@ msgstr ""
 msgid "Send Private Message"
 msgstr "Даслаць асабістае паведамленьне"
 
-#: ../ui/downloadqueue.ui:297 ../ui/search.ui:771
+#: ../ui/downloadqueue.ui:297 ../ui/search.ui:773
 msgid "Send _private message"
 msgstr "Асабістае _паведамленьне"
 
@@ -2811,8 +2811,7 @@ msgid "Set download limit image: "
 msgstr "Вызначылі абмежаваньне сьцягваць малюнкі: "
 
 #: ../src/settingsdialog.cc:954
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
+msgid "Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Калі дадаецца файл, большы за памер для нізкага пяршынства, надаваць яму "
 "найніжэйшае пяршынства"
@@ -2917,7 +2916,7 @@ msgstr "Спыняецца libdcpp…"
 #: ../src/settingsdialog.cc:3707 ../src/search.cc:95 ../src/search.cc:122
 #: ../src/search.cc:613 ../src/search.cc:696 ../src/search.cc:705
 #: ../src/search.cc:831 ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:106
-#: ../src/sharebrowser.cc:298 ../src/sharebrowser.cc:329 ../ui/search.ui:316
+#: ../src/sharebrowser.cc:298 ../src/sharebrowser.cc:329 ../ui/search.ui:318
 #: ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Памер"
@@ -3234,14 +3233,14 @@ msgstr "Не магу злучыцца: з запытаным асяродкам
 msgid "Unable to load file list: "
 msgstr "Не магу прачытаць сьпіс файлаў: "
 
-#: ../src/mainwindow.cc:2019
+#: ../src/mainwindow.cc:2020
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Не магу прачытаць сьпіс файлаў: хібная назва сьпісу файлаў"
 
-#: ../src/mainwindow.cc:2242
+#: ../src/mainwindow.cc:2243
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Не магу адчыніць порт %1%. Файлы ня будуць перадавацца без памылак і пошук "
@@ -3313,7 +3312,7 @@ msgstr "Хуткасьць зацягваць"
 msgid "Upload starting..."
 msgstr "Пачынаем зацягваць…"
 
-#: ../src/mainwindow.cc:741
+#: ../src/mainwindow.cc:742
 msgid "Upload: "
 msgstr "Зацягнулі: "
 
@@ -3475,21 +3474,23 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
-"  -v, --version\t Show version string\n"
+"  -V, --version\t Show version string\n"
 msgstr ""
 "Як карыстацца:\n"
 "  eiskaltdcpp-gtk <маґніт-спасылка> <dchub://спасылка> <adc(s)://спасылка>\n"
 "  eiskaltdcpp-gtk <ключ>\n"
-"EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы Direct Connect і ADC.\n"
+"EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы "
+"Direct Connect і ADC.\n"
 "\n"
 "\n"
 "Ключы:\n"
 "  -h, --help\t Паказвае гэтае паведамленьне\n"
-"  -v, --version\t Паказвае радок з вэрсіяй\n"
+"  -V, --version\t Паказвае радок з вэрсіяй\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:336
 msgid "Video"
@@ -3545,7 +3546,7 @@ msgstr "Чакаем паспрабаваць зноўку"
 msgid "Waiting:"
 msgstr "Чакаем:"
 
-#: ../src/mainwindow.cc:372
+#: ../src/mainwindow.cc:373
 msgid "Welcome to "
 msgstr "Вітаем вас у "
 
@@ -3593,7 +3594,7 @@ msgstr "[U]"
 msgid "[Z]"
 msgstr "[Z]"
 
-#: ../ui/search.ui:780 ../ui/hub.ui:575 ../ui/transfers.ui:63
+#: ../ui/search.ui:782 ../ui/hub.ui:575 ../ui/transfers.ui:63
 msgid "_Add to favorites"
 msgstr "_Дадаць да ўлюбёнцаў"
 
@@ -3601,7 +3602,7 @@ msgstr "_Дадаць да ўлюбёнцаў"
 msgid "_Address:"
 msgstr "_Адрас:"
 
-#: ../ui/downloadqueue.ui:283 ../ui/search.ui:753 ../ui/hub.ui:542
+#: ../ui/downloadqueue.ui:283 ../ui/search.ui:755 ../ui/hub.ui:542
 #: ../ui/favoriteusers.ui:158 ../ui/transfers.ui:36
 msgid "_Browse file list"
 msgstr "_Зірнуць сьпіс файлаў"
@@ -3619,7 +3620,7 @@ msgstr "_Зачыніць ваконца"
 msgid "_Copy link"
 msgstr "Перапісаць _спасылку"
 
-#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:738
+#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:740
 #: ../ui/hub.ui:244 ../ui/sharebrowser.ui:164
 msgid "_Copy magnet"
 msgstr "Перапісаць _маґніт-спасылку"
@@ -3636,7 +3637,7 @@ msgstr "Перапісаць _малюнак"
 msgid "_Description:"
 msgstr "А_пісаньне:"
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:677 ../ui/hub.ui:212
+#: ../ui/privatemessage.ui:169 ../ui/search.ui:679 ../ui/hub.ui:212
 msgid "_Download"
 msgstr "_Сьцягнуць"
 
@@ -3656,7 +3657,7 @@ msgstr "_Файл"
 msgid "_Force attempt"
 msgstr "_Прымусіць паспрабаваць"
 
-#: ../ui/search.ui:789 ../ui/transfers.ui:72
+#: ../ui/search.ui:791 ../ui/transfers.ui:72
 msgid "_Grant extra slot"
 msgstr "Дадаць _шчыліну"
 
@@ -3684,7 +3685,7 @@ msgstr "_Найніжэйшае"
 msgid "_Magnet Choice"
 msgstr "Выбар па _маґніт-спасылцы"
 
-#: ../ui/search.ui:762
+#: ../ui/search.ui:764
 msgid "_Match Queue"
 msgstr "Узгадніць _чаргу"
 
@@ -3757,7 +3758,7 @@ msgid "_Refresh file list"
 msgstr "_Абнавіць сьпіс файлаў"
 
 #: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
-#: ../ui/downloadqueue.ui:359 ../ui/search.ui:827 ../ui/searchspy.ui:108
+#: ../ui/downloadqueue.ui:359 ../ui/search.ui:829 ../ui/searchspy.ui:108
 #: ../ui/searchspy.ui:416 ../ui/favoriteusers.ui:227
 msgid "_Remove"
 msgstr "_Выкрасьліць"
@@ -3770,11 +3771,11 @@ msgstr "Выкрасьліць з _улюбёнцаў"
 msgid "_Remove user from queue"
 msgstr "_Выкрасьліць карыстальніка з чаргі"
 
-#: ../ui/search.ui:242
+#: ../ui/search.ui:244
 msgid "_Search"
 msgstr "_Шукаць"
 
-#: ../ui/search.ui:729
+#: ../ui/search.ui:731
 msgid "_Search by TTH"
 msgstr "_Шукаць па скароце (TTH)"
 
@@ -3802,7 +3803,7 @@ msgstr "Пры_лады"
 msgid "_User Description:"
 msgstr "Апісаньне _карыстальніка:"
 
-#: ../ui/search.ui:807 ../ui/hub.ui:617
+#: ../ui/search.ui:809 ../ui/hub.ui:617
 msgid "_User commands"
 msgstr "Загады _карыстальніка"
 
@@ -3831,7 +3832,7 @@ msgstr "Пошта"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: прачыталі аздабленьне %s…\n"
 
-#: ../src/mainwindow.cc:2285
+#: ../src/mainwindow.cc:2286
 msgid "file list from "
 msgstr "сьпіс файлаў ад "
 
@@ -3843,7 +3844,7 @@ msgstr "ад"
 msgid "from Coral"
 msgstr "з Каралу (Coral)"
 
-#: ../src/mainwindow.cc:358
+#: ../src/mainwindow.cc:359
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 
@@ -3867,8 +3868,8 @@ msgstr "бачына праекту: "
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "суадносіны: %1% (зацягнулі: %2%, сьцягнулі: %3%)"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2319
-#: ../src/mainwindow.cc:2321 ../ui/settingsdialog.ui:3522
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2320
+#: ../src/mainwindow.cc:2322 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "с"
@@ -3900,5 +3901,3 @@ msgstr "найлепшыя/чакаюць/бачныя: "
 #: ../src/searchspy.cc:299 ../src/searchspy.cc:367
 msgid "waiting..."
 msgstr "чакаем…"
-
-

@@ -16,12 +16,13 @@ liblua5.1 (optional, see cmake keys)
 libpcrecpp0 (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 libidn (optional, see cmake keys)
+libattr (optional)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
-libqtcore4, libqtgui4, libqt4-network, libqt4-xml (>= 4.4.0)
-libqt4-script (>= 4.4.0) (optional, see cmake keys)
-libqt4-dbus (>= 4.4.0) (optional, see cmake keys)
+libqtcore4, libqtgui4, libqt4-network, libqt4-xml (>= 4.6.0)
+libqt4-script (>= 4.6.0) (optional, see cmake keys)
+libqt4-dbus (>= 4.6.0) (optional, see cmake keys)
 libaspell (optional, see cmake keys)
 -----------------
 :eiskaltdcpp-gtk:
@@ -32,6 +33,7 @@ libgtk2 (>= 2.24)
 libglib2 (>= 2.24)
 libnotify (>= 0.4.1) (optional, see cmake keys)
 libgnome2 (optional, see cmake keys)
+libcanberra (optional, see cmake keys)
 --------------------
 :eiskaltdcpp-daemon:
 --------------------
@@ -87,10 +89,11 @@ liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 libidn (optional, see cmake keys)
+libattr-dev (optional)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
-qt4 (>=4.4.0)
+qt4 (>= 4.6.0)
 libaspell-dev (optional, see cmake keys)
 -----------------
 :eiskaltdcpp-gtk:
@@ -99,6 +102,7 @@ libgtk2.0-dev (optional, see cmake keys)
 libgtk-3-dev  (optional, see cmake keys)
 libnotify-dev (optional, see cmake keys)
 libgnome2-dev (optional, see cmake keys)
+libcanberra-dev (optional, see cmake keys)
 --------------------
 :eiskaltdcpp-daemon:
 --------------------
@@ -150,8 +154,8 @@ Keys for cmake
 ----------------
 -DUSE_QT=ON/OFF (default: ON)
     build EiskaltDC++ with Qt interface
--DUSE_ASPELL=ON/OFF (default: not set)
-    forced use or not use aspell
+-DUSE_ASPELL=ON/OFF (default: OFF)
+    use or not use aspell
 -DFREE_SPACE_BAR_C=ON/OFF (default: ON)
     free space bar in status panel
 -DDBUS_NOTIFY=ON/OFF (default: ON)
@@ -170,7 +174,9 @@ Keys for cmake
 -DUSE_GTK3=ON/OFF (default: OFF)
     build EiskaltDC++ with Gtk interface using Gtk3 library
 -DUSE_LIBGNOME2=ON/OFF (default: OFF)
-    Enable/disable sound notifications support in EiskaltDC++ Gtk
+    Enable/disable sound notifications support over libgnome2 in EiskaltDC++ Gtk
+-DUSE_LIBCANBERRA=ON/OFF (default: OFF)
+    Enable/disable sound notifications support over libcanberra in EiskaltDC++ Gtk
 -DUSE_LIBNOTIFY=ON/OFF (default: ON)
     Enable/disable popup notifications support in EiskaltDC++ Gtk
 --------------------
@@ -232,7 +238,7 @@ Keys for cmake
 -DENABLE_STACKTRACE=ON/OFF (default: OFF)
     Show stacktrace when program receive SIGSEGV
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
-    build type
+    build type (please use RelWithDebInfo for debug mode, not Debug)
 And other standart cmake keys...
 
 ---------
@@ -262,7 +268,7 @@ sudo gmake install
 Mac OS X specific notes
 *******************************************************************************
 # If you need program without unnecessary features just configure cmake like this:
-cmake -DCMAKE_BUILD_TYPE=Release -DUSE_MINIUPNP=ON -DFREE_SPACE_BAR_C=ON -DLOCAL_MINIUPNP=ON -DWITH_SOUNDS=ON -DCMAKE_C_COMPILER=/opt/local/bin/gcc-mp-4.4 -DCMAKE_CXX_COMPILER=/opt/local/bin/g++-mp-4.4
+cmake -DCMAKE_BUILD_TYPE=Release -DUSE_MINIUPNP=ON -DFREE_SPACE_BAR_C=ON -DLOCAL_MINIUPNP=ON -DWITH_SOUNDS=ON -DCMAKE_C_COMPILER=/opt/local/bin/gcc-mp-4.5 -DCMAKE_CXX_COMPILER=/opt/local/bin/g++-mp-4.5
 # For generate native app bundle in Mac OS X use:
 cpack -G DragNDrop
 
@@ -277,7 +283,7 @@ Instructions are available in the file: win32/READ_ME.txt
 Haiku-OS specific notes
 *******************************************************************************
 To configure program use command like this:
-cmake -DLOCAL_BOOST=ON -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp -DCMAKE_CXX_FLAGS="-DTIMER_OLD_BOOST" -DCMAKE_SHARE_DIR=/boot/apps/Eiskaltdcpp -DCMAKE_CLIENT_DATA_DIR=/boot/apps/Eiskaltdcpp ..
+cmake -DLOCAL_BOOST=ON -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp -DCMAKE_CXX_FLAGS="-DTIMER_OLD_BOOST" -DSHARE_DIR=/boot/apps/Eiskaltdcpp ..
 
 
 *******************************************************************************

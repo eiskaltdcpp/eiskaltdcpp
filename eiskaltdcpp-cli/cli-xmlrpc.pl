@@ -48,7 +48,7 @@ our %config;
 $config{version}=0.2;
 require "cli-xmlrpc-config.pl";
 my $version,my $help;
-GetOptions ('v|version' => \$version, 'h|help' => \$help);
+GetOptions ('V|version' => \$version, 'h|help' => \$help);
 if ($version)
 {
 	print("Command line interface version: $config{version}\n");
@@ -64,7 +64,7 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 
 Keys:
 \t-h, --help\t Show this message
-\t-v, --version\t Show version string\n");
+\t-V, --version\t Show version string\n");
 	exit(1);
 }
 print("Configuration:\n");

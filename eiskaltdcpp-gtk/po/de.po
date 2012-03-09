@@ -1,22 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
+#   <be.w@mail.ru>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-01-25 20:57+0200\n"
-"PO-Revision-Date: 2012-01-25 19:01+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: German (http://www.transifex.net/projects/p/eiskaltdcpp/team/de/)\n"
+"POT-Creation-Date: 2012-02-21 22:19+0200\n"
+"PO-Revision-Date: 2012-02-16 07:39+0000\n"
+"Last-Translator: Jackl <be.w@mail.ru>\n"
+"Language-Team: German (http://www.transifex.net/projects/p/eiskaltdcpp/"
+"language/de/)\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/hub.cc:1049 ../src/hub.cc:1128 ../src/privatemessage.cc:566
@@ -142,8 +144,7 @@ msgstr ""
 
 #: ../src/hub.cc:2335
 msgid "': type /help for a list of available commands"
-msgstr ""
-"«: Geben Sie /help ein, um eine Liste verfügbarer Befehle zu erhalten."
+msgstr "«: Geben Sie /help ein, um eine Liste verfügbarer Befehle zu erhalten."
 
 #: ../src/hub.cc:2005 ../src/privatemessage.cc:1020
 msgid "*** Available commands:"
@@ -193,11 +194,11 @@ msgstr ": Geben Sie /help ein, um eine Liste verfügbarer Befehle zu erhalten."
 
 #: ../ui/settingsdialog.ui:6847
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 msgstr ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -309,7 +310,7 @@ msgstr "<b>Einstellungen für eingehende Verbindungen</b>"
 
 #: ../ui/settingsdialog.ui:4328
 msgid "<b>Language</b>"
-msgstr ""
+msgstr "<b>Logging</b>"
 
 #: ../ui/settingsdialog.ui:2859
 msgid "<b>Limits</b>"
@@ -485,7 +486,7 @@ msgstr "<b>Was wollten Sie tun?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Fensteroptionen</b>"
 
-#: ../src/mainwindow.cc:2295
+#: ../src/mainwindow.cc:2296
 msgid "<b>file:</b> "
 msgstr "<b>Datei:</b>"
 
@@ -543,8 +544,8 @@ msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
 msgstr ""
-"Regel 192.168.1.0/23 hinzufügen, wobei Richtung eingehend und Aktion erlaubt"
-" ist, sowie 192.168.6.0/24, wobei Richtung ein- oder ausgehend und Aktion "
+"Regel 192.168.1.0/23 hinzufügen, wobei Richtung eingehend und Aktion erlaubt "
+"ist, sowie 192.168.6.0/24, wobei Richtung ein- oder ausgehend und Aktion "
 "verwerfen ist."
 
 #: ../ui/mainwindow.ui:288
@@ -696,8 +697,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1526
 msgid "Automatically disconnect users who leave the hub"
-msgstr ""
-"Verbindungen von Benutzern, die den Hub verlassen, automatisch trennen"
+msgstr "Verbindungen von Benutzern, die den Hub verlassen, automatisch trennen"
 
 #: ../src/settingsdialog.cc:1522
 msgid "Automatically follow redirects"
@@ -710,8 +710,8 @@ msgstr "Warteschlange für automatische Suchtreffer automatisch anpassen"
 #: ../ui/settingsdialog.ui:4160
 msgid "Automatically open extra slot if speed is below (0 = disable)"
 msgstr ""
-"Automatisch zusätzlichen Slot öffnen, wenn Geschwindigkeit darunter liegt (0"
-" = deaktiviert)"
+"Automatisch zusätzlichen Slot öffnen, wenn Geschwindigkeit darunter liegt (0 "
+"= deaktiviert)"
 
 #: ../src/settingsdialog.cc:958
 msgid "Automatically search for alternative download locations"
@@ -750,11 +750,11 @@ msgstr "Hintergrundfarbe"
 
 #: ../src/settingsdialog.cc:1005
 msgid "Belarusian"
-msgstr ""
+msgstr "Weißrussische Übersetzung"
 
 #: ../src/mainwindow.cc:219
 msgid "Belarusian translation\n"
-msgstr ""
+msgstr "Weißrussische Übersetzung\n"
 
 #: ../ui/settingsdialog.ui:7360
 msgid "Bind address"
@@ -795,11 +795,11 @@ msgstr "Durchsuchen …"
 
 #: ../src/settingsdialog.cc:1019
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgarisch"
 
 #: ../src/mainwindow.cc:241
 msgid "Bulgarian translation\n"
-msgstr ""
+msgstr "Bulgarische Übersetzung\n"
 
 #: ../src/settingsdialog.cc:1336
 msgid "Button smile"
@@ -898,8 +898,8 @@ msgstr "Alle prüfen"
 msgid "Choose a File"
 msgstr "Eine Datei auswählen"
 
-#: ../src/hub.cc:2617 ../src/privatemessage.cc:1296 ../src/mainwindow.cc:1301
-#: ../src/mainwindow.cc:1369 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/hub.cc:2617 ../src/privatemessage.cc:1296 ../src/mainwindow.cc:1302
+#: ../src/mainwindow.cc:1370 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8084
 msgid "Choose a directory"
 msgstr "Ein Verzeichnis wählen"
@@ -908,7 +908,7 @@ msgstr "Ein Verzeichnis wählen"
 msgid "Chose A File"
 msgstr "Wählen Sie eine Datei aus."
 
-#: ../ui/search.ui:264 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
+#: ../ui/search.ui:266 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
 msgid "Clear"
 msgstr "Leeren"
 
@@ -1041,13 +1041,13 @@ msgstr "Wird verbunden …"
 msgid "Connection"
 msgstr "Verbindung"
 
-#: ../src/mainwindow.cc:2244
+#: ../src/mainwindow.cc:2245
 msgid "Connectivity Manager: Warning"
 msgstr "Verbindungsverwaltung: Warnung"
 
 #: ../src/mainwindow.cc:207
 msgid "Contributors\n"
-msgstr ""
+msgstr "Mitwirkende\n"
 
 #: ../src/searchspy.cc:59 ../src/searchspy.cc:158 ../src/searchspy.cc:272
 #: ../src/searchspy.cc:297 ../src/searchspy.cc:313 ../src/searchspy.cc:435
@@ -1060,11 +1060,11 @@ msgstr "Land"
 
 #: ../src/settingsdialog.cc:1023
 msgid "Czech"
-msgstr ""
+msgstr "Tschechisch"
 
 #: ../src/mainwindow.cc:247
 msgid "Czech translation\n"
-msgstr ""
+msgstr "Tshechische Übersetzung\n"
 
 #: ../src/mainwindow.cc:185
 #, c-format
@@ -1130,7 +1130,7 @@ msgstr "Zielverzeichnis"
 
 #: ../src/mainwindow.cc:203
 msgid "Developers\n"
-msgstr ""
+msgstr "Entwickler\n"
 
 #: ../src/sharebrowser.cc:111 ../src/sharebrowser.cc:229
 #: ../src/sharebrowser.cc:248 ../src/sharebrowser.cc:581
@@ -1170,7 +1170,7 @@ msgstr "Möchten Sie wirklich beenden?"
 
 #: ../ui/settingsdialog.ui:1508
 msgid "Don't allow Hub/UPnP/DHT to override"
-msgstr ""
+msgstr "Verbiete Hub/UPnP/DHT zu überschreiben"
 
 #: ../src/settingsdialog.cc:1525
 msgid "Don't delete file lists when exiting"
@@ -1184,7 +1184,7 @@ msgstr "Keine Dateien herunterladen, die bereits gemeinsam benutzt werden"
 msgid "Don't download files already in the queue"
 msgstr "Keine Dateien herunterladen, die bereits in der Warteschlange sind"
 
-#: ../ui/search.ui:571
+#: ../ui/search.ui:573
 msgid "Don't hide side panel on search"
 msgstr "Sidebar bei Suche nicht verbergen"
 
@@ -1215,11 +1215,11 @@ msgstr "Download-Übereinstimmungen"
 msgid "Download Queue"
 msgstr "Download-Warteschlange"
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:686 ../ui/hub.ui:221
+#: ../ui/privatemessage.ui:178 ../ui/search.ui:688 ../ui/hub.ui:221
 msgid "Download _to..."
 msgstr "Download _nach …"
 
-#: ../ui/search.ui:700
+#: ../ui/search.ui:702
 msgid "Download _whole directory"
 msgstr "_Ganzes Verzeichnis herunterladen"
 
@@ -1291,11 +1291,11 @@ msgstr "Download nach"
 msgid "Download to..."
 msgstr "Download nach …"
 
-#: ../ui/search.ui:709
+#: ../ui/search.ui:711
 msgid "Download whole director_y to..."
 msgstr "Gan_zes Verzeichnis herunterladen nach …"
 
-#: ../src/mainwindow.cc:741
+#: ../src/mainwindow.cc:742
 msgid "Download: "
 msgstr "Download: "
 
@@ -1378,7 +1378,7 @@ msgstr "Verschlüsselung"
 
 #: ../src/settingsdialog.cc:1001
 msgid "English"
-msgstr ""
+msgstr "Englisch"
 
 #: ../ui/mainwindow.ui:2526
 msgid "Enter line for user command"
@@ -1388,7 +1388,7 @@ msgstr "Geben Sie die Zeile für den Benutzerbefehl ein"
 msgid "Enter text to search for"
 msgstr "Text eingeben, nach dem gesucht werden soll"
 
-#: ../src/mainwindow.cc:1235
+#: ../src/mainwindow.cc:1236
 msgid "Enter value for "
 msgstr "Geben Sie den Wert ein für "
 
@@ -1570,7 +1570,7 @@ msgstr "Dateien: "
 msgid "Filter by IP"
 msgstr "Filter über IP"
 
-#: ../ui/search.ui:500
+#: ../ui/search.ui:502
 msgid "Filter files already in share"
 msgstr "Dateien filtern, die bereits in der Freigabe sind"
 
@@ -1641,17 +1641,17 @@ msgstr ""
 msgid "Frame:"
 msgstr "Frame:"
 
-#: ../src/mainwindow.cc:2354
+#: ../src/mainwindow.cc:2355
 msgid "Free "
 msgstr "Frei"
 
 #: ../src/settingsdialog.cc:1009
 msgid "French"
-msgstr ""
+msgstr "Französisch"
 
 #: ../src/mainwindow.cc:226
 msgid "French translation\n"
-msgstr ""
+msgstr "Französische Übersetzung\n"
 
 #: ../src/downloadqueue.cc:1367
 msgid "Full tree does not match TTH root"
@@ -1671,11 +1671,11 @@ msgstr "Zertifikate erzeugen"
 
 #: ../src/settingsdialog.cc:1025
 msgid "German"
-msgstr ""
+msgstr "Deutsch"
 
 #: ../src/mainwindow.cc:250
 msgid "German translation\n"
-msgstr ""
+msgstr "Deutsche Übersetzung\n"
 
 #: ../src/hub.cc:2014 ../src/privatemessage.cc:1027 ../ui/privatemessage.ui:66
 msgid "Get file list"
@@ -1695,13 +1695,13 @@ msgstr "Zusätzlichen Slot gewähren"
 
 #: ../src/settingsdialog.cc:1027
 msgid "Greek"
-msgstr ""
+msgstr "Griechisch"
 
-#: ../src/mainwindow.cc:255
+#: ../src/mainwindow.cc:256
 msgid "Greek translation\n"
-msgstr ""
+msgstr "Griechische Übersetzung\n"
 
-#: ../ui/search.ui:404
+#: ../ui/search.ui:406
 msgid "Group by"
 msgstr "Gruppieren nach"
 
@@ -1734,9 +1734,9 @@ msgstr "_Hoch"
 msgid "Hash"
 msgstr "Hash"
 
-#: ../ui/search.ui:278
+#: ../ui/search.ui:280
 msgid "Hide side panel"
-msgstr ""
+msgstr "Verberge Seitenleiste"
 
 #: ../ui/mainwindow.ui:1532
 msgid "Hide tools panel"
@@ -1804,7 +1804,7 @@ msgstr "Hub verbunden"
 msgid "Hub disconnected"
 msgstr "Hub getrennt"
 
-#: ../ui/search.ui:532 ../ui/mainwindow.ui:2161 ../ui/mainwindow.ui:2416
+#: ../ui/search.ui:534 ../ui/mainwindow.ui:2161 ../ui/mainwindow.ui:2416
 msgid "Hubs"
 msgstr "Hubs"
 
@@ -1818,11 +1818,11 @@ msgstr "Hubs: "
 
 #: ../src/settingsdialog.cc:1007
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungarisch"
 
 #: ../src/mainwindow.cc:222
 msgid "Hungarian translation\n"
-msgstr ""
+msgstr "Ungarische Übersetzung\n"
 
 #: ../src/transfers.cc:65 ../src/search.cc:101 ../src/search.cc:619
 msgid "IP"
@@ -1917,11 +1917,11 @@ msgstr "IP-Filter an/aus"
 
 #: ../src/settingsdialog.cc:1029
 msgid "Italian"
-msgstr ""
+msgstr "Italienisch"
 
-#: ../src/mainwindow.cc:258
+#: ../src/mainwindow.cc:259
 msgid "Italian translation\n"
-msgstr ""
+msgstr "Italienische Übersetzung\n"
 
 #: ../src/downloadqueue.cc:244 ../src/sharebrowser.cc:358
 msgid "Items: "
@@ -1981,7 +1981,7 @@ msgstr "Liste: "
 msgid "Load Lua file"
 msgstr "Lua-Datei laden"
 
-#: ../src/mainwindow.cc:2031
+#: ../src/mainwindow.cc:2032
 msgid "Loading file list"
 msgstr "Dateiliste wird geladen"
 
@@ -2037,11 +2037,11 @@ msgstr "Niedrigster"
 msgid "Magnet"
 msgstr "Magnet"
 
-#: ../src/mainwindow.cc:1362
+#: ../src/mainwindow.cc:1363
 msgid "Magnet Choice"
 msgstr "Magnetauswahl"
 
-#: ../src/mainwindow.cc:1292
+#: ../src/mainwindow.cc:1293
 msgid "Magnet Properties / Choice"
 msgstr "Magneteigenschaften/Auswahl"
 
@@ -2318,8 +2318,7 @@ msgstr ""
 "Wert errechnet wurde!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 "Hinweis: Aufgrund sich ändernder Download-Geschwindigkeiten ist dies nicht "
 "100%ig genau …"
@@ -2345,7 +2344,7 @@ msgstr "Online"
 msgid "Only show joins / parts for favorite users"
 msgstr "Nur Verbindungen/Trennungen für favorisierte Benutzer anzeigen"
 
-#: ../ui/search.ui:477
+#: ../ui/search.ui:479
 msgid "Only users with free slots"
 msgstr "Nur Benutzer mit freien Slots"
 
@@ -2459,11 +2458,11 @@ msgstr "Abspielen"
 
 #: ../src/settingsdialog.cc:1011
 msgid "Polish"
-msgstr ""
+msgstr "Polnisch"
 
 #: ../src/mainwindow.cc:229
 msgid "Polish translation\n"
-msgstr ""
+msgstr "Polnische Übersetzung\n"
 
 #: ../src/settingsdialog.cc:1470
 msgid "Popup box to input password for hubs"
@@ -2599,8 +2598,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1536
 msgid "Register with the OS to handle magnet: URL links"
-msgstr ""
-"Mit dem Betriebssystem registrieren, um Magnet:-URL-Links zu handhaben"
+msgstr "Mit dem Betriebssystem registrieren, um Magnet:-URL-Links zu handhaben"
 
 #: ../ui/mainwindow.ui:389
 msgid "Remember choice"
@@ -2609,8 +2607,7 @@ msgstr "Auswahl merken"
 #: ../src/downloadqueue.cc:1371
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr ""
-"Ferner Client unterstützt TTH nicht vollständig - Herunterladen nicht "
-"möglich"
+"Ferner Client unterstützt TTH nicht vollständig - Herunterladen nicht möglich"
 
 #: ../ui/adlsearch.ui:508 ../ui/uploadqueue.ui:69 ../ui/settingsdialog.ui:7994
 msgid "Remove"
@@ -2640,7 +2637,7 @@ msgstr "Langsame Dateilisten entfernen"
 msgid "Remove user favorite"
 msgstr "Favorisierte Benutzer entfernen"
 
-#: ../ui/downloadqueue.ui:345 ../ui/search.ui:798
+#: ../ui/downloadqueue.ui:345 ../ui/search.ui:800
 msgid "Remove user from _queue"
 msgstr "_Benutzer aus Warteschlange entfernen"
 
@@ -2674,11 +2671,11 @@ msgstr "Wird ausgeführt …"
 
 #: ../src/settingsdialog.cc:1003
 msgid "Russian"
-msgstr ""
+msgstr "Russisch"
 
 #: ../src/mainwindow.cc:216
 msgid "Russian translation\n"
-msgstr ""
+msgstr "Russische Übersetzung\n"
 
 #: ../src/WulforUtil.cc:219
 msgid "SJIS"
@@ -2734,7 +2731,7 @@ msgstr "Nach Dateien zum Herunterladen suchen"
 msgid "Search history"
 msgstr "Suchchronik"
 
-#: ../ui/search.ui:446
+#: ../ui/search.ui:448
 msgid "Search options"
 msgstr "Suchoptionen"
 
@@ -2748,7 +2745,7 @@ msgstr "Such-Spam entdeckt von "
 msgid "Search type"
 msgstr "Suchtyp"
 
-#: ../ui/search.ui:456
+#: ../ui/search.ui:458
 msgid "Search within local results"
 msgstr "Innerhalb lokaler Ergebnisse suchen"
 
@@ -2762,13 +2759,13 @@ msgstr "Sicherheitszertifikate"
 
 #: ../src/settingsdialog.cc:3127
 msgid "Select Font"
-msgstr ""
+msgstr "Wähle Schriftart"
 
-#: ../src/mainwindow.cc:2378
+#: ../src/mainwindow.cc:2379
 msgid "Select file to Get TTH"
 msgstr "Wählen Sie die Datei aus, um TTH zu erhalten"
 
-#: ../src/mainwindow.cc:1994 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:1995 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Zu durchsuchende Dateiliste auswählen"
 
@@ -2780,7 +2777,7 @@ msgstr "Bei Doppelklick in der Benutzerliste PM senden"
 msgid "Send Private Message"
 msgstr "Private Nachricht"
 
-#: ../ui/downloadqueue.ui:297 ../ui/search.ui:771
+#: ../ui/downloadqueue.ui:297 ../ui/search.ui:773
 msgid "Send _private message"
 msgstr "_Private Nachricht senden"
 
@@ -2808,11 +2805,11 @@ msgstr "Trennzeichen"
 
 #: ../src/settingsdialog.cc:1013
 msgid "Serbian (Latin)"
-msgstr ""
+msgstr "Serbische (Latein) Übersetzung"
 
 #: ../src/mainwindow.cc:235
 msgid "Serbian (Latin) translation\n"
-msgstr ""
+msgstr "Serbische (Latein) Übersetzung\n"
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
@@ -2827,8 +2824,7 @@ msgid "Set download limit image: "
 msgstr "Download-Begrenzung für Bild setzen: "
 
 #: ../src/settingsdialog.cc:954
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
+msgid "Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 "Niedrigste Priorität für neu hinzugefügte Dateien setzen, die größer sind "
 "als die Größe der niedrigen Priorität"
@@ -2933,7 +2929,7 @@ msgstr "Libdcpp wird beendet …"
 #: ../src/settingsdialog.cc:3707 ../src/search.cc:95 ../src/search.cc:122
 #: ../src/search.cc:613 ../src/search.cc:696 ../src/search.cc:705
 #: ../src/search.cc:831 ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:106
-#: ../src/sharebrowser.cc:298 ../src/sharebrowser.cc:329 ../ui/search.ui:316
+#: ../src/sharebrowser.cc:298 ../src/sharebrowser.cc:329 ../ui/search.ui:318
 #: ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Größe"
@@ -2965,11 +2961,11 @@ msgstr "Slots"
 
 #: ../src/settingsdialog.cc:1021
 msgid "Slovak"
-msgstr ""
+msgstr "Slovakisch"
 
 #: ../src/mainwindow.cc:244
 msgid "Slovak translation\n"
-msgstr ""
+msgstr "Slovakische Übersetzung\n"
 
 #: ../ui/mainwindow.ui:1513
 msgid "Small icons"
@@ -3010,11 +3006,11 @@ msgstr "Quelle zu langsam"
 
 #: ../src/settingsdialog.cc:1017
 msgid "Spanish"
-msgstr ""
+msgstr "Spanisch"
 
 #: ../src/mainwindow.cc:238
 msgid "Spanish translation\n"
-msgstr ""
+msgstr "Spanische Übersetzung\n"
 
 #: ../src/transfers.cc:61 ../src/transfers.cc:557 ../src/transfers.cc:593
 #: ../src/transfers.cc:761 ../src/finishedtransfers.cc:67
@@ -3237,11 +3233,11 @@ msgstr "UTF-8"
 
 #: ../src/settingsdialog.cc:1015
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainisch"
 
 #: ../src/mainwindow.cc:232
 msgid "Ukrainian translation\n"
-msgstr ""
+msgstr "Ukrainische Übersetzung\n"
 
 #: ../src/hub.cc:2952
 msgid "Unable to connect: already connected to the requested hub"
@@ -3251,14 +3247,14 @@ msgstr "Verbinden nicht möglich: bereits zum angeforderten Hub verbunden"
 msgid "Unable to load file list: "
 msgstr "Dateiliste kann nicht geladen werden: "
 
-#: ../src/mainwindow.cc:2019
+#: ../src/mainwindow.cc:2020
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Dateiliste kann nicht geladen werden: ungültiger Dateilistenname"
 
-#: ../src/mainwindow.cc:2242
+#: ../src/mainwindow.cc:2243
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 "Port %1% kann nicht geöffnet werden. Suche oder Datenübertragung wird nicht "
@@ -3330,7 +3326,7 @@ msgstr "Upload-Geschwindigkeit"
 msgid "Upload starting..."
 msgstr "Upload wird gestartet …"
 
-#: ../src/mainwindow.cc:741
+#: ../src/mainwindow.cc:742
 msgid "Upload: "
 msgstr "Upload: "
 
@@ -3390,8 +3386,8 @@ msgstr "Gefühlsymbole benutzen"
 #: ../src/settingsdialog.cc:1534
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr ""
-"Schnelle Hashing-Methode benutzen (Deaktivieren Sie dies, falls Sie Probleme"
-" mit dem Hashing haben.)"
+"Schnelle Hashing-Methode benutzen (Deaktivieren Sie dies, falls Sie Probleme "
+"mit dem Hashing haben.)"
 
 #: ../src/settingsdialog.cc:1053
 msgid "Use magnet split"
@@ -3492,11 +3488,12 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
-"  -v, --version\t Show version string\n"
+"  -V, --version\t Show version string\n"
 msgstr ""
 "Aufruf:\n"
 "  eiskaltdcpp-gtk <Magnet-Link> <dchub://Link> <adc(s)://Link>\n"
@@ -3506,7 +3503,7 @@ msgstr ""
 "\n"
 "Optionen:\n"
 "  -h, --help      Diese Nachricht anzeigen\n"
-"  -v, --version   Version anzeigen\n"
+"  -V, --version   Version anzeigen\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:336
 msgid "Video"
@@ -3563,7 +3560,7 @@ msgstr "Auf erneuten Versuch warten"
 msgid "Waiting:"
 msgstr "Warten:"
 
-#: ../src/mainwindow.cc:372
+#: ../src/mainwindow.cc:373
 msgid "Welcome to "
 msgstr "Willkommen bei "
 
@@ -3611,7 +3608,7 @@ msgstr "[U]"
 msgid "[Z]"
 msgstr "[Z]"
 
-#: ../ui/search.ui:780 ../ui/hub.ui:575 ../ui/transfers.ui:63
+#: ../ui/search.ui:782 ../ui/hub.ui:575 ../ui/transfers.ui:63
 msgid "_Add to favorites"
 msgstr "Zu _Favoriten hinzufügen"
 
@@ -3619,7 +3616,7 @@ msgstr "Zu _Favoriten hinzufügen"
 msgid "_Address:"
 msgstr "A_dresse:"
 
-#: ../ui/downloadqueue.ui:283 ../ui/search.ui:753 ../ui/hub.ui:542
+#: ../ui/downloadqueue.ui:283 ../ui/search.ui:755 ../ui/hub.ui:542
 #: ../ui/favoriteusers.ui:158 ../ui/transfers.ui:36
 msgid "_Browse file list"
 msgstr "Dateil_iste durchstöbern"
@@ -3637,7 +3634,7 @@ msgstr "Widget schlie_ßen"
 msgid "_Copy link"
 msgstr "Link _kopieren"
 
-#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:738
+#: ../ui/privatemessage.ui:201 ../ui/downloadqueue.ui:191 ../ui/search.ui:740
 #: ../ui/hub.ui:244 ../ui/sharebrowser.ui:164
 msgid "_Copy magnet"
 msgstr "_Magnet kopieren"
@@ -3654,7 +3651,7 @@ msgstr "_Bild kopieren"
 msgid "_Description:"
 msgstr "_Beschreibung:"
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:677 ../ui/hub.ui:212
+#: ../ui/privatemessage.ui:169 ../ui/search.ui:679 ../ui/hub.ui:212
 msgid "_Download"
 msgstr "_Download"
 
@@ -3674,7 +3671,7 @@ msgstr "_Datei"
 msgid "_Force attempt"
 msgstr "_Versuch erzwingen"
 
-#: ../ui/search.ui:789 ../ui/transfers.ui:72
+#: ../ui/search.ui:791 ../ui/transfers.ui:72
 msgid "_Grant extra slot"
 msgstr "Zus_ätzlichen Slot gewähren"
 
@@ -3702,7 +3699,7 @@ msgstr "Am nie_drigsten"
 msgid "_Magnet Choice"
 msgstr "_Magnetauswahl"
 
-#: ../ui/search.ui:762
+#: ../ui/search.ui:764
 msgid "_Match Queue"
 msgstr "Einer _Warteschlange zuordnen"
 
@@ -3775,7 +3772,7 @@ msgid "_Refresh file list"
 msgstr "Dateil_iste auffrischen"
 
 #: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
-#: ../ui/downloadqueue.ui:359 ../ui/search.ui:827 ../ui/searchspy.ui:108
+#: ../ui/downloadqueue.ui:359 ../ui/search.ui:829 ../ui/searchspy.ui:108
 #: ../ui/searchspy.ui:416 ../ui/favoriteusers.ui:227
 msgid "_Remove"
 msgstr "_Entfernen"
@@ -3788,11 +3785,11 @@ msgstr "Aus den Fa_voriten entfernen"
 msgid "_Remove user from queue"
 msgstr "Benutzer aus _Warteschlange entfernen"
 
-#: ../ui/search.ui:242
+#: ../ui/search.ui:244
 msgid "_Search"
 msgstr "_Suche"
 
-#: ../ui/search.ui:729
+#: ../ui/search.ui:731
 msgid "_Search by TTH"
 msgstr "Suche nach _TTH"
 
@@ -3820,7 +3817,7 @@ msgstr "_Werkzeuge"
 msgid "_User Description:"
 msgstr "Ben_utzerbeschreibung:"
 
-#: ../ui/search.ui:807 ../ui/hub.ui:617
+#: ../ui/search.ui:809 ../ui/hub.ui:617
 msgid "_User commands"
 msgstr "Benutzerbefeh_le"
 
@@ -3849,7 +3846,7 @@ msgstr "E-Mail"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: Theme %s wird geladen …\n"
 
-#: ../src/mainwindow.cc:2285
+#: ../src/mainwindow.cc:2286
 msgid "file list from "
 msgstr "Dateiliste von "
 
@@ -3861,7 +3858,7 @@ msgstr "von"
 msgid "from Coral"
 msgstr "von Coral"
 
-#: ../src/mainwindow.cc:358
+#: ../src/mainwindow.cc:359
 msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
 
@@ -3885,8 +3882,8 @@ msgstr "Herkunft des Projekts: "
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "Verhältnis: %1% (Uploads: %2%, Downloads: %3% )"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2319
-#: ../src/mainwindow.cc:2321 ../ui/settingsdialog.ui:3522
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2320
+#: ../src/mainwindow.cc:2322 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "s"
@@ -3918,5 +3915,3 @@ msgstr "Kopfende/warten/Frame:"
 #: ../src/searchspy.cc:299 ../src/searchspy.cc:367
 msgid "waiting..."
 msgstr "Warten …"
-
-

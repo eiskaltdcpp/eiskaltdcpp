@@ -1,27 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Translators:
+#   <franxisco1988@gmail.com>, 2012.
 # Gustavo Alvarez Lopez <sl1pkn07@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-01-25 20:30+0200\n"
-"PO-Revision-Date: 2012-01-25 16:54+0000\n"
-"Last-Translator: Gustavo Alvarez Lopez <sl1pkn07@gmail.com>\n"
-"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/"
-"eiskaltdcpp/team/es/)\n"
-"Language: es\n"
+"POT-Creation-Date: 2012-02-21 22:19+0200\n"
+"PO-Revision-Date: 2012-03-05 21:16+0000\n"
+"Last-Translator: franxisco1988 <franxisco1988@gmail.com>\n"
+"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/eiskaltdcpp/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
-msgstr "Expulsar Usuario(s)"
+msgstr "Expulsar usuario(s)"
 
 #: ../FavoriteManager.cpp:433
 msgid "Redirect user(s)"
@@ -29,12 +30,12 @@ msgstr "Redireccionar usuario(s)"
 
 #: ../FavoriteManager.cpp:489
 msgid "Auto-connect group (converted)"
-msgstr "Auto-conectar grupo (convertido)"
+msgstr "Grupo de conexión automática (convertido)"
 
 #: ../Socket.cpp:86
 #, c-format
 msgid "Unknown error: 0x%1$x"
-msgstr "Error Desconocido: 0x%1$x"
+msgstr "Error desconocido: 0x%1$x"
 
 #: ../Socket.cpp:221 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
 #: ../ConnectionManager.cpp:186
@@ -44,7 +45,7 @@ msgstr "Conexión fuera de tiempo"
 #: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
 #: ../Socket.cpp:298 ../Socket.cpp:313
 msgid "The socks server failed establish a connection"
-msgstr "No se ha establecido conexión con el servidor socks"
+msgstr "El servidor socks falló al establecer la conexión"
 
 #: ../Socket.cpp:302
 msgid "The socks server requires authentication"
@@ -52,25 +53,21 @@ msgstr "El servidor socks requiere autentificación"
 
 #: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
-msgstr "El servidor socks no soporta autentificación de usuario / contraseña"
+msgstr "El servidor socks no soporta autentificación mediante usuario y contraseña"
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"No se ha establecido conexión con el servidor socks (¿usuario / contraseña "
-"errónea?)"
+msgstr "No se ha establecido conexión con el servidor socks (¿usuario o contraseña erróneos?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"Fallada la conexión con el servidor socks por retraso UDP (chequear "
-"dirección socks y puerto)"
+msgstr "Fallada la conexión con el servidor socks por retraso UDP (revise la dirección del servidor socks y el puerto)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
-msgstr "Base de Datos del Hash"
+msgstr "Base de datos de índices"
 
 #: ../DCPlusPlus.cpp:125
 msgid "Shared Files"
@@ -86,7 +83,7 @@ msgstr "Usuarios"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
-msgstr "No se puede crear tarea"
+msgstr "Fue imposible crear el hilo"
 
 #: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
 msgid "Invalid data"
@@ -102,32 +99,26 @@ msgstr "Determinando la mejor configuración de conexión..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-"No se puede habilitar el/los puerto(s) %1%. Debería configurar su conexión "
-"manualmente"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr "No se puedo abrir el/los puerto(s) %1%. Tendrá que configurar su conexión manualmente"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr ""
-"IP publica detectada, Seleccionando modo activo con la conexión directa"
+msgstr "IP publica detectada, deleccionando modo activo con conexión directa"
 
 #: ../ConnectivityManager.cpp:100
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr ""
-"Detectado posible red local con NAT, probando los puertos con el mapa, "
-"usando UPnP..."
+msgstr "Detectada posible red local con NAT, tratando de redirigir los puertos usando UPnP..."
 
 #: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"La configuración automática para el modo activo a fallado. Necesita "
-"configurar su conexión manualmente para una mejor conectividad"
+msgstr "La configuración automática del modo activo ha fallado. Necesita configurar su conexión manualmente para una mejor conectividad"
 
 #: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
@@ -147,7 +138,7 @@ msgstr "Conectividad: "
 
 #: ../UploadManager.cpp:132
 msgid "Connection already exists."
-msgstr "Conexión cerrada"
+msgstr "La conexión ya está establecida."
 
 #: ../UploadManager.cpp:267
 msgid "Unable to send file %1%: %2%"
@@ -159,7 +150,7 @@ msgstr "IPFilter: Bloqueada conexión de entrada a "
 
 #: ../UploadManager.cpp:617
 msgid "Disconnected user leaving the hub: %1%"
-msgstr "Usuario desconectado ha dejado el hub: %1%"
+msgstr "Se ha desconectado al usuario que ha dejado el hub: %1%"
 
 #: ../SettingsManager.cpp:183
 msgid "downloaded from"
@@ -167,7 +158,7 @@ msgstr "descargado de"
 
 #: ../SettingsManager.cpp:515
 msgid "Invalid search type name"
-msgstr "Nombre del tipo de búsqueda invalida"
+msgstr "Nombre del tipo a buscar invalido"
 
 #: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
 msgid "This search type already exists"
@@ -183,11 +174,11 @@ msgstr "Error: ¡configuración no encontrada!"
 
 #: ../SettingsManager.cpp:609
 msgid "Change core setting "
-msgstr "Cambiar configuración del núcleo:"
+msgstr "Cambiar configuración del núcleo "
 
 #: ../SettingsManager.cpp:609
 msgid " to "
-msgstr "a"
+msgstr " a "
 
 #: ../SettingsManager.cpp:611
 msgid "Error: params have been not 2!"
@@ -199,15 +190,13 @@ msgstr "%1% (Nick desconocido)"
 
 #: ../NmdcHub.cpp:670
 msgid "Hub topic:"
-msgstr "Tópic del Hub :"
+msgstr "Tema del hub:"
 
 #: ../NmdcHub.cpp:1020
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr ""
-"Este hub está intentado que se use tu cliente para hacer spam de %1%, por "
-"favor, inste al dueño del hub que arregle esto"
+msgstr "Este hub está intentado usar tu cliente para enviar span a %1%, por favor, inste al dueño del hub a arreglar esto"
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
@@ -217,7 +206,7 @@ msgstr "Desconectado"
 
 #: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr "%1% (%2%) tiene el mismo CID {%3%} como  %4% (%5%), ignorando"
+msgstr "%1% (%2%) tiene el mismo CID {%3%} que %4% (%5%), ignorando"
 
 #: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
 msgid "%1%/s"
@@ -231,13 +220,11 @@ msgstr "No se ha podido negociar el protocolo base"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"El Hub probablemente utiliza una versión antigua de ADC, por favor, Insta al "
-"administrador que lo actualice"
+msgstr "El hub probablemente utiliza una versión antigua de ADC, por favor, Inste al administrador a actualizarlo"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
-msgstr "%1% ha sido expulsado de %2%: %3%"
+msgstr "%1% ha sido expulsado por %2%: %3%"
 
 #: ../AdcHub.cpp:308
 msgid "%1% was kicked: %2%"
@@ -245,52 +232,52 @@ msgstr "%1% ha sido expulsado: %2%"
 
 #: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
-msgstr "No escuchando conexiones - por favor reinicie %1%"
+msgstr "No se están esperando por nuevas conexiones - por favor reinicie %1%"
 
 #: ../HttpConnection.cpp:166
 msgid "Endless redirection loop (%1%)"
-msgstr "Bucle sin redirección (%1%)"
+msgstr "Bucle de redirección infinito (%1%)"
 
 #: ../ChatMessage.cpp:33
 msgid "Sent "
 msgstr "Enviado "
 
-#: ../Util.cpp:611
+#: ../Util.cpp:621
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:613
+#: ../Util.cpp:623
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:615
+#: ../Util.cpp:625
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:617
+#: ../Util.cpp:627
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:619
+#: ../Util.cpp:629
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:621
+#: ../Util.cpp:631
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:651
+#: ../Util.cpp:661
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:655
+#: ../Util.cpp:665
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -298,113 +285,109 @@ msgstr "%'lld B"
 #: ../ZUtils.cpp:36 ../ZUtils.cpp:57 ../ZUtils.cpp:79 ../ZUtils.cpp:89
 #: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62
 msgid "Error during compression"
-msgstr "Error en la compresión"
+msgstr "Error durante la compresión"
 
 #: ../ZUtils.cpp:103 ../ZUtils.cpp:126 ../CryptoManager.cpp:372
 #: ../CryptoManager.cpp:391 ../CryptoManager.cpp:405 ../BZUtils.cpp:74
 #: ../BZUtils.cpp:96 ../BZUtils.cpp:99
 msgid "Error during decompression"
-msgstr "Error en la descompresión"
+msgstr "Error durante la descompresión"
 
 #: ../HashManager.cpp:218 ../HashManager.cpp:418
 msgid "Hashing failed: %1%"
-msgstr "Indexado Fallido: %1%"
+msgstr "Indexado fallido: %1%"
 
 #: ../HashManager.cpp:225
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Indexado Finalizado: %1% (%2% a %3%/s)"
+msgstr "Indexado finalizado: %1% (%2% a %3%/s)"
 
 #: ../HashManager.cpp:228
 msgid "Finished hashing: %1% (%2%)"
-msgstr "Indexado Finalizado: %1% (%2%)"
+msgstr "Indexado finalizado: %1% (%2%)"
 
 #: ../HashManager.cpp:231
 msgid "Finished hashing: %1%"
-msgstr "Indexado Finalizado: %1%"
+msgstr "Indexado finalizado: %1%"
 
 #: ../HashManager.cpp:260 ../HashManager.cpp:474
 msgid "Error saving hash data: %1%"
-msgstr "Error al guardar información del indexado: %1%"
+msgstr "Error al guardar información de indexado: %1%"
 
 #: ../HashManager.cpp:273
 msgid "Unable to read hash data file"
-msgstr "No se pudo leer el archivo índice Hash"
+msgstr "No se pudo leer el archivo índices"
 
 #: ../HashManager.cpp:606
 msgid "Error creating hash data file: %1%"
-msgstr "Error al crear el archivo índice del Hash: %1%"
+msgstr "Error al crear el archivo índice: %1%"
 
 #: ../HashManager.cpp:946
 msgid "Hash database rebuilt"
-msgstr "Base de datos del Hash reconstruido"
+msgstr "Base de datos de índices reconstruida"
 
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% No compartido; el CRC32 calculado no concuerda con el encontrado en el "
-"archivo SFV."
+msgstr "%1% no compartido; el CRC32 calculado no concuerda con el encontrado en el archivo SFV."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
-msgstr "Error en el Indexado %1%: %2%"
+msgstr "Error en el indexado %1%: %2%"
 
 #: ../UPnPManager.cpp:45
 msgid "No UPnP implementation available"
-msgstr "Implementación UPnP no disponible"
+msgstr "No hay disponible una implementación de UPnP"
 
 #: ../UPnPManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
-msgstr "Otro mapa de puertos UPnP está funcionando ahora..."
+msgstr "Hay otra redirección de puertos UPnP en curso ahora mismo..."
 
 #: ../UPnPManager.cpp:82
 msgid "Failed to initialize the %1% interface"
-msgstr "Fallo al inicializar la interface %1%"
+msgstr "Fallo al inicializar la interfaz %1%"
 
 #: ../UPnPManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
-msgstr "Puerto de Transferencia (%1% TCP)"
+msgstr " Puerto de Transferencia (%1% TCP)"
 
 #: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
 #: ../UPnPManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr "La interface %1% ha fallado con el mapa los puertos %2% %3%"
+msgstr "La interfaz %1% no ha podido redirigir el puerto %2% %3%"
 
 #: ../UPnPManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr "Puerto de Transferencia Encriptado (%1% TCP)"
+msgstr " Puerto de Transferencias Cifradas (%1% TCP)"
 
 #: ../UPnPManager.cpp:96
 msgid " Search Port (%1% UDP)"
-msgstr "Puerto de búsqueda (1%% UDP)"
+msgstr " Puerto de búsquedas (1%% UDP)"
 
 #: ../UPnPManager.cpp:101
 msgid " DHT Port (%1% UDP)"
-msgstr "Puerto DHT (%1% UDP)"
+msgstr " Puerto DHT (%1% UDP)"
 
 #: ../UPnPManager.cpp:108
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr ""
-"Creado mapa de puertos satisfactoriamente (TCP: %1%, UDP: %2%, TLS: %3%), el "
-"mapeo ha sido usado en la interface %4%"
+msgstr "Redirección de puertos realizada con éxito (TCP: %1%, UDP: %2%, TLS: %3%), redirección hecha usando la interfaz %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
-msgstr "Fallo al recibir  IP externa"
+msgstr "Fallo al recibir la IP externa"
 
 #: ../UPnPManager.cpp:129
 msgid "Failed to create port mappings"
-msgstr "Fallo al crear la tabla de puertos"
+msgstr "Fallo al crear la redirección de puertos"
 
 #: ../UPnPManager.cpp:138
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Eliminado con éxito las asignaciones de puerto con la interfaz %1%"
+msgstr "Eliminadas con éxito las redirecciones de puertos con la interfaz %1%"
 
 #: ../UPnPManager.cpp:139
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr "No se pudo eliminar asignaciones de puertos con la interfaz %1%"
+msgstr "No se pudo eliminar  las redirecciones de puertos con la interfaz %1%"
 
 #: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
@@ -412,7 +395,7 @@ msgstr "UPnP: %1%"
 
 #: ../ShareManager.cpp:446
 msgid "No directory specified"
-msgstr "Directorio no especificado"
+msgstr "No se ha especificado un directorio"
 
 #: ../ShareManager.cpp:450
 msgid "Directory is hidden"
@@ -420,12 +403,11 @@ msgstr "El directorio está escondido"
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
-msgstr "La carpeta temporal de descargas NO puede compartirse"
+msgstr "La carpeta temporal de descargas no puede compartirse"
 
 #: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
-msgstr ""
-"Encontrado nombre de archivo invalido mientras que se hasheaba la carpeta %1%"
+msgstr "Encontrado nombre de archivo inválido mientras que se indexaba la carpeta %1%"
 
 #: ../ShareManager.cpp:660
 msgid "User has chosen not to share file: %1% (Size: %2%)"
@@ -433,24 +415,19 @@ msgstr "El usuario ha elegido no compartir el archivo: %1% (Tamaño: %2%)"
 
 #: ../ShareManager.cpp:681
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
-"El usuario ha elegido no compartir el archivo temporal: %1% (Tamaño: %2%)"
+msgstr "El usuario ha elegido no compartir el archivo temporal: %1% (Tamaño: %2%)"
 
 #: ../ShareManager.cpp:769
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr ""
-"El archivo duplicado %1% no será compartido (Tamaño: %2% B) Comparado con el "
-"duplicado: %3%"
+msgstr "El archivo duplicado %1% no será compartido (Tamaño: %2% B) Duplicado de: %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Refresco de la lista en progreso, por favor espere a que termine este "
-"proceso antes que comenzar de nuevo"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "Refresco de la lista en curso, por favor espere a que termine este proceso antes de refrescar de nuevo"
 
 #: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
@@ -458,15 +435,15 @@ msgstr "Refresco de la lista Fallido: %1%"
 
 #: ../ShareManager.cpp:834
 msgid "File list refresh initiated"
-msgstr "Refresco de la lista Iniciada"
+msgstr "Iniciando refresco de la lista de archivos"
 
 #: ../ShareManager.cpp:859
 msgid "File list refresh finished"
-msgstr "Refresco de la lista Terminada"
+msgstr "Refresco de la lista de archivos terminada"
 
 #: ../ShareManager.cpp:941
 msgid "File list %1% generated"
-msgstr "Lista de ficheros %1% generada"
+msgstr "Lista de archivos %1% generada"
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -482,7 +459,7 @@ msgstr "Desconectado"
 
 #: ../ADLSearch.cpp:40
 msgid "<Enter string>"
-msgstr "<Ingrese cadena>"
+msgstr "<Introduzca cadena>"
 
 #: ../ADLSearch.cpp:487
 msgid "Discard"
@@ -490,15 +467,15 @@ msgstr "Descartar"
 
 #: ../DirectoryListing.cpp:210
 msgid "Directory missing name attribute"
-msgstr "Atributo de nombre falta del directorio."
+msgstr "Al directorio le falta el atributo: nombre."
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
-msgstr "No ha elegido archivo de claves privadas"
+msgstr "No se ha elegido archivo de claves privadas"
 
 #: ../CryptoManager.cpp:137
 msgid "No certificate file chosen"
-msgstr "Ningún archivo de certificado ha sido escogido"
+msgstr "No se ha elegido archivo de certificado"
 
 #: ../CryptoManager.cpp:149
 msgid "Error generating certificate"
@@ -514,17 +491,17 @@ msgstr "Nuevo certificado TLS generado"
 
 #: ../CryptoManager.cpp:222
 msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "TLS desactivado, no ha definido un certificado: %1%"
+msgstr "TLS desactivado, no se pudo generar el certificado: %1%"
 
 #: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
 #: ../CryptoManager.cpp:240
 msgid "Failed to load certificate file"
-msgstr "Carga del Certificado fallida"
+msgstr "Carga del certificado fallida"
 
 #: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
 #: ../CryptoManager.cpp:258
 msgid "Failed to load private key"
-msgstr "Carga de la Llave Privada fallida"
+msgstr "Fallo al cargar la llave privada"
 
 #: ../SSLSocket.cpp:160
 msgid "SSL Error: %1% (%2%, %3%)"
@@ -532,7 +509,7 @@ msgstr "SSL Error: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:134
 msgid "IPFilter: Blocked outgoing connection to "
-msgstr "IPFilter: Bloqueada conexión de salida a "
+msgstr "IPFilter: Bloqueada conexión saliente a "
 
 #: ../DownloadManager.cpp:229
 msgid "Invalid size"
@@ -540,7 +517,7 @@ msgstr "Tamaño no válido"
 
 #: ../DownloadManager.cpp:234
 msgid "Response does not match request"
-msgstr "La estructura del árbol TTH no es correcta"
+msgstr "La respuesta no encaja con la petición"
 
 #: ../DownloadManager.cpp:241
 msgid "Could not open target file: %1%"
@@ -548,11 +525,11 @@ msgstr "No se puede abrir el archivo de destino: %1%"
 
 #: ../DownloadManager.cpp:320
 msgid "Full tree does not match TTH root"
-msgstr "La estructura del árbol TTH no es correcta"
+msgstr "El árbol TTH no encaja con la raíz"
 
 #: ../DownloadManager.cpp:385
 msgid "No slots available"
-msgstr "Slots no Disponibles"
+msgstr "No hay slots disponibles"
 
 #: ../DownloadManager.cpp:496
 msgid "%1%: File not available"
@@ -572,7 +549,7 @@ msgstr "Error de conectividad: %1%"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
-msgstr "Todos"
+msgstr "Cualquiera"
 
 #: ../SearchManager.cpp:37
 msgid "Audio"
@@ -584,19 +561,19 @@ msgstr "Comprimidos"
 
 #: ../SearchManager.cpp:39
 msgid "Document"
-msgstr "Documentos"
+msgstr "Documento"
 
 #: ../SearchManager.cpp:40
 msgid "Executable"
-msgstr "Ejecutables"
+msgstr "Ejecutable"
 
 #: ../SearchManager.cpp:41
 msgid "Picture"
-msgstr "Foto"
+msgstr "Imagen"
 
 #: ../SearchManager.cpp:42
 msgid "Video"
-msgstr "Video"
+msgstr "Vídeo"
 
 #: ../SearchManager.cpp:43
 msgid "Directory"
@@ -608,11 +585,11 @@ msgstr "TTH"
 
 #: ../SearchManager.cpp:45
 msgid "CD Image"
-msgstr "Imagen CD"
+msgstr "Imagen de CD"
 
 #: ../SearchManager.cpp:151
 msgid "Search enabled again"
-msgstr "Búsqueda habilitada nuevamente"
+msgstr "Búsqueda habilitada de nuevo"
 
 #: ../SearchManager.cpp:159
 msgid "Search disabled: %1%"
@@ -632,15 +609,15 @@ msgstr "Un archivo con el mismo TTH ya está compartido"
 
 #: ../QueueManager.cpp:710 ../QueueManager.cpp:787
 msgid "This file is already queued"
-msgstr "Este archivo ya está en la Cola de Descarga"
+msgstr "Este archivo ya está en la cola"
 
 #: ../QueueManager.cpp:723 ../QueueManager.cpp:799
 msgid "A file with a different size already exists in the queue"
-msgstr "Un archivo de distinto tamaño ya existe en su cola de descarga"
+msgstr "Un archivo de distinto tamaño ya existe en su cola"
 
 #: ../QueueManager.cpp:727
 msgid "A file with different tth root already exists in the queue"
-msgstr "Un archivo de distinto TTH ya existe en su cola de descarga"
+msgstr "Un archivo de distinto TTH ya existe en su cola"
 
 #: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
@@ -648,7 +625,7 @@ msgstr "¡Intentas descargar de ti mismo!"
 
 #: ../QueueManager.cpp:802
 msgid "A file with a different TTH root already exists in the queue"
-msgstr "Un archivo de distinta raíz TTH ya existe en su cola de descarga"
+msgstr "Un archivo con raíz TTH distinta ya existe en su cola"
 
 #: ../QueueManager.cpp:806
 msgid "This file has already finished downloading"
@@ -656,23 +633,21 @@ msgstr "Este archivo ya ha acabado de descargarse"
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
-msgstr "Nombre del Archivo Destino demasiado largo"
+msgstr "Nombre del archivo destino demasiado largo"
 
 #: ../QueueManager.cpp:848 ../QueueManager.cpp:856
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"Archivo de destino NO válido (carpeta no valida, chequear carpeta de "
-"descargas)"
+msgstr "Archivo de destino inválido (carpeta no encontrada, revise la opción de carpeta de descargas por defecto)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
-msgstr "Ya existe un archivo igual en el directorio de destino"
+msgstr "Y a existe un archivo en la ubicación destino"
 
 #: ../QueueManager.cpp:877 ../QueueManager.cpp:881
 msgid "Duplicate source: %1%"
-msgstr "Fuente Duplicada: %1%"
+msgstr "Fuente duplicada: %1%"
 
 #: ../QueueManager.cpp:1149
 msgid "Target removed"
@@ -680,7 +655,7 @@ msgstr "Archivo destino eliminado"
 
 #: ../QueueManager.cpp:1157
 msgid "Target file is missing or wrong size"
-msgstr "El archivo no existe o tiene un tamaño incorrecto"
+msgstr "El archivo destino no existe o tiene un tamaño incorrecto"
 
 #: ../QueueManager.cpp:1206
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
@@ -692,15 +667,15 @@ msgstr "No se puede mover %1% to %2% (%3%) tampoco renombrar a %4% (%5%)"
 
 #: ../QueueManager.cpp:1404
 msgid "Unable to open filelist: %1%"
-msgstr "Imposible abrir Lista de Archivos: %1%"
+msgstr "Imposible abrir lista de archivos: %1%"
 
 #: ../QueueManager.cpp:1427
 msgid "%1%: Matched %2% file"
-msgstr "%1%: Emparejado %2% archivo"
+msgstr "%1%: encajó con el archivo %2%"
 
 #: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr "Error de CRC32  (SFV-Check)"
+msgstr "Inconsistencia de CRC32  (SFV-Check)"
 
 #: ../Streams.h:144
 msgid "More bytes written than requested"
@@ -708,4 +683,4 @@ msgstr "Más bytes escritos de los requeridos"
 
 #: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
 msgid "TTH inconsistency"
-msgstr "Incoherencia TTH"
+msgstr "Incnsistencia TTH"

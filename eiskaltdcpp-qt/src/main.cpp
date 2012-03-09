@@ -203,6 +203,8 @@ int main(int argc, char *argv[])
 #ifdef USE_JS
     ScriptEngine::deleteInstance();
 #endif
+
+    GlobalTimer::deleteInstance();
     
     ArenaWidgetManager::deleteInstance();
     
@@ -211,9 +213,8 @@ int main(int argc, char *argv[])
     MainWindow::deleteInstance();
 
     WulforUtil::deleteInstance();
+
     WulforSettings::deleteInstance();
-    
-    GlobalTimer::deleteInstance();
 
     dcpp::shutdown();
 
@@ -234,7 +235,7 @@ void parseCmdLine(const QStringList &args){
 
             exit(0);
         }
-        else if (arg == "-v" || arg == "--version"){
+        else if (arg == "-V" || arg == "--version"){
             About().printVersion();
 
             exit(0);
@@ -283,7 +284,7 @@ void installHandlers(){
     if (sigaction(SIGPIPE, &sa, NULL) == -1)
         printf("Cannot handle SIGPIPE\n");
 
-    catchSignals<SIGSEGV, SIGABRT, SIGBUS, SIGKILL, SIGTERM>();
+    catchSignals<SIGSEGV, SIGABRT, SIGBUS, SIGTERM>();
 
     printf("Signal handlers installed.\n");
 }

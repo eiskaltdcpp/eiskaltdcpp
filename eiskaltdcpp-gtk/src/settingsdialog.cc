@@ -1030,8 +1030,8 @@ void Settings::initAppearance_gui()
         vectorLangShortNames.push_back("it");
         
         // Fill language drop-down list
-        int lang_ind = 0;
-        for (int i=0; i<vectorLangFullNames.size(); ++i)
+        uint8_t lang_ind = 0;
+        for (uint8_t i=0; i<vectorLangFullNames.size(); ++i)
         {
             gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("languageComboBox")),
                                            vectorLangFullNames.at(i).c_str());
@@ -1119,7 +1119,7 @@ void Settings::initAppearance_gui()
 
         gtk_entry_set_text(GTK_ENTRY(getWidget("soundCommandEntry")), wsm->getString("sound-command").c_str());
 
-#ifdef USE_LIBGNOME2
+#if defined(USE_LIBGNOME2) || defined(USE_LIBCANBERRA)
         gtk_widget_hide((GtkWidget*)GTK_LABEL(getWidget("soundCommandLabel")));
         gtk_widget_hide((GtkWidget*)GTK_ENTRY(getWidget("soundCommandEntry")));
 #endif

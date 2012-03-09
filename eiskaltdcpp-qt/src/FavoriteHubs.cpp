@@ -89,8 +89,8 @@ void FavoriteHubs::init(){
     fakeADCTags = QStringList();
 
     fakeNMDCTags << QString("%1").arg(fullVersionString)
-            << "++ V:0.777"
             << "++ V:0.782"
+            << "++ V:0.791"
             << "StrgDC++ V:2.42"
             << "ApexDC++ V:1.3.6"
             << "ApexDC++ V:1.5.1"
@@ -101,8 +101,8 @@ void FavoriteHubs::init(){
             << "FakeDC++ V:1.3";
 
     fakeADCTags << QString("%1").arg(fullADCVersionString)
-            << "++ 0.777"
             << "++ 0.782"
+            << "++ 0.791"
             << "StrgDC++ 2.42"
             << "ApexDC++ 1.3.6"
             << "ApexDC++ 1.5.1"

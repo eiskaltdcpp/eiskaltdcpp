@@ -47,12 +47,12 @@ public:
     void listConnectedClients(string& listhubs,const string& separator);
     bool findHubInConnectedClients(const string& hub);
     string sendPrivateMessage(const string& hub, const string& nick, const string& message);
-    string getFileList_client(const string& hub, const string& nick, bool match);
+    bool getFileList(const string& hub, const string& nick, bool match);
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
     bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
     void returnSearchResults(vector<StringMap>& resultarray, const string& huburl);
     bool clearSearchResults(const string& huburl);
-    void listShare (string& listshare, const string& sseparator);
+    void listShare(string& listshare, const string& sseparator);
     bool delDirFromShare(const string& sdirectory);
     bool renameDirInShare(const string& sdirectory, const string& svirtname);
     bool addDirInShare(const string& sdirectory, const string& svirtname);
@@ -64,6 +64,10 @@ public:
     bool moveQueueItem(const string& source, const string& target);
     bool removeQueueItem(const string& target);
     void updatelistQueueTargets();
+    void getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online);
+    void getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online);
+    void getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status);
+    bool pauseHash(); 
 
 private:
     friend class Singleton<ServerThread>;

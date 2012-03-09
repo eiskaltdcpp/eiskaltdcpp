@@ -24,6 +24,7 @@
 #include "dcpp/QueueManager.h"
 #include "dcpp/SearchManager.h"
 #include "dcpp/ConnectivityManager.h"
+#include "dcpp/HashManager.h"
 #include "dcpp/ChatMessage.h"
 #include "dcpp/Text.h"
 #include "dcpp/StringTokenizer.h"
@@ -41,6 +42,7 @@
 unsigned short int lport = 3121;
 string lip = "127.0.0.1";
 bool isVerbose = false;
+bool isDebug = false;
 string xmlrpcLog = "/tmp/eiskaltdcpp-daemon.xmlrpc.log";
 string xmlrpcUriPath = "/eiskaltdcpp";
 
@@ -175,6 +177,10 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RemoveQueueItem, std::string("queue.remove")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueueTargets, std::string("queue.listtargets")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetSourcesItem, std::string("queue.getsources")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHashStatus, std::string("hash.status")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause")));
 
     //if (!jsonserver->Bind())
         //std::cout << "JSONRPC: Bind failed" << std::endl;
@@ -475,8 +481,7 @@ string ServerThread::sendPrivateMessage(const string& hub, const string& nick, c
     return "Huburl is invalid";
 }
 
-string ServerThread::getFileList_client(const string& hub, const string& nick, bool match) {
-    string message = "";
+bool ServerThread::getFileList(const string& hub, const string& nick, bool match) {
     ClientIter i = clientsMap.find(hub);
     if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
         if (!nick.empty()) {
@@ -493,17 +498,17 @@ string ServerThread::getFileList_client(const string& hub, const string& nick, b
                     } else {
                         QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);
                     }
+                    return true;
                 } else {
-                    message = _("User not found");
+                    return false;
                 }
             } catch (const Exception &e) {
-                message = e.getError();
-                LogManager::getInstance()->message(message);
+                LogManager::getInstance()->message(e.getError());
             }
         }
     }
 
-    return message;
+    return false;
 }
 
 void ServerThread::getChatPubFromClient(string& chat, const string& hub, const string& separator) {
@@ -538,7 +543,7 @@ void ServerThread::parseSearchResult(SearchResultPtr result, StringMap &resultMa
         resultMap["Shared"] = Util::toString(ShareManager::getInstance()->isTTHShared(result->getTTH()));
     } else {
         string path = revertSeparator(result->getFile());
-        resultMap["Filename"] = Util::getLastDir(path);
+        resultMap["Filename"] = Util::getLastDir(path) + PATH_SEPARATOR;
         resultMap["Path"] = Util::getFilePath(path.substr(0, path.length() - 1)); // getFilePath just returns path unless we chop the last / off
         if (resultMap["Path"].find("/") == string::npos)
             resultMap["Path"] = "";
@@ -720,7 +725,7 @@ bool ServerThread::addInQueue(const string& sddir, const string& name, const int
         return false;
 
     if (sddir.empty())
-        QueueManager::getInstance()->add(name, size, TTHValue(tth));
+        QueueManager::getInstance()->add(SETTING(DOWNLOAD_DIRECTORY) + PATH_SEPARATOR_STR + name, size, TTHValue(tth));
     else
         QueueManager::getInstance()->add(sddir + PATH_SEPARATOR_STR + name, size, TTHValue(tth));
 
@@ -758,25 +763,55 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
     return true;
 }
 
+void ServerThread::getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online_tmp) {
+    string nick;
+    for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
+        if (it->getUser().user->isOnline())
+            ++online_tmp;
+        //printf("++online_tmp: %u\n", online_tmp);fflush(stdout);
+        if (!sources.empty())
+            sources += separator;
+        nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+        sources += nick;
+    }
+    //printf("online_tmp: %u\n", online_tmp);fflush(stdout);
+}
+void ServerThread::getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online) {
+    const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+    for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+        //printf("target: %s\n *it->first: %s\n", target.c_str(),(*it->first).c_str());fflush(stdout);
+        if (target == *it->first) {
+            getItemSources(it->second, separator, sources, online);
+            //printf("online1: %u\n", online);fflush(stdout);
+        }
+        //printf("online2: %u\n", online);fflush(stdout);
+    }
+    QueueManager::getInstance()->unlockQueue();
+}
+
 void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
 	string nick;
-	int online = 0;
+	unsigned int online = 0;
 
 	params["Filename"] = item->getTargetFileName();
 	params["Path"] = Util::getFilePath(item->getTarget());
 	params["Target"] = item->getTarget();
 
 	params["Users"] = "";
-	for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
-		if (it->getUser().user->isOnline())
-			++online;
+    
+	//for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
+		//if (it->getUser().user->isOnline())
+			//++online;
 
-		if (params["Users"].size() > 0)
-			params["Users"] += ", ";
+		//if (params["Users"].size() > 0)
+			//params["Users"] += ", ";
 
-		nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
-		params["Users"] += nick;
-	}
+		//nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+		//params["Users"] += nick;
+	//}
+    
+    getItemSources(item, ", ", params["Users"], online);
+    
 	if (params["Users"].empty())
 		params["Users"] = _("No users");
 
@@ -852,11 +887,16 @@ void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
 }
 
 void ServerThread::listQueueTargets(string& listqueue, const string& sseparator) {
+    string separator;
+    if (sseparator.empty())
+        separator = "\n";
+    else
+        separator = sseparator;
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
     for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
-        listqueue.append(*it->first);
-        listqueue.append(sseparator);
+        listqueue += *it->first;
+        listqueue += separator;
     }
     QueueManager::getInstance()->unlockQueue();
 }
@@ -891,7 +931,6 @@ void ServerThread::on(Moved, QueueItem*, const string&) noexcept {
 
 void ServerThread::listQueue(unordered_map<string,StringMap>& listqueue) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
-
     for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
         StringMap sm;
         getQueueParams(it->second,sm);
@@ -950,3 +989,16 @@ bool ServerThread::removeQueueItem(const string& target) {
     return false;
 }
 
+void ServerThread::getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status) {
+    HashManager::getInstance()->getStats(target, bytesLeft, filesLeft);
+    status = HashManager::getInstance()->isHashingPaused() ? "pause" : bytesLeft > 0 ? "hashing" : "idle";
+}
+
+bool ServerThread::pauseHash() {
+    bool paused = HashManager::getInstance()->isHashingPaused();
+    if (paused)
+        HashManager::getInstance()->resumeHashing();
+    else
+        HashManager::getInstance()->pauseHashing();
+    return !paused;
+}
