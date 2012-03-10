@@ -341,7 +341,6 @@ bool JsonRpcMethods::ListQueue(const Json::Value& root, Json::Value& response) {
     Json::Value parameters;
     unordered_map<string,StringMap> listqueue;
     ServerThread::getInstance()->listQueue(listqueue);
-    unordered_map<string,StringMap>::iterator i = listqueue.begin();
     for (unordered_map<string,StringMap>::iterator i = listqueue.begin(); i != listqueue.end(); ++i) {
         for (StringMap::iterator kk = i->second.begin(); kk != i->second.end(); ++kk) {
             parameters[i->first][kk->first] = kk->second;

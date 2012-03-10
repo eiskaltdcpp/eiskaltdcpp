@@ -37,20 +37,22 @@ namespace Json
 
         char* readBuffer = NULL;
         int postSize = 0;
-        HTTPServer* _this = (HTTPServer*) request_info->user_data;
+        HTTPServer* serv = (HTTPServer*) request_info->user_data;
 
         if(event == MG_NEW_REQUEST) {
 
             if(strcmp(request_info->request_method,"GET") == 0) {
                 //Mark the request as unprocessed.
-                return NULL;
+                mg_printf(conn, "HTTP/1.1 200 OK\r\n"
+                "Content-Type: text/plain\r\n\r\n"
+                "%s", request_info->uri);
+                return (void*)"";
             } else if(strcmp(request_info->request_method,"POST") == 0) {
                 //get size of postData
                 sscanf(mg_get_header(conn,"Content-Length"),"%d",&postSize);
                 readBuffer = (char*) malloc(sizeof(char)*(postSize+1));
                 mg_read(conn,readBuffer,postSize);
-                _this->onRequest(readBuffer,conn);
-                //onRequest(readBuffer,conn);
+                serv->onRequest(readBuffer,conn);
                 free(readBuffer);
 
                 //Mark the request as processed by our handler.
@@ -81,21 +83,21 @@ namespace Json
 
     HTTPServer::~HTTPServer()
     {
-        mg_stop(ctx);
     }
     
     bool HTTPServer::startPolling()
     {
-        char port[6];
-        sprintf(port,"%d",m_port);
-        const char *options[] = { "document_root", NULL, "listening_ports", port, NULL };
-        this->ctx = mg_start(&callback, this, options);
-        if(this->ctx != NULL) {
+        char tmp_port[30];
+        sprintf(tmp_port,"%s:%d",this->m_address.c_str(),this->m_port);
+        const char *options[] = {"listening_ports", tmp_port,"num_threads", "1", NULL };
+        ctx = mg_start(&callback, this, options);
+        if(ctx != NULL) {
             return true;
         } else {
             return false;
         }
     }
+    
     bool HTTPServer::stopPolling()
     {
         mg_stop(ctx);
@@ -120,7 +122,7 @@ namespace Json
     bool HTTPServer::sendResponse(std::string & response, void *addInfo)
     {
         struct mg_connection* conn = (struct mg_connection*)addInfo;
-        if(mg_printf(conn,"HTTP/1.1 200 OK\r\n\r\n %s",response.c_str()) > 0) {
+        if(mg_printf(conn,"HTTP/1.1 200 OK Content-Type: application/json; \r\n\r\n %s",response.c_str()) > 0) {
             return true;
         } else {
             return false;

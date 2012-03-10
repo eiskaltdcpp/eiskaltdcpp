@@ -6,7 +6,10 @@ include_directories(${PROJECT_SOURCE_DIR})
 aux_source_directory(${PROJECT_SOURCE_DIR}/jsonrpc-cpp jsonrpcpp_SRCS)
 file (GLOB client_staff ${PROJECT_SOURCE_DIR}/jsonrpc-cpp/*client*)
 list(REMOVE_ITEM jsonrpcpp_SRCS ${client_staff})
-    
+list(REMOVE_ITEM jsonrpcpp_SRCS ${PROJECT_SOURCE_DIR}/jsonrpc-cpp/jsonrpc_udpserver.cpp
+                                ${PROJECT_SOURCE_DIR}/jsonrpc-cpp/jsonrpc_tcpserver.cpp
+                                ${PROJECT_SOURCE_DIR}/jsonrpc-cpp/networking.cpp)
+set_source_files_properties(${PROJECT_SOURCE_DIR}/jsonrpc-cpp/mongoose.c PROPERTIES COMPILE_FLAGS "-DNDEBUG -DNO_CGI -DNO_SSL")
 #option (LOCAL_JSONCPP "Use local JsonCpp" ON)
 #if (LOCAL_JSONCPP)
     set (JSONCPP_LIBRARY jsoncpp)
