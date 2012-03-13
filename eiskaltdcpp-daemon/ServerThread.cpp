@@ -181,8 +181,9 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause")));
 
     if (!jsonserver->startPolling())
-        std::cout << "JSONRPC: start mongoose failed" << std::endl;
-    std::cout << "JSONRPC: Start mongoose server" << std::endl;
+        std::cout << "JSONRPC: Start mongoose failed" << std::endl;
+    else 
+        std::cout << "JSONRPC: Start mongoose" << std::endl;
 #endif
 
     return 0;
@@ -209,7 +210,7 @@ void ServerThread::Close() {
 #endif
 #ifdef JSONRPC_DAEMON
     jsonserver->stopPolling();
-    std::cout << "JSONRPC: Stop mongoose server" << std::endl;
+    std::cout << "JSONRPC: Stop mongoose" << std::endl;
     delete jsonserver;
 #endif
 
