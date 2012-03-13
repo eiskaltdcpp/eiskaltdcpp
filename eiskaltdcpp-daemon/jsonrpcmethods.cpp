@@ -273,16 +273,10 @@ bool JsonRpcMethods::ShowRatio(const Json::Value& root, Json::Value& response)
         ratio = up / down;
     else
         ratio = 0;
-
-    char ratio_c[32];
-    sprintf(ratio_c,"%.3f", ratio);
-
-    string uploaded = Util::formatBytes(up);
-    string downloaded = Util::formatBytes(down);
-
-    string line = str(dcpp_fmt("ratio: %1% (uploads: %2%, downloads: %3% )")
-    % string(ratio_c) % uploaded % downloaded);
-    response["result"] = line;
+        
+    response["ratio"] = ratio;
+    response["up"] = up;
+    response["down"] = down;
     if (isDebug) std::cout << "ShowRatio (response): " << response << std::endl;
     return true;
 }
