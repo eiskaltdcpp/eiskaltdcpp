@@ -215,10 +215,12 @@ public:
             ratio = up / down;
         else
             ratio = 0;
+        string upload = Util::formatBytes(up);
+        string download = Util::formatBytes(down);
         map<string, xmlrpc_c::value> tmp_struct_in;
         tmp_struct_in["ratio"] = xmlrpc_c::value_double(ratio);
-        tmp_struct_in["up"] = xmlrpc_c::value_double(up);
-        tmp_struct_in["down"] = xmlrpc_c::value_double(down);
+        tmp_struct_in["up"] = xmlrpc_c::value_string(upload);
+        tmp_struct_in["down"] = xmlrpc_c::value_string(download);
         xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
         *retvalP = tmp_struct_out;
     }

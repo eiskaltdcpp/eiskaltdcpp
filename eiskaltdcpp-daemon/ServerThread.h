@@ -86,6 +86,7 @@ private:
             deque<string> curchat;
             Client* curclient;
             SearchResultList cursearchresult;
+            OnlineUserList curuserlist;
     } CurHub;
 
     typedef unordered_map <unsigned int, string> QueueMap;
