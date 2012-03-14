@@ -103,6 +103,7 @@ class Hub:
         void loadImage_gui(std::string target, std::string tth);
         void openImage_gui(std::string target);
         void insertBBcodeEntry_gui(std::string ch);
+        void disableChat(bool enable);
 
         // GUI callbacks
         static gboolean onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data);
@@ -151,6 +152,7 @@ class Hub:
         static void onItalicButtonClicked_gui(GtkWidget *widget, gpointer data);
         static void onBoldButtonClicked_gui(GtkWidget *widget, gpointer data);
         static void onUnderlineButtonClicked_gui(GtkWidget *widget, gpointer data);
+        static void onDisableChatToggled_gui(GtkWidget *widget, gpointer data);
 
         // Client functions
         void addFavoriteUser_client(const std::string cid);
@@ -227,6 +229,7 @@ class Hub:
         bool WaitingPassword;
         int ImgLimit;
         GtkTextTag *BoldTag, *UnderlineTag, *ItalicTag;
+        bool enableChat;
 };
 
 #else

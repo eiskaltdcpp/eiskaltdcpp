@@ -79,7 +79,7 @@ namespace Json
       ssize_t nb = -1;
       char buf[1500];
 
-      nb = recv(fd, buf, sizeof(buf), 0);
+      nb = ::recv(fd, buf, sizeof(buf), 0);
 
       /* give the message to JsonHandler */
       if(nb > 0)

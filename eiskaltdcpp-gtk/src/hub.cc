@@ -61,7 +61,8 @@ Hub::Hub(const string &address, const string &encoding):
     scrollToBottom(TRUE),
     PasswordDialog(FALSE),
     WaitingPassword(FALSE),
-    ImgLimit(0)
+    ImgLimit(0),
+    enableChat(TRUE)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
 	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),FALSE);
@@ -198,6 +199,11 @@ Hub::Hub(const string &address, const string &encoding):
     g_signal_connect(getWidget("openImageItem"), "activate", G_CALLBACK(onOpenImageClicked_gui), (gpointer)this);
 
     GtkAdjustment *adjustment = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(getWidget("chatScroll")));
+    FavoriteHubEntry* entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address);
+    if (entry && entry->getDisableChat()) {
+        disableChat(TRUE);
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("disableChat")), TRUE);
+    }
 
     // Connect the signals to their callback functions.
     g_signal_connect(getContainer(), "focus-in-event", G_CALLBACK(onFocusIn_gui), (gpointer)this);
@@ -233,6 +239,7 @@ Hub::Hub(const string &address, const string &encoding):
     g_signal_connect(getWidget("italicButton"), "clicked", G_CALLBACK(onItalicButtonClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("boldButton"), "clicked", G_CALLBACK(onBoldButtonClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("underlineButton"), "clicked", G_CALLBACK(onUnderlineButtonClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("disableChat"), "toggled", G_CALLBACK(onDisableChatToggled_gui), (gpointer)this);
 
     gtk_widget_grab_focus(getWidget("chatEntry"));
 
@@ -1860,6 +1867,19 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             gtk_text_buffer_get_start_iter(hub->chatBuffer, &startIter);
             gtk_text_buffer_get_end_iter(hub->chatBuffer, &endIter);
             gtk_text_buffer_delete(hub->chatBuffer, &startIter, &endIter);
+        }
+        else if (command == "chat")
+        {
+            if (param == "off") {
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("disableChat")), TRUE);
+                hub->disableChat(TRUE);
+                hub->addStatusMessage_gui(_("Chat disabled"), Msg::SYSTEM, Sound::NONE);
+            }
+            else if (param == "on") {
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("disableChat")), FALSE);
+                hub->disableChat(FALSE);
+                hub->addStatusMessage_gui(_("Chat enabled"), Msg::SYSTEM, Sound::NONE);
+            }
         }
         else if (command == "close")
         {
@@ -3493,8 +3513,8 @@ void Hub::on(ClientListener::HubUpdated, Client *) noexcept
 
 void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) noexcept //NOTE: core 0.762
     {
-        if (message.text.empty())
-                return;
+        if (message.text.empty() || !enableChat)
+            return;
 
         Msg::TypeMsg typemsg;
         string cid = message.from->getIdentity().getUser()->getCID().toBase32();
@@ -3635,4 +3655,27 @@ void Hub::on(ClientListener::SearchFlood, Client *, const string &msg) noexcept
     typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
     F3 *func = new F3(this, &Hub::addStatusMessage_gui, _("Search spam detected from ") + msg, Msg::STATUS, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(func);
+}
+
+void Hub::disableChat(bool enable)
+{
+    if (enable) {
+        gtk_widget_set_sensitive(getWidget("chatEntry"), FALSE);
+        enableChat = false;
+    }
+    else
+    {
+        gtk_widget_set_sensitive(getWidget("chatEntry"), TRUE);
+        enableChat = true;
+    }
+    
+}
+
+void Hub::onDisableChatToggled_gui(GtkWidget *widget, gpointer data)
+{
+    Hub *hub = (Hub*) data;
+    if (hub->enableChat)
+        hub->disableChat(TRUE);
+    else
+        hub->disableChat(FALSE);
 }
