@@ -44,7 +44,7 @@ public:
         QVariantList args;
         args << QString("EiskaltDC++");
         args << QVariant(QVariant::UInt);
-        args << QVariant(WulforUtil::getInstance()->getIconsPath() + "/" + "icon_appl.png");
+        args << QVariant(WulforUtil::getInstance()->getIconsPath() + "/" + "icon_appl_big.png");
         args << QString(title);
         args << QString(msg);
         args << QStringList();
