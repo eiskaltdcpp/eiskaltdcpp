@@ -30,6 +30,7 @@ SpyFrame::SpyFrame(QWidget *parent) :
 
     treeView->setModel(model);
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeView->header()->restoreState(WVGET("spyframe-header-state", QByteArray()).toByteArray());
 
     connect(this, SIGNAL(coreIncomingSearch(QString,bool)), model, SLOT(addResult(QString,bool)), Qt::QueuedConnection);
     connect(pushButton, SIGNAL(clicked()), this, SLOT(slotStartStop()));
@@ -41,6 +42,8 @@ SpyFrame::SpyFrame(QWidget *parent) :
 }
 
 SpyFrame::~SpyFrame(){
+    WVSET("spyframe-header-state", treeView->header()->saveState());
+    
     ClientManager::getInstance()->removeListener(this);
 }
 

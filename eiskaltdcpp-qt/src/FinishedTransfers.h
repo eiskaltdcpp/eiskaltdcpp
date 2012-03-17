@@ -97,17 +97,7 @@ public:
 
 protected:
     virtual void closeEvent(QCloseEvent *e){
-        if (isUnload()){
-            QString key = (comboBox->currentIndex() == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
-            QString state = treeView->header()->saveState().toBase64();
-
-            WSSET(key, state);
-
-            e->accept();
-        }
-        else {
-            e->ignore();
-        }
+        isUnload()? e->accept() : e->ignore();
     }
 
 private:
@@ -172,6 +162,9 @@ private:
     }
 
     ~FinishedTransfers(){
+        QString key = (comboBox->currentIndex() == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
+        WVSET(key, treeView->header()->saveState());
+            
         FinishedManager::getInstance()->removeListener(this);
 
         model->clearModel();
@@ -355,12 +348,12 @@ private:
     void slotTypeChanged(int index){
         QString from_key = (index == 0)? WS_FTRANSFERS_USERS_STATE : WS_FTRANSFERS_FILES_STATE;
         QString to_key = (index == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
-        QString old_state = treeView->header()->saveState().toBase64();
+        QByteArray old_state = treeView->header()->saveState();
 
         if (sender() == comboBox)
-            WSSET(from_key, old_state);
+            WVSET(from_key, old_state);
 
-        treeView->header()->restoreState(QByteArray::fromBase64(WSGET(to_key).toAscii()));
+        treeView->header()->restoreState(WVGET(to_key, QByteArray()).toByteArray());
         treeView->setSortingEnabled(true);
 
         model->switchViewType(static_cast<FinishedTransfersModel::ViewType>(index));

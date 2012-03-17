@@ -37,7 +37,7 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     treeView->installEventFilter(this);
     treeView->setModel(model);
     treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
-    treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_FAVUSERS_STATE).toAscii()));
+    treeView->header()->restoreState(WVGET(WS_FAVUSERS_STATE, QByteArray()).toByteArray());
     treeView->setSortingEnabled(true);
 
     connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
@@ -74,19 +74,15 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
 }
 
 FavoriteUsers::~FavoriteUsers(){
+    WVSET(WS_FAVUSERS_STATE, treeView->header()->saveState());
+    
     FavoriteManager::getInstance()->removeListener(this);
+    
     delete model;
 }
 
 void FavoriteUsers::closeEvent(QCloseEvent *e){
-    if (isUnload()){
-        WSSET(WS_FAVUSERS_STATE, treeView->header()->saveState().toBase64());
-
-        e->accept();
-    }
-    else {
-        e->ignore();
-    }
+    isUnload()? e->accept() : e->ignore();
 }
 
 bool FavoriteUsers::eventFilter(QObject *obj, QEvent *e){

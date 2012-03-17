@@ -218,6 +218,8 @@ DownloadQueue::DownloadQueue(QWidget *parent):
 }
 
 DownloadQueue::~DownloadQueue(){
+    save();
+    
     QueueManager::getInstance()->removeListener(this);
     Q_D(DownloadQueue);
 
@@ -226,14 +228,7 @@ DownloadQueue::~DownloadQueue(){
 }
 
 void DownloadQueue::closeEvent(QCloseEvent *e){
-    if (isUnload()){
-        save();
-
-        e->accept();
-    }
-    else {
-        e->ignore();
-    }
+    isUnload()? e->accept() : e->ignore();
 }
 
 void DownloadQueue::requestDelete(){
@@ -319,14 +314,12 @@ void DownloadQueue::init(){
 }
 
 void DownloadQueue::load(){
-    treeView_TARGET->header()->restoreState(QByteArray::fromBase64(WSGET(WS_DQUEUE_STATE).toAscii()));
+    treeView_TARGET->header()->restoreState(WVGET(WS_DQUEUE_STATE, QByteArray()).toByteArray());
     treeView_TARGET->setSortingEnabled(true);
 }
 
 void DownloadQueue::save(){
-    QString ustate = treeView_TARGET->header()->saveState().toBase64();
-
-    WSSET(WS_DQUEUE_STATE, ustate);
+    WVSET(WS_DQUEUE_STATE, treeView_TARGET->header()->saveState());
 }
 
 void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *item){

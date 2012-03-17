@@ -35,6 +35,8 @@
 #include <QModelIndex>
 #include <QClipboard>
 #include <QMessageBox>
+#include <QFileInfo>
+#include <QDir>
 
 TransferView::Menu::Menu():
         menu(NULL),
