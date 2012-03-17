@@ -87,7 +87,7 @@ Section "EiskaltDC++"
   File "installer\libiconv-2.dll"
   File "installer\libz-1.dll"
   ;File "installer\libgcc_s_sjlj-1.dll"
-  ;File "installer\libstdc++-6.dll"
+  File "installer\libstdc++-6.dll"
   File "installer\libpcrecpp-0.dll"
   File "installer\libpcre-0.dll"
 
