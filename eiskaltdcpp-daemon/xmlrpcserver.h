@@ -215,17 +215,14 @@ public:
             ratio = up / down;
         else
             ratio = 0;
-
-        char ratio_c[32];
-        sprintf(ratio_c, "%.3f", ratio);
-
-        string uploaded = Util::formatBytes(up);
-        string downloaded = Util::formatBytes(down);
-
-        string line = str(dcpp_fmt("ratio: %1% (uploads: %2%, downloads: %3%)")
-        % string(ratio_c) % uploaded % downloaded);
-
-        *retvalP = xmlrpc_c::value_string(line);
+        string upload = Util::formatBytes(up);
+        string download = Util::formatBytes(down);
+        map<string, xmlrpc_c::value> tmp_struct_in;
+        tmp_struct_in["ratio"] = xmlrpc_c::value_double(ratio);
+        tmp_struct_in["up"] = xmlrpc_c::value_string(upload);
+        tmp_struct_in["down"] = xmlrpc_c::value_string(download);
+        xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
+        *retvalP = tmp_struct_out;
     }
 };
 
