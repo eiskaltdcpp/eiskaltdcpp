@@ -29,7 +29,7 @@ PublicHubs::PublicHubs(QWidget *parent) :
     model = new PublicHubModel();
 
     treeView->setModel(model);
-    treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_PUBLICHUBS_STATE).toAscii()));
+    treeView->header()->restoreState(WVGET(WS_PUBLICHUBS_STATE, QByteArray()).toByteArray());
 
     lineEdit_FILTER->installEventFilter(this);
 
@@ -78,6 +78,8 @@ PublicHubs::PublicHubs(QWidget *parent) :
 }
 
 PublicHubs::~PublicHubs(){
+    WVSET(WS_PUBLICHUBS_STATE, treeView->header()->saveState());
+    
     delete model;
     delete proxy;
 
@@ -101,14 +103,7 @@ bool PublicHubs::eventFilter(QObject *obj, QEvent *e){
 }
 
 void PublicHubs::closeEvent(QCloseEvent *e){
-    if (isUnload()){
-        WSSET(WS_PUBLICHUBS_STATE, treeView->header()->saveState().toBase64());
-
-        e->accept();
-    }
-    else {
-        e->ignore();
-    }
+    isUnload()? e->accept() : e->ignore();
 }
 
 void PublicHubs::setStatus(const QString &stat){

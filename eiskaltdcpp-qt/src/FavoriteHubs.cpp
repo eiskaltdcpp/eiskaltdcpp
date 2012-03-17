@@ -39,20 +39,15 @@ FavoriteHubs::FavoriteHubs(QWidget *parent):
 }
 
 FavoriteHubs::~FavoriteHubs(){
+    save();
+    
     FavoriteManager::getInstance()->removeListener(this);
 
     delete model;
 }
 
 void FavoriteHubs::closeEvent(QCloseEvent *e){
-    if (isUnload()){
-        save();
-
-        e->accept();
-    }
-    else {
-        e->ignore();
-    }
+    isUnload()? e->accept() : e->ignore();
 }
 
 QWidget *FavoriteHubs::getWidget(){
@@ -72,11 +67,11 @@ QMenu *FavoriteHubs::getMenu(){
 }
 
 void FavoriteHubs::load(){
-    treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_FAV_HUBS_STATE).toAscii()));
+    treeView->header()->restoreState(WVGET(WS_FAV_HUBS_STATE, QByteArray()).toByteArray());
 }
 
 void FavoriteHubs::save(){
-    WSSET(WS_FAV_HUBS_STATE, treeView->header()->saveState().toBase64());
+    WVSET(WS_FAV_HUBS_STATE, treeView->header()->saveState());
 }
 
 void FavoriteHubs::init(){

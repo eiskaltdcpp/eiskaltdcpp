@@ -35,21 +35,15 @@ ADLS::ADLS(QWidget *parent):
 }
 
 ADLS::~ADLS(){
+    save();
+    
     ADLSearchManager::getInstance()->Save();
-    //MainWindow::getInstance()->remArenaWidget(this);
-
+    
     delete model;
 }
 
 void ADLS::closeEvent(QCloseEvent *e){
-    if (isUnload()){
-        save();
-
-        e->accept();
-    }
-    else {
-        e->ignore();
-    }
+    isUnload()? e->accept() : e->ignore();
 }
 
 QWidget *ADLS::getWidget(){
@@ -69,11 +63,11 @@ QMenu *ADLS::getMenu(){
 }
 
 void ADLS::load(){
-    treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_ADLS_STATE).toAscii()));
+    treeView->header()->restoreState(WVGET(WS_ADLS_STATE, QByteArray()).toByteArray());
 }
 
 void ADLS::save(){
-    WSSET(WS_ADLS_STATE, treeView->header()->saveState().toBase64());
+    WVSET(WS_ADLS_STATE, treeView->header()->saveState());
 }
 
 void ADLS::init(){
