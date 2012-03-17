@@ -1,6 +1,6 @@
 !include MUI2.nsh
 
-!define PRODUCT_DISPLAY_VERSION      "2.2.6"
+!define PRODUCT_DISPLAY_VERSION      "2.2.7"
 !define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
@@ -46,6 +46,7 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_LANGUAGE "Czech"
 !insertmacro MUI_LANGUAGE "Italian"
 !insertmacro MUI_LANGUAGE "German"
+!insertmacro MUI_LANGUAGE "Greek"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY
@@ -62,7 +63,9 @@ Section "EiskaltDC++"
   SetOutPath $INSTDIR
   File "installer\eiskaltdcpp-qt.exe"
   File "installer\eiskaltdcpp-daemon.exe"
+  File "installer\eiskaltdcpp-cli-jsonrpc"
   File "installer\dcppboot.xml"
+  ;File "installer\Spellchecking_Readme.txt"
   File "installer\qt.conf"
   File "installer\QtCore4.dll"
   File "installer\QtGui4.dll"
@@ -83,11 +86,8 @@ Section "EiskaltDC++"
   File "installer\libbz2-2.dll"
   File "installer\libiconv-2.dll"
   File "installer\libz-1.dll"
-  ;File "installer\zlib1.dll"
   ;File "installer\libgcc_s_sjlj-1.dll"
-
-  File "installer\libstdc++-6.dll"
-
+  ;File "installer\libstdc++-6.dll"
   File "installer\libpcrecpp-0.dll"
   File "installer\libpcre-0.dll"
 
@@ -109,6 +109,7 @@ Section "Start Menu Shortcuts"
   SetShellVarContext all
   CreateDirectory "$SMPROGRAMS\EiskaltDC++"
   CreateShortCut  "$SMPROGRAMS\EiskaltDC++\EiskaltDC++.lnk" "$INSTDIR\eiskaltdcpp-qt.exe"
+  ;CreateShortCut  "$SMPROGRAMS\EiskaltDC++\Spellchecking Readme.lnk" "$INSTDIR\Spellchecking_Readme.txt"
   CreateShortCut  "$SMPROGRAMS\EiskaltDC++\Uninstall.lnk"   "$INSTDIR\uninstall.exe"
 SectionEnd
 

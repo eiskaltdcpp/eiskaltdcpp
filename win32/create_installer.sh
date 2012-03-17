@@ -2,22 +2,18 @@
 
 . ./variables.sh
 
-make -k install DESTDIR=$INSTALL_DIR
+make -k install DESTDIR=tmp_dir
 
-cp -r $INSTALL_DIR/resources                              "$INSTALLER_DIR"
-cp $INSTALL_DIR/eiskaltdcpp-qt.exe                        "$INSTALLER_DIR"
-cp $INSTALL_DIR/eiskaltdcpp-daemon.exe                    "$INSTALLER_DIR"
+mkdir "$INSTALLER_DIR"
+cp -r tmp_dir/`readlink -f $INSTALL_DIR`/*                "$INSTALLER_DIR"
+rm -rf tmp_dir
 
 strip "$INSTALLER_DIR/eiskaltdcpp-qt.exe"
 strip "$INSTALLER_DIR/eiskaltdcpp-daemon.exe"
 
+cp $SOURCES_DIR/win32/dcppboot.xml                        "$INSTALLER_DIR"
 echo [Paths] > "$INSTALLER_DIR/qt.conf"
 echo Plugins = ./plugins >> "$INSTALLER_DIR/qt.conf"
-
-cp "$SOURCES_DIR/data/icons/eiskaltdcpp.ico"              "$INSTALLER_DIR"
-cp "$SOURCES_DIR/data/icons/icon_164x314.bmp"             "$INSTALLER_DIR"
-cp "$SOURCES_DIR/win32/dcppboot.xml"                      "$INSTALLER_DIR"
-cp "$SOURCES_DIR/LICENSE"                                 "$INSTALLER_DIR"
 
 cp "$QT_MINGW32_DIR/bin/QtCore4.dll"                      "$INSTALLER_DIR"
 cp "$QT_MINGW32_DIR/bin/QtGui4.dll"                       "$INSTALLER_DIR"
@@ -44,7 +40,7 @@ cp "$MINGW32_DEPENDS_DIR/script/qtscript_xmlpatterns.dll" "$INSTALLER_DIR/script
 cp "$QT_MINGW32_DIR/bin/libgcc_s_dw2-1.dll"               "$INSTALLER_DIR"
 #cp "$MINGW32_DIR/bin/libgcc_s_sjlj-1.dll"                 "$INSTALLER_DIR"
 #cp "$MINGW32_DIR/bin/libstdc++-6.dll"                     "$INSTALLER_DIR"
-cp "$MINGW32_DIR/bin/mingwm10.dll"                        "$INSTALLER_DIR"
+cp "$QT_MINGW32_DIR/bin/mingwm10.dll"                     "$INSTALLER_DIR"
 
 cp "$GETTEXT_DIR/bin/libintl-8.dll"                       "$INSTALLER_DIR"
 cp "$LIBICONV_DIR/bin/libiconv-2.dll"                     "$INSTALLER_DIR"
@@ -65,5 +61,9 @@ cp "$OPENSSL_DIR/bin/libeay32.dll"                        "$INSTALLER_DIR"
 
 mkdir -p "$INSTALLER_DIR/plugins/sqldrivers/"
 cp "$QT_MINGW32_DIR/plugins/sqldrivers/qsqlite4.dll"      "$INSTALLER_DIR/plugins/sqldrivers/"
+
+cp "$SOURCES_DIR/data/icons/eiskaltdcpp.ico"              "$INSTALLER_DIR"
+cp "$SOURCES_DIR/data/icons/icon_164x314.bmp"             "$INSTALLER_DIR"
+cp "$SOURCES_DIR/LICENSE"                                 "$INSTALLER_DIR"
 
 makensis ./EiskaltDC++.nsi
