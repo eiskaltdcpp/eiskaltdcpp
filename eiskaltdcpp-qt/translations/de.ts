@@ -3033,7 +3033,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1571"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
-        <translation>Gefunden: &lt;b&gt;%1&lt;/b&gt;  Ignoriert: &lt;b&gt;%2&lt;/b&gt;</translation>
+        <translation>Gefunden: &lt;b&gt;%1&lt;/b&gt;  Verworfen: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -5386,7 +5386,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="475"/>
         <source>Enable Throttle</source>
-        <translation type="unfinished"/>
+        <translation>Drossel einschalten</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="506"/>
@@ -5411,7 +5411,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="583"/>
         <source>Alternate speed limit at time from </source>
-        <translation type="unfinished"/>
+        <translation>Anderes Geschwindigkeitslimit in der Uhrzeit von </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="609"/>
@@ -5561,12 +5561,12 @@ Ein Wert von 0 bedeutet keine Beschränkung.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="149"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
-        <translation type="unfinished"/>
+        <translation>Keine neuen Downloads falls Geschwindigkeitslimit überschritten (KiB/s, 0 = unendlich)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="159"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
-        <translation type="unfinished"/>
+        <translation>Merke: Wegen schwankender Downloadgeschwindigkeiten ist dies nicht 100% genau</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="172"/>
@@ -5613,7 +5613,7 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="284"/>
         <source>Auto-priority settings</source>
-        <translation type="unfinished"/>
+        <translation>Auto-Priotitäts Einstellung</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="293"/>
@@ -5666,13 +5666,13 @@ höchste, hohe und normale Priorität, werden auf niedige Priorität gesetzt. (S
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="420"/>
         <source>Auto-drop settings</source>
-        <translation type="unfinished"/>
+        <translation>Auto-Verwerfen Einstellung</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="429"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
-        <translation type="unfinished"/>
+        <translation>Falls die Downloadgeschwindigkeit einer Datei unter dem eingegebenen Wert ligt wird die Quelle verworfen. (Standard: 1024 B/s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="440"/>
@@ -5933,7 +5933,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"/>
+        <translation>Erlaube gleichzeitige Uploads von einem Benutzer von wenigen NMDC Hubs</translation>
     </message>
 </context>
 <context>
@@ -5991,7 +5991,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="131"/>
         <source>Always show window at startup</source>
-        <translation type="unfinished"/>
+        <translation>Fenster beim Starten immer anzeigen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="143"/>
@@ -6022,7 +6022,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="207"/>
         <source>Don&apos;t show icons in menus (need restart)</source>
-        <translation type="unfinished"/>
+        <translation>Icons im Menü nicht anzeigen (Neustart erforderlich)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="215"/>
@@ -6114,7 +6114,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="351"/>
         <source>Force emoticon parsing</source>
-        <translation type="unfinished"/>
+        <translation>Erzwinge parsen von Emoticons</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="358"/>
@@ -6260,7 +6260,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="692"/>
         <source>Parse BBCode</source>
-        <translation type="unfinished"/>
+        <translation>BBCode parsen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="713"/>
@@ -6618,7 +6618,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="90"/>
         <source>Auto away interval (min)</source>
-        <translation type="unfinished"/>
+        <translation>Auto-Abwesenheits Intervall (Min)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="110"/>
