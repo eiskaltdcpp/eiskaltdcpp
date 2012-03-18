@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-02-21 22:19+0200\n"
+"POT-Creation-Date: 2012-03-18 18:05+0200\n"
 "PO-Revision-Date: 2012-01-22 21:56+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,42 +250,42 @@ msgstr "Endless redirection loop (%1%)"
 msgid "Sent "
 msgstr "Sent "
 
-#: ../Util.cpp:621
+#: ../Util.cpp:632
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:623
+#: ../Util.cpp:634
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:625
+#: ../Util.cpp:636
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:627
+#: ../Util.cpp:638
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:629
+#: ../Util.cpp:640
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:631
+#: ../Util.cpp:642
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:661
+#: ../Util.cpp:672
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:665
+#: ../Util.cpp:676
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"

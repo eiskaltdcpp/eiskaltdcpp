@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-02-21 22:19+0200\n"
+"POT-Creation-Date: 2012-03-18 18:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -238,42 +238,42 @@ msgstr ""
 msgid "Sent "
 msgstr ""
 
-#: ../Util.cpp:621
+#: ../Util.cpp:632
 #, c-format
 msgid "%d B"
 msgstr ""
 
-#: ../Util.cpp:623
+#: ../Util.cpp:634
 #, c-format
 msgid "%.02f KiB"
 msgstr ""
 
-#: ../Util.cpp:625
+#: ../Util.cpp:636
 #, c-format
 msgid "%.02f MiB"
 msgstr ""
 
-#: ../Util.cpp:627
+#: ../Util.cpp:638
 #, c-format
 msgid "%.02f GiB"
 msgstr ""
 
-#: ../Util.cpp:629
+#: ../Util.cpp:640
 #, c-format
 msgid "%.02f TiB"
 msgstr ""
 
-#: ../Util.cpp:631
+#: ../Util.cpp:642
 #, c-format
 msgid "%.02f PiB"
 msgstr ""
 
-#: ../Util.cpp:661
+#: ../Util.cpp:672
 #, c-format
 msgid "%s B"
 msgstr ""
 
-#: ../Util.cpp:665
+#: ../Util.cpp:676
 #, c-format
 msgid "%'lld B"
 msgstr ""
