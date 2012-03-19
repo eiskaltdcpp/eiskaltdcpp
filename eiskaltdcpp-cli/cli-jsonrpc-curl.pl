@@ -24,8 +24,9 @@ use strict;
 use warnings;
 
 my $server="http://127.0.0.1:3121/";
-my $curl="/usr/bin/curl";
+my $curl="/usr/local/bin/curl";
 my $method=$ARGV[0];
 print("Request:\t$method\n");
+print("Reply:\t");
 system("$curl --data-binary '$method' -H 'content-type: text/plain;' $server");
 exit(0);

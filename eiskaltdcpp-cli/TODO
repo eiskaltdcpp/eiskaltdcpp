@@ -1,20 +1,21 @@
 API Layers:
 -----------------------
 УПРАВЛЕНИЕ ПОТОКАМИ (ОЧЕРЕДЬЮ) СКАЧИВАНИЯ/ЗАКАЧИВАНИЯ
-	(wip) Просмотр очереди (queue.list)
+	(+) Просмотр очереди (queue.list)
 		Args: none
 		Return: @queue list {all targets with all params}@ (string)
-	(wip) Просмотр всех элементов очереди (queue.listtargets)
+	(+) Просмотр всех элементов очереди (queue.listtargets)
 		Args: separator (string)
 		Return: @all targets in queue@ (string)
 	(wip) Modify target arg for queue item (queue.move)
 		Args: source (string), target (string)
 		Return: 0 | 1 (integer)
+		Comment: Не понял как проверить что куда подствлять в агрументы, что то поставил куда то, оно ответило 0, но ничего никуда не перенеслось
 	(wip) Удаление элемента очереди (queue.remove)
 		Args: target (string)
 		Return: 0 | 1 (integer)
-	(broken) Постановка в очередь магнета (magnet.add)
-		Args: magnet (string)
+	(+) Постановка в очередь магнета (magnet.add)
+		Args: magnet (string), directory (string)
 		Return: 0 | 1 (integer)
 	Просмотр конкретного элемента очереди
 	(wip) Установка приоритета элемента очереди
@@ -29,6 +30,7 @@ API Layers:
 	(broken) Скачивание файллиста (list.download)
 		Args: huburl (string), nick (string)
 		Return: 0 | 1 (integer)
+		Comment: Скачивает, но в FileList пусто, как будто не сохраняет
 	Просмотр файллиста
 	Постановка файла из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
 	Постановка директории из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
@@ -49,7 +51,12 @@ API Layers:
 	(+) Обновлние (share.refresh)
 		Args : none
 		Return: 0 | 1 (integer)
-	Показать статус хеширования
+	(+) Показать статус хеширования (hash.status)
+		Args: none
+		Return: "bytesleft":0,"currentfile":"","filesleft":0,"status":"idle"} 
+	(+) Приостановить хеширование (hash.pause)
+		Args: none
+		Return: 0 | 1 (int)
 	(wip) perfolderlimits api (?)
 -----------------------
 УПРАВЛЕНИЕ ХАБАМИ
@@ -75,12 +82,14 @@ API Layers:
 		Return: @last messages on huburl@ (string)
 -----------------------
 ПОИСК
-	(wip) Инициация поиска (search.send)
+	(+) Инициация поиска (search.send)
 		Args: searchstring (string), seatchtype (int), sizemode (int), sizetype (int), size (double), huburls (string, separator=";")
 		Return: 0 | 1 (integer)
-	(wip) Просмотр результатов поиска (search.getresults, нужна нумерация для постановки в очередь)
+	(wip) Просмотр результатов поиска (search.getresults)
 		Args: huburl (string)
 		Return: @search results@ (array of map)
+		Comment: Я не знаю почему и где ошибка, но поиск одного и того же, запущенный на qt-морде дает значительно больше результатов чем поиск,
+		запущенный из демона. Просьба подвердить или опровергнуть такое поведение.
 	(+) Очистить полученные результаты для указанного хаба/все. (search.clear)
 		Args: huburl (string)
 		Return: 0 | 1 (integer)
@@ -93,6 +102,9 @@ API Layers:
 	(+) Байт принято/отдано (show.ratio)
 		Args: none
 		Return: @ratio@ (string)
+	(+) Список методов (methods.list)
+		Args: none
+		Return: separated list of methods
 -----------------------
 IPFILTER
 	Добавление
