@@ -122,7 +122,14 @@ namespace Json
     bool HTTPServer::sendResponse(std::string & response, void *addInfo)
     {
         struct mg_connection* conn = (struct mg_connection*)addInfo;
-        if(mg_printf(conn,"HTTP/1.1 200 OK Content-Type: application/json; \r\n\r\n %s",response.c_str()) > 0) {
+        std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: ";
+        char v[16];
+        snprintf(v, sizeof(v), "%u", response.size());
+        tmp += v;
+        tmp += "\r\n\r\n";
+        tmp += response;
+        //printf("test: %s\n", tmp.c_str());fflush(stdout);
+        if(mg_write(conn, tmp.c_str(), tmp.size()) > 0) {
             return true;
         } else {
             return false;
