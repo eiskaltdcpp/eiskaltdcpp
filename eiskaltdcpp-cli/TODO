@@ -85,11 +85,10 @@ API Layers:
 	(+) Инициация поиска (search.send)
 		Args: searchstring (string), seatchtype (int), sizemode (int), sizetype (int), size (double), huburls (string, separator=";")
 		Return: 0 | 1 (integer)
-	(wip) Просмотр результатов поиска (search.getresults)
+	(+) Просмотр результатов поиска (search.getresults)
 		Args: huburl (string)
 		Return: @search results@ (array of map)
-		Comment: Я не знаю почему и где ошибка, но поиск одного и того же, запущенный на qt-морде дает значительно больше результатов чем поиск,
-		запущенный из демона. Просьба подвердить или опровергнуть такое поведение.
+		Comment: 
 	(+) Очистить полученные результаты для указанного хаба/все. (search.clear)
 		Args: huburl (string)
 		Return: 0 | 1 (integer)
