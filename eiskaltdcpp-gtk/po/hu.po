@@ -1,7 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Translators:
 # Translators:
 # Translators:
@@ -13,14 +14,13 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-03-18 20:22+0200\n"
-"PO-Revision-Date: 2012-03-18 17:23+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/"
-"language/hu/)\n"
-"Language: hu\n"
+"PO-Revision-Date: 2012-03-20 14:43+0000\n"
+"Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
+"Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/hub.cc:1056 ../src/hub.cc:1135 ../src/privatemessage.cc:566
@@ -134,15 +134,7 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr ""
-"%a a hét napjainak rövidített neve.\n"
-"%b a hónapok rövidített neve.\n"
-"%H óra, mint decimális szám, 24 órás időformátumban.\n"
-"%M perc, mind decimális szám (tartomány: 00-59).\n"
-"%S másodperc, mind decimális szám (tartomány: 00-59).\n"
-"%% megjeleníthető '%' karakter.\n"
-"\n"
-"lásd még: 'man strftime' a további részletekért."
+msgstr "%a a hét napjainak rövidített neve.\n%b a hónapok rövidített neve.\n%H óra, mint decimális szám, 24 órás időformátumban.\n%M perc, mind decimális szám (tartomány: 00-59).\n%S másodperc, mind decimális szám (tartomány: 00-59).\n%% megjeleníthető '%' karakter.\n\nlásd még: 'man strftime' a további részletekért."
 
 #: ../src/hub.cc:2355
 msgid "': type /help for a list of available commands"
@@ -196,11 +188,9 @@ msgstr ": a használható parancsokat a /help használatával érheted el"
 
 #: ../ui/settingsdialog.ui:6847
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
-msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Segítség</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Segítség</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -356,9 +346,7 @@ msgstr "<b>Új név</b>"
 
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:8832
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr ""
-"<b>Megjegyzés:</b> A listában szereplő url-ek szerkeszthetők kiválasztás "
-"után egy kattintással"
+msgstr "<b>Megjegyzés:</b> A listában szereplő url-ek szerkeszthetők kiválasztás után egy kattintással"
 
 #: ../ui/settingsdialog.ui:5335
 msgid "<b>Notify</b>"
@@ -494,9 +482,7 @@ msgstr "<b>fájl</b> "
 
 #: ../ui/favoritehubs.ui:469
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr ""
-"<small>Megjegyzés: Ha nincs bejelölve, az alapértelmezett beállítások "
-"lesznek érvényben</small>"
+msgstr "<small>Megjegyzés: Ha nincs bejelölve, az alapértelmezett beállítások lesznek érvényben</small>"
 
 #: ../src/sharebrowser.hh:141 ../src/sharebrowser.hh:144
 msgid "?"
@@ -540,8 +526,7 @@ msgstr "Hub hozzáadása a kedvencekhez"
 
 #: ../src/settingsdialog.cc:1532
 msgid "Add finished files to share instantly (if shared)"
-msgstr ""
-"Letöltött fájlok azonnali megosztása (ha a megosztási mappán belül van)\t"
+msgstr "Letöltött fájlok azonnali megosztása (ha a megosztási mappán belül van)\t"
 
 #: ../src/hub.cc:2060
 msgid ""
@@ -615,13 +600,11 @@ msgstr "Nem találhatóak álnevek."
 
 #: ../src/settingsdialog.cc:1602
 msgid "Allow TLS connections to clients without trusted certificate"
-msgstr ""
-"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli klienseknél is"
+msgstr "TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli klienseknél is"
 
 #: ../src/settingsdialog.cc:1601
 msgid "Allow TLS connections to hubs without trusted certificate"
-msgstr ""
-"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli huboknál is"
+msgstr "TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli huboknál is"
 
 #: ../src/settingsdialog.cc:1539
 msgid "Allow overlap chunks"
@@ -656,8 +639,7 @@ msgstr "Alkalmazás kiterjesztésekhez: (avi;mov;divx)"
 #: ../src/favoritehubs.cc:425
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
-"Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
+msgstr "Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
 
 #: ../src/favoriteusers.cc:442
 msgid "Are you sure you want to delete favorite user(s)?"
@@ -689,14 +671,11 @@ msgstr "Automatikus újraellenőrzés ideje"
 
 #: ../src/settingsdialog.cc:1521
 msgid "Auto-away on minimize (and back on restore)"
-msgstr ""
-"Minimalizáláskor automatikus away mód (és maximalizáláskor visszavonás)"
+msgstr "Minimalizáláskor automatikus away mód (és maximalizáláskor visszavonás)"
 
 #: ../src/settingsdialog.cc:955
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr ""
-"Lassú források automatikus eldobása a sor minden eléménél (kivéve fájl-"
-"listáknál)"
+msgstr "Lassú források automatikus eldobása a sor minden eléménél (kivéve fájl-listáknál)"
 
 #: ../src/settingsdialog.cc:1526
 msgid "Automatically disconnect users who leave the hub"
@@ -708,14 +687,11 @@ msgstr "Átirányítások automatikus követése"
 
 #: ../src/settingsdialog.cc:959
 msgid "Automatically match queue for auto search hits"
-msgstr ""
-"Listák automatikus egyeztetése a letöltésekkel alternatív forrás találásakor"
+msgstr "Listák automatikus egyeztetése a letöltésekkel alternatív forrás találásakor"
 
 #: ../ui/settingsdialog.ui:4160
 msgid "Automatically open extra slot if speed is below (0 = disable)"
-msgstr ""
-"Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = "
-"letiltva)"
+msgstr "Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = letiltva)"
 
 #: ../src/settingsdialog.cc:958
 msgid "Automatically search for alternative download locations"
@@ -896,11 +872,11 @@ msgstr "Chat Menü"
 
 #: ../src/hub.cc:1876
 msgid "Chat disabled"
-msgstr ""
+msgstr "Csevegés tiltása"
 
 #: ../src/hub.cc:1881
 msgid "Chat enabled"
-msgstr ""
+msgstr "Csevegés beállítása"
 
 #: ../ui/settingsdialog.ui:3492
 msgid "Check every"
@@ -1085,11 +1061,7 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr ""
-"Ez a DC++ kliens a FreeDC++ és a LinuxDC++ forráskódján alapszik.\n"
-"\n"
-"EiskaltDC++ verzió: %s (%s)\n"
-"DC++ verzió: %s"
+msgstr "Ez a DC++ kliens a FreeDC++ és a LinuxDC++ forráskódján alapszik.\n\nEiskaltDC++ verzió: %s (%s)\nDC++ verzió: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1170,7 +1142,7 @@ msgstr "Könyvtár vagy a kedvenc neve már létezik"
 
 #: ../ui/hub.ui:344
 msgid "Disable chat"
-msgstr ""
+msgstr "Csevegés bezárása"
 
 #: ../src/settingsdialog.cc:1056
 msgid "Do not close the program, hide in the system tray"
@@ -1206,8 +1178,7 @@ msgstr "Ne rejtse el az oldal panelt keresésnél"
 
 #: ../src/settingsdialog.cc:957
 msgid "Don't remove the source when auto-dropping, only disconnect"
-msgstr ""
-"Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás legyen"
+msgstr "Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás legyen"
 
 #: ../src/settingsdialog.cc:1533
 msgid "Don't send the away message to bots"
@@ -1955,9 +1926,7 @@ msgstr "Kaffeine player"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr ""
-"Többször szereplő fájlok megosztásban tartása (a duplikációk nem növelik a "
-"megosztás méretét)"
+msgstr "Többször szereplő fájlok megosztásban tartása (a duplikációk nem növelik a megosztás méretét)"
 
 #: ../ui/settingsdialog.ui:3230 ../ui/settingsdialog.ui:3246
 #: ../ui/settingsdialog.ui:3278 ../ui/settingsdialog.ui:3294
@@ -2313,25 +2282,20 @@ msgstr "Felhasználó nem található: "
 
 #: ../ui/settingsdialog.ui:8034
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr ""
-"Megjegyzés: Különböző keresési típusok csak az ADC hubokon használhatóak!"
+msgstr "Megjegyzés: Különböző keresési típusok csak az ADC hubokon használhatóak!"
 
 #: ../ui/settingsdialog.ui:4605 ../ui/settingsdialog.ui:4675
 msgid "Note: Most of these options require that you restart the application"
-msgstr ""
-"Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program újraindítása "
-"szükséges"
+msgstr "Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program újraindítása szükséges"
 
 #: ../ui/settingsdialog.ui:4017
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr ""
-"Megjegyzés: Az új fájlok csak az indexelés befejezése után kerülnek "
-"megosztásra!"
+msgstr "Megjegyzés: Az új fájlok csak az indexelés befejezése után kerülnek megosztásra!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
-msgstr ""
-"Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
+msgstr "Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
 
 #: ../src/settingsdialog.cc:1254 ../ui/settingsdialog.ui:5673
 msgid "Notify"
@@ -2602,9 +2566,7 @@ msgstr "Fájl-lista frissítése"
 
 #: ../src/settingsdialog.cc:1535
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
-msgstr ""
-"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása "
-"a rendszerben"
+msgstr "A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
 
 #: ../src/settingsdialog.cc:1536
 msgid "Register with the OS to handle magnet: URL links"
@@ -2616,8 +2578,7 @@ msgstr "Emlékezz a válaszra"
 
 #: ../src/downloadqueue.cc:1371
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr ""
-"A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem lehetséges"
+msgstr "A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem lehetséges"
 
 #: ../ui/adlsearch.ui:508 ../ui/uploadqueue.ui:69 ../ui/settingsdialog.ui:7994
 msgid "Remove"
@@ -2834,10 +2795,9 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:954
-msgid "Set lowest priority for newly added files larger than low priority size"
-msgstr ""
-"Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új "
-"fájlokhoz"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
+msgstr "Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új fájlokhoz"
 
 #: ../ui/settingsdialog.ui:4049
 msgid "Share hidden files"
@@ -3161,9 +3121,7 @@ msgstr ""
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr ""
-"A letöltés megkezdéséhez be kell kapcsolnod az alternatívák automatikus "
-"keresését (Beállítások/Letöltések/Letöltési sor)"
+msgstr "A letöltés megkezdéséhez be kell kapcsolnod az alternatívák automatikus keresését (Beállítások/Letöltések/Letöltési sor)"
 
 #: ../ui/settingsdialog.ui:5983
 msgid "Toolbar"
@@ -3260,13 +3218,10 @@ msgstr "Fájl-lista betöltése sikertelen: Nem megfelelő fájl-lista név"
 
 #: ../src/mainwindow.cc:2243
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
-msgstr ""
-"A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog "
-"megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a "
-"kívánt portot használó alkalmazást be nem zárod."
+msgstr "A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a kívánt portot használó alkalmazást be nem zárod."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3392,8 +3347,7 @@ msgstr "Hangulatjelek használata"
 
 #: ../src/settingsdialog.cc:1534
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr ""
-"Gyors indexelés használata (kapcsold ki, ha problémát észlelsz indexeléskor)"
+msgstr "Gyors indexelés használata (kapcsold ki, ha problémát észlelsz indexeléskor)"
 
 #: ../src/settingsdialog.cc:1053
 msgid "Use magnet split"
@@ -3494,22 +3448,12 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr ""
-"Használat:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp <Kapcsoló>\n"
-"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC "
-"protokollok használatára.\n"
-"\n"
-"Kapcsolók:\n"
-"  -h, --help\t\t Help megjelenítése\n"
-"  -V, --version\t  Verzióinformáció mutatása\n"
+msgstr "Használat:\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n  eiskaltdcpp <Kapcsoló>\nAz EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC protokollok használatára.\n\nKapcsolók:\n  -h, --help\t\t Help megjelenítése\n  -V, --version\t  Verzióinformáció mutatása\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:336
 msgid "Video"
@@ -3551,8 +3495,7 @@ msgstr "Várakozás (másodpercben)"
 #: ../src/hub.cc:550
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr ""
-"Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
+msgstr "Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
 
 #: ../src/transfers.cc:578
 msgid "Waiting for slot "
