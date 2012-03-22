@@ -12,8 +12,8 @@ mingw-get-inst-20111118.exe or later
 qt-win-opensource-4.7.4-mingw.exe or later
 	http://get.qt.nokia.com/qt/source/qt-win-opensource-4.7.4-mingw.exe
 
-Win32OpenSSL-1_0_0g.exe or later
-	http://www.slproweb.com/download/Win32OpenSSL-1_0_0g.exe
+Win32OpenSSL-1_0_1.exe or later
+	http://www.slproweb.com/download/Win32OpenSSL-1_0_1.exe
 
 cmake-2.8.7-win32-x86.exe or later
 	http://www.cmake.org/files/v2.8/cmake-2.8.7-win32-x86.exe
@@ -21,8 +21,8 @@ cmake-2.8.7-win32-x86.exe or later
 nsis-2.46-setup.exe or later
 	http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46-setup.exe/download
 
-boost_1_48_0.tar.bz2 or later
-	http://sourceforge.net/projects/boost/files/boost/1.48.0/boost_1_48_0.tar.bz2/download
+boost_1_49_0.tar.bz2 or later
+	http://sourceforge.net/projects/boost/files/boost/1.49.0/boost_1_49_0.tar.bz2/download
 
 bzip2-1.0.6-4-mingw32-dev.tar.lzma or later
 	http://sourceforge.net/projects/mingw/files/MinGW/Extension/bzip2/bzip2-1.0.6-4/bzip2-1.0.6-4-mingw32-dev.tar.lzma/download
@@ -60,8 +60,8 @@ aspell-0.60.5-1-bin.tar.bz2 or later
 aspell-0.60.5-1-lib.tar.bz2 or later
 	http://www.winkde.org/pub/kde/ports/win32/repository/aspell/aspell-0.60.5-1-lib.tar.bz2
 
-libidn-1.23-win32.zip or later
-	ftp://ftp.gnu.org/gnu/libidn/libidn-1.23-win32.zip
+libidn-1.24-win32.zip or later
+	ftp://ftp.gnu.org/gnu/libidn/libidn-1.24-win32.zip
 
 mingw32-qtscriptgenerator-git-26-10-2010.tar.xz or later
 	http://eiskaltdc.googlecode.com/files/mingw32-qtscriptgenerator-git-26-10-2010.tar.xz
@@ -86,7 +86,7 @@ Unpack bzip2-*, libbz2-* archives to mingw32-depends\bzip2\
 Unpack libz-* archives to mingw32-depends\zip\
 Unpack gettext-*, libgettextpo-*, libintl-* archives to mingw32-depends\gettext\
 Unpack libiconv-* archives to mingw32-depends\iconv\
-Unpack mingw32-lua-* archive to mingw32-depends\lua\
+Unpack mingw32-lua-*/mingw32-lua-*/ archive to mingw32-depends\lua\
 Unpack aspell-* archives to mingw32-depends\aspell\
 Unpack libidn-* archive to mingw32-depends\idna\
 Unpack mingw32-pcre-* archive to mingw32-depends\pcre\
@@ -116,7 +116,7 @@ Unpack bzip2-*, libbz2-* archives to mingw32-depends/bzip2/
 Unpack libz-* archives to mingw32-depends/zip/
 Unpack gettext-*, libgettextpo-*, libintl-* archives to mingw32-depends/gettext/
 Unpack libiconv-* archives to mingw32-depends/iconv/
-Unpack mingw32-lua-* archive to mingw32-depends/lua/
+Unpack mingw32-lua-*/mingw32-lua-*/ archive to mingw32-depends/lua/
 Unpack aspell-* archives to mingw32-depends/aspell/
 Unpack libidn-* archive to mingw32-depends/idna/
 Unpack mingw32-pcre-* archive to mingw32-depends/pcre/
