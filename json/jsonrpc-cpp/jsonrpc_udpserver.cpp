@@ -22,6 +22,7 @@
  * \author Sebastien Vincent
  */
 
+#include <iostream>
 #include <stdexcept>
 
 #include "jsonrpc_udpserver.h"
