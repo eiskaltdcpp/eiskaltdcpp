@@ -1091,7 +1091,6 @@ Download* QueueManager::getDownload(UserConnection& aSource, bool supportsTrees)
             }
         }
     }
-
     Download* d = new Download(aSource, *q, q->isSet(QueueItem::FLAG_PARTIAL_LIST) ? q->getTempTarget() : q->getTarget(), supportsTrees);
 
     userQueue.addDownload(q, d);
@@ -1790,6 +1789,9 @@ void QueueLoader::startTag(const string& name, StringPairList& attribs, bool sim
             if(size > 0 && start >= 0 && (start + size) <= cur->getSize()) {
                 cur->addSegment(Segment(start, size));
             }
+        } else if (cur && (!Util::fileExists(cur->getTempTarget()) || !Util::fileExists(cur->getTarget()))) {
+            QueueManager::getInstance()->setPriority(cur->getTarget(), QueueItem::PAUSED);
+            LogManager::getInstance()->message(str(F_("Temp target or target not avail %1%; pause this queue item.") % Util::addBrackets(cur->getTarget())));
         } else if(cur && name == sSource) {
             const string& cid = getAttrib(attribs, sCID, 0);
             if(cid.length() != 39) {
