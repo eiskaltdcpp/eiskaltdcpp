@@ -215,7 +215,7 @@ Optionen:
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="89"/>
         <source>Clear</source>
-        <translation>Leere</translation>
+        <translation>Leeren</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="109"/>
@@ -1915,7 +1915,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1311"/>
         <source>Search Spy</source>
-        <translation>Such Spion</translation>
+        <translation>Suchspion</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1313"/>
@@ -2006,12 +2006,12 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1348"/>
         <source>Speed limit On/Off</source>
-        <translation>Geschwindigkeits-Limit Ein/Aus</translation>
+        <translation>Geschwindigkeitslimit Ein/Aus</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1351"/>
         <source>Scripts Manager</source>
-        <translation>Scripts-Mangater</translation>
+        <translation>Scripts-Manager</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1353"/>
@@ -2046,7 +2046,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1367"/>
         <source>Widgets panel</source>
-        <translation>Widgets-Leiste</translation>
+        <translation>Widgetsleiste</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1369"/>
@@ -2205,7 +2205,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2026"/>
         <source>Connectivity Manager: Warning</source>
-        <translation>Verbindungsmanager: Warnu´ng</translation>
+        <translation>Verbindungsmanager: Warnung</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2046"/>
@@ -2220,7 +2220,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2268"/>
         <source>Script Engine</source>
-        <translation>Script-Engine</translation>
+        <translation>Scriptengine</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2521"/>
@@ -2429,7 +2429,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2757"/>
         <source>Show close buttons</source>
-        <translation>Zeige Schließen-Schaltfläche</translation>
+        <translation>Zeige schließen Schaltfläche</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2844"/>
@@ -2447,7 +2447,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MultiLineToolBar.cpp" line="56"/>
         <source>Show close buttons</source>
-        <translation>Zeige Schließen-Schaltfläche</translation>
+        <translation>Zeige schließen Schaltfläche</translation>
     </message>
 </context>
 <context>
@@ -2640,7 +2640,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/PublicHubs.cpp" line="295"/>
         <source>Cached hub list is corrupted or unsupported</source>
-        <translation>Zwischengespeicherte Hub-Liset ist fehlerhaft oder wird nicht untstützt</translation>
+        <translation>Zwischengespeicherte Hubliste ist fehlerhaft oder wird nicht untstützt</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="297"/>
@@ -2678,7 +2678,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/main.cpp" line="144"/>
         <source>UserList icons has been loaded</source>
-        <translation>Benutzerlisten-Icon wurde geladen</translation>
+        <translation>Benutzerlistenicon wurde geladen</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="147"/>
@@ -2821,7 +2821,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="67"/>
         <source>Clear</source>
-        <translation>Leere</translation>
+        <translation>Leeren</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="74"/>
@@ -3418,7 +3418,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
         <location filename="../src/SettingsSharing.cpp" line="206"/>
         <location filename="../src/SettingsSharing.cpp" line="235"/>
         <source>Add item</source>
-        <translation>Item hinzufügen</translation>
+        <translation>Element hinzufügen</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="206"/>
@@ -3564,7 +3564,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="617"/>
         <source>Selected %1 from %2 items; </source>
-        <translation>Wähle %1 von %2 Einträgen; </translation>
+        <translation>Wähle %1 von %2 Elementen; </translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="622"/>
@@ -3680,7 +3680,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
         <location filename="../src/SideBar.cpp" line="61"/>
         <location filename="../src/SideBar.cpp" line="415"/>
         <source>Download Queue</source>
-        <translation>Download-Warteschlange</translation>
+        <translation>Downloadwarteschlange</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="62"/>
@@ -3799,8 +3799,8 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
 It will continue to work when the widget is hidden.
 Do you want to stop it?
 </source>
-        <translation>Suchspion läuft jetzt.
-Er wird weiterarbeiten wenn das Widget versteckt ist.
+        <translation>Der Suchspion läuft jetzt.
+Er wird auch weiterarbeiten, wenn das Widget versteckt ist.
 Willst du ihn stoppen?
 </translation>
     </message>
@@ -3825,7 +3825,7 @@ Willst du ihn stoppen?
     <message>
         <location filename="../src/SpyModel.cpp" line="18"/>
         <source>Search string</source>
-        <translation>Such-String</translation>
+        <translation>Suchstring</translation>
     </message>
 </context>
 <context>
@@ -3841,7 +3841,7 @@ Willst du ihn stoppen?
     <message>
         <location filename="../src/ToolBar.cpp" line="249"/>
         <source>Show close buttons</source>
-        <translation>Zeige Schließen-Schaltflächen</translation>
+        <translation>Zeige schließen Schaltflächen</translation>
     </message>
 </context>
 <context>
@@ -4023,7 +4023,7 @@ Willst du ihn stoppen?
     <message>
         <location filename="../src/TransferView.cpp" line="738"/>
         <source>No download slots</source>
-        <translation>Keine Download-Slots</translation>
+        <translation>Keine Downloadslots</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="740"/>
@@ -4767,7 +4767,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="20"/>
         <source>Hash progress</source>
-        <translation>Hash-Fortschritt</translation>
+        <translation>Hash Fortschritt</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="109"/>
@@ -5244,7 +5244,13 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation type="unfinished"/>
+        <translation>Wähle diesen Modus, wenn kein verheriger Modus passt. In diesem Modus
+wird EiskaltDC++ nur ausgehende Verbindungen herstellen und nicht
+versuchen eingehende Verbindungen herzustellen.
+Dieser Modus beinhaltet einige starke Einschränkungen:
+  *nur 5 Ergebnisse pro Benutzer werden als Suchantwort ausgegeben;
+  *man kann nicht von anderen passiven Benutzern herunterladen;
+  *auf manchen Hubs wird es nicht möglich sein zu suchen/herunterzuladen. </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="98"/>
@@ -5259,7 +5265,12 @@ Most routers do support UPnP but you may need to enable it
 in the router's configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation type="unfinished"/>
+        <translation>Wähle diesen Modus wenn du dich hinter einer/m Firewall/Router befindest
+der den UPnP-Standard für Programm-Auto-Konfiguration unterstützt.
+Die meisten Router unterstützen UPnP, aber es kann nötig sein es in
+den Routereinstellungen zu aktivieren.
+Auf diesem Weg wird EiskaltDC++ automatisch die benötigten Ports öffnen
+und ebenfalls die externe IP-Addresse erhalten.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="113"/>
@@ -5311,7 +5322,9 @@ and obtain your external IP address as well.</source>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation type="unfinished"/>
+        <translation>Wähle diesen Modus, wenn du ungehinderte ausgehende Verbindungen
+machen kannst. Dies beinhaltet Verbindungen zu jeglichen IP-Addressen auf
+allen Ports. Wähle diese Option, falls du unsicher bist.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="281"/>
@@ -5324,7 +5337,10 @@ Choose this option if unsure.</source>
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation type="unfinished"/>
+        <translation>Wähle diesen Modus, wenn ausgehende Verbindungen durch einen
+SOCKS-Proxy erfolgen sollen. Die Vorbehalte für den passiven Modus gelten
+hier auch. SOCKS5 Proxys sind nicht das selbe wie HTTP Proxys.
+DC++ SOCKS5 Unterstützung beinhaltet kein GSSAPI.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="297"/>
@@ -5548,7 +5564,10 @@ p, li { white-space: pre-wrap; }
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It's measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation type="unfinished"/>
+        <translation>Dies ist eine andere Methode gleichzeitige Downloads zu beschränken,
+darauf abzielend neue Downloads zu verhindern, falls die existierenden
+Downloads eine Bestimmte Schwelle erreichen. Sie wird in Kibibytes pro
+Sekunde gemessen. Ein Wert von 0 deaktiviert diese Begrenzung.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
@@ -5582,7 +5601,9 @@ Ein Wert von 0 bedeutet keine Beschränkung.</translation>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation type="unfinished"/>
+        <translation>Dieser HTTP Proxy wird nur benutzt um die oben angegebene
+öffentliche Hub-Liste abzufragen.
+Er wird nicht für Uploads, Downloads oder Verbindungen zu Hubs genutzt.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="190"/>
@@ -5687,7 +5708,8 @@ the source will be dropped. (default: 1024 B/s)</source>
         <location filename="../ui/UISettingsDownloads.ui" line="450"/>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
-        <translation type="unfinished"/>
+        <translation>Zeitspanne (in Sekunden) die seid starten des Downloads verstrichen sein
+muss, bevor eine Quelle fallengelassen werden kann. (Standard: 15s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="461"/>
@@ -5695,7 +5717,10 @@ started before a source can be dropped. (default: 15 s)</source>
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"/>
+        <translation>Dies ist die maximale Zeit, seid das letzte Fragment einer Datei empfangen
+wurde. Es soll die Genauigkeit der Geschwindigkeitsmessung verbessern
+und verhindern, das Quellen fallen gelassen werden, weil sie momentan
+inaktiv sind. (Standard: 10s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="474"/>
@@ -5759,14 +5784,16 @@ Wenn abgeschaltet werden Datein auf normale Priorität gesetzt.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="642"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
-        <translation type="unfinished"/>
+        <translation>Langsame Quellen für alle Elemente automatisch fallenlassen (außer Dateilisten)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="645"/>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"/>
+        <translation>Diese Option entfernt die langsamen Quellen bei allen
+Warteschlangenelementen (außer Dateilisten). Um Autodrop einzuschalten,
+entweder &quot;Langsame Quellen für alle Elemente automatisch fallenlassen&quot; oder &quot;Entferne langsame Dateilisten&quot; (oder beide).</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="658"/>
@@ -5780,7 +5807,7 @@ was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
         <translation>Ist diese Option eingeschaltet, wird EiskaltDC++ Dateilisten, deren Geschwindigkeit als zu langsam erkannt wurde, entfernen.
-Um Autodrop zu aktivieren, entweder &quot;Langsame Quellen für alle wartenden Items fallen lassen&quot; oder &quot;Langsame Dateilisten entfernen&quot; (oder beide).</translation>
+Um Autodrop zu aktivieren, entweder &quot;Langsame Quellen für alle wartenden Elemente fallen lassen&quot; oder &quot;Langsame Dateilisten entfernen&quot; (oder beide).</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="675"/>
@@ -5807,12 +5834,17 @@ The autosearch will find exact matches by searching via hash.
 The drawback is that it may won't find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
-        <translation type="unfinished"/>
+        <translation>Alle paar Minuten sucht der Client nach Datein in deiner Download-
+warteschlange um mehr Downloadorte zu finden (mehr Benutzer/Quellen).
+Die Autosuche findet mittels Hash-Suche genaue Übereinstimmungen.
+Der Nachteil ist, dass es nicht viel mehr Quellen finden wird und verhindert
+manuelles Suchen auf Hubs wo eine voreingestellte Suchintervallzeit
+festgelegt ist.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="709"/>
         <source>Automatically match queue for auto search hits</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch Warteschlange mit Ergebnissen der Autosuche abgleichen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="712"/>
@@ -5824,7 +5856,14 @@ for many more files you're downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation type="unfinished"/>
+        <translation>Aktivieren um automatisch Listen von Benutzern herunterzuladen und als
+Quellen für Dateien in der Downloadwarteschlange abstimmen, wenn diese
+als Quelle für eine Datei die gerade heruntergeladen wird erkannt wurden.
+Wenn man Datein als Set herunterläd, ist dieser Benutzer möglicherweise
+Quelle für noch mehr Dateien die heruntergeladen werden. Aktivieren wenn
+du unsicher bist. Die Nachteile sind, dass vielleicht langsame Quellen
+hinzugefügt werden, was die Gesamtzeit des Downloads erhöht und dass
+viele Dateilisten heruntergeladen werden müssen.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="730"/>
@@ -5886,7 +5925,14 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere diese Option wenn du heruntergeladene Dateilisten in der
+Downloadwarteschlange behalten willst nachdem sie fertig sind.
+Nach dem Herunterladen haben Warteschlangenitems den &quot;Beendet&quot;-Status
+und man kann die beendeten Einträge später jederzeit löschen.
+Beachte, dass für physisch von Zielort verschobene/gelöschte Dateien nicht
+automatisch in der beendet Eintrag in der Warteschlange entfernt wird.
+Wenn man diese Funktion deaktiviert, werden beendete Elemente ebenfalls
+nicht aus der Warteschlange entfernt, man muss dies manuell ausführen.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
@@ -5907,7 +5953,17 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere diese Option, wenn heruntergeladene Dateien und Ordner in der
+Downloadwarteschlange verbleiben sollen nachdem sie beendet wurden.
+Nach dem Herunterladen haben Warteschlangenitems den &quot;Beendet&quot;-Status
+und man kann die beendeten Einträge später jederzeit löschen.
+Mit dieser Funktion kann man die Übersicht über Dateien behalten, die
+bereits Heruntergeladen wurden, ohne im beendete Downloads-Fenster
+schauen zu müssen.
+Beachte, dass für physisch von Zielort verschobene/gelöschte Dateien nicht
+automatisch in der beendet Eintrag in der Warteschlange entfernt wird.
+Wenn man diese Funktion deaktiviert, werden beendete Elemente ebenfalls
+nicht aus der Warteschlange entfernt, man muss dies manuell ausführen.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="829"/>
@@ -5927,7 +5983,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="876"/>
         <source>Interval for auto search alternates (minutes)</source>
-        <translation type="unfinished"/>
+        <translation>Intervall für automatische Alternativsuche (Minuten)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="899"/>
@@ -5990,7 +6046,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="124"/>
         <source>Always hide window to system tray at startup</source>
-        <translation type="unfinished"/>
+        <translation>Fenster beim Starten immer in System-Tray minimieren.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="131"/>
@@ -6086,7 +6142,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="305"/>
         <source>Do not change focus on new incoming private messages</source>
-        <translation type="unfinished"/>
+        <translation>Focus nicht auf neu einkommende private Nachrichten ändern</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="315"/>
@@ -6113,7 +6169,9 @@ from the queue either, you must do that manually.</source>
         <source>If checked, you'll see emoticons even in the middle of words.
 If unchecked, you'll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert sieht man Emoticons auch in der mitte von Wörtern.
+Daktiviert sieht man Emoticons nur wenn sie durch Leerzeichen
+isoliert von anderen Wörtern stehen.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="351"/>
@@ -6128,7 +6186,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="365"/>
         <source>Autohide emoticons panel</source>
-        <translation type="unfinished"/>
+        <translation>Emoticonsleiste automatisch verbergen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="386"/>
@@ -6144,7 +6202,7 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="414"/>
         <location filename="../ui/UISettingsGUI.ui" line="433"/>
         <source>Insert nick into input widget</source>
-        <translation type="unfinished"/>
+        <translation>Nick in Eingabe-Widget einfügen</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="419"/>
@@ -6167,7 +6225,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="460"/>
         <source>Application unit base</source>
-        <translation type="unfinished"/>
+        <translation>Anwendugs Einheiten Basis</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
@@ -6223,7 +6281,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="612"/>
         <source>Maximum paragraphs</source>
-        <translation type="unfinished"/>
+        <translation>Maximale Absätze</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="638"/>
@@ -6249,7 +6307,8 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="674"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"/>
+        <translation>Abhängig von der Hub Konfiguration: Informationen darüber stehen
+üblicherweise nur Hub-Operatoren zur Verfügung.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="678"/>
@@ -6421,12 +6480,12 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="188"/>
         <source>System messages</source>
-        <translation>System-Nachrichten</translation>
+        <translation>Systemnachrichten</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="195"/>
         <source>Status messages</source>
-        <translation>Status-Nachrichten</translation>
+        <translation>Statusnachrichten</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="202"/>
@@ -6472,7 +6531,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>
         <source>Ask confirm before exit</source>
-        <translation type="unfinished"/>
+        <translation>Vor Verlassen Bestätigung anfordern</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="40"/>
@@ -6520,7 +6579,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="105"/>
         <source>Change icon when main window is visible</source>
-        <translation type="unfinished"/>
+        <translation>Icon ändern wenn Hauptfenster sichtbar ist</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="124"/>
@@ -6575,7 +6634,9 @@ p, li { white-space: pre-wrap; }
         <source>If your sound files' format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation type="unfinished"/>
+        <translation>Falls Sounddateiformate von Qt nicht unterstützt werden, kann man hier
+andere Media Player definieren um die Formate abzuspielen.
+Zum Beispiel: /usr/bin/mplayer</translation>
     </message>
 </context>
 <context>
@@ -6589,13 +6650,15 @@ For example: /usr/bin/mplayer</source>
         <location filename="../ui/UISettingsPersonal.ui" line="38"/>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"/>
+        <translation>Diese Beschreibung wird in der Benutzerliste angezeigt.
+Sie kann auf Hub-Basis überschrieben werden in den Bevorzugte Hub Einstellungen.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="46"/>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn du im Abwesenheitsmodus bist, wird diese Nachricht an jeden
+geschickt, der dir private Nachrichten sendet.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="54"/>
@@ -6606,7 +6669,9 @@ who sends private message to you.</source>
         <location filename="../ui/UISettingsPersonal.ui" line="61"/>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Nickname, oder Deckname, wird benutzt wenn du einem Hub
+beitrittst. Er kann auf Hub-Basis überschrieben werden, in den Bevorzugte
+Hub Einstellungen.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="69"/>
@@ -6644,7 +6709,10 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
 please choose the one closest to your own.
 Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Drop-Down beinhaltet eine Auswahl üblicher Upload-
+Geschwindigkeiten (in MiB/s), bitte wähle die nähste zu deiner eigenen.
+Bitte füge hier nicht deine Downloadgeschwindigkeit ein; diese Einstellung
+ist ein Maß dafür, wie schnell eine Quelle für andere Benutzer sein wird.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="186"/>
@@ -6654,7 +6722,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="199"/>
         <source>Default hub encoding</source>
-        <translation type="unfinished"/>
+        <translation>Standard Hub-Kodierung</translation>
     </message>
 </context>
 <context>
@@ -6707,7 +6775,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation type="unfinished"/>
+        <translation>Hier kann man Vorlagen für Dateien erstellen, die man nicht teilen will. </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
@@ -6746,7 +6814,11 @@ the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
-        <translation type="unfinished"/>
+        <translation>Gebe Dateien mit dem versteckt Merkmal und Dateien in Ordnern mit
+dem versteckt Merkmal frei.
+Ist diese Option ausgeschaltet, werden Datein die mit einem . (Punkt)
+beginnen nicht freigegeben. Merke: diese Option erfordert eine Erneuerung
+der Dateiliste und kann dazu führen, dass der Client zu hängen scheint.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="226"/>
@@ -6816,7 +6888,7 @@ and may cause the client to appear to freeze.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="339"/>
         <source>Private page mapping</source>
-        <translation type="unfinished"/>
+        <translation>Privatseitenzuordnung</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="346"/>
@@ -7009,7 +7081,7 @@ gewährt EiskaltDC++ ihm wieder einen Slot.</translation>
     <message>
         <location filename="../ui/UISpy.ui" line="69"/>
         <source>Clear</source>
-        <translation>Leere</translation>
+        <translation>Leeren</translation>
     </message>
 </context>
 <context>
