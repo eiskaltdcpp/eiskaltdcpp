@@ -16,7 +16,6 @@
 class JsonRpcMethods
 {
   public:
-    bool Print(const Json::Value& root, Json::Value& response);
 
     bool StopDaemon(const Json::Value& root, Json::Value& response);
     bool MagnetAdd(const Json::Value& root, Json::Value& response);

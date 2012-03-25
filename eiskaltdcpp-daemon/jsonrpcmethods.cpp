@@ -22,15 +22,6 @@ using namespace std;
 // ./cli-jsonrpc-curl.pl  '{"jsonrpc": "2.0", "id": "1", "method": "show.version"}'
 // ./cli-jsonrpc-curl.pl '{"jsonrpc": "2.0", "id": "sv0t7t2r", "method": "queue.getsources", "params":{"target": "/home/egik/Видео/Shakugan no Shana III - 16 - To Battle, Once More [Zero-Raws].mp4"}}'
 
-bool JsonRpcMethods::Print(const Json::Value& root, Json::Value& response)
-{
-    if (isDebug) std::cout << "Receive query: " << root << std::endl;
-    response["jsonrpc"] = "2.0";
-    response["id"] = root["id"];
-    response["result"] = "success";
-    return true;
-}
-
 bool JsonRpcMethods::StopDaemon(const Json::Value& root, Json::Value& response)
 {
     if (isDebug) std::cout << "StopDaemon (root): " << root << std::endl;
@@ -400,7 +391,7 @@ bool JsonRpcMethods::GetMethodList(const Json::Value& root, Json::Value& respons
     response["id"] = root["id"];
     //string tmp;
     //ServerThread::getInstance()->getMethodList(tmp);
-    response["result"] = "print|magnet.add|daemon.stop|hub.add|hub.del|hub.say|hub.pm|hub.list|share.add|share.rename|share.del|share.list|share.refresh|list.download|hub.getchat|search.send|search.getresults|show.version|show.ratio|queue.setpriority|queue.move|queue.remove|queue.listtargets|queue.list|queue.getsources|hash.status|hash.pause|methods.list";
+    response["result"] = "magnet.add|daemon.stop|hub.add|hub.del|hub.say|hub.pm|hub.list|share.add|share.rename|share.del|share.list|share.refresh|list.download|hub.getchat|search.send|search.getresults|show.version|show.ratio|queue.setpriority|queue.move|queue.remove|queue.listtargets|queue.list|queue.getsources|hash.status|hash.pause|methods.list";
     if (isDebug) std::cout << "GetMethodList (response): " << response << std::endl;
     return true;
 }
