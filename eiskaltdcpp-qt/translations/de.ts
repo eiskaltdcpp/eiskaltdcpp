@@ -215,7 +215,7 @@ Optionen:
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="89"/>
         <source>Clear</source>
-        <translation>Leere</translation>
+        <translation>Leeren</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="109"/>
@@ -2821,7 +2821,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="67"/>
         <source>Clear</source>
-        <translation>Leere</translation>
+        <translation>Leeren</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="74"/>
@@ -7081,7 +7081,7 @@ gewährt EiskaltDC++ ihm wieder einen Slot.</translation>
     <message>
         <location filename="../ui/UISpy.ui" line="69"/>
         <source>Clear</source>
-        <translation>Leere</translation>
+        <translation>Leeren</translation>
     </message>
 </context>
 <context>
