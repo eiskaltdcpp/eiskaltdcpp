@@ -389,9 +389,9 @@ bool JsonRpcMethods::GetMethodList(const Json::Value& root, Json::Value& respons
     if (isDebug) std::cout << "GetMethodList (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    //string tmp;
-    //ServerThread::getInstance()->getMethodList(tmp);
-    response["result"] = "magnet.add|daemon.stop|hub.add|hub.del|hub.say|hub.pm|hub.list|share.add|share.rename|share.del|share.list|share.refresh|list.download|hub.getchat|search.send|search.getresults|show.version|show.ratio|queue.setpriority|queue.move|queue.remove|queue.listtargets|queue.list|queue.getsources|hash.status|hash.pause|methods.list";
+    string tmp;
+    ServerThread::getInstance()->getMethodList(tmp);
+    response["result"] = tmp;
     if (isDebug) std::cout << "GetMethodList (response): " << response << std::endl;
     return true;
 }

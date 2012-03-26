@@ -101,9 +101,18 @@ int ServerThread::run() {
     xmlrpc_c::methodPtr const getFileListMethodP(new getFileListMethod);
     xmlrpc_c::methodPtr const sendSearchMethodP(new sendSearchMethod);
     xmlrpc_c::methodPtr const returnSearchResultsMethodP(new returnSearchResultsMethod);
+    xmlrpc_c::methodPtr const clearSearchResultsMethodP(new clearSearchResultsMethod);
     xmlrpc_c::methodPtr const showVersionMethodP(new showVersionMethod);
     xmlrpc_c::methodPtr const showRatioMethodP(new showRatioMethod);
     xmlrpc_c::methodPtr const setPriorityQueueItemMethodP(new setPriorityQueueItemMethod);
+    xmlrpc_c::methodPtr const moveQueueItemMethodP(new moveQueueItemMethod);
+    xmlrpc_c::methodPtr const removeQueueItemMethodP(new removeQueueItemMethod);
+    xmlrpc_c::methodPtr const listQueueTargetsMethodP(new listQueueTargetsMethod);
+    xmlrpc_c::methodPtr const listQueueMethodP(new listQueueMethod);
+    xmlrpc_c::methodPtr const getSourcesItemMethodP(new getSourcesItemMethod);
+    xmlrpc_c::methodPtr const getHashStatusMethodP(new getHashStatusMethod);
+    xmlrpc_c::methodPtr const pauseHashMethodP(new pauseHashMethod);
+    xmlrpc_c::methodPtr const getMethodListMethodP(new getMethodListMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
     xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
@@ -120,14 +129,22 @@ int ServerThread::run() {
     xmlrpcRegistry.addMethod("list.download", getFileListMethodP);
     xmlrpcRegistry.addMethod("search.send", sendSearchMethodP);
     xmlrpcRegistry.addMethod("search.getresults", returnSearchResultsMethodP);
+    xmlrpcRegistry.addMethod("search.clear", clearSearchResultsMethodP);
     xmlrpcRegistry.addMethod("show.version", showVersionMethodP);
     xmlrpcRegistry.addMethod("show.ratio", showRatioMethodP);
     xmlrpcRegistry.addMethod("queue.setpriority", setPriorityQueueItemMethodP);
+    xmlrpcRegistry.addMethod("queue.move", moveQueueItemMethodP);
+    xmlrpcRegistry.addMethod("queue.remove", removeQueueItemMethodP);
+    xmlrpcRegistry.addMethod("queue.listtargets", listQueueTargetsMethodP);
+    xmlrpcRegistry.addMethod("queue.list", listQueueMethodP);
+    xmlrpcRegistry.addMethod("queue.getsources", getSourcesItemMethodP);
+    xmlrpcRegistry.addMethod("hash.status", getHashStatusMethodP);
+    xmlrpcRegistry.addMethod("hash.pause", pauseHashMethodP);
+    xmlrpcRegistry.addMethod("method.list", getMethodListMethodP);
     xmlrpcRegistry.setShutdown(new systemShutdownMethod);
     sock.create();
     sock.setSocketOpt(SO_REUSEADDR, 1);
     sock.bind(lport, lip);
-#if defined(USE_XMLRPC_ABYSS)
     server = new xmlrpc_c::serverAbyss(xmlrpc_c::serverAbyss::constrOpt()
                                       .registryP(&xmlrpcRegistry)
                                       .socketFd(sock.sock)
@@ -136,15 +153,6 @@ int ServerThread::run() {
                                       .uriPath(xmlrpcUriPath)
                                       );
     server->run();
-#elif defined(USE_XMLRPC_PSTREAM)
-    sock.listen();
-    server = new xmlrpc_c::serverPstream(xmlrpc_c::serverPstream::constrOpt()
-                                   .registryP(&xmlrpcRegistry)
-                                   .socketFd(sock.sock)
-                                  );
-    server->runSerial();
-#endif
-
 #endif
 
 #ifdef JSONRPC_DAEMON
@@ -157,13 +165,13 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSay, std::string("hub.say")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSayPM, std::string("hub.pm")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListHubs, std::string("hub.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetChatPub, std::string("hub.getchat")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::AddDirInShare, std::string("share.add")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RenameDirInShare, std::string("share.rename")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DelDirFromShare, std::string("share.del")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListShare, std::string("share.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RefreshShare, std::string("share.refresh")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetFileList, std::string("list.download")));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetChatPub, std::string("hub.getchat")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SendSearch, std::string("search.send")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ReturnSearchResults, std::string("search.getresults")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ClearSearchResults, std::string("search.clear")));
@@ -176,8 +184,8 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetSourcesItem, std::string("queue.getsources")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHashStatus, std::string("hash.status")));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -988,4 +996,8 @@ bool ServerThread::pauseHash() {
     else
         HashManager::getInstance()->pauseHashing();
     return !paused;
+}
+
+void ServerThread::getMethodList(string& tmp) {
+    tmp = "magnet.add|daemon.stop|hub.add|hub.del|hub.say|hub.pm|hub.list|share.add|share.rename|share.del|share.list|share.refresh|list.download|hub.getchat|search.send|search.getresults|show.version|show.ratio|queue.setpriority|queue.move|queue.remove|queue.listtargets|queue.list|queue.getsources|hash.status|hash.pause|methods.list";
 }
