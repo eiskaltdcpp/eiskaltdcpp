@@ -242,11 +242,16 @@ int main(int argc, char* argv[])
 
     Util::PathsMap override;
     if (config_dir[0] != 0) {
-        override[Util::PATH_USER_CONFIG] = config_dir;
-        override[Util::PATH_USER_LOCAL] = config_dir;
+        string tmp = string(config_dir);
+        tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
+        override[Util::PATH_USER_CONFIG] = tmp;
+        override[Util::PATH_USER_LOCAL] = tmp;
     }
-    if (local_dir[0] != 0)
-        override[Util::PATH_USER_LOCAL] = local_dir;
+    if (local_dir[0] != 0) {
+        string tmp = string(local_dir);
+        tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
+        override[Util::PATH_USER_LOCAL] = tmp;
+    }
     Util::initialize(override);
     
 #ifdef _DEBUG
