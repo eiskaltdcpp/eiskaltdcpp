@@ -19,11 +19,7 @@
 #include <xmlrpc-c/base.hpp>
 #include <xmlrpc-c/registry.hpp>
 
-#if defined(USE_XMLRPC_ABYSS)
-    #include <xmlrpc-c/server_abyss.hpp>
-#elif defined(USE_XMLRPC_PSTREAM)
-    #include <xmlrpc-c/server_pstream.hpp>
-#endif
+#include <xmlrpc-c/server_abyss.hpp>
 
 #include "utility.h"
 #include "ServerManager.h"
@@ -31,11 +27,7 @@
 using namespace std;
 
 xmlrpc_c::registry xmlrpcRegistry;
-#if defined(USE_XMLRPC_ABYSS)
 xmlrpc_c::serverAbyss * server;
-#elif defined(USE_XMLRPC_PSTREAM)
-xmlrpc_c::serverPstream * server;
-#endif
 
 class magnetAddMethod : public xmlrpc_c::method {
 public:
@@ -393,6 +385,25 @@ public:
     }
 };
 
+class clearSearchResultsMethod : public xmlrpc_c::method {
+public:
+    clearSearchResultsMethod() {
+        this->_signature = "i:s";
+        this->_help = "Clear search result on target hub/all hubs. Params: hub url; returns: array of search results";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const shuburl(paramList.getString(0));
+        if (ServerThread::getInstance()->clearSearchResults(shuburl))
+            *retvalP = xmlrpc_c::value_int(0);
+        else
+            *retvalP = xmlrpc_c::value_int(1);
+    }
+};
+
 class returnSearchResultsMethod : public xmlrpc_c::method {
 public:
     returnSearchResultsMethod() {
@@ -440,6 +451,182 @@ public:
             *retvalP = xmlrpc_c::value_int(0);
         else
             *retvalP = xmlrpc_c::value_int(1);
+    }
+};
+
+class moveQueueItemMethod : public xmlrpc_c::method {
+public:
+    moveQueueItemMethod() {
+        this->_signature = "i:ss";
+        this->_help = "Move target param of queue item to new location. Params: target, new target; returns: 0 on success; non-zero otherwise";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const starget(paramList.getString(0));
+        string const snewtarget(paramList.getString(1));
+        paramList.verifyEnd(2);
+        if (ServerThread::getInstance()->moveQueueItem(starget, snewtarget))
+            *retvalP = xmlrpc_c::value_int(0);
+        else
+            *retvalP = xmlrpc_c::value_int(1);
+    }
+};
+
+class removeQueueItemMethod : public xmlrpc_c::method {
+public:
+    removeQueueItemMethod() {
+        this->_signature = "i:ss";
+        this->_help = "Remove queue item by target. Params: target; returns: 0 on success; non-zero otherwise";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const starget(paramList.getString(0));;
+        paramList.verifyEnd(1);
+        if (ServerThread::getInstance()->removeQueueItem(starget))
+            *retvalP = xmlrpc_c::value_int(0);
+        else
+            *retvalP = xmlrpc_c::value_int(1);
+    }
+};
+
+class listQueueTargetsMethod : public xmlrpc_c::method {
+public:
+    listQueueTargetsMethod() {
+        this->_signature = "i:s";
+        this->_help = "List queue item targets. Params: separator";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const sseparator(paramList.getString(0));;
+        paramList.verifyEnd(1);
+        string tmp;
+        ServerThread::getInstance()->listQueueTargets(tmp, sseparator);
+        *retvalP = xmlrpc_c::value_string(tmp);
+    }
+};
+
+class listQueueMethod : public xmlrpc_c::method {
+public:
+    listQueueMethod() {
+        this->_signature = "i:s";
+        this->_help = "List queue items. Params: separator";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        unordered_map<string,StringMap> listqueue;
+        ServerThread::getInstance()->listQueue(listqueue);
+        map<string, xmlrpc_c::value> tmp_struct1_in;
+        for (unordered_map<string,StringMap>::iterator i = listqueue.begin(); i != listqueue.end(); ++i) {
+            map<string, xmlrpc_c::value> tmp_struct2_in;
+            for (StringMap::iterator kk = (*i).second.begin(); kk != (*i).second.end(); ++kk) {
+                pair<string, xmlrpc_c::value> member2(kk->first, xmlrpc_c::value_string(kk->second));
+                tmp_struct2_in.insert(member2);
+            }
+            xmlrpc_c::value_struct const tmp_struct2_out(tmp_struct2_in);
+            pair<string, xmlrpc_c::value> member1(i->first, xmlrpc_c::value_struct(tmp_struct2_out));
+            tmp_struct1_in.insert(member1);
+        }
+        xmlrpc_c::value_struct tmp_struct1_out(tmp_struct1_in);
+        *retvalP = tmp_struct1_out;
+    }
+};
+
+class getSourcesItemMethod : public xmlrpc_c::method {
+public:
+    getSourcesItemMethod() {
+        this->_signature = "i:s";
+        this->_help = "Return sources on target. Params: target, separator";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const starget(paramList.getString(0));;
+        string const sseparator(paramList.getString(1));;
+        paramList.verifyEnd(2);
+        string sources;
+        unsigned int online = 0;
+        ServerThread::getInstance()->getItemSourcesbyTarget(starget, sseparator, sources, online);
+        map<string, xmlrpc_c::value> tmp_struct_in;
+        tmp_struct_in["sources"] = xmlrpc_c::value_string(sources);
+        tmp_struct_in["online"] = xmlrpc_c::value_int(online);
+        xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
+        *retvalP = tmp_struct_out;
+    }
+};
+
+class getHashStatusMethod : public xmlrpc_c::method {
+public:
+    getHashStatusMethod() {
+        this->_signature = "i:s";
+        this->_help = "Return hashing status. Params: none";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string tmp = " ",status = " "; int64_t bytes = 0; size_t files = 0;
+        ServerThread::getInstance()->getHashStatus(tmp, bytes, files, status);
+        map<string, xmlrpc_c::value> tmp_struct_in;
+        //response["result"]["currentfile"]=tmp;
+        //response["result"]["status"]=status;
+        //response["result"]["bytesleft"]=Json::Value::Int64(bytes);
+        //response["result"]["filesleft"]=Json::Value::Int64(files);
+        tmp_struct_in["currentfile"] = xmlrpc_c::value_string(tmp);
+        tmp_struct_in["status"] = xmlrpc_c::value_string(status);
+        tmp_struct_in["bytesleft"] = xmlrpc_c::value_i8(bytes);
+        tmp_struct_in["filesleft"] = xmlrpc_c::value_i8(files);
+        xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
+        *retvalP = tmp_struct_out;
+    }
+};
+
+class pauseHashMethod : public xmlrpc_c::method {
+public:
+    pauseHashMethod() {
+        this->_signature = "i:s";
+        this->_help = "Switch pause hashing. Params: none";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        if (ServerThread::getInstance()->pauseHash())
+            *retvalP = xmlrpc_c::value_int(0);
+        else
+            *retvalP = xmlrpc_c::value_int(1);
+    }
+};
+
+class getMethodListMethod : public xmlrpc_c::method {
+public:
+    getMethodListMethod() {
+        this->_signature = "i:s";
+        this->_help = "Return method list separated by \"|\". Params: none";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string tmp;
+        ServerThread::getInstance()->getMethodList(tmp);
+        *retvalP = xmlrpc_c::value_string(tmp);
     }
 };
 
