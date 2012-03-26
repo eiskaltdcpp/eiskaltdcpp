@@ -296,6 +296,7 @@ void ShareBrowser::init(){
     treeView_LPANE->setModel(tree_model);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TTH);
+    treeView_LPANE->setExpanded(tree_model->index(0, 0), true);
     treeView_LPANE->setContextMenuPolicy(Qt::CustomContextMenu);
 
     treeView_RPANE->setModel(list_model);
