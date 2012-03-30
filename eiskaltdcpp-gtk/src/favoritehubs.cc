@@ -60,6 +60,8 @@ FavoriteHubs::FavoriteHubs():
 	favoriteView.insertHiddenColumn("Hidden Password", G_TYPE_STRING);
 	favoriteView.insertHiddenColumn("Mode", G_TYPE_STRING);
 	favoriteView.insertHiddenColumn("Search Interval", G_TYPE_STRING);
+	favoriteView.insertHiddenColumn("Disable Chat", G_TYPE_BOOLEAN);
+	favoriteView.insertHiddenColumn("External IP", G_TYPE_STRING);
 	favoriteView.finalize();
 	favoriteStore = gtk_list_store_newv(favoriteView.getColCount(), favoriteView.getGTypes());
 	gtk_tree_view_set_model(favoriteView.get(), GTK_TREE_MODEL(favoriteStore));
@@ -95,6 +97,7 @@ FavoriteHubs::FavoriteHubs():
 	g_signal_connect(getWidget("checkbuttonEncoding"), "toggled", G_CALLBACK(onCheckButtonToggled_gui), getWidget("comboboxCharset"));
 	g_signal_connect(getWidget("checkbuttonNick"), "toggled", G_CALLBACK(onCheckButtonToggled_gui), getWidget("entryNick"));
 	g_signal_connect(getWidget("checkbuttonUserDescription"), "toggled", G_CALLBACK(onCheckButtonToggled_gui), getWidget("entryUserDescription"));
+	g_signal_connect(getWidget("checkExternalIP"), "toggled", G_CALLBACK(onCheckButtonToggled_gui), getWidget("entryExternalIP"));
 }
 
 FavoriteHubs::~FavoriteHubs()
@@ -132,6 +135,8 @@ void FavoriteHubs::editEntry_gui(StringMap &params, GtkTreeIter *iter)
 		favoriteView.col("Hidden Password"), params["Password"].c_str(),
 		favoriteView.col("Mode"), params["Mode"].c_str(),
 		favoriteView.col("Search Interval"), params["Search Interval"].c_str(),
+		favoriteView.col("Disable Chat"), Util::toInt(params["Disable Chat"]),
+		favoriteView.col("External IP"), params["External IP"].c_str(),
 		favoriteView.col(_("Address")), params["Address"].c_str(),
 		favoriteView.col(_("User Description")), params["User Description"].c_str(),
 		favoriteView.col(_("Encoding")), params["Encoding"].c_str(),
@@ -273,7 +278,9 @@ void FavoriteHubs::onAddEntry_gui(GtkWidget *widget, gpointer data)
 	params["Auto Connect"] = "0";
 	params["Mode"] = "0";
 	params["Search Interval"] = "0";
-
+	params["Disable Chat"] = "0";
+	params["External IP"] = emptyString;
+ 
 	bool updatedEntry = fh->showFavoriteHubDialog_gui(params, fh);
 
 	if (updatedEntry)
@@ -303,6 +310,8 @@ void FavoriteHubs::onEditEntry_gui(GtkWidget *widget, gpointer data)
 	params["Auto Connect"] = fh->favoriteView.getValue<gboolean>(&iter, _("Auto Connect")) ? "1" : "0";
 	params["Mode"] = fh->favoriteView.getString(&iter, "Mode");
 	params["Search Interval"] = fh->favoriteView.getString(&iter, "Search Interval");
+	params["Disable Chat"] = fh->favoriteView.getValue<gboolean>(&iter, "Disable Chat") ? "1" : "0";
+	params["External IP"] = fh->favoriteView.getString(&iter, "External IP");
 
 	bool entryUpdated = showFavoriteHubDialog_gui(params, fh);
 
@@ -329,10 +338,17 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 	gtk_entry_set_text(GTK_ENTRY(fh->getWidget("comboboxentryCharset")), params["Encoding"].c_str());
 	gtk_combo_box_set_active(GTK_COMBO_BOX(fh->getWidget("comboboxMode")), Util::toInt64(params["Mode"]));
 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(fh->getWidget("spinButton_MINSEARCH_INTERVAL")), Util::toInt64(params["Search Interval"]));
+	
 
 	// Set the auto connect checkbox
 	gboolean autoConnect = params["Auto Connect"] == "1" ? TRUE : FALSE;
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkButtonAutoConnect")), autoConnect);
+
+	gboolean disableChat = params["Disable Chat"] == "1" ? TRUE : FALSE;
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkDisableChat")), disableChat);
+
+	gboolean externalIP = !(params["External IP"].empty() || params["External IP"] == SETTING(EXTERNAL_IP));
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("External IP")), externalIP);
 
 	// Set the override default encoding checkbox. Check for "Global hub default"
 	// for backwards compatability w/ 1.0.3. Should be removed at some point.
@@ -362,6 +378,7 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 		params["Description"] = gtk_entry_get_text(GTK_ENTRY(fh->getWidget("entryDescription")));
 		params["Password"] = gtk_entry_get_text(GTK_ENTRY(fh->getWidget("entryPassword")));
 		params["Auto Connect"] = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkButtonAutoConnect"))) ? "1" : "0";
+		params["Disable Chat"] = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkDisableChat"))) ? "1" : "0";
 
 		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkbuttonEncoding"))))
 		{
@@ -383,6 +400,10 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkbuttonUserDescription"))))
 		{
 			params["User Description"] = gtk_entry_get_text(GTK_ENTRY(fh->getWidget("entryUserDescription")));
+		}
+		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkExternalIP"))))
+		{
+			params["External IP"] = gtk_entry_get_text(GTK_ENTRY(fh->getWidget("entryExternalIP")));
 		}
 
 		if (params["Name"].empty() || params["Address"].empty())
@@ -514,6 +535,8 @@ void FavoriteHubs::getFavHubParams_client(const FavoriteHubEntry *entry, StringM
 	params["Encoding"] = entry->getEncoding();
 	params["Mode"] = Util::toString(entry->getMode());
 	params["Search Interval"] = Util::toString(entry->getSearchInterval());
+	params["Disable Chat"] = entry->getDisableChat() ? "1" : "0";
+	params["External IP"] = entry->getExternalIP();
 }
 
 void FavoriteHubs::addEntry_client(StringMap params)
@@ -527,8 +550,10 @@ void FavoriteHubs::addEntry_client(StringMap params)
     entry.setPassword(params["Password"]);
     entry.setUserDescription(params["User Description"]);
     entry.setEncoding(params["Encoding"]);
-	entry.setMode(Util::toInt64(params["Mode"]));
+	entry.setMode(Util::toInt(params["Mode"]));
 	entry.setSearchInterval(Util::toInt64(params["Search Interval"]));
+	entry.setDisableChat(Util::toInt(params["Disable Chat"]));
+	entry.setExternalIP(params["External IP"]);
     FavoriteManager::getInstance()->addFavorite(entry);
 
     const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();
@@ -549,8 +574,10 @@ void FavoriteHubs::editEntry_client(string address, StringMap params)
 		entry->setPassword(params["Password"]);
 		entry->setUserDescription(params["User Description"]);
 		entry->setEncoding(params["Encoding"]);
-		entry->setMode(Util::toInt64(params["Mode"]));
+		entry->setMode(Util::toInt(params["Mode"]));
 		entry->setSearchInterval(Util::toInt64(params["Search Interval"]));
+		entry->setDisableChat(Util::toInt(params["Disable Chat"]));
+		entry->setExternalIP(params["External IP"]);
 		FavoriteManager::getInstance()->save();
 
         const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();
