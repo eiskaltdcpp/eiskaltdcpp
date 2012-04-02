@@ -1062,7 +1062,10 @@ void MainWindow::actionMagnet_gui(string magnet)
 	if (action == 0 && split)
 	{
 		Search *s = addSearch_gui();
-		s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
+		if (tth != _("Unknown"))
+			s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
+		else
+			s->putValue_gui(name, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_ANY);
 	}
 	else if (action == 1 && split)
 	{
@@ -1449,7 +1452,10 @@ void MainWindow::onResponseMagnetDialog_gui(GtkWidget *dialog, gint response, gp
 
 			// start a search for this file
 			Search *s = mw->addSearch_gui();
-			s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
+			if (tth != _("Unknown"))
+				s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
+			else
+				s->putValue_gui(name, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_ANY);
 		}
 		else if (set)
 			WSET("magnet-action", -1);
