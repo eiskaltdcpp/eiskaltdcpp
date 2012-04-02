@@ -298,7 +298,7 @@ Kapcsolók:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="95"/>
         <source>Browse files</source>
-        <translation>Fájl-lista böngészése</translation>
+        <translation>Fájllista böngészése</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="96"/>
@@ -804,7 +804,7 @@ Kapcsolók:
     <message>
         <location filename="../src/HashProgress.cpp" line="95"/>
         <source>Refreshing file list</source>
-        <translation>Fájl-lista frissítése</translation>
+        <translation>Fájllista frissítése</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="125"/>
@@ -884,7 +884,7 @@ Kapcsolók:
     <message>
         <location filename="../src/HubFrame.cpp" line="178"/>
         <source>Browse files</source>
-        <translation>Fájl-lista böngészése</translation>
+        <translation>Fájllista böngészése</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="179"/>
@@ -1814,7 +1814,7 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1270"/>
         <source>Open filelist...</source>
-        <translation>Fájl-lista megnyitása...</translation>
+        <translation>Fájllista megnyitása...</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1272"/>
@@ -1824,7 +1824,7 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1274"/>
         <source>Open own filelist</source>
-        <translation>Saját fájl-lista megnyitása</translation>
+        <translation>Saját fájllista megnyitása</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1276"/>
@@ -2177,12 +2177,12 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1822"/>
         <source>Modern XML Filelists</source>
-        <translation>Modern XML fájl-lista</translation>
+        <translation>Modern XML fájllista</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1823"/>
         <source>Modern XML Filelists uncompressed</source>
-        <translation>Modern, nem tömörített XML fájl-lista</translation>
+        <translation>Modern, nem tömörített XML fájllista</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1824"/>
@@ -2192,7 +2192,7 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1835"/>
         <source>Unable to load file list: Invalid file list name</source>
-        <translation>A fájl-lista nem megnyitható: Érvénytelen fájl-lista név</translation>
+        <translation>A fájllista nem megnyitható: Érvénytelen fájllista név</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1988"/>
@@ -2958,7 +2958,7 @@ Letöltve: %3 Feltöltve: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="145"/>
         <source>Browse files</source>
-        <translation>Fájl-lista böngészése</translation>
+        <translation>Fájllista böngészése</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="148"/>
@@ -3851,7 +3851,7 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../src/TransferView.cpp" line="48"/>
         <source>Browse files</source>
-        <translation>Fájl-lista böngészése</translation>
+        <translation>Fájllista böngészése</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="51"/>
@@ -3957,7 +3957,7 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../src/TransferView.cpp" line="365"/>
         <source>File list</source>
-        <translation>Fájl-lista</translation>
+        <translation>Fájllista</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="367"/>
@@ -4113,7 +4113,7 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="301"/>
         <source>File list</source>
-        <translation>Fájl-lista</translation>
+        <translation>Fájllista</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="549"/>
@@ -5789,21 +5789,21 @@ Ha nem engedélyezett, akkor ezek a fájlok normál prioritásra lesznek álítv
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="642"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
-        <translation>Lassú források automatikus eldobása a sor minden eléménél (kivéve fájl-listáknál)</translation>
+        <translation>Lassú források automatikus eldobása a sor minden eleménél (kivéve fájllistáknál)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="645"/>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation>Engedélyezi a lassú forrásoknak a letöltési sor összes eleméből való eltávolítását (a fájl-listákra kivételével).
-Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források automatikus eldobása a sor minden elemében (fájl-listák kivételével)&quot;
-és a &quot;Lassú fájl-listák eltávolítása&quot; beállítások közül az egyiknek (vagy mindkettőnek) engedélyezve kell lennie.</translation>
+        <translation>Engedélyezi a lassú forrásoknak a letöltési sor összes eleméből való eltávolítását (a fájllistákra kivételével).
+Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források automatikus eldobása a sor minden elemében (fájllisták kivételével)&quot;
+és a &quot;Lassú fájllisták eltávolítása&quot; beállítások közül az egyiknek (vagy mindkettőnek) engedélyezve kell lennie.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="658"/>
         <source>Remove slow filelists</source>
-        <translation>Lassú fájl-listák eltávolítása</translation>
+        <translation>Lassú fájllisták eltávolítása</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="661"/>
@@ -5811,9 +5811,9 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation>Bekapcsolásával megtörténik a lassúnak ítélt fájl-listák automatikus eltávolítása.
-Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források automatikus eldobása a sor minden elemében (fájl-listák kivételével)&quot;
-és a &quot;Lassú fájl-listák eltávolítása&quot; beállítások közül az egyiknek (vagy mindkettőnek) engedélyezve kell lennie.</translation>
+        <translation>Bekapcsolásával megtörténik a lassúnak ítélt fájllisták automatikus eltávolítása.
+Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források automatikus eldobása a sor minden elemében (fájllisták kivételével)&quot;
+és a &quot;Lassú fájllisták eltávolítása&quot; beállítások közül az egyiknek (vagy mindkettőnek) engedélyezve kell lennie.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="675"/>
@@ -5860,11 +5860,11 @@ for many more files you're downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation>Bekapcsolásával minden egyes új forrás találatakor a forrás fájl-listája letöltődik és egyeztetésre kerül a teljes letöltési sorral.
+        <translation>Bekapcsolásával minden egyes új forrás találatakor a forrás fájllistája letöltődik és egyeztetésre kerül a teljes letöltési sorral.
 Több egymással kapcsolatban álló fájl (teljes könyvtár) egyszerre történő letöltésekor gyakran előfordulhat,
 hogy egy fájlhoz talált új forrás megosztása a többi fájlt is tartalmazza.
 Ennek automatikus ellenőrzése történik meg. Ha nem vagy biztos a jelentésében inkább engedélyezd.
-Hátránya, hogy esetleg lassú forrásokat is hozzáadhat a letöltési sorban lévő fájlokhoz, valamint hogy sok fájl-lista letöltést kezdeményez.</translation>
+Hátránya, hogy esetleg lassú forrásokat is hozzáadhat a letöltési sorban lévő fájlokhoz, valamint hogy sok fájllista letöltést kezdeményez.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="730"/>
@@ -5911,7 +5911,7 @@ which already exist in your queue.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="788"/>
         <source>Keep downloaded filelists</source>
-        <translation>Letöltött fájl-listák megtartása</translation>
+        <translation>Letöltött fájllisták megtartása</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="791"/>
@@ -6205,7 +6205,7 @@ ha azok egy szóközzel el vannak választva a szavaktól.</translation>
         <location filename="../ui/UISettingsGUI.ui" line="419"/>
         <location filename="../ui/UISettingsGUI.ui" line="438"/>
         <source>Get file list</source>
-        <translation>Fájl-lista letöltése</translation>
+        <translation>Fájllista letöltése</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="424"/>
@@ -6492,7 +6492,7 @@ a hub operátoraitól kaphatsz</translation>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="209"/>
         <source>Own filelist uploads</source>
-        <translation>Saját fájl-lista feltöltések</translation>
+        <translation>Saját fájllista feltöltések</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="218"/>
@@ -6811,7 +6811,7 @@ Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
         <translation>Engedélyezi a rejtett attribútumú fájlok ill. a rejtett könyvtárak tartalmának megosztását is.
 Ha ki van kapcsolva, a ponttal (.) kezdődő fájlok sem lesznek megosztva. 
-Az opció megváltoztatása a fájl-lista frissítését eredményezi, ezért ekkor előforduihat, hogy a program átmeneti ideig nem reagál.</translation>
+Az opció megváltoztatása a fájllista frissítését eredményezi, ezért ekkor előfordulhat, hogy a program átmeneti ideig nem reagál.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="226"/>
@@ -6958,7 +6958,7 @@ Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
         <translation>A többi felhasználó által elfoglalható feltöltési slotok számának beállítása.
 Minden veled azonos hubra kapcsolódott felhasználó hubonként maximum egy slotot kaphat.
-A fájl-listák és a &quot;64 KiB&quot; alatti méretű fájlok feltöltéséhez nincs szükség slot kérelemre.
+A fájllisták és a &quot;64 KiB&quot; alatti méretű fájlok feltöltéséhez nincs szükség slot kérelemre.
 Az utóbbi fájlok feltöltésére egyszerre maximum 3 kapcsolati lehetőség (un. mini slot) áll fenn.
 Megjegyzés : ha egy felhasználó lekapcsolódik a hubról, az EiskaltDC++ lezárja a slotjait.
 Ha 10 percen belül visszatér, automatikusan visszakapja a slotját.
@@ -7141,7 +7141,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
         <source>Filebrowser</source>
-        <translation>Fájl-lista menü</translation>
+        <translation>Fájllista menü</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="106"/>
