@@ -907,7 +907,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                         ImgLimit--;
 
                     typedef Func4<Hub, string, int64_t, string, string> F4;
-                    target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + tth;
+                    target = Util::getPath(Util::PATH_USER_LOCAL) + "Images" + PATH_SEPARATOR_STR + tth;
                     F4 *func = new F4(this, &Hub::download_client, target, size, tth, cid);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
@@ -3258,7 +3258,7 @@ void Hub::onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data)
        hub->imageLoad.second = (GtkWidget*)childs->data;
        g_list_free(childs);
 
-       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + tth;
+       target = Util::getPath(Util::PATH_USER_LOCAL) + "Images" + PATH_SEPARATOR_STR + tth;
        typedef Func4<Hub, string, int64_t, string, string> F4;
        F4 *func = new F4(hub, &Hub::download_client, target, size, tth, cid);
        WulforManager::get()->dispatchClientFunc(func);
@@ -3308,7 +3308,7 @@ void Hub::openImage_client(string tth)
 void Hub::openImage_gui(string target)
 {
     if (!File::isAbsolute(target))
-       target = Util::getPath(Util::PATH_USER_CONFIG) + "Images" + PATH_SEPARATOR_STR + target;
+       target = Util::getPath(Util::PATH_USER_LOCAL) + "Images" + PATH_SEPARATOR_STR + target;
     WulforUtil::openURI(target);
 }
 #if !GTK_CHECK_VERSION(3, 0, 0)

@@ -2979,7 +2979,7 @@ void Settings::onPictureShare_gui(GtkWidget *widget, gpointer data)
    Settings *s = (Settings *)data;
 
    string name = "MAGNET-IMAGE";
-   string path = Util::getPath(Util::PATH_USER_CONFIG) + "Images/";
+   string path = Util::getPath(Util::PATH_USER_LOCAL) + "Images/";
    typedef Func2<Settings, string, string> F2;
    F2 *func = new F2(s, &Settings::addShare_client, path, name);
    WulforManager::get()->dispatchClientFunc(func);
