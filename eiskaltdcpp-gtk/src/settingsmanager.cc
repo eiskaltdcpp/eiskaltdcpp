@@ -289,7 +289,7 @@ WulforSettingsManager::WulforSettingsManager():
 
     load();
 
-    string path_image = Util::getPath(Util::PATH_USER_CONFIG) + "Images/";
+    string path_image = Util::getPath(Util::PATH_USER_LOCAL) + "Images/";
     g_mkdir_with_parents(path_image.c_str(), S_IRUSR | S_IWUSR | S_IXUSR);
 }
 
