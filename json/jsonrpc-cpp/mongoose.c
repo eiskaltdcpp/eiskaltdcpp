@@ -22,7 +22,9 @@
 #define _CRT_SECURE_NO_WARNINGS // Disable deprecation warning in VS2005
 #else
 #define _XOPEN_SOURCE 600     // For flockfile() on Linux
+#ifndef _LARGEFILE_SOURCE
 #define _LARGEFILE_SOURCE     // Enable 64-bit file offsets
+#endif
 #define __STDC_FORMAT_MACROS  // <inttypes.h> wants this for C++
 #endif
 
