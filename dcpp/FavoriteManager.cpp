@@ -833,5 +833,9 @@ void FavoriteManager::on(UserConnected, const UserPtr& user) noexcept {
     if (i != users.end())
         fire(FavoriteManagerListener::StatusChanged(), i->second);
 }
+
+string FavoriteManager::getConfigFile() {
+    return Util::getPath(Util::PATH_USER_CONFIG) + "Favorites.xml";
+}
 //NOTE: freedcpp
 } // namespace dcpp

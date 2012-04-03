@@ -167,7 +167,7 @@ private:
 
     void load(SimpleXML& aXml);
 
-    string getConfigFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "Favorites.xml"; }
+    string getConfigFile();
 };
 
 } // namespace dcpp
