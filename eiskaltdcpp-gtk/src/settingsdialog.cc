@@ -1568,7 +1568,7 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Allow overlap chunks"), SettingsManager::OVERLAP_CHUNKS);
         addOption_gui(advancedStore, _("Allow some connections for one ip"), SettingsManager::ALLOW_UPLOAD_MULTI_HUB);
         addOption_gui(advancedStore, _("Allow some connections for one user"), SettingsManager::ALLOW_SIM_UPLOADS);
-        
+        addOption_gui(advancedStore, _("Use adl search only on own filelist"), SettingsManager::USE_ADL_ONLY_OWN_LIST);
         
 
         /// @todo: Uncomment when implemented
@@ -3008,7 +3008,7 @@ void Settings::onPictureShare_gui(GtkWidget *widget, gpointer data)
    Settings *s = (Settings *)data;
 
    string name = "MAGNET-IMAGE";
-   string path = Util::getPath(Util::PATH_USER_CONFIG) + "Images/";
+   string path = Util::getPath(Util::PATH_USER_LOCAL) + "Images/";
    typedef Func2<Settings, string, string> F2;
    F2 *func = new F2(s, &Settings::addShare_client, path, name);
    WulforManager::get()->dispatchClientFunc(func);
