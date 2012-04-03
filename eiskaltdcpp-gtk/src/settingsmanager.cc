@@ -159,6 +159,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("use-native-back-color-for-text", 1));
     defaultInt.insert(IntMap::value_type("show-free-space-bar", 1));
     defaultInt.insert(IntMap::value_type("show-transfers", 1));
+    defaultInt.insert(IntMap::value_type("last-search-type", 0));
+    
 
     defaultString.insert(StringMap::value_type("magnet-choose-dir", SETTING(DOWNLOAD_DIRECTORY)));
     defaultString.insert(StringMap::value_type("downloadqueue-order", ""));
