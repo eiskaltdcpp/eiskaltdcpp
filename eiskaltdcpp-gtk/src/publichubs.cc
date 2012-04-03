@@ -466,3 +466,24 @@ void PublicHubs::on(FavoriteManagerListener::DownloadFinished, const string &fil
 	Func0<PublicHubs> *f0 = new Func0<PublicHubs>(this, &PublicHubs::updateList_gui);
 	WulforManager::get()->dispatchGuiFunc(f0);
 }
+
+void PublicHubs::on(FavoriteManagerListener::LoadedFromCache, const string &file) noexcept
+{
+	string msg = _("Loaded from cache: ") + file;
+	typedef Func2<PublicHubs, string, string> Func;
+	Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
+	WulforManager::get()->dispatchGuiFunc(func);
+
+	hubs = FavoriteManager::getInstance()->getPublicHubs();
+
+	Func0<PublicHubs> *f0 = new Func0<PublicHubs>(this, &PublicHubs::updateList_gui);
+	WulforManager::get()->dispatchGuiFunc(f0);
+}
+
+void PublicHubs::on(FavoriteManagerListener::Corrupted, const string &file) noexcept
+{
+	string msg = _("Downloaded hub list is corrupted or unsupported ") + file;
+	typedef Func2<PublicHubs, string, string> Func;
+	Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
+	WulforManager::get()->dispatchGuiFunc(func);
+}
