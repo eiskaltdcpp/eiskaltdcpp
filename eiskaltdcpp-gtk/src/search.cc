@@ -153,7 +153,7 @@ Search::Search():
                     gtk_list_store_set(store, &iter, 0, type.c_str(), -1);
             }
     }
-    gtk_combo_box_set_active(combo_box, 0);
+    gtk_combo_box_set_active(combo_box, WGETI("last-search-type"));
 
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("togglebuttonSidePanel")), TRUE);
 
@@ -513,6 +513,10 @@ void Search::search_gui()
     }
 
     isHash = (ftype == SearchManager::TYPE_TTH);
+
+    if (!isHash)
+        WSET("last-search-type", (int)ftype);
+        
 
     // Add new searches to the dropdown list
     GtkListStore *store = GTK_LIST_STORE(searchEntriesModel);
