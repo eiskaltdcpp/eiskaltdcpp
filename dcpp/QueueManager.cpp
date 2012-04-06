@@ -1791,7 +1791,7 @@ void QueueLoader::startTag(const string& name, StringPairList& attribs, bool sim
             }
         } else if (cur && !Util::fileExists(Util::getFilePath(cur->getTarget())) && BOOLSETTING(CHECK_TARGETS_PATHS_ON_START)) {
             QueueManager::getInstance()->setPriority(cur->getTarget(), QueueItem::PAUSED);
-            LogManager::getInstance()->message(str(F_("Target path not avail for this item: %1%; pause this queue item.") % Util::addBrackets(cur->getTarget())));
+            LogManager::getInstance()->message(str(F_("Target path for this item is not available: %1%; pause this queue item.") % Util::addBrackets(cur->getTarget())));
         } else if(cur && name == sSource) {
             const string& cid = getAttrib(attribs, sCID, 0);
             if(cid.length() != 39) {
