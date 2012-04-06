@@ -95,8 +95,7 @@ const string SettingsManager::settingTags[] =
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
-    "UseADLOnlyOnOwnList", "AllowSimUploads",
-    "SENTRY",
+    "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", 
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
@@ -302,6 +301,7 @@ SettingsManager::SettingsManager()
     setDefault(ALLOW_UPLOAD_MULTI_HUB, true);
     setDefault(USE_ADL_ONLY_OWN_LIST, false);
     setDefault(ALLOW_SIM_UPLOADS, true);
+    setDefault(CHECK_TARGETS_PATHS_ON_START, false);
     setSearchTypeDefaults();
 }
 

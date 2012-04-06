@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-03-18 20:22+0200\n"
-"PO-Revision-Date: 2012-03-20 14:43+0000\n"
+"PO-Revision-Date: 2012-04-02 06:29+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.net/projects/p/eiskaltdcpp/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -1375,7 +1375,7 @@ msgstr "Adja meg a keresni kívánt szöveget"
 
 #: ../src/mainwindow.cc:1236
 msgid "Enter value for "
-msgstr ""
+msgstr "Érték megadása:"
 
 #: ../src/settingsdialog.cc:1788 ../src/settingsdialog.cc:1832
 #: ../src/settingsdialog.cc:2835
@@ -1646,7 +1646,7 @@ msgstr "GB18030"
 
 #: ../src/settingsdialog.cc:1152
 msgid "General text"
-msgstr ""
+msgstr "Általános szöveg"
 
 #: ../ui/settingsdialog.ui:7852
 msgid "Generate certificates"
@@ -1666,7 +1666,7 @@ msgstr "Fájl-lista letöltése"
 
 #: ../src/hub.cc:2843 ../src/favoritehubs.cc:339
 msgid "Global hub default"
-msgstr ""
+msgstr "Alapértelmezett az összes hubra"
 
 #: ../ui/uploadqueue.ui:51
 msgid "Grant Slot"
@@ -1757,7 +1757,7 @@ msgstr "Hub"
 
 #: ../src/settingsdialog.cc:1076
 msgid "Hub (also sets urgency hint)"
-msgstr ""
+msgstr "Hub (sürgősségi értesítéssel)"
 
 #: ../src/favoriteusers.cc:50 ../src/favoriteusers.cc:114
 #: ../src/favoriteusers.cc:588
@@ -2473,7 +2473,7 @@ msgstr "Prioritás"
 
 #: ../src/settingsdialog.cc:1077
 msgid "Private Message (also sets urgency hint)"
-msgstr ""
+msgstr "Privát üzenet (sürgősségi értesítéssel)"
 
 #: ../ui/settingsdialog.ui:7775
 msgid "Private key file"
@@ -2718,7 +2718,7 @@ msgstr "Keresés típusa"
 
 #: ../ui/search.ui:458
 msgid "Search within local results"
-msgstr ""
+msgstr "Keresés a helyi találatok között"
 
 #: ../src/search.cc:543
 msgid "Searching for "
@@ -2843,7 +2843,7 @@ msgstr "Ki és belépések mutatása a chaten alapértelmezés szerint"
 
 #: ../ui/mainwindow.ui:358
 msgid "Show magnet dialog"
-msgstr ""
+msgstr "Magnet párbeszédablak megjelenítése"
 
 #: ../ui/finishedtransfers.ui:125
 msgid "Show only completely finished downloads"
@@ -2868,7 +2868,7 @@ msgstr "Időbélyeg megjelenítése a chaten alapértelmezés szerint"
 
 #: ../ui/searchspy.ui:376
 msgid "Show top search"
-msgstr ""
+msgstr "Népszerű keresés megjelenítése"
 
 #: ../src/settingsdialog.cc:1538
 msgid "Show user country in chat"
@@ -3650,11 +3650,11 @@ msgstr "_Magnet lehetőségek"
 
 #: ../ui/search.ui:764
 msgid "_Match Queue"
-msgstr ""
+msgstr "_Sor egyeztetése"
 
 #: ../ui/hub.ui:565 ../ui/favoriteusers.ui:167 ../ui/transfers.ui:45
 msgid "_Match queue"
-msgstr ""
+msgstr "_Sor egyeztetése"
 
 #: ../ui/favoritehubs.ui:265
 msgid "_Mode:"
