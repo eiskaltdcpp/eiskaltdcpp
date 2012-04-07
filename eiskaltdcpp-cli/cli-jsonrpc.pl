@@ -22,10 +22,13 @@
 #
 use strict;
 use warnings;
+use 5.012;
 use JSON::RPC::Client;
 use Term::ShellUI;
 use Data::Dump qw[dump];
 use Getopt::Long;
+use utf8;
+binmode STDOUT, ":utf8";
 use Env qw[$XDG_CONFIG_HOME $HOME];
 
 # use non-standart paths
@@ -89,13 +92,6 @@ sub get_commands
 {
 	return
 	{
-		"print" =>
-		{
-			desc => "Empty print method, no params",
-			minargs => 0,
-			maxargs => 0,
-			proc => \&print
-		},
 		"magnet.add" =>
 		{
 			desc => "Add a magnet to download queue, and fetch it to download directory. Parameters: magnet, download directory",
@@ -229,6 +225,20 @@ sub get_commands
 			maxargs => 2,
 			proc => \&qsetprio
 		},
+		"queue.move" =>
+		{
+			desc => "Move queue item from source to target. Parameners: source, target",
+			minargs => 2,
+			maxargs => 2,
+			proc => \&qmove
+		},
+		"queue.remove" =>
+		{
+			desc => "Delete queue item by target. Parameners: target",
+			minargs => 1,
+			maxargs => 1,
+			proc => \&qremove
+		},
 		"queue.list" =>
 		{
 			desc => "Show queue, including all targets. Parameters: none",
@@ -278,29 +288,6 @@ sub get_commands
 			args => sub { shift->help_args(undef, @_); },
 			method => sub { shift->help_call(undef, @_); } 
 		}
-	}
-}
-
-sub print()
-{
-	$obj->{'id'} = int(rand(2**16));
-	$obj->{'method'} = 'print';
-	print("===Request===\n".dump($obj)."\n");
-	$res = $client->call($config{eiskaltURL}, $obj);
-	if ($res)
-	{
-		if ($res->is_error) 
-		{
-			print("===Error===\n".dump($res->error_message)."\n");
-		}
-		else
-		{
-			print("===Reply===\n".dump($res->result)."\n");
-		}
-	}
-	else
-	{
-		print $client->status_line;
 	}
 }
 
@@ -709,6 +696,31 @@ sub searchgetresults($)
 	delete($obj->{'params'});
 }
 
+sub searchclear($)
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'search.clear';
+	if (defined($_[0])) {$obj->{'params'}->{'huburl'}=$_[0]};
+	print("===Request===\n".dump($obj)."\n");
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
 sub showversion()
 {
 	$obj->{'id'} = int(rand(2**16));
@@ -746,7 +758,11 @@ sub showratio()
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			#utf8::encode($res->content->{up});
+			print("===Reply===\n");
+			print("Up:\t".dump($res->content->{up})."\n");
+			print("Down:\t".dump($res->content->{down})."\n");
+			print("Ratio:\t".dump($res->content->{ratio})."\n");
 		}
 	}
 	else
@@ -779,6 +795,16 @@ sub qsetprio($$)
 		print $client->status_line;
 	}
 	delete($obj->{'params'});
+}
+
+sub qmove()
+{
+
+}
+
+sub qremove()
+{
+
 }
 
 sub qlist()
@@ -827,54 +853,39 @@ sub qlisttargets()
 	}
 }
 
-sub searchclear($)
-{
-	$obj->{'id'} = int(rand(2**16));
-	$obj->{'method'} = 'search.clear';
-	if (defined($_[0])) {$obj->{'params'}->{'huburl'}=$_[0]};
-	print("===Request===\n".dump($obj)."\n");
-	$res = $client->call($config{eiskaltURL}, $obj);
-	if ($res)
-	{
-		if ($res->is_error) 
-		{
-			print("===Error===\n".dump($res->error_message)."\n");
-		}
-		else
-		{
-			print("===Reply===\n".dump($res->result)."\n");
-		}
-	}
-	else
-	{
-		print $client->status_line;
-	}
-	delete($obj->{'params'});
-}
+
 __END__
 
 =pod
 
-# methods
-+print
-+magnet.add
-+daemon.stop
-+hub.add
-+hub.del
-+hub.say
-+hub.pm
-+hub.list
-+share.add
-+share.rename
-+share.del
-+share.list
-+share.refresh
-+list.download
-+hub.getchat
-+search.send
-+search.getresults
-+show.version
-+show.ratio
-+queue.setpriority
+# known methods
+std::string("magnet.add")))
+std::string("daemon.stop")))
+std::string("hub.add")))
+std::string("hub.del")))
+std::string("hub.say")))
+std::string("hub.pm")))
+std::string("hub.list")))
+std::string("hub.getchat")))
+std::string("share.add")))
+std::string("share.rename")))
+std::string("share.del")))
+std::string("share.list")))
+std::string("share.refresh")))
+std::string("list.download")))
+std::string("search.send")))
+std::string("search.getresults")))
+std::string("search.clear")))
+std::string("show.version")))
+std::string("show.ratio")))
+std::string("queue.setpriority")))
+std::string("queue.move")))
+std::string("queue.remove")))
+std::string("queue.listtargets")))
+std::string("queue.list")))
+std::string("queue.getsources")))
+std::string("hash.status")))
+std::string("hash.pause")))
+std::string("methods.list")))
 
 =cut
