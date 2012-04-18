@@ -1,23 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-03-18 18:05+0200\n"
-"PO-Revision-Date: 2012-01-22 21:56+0000\n"
+"POT-Creation-Date: 2012-04-18 06:37+0300\n"
+"PO-Revision-Date: 2012-04-18 04:12+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Polish (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
-"pl/)\n"
-"Language: pl\n"
+"Language-Team: Polish (http://www.transifex.net/projects/p/eiskaltdcpp/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2)\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -56,17 +55,13 @@ msgstr "Serwer SOCKS nie obsługuje autoryzacji za pomocą loginu/hasła"
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"Uwierzytelnienie serwera socks zakończone niepowodzeniem (nieprawidłowy "
-"login/hasło?)"
+msgstr "Uwierzytelnienie serwera socks zakończone niepowodzeniem (nieprawidłowy login/hasło?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"Nie udało się ustawić serwera socks dla przekierowań UDP (sprawdź adres i "
-"port socks)"
+msgstr "Nie udało się ustawić serwera socks dla przekierowań UDP (sprawdź adres i port socks)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -102,7 +97,8 @@ msgstr ""
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:93
@@ -154,7 +150,7 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Rozłączony użytkownik opuścił hub: %1%"
 
-#: ../SettingsManager.cpp:183
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr ""
 
@@ -202,7 +198,7 @@ msgstr ""
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../QueueManager.cpp:2163 ../QueueManager.cpp:2169 ../QueueManager.cpp:2175
+#: ../QueueManager.cpp:2165 ../QueueManager.cpp:2171 ../QueueManager.cpp:2177
 msgid "Offline"
 msgstr "Niedostępny"
 
@@ -210,7 +206,7 @@ msgstr "Niedostępny"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) ma ten sam CID {%3%} jak %4% (%5%), ignoruję"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2194
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -222,9 +218,7 @@ msgstr "Nie udało się wynegocjować pierwotnego protokołu"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"Hub najprawdopodobniej używa starszej wersji ADC, poproś właściciela o "
-"aktualizację"
+msgstr "Hub najprawdopodobniej używa starszej wersji ADC, poproś właściciela o aktualizację"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -332,9 +326,7 @@ msgstr "Odbudowano bazę danych hashów"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% nie udostępniono; suma kontrolna CRC32 nie odpowiada tej znalezionej w "
-"pliku SFV."
+msgstr "%1% nie udostępniono; suma kontrolna CRC32 nie odpowiada tej znalezionej w pliku SFV."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -431,11 +423,9 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Odświeżanie listy plików w toku, proszę poczekać do zakończenia przed "
-"ponownym odświeżeniem"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "Odświeżanie listy plików w toku, proszę poczekać do zakończenia przed ponownym odświeżeniem"
 
 #: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
@@ -647,9 +637,7 @@ msgstr "Nazwa pliku docelowego jest zbyt długa"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"Nieprawidłowy plik docelowy (brak katalogu, sprawdź ustawienia domyślne "
-"katalogu pobierania)"
+msgstr "Nieprawidłowy plik docelowy (brak katalogu, sprawdź ustawienia domyślne katalogu pobierania)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -659,31 +647,36 @@ msgstr ""
 msgid "Duplicate source: %1%"
 msgstr "Zdublowane żródło: %1%"
 
-#: ../QueueManager.cpp:1149
+#: ../QueueManager.cpp:1148
 msgid "Target removed"
 msgstr "Cel usunięty"
 
-#: ../QueueManager.cpp:1157
+#: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
 msgstr "Brak pliku docelowego lub zły rozmiar"
 
-#: ../QueueManager.cpp:1206
+#: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr ""
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 
-#: ../QueueManager.cpp:1404
+#: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
 msgstr "Nie można otworzyć listy plików: %1%"
 
-#: ../QueueManager.cpp:1427
+#: ../QueueManager.cpp:1426
 msgid "%1%: Matched %2% file"
 msgstr ""
 
-#: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
+#: ../QueueManager.cpp:1794
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+
+#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Niezgodne CRC32 (sprawdź SFV)"
 

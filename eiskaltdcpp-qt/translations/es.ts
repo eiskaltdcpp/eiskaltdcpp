@@ -3530,53 +3530,53 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Listado: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="309"/>
+        <location filename="../src/ShareBrowser.cpp" line="310"/>
         <source>Filebrowser</source>
         <translation>Explorador de Archivos</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="311"/>
+        <location filename="../src/ShareBrowser.cpp" line="312"/>
         <source>Close</source>
         <translation>Cerrar</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="389"/>
+        <location filename="../src/ShareBrowser.cpp" line="390"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Cantidad total compartida: %1;  Archivos: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="423"/>
+        <location filename="../src/ShareBrowser.cpp" line="424"/>
         <source>Share browser error: %1</source>
         <translation>Error del buscador de compartidos: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="595"/>
-        <location filename="../src/ShareBrowser.cpp" line="619"/>
+        <location filename="../src/ShareBrowser.cpp" line="596"/>
+        <location filename="../src/ShareBrowser.cpp" line="620"/>
         <source>Total size: %1</source>
         <translation>Tamaño total: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="617"/>
+        <location filename="../src/ShareBrowser.cpp" line="618"/>
         <source>Selected %1 from %2 items; </source>
         <translation>Seleccionados %1 de %2 objetos; </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="622"/>
+        <location filename="../src/ShareBrowser.cpp" line="623"/>
         <source>; Selected: %1</source>
         <translation>; Seleccionados: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="825"/>
+        <location filename="../src/ShareBrowser.cpp" line="826"/>
         <source>Select directory</source>
         <translation>Seleccionar directorio</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="955"/>
+        <location filename="../src/ShareBrowser.cpp" line="956"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Introducir restricción (en Gb)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1094"/>
+        <location filename="../src/ShareBrowser.cpp" line="1095"/>
         <source>Share browser</source>
         <translation>Explorar compartidos</translation>
     </message>

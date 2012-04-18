@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-03-18 18:05+0200\n"
-"PO-Revision-Date: 2012-03-21 19:18+0000\n"
+"POT-Creation-Date: 2012-04-18 06:37+0300\n"
+"PO-Revision-Date: 2012-04-18 04:12+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/eiskaltdcpp/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -151,7 +151,7 @@ msgstr "IPFilter: заблокировано входящее соединени
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Пользователь %1% отключился и покинул хаб"
 
-#: ../SettingsManager.cpp:183
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr "загружено из"
 
@@ -199,7 +199,7 @@ msgstr "Этот хаб пытается использовать ваш кли�
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../QueueManager.cpp:2163 ../QueueManager.cpp:2169 ../QueueManager.cpp:2175
+#: ../QueueManager.cpp:2165 ../QueueManager.cpp:2171 ../QueueManager.cpp:2177
 msgid "Offline"
 msgstr "Не в сети"
 
@@ -207,7 +207,7 @@ msgstr "Не в сети"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) имеет такой же CID {%3%} как %4% (%5%), игнорирован"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2194
 msgid "%1%/s"
 msgstr "%1%/c"
 
@@ -648,31 +648,36 @@ msgstr "Файл уже существует в пункте назначени�
 msgid "Duplicate source: %1%"
 msgstr "Источник дубликата: %1%"
 
-#: ../QueueManager.cpp:1149
+#: ../QueueManager.cpp:1148
 msgid "Target removed"
 msgstr "Удалено"
 
-#: ../QueueManager.cpp:1157
+#: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
 msgstr "Целевой файл отсутствует или имеет неправильный размер"
 
-#: ../QueueManager.cpp:1206
+#: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "Не смог переместить %1% в %2% (%3%); переименовал в %4%"
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr "Не смог переместить %1% в %2% (%3%) и не смог переименовать в %4% (%5%)"
 
-#: ../QueueManager.cpp:1404
+#: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
 msgstr "Невозможно открыть список файлов: %1%"
 
-#: ../QueueManager.cpp:1427
+#: ../QueueManager.cpp:1426
 msgid "%1%: Matched %2% file"
 msgstr "%1%: Согласован файл %2%"
 
-#: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
+#: ../QueueManager.cpp:1794
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr "Каталог назначения для этого элемента недоступен: %1%; загрузка приостановлена."
+
+#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 несоответствие (SFV-проверка)"
 

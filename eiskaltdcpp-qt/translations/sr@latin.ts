@@ -3517,53 +3517,53 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Listing: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="309"/>
+        <location filename="../src/ShareBrowser.cpp" line="310"/>
         <source>Filebrowser</source>
         <translation>Pregledač fajlova</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="311"/>
+        <location filename="../src/ShareBrowser.cpp" line="312"/>
         <source>Close</source>
         <translation>Zatvori</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="389"/>
+        <location filename="../src/ShareBrowser.cpp" line="390"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Ukupno deljena veličina: %1;  Fajlovi: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="423"/>
+        <location filename="../src/ShareBrowser.cpp" line="424"/>
         <source>Share browser error: %1</source>
         <translation>Greška deljenog pretraživača: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="595"/>
-        <location filename="../src/ShareBrowser.cpp" line="619"/>
+        <location filename="../src/ShareBrowser.cpp" line="596"/>
+        <location filename="../src/ShareBrowser.cpp" line="620"/>
         <source>Total size: %1</source>
         <translation>Ukupna veličina: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="617"/>
+        <location filename="../src/ShareBrowser.cpp" line="618"/>
         <source>Selected %1 from %2 items; </source>
         <translation>Izabrano %1 od %2 stavke; </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="622"/>
+        <location filename="../src/ShareBrowser.cpp" line="623"/>
         <source>; Selected: %1</source>
         <translation>; Izabrano: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="825"/>
+        <location filename="../src/ShareBrowser.cpp" line="826"/>
         <source>Select directory</source>
         <translation>Izaberi fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="955"/>
+        <location filename="../src/ShareBrowser.cpp" line="956"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Unesite veličinu ograničenja (in GB)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1094"/>
+        <location filename="../src/ShareBrowser.cpp" line="1095"/>
         <source>Share browser</source>
         <translation>Deljeni pretraživač</translation>
     </message>

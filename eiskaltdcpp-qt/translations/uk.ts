@@ -3516,53 +3516,53 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Перелік файлів:</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="309"/>
+        <location filename="../src/ShareBrowser.cpp" line="310"/>
         <source>Filebrowser</source>
         <translation>Оглядач файлів</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="311"/>
+        <location filename="../src/ShareBrowser.cpp" line="312"/>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="389"/>
+        <location filename="../src/ShareBrowser.cpp" line="390"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Загальний розмір шари: %1; файлів: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="423"/>
+        <location filename="../src/ShareBrowser.cpp" line="424"/>
         <source>Share browser error: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="595"/>
-        <location filename="../src/ShareBrowser.cpp" line="619"/>
+        <location filename="../src/ShareBrowser.cpp" line="596"/>
+        <location filename="../src/ShareBrowser.cpp" line="620"/>
         <source>Total size: %1</source>
         <translation>Загальний розмір: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="617"/>
+        <location filename="../src/ShareBrowser.cpp" line="618"/>
         <source>Selected %1 from %2 items; </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="622"/>
+        <location filename="../src/ShareBrowser.cpp" line="623"/>
         <source>; Selected: %1</source>
         <translation>; Виділено: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="825"/>
+        <location filename="../src/ShareBrowser.cpp" line="826"/>
         <source>Select directory</source>
         <translation>Вкажіть теку</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="955"/>
+        <location filename="../src/ShareBrowser.cpp" line="956"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Введіть обмеження розміру (в ГБ)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1094"/>
+        <location filename="../src/ShareBrowser.cpp" line="1095"/>
         <source>Share browser</source>
         <translation type="unfinished"></translation>
     </message>

@@ -1,23 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-03-18 18:05+0200\n"
-"PO-Revision-Date: 2012-01-22 21:56+0000\n"
+"POT-Creation-Date: 2012-04-18 06:37+0300\n"
+"PO-Revision-Date: 2012-04-18 04:12+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Serbian (Latin) (http://www.transifex.net/projects/p/"
-"eiskaltdcpp/team/sr@latin/)\n"
-"Language: sr@latin\n"
+"Language-Team: Serbian (Latin) (http://www.transifex.net/projects/p/eiskaltdcpp/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language: sr@latin\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -62,9 +61,7 @@ msgstr "Socks server provera nije uspela (loše korisničko ime / lozinka?)"
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"Greška pri podešavanju socks servera za UDP prenos (proveriti socks adresu i "
-"port)"
+msgstr "Greška pri podešavanju socks servera za UDP prenos (proveriti socks adresu i port)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -100,10 +97,9 @@ msgstr "Odredjivanje najboljih podešavanja za povezivanje..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-"Ne može se otvoriti  %1% port(s); Podešavanja povezivanja moraju se ručno "
-"kofigurisati"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr "Ne može se otvoriti  %1% port(s); Podešavanja povezivanja moraju se ručno kofigurisati"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
@@ -114,17 +110,13 @@ msgstr "Javna IP adresa otkrivena, izaberi aktivni režim sa direktnom vezom"
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr ""
-"Lokalna mreža sa mogućim NAT detektovanim, pokušava da mapira portove "
-"koristeći UPnP..."
+msgstr "Lokalna mreža sa mogućim NAT detektovanim, pokušava da mapira portove koristeći UPnP..."
 
 #: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"Automatsko podešavanje aktivnog režima nije uspelo. Možda ćete želeti da "
-"podesite konekciju ručno za bolje povezivanje"
+msgstr "Automatsko podešavanje aktivnog režima nije uspelo. Možda ćete želeti da podesite konekciju ručno za bolje povezivanje"
 
 #: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
@@ -158,7 +150,7 @@ msgstr "IPFilter: Blokirana dolazna konekicija"
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Isključen korisnik koji je napustio hub: %1%"
 
-#: ../SettingsManager.cpp:183
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr "preuzeto od"
 
@@ -202,13 +194,11 @@ msgstr "Hab tema:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr ""
-"Ovaj hab je probao da koristi tvoj klijen za spam %1%, obavestite vlasnika "
-"haba da to popravi"
+msgstr "Ovaj hab je probao da koristi tvoj klijen za spam %1%, obavestite vlasnika haba da to popravi"
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../QueueManager.cpp:2163 ../QueueManager.cpp:2169 ../QueueManager.cpp:2175
+#: ../QueueManager.cpp:2165 ../QueueManager.cpp:2171 ../QueueManager.cpp:2177
 msgid "Offline"
 msgstr "Nije na mreži"
 
@@ -216,7 +206,7 @@ msgstr "Nije na mreži"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) ima isti CID {%3%} as %4% (%5%), ignorišem"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2194
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -228,9 +218,7 @@ msgstr "Ne mogu da uspostavim bazni protokol"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"Hub verovatno koristi staru verziju ADC-a, molim predložite vlasniku da "
-"pređe na novu verziju"
+msgstr "Hub verovatno koristi staru verziju ADC-a, molim predložite vlasniku da pređe na novu verziju"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -338,8 +326,7 @@ msgstr "Obnavaljam hash bazu podataka"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% nije deljeno; izračunati CRC32 se ne poklapa sa onim u SFV datoteci."
+msgstr "%1% nije deljeno; izračunati CRC32 se ne poklapa sa onim u SFV datoteci."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -382,9 +369,7 @@ msgstr "Port DHT  (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr ""
-"Uspešno kreiran port maping(TCP: %1%, UDP: %2%, TLS: %3%) mapiranje koristi  "
-"%4% interfejsa"
+msgstr "Uspešno kreiran port maping(TCP: %1%, UDP: %2%, TLS: %3%) mapiranje koristi  %4% interfejsa"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -434,17 +419,13 @@ msgstr "User has chosen not to share temp file: %1% (Size: %2%)"
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr ""
-"Duplikat datoteke neće biti deljen: %1%%2% (Veličina: %3% B) Duplikat "
-"potvrđen sa: %4%%5%"
+msgstr "Duplikat datoteke neće biti deljen: %1%%2% (Veličina: %3% B) Duplikat potvrđen sa: %4%%5%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Osvežavanje liste deljenih datoteka je u toku, molim sačekajte da se završi "
-"pre ponovnog pokretanja"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "Osvežavanje liste deljenih datoteka je u toku, molim sačekajte da se završi pre ponovnog pokretanja"
 
 #: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
@@ -656,9 +637,7 @@ msgstr "Ime odredišne datoteke je predugačko"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"Neispravna odredišna datoteka (nema direktorijuma, proveri podešavanje "
-"standardnog direktorijuma za preuzimanje)"
+msgstr "Neispravna odredišna datoteka (nema direktorijuma, proveri podešavanje standardnog direktorijuma za preuzimanje)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -668,32 +647,36 @@ msgstr "Datoteka iste ili veće veličine već postoji na ciljnoj lokaciji"
 msgid "Duplicate source: %1%"
 msgstr "Izvor duplikata: %1%"
 
-#: ../QueueManager.cpp:1149
+#: ../QueueManager.cpp:1148
 msgid "Target removed"
 msgstr "Odredište obrisano"
 
-#: ../QueueManager.cpp:1157
+#: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
 msgstr "Odredišna datoteka nedostaje ili je pogrešne veličine"
 
-#: ../QueueManager.cpp:1206
+#: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "Onemogućeno pokretanje %1% to %2% (%3%); preimenovano %4%"
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"Onemogućeno pokretanje %1% to %2% (%3%) nemoguće preimenovati %4% (%5%)"
+msgstr "Onemogućeno pokretanje %1% to %2% (%3%) nemoguće preimenovati %4% (%5%)"
 
-#: ../QueueManager.cpp:1404
+#: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
 msgstr "Ne mogu otvoriti listu datoteka: %1%"
 
-#: ../QueueManager.cpp:1427
+#: ../QueueManager.cpp:1426
 msgid "%1%: Matched %2% file"
 msgstr "%1% je izbačen: %2%"
 
-#: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
+#: ../QueueManager.cpp:1794
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+
+#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 neusaglašenost (SFV-Check)"
 
