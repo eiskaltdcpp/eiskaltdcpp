@@ -466,15 +466,22 @@ void Settings::saveSettings_client()
         sm->set(SettingsManager::LOG_DIRECTORY, path);
         sm->set(SettingsManager::LOG_MAIN_CHAT, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("logMainCheckButton"))));
         sm->set(SettingsManager::LOG_FORMAT_MAIN_CHAT, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logMainEntry")))));
+        sm->set(SettingsManager::LOG_FILE_MAIN_CHAT, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logMainEntryFile")))));
         sm->set(SettingsManager::LOG_PRIVATE_CHAT, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("logPrivateCheckButton"))));
         sm->set(SettingsManager::LOG_FORMAT_PRIVATE_CHAT, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logPrivateEntry")))));
+        sm->set(SettingsManager::LOG_FILE_PRIVATE_CHAT, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logPrivateEntryFile")))));
         sm->set(SettingsManager::LOG_DOWNLOADS, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("logDownloadsCheckButton"))));
         sm->set(SettingsManager::LOG_FORMAT_POST_DOWNLOAD, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logDownloadsEntry")))));
+        sm->set(SettingsManager::LOG_FILE_DOWNLOAD, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logDownloadsEntryFile")))));
         sm->set(SettingsManager::LOG_UPLOADS, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("logUploadsCheckButton"))));
         sm->set(SettingsManager::LOG_FORMAT_POST_UPLOAD, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logUploadsEntry")))));
+        sm->set(SettingsManager::LOG_FILE_UPLOAD, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logUploadsEntryFile")))));
+        sm->set(SettingsManager::LOG_FORMAT_POST_FINISHED_DOWNLOAD, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logFinishedDownloadsEntry")))));
+        sm->set(SettingsManager::LOG_FILE_FINISHED_DOWNLOAD, string(gtk_entry_get_text(GTK_ENTRY(getWidget("logFinishedDownloadsEntryFile")))));
         sm->set(SettingsManager::LOG_SYSTEM, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("logSystemCheckButton"))));
         sm->set(SettingsManager::LOG_STATUS_MESSAGES, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("logStatusCheckButton"))));
         sm->set(SettingsManager::LOG_FILELIST_TRANSFERS, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("logFilelistTransfersCheckButton"))));
+        sm->set(SettingsManager::REPORT_ALTERNATES, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("logSearchAltCheckButton"))));
     }
 
     { // Advanced
@@ -1487,30 +1494,52 @@ void Settings::initLog_gui()
     g_signal_connect(getWidget("logMainCheckButton"), "toggled", G_CALLBACK(onLogMainClicked_gui), (gpointer)this);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("logMainCheckButton")), BOOLSETTING(LOG_MAIN_CHAT));
     gtk_entry_set_text(GTK_ENTRY(getWidget("logMainEntry")), SETTING(LOG_FORMAT_MAIN_CHAT).c_str());
+    gtk_entry_set_text(GTK_ENTRY(getWidget("logMainEntryFile")), SETTING(LOG_FILE_MAIN_CHAT).c_str());
     gtk_widget_set_sensitive(getWidget("logMainLabel"), BOOLSETTING(LOG_MAIN_CHAT));
     gtk_widget_set_sensitive(getWidget("logMainEntry"), BOOLSETTING(LOG_MAIN_CHAT));
+    gtk_widget_set_sensitive(getWidget("logMainLabelFile"), BOOLSETTING(LOG_MAIN_CHAT));
+    gtk_widget_set_sensitive(getWidget("logMainEntryFile"), BOOLSETTING(LOG_MAIN_CHAT));
 
     g_signal_connect(getWidget("logPrivateCheckButton"), "toggled", G_CALLBACK(onLogPrivateClicked_gui), (gpointer)this);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("logPrivateCheckButton")), BOOLSETTING(LOG_PRIVATE_CHAT));
     gtk_entry_set_text(GTK_ENTRY(getWidget("logPrivateEntry")), SETTING(LOG_FORMAT_PRIVATE_CHAT).c_str());
+    gtk_entry_set_text(GTK_ENTRY(getWidget("logPrivateEntryFile")), SETTING(LOG_FILE_PRIVATE_CHAT).c_str());
     gtk_widget_set_sensitive(getWidget("logPrivateLabel"), BOOLSETTING(LOG_PRIVATE_CHAT));
     gtk_widget_set_sensitive(getWidget("logPrivateEntry"), BOOLSETTING(LOG_PRIVATE_CHAT));
+    gtk_widget_set_sensitive(getWidget("logPrivateLabelFile"), BOOLSETTING(LOG_PRIVATE_CHAT));
+    gtk_widget_set_sensitive(getWidget("logPrivateEntryFile"), BOOLSETTING(LOG_PRIVATE_CHAT));
 
     g_signal_connect(getWidget("logDownloadsCheckButton"), "toggled", G_CALLBACK(onLogDownloadClicked_gui), (gpointer)this);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("logDownloadsCheckButton")), BOOLSETTING(LOG_DOWNLOADS));
     gtk_entry_set_text(GTK_ENTRY(getWidget("logDownloadsEntry")), SETTING(LOG_FORMAT_POST_DOWNLOAD).c_str());
+    gtk_entry_set_text(GTK_ENTRY(getWidget("logDownloadsEntryFile")), SETTING(LOG_FILE_DOWNLOAD).c_str());
     gtk_widget_set_sensitive(getWidget("logDownloadsLabel"), BOOLSETTING(LOG_DOWNLOADS));
     gtk_widget_set_sensitive(getWidget("logDownloadsEntry"), BOOLSETTING(LOG_DOWNLOADS));
+    gtk_widget_set_sensitive(getWidget("logDownloadsLabelFile"), BOOLSETTING(LOG_DOWNLOADS));
+    gtk_widget_set_sensitive(getWidget("logDownloadsEntryFile"), BOOLSETTING(LOG_DOWNLOADS));
 
     g_signal_connect(getWidget("logUploadsCheckButton"), "toggled", G_CALLBACK(onLogUploadClicked_gui), (gpointer)this);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("logUploadsCheckButton")), BOOLSETTING(LOG_UPLOADS));
     gtk_entry_set_text(GTK_ENTRY(getWidget("logUploadsEntry")), SETTING(LOG_FORMAT_POST_UPLOAD).c_str());
+    gtk_entry_set_text(GTK_ENTRY(getWidget("logUploadsEntryFile")), SETTING(LOG_FILE_UPLOAD).c_str());
     gtk_widget_set_sensitive(getWidget("logUploadsLabel"), BOOLSETTING(LOG_UPLOADS));
     gtk_widget_set_sensitive(getWidget("logUploadsEntry"), BOOLSETTING(LOG_UPLOADS));
+    gtk_widget_set_sensitive(getWidget("logUploadsLabelFile"), BOOLSETTING(LOG_UPLOADS));
+    gtk_widget_set_sensitive(getWidget("logUploadsEntryFile"), BOOLSETTING(LOG_UPLOADS));
+
+    g_signal_connect(getWidget("logFinishedDownloadsCheckButton"), "toggled", G_CALLBACK(onLogFinishedDownloadClicked_gui), (gpointer)this);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("logFinishedDownloadsCheckButton")), BOOLSETTING(LOG_FINISHED_DOWNLOADS));
+    gtk_entry_set_text(GTK_ENTRY(getWidget("logFinishedDownloadsEntry")), SETTING(LOG_FORMAT_POST_FINISHED_DOWNLOAD).c_str());
+    gtk_entry_set_text(GTK_ENTRY(getWidget("logFinishedDownloadsEntryFile")), SETTING(LOG_FILE_FINISHED_DOWNLOAD).c_str());
+    gtk_widget_set_sensitive(getWidget("logFinishedDownloadsLabel"), BOOLSETTING(LOG_FINISHED_DOWNLOADS));
+    gtk_widget_set_sensitive(getWidget("logFinishedDownloadsEntry"), BOOLSETTING(LOG_FINISHED_DOWNLOADS));
+    gtk_widget_set_sensitive(getWidget("logFinishedDownloadsLabelFile"), BOOLSETTING(LOG_FINISHED_DOWNLOADS));
+    gtk_widget_set_sensitive(getWidget("logFinishedDownloadsEntryFile"), BOOLSETTING(LOG_FINISHED_DOWNLOADS));
 
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("logSystemCheckButton")), BOOLSETTING(LOG_SYSTEM));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("logStatusCheckButton")), BOOLSETTING(LOG_STATUS_MESSAGES));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("logFilelistTransfersCheckButton")), BOOLSETTING(LOG_FILELIST_TRANSFERS));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("logSearchAltCheckButton")), BOOLSETTING(REPORT_ALTERNATES));
 }
 
 void Settings::initAdvanced_gui()
@@ -1540,7 +1569,6 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Allow some connections for one ip"), SettingsManager::ALLOW_UPLOAD_MULTI_HUB);
         addOption_gui(advancedStore, _("Allow some connections for one user"), SettingsManager::ALLOW_SIM_UPLOADS);
         addOption_gui(advancedStore, _("Use ADL search only in own file list"), SettingsManager::USE_ADL_ONLY_OWN_LIST);
-        
 
         /// @todo: Uncomment when implemented
         //addOption_gui(advancedStore, _("Use CTRL for line history"), "use-ctrl-for-line-history");
@@ -3741,6 +3769,8 @@ void Settings::onLogMainClicked_gui(GtkToggleButton *button, gpointer data)
     bool toggled = gtk_toggle_button_get_active(button);
     gtk_widget_set_sensitive(s->getWidget("logMainLabel"), toggled);
     gtk_widget_set_sensitive(s->getWidget("logMainEntry"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logMainLabelFile"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logMainEntryFile"), toggled);
 }
 
 void Settings::onLogPrivateClicked_gui(GtkToggleButton *button, gpointer data)
@@ -3749,6 +3779,8 @@ void Settings::onLogPrivateClicked_gui(GtkToggleButton *button, gpointer data)
     bool toggled = gtk_toggle_button_get_active(button);
     gtk_widget_set_sensitive(s->getWidget("logPrivateLabel"), toggled);
     gtk_widget_set_sensitive(s->getWidget("logPrivateEntry"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logPrivateLabelFile"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logPrivateEntryFile"), toggled);
 }
 
 void Settings::onLogDownloadClicked_gui(GtkToggleButton *button, gpointer data)
@@ -3757,6 +3789,8 @@ void Settings::onLogDownloadClicked_gui(GtkToggleButton *button, gpointer data)
     bool toggled = gtk_toggle_button_get_active(button);
     gtk_widget_set_sensitive(s->getWidget("logDownloadsLabel"), toggled);
     gtk_widget_set_sensitive(s->getWidget("logDownloadsEntry"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logDownloadsLabelFile"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logDownloadsEntryFile"), toggled);
 }
 
 void Settings::onLogUploadClicked_gui(GtkToggleButton *button, gpointer data)
@@ -3765,6 +3799,18 @@ void Settings::onLogUploadClicked_gui(GtkToggleButton *button, gpointer data)
     bool toggled = gtk_toggle_button_get_active(button);
     gtk_widget_set_sensitive(s->getWidget("logUploadsLabel"), toggled);
     gtk_widget_set_sensitive(s->getWidget("logUploadsEntry"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logUploadsLabelFile"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logUploadsEntryFile"), toggled);
+}
+
+void Settings::onLogFinishedDownloadClicked_gui(GtkToggleButton *button, gpointer data)
+{
+    Settings *s = (Settings *)data;
+    bool toggled = gtk_toggle_button_get_active(button);
+    gtk_widget_set_sensitive(s->getWidget("logFinishedDownloadsLabel"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logFinishedDownloadsEntry"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logFinishedDownloadsLabelFile"), toggled);
+    gtk_widget_set_sensitive(s->getWidget("logFinishedDownloadsEntryFile"), toggled);
 }
 
 void Settings::onUserCommandAdd_gui(GtkWidget *widget, gpointer data)

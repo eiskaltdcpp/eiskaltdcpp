@@ -114,6 +114,7 @@ class Settings:
         static void onLogPrivateClicked_gui(GtkToggleButton *button, gpointer data);
         static void onLogDownloadClicked_gui(GtkToggleButton *button, gpointer data);
         static void onLogUploadClicked_gui(GtkToggleButton *button, gpointer data);
+        static void onLogFinishedDownloadClicked_gui(GtkToggleButton *button, gpointer data);
         static void onUserCommandAdd_gui(GtkWidget *widget, gpointer data);
         static void onUserCommandEdit_gui(GtkWidget *widget, gpointer data);
         static void onUserCommandMoveUp_gui(GtkWidget *widget, gpointer data);
