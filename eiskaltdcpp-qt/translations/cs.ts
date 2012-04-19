@@ -3537,53 +3537,53 @@ Staženo: %3 Odesláno: %4</translation>
         <translation>Výpis: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="309"/>
+        <location filename="../src/ShareBrowser.cpp" line="310"/>
         <source>Filebrowser</source>
         <translation>Prohlížeč souborů</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="311"/>
+        <location filename="../src/ShareBrowser.cpp" line="312"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="389"/>
+        <location filename="../src/ShareBrowser.cpp" line="390"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Celkové sdílení: %1;  Souborů: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="423"/>
+        <location filename="../src/ShareBrowser.cpp" line="424"/>
         <source>Share browser error: %1</source>
         <translation>Chyba prohlížeče sdílení: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="595"/>
-        <location filename="../src/ShareBrowser.cpp" line="619"/>
+        <location filename="../src/ShareBrowser.cpp" line="596"/>
+        <location filename="../src/ShareBrowser.cpp" line="620"/>
         <source>Total size: %1</source>
         <translation>Celková velikost: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="617"/>
+        <location filename="../src/ShareBrowser.cpp" line="618"/>
         <source>Selected %1 from %2 items; </source>
         <translation>Vybráno %1 z %2 položek; </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="622"/>
+        <location filename="../src/ShareBrowser.cpp" line="623"/>
         <source>; Selected: %1</source>
         <translation>; Vybráno: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="825"/>
+        <location filename="../src/ShareBrowser.cpp" line="826"/>
         <source>Select directory</source>
         <translation>Vyber složku</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="955"/>
+        <location filename="../src/ShareBrowser.cpp" line="956"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Vložit limit omezení (v GB)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1094"/>
+        <location filename="../src/ShareBrowser.cpp" line="1095"/>
         <source>Share browser</source>
         <translation>Prohlížeč sdílení</translation>
     </message>

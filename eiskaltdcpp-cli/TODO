@@ -27,10 +27,10 @@ API Layers:
 	Добавление элемента очереди.
 -----------------------
 РАБОТА С ФАЙЛЛИСТАМИ
-	(broken) Скачивание файллиста (list.download)
+	(+) Скачивание файллиста (list.download)
 		Args: huburl (string), nick (string)
 		Return: 0 | 1 (integer)
-		Comment: Скачивает, но в FileList пусто, как будто не сохраняет
+		Comment: 
 	Просмотр файллиста
 	Постановка файла из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
 	Постановка директории из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
@@ -74,9 +74,10 @@ API Layers:
 	(+) Сообщение в чат (hub.say)
 		Args: huburl (string), message (string)
 		Return: 0 | 1 (integer)
-	(+) Сообщение в приват юзеру (hub.pm)
+	(wip) Сообщение в приват юзеру (hub.pm)
 		Args: huburl (string), nick(string), message (string)
 		Return: "Message send on hub: @huburl@" | "@huburl@ not connected" (string)
+		Comment: работает только для не adcs хабах
 	(+) Возврат сообщений чата с указанного хаба (hub.getchat)
 		Args: huburl(string), separator(string)
 		Return: @last messages on huburl@ (string)
@@ -122,5 +123,5 @@ IPFILTER
 
 Пожелания:
 	Выполнение команды и выход (./cli.pl -c show.version)
-
+	Поддерка UTF8
 

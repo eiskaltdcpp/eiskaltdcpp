@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Translators:
 # Stefano  <netcelli@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-03-18 18:05+0200\n"
-"PO-Revision-Date: 2012-01-22 21:56+0000\n"
+"POT-Creation-Date: 2012-04-18 06:37+0300\n"
+"PO-Revision-Date: 2012-04-18 04:12+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Italian (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
-"it/)\n"
-"Language: it\n"
+"Language-Team: Italian (http://www.transifex.net/projects/p/eiskaltdcpp/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -98,17 +98,14 @@ msgstr "Determinazione in corso delle impostazioni migliori di connessione..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-"Impossibile aprire la porta(e) %1%; le impostazioni sulla connettività "
-"devono essere configurate manualmente"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr "Impossibile aprire la porta(e) %1%; le impostazioni sulla connettività devono essere configurate manualmente"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr ""
-"Indirizzo IP pubblico individuato, seleziona la modalità attiva con "
-"connessione diretta"
+msgstr "Indirizzo IP pubblico individuato, seleziona la modalità attiva con connessione diretta"
 
 #: ../ConnectivityManager.cpp:100
 msgid ""
@@ -120,9 +117,7 @@ msgstr ""
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"Impostazione automatica della modalità attiva fallita. Imposta la tua "
-"connessione manualmente per una migliore connettività"
+msgstr "Impostazione automatica della modalità attiva fallita. Imposta la tua connessione manualmente per una migliore connettività"
 
 #: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
@@ -156,7 +151,7 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Disconnetti l'utente che lascia l'hub: %1%"
 
-#: ../SettingsManager.cpp:183
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr "scaricato da"
 
@@ -200,13 +195,11 @@ msgstr "Argomento hub:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr ""
-"L'hub stà tentando di utilizzare il tuo client per inviare il messaggio spam "
-"%1%, segnalalo al proprietario dell'hub per correggere il problema"
+msgstr "L'hub stà tentando di utilizzare il tuo client per inviare il messaggio spam %1%, segnalalo al proprietario dell'hub per correggere il problema"
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../QueueManager.cpp:2163 ../QueueManager.cpp:2169 ../QueueManager.cpp:2175
+#: ../QueueManager.cpp:2165 ../QueueManager.cpp:2171 ../QueueManager.cpp:2177
 msgid "Offline"
 msgstr "Non in linea"
 
@@ -214,7 +207,7 @@ msgstr "Non in linea"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr ""
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2194
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -226,9 +219,7 @@ msgstr ""
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"L'hub sta utilizzando una versione vecchia del protocollo ADC, incoraggia il "
-"proprietario dell'hub ad aggiornarlo"
+msgstr "L'hub sta utilizzando una versione vecchia del protocollo ADC, incoraggia il proprietario dell'hub ad aggiornarlo"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -423,25 +414,19 @@ msgstr "L'utente ha scelto di non condividere il file: %1% (Dimensione: %2%)"
 
 #: ../ShareManager.cpp:681
 msgid "User has chosen not to share temp file: %1% (Size: %2%)"
-msgstr ""
-"L'utente ha scelto di non condividere il file temporaneo: %1% (Dimensione: "
-"%2%)"
+msgstr "L'utente ha scelto di non condividere il file temporaneo: %1% (Dimensione: %2%)"
 
 #: ../ShareManager.cpp:769
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr ""
-"I file duplicati non saranno condivisi: %1% (Dimensione: %2%) Corrispondenza "
-"rispetto: %3%"
+msgstr "I file duplicati non saranno condivisi: %1% (Dimensione: %2%) Corrispondenza rispetto: %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Aggiornamento lista file in corso, attendi il termine prima di riprovare ad "
-"aggiornarla nuovamente"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "Aggiornamento lista file in corso, attendi il termine prima di riprovare ad aggiornarla nuovamente"
 
 #: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
@@ -663,31 +648,36 @@ msgstr ""
 msgid "Duplicate source: %1%"
 msgstr "Fonte duplicata: %1%"
 
-#: ../QueueManager.cpp:1149
+#: ../QueueManager.cpp:1148
 msgid "Target removed"
 msgstr "Obbiettivo rimosso"
 
-#: ../QueueManager.cpp:1157
+#: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
 msgstr ""
 
-#: ../QueueManager.cpp:1206
+#: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr "Impossibile spostare %1% in %2% (%3%); rinominato in %4%"
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr "Impossibile spostare %1% in %2% (%3%) neppure rinominarlo in %4% (%5%)"
 
-#: ../QueueManager.cpp:1404
+#: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
 msgstr "Impossibile aprire la lista file: %1%"
 
-#: ../QueueManager.cpp:1427
+#: ../QueueManager.cpp:1426
 msgid "%1%: Matched %2% file"
 msgstr ""
 
-#: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
+#: ../QueueManager.cpp:1794
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+
+#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr ""
 

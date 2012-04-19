@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-03-18 18:05+0200\n"
-"PO-Revision-Date: 2012-01-22 21:56+0000\n"
+"POT-Creation-Date: 2012-04-18 06:37+0300\n"
+"PO-Revision-Date: 2012-04-18 04:12+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Czech (http://www.transifex.net/projects/p/eiskaltdcpp/team/"
-"cs/)\n"
-"Language: cs\n"
+"Language-Team: Czech (http://www.transifex.net/projects/p/eiskaltdcpp/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../FavoriteManager.cpp:429
@@ -61,9 +61,7 @@ msgstr "Socket Server přihlášení odmítl (neplatné jméno / heslo)"
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"Nesprávné nastavení Socket Serveru pro UDP přenos (zkontrolujte adresu "
-"Socket Serveru a port)"
+msgstr "Nesprávné nastavení Socket Serveru pro UDP přenos (zkontrolujte adresu Socket Serveru a port)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -99,7 +97,8 @@ msgstr "Ustavuji nejlepší nastavení spojení..."
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr "Nemohu otevřít %1% port(y); Nastavení spojení musí být nastaveno ručně"
 
 #: ../ConnectivityManager.cpp:93
@@ -111,17 +110,13 @@ msgstr "Detekována veřejná IP adresa, vybírám aktivní mód s přímým spo
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr ""
-"Zjištěna místní síť s možností použití NAT, pokouším se namapovat porty "
-"pomocí UPnP..."
+msgstr "Zjištěna místní síť s možností použití NAT, pokouším se namapovat porty pomocí UPnP..."
 
 #: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"Automatické nastavení aktivního módu selhalo. Možná budete chtít nastavit "
-"vaše připojení ručně pro lepší funkčnost"
+msgstr "Automatické nastavení aktivního módu selhalo. Možná budete chtít nastavit vaše připojení ručně pro lepší funkčnost"
 
 #: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
@@ -155,7 +150,7 @@ msgstr "IPFilter: Blokováno příchozí spojení k "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Odpojený uživatel opouštějící hub: %1%"
 
-#: ../SettingsManager.cpp:183
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr "staženo z"
 
@@ -203,7 +198,7 @@ msgstr ""
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../QueueManager.cpp:2163 ../QueueManager.cpp:2169 ../QueueManager.cpp:2175
+#: ../QueueManager.cpp:2165 ../QueueManager.cpp:2171 ../QueueManager.cpp:2177
 msgid "Offline"
 msgstr "Nepřipojen"
 
@@ -211,7 +206,7 @@ msgstr "Nepřipojen"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) má stejné CID {%3%} jako %4% (%5%), ignoruji"
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2194
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -223,9 +218,7 @@ msgstr "Nemohu nastavit základní protokol"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"Hub pravděpodobně používá starou verzi ADC, prosím doporučte majiteli "
-"upgrade."
+msgstr "Hub pravděpodobně používá starou verzi ADC, prosím doporučte majiteli upgrade."
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -333,9 +326,7 @@ msgstr "Hash databáze obnovena"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru "
-"SFV."
+msgstr "%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru SFV."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -432,8 +423,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr "Probíhá obnovení seznamu souborů, prosím počkejte"
 
 #: ../ShareManager.cpp:811
@@ -646,9 +637,7 @@ msgstr "Cílové jméno souboru je příliš dlouhé"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro "
-"stáhnuté soubory)"
+msgstr "Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro stáhnuté soubory)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -658,31 +647,36 @@ msgstr ""
 msgid "Duplicate source: %1%"
 msgstr "Duplicitní zdroj: %1%"
 
-#: ../QueueManager.cpp:1149
+#: ../QueueManager.cpp:1148
 msgid "Target removed"
 msgstr "Cíl odebrán"
 
-#: ../QueueManager.cpp:1157
+#: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
 msgstr ""
 
-#: ../QueueManager.cpp:1206
+#: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr ""
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 
-#: ../QueueManager.cpp:1404
+#: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
 msgstr "Nemohu otevřít seznam souborů: %1%"
 
-#: ../QueueManager.cpp:1427
+#: ../QueueManager.cpp:1426
 msgid "%1%: Matched %2% file"
 msgstr ""
 
-#: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
+#: ../QueueManager.cpp:1794
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+
+#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 nesuhlasí (SFV kontrola)"
 

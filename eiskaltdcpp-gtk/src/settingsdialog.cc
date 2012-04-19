@@ -1569,7 +1569,6 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Allow some connections for one ip"), SettingsManager::ALLOW_UPLOAD_MULTI_HUB);
         addOption_gui(advancedStore, _("Allow some connections for one user"), SettingsManager::ALLOW_SIM_UPLOADS);
         addOption_gui(advancedStore, _("Use ADL search only in own file list"), SettingsManager::USE_ADL_ONLY_OWN_LIST);
-        
 
         /// @todo: Uncomment when implemented
         //addOption_gui(advancedStore, _("Use CTRL for line history"), "use-ctrl-for-line-history");

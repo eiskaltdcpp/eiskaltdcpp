@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-03-18 18:05+0200\n"
+"POT-Creation-Date: 2012-04-18 06:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr ""
 
-#: ../SettingsManager.cpp:183
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr ""
 
@@ -196,7 +196,7 @@ msgstr ""
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../QueueManager.cpp:2163 ../QueueManager.cpp:2169 ../QueueManager.cpp:2175
+#: ../QueueManager.cpp:2165 ../QueueManager.cpp:2171 ../QueueManager.cpp:2177
 msgid "Offline"
 msgstr ""
 
@@ -204,7 +204,7 @@ msgstr ""
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr ""
 
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2192
+#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2194
 msgid "%1%/s"
 msgstr ""
 
@@ -645,31 +645,35 @@ msgstr ""
 msgid "Duplicate source: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:1149
+#: ../QueueManager.cpp:1148
 msgid "Target removed"
 msgstr ""
 
-#: ../QueueManager.cpp:1157
+#: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
 msgstr ""
 
-#: ../QueueManager.cpp:1206
+#: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
 msgstr ""
 
-#: ../QueueManager.cpp:1209
+#: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
 msgstr ""
 
-#: ../QueueManager.cpp:1404
+#: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
 msgstr ""
 
-#: ../QueueManager.cpp:1427
+#: ../QueueManager.cpp:1426
 msgid "%1%: Matched %2% file"
 msgstr ""
 
-#: ../QueueManager.cpp:2031 ../QueueManager.cpp:2040
+#: ../QueueManager.cpp:1794
+msgid "Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+
+#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr ""
 

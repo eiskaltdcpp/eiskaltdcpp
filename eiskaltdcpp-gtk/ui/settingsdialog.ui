@@ -4309,7 +4309,6 @@
                                   <object class="GtkComboBoxText" id="languageComboBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="has_entry">False</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -6900,6 +6899,7 @@ see man strftime for details.</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -6912,6 +6912,7 @@ see man strftime for details.</property>
                           <object class="GtkHBox" id="hbox410">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="spacing">4</property>
                             <child>
                               <object class="GtkLabel" id="logFinishedDownloadsLabel">
                                 <property name="visible">True</property>
@@ -6957,7 +6958,7 @@ see man strftime for details.</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="primary_icon_activatable">False</property>
-                                <property name="secondary_icon_activatable">False</property>>
+                                <property name="secondary_icon_activatable">False</property>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -7024,12 +7025,13 @@ see man strftime for details.</property>
                           </packing>
                         </child>
                         <child>
-                        <object class="GtkCheckButton" id="logSearchAltCheckButton">
+                          <object class="GtkCheckButton" id="logSearchAltCheckButton">
                             <property name="label" translatable="yes">Log search alternate</property>
                             <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
                           </object>
