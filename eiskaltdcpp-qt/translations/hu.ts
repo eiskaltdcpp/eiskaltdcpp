@@ -5399,7 +5399,7 @@ Az EiskaltDC++ SOCKS5 támogatása nem tartalmazza a GSSAPI modult.</translation
         <location filename="../ui/UISettingsConnection.ui" line="454"/>
         <location filename="../ui/UISettingsConnection.ui" line="469"/>
         <source>Limits</source>
-        <translation>Limitek</translation>
+        <translation>Sebességkorlátok</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="475"/>
@@ -5429,7 +5429,7 @@ Az EiskaltDC++ SOCKS5 támogatása nem tartalmazza a GSSAPI modult.</translation
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="583"/>
         <source>Alternate speed limit at time from </source>
-        <translation>Alternatív sebesség-korlát használata a következő időben </translation>
+        <translation>Alternatív sebességkorlát használata a következő időben </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="609"/>
@@ -5554,7 +5554,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="97"/>
         <source>Limits</source>
-        <translation>Limitek</translation>
+        <translation>Sebességkorlátok</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
