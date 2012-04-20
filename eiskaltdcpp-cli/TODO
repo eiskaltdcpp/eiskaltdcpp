@@ -11,7 +11,7 @@ API Layers:
 		Args: source (string), target (string)
 		Return: 0 | 1 (integer)
 		Comment: Не понял как проверить что куда подствлять в агрументы, что то поставил куда то, оно ответило 0, но ничего никуда не перенеслось
-	(wip) Удаление элемента очереди (queue.remove)
+	(+) Удаление элемента очереди (queue.remove)
 		Args: target (string)
 		Return: 0 | 1 (integer)
 	(+) Постановка в очередь магнета (magnet.add)
