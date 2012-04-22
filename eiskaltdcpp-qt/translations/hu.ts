@@ -3566,7 +3566,7 @@ Letöltve: %3 Feltöltve: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="618"/>
         <source>Selected %1 from %2 items; </source>
-        <translation>%1 elem kiválasztva a %2 elemből; </translation>
+        <translation>%1 elem kiválasztva a(z) %2 elemből; </translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="623"/>
