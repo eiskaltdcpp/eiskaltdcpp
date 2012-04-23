@@ -3146,7 +3146,7 @@ Letöltve: %3 Feltöltve: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="70"/>
         <source>Notifications</source>
-        <translation>Figyelmeztetések</translation>
+        <translation>Értesítések</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="75"/>
