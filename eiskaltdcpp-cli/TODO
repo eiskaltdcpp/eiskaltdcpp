@@ -7,21 +7,22 @@ API Layers:
 	(+) Просмотр всех элементов очереди (queue.listtargets)
 		Args: separator (string)
 		Return: @all targets in queue@ (string)
-	(wip) Modify target arg for queue item (queue.move)
+	(+) Modify target arg for queue item (queue.move)
 		Args: source (string), target (string)
 		Return: 0 | 1 (integer)
-		Comment: Не понял как проверить что куда подствлять в агрументы, что то поставил куда то, оно ответило 0, но ничего никуда не перенеслось
 	(+) Удаление элемента очереди (queue.remove)
 		Args: target (string)
 		Return: 0 | 1 (integer)
 	(+) Постановка в очередь магнета (magnet.add)
 		Args: magnet (string), directory (string)
 		Return: 0 | 1 (integer)
-	Просмотр конкретного элемента очереди
-	(wip) Установка приоритета элемента очереди
+	(+) Установка приоритета элемента очереди (queue.setpriority)
 		Args: target (string), priority (integer; 0-PAUSED, 1-LOWEST, 2-LOW, 3-NORMAL, 4-HIGH, 5-HIGHEST)
 		Return: 0 | 1 (integer)
-	Список источников для конкретного элемента очереди
+	(wip) Список источников для конкретного элемента очереди (queue.getsources)
+		Args: target (string), separator (string)
+		Return: sources (string), online (integer)
+	Просмотр конкретного элемента очереди
 	Добавление источника к элементу очереди.
 	Удаление источника для элемента очереди.
 	Добавление элемента очереди.
