@@ -66,7 +66,7 @@ public:
     void updatelistQueueTargets();
     void getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online);
     void getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online);
-    void getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status);
+    void getHashStatus(string& target, int64_t& bytesLeft, uint32_t& filesLeft, string& status);
     bool pauseHash();
     void getMethodList(string& tmp); 
 
