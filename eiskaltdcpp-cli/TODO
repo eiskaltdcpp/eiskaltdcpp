@@ -54,7 +54,7 @@ API Layers:
 		Return: 0 | 1 (integer)
 	(+) Показать статус хеширования (hash.status)
 		Args: none
-		Return: "bytesleft":0,"currentfile":"","filesleft":0,"status":"idle"} 
+		Return: bytesleft (int64_t), currentfile (string), filesleft (uint32_t), status (string) 
 	(+) Приостановить хеширование (hash.pause)
 		Args: none
 		Return: 0 | 1 (int)
