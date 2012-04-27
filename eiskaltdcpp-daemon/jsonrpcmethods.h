@@ -46,8 +46,34 @@ class JsonRpcMethods
     bool GetHashStatus(const Json::Value& root, Json::Value& response);
     bool GetMethodList(const Json::Value& root, Json::Value& response);
     bool PauseHash(const Json::Value& root, Json::Value& response);
-
-
+    Json::Value GetDescriptionStopDaemon();
+    Json::Value GetDescriptionMagnetAdd();
+    Json::Value GetDescriptionHubAdd();
+    Json::Value GetDescriptionHubDel();
+    Json::Value GetDescriptionHubSay();
+    Json::Value GetDescriptionHubSayPM();
+    Json::Value GetDescriptionListHubs();
+    Json::Value GetDescriptionAddDirInShare();
+    Json::Value GetDescriptionRenameDirInShare();
+    Json::Value GetDescriptionDelDirFromShare();
+    Json::Value GetDescriptionListShare();
+    Json::Value GetDescriptionRefreshShare();
+    Json::Value GetDescriptionGetFileList();
+    Json::Value GetDescriptionGetChatPub();
+    Json::Value GetDescriptionSendSearch();
+    Json::Value GetDescriptionReturnSearchResults();
+    Json::Value GetDescriptionShowVersion();
+    Json::Value GetDescriptionShowRatio();
+    Json::Value GetDescriptionSetPriorityQueueItem();
+    Json::Value GetDescriptionMoveQueueItem();
+    Json::Value GetDescriptionRemoveQueueItem();
+    Json::Value GetDescriptionListQueueTargets();
+    Json::Value GetDescriptionListQueue();
+    Json::Value GetDescriptionClearSearchResults();
+    Json::Value GetDescriptionAddQueueItem();
+    Json::Value GetDescriptionGetSourcesItem();
+    Json::Value GetDescriptionGetHashStatus();
+    Json::Value GetDescriptionPauseHash();
 };
 
 #endif /* JSON_RPC_METHODS_H */
