@@ -984,7 +984,7 @@ bool ServerThread::removeQueueItem(const string& target) {
     return false;
 }
 
-void ServerThread::getHashStatus(string& target, int64_t& bytesLeft, uint32_t& filesLeft, string& status) {
+void ServerThread::getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status) {
     HashManager::getInstance()->getStats(target, bytesLeft, filesLeft);
     status = HashManager::getInstance()->isHashingPaused() ? "pause" : bytesLeft > 0 ? "hashing" : "idle";
 }
