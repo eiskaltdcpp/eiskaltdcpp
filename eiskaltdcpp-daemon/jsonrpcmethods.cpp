@@ -380,7 +380,7 @@ bool JsonRpcMethods::GetHashStatus(const Json::Value& root, Json::Value& respons
     response["result"]["currentfile"]=tmp;
     response["result"]["status"]=status;
     response["result"]["bytesleft"]=Json::Value::Int64(bytes);
-    response["result"]["filesleft"]=Json::Value::Int64(files);
+    response["result"]["filesleft"]=Json::Value::UInt(files);
     if (isDebug) std::cout << "GetHashStatus (response): " << response << std::endl;
     return true;
 }
@@ -406,4 +406,390 @@ bool JsonRpcMethods::PauseHash(const Json::Value& root, Json::Value& response) {
         response["result"] = 1;
     if (isDebug) std::cout << "PauseHash (response): " << response << std::endl;
     return true;
+}
+Json::Value JsonRpcMethods::GetDescriptionStopDaemon() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value returns;
+
+  root["description"] = "Stop daemon";
+  root["parameters"] = Json::Value::null;
+  returns["type"] = "integer";
+  returns["description"] = "Return 0 on success and 1 on failed";
+  root["returns"] = returns;
+
+  return root;
+}
+
+Json::Value JsonRpcMethods::GetDescriptionMagnetAdd() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+
+  root["description"] = "Add magnet in queue";
+  param1["type"] = "string";
+  param1["description"] = "Magnet link";
+  param2["type"] = "string";
+  param2["description"] = "Download directory";
+
+  parameters["magnet"] = param1;
+  parameters["directory"] = param2;
+  root["parameters"] = parameters;
+
+  returns["type"] = "integer";
+  returns["description"] = "Return 0 on success and 1 on failed";
+  root["returns"] = returns;
+
+  return root;
+}
+
+Json::Value JsonRpcMethods::GetDescriptionHubAdd() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+
+  root["description"] = "Connect to huburl";
+  param1["type"] = "string";
+  param1["description"] = "Hub url";
+  param2["type"] = "string";
+  param2["description"] = "Encoding";
+
+  parameters["huburl"] = param1;
+  parameters["enc"] = param2;
+  root["parameters"] = parameters;
+
+  returns["type"] = "integer";
+  returns["description"] = "Return 0 on success and 1 on failed";
+  root["returns"] = returns;
+
+  return root;
+}
+
+Json::Value JsonRpcMethods::GetDescriptionHubDel() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1;
+  Json::Value returns;
+  root["description"] = "Disconnect from huburl";
+  param1["type"] = "string";
+  param1["description"] = "Hub url";
+  
+  parameters["huburl"] = param1;
+  root["parameters"] = parameters;
+
+  returns["type"] = "integer";
+  returns["description"] = "Return 0 on success and 1 on failed";
+  root["returns"] = returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionHubSay() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  
+  root["description"] = "Send message on hub url";
+  param1["type"] = "string";
+  param1["description"] = "Hub url";
+  param2["type"] = "string";
+  param2["description"] = "Message";
+
+  parameters["huburl"] = param1;
+  parameters["message"] = param2;
+  root["parameters"] = parameters;
+
+  returns["type"] = "integer";
+  returns["description"] = "Return 0 on success and 1 on failed";
+  root["returns"] = returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionHubSayPM() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2,param3;
+  Json::Value returns;
+
+  root["description"] = "Send private message to nick on hub url";
+  param1["type"] = "string";
+  param1["description"] = "Hub url";
+  param2["type"] = "string";
+  param2["description"] = "Nick";
+  param3["type"] = "string";
+  param3["description"] = "Message";
+
+  parameters["huburl"] = param1;
+  parameters["nick"] = param2;
+  parameters["message"] = param3;
+  root["parameters"] = parameters;
+
+  returns["type"] = "integer";
+  returns["description"] = "Return 0 on success and 1 on failed";
+  root["returns"] = returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionListHubs() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1;
+  Json::Value returns;
+  
+  root["description"] = "Get list of hubs";
+  param1["type"] = "string";
+  param1["description"] = "Separator";
+
+  parameters["separator"] = param1;
+  root["parameters"] = parameters;
+
+  returns["type"] = "integer";
+  returns["description"] = "Return 0 on success and 1 on failed";
+  root["returns"] = returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionAddDirInShare() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+
+  root["description"] = "Add directory in share with virtual name";
+  param1["type"] = "string";
+  param1["description"] = "Directory";
+  param2["type"] = "string";
+  param2["description"] = "VirtualName";
+
+  parameters["directory"] = param1;
+  parameters["virtname"] = param2;
+  root["parameters"] = parameters;
+
+  returns["type"] = "integer or string";
+  returns["description"] = "Return 0 on success and 1 on failed or shareexception";
+  root["returns"] = returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionRenameDirInShare() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  
+  root["description"] = "Rename directory in share";
+  param1["type"] = "string";
+  param1["description"] = "Directory";
+  param2["type"] = "string";
+  param2["description"] = "VirtualName";
+
+  parameters["directory"] = param1;
+  parameters["virtname"] = param2;
+  root["parameters"] = parameters;
+
+  returns["type"] = "integer or string";
+  returns["description"] = "Return 0 on success and 1 on failed or shareexception";
+  root["returns"] = returns;
+  
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionDelDirFromShare() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1;
+  Json::Value returns;
+  
+  root["description"] = "Delete directory from share";
+  param1["type"] = "string";
+  param1["description"] = "Directory";
+
+  parameters["directory"] = param1;
+  root["parameters"] = parameters;
+
+  returns["type"] = "integer or string";
+  returns["description"] = "Return 0 on success and 1 on failed or shareexception";
+  root["returns"] = returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionListShare() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1;
+  Json::Value returns;
+  
+  root["description"] = "Return list share";
+  param1["type"] = "string";
+  param1["description"] = "Separator";
+
+  parameters["separator"] = param1;
+  root["parameters"] = parameters;
+
+  returns["type"] = "string";
+  returns["description"] = "Return list share";
+  root["returns"] = returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionRefreshShare() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value returns;
+  
+  root["description"] = "Run refresh share";
+  root["parameters"] = Json::Value::null;
+
+  returns["type"] = "integer";
+  returns["description"] = "Return 0";
+  root["returns"] = returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionGetFileList() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionGetChatPub() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+
+  root["description"] = "Return chat from huburl";
+  param1["type"] = "string";
+  param1["description"] = "Hub url";
+  param2["type"] = "string";
+  param2["description"] = "Separator";
+
+  parameters["huburl"] = param1;
+  parameters["separator"] = param2;
+  root["parameters"] = parameters;
+
+  returns["type"] = "string";
+  returns["description"] = "Return chat from hub url";
+  root["returns"] = returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionSendSearch() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionReturnSearchResults() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionShowVersion() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionShowRatio() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionSetPriorityQueueItem() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionMoveQueueItem() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionRemoveQueueItem() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionListQueueTargets() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionListQueue() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionClearSearchResults() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionAddQueueItem() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionGetSourcesItem() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionGetHashStatus() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
+}
+Json::Value JsonRpcMethods::GetDescriptionPauseHash() {
+  Json::FastWriter writer;
+  Json::Value root;
+  Json::Value parameters;
+  Json::Value param1,param2;
+  Json::Value returns;
+  return root;
 }
