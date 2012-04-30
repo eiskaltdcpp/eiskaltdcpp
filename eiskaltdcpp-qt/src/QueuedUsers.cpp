@@ -138,7 +138,7 @@ QVariant QueuedUsersModel::data(const QModelIndex &index, int role) const
     switch(role) {
         case Qt::DisplayRole:
             return item->data(index.column());
-        deafult:
+        default:
             break;
     }
 

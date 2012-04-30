@@ -513,7 +513,7 @@ void DownloadQueueModel::setRootElem(DownloadQueueItem *root, bool del_old, bool
         d->rootItem = NULL;
     }
 
-    if (d->rootItem = root)
+    if (d->rootItem == root)
         emit layoutChanged();
 }
 
@@ -653,7 +653,7 @@ DownloadQueueItem *DownloadQueueModel::findTarget(const DownloadQueueItem *item,
 }
 
 DownloadQueueItem::DownloadQueueItem(const QList<QVariant> &data, DownloadQueueItem *parent) :
-    itemData(data), parentItem(parent), dir(false)
+    dir(false), itemData(data), parentItem(parent)
 {
 }
 

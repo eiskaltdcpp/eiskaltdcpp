@@ -424,8 +424,6 @@ UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){
     if (nick.isEmpty())
         return NULL;
     
-    UserListItem *item = NULL;
-    
     QList<UserListItem*>::iterator it = std::find_if(rootItem->childItems.begin(), rootItem->childItems.end(),
                                                      [&nick] (const UserListItem *i) {
                                                         return (i->getNick() == nick);
@@ -518,7 +516,7 @@ void UserListModel::repaintItem(const UserListItem *item){
 }
 
 UserListItem::UserListItem(UserListItem *parent, dcpp::UserPtr p) :
-    parentItem(parent), ptr(p)
+    ptr(p), parentItem(parent)
 {
     updateIdentity();
 }

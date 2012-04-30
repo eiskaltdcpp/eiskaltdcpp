@@ -187,18 +187,19 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
 
 ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         QWidget(MainWindow::getInstance()),
-        user(user),
+        proxy(NULL),
         file(file),
         jump_to(jump_to),
+        listing(HintedUser(user, "")),
+        user(user),
         share_size(0),
         current_size(0),
         itemsCount(0),
-        listing(HintedUser(user, "")),
-        tree_root(NULL),
-        list_root(NULL),
         tree_model(NULL),
         list_model(NULL),
-        proxy(NULL)
+        tree_root(NULL),
+        list_root(NULL)
+        
 {
     
 

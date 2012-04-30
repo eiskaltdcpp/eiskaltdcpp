@@ -163,8 +163,8 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
             if (title.isEmpty() || msg.isEmpty())
                 break;
 
-            if (MainWindow::getInstance()->isActiveWindow() && !WBGET(WB_NOTIFY_SHOW_ON_ACTIVE) ||
-        !MainWindow::getInstance()->isActiveWindow() && MainWindow::getInstance()->isVisible() && !WBGET(WB_NOTIFY_SHOW_ON_VISIBLE))
+            if ((MainWindow::getInstance()->isActiveWindow() && !WBGET(WB_NOTIFY_SHOW_ON_ACTIVE)) ||
+            (!MainWindow::getInstance()->isActiveWindow() && MainWindow::getInstance()->isVisible() && !WBGET(WB_NOTIFY_SHOW_ON_VISIBLE)))
                 break;
 
             if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
@@ -331,3 +331,34 @@ void Notification::slotSupress(){
     bool &b = ((act->objectName() == "actSupressSnd")? supressSnd : supressTxt);
     b = act->isChecked();
 }
+
+void Notification::resetTrayIcon(){
+    if (tray)
+        tray->setIcon(WICON(WulforUtil::eiICON_APPL)
+                    .scaled(22, 22, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+}
+
+void QtNotifyModule::showMessage(const QString &title, const QString &msg, QObject *obj) {
+    QSystemTrayIcon *tray = reinterpret_cast<QSystemTrayIcon*>(obj);
+
+    if (tray)
+        tray->showMessage(title, ((msg.length() > 400)? (msg.left(400) + "...") : msg), QSystemTrayIcon::Information, 5000);
+}
+
+#ifdef DBUS_NOTIFY
+void DBusNotifyModule::showMessage(const QString &title, const QString &msg, QObject *) {
+    QDBusInterface iface("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
+
+    QVariantList args;
+    args << QString("EiskaltDC++");
+    args << QVariant(QVariant::UInt);
+    args << QVariant(WulforUtil::getInstance()->getIconsPath() + "/" + "icon_appl_big.png");
+    args << QString(title);
+    args << QString(msg);
+    args << QStringList();
+    args << QVariantMap();
+    args << 5000;
+
+    iface.callWithArgumentList(QDBus::NoBlock, "Notify", args);
+}
+#endif

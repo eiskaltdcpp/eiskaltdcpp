@@ -293,7 +293,7 @@ void SearchBlackListModel::setSortColumn(int sc){
     sortColumn = sc;
 }
 
-SearchBlackListItem::SearchBlackListItem(SearchBlackListItem *parent) : parentItem(parent), argument(0)
+SearchBlackListItem::SearchBlackListItem(SearchBlackListItem *parent) : argument(0), parentItem(parent)
 {
 }
 

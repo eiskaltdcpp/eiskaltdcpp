@@ -320,7 +320,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
 }
 
 UCItem::UCItem(UCItem *parent) :
-    parentItem(parent), ctx(0), type(0), id(0)
+    ctx(0), type(0), id(0), parentItem(parent)
 {
 }
 

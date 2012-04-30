@@ -257,7 +257,7 @@ void PublicHubModel::addResult(const QList<QVariant> &data, dcpp::HubEntry *entr
 
 
 PublicHubItem::PublicHubItem(const QList<QVariant> &data, PublicHubItem *parent) :
-    itemData(data), parentItem(parent), entry(NULL)
+    entry(NULL), itemData(data), parentItem(parent)
 {
 }
 

@@ -24,35 +24,17 @@
 class NotifyModule {
 public:
     virtual void showMessage(const QString &, const QString &, QObject *) = 0;
+    virtual ~NotifyModule() { }
 };
 
 class QtNotifyModule: public NotifyModule {
 public:
-    void showMessage(const QString &title, const QString &msg, QObject *obj){
-        QSystemTrayIcon *tray = reinterpret_cast<QSystemTrayIcon*>(obj);
-
-        if (tray)
-            tray->showMessage(title, ((msg.length() > 400)? (msg.left(400) + "...") : msg), QSystemTrayIcon::Information, 5000);
-    }
+    void showMessage(const QString &title, const QString &msg, QObject *obj);
 };
 #ifdef DBUS_NOTIFY
 class DBusNotifyModule: public NotifyModule {
 public:
-    void showMessage(const QString &title, const QString &msg, QObject *){
-        QDBusInterface iface("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications", QDBusConnection::sessionBus());
-
-        QVariantList args;
-        args << QString("EiskaltDC++");
-        args << QVariant(QVariant::UInt);
-        args << QVariant(WulforUtil::getInstance()->getIconsPath() + "/" + "icon_appl_big.png");
-        args << QString(title);
-        args << QString(msg);
-        args << QStringList();
-        args << QVariantMap();
-        args << 5000;
-
-        iface.callWithArgumentList(QDBus::NoBlock, "Notify", args);
-    }
+    void showMessage(const QString &title, const QString &msg, QObject *);
 };
 #endif
 class Notification :
@@ -80,11 +62,7 @@ enum Type{
     void enableTray(bool);
     void setToolTip(const QString &, const QString &, const QString &, const QString &);
     void reloadSounds();
-    void resetTrayIcon(){
-        if (tray)
-            tray->setIcon(WICON(WulforUtil::eiICON_APPL)
-                        .scaled(22, 22, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
-    }
+    void resetTrayIcon();
 
 public Q_SLOTS:
     void switchModule(int);

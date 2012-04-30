@@ -660,13 +660,13 @@ void TransferViewModel::repaint(){
 }
 
 TransferViewItem::TransferViewItem(const QList<QVariant> &data, TransferViewItem *parent) :
-    itemData(data),
-    parentItem(parent),
     download(false),
-    percent(0.0),
-    dpos(0L),
     fail(false),
-    finished(false)
+    finished(false),
+    dpos(0L),
+    percent(0.0),
+    itemData(data),
+    parentItem(parent)
 {
 }
 

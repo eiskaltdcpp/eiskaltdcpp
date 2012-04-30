@@ -43,9 +43,9 @@ void SearchProxyModel::sort(int column, Qt::SortOrder order){
 
 SearchModel::SearchModel(QObject *parent):
         QAbstractItemModel(parent),
+        filterRole(SearchFrame::None),
         sortColumn(COLUMN_SF_ESIZE),
-        sortOrder(Qt::DescendingOrder),
-        filterRole(SearchFrame::None)
+        sortOrder(Qt::DescendingOrder)
 {
     QList<QVariant> rootData;
     rootData << tr("Count") << tr("File") << tr("Ext") << tr("Size")
@@ -135,7 +135,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
 
             break;
         }
-        deafult: break;
+        default: break;
     }
 
     return QVariant();
@@ -500,10 +500,10 @@ bool SearchModel::okToFind(const SearchItem *item){
 }
 
 SearchItem::SearchItem(const QList<QVariant> &data, SearchItem *parent) :
+    count(0),
     isDir(false),
     itemData(data),
-    parentItem(parent),
-    count(0)
+    parentItem(parent)
 {
 }
 
