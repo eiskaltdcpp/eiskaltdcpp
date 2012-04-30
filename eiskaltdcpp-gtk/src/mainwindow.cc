@@ -2132,10 +2132,19 @@ void MainWindow::onStatusIconActivated_gui(GtkStatusIcon *statusIcon, gpointer d
 {
 	MainWindow *mw = (MainWindow *)data;
 	GtkCheckMenuItem *item = GTK_CHECK_MENU_ITEM(mw->getWidget("statusIconShowInterfaceItem"));
-
-	// Toggle the "Show Interface" check menu item. This will in turn invoke its callback.
-	gboolean active = gtk_check_menu_item_get_active(item);
-	gtk_check_menu_item_set_active(item, !active);
+	GdkWindowState state;
+#if GTK_CHECK_VERSION(3, 0, 0)
+		state = gdk_window_get_state(gtk_widget_get_window(GTK_WIDGET(mw->window)));
+#else
+		state = gdk_window_get_state(GTK_WIDGET(mw->window)->window);
+#endif
+	if ((state & GDK_WINDOW_STATE_ICONIFIED))
+		gtk_window_deiconify(mw->window);
+	else {
+		// Toggle the "Show Interface" check menu item. This will in turn invoke its callback.
+		gboolean active = gtk_check_menu_item_get_active(item);
+		gtk_check_menu_item_set_active(item, !active);
+	}
 }
 
 void MainWindow::onStatusIconPopupMenu_gui(GtkStatusIcon *statusIcon, guint button, guint time, gpointer data)
