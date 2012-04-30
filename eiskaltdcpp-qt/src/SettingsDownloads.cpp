@@ -90,6 +90,7 @@ void SettingsDownloads::ok(){
         SM->set(it.key(), listWidget->item(it.value())->checkState() == Qt::Checked);
     
     SM->set(SettingsManager::ALLOW_SIM_UPLOADS, checkBox_ALLOW_SIM_UPLOADS->isChecked());
+    SM->set(SettingsManager::ALLOW_UPLOAD_MULTI_HUB, checkBox_ALLOW_UPLOAD_MULTI_HUB->isChecked());
 }
 
 void SettingsDownloads::init(){
@@ -154,6 +155,7 @@ void SettingsDownloads::init(){
     }
     {
         checkBox_ALLOW_SIM_UPLOADS->setCheckState(SETTING(ALLOW_SIM_UPLOADS)? Qt::Checked : Qt::Unchecked);
+        checkBox_ALLOW_UPLOAD_MULTI_HUB->setCheckState(SETTING(ALLOW_UPLOAD_MULTI_HUB)? Qt::Checked : Qt::Unchecked);
     }
 }
 
