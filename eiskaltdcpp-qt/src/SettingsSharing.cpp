@@ -59,6 +59,7 @@ void SettingsSharing::ok(){
     SettingsManager *SM = SettingsManager::getInstance();
 
     SM->set(SettingsManager::FOLLOW_LINKS, checkBox_FOLLOW->isChecked());
+    SM->set(SettingsManager::USE_ADL_ONLY_OWN_LIST, checkBox_USE_ADL_ONLY_OWN_LIST->isChecked());
     SM->set(SettingsManager::SHARE_TEMP_FILES, checkBox_SHARE_TEMP_FILES->isChecked());
     SM->set(SettingsManager::MIN_UPLOAD_SPEED, spinBox_EXTRA->value());
     SM->set(SettingsManager::SLOTS_PRIMARY, spinBox_UPLOAD->value());
@@ -100,6 +101,7 @@ void SettingsSharing::init(){
     checkBox_SHAREHIDDEN->setChecked(BOOLSETTING(SHARE_HIDDEN));
     checkBox_SHARE_TEMP_FILES->setChecked(BOOLSETTING(SHARE_TEMP_FILES));
     checkBox_FOLLOW->setChecked(BOOLSETTING(FOLLOW_LINKS));
+    checkBox_USE_ADL_ONLY_OWN_LIST->setChecked(BOOLSETTING(USE_ADL_ONLY_OWN_LIST));
     spinBox_UPLOAD->setValue(SETTING(SLOTS_PRIMARY));
     spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
     spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));

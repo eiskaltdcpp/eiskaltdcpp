@@ -367,6 +367,13 @@ and may cause the client to appear to freeze.</string>
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="checkBox_USE_ADL_ONLY_OWN_LIST">
+         <property name="text">
+          <string>Use ADL search only in own file list</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <layout class="QGridLayout" name="gridLayout_3">
          <item row="0" column="0">
           <widget class="QLabel" name="label">
