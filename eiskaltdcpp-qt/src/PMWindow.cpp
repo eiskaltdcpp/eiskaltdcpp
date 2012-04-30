@@ -50,11 +50,11 @@ static inline void clearLayout(QLayout *l){
 }
 
 PMWindow::PMWindow(QString cid, QString hubUrl):
+        hasMessages(false),
+        hasHighlightMessages(false),
         cid(cid),
         hubUrl(hubUrl),
-        arena_menu(NULL),
-        hasMessages(false),
-        hasHighlightMessages(false)
+        arena_menu(NULL)
 {
     setupUi(this);
 

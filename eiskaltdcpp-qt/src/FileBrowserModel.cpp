@@ -32,7 +32,7 @@ using namespace dcpp;
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i);
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
-    : QAbstractItemModel(parent), iconsScaled(false), restrictionsLoaded(false), listing(NULL), ownList(false)
+    : QAbstractItemModel(parent), listing(NULL), iconsScaled(false), restrictionsLoaded(false), ownList(false)
 {
     rootItem = new FileBrowserItem(QList<QVariant>() << tr("") << tr("") << tr("") << tr(""), NULL);
 
@@ -660,7 +660,7 @@ void FileBrowserModel::repaint(){
 }
 
 FileBrowserItem::FileBrowserItem(const QList<QVariant> &data, FileBrowserItem *parent) :
-    itemData(data), parentItem(parent), dir(NULL), file(NULL), isDuplicate(false)
+    dir(NULL), file(NULL), isDuplicate(false), itemData(data), parentItem(parent)
 {
 }
 

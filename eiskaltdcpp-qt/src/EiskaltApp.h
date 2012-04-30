@@ -21,7 +21,7 @@
 class EiskaltEventFilter: public QObject{
 Q_OBJECT
 public:
-    EiskaltEventFilter(): has_activity(true), counter(0){
+    EiskaltEventFilter(): counter(0), has_activity(true) {
         timer.setInterval(60000);
 
         connect(&timer, SIGNAL(timeout()), this, SLOT(tick()));
