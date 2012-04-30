@@ -918,6 +918,13 @@ from the queue either, you must do that manually.</string>
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="checkBox_ALLOW_UPLOAD_MULTI_HUB">
+         <property name="text">
+          <string>Allow simultaneous uploads by one ip</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
