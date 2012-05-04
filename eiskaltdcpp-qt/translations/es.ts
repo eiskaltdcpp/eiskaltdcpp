@@ -6028,7 +6028,7 @@ en la cola de descargas, deberá hacerlo manualmente.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation>Permitir múltiples subidas a un mismo usuario. Sólo si tiene el mismo CID. si tiene la misma IP pero distinto CID, no funcionará.</translation>
+        <translation>Permitir múltiples subidas a un mismo CID.</translation>
     </message>
 </context>
 <context>
