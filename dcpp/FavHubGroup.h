@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_FAVHUBGROUP_H
 #define DCPLUSPLUS_DCPP_FAVHUBGROUP_H
 
+#include <unordered_map>
+
 namespace dcpp {
 
 struct FavHubGroupProperties {

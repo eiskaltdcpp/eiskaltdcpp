@@ -22,6 +22,7 @@
 
 #include "format.h"
 #include "Exception.h"
+#include "File.h"
 
 namespace dcpp {
 
@@ -128,6 +129,29 @@ bool UnZFilter::operator()(const void* in, size_t& insize, void* out, size_t& ou
     outsize = outsize - zs.avail_out;
     insize = insize - zs.avail_in;
     return err == Z_OK;
+}
+
+void GZ::decompress(const string& source, const string& target) {
+    auto gz = gzopen(source.c_str(), "rb");
+    if(!gz) {
+        throw Exception(_("Error during decompression"));
+    }
+    File f(target, File::WRITE, File::CREATE | File::TRUNCATE);
+
+    const size_t BUF_SIZE = 64 * 1024;
+    ByteVector buf(BUF_SIZE);
+
+    while(true) {
+        auto read = gzread(gz, &buf[0], BUF_SIZE);
+        if(read > 0) {
+            f.write(&buf[0], read);
+        }
+        if(read < BUF_SIZE) {
+            break;
+        }
+    }
+
+    gzclose(gz);
 }
 
 } // namespace dcpp

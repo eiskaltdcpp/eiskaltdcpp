@@ -31,7 +31,7 @@ public:
 
     void add(const string& s) {xadd(s, N); }
     bool match(const StringList& s) const {
-        for(StringList::const_iterator i = s.begin(); i != s.end(); ++i) {
+        for(auto i = s.begin(); i != s.end(); ++i) {
             if(!match(*i))
                 return false;
         }
