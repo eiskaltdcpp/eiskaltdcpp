@@ -91,13 +91,13 @@ OnlineUser& AdcHub::getUser(const uint32_t aSID, const CID& aCID) {
 
 OnlineUser* AdcHub::findUser(const uint32_t aSID) const {
     Lock l(cs);
-    SIDMap::const_iterator i = users.find(aSID);
+    auto i = users.find(aSID);
     return i == users.end() ? NULL : i->second;
 }
 
 OnlineUser* AdcHub::findUser(const CID& aCID) const {
     Lock l(cs);
-    for(SIDMap::const_iterator i = users.begin(); i != users.end(); ++i) {
+    for(auto i = users.begin(); i != users.end(); ++i) {
         if(i->second->getUser()->getCID() == aCID) {
             return i->second;
         }
@@ -109,7 +109,7 @@ void AdcHub::putUser(const uint32_t aSID, bool disconnect) {
     OnlineUser* ou = 0;
     {
         Lock l(cs);
-        SIDIter i = users.find(aSID);
+        auto i = users.find(aSID);
         if(i == users.end())
             return;
         ou = i->second;
@@ -130,7 +130,7 @@ void AdcHub::clearUsers() {
         users.swap(tmp);
     }
 
-    for(SIDIter i = tmp.begin(); i != tmp.end(); ++i) {
+    for(auto i = tmp.begin(); i != tmp.end(); ++i) {
         if(i->first != AdcCommand::HUB_SID)
             ClientManager::getInstance()->putOffline(i->second);
         delete i->second;
@@ -172,7 +172,7 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) noexcept {
         return;
     }
 
-    for(StringIterC i = c.getParameters().begin(); i != c.getParameters().end(); ++i) {
+    for(auto i = c.getParameters().begin(); i != c.getParameters().end(); ++i) {
         if(i->length() < 2)
             continue;
 
@@ -213,7 +213,7 @@ void AdcHub::handle(AdcCommand::SUP, AdcCommand& c) noexcept {
         return;
     bool baseOk = false;
     bool tigrOk = false;
-    for(StringIter i = c.getParameters().begin(); i != c.getParameters().end(); ++i) {
+    for(auto i = c.getParameters().begin(); i != c.getParameters().end(); ++i) {
         if(*i == BAS0_SUPPORT) {
             baseOk = true;
             tigrOk = true;
@@ -434,7 +434,7 @@ void AdcHub::sendUDP(const AdcCommand& cmd) noexcept {
     uint16_t port;
     {
         Lock l(cs);
-        SIDMap::const_iterator i = users.find(cmd.getTo());
+        auto i = users.find(cmd.getTo());
         if(i == users.end()) {
             dcdebug("AdcHub::sendUDP: invalid user\n");
             return;
@@ -731,7 +731,7 @@ void AdcHub::sendUserCmd(const UserCommand& command, const StringMap& params) {
         } else {
             const string& to = command.getTo();
             Lock l(cs);
-            for(SIDMap::const_iterator i = users.begin(); i != users.end(); ++i) {
+            for(auto i = users.begin(); i != users.end(); ++i) {
                 if(i->second->getIdentity().getNick() == to) {
                     privateMessage(*i->second, cmd);
                     return;
@@ -748,7 +748,7 @@ const vector<StringList>& AdcHub::getSearchExts() {
         return searchExts;
 
     // the list is always immutable except for this function where it is initially being filled.
-    vector<StringList>& xSearchExts = const_cast<vector<StringList>&>(searchExts);
+    auto& xSearchExts = const_cast<vector<StringList>&>(searchExts);
 
     xSearchExts.resize(7);
 
@@ -815,8 +815,8 @@ const vector<StringList>& AdcHub::getSearchExts() {
 StringList AdcHub::parseSearchExts(int flag) {
     StringList ret;
     const auto& searchExts = getSearchExts();
-    for(auto i = searchExts.cbegin(), iend = searchExts.cend(); i != iend; ++i) {
-        if(flag & (1 << (i - searchExts.cbegin()))) {
+    for(auto i = searchExts.cbegin(), ibegin = i, iend = searchExts.cend(); i != iend; ++i) {
+        if(flag & (1 << (i - ibegin))) {
             ret.insert(ret.begin(), i->begin(), i->end());
         }
     }
@@ -841,7 +841,7 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
             c.addParam("LE", Util::toString(aSize));
         }
         StringTokenizer<string> st(aString, ' ');
-        for(StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+        for(auto i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
             c.addParam("AN", *i);
         }
         if(aFileType == SearchManager::TYPE_DIRECTORY) {
@@ -857,7 +857,7 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
             StringList rx;
 
             const auto& searchExts = getSearchExts();
-            for(auto i = searchExts.cbegin(), iend = searchExts.cend(); i != iend; ++i) {
+            for(auto i = searchExts.cbegin(), ibegin = i, iend = searchExts.cend(); i != iend; ++i) {
                 const StringList& def = *i;
 
                 // gather the exts not present in any of the lists
@@ -884,7 +884,7 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
                     continue;
 
                 // let's include this group!
-                gr += 1 << (i - searchExts.cbegin());
+                gr += 1 << (i - ibegin);
 
                 exts = temp; // the exts to still add (that were not defined in the group)
 
@@ -961,7 +961,7 @@ void AdcHub::password(const string& pwd) {
 }
 
 static void addParam(StringMap& lastInfoMap, AdcCommand& c, const string& var, const string& value) {
-    StringMapIter i = lastInfoMap.find(var);
+    auto i = lastInfoMap.find(var);
 
     if(i != lastInfoMap.end()) {
         if(i->second != value) {
@@ -1052,7 +1052,7 @@ void AdcHub::info(bool /*alwaysSend*/) {
 int64_t AdcHub::getAvailable() const {
     Lock l(cs);
     int64_t x = 0;
-    for(SIDMap::const_iterator i = users.begin(); i != users.end(); ++i) {
+    for(auto i = users.begin(); i != users.end(); ++i) {
         x+=i->second->getIdentity().getBytesShared();
     }
     return x;

@@ -20,8 +20,8 @@
 #define USERCONNECTIONLISTENER_H_
 
 #include "forward.h"
-
 #include "AdcCommand.h"
+#include "noexcept.h"
 
 namespace dcpp {
 

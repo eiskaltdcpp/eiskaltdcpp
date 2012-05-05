@@ -21,10 +21,13 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <string>
 
 #include <zlib.h>
 
 namespace dcpp {
+    
+using std::string;
 
 class ZFilter {
 public:
@@ -64,6 +67,11 @@ public:
     bool operator()(const void* in, size_t& insize, void* out, size_t& outsize);
 private:
     z_stream zs;
+};
+
+class GZ {
+public:
+        static void decompress(const string& source, const string& target);
 };
 
 class CRC32Filter {
