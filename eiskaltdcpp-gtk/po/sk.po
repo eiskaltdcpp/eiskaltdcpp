@@ -7,12 +7,13 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-04-18 06:37+0300\n"
-"PO-Revision-Date: 2012-04-18 04:05+0000\n"
+"POT-Creation-Date: 2012-05-06 20:44+0300\n"
+"PO-Revision-Date: 2012-05-06 18:27+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -474,7 +475,7 @@ msgstr ""
 msgid "<b>Window Options</b>"
 msgstr ""
 
-#: ../src/mainwindow.cc:2302
+#: ../src/mainwindow.cc:2311
 msgid "<b>file:</b> "
 msgstr "<b>súbor:</b> "
 
@@ -604,12 +605,12 @@ msgstr "Povoliť TLS pripojenia ku klientom bez dôveryhodných certifikátov"
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr "Povoliť TLS pripojenia k hubu bez dôveryhodných certifikátov"
 
-#: ../src/settingsdialog.cc:1568
-msgid "Allow overlap chunks"
+#: ../src/settingsdialog.cc:1569
+msgid "Allow few connections from one IP"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1569
-msgid "Allow some connections for one ip"
+#: ../src/settingsdialog.cc:1568
+msgid "Allow overlap chunks"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1570
@@ -1039,7 +1040,7 @@ msgstr "Pripájanie"
 msgid "Connection"
 msgstr "Spojenie"
 
-#: ../src/mainwindow.cc:2251
+#: ../src/mainwindow.cc:2260
 msgid "Connectivity Manager: Warning"
 msgstr "Manažér pripojenia : Varovanie"
 
@@ -1642,7 +1643,7 @@ msgstr ""
 msgid "Frame:"
 msgstr ""
 
-#: ../src/mainwindow.cc:2361
+#: ../src/mainwindow.cc:2370
 msgid "Free "
 msgstr ""
 
@@ -2758,7 +2759,7 @@ msgstr ""
 msgid "Select Font"
 msgstr ""
 
-#: ../src/mainwindow.cc:2385
+#: ../src/mainwindow.cc:2394
 msgid "Select file to Get TTH"
 msgstr "Zvoliť súbor na prevziati TTH"
 
@@ -3242,7 +3243,7 @@ msgstr "Nie je možné načítať zoznam súborov:"
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Nie je možné načítať zoznam súborov: Neplatný názov zoznamu súborov"
 
-#: ../src/mainwindow.cc:2249
+#: ../src/mainwindow.cc:2258
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly"
 " until you change settings or turn off any application that might be using "
@@ -3826,7 +3827,7 @@ msgstr "eMail"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr ""
 
-#: ../src/mainwindow.cc:2292
+#: ../src/mainwindow.cc:2301
 msgid "file list from "
 msgstr "zoznam súborov od"
 
@@ -3862,8 +3863,8 @@ msgstr "Domovská stránka projektu:"
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr ""
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2326
-#: ../src/mainwindow.cc:2328 ../ui/settingsdialog.ui:3522
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2335
+#: ../src/mainwindow.cc:2337 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "s"

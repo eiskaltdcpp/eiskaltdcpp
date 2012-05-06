@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="cs">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.0">
 <context>
     <name>ADLS</name>
     <message>
@@ -2698,11 +2696,11 @@ Staženo: %3 Odesláno: %4</translation>
     </message>
     <message>
         <source>Cannot handle SIGPIPE</source>
-        <translation type="obsolete">Cannot handle SIGPIPE</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Signal handlers installed.</source>
-        <translation type="obsolete">Signal handlers installed.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3190,28 +3188,28 @@ Staženo: %3 Odesláno: %4</translation>
 <context>
     <name>SettingsDownloads</name>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="161"/>
-        <location filename="../src/SettingsDownloads.cpp" line="196"/>
+        <location filename="../src/SettingsDownloads.cpp" line="163"/>
+        <location filename="../src/SettingsDownloads.cpp" line="198"/>
         <source>Select directory</source>
         <translation>Vyber složku</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="178"/>
+        <location filename="../src/SettingsDownloads.cpp" line="180"/>
         <source>New</source>
         <translation>Nová</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="184"/>
+        <location filename="../src/SettingsDownloads.cpp" line="186"/>
         <source>Delete</source>
         <translation>Smazat</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="191"/>
+        <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Enter alias for directory</source>
         <translation>Vlož název pro složku</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="191"/>
+        <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Alias</source>
         <translation>Název</translation>
     </message>
@@ -3396,65 +3394,65 @@ Staženo: %3 Odesláno: %4</translation>
 <context>
     <name>SettingsSharing</name>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="115"/>
-        <location filename="../src/SettingsSharing.cpp" line="162"/>
+        <location filename="../src/SettingsSharing.cpp" line="117"/>
+        <location filename="../src/SettingsSharing.cpp" line="164"/>
         <source>Total shared: %1</source>
         <translation>Celkem nasdíleno: %1</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="189"/>
-        <location filename="../src/SettingsSharing.cpp" line="308"/>
-        <location filename="../src/SettingsSharing.cpp" line="319"/>
+        <location filename="../src/SettingsSharing.cpp" line="191"/>
+        <location filename="../src/SettingsSharing.cpp" line="310"/>
+        <location filename="../src/SettingsSharing.cpp" line="321"/>
         <source>Select directory</source>
         <translation>Vyber složku</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="189"/>
-        <location filename="../src/SettingsSharing.cpp" line="319"/>
-        <location filename="../src/SettingsSharing.cpp" line="360"/>
+        <location filename="../src/SettingsSharing.cpp" line="191"/>
+        <location filename="../src/SettingsSharing.cpp" line="321"/>
+        <location filename="../src/SettingsSharing.cpp" line="362"/>
         <source>Name</source>
         <translation>Název</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="206"/>
-        <location filename="../src/SettingsSharing.cpp" line="235"/>
+        <location filename="../src/SettingsSharing.cpp" line="208"/>
+        <location filename="../src/SettingsSharing.cpp" line="237"/>
         <source>Add item</source>
         <translation>Vložit položku</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="206"/>
-        <location filename="../src/SettingsSharing.cpp" line="235"/>
+        <location filename="../src/SettingsSharing.cpp" line="208"/>
+        <location filename="../src/SettingsSharing.cpp" line="237"/>
         <source>Enter text:</source>
         <translation>Vlož text:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="213"/>
+        <location filename="../src/SettingsSharing.cpp" line="215"/>
         <source>Choose the directory</source>
         <translation>Vyber složku</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="287"/>
+        <location filename="../src/SettingsSharing.cpp" line="289"/>
         <source>Add</source>
         <translation>Vlož</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="291"/>
+        <location filename="../src/SettingsSharing.cpp" line="293"/>
         <source>Rename</source>
         <translation>Přejmenovat</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="296"/>
+        <location filename="../src/SettingsSharing.cpp" line="298"/>
         <source>Remove</source>
         <translation>Odebrat</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="334"/>
-        <location filename="../src/SettingsSharing.cpp" line="370"/>
+        <location filename="../src/SettingsSharing.cpp" line="336"/>
+        <location filename="../src/SettingsSharing.cpp" line="372"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="359"/>
+        <location filename="../src/SettingsSharing.cpp" line="361"/>
         <source>Enter new name</source>
         <translation>Vlož nové jméno</translation>
     </message>
@@ -3527,63 +3525,63 @@ Staženo: %3 Odesláno: %4</translation>
         <translation>Procházet</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="215"/>
+        <location filename="../src/ShareBrowser.cpp" line="216"/>
         <source>Own files</source>
         <translation>Vlastní soubory</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="217"/>
+        <location filename="../src/ShareBrowser.cpp" line="218"/>
         <source>Listing: </source>
         <translation>Výpis: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="310"/>
+        <location filename="../src/ShareBrowser.cpp" line="311"/>
         <source>Filebrowser</source>
         <translation>Prohlížeč souborů</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="312"/>
+        <location filename="../src/ShareBrowser.cpp" line="313"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="390"/>
+        <location filename="../src/ShareBrowser.cpp" line="391"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Celkové sdílení: %1;  Souborů: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="424"/>
+        <location filename="../src/ShareBrowser.cpp" line="425"/>
         <source>Share browser error: %1</source>
         <translation>Chyba prohlížeče sdílení: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="596"/>
-        <location filename="../src/ShareBrowser.cpp" line="620"/>
+        <location filename="../src/ShareBrowser.cpp" line="597"/>
+        <location filename="../src/ShareBrowser.cpp" line="621"/>
         <source>Total size: %1</source>
         <translation>Celková velikost: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="618"/>
+        <location filename="../src/ShareBrowser.cpp" line="619"/>
         <source>Selected %1 from %2 items; </source>
         <translation>Vybráno %1 z %2 položek; </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="623"/>
+        <location filename="../src/ShareBrowser.cpp" line="624"/>
         <source>; Selected: %1</source>
         <translation>; Vybráno: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="826"/>
+        <location filename="../src/ShareBrowser.cpp" line="827"/>
         <source>Select directory</source>
         <translation>Vyber složku</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="956"/>
+        <location filename="../src/ShareBrowser.cpp" line="957"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Vložit limit omezení (v GB)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1095"/>
+        <location filename="../src/ShareBrowser.cpp" line="1096"/>
         <source>Share browser</source>
         <translation>Prohlížeč sdílení</translation>
     </message>
@@ -3599,7 +3597,7 @@ Staženo: %3 Odesláno: %4</translation>
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="522"/>
+        <location filename="../src/SettingsSharing.cpp" line="524"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -4285,7 +4283,7 @@ Chcete jej vypnout?
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -4309,7 +4307,7 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -4332,13 +4330,13 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Copyright (c) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;Copyright (c) 2009-2010  Andrey Karlov &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Courier New,courier';&quot;&gt;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Courier New,courier';&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;You should have received a copy of the GNU General Public License along with this program.  If not, see &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -5201,7 +5199,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
         <source>Select this mode if your computer is connected directly to the internet.
 Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
-this option and usually you don&apos;t need to alter anything more in the
+this option and usually you don't need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation>Vyberte tento mód pokud je váš počítač připojen přímo k Internetu.
@@ -5259,7 +5257,7 @@ Tento mód obsahuje vážná omezení:
         <source>Select this mode if you are behind a firewall/router that supports
 the UPnP standard for program auto-configuration.
 Most routers do support UPnP but you may need to enable it
-in the router&apos;s configuration page.
+in the router's configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
         <translation>Vyberte tento mód pokud jste za firewallem/routerem který podporuje
@@ -5465,13 +5463,13 @@ DC++ SOCKS5 podpora nezahrnuje GSSAPI.</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn't matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -5559,7 +5557,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
         <source>This is another method of limiting simultaneous downloads,
 designed to prevent new downloads if your existing downloads
-exceed a specific threshold. It&apos;s measured in kibibytes per second,
+exceed a specific threshold. It's measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
         <translation>Tohle je další možnost limitování souběžného stahování,
 Upravený k zabránění nového stahování pokud současné stahování
@@ -5833,7 +5831,7 @@ ale nebudou odebrány z fronty.</translation>
         <source>Every few minutes, the client will search for files in your
 Download Queue to find more download locations (more users/sources).
 The autosearch will find exact matches by searching via hash.
-The drawback is that it may won&apos;t find much more sources
+The drawback is that it may won't find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
         <translation>Každých pár minut bude klient vyhledává soubory ve vaší
@@ -5850,11 +5848,11 @@ je přednastaven limit na hledání.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="712"/>
-        <source>Enable to automatically download a user&apos;s list and match them
-as sources for files in your Download Queue when they&apos;ve been
-discovered as a source for one of the files you&apos;re downloading.
+        <source>Enable to automatically download a user's list and match them
+as sources for files in your Download Queue when they've been
+discovered as a source for one of the files you're downloading.
 If you download files in sets, that user is probably a source
-for many more files you&apos;re downloading. Enable if unsure.
+for many more files you're downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
@@ -5919,12 +5917,12 @@ již existujících ve vaší frontě pro stahování.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="791"/>
         <source>Enable this option if you want to keep downloaded filelists 
 in the download queue after they have been finished.
-After downloaded the queue items will have &apos;Finished&apos; status
+After downloaded the queue items will have 'Finished' status
 and you can delete these finished entries anytime later.
 Note that if you physically move/delete your downloaded files from
-their target location, it won&apos;t result automatic deletion of
+their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won&apos;t remove existing finished items
+If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Zapněte tuto volbu pokud chcete zachovat stažené seznamy souborů
 ve frontě stahování i po jejich stažení.
@@ -5944,15 +5942,15 @@ musíte je také odebrat manuálně.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
         <source>Enable this option if you want to keep downloaded files and folders
 in the download queue after they have been finished.
-After downloaded the queue items will have &apos;Finished&apos; status
+After downloaded the queue items will have 'Finished' status
 and you can delete these finished entries anytime later.
 Using this function you can keep track of what files are already
 downloaded right there in the download queue without the need
 of checking the Finished Downloads window.
 Note that if you physically move/delete your downloaded files from
-their target location, it won&apos;t result automatic deletion of
+their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won&apos;t remove existing finished items
+If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Zapněte tuto volbu pokud chcete zachovat stažené soubory a složky
 ve frontě stahování po jejich dokončení.
@@ -5995,6 +5993,11 @@ z fronty stahování, musíte je odebrat ručně.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
         <translation>Povolit součesné odesílání jednomu uživateli z nových NMDC hubů</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="923"/>
+        <source>Allow simultaneous uploads by one IP</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6167,8 +6170,8 @@ z fronty stahování, musíte je odebrat ručně.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="346"/>
-        <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated
+        <source>If checked, you'll see emoticons even in the middle of words.
+If unchecked, you'll see emoticons only if they are isolated
 from other words by spaces.</source>
         <translation>Pokud je zatrženo, uvidíte smajlíky i uprostřed slov.
 Pokud není zatrženo, budou zobrazeny pouze smajlíky
@@ -6510,7 +6513,7 @@ seznamu souborů</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -6634,7 +6637,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="355"/>
-        <source>If your sound files&apos; format is unsupported by Qt, you can define
+        <source>If your sound files' format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
         <translation>Pokud formát vašich zvukových souborů neni podporován Qt,
@@ -6902,12 +6905,17 @@ klient se může na chvíli zaseknout.</translation>
         <translation>Proactive read from disk</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="380"/>
+        <location filename="../ui/UISettingsSharing.ui" line="372"/>
+        <source>Use ADL search only in own file list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="387"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Automaticky otevřít extra slot pokud rychlost klesne pod (KiB/s, 0 = neomezeno)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="396"/>
+        <location filename="../ui/UISettingsSharing.ui" line="403"/>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
@@ -6920,46 +6928,46 @@ Pokud se rychlost původního odesílání zvýší,
 přidané sloty se již neuzavřou.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="416"/>
+        <location filename="../ui/UISettingsSharing.ui" line="423"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
         <translation>Prodleva hashovaní při startu</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="432"/>
-        <location filename="../ui/UISettingsSharing.ui" line="467"/>
+        <location filename="../ui/UISettingsSharing.ui" line="439"/>
+        <location filename="../ui/UISettingsSharing.ui" line="474"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Zde můžete nastavit interval pro automatické obnovení seznamu souborů.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="451"/>
+        <location filename="../ui/UISettingsSharing.ui" line="458"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
         <translation>Automaticky obnovit po (minuty, 0 = vypnuto)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="483"/>
+        <location filename="../ui/UISettingsSharing.ui" line="490"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Maximální rychlost hashování (MB/s, 0 = neomezeno)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="496"/>
+        <location filename="../ui/UISettingsSharing.ui" line="503"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
         <translation>Můžete nastavit maximální rychlost hashování,
 pokud je váš systém při hashování zpomalený.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="510"/>
+        <location filename="../ui/UISettingsSharing.ui" line="517"/>
         <source>Upload slots</source>
         <translation>Sloty pro odesílání</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="520"/>
+        <location filename="../ui/UISettingsSharing.ui" line="527"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
-one slot for each hub that they&apos;re on with you.
+one slot for each hub that they're on with you.
 EiskaltDC++ supports uploading file lists and files below 64 KiB
 to other DC++ users without requiring a slot.
-There&apos;s a max of 3 connections in addition to normal slots,
+There's a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>

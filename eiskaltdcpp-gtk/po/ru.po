@@ -7,13 +7,14 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 # Boris Pek <tehnick-8@mail.ru>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-04-18 06:37+0300\n"
-"PO-Revision-Date: 2012-04-18 04:07+0000\n"
+"POT-Creation-Date: 2012-05-06 20:44+0300\n"
+"PO-Revision-Date: 2012-05-06 18:29+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/eiskaltdcpp/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -475,7 +476,7 @@ msgstr "<b>Что вы хотите сделать?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Опции окна</b>"
 
-#: ../src/mainwindow.cc:2302
+#: ../src/mainwindow.cc:2311
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
@@ -605,13 +606,13 @@ msgstr "Разрешить TLS соединения с клиентами без
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr "Разрешить TLS соединения с хабами без доверенного сертификата"
 
+#: ../src/settingsdialog.cc:1569
+msgid "Allow few connections from one IP"
+msgstr "Разрешить несколько соединений с одного IP"
+
 #: ../src/settingsdialog.cc:1568
 msgid "Allow overlap chunks"
 msgstr "Разрешить перекрытие кусков"
-
-#: ../src/settingsdialog.cc:1569
-msgid "Allow some connections for one ip"
-msgstr "Разрешить несколько соединений с одного IP"
 
 #: ../src/settingsdialog.cc:1570
 msgid "Allow some connections for one user"
@@ -1040,7 +1041,7 @@ msgstr "Соединение..."
 msgid "Connection"
 msgstr "Соединение"
 
-#: ../src/mainwindow.cc:2251
+#: ../src/mainwindow.cc:2260
 msgid "Connectivity Manager: Warning"
 msgstr "Менеджер подключения: Предупреждение"
 
@@ -1643,7 +1644,7 @@ msgstr "Размер кадра определяет ширину обзора, 
 msgid "Frame:"
 msgstr "Название:"
 
-#: ../src/mainwindow.cc:2361
+#: ../src/mainwindow.cc:2370
 msgid "Free "
 msgstr "Свободно "
 
@@ -2759,7 +2760,7 @@ msgstr "Сертификаты безопасности"
 msgid "Select Font"
 msgstr "Выбрать шрифт"
 
-#: ../src/mainwindow.cc:2385
+#: ../src/mainwindow.cc:2394
 msgid "Select file to Get TTH"
 msgstr "Выберите файл для расчета TTH"
 
@@ -3243,7 +3244,7 @@ msgstr "Невозможно загрузить файл-список: "
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Невозможно загрузить файл-список: Некорректное имя файла"
 
-#: ../src/mainwindow.cc:2249
+#: ../src/mainwindow.cc:2258
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly"
 " until you change settings or turn off any application that might be using "
@@ -3827,7 +3828,7 @@ msgstr "Почта"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: загружена тема %s...\n"
 
-#: ../src/mainwindow.cc:2292
+#: ../src/mainwindow.cc:2301
 msgid "file list from "
 msgstr "список файлов от "
 
@@ -3863,8 +3864,8 @@ msgstr "Сайт проекта: "
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "статистика: %1% (отдано: %2%, загружено: %3%)"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2326
-#: ../src/mainwindow.cc:2328 ../ui/settingsdialog.ui:3522
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2335
+#: ../src/mainwindow.cc:2337 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "с"

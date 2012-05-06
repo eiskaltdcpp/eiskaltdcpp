@@ -920,7 +920,7 @@ from the queue either, you must do that manually.</string>
        <item>
         <widget class="QCheckBox" name="checkBox_ALLOW_UPLOAD_MULTI_HUB">
          <property name="text">
-          <string>Allow simultaneous uploads by one ip</string>
+          <string>Allow simultaneous uploads by one IP</string>
          </property>
         </widget>
        </item>

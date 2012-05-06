@@ -3189,28 +3189,28 @@ Descargas: %3 Subidas: %4</translation>
 <context>
     <name>SettingsDownloads</name>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="161"/>
-        <location filename="../src/SettingsDownloads.cpp" line="196"/>
+        <location filename="../src/SettingsDownloads.cpp" line="163"/>
+        <location filename="../src/SettingsDownloads.cpp" line="198"/>
         <source>Select directory</source>
         <translation>Seleccionar directorio</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="178"/>
+        <location filename="../src/SettingsDownloads.cpp" line="180"/>
         <source>New</source>
         <translation>Nuevo</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="184"/>
+        <location filename="../src/SettingsDownloads.cpp" line="186"/>
         <source>Delete</source>
         <translation>Borrar</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="191"/>
+        <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Enter alias for directory</source>
         <translation>Introducir alias para el directorio</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="191"/>
+        <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Alias</source>
         <translation>Alias</translation>
     </message>
@@ -3395,65 +3395,65 @@ Descargas: %3 Subidas: %4</translation>
 <context>
     <name>SettingsSharing</name>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="115"/>
-        <location filename="../src/SettingsSharing.cpp" line="162"/>
+        <location filename="../src/SettingsSharing.cpp" line="117"/>
+        <location filename="../src/SettingsSharing.cpp" line="164"/>
         <source>Total shared: %1</source>
         <translation>Total compartido: %1</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="189"/>
-        <location filename="../src/SettingsSharing.cpp" line="308"/>
-        <location filename="../src/SettingsSharing.cpp" line="319"/>
+        <location filename="../src/SettingsSharing.cpp" line="191"/>
+        <location filename="../src/SettingsSharing.cpp" line="310"/>
+        <location filename="../src/SettingsSharing.cpp" line="321"/>
         <source>Select directory</source>
         <translation>Seleccionar directorio</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="189"/>
-        <location filename="../src/SettingsSharing.cpp" line="319"/>
-        <location filename="../src/SettingsSharing.cpp" line="360"/>
+        <location filename="../src/SettingsSharing.cpp" line="191"/>
+        <location filename="../src/SettingsSharing.cpp" line="321"/>
+        <location filename="../src/SettingsSharing.cpp" line="362"/>
         <source>Name</source>
         <translation>Nombre</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="206"/>
-        <location filename="../src/SettingsSharing.cpp" line="235"/>
+        <location filename="../src/SettingsSharing.cpp" line="208"/>
+        <location filename="../src/SettingsSharing.cpp" line="237"/>
         <source>Add item</source>
         <translation>Añadir elemento</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="206"/>
-        <location filename="../src/SettingsSharing.cpp" line="235"/>
+        <location filename="../src/SettingsSharing.cpp" line="208"/>
+        <location filename="../src/SettingsSharing.cpp" line="237"/>
         <source>Enter text:</source>
         <translation>Introduzca texto:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="213"/>
+        <location filename="../src/SettingsSharing.cpp" line="215"/>
         <source>Choose the directory</source>
         <translation>Elegir directorio</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="287"/>
+        <location filename="../src/SettingsSharing.cpp" line="289"/>
         <source>Add</source>
         <translation>Añadir</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="291"/>
+        <location filename="../src/SettingsSharing.cpp" line="293"/>
         <source>Rename</source>
         <translation>Renombrar</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="296"/>
+        <location filename="../src/SettingsSharing.cpp" line="298"/>
         <source>Remove</source>
         <translation>Eliminar</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="334"/>
-        <location filename="../src/SettingsSharing.cpp" line="370"/>
+        <location filename="../src/SettingsSharing.cpp" line="336"/>
+        <location filename="../src/SettingsSharing.cpp" line="372"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="359"/>
+        <location filename="../src/SettingsSharing.cpp" line="361"/>
         <source>Enter new name</source>
         <translation>Introduzca nuevo nombre</translation>
     </message>
@@ -3526,63 +3526,63 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Explorar</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="215"/>
+        <location filename="../src/ShareBrowser.cpp" line="216"/>
         <source>Own files</source>
         <translation>Archivos propios</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="217"/>
+        <location filename="../src/ShareBrowser.cpp" line="218"/>
         <source>Listing: </source>
         <translation>Listado: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="310"/>
+        <location filename="../src/ShareBrowser.cpp" line="311"/>
         <source>Filebrowser</source>
         <translation>Explorador de Archivos</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="312"/>
+        <location filename="../src/ShareBrowser.cpp" line="313"/>
         <source>Close</source>
         <translation>Cerrar</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="390"/>
+        <location filename="../src/ShareBrowser.cpp" line="391"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Cantidad total compartida: %1;  Archivos: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="424"/>
+        <location filename="../src/ShareBrowser.cpp" line="425"/>
         <source>Share browser error: %1</source>
         <translation>Error del buscador de compartidos: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="596"/>
-        <location filename="../src/ShareBrowser.cpp" line="620"/>
+        <location filename="../src/ShareBrowser.cpp" line="597"/>
+        <location filename="../src/ShareBrowser.cpp" line="621"/>
         <source>Total size: %1</source>
         <translation>Tamaño total: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="618"/>
+        <location filename="../src/ShareBrowser.cpp" line="619"/>
         <source>Selected %1 from %2 items; </source>
         <translation>Seleccionados %1 de %2 objetos; </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="623"/>
+        <location filename="../src/ShareBrowser.cpp" line="624"/>
         <source>; Selected: %1</source>
         <translation>; Seleccionados: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="826"/>
+        <location filename="../src/ShareBrowser.cpp" line="827"/>
         <source>Select directory</source>
         <translation>Seleccionar directorio</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="956"/>
+        <location filename="../src/ShareBrowser.cpp" line="957"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Introducir restricción (en Gb)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1095"/>
+        <location filename="../src/ShareBrowser.cpp" line="1096"/>
         <source>Share browser</source>
         <translation>Explorar compartidos</translation>
     </message>
@@ -3598,7 +3598,7 @@ Descargas: %3 Subidas: %4</translation>
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="522"/>
+        <location filename="../src/SettingsSharing.cpp" line="524"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -6030,6 +6030,11 @@ en la cola de descargas, deberá hacerlo manualmente.</translation>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
         <translation>Permitir múltiples subidas a un mismo CID.</translation>
     </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="923"/>
+        <source>Allow simultaneous uploads by one IP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>
@@ -6937,12 +6942,17 @@ el cliente aparente quedar congelado.</translation>
         <translation>Lectura pro-activa desde el disco</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="380"/>
+        <location filename="../ui/UISettingsSharing.ui" line="372"/>
+        <source>Use ADL search only in own file list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="387"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Abrir automáticamente Slot si la velocidad está por debajo de (KiB/s, 0 = sin limite)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="396"/>
+        <location filename="../ui/UISettingsSharing.ui" line="403"/>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
@@ -6955,41 +6965,41 @@ Si la velocidad de subida original es incrementada, el Slot
 concedido no será cerrado.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="416"/>
+        <location filename="../ui/UISettingsSharing.ui" line="423"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
         <translation>Retrasar el indexado al iniciar (Segundos, -1 = infinito)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="432"/>
-        <location filename="../ui/UISettingsSharing.ui" line="467"/>
+        <location filename="../ui/UISettingsSharing.ui" line="439"/>
+        <location filename="../ui/UISettingsSharing.ui" line="474"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Aquí puede configurar el intervalo de tiempo ente actualizaciones
 automáticas de sus compartidos.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="451"/>
+        <location filename="../ui/UISettingsSharing.ui" line="458"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
         <translation>Periodo de refresco automático (minutos, 0 = desactivar)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="483"/>
+        <location filename="../ui/UISettingsSharing.ui" line="490"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Velocidad de indexado máxima (MB/s) (0 = infinito)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="496"/>
+        <location filename="../ui/UISettingsSharing.ui" line="503"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
         <translation>Aquí puede ajustar el limite de velocidad del indexado
 si su sistema se vuelve lento cuando se indexan archivos.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="510"/>
+        <location filename="../ui/UISettingsSharing.ui" line="517"/>
         <source>Upload slots</source>
         <translation>Slots de subida</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="520"/>
+        <location filename="../ui/UISettingsSharing.ui" line="527"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
 one slot for each hub that they're on with you.
