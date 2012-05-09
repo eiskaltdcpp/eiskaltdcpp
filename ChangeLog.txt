@@ -1,4 +1,4 @@
---- 2.2.7 2012-03-25 ---
+--- 2.2.7 2012-05-xx ---
 *** common changes ***
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
@@ -18,7 +18,7 @@
 * Refactoring of source code. Fixed regressions that have been added in
   version 2.2.5.
 * Fixed program crash on closing hub tabs when there are open tabs with private
-  chat rooms. (Bug was added in version 2.1.0)
+  chat rooms. (Bug was added in version 2.2.5)
 * Show count of selected items in the file list widget.
 * Small improvements in the panel of active transfers.
 * Item for fast setting of rate limiting was added in the context menu on
