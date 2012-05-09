@@ -5977,7 +5977,7 @@ iz reda, već to morate da uradite  ručno.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="923"/>
         <source>Allow simultaneous uploads by one IP</source>
-        <translation type="unfinished"/>
+        <translation>Dozvoli višestruko otpremanje sa jedne IP</translation>
     </message>
 </context>
 <context>
@@ -6878,7 +6878,7 @@ Napomena: ova opcija zahteva i osvežavanje fajl liste.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="372"/>
         <source>Use ADL search only in own file list</source>
-        <translation type="unfinished"/>
+        <translation>Koristi ADL pretragu samo u sopstenoj fajl listi</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="387"/>
