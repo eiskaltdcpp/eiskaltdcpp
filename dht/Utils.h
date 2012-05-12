@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _UTILS_H
-#define _UTILS_H
+#pragma once
 
 #include "dcpp/AdcCommand.h"
 #include "dcpp/CID.h"
@@ -73,5 +72,3 @@ namespace dht
 	};
 
 } // namespace dht
-
-#endif	// _UTILS_H

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSLOG_H
-#define SETTINGSLOG_H
+#pragma once
 
 #include <QWidget>
 #include "ui_UISettingsLog.h"
@@ -30,5 +29,3 @@ public slots:
 private slots:
     void slotBrowse();
 };
-
-#endif // SETTINGSLOG_H

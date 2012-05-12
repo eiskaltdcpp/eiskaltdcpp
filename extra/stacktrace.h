@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef _STACKTRACE_H_
-#define _STACKTRACE_H_
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -106,5 +105,3 @@ void printBacktrace(int){
     print_stacktrace();
 }
 #endif
-
-#endif // _STACKTRACE_H_

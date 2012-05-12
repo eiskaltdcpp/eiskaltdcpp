@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_MERKLE_CHECK_OUTPUT_STREAM_H
-#define DCPLUSPLUS_DCPP_MERKLE_CHECK_OUTPUT_STREAM_H
+#pragma once
 
 #include "Streams.h"
 #include "MerkleTree.h"
@@ -118,5 +117,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(MERKLE_CHECK_OUTPUT_STREAM_H)

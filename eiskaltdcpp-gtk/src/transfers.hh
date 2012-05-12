@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_TRANSFERS_HH
-#define WULFOR_TRANSFERS_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/ConnectionManager.h>
@@ -119,5 +118,3 @@ class Transfers:
 		UserCommandMenu* userCommandMenu;
 		PreviewMenu *appsPreviewMenu;
 };
-
-#endif // WULFOR_TRANSFERS_HH

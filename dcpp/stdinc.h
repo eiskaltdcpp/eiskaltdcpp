@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_STDINC_H
-#define DCPLUSPLUS_DCPP_STDINC_H
+#pragma once
 
 #include "compiler.h"
 
@@ -113,5 +112,3 @@ typedef unsigned __int64 uint64_t;
 namespace dcpp {
 using namespace std;
 }
-
-#endif // !defined(STDINC_H)

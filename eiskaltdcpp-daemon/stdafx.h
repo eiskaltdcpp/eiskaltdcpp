@@ -11,8 +11,7 @@
 
 // Created on: 23.04.2010
 
-#ifndef STDAFX_H_
-#define STDAFX_H_
+#pragma once
 
 #include "dcpp/stdinc.h"
 
@@ -20,5 +19,3 @@
 #include <iostream>
 
 using namespace dcpp;
-
-#endif /* STDAFX_H_ */

@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_DOWNLOAD_QUEUE_HH
-#define WULFOR_DOWNLOAD_QUEUE_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/QueueManager.h>
@@ -113,7 +112,3 @@ class DownloadQueue:
 
 		typedef std::map<std::string, std::string>::const_iterator SourceIter;
 };
-
-#else
-class DownloadQueue;
-#endif

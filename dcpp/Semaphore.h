@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_SEMAPHORE_H
-#define DCPLUSPLUS_DCPP_SEMAPHORE_H
+#pragma once
 
 #ifndef _WIN32
     #ifdef APPLE
@@ -148,5 +147,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(SEMAPHORE_H)

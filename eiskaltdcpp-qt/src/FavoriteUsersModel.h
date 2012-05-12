@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef FAVORITEUSERSMODEL_H
-#define FAVORITEUSERSMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QHash>
@@ -92,5 +91,3 @@ private:
 
     FavoriteUserItem *rootItem;
 };
-
-#endif // FAVORITEUSERSMODEL_H

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef HASHPROGRESS_H
-#define HASHPROGRESS_H
+#pragma once
 
 #include <QDialog>
 #include <QTimer>
@@ -46,5 +45,3 @@ private:
     size_t startFiles;
     qint32 startTime;
 };
-
-#endif // HASHPROGRESS_H

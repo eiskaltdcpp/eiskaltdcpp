@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_HASH_VALUE_H
-#define DCPLUSPLUS_DCPP_HASH_VALUE_H
+#pragma once
 
 #include "FastAlloc.h"
 #include "Encoder.h"
@@ -57,5 +56,3 @@ struct hash<dcpp::HashValue<T> > {
     }
 };
 }
-
-#endif // !defined(HASH_VALUE_H)

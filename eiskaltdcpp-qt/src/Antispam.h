@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef DCANTISPAM_H
-#define DCANTISPAM_H
+#pragma once
 
 #include <QObject>
 #include <QList>
@@ -118,5 +117,3 @@ public slots:
 };
 
 Q_DECLARE_METATYPE(AntiSpam*)
-
-#endif // DCANTISPAM_H

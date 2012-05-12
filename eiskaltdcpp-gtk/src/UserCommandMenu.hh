@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef USER_COMMAND_MENU_HH
-#define USER_COMMAND_MENU_HH
+#pragma once
 
 #include <gtk/gtk.h>
 #include <dcpp/stdinc.h>
@@ -66,7 +65,3 @@ class UserCommandMenu : public Entry
  		};
  		std::vector<UCParam> ucParams;
 };
-
-#else
-class UserCommandMenu;
-#endif

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef ARENAWIDGET_H
-#define ARENAWIDGET_H
+#pragma once
 
 #include <QWidget>
 #include <QMenu>
@@ -164,5 +163,3 @@ private:
 Q_DECLARE_METATYPE(DeclarativeWidget*)
 
 #endif
-
-#endif // ARENAWIDGET_H

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef TABBUTTON_H
-#define TABBUTTON_H
+#pragma once
 
 #include <QPushButton>
 #include <QDragEnterEvent>
@@ -57,5 +56,3 @@ private:
     int parentHeight;
     bool isLeftBtnHold;
 };
-
-#endif // TABBUTTON_H

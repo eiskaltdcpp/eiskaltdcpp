@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_FINISHED_TRANSFERS
-#define WULFOR_FINISHED_TRANSFERS
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/FinishedManager.h>
@@ -100,7 +99,3 @@ class FinishedTransfers:
 		int64_t totalBytes, totalTime;
 		PreviewMenu *appsPreviewMenu;
 };
-
-#else
-class FinishedTransfers;
-#endif

@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_ADC_COMMAND_H
-#define DCPLUSPLUS_DCPP_ADC_COMMAND_H
+#pragma once
 
 #include "typedefs.h"
 
@@ -223,5 +222,3 @@ public:
 };
 
 } // namespace dcpp
-
-#endif // !defined(ADC_COMMAND_H)

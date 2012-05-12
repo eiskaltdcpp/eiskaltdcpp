@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef TabFrame_H
-#define TabFrame_H
+#pragma once
 
 #include <QFrame>
 #include <QResizeEvent>
@@ -67,5 +66,3 @@ private:
     QMap<ArenaWidget*, TabButton*> awgt_map;
     QMap<TabButton*, ArenaWidget*> tbtn_map;
 };
-
-#endif // TabFrame_H

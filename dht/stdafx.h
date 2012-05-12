@@ -20,8 +20,7 @@
 // or project specific include files that are used frequently, but
 // are changed infrequently
 
-#ifndef _STDAFX_H
-#define _STDAFX_H
+#pragma once
 
 #include "dcpp/stdinc.h"
 
@@ -32,5 +31,3 @@ namespace dht
 }
 
 // TODO: reference additional headers your program requires here
-
-#endif	// _STDAFX_H

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSPERSONAL_H
-#define SETTINGSPERSONAL_H
+#pragma once
 
 #include <QWidget>
 
@@ -31,5 +30,3 @@ public slots:
 private:
     void init();
 };
-
-#endif // SETTINGSPERSONAL_H

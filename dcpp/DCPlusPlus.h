@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_DCPLUSPLUS_H
-#define DCPLUSPLUS_DCPP_DCPLUSPLUS_H
+#pragma once
 
 #include "compiler.h"
 
@@ -31,5 +30,3 @@ extern void startup(void (*f)(void*, const string&), void* p);
 extern void shutdown();
 
 } // namespace dcpp
-
-#endif // !defined(DC_PLUS_PLUS_H)

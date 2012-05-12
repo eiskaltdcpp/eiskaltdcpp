@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_POINTER_H
-#define DCPLUSPLUS_DCPP_POINTER_H
+#pragma once
 
 #include <boost/intrusive_ptr.hpp>
 #include <boost/detail/atomic_count.hpp>
@@ -58,5 +57,3 @@ struct DeleteFunction {
 };
 
 } // namespace dcpp
-
-#endif // !defined(POINTER_H)

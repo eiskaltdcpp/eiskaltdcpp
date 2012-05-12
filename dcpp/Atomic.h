@@ -16,8 +16,8 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#if !defined(DCPP_ATOMIC_H)
-#define DCPP_ATOMIC_H
+#pragma once
+
 #include "CriticalSection.h"
 #include <boost/version.hpp>
 #include <boost/interprocess/detail/atomic.hpp>
@@ -151,4 +151,3 @@ private:
 };
 
 } // namespace dcpp
-#endif // !defined(DCPP_ATOMIC_H)

@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_NOEXCEPT_H
-#define DCPLUSPLUS_DCPP_NOEXCEPT_H
+#pragma once
 
 // for compilers that don't support noexcept, use an exception specifier
 
@@ -33,8 +32,6 @@
 
 #ifndef noexcept
 #define noexcept throw()
-#endif
-
 #endif
 
 #endif

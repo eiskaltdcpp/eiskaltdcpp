@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef _SHORTCUTGETTER_H_
-#define _SHORTCUTGETTER_H_
+#pragma once
 
 #include <QDialog>
 
@@ -39,5 +38,3 @@ private:
 	QStringList lKeys;
 	bool capture;
 };
-
-#endif

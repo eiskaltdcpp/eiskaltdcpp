@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_BUFFEREDSOCKETLISTENER_H_
-#define DCPLUSPLUS_DCPP_BUFFEREDSOCKETLISTENER_H_
+#pragma once
 
 #include "noexcept.h"
 #include <string>
@@ -53,5 +52,3 @@ public:
 };
 
 } // namespace dcpp
-
-#endif /*BUFFEREDSOCKETLISTENER_H_*/

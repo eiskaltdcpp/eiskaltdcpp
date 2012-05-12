@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _CONNECTIONMANAGER_H
-#define _CONNECTIONMANAGER_H
+#pragma once
 
 #include "KBucket.h"
 
@@ -47,5 +46,3 @@ namespace dht
 	};
 
 }
-
-#endif	// _CONNECTIONMANAGER_H

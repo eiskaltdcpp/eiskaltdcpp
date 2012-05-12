@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef ARENAWIDGETMANAGER_H
-#define ARENAWIDGETMANAGER_H
+#pragma once
 
 #include <QObject>
 #include <QList>
@@ -47,5 +46,3 @@ private:
     
     QList<ArenaWidget*> widgets;
 };
-
-#endif

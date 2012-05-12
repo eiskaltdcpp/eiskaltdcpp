@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef MAGNET_H
-#define MAGNET_H
+#pragma once
 
 #include <QDialog>
 #include <QEvent>
@@ -37,5 +36,3 @@ private slots:
     void search(const QString&);
     void download(const QString &, const qulonglong &, const QString &);
 };
-
-#endif // MAGNET_H

@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef SOUND_HH
-#define SOUND_HH
+#pragma once
 
 class Sound
 {
@@ -55,7 +54,3 @@ class Sound
 		void sound_init();
 		void sound_finalize();
 };
-
-#else
-class Sound;
-#endif

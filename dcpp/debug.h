@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPP_DCPLUSPLUS_DEBUG_H_
-#define DCPP_DCPLUSPLUS_DEBUG_H_
+#pragma once
 
 #include <cstdio>
 
@@ -44,5 +43,3 @@ _CrtDbgBreak(); } } while(false)
 #define dcassert(exp)
 #define dcdrun(exp)
 #endif //_DEBUG
-
-#endif /* DCPP_DCPLUSPLUS_DEBUG_H_ */

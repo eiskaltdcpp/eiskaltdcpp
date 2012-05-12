@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef DCIPFILTER_H
-#define DCIPFILTER_H
+#pragma once
 
 #include <string>
 #include "dcpp/stdinc.h"
@@ -104,5 +103,3 @@ private:
     /** */
     QIPList rules;
 };
-
-#endif // DCIPFILTER_H

@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef DEBUGHELPER_H
-#define DEBUGHELPER_H
+#pragma once
 
 #ifdef _DEBUG
 
@@ -43,5 +42,3 @@ private:
 #define DEBUG_BLOCK
 
 #endif //QT_NO_DEBUG
-                    
-#endif // DEBUGHELPER_H

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/ 
 
-#ifndef DOWNLOADTOHISTORY_H
-#define DOWNLOADTOHISTORY_H
+#pragma once
 
 #include <QStringList>
 #include <QByteArray>
@@ -42,5 +41,3 @@ struct DownloadToDirHistory {
         WSSET ( WS_DOWNLOAD_DIR_HISTORY, raw.toAscii().toBase64() );
     }
 };
-
-#endif // DOWNLOADTOHISTORY_H

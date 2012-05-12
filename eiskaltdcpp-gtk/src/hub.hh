@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_HUB_HH
-#define WULFOR_HUB_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/Client.h>
@@ -231,7 +230,3 @@ class Hub:
         GtkTextTag *BoldTag, *UnderlineTag, *ItalicTag;
         bool enableChat;
 };
-
-#else
-class Hub;
-#endif

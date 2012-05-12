@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef EMOTICONS_HH
-#define EMOTICONS_HH
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -79,7 +78,3 @@ class Emoticons
 		std::set<std::string> filter;
 		std::string currPackName;
 };
-
-#else
-class Emoticons;
-#endif

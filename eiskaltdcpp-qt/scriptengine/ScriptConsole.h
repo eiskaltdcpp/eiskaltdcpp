@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SCRIPTCONSOLE_H
-#define SCRIPTCONSOLE_H
+#pragma once
 
 #include <QtScript/QScriptEngine>
 #include <QtScript/QScriptValue>
@@ -30,5 +29,3 @@ private Q_SLOTS:
 private:
     QScriptEngine engine;
 };
-
-#endif // SCRIPTCONSOLE_H

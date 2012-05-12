@@ -7,12 +7,9 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSINTERFACE_H
-#define SETTINGSINTERFACE_H
+#pragma once
 
 class SettingsInterface{
     public:
         virtual void ok() = 0;
 };
-
-#endif // SETTINGSINTERFACE_H

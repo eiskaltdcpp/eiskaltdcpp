@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#if !defined(CONNECTION_MANAGER_LISTENER_H)
-#define CONNECTION_MANAGER_LISTENER_H
+#pragma once
 
 namespace dcpp {
 
@@ -42,5 +41,3 @@ public:
 };
 
 } // namespace dcpp
-
-#endif // !defined(CONNECTION_MANAGER_LISTENER_H)

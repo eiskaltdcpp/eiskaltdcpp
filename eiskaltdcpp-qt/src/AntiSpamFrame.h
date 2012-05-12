@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef DCANTISPAMFRAME_H
-#define DCANTISPAMFRAME_H
+#pragma once
 
 #include <QDialog>
 #include <QWidget>
@@ -68,5 +67,3 @@ private Q_SLOTS:
     void slotGToW(); //Gray -> White
 
 };
-
-#endif

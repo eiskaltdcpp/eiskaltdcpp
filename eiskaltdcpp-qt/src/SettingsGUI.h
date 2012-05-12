@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSGUI_H
-#define SETTINGSGUI_H
+#pragma once
 
 #include <QWidget>
 #include "ui_UISettingsGUI.h"
@@ -54,5 +53,3 @@ private:
     QColor downloads_clr;
     QColor uploads_clr;
 };
-
-#endif // SETTINGSGUI_H

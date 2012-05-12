@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _TASKMANAGER_H
-#define _TASKMANAGER_H
+#pragma once
 
 #include "dcpp/Singleton.h"
 #include "dcpp/TimerManager.h"
@@ -54,5 +53,3 @@ namespace dht
 	};
 
 }
-
-#endif	// _TASKMANAGER_H

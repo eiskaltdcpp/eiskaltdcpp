@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_SEARCH_HH
-#define WULFOR_SEARCH_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/ClientManager.h>
@@ -144,7 +143,3 @@ class Search:
 		GroupType previousGrouping;
 		std::unordered_map<std::string, std::vector<dcpp::SearchResultPtr> > results;
 };
-
-#else
-class Search;
-#endif

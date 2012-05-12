@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_TREE_VIEW_HH
-#define WULFOR_TREE_VIEW_HH
+#pragma once
 
 #include <gtk/gtk.h>
 #include <cassert>
@@ -141,7 +140,3 @@ class TreeView
 		ColMap hiddenColumns;
 		SortedColMap sortedHiddenColumns;
 };
-
-#else
-class TreeView;
-#endif

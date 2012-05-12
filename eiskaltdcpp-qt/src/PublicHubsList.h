@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef PUBLICHUBSLIST_H
-#define PUBLICHUBSLIST_H
+#pragma once
 
 #include <QDialog>
 
@@ -30,5 +29,3 @@ private slots:
     void slotRem();
     void slotChange();
 };
-
-#endif // PUBLICHUBSLIST_H

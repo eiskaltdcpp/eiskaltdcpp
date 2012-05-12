@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_CONNECTION_MANAGER_H
-#define DCPLUSPLUS_DCPP_CONNECTION_MANAGER_H
+#pragma once
 
 #include "TimerManager.h"
 
@@ -201,5 +200,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(CONNECTION_MANAGER_H)

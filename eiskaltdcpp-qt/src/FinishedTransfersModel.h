@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef FINISHEDTRANSFERSMODEL_H
-#define FINISHEDTRANSFERSMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QSortFilterProxyModel>
@@ -130,5 +129,3 @@ private:
     QMap<int, QString> file_header_table;
     QMap<int, QString> user_header_table;
 };
-
-#endif // FINISHEDTRANSFERSMODEL_H

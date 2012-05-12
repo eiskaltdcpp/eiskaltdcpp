@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _KBUCKET_H
-#define _KBUCKET_H
+#pragma once
 
 #include "Constants.h"
 
@@ -113,5 +112,3 @@ namespace dht
 	};
 
 }
-
-#endif	// _KBUCKET_H

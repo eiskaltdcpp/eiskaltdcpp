@@ -21,8 +21,7 @@
  * Henrik Engstr�m, henrikengstrom at home se
  */
 
-#ifndef DCPLUSPLUS_DCPP_A_D_L_SEARCH_H
-#define DCPLUSPLUS_DCPP_A_D_L_SEARCH_H
+#pragma once
 
 #include "Util.h"
 
@@ -148,5 +147,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(DCPLUSPLUS_DCPP_A_D_L_SEARCH_H)

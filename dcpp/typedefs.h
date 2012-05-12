@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_TYPEDEFS_H_
-#define DCPLUSPLUS_DCPP_TYPEDEFS_H_
+#pragma once
 
 #include "forward.h"
 
@@ -105,5 +104,3 @@ typedef vector<UserConnectionPtr> UserConnectionList;
 typedef vector<uint16_t> PartsInfo;
 
 }
-
-#endif /* TYPEDEFS_H_ */

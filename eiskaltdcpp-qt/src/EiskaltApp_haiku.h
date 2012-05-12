@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef EISKALTAPP_H
-#define EISKALTAPP_H
+#pragma once
 
 #include <QApplication>
 #include <QEvent>
@@ -112,5 +111,3 @@ Q_SIGNALS:
 private:
     EiskaltEventFilter ef;
 };
-
-#endif //EISKALTAPP_H

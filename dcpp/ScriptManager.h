@@ -16,8 +16,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#if !defined(SCRIPTMANAGER_H__INCLUDED_)
-#define SCRIPTMANAGER_H__INCLUDED_
+#pragma once
 
 #include "Singleton.h"
 #include "User.h"
@@ -132,7 +131,6 @@ private:
 
 }//namespace dcpp
 
-#endif // !defined(SCRIPTMANAGER_H__INCLUDED_)
 
 /**
  * @file ScriptManager.h

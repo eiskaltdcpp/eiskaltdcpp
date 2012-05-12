@@ -20,8 +20,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_CMDDEBUG_HH
-#define WULFOR_CMDDEBUG_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 
@@ -84,7 +83,3 @@ class cmddebug:
         GtkTextMark *cmdMark;
 
 };
-
-#else
-class cmddebug;
-#endif

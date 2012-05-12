@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef FAVORITEUSERS_H
-#define FAVORITEUSERS_H
+#pragma once
 
 #include <QObject>
 #include <QWidget>
@@ -92,5 +91,3 @@ private:
 };
 
 Q_DECLARE_METATYPE (FavoriteUsers*)
-
-#endif // FAVORITEUSERS_H

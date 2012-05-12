@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSUC_H
-#define SETTINGSUC_H
+#pragma once
 
 #include <QWidget>
 #include "ui_UISettingsUC.h"
@@ -45,5 +44,3 @@ private:
 
     UCModel *model;
 };
-
-#endif // SETTINGSUC_H

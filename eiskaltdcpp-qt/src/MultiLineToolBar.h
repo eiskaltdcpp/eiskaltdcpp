@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef MULTILINETOOLBAR_H
-#define MULTILINETOOLBAR_H
+#pragma once
 
 #include <QToolBar>
 
@@ -40,5 +39,3 @@ private Q_SLOTS:
 private:
     TabFrame *frame;
 };
-
-#endif // MULTILINETOOLBAR_H

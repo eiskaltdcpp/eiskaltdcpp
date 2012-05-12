@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SCRIPTMANAGERDIALOG_H
-#define SCRIPTMANAGERDIALOG_H
+#pragma once
 
 #include <QDialog>
 #include <QAbstractItemModel>
@@ -84,5 +83,3 @@ private:
     ScriptManagerItem *rootItem;
     QStringList enabled;
 };
-
-#endif // SCRIPTMANAGERDIALOG_H

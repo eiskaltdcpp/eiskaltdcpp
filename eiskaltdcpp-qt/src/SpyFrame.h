@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SPYFRAME_H
-#define SPYFRAME_H
+#pragma once
 
 #include <QWidget>
 #include <QCloseEvent>
@@ -64,5 +63,3 @@ private:
 
     virtual void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) noexcept;
 };
-
-#endif // SPYFRAME_H

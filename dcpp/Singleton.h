@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_SINGLETON_H
-#define DCPLUSPLUS_DCPP_SINGLETON_H
+#pragma once
 
 #include "debug.h"
 
@@ -67,5 +66,3 @@ private:
 template<class T> T* Singleton<T>::instance = NULL;
 
 } // namespace dcpp
-
-#endif // DCPLUSPLUS_DCPP_SINGLETON_H

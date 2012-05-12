@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef DOWNLOADQUEUE_H
-#define DOWNLOADQUEUE_H
+#pragma once
 
 #include <QWidget>
 #include <QCloseEvent>
@@ -156,5 +155,3 @@ private:
 };
 
 Q_DECLARE_METATYPE(DownloadQueue*)
-
-#endif // DOWNLOADQUEUE_H

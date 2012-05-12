@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SHAREBROWSER_H
-#define SHAREBROWSER_H
+#pragma once
 
 #include <QWidget>
 #include <QMenu>
@@ -176,5 +175,3 @@ private:
     FileBrowserItem  *tree_root;
     FileBrowserItem  *list_root;
 };
-
-#endif // SHAREBROWSER_H
