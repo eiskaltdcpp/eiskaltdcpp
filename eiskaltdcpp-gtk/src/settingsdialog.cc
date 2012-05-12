@@ -3377,7 +3377,7 @@ void Settings::onInDirect_gui(GtkToggleButton *button, gpointer data)
     gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), TRUE);
 }
 
-void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data) //NOTE:core 0.762
+void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data)
 {
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), TRUE);
@@ -4141,7 +4141,6 @@ void Settings::shareHidden_client(bool show)
     ShareManager::getInstance()->setDirty();
     ShareManager::getInstance()->refresh(TRUE, FALSE, TRUE);
 
-    //NOTE: updated share ui core 0.762
     Func0<Settings> *func = new Func0<Settings>(this, &Settings::updateShares_gui);
     WulforManager::get()->dispatchGuiFunc(func);
 }

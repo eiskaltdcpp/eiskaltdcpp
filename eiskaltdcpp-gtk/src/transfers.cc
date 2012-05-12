@@ -688,7 +688,6 @@ void Transfers::initTransfer_gui(StringMap params)
             }
             else
             {
-                //NOTE: set update parent status if removed download
                 if (transferView.getValue<int>(&newParent, "Failed"))
                 {
                     gtk_tree_store_set(transferStore, &newParent,
