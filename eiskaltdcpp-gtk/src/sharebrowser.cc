@@ -20,7 +20,6 @@
  */
 
 #include "sharebrowser.hh"
-
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/ShareManager.h>
 #include <dcpp/Text.h>
@@ -35,11 +34,11 @@ using namespace std;
 using namespace dcpp;
 
 ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initialDirectory):
-    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(user, ""), "sharebrowser.ui", user->getCID().toBase32()),//NOTE: core 0.762
+    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(user, ""), "sharebrowser.ui", user->getCID().toBase32()),
     user(user),
     file(file),
     initialDirectory(initialDirectory),
-    listing(HintedUser(user, "")),//NOTE: core 0.762
+    listing(HintedUser(user, "")),
     shareSize(0),
     currentSize(0),
     shareItems(0),
@@ -48,15 +47,15 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     skipHits(0)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("mainStatus")),FALSE);
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("itemsStatus")),FALSE);
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("sizeStatus")),FALSE);
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("filesStatus")),FALSE);
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("totalStatus")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("mainStatus")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("itemsStatus")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("sizeStatus")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("filesStatus")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("totalStatus")),FALSE);
 #endif
 
     // Use the nick from the file name in case the user is offline and core only returns CID
-    nick = WulforUtil::getNicks(user, "");//NOTE: core 0.762
+    nick = WulforUtil::getNicks(user, "");
     if (nick.find(user->getCID().toBase32(), 1) != string::npos)
     {
         string name = Util::getFileName(file);
@@ -499,11 +498,11 @@ void ShareBrowser::popupFileMenu_gui()
     gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("fileDownloadMenu")), menuItem);
 
     // Build user command menu
-    StringList hubs = WulforUtil::getHubAddress(listing.getUser().user->getCID(), "");//NOTE: core 0.762
+    StringList hubs = WulforUtil::getHubAddress(listing.getUser().user->getCID(), "");
     fileUserCommandMenu->addHub(hubs);
     GtkTreeIter iter;
     GList *list = gtk_tree_selection_get_selected_rows(fileSelection, NULL);
-    string cid = listing.getUser().user->getCID().toBase32();//NOTE: core 0.762
+    string cid = listing.getUser().user->getCID().toBase32();
 
     for (GList *i = list; i; i = i->next)
     {
@@ -572,8 +571,8 @@ void ShareBrowser::popupDirMenu_gui()
     {
         string filename;
         string filepath;
-        string cid = listing.getUser().user->getCID().toBase32();//NOTE: core 0.762
-        StringList hubs = WulforUtil::getHubAddress(listing.getUser().user->getCID(), "");//NOTE: core 0.762
+        string cid = listing.getUser().user->getCID().toBase32();
+        StringList hubs = WulforUtil::getHubAddress(listing.getUser().user->getCID(), "");
         DirectoryListing::Directory *dir = dirView.getValue<DirectoryListing::Directory *>(&iter, "DL Dir");
 
         if (dir != listing.getRoot())

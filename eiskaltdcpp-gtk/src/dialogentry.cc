@@ -25,43 +25,43 @@
 using namespace std;
 
 DialogEntry::DialogEntry(const EntryType type, const string &ui, GtkWindow* parent):
-	Entry(type, ui),
-	parent(parent),
-	responseID(GTK_RESPONSE_NONE)
+    Entry(type, ui),
+    parent(parent),
+    responseID(GTK_RESPONSE_NONE)
 {
-	GtkWindow* window = GTK_WINDOW(getContainer());
+    GtkWindow* window = GTK_WINDOW(getContainer());
 
-	gtk_window_set_role(window, getID().c_str());
+    gtk_window_set_role(window, getID().c_str());
 
-	if (parent == NULL)
-		parent = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
+    if (parent == NULL)
+        parent = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
 
-	gboolean modal = gtk_window_get_modal(window);
-	if (modal)
-		gtk_window_set_transient_for(window, parent);
+    gboolean modal = gtk_window_get_modal(window);
+    if (modal)
+        gtk_window_set_transient_for(window, parent);
 
-	WulforManager::get()->insertEntry_gui(this);
+    WulforManager::get()->insertEntry_gui(this);
 }
 
 DialogEntry::~DialogEntry()
 {
-	gtk_widget_destroy(getContainer());
+    gtk_widget_destroy(getContainer());
 }
 
 GtkWidget* DialogEntry::getContainer()
 {
-	return getWidget("dialog");
+    return getWidget("dialog");
 }
 
 gint DialogEntry::run()
 {
-	responseID = gtk_dialog_run(GTK_DIALOG(getContainer()));
-	WulforManager::get()->deleteEntry_gui(this);
+    responseID = gtk_dialog_run(GTK_DIALOG(getContainer()));
+    WulforManager::get()->deleteEntry_gui(this);
 
-	return responseID;
+    return responseID;
 }
 
 gint DialogEntry::getResponseID()
 {
-	return responseID;
+    return responseID;
 }

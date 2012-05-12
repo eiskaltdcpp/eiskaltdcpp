@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_MAIN_WINDOW_HH
-#define WULFOR_MAIN_WINDOW_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/ConnectionManager.h>
@@ -30,7 +29,6 @@
 #include <dcpp/TimerManager.h>
 #include <dcpp/UploadManager.h>
 #include <dcpp/FavoriteManager.h>
-
 #include "entry.hh"
 #include "treeview.hh"
 #include "transfers.hh"
@@ -211,7 +209,3 @@ class MainWindow:
         bool onQuit;
         int ToolbarStyle;
 };
-
-#else
-class MainWindow;
-#endif

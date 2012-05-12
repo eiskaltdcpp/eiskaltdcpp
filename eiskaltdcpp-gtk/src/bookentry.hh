@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_BOOK_ENTRY_HH
-#define WULFOR_BOOK_ENTRY_HH
+#pragma once
 
 #include "entry.hh"
 
@@ -62,7 +61,3 @@ class BookEntry : public Entry
 		static const glong labelSize = 20; ///@todo: make a preference?
 		GtkWidget *icon;
 };
-
-#else
-class BookEntry;
-#endif

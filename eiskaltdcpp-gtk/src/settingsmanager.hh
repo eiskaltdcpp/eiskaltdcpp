@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_SETTINGSMANAGER_HH
-#define WULFOR_SETTINGSMANAGER_HH
+#pragma once
 
 #include <string>
 #include <map>
@@ -41,57 +40,53 @@
 
 class PreviewApp
 {
-	public:
+    public:
 
-	typedef std::vector<PreviewApp*> List;
-	typedef List::size_type size;
-	typedef List::const_iterator Iter;
+    typedef std::vector<PreviewApp*> List;
+    typedef List::size_type size;
+    typedef List::const_iterator Iter;
 
-	PreviewApp(std::string name, std::string app, std::string ext) : name(name), app(app), ext(ext) {}
-	~PreviewApp() {}
+    PreviewApp(std::string name, std::string app, std::string ext) : name(name), app(app), ext(ext) {}
+    ~PreviewApp() {}
 
-	std::string name;
-	std::string app;
-	std::string ext;
+    std::string name;
+    std::string app;
+    std::string ext;
 };
 
 class WulforSettingsManager : public dcpp::Singleton<WulforSettingsManager>
 {
-	public:
-		WulforSettingsManager();
-		virtual ~WulforSettingsManager();
+    public:
+        WulforSettingsManager();
+        virtual ~WulforSettingsManager();
 
-		int getInt(const std::string &key, bool useDefault = false);
-		bool getBool(const std::string &key, bool useDefault = false);
-		std::string getString(const std::string &key, bool useDefault = false);
-		void set(const std::string &key, int value);
-		void set(const std::string &key, bool value);
-		void set(const std::string &key, const std::string &value);
-		const std::string parseCmd(const std::string cmd);
-		void load();
-		void save();
+        int getInt(const std::string &key, bool useDefault = false);
+        bool getBool(const std::string &key, bool useDefault = false);
+        std::string getString(const std::string &key, bool useDefault = false);
+        void set(const std::string &key, int value);
+        void set(const std::string &key, bool value);
+        void set(const std::string &key, const std::string &value);
+        const std::string parseCmd(const std::string cmd);
+        void load();
+        void save();
 
-		PreviewApp* applyPreviewApp(std::string &oldName, std::string &newName, std::string &app, std::string &ext);
-		PreviewApp* addPreviewApp(std::string name, std::string app, std::string ext);
-		bool getPreviewApp(std::string &name, PreviewApp::size &index);
-		bool getPreviewApp(std::string &name);
-		bool removePreviewApp(std::string &name);
+        PreviewApp* applyPreviewApp(std::string &oldName, std::string &newName, std::string &app, std::string &ext);
+        PreviewApp* addPreviewApp(std::string name, std::string app, std::string ext);
+        bool getPreviewApp(std::string &name, PreviewApp::size &index);
+        bool getPreviewApp(std::string &name);
+        bool removePreviewApp(std::string &name);
 
-		const PreviewApp::List& getPreviewApps() const {return previewApps;}
+        const PreviewApp::List& getPreviewApps() const {return previewApps;}
 
-	private:
-		typedef std::map<std::string, int> IntMap;
-		typedef std::map<std::string, std::string> StringMap;
+    private:
+        typedef std::map<std::string, int> IntMap;
+        typedef std::map<std::string, std::string> StringMap;
 
-		IntMap intMap;
-		StringMap stringMap;
-		IntMap defaultInt;
-		StringMap defaultString;
-		std::string configFile;
+        IntMap intMap;
+        StringMap stringMap;
+        IntMap defaultInt;
+        StringMap defaultString;
+        std::string configFile;
 
-		PreviewApp::List previewApps;
+        PreviewApp::List previewApps;
 };
-
-#else
-class WulforSettingsManager;
-#endif

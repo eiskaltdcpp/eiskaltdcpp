@@ -20,10 +20,10 @@
  */
 
 #ifdef USE_LIBGNOME2
-	#include <libgnome/gnome-sound.h>
+    #include <libgnome/gnome-sound.h>
 #endif
 #ifdef USE_LIBCANBERRA
-	#include <canberra-gtk.h>
+    #include <canberra-gtk.h>
 #endif
 
 #include "settingsmanager.hh"
@@ -42,115 +42,115 @@ ca_context *context;
 
 void Sound::start()
 {
-	dcassert(!pSound);
-	pSound = new Sound();
+    dcassert(!pSound);
+    pSound = new Sound();
 }
 
 void Sound::stop()
 {
-	dcassert(pSound);
-	delete pSound;
-	pSound = NULL;
+    dcassert(pSound);
+    delete pSound;
+    pSound = NULL;
 }
 
 Sound* Sound::get()
 {
-	dcassert(pSound);
-	return pSound;
+    dcassert(pSound);
+    return pSound;
 }
 
 void Sound::sound_init()
 {
 #ifdef USE_LIBGNOME2
-	gnome_sound_init(NULL);
-	dcdebug("Sound::sound_init: Esound connection %d...\n", gnome_sound_connection_get());
+    gnome_sound_init(NULL);
+    dcdebug("Sound::sound_init: Esound connection %d...\n", gnome_sound_connection_get());
 #elif USE_LIBCANBERRA
-	int res = ca_context_create(&context);
-	dcdebug("Sound::sound_init: connection %d...\n", res);
+    int res = ca_context_create(&context);
+    dcdebug("Sound::sound_init: connection %d...\n", res);
 #endif
 }
 
 void Sound::playSound(TypeSound sound)
 {
-	WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
+    WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
 
-	switch (sound)
-	{
-//		TODO: download begins, uncomment when implemented
-//		case DOWNLOAD_BEGINS:
+    switch (sound)
+    {
+//      TODO: download begins, uncomment when implemented
+//      case DOWNLOAD_BEGINS:
 //
-//			if (wsm->getInt("sound-download-begins-use"))
-//				playSound(wsm->getString("sound-download-begins"));
-//		break;
+//          if (wsm->getInt("sound-download-begins-use"))
+//              playSound(wsm->getString("sound-download-begins"));
+//      break;
 
-		case DOWNLOAD_FINISHED:
+        case DOWNLOAD_FINISHED:
 
-			if (wsm->getInt("sound-download-finished-use"))
-				playSound(wsm->getString("sound-download-finished"));
-		break;
+            if (wsm->getInt("sound-download-finished-use"))
+                playSound(wsm->getString("sound-download-finished"));
+        break;
 
-		case DOWNLOAD_FINISHED_USER_LIST:
+        case DOWNLOAD_FINISHED_USER_LIST:
 
-			if (wsm->getInt("sound-download-finished-ul-use"))
-				playSound(wsm->getString("sound-download-finished-ul"));
-		break;
+            if (wsm->getInt("sound-download-finished-ul-use"))
+                playSound(wsm->getString("sound-download-finished-ul"));
+        break;
 
-		case UPLOAD_FINISHED:
+        case UPLOAD_FINISHED:
 
-			if (wsm->getInt("sound-upload-finished-use"))
-				playSound(wsm->getString("sound-upload-finished"));
-		break;
+            if (wsm->getInt("sound-upload-finished-use"))
+                playSound(wsm->getString("sound-upload-finished"));
+        break;
 
-		case PRIVATE_MESSAGE:
+        case PRIVATE_MESSAGE:
 
-			if (wsm->getInt("sound-private-message-use"))
-				playSound(wsm->getString("sound-private-message"));
-		break;
+            if (wsm->getInt("sound-private-message-use"))
+                playSound(wsm->getString("sound-private-message"));
+        break;
 
-		case HUB_CONNECT:
+        case HUB_CONNECT:
 
-			if (wsm->getInt("sound-hub-connect-use"))
-				playSound(wsm->getString("sound-hub-connect"));
-		break;
+            if (wsm->getInt("sound-hub-connect-use"))
+                playSound(wsm->getString("sound-hub-connect"));
+        break;
 
-		case HUB_DISCONNECT:
+        case HUB_DISCONNECT:
 
-			if (wsm->getInt("sound-hub-disconnect-use"))
-				playSound(wsm->getString("sound-hub-disconnect"));
-		break;
+            if (wsm->getInt("sound-hub-disconnect-use"))
+                playSound(wsm->getString("sound-hub-disconnect"));
+        break;
 
-		case FAVORITE_USER_JOIN:
+        case FAVORITE_USER_JOIN:
 
-			if (wsm->getInt("sound-fuser-join-use"))
-				playSound(wsm->getString("sound-fuser-join"));
-		break;
+            if (wsm->getInt("sound-fuser-join-use"))
+                playSound(wsm->getString("sound-fuser-join"));
+        break;
 
-		case FAVORITE_USER_QUIT:
+        case FAVORITE_USER_QUIT:
 
-			if (wsm->getInt("sound-fuser-quit-use"))
-				playSound(wsm->getString("sound-fuser-quit"));
-		break;
+            if (wsm->getInt("sound-fuser-quit-use"))
+                playSound(wsm->getString("sound-fuser-quit"));
+        break;
 
-		default: break;
-	}
+        default: break;
+    }
 }
 
 void Sound::playSound(const string &target)
 {
 #ifdef USE_LIBGNOME2
-	gnome_sound_play(Text::fromUtf8(target).c_str());
+    gnome_sound_play(Text::fromUtf8(target).c_str());
 #elif USE_LIBCANBERRA
-	ca_context_play(context, 1,CA_PROP_MEDIA_FILENAME, target.c_str(), NULL);
+    ca_context_play(context, 1,CA_PROP_MEDIA_FILENAME, target.c_str(), NULL);
 #else
-	WulforUtil::openURItoApp(WulforSettingsManager::getInstance()->getString("sound-command") + " \"" +target+"\"");
+    WulforUtil::openURItoApp(WulforSettingsManager::getInstance()->getString("sound-command") + " \"" +target+"\"");
 #endif
 }
 
 void Sound::sound_finalize()
 {
 #ifdef USE_LIBGNOME2
-	gnome_sound_shutdown();
+    gnome_sound_shutdown();
 #elif USE_LIBCANBERRA
-	ca_context_destroy(context);
+    ca_context_destroy(context);
 #endif
 }

@@ -19,14 +19,12 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_HUB_HH
-#define WULFOR_HUB_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/Client.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/QueueManager.h>
-
 #include "bookentry.hh"
 #include "treeview.hh"
 #include "sound.hh"
@@ -187,7 +185,7 @@ class Hub:
         virtual void on(dcpp::ClientListener::Failed, dcpp::Client *, const std::string &reason) noexcept;
         virtual void on(dcpp::ClientListener::GetPassword, dcpp::Client *) noexcept;
         virtual void on(dcpp::ClientListener::HubUpdated, dcpp::Client *) noexcept;
-        virtual void on(dcpp::ClientListener::Message, dcpp::Client*, const dcpp::ChatMessage& message) noexcept;//NOTE: core 0.762
+        virtual void on(dcpp::ClientListener::Message, dcpp::Client*, const dcpp::ChatMessage& message) noexcept;
         virtual void on(dcpp::ClientListener::StatusMessage, dcpp::Client *, const std::string &message, int flag) noexcept;
         virtual void on(dcpp::ClientListener::NickTaken, dcpp::Client *) noexcept;
         virtual void on(dcpp::ClientListener::SearchFlood, dcpp::Client *, const std::string &message) noexcept;
@@ -231,7 +229,3 @@ class Hub:
         GtkTextTag *BoldTag, *UnderlineTag, *ItalicTag;
         bool enableChat;
 };
-
-#else
-class Hub;
-#endif

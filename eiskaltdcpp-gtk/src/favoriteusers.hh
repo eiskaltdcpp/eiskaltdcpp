@@ -19,12 +19,10 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef FAVORITE_USERS_HH
-#define FAVORITE_USERS_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/FavoriteManager.h>
-
 #include "bookentry.hh"
 #include "treeview.hh"
 
@@ -80,7 +78,3 @@ class FavoriteUsers:
 		GtkListStore *favoriteUserStore;
 		GtkTreeSelection *favoriteUserSelection;
 };
-
-#else
-class FavoriteUsers;
-#endif

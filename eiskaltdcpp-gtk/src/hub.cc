@@ -27,7 +27,7 @@
 #include <dcpp/ShareManager.h>
 #include <dcpp/UserCommand.h>
 #include <dcpp/version.h>
-#include <dcpp/ChatMessage.h>//NOTE: core 0.762
+#include <dcpp/ChatMessage.h>
 #include <dcpp/Util.h>
 #include <dcpp/StringTokenizer.h>
 #include "privatemessage.hh"
@@ -144,7 +144,7 @@ Hub::Hub(const string &address, const string &encoding):
     g_object_ref_sink(getWidget("imageMenu"));
 
     // Initialize the user command menu
-    userCommandMenu = new UserCommandMenu(getWidget("usercommandMenu"), ::UserCommand::CONTEXT_USER);//NOTE: core 0.762
+    userCommandMenu = new UserCommandMenu(getWidget("usercommandMenu"), ::UserCommand::CONTEXT_USER);
     addChild(userCommandMenu);
 
     // Emoticons dialog
@@ -2898,7 +2898,7 @@ void Hub::getFileList_client(string cid, bool match)
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
             if (user)
             {
-                const HintedUser hintedUser(user, client->getHubUrl());//NOTE: core 0.762
+                const HintedUser hintedUser(user, client->getHubUrl());
                 if (user == ClientManager::getInstance()->getMe())
                 {
                     // Don't download file list, open locally instead
@@ -2906,11 +2906,11 @@ void Hub::getFileList_client(string cid, bool match)
                 }
                 else if (match)
                 {
-                    QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);//NOTE: core 0.762
+                    QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);
                 }
                 else
                 {
-                    QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);//NOTE: core 0.762
+                    QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);
                 }
             }
             else
@@ -2942,9 +2942,9 @@ void Hub::grantSlot_client(string cid)
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
         if (user)
         {
-            const string hubUrl = client->getHubUrl();//NOTE: core 0.762
-            UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));//NOTE: core 0.762
-            message = _("Slot granted to ") + WulforUtil::getNicks(user, hubUrl);//NOTE: core 0.762
+            const string hubUrl = client->getHubUrl();
+            UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));
+            message = _("Slot granted to ") + WulforUtil::getNicks(user, hubUrl);
         }
     }
 
@@ -3511,7 +3511,7 @@ void Hub::on(ClientListener::HubUpdated, Client *) noexcept
     WulforManager::get()->dispatchGuiFunc(func1);
 }
 
-void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) noexcept //NOTE: core 0.762
+void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) noexcept 
     {
         if (message.text.empty() || !enableChat)
             return;
@@ -3609,7 +3609,7 @@ void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) noexc
             }
         }
     }
-} //NOTE: core 0.762
+} 
 
 void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int /* flag */) noexcept
 {

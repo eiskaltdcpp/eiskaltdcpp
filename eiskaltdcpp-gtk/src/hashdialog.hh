@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_HASH_HH
-#define WULFOR_HASH_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/TimerManager.h>
@@ -42,13 +41,9 @@ class Hash:
         // Client callbacks
         virtual void on(dcpp::TimerManagerListener::Second, uint64_t tics) noexcept;
         // GUI callback
-        static void onPauseHashing_gui(GtkWidget *widget, gpointer data);//NOTE: core 0.762
+        static void onPauseHashing_gui(GtkWidget *widget, gpointer data);
 
         int64_t startBytes;
         size_t startFiles;
         uint64_t startTime;
 };
-
-#else
-class Hash;
-#endif
