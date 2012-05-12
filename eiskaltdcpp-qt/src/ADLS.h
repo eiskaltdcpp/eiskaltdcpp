@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef ADLS_H
-#define ADLS_H
+#pragma once
 
 #include <QWidget>
 #include <QMap>
@@ -105,5 +104,3 @@ private:
     ADLSModel *model;
 
 };
-
-#endif // ADLS_H

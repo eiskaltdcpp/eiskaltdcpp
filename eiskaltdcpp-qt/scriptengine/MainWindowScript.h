@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef MAINWINDOWSCRIPT_H
-#define MAINWINDOWSCRIPT_H
+#pragma once
 
 #include <QObject>
 #include <QAction>
@@ -34,5 +33,3 @@ private:
     QMap<QString, QAction*> actions;
     QMap<QMenu*, QAction*> menus;
 };
-
-#endif // MAINWINDOWSCRIPT_H

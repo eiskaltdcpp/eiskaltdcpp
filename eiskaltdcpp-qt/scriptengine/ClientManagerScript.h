@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef CLIENTMANAGERSCRIPT_H
-#define CLIENTMANAGERSCRIPT_H
+#pragma once
 
 #include <QObject>
 #include <QStringList>
@@ -63,5 +62,3 @@ private:
 
     dcpp::ClientManager *CM;
 };
-
-#endif // CLIENTMANAGERSCRIPT_H

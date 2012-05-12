@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef LOGMANAGERSCRIPT_H
-#define LOGMANAGERSCRIPT_H
+#pragma once
 
 #include <QObject>
 
@@ -38,5 +37,3 @@ private:
     ~LogManagerScript();
     LogManagerScript &operator=(const LogManagerScript&){ return *this; }
 };
-
-#endif // LOGMANAGERSCRIPT_H

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SIDEBAR_H
-#define SIDEBAR_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QMap>
@@ -161,5 +160,3 @@ protected:
 private:
     SideBarModel *_model;
 };
-
-#endif // SIDEBAR_H

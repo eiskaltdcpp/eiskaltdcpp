@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef EMOTICONOBJECT_H
-#define EMOTICONOBJECT_H
+#pragma once
 
 #include <QString>
 #include <QMap>
@@ -44,5 +43,3 @@ struct EmoticonObject{
 
 typedef QMap<QString, EmoticonObject*> EmoticonMap;
 typedef QList<EmoticonObject*> EmoticonList;
-
-#endif // EMOTICONOBJECT_H

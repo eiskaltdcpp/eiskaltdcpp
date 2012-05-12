@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef UCMODEL_H
-#define UCMODEL_H
+#pragma once
 
 #include <QObject>
 #include <QDialog>
@@ -109,5 +108,3 @@ private:
 
     UCItem *rootItem;
 };
-
-#endif // UCMODEL_H

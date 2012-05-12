@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef DOWNLOADQUEUEMODEL_H
-#define DOWNLOADQUEUEMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QStyledItemDelegate>
@@ -146,5 +145,3 @@ private:
     
     DownloadQueueModelPrivate *d_ptr;
 };
-
-#endif //DOWNLOADQUEUEMODEL_H

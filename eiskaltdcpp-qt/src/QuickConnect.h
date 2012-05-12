@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef QUICKCONNECT_H
-#define QUICKCONNECT_H
+#pragma once
 
 #include <QWidget>
 #include <QDialog>
@@ -28,6 +27,3 @@ public slots:
     void slotAccept();
 
 };
-
-
-#endif

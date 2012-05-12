@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/ 
 
-#ifndef ARENAWIDGETFACTORY_H
-#define ARENAWIDGETFACTORY_H
+#pragma once
 
 #include "ArenaWidgetManager.h"
 #include "dcpp/Singleton.h"
@@ -47,5 +46,3 @@ private:
     ArenaWidgetFactory(const ArenaWidgetFactory &);
     ArenaWidgetFactory& operator=(const ArenaWidgetFactory&);
 };
-
-#endif // ARENAWIDGETFACTORY_H

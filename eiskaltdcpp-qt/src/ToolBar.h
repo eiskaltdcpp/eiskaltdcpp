@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef TOOLBAR_H
-#define TOOLBAR_H
+#pragma once
 
 #include <QToolBar>
 #include <QTabBar>
@@ -69,5 +68,3 @@ private:
     QList<QShortcut*> shortcuts;
     WidgetMap map;
 };
-
-#endif // TOOLBAR_H

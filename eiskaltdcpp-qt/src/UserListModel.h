@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef USERLISTMODEL_H
-#define USERLISTMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QSortFilterProxyModel>
@@ -164,5 +163,3 @@ private:
 
     WulforUtil *WU;
 };
-
-#endif // USERLISTMODEL_H

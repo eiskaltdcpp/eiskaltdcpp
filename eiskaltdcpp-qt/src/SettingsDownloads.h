@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSDOWNLOADS_H
-#define SETTINGSDOWNLOADS_H
+#pragma once
 
 #include <QWidget>
 
@@ -39,5 +38,3 @@ private:
 
     QMap< dcpp::SettingsManager::IntSetting, int > other_settings;
 };
-
-#endif // SETTINGSDOWNLOADS_H

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef CHATEDIT_H
-#define CHATEDIT_H
+#pragma once
 
 #include <QTextEdit>
 #include <QAbstractTextDocumentLayout>
@@ -83,5 +82,3 @@ private:
     UserListModel *cc_model;
     QCompleter *cc;
 };
-
-#endif // CHATEDIT_H

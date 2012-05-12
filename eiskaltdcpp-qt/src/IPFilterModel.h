@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef IPFILTERMODEL_H
-#define IPFILTERMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QHash>
@@ -90,5 +89,3 @@ private:
     QHash<QString, IPFilterModelItem*> rules;
     IPFilterModelItem *rootItem;
 };
-
-#endif // IPFILTERMODEL_H

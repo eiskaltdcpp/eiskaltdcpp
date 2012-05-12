@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef TRANSFERVIEWMODEL_H
-#define TRANSFERVIEWMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QStyledItemDelegate>
@@ -178,5 +177,3 @@ private:
     /** */
     QSize iconsSize;
 };
-
-#endif // TRANSFERVIEWMODEL_H

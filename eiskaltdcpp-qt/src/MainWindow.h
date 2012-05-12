@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef MAINWINDOW_H_
-#define MAINWINDOW_H_
+#pragma once
 
 #include <QApplication>
 #include <QWidget>
@@ -282,5 +281,3 @@ friend class dcpp::Singleton<MainWindow>;
 };
 
 Q_DECLARE_METATYPE(MainWindow*)
-
-#endif //MAINWINDOW_H_

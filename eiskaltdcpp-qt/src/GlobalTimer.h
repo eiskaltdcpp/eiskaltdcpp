@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/ 
 
-#ifndef GLOBALTIMER_H
-#define GLOBALTIMER_H
+#pragma once
 
 #include <QObject>
 #include "dcpp/Singleton.h"
@@ -39,5 +38,3 @@ private:
     std::unique_ptr<QTimer> timer;
     quint64 tickCount;
 };
-
-#endif // GLOBALTIMER_H

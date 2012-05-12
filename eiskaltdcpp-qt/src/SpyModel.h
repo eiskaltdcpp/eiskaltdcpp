@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SPYMODEL_H
-#define SPYMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QList>
@@ -95,5 +94,3 @@ private:
     /** */
     QHash<QString, SpyItem*> hashes;
 };
-
-#endif // SPYMODEL_H

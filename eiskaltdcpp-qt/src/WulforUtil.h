@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef WULFORUTIL_H
-#define WULFORUTIL_H
+#pragma once
 
 #include <QObject>
 #include <QPixmap>
@@ -218,5 +217,3 @@ private:
 
 Q_DECLARE_METATYPE(WulforUtil*);
 Q_DECLARE_METATYPE(WulforUtil::Icons);
-
-#endif // WULFORUTIL_H

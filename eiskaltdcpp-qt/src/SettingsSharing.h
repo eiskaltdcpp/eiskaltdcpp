@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSSHARING_H
-#define SETTINGSSHARING_H
+#pragma once
 
 #include <QWidget>
 #include <QDirModel>
@@ -71,5 +70,3 @@ private:
 
     ShareDirModel *model;
 };
-
-#endif // SETTINGSSHARING_H

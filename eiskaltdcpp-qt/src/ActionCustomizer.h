@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef ACTIONCUSTOMIZER_H
-#define ACTIONCUSTOMIZER_H
+#pragma once
 
 #include <QDialog>
 #include <QList>
@@ -39,5 +38,3 @@ private:
     QMap<QListWidgetItem*, QAction*> enabled_items;
     QMap<QListWidgetItem*, QAction*> avail_items;
 };
-
-#endif // ACTIONCUSTOMIZER_H

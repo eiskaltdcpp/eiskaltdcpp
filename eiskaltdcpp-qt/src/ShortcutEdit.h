@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SHORTCUTEDIT_H
-#define SHORTCUTEDIT_H
+#pragma once
 
 #include <QLineEdit>
 #include <QEvent>
@@ -29,5 +28,3 @@ private:
     int keyNumber;
     int keys[4];
 };
-
-#endif // SHORTCUTEDIT_H

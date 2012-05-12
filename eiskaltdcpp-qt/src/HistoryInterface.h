@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef HISTORYINTERFACE_H
-#define HISTORYINTERFACE_H
+#pragma once
 
 #include <QStack>
 
@@ -51,5 +50,3 @@ private:
 
     unsigned size;
 };
-
-#endif // HISTORYINTERFACE_H

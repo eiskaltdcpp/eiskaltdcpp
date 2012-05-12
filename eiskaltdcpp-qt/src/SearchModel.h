@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef SEARCHRESULTMODEL_H
-#define SEARCHRESULTMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QSortFilterProxyModel>
@@ -179,5 +178,3 @@ private:
     /** */
     QHash<QString, SearchItem*> tths;
 };
-
-#endif

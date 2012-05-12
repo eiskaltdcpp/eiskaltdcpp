@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef HUBFRAME_H
-#define HUBFRAME_H
+#pragma once
 
 #include <QWidget>
 #include <QEvent>
@@ -297,5 +296,3 @@ private:
 };
 
 Q_DECLARE_METATYPE(HubFrame*)
-
-#endif // HUBFRAME_H
