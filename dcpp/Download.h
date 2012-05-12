@@ -19,6 +19,8 @@
 #ifndef DCPLUSPLUS_DCPP_DOWNLOAD_H_
 #define DCPLUSPLUS_DCPP_DOWNLOAD_H_
 
+#include <string>
+
 #include "forward.h"
 #include "noexcept.h"
 #include "Transfer.h"
@@ -27,6 +29,8 @@
 #include "Streams.h"
 
 namespace dcpp {
+    
+using std::string;
 
 /**
  * Comes as an argument in the DownloadManagerListener functions.
@@ -49,9 +53,7 @@ public:
     virtual ~Download();
 
     /** @return Target filename without path. */
-    string getTargetFileName() {
-        return Util::getFileName(getPath());
-    }
+    string getTargetFileName();
 
     /** @internal */
     const string& getDownloadTarget() {

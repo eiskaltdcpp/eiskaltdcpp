@@ -21,8 +21,11 @@
 
 #include "forward.h"
 #include "noexcept.h"
+#include <string>
 
 namespace dcpp {
+    
+using std::string;
 
 class ClientManagerListener {
 public:
