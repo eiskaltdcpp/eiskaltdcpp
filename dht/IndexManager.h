@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _INDEXMANAGER_H
-#define _INDEXMANAGER_H
+#pragma once
 
 #include "Constants.h"
 #include "KBucket.h"
@@ -129,5 +128,3 @@ namespace dht
 	};
 
 } // namespace dht
-
-#endif	// _INDEXMANAGER_H

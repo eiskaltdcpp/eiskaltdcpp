@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
  
-#ifndef _CONSTANTS_H
-#define _CONSTANTS_H
+#pragma once
 
 namespace dht
 {
@@ -73,5 +72,3 @@ const std::string NetworkName =		"DHT";
 using namespace dcpp;
 
 }
-
-#endif	// _CONSTANTS_H

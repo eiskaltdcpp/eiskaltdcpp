@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _DHT_H
-#define _DHT_H
+#pragma once
 
 #include "BootstrapManager.h"
 #include "Constants.h"
@@ -154,5 +153,3 @@ namespace dht
 	};
 
 }
-
-#endif	// _DHT_H

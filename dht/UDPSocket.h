@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _UDPSOCKET_H
-#define _UDPSOCKET_H
+#pragma once
 
 #include "dcpp/AdcCommand.h"
 #include "dcpp/CID.h"
@@ -116,5 +115,3 @@ namespace dht
 	};
 
 }
-
-#endif // _UDPSOCKET_H
