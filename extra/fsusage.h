@@ -18,8 +18,7 @@
 
 /* Space usage statistics for a file system.  Blocks are 512-byte. */
 
-#if !defined FSUSAGE_H_
-# define FSUSAGE_H_
+#pragma once
 
 # include <stdint.h>
 # include <stdbool.h>
@@ -36,5 +35,3 @@ struct fs_usage
 };
 
 int get_fs_usage (char const *file, char const *disk, struct fs_usage *fsp);
-
-#endif

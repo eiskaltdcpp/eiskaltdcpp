@@ -15,9 +15,7 @@
 //      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 //      MA 02110-1301, USA.
 
-
-#ifndef EISKALTDCPP_DYNDNS_H
-#define EISKALTDCPP_DYNDNS_H
+#pragma once
 
 #include "dcpp/stdinc.h"
 #include "dcpp/HttpConnection.h"
@@ -46,5 +44,4 @@ class DynDNS : public Singleton<DynDNS>, private HttpConnectionListener
 	void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;
 
 };
-#endif /* EISKALTDCPP_DYNDNS_H */
 }
