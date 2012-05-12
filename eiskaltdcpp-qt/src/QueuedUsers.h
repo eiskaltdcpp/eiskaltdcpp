@@ -127,5 +127,4 @@ private:
     QueuedUsersModel *model;
 };
 
-
 Q_DECLARE_METATYPE (QueuedUsers*)

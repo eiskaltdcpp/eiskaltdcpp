@@ -9,8 +9,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef JSON_RPC_METHODS_H
-#define JSON_RPC_METHODS_H
+#pragma once
 
 #include <jsoncpp/json.h>
 class JsonRpcMethods
@@ -75,5 +74,3 @@ class JsonRpcMethods
     Json::Value GetDescriptionGetHashStatus();
     Json::Value GetDescriptionPauseHash();
 };
-
-#endif /* JSON_RPC_METHODS_H */

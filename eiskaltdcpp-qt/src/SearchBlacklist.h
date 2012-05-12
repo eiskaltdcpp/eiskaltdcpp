@@ -8,6 +8,8 @@
 ***************************************************************************/
 #pragma once
 
+#pragma once
+
 #include <QObject>
 #include <QList>
 #include <QRegExp>

@@ -11,8 +11,7 @@
 
 // Created on: 17.08.2009
 
-#ifndef SERVERMANAGER_H_
-#define SERVERMANAGER_H_
+#pragma once
 
 class ServerThread;
 #include <string>
@@ -37,5 +36,3 @@ extern std::string xmlrpcLog, xmlrpcUriPath, lip;
 #endif
 
 extern ServerThread *ServersS;
-
-#endif /* SERVERMANAGER_H_ */

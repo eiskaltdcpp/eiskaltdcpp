@@ -55,5 +55,3 @@ struct hash<dcpp::HashValue<T> > {
         return hvHash;
     }
 };
-
-}

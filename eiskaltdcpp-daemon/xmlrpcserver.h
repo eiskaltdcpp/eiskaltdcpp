@@ -9,8 +9,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef XMLRPCSERVER_H_
-#define XMLRPCSERVER_H_
+#pragma once
 
 #include <cassert>
 #include <stdexcept>
@@ -640,4 +639,3 @@ public:
         bServerTerminated = true;
     }
 };
-#endif

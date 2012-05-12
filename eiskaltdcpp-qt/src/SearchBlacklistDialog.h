@@ -8,6 +8,8 @@
 ***************************************************************************/
 #pragma once
 
+#pragma once
+
 #include <QDialog>
 #include <QAbstractItemModel>
 #include <QStyledItemDelegate>
