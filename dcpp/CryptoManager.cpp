@@ -263,7 +263,7 @@ void CryptoManager::loadCertificates() noexcept {
     StringList certs2 = File::findFiles(SETTING(TLS_TRUSTED_CERTIFICATES_PATH), "*.crt");
     certs.insert(certs.end(), certs2.begin(), certs2.end());
 
-    for(StringIter i = certs.begin(); i != certs.end(); ++i) {
+    for(auto i = certs.begin(); i != certs.end(); ++i) {
         if(
             SSL_CTX_load_verify_locations(clientContext, i->c_str(), NULL) != SSL_SUCCESS ||
             SSL_CTX_load_verify_locations(clientVerContext, i->c_str(), NULL) != SSL_SUCCESS ||

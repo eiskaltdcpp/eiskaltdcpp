@@ -36,7 +36,7 @@ void UserCommand::setDisplayName() {
     string name_ = name;
     Util::replace("//", "\t", name_);
     StringTokenizer<string> t(name_, '/');
-    for(StringList::const_iterator i = t.getTokens().begin(), iend = t.getTokens().end(); i != iend; ++i) {
+    for(auto i = t.getTokens().begin(), iend = t.getTokens().end(); i != iend; ++i) {
         displayName.push_back(*i);
         Util::replace("\t", "/", displayName.back());
     }

@@ -63,7 +63,7 @@ void NmdcHub::connect(const OnlineUser& aUser, const string&) {
 int64_t NmdcHub::getAvailable() const {
     Lock l(cs);
     int64_t x = 0;
-    for(NickMap::const_iterator i = users.begin(); i != users.end(); ++i) {
+    for(auto i = users.begin(); i != users.end(); ++i) {
         x+=i->second->getIdentity().getBytesShared();
     }
     return x;
@@ -101,7 +101,7 @@ OnlineUser& NmdcHub::getUser(const string& aNick) {
 
 void NmdcHub::supports(const StringList& feat) {
     string x;
-    for(StringList::const_iterator i = feat.begin(); i != feat.end(); ++i) {
+    for(auto i = feat.begin(); i != feat.end(); ++i) {
         x+= *i + ' ';
     }
     send("$Supports " + x + '|');
@@ -135,7 +135,7 @@ void NmdcHub::clearUsers() {
         u2.swap(users);
     }
 
-    for(NickIter i = u2.begin(); i != u2.end(); ++i) {
+    for(auto i = u2.begin(); i != u2.end(); ++i) {
         ClientManager::getInstance()->putOffline(i->second);
         delete i->second;
     }
@@ -145,7 +145,7 @@ void NmdcHub::updateFromTag(Identity& id, const string& tag) {
     StringTokenizer<string> tok(tag, ',');
     string::size_type j;
     id.set("US", Util::emptyString);
-    for(StringIter i = tok.getTokens().begin(); i != tok.getTokens().end(); ++i) {
+    for(auto i = tok.getTokens().begin(); i != tok.getTokens().end(); ++i) {
         if(i->length() < 2)
             continue;
 
@@ -273,14 +273,14 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         seekers.push_back(make_pair(seeker, tick));
 
         // First, check if it's a flooder
-        for(FloodIter fi = flooders.begin(); fi != flooders.end(); ++fi) {
+        for(auto fi = flooders.begin(); fi != flooders.end(); ++fi) {
             if(fi->first == seeker) {
                 return;
             }
         }
 
         int count = 0;
-        for(FloodIter fi = seekers.begin(); fi != seekers.end(); ++fi) {
+        for(auto fi = seekers.begin(); fi != seekers.end(); ++fi) {
             if(fi->first == seeker)
                 count++;
 
@@ -552,7 +552,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
     } else if(cmd == "$Supports") {
         StringTokenizer<string> st(param, ' ');
         StringList& sl = st.getTokens();
-        for(StringIter i = sl.begin(); i != sl.end(); ++i) {
+        for(auto i = sl.begin(); i != sl.end(); ++i) {
             if(*i == "UserCommand") {
                 supportFlags |= SUPPORTS_USERCOMMAND;
             } else if(*i == "NoGetINFO") {
@@ -679,7 +679,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             OnlineUserList v;
             StringTokenizer<string> t(param, "$$");
             StringList& l = t.getTokens();
-            for(StringIter it = l.begin(); it != l.end(); ++it) {
+            for(auto it = l.begin(); it != l.end(); ++it) {
                 string::size_type j = 0;
                 if((j = it->find(' ')) == string::npos)
                     continue;
@@ -706,7 +706,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             StringTokenizer<string> t(param, "$$");
             StringList& sl = t.getTokens();
 
-            for(StringIter it = sl.begin(); it != sl.end(); ++it) {
+            for(auto it = sl.begin(); it != sl.end(); ++it) {
                 if(it->empty())
                     continue;
 
@@ -718,7 +718,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 // Let's assume 10 characters per nick...
                 tmp.reserve(v.size() * (11 + 10 + getMyNick().length()));
                 string n = ' ' + fromUtf8(getMyNick()) + '|';
-                for(OnlineUserList::const_iterator i = v.begin(); i != v.end(); ++i) {
+                for(auto i = v.begin(); i != v.end(); ++i) {
                     tmp += "$GetINFO ";
                     tmp += fromUtf8((*i)->getIdentity().getNick());
                     tmp += n;
@@ -735,7 +735,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             OnlineUserList v;
             StringTokenizer<string> t(param, "$$");
             StringList& sl = t.getTokens();
-            for(StringIter it = sl.begin(); it != sl.end(); ++it) {
+            for(auto it = sl.begin(); it != sl.end(); ++it) {
                 if(it->empty())
                     continue;
                 OnlineUser& ou = getUser(*it);
@@ -1067,7 +1067,7 @@ void NmdcHub::on(Minute, uint64_t aTick) noexcept {
         protectedIPs.push_back("openhublist.org");
         protectedIPs.push_back("dchublist.com");
         protectedIPs.push_back("hublista.hu");
-        for(StringIter i = protectedIPs.begin(); i != protectedIPs.end();) {
+        for(auto i = protectedIPs.begin(); i != protectedIPs.end();) {
             *i = Socket::resolve(*i);
             if(Util::isPrivateIp(*i))
                 i = protectedIPs.erase(i);

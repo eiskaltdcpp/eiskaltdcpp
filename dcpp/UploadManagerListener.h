@@ -16,11 +16,13 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef UPLOADMANAGERLISTENER_H_
-#define UPLOADMANAGERLISTENER_H_
+#ifndef DCPLUSPLUS_DCPP_UPLOADMANAGERLISTENER_H_
+#define DCPLUSPLUS_DCPP_UPLOADMANAGERLISTENER_H_
 
 #include "forward.h"
+#include "typedefs.h"
 
+#include "noexcept.h"
 namespace dcpp {
 
 class UploadManagerListener {
@@ -46,4 +48,4 @@ public:
 
 } // namespace dcpp
 
-#endif /*UPLOADMANAGERLISTENER_H_*/
+#endif /*DCPLUSPLUS_DCPP_UPLOADMANAGERLISTENER_H_*/

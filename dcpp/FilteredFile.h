@@ -22,7 +22,7 @@
 #include <boost/scoped_array.hpp>
 
 #include "Streams.h"
-#include "Util.h"
+
 #include "Exception.h"
 
 namespace dcpp {

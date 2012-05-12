@@ -106,7 +106,7 @@ public:
 
         int64_t getSize() {
             int64_t x = 0;
-            for(File::Iter i = files.begin(); i != files.end(); ++i) {
+            for(auto i = files.begin(); i != files.end(); ++i) {
                 x+=(*i)->getSize();
             }
             return x;

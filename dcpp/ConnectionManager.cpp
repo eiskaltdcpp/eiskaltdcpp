@@ -133,7 +133,7 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
 
         bool attemptDone = false;
 
-        for(ConnectionQueueItem::Iter i = downloads.begin(); i != downloads.end(); ++i) {
+        for(auto i = downloads.begin(); i != downloads.end(); ++i) {
             ConnectionQueueItem* cqi = *i;
 
             if(cqi->getState() != ConnectionQueueItem::ACTIVE) {
@@ -189,13 +189,13 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
             }
         }
 
-        for(ConnectionQueueItem::Iter m = removed.begin(); m != removed.end(); ++m) {
+        for(auto m = removed.begin(); m != removed.end(); ++m) {
             putCQI(*m);
         }
 
     }
 
-    for(UserList::iterator ui = passiveUsers.begin(); ui != passiveUsers.end(); ++ui) {
+    for(auto ui = passiveUsers.begin(); ui != passiveUsers.end(); ++ui) {
         QueueManager::getInstance()->removeSource(*ui, QueueItem::Source::FLAG_PASSIVE);
     }
 }
@@ -203,7 +203,7 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
 void ConnectionManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
     Lock l(cs);
 
-    for(UserConnectionList::iterator j = userConnections.begin(); j != userConnections.end(); ++j) {
+    for(auto j = userConnections.begin(); j != userConnections.end(); ++j) {
         if(((*j)->getLastActivity() + 180*1000) < aTick) {
             (*j)->disconnect(true);
         }
@@ -372,7 +372,7 @@ void ConnectionManager::on(AdcCommand::SUP, UserConnection* aSource, const AdcCo
 
     bool baseOk = false;
 
-    for(StringIterC i = cmd.getParameters().begin(); i != cmd.getParameters().end(); ++i) {
+    for(auto i = cmd.getParameters().begin(); i != cmd.getParameters().end(); ++i) {
         if(i->compare(0, 2, "AD") == 0) {
             string feat = i->substr(2);
             if(feat == UserConnection::FEATURE_ADC_BASE || feat == UserConnection::FEATURE_ADC_BAS0) {
@@ -468,7 +468,7 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
     // First, we try looking in the pending downloads...hopefully it's one of them...
     {
         Lock l(cs);
-        for(ConnectionQueueItem::Iter i = downloads.begin(); i != downloads.end(); ++i) {
+        for(auto i = downloads.begin(); i != downloads.end(); ++i) {
             ConnectionQueueItem* cqi = *i;
             cqi->setErrors(0);
             if((cqi->getState() == ConnectionQueueItem::CONNECTING || cqi->getState() == ConnectionQueueItem::WAITING) &&
@@ -568,7 +568,7 @@ void ConnectionManager::addDownloadConnection(UserConnection* uc) {
     {
         Lock l(cs);
 
-        ConnectionQueueItem::Iter i = find(downloads.begin(), downloads.end(), uc->getUser());
+        auto i = find(downloads.begin(), downloads.end(), uc->getUser());
         if(i != downloads.end()) {
             ConnectionQueueItem* cqi = *i;
             if(cqi->getState() == ConnectionQueueItem::WAITING || cqi->getState() == ConnectionQueueItem::CONNECTING) {
@@ -597,7 +597,7 @@ void ConnectionManager::addUploadConnection(UserConnection* uc) {
     {
         Lock l(cs);
 
-        ConnectionQueueItem::Iter i = find(uploads.begin(), uploads.end(), uc->getUser());
+        auto i = find(uploads.begin(), uploads.end(), uc->getUser());
         if(i == uploads.end()) {
             ConnectionQueueItem* cqi = getCQI(uc->getHintedUser(), false);
 
@@ -676,7 +676,7 @@ void ConnectionManager::on(AdcCommand::INF, UserConnection* aSource, const AdcCo
     bool down = false;
     {
         Lock l(cs);
-        ConnectionQueueItem::Iter i = find(downloads.begin(), downloads.end(), aSource->getUser());
+        auto i = find(downloads.begin(), downloads.end(), aSource->getUser());
 
         if(i != downloads.end()) {
             (*i)->setErrors(0);
@@ -702,7 +702,7 @@ void ConnectionManager::on(AdcCommand::INF, UserConnection* aSource, const AdcCo
 void ConnectionManager::force(const UserPtr& aUser) {
     Lock l(cs);
 
-    ConnectionQueueItem::Iter i = find(downloads.begin(), downloads.end(), aUser);
+    auto i = find(downloads.begin(), downloads.end(), aUser);
     if(i == downloads.end()) {
         return;
     }
@@ -713,12 +713,12 @@ void ConnectionManager::force(const UserPtr& aUser) {
 bool ConnectionManager::checkKeyprint(UserConnection *aSource) {
     dcassert(aSource->getUser());
 
-    vector<uint8_t> kp = aSource->getKeyprint();
+    auto kp = aSource->getKeyprint();
     if(kp.empty()) {
         return true;
     }
 
-    string kp2 = ClientManager::getInstance()->getField(aSource->getUser()->getCID(), aSource->getHubUrl(), "KP");
+    auto kp2 = ClientManager::getInstance()->getField(aSource->getUser()->getCID(), aSource->getHubUrl(), "KP");
     if(kp2.empty()) {
         // TODO false probably
         return true;
@@ -746,7 +746,7 @@ void ConnectionManager::failed(UserConnection* aSource, const string& aError, bo
 
     if(aSource->isSet(UserConnection::FLAG_ASSOCIATED)) {
         if(aSource->isSet(UserConnection::FLAG_DOWNLOAD)) {
-            ConnectionQueueItem::Iter i = find(downloads.begin(), downloads.end(), aSource->getUser());
+            auto i = find(downloads.begin(), downloads.end(), aSource->getUser());
             dcassert(i != downloads.end());
             ConnectionQueueItem* cqi = *i;
             cqi->setState(ConnectionQueueItem::WAITING);
@@ -754,7 +754,7 @@ void ConnectionManager::failed(UserConnection* aSource, const string& aError, bo
             cqi->setErrors(protocolError ? -1 : (cqi->getErrors() + 1));
             fire(ConnectionManagerListener::Failed(), cqi, aError);
         } else if(aSource->isSet(UserConnection::FLAG_UPLOAD)) {
-            ConnectionQueueItem::Iter i = find(uploads.begin(), uploads.end(), aSource->getUser());
+            auto i = find(uploads.begin(), uploads.end(), aSource->getUser());
             dcassert(i != uploads.end());
             ConnectionQueueItem* cqi = *i;
             putCQI(cqi);
@@ -773,7 +773,7 @@ void ConnectionManager::on(UserConnectionListener::ProtocolError, UserConnection
 
 void ConnectionManager::disconnect(const UserPtr& aUser) {
     Lock l(cs);
-    for(UserConnectionList::iterator i = userConnections.begin(); i != userConnections.end(); ++i) {
+    for(auto i = userConnections.begin(); i != userConnections.end(); ++i) {
         UserConnection* uc = *i;
         if(uc->getUser() == aUser)
             uc->disconnect(true);
@@ -782,7 +782,7 @@ void ConnectionManager::disconnect(const UserPtr& aUser) {
 
 void ConnectionManager::disconnect(const UserPtr& aUser, int isDownload) {
     Lock l(cs);
-    for(UserConnectionList::iterator i = userConnections.begin(); i != userConnections.end(); ++i) {
+    for(auto i = userConnections.begin(); i != userConnections.end(); ++i) {
         UserConnection* uc = *i;
         if(uc->getUser() == aUser && uc->isSet(isDownload ? UserConnection::FLAG_DOWNLOAD : UserConnection::FLAG_UPLOAD)) {
             uc->disconnect(true);
@@ -797,7 +797,7 @@ void ConnectionManager::shutdown() {
     disconnect();
     {
         Lock l(cs);
-        for(UserConnectionList::iterator j = userConnections.begin(); j != userConnections.end(); ++j) {
+        for(auto j = userConnections.begin(); j != userConnections.end(); ++j) {
             (*j)->disconnect(true);
         }
     }
@@ -815,7 +815,7 @@ void ConnectionManager::shutdown() {
 
 // UserConnectionListener
 void ConnectionManager::on(UserConnectionListener::Supports, UserConnection* conn, const StringList& feat) noexcept {
-    for(StringList::const_iterator i = feat.begin(); i != feat.end(); ++i) {
+    for(auto i = feat.begin(); i != feat.end(); ++i) {
         if(*i == UserConnection::FEATURE_MINISLOTS) {
             conn->setFlag(UserConnection::FLAG_SUPPORTS_MINISLOTS);
         } else if(*i == UserConnection::FEATURE_XML_BZLIST) {

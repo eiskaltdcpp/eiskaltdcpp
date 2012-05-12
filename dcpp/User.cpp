@@ -122,7 +122,7 @@ void Identity::set(const char* name, const string& val) {
 bool Identity::supports(const string& name) const {
     string su = get("SU");
     StringTokenizer<string> st(su, ',');
-    for(StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+    for(auto i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
         if(*i == name)
             return true;
     }

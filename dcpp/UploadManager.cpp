@@ -337,7 +337,7 @@ ok:
 int64_t UploadManager::getRunningAverage() {
     Lock l(cs);
     int64_t avg = 0;
-    for(UploadList::iterator i = uploads.begin(); i != uploads.end(); ++i) {
+    for(auto i = uploads.begin(); i != uploads.end(); ++i) {
         Upload* u = *i;
         avg += u->getAverageSpeed();
     }
@@ -528,7 +528,7 @@ void UploadManager::clearUserFiles(const UserPtr& source) {
 HintedUserList UploadManager::getWaitingUsers() const {
     Lock l(cs);
     HintedUserList u;
-    for(WaitingUserList::const_iterator i = waitingUsers.begin(), iend = waitingUsers.end(); i != iend; ++i) {
+    for(auto i = waitingUsers.begin(), iend = waitingUsers.end(); i != iend; ++i) {
         u.push_back(i->first);
     }
     return u;
@@ -542,7 +542,7 @@ const UploadManager::FileSet& UploadManager::getWaitingUserFiles(const UserPtr& 
 void UploadManager::addConnection(UserConnectionPtr conn) {
     Lock l(cs);
     if (!BOOLSETTING(ALLOW_UPLOAD_MULTI_HUB)) {
-        for(UploadList::iterator i = uploads.begin(); i != uploads.end(); ++i) {
+        for(auto i = uploads.begin(); i != uploads.end(); ++i) {
             if ((*i)->getUserConnection().getRemoteIp() == conn->getRemoteIp()) {
                 conn->disconnect();
                 return;
@@ -582,9 +582,9 @@ void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexc
     {
         Lock l(cs);
 
-        WaitingUserList::iterator i = stable_partition(waitingUsers.begin(), waitingUsers.end(), WaitingUserFresh());
-        for (WaitingUserList::iterator j = i; j != waitingUsers.end(); ++j) {
-            FilesMap::iterator fit = waitingFiles.find(j->first);
+        auto i = stable_partition(waitingUsers.begin(), waitingUsers.end(), WaitingUserFresh());
+        for (auto j = i; j != waitingUsers.end(); ++j) {
+            auto fit = waitingFiles.find(j->first);
             if (fit != waitingFiles.end()) waitingFiles.erase(fit);
             fire(UploadManagerListener::WaitingRemoveUser(), j->first);
         }
@@ -592,7 +592,7 @@ void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexc
         waitingUsers.erase(i, waitingUsers.end());
 
         if( BOOLSETTING(AUTO_KICK) ) {
-            for(UploadList::iterator i = uploads.begin(); i != uploads.end(); ++i) {
+            for(auto i = uploads.begin(); i != uploads.end(); ++i) {
                 Upload* u = *i;
                 if(u->getUser()->isOnline()) {
                     u->unsetFlag(Upload::FLAG_PENDING_KICK);
@@ -613,7 +613,7 @@ void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexc
         }
     }
 
-    for(UserList::iterator i = disconnects.begin(); i != disconnects.end(); ++i) {
+    for(auto i = disconnects.begin(); i != disconnects.end(); ++i) {
         LogManager::getInstance()->message(str(F_("Disconnected user leaving the hub: %1%") %
         Util::toString(ClientManager::getInstance()->getNicks((*i)->getCID(), Util::emptyString))));
         ConnectionManager::getInstance()->disconnect(*i, false);
@@ -661,7 +661,7 @@ void UploadManager::on(TimerManagerListener::Second, uint64_t) noexcept {
     Lock l(cs);
     UploadList ticks;
 
-    for(UploadList::iterator i = uploads.begin(); i != uploads.end(); ++i) {
+    for(auto i = uploads.begin(); i != uploads.end(); ++i) {
         if((*i)->getPos() > 0) {
             ticks.push_back(*i);
             (*i)->tick();
