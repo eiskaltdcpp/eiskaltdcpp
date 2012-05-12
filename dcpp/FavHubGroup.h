@@ -20,8 +20,6 @@
 
 #include <unordered_map>
 
-#include <unordered_map>
-
 namespace dcpp {
 
 struct FavHubGroupProperties {
