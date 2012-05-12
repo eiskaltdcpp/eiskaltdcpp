@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_DIALOG_ENTRY_HH
-#define WULFOR_DIALOG_ENTRY_HH
+#pragma once
 
 #include "entry.hh"
 
@@ -39,7 +38,3 @@ class DialogEntry : public Entry
 		GtkWindow* parent;
 		gint responseID;
 };
-
-#else
-class DialogEntry;
-#endif

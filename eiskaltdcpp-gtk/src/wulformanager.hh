@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_MANAGER_HH
-#define WULFOR_MANAGER_HH
+#pragma once
 
 #include <gtk/gtk.h>
 #include <glib.h>
@@ -95,7 +94,3 @@ class WulforManager
 		GThread *clientThread;
 		bool abort;
 };
-
-#else
-class WulforManager;
-#endif

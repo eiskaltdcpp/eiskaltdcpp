@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_MAIN_WINDOW_HH
-#define WULFOR_MAIN_WINDOW_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/ConnectionManager.h>
@@ -211,7 +210,3 @@ class MainWindow:
         bool onQuit;
         int ToolbarStyle;
 };
-
-#else
-class MainWindow;
-#endif

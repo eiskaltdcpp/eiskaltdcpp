@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_SETTINGSMANAGER_HH
-#define WULFOR_SETTINGSMANAGER_HH
+#pragma once
 
 #include <string>
 #include <map>
@@ -91,7 +90,3 @@ class WulforSettingsManager : public dcpp::Singleton<WulforSettingsManager>
 
 		PreviewApp::List previewApps;
 };
-
-#else
-class WulforSettingsManager;
-#endif

@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_HASH_HH
-#define WULFOR_HASH_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/TimerManager.h>
@@ -48,7 +47,3 @@ class Hash:
         size_t startFiles;
         uint64_t startTime;
 };
-
-#else
-class Hash;
-#endif

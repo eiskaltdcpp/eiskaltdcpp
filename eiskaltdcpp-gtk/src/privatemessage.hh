@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_PRIVATE_MESSAGE_HH
-#define WULFOR_PRIVATE_MESSAGE_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/ClientManagerListener.h>
@@ -128,7 +127,3 @@ class PrivateMessage:
 		EmoticonsDialog *emotdialog;
 		bool offline;
 };
-
-#else
-class PrivateMessage;
-#endif

@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef SEARCH_ADL_H
-#define SEARCH_ADL_H
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/ADLSearch.h>
@@ -58,7 +57,3 @@ class SearchADL:
 		GtkListStore *searchADLStore;
 		GtkTreeSelection *searchADLSelection;
 };
-
-#else
-class SearchADL;
-#endif

@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_FAVORITE_HUBS_HH
-#define WULFOR_FAVORITE_HUBS_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/FavoriteManager.h>
@@ -74,7 +73,3 @@ class FavoriteHubs:
 		GtkTreeSelection *favoriteSelection;
 		GdkEventType previous;
 };
-
-#else
-class FavoriteHubs;
-#endif

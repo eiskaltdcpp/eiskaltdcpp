@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_PUBLIC_HUBS_HH
-#define WULFOR_PUBLIC_HUBS_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/FavoriteManager.h>
@@ -77,7 +76,3 @@ class PublicHubs:
 		GtkListStore *hubStore, *listsStore;
 		guint oldButton, oldType;
 };
-
-#else
-class PublicHubs;
-#endif

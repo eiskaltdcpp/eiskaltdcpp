@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef PREVIEW_MENU_HH
-#define PREVIEW_MENU_HH
+#pragma once
 
 class PreviewMenu
 {
@@ -36,7 +35,3 @@ class PreviewMenu
 		GtkWidget *appsPreviewMenu;
 		static void onPreviewAppClicked_gui(GtkMenuItem *menuItem, gpointer data);
 };
-
-#else
-class PreviewMenu;
-#endif

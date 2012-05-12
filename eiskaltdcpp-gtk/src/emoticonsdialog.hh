@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef EMOTICONS_DIALOG_HH
-#define EMOTICONS_DIALOG_HH
+#pragma once
 
 class EmoticonsDialog
 {
@@ -58,7 +57,3 @@ class EmoticonsDialog
 		static void onCheckIconSizeMenu(GtkMenuItem *checkItem, gpointer data);
 		static gboolean event(GtkWidget *widget /*dialog*/, GdkEvent *event, gpointer data /*this*/);
 };
-
-#else
-class EmoticonsDialog;
-#endif

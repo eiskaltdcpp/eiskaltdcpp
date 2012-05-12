@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef MSG_TYPE_HH
-#define MSG_TYPE_HH
+#pragma once
 
 class Msg
 {
@@ -37,5 +36,3 @@ class Msg
 			UNKNOWN
 		} TypeMsg;
 };
-
-#endif

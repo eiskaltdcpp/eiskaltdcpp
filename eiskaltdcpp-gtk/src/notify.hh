@@ -35,8 +35,7 @@
  * (at your option) any later version.
  */
 
-#ifndef NOTIFY_HH
-#define NOTIFY_HH
+#pragma once
 
 #ifdef USE_LIBNOTIFY
 #include <libnotify/notify.h>
@@ -88,7 +87,3 @@ class Notify
 		//GUI callback functions
 		static void onAction(NotifyNotification *notify, const char *action, gpointer data);
 };
-
-#else
-class Notify;
-#endif

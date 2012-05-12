@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_SETTINGS_DIALOG_HH
-#define WULFOR_SETTINGS_DIALOG_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/SettingsManager.h>
@@ -216,7 +215,3 @@ class Settings:
         void applyIconsTheme(bool useDefault = FALSE);
         void applyTextTheme(bool useDefault = FALSE);
 };
-
-#else
-class Settings;
-#endif

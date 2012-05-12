@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef SEARCH_SPY_HH
-#define SEARCH_SPY_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/ClientManager.h>
@@ -85,7 +84,3 @@ class SearchSpy:
 		GtkListStore *topStore;
 		std::string aSearchColor, cSearchColor, rSearchColor, tSearchColor, qSearchColor;
 };
-
-#else
-class SearchSpy;
-#endif

@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_UTIL_H
-#define WULFOR_UTIL_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <dcpp/stdinc.h>
@@ -82,5 +81,3 @@ class WulforUtil
 		static const std::string magnetSignature;
 		static GtkIconFactory *iconFactory;
 };
-
-#endif
