@@ -16,11 +16,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_ADC_HUB_H
-#define DCPLUSPLUS_DCPP_ADC_HUB_H
+#pragma once
 
 #include "typedefs.h"
-
 #include "Client.h"
 #include "AdcCommand.h"
 #include "Socket.h"
@@ -156,5 +154,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(ADC_HUB_H)

@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_CRITICAL_SECTION_H
-#define DCPLUSPLUS_DCPP_CRITICAL_SECTION_H
+#pragma once
 
 #include "debug.h"
 #include "noexcept.h"
@@ -119,5 +118,3 @@ typedef LockBase<CriticalSection> Lock;
 typedef LockBase<FastCriticalSection> FastLock;
 
 } // namespace dcpp
-
-#endif // DCPLUSPLUS_DCPP_CRITICAL_SECTION_H

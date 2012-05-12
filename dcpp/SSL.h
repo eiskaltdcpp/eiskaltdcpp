@@ -14,8 +14,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef SSL_H_
-#define SSL_H_
+#pragma once
 
 #include <openssl/ssl.h>
 
@@ -57,5 +56,5 @@ typedef scoped_handle<X509_NAME, X509_NAME_free> X509_NAME;
 vector<uint8_t> X509_digest(::X509* x509, const ::EVP_MD* md);
 
 }
+
 }
-#endif /*SSL_H_*/

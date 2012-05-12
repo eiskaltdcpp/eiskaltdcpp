@@ -16,15 +16,13 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_SHARE_MANAGER_H
-#define DCPLUSPLUS_DCPP_SHARE_MANAGER_H
+#pragma once
 
 #include "TimerManager.h"
 #include "SearchManager.h"
 #include "SettingsManager.h"
 #include "HashManagerListener.h"
 #include "QueueManagerListener.h"
-
 #include "Exception.h"
 #include "CriticalSection.h"
 #include "StringSearch.h"
@@ -328,5 +326,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(SHARE_MANAGER_H)

@@ -16,11 +16,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_BUFFERED_SOCKET_H
-#define DCPLUSPLUS_DCPP_BUFFERED_SOCKET_H
+#pragma once
 
 #include "typedefs.h"
-
 #include "BufferedSocketListener.h"
 #include "Semaphore.h"
 #include "Thread.h"
@@ -177,5 +175,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(BUFFERED_SOCKET_H)

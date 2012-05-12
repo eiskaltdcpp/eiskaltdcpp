@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_FORMAT_H_
-#define DCPLUSPLUS_DCPP_FORMAT_H_
+#pragma once
 
 #include <libintl.h>
 #include <boost/format.hpp>
@@ -52,5 +51,3 @@ boost::basic_format<T> dcpp_fmt(const T* t) {
 }
 
 using boost::str;
-
-#endif /* DCPLUSPLUS_DCPP_FORMAT_H_ */

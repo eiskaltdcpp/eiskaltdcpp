@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_CHAT_MESSAGE_H
-#define DCPLUSPLUS_DCPP_CHAT_MESSAGE_H
+#pragma once
 
 #include "forward.h"
 #include <string>
@@ -40,5 +39,3 @@ struct ChatMessage {
 };
 
 } // namespace dcpp
-
-#endif // !defined(DCPLUSPLUS_DCPP_CHAT_MESSAGE_H)

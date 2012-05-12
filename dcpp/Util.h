@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_UTIL_H
-#define DCPLUSPLUS_DCPP_UTIL_H
+#pragma once
 
 #ifdef _WIN32
 # define PATH_SEPARATOR '\\'
@@ -35,7 +34,6 @@
 #include <functional>
 #include <algorithm>
 #include <map>
-
 #include "Text.h"
 
 extern "C" int  _nl_msg_cat_cntr;
@@ -569,5 +567,3 @@ struct noCaseStringLess {
 };
 
 } // namespace dcpp
-
-#endif // !defined(UTIL_H)

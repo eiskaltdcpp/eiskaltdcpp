@@ -16,8 +16,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#if !defined(SCRIPTMANAGER_H__INCLUDED_)
-#define SCRIPTMANAGER_H__INCLUDED_
+#pragma once
 
 #include "Singleton.h"
 #include "User.h"
@@ -25,7 +24,6 @@
 #include "TimerManager.h"
 #include "ClientManagerListener.h"
 #include "CriticalSection.h"
-
 #include "extra/lunar.h"
 
 namespace dcpp {
@@ -131,10 +129,3 @@ private:
 };
 
 }//namespace dcpp
-
-#endif // !defined(SCRIPTMANAGER_H__INCLUDED_)
-
-/**
- * @file ScriptManager.h
- * $Id: ScriptManager.h,v 1.2 2008/01/18 16:08:14 cologic Exp $
- */

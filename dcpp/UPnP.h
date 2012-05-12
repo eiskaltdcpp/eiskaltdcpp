@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_WIN32_UPNP_H
-#define DCPLUSPLUS_WIN32_UPNP_H
+#pragma once
 
 namespace dcpp {
 
@@ -54,5 +53,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif

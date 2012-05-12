@@ -16,12 +16,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_SSLSOCKET_H
-#define DCPLUSPLUS_DCPP_SSLSOCKET_H
+#pragma once
 
 #include "Socket.h"
 #include "Singleton.h"
-
 #include "SSL.h"
 
 #ifndef SSL_SUCCESS
@@ -79,5 +77,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // SSLSOCKET_H

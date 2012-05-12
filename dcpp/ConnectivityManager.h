@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_CONNECTIVITY_MANAGER_H
-#define DCPLUSPLUS_DCPP_CONNECTIVITY_MANAGER_H
+#pragma once
 
 #include "Util.h"
 #include "Speaker.h"
@@ -70,5 +69,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(CONNECTIVITY_MANAGER_H)

@@ -17,12 +17,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#if !defined(PERFOLDER_LIMIT_H)
-#define PERFOLDER_LIMIT_H
-
-#if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
 
 #ifndef _WIN32
 #include <sys/time.h>
@@ -53,5 +48,3 @@ public:
 };
 
 }
-
-#endif

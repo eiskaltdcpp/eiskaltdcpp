@@ -16,11 +16,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_LOG_MANAGER_H
-#define DCPLUSPLUS_DCPP_LOG_MANAGER_H
+#pragma once
 
 #include "typedefs.h"
-
 #include "CriticalSection.h"
 #include "Singleton.h"
 #include "Speaker.h"
@@ -63,5 +61,3 @@ private:
 #define LOG(area, msg) LogManager::getInstance()->log(area, msg)
 
 } // namespace dcpp
-
-#endif // !defined(DCPLUSPLUS_DCPP_LOG_MANAGER_H)

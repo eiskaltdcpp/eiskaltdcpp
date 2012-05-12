@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_BLOOM_FILTER_H
-#define DCPLUSPLUS_DCPP_BLOOM_FILTER_H
+#pragma once
 
 #include "typedefs.h"
 
@@ -88,5 +87,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(BLOOM_FILTER_H)

@@ -9,8 +9,7 @@
 // Thanks to the E.S.O. - ACS project that has done this C++ interface
 // to the wildcards pttern matching algorithm
 
-#ifndef WILDCARD_H
-#define WILDCARD_H
+#pragma once
 
 #include "StringTokenizer.h"
 #include "Util.h"
@@ -52,5 +51,3 @@ class Wildcard
         static int asterisk(const char **wildcard, const char **test);
         static int asterisk(const wchar_t **wildcard, const wchar_t **test);
 };
-
-#endif

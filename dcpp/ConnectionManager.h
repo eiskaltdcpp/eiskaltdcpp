@@ -16,17 +16,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_CONNECTION_MANAGER_H
-#define DCPLUSPLUS_DCPP_CONNECTION_MANAGER_H
+#pragma once
 
 #include "TimerManager.h"
-
 #include "UserConnection.h"
 #include "User.h"
 #include "CriticalSection.h"
 #include "Singleton.h"
 #include "Util.h"
-
 #include "ConnectionManagerListener.h"
 
 namespace dcpp {
@@ -201,5 +198,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(CONNECTION_MANAGER_H)

@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_HASH_MANAGER_H
-#define DCPLUSPLUS_DCPP_HASH_MANAGER_H
+#pragma once
 
 #include "Singleton.h"
 #include "MerkleTree.h"
@@ -277,5 +276,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(HASH_MANAGER_H)

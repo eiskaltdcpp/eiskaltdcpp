@@ -16,8 +16,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef HASHMANAGERLISTENER_H_
-#define HASHMANAGERLISTENER_H_
+#pragma once
 
 #include "MerkleTree.h"
 #include "noexcept.h"
@@ -35,4 +34,3 @@ public:
 };
 
 }
-#endif /*HASHMANAGERLISTENER_H_*/

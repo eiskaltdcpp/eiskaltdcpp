@@ -16,14 +16,11 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_STREAMS_H
-#define DCPLUSPLUS_DCPP_STREAMS_H
+#pragma once
 
 #include <algorithm>
-
 #include "typedefs.h"
 #include "format.h"
-
 #include "SettingsManager.h"
 #include "Exception.h"
 
@@ -224,5 +221,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(STREAMS_H)

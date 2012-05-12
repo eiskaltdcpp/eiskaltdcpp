@@ -16,11 +16,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_DOWNLOAD_MANAGER_H
-#define DCPLUSPLUS_DCPP_DOWNLOAD_MANAGER_H
+#pragma once
 
 #include "forward.h"
-
 #include "DownloadManagerListener.h"
 #include "UserConnectionListener.h"
 #include "QueueItem.h"
@@ -98,5 +96,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(DOWNLOAD_MANAGER_H)

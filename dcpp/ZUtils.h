@@ -16,13 +16,11 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_Z_UTILS_H
-#define DCPLUSPLUS_DCPP_Z_UTILS_H
+#pragma once
 
 #include <cstddef>
 #include <cstdint>
 #include <string>
-
 #include <zlib.h>
 
 namespace dcpp {
@@ -85,5 +83,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(_Z_UTILS_H)

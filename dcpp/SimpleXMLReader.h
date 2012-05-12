@@ -14,8 +14,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef DCPLUSPLUS_DCPP_SIMPLEXMLREADER_H_
-#define DCPLUSPLUS_DCPP_SIMPLEXMLREADER_H_
+#pragma once
 
 #include "typedefs.h"
 
@@ -168,6 +167,4 @@ private:
     bool error(const char* message);
 };
 
-
 }
-#endif /* DCPP_SIMPLEXMLREADER_H_ */

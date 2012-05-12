@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_COMPILER_H
-#define DCPLUSPLUS_DCPP_COMPILER_H
+#pragma once
 
 #if defined(__GNUC__)
 #if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 4)
@@ -61,5 +60,3 @@
 #ifndef _REENTRANT
 # define _REENTRANT 1
 #endif
-
-#endif // DCPLUSPLUS_DCPP_COMPILER_H

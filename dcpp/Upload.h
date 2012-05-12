@@ -16,8 +16,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef UPLOAD_H_
-#define UPLOAD_H_
+#pragma once
 
 #include "forward.h"
 #include "Transfer.h"
@@ -42,5 +41,3 @@ public:
 };
 
 } // namespace dcpp
-
-#endif /*UPLOAD_H_*/

@@ -16,8 +16,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef HASHBLOOM_H_
-#define HASHBLOOM_H_
+#pragma once
 
 #include "MerkleTree.h"
 
@@ -57,5 +56,3 @@ private:
 };
 
 }
-
-#endif /*HASHBLOOM_H_*/
