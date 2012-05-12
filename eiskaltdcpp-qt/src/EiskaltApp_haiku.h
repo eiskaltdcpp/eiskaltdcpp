@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef EISKALTAPP_H
-#define EISKALTAPP_H
+#pragma once
 
 #include <QApplication>
 #include <QEvent>
@@ -105,12 +104,10 @@ public:
     }
 
     void saveState(QSessionManager &){ /** Do nothing */ }
-    
+
 Q_SIGNALS:
     void messageReceived(const QString &message);
-    
+
 private:
     EiskaltEventFilter ef;
 };
-
-#endif //EISKALTAPP_H

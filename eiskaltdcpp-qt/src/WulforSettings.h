@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef WULFORSETTINGS_H
-#define WULFORSETTINGS_H
+#pragma once
 
 #include <QObject>
 #include <QMap>
@@ -230,5 +229,3 @@ static const auto WVGET = [](const QString &key, const QVariant &default_value =
 static const auto WVSET = [](const QString &key, const QVariant &value){ WulforSettings::getInstance()->setVar(key, value); };
 
 static const auto WSCMD = [](const QString &cmd){ WulforSettings::getInstance()->parseCmd(cmd); };
-
-#endif // WULFORSETTINGS_H

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SHAREBROWSERSEARCH_H
-#define SHAREBROWSERSEARCH_H
+#pragma once
 
 #include <QDialog>
 #include <QRegExp>
@@ -51,5 +50,3 @@ private:
     QHash<QTreeWidgetItem*,FileBrowserItem*> hash;
     FileBrowserModel *model;
 };
-
-#endif

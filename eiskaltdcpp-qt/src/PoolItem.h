@@ -7,7 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef POOLITEM_H
+#pragma once
 
 #include <boost/pool/pool_alloc.hpp>
 #include <assert.h>
@@ -45,7 +45,3 @@ private:
 
 template <class T>
 boost::fast_pool_allocator<T> PoolItem<T>::pool = boost::fast_pool_allocator<T>();
-#else
-template <class T>
-class PoolItem;
-#endif

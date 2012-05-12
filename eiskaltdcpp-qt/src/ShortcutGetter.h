@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef _SHORTCUTGETTER_H_
-#define _SHORTCUTGETTER_H_
+#pragma once
 
 #include <QDialog>
 
@@ -16,28 +15,26 @@ class QLineEdit;
 
 class ShortcutGetter : public QDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	ShortcutGetter(QWidget *parent = 0);
+    ShortcutGetter(QWidget *parent = 0);
 
-	QString exec(const QString& s);
+    QString exec(const QString& s);
 
 protected slots:
-	void setCaptureKeyboard(bool b);
+    void setCaptureKeyboard(bool b);
 
 protected:
         bool captureKeyboard() { return capture; }
 
-	bool event(QEvent *e);
-	bool eventFilter(QObject *o, QEvent *e);
-	void setText();
+    bool event(QEvent *e);
+    bool eventFilter(QObject *o, QEvent *e);
+    void setText();
 
 private:
-	bool bStop;
-	QLineEdit *leKey;
-	QStringList lKeys;
-	bool capture;
+    bool bStop;
+    QLineEdit *leKey;
+    QStringList lKeys;
+    bool capture;
 };
-
-#endif

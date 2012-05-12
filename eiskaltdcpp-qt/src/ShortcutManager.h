@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SHORTCUTMANAGER_H
-#define SHORTCUTMANAGER_H
+#pragma once
 
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"
@@ -40,5 +39,3 @@ private:
 
     QMap<QString, QKeySequence> shortcuts;
 };
-
-#endif // SHORTCUTMANAGER_H

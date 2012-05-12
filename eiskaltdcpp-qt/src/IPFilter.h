@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef DCIPFILTER_H
-#define DCIPFILTER_H
+#pragma once
 
 #include <QObject>
 #include <QRegExp>
@@ -120,5 +119,3 @@ signals:
     void ruleRemoved(QString, eDIRECTION, eTableAction);
     void ruleChanged(QString, eDIRECTION, eDIRECTION, eTableAction);
 };
-
-#endif // DCIPFILTER_H

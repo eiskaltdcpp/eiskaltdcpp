@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef NOTIFICATION_H
-#define NOTIFICATION_H
+#pragma once
 
 #include <QObject>
 #include <QSystemTrayIcon>
@@ -96,5 +95,3 @@ private:
 
 Q_DECLARE_METATYPE(Notification*)
 Q_DECLARE_METATYPE(Notification::Type)
-
-#endif // NOTIFICATION_H

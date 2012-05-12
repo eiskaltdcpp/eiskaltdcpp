@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef SETTINGSHISTORY_H
-#define SETTINGSHISTORY_H
+#pragma once
 
 #include <QWidget>
 
@@ -29,5 +28,3 @@ private Q_SLOTS:
     void slotClearSearchHistory();
     void slotClearDirectoriesHistory();
 };
-
-#endif // SETTINGSHISTORY_H

@@ -13,7 +13,6 @@
 
 #include "Antispam.h"
 #include "WulforUtil.h"
-
 #include "dcpp/stdinc.h"
 #include "dcpp/Util.h"
 #include "dcpp/ClientManager.h"
@@ -339,7 +338,7 @@ void AntiSpam::loadSettings() {
     QFile file(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "antispam");
 
     if (!file.exists() || !file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-	keys.append("10");
+    keys.append("10");
         phrase = "5+5=?";
 
         return;
@@ -358,18 +357,18 @@ void AntiSpam::loadSettings() {
                 phrase = "5+5=?";
             else
                 phrase = line;
-	} else if (line.indexOf("|ANTISPAM_KEY|") != -1) {
+    } else if (line.indexOf("|ANTISPAM_KEY|") != -1) {
             line = line.right(line.length() - 14);
             line.replace("\n", "");
 
             if (line == "")
-		keys.append("10");
+        keys.append("10");
         else {
             QList<QString> words = line.split("|", QString::SkipEmptyParts);
-            
+
             if (!keys.empty())
                 keys.clear();
-            
+
             keys.append(words);
         }
         } else if (line.indexOf("|ATTEMPTS|") != -1){

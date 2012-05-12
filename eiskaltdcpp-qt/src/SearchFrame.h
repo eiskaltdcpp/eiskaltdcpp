@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SEARCHFRAME_H
-#define SEARCHFRAME_H
+#pragma once
 
 #include <QWidget>
 #include <QModelIndex>
@@ -198,5 +197,3 @@ private:
 };
 
 Q_DECLARE_METATYPE(SearchFrame*)
-
-#endif // SEARCHFRAME_H

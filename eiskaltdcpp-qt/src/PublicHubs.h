@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef PUBLICHUBS_H
-#define PUBLICHUBS_H
+#pragma once
 
 #include <QWidget>
 #include <QCloseEvent>
@@ -84,5 +83,3 @@ private:
     PublicHubModel *model;
     PublicHubProxyModel *proxy;
 };
-
-#endif // PUBLICHUBS_H

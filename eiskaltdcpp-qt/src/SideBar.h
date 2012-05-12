@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SIDEBAR_H
-#define SIDEBAR_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QMap>
@@ -144,22 +143,20 @@ Q_OBJECT
 public:
     SideBarView(QWidget *parent=0);
     virtual ~SideBarView();
-    
+
 private Q_SLOTS:
     void added(ArenaWidget*);
     void removed(ArenaWidget*);
     void activated(ArenaWidget*);
-    
+
     void slotSidebarContextMenu();
     void slotSidebarHook(const QModelIndex &index);
     void slotSideBarDblClicked(const QModelIndex&);
     void slotWidgetActivated(QModelIndex i);
-    
+
 protected:
     virtual bool eventFilter(QObject *, QEvent *);
-    
+
 private:
     SideBarModel *_model;
 };
-
-#endif // SIDEBAR_H

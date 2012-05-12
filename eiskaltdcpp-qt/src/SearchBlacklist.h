@@ -6,6 +6,7 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+#pragma once
 
 #include <QObject>
 #include <QList>

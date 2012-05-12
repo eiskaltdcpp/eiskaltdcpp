@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SPELLCHECK_H
-#define SPELLCHECK_H
+#pragma once
 
 #include <QObject>
 #include <QList>
@@ -38,5 +37,3 @@ private:
     AspellConfig *config;
     AspellSpeller *spell_checker;
 };
-
-#endif // SPELLCHECK_H

@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef SHELLCOMMANDRUNNER_H
-#define SHELLCOMMANDRUNNER_H
+#pragma once
 
 /**
  * @author Edward Sheldrake
@@ -55,5 +54,3 @@ private:
     QString cmd;
     int _exitCode;
 };
-
-#endif // ShellCommandRunner_U

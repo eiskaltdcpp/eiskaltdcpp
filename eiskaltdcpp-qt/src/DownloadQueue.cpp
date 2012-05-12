@@ -27,7 +27,6 @@
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 #include "Magnet.h"
-
 #include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
 
@@ -42,7 +41,7 @@ using namespace dcpp;
 class DownloadQueuePrivate {
     typedef QMap<QString, QVariant> VarMap;
     typedef QMap<QString, QMap<QString, QString> > SourceMap;
-    
+
 public:
     QShortcut *deleteShortcut;
 
@@ -219,7 +218,7 @@ DownloadQueue::DownloadQueue(QWidget *parent):
 
 DownloadQueue::~DownloadQueue(){
     save();
-    
+
     QueueManager::getInstance()->removeListener(this);
     Q_D(DownloadQueue);
 
@@ -267,7 +266,7 @@ void DownloadQueue::requestDelete(){
 
 void DownloadQueue::init(){
     Q_D(DownloadQueue);
-    
+
     d->queue_model = new DownloadQueueModel(this);
 
     d->delegate = new DownloadQueueDelegate(d->queue_model);
@@ -359,7 +358,7 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
         params["USERS"] = user_list.join(", ");
     else
         params["USERS"] = tr("No users...");
-    
+
     Q_D(DownloadQueue);
 
     d->sources[_q(item->getTarget())] = source;
@@ -421,7 +420,7 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
 
 QStringList DownloadQueue::getSources(){
     Q_D(DownloadQueue);
-    
+
     SourceMap::iterator s_it = d->sources.begin();
     QStringList ret;
 
@@ -477,21 +476,21 @@ void DownloadQueue::loadList(){
     }
 
     QueueManager::getInstance()->unlockQueue();
-    
+
     Q_D(DownloadQueue);
-    
+
     d->queue_model->sort();
 }
 
 void DownloadQueue::addFile(const DownloadQueue::VarMap &map){
     Q_D(DownloadQueue);
-    
+
     d->queue_model->addItem(map);
 }
 
 void DownloadQueue::remFile(const VarMap &map){
     Q_D(DownloadQueue);
-    
+
     if (d->queue_model->remItem(map)){
         SourceMap::iterator it = d->sources.find(map["TARGET"].toString());
 
@@ -507,7 +506,7 @@ void DownloadQueue::remFile(const VarMap &map){
 
 void DownloadQueue::updateFile(const DownloadQueue::VarMap &map){
     Q_D(DownloadQueue);
-    
+
     d->queue_model->updItem(map);
 }
 
@@ -568,7 +567,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
     if (target.isEmpty())
         return;
-    
+
     Q_D(DownloadQueue);
 
     Menu::Action act = d->menu->exec(d->sources, target, items.size() > 1);
@@ -704,10 +703,10 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
             foreach (QObject *obj, list){
                 HubFrame *fr = qobject_cast<HubFrame*>(obj);
-                
+
                 if (!fr)
                     continue;
-                
+
                 if (fr->hasCID(cid, nick)){
                     fr->createPMWindow(cid);
 

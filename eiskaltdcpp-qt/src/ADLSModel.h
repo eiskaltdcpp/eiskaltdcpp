@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef ADLSModel_H
-#define ADLSModel_H
+#pragma once
 
 #include <QAbstractItemModel>
 
@@ -103,5 +102,3 @@ private:
     int sortColumn;
     Qt::SortOrder sortOrder;
 };
-
-#endif // ADLSModel_H

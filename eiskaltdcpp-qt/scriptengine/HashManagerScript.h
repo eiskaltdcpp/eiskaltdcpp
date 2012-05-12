@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef HASHMANAGERSCRIPT_H
-#define HASHMANAGERSCRIPT_H
+#pragma once
 
 #include <QObject>
 
@@ -52,5 +51,3 @@ private:
 
     dcpp::HashManager *HM;
 };
-
-#endif // HASHMANAGERSCRIPT_H

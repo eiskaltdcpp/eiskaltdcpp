@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef FavoriteHubModel_H
-#define FavoriteHubModel_H
+#pragma once
 
 #include <QAbstractItemModel>
 
@@ -106,5 +105,3 @@ private:
     int sortColumn;
     Qt::SortOrder sortOrder;
 };
-
-#endif // FavoriteHubModel_H
