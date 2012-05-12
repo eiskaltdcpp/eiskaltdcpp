@@ -11,8 +11,8 @@
 
 // Created on: 17.08.2009
 
-#ifndef UTILITY_H_
-#define UTILITY_H_
+#pragma once
+
 //---------------------------------------------------------------------------
 #include <string>
 extern std::string PATH, sTitle;
@@ -21,4 +21,3 @@ bool DirExist(char * sPath);
 void Log(const std::string & sData);
 std::string toString(short val);
 bool splitMagnet(const std::string &, std::string &, int64_t &, std::string &);
-#endif /* UTILITY_H_ */

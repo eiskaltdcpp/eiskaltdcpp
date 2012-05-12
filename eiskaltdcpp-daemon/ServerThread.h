@@ -11,8 +11,7 @@
 
 // Created on: 17.08.2009
 
-#ifndef SERVERTHREAD_H_
-#define SERVERTHREAD_H_
+#pragma once
 
 #include "dcpp/QueueManagerListener.h"
 #include "dcpp/TimerManager.h"
@@ -134,5 +133,3 @@ private:
     CriticalSection shutcs;
     static const unsigned int maxLines = 50;
 };
-
-#endif /* SERVERTHREAD_H_ */
