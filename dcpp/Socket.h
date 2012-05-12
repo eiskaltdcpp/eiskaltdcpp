@@ -16,16 +16,13 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_SOCKET_H
-#define DCPLUSPLUS_DCPP_SOCKET_H
+#pragma once
 
 #ifdef _WIN32
 #include "w.h"
 typedef int socklen_t;
 typedef SOCKET socket_t;
-
 #else
-
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -34,12 +31,10 @@ typedef SOCKET socket_t;
 #include <fcntl.h>
 #include <errno.h>
 #include <vector>
-
 typedef int socket_t;
 const int INVALID_SOCKET = -1;
 #define SOCKET_ERROR -1
 #endif
-
 #include "Util.h"
 #include "Exception.h"
 
@@ -247,5 +242,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(SOCKET_H)

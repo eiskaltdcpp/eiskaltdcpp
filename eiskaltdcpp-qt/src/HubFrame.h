@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef HUBFRAME_H
-#define HUBFRAME_H
+#pragma once
 
 #include <QWidget>
 #include <QEvent>
@@ -292,10 +291,8 @@ private:
     virtual void on(ClientListener::SearchFlood, Client*, const string&) noexcept;
 
     Q_DECLARE_PRIVATE(HubFrame);
-    
+
     HubFramePrivate *d_ptr;
 };
 
 Q_DECLARE_METATYPE(HubFrame*)
-
-#endif // HUBFRAME_H

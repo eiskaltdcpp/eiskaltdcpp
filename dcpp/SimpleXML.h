@@ -16,11 +16,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_SIMPLE_XML_H
-#define DCPLUSPLUS_DCPP_SIMPLE_XML_H
+#pragma once
 
 #include "Exception.h"
-
 #include "Streams.h"
 #include "SimpleXMLReader.h"
 
@@ -234,5 +232,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(SIMPLE_XML_H)

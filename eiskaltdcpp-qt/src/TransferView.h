@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef TRANSFERVIEW_H
-#define TRANSFERVIEW_H
+#pragma once
 
 #include <QWidget>
 #include <QAction>
@@ -168,5 +167,3 @@ private:
 
     TransferViewModel *model;
 };
-
-#endif // TRANSFERVIEW_H

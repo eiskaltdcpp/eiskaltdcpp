@@ -16,11 +16,9 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef DCPLUSPLUS_DCPP_DOWNLOAD_H_
-#define DCPLUSPLUS_DCPP_DOWNLOAD_H_
+#pragma once
 
 #include <string>
-
 #include "forward.h"
 #include "noexcept.h"
 #include "Transfer.h"
@@ -29,7 +27,7 @@
 #include "Streams.h"
 
 namespace dcpp {
-    
+
 using std::string;
 
 /**
@@ -78,5 +76,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif /*DOWNLOAD_H_*/

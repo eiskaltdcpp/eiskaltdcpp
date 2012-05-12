@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef EmoticonDialog_H
-#define EmoticonDialog_H
+#pragma once
 
 #include <QDialog>
 #include <QEvent>
@@ -37,5 +36,3 @@ private:
     FlowLayout * m_pLayout;
     QString selectedSmile;
 };
-
-#endif

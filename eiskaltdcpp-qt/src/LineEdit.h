@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef LINEEDIT_H
-#define LINEEDIT_H
+#pragma once
 
 #include <QLineEdit>
 #include <QLabel>
@@ -62,5 +61,3 @@ private:
 
     int parentHeight;
 };
-
-#endif // LINEEDIT_H

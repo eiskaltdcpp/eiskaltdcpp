@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef EISKALTAPP_H
-#define EISKALTAPP_H
+#pragma once
 
 #include <QApplication>
 #include <QEvent>
@@ -87,7 +86,7 @@ private:
 class EiskaltApp: public QApplication {
 Q_OBJECT
 public:
-    EiskaltApp(int argc, char *argv[], const QString& uniqKey): QApplication(argc, argv)
+    EiskaltApp(int &argc, char *argv[], const QString& uniqKey): QApplication(argc, argv)
     {
         installEventFilter(&ef);
     }
@@ -105,12 +104,10 @@ public:
     }
 
     void saveState(QSessionManager &){ /** Do nothing */ }
-    
+
 Q_SIGNALS:
     void messageReceived(const QString &message);
-    
+
 private:
     EiskaltEventFilter ef;
 };
-
-#endif //EISKALTAPP_H

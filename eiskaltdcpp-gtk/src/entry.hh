@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_ENTRY_HH
-#define WULFOR_ENTRY_HH
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
@@ -82,7 +81,3 @@ class Entry
         std::string id;
         std::map<std::string, Entry *> children;
 };
-
-#else
-class Entry;
-#endif

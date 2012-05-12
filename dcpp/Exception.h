@@ -16,11 +16,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_EXCEPTION_H
-#define DCPLUSPLUS_DCPP_EXCEPTION_H
+#pragma once
 
 #include <string>
-
 #include "debug.h"
 
 namespace dcpp {
@@ -61,5 +59,3 @@ public:\
 #endif
 
 } // namespace dcpp
-
-#endif // !defined(EXCEPTION_H)

@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_RESOURCE_MANAGER_H
-#define DCPLUSPLUS_DCPP_RESOURCE_MANAGER_H
+#pragma once
 
 #include "Singleton.h"
 
@@ -40,5 +39,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(RESOURCE_MANAGER_H)

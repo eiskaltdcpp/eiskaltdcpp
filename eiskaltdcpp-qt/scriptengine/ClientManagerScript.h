@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef CLIENTMANAGERSCRIPT_H
-#define CLIENTMANAGERSCRIPT_H
+#pragma once
 
 #include <QObject>
 #include <QStringList>
@@ -42,7 +41,7 @@ public Q_SLOTS:
     bool isConnected(const QString& aUrl) const;
     bool isActive() const;
 
-    void sendPM(const QString &cid, const QString &hubUrl, const QString &msg);    
+    void sendPM(const QString &cid, const QString &hubUrl, const QString &msg);
     QString getMyCID() const;
 
 Q_SIGNALS:
@@ -63,5 +62,3 @@ private:
 
     dcpp::ClientManager *CM;
 };
-
-#endif // CLIENTMANAGERSCRIPT_H

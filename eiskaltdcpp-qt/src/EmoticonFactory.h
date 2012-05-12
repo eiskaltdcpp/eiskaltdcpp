@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef EMOTICONFACTORY_H
-#define EMOTICONFACTORY_H
+#pragma once
 
 #include <QObject>
 #include <QList>
@@ -61,5 +60,3 @@ private:
     EmoticonList list;
     TextDocumentList docs;
 };
-
-#endif // EMOTICONFACTORY_H

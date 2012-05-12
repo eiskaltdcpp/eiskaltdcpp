@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef CUSTOMFONTMODEL_H
-#define CUSTOMFONTMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 
@@ -72,5 +71,3 @@ private:
 
     CustomFontItem *rootItem;
 };
-
-#endif // CUSTOMFONTMODEL_H

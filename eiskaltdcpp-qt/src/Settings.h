@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGS_H
-#define SETTINGS_H
+#pragma once
 
 #include <QDialog>
 #include <QListWidget>
@@ -55,5 +54,3 @@ private:
     WidgetMap widgets;
     bool is_dirty;
 };
-
-#endif // SETTINGS_H

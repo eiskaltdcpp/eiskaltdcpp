@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef POOLALLOC_H
-#define POOLALLOC_H
+#pragma once
 
 /*
 #include <stdlib.h>
@@ -174,5 +173,3 @@ private:
     map<int, vector< void* > * > alloc_blocks;
 };
 */
-
-#endif // POOLALLOC_H

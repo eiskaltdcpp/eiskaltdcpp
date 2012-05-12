@@ -16,8 +16,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_FAVHUBGROUP_H
-#define DCPLUSPLUS_DCPP_FAVHUBGROUP_H
+#pragma once
+
+#include <unordered_map>
 
 #include <unordered_map>
 
@@ -38,5 +39,3 @@ typedef std::unordered_map<string, FavHubGroupProperties> FavHubGroups;
 typedef FavHubGroups::value_type FavHubGroup;
 
 } // namespace dcpp
-
-#endif

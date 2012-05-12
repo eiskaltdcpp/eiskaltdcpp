@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_FUNC_HH
-#define WULFOR_FUNC_HH
+#pragma once
 
 class FuncBase
 {
@@ -372,24 +371,3 @@ class Func9: public FuncBase
 		p8 _param8;
 		p9 _param9;
 };
-
-#else
-template<class c>
-class Func0;
-template<class c, class p1>
-class Func1;
-template<class c, class p1, class p2>
-class Func2;
-template<class c, class p1, class p2, class p3>
-class Func3;
-template<class c, class p1, class p2, class p3, class p4, class p5, class p6>
-class Func6;
-template<class c, class p1, class p2, class p3, class p4, class p5, class p6, class p7>
-class Func7;
-template<class c, class p1, class p2, class p3, class p4, class p5, class p6,
-	class p7, class p8>
-class Func8;
-template<class c, class p1, class p2, class p3, class p4, class p5, class p6,
-	class p7, class p8, class p9>
-class Func9;
-#endif

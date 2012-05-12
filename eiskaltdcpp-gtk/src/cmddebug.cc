@@ -28,7 +28,6 @@
 using namespace std;
 using namespace dcpp;
 
-
 cmddebug::cmddebug():
 BookEntry(Entry::CMD,_("CMD"),"cmddebug.ui")
 {

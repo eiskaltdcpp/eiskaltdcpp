@@ -14,8 +14,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef __DEBUGMANAGER_H
-#define __DEBUGMANAGER_H
+#pragma once
 
 #include "Singleton.h"
 #include "TimerManager.h"
@@ -54,5 +53,3 @@ private:
 #define DETECTION_DEBUG(m) if (DebugManager::getInstance()) DebugManager::getInstance()->SendDetectionMessage(m);
 
 } // namespace dcpp
-
-#endif

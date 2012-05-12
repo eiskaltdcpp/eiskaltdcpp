@@ -7,14 +7,15 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 #   <be.w@mail.ru>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-04-18 06:37+0300\n"
-"PO-Revision-Date: 2012-04-24 16:01+0000\n"
-"Last-Translator: Jackl <be.w@mail.ru>\n"
+"POT-Creation-Date: 2012-05-06 20:44+0300\n"
+"PO-Revision-Date: 2012-05-06 18:29+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/eiskaltdcpp/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -475,7 +476,7 @@ msgstr "<b>Was wollten Sie tun?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Fensteroptionen</b>"
 
-#: ../src/mainwindow.cc:2302
+#: ../src/mainwindow.cc:2311
 msgid "<b>file:</b> "
 msgstr "<b>Datei:</b>"
 
@@ -605,13 +606,13 @@ msgstr "TLS-Verbindungen zu Clients ohne vertrauenswürdige Zertifikate erlauben
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr "TLS-Verbindungen zu Hubs ohne vertrauenswürdige Zertifikate erlauben"
 
+#: ../src/settingsdialog.cc:1569
+msgid "Allow few connections from one IP"
+msgstr "Erlaube mehrere Verbindungen für eine IP"
+
 #: ../src/settingsdialog.cc:1568
 msgid "Allow overlap chunks"
 msgstr "Große überlappende Teile (chunks) erlauben"
-
-#: ../src/settingsdialog.cc:1569
-msgid "Allow some connections for one ip"
-msgstr "Erlaube mehrere Verbindungen für eine IP"
 
 #: ../src/settingsdialog.cc:1570
 msgid "Allow some connections for one user"
@@ -1040,7 +1041,7 @@ msgstr "Wird verbunden …"
 msgid "Connection"
 msgstr "Verbindung"
 
-#: ../src/mainwindow.cc:2251
+#: ../src/mainwindow.cc:2260
 msgid "Connectivity Manager: Warning"
 msgstr "Verbindungsverwaltung: Warnung"
 
@@ -1643,7 +1644,7 @@ msgstr "Die Frame-Größe legt die Breite des Überblicks fest, höhere Werte be
 msgid "Frame:"
 msgstr "Frame:"
 
-#: ../src/mainwindow.cc:2361
+#: ../src/mainwindow.cc:2370
 msgid "Free "
 msgstr "Frei"
 
@@ -2759,7 +2760,7 @@ msgstr "Sicherheitszertifikate"
 msgid "Select Font"
 msgstr "Wähle Schriftart"
 
-#: ../src/mainwindow.cc:2385
+#: ../src/mainwindow.cc:2394
 msgid "Select file to Get TTH"
 msgstr "Wählen Sie die Datei aus, um TTH zu erhalten"
 
@@ -3243,7 +3244,7 @@ msgstr "Dateiliste kann nicht geladen werden: "
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Dateiliste kann nicht geladen werden: ungültiger Dateilistenname"
 
-#: ../src/mainwindow.cc:2249
+#: ../src/mainwindow.cc:2258
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly"
 " until you change settings or turn off any application that might be using "
@@ -3827,7 +3828,7 @@ msgstr "E-Mail"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: Theme %s wird geladen …\n"
 
-#: ../src/mainwindow.cc:2292
+#: ../src/mainwindow.cc:2301
 msgid "file list from "
 msgstr "Dateiliste von "
 
@@ -3863,8 +3864,8 @@ msgstr "Herkunft des Projekts: "
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "Verhältnis: %1% (Uploads: %2%, Downloads: %3% )"
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2326
-#: ../src/mainwindow.cc:2328 ../ui/settingsdialog.ui:3522
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2335
+#: ../src/mainwindow.cc:2337 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "s"

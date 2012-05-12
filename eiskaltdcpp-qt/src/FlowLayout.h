@@ -39,8 +39,7 @@
 **
 ****************************************************************************/
 
-#ifndef FLOWLAYOUT_H
-#define FLOWLAYOUT_H
+#pragma once
 
 #include <QObject>
 #include <QLayout>
@@ -82,5 +81,3 @@ private:
     int m_hSpace;
     int m_vSpace;
 };
-
-#endif

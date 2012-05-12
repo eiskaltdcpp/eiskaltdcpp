@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_MERKLE_TREE_H
-#define DCPLUSPLUS_DCPP_MERKLE_TREE_H
+#pragma once
 
 #include "debug.h"
 #include "typedefs.h"
@@ -231,5 +230,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // DCPLUSPLUS_DCPP_MERKLE_TREE_H

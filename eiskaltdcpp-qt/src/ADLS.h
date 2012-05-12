@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef ADLS_H
-#define ADLS_H
+#pragma once
 
 #include <QWidget>
 #include <QMap>
@@ -18,9 +17,7 @@
 #include "ui_UIADLSearchEditor.h"
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
-
 #include <dcpp/stdinc.h>
-
 #include <dcpp/ADLSearch.h>
 #include <dcpp/Singleton.h>
 
@@ -105,5 +102,3 @@ private:
     ADLSModel *model;
 
 };
-
-#endif // ADLS_H

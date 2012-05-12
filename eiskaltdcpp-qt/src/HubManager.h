@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef HUBMANAGER_H
-#define HUBMANAGER_H
+#pragma once
 
 #include <QObject>
 #include <QHash>
@@ -58,5 +57,3 @@ private:
 };
 
 Q_DECLARE_METATYPE(HubManager*)
-
-#endif // HUBMANAGER_H

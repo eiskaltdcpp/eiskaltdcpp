@@ -19,8 +19,7 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_TRANSFERS_HH
-#define WULFOR_TRANSFERS_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/ConnectionManager.h>
@@ -37,87 +36,85 @@ class PreviewMenu;
 class UserCommandMenu;
 
 class Transfers:
-	public dcpp::ConnectionManagerListener,
-	public dcpp::DownloadManagerListener,
-	public dcpp::QueueManagerListener,
-	public dcpp::UploadManagerListener,
-	public Entry
+    public dcpp::ConnectionManagerListener,
+    public dcpp::DownloadManagerListener,
+    public dcpp::QueueManagerListener,
+    public dcpp::UploadManagerListener,
+    public Entry
 {
-	public:
-		Transfers();
-		~Transfers();
+    public:
+        Transfers();
+        ~Transfers();
 
-		GtkWidget *getContainer() { return getWidget("mainBox"); }
-		virtual void show();
+        GtkWidget *getContainer() { return getWidget("mainBox"); }
+        virtual void show();
 
-	private:
-		// GUI functions
-		void addConnection_gui(dcpp::StringMap params, bool download);
-		void removeConnection_gui(const std::string cid, bool download);
+    private:
+        // GUI functions
+        void addConnection_gui(dcpp::StringMap params, bool download);
+        void removeConnection_gui(const std::string cid, bool download);
 
-		void initTransfer_gui(dcpp::StringMap params);
-		void updateTransfer_gui(dcpp::StringMap params, bool download, Sound::TypeSound sound);
-		void updateFilePosition_gui(const std::string cid, int64_t filePosition);
-		void updateParent_gui(GtkTreeIter* iter);
-		void finishParent_gui(const std::string target, const std::string status, Sound::TypeSound sound);
+        void initTransfer_gui(dcpp::StringMap params);
+        void updateTransfer_gui(dcpp::StringMap params, bool download, Sound::TypeSound sound);
+        void updateFilePosition_gui(const std::string cid, int64_t filePosition);
+        void updateParent_gui(GtkTreeIter* iter);
+        void finishParent_gui(const std::string target, const std::string status, Sound::TypeSound sound);
 
-		bool findParent_gui(const std::string& target, GtkTreeIter* iter);
-		bool findTransfer_gui(const std::string& cid, bool download, GtkTreeIter* iter);
+        bool findParent_gui(const std::string& target, GtkTreeIter* iter);
+        bool findTransfer_gui(const std::string& cid, bool download, GtkTreeIter* iter);
 
-		void popupTransferMenu_gui();
-		void playSound_gui(Sound::TypeSound sound);
+        void popupTransferMenu_gui();
+        void playSound_gui(Sound::TypeSound sound);
 
-		// GUI callbacks
-		static gboolean onTransferButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
-		static gboolean onTransferButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
-		static void onGetFileListClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onForceAttemptClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onCloseConnectionClicked_gui(GtkMenuItem *item, gpointer data);
+        // GUI callbacks
+        static gboolean onTransferButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static gboolean onTransferButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static void onGetFileListClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onForceAttemptClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onCloseConnectionClicked_gui(GtkMenuItem *item, gpointer data);
 
-		// Client functions
-		void getParams_client(dcpp::StringMap& params, dcpp::ConnectionQueueItem* cqi);
-		void getParams_client(dcpp::StringMap& params, dcpp::Transfer* transfer);
-		void getFileList_client(std::string cid, std::string hubUrl);
-		void matchQueue_client(std::string cid, std::string hubUrl);
-		void addFavoriteUser_client(std::string cid);
-		void grantExtraSlot_client(std::string cid, std::string hubUrl);
-		void removeUserFromQueue_client(std::string cid);
-		void forceAttempt_client(std::string cid);
-		void closeConnection_client(std::string cid, bool download);
-		void onFailed(dcpp::Download* dl, const std::string& reason);
+        // Client functions
+        void getParams_client(dcpp::StringMap& params, dcpp::ConnectionQueueItem* cqi);
+        void getParams_client(dcpp::StringMap& params, dcpp::Transfer* transfer);
+        void getFileList_client(std::string cid, std::string hubUrl);
+        void matchQueue_client(std::string cid, std::string hubUrl);
+        void addFavoriteUser_client(std::string cid);
+        void grantExtraSlot_client(std::string cid, std::string hubUrl);
+        void removeUserFromQueue_client(std::string cid);
+        void forceAttempt_client(std::string cid);
+        void closeConnection_client(std::string cid, bool download);
+        void onFailed(dcpp::Download* dl, const std::string& reason);
 
-		// DownloadManager
-		virtual void on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) noexcept;
-		virtual void on(dcpp::DownloadManagerListener::Starting, dcpp::Download* dl) noexcept;
-		virtual void on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadList& dls) noexcept;
-		virtual void on(dcpp::DownloadManagerListener::Complete, dcpp::Download* dl) noexcept;
-		virtual void on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) noexcept;
-		// ConnectionManager
-		virtual void on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQueueItem* cqi) noexcept;
-		virtual void on(dcpp::ConnectionManagerListener::Connected, dcpp::ConnectionQueueItem* cqi) noexcept;
-		virtual void on(dcpp::ConnectionManagerListener::Removed, dcpp::ConnectionQueueItem* cqi) noexcept;
-		virtual void on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQueueItem* cqi, const std::string&) noexcept;
-		virtual void on(dcpp::ConnectionManagerListener::StatusChanged, dcpp::ConnectionQueueItem* cqi) noexcept;
-		// QueueManager
-		virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem* qi, const std::string&, int64_t size) noexcept;
-		virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem* qi) noexcept;
-		virtual void on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* aDownload, const std::string& reason) noexcept;
-		// UploadManager
-		virtual void on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) noexcept;
-		virtual void on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) noexcept;
-		virtual void on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) noexcept;
-		virtual void on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) noexcept;
+        // DownloadManager
+        virtual void on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) noexcept;
+        virtual void on(dcpp::DownloadManagerListener::Starting, dcpp::Download* dl) noexcept;
+        virtual void on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadList& dls) noexcept;
+        virtual void on(dcpp::DownloadManagerListener::Complete, dcpp::Download* dl) noexcept;
+        virtual void on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) noexcept;
+        // ConnectionManager
+        virtual void on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQueueItem* cqi) noexcept;
+        virtual void on(dcpp::ConnectionManagerListener::Connected, dcpp::ConnectionQueueItem* cqi) noexcept;
+        virtual void on(dcpp::ConnectionManagerListener::Removed, dcpp::ConnectionQueueItem* cqi) noexcept;
+        virtual void on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQueueItem* cqi, const std::string&) noexcept;
+        virtual void on(dcpp::ConnectionManagerListener::StatusChanged, dcpp::ConnectionQueueItem* cqi) noexcept;
+        // QueueManager
+        virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem* qi, const std::string&, int64_t size) noexcept;
+        virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem* qi) noexcept;
+        virtual void on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* aDownload, const std::string& reason) noexcept;
+        // UploadManager
+        virtual void on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) noexcept;
+        virtual void on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) noexcept;
+        virtual void on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) noexcept;
+        virtual void on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) noexcept;
 
-		TreeView transferView;
-		GtkTreeStore *transferStore;
-		GtkTreeSelection *transferSelection;
-		UserCommandMenu* userCommandMenu;
-		PreviewMenu *appsPreviewMenu;
+        TreeView transferView;
+        GtkTreeStore *transferStore;
+        GtkTreeSelection *transferSelection;
+        UserCommandMenu* userCommandMenu;
+        PreviewMenu *appsPreviewMenu;
 };
-
-#endif // WULFOR_TRANSFERS_HH

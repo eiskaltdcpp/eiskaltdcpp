@@ -16,14 +16,12 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_SPEAKER_H
-#define DCPLUSPLUS_DCPP_SPEAKER_H
+#pragma once
 
 #include <utility>
 #include <vector>
 #include <algorithm>
 #include <iterator>
-
 #include "CriticalSection.h"
 #include "noexcept.h"
 
@@ -75,5 +73,3 @@ protected:
 };
 
 } // namespace dcpp
-
-#endif // !defined(SPEAKER_H)

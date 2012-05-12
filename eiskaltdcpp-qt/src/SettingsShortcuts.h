@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSSHORTCUTS_H
-#define SETTINGSSHORTCUTS_H
+#pragma once
 
 #include <QWidget>
 #include <QAbstractItemModel>
@@ -80,5 +79,3 @@ private Q_SLOTS:
 private:
     ShortcutsModel *model;
 };
-
-#endif // SETTINGSSHORTCUTS_H

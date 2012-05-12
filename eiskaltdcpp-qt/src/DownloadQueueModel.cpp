@@ -23,7 +23,6 @@
 #include <QSize>
 
 #include <dcpp/stdinc.h>
-
 #include <dcpp/QueueManager.h>
 
 #define _DEBUG_ 1
@@ -68,11 +67,11 @@ DownloadQueueModel::DownloadQueueModel(QObject *parent)
     : QAbstractItemModel(parent), d_ptr(new DownloadQueueModelPrivate())
 {
     Q_D(DownloadQueueModel);
-    
-    d->iconsScaled = false; 
+
+    d->iconsScaled = false;
     d->total_files = 0;
     d->total_size  = 0;
-    
+
     QList<QVariant> rootData;
     rootData << tr("Name") << tr("Status") << tr("Size") << tr("Downloaded")
              << tr("Priority") << tr("User") << tr("Path") << tr("Exact size")
@@ -87,17 +86,17 @@ DownloadQueueModel::DownloadQueueModel(QObject *parent)
 DownloadQueueModel::~DownloadQueueModel()
 {
     Q_D(DownloadQueueModel);
-    
+
     if (d->rootItem)
         delete d->rootItem;
-    
+
     delete d;
 }
 
 int DownloadQueueModel::columnCount(const QModelIndex &parent) const
 {
     Q_D(const static DownloadQueueModel);
-    
+
     if (parent.isValid())
         return static_cast<DownloadQueueItem*>(parent.internalPointer())->columnCount();
     else
@@ -203,23 +202,23 @@ namespace {
 template <Qt::SortOrder order>
 struct Compare {
     typedef bool (*AttrComp)(const DownloadQueueItem * l, const DownloadQueueItem * r);
-    
+
     void static sort(unsigned column, QList<DownloadQueueItem*>& items) {
         if (column > COLUMN_DOWNLOADQUEUE_TTH)
             return;
-        
+
         qStableSort(items.begin(), items.end(), attrs[column]);
     }
 
     void static insertSorted(unsigned column, QList<DownloadQueueItem*>& items, DownloadQueueItem* item) {
         if (column > COLUMN_DOWNLOADQUEUE_TTH){
             items.push_back(item);
-            
+
             return;
         }
-                                        
-        QList<DownloadQueueItem*>::iterator it = qLowerBound(items.begin(), 
-                                                             items.end(), 
+
+        QList<DownloadQueueItem*>::iterator it = qLowerBound(items.begin(),
+                                                             items.end(),
                                                              item,
                                                              attrs[column]
                                                              );
@@ -243,7 +242,7 @@ struct Compare {
        }
         template <typename T>
         bool static Cmp(const T& l, const T& r);
-        
+
         static AttrComp attrs[11];
 };
 
@@ -289,7 +288,7 @@ QVariant DownloadQueueModel::headerData(int section, Qt::Orientation orientation
 QModelIndex DownloadQueueModel::index(int row, int column, const QModelIndex &parent) const
 {
     Q_D(const static DownloadQueueModel);
-    
+
     if (!hasIndex(row, column, parent))
         return QModelIndex();
 
@@ -310,7 +309,7 @@ QModelIndex DownloadQueueModel::index(int row, int column, const QModelIndex &pa
 QModelIndex DownloadQueueModel::parent(const QModelIndex &index) const
 {
     Q_D(const static DownloadQueueModel);
-    
+
     if (!index.isValid())
         return QModelIndex();
 
@@ -327,7 +326,7 @@ int DownloadQueueModel::rowCount(const QModelIndex &parent) const
 {
     Q_D(const static DownloadQueueModel);
     DownloadQueueItem *parentItem;
-    
+
     if (parent.column() > 0)
         return 0;
 
@@ -342,7 +341,7 @@ int DownloadQueueModel::rowCount(const QModelIndex &parent) const
 static void sortRecursive(int column, Qt::SortOrder order, DownloadQueueItem *i){
     if (column == -1 || !i || i->childCount() == 0)
         return;
-    
+
     static Compare<Qt::AscendingOrder> acomp;
     static Compare<Qt::DescendingOrder> dcomp;
 
@@ -357,7 +356,7 @@ static void sortRecursive(int column, Qt::SortOrder order, DownloadQueueItem *i)
 
 void DownloadQueueModel::sort(int column, Qt::SortOrder order) {
     Q_D(DownloadQueueModel);
-    
+
     d->sortColumn = column;
     d->sortOrder = order;
 
@@ -396,7 +395,7 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
 
     child = new DownloadQueueItem(childData, droot);
     droot->appendChild(child);
-    
+
     Q_D(static DownloadQueueModel);
 
     d->total_files++;
@@ -453,7 +452,7 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
 
     if (!target)
         return false;
-    
+
     Q_D(static DownloadQueueModel);
 
     d->total_size -= target->data(COLUMN_DOWNLOADQUEUE_ESIZE).toULongLong();
@@ -504,7 +503,7 @@ bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
 void DownloadQueueModel::setRootElem(DownloadQueueItem *root, bool del_old, bool controlNull){
     if (controlNull && !root)
         return;
-    
+
     Q_D(DownloadQueueModel);
 
     if (del_old && root != d->rootItem){//prevent deleting own root element
@@ -519,32 +518,32 @@ void DownloadQueueModel::setRootElem(DownloadQueueItem *root, bool del_old, bool
 
 DownloadQueueItem *DownloadQueueModel::getRootElem() const{
     Q_D(const DownloadQueueModel);
-    
+
     return d->rootItem;
 }
 
 void DownloadQueueModel::setIconsScaled(bool scaled, const QSize &size){
     Q_D(DownloadQueueModel);
-    
+
     d->iconsScaled = scaled;
     d->iconsSize = size;
 }
 
 int DownloadQueueModel::getSortColumn() const {
     Q_D(const DownloadQueueModel);
-    
+
     return d->sortColumn;
 }
 
 void DownloadQueueModel::setSortColumn(int c) {
     Q_D(DownloadQueueModel);
-    
+
     d->sortColumn = c;
 }
 
 Qt::SortOrder DownloadQueueModel::getSortOrder() const {
     Q_D(const DownloadQueueModel);
-    
+
     return d->sortOrder;
 }
 
@@ -556,7 +555,7 @@ void DownloadQueueModel::setSortOrder(Qt::SortOrder o) {
 
 QModelIndex DownloadQueueModel::createIndexForItem(DownloadQueueItem *item){
     Q_D(DownloadQueueModel);
-    
+
     if (!d->rootItem || !item || item == d->rootItem)
         return QModelIndex();
 
@@ -565,7 +564,7 @@ QModelIndex DownloadQueueModel::createIndexForItem(DownloadQueueItem *item){
 
 DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
     Q_D(static DownloadQueueModel);
-    
+
     if (!d->rootItem)
         return NULL;
 
@@ -623,7 +622,7 @@ DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
 
 void DownloadQueueModel::clear(){
     blockSignals(true);
-    
+
     Q_D(DownloadQueueModel);
 
     qDeleteAll(d->rootItem->childItems);

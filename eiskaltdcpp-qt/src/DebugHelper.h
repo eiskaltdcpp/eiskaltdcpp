@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef DEBUGHELPER_H
-#define DEBUGHELPER_H
+#pragma once
 
 #ifdef _DEBUG
 
@@ -18,30 +17,28 @@
 class DebugHelper{
 public:
     DebugHelper(){}
-    
+
     virtual ~DebugHelper(){
         if (whitespace.size() >= 2)
             whitespace.remove(0, 2);
     }
-    
+
     const char* operator << (const QString &out){
         QString ret = whitespace + out;
-        
+
         whitespace += "  ";
-        
+
         return qPrintable(ret);
-    }    
+    }
 private:
     static QString whitespace;
 };
 
 #define DEBUG_BLOCK DebugHelper _dbg_helper_; \
                     std::cout << (_dbg_helper_ << Q_FUNC_INFO) << std::endl;
-                    
+
 #else // QT_NO_DEBUG
 
 #define DEBUG_BLOCK
 
 #endif //QT_NO_DEBUG
-                    
-#endif // DEBUGHELPER_H

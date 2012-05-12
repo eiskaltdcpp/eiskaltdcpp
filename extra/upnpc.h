@@ -22,30 +22,25 @@
  * http://miniupnp.free.fr http://miniupnp.tuxfamily.org
  */
 
-#ifndef UPNPC_HH
-#define UPNPC_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/UPnP.h>
 
 class UPnPc :
-	public dcpp::UPnP
+    public dcpp::UPnP
 {
-	public:
-		UPnPc() {}
-	private:
-		bool init();
+    public:
+        UPnPc() {}
+    private:
+        bool init();
 
-		bool add(const unsigned short port, const dcpp::UPnP::Protocol protocol, const std::string& description);
-		bool remove(const unsigned short port, const dcpp::UPnP::Protocol protocol);
-		const std::string& getName() const {
-			return name;
-		}
+        bool add(const unsigned short port, const dcpp::UPnP::Protocol protocol, const std::string& description);
+        bool remove(const unsigned short port, const dcpp::UPnP::Protocol protocol);
+        const std::string& getName() const {
+            return name;
+        }
 
-		std::string getExternalIP();
-		static const std::string name;
+        std::string getExternalIP();
+        static const std::string name;
 };
-
-#else
-class UPnPc;
-#endif

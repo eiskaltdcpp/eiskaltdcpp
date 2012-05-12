@@ -25,7 +25,6 @@
 #include <dcpp/ClientManager.h>
 #include <dcpp/Util.h>
 #include <dcpp/StringTokenizer.h>
-
 #include <iostream>
 #include <arpa/inet.h>
 #include <fcntl.h>
@@ -131,30 +130,30 @@ vector<string> WulforUtil::getLocalIPs()
     return addresses;
 }
 
-//NOTE: core 0.762
+
 string WulforUtil::getNicks(const string &cid, const string& hintUrl)
 {
-        return getNicks(CID(cid), hintUrl);
+    return getNicks(CID(cid), hintUrl);
 }
 
 string WulforUtil::getNicks(const CID& cid, const string& hintUrl)
 {
-        return Util::toString(ClientManager::getInstance()->getNicks(cid, hintUrl));
+    return Util::toString(ClientManager::getInstance()->getNicks(cid, hintUrl));
 }
 
 string WulforUtil::getNicks(const UserPtr& user, const string& hintUrl)
 {
-        return getNicks(user->getCID(), hintUrl);
+    return getNicks(user->getCID(), hintUrl);
 }
 
 string WulforUtil::getHubNames(const string &cid, const string& hintUrl)
 {
-        return getHubNames(CID(cid), hintUrl);
+    return getHubNames(CID(cid), hintUrl);
 }
 
 string WulforUtil::getHubNames(const CID& cid, const string& hintUrl)
 {
-        StringList hubs = ClientManager::getInstance()->getHubNames(cid, hintUrl);
+    StringList hubs = ClientManager::getInstance()->getHubNames(cid, hintUrl);
     if (hubs.empty())
         return _("Offline");
     else
@@ -163,19 +162,19 @@ string WulforUtil::getHubNames(const CID& cid, const string& hintUrl)
 
 string WulforUtil::getHubNames(const UserPtr& user, const string& hintUrl)
 {
-        return getHubNames(user->getCID(), hintUrl);
+    return getHubNames(user->getCID(), hintUrl);
 }
 
 StringList WulforUtil::getHubAddress(const CID& cid, const string& hintUrl)
 {
-        return ClientManager::getInstance()->getHubs(cid, hintUrl);
+    return ClientManager::getInstance()->getHubs(cid, hintUrl);
 }
 
 StringList WulforUtil::getHubAddress(const UserPtr& user, const string& hintUrl)
 {
-        return getHubAddress(user->getCID(), hintUrl);
+    return getHubAddress(user->getCID(), hintUrl);
 }
-//NOTE: core 0.762
+
 string WulforUtil::getTextFromMenu(GtkMenuItem *item)
 {
     string text;

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSCONNECTION_H
-#define SETTINGSCONNECTION_H
+#pragma once
 
 #include <QWidget>
 #include <QIntValidator>
@@ -46,5 +45,3 @@ private:
 
     int old_tcp, old_udp, old_tls, old_dht;
 };
-
-#endif // SETTINGSCONNECTION_H

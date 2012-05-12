@@ -788,7 +788,7 @@ which already exist in your queue.</string>
               <string>Keep downloaded filelists</string>
              </property>
              <property name="toolTip">
-              <string>Enable this option if you want to keep downloaded filelists 
+              <string>Enable this option if you want to keep downloaded filelists
 in the download queue after they have been finished.
 After downloaded the queue items will have 'Finished' status
 and you can delete these finished entries anytime later.
@@ -920,7 +920,7 @@ from the queue either, you must do that manually.</string>
        <item>
         <widget class="QCheckBox" name="checkBox_ALLOW_UPLOAD_MULTI_HUB">
          <property name="text">
-          <string>Allow simultaneous uploads by one ip</string>
+          <string>Allow simultaneous uploads by one IP</string>
          </property>
         </widget>
        </item>

@@ -3191,28 +3191,28 @@ Letöltve: %3 Feltöltve: %4</translation>
 <context>
     <name>SettingsDownloads</name>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="161"/>
-        <location filename="../src/SettingsDownloads.cpp" line="196"/>
+        <location filename="../src/SettingsDownloads.cpp" line="163"/>
+        <location filename="../src/SettingsDownloads.cpp" line="198"/>
         <source>Select directory</source>
         <translation>Könyvtár kiválasztása</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="178"/>
+        <location filename="../src/SettingsDownloads.cpp" line="180"/>
         <source>New</source>
         <translation>Új</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="184"/>
+        <location filename="../src/SettingsDownloads.cpp" line="186"/>
         <source>Delete</source>
         <translation>Törlés</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="191"/>
+        <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Enter alias for directory</source>
         <translation>Álnév hozzárendelése a könyvtárhoz</translation>
     </message>
     <message>
-        <location filename="../src/SettingsDownloads.cpp" line="191"/>
+        <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Alias</source>
         <translation>Álnév</translation>
     </message>
@@ -3397,65 +3397,65 @@ Letöltve: %3 Feltöltve: %4</translation>
 <context>
     <name>SettingsSharing</name>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="115"/>
-        <location filename="../src/SettingsSharing.cpp" line="162"/>
+        <location filename="../src/SettingsSharing.cpp" line="117"/>
+        <location filename="../src/SettingsSharing.cpp" line="164"/>
         <source>Total shared: %1</source>
         <translation>Összes megosztás: %1</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="189"/>
-        <location filename="../src/SettingsSharing.cpp" line="308"/>
-        <location filename="../src/SettingsSharing.cpp" line="319"/>
+        <location filename="../src/SettingsSharing.cpp" line="191"/>
+        <location filename="../src/SettingsSharing.cpp" line="310"/>
+        <location filename="../src/SettingsSharing.cpp" line="321"/>
         <source>Select directory</source>
         <translation>Könyvtár kiválasztása</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="189"/>
-        <location filename="../src/SettingsSharing.cpp" line="319"/>
-        <location filename="../src/SettingsSharing.cpp" line="360"/>
+        <location filename="../src/SettingsSharing.cpp" line="191"/>
+        <location filename="../src/SettingsSharing.cpp" line="321"/>
+        <location filename="../src/SettingsSharing.cpp" line="362"/>
         <source>Name</source>
         <translation>Név</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="206"/>
-        <location filename="../src/SettingsSharing.cpp" line="235"/>
+        <location filename="../src/SettingsSharing.cpp" line="208"/>
+        <location filename="../src/SettingsSharing.cpp" line="237"/>
         <source>Add item</source>
         <translation>Elem hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="206"/>
-        <location filename="../src/SettingsSharing.cpp" line="235"/>
+        <location filename="../src/SettingsSharing.cpp" line="208"/>
+        <location filename="../src/SettingsSharing.cpp" line="237"/>
         <source>Enter text:</source>
         <translation>Kifejezés/Szöveg megadása:</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="213"/>
+        <location filename="../src/SettingsSharing.cpp" line="215"/>
         <source>Choose the directory</source>
         <translation>Könyvtár kiválasztása</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="287"/>
+        <location filename="../src/SettingsSharing.cpp" line="289"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="291"/>
+        <location filename="../src/SettingsSharing.cpp" line="293"/>
         <source>Rename</source>
         <translation>Átnevezés</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="296"/>
+        <location filename="../src/SettingsSharing.cpp" line="298"/>
         <source>Remove</source>
         <translation>Törlés</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="334"/>
-        <location filename="../src/SettingsSharing.cpp" line="370"/>
+        <location filename="../src/SettingsSharing.cpp" line="336"/>
+        <location filename="../src/SettingsSharing.cpp" line="372"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="359"/>
+        <location filename="../src/SettingsSharing.cpp" line="361"/>
         <source>Enter new name</source>
         <translation>Új név megadása</translation>
     </message>
@@ -3528,63 +3528,63 @@ Letöltve: %3 Feltöltve: %4</translation>
         <translation>Böngészés</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="215"/>
+        <location filename="../src/ShareBrowser.cpp" line="216"/>
         <source>Own files</source>
         <translation>Saját fájlok</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="217"/>
+        <location filename="../src/ShareBrowser.cpp" line="218"/>
         <source>Listing: </source>
         <translation>Fájl-lista: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="310"/>
+        <location filename="../src/ShareBrowser.cpp" line="311"/>
         <source>Filebrowser</source>
         <translation>Fájlböngésző</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="312"/>
+        <location filename="../src/ShareBrowser.cpp" line="313"/>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="390"/>
+        <location filename="../src/ShareBrowser.cpp" line="391"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Teljes megosztás mérete: %1;  Fájlok: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="424"/>
+        <location filename="../src/ShareBrowser.cpp" line="425"/>
         <source>Share browser error: %1</source>
         <translation>Megosztás böngésző hiba: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="596"/>
-        <location filename="../src/ShareBrowser.cpp" line="620"/>
+        <location filename="../src/ShareBrowser.cpp" line="597"/>
+        <location filename="../src/ShareBrowser.cpp" line="621"/>
         <source>Total size: %1</source>
         <translation>Teljes méret: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="618"/>
+        <location filename="../src/ShareBrowser.cpp" line="619"/>
         <source>Selected %1 from %2 items; </source>
         <translation>%1 elem kiválasztva a(z) %2 elemből; </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="623"/>
+        <location filename="../src/ShareBrowser.cpp" line="624"/>
         <source>; Selected: %1</source>
         <translation>; Kiválasztva: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="826"/>
+        <location filename="../src/ShareBrowser.cpp" line="827"/>
         <source>Select directory</source>
         <translation>Könyvtár kiválasztása</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="956"/>
+        <location filename="../src/ShareBrowser.cpp" line="957"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Korlátozás méretének megadása (GiB-ban)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1095"/>
+        <location filename="../src/ShareBrowser.cpp" line="1096"/>
         <source>Share browser</source>
         <translation>Megosztás böngésző</translation>
     </message>
@@ -3600,7 +3600,7 @@ Letöltve: %3 Feltöltve: %4</translation>
 <context>
     <name>ShareDirModel</name>
     <message>
-        <location filename="../src/SettingsSharing.cpp" line="522"/>
+        <location filename="../src/SettingsSharing.cpp" line="524"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
@@ -5992,6 +5992,11 @@ Ezen kívül a funkció kikapcsolása nem törli a már meglévő befejezett ele
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../ui/UISettingsDownloads.ui" line="923"/>
+        <source>Allow simultaneous uploads by one IP</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>UISettingsGUI</name>
@@ -6894,12 +6899,17 @@ Az opció megváltoztatása a fájllista frissítését eredményezi, ezért ekk
         <translation>Proaktív lemezolvasás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="380"/>
+        <location filename="../ui/UISettingsSharing.ui" line="372"/>
+        <source>Use ADL search only in own file list</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsSharing.ui" line="387"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="396"/>
+        <location filename="../ui/UISettingsSharing.ui" line="403"/>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
@@ -6910,29 +6920,29 @@ the granted slot will not be closed.</source>
 Ha a korábbi feltöltések sebessége újból növekedni kezd, a már kiadott extra slotok nem lesznek visszavéve.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="416"/>
+        <location filename="../ui/UISettingsSharing.ui" line="423"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
         <translation>Indexelés elhalasztása indításkor (másodpercben, -1 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="432"/>
-        <location filename="../ui/UISettingsSharing.ui" line="467"/>
+        <location filename="../ui/UISettingsSharing.ui" line="439"/>
+        <location filename="../ui/UISettingsSharing.ui" line="474"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Ez a beállítás szabályozza, hogy mennyi időnként lesz a megosztásod automatikusan újra ellenőrizve
 az újabb vagy megváltozott tartalom indexelése céljából.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="451"/>
+        <location filename="../ui/UISettingsSharing.ui" line="458"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
         <translation>Automatikus újraellenőrzés ideje (percben, 0 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="483"/>
+        <location filename="../ui/UISettingsSharing.ui" line="490"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Maximális indexelési sebesség (MB/s, 0 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="496"/>
+        <location filename="../ui/UISettingsSharing.ui" line="503"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
         <translation>Ezzel a MiB/mp-ben megadott sebességgel fogja az EiskaltDC++ indexelni a fájlaidat.
@@ -6941,12 +6951,12 @@ ezzel a beállítással az indexelés lassabra vehető, így kevésbe terheli le
 A &quot;normális&quot; indexelési sebesség kb. 20 és 50 MiB között mozog másodpercenként.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="510"/>
+        <location filename="../ui/UISettingsSharing.ui" line="517"/>
         <source>Upload slots</source>
         <translation>Feltöltési slotok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="520"/>
+        <location filename="../ui/UISettingsSharing.ui" line="527"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
 one slot for each hub that they're on with you.

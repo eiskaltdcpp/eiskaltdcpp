@@ -19,73 +19,67 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef SEARCH_SPY_HH
-#define SEARCH_SPY_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/ClientManager.h>
 #include <dcpp/TimerManager.h>
-
 #include "bookentry.hh"
 #include "treeview.hh"
 
 class SearchSpy:
-	public BookEntry,
-	public dcpp::ClientManagerListener,
-	public dcpp::TimerManagerListener
+    public BookEntry,
+    public dcpp::ClientManagerListener,
+    public dcpp::TimerManagerListener
 {
-	public:
-		SearchSpy();
-		virtual ~SearchSpy();
-		virtual void show();
-		void preferences_gui();
+    public:
+        SearchSpy();
+        virtual ~SearchSpy();
+        virtual void show();
+        void preferences_gui();
 
-	private:
-		typedef std::unordered_map<std::string, GtkTreeIter> SearchIters;
-		typedef SearchIters::size_type SearchType;
+    private:
+        typedef std::unordered_map<std::string, GtkTreeIter> SearchIters;
+        typedef SearchIters::size_type SearchType;
 
-		// GUI functions
-		bool updateFrameStatus_gui(GtkTreeIter *iter, uint64_t tick);
-		void updateFrameStatus_gui();
-		bool findIter_gui(const std::string &search, GtkTreeIter *iter);
-		void updateFrameSearch_gui(const std::string search, const std::string type);
-		void setStatus_gui(const std::string text);
-		void addTop_gui(const std::string &search, const std::string &type);
-		void resetFrame();
-		void resetCount();
+        // GUI functions
+        bool updateFrameStatus_gui(GtkTreeIter *iter, uint64_t tick);
+        void updateFrameStatus_gui();
+        bool findIter_gui(const std::string &search, GtkTreeIter *iter);
+        void updateFrameSearch_gui(const std::string search, const std::string type);
+        void setStatus_gui(const std::string text);
+        void addTop_gui(const std::string &search, const std::string &type);
+        void resetFrame();
+        void resetCount();
 
-		// GUI callbacks
-		static void onSearchItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onClearFrameClicked_gui(GtkWidget *widget, gpointer data);
-		static void onUpdateFrameClicked_gui(GtkWidget *widget, gpointer data);
-		static void onShowTopClicked_gui(GtkWidget *widget, gpointer data);
-		static void onSearchTopClicked_gui(GtkWidget *widget, gpointer data);
-		static void onClearTopClicked_gui(GtkWidget *widget, gpointer data);
-		static void onRemoveTopClicked_gui(GtkWidget *widget, gpointer data);
-		static void onIgnoreTTHSearchToggled_gui(GtkWidget *widget, gpointer data);
-		static void onOKButtonClicked_gui(GtkWidget *widget, gpointer data);
-		static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
-		static gboolean onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
-		static gboolean onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
+        // GUI callbacks
+        static void onSearchItemClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data);
+        static void onClearFrameClicked_gui(GtkWidget *widget, gpointer data);
+        static void onUpdateFrameClicked_gui(GtkWidget *widget, gpointer data);
+        static void onShowTopClicked_gui(GtkWidget *widget, gpointer data);
+        static void onSearchTopClicked_gui(GtkWidget *widget, gpointer data);
+        static void onClearTopClicked_gui(GtkWidget *widget, gpointer data);
+        static void onRemoveTopClicked_gui(GtkWidget *widget, gpointer data);
+        static void onIgnoreTTHSearchToggled_gui(GtkWidget *widget, gpointer data);
+        static void onOKButtonClicked_gui(GtkWidget *widget, gpointer data);
+        static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static gboolean onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static gboolean onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
 
-		// Client callbacks
-		virtual void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) noexcept;
-		virtual void on(dcpp::TimerManagerListener::Minute, uint64_t tick) noexcept;
+        // Client callbacks
+        virtual void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) noexcept;
+        virtual void on(dcpp::TimerManagerListener::Minute, uint64_t tick) noexcept;
 
-		SearchType FrameSize;
-		guint Waiting;
-		guint Top;
-		GdkEventType previous;
-		TreeView searchView;
-		GtkListStore *searchStore;
-		GtkTreeSelection *searchSelection;
-		SearchIters searchIters;
-		TreeView topView;
-		GtkListStore *topStore;
-		std::string aSearchColor, cSearchColor, rSearchColor, tSearchColor, qSearchColor;
+        SearchType FrameSize;
+        guint Waiting;
+        guint Top;
+        GdkEventType previous;
+        TreeView searchView;
+        GtkListStore *searchStore;
+        GtkTreeSelection *searchSelection;
+        SearchIters searchIters;
+        TreeView topView;
+        GtkListStore *topStore;
+        std::string aSearchColor, cSearchColor, rSearchColor, tSearchColor, qSearchColor;
 };
-
-#else
-class SearchSpy;
-#endif

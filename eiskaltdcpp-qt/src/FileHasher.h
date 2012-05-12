@@ -7,9 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef FILEHASHER_H
-#define FILEHASHER_H
-
+#pragma once
 
 #include <QDialog>
 #include <QEvent>
@@ -54,5 +52,3 @@ public:
     private:
         HashThread *hasher;
 };
-
-#endif // FILEHASHER_H

@@ -19,23 +19,20 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef MSG_TYPE_HH
-#define MSG_TYPE_HH
+#pragma once
 
 class Msg
 {
-	public:
-		typedef enum
-		{
-			GENERAL,
-			PRIVATE,
-			MYOWN,
-			SYSTEM,
-			STATUS,
-			FAVORITE,
-			OPERATOR,
-			UNKNOWN
-		} TypeMsg;
+    public:
+        typedef enum
+        {
+            GENERAL,
+            PRIVATE,
+            MYOWN,
+            SYSTEM,
+            STATUS,
+            FAVORITE,
+            OPERATOR,
+            UNKNOWN
+        } TypeMsg;
 };
-
-#endif

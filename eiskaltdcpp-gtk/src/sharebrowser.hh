@@ -19,12 +19,10 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_SHARE_BROWSER_HH
-#define WULFOR_SHARE_BROWSER_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DirectoryListing.h>
-
 #include "bookentry.hh"
 #include "treeview.hh"
 
@@ -172,7 +170,3 @@ class ShareBrowser:
                 ParamMap columns;
                 };
 };
-
-#else
-class ShareBrowser;
-#endif

@@ -7,8 +7,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef FBMODEL_H
-#define FBMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QSize>
@@ -155,5 +154,3 @@ private:
     /** */
     bool ownList;
 };
-
-#endif // FBMODEL_H

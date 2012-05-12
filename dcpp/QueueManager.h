@@ -16,11 +16,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_QUEUE_MANAGER_H
-#define DCPLUSPLUS_DCPP_QUEUE_MANAGER_H
+#pragma once
 
 #include "TimerManager.h"
-
 #include "CriticalSection.h"
 #include "Exception.h"
 #include "User.h"
@@ -29,7 +27,6 @@
 #include "Singleton.h"
 #include "DirectoryListing.h"
 #include "MerkleTree.h"
-
 #include "QueueManagerListener.h"
 #include "SearchManagerListener.h"
 #include "ClientManagerListener.h"
@@ -307,5 +304,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(QUEUE_MANAGER_H)

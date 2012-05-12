@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-04-18 06:37+0300\n"
+"POT-Creation-Date: 2012-05-06 20:44+0300\n"
 "PO-Revision-Date: 2012-04-18 04:12+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Bulgarian (http://www.transifex.net/projects/p/eiskaltdcpp/language/bg/)\n"
+"Language-Team: Bulgarian (http://www.transifex.net/projects/p/eiskaltdcpp/"
+"language/bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../FavoriteManager.cpp:429
@@ -61,7 +62,9 @@ msgstr "Грешка при свързването със Socks сървъра (
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr "Грешка при настройването на Socks сървъра за UDP (проверете адреса и порта на сървъра)"
+msgstr ""
+"Грешка при настройването на Socks сървъра за UDP (проверете адреса и порта "
+"на сървъра)"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -97,26 +100,32 @@ msgstr "Определяне на най-добрите настройки за 
 
 #: ../ConnectivityManager.cpp:83
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr "Не може да отвори %1% порт(а); трябва да конфигурирате ръчно настройките за свързване"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr ""
+"Не може да отвори %1% порт(а); трябва да конфигурирате ръчно настройките за "
+"свързване"
 
 #: ../ConnectivityManager.cpp:93
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr "Засечен е външен IP адрес, избиране на Активен режим с директно свързване"
+msgstr ""
+"Засечен е външен IP адрес, избиране на Активен режим с директно свързване"
 
 #: ../ConnectivityManager.cpp:100
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr "Засечена е локална мрежа с възможност за NAT, опит за пренасочване на портове чрез UPnP..."
+msgstr ""
+"Засечена е локална мрежа с възможност за NAT, опит за пренасочване на "
+"портове чрез UPnP..."
 
 #: ../ConnectivityManager.cpp:128
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr "Автоматичното настройване на активния режим се провали. Може да искате да настроите връзката ръчно за по-добра свързаност"
+msgstr ""
+"Автоматичното настройване на активния режим се провали. Може да искате да "
+"настроите връзката ръчно за по-добра свързаност"
 
 #: ../ConnectivityManager.cpp:140
 msgid "Transfer (TCP)"
@@ -194,7 +203,9 @@ msgstr "Тема на хъба:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr "Този хъб се опитва да използва клиента за спам %1%, помолете собственика на хъба да го поправи"
+msgstr ""
+"Този хъб се опитва да използва клиента за спам %1%, помолете собственика на "
+"хъба да го поправи"
 
 #: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
@@ -218,7 +229,9 @@ msgstr "Грешка при преговаряне за базов проток�
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr "Хъба вероятно използва стара версия на ADC, помолете собственика му да го надгради"
+msgstr ""
+"Хъба вероятно използва стара версия на ADC, помолете собственика му да го "
+"надгради"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -326,7 +339,9 @@ msgstr "Базата-данни с хешове е построена нанов
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr "%1% не е споделен; изчислената CRC32 сума не съвпада с намерената в SFV файла."
+msgstr ""
+"%1% не е споделен; изчислената CRC32 сума не съвпада с намерената в SFV "
+"файла."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -369,7 +384,9 @@ msgstr "DHT порт (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr "Успешно пренасочване на портове (TCP: %1%, UDP: %2%, TLS: %3%), пренасочени чрез %4% интерфейс"
+msgstr ""
+"Успешно пренасочване на портове (TCP: %1%, UDP: %2%, TLS: %3%), пренасочени "
+"чрез %4% интерфейс"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -419,13 +436,17 @@ msgstr "Потребителя е избрал да не се споделя в�
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr "Повтарящия се файл няма да бъде споделен: %1% (размер: %2% B) Дупликата съвпада със: %3%"
+msgstr ""
+"Повтарящия се файл няма да бъде споделен: %1% (размер: %2% B) Дупликата "
+"съвпада със: %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
-msgstr "В момента тече опресняване на списъка с файловете, моля изчакайте преди да опитате да обновите отново"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"В момента тече опресняване на списъка с файловете, моля изчакайте преди да "
+"опитате да обновите отново"
 
 #: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
@@ -637,7 +658,9 @@ msgstr "Прекалено дълго име на файла-цел"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr "Невалиден целеви файл (липсваща папка - проверете папката за сваляне по подразбиране)"
+msgstr ""
+"Невалиден целеви файл (липсваща папка - проверете папката за сваляне по "
+"подразбиране)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -661,7 +684,8 @@ msgstr "Не може да се премести %1% в %2% (%3%); преиме�
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr "Не може да се премести %1% в %2% (%3%), нито да се преименува в %4% (%5%)"
+msgstr ""
+"Не може да се премести %1% в %2% (%3%), нито да се преименува в %4% (%5%)"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -672,8 +696,7 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Съвпадащи %2% файла"
 
 #: ../QueueManager.cpp:1794
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
+msgid "Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 
 #: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042

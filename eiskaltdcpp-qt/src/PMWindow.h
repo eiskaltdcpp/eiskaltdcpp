@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef PMWindow_H
-#define PMWindow_H
+#pragma once
 
 #include "ui_PrivateMessage.h"
 #include "ArenaWidget.h"
@@ -102,5 +101,3 @@ private:
     int out_messages_index;
     bool out_messages_unsent;
 };
-
-#endif // PMWindow_H

@@ -20,11 +20,9 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef WULFOR_CMDDEBUG_HH
-#define WULFOR_CMDDEBUG_HH
+#pragma once
 
 #include <dcpp/stdinc.h>
-
 #include "bookentry.hh"
 #include "treeview.hh"
 #include "wulformanager.hh"
@@ -84,7 +82,3 @@ class cmddebug:
         GtkTextMark *cmdMark;
 
 };
-
-#else
-class cmddebug;
-#endif

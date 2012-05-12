@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-04-18 06:44+0300\n"
+"POT-Creation-Date: 2012-05-06 21:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -470,7 +470,7 @@ msgstr ""
 msgid "<b>Window Options</b>"
 msgstr ""
 
-#: ../src/mainwindow.cc:2302
+#: ../src/mainwindow.cc:2311
 msgid "<b>file:</b> "
 msgstr ""
 
@@ -600,12 +600,12 @@ msgstr ""
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1568
-msgid "Allow overlap chunks"
+#: ../src/settingsdialog.cc:1569
+msgid "Allow few connections from one IP"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1569
-msgid "Allow some connections for one ip"
+#: ../src/settingsdialog.cc:1568
+msgid "Allow overlap chunks"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1570
@@ -1035,7 +1035,7 @@ msgstr ""
 msgid "Connection"
 msgstr ""
 
-#: ../src/mainwindow.cc:2251
+#: ../src/mainwindow.cc:2260
 msgid "Connectivity Manager: Warning"
 msgstr ""
 
@@ -1638,7 +1638,7 @@ msgstr ""
 msgid "Frame:"
 msgstr ""
 
-#: ../src/mainwindow.cc:2361
+#: ../src/mainwindow.cc:2370
 msgid "Free "
 msgstr ""
 
@@ -2753,7 +2753,7 @@ msgstr ""
 msgid "Select Font"
 msgstr ""
 
-#: ../src/mainwindow.cc:2385
+#: ../src/mainwindow.cc:2394
 msgid "Select file to Get TTH"
 msgstr ""
 
@@ -3236,7 +3236,7 @@ msgstr ""
 msgid "Unable to load file list: Invalid file list name"
 msgstr ""
 
-#: ../src/mainwindow.cc:2249
+#: ../src/mainwindow.cc:2258
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -3821,7 +3821,7 @@ msgstr ""
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr ""
 
-#: ../src/mainwindow.cc:2292
+#: ../src/mainwindow.cc:2301
 msgid "file list from "
 msgstr ""
 
@@ -3857,8 +3857,8 @@ msgstr ""
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr ""
 
-#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2326
-#: ../src/mainwindow.cc:2328 ../ui/settingsdialog.ui:3522
+#: ../src/hashdialog.cc:79 ../src/treeview.cc:212 ../src/mainwindow.cc:2335
+#: ../src/mainwindow.cc:2337 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr ""

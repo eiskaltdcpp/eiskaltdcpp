@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef MAINWINDOW_H_
-#define MAINWINDOW_H_
+#pragma once
 
 #include <QApplication>
 #include <QWidget>
@@ -135,10 +134,10 @@ friend class dcpp::Singleton<MainWindow>;
         void setUnload(bool b);
 
         ArenaWidget *widgetForRole(ArenaWidget::Role) const;
-        
+
     Q_SIGNALS:
         void redrawWidgetPanels();
-        
+
     public Q_SLOTS:
          QObject *getToolBar();
 
@@ -178,7 +177,7 @@ friend class dcpp::Singleton<MainWindow>;
         void removeWidget(ArenaWidget *awgt);
         void insertWidget(ArenaWidget *awgt);
         void updated(ArenaWidget *awgt);
-    
+
         void slotOpenMagnet();
         void slotFileOpenLogFile();
         void slotFileOpenDownloadDirectory();
@@ -273,14 +272,12 @@ friend class dcpp::Singleton<MainWindow>;
         void toggleSingletonWidget(ArenaWidget *a);
 
         void updateHashProgressStatus();
-        
+
         Q_DECLARE_PRIVATE(MainWindow)
-        
+
         HashProgress *progress_dialog(); // Lazy initialization for _progress_dialog;
 
         MainWindowPrivate *d_ptr;
 };
 
 Q_DECLARE_METATYPE(MainWindow*)
-
-#endif //MAINWINDOW_H_

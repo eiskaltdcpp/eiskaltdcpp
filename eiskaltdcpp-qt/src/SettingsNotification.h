@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SETTINGSNOTIFICATION_H
-#define SETTINGSNOTIFICATION_H
+#pragma once
 
 #include <QWidget>
 
@@ -35,5 +34,3 @@ private slots:
     void slotToggleSndCmd(bool);
     void slotCmdFinished(bool,QString);
 };
-
-#endif // SETTINGSNOTIFICATION_H

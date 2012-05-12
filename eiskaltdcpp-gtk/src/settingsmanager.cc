@@ -20,13 +20,11 @@
  */
 
 #include "settingsmanager.hh"
-
 #include <dcpp/File.h>
 #include <dcpp/SimpleXML.h>
 #include <dcpp/Util.h>
 #include <dcpp/StringTokenizer.h>
 #include "WulforUtil.hh"
-
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 

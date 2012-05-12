@@ -19,24 +19,19 @@
  * using OpenSSL with this program is allowed.
  */
 
-#ifndef PREVIEW_MENU_HH
-#define PREVIEW_MENU_HH
+#pragma once
 
 class PreviewMenu
 {
-	public:
-		PreviewMenu(GtkWidget *menu) : appsPreviewMenu(menu) {}
-		~PreviewMenu() {}
+    public:
+        PreviewMenu(GtkWidget *menu) : appsPreviewMenu(menu) {}
+        ~PreviewMenu() {}
 
-		void cleanMenu_gui();
-		bool buildMenu_gui(const std::string &target);
+        void cleanMenu_gui();
+        bool buildMenu_gui(const std::string &target);
 
-	private:
+    private:
 
-		GtkWidget *appsPreviewMenu;
-		static void onPreviewAppClicked_gui(GtkMenuItem *menuItem, gpointer data);
+        GtkWidget *appsPreviewMenu;
+        static void onPreviewAppClicked_gui(GtkMenuItem *menuItem, gpointer data);
 };
-
-#else
-class PreviewMenu;
-#endif

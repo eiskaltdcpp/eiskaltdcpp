@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#if !defined(FAST_ALLOC_H)
-#define FAST_ALLOC_H
+#pragma once
 
 #include "CriticalSection.h"
 #include "debug.h"
@@ -100,5 +99,3 @@ template<class T> struct FastAlloc { };
 #endif
 
 } // namespace dcpp
-
-#endif // !defined(FAST_ALLOC_H)

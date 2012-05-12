@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef PUBLICHUBMODEL_H
-#define PUBLICHUBMODEL_H
+#pragma once
 
 #include <QAbstractItemModel>
 #include <QSortFilterProxyModel>
@@ -101,4 +100,3 @@ private:
     int sortColumn;
     Qt::SortOrder sortOrder;
 };
-#endif // PUBLICHUBMODEL_H

@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_CID_H
-#define DCPLUSPLUS_DCPP_CID_H
+#pragma once
 
 #include "Encoder.h"
 #include "Util.h"
@@ -67,6 +66,5 @@ struct hash<dcpp::CID> {
         return hvHash;
     }
 };
-}
 
-#endif // !defined(CID_H)
+} // namespace dcpp

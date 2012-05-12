@@ -16,13 +16,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_FINISHED_ITEM_H
-#define DCPLUSPLUS_DCPP_FINISHED_ITEM_H
+#pragma once
 
 #include <boost/noncopyable.hpp>
-
 #include "forward.h"
-
 #include "Pointer.h"
 #include "Util.h"
 
@@ -99,5 +96,3 @@ public:
 };
 
 } // namespace dcpp
-
-#endif // !defined(DCPLUSPLUS_DCPP_FINISHED_ITEM_H)

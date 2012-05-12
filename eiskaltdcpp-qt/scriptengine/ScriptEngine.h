@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef SCRIPTENGINE_H
-#define SCRIPTENGINE_H
+#pragma once
 
 #include <QObject>
 #include <QtScript/QScriptEngine>
@@ -41,7 +40,7 @@ public:
 
 Q_SIGNALS:
     void scriptChanged(const QString &script);
-    
+
 public Q_SLOTS:
     void loadScripts();
     void loadScript(const QString&);
@@ -70,7 +69,7 @@ private:
     void registerDynamicMembers(QScriptEngine &);
 
     QMap<QString, ScriptObject*> scripts;
-    
+
     QFileSystemWatcher watcher;
     QStringList changedFiles;
 };
@@ -79,5 +78,3 @@ Q_DECLARE_METATYPE(ScriptEngine*)
 #ifndef USE_QML
 Q_DECLARE_METATYPE(QList<QObject*>)
 #endif
-
-#endif // SCRIPTENGINE_H

@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef QUEUED_USERS_H_
-#define QUEUED_USERS_H_
+#pragma once
 
 #include <QObject>
 #include <QCloseEvent>
@@ -130,5 +129,3 @@ private:
 
 
 Q_DECLARE_METATYPE (QueuedUsers*)
-
-#endif

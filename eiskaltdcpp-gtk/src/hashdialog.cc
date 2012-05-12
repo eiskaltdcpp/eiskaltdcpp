@@ -34,17 +34,11 @@ Hash::Hash(GtkWindow* parent):
     HashManager::getInstance()->getStats(tmp, startBytes, startFiles);
     HashManager::getInstance()->setPriority(Thread::NORMAL);
     updateStats_gui("", 0, 0, 0);
-//NOTE: [core 0.762
-        bool paused = HashManager::getInstance()->isHashingPaused();
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), paused);
-
-        if (paused)
-                gtk_window_set_title(GTK_WINDOW(getContainer()), _("Paused..."));
-        else
-                gtk_window_set_title(GTK_WINDOW(getContainer()), _("Indexing files..."));
-
-        g_signal_connect(getWidget("pauseHashingToggleButton"), "toggled", G_CALLBACK(onPauseHashing_gui), (gpointer)this);
-//NOTE: core 0.762]
+    bool paused = HashManager::getInstance()->isHashingPaused();
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), paused);
+    gtk_window_set_title(GTK_WINDOW(getContainer()),
+    paused ? _("Paused...") : _("Indexing files..."));
+    g_signal_connect(getWidget("pauseHashingToggleButton"), "toggled", G_CALLBACK(onPauseHashing_gui), (gpointer)this);
     TimerManager::getInstance()->addListener(this);
 }
 
@@ -63,7 +57,7 @@ void Hash::updateStats_gui(string file, int64_t bytes, size_t files, uint64_t ti
         startFiles = files;
 
     double diff = tick - startTime;
-    bool paused = HashManager::getInstance()->isHashingPaused();//NOTE: core 0.762
+    bool paused = HashManager::getInstance()->isHashingPaused();
 
     if (diff < 1000 || files == 0 || bytes == 0 || paused)
     {

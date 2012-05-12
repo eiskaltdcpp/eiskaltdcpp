@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef DCIPFILTERFRAME_H
-#define DCIPFILTERFRAME_H
+#pragma once
 
 #include <QDialog>
 #include <QTreeWidgetItem>
@@ -62,5 +61,3 @@ private slots:
     /** */
     void slotAddRule();
 };
-
-#endif

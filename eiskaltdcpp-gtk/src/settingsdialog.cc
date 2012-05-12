@@ -20,14 +20,13 @@
  */
 
 #include "settingsdialog.hh"
-
 #include <dcpp/File.h>
 #include <dcpp/SimpleXML.h>
 #include <dcpp/CryptoManager.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/NmdcHub.h>
 #include <dcpp/ShareManager.h>
-#include <dcpp/StringTokenizer.h>//NOTE: core 0.770
+#include <dcpp/StringTokenizer.h>
 #include <dcpp/ThrottleManager.h>
 #include "settingsmanager.hh"
 #include "sound.hh"
@@ -50,8 +49,8 @@ Settings::Settings(GtkWindow* parent):
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("nameDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("dirChooserDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("fileChooserDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
-    gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("ExtensionsDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);//NOTE: core 0.770
-    gtk_window_set_transient_for(GTK_WINDOW(getWidget("ExtensionsDialog")), GTK_WINDOW(getWidget("dialog")));//NOTE: core 0.770
+    gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("ExtensionsDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
+    gtk_window_set_transient_for(GTK_WINDOW(getWidget("ExtensionsDialog")), GTK_WINDOW(getWidget("dialog")));
 
     // the reference count on the buffer is not incremented and caller of this function won't own a new reference.
     textStyleBuffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(getWidget("textViewPreviewStyles")));
@@ -137,7 +136,7 @@ Settings::Settings(GtkWindow* parent):
     initAppearance_gui();
     initLog_gui();
     initAdvanced_gui();
-    initSearchTypes_gui();//NOTE: core 0.770
+    initSearchTypes_gui();
 }
 
 Settings::~Settings()
@@ -152,7 +151,7 @@ Settings::~Settings()
     gtk_widget_destroy(getWidget("commandDialog"));
     gtk_widget_destroy(getWidget("fontSelectionDialog"));
     gtk_widget_destroy(getWidget("colorSelectionDialog"));
-    gtk_widget_destroy(getWidget("ExtensionsDialog"));//NOTE: core 0.770
+    gtk_widget_destroy(getWidget("ExtensionsDialog"));
 }
 
 void Settings::response_gui()
@@ -166,7 +165,7 @@ void Settings::response_gui()
     gtk_dialog_response(GTK_DIALOG(getWidget("commandDialog")), GTK_RESPONSE_CANCEL);
     gtk_dialog_response(GTK_DIALOG(getWidget("fontSelectionDialog")), GTK_RESPONSE_CANCEL);
     gtk_dialog_response(GTK_DIALOG(getWidget("colorSelectionDialog")), GTK_RESPONSE_CANCEL);
-    gtk_dialog_response(GTK_DIALOG(getWidget("ExtensionsDialog")), GTK_RESPONSE_CANCEL);//NOTE: core 0.770
+    gtk_dialog_response(GTK_DIALOG(getWidget("ExtensionsDialog")), GTK_RESPONSE_CANCEL);
 }
 
 void Settings::saveSettings_client()
@@ -193,7 +192,7 @@ void Settings::saveSettings_client()
             sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
 #ifdef USE_MINIUPNP
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton"))))
-            sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);//NOTE: core 0.762
+            sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);
 #endif
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("portForwardRadioButton"))))
             sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_NAT);
@@ -736,7 +735,7 @@ void Settings::initConnection_gui()
     { // Connection
     // Incoming
     g_signal_connect(getWidget("activeRadioButton"), "toggled", G_CALLBACK(onInDirect_gui), (gpointer)this);
-    g_signal_connect(getWidget("upnpRadioButton"), "toggled", G_CALLBACK(onInFW_UPnP_gui), (gpointer)this);//NOTE: core 0.762
+    g_signal_connect(getWidget("upnpRadioButton"), "toggled", G_CALLBACK(onInFW_UPnP_gui), (gpointer)this);
     g_signal_connect(getWidget("portForwardRadioButton"), "toggled", G_CALLBACK(onInFW_NAT_gui), (gpointer)this);
     g_signal_connect(getWidget("passiveRadioButton"), "toggled", G_CALLBACK(onInPassive_gui), (gpointer)this);
     gtk_entry_set_text(GTK_ENTRY(getWidget("ipEntry")), SETTING(EXTERNAL_IP).c_str());
@@ -990,7 +989,7 @@ void Settings::initSharing_gui()
     g_signal_connect(shareView.get(), "button-release-event", G_CALLBACK(onShareButtonReleased_gui), (gpointer)this);
     gtk_widget_set_sensitive(getWidget("sharedRemoveButton"), FALSE);
 
-    updateShares_gui();//NOTE: core 0.762
+    updateShares_gui();
 
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("shareHiddenCheckButton")), BOOLSETTING(SHARE_HIDDEN));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("followLinksCheckButton")), BOOLSETTING(FOLLOW_LINKS));
@@ -1035,7 +1034,7 @@ void Settings::initAppearance_gui()
         vectorLangShortNames.push_back("el");
         vectorLangFullNames.push_back(_("Italian"));
         vectorLangShortNames.push_back("it");
-        
+
         // Fill language drop-down list
         uint8_t lang_ind = 0;
         for (uint8_t i=0; i<vectorLangFullNames.size(); ++i)
@@ -1566,7 +1565,7 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Show IP's' in chats"), SettingsManager::USE_IP);
         addOption_gui(advancedStore, _("Show user country in chat"), SettingsManager::GET_USER_COUNTRY);
         addOption_gui(advancedStore, _("Allow overlap chunks"), SettingsManager::OVERLAP_CHUNKS);
-        addOption_gui(advancedStore, _("Allow some connections for one ip"), SettingsManager::ALLOW_UPLOAD_MULTI_HUB);
+        addOption_gui(advancedStore, _("Allow few connections from one IP"), SettingsManager::ALLOW_UPLOAD_MULTI_HUB);
         addOption_gui(advancedStore, _("Allow some connections for one user"), SettingsManager::ALLOW_SIM_UPLOADS);
         addOption_gui(advancedStore, _("Use ADL search only in own file list"), SettingsManager::USE_ADL_ONLY_OWN_LIST);
 
@@ -2512,7 +2511,7 @@ void Settings::onDHTCheckToggled_gui(GtkWidget *widget, gpointer data)
         }
 }
 
-//NOTE: core 0.762
+
 void Settings::onLimitToggled_gui(GtkWidget *widget, gpointer data)
 {
         Settings *s = (Settings *)data;
@@ -2548,7 +2547,7 @@ void Settings::onLimitSecondToggled_gui(GtkWidget *widget, gpointer data)
                 gtk_widget_set_sensitive(s->getWidget("limitsToCombobox"), FALSE);
         }
 }
-//NOTE: core 0.762
+
 
 void Settings::applyIconsTheme(bool useDefault)
 {
@@ -3226,7 +3225,7 @@ void Settings::saveUserCommand(UserCommand *uc)
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogHubMenu"))))
         ctx |= UserCommand::CONTEXT_HUB;
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogUserMenu"))))
-        ctx |= UserCommand::CONTEXT_USER;//NOTE: core 0.762
+        ctx |= UserCommand::CONTEXT_USER;
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogSearchMenu"))))
         ctx |= UserCommand::CONTEXT_SEARCH;
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogFilelistMenu"))))
@@ -3264,7 +3263,7 @@ void Settings::saveUserCommand(UserCommand *uc)
 
     if (uc == NULL)
     {
-        FavoriteManager::getInstance()->addUserCommand(type, ctx, 0, name, command, ""/*to*/, hub);//NOTE: core 0.762
+        FavoriteManager::getInstance()->addUserCommand(type, ctx, 0, name, command, ""/*to*/, hub);
         gtk_list_store_append(userCommandStore, &iter);
     }
     else
@@ -3378,7 +3377,7 @@ void Settings::onInDirect_gui(GtkToggleButton *button, gpointer data)
     gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), TRUE);
 }
 
-void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data) //NOTE:core 0.762
+void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data)
 {
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), TRUE);
@@ -3599,27 +3598,27 @@ void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
             g_free(temp);
 
             GtkWidget *dialog = s->getWidget("nameDialog");
-			gtk_window_set_title(GTK_WINDOW(dialog), _("Favorite name"));
-			gtk_entry_set_text(GTK_ENTRY(s->getWidget("nameDialogEntry")), "");
-			gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Name, under which you see the directory</b>"));
-			response = gtk_dialog_run(GTK_DIALOG(dialog));
-			gtk_widget_hide(dialog);
+            gtk_window_set_title(GTK_WINDOW(dialog), _("Favorite name"));
+            gtk_entry_set_text(GTK_ENTRY(s->getWidget("nameDialogEntry")), "");
+            gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Name, under which you see the directory</b>"));
+            response = gtk_dialog_run(GTK_DIALOG(dialog));
+            gtk_widget_hide(dialog);
 
-			if (response == GTK_RESPONSE_OK)
-			{
-				string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("nameDialogEntry")));
-				if (path[path.length() - 1] != PATH_SEPARATOR)
-					path += PATH_SEPARATOR;
+            if (response == GTK_RESPONSE_OK)
+            {
+                string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("nameDialogEntry")));
+                if (path[path.length() - 1] != PATH_SEPARATOR)
+                    path += PATH_SEPARATOR;
 
-				if (!name.empty() && FavoriteManager::getInstance()->addFavoriteDir(path, name))
-				{
-					GtkTreeIter iter;
-					gtk_list_store_append(s->downloadToStore, &iter);
-					gtk_list_store_set(s->downloadToStore, &iter,
-						s->downloadToView.col(_("Favorite Name")), name.c_str(),
-						s->downloadToView.col(_("Directory")), path.c_str(),
-						-1);
-				}
+                if (!name.empty() && FavoriteManager::getInstance()->addFavoriteDir(path, name))
+                {
+                    GtkTreeIter iter;
+                    gtk_list_store_append(s->downloadToStore, &iter);
+                    gtk_list_store_set(s->downloadToStore, &iter,
+                        s->downloadToView.col(_("Favorite Name")), name.c_str(),
+                        s->downloadToView.col(_("Directory")), path.c_str(),
+                        -1);
+                }
                 else
                 {
                     s->showErrorDialog(_("Directory or favorite name already exists"));
@@ -3712,7 +3711,7 @@ gboolean Settings::onShareHiddenPressed_gui(GtkToggleButton *togglebutton, gpoin
 
         return FALSE;
 }
-//NOTE: core 0.762
+
 void Settings::updateShares_gui()
 {
         GtkTreeIter iter;
@@ -3744,7 +3743,7 @@ void Settings::updateShares_gui()
     string text = _("Total size: ") + Util::formatBytes(ShareManager::getInstance()->getShareSize());
         gtk_label_set_text(GTK_LABEL(getWidget("sharedSizeLabel")), text.c_str());
 }
-//NOTE: core 0.762
+
 void Settings::onLogBrowseClicked_gui(GtkWidget *widget, gpointer data)
 {
     Settings *s = (Settings *)data;
@@ -3866,7 +3865,7 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
         string command, nick;
         FavoriteManager::getInstance()->getUserCommand(cid, uc);
         bool hub = uc.getCtx() & UserCommand::CONTEXT_HUB;
-        bool user = uc.getCtx() & UserCommand::CONTEXT_USER;//NOTE: core 0.762
+        bool user = uc.getCtx() & UserCommand::CONTEXT_USER;
         bool search = uc.getCtx() & UserCommand::CONTEXT_SEARCH;
         bool filelist = uc.getCtx() & UserCommand::CONTEXT_FILELIST;
 
@@ -4142,7 +4141,6 @@ void Settings::shareHidden_client(bool show)
     ShareManager::getInstance()->setDirty();
     ShareManager::getInstance()->refresh(TRUE, FALSE, TRUE);
 
-    //NOTE: updated share ui core 0.762
     Func0<Settings> *func = new Func0<Settings>(this, &Settings::updateShares_gui);
     WulforManager::get()->dispatchGuiFunc(func);
 }

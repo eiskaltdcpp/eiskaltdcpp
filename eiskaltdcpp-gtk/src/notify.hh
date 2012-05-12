@@ -35,8 +35,7 @@
  * (at your option) any later version.
  */
 
-#ifndef NOTIFY_HH
-#define NOTIFY_HH
+#pragma once
 
 #ifdef USE_LIBNOTIFY
 #include <libnotify/notify.h>
@@ -47,48 +46,44 @@ typedef int NotifyNotification;
 
 class Notify
 {
-	public:
-		enum TypeNotify
-		{
-			DOWNLOAD_FINISHED,
-			DOWNLOAD_FINISHED_USER_LIST,
-			PRIVATE_MESSAGE,
-			HUB_CONNECT,
-			HUB_DISCONNECT,
-			FAVORITE_USER_JOIN,
-			FAVORITE_USER_QUIT,
-			NONE
-		};
+    public:
+        enum TypeNotify
+        {
+            DOWNLOAD_FINISHED,
+            DOWNLOAD_FINISHED_USER_LIST,
+            PRIVATE_MESSAGE,
+            HUB_CONNECT,
+            HUB_DISCONNECT,
+            FAVORITE_USER_JOIN,
+            FAVORITE_USER_QUIT,
+            NONE
+        };
 
-		static Notify* get();
-		static void start();
-		static void stop();
+        static Notify* get();
+        static void start();
+        static void stop();
 
-		Notify() {init();}
-		~Notify() {finalize();}
+        Notify() {init();}
+        ~Notify() {finalize();}
 
-		void showNotify(const std::string &head, const std::string &body, TypeNotify notify);
-		void showNotify(const std::string &title, const std::string &head, const std::string &body,
-			const std::string &icon, const int iconSize, NotifyUrgency urgency);
+        void showNotify(const std::string &head, const std::string &body, TypeNotify notify);
+        void showNotify(const std::string &title, const std::string &head, const std::string &body,
+            const std::string &icon, const int iconSize, NotifyUrgency urgency);
 
-	private:
-		static Notify *notify;
-		enum {x16, x22, x24, x32, x36, x48, x64, DEFAULT};
+    private:
+        static Notify *notify;
+        enum {x16, x22, x24, x32, x36, x48, x64, DEFAULT};
 
-		void init();
-		void finalize();
-		void setCurrIconSize(const int size);
+        void init();
+        void finalize();
+        void setCurrIconSize(const int size);
 
-		int icon_width;
-		int icon_height;
-		int currIconSize;
-		NotifyNotification *notification;
-		bool action;
+        int icon_width;
+        int icon_height;
+        int currIconSize;
+        NotifyNotification *notification;
+        bool action;
 
-		//GUI callback functions
-		static void onAction(NotifyNotification *notify, const char *action, gpointer data);
+        //GUI callback functions
+        static void onAction(NotifyNotification *notify, const char *action, gpointer data);
 };
-
-#else
-class Notify;
-#endif

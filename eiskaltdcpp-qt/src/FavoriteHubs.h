@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef FAVORITEHUBS_H
-#define FAVORITEHUBS_H
+#pragma once
 
 #include <QWidget>
 #include <QMap>
@@ -111,5 +110,3 @@ private:
 };
 
 Q_DECLARE_METATYPE (FavoriteHubs*)
-
-#endif // FAVORITEHUBS_H

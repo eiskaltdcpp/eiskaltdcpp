@@ -16,17 +16,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_NMDC_HUB_H
-#define DCPLUSPLUS_DCPP_NMDC_HUB_H
+#pragma once
 
 #include "TimerManager.h"
 #include "SettingsManager.h"
-
 #include "forward.h"
 #include "CriticalSection.h"
 #include "Text.h"
 #include "Client.h"
-
 #include "BufferedSocket.h"
 #include "ClientManager.h"
 
@@ -145,5 +142,3 @@ friend class ClientManager;
 };
 
 } // namespace dcpp
-
-#endif // !defined(NMDC_HUB_H)

@@ -52,21 +52,21 @@ Notify *Notify::notify = NULL;
 
 void Notify::start()
 {
-	dcassert(!notify);
-	notify = new Notify();
+    dcassert(!notify);
+    notify = new Notify();
 }
 
 void Notify::stop()
 {
-	dcassert(notify);
-	delete notify;
-	notify = NULL;
+    dcassert(notify);
+    delete notify;
+    notify = NULL;
 }
 
 Notify* Notify::get()
 {
-	dcassert(notify);
-	return notify;
+    dcassert(notify);
+    return notify;
 }
 
 void Notify::init()
@@ -80,211 +80,211 @@ void Notify::init()
     , NULL);
 #endif
 #endif // USE_LIBNOTIFY
-	action = FALSE;
+    action = FALSE;
 }
 
 void Notify::finalize()
 {
 #ifdef USE_LIBNOTIFY
-	notify_notification_close(notification, NULL);
-	g_object_unref(notification);
-	notify_uninit();
+    notify_notification_close(notification, NULL);
+    g_object_unref(notification);
+    notify_uninit();
 #endif // USE_LIBNOTIFY
 }
 
 void Notify::setCurrIconSize(const int size)
 {
-	currIconSize = size;
+    currIconSize = size;
 
-	switch (size)
-	{
-		case x16:
-			icon_width = icon_height = 16; // 16x16
-			break;
+    switch (size)
+    {
+        case x16:
+            icon_width = icon_height = 16; // 16x16
+            break;
 
-		case x22:
-			icon_width = icon_height = 22; // 22x22
-			break;
+        case x22:
+            icon_width = icon_height = 22; // 22x22
+            break;
 
-		case x24:
-			icon_width = icon_height = 24; // 24x24
-			break;
+        case x24:
+            icon_width = icon_height = 24; // 24x24
+            break;
 
-		case x32:
-			icon_width = icon_height = 32; // 32x32
-			break;
+        case x32:
+            icon_width = icon_height = 32; // 32x32
+            break;
 
-		case x36:
-			icon_width = icon_height = 36; // 36x36
-			break;
+        case x36:
+            icon_width = icon_height = 36; // 36x36
+            break;
 
-		case x48:
-			icon_width = icon_height = 48; // 48x48
-			break;
+        case x48:
+            icon_width = icon_height = 48; // 48x48
+            break;
 
-		case x64:
-			icon_width = icon_height = 64; // 64x64
-			break;
+        case x64:
+            icon_width = icon_height = 64; // 64x64
+            break;
 
-		case DEFAULT:
-			currIconSize = DEFAULT;
-			break;
+        case DEFAULT:
+            currIconSize = DEFAULT;
+            break;
 
-		default:
-			currIconSize = DEFAULT;
-			WSET("notify-icon-size", DEFAULT);
-	}
+        default:
+            currIconSize = DEFAULT;
+            WSET("notify-icon-size", DEFAULT);
+    }
 }
 
 void Notify::showNotify(const string &head, const string &body, TypeNotify notify)
 {
-	WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
+    WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
 
-	switch (notify)
-	{
-		case DOWNLOAD_FINISHED:
+    switch (notify)
+    {
+        case DOWNLOAD_FINISHED:
 
-			if (action)
-			{
+            if (action)
+            {
 #ifdef USE_LIBNOTIFY
-				notify_notification_clear_actions(notification);
+                notify_notification_clear_actions(notification);
 #endif // USE_LIBNOTIFY
-				action = FALSE;
-			}
+                action = FALSE;
+            }
 
-			if (wsm->getInt("notify-download-finished-use"))
-			{
+            if (wsm->getInt("notify-download-finished-use"))
+            {
 #ifdef USE_LIBNOTIFY
-				notify_notification_add_action(notification, "1", _("Open file"),
-					(NotifyActionCallback) onAction, g_strdup(body.c_str()), g_free);
+                notify_notification_add_action(notification, "1", _("Open file"),
+                    (NotifyActionCallback) onAction, g_strdup(body.c_str()), g_free);
 
-				notify_notification_add_action(notification, "2", _("Open folder"),
-					(NotifyActionCallback) onAction, g_strdup(Util::getFilePath(body).c_str()), g_free);
+                notify_notification_add_action(notification, "2", _("Open folder"),
+                    (NotifyActionCallback) onAction, g_strdup(Util::getFilePath(body).c_str()), g_free);
 #endif // USE_LIBNOTIFY
 
-				showNotify(wsm->getString("notify-download-finished-title"), head, Util::getFileName(body),
-					wsm->getString("notify-download-finished-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
+                showNotify(wsm->getString("notify-download-finished-title"), head, Util::getFileName(body),
+                    wsm->getString("notify-download-finished-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
 
-				action = TRUE;
-			}
+                action = TRUE;
+            }
 
-			break;
+            break;
 
-		case DOWNLOAD_FINISHED_USER_LIST:
+        case DOWNLOAD_FINISHED_USER_LIST:
 
-			if (wsm->getInt("notify-download-finished-ul-use"))
-			showNotify(wsm->getString("notify-download-finished-ul-title"), head, body,
-				wsm->getString("notify-download-finished-ul-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_LOW);
-			break;
+            if (wsm->getInt("notify-download-finished-ul-use"))
+            showNotify(wsm->getString("notify-download-finished-ul-title"), head, body,
+                wsm->getString("notify-download-finished-ul-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_LOW);
+            break;
 
-		case PRIVATE_MESSAGE:
+        case PRIVATE_MESSAGE:
 
-			if (wsm->getInt("notify-private-message-use"))
-			showNotify(wsm->getString("notify-private-message-title"), head, body,
-				wsm->getString("notify-private-message-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
-			break;
+            if (wsm->getInt("notify-private-message-use"))
+            showNotify(wsm->getString("notify-private-message-title"), head, body,
+                wsm->getString("notify-private-message-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
+            break;
 
-		case HUB_CONNECT:
+        case HUB_CONNECT:
 
-			if (wsm->getInt("notify-hub-connect-use"))
-			showNotify(wsm->getString("notify-hub-connect-title"), head, body,
-				wsm->getString("notify-hub-connect-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
-			break;
+            if (wsm->getInt("notify-hub-connect-use"))
+            showNotify(wsm->getString("notify-hub-connect-title"), head, body,
+                wsm->getString("notify-hub-connect-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
+            break;
 
-		case HUB_DISCONNECT:
+        case HUB_DISCONNECT:
 
-			if (wsm->getInt("notify-hub-disconnect-use"))
-			showNotify(wsm->getString("notify-hub-disconnect-title"), head, body,
-				wsm->getString("notify-hub-disconnect-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_CRITICAL);
-			break;
+            if (wsm->getInt("notify-hub-disconnect-use"))
+            showNotify(wsm->getString("notify-hub-disconnect-title"), head, body,
+                wsm->getString("notify-hub-disconnect-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_CRITICAL);
+            break;
 
-		case FAVORITE_USER_JOIN:
+        case FAVORITE_USER_JOIN:
 
-			if (wsm->getInt("notify-fuser-join"))
-			showNotify(wsm->getString("notify-fuser-join-title"), head, body,
-				wsm->getString("notify-fuser-join-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
-			break;
+            if (wsm->getInt("notify-fuser-join"))
+            showNotify(wsm->getString("notify-fuser-join-title"), head, body,
+                wsm->getString("notify-fuser-join-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
+            break;
 
-		case FAVORITE_USER_QUIT:
+        case FAVORITE_USER_QUIT:
 
-			if (wsm->getInt("notify-fuser-quit"))
-			showNotify(wsm->getString("notify-fuser-quit-title"), head, body,
-				wsm->getString("notify-fuser-quit-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
-			break;
+            if (wsm->getInt("notify-fuser-quit"))
+            showNotify(wsm->getString("notify-fuser-quit-title"), head, body,
+                wsm->getString("notify-fuser-quit-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
+            break;
 
-		default: break;
-	}
+        default: break;
+    }
 }
 
 void Notify::showNotify(const string &title, const string &head, const string &body, const string &icon, const int iconSize, NotifyUrgency urgency)
 {
-	if (title.empty())
-		return;
+    if (title.empty())
+        return;
 
-	gchar *esc_title = g_markup_escape_text(title.c_str(), -1);
-	gchar *esc_body = g_markup_escape_text(body.c_str(), -1);
-	string message = head + esc_body;
+    gchar *esc_title = g_markup_escape_text(title.c_str(), -1);
+    gchar *esc_body = g_markup_escape_text(body.c_str(), -1);
+    string message = head + esc_body;
 
 #ifdef USE_LIBNOTIFY
-	notify_notification_close(notification, NULL);
-	notify_notification_clear_hints(notification);
-	notify_notification_update(notification, esc_title, message.c_str(), NULL);
-	notify_notification_set_urgency(notification, urgency);
+    notify_notification_close(notification, NULL);
+    notify_notification_clear_hints(notification);
+    notify_notification_update(notification, esc_title, message.c_str(), NULL);
+    notify_notification_set_urgency(notification, urgency);
 #endif // USE_LIBNOTIFY
 
-	g_free(esc_title);
-	g_free(esc_body);
+    g_free(esc_title);
+    g_free(esc_body);
 
-	if (!icon.empty())
-	{
-		setCurrIconSize(iconSize);
-		GdkPixbuf *pixbuf = NULL;
+    if (!icon.empty())
+    {
+        setCurrIconSize(iconSize);
+        GdkPixbuf *pixbuf = NULL;
 
-		if (currIconSize != DEFAULT)
-		{
-			GdkPixbuf *temp = gdk_pixbuf_new_from_file(Text::fromUtf8(icon).c_str(), NULL);
+        if (currIconSize != DEFAULT)
+        {
+            GdkPixbuf *temp = gdk_pixbuf_new_from_file(Text::fromUtf8(icon).c_str(), NULL);
 
-			if (temp != NULL)
-			{
-				pixbuf = WulforUtil::scalePixbuf(temp, icon_width, icon_height);
-				g_object_unref(temp);
-			}
-		}
-		else
-		{
-			pixbuf = gdk_pixbuf_new_from_file(Text::fromUtf8(icon).c_str(), NULL);
-		}
+            if (temp != NULL)
+            {
+                pixbuf = WulforUtil::scalePixbuf(temp, icon_width, icon_height);
+                g_object_unref(temp);
+            }
+        }
+        else
+        {
+            pixbuf = gdk_pixbuf_new_from_file(Text::fromUtf8(icon).c_str(), NULL);
+        }
 
-		if (pixbuf != NULL)
-		{
+        if (pixbuf != NULL)
+        {
 #ifdef USE_LIBNOTIFY
-			notify_notification_set_icon_from_pixbuf(notification, pixbuf);
+            notify_notification_set_icon_from_pixbuf(notification, pixbuf);
 #endif // USE_LIBNOTIFY
-			g_object_unref(pixbuf);
-		}
-	}
+            g_object_unref(pixbuf);
+        }
+    }
 
-	if (action)
-	{
+    if (action)
+    {
 #ifdef USE_LIBNOTIFY
-		notify_notification_clear_actions(notification);
+        notify_notification_clear_actions(notification);
 #endif // USE_LIBNOTIFY
-		action = FALSE;
-	}
+        action = FALSE;
+    }
 
 #ifdef USE_LIBNOTIFY
-	notify_notification_show(notification, NULL);
+    notify_notification_show(notification, NULL);
 #endif // USE_LIBNOTIFY
 }
 
 void Notify::onAction(NotifyNotification *notify, const char *action, gpointer data)
 {
-	string target = (gchar*)data;
+    string target = (gchar*)data;
 
-	if (!target.empty())
-		WulforUtil::openURI(target);
+    if (!target.empty())
+        WulforUtil::openURI(target);
 
 #ifdef USE_LIBNOTIFY
-	notify_notification_close(notify, NULL);
+    notify_notification_close(notify, NULL);
 #endif // USE_LIBNOTIFY
 }
