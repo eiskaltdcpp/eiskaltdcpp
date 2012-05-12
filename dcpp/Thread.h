@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_THREAD_H
-#define DCPLUSPLUS_DCPP_THREAD_H
+#pragma once
 
 #ifdef _WIN32
 #include "w.h"
@@ -122,5 +121,3 @@ protected:
 };
 
 } // namespace dcpp
-
-#endif // !defined(THREAD_H)

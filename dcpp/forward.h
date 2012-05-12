@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_FORWARD_H_
-#define DCPLUSPLUS_DCPP_FORWARD_H_
+#pragma once
 
 /** @file
  * This file contains forward declarations for the various DC++ classes
@@ -101,5 +100,3 @@ typedef UserConnection* UserConnectionPtr;
 
 class WindowInfo;
 } // namespace dcpp
-
-#endif /*DCPLUSPLUS_DCPP_FORWARD_H_*/

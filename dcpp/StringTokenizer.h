@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_STRING_TOKENIZER_H
-#define DCPLUSPLUS_DCPP_STRING_TOKENIZER_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -62,5 +61,3 @@ public:
 };
 
 } // namespace dcpp
-
-#endif // !defined(STRING_TOKENIZER_H)

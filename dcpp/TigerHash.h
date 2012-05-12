@@ -27,8 +27,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#ifndef DCPLUSPLUS_DCPP_TIGER_HASH_H
-#define DCPLUSPLUS_DCPP_TIGER_HASH_H
+#pragma once
 
 #include <cstddef>
 #include <cstdint>
@@ -71,5 +70,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(TIGER_HASH_H)

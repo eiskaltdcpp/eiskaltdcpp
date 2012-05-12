@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_W_H_
-#define DCPLUSPLUS_DCPP_W_H_
+#pragma once
 
 #ifdef _WIN32
 
@@ -51,5 +50,3 @@
 #include <tchar.h>
 
 #endif
-
-#endif /* W_H_ */

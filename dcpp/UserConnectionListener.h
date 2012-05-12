@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef USERCONNECTIONLISTENER_H_
-#define USERCONNECTIONLISTENER_H_
+#pragma once
 
 #include "forward.h"
 #include "AdcCommand.h"
@@ -78,5 +77,3 @@ public:
 };
 
 } // namespace dcpp
-
-#endif /*USERCONNECTIONLISTENER_H_*/

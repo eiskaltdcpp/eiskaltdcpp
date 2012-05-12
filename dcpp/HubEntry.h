@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_HUBENTRY_H_
-#define DCPLUSPLUS_DCPP_HUBENTRY_H_
+#pragma once
 
 namespace dcpp {
 
@@ -104,5 +103,3 @@ private:
 };
 
 }
-
-#endif /*HUBENTRY_H_*/

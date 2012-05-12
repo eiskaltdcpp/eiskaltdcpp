@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_TIMER_MANAGER_H
-#define DCPLUSPLUS_DCPP_TIMER_MANAGER_H
+#pragma once
 
 #include "Thread.h"
 #include "Speaker.h"
@@ -75,5 +74,3 @@ private:
 #define GET_TIME() TimerManager::getTime()
 
 } // namespace dcpp
-
-#endif // DCPLUSPLUS_DCPP_TIMER_MANAGER_H

@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_QUEUE_MANAGER_LISTENER_H
-#define DCPLUSPLUS_DCPP_QUEUE_MANAGER_LISTENER_H
+#pragma once
 
 #include "forward.h"
 #include "noexcept.h"
@@ -73,5 +72,3 @@ public:
 };
 
 } // namespace dcpp
-
-#endif // !defined(QUEUE_MANAGER_LISTENER_H)

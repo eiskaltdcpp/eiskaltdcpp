@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_FAVORITE_MANAGER_H
-#define DCPLUSPLUS_DCPP_FAVORITE_MANAGER_H
+#pragma once
 
 #include "SettingsManager.h"
 
@@ -171,5 +170,3 @@ private:
 };
 
 } // namespace dcpp
-
-#endif // !defined(FAVORITE_MANAGER_H)

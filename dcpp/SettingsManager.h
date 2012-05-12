@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_SETTINGS_MANAGER_H
-#define DCPLUSPLUS_DCPP_SETTINGS_MANAGER_H
+#pragma once
 
 #include "Util.h"
 #include "Speaker.h"
@@ -283,5 +282,3 @@ private:
 #define BOOLSETTING(k) (SettingsManager::getInstance()->getBool(SettingsManager::k, true))
 
 } // namespace dcpp
-
-#endif // !defined(SETTINGS_MANAGER_H)

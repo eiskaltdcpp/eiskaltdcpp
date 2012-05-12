@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef DCPLUSPLUS_DCPP_DIRECTORY_LISTING_H
-#define DCPLUSPLUS_DCPP_DIRECTORY_LISTING_H
+#pragma once
 
 //#include "forward.h"
 #include "noexcept.h"
@@ -169,5 +168,3 @@ inline bool operator==(DirectoryListing::Directory::Ptr a, const string& b) { re
 inline bool operator==(DirectoryListing::File::Ptr a, const string& b) { return Util::stricmp(a->getName(), b) == 0; }
 
 } // namespace dcpp
-
-#endif // !defined(DIRECTORY_LISTING_H)

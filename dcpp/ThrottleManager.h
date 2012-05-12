@@ -16,8 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _THROTTLEMANAGER_H
-#define _THROTTLEMANAGER_H
+#pragma once
 
 #include "Singleton.h"
 #include "Socket.h"
@@ -94,4 +93,3 @@ private:
 };
 
 }   // namespace dcpp
-#endif  // _THROTTLEMANAGER_H
