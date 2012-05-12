@@ -6028,12 +6028,12 @@ en la cola de descargas, deberá hacerlo manualmente.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation>Permitir múltiples subidas a un mismo CID.</translation>
+        <translation>Permitir múltiples subidas a un mismo CID</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="923"/>
         <source>Allow simultaneous uploads by one IP</source>
-        <translation type="unfinished"/>
+        <translation>Permitir múltiples subidas a una misma IP</translation>
     </message>
 </context>
 <context>
@@ -6944,7 +6944,7 @@ el cliente aparente quedar congelado.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="372"/>
         <source>Use ADL search only in own file list</source>
-        <translation type="unfinished"/>
+        <translation>Usar la búsqueda ADL solo en su propia lista de archivos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="387"/>
