@@ -86,7 +86,7 @@ private:
 class EiskaltApp: public QApplication {
 Q_OBJECT
 public:
-    EiskaltApp(int argc, char *argv[], const QString& uniqKey): QApplication(argc, argv)
+    EiskaltApp(int &argc, char *argv[], const QString& uniqKey): QApplication(argc, argv)
     {
         installEventFilter(&ef);
     }
