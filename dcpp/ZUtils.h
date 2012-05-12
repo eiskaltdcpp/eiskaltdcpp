@@ -21,7 +21,6 @@
 #include <cstddef>
 #include <cstdint>
 #include <string>
-
 #include <zlib.h>
 
 namespace dcpp {

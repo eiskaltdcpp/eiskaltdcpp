@@ -24,7 +24,6 @@
 #include "TimerManager.h"
 #include "ClientManagerListener.h"
 #include "CriticalSection.h"
-
 #include "extra/lunar.h"
 
 namespace dcpp {
@@ -130,9 +129,3 @@ private:
 };
 
 }//namespace dcpp
-
-
-/**
- * @file ScriptManager.h
- * $Id: ScriptManager.h,v 1.2 2008/01/18 16:08:14 cologic Exp $
- */

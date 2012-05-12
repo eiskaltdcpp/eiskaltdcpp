@@ -19,9 +19,7 @@
 #pragma once
 
 #include <boost/noncopyable.hpp>
-
 #include "forward.h"
-
 #include "Pointer.h"
 #include "Util.h"
 

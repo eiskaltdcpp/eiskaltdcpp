@@ -19,7 +19,6 @@
 #pragma once
 
 #include "Exception.h"
-
 #include "Streams.h"
 #include "SimpleXMLReader.h"
 

@@ -19,7 +19,6 @@
 #pragma once
 
 #include <string>
-
 #include "debug.h"
 
 namespace dcpp {

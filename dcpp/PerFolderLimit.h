@@ -19,10 +19,6 @@
 
 #pragma once
 
-#if _MSC_VER > 1000
-#pragma once
-#endif // _MSC_VER > 1000
-
 #ifndef _WIN32
 #include <sys/time.h>
 #endif

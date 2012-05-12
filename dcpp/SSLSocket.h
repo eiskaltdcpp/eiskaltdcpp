@@ -20,7 +20,6 @@
 
 #include "Socket.h"
 #include "Singleton.h"
-
 #include "SSL.h"
 
 #ifndef SSL_SUCCESS

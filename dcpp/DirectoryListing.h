@@ -18,11 +18,9 @@
 
 #pragma once
 
-//#include "forward.h"
 #include "noexcept.h"
 #include "User.h"
 #include "FastAlloc.h"
-
 #include "MerkleTree.h"
 #include "Streams.h"
 #include "MediaInfo.h"

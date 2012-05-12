@@ -23,34 +23,34 @@
 
 class Sound
 {
-	public:
-		enum TypeSound
-		{
-			DOWNLOAD_BEGINS,
-			DOWNLOAD_FINISHED,
-			DOWNLOAD_FINISHED_USER_LIST,
-			UPLOAD_FINISHED,
-			PRIVATE_MESSAGE,
-			HUB_CONNECT,
-			HUB_DISCONNECT,
-			FAVORITE_USER_JOIN,
-			FAVORITE_USER_QUIT,
-			NONE
-		};
+    public:
+        enum TypeSound
+        {
+            DOWNLOAD_BEGINS,
+            DOWNLOAD_FINISHED,
+            DOWNLOAD_FINISHED_USER_LIST,
+            UPLOAD_FINISHED,
+            PRIVATE_MESSAGE,
+            HUB_CONNECT,
+            HUB_DISCONNECT,
+            FAVORITE_USER_JOIN,
+            FAVORITE_USER_QUIT,
+            NONE
+        };
 
-		static Sound* get();
-		static void start();
-		static void stop();
+        static Sound* get();
+        static void start();
+        static void stop();
 
-		Sound() { sound_init(); }
-		~Sound() { sound_finalize(); }
+        Sound() { sound_init(); }
+        ~Sound() { sound_finalize(); }
 
-		void playSound(TypeSound sound);
-		void playSound(const std::string &target);
+        void playSound(TypeSound sound);
+        void playSound(const std::string &target);
 
-	private:
-		static Sound *pSound;
+    private:
+        static Sound *pSound;
 
-		void sound_init();
-		void sound_finalize();
+        void sound_init();
+        void sound_finalize();
 };

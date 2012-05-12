@@ -23,7 +23,6 @@
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DirectoryListing.h>
-
 #include "bookentry.hh"
 #include "treeview.hh"
 

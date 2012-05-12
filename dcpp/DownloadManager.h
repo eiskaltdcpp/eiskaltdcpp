@@ -19,7 +19,6 @@
 #pragma once
 
 #include "forward.h"
-
 #include "DownloadManagerListener.h"
 #include "UserConnectionListener.h"
 #include "QueueItem.h"

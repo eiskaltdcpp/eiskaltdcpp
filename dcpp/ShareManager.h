@@ -23,7 +23,6 @@
 #include "SettingsManager.h"
 #include "HashManagerListener.h"
 #include "QueueManagerListener.h"
-
 #include "Exception.h"
 #include "CriticalSection.h"
 #include "StringSearch.h"

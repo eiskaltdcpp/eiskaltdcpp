@@ -19,7 +19,6 @@
 #pragma once
 
 #include <string>
-
 #include "forward.h"
 #include "noexcept.h"
 #include "Transfer.h"

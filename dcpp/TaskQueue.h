@@ -21,7 +21,6 @@
 #include <memory>
 #include <utility>
 #include <vector>
-
 #include "CriticalSection.h"
 
 namespace dcpp {

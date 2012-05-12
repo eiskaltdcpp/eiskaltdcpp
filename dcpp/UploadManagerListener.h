@@ -20,8 +20,8 @@
 
 #include "forward.h"
 #include "typedefs.h"
-
 #include "noexcept.h"
+
 namespace dcpp {
 
 class UploadManagerListener {

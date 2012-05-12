@@ -5,7 +5,7 @@
 *   the Free Software Foundation; either version 3 of the License, or     *
 *   (at your option) any later version.                                   *
 *                                                                         *
-***************************************************************************/ 
+***************************************************************************/
 
 #pragma once
 
@@ -16,33 +16,33 @@ class ArenaWidgetFactory {
 public:
 
     ArenaWidgetFactory(){
-        
+
     }
-    
+
     virtual ~ArenaWidgetFactory(){
-        
+
     }
-    
+
     template <class T, typename ... Params>
     T *create(const Params& ... args) {
         T *t = new T(args ...);
-        
+
         ArenaWidgetManager::getInstance()->add(t);
-        
+
         return t;
     }
-    
-    template < template < class > class Type = dcpp::Singleton, class T > 
-    auto create () -> decltype(Type<T>::getInstance()) {       
+
+    template < template < class > class Type = dcpp::Singleton, class T >
+    auto create () -> decltype(Type<T>::getInstance()) {
         if (!Type<T>::getInstance())
             Type<T>::newInstance();
-        
+
         ArenaWidgetManager::getInstance()->add(Type<T>::getInstance());
-        
+
         return Type<T>::getInstance();
     }
-    
-private:    
+
+private:
     ArenaWidgetFactory(const ArenaWidgetFactory &);
     ArenaWidgetFactory& operator=(const ArenaWidgetFactory&);
 };

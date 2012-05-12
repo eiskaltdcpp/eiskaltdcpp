@@ -27,21 +27,22 @@ namespace dcpp {
 class DynDNS : public Singleton<DynDNS>, private HttpConnectionListener
 {
     public:
-	DynDNS();
-	~DynDNS();
+    DynDNS();
+    ~DynDNS();
 
     private:
-	HttpConnection httpConnection;
-	string html;
-	bool request;
-	void Request();
-	// HttpConnectionListener
-	void on(HttpConnectionListener::Data, HttpConnection* conn, const uint8_t* buf, size_t len) noexcept;
-	void on(HttpConnectionListener::Complete, HttpConnection* conn, string const& aLine, bool /*fromCoral*/) noexcept;
-	void on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) noexcept;
+    HttpConnection httpConnection;
+    string html;
+    bool request;
+    void Request();
+    // HttpConnectionListener
+    void on(HttpConnectionListener::Data, HttpConnection* conn, const uint8_t* buf, size_t len) noexcept;
+    void on(HttpConnectionListener::Complete, HttpConnection* conn, string const& aLine, bool /*fromCoral*/) noexcept;
+    void on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) noexcept;
 
-	// TimerManagerListener
-	void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;
+    // TimerManagerListener
+    void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;
 
 };
+
 }

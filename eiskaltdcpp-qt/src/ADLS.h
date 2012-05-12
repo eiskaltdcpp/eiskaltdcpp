@@ -17,9 +17,7 @@
 #include "ui_UIADLSearchEditor.h"
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
-
 #include <dcpp/stdinc.h>
-
 #include <dcpp/ADLSearch.h>
 #include <dcpp/Singleton.h>
 

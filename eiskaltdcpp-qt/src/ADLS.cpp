@@ -11,7 +11,6 @@
 #include "ADLSModel.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
-
 #include "dcpp/stdinc.h"
 #include "dcpp/ADLSearch.h"
 
@@ -30,15 +29,15 @@ ADLS::ADLS(QWidget *parent):
     setupUi(this);
 
     init();
-    
+
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
 }
 
 ADLS::~ADLS(){
     save();
-    
+
     ADLSearchManager::getInstance()->Save();
-    
+
     delete model;
 }
 

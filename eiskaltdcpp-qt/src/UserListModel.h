@@ -75,8 +75,8 @@ public:
     QList<UserListItem*> childItems;
 
     QString cid;
-    
-    inline const dcpp::Identity &getIdentity() { return id; }   
+
+    inline const dcpp::Identity &getIdentity() { return id; }
     QString      getNick() const;
     qulonglong   getShare() const;
     QString      getComment() const;
@@ -87,9 +87,9 @@ public:
     bool         isOP() const;
     bool         isFav() const;
     bool         isAway() const;
-    
+
     void         updateIdentity();
-    
+
     UserPtr ptr;
 private:
     bool _isOp: 1;
@@ -122,7 +122,7 @@ public:
                     const QString& cid= QString(),
                     const UserPtr& = UserPtr()
                 );
-    
+
     void updateUser(const UserPtr&);
     void updateUser(UserListItem *);
 

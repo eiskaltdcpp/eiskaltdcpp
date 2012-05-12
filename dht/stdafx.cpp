@@ -16,11 +16,4 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-// stdafx.cpp : source file that includes just the standard includes
-// dht.pch will be the pre-compiled header
-// stdafx.obj will contain the pre-compiled type information
-
 #include "stdafx.h"
-
-// TODO: reference any additional headers you need in stdafx.h
-// and not in this file

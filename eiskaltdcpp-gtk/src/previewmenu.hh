@@ -23,15 +23,15 @@
 
 class PreviewMenu
 {
-	public:
-		PreviewMenu(GtkWidget *menu) : appsPreviewMenu(menu) {}
-		~PreviewMenu() {}
+    public:
+        PreviewMenu(GtkWidget *menu) : appsPreviewMenu(menu) {}
+        ~PreviewMenu() {}
 
-		void cleanMenu_gui();
-		bool buildMenu_gui(const std::string &target);
+        void cleanMenu_gui();
+        bool buildMenu_gui(const std::string &target);
 
-	private:
+    private:
 
-		GtkWidget *appsPreviewMenu;
-		static void onPreviewAppClicked_gui(GtkMenuItem *menuItem, gpointer data);
+        GtkWidget *appsPreviewMenu;
+        static void onPreviewAppClicked_gui(GtkMenuItem *menuItem, gpointer data);
 };

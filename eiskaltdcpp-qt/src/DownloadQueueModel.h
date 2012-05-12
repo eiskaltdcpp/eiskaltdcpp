@@ -137,11 +137,11 @@ Q_SIGNALS:
     void needExpand(const QModelIndex &item);
     void updateStats(quint64 files, quint64 size);
 
-private:   
+private:
     /** */
     DownloadQueueItem *findTarget(const DownloadQueueItem*, const QString&);
-    
+
     Q_DECLARE_PRIVATE(DownloadQueueModel);
-    
+
     DownloadQueueModelPrivate *d_ptr;
 };

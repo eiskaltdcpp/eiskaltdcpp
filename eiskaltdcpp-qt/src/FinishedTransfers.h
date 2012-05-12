@@ -7,8 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef FINISHEDTRANSFERS_H
-#define FINISHEDTRANSFERS_H
+#pragma once
 
 #include <QWidget>
 #include <QEvent>
@@ -26,7 +25,6 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/FinishedManager.h"
-//#include "dcpp/FinishedManagerListener.h"
 #include "dcpp/Util.h"
 #include "dcpp/FinishedItem.h"
 #include "dcpp/User.h"
@@ -157,14 +155,14 @@ private:
 
         slotSwitchOnlyFull(false);
         slotTypeChanged(0);
-        
+
         ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
     }
 
     ~FinishedTransfers(){
         QString key = (comboBox->currentIndex() == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
         WVSET(key, treeView->header()->saveState());
-            
+
         FinishedManager::getInstance()->removeListener(this);
 
         model->clearModel();
@@ -602,10 +600,3 @@ inline ArenaWidget::Role FinishedTransfers<true>::role() const { return ArenaWid
 
 typedef FinishedTransfers<true>  FinishedUploads;
 typedef FinishedTransfers<false> FinishedDownloads;
-
-#else
-
-typedef FinishedTransfers<true>  FinishedUploads;
-typedef FinishedTransfers<false> FinishedDownloads;
-
-#endif // FINISHEDTRANSFERS_H

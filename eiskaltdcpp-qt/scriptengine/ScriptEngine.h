@@ -40,7 +40,7 @@ public:
 
 Q_SIGNALS:
     void scriptChanged(const QString &script);
-    
+
 public Q_SLOTS:
     void loadScripts();
     void loadScript(const QString&);
@@ -69,7 +69,7 @@ private:
     void registerDynamicMembers(QScriptEngine &);
 
     QMap<QString, ScriptObject*> scripts;
-    
+
     QFileSystemWatcher watcher;
     QStringList changedFiles;
 };

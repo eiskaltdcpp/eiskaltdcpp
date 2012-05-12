@@ -27,54 +27,54 @@
 
 class Emot
 {
-	public:
-//		enum {SIZE_LIST = 255}; FIXME limit emotions
-		enum {SIZE_NAME = 24};
-		typedef std::vector<Emot *> List;
-		typedef List::const_iterator Iter;
+    public:
+//      enum {SIZE_LIST = 255}; FIXME limit emotions
+        enum {SIZE_NAME = 24};
+        typedef std::vector<Emot *> List;
+        typedef List::const_iterator Iter;
 
-		Emot(GList *names, std::string file, GdkPixbuf *pixbuf = NULL) :
-			names(names), file(file), pixbuf(pixbuf) {}
-		~Emot() {}
+        Emot(GList *names, std::string file, GdkPixbuf *pixbuf = NULL) :
+            names(names), file(file), pixbuf(pixbuf) {}
+        ~Emot() {}
 
-		GList* getNames() {return names;}
-		std::string getFile() {return file;}
-		GdkPixbuf* getPixbuf() {return pixbuf;}
+        GList* getNames() {return names;}
+        std::string getFile() {return file;}
+        GdkPixbuf* getPixbuf() {return pixbuf;}
 
-	private:
-		GList *names;
-		std::string file;
-		GdkPixbuf *pixbuf;
+    private:
+        GList *names;
+        std::string file;
+        GdkPixbuf *pixbuf;
 };
 
 class Emoticons
 {
-	public:
-		static void start();
-		static void stop();
-		static Emoticons* get();
+    public:
+        static void start();
+        static void stop();
+        static Emoticons* get();
 
-		Emoticons();
-		~Emoticons();
+        Emoticons();
+        ~Emoticons();
 
-		// GUI functions
-		Emot::List& getPack_gui() {return pack;}
-		int getCountFile_gui() {return countfile;}
-		bool useEmoticons_gui() {return useEmotions;}
-		std::string getCurrPackName_gui() {return currPackName;}
-		void setCurrPackName_gui(const std::string &name) {currPackName = name;}
-		void reloadPack_gui() {create();}
+        // GUI functions
+        Emot::List& getPack_gui() {return pack;}
+        int getCountFile_gui() {return countfile;}
+        bool useEmoticons_gui() {return useEmotions;}
+        std::string getCurrPackName_gui() {return currPackName;}
+        void setCurrPackName_gui(const std::string &name) {currPackName = name;}
+        void reloadPack_gui() {create();}
 
-	private:
-		static Emoticons *emoticons;
+    private:
+        static Emoticons *emoticons;
 
-		bool load(const std::string &file);
-		void create();
-		void clean();
+        bool load(const std::string &file);
+        void create();
+        void clean();
 
-		bool useEmotions;
-		int countfile;
-		Emot::List pack;
-		std::set<std::string> filter;
-		std::string currPackName;
+        bool useEmotions;
+        int countfile;
+        Emot::List pack;
+        std::set<std::string> filter;
+        std::string currPackName;
 };

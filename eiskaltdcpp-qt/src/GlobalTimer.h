@@ -5,7 +5,7 @@
  *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
- ***************************************************************************/ 
+ ***************************************************************************/
 
 #pragma once
 
@@ -19,22 +19,22 @@ class GlobalTimer: public QObject, public dcpp::Singleton<GlobalTimer> {
     friend class dcpp::Singleton<GlobalTimer>;
     Q_OBJECT
 public:
-    
+
     quint64 getTicks() const;
-    
+
 Q_SIGNALS:
     void second();
     void minute();
-    
+
 private Q_SLOTS:
     void slotTick();
-    
+
 private:
     GlobalTimer();
     GlobalTimer(const GlobalTimer &);
     virtual ~GlobalTimer();
     GlobalTimer &operator=(const GlobalTimer&);
-    
+
     std::unique_ptr<QTimer> timer;
     quint64 tickCount;
 };

@@ -19,9 +19,7 @@
 #pragma once
 
 #include <boost/scoped_array.hpp>
-
 #include "Streams.h"
-
 #include "Exception.h"
 
 namespace dcpp {

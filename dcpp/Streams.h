@@ -19,10 +19,8 @@
 #pragma once
 
 #include <algorithm>
-
 #include "typedefs.h"
 #include "format.h"
-
 #include "SettingsManager.h"
 #include "Exception.h"
 

@@ -19,7 +19,6 @@
 #pragma once
 
 #include "typedefs.h"
-
 #include "CriticalSection.h"
 #include "Singleton.h"
 #include "Speaker.h"

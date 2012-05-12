@@ -19,30 +19,29 @@
 #pragma once
 
 #include "KBucket.h"
-
 #include "dcpp/Singleton.h"
 #include "dcpp/User.h"
 
 namespace dht
 {
 
-	class ConnectionManager :
-		public Singleton<ConnectionManager>
-	{
-	public:
-		ConnectionManager(void);
-		~ConnectionManager(void);
+    class ConnectionManager :
+        public Singleton<ConnectionManager>
+    {
+    public:
+        ConnectionManager(void);
+        ~ConnectionManager(void);
 
-		/** Sends Connect To Me request to online node */
-		void connect(const Node::Ptr& node, const string& token);
-		void connect(const Node::Ptr& node, const string& token, bool secure);
+        /** Sends Connect To Me request to online node */
+        void connect(const Node::Ptr& node, const string& token);
+        void connect(const Node::Ptr& node, const string& token, bool secure);
 
-		/** Creates connection to specified node */
-		void connectToMe(const Node::Ptr& node, const AdcCommand& cmd);
+        /** Creates connection to specified node */
+        void connectToMe(const Node::Ptr& node, const AdcCommand& cmd);
 
-		/** Sends request to create connection with me */
-		void revConnectToMe(const Node::Ptr& node, const AdcCommand& cmd);
+        /** Sends request to create connection with me */
+        void revConnectToMe(const Node::Ptr& node, const AdcCommand& cmd);
 
-	};
+    };
 
 }

@@ -18,13 +18,10 @@
 #include <QMetaType>
 
 #include <dcpp/stdinc.h>
-
 #include <dcpp/QueueManager.h>
 #include <dcpp/Singleton.h>
-
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
-
 #include "ui_UIDownloadQueue.h"
 
 class DownloadQueueModel;
@@ -148,9 +145,9 @@ private:
     void getItems(const QModelIndexList &list, QList<DownloadQueueItem*> &items);
 
     QString getCID(const VarMap&);
-    
+
     Q_DECLARE_PRIVATE(DownloadQueue);
-    
+
     DownloadQueuePrivate *d_ptr;
 };
 

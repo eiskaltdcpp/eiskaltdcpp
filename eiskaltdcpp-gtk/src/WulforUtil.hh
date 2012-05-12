@@ -30,54 +30,54 @@
 
 class WulforUtil
 {
-	public:
-		static std::vector<int> splitString(const std::string &str, const std::string &delimiter);
-		static std::string linuxSeparator(const std::string &ps);
-		static std::string windowsSeparator(const std::string &ps);
-		static std::vector<std::string> getLocalIPs();
-//NOTE: core 0.762
-		/** get nick */
-		static std::string getNicks(const std::string &cid, const std::string& hintUrl);
-		static std::string getNicks(const dcpp::CID& cid, const std::string& hintUrl);
-		static std::string getNicks(const dcpp::UserPtr& user, const std::string& hintUrl);
-		static std::string getNicks(const dcpp::HintedUser& user) {return getNicks(user.user->getCID(), user.hint);}
-		/** get hub name */
-		static std::string getHubNames(const std::string &cid, const std::string& hintUrl);
-		static std::string getHubNames(const dcpp::CID& cid, const std::string& hintUrl);
-		static std::string getHubNames(const dcpp::UserPtr& user, const std::string& hintUrl);
-		static std::string getHubNames(const dcpp::HintedUser& user) {return getHubNames(user.user->getCID(), user.hint);}
-		/** get hub address */
-		static dcpp::StringList getHubAddress(const dcpp::CID& cid, const std::string& hintUrl);
-		static dcpp::StringList getHubAddress(const dcpp::UserPtr& user, const std::string& hintUrl);
-//NOTE: core 0.762
-		static std::string getTextFromMenu(GtkMenuItem *item);
-		static std::vector<std::string>& getCharsets();
-		static void openURI(const std::string &uri);
-		static void openURItoApp(const std::string &cmd);
-		static std::string colorToString(const GdkColor *color); /* gdk < 2.12 */
-		static GdkPixbuf* scalePixbuf(const GdkPixbuf *pixbuf,
-			const int width, const int height, GdkInterpType type = GDK_INTERP_BILINEAR);
+    public:
+        static std::vector<int> splitString(const std::string &str, const std::string &delimiter);
+        static std::string linuxSeparator(const std::string &ps);
+        static std::string windowsSeparator(const std::string &ps);
+        static std::vector<std::string> getLocalIPs();
 
- 		// Magnet links
-		static std::string makeMagnet(const std::string &name, const int64_t size, const std::string &tth);
-		static bool splitMagnet(const std::string &magnet, std::string &name, int64_t &size, std::string &tth);
-		static bool splitMagnet(const std::string &magnet, std::string &line);
-		static bool isMagnet(const std::string &text);
-		static bool isLink(const std::string &text);
-		static bool isHubURL(const std::string &text);
-		// Profile locking
-		static bool profileIsLocked();
-		static gboolean getNextIter_gui(GtkTreeModel *model, GtkTreeIter *iter, bool children = TRUE, bool parent = TRUE);
-		static GtkTreeIter copyRow_gui(GtkListStore *store, GtkTreeIter *fromIter, int position = -1);
-		static void copyValue_gui(GtkListStore* store, GtkTreeIter *fromIter, GtkTreeIter *toIter, int position);
-		static GtkTreeIter copyRow_gui(GtkTreeStore *store, GtkTreeIter *fromIter, GtkTreeIter *parent = NULL, int position = -1);
-		static void copyValue_gui(GtkTreeStore* store, GtkTreeIter *fromIter, GtkTreeIter *toIter, int position);
-		static void registerIcons();
+        /** get nick */
+        static std::string getNicks(const std::string &cid, const std::string& hintUrl);
+        static std::string getNicks(const dcpp::CID& cid, const std::string& hintUrl);
+        static std::string getNicks(const dcpp::UserPtr& user, const std::string& hintUrl);
+        static std::string getNicks(const dcpp::HintedUser& user) {return getNicks(user.user->getCID(), user.hint);}
+        /** get hub name */
+        static std::string getHubNames(const std::string &cid, const std::string& hintUrl);
+        static std::string getHubNames(const dcpp::CID& cid, const std::string& hintUrl);
+        static std::string getHubNames(const dcpp::UserPtr& user, const std::string& hintUrl);
+        static std::string getHubNames(const dcpp::HintedUser& user) {return getHubNames(user.user->getCID(), user.hint);}
+        /** get hub address */
+        static dcpp::StringList getHubAddress(const dcpp::CID& cid, const std::string& hintUrl);
+        static dcpp::StringList getHubAddress(const dcpp::UserPtr& user, const std::string& hintUrl);
 
-		static const std::string ENCODING_LOCALE;
+        static std::string getTextFromMenu(GtkMenuItem *item);
+        static std::vector<std::string>& getCharsets();
+        static void openURI(const std::string &uri);
+        static void openURItoApp(const std::string &cmd);
+        static std::string colorToString(const GdkColor *color); /* gdk < 2.12 */
+        static GdkPixbuf* scalePixbuf(const GdkPixbuf *pixbuf,
+            const int width, const int height, GdkInterpType type = GDK_INTERP_BILINEAR);
 
-	private:
-		static std::vector<std::string> charsets;
-		static const std::string magnetSignature;
-		static GtkIconFactory *iconFactory;
+        // Magnet links
+        static std::string makeMagnet(const std::string &name, const int64_t size, const std::string &tth);
+        static bool splitMagnet(const std::string &magnet, std::string &name, int64_t &size, std::string &tth);
+        static bool splitMagnet(const std::string &magnet, std::string &line);
+        static bool isMagnet(const std::string &text);
+        static bool isLink(const std::string &text);
+        static bool isHubURL(const std::string &text);
+        // Profile locking
+        static bool profileIsLocked();
+        static gboolean getNextIter_gui(GtkTreeModel *model, GtkTreeIter *iter, bool children = TRUE, bool parent = TRUE);
+        static GtkTreeIter copyRow_gui(GtkListStore *store, GtkTreeIter *fromIter, int position = -1);
+        static void copyValue_gui(GtkListStore* store, GtkTreeIter *fromIter, GtkTreeIter *toIter, int position);
+        static GtkTreeIter copyRow_gui(GtkTreeStore *store, GtkTreeIter *fromIter, GtkTreeIter *parent = NULL, int position = -1);
+        static void copyValue_gui(GtkTreeStore* store, GtkTreeIter *fromIter, GtkTreeIter *toIter, int position);
+        static void registerIcons();
+
+        static const std::string ENCODING_LOCALE;
+
+    private:
+        static std::vector<std::string> charsets;
+        static const std::string magnetSignature;
+        static GtkIconFactory *iconFactory;
 };

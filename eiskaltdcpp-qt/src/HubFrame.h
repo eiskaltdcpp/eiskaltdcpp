@@ -291,7 +291,7 @@ private:
     virtual void on(ClientListener::SearchFlood, Client*, const string&) noexcept;
 
     Q_DECLARE_PRIVATE(HubFrame);
-    
+
     HubFramePrivate *d_ptr;
 };
 

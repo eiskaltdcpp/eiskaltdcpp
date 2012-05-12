@@ -19,7 +19,6 @@
 #pragma once
 
 #include "typedefs.h"
-
 #include "Client.h"
 #include "AdcCommand.h"
 #include "Socket.h"

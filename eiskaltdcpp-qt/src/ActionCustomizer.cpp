@@ -105,4 +105,3 @@ void ActionCustomizer::moveToEnabled() {
 
     listWidget_ENABLED->addItem(currentItem);
 }
-

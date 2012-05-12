@@ -66,4 +66,5 @@ struct hash<dcpp::CID> {
         return hvHash;
     }
 };
-}
+
+} // namespace dcpp

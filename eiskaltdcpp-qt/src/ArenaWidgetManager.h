@@ -28,21 +28,21 @@ public Q_SLOTS:
     void rem(ArenaWidget*);
     void activate(ArenaWidget*);
     void toggle(ArenaWidget*);
-    
+
 Q_SIGNALS:
     void added(ArenaWidget*);
     void removed(ArenaWidget*);
     void updated(ArenaWidget*);
     void activated(ArenaWidget*);
     void toggled(ArenaWidget*);
-    
+
 private:
     ArenaWidgetManager();
     ArenaWidgetManager(const ArenaWidgetManager &m);
     virtual ~ArenaWidgetManager();
     ArenaWidgetManager &operator=(const ArenaWidgetManager &);
-    
+
     void add(ArenaWidget*);
-    
+
     QList<ArenaWidget*> widgets;
 };

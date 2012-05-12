@@ -19,9 +19,7 @@
 #pragma once
 
 #include "forward.h"
-
 #include <stdint.h>
-
 #include <string>
 #include <unordered_map>
 #include <unordered_set>

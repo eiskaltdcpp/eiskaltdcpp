@@ -56,4 +56,5 @@ typedef scoped_handle<X509_NAME, X509_NAME_free> X509_NAME;
 vector<uint8_t> X509_digest(::X509* x509, const ::EVP_MD* md);
 
 }
+
 }

@@ -19,9 +19,7 @@
 #pragma once
 
 #include "compiler.h"
-
 #include "forward.h"
-
 #include "User.h"
 #include "Speaker.h"
 #include "BufferedSocketListener.h"

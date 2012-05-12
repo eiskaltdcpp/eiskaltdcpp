@@ -19,7 +19,6 @@
 #pragma once
 
 #include "SettingsManager.h"
-
 #include "Exception.h"
 #include "Singleton.h"
 #include "SSLSocket.h"

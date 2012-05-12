@@ -27,7 +27,6 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <errno.h>
-
 #include "bacon-message-connection.h"
 
 #ifndef UNIX_PATH_MAX

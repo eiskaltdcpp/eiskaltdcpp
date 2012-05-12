@@ -28,90 +28,90 @@
 namespace dht
 {
 
-	struct Packet :
-		FastAlloc<Packet>
-	{
-		/** Public constructor */
-		Packet(const string& ip_, uint16_t port_, const std::string& data_, const CID& _targetCID, const CID& _udpKey) :
-			ip(ip_), port(port_), data(data_), targetCID(_targetCID), udpKey(_udpKey)
-		{
-		}
+    struct Packet :
+        FastAlloc<Packet>
+    {
+        /** Public constructor */
+        Packet(const string& ip_, uint16_t port_, const std::string& data_, const CID& _targetCID, const CID& _udpKey) :
+            ip(ip_), port(port_), data(data_), targetCID(_targetCID), udpKey(_udpKey)
+        {
+        }
 
-		/** IP where send this packet to */
-		string ip;
+        /** IP where send this packet to */
+        string ip;
 
-		/** To which port this packet should be sent */
-		uint16_t port;
+        /** To which port this packet should be sent */
+        uint16_t port;
 
-		/** Data to sent */
-		std::string data;
+        /** Data to sent */
+        std::string data;
 
-		/** CID of target node */
-		CID targetCID;
+        /** CID of target node */
+        CID targetCID;
 
-		/** Key to encrypt packet */
-		CID udpKey;
+        /** Key to encrypt packet */
+        CID udpKey;
 
-	};
+    };
 
-	class UDPSocket :
-		private Thread
-	{
-	public:
-		UDPSocket(void);
-		~UDPSocket(void);
+    class UDPSocket :
+        private Thread
+    {
+    public:
+        UDPSocket(void);
+        ~UDPSocket(void);
 
-		/** Disconnects UDP socket */
-		void disconnect() throw();
+        /** Disconnects UDP socket */
+        void disconnect() throw();
 
-		/** Starts listening to UDP socket */
-		void listen() throw(SocketException);
+        /** Starts listening to UDP socket */
+        void listen() throw(SocketException);
 
-		/** Returns port used to listening to UDP socket */
-		uint16_t getPort() const { return port;	}
+        /** Returns port used to listening to UDP socket */
+        uint16_t getPort() const { return port; }
 
-		/** Sends command to ip and port */
-		void send(AdcCommand& cmd, const string& ip, uint16_t port, const CID& targetCID, const CID& udpKey);
+        /** Sends command to ip and port */
+        void send(AdcCommand& cmd, const string& ip, uint16_t port, const CID& targetCID, const CID& udpKey);
 
-	private:
+    private:
 
-		std::unique_ptr<Socket> socket;
+        std::unique_ptr<Socket> socket;
 
-		/** Indicates to stop socket thread */
-		bool stop;
+        /** Indicates to stop socket thread */
+        bool stop;
 
-		/** Port for communicating in this network */
-		uint16_t port;
+        /** Port for communicating in this network */
+        uint16_t port;
 
-		/** Queue for sending packets through UDP socket */
-		std::deque<Packet*> sendQueue;
+        /** Queue for sending packets through UDP socket */
+        std::deque<Packet*> sendQueue;
 
-		/** Antiflooding protection */
-		uint64_t delay;
+        /** Antiflooding protection */
+        uint64_t delay;
 
-		/** Locks access to sending queue */
-		CriticalSection cs;
+        /** Locks access to sending queue */
+        CriticalSection cs;
 
 #ifdef _DEBUG
-		// debug constants to optimize bandwidth
-		size_t sentBytes;
-		size_t receivedBytes;
+        // debug constants to optimize bandwidth
+        size_t sentBytes;
+        size_t receivedBytes;
 
-		size_t sentPackets;
-		size_t receivedPackets;
+        size_t sentPackets;
+        size_t receivedPackets;
 #endif
 
-		/** Thread for receiving UDP packets */
-		int run();
+        /** Thread for receiving UDP packets */
+        int run();
 
-		void checkIncoming() throw(SocketException);
-		void checkOutgoing(uint64_t& timer) throw(SocketException);
+        void checkIncoming() throw(SocketException);
+        void checkOutgoing(uint64_t& timer) throw(SocketException);
 
-		void compressPacket(const string& data, uint8_t* destBuf, unsigned long& destSize);
-		void encryptPacket(const CID& targetCID, const CID& udpKey, uint8_t* destBuf, unsigned long& destSize);
+        void compressPacket(const string& data, uint8_t* destBuf, unsigned long& destSize);
+        void encryptPacket(const CID& targetCID, const CID& udpKey, uint8_t* destBuf, unsigned long& destSize);
 
-		bool decompressPacket(uint8_t* destBuf, unsigned long& destLen, const uint8_t* buf, size_t len);
-		bool decryptPacket(uint8_t* buf, int& len, const string& remoteIp, bool& isUdpKeyValid);
-	};
+        bool decompressPacket(uint8_t* destBuf, unsigned long& destLen, const uint8_t* buf, size_t len);
+        bool decryptPacket(uint8_t* buf, int& len, const string& remoteIp, bool& isUdpKeyValid);
+    };
 
 }

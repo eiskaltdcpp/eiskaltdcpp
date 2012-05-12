@@ -22,7 +22,6 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gdk/gdkx.h>
-
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
 #include "bacon-message-connection.h"

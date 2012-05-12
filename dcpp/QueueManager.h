@@ -19,7 +19,6 @@
 #pragma once
 
 #include "TimerManager.h"
-
 #include "CriticalSection.h"
 #include "Exception.h"
 #include "User.h"
@@ -28,7 +27,6 @@
 #include "Singleton.h"
 #include "DirectoryListing.h"
 #include "MerkleTree.h"
-
 #include "QueueManagerListener.h"
 #include "SearchManagerListener.h"
 #include "ClientManagerListener.h"

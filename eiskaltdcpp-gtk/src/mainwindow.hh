@@ -29,7 +29,6 @@
 #include <dcpp/TimerManager.h>
 #include <dcpp/UploadManager.h>
 #include <dcpp/FavoriteManager.h>
-
 #include "entry.hh"
 #include "treeview.hh"
 #include "transfers.hh"

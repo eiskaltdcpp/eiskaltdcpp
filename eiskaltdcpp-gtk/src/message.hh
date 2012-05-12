@@ -23,16 +23,16 @@
 
 class Msg
 {
-	public:
-		typedef enum
-		{
-			GENERAL,
-			PRIVATE,
-			MYOWN,
-			SYSTEM,
-			STATUS,
-			FAVORITE,
-			OPERATOR,
-			UNKNOWN
-		} TypeMsg;
+    public:
+        typedef enum
+        {
+            GENERAL,
+            PRIVATE,
+            MYOWN,
+            SYSTEM,
+            STATUS,
+            FAVORITE,
+            OPERATOR,
+            UNKNOWN
+        } TypeMsg;
 };

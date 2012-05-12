@@ -21,14 +21,12 @@
 #include "DownloadManagerListener.h"
 #include "UploadManagerListener.h"
 #include "QueueManagerListener.h"
-
 #include "Speaker.h"
 #include "CriticalSection.h"
 #include "Singleton.h"
 #include "FinishedManagerListener.h"
 #include "Util.h"
 #include "User.h"
-
 #include "MerkleTree.h"
 #include "ClientManager.h"
 

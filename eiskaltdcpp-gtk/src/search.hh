@@ -25,7 +25,6 @@
 #include <dcpp/ClientManager.h>
 #include <dcpp/SearchManager.h>
 #include <dcpp/SearchResult.h>
-
 #include "bookentry.hh"
 #include "treeview.hh"
 

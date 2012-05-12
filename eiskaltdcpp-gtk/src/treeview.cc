@@ -22,7 +22,6 @@
 #include "treeview.hh"
 #include "settingsmanager.hh"
 #include "WulforUtil.hh"
-
 #include <glib/gi18n.h>
 
 using namespace std;

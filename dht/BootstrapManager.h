@@ -20,7 +20,6 @@
 
 #include "Constants.h"
 #include "KBucket.h"
-
 #include "dcpp/CID.h"
 #include "dcpp/HttpConnection.h"
 #include "dcpp/Singleton.h"
@@ -28,45 +27,45 @@
 namespace dht
 {
 
-	class BootstrapManager :
-		public Singleton<BootstrapManager>, private HttpConnectionListener
-	{
-	public:
-		BootstrapManager(void);
-		~BootstrapManager(void);
+    class BootstrapManager :
+        public Singleton<BootstrapManager>, private HttpConnectionListener
+    {
+    public:
+        BootstrapManager(void);
+        ~BootstrapManager(void);
 
-		void bootstrap();
+        void bootstrap();
 
-		void process();
+        void process();
 
-		void addBootstrapNode(const string& ip, uint16_t udpPort, const CID& targetCID, const UDPKey& udpKey);
+        void addBootstrapNode(const string& ip, uint16_t udpPort, const CID& targetCID, const UDPKey& udpKey);
 
-	private:
+    private:
 
-		CriticalSection cs;
+        CriticalSection cs;
 
-		struct BootstrapNode
-		{
-			string		ip;
-			uint16_t	udpPort;
-			CID			cid;
-			UDPKey		udpKey;
-		};
+        struct BootstrapNode
+        {
+            string      ip;
+            uint16_t    udpPort;
+            CID         cid;
+            UDPKey      udpKey;
+        };
 
-		/** List of bootstrap nodes */
-		deque<BootstrapNode> bootstrapNodes;
+        /** List of bootstrap nodes */
+        deque<BootstrapNode> bootstrapNodes;
 
-		/** HTTP connection for bootstrapping */
-		HttpConnection httpConnection;
+        /** HTTP connection for bootstrapping */
+        HttpConnection httpConnection;
 
-		/** Downloaded node list */
-		string nodesXML;
+        /** Downloaded node list */
+        string nodesXML;
 
-		// HttpConnectionListener
-		void on(HttpConnectionListener::Data, HttpConnection* conn, const uint8_t* buf, size_t len) throw();
-		void on(HttpConnectionListener::Complete, HttpConnection* conn, string const& aLine, bool /*fromCoral*/) throw();
-		void on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) throw();
+        // HttpConnectionListener
+        void on(HttpConnectionListener::Data, HttpConnection* conn, const uint8_t* buf, size_t len) throw();
+        void on(HttpConnectionListener::Complete, HttpConnection* conn, string const& aLine, bool /*fromCoral*/) throw();
+        void on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) throw();
 
-	};
+    };
 
 }

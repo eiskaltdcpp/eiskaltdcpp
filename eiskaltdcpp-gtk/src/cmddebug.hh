@@ -23,7 +23,6 @@
 #pragma once
 
 #include <dcpp/stdinc.h>
-
 #include "bookentry.hh"
 #include "treeview.hh"
 #include "wulformanager.hh"

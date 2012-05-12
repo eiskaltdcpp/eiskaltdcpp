@@ -19,7 +19,6 @@
 #pragma once
 
 #include "typedefs.h"
-
 #include "Exception.h"
 #include "Util.h"
 

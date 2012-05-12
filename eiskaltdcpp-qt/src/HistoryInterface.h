@@ -40,7 +40,7 @@ public:
 
     void setSize(unsigned sz){
         size = (sz == 0)? size : sz;
-        
+
         while (size <= stack.size())
             stack.erase(stack.begin());
     }

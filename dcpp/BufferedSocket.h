@@ -19,7 +19,6 @@
 #pragma once
 
 #include "typedefs.h"
-
 #include "BufferedSocketListener.h"
 #include "Semaphore.h"
 #include "Thread.h"

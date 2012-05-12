@@ -19,7 +19,6 @@
 #pragma once
 
 #include "Text.h"
-
 #include "noexcept.h"
 
 namespace dcpp {

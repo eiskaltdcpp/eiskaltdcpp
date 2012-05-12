@@ -24,9 +24,7 @@
 #pragma once
 
 #include "Util.h"
-
 #include "SettingsManager.h"
-
 #include "StringSearch.h"
 #include "Singleton.h"
 #include "DirectoryListing.h"

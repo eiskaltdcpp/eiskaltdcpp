@@ -25,16 +25,16 @@
 
 class DialogEntry : public Entry
 {
-	public:
-		DialogEntry() {}
-		DialogEntry(const EntryType type, const std::string &ui, GtkWindow* parent = NULL);
-		virtual ~DialogEntry();
+    public:
+        DialogEntry() {}
+        DialogEntry(const EntryType type, const std::string &ui, GtkWindow* parent = NULL);
+        virtual ~DialogEntry();
 
-		GtkWidget *getContainer();
-		gint run();
-		gint getResponseID();
+        GtkWidget *getContainer();
+        gint run();
+        gint getResponseID();
 
-	private:
-		GtkWindow* parent;
-		gint responseID;
+    private:
+        GtkWindow* parent;
+        gint responseID;
 };

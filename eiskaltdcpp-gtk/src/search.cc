@@ -20,7 +20,6 @@
  */
 
 #include "search.hh"
-
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/QueueManager.h>
 #include <dcpp/ShareManager.h>
@@ -516,7 +515,7 @@ void Search::search_gui()
 
     if (!isHash)
         WSET("last-search-type", (int)ftype);
-        
+
 
     // Add new searches to the dropdown list
     GtkListStore *store = GTK_LIST_STORE(searchEntriesModel);
@@ -545,8 +544,8 @@ void Search::search_gui()
     setStatus_gui("statusbar3", _("0 filtered"));
     setLabel_gui(text);
 
-    dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());//NOTE: core 0.770
-    SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);//NOTE: core 0.770
+    dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());
+    SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);
 
     if (WGETB("clearsearch")) // Only clear if the search was sent.
         gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
@@ -1656,7 +1655,7 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
         }
     }
 
-    resultMap["Nick"] = WulforUtil::getNicks(result->getUser(), result->getHubURL());//NOTE: core 0.762
+    resultMap["Nick"] = WulforUtil::getNicks(result->getUser(), result->getHubURL());
     resultMap["CID"] = result->getUser()->getCID().toBase32();
     resultMap["Slots"] = result->getSlotString();
     resultMap["Connection"] = ClientManager::getInstance()->getConnection(result->getUser()->getCID());
@@ -1684,12 +1683,12 @@ void Search::download_client(string target, string cid, string filename, int64_t
         if (!tth.empty())
         {
             string subdir = Util::getFileName(filename);
-            QueueManager::getInstance()->add(target + subdir, size, TTHValue(tth), HintedUser(user, hubUrl));//NOTE: core 0.762
+            QueueManager::getInstance()->add(target + subdir, size, TTHValue(tth), HintedUser(user, hubUrl));
         }
         else
         {
             string dir = WulforUtil::windowsSeparator(filename);
-            QueueManager::getInstance()->addDirectory(dir, HintedUser(user, hubUrl), target);//NOTE: core 0.762
+            QueueManager::getInstance()->addDirectory(dir, HintedUser(user, hubUrl), target);
         }
     }
     catch (const Exception&)
@@ -1716,7 +1715,7 @@ void Search::downloadDir_client(string target, string cid, string filename, stri
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
         if (user != NULL)
         {
-            QueueManager::getInstance()->addDirectory(dir, HintedUser(user, hubUrl), target);//NOTE: core 0.762
+            QueueManager::getInstance()->addDirectory(dir, HintedUser(user, hubUrl), target);
         }
     }
     catch (const Exception&)
@@ -1731,7 +1730,7 @@ void Search::addSource_client(string source, string cid, int64_t size, string tt
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
         if (!tth.empty() && user != NULL)
         {
-            QueueManager::getInstance()->add(source, size, TTHValue(tth), HintedUser(user, hubUrl));//NOTE: core 0.762
+            QueueManager::getInstance()->add(source, size, TTHValue(tth), HintedUser(user, hubUrl));
         }
     }
     catch (const Exception&)
@@ -1753,7 +1752,7 @@ void Search::getFileList_client(string cid, string dir, bool match, string hubUr
                     flags = QueueItem::FLAG_MATCH_QUEUE;
                 else
                     flags = QueueItem::FLAG_CLIENT_VIEW;
-                QueueManager::getInstance()->addList(HintedUser(user, hubUrl), flags, dir);//NOTE: core 0.762
+                QueueManager::getInstance()->addList(HintedUser(user, hubUrl), flags, dir);
             }
         }
         catch (const Exception&)
@@ -1769,7 +1768,7 @@ void Search::grantSlot_client(string cid, string hubUrl)
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
         if (user)
         {
-            UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));//NOTE: core 0.762
+            UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));
         }
     }
 }

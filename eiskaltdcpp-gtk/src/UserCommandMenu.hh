@@ -28,40 +28,40 @@
 
 class UserCommandMenu : public Entry
 {
-	public:
-		UserCommandMenu(GtkWidget *userCommandMenu, int ctx);
-		virtual ~UserCommandMenu() {}
+    public:
+        UserCommandMenu(GtkWidget *userCommandMenu, int ctx);
+        virtual ~UserCommandMenu() {}
 
-		GtkWidget *getContainer() { return userCommandMenu; }
-		void addHub(const std::string &hub);
-		void addHub(const dcpp::StringList &hubs2);
-		void addUser(const std::string &cid);
-		void addFile(const std::string &cid, const std::string &name, const std::string &path,
-			const int64_t &size = 0, const std::string &tth = "");
-		void cleanMenu_gui();
-		void buildMenu_gui();
+        GtkWidget *getContainer() { return userCommandMenu; }
+        void addHub(const std::string &hub);
+        void addHub(const dcpp::StringList &hubs2);
+        void addUser(const std::string &cid);
+        void addFile(const std::string &cid, const std::string &name, const std::string &path,
+            const int64_t &size = 0, const std::string &tth = "");
+        void cleanMenu_gui();
+        void buildMenu_gui();
 
-	private:
-		// GUI functions
-		void createSubMenu_gui(GtkWidget *&menu, std::string &command);
+    private:
+        // GUI functions
+        void createSubMenu_gui(GtkWidget *&menu, std::string &command);
 
-		// GUI callbacks
-		static void onUserCommandClick_gui(GtkMenuItem *item, gpointer data);
+        // GUI callbacks
+        static void onUserCommandClick_gui(GtkMenuItem *item, gpointer data);
 
-		// Client functions
-		void sendUserCommand_client(std::string cid, std::string commandName, std::string hub, dcpp::StringMap params);
+        // Client functions
+        void sendUserCommand_client(std::string cid, std::string commandName, std::string hub, dcpp::StringMap params);
 
-		GtkWidget *userCommandMenu;
-		int ctx;
-		dcpp::StringList hubs;
- 		struct UCParam
-		{
- 			std::string cid;
- 			std::string name;
- 			std::string path;
- 			int64_t size;
- 			std::string tth;
- 			std::string type;
- 		};
- 		std::vector<UCParam> ucParams;
+        GtkWidget *userCommandMenu;
+        int ctx;
+        dcpp::StringList hubs;
+        struct UCParam
+        {
+            std::string cid;
+            std::string name;
+            std::string path;
+            int64_t size;
+            std::string tth;
+            std::string type;
+        };
+        std::vector<UCParam> ucParams;
 };

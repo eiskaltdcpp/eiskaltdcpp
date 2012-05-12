@@ -41,14 +41,14 @@ public:
         QueuedUsers,
         NoRole  //Not valid for widgets
     };
-    
+
     enum Flags {
         NoFlags         =0,
         Singleton       =1,
         Hidden          =2,
         RaiseOnStart    =4
     };
-    
+
     friend Flags operator|(const Flags &a, const Flags &b);
     friend Flags operator&(const Flags &a, const Flags &b);
     friend Flags operator^(const Flags &a, const Flags &b);
@@ -63,7 +63,7 @@ public:
     virtual QAction *toolButton() { return toolBtn; }
     virtual void  setToolButton(QAction *btn) { if (btn) toolBtn = btn; }
     virtual const QPixmap &getPixmap(){ return _pxmap; }
-    
+
     virtual Flags state() const { return flags; }
     virtual void  setState(Flags f) { flags = f; }
 
@@ -98,7 +98,7 @@ Q_INTERFACES(ArenaWidget)
 
 public:
     Q_ENUMS (ArenaWidget::Flags);
-    
+
     ScriptWidget();
     virtual ~ScriptWidget();
 

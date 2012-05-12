@@ -167,5 +167,4 @@ private:
     bool error(const char* message);
 };
 
-
 }

@@ -19,13 +19,11 @@
 #pragma once
 
 #include "TimerManager.h"
-
 #include "UserConnection.h"
 #include "User.h"
 #include "CriticalSection.h"
 #include "Singleton.h"
 #include "Util.h"
-
 #include "ConnectionManagerListener.h"
 
 namespace dcpp {

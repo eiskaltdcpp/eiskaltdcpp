@@ -23,7 +23,6 @@
 
 #include <dcpp/stdinc.h>
 #include <dcpp/FavoriteManager.h>
-
 #include "bookentry.hh"
 #include "treeview.hh"
 
