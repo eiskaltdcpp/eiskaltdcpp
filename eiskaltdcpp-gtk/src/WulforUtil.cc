@@ -65,7 +65,7 @@ vector<int> WulforUtil::splitString(const string &str, const string &delimiter)
 string WulforUtil::linuxSeparator(const string &ps)
 {
     string str = ps;
-    for (string::iterator it = str.begin(); it != str.end(); ++it)
+    for (auto it = str.begin(); it != str.end(); ++it)
         if ((*it) == '\\')
             (*it) = '/';
     return str;
@@ -74,7 +74,7 @@ string WulforUtil::linuxSeparator(const string &ps)
 string WulforUtil::windowsSeparator(const string &ps)
 {
     string str = ps;
-    for (string::iterator it = str.begin(); it != str.end(); ++it)
+    for (auto it = str.begin(); it != str.end(); ++it)
         if ((*it) == '/')
             (*it) = '\\';
     return str;
@@ -549,7 +549,7 @@ void WulforUtil::registerIcons()
 
     iconFactory = gtk_icon_factory_new();
 
-    for (map<string, string>::const_iterator i = icons.begin(); i != icons.end(); ++i)
+    for (auto i = icons.begin(); i != icons.end(); ++i)
     {
         GtkIconSource *iconSource = gtk_icon_source_new();
         GtkIconSet *iconSet = gtk_icon_set_new();

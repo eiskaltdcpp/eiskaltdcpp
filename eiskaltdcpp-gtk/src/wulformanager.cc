@@ -381,8 +381,8 @@ bool WulforManager::isEntry_gui(Entry *entry)
 {
    g_static_rw_lock_writer_lock(&entryMutex);
 
-   unordered_map<string, Entry *>::const_iterator it = find_if(entries.begin(), entries.end(),
-       CompareSecond<string, Entry *>(entry));
+   auto it = find_if(entries.begin(), entries.end(),
+                     CompareSecond<string, Entry *>(entry));
 
    if (it == entries.end())
        entry = NULL;

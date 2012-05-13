@@ -454,7 +454,7 @@ void FavoriteUsers::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
                 return;
         }
 
-        for (ParamMap::const_iterator it = params.begin(); it != params.end(); ++it)
+        for (auto it = params.begin(); it != params.end(); ++it)
         {
             F1 *func = new F1(fu, &FavoriteUsers::removeFavoriteUser_client, it->first);
             WulforManager::get()->dispatchClientFunc(func);
@@ -557,7 +557,7 @@ void FavoriteUsers::setUserDescription_client(const string cid, const string des
 
 bool FavoriteUsers::findUser_gui(const string &cid, GtkTreeIter *iter)
 {
-    UserIters::const_iterator it = userIters.find(cid);
+    auto it = userIters.find(cid);
 
     if (it != userIters.end())
     {

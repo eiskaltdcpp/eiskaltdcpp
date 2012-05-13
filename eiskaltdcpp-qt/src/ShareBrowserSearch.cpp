@@ -103,7 +103,7 @@ void ShareBrowserSearch::slotGotItem(QString item, FileBrowserItem *path){
 }
 
 void ShareBrowserSearch::slotItemActivated(QTreeWidgetItem *item, int){
-    QHash<QTreeWidgetItem*,FileBrowserItem*>::iterator it = hash.find(item);
+    auto it = hash.find(item);
 
     if (it != hash.end())
         emit indexClicked(it.value());

@@ -50,7 +50,7 @@ FileBrowserModel::~FileBrowserModel()
 
         if (f.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){
             QTextStream stream(&f);
-            QMap<QString, unsigned>::iterator it = restrict_map.begin();
+            auto it = restrict_map.begin();
 
             for(; it != restrict_map.end(); ++it)
                 stream << it.value() << " " << it.key() << '\n';
@@ -146,7 +146,7 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         {
             if (item->isDuplicate && item->file){
                 const QString &tth = item->data(COLUMN_FILEBROWSER_TTH).toString();
-                QHash<QString, dcpp::DirectoryListing::File*>::const_iterator it = hash.find(tth);
+                auto it = hash.find(tth);
 
                 if (it == hash.end())
                     break;
@@ -240,7 +240,7 @@ struct Compare {
         if (column > COLUMN_FILEBROWSER_TTH)
             return;
         
-        QList<FileBrowserItem*>::iterator it = qLowerBound(items.begin(), 
+        auto it = qLowerBound(items.begin(), 
                                                            items.end(), 
                                                            item, 
                                                            attrs[column]
@@ -578,7 +578,7 @@ void FileBrowserModel::highlightDuplicates(){
         if (tth.isEmpty())
             continue;
 
-        QHash<QString, dcpp::DirectoryListing::File*>::iterator it = hash.find(tth);
+        auto it = hash.find(tth);
 
         if (it != hash.end()){
             if (i->file != it.value())//Found duplicate

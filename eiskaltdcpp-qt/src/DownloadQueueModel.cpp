@@ -217,7 +217,7 @@ struct Compare {
             return;
         }
 
-        QList<DownloadQueueItem*>::iterator it = qLowerBound(items.begin(),
+        auto it = qLowerBound(items.begin(),
                                                              items.end(),
                                                              item,
                                                              attrs[column]

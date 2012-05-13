@@ -77,7 +77,7 @@ void ADLS::init(){
 
     ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;
 
-    for (ADLSearchManager::SearchCollection::iterator i = collection.begin(); i != collection.end(); ++i) {
+    for (auto i = collection.begin(); i != collection.end(); ++i) {
         ADLSearch &search = *i;
         addItem(search);
     }
@@ -400,7 +400,7 @@ void ADLS::slotSettingsChanged(const QString &key, const QString &value){
 
 /*ADLS::VectorSize*/int ADLS::findEntry(StrMap &map){
     ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;int j=0;
-    for (ADLSearchManager::SearchCollection::iterator i = collection.begin(); i != collection.end(); ++i,++j) {
+    for (auto i = collection.begin(); i != collection.end(); ++i,++j) {
         ADLSearch &search = *i;
         if (_q(search.searchString) == map["SSTRING"] &&
             _q(search.destDir) == map["DIRECTORY"])

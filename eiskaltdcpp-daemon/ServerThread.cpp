@@ -231,7 +231,7 @@ void ServerThread::WaitFor() {
 
 void ServerThread::autoConnect() {
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
-    for (FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
+    for (auto i = fl.begin(); i != fl.end(); ++i) {
         FavoriteHubEntry* entry = *i;
         if (entry->getConnect()) {
             string address = entry->getServer();
@@ -570,7 +570,7 @@ void ServerThread::parseSearchResult(SearchResultPtr result, StringMap &resultMa
 
 string ServerThread::revertSeparator(const string& ps) {
     string str = ps;
-    for (string::iterator it = str.begin(); it != str.end(); ++it) {
+    for (auto it = str.begin(); it != str.end(); ++it) {
 #ifdef _WIN32
         if ((*it) == '/')
             (*it) = '\\';
@@ -601,7 +601,7 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     }
     string ssearch;
     dcpp::TStringList searchlist = StringTokenizer<string>(search, ' ').getTokens();
-    for (StringList::const_iterator si = searchlist.begin(); si != searchlist.end(); ++si)
+    for (auto si = searchlist.begin(); si != searchlist.end(); ++si)
         if ((*si)[0] != '-') ssearch += *si + ' ';
     ssearch = ssearch.substr(0, std::max(ssearch.size(), static_cast<string::size_type>(1)) - 1);
 
@@ -673,7 +673,7 @@ bool ServerThread::clearSearchResults(const string& huburl) {
 
 void ServerThread::listShare(string& listshare, const string& sseparator) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+    for (auto it = directories.begin(); it != directories.end(); ++it) {
         listshare.append("\n");
         listshare.append(it->second + sseparator);
         listshare.append(it->first + sseparator);
@@ -684,7 +684,7 @@ void ServerThread::listShare(string& listshare, const string& sseparator) {
 
 bool ServerThread::delDirFromShare(const string& sdirectory) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+    for (auto it = directories.begin(); it != directories.end(); ++it) {
         if (it->first.compare(sdirectory) == 0) {
             ShareManager::getInstance()->removeDirectory(it->second);
             ShareManager::getInstance()->refresh(true);
@@ -696,7 +696,7 @@ bool ServerThread::delDirFromShare(const string& sdirectory) {
 
 bool ServerThread::renameDirInShare(const string& sdirectory, const string& svirtname) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it) {
+    for (auto it = directories.begin(); it != directories.end(); ++it) {
         if (it->second.compare(sdirectory) == 0) {
             ShareManager::getInstance()->renameDirectory(sdirectory, svirtname);
             ShareManager::getInstance()->refresh(true);
@@ -746,7 +746,7 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
         string *file;
         const QueueItem::StringMap& ll = QueueManager::getInstance()->lockQueue();
 
-        for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+        for (auto it = ll.begin(); it != ll.end(); ++it) {
             file = it->first;
             if (file->length() >= target.length() && file->substr(0, target.length()) == target)
                 QueueManager::getInstance()->setPriority(*file, p);
@@ -773,7 +773,7 @@ void ServerThread::getItemSources(QueueItem* item, const string& separator, stri
 }
 void ServerThread::getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
-    for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+    for (auto it = ll.begin(); it != ll.end(); ++it) {
         //printf("target: %s\n *it->first: %s\n", target.c_str(),(*it->first).c_str());fflush(stdout);
         if (target == *it->first) {
             getItemSources(it->second, separator, sources, online);
@@ -889,7 +889,7 @@ void ServerThread::listQueueTargets(string& listqueue, const string& sseparator)
         separator = sseparator;
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-    for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+    for (auto it = ll.begin(); it != ll.end(); ++it) {
         listqueue += *it->first;
         listqueue += separator;
     }
@@ -899,7 +899,7 @@ void ServerThread::listQueueTargets(string& listqueue, const string& sseparator)
 void ServerThread::updatelistQueueTargets() {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
     queuesMap.clear();
-    QueueItem::StringMap::const_iterator it = ll.begin(); unsigned int i = 0;
+    auto it = ll.begin(); unsigned int i = 0;
     while (it != ll.end()) {
         queuesMap[i] = *it->first;
          ++it, ++i;
@@ -926,7 +926,7 @@ void ServerThread::on(Moved, QueueItem*, const string&) noexcept {
 
 void ServerThread::listQueue(unordered_map<string,StringMap>& listqueue) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
-    for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+    for (auto it = ll.begin(); it != ll.end(); ++it) {
         StringMap sm;
         getQueueParams(it->second,sm);
         listqueue[*it->first] = sm;
@@ -942,7 +942,7 @@ bool ServerThread::moveQueueItem(const string& source, const string& target) {
             string *file;
             const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-            for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it)
+            for (auto it = ll.begin(); it != ll.end(); ++it)
             {
                 file = it->first;
                 if (file->length() >= source.length() && file->substr(0, source.length()) == source)
@@ -950,7 +950,7 @@ bool ServerThread::moveQueueItem(const string& source, const string& target) {
             }
             QueueManager::getInstance()->unlockQueue();
 
-            for (vector<string>::const_iterator it = targets.begin(); it != targets.end(); ++it)
+            for (auto it = targets.begin(); it != targets.end(); ++it)
                 QueueManager::getInstance()->move(*it, target + it->substr(source.length()));
         } else {
             QueueManager::getInstance()->move(source, target);
@@ -967,14 +967,14 @@ bool ServerThread::removeQueueItem(const string& target) {
             vector<string> targets;
             const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-            for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it) {
+            for (auto it = ll.begin(); it != ll.end(); ++it) {
                 file = it->first;
                 if (file->length() >= target.length() && file->substr(0, target.length()) == target)
                     targets.push_back(*file);
             }
             QueueManager::getInstance()->unlockQueue();
 
-            for (vector<string>::const_iterator it = targets.begin(); it != targets.end(); ++it)
+            for (auto it = targets.begin(); it != targets.end(); ++it)
                 QueueManager::getInstance()->remove(*it);
         } else {
             QueueManager::getInstance()->remove(target);

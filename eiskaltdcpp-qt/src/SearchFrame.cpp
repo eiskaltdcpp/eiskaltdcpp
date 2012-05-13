@@ -382,7 +382,7 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
     clientMgr->addListener(this);
     Client::List& clients = clientMgr->getClients();
 
-    for(Client::List::iterator it = clients.begin(); it != clients.end(); ++it) {
+    for (auto it = clients.begin(); it != clients.end(); ++it) {
         Client* client = *it;
 
         if(!client->isConnected())
@@ -1018,7 +1018,7 @@ void SearchFrame::slotStartSearch(){
         s = "";
 
         //strip out terms beginning with -
-        for(TStringList::iterator si = d->currentSearch.begin(); si != d->currentSearch.end(); ) {
+        for (auto si = d->currentSearch.begin(); si != d->currentSearch.end(); ) {
             if(si->empty()) {
                 si = d->currentSearch.erase(si);
                 continue;

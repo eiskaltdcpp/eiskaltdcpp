@@ -214,7 +214,7 @@ struct FileCompare {
     }
 
     void static insertSorted(int col, QList<FinishedTransfersItem*>& items, FinishedTransfersItem* item) {
-        QList<FinishedTransfersItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 
@@ -279,7 +279,7 @@ struct UserCompare {
     }
 
     void static insertSorted(int col, QList<FinishedTransfersItem*>& items, FinishedTransfersItem* item) {
-        QList<FinishedTransfersItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 
@@ -473,7 +473,7 @@ FinishedTransfersItem *FinishedTransfersModel::findFile(const QString &fname){
     if (fname.isEmpty())
         return NULL;
 
-    QHash<QString, FinishedTransfersItem* >::const_iterator it = file_hash.find(fname);
+    auto it = file_hash.find(fname);
 
     if (it != file_hash.constEnd())
         return const_cast<FinishedTransfersItem*>(it.value());
@@ -504,7 +504,7 @@ FinishedTransfersItem *FinishedTransfersModel::findUser(const QString &cid){
     if (cid.isEmpty())
         return NULL;
 
-    QHash<QString, FinishedTransfersItem* >::const_iterator it = user_hash.find(cid);
+    auto it = user_hash.find(cid);
 
     if (it != user_hash.constEnd())
         return const_cast<FinishedTransfersItem*>(it.value());

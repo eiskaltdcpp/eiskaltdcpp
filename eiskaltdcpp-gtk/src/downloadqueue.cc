@@ -259,7 +259,7 @@ void DownloadQueue::addFiles_gui(vector<StringMap> files, bool firstUpdate)
         gtk_tree_sortable_get_sort_column_id(GTK_TREE_SORTABLE(fileStore), &sortColumn, &sortType);
         gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID, sortType);
 
-        for (vector<StringMap>::const_iterator it = files.begin(); it != files.end(); ++it)
+        for (auto it = files.begin(); it != files.end(); ++it)
             addFile_gui(*it, FALSE);
 
         gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), sortColumn, sortType);
@@ -1058,7 +1058,7 @@ void DownloadQueue::buildList_client()
     //F2 *func;
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-    for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it)
+    for (auto it = ll.begin(); it != ll.end(); ++it)
     {
         params["Size Sort"] = Util::toString(it->second->getSize());
         params["Path"] = Util::getFilePath(*it->first);
@@ -1086,7 +1086,7 @@ void DownloadQueue::moveDir_client(string source, string target)
         string *file;
         const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-        for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it)
+        for (auto it = ll.begin(); it != ll.end(); ++it)
         {
             file = it->first;
             if (file->length() >= source.length() && file->substr(0, source.length()) == source)
@@ -1094,7 +1094,7 @@ void DownloadQueue::moveDir_client(string source, string target)
         }
         QueueManager::getInstance()->unlockQueue();
 
-        for (vector<string>::const_iterator it = targets.begin(); it != targets.end(); ++it)
+        for (auto it = targets.begin(); it != targets.end(); ++it)
             QueueManager::getInstance()->move(*it, target + it->substr(source.length()));
     }
 }
@@ -1112,7 +1112,7 @@ void DownloadQueue::setPriorityDir_client(string path, QueueItem::Priority p)
         string *file;
         const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-        for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it)
+        for (auto it = ll.begin(); it != ll.end(); ++it)
         {
             file = it->first;
             if (file->length() >= path.length() && file->substr(0, path.length()) == path)
@@ -1224,7 +1224,7 @@ void DownloadQueue::removeDir_client(string path)
         vector<string> targets;
         const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-        for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it)
+        for (auto it = ll.begin(); it != ll.end(); ++it)
         {
             file = it->first;
             if (file->length() >= path.length() && file->substr(0, path.length()) == path)
@@ -1232,7 +1232,7 @@ void DownloadQueue::removeDir_client(string path)
         }
         QueueManager::getInstance()->unlockQueue();
 
-        for (vector<string>::const_iterator it = targets.begin(); it != targets.end(); ++it)
+        for (auto it = targets.begin(); it != targets.end(); ++it)
             QueueManager::getInstance()->remove(*it);
     }
 }
@@ -1244,7 +1244,7 @@ void DownloadQueue::updateFileView_client(string path)
         vector<StringMap> files;
         const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-        for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it)
+        for (auto it = ll.begin(); it != ll.end(); ++it)
         {
             if (it->first->length() >= path.length() && it->first->substr(0, it->first->rfind('/') + 1) == path)
             {

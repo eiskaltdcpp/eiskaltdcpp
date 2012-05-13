@@ -84,7 +84,7 @@ void UserCommandMenu::buildMenu_gui()
     GtkWidget *menu = userCommandMenu;
     bool separator = FALSE; // tracks whether last menu item was a separator
 
-    for (UserCommand::List::iterator i = userCommandList.begin(); i != userCommandList.end(); ++i)
+    for (auto i = userCommandList.begin(); i != userCommandList.end(); ++i)
     {
         UserCommand& uc = *i;
 
@@ -164,7 +164,7 @@ void UserCommandMenu::onUserCommandClick_gui(GtkMenuItem *item, gpointer data)
         string commandName = (gchar *)g_object_get_data(G_OBJECT(item), "name");
         string hub = (gchar *)g_object_get_data(G_OBJECT(item), "hub");
 
-        for (vector<UCParam>::iterator i = ucm->ucParams.begin(); i != ucm->ucParams.end(); ++i)
+        for (auto i = ucm->ucParams.begin(); i != ucm->ucParams.end(); ++i)
         {
             if (!i->name.empty() && !i->type.empty())
             {

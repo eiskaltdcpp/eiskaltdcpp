@@ -65,7 +65,7 @@ public:
             throw MemoryManager::MemoryException("Cannot put invalid data");
 
         vector< void* > *alloc_vec = getPool(alloc_blocks, size);
-        vector< void* >::iterator it = find(alloc_vec->begin(), alloc_vec->end(), chunk);
+        auto it = find(alloc_vec->begin(), alloc_vec->end(), chunk);
 
         if (it == alloc_vec->end())
             throw MemoryManager::MemoryException("Cannot put non-existing data");
@@ -76,7 +76,7 @@ public:
         alloc_vec->erase(it);
 
         if (alloc_vec->empty()){
-            map<int, vector< void* > * >::iterator it = alloc_blocks.find(size);
+            auto it = alloc_blocks.find(size);
 
             alloc_blocks.erase(it);
 
@@ -85,7 +85,7 @@ public:
     }
 
     void printStat(){
-        map<int, vector< void* > * >::iterator it = alloc_blocks.begin();
+        auto it = alloc_blocks.begin();
 
         printf("Allocated:\n\n"
                "\tChunk size\t\tPool size\n\n");
@@ -127,7 +127,7 @@ private:
     }
 
     void freePool(vector< void* > &pool){
-        vector< void* >::iterator it = pool.begin();
+        auto it = pool.begin();
 
         for (; it != pool.end(); ++it)
             free(*it);
@@ -136,7 +136,7 @@ private:
     }
 
     void freeHash(map<int, vector< void* > * > &blocks){
-        map<int, vector< void* > * >::iterator it = blocks.begin();
+        auto it = blocks.begin();
 
         for (; it != blocks.end(); ++it){
             vector< void* > *vec = (*it).second;
@@ -153,7 +153,7 @@ private:
         if (size == 0)
             throw MemoryManager::MemoryException("Cannot allocate pool with 0 bytes");
 
-        map<int, vector< void* > * >::iterator it = hash.find(size);
+        auto it = hash.find(size);
 
         if (it != hash.end()){
             vector< void* > *vec = (*it).second;

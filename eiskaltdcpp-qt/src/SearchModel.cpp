@@ -413,7 +413,7 @@ bool SearchModel::addResult
 
     emit layoutAboutToBeChanged();
 
-    QList<SearchItem*>::iterator it = parent->childItems.end();
+    auto it = parent->childItems.end();
 
     if (sortOrder == Qt::AscendingOrder)
         it = acomp.insertSorted(sortColumn, parent->childItems, item);

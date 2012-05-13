@@ -104,8 +104,6 @@ friend class dcpp::Singleton<MainWindow>;
     public:
 
         typedef QList<QAction*> ActionList;
-        typedef QList<ArenaWidget*> ArenaWidgetList;
-        typedef QMap<ArenaWidget*, QWidget*> ArenaWidgetMap;
 
         Q_PROPERTY (QObject* ToolBar READ getToolBar);
         Q_PROPERTY (QMenuBar* MenuBar READ menuBar);

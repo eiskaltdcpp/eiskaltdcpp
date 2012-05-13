@@ -565,8 +565,8 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
         if (input.isEmpty())
             break;
 
-        EmoticonMap::iterator it = emoticons.begin();
-        EmoticonMap::iterator end_it = emoticons.end();
+        auto it = emoticons.begin();
+        auto end_it = emoticons.end();
         bool smile_found = false;
 
         for (; it != end_it; ++it){//Let's try to parse smiles
@@ -1067,7 +1067,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     save();
 
-    PMMap::const_iterator it = d->pm.constBegin();
+    auto it = d->pm.constBegin();
 
     for (; it != d->pm.constEnd(); ++it){
         PMWindow *w = const_cast<PMWindow*>(it.value());
@@ -2032,7 +2032,7 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
             addOutput("<b>PM: </b>" + output);
     }
     else{
-        PMMap::iterator it = d->pm.find(cid);
+        auto it = d->pm.find(cid);
 
         if (output.indexOf(_q(d->client->getMyNick())) >= 0)
             it.value()->setHasHighlightMessages(true);
@@ -2681,7 +2681,7 @@ void HubFrame::slotClose(){
 void HubFrame::slotPMClosed(QString cid){
     Q_D(HubFrame);
     
-    PMMap::iterator it = d->pm.find(cid);
+    auto it = d->pm.find(cid);
 
     if (it != d->pm.end())
         d->pm.erase(it);
@@ -3725,7 +3725,7 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) noexcept{
     bool showHidden = WBGET(WB_SHOW_HIDDEN_USERS);
 
-    for (OnlineUserList::const_iterator it = list.begin(); it != list.end(); ++it){
+    for (auto it = list.begin(); it != list.end(); ++it){
         if ((*(*it)).getIdentity().isHidden() && !showHidden)
             break;
 

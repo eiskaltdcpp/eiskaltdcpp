@@ -149,7 +149,7 @@ void ScriptEngine::stopScripts(){
     DEBUG_BLOCK
     
     QMap<QString, ScriptObject*> s = scripts;
-    QMap<QString, ScriptObject*>::iterator it = s.begin();
+    auto it = s.begin();
 
     for (; it != s.end(); ++it)
         stopScript(it.key());
@@ -573,7 +573,7 @@ QScriptValue printErr(QScriptContext *ctx, QScriptEngine *engine){
 QScriptValue ScriptVarMapToScriptValue(QScriptEngine* eng, const VarMap& map)
 {
     QScriptValue a = eng->newObject();
-    VarMap::const_iterator it(map.begin());
+    auto it = map.begin();
     
     for(; it != map.end(); ++it) {
         QString prop = it.key();

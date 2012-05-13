@@ -72,12 +72,12 @@ void WulforSettings::load(){
         loadOldConfig();
 
         //And load old config into QSettings
-        WStrMap::iterator it = strmap.begin();
+        auto it = strmap.begin();
 
         for (; it != strmap.end(); ++it)
             settings.setValue(it.key(), it.value());
 
-        WIntMap::iterator iit = intmap.begin();
+        auto iit = intmap.begin();
 
         for (; iit != intmap.end(); ++iit)
             settings.setValue(iit.key(), iit.value());
@@ -378,7 +378,7 @@ void WulforSettings::loadOldConfig(){
 
             xml.stepIn();
 
-            WStrMap::iterator it = strmap.begin();
+            auto it = strmap.begin();
 
             for (; it != strmap.end(); ++it){
                 if (xml.findChild(it.key().toStdString()))
@@ -387,7 +387,7 @@ void WulforSettings::loadOldConfig(){
                 xml.resetCurrentChild();
             }
 
-            WIntMap::iterator iit = intmap.begin();
+            auto iit = intmap.begin();
 
             for (; iit != intmap.end(); ++iit){
                 if (xml.findChild(iit.key().toStdString()))

@@ -204,7 +204,7 @@ namespace {
         }
 
         void static insertSorted(int col, QList<SearchBlackListItem*>& items, SearchBlackListItem* item) {
-            QList<SearchBlackListItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+            auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
             items.insert(it, item);
         }
 

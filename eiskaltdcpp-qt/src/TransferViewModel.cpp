@@ -153,7 +153,7 @@ struct Compare {
     }
 
     void static insertSorted(unsigned col, QList<TransferViewItem*>& items, TransferViewItem* item) {
-        QList<TransferViewItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, attrs[col]);
+        auto it = qLowerBound(items.begin(), items.end(), item, attrs[col]);
         items.insert(it, item);
     }
 
@@ -372,7 +372,7 @@ void TransferViewModel::updateTransfer(const VarMap &params){
     if (!findTransfer(vstr(params["CID"]), vbol(params["DOWN"]), &item))
         return;
 
-    QMap<QString, int>::const_iterator i = column_map.constBegin();
+    auto i = column_map.constBegin();
 
     for (; i != column_map.constEnd(); ++i){
         if (params.contains(i.key()))
@@ -399,7 +399,7 @@ void TransferViewModel::removeTransfer(const VarMap &params){
     if (params.empty() || vstr(params["CID"]).isEmpty())
         return;
 
-    QMultiHash<QString, TransferViewItem* >::iterator i = transfer_hash.find(vstr(params["CID"]));
+    auto i = transfer_hash.find(vstr(params["CID"]));
 
     while (i != transfer_hash.end() && i.key() == vstr(params["CID"])){
         if (i.value()->download == vbol(params["DOWN"])){
@@ -436,7 +436,7 @@ bool TransferViewModel::findTransfer(const QString &cid, bool download, Transfer
     if (!item)
         return false;
 
-    QMultiHash<QString, TransferViewItem* >::const_iterator i = transfer_hash.find(cid);
+    auto i = transfer_hash.find(cid);
 
     while (i != transfer_hash.end() && i.key() == cid && !cid.isEmpty()){
         if (i.value()->download == download){

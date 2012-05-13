@@ -600,7 +600,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Starting, dcpp::Download* d
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadList& dls) noexcept{
-    for (DownloadList::const_iterator it = dls.begin(); it != dls.end(); ++it){
+    for (auto it = dls.begin(); it != dls.end(); ++it){
         Download* dl = *it;
         VarMap params;
         QString str;
@@ -779,7 +779,7 @@ void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) n
 }
 
 void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) noexcept{
-    for (UploadList::const_iterator it = uls.begin(); it != uls.end(); ++it){
+    for (auto it = uls.begin(); it != uls.end(); ++it){
         Upload* ul = *it;
         VarMap params;
         QString stat = "";

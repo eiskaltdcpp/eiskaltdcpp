@@ -151,7 +151,7 @@ void SettingsSharing::updateShareView(){
         treeWidget_SIMPLE_MODE->clear();
 
         StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){
+        for (auto it = directories.begin(); it != directories.end(); ++it){
             QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget_SIMPLE_MODE);
 
             item->setText(0, it->second.c_str());
@@ -391,7 +391,7 @@ ShareDirModel::ShareDirModel(QObject *parent){
     QDirModel::setFilter((QDir::AllDirs | QDir::NoDotAndDotDot));
 
     StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){
+    for (auto it = directories.begin(); it != directories.end(); ++it){
         QString path = it->second.c_str();
 
         if (path.endsWith(QDir::separator()))

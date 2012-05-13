@@ -309,7 +309,7 @@ void UserListModel::clear() {
 }
 
 void UserListModel::removeUser(const UserPtr &ptr) {
-    USRMap::iterator iter = users.find(ptr);
+    auto iter = users.find(ptr);
 
     if (iter == users.end())
         return;
@@ -348,7 +348,7 @@ void UserListModel::updateUser(UserListItem *item) {
     }
     endRemoveRows();
     
-    QList<UserListItem*>::iterator it = rootItem->childItems.end();
+    auto it = rootItem->childItems.end();
 
     if (sortOrder == Qt::AscendingOrder)
         it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
@@ -396,7 +396,7 @@ void UserListModel::addUser(const QString& nick,
         return;
     }
 
-    QList<UserListItem*>::iterator it = rootItem->childItems.end();
+    auto it = rootItem->childItems.end();
 
     if (sortOrder == Qt::AscendingOrder)
         it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
@@ -413,7 +413,7 @@ void UserListModel::addUser(const QString& nick,
 }
 
 UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){
-    USRMap::iterator iter = users.find(ptr);
+    auto iter = users.find(ptr);
 
     UserListItem *item = (iter != users.end())? (iter.value()) : (NULL);
 
@@ -424,7 +424,7 @@ UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){
     if (nick.isEmpty())
         return NULL;
     
-    QList<UserListItem*>::iterator it = std::find_if(rootItem->childItems.begin(), rootItem->childItems.end(),
+    auto it = std::find_if(rootItem->childItems.begin(), rootItem->childItems.end(),
                                                      [&nick] (const UserListItem *i) {
                                                         return (i->getNick() == nick);
                                                      }
@@ -446,7 +446,7 @@ QStringList UserListModel::matchNicksContaining(const QString & part, bool strip
         return matches;
     }
 
-    for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
+    for (auto it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
         QString nick_lc = (*it)->getNick().toLower();
 
         if (nick_lc.contains(part)) {
@@ -464,7 +464,7 @@ QStringList UserListModel::matchNicksStartingWith(const QString & part, bool str
         return matches;
     }
 
-    for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
+    for (auto it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
         QString nick_lc = (*it)->getNick().toLower();
 
         if (nick_lc.startsWith(part)) {
@@ -482,7 +482,7 @@ QStringList UserListModel::matchNicksAny(const QString &part, bool stripTags) co
         return matches;
     }
 
-    for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
+    for (auto it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
         QString nick_lc = (*it)->getNick().toLower();
 
         if (nick_lc.startsWith(part) || nick_lc.contains(part)) {

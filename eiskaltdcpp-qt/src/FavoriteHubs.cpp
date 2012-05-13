@@ -109,7 +109,7 @@ void FavoriteHubs::init(){
 
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
+    for (auto i = fl.begin(); i != fl.end(); ++i) {
         FavoriteHubEntry* entry = *i;
 
         QList<QVariant> data;

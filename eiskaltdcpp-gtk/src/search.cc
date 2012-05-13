@@ -223,7 +223,7 @@ void Search::initHubs_gui()
     Client::List& clients = ClientManager::getInstance()->getClients();
 
     Client *client = NULL;
-    for (Client::List::iterator it = clients.begin(); it != clients.end(); ++it)
+    for (auto it = clients.begin(); it != clients.end(); ++it)
     {
         client = *it;
         if (client->isConnected())
@@ -469,7 +469,7 @@ void Search::search_gui()
 
     // Strip out terms beginning with -
     text.clear();
-    for (StringList::const_iterator si = searchlist.begin(); si != searchlist.end(); ++si)
+    for (auto si = searchlist.begin(); si != searchlist.end(); ++si)
         if ((*si)[0] != '-')
             text += *si + ' ';
     text = text.substr(0, std::max(text.size(), static_cast<string::size_type>(1)) - 1);
@@ -563,7 +563,7 @@ void Search::addResult_gui(const SearchResultPtr result)
     bool foundParent = FALSE;
 
     vector<SearchResultPtr> &existingResults = results[result->getUser()->getCID().toBase32()];
-    for (vector<SearchResultPtr>::iterator it = existingResults.begin(); it != existingResults.end(); ++it)
+    for (auto it = existingResults.begin(); it != existingResults.end(); ++it)
     {
         // Check if it's a duplicate
         if (result->getFile() == (*it)->getFile())
@@ -779,7 +779,7 @@ void Search::regroup_gui()
             continue;
         }
 
-        unordered_map<string, GtkTreeIter>::iterator mapIter = iterMap.find(groupStr);
+        auto mapIter = iterMap.find(groupStr);
 
         // New non-parent, top-level item
         if (mapIter == iterMap.end())
@@ -1318,7 +1318,10 @@ void Search::onSearchByTTHClicked_gui(GtkMenuItem *item, gpointer data)
             {
                 string tth = s->resultView.getString(&iter, _("TTH"));
                 if (!tth.empty())
+                {
+                    s = WulforManager::get()->getMainWindow()->addSearch_gui();
                     s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
+                }
             }
             gtk_tree_path_free(path);
         }
@@ -1905,7 +1908,7 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
     TStringList filterList = StringTokenizer<tstring>(filter, ' ').getTokens();
     string filename = Text::toLower(s->resultView.getString(iter, _("Filename"), model));
     string path = Text::toLower(s->resultView.getString(iter, _("Path"), model));
-    for (TStringList::const_iterator term = filterList.begin(); term != filterList.end(); ++term)
+    for (auto term = filterList.begin(); term != filterList.end(); ++term)
     {
         if ((*term)[0] == '-')
         {

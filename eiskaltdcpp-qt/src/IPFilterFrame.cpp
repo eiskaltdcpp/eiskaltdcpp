@@ -236,7 +236,7 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
         {
             if ((ip != old_ip) || (mask != old_mask) || (act != old_act)){
                 const QIPHash &hash = IPFilter::getInstance()->getHash();
-                QIPHash::const_iterator it = hash.find(old_ip);
+                auto it = hash.find(old_ip);
                 IPFilterElem *el = NULL;
 
                 while (it != hash.end() && it.key() == old_ip){

@@ -285,7 +285,7 @@ void QueuedUsersModel::addResult(const VarMap &map)
     const QString &cid  = map["CID"].toString();
     const QString &file = map["FILE"].toString();
     const QString &hub  = map["HUB"].toString();
-    QHash<QString, QueuedUserItem*>::iterator it = cids.find(cid);
+    auto it = cids.find(cid);
     QueuedUserItem *parentItem = NULL;
 
     if (it != cids.end())
@@ -319,7 +319,7 @@ void QueuedUsersModel::remResult(const VarMap &map){
         return;
 
     const QString &cid  = map["CID"].toString();
-    QHash<QString, QueuedUserItem*>::iterator it = cids.find(cid);
+    auto it = cids.find(cid);
     QueuedUserItem *parentItem = NULL;
 
     if (it != cids.end())

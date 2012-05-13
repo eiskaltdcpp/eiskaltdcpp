@@ -289,7 +289,7 @@ bool SideBarModel::hasWidget(ArenaWidget *awgt) const{
         return false;
 
     bool inRoot = false;
-    QMap<ArenaWidget::Role, SideBarItem*>::const_iterator it = roots.begin();
+    auto it = roots.begin();
     SideBarItem *item = NULL;
 
     for(; it != roots.end(); ++it){
@@ -338,7 +338,7 @@ void SideBarModel::updated ( ArenaWidget* awgt ) {
 }
 
 bool SideBarModel::isRootItem(const SideBarItem *item) const{
-    QMap<ArenaWidget::Role, SideBarItem*>::const_iterator it = roots.begin();
+    auto it = roots.begin();
 
     for(; it != roots.end(); ++it){
         if (it.value() == item)
@@ -349,7 +349,7 @@ bool SideBarModel::isRootItem(const SideBarItem *item) const{
 }
 
 ArenaWidget::Role SideBarModel::rootItemRole(const SideBarItem *item) const{
-    QMap<ArenaWidget::Role, SideBarItem*>::const_iterator it = roots.begin();
+    auto it = roots.begin();
 
     for(; it != roots.end(); ++it){
         if (it.value() == item)

@@ -91,8 +91,6 @@ using namespace std;
 class MainWindowPrivate {
 public:
         typedef QList<QAction*> ActionList;
-        typedef QList<ArenaWidget*> ArenaWidgetList;
-        typedef QMap<ArenaWidget*, QWidget*> ArenaWidgetMap;
         
         bool isUnload;
         bool exitBegin;
@@ -209,8 +207,6 @@ public:
         ActionList fileMenuActions;
         ActionList hubsMenuActions;
         ActionList toolsMenuActions;
-        ArenaWidgetList arenaWidgets;
-        ArenaWidgetMap arenaMap;
 };
 
 static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
@@ -277,7 +273,7 @@ MainWindow::MainWindow (QWidget *parent):
 
     if (WBGET(WB_APP_REMOVE_NOT_EX_DIRS)){
         StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){
+        for (auto it = directories.begin(); it != directories.end(); ++it){
             QDir dir(_q(it->second));
 
             if (!dir.exists()){
@@ -1751,7 +1747,7 @@ void MainWindow::setStatusMessage(QString msg){
 void MainWindow::autoconnect(){
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
+    for (auto i = fl.begin(); i != fl.end(); ++i) {
         FavoriteHubEntry* entry = *i;
 
         if (entry->getConnect()) {
@@ -1838,23 +1834,23 @@ void MainWindow::slotFileBrowseFilelist(){
 
 void MainWindow::redrawToolPanel(){
     Q_D(MainWindow);
-    
-    QHash<QAction*, ArenaWidget*>::iterator it = d->menuWidgetsHash.begin();
-    QHash<QAction*, ArenaWidget*>::iterator end = d->menuWidgetsHash.end();
+
+    auto it = d->menuWidgetsHash.begin();
+    auto end = d->menuWidgetsHash.end();
 
     ArenaWidget *awgt = NULL;
     PMWindow *pm = NULL;
     bool has_unread = false;
 
-    for(; it != end; ++it){//also redraw all widget menu items and change window title if needed
-        it.key()->setText(it.value()->getArenaShortTitle());
-        it.key()->setIcon(it.value()->getPixmap());
+    for(; it != end; ++it){ //also redraw all widget menu items and change window title if needed
+        awgt = it.value();
+        it.key()->setText(awgt->getArenaShortTitle());
+        it.key()->setIcon(awgt->getPixmap());
 
-        pm = qobject_cast<PMWindow *>(d->arenaMap[it.value()]);
+        pm = qobject_cast<PMWindow *>(awgt->getWidget());
         if (pm && pm->hasNewMessages())
             has_unread = true;
 
-        awgt = qobject_cast<ArenaWidget*> (d->arenaMap[it.value()]);
         if (awgt && d->arena->widget() && d->arena->widget() == awgt->getWidget())
             setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
     }
@@ -2031,9 +2027,9 @@ void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const 
 
 void MainWindow::reloadSomeSettings(){
     Q_D(MainWindow);
-    
-    for (int k = 0; k < d->arenaWidgets.size(); ++k){
-        HubFrame *fr = qobject_cast<HubFrame *>(d->arenaMap[d->arenaWidgets.at(k)]);
+
+    foreach (ArenaWidget *awgt, d->menuWidgetsHash.values()){
+        HubFrame *fr = qobject_cast<HubFrame *>(awgt->getWidget());
 
         if (fr)
             fr->reloadSomeSettings();
@@ -2412,7 +2408,7 @@ void MainWindow::slotWidgetsToggle(){
     Q_D(MainWindow);
     
     QAction *act = reinterpret_cast<QAction*>(sender());
-    QHash<QAction*, ArenaWidget*>::iterator it = d->menuWidgetsHash.find(act);
+    auto it = d->menuWidgetsHash.find(act);
 
     if (it == d->menuWidgetsHash.end())
         return;
@@ -2477,12 +2473,7 @@ void MainWindow::slotHideLastStatus(){
 
     WBSET(WB_LAST_STATUS, st);
 
-    for (int k = 0; k < d->arenaWidgets.size(); ++k){
-        HubFrame *fr = qobject_cast<HubFrame *>(d->arenaMap[d->arenaWidgets.at(k)]);
-
-        if (fr)
-            fr->reloadSomeSettings();
-    }
+    reloadSomeSettings();
 }
 
 void MainWindow::slotHideUsersStatistics(){
@@ -2499,12 +2490,7 @@ void MainWindow::slotHideUsersStatistics(){
 
     WBSET(WB_USERS_STATISTICS, st);
 
-    for (int k = 0; k < d->arenaWidgets.size(); ++k){
-        HubFrame *fr = qobject_cast<HubFrame *>(d->arenaMap[d->arenaWidgets.at(k)]);
-
-        if (fr)
-            fr->reloadSomeSettings();
-    }
+    reloadSomeSettings();
 }
 
 void MainWindow::slotExit(){

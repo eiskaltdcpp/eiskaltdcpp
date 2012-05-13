@@ -69,7 +69,7 @@ void ShortcutManager::save(){
         return;
 
     QTextStream stream(&f);
-    QMap<QString, QKeySequence>::iterator it = shortcuts.begin();
+    auto it = shortcuts.begin();
 
     for (; it != shortcuts.end(); ++it)
         stream << it.key() << " " << it.value().toString() << "\n";
@@ -82,7 +82,7 @@ bool ShortcutManager::registerShortcut(QAction *act, const QString &key){
         return false;
 
     QString objName = act->objectName();
-    QMap<QString, QKeySequence>::iterator it = shortcuts.find(objName);
+    auto it = shortcuts.find(objName);
     QKeySequence sq = (it != shortcuts.end())? (it.value()) : (QKeySequence::fromString(key));
 
     act->setShortcut(sq);
@@ -97,7 +97,7 @@ bool ShortcutManager::updateShortcut(QAction *act, const QString &key){
         return false;
 
     QString objName = act->objectName();
-    QMap<QString, QKeySequence>::iterator it = shortcuts.find(objName);
+    auto it = shortcuts.find(objName);
 
     if (it == shortcuts.end())//not registered shortcut
         return false;

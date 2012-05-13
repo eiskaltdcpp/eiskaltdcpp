@@ -144,7 +144,7 @@ void IPFilter::addToRules(QString exp, eDIRECTION direction) {
 #ifdef _DEBUG_IPFILTER_
     qDebug() << "\tIP already in list";
 #endif
-        QIPHash::const_iterator it = list_ip.find(exp_ip);
+        auto it = list_ip.find(exp_ip);
 
         while (it != list_ip.end() && it.key() == exp_ip){
             el = it.value();
@@ -206,7 +206,7 @@ void IPFilter::remFromRules(QString exp, eTableAction act) {
     if (!list_ip.contains(exp_ip))
         return;
 
-    QIPHash::const_iterator it = list_ip.find(exp_ip);
+    auto it = list_ip.find(exp_ip);
     IPFilterElem *el;
 
     while (it != list_ip.end() && it.key() == exp_ip){
@@ -240,7 +240,7 @@ void IPFilter::changeRuleDirection(QString exp, eDIRECTION direction, eTableActi
         return;
 
     quint32 exp_ip = IPFilter::StringToUint32(exp);
-    QIPHash::const_iterator it = list_ip.find(exp_ip);
+    auto it = list_ip.find(exp_ip);
 
     while (it != list_ip.end() && it.key() == exp_ip){
         IPFilterElem *el = it.value();
@@ -316,7 +316,7 @@ bool IPFilter::OK(const QString &exp, eDIRECTION direction){
 void IPFilter::step(quint32 ip, eTableAction act, bool down){
     IPFilterElem *el = NULL;
 
-    QIPHash::const_iterator it = list_ip.find(ip);
+    auto it = list_ip.find(ip);
 
     while (it != list_ip.end() && it.key() == ip){
         if (it.value()->action == act){
@@ -516,7 +516,7 @@ const QIPHash &IPFilter::getHash() {
 }
 
 void IPFilter::clearRules(bool emit_signal) {
-    QIPHash::const_iterator it = list_ip.constBegin();
+    auto it = list_ip.constBegin();
 
     while (!list_ip.empty() && it != list_ip.constEnd()){
         if (it.value())

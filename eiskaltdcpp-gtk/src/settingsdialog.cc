@@ -724,7 +724,7 @@ void Settings::initPersonal_gui()
 
     // Fill charset drop-down list
     vector<string> &charsets = WulforUtil::getCharsets();
-    for (vector<string>::const_iterator it = charsets.begin(); it != charsets.end(); ++it)
+    for (auto it = charsets.begin(); it != charsets.end(); ++it)
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")), it->c_str());
 
     gtk_entry_set_text(GTK_ENTRY(getWidget("comboboxentryCharset")), WGETS("default-charset").c_str());
@@ -742,7 +742,7 @@ void Settings::initConnection_gui()
 
     // Fill IP address combo box
     vector<string> addresses = WulforUtil::getLocalIPs();
-    for (vector<string>::const_iterator it = addresses.begin(); it != addresses.end(); ++it)
+    for (auto it = addresses.begin(); it != addresses.end(); ++it)
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("ipComboboxEntry")), it->c_str());
 
     gtk_entry_set_text(GTK_ENTRY(getWidget("tcpEntry")), Util::toString(SETTING(TCP_PORT)).c_str());
@@ -3200,7 +3200,7 @@ void Settings::loadUserCommands_gui()
 
     UserCommand::List userCommands = FavoriteManager::getInstance()->getUserCommands();
 
-    for (UserCommand::List::iterator i = userCommands.begin(); i != userCommands.end(); ++i)
+    for (auto i = userCommands.begin(); i != userCommands.end(); ++i)
     {
         UserCommand &uc = *i;
         if (!uc.isSet(UserCommand::FLAG_NOSAVE))
@@ -3493,7 +3493,7 @@ void Settings::onPublicHubs_gui(GtkWidget *widget, gpointer data)
 
     gtk_list_store_clear(s->publicListStore);
     StringList lists(FavoriteManager::getInstance()->getHubLists());
-    for (StringList::iterator idx = lists.begin(); idx != lists.end(); ++idx)
+    for (auto idx = lists.begin(); idx != lists.end(); ++idx)
     {
         gtk_list_store_append(s->publicListStore, &iter);
         gtk_list_store_set(s->publicListStore, &iter, s->publicListView.col(_("List")), (*idx).c_str(), -1);
@@ -3720,7 +3720,7 @@ void Settings::updateShares_gui()
 
         gtk_list_store_clear(shareStore);
     StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it)
+    for (auto it = directories.begin(); it != directories.end(); ++it)
     {
         size = ShareManager::getInstance()->getShareSize(it->second);
 

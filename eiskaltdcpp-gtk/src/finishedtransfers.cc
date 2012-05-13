@@ -449,7 +449,7 @@ void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpoint
 
     const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(ft->isUpload);
 
-    for (FinishedManager::MapByFile::const_iterator it = list.begin(); it != list.end(); ++it)
+    for (auto it = list.begin(); it != list.end(); ++it)
     {
         params.clear();
         ft->getFinishedParams_client(it->second, it->first, params);
@@ -636,7 +636,7 @@ void FinishedTransfers::initializeList_client()
     const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
     const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 
-    for (FinishedManager::MapByFile::const_iterator it = list.begin(); it != list.end(); ++it)
+    for (auto it = list.begin(); it != list.end(); ++it)
     {
         params.clear();
         getFinishedParams_client(it->second, it->first, params);
@@ -645,7 +645,7 @@ void FinishedTransfers::initializeList_client()
         //WulforManager::get()->dispatchGuiFunc(func);
     }
 
-    for (FinishedManager::MapByUser::const_iterator uit = user.begin(); uit != user.end(); ++uit)
+    for (auto uit = user.begin(); uit != user.end(); ++uit)
     {
         params.clear();
         getFinishedParams_client(uit->second, uit->first, params);
@@ -666,7 +666,7 @@ void FinishedTransfers::getFinishedParams_client(const FinishedFileItemPtr& item
     params["Filename"] = Util::getFileName(file);
     params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
     params["Path"] = Util::getFilePath(file);
-    for (HintedUserList::const_iterator it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
+    for (auto it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
     {
             nicks += WulforUtil::getNicks(it->user->getCID(), it->hint) + ", ";
     }
@@ -692,7 +692,7 @@ void FinishedTransfers::getFinishedParams_client(const FinishedUserItemPtr &item
     params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
     params["Nick"] = WulforUtil::getNicks(user);
     params["Hub"] = WulforUtil::getHubNames(user);
-    for (StringList::const_iterator it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
+    for (auto it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
     {
         files += *it + ", ";
     }
@@ -771,7 +771,7 @@ void FinishedTransfers::on(FinishedManagerListener::UpdatedUser, bool upload, co
     if (isUpload == upload)
     {
         const FinishedManager::MapByUser &umap = FinishedManager::getInstance()->getMapByUser(isUpload);
-        FinishedManager::MapByUser::const_iterator userit = umap.find(user);
+        auto userit = umap.find(user);
         if (userit == umap.end())
             return;
 
