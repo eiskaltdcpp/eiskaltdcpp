@@ -1318,7 +1318,10 @@ void Search::onSearchByTTHClicked_gui(GtkMenuItem *item, gpointer data)
             {
                 string tth = s->resultView.getString(&iter, _("TTH"));
                 if (!tth.empty())
+                {
+                    s = WulforManager::get()->getMainWindow()->addSearch_gui();
                     s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
+                }
             }
             gtk_tree_path_free(path);
         }
