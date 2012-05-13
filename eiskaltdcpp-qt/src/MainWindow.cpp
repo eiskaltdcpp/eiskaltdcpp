@@ -273,7 +273,7 @@ MainWindow::MainWindow (QWidget *parent):
 
     if (WBGET(WB_APP_REMOVE_NOT_EX_DIRS)){
         StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (StringPairList::iterator it = directories.begin(); it != directories.end(); ++it){
+        for (auto it = directories.begin(); it != directories.end(); ++it){
             QDir dir(_q(it->second));
 
             if (!dir.exists()){
@@ -1835,8 +1835,8 @@ void MainWindow::slotFileBrowseFilelist(){
 void MainWindow::redrawToolPanel(){
     Q_D(MainWindow);
 
-    QHash<QAction*, ArenaWidget*>::iterator it = d->menuWidgetsHash.begin();
-    QHash<QAction*, ArenaWidget*>::iterator end = d->menuWidgetsHash.end();
+    auto it = d->menuWidgetsHash.begin();
+    auto end = d->menuWidgetsHash.end();
 
     ArenaWidget *awgt = NULL;
     PMWindow *pm = NULL;
@@ -2408,7 +2408,7 @@ void MainWindow::slotWidgetsToggle(){
     Q_D(MainWindow);
     
     QAction *act = reinterpret_cast<QAction*>(sender());
-    QHash<QAction*, ArenaWidget*>::iterator it = d->menuWidgetsHash.find(act);
+    auto it = d->menuWidgetsHash.find(act);
 
     if (it == d->menuWidgetsHash.end())
         return;

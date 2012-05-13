@@ -149,7 +149,7 @@ struct Compare {
     }
 
     void static insertSorted(int col, QList<PublicHubItem*>& items, PublicHubItem* item) {
-        QList<PublicHubItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 

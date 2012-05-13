@@ -52,13 +52,13 @@ QVariant FavoriteUsersModel::data(const QModelIndex &index, int role) const
 
     FavoriteUserItem *item = static_cast<FavoriteUserItem*>(index.internalPointer());
 
-    switch(role) {
+    switch (role) {
         case Qt::DecorationRole: // icon
         {
             if (index.column() == 0){
                 FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
-                for(FavoriteManager::FavoriteMap::iterator i = ul.begin(); i != ul.end(); ++i) {
+                for (auto i = ul.begin(); i != ul.end(); ++i) {
                     const dcpp::FavoriteUser &u = i->second;
 
                     if (_q(u.getUser()->getCID().toBase32()) == item->cid){
@@ -161,7 +161,7 @@ struct Compare {
     }
 
     void static insertSorted(int col, QList<FavoriteUserItem*>& items, FavoriteUserItem* item) {
-        QList<FavoriteUserItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 

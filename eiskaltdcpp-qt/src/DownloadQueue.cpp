@@ -421,13 +421,13 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
 QStringList DownloadQueue::getSources(){
     Q_D(DownloadQueue);
 
-    SourceMap::iterator s_it = d->sources.begin();
+    auto s_it = d->sources.begin();
     QStringList ret;
 
     for (; s_it != d->sources.end(); ++s_it){
         QString target = s_it.key();
         QString users;
-        QMap<QString, QString>::iterator it = s_it.value().begin();
+        auto it = s_it.value().begin();
 
         for (; it != s_it.value().end(); ++it){
             users += it.key() + "(" + it.value() + ") ";
@@ -492,7 +492,7 @@ void DownloadQueue::remFile(const VarMap &map){
     Q_D(DownloadQueue);
 
     if (d->queue_model->remItem(map)){
-        SourceMap::iterator it = d->sources.find(map["TARGET"].toString());
+        auto it = d->sources.find(map["TARGET"].toString());
 
         if (it != d->sources.end())
             d->sources.erase(it);

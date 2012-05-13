@@ -54,7 +54,7 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
     VarMap params;
 
-    for(FavoriteManager::FavoriteMap::iterator i = ul.begin(); i != ul.end(); ++i) {
+    for (auto i = ul.begin(); i != ul.end(); ++i) {
         dcpp::FavoriteUser &u = i->second;
 
         if (WBGET(WB_FAVUSERS_AUTOGRANT)){
@@ -204,7 +204,7 @@ void FavoriteUsers::handleDesc(const QString & _cid){
 void FavoriteUsers::handleGrant(const QString &cid){
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
-    for(FavoriteManager::FavoriteMap::iterator i = ul.begin(); i != ul.end(); ++i) {
+    for (auto i = ul.begin(); i != ul.end(); ++i) {
         dcpp::FavoriteUser &u = i->second;
 
         if (_q(u.getUser()->getCID().toBase32()) == cid){

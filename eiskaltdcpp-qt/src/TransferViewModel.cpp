@@ -153,7 +153,7 @@ struct Compare {
     }
 
     void static insertSorted(unsigned col, QList<TransferViewItem*>& items, TransferViewItem* item) {
-        QList<TransferViewItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, attrs[col]);
+        auto it = qLowerBound(items.begin(), items.end(), item, attrs[col]);
         items.insert(it, item);
     }
 
@@ -399,7 +399,7 @@ void TransferViewModel::removeTransfer(const VarMap &params){
     if (params.empty() || vstr(params["CID"]).isEmpty())
         return;
 
-    QMultiHash<QString, TransferViewItem* >::iterator i = transfer_hash.find(vstr(params["CID"]));
+    auto i = transfer_hash.find(vstr(params["CID"]));
 
     while (i != transfer_hash.end() && i.key() == vstr(params["CID"])){
         if (i.value()->download == vbol(params["DOWN"])){

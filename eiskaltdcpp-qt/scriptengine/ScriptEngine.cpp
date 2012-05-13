@@ -149,7 +149,7 @@ void ScriptEngine::stopScripts(){
     DEBUG_BLOCK
     
     QMap<QString, ScriptObject*> s = scripts;
-    QMap<QString, ScriptObject*>::iterator it = s.begin();
+    auto it = s.begin();
 
     for (; it != s.end(); ++it)
         stopScript(it.key());

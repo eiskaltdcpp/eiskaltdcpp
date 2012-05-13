@@ -113,8 +113,8 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
     QString out = "";
     QString buf = html;
 
-    EmoticonMap::iterator it = map.end();
-    EmoticonMap::iterator begin = map.begin();
+    auto it = map.end();
+    auto begin = map.begin();
 
     bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
 

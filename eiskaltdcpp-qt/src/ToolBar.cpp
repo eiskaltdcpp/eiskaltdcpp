@@ -208,7 +208,7 @@ void ToolBar::slotTabMoved(int from, int to){
     ArenaWidget *from_wgt = NULL;
     ArenaWidget *to_wgt   = NULL;
 
-    WidgetMap::iterator it = map.begin();
+    auto it = map.begin();
 
     for (; it != map.end(); ++it){
         if (it.value() == from){
@@ -337,7 +337,7 @@ void ToolBar::rebuildIndexes(int removed){
     if (removed < 0)
         return;
 
-    WidgetMap::iterator it = map.begin();
+    auto it = map.begin();
 
     for (; it != map.end(); ++it){
         if (it.value() > removed)

@@ -214,7 +214,7 @@ struct FileCompare {
     }
 
     void static insertSorted(int col, QList<FinishedTransfersItem*>& items, FinishedTransfersItem* item) {
-        QList<FinishedTransfersItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 
@@ -279,7 +279,7 @@ struct UserCompare {
     }
 
     void static insertSorted(int col, QList<FinishedTransfersItem*>& items, FinishedTransfersItem* item) {
-        QList<FinishedTransfersItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 

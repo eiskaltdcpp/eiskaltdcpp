@@ -676,7 +676,7 @@ QString WulforUtil::qtEnc2DcEnc(QString name){
 }
 
 QString WulforUtil::dcEnc2QtEnc(QString name){
-    QMap<QString, QString>::iterator it = QtEnc2DCEnc.begin();
+    auto it = QtEnc2DCEnc.begin();
 
     for (; it != QtEnc2DCEnc.end(); ++it){
         if (it.value() == name || it.value().indexOf(name) == 0)
@@ -689,7 +689,7 @@ QString WulforUtil::dcEnc2QtEnc(QString name){
 QStringList WulforUtil::encodings(){
     QStringList encs;
 
-    QMap<QString, QString>::iterator it = QtEnc2DCEnc.begin();
+    auto it = QtEnc2DCEnc.begin();
 
     for (; it != QtEnc2DCEnc.end(); ++it)
         encs << it.key();
@@ -1103,7 +1103,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
     UserCommand::List commands = FavoriteManager::getInstance()->getUserCommands(ctx, hubs);
     bool separator = false;
 
-    for (UserCommand::List::iterator i = commands.begin(); i != commands.end(); ++i){
+    for (auto i = commands.begin(); i != commands.end(); ++i){
         UserCommand& uc = *i;
 
         // Add line separator only if it's not a duplicate

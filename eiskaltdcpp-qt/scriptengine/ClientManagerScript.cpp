@@ -86,7 +86,7 @@ QStringList ClientManagerScript::getConnectedHubs() const {
     CM->lock();
     dcpp::Client::List& clients = CM->getClients();
 
-    for(dcpp::Client::List::iterator it = clients.begin(); it != clients.end(); ++it) {
+    for(auto it = clients.begin(); it != clients.end(); ++it) {
         Client* client = *it;
 
         if(!client->isConnected())

@@ -180,7 +180,7 @@ struct Compare {
     }
 
     void static insertSorted(int col, QList<ADLSItem*>& items, ADLSItem* item) {
-        QList<ADLSItem*>::iterator it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 

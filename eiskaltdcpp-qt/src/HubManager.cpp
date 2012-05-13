@@ -32,7 +32,7 @@ void HubManager::registerHubUrl(const QString &url, HubFrame *hub){
 }
 
 void HubManager::unregisterHubUrl(const QString &url){
-    HubHash::iterator it = hubs.find(url);
+    auto it = hubs.find(url);
 
     if (it != hubs.end()){
         emit hubUnregistered(it.value());

@@ -50,15 +50,15 @@ TabFrame::TabFrame(QWidget *parent) :
 
         connect(s, SIGNAL(activated()), this, SLOT(slotShorcuts()));
     }
-    
+
     connect(GlobalTimer::getInstance(), SIGNAL(second()), this, SLOT(redraw()));
 }
 
 
 TabFrame::~TabFrame(){
     DEBUG_BLOCK
-    
-    QMap<TabButton*, ArenaWidget*>::iterator it = tbtn_map.begin();
+
+    auto it = tbtn_map.begin();
 
     for  (; it != tbtn_map.end(); ++it){
         TabButton *btn = const_cast<TabButton*>(it.key());
@@ -185,7 +185,7 @@ void TabFrame::updated ( ArenaWidget* awgt ) {
 void TabFrame::redraw() {
     DEBUG_BLOCK
     
-    QMap<TabButton*, ArenaWidget*>::iterator it = tbtn_map.begin();
+    auto it = tbtn_map.begin();
 
     for  (; it != tbtn_map.end(); ++it){
         TabButton *btn = const_cast<TabButton*>(it.key());
