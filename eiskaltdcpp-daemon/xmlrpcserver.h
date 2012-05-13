@@ -418,9 +418,9 @@ public:
         vector<StringMap> tmp;
         ServerThread::getInstance()->returnSearchResults(tmp, shuburl);
         vector<xmlrpc_c::value> tmp_array_in;
-        for (vector<StringMap>::iterator i = tmp.begin(); i != tmp.end(); ++i) {
+        for (auto i = tmp.begin(); i != tmp.end(); ++i) {
             map<string, xmlrpc_c::value> tmp_struct_in;
-            for (StringMap::iterator kk = (*i).begin(); kk != (*i).end(); ++kk) {
+            for (auto kk = (*i).begin(); kk != (*i).end(); ++kk) {
                 pair<string, xmlrpc_c::value> member(kk->first, xmlrpc_c::value_string(kk->second));
                 tmp_struct_in.insert(member);
             }
@@ -527,9 +527,9 @@ public:
         unordered_map<string,StringMap> listqueue;
         ServerThread::getInstance()->listQueue(listqueue);
         map<string, xmlrpc_c::value> tmp_struct1_in;
-        for (unordered_map<string,StringMap>::iterator i = listqueue.begin(); i != listqueue.end(); ++i) {
+        for (auto i = listqueue.begin(); i != listqueue.end(); ++i) {
             map<string, xmlrpc_c::value> tmp_struct2_in;
-            for (StringMap::iterator kk = (*i).second.begin(); kk != (*i).second.end(); ++kk) {
+            for (auto kk = (*i).second.begin(); kk != (*i).second.end(); ++kk) {
                 pair<string, xmlrpc_c::value> member2(kk->first, xmlrpc_c::value_string(kk->second));
                 tmp_struct2_in.insert(member2);
             }

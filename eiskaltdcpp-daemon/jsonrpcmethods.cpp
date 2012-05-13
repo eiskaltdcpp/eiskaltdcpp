@@ -225,9 +225,9 @@ bool JsonRpcMethods::ReturnSearchResults(const Json::Value& root, Json::Value& r
     vector<StringMap> tmp;
     Json::Value parameters;
     ServerThread::getInstance()->returnSearchResults(tmp, root["params"]["huburl"].asString());
-    vector<StringMap>::iterator i = tmp.begin();int k = 0;
+    auto i = tmp.begin();int k = 0;
     while (i != tmp.end()) {
-        for (StringMap::iterator kk = (*i).begin(); kk != (*i).end(); ++kk) {
+        for (auto kk = (*i).begin(); kk != (*i).end(); ++kk) {
             parameters[k][kk->first] = kk->second;
         }
         ++i; ++k;
@@ -327,8 +327,8 @@ bool JsonRpcMethods::ListQueue(const Json::Value& root, Json::Value& response) {
     Json::Value parameters;
     unordered_map<string,StringMap> listqueue;
     ServerThread::getInstance()->listQueue(listqueue);
-    for (unordered_map<string,StringMap>::iterator i = listqueue.begin(); i != listqueue.end(); ++i) {
-        for (StringMap::iterator kk = i->second.begin(); kk != i->second.end(); ++kk) {
+    for (auto i = listqueue.begin(); i != listqueue.end(); ++i) {
+        for (auto kk = i->second.begin(); kk != i->second.end(); ++kk) {
             parameters[i->first][kk->first] = kk->second;
         }
     }
