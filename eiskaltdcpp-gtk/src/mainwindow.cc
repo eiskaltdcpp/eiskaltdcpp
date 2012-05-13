@@ -151,7 +151,7 @@ MainWindow::MainWindow():
     const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();
     gtk_container_foreach(GTK_CONTAINER(menu), (GtkCallback)gtk_widget_destroy, NULL);
 
-    for (FavoriteHubEntryList::const_iterator it = fh.begin(); it != fh.end(); ++it)
+    for (auto it = fh.begin(); it != fh.end(); ++it)
     {
         FavoriteHubEntry *entry = *it;
         string address = entry->getServer();
@@ -1086,7 +1086,7 @@ void MainWindow::actionMagnet_gui(string magnet)
 void MainWindow::updateFavoriteHubMenu_client(const FavoriteHubEntryList &fh)
 {
     ListParamPair list;
-    for (FavoriteHubEntryList::const_iterator it = fh.begin(); it != fh.end(); ++it)
+    for (auto it = fh.begin(); it != fh.end(); ++it)
     {
         ParamPair param;
         FavoriteHubEntry *entry = *it;
@@ -1104,7 +1104,7 @@ void MainWindow::updateFavoriteHubMenu_gui(ListParamPair list)
     GtkWidget *menu = gtk_menu_tool_button_get_menu(GTK_MENU_TOOL_BUTTON(getWidget("favHubs")));
     gtk_container_foreach(GTK_CONTAINER(menu), (GtkCallback)gtk_widget_destroy, NULL);
 
-    for (ListParamPair::const_iterator it = list.begin(); it != list.end(); ++it)
+    for (auto it = list.begin(); it != list.end(); ++it)
     {
         const ParamPair &param = *it;
         string address = param.first;
@@ -2213,7 +2213,7 @@ void MainWindow::autoConnect_client()
     typedef Func2<MainWindow, string, string> F2;
     F2 *func;
 
-    for (FavoriteHubEntryList::const_iterator it = l.begin(); it != l.end(); ++it)
+    for (auto it = l.begin(); it != l.end(); ++it)
     {
         hub = *it;
 

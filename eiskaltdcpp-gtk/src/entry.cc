@@ -92,7 +92,7 @@ void Entry::addChild(Entry *entry)
 Entry *Entry::getChild(const EntryType childType, const string &childId)
 {
     string id = dcpp::Util::toString(childType) + ":" + childId;
-    map<string, Entry *>::const_iterator it = children.find(id);
+    auto it = children.find(id);
 
     if (it == children.end())
         return NULL;

@@ -95,7 +95,7 @@ void SearchADL::show()
     // initialize searches list
     string minSize, maxSize;
     ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
-    for (ADLSearchManager::SearchCollection::iterator i = collection.begin(); i != collection.end(); ++i)
+    for (auto i = collection.begin(); i != collection.end(); ++i)
     {
         GtkTreeIter iter;
         ADLSearch &search = *i;

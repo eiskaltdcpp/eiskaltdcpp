@@ -76,10 +76,11 @@ void UploadQueue::show()
 
 void UploadQueue::init()
 {
-// Load queue
+    // Load queue
     const dcpp::HintedUserList _users = UploadManager::getInstance()->getWaitingUsers();
     UploadManager *up = UploadManager::getInstance();
-    for(dcpp::HintedUserList::const_iterator uit = _users.begin(); uit != _users.end(); ++uit) {
+    for (auto uit = _users.begin(); uit != _users.end(); ++uit)
+    {
         const dcpp::UploadManager::FileSet f = up->getWaitingUserFiles(((*uit).user));
         StringMap params;
         for(auto fit = f.begin(); fit!= f.end();++fit)
@@ -117,7 +118,7 @@ void UploadQueue::AddFile_gui(StringMap params)
 {
     GtkTreeIter iter;
     gchar *file;
-    map<string,GtkTreeIter>::iterator it = mapUsers.find(params["CID"]);
+    auto it = mapUsers.find(params["CID"]);
     if(it != mapUsers.end())
     {
         iter = it->second;
@@ -131,7 +132,7 @@ void UploadQueue::AddFile_gui(StringMap params)
 void UploadQueue::removeUser(string cid)
 {
     GtkTreeIter iter;
-    map<string, GtkTreeIter>::iterator it = mapUsers.find(cid);
+    auto it = mapUsers.find(cid);
     if(it != mapUsers.end())
     {
         iter = it->second;

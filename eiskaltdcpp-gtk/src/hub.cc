@@ -342,7 +342,7 @@ void Hub::setStatus_gui(string statusBar, string text)
 
 bool Hub::findUser_gui(const string &cid, GtkTreeIter *iter)
 {
-    unordered_map<string, GtkTreeIter>::const_iterator it = userIters.find(cid);
+    auto it = userIters.find(cid);
 
     if (it != userIters.end())
     {
@@ -357,7 +357,7 @@ bool Hub::findUser_gui(const string &cid, GtkTreeIter *iter)
 
 bool Hub::findNick_gui(const string &nick, GtkTreeIter *iter)
 {
-    unordered_map<string, string>::const_iterator it = userMap.find(nick);
+    auto it = userMap.find(nick);
 
     if (it != userMap.end())
         return findUser_gui(it->second, iter);
@@ -1912,7 +1912,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             if (hub->client->getMyNick() == param)
                 return;
 
-            UserMap::const_iterator it = find_if(hub->userFavoriteMap.begin(), hub->userFavoriteMap.end(),
+            auto it = find_if(hub->userFavoriteMap.begin(), hub->userFavoriteMap.end(),
                 CompareSecond<string, string>(param));
 
             if (it != hub->userFavoriteMap.end())
@@ -1926,7 +1926,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         else if (command == "listfu" || command == "lsfu")
         {
             string list;
-            for (UserMap::const_iterator it = hub->userFavoriteMap.begin(); it != hub->userFavoriteMap.end(); ++it)
+            for (auto it = hub->userFavoriteMap.begin(); it != hub->userFavoriteMap.end(); ++it)
             {
                 list += " " + it->second;
             }
@@ -3191,7 +3191,7 @@ void Hub::onImageDestroy_gui(GtkWidget *widget, gpointer data)
    if (!WulforManager::get()->isEntry_gui(hub))
        return;
 
-   ImageList::const_iterator j = hub->imageList.find(widget);
+   auto j = hub->imageList.find(widget);
 
    if (j != hub->imageList.end())
    {
@@ -3446,7 +3446,7 @@ void Hub::on(ClientListener::UsersUpdated, Client *, const OnlineUserList &list)
     typedef Func1<Hub, ParamMap> F1;
     F1 *func;
 
-    for (OnlineUserList::const_iterator it = list.begin(); it != list.end(); ++it)
+    for (auto it = list.begin(); it != list.end(); ++it)
     {
         id = (*it)->getIdentity();
         if (!id.isHidden())

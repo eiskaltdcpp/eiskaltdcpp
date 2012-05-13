@@ -122,7 +122,7 @@ void PublicHubs::buildHubList_gui()
     StringList list = FavoriteManager::getInstance()->getHubLists();
     int selected = FavoriteManager::getInstance()->getSelectedHubList();
 
-    for (StringList::iterator it = list.begin(); it != list.end(); ++it)
+    for (auto it = list.begin(); it != list.end(); ++it)
     {
         GtkTreeIter iter;
         gtk_list_store_append(listsStore, &iter);

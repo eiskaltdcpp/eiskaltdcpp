@@ -44,7 +44,7 @@ FavoriteHubs::FavoriteHubs():
 
     // Fill the charset drop-down list in edit fav hub dialog.
     vector<string> &charsets = WulforUtil::getCharsets();
-    for (vector<string>::const_iterator it = charsets.begin(); it != charsets.end(); ++it)
+    for (auto it = charsets.begin(); it != charsets.end(); ++it)
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")), it->c_str());
 
     // Initialize favorite hub list treeview
@@ -522,7 +522,7 @@ void FavoriteHubs::initializeList_client()
     //F1 *func;
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for (FavoriteHubEntryList::const_iterator it = fl.begin(); it != fl.end(); ++it)
+    for (auto it = fl.begin(); it != fl.end(); ++it)
     {
         getFavHubParams_client(*it, params);
         addEntry_gui(params);
