@@ -728,7 +728,7 @@
         <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label" translatable="yes">_Search by TTH</property>
+        <property name="label" translatable="yes">_Search for alternates</property>
         <property name="use_underline">True</property>
       </object>
     </child>
