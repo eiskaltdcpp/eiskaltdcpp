@@ -76,6 +76,43 @@ void callBack(void* x, const std::string& a)
     std::cout << _("Loading: ") << a << std::endl;
 }
 
+void catchSIG(int sigNum) {
+    psignal(sigNum, _("Catching signal "));
+
+#ifdef ENABLE_STACKTRACE
+    printBacktrace(sigNum);
+#endif // ENABLE_STACKTRACE
+
+    raise(SIGINT);
+
+    std::abort();
+}
+
+template <int sigNum = 0, int ... Params>
+void catchSignals() {
+    if (!sigNum)
+        return;
+
+    psignal(sigNum, _("Installing handler for"));
+
+    signal(sigNum, catchSIG);
+
+    catchSignals<Params ... >();
+}
+
+void installHandlers(){
+    struct sigaction sa;
+    memset(&sa, 0, sizeof(sa));
+    sa.sa_handler = SIG_IGN;
+
+    if (sigaction(SIGPIPE, &sa, NULL) == -1)
+        printf(_("Cannot handle SIGPIPE\n"));
+
+    catchSignals<SIGSEGV, SIGABRT, SIGBUS, SIGTERM>();
+
+    printf(_("Signal handlers installed.\n"));
+}
+
 int main(int argc, char *argv[])
 {
 
@@ -135,10 +172,7 @@ int main(int argc, char *argv[])
     gtk_init(&argc, &argv);
     g_set_application_name("EiskaltDC++ Gtk");
 
-    signal(SIGPIPE, SIG_IGN);
-#ifdef ENABLE_STACKTRACE
-    signal(SIGSEGV, printBacktrace);
-#endif // ENABLE_STACKTRACE
+    installHandlers();
 
     WulforSettingsManager::newInstance();
     WulforManager::start(argc, argv);
