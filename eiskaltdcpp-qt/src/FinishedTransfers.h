@@ -182,7 +182,7 @@ private:
         const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
         const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 
-        for (FinishedManager::MapByFile::const_iterator it = list.begin(); it != list.end(); ++it){
+        for (auto it = list.begin(); it != list.end(); ++it){
             params.clear();
 
             getParams(it->second, it->first, params);
@@ -190,7 +190,7 @@ private:
             model->addFile(params);
         }
 
-        for (FinishedManager::MapByUser::const_iterator uit = user.begin(); uit != user.end(); ++uit){
+        for (auto uit = user.begin(); uit != user.end(); ++uit){
             params.clear();
 
             getParams(uit->second, uit->first, params);
@@ -271,7 +271,7 @@ private:
         params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
         params["PATH"]  = _q(Util::getFilePath(file));
 
-        for (HintedUserList::const_iterator it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
+        for (auto it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
                 nicks += WulforUtil::getInstance()->getNicks(it->user->getCID()) + " ";
 
         params["USERS"] = nicks;
@@ -311,7 +311,7 @@ private:
         params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
         params["NICK"]  = WulforUtil::getInstance()->getNicks(user->getCID());
 
-        for (StringList::const_iterator it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
+        for (auto it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
                 files += _q(*it) + " ";
 
         params["FILES"] = files;
@@ -562,7 +562,7 @@ private:
     void on(FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) noexcept{
         if (isUpload == upload){
             const FinishedManager::MapByUser &umap = FinishedManager::getInstance()->getMapByUser(isUpload);
-            FinishedManager::MapByUser::const_iterator userit = umap.find(user);
+            auto userit = umap.find(user);
             if (userit == umap.end())
                 return;
 

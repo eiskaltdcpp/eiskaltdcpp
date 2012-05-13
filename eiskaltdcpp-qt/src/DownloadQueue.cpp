@@ -158,7 +158,7 @@ DownloadQueue::Menu::Action DownloadQueue::Menu::exec(const DownloadQueue::Sourc
     rem_usr->setDisabled(multiselect);
 
     QMap<QString, QString>  users = sources[target];
-    QMap<QString, QString>::const_iterator it = users.constBegin();
+    auto it = users.constBegin();
 
     for (; it != users.constEnd(); ++it){
         QAction *act = new QAction(it.key(), menu);
@@ -469,7 +469,7 @@ void DownloadQueue::loadList(){
 
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-    for (QueueItem::StringMap::const_iterator it = ll.begin(); it != ll.end(); ++it){
+    for (auto it = ll.begin(); it != ll.end(); ++it){
         getParams(params, it->second);
 
         addFile(params);
@@ -514,7 +514,7 @@ QString DownloadQueue::getCID(const VarMap &map){
     if (map.size() < 1)
         return "";
 
-    VarMap::const_iterator it = map.constBegin();
+    auto it = map.constBegin();
 
     return (it.value()).toString();
 }
@@ -696,7 +696,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         case Menu::SendPM:
         {
             rmap = arg.toMap();
-            VarMap::const_iterator it = rmap.constBegin();
+            auto it = rmap.constBegin();
             dcpp::CID cid(_tq(getCID(rmap)));
             QString nick = ((++it).key());
             QList<QObject*> list = HubManager::getInstance()->getHubs();

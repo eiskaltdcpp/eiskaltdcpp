@@ -372,7 +372,7 @@ void TransferViewModel::updateTransfer(const VarMap &params){
     if (!findTransfer(vstr(params["CID"]), vbol(params["DOWN"]), &item))
         return;
 
-    QMap<QString, int>::const_iterator i = column_map.constBegin();
+    auto i = column_map.constBegin();
 
     for (; i != column_map.constEnd(); ++i){
         if (params.contains(i.key()))
@@ -436,7 +436,7 @@ bool TransferViewModel::findTransfer(const QString &cid, bool download, Transfer
     if (!item)
         return false;
 
-    QMultiHash<QString, TransferViewItem* >::const_iterator i = transfer_hash.find(cid);
+    auto i = transfer_hash.find(cid);
 
     while (i != transfer_hash.end() && i.key() == cid && !cid.isEmpty()){
         if (i.value()->download == download){

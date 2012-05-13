@@ -15,7 +15,7 @@
 
 static QStringList toQStringList(const dcpp::StringList &list){
     QStringList ret;
-    for (dcpp::StringList::const_iterator it = list.begin(); it != list.end(); ++it){
+    for (auto it = list.begin(); it != list.end(); ++it){
         ret.push_back(_q(*it));
     }
 

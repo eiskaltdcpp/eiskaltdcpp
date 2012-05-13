@@ -1747,7 +1747,7 @@ void MainWindow::setStatusMessage(QString msg){
 void MainWindow::autoconnect(){
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for(FavoriteHubEntryList::const_iterator i = fl.begin(); i != fl.end(); ++i) {
+    for (auto i = fl.begin(); i != fl.end(); ++i) {
         FavoriteHubEntry* entry = *i;
 
         if (entry->getConnect()) {

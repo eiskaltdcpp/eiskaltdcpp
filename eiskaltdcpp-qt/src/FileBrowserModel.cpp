@@ -146,7 +146,7 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         {
             if (item->isDuplicate && item->file){
                 const QString &tth = item->data(COLUMN_FILEBROWSER_TTH).toString();
-                QHash<QString, dcpp::DirectoryListing::File*>::const_iterator it = hash.find(tth);
+                auto it = hash.find(tth);
 
                 if (it == hash.end())
                     break;

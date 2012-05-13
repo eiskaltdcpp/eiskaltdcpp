@@ -21,7 +21,7 @@ HubManager::~HubManager(){
 }
 
 void HubManager::registerHubUrl(const QString &url, HubFrame *hub){
-    HubHash::const_iterator it = hubs.find(url);
+    auto it = hubs.find(url);
 
     if (it != hubs.constEnd() || !hub)
         return;
@@ -46,7 +46,7 @@ void HubManager::setActiveHub(HubFrame *f){
 }
 
 QObject *HubManager::getHub(const QString &url){
-    HubHash::const_iterator it = hubs.find(url);
+    auto it = hubs.find(url);
 
     if (it != hubs.constEnd()){
         return it.value();
@@ -58,7 +58,7 @@ QObject *HubManager::getHub(const QString &url){
 QList<QObject*> HubManager::getHubs() const {
     QList<QObject*> list;
 
-    HubHash::const_iterator it = hubs.constBegin();
+    auto it = hubs.constBegin();
 
     for(; it != hubs.constEnd(); ++it)
         list << qobject_cast<QObject*>(const_cast<HubFrame*>(it.value()));

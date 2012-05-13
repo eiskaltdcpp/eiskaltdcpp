@@ -573,7 +573,7 @@ QScriptValue printErr(QScriptContext *ctx, QScriptEngine *engine){
 QScriptValue ScriptVarMapToScriptValue(QScriptEngine* eng, const VarMap& map)
 {
     QScriptValue a = eng->newObject();
-    VarMap::const_iterator it(map.begin());
+    auto it = map.begin();
     
     for(; it != map.end(); ++it) {
         QString prop = it.key();

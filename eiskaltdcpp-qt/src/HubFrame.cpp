@@ -1067,7 +1067,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     save();
 
-    PMMap::const_iterator it = d->pm.constBegin();
+    auto it = d->pm.constBegin();
 
     for (; it != d->pm.constEnd(); ++it){
         PMWindow *w = const_cast<PMWindow*>(it.value());
@@ -3725,7 +3725,7 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) noexcept{
     bool showHidden = WBGET(WB_SHOW_HIDDEN_USERS);
 
-    for (OnlineUserList::const_iterator it = list.begin(); it != list.end(); ++it){
+    for (auto it = list.begin(); it != list.end(); ++it){
         if ((*(*it)).getIdentity().isHidden() && !showHidden)
             break;
 

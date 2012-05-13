@@ -117,7 +117,7 @@ void PublicHubs::updateList(){
     model->clearModel();
     QList<QVariant> data;
 
-    for(HubEntryList::const_iterator i = entries.begin(); i != entries.end(); ++i) {
+    for (auto i = entries.begin(); i != entries.end(); ++i) {
         HubEntry *entry = const_cast<HubEntry*>(&(*i));
         data.clear();
 

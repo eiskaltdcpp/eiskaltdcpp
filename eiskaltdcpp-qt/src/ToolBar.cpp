@@ -285,7 +285,7 @@ ArenaWidget *ToolBar::findWidgetForIndex(int index){
     if (index < 0)
         return NULL;
 
-    WidgetMap::const_iterator it = map.begin();
+    auto it = map.begin();
 
     for (; it != map.end(); ++it){
         if (it.value() == index)
@@ -296,7 +296,7 @@ ArenaWidget *ToolBar::findWidgetForIndex(int index){
 }
 
 void ToolBar::redraw(){
-    WidgetMap::const_iterator it = map.begin();
+    auto it = map.begin();
 
     for (; it != map.end(); ++it){
         tabbar->setTabText(it.value(), it.key()->getArenaShortTitle().left(32));

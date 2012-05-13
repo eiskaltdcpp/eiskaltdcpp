@@ -446,7 +446,7 @@ QStringList UserListModel::matchNicksContaining(const QString & part, bool strip
         return matches;
     }
 
-    for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
+    for (auto it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
         QString nick_lc = (*it)->getNick().toLower();
 
         if (nick_lc.contains(part)) {
@@ -464,7 +464,7 @@ QStringList UserListModel::matchNicksStartingWith(const QString & part, bool str
         return matches;
     }
 
-    for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
+    for (auto it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
         QString nick_lc = (*it)->getNick().toLower();
 
         if (nick_lc.startsWith(part)) {
@@ -482,7 +482,7 @@ QStringList UserListModel::matchNicksAny(const QString &part, bool stripTags) co
         return matches;
     }
 
-    for (QList<UserListItem*>::const_iterator it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
+    for (auto it = rootItem->childItems.constBegin(); it != rootItem->childItems.constEnd(); ++it) {
         QString nick_lc = (*it)->getNick().toLower();
 
         if (nick_lc.startsWith(part) || nick_lc.contains(part)) {
