@@ -5990,12 +5990,12 @@ Ezen kívül a funkció kikapcsolása nem törli a már meglévő befejezett ele
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"/>
+        <translation>Többszörös feltöltés engedélyezése egy felhasználótól, több hubról</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="923"/>
         <source>Allow simultaneous uploads by one IP</source>
-        <translation type="unfinished"/>
+        <translation>Többszörös feltöltés engedélyezése egy IP-ről</translation>
     </message>
 </context>
 <context>
@@ -6390,7 +6390,7 @@ a hub operátoraitól kaphatsz</translation>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Űrlap</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="44"/>
@@ -6901,7 +6901,7 @@ Az opció megváltoztatása a fájllista frissítését eredményezi, ezért ekk
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="372"/>
         <source>Use ADL search only in own file list</source>
-        <translation type="unfinished"/>
+        <translation>ADL keresés használata csak saját fájllistában</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="387"/>
