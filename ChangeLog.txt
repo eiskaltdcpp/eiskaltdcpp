@@ -1,5 +1,6 @@
 --- 2.2.7 2012-05-xx ---
 *** common changes ***
+* Updated embedded copy of jsonrpc-cpp library.
 *** eiskaltdcpp-qt ***
 * Support of Qt < 4.6.0 was dropped.
 * Fixed build with GCC >= 4.7.
@@ -25,6 +26,8 @@
 * Added saving of last search type in search widget.
 * Added catching of signals SIGSEGV, SIGABRT, SIGBUS and SIGTERM.
 *** eiskaltdcpp-daemon ***
+* Synced available XML-RPC and JSON-RPC methods.
+* Updated JSON-RPC methods: methods.list, show.ratio
 *** eiskaltdcpp-cli ***
 
 --- 2.2.6 2012-02-20 ---
