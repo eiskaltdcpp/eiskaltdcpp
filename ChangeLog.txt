@@ -1,6 +1,11 @@
 --- 2.2.7 2012-05-xx ---
 *** common changes ***
 *** eiskaltdcpp-qt ***
+* Support of Qt < 4.6.0 was dropped.
+* Fixed build with GCC >= 4.7.
+* Fixed program crash at launch time (problem was only in builds with
+  GCC >= 4.7). [Thanks to Pino Toscano]
+* Fixed build with disabled aspell support. (Bug was added in version 2.2.5)
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***
 *** eiskaltdcpp-cli ***
