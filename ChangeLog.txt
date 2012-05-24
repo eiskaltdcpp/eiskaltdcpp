@@ -16,6 +16,14 @@
 * Added some options in settings dialog:
   ALLOW_UPLOAD_MULTI_HUB, USE_ADL_ONLY_OWN_LIST.
 *** eiskaltdcpp-gtk ***
+* Always open search for alternates in new widget.
+* Added some options in settings dialog:
+  ALLOW_UPLOAD_MULTI_HUB, ALLOW_SIM_UPLOADS, LOG_FILE_MAIN_CHAT,
+  LOG_FILE_PRIVATE_CHAT, LOG_FILE_DOWNLOAD, LOG_FILE_UPLOAD,
+  LOG_FORMAT_POST_FINISHED_DOWNLOAD, LOG_FILE_FINISHED_DOWNLOAD,
+  REPORT_ALTERNATES, USE_ADL_ONLY_OWN_LIST
+* Added saving of last search type in search widget.
+* Added catching of signals SIGSEGV, SIGABRT, SIGBUS and SIGTERM.
 *** eiskaltdcpp-daemon ***
 *** eiskaltdcpp-cli ***
 
