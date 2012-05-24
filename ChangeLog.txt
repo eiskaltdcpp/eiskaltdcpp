@@ -6,6 +6,15 @@
 * Fixed program crash at launch time (problem was only in builds with
   GCC >= 4.7). [Thanks to Pino Toscano]
 * Fixed build with disabled aspell support. (Bug was added in version 2.2.5)
+* Fixed actions for main menu items "Hide last status message" and
+  "Hide users statistics". (Bug was added in version 2.2.5)
+* Fixed system tray icon indication about new unread messages. (Bug was added
+  in version 2.2.5)
+* Fixed crash on exit. (Bug was added in version 2.2.5)
+* Correctly save state of headers in tables.
+* Fixed blur of program's icon in D-Bus notifications in Ubuntu Unity.
+* Added some options in settings dialog:
+  ALLOW_UPLOAD_MULTI_HUB, USE_ADL_ONLY_OWN_LIST.
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***
 *** eiskaltdcpp-cli ***
