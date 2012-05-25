@@ -84,6 +84,7 @@ public:
             QueueItem::Priority p = QueueItem::DEFAULT) noexcept;
 
     int matchListing(const DirectoryListing& dl) noexcept;
+    void matchAllListings();
 
     bool getTTH(const string& name, TTHValue& tth) noexcept;
 

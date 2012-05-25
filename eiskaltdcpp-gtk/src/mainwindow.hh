@@ -86,6 +86,7 @@ class MainWindow:
 
         // Client functions
         void openOwnList_client(bool useSetting);
+        void matchAllList_client();
         void updateFavoriteHubMenu_client(const dcpp::FavoriteHubEntryList &fh);
 
     private:
@@ -145,6 +146,7 @@ class MainWindow:
         static void onQuitClicked_gui(GtkWidget *widget, gpointer data);
         static void onOpenFileListClicked_gui(GtkWidget *widget, gpointer data);
         static void onOpenOwnListClicked_gui(GtkWidget *widget, gpointer data);
+        static void onMatchAllList_gui(GtkWidget *widget, gpointer data);
         static void onRefreshFileListClicked_gui(GtkWidget *widget, gpointer data);
         static void onReconnectClicked_gui(GtkWidget *widget, gpointer data);
         static void onCloseClicked_gui(GtkWidget *widget, gpointer data);

@@ -52,7 +52,7 @@ UserPtr DirectoryListing::getUserFromFilename(const string& fileName) {
     // General file list name format: [username].[CID].[xml|xml.bz2]
 
     string name = Util::getFileName(fileName);
-    
+
     // Strip off any extensions
     if(Util::stricmp(name.c_str() + name.length() - 4, ".bz2") == 0) {
         name.erase(name.length() - 4);
@@ -97,9 +97,9 @@ void DirectoryListing::loadFile(const string& name) {
 
 class ListLoader : public dcpp::SimpleXMLReader::CallBack {
 public:
-    ListLoader(DirectoryListing::Directory* root, bool aUpdating) : cur(root), 
-                                                                    base("/"), 
-                                                                    inListing(false), 
+    ListLoader(DirectoryListing::Directory* root, bool aUpdating) : cur(root),
+                                                                    base("/"),
+                                                                    inListing(false),
                                                                     updating(aUpdating),
                                                                     m_is_mediainfo_list(false),
                                                                     m_is_first_check_mediainfo_list(false)
@@ -178,11 +178,11 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
                     }
                 }
             }
-            
+
             DirectoryListing::File* f = new DirectoryListing::File(cur, n, size, tth);
-            
+
             string l_ts = "";
-            
+
             if (!m_is_first_check_mediainfo_list){
                 m_is_first_check_mediainfo_list = true;
                 l_ts = getAttrib(attribs, sTS, 3);
@@ -191,14 +191,14 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
             else if (m_is_mediainfo_list) {
                 l_ts = getAttrib(attribs, sTS, 3);
             }
-            
+
             if (!l_ts.empty()){
                 f->mediaInfo.video_info = getAttrib(attribs, sMVideo, 3);
                 f->mediaInfo.audio_info = getAttrib(attribs, sMAudio, 3);
                 f->mediaInfo.resolution = getAttrib(attribs, sWH, 3);
                 f->mediaInfo.bitrate    = atoi(getAttrib(attribs, sBR, 4).c_str());
             }
-            
+
             cur->files.push_back(f);
         } else if(name == sDirectory) {
             const string& n = getAttrib(attribs, sName, 0);
@@ -413,5 +413,4 @@ size_t DirectoryListing::Directory::getTotalFileCount(bool adl) {
     }
     return x;
 }
-
 } // namespace dcpp
