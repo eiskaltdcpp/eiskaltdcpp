@@ -61,6 +61,13 @@
           </widget>
          </item>
          <item>
+          <widget class="QToolButton" name="toolButton_MATCHLIST">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QToolButton" name="toolButton_SEARCH">
            <property name="text">
             <string/>

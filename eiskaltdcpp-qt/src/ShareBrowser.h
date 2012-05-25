@@ -126,6 +126,7 @@ private Q_SLOTS:
     void slotButtonBack();
     void slotButtonForward();
     void slotButtonUp();
+    void slotMatchList();
     void slotClose();
     void slotDie(const QString &msg);
 
