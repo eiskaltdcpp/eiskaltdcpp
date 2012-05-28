@@ -4,6 +4,8 @@
 * Added automatic pause for items from download queue when target directory or
   temporary target directory is not available in file system [unmounted for
   example]. (Option CheckTargetsPathsOnStart in config)
+* Added INSTALL_RUNTIME_PATH option for cmake.
+  (Disabled by default, see file INSTALL)
 *** eiskaltdcpp-qt ***
 * Support of Qt < 4.6.0 was dropped.
 * Correctly save state of headers in tables.

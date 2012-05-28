@@ -227,6 +227,10 @@ Keys for cmake
     -DLIBDIR=lib64 - install lib to <prefix for install>/lib64
 -DLIB_INSTALL_DIR=<lib prefix> (default: lib)
     see -DLIBDIR
+-DINSTALL_RUNTIME_PATH=ON/OFF (default: OFF)
+    Set RPATH in library. About possible troubles see:
+    https://fedoraproject.org/wiki/RPath_Packaging_Draft
+    http://wiki.debian.org/RpathIssue
 -DWITH_DEV_FILES=ON/OFF (default: OFF)
     If ON install development files (headers for libeiskaltdcpp)
     see also -DEISKALTDCPP_INCLUDE_DIR
