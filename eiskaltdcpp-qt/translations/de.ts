@@ -5998,7 +5998,7 @@ nicht aus der Warteschlange entfernt, man muss dies manuell ausführen.</transla
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="923"/>
         <source>Allow simultaneous uploads by one IP</source>
-        <translation type="unfinished"/>
+        <translation>Gleichzeitige Uploads von einer IP erlauben</translation>
     </message>
 </context>
 <context>
@@ -6908,7 +6908,7 @@ der Dateiliste und kann dazu führen, dass der Client zu hängen scheint.</trans
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="372"/>
         <source>Use ADL search only in own file list</source>
-        <translation type="unfinished"/>
+        <translation>ADLSuche nur in der eigenen Dateiliste verwenden</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="387"/>
