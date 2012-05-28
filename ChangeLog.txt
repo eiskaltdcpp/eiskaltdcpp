@@ -1,4 +1,4 @@
---- 2.2.7 2012-05-xx ---
+--- 2.2.7 2012-05-29 ---
 *** common changes ***
 * Updated embedded copy of jsonrpc-cpp library.
 * Added automatic pause for items from download queue when target directory or
@@ -19,8 +19,7 @@
   - Fixed build with disabled aspell support.
   - Fixed actions for main menu items "Hide last status message" and
     "Hide users statistics".
-  - Fixed system tray icon indication about new unread messages. (Bug was added
-    in version 2.2.5)
+  - Fixed system tray icon indication about new unread messages.
   - Fixed crash on exit.
 *** eiskaltdcpp-gtk ***
 * Always open search for alternates in new widget.
@@ -31,6 +30,11 @@
   REPORT_ALTERNATES, USE_ADL_ONLY_OWN_LIST
 * Added saving of last search type in search widget.
 * Added catching of signals SIGSEGV, SIGABRT, SIGBUS and SIGTERM.
+* Added chat command and toggle button for disabling chat in hub widget.
+* Added some options in favorite hub settings dialog: disable chat and
+  external IP.
+* Changed algorithm of actions for left click on system tray icon. The same
+  behavior as in Qt UI is used now.
 *** eiskaltdcpp-daemon ***
 * Synced available XML-RPC and JSON-RPC methods.
 * Updated JSON-RPC methods: methods.list, show.ratio
