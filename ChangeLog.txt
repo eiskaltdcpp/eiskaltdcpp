@@ -1,21 +1,27 @@
 --- 2.2.7 2012-05-xx ---
 *** common changes ***
 * Updated embedded copy of jsonrpc-cpp library.
+* Added automatic pause for items from download queue when target directory or
+  temporary target directory is not available in file system [unmounted for
+  example]. (Option CheckTargetsPathsOnStart in config)
+* Added INSTALL_RUNTIME_PATH option for cmake.
+  (Disabled by default, see file INSTALL)
 *** eiskaltdcpp-qt ***
 * Support of Qt < 4.6.0 was dropped.
-* Fixed build with GCC >= 4.7.
-* Fixed program crash at launch time (problem was only in builds with
-  GCC >= 4.7). [Thanks to Pino Toscano]
-* Fixed build with disabled aspell support. (Bug was added in version 2.2.5)
-* Fixed actions for main menu items "Hide last status message" and
-  "Hide users statistics". (Bug was added in version 2.2.5)
-* Fixed system tray icon indication about new unread messages. (Bug was added
-  in version 2.2.5)
-* Fixed crash on exit. (Bug was added in version 2.2.5)
 * Correctly save state of headers in tables.
 * Fixed blur of program's icon in D-Bus notifications in Ubuntu Unity.
 * Added some options in settings dialog:
   ALLOW_UPLOAD_MULTI_HUB, USE_ADL_ONLY_OWN_LIST.
+* Fixed problems which were added in version 2.2.5:
+  - Fixed build with GCC >= 4.7.
+  - Fixed program crash at launch time (problem was only in builds with
+    GCC >= 4.7). [Thanks to Pino Toscano]
+  - Fixed build with disabled aspell support.
+  - Fixed actions for main menu items "Hide last status message" and
+    "Hide users statistics".
+  - Fixed system tray icon indication about new unread messages. (Bug was added
+    in version 2.2.5)
+  - Fixed crash on exit.
 *** eiskaltdcpp-gtk ***
 * Always open search for alternates in new widget.
 * Added some options in settings dialog:
@@ -28,6 +34,10 @@
 *** eiskaltdcpp-daemon ***
 * Synced available XML-RPC and JSON-RPC methods.
 * Updated JSON-RPC methods: methods.list, show.ratio
+* Fixed command line options "-c" and "-l": they did not work when argument
+  is not finished by path separator.
+* JSON-RPC now works using embedded mongoose library.
+  (http://code.google.com/p/mongoose/)
 *** eiskaltdcpp-cli ***
 
 --- 2.2.6 2012-02-20 ---
