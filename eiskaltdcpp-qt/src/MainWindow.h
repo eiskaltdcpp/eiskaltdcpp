@@ -182,6 +182,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotFileBrowseFilelist();
         void slotFileHasher();
         void slotFileBrowseOwnFilelist();
+        void slotFileMatchAllList();
         void slotFileHashProgress();
         void slotFileRefreshShareHashProgress();
         void slotHubsReconnect();

@@ -74,17 +74,17 @@ Build Depends
 --------
 :common:
 --------
-zlib
-bzip2
-gcc   (>= 4.5.0)
-cmake (>= 2.6.3)
+gcc (>= 4.4.0) or clang (>= 2.9)
 iconv (libc on GNU/Linux)
+cmake (>= 2.6.3)
 pkg-config
+bzip2
+zlib
 ----------------
 :libeiskaltdcpp:
 ----------------
 gettext
-libboost-dev (>=1.38.0) (headers only) (optional, see cmake keys)
+libboost-dev (>= 1.38.0) (headers only) (optional, see cmake keys)
 liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
@@ -94,6 +94,7 @@ libattr-dev (optional)
 :eiskaltdcpp-qt:
 ----------------
 qt4 (>= 4.6.0)
+gcc (>= 4.5.0) or clang (>= 3.1)
 libaspell-dev (optional, see cmake keys)
 -----------------
 :eiskaltdcpp-gtk:
