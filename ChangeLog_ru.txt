@@ -33,6 +33,10 @@
 *** eiskaltdcpp-daemon ***
 * Синхронизированы доступные методы XML-RPC и JSON-RPC.
 * Обновлены методы JSON-RPC: methods.list, show.ratio
+* Исправлены опции командной строки "-c" и "-l": они не работали когда
+  аргумент завершался не разделителем.
+* JSON-RPC теперь работает используя встроенную библиотеку mongoose.
+  (http://code.google.com/p/mongoose/)
 *** eiskaltdcpp-cli ***
 
 --- 2.2.6 2012-02-20 ---
