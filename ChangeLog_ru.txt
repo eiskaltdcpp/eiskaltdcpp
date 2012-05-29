@@ -1,3 +1,10 @@
+--- 2.2.8 2012-06-xx ---
+*** common changes ***
+*** eiskaltdcpp-qt ***
+*** eiskaltdcpp-gtk ***
+*** eiskaltdcpp-daemon ***
+*** eiskaltdcpp-cli ***
+
 --- 2.2.7 2012-05-29 ---
 *** common changes ***
 * Обновлена встроенная копия библиотеки jsonrpc-cpp.
