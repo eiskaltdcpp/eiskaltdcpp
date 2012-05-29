@@ -2467,7 +2467,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkHBox" id="hbox37.1">
+                              <object class="GtkHBox" id="dhtFrame">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="spacing">4</property>

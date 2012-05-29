@@ -768,7 +768,7 @@ void Settings::initConnection_gui()
             break;
     }
 #ifndef USE_MINIUPNP
-    gtk_widget_set_sensitive((GtkWidget*)GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton")), FALSE);
+    gtk_widget_set_sensitive(getWidget("upnpRadioButton"), FALSE);
 #endif
 
     // Outgoing
@@ -830,7 +830,7 @@ void Settings::initConnection_gui()
 #else
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton")), false);
         gtk_entry_set_text(GTK_ENTRY(getWidget("dhtEntry")), "6250");
-        gtk_widget_set_sensitive((GtkWidget*)GTK_FRAME(getWidget("dhtFrame")), FALSE);
+        gtk_widget_set_sensitive(getWidget("dhtFrame"), FALSE);
 #endif
     }
 }
