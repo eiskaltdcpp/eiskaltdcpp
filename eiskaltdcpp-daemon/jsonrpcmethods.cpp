@@ -1,4 +1,4 @@
-/***************************************************************************
+b/***************************************************************************
 *                                                                         *
 *   Copyright 2011 Eugene Petrov <dhamp@ya.ru>                            *
 *                                                                         *
@@ -353,7 +353,7 @@ bool JsonRpcMethods::AddQueueItem(const Json::Value& root, Json::Value& response
     if (isDebug) std::cout << "AddQueueItem (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    
+
     if (isDebug) std::cout << "AddQueueItem (response): " << response << std::endl;
     return true;
 }
@@ -407,6 +407,17 @@ bool JsonRpcMethods::PauseHash(const Json::Value& root, Json::Value& response) {
     if (isDebug) std::cout << "PauseHash (response): " << response << std::endl;
     return true;
 }
+
+bool JsonRpcMethods::MatchAllLists(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "MatchAllLists (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    ServerThread::getInstance()->matchAllList();
+        response["result"] = 0;
+    if (isDebug) std::cout << "MatchAllLists (response): " << response << std::endl;
+    return true;
+}
+
 Json::Value JsonRpcMethods::GetDescriptionStopDaemon() {
   Json::FastWriter writer;
   Json::Value root;
@@ -478,7 +489,7 @@ Json::Value JsonRpcMethods::GetDescriptionHubDel() {
   root["description"] = "Disconnect from huburl";
   param1["type"] = "string";
   param1["description"] = "Hub url";
-  
+
   parameters["huburl"] = param1;
   root["parameters"] = parameters;
 
@@ -493,7 +504,7 @@ Json::Value JsonRpcMethods::GetDescriptionHubSay() {
   Json::Value parameters;
   Json::Value param1,param2;
   Json::Value returns;
-  
+
   root["description"] = "Send message on hub url";
   param1["type"] = "string";
   param1["description"] = "Hub url";
@@ -540,7 +551,7 @@ Json::Value JsonRpcMethods::GetDescriptionListHubs() {
   Json::Value parameters;
   Json::Value param1;
   Json::Value returns;
-  
+
   root["description"] = "Get list of hubs";
   param1["type"] = "string";
   param1["description"] = "Separator";
@@ -581,7 +592,7 @@ Json::Value JsonRpcMethods::GetDescriptionRenameDirInShare() {
   Json::Value parameters;
   Json::Value param1,param2;
   Json::Value returns;
-  
+
   root["description"] = "Rename directory in share";
   param1["type"] = "string";
   param1["description"] = "Directory";
@@ -595,7 +606,7 @@ Json::Value JsonRpcMethods::GetDescriptionRenameDirInShare() {
   returns["type"] = "integer or string";
   returns["description"] = "Return 0 on success and 1 on failed or shareexception";
   root["returns"] = returns;
-  
+
   return root;
 }
 Json::Value JsonRpcMethods::GetDescriptionDelDirFromShare() {
@@ -604,7 +615,7 @@ Json::Value JsonRpcMethods::GetDescriptionDelDirFromShare() {
   Json::Value parameters;
   Json::Value param1;
   Json::Value returns;
-  
+
   root["description"] = "Delete directory from share";
   param1["type"] = "string";
   param1["description"] = "Directory";
@@ -623,7 +634,7 @@ Json::Value JsonRpcMethods::GetDescriptionListShare() {
   Json::Value parameters;
   Json::Value param1;
   Json::Value returns;
-  
+
   root["description"] = "Return list share";
   param1["type"] = "string";
   param1["description"] = "Separator";
@@ -641,7 +652,7 @@ Json::Value JsonRpcMethods::GetDescriptionRefreshShare() {
   Json::Value root;
   Json::Value parameters;
   Json::Value returns;
-  
+
   root["description"] = "Run refresh share";
   root["parameters"] = Json::Value::null;
 
@@ -656,7 +667,7 @@ Json::Value JsonRpcMethods::GetDescriptionGetFileList() {
   Json::Value parameters;
   Json::Value param1,param2;
   Json::Value returns;
-  
+
   return root;
 }
 Json::Value JsonRpcMethods::GetDescriptionGetChatPub() {

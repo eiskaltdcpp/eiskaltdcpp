@@ -67,7 +67,8 @@ public:
     void getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online);
     void getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status);
     bool pauseHash();
-    void getMethodList(string& tmp); 
+    void getMethodList(string& tmp);
+    void matchAllList();
 
 private:
     friend class Singleton<ServerThread>;
