@@ -161,7 +161,6 @@ ShareBrowser::~ShareBrowser()
 
 void ShareBrowser::show()
 {
-    openDir_gui(initialDirectory);
     updateStatus_gui();
     WulforManager::get()->getMainWindow()->setMainStatus_gui(_("File list loaded"));
 }
@@ -191,6 +190,8 @@ void ShareBrowser::buildList_gui()
 
         // Add entries to dir tree view starting with the root entry.
         buildDirs_gui(listing.getRoot(), NULL);
+
+        openDir_gui(initialDirectory);
     }
     catch (const Exception &e)
     {
