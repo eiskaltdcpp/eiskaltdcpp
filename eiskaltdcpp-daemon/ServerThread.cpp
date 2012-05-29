@@ -186,10 +186,11 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHashStatus, std::string("hash.status"), a.GetDescriptionGetHashStatus()));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause"), a.GetDescriptionPauseHash()));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MatchAllLists, std::string("queue.matchlists")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
-    else 
+    else
         std::cout << "JSONRPC: Start mongoose" << std::endl;
 #endif
 
@@ -785,100 +786,100 @@ void ServerThread::getItemSourcesbyTarget(const string& target, const string& se
 }
 
 void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
-	string nick;
-	unsigned int online = 0;
+    string nick;
+    unsigned int online = 0;
 
-	params["Filename"] = item->getTargetFileName();
-	params["Path"] = Util::getFilePath(item->getTarget());
-	params["Target"] = item->getTarget();
+    params["Filename"] = item->getTargetFileName();
+    params["Path"] = Util::getFilePath(item->getTarget());
+    params["Target"] = item->getTarget();
 
-	params["Users"] = "";
-    
-	//for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
-		//if (it->getUser().user->isOnline())
-			//++online;
+    params["Users"] = "";
 
-		//if (params["Users"].size() > 0)
-			//params["Users"] += ", ";
+    //for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
+        //if (it->getUser().user->isOnline())
+            //++online;
 
-		//nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
-		//params["Users"] += nick;
-	//}
-    
+        //if (params["Users"].size() > 0)
+            //params["Users"] += ", ";
+
+        //nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+        //params["Users"] += nick;
+    //}
+
     getItemSources(item, ", ", params["Users"], online);
-    
-	if (params["Users"].empty())
-		params["Users"] = _("No users");
 
-	// Status
-	if (item->isWaiting())
-		params["Status"] = Util::toString(online) + _(" of ") + Util::toString(item->getSources().size()) + _(" user(s) online");
-	else
-		params["Status"] = _("Running...");
+    if (params["Users"].empty())
+        params["Users"] = _("No users");
 
-	// Size
-	params["Size Sort"] = Util::toString(item->getSize());
-	if (item->getSize() < 0) {
-		params["Size"] = _("Unknown");
-		params["Exact Size"] = _("Unknown");
-	} else {
-		params["Size"] = Util::formatBytes(item->getSize());
-		params["Exact Size"] = Util::formatExactSize(item->getSize());
-	}
+    // Status
+    if (item->isWaiting())
+        params["Status"] = Util::toString(online) + _(" of ") + Util::toString(item->getSources().size()) + _(" user(s) online");
+    else
+        params["Status"] = _("Running...");
 
-	// Downloaded
-	params["Downloaded Sort"] = Util::toString(item->getDownloadedBytes());
-	if (item->getSize() > 0) {
-		double percent = (double)item->getDownloadedBytes() * 100.0 / (double)item->getSize();
-		params["Downloaded"] = Util::formatBytes(item->getDownloadedBytes()) + " (" + Util::toString(percent) + "%)";
-	} else {
-		params["Downloaded"] = _("0 B (0.00%)");
-	}
+    // Size
+    params["Size Sort"] = Util::toString(item->getSize());
+    if (item->getSize() < 0) {
+        params["Size"] = _("Unknown");
+        params["Exact Size"] = _("Unknown");
+    } else {
+        params["Size"] = Util::formatBytes(item->getSize());
+        params["Exact Size"] = Util::formatExactSize(item->getSize());
+    }
 
-	// Priority
-	switch (item->getPriority()) {
-		case QueueItem::PAUSED: params["Priority"] = _("Paused"); break;
-		case QueueItem::LOWEST: params["Priority"] = _("Lowest"); break;
-		case QueueItem::LOW: params["Priority"] = _("Low"); break;
-		case QueueItem::HIGH: params["Priority"] = _("High"); break;
-		case QueueItem::HIGHEST: params["Priority"] = _("Highest"); break;
-		default: params["Priority"] = _("Normal"); break;
-	}
+    // Downloaded
+    params["Downloaded Sort"] = Util::toString(item->getDownloadedBytes());
+    if (item->getSize() > 0) {
+        double percent = (double)item->getDownloadedBytes() * 100.0 / (double)item->getSize();
+        params["Downloaded"] = Util::formatBytes(item->getDownloadedBytes()) + " (" + Util::toString(percent) + "%)";
+    } else {
+        params["Downloaded"] = _("0 B (0.00%)");
+    }
 
-	// Error
-	params["Errors"] = "";
-	for (QueueItem::SourceConstIter it = item->getBadSources().begin(); it != item->getBadSources().end(); ++it) {
-		nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+    // Priority
+    switch (item->getPriority()) {
+        case QueueItem::PAUSED: params["Priority"] = _("Paused"); break;
+        case QueueItem::LOWEST: params["Priority"] = _("Lowest"); break;
+        case QueueItem::LOW: params["Priority"] = _("Low"); break;
+        case QueueItem::HIGH: params["Priority"] = _("High"); break;
+        case QueueItem::HIGHEST: params["Priority"] = _("Highest"); break;
+        default: params["Priority"] = _("Normal"); break;
+    }
 
-		if (!it->isSet(QueueItem::Source::FLAG_REMOVED)) {
-			if (params["Errors"].size() > 0)
-				params["Errors"] += ", ";
-			params["Errors"] += nick + " (";
+    // Error
+    params["Errors"] = "";
+    for (QueueItem::SourceConstIter it = item->getBadSources().begin(); it != item->getBadSources().end(); ++it) {
+        nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
 
-			if (it->isSet(QueueItem::Source::FLAG_FILE_NOT_AVAILABLE))
-				params["Errors"] += _("File not available");
-			else if (it->isSet(QueueItem::Source::FLAG_PASSIVE))
-				params["Errors"] += _("Passive user");
-			else if (it->isSet(QueueItem::Source::FLAG_CRC_FAILED))
-				params["Errors"] += _("CRC32 inconsistency (SFV-Check)");
-			else if (it->isSet(QueueItem::Source::FLAG_BAD_TREE))
-				params["Errors"] += _("Full tree does not match TTH root");
-			else if (it->isSet(QueueItem::Source::FLAG_SLOW_SOURCE))
-				params["Errors"] += _("Source too slow");
-			else if (it->isSet(QueueItem::Source::FLAG_NO_TTHF))
-				params["Errors"] += _("Remote client does not fully support TTH - cannot download");
+        if (!it->isSet(QueueItem::Source::FLAG_REMOVED)) {
+            if (params["Errors"].size() > 0)
+                params["Errors"] += ", ";
+            params["Errors"] += nick + " (";
 
-			params["Errors"] += ")";
-		}
-	}
-	if (params["Errors"].empty())
-		params["Errors"] = _("No errors");
+            if (it->isSet(QueueItem::Source::FLAG_FILE_NOT_AVAILABLE))
+                params["Errors"] += _("File not available");
+            else if (it->isSet(QueueItem::Source::FLAG_PASSIVE))
+                params["Errors"] += _("Passive user");
+            else if (it->isSet(QueueItem::Source::FLAG_CRC_FAILED))
+                params["Errors"] += _("CRC32 inconsistency (SFV-Check)");
+            else if (it->isSet(QueueItem::Source::FLAG_BAD_TREE))
+                params["Errors"] += _("Full tree does not match TTH root");
+            else if (it->isSet(QueueItem::Source::FLAG_SLOW_SOURCE))
+                params["Errors"] += _("Source too slow");
+            else if (it->isSet(QueueItem::Source::FLAG_NO_TTHF))
+                params["Errors"] += _("Remote client does not fully support TTH - cannot download");
 
-	// Added
-	params["Added"] = Util::formatTime("%Y-%m-%d %H:%M", item->getAdded());
+            params["Errors"] += ")";
+        }
+    }
+    if (params["Errors"].empty())
+        params["Errors"] = _("No errors");
 
-	// TTH
-	params["TTH"] = item->getTTH().toBase32();
+    // Added
+    params["Added"] = Util::formatTime("%Y-%m-%d %H:%M", item->getAdded());
+
+    // TTH
+    params["TTH"] = item->getTTH().toBase32();
 }
 
 void ServerThread::listQueueTargets(string& listqueue, const string& sseparator) {
@@ -1000,4 +1001,8 @@ bool ServerThread::pauseHash() {
 
 void ServerThread::getMethodList(string& tmp) {
     tmp = "magnet.add|daemon.stop|hub.add|hub.del|hub.say|hub.pm|hub.list|share.add|share.rename|share.del|share.list|share.refresh|list.download|hub.getchat|search.send|search.getresults|show.version|show.ratio|queue.setpriority|queue.move|queue.remove|queue.listtargets|queue.list|queue.getsources|hash.status|hash.pause|methods.list";
+}
+
+void ServerThread::matchAllList() {
+    QueueManager::getInstance()->matchAllListings();
 }

@@ -299,6 +299,7 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("finishedUploads"), "clicked", G_CALLBACK(onFinishedUploadsClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("openFileListMenuItem"), "activate", G_CALLBACK(onOpenFileListClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("openOwnListMenuItem"), "activate", G_CALLBACK(onOpenOwnListClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("matchAllListMenuItem"), "activate", G_CALLBACK(onMatchAllList_gui), (gpointer)this);
     g_signal_connect(getWidget("refreshFileListMenuItem"), "activate", G_CALLBACK(onRefreshFileListClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("quickConnectMenuItem"), "activate", G_CALLBACK(onConnectClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("reconnectMenuItem"), "activate", G_CALLBACK(onReconnectClicked_gui), (gpointer)this);
@@ -2038,6 +2039,13 @@ void MainWindow::onOpenOwnListClicked_gui(GtkWidget *widget, gpointer data)
     mw->setMainStatus_gui(_("Loading file list"));
 }
 
+void MainWindow::onMatchAllList_gui(GtkWidget *widget, gpointer data)
+{
+    typedef Func0<MainWindow> F0;
+    F0 *func = new F0((MainWindow *)data, &MainWindow::matchAllList_client);
+    WulforManager::get()->dispatchClientFunc(func);
+}
+
 void MainWindow::onRefreshFileListClicked_gui(GtkWidget *widget, gpointer data)
 {
     typedef Func0<MainWindow> F0;
@@ -2280,6 +2288,11 @@ void MainWindow::openOwnList_client(bool useSetting)
     typedef Func4<MainWindow, UserPtr, string, string, bool> F4;
     F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user, path, "", useSetting);
     WulforManager::get()->dispatchGuiFunc(func);
+}
+
+void MainWindow::matchAllList_client()
+{
+    QueueManager::getInstance()->matchAllListings();
 }
 
 void MainWindow::on(LogManagerListener::Message, time_t t, const string &message) noexcept

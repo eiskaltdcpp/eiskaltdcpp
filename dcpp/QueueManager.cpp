@@ -2199,4 +2199,39 @@ void QueueManager::logFinishedDownload(QueueItem* qi, Download* d, bool crcError
     LOG(LogManager::FINISHED_DOWNLOAD, params);
     FinishedManager::getInstance()->unlockLists();
 }
+
+class ListMatcher : public dcpp::Thread
+{
+    public:
+        ListMatcher(const StringList& files_) : files(files_) { }
+        int run() {
+            for (auto i = files.cbegin(); i != files.cend(); ++i) {
+                UserPtr u = DirectoryListing::getUserFromFilename(*i);
+                if (!u)
+                    continue;
+
+                HintedUser user(u, Util::emptyString);
+                DirectoryListing dl(user);
+                try {
+                    dl.loadFile(*i);
+                    LogManager::getInstance()->message(str(F_("%1% : Matched %2% files") % Util::toString(ClientManager::getInstance()->getNicks(user)) % QueueManager::getInstance()->matchListing(dl)));
+                } catch (const Exception&) { }
+            }
+            delete this;// Cleanup the thread object
+            return 0;
+        }
+    private:
+        StringList files;
+};
+
+void QueueManager::matchAllListings() {
+    ListMatcher* matcher = new ListMatcher(File::findFiles(Util::getListPath(), "*.xml*"));
+    try {
+        matcher->start();
+    } catch (const ThreadException&) {
+        ///@todo add error message
+        delete matcher;
+    }
+}
+
 } // namespace dcpp

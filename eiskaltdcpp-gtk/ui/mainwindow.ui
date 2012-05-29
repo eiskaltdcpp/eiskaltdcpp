@@ -1056,6 +1056,15 @@ You should have received a copy of the GNU General Public License along with thi
                       </object>
                     </child>
                     <child>
+                      <object class="GtkMenuItem" id="matchAllListMenuItem">
+                        <property name="use_action_appearance">False</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Match all listings</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
                       <object class="GtkImageMenuItem" id="refreshFileListMenuItem">
                         <property name="label" translatable="yes">_Refresh file list</property>
                         <property name="use_action_appearance">False</property>
