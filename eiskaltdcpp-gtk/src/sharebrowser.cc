@@ -140,6 +140,10 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     g_signal_connect(getWidget("copyPictureItem"), "activate", G_CALLBACK(onCopyPictureClicked_gui), (gpointer)this);
     //getDirectory нет в ui файле...интересно почему ?
     //g_signal_connect(getWidget("getDirectory"), "activate", G_CALLBACK(onDirGet), (gpointer)this);
+
+    GError *error = NULL;
+    g_thread_create(threadLoad_list, (gpointer)this, FALSE, &error);
+    if (error) g_error_free(error);
 }
 
 ShareBrowser::~ShareBrowser()
@@ -157,10 +161,18 @@ ShareBrowser::~ShareBrowser()
 
 void ShareBrowser::show()
 {
-    buildList_gui();
     openDir_gui(initialDirectory);
     updateStatus_gui();
     WulforManager::get()->getMainWindow()->setMainStatus_gui(_("File list loaded"));
+}
+
+gpointer ShareBrowser::threadLoad_list(gpointer data)
+{
+    ShareBrowser *man = (ShareBrowser *)data;
+    man->setStatus_gui("mainStatus", _("Parse and build tree....waiting"));
+    man->buildList_gui();
+    man->setStatus_gui("mainStatus", _("Done"));
+    return NULL;
 }
 
 void ShareBrowser::buildList_gui()
@@ -168,6 +180,7 @@ void ShareBrowser::buildList_gui()
     // Load the xml file containing the share list.
     try
     {
+
         listing.loadFile(file);
 
         // Set name of root entry to user nick.

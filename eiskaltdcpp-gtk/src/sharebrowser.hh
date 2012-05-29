@@ -76,6 +76,9 @@ class ShareBrowser:
         void downloadDir_client(dcpp::DirectoryListing::Directory *dir, std::string target);
         void matchQueue_client();
 
+        // Thread-related functions
+        static gpointer threadLoad_list(gpointer data);
+
         GdkEventType oldType;
         dcpp::UserPtr user;
         std::string file;
