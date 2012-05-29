@@ -6,6 +6,7 @@
   example]. (Option CheckTargetsPathsOnStart in config)
 * Added INSTALL_RUNTIME_PATH option for cmake.
   (Disabled by default, see file INSTALL)
+* Refactoring of source code.
 *** eiskaltdcpp-qt ***
 * Support of Qt < 4.6.0 was dropped.
 * Correctly save state of headers in tables.
@@ -35,6 +36,9 @@
   external IP.
 * Changed algorithm of actions for left click on system tray icon. The same
   behavior as in Qt UI is used now.
+* In the file list widget parsing of file lists was detached into separate
+  thread, which solved the problem with a short GUI frieze during opening of
+  large file lists.
 *** eiskaltdcpp-daemon ***
 * Synced available XML-RPC and JSON-RPC methods.
 * Updated JSON-RPC methods: methods.list, show.ratio
@@ -42,7 +46,6 @@
   is not finished by path separator.
 * JSON-RPC now works using embedded mongoose library.
   (http://code.google.com/p/mongoose/)
-*** eiskaltdcpp-cli ***
 
 --- 2.2.6 2012-02-20 ---
 *** common changes ***
