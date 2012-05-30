@@ -122,14 +122,14 @@ void HashProgress::timerTick(){
         progress->setValue( (10000*(startBytes - bytes))/startBytes);
 
     if( diff == 0. || files == 0 || bytes == 0 || paused) {
-        stat->setText(QString(tr("-.-- files/h, %1 files left")).arg((uint32_t)files));
+        status->setText(QString(tr("-.-- files/h, %1 files left")).arg((uint32_t)files));
         speed->setText(tr("-.-- B/s, %1 left").arg(WulforUtil::formatBytes(bytes)));
         eta = tr("-:--:--");
     } else {
         double filestat = (((double)(startFiles - files)) * 60 * 60 * 1000) / diff;
         double speedStat = (((double)(startBytes - bytes)) * 1000) / diff;
 
-        stat->setText(tr("%1 files/h, %2 files left").arg(filestat).arg((uint32_t)files));
+        status->setText(tr("%1 files/h, %2 files left").arg(filestat).arg((uint32_t)files));
         speed->setText(tr("%1/s, %2 left, %3 shared").arg(WulforUtil::formatBytes((int64_t)speedStat))
                                                      .arg(WulforUtil::formatBytes(bytes))
                                                      .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
