@@ -26,7 +26,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="stat">
+      <widget class="QLabel" name="status">
        <property name="text">
         <string/>
        </property>
