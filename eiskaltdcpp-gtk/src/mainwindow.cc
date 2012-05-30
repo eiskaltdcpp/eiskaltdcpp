@@ -999,7 +999,7 @@ void MainWindow::showShareBrowser_gui(UserPtr user, string filename, string dir,
 
     if (entry == NULL)
     {
-        entry = new ShareBrowser(user, filename, dir);
+        entry = new ShareBrowser(user, filename, dir, true);
         addBookEntry_gui(entry);
     }
 
@@ -2546,4 +2546,37 @@ void MainWindow::updateFreespaceBar_gui(string freespace, float freepercent)
     gtk_progress_bar_set_text(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), freespace.c_str());
     gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), freepercent);
 
+}
+
+void MainWindow::parsePartial_gui(HintedUser user, string txt)
+{
+    bool raise = !WGETB("popunder-filelist");
+    BookEntry *entry = findBookEntry(Entry::SHARE_BROWSER, user.user->getCID().toBase32());
+    StringList nicks = ClientManager::getInstance()->getNicks(user);
+    string nick = nicks.empty() ? Util::emptyString : Util::cleanPathChars(nicks[0]) + ".";
+    //string path = QueueManager::getInstance()->getListPath(aUser) + ".xml.bz2";
+    string path = Util::getListPath() + nick + user.user->getCID().toBase32() + ".xml.bz2";
+
+    if(entry != NULL)
+    {
+      dynamic_cast<ShareBrowser*>(entry)->loadXML(txt);
+    }
+    else
+    {
+        if (entry == NULL && !path.empty())
+        {
+            entry = new ShareBrowser(user.user, path, "/", false);
+            addBookEntry_gui(entry);
+            dynamic_cast<ShareBrowser*>(entry)->loadXML(txt);
+        }
+    }
+    if (raise)
+        raisePage_gui(entry->getContainer());
+}
+
+/**/
+void MainWindow::on(QueueManagerListener::PartialList, const HintedUser& aUser, const string& text) noexcept {
+    typedef Func2<MainWindow, HintedUser, string> F2;
+    F2 *func = new F2(this,&MainWindow::parsePartial_gui,aUser,text);
+    WulforManager::get()->dispatchGuiFunc(func);
 }

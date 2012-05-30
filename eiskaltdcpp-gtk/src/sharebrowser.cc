@@ -33,7 +33,7 @@
 using namespace std;
 using namespace dcpp;
 
-ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initialDirectory):
+ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initialDirectory, bool full):
     BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(user, ""), "sharebrowser.ui", user->getCID().toBase32()),
     user(user),
     file(file),
@@ -44,7 +44,8 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     shareItems(0),
     currentItems(0),
     updateFileView(TRUE),
-    skipHits(0)
+    skipHits(0),
+    full(full)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("mainStatus")),FALSE);
@@ -138,8 +139,9 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     g_signal_connect(getWidget("searchForAlternatesItem"), "activate", G_CALLBACK(onSearchAlternatesClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyPictureItem"), "activate", G_CALLBACK(onCopyPictureClicked_gui), (gpointer)this);
-    //getDirectory нет в ui файле...интересно почему ?
-    //g_signal_connect(getWidget("getDirectory"), "activate", G_CALLBACK(onDirGet), (gpointer)this);
+
+    g_signal_connect(getWidget("downloadPartialFile"), "activate", G_CALLBACK(onClickedPartial), (gpointer)this);
+    g_signal_connect(getWidget("downloadPartialDir"), "activate", G_CALLBACK(onClickedPartial), (gpointer)this);
 
     GError *error = NULL;
     g_thread_create(threadLoad_list, (gpointer)this, FALSE, &error);
@@ -179,15 +181,15 @@ void ShareBrowser::buildList_gui()
     // Load the xml file containing the share list.
     try
     {
-
-        listing.loadFile(file);
-
         // Set name of root entry to user nick.
         listing.getRoot()->setName(nick);
 
-        // Search ADL
-        ADLSearchManager::getInstance()->matchListing(listing);
+        if (full) {
+            listing.loadFile(file);
 
+            // Search ADL
+            ADLSearchManager::getInstance()->matchListing(listing);
+        }
         // Add entries to dir tree view starting with the root entry.
         buildDirs_gui(listing.getRoot(), NULL);
 
@@ -1090,68 +1092,131 @@ void ShareBrowser::matchQueue_client()
 }
 void ShareBrowser::onDirGet(GtkMenuItem* item, gpointer data)
 {
- ShareBrowser *sb=(ShareBrowser*)data;
- GList *list = gtk_tree_selection_get_selected_rows(sb->fileSelection, NULL);
- GtkTreePath *path;
- GtkTreeIter iter;
- string name,fullpath;
-  DirectoryListing::File *filed;
+    ShareBrowser *sb=(ShareBrowser*)data;
+    GList *list = gtk_tree_selection_get_selected_rows(sb->fileSelection, NULL);
+    GtkTreePath *path;
+    GtkTreeIter iter;
+    string name,fullpath;
+    DirectoryListing::File *filed;
 
- for (GList *i = list;i;i=i->next)
- {
-         path = (GtkTreePath *)i->data;
-         if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
-         {
-                filed = sb->fileView.getValue<gpointer, DirectoryListing::File *>(&iter, "DL File");
+    for (GList *i = list;i;i=i->next)
+    {
+        path = (GtkTreePath *)i->data;
+        if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
+        {
+            filed = sb->fileView.getValue<gpointer, DirectoryListing::File *>(&iter, "DL File");
 
-                ItemInfo* ii= new ItemInfo(filed);
-                 if(ii->type == ItemInfo::FILE)
-                 {
-                        if(!ii->file->getAdls())return;
-                        DirectoryListing::Directory *dir=ii->file->getParent();
-                         while( (dir!=NULL) && (dir!=sb->listing.getRoot()))
-                         {
-                                fullpath=dir->getName()+PATH_SEPARATOR+fullpath;
-                                dir=dir->getParent();
-                         }
-                 }
-                 else if(ii->type == ItemInfo::DIRECTORY)
-                 {
-                        if(!(ii->dir->getAdls()) && (ii->dir->getParent() != sb->listing.getRoot()))
-                                return;
-                        fullpath = Text::toT(((DirectoryListing::AdlDirectory*)ii->dir)->getFullPath());
-
-
-                 }
-
-         }
-
- }
-  sb->openDir_gui(fullpath);
+            ItemInfo* ii= new ItemInfo(filed);
+            if(ii->type == ItemInfo::FILE)
+            {
+                if(!ii->file->getAdls())return;
+                DirectoryListing::Directory *dir=ii->file->getParent();
+                while( (dir!=NULL) && (dir!=sb->listing.getRoot()))
+                {
+                    fullpath=dir->getName()+PATH_SEPARATOR+fullpath;
+                    dir=dir->getParent();
+                }
+            }
+            else if(ii->type == ItemInfo::DIRECTORY)
+            {
+                if(!(ii->dir->getAdls()) && (ii->dir->getParent() != sb->listing.getRoot()))
+                    return;
+                fullpath = Text::toT(((DirectoryListing::AdlDirectory*)ii->dir)->getFullPath());
+            }
+        }
+    }
+    sb->openDir_gui(fullpath);
 }
 
 int ShareBrowser::ItemInfo::compareItems(ItemInfo* a, ItemInfo* b, int col) {
-        if(a->type == DIRECTORY) {
-                if(b->type == DIRECTORY) {
-                        switch(col) {
-                        case COLUMN_EXACTSIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
-                        case COLUMN_SIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
-                        default: break; //strcmp(a->columns[col].c_str(), b->columns[col].c_str());
-                        }
-                } else {
-                        return -1;
-                }
-        } else if(b->type == DIRECTORY) {
-                return 1;
+    if(a->type == DIRECTORY) {
+        if(b->type == DIRECTORY) {
+            switch(col) {
+                case COLUMN_EXACTSIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
+                case COLUMN_SIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
+                default: break; //strcmp(a->columns[col].c_str(), b->columns[col].c_str());
+            }
         } else {
-                switch(col) {
-                case COLUMN_EXACTSIZE: return compare(a->file->getSize(), b->file->getSize());
-                case COLUMN_SIZE: return compare(a->file->getSize(), b->file->getSize());
-                default: break;// strcmp(a->columns[col].c_str(), b->columns[col].c_str());
-                }
+            return -1;
         }
+    } else if(b->type == DIRECTORY) {
+        return 1;
+    } else {
+        switch(col) {
+            case COLUMN_EXACTSIZE: return compare(a->file->getSize(), b->file->getSize());
+            case COLUMN_SIZE: return compare(a->file->getSize(), b->file->getSize());
+            default: break;// strcmp(a->columns[col].c_str(), b->columns[col].c_str());
+        }
+    }
 
-        return -1;
+    return -1;
 }
 
+void ShareBrowser::loadXML(string txt)
+{
+    typedef Func1<ShareBrowser,string> F1;
+    F1 *func = new F1(this,&ShareBrowser::load,txt);
+    WulforManager::get()->dispatchGuiFunc(func);
+}
+
+void ShareBrowser::load(string xml)
+{
+    // Set name of root entry to user nick.
+    listing.getRoot()->setName(nick);
+
+    GtkTreeIter iter;
+    DirectoryListing::Directory *dirList;
+    string path,path2;
+    GtkTreePath *treepath;
+    if (gtk_tree_selection_get_selected(dirSelection, NULL, &iter))
+    {
+        dirList = (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter,"DL Dir");
+        path2 = dirList->getName();
+        treepath = gtk_tree_path_copy(gtk_tree_model_get_path (GTK_TREE_MODEL(dirStore) ,gtk_tree_iter_copy(&iter)));
+
+        //path = QueueManager::getInstance()->getListPath(listing.getUser()) + ".xml";
+        path = Util::getListPath() + nick + user->getCID().toBase32() + ".xml";
+        if(File::getSize(path) != -1) {
+            // load the cached list.
+            listing.updateXML(File(path, File::READ, File::OPEN).read());
+        }
+        auto base = listing.updateXML(xml);
+        //listing.save(path);
+        ADLSearchManager::getInstance()->matchListing(listing);
+        gtk_tree_store_clear(dirStore);
+        gtk_list_store_clear(fileStore);
+        buildDirs_gui(listing.getRoot(),NULL);
+        gtk_tree_view_expand_to_path(dirView.get(), treepath);
+        gtk_tree_view_scroll_to_cell(dirView.get(),treepath,NULL,FALSE,0,0);
+        gtk_tree_selection_select_path(dirSelection,treepath);
+        updateFiles_gui(dirList);
+   }
+}
+
+void ShareBrowser::onClickedPartial(GtkWidget *widget, gpointer data)
+{
+    ShareBrowser *sb = (ShareBrowser *)data;
+    GtkTreeIter iter;
+    DirectoryListing::Directory *dirList;
+    if (gtk_tree_selection_get_selected(sb->dirSelection, NULL, &iter))
+    {
+        dirList = (DirectoryListing::Directory *)sb->dirView.getValue<gpointer>(&iter,"DL Dir");
+    }
+    typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
+    F1 *func = new F1(sb,&ShareBrowser::downloadChangedDir,dirList);
+    WulforManager::get()->dispatchClientFunc(func);
+}
+
+void ShareBrowser::downloadChangedDir(DirectoryListing::Directory* d) {
+    if(!d->getComplete()) {
+        dcdebug("Directory %s incomplete, downloading...\n", d->getName().c_str());
+        if(listing.getUser().user->isOnline()) {
+            try {
+                QueueManager::getInstance()->addList(listing.getUser(), QueueItem::FLAG_PARTIAL_LIST, listing.getPath(d));
+            } catch(const QueueException& e) { }
+        } else {
+            setStatus_gui("mainStatus","User went offline");
+        }
+    }
+}
 /*Many code from orginal DC++*/

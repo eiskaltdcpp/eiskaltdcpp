@@ -115,6 +115,14 @@
         </child>
       </object>
     </child>
+    <child>
+      <object class="GtkMenuItem" id="downloadPartialDir">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Open Dir...</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
   </object>
   <object class="GtkMenu" id="fileMenu">
     <property name="can_focus">False</property>
@@ -186,6 +194,14 @@
             <property name="can_focus">False</property>
           </object>
         </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="downloadPartialFile">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Open Dir...</property>
+        <property name="use_underline">True</property>
       </object>
     </child>
   </object>

@@ -65,9 +65,9 @@ Hub::Hub(const string &address, const string &encoding):
     enableChat(TRUE)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),FALSE);
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusShared")),FALSE);
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusUsers")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusShared")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusUsers")),FALSE);
 #endif
 
     // Configure the dialog
@@ -129,11 +129,11 @@ Hub::Hub(const string &address, const string &encoding):
 
     handCursor = gdk_cursor_new(GDK_HAND2);
 
-	// image magnet
-	imageLoad.first = "";
-	imageLoad.second = NULL;
-	imageMagnet.first = "";
-	imageMagnet.second = "";
+    // image magnet
+    imageLoad.first = "";
+    imageLoad.second = NULL;
+    imageMagnet.first = "";
+    imageMagnet.second = "";
 
     // menu
     g_object_ref_sink(getWidget("nickMenu"));
@@ -240,6 +240,7 @@ Hub::Hub(const string &address, const string &encoding):
     g_signal_connect(getWidget("boldButton"), "clicked", G_CALLBACK(onBoldButtonClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("underlineButton"), "clicked", G_CALLBACK(onUnderlineButtonClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("disableChat"), "toggled", G_CALLBACK(onDisableChatToggled_gui), (gpointer)this);
+    g_signal_connect(getWidget("openPartial"), "activate", G_CALLBACK(onPartialFileListOpen_gui), (gpointer)this);
 
     gtk_widget_grab_focus(getWidget("chatEntry"));
 
@@ -3511,7 +3512,7 @@ void Hub::on(ClientListener::HubUpdated, Client *) noexcept
     WulforManager::get()->dispatchGuiFunc(func1);
 }
 
-void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) noexcept 
+void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) noexcept
     {
         if (message.text.empty() || !enableChat)
             return;
@@ -3609,7 +3610,7 @@ void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) noexc
             }
         }
     }
-} 
+}
 
 void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int /* flag */) noexcept
 {
@@ -3668,7 +3669,7 @@ void Hub::disableChat(bool enable)
         gtk_widget_set_sensitive(getWidget("chatEntry"), TRUE);
         enableChat = true;
     }
-    
+
 }
 
 void Hub::onDisableChatToggled_gui(GtkWidget *widget, gpointer data)
@@ -3678,4 +3679,75 @@ void Hub::onDisableChatToggled_gui(GtkWidget *widget, gpointer data)
         hub->disableChat(TRUE);
     else
         hub->disableChat(FALSE);
+}
+
+void Hub::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
+{
+    Hub *hub = (Hub *)data;
+
+    if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
+    {
+        string cid;
+        GtkTreeIter iter;
+        GtkTreePath *path;
+        typedef Func1<Hub, string> F1;
+        F1 *func;
+        GList *list = gtk_tree_selection_get_selected_rows(hub->nickSelection, NULL);
+
+        for (GList *i = list; i; i = i->next)
+        {
+            path = (GtkTreePath *)i->data;
+            if (gtk_tree_model_get_iter(GTK_TREE_MODEL(hub->nickStore), &iter, path))
+            {
+                cid = hub->nickView.getString(&iter, "CID");
+                func = new F1(hub, &Hub::getPartialFileList_client, cid);
+                WulforManager::get()->dispatchClientFunc(func);
+            }
+            gtk_tree_path_free(path);
+        }
+        g_list_free(list);
+    }
+}
+
+void Hub::getPartialFileList_client(string cid)
+{
+    string message = Util::emptyString;
+    if(!cid.empty())
+    {
+        try
+        {
+            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            if (user)
+            {
+                const HintedUser hintedUser(user, client->getHubUrl());//NOTE: core 0.762
+
+                if (user == ClientManager::getInstance()->getMe())
+                {
+                    // Don't download file list, open locally instead
+                    WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
+                }
+                else
+                {
+                    QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_PARTIAL_LIST);
+                }
+            }
+            else
+            {
+                message = _("User not found");
+            }
+        }
+        catch (const Exception &e)
+        {
+            message = e.getError();
+            LogManager::getInstance()->message(message);
+        }
+    }
+
+    if (!message.empty())
+    {
+        typedef Func3<Hub, string, Msg::TypeMsg, Sound::TypeSound> F3;
+        F3 *func = new F3(this, &Hub::addStatusMessage_gui, message, Msg::SYSTEM, Sound::NONE);
+        WulforManager::get()->dispatchGuiFunc(func);
+    }
+
 }
