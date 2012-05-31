@@ -54,6 +54,8 @@ class ShareBrowser:
         void popupDirMenu_gui();
         void find_gui();
         void load(std::string xml);
+        void viewPartial_gui();
+        bool isFull();
 
         // GUI callbacks
         static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);

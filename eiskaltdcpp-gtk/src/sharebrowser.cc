@@ -160,6 +160,10 @@ ShareBrowser::~ShareBrowser()
     g_object_unref(getWidget("dirMenu"));
     g_object_unref(getWidget("fileMenu"));
 }
+bool ShareBrowser::isFull()
+{
+    return full;
+}
 
 void ShareBrowser::show()
 {
@@ -414,11 +418,18 @@ void ShareBrowser::fileViewSelected_gui()
             while (valid && ptr != dirView.getValue<gpointer>(&iter, "DL Dir"))
                 valid = gtk_tree_model_iter_next(m, &iter);
 
-            path = gtk_tree_model_get_path(m, &iter);
-            gtk_tree_view_expand_to_path(dirView.get(), path);
-            gtk_tree_view_set_cursor(dirView.get(), path, NULL, FALSE);
-
-            updateFiles_gui((DirectoryListing::Directory *)ptr);
+            if (!full) {
+                DirectoryListing::Directory *dirList;
+                dirList = (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter,"DL Dir");
+                typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
+                F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,dirList);
+                WulforManager::get()->dispatchClientFunc(func);
+            } else {
+                path = gtk_tree_model_get_path(m, &iter);
+                gtk_tree_view_expand_to_path(dirView.get(), path);
+                gtk_tree_view_set_cursor(dirView.get(), path, NULL, FALSE);
+                updateFiles_gui((DirectoryListing::Directory *)ptr);
+            }
         }
         else
             downloadSelectedFiles_gui(Text::fromUtf8(SETTING(DOWNLOAD_DIRECTORY)));
@@ -772,6 +783,8 @@ gboolean ShareBrowser::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton
     if (!gtk_tree_selection_get_selected(sb->dirSelection, NULL, &iter))
         return FALSE;
 
+    if (!sb->isFull()) sb->viewPartial_gui();
+
     if (event->button == 1 && sb->oldType == GDK_2BUTTON_PRESS)
     {
         GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(sb->dirStore), &iter);
@@ -804,6 +817,8 @@ gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *even
 
     if (!gtk_tree_selection_get_selected(sb->dirSelection, NULL, &iter))
         return FALSE;
+
+    if (!sb->isFull()) sb->viewPartial_gui();
 
     if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter || event->keyval == GDK_Right || event->keyval == GDK_Left)
     {
@@ -1193,19 +1208,26 @@ void ShareBrowser::load(string xml)
    }
 }
 
+
 void ShareBrowser::onClickedPartial(GtkWidget *widget, gpointer data)
 {
     ShareBrowser *sb = (ShareBrowser *)data;
+    sb->viewPartial_gui();
+}
+
+void ShareBrowser::viewPartial_gui()
+{
     GtkTreeIter iter;
     DirectoryListing::Directory *dirList;
-    if (gtk_tree_selection_get_selected(sb->dirSelection, NULL, &iter))
+    if (gtk_tree_selection_get_selected(dirSelection, NULL, &iter))
     {
-        dirList = (DirectoryListing::Directory *)sb->dirView.getValue<gpointer>(&iter,"DL Dir");
+        dirList = (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter,"DL Dir");
     }
     typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
-    F1 *func = new F1(sb,&ShareBrowser::downloadChangedDir,dirList);
+    F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,dirList);
     WulforManager::get()->dispatchClientFunc(func);
 }
+
 
 void ShareBrowser::downloadChangedDir(DirectoryListing::Directory* d) {
     if(!d->getComplete()) {
