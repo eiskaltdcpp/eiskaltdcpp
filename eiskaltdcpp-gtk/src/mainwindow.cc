@@ -2382,9 +2382,11 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) noexcept
         float freepercent = 1.0f*(total-available)/total;
         string freespace = _("Free ") + Util::formatBytes(available);
         //g_print("%s %f\n", format.c_str(), percent);
-        typedef Func2<MainWindow, string, float> F2;
-        F2 *f2 = new F2(this, &MainWindow::updateFreespaceBar_gui, freespace, freepercent);
-        WulforManager::get()->dispatchGuiFunc(f2);
+        if (freepercent > 0 && freepercent <= 1.0) {
+            typedef Func2<MainWindow, string, float> F2;
+            F2 *f2 = new F2(this, &MainWindow::updateFreespaceBar_gui, freespace, freepercent);
+            WulforManager::get()->dispatchGuiFunc(f2);
+        }
 #endif //FREE_SPACE_BAR_C
     }
 
