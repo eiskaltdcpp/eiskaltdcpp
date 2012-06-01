@@ -334,6 +334,10 @@ endif (WITH_DHT)
 
 add_subdirectory (dcpp)
 
+if (HAIKU AND HAIKU_PKG)
+  add_subdirectory (haiku)
+endif ()
+
 if (USE_QT)
   add_subdirectory (eiskaltdcpp-qt)
 endif (USE_QT)
@@ -353,10 +357,6 @@ endif ()
 if (JSONRPC_DAEMON)
 add_subdirectory (json)
 endif (JSONRPC_DAEMON)
-
-if (HAIKU AND HAIKU_PKG)
-  add_subdirectory (haiku)
-endif ()
 
 if(GETTEXT_FOUND)
     option (UPDATE_PO "Update po files" OFF)
