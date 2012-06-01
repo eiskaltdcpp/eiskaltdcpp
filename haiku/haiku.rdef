@@ -5,13 +5,13 @@ resource app_name_catalog_entry "x-vnd.EiskaltDC++:System name:eiskaltdcpp-qt";
 resource app_version {
 	major  = 2, 
 	middle = 2,
-	minor  = 4,
+	minor  = 8,
 
 	variety = B_APPV_BETA,
 	internal = 0,
 
 	short_info = "EiskaltDC++",
-	long_info = "EiskaltDC++ is a program that uses the Direct Connect and ADC protocol."
+	long_info = "EiskaltDC++ is a program that uses the Direct Connect and ADC protocols."
 };
 
 resource app_flags B_SINGLE_LAUNCH;
