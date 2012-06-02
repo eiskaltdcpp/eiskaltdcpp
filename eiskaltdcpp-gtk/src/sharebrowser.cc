@@ -405,26 +405,25 @@ void ShareBrowser::fileViewSelected_gui()
     {
         ptr = fileView.getValue<gpointer>(&iter, "DL File");
         fileOrder = fileView.getString(&iter, "File Order");
+        int64_t filesize = fileView.getValue<int64_t>(&iter, "Size Order");
 
         if (fileOrder[0] == 'd' && gtk_tree_selection_get_selected(dirSelection, NULL, &parentIter))
         {
-            gtk_tree_path_free(path);
             m = GTK_TREE_MODEL(dirStore);
             gboolean valid = gtk_tree_model_iter_children(m, &iter, &parentIter);
 
             while (valid && ptr != dirView.getValue<gpointer>(&iter, "DL Dir"))
                 valid = gtk_tree_model_iter_next(m, &iter);
 
-            if (!full) {
-                DirectoryListing::Directory *dirList;
-                dirList = (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter,"DL Dir");
+            if (!full && filesize == 0) {
                 typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
-                F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,dirList);
+                F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,
+                (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter, "DL Dir"));
                 WulforManager::get()->dispatchClientFunc(func);
-            } else {
                 path = gtk_tree_model_get_path(m, &iter);
                 gtk_tree_view_expand_to_path(dirView.get(), path);
                 gtk_tree_view_set_cursor(dirView.get(), path, NULL, FALSE);
+            } else {
                 updateFiles_gui((DirectoryListing::Directory *)ptr);
             }
         }
@@ -1184,10 +1183,10 @@ void ShareBrowser::load(string xml)
     {
         dirList = (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter,"DL Dir");
         path2 = dirList->getName();
-        treepath = gtk_tree_path_copy(gtk_tree_model_get_path (GTK_TREE_MODEL(dirStore) ,gtk_tree_iter_copy(&iter)));
+        treepath = gtk_tree_path_copy(gtk_tree_model_get_path (GTK_TREE_MODEL(dirStore), gtk_tree_iter_copy(&iter)));
 
         //path = QueueManager::getInstance()->getListPath(listing.getUser()) + ".xml";
-        path = Util::getListPath() + nick + user->getCID().toBase32() + ".xml";
+        path = Util::getListPath() + nick + user->getCID().toBase32() + ".xml.bz2";
         if(File::getSize(path) != -1) {
             // load the cached list.
             listing.updateXML(File(path, File::READ, File::OPEN).read());
@@ -1202,7 +1201,7 @@ void ShareBrowser::load(string xml)
         gtk_tree_view_scroll_to_cell(dirView.get(),treepath,NULL,FALSE,0,0);
         gtk_tree_selection_select_path(dirSelection,treepath);
         updateFiles_gui(dirList);
-   }
+    }
 }
 
 void ShareBrowser::viewPartial_gui()

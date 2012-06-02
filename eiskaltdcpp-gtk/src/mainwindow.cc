@@ -2567,7 +2567,7 @@ void MainWindow::parsePartial_gui(HintedUser user, string txt)
     {
         if (entry == NULL && !path.empty())
         {
-            entry = new ShareBrowser(user.user, path, "/", false);
+            entry = new ShareBrowser(user.user, path, "", false);
             addBookEntry_gui(entry);
             dynamic_cast<ShareBrowser*>(entry)->loadXML(txt);
         }
