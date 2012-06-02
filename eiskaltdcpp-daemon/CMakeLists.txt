@@ -11,7 +11,7 @@ endif (JSONRPC_DAEMON AND XMLRPC_DAEMON)
 
 if (JSONRPC_DAEMON)
     message (STATUS "Build daemon with JSONRPC interface")
-    include_directories(${PROJECT_SOURCE_DIR}/../json/jsoncpp/include/)
+    include_directories(${PROJECT_SOURCE_DIR}/../json/jsoncpp/)
     set(JSONRPCLIBS jsonrpc-cpp)
     add_definitions (-DJSONRPC_DAEMON)
 else (JSONRPC_DAEMON)
