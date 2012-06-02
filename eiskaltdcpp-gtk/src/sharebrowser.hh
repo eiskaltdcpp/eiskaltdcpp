@@ -23,6 +23,7 @@
 
 #include <dcpp/stdinc.h>
 #include <dcpp/DirectoryListing.h>
+#include <dcpp/QueueManager.h>
 #include "bookentry.hh"
 #include "treeview.hh"
 
@@ -32,9 +33,10 @@ class ShareBrowser:
     public BookEntry
 {
     public:
-        ShareBrowser(dcpp::UserPtr user, const std::string &file, const std::string &initialDirectory);
+        ShareBrowser(dcpp::UserPtr user, const std::string &file, const std::string &initialDirectory, bool full);
         virtual ~ShareBrowser();
         virtual void show();
+        void loadXML(std::string txt);
 
     private:
         // GUI functions
@@ -51,6 +53,9 @@ class ShareBrowser:
         void popupFileMenu_gui();
         void popupDirMenu_gui();
         void find_gui();
+        void load(std::string xml);
+        void viewPartial_gui();
+        bool isFull();
 
         // GUI callbacks
         static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
@@ -75,6 +80,7 @@ class ShareBrowser:
         void downloadFile_client(dcpp::DirectoryListing::File *file, std::string target);
         void downloadDir_client(dcpp::DirectoryListing::Directory *dir, std::string target);
         void matchQueue_client();
+        void downloadChangedDir(dcpp::DirectoryListing::Directory* d);
 
         // Thread-related functions
         static gpointer threadLoad_list(gpointer data);
@@ -92,6 +98,7 @@ class ShareBrowser:
         std::string search;
         bool updateFileView;
         int skipHits;
+        bool full;
         TreeView dirView, fileView;
         GtkListStore *fileStore;
         GtkTreeStore *dirStore;

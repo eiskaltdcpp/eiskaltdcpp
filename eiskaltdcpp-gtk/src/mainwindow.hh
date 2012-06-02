@@ -83,6 +83,7 @@ class MainWindow:
         void showNotification_gui(std::string head, std::string body, Notify::TypeNotify notify);
         GtkWidget* getChooserDialog_gui();
         void fileToDownload_gui(std::string magnet, std::string path);
+        void parsePartial_gui(dcpp::HintedUser aUser, std::string txt);
 
         // Client functions
         void openOwnList_client(bool useSetting);
@@ -198,6 +199,7 @@ class MainWindow:
         virtual void on(dcpp::LogManagerListener::Message, time_t t, const std::string &m) noexcept;
         virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem *item, const std::string& dir, int64_t avSpeed) noexcept;
         virtual void on(dcpp::TimerManagerListener::Second, uint64_t ticks) noexcept;
+        virtual void on(dcpp::QueueManagerListener::PartialList, const dcpp::HintedUser& aUser, const std::string& text) noexcept;
 
         GtkWindow *window;
         Transfers* transfers;

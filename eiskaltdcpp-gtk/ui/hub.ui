@@ -558,6 +558,15 @@
       </object>
     </child>
     <child>
+      <object class="GtkMenuItem" id="openPartial">
+        <property name="use_action_appearance">False</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">_Open partial file list</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
       <object class="GtkMenuItem" id="matchItem">
         <property name="visible">True</property>
         <property name="can_focus">False</property>

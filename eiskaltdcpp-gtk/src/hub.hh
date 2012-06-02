@@ -151,6 +151,7 @@ class Hub:
         static void onBoldButtonClicked_gui(GtkWidget *widget, gpointer data);
         static void onUnderlineButtonClicked_gui(GtkWidget *widget, gpointer data);
         static void onDisableChatToggled_gui(GtkWidget *widget, gpointer data);
+        static void onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data);
 
         // Client functions
         void addFavoriteUser_client(const std::string cid);
@@ -170,6 +171,7 @@ class Hub:
         void download_client(std::string target, int64_t size, std::string tth, std::string cid);
         std::string realFile_client(std::string tth);
         void openImage_client(std::string tth);
+        void getPartialFileList_client(std::string cid);
 
         // Favorite callbacks
         virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) noexcept;
