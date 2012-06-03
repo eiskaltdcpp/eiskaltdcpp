@@ -175,6 +175,7 @@ Search::Search():
     g_signal_connect(getWidget("searchByTTHItem"), "activate", G_CALLBACK(onSearchByTTHClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("getFileListItem"), "activate", G_CALLBACK(onGetFileListClicked_gui), (gpointer)this);
+    g_signal_connect(getWidget("openPartial"), "activate", G_CALLBACK(onPartialFileListOpen_gui), (gpointer)this);
     g_signal_connect(getWidget("matchQueueItem"), "activate", G_CALLBACK(onMatchQueueClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("sendPrivateMessageItem"), "activate", G_CALLBACK(onPrivateMessageClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("addToFavoritesItem"), "activate", G_CALLBACK(onAddFavoriteUserClicked_gui), (gpointer)this);
@@ -1338,7 +1339,7 @@ void Search::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
         GtkTreeIter iter;
         GtkTreePath *path;
         GList *list = gtk_tree_selection_get_selected_rows(s->selection, NULL);
-        typedef Func4<Search, string, string, bool, string> F4;
+        typedef Func5<Search, string, string, bool, string, bool> F5;
 
         for (GList *i = list; i; i = i->next)
         {
@@ -1352,7 +1353,41 @@ void Search::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
                     string cid = s->resultView.getString(&iter, "CID");
                     string dir = s->resultView.getString(&iter, _("Path"));
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
-                    F4 *func = new F4(s, &Search::getFileList_client, cid, dir, FALSE, hubUrl);
+                    F5 *func = new F5(s, &Search::getFileList_client, cid, dir, FALSE, hubUrl, TRUE);
+                    WulforManager::get()->dispatchClientFunc(func);
+                }
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+            }
+            gtk_tree_path_free(path);
+        }
+        g_list_free(list);
+    }
+}
+
+void Search::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
+{
+    Search *s = (Search *)data;
+
+    if (gtk_tree_selection_count_selected_rows(s->selection) > 0)
+    {
+        GtkTreeIter iter;
+        GtkTreePath *path;
+        GList *list = gtk_tree_selection_get_selected_rows(s->selection, NULL);
+        typedef Func5<Search, string, string, bool, string, bool> F5;
+
+        for (GList *i = list; i; i = i->next)
+        {
+            path = (GtkTreePath *)i->data;
+            if (gtk_tree_model_get_iter(s->sortedFilterModel, &iter, path))
+            {
+                bool parent = gtk_tree_model_iter_has_child(s->sortedFilterModel, &iter);
+
+                do
+                {
+                    string cid = s->resultView.getString(&iter, "CID");
+                    string dir = s->resultView.getString(&iter, _("Path"));
+                    string hubUrl = s->resultView.getString(&iter, "Hub URL");
+                    F5 *func = new F5(s, &Search::getFileList_client, cid, dir, FALSE, hubUrl, FALSE);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
@@ -1372,7 +1407,7 @@ void Search::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
         GtkTreeIter iter;
         GtkTreePath *path;
         GList *list = gtk_tree_selection_get_selected_rows(s->selection, NULL);
-        typedef Func4<Search, string, string, bool, string> F4;
+        typedef Func5<Search, string, string, bool, string, bool> F5;
 
         for (GList *i = list; i; i = i->next)
         {
@@ -1385,7 +1420,7 @@ void Search::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
                 {
                     string cid = s->resultView.getString(&iter, "CID");
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
-                    F4 *func = new F4(s, &Search::getFileList_client, cid, "", TRUE, hubUrl);
+                    F5 *func = new F5(s, &Search::getFileList_client, cid, "", TRUE, hubUrl, TRUE);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
@@ -1741,7 +1776,7 @@ void Search::addSource_client(string source, string cid, int64_t size, string tt
     }
 }
 
-void Search::getFileList_client(string cid, string dir, bool match, string hubUrl)
+void Search::getFileList_client(string cid, string dir, bool match, string hubUrl, bool full)
 {
     if (!cid.empty())
     {
@@ -1755,7 +1790,7 @@ void Search::getFileList_client(string cid, string dir, bool match, string hubUr
                     flags = QueueItem::FLAG_MATCH_QUEUE;
                 else
                     flags = QueueItem::FLAG_CLIENT_VIEW;
-                QueueManager::getInstance()->addList(HintedUser(user, hubUrl), flags, dir);
+                QueueManager::getInstance()->addList(HintedUser(user, hubUrl), full ? flags : QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_PARTIAL_LIST, dir);
             }
         }
         catch (const Exception&)

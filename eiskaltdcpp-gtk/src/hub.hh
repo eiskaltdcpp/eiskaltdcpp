@@ -160,7 +160,7 @@ class Hub:
         void disconnect_client();
         void setPassword_client(std::string password);
         void sendMessage_client(std::string message, bool thirdPerson);
-        void getFileList_client(std::string cid, bool match);
+        void getFileList_client(std::string cid, bool match, bool full);
         void grantSlot_client(std::string cid);
         void removeUserFromQueue_client(std::string cid);
         void redirect_client(std::string address, bool follow);
@@ -171,7 +171,6 @@ class Hub:
         void download_client(std::string target, int64_t size, std::string tth, std::string cid);
         std::string realFile_client(std::string tth);
         void openImage_client(std::string tth);
-        void getPartialFileList_client(std::string cid);
 
         // Favorite callbacks
         virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) noexcept;
