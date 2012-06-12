@@ -40,7 +40,7 @@ class ShareBrowser:
 
     private:
         // GUI functions
-        void buildList_gui();
+        bool buildList_gui();
         void openDir_gui(const std::string &dir);
         bool findDir_gui(const std::string &dir, GtkTreeIter *parent);
         void buildDirs_gui(dcpp::DirectoryListing::Directory *dir, GtkTreeIter *iter);

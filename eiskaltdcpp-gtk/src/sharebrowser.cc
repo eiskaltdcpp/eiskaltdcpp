@@ -171,13 +171,13 @@ void ShareBrowser::show()
 gpointer ShareBrowser::threadLoad_list(gpointer data)
 {
     ShareBrowser *man = (ShareBrowser *)data;
-    man->setStatus_gui("mainStatus", _("Parse and build tree....waiting"));
-    man->buildList_gui();
-    man->setStatus_gui("mainStatus", _("Done"));
+    man->setStatus_gui("mainStatus", _("Parse and build tree..."));
+    if (man->buildList_gui())
+        man->setStatus_gui("mainStatus", _("Done"));
     return NULL;
 }
 
-void ShareBrowser::buildList_gui()
+bool ShareBrowser::buildList_gui()
 {
     // Load the xml file containing the share list.
     try
@@ -194,12 +194,16 @@ void ShareBrowser::buildList_gui()
         // Add entries to dir tree view starting with the root entry.
         buildDirs_gui(listing.getRoot(), NULL);
 
-        openDir_gui(initialDirectory);
+        if (full) {
+            openDir_gui(initialDirectory);
+        }
     }
     catch (const Exception &e)
     {
         setStatus_gui("mainStatus", _("Unable to load file list: ") + e.getError());
+        return FALSE;
     }
+    return TRUE;
 }
 
 /*
