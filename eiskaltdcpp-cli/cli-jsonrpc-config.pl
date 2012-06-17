@@ -1,4 +1,4 @@
-$config{'debug'}=1;
+$config{'debug'}=0;
 $config{'separator'}=";";
 $config{'eiskaltHostPort'}="localhost:3121";
 $config{'eiskaltURL'} = "http://$config{eiskaltHostPort}";

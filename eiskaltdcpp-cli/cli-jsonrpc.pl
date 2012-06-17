@@ -27,8 +27,6 @@ use JSON::RPC::Client;
 use Term::ShellUI;
 use Data::Dump qw[dump];
 use Getopt::Long;
-use utf8;
-binmode STDOUT, ":utf8";
 use Env qw[$XDG_CONFIG_HOME $HOME];
 
 # use non-standart paths
@@ -41,17 +39,20 @@ BEGIN {
 }
 
 # preparing terminal
+use utf8;
+use locale;
 binmode STDOUT, ':utf8';
 
 # configuration
 our %config;
-$config{version}=0.1;
+$config{version}=0.2;
+$config{revision}=17062012;
 require "cli-jsonrpc-config.pl";
 my $version,my $help;
 GetOptions ('V|version' => \$version, 'h|help' => \$help);
 if ($version)
 {
-	print("Command line JSON-RPC interface version: $config{version}\n"); exit(1);
+	print("Command line JSON-RPC interface version.revision: $config{version}.$config{revision}\n"); exit(1);
 }
 if ($help)
 {
@@ -220,21 +221,21 @@ sub get_commands
 		},
 		"queue.setpriority" =>
 		{
-			desc => "Set download queue priority. Parameners: target, proirity",
+			desc => "Set download queue priority. Parameters: target, proirity. Priority is an integer from 0(paused) to 3(high)",
 			minargs => 2,
 			maxargs => 2,
 			proc => \&qsetprio
 		},
 		"queue.move" =>
 		{
-			desc => "Move queue item from source to target. Parameners: source, target",
+			desc => "Move queue item from source to target. Parameters: source, target",
 			minargs => 2,
 			maxargs => 2,
 			proc => \&qmove
 		},
 		"queue.remove" =>
 		{
-			desc => "Delete queue item by target. Parameners: target",
+			desc => "Delete queue item by target. Parameters: target",
 			minargs => 1,
 			maxargs => 1,
 			proc => \&qremove
@@ -254,6 +255,33 @@ sub get_commands
 			desc => "Clear search results. Parameters: huburl",
 			maxargs => 1,
 			proc => \&searchclear
+		},
+		"queue.getsources" =>
+		{
+			desc => "Show sources for specified target. Parameters: target, separator",
+			minargs => 1,
+			maxargs => 2,
+			proc => \&qgetsources
+		},
+		"hash.status" =>
+		{
+			desc => "Show hashing process status. Parameters: none",
+			proc => \&hashstatus
+		},
+		"hash.pause" =>
+		{
+			desc => "Pause hashing process. Parameters: none",
+			proc => \&hashpause
+		},
+		"methods.list" =>
+		{
+			desc => "List all jsonrpc methods available. Parameters: none",
+			proc => \&methodslist
+		},
+		"queue.matchlists" =>
+		{
+			desc => "Description here. Parameters: none",
+			proc => \&qmatchlists
 		},
 		# last
 		"prompt" =>
@@ -297,7 +325,7 @@ sub magnetadd($$)
 	$obj->{'method'} = 'magnet.add';
 	$obj->{'params'}->{'magnet'}=$_[0];
 	$obj->{'params'}->{'directory'}=$_[1];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -321,7 +349,7 @@ sub daemonstop()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'daemon.stop';
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -346,7 +374,7 @@ sub hubadd($$)
 	$obj->{'method'} = 'hub.add';
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'enc'}=$_[1];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -371,7 +399,7 @@ sub hubdel($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'hub.del';
 	$obj->{'params'}->{'huburl'}=$_[0];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -397,7 +425,7 @@ sub hubsay($$)
 	$obj->{'method'} = 'hub.say';
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'message'}=$_[1];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -424,7 +452,7 @@ sub hubpm($$$)
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'nick'}=$_[1];
 	$obj->{'params'}->{'message'}=$_[2];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -449,7 +477,7 @@ sub hublist($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'hub.list';
 	$obj->{'params'}->{'separator'}=($_[0] || $config{'separator'});
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -475,7 +503,7 @@ sub shareadd($$)
 	$obj->{'method'} = 'share.add';
 	$obj->{'params'}->{'directory'}=$_[0];
 	$obj->{'params'}->{'virtname'}=$_[1];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -501,7 +529,7 @@ sub sharerename($$)
 	$obj->{'method'} = 'share.rename';
 	$obj->{'params'}->{'directory'}=$_[0];
 	$obj->{'params'}->{'virtname'}=$_[1];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -526,7 +554,7 @@ sub sharedel($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'share.del';
 	$obj->{'params'}->{'directory'}=$_[0];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -551,7 +579,7 @@ sub sharelist($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'share.list';
 	$obj->{'params'}->{'separator'}=($_[0] || $config{'separator'});
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -575,7 +603,7 @@ sub sharerefresh()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'share.refresh';
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -600,7 +628,7 @@ sub listdownload($$)
 	$obj->{'method'} = 'list.download';
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'nick'}=$_[1];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -626,7 +654,7 @@ sub hubgetchat($$)
 	$obj->{'method'} = 'hub.getchat';
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'separator'}=($_[1] || $config{'separator'});
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -651,7 +679,7 @@ sub searchsend($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'search.send';
 	$obj->{'params'}->{'searchstring'}=$_[0];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -676,7 +704,7 @@ sub searchgetresults($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'search.getresults';
 	if (defined($_[0])) {$obj->{'params'}->{'huburl'}=$_[0]};
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -701,7 +729,7 @@ sub searchclear($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'search.clear';
 	if (defined($_[0])) {$obj->{'params'}->{'huburl'}=$_[0]};
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -725,7 +753,7 @@ sub showversion()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'show.version';
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -748,7 +776,7 @@ sub showratio()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'show.ratio';
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -758,11 +786,10 @@ sub showratio()
 		}
 		else
 		{
-			#utf8::encode($res->content->{up});
 			print("===Reply===\n");
-			print("Up:\t".dump($res->content->{up})."\n");
-			print("Down:\t".dump($res->content->{down})."\n");
-			print("Ratio:\t".dump($res->content->{ratio})."\n");
+			print("Ratio:\t\t".dump($res->content->{ratio})."\n");
+			print("Upload:\t\t".dump($res->content->{up})."\n");
+			print("Download:\t".dump($res->content->{down})."\n");
 		}
 	}
 	else
@@ -777,7 +804,7 @@ sub qsetprio($$)
 	$obj->{'method'} = 'queue.setpriority';
 	$obj->{'params'}->{'target'}=$_[0];
 	$obj->{'params'}->{'priority'}=$_[1];
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -797,21 +824,62 @@ sub qsetprio($$)
 	delete($obj->{'params'});
 }
 
-sub qmove()
+sub qmove($$)
 {
-
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.move';
+	$obj->{'params'}->{'source'}=$_[0];
+	$obj->{'params'}->{'target'}=$_[1];
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
 }
 
-sub qremove()
+sub qremove($)
 {
-
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.remove';
+	$obj->{'params'}->{'target'}=$_[0];
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
 }
 
 sub qlist()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'queue.list';
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -834,7 +902,125 @@ sub qlisttargets()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'queue.listtargets';
-	print("===Request===\n".dump($obj)."\n");
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
+
+sub qgetsources($$)
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.getsources';
+	$obj->{'params'}->{'target'}=$_[0];
+	$obj->{'params'}->{'separator'}=($_[1] || $config{'separator'});
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub hashstatus()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'hash.status';
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
+
+sub hashpause()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'hash.pause';
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
+
+sub methodslist()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'methods.list';
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\n".dump($res->error_message)."\n");
+		}
+		else
+		{
+			print("===Reply===\n".dump($res->result)."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
+
+sub qmatchlists()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.matchlists';
+	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
@@ -858,34 +1044,36 @@ __END__
 
 =pod
 
-# known methods
-std::string("magnet.add")))
-std::string("daemon.stop")))
-std::string("hub.add")))
-std::string("hub.del")))
-std::string("hub.say")))
-std::string("hub.pm")))
-std::string("hub.list")))
-std::string("hub.getchat")))
-std::string("share.add")))
-std::string("share.rename")))
-std::string("share.del")))
-std::string("share.list")))
-std::string("share.refresh")))
-std::string("list.download")))
-std::string("search.send")))
-std::string("search.getresults")))
-std::string("search.clear")))
-std::string("show.version")))
-std::string("show.ratio")))
-std::string("queue.setpriority")))
-std::string("queue.move")))
-std::string("queue.remove")))
-std::string("queue.listtargets")))
-std::string("queue.list")))
-std::string("queue.getsources")))
-std::string("hash.status")))
-std::string("hash.pause")))
-std::string("methods.list")))
+# known methods as for 0.2.17062012
+# grep "AddMethod" eiskaltdcpp-daemon/ServerThread.cpp | egrep -o "std::string\(.*\)"
++magnet.add
++daemon.stop
++hub.add
++hub.del
++hub.say
++hub.pm
++hub.list
++hub.getchat
++share.add
++share.rename
++share.del
++share.list
++share.refresh
++list.download
++search.send
++search.getresults
++search.clear
++show.version
++show.ratio
++queue.setpriority
++queue.move
++queue.remove
++queue.listtargets
++queue.list
++queue.getsources
++hash.status
++hash.pause
++methods.list
++queue.matchlists
 
 =cut
