@@ -1940,7 +1940,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             if (hub->userMap.find(param) != hub->userMap.end())
             {
                 func3 = new F3(hub, &Hub::getFileList_client, hub->userMap[param], FALSE, TRUE);
-                WulforManager::get()->dispatchClientFunc(func2);
+                WulforManager::get()->dispatchClientFunc(func3);
             }
             else
                 hub->addStatusMessage_gui(_("Not found user: ") + param, Msg::SYSTEM, Sound::NONE);

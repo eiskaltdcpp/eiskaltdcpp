@@ -49,7 +49,9 @@ void ConnectivityManager::startSocket() {
     // must be done after listen calls; otherwise ports won't be set
     if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP)
        UPnPManager::getInstance()->open();
-   }
+    }
+
+    updateLast();
 }
 
 void ConnectivityManager::detectConnection() {

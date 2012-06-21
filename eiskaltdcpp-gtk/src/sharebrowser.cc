@@ -1215,10 +1215,10 @@ void ShareBrowser::viewPartial_gui()
     if (gtk_tree_selection_get_selected(dirSelection, NULL, &iter))
     {
         dirList = (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter,"DL Dir");
+        typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
+        F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,dirList);
+        WulforManager::get()->dispatchClientFunc(func);
     }
-    typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
-    F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,dirList);
-    WulforManager::get()->dispatchClientFunc(func);
 }
 
 
