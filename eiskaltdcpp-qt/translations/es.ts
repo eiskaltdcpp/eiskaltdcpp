@@ -5589,7 +5589,7 @@ El valor 0 significa sin limite.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="149"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
-        <translation>No descargar nuevos archivos si se la velocidad excede (KiB/s, 0 = sin limite) </translation>
+        <translation>No descargar nuevos archivos si la velocidad excede de (KiB/s, 0 = sin limite) </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="159"/>
