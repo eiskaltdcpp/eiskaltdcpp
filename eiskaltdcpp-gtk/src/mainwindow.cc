@@ -390,13 +390,13 @@ MainWindow::MainWindow():
     Emoticons::start();
     Notify::start();
 
-    if (WGETI("main-window-maximized"))
+    if (WGETB("main-window-maximized"))
         gtk_window_maximize(window);
-    if (WGETI("minimize-tray"))
+    if (WGETB("minimize-tray") && WGETB("always-tray"))
         gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("statusIconShowInterfaceItem")), FALSE);
-    if (!WGETI("show-free-space-bar"))
+    if (!WGETB("show-free-space-bar"))
         gtk_widget_hide(getWidget("progressbarFreeSpaceBar"));
-    if (!WGETI("show-transfers"))
+    if (!WGETB("show-transfers"))
         gtk_widget_hide(transfers->getContainer());
 
 #ifdef LUA_SCRIPT
