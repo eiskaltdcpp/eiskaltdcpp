@@ -409,7 +409,7 @@ void ScriptInstance::EvaluateFile(const string& fn) {
             script_full_name = test_path_1;
         else {
             LogManager::getInstance()->message("File '" + fn + "' not found!");
-            printf("File '%s' not found!",fn.c_str()); // temporary
+            printf("File '%s' not found!",fn.c_str()); fflush(stdout);// temporary
             return;
         }
 #endif //WIN32
