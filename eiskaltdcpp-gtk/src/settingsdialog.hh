@@ -81,7 +81,7 @@ class Settings:
         // GUI callbacks
         static void onOptionsViewToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);
         static void onInDirect_gui(GtkToggleButton *button, gpointer data);
-        static void onInFW_UPnP_gui(GtkToggleButton *button, gpointer data); 
+        static void onInFW_UPnP_gui(GtkToggleButton *button, gpointer data);
         static void onInPassive_gui(GtkToggleButton *button, gpointer data);
         static void onInFW_NAT_gui(GtkToggleButton *button, gpointer data);
         static void onOutDirect_gui(GtkToggleButton *button, gpointer data);
@@ -170,6 +170,10 @@ class Settings:
         static void onDownExtensionButton_gui(GtkWidget *widget, gpointer data);
         static void onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
         static void onSTButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+        static void onExceptionAdd_gui(GtkWidget *widget, gpointer data);
+        static void onExceptionEdit_gui(GtkCellRendererText *cell, char *path, char *text, gpointer data);
+        static void onExceptionRemove_gui(GtkWidget *widget, gpointer data);
+        static void onExceptionDefault_gui(GtkWidget *widget, gpointer data);
 
         // Client functions
         void saveSettings_client();
@@ -184,12 +188,12 @@ class Settings:
             *shareStore, *appearanceStore, *tabStore, *windowStore1,
             *windowStore2, *windowStore3, *advancedStore, *certificatesStore, *userCommandStore,
             *previewAppToStore, *soundStore, *textStyleStore, *notifyStore, *themeIconsStore,
-            *toolbarStore, *searchTypeStore, *extensionStore;
+            *toolbarStore, *searchTypeStore, *extensionStore, *exceptionStore;
         TreeView downloadToView, publicListView, queueView, shareView,
             appearanceView, tabView, windowView1, windowView2,
             windowView3, advancedView, certificatesView, userCommandView,
             previewAppView, soundView, textStyleView, notifyView, themeIconsView,
-            toolbarView, searchTypeView, extensionView;
+            toolbarView, searchTypeView, extensionView, exceptionView;
         GtkTextBuffer *textStyleBuffer;
 
         typedef std::map<std::string, int> IntMap;

@@ -320,6 +320,18 @@ void Settings::saveSettings_client()
         sm->set(SettingsManager::MIN_UPLOAD_SPEED, (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("sharedExtraSlotSpinButton"))));
         int sl = gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("sharedUploadSlotsSpinButton")));
         sm->set(SettingsManager::SLOTS_PRIMARY, sl);
+
+        GtkTreeIter iter; string lists = "";
+        GtkTreeModel *m = GTK_TREE_MODEL(exceptionStore);
+        gboolean valid = gtk_tree_model_get_iter_first(m, &iter);
+        while (valid)
+        {
+            lists += exceptionView.getString(&iter, _("List")) + "|";
+            valid = gtk_tree_model_iter_next(m, &iter);
+        }
+        if (!lists.empty())
+            lists.erase(lists.size() - 1);
+        SettingsManager::getInstance()->set(SettingsManager::SKIPLIST_SHARE, lists);
     }
 
     { // Appearance
@@ -975,6 +987,32 @@ void Settings::initSharing_gui()
     g_signal_connect(getWidget("sharedAddButton"), "clicked", G_CALLBACK(onAddShare_gui), (gpointer)this);
     g_signal_connect(getWidget("sharedRemoveButton"), "clicked", G_CALLBACK(onRemoveShare_gui), (gpointer)this);
     g_signal_connect(getWidget("pictureButton"), "clicked", G_CALLBACK(onPictureShare_gui), (gpointer)this);
+
+    g_signal_connect(getWidget("addEXButton"), "clicked", G_CALLBACK(onExceptionAdd_gui), (gpointer)this);
+    g_signal_connect(getWidget("removeEXButton"), "clicked", G_CALLBACK(onExceptionRemove_gui), (gpointer)this);
+    g_signal_connect(getWidget("defaultEXButton"), "clicked", G_CALLBACK(onExceptionDefault_gui), (gpointer)this);
+
+    exceptionView.setView(GTK_TREE_VIEW(getWidget("exceptionTreeView")));
+    exceptionView.insertColumn(_("List"), G_TYPE_STRING, TreeView::EDIT_STRING, -1);
+    exceptionView.finalize();
+    exceptionStore = gtk_list_store_newv(exceptionView.getColCount(), exceptionView.getGTypes());
+    gtk_tree_view_set_model(exceptionView.get(), GTK_TREE_MODEL(exceptionStore));
+    g_object_unref(exceptionStore);
+    gtk_tree_view_set_headers_visible(exceptionView.get(), FALSE);
+    GtkTreeViewColumn *col = gtk_tree_view_get_column(exceptionView.get(), 0);
+    GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(col));
+    GObject *editRenderer = G_OBJECT(g_list_nth_data(list, 0));
+    g_list_free(list);
+    g_signal_connect(editRenderer, "edited", G_CALLBACK(onExceptionEdit_gui), (gpointer)this);
+
+    GtkTreeIter iter;
+    gtk_list_store_clear(exceptionStore);
+    StringTokenizer<string> lists(SETTING(SKIPLIST_SHARE), "|");
+    for (auto idx = lists.getTokens().begin(); idx != lists.getTokens().end(); ++idx)
+    {
+        gtk_list_store_append(exceptionStore, &iter);
+        gtk_list_store_set(exceptionStore, &iter, exceptionView.col(_("List")), (*idx).c_str(), -1);
+    }
 
     shareView.setView(GTK_TREE_VIEW(getWidget("sharedTreeView")));
     shareView.insertColumn(_("Virtual Name"), G_TYPE_STRING, TreeView::STRING, -1);
@@ -4193,5 +4231,53 @@ void Settings::generateCertificates_client()
     }
     catch (const CryptoException &e)
     {
+    }
+}
+
+void Settings::onExceptionAdd_gui(GtkWidget *widget, gpointer data)
+{
+    Settings *s = (Settings *)data;
+    GtkTreeIter iter;
+    GtkTreePath *path;
+    GtkTreeViewColumn *col;
+
+    gtk_list_store_append(s->exceptionStore, &iter);
+    gtk_list_store_set(s->exceptionStore, &iter, s->exceptionView.col(_("List")), _("New exception"), -1);
+    path = gtk_tree_model_get_path(GTK_TREE_MODEL(s->exceptionStore), &iter);
+    col = gtk_tree_view_get_column(s->exceptionView.get(), 0);
+    gtk_tree_view_set_cursor(s->exceptionView.get(), path, col, TRUE);
+    gtk_tree_path_free(path);
+}
+
+void Settings::onExceptionEdit_gui(GtkCellRendererText *cell, char *path, char *text, gpointer data)
+{
+    Settings *s = (Settings *)data;
+    GtkTreeIter iter;
+
+    if (gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(s->exceptionStore), &iter, path))
+        gtk_list_store_set(s->exceptionStore, &iter, 0, text, -1);
+}
+
+void Settings::onExceptionRemove_gui(GtkWidget *widget, gpointer data)
+{
+    Settings *s = (Settings *)data;
+    GtkTreeIter iter;
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(s->exceptionView.get());
+
+    if (gtk_tree_selection_get_selected(selection, NULL, &iter))
+        gtk_list_store_remove(s->exceptionStore, &iter);
+}
+
+void Settings::onExceptionDefault_gui(GtkWidget *widget, gpointer data)
+{
+    Settings *s = (Settings *)data;
+    GtkTreeIter iter;
+
+    gtk_list_store_clear(s->exceptionStore);
+    StringTokenizer<string> lists(SETTING(SKIPLIST_SHARE), "|");
+    for (auto idx = lists.getTokens().begin(); idx != lists.getTokens().end(); ++idx)
+    {
+        gtk_list_store_append(s->exceptionStore, &iter);
+        gtk_list_store_set(s->exceptionStore, &iter, s->exceptionView.col(_("List")), (*idx).c_str(), -1);
     }
 }
