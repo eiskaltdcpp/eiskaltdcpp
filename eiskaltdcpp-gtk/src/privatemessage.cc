@@ -44,7 +44,7 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     offline(false)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-	gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),FALSE);
 #endif
 
     // Intialize the chat window
@@ -794,7 +794,10 @@ void PrivateMessage::updateCursor(GtkWidget *widget)
     GSList *tagList;
     GtkTextTag *newTag = NULL;
 #if GTK_CHECK_VERSION(3, 0, 0)
-    gdk_window_get_pointer(gtk_widget_get_window(widget), &x, &y, NULL);
+    //gdk_window_get_pointer(gtk_widget_get_window(widget), &x, &y, NULL);
+    GdkDeviceManager *device_manager = gdk_display_get_device_manager(gdk_window_get_display(gtk_widget_get_window(widget)));
+    GdkDevice *pointer = gdk_device_manager_get_client_pointer (device_manager);
+    gdk_window_get_device_position(gtk_widget_get_window(widget), pointer, &x,&y, NULL);
 #else
     gdk_window_get_pointer(widget->window, &x, &y, NULL);
 #endif

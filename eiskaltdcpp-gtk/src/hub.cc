@@ -1170,7 +1170,10 @@ void Hub::updateCursor_gui(GtkWidget *widget)
     GSList *tagList;
     GtkTextTag *newTag = NULL;
 #if GTK_CHECK_VERSION(3, 0, 0)
-    gdk_window_get_pointer(gtk_widget_get_window(widget)  , &x, &y, NULL);
+    //gdk_window_get_pointer(gtk_widget_get_window(widget)  , &x, &y, NULL);
+    GdkDeviceManager *device_manager = gdk_display_get_device_manager(gdk_window_get_display(gtk_widget_get_window(widget)));
+    GdkDevice *pointer = gdk_device_manager_get_client_pointer (device_manager);
+    gdk_window_get_device_position(gtk_widget_get_window(widget), pointer, &x,&y, NULL);
 #else
     gdk_window_get_pointer(widget->window, &x, &y, NULL);
 #endif
@@ -2126,7 +2129,8 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                     F2 *func = new F2( hub, &Hub::sendMessage_client, string(command_res), false );
                     WulforManager::get()->dispatchClientFunc(func);
             }
-            g_io_channel_close( gio_chanel );
+            //g_io_channel_close( gio_chanel );
+            g_io_channel_shutdown( gio_chanel ,FALSE, NULL );
             g_free( command_res );
             pclose( pipe );
         }
@@ -2244,7 +2248,6 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                     if( sl.getTokens().at(0) == "list" )
                     {
                         // вывод списка алиасов
-                        /// List aliasu
                             if( !aliases.getTokens().empty() ) {
                                 hub->addMessage_gui("", string( "Alias list:" ), Msg::SYSTEM);
 
@@ -2260,7 +2263,6 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                     else if( sl.getTokens().at(0) == "purge" )
                     {
                         // удаление алиаса из списка
-                        ///odstraneni aliasu
                             string store(""), name("");
                                 for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i) {
                                     name = i->substr( 0, i->find_first_of( "::", 0 ) );
