@@ -25,13 +25,12 @@
 
 using namespace std;
 
-GSList* BookEntry::group = NULL;
-
 BookEntry::BookEntry(const EntryType type, const string &text, const string &ui, const string &id):
     Entry(type, ui, id),
     bold(FALSE),
     urgent(FALSE)
 {
+    GSList *group = NULL;
 #if GTK_CHECK_VERSION(3, 2, 0)
     labelBox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,5);
 #else
