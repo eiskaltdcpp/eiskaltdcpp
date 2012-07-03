@@ -426,7 +426,7 @@ EiskaltDC++ — гэта міжплятформавая праґрама, яка
         <location filename="../src/DownloadQueueModel.cpp" line="78"/>
         <location filename="../src/DownloadQueueModel.cpp" line="280"/>
         <source>User</source>
-        <translation>Карыстальнік</translation>
+        <translation>Карыстач</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="78"/>
@@ -734,12 +734,12 @@ EiskaltDC++ — гэта міжплятформавая праґрама, яка
         <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>User</source>
-        <translation>Карыстальнік</translation>
+        <translation>Карыстач</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
         <source>Files</source>
-        <translation>Файлы</translation>
+        <translation>Файлаў</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
@@ -2486,7 +2486,7 @@ Favorite user</source>
     <message>
         <location filename="../src/Notification.cpp" line="221"/>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
-        <translation>&lt;b&gt;Хуткасьць:&lt;/b&gt;&lt;br/&gt;сьцягваць — &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt;, зацягваць — &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;.&lt;br/&gt;&lt;b&gt;Статыстыка:&lt;/b&gt;&lt;br/&gt;сьцягнулі &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt;, зацягнулі &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;.</translation>
+        <translation>&lt;b&gt;Хуткасьць:&lt;/b&gt;&lt;br/&gt;сьцягваць — &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt;, зацягваць — &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;.&lt;br/&gt;&lt;b&gt;Статыстыка&lt;/b&gt;&lt;br/&gt;сьцягнулі &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt;, зацягнулі &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;.</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="232"/>
@@ -2723,7 +2723,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="116"/>
         <source>User</source>
-        <translation>Карыстальнік</translation>
+        <translation>Карыстач</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="116"/>
@@ -2872,7 +2872,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="193"/>
         <source>Normal</source>
-        <translation>Звычайны</translation>
+        <translation>Звычайнае</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="198"/>
@@ -3208,7 +3208,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Enter alias for directory</source>
-        <translation>Упішыце назоўку каталёґа</translation>
+        <translation>Упішыце назоўку каталёґу</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="193"/>
@@ -4270,7 +4270,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="242"/>
         <source>On</source>
-        <translation>Дзейнічае</translation>
+        <translation>Адсутнічаю</translation>
     </message>
 </context>
 <context>
@@ -4740,7 +4740,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="30"/>
         <source>Files</source>
-        <translation>Файлы</translation>
+        <translation>Файлаў</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="35"/>
@@ -5390,7 +5390,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="427"/>
         <source>When enabled can hang program on exit.</source>
-        <translation>Калі задзейнічаць, праґрама можа «завіснуць» па выхадзе.</translation>
+        <translation>Калі задзейнічаць, праграма можа «завіснуць» па выхадзе.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="430"/>
@@ -5493,7 +5493,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="846"/>
         <source>No</source>
-        <translation>Няма</translation>
+        <translation>Не</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="851"/>
@@ -6127,7 +6127,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="253"/>
         <source>Show joins</source>
-        <translation>Паказваць, калі хто далучаецца</translation>
+        <translation>«Ув.»/«Выйш.»</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="263"/>
@@ -6246,7 +6246,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="460"/>
         <source>Application unit base</source>
-        <translation>Аснова сыстэмы адзінак у праґраме</translation>
+        <translation>Аснова сыстэмы адзінак у праграме</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
