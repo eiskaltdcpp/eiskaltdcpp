@@ -3975,38 +3975,68 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="border_width">8</property>
+                <child>
+                  <object class="GtkVBox" id="vbox13">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="border_width">8</property>
+                    <property name="spacing">4</property>
                     <child>
-                        <object class="GtkVBox" id="vbox13">
+                      <object class="GtkFrame" id="frame8">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="border_width">8</property>
-                        <property name="spacing">4</property>
+                        <property name="label_xalign">0</property>
                         <child>
-                          <object class="GtkFrame" id="frame8">
+                          <object class="GtkVBox" id="vbox14">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label_xalign">0</property>
+                            <property name="border_width">8</property>
+                            <property name="spacing">4</property>
                             <child>
-                              <object class="GtkVBox" id="vbox14">
+                              <object class="GtkScrolledWindow" id="scrolledwindow3">
+                                <property name="height_request">135</property>
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="border_width">8</property>
-                                <property name="spacing">4</property>
+                                <property name="can_focus">True</property>
+                                <property name="shadow_type">in</property>
                                 <child>
-                                  <object class="GtkScrolledWindow" id="scrolledwindow3">
-                                    <property name="height_request">135</property>
+                                  <object class="GtkTreeView" id="sharedTreeView">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="shadow_type">in</property>
-                                    <child>
-                                      <object class="GtkTreeView" id="sharedTreeView">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <child internal-child="selection">
-                                          <object class="GtkTreeSelection" id="treeview-selection5"/>
-                                        </child>
-                                      </object>
+                                    <child internal-child="selection">
+                                      <object class="GtkTreeSelection" id="treeview-selection5"/>
                                     </child>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="label34">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Note: New files are added to the share only once they've been hashed!</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkHBox" id="hbox5">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <child>
+                                  <object class="GtkLabel" id="sharedSizeLabel">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Total size: 0 B</property>
                                   </object>
                                   <packing>
                                     <property name="expand">True</property>
@@ -4015,28 +4045,21 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label34">
+                                  <object class="GtkHBox" id="hbox6">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Note: New files are added to the share only once they've been hashed!</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkHBox" id="hbox5">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
+                                    <property name="spacing">4</property>
                                     <child>
-                                      <object class="GtkLabel" id="sharedSizeLabel">
+                                      <object class="GtkCheckButton" id="shareHiddenCheckButton">
+                                        <property name="label" translatable="yes">Share hidden files</property>
+                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Total size: 0 B</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">False</property>
+                                        <property name="use_action_appearance">False</property>
+                                        <property name="use_underline">True</property>
+                                        <property name="xalign">0.5</property>
+                                        <property name="draw_indicator">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -4045,76 +4068,16 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkHBox" id="hbox6">
+                                      <object class="GtkCheckButton" id="followLinksCheckButton">
+                                        <property name="label" translatable="yes">Follow Links</property>
+                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="spacing">4</property>
-                                        <child>
-                                          <object class="GtkCheckButton" id="shareHiddenCheckButton">
-                                            <property name="label" translatable="yes">Share hidden files</property>
-                                            <property name="use_action_appearance">False</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">False</property>
-                                            <property name="use_action_appearance">False</property>
-                                            <property name="use_underline">True</property>
-                                            <property name="draw_indicator">True</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">True</property>
-                                            <property name="fill">True</property>
-                                            <property name="position">0</property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <object class="GtkCheckButton" id="followLinksCheckButton">
-                                            <property name="label" translatable="yes">Follow Links</property>
-                                            <property name="use_action_appearance">False</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">False</property>
-                                            <property name="use_action_appearance">False</property>
-                                            <property name="use_underline">True</property>
-                                            <property name="draw_indicator">True</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">True</property>
-                                            <property name="fill">True</property>
-                                            <property name="position">1</property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <object class="GtkButton" id="sharedAddButton">
-                                            <property name="label">gtk-add</property>
-                                            <property name="use_action_appearance">False</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">False</property>
-                                            <property name="use_action_appearance">False</property>
-                                            <property name="use_stock">True</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">2</property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <object class="GtkButton" id="sharedRemoveButton">
-                                            <property name="label">gtk-remove</property>
-                                            <property name="use_action_appearance">False</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">False</property>
-                                            <property name="use_action_appearance">False</property>
-                                            <property name="use_stock">True</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">3</property>
-                                          </packing>
-                                        </child>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">False</property>
+                                        <property name="use_action_appearance">False</property>
+                                        <property name="use_underline">True</property>
+                                        <property name="xalign">0.5</property>
+                                        <property name="draw_indicator">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">True</property>
@@ -4122,137 +4085,44 @@
                                         <property name="position">1</property>
                                       </packing>
                                     </child>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">2</property>
-                                  </packing>
-                                </child>
-                              </object>
-                            </child>
-                            <child type="label">
-                              <object class="GtkLabel" id="label33">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Shared directories&lt;/b&gt;</property>
-                                <property name="use_markup">True</property>
-                              </object>
-                            </child>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkVBox" id="vbox34">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="border_width">10</property>
-                            <property name="spacing">2</property>
-                            <child>
-                              <object class="GtkHBox" id="hbox31">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="spacing">4</property>
-                                <child>
-                                  <object class="GtkLabel" id="label36">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="xalign">1</property>
-                                    <property name="label" translatable="yes">Automatically open extra slot if speed is below (0 = disable)</property>
+                                    <child>
+                                      <object class="GtkButton" id="sharedAddButton">
+                                        <property name="label">gtk-add</property>
+                                        <property name="use_action_appearance">False</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">False</property>
+                                        <property name="use_action_appearance">False</property>
+                                        <property name="use_stock">True</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">False</property>
+                                        <property name="position">2</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkButton" id="sharedRemoveButton">
+                                        <property name="label">gtk-remove</property>
+                                        <property name="use_action_appearance">False</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">False</property>
+                                        <property name="use_action_appearance">False</property>
+                                        <property name="use_stock">True</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">False</property>
+                                        <property name="position">3</property>
+                                      </packing>
+                                    </child>
                                   </object>
                                   <packing>
                                     <property name="expand">True</property>
                                     <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkSpinButton" id="sharedExtraSlotSpinButton">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="primary_icon_activatable">False</property>
-                                    <property name="secondary_icon_activatable">False</property>
-                                    <property name="adjustment">adjustment13</property>
-                                    <property name="climb_rate">1</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
                                     <property name="position">1</property>
                                   </packing>
-                                </child>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkHBox" id="hbox33">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="spacing">8</property>
-                                <child>
-                                  <object class="GtkLabel" id="label38">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="xalign">1</property>
-                                    <property name="label" translatable="yes">Upload slots</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkSpinButton" id="sharedUploadSlotsSpinButton">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="primary_icon_activatable">False</property>
-                                    <property name="secondary_icon_activatable">False</property>
-                                    <property name="adjustment">adjustment14</property>
-                                    <property name="climb_rate">1</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkHBox" id="hbox34">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <child>
-                                  <object class="GtkButton" id="pictureButton">
-                                    <property name="label" translatable="yes">Pictures</property>
-                                    <property name="use_action_appearance">False</property>
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="use_action_appearance">False</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <placeholder/>
                                 </child>
                               </object>
                               <packing>
@@ -4262,26 +4132,158 @@
                               </packing>
                             </child>
                           </object>
+                        </child>
+                        <child type="label">
+                          <object class="GtkLabel" id="label33">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">&lt;b&gt;Shared directories&lt;/b&gt;</property>
+                            <property name="use_markup">True</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkVBox" id="vbox34">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="border_width">10</property>
+                        <property name="spacing">2</property>
+                        <child>
+                          <object class="GtkHBox" id="hbox31">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="spacing">4</property>
+                            <child>
+                              <object class="GtkLabel" id="label36">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="xalign">1</property>
+                                <property name="label" translatable="yes">Automatically open extra slot if speed is below (0 = disable)</property>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkSpinButton" id="sharedExtraSlotSpinButton">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="primary_icon_activatable">False</property>
+                                <property name="secondary_icon_activatable">False</property>
+                                <property name="adjustment">adjustment13</property>
+                                <property name="climb_rate">1</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkHBox" id="hbox33">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="spacing">8</property>
+                            <child>
+                              <object class="GtkLabel" id="label38">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="xalign">1</property>
+                                <property name="label" translatable="yes">Upload slots</property>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkSpinButton" id="sharedUploadSlotsSpinButton">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="primary_icon_activatable">False</property>
+                                <property name="secondary_icon_activatable">False</property>
+                                <property name="adjustment">adjustment14</property>
+                                <property name="climb_rate">1</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
                           <packing>
                             <property name="expand">False</property>
                             <property name="fill">True</property>
                             <property name="position">1</property>
                           </packing>
                         </child>
-                      </object>
-                  </child>
-                  <child type="tab">
-                      <object class="GtkLabel" id="label8.0">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Sharing</property>
+                        <child>
+                          <object class="GtkHBox" id="hbox34">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <child>
+                              <object class="GtkButton" id="pictureButton">
+                                <property name="label" translatable="yes">Pictures</property>
+                                <property name="use_action_appearance">False</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="use_action_appearance">False</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <placeholder/>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
                       </object>
                       <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
                         <property name="position">1</property>
-                        <property name="tab_fill">False</property>
                       </packing>
-                  </child>
-                  <child>
+                    </child>
+                  </object>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="label8.0">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Sharing</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
+                </child>
+                <child>
                   <object class="GtkFrame" id="frame4.5">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -4329,7 +4331,7 @@
                                 <property name="use_action_appearance">False</property>
                               </object>
                               <packing>
-                                <property name="expand">True</property>
+                                <property name="expand">False</property>
                                 <property name="fill">True</property>
                                 <property name="position">0</property>
                               </packing>
@@ -4344,9 +4346,9 @@
                                 <property name="use_action_appearance">False</property>
                               </object>
                               <packing>
-                                <property name="expand">True</property>
+                                <property name="expand">False</property>
                                 <property name="fill">True</property>
-                                <property name="position">2</property>
+                                <property name="position">1</property>
                               </packing>
                             </child>
                             <child>
@@ -4357,6 +4359,20 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="use_action_appearance">False</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkAlignment" id="alignment23">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -4371,32 +4387,32 @@
                             <property name="position">1</property>
                           </packing>
                         </child>
+                      </object>
+                    </child>
+                    <child type="label">
+                      <object class="GtkLabel" id="label8.7">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">&lt;b&gt;Sharing exceptions&lt;/b&gt;</property>
+                        <property name="use_markup">True</property>
+                      </object>
+                    </child>
                   </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
                 </child>
-                <child type="label">
-                  <object class="GtkLabel" id="label8.7">
+                <child type="tab">
+                  <object class="GtkLabel" id="label8.1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">&lt;b&gt;Sharing exceptions&lt;/b&gt;</property>
-                    <property name="use_markup">True</property>
+                    <property name="label" translatable="yes">Exceptions</property>
                   </object>
+                  <packing>
+                    <property name="position">2</property>
+                    <property name="tab_fill">False</property>
+                  </packing>
                 </child>
-              </object>
-              <packing>
-                <property name="position">2</property>
-              </packing>
-            </child>
-            <child type="tab">
-              <object class="GtkLabel" id="label8.1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Exceptions</property>
-              </object>
-              <packing>
-                <property name="position">2</property>
-                <property name="tab_fill">False</property>
-              </packing>
-            </child>
               </object>
               <packing>
                 <property name="position">3</property>
@@ -8289,7 +8305,7 @@ see man strftime for details.</property>
                             <property name="use_action_appearance">False</property>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
+                            <property name="expand">False</property>
                             <property name="fill">True</property>
                             <property name="position">0</property>
                           </packing>
@@ -8304,7 +8320,7 @@ see man strftime for details.</property>
                             <property name="use_action_appearance">False</property>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
+                            <property name="expand">False</property>
                             <property name="fill">True</property>
                             <property name="position">1</property>
                           </packing>
@@ -8319,7 +8335,7 @@ see man strftime for details.</property>
                             <property name="use_action_appearance">False</property>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
+                            <property name="expand">False</property>
                             <property name="fill">True</property>
                             <property name="position">2</property>
                           </packing>
@@ -8334,7 +8350,7 @@ see man strftime for details.</property>
                             <property name="use_action_appearance">False</property>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
+                            <property name="expand">False</property>
                             <property name="fill">True</property>
                             <property name="position">3</property>
                           </packing>
@@ -8349,9 +8365,23 @@ see man strftime for details.</property>
                             <property name="use_action_appearance">False</property>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
+                            <property name="expand">False</property>
                             <property name="fill">True</property>
                             <property name="position">4</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkAlignment" id="alignment24">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <child>
+                              <placeholder/>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">True</property>
+                            <property name="fill">True</property>
+                            <property name="position">5</property>
                           </packing>
                         </child>
                       </object>
@@ -8650,96 +8680,6 @@ see man strftime for details.</property>
       <action-widget response="-5">fontsel-ok_button</action-widget>
     </action-widgets>
   </object>
-  <object class="GtkListStore" id="liststore1">
-    <columns>
-      <!-- column-name item -->
-      <column type="gchararray"/>
-    </columns>
-  </object>
-  <object class="GtkListStore" id="liststore2">
-    <columns>
-      <!-- column-name item -->
-      <column type="gchararray"/>
-    </columns>
-  </object>
-  <object class="GtkListStore" id="liststore3">
-    <columns>
-      <!-- column-name item -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">Top</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Left</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Right</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Bottom</col>
-      </row>
-    </data>
-  </object>
-  <object class="GtkListStore" id="liststore4">
-    <columns>
-      <!-- column-name item -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">Icons</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Text</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Both</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Both horizontal</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Hidden</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">System default</col>
-      </row>
-    </data>
-  </object>
-  <object class="GtkListStore" id="liststore5">
-    <columns>
-      <!-- column-name item -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">16x16</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">22x22</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">24x24</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">32x32</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">36x36</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">48x48</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">64x64</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">default</col>
-      </row>
-    </data>
-  </object>
   <object class="GtkListStore" id="liststore6">
     <columns>
       <!-- column-name item -->
@@ -8897,6 +8837,96 @@ see man strftime for details.</property>
       </row>
       <row>
         <col id="0" translatable="yes">11PM</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name item -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="liststore2">
+    <columns>
+      <!-- column-name item -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="liststore3">
+    <columns>
+      <!-- column-name item -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Top</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Left</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Right</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Bottom</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore4">
+    <columns>
+      <!-- column-name item -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Icons</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Text</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Both</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Both horizontal</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Hidden</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">System default</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore5">
+    <columns>
+      <!-- column-name item -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">16x16</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">22x22</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">24x24</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">32x32</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">36x36</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">48x48</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">64x64</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">default</col>
       </row>
     </data>
   </object>
