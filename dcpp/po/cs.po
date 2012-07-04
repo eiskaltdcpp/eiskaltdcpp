@@ -1,303 +1,75 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
-# Translators:
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-05-06 20:44+0300\n"
-"PO-Revision-Date: 2012-04-18 04:12+0000\n"
+"POT-Creation-Date: 2012-07-04 19:44+0300\n"
+"PO-Revision-Date: 2012-07-04 17:19+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Czech (http://www.transifex.net/projects/p/eiskaltdcpp/"
-"language/cs/)\n"
-"Language: cs\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/eiskaltdcpp/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
-#: ../FavoriteManager.cpp:429
-msgid "Kick user(s)"
-msgstr "Vykopnout uživatele"
+#: ../SearchManager.cpp:36
+msgid "Any"
+msgstr "Všechny"
 
-#: ../FavoriteManager.cpp:433
-msgid "Redirect user(s)"
-msgstr "Přesměrovat uživatele"
+#: ../SearchManager.cpp:37
+msgid "Audio"
+msgstr "Audio"
 
-#: ../FavoriteManager.cpp:489
-msgid "Auto-connect group (converted)"
+#: ../SearchManager.cpp:38
+msgid "Compressed"
+msgstr "Komprimovaný"
+
+#: ../SearchManager.cpp:39
+msgid "Document"
+msgstr "Dokument"
+
+#: ../SearchManager.cpp:40
+msgid "Executable"
+msgstr "Spustitelný"
+
+#: ../SearchManager.cpp:41
+msgid "Picture"
+msgstr "Obrázek"
+
+#: ../SearchManager.cpp:42
+msgid "Video"
+msgstr "Video"
+
+#: ../SearchManager.cpp:43
+msgid "Directory"
+msgstr "Adresář"
+
+#: ../SearchManager.cpp:44
+msgid "TTH"
+msgstr "TTH"
+
+#: ../SearchManager.cpp:45
+msgid "CD Image"
+msgstr "CD Image"
+
+#: ../SearchManager.cpp:151
+msgid "Search enabled again"
 msgstr ""
 
-#: ../Socket.cpp:86
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Neznámá chyba: 0x%1$x"
-
-#: ../Socket.cpp:221 ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
-#: ../ConnectionManager.cpp:186
-msgid "Connection timeout"
-msgstr "Čas pro připojení vypršel"
-
-#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
-#: ../Socket.cpp:298 ../Socket.cpp:313
-msgid "The socks server failed establish a connection"
-msgstr "Socket Server nedokázal navázat spojení"
-
-#: ../Socket.cpp:302
-msgid "The socks server requires authentication"
-msgstr "Socket Server vyžaduje autorizaci"
-
-#: ../Socket.cpp:316
-msgid "The socks server doesn't support login / password authentication"
-msgstr "Socket Server nepodporuje autorizaci"
-
-#: ../Socket.cpp:330 ../Socket.cpp:334
-msgid "Socks server authentication failed (bad login / password?)"
-msgstr "Socket Server přihlášení odmítl (neplatné jméno / heslo)"
-
-#: ../Socket.cpp:471
-msgid ""
-"Failed to set up the socks server for UDP relay (check socks address and "
-"port)"
-msgstr ""
-"Nesprávné nastavení Socket Serveru pro UDP přenos (zkontrolujte adresu "
-"Socket Serveru a port)"
-
-#: ../DCPlusPlus.cpp:122
-msgid "Hash database"
-msgstr "Hash databáze"
-
-#: ../DCPlusPlus.cpp:125
-msgid "Shared Files"
-msgstr "Sdilene soubory"
-
-#: ../DCPlusPlus.cpp:134
-msgid "Download Queue"
-msgstr "Fronta souborů ke stáhnutí"
-
-#: ../DCPlusPlus.cpp:137
-msgid "Users"
-msgstr "Uživatelé"
-
-#: ../Thread.cpp:34 ../Thread.cpp:42
-msgid "Unable to create thread"
-msgstr "Nepodařilo se vytvořit připojení"
-
-#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
-msgid "Invalid data"
-msgstr "Velikost nesouhlasí"
-
-#: ../UserConnection.cpp:58
-msgid "Non-UTF-8 data in an ADC connection"
+#: ../SearchManager.cpp:159
+msgid "Search disabled: %1%"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:78
-msgid "Determining the best connectivity settings..."
-msgstr "Ustavuji nejlepší nastavení spojení..."
-
-#: ../ConnectivityManager.cpp:83
-msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr "Nemohu otevřít %1% port(y); Nastavení spojení musí být nastaveno ručně"
-
-#: ../ConnectivityManager.cpp:93
-msgid ""
-"Public IP address detected, selecting active mode with direct connection"
-msgstr "Detekována veřejná IP adresa, vybírám aktivní mód s přímým spojením"
-
-#: ../ConnectivityManager.cpp:100
-msgid ""
-"Local network with possible NAT detected, trying to map the ports using "
-"UPnP..."
-msgstr ""
-"Zjištěna místní síť s možností použití NAT, pokouším se namapovat porty "
-"pomocí UPnP..."
-
-#: ../ConnectivityManager.cpp:128
-msgid ""
-"Automatic setup of active mode has failed. You may want to set up your "
-"connection manually for better connectivity"
-msgstr ""
-"Automatické nastavení aktivního módu selhalo. Možná budete chtít nastavit "
-"vaše připojení ručně pro lepší funkčnost"
-
-#: ../ConnectivityManager.cpp:140
-msgid "Transfer (TCP)"
-msgstr "Přenosy (TCP)"
-
-#: ../ConnectivityManager.cpp:146
-msgid "Search (UDP)"
-msgstr "Hledání (UDP)"
-
-#: ../ConnectivityManager.cpp:152
-msgid "DHT (UDP)"
-msgstr "DHT (UDP)"
-
-#: ../ConnectivityManager.cpp:167
-msgid "Connectivity: "
-msgstr "Spojení obnoveno"
-
-#: ../UploadManager.cpp:132
-msgid "Connection already exists."
-msgstr ""
-
-#: ../UploadManager.cpp:267
-msgid "Unable to send file %1%: %2%"
-msgstr "Nelze odeslat soubor %1%: %2%"
-
-#: ../UploadManager.cpp:554
-msgid "IPFilter: Blocked incoming connection to "
-msgstr "IPFilter: Blokováno příchozí spojení k "
-
-#: ../UploadManager.cpp:617
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Odpojený uživatel opouštějící hub: %1%"
-
-#: ../SettingsManager.cpp:182
-msgid "downloaded from"
-msgstr "staženo z"
-
-#: ../SettingsManager.cpp:515
-msgid "Invalid search type name"
-msgstr "Nevhodný název typu hledání"
-
-#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
-msgid "This search type already exists"
-msgstr "Tento typ hledání již existuje"
-
-#: ../SettingsManager.cpp:573
-msgid "No such search type"
-msgstr "Takový typ hledávání není"
-
-#: ../SettingsManager.cpp:608
-msgid "Error: setting not found!"
-msgstr "Chyba: nastaveni nenalezeno!"
-
-#: ../SettingsManager.cpp:609
-msgid "Change core setting "
-msgstr "Změna nastavení jádra "
-
-#: ../SettingsManager.cpp:609
-msgid " to "
-msgstr " na "
-
-#: ../SettingsManager.cpp:611
-msgid "Error: params have been not 2!"
-msgstr ""
-
-#: ../NmdcHub.cpp:291
-msgid "%1% (Nick unknown)"
-msgstr "%1% (Nick neznámý)"
-
-#: ../NmdcHub.cpp:670
-msgid "Hub topic:"
-msgstr "Topic Hubu:"
-
-#: ../NmdcHub.cpp:1020
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr ""
-
-#: ../ClientManager.cpp:178 ../Transfer.cpp:81 ../Transfer.cpp:85
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../QueueManager.cpp:2165 ../QueueManager.cpp:2171 ../QueueManager.cpp:2177
+#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2165
+#: ../QueueManager.cpp:2171 ../QueueManager.cpp:2177 ../ClientManager.cpp:178
 msgid "Offline"
 msgstr "Nepřipojen"
-
-#: ../AdcHub.cpp:156
-msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr "%1% (%2%) má stejné CID {%3%} jako %4% (%5%), ignoruji"
-
-#: ../AdcHub.cpp:193 ../Transfer.cpp:91 ../QueueManager.cpp:2194
-msgid "%1%/s"
-msgstr "%1%/s"
-
-#: ../AdcHub.cpp:228
-msgid "Failed to negotiate base protocol"
-msgstr "Nemohu nastavit základní protokol"
-
-#: ../AdcHub.cpp:234
-msgid ""
-"Hub probably uses an old version of ADC, please encourage the owner to "
-"upgrade"
-msgstr ""
-"Hub pravděpodobně používá starou verzi ADC, prosím doporučte majiteli "
-"upgrade."
-
-#: ../AdcHub.cpp:305
-msgid "%1% was kicked by %2%: %3%"
-msgstr "%1% byl vykopnut uživatelem %2%: %3%"
-
-#: ../AdcHub.cpp:308
-msgid "%1% was kicked: %2%"
-msgstr "%1% byl vykopnut: %2%"
-
-#: ../AdcHub.cpp:694
-msgid "Not listening for connections - please restart %1%"
-msgstr "Nenaslouchá připojením - prosím restartujte %1%"
-
-#: ../HttpConnection.cpp:166
-msgid "Endless redirection loop (%1%)"
-msgstr ""
-
-#: ../ChatMessage.cpp:33
-msgid "Sent "
-msgstr "Odesláno "
-
-#: ../Util.cpp:632
-#, c-format
-msgid "%d B"
-msgstr "%d B"
-
-#: ../Util.cpp:634
-#, c-format
-msgid "%.02f KiB"
-msgstr "%.02f KiB"
-
-#: ../Util.cpp:636
-#, c-format
-msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:638
-#, c-format
-msgid "%.02f GiB"
-msgstr "%.02f GiB"
-
-#: ../Util.cpp:640
-#, c-format
-msgid "%.02f TiB"
-msgstr "%.02f TiB"
-
-#: ../Util.cpp:642
-#, c-format
-msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:672
-#, c-format
-msgid "%s B"
-msgstr "%s B"
-
-#: ../Util.cpp:676
-#, c-format
-msgid "%'lld B"
-msgstr "%'lld B"
-
-#: ../ZUtils.cpp:36 ../ZUtils.cpp:57 ../ZUtils.cpp:79 ../ZUtils.cpp:89
-#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62
-msgid "Error during compression"
-msgstr "Chyba pocesu komprese"
-
-#: ../ZUtils.cpp:103 ../ZUtils.cpp:126 ../CryptoManager.cpp:372
-#: ../CryptoManager.cpp:391 ../CryptoManager.cpp:405 ../BZUtils.cpp:74
-#: ../BZUtils.cpp:96 ../BZUtils.cpp:99
-msgid "Error during decompression"
-msgstr "Chyba během dekomprese"
 
 #: ../HashManager.cpp:218 ../HashManager.cpp:418
 msgid "Hashing failed: %1%"
@@ -334,13 +106,261 @@ msgstr "Hash databáze obnovena"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru "
-"SFV."
+msgstr "%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru SFV."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
 msgstr "Chyba hashování %1%: %2%"
+
+#: ../Transfer.cpp:91 ../QueueManager.cpp:2194 ../AdcHub.cpp:193
+msgid "%1%/s"
+msgstr "%1%/s"
+
+#: ../ConnectivityManager.cpp:80
+msgid "Determining the best connectivity settings..."
+msgstr "Ustavuji nejlepší nastavení spojení..."
+
+#: ../ConnectivityManager.cpp:85
+msgid ""
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr "Nemohu otevřít %1% port(y); Nastavení spojení musí být nastaveno ručně"
+
+#: ../ConnectivityManager.cpp:95
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr "Detekována veřejná IP adresa, vybírám aktivní mód s přímým spojením"
+
+#: ../ConnectivityManager.cpp:102
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr "Zjištěna místní síť s možností použití NAT, pokouším se namapovat porty pomocí UPnP..."
+
+#: ../ConnectivityManager.cpp:130
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr "Automatické nastavení aktivního módu selhalo. Možná budete chtít nastavit vaše připojení ručně pro lepší funkčnost"
+
+#: ../ConnectivityManager.cpp:142
+msgid "Transfer (TCP)"
+msgstr "Přenosy (TCP)"
+
+#: ../ConnectivityManager.cpp:148
+msgid "Search (UDP)"
+msgstr "Hledání (UDP)"
+
+#: ../ConnectivityManager.cpp:154
+msgid "DHT (UDP)"
+msgstr "DHT (UDP)"
+
+#: ../ConnectivityManager.cpp:169
+msgid "Connectivity: "
+msgstr "Spojení obnoveno"
+
+#: ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../ConnectionManager.cpp:186 ../Socket.cpp:221
+msgid "Connection timeout"
+msgstr "Čas pro připojení vypršel"
+
+#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Spojení ukončeno"
+
+#: ../BufferedSocket.cpp:275
+msgid "Maximum command length exceeded"
+msgstr "Překročena maximální délka příkazu"
+
+#: ../BufferedSocket.cpp:452
+msgid "Disconnected"
+msgstr "Odpojený"
+
+#: ../UploadManager.cpp:132
+msgid "Connection already exists."
+msgstr ""
+
+#: ../UploadManager.cpp:267
+msgid "Unable to send file %1%: %2%"
+msgstr "Nelze odeslat soubor %1%: %2%"
+
+#: ../UploadManager.cpp:554
+msgid "IPFilter: Blocked incoming connection to "
+msgstr "IPFilter: Blokováno příchozí spojení k "
+
+#: ../UploadManager.cpp:617
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Odpojený uživatel opouštějící hub: %1%"
+
+#: ../DirectoryListing.cpp:206
+msgid "Directory missing name attribute"
+msgstr ""
+
+#: ../QueueManager.cpp:243
+msgid "No needed part"
+msgstr ""
+
+#: ../QueueManager.cpp:633
+msgid "Searching TTH alternates for: %1%"
+msgstr ""
+
+#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
+msgid "A file with the same hash already exists in your share"
+msgstr "Soubor se stejným hashem již sdílíte"
+
+#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
+msgid "This file is already queued"
+msgstr "Tento soubor je již ve frontě"
+
+#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
+msgid "A file with a different size already exists in the queue"
+msgstr "Stejný soubor s jinou velikostí již je ve frontě"
+
+#: ../QueueManager.cpp:727
+msgid "A file with different tth root already exists in the queue"
+msgstr ""
+
+#: ../QueueManager.cpp:739
+msgid "You're trying to download from yourself!"
+msgstr "Snažíte se stahovat od sebe!"
+
+#: ../QueueManager.cpp:802
+msgid "A file with a different TTH root already exists in the queue"
+msgstr ""
+
+#: ../QueueManager.cpp:806
+msgid "This file has already finished downloading"
+msgstr ""
+
+#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
+msgid "Target filename too long"
+msgstr "Cílové jméno souboru je příliš dlouhé"
+
+#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
+msgid ""
+"Invalid target file (missing directory, check default download directory "
+"setting)"
+msgstr "Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro stáhnuté soubory)"
+
+#: ../QueueManager.cpp:864
+msgid "File already exists at the target location"
+msgstr ""
+
+#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
+msgid "Duplicate source: %1%"
+msgstr "Duplicitní zdroj: %1%"
+
+#: ../QueueManager.cpp:1148
+msgid "Target removed"
+msgstr "Cíl odebrán"
+
+#: ../QueueManager.cpp:1156
+msgid "Target file is missing or wrong size"
+msgstr ""
+
+#: ../QueueManager.cpp:1205
+msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
+msgstr ""
+
+#: ../QueueManager.cpp:1208
+msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
+msgstr ""
+
+#: ../QueueManager.cpp:1403
+msgid "Unable to open filelist: %1%"
+msgstr "Nemohu otevřít seznam souborů: %1%"
+
+#: ../QueueManager.cpp:1426
+msgid "%1%: Matched %2% file"
+msgstr ""
+
+#: ../QueueManager.cpp:1794
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+
+#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr "CRC32 nesuhlasí (SFV kontrola)"
+
+#: ../QueueManager.cpp:2217
+msgid "%1% : Matched %2% files"
+msgstr ""
+
+#: ../AdcHub.cpp:156
+msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+msgstr "%1% (%2%) má stejné CID {%3%} jako %4% (%5%), ignoruji"
+
+#: ../AdcHub.cpp:228
+msgid "Failed to negotiate base protocol"
+msgstr "Nemohu nastavit základní protokol"
+
+#: ../AdcHub.cpp:234
+msgid ""
+"Hub probably uses an old version of ADC, please encourage the owner to "
+"upgrade"
+msgstr "Hub pravděpodobně používá starou verzi ADC, prosím doporučte majiteli upgrade."
+
+#: ../AdcHub.cpp:305
+msgid "%1% was kicked by %2%: %3%"
+msgstr "%1% byl vykopnut uživatelem %2%: %3%"
+
+#: ../AdcHub.cpp:308
+msgid "%1% was kicked: %2%"
+msgstr "%1% byl vykopnut: %2%"
+
+#: ../AdcHub.cpp:694
+msgid "Not listening for connections - please restart %1%"
+msgstr "Nenaslouchá připojením - prosím restartujte %1%"
+
+#: ../FavoriteManager.cpp:429
+msgid "Kick user(s)"
+msgstr "Vykopnout uživatele"
+
+#: ../FavoriteManager.cpp:433
+msgid "Redirect user(s)"
+msgstr "Přesměrovat uživatele"
+
+#: ../FavoriteManager.cpp:489
+msgid "Auto-connect group (converted)"
+msgstr ""
+
+#: ../NmdcHub.cpp:291
+msgid "%1% (Nick unknown)"
+msgstr "%1% (Nick neznámý)"
+
+#: ../NmdcHub.cpp:670
+msgid "Hub topic:"
+msgstr "Topic Hubu:"
+
+#: ../NmdcHub.cpp:1020
+msgid ""
+"This hub is trying to use your client to spam %1%, please urge hub owner to "
+"fix this"
+msgstr ""
+
+#: ../ConnectionManager.cpp:179
+msgid "All download slots taken"
+msgstr "Všechny download sloty jsou obsazené"
+
+#: ../ConnectionManager.cpp:253
+msgid "Connectivity restored"
+msgstr ""
+
+#: ../ConnectionManager.cpp:261
+msgid "Connectivity error: %1%"
+msgstr ""
+
+#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
+#: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
+msgid "Error during compression"
+msgstr "Chyba pocesu komprese"
+
+#: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
+#: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
+#: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
+msgid "Error during decompression"
+msgstr "Chyba během dekomprese"
 
 #: ../UPnPManager.cpp:45
 msgid "No UPnP implementation available"
@@ -401,6 +421,118 @@ msgstr "Spuštěno obnovení filelistu"
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr ""
+
+#: ../ADLSearch.cpp:487
+msgid "Discard"
+msgstr "Zahodit"
+
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr ""
+
+#: ../DownloadManager.cpp:134
+msgid "IPFilter: Blocked outgoing connection to "
+msgstr ""
+
+#: ../DownloadManager.cpp:229
+msgid "Invalid size"
+msgstr "Neplatná velikost"
+
+#: ../DownloadManager.cpp:234
+msgid "Response does not match request"
+msgstr "Odezva neodpovídá požadavku"
+
+#: ../DownloadManager.cpp:241
+msgid "Could not open target file: %1%"
+msgstr "Nemohu otevřít cílový soubor: %1%"
+
+#: ../DownloadManager.cpp:320
+msgid "Full tree does not match TTH root"
+msgstr "Stáhnutý strom neodpovídá porovnanému TTH základu (TTH root)"
+
+#: ../DownloadManager.cpp:385
+msgid "No slots available"
+msgstr "Nejsou volné žádné sloty"
+
+#: ../DownloadManager.cpp:496
+msgid "%1%: File not available"
+msgstr "%1%: Soubor není dostupný"
+
+#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
+msgid "Invalid data"
+msgstr "Velikost nesouhlasí"
+
+#: ../UserConnection.cpp:58
+msgid "Non-UTF-8 data in an ADC connection"
+msgstr ""
+
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "Nepodařilo se vytvořit připojení"
+
+#: ../DCPlusPlus.cpp:122
+msgid "Hash database"
+msgstr "Hash databáze"
+
+#: ../DCPlusPlus.cpp:125
+msgid "Shared Files"
+msgstr "Sdilene soubory"
+
+#: ../DCPlusPlus.cpp:134
+msgid "Download Queue"
+msgstr "Fronta souborů ke stáhnutí"
+
+#: ../DCPlusPlus.cpp:137
+msgid "Users"
+msgstr "Uživatelé"
+
+#: ../Util.cpp:632
+#, c-format
+msgid "%d B"
+msgstr "%d B"
+
+#: ../Util.cpp:634
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:636
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:638
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:640
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:642
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:672
+#, c-format
+msgid "%s B"
+msgstr "%s B"
+
+#: ../Util.cpp:676
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld B"
+
+#: ../HttpConnection.cpp:166
+msgid "Endless redirection loop (%1%)"
+msgstr ""
+
 #: ../ShareManager.cpp:446
 msgid "No directory specified"
 msgstr "Nebyl zvolen adresář"
@@ -433,8 +565,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr "Probíhá obnovení seznamu souborů, prosím počkejte"
 
 #: ../ShareManager.cpp:811
@@ -453,29 +585,65 @@ msgstr "Obnovení seznamu souborů dokončeno"
 msgid "File list %1% generated"
 msgstr "Spuštěno obnovení filelistu"
 
-#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Spojení ukončeno"
+#: ../SettingsManager.cpp:182
+msgid "downloaded from"
+msgstr "staženo z"
 
-#: ../BufferedSocket.cpp:275
-msgid "Maximum command length exceeded"
-msgstr "Překročena maximální délka příkazu"
+#: ../SettingsManager.cpp:515
+msgid "Invalid search type name"
+msgstr "Nevhodný název typu hledání"
 
-#: ../BufferedSocket.cpp:452
-msgid "Disconnected"
-msgstr "Odpojený"
+#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+msgid "This search type already exists"
+msgstr "Tento typ hledání již existuje"
 
-#: ../ADLSearch.cpp:40
-msgid "<Enter string>"
+#: ../SettingsManager.cpp:573
+msgid "No such search type"
+msgstr "Takový typ hledávání není"
+
+#: ../SettingsManager.cpp:608
+msgid "Error: setting not found!"
+msgstr "Chyba: nastaveni nenalezeno!"
+
+#: ../SettingsManager.cpp:609
+msgid "Change core setting "
+msgstr "Změna nastavení jádra "
+
+#: ../SettingsManager.cpp:609
+msgid " to "
+msgstr " na "
+
+#: ../SettingsManager.cpp:611
+msgid "Error: params have been not 2!"
 msgstr ""
 
-#: ../ADLSearch.cpp:487
-msgid "Discard"
-msgstr "Zahodit"
+#: ../Socket.cpp:86
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Neznámá chyba: 0x%1$x"
 
-#: ../DirectoryListing.cpp:210
-msgid "Directory missing name attribute"
-msgstr ""
+#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:298 ../Socket.cpp:313
+msgid "The socks server failed establish a connection"
+msgstr "Socket Server nedokázal navázat spojení"
+
+#: ../Socket.cpp:302
+msgid "The socks server requires authentication"
+msgstr "Socket Server vyžaduje autorizaci"
+
+#: ../Socket.cpp:316
+msgid "The socks server doesn't support login / password authentication"
+msgstr "Socket Server nepodporuje autorizaci"
+
+#: ../Socket.cpp:330 ../Socket.cpp:334
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr "Socket Server přihlášení odmítl (neplatné jméno / heslo)"
+
+#: ../Socket.cpp:471
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr "Nesprávné nastavení Socket Serveru pro UDP přenos (zkontrolujte adresu Socket Serveru a port)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
@@ -511,190 +679,14 @@ msgstr "Nemohu nahrát soubor s certifikátem"
 msgid "Failed to load private key"
 msgstr "Nemohu nahrát privátní klíč"
 
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr ""
+#: ../ChatMessage.cpp:33
+msgid "Sent "
+msgstr "Odesláno "
 
-#: ../DownloadManager.cpp:134
-msgid "IPFilter: Blocked outgoing connection to "
-msgstr ""
-
-#: ../DownloadManager.cpp:229
-msgid "Invalid size"
-msgstr "Neplatná velikost"
-
-#: ../DownloadManager.cpp:234
-msgid "Response does not match request"
-msgstr "Odezva neodpovídá požadavku"
-
-#: ../DownloadManager.cpp:241
-msgid "Could not open target file: %1%"
-msgstr "Nemohu otevřít cílový soubor: %1%"
-
-#: ../DownloadManager.cpp:320
-msgid "Full tree does not match TTH root"
-msgstr "Stáhnutý strom neodpovídá porovnanému TTH základu (TTH root)"
-
-#: ../DownloadManager.cpp:385
-msgid "No slots available"
-msgstr "Nejsou volné žádné sloty"
-
-#: ../DownloadManager.cpp:496
-msgid "%1%: File not available"
-msgstr "%1%: Soubor není dostupný"
-
-#: ../ConnectionManager.cpp:179
-msgid "All download slots taken"
-msgstr "Všechny download sloty jsou obsazené"
-
-#: ../ConnectionManager.cpp:253
-msgid "Connectivity restored"
-msgstr ""
-
-#: ../ConnectionManager.cpp:261
-msgid "Connectivity error: %1%"
-msgstr ""
-
-#: ../SearchManager.cpp:36
-msgid "Any"
-msgstr "Všechny"
-
-#: ../SearchManager.cpp:37
-msgid "Audio"
-msgstr "Audio"
-
-#: ../SearchManager.cpp:38
-msgid "Compressed"
-msgstr "Komprimovaný"
-
-#: ../SearchManager.cpp:39
-msgid "Document"
-msgstr "Dokument"
-
-#: ../SearchManager.cpp:40
-msgid "Executable"
-msgstr "Spustitelný"
-
-#: ../SearchManager.cpp:41
-msgid "Picture"
-msgstr "Obrázek"
-
-#: ../SearchManager.cpp:42
-msgid "Video"
-msgstr "Video"
-
-#: ../SearchManager.cpp:43
-msgid "Directory"
-msgstr "Adresář"
-
-#: ../SearchManager.cpp:44
-msgid "TTH"
-msgstr "TTH"
-
-#: ../SearchManager.cpp:45
-msgid "CD Image"
-msgstr "CD Image"
-
-#: ../SearchManager.cpp:151
-msgid "Search enabled again"
-msgstr ""
-
-#: ../SearchManager.cpp:159
-msgid "Search disabled: %1%"
-msgstr ""
-
-#: ../QueueManager.cpp:243
-msgid "No needed part"
-msgstr ""
-
-#: ../QueueManager.cpp:633
-msgid "Searching TTH alternates for: %1%"
-msgstr ""
-
-#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
-msgid "A file with the same hash already exists in your share"
-msgstr "Soubor se stejným hashem již sdílíte"
-
-#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
-msgid "This file is already queued"
-msgstr "Tento soubor je již ve frontě"
-
-#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
-msgid "A file with a different size already exists in the queue"
-msgstr "Stejný soubor s jinou velikostí již je ve frontě"
-
-#: ../QueueManager.cpp:727
-msgid "A file with different tth root already exists in the queue"
-msgstr ""
-
-#: ../QueueManager.cpp:739
-msgid "You're trying to download from yourself!"
-msgstr "Snažíte se stahovat od sebe!"
-
-#: ../QueueManager.cpp:802
-msgid "A file with a different TTH root already exists in the queue"
-msgstr ""
-
-#: ../QueueManager.cpp:806
-msgid "This file has already finished downloading"
-msgstr ""
-
-#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
-msgid "Target filename too long"
-msgstr "Cílové jméno souboru je příliš dlouhé"
-
-#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
-msgid ""
-"Invalid target file (missing directory, check default download directory "
-"setting)"
-msgstr ""
-"Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro "
-"stáhnuté soubory)"
-
-#: ../QueueManager.cpp:864
-msgid "File already exists at the target location"
-msgstr ""
-
-#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
-msgid "Duplicate source: %1%"
-msgstr "Duplicitní zdroj: %1%"
-
-#: ../QueueManager.cpp:1148
-msgid "Target removed"
-msgstr "Cíl odebrán"
-
-#: ../QueueManager.cpp:1156
-msgid "Target file is missing or wrong size"
-msgstr ""
-
-#: ../QueueManager.cpp:1205
-msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr ""
-
-#: ../QueueManager.cpp:1208
-msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-
-#: ../QueueManager.cpp:1403
-msgid "Unable to open filelist: %1%"
-msgstr "Nemohu otevřít seznam souborů: %1%"
-
-#: ../QueueManager.cpp:1426
-msgid "%1%: Matched %2% file"
-msgstr ""
-
-#: ../QueueManager.cpp:1794
-msgid "Target path for this item is not available: %1%; pause this queue item."
-msgstr ""
-
-#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
-msgid "CRC32 inconsistency (SFV-Check)"
-msgstr "CRC32 nesuhlasí (SFV kontrola)"
-
-#: ../Streams.h:144
+#: ../Streams.h:141
 msgid "More bytes written than requested"
 msgstr ""
 
-#: ../MerkleCheckOutputStream.h:53 ../MerkleCheckOutputStream.h:113
+#: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "TTH nesouhlasí"
