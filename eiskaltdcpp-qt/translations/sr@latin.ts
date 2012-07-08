@@ -1808,7 +1808,7 @@ Omiljeni korisnik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1279"/>
         <source>Match all listings</source>
-        <translation type="unfinished"/>
+        <translation>Upari sve spiskove</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1281"/>
@@ -3565,7 +3565,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="1105"/>
         <source>Matched %1 files</source>
-        <translation type="unfinished"/>
+        <translation>Uparen %1 fajlova</translation>
     </message>
 </context>
 <context>
@@ -5903,7 +5903,13 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"/>
+        <translation>Omogućite ovu opciju ako želite da zadržite preuzete fajl liste 
+u redu za preuzimanje nakon što su završene 
+Posle Preuzimanja stave će imati &apos;Završeno&apos; status
+ i vi možete obrisati ove završene stavke bilo kada kasnije.
+Primetite da ako fizički pomeri/briši svoje preuzete fajlove sa 
+njihove ciljne lokacije, to neće rezultirati automatskim brisanjem odgovarajuće završne stavke iz reda.
+ Ako onemogućite ovu funkciju, to neće ukloniti postojeće završne stavke iz reda, to morate učiniti ručno.</translation>
     </message>
     <message>
         <source>Enable this option if you want to keep downloaded filelists 
