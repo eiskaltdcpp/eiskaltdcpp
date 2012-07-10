@@ -1770,9 +1770,7 @@ void MainWindow::autoconnect(){
     }
 }
 
-void MainWindow::parseCmdLine(){
-    QStringList args = qApp->arguments();
-
+void MainWindow::parseCmdLine(const QStringList &args){
     foreach (const QString &arg, args){
         if (arg.startsWith("magnet:?")){
             Magnet m(this);
@@ -1799,22 +1797,7 @@ void MainWindow::parseInstanceLine(QString data){
     }
 
     QStringList args = data.split("\n", QString::SkipEmptyParts);
-
-    foreach (const QString &arg, args){
-        if (arg.startsWith("magnet:?xt=urn:tree:tiger:")){
-            Magnet m(this);
-            m.setLink(arg);
-            if (WIGET(WI_DEF_MAGNET_ACTION) == 0) {
-                m.exec();
-            }
-        }
-        else if (arg.startsWith("dchub://")){
-            newHubFrame(arg, "");
-        }
-        else if (arg.startsWith("adc://") || arg.startsWith("adcs://")){
-            newHubFrame(arg, "UTF-8");
-        }
-    }
+    parseCmdLine(args);
 }
 
 void MainWindow::browseOwnFiles(){
