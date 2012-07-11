@@ -27,12 +27,19 @@ public:
     virtual ~Magnet();
 
     void setLink(const QString&);
+    enum {
+      MAGNET_ACTION_SHOW_UI = 0,
+      MAGNET_ACTION_SEARCH = 1,
+      MAGNET_ACTION_DOWNLOAD = 2
+    };
 
 private slots:
     void search();
     void download();
     void slotBrowse();
     void showUI(const QString &, const qulonglong &, const QString &);
-    void search(const QString&);
+    void search(const QString &, const qulonglong &, const QString &);
+    void searchTTH(const QString&);
+    void searchFile(const QString&);
     void download(const QString &, const qulonglong &, const QString &);
 };
