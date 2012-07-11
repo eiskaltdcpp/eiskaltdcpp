@@ -181,7 +181,7 @@ int main(int argc, char *argv[])
     ArenaWidgetFactory().create< dcpp::Singleton, QueuedUsers >();
     
     MainWindow::getInstance()->autoconnect();
-    MainWindow::getInstance()->parseCmdLine();
+    MainWindow::getInstance()->parseCmdLine(app.arguments());
     
     if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
         MainWindow::getInstance()->show();

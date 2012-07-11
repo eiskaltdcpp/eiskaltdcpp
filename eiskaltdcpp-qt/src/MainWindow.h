@@ -159,7 +159,7 @@ friend class dcpp::Singleton<MainWindow>;
         void show();
 
         /** */
-        void parseCmdLine();
+        void parseCmdLine(const QStringList &);
         /** */
         void parseInstanceLine(QString);
 

@@ -81,8 +81,13 @@ void Magnet::setLink(const QString &link){
 
     WulforUtil::splitMagnet(link, size, tth, name);
 
-    if (WIGET(WI_DEF_MAGNET_ACTION) != 0) {
-        if (WIGET(WI_DEF_MAGNET_ACTION) == 2) {
+    switch (WIGET(WI_DEF_MAGNET_ACTION)) {
+        case MAGNET_ACTION_SEARCH: // search
+            search(name, size, tth);
+            break;
+
+        case MAGNET_ACTION_DOWNLOAD: // download
+            {
             QString target;
             if (name.isEmpty())
                 target = tth;
@@ -90,25 +95,32 @@ void Magnet::setLink(const QString &link){
                 target = name;
             QString path=_q(SETTING(DOWNLOAD_DIRECTORY));
             target = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + target.split(QDir::separator(), QString::SkipEmptyParts).last();
-            Magnet::download(target, size, tth);
+                download(target, size, tth);
         }
-        else if (WIGET(WI_DEF_MAGNET_ACTION) == 1)
-            Magnet::search(tth);
-    } else {
+            break;
+
+        default: // show UI
         checkBox_Remember->setChecked(false);
-        Magnet::showUI(name, size, tth);
+            showUI(name, size, tth);
+            break;
     }
-
 }
-void Magnet::search(){
-    QString tth = lineEdit_TTH->text();
 
+void Magnet::search(const QString &file, const qulonglong &size, const QString &tth){
+  if (!tth.isEmpty())
+      Magnet::searchTTH(tth);
+
+  if (!file.isEmpty())
+      Magnet::searchFile(file);
+}
+
+void Magnet::search(){
     if (checkBox_Remember->isChecked() && WIGET(WI_DEF_MAGNET_ACTION) != 1)
         WISET(WI_DEF_MAGNET_ACTION,1);
 
-    if (tth.isEmpty())
-        return;
-    Magnet::search(tth);
+    QString size_str = lineEdit_SIZE->text();
+    qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
+    search(lineEdit_FNAME->text(), size, lineEdit_TTH->text());
 
     accept();
 }
@@ -193,9 +205,17 @@ void Magnet::download(const QString &name, const qulonglong &size, const QString
         QMessageBox::critical(this, tr("Error"), tr("Some error ocurred when starting download:\n %1").arg(e.what()));
     }
 }
-void Magnet::search(const QString &tth) {
+
+void Magnet::searchTTH(const QString &tth) {
     SearchFrame *fr = ArenaWidgetFactory().create<SearchFrame>();
     fr->setAttribute(Qt::WA_DeleteOnClose);
 
     fr->searchAlternates(tth);
+}
+
+void Magnet::searchFile(const QString &file) {
+    SearchFrame *fr = ArenaWidgetFactory().create<SearchFrame>();
+    fr->setAttribute(Qt::WA_DeleteOnClose);
+
+    fr->searchFile(file);
 }
