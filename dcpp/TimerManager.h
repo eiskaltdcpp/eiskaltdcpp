@@ -29,9 +29,9 @@
 #endif
 
 #ifndef _WIN32
-    #include <sys/time.h>
+    #include <ctime>
     #ifdef TIMER_OLD_BOOST
-        #include <limits.h>
+        #include <climits>
     #endif
 #endif
 

@@ -29,7 +29,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include <stdlib.h>
+#include <cstdlib>
 #include <vector>
 #include <functional>
 #include <algorithm>
@@ -147,7 +147,7 @@ public:
 
     /** Migrate from pre-localmode config location */
     static void migrate(const string& file);
-    
+
     /** */
     static string getLoginName();
 

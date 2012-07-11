@@ -39,7 +39,7 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <sys/utsname.h>
-#include <ctype.h>
+#include <cctype>
 #endif
 #ifdef HAVE_IFADDRS_H
 #include <ifaddrs.h>
@@ -203,7 +203,7 @@ void Util::initialize(PathsMap pathOverrides) {
     if(localMode) {
         // @todo implement...
     }
-    
+
     if (Util::getPath(Util::PATH_USER_LOCAL).empty()) {
 #ifdef FORCE_XDG
         const char *xdg_data_home_ = getenv("XDG_DATA_HOME");
@@ -215,7 +215,7 @@ void Util::initialize(PathsMap pathOverrides) {
         paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
 #endif
     }
-    
+
     if (Util::getPath(Util::PATH_RESOURCES).empty())
         paths[PATH_RESOURCES] = paths[PATH_USER_CONFIG];
     if (Util::getPath(Util::PATH_LOCALE).empty())
