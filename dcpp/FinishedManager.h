@@ -32,12 +32,10 @@
 
 namespace dcpp {
 
-/*RTF*/
 class FinishedItem
 {
 public:
     typedef vector<FinishedItem> FinishedItemList;
-//      typedef FinishedItemList::const_iterator;
 
     FinishedItem(string const& aTarget, const UserPtr& aUser, string const& aHub,
             int64_t aSize, int64_t aSpeed, time_t aTime,
@@ -70,11 +68,9 @@ public:
     typedef unordered_map<string, FinishedFileItemPtr> MapByFile;
     typedef unordered_map<HintedUser, FinishedUserItemPtr, User::Hash> MapByUser;
 
-    void lockLists();
-    //const FinishedItem::FinishedItemList& lockList(bool upload = false) { cs.lock(); return upload ? uploads : downloads; }
+    Lock lockLists();
     const MapByFile& getMapByFile(bool upload) const;
     const MapByUser& getMapByUser(bool upload) const;
-    void unlockLists();
 
     void remove(bool upload, const string& file);
     void remove(bool upload, const HintedUser& user);

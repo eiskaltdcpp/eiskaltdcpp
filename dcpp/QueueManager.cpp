@@ -2141,7 +2141,7 @@ void QueueManager::logFinishedDownload(QueueItem* qi, Download* d, bool crcError
     params["sfv"] = Util::toString(crcError ? 1 : 0);
 
     {
-        FinishedManager::getInstance()->lockLists();
+        auto lock = FinishedManager::getInstance()->lockLists();
         const FinishedManager::MapByFile& map = FinishedManager::getInstance()->getMapByFile(false);
         FinishedManager::MapByFile::const_iterator it = map.find(qi->getTarget());
         if(it != map.end()) {
@@ -2197,7 +2197,6 @@ void QueueManager::logFinishedDownload(QueueItem* qi, Download* d, bool crcError
     }
 
     LOG(LogManager::FINISHED_DOWNLOAD, params);
-    FinishedManager::getInstance()->unlockLists();
 }
 
 class ListMatcher : public dcpp::Thread

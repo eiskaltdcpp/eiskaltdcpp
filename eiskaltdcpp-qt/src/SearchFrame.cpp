@@ -378,7 +378,7 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
 
     ClientManager* clientMgr = ClientManager::getInstance();
 
-    clientMgr->lock();
+    auto lock = clientMgr->lock();
     clientMgr->addListener(this);
     Client::List& clients = clientMgr->getClients();
 
@@ -392,9 +392,8 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
         d->client_list.push_back(client);
     }
 
-    clientMgr->unlock();
-
     d->str_model->setStringList(d->hubs);
+
 
     for (int i = 0; i < d->str_model->rowCount(); i++)
        d-> str_model->setData(d->str_model->index(i, 0), Qt::Checked, Qt::CheckStateRole);
@@ -406,12 +405,12 @@ SearchFrame::~SearchFrame(){
     Menu::deleteInstance();
 
     Q_D(SearchFrame);
-    
+
     treeView_RESULTS->setModel(NULL);
 
     if (d->completer)
         d->completer->deleteLater();
-    
+
     if (d->proxy)
         d->proxy->deleteLater();
 
@@ -428,14 +427,14 @@ void SearchFrame::closeEvent(QCloseEvent *e){
     ClientManager::getInstance()->removeListener(this);
 
     Q_D(SearchFrame);
-    
+
     if (d->timer)
         d->timer->stop();
-    
+
     save();
 
     setAttribute(Qt::WA_DeleteOnClose);
-    
+
     QWidget::disconnect(this, NULL, this, NULL);
 
     e->accept();
@@ -545,7 +544,7 @@ void SearchFrame::init(){
     connect(GlobalTimer::getInstance(), SIGNAL(second()), this, SLOT(slotTimer()));
     connect(pushButton_SIDEPANEL, SIGNAL(clicked()), this, SLOT(slotToggleSidePanel()));
     connect(lineEdit_SEARCHSTR, SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
-	connect(lineEdit_SIZE,      SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
+    connect(lineEdit_SIZE,      SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(setFocus()));
     connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(selectAll()));
     connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
