@@ -1,4 +1,4 @@
-/* $Id: miniupnpc.h,v 1.23 2011/04/11 08:21:46 nanard Exp $ */
+/* $Id: miniupnpc.h,v 1.28 2012/05/23 08:50:10 nanard Exp $ */
 /* Project: miniupnp
  * http://miniupnp.free.fr/
  * Author: Thomas Bernard
@@ -16,6 +16,10 @@
 #define UPNPDISCOVER_UNKNOWN_ERROR (-1)
 #define UPNPDISCOVER_SOCKET_ERROR (-101)
 #define UPNPDISCOVER_MEMORY_ERROR (-102)
+
+/* versions : */
+#define MINIUPNPC_VERSION	"1.7"
+#define MINIUPNPC_API_VERSION	8
 
 #ifdef __cplusplus
 extern "C" {
@@ -74,6 +78,7 @@ struct UPNPUrls {
 	char * ipcondescURL;
 	char * controlURL_CIF;
 	char * controlURL_6FC;
+	char * rootdescURL;
 };
 
 /* UPNP_GetValidIGD() :

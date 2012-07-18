@@ -5,9 +5,7 @@
  * This software is subject to the conditions detailed
  * in the LICENCE file provided within the distribution */
 #include <string.h>
-#ifndef __HAIKU__
 #include <stdlib.h>
-#endif
 #include "portlistingparse.h"
 #include "minixml.h"
 
@@ -156,3 +154,4 @@ FreePortListing(struct PortMappingParserData * pdata)
 		free(pm);
 	}
 }
+

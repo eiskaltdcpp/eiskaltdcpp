@@ -11,6 +11,8 @@ if (WIN32)
   add_definitions( -DWIN32 -D_WIN32_WINNT=${WIN_VERSION} -D_WIN32_IE=${WIN_VERSION} -DWINVER=${WIN_VERSION} -DWIN32_LEAN_AND_MEAN)
 elseif (APPLE)
   add_definitions (-DMACOSX -D_DARWIN_C_SOURCE)
+elseif (UNIX AND NOT APPLE)
+  add_definitions (-D_GNU_SOURCE)
 endif (WIN32)
 # actual target:
 add_library(miniupnpc STATIC ${miniupnpc_SRCS})
