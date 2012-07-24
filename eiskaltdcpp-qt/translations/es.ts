@@ -1827,7 +1827,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1279"/>
         <source>Match all listings</source>
-        <translation type="unfinished"/>
+        <translation>Emparejar todos los listados</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1281"/>
@@ -3586,7 +3586,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="1105"/>
         <source>Matched %1 files</source>
-        <translation type="unfinished"/>
+        <translation>Emparejado %1 archivos</translation>
     </message>
 </context>
 <context>
@@ -5955,7 +5955,15 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"/>
+        <translation>Habilite esta opción si desea mantener la lista de archivos descargados
+en la cola de descargas una vez que hayan terminado de descargarse.
+Después de descargar los elementos de la cola cambiará el estado a &quot;Finalizado&quot;
+pudiendo borrarlos de la lista en cualquier momento.
+Tenga en cuanta que si mueve/borra físicamente los archivos descargados
+desde el lugar de destino, no se borrarán automáticamente
+las correspondientes entradas finalizadas en la cola.
+Si deshabilitas esta función, estas entradas finalizadas no se borrarán 
+de la cola, deberá borrarlos manualmente.</translation>
     </message>
     <message>
         <source>Enable this option if you want to keep downloaded filelists 

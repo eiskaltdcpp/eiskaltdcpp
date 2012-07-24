@@ -367,7 +367,7 @@ EiskaltDC++ — гэта міжплятформавая праґрама, яка
     <message>
         <location filename="../src/DownloadQueue.cpp" line="412"/>
         <source>No errors</source>
-        <translation>Няма ніякіх памылак</translation>
+        <translation>Няма памылак</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="652"/>
@@ -492,7 +492,7 @@ EiskaltDC++ — гэта міжплятформавая праґрама, яка
         <location filename="../src/DownloadQueueModel.cpp" line="170"/>
         <location filename="../src/DownloadQueueModel.cpp" line="187"/>
         <source>No errors</source>
-        <translation>Няма ніякіх памылак</translation>
+        <translation>Няма памылак</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="189"/>
@@ -1828,7 +1828,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1279"/>
         <source>Match all listings</source>
-        <translation type="unfinished"/>
+        <translation>Узгадніць усе сьпісы</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1281"/>
@@ -1937,13 +1937,13 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1322"/>
         <location filename="../src/MainWindow.cpp" line="2469"/>
         <source>Hide free space bar</source>
-        <translation>Схаваць стужку вольнае прасторы</translation>
+        <translation>Схаваць паліцу вольнае прасторы</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1325"/>
         <location filename="../src/MainWindow.cpp" line="2464"/>
         <source>Show free space bar</source>
-        <translation>Паказаць стужку вольнае прасторы</translation>
+        <translation>Паказаць паліцу вольнае прасторы</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1327"/>
@@ -2102,7 +2102,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1392"/>
         <source>About EiskaltDC++</source>
-        <translation>Пра EiskaltDC++</translation>
+        <translation>Пра «EiskaltDC++»</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1394"/>
@@ -3587,7 +3587,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="1105"/>
         <source>Matched %1 files</source>
-        <translation type="unfinished"/>
+        <translation>Супала файлаў: %1</translation>
     </message>
 </context>
 <context>
@@ -4280,7 +4280,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIAbout.ui" line="14"/>
         <source>About EiskaltDC++</source>
-        <translation>Пра EiskaltDC++</translation>
+        <translation>Пра «EiskaltDC++»</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="20"/>
@@ -4348,11 +4348,11 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Аўтарскае права © 2009–2010 Андрэй Карлаў &amp;lt;dein.negativ@gmail.com&amp;gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Гэтая праґрама належыць да вольных праґрамных сродкаў: вы можаце распаўсюджваць і (ці) зьмяняць яе на ўмовах трэцяе ці (на ваш выбар) пазьнейшае вэрсіі ліцэнзіі GNU General Public License, якую апублікавала Free Software Foundation.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Гэтая праґрама належыць да вольных праґрамных сродкаў: яе можна распаўсюджваць і (ці) зьмяняць на ўмовах трэцяе ці (на ваш выбар) пазьнейшае вэрсіі ліцэнзіі «GNU General Public License», якую апублікавала «Free Software Foundation».&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Гэтая праґрама распаўсюджваецца з надзеяй, што яна будзе карыснаю, але БЕЗ АНІЯКІХ ПАРУК; нават без парукі мець КАМЭРЦЫЙНУЮ ВАРТАСЬЦЬ ці БЫЦЬ ПРЫДАТНАЮ ДА НЕЙКАЕ МЭТЫ.  За падрабязнасьцямі зьвяртайцеся да тэксту GNU General Public License.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Гэтая праґрама распаўсюджваецца з надзеяй, што яна будзе карыснаю, але БЕЗ АНІЯКІХ ПАРУК; нават без парукі мець КАМЭРЦЫЙНУЮ ВАРТАСЬЦЬ ці БЫЦЬ ПРЫДАТНАЮ ДА НЕЙКАЕ МЭТЫ.  За падрабязнасьцямі зьвяртайцеся да тэксту «GNU General Public License».&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Вы мусілі атрымаць асобнік GNU General Public License разам з гэтаю праґрамаю.  Калі не, зірніце &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;Вы мусілі атрымаць асобнік «GNU General Public License» разам з гэтаю праґрамаю.  Калі не, зірніце &amp;lt;&lt;/span&gt;&lt;a href=&quot;http://www.gnu.org/licenses/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;http://www.gnu.org/licenses/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Courier New,courier&apos;;&quot;&gt;&amp;gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -5207,13 +5207,13 @@ this option and usually you don't need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation>Абярыце гэты спосаб, калі ваш асьветар наўпрост злучаецца зь сецівам.
-Не абірайце гэты спосаб, калі вы маеце маршрутавальнік або нейкую вонкавую
+Не абірайце гэты спосаб, калі маеце маршрутавальнік або нейкую вонкавую
 сетказаслону.
 Калі ваш асьветар ня месьціцца за сетказаслонаю, усё, што трэба зрабіць —
 гэта абраць гэтую можнасьць: звычайна вам не спатрэбіцца зьмяняць
 нешта яшчэ ў наладах злучэньня.
-Але калі вы маеце ўсталяванаю праґрамную сетказаслону, вам можа спатрэбіцца
-дадаткова наладзіць яе, каб дазволіць EiskaltDC++ мець доступ да сеціва.</translation>
+Але калі маеце ўсталяванаю праґрамную сетказаслону, можа спатрэбіцца
+дадаткова наладзіць яе, каб дазволіць «EiskaltDC++» мець доступ да сеціва.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="63"/>
@@ -5230,8 +5230,8 @@ Use this mode only if the previous ones are not options for you.</source>
         <translation>Калі вы месьціцеся за сетказаслонаю (маршрутавальнікам), абярыце гэты спосаб
 і самастойна вызначце порты TCP, UDP і TLS, якія будуць перасылацца.
 А каб мець магчымасьць без перашкод сьцягваць файлы, таксама трэба
-вызначыць вонкавы адрас IP вашага маршрутавальніку з дапамогаю
-наладаў, якія вы можаце пабачыць праваруч.</translation>
+вызначыць вонкавы адрас IP маршрутавальніку з дапамогаю
+наладаў, якія можна пабачыць праваруч.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="80"/>
@@ -5247,7 +5247,7 @@ This mode carries some serious limitations:
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
         <translation>Абярыце гэты спосаб, калі аніводны з папярэдніх вам не пасуе.  
-Калі EiskaltDC++ злучаецца нядзейным спосабам, ён не спрабуе ствараць
+Калі «EiskaltDC++» злучаецца нядзейным спосабам, ён не спрабуе ствараць
 выходныя злучэньні, а толькі прымае ўваходныя.
 Гэты спосаб мае істотныя абмежаваньні:
    — ад кожнага карыстальніка вяртаецца толькі пяць адказаў на запыт пошуку;
@@ -5270,8 +5270,8 @@ and obtain your external IP address as well.</source>
         <translation>Абярыце гэты спосаб, калі вы месьціцеся за сетказаслонаю або маршрутавальнікам,
 якія падтрымваюць стандарт UPnP на самарушнае наладжваньне праґрамы.
 Большасьць маршрутавальнікаў падтрымваюць UPnP, але можа спатрэбіцца
-задзейнічаць гэта на бачыне настўленьняў маршрутавальніку.
-Такім чынам EiskaltDC++ будзе самарушна адчыняць порты,
+задзейнічаць гэта на бачыне настаўленьняў маршрутавальніку.
+Такім чынам «EiskaltDC++» будзе самарушна адчыняць порты,
 у якіх маецца патрэба, і таксама атрымваць вашую вонкавы адрас IP.</translation>
     </message>
     <message>
@@ -5324,9 +5324,9 @@ and obtain your external IP address as well.</source>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation>Абярыце гэты спосаб, калі вы можаце неабмежавана ствараць выходныя
-злучэньні: злучацца з хоць-якім адрасам IP на хоць-якім порце.
-Аддайце перавагу гэтаму спосабу, калі вы ня маеце ўпэўненасьці, што абраць.</translation>
+        <translation>Абярыце гэты спосаб, калі дазваляюцца неабмежаваныя выходныя злучэньні
+з хоць-якім адрасам IP на хоць-якім порце.
+Аддайце перавагу гэтаму спосабу, калі няма ўпэўненасьці, што абраць.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="281"/>
@@ -5818,7 +5818,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation>Калі задзейнічаць гэтую можнасьць, EiskaltDC++ будзе выкрасьляць
+        <translation>Калі задзейнічаць гэтую можнасьць, «EiskaltDC++» будзе выкрасьляць
 тыя сьпісы файлаў, што сьцягваюцца занадта павольна.
 Каб крыніцы самарушна адкідаліся, задзейнічайце або «Самарушна адкідаць
 павольныя крыніцы ва ўсіх пунктах чаргі», або «Выкрасьляць павольныя сьпісы файлаў»
@@ -5941,7 +5941,15 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"/>
+        <translation>Задзейнічайце гэта, калі хочаце пакідаць сьпісы файлаў
+у чарзе пасьля таго, як іх сьцягнулі.
+Сьцягнутае будзе пераходзіць у стан «Скончылі»;
+адпаведныя пункты можна выкрасьліць, калі пажадаеце.
+Уважце: калі вы фізычна сьціраеце або перасоўваеце сьцягнутыя файлы
+зь месца прызначэньня, адпаведныя скончаныя пункты ў чарзе
+самарушна выкрасьляцца ня будуць.
+Калі забараніць гэтую можнасьць, існыя скончаныя пункты чаргі
+застануцца: іх трэба будзе выкрасьліць самастойна.</translation>
     </message>
     <message>
         <source>Enable this option if you want to keep downloaded filelists 
@@ -6464,7 +6472,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="29"/>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
-        <translation>Усе справаздачы, якія створыць EiskaltDC++, будуць ляжаць у гэтым каталёґу.</translation>
+        <translation>Усе справаздачы, якія створыць «EiskaltDC++», будуць ляжаць у гэтым каталёґу.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="46"/>
@@ -6558,7 +6566,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>
         <source>Ask confirm before exit</source>
-        <translation>Запытацца на пацьверджаньне, калі выходзім</translation>
+        <translation>Перапытацца, калі выходзім</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="40"/>
@@ -6569,7 +6577,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsNotification.ui" line="49"/>
         <location filename="../ui/UISettingsNotification.ui" line="192"/>
         <source>Your nick is mentioned in main chat</source>
-        <translation>Вашую мянушку згадалі ў агульнае гамане</translation>
+        <translation>Вашую мянушку згадалі ў агульнай гутарцы</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="56"/>
@@ -6661,8 +6669,8 @@ p, li { white-space: pre-wrap; }
         <source>If your sound files' format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation>Калі Qt не падтрымвае від вашых гукавых файлаў,
-вы можаце вызначыць праґраму, які грацьме іх.
+        <translation>Калі «Qt» не падтрымвае вашых гукавых файлаў,
+можна вызначыць праґраму, якая грацьме іх.
 Прыклад: /usr/bin/mplayer</translation>
     </message>
 </context>
@@ -6806,8 +6814,8 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation>Тут вы можаце вызначыць шаблёны да назваў файлаў,
-якія вы не жадаеце абагуляць. </translation>
+        <translation>Тут можна вызначыць шаблёны да назваў файлаў,
+якія ня трэба абагуляць. </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
@@ -6965,8 +6973,8 @@ the granted slot will not be closed.</source>
         <location filename="../ui/UISettingsSharing.ui" line="439"/>
         <location filename="../ui/UISettingsSharing.ui" line="474"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
-        <translation>Тут вы можаце вызначыць прамежак між спробамі самарушна
-абнавіць абагуленае.</translation>
+        <translation>Тут можна вызначыць прамежак між спробамі
+самарушна абнавіць абагуленае.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="458"/>
@@ -6983,7 +6991,7 @@ the granted slot will not be closed.</source>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
         <translation>Калі вашая сыстэма запавольваецца, калі ствараюцца скароты,
-дык вы можаце тут абмежаваць хуткасьць, зь якою яны ствараюцца.</translation>
+дык тут можна абмежаваць хуткасьць, зь якою яны ствараюцца.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="517"/>
@@ -7007,8 +7015,8 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
 EiskaltDC++ дазваляе зацягваць сьпісы файлаў і файлы, меншыя за 64 КіБ,
 іншым карыстальнікам DC++ без таго, каб патрабаваць шчыліну.
 Найбольшая колькасьць такіх дадатковых шчылінаў — 3.
-Уважце: калі карыстальнік сыходзіць з асяродку, EiskaltDC++ зачыняе ягоныя шчыліны,
-а калі карыстальнік вяртаецца цягам 10 хвілінаў, EiskaltDC++ дадае яму шчыліну.</translation>
+Уважце: калі карыстальнік сыходзіць з асяродку, праґрама зачыняе ягоныя шчыліны,
+а калі карыстальнік вяртаецца цягам 10 хвілінаў, яна вяртае яму шчыліну.</translation>
     </message>
 </context>
 <context>

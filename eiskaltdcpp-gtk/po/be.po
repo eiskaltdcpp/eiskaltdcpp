@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-07-04 20:04+0300\n"
-"PO-Revision-Date: 2012-07-04 17:15+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"PO-Revision-Date: 2012-07-23 14:27+0000\n"
+"Last-Translator: Клёк Урґ <yehekim@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -221,7 +221,7 @@ msgstr "<b>Від загаду</b>"
 
 #: ../ui/settingsdialog.ui:4974
 msgid "<b>Confirmation Dialog Options</b>"
-msgstr "<b>Можнасьці дыялёґу пацьверджаньня</b>"
+msgstr "<b>Пацьвярджаць наступныя дзеяньні:</b>"
 
 #: ../ui/mainwindow.ui:714
 msgid "<b>Connect to address:</b>"
@@ -253,7 +253,7 @@ msgstr "<b>Каталёґі</b>"
 
 #: ../ui/settingsdialog.ui:4396
 msgid "<b>Do not share files and folders containing:</b>"
-msgstr ""
+msgstr "<b>Не абагуляць файлы ды каталёґі, якія зьмяшчаюць:</b>"
 
 #: ../src/hub.cc:593
 msgid "<b>Enter your password</b>"
@@ -501,7 +501,7 @@ msgstr "Уласьцівасьці самарушнага пошуку"
 
 #: ../ui/mainwindow.ui:1628
 msgid "About EiskaltDC++"
-msgstr "Пра EiskaltDC++"
+msgstr "Пра «EiskaltDC++»"
 
 #: ../src/settingsdialog.cc:1596
 msgid "Accept custom user commands from hub"
@@ -859,11 +859,11 @@ msgstr "Падлічыць скарот (TTH) файла"
 #: ../src/wulfor.cc:109
 #, c-format
 msgid "Cannot handle SIGPIPE\n"
-msgstr ""
+msgstr "Не магу апрацаваць SIGPIPE\n"
 
 #: ../src/wulfor.cc:80
 msgid "Catching signal "
-msgstr ""
+msgstr "Ловіцца сыґнал "
 
 #: ../ui/settingsdialog.ui:8111
 msgid "Certificate file"
@@ -995,11 +995,11 @@ msgstr "Наставіць сьпісы асяродкаў"
 
 #: ../src/settingsdialog.cc:1519
 msgid "Confirm application exit"
-msgstr "Пацьвярджаць, калі выходзім з праґрамы"
+msgstr "Калі выходзім з праґрамы"
 
 #: ../src/settingsdialog.cc:1520
 msgid "Confirm favorite hub removal"
-msgstr "Пацьвярджаць, калі сьціраем улюбёны асяродак"
+msgstr "Калі сьціраем улюбёны асяродак"
 
 #: ../src/settingsdialog.cc:1396 ../src/settingsdialog.cc:1435
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
@@ -1080,7 +1080,7 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "Кліент DC++, які грунтуецца на крынічным кодзе FreeDC++ і LinuxDC++\n\nВэрсія EiskaltDC++: %s (%s)\nВэрсія асновы DC++: %s"
+msgstr "Кліент DC++, які грунтуецца на выточным кодзе FreeDC++ і LinuxDC++\n\nВэрсія «EiskaltDC++»: %s (%s)\nВэрсія асновы DC++: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1314,7 +1314,7 @@ msgstr "Сьцягнулі "
 
 #: ../src/publichubs.cc:485
 msgid "Downloaded hub list is corrupted or unsupported "
-msgstr ""
+msgstr "Сьцягнулі сапсаваны сьпіс асяродкаў, або такі, што падтрымваецца "
 
 #: ../ui/settingsdialog.ui:2995 ../ui/settingsdialog.ui:3966
 msgid "Downloads"
@@ -1437,7 +1437,7 @@ msgstr "Дакладны памер"
 
 #: ../ui/settingsdialog.ui:4409
 msgid "Exceptions"
-msgstr ""
+msgstr "Выняткі"
 
 #: ../src/hub.cc:2055
 msgid "Execute Lua Chunk"
@@ -1453,7 +1453,7 @@ msgstr "Выйсьці"
 
 #: ../ui/mainwindow.ui:734
 msgid "Exit EiskaltDC++ Gtk?"
-msgstr "Ці выйсьці з EiskaltDC++ Gtk?"
+msgstr "Ці выйсьці з «EiskaltDC++ Gtk»?"
 
 #: ../ui/settingsdialog.ui:7972
 msgid "Experts Only"
@@ -1919,7 +1919,7 @@ msgstr "Ствараецца паказьнік файлаў…"
 
 #: ../src/wulfor.cc:96
 msgid "Installing handler for"
-msgstr ""
+msgstr "Усталёўваецца апрацоўнік для"
 
 #: ../src/settingsdialog.cc:1977 ../src/settingsdialog.cc:2165
 msgid "Invalid extension: "
@@ -2005,7 +2005,7 @@ msgstr "Прачытаць файл Lua"
 
 #: ../src/publichubs.cc:472
 msgid "Loaded from cache: "
-msgstr ""
+msgstr "Прачыталі з запасьніку: "
 
 #: ../src/mainwindow.cc:2039
 msgid "Loading file list"
@@ -2085,7 +2085,7 @@ msgstr "Узгадніць чаргу"
 
 #: ../ui/mainwindow.ui:1063
 msgid "Match all listings"
-msgstr ""
+msgstr "Узгадніць усе сьпісы"
 
 #: ../src/sharebrowser.cc:1102
 msgid "Matched "
@@ -2260,7 +2260,7 @@ msgstr "Назва:"
 
 #: ../src/settingsdialog.cc:4245
 msgid "New exception"
-msgstr ""
+msgstr "Новае пярэчаньне"
 
 #: ../src/settingsdialog.cc:3567 ../src/publichubs.cc:364
 msgid "New list"
@@ -2307,7 +2307,7 @@ msgstr "Не"
 
 #: ../src/downloadqueue.cc:1376
 msgid "No errors"
-msgstr "Няма ніякіх памылак"
+msgstr "Няма памылак"
 
 #: ../src/sharebrowser.cc:683 ../src/sharebrowser.cc:879
 msgid "No matches"
@@ -2446,7 +2446,7 @@ msgstr "Панэлі"
 
 #: ../src/sharebrowser.cc:174
 msgid "Parse and build tree..."
-msgstr ""
+msgstr "Будуецца дрэва…"
 
 #: ../src/downloadqueue.cc:1362
 msgid "Passive user"
@@ -2696,7 +2696,7 @@ msgstr "Запытваемся"
 
 #: ../ui/settingsdialog.ui:4356
 msgid "Reset changes"
-msgstr ""
+msgstr "Адкінуць зьмены"
 
 #: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:355
 msgid "Resolution"
@@ -2896,7 +2896,7 @@ msgstr "Паказаць сьпіс улюбёнцаў"
 
 #: ../ui/mainwindow.ui:1338
 msgid "Show free space bar"
-msgstr "Паказаць стужку вольнае прасторы"
+msgstr "Паказаць паліцу вольнае прасторы"
 
 #: ../src/privatemessage.cc:1034 ../src/hub.cc:2042
 #: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
@@ -2964,7 +2964,7 @@ msgstr "Спыняецца libdcpp…"
 #: ../src/wulfor.cc:113
 #, c-format
 msgid "Signal handlers installed.\n"
-msgstr ""
+msgstr "Апрацоўнікі сыґналаў усталявалі.\n"
 
 #: ../src/settingsdialog.cc:1020 ../src/settingsdialog.cc:1026
 #: ../src/settingsdialog.cc:3707 ../src/settingsdialog.cc:3776
@@ -3200,7 +3200,7 @@ msgstr "Каб файл пачаў сьцягвацца, трэба дазвол
 
 #: ../ui/settingsdialog.ui:6132
 msgid "Toolbar"
-msgstr "Панэль прыладаў"
+msgstr "Паліца прыладаў"
 
 #: ../ui/mainwindow.ui:1485
 msgid "Tools panel"
@@ -3566,7 +3566,7 @@ msgstr "Уяўная назва"
 
 #: ../src/settingsdialog.cc:3024
 msgid "Virtual name"
-msgstr "Уяўная назва"
+msgstr "Назва"
 
 #: ../ui/settingsdialog.ui:6487
 msgid "Waiting (seconds)"
@@ -3770,7 +3770,7 @@ msgstr "Адчыніць спасылку ў звычайнае _праґрам�
 
 #: ../ui/search.ui:764 ../ui/hub.ui:565
 msgid "_Open partial file list"
-msgstr ""
+msgstr "Адчыніць _частковы сьпіс файлаў"
 
 #: ../ui/favoritehubs.ui:377
 msgid "_Password:"
