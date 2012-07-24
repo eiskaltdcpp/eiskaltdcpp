@@ -56,16 +56,20 @@ Transfers::Transfers() :
     transferView.setView(GTK_TREE_VIEW(getWidget("transfers")), TRUE, "transfers");
     transferView.insertColumn(_("User"), G_TYPE_STRING, TreeView::ICON_STRING, 150, "Icon");
     transferView.insertColumn(_("Hub Name"), G_TYPE_STRING, TreeView::STRING, 100);
-    transferView.insertColumn(_("Status"), G_TYPE_STRING, TreeView::PROGRESS, 250, "Progress");
+    transferView.insertColumn(_("Progress"), G_TYPE_STRING, TreeView::PROGRESS, 85, "Progress Hidden");
+    transferView.insertColumn(_("Status"), G_TYPE_STRING, TreeView::STRING, 250);
+    transferView.insertColumn(_("Time"), G_TYPE_STRING, TreeView::STRING, 85);
     transferView.insertColumn(_("Time Left"), G_TYPE_INT64, TreeView::TIME_LEFT, 85);
     transferView.insertColumn(_("Speed"), G_TYPE_INT64, TreeView::SPEED, 125);
+    transferView.insertColumn(_("Flags"), G_TYPE_STRING, TreeView::STRING, 85);
+    transferView.insertColumn(_("Transferred"), G_TYPE_STRING, TreeView::STRING, 85);
     transferView.insertColumn(_("Filename"), G_TYPE_STRING, TreeView::STRING, 200);
     transferView.insertColumn(_("Size"), G_TYPE_INT64, TreeView::SIZE, 125);
     transferView.insertColumn(_("Path"), G_TYPE_STRING, TreeView::STRING, 200);
     transferView.insertColumn(_("IP"), G_TYPE_STRING, TreeView::STRING, 175);
     transferView.insertColumn(_("Encryption"), G_TYPE_STRING, TreeView::STRING, 175);
     transferView.insertHiddenColumn("Icon", G_TYPE_STRING);
-    transferView.insertHiddenColumn("Progress", G_TYPE_INT);
+    transferView.insertHiddenColumn("Progress Hidden", G_TYPE_INT);
     transferView.insertHiddenColumn("Sort Order", G_TYPE_STRING);
     transferView.insertHiddenColumn("CID", G_TYPE_STRING);
     transferView.insertHiddenColumn("Download Position", G_TYPE_INT64); // For keeping track of and calculating parent pos
@@ -530,14 +534,14 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
 {
     int active = 0;
     GtkTreeIter child;
-    string users;
+    string sprogress, users, status;
     set<string> hubs;
     int64_t speed = 0;
     int64_t position = 0;
     int64_t totalSize = 0;
     int64_t timeLeft = 0;
     double progress = 0.0;
-    ostringstream stream;
+    ostringstream susers;
     ostringstream tmpHubs;
 
     position = transferView.getValue<int64_t>(iter, "Download Position");
@@ -568,32 +572,34 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
     if (speed > 0)
         timeLeft = (totalSize - position) / speed;
 
-    stream << setiosflags(ios::fixed) << setprecision(1);
+    susers << setiosflags(ios::fixed) << setprecision(1);
+    susers << active << "/" << gtk_tree_model_iter_n_children(GTK_TREE_MODEL(transferStore), iter);
 
     if (transferView.getValue<gboolean>(iter, "Failed") == 0)
     {
         if (active)
-            stream << _("Downloaded ");
+            status = _("Download");
         else
-            stream << _("Waiting for slot ");
-
-        stream << Util::formatBytes(position) << " (" << progress;
-        stream << _("%) from ") << active << "/" << gtk_tree_model_iter_n_children(GTK_TREE_MODEL(transferStore), iter) << _(" user(s)");
+            status = _("Waiting for slot");
     }
     else
     {
-        stream << transferView.getString(iter, _("Status"));
+        status = transferView.getString(iter, _("Status"));
     }
+
+    sprogress = Util::toString(static_cast<int>(progress)) + "%";
 
     std::copy(hubs.begin(), hubs.end(), std::ostream_iterator<string>(tmpHubs, ", "));
 
     gtk_tree_store_set(transferStore, iter,
-        transferView.col(_("User")), users.substr(0, users.length()-2).c_str(),
+        transferView.col(_("User")), susers.str().c_str(),
         transferView.col(_("Hub Name")), tmpHubs.str().substr(0, tmpHubs.str().length()-2).c_str(),
         transferView.col(_("Speed")), speed,
+        transferView.col(_("Transferred")), Util::formatBytes(position).c_str(),
         transferView.col(_("Time Left")), timeLeft,
-        transferView.col(_("Status")), stream.str().c_str(),
-        transferView.col("Progress"), static_cast<int>(progress),
+        transferView.col(_("Progress")), sprogress.c_str(),
+        transferView.col(_("Status")), status.c_str(),
+        transferView.col("Progress Hidden"), static_cast<int>(progress),
         transferView.col("Sort Order"), active ? (string("d").append(users)).c_str() : (string("w").append(users)).c_str(),
         -1);
 }
@@ -622,7 +628,7 @@ void Transfers::updateTransfer_gui(StringMap params, bool download, Sound::TypeS
     {
         if (it->first == "Size" || it->first ==  "Speed" || it->first == "Download Position" || it->first ==  "Time Left")
             gtk_tree_store_set(transferStore, &iter, transferView.col(_(it->first.c_str())), Util::toInt64(it->second), -1);
-        else if (it->first == "Progress" || it->first == "Failed")
+        else if (it->first == "Progress Hidden" || it->first == "Failed")
             gtk_tree_store_set(transferStore, &iter, transferView.col(it->first), Util::toInt(it->second), -1);
         else if (!it->second.empty())
             gtk_tree_store_set(transferStore, &iter, transferView.col(_(it->first.c_str())), it->second.c_str(), -1);
@@ -664,7 +670,7 @@ void Transfers::initTransfer_gui(StringMap params)
     // We could use && BOOLSETTING(SEGMENTED_DL) here to group only when segmented is enabled,
     // but then the transfer should be worked out to display the whole size of the file. As
     // it currently only shows the size of a transfer (and always starts from 0)
-    needParent = params["Filename"] != string(_("File list"));
+    needParent = (params["Filename"] != string(_("File list"))) && BOOLSETTING(SEGMENTED_DL);
 
     if (!findTransfer_gui(params["CID"], TRUE, &iter))
     {
@@ -879,7 +885,7 @@ void Transfers::getParams_client(StringMap& params, Transfer* tr)
     params["Speed"] = Util::toString(tr->getAverageSpeed());
     if (tr->getSize() > 0)
         percent = static_cast<double>(tr->getPos() * 100.0)/ tr->getSize();
-    params["Progress"] = Util::toString(static_cast<int>(percent));
+    params["Progress Hidden"] = Util::toString(static_cast<int>(percent));
     params["IP"] = tr->getUserConnection().getRemoteIp();
     params["Time Left"] = tr->getSecondsLeft() > 0 ? Util::toString(tr->getSecondsLeft()) : "-1";
     params["Target"] = tr->getPath();
@@ -925,26 +931,27 @@ void Transfers::on(DownloadManagerListener::Tick, const DownloadList& dls) noexc
     {
         Download* dl = *it;
         StringMap params;
-        ostringstream stream;
+        string flags;
 
         getParams_client(params, *it);
 
         if (dl->getUserConnection().isSecure())
         {
             if (dl->getUserConnection().isTrusted())
-                stream << _("[S]");
+                flags += _("[S]");
             else
-                stream << _("[U]");
+                flags += _("[U]");
         }
         if (dl->isSet(Download::FLAG_TTH_CHECK))
-            stream << _("[T]");
+            flags += _("[T]");
         if (dl->isSet(Download::FLAG_ZDOWNLOAD))
-            stream << _("[Z]");
+            flags += _("[Z]");
 
-        stream << setiosflags(ios::fixed) << setprecision(1);
-        stream << " " << _("Downloaded ") << Util::formatBytes(dl->getPos()) << " (" << params["Progress"]
-        << "%) in " << Util::formatSeconds((GET_TICK() - dl->getStart()) / 1000);
-        params["Status"] = stream.str();
+        params["Flags"] = flags;
+        params["Transferred"] = Util::formatBytes(dl->getPos());
+        params["Time"] = Util::formatSeconds((GET_TICK() - dl->getStart()) / 1000);
+        params["Progress"] = params["Progress Hidden"] + "%";
+        params["Status"] = _("Download");
 
         typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
         F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, TRUE, Sound::NONE);
@@ -958,6 +965,8 @@ void Transfers::on(DownloadManagerListener::Complete, Download* dl) noexcept
 
     getParams_client(params, dl);
     params["Status"] = _("Download complete...");
+    params["Progress Hidden"] = "100";
+    params["Progress"] = "100%";
     params["Sort Order"] = "w" + params["User"];
     params["Speed"] = "-1";
 
@@ -1112,24 +1121,25 @@ void Transfers::on(UploadManagerListener::Tick, const UploadList& uls) noexcept
     {
         Upload* ul = *it;
         StringMap params;
-        ostringstream stream;
+        string flags;
 
         getParams_client(params, ul);
 
         if (ul->getUserConnection().isSecure())
         {
             if (ul->getUserConnection().isTrusted())
-                stream << _("[S]");
+                flags += _("[S]");
             else
-                stream << _("[U]");
+                flags += _("[U]");
         }
         if (ul->isSet(Upload::FLAG_ZUPLOAD))
-            stream << _("[Z]");
+            flags += _("[Z]");
 
-        stream << setiosflags(ios::fixed) << setprecision(1);
-        stream << " " << _("Uploaded ") << Util::formatBytes(ul->getPos()) << " (" << params["Progress"]
-        << "%) in " << Util::formatSeconds((GET_TICK() - ul->getStart()) / 1000);
-        params["Status"] = stream.str();
+        params["Flags"] = flags;
+        params["Transferred"] = Util::formatBytes(ul->getPos());
+        params["Time"] = Util::formatSeconds((GET_TICK() - ul->getStart()) / 1000);
+        params["Progress"] = params["Progress Hidden"] + "%";
+        params["Status"] = _("Upload");
 
         typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
         F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, FALSE, Sound::NONE);
@@ -1143,6 +1153,8 @@ void Transfers::on(UploadManagerListener::Complete, Upload* ul) noexcept
 
     getParams_client(params, ul);
     params["Status"] = _("Upload complete...");
+    params["Progress Hidden"] = "100";
+    params["Progress"] = "100%";
     params["Sort Order"] = "w" + params["User"];
     params["Speed"] = "-1";
 
