@@ -770,7 +770,7 @@ Optionen:
         <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Full</source>
-        <translation>Voll</translation>
+        <translation>Vollständig</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
@@ -1827,7 +1827,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1279"/>
         <source>Match all listings</source>
-        <translation type="unfinished"/>
+        <translation>Alle Einträge abstimmen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1281"/>
@@ -3586,7 +3586,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="1105"/>
         <source>Matched %1 files</source>
-        <translation type="unfinished"/>
+        <translation>%1 Dateien abgestimmt</translation>
     </message>
 </context>
 <context>
@@ -4236,7 +4236,7 @@ Willst du ihn stoppen?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="104"/>
         <source>Full path</source>
-        <translation>Voller Pfad</translation>
+        <translation>Vollständiger Pfad</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="115"/>
@@ -4756,7 +4756,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="46"/>
         <source>Full only</source>
-        <translation>Nur Voll</translation>
+        <translation>Nur vollständige</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="66"/>
@@ -5927,7 +5927,14 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"/>
+        <translation>Aktiviere diese Einstellung, falls du heruntergeladene Dateilisten in der
+Downloadwarteschlange behalten willst, nachdem sie beendet wurden.
+Nach dem Herunterladen haben Warteschlangenelemente den
+&quot;Beendet&quot;-Status und man kann diese Einträge jederzeit löschen.
+Beachte das physisch verschobene/gelöschte Dateien nicht zum Löschen
+ihres &quot;Beendet&quot;-Eintrags in der Warteschlange führen. Wird diese
+Funktion deaktiviert, wird es bereits existierende Einträge nicht
+automatisch löschen, man man dies manuell tun.</translation>
     </message>
     <message>
         <source>Enable this option if you want to keep downloaded filelists 
