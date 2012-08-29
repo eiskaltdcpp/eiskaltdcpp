@@ -1244,7 +1244,8 @@ Utente preferito</translation>
         <location filename="../src/HubFrame.cpp" line="1830"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
-        <translation type="unfinished"/>
+        <translation>/kword purge &lt;parola chiave&gt; - rimuove una parola chiave definita dall&apos;utente
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1831"/>
@@ -1257,7 +1258,8 @@ Utente preferito</translation>
         <location filename="../src/HubFrame.cpp" line="1832"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation type="unfinished"/>
+        <translation>/magnet - azione predefinita con magnet (0-domanda, 1-cerca, 2-scarica)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1833"/>
@@ -1333,7 +1335,8 @@ Utente preferito</translation>
         <location filename="../src/HubFrame.cpp" line="1844"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished"/>
+        <translation>/lua &lt;chunk&gt; - esegue un chunk Lua
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2103"/>
@@ -1416,7 +1419,7 @@ Utente preferito</translation>
         <location filename="../src/HubFrame.cpp" line="2578"/>
         <location filename="../src/HubFrame.cpp" line="3749"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
-        <translation type="unfinished"/>
+        <translation>Ricevuta richiesta di redirezione verso un hub a cui si è già connessi</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2650"/>
@@ -1492,7 +1495,7 @@ Utente preferito</translation>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="189"/>
         <source>Change rule direction</source>
-        <translation type="unfinished"/>
+        <translation>Cambia direzione della regola</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="197"/>
