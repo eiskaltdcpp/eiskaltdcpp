@@ -142,17 +142,17 @@ Chiavi:
     <message>
         <location filename="../src/Antispam.cpp" line="152"/>
         <source>%1: Moving user to GRAY.</source>
-        <translation type="unfinished"/>
+        <translation>%1: Spostamento dell&apos;utente verso GRIGIO.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="162"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation type="unfinished"/>
+        <translation>%1: Spostamento dell&apos;utente verso NERO.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"/>
+        <translation>%1: Invio del messaggio &quot;Prova di nuovo&quot;</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="177"/>
@@ -353,7 +353,7 @@ Chiavi:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="401"/>
         <source>Full tree does not match TTH root</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;albero completo non corrisponde alla TTH della radice.</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="403"/>
@@ -1158,7 +1158,7 @@ Utente preferito</translation>
         <location filename="../src/HubFrame.cpp" line="1751"/>
         <location filename="../src/HubFrame.cpp" line="1753"/>
         <source>Aspell switched %1</source>
-        <translation type="unfinished"/>
+        <translation>Nuovo stato Aspell: %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1751"/>
@@ -1237,7 +1237,8 @@ Utente preferito</translation>
         <location filename="../src/HubFrame.cpp" line="1829"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
-        <translation type="unfinished"/>
+        <translation>/kword add &lt;parola chiave&gt; - aggiunge una parola chiave che verrà evidenziata nella chat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1830"/>
@@ -1249,7 +1250,8 @@ Utente preferito</translation>
         <location filename="../src/HubFrame.cpp" line="1831"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
-        <translation type="unfinished"/>
+        <translation>/kword list - lista completa delle parole chiave che verranno evidenziate nella chat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1832"/>
