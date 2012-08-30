@@ -2461,7 +2461,7 @@ Utente preferito</translation>
     <message>
         <location filename="../src/Notification.cpp" line="97"/>
         <source>Additional</source>
-        <translation type="unfinished"/>
+        <translation>Altro</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="98"/>
@@ -2520,7 +2520,7 @@ Scaricato: %3 Caricato: %4</translation>
     <message>
         <location filename="../src/PMWindow.cpp" line="307"/>
         <source>%1 on hub %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 su hub %2</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="337"/>
@@ -3313,7 +3313,7 @@ Scaricato: %3 Caricato: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="253"/>
         <source>Private: local user</source>
-        <translation type="unfinished"/>
+        <translation>Privato: utente locale</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="257"/>
@@ -5222,7 +5222,10 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation type="unfinished"/>
+        <translation>Selezionare questa modalità se il computer è connesso ad una rete protetta da un firewall (router) e si vuole configurare l&apos;inoltro delle porte TCP, UDP e TLS manualmente.
+Se si sceglie questa opzione si dovrà specificare l&apos;indirizzo IP esterno del router usando
+l&apos;impostazione più sotto al fine di far funzionare gli scaricamenti correttamente.
+Usare questa opzione solo se non è possibile usare le soluzioni precedenti.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="80"/>
@@ -5237,7 +5240,12 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation type="unfinished"/>
+        <translation>Selezionare questa modalità se nessuna delle modalità precedenti è applicabile.
+In questa modalità EiskaltDC++ provera a non stabilire connessioni entranti, solo uscenti.
+Questa modalità comporta delle serie limitazioni:
+* solo 5 risultati per utente verrano visualizzati per ogni ricerca;
+* non sarà possibile scaricare da altri utenti passivi;
+* non sarà possibile cercare e/o scaricare files su certi hubs.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="98"/>
@@ -5252,7 +5260,12 @@ Most routers do support UPnP but you may need to enable it
 in the router's configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation type="unfinished"/>
+        <translation>Selezionare questa modalità se il computer è connesso ad una router che supporta
+lo standard UPnP per l&apos;autoconfigurazione.
+La maggior parte dei router supporta UPnP ma può essere necessario attivarlo
+nelle pagina delle impostazioni del router.
+Usando questa opzione EiskaltDC++ apre automaticamente le porte necessarie
+e ottiene automaticamente l&apos;indirizzo esterno.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="113"/>
@@ -5304,7 +5317,9 @@ and obtain your external IP address as well.</source>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation type="unfinished"/>
+        <translation>Selezionare questa modalità se è possibile stabilire connessioni verso l&apos;esterno senza restrizioni.
+Questo include connettersi a qualsiasi indirizzo IP su qualsiasi porta.
+Selezionare questa opzione in caso di dubbio.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="281"/>
@@ -5317,7 +5332,10 @@ Choose this option if unsure.</source>
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation type="unfinished"/>
+        <translation>Selezionare questa modalità se si vuole che le connessioni in uscita siano stabilite usando
+un proxy SOCKS. I problemi descritti per la modalità passiva si applicano anche a questa modalità.
+Un proxy SOCKS non è la stessa cosa di un proxy HTTP.
+L&apos;implementazione SOCKS5 di DC++&apos;s non supporta GSSAPI.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="297"/>
@@ -5408,7 +5426,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="583"/>
         <source>Alternate speed limit at time from </source>
-        <translation type="unfinished"/>
+        <translation>Cambia limite velocità all&apos;ora</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="609"/>
@@ -5454,7 +5472,18 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn't matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Imposta il campo tipo di servizio  (TOS) che è spedito con ogni &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;pacchetto IP&lt;/span&gt;&lt;/a&gt; in uscita dal socket. Usato per cambiare la priorità dei pacchetti nella rete. Il campo TOS è 1 byte. Alcune opzioni TOS standard sono definite: &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Basso ritardo&amp;quot;&lt;/span&gt; per minimizzare il ritardo del traffico interattivo&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Flusso&amp;quot;&lt;/span&gt; per ottimizzare il flusso&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Affidabilità&amp;quot;&lt;/span&gt; per ottimizzare l&apos;affidabilità&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Costo minimo&amp;quot;&lt;/span&gt; usato per traffico a bassa priorità per il quale la velocità non è importante&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Al massimo uno di questi valori può essere specificato.  Nella sua impostazione predefinita Linux spedisce datagrammi a &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;basso ritardo&amp;quot;&lt;/span&gt; per primi, il comportamento esatto dipende dalla configurazione della queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Attenzione! Questa opzione richiede diritti di super-utente!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="846"/>
@@ -5567,7 +5596,9 @@ Se questo valore è 0 non sono imposti limiti.</translation>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation type="unfinished"/>
+        <translation>Questo proxy HTTP è usato solo per scaricare
+la lista di hub pubblici specificata sopra.
+Non è usato per caricamenti, scaricamenti o per connettersi agli hubs.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="190"/>
@@ -5615,19 +5646,19 @@ will be set to Highest as priority. (default: 64 KiB)</source>
         <location filename="../ui/UISettingsDownloads.ui" line="304"/>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Files di dimensioni minori o uguali al valore inserito, ma sopra il valore &quot;Dimensione massima priorità massima&quot; saranno impostati alla priorità alta ( predefinito: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="315"/>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Files di dimensioni minori o uguali al valore inserito, ma sopra il valore &quot;Dimensione massima priorità alta&quot; e &quot;Dimensione massima priorità massima&quot; saranno impostati alla priorità normale ( predefinito: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="326"/>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Files di dimensioni minori o uguali al valore inserito, ma sopra il valore tutti gli altri limit saranno impostati alla priorità bassa ( predefinito: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="343"/>
@@ -5658,7 +5689,8 @@ and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</sour
         <location filename="../ui/UISettingsDownloads.ui" line="429"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
-        <translation type="unfinished"/>
+        <translation>Se la velocità di scaricamento del file è sotto il valore indicato,
+la sorgente sarà abbandonata. ( predefinito: 1024 B/s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="440"/>
@@ -5677,7 +5709,10 @@ started before a source can be dropped. (default: 15 s)</source>
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
 disconnected only because of their current inactivity. (default: 10 s)</source>
-        <translation type="unfinished"/>
+        <translation>Questo è il tempo massimo dal quale l&apos;ultima sezione di dati per
+il file è stata ricevuta. Questa dato è usato per migliorare l&apos;accuratezza 
+delle misure di velocità e per impedire l&apos;abbandono di sorgenti che
+sarebbero disconnesse solo a causa dell&apos;inattività. (predefinito: 10 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="474"/>
@@ -5729,31 +5764,34 @@ delle sorgenti. (predefinito: 1)</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="626"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
-        <translation type="unfinished"/>
+        <translation>Imposta la priorità minimima per i nuovi files aggiunti di dimensione maggiore al limite per la priorità bassa</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="629"/>
         <source>With this enabled, files that are larger than Low prio max size
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
-        <translation type="unfinished"/>
+        <translation>Se questa opzione è abilitata, i files di dimensione maggiore al limite per la priorità bassa saranno impostati alla priorità minima.
+Se è disattivata, i files saranno impostati alla priorità normale.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="642"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
-        <translation type="unfinished"/>
+        <translation>Abbandona automaticamente sorgenti lente per tutti gli elementi nella coda (eccetto liste files)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="645"/>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"/>
+        <translation>Questa opzione abbandona le sorgenti lente per tutti gli elementi (ad eccezzione delle liste files).
+Per abilitare l&apos;abbandono automatico, abilitare &quot;Abbandona sorgenti lente per tutti gli elementi della coda&quot;
+e/o &quot;Abbandona liste files lente&quot;.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="658"/>
         <source>Remove slow filelists</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovi liste files lente</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="661"/>
@@ -5766,18 +5804,19 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="675"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
-        <translation type="unfinished"/>
+        <translation>Disconnettere ma non rimuovere sorgenti durante abbandono automatico</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="678"/>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
-        <translation type="unfinished"/>
+        <translation>Quando questa opzione è abilitata, le sorgenti saranno disconnesse,
+ma non rimosse dalla coda.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="690"/>
         <source>Automatically search for alternative download locations</source>
-        <translation type="unfinished"/>
+        <translation>Cercare automaticamente posizioni scaricamento alternative </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="693"/>
@@ -5787,12 +5826,17 @@ The autosearch will find exact matches by searching via hash.
 The drawback is that it may won't find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
-        <translation type="unfinished"/>
+        <translation>Ad intervalli regolari, il client cercherà i files nella coda di scaricamento
+per trovare più posizioni di scaricamento ( più utenti/sorgenti).
+La ricerca automatica troverà corrispondenze esatte cercando usando la hash.
+Lo svantaggio è che potrebbo non trovare molte sorgenti
+e bloccherà la ricerca su hub dove è presente una
+regola che forza un intervallo minimo tra ricerche successive.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="709"/>
         <source>Automatically match queue for auto search hits</source>
-        <translation type="unfinished"/>
+        <translation>Trova coda corrispondente automaticamente per i risultati ricerca automatica</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="712"/>
@@ -5804,7 +5848,14 @@ for many more files you're downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation type="unfinished"/>
+        <translation>Attivando questa opzione ogni volta che un utente viene identificato 
+come sorgente per uno dei files nella coda di scaricamento la sua lista dei 
+files viene scaricata e viene verificato se l&apos;utente può essere usato come 
+sorgente per altri files nella coda di scaricamento.
+Questa opzione aiuta specialmente se si scaricano files in gruppi: la 
+sorgente di un file nel gruppo è spesso una sorgente per gli altri files.
+Gli svantaggi di questa opzione è che si possono accidentalmente aggiungere sorgenti più lente e che si scaricheranno molte liste files.
+In caso di dubbio abilitare questa opzione.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="730"/>
@@ -5817,7 +5868,9 @@ and that you&apos;ll download a lot of file lists.</source>
 try to download will be silently skipped.
 Sometimes empty files contain information through their naming.
 However every file, even an empty one, will consume some drive space.</source>
-        <translation type="unfinished"/>
+        <translation>Quando questa opzione è abilitata, quando si tenta di scaricare un file vuoto
+questo verrà automaticamente ignorato.
+A volte i files vuoti contengono importanti informazioni nel loro nome quindi possono essere utili. Tuttavia, anche se vuoti, questi files usano spazio sul disco.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="747"/>
@@ -5828,7 +5881,8 @@ However every file, even an empty one, will consume some drive space.</source>
         <location filename="../ui/UISettingsDownloads.ui" line="750"/>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
-        <translation type="unfinished"/>
+        <translation>Questa opzione impedisce il download di files che
+sono già presenti in una delle directory condivise.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="762"/>
@@ -5839,7 +5893,8 @@ which already exist in one of your shared directories.</source>
         <location filename="../ui/UISettingsDownloads.ui" line="765"/>
         <source>This option will stop you from downloading files
 which already exist in your queue.</source>
-        <translation type="unfinished"/>
+        <translation>Questa opzione impedisce di aggiungere più volte
+alla coda di scaricamento lo stesso file.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="777"/>
@@ -5899,7 +5954,12 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"/>
+        <translation>Abilitare questa opzione se si vuole mantenere i files e le cartelle
+nella coda di scaricamento una volta ricevuti completamente.
+Finito lo scaricamento gli elementi della coda avranno lo stato &apos;Finito&apos; e potranno essere eliminati manualmente.
+Usando questa funzione si può tentere traccia dei files già scaricati nella coda
+senza dovere controllare la finestra dei files finiti.
+Se i files vengono rimossi o spostati dalla loro posizione di destinazione non saranno automaticamente rimossi dalla coda. Se si disattiva questa opzione gli elementi nella coda già finiti dovranno comunque essere rimossi manualmente.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="829"/>
@@ -5924,12 +5984,12 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="899"/>
         <source>Segment size (in MB, 0 = auto segment size)</source>
-        <translation type="unfinished"/>
+        <translation>Dimensione segmento (in MB, 0 = dimensione automatica)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"/>
+        <translation>Permetti caricamento simultaneo da un utente su alcuni hub NMDC</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="923"/>
@@ -5947,7 +6007,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="24"/>
         <source>Basic</source>
-        <translation type="unfinished"/>
+        <translation>Generale</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="30"/>
@@ -6110,7 +6170,8 @@ from the queue either, you must do that manually.</source>
         <source>If checked, you'll see emoticons even in the middle of words.
 If unchecked, you'll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation type="unfinished"/>
+        <translation>Se selezionato verrano mostrati emoticons anche all&apos;interno di parole altrimenti gli emoticons verrano mostrati solo se separati da altre parole con spazi.
+</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="351"/>
@@ -6164,7 +6225,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="460"/>
         <source>Application unit base</source>
-        <translation type="unfinished"/>
+        <translation>Unità di base applicazione</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
@@ -6215,7 +6276,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="583"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
-        <translation type="unfinished"/>
+        <translation>Ricorda messaggi in uscita (0 = non ricordare)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="612"/>
@@ -6246,7 +6307,8 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="674"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"/>
+        <translation>A dipendenza della configurazione hub: questa informazione
+è normalmente disponibile solo agli operatori.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="678"/>
@@ -6572,7 +6634,9 @@ p, li { white-space: pre-wrap; }
         <source>If your sound files' format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
-        <translation type="unfinished"/>
+        <translation>Se il formato file non è supportato da Qt, si può definire un
+lettore multimediale personalizzato per eseguirli. Per esempio:
+/usr/bin/mplayer</translation>
     </message>
 </context>
 <context>
@@ -6605,7 +6669,7 @@ color che ti invieranno un messaggio privato.</translation>
         <location filename="../ui/UISettingsPersonal.ui" line="61"/>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
-        <translation type="unfinished"/>
+        <translation>Questo pseudonimo (chiamato nickname o handle) è usato per identificare l&apos;utente quando si effettua una connessione ad un hub. Può essere sovrascritto individualmente per ogni hub nelle proprietà degli hub preferiti.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="69"/>
@@ -6643,7 +6707,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
 please choose the one closest to your own.
 Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
-        <translation type="unfinished"/>
+        <translation>Questa lista a discesa contiene una lista di velocità di caricamento tipiche ( in MiB/s). Scegliere la velocità più vicina a quella effettiva. Non inserire la velocità di scaricamento; questa impostazione serve ad indicare un approssimazione della velocità alla quale gli altri utenti possono scaricare da questa sorgente.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="186"/>
@@ -6666,7 +6730,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
-        <translation type="unfinished"/>
+        <translation>Generale</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="33"/>
@@ -6706,7 +6770,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation type="unfinished"/>
+        <translation>Qui si possono specificare modelli per files che non si vogliono condividere</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
@@ -6745,7 +6809,10 @@ the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
-        <translation type="unfinished"/>
+        <translation>Condividere files con l&apos;attributo nascosto e files in cartelle con l&apos;attributo nascosto impostato.
+Quando questa impostazione è disattivata, files che cominciano con . (punto) non sono condivisi.
+Attivarte questa opzione richiede un aggiornamento della lista files,
+e può bloccare temporaneamente il client.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="226"/>
@@ -6875,7 +6942,7 @@ gli slot addizionali non saranno chiusi.</translation>
         <location filename="../ui/UISettingsSharing.ui" line="503"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hasing files.</source>
-        <translation type="unfinished"/>
+        <translation>Questa opzione limita la velocità di hashing.  Usare questa opzione se il sistema diventa lento durante l&apos;hashing dei files.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="517"/>
@@ -6893,7 +6960,9 @@ There's a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
-        <translation type="unfinished"/>
+        <translation>Configurare il numero di slots disponibili per gli altri utenti. Per scaricare un file dal computer locale un utente remoto deve ottenere almeno uno slot. Un utente remoto può solo usare uno slot per ogni hub al quale si è entrambi connessi. EiskaltDC++ supporta il caricamento di liste di files e files sotto i 64 KiB verso altri utenti DC++ senza allocare uno slot. Queste connessioni usano slot speciali chiamati mini-slots che sono limitati a 3.
+Nota: se un utente lascia l&apos;hub, EiskaltDC++ chiude il suo slot;
+se l&apos;utente torna prima di 10 minuti EiskaltDC++ riassegna lo slot all&apos;utente.</translation>
     </message>
 </context>
 <context>
