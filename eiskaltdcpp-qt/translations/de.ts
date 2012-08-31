@@ -253,7 +253,7 @@ Optionen:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="65"/>
         <source>Properties of magnet</source>
-        <translation>Eigenschaften des Magnets</translation>
+        <translation>Magneteigenschaften </translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="66"/>
@@ -1785,7 +1785,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1238"/>
         <source>Hashing progress</source>
-        <translation>Hashing Fortschritt</translation>
+        <translation>Hashing-Fortschritt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1265"/>
@@ -1796,7 +1796,7 @@ Bevorzugte Benutzer</translation>
         <location filename="../src/MainWindow.cpp" line="1267"/>
         <location filename="../src/MainWindow.cpp" line="2126"/>
         <source>Open magnet link</source>
-        <translation>Öffne magnet link</translation>
+        <translation>Öffne Magnetlink</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1269"/>
@@ -2220,7 +2220,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2126"/>
         <source>Enter magnet link:</source>
-        <translation>Magnet-Link eingeben:</translation>
+        <translation>Magnetlink eingeben:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2277"/>
@@ -2948,7 +2948,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="142"/>
         <source>Properties of magnet</source>
-        <translation>Eigenschaften des Magnet</translation>
+        <translation>Magneteigenschaften </translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="145"/>
@@ -3495,7 +3495,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="83"/>
         <source>Properties of magnet</source>
-        <translation>Eigenschaften des Magnet</translation>
+        <translation>Magneteigenschaften </translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="86"/>
@@ -4769,12 +4769,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="20"/>
         <source>Hash progress</source>
-        <translation>Hash Fortschritt</translation>
+        <translation>Hash-Fortschritt</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="109"/>
         <source>Close on finish</source>
-        <translation>Nach Beendigung schließen</translation>
+        <translation>Nach Fertigstellung schließen</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="129"/>
