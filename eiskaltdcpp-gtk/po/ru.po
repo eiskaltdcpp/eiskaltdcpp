@@ -4,19 +4,20 @@
 # 
 # Translators:
 # Boris Pek <tehnick-8@mail.ru>, 2012.
+# Вячеслав Третьяков <tret2003@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-07-04 20:04+0300\n"
-"PO-Revision-Date: 2012-07-04 17:16+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"PO-Revision-Date: 2012-10-02 17:43+0000\n"
+"Last-Translator: Вячеслав Третьяков <tret2003@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1057 ../src/hub.cc:1136
@@ -1314,7 +1315,7 @@ msgstr "Закачано "
 
 #: ../src/publichubs.cc:485
 msgid "Downloaded hub list is corrupted or unsupported "
-msgstr ""
+msgstr "Скачанный список файлов повреждён или не поддерживается"
 
 #: ../ui/settingsdialog.ui:2995 ../ui/settingsdialog.ui:3966
 msgid "Downloads"
@@ -2005,7 +2006,7 @@ msgstr "Загрузить Lua-файл"
 
 #: ../src/publichubs.cc:472
 msgid "Loaded from cache: "
-msgstr ""
+msgstr "Загружено из кэша:"
 
 #: ../src/mainwindow.cc:2039
 msgid "Loading file list"
@@ -2696,7 +2697,7 @@ msgstr "Запрашивается"
 
 #: ../ui/settingsdialog.ui:4356
 msgid "Reset changes"
-msgstr ""
+msgstr "Отменить изменения"
 
 #: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:355
 msgid "Resolution"
