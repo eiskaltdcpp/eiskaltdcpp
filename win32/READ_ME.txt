@@ -1,22 +1,22 @@
 You can get the lastest program sources from git repository:
-download sources on link http://nodeload.github.com/negativ/eiskaltdcpp/tarball/master
+download sources on link http://nodeload.github.com/eiskaltdcpp/eiskaltdcpp/tarball/master
 or download and install git from http://git-scm.com/
-and run in command line: git clone git://github.com/negativ/eiskaltdcpp.git
+and run in command line: git clone git://github.com/eiskaltdcpp/eiskaltdcpp.git
 
 *******************************************************************************
 Build Depends
 *******************************************************************************
-mingw-get-inst-20111118.exe or later
-	http://sourceforge.net/projects/mingw/files/Installer/mingw-get-inst/mingw-get-inst-20111118/mingw-get-inst-20111118.exe/download
+mingw-get-inst-20120426.exe or later
+	http://sourceforge.net/projects/mingw/files/Installer/mingw-get-inst/mingw-get-inst-20120426/mingw-get-inst-20120426.exe/download
 
-qt-win-opensource-4.7.4-mingw.exe or later
-	http://get.qt.nokia.com/qt/source/qt-win-opensource-4.7.4-mingw.exe
+qt-win-opensource-4.8.3-mingw.exe or later
+	http://releases.qt-project.org/qt4/source/qt-win-opensource-4.8.3-mingw.exe
 
-Win32OpenSSL-1_0_1.exe or later
-	http://www.slproweb.com/download/Win32OpenSSL-1_0_1.exe
+Win32OpenSSL-1_0_1c.exe or later
+	http://www.slproweb.com/download/Win32OpenSSL-1_0_1c.exe
 
-cmake-2.8.7-win32-x86.exe or later
-	http://www.cmake.org/files/v2.8/cmake-2.8.7-win32-x86.exe
+cmake-2.8.9-win32-x86.exe or later
+	http://www.cmake.org/files/v2.8/cmake-2.8.9-win32-x86.exe
 
 nsis-2.46-setup.exe or later
 	http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46-setup.exe/download
@@ -30,11 +30,11 @@ bzip2-1.0.6-4-mingw32-dev.tar.lzma or later
 libbz2-1.0.6-4-mingw32-dll-2.tar.lzma or later
 	http://sourceforge.net/projects/mingw/files/MinGW/Extension/bzip2/bzip2-1.0.6-4/libbz2-1.0.6-4-mingw32-dll-2.tar.lzma/download
 
-libz-1.2.5-4-mingw32-dev.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/zlib-1.2.5-4/libz-1.2.5-4-mingw32-dev.tar.lzma/download
+libz-1.2.7-1-mingw32-dev.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/zlib-1.2.7-1/libz-1.2.7-1-mingw32-dev.tar.lzma/download
 
-libz-1.2.5-4-mingw32-dll-1.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/zlib-1.2.5-4/libz-1.2.5-4-mingw32-dll-1.tar.lzma/download
+libz-1.2.7-1-mingw32-dll-1.tar.lzma or later
+	http://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/zlib-1.2.7-1/libz-1.2.7-1-mingw32-dll-1.tar.lzma/download
 
 gettext-0.18.1.1-2-mingw32-dev.tar.lzma or later
 	http://sourceforge.net/projects/mingw/files/MinGW/Base/gettext/gettext-0.18.1.1-2/gettext-0.18.1.1-2-mingw32-dev.tar.lzma/download
@@ -60,8 +60,8 @@ aspell-0.60.5-1-bin.tar.bz2 or later
 aspell-0.60.5-1-lib.tar.bz2 or later
 	http://www.winkde.org/pub/kde/ports/win32/repository/aspell/aspell-0.60.5-1-lib.tar.bz2
 
-libidn-1.24-win32.zip or later
-	ftp://ftp.gnu.org/gnu/libidn/libidn-1.24-win32.zip
+libidn-1.25-win32.zip or later
+	ftp://ftp.gnu.org/gnu/libidn/libidn-1.25-win32.zip
 
 mingw32-qtscriptgenerator-git-26-10-2010.tar.xz or later
 	http://eiskaltdc.googlecode.com/files/mingw32-qtscriptgenerator-git-26-10-2010.tar.xz

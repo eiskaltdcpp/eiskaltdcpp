@@ -1,20 +1,21 @@
 call variables.bat
 
-rmdir /s/q %BUILDDIR%\CMakeFiles
-rmdir /s/q %BUILDDIR%\cmake
-rmdir /s/q %BUILDDIR%\data
-rmdir /s/q %BUILDDIR%\dcpp
-rmdir /s/q %BUILDDIR%\dht
-rmdir /s/q %BUILDDIR%\eiskaltdcpp-daemon
-rmdir /s/q %BUILDDIR%\eiskaltdcpp-qt
-rmdir /s/q %BUILDDIR%\extra
-rmdir /s/q %BUILDDIR%\json
-rmdir /s/q %BUILDDIR%\upnp
+rmdir /s/q %BUILD_DIR%\CMakeFiles
+rmdir /s/q %BUILD_DIR%\cmake
+rmdir /s/q %BUILD_DIR%\data
+rmdir /s/q %BUILD_DIR%\dcpp
+rmdir /s/q %BUILD_DIR%\dht
+rmdir /s/q %BUILD_DIR%\eiskaltdcpp-cli
+rmdir /s/q %BUILD_DIR%\eiskaltdcpp-daemon
+rmdir /s/q %BUILD_DIR%\eiskaltdcpp-qt
+rmdir /s/q %BUILD_DIR%\extra
+rmdir /s/q %BUILD_DIR%\json
+rmdir /s/q %BUILD_DIR%\upnp
 
-del /f %BUILDDIR%\CMakeCache.txt
-del /f %BUILDDIR%\CPackConfig.cmake
-del /f %BUILDDIR%\CPackSourceConfig.cmake
-del /f %BUILDDIR%\Makefile
-del /f %BUILDDIR%\VersionGlobal.h
-del /f %BUILDDIR%\cmake_install.cmake
-del /f %BUILDDIR%\cmake_uninstall.cmake
+del /f %BUILD_DIR%\CMakeCache.txt
+del /f %BUILD_DIR%\CPackConfig.cmake
+del /f %BUILD_DIR%\CPackSourceConfig.cmake
+del /f %BUILD_DIR%\Makefile
+del /f %BUILD_DIR%\VersionGlobal.h
+del /f %BUILD_DIR%\cmake_install.cmake
+del /f %BUILD_DIR%\cmake_uninstall.cmake

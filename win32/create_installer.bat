@@ -2,8 +2,14 @@ call variables.bat
 
 mingw32-make -k install DESTDIR=%BUILD_DIR%
 
+mkdir "%INSTALLER_DIR%"
+if "%ARCH%"=="x86_64" (
+xcopy /E /R /Y /I "%BUILD_DIR%\Program Files (x86)\EiskaltDC++\*"            %INSTALLER_DIR%
+rmdir /s /q "%BUILD_DIR%\Program Files (x86)"
+) else (
 xcopy /E /R /Y /I "%BUILD_DIR%\Program Files\EiskaltDC++\*"            %INSTALLER_DIR%
 rmdir /s /q "%BUILD_DIR%\Program Files"
+)
 
 strip "%INSTALLER_DIR%\eiskaltdcpp-qt.exe"
 strip "%INSTALLER_DIR%\eiskaltdcpp-daemon.exe"
@@ -61,4 +67,8 @@ copy /Y "%OPENSSL_DIR%\bin\libeay32.dll"                               %INSTALLE
 mkdir "%INSTALLER_DIR%\plugins\sqldrivers\"
 copy /Y "%QT_MINGW32_DIR%\plugins\sqldrivers\qsqlite4.dll"             %INSTALLER_DIR%\plugins\sqldrivers\
 
+if "%ARCH%"=="x86_64" (
+"%ProgramFiles(x86)%\NSIS\makensis.exe" "%BUILD_DIR%\EiskaltDC++.nsi"
+) else (
 "%ProgramFiles%\NSIS\makensis.exe" "%BUILD_DIR%\EiskaltDC++.nsi"
+)
