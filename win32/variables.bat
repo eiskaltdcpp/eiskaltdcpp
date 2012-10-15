@@ -4,23 +4,22 @@ if "%PROCESSOR_ARCHITECTURE%" == "x86" (
 )
 
 if "%ARCH%" == "x86_64" (
-set CMAKE_DIR="%ProgramFiles(x86)%\CMake 2.8"
-set INSTALL_DIR="%ProgramFiles(x86)%\EiskaltDC++"
+    set CMAKE_DIR="%ProgramFiles(x86)%\CMake 2.8"
 ) else (
-set CMAKE_DIR="%ProgramFiles%\CMake 2.8"
-set INSTALL_DIR="%ProgramFiles%\EiskaltDC++"
+    set CMAKE_DIR="%ProgramFiles%\CMake 2.8"
 )
 
 set SOURCES_DIR=%SystemDrive%\eiskaltdcpp\eiskaltdcpp
 set BUILD_DIR=.
+set INSTALL_DIR=%BUILD_DIR%\EiskaltDC++
 set INSTALLER_DIR=%BUILD_DIR%\installer
 
 set MINGW32_DIR=%SystemDrive%\MinGW
 set QT_MINGW32_DIR=%SystemDrive%\Qt\4.8.3
 
+set OPENSSL_DIR=%SystemDrive%\OpenSSL-Win32
 set MINGW32_DEPENDS_DIR=%SystemDrive%\eiskaltdcpp\mingw32-depends
 set ASPELL_DIR=%MINGW32_DEPENDS_DIR%\aspell
-set OPENSSL_DIR=%MINGW32_DEPENDS_DIR%\OpenSSL-Win32
 set BOOST_DIR=%MINGW32_DEPENDS_DIR%\boost
 set GETTEXT_DIR=%MINGW32_DEPENDS_DIR%\gettext
 set LIBBZ2_DIR=%MINGW32_DEPENDS_DIR%\bzip2

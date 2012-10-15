@@ -1,15 +1,12 @@
 call variables.bat
 
-mingw32-make -k install DESTDIR=%BUILD_DIR%
+mingw32-make -k install DESTDIR=tmp_dir
 
 mkdir "%INSTALLER_DIR%"
-if "%ARCH%"=="x86_64" (
-xcopy /E /R /Y /I "%BUILD_DIR%\Program Files (x86)\EiskaltDC++\*"            %INSTALLER_DIR%
-rmdir /s /q "%BUILD_DIR%\Program Files (x86)"
-) else (
-xcopy /E /R /Y /I "%BUILD_DIR%\Program Files\EiskaltDC++\*"            %INSTALLER_DIR%
-rmdir /s /q "%BUILD_DIR%\Program Files"
-)
+set cut_path=%~dp0
+set cut_path=%cut_path:~3%
+xcopy /E /R /Y /I "tmp_dir\%cut_path%\%INSTALL_DIR%\*"                 %INSTALLER_DIR%
+rmdir /s /q tmp_dir
 
 strip "%INSTALLER_DIR%\eiskaltdcpp-qt.exe"
 strip "%INSTALLER_DIR%\eiskaltdcpp-daemon.exe"
@@ -68,7 +65,7 @@ mkdir "%INSTALLER_DIR%\plugins\sqldrivers\"
 copy /Y "%QT_MINGW32_DIR%\plugins\sqldrivers\qsqlite4.dll"             %INSTALLER_DIR%\plugins\sqldrivers\
 
 if "%ARCH%"=="x86_64" (
-"%ProgramFiles(x86)%\NSIS\makensis.exe" "%BUILD_DIR%\EiskaltDC++.nsi"
+    "%ProgramFiles(x86)%\NSIS\makensis.exe" "%BUILD_DIR%\EiskaltDC++.nsi"
 ) else (
-"%ProgramFiles%\NSIS\makensis.exe" "%BUILD_DIR%\EiskaltDC++.nsi"
+    "%ProgramFiles%\NSIS\makensis.exe" "%BUILD_DIR%\EiskaltDC++.nsi"
 )
