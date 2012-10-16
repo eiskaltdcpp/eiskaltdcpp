@@ -24,4 +24,4 @@ TRACK="$(echo "${NOWPLAYING}"	| sed -ne 's/^title: \(.*\)$/\1/p')"
 MESSAGE="слушает ${ARTIST} - ${TRACK}"
 fi
 
-echo -e "/me ${MESSAGE}"
+echo "/me ${MESSAGE}"
