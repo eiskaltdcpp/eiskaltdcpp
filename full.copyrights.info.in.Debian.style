@@ -3,14 +3,21 @@ Debianized-By: Boris Pek <tehnick-8@mail.ru>
 Debianized-Date: Sat, 06 Feb 2010 03:43:21 +0300
 Upstream-Name: EiskaltDC++
 Upstream-Contact: Andrey Karlov <dein.negativ@gmail.com>
+ Boris Pek <tehnick-8@mail.ru>
+ Eugene Petrov <dhamp@ya.ru>
+ Pavel Vatagin <pavelvat@gmail.com>
+Source: http://code.google.com/p/eiskaltdc/downloads/list
+ The orig.tar.xz is just renamed upstream tarball (without changes).
+ See section get-orig-source in debian/rules file for details.
+
+Files: *
+Copyright: 2009-2012 Andrey Karlov <dein.negativ@gmail.com>
+Comment: Developers:
+ Andrey Karlov <dein.negativ@gmail.com>
  Boris Pek aka Tehnick <tehnick-8@mail.ru>
  Eugene Petrov <dhamp@ya.ru>
  Alexandr Tkachev <tka4ev@gmail.com>
  Pavel Vatagin <pavelvat@gmail.com>
-Source: http://github.com/negativ/eiskaltdcpp/
-
-Files: *
-Copyright: 2009-2012 Andrey Karlov <dein.negativ@gmail.com>
 License: GPL-3+ with OpenSSL exception
  This program is free software: you can redistribute it and/or modify it under
  the terms of the GNU General Public License as published by the Free Software
@@ -71,7 +78,8 @@ Copyright: 2010 nE0sIghT
  2010 GoTLiuM InSPiRiT <gotlium@gmail.com>
 License: GPL-2
 
-Files: data/update_geoip
+Files: update-translations.sh
+ data/update_geoip
  data/examples/amr.en_US.sh
  data/examples/mpris_now_playing.en_US.sh
  data/examples/audacious.en_US.sh
@@ -81,10 +89,10 @@ Files: data/update_geoip
  data/examples/deadbeef.ru_RU.UTF-8.sh
  eiskaltdcpp-qt/qtscripts/amarok_nowplay/amarok.sh
  eiskaltdcpp-qt/qtscripts/clementine_nowplay/clementine.sh
-Copyright: 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
+Copyright: 2011-2012 Boris Pek <tehnick-8@mail.ru>
+ 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
  2010 Vovochka404 <vovochka13@gmail.com>
  2011 Mark Lutring
- 2011 Boris Pek
  2012 Unreal7z
  2010 none
 License: public-domain
@@ -165,7 +173,7 @@ Files: eiskaltdcpp-gtk/src/* eiskaltdcpp-gtk/ui/*
 Copyright: 2004-2010 Jens Oknelid <paskharen@gmail.com>
  2009-2010 freedcpp (http://code.google.com/p/freedcpp)
  2009-2010 Leliksan Floyd <leliksan@Quadrafon2>
- 2010-2011 Boris Pek <tehnick-8@mail.ru>
+ 2010-2012 Boris Pek <tehnick-8@mail.ru>
  2003 Bastien Nocera <hadess@hadess.net>
  2010 Mank <mank@besthub.eu>
  2010 Eugene Petrov <dhamp@ya.ru>
