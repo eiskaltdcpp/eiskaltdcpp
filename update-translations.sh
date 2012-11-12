@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Author:  Boris Pek <tehnick-8@mail.ru>
-# License: GPLv2 or later
+# License: Public Domain
 # Created: 2011-11-26
 # Updated: 2012-11-13
 # Version: N/A
