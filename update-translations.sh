@@ -31,7 +31,8 @@ case "${1}" in
 
     if [ -d "${CUR_DIR}/builddir" ]; then
         cd "${CUR_DIR}/builddir" || exit 1
-        make translations_qt mo-update
+        make translations_qt mo-update || exit 1
+        
     else
         mkdir -p builddir && cd builddir || exit 1
         cmake -DUSE_QT=ON -DUSE_GTK=ON .. || exit 1
@@ -127,9 +128,9 @@ case "${1}" in
     echo "  tr_push <arg> (arg: src, all or language)"
     echo ;
     echo "Examples:"
-    echo "  ./update-repo.sh tr_push src"
-    echo "  ./update-repo.sh tr_push all"
-    echo "  ./update-repo.sh tr_push ru"
+    echo "  ./update-translations.sh tr_push src"
+    echo "  ./update-translations.sh tr_push all"
+    echo "  ./update-translations.sh tr_push ru"
 
 ;;
 esac
