@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-07-04 20:04+0300\n"
+"POT-Creation-Date: 2012-11-13 00:16+0200\n"
 "PO-Revision-Date: 2012-07-04 17:15+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1057 ../src/hub.cc:1136
@@ -102,7 +102,7 @@ msgstr "odstrániť z obľúbeného zoznamu"
 msgid " to "
 msgstr ""
 
-#: ../src/transfers.cc:581 ../src/search.cc:674
+#: ../src/search.cc:674
 msgid " user(s)"
 msgstr "užívateľ(ia)"
 
@@ -113,10 +113,6 @@ msgstr "Užívateľ(ia) prihlásený"
 #: ../src/finishedtransfers.cc:274
 msgid " users"
 msgstr "užívatelia"
-
-#: ../src/transfers.cc:581
-msgid "%) from "
-msgstr "%) z"
 
 #: ../ui/settingsdialog.ui:4707
 msgid ""
@@ -182,8 +178,8 @@ msgstr ": napíš /help pre zobrazenie zoznamu dostupných príkazov"
 
 #: ../ui/settingsdialog.ui:7198
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:3855
@@ -332,7 +328,8 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:3027
 msgid "<b>Name under which the others see the directory</b>"
-msgstr "<b>Názov ,pod ktorým ostatný užívatelia budú vidieť tento priečinok</b>"
+msgstr ""
+"<b>Názov ,pod ktorým ostatný užívatelia budú vidieť tento priečinok</b>"
 
 #: ../src/settingsdialog.cc:3641
 msgid "<b>Name, under which you see the directory</b>"
@@ -962,7 +959,7 @@ msgstr ""
 msgid "Close tab"
 msgstr "Zatvoriť tab"
 
-#: ../src/transfers.cc:403
+#: ../src/transfers.cc:407
 msgid "Closing connection..."
 msgstr "Ukončovanie pripojenia..."
 
@@ -1021,15 +1018,15 @@ msgstr "Pripojiť k hubu"
 msgid "Connect to the hub"
 msgstr "Pripojiť sa ku hubu"
 
-#: ../src/hub.cc:3431 ../src/transfers.cc:1020
+#: ../src/hub.cc:3431 ../src/transfers.cc:1029
 msgid "Connected"
 msgstr "Pripojený"
 
-#: ../src/transfers.cc:1056
+#: ../src/transfers.cc:1065
 msgid "Connecting"
 msgstr "Pripájanie"
 
-#: ../src/transfers.cc:370
+#: ../src/transfers.cc:374
 msgid "Connecting (forced)..."
 msgstr "Pripájanie (vynútené)..."
 
@@ -1037,7 +1034,7 @@ msgstr "Pripájanie (vynútené)..."
 msgid "Connecting to "
 msgstr "Pripájam sa k"
 
-#: ../src/transfers.cc:1009
+#: ../src/transfers.cc:1018
 msgid "Connecting..."
 msgstr "Pripájanie"
 
@@ -1079,7 +1076,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "DC++ Client postavený na otvorenom kóde FreeDC++ a LinuxDC++\n\nEiskaltDC++ verzia: %s (%s)\nDC++ verzia jadra: %s"
+msgstr ""
+"DC++ Client postavený na otvorenom kóde FreeDC++ a LinuxDC++\n"
+"\n"
+"EiskaltDC++ verzia: %s (%s)\n"
+"DC++ verzia jadra: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1206,8 +1207,8 @@ msgstr "Neposielať správu \"Preč\" botom"
 msgid "Done"
 msgstr "Dokončené"
 
-#: ../src/settingsdialog.cc:1381 ../ui/sharebrowser.ui:80
-#: ../ui/sharebrowser.ui:126
+#: ../src/settingsdialog.cc:1381 ../src/transfers.cc:581
+#: ../src/transfers.cc:954 ../ui/sharebrowser.ui:80 ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr "Sťahovanie"
 
@@ -1228,7 +1229,7 @@ msgstr "Stiahnúť _do..."
 msgid "Download _whole directory"
 msgstr "Stiahnúť _celý priečinok"
 
-#: ../src/transfers.cc:960
+#: ../src/transfers.cc:967
 msgid "Download complete..."
 msgstr "Sťahovanie ukončené..."
 
@@ -1237,7 +1238,7 @@ msgid "Download failed: "
 msgstr "Sťahovanie neúspešné:"
 
 #: ../src/settingsdialog.cc:1149 ../src/settingsdialog.cc:1317
-#: ../src/transfers.cc:1081 ../src/settingsmanager.cc:236
+#: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr "Sťahovanie ukončené"
 
@@ -1268,9 +1269,11 @@ msgstr "Obmedzenia pre sťahovanie obrázkov:"
 
 #: ../src/hub.cc:2049
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr "Obmedzenie pre sťahovanie obrázkov: 0 - deaktivované, n < 0 - neobmedzené, prázdne - info "
+msgstr ""
+"Obmedzenie pre sťahovanie obrázkov: 0 - deaktivované, n < 0 - neobmedzené, "
+"prázdne - info "
 
-#: ../src/transfers.cc:1090
+#: ../src/transfers.cc:1099
 msgid "Download removed"
 msgstr "Sťahovanie vymazané"
 
@@ -1278,7 +1281,7 @@ msgstr "Sťahovanie vymazané"
 msgid "Download speed"
 msgstr ""
 
-#: ../src/transfers.cc:912
+#: ../src/transfers.cc:918
 msgid "Download starting..."
 msgstr "Sťahovanie začína..."
 
@@ -1305,10 +1308,6 @@ msgstr "Sťahovanie:"
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:95
 #: ../src/downloadqueue.cc:288 ../src/downloadqueue.cc:395
 msgid "Downloaded"
-msgstr "Stiahnuté"
-
-#: ../src/transfers.cc:576 ../src/transfers.cc:945
-msgid "Downloaded "
 msgstr "Stiahnuté"
 
 #: ../src/publichubs.cc:485
@@ -1379,7 +1378,7 @@ msgstr "Zapnutý"
 msgid "Encoding"
 msgstr "Kódovanie"
 
-#: ../src/transfers.cc:66
+#: ../src/transfers.cc:70
 msgid "Encryption"
 msgstr ""
 
@@ -1538,7 +1537,7 @@ msgstr "Obľúbený užívateľ sa odpojil"
 msgid "File"
 msgstr "Súbor"
 
-#: ../src/transfers.cc:667 ../src/transfers.cc:869
+#: ../src/transfers.cc:673 ../src/transfers.cc:875
 msgid "File list"
 msgstr "Zoznam súborov"
 
@@ -1567,8 +1566,8 @@ msgstr ""
 #: ../src/sharebrowser.cc:341 ../src/sharebrowser.cc:555
 #: ../src/sharebrowser.cc:649 ../src/sharebrowser.cc:1016
 #: ../src/sharebrowser.cc:1050 ../src/finishedtransfers.cc:63
-#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:62
-#: ../src/transfers.cc:709 ../src/search.cc:91 ../src/search.cc:124
+#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
+#: ../src/transfers.cc:715 ../src/search.cc:91 ../src/search.cc:124
 #: ../src/search.cc:355 ../src/search.cc:610 ../src/search.cc:651
 #: ../src/search.cc:656 ../src/search.cc:824 ../src/search.cc:872
 #: ../src/search.cc:882 ../src/search.cc:1194 ../src/search.cc:1233
@@ -1624,6 +1623,10 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:1528
 msgid "Firewall with manual port forward"
+msgstr ""
+
+#: ../src/transfers.cc:64
+msgid "Flags"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:4072
@@ -1806,8 +1809,8 @@ msgstr ""
 msgid "Hub Menu"
 msgstr ""
 
-#: ../src/transfers.cc:58 ../src/transfers.cc:496 ../src/transfers.cc:561
-#: ../src/transfers.cc:592
+#: ../src/transfers.cc:58 ../src/transfers.cc:500 ../src/transfers.cc:565
+#: ../src/transfers.cc:596
 msgid "Hub Name"
 msgstr "Názov Hubu"
 
@@ -1841,7 +1844,7 @@ msgstr ""
 msgid "Hungarian translation\n"
 msgstr ""
 
-#: ../src/transfers.cc:65 ../src/search.cc:100 ../src/search.cc:618
+#: ../src/transfers.cc:69 ../src/search.cc:100 ../src/search.cc:618
 msgid "IP"
 msgstr ""
 
@@ -1964,7 +1967,9 @@ msgstr "Kaffeine player"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr "Ponechať duplikátne súbory vo vašom zozname súborov (duplikáty nezväčšujú vašu veľkosť zdieľania)"
+msgstr ""
+"Ponechať duplikátne súbory vo vašom zozname súborov (duplikáty nezväčšujú "
+"vašu veľkosť zdieľania)"
 
 #: ../ui/settingsdialog.ui:3230 ../ui/settingsdialog.ui:3246
 #: ../ui/settingsdialog.ui:3278 ../ui/settingsdialog.ui:3294
@@ -2353,8 +2358,7 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1298 ../ui/settingsdialog.ui:5822
@@ -2459,7 +2463,7 @@ msgstr "Heslo"
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
 #: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:510
-#: ../src/transfers.cc:64 ../src/transfers.cc:710 ../src/search.cc:95
+#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:95
 #: ../src/search.cc:356 ../src/search.cc:613 ../src/search.cc:690
 #: ../src/search.cc:827 ../src/search.cc:881 ../src/search.cc:1193
 #: ../src/search.cc:1232 ../src/search.cc:1289 ../src/search.cc:1354
@@ -2487,7 +2491,7 @@ msgstr ""
 msgid "Pictures"
 msgstr ""
 
-#: ../src/transfers.cc:887
+#: ../src/transfers.cc:893
 msgid "Plain"
 msgstr ""
 
@@ -2548,6 +2552,11 @@ msgstr ""
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr "Súkromná správa"
+
+#: ../src/transfers.cc:59 ../src/transfers.cc:600
+#, fuzzy
+msgid "Progress"
+msgstr "Prebieha indexovanie"
 
 #: ../ui/adlsearch.ui:466 ../ui/adlsearch.ui:544
 msgid "Properties"
@@ -2689,7 +2698,7 @@ msgstr ""
 msgid "Report a Bug"
 msgstr "Nahlásiť problém"
 
-#: ../src/transfers.cc:899
+#: ../src/transfers.cc:905
 msgid "Requesting"
 msgstr "Žiadajúci"
 
@@ -2864,9 +2873,10 @@ msgid "Set download limit image: "
 msgstr "Nastaviť obmedzenia pre sťahovanie obrázkov:"
 
 #: ../src/settingsdialog.cc:972
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Nastaviť najnižšiu prioritu pre novopridané súbory, ktoré sú väčšie než nastavená hodnota pre súbory s nízkou prioritou."
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Nastaviť najnižšiu prioritu pre novopridané súbory, ktoré sú väčšie než "
+"nastavená hodnota pre súbory s nízkou prioritou."
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -2971,8 +2981,8 @@ msgstr ""
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:106
 #: ../src/sharebrowser.cc:318 ../src/sharebrowser.cc:349
-#: ../src/transfers.cc:63 ../src/transfers.cc:544 ../src/transfers.cc:711
-#: ../src/transfers.cc:723 ../src/search.cc:94 ../src/search.cc:121
+#: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
+#: ../src/transfers.cc:729 ../src/search.cc:94 ../src/search.cc:121
 #: ../src/search.cc:612 ../src/search.cc:695 ../src/search.cc:704
 #: ../src/search.cc:830 ../ui/search.ui:318 ../ui/mainwindow.ui:118
 msgid "Size"
@@ -3058,8 +3068,8 @@ msgstr ""
 
 #: ../src/finishedtransfers.cc:67 ../src/finishedtransfers.cc:88
 #: ../src/finishedtransfers.cc:197 ../src/finishedtransfers.cc:241
-#: ../src/transfers.cc:61 ../src/transfers.cc:557 ../src/transfers.cc:593
-#: ../src/transfers.cc:760
+#: ../src/transfers.cc:63 ../src/transfers.cc:561 ../src/transfers.cc:597
+#: ../src/transfers.cc:766
 msgid "Speed"
 msgstr "Rýchlosť"
 
@@ -3077,9 +3087,9 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/searchspy.cc:60 ../src/searchspy.cc:298
-#: ../src/searchspy.cc:380 ../src/transfers.cc:59 ../src/transfers.cc:370
-#: ../src/transfers.cc:403 ../src/transfers.cc:497 ../src/transfers.cc:585
-#: ../src/transfers.cc:595 ../src/transfers.cc:758
+#: ../src/searchspy.cc:380 ../src/transfers.cc:60 ../src/transfers.cc:374
+#: ../src/transfers.cc:407 ../src/transfers.cc:501 ../src/transfers.cc:587
+#: ../src/transfers.cc:601 ../src/transfers.cc:764
 msgid "Status"
 msgstr "Stav"
 
@@ -3116,7 +3126,7 @@ msgstr "TIS-620"
 msgid "TTH"
 msgstr ""
 
-#: ../src/transfers.cc:704 ../src/transfers.cc:705 ../src/transfers.cc:871
+#: ../src/transfers.cc:710 ../src/transfers.cc:711 ../src/transfers.cc:877
 msgid "TTH: "
 msgstr ""
 
@@ -3163,11 +3173,11 @@ msgstr ""
 #: ../src/finishedtransfers.cc:96 ../src/finishedtransfers.cc:97
 #: ../src/finishedtransfers.cc:192 ../src/finishedtransfers.cc:236
 #: ../src/searchspy.cc:59 ../src/searchspy.cc:272 ../src/searchspy.cc:297
-#: ../src/searchspy.cc:313
+#: ../src/searchspy.cc:313 ../src/transfers.cc:61
 msgid "Time"
 msgstr "Čas"
 
-#: ../src/transfers.cc:60 ../src/transfers.cc:594
+#: ../src/transfers.cc:62 ../src/transfers.cc:599
 msgid "Time Left"
 msgstr "Zostávajúci čas"
 
@@ -3244,10 +3254,11 @@ msgstr "Celkovo:"
 #: ../src/finishedtransfers.cc:66 ../src/finishedtransfers.cc:87
 #: ../src/finishedtransfers.cc:187 ../src/finishedtransfers.cc:196
 #: ../src/finishedtransfers.cc:240 ../src/finishedtransfers.cc:602
+#: ../src/transfers.cc:65 ../src/transfers.cc:598
 msgid "Transferred"
 msgstr "Prebnesené"
 
-#: ../src/transfers.cc:608
+#: ../src/transfers.cc:614
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
 msgstr ""
@@ -3280,7 +3291,8 @@ msgstr ""
 
 #: ../src/hub.cc:2977
 msgid "Unable to connect: already connected to the requested hub"
-msgstr "Nie je možné sa pripojiť k požadovanému hubu(práve ste k nemu pripojený)"
+msgstr ""
+"Nie je možné sa pripojiť k požadovanému hubu(práve ste k nemu pripojený)"
 
 #: ../src/sharebrowser.cc:203
 msgid "Unable to load file list: "
@@ -3292,10 +3304,13 @@ msgstr "Nie je možné načítať zoznam súborov: Neplatný názov zoznamu súb
 
 #: ../src/mainwindow.cc:2266
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "Nie je možné otvoriť %1 port. Nie je možné hľadať alebo sťahovať súbory pokiaľ si nezmeníte alebo nezatvoríte aplikácie , ktoré by mohli využívať tento port."
+msgstr ""
+"Nie je možné otvoriť %1 port. Nie je možné hľadať alebo sťahovať súbory "
+"pokiaľ si nezmeníte alebo nezatvoríte aplikácie , ktoré by mohli využívať "
+"tento port."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3331,7 +3346,7 @@ msgstr "Aktualizovať vlastný zoznam súborov"
 msgid "Updating string or TTH"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1382
+#: ../src/settingsdialog.cc:1382 ../src/transfers.cc:1142
 msgid "Upload"
 msgstr "Odovzdanie"
 
@@ -3343,7 +3358,7 @@ msgstr ""
 msgid "Upload Slots"
 msgstr ""
 
-#: ../src/transfers.cc:1145
+#: ../src/transfers.cc:1155
 msgid "Upload complete..."
 msgstr "Odovzdávanie ukončené..."
 
@@ -3359,17 +3374,13 @@ msgstr ""
 msgid "Upload speed"
 msgstr ""
 
-#: ../src/transfers.cc:1099
+#: ../src/transfers.cc:1108
 msgid "Upload starting..."
 msgstr "Odovzdávanie začína..."
 
 #: ../src/mainwindow.cc:743
 msgid "Upload: "
 msgstr "Odovzdávanie:"
-
-#: ../src/transfers.cc:1130
-msgid "Uploaded "
-msgstr "Odovzdané"
 
 #: ../src/settingsdialog.cc:361 ../src/settingsdialog.cc:399
 #: ../src/settingsdialog.cc:433 ../src/settingsdialog.cc:675
@@ -3440,8 +3451,8 @@ msgstr ""
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr ""
 
-#: ../src/transfers.cc:57 ../src/transfers.cc:84 ../src/transfers.cc:86
-#: ../src/transfers.cc:495 ../src/transfers.cc:560 ../src/transfers.cc:591
+#: ../src/transfers.cc:57 ../src/transfers.cc:88 ../src/transfers.cc:90
+#: ../src/transfers.cc:499 ../src/transfers.cc:564 ../src/transfers.cc:595
 msgid "User"
 msgstr "Užívateľ"
 
@@ -3527,7 +3538,8 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3576,11 +3588,12 @@ msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr "Čakám na zadanie hesla"
 
-#: ../src/transfers.cc:578
-msgid "Waiting for slot "
+#: ../src/transfers.cc:583
+#, fuzzy
+msgid "Waiting for slot"
 msgstr "Čakanie na slot"
 
-#: ../src/transfers.cc:1058
+#: ../src/transfers.cc:1067
 msgid "Waiting to retry"
 msgstr "Čakám na opätovný pokus"
 
@@ -3620,19 +3633,19 @@ msgstr "Áno"
 msgid "[HIDDEN SHARE] "
 msgstr "[SKRYTÉ ZDIEĽANIE] "
 
-#: ../src/transfers.cc:935 ../src/transfers.cc:1122
+#: ../src/transfers.cc:941 ../src/transfers.cc:1131
 msgid "[S]"
 msgstr "[S]"
 
-#: ../src/transfers.cc:940
+#: ../src/transfers.cc:946
 msgid "[T]"
 msgstr "[T]"
 
-#: ../src/transfers.cc:937 ../src/transfers.cc:1124
+#: ../src/transfers.cc:943 ../src/transfers.cc:1133
 msgid "[U]"
 msgstr "[U]"
 
-#: ../src/transfers.cc:942 ../src/transfers.cc:1127
+#: ../src/transfers.cc:948 ../src/transfers.cc:1136
 msgid "[Z]"
 msgstr "[Z]"
 
@@ -3898,7 +3911,7 @@ msgstr ""
 msgid "loading error"
 msgstr "chyba pri načítaní"
 
-#: ../src/transfers.cc:1102
+#: ../src/transfers.cc:1111
 msgid "none"
 msgstr ""
 
@@ -3943,3 +3956,12 @@ msgstr ""
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "vyčkávanie"
+
+#~ msgid "%) from "
+#~ msgstr "%) z"
+
+#~ msgid "Downloaded "
+#~ msgstr "Stiahnuté"
+
+#~ msgid "Uploaded "
+#~ msgstr "Odovzdané"

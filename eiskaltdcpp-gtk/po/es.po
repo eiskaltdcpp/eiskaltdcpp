@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 #   <franxisco1988@gmail.com>, 2012.
 # Gustavo Alvarez Lopez <sl1pkn07@gmail.com>, 2012.
@@ -10,15 +10,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-07-04 20:04+0300\n"
+"POT-Creation-Date: 2012-11-13 00:16+0200\n"
 "PO-Revision-Date: 2012-07-04 17:15+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Spanish (Castilian) (http://www.transifex.com/projects/p/eiskaltdcpp/language/es/)\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1057 ../src/hub.cc:1136
@@ -105,7 +106,7 @@ msgstr " eliminado de la lista de favoritos"
 msgid " to "
 msgstr " a "
 
-#: ../src/transfers.cc:581 ../src/search.cc:674
+#: ../src/search.cc:674
 msgid " user(s)"
 msgstr " usuario(s)"
 
@@ -117,10 +118,6 @@ msgstr " usuario(s) conectados"
 msgid " users"
 msgstr " usuarios"
 
-#: ../src/transfers.cc:581
-msgid "%) from "
-msgstr "%) desde "
-
 #: ../ui/settingsdialog.ui:4707
 msgid ""
 "%a abbreviated weekday name.\n"
@@ -131,7 +128,15 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a abreviatura del nombre del día.\n%b abreviatura del nombre del mes.\n%H hora es un número decimal usado para relojes de 24-horas.\n%M minuto es un número decimal (rango de 00 a 59).\n%S segundo es un número decimal (rango de 00 a 59).\n%% es literalmente el caracter '%'.\n\nver manual strftime para más detalles."
+msgstr ""
+"%a abreviatura del nombre del día.\n"
+"%b abreviatura del nombre del mes.\n"
+"%H hora es un número decimal usado para relojes de 24-horas.\n"
+"%M minuto es un número decimal (rango de 00 a 59).\n"
+"%S segundo es un número decimal (rango de 00 a 59).\n"
+"%% es literalmente el caracter '%'.\n"
+"\n"
+"ver manual strftime para más detalles."
 
 #: ../src/hub.cc:2360
 msgid "': type /help for a list of available commands"
@@ -185,9 +190,11 @@ msgstr ": introduce /help para ver la lista de comandos disponibles"
 
 #: ../ui/settingsdialog.ui:7198
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Ayuda</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Ayuda</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -347,7 +354,9 @@ msgstr "<b>Nuevo nombre</b> "
 
 #: ../ui/settingsdialog.ui:9197 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Nota:</b> Edita la URL en la lista haciendo clic en ellos una vez cuando se selecciona"
+msgstr ""
+"<b>Nota:</b> Edita la URL en la lista haciendo clic en ellos una vez cuando "
+"se selecciona"
 
 #: ../ui/settingsdialog.ui:5484
 msgid "<b>Notify</b>"
@@ -527,13 +536,17 @@ msgstr "Añadir un Hub a favoritos"
 
 #: ../src/settingsdialog.cc:1598
 msgid "Add finished files to share instantly (if shared)"
-msgstr "Añadir archivos descargados automáticamente a compartidos (si se comparten)"
+msgstr ""
+"Añadir archivos descargados automáticamente a compartidos (si se comparten)"
 
 #: ../src/hub.cc:2066
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr "Añadir la regla 192.168.1.0/23 cuando la dirección entrante y la acción es permitir y 192.168.6.0/24 donde la dirección es de entrada o salida y la acción es denegar"
+msgstr ""
+"Añadir la regla 192.168.1.0/23 cuando la dirección entrante y la acción es "
+"permitir y 192.168.6.0/24 donde la dirección es de entrada o salida y la "
+"acción es denegar"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -688,7 +701,9 @@ msgstr "Poner Ausente al minimizar (y volver al restaurar)"
 
 #: ../src/settingsdialog.cc:973
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr "Abandonar automáticamente las fuentes lentas de todos los objetos en cola (excepto listas de archivos)"
+msgstr ""
+"Abandonar automáticamente las fuentes lentas de todos los objetos en cola "
+"(excepto listas de archivos)"
 
 #: ../src/settingsdialog.cc:1592
 msgid "Automatically disconnect users who leave the hub"
@@ -704,7 +719,9 @@ msgstr "Emparejar automáticamente las búsquedas automáticas en la cola"
 
 #: ../ui/settingsdialog.ui:4167
 msgid "Automatically open extra slot if speed is below (0 = disable)"
-msgstr "Abrir automáticamente slot si la velocidad está por debajo de (0 = deshabilitado)"
+msgstr ""
+"Abrir automáticamente slot si la velocidad está por debajo de (0 = "
+"deshabilitado)"
 
 #: ../src/settingsdialog.cc:976
 msgid "Automatically search for alternative download locations"
@@ -965,7 +982,7 @@ msgstr "Cerrar Mensaje privado fuera de linea"
 msgid "Close tab"
 msgstr "Cerrar pestaña"
 
-#: ../src/transfers.cc:403
+#: ../src/transfers.cc:407
 msgid "Closing connection..."
 msgstr "Cerrando conexión..."
 
@@ -1024,15 +1041,15 @@ msgstr "Conectar con el Hub"
 msgid "Connect to the hub"
 msgstr "Conectar con el Hub"
 
-#: ../src/hub.cc:3431 ../src/transfers.cc:1020
+#: ../src/hub.cc:3431 ../src/transfers.cc:1029
 msgid "Connected"
 msgstr "Conectado"
 
-#: ../src/transfers.cc:1056
+#: ../src/transfers.cc:1065
 msgid "Connecting"
 msgstr "Conectando"
 
-#: ../src/transfers.cc:370
+#: ../src/transfers.cc:374
 msgid "Connecting (forced)..."
 msgstr "Conectando (forzando)..."
 
@@ -1040,7 +1057,7 @@ msgstr "Conectando (forzando)..."
 msgid "Connecting to "
 msgstr "Conectando a "
 
-#: ../src/transfers.cc:1009
+#: ../src/transfers.cc:1018
 msgid "Connecting..."
 msgstr "Conectando..."
 
@@ -1082,7 +1099,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "Cliente DC++ Basado en el código fuente de FreeDC++ y LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ version del núcleo: %s"
+msgstr ""
+"Cliente DC++ Basado en el código fuente de FreeDC++ y LinuxDC++\n"
+"\n"
+"EiskaltDC++ version: %s (%s)\n"
+"DC++ version del núcleo: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1199,7 +1220,8 @@ msgstr "No cerrar el lado del panel en búsqueda"
 
 #: ../src/settingsdialog.cc:975
 msgid "Don't remove the source when auto-dropping, only disconnect"
-msgstr "No eliminar la fuente cuando se  abandona automáticamente, solo desconectar"
+msgstr ""
+"No eliminar la fuente cuando se  abandona automáticamente, solo desconectar"
 
 #: ../src/settingsdialog.cc:1599
 msgid "Don't send the away message to bots"
@@ -1209,8 +1231,8 @@ msgstr "No mandar mensajes de Ausente a los bots"
 msgid "Done"
 msgstr "Correcto"
 
-#: ../src/settingsdialog.cc:1381 ../ui/sharebrowser.ui:80
-#: ../ui/sharebrowser.ui:126
+#: ../src/settingsdialog.cc:1381 ../src/transfers.cc:581
+#: ../src/transfers.cc:954 ../ui/sharebrowser.ui:80 ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr "Descarga"
 
@@ -1231,7 +1253,7 @@ msgstr "Descargar _a..."
 msgid "Download _whole directory"
 msgstr "Descargar en _este directorio"
 
-#: ../src/transfers.cc:960
+#: ../src/transfers.cc:967
 msgid "Download complete..."
 msgstr "Completando descarga..."
 
@@ -1240,7 +1262,7 @@ msgid "Download failed: "
 msgstr "Descarga fallida: "
 
 #: ../src/settingsdialog.cc:1149 ../src/settingsdialog.cc:1317
-#: ../src/transfers.cc:1081 ../src/settingsmanager.cc:236
+#: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr "Descarga finalizada"
 
@@ -1271,9 +1293,11 @@ msgstr "Descargando limite de imagen: "
 
 #: ../src/hub.cc:2049
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr "Descargar limite de imagen: 0 - deshabilitado, n < 0 - sin limite, vacío - información"
+msgstr ""
+"Descargar limite de imagen: 0 - deshabilitado, n < 0 - sin limite, vacío - "
+"información"
 
-#: ../src/transfers.cc:1090
+#: ../src/transfers.cc:1099
 msgid "Download removed"
 msgstr "Descarga eliminada"
 
@@ -1281,7 +1305,7 @@ msgstr "Descarga eliminada"
 msgid "Download speed"
 msgstr "Velocidad de descarga"
 
-#: ../src/transfers.cc:912
+#: ../src/transfers.cc:918
 msgid "Download starting..."
 msgstr "Comenzando descarga..."
 
@@ -1309,10 +1333,6 @@ msgstr "Descarga: "
 #: ../src/downloadqueue.cc:288 ../src/downloadqueue.cc:395
 msgid "Downloaded"
 msgstr "Descargado"
-
-#: ../src/transfers.cc:576 ../src/transfers.cc:945
-msgid "Downloaded "
-msgstr "Descargado "
 
 #: ../src/publichubs.cc:485
 msgid "Downloaded hub list is corrupted or unsupported "
@@ -1382,7 +1402,7 @@ msgstr "Activado"
 msgid "Encoding"
 msgstr "Codificación"
 
-#: ../src/transfers.cc:66
+#: ../src/transfers.cc:70
 msgid "Encryption"
 msgstr "Cifrado"
 
@@ -1541,7 +1561,7 @@ msgstr "Un usuario favorito se ha ido"
 msgid "File"
 msgstr "Archivo"
 
-#: ../src/transfers.cc:667 ../src/transfers.cc:869
+#: ../src/transfers.cc:673 ../src/transfers.cc:875
 msgid "File list"
 msgstr "Lista de archivos"
 
@@ -1570,8 +1590,8 @@ msgstr "Menú de Lista de archivos"
 #: ../src/sharebrowser.cc:341 ../src/sharebrowser.cc:555
 #: ../src/sharebrowser.cc:649 ../src/sharebrowser.cc:1016
 #: ../src/sharebrowser.cc:1050 ../src/finishedtransfers.cc:63
-#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:62
-#: ../src/transfers.cc:709 ../src/search.cc:91 ../src/search.cc:124
+#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
+#: ../src/transfers.cc:715 ../src/search.cc:91 ../src/search.cc:124
 #: ../src/search.cc:355 ../src/search.cc:610 ../src/search.cc:651
 #: ../src/search.cc:656 ../src/search.cc:824 ../src/search.cc:872
 #: ../src/search.cc:882 ../src/search.cc:1194 ../src/search.cc:1233
@@ -1629,6 +1649,10 @@ msgstr "Firewall (pasivo, último recurso)"
 msgid "Firewall with manual port forward"
 msgstr "Firewall con puerto manual de reenvío"
 
+#: ../src/transfers.cc:64
+msgid "Flags"
+msgstr ""
+
 #: ../ui/settingsdialog.ui:4072
 msgid "Follow Links"
 msgstr "Seguir enlaces"
@@ -1655,7 +1679,9 @@ msgstr "Cuadro (tamaño)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr "E tamaño del cuadro determina la anchura de la vista, valores altos perjudican el rendimiento"
+msgstr ""
+"E tamaño del cuadro determina la anchura de la vista, valores altos "
+"perjudican el rendimiento"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -1809,8 +1835,8 @@ msgstr "IP /DNS del HUB (vació = Todos, 'op' = donde operador)"
 msgid "Hub Menu"
 msgstr "Nombre del Hub"
 
-#: ../src/transfers.cc:58 ../src/transfers.cc:496 ../src/transfers.cc:561
-#: ../src/transfers.cc:592
+#: ../src/transfers.cc:58 ../src/transfers.cc:500 ../src/transfers.cc:565
+#: ../src/transfers.cc:596
 msgid "Hub Name"
 msgstr "Nombre del Hub"
 
@@ -1844,7 +1870,7 @@ msgstr "Húngaro"
 msgid "Hungarian translation\n"
 msgstr "Traducción al Húngaro\n"
 
-#: ../src/transfers.cc:65 ../src/search.cc:100 ../src/search.cc:618
+#: ../src/transfers.cc:69 ../src/search.cc:100 ../src/search.cc:618
 msgid "IP"
 msgstr "IP"
 
@@ -1967,7 +1993,9 @@ msgstr "Kaffeine player"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr "Mantener archivos duplicados en la lista de archivos (los duplicados nunca se sumarán al tamaño de los compartidos)"
+msgstr ""
+"Mantener archivos duplicados en la lista de archivos (los duplicados nunca "
+"se sumarán al tamaño de los compartidos)"
 
 #: ../ui/settingsdialog.ui:3230 ../ui/settingsdialog.ui:3246
 #: ../ui/settingsdialog.ui:3278 ../ui/settingsdialog.ui:3294
@@ -2317,7 +2345,8 @@ msgstr "Sin coincidencias"
 
 #: ../ui/settingsdialog.ui:2778
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr "No añadir nuevas descargas si la velocidad exceda (KiB/s, 0 = deshabilitado)"
+msgstr ""
+"No añadir nuevas descargas si la velocidad exceda (KiB/s, 0 = deshabilitado)"
 
 #: ../src/sharebrowser.cc:890
 msgid "No search text entered"
@@ -2353,12 +2382,15 @@ msgstr "Nota: muchos de estas opciones requieres reiniciar la aplicación"
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr "Nota: ¡Los nuevos archivos serán añadidos a compartir solo cuando hayan sido hasheados!"
+msgstr ""
+"Nota: ¡Los nuevos archivos serán añadidos a compartir solo cuando hayan sido "
+"hasheados!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
-msgstr "Nota: Téngalo en cuenta, porque de cambiar las velocidades de descarga, esto no es fiable al 100% ..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgstr ""
+"Nota: Téngalo en cuenta, porque de cambiar las velocidades de descarga, esto "
+"no es fiable al 100% ..."
 
 #: ../src/settingsdialog.cc:1298 ../ui/settingsdialog.ui:5822
 msgid "Notify"
@@ -2462,7 +2494,7 @@ msgstr "Contraseña"
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
 #: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:510
-#: ../src/transfers.cc:64 ../src/transfers.cc:710 ../src/search.cc:95
+#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:95
 #: ../src/search.cc:356 ../src/search.cc:613 ../src/search.cc:690
 #: ../src/search.cc:827 ../src/search.cc:881 ../src/search.cc:1193
 #: ../src/search.cc:1232 ../src/search.cc:1289 ../src/search.cc:1354
@@ -2490,7 +2522,7 @@ msgstr "Personal"
 msgid "Pictures"
 msgstr "Imágenes"
 
-#: ../src/transfers.cc:887
+#: ../src/transfers.cc:893
 msgid "Plain"
 msgstr "Plano"
 
@@ -2551,6 +2583,11 @@ msgstr "Mensaje privado"
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr "Mensaje Privado"
+
+#: ../src/transfers.cc:59 ../src/transfers.cc:600
+#, fuzzy
+msgid "Progress"
+msgstr "Progreso de Indexado"
 
 #: ../ui/adlsearch.ui:466 ../ui/adlsearch.ui:544
 msgid "Properties"
@@ -2692,7 +2729,7 @@ msgstr "Renombrar tipo de búsqueda"
 msgid "Report a Bug"
 msgstr "Reportar error"
 
-#: ../src/transfers.cc:899
+#: ../src/transfers.cc:905
 msgid "Requesting"
 msgstr "Solicitando"
 
@@ -2814,7 +2851,8 @@ msgstr "Seleccionar lista de archivos para explorar"
 
 #: ../src/settingsdialog.cc:1101
 msgid "Send PM when double clicked in the user list"
-msgstr "Mandar mensaje privado cuando se hace doble click en la lista de usuarios"
+msgstr ""
+"Mandar mensaje privado cuando se hace doble click en la lista de usuarios"
 
 #: ../ui/uploadqueue.ui:78
 msgid "Send Private Message"
@@ -2867,9 +2905,10 @@ msgid "Set download limit image: "
 msgstr "Configurar descarga imagen limite: "
 
 #: ../src/settingsdialog.cc:972
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Establecer prioridad más baja para los nuevos archivos agregados más grandes que el tamaño de baja prioridad"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Establecer prioridad más baja para los nuevos archivos agregados más grandes "
+"que el tamaño de baja prioridad"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -2974,8 +3013,8 @@ msgstr ""
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:106
 #: ../src/sharebrowser.cc:318 ../src/sharebrowser.cc:349
-#: ../src/transfers.cc:63 ../src/transfers.cc:544 ../src/transfers.cc:711
-#: ../src/transfers.cc:723 ../src/search.cc:94 ../src/search.cc:121
+#: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
+#: ../src/transfers.cc:729 ../src/search.cc:94 ../src/search.cc:121
 #: ../src/search.cc:612 ../src/search.cc:695 ../src/search.cc:704
 #: ../src/search.cc:830 ../ui/search.ui:318 ../ui/mainwindow.ui:118
 msgid "Size"
@@ -3061,8 +3100,8 @@ msgstr "Traducción al Español\n"
 
 #: ../src/finishedtransfers.cc:67 ../src/finishedtransfers.cc:88
 #: ../src/finishedtransfers.cc:197 ../src/finishedtransfers.cc:241
-#: ../src/transfers.cc:61 ../src/transfers.cc:557 ../src/transfers.cc:593
-#: ../src/transfers.cc:760
+#: ../src/transfers.cc:63 ../src/transfers.cc:561 ../src/transfers.cc:597
+#: ../src/transfers.cc:766
 msgid "Speed"
 msgstr "Velocidad"
 
@@ -3080,9 +3119,9 @@ msgstr "Estado de la preparación"
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/searchspy.cc:60 ../src/searchspy.cc:298
-#: ../src/searchspy.cc:380 ../src/transfers.cc:59 ../src/transfers.cc:370
-#: ../src/transfers.cc:403 ../src/transfers.cc:497 ../src/transfers.cc:585
-#: ../src/transfers.cc:595 ../src/transfers.cc:758
+#: ../src/searchspy.cc:380 ../src/transfers.cc:60 ../src/transfers.cc:374
+#: ../src/transfers.cc:407 ../src/transfers.cc:501 ../src/transfers.cc:587
+#: ../src/transfers.cc:601 ../src/transfers.cc:764
 msgid "Status"
 msgstr "Estado"
 
@@ -3119,7 +3158,7 @@ msgstr "TIS-620 (Tahilandia)"
 msgid "TTH"
 msgstr "TTH"
 
-#: ../src/transfers.cc:704 ../src/transfers.cc:705 ../src/transfers.cc:871
+#: ../src/transfers.cc:710 ../src/transfers.cc:711 ../src/transfers.cc:877
 msgid "TTH: "
 msgstr "TTH:"
 
@@ -3147,7 +3186,10 @@ msgstr "Estilo del texto"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr "El incremento en el tiempo de espera incrementa el la posibilidad de añadirlas al principio de la lista, pero reduce el dinamismo (actualización) del cuadro"
+msgstr ""
+"El incremento en el tiempo de espera incrementa el la posibilidad de "
+"añadirlas al principio de la lista, pero reduce el dinamismo (actualización) "
+"del cuadro"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
@@ -3166,11 +3208,11 @@ msgstr "Temas"
 #: ../src/finishedtransfers.cc:96 ../src/finishedtransfers.cc:97
 #: ../src/finishedtransfers.cc:192 ../src/finishedtransfers.cc:236
 #: ../src/searchspy.cc:59 ../src/searchspy.cc:272 ../src/searchspy.cc:297
-#: ../src/searchspy.cc:313
+#: ../src/searchspy.cc:313 ../src/transfers.cc:61
 msgid "Time"
 msgstr "Tiempo"
 
-#: ../src/transfers.cc:60 ../src/transfers.cc:594
+#: ../src/transfers.cc:62 ../src/transfers.cc:599
 msgid "Time Left"
 msgstr "Tiempo Restante"
 
@@ -3198,7 +3240,9 @@ msgstr "A (vació para el usuario seleccionado)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr "Para que empiece a descargar el archivo necesita encender la autobusqueda de alternativas (Opciones/Descargas/Cola)"
+msgstr ""
+"Para que empiece a descargar el archivo necesita encender la autobusqueda de "
+"alternativas (Opciones/Descargas/Cola)"
 
 #: ../ui/settingsdialog.ui:6132
 msgid "Toolbar"
@@ -3247,10 +3291,11 @@ msgstr "Total: "
 #: ../src/finishedtransfers.cc:66 ../src/finishedtransfers.cc:87
 #: ../src/finishedtransfers.cc:187 ../src/finishedtransfers.cc:196
 #: ../src/finishedtransfers.cc:240 ../src/finishedtransfers.cc:602
+#: ../src/transfers.cc:65 ../src/transfers.cc:598
 msgid "Transferred"
 msgstr "Transferido"
 
-#: ../src/transfers.cc:608
+#: ../src/transfers.cc:614
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
 msgstr "Transferencias::actualizarTransferencia, CID no encontrada %s\n"
@@ -3291,14 +3336,18 @@ msgstr "No se puede cargar lista de archivos: "
 
 #: ../src/mainwindow.cc:2027
 msgid "Unable to load file list: Invalid file list name"
-msgstr "No se puede cargar lista de archivos: Nombre de la lista de archivos invalida"
+msgstr ""
+"No se puede cargar lista de archivos: Nombre de la lista de archivos invalida"
 
 #: ../src/mainwindow.cc:2266
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "No se puede habilitar e puerto %1%. La búsqueda y la transferencia de archivos funcionarán incorrectamente hasta que cambie las opciones o apague la aplicación que esté usando dicho puerto."
+msgstr ""
+"No se puede habilitar e puerto %1%. La búsqueda y la transferencia de "
+"archivos funcionarán incorrectamente hasta que cambie las opciones o apague "
+"la aplicación que esté usando dicho puerto."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3334,7 +3383,7 @@ msgstr "Actualizar lista de archivos propios"
 msgid "Updating string or TTH"
 msgstr "Actualizando campo o TTH"
 
-#: ../src/settingsdialog.cc:1382
+#: ../src/settingsdialog.cc:1382 ../src/transfers.cc:1142
 msgid "Upload"
 msgstr "Subida"
 
@@ -3346,7 +3395,7 @@ msgstr "Cola de descarga"
 msgid "Upload Slots"
 msgstr "Subiendo: "
 
-#: ../src/transfers.cc:1145
+#: ../src/transfers.cc:1155
 msgid "Upload complete..."
 msgstr "Subida completa.."
 
@@ -3362,17 +3411,13 @@ msgstr "Subiendo:"
 msgid "Upload speed"
 msgstr "Subiendo "
 
-#: ../src/transfers.cc:1099
+#: ../src/transfers.cc:1108
 msgid "Upload starting..."
 msgstr "Comenzando subida..."
 
 #: ../src/mainwindow.cc:743
 msgid "Upload: "
 msgstr "Subida: "
-
-#: ../src/transfers.cc:1130
-msgid "Uploaded "
-msgstr "Subiendo "
 
 #: ../src/settingsdialog.cc:361 ../src/settingsdialog.cc:399
 #: ../src/settingsdialog.cc:433 ../src/settingsdialog.cc:675
@@ -3429,7 +3474,8 @@ msgstr "Usar emoticonos"
 
 #: ../src/settingsdialog.cc:1600
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr "Usar método rápido de hasheo (deshabilitar si tiene problemas con el hasheo)"
+msgstr ""
+"Usar método rápido de hasheo (deshabilitar si tiene problemas con el hasheo)"
 
 #: ../src/settingsdialog.cc:1097
 msgid "Use magnet split"
@@ -3443,8 +3489,8 @@ msgstr "Utilice el segundo conjunto de límites de ancho de banda"
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr "Usar separador de extensiones (doc;xls;ppt;docx;xlsx;pptx)"
 
-#: ../src/transfers.cc:57 ../src/transfers.cc:84 ../src/transfers.cc:86
-#: ../src/transfers.cc:495 ../src/transfers.cc:560 ../src/transfers.cc:591
+#: ../src/transfers.cc:57 ../src/transfers.cc:88 ../src/transfers.cc:90
+#: ../src/transfers.cc:499 ../src/transfers.cc:564 ../src/transfers.cc:595
 msgid "User"
 msgstr "Usuario"
 
@@ -3530,12 +3576,22 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Uso:\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n  eiskaltdcpp-gtk <Key>\nEiskaltDC++ es un programa de plataforma-cruzada (multisistema) que usa los protocolos Direct Connect y ADC \n\nOpciones:\n  -h, --help\t muestra este mensaje\n  -V, --version\t Muestra la version del programa\n"
+msgstr ""
+"Uso:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ es un programa de plataforma-cruzada (multisistema) que usa los "
+"protocolos Direct Connect y ADC \n"
+"\n"
+"Opciones:\n"
+"  -h, --help\t muestra este mensaje\n"
+"  -V, --version\t Muestra la version del programa\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:356
 msgid "Video"
@@ -3577,13 +3633,16 @@ msgstr "Espera (segundos)"
 #: ../src/hub.cc:551
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr "Esperando por contraseña de entrada (no eliminar /password antes de su contraseña)"
+msgstr ""
+"Esperando por contraseña de entrada (no eliminar /password antes de su "
+"contraseña)"
 
-#: ../src/transfers.cc:578
-msgid "Waiting for slot "
+#: ../src/transfers.cc:583
+#, fuzzy
+msgid "Waiting for slot"
 msgstr "Esperando slot "
 
-#: ../src/transfers.cc:1058
+#: ../src/transfers.cc:1067
 msgid "Waiting to retry"
 msgstr "Esperando reintento"
 
@@ -3623,19 +3682,19 @@ msgstr "Si"
 msgid "[HIDDEN SHARE] "
 msgstr "[ESCONDER COMPARTIDOS] "
 
-#: ../src/transfers.cc:935 ../src/transfers.cc:1122
+#: ../src/transfers.cc:941 ../src/transfers.cc:1131
 msgid "[S]"
 msgstr "[S]"
 
-#: ../src/transfers.cc:940
+#: ../src/transfers.cc:946
 msgid "[T]"
 msgstr "[T]"
 
-#: ../src/transfers.cc:937 ../src/transfers.cc:1124
+#: ../src/transfers.cc:943 ../src/transfers.cc:1133
 msgid "[U]"
 msgstr "[U]"
 
-#: ../src/transfers.cc:942 ../src/transfers.cc:1127
+#: ../src/transfers.cc:948 ../src/transfers.cc:1136
 msgid "[Z]"
 msgstr "[Z]"
 
@@ -3901,7 +3960,7 @@ msgstr "dentro del programa"
 msgid "loading error"
 msgstr "Sin errores"
 
-#: ../src/transfers.cc:1102
+#: ../src/transfers.cc:1111
 msgid "none"
 msgstr "nada"
 
@@ -3946,3 +4005,12 @@ msgstr "Alto/Espera/Cuadro: "
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "espere..."
+
+#~ msgid "%) from "
+#~ msgstr "%) desde "
+
+#~ msgid "Downloaded "
+#~ msgstr "Descargado "
+
+#~ msgid "Uploaded "
+#~ msgstr "Subiendo "

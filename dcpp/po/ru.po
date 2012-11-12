@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Boris Pek <tehnick-8@mail.ru>, 2012.
 # Vyacheslav Tretyakov <tret2003@gmail.com>, 2012.
@@ -12,12 +12,14 @@ msgstr ""
 "POT-Creation-Date: 2012-07-04 19:44+0300\n"
 "PO-Revision-Date: 2012-07-04 17:19+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/language/ru/)\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -124,26 +126,32 @@ msgstr "Определение наилучших настроек соедин�
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr "Невозможно открыть порт(ы) %1%. Настройки подключения должны быть установлены вручную"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr ""
+"Невозможно открыть порт(ы) %1%. Настройки подключения должны быть "
+"установлены вручную"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr "Публичный IP-адрес обнаружен, выбирается активный режим с прямым подключением"
+msgstr ""
+"Публичный IP-адрес обнаружен, выбирается активный режим с прямым подключением"
 
 #: ../ConnectivityManager.cpp:102
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr "Обнаружена локальная сеть с возможным использованием NAT, делаю попытку пробросить порты, используя UPnP..."
+msgstr ""
+"Обнаружена локальная сеть с возможным использованием NAT, делаю попытку "
+"пробросить порты, используя UPnP..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr "Автоматическая установка активного режима провалилась. Вы можете попробовать установить свое подключение вручную для лучшей связи"
+msgstr ""
+"Автоматическая установка активного режима провалилась. Вы можете попробовать "
+"установить свое подключение вручную для лучшей связи"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -242,7 +250,9 @@ msgstr "Указанное имя слишком длинное"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr "Неверный целевой файл (отсутствующая папка, проверьте настройки папки закачек по умолчанию)"
+msgstr ""
+"Неверный целевой файл (отсутствующая папка, проверьте настройки папки "
+"закачек по умолчанию)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -266,7 +276,8 @@ msgstr "Не смог переместить %1% в %2% (%3%); переимен�
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr "Не смог переместить %1% в %2% (%3%) и не смог переименовать в %4% (%5%)"
+msgstr ""
+"Не смог переместить %1% в %2% (%3%) и не смог переименовать в %4% (%5%)"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -277,9 +288,10 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Согласован файл %2%"
 
 #: ../QueueManager.cpp:1794
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
-msgstr "Каталог назначения для этого элемента недоступен: %1%; загрузка приостановлена."
+msgid "Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+"Каталог назначения для этого элемента недоступен: %1%; загрузка "
+"приостановлена."
 
 #: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -301,7 +313,9 @@ msgstr "Не удалось определить базовый протокол
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr "Скорее всего хаб использует старую версию протокола ADC, пожалуйста попросите владельца обновиться"
+msgstr ""
+"Скорее всего хаб использует старую версию протокола ADC, пожалуйста "
+"попросите владельца обновиться"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -339,7 +353,9 @@ msgstr "Тема хаба:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr "Этот хаб пытается использовать ваш клиент для спама %1%, пожалуйста сообщите владельцу хаба, чтобы он исправил это"
+msgstr ""
+"Этот хаб пытается использовать ваш клиент для спама %1%, пожалуйста сообщите "
+"владельцу хаба, чтобы он исправил это"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -401,7 +417,9 @@ msgstr " DHT порт (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr "Успешно выполнен проброс портов (TCP: %1%, UDP: %2%, TLS: %3%), используется интерфейс %4%"
+msgstr ""
+"Успешно выполнен проброс портов (TCP: %1%, UDP: %2%, TLS: %3%), используется "
+"интерфейс %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -563,13 +581,16 @@ msgstr "Пользователь выбрал нерасшаренный вре�
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr "Дубликат файла не будет расшарен: %1% (Размер: %2% B) Копия совпала с: %3%"
+msgstr ""
+"Дубликат файла не будет расшарен: %1% (Размер: %2% B) Копия совпала с: %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
-msgstr "Выполняется обновление списка файлов, пожалуйста, дождитесь окончания, прежде чем обновлять список вновь"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Выполняется обновление списка файлов, пожалуйста, дождитесь окончания, "
+"прежде чем обновлять список вновь"
 
 #: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
@@ -639,13 +660,15 @@ msgstr "Socks сервер не поддерживает авторизацию"
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr "Авторизация на socks сервере отклонена, возможно неверный логин или пароль"
+msgstr ""
+"Авторизация на socks сервере отклонена, возможно неверный логин или пароль"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr "Не удалось настроить socks сервер для UDP (проверьте socks адрес и порт)"
+msgstr ""
+"Не удалось настроить socks сервер для UDP (проверьте socks адрес и порт)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"

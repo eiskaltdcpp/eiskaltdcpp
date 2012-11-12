@@ -1,22 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Ехе Кім Урґ <yehekim@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-07-04 20:04+0300\n"
+"POT-Creation-Date: 2012-11-13 00:16+0200\n"
 "PO-Revision-Date: 2012-07-23 14:27+0000\n"
-"Last-Translator: Клёк Урґ <yehekim@gmail.com>\n"
-"Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/language/be/)\n"
+"Last-Translator: Павал Клёк <yehekim@gmail.com>\n"
+"Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/be/)\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1057 ../src/hub.cc:1136
@@ -103,7 +105,7 @@ msgstr " выкрасьлілі з улюбёнцаў"
 msgid " to "
 msgstr " да "
 
-#: ../src/transfers.cc:581 ../src/search.cc:674
+#: ../src/search.cc:674
 msgid " user(s)"
 msgstr " карыстальнік(і,аў)"
 
@@ -115,10 +117,6 @@ msgstr " карыстальнік(і,аў) у сетцы"
 msgid " users"
 msgstr " карыстальнікаў"
 
-#: ../src/transfers.cc:581
-msgid "%) from "
-msgstr "%) ад "
-
 #: ../ui/settingsdialog.ui:4707
 msgid ""
 "%a abbreviated weekday name.\n"
@@ -129,7 +127,15 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a — скарочаная назва дня тыдня.\n%b — скарочаная назва месяца.\n%w — дзень тыдня (0–6; нядзелі адпавядае 0).\n%M — хвіліна дзесятковым лікам (00–59).\n%S — сэкунда дзесятковым лікам (00–59).\n%% — знак «%» (адсотак).\n\nЗа падрабязнасьцямі зьвяртайцеся да man strftime."
+msgstr ""
+"%a — скарочаная назва дня тыдня.\n"
+"%b — скарочаная назва месяца.\n"
+"%w — дзень тыдня (0–6; нядзелі адпавядае 0).\n"
+"%M — хвіліна дзесятковым лікам (00–59).\n"
+"%S — сэкунда дзесятковым лікам (00–59).\n"
+"%% — знак «%» (адсотак).\n"
+"\n"
+"За падрабязнасьцямі зьвяртайцеся да man strftime."
 
 #: ../src/hub.cc:2360
 msgid "': type /help for a list of available commands"
@@ -183,9 +189,11 @@ msgstr ": надрукуйце «/help», каб атрымаць сьпіс д�
 
 #: ../ui/settingsdialog.ui:7198
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Дапамога</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Дапамога</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -345,7 +353,8 @@ msgstr "<b>Новая назва</b>"
 
 #: ../ui/settingsdialog.ui:9197 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Уважце:</b> абраныя ў сьпісе спасылкі правяцца па першым пстрыку мышкаю"
+msgstr ""
+"<b>Уважце:</b> абраныя ў сьпісе спасылкі правяцца па першым пстрыку мышкаю"
 
 #: ../ui/settingsdialog.ui:5484
 msgid "<b>Notify</b>"
@@ -525,13 +534,17 @@ msgstr "Дадаць асяродак да ўлюбёных"
 
 #: ../src/settingsdialog.cc:1598
 msgid "Add finished files to share instantly (if shared)"
-msgstr "Адразу ж дадаваць апрацаваныя файлы да абагуленага (калі яны абагуляюцца)"
+msgstr ""
+"Адразу ж дадаваць апрацаваныя файлы да абагуленага (калі яны абагуляюцца)"
 
 #: ../src/hub.cc:2066
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr "Дадае правіла 192.168.1.0/23, дзе накірунак — уваходныя, дзеяньне — дазволіць, і правіла 192.168.6.0/24, дзе накірунак — уваходныя ды выходныя, а дзеяньне — прапусьціць"
+msgstr ""
+"Дадае правіла 192.168.1.0/23, дзе накірунак — уваходныя, дзеяньне — "
+"дазволіць, і правіла 192.168.6.0/24, дзе накірунак — уваходныя ды выходныя, "
+"а дзеяньне — прапусьціць"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -698,7 +711,8 @@ msgstr "Самарушна перанакіроўвацца"
 
 #: ../src/settingsdialog.cc:977
 msgid "Automatically match queue for auto search hits"
-msgstr "Дадаваць у чаргу сьпісы файлаў, якія зьмяшчаюць тое, што самарушна шукаецца"
+msgstr ""
+"Дадаваць у чаргу сьпісы файлаў, якія зьмяшчаюць тое, што самарушна шукаецца"
 
 #: ../ui/settingsdialog.ui:4167
 msgid "Automatically open extra slot if speed is below (0 = disable)"
@@ -963,7 +977,7 @@ msgstr "Зачыніць размовы з адлучанымі"
 msgid "Close tab"
 msgstr "Зачыніць картку"
 
-#: ../src/transfers.cc:403
+#: ../src/transfers.cc:407
 msgid "Closing connection..."
 msgstr "Зачыняецца злучэньне…"
 
@@ -1022,15 +1036,15 @@ msgstr "Злучыцца з асяродкам"
 msgid "Connect to the hub"
 msgstr "Злучыцца з асяродкам"
 
-#: ../src/hub.cc:3431 ../src/transfers.cc:1020
+#: ../src/hub.cc:3431 ../src/transfers.cc:1029
 msgid "Connected"
 msgstr "Злучыліся"
 
-#: ../src/transfers.cc:1056
+#: ../src/transfers.cc:1065
 msgid "Connecting"
 msgstr "Злучаемся"
 
-#: ../src/transfers.cc:370
+#: ../src/transfers.cc:374
 msgid "Connecting (forced)..."
 msgstr "Злучаемся (прымусова)…"
 
@@ -1038,7 +1052,7 @@ msgstr "Злучаемся (прымусова)…"
 msgid "Connecting to "
 msgstr "Злучаемся з "
 
-#: ../src/transfers.cc:1009
+#: ../src/transfers.cc:1018
 msgid "Connecting..."
 msgstr "Злучаемся…"
 
@@ -1080,7 +1094,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "Кліент DC++, які грунтуецца на выточным кодзе FreeDC++ і LinuxDC++\n\nВэрсія «EiskaltDC++»: %s (%s)\nВэрсія асновы DC++: %s"
+msgstr ""
+"Кліент DC++, які грунтуецца на выточным кодзе FreeDC++ і LinuxDC++\n"
+"\n"
+"Вэрсія «EiskaltDC++»: %s (%s)\n"
+"Вэрсія асновы DC++: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1207,8 +1225,8 @@ msgstr "Не тлумачыць ботам стан «адсутнічаю»"
 msgid "Done"
 msgstr "Зроблена"
 
-#: ../src/settingsdialog.cc:1381 ../ui/sharebrowser.ui:80
-#: ../ui/sharebrowser.ui:126
+#: ../src/settingsdialog.cc:1381 ../src/transfers.cc:581
+#: ../src/transfers.cc:954 ../ui/sharebrowser.ui:80 ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr "Сьцягнуць"
 
@@ -1229,7 +1247,7 @@ msgstr "Сьцягнуць _у…"
 msgid "Download _whole directory"
 msgstr "Сьцягнуць увесь _каталёґ"
 
-#: ../src/transfers.cc:960
+#: ../src/transfers.cc:967
 msgid "Download complete..."
 msgstr "Скончылі сьцягваць…"
 
@@ -1238,7 +1256,7 @@ msgid "Download failed: "
 msgstr "Не ўдалося сьцягнуць: "
 
 #: ../src/settingsdialog.cc:1149 ../src/settingsdialog.cc:1317
-#: ../src/transfers.cc:1081 ../src/settingsmanager.cc:236
+#: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr "Скончылі сьцягваць"
 
@@ -1269,9 +1287,10 @@ msgstr "Абмежаваньне сьцягваць відарысы: "
 
 #: ../src/hub.cc:2049
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr "Відарысы: 0 — ня сьцягваць; n<0 — сьцягваць усе; пуста — паказаць бягучы стан"
+msgstr ""
+"Відарысы: 0 — ня сьцягваць; n<0 — сьцягваць усе; пуста — паказаць бягучы стан"
 
-#: ../src/transfers.cc:1090
+#: ../src/transfers.cc:1099
 msgid "Download removed"
 msgstr "Скасавалі"
 
@@ -1279,7 +1298,7 @@ msgstr "Скасавалі"
 msgid "Download speed"
 msgstr "Хуткасьць сьцягваць"
 
-#: ../src/transfers.cc:912
+#: ../src/transfers.cc:918
 msgid "Download starting..."
 msgstr "Пачынаем сьцягваць…"
 
@@ -1307,10 +1326,6 @@ msgstr "Сьцягнулі: "
 #: ../src/downloadqueue.cc:288 ../src/downloadqueue.cc:395
 msgid "Downloaded"
 msgstr "Сьцягнулі"
-
-#: ../src/transfers.cc:576 ../src/transfers.cc:945
-msgid "Downloaded "
-msgstr "Сьцягнулі "
 
 #: ../src/publichubs.cc:485
 msgid "Downloaded hub list is corrupted or unsupported "
@@ -1380,7 +1395,7 @@ msgstr "Дзейнічае"
 msgid "Encoding"
 msgstr "Кадоўка"
 
-#: ../src/transfers.cc:66
+#: ../src/transfers.cc:70
 msgid "Encryption"
 msgstr "Шыфраваньне"
 
@@ -1539,7 +1554,7 @@ msgstr "Улюбёнец выйшаў"
 msgid "File"
 msgstr "Файл"
 
-#: ../src/transfers.cc:667 ../src/transfers.cc:869
+#: ../src/transfers.cc:673 ../src/transfers.cc:875
 msgid "File list"
 msgstr "Сьпіс файлаў"
 
@@ -1568,8 +1583,8 @@ msgstr "Мэню сьпісу файлаў"
 #: ../src/sharebrowser.cc:341 ../src/sharebrowser.cc:555
 #: ../src/sharebrowser.cc:649 ../src/sharebrowser.cc:1016
 #: ../src/sharebrowser.cc:1050 ../src/finishedtransfers.cc:63
-#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:62
-#: ../src/transfers.cc:709 ../src/search.cc:91 ../src/search.cc:124
+#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
+#: ../src/transfers.cc:715 ../src/search.cc:91 ../src/search.cc:124
 #: ../src/search.cc:355 ../src/search.cc:610 ../src/search.cc:651
 #: ../src/search.cc:656 ../src/search.cc:824 ../src/search.cc:872
 #: ../src/search.cc:882 ../src/search.cc:1194 ../src/search.cc:1233
@@ -1627,6 +1642,10 @@ msgstr "Сетказаслона (нядзейны — найгоршы спос
 msgid "Firewall with manual port forward"
 msgstr "Сетказаслона з ручным перасыланьнем портаў"
 
+#: ../src/transfers.cc:64
+msgid "Flags"
+msgstr ""
+
 #: ../ui/settingsdialog.ui:4072
 msgid "Follow Links"
 msgstr "Хадзіць па спасылках"
@@ -1653,7 +1672,9 @@ msgstr "Кадар (памер)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr "Памеры кадру вызначае шырыню агляду, але вялікія значэньні ўплываюць на выніковасьць"
+msgstr ""
+"Памеры кадру вызначае шырыню агляду, але вялікія значэньні ўплываюць на "
+"выніковасьць"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -1807,8 +1828,8 @@ msgstr "Адрас IP ці DNS асяродку (пуста = усе, «op» —
 msgid "Hub Menu"
 msgstr "Мэню асяродку"
 
-#: ../src/transfers.cc:58 ../src/transfers.cc:496 ../src/transfers.cc:561
-#: ../src/transfers.cc:592
+#: ../src/transfers.cc:58 ../src/transfers.cc:500 ../src/transfers.cc:565
+#: ../src/transfers.cc:596
 msgid "Hub Name"
 msgstr "Назва асяродку"
 
@@ -1842,7 +1863,7 @@ msgstr "Вугорская"
 msgid "Hungarian translation\n"
 msgstr "Вугорская мова\n"
 
-#: ../src/transfers.cc:65 ../src/search.cc:100 ../src/search.cc:618
+#: ../src/transfers.cc:69 ../src/search.cc:100 ../src/search.cc:618
 msgid "IP"
 msgstr "Адрас IP"
 
@@ -1965,7 +1986,9 @@ msgstr "Прайгравальнік Kaffeine"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr "Пакідаць падвойныя файлы ў сьпісе файлаў (яны не ўплываюць на памер абагуленага)"
+msgstr ""
+"Пакідаць падвойныя файлы ў сьпісе файлаў (яны не ўплываюць на памер "
+"абагуленага)"
 
 #: ../ui/settingsdialog.ui:3230 ../ui/settingsdialog.ui:3246
 #: ../ui/settingsdialog.ui:3278 ../ui/settingsdialog.ui:3294
@@ -2347,15 +2370,18 @@ msgstr "Уважце: абраныя віды пошуку будуць прац
 
 #: ../ui/settingsdialog.ui:4754 ../ui/settingsdialog.ui:4824
 msgid "Note: Most of these options require that you restart the application"
-msgstr "Уважце: зьмяненьні ў большасьці можнасьцяў пачынаюць дзейнічаць па наступным запуску праґрамы"
+msgstr ""
+"Уважце: зьмяненьні ў большасьці можнасьцяў пачынаюць дзейнічаць па наступным "
+"запуску праґрамы"
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr "Уважце: новыя файлы будуць дадавацца да абагуленага толькі калі да іх створацца скароты!"
+msgstr ""
+"Уважце: новыя файлы будуць дадавацца да абагуленага толькі калі да іх "
+"створацца скароты!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Уважце: хуткасьць зьмяняецца, таму гэта вызначаецца недакладна…"
 
 #: ../src/settingsdialog.cc:1298 ../ui/settingsdialog.ui:5822
@@ -2460,7 +2486,7 @@ msgstr "Гасло"
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
 #: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:510
-#: ../src/transfers.cc:64 ../src/transfers.cc:710 ../src/search.cc:95
+#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:95
 #: ../src/search.cc:356 ../src/search.cc:613 ../src/search.cc:690
 #: ../src/search.cc:827 ../src/search.cc:881 ../src/search.cc:1193
 #: ../src/search.cc:1232 ../src/search.cc:1289 ../src/search.cc:1354
@@ -2488,7 +2514,7 @@ msgstr "Асабістае"
 msgid "Pictures"
 msgstr "Малюнкі"
 
-#: ../src/transfers.cc:887
+#: ../src/transfers.cc:893
 msgid "Plain"
 msgstr "Звычайны"
 
@@ -2549,6 +2575,11 @@ msgstr "Файл асабістага ключа"
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr "Асабістае паведамленьне"
+
+#: ../src/transfers.cc:59 ../src/transfers.cc:600
+#, fuzzy
+msgid "Progress"
+msgstr "Поступ стварэньня скаротаў"
 
 #: ../ui/adlsearch.ui:466 ../ui/adlsearch.ui:544
 msgid "Properties"
@@ -2631,7 +2662,8 @@ msgstr "Абнавіць сьпіс файлаў"
 
 #: ../src/settingsdialog.cc:1601
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
-msgstr "Запісацца ў апэрацыйнае сыстэме як апрацоўнік спасылак «dchub://» і «adc://»"
+msgstr ""
+"Запісацца ў апэрацыйнае сыстэме як апрацоўнік спасылак «dchub://» і «adc://»"
 
 #: ../src/settingsdialog.cc:1602
 msgid "Register with the OS to handle magnet: URL links"
@@ -2690,7 +2722,7 @@ msgstr "Даць новую назву віду пошуку"
 msgid "Report a Bug"
 msgstr "Паведаміць пра хібу"
 
-#: ../src/transfers.cc:899
+#: ../src/transfers.cc:905
 msgid "Requesting"
 msgstr "Запытваемся"
 
@@ -2812,7 +2844,8 @@ msgstr "Абярыце сьпіс файлаў"
 
 #: ../src/settingsdialog.cc:1101
 msgid "Send PM when double clicked in the user list"
-msgstr "Дасылаць асабістае паведамленьне падвойным пстрыкам у сьпісе карыстальнікаў"
+msgstr ""
+"Дасылаць асабістае паведамленьне падвойным пстрыкам у сьпісе карыстальнікаў"
 
 #: ../ui/uploadqueue.ui:78
 msgid "Send Private Message"
@@ -2865,9 +2898,10 @@ msgid "Set download limit image: "
 msgstr "Вызначылі абмежаваньне сьцягваць малюнкі: "
 
 #: ../src/settingsdialog.cc:972
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Калі дадаецца файл, большы за памер для нізкага пяршынства, надаваць яму найніжэйшае пяршынства"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Калі дадаецца файл, большы за памер для нізкага пяршынства, надаваць яму "
+"найніжэйшае пяршынства"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -2972,8 +3006,8 @@ msgstr "Апрацоўнікі сыґналаў усталявалі.\n"
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:106
 #: ../src/sharebrowser.cc:318 ../src/sharebrowser.cc:349
-#: ../src/transfers.cc:63 ../src/transfers.cc:544 ../src/transfers.cc:711
-#: ../src/transfers.cc:723 ../src/search.cc:94 ../src/search.cc:121
+#: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
+#: ../src/transfers.cc:729 ../src/search.cc:94 ../src/search.cc:121
 #: ../src/search.cc:612 ../src/search.cc:695 ../src/search.cc:704
 #: ../src/search.cc:830 ../ui/search.ui:318 ../ui/mainwindow.ui:118
 msgid "Size"
@@ -3059,8 +3093,8 @@ msgstr "Гішпанская мова\n"
 
 #: ../src/finishedtransfers.cc:67 ../src/finishedtransfers.cc:88
 #: ../src/finishedtransfers.cc:197 ../src/finishedtransfers.cc:241
-#: ../src/transfers.cc:61 ../src/transfers.cc:557 ../src/transfers.cc:593
-#: ../src/transfers.cc:760
+#: ../src/transfers.cc:63 ../src/transfers.cc:561 ../src/transfers.cc:597
+#: ../src/transfers.cc:766
 msgid "Speed"
 msgstr "Хуткасьць"
 
@@ -3078,9 +3112,9 @@ msgstr "Стан падрыхтаванасьці"
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/searchspy.cc:60 ../src/searchspy.cc:298
-#: ../src/searchspy.cc:380 ../src/transfers.cc:59 ../src/transfers.cc:370
-#: ../src/transfers.cc:403 ../src/transfers.cc:497 ../src/transfers.cc:585
-#: ../src/transfers.cc:595 ../src/transfers.cc:758
+#: ../src/searchspy.cc:380 ../src/transfers.cc:60 ../src/transfers.cc:374
+#: ../src/transfers.cc:407 ../src/transfers.cc:501 ../src/transfers.cc:587
+#: ../src/transfers.cc:601 ../src/transfers.cc:764
 msgid "Status"
 msgstr "Стан"
 
@@ -3117,7 +3151,7 @@ msgstr "TIS-620"
 msgid "TTH"
 msgstr "Скарот (TTH)"
 
-#: ../src/transfers.cc:704 ../src/transfers.cc:705 ../src/transfers.cc:871
+#: ../src/transfers.cc:710 ../src/transfers.cc:711 ../src/transfers.cc:877
 msgid "TTH: "
 msgstr "Скарот (TTH): "
 
@@ -3145,7 +3179,9 @@ msgstr "Стыль тэксту"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr "Калі павялічыць час чаканьня, павялічыцца імавернасьць дадаць у найлепшыя, але чашчыня абнаўленьня кадру паменшыцца"
+msgstr ""
+"Калі павялічыць час чаканьня, павялічыцца імавернасьць дадаць у найлепшыя, "
+"але чашчыня абнаўленьня кадру паменшыцца"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
@@ -3164,11 +3200,11 @@ msgstr "Аздабленьні"
 #: ../src/finishedtransfers.cc:96 ../src/finishedtransfers.cc:97
 #: ../src/finishedtransfers.cc:192 ../src/finishedtransfers.cc:236
 #: ../src/searchspy.cc:59 ../src/searchspy.cc:272 ../src/searchspy.cc:297
-#: ../src/searchspy.cc:313
+#: ../src/searchspy.cc:313 ../src/transfers.cc:61
 msgid "Time"
 msgstr "Час"
 
-#: ../src/transfers.cc:60 ../src/transfers.cc:594
+#: ../src/transfers.cc:62 ../src/transfers.cc:599
 msgid "Time Left"
 msgstr "Засталося"
 
@@ -3196,7 +3232,9 @@ msgstr "Каму (пуста = абранаму карыстальніку)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr "Каб файл пачаў сьцягвацца, трэба дазволіць самарушна шукаць крыніцы (Перавагі/Сьцягванае/Чарга)"
+msgstr ""
+"Каб файл пачаў сьцягвацца, трэба дазволіць самарушна шукаць крыніцы "
+"(Перавагі/Сьцягванае/Чарга)"
 
 #: ../ui/settingsdialog.ui:6132
 msgid "Toolbar"
@@ -3245,10 +3283,11 @@ msgstr "Разам: "
 #: ../src/finishedtransfers.cc:66 ../src/finishedtransfers.cc:87
 #: ../src/finishedtransfers.cc:187 ../src/finishedtransfers.cc:196
 #: ../src/finishedtransfers.cc:240 ../src/finishedtransfers.cc:602
+#: ../src/transfers.cc:65 ../src/transfers.cc:598
 msgid "Transferred"
 msgstr "Перадалі"
 
-#: ../src/transfers.cc:608
+#: ../src/transfers.cc:614
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
 msgstr "Transfers::updateTransfer, не знайшлі азначальнік (CID) %s\n"
@@ -3293,10 +3332,13 @@ msgstr "Не магу прачытаць сьпіс файлаў: хібная �
 
 #: ../src/mainwindow.cc:2266
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "Не магу адчыніць порт %1%. Файлы ня будуць перадавацца без памылак і пошук ня будзе працаваць належным чынам, пакуль вы ня зьменіце налады ці ня спыніце ўсе праґрамы, што выкарыстоўваюць гэты порт."
+msgstr ""
+"Не магу адчыніць порт %1%. Файлы ня будуць перадавацца без памылак і пошук "
+"ня будзе працаваць належным чынам, пакуль вы ня зьменіце налады ці ня "
+"спыніце ўсе праґрамы, што выкарыстоўваюць гэты порт."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3332,7 +3374,7 @@ msgstr "Абнавіць уласны сьпіс файлаў"
 msgid "Updating string or TTH"
 msgstr "Абнаўляецца радок або скарот"
 
-#: ../src/settingsdialog.cc:1382
+#: ../src/settingsdialog.cc:1382 ../src/transfers.cc:1142
 msgid "Upload"
 msgstr "Зацягнуць"
 
@@ -3344,7 +3386,7 @@ msgstr "Чарга зацягванага"
 msgid "Upload Slots"
 msgstr "Шчылінаў зацягваць файлы"
 
-#: ../src/transfers.cc:1145
+#: ../src/transfers.cc:1155
 msgid "Upload complete..."
 msgstr "Скончылі зацягваць…"
 
@@ -3360,17 +3402,13 @@ msgstr "Шчылінаў зацягваць файлы"
 msgid "Upload speed"
 msgstr "Хуткасьць зацягваць"
 
-#: ../src/transfers.cc:1099
+#: ../src/transfers.cc:1108
 msgid "Upload starting..."
 msgstr "Пачынаем зацягваць…"
 
 #: ../src/mainwindow.cc:743
 msgid "Upload: "
 msgstr "Зацягнулі: "
-
-#: ../src/transfers.cc:1130
-msgid "Uploaded "
-msgstr "Зацягнулі "
 
 #: ../src/settingsdialog.cc:361 ../src/settingsdialog.cc:399
 #: ../src/settingsdialog.cc:433 ../src/settingsdialog.cc:675
@@ -3427,7 +3465,9 @@ msgstr "Ужываць пачуцьцезнакі"
 
 #: ../src/settingsdialog.cc:1600
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr "Ствараць скароты хуткім спосабам (не ўжывайце, калі маеце праблемы са скаротамі)"
+msgstr ""
+"Ствараць скароты хуткім спосабам (не ўжывайце, калі маеце праблемы са "
+"скаротамі)"
 
 #: ../src/settingsdialog.cc:1097
 msgid "Use magnet split"
@@ -3441,8 +3481,8 @@ msgstr "Ужываць іншыя абмежаваньні хуткасьці ў
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr "Аддзяляйце пашырэньні кропкаю з коскаю (odt;ods;odp)"
 
-#: ../src/transfers.cc:57 ../src/transfers.cc:84 ../src/transfers.cc:86
-#: ../src/transfers.cc:495 ../src/transfers.cc:560 ../src/transfers.cc:591
+#: ../src/transfers.cc:57 ../src/transfers.cc:88 ../src/transfers.cc:90
+#: ../src/transfers.cc:499 ../src/transfers.cc:564 ../src/transfers.cc:595
 msgid "User"
 msgstr "Карыстач"
 
@@ -3528,12 +3568,22 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Як карыстацца:\n  eiskaltdcpp-gtk <маґніт-спасылка> <dchub://спасылка> <adc(s)://спасылка>\n  eiskaltdcpp-gtk <ключ>\nEiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы Direct Connect і ADC.\n\nКлючы:\n  -h, --help\t Паказвае гэтае паведамленьне\n  -V, --version\t Паказвае радок з вэрсіяй\n"
+msgstr ""
+"Як карыстацца:\n"
+"  eiskaltdcpp-gtk <маґніт-спасылка> <dchub://спасылка> <adc(s)://спасылка>\n"
+"  eiskaltdcpp-gtk <ключ>\n"
+"EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы "
+"Direct Connect і ADC.\n"
+"\n"
+"Ключы:\n"
+"  -h, --help\t Паказвае гэтае паведамленьне\n"
+"  -V, --version\t Паказвае радок з вэрсіяй\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:356
 msgid "Video"
@@ -3577,11 +3627,12 @@ msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr "Чакаем на гасло (не сьцірайце «/password» перад гаслом)"
 
-#: ../src/transfers.cc:578
-msgid "Waiting for slot "
+#: ../src/transfers.cc:583
+#, fuzzy
+msgid "Waiting for slot"
 msgstr "Чакаем на шчыліну "
 
-#: ../src/transfers.cc:1058
+#: ../src/transfers.cc:1067
 msgid "Waiting to retry"
 msgstr "Чакаем паспрабаваць зноўку"
 
@@ -3621,19 +3672,19 @@ msgstr "Так"
 msgid "[HIDDEN SHARE] "
 msgstr "[СХАВАНАЕ АБАГУЛЕНАЕ] "
 
-#: ../src/transfers.cc:935 ../src/transfers.cc:1122
+#: ../src/transfers.cc:941 ../src/transfers.cc:1131
 msgid "[S]"
 msgstr "[S]"
 
-#: ../src/transfers.cc:940
+#: ../src/transfers.cc:946
 msgid "[T]"
 msgstr "[T]"
 
-#: ../src/transfers.cc:937 ../src/transfers.cc:1124
+#: ../src/transfers.cc:943 ../src/transfers.cc:1133
 msgid "[U]"
 msgstr "[U]"
 
-#: ../src/transfers.cc:942 ../src/transfers.cc:1127
+#: ../src/transfers.cc:948 ../src/transfers.cc:1136
 msgid "[Z]"
 msgstr "[Z]"
 
@@ -3899,7 +3950,7 @@ msgstr "у праґраме"
 msgid "loading error"
 msgstr "далі хібу, калі чыталі"
 
-#: ../src/transfers.cc:1102
+#: ../src/transfers.cc:1111
 msgid "none"
 msgstr "няма"
 
@@ -3944,3 +3995,12 @@ msgstr "найлепшыя/чакаюць/бачныя: "
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "чакаем…"
+
+#~ msgid "%) from "
+#~ msgstr "%) ад "
+
+#~ msgid "Downloaded "
+#~ msgstr "Сьцягнулі "
+
+#~ msgid "Uploaded "
+#~ msgstr "Зацягнулі "

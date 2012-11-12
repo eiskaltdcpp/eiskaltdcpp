@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
@@ -10,12 +10,13 @@ msgstr ""
 "POT-Creation-Date: 2012-07-04 19:44+0300\n"
 "PO-Revision-Date: 2012-07-04 17:19+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/eiskaltdcpp/language/cs/)\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/cs/)\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -106,7 +107,9 @@ msgstr "Hash databáze obnovena"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr "%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru SFV."
+msgstr ""
+"%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru "
+"SFV."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -122,8 +125,7 @@ msgstr "Ustavuji nejlepší nastavení spojení..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr "Nemohu otevřít %1% port(y); Nastavení spojení musí být nastaveno ručně"
 
 #: ../ConnectivityManager.cpp:95
@@ -135,13 +137,17 @@ msgstr "Detekována veřejná IP adresa, vybírám aktivní mód s přímým spo
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr "Zjištěna místní síť s možností použití NAT, pokouším se namapovat porty pomocí UPnP..."
+msgstr ""
+"Zjištěna místní síť s možností použití NAT, pokouším se namapovat porty "
+"pomocí UPnP..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr "Automatické nastavení aktivního módu selhalo. Možná budete chtít nastavit vaše připojení ručně pro lepší funkčnost"
+msgstr ""
+"Automatické nastavení aktivního módu selhalo. Možná budete chtít nastavit "
+"vaše připojení ručně pro lepší funkčnost"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -240,7 +246,9 @@ msgstr "Cílové jméno souboru je příliš dlouhé"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr "Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro stáhnuté soubory)"
+msgstr ""
+"Chybný cílový soubor (chybějící adresář, zkontrolujte nastavení adresáře pro "
+"stáhnuté soubory)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -275,8 +283,7 @@ msgid "%1%: Matched %2% file"
 msgstr ""
 
 #: ../QueueManager.cpp:1794
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
+msgid "Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 
 #: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
@@ -299,7 +306,9 @@ msgstr "Nemohu nastavit základní protokol"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr "Hub pravděpodobně používá starou verzi ADC, prosím doporučte majiteli upgrade."
+msgstr ""
+"Hub pravděpodobně používá starou verzi ADC, prosím doporučte majiteli "
+"upgrade."
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -565,8 +574,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr "Probíhá obnovení seznamu souborů, prosím počkejte"
 
 #: ../ShareManager.cpp:811
@@ -643,7 +652,9 @@ msgstr "Socket Server přihlášení odmítl (neplatné jméno / heslo)"
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr "Nesprávné nastavení Socket Serveru pro UDP přenos (zkontrolujte adresu Socket Serveru a port)"
+msgstr ""
+"Nesprávné nastavení Socket Serveru pro UDP přenos (zkontrolujte adresu "
+"Socket Serveru a port)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"

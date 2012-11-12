@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Translators:
 # Boris Pek <tehnick-8@mail.ru>, 2012.
 # Вячеслав Третьяков <tret2003@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-07-04 20:04+0300\n"
-"PO-Revision-Date: 2012-11-11 18:52+0000\n"
-"Last-Translator: Вячеслав Третьяков <tret2003@gmail.com>\n"
+"POT-Creation-Date: 2012-11-13 00:16+0200\n"
+"PO-Revision-Date: 2012-11-12 22:22+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,7 +105,7 @@ msgstr " удалён из списка фаворитов"
 msgid " to "
 msgstr " в "
 
-#: ../src/transfers.cc:581 ../src/search.cc:674
+#: ../src/search.cc:674
 msgid " user(s)"
 msgstr " юзер(ы)"
 
@@ -115,10 +116,6 @@ msgstr " юзер(ов) онлайн"
 #: ../src/finishedtransfers.cc:274
 msgid " users"
 msgstr " юзеры"
-
-#: ../src/transfers.cc:581
-msgid "%) from "
-msgstr "%) от "
 
 #: ../ui/settingsdialog.ui:4707
 msgid ""
@@ -964,7 +961,7 @@ msgstr "Закрыть чаты с отключенными пользовате
 msgid "Close tab"
 msgstr "Закрыть окно"
 
-#: ../src/transfers.cc:403
+#: ../src/transfers.cc:407
 msgid "Closing connection..."
 msgstr "Закрыть соединение..."
 
@@ -1023,15 +1020,15 @@ msgstr "Подключиться к хабу"
 msgid "Connect to the hub"
 msgstr "Соединиться с хабом"
 
-#: ../src/hub.cc:3431 ../src/transfers.cc:1020
+#: ../src/hub.cc:3431 ../src/transfers.cc:1029
 msgid "Connected"
 msgstr "Соединение установлено"
 
-#: ../src/transfers.cc:1056
+#: ../src/transfers.cc:1065
 msgid "Connecting"
 msgstr "Соединение"
 
-#: ../src/transfers.cc:370
+#: ../src/transfers.cc:374
 msgid "Connecting (forced)..."
 msgstr "Соединение (принудительно)"
 
@@ -1039,7 +1036,7 @@ msgstr "Соединение (принудительно)"
 msgid "Connecting to "
 msgstr "Соединение с "
 
-#: ../src/transfers.cc:1009
+#: ../src/transfers.cc:1018
 msgid "Connecting..."
 msgstr "Соединение..."
 
@@ -1208,8 +1205,8 @@ msgstr "Не отправлять ботам сообщение \"ушёл\""
 msgid "Done"
 msgstr "Готово"
 
-#: ../src/settingsdialog.cc:1381 ../ui/sharebrowser.ui:80
-#: ../ui/sharebrowser.ui:126
+#: ../src/settingsdialog.cc:1381 ../src/transfers.cc:581
+#: ../src/transfers.cc:954 ../ui/sharebrowser.ui:80 ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr "Закачать"
 
@@ -1230,7 +1227,7 @@ msgstr "Закачать _в..."
 msgid "Download _whole directory"
 msgstr "Закачать _всю директорию"
 
-#: ../src/transfers.cc:960
+#: ../src/transfers.cc:967
 msgid "Download complete..."
 msgstr "Закачано..."
 
@@ -1239,7 +1236,7 @@ msgid "Download failed: "
 msgstr "Закачка не удалась: "
 
 #: ../src/settingsdialog.cc:1149 ../src/settingsdialog.cc:1317
-#: ../src/transfers.cc:1081 ../src/settingsmanager.cc:236
+#: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr "Закачка окончена"
 
@@ -1272,7 +1269,7 @@ msgstr "Ограничение загрузки изображения:  "
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr "Ограничение загрузки изображения: 0 - отключено, n < 0 - неограниченно, пусто - информация"
 
-#: ../src/transfers.cc:1090
+#: ../src/transfers.cc:1099
 msgid "Download removed"
 msgstr "Закачка удалена"
 
@@ -1280,7 +1277,7 @@ msgstr "Закачка удалена"
 msgid "Download speed"
 msgstr "Скорость закачки"
 
-#: ../src/transfers.cc:912
+#: ../src/transfers.cc:918
 msgid "Download starting..."
 msgstr "Закачка начинается..."
 
@@ -1308,10 +1305,6 @@ msgstr "Закачки: "
 #: ../src/downloadqueue.cc:288 ../src/downloadqueue.cc:395
 msgid "Downloaded"
 msgstr "Закачано"
-
-#: ../src/transfers.cc:576 ../src/transfers.cc:945
-msgid "Downloaded "
-msgstr "Закачано "
 
 #: ../src/publichubs.cc:485
 msgid "Downloaded hub list is corrupted or unsupported "
@@ -1381,7 +1374,7 @@ msgstr "Включено"
 msgid "Encoding"
 msgstr "Кодировка"
 
-#: ../src/transfers.cc:66
+#: ../src/transfers.cc:70
 msgid "Encryption"
 msgstr "Шифрование"
 
@@ -1540,7 +1533,7 @@ msgstr "Фаворит вышел"
 msgid "File"
 msgstr "Файл"
 
-#: ../src/transfers.cc:667 ../src/transfers.cc:869
+#: ../src/transfers.cc:673 ../src/transfers.cc:875
 msgid "File list"
 msgstr "Список файлов"
 
@@ -1569,8 +1562,8 @@ msgstr "Меню файл-листа"
 #: ../src/sharebrowser.cc:341 ../src/sharebrowser.cc:555
 #: ../src/sharebrowser.cc:649 ../src/sharebrowser.cc:1016
 #: ../src/sharebrowser.cc:1050 ../src/finishedtransfers.cc:63
-#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:62
-#: ../src/transfers.cc:709 ../src/search.cc:91 ../src/search.cc:124
+#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
+#: ../src/transfers.cc:715 ../src/search.cc:91 ../src/search.cc:124
 #: ../src/search.cc:355 ../src/search.cc:610 ../src/search.cc:651
 #: ../src/search.cc:656 ../src/search.cc:824 ../src/search.cc:872
 #: ../src/search.cc:882 ../src/search.cc:1194 ../src/search.cc:1233
@@ -1627,6 +1620,10 @@ msgstr "Файрвол (пассивный режим, худший вариан
 #: ../ui/settingsdialog.ui:1528
 msgid "Firewall with manual port forward"
 msgstr "Файрвол с ручным перенаправлением портов"
+
+#: ../src/transfers.cc:64
+msgid "Flags"
+msgstr "Флаги"
 
 #: ../ui/settingsdialog.ui:4072
 msgid "Follow Links"
@@ -1808,8 +1805,8 @@ msgstr "IP / DNS хаба (empty = все, 'op' = где оператор)"
 msgid "Hub Menu"
 msgstr "Меню хаба"
 
-#: ../src/transfers.cc:58 ../src/transfers.cc:496 ../src/transfers.cc:561
-#: ../src/transfers.cc:592
+#: ../src/transfers.cc:58 ../src/transfers.cc:500 ../src/transfers.cc:565
+#: ../src/transfers.cc:596
 msgid "Hub Name"
 msgstr "Хаб"
 
@@ -1843,7 +1840,7 @@ msgstr "Венгерский"
 msgid "Hungarian translation\n"
 msgstr "Венгерский перевод\n"
 
-#: ../src/transfers.cc:65 ../src/search.cc:100 ../src/search.cc:618
+#: ../src/transfers.cc:69 ../src/search.cc:100 ../src/search.cc:618
 msgid "IP"
 msgstr "IP"
 
@@ -2461,7 +2458,7 @@ msgstr "Пароль"
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
 #: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:510
-#: ../src/transfers.cc:64 ../src/transfers.cc:710 ../src/search.cc:95
+#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:95
 #: ../src/search.cc:356 ../src/search.cc:613 ../src/search.cc:690
 #: ../src/search.cc:827 ../src/search.cc:881 ../src/search.cc:1193
 #: ../src/search.cc:1232 ../src/search.cc:1289 ../src/search.cc:1354
@@ -2489,7 +2486,7 @@ msgstr "Персональная\n информация"
 msgid "Pictures"
 msgstr "Картинки"
 
-#: ../src/transfers.cc:887
+#: ../src/transfers.cc:893
 msgid "Plain"
 msgstr "Простой"
 
@@ -2550,6 +2547,10 @@ msgstr "Файл личного ключа"
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr "Личное сообщение"
+
+#: ../src/transfers.cc:59 ../src/transfers.cc:600
+msgid "Progress"
+msgstr "Прогресс хэширования"
 
 #: ../ui/adlsearch.ui:466 ../ui/adlsearch.ui:544
 msgid "Properties"
@@ -2691,7 +2692,7 @@ msgstr "Переименовать тип поиска"
 msgid "Report a Bug"
 msgstr "Сообщить об ошибке"
 
-#: ../src/transfers.cc:899
+#: ../src/transfers.cc:905
 msgid "Requesting"
 msgstr "Запрашивается"
 
@@ -2973,8 +2974,8 @@ msgstr "Сигналы обработки установлены.\n"
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:106
 #: ../src/sharebrowser.cc:318 ../src/sharebrowser.cc:349
-#: ../src/transfers.cc:63 ../src/transfers.cc:544 ../src/transfers.cc:711
-#: ../src/transfers.cc:723 ../src/search.cc:94 ../src/search.cc:121
+#: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
+#: ../src/transfers.cc:729 ../src/search.cc:94 ../src/search.cc:121
 #: ../src/search.cc:612 ../src/search.cc:695 ../src/search.cc:704
 #: ../src/search.cc:830 ../ui/search.ui:318 ../ui/mainwindow.ui:118
 msgid "Size"
@@ -3060,8 +3061,8 @@ msgstr "Испанский перевод\n"
 
 #: ../src/finishedtransfers.cc:67 ../src/finishedtransfers.cc:88
 #: ../src/finishedtransfers.cc:197 ../src/finishedtransfers.cc:241
-#: ../src/transfers.cc:61 ../src/transfers.cc:557 ../src/transfers.cc:593
-#: ../src/transfers.cc:760
+#: ../src/transfers.cc:63 ../src/transfers.cc:561 ../src/transfers.cc:597
+#: ../src/transfers.cc:766
 msgid "Speed"
 msgstr "Скорость"
 
@@ -3079,9 +3080,9 @@ msgstr "Состояние готовности"
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/searchspy.cc:60 ../src/searchspy.cc:298
-#: ../src/searchspy.cc:380 ../src/transfers.cc:59 ../src/transfers.cc:370
-#: ../src/transfers.cc:403 ../src/transfers.cc:497 ../src/transfers.cc:585
-#: ../src/transfers.cc:595 ../src/transfers.cc:758
+#: ../src/searchspy.cc:380 ../src/transfers.cc:60 ../src/transfers.cc:374
+#: ../src/transfers.cc:407 ../src/transfers.cc:501 ../src/transfers.cc:587
+#: ../src/transfers.cc:601 ../src/transfers.cc:764
 msgid "Status"
 msgstr "Статус"
 
@@ -3118,7 +3119,7 @@ msgstr "TIS-620"
 msgid "TTH"
 msgstr "TTH"
 
-#: ../src/transfers.cc:704 ../src/transfers.cc:705 ../src/transfers.cc:871
+#: ../src/transfers.cc:710 ../src/transfers.cc:711 ../src/transfers.cc:877
 msgid "TTH: "
 msgstr "TTH: "
 
@@ -3165,11 +3166,11 @@ msgstr "Темы"
 #: ../src/finishedtransfers.cc:96 ../src/finishedtransfers.cc:97
 #: ../src/finishedtransfers.cc:192 ../src/finishedtransfers.cc:236
 #: ../src/searchspy.cc:59 ../src/searchspy.cc:272 ../src/searchspy.cc:297
-#: ../src/searchspy.cc:313
+#: ../src/searchspy.cc:313 ../src/transfers.cc:61
 msgid "Time"
 msgstr "Время"
 
-#: ../src/transfers.cc:60 ../src/transfers.cc:594
+#: ../src/transfers.cc:62 ../src/transfers.cc:599
 msgid "Time Left"
 msgstr "Осталось"
 
@@ -3246,10 +3247,11 @@ msgstr "Итого: "
 #: ../src/finishedtransfers.cc:66 ../src/finishedtransfers.cc:87
 #: ../src/finishedtransfers.cc:187 ../src/finishedtransfers.cc:196
 #: ../src/finishedtransfers.cc:240 ../src/finishedtransfers.cc:602
+#: ../src/transfers.cc:65 ../src/transfers.cc:598
 msgid "Transferred"
 msgstr "Передано"
 
-#: ../src/transfers.cc:608
+#: ../src/transfers.cc:614
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
 msgstr "Transfers::updateTransfer, CID не найден %s\n"
@@ -3333,7 +3335,7 @@ msgstr "Обновить свой список файлов"
 msgid "Updating string or TTH"
 msgstr "Обновление строки или TTH"
 
-#: ../src/settingsdialog.cc:1382
+#: ../src/settingsdialog.cc:1382 ../src/transfers.cc:1142
 msgid "Upload"
 msgstr "Отдачи"
 
@@ -3345,7 +3347,7 @@ msgstr "Очередь раздач"
 msgid "Upload Slots"
 msgstr "Слоты отдачи"
 
-#: ../src/transfers.cc:1145
+#: ../src/transfers.cc:1155
 msgid "Upload complete..."
 msgstr "Отдача закончена..."
 
@@ -3361,17 +3363,13 @@ msgstr "Слоты отдачи"
 msgid "Upload speed"
 msgstr "Скорость отдачи"
 
-#: ../src/transfers.cc:1099
+#: ../src/transfers.cc:1108
 msgid "Upload starting..."
 msgstr "Начало отдачи..."
 
 #: ../src/mainwindow.cc:743
 msgid "Upload: "
 msgstr "Отдачи: "
-
-#: ../src/transfers.cc:1130
-msgid "Uploaded "
-msgstr "Отдано "
 
 #: ../src/settingsdialog.cc:361 ../src/settingsdialog.cc:399
 #: ../src/settingsdialog.cc:433 ../src/settingsdialog.cc:675
@@ -3442,8 +3440,8 @@ msgstr "Используйте второй набор пределов поло
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr "Используйте разделитель для расширений (doc;xls;ppt;docx;xlsx;pptx)"
 
-#: ../src/transfers.cc:57 ../src/transfers.cc:84 ../src/transfers.cc:86
-#: ../src/transfers.cc:495 ../src/transfers.cc:560 ../src/transfers.cc:591
+#: ../src/transfers.cc:57 ../src/transfers.cc:88 ../src/transfers.cc:90
+#: ../src/transfers.cc:499 ../src/transfers.cc:564 ../src/transfers.cc:595
 msgid "User"
 msgstr "Юзер"
 
@@ -3578,11 +3576,11 @@ msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr "Ожидание ввода пароля (не удаляйте /password перед своим паролем)"
 
-#: ../src/transfers.cc:578
-msgid "Waiting for slot "
-msgstr "Ожидание слота "
+#: ../src/transfers.cc:583
+msgid "Waiting for slot"
+msgstr "Ожидание слота"
 
-#: ../src/transfers.cc:1058
+#: ../src/transfers.cc:1067
 msgid "Waiting to retry"
 msgstr "Ожидание повтора"
 
@@ -3622,19 +3620,19 @@ msgstr "Да"
 msgid "[HIDDEN SHARE] "
 msgstr "[HIDDEN SHARE] "
 
-#: ../src/transfers.cc:935 ../src/transfers.cc:1122
+#: ../src/transfers.cc:941 ../src/transfers.cc:1131
 msgid "[S]"
 msgstr "[S]"
 
-#: ../src/transfers.cc:940
+#: ../src/transfers.cc:946
 msgid "[T]"
 msgstr "[T]"
 
-#: ../src/transfers.cc:937 ../src/transfers.cc:1124
+#: ../src/transfers.cc:943 ../src/transfers.cc:1133
 msgid "[U]"
 msgstr "[U]"
 
-#: ../src/transfers.cc:942 ../src/transfers.cc:1127
+#: ../src/transfers.cc:948 ../src/transfers.cc:1136
 msgid "[Z]"
 msgstr "[Z]"
 
@@ -3900,7 +3898,7 @@ msgstr "в программе"
 msgid "loading error"
 msgstr "ошибка загрузки"
 
-#: ../src/transfers.cc:1102
+#: ../src/transfers.cc:1111
 msgid "none"
 msgstr "нет"
 
@@ -3945,3 +3943,12 @@ msgstr "верх/ожидание/фрейм:"
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "ожидание..."
+
+#~ msgid "%) from "
+#~ msgstr "%) from "
+
+#~ msgid "Downloaded "
+#~ msgstr "Downloaded "
+
+#~ msgid "Uploaded "
+#~ msgstr "Uploaded "

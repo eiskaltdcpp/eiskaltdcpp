@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-07-04 20:04+0300\n"
+"POT-Creation-Date: 2012-11-13 00:16+0200\n"
 "PO-Revision-Date: 2012-07-04 17:15+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1057 ../src/hub.cc:1136
@@ -102,7 +103,7 @@ msgstr " видалено зі списку обраних"
 msgid " to "
 msgstr " до "
 
-#: ../src/transfers.cc:581 ../src/search.cc:674
+#: ../src/search.cc:674
 msgid " user(s)"
 msgstr " користувач(ів)"
 
@@ -114,10 +115,6 @@ msgstr " користувач(ів) в мережі"
 msgid " users"
 msgstr " користувачі"
 
-#: ../src/transfers.cc:581
-msgid "%) from "
-msgstr "%) від "
-
 #: ../ui/settingsdialog.ui:4707
 msgid ""
 "%a abbreviated weekday name.\n"
@@ -128,7 +125,15 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a скорочено день тижня.\n%b скорочено ім'я місяця.\n%H година, як десятинне число в 24-часовому форматі.\n%M хвилина, як десятинне число (від 00 до 59).\n%S секунда, як десятинне число (від 00 до 59).\n%% символ '%'.\n\nдив. детальніше man strftime."
+msgstr ""
+"%a скорочено день тижня.\n"
+"%b скорочено ім'я місяця.\n"
+"%H година, як десятинне число в 24-часовому форматі.\n"
+"%M хвилина, як десятинне число (від 00 до 59).\n"
+"%S секунда, як десятинне число (від 00 до 59).\n"
+"%% символ '%'.\n"
+"\n"
+"див. детальніше man strftime."
 
 #: ../src/hub.cc:2360
 msgid "': type /help for a list of available commands"
@@ -182,8 +187,8 @@ msgstr ": /help для отримання списку доступних ком
 
 #: ../ui/settingsdialog.ui:7198
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:3855
@@ -344,7 +349,9 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:9197 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Примітка:</b> Для зміни посилань в цьому списку достатньо одного кліка після виділення"
+msgstr ""
+"<b>Примітка:</b> Для зміни посилань в цьому списку достатньо одного кліка "
+"після виділення"
 
 #: ../ui/settingsdialog.ui:5484
 msgid "<b>Notify</b>"
@@ -480,7 +487,9 @@ msgstr "<b>файл:</b> "
 
 #: ../ui/favoritehubs.ui:444
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr "<small>Примітка: Зніміть прапорець, якщо хочете залишити значення по замовчуванню</small>"
+msgstr ""
+"<small>Примітка: Зніміть прапорець, якщо хочете залишити значення по "
+"замовчуванню</small>"
 
 #: ../src/sharebrowser.hh:149 ../src/sharebrowser.hh:152
 msgid "?"
@@ -962,7 +971,7 @@ msgstr ""
 msgid "Close tab"
 msgstr "Закрити вікно"
 
-#: ../src/transfers.cc:403
+#: ../src/transfers.cc:407
 msgid "Closing connection..."
 msgstr "Закриття з'єднання..."
 
@@ -1021,15 +1030,15 @@ msgstr ""
 msgid "Connect to the hub"
 msgstr "З'єднатися з хабом"
 
-#: ../src/hub.cc:3431 ../src/transfers.cc:1020
+#: ../src/hub.cc:3431 ../src/transfers.cc:1029
 msgid "Connected"
 msgstr "З'єднано"
 
-#: ../src/transfers.cc:1056
+#: ../src/transfers.cc:1065
 msgid "Connecting"
 msgstr "З'єднання"
 
-#: ../src/transfers.cc:370
+#: ../src/transfers.cc:374
 msgid "Connecting (forced)..."
 msgstr "З'єднання (примусове)..."
 
@@ -1037,7 +1046,7 @@ msgstr "З'єднання (примусове)..."
 msgid "Connecting to "
 msgstr "З'єдання з "
 
-#: ../src/transfers.cc:1009
+#: ../src/transfers.cc:1018
 msgid "Connecting..."
 msgstr "З'єднання..."
 
@@ -1079,7 +1088,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n\nEiskaltDC++ версія: %s (%s)\nDC++ версія ядра: %s"
+msgstr ""
+"Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n"
+"\n"
+"EiskaltDC++ версія: %s (%s)\n"
+"DC++ версія ядра: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1206,8 +1219,8 @@ msgstr "Не відсилати повідомлення \"відійшов\" б
 msgid "Done"
 msgstr "Зроблено"
 
-#: ../src/settingsdialog.cc:1381 ../ui/sharebrowser.ui:80
-#: ../ui/sharebrowser.ui:126
+#: ../src/settingsdialog.cc:1381 ../src/transfers.cc:581
+#: ../src/transfers.cc:954 ../ui/sharebrowser.ui:80 ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr "Завантаження"
 
@@ -1228,7 +1241,7 @@ msgstr ""
 msgid "Download _whole directory"
 msgstr ""
 
-#: ../src/transfers.cc:960
+#: ../src/transfers.cc:967
 msgid "Download complete..."
 msgstr "Завантаження завершене..."
 
@@ -1237,7 +1250,7 @@ msgid "Download failed: "
 msgstr "Завантаження не вдалося: "
 
 #: ../src/settingsdialog.cc:1149 ../src/settingsdialog.cc:1317
-#: ../src/transfers.cc:1081 ../src/settingsmanager.cc:236
+#: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr "Завантаження завершено"
 
@@ -1268,9 +1281,11 @@ msgstr ""
 
 #: ../src/hub.cc:2049
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr "Обмеження завантаження картинки: 0 - викнено, n < 0 - необмежено, пусто - інформація"
+msgstr ""
+"Обмеження завантаження картинки: 0 - викнено, n < 0 - необмежено, пусто - "
+"інформація"
 
-#: ../src/transfers.cc:1090
+#: ../src/transfers.cc:1099
 msgid "Download removed"
 msgstr "Завантаження видалено"
 
@@ -1278,7 +1293,7 @@ msgstr "Завантаження видалено"
 msgid "Download speed"
 msgstr "Швидкість авантаження"
 
-#: ../src/transfers.cc:912
+#: ../src/transfers.cc:918
 msgid "Download starting..."
 msgstr "Завантаження починається..."
 
@@ -1305,10 +1320,6 @@ msgstr "Завантаження: "
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:95
 #: ../src/downloadqueue.cc:288 ../src/downloadqueue.cc:395
 msgid "Downloaded"
-msgstr "Завантажено"
-
-#: ../src/transfers.cc:576 ../src/transfers.cc:945
-msgid "Downloaded "
 msgstr "Завантажено"
 
 #: ../src/publichubs.cc:485
@@ -1379,7 +1390,7 @@ msgstr "Увімкнути"
 msgid "Encoding"
 msgstr "Кодування"
 
-#: ../src/transfers.cc:66
+#: ../src/transfers.cc:70
 msgid "Encryption"
 msgstr ""
 
@@ -1538,7 +1549,7 @@ msgstr "Вийшов обраний користувач"
 msgid "File"
 msgstr "Файл"
 
-#: ../src/transfers.cc:667 ../src/transfers.cc:869
+#: ../src/transfers.cc:673 ../src/transfers.cc:875
 msgid "File list"
 msgstr "Список файлів"
 
@@ -1567,8 +1578,8 @@ msgstr "Меню списку файлів"
 #: ../src/sharebrowser.cc:341 ../src/sharebrowser.cc:555
 #: ../src/sharebrowser.cc:649 ../src/sharebrowser.cc:1016
 #: ../src/sharebrowser.cc:1050 ../src/finishedtransfers.cc:63
-#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:62
-#: ../src/transfers.cc:709 ../src/search.cc:91 ../src/search.cc:124
+#: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
+#: ../src/transfers.cc:715 ../src/search.cc:91 ../src/search.cc:124
 #: ../src/search.cc:355 ../src/search.cc:610 ../src/search.cc:651
 #: ../src/search.cc:656 ../src/search.cc:824 ../src/search.cc:872
 #: ../src/search.cc:882 ../src/search.cc:1194 ../src/search.cc:1233
@@ -1626,6 +1637,10 @@ msgstr "Фаервол (пасивний режим, гірший варіант
 msgid "Firewall with manual port forward"
 msgstr "Фаервол з ручним перенаправленням портів"
 
+#: ../src/transfers.cc:64
+msgid "Flags"
+msgstr ""
+
 #: ../ui/settingsdialog.ui:4072
 msgid "Follow Links"
 msgstr "Слідувати посиланням"
@@ -1652,7 +1667,9 @@ msgstr "Кадр (розмір)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr "Розмір кадра визначає ширину огляду, великі значення впливають на продуктивність"
+msgstr ""
+"Розмір кадра визначає ширину огляду, великі значення впливають на "
+"продуктивність"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -1806,8 +1823,8 @@ msgstr "IP / DNS хаба (empty = всі, 'op' = де оператор)"
 msgid "Hub Menu"
 msgstr "Меню хабу"
 
-#: ../src/transfers.cc:58 ../src/transfers.cc:496 ../src/transfers.cc:561
-#: ../src/transfers.cc:592
+#: ../src/transfers.cc:58 ../src/transfers.cc:500 ../src/transfers.cc:565
+#: ../src/transfers.cc:596
 msgid "Hub Name"
 msgstr "Ім'я Хабу"
 
@@ -1841,7 +1858,7 @@ msgstr ""
 msgid "Hungarian translation\n"
 msgstr ""
 
-#: ../src/transfers.cc:65 ../src/search.cc:100 ../src/search.cc:618
+#: ../src/transfers.cc:69 ../src/search.cc:100 ../src/search.cc:618
 msgid "IP"
 msgstr "IP"
 
@@ -2342,7 +2359,8 @@ msgstr "Не знайдено користувача: "
 
 #: ../ui/settingsdialog.ui:8399
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr "Примітка: Вказані пошукові типи будуть застосовуватися тільки для ADC хабів!"
+msgstr ""
+"Примітка: Вказані пошукові типи будуть застосовуватися тільки для ADC хабів!"
 
 #: ../ui/settingsdialog.ui:4754 ../ui/settingsdialog.ui:4824
 msgid "Note: Most of these options require that you restart the application"
@@ -2353,9 +2371,9 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr "Примітка: Нові файли будуть додані до шари лише після хешування!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
-msgstr "Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgstr ""
+"Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
 
 #: ../src/settingsdialog.cc:1298 ../ui/settingsdialog.ui:5822
 msgid "Notify"
@@ -2459,7 +2477,7 @@ msgstr "Пароль"
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
 #: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:510
-#: ../src/transfers.cc:64 ../src/transfers.cc:710 ../src/search.cc:95
+#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:95
 #: ../src/search.cc:356 ../src/search.cc:613 ../src/search.cc:690
 #: ../src/search.cc:827 ../src/search.cc:881 ../src/search.cc:1193
 #: ../src/search.cc:1232 ../src/search.cc:1289 ../src/search.cc:1354
@@ -2481,13 +2499,15 @@ msgstr "Пауза..."
 
 #: ../ui/settingsdialog.ui:1267
 msgid "Personal"
-msgstr "Персональна\n інформація"
+msgstr ""
+"Персональна\n"
+" інформація"
 
 #: ../ui/settingsdialog.ui:4243
 msgid "Pictures"
 msgstr "Зображення"
 
-#: ../src/transfers.cc:887
+#: ../src/transfers.cc:893
 msgid "Plain"
 msgstr ""
 
@@ -2548,6 +2568,11 @@ msgstr "Файл приватного ключа"
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr "Приватне повідомлення"
+
+#: ../src/transfers.cc:59 ../src/transfers.cc:600
+#, fuzzy
+msgid "Progress"
+msgstr "Прогрес хешування"
 
 #: ../ui/adlsearch.ui:466 ../ui/adlsearch.ui:544
 msgid "Properties"
@@ -2689,7 +2714,7 @@ msgstr "Перейменувати тип пошуку"
 msgid "Report a Bug"
 msgstr "Повідомити про помилку"
 
-#: ../src/transfers.cc:899
+#: ../src/transfers.cc:905
 msgid "Requesting"
 msgstr "Запитується"
 
@@ -2864,9 +2889,10 @@ msgid "Set download limit image: "
 msgstr "Вставити обмеження завантаження: "
 
 #: ../src/settingsdialog.cc:972
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького пріоритету"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького "
+"пріоритету"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -2971,8 +2997,8 @@ msgstr ""
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:106
 #: ../src/sharebrowser.cc:318 ../src/sharebrowser.cc:349
-#: ../src/transfers.cc:63 ../src/transfers.cc:544 ../src/transfers.cc:711
-#: ../src/transfers.cc:723 ../src/search.cc:94 ../src/search.cc:121
+#: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
+#: ../src/transfers.cc:729 ../src/search.cc:94 ../src/search.cc:121
 #: ../src/search.cc:612 ../src/search.cc:695 ../src/search.cc:704
 #: ../src/search.cc:830 ../ui/search.ui:318 ../ui/mainwindow.ui:118
 msgid "Size"
@@ -3058,8 +3084,8 @@ msgstr ""
 
 #: ../src/finishedtransfers.cc:67 ../src/finishedtransfers.cc:88
 #: ../src/finishedtransfers.cc:197 ../src/finishedtransfers.cc:241
-#: ../src/transfers.cc:61 ../src/transfers.cc:557 ../src/transfers.cc:593
-#: ../src/transfers.cc:760
+#: ../src/transfers.cc:63 ../src/transfers.cc:561 ../src/transfers.cc:597
+#: ../src/transfers.cc:766
 msgid "Speed"
 msgstr "Швидкість"
 
@@ -3077,9 +3103,9 @@ msgstr "Стан готовності"
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/searchspy.cc:60 ../src/searchspy.cc:298
-#: ../src/searchspy.cc:380 ../src/transfers.cc:59 ../src/transfers.cc:370
-#: ../src/transfers.cc:403 ../src/transfers.cc:497 ../src/transfers.cc:585
-#: ../src/transfers.cc:595 ../src/transfers.cc:758
+#: ../src/searchspy.cc:380 ../src/transfers.cc:60 ../src/transfers.cc:374
+#: ../src/transfers.cc:407 ../src/transfers.cc:501 ../src/transfers.cc:587
+#: ../src/transfers.cc:601 ../src/transfers.cc:764
 msgid "Status"
 msgstr "Статус"
 
@@ -3116,7 +3142,7 @@ msgstr "TIS-620"
 msgid "TTH"
 msgstr "ТТН"
 
-#: ../src/transfers.cc:704 ../src/transfers.cc:705 ../src/transfers.cc:871
+#: ../src/transfers.cc:710 ../src/transfers.cc:711 ../src/transfers.cc:877
 msgid "TTH: "
 msgstr "TTH: "
 
@@ -3144,7 +3170,9 @@ msgstr "Стиль тексту"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr "Збільшення часу очікування збільшує ймовірність додання в топ, але знижує динаміку (оновлення) кадра"
+msgstr ""
+"Збільшення часу очікування збільшує ймовірність додання в топ, але знижує "
+"динаміку (оновлення) кадра"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
@@ -3163,11 +3191,11 @@ msgstr "Теми"
 #: ../src/finishedtransfers.cc:96 ../src/finishedtransfers.cc:97
 #: ../src/finishedtransfers.cc:192 ../src/finishedtransfers.cc:236
 #: ../src/searchspy.cc:59 ../src/searchspy.cc:272 ../src/searchspy.cc:297
-#: ../src/searchspy.cc:313
+#: ../src/searchspy.cc:313 ../src/transfers.cc:61
 msgid "Time"
 msgstr "Час"
 
-#: ../src/transfers.cc:60 ../src/transfers.cc:594
+#: ../src/transfers.cc:62 ../src/transfers.cc:599
 msgid "Time Left"
 msgstr "Часу Лишилося"
 
@@ -3195,7 +3223,9 @@ msgstr "Кому (пусто для вибраного користувача)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr "Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/Завантаження/Черга)"
+msgstr ""
+"Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/"
+"Завантаження/Черга)"
 
 #: ../ui/settingsdialog.ui:6132
 msgid "Toolbar"
@@ -3244,10 +3274,11 @@ msgstr "Всього: "
 #: ../src/finishedtransfers.cc:66 ../src/finishedtransfers.cc:87
 #: ../src/finishedtransfers.cc:187 ../src/finishedtransfers.cc:196
 #: ../src/finishedtransfers.cc:240 ../src/finishedtransfers.cc:602
+#: ../src/transfers.cc:65 ../src/transfers.cc:598
 msgid "Transferred"
 msgstr "Передано"
 
-#: ../src/transfers.cc:608
+#: ../src/transfers.cc:614
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
 msgstr "Передачі::оновленняПередач, CID не знайдено %s\n"
@@ -3280,7 +3311,8 @@ msgstr ""
 
 #: ../src/hub.cc:2977
 msgid "Unable to connect: already connected to the requested hub"
-msgstr "Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
+msgstr ""
+"Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
 
 #: ../src/sharebrowser.cc:203
 msgid "Unable to load file list: "
@@ -3292,10 +3324,13 @@ msgstr "Не можливо завантажити список файлів: Н
 
 #: ../src/mainwindow.cc:2266
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати коректно поки ви не зміните налаштування або інший додаток не припинить використовувати цей порт."
+msgstr ""
+"Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати "
+"коректно поки ви не зміните налаштування або інший додаток не припинить "
+"використовувати цей порт."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3331,7 +3366,7 @@ msgstr "Оновити свій список файлів"
 msgid "Updating string or TTH"
 msgstr "Оновлення рядка або ТТН"
 
-#: ../src/settingsdialog.cc:1382
+#: ../src/settingsdialog.cc:1382 ../src/transfers.cc:1142
 msgid "Upload"
 msgstr "Віддача"
 
@@ -3343,7 +3378,7 @@ msgstr ""
 msgid "Upload Slots"
 msgstr "Слоти віддачі"
 
-#: ../src/transfers.cc:1145
+#: ../src/transfers.cc:1155
 msgid "Upload complete..."
 msgstr "Віддача завершена..."
 
@@ -3359,17 +3394,13 @@ msgstr "Слоти віддачі"
 msgid "Upload speed"
 msgstr "Швидкість віддачі"
 
-#: ../src/transfers.cc:1099
+#: ../src/transfers.cc:1108
 msgid "Upload starting..."
 msgstr "Віддача починається..."
 
 #: ../src/mainwindow.cc:743
 msgid "Upload: "
 msgstr "Віддача: "
-
-#: ../src/transfers.cc:1130
-msgid "Uploaded "
-msgstr "Віддано "
 
 #: ../src/settingsdialog.cc:361 ../src/settingsdialog.cc:399
 #: ../src/settingsdialog.cc:433 ../src/settingsdialog.cc:675
@@ -3440,8 +3471,8 @@ msgstr "Використовуйте вторинний набір меж пол
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
 msgstr "Використовуйте роздільник для розширень (doc;xls;ppt;docx;xlsx;pptx)"
 
-#: ../src/transfers.cc:57 ../src/transfers.cc:84 ../src/transfers.cc:86
-#: ../src/transfers.cc:495 ../src/transfers.cc:560 ../src/transfers.cc:591
+#: ../src/transfers.cc:57 ../src/transfers.cc:88 ../src/transfers.cc:90
+#: ../src/transfers.cc:499 ../src/transfers.cc:564 ../src/transfers.cc:595
 msgid "User"
 msgstr "Користувач"
 
@@ -3527,12 +3558,22 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Використовується:\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n  eiskaltdcpp-gtk <Key>\nEiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та ADC протоколи.\n\nКлючі:\n  -h, --help\t Показати це повідомлення\n  -V, --version\t Показати версію\n"
+msgstr ""
+"Використовується:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та "
+"ADC протоколи.\n"
+"\n"
+"Ключі:\n"
+"  -h, --help\t Показати це повідомлення\n"
+"  -V, --version\t Показати версію\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:356
 msgid "Video"
@@ -3576,11 +3617,12 @@ msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr "Очікування вводу пароля (не видаляйте /password перед своїм паролем)"
 
-#: ../src/transfers.cc:578
-msgid "Waiting for slot "
+#: ../src/transfers.cc:583
+#, fuzzy
+msgid "Waiting for slot"
 msgstr "Очікування на слот "
 
-#: ../src/transfers.cc:1058
+#: ../src/transfers.cc:1067
 msgid "Waiting to retry"
 msgstr "Очікування повтору"
 
@@ -3620,19 +3662,19 @@ msgstr "Так"
 msgid "[HIDDEN SHARE] "
 msgstr "[HIDDEN SHARE] "
 
-#: ../src/transfers.cc:935 ../src/transfers.cc:1122
+#: ../src/transfers.cc:941 ../src/transfers.cc:1131
 msgid "[S]"
 msgstr "[S]"
 
-#: ../src/transfers.cc:940
+#: ../src/transfers.cc:946
 msgid "[T]"
 msgstr "[T]"
 
-#: ../src/transfers.cc:937 ../src/transfers.cc:1124
+#: ../src/transfers.cc:943 ../src/transfers.cc:1133
 msgid "[U]"
 msgstr "[U]"
 
-#: ../src/transfers.cc:942 ../src/transfers.cc:1127
+#: ../src/transfers.cc:948 ../src/transfers.cc:1136
 msgid "[Z]"
 msgstr "[Z]"
 
@@ -3898,7 +3940,7 @@ msgstr ""
 msgid "loading error"
 msgstr ""
 
-#: ../src/transfers.cc:1102
+#: ../src/transfers.cc:1111
 msgid "none"
 msgstr "нічого"
 
@@ -3943,3 +3985,12 @@ msgstr "вгору/очікування/фрейм: "
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "очікування..."
+
+#~ msgid "%) from "
+#~ msgstr "%) від "
+
+#~ msgid "Downloaded "
+#~ msgstr "Завантажено"
+
+#~ msgid "Uploaded "
+#~ msgstr "Віддано "

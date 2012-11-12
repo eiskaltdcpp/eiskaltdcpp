@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
@@ -11,11 +11,11 @@ msgstr ""
 "PO-Revision-Date: 2012-07-04 17:19+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -106,7 +106,8 @@ msgstr "Hash database rebuilt"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr "%1% not shared; calculated CRC32 does not match the one found in SFV file."
+msgstr ""
+"%1% not shared; calculated CRC32 does not match the one found in SFV file."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -122,26 +123,31 @@ msgstr "Determining the best connectivity settings..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr "Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr ""
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr "Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+"Public IP address detected, selecting active mode with direct connection"
 
 #: ../ConnectivityManager.cpp:102
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr "Local network with possible NAT detected, trying to map the ports using UPnP..."
+msgstr ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr "Automatic setup of active mode has failed. You may want to set up your connection manually for better connectivity"
+msgstr ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -240,7 +246,9 @@ msgstr "Target filename too long"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr "Invalid target file (missing directory, check default download directory setting)"
+msgstr ""
+"Invalid target file (missing directory, check default download directory "
+"setting)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -275,9 +283,9 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Matched %2% file"
 
 #: ../QueueManager.cpp:1794
-msgid ""
+msgid "Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
 "Target path for this item is not available: %1%; pause this queue item."
-msgstr "Target path for this item is not available: %1%; pause this queue item."
 
 #: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -299,7 +307,9 @@ msgstr "Failed to negotiate base protocol"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr "Hub probably uses an old version of ADC, please encourage the owner to upgrade"
+msgstr ""
+"Hub probably uses an old version of ADC, please encourage the owner to "
+"upgrade"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -337,7 +347,9 @@ msgstr "Hub topic:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr "This hub is trying to use your client to spam %1%, please urge hub owner to fix this"
+msgstr ""
+"This hub is trying to use your client to spam %1%, please urge hub owner to "
+"fix this"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -399,7 +411,9 @@ msgstr " DHT Port (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped using the %4% interface"
+msgstr ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -561,13 +575,17 @@ msgstr "User has chosen not to share temp file: %1% (Size: %2%)"
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: %3%"
+msgstr ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
-msgstr "File list refresh in progress, please wait for it to finish before trying to refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 
 #: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
@@ -643,7 +661,9 @@ msgstr "Socks server authentication failed (bad login / password?)"
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr "Failed to set up the socks server for UDP relay (check socks address and port)"
+msgstr ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
