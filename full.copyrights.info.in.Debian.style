@@ -6,9 +6,7 @@ Upstream-Contact: Andrey Karlov <dein.negativ@gmail.com>
  Boris Pek <tehnick-8@mail.ru>
  Eugene Petrov <dhamp@ya.ru>
  Pavel Vatagin <pavelvat@gmail.com>
-Source: http://code.google.com/p/eiskaltdc/downloads/list
- The orig.tar.xz is just renamed upstream tarball (without changes).
- See section get-orig-source in debian/rules file for details.
+Source: https://github.com/eiskaltdcpp/eiskaltdcpp
 
 Files: *
 Copyright: 2009-2012 Andrey Karlov <dein.negativ@gmail.com>
