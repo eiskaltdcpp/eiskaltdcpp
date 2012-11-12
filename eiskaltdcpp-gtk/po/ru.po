@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-07-04 20:04+0300\n"
-"PO-Revision-Date: 2012-10-02 17:43+0000\n"
+"PO-Revision-Date: 2012-11-11 18:52+0000\n"
 "Last-Translator: Вячеслав Третьяков <tret2003@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -254,7 +254,7 @@ msgstr "<b>Директории</b>"
 
 #: ../ui/settingsdialog.ui:4396
 msgid "<b>Do not share files and folders containing:</b>"
-msgstr ""
+msgstr "<b>Не расшаривать файлы и папки, содержащие:</b>"
 
 #: ../src/hub.cc:593
 msgid "<b>Enter your password</b>"
@@ -860,11 +860,11 @@ msgstr "Вычислить TTH файла"
 #: ../src/wulfor.cc:109
 #, c-format
 msgid "Cannot handle SIGPIPE\n"
-msgstr ""
+msgstr "Не удается обработать SIGPIPE\n"
 
 #: ../src/wulfor.cc:80
 msgid "Catching signal "
-msgstr ""
+msgstr "Ловлю сигнал"
 
 #: ../ui/settingsdialog.ui:8111
 msgid "Certificate file"
@@ -1920,7 +1920,7 @@ msgstr "Хэширование файлов..."
 
 #: ../src/wulfor.cc:96
 msgid "Installing handler for"
-msgstr ""
+msgstr "Установка обработчика"
 
 #: ../src/settingsdialog.cc:1977 ../src/settingsdialog.cc:2165
 msgid "Invalid extension: "
@@ -2086,7 +2086,7 @@ msgstr "Совпадения очереди"
 
 #: ../ui/mainwindow.ui:1063
 msgid "Match all listings"
-msgstr ""
+msgstr "Сравнить все списки"
 
 #: ../src/sharebrowser.cc:1102
 msgid "Matched "
@@ -2447,7 +2447,7 @@ msgstr "Панели"
 
 #: ../src/sharebrowser.cc:174
 msgid "Parse and build tree..."
-msgstr ""
+msgstr "Разбор и построение дерева..."
 
 #: ../src/downloadqueue.cc:1362
 msgid "Passive user"
@@ -2965,7 +2965,7 @@ msgstr "Завершение libdcpp..."
 #: ../src/wulfor.cc:113
 #, c-format
 msgid "Signal handlers installed.\n"
-msgstr ""
+msgstr "Сигналы обработки установлены.\n"
 
 #: ../src/settingsdialog.cc:1020 ../src/settingsdialog.cc:1026
 #: ../src/settingsdialog.cc:3707 ../src/settingsdialog.cc:3776
