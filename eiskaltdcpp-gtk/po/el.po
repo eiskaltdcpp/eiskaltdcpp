@@ -1,7 +1,8 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
+# Translators:
 # Translators:
 # Boris Pek <tehnick-8@mail.ru>, 2012.
 msgid ""
@@ -9,14 +10,13 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2012-11-13 00:16+0200\n"
-"PO-Revision-Date: 2012-07-04 17:15+0000\n"
+"PO-Revision-Date: 2012-11-16 18:16+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/eiskaltdcpp/"
-"language/el/)\n"
-"Language: el\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/eiskaltdcpp/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
@@ -126,15 +126,7 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr ""
-"%a συντομογραφημένο όνομα ημέρας εβδομάδας.\n"
-"%b συντομογραφημένο όνομα μηνός.\n"
-"%H ώρα ως δεκαδικός αριθμός χρισημοποιόντας ρολόι 24ώρου.\n"
-"%M λεπτό ως δεκαδικός αριθμός (εύρος 00 έως 59).\n"
-"%S δευτερόλεπτο ως δεκαδικός αριθμός (εύρος 00 έως 59).\n"
-"%% ο χαρακτήρας '%'.\n"
-"\n"
-"ανατρέξτε στο man strftime για λεπτομέριες."
+msgstr "%a συντομογραφημένο όνομα ημέρας εβδομάδας.\n%b συντομογραφημένο όνομα μηνός.\n%H ώρα ως δεκαδικός αριθμός χρισημοποιόντας ρολόι 24ώρου.\n%M λεπτό ως δεκαδικός αριθμός (εύρος 00 έως 59).\n%S δευτερόλεπτο ως δεκαδικός αριθμός (εύρος 00 έως 59).\n%% ο χαρακτήρας '%'.\n\nανατρέξτε στο man strftime για λεπτομέριες."
 
 #: ../src/hub.cc:2360
 msgid "': type /help for a list of available commands"
@@ -188,11 +180,9 @@ msgstr ": πληκτρολογήστε /help για μια λίστα διαθέ
 
 #: ../ui/settingsdialog.ui:7198
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
-msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Βοήθεια</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Βοήθεια</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -352,9 +342,7 @@ msgstr "<b>αρχειο:</b> "
 
 #: ../ui/settingsdialog.ui:9197 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr ""
-"<b>Παρατήρηση:</b> Επεξεργαστείτε URL στη λίστα με απλό κλικ όταν είναι "
-"επιλεγμένοι"
+msgstr "<b>Παρατήρηση:</b> Επεξεργαστείτε URL στη λίστα με απλό κλικ όταν είναι επιλεγμένοι"
 
 #: ../ui/settingsdialog.ui:5484
 msgid "<b>Notify</b>"
@@ -490,8 +478,7 @@ msgstr "<b>αρχείο:</b> "
 
 #: ../ui/favoritehubs.ui:444
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr ""
-"<small>Σημείωση: Αφήστε αποεπιλεγμένο για προκαθορισμένες τιμές</small>"
+msgstr "<small>Σημείωση: Αφήστε αποεπιλεγμένο για προκαθορισμένες τιμές</small>"
 
 #: ../src/sharebrowser.hh:149 ../src/sharebrowser.hh:152
 msgid "?"
@@ -541,10 +528,7 @@ msgstr "Άμεση προσθήκη ολοκληρωμένων αρχείων σ
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr ""
-"Πρόσθεσε κανόνα 192.168.1.0/23 όπου κατεύθυνση είναι εισερχόμενη και δράση "
-"είναι vα επιτρέπεται και 192.168.6.0/24 όπου κατεύθυνση είναι εισερχόμενη ή "
-"εξερχόμενη και δράση είναι απόρριψη"
+msgstr "Πρόσθεσε κανόνα 192.168.1.0/23 όπου κατεύθυνση είναι εισερχόμενη και δράση είναι vα επιτρέπεται και 192.168.6.0/24 όπου κατεύθυνση είναι εισερχόμενη ή εξερχόμενη και δράση είναι απόρριψη"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -663,8 +647,7 @@ msgstr "Είστε σίγουρος ότι θέλετε να διαγράψετ�
 
 #: ../src/favoriteusers.cc:441
 msgid "Are you sure you want to delete favorite user(s)?"
-msgstr ""
-"Είστε σίγουρος ότι θέλετε να διαγράψετε τον αγαπημένο(-ους) χρήστη(-ες) "
+msgstr "Είστε σίγουρος ότι θέλετε να διαγράψετε τον αγαπημένο(-ους) χρήστη(-ες) "
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:357
 msgid "Audio"
@@ -2368,7 +2351,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2845
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1298 ../ui/settingsdialog.ui:5822
@@ -2882,7 +2866,8 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:972
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:4054
@@ -3310,8 +3295,8 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2266
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 
@@ -3541,8 +3526,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -3960,4 +3944,10 @@ msgid "waiting..."
 msgstr ""
 
 #~ msgid "%) from "
-#~ msgstr "%) από "
+#~ msgstr "%) from "
+
+#~ msgid "Downloaded "
+#~ msgstr "Downloaded "
+
+#~ msgid "Uploaded "
+#~ msgstr "Uploaded "
