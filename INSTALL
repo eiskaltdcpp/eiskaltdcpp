@@ -120,11 +120,11 @@ sudo make install
 
 ---------
 # Note: you can get the lastest program sorces from git repository
-git clone git://github.com/negativ/eiskaltdcpp.git
+git clone git://github.com/eiskaltdcpp/eiskaltdcpp.git
 # or
-wget -4 http://nodeload.github.com/negativ/eiskaltdcpp/tarball/master
+wget -4 -c https://nodeload.github.com/eiskaltdcpp/eiskaltdcpp/tar.gz/master
 # or
-svn export http://svn.github.com/negativ/eiskaltdcpp/ eiskaltdcpp
+svn export http://svn.github.com/eiskaltdcpp/eiskaltdcpp/ eiskaltdcpp
 
 
 *******************************************************************************

@@ -3900,8 +3900,8 @@ msgid "from Coral"
 msgstr ""
 
 #: ../src/mainwindow.cc:359
-msgid "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
-msgstr "http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt"
+msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
+msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 
 #: ../ui/settingsdialog.ui:5068
 msgid "in program"

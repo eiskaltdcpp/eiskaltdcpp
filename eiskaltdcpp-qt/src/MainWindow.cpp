@@ -2559,7 +2559,7 @@ void MainWindow::slotAboutOpenUrl(){
         QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/"));
     }
     else if (act == d->aboutSource){
-        QDesktopServices::openUrl(QUrl("http://github.com/negativ/eiskaltdcpp/"));
+        QDesktopServices::openUrl(QUrl("http://github.com/eiskaltdcpp/eiskaltdcpp/"));
     }
     else if (act == d->aboutIssues){
         QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/issues/list"));
@@ -2569,7 +2569,7 @@ void MainWindow::slotAboutOpenUrl(){
     }
     else if (act == d->aboutChangelog){
         // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
-        QDesktopServices::openUrl(QUrl(tr("http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt")));
+        QDesktopServices::openUrl(QUrl(tr("http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt")));
     }
 }
 

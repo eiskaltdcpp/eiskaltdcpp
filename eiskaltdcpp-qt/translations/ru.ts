@@ -2262,8 +2262,8 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2572"/>
-        <source>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation>http://github.com/negativ/eiskaltdcpp/raw/master/ChangeLog_ru.txt</translation>
+        <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
+        <translation>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog_ru.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2595"/>
