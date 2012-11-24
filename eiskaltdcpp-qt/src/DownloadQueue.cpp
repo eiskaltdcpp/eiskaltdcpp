@@ -649,9 +649,9 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             foreach (DownloadQueueItem *i, items){
                 QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() +
                                  i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
-                QString new_target = QFileDialog::getSaveFileName(this, tr("Choose filename"), QDir::homePath(), tr("All files (*.*)"));
+                QString new_target = QFileDialog::getSaveFileName(this, tr("Choose filename"), target, tr("All files (*.*)"));
 
-                if (!new_target.isEmpty()){
+                if (!new_target.isEmpty() && new_target != target){
                     new_target = QDir::toNativeSeparators(new_target);
                     try {
                         QM->move(target.toStdString(), new_target.toStdString());
