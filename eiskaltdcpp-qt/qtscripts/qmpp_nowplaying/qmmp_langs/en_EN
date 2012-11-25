@@ -1,0 +1,7 @@
+mess_listen="Listen"
+mess_artist="From Artist"
+mess_album="From Album"
+mess_duration="Duration"
+mess_player="Player"
+mess_stop="Qmmp Player Stopped"
+mess_down="Qmmp Player Down"

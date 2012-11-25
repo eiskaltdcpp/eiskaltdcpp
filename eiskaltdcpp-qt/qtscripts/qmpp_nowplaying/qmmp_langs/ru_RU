@@ -1,0 +1,7 @@
+mess_listen="cлушает"
+mess_artist="от артиста"
+mess_album="из альбома"
+mess_duration="длительность"
+mess_player="проигрыватель"
+mess_stop="проигрыватель Qmmp остановлен"
+mess_down="проигрыватель Qmmp отключен"

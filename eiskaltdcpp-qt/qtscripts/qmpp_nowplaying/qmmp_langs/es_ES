@@ -1,0 +1,7 @@
+mess_listen="Escucha"
+mess_artist="Del Grupo"
+mess_album="Del Album"
+mess_duration="Duración"
+mess_player="Reproductor"
+mess_stop="Qmmp Player Parado"
+mess_down="Qmmp Player Apagado"
