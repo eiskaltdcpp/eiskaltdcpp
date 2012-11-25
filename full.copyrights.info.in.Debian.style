@@ -72,8 +72,10 @@ License: GPL-2+
 Files: data/examples/xmms2_audacious2.ru_RU.UTF-8.php
  data/examples/commands.ru_RU.UTF-8.php
  eiskaltdcpp-qt/qtscripts/gnome/commands.ru_RU.UTF-8.php
+ eiskaltdcpp-qt/qtscripts/qmpp_nowplaying/qmmp.sh
 Copyright: 2010 nE0sIghT
  2010 GoTLiuM InSPiRiT <gotlium@gmail.com>
+ 2012 Gustavo Alvarez <sl1pkn07@gmail.com>
 License: GPL-2
 
 Files: update-translations.sh
