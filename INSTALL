@@ -17,6 +17,7 @@ libpcrecpp0 (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 libidn (optional, see cmake keys)
 libattr (optional)
+libboost-system (required only if Boost >= 1.50 is used)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -84,7 +85,7 @@ zlib
 :libeiskaltdcpp:
 ----------------
 gettext
-libboost-dev (>= 1.38.0) (headers only) (optional, see cmake keys)
+libboost-dev (>= 1.38.0) (headers only if Boost < 1.50) (optional, see cmake keys)
 liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
