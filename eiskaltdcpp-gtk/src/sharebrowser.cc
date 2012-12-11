@@ -140,9 +140,17 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     g_signal_connect(getWidget("copyMagnetItem"), "activate", G_CALLBACK(onCopyMagnetClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("copyPictureItem"), "activate", G_CALLBACK(onCopyPictureClicked_gui), (gpointer)this);
 
+#if !GLIB_CHECK_VERSION(2,32,0)
     GError *error = NULL;
     g_thread_create(threadLoad_list, (gpointer)this, FALSE, &error);
-    if (error) g_error_free(error);
+    if (error != NULL)
+    {
+        cerr << "Unable to create filelist loader thread: " << error->message << endl;
+        g_error_free(error);
+    }
+#else
+    g_thread_new("filelistloader",threadLoad_list, (gpointer)this);
+#endif
 }
 
 ShareBrowser::~ShareBrowser()

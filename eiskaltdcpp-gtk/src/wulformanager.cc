@@ -75,6 +75,7 @@ WulforManager::WulforManager()
     // Initialize sempahore variables
     guiCondValue = 0;
     clientCondValue = 0;
+#if !GLIB_CHECK_VERSION(2,32,0)
     guiCond = g_cond_new();
     clientCond = g_cond_new();
     guiCondMutex = g_mutex_new();
@@ -83,8 +84,31 @@ WulforManager::WulforManager()
     clientCallMutex = g_mutex_new();
     guiQueueMutex = g_mutex_new();
     clientQueueMutex = g_mutex_new();
-    g_static_rw_lock_init(&entryMutex);
 
+    g_static_rw_lock_init(&entryMutex);
+#else
+    guiCond = new GCond();
+    clientCond = new GCond();
+    guiCondMutex = new GMutex();
+    clientCondMutex = new GMutex();
+
+    clientCallMutex = new GMutex();
+    guiQueueMutex = new GMutex();
+    clientQueueMutex = new GMutex();
+
+    g_cond_init(guiCond);
+    g_cond_init(clientCond);
+    g_mutex_init(guiCondMutex);
+    g_mutex_init(clientCondMutex);
+
+    g_mutex_init(clientCallMutex);
+    g_mutex_init(guiQueueMutex);
+    g_mutex_init(clientQueueMutex);
+
+    g_rw_lock_init(&entryMutex);
+#endif
+
+#if !GLIB_CHECK_VERSION(2,32,0)
     GError *error = NULL;
     guiThread = g_thread_create(threadFunc_gui, (gpointer)this, TRUE, &error);
     if (error != NULL)
@@ -103,6 +127,10 @@ WulforManager::WulforManager()
         g_error_free(error);
         exit(EXIT_FAILURE);
     }
+#else
+    guiThread = g_thread_new("gtkgui", threadFunc_gui, (gpointer)this);
+    clientThread = g_thread_new("gtkclient",threadFunc_client, (gpointer)this);
+#endif
 
     mainWin = NULL;
 
@@ -139,6 +167,7 @@ WulforManager::~WulforManager()
     g_thread_join(guiThread);
     g_thread_join(clientThread);
 
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_cond_free(guiCond);
     g_cond_free(clientCond);
     g_mutex_free(clientCondMutex);
@@ -146,7 +175,28 @@ WulforManager::~WulforManager()
     g_mutex_free(clientCallMutex);
     g_mutex_free(guiQueueMutex);
     g_mutex_free(clientQueueMutex);
+
     g_static_rw_lock_free(&entryMutex);
+#else
+    g_cond_clear(guiCond);
+    g_cond_clear(clientCond);
+    g_mutex_clear(clientCondMutex);
+    g_mutex_clear(guiCondMutex);
+    g_mutex_clear(clientCallMutex);
+    g_mutex_clear(guiQueueMutex);
+    g_mutex_clear(clientQueueMutex);
+
+    delete guiCond;
+    delete clientCond;
+    delete clientCondMutex;
+    delete guiCondMutex;
+    delete clientCallMutex;
+    delete guiQueueMutex;
+    delete clientQueueMutex;
+
+    g_rw_lock_clear(&entryMutex);
+#endif
+
 }
 
 void WulforManager::createMainWindow()
@@ -262,7 +312,12 @@ void WulforManager::processClientQueue()
 
 void WulforManager::dispatchGuiFunc(FuncBase *func)
 {
+
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_reader_lock(&entryMutex);
+#else
+    g_rw_lock_reader_lock(&entryMutex);
+#endif
 
     // Make sure we're not adding functions to deleted objects.
     if (entries.find(func->getID()) != entries.end())
@@ -279,12 +334,22 @@ void WulforManager::dispatchGuiFunc(FuncBase *func)
     else
         delete func;
 
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_reader_unlock(&entryMutex);
+#else
+    g_rw_lock_reader_unlock(&entryMutex);
+#endif
+
 }
 
 void WulforManager::dispatchClientFunc(FuncBase *func)
 {
+
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_reader_lock(&entryMutex);
+#else
+    g_rw_lock_reader_lock(&entryMutex);
+#endif
 
     // Make sure we're not adding functions to deleted objects.
     if (entries.find(func->getID()) != entries.end())
@@ -301,7 +366,12 @@ void WulforManager::dispatchClientFunc(FuncBase *func)
     else
         delete func;
 
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_reader_unlock(&entryMutex);
+#else
+    g_rw_lock_reader_unlock(&entryMutex);
+#endif
+
 }
 
 MainWindow *WulforManager::getMainWindow()
@@ -322,9 +392,21 @@ string WulforManager::getPath()
 
 void WulforManager::insertEntry_gui(Entry *entry)
 {
+
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_writer_lock(&entryMutex);
+#else
+    g_rw_lock_writer_lock(&entryMutex);
+#endif
+
     entries[entry->getID()] = entry;
+
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_writer_unlock(&entryMutex);
+#else
+    g_rw_lock_writer_unlock(&entryMutex);
+#endif
+
 }
 
 // Should be called from a callback, so gdk_threads_enter/leave is called automatically.
@@ -366,10 +448,21 @@ void WulforManager::deleteEntry_gui(Entry *entry)
     g_mutex_unlock(guiQueueMutex);
 
     // Remove the bookentry from the list.
+
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_writer_lock(&entryMutex);
+#else
+    g_rw_lock_writer_lock(&entryMutex);
+#endif
+
     if (entries.find(id) != entries.end())
         entries.erase(id);
+
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_writer_unlock(&entryMutex);
+#else
+    g_rw_lock_writer_unlock(&entryMutex);
+#endif
 
     g_mutex_unlock(clientCallMutex);
 
@@ -379,7 +472,12 @@ void WulforManager::deleteEntry_gui(Entry *entry)
 
 bool WulforManager::isEntry_gui(Entry *entry)
 {
-   g_static_rw_lock_writer_lock(&entryMutex);
+
+#if !GLIB_CHECK_VERSION(2,32,0)
+    g_static_rw_lock_writer_lock(&entryMutex);
+#else
+    g_rw_lock_writer_lock(&entryMutex);
+#endif
 
    auto it = find_if(entries.begin(), entries.end(),
                      CompareSecond<string, Entry *>(entry));
@@ -387,7 +485,11 @@ bool WulforManager::isEntry_gui(Entry *entry)
    if (it == entries.end())
        entry = NULL;
 
-   g_static_rw_lock_writer_unlock(&entryMutex);
+#if !GLIB_CHECK_VERSION(2,32,0)
+    g_static_rw_lock_writer_unlock(&entryMutex);
+#else
+    g_rw_lock_writer_unlock(&entryMutex);
+#endif
 
    return (entry != NULL);
 }
@@ -396,10 +498,20 @@ DialogEntry* WulforManager::getDialogEntry_gui(const string &id)
 {
     DialogEntry *ret = NULL;
 
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_reader_lock(&entryMutex);
+#else
+    g_rw_lock_reader_lock(&entryMutex);
+#endif
+
     if (entries.find(id) != entries.end())
         ret = dynamic_cast<DialogEntry *>(entries[id]);
+
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_reader_unlock(&entryMutex);
+#else
+    g_rw_lock_reader_unlock(&entryMutex);
+#endif
 
     return ret;
 }

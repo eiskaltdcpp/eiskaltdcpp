@@ -88,7 +88,11 @@ class WulforManager
         GMutex *clientCallMutex;
         GMutex *guiQueueMutex;
         GMutex *clientQueueMutex;
+#if !GLIB_CHECK_VERSION(2,32,0)
         GStaticRWLock entryMutex;
+#else
+        GRWLock entryMutex;
+#endif
         GThread *guiThread;
         GThread *clientThread;
         bool abort;

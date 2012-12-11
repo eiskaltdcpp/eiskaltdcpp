@@ -167,7 +167,9 @@ int main(int argc, char *argv[])
     dcpp::TimerManager::getInstance()->start();
 
     XInitThreads();
+#if !GLIB_CHECK_VERSION(2,32,0)
     g_thread_init(NULL);
+#endif
     gdk_threads_init();
     gtk_init(&argc, &argv);
     g_set_application_name("EiskaltDC++ Gtk");
