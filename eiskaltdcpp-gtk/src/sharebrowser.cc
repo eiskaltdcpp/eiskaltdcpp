@@ -20,6 +20,7 @@
  */
 
 #include "sharebrowser.hh"
+#include <iostream>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/ShareManager.h>
 #include <dcpp/Text.h>
