@@ -31,7 +31,7 @@ public:
     // store method table in globals so that
     // scripts can add functions written in Lua.
     lua_pushvalue(L, methods);
-    set(L, LUA_GLOBALSINDEX, T::className);
+    lua_setglobal(L, T::className);
 
     // hide metatable from Lua getmetatable()
     lua_pushvalue(L, methods);
@@ -127,7 +127,10 @@ public:
   static T *check(lua_State *L, int narg) {
     userdataType *ud =
       static_cast<userdataType*>(luaL_checkudata(L, narg, T::className));
-    if(!ud) luaL_typerror(L, narg, T::className);
+    if(!ud) {
+        luaL_argerror(L, narg, T::className);
+        return NULL;
+    }
     return ud->pT;  // pointer to T object
   }
 
@@ -170,8 +173,9 @@ private:
     char buff[32];
     userdataType *ud = static_cast<userdataType*>(lua_touserdata(L, 1));
     T *obj = ud->pT;
-    sprintf(buff, "%p", obj);
+    sprintf(buff, "%p", (void*)obj);
     lua_pushfstring(L, "%s (%s)", T::className, buff);
+
     return 1;
   }
 
@@ -218,3 +222,5 @@ private:
     return ud;
   }
 };
+
+#define LUNAR_DECLARE_METHOD(Class, Name) {#Name, &Class::Name}
