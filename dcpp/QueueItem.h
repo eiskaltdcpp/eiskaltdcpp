@@ -34,7 +34,7 @@ public:
     typedef QueueItem* Ptr;
     typedef deque<Ptr> List;
     typedef List::iterator Iter;
-    typedef unordered_map<string*, Ptr, noCaseStringHash, noCaseStringEq> StringMap;
+    typedef unordered_map<string*, Ptr, CaseStringHash, CaseStringEq> StringMap;
     typedef StringMap::iterator StringIter;
     typedef unordered_map<UserPtr, Ptr, User::Hash> UserMap;
     typedef UserMap::iterator UserIter;

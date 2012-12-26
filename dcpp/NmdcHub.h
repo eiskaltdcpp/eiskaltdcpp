@@ -80,7 +80,7 @@ friend class ClientManager;
 
     mutable CriticalSection cs;
 
-    typedef unordered_map<string, OnlineUser*, noCaseStringHash, noCaseStringEq> NickMap;
+    typedef unordered_map<string, OnlineUser*, CaseStringHash, CaseStringEq> NickMap;
     typedef NickMap::iterator NickIter;
 
     NickMap users;

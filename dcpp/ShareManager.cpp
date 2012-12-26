@@ -657,16 +657,16 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
         {
             if (Wildcard::patternMatch(fileName , l_skip_list, '|'))
             {
-                LogManager::getInstance()->message(str(F_("User has chosen not to share file: %1% (Size: %2%)")
+                LogManager::getInstance()->message(str(F_("Skip share file: %1% (Size: %2%)")
                 % Util::addBrackets(fileName) % Util::formatBytes(size)));
                 continue;
             }
         }
         if(i->isDirectory()) {
             string newName = aName + name + PATH_SEPARATOR;
-            if((Util::stricmp(newName, SETTING(TEMP_DOWNLOAD_DIRECTORY)) != 0)
-                    && (Util::stricmp(newName, Util::getPath(Util::PATH_USER_CONFIG)) != 0)
-                    && (Util::stricmp(newName, SETTING(LOG_DIRECTORY)) != 0)) {
+            if((::strcmp(newName.c_str(), SETTING(TEMP_DOWNLOAD_DIRECTORY).c_str()) != 0)
+                    && (::strcmp(newName.c_str(), Util::getPath(Util::PATH_USER_CONFIG).c_str()) != 0)
+                    && (::strcmp(newName.c_str(), SETTING(LOG_DIRECTORY).c_str()) != 0)) {
                 dir->directories[name] = buildTree(newName, dir);
             }
         } else {
@@ -677,8 +677,8 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
                 (name != "folder.htt")
                 ) {
                 if (!BOOLSETTING(SHARE_TEMP_FILES) &&
-                    (Util::stricmp(l_ext.c_str(), ".dctmp") == 0)) {
-                    LogManager::getInstance()->message(str(F_("User has chosen not to share temp file: %1% (Size: %2%)")
+                    (::strcmp(l_ext.c_str(), ".dctmp") == 0)) {
+                    LogManager::getInstance()->message(str(F_("Skip share temp file: %1% (Size: %2%)")
                     % Util::addBrackets(fileName) % Util::formatBytes(size)));
                     continue;
                 }

@@ -89,7 +89,7 @@ namespace dht
     private:
 
         /** Running search operations */
-        typedef std::unordered_map<string*, Search*, noCaseStringHash, noCaseStringEq> SearchMap;
+        typedef std::unordered_map<string*, Search*, CaseStringHash, CaseStringEq> SearchMap;
         SearchMap searches;
 
         /** Locks access to "searches" */

@@ -435,6 +435,21 @@ public:
     static int stricmp(const wstring& a, const wstring& b) { return stricmp(a.c_str(), b.c_str()); }
     static int strnicmp(const wstring& a, const wstring& b, size_t n) { return strnicmp(a.c_str(), b.c_str(), n); }
 
+    static int strcmp(const wchar_t* a, const wchar_t* b) {
+        while(*a && (*a) == (*b))
+            ++a, ++b;
+        return ((int)(*a)) - ((int)(*b));
+    }
+    static int strncmp(const wchar_t* a, const wchar_t* b, size_t n) {
+        while(n && *a && (*a) == (*b))
+            --n, ++a, ++b;
+
+        return n == 0 ? 0 : ((int)(*a)) - ((int)(*b));
+    }
+
+    static int strcmp(const wstring& a, const wstring& b) { return strcmp(a.c_str(), b.c_str()); }
+    static int strncmp(const wstring& a, const wstring& b, size_t n) { return strncmp(a.c_str(), b.c_str(), n); }
+
     static string getIpCountry (string IP);
 
     static void setLang(const string lang) {
@@ -484,8 +499,8 @@ private:
     static void loadBootConfig();
 };
 
-/** Case insensitive hash function for strings */
-struct noCaseStringHash {
+/** Case sensitive hash function for strings */
+struct CaseStringHash {
     size_t operator()(const string* s) const {
         return operator()(*s);
     }
@@ -500,7 +515,7 @@ struct noCaseStringHash {
                 x = x*32 - x + '_';
                 str += abs(n);
             } else {
-                x = x*32 - x + (size_t)Text::toLower(c);
+                x = x*32 - x + (size_t)(c);
                 str += n;
             }
         }
@@ -515,54 +530,54 @@ struct noCaseStringHash {
         const wchar_t* y = s.data();
         wstring::size_type j = s.size();
         for(wstring::size_type i = 0; i < j; ++i) {
-            x = x*31 + (size_t)Text::toLower(y[i]);
+            x = x*31 + (size_t)(y[i]);
         }
         return x;
     }
 
     bool operator()(const string* a, const string* b) const {
-        return Util::stricmp(*a, *b) < 0;
+        return ::strcmp((*a).c_str(), (*b).c_str()) < 0;
     }
     bool operator()(const string& a, const string& b) const {
-        return Util::stricmp(a, b) < 0;
+        return ::strcmp(a.c_str(), b.c_str()) < 0;
     }
     bool operator()(const wstring* a, const wstring* b) const {
-        return Util::stricmp(*a, *b) < 0;
+        return Util::strcmp(*a, *b) < 0;
     }
     bool operator()(const wstring& a, const wstring& b) const {
-        return Util::stricmp(a, b) < 0;
+        return Util::strcmp(a, b) < 0;
     }
 };
 
-/** Case insensitive string comparison */
-struct noCaseStringEq {
+/** Case sensitive string comparison */
+struct CaseStringEq {
     bool operator()(const string* a, const string* b) const {
-        return a == b || Util::stricmp(*a, *b) == 0;
+        return a == b || ::strcmp((*a).c_str(), (*b).c_str()) == 0;
     }
     bool operator()(const string& a, const string& b) const {
-        return Util::stricmp(a, b) == 0;
+        return ::strcmp(a.c_str(), b.c_str()) == 0;
     }
     bool operator()(const wstring* a, const wstring* b) const {
-        return a == b || Util::stricmp(*a, *b) == 0;
+        return a == b || Util::strcmp(*a, *b) == 0;
     }
     bool operator()(const wstring& a, const wstring& b) const {
-        return Util::stricmp(a, b) == 0;
+        return Util::strcmp(a, b) == 0;
     }
 };
 
-/** Case insensitive string ordering */
-struct noCaseStringLess {
+/** Case sensitive string ordering */
+struct CaseStringLess {
     bool operator()(const string* a, const string* b) const {
-        return Util::stricmp(*a, *b) < 0;
+        return ::strcmp((*a).c_str(), (*b).c_str()) < 0;
     }
     bool operator()(const string& a, const string& b) const {
-        return Util::stricmp(a, b) < 0;
+        return ::strcmp(a.c_str(), b.c_str()) < 0;
     }
     bool operator()(const wstring* a, const wstring* b) const {
-        return Util::stricmp(*a, *b) < 0;
+        return Util::strcmp(*a, *b) < 0;
     }
     bool operator()(const wstring& a, const wstring& b) const {
-        return Util::stricmp(a, b) < 0;
+        return Util::strcmp(a, b) < 0;
     }
 };
 
