@@ -191,7 +191,8 @@ void UserConnection::supports(const StringList& feat) {
     for(StringList::const_iterator i = feat.begin(); i != feat.end(); ++i) {
         x+= *i + ' ';
     }
-    x.erase(x.length()-1, 1);
+    if(!x.empty())
+        x.erase(x.length()-1, 1);
     send("$Supports " + x + '|');
 }
 

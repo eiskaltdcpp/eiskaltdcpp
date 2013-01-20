@@ -104,7 +104,8 @@ void NmdcHub::supports(const StringList& feat) {
     for(auto i = feat.begin(); i != feat.end(); ++i) {
         x+= *i + ' ';
     }
-    x.erase(x.length()-1, 1);
+    if(!x.empty())
+        x.erase(x.length()-1, 1);
     send("$Supports " + x + '|');
 }
 
