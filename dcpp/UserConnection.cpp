@@ -187,12 +187,7 @@ void UserConnection::sup(const StringList& features) {
 }
 
 void UserConnection::supports(const StringList& feat) {
-    string x;
-    for(StringList::const_iterator i = feat.begin(); i != feat.end(); ++i) {
-        x+= *i + ' ';
-    }
-    if(!x.empty())
-        x.erase(x.length()-1, 1);
+    const string x = Util::toString(" ",feat);
     send("$Supports " + x + '|');
 }
 

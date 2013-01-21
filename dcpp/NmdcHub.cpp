@@ -100,12 +100,7 @@ OnlineUser& NmdcHub::getUser(const string& aNick) {
 }
 
 void NmdcHub::supports(const StringList& feat) {
-    string x;
-    for(auto i = feat.begin(); i != feat.end(); ++i) {
-        x+= *i + ' ';
-    }
-    if(!x.empty())
-        x.erase(x.length()-1, 1);
+    const string x = Util::toString(" ",feat);
     send("$Supports " + x + '|');
 }
 
