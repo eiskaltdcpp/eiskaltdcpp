@@ -68,7 +68,8 @@ TransferView::Menu::Menu():
 
     copy_column->addAction(tr("Users"));
     copy_column->addAction(tr("Speed"));
-    copy_column->addAction(tr("Statistic"));
+    copy_column->addAction(tr("Status"));
+    copy_column->addAction(tr("Flags"));
     copy_column->addAction(tr("Size"));
     copy_column->addAction(tr("Time left"));
     copy_column->addAction(tr("Filename"));
@@ -504,16 +505,31 @@ void TransferView::slotContextMenu(const QPoint &){
                 data += i->data(col).toString() + "\n";
         }
         else {
+            QString tth_str = "";
             foreach(TransferViewItem *i, items){
-                const TTHValue *tth = HashManager::getInstance()->getFileTTHif(_tq(i->target));
+                tth_str = "";
+
+                if (i->download)
+                    tth_str = i->tth;
+                else {
+                    const TTHValue *tth = HashManager::getInstance()->getFileTTHif(_tq(i->target));
+
+                    if (tth)
+                        tth_str = _q(tth->toBase32());
+                }
+
                 QFileInfo fi(i->target);
 
-                if ( tth == NULL ) {
+                if (tth_str.isEmpty()) {
                     QString str = QDir::toNativeSeparators(fi.canonicalFilePath() ); // try to follow symlinks
-                    tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
+                    const TTHValue *tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
+
+                    if (tth)
+                        tth_str = _q(tth->toBase32());
                 }
-                if (tth != NULL)
-                    data += WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32())) + "\n";
+
+                if (!tth_str.isEmpty())
+                    data += WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), tth_str) + "\n";
             }
         }
 
