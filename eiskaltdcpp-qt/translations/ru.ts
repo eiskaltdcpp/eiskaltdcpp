@@ -3896,161 +3896,170 @@ Do you want to stop it?
         <translation>Скорость</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="71"/>
         <source>Statistic</source>
-        <translation>Статистика</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/TransferView.cpp" line="71"/>
+        <source>Status</source>
+        <translation>Статус</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="72"/>
+        <source>Flags</source>
+        <translation>Флаги</translation>
+    </message>
+    <message>
+        <location filename="../src/TransferView.cpp" line="73"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="73"/>
+        <location filename="../src/TransferView.cpp" line="74"/>
         <source>Time left</source>
         <translation>Осталось</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="74"/>
+        <location filename="../src/TransferView.cpp" line="75"/>
         <source>Filename</source>
         <translation>Имя файла</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="75"/>
+        <location filename="../src/TransferView.cpp" line="76"/>
         <source>Host</source>
         <translation>Хост</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="76"/>
+        <location filename="../src/TransferView.cpp" line="77"/>
         <source>IP</source>
         <translation>IP</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="77"/>
+        <location filename="../src/TransferView.cpp" line="78"/>
         <source>Encryption</source>
         <translation>Шифрование</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="78"/>
+        <location filename="../src/TransferView.cpp" line="79"/>
         <source>Magnet</source>
         <translation>Магнет</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="83"/>
+        <location filename="../src/TransferView.cpp" line="84"/>
         <source>Remove Source</source>
         <translation>Удалить источник</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="89"/>
+        <location filename="../src/TransferView.cpp" line="90"/>
         <source>Force attempt</source>
         <translation>Принудительная попытка</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="92"/>
+        <location filename="../src/TransferView.cpp" line="93"/>
         <source>Close connection(s)</source>
         <translation>Закрыть подключение(я)</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="342"/>
-        <location filename="../src/TransferView.cpp" line="642"/>
+        <location filename="../src/TransferView.cpp" line="343"/>
+        <location filename="../src/TransferView.cpp" line="658"/>
         <source>Download complete</source>
         <translation>Загрузка завершена</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="365"/>
+        <location filename="../src/TransferView.cpp" line="366"/>
         <source>File list</source>
         <translation>Список файлов</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="367"/>
+        <location filename="../src/TransferView.cpp" line="368"/>
         <source>TTH: </source>
         <translation>TTH: </translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="585"/>
+        <location filename="../src/TransferView.cpp" line="601"/>
         <source>Requesting</source>
         <translation>Запрос</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="596"/>
+        <location filename="../src/TransferView.cpp" line="612"/>
         <source>Download starting...</source>
         <translation>Загрузка начата...</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="614"/>
-        <location filename="../src/TransferView.cpp" line="792"/>
+        <location filename="../src/TransferView.cpp" line="630"/>
+        <location filename="../src/TransferView.cpp" line="808"/>
         <source>[S]</source>
         <translation>[S]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="616"/>
-        <location filename="../src/TransferView.cpp" line="794"/>
+        <location filename="../src/TransferView.cpp" line="632"/>
+        <location filename="../src/TransferView.cpp" line="810"/>
         <source>[U]</source>
         <translation>[U]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="620"/>
+        <location filename="../src/TransferView.cpp" line="636"/>
         <source>[T]</source>
         <translation>[T]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="622"/>
-        <location filename="../src/TransferView.cpp" line="797"/>
+        <location filename="../src/TransferView.cpp" line="638"/>
+        <location filename="../src/TransferView.cpp" line="813"/>
         <source>[Z]</source>
         <translation>[Z]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="626"/>
+        <location filename="../src/TransferView.cpp" line="642"/>
         <source>Downloaded %1</source>
         <translation>Загружено %1</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="627"/>
+        <location filename="../src/TransferView.cpp" line="643"/>
         <source> (%1%)</source>
         <translation> (%1%)</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="681"/>
+        <location filename="../src/TransferView.cpp" line="697"/>
         <source>Connecting...</source>
         <translation>Подключение...</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="705"/>
+        <location filename="../src/TransferView.cpp" line="721"/>
         <source>Connected</source>
         <translation>Подключен</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="736"/>
+        <location filename="../src/TransferView.cpp" line="752"/>
         <source>Connecting</source>
         <translation>Подключение</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="738"/>
+        <location filename="../src/TransferView.cpp" line="754"/>
         <source>No download slots</source>
         <translation>Нет свободных слотов</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="740"/>
+        <location filename="../src/TransferView.cpp" line="756"/>
         <source>Waiting to retry</source>
         <translation>Ожидание новой попытки</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="774"/>
+        <location filename="../src/TransferView.cpp" line="790"/>
         <source>Upload starting...</source>
         <translation>Отдача начата...</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="801"/>
+        <location filename="../src/TransferView.cpp" line="817"/>
         <source>Uploaded %1 (%2%) </source>
         <translation>Отдано %1 (%2%) </translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="818"/>
+        <location filename="../src/TransferView.cpp" line="834"/>
         <source>Upload complete</source>
         <translation>Отдача завершена</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="830"/>
+        <location filename="../src/TransferView.cpp" line="846"/>
         <source>Upload failed</source>
         <translation>Отдача не удалась</translation>
     </message>

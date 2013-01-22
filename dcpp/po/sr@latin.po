@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2012-07-04 19:44+0300\n"
+"POT-Creation-Date: 2013-01-23 01:03+0200\n"
 "PO-Revision-Date: 2012-07-07 18:18+0000\n"
 "Last-Translator: miroslav <miroslav031@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/"
@@ -339,15 +339,15 @@ msgstr "Preusmeri korisnika(e)"
 msgid "Auto-connect group (converted)"
 msgstr "Auto-povezana grupa (konvertovan)"
 
-#: ../NmdcHub.cpp:291
+#: ../NmdcHub.cpp:288
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nepoznat nadimak)"
 
-#: ../NmdcHub.cpp:670
+#: ../NmdcHub.cpp:667
 msgid "Hub topic:"
 msgstr "Hab tema:"
 
-#: ../NmdcHub.cpp:1020
+#: ../NmdcHub.cpp:1017
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"

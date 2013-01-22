@@ -3898,161 +3898,170 @@ Do you want to stop it?
         <translation>Speed</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="71"/>
         <source>Statistic</source>
-        <translation>Statistic</translation>
+        <translation type="obsolete">Statistic</translation>
+    </message>
+    <message>
+        <location filename="../src/TransferView.cpp" line="71"/>
+        <source>Status</source>
+        <translation type="unfinished">Status</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="72"/>
+        <source>Flags</source>
+        <translation type="unfinished">Flags</translation>
+    </message>
+    <message>
+        <location filename="../src/TransferView.cpp" line="73"/>
         <source>Size</source>
         <translation>Size</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="73"/>
+        <location filename="../src/TransferView.cpp" line="74"/>
         <source>Time left</source>
         <translation>Time left</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="74"/>
+        <location filename="../src/TransferView.cpp" line="75"/>
         <source>Filename</source>
         <translation>Filename</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="75"/>
+        <location filename="../src/TransferView.cpp" line="76"/>
         <source>Host</source>
         <translation>Host</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="76"/>
+        <location filename="../src/TransferView.cpp" line="77"/>
         <source>IP</source>
         <translation>IP</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="77"/>
+        <location filename="../src/TransferView.cpp" line="78"/>
         <source>Encryption</source>
         <translation>Encryption</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="78"/>
+        <location filename="../src/TransferView.cpp" line="79"/>
         <source>Magnet</source>
         <translation>Magnet</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="83"/>
+        <location filename="../src/TransferView.cpp" line="84"/>
         <source>Remove Source</source>
         <translation>Remove Source</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="89"/>
+        <location filename="../src/TransferView.cpp" line="90"/>
         <source>Force attempt</source>
         <translation>Force attempt</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="92"/>
+        <location filename="../src/TransferView.cpp" line="93"/>
         <source>Close connection(s)</source>
         <translation>Close connection(s)</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="342"/>
-        <location filename="../src/TransferView.cpp" line="642"/>
+        <location filename="../src/TransferView.cpp" line="343"/>
+        <location filename="../src/TransferView.cpp" line="658"/>
         <source>Download complete</source>
         <translation>Download complete</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="365"/>
+        <location filename="../src/TransferView.cpp" line="366"/>
         <source>File list</source>
         <translation>File list</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="367"/>
+        <location filename="../src/TransferView.cpp" line="368"/>
         <source>TTH: </source>
         <translation>TTH: </translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="585"/>
+        <location filename="../src/TransferView.cpp" line="601"/>
         <source>Requesting</source>
         <translation>Requesting</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="596"/>
+        <location filename="../src/TransferView.cpp" line="612"/>
         <source>Download starting...</source>
         <translation>Download starting...</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="614"/>
-        <location filename="../src/TransferView.cpp" line="792"/>
+        <location filename="../src/TransferView.cpp" line="630"/>
+        <location filename="../src/TransferView.cpp" line="808"/>
         <source>[S]</source>
         <translation>[S]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="616"/>
-        <location filename="../src/TransferView.cpp" line="794"/>
+        <location filename="../src/TransferView.cpp" line="632"/>
+        <location filename="../src/TransferView.cpp" line="810"/>
         <source>[U]</source>
         <translation>[U]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="620"/>
+        <location filename="../src/TransferView.cpp" line="636"/>
         <source>[T]</source>
         <translation>[T]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="622"/>
-        <location filename="../src/TransferView.cpp" line="797"/>
+        <location filename="../src/TransferView.cpp" line="638"/>
+        <location filename="../src/TransferView.cpp" line="813"/>
         <source>[Z]</source>
         <translation>[Z]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="626"/>
+        <location filename="../src/TransferView.cpp" line="642"/>
         <source>Downloaded %1</source>
         <translation>Downloaded %1</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="627"/>
+        <location filename="../src/TransferView.cpp" line="643"/>
         <source> (%1%)</source>
         <translation> (%1%)</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="681"/>
+        <location filename="../src/TransferView.cpp" line="697"/>
         <source>Connecting...</source>
         <translation>Connecting...</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="705"/>
+        <location filename="../src/TransferView.cpp" line="721"/>
         <source>Connected</source>
         <translation>Connected</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="736"/>
+        <location filename="../src/TransferView.cpp" line="752"/>
         <source>Connecting</source>
         <translation>Connecting</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="738"/>
+        <location filename="../src/TransferView.cpp" line="754"/>
         <source>No download slots</source>
         <translation>No download slots</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="740"/>
+        <location filename="../src/TransferView.cpp" line="756"/>
         <source>Waiting to retry</source>
         <translation>Waiting to retry</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="774"/>
+        <location filename="../src/TransferView.cpp" line="790"/>
         <source>Upload starting...</source>
         <translation>Upload starting...</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="801"/>
+        <location filename="../src/TransferView.cpp" line="817"/>
         <source>Uploaded %1 (%2%) </source>
         <translation>Uploaded %1 (%2%) </translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="818"/>
+        <location filename="../src/TransferView.cpp" line="834"/>
         <source>Upload complete</source>
         <translation>Upload complete</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="830"/>
+        <location filename="../src/TransferView.cpp" line="846"/>
         <source>Upload failed</source>
         <translation>Upload failed</translation>
     </message>
