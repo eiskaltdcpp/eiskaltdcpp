@@ -1,124 +1,79 @@
 Developers
 
- Andrey Karlov <dein.negativ@gmail.com>
- (main developer 0.4.10 and later)
+  2009-2012 Andrey Karlov <dein.negativ@gmail.com>
+    (main developer since version 0.4.10)
 
- Boris Pek aka Tehnick <tehnick-8@mail.ru>
- (maintainer and developer 1.89.0 and later)
+  2009-2012 Eugene Petrov <dhamp@ya.ru>
+    (Arch Linux maintainer and developer since version 0.4.10)
 
- Eugene Petrov <dhamp@ya.ru>
- (maintainer and developer 0.4.10 and later)
+  2010-2013 Boris Pek aka Tehnick <tehnick-8@mail.ru>
+    (Debian/Ubuntu maintainer and developer since version 1.89.0)
 
- Alexandr Tkachev <tka4ev@gmail.com>
- (developer 2.0.3 and later)
+  2010-2012 Pavel Vatagin <pavelvat@gmail.com>
+    (MS Windows maintainer and developer since version 2.2.4)
 
- Pavel Vatagin <pavelvat@gmail.com>
- (maintainer and developer 2.2.4 and later)
+  2010 Alexandr Tkachev <tka4ev@gmail.com>
+    (developer since version 2.0.3)
 
 
-Logo
+Graphic files
 
- Uladzimir Bely <wiselord1983@gmail.com>
- (version 0.4.10 and later)
+  2009-2010 Uladzimir Bely <wiselord1983@gmail.com>
+    (creator of the logo of the project)
 
 
 Translators
 
- Russian translation
+  Russian translation
+    2009-2010 Uladzimir Bely <wiselord1983@gmail.com>
+    2010-2013 Boris Pek aka Tehnick <tehnick-8@mail.ru>
+    2012 Vyacheslav Tretyakov <tret2003@gmail.com> 
 
-   Uladzimir Bely <wiselord1983@gmail.com>
-   (for 0.4.10 and later)
+  Belarusian translation
+    2009-2012 Paval Shalamitski aka Klyok <i.kliok@gmail.com>
 
-   Boris Pek aka Tehnick <tehnick-8@mail.ru>
-   (for 2.1.0 and later)
+  Hungarian translation
+    2010-2012 Akos Berki aka sumo <husumo@gmail.com>
+    2011-2012 Márk Lutring <marcus@elitemail.hu>
 
-   Vyacheslav Tretyakov <tret2003@gmail.com> 
-   (for 2.2.8 and later)
+  French translation
+    2010-2012 Alexandre Wallimann aka Ale <alexandre.wallimann@gmail.com>
 
- Belarusian translation
+  Polish translation
+    2010-2012 Arahael <arahael@gmail.com>
 
-   Paval Shalamitski aka Klyok <i.kliok@gmail.com>
-   (for 1.0.40 and later)
+  Ukrainian translation
+    2010 Dmytro Demenko <dmytro.demenko@gmail.com>
 
- Hungarian translation
+  Serbian (Latin) translation
+    2010-2012 Miroslav Petrovic <miroslav031@gmail.com>
 
-   Akos Berki aka sumo <husumo@gmail.com>
-   (for 2.0.1 and later)
+  Spanish translation
+    2010-2012 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>
+    2012 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>
 
-   Márk Lutring <marcus@elitemail.hu>
-   (for 2.2.5 and later)
+  Bulgarian translation
+    2010-2012 Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>
 
- French translation
+  Slovak translation
+    2010-2012 Martin Durisin <martin.durisin@gmail.com>
 
-   Alexandre Wallimann aka Ale <alexandre.wallimann@gmail.com>
-   (for 2.0.2 and later)
+  Czech translation
+    2011-2012 Uhlik <uhlikx@seznam.cz>
 
- Polish translation
+  German translation
+    2011 Chris Leick <c.leick@vollbio.de>
+    2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>
+    2011-2012 Tillmann Karras <tilkax@gmail.com>
+    2012 Benjamin Weber <be.w@mail.ru>
 
-   Arahael <arahael@gmail.com>
-   (for 2.0.2 and later)
+  Greek translation
+    2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>
 
- Ukrainian translation
+  Italian translation
+    2012 Stefano Simoncelli <netcelli@gmail.com>
+    2012 Lorenzo Keller <lorenzo.keller@gmail.com> 
 
-   Dmytro Demenko <dmytro.demenko@gmail.com>
-   (for 2.0.3 and later)
+  Portuguese (Brazil) translation
+    2013 Helder Cesar aka redrum <heldercro@gmail.com>
 
- Serbian (Latin) translation
-
-   Miroslav Petrovic <miroslav031@gmail.com>
-   (for 2.0.3 and later)
-
- Spanish translation
-
-   Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>
-   (for 2.1.0 and later)
-
-   Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>
-   (for 2.2.6 and later)
-
- Bulgarian translation
-
-   Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>
-   (for 2.1.0 and later)
-
- Slovak translation
-
-   Martin Durisin <martin.durisin@gmail.com>
-   (for 2.1.0 and later)
-
- Czech translation
-
-   Uhlik <uhlikx@seznam.cz>
-   (for 2.2.0 and later)
-
- German translation
-
-   Chris Leick <c.leick@vollbio.de>
-   (for 2.2.3 and later)
-
-   Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>
-   (for 2.2.5 and later)
-
-   Tillmann Karras <tilkax@gmail.com>
-   (for 2.2.5 and later)
-
-   Benjamin Weber <be.w@mail.ru>
-   (for 2.2.6 and later)
-
- Greek translation
-
-   Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>
-   (for 2.2.5 and later)
-
- Italian translation
-
-   Stefano Simoncelli <netcelli@gmail.com>
-   (for 2.2.6 and later)
-
-   Lorenzo Keller <lorenzo.keller@gmail.com> 
-   (for 2.2.8 and later)
-
- Portuguese (Brazil) translation
-
-   Helder Cesar aka redrum <heldercro@gmail.com>
-   (for 2.2.8 and later)
