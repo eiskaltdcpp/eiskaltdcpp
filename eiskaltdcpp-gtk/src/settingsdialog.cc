@@ -1054,6 +1054,8 @@ void Settings::initAppearance_gui()
         vectorLangShortNames.push_back("fr");
         vectorLangFullNames.push_back(_("Polish"));
         vectorLangShortNames.push_back("pl");
+        vectorLangFullNames.push_back(_("Portuguese (Brazil)"));
+        vectorLangShortNames.push_back("pt_BR");
         vectorLangFullNames.push_back(_("Serbian (Latin)"));
         vectorLangShortNames.push_back("sr@latin");
         vectorLangFullNames.push_back(_("Ukrainian"));

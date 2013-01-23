@@ -12,6 +12,7 @@ TRANSLATIONS = translations/en.ts \
     translations/hu.ts \
     translations/it.ts \
     translations/pl.ts \
+    translations/pt_BR.ts \
     translations/ru.ts \
     translations/sk.ts \
     translations/sr@latin.ts \

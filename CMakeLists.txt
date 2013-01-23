@@ -299,6 +299,7 @@ list (APPEND AllLanguages
             hu
             it
             pl
+            pt_BR
             ru
             sr@latin
             sk
