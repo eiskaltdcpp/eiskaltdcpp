@@ -2590,13 +2590,15 @@ void MainWindow::slotAboutClient(){
                      .arg(EISKALTDCPP_VERSION)
                      .arg(EISKALTDCPP_VERSION_SFX));
 
-    a.label_ABOUT->setTextFormat(Qt::RichText);
+    QString html_format = "a { text-decoration:none; }\n"
+                          "a:hover { text-decoration: underline; }\n";
 
     QString about_text = tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.<br/><br/>"
                             ""
                             "DC++ core version: %1 (modified)<br/><br/>"
                             ""
-                            "Home page: <a href=\"http://code.google.com/p/eiskaltdc/\">http://code.google.com/p/eiskaltdc/</a><br/><br/>"
+                            "Home page: <a href=\"http://code.google.com/p/eiskaltdc/\">"
+                            "http://code.google.com/p/eiskaltdc/</a><br/><br/>"
                             ""
                             "Total up: <b>%2</b><br/>"
                             "Total down: <b>%3</b><br/>"
@@ -2608,112 +2610,109 @@ void MainWindow::slotAboutClient(){
 
     a.label_ABOUT->setText(about_text);
 
+    a.textBrowser_AUTHORS->document()->setDefaultStyleSheet(html_format);
+
     a.textBrowser_AUTHORS->setText(
         tr("Please use <a href=\"http://code.google.com/p/eiskaltdc/issues/list\">"
         "http://code.google.com/p/eiskaltdc/issues/list</a> to report bugs.<br/>")+
         QString("<br/>")+
         tr("<b>Developers</b><br/>")+
         QString("<br/>")+
-        QString("&nbsp; Andrey Karlov &lt;dein.negativ@gmail.com&gt;<br/>")+
-        tr("&nbsp; (main developer 0.4.10 and later)<br/>")+
+        QString("&nbsp; 2009-2012 <a href=\"mailto:dein.negativ@gmail.com\">Andrey Karlov</a><br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (main developer since version 0.4.10)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; Boris Pek aka Tehnick &lt;tehnick-8@mail.ru&gt;<br/>")+
-        tr("&nbsp; (maintainer and developer 1.89.0 and later)<br/>")+
+        QString("&nbsp; 2009-2012 <a href=\"mailto:dhamp@ya.ru\">Eugene Petrov</a><br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (Arch Linux maintainer and developer since version 0.4.10)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; Eugene Petrov &lt;dhamp@ya.ru&gt;<br/>")+
-        tr("&nbsp; (maintainer and developer 0.4.10 and later)<br/>")+
+        QString("&nbsp; 2010-2013 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; Alexandr Tkachev &lt;tka4ev@gmail.com&gt;<br/>")+
-        tr("&nbsp; (developer 2.0.3 and later)<br/>")+
+        QString("&nbsp; 2010-2012 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (MS Windows maintainer and developer since version 2.2.4)<br/>")+
         QString("<br/>")+
-        tr("<b>Logo</b><br/>")+
+        QString("&nbsp; 2010 <a href=\"mailto:tka4ev@gmail.com\">Alexandr Tkachev</a><br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (developer since version 2.0.3)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; Uladzimir Bely &lt;wiselord1983@gmail.com&gt;<br/>")+
-        tr("&nbsp; (version 0.4.10 and later)<br/>")
+        tr("<b>Graphic files</b><br/>")+
+        QString("<br/>")+
+        QString("&nbsp; 2009-2010 <a href=\"mailto:wiselord1983@gmail.com\">Uladzimir Bely</a><br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (creator of the logo of the project)<br/>")+
+        QString("<br/>")
         );
 
+    a.textBrowser_TRANSLATION->document()->setDefaultStyleSheet(html_format);
+
     a.textBrowser_TRANSLATION->setText(
-        tr("&nbsp;<u>Russian translation</u><br/>")+
+        tr("Participate in the translation. It is easy: "
+        "<a href=\"https://www.transifex.com/projects/p/eiskaltdcpp/\">"
+        "https://www.transifex.com/projects/p/eiskaltdcpp/</a><br/>")+
         QString("<br/>")+
-        QString("&nbsp; Uladzimir Bely &lt;wiselord1983@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 0.4.10 and later)<br/>")+
+        tr("Russian translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2009-2010 <a href=\"mailto:wiselord1983@gmail.com\">Uladzimir Bely</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2013 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
         QString("<br/>")+
-        QString("&nbsp; Boris Pek aka Tehnick &lt;tehnick-8@mail.ru&gt;<br/>")+
-        tr("&nbsp; (for 2.1.0 and later)<br/>")+
+        tr("Belarusian translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2009-2012 <a href=\"mailto:i.kliok@gmail.com\">Paval Shalamitski</a> aka Klyok<br/>")+
         QString("<br/>")+
-        tr("&nbsp;<u>Belarusian translation</u><br/>")+
+        tr("Hungarian translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:husumo@gmail.com\">Akos Berki</a> aka sumo<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:marcus@elitemail.hu\">Márk Lutring</a><br/>")+
         QString("<br/>")+
-        QString("&nbsp; Paval Shalamitski aka Klyok &lt;i.kliok@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 1.0.40 and later)<br/>")+
+        tr("French translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:alexandre.wallimann@gmail.com\">Alexandre Wallimann</a> aka Ale<br/>")+
         QString("<br/>")+
-        tr("&nbsp;<u>Hungarian translation</u><br/>")+
+        tr("Polish translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:arahael@gmail.com\">Arahael</a><br/>")+
         QString("<br/>")+
-        QString("&nbsp; Akos Berki aka sumo &lt;husumo@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.0.1 and later)<br/>")+
+        tr("Ukrainian translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010 <a href=\"mailto:dmytro.demenko@gmail.com\">Dmytro Demenko</a><br/>")+
         QString("<br/>")+
-        QString("&nbsp; Márk Lutring &lt;marcus@elitemail.hu&gt;<br/>")+
-        tr("&nbsp; (for 2.2.5 and later)<br/>")+
+        tr("Serbian (Latin) translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2013 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
         QString("<br/>")+
-        tr("&nbsp;<u>French translation</u><br/>")+
+        tr("Spanish translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
         QString("<br/>")+
-        QString("&nbsp; Alexandre Wallimann aka Ale &lt;alexandre.wallimann@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.0.2 and later)<br/>")+
+        tr("Bulgarian translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:dimitrov.rusi@gmail.com\">Rusi Dimitrov</a> aka PsyTrip<br/>")+
         QString("<br/>")+
-        tr("&nbsp;<u>Polish translation</u><br/>")+
+        tr("Slovak translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:martin.durisin@gmail.com\">Martin Durisin</a><br/>")+
         QString("<br/>")+
-        QString("&nbsp; Arahael &lt;arahael@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.0.2 and later)<br/>")+
+        tr("Czech translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:uhlikx@seznam.cz\">Uhlik</a><br/>")+
         QString("<br/>")+
-        tr("&nbsp;<u>Ukrainian translation</u><br/>")+
+        tr("German translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:kgeorgokitsos@yahoo.de\">Konstantinos Georgokitsos</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:tilkax@gmail.com\">Tillmann Karras</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012 <a href=\"mailto:be.w@mail.ru\">Benjamin Weber</a><br/>")+
         QString("<br/>")+
-        QString("&nbsp; Dmytro Demenko &lt;dmytro.demenko@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.0.3 and later)<br/>")+
+        tr("Greek translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:kgeorgokitsos@yahoo.de\">Konstantinos Georgokitsos</a><br/>")+
         QString("<br/>")+
-        tr("&nbsp;<u>Serbian (Latin) translation</u><br/>")+
+        tr("Italian translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012 <a href=\"mailto:netcelli@gmail.com\">Stefano Simoncelli</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012 <a href=\"mailto:lorenzo.keller@gmail.com\">Lorenzo Keller</a><br/>")+
         QString("<br/>")+
-        QString("&nbsp; Miroslav Petrovic &lt;miroslav031@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.0.3 and later)<br/>")+
-        QString("<br/>")+
-        tr("&nbsp;<u>Spanish translation</u><br/>")+
-        QString("<br/>")+
-        QString("&nbsp; Gustavo Alvarez aka sL1pKn07 &lt;sl1pkn07@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.1.0 and later)<br/>")+
-        QString("<br/>")+
-        tr("&nbsp;<u>Bulgarian translation</u><br/>")+
-        QString("<br/>")+
-        QString("&nbsp; Rusi Dimitrov aka PsyTrip &lt;dimitrov.rusi@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.1.0 and later)<br/>")+
-        QString("<br/>")+
-        tr("&nbsp;<u>Slovak translation</u><br/>")+
-        QString("<br/>")+
-        QString("&nbsp; Martin Durisin &lt;martin.durisin@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.1.0 and later)<br/>")+
-        QString("<br/>")+
-        tr("&nbsp;<u>Czech translation</u><br/>")+
-        QString("<br/>")+
-        QString("&nbsp; Uhlik &lt;uhlikx@seznam.cz&gt;<br/>")+
-        tr("&nbsp; (for 2.2.0 and later)<br/>")+
-        QString("<br/>")+
-        tr("&nbsp;<u>German translation</u><br/>")+
-        QString("<br/>")+
-        QString("&nbsp; Konstantinos Georgokitsos &lt;kgeorgokitsos@yahoo.de&gt;<br/>")+
-        tr("&nbsp; (for 2.2.5 and later)<br/>")+
-        QString("<br/>")+
-        QString("&nbsp; Tillmann Karras &lt;tilkax@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.2.5 and later)<br/>")+
-        QString("<br/>")+
-        QString("&nbsp; Benjamin Weber &lt;be.w@mail.ru&gt;<br/>")+
-        tr("&nbsp; (for 2.2.6 and later)<br/>")+
-        QString("<br/>")+
-        tr("&nbsp;<u>Greek translation</u><br/>")+
-        QString("<br/>")+
-        QString("&nbsp; Konstantinos Georgokitsos &lt;kgeorgokitsos@yahoo.de&gt;<br/>")+
-        tr("&nbsp; (for 2.2.5 and later)<br/>")+
-        QString("<br/>")+
-        tr("&nbsp;<u>Italian translation</u><br/>")+
-        QString("<br/>")+
-        QString("&nbsp; Stefano Simoncelli &lt;netcelli@gmail.com&gt;<br/>")+
-        tr("&nbsp; (for 2.2.6 and later)<br/>")
+        tr("Portuguese (Brazil) translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2013 <a href=\"mailto:heldercro@gmail.com\">Helder Cesar</a> aka redrum<br/>")+
+        QString("<br/>")
+        );
+
+    a.textBrowser_LICENSE->document()->setDefaultStyleSheet(html_format);
+
+    a.textBrowser_LICENSE->setText(
+        QString("This program is free software: you can redistribute it and/or modify it under the terms "
+                "of the GNU General Public License as published by the Free Software Foundation, either "
+                "version 3 of the License, or (at your option) any later version.<br/>"
+                "<br/>"
+                "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; "
+                "without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. "
+                "See the GNU General Public License for more details.<br/>"
+                "<br/>"
+                "You should have received a copy of the GNU General Public License along with this program. "
+                "If not, see &lt;<a href=\"http://www.gnu.org/licenses/\">http://www.gnu.org/licenses/</a>&gt;.<br/>")
         );
 
     a.exec();

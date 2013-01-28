@@ -181,7 +181,10 @@ MainWindow::MainWindow():
     gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), TRUE);
 #endif
     // About dialog
-    gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"),
+    gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
+                                        "\n"
+                                        "EiskaltDC++ version: %s (%s)\n"
+                                        "DC++ core version: %s"),
         EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
 
     gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), comments);
@@ -198,71 +201,76 @@ MainWindow::MainWindow():
     }
 
     // set authors
-    string authors =
-        _("Developers\n") +
-        string("  Boris Pek <tehnick-8@mail.ru>\n")+
-        string("  Eugene Petrov <dhamp@ya.ru>\n")+
-        string("\n")+
-        _("Contributors\n")+
-        string("  troll <troll.freedcpp@gmail.com>\n")+
-        string("    http://code.google.com/p/freedcpp/\n")+
-        string("  Mank <mank@jabbim.cz>\n")+
-        string("    http://sourceforge.net/projects/freedcppmv/\n");
-    const gchar *authors_[] = {authors.c_str(), NULL};
-    gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), authors_);
+    const gchar * const authors[] =
+    {
+        _("Developers"),
+        "  2010-2013 Boris Pek <tehnick-8@mail.ru>",
+        "  2010-2012 Eugene Petrov <dhamp@ya.ru>",
+        "\n",
+        _("Contributors"),
+        "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
+        "  2009-2011 troll http://code.google.com/p/freedcpp/", // <troll.freedcpp@gmail.com>
+        "  2010-2012 Mank http://sourceforge.net/projects/freedcppmv/", // <mank@jabbim.cz>
+        NULL
+    };
+    gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
+        (const gchar **)authors);
 
     string translator_credits =
         _("Russian translation\n")+
-        string("  Boris Pek aka Tehnick <tehnick-8@mail.ru>\n")+
+        string("  2010-2013 Boris Pek aka Tehnick <tehnick-8@mail.ru>\n")+
+        string("  2012 Vyacheslav Tretyakov <tret2003@gmail.com>\n")+
         string("\n")+
         _("Belarusian translation\n")+
-        string("  Paval Shalamitski aka Klyok <i.kliok@gmail.com>\n")+
+        string("  2009-2012 Paval Shalamitski aka Klyok <i.kliok@gmail.com>\n")+
         string("\n")+
         _("Hungarian translation\n")+
-        string("  Akos Berki aka sumo <husumo@gmail.com>\n")+
-        string("  Márk Lutring <marcus@elitemail.hu>\n")+
+        string("  2010-2012 Akos Berki aka sumo <husumo@gmail.com>\n")+
+        string("  2011-2012 Márk Lutring <marcus@elitemail.hu>\n")+
         string("\n")+
         _("French translation\n")+
-        string("  Alexandre Wallimann aka Ale <alexandre.wallimann@gmail.com>\n")+
+        string("  2010-2012 Alexandre Wallimann aka Ale <alexandre.wallimann@gmail.com>\n")+
         string("\n")+
         _("Polish translation\n")+
-        string("  Arahael <arahael@gmail.com>\n")+
+        string("  2010-2012 Arahael <arahael@gmail.com>\n")+
         string("\n")+
         _("Ukrainian translation\n")+
-        string("  Dmytro Demenko <dmytro.demenko@gmail.com>\n")+
+        string("  2010 Dmytro Demenko <dmytro.demenko@gmail.com>\n")+
         string("\n")+
         _("Serbian (Latin) translation\n")+
-        string("  Miroslav Petrovic <miroslav031@gmail.com>\n")+
+        string("  2010-2013 Miroslav Petrovic <miroslav031@gmail.com>\n")+
         string("\n")+
         _("Spanish translation\n")+
-        string("  Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
+        string("  2010-2012 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
+        string("  2012 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
         string("\n")+
         _("Bulgarian translation\n")+
-        string("  Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>\n")+
+        string("  2010-2012 Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>\n")+
         string("\n")+
         _("Slovak translation\n")+
-        string("  Martin Durisin <martin.durisin@gmail.com>\n")+
+        string("  2010-2012 Martin Durisin <martin.durisin@gmail.com>\n")+
         string("\n")+
         _("Czech translation\n")+
-        string("  Uhlik <uhlikx@seznam.cz>\n")+
+        string("  2011-2012 Uhlik <uhlikx@seznam.cz>\n")+
         string("\n")+
         _("German translation\n")+
-        string("  Chris Leick <c.leick@vollbio.de>\n")+
-        string("  Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
-        string("  Tillmann Karras <tilkax@gmail.com>\n")+
-        string("  Benjamin Weber <be.w@mail.ru>\n")+
+        string("  2011 Chris Leick <c.leick@vollbio.de>\n")+
+        string("  2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
+        string("  2011-2012 Tillmann Karras <tilkax@gmail.com>\n")+
+        string("  2012 Benjamin Weber <be.w@mail.ru>\n")+
         string("\n")+
         _("Greek translation\n")+
-        string("  Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
+        string("  2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
         string("\n")+
         _("Italian translation\n")+
-        string("  Stefano Simoncelli <netcelli@gmail.com>\n")+
+        string("  2012 Stefano Simoncelli <netcelli@gmail.com>\n")+
+        string("  2012 Lorenzo Keller <lorenzo.keller@gmail.com>\n")+
         string("\n");
     gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
         (const gchar *)translator_credits.c_str());
 
     // This has to be set in code in order to activate the link
-    gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), "http://eiskaltdc.googlecode.com");
+    gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), "http://eiskaltdc.googlecode.com/");
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("aboutDialog")), window);
 
     // Set all windows to the default icon
