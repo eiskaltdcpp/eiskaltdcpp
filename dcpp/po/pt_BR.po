@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2013-01-23 01:03+0200\n"
-"PO-Revision-Date: 2013-01-25 00:58+0000\n"
+"PO-Revision-Date: 2013-01-28 10:42+0000\n"
 "Last-Translator: redrum <heldercro@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/eiskaltdcpp/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -71,31 +71,31 @@ msgstr ""
 #: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2165
 #: ../QueueManager.cpp:2171 ../QueueManager.cpp:2177 ../ClientManager.cpp:178
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 #: ../HashManager.cpp:218 ../HashManager.cpp:418
 msgid "Hashing failed: %1%"
-msgstr ""
+msgstr "Falha do hash: %1%"
 
 #: ../HashManager.cpp:225
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr ""
+msgstr "Hash terminado: %1% (%2% a %3%/s)"
 
 #: ../HashManager.cpp:228
 msgid "Finished hashing: %1% (%2%)"
-msgstr ""
+msgstr "Hash terminado: %1% (%2%)"
 
 #: ../HashManager.cpp:231
 msgid "Finished hashing: %1%"
-msgstr ""
+msgstr "Hash terminado: %1%"
 
 #: ../HashManager.cpp:260 ../HashManager.cpp:474
 msgid "Error saving hash data: %1%"
-msgstr ""
+msgstr "Erro ao salvar dados do hash: %1%"
 
 #: ../HashManager.cpp:273
 msgid "Unable to read hash data file"
-msgstr ""
+msgstr "Impossível ler dados do hash"
 
 #: ../HashManager.cpp:606
 msgid "Error creating hash data file: %1%"
@@ -116,7 +116,7 @@ msgstr ""
 
 #: ../Transfer.cpp:91 ../QueueManager.cpp:2194 ../AdcHub.cpp:193
 msgid "%1%/s"
-msgstr ""
+msgstr "%1%/s"
 
 #: ../ConnectivityManager.cpp:80
 msgid "Determining the best connectivity settings..."
@@ -291,29 +291,29 @@ msgstr ""
 
 #: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr ""
+msgstr "%1% (%2%) tem os mesmo CID {%3%} que %4% (%5%), ignorando"
 
 #: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
-msgstr ""
+msgstr "Falha ao negociar um protocolo base"
 
 #: ../AdcHub.cpp:234
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
+msgstr "O hub usa uma versão antiga do ADC, por favor peça ao administrador para atualizar"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
-msgstr ""
+msgstr "%1% foi kickado por %2%: %3%"
 
 #: ../AdcHub.cpp:308
 msgid "%1% was kicked: %2%"
-msgstr ""
+msgstr "%1% foi kickado: %2%"
 
 #: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
-msgstr ""
+msgstr "Não está escutando conexões - por favor reinicie %1%"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -329,17 +329,17 @@ msgstr "Auto-conectar grupo (convertido)"
 
 #: ../NmdcHub.cpp:288
 msgid "%1% (Nick unknown)"
-msgstr ""
+msgstr "%1% (Nick desconhecido)"
 
 #: ../NmdcHub.cpp:667
 msgid "Hub topic:"
-msgstr ""
+msgstr "Tópico do hub:"
 
 #: ../NmdcHub.cpp:1017
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr ""
+msgstr "Este hub está tentando usar seu cliente para enviar spam %1%, por favor contacte o dono do hub para corrigir isso"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -356,13 +356,13 @@ msgstr ""
 #: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
 #: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
 msgid "Error during compression"
-msgstr ""
+msgstr "Erro durante a compressão"
 
 #: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
 #: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
 #: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
 msgid "Error during decompression"
-msgstr ""
+msgstr "Erro durante a descompressão"
 
 #: ../UPnPManager.cpp:45
 msgid "No UPnP implementation available"
@@ -494,42 +494,42 @@ msgstr "Usuários"
 #: ../Util.cpp:632
 #, c-format
 msgid "%d B"
-msgstr ""
+msgstr "%d B"
 
 #: ../Util.cpp:634
 #, c-format
 msgid "%.02f KiB"
-msgstr ""
+msgstr "%.02f KiB"
 
 #: ../Util.cpp:636
 #, c-format
 msgid "%.02f MiB"
-msgstr ""
+msgstr "%.02f MiB"
 
 #: ../Util.cpp:638
 #, c-format
 msgid "%.02f GiB"
-msgstr ""
+msgstr "%.02f GiB"
 
 #: ../Util.cpp:640
 #, c-format
 msgid "%.02f TiB"
-msgstr ""
+msgstr "%.02f TiB"
 
 #: ../Util.cpp:642
 #, c-format
 msgid "%.02f PiB"
-msgstr ""
+msgstr "%.02f PiB"
 
 #: ../Util.cpp:672
 #, c-format
 msgid "%s B"
-msgstr ""
+msgstr "%s B"
 
 #: ../Util.cpp:676
 #, c-format
 msgid "%'lld B"
-msgstr ""
+msgstr "%'lld B"
 
 #: ../HttpConnection.cpp:166
 msgid "Endless redirection loop (%1%)"
@@ -605,7 +605,7 @@ msgstr ""
 
 #: ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
-msgstr ""
+msgstr "Error: configuração não encontrada"
 
 #: ../SettingsManager.cpp:609
 msgid "Change core setting "
@@ -613,11 +613,11 @@ msgstr ""
 
 #: ../SettingsManager.cpp:609
 msgid " to "
-msgstr ""
+msgstr "para"
 
 #: ../SettingsManager.cpp:611
 msgid "Error: params have been not 2!"
-msgstr ""
+msgstr "Error: não foram 2 parâmetros!"
 
 #: ../Socket.cpp:86
 #, c-format
@@ -683,7 +683,7 @@ msgstr ""
 
 #: ../ChatMessage.cpp:33
 msgid "Sent "
-msgstr ""
+msgstr "Enviou"
 
 #: ../Streams.h:141
 msgid "More bytes written than requested"
