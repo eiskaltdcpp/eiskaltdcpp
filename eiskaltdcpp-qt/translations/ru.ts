@@ -2283,117 +2283,117 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2622"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (main developer since version 0.4.10)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (главный разработчик с версии 0.4.10)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2625"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Arch Linux maintainer and developer since version 0.4.10)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (сопровождающий пакета в Arch Linux и разработчик с версии 0.4.10)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2628"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (сопровождающий пакета в Debian/Ubuntu и разработчик с версии 1.89.0)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2631"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (MS Windows maintainer and developer since version 2.2.4)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (сопровождающий пакета в MS Windows и разработчик с версии 2.2.4)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2634"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (developer since version 2.0.3)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (разработчик с версии 2.0.3)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2636"/>
         <source>&lt;b&gt;Graphic files&lt;/b&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Графические файлы&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2639"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (creator of the logo of the project)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (создатель логотипа проекта)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2646"/>
         <source>Participate in the translation. It is easy: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Участвуйте в переводе. Это просто: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2650"/>
         <source>Russian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Русский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2654"/>
         <source>Belarusian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Белорусский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2657"/>
         <source>Hungarian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Венгерский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2661"/>
         <source>French translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Французский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2664"/>
         <source>Polish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Польский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2667"/>
         <source>Ukrainian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Украинский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2670"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Сербский (Латиница) перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2673"/>
         <source>Spanish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Испанский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2677"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Болгарский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
         <source>Slovak translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Словацкий перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2683"/>
         <source>Czech translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Чешский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2686"/>
         <source>German translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Немецкий перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>Greek translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Греческий перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>Italian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Итальянский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2698"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Португальский (Бразилия) перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&amp;nbsp; (main developer 0.4.10 and later)&lt;br/&gt;</source>
@@ -3333,7 +3333,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="91"/>
         <source>Portuguese (Brazil)</source>
-        <translation type="unfinished"></translation>
+        <translation>Португальский (Бразилия)\</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="93"/>
@@ -4404,7 +4404,7 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
