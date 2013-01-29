@@ -101,7 +101,10 @@ static inline void print_stacktrace(FILE *out = stderr, unsigned int max_frames 
 void printBacktrace(int){
     std::cerr << "\n\n*************************************************************\n";
     std::cerr << "EiskaltDC++ version: " << EISKALTDCPP_VERSION << " " << EISKALTDCPP_VERSION_SFX << "\n";
-    std::cerr << "Oops! Please report a bug at http://code.google.com/p/eiskaltdc/issues/list provide the following backtrace:\n";
+    std::cerr << "Oops! Please report a bug at http://code.google.com/p/eiskaltdc/issues/list\n\n";
+    std::cerr << "Stacktrace below is usually useless. Useful bug report should include full backtrace:\n"
+                 "https://code.google.com/p/eiskaltdc/wiki/issue_hints_en\n\n";
+    std::cerr << "Stacktrace:\n";
     print_stacktrace();
 }
 #endif

@@ -206,7 +206,7 @@ MainWindow::MainWindow():
         _("Developers"),
         "  2010-2013 Boris Pek <tehnick-8@mail.ru>",
         "  2010-2012 Eugene Petrov <dhamp@ya.ru>",
-        "\n",
+        "  ",
         _("Contributors"),
         "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
         "  2009-2011 troll http://code.google.com/p/freedcpp/", // <troll.freedcpp@gmail.com>

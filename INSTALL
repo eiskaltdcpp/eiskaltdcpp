@@ -290,13 +290,3 @@ Haiku specific notes
 *******************************************************************************
 To configure program use command like this:
 +cmake -DLOCAL_BOOST=ON -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp -DFORCE_XDG=OFF -DSHARE_DIR=/boot/apps/Eiskaltdcpp ..
-
-
-*******************************************************************************
-How to install Term::ShellUI perl module in Debian and Ubuntu
-*******************************************************************************
-# Correct method:
-sudo apt-get install dh-make-perl
-sudo dh-make-perl --install --cpan Term::ShellUI
-# If that doesn't work for some reason use CPAN:
-sudo cpan Term::ShellUI
