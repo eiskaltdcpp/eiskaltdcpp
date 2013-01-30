@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2013-01-29 00:26+0200\n"
-"PO-Revision-Date: 2013-01-30 12:29+0000\n"
-"Last-Translator: miroslav <miroslav031@yandex.com>\n"
+"PO-Revision-Date: 2013-01-30 17:14+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1052,7 +1052,7 @@ msgstr "Menadžer konekcije: Upozorenje"
 
 #: ../src/mainwindow.cc:210
 msgid "Contributors"
-msgstr "Saradnici\n"
+msgstr "Saradnici"
 
 #: ../src/searchspy.cc:58 ../src/searchspy.cc:157 ../src/searchspy.cc:271
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:312 ../src/searchspy.cc:434
@@ -1131,7 +1131,7 @@ msgstr "Fascikla"
 
 #: ../src/mainwindow.cc:206
 msgid "Developers"
-msgstr "Programeri\n"
+msgstr "Programeri"
 
 #: ../src/sharebrowser.cc:112 ../src/sharebrowser.cc:258
 #: ../src/sharebrowser.cc:277 ../src/sharebrowser.cc:616
