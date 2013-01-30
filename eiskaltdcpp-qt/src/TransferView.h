@@ -18,6 +18,7 @@
 #include <QHeaderView>
 
 #include "ui_UITransferView.h"
+#include "TransferViewModel.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"
@@ -159,6 +160,8 @@ private:
     inline int          vint(const QVariant &var) { return var.toInt(); }
     inline double       vdbl(const QVariant &var) { return var.toDouble(); }
     inline qlonglong    vlng(const QVariant &var) { return var.toLongLong(); }
+
+    QString getTTHFromItem(const TransferViewItem *);
 
     void getParams(VarMap&, const dcpp::ConnectionQueueItem*);
     void getParams(VarMap&, const dcpp::Transfer*);

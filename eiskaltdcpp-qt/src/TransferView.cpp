@@ -343,6 +343,21 @@ void TransferView::downloadComplete(QString target){
     Notification::getInstance()->showMessage(Notification::TRANSFER, tr("Download complete"), target);
 }
 
+QString TransferView::getTTHFromItem(const TransferViewItem *item){
+    QString tth_str = "";
+
+    if (item->download)
+        tth_str = item->tth;
+    else {
+        const TTHValue *tth = dcpp::HashManager::getInstance()->getFileTTHif(_tq(item->target));
+
+        if (tth)
+            tth_str = _q(tth->toBase32());
+    }
+
+    return tth_str;
+}
+
 void TransferView::getParams(TransferView::VarMap &params, const dcpp::ConnectionQueueItem *item){
     const dcpp::UserPtr &user = item->getUser();
     WulforUtil *WU = WulforUtil::getInstance();
@@ -453,20 +468,9 @@ void TransferView::slotContextMenu(const QPoint &){
         QString tth_str = "";
         std::for_each(items.begin(), items.end(), 
                       [&](const TransferViewItem *item) {
-                          tth_str = "";
-                          
-                          if (item->download)
-                            tth_str = item->tth;
-                          else {
-                            const TTHValue *tth = dcpp::HashManager::getInstance()->getFileTTHif(_tq(item->target));
-                
-                            if (tth)
-                                tth_str = _q(tth->toBase32());
-                          }
-                          
+                          tth_str = getTTHFromItem(item);
                           if (!tth_str.isEmpty() && !tths.contains(tth_str)){
                             tths.push_back(tth_str);
-                              
                             searchAlternates(tth_str);
                           }
                       }
@@ -507,18 +511,8 @@ void TransferView::slotContextMenu(const QPoint &){
         else {
             QString tth_str = "";
             foreach(TransferViewItem *i, items){
-                tth_str = "";
-
-                if (i->download)
-                    tth_str = i->tth;
-                else {
-                    const TTHValue *tth = HashManager::getInstance()->getFileTTHif(_tq(i->target));
-
-                    if (tth)
-                        tth_str = _q(tth->toBase32());
-                }
-
                 QFileInfo fi(i->target);
+                tth_str = getTTHFromItem(i);
 
                 if (tth_str.isEmpty()) {
                     QString str = QDir::toNativeSeparators(fi.canonicalFilePath() ); // try to follow symlinks
