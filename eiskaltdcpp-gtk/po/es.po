@@ -1054,7 +1054,7 @@ msgstr "Manager de conectividad: Atención"
 
 #: ../src/mainwindow.cc:210
 msgid "Contributors"
-msgstr "Contribuidores\n"
+msgstr "Contribuidores"
 
 #: ../src/searchspy.cc:58 ../src/searchspy.cc:157 ../src/searchspy.cc:271
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:312 ../src/searchspy.cc:434
@@ -1133,7 +1133,7 @@ msgstr "Directorio de destino"
 
 #: ../src/mainwindow.cc:206
 msgid "Developers"
-msgstr "Desarrolladores\n"
+msgstr "Desarrolladores"
 
 #: ../src/sharebrowser.cc:112 ../src/sharebrowser.cc:258
 #: ../src/sharebrowser.cc:277 ../src/sharebrowser.cc:616
