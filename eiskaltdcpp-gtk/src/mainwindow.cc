@@ -241,7 +241,7 @@ MainWindow::MainWindow():
         string("  2010-2013 Miroslav Petrovic <miroslav031@gmail.com>\n")+
         string("\n")+
         _("Spanish translation\n")+
-        string("  2010-2012 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
+        string("  2010-2013 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
         string("  2012 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
         string("\n")+
         _("Bulgarian translation\n")+
