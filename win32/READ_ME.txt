@@ -12,8 +12,8 @@ mingw-get-inst-20120426.exe or later
 qt-win-opensource-4.8.3-mingw.exe or later
 	http://releases.qt-project.org/qt4/source/qt-win-opensource-4.8.3-mingw.exe
 
-Win32OpenSSL-1_0_1c.exe or later
-	http://www.slproweb.com/download/Win32OpenSSL-1_0_1c.exe
+Win32OpenSSL-1_0_1e.exe or later
+	http://www.slproweb.com/download/Win32OpenSSL-1_0_1e.exe
 
 cmake-2.8.9-win32-x86.exe or later
 	http://www.cmake.org/files/v2.8/cmake-2.8.9-win32-x86.exe
