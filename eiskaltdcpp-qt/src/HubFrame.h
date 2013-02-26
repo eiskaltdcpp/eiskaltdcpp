@@ -122,8 +122,6 @@ public:
     public:
        static QString parseForLinks(QString, bool);
        static void parseForMagnetAlias(QString &output);//find and replace <magnet ...></magnet> sections
-    private:
-       static QStringList link_types;
     };
 
     typedef QMap<QString, PMWindow*> PMMap;
