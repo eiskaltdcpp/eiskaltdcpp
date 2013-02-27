@@ -1,3 +1,6 @@
+set LANG=C
+@rem set LANG=ru_RU.UTF-8
+
 set ARCH=x86_64
 if "%PROCESSOR_ARCHITECTURE%" == "x86" (
     if not defined PROCESSOR_ARCHITEW6432 set ARCH=x86
@@ -15,7 +18,7 @@ set INSTALL_DIR=%BUILD_DIR%\EiskaltDC++
 set INSTALLER_DIR=%BUILD_DIR%\installer
 
 set MINGW32_DIR=%SystemDrive%\MinGW
-set QT_MINGW32_DIR=%SystemDrive%\Qt\4.8.3
+set QT_MINGW32_DIR=%SystemDrive%\Qt\4.8.4
 
 set OPENSSL_DIR=%SystemDrive%\OpenSSL-Win32
 set MINGW32_DEPENDS_DIR=%SystemDrive%\eiskaltdcpp\mingw32-depends
