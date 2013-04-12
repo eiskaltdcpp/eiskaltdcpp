@@ -136,7 +136,6 @@ static bool parseBasicBBCode(const QString &tag, const QString &txt, QString &in
     return false;
 }
 
-QStringList HubFrame::LinkParser::link_types = QString("http://,https://,ftp://,dchub://,adc://,adcs://,magnet:,www.").split(",");
 HubFrame::Menu *HubFrame::Menu::instance = NULL;
 unsigned HubFrame::Menu::counter = 0;
 
@@ -462,6 +461,8 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
         return input;
 
     static QList<QChar> unwise_chars = QList<QChar>() << '{' << '}' << '|' << '\\' << '^' << '[' << ']' << '`';
+    static QStringList link_types = QStringList() << "http://" << "https://" << "ftp://" << "www."
+                                                  << "dchub://" << "adc://" << "adcs://" << "magnet:";
 
     QString output = "";
 

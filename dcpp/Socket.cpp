@@ -623,7 +623,9 @@ string Socket::resolve(const string& aDns) {
     string address = Util::emptyString;
     addrinfo hints = { 0 };
     addrinfo *result;
-    hints.ai_family = AF_UNSPEC;    /* Allow IPv4 or IPv6 */
+    // While we do not have IPv6 support, hints.ai_family = AF_UNSPEC causes connection problem
+    // See: https://code.google.com/p/eiskaltdc/issues/detail?id=1417
+    hints.ai_family = AF_INET;    /* Allow only IPv4 */
     hints.ai_socktype = 0;
     hints.ai_protocol = 0;          /* Any protocol */
     //hints.ai_flags = AI_IDN | AI_CANONIDN;// | AI_IDN_ALLOW_UNASSIGNED;

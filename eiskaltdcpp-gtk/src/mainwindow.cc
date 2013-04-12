@@ -222,7 +222,7 @@ MainWindow::MainWindow():
         string("  2012 Vyacheslav Tretyakov <tret2003@gmail.com>\n")+
         string("\n")+
         _("Belarusian translation\n")+
-        string("  2009-2012 Paval Shalamitski aka Klyok <i.kliok@gmail.com>\n")+
+        string("  2009-2013 Paval Shalamitski aka Klyok <i.kliok@gmail.com>\n")+
         string("\n")+
         _("Hungarian translation\n")+
         string("  2010-2012 Akos Berki aka sumo <husumo@gmail.com>\n")+
