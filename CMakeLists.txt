@@ -111,7 +111,7 @@ if (XATTR_FOUND)
 endif (XATTR_FOUND)
 
 if (LUA_SCRIPT)
-    find_package (Lua51 REQUIRED)
+    find_package (Lua52 REQUIRED)
     add_definitions ( -DLUA_SCRIPT )
     message (STATUS "Building with Lua scripts support")
 else (LUA_SCRIPT)
@@ -395,4 +395,3 @@ CONFIGURE_FILE(
   IMMEDIATE @ONLY)
 ADD_CUSTOM_TARGET(uninstall
   "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-
