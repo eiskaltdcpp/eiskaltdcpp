@@ -289,9 +289,7 @@ void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
 void ServerThread::on(Connecting, Client* cur) noexcept {
     if (isVerbose)
         cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
-}
 
-void ServerThread::on(Connected, Client* cur) noexcept {
     ClientIter i = clientsMap.find(cur->getHubUrl());
     if (i == clientsMap.end()) {
         CurHub curhub;
@@ -299,9 +297,11 @@ void ServerThread::on(Connected, Client* cur) noexcept {
         clientsMap[cur->getHubUrl()] = curhub;
     } else if (i != clientsMap.end() && clientsMap[cur->getHubUrl()].curclient == NULL)
         clientsMap[cur->getHubUrl()].curclient = cur;
+}
 
+void ServerThread::on(Connected, Client* cur) noexcept {
     if (isVerbose)
-        cout << "Connecting to " << cur->getHubUrl() << "..." << endl;
+        cout << "Connected to " << cur->getHubUrl() << "..." << endl;
 }
 
 void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) noexcept {
