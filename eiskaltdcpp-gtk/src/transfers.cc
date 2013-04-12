@@ -578,7 +578,7 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
     if (transferView.getValue<gboolean>(iter, "Failed") == 0)
     {
         if (active)
-            status = _("Download");
+            status = _("Downloading");
         else
             status = _("Waiting for slot");
     }
@@ -951,7 +951,7 @@ void Transfers::on(DownloadManagerListener::Tick, const DownloadList& dls) noexc
         params["Transferred"] = Util::formatBytes(dl->getPos());
         params["Time"] = Util::formatSeconds((GET_TICK() - dl->getStart()) / 1000);
         params["Progress"] = params["Progress Hidden"] + "%";
-        params["Status"] = _("Download");
+        params["Status"] = _("Downloading");
 
         typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
         F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, TRUE, Sound::NONE);
@@ -1139,7 +1139,7 @@ void Transfers::on(UploadManagerListener::Tick, const UploadList& uls) noexcept
         params["Transferred"] = Util::formatBytes(ul->getPos());
         params["Time"] = Util::formatSeconds((GET_TICK() - ul->getStart()) / 1000);
         params["Progress"] = params["Progress Hidden"] + "%";
-        params["Status"] = _("Upload");
+        params["Status"] = _("Uploading");
 
         typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
         F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, FALSE, Sound::NONE);
