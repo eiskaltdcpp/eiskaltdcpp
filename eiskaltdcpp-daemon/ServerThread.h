@@ -69,6 +69,7 @@ public:
     bool pauseHash();
     void getMethodList(string& tmp);
     void matchAllList();
+    void listHubsFullDesc(unordered_map<string,StringMap>& listhubs);
 
 private:
     friend class Singleton<ServerThread>;

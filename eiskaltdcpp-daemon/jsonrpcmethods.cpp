@@ -418,6 +418,24 @@ bool JsonRpcMethods::MatchAllLists(const Json::Value& root, Json::Value& respons
     return true;
 }
 
+bool JsonRpcMethods::ListHubsFullDesc(const Json::Value& root, Json::Value& response)
+{
+    if (isDebug) std::cout << "ListHubsFullDesc (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    Json::Value parameters;
+    unordered_map<string,StringMap> listhubs;
+    ServerThread::getInstance()->listHubsFullDesc(listhubs);
+    for (auto i = listhubs.begin(); i != listhubs.end(); ++i) {
+        for (auto kk = i->second.begin(); kk != i->second.end(); ++kk) {
+            parameters[i->first][kk->first] = kk->second;
+        }
+    }
+    response["result"] = parameters;
+    if (isDebug) std::cout << "ListHubsFullDesc (response): " << response << std::endl;
+    return true;
+}
+
 Json::Value JsonRpcMethods::GetDescriptionStopDaemon() {
   Json::FastWriter writer;
   Json::Value root;

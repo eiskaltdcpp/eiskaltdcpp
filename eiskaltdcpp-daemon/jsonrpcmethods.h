@@ -46,6 +46,7 @@ class JsonRpcMethods
     bool GetMethodList(const Json::Value& root, Json::Value& response);
     bool PauseHash(const Json::Value& root, Json::Value& response);
     bool MatchAllLists(const Json::Value& root, Json::Value& response);
+    bool ListHubsFullDesc(const Json::Value& root, Json::Value& response);
     Json::Value GetDescriptionStopDaemon();
     Json::Value GetDescriptionMagnetAdd();
     Json::Value GetDescriptionHubAdd();

@@ -165,6 +165,7 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSay, std::string("hub.say"), a.GetDescriptionHubSay()));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSayPM, std::string("hub.pm"), a.GetDescriptionHubSayPM()));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListHubs, std::string("hub.list"), a.GetDescriptionListHubs()));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListHubsFullDesc, std::string("hub.listfulldesc")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetChatPub, std::string("hub.getchat"), a.GetDescriptionGetChatPub()));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::AddDirInShare, std::string("share.add"), a.GetDescriptionAddDirInShare()));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RenameDirInShare, std::string("share.rename"), a.GetDescriptionRenameDirInShare()));
@@ -187,6 +188,7 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause"), a.GetDescriptionPauseHash()));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MatchAllLists, std::string("queue.matchlists")));
+
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -933,6 +935,19 @@ void ServerThread::listQueue(unordered_map<string,StringMap>& listqueue) {
         listqueue[*it->first] = sm;
     }
     QueueManager::getInstance()->unlockQueue();
+}
+
+void ServerThread::listHubsFullDesc(unordered_map<string,StringMap>& listhubs) {
+    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); i++) {
+        Client* cl = i->second.curclient;
+        StringMap sm;
+        sm["connected"] = cl->isReady() ? "1"  : "0";
+        sm["users"] = Util::toString(cl->getUserCount());
+        sm["totalshare"] = Util::formatBytes(cl->getAvailable());
+        sm["hubname"] = cl->getHubName();
+        sm["description"] = cl->getHubDescription();
+        listhubs[i->first] = sm;
+    }
 }
 
 bool ServerThread::moveQueueItem(const string& source, const string& target) {
