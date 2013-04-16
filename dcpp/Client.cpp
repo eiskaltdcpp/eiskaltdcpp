@@ -263,7 +263,9 @@ uint64_t Client::search(int aSizeMode, int64_t aSize, int aFileType, const strin
 
         searchQueue.add(s);
     }
-    search(aSizeMode, aSize, aFileType , aString, aToken, aExtList);
+    else {
+        search(aSizeMode, aSize, aFileType , aString, aToken, aExtList);
+    }
 
     return searchQueue.interval ? searchQueue.getSearchTime(owner) - GET_TICK() : 0;
 
