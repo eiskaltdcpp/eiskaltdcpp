@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-01-29 00:26+0200\n"
+"POT-Creation-Date: 2013-04-22 02:42+0300\n"
 "PO-Revision-Date: 2011-12-28 07:55+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
@@ -1204,8 +1204,8 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1383 ../src/transfers.cc:581
-#: ../src/transfers.cc:954 ../ui/sharebrowser.ui:80 ../ui/sharebrowser.ui:126
+#: ../src/settingsdialog.cc:1383 ../ui/sharebrowser.ui:80
+#: ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr ""
 
@@ -1308,6 +1308,11 @@ msgstr ""
 #: ../src/publichubs.cc:485
 msgid "Downloaded hub list is corrupted or unsupported "
 msgstr ""
+
+#: ../src/transfers.cc:581 ../src/transfers.cc:954
+#, fuzzy
+msgid "Downloading"
+msgstr "Downloaded "
 
 #: ../ui/settingsdialog.ui:2995 ../ui/settingsdialog.ui:3966
 msgid "Downloads"
@@ -3336,7 +3341,7 @@ msgstr ""
 msgid "Updating string or TTH"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1384 ../src/transfers.cc:1142
+#: ../src/settingsdialog.cc:1384
 msgid "Upload"
 msgstr ""
 
@@ -3371,6 +3376,11 @@ msgstr ""
 #: ../src/mainwindow.cc:751
 msgid "Upload: "
 msgstr ""
+
+#: ../src/transfers.cc:1142
+#, fuzzy
+msgid "Uploading"
+msgstr "Uploaded "
 
 #: ../src/settingsdialog.cc:361 ../src/settingsdialog.cc:399
 #: ../src/settingsdialog.cc:433 ../src/settingsdialog.cc:675
@@ -3948,9 +3958,3 @@ msgstr ""
 
 #~ msgid "%) from "
 #~ msgstr "%) from "
-
-#~ msgid "Downloaded "
-#~ msgstr "Downloaded "
-
-#~ msgid "Uploaded "
-#~ msgstr "Uploaded "

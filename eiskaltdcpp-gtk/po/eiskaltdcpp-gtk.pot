@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-01-29 00:26+0200\n"
+"POT-Creation-Date: 2013-04-22 02:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1202,8 +1202,8 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1383 ../src/transfers.cc:581
-#: ../src/transfers.cc:954 ../ui/sharebrowser.ui:80 ../ui/sharebrowser.ui:126
+#: ../src/settingsdialog.cc:1383 ../ui/sharebrowser.ui:80
+#: ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr ""
 
@@ -1305,6 +1305,10 @@ msgstr ""
 
 #: ../src/publichubs.cc:485
 msgid "Downloaded hub list is corrupted or unsupported "
+msgstr ""
+
+#: ../src/transfers.cc:581 ../src/transfers.cc:954
+msgid "Downloading"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2995 ../ui/settingsdialog.ui:3966
@@ -3334,7 +3338,7 @@ msgstr ""
 msgid "Updating string or TTH"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1384 ../src/transfers.cc:1142
+#: ../src/settingsdialog.cc:1384
 msgid "Upload"
 msgstr ""
 
@@ -3368,6 +3372,10 @@ msgstr ""
 
 #: ../src/mainwindow.cc:751
 msgid "Upload: "
+msgstr ""
+
+#: ../src/transfers.cc:1142
+msgid "Uploading"
 msgstr ""
 
 #: ../src/settingsdialog.cc:361 ../src/settingsdialog.cc:399
