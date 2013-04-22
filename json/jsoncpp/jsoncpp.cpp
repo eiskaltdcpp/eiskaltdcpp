@@ -2306,8 +2306,8 @@ Value::asInt() const
    switch ( type_ )
    {
    case stringValue:
-      JSON_ASSERT_MESSAGE(isInt(), "Expected Int, but obtained String");
-      return Int(std::atoi(value_.string_));
+      JSON_ASSERT("Expected Int, but obtained String");
+      return 0;
    case intValue:
       JSON_ASSERT_MESSAGE(isInt(), "LargestInt out of Int range");
       return Int(value_.int_);
