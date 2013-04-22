@@ -722,10 +722,17 @@ bool ServerThread::addInQueue(const string& sddir, const string& name, const int
     if (name.empty() && tth.empty())
         return false;
 
-    if (sddir.empty())
-        QueueManager::getInstance()->add(SETTING(DOWNLOAD_DIRECTORY) + PATH_SEPARATOR_STR + name, size, TTHValue(tth));
-    else
-        QueueManager::getInstance()->add(sddir + PATH_SEPARATOR_STR + name, size, TTHValue(tth));
+    try
+    {
+        if (sddir.empty())
+            QueueManager::getInstance()->add(SETTING(DOWNLOAD_DIRECTORY) + PATH_SEPARATOR_STR + name, size, TTHValue(tth));
+        else
+            QueueManager::getInstance()->add(sddir + PATH_SEPARATOR_STR + name, size, TTHValue(tth));
+    }
+    catch (const Exception& e)
+    {
+        if (isDebug) std::cout << "ServerThread::addInQueue->(" << e.getError() << ")"<< std::endl;
+    }
 
     return true;
 }
