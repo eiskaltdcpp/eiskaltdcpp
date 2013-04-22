@@ -2305,6 +2305,9 @@ Value::asInt() const
 {
    switch ( type_ )
    {
+   case stringValue:
+      JSON_ASSERT_MESSAGE(isInt(), "Expected Int, but obtained String");
+      return Int(std::atoi(value_.string_));
    case intValue:
       JSON_ASSERT_MESSAGE(isInt(), "LargestInt out of Int range");
       return Int(value_.int_);
@@ -4360,8 +4363,3 @@ std::ostream& operator<<( std::ostream &sout, const Value &root )
 // //////////////////////////////////////////////////////////////////////
 // End of content of file: src/lib_json/json_writer.cpp
 // //////////////////////////////////////////////////////////////////////
-
-
-
-
-
