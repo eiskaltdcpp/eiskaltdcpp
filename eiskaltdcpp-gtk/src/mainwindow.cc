@@ -205,7 +205,7 @@ MainWindow::MainWindow():
     {
         _("Developers"),
         "  2010-2013 Boris Pek <tehnick-8@mail.ru>",
-        "  2010-2012 Eugene Petrov <dhamp@ya.ru>",
+        "  2010-2013 Eugene Petrov <dhamp@ya.ru>",
         "  ",
         _("Contributors"),
         "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
