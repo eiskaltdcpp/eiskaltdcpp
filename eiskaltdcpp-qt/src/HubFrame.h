@@ -158,8 +158,8 @@ public:
 Q_SIGNALS:
     void coreConnecting(QString);
     void coreConnected(QString);
-    void coreUserUpdated(VarMap map, const dcpp::UserPtr &user, bool join);
-    void coreUserRemoved(const dcpp::UserPtr &user, qlonglong share);
+    void coreUserUpdated(const dcpp::UserPtr &user, const dcpp::Identity &id);
+    void coreUserRemoved(const dcpp::UserPtr &user, const dcpp::Identity &id);
     void coreStatusMsg(QString);
     void coreFollow(QString);
     void coreFailed();
@@ -240,8 +240,8 @@ private Q_SLOTS:
     void delUserFromQueue(const QString&);
     void addAsFavorite();
 
-    void userUpdated(const VarMap&, const dcpp::UserPtr&, bool);
-    void userRemoved(const dcpp::UserPtr &user, qlonglong share);
+    void userUpdated(const dcpp::UserPtr&, const dcpp::Identity&);
+    void userRemoved(const dcpp::UserPtr&, const dcpp::Identity&);
     void follow(QString);
     void clearUsers();
     void getPassword();
@@ -267,7 +267,6 @@ private:
 
     /** Extracts data from user identity */
     void getParams(VarMap &, const Identity &);
-    //inline void on_userUpdated(const VarMap&, const UserPtr&, bool) __attribute__((always_inline));
 
     // FavoriteManagerListener
     virtual void on(FavoriteManagerListener::UserAdded, const FavoriteUser& /*aUser*/) noexcept;

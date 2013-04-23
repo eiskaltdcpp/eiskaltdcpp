@@ -62,7 +62,8 @@ typedef QHash<QString, QVariant> UserMap;
 class UserListItem: public PoolItem<UserListItem> {
 
 public:
-    UserListItem(UserListItem* = NULL, dcpp::UserPtr p = dcpp::UserPtr(NULL));
+    UserListItem();
+    UserListItem(UserListItem*, dcpp::UserPtr, const Identity&, const QString&, bool);
     virtual ~UserListItem();
 
     void appendChild(UserListItem *child);
@@ -74,27 +75,29 @@ public:
     UserListItem *parent();
     QList<UserListItem*> childItems;
 
-    QString cid;
-
     inline const dcpp::Identity &getIdentity() { return id; }
     QString      getNick() const;
+    UserPtr      getUser() const;
     qulonglong   getShare() const;
     QString      getComment() const;
     QString      getTag() const;
     QString      getIP() const;
     QString      getConnection() const;
     QString      getEmail() const;
+    QString      getCID() const;
     bool         isOP() const;
     bool         isFav() const;
     bool         isAway() const;
 
-    void         updateIdentity();
+	void         updateIdentity(const Identity&, const QString&, bool);
 
-    UserPtr ptr;
 private:
     bool _isOp: 1;
     bool _isFav: 1;
+    QString cid;
     UserListItem *parentItem;
+
+    UserPtr ptr;
     dcpp::Identity id;
 };
 
@@ -116,15 +119,10 @@ public:
     virtual bool canFetchMore(const QModelIndex &parent) const;
 
     void clear();
+
     void removeUser(const UserPtr&);
-
-    void addUser (  const QString& nick,
-                    const QString& cid= QString(),
-                    const UserPtr& = UserPtr()
-                );
-
-    void updateUser(const UserPtr&);
-    void updateUser(UserListItem *);
+    UserListItem *addUser (const UserPtr&, const Identity&, const QString&, bool);
+    void updateUser(UserListItem *, const Identity&, const QString&, bool);
 
     UserListItem *itemForPtr(const UserPtr&);
     UserListItem *itemForNick(const QString&, const QString&);

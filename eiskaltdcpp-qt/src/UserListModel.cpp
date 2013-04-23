@@ -30,7 +30,7 @@ UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
     stripper.setPattern("\\[.*\\]");
     stripper.setMinimal(true);
 
-    rootItem = new UserListItem(NULL);
+    rootItem = new UserListItem();
 
     WU = WulforUtil::getInstance();
 }
@@ -86,7 +86,7 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
             if (index.column() != COLUMN_NICK)
                 break;
 
-            return (*WU->getUserIcon(item->ptr, item->isAway(), item->isOP(), item->getConnection()));
+            return (*WU->getUserIcon(item->getUser(), item->isAway(), item->isOP(), item->getConnection()));
 
             break;
         }
@@ -95,9 +95,8 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
             if (index.column() == COLUMN_SHARE)
                 return QString::number(item->getShare());
             else {
-                QString ttip = "";
 
-                ttip =  "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getNick() + "<br/>";
+                QString ttip  = "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getNick() + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getComment() + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getEmail() + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getIP() + "<br/>";
@@ -132,11 +131,11 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
         }
         case Qt::FontRole:
         {
-            QFont font;
-            font.setBold(true);
-
-            if (item->isFav() && WBGET(WB_CHAT_HIGHLIGHT_FAVS))
+            if (item->isFav() && WBGET(WB_CHAT_HIGHLIGHT_FAVS)) {
+                QFont font;
+                font.setBold(true);
                 return font;
+            }
 
             break;
         }
@@ -328,88 +327,115 @@ void UserListModel::removeUser(const UserPtr &ptr) {
     endRemoveRows();
 }
 
-void UserListModel::updateUser(UserListItem *item) {
+
+void UserListModel::updateUser(UserListItem *item, const Identity& _id, const QString& _cid, bool _fav) {
     if (!item || item->parent() != rootItem)
         return;
-    
-    item->updateIdentity();
-    
-    if (sortColumn == -1)
-        return;
-        
-    static AscendingCompare  acomp = AscendingCompare();
-    static DescendingCompare dcomp = DescendingCompare();
-    
-    const int itemRow = item->row();
-    
-    beginRemoveRows(QModelIndex(), itemRow, itemRow);
-    {
-        rootItem->childItems.removeAt(itemRow);
-    }
-    endRemoveRows();
-    
-    auto it = rootItem->childItems.end();
 
-    if (sortOrder == Qt::AscendingOrder)
-        it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
-    else if (sortOrder == Qt::DescendingOrder)
-        it = dcomp.insertSorted(sortColumn, rootItem->childItems, item);
-    
-    const int pos = it - rootItem->childItems.begin();
-    
-    beginInsertRows(QModelIndex(), pos, pos);
-    {
-        rootItem->childItems.insert(it, item);
+    bool needSorted = (item->getIdentity().isOp() != _id.isOp()) || (item->isFav() != _fav);
+
+    if (sortColumn != -1) {
+        switch (sortColumn) {
+            case COLUMN_NICK:
+                needSorted = needSorted || (item->getIdentity().getNick() != _id.getNick());
+                break;
+            case COLUMN_SHARE:
+                needSorted = needSorted || (item->getIdentity().getBytesShared() != _id.getBytesShared());
+                break;
+            case COLUMN_COMMENT:
+                needSorted = needSorted || (item->getIdentity().getDescription() != _id.getDescription());
+                break;
+            case COLUMN_TAG:
+                needSorted = needSorted || (item->getIdentity().getTag() != _id.getTag());
+                break;
+            case COLUMN_CONN:
+                needSorted = needSorted || (item->getIdentity().getConnection() != _id.getConnection());
+                break;
+            case COLUMN_IP:
+                needSorted = needSorted || (item->getIdentity().getIp() != _id.getIp());
+                break;
+            case COLUMN_EMAIL:
+                needSorted = needSorted || (item->getIdentity().getEmail() != _id.getEmail());
+                break;
+        }
     }
-    endInsertRows();
+
+    item->updateIdentity(_id, _cid, _fav);
+
+    if (needSorted) {
+
+        static AscendingCompare  acomp = AscendingCompare();
+        static DescendingCompare dcomp = DescendingCompare();
+
+        const int oldRow = item->row();
+
+        beginRemoveRows(QModelIndex(), oldRow, oldRow);
+        {
+            rootItem->childItems.removeAt(oldRow);
+        }
+        endRemoveRows();
+
+        auto it = rootItem->childItems.end();
+
+        if (sortOrder == Qt::AscendingOrder)
+            it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
+        else if (sortOrder == Qt::DescendingOrder)
+            it = dcomp.insertSorted(sortColumn, rootItem->childItems, item);
+
+        const int newRow = it - rootItem->childItems.begin();
+
+        beginInsertRows(QModelIndex(), newRow, newRow);
+        {
+            rootItem->childItems.insert(it, item);
+        }
+        endInsertRows();
+    } else {
+        repaintData(index(item->row(), COLUMN_NICK), index(item->row(), COLUMN_EMAIL));
+    }
+
+    return;
 }
 
-void UserListModel::updateUser(const UserPtr &ptr) {
-    updateUser(itemForPtr(ptr));
-}
+UserListItem *UserListModel::addUser(const UserPtr& _ptr, const Identity& _id, const QString& _cid, bool _fav) {
 
-void UserListModel::addUser(const QString& nick,
-                            const QString& cid,
-                            const UserPtr &ptr)
-{
+    if (users.contains(_ptr))
+        return itemForPtr(_ptr);
+
     static AscendingCompare  acomp = AscendingCompare();
     static DescendingCompare dcomp = DescendingCompare();
 
-    if (users.contains(ptr))
-        return;
+    UserListItem *item = new UserListItem(rootItem, _ptr, _id, _cid, _fav);
 
-    UserListItem *item;
-
-    item = new UserListItem(rootItem, ptr);
-    item->cid = cid;
-
-    users.insert(ptr, item);
+    users.insert(_ptr, item);
 
     if (sortColumn == -1) // if sorting disabled
     {
-        const int i = rootItem->childCount();
+        const int row = rootItem->childCount();
 
-        beginInsertRows(QModelIndex(), i, i);
-        rootItem->appendChild(item);
+        beginInsertRows(QModelIndex(), row, row);
+        {
+            rootItem->appendChild(item);
+        }
         endInsertRows();
 
-        return;
+    } else {
+        auto it = rootItem->childItems.end();
+
+        if (sortOrder == Qt::AscendingOrder)
+            it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
+        else if (sortOrder == Qt::DescendingOrder)
+            it = dcomp.insertSorted(sortColumn, rootItem->childItems, item);
+
+        const int row = it - rootItem->childItems.begin();
+
+        beginInsertRows(QModelIndex(), row, row);
+        {
+            rootItem->childItems.insert(it, item);
+        }
+        endInsertRows();
     }
 
-    auto it = rootItem->childItems.end();
-
-    if (sortOrder == Qt::AscendingOrder)
-        it = acomp.insertSorted(sortColumn, rootItem->childItems, item);
-    else if (sortOrder == Qt::DescendingOrder)
-        it = dcomp.insertSorted(sortColumn, rootItem->childItems, item);
-
-    const int pos = it - rootItem->childItems.begin();
-
-    beginInsertRows(QModelIndex(), pos, pos);
-
-    rootItem->childItems.insert(it, item);
-
-    endInsertRows();
+    return item;
 }
 
 UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){
@@ -436,7 +462,7 @@ UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){
 QString UserListModel::CIDforNick(const QString &nick, const QString &){
     UserListItem *item = itemForNick(nick, "");
 
-    return (item? item->cid : "");
+    return (item? item->getCID() : "");
 }
 
 QStringList UserListModel::matchNicksContaining(const QString & part, bool stripTags) const {
@@ -515,10 +541,12 @@ void UserListModel::repaintItem(const UserListItem *item){
     repaintData(createIndex(r, COLUMN_NICK, const_cast<UserListItem*>(item)), createIndex(r, COLUMN_EMAIL, const_cast<UserListItem*>(item)));
 }
 
-UserListItem::UserListItem(UserListItem *parent, dcpp::UserPtr p) :
-    ptr(p), parentItem(parent)
+UserListItem::UserListItem() : ptr(NULL), parentItem(NULL) { }
+
+UserListItem::UserListItem(UserListItem *parent, dcpp::UserPtr _ptr, const Identity& _id, const QString& _cid, bool _fav) :
+    parentItem(parent), ptr(_ptr)
 {
-    updateIdentity();
+    updateIdentity(_id, _cid, _fav);
 }
 
 UserListItem::~UserListItem()
@@ -581,6 +609,14 @@ QString UserListItem::getTag()  const{
     return _q(id.getTag());
 }
 
+QString UserListItem::getCID()  const{
+    return cid;
+}
+
+dcpp::UserPtr UserListItem::getUser()  const{
+    return ptr;
+}
+
 bool UserListItem::isOP()  const{
     return _isOp;
 }
@@ -593,10 +629,11 @@ bool UserListItem::isAway() const {
     return id.isAway();
 }
 
-void UserListItem::updateIdentity() {
-    if (ptr != NULL){
-        id      = dcpp::ClientManager::getInstance()->getOnlineUserIdentity(ptr);
+void UserListItem::updateIdentity(const Identity& _id, const QString& _cid, bool _fav) {
+    if (ptr != NULL) {
+        id = _id;
+        cid = _cid;
         _isOp   = id.isOp();
-        _isFav  = dcpp::FavoriteManager::getInstance()->isFavoriteUser(ptr);
+        _isFav  = _fav;
     }
 }
