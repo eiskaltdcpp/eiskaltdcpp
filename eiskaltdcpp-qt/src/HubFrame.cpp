@@ -3720,7 +3720,7 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
     if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
         return;
 
-    emit coreUpdatedUser(user.getUser(), user.getIdentity());
+    emit coreUserUpdated(user.getUser(), user.getIdentity());
 }
 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) noexcept{
@@ -3729,7 +3729,7 @@ void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList 
         if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
             continue;
 
-        emit coreUpdatedUser(user.getUser(), user.getIdentity());
+        emit coreUserUpdated(user.getUser(), user.getIdentity());
     }
 }
 
@@ -3737,7 +3737,7 @@ void HubFrame::on(ClientListener::UserRemoved, Client*, const OnlineUser &user) 
     if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
         return;
 
-    emit coreRemovedUser(user.getUser(), user.getIdentity());
+    emit coreUserRemoved(user.getUser(), user.getIdentity());
 }
 
 void HubFrame::on(ClientListener::Redirect, Client*, const string &link) noexcept{
