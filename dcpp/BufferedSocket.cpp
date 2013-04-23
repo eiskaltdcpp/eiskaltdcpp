@@ -422,7 +422,7 @@ bool BufferedSocket::checkEvents() {
         pair<Tasks, unique_ptr<TaskData> > p;
         {
             Lock l(cs);
-            dcassert(tasks.empty());
+            dcassert(!tasks.empty());
             p = move(tasks.front());
             tasks.erase(tasks.begin());
         }
