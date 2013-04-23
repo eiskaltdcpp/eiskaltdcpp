@@ -52,7 +52,7 @@ protected:
     virtual void on(DownloadStarting, const std::string& l) noexcept;
     virtual void on(DownloadFailed, const std::string& l) noexcept;
     virtual void on(DownloadFinished, const std::string& l, bool fromCoral) noexcept;
-    virtual void on(LoadedFromCache, const std::string& l) noexcept;
+    virtual void on(LoadedFromCache, const std::string& l, const std::string& d) noexcept;
     virtual void on(Corrupted, const std::string& l) noexcept;
 
 private Q_SLOTS:
