@@ -77,6 +77,7 @@ WulforUtil::WulforUtil()
     qRegisterMetaType< QMap<QString,QVariant> >("VarMap");
     qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
     qRegisterMetaType< QMap<QString,QString> >("QMap<QString,QString>");
+    qRegisterMetaType< dcpp::Identity >("dcpp::Identity");
 
     memset(userIconCache, 0, sizeof (userIconCache));
 

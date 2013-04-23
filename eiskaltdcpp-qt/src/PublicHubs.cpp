@@ -286,8 +286,8 @@ void PublicHubs::on(DownloadFinished, const std::string& l, bool fromCoral) noex
     emit coreDownloadFinished(tr("Hub list downloaded... (%1 %2) ").arg(_q(l)).arg(fromCoral? tr("from Coral") : ""));
 }
 
-void PublicHubs::on(LoadedFromCache, const std::string& l) noexcept{
-    emit coreCacheLoaded(tr("Hub list loaded from cache...").arg(_q(l)));
+void PublicHubs::on(LoadedFromCache, const std::string& l, const std::string& d) noexcept{
+    emit coreCacheLoaded(tr("Locally cached (as of %1) version of the hub list loaded (%2)").arg(_q(d)).arg(_q(l)));
 }
 
 void PublicHubs::on(Corrupted, const string& l) noexcept {

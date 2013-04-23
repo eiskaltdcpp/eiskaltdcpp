@@ -30,14 +30,14 @@ static const QString EmoticonTextSectionName = "name";
 #if !defined (Q_WS_WIN)
 static const QString EmotionPath = CLIENT_DATA_DIR "/emoticons/";
 #else
-static QString EmotionPath = CLIENT_DATA_DIR "/emoticons/";
+static QString EmotionPath = "";
 #endif
 
 EmoticonFactory::EmoticonFactory() :
     QObject(NULL)
 {
 #if defined (Q_WS_WIN)
-    EmotionPath.prepend( qApp->applicationDirPath()+QDir::separator() );
+    EmotionPath = qApp->applicationDirPath() + QDir::separator() + CLIENT_DATA_DIR "/emoticons/";
 #endif
     currentTheme = "";
 }
@@ -51,8 +51,6 @@ void EmoticonFactory::load(){
 
     if (emoTheme.isEmpty() || (currentTheme == emoTheme))
         return;
-
-    currentTheme = emoTheme;
 
     if (!QDir(EmotionPath+emoTheme).exists())
         return;
@@ -83,6 +81,8 @@ void EmoticonFactory::load(){
 
     foreach(QTextDocument *d, docs)
         addEmoticons(d);
+    
+    currentTheme = emoTheme;
 }
 
 void EmoticonFactory::addEmoticons(QTextDocument *to){

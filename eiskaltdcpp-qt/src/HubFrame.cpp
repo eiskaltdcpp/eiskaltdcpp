@@ -947,7 +947,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                     UserListItem *i = reinterpret_cast<UserListItem*>(index.internalPointer());
 
                     nick = i->getNick();
-                    cid = i->cid;
+                    cid = i->getCID();
                 }
             }
 
@@ -1019,7 +1019,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                     UserListItem *i = reinterpret_cast<UserListItem*>(index.internalPointer());
 
                     nick = i->getNick();
-                    cid = i->cid;
+                    cid = i->getCID();
                 }
             }
 
@@ -1185,8 +1185,8 @@ void HubFrame::init(){
 
     connect(this, SIGNAL(coreConnecting(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreConnected(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUserUpdated(VarMap,dcpp::UserPtr,bool)), this, SLOT(userUpdated(VarMap,dcpp::UserPtr,bool)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUserRemoved(dcpp::UserPtr,qlonglong)), this, SLOT(userRemoved(dcpp::UserPtr,qlonglong)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUserUpdated(dcpp::UserPtr,dcpp::Identity)), this, SLOT(userUpdated(dcpp::UserPtr,dcpp::Identity)), Qt::QueuedConnection);
+    connect(this, SIGNAL(coreUserRemoved(dcpp::UserPtr,dcpp::Identity)), this, SLOT(userRemoved(dcpp::UserPtr,dcpp::Identity)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreStatusMsg(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreFollow(QString)), this, SLOT(follow(QString)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreFailed()), this, SLOT(clearUsers()), Qt::QueuedConnection);
@@ -2060,23 +2060,9 @@ bool HubFrame::isOP(const QString& nick) {
 }
 
 
-void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
-    map["NICK"] = _q(id.getNick());
-    map["SHARE"] = qlonglong(id.getBytesShared());
-    map["COMM"] = _q(id.getDescription());
-    map["TAG"] = _q(id.getTag());
-    map["CONN"] = _q(id.getConnection());
-    map["IP"] = _q(id.getIp());
-    map["EMAIL"] = _q(id.getEmail());
-    map["ISOP"] = id.isOp();
-    map["SPEED"] = QString::fromStdString(id.getConnection());
-    map["AWAY"] = id.isAway();
-    map["CID"] = _q(id.getUser()->getCID().toBase32());
-}
-
-void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, bool join){
+void HubFrame::userUpdated(const UserPtr &user, const dcpp::Identity &id){
     Q_D(HubFrame);
-    
+
     static WulforSettings *WS       = WulforSettings::getInstance();
     static bool showFavJoinsOnly    = WS->getBool(WB_CHAT_SHOW_JOINS_FAV);
     static bool showJoins           = WS->getBool(WB_CHAT_SHOW_JOINS);
@@ -2087,16 +2073,19 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
 
     UserListItem *item = d->model->itemForPtr(user);
 
-    QString cid = map["CID"].toString();
-    QString nick = map["NICK"].toString();
+    QString cid = _q(user->getCID().toBase32());
 
     if (item){
         d->total_shared -= item->getShare();
- 
-        d->model->updateUser(item);
+
+        d->model->updateUser(item, id, cid, isFavorite);
     }
     else{
-        if (join && showJoins){
+        item = d->model->addUser(user, id, cid, isFavorite);
+
+        QString nick = item->getNick();
+
+        if (showJoins){
             do {
                 if (showFavJoinsOnly && !isFavorite)
                     break;
@@ -2104,8 +2093,6 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
                 addStatus(nick + tr(" joins the chat"));
             } while (0);
         }
-
-        d->model->addUser(nick, cid, user);
 
         if (isFavorite)
             Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now online").arg(nick));
@@ -2125,19 +2112,21 @@ void HubFrame::userUpdated(const HubFrame::VarMap &map, const UserPtr &user, boo
         }
     }
 
-    d->total_shared += map["SHARE"].toULongLong();
+    d->total_shared += qlonglong(id.getBytesShared());
 }
 
-void HubFrame::userRemoved(const dcpp::UserPtr &user, qlonglong share){
+void HubFrame::userRemoved(const UserPtr &user, const dcpp::Identity &id){
     Q_D(HubFrame);
-    d->total_shared -= share;
 
-    QString cid = _q(user->getCID().toBase32());
-    QString nick = "";
     UserListItem *item = d->model->itemForPtr(user);
 
-    if (item)
-        nick = item->getNick();
+    if (!item)
+        return;
+
+    d->total_shared -= item->getShare();
+
+    QString cid = item->getCID();
+    QString nick = item->getNick();
 
     if (d->pm.contains(cid)){
         pmUserOffline(cid);
@@ -2166,6 +2155,21 @@ void HubFrame::userRemoved(const dcpp::UserPtr &user, qlonglong share){
         Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now offline").arg(nick));
 
     d->model->removeUser(user);
+}
+
+
+void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
+    map["NICK"] = _q(id.getNick());
+    map["SHARE"] = qlonglong(id.getBytesShared());
+    map["COMM"] = _q(id.getDescription());
+    map["TAG"] = _q(id.getTag());
+    map["CONN"] = _q(id.getConnection());
+    map["IP"] = _q(id.getIp());
+    map["EMAIL"] = _q(id.getEmail());
+    map["ISOP"] = id.isOp();
+    map["SPEED"] = QString::fromStdString(id.getConnection());
+    map["AWAY"] = id.isAway();
+    map["CID"] = _q(id.getUser()->getCID().toBase32());
 }
 
 void HubFrame::browseUserFiles(const QString& id, bool match){
@@ -2506,7 +2510,7 @@ void HubFrame::clearUsers(){
     if (d->model){
         d->model->blockSignals(true);
         d->model->clear();
-       d-> model->blockSignals(false);
+        d-> model->blockSignals(false);
         treeView_USERS->setModel(d->model);
     }
 
@@ -2737,11 +2741,11 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
     if (d->proxy && treeView_USERS->model() == d->proxy){
         QModelIndex i = d->proxy->mapToSource(proxy_list.at(0));
-        cid = reinterpret_cast<UserListItem*>(i.internalPointer())->cid;
+        cid = reinterpret_cast<UserListItem*>(i.internalPointer())->getCID();
     }
     else{
         QModelIndex i = proxy_list.at(0);
-        cid = reinterpret_cast<UserListItem*>(i.internalPointer())->cid;
+        cid = reinterpret_cast<UserListItem*>(i.internalPointer())->getCID();
     }
 
     Menu::Action action = Menu::getInstance()->execUserMenu(d->client, cid);
@@ -2772,7 +2776,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
-                    browseUserFiles(item->cid);
+                    browseUserFiles(item->getCID());
             }
 
             break;
@@ -2783,7 +2787,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
-                    addPM(item->cid, "", false);
+                    addPM(item->getCID(), "", false);
             }
 
             break;
@@ -2836,7 +2840,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
-                    browseUserFiles(item->cid, true);
+                    browseUserFiles(item->getCID(), true);
             }
 
             break;
@@ -2847,7 +2851,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
-                    addUserToFav(item->cid);
+                    addUserToFav(item->getCID());
             }
 
             break;
@@ -2858,7 +2862,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
-                    delUserFromFav(item->cid);
+                    delUserFromFav(item->getCID());
             }
 
             break;
@@ -2869,7 +2873,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
-                    grantSlot(item->cid);
+                    grantSlot(item->getCID());
             }
 
             break;
@@ -2880,7 +2884,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
-                    delUserFromQueue(item->cid);
+                    delUserFromQueue(item->getCID());
             }
 
             break;
@@ -3716,25 +3720,16 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
     if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
         return;
 
-    VarMap params;
-
-    getParams(params, user.getIdentity());
-
-    emit coreUserUpdated(params, user, true);
+    emit coreUpdatedUser(user.getUser(), user.getIdentity());
 }
 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) noexcept{
-    bool showHidden = WBGET(WB_SHOW_HIDDEN_USERS);
-
     for (auto it = list.begin(); it != list.end(); ++it){
-        if ((*(*it)).getIdentity().isHidden() && !showHidden)
-            break;
+        const OnlineUser &user = *(*it);
+        if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
+            continue;
 
-        VarMap params;
-
-        getParams(params, (*(*it)).getIdentity());
-
-        emit coreUserUpdated(params, (*(*it)), true);
+        emit coreUpdatedUser(user.getUser(), user.getIdentity());
     }
 }
 
@@ -3742,7 +3737,7 @@ void HubFrame::on(ClientListener::UserRemoved, Client*, const OnlineUser &user) 
     if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
         return;
 
-    emit coreUserRemoved(user.getUser(), user.getIdentity().getBytesShared());
+    emit coreRemovedUser(user.getUser(), user.getIdentity());
 }
 
 void HubFrame::on(ClientListener::Redirect, Client*, const string &link) noexcept{
