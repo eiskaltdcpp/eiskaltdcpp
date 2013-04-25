@@ -448,6 +448,19 @@ string Util::validateFileName(string tmp) {
     return tmp;
 }
 
+/**
+ * Execute validateFileName() and then replace '/' to '_'
+ */
+string Util::validateFileNameWithotSlash(string tmp) {
+    tmp = validateFileName(tmp);
+    string::size_type i = 0;
+    while( (i = tmp.find_first_of('/', i)) != string::npos) {
+        tmp[i] = '_';
+        i++;
+    }
+    return tmp;
+}
+
 bool Util::checkExtension(const string& tmp) {
     for(unsigned int i = 0; i < tmp.length(); i++) {
         if (tmp[i] < 0 || tmp[i] == 32 || tmp[i] == ':') {

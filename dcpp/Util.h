@@ -216,6 +216,7 @@ public:
     static void decodeUrl(const string& aUrl, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment);
     static std::map<string, string> decodeQuery(const string& query);
     static string validateFileName(string aFile);
+    static string validateFileNameWithotSlash(string aFile);
     static bool checkExtension(const string& tmp);
     static string cleanPathChars(string aNick);
     static string addBrackets(const string& s);
