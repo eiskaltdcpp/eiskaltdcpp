@@ -190,7 +190,7 @@ License: BSD-2-clause
 
 Files: upnp/miniupnpc/*
 Copyright: 1991, 1993 The Regents of the University of California
- 2005-2010 Thomas Bernard (http://miniupnp.free.fr/)
+ 2005-2012 Thomas Bernard (http://miniupnp.free.fr/)
 License: BSD-3-clause
 
 Files: json/jsoncpp/*
@@ -209,7 +209,7 @@ Copyright: 2004-2011 Sergey Lyubka
 License: Expat
 
 Files: debian/*
-Copyright: 2010-2012 Boris Pek <tehnick-8@mail.ru>
+Copyright: 2010-2013 Boris Pek <tehnick-8@mail.ru>
 License: GPL-2+
 
 License: GPL-2
