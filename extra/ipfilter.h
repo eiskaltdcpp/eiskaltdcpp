@@ -71,7 +71,7 @@ public:
     /** */
     void changeRuleDirection(std::string exp, eDIRECTION, eTableAction);
     /** */
-    void clearRules(bool emit_signal = true);
+    void clearRules();
 
     /** */
     void moveRuleUp(uint32_t, eTableAction);

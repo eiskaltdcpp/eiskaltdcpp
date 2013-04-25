@@ -723,6 +723,6 @@ bool SimpleXMLReader::process() {
 
     // should never happen
     return false;
-};
+}
 
 }

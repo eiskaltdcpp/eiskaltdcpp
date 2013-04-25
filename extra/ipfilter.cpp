@@ -34,7 +34,7 @@ ipfilter::ipfilter() {
 }
 
 ipfilter::~ipfilter() {
-    clearRules(false);
+    clearRules();
 }
 
 uint32_t ipfilter::StringToUint32(const string& ip){
@@ -520,7 +520,7 @@ const QIPHash &ipfilter::getHash() {
     return list_ip;
 }
 
-void ipfilter::clearRules(bool emit_signal) {
+void ipfilter::clearRules() {
     list_ip.clear();
     rules.clear();
 }
