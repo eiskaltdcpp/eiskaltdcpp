@@ -15,7 +15,7 @@
 
 //---------------------------------------------------------------------------
 #include <string>
-extern std::string PATH, sTitle;
+extern std::string LOCAL_PATH, PATH, sTitle;
 
 bool DirExist(char * sPath);
 void Log(const std::string & sData);

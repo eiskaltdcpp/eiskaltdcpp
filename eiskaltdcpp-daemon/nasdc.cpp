@@ -241,16 +241,43 @@ int main(int argc, char* argv[])
 #endif
 
     Util::PathsMap override;
+    
     if (config_dir[0] != 0 && Util::fileExists(string(config_dir))) {
-        string tmp = string(config_dir);
+	string tmp = string(config_dir);
         tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
         override[Util::PATH_USER_CONFIG] = tmp;
         override[Util::PATH_USER_LOCAL] = tmp;
+    } else if (!Util::fileExists(string(config_dir))) {
+#ifndef _WIN32
+        if (!bDaemon) {
+            printf("ERROR: Config directory: No such file or directory\n");
+            printf("INFO: Config directory: Back to default\n");
+        } else {
+            logging(false, "ERROR: Config directory: No such file or directory\n");
+            logging(true, "INFO: Config directory: Back to default\n");
+        }
+#else
+            printf("ERROR: Config directory: No such file or directory\n");
+            printf("INFO: Config directory: Back to default\n");
+#endif
     }
     if (local_dir[0] != 0 && Util::fileExists(string(local_dir))) {
         string tmp = string(local_dir);
         tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
         override[Util::PATH_USER_LOCAL] = tmp;
+    } else if (!Util::fileExists(string(local_dir))) {
+#ifndef _WIN32
+        if (!bDaemon) {
+            printf("ERROR: Local data directory: No such file or directory\n");
+            printf("INFO: Local data directory: Back to default\n");
+        } else {
+            logging(false, "ERROR: Local data directory: No such file or directory\n");
+            logging(true, "INFO: Local data directory: Back to default\n");
+        }
+#else
+            printf("ERROR: Local data directory: No such file or directory\n");
+            printf("INFO: Local data directory: Back to default\n");
+#endif
     }
     Util::initialize(override);
     
@@ -278,9 +305,10 @@ int main(int argc, char* argv[])
 #endif
 
     PATH = Util::getPath(Util::PATH_USER_CONFIG);
+    LOCAL_PATH = Util::getPath(Util::PATH_USER_LOCAL);
 #ifndef _WIN32
     if (bDaemon) {
-        printf("%s\n",("Starting "+sTitle+" as daemon using "+PATH+" as config directory.").c_str());
+        printf("%s\n",("Starting "+sTitle+" as daemon using "+PATH+" as config directory and "+LOCAL_PATH+" as local data directory.").c_str());
 
         if (eidcpp_daemon(true,false) == -1)
             return EXIT_FAILURE;
@@ -293,7 +321,7 @@ int main(int argc, char* argv[])
         logging(true,  "EiskaltDC++ daemon starting...\n");
     } else {
 #endif
-        printf("%s\n",("Starting "+sTitle+" using "+PATH+" as config directory.").c_str());
+	printf("%s\n",("Starting "+sTitle+" as daemon using "+PATH+" as config directory and "+LOCAL_PATH+" as local data directory.").c_str());
 #ifndef _WIN32
     }
     sigset_t sst;

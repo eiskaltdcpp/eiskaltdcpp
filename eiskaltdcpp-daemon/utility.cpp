@@ -19,7 +19,7 @@
 #endif
 //---------------------------------------------------------------------------
 
-string PATH = "", sTitle = "";
+string LOCAL_PATH="", PATH = "", sTitle = "";
 
 bool DirExist(char * sPath) {
 #ifdef _WIN32
