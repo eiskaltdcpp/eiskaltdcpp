@@ -467,9 +467,9 @@ void PublicHubs::on(FavoriteManagerListener::DownloadFinished, const string &fil
     WulforManager::get()->dispatchGuiFunc(f0);
 }
 
-void PublicHubs::on(FavoriteManagerListener::LoadedFromCache, const string &file) noexcept
+void PublicHubs::on(FavoriteManagerListener::LoadedFromCache, const string &file, const std::string& d) noexcept
 {
-	string msg = _("Loaded from cache: ") + file;
+	string msg = _("Loaded from cache: ") + file + "(" + d +")";
 	typedef Func2<PublicHubs, string, string> Func;
 	Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
 	WulforManager::get()->dispatchGuiFunc(func);
