@@ -21,7 +21,9 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 #
 use strict;
+#use diagnostics;
 use warnings;
+no warnings 'uninitialized';
 use 5.012;
 use JSON::RPC::Client;
 use Term::ShellUI;
@@ -45,14 +47,17 @@ binmode STDOUT, ':utf8';
 
 # configuration
 our %config;
-$config{version}=0.2;
-$config{revision}=17062012;
+$config{version}=0.3;
+$config{revision}=20130427;
 require "cli-jsonrpc-config.pl";
-my $version,my $help;
-GetOptions ('V|version' => \$version, 'h|help' => \$help);
+
+# processing command line options
+my $version,my $help, my $command;
+GetOptions ('V|version' => \$version, 'h|help' => \$help, 'c=s' => \$command) or die("Invalid options");
 if ($version)
 {
-	print("Command line JSON-RPC interface version.revision: $config{version}.$config{revision}\n"); exit(1);
+	print("Command line JSON-RPC interface version.revision: $config{version}.$config{revision}\n");
+	exit(1);
 }
 if ($help)
 {
@@ -64,13 +69,17 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 
 Keys:
 \t-h, --help\t Show this message
-\t-V, --version\t Show version string\n");
+\t-V, --version\t Show version string
+\t-c command\t Execute jsonrpc method and exit\n");
 	exit(1);
 }
-print("Configuration:\n");
-foreach (keys %config)
+if ($config{debug} > 0)
 {
-	print("$_: $config{$_}\n");
+	print("Configuration:\n");
+	foreach (keys %config)
+	{
+		print("$_: $config{$_}\n");
+	}
 }
 
 # rest variables
@@ -78,14 +87,24 @@ my $obj;
 $obj->{'jsonrpc'} = $config{jsonrpc};
 my $res;
 
-# creating and configuring client
+# creating and configuring jsonrpc client
 my $client = new JSON::RPC::Client;
 $client->version("2.0");
 $client->ua->timeout(10);
 #$client->ua->credentials('http://127.0.0.1:3121', 'jsonrpc', 'user' => 'password');
 
-# creating shell
+# preparing shell: reading command list, configuring history file and so
 my $term = new Term::ShellUI(commands => get_commands(), history_file => $config{hist_file}, history_max => $config{hist_max});
+
+# execute command if -c option used end exit 
+if (defined($command))
+{
+	if ($config{debug} > 0) { print("Request: $command\n") };
+	$term->process_a_cmd($command);
+	exit(0);
+}
+
+# starting a shell if no -c option used
 $term->prompt("$config{prompt}");
 $term->run();
 
@@ -331,11 +350,11 @@ sub magnetadd($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -355,11 +374,11 @@ sub daemonstop()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -380,11 +399,11 @@ sub hubadd($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -405,11 +424,11 @@ sub hubdel($)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -431,11 +450,11 @@ sub hubsay($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -458,11 +477,11 @@ sub hubpm($$$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -483,11 +502,11 @@ sub hublist($)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -509,11 +528,11 @@ sub shareadd($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -535,11 +554,11 @@ sub sharerename($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -560,11 +579,11 @@ sub sharedel($)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -585,11 +604,11 @@ sub sharelist($)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -609,11 +628,11 @@ sub sharerefresh()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -634,11 +653,11 @@ sub listdownload($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -660,11 +679,11 @@ sub hubgetchat($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -685,11 +704,11 @@ sub searchsend($)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -710,11 +729,33 @@ sub searchgetresults($)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n");
+			foreach (@{$res->result})
+			{
+				print("CID:\t\t".$_->{CID}."\n");
+				print("Connection:\t\t".$_->{Connection}."\n");
+				print("Exact Size:\t\t".$_->{'Exact Size'}."\n");
+				print("File Order:\t\t".$_->{'File Order'}."\n");
+				print("Filename:\t\t".$_->{Filename}."\n");
+				print("Free Slots:\t\t".$_->{'Free Slots'}."\n");
+				print("Hub:\t\t".$_->{Hub}."\n");
+				print("Hub URL:\t\t".$_->{'Hub URL'}."\n");
+				print("Icon:\t\t".$_->{Icon}."\n");
+				print("IP:\t\t".$_->{IP}."\n");
+				print("Nick:\t\t".$_->{Nick}."\n");
+				print("Path:\t\t".$_->{Path}."\n");
+				print("Real Size:\t\t".$_->{'Real Size'}."\n");
+				print("Shared:\t\t".$_->{Shared}."\n");
+				print("Size:\t\t".$_->{Size}."\n");
+				print("Slots:\t\t".$_->{Slots}."\n");
+				print("Slots Order:\t\t".$_->{'Slots Order'}."\n");
+				print("TTH:\t\t".$_->{TTH}."\n");
+				print("Type:\t\t".$_->{Type}."\n\n");
+			}
 		}
 	}
 	else
@@ -735,11 +776,11 @@ sub searchclear($)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -759,11 +800,11 @@ sub showversion()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -782,14 +823,14 @@ sub showratio()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
 			print("===Reply===\n");
-			print("Ratio:\t\t".dump($res->content->{ratio})."\n");
-			print("Upload:\t\t".dump($res->content->{up})."\n");
-			print("Download:\t".dump($res->content->{down})."\n");
+			print("Ratio:\t\t".$res->result->{ratio}."\n");
+			print("Upload:\t\t".$res->result->{up}."\n");
+			print("Download:\t".$res->result->{down}."\n");
 		}
 	}
 	else
@@ -810,11 +851,11 @@ sub qsetprio($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -836,11 +877,11 @@ sub qmove($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -861,11 +902,11 @@ sub qremove($)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -885,11 +926,36 @@ sub qlist()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n");
+			if (defined($res->result))
+			{
+				for my $key (keys %{$res->result})
+				{
+					print("$key:\n");
+					foreach ($res->result->{$key})
+					{
+						print("Added:\t\t".$_->{Added}."\n");
+						print("Downloaded:\t\t".$_->{Downloaded}."\n");
+						print("Downloaded Sort:\t\t".$_->{'Downloaded Sort'}."\n");
+						print("Errors:\t\t".$_->{Errors}."\n");
+						print("Exact Size:\t\t".$_->{'Exact Size'}."\n");
+						print("Filename:\t\t".$_->{Filename}."\n");
+						print("Path:\t\t".$_->{Path}."\n");
+						print("Priority:\t\t".$_->{Priority}."\n");
+						print("Size:\t\t".$_->{Size}."\n");
+						print("Size Sort:\t\t".$_->{'Size Sort'}."\n");
+						print("Status:\t\t".$_->{Status}."\n");
+						print("Target:\t\t".$_->{Target}."\n");
+						print("TTH:\t\t".$_->{TTH}."\n");
+						print("Users:\t\t".$_->{Users}."\n\n");
+					}
+				}
+			}
+			else {print("No files in queue\n");}
 		}
 	}
 	else
@@ -908,11 +974,11 @@ sub qlisttargets()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -933,11 +999,13 @@ sub qgetsources($$)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n");
+			print("Online:\t\t".$res->result->{online}."\n");
+			print("Sources:\t\t".$res->result->{sources}."\n");
 		}
 	}
 	else
@@ -957,11 +1025,15 @@ sub hashstatus()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n");
+			print("Bytesleft:\t\t".$res->result->{bytesleft}."\n");
+			print("Currentfile:\t\t".$res->result->{currentfile}."\n");
+			print("Filesleft:\t\t".$res->result->{filesleft}."\n");
+			print("Status:\t\t".$res->result->{status}."\n");
 		}
 	}
 	else
@@ -980,11 +1052,11 @@ sub hashpause()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -1003,11 +1075,11 @@ sub methodslist()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -1026,11 +1098,11 @@ sub qmatchlists()
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".dump($res->error_message)."\n");
+			print("===Error===\n".$res->error_message."\n");
 		}
 		else
 		{
-			print("===Reply===\n".dump($res->result)."\n");
+			print("===Reply===\n".$res->result."\n");
 		}
 	}
 	else
@@ -1046,34 +1118,34 @@ __END__
 
 # known methods as for 0.2.17062012
 # grep "AddMethod" eiskaltdcpp-daemon/ServerThread.cpp | egrep -o "std::string\(.*\)"
-+magnet.add
-+daemon.stop
-+hub.add
-+hub.del
-+hub.say
-+hub.pm
-+hub.list
-+hub.getchat
-+share.add
-+share.rename
-+share.del
-+share.list
-+share.refresh
-+list.download
-+search.send
-+search.getresults
-+search.clear
-+show.version
-+show.ratio
-+queue.setpriority
-+queue.move
-+queue.remove
-+queue.listtargets
-+queue.list
-+queue.getsources
-+hash.status
-+hash.pause
-+methods.list
-+queue.matchlists
+magnet.add +0.3
+daemon.stop +0.3
+hub.add +0.3
+hub.del +0.3
+hub.say +0.3
+hub.pm +0.3
+hub.list +0.3
+hub.getchat +0.3
+share.add +0.3
+share.rename +0.3
+share.del +0.3
+share.list +0.3
+share.refresh +0.3
+list.download +0.3
+search.send +0.3
+search.getresults +0.3
+search.clear +0.3
+show.version +0.3
+show.ratio +0.3
+queue.setpriority -
+queue.move -
+queue.remove +0.3
+queue.listtargets +0.3
+queue.list +0.3
+queue.getsources +0.3
+hash.status +0.3
+hash.pause +0.3
+methods.list +0.3
+queue.matchlists +0.3
 
 =cut
