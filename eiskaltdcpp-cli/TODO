@@ -1,7 +1,6 @@
 API Layers:
 -----------------------
 УПРАВЛЕНИЕ ПОТОКАМИ (ОЧЕРЕДЬЮ) СКАЧИВАНИЯ/ЗАКАЧИВАНИЯ
-<<<<<<< HEAD
         (+) Просмотр очереди (queue.list)
                 Args: none
                 Return: @queue list {all targets with all params}@ (string)
@@ -27,47 +26,7 @@ API Layers:
         Добавление источника к элементу очереди.
         Удаление источника для элемента очереди.
         Добавление элемента очереди.
-=======
-	(+) Просмотр очереди (queue.list)
-		Args: none
-		Return: @queue list {all targets with all params}@ (string)
-	(+) Просмотр всех элементов очереди (queue.listtargets)
-		Args: separator (string)
-		Return: @all targets in queue@ (string)
-	(-) Modify target arg for queue item (queue.move) - не понял как это использовать, нужен пример
-		Args: source (string), target (string)
-		Return: 0 | 1 (integer)
-	(+) Удаление элемента очереди (queue.remove)
-		Args: target (string)
-		Return: 0 | 1 (integer)
-	(+) Постановка в очередь магнета (magnet.add)
-		Args: magnet (string), directory (string)
-		Return: 0 | 1 (integer)
-	(-) Установка приоритета элемента очереди (queue.setpriority)
-		Args: target (string), priority (integer; 0-PAUSED, 1-LOWEST, 2-LOW, 3-NORMAL, 4-HIGH, 5-HIGHEST)
-		Return: 0 | 1 (integer)
-		Падает примерно вот так:
-		eiskalt-cli%  queue.setpriority '/data/tmp/FileLists/{2PJK6NXETBZ5L36IIYVAUKE4G227VZ427Q6OSQY}.2PJK6NXETBZ5L36IIYVAUKE4G227VZ427Q6OSQY' 1
-===Request===
-{
-  id => 58584,
-  jsonrpc => "2.0",
-  method => "queue.setpriority",
-  params => {
-    priority => 1,
-    target   => "/data/tmp/FileLists/{2PJK6NXETBZ5L36IIYVAUKE4G227VZ427Q6OSQY}.2PJK6NXETBZ5L36IIYVAUKE4G227VZ427Q6OSQY",
-  },
-  version => "2.0",
-}
-Assertion failed: (false && "Value is not convertible to Int."), function asInt, file /data/Projects/qt4/eiskaltdcpp/json/jsoncpp/jsoncpp.cpp, line 2324.
-	(+) Список источников для элемента очереди (queue.getsources)
-		Args: target (string), separator (string)
-		Return: online (integer), sources (string)
-	Просмотр конкретного элемента очереди
-	Добавление источника к элементу очереди.
-	Удаление источника для элемента очереди.
-	Добавление элемента очереди.
->>>>>>> EISKALTDCPP-CLI: huge update revision 0.3.20130427
+
 -----------------------
 РАБОТА С ФАЙЛЛИСТАМИ
         (+) Скачивание файллиста (list.download)
@@ -140,33 +99,12 @@ Assertion failed: (false && "Value is not convertible to Int."), function asInt,
                 Args: huburl (string)
                 Return: 0 | 1 (integer)
         Останов поиска (прекращение добавления результатов для такого-то поиска, разбор поиска и результатов будет в cli)
-	(+) Инициация поиска (search.send)
-		Args: searchstring (string), seatchtype (int), sizemode (int), sizetype (int), size (double), huburls (string, separator=";")
-		Return: 0 | 1 (integer)
-	(+) Просмотр результатов поиска (search.getresults)
-		Args: huburl (string)
-		Return: @search results@ (array of map)
-		Comment: Там есть такие поля, какие из них будем выводить? Сейчас все, и это не удобно.
-		"CID"         => "LC2C6VTBHNBUO2JOHTEZA3Y6J5NN6G2AD24MGAI",
-                "Connection"  => 1,
-                "Exact Size"  => "220 658 688 \x{411}",
-                "File Order"  => "fDesantnik_ Stepochkin_[tfile.ru].avi",
-                "Filename"    => "Desantnik_ Stepochkin_[tfile.ru].avi",
-                "Free Slots"  => 3,
-                "Hub"         => "Net HUB",
-                "Hub URL"     => "ddd.loc",
-                "Icon"        => "icon-file",
-                "IP"          => "192.168.15.101",
-                "Nick"        => "ONYX",
-                "Path"        => "Downloads/",
-                "Real Size"   => 220658688,
-                "Shared"      => 0,
-                "Size"        => "210,44 \x{41C}\x{411}",
-                "Slots"       => "3/3",
-                "Slots Order" => -3003,
-                "TTH"         => "5W4UF7MS75YYYRGJC3G2QBME5QMKV7WRJQHUIOQ",
-                "Type"        => "avi",
------------------------
+        (+) Инициация поиска (search.send)
+                Args: searchstring (string), seatchtype (int), sizemode (int), sizetype (int), size (double), huburls (string, separator=";")
+                Return: 0 | 1 (integer)
+        (+) Просмотр результатов поиска (search.getresults)
+                Args: huburl (string)
+                Return: @search results@ (array of map)
 СТАТИСТИКА
         (+) Версия (show.version)
                 Args: none
@@ -194,11 +132,5 @@ IPFILTER
 
 
 Пожелания:
-<<<<<<< HEAD
-        Выполнение команды и выход (./cli.pl -c show.version)
-        Поддерка UTF8
-=======
-	(+) Выполнение команды и выход (./cli.pl -c show.version)
-	(+) Поддерка UTF8
-
->>>>>>> EISKALTDCPP-CLI: huge update revision 0.3.20130427
+        (+) Выполнение команды и выход (./cli.pl -c show.version)
+        (+) Поддерка UTF8
