@@ -111,7 +111,7 @@ if (XATTR_FOUND)
 endif (XATTR_FOUND)
 
 if (LUA_SCRIPT)
-    find_package (Lua52 REQUIRED)
+    find_package (Lua51 REQUIRED)
     add_definitions ( -DLUA_SCRIPT )
     message (STATUS "Building with Lua scripts support")
 else (LUA_SCRIPT)
