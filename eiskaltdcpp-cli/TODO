@@ -7,7 +7,7 @@ API Layers:
         (+) Просмотр всех элементов очереди (queue.listtargets)
                 Args: separator (string)
                 Return: @all targets in queue@ (string)
-        (-) Modify target arg for queue item (queue.move) - не понял как это использовать, нужен пример
+        (+) Modify target arg for queue item (queue.move)
                 Args: source (string), target (string)
                 Return: 0 | 1 (integer)
         (+) Удаление элемента очереди (queue.remove)
@@ -16,23 +16,9 @@ API Layers:
         (+) Постановка в очередь магнета (magnet.add)
                 Args: magnet (string), directory (string)
                 Return: 0 | 1 (integer)
-        (-) Установка приоритета элемента очереди (queue.setpriority)
+        (+) Установка приоритета элемента очереди (queue.setpriority)
                 Args: target (string), priority (integer; 0-PAUSED, 1-LOWEST, 2-LOW, 3-NORMAL, 4-HIGH, 5-HIGHEST)
                 Return: 0 | 1 (integer)
-                Падает примерно вот так:
-                eiskalt-cli%  queue.setpriority '/data/tmp/FileLists/{2PJK6NXETBZ5L36IIYVAUKE4G227VZ427Q6OSQY}.2PJK6NXETBZ5L36IIYVAUKE4G227VZ427Q6OSQY' 1
-===Request===
-{
-  id => 58584,
-  jsonrpc => "2.0",
-  method => "queue.setpriority",
-  params => {
-    priority => 1,
-    target   => "/data/tmp/FileLists/{2PJK6NXETBZ5L36IIYVAUKE4G227VZ427Q6OSQY}.2PJK6NXETBZ5L36IIYVAUKE4G227VZ427Q6OSQY",
-  },
-  version => "2.0",
-}
-Assertion failed: (false && "Value is not convertible to Int."), function asInt, file /data/Projects/qt4/eiskaltdcpp/json/jsoncpp/jsoncpp.cpp, line 2324.
         (+) Список источников для элемента очереди (queue.getsources)
                 Args: target (string), separator (string)
                 Return: online (integer), sources (string)
@@ -40,12 +26,13 @@ Assertion failed: (false && "Value is not convertible to Int."), function asInt,
         Добавление источника к элементу очереди.
         Удаление источника для элемента очереди.
         Добавление элемента очереди.
+
 -----------------------
 РАБОТА С ФАЙЛЛИСТАМИ
         (+) Скачивание файллиста (list.download)
                 Args: huburl (string), nick (string)
                 Return: 0 | 1 (integer)
-                Comment: 
+                Comment:
         Просмотр файллиста
         Постановка файла из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
         Постановка директории из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
@@ -68,7 +55,7 @@ Assertion failed: (false && "Value is not convertible to Int."), function asInt,
                 Return: 0 | 1 (integer)
         (+) Показать статус хеширования (hash.status)
                 Args: none
-                Return: bytesleft (int64_t), currentfile (string), filesleft (uint32_t), status (string) 
+                Return: bytesleft (int64_t), currentfile (string), filesleft (uint32_t), status (string)
         (+) Приостановить хеширование (hash.pause)
                 Args: none
                 Return: 0 | 1 (int)
@@ -102,31 +89,12 @@ Assertion failed: (false && "Value is not convertible to Int."), function asInt,
 -----------------------
 ПОИСК
         (+) Инициация поиска (search.send)
-                Args: searchstring (string), seatchtype (int), sizemode (int), sizetype (int), size (double), huburls (string, separator=";")
+                Args: searchstring (string), searchtype (int), sizemode (int), sizetype (int), size (double), huburls (string, separator=";")
                 Return: 0 | 1 (integer)
         (+) Просмотр результатов поиска (search.getresults)
                 Args: huburl (string)
                 Return: @search results@ (array of map)
-                Comment: Там есть такие поля, какие из них будем выводить? Сейчас все, и это не удобно.
-                "CID"         => "LC2C6VTBHNBUO2JOHTEZA3Y6J5NN6G2AD24MGAI",
-                "Connection"  => 1,
-                "Exact Size"  => "220 658 688 \x{411}",
-                "File Order"  => "fDesantnik_ Stepochkin_[tfile.ru].avi",
-                "Filename"    => "Desantnik_ Stepochkin_[tfile.ru].avi",
-                "Free Slots"  => 3,
-                "Hub"         => "Net HUB",
-                "Hub URL"     => "ddd.loc",
-                "Icon"        => "icon-file",
-                "IP"          => "192.168.15.101",
-                "Nick"        => "ONYX",
-                "Path"        => "Downloads/",
-                "Real Size"   => 220658688,
-                "Shared"      => 0,
-                "Size"        => "210,44 \x{41C}\x{411}",
-                "Slots"       => "3/3",
-                "Slots Order" => -3003,
-                "TTH"         => "5W4UF7MS75YYYRGJC3G2QBME5QMKV7WRJQHUIOQ",
-                "Type"        => "avi",
+                Comment:
         (+) Очистить полученные результаты для указанного хаба/все. (search.clear)
                 Args: huburl (string)
                 Return: 0 | 1 (integer)
@@ -137,7 +105,6 @@ Assertion failed: (false && "Value is not convertible to Int."), function asInt,
         (+) Просмотр результатов поиска (search.getresults)
                 Args: huburl (string)
                 Return: @search results@ (array of map)
------------------------
 СТАТИСТИКА
         (+) Версия (show.version)
                 Args: none
@@ -167,4 +134,3 @@ IPFILTER
 Пожелания:
         (+) Выполнение команды и выход (./cli.pl -c show.version)
         (+) Поддерка UTF8
-
