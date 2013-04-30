@@ -21,12 +21,25 @@
 #include "debug.h"
 #include "noexcept.h"
 
+#ifdef _WIN32
+#include <boost/thread/lock_guard.hpp>
+#include <boost/thread/recursive_mutex.hpp>
+#else 
 #include <mutex>
-namespace dcpp {
+#endif
 
+namespace dcpp {
+    
+#ifdef _WIN32
+typedef boost::recursive_mutex CriticalSection;
+typedef boost::detail::spinlock FastCriticalSection;
+typedef boost::unique_lock<boost::recursive_mutex> Lock;
+typedef boost::lock_guard<boost::detail::spinlock> FastLock;
+#else
 typedef std::recursive_mutex CriticalSection;
 typedef std::mutex FastCriticalSection;
 typedef std::unique_lock<std::recursive_mutex> Lock;
 typedef std::lock_guard<std::mutex> FastLock;
+#endif
 
 } // namespace dcpp
