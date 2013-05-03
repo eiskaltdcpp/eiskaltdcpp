@@ -27,7 +27,7 @@ no warnings 'uninitialized';
 use 5.012;
 use JSON::RPC::Client;
 use Term::ShellUI;
-use Data::Dump qw[dump];
+use Data::Dumper;
 use Getopt::Long;
 use Env qw[$XDG_CONFIG_HOME $HOME];
 
@@ -92,6 +92,7 @@ my $client = new JSON::RPC::Client;
 $client->version("2.0");
 $client->ua->timeout(10);
 #$client->ua->credentials('http://127.0.0.1:3121', 'jsonrpc', 'user' => 'password');
+#$client->ua()->ssl_opts(verify_hostname=>0);
 
 # preparing shell: reading command list, configuring history file and so
 my $term = new Term::ShellUI(commands => get_commands(), history_file => $config{hist_file}, history_max => $config{hist_max});
@@ -344,13 +345,13 @@ sub magnetadd($$)
 	$obj->{'method'} = 'magnet.add';
 	$obj->{'params'}->{'magnet'}=$_[0];
 	$obj->{'params'}->{'directory'}=$_[1];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -368,13 +369,13 @@ sub daemonstop()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'daemon.stop';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -393,13 +394,13 @@ sub hubadd($$)
 	$obj->{'method'} = 'hub.add';
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'enc'}=$_[1];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -418,13 +419,13 @@ sub hubdel($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'hub.del';
 	$obj->{'params'}->{'huburl'}=$_[0];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -444,13 +445,13 @@ sub hubsay($$)
 	$obj->{'method'} = 'hub.say';
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'message'}=$_[1];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -471,13 +472,13 @@ sub hubpm($$$)
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'nick'}=$_[1];
 	$obj->{'params'}->{'message'}=$_[2];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -496,13 +497,13 @@ sub hublist($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'hub.list';
 	$obj->{'params'}->{'separator'}=($_[0] || $config{'separator'});
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -522,13 +523,13 @@ sub shareadd($$)
 	$obj->{'method'} = 'share.add';
 	$obj->{'params'}->{'directory'}=$_[0];
 	$obj->{'params'}->{'virtname'}=$_[1];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -548,13 +549,13 @@ sub sharerename($$)
 	$obj->{'method'} = 'share.rename';
 	$obj->{'params'}->{'directory'}=$_[0];
 	$obj->{'params'}->{'virtname'}=$_[1];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -573,13 +574,13 @@ sub sharedel($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'share.del';
 	$obj->{'params'}->{'directory'}=$_[0];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -598,13 +599,13 @@ sub sharelist($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'share.list';
 	$obj->{'params'}->{'separator'}=($_[0] || $config{'separator'});
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -622,13 +623,13 @@ sub sharerefresh()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'share.refresh';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -647,13 +648,13 @@ sub listdownload($$)
 	$obj->{'method'} = 'list.download';
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'nick'}=$_[1];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -673,13 +674,13 @@ sub hubgetchat($$)
 	$obj->{'method'} = 'hub.getchat';
 	$obj->{'params'}->{'huburl'}=$_[0];
 	$obj->{'params'}->{'separator'}=($_[1] || $config{'separator'});
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -698,13 +699,13 @@ sub searchsend($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'search.send';
 	$obj->{'params'}->{'searchstring'}=$_[0];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -723,13 +724,13 @@ sub searchgetresults($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'search.getresults';
 	if (defined($_[0])) {$obj->{'params'}->{'huburl'}=$_[0]};
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -770,13 +771,13 @@ sub searchclear($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'search.clear';
 	if (defined($_[0])) {$obj->{'params'}->{'huburl'}=$_[0]};
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -794,13 +795,13 @@ sub showversion()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'show.version';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -817,13 +818,13 @@ sub showratio()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'show.ratio';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -844,14 +845,14 @@ sub qsetprio($$)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'queue.setpriority';
 	$obj->{'params'}->{'target'}=$_[0];
-	$obj->{'params'}->{'priority'}=$_[1];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	$obj->{'params'}->{'priority'}=$_[1]+0;
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -871,13 +872,13 @@ sub qmove($$)
 	$obj->{'method'} = 'queue.move';
 	$obj->{'params'}->{'source'}=$_[0];
 	$obj->{'params'}->{'target'}=$_[1];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -896,13 +897,13 @@ sub qremove($)
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'queue.remove';
 	$obj->{'params'}->{'target'}=$_[0];
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -920,13 +921,13 @@ sub qlist()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'queue.list';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -968,13 +969,13 @@ sub qlisttargets()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'queue.listtargets';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -993,13 +994,13 @@ sub qgetsources($$)
 	$obj->{'method'} = 'queue.getsources';
 	$obj->{'params'}->{'target'}=$_[0];
 	$obj->{'params'}->{'separator'}=($_[1] || $config{'separator'});
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -1019,13 +1020,13 @@ sub hashstatus()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'hash.status';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -1046,13 +1047,13 @@ sub hashpause()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'hash.pause';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -1067,15 +1068,16 @@ sub hashpause()
 
 sub methodslist()
 {
+	use JSON;
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'methods.list';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n")};
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
@@ -1092,13 +1094,13 @@ sub qmatchlists()
 {
 	$obj->{'id'} = int(rand(2**16));
 	$obj->{'method'} = 'queue.matchlists';
-	if ($config{debug} > 0) { print("===Request===\n".dump($obj)."\n") };
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
 	{
 		if ($res->is_error) 
 		{
-			print("===Error===\n".$res->error_message."\n");
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
 		}
 		else
 		{
