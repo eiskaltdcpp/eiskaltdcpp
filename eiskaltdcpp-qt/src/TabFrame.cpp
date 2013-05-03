@@ -349,14 +349,19 @@ void TabFrame::slotContextMenu() {
 
     ArenaWidget *awgt = const_cast<ArenaWidget*>(tbtn_map[btn]);
 
-    if (awgt && awgt->getMenu())
-        awgt->getMenu()->exec(btn->mapToGlobal(btn->rect().bottomLeft()));
-    else if (awgt){
-        QMenu *m = new QMenu(this);
-        m->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close"));
+    if (awgt) {
+        QMenu *widget_menu = awgt->getMenu();
+        if (widget_menu) {
+            widget_menu->exec(btn->mapToGlobal(btn->rect().bottomLeft()));
+        } else {
+            widget_menu = new QMenu(this);
+            widget_menu->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close"));
 
-        if (m->exec(QCursor::pos()))
-            ArenaWidgetManager::getInstance()->rem(awgt);
+            if (widget_menu->exec(QCursor::pos()))
+                ArenaWidgetManager::getInstance()->rem(awgt);
+
+            delete widget_menu;
+        }
     }
 }
 
