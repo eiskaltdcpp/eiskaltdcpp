@@ -226,7 +226,7 @@ MainWindow::MainWindow():
         string("\n")+
         _("Hungarian translation\n")+
         string("  2010-2012 Akos Berki aka sumo <husumo@gmail.com>\n")+
-        string("  2011-2012 Márk Lutring <marcus@elitemail.hu>\n")+
+        string("  2011-2013 Márk Lutring <marcus@elitemail.hu>\n")+
         string("\n")+
         _("French translation\n")+
         string("  2010-2012 Alexandre Wallimann aka Ale <alexandre.wallimann@gmail.com>\n")+
@@ -257,7 +257,7 @@ MainWindow::MainWindow():
         string("  2011 Chris Leick <c.leick@vollbio.de>\n")+
         string("  2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
         string("  2011-2012 Tillmann Karras <tilkax@gmail.com>\n")+
-        string("  2012 Benjamin Weber <be.w@mail.ru>\n")+
+        string("  2012-2013 Benjamin Weber <be.w@mail.ru>\n")+
         string("\n")+
         _("Greek translation\n")+
         string("  2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+

@@ -2656,7 +2656,7 @@ void MainWindow::slotAboutClient(){
         QString("<br/>")+
         tr("Hungarian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:husumo@gmail.com\">Akos Berki</a> aka sumo<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:marcus@elitemail.hu\">Márk Lutring</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2011-2013 <a href=\"mailto:marcus@elitemail.hu\">Márk Lutring</a><br/>")+
         QString("<br/>")+
         tr("French translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:alexandre.wallimann@gmail.com\">Alexandre Wallimann</a> aka Ale<br/>")+
@@ -2686,7 +2686,7 @@ void MainWindow::slotAboutClient(){
         tr("German translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:kgeorgokitsos@yahoo.de\">Konstantinos Georgokitsos</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:tilkax@gmail.com\">Tillmann Karras</a><br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2012 <a href=\"mailto:be.w@mail.ru\">Benjamin Weber</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012-2013 <a href=\"mailto:be.w@mail.ru\">Benjamin Weber</a><br/>")+
         QString("<br/>")+
         tr("Greek translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:kgeorgokitsos@yahoo.de\">Konstantinos Georgokitsos</a><br/>")+
