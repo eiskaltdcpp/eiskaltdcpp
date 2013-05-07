@@ -721,7 +721,6 @@ bool WulforUtil::openUrl(const QString &url){
 
         m->setLink(magnet);
         if (WIGET(WI_DEF_MAGNET_ACTION) == 0) {
-            m->setModal(true);
             m->exec();
         }
 
@@ -1173,6 +1172,6 @@ QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWi
 }
 
 bool WulforUtil::isTTH ( const QString& text ) {
-    return ((text.length() == 39) && (QRegExp("[A-Z0-9]+").exactMatch(text))); 
+    return ((text.length() == 39) && (QRegExp("[A-Z0-9]+").exactMatch(text)));
 }
 

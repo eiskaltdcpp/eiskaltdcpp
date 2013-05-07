@@ -2796,9 +2796,6 @@ void MainWindow::slotUpdateFavHubMenu() {
     for(auto i = fl.cbegin(); i != fl.cend(); ++i) {
         const FavoriteHubEntry &entry = *(*i);
 
-        if (entry.getNick().empty() && SETTING(NICK).empty())
-            continue;
-
         QString url = _q(entry.getServer());
         QString name = entry.getName().empty() ? tr("[No name]") : _q(entry.getName());
         QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry.getEncoding()));
