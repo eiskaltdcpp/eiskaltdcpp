@@ -208,6 +208,8 @@ public:
         ActionList fileMenuActions;
         ActionList hubsMenuActions;
         ActionList toolsMenuActions;
+
+        QMenu *favHubMenu;
 };
 
 static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
@@ -229,6 +231,7 @@ MainWindow::MainWindow (QWidget *parent):
 #ifdef USE_JS
     d->scriptConsole = NULL;
 #endif
+    d->favHubMenu = NULL;
 
     d->exitBegin = false;
 
@@ -1420,6 +1423,8 @@ void MainWindow::initToolbar(){
         }
     }
 
+    initFavHubMenu();
+
     d->fBar->setContextMenuPolicy(Qt::CustomContextMenu);
     d->fBar->setMovable(true);
     d->fBar->setFloatable(true);
@@ -1486,6 +1491,26 @@ void MainWindow::initSideBar(){
     addDockWidget(Qt::LeftDockWidgetArea, d->sideDock);
 
     connect(d->sideDock, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSideBarDockMenu()));
+}
+
+void MainWindow::initFavHubMenu() {
+    Q_D(MainWindow);
+
+    if (!d->fBar)
+        return;
+
+    if (d->favHubMenu == NULL) {
+        d->favHubMenu = new QMenu(this);
+
+        connect(d->favHubMenu, SIGNAL(aboutToShow()), this, SLOT(slotUpdateFavHubMenu()));
+        connect(d->favHubMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotConnectFavHub(QAction*)));
+    }
+
+    QToolButton * btn = qobject_cast<QToolButton *>(d->fBar->widgetForAction(d->hubsFavoriteHubs));
+    if (btn) {
+        btn->setMenu(d->favHubMenu);
+        btn->setPopupMode(QToolButton::MenuButtonPopup);
+    }
 }
 
 QObject *MainWindow::getToolBar(){
@@ -2548,6 +2573,8 @@ void MainWindow::slotToolbarCustomizerDone(const QList<QAction*> &enabled){
         enabled_list.push_back(act->objectName());
     }
 
+    initFavHubMenu();
+
     WSSET(WS_MAINWINDOW_TOOLBAR_ACTS, enabled_list.join(";").toAscii().toBase64());
 }
 
@@ -2757,6 +2784,42 @@ void MainWindow::slotSideBarDockMenu(){
 
 void MainWindow::slotAboutQt(){
     QMessageBox::aboutQt(this);
+}
+
+void MainWindow::slotUpdateFavHubMenu() {
+    Q_D(MainWindow);
+
+    d->favHubMenu->clear();
+
+    const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
+
+    for(auto i = fl.cbegin(); i != fl.cend(); ++i) {
+        const FavoriteHubEntry &entry = *(*i);
+
+        QString url = _q(entry.getServer());
+        QString name = entry.getName().empty() ? tr("[No name]") : _q(entry.getName());
+        QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry.getEncoding()));
+        QString menuItem = QString("%1 - %2").arg(name).arg(url);
+
+        QAction *action = new QAction(menuItem, d->favHubMenu);
+        action->setStatusTip(encoding);
+        action->setToolTip(url);
+
+        if (qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(url))) {
+            action->setCheckable(true);
+            action->setChecked(true);
+        }
+
+        d->favHubMenu->addAction(action);
+    }
+}
+
+void MainWindow::slotConnectFavHub(QAction *action) {
+
+    QString url = action->toolTip();
+    QString encoding = action->statusTip();
+
+    newHubFrame(url, encoding);
 }
 
 void MainWindow::nextMsg(){
