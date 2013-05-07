@@ -239,6 +239,9 @@ friend class dcpp::Singleton<MainWindow>;
         void showShareBrowser(dcpp::UserPtr, const QString &, const QString&);
         void updateStatus(const QMap<QString,QString> &);
 
+        void slotUpdateFavHubMenu();
+        void slotConnectFavHub(QAction*);
+
     Q_SIGNALS:
         void coreLogMessage(const QString&);
         void coreOpenShare(dcpp::UserPtr, const QString &, const QString&);
@@ -267,6 +270,7 @@ friend class dcpp::Singleton<MainWindow>;
         void initSearchBar();
         void initToolbar();
         void initSideBar();
+        void initFavHubMenu();
 
         void toggleSingletonWidget(ArenaWidget *a);
 
