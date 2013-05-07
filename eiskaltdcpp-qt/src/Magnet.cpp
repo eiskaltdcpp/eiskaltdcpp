@@ -87,7 +87,7 @@ void Magnet::setLink(const QString &link){
             break;
 
         case MAGNET_ACTION_DOWNLOAD: // download
-            {
+        {
             QString target;
             if (name.isEmpty())
                 target = tth;
@@ -96,22 +96,22 @@ void Magnet::setLink(const QString &link){
             QString path=_q(SETTING(DOWNLOAD_DIRECTORY));
             target = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + target.split(QDir::separator(), QString::SkipEmptyParts).last();
                 download(target, size, tth);
-        }
             break;
+        }
 
         default: // show UI
-        checkBox_Remember->setChecked(false);
+        {
+            checkBox_Remember->setChecked(false);
             showUI(name, size, tth);
-            break;
+        }
     }
 }
 
 void Magnet::search(const QString &file, const qulonglong &size, const QString &tth){
-  if (!tth.isEmpty())
-      Magnet::searchTTH(tth);
-
-  if (!file.isEmpty())
-      Magnet::searchFile(file);
+    if (!tth.isEmpty())
+        Magnet::searchTTH(tth);
+    else if (!file.isEmpty())
+        Magnet::searchFile(file);
 }
 
 void Magnet::search(){
