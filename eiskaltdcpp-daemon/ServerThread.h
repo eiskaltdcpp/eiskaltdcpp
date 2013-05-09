@@ -70,6 +70,10 @@ public:
     void getMethodList(string& tmp);
     void matchAllList();
     void listHubsFullDesc(unordered_map<string,StringMap>& listhubs);
+    void getHubUserList(StringMap& userlist, const string& huburl);
+    void getParamsUser(StringMap& params, Identity& id);
+    void updateUser(StringMap params,Client* cl);
+    void removeUser(string cid, Client* cl);
 
 private:
     friend class Singleton<ServerThread>;
@@ -88,7 +92,7 @@ private:
             deque<string> curchat;
             Client* curclient;
             SearchResultList cursearchresult;
-            OnlineUserList curuserlist;
+            StringMap curuserlist;
     } CurHub;
 
     typedef unordered_map <unsigned int, string> QueueMap;

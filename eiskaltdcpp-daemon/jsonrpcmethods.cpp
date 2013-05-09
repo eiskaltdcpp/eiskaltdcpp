@@ -21,6 +21,7 @@ using namespace std;
 
 // ./cli-jsonrpc-curl.pl  '{"jsonrpc": "2.0", "id": "1", "method": "show.version"}'
 // ./cli-jsonrpc-curl.pl '{"jsonrpc": "2.0", "id": "sv0t7t2r", "method": "queue.getsources", "params":{"target": "/home/egik/Видео/Shakugan no Shana III - 16 - To Battle, Once More [Zero-Raws].mp4"}}'
+// ./cli-jsonrpc-curl.pl '{"jsonrpc": "2.0", "id": "sv0t7t2r", "method": "hub.add", "params":{"huburl": "adc://localhost:1511"}}'
 
 bool JsonRpcMethods::StopDaemon(const Json::Value& root, Json::Value& response)
 {
@@ -56,7 +57,7 @@ bool JsonRpcMethods::HubAdd(const Json::Value& root, Json::Value& response)
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     ServerThread::getInstance()->connectClient(root["params"]["huburl"].asString(), root["params"]["enc"].asString());
-    response["result"] = "Connecting to " + root["huburl"].asString();
+    response["result"] = "Connecting to " + root["params"]["huburl"].asString();
     if (isDebug) std::cout << "HubAdd (response): " << response << std::endl;
     return true;
 }
@@ -433,6 +434,20 @@ bool JsonRpcMethods::ListHubsFullDesc(const Json::Value& root, Json::Value& resp
     }
     response["result"] = parameters;
     if (isDebug) std::cout << "ListHubsFullDesc (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::GetHubUserList(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "GetHubUserList (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    StringMap tmp; Json::Value parameters;
+    ServerThread::getInstance()->getHubUserList(tmp, root["params"]["huburl"].asString());
+    for (StringMap::iterator kk = tmp.begin(); kk != tmp.end(); ++kk) {
+        parameters[kk->first] = kk->second;
+    }
+    response["result"] = parameters;
+    if (isDebug) std::cout << "GetHubUserList (response): " << response << std::endl;
     return true;
 }
 

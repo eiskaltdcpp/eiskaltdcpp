@@ -17,6 +17,7 @@
 
 #include "dcpp/ClientManager.h"
 #include "dcpp/Client.h"
+#include "dcpp/AdcHub.h"
 #include "dcpp/ConnectionManager.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/DownloadManager.h"
@@ -188,7 +189,7 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause"), a.GetDescriptionPauseHash()));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MatchAllLists, std::string("queue.matchlists")));
-
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHubUserList, std::string("hub.getusers")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -306,13 +307,34 @@ void ServerThread::on(Connected, Client* cur) noexcept {
         cout << "Connected to " << cur->getHubUrl() << "..." << endl;
 }
 
-void ServerThread::on(UserUpdated, Client*, const OnlineUserPtr& user) noexcept {
+void ServerThread::on(UserUpdated, Client* cur, const OnlineUserPtr& user) noexcept {
+    Identity id = user->getIdentity();
+
+    if (!id.isHidden())
+    {
+        StringMap params;
+        getParamsUser(params, id);
+        updateUser(params, cur);
+    }
+}
+void ServerThread::on(UsersUpdated, Client* cur, const OnlineUserList& list) noexcept {
+    Identity id;
+
+    for (auto it = list.begin(); it != list.end(); ++it)
+    {
+        id = (*it)->getIdentity();
+        if (!id.isHidden())
+        {
+            StringMap params;
+            getParamsUser(params, id);
+            updateUser(params, cur);
+        }
+    }
+
 }
 
-void ServerThread::on(UsersUpdated, Client*, const OnlineUserList& aList) noexcept {
-}
-
-void ServerThread::on(UserRemoved, Client*, const OnlineUserPtr& user) noexcept {
+void ServerThread::on(UserRemoved, Client* cur, const OnlineUserPtr& user) noexcept {
+    removeUser(user->getUser()->getCID().toBase32(), cur);
 }
 
 void ServerThread::on(Redirect, Client* cur, const string& line) noexcept {
@@ -422,8 +444,7 @@ void ServerThread::startSocket(bool changed) {
 }
 
 void ServerThread::showPortsError(const string& port) {
-    fprintf(stdout,
-            "\n\t\tConnectivity Manager: Warning\n\n Unable to open port %s. "
+    printf("\n\t\tConnectivity Manager: Warning\n\n Unable to open port %s. "
             "Searching or file transfers will\n not work correctly "
             "until you change settings or turn off\n any application "
             "that might be using that port.\n\n",
@@ -437,7 +458,6 @@ void ServerThread::sendMessage(const string& hubUrl, const string& message) {
         Client* client = i->second.curclient;
         if (client && !message.empty()) {
             bool thirdPerson = !message.compare(0, 3, "/me");
-            //printf("%s\t%s\n'", message.c_str(), message.substr(4).c_str());
             client->hubMessage(thirdPerson ? message.substr(4) : message , thirdPerson);
         }
     }
@@ -464,7 +484,7 @@ string ServerThread::sendPrivateMessage(const string& hub, const string& nick, c
         if (client && !message.empty()) {
             bool thirdPerson = !message.compare(0, 3, "/me");
             UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
-            if (user && user->isOnline())
+            if (user && user->isOnline() && user->isNMDC())
             {
                 ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
                 return "Private message sent to " + nick + " at " + hub;
@@ -486,7 +506,7 @@ bool ServerThread::getFileList(const string& hub, const string& nick, bool match
             try {
                 //UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
                 UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
-                if (user) {
+                if (user && user->isOnline() && user->isNMDC()) {
                     const HintedUser hintedUser(user, i->first);
                     if (user == ClientManager::getInstance()->getMe()) {
                         // Don't download file list, open locally instead
@@ -773,13 +793,11 @@ void ServerThread::getItemSources(QueueItem* item, const string& separator, stri
     for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
         if (it->getUser().user->isOnline())
             ++online_tmp;
-        //printf("++online_tmp: %u\n", online_tmp);fflush(stdout);
         if (!sources.empty())
             sources += separator;
         nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
         sources += nick;
     }
-    //printf("online_tmp: %u\n", online_tmp);fflush(stdout);
 }
 void ServerThread::getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
@@ -787,9 +805,7 @@ void ServerThread::getItemSourcesbyTarget(const string& target, const string& se
         //printf("target: %s\n *it->first: %s\n", target.c_str(),(*it->first).c_str());fflush(stdout);
         if (target == *it->first) {
             getItemSources(it->second, separator, sources, online);
-            //printf("online1: %u\n", online);fflush(stdout);
         }
-        //printf("online2: %u\n", online);fflush(stdout);
     }
     QueueManager::getInstance()->unlockQueue();
 }
@@ -803,17 +819,6 @@ void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
     params["Target"] = item->getTarget();
 
     params["Users"] = "";
-
-    //for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
-        //if (it->getUser().user->isOnline())
-            //++online;
-
-        //if (params["Users"].size() > 0)
-            //params["Users"] += ", ";
-
-        //nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
-        //params["Users"] += nick;
-    //}
 
     getItemSources(item, ", ", params["Users"], online);
 
@@ -1027,4 +1032,81 @@ void ServerThread::getMethodList(string& tmp) {
 
 void ServerThread::matchAllList() {
     QueueManager::getInstance()->matchAllListings();
+}
+
+void ServerThread::getHubUserList(StringMap& userlist, const string& huburl) {
+    ClientIter i = clientsMap.find(huburl);
+    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+        userlist = clientsMap[i->first].curuserlist;
+    }
+}
+
+void ServerThread::getParamsUser(StringMap& params, Identity& id)
+{
+    if(id.supports(AdcHub::ADCS_FEATURE) && id.supports(AdcHub::SEGA_FEATURE) &&
+    ((id.supports(AdcHub::TCP4_FEATURE) && id.supports(AdcHub::UDP4_FEATURE)) || id.supports(AdcHub::NAT0_FEATURE)))
+        params.insert(StringMap::value_type("Icon", "dc++"));
+    else
+        params.insert(StringMap::value_type("Icon", "normal"));
+
+    if (id.getUser()->isSet(User::PASSIVE))
+        params["Icon"] += "-fw";
+
+    if (id.isOp())
+    {
+        params["Icon"] += "-op";
+        params.insert(StringMap::value_type("Nick Order", "o" + id.getNick()));
+    }
+    else
+    {
+        params.insert(StringMap::value_type("Nick Order", "u" + id.getNick()));
+    }
+
+    params.insert(StringMap::value_type("Nick", id.getNick()));
+    params.insert(StringMap::value_type("Shared", Util::toString(id.getBytesShared())));
+    params.insert(StringMap::value_type("Description", id.getDescription()));
+    params.insert(StringMap::value_type("Tag", id.getTag()));
+    params.insert(StringMap::value_type("Connection", id.getConnection()));
+    params.insert(StringMap::value_type("IP", id.getIp()));
+    params.insert(StringMap::value_type("eMail", id.getEmail()));
+    params.insert(StringMap::value_type("CID", id.getUser()->getCID().toBase32()));
+}
+
+void ServerThread::updateUser(StringMap params, Client* cl)
+{
+    const string &cid = params["CID"];
+    const string &Nick = params["Nick"];
+    auto it = clientsMap[cl->getHubUrl()].curuserlist.begin();
+    while (it != clientsMap[cl->getHubUrl()].curuserlist.end()) {
+        if (it->second == cid)
+            break;
+        else
+            ++it;
+    }
+
+    if (it == clientsMap[cl->getHubUrl()].curuserlist.end()) {
+        clientsMap[cl->getHubUrl()].curuserlist.insert(StringMap::value_type(Nick, cid));
+        if (isDebug) {printf ("HUB: %s == Add user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
+    } else if (it->first != Nick) {
+        // User has changed nick, update userMap and remove the old Nick tag
+        clientsMap[cl->getHubUrl()].curuserlist.erase(it->first);
+        clientsMap[cl->getHubUrl()].curuserlist.insert(StringMap::value_type(Nick, cid));
+        if (isDebug) {printf ("HUB: %s == Update user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
+    }
+}
+
+void ServerThread::removeUser(string cid, Client* cl)
+{
+    auto it = clientsMap[cl->getHubUrl()].curuserlist.begin();
+    while (it != clientsMap[cl->getHubUrl()].curuserlist.end()) {
+        if (it->second == cid)
+            break;
+        else
+            ++it;
+    }
+    if (it == clientsMap[cl->getHubUrl()].curuserlist.end()) {
+        if (isDebug) {printf ("HUB: %s == ERROR: no user with this cid (%s)\n", cl->getHubUrl().c_str(), cid.c_str()); fflush (stdout);}
+    }
+    clientsMap[cl->getHubUrl()].curuserlist.erase(it->first);
+    if (isDebug) {printf ("HUB: %s == Remove user: %s\n", cl->getHubUrl().c_str(), (it->first).c_str()); fflush (stdout);}
 }
