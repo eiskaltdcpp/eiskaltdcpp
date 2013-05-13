@@ -45,7 +45,7 @@ public:
     void sendMessage(const string& hubUrl, const string& message);
     void listConnectedClients(string& listhubs,const string& separator);
     bool findHubInConnectedClients(const string& hub);
-    string sendPrivateMessage(const string& hub, const string& nick, const string& message);
+    bool sendPrivateMessage(const string& hub, const string& nick, const string& message);
     bool getFileList(const string& hub, const string& nick, bool match);
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
     bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
@@ -70,10 +70,11 @@ public:
     void getMethodList(string& tmp);
     void matchAllList();
     void listHubsFullDesc(unordered_map<string,StringMap>& listhubs);
-    void getHubUserList(StringMap& userlist, const string& huburl);
+    void getHubUserList(string& userlist, const string& huburl, const string& separator);
     void getParamsUser(StringMap& params, Identity& id);
     void updateUser(const StringMap& params, Client* cl);
     void removeUser(const string& cid, Client* cl);
+    bool getUserInfo(StringMap& userinfo, const string& nick, const string& huburl);
 
 private:
     friend class Singleton<ServerThread>;

@@ -144,8 +144,10 @@ public:
         string const snick(paramList.getString(1));
         string const smess(paramList.getString(2));
         paramList.verifyEnd(3);
-        string tmp = ServerThread::getInstance()->sendPrivateMessage(shub, snick, smess);
-        *retvalP = xmlrpc_c::value_string(tmp);
+        if (ServerThread::getInstance()->sendPrivateMessage(shub, snick, smess))
+            *retvalP = xmlrpc_c::value_int(0);
+        else
+            *retvalP = xmlrpc_c::value_int(1);
     }
 };
 
@@ -309,7 +311,7 @@ public:
 class refreshShareMethod : public xmlrpc_c::method {
 public:
     refreshShareMethod() {
-        this->_signature = "i:s";
+        this->_signature = "i:";
         this->_help = "Refreshes the share. Params: none; returns: 0";
     }
 
@@ -581,10 +583,6 @@ public:
         string tmp = " ",status = " "; int64_t bytes = 0; size_t files = 0;
         ServerThread::getInstance()->getHashStatus(tmp, bytes, files, status);
         map<string, xmlrpc_c::value> tmp_struct_in;
-        //response["result"]["currentfile"]=tmp;
-        //response["result"]["status"]=status;
-        //response["result"]["bytesleft"]=Json::Value::Int64(bytes);
-        //response["result"]["filesleft"]=Json::Value::Int64(files);
         tmp_struct_in["currentfile"] = xmlrpc_c::value_string(tmp);
         tmp_struct_in["status"] = xmlrpc_c::value_string(status);
         tmp_struct_in["bytesleft"] = xmlrpc_c::value_i8(bytes);
@@ -626,6 +624,99 @@ public:
         string tmp;
         ServerThread::getInstance()->getMethodList(tmp);
         *retvalP = xmlrpc_c::value_string(tmp);
+    }
+};
+
+class getHubUserListMethod: public xmlrpc_c::method {
+public:
+    getHubUserListMethod() {
+        this->_signature = "i:ss";
+        this->_help = "Return user list on huburl. Params: huburl, separator";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const shuburl(paramList.getString(0));;
+        string const sseparator(paramList.getString(1));;
+        paramList.verifyEnd(2);
+        string tmp;
+        ServerThread::getInstance()->getHubUserList(tmp, shuburl, sseparator);
+        *retvalP = xmlrpc_c::value_string(tmp);
+    }
+};
+
+class getUserInfoMethod : public xmlrpc_c::method {
+public:
+    getUserInfoMethod() {
+        this->_signature = "i:ss";
+        this->_help = "Return info about user on huburl. Params: nick, huburl";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        string const snick(paramList.getString(0));;
+        string const shuburl(paramList.getString(1));;
+        paramList.verifyEnd(2);
+        StringMap tmp;
+        if (ServerThread::getInstance()->getUserInfo(tmp, snick, shuburl)) {
+            map<string, xmlrpc_c::value> tmp_struct_in;
+            for (auto kk = tmp.begin(); kk != tmp.end(); ++kk) {
+                pair<string, xmlrpc_c::value> member(kk->first, xmlrpc_c::value_string(kk->second));
+                tmp_struct_in.insert(member);
+            }
+            xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
+            *retvalP = tmp_struct_out;
+        } else
+            *retvalP = xmlrpc_c::value_nil();
+    }
+};
+
+class matchAllListMethod : public xmlrpc_c::method {
+public:
+    matchAllListMethod() {
+        this->_signature = "s:";
+        this->_help = "Match all local file lists. Params: none; returns: 0";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        ServerThread::getInstance()->matchAllList();
+        *retvalP = xmlrpc_c::value_int(0);
+    }
+};
+
+class listHubsFullDescMethod : public xmlrpc_c::method {
+public:
+    listHubsFullDescMethod() {
+        this->_signature = "s:";
+        this->_help = "Return list all hubs with params. Params: none; returns: array of hub with params";
+    }
+
+    void
+    execute(xmlrpc_c::paramList const& paramList,
+            xmlrpc_c::value *   const  retvalP) {
+
+        unordered_map<string,StringMap> listhubs;
+        ServerThread::getInstance()->listHubsFullDesc(listhubs);
+        map<string, xmlrpc_c::value> tmp_struct1_in;
+        for (auto i = listhubs.begin(); i != listhubs.end(); ++i) {
+            map<string, xmlrpc_c::value> tmp_struct2_in;
+            for (auto kk = (*i).second.begin(); kk != (*i).second.end(); ++kk) {
+                pair<string, xmlrpc_c::value> member2(kk->first, xmlrpc_c::value_string(kk->second));
+                tmp_struct2_in.insert(member2);
+            }
+            xmlrpc_c::value_struct const tmp_struct2_out(tmp_struct2_in);
+            pair<string, xmlrpc_c::value> member1(i->first, xmlrpc_c::value_struct(tmp_struct2_out));
+            tmp_struct1_in.insert(member1);
+        }
+        xmlrpc_c::value_struct tmp_struct1_out(tmp_struct1_in);
+        *retvalP = tmp_struct1_out;
     }
 };
 

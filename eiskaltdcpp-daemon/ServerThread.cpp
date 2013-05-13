@@ -114,6 +114,10 @@ int ServerThread::run() {
     xmlrpc_c::methodPtr const getHashStatusMethodP(new getHashStatusMethod);
     xmlrpc_c::methodPtr const pauseHashMethodP(new pauseHashMethod);
     xmlrpc_c::methodPtr const getMethodListMethodP(new getMethodListMethod);
+    xmlrpc_c::methodPtr const listHubsFullDescMethodP(new listHubsFullDescMethod);
+    xmlrpc_c::methodPtr const getHubUserListMethodP(new getHubUserListMethod);
+    xmlrpc_c::methodPtr const getUserInfoMethodP(new getUserInfoMethod);
+    xmlrpc_c::methodPtr const matchAllListMethodP(new matchAllListMethod);
     xmlrpcRegistry.addMethod("magnet.add", magnetAddMethodP);
     xmlrpcRegistry.addMethod("daemon.stop", stopDaemonMethodP);
     xmlrpcRegistry.addMethod("hub.add", hubAddMethodP);
@@ -142,6 +146,10 @@ int ServerThread::run() {
     xmlrpcRegistry.addMethod("hash.status", getHashStatusMethodP);
     xmlrpcRegistry.addMethod("hash.pause", pauseHashMethodP);
     xmlrpcRegistry.addMethod("method.list", getMethodListMethodP);
+    xmlrpcRegistry.addMethod("hub.listfulldesc", listHubsFullDescMethodP);
+    xmlrpcRegistry.addMethod("hub.getusers", getHubUserListMethodP);
+    xmlrpcRegistry.addMethod("hub.getuserinfo", getUserInfoMethodP);
+    xmlrpcRegistry.addMethod("queue.matchlists", matchAllListMethodP);
     xmlrpcRegistry.setShutdown(new systemShutdownMethod);
     sock.create();
     sock.setSocketOpt(SO_REUSEADDR, 1);
@@ -159,37 +167,38 @@ int ServerThread::run() {
 #ifdef JSONRPC_DAEMON
     jsonserver = new Json::Rpc::HTTPServer(lip, lport);
     JsonRpcMethods a;
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MagnetAdd, std::string("magnet.add"), a.GetDescriptionMagnetAdd()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::StopDaemon, std::string("daemon.stop"), a.GetDescriptionStopDaemon()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubAdd, std::string("hub.add"), a.GetDescriptionHubAdd()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubDel, std::string("hub.del"), a.GetDescriptionHubDel()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSay, std::string("hub.say"), a.GetDescriptionHubSay()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSayPM, std::string("hub.pm"), a.GetDescriptionHubSayPM()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListHubs, std::string("hub.list"), a.GetDescriptionListHubs()));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MagnetAdd, std::string("magnet.add")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::StopDaemon, std::string("daemon.stop")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubAdd, std::string("hub.add")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubDel, std::string("hub.del")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSay, std::string("hub.say")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::HubSayPM, std::string("hub.pm")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListHubs, std::string("hub.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListHubsFullDesc, std::string("hub.listfulldesc")));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetChatPub, std::string("hub.getchat"), a.GetDescriptionGetChatPub()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::AddDirInShare, std::string("share.add"), a.GetDescriptionAddDirInShare()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RenameDirInShare, std::string("share.rename"), a.GetDescriptionRenameDirInShare()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DelDirFromShare, std::string("share.del"), a.GetDescriptionDelDirFromShare()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListShare, std::string("share.list"), a.GetDescriptionListShare()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RefreshShare, std::string("share.refresh"), a.GetDescriptionRefreshShare()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetFileList, std::string("list.download"), a.GetDescriptionGetFileList()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SendSearch, std::string("search.send"), a.GetDescriptionSendSearch()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ReturnSearchResults, std::string("search.getresults"), a.GetDescriptionReturnSearchResults()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ClearSearchResults, std::string("search.clear"), a.GetDescriptionClearSearchResults()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowVersion, std::string("show.version"), a.GetDescriptionShowVersion()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowRatio, std::string("show.ratio"), a.GetDescriptionShowRatio()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SetPriorityQueueItem, std::string("queue.setpriority"), a.GetDescriptionSetPriorityQueueItem()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MoveQueueItem, std::string("queue.move"), a.GetDescriptionMoveQueueItem()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RemoveQueueItem, std::string("queue.remove"), a.GetDescriptionRemoveQueueItem()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueueTargets, std::string("queue.listtargets"), a.GetDescriptionListQueueTargets()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list"), a.GetDescriptionListQueue()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetSourcesItem, std::string("queue.getsources"), a.GetDescriptionGetSourcesItem()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHashStatus, std::string("hash.status"), a.GetDescriptionGetHashStatus()));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause"), a.GetDescriptionPauseHash()));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetChatPub, std::string("hub.getchat")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::AddDirInShare, std::string("share.add")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RenameDirInShare, std::string("share.rename")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DelDirFromShare, std::string("share.del")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListShare, std::string("share.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RefreshShare, std::string("share.refresh")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetFileList, std::string("list.download")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SendSearch, std::string("search.send")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ReturnSearchResults, std::string("search.getresults")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ClearSearchResults, std::string("search.clear")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowVersion, std::string("show.version")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowRatio, std::string("show.ratio")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SetPriorityQueueItem, std::string("queue.setpriority")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MoveQueueItem, std::string("queue.move")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::RemoveQueueItem, std::string("queue.remove")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueueTargets, std::string("queue.listtargets")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetSourcesItem, std::string("queue.getsources")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHashStatus, std::string("hash.status")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MatchAllLists, std::string("queue.matchlists")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHubUserList, std::string("hub.getusers")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetUserInfo, std::string("hub.getuserinfo")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -479,7 +488,7 @@ bool ServerThread::findHubInConnectedClients(const string& hub) {
     return i != clientsMap.end();
 }
 
-string ServerThread::sendPrivateMessage(const string& hub, const string& nick, const string& message) {
+bool ServerThread::sendPrivateMessage(const string& hub, const string& nick, const string& message) {
     ClientIter i = clientsMap.find(hub);
     if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
         Client* client = i->second.curclient;
@@ -487,13 +496,13 @@ string ServerThread::sendPrivateMessage(const string& hub, const string& nick, c
             bool thirdPerson = !message.compare(0, 3, "/me");
             auto it = i->second.curuserlist.find(nick);
             if (it == i->second.curuserlist.end())
-                return "User went offline at " + hub;
+                return false;
             UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
             if (user && user->isOnline()) {
                 ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
-                return "Private message sent to " + nick + " at " + hub;
+                return true;
             } else {
-                return "User went offline at " + hub;
+                return false;
             }
         }
     }
@@ -804,7 +813,6 @@ void ServerThread::getItemSources(QueueItem* item, const string& separator, stri
 void ServerThread::getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
     for (auto it = ll.begin(); it != ll.end(); ++it) {
-        //printf("target: %s\n *it->first: %s\n", target.c_str(),(*it->first).c_str());fflush(stdout);
         if (target == *it->first) {
             getItemSources(it->second, separator, sources, online);
         }
@@ -1029,17 +1037,28 @@ bool ServerThread::pauseHash() {
 }
 
 void ServerThread::getMethodList(string& tmp) {
-    tmp = "magnet.add|daemon.stop|hub.add|hub.del|hub.say|hub.pm|hub.list|share.add|share.rename|share.del|share.list|share.refresh|list.download|hub.getchat|search.send|search.getresults|show.version|show.ratio|queue.setpriority|queue.move|queue.remove|queue.listtargets|queue.list|queue.getsources|hash.status|hash.pause|methods.list";
+    tmp = "magnet.add|daemon.stop|hub.add|hub.del|hub.say|hub.pm|hub.list|hub.list|share.add|share.rename|share.del|share.list|share.refresh|list.download|hub.getchat|search.send|search.getresults|show.version|show.ratio|queue.setpriority|queue.move|queue.remove|queue.listtargets|queue.list|queue.getsources|hash.status|hash.pause|methods.list|queue.matchlists|hub.getusers|hub.getuserinfo|hub.listfulldesc";
 }
 
 void ServerThread::matchAllList() {
     QueueManager::getInstance()->matchAllListings();
 }
 
-void ServerThread::getHubUserList(StringMap& userlist, const string& huburl) {
-    ClientIter i = clientsMap.find(huburl);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
-        userlist = clientsMap[i->first].curuserlist;
+//void ServerThread::getHubUserList(StringMap& userlist, const string& huburl) {
+    //ClientIter i = clientsMap.find(huburl);
+    //if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+        //userlist = clientsMap[i->first].curuserlist;
+    //}
+//}
+
+void ServerThread::getHubUserList(string& userlist, const string& huburl, const string& separator) {
+    string tmp = separator.empty()? ";" : separator;
+    if (clientsMap[huburl].curclient != NULL) {
+        StringMap& ll = clientsMap[huburl].curuserlist;
+        for (auto it = ll.begin(); it != ll.end(); ++it) {
+            userlist += it->first;
+            userlist += tmp;
+        }
     }
 }
 
@@ -1113,4 +1132,22 @@ void ServerThread::removeUser(const string& cid, Client* cl)
     }
     item.erase(it->first);
     if (isDebug) {printf ("HUB: %s == Remove user: %s\n", cl->getHubUrl().c_str(), (it->first).c_str()); fflush (stdout);}
+}
+
+bool ServerThread::getUserInfo(StringMap& userinfo, const string& nick, const string& huburl) {
+    ClientIter i = clientsMap.find(huburl);
+    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+        auto it = i->second.curuserlist.find(nick);
+        if (it == i->second.curuserlist.end())
+            return false;
+        UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
+        if (user && user->isOnline()) {
+            Identity id = ClientManager::getInstance()->getOnlineUserIdentity(user);
+            if (!id.isHidden()) {
+                getParamsUser(userinfo, id);
+                return true;
+            }
+        }
+    }
+    return false;
 }
