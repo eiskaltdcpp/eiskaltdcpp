@@ -110,9 +110,9 @@ private:
     // ClientListener
     virtual void on(Connecting, Client* cur) noexcept;
     virtual void on(Connected, Client* cur) noexcept;
-    virtual void on(UserUpdated, Client* cur, const OnlineUserPtr&) noexcept;
+    virtual void on(UserUpdated, Client* cur, const OnlineUser&) noexcept;
     virtual void on(UsersUpdated, Client* cur, const OnlineUserList&) noexcept;
-    virtual void on(UserRemoved, Client* cur, const OnlineUserPtr&) noexcept;
+    virtual void on(UserRemoved, Client* cur, const OnlineUser&) noexcept;
     virtual void on(Redirect, Client* cur, const string&) noexcept;
     virtual void on(Failed, Client* cur, const string&) noexcept;
     virtual void on(GetPassword, Client* cur) noexcept;

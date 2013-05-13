@@ -307,8 +307,8 @@ void ServerThread::on(Connected, Client* cur) noexcept {
         cout << "Connected to " << cur->getHubUrl() << "..." << endl;
 }
 
-void ServerThread::on(UserUpdated, Client* cur, const OnlineUserPtr& user) noexcept {
-    Identity id = user->getIdentity();
+void ServerThread::on(UserUpdated, Client* cur, const OnlineUser& user) noexcept {
+    Identity id = user.getIdentity();
 
     if (!id.isHidden())
     {
@@ -335,8 +335,8 @@ void ServerThread::on(UsersUpdated, Client* cur, const OnlineUserList& list) noe
 
 }
 
-void ServerThread::on(UserRemoved, Client* cur, const OnlineUserPtr& user) noexcept {
-    removeUser(user->getUser()->getCID().toBase32(), cur);
+void ServerThread::on(UserRemoved, Client* cur, const OnlineUser& user) noexcept {
+    removeUser(user.getUser()->getCID().toBase32(), cur);
 }
 
 void ServerThread::on(Redirect, Client* cur, const string& line) noexcept {
@@ -485,14 +485,14 @@ string ServerThread::sendPrivateMessage(const string& hub, const string& nick, c
         Client* client = i->second.curclient;
         if (client && !message.empty()) {
             bool thirdPerson = !message.compare(0, 3, "/me");
-            UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
-            if (user && user->isOnline() && user->isNMDC())
-            {
+            auto it = i->second.curuserlist.find(nick);
+            if (it == i->second.curuserlist.end())
+                return "User went offline at " + hub;
+            UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
+            if (user && user->isOnline()) {
                 ClientManager::getInstance()->privateMessage(HintedUser(user, hub), thirdPerson ? message.substr(4) : message, thirdPerson);
                 return "Private message sent to " + nick + " at " + hub;
-            }
-            else
-            {
+            } else {
                 return "User went offline at " + hub;
             }
         }

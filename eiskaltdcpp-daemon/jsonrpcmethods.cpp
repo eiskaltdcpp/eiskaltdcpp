@@ -22,6 +22,7 @@ using namespace std;
 // ./cli-jsonrpc-curl.pl  '{"jsonrpc": "2.0", "id": "1", "method": "show.version"}'
 // ./cli-jsonrpc-curl.pl '{"jsonrpc": "2.0", "id": "sv0t7t2r", "method": "queue.getsources", "params":{"target": "/home/egik/Видео/Shakugan no Shana III - 16 - To Battle, Once More [Zero-Raws].mp4"}}'
 // ./cli-jsonrpc-curl.pl '{"jsonrpc": "2.0", "id": "sv0t7t2r", "method": "hub.add", "params":{"huburl": "adc://localhost:1511"}}'
+// ./cli-jsonrpc-curl.pl '{"jsonrpc": "2.0", "id": "1", "method": "hub.pm", "params":{"huburl": "adc://localhost:1511", "nick" : "test", "message" : "test"}}'
 
 bool JsonRpcMethods::StopDaemon(const Json::Value& root, Json::Value& response)
 {
