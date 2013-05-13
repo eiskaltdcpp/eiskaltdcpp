@@ -72,8 +72,8 @@ public:
     void listHubsFullDesc(unordered_map<string,StringMap>& listhubs);
     void getHubUserList(StringMap& userlist, const string& huburl);
     void getParamsUser(StringMap& params, Identity& id);
-    void updateUser(StringMap params,Client* cl);
-    void removeUser(string cid, Client* cl);
+    void updateUser(const StringMap& params, Client* cl);
+    void removeUser(const string& cid, Client* cl);
 
 private:
     friend class Singleton<ServerThread>;

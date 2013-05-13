@@ -314,6 +314,7 @@ void ServerThread::on(UserUpdated, Client* cur, const OnlineUserPtr& user) noexc
     {
         StringMap params;
         getParamsUser(params, id);
+        if (isDebug) {printf ("HUB: %s == UserUpdated %s\n", cur->getHubUrl().c_str(), params["Nick"].c_str()); fflush (stdout);}
         updateUser(params, cur);
     }
 }
@@ -327,6 +328,7 @@ void ServerThread::on(UsersUpdated, Client* cur, const OnlineUserList& list) noe
         {
             StringMap params;
             getParamsUser(params, id);
+            if (isDebug) {printf ("HUB: %s == UsersUpdated %s\n", cur->getHubUrl().c_str(), params["Nick"].c_str()); fflush (stdout);}
             updateUser(params, cur);
         }
     }
@@ -1072,41 +1074,43 @@ void ServerThread::getParamsUser(StringMap& params, Identity& id)
     params.insert(StringMap::value_type("CID", id.getUser()->getCID().toBase32()));
 }
 
-void ServerThread::updateUser(StringMap params, Client* cl)
+void ServerThread::updateUser(const StringMap& params, Client* cl)
 {
-    const string &cid = params["CID"];
-    const string &Nick = params["Nick"];
-    auto it = clientsMap[cl->getHubUrl()].curuserlist.begin();
-    while (it != clientsMap[cl->getHubUrl()].curuserlist.end()) {
+    const string &cid = params.at("CID");
+    const string &Nick = params.at("Nick");
+    StringMap & item = clientsMap[cl->getHubUrl()].curuserlist;
+    auto it = item.begin();
+    while (it != item.end()) {
         if (it->second == cid)
             break;
         else
             ++it;
     }
 
-    if (it == clientsMap[cl->getHubUrl()].curuserlist.end()) {
-        clientsMap[cl->getHubUrl()].curuserlist.insert(StringMap::value_type(Nick, cid));
+    if (it == item.end()) {
+        item.insert(StringMap::value_type(Nick, cid));
         if (isDebug) {printf ("HUB: %s == Add user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
     } else if (it->first != Nick) {
         // User has changed nick, update userMap and remove the old Nick tag
-        clientsMap[cl->getHubUrl()].curuserlist.erase(it->first);
-        clientsMap[cl->getHubUrl()].curuserlist.insert(StringMap::value_type(Nick, cid));
+        item.erase(it->first);
+        item.insert(StringMap::value_type(Nick, cid));
         if (isDebug) {printf ("HUB: %s == Update user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
     }
 }
 
-void ServerThread::removeUser(string cid, Client* cl)
+void ServerThread::removeUser(const string& cid, Client* cl)
 {
-    auto it = clientsMap[cl->getHubUrl()].curuserlist.begin();
-    while (it != clientsMap[cl->getHubUrl()].curuserlist.end()) {
+    StringMap & item = clientsMap[cl->getHubUrl()].curuserlist;
+    auto it = item.begin();
+    while (it != item.end()) {
         if (it->second == cid)
             break;
         else
             ++it;
     }
-    if (it == clientsMap[cl->getHubUrl()].curuserlist.end()) {
+    if (it == item.end()) {
         if (isDebug) {printf ("HUB: %s == ERROR: no user with this cid (%s)\n", cl->getHubUrl().c_str(), cid.c_str()); fflush (stdout);}
     }
-    clientsMap[cl->getHubUrl()].curuserlist.erase(it->first);
+    item.erase(it->first);
     if (isDebug) {printf ("HUB: %s == Remove user: %s\n", cl->getHubUrl().c_str(), (it->first).c_str()); fflush (stdout);}
 }
