@@ -1,7 +1,8 @@
 project(${PROJECT_NAME_GLOBAL}-daemon)
 cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
-include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/..)
+include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
+
 aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
 
 if (JSONRPC_DAEMON AND XMLRPC_DAEMON)
@@ -55,7 +56,14 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
 
-target_link_libraries (${PROJECT_NAME} dcpp ${XMLRPCLIBS} ${JSONRPCLIBS})
+list(APPEND LIBS
+        ${XMLRPCLIBS}
+        ${JSONRPCLIBS}
+        ${Boost_LIBRARIES}
+        ${ICONV_LIBRARIES}
+        )
+
+target_link_libraries (${PROJECT_NAME} dcpp ${LIBS})
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
     add_definitions(-D_DEBUG)

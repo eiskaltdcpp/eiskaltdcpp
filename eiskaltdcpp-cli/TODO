@@ -7,7 +7,7 @@ API Layers:
         (+) Просмотр всех элементов очереди (queue.listtargets)
                 Args: separator (string)
                 Return: @all targets in queue@ (string)
-        (+) Modify target arg for queue item (queue.move)
+        (+) Изменить место назначения для элемента очереди (queue.move)
                 Args: source (string), target (string)
                 Return: 0 | 1 (integer)
         (+) Удаление элемента очереди (queue.remove)
@@ -19,10 +19,13 @@ API Layers:
         (+) Установка приоритета элемента очереди (queue.setpriority)
                 Args: target (string), priority (integer; 0-PAUSED, 1-LOWEST, 2-LOW, 3-NORMAL, 4-HIGH, 5-HIGHEST)
                 Return: 0 | 1 (integer)
-		Comment: починил
+                Comment: починил
         (+) Список источников для элемента очереди (queue.getsources)
                 Args: target (string), separator (string)
                 Return: online (integer), sources (string)
+        (wip) Запуск согласования текущей очерели для всех скачанных файллистов (queue.matchlists)
+                Args: none
+                Return: 0 | 1 (integer)
         Просмотр конкретного элемента очереди
         Добавление источника к элементу очереди.
         Удаление источника для элемента очереди.
@@ -72,7 +75,7 @@ API Layers:
         (+) Листинг (hub.list)
                 Args: separator (string)
                 Return: @list of hubs in string with separator@ (string)
-        (+) Листинг хабов с некоторой информацией (hub.listfulldesc)
+        (wip) Листинг хабов с некоторой информацией (hub.listfulldesc)
                 Args: none
                 Return: @list of hubs {all hubs with params}@ (string)
 -----------------------
@@ -80,10 +83,9 @@ API Layers:
         (+) Сообщение в чат (hub.say)
                 Args: huburl (string), message (string)
                 Return: 0 | 1 (integer)
-        (wip) Сообщение в приват юзеру (hub.pm)
+        (+) Сообщение в приват юзеру (hub.pm)
                 Args: huburl (string), nick(string), message (string)
-                Return: "Message send on hub: @huburl@" | "@huburl@ not connected" (string)
-                Comment: работает только для не adcs хабах
+                Return: 0 | 1 (integer)
         (+) Возврат сообщений чата с указанного хаба (hub.getchat)
                 Args: huburl(string), separator(string)
                 Return: @last messages on huburl@ (string)
@@ -129,7 +131,12 @@ IPFILTER
                 Return: 0 | 1 (integer)
 -----------------------
 ПОЛЬЗОВАТЕЛИ
-        Просмотр списка пользователей хаба
+        (wip) Просмотр списка пользователей хаба (hub.getusers)
+                Args: huburl (string)
+                Return: @list of users on huburl@ (string)
+        (wip) Просмотр полной информации по юзеру (hub.getuserinfo)
+                Args: nick (string), huburl (string)
+                Return: @info about user on huburl@ (string map)
 
 
 Пожелания:
