@@ -29,11 +29,11 @@ namespace dcpp {
 bool SearchQueue::add(const SearchCore& s)
 {
     dcassert(s.owners.size() == 1);
-    dcassert(interval >= 10000); // min interval is 15 seconds
+    dcassert(interval >= 15000); // min interval is 15 seconds
 
     Lock l(cs);
 
-    for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); ++i)
+    for(auto i = searchQueue.begin(); i != searchQueue.end(); ++i)
     {
         // check dupe
         if(*i == s) {
@@ -61,7 +61,7 @@ bool SearchQueue::add(const SearchCore& s)
             added = true;
         } else {
             // Insert before the automatic searches (manual search)
-            for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); ++i) {
+            for(auto i = searchQueue.begin(); i != searchQueue.end(); ++i) {
                 if(i->token == "auto") {
                     searchQueue.insert(i, s);
                     added = true;
@@ -76,11 +76,11 @@ bool SearchQueue::add(const SearchCore& s)
     return true;
 }
 
-bool SearchQueue::pop(SearchCore& s)
+bool SearchQueue::pop(SearchCore& s, uint64_t now)
 {
     dcassert(interval);
 
-    uint64_t now = GET_TICK();
+    //uint64_t now = GET_TICK();
     if(now <= lastSearchTime + interval)
         return false;
 
@@ -97,17 +97,16 @@ bool SearchQueue::pop(SearchCore& s)
     return false;
 }
 
-uint64_t SearchQueue::getSearchTime(void* aOwner){
-    Lock l(cs);
+uint64_t SearchQueue::getSearchTime(void* aOwner, uint64_t now) {
 
     if(aOwner == 0) return 0xFFFFFFFF;
 
-    uint64_t x = max(lastSearchTime, GET_TICK() - interval);
+    uint64_t x = max(lastSearchTime, uint64_t(/*GET_TICK()*/now - interval));
 
-    for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); ++i){
+    for(auto i = searchQueue.cbegin(); i != searchQueue.cend(); ++i){
         x += interval;
 
-        if(i->owners.count(aOwner))
+        if(i->owners.find(aOwner) != i->owners.end())
             return x;
         else if(i->owners.empty())
             break;
@@ -120,9 +119,10 @@ bool SearchQueue::cancelSearch(void* aOwner){
     dcassert(aOwner);
 
     Lock l(cs);
-    for(deque<SearchCore>::iterator i = searchQueue.begin(); i != searchQueue.end(); ++i){
-        if(i->owners.count(aOwner)){
-            i->owners.erase(aOwner);
+    for(auto i = searchQueue.begin(); i != searchQueue.end(); ++i){
+        const auto j = i->owners.find(aOwner);
+        if(j != i->owners.end()){
+            i->owners.erase(j);
             if(i->owners.empty())
                 searchQueue.erase(i);
             return true;

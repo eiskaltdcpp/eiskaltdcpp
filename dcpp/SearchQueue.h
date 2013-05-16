@@ -30,7 +30,7 @@ struct SearchCore
     string      query;
     string      token;
     StringList  exts;
-    set<void*>  owners;
+    std::unordered_set<void*>  owners;
 
     bool operator==(const SearchCore& rhs) const {
          return this->sizeType == rhs.sizeType &&
@@ -51,7 +51,7 @@ public:
     }
 
     bool add(const SearchCore& s);
-    bool pop(SearchCore& s);
+    bool pop(SearchCore& s, uint64_t now);
 
     void clear()
     {
@@ -62,7 +62,7 @@ public:
     bool cancelSearch(void* aOwner);
 
     /** return 0 means not in queue */
-    uint64_t getSearchTime(void* aOwner);
+    uint64_t getSearchTime(void* aOwner, uint64_t now);
 
     /**
         by milli-seconds

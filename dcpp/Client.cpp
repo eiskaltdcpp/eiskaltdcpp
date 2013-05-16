@@ -258,17 +258,16 @@ uint64_t Client::search(int aSizeMode, int64_t aSize, int aFileType, const strin
         s.query    = aString;
         s.sizeType = aSizeMode;
         s.token    = aToken;
-        s.exts	   = aExtList;
+        s.exts     = aExtList;
         s.owners.insert(owner);
 
         searchQueue.add(s);
-    }
-    else {
-        search(aSizeMode, aSize, aFileType , aString, aToken, aExtList);
-    }
 
-    return searchQueue.interval ? searchQueue.getSearchTime(owner) - GET_TICK() : 0;
-
+        uint64_t now = GET_TICK();
+        return searchQueue.getSearchTime(owner, now) - now;
+    }
+    search(aSizeMode, aSize, aFileType , aString, aToken, aExtList);
+    return 0;
 }
 
 void Client::on(Line, const string& aLine) noexcept {
@@ -283,10 +282,10 @@ void Client::on(Second, uint64_t aTick) noexcept {
     }
     if(!searchQueue.interval) return;
 
-    if(isConnected()){
+    if(isConnected()) {
         SearchCore s;
 
-        if(searchQueue.pop(s)){
+        if(searchQueue.pop(s, aTick)) {
             search(s.sizeType, s.size, s.fileType , s.query, s.token, s.exts);
         }
     }
