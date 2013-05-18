@@ -47,8 +47,8 @@ binmode STDOUT, ':utf8';
 
 # configuration
 our %config;
-$config{version}=0.3;
-$config{revision}=20130427;
+$config{version}=0.4;
+$config{revision}=20130518;
 require "cli-jsonrpc-config.pl";
 
 # processing command line options
@@ -166,6 +166,25 @@ sub get_commands
 			#minargs => 1,
 			maxargs => 1,
 			proc => \&hublist
+		},
+		"hub.listfulldesc" =>
+		{
+			desc => "Show detailed list of connected hubs. Parameters: none",
+			proc => \&hublistfulldesc
+		}, 
+		"hub.getusers" =>
+		{
+			desc => "Show list of connected users for given hub. Parameters: huburl",
+			minargs => 1,
+			maxargs => 1,
+			proc => \&hubgetusers
+		},
+		"hub.getuserinfo" =>
+		{
+			desc => "Show detailed information for given user nick and hub. Parameters: nick, huburl",
+			minargs => 2,
+			maxargs => 2,
+			proc => \&hubgetuserinfo
 		},
 		"share.add" =>
 		{
@@ -508,6 +527,111 @@ sub hublist($)
 		else
 		{
 			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub hublistfulldesc($)
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'hub.listfulldesc';
+	$obj->{'params'}->{'separator'}=($_[0] || $config{'separator'});
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n");
+			if (defined($res->result))
+			{
+				for my $key (keys %{$res->result})
+				{
+					print("$key:\n");
+					foreach ($res->result->{$key})
+					{
+						print("Total share:\t\t".$_->{totalshare}."\n");
+						print("Connected:\t\t".$_->{connected}."\n");
+						print("Users:\t\t".$_->{users}."\n");
+						print("Description:\t\t".$_->{description}."\n");
+						print("Hub name:\t\t".$_->{hubname}."\n");
+						
+					}
+				}
+			}
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+
+sub hubgetusers()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'hub.getusers';
+	$obj->{'params'}->{'huburl'}=$_[0];
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n");
+			print(join("\n",split(/;/,$res->result))."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub hubgetuserinfo()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'hub.getuserinfo';
+	$obj->{'params'}->{'nick'}=$_[0];
+	$obj->{'params'}->{'huburl'}=$_[1];
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n");
+			if (defined($res->result))
+			{
+				#for my $key (keys %{$res->result})
+				#{
+				#	print("$key:\t\t$res->result->{$key}\n");
+				#}
+				while ( my ($key, $value) = each(%{$res->result}) )
+				{
+					print "$key:\t\t$value\n";
+				}
+			}
 		}
 	}
 	else
@@ -1149,5 +1273,9 @@ hash.status +0.3
 hash.pause +0.3
 methods.list +0.3
 queue.matchlists +0.3
+hub.listfulldesc +0.4
+hub.getusers
+hub.getuserinfo
 
 =cut
+

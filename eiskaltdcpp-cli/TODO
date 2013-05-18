@@ -23,7 +23,7 @@ API Layers:
         (+) Список источников для элемента очереди (queue.getsources)
                 Args: target (string), separator (string)
                 Return: online (integer), sources (string)
-        (wip) Запуск согласования текущей очерели для всех скачанных файллистов (queue.matchlists)
+        (wip) Запуск согласования текущей очереди для всех скачанных файллистов (queue.matchlists)
                 Args: none
                 Return: 0 | 1 (integer)
         Просмотр конкретного элемента очереди
@@ -75,7 +75,7 @@ API Layers:
         (+) Листинг (hub.list)
                 Args: separator (string)
                 Return: @list of hubs in string with separator@ (string)
-        (wip) Листинг хабов с некоторой информацией (hub.listfulldesc)
+        (+) Листинг хабов с некоторой информацией (hub.listfulldesc)
                 Args: none
                 Return: @list of hubs {all hubs with params}@ (string)
 -----------------------
@@ -131,10 +131,10 @@ IPFILTER
                 Return: 0 | 1 (integer)
 -----------------------
 ПОЛЬЗОВАТЕЛИ
-        (wip) Просмотр списка пользователей хаба (hub.getusers)
+        (+) Просмотр списка пользователей хаба (hub.getusers)
                 Args: huburl (string)
                 Return: @list of users on huburl@ (string)
-        (wip) Просмотр полной информации по юзеру (hub.getuserinfo)
+        (+) Просмотр полной информации по юзеру (hub.getuserinfo)
                 Args: nick (string), huburl (string)
                 Return: @info about user on huburl@ (string map)
 
