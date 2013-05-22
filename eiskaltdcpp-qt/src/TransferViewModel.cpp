@@ -553,10 +553,9 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     QString stat = vstr(p->data(COLUMN_TRANSFER_STATS)) + WulforUtil::formatBytes(p->dpos)
                    + QString(" (%1%)").arg(progress, 0, 'f', 1);
 
-    QString hubs_str = "";
-
+    QString hubs_str;
     foreach(const QString &s, hubs)
-        hubs += s + " ";
+        hubs_str += s + " ";
 
     if (vstr(p->data(COLUMN_TRANSFER_FNAME)).startsWith(tr("TTH: "))){
         QString name = vstr(p->data(COLUMN_TRANSFER_FNAME));
