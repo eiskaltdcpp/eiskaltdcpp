@@ -1,0 +1,28 @@
+language: cpp
+compiler:
+ - gcc
+ - clang
+env:
+ - CONFIG=minimal
+ - CONFIG=full
+before_install:
+ - sudo apt-get update -qq
+# Deps are in same order as in Gentoo ebuild
+# main non optional deps
+ - sudo apt-get install -qq cmake libbz2-dev libboost-dev libssl-dev libattr1-dev gettext zlib1g-dev
+# main optional deps
+ - sh -c "if [ '$CONFIG' = 'full' ]; then sudo apt-get install -qq libidn11-dev liblua5.1-0-dev libpcre3-dev miniupnpc libminiupnpc-dev; fi"
+# cli deps
+#libterm-shellui-perl is not in ubuntu-12.04
+#- sudo apt-get install -qq libgetopt-long-descriptive-perl libdata-dump-perl libterm-shellui-perl libjson-rpc-perl
+# gtk non optional deps
+ - sudo apt-get install -qq libgtk-3-dev
+# gtk optional deps
+ - sh -c "if [ '$CONFIG' = 'full' ]; then sudo apt-get install -qq libcanberra-dev libnotify-dev; fi"
+# qt non optional deps
+ - sudo apt-get install -qq libqt4-dev qt4-dev-tools libqtcore4 libqtgui4 libqt4-network libqt4-xml
+# qt optional deps
+ - sh -c "if [ '$CONFIG' = 'full' ]; then sudo apt-get install -qq libqt4-dbus libqt4-script libqt4-sql-sqlite libaspell-dev; fi"
+script: export CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2" && export LDFLAGS="-Wl,-z,relro -Wl,--as-needed" && mkdir _build && cd _build && sh -c "if [ '$CONFIG' = 'full' ]; then cmake -DCMAKE_CXX_FLAGS="${CXXFLAGS}" -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS}" -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS}" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DLIB_INSTALL_DIR=lib64 -DLOCAL_MINIUPNP=OFF -DUSE_GTK=OFF -DUSE_LIBGNOME2=OFF -DUSE_CLI_JSONRPC=ON -DUSE_CLI_XMLRPC=OFF -DNO_UI_DAEMON=ON -DJSONRPC_DAEMON=ON -DXMLRPC_DAEMON=OFF -DDBUS_NOTIFY=ON -DWITH_DHT=ON -DWITH_EMOTICONS=ON -DWITH_EXAMPLES=ON -DUSE_GTK3=ON -DUSE_IDNA=ON -DUSE_JS=ON -DLIBCANBERRA=ON -DUSE_LIBNOTIFY=ON -DLUA_SCRIPT=ON -DWITH_LUASCRIPTS=ON -DWITH_DEV_FILES=ON -DPERL_REGEX=ON -DUSE_QT=ON -DWITH_SOUNDS=ON -DUSE_ASPELL=ON -DUSE_QT_SQLITE=ON -DUSE_MINIUPNP=ON ../; else cmake -DCMAKE_CXX_FLAGS="${CXXFLAGS}" -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS}" -DCMAKE_EXE_LINKER_FLAGS="${
+LDFLAGS}" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DLIB_INSTALL_DIR=lib64 -Dlinguas='' -DLOCAL_MINIUPNP=OFF -DUSE_GTK=OFF -DUSE_LIBGNOME2=OFF -DUSE_CLI_JSONRPC=ON -DUSE_CLI_XMLRPC=OFF -DNO_UI_DAEMON=ON -DJSONRPC_DAEMON=ON -DXMLRPC_DAEMON=OFF -DDBUS_NOTIFY=OFF -DWITH_DHT=OFF -DWITH_EMOTICONS=OFF -DWITH_EXAMPLES=OFF -DUSE_GTK3=ON -DUSE_IDNA=OFF -DUSE_JS=OFF -DLIBCANBERRA=OFF -DUSE_
+LIBNOTIFY=OFF -DLUA_SCRIPT=OFF -DWITH_LUASCRIPTS=OFF -DWITH_DEV_FILES=OFF -DPERL_REGEX=OFF -DUSE_QT=ON -DWITH_SOUNDS=OFF -DUSE_ASPELL=OFF -DUSE_QT_SQLITE=OFF -DUSE_MINIUPNP=OFF ../; fi" && make -j2 && sudo make install && du -sc /usr/bin/eiskaltdcpp-* /usr/lib64/libeiskaltdcpp.so* /usr/share/eiskaltdcpp/*
