@@ -34,7 +34,7 @@ libgtk2 (>= 2.24)
 libglib2 (>= 2.24)
 libnotify (>= 0.4.1) (optional, see cmake keys)
 libgnome2 (optional, see cmake keys)
-libcanberra (optional, see cmake keys)
+libcanberra-gtk3-0 (optional, see cmake keys)
 --------------------
 :eiskaltdcpp-daemon:
 --------------------
@@ -104,7 +104,7 @@ libgtk2.0-dev (optional, see cmake keys)
 libgtk-3-dev  (optional, see cmake keys)
 libnotify-dev (optional, see cmake keys)
 libgnome2-dev (optional, see cmake keys)
-libcanberra-dev (optional, see cmake keys)
+libcanberra-gtk3-dev (optional, see cmake keys)
 --------------------
 :eiskaltdcpp-daemon:
 --------------------
