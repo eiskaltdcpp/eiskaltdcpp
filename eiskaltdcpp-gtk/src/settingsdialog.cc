@@ -1590,7 +1590,7 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Automatically follow redirects"), SettingsManager::AUTO_FOLLOW);
         addOption_gui(advancedStore, _("Clear search box after each search"), "clearsearch");
         addOption_gui(advancedStore, _("Keep duplicate files in your file list (duplicates never count towards your share size)"), SettingsManager::LIST_DUPES);
-        addOption_gui(advancedStore, _("Don't delete file lists when exiting"), SettingsManager::KEEP_LISTS);
+        addOption_gui(advancedStore, _("Keep filelists when exiting"), SettingsManager::KEEP_LISTS);
         addOption_gui(advancedStore, _("Automatically disconnect users who leave the hub"), SettingsManager::AUTO_KICK);
         addOption_gui(advancedStore, _("Enable segmented downloads"), SettingsManager::SEGMENTED_DL);
         addOption_gui(advancedStore, _("Enable automatic SFV checking"), SettingsManager::SFV_CHECK);
@@ -1608,6 +1608,7 @@ void Settings::initAdvanced_gui()
         addOption_gui(advancedStore, _("Allow few connections from one IP"), SettingsManager::ALLOW_UPLOAD_MULTI_HUB);
         addOption_gui(advancedStore, _("Allow some connections for one user"), SettingsManager::ALLOW_SIM_UPLOADS);
         addOption_gui(advancedStore, _("Use ADL search only in own file list"), SettingsManager::USE_ADL_ONLY_OWN_LIST);
+        addOption_gui(advancedStore, _("Keep downloaded files and dirs in queue"), SettingsManager::KEEP_FINISHED_FILES);
 
         /// @todo: Uncomment when implemented
         //addOption_gui(advancedStore, _("Use CTRL for line history"), "use-ctrl-for-line-history");
