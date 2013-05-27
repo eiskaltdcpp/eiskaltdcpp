@@ -1129,9 +1129,10 @@ void ServerThread::removeUser(const string& cid, Client* cl)
     }
     if (it == item.end()) {
         if (isDebug) {printf ("HUB: %s == ERROR: no user with this cid (%s)\n", cl->getHubUrl().c_str(), cid.c_str()); fflush (stdout);}
+    } else {
+        item.erase(it->first);
+        if (isDebug) {printf ("HUB: %s == Remove user: %s\n", cl->getHubUrl().c_str(), (it->first).c_str()); fflush (stdout);}
     }
-    item.erase(it->first);
-    if (isDebug) {printf ("HUB: %s == Remove user: %s\n", cl->getHubUrl().c_str(), (it->first).c_str()); fflush (stdout);}
 }
 
 bool ServerThread::getUserInfo(StringMap& userinfo, const string& nick, const string& huburl) {
