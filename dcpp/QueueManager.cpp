@@ -1607,7 +1607,9 @@ void QueueManager::saveQueue(bool force) noexcept {
         string b32tmp;
         for(QueueItem::StringIter i = fileQueue.getQueue().begin(); i != fileQueue.getQueue().end(); ++i) {
             QueueItem* qi = i->second;
-            if(!qi->isSet(QueueItem::FLAG_USER_LIST)) {
+            if(!qi->isSet(QueueItem::FLAG_USER_LIST)
+                || (qi->isSet(QueueItem::FLAG_USER_LIST)
+                    && SETTING(KEEP_LISTS))) {
                 f.write(LIT("\t<Download Target=\""));
                 f.write(SimpleXML::escape(qi->getTarget(), tmp, true));
                 f.write(LIT("\" Size=\""));
