@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-01-23 01:03+0200\n"
+"POT-Creation-Date: 2013-05-28 23:38+0300\n"
 "PO-Revision-Date: 2012-07-22 17:09+0000\n"
 "Last-Translator: Gustavo Alvarez Lopez <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -69,8 +69,8 @@ msgid "Search disabled: %1%"
 msgstr "Búsqueda desactivada: %1%"
 
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2165
-#: ../QueueManager.cpp:2171 ../QueueManager.cpp:2177 ../ClientManager.cpp:178
+#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2167
+#: ../QueueManager.cpp:2173 ../QueueManager.cpp:2179 ../ClientManager.cpp:178
 msgid "Offline"
 msgstr "Desconectado"
 
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Error en el indexado %1%: %2%"
 
-#: ../Transfer.cpp:91 ../QueueManager.cpp:2194 ../AdcHub.cpp:193
+#: ../Transfer.cpp:91 ../QueueManager.cpp:2196 ../AdcHub.cpp:193
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -286,17 +286,17 @@ msgstr "Imposible abrir lista de archivos: %1%"
 msgid "%1%: Matched %2% file"
 msgstr "%1%: encajó con el archivo %2%"
 
-#: ../QueueManager.cpp:1794
+#: ../QueueManager.cpp:1796
 msgid "Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 "La ruta de destino para este elemento no está disponible: %1% pausando este "
 "elemento en la cola."
 
-#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
+#: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Inconsistencia de CRC32  (SFV-Check)"
 
-#: ../QueueManager.cpp:2217
+#: ../QueueManager.cpp:2218
 msgid "%1% : Matched %2% files"
 msgstr "%1% : Emparejados %2% archivos"
 
@@ -508,42 +508,42 @@ msgstr "Cola de Descargas"
 msgid "Users"
 msgstr "Usuarios"
 
-#: ../Util.cpp:632
+#: ../Util.cpp:640
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:634
+#: ../Util.cpp:642
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:636
+#: ../Util.cpp:644
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:638
+#: ../Util.cpp:646
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:640
+#: ../Util.cpp:648
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:642
+#: ../Util.cpp:650
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:672
+#: ../Util.cpp:680
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:676
+#: ../Util.cpp:684
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -570,11 +570,13 @@ msgstr ""
 "Encontrado nombre de archivo inválido mientras que se indexaba la carpeta %1%"
 
 #: ../ShareManager.cpp:660
-msgid "User has chosen not to share file: %1% (Size: %2%)"
+#, fuzzy
+msgid "Skip share file: %1% (Size: %2%)"
 msgstr "El usuario ha elegido no compartir el archivo: %1% (Tamaño: %2%)"
 
 #: ../ShareManager.cpp:681
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+#, fuzzy
+msgid "Skip share temp file: %1% (Size: %2%)"
 msgstr ""
 "El usuario ha elegido no compartir el archivo temporal: %1% (Tamaño: %2%)"
 

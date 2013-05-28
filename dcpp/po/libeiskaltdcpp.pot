@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-04-22 02:42+0300\n"
+"POT-Creation-Date: 2013-05-28 23:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,8 +66,8 @@ msgid "Search disabled: %1%"
 msgstr ""
 
 #: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2165
-#: ../QueueManager.cpp:2171 ../QueueManager.cpp:2177 ../ClientManager.cpp:178
+#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2167
+#: ../QueueManager.cpp:2173 ../QueueManager.cpp:2179 ../ClientManager.cpp:178
 msgid "Offline"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr ""
 
-#: ../Transfer.cpp:91 ../QueueManager.cpp:2194 ../AdcHub.cpp:193
+#: ../Transfer.cpp:91 ../QueueManager.cpp:2196 ../AdcHub.cpp:193
 msgid "%1%/s"
 msgstr ""
 
@@ -273,15 +273,15 @@ msgstr ""
 msgid "%1%: Matched %2% file"
 msgstr ""
 
-#: ../QueueManager.cpp:1794
+#: ../QueueManager.cpp:1796
 msgid "Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 
-#: ../QueueManager.cpp:2033 ../QueueManager.cpp:2042
+#: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr ""
 
-#: ../QueueManager.cpp:2217
+#: ../QueueManager.cpp:2218
 msgid "%1% : Matched %2% files"
 msgstr ""
 
@@ -487,42 +487,42 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: ../Util.cpp:632
+#: ../Util.cpp:640
 #, c-format
 msgid "%d B"
 msgstr ""
 
-#: ../Util.cpp:634
+#: ../Util.cpp:642
 #, c-format
 msgid "%.02f KiB"
 msgstr ""
 
-#: ../Util.cpp:636
+#: ../Util.cpp:644
 #, c-format
 msgid "%.02f MiB"
 msgstr ""
 
-#: ../Util.cpp:638
+#: ../Util.cpp:646
 #, c-format
 msgid "%.02f GiB"
 msgstr ""
 
-#: ../Util.cpp:640
+#: ../Util.cpp:648
 #, c-format
 msgid "%.02f TiB"
 msgstr ""
 
-#: ../Util.cpp:642
+#: ../Util.cpp:650
 #, c-format
 msgid "%.02f PiB"
 msgstr ""
 
-#: ../Util.cpp:672
+#: ../Util.cpp:680
 #, c-format
 msgid "%s B"
 msgstr ""
 
-#: ../Util.cpp:676
+#: ../Util.cpp:684
 #, c-format
 msgid "%'lld B"
 msgstr ""
@@ -548,11 +548,11 @@ msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
 
 #: ../ShareManager.cpp:660
-msgid "User has chosen not to share file: %1% (Size: %2%)"
+msgid "Skip share file: %1% (Size: %2%)"
 msgstr ""
 
 #: ../ShareManager.cpp:681
-msgid "User has chosen not to share temp file: %1% (Size: %2%)"
+msgid "Skip share temp file: %1% (Size: %2%)"
 msgstr ""
 
 #: ../ShareManager.cpp:769
