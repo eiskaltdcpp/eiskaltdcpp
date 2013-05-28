@@ -12,14 +12,14 @@ function shellDone(ok, msg){
 }
 
 function actionClicked(){
-  var shell = new ShellCommandRunner(SCRIPTS_PATH+"qmpp_nowplaying/qmmp.sh")
+  var shell = new ShellCommandRunner(SCRIPTS_PATH+"qmmp_nowplaying/qmmp.sh")
   shell["finished(bool,QString)"].connect(shellDone);
 
   shell.run();
 }
 
 var a = new MainWindowScript();
-a.addToolButton("Qmmp", "Qmmp", new QIcon(SCRIPTS_PATH+"qmpp_nowplaying/qmmp.png"));
+a.addToolButton("Qmmp", "Qmmp", new QIcon(SCRIPTS_PATH+"qmmp_nowplaying/qmmp.png"));
 
 MainWindow.ToolBar.Qmmp.triggered.connect(actionClicked);
 

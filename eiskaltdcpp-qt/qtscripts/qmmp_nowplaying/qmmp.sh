@@ -16,6 +16,7 @@
 
 # Define variables:
 # Extrae de DBUS las cadenas necesarias.
+lang_dir_path="$(dirname $0)/qmmp_langs"
 player="$(qdbus org.mpris.qmmp / Identity 2>/dev/null)"
 mdata="$(qdbus org.mpris.qmmp /Player GetMetadata 2>/dev/null)"
 artist="$(echo "${mdata}" | sed -ne 's/^artist: \(.*\)$/\1/p')"
@@ -29,21 +30,24 @@ type="$(echo "${mdata}"| sed -ne 's/^location: \(.*\)$/\1/p' | cut -d ":" -f1)"
 ext="$(echo "${mdata}"| sed -ne 's/^location: \(.*\)$/\1/p' | awk -F . '{print $NF}')"
 
 set_default_lang() {
-   source `pwd`/qmmp_langs/en_EN
+  # Selecciona el lenguaje por defecto (ingles).
+  source "${lang_dir_path}/en_EN"
 }
 
 set_lang() {
-  # Llama a la función set_default_lang()
+  # Llama a la función set_default_lang().
   set_default_lang
 
-  # Selecciona el archivo del lenguaje según el lenguaje del sistema (seleccionado por "${lang})".
-  # si no existe el archivo del lenguaje. deja el lenguaje por defecto
+  # Selecciona el archivo del lenguaje según el lenguaje del sistema (seleccionado por "${lang}" o "${lang_short}").
+  # si no existe el archivo del lenguaje. deja el lenguaje por defecto.
   lang="$(echo "${LANG}" | cut -d "." -f1)"
   lang_short="$(echo "${LANG}" | cut -d "." -f1 | cut -d "_" -f1)"
-  for l in $(ls -l `pwd`/qmmp_langs | awk 'NR!=1 && !/^d/ {print $NF}'); do
-    [ "${l}" = "${lang}" ] && source `pwd`/qmmp_langs/"${l}" && break
-    [ "$(echo ${l} | cut -d "_" -f1)" = "${lang_short}" ] && source `pwd`/qmmp_langs/"${l}" && break
-  done
+  if [ -d "${lang_dir_path}" ]; then
+    for l in $(find "${lang_dir_path}" -type f -printf "%f "); do
+      [ "${l}" = "${lang}" ] && source "${lang_dir_path}/${l}" && break
+      [ "$(echo ${l} | cut -d "_" -f1)" = "${lang_short}" ] && source "${lang_dir_path}/${l}" && break
+    done
+  fi
 }
 
 get_data_format() {
@@ -51,14 +55,14 @@ get_data_format() {
   # primero comprueba mediante "${type}" si es CD de Audio (cdda), CUE-sheet (cue), URL Stream (http) o si es un archivo simple (file).
   # Si coincide con "file", vuelve a compararlo usando "${ext}" para determinar el formato por su extensión.
 
-  # Genera el array "_type"
+  # Genera el array "_type".
   declare -A _type=(\
   ["cdda"]="CDDA" \
   ["cue"]="CUE-sheet" \
   ["http"]="URL Stream" \
   )
 
-  # Genera el array "_ext"
+  # Genera el array "_ext".
   declare -A _ext=(\
   ["flac"]="FLAC" \
   ["ape"]="MonkeyAudio" \
@@ -81,7 +85,7 @@ get_data_format() {
   ["mlp"]="Meridian" \
   )
 
-  # Compara los distintos arrays
+  # Compara los distintos arrays.
   if [ "${type}" = "file" ]; then
     format="${_ext[${ext}]}"
   else
@@ -90,7 +94,7 @@ get_data_format() {
 }
 
 generate_bar() {
-  # Genera una barra de progreso simple
+  # Genera una barra de progreso simple.
   n=10
   let n=$((rate/10))
   bar='['
@@ -100,21 +104,21 @@ generate_bar() {
 }
 
 get_data_play() {
-  # LLama a la función GET_FORMAT.
+  # LLama a la función get_format().
   get_data_format
 
-  # Como los Streams URL no se puede determinar la duracón, necesita generar otro tipo de ${out} para adaptarse a la nueva circustancia
+  # Como los Streams URL no se puede determinar la duracón, necesita generar otro tipo de ${out} para adaptarse a la nueva circustancia.
   if [ "${type}" != "http" ]; then
     # Porcentaje Transcurrido:
-    # Genera el porcentaje reproducido
+    # Genera el porcentaje reproducido.
     rate="$((runtime*100/length))"
 
-    # Pone 0 a la izquierda al porcentaje si el "${_rate}" está entre 0 y 9
-   (("${rate}" < "10")) && rate="0${rate}"
+    # Pone 0 a la izquierda al porcentaje si el "${_rate}" está entre 0 y 9.
+    (("${rate}" < "10")) && rate="0${rate}"
 
-    # LLama a la función GENERATE_BAR
+    # LLama a la función generate_bar().
     generate_bar
-    # Tiempo transcurrido / y Duración de la pista:
+    # Tiempo transcurrido / Duración de la pista:
     # Pasa de milisegundos a segundos (dbus devuelve el resultado de "${runtime}" y "${length}" en milisegundos) para poder ser usado con el comando "date".
     runtime="$((runtime/1000))"
     length="$((length/1000))"
@@ -127,37 +131,42 @@ get_data_play() {
       runtime="$(date -ud @${runtime} +%X)"
       length="$(date -ud @${length} +%X)"
     fi
-    # Forma los datos obtenidos y genera la variable "${out}"
+    # Forma los datos obtenidos y genera la variable "${out}".
     out="${msg_listen}: ${title} | ${msg_artist}: ${artist} | ${msg_album}: ${album} | ${msg_duration}: ${runtime}/${length} ${bar} ${rate}% | Meta: ${bitrate}kbps/${samplerate}Hz/${format} | ${msg_player}: ${player}"
   else
-    # Extrae la URL del streeam
+    # Extrae la URL del stream.
     stream="$(echo "${mdata}"| sed -ne 's/^location: \(.*\)$/\1/p')"
-    # Al ser Stream URL, necesita otro tipo de datos, forma los datos obtenidos y genera la variable "${out}"
+    # Al ser Stream URL, necesita otro tipo de datos, forma los datos obtenidos y genera la variable "${out}".
     out="${msg_listen}: ${title} | ${msg_artist}: ${artist} | ${msg_album}: ${album} | ${msg_stream}: ${stream} | Meta: ${bitrate}kbps/${samplerate}Hz/${format} | ${msg_player}: ${player}"
   fi
 }
 
 get_data_stop() {
-  # muestra el mensaje de que el reproductor está Parado
+  # muestra el mensaje de que el reproductor está Parado.
   out="${msg_stop}"
 }
 
 get_data_down() {
-  # muestra el mensaje de que el reproductor está Apagado
+  # muestra el mensaje de que el reproductor está Apagado.
   out="${msg_down}"
 }
 
-# Comprueba el estado del reproductor y ejecuta las funciones
+# Selecciona el idioma llamando a set_lang().
 set_lang
+# Comprueba si el player está parado...
 if [ "${length}" = "0" -o "${player}" = "" ] ; then
+  # entonces llama a la funcion get_data_stop().
   get_data_stop
+  # Si el player está en modo Streaming llama a la funcion get_data_play().
   [ "${type}" = "http" ] && get_data_play
 else
+  # O si el player está reproducioendo algo, llama a la funcion get_data_play().
   get_data_play
 fi
+# Si el player está apagado llama a la funcion get_data_down().
 [ "${player}" = "" ] && get_data_down
 
-# Muestra el el chat la salida de "${out}"
+# Muestra el el chat la salida de "${out}" generada en get_data_play().
 echo "/me ${out}"
 
-# fin de programa
+# Fin del programa.
