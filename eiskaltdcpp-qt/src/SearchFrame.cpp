@@ -1484,7 +1484,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
                 StringMap params;
 
-                if (WulforUtil::getInstance()->getUserCommandParams(last_user_cmd, params)){
+                if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
                     UserPtr user = ClientManager::getInstance()->findUser(CID(item->cid.toStdString()));
 
                     if (user && user->isOnline()){
