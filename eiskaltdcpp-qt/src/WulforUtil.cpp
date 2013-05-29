@@ -768,76 +768,100 @@ bool WulforUtil::openUrl(const QString &url){
     return true;
 }
 
-bool WulforUtil::getUserCommandParams(QString command, dcpp::StringMap &ucParams){
-    QString name;
-    static QString store = "";
-    StringMap done;
-    int i = 0;
-    int j = 0;
+bool WulforUtil::getUserCommandParams(const UserCommand& uc, StringMap& params) {
 
-    i = command.indexOf(QString("%[line:"), 0, Qt::CaseInsensitive);
+    StringList names;
+    string::size_type i = 0, j = 0;
+    const string cmd_str = uc.getCommand();
 
-    if (i < 0)
-        return true;
-    else
-        command.remove(0, i+7);//also remove "%[line:" string
-
-    QDialog dlg(MainWindow::getInstance());
-    dlg.setWindowTitle(tr("Command parameters"));
-
-    QGridLayout *layout = new QGridLayout();
-    dlg.setLayout(layout);
-
-    int row = 0;
-
-    while (!command.isEmpty()){
-        j = command.indexOf("]");
-
-        if (j < 0)
+    while((i = cmd_str.find("%[line:", i)) != string::npos) {
+        if ((j = cmd_str.find("]", (i += 7))) == string::npos)
             break;
 
-        name = command.left(j);
-
-        QLabel *lbl = new QLabel(name);
-        QLineEdit *edit = new QLineEdit();
-        edit->setObjectName(name);
-
-        layout->addWidget(lbl, row, 0);
-        layout->addWidget(edit, row, 1);
-
-        row++;
-
-        command.remove(0, j);
-
-        i = command.indexOf("%[line:");
-
-        if (i < 0)
-            break;
-        else
-            command.remove(0, i+7);//also remove "%[line:" string
+        names.push_back(cmd_str.substr(i, j - i));
+        i = j + 1;
     }
 
-    QFrame *frame = new QFrame();
-    QHBoxLayout *fl = new QHBoxLayout(frame);
-    frame->setLayout(fl);
+    if (names.empty())
+        return true;
 
-    QPushButton *btn = new QPushButton(tr("Ok"));
-    QPushButton *btn_reject = new QPushButton(tr("Cancel"));
-    connect(btn, SIGNAL(clicked()), &dlg, SLOT(accept()));
-    connect(btn_reject, SIGNAL(clicked()), &dlg, SLOT(reject()));
+    QDialog dlg(MainWindow::getInstance());
+    dlg.setWindowTitle(_q(uc.getDisplayName().back()));
 
-    fl->addWidget(btn);
-    fl->addWidget(btn_reject);
+    QVBoxLayout *vlayout = new QVBoxLayout(&dlg);
 
-    layout->addWidget(frame, row, 1);
+    std::vector<std::function<void ()> > valueFs;
+
+    foreach(const string name, names) {
+        QString caption = _q(name);
+
+        if (uc.adc()) {
+            caption.replace("\\\\", "\\");
+            caption.replace("\\s", " ");
+        }
+
+        int combo_sel = -1;
+        QString combo_caption = caption;
+        combo_caption.replace("//", "\t");
+        QStringList combo_values = combo_caption.split("/");
+
+        if (combo_values.size() > 2) {
+            QString tmp = combo_values.takeFirst();
+
+            bool isNumber = false;
+            combo_sel = combo_values.takeFirst().toInt(&isNumber);
+            if (!isNumber || combo_sel >= combo_values.size())
+                combo_sel = -1;
+            else
+                caption = tmp;
+        }
+
+        QGroupBox *box = new QGroupBox(caption, &dlg);
+        QHBoxLayout *hlayout = new QHBoxLayout(box);
+
+        if (combo_sel >= 0) {
+            for(auto it = combo_values.begin(); it != combo_values.end(); it++)
+                it->replace("\t", "/");
+
+            QComboBox *combo = new QComboBox(box);
+            hlayout->addWidget(combo);
+
+            combo->addItems(combo_values);
+            combo->setEditable(true);
+            combo->setCurrentIndex(combo_sel);
+            combo->lineEdit()->setReadOnly(true);
+
+            valueFs.push_back([combo, name, &params] {
+                params["line:" + name] = combo->currentText().toStdString();
+            });
+
+        } else {
+            QLineEdit *line = new QLineEdit(box);
+            hlayout->addWidget(line);
+
+            valueFs.push_back([line, name, &params] {
+                params["line:" + name] = line->text().toStdString();
+            });
+        }
+
+        vlayout->addWidget(box);
+    }
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(&dlg);
+    buttonBox->setOrientation(Qt::Horizontal);
+    buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+
+    vlayout->addWidget(buttonBox);
+
+    dlg.setFixedHeight(vlayout->sizeHint().height());
+
+    connect(buttonBox, SIGNAL(accepted()), &dlg, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), &dlg, SLOT(reject()));
 
     if (dlg.exec() != QDialog::Accepted)
         return false;
 
-    QList<QLineEdit*> edits = dlg.findChildren<QLineEdit*>();
-
-    foreach(QLineEdit *e, edits)
-        ucParams["line:" + _tq(e->objectName())] = _tq(e->text());
+    foreach(auto fs, valueFs) fs();
 
     return true;
 }
@@ -1087,88 +1111,64 @@ void WulforUtil::headerMenu(QTreeView *tree){
     delete mcols;
 }
 
-QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* parent){
-    if (hub_list.empty())
-        return NULL;
-
+QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* parent) {
     dcpp::StringList hubs;
-    QMap<QString, QMenu*> registered_menus;
-
     foreach (const QString &s, hub_list)
         hubs.push_back(_tq(s));
 
-    hubs.push_back("");
+    return buildUserCmdMenu(hubs, ctx, parent);
+}
 
-    QMenu *usr_menu = new QMenu(tr("User commands"), parent);
-    UserCommand::List commands = FavoriteManager::getInstance()->getUserCommands(ctx, hubs);
-    bool separator = false;
+QMenu *WulforUtil::buildUserCmdMenu(const std::string& hub_url, int ctx, QWidget* parent) {
+    return buildUserCmdMenu(StringList(1, hub_url), ctx, parent);
+}
 
-    for (auto i = commands.begin(); i != commands.end(); ++i){
-        UserCommand& uc = *i;
+QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget* parent) {
+    UserCommand::List userCommands = FavoriteManager::getInstance()->getUserCommands(ctx, hub_list);
 
-        // Add line separator only if it's not a duplicate
-        if (uc.getType() == UserCommand::TYPE_SEPARATOR && !separator){
-            QAction *sep = new QAction(usr_menu);
-            sep->setSeparator(true);
+    if (userCommands.empty())
+        return NULL;
 
-            usr_menu->addAction(sep);
+    QMenu *ucMenu = new QMenu(tr("User commands"), parent);
 
-            separator = true;
-        }
-        else if (uc.getType() == UserCommand::TYPE_RAW || uc.getType() == UserCommand::TYPE_RAW_ONCE){
-            separator = false;
-
-            QString raw_name = _q(uc.getName());
-            QAction *action = NULL;
-
-            raw_name.replace("//", "\t");
-
-            if (raw_name.contains("/")){
-                QStringList submenus = raw_name.split("/", QString::SkipEmptyParts);
-                if (!submenus.isEmpty()){
-                    QString name = submenus.takeLast();
-                    QString key = "";
-                    QMenu *parent = usr_menu;
-                    QMenu *submenu;
-
-                    name.replace("\t", "/");
-
-                    foreach (QString s, submenus){
-                        s.replace("\t", "/");
-
-                        key += s + "/";
-
-                        if (registered_menus.contains(key))
-                            parent = registered_menus[key];
-                        else {
-                            submenu = new QMenu(s, parent);
-                            parent->addMenu(submenu);
-
-                            registered_menus.insert(key, submenu);
-
-                            parent = submenu;
+    QMenu *menuPtr = ucMenu;
+    for(size_t n = 0; n < userCommands.size(); ++n) {
+        UserCommand *uc = &userCommands[n];
+        if (uc->getType() == UserCommand::TYPE_SEPARATOR) {
+            // Avoid double separators...
+            if (!menuPtr->actions().isEmpty() && 
+                !menuPtr->actions().last()->isSeparator())
+            {
+                menuPtr->addSeparator();
+            }
+        } else if (uc->isRaw() || uc->isChat()) {
+            menuPtr = ucMenu;
+            for(auto ibegin = uc->getDisplayName().begin(), iend = uc->getDisplayName().end(); ibegin != iend; ++ibegin) {
+                const QString name = _q(*ibegin);
+                if (ibegin + 1 == iend) {
+                    QAction *act = menuPtr->addAction(name);
+                    act->setToolTip(_q(uc->getCommand()));
+                    act->setStatusTip(_q(uc->getName()));
+                    act->setData(_q(uc->getHub()));
+                } else {
+                    bool found = false;
+                    QListIterator<QAction*> iter(menuPtr->actions());
+                    while(iter.hasNext()) {
+                        QAction *item = iter.next();
+                        if (item->menu() && item->text() == name) {
+                            found = true;
+                            menuPtr = item->menu();
+                            break;
                         }
                     }
 
-                    action = new QAction(name, parent);
-                    parent->addAction(action);
+                    if (!found)
+                        menuPtr = menuPtr->addMenu(name);
                 }
             }
-            else{
-                raw_name.replace("\t", "/");
-                action = new QAction(raw_name, usr_menu);
-                usr_menu->addAction(action);
-            }
-            if (action) {
-                action->setToolTip(_q(uc.getCommand()));
-                action->setStatusTip(_q(uc.getName()));
-                action->setData(_q(uc.getHub()));
-            }
-
         }
     }
-
-    return usr_menu;
+    return ucMenu;
 }
 
 bool WulforUtil::isTTH ( const QString& text ) {

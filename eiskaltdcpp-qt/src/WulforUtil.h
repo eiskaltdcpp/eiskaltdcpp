@@ -150,7 +150,7 @@ public:
     QString dcEnc2QtEnc(QString);
     QStringList encodings();
 
-    bool getUserCommandParams(QString, dcpp::StringMap &);
+    bool getUserCommandParams(const UserCommand& uc, StringMap& params);
 
     QStringList getLocalIPs();
     QStringList getLocalIfaces();
@@ -171,6 +171,8 @@ public:
 
     QString compactToolTipText(QString, int, QString);
 
+    QMenu *buildUserCmdMenu(const std::string &hub_url, int ctx, QWidget* = 0);
+    QMenu *buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget* = 0);
     QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* = 0);
 
     static bool isTTH(const QString &text);

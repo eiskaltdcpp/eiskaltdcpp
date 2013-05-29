@@ -301,8 +301,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty()){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList()
-                        << _q(client->getHubUrl()), UserCommand::CONTEXT_USER);
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(client->getHubUrl(), UserCommand::CONTEXT_USER);
 
         if (user_menu->actions().size() > 0)
             menu->addMenu(user_menu);
@@ -348,7 +347,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
 
         StringMap params;
 
-        if (WulforUtil::getInstance()->getUserCommandParams(last_user_cmd, params)){
+        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
             if (user)
@@ -396,8 +395,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     QMenu *user_menu = NULL;
 
     if (!cid.isEmpty() && !pmw){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(QStringList()
-                        << _q(client->getHubUrl()), UserCommand::CONTEXT_HUB);
+        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(client->getHubUrl(), UserCommand::CONTEXT_HUB);
 
     if (user_menu->actions().size() > 0)
         menu->addMenu(user_menu);
@@ -441,7 +439,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 
         StringMap params;
 
-        if (WulforUtil::getInstance()->getUserCommandParams(last_user_cmd, params)){
+        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
             if (user)
@@ -1267,7 +1265,7 @@ void HubFrame::initMenu(){
     d->arenaMenu->addMenu(copyInfo);
 
     if (d->client && d->client->isConnected()){
-        QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(QList<QString>() << _q(d->client->getHubUrl()), UserCommand::CONTEXT_HUB, d->arenaMenu);
+        QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(d->client->getHubUrl(), UserCommand::CONTEXT_HUB, d->arenaMenu);
 
         if (u_c){
             if (u_c->actions().size() > 0){
@@ -3585,7 +3583,7 @@ void HubFrame::slotHubMenu(QAction *res){
         StringMap params;
         Q_D(HubFrame);
 
-        if (WulforUtil::getInstance()->getUserCommandParams(last_user_cmd, params)){
+        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
             d->client->getMyIdentity().getParams(params, "my", true);
             d->client->getHubIdentity().getParams(params, "hub", false);
 
