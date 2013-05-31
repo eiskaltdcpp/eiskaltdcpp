@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2013-05-28 23:38+0300\n"
-"PO-Revision-Date: 2013-05-28 20:55+0000\n"
+"PO-Revision-Date: 2013-05-31 20:54+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -2563,7 +2563,7 @@ msgstr "Личное сообщение"
 
 #: ../src/transfers.cc:59 ../src/transfers.cc:600
 msgid "Progress"
-msgstr "Прогресс хэширования"
+msgstr "Прогресс"
 
 #: ../ui/adlsearch.ui:466 ../ui/adlsearch.ui:544
 msgid "Properties"
