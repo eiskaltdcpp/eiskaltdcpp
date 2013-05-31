@@ -303,7 +303,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     if (!cid.isEmpty()){
         user_menu = WulforUtil::getInstance()->buildUserCmdMenu(client->getHubUrl(), UserCommand::CONTEXT_USER);
 
-        if (user_menu->actions().size() > 0)
+        if (user_menu && !user_menu->actions().empty())
             menu->addMenu(user_menu);
     }
 
@@ -2746,6 +2746,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         cid = reinterpret_cast<UserListItem*>(i.internalPointer())->getCID();
     }
 
+    qDebug() << "cid = " << cid << "\n";
     Menu::Action action = Menu::getInstance()->execUserMenu(d->client, cid);
     UserListItem *item = NULL;
 
