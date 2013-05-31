@@ -395,7 +395,7 @@ void ScriptInstance::EvaluateFile(const string& fn) {
         else if(Util::fileExists(test_path_1))
             script_full_name = test_path_1;
         else {
-            LogManager::getInstance()->message("File '" + fn + "' not found!\n");
+            LogManager::getInstance()->message("File '" + fn + "' not found!");
             dcdebug("File '%s' not found!\n",fn.c_str()); // temporary
             return;
         }
@@ -408,7 +408,7 @@ void ScriptInstance::EvaluateFile(const string& fn) {
         else if(Util::fileExists(test_path_1))
             script_full_name = test_path_1;
         else {
-            LogManager::getInstance()->message("File '" + fn + "' not found!\n");
+            LogManager::getInstance()->message("File '" + fn + "' not found!");
             printf("File '%s' not found!\n",fn.c_str()); fflush(stdout);// temporary
             return;
         }
