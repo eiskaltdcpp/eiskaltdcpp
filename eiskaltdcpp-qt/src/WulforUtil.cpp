@@ -45,6 +45,7 @@
 #include <QFrame>
 #include <QHBoxLayout>
 #include <QRegExp>
+#include <QProcess>
 
 #include "SearchFrame.h"
 #include "extra/magnet.h"
@@ -709,7 +710,7 @@ QTextCodec *WulforUtil::codecForEncoding(QString name){
 bool WulforUtil::openUrl(const QString &url){
     if (url.startsWith("http://") || url.startsWith("www.") || url.startsWith(("ftp://")) || url.startsWith("https://")){
         if (!SETTING(MIME_HANDLER).empty())
-            QProcess::startDetached(SETTING(MIME_HANDLER).fromStdString() + " " + url);
+            QProcess::startDetached(QString(SETTING(MIME_HANDLER)) + " " + url);
         else
             QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
     }

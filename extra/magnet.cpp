@@ -17,7 +17,7 @@
 namespace dcpp {
 
 bool magnet::parseUri(const string& uri, StringMap& params) {
-        if(Util::strnicmp(uri.c_str(), "magnet:?", 8)) {
+        if(::strncmp(uri.c_str(), "magnet:?", 8)) {
                 return false;
         }
 
