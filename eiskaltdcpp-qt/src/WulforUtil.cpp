@@ -708,7 +708,10 @@ QTextCodec *WulforUtil::codecForEncoding(QString name){
 
 bool WulforUtil::openUrl(const QString &url){
     if (url.startsWith("http://") || url.startsWith("www.") || url.startsWith(("ftp://")) || url.startsWith("https://")){
-        QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
+        if (!SETTING(MIME_HANDLER).empty())
+            QProcess::startDetached(SETTING(MIME_HANDLER).fromStdString() + " " + url);
+        else
+            QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
     }
     else if (url.startsWith("adc://") || url.startsWith("adcs://")){
         MainWindow::getInstance()->newHubFrame(url, "UTF-8");
@@ -760,7 +763,10 @@ bool WulforUtil::openUrl(const QString &url){
             sfr->fastSearch(keywords, false);
         }
         else {
-            QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
+            if (!SETTING(MIME_HANDLER).empty())
+                QProcess::startDetached(SETTING(MIME_HANDLER).fromStdString() + " " + url);
+            else
+                QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
         }
     }
     else

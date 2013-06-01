@@ -51,7 +51,7 @@ const string SettingsManager::settingTags[] =
     "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
     "Language", "SkipListShare", "InternetIp", "BindIfaceName",
-    "DHTKey", "DynDNSServer",
+    "DHTKey", "DynDNSServer", "MimeHandler",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow",
@@ -95,7 +95,7 @@ const string SettingsManager::settingTags[] =
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
-    "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", 
+    "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
