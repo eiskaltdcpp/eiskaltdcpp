@@ -47,6 +47,7 @@
 #include <QRegExp>
 
 #include "SearchFrame.h"
+#include "extra/magnet.h"
 
 #ifndef CLIENT_DATA_DIR
 #define CLIENT_DATA_DIR ""
@@ -987,25 +988,12 @@ void WulforUtil::splitMagnet(const QString &magnet, int64_t &size, QString &tth,
     tth = "";
     name = "";
 
-    QUrl url;
-
-    if (!magnet.contains("+"))
-        url.setEncodedUrl(magnet.toAscii());
-    else {
-        QString _l = magnet;
-
-        _l.replace("+", "%20");
-        url.setEncodedUrl(_l.toAscii());
+    StringMap params;
+    if (magnet::parseUri(magnet.toStdString(),params)) {
+        tth = QString(params["xt"]);
+        size = Util::toInt64(params["xl"]);
+        name = QString(params["dn"]);
     }
-
-    if (url.hasQueryItem("dn"))
-        name = url.queryItemValue("dn");
-
-    if (url.hasQueryItem("xl"))
-        size = url.queryItemValue("xl").toLongLong();
-
-    if (url.hasQueryItem("xt") && magnet.contains("urn:tree:tiger"))
-        tth = magnet.mid(magnet.indexOf("urn:tree:tiger:") + 15, 39);
 }
 
 int WulforUtil::sortOrderToInt(Qt::SortOrder order){
@@ -1136,7 +1124,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
         UserCommand *uc = &userCommands[n];
         if (uc->getType() == UserCommand::TYPE_SEPARATOR) {
             // Avoid double separators...
-            if (!menuPtr->actions().isEmpty() && 
+            if (!menuPtr->actions().isEmpty() &&
                 !menuPtr->actions().last()->isSeparator())
             {
                 menuPtr->addSeparator();
@@ -1174,4 +1162,3 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
 bool WulforUtil::isTTH ( const QString& text ) {
     return ((text.length() == 39) && (QRegExp("[A-Z0-9]+").exactMatch(text)));
 }
-

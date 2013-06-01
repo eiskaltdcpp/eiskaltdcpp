@@ -34,6 +34,7 @@
 #include <ifaddrs.h>
 #include <net/if.h>
 #endif
+#include "extra/magnet.h"
 
 using namespace std;
 using namespace dcpp;
@@ -317,24 +318,15 @@ bool WulforUtil::splitMagnet(const string &magnet, string &name, int64_t &size, 
     name = _("Unknown");
     size = 0;
     tth = _("Unknown");
-    string tmp;
 
-    if (!isMagnet(magnet.c_str()) || magnet.size() <= magnetSignature.length())
-        return FALSE;
-
-    tmp = magnet.substr(8);
-    StringTokenizer<string> st(tmp, "&");
-    for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-        string str;
-        str=*i;
-        if (str.compare(0, 18, "xt=urn:tree:tiger:") == 0)
-            tth=str.substr(3+15);
-        else if (str.compare(0, 3, "xl=") == 0)
-            size = Util::toInt64(str.substr(3));
-        else if (str.compare(0, 3, "dn=") == 0)
-            name = Util::encodeURI(str.substr(3), true);
+    StringMap params;
+    if (magnet::parseUri(magnet,params)) {
+        tth=params["xt"];
+        size = Util::toInt64(params["xl"]);
+        name = params["dn"];
+        return TRUE;
     }
-    return TRUE;
+    return FALSE;
 }
 
 bool WulforUtil::splitMagnet(const string &magnet, string &line)
