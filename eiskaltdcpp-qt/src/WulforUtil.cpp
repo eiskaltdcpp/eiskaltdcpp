@@ -710,7 +710,7 @@ QTextCodec *WulforUtil::codecForEncoding(QString name){
 bool WulforUtil::openUrl(const QString &url){
     if (url.startsWith("http://") || url.startsWith("www.") || url.startsWith(("ftp://")) || url.startsWith("https://")){
         if (!SETTING(MIME_HANDLER).empty())
-            QProcess::startDetached(QString(SETTING(MIME_HANDLER)) + " " + url);
+            QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
         else
             QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
     }
@@ -765,7 +765,7 @@ bool WulforUtil::openUrl(const QString &url){
         }
         else {
             if (!SETTING(MIME_HANDLER).empty())
-                QProcess::startDetached(SETTING(MIME_HANDLER).fromStdString() + " " + url);
+                QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
             else
                 QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
         }
@@ -997,9 +997,9 @@ void WulforUtil::splitMagnet(const QString &magnet, int64_t &size, QString &tth,
 
     StringMap params;
     if (magnet::parseUri(magnet.toStdString(),params)) {
-        tth = QString(params["xt"]);
+        tth = _q(params["xt"]);
         size = Util::toInt64(params["xl"]);
-        name = QString(params["dn"]);
+        name = _q(params["dn"]);
     }
 }
 
