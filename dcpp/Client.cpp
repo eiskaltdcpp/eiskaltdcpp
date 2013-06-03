@@ -101,16 +101,16 @@ void Client::reloadSettings(bool updateNick) {
         if (hub->getUseInternetIP() && !SETTING(INTERNETIP).empty()){
             externalIP = SETTING(INTERNETIP);
         }
-        if(hub->getSearchInterval() < 10)
-            setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL) * 1000);
+        if(hub->getSearchInterval() < SETTING(MINIMUM_SEARCH_INTERVAL))
+            setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL));
         else
-            setSearchInterval(hub->getSearchInterval() * 1000);
+            setSearchInterval(hub->getSearchInterval());
     } else {
         if(updateNick) {
             setCurrentNick(checkNick(SETTING(NICK)));
         }
         setCurrentDescription(SETTING(DESCRIPTION));
-        setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL) * 1000);
+        setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL));
     }
     setClientId(ClientId);
 }
