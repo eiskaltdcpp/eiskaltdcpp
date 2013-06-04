@@ -30,6 +30,7 @@ bool bServerRunning = false, bServerTerminated = false, bIsRestart = false, bIsC
 #else
     bool bDaemon = false;
 #endif
+bool bsyslog = false;
 
 void callBack(void* x, const string& a)
 {

@@ -34,10 +34,18 @@ char pidfile[256] = {0};
 char config_dir[1024] = {0};
 char local_dir[1024] = {0};
 
-static void  logging(bool b, string msg){
+static void logging(bool d, bool s, bool b, string msg) {
 #ifndef _WIN32
-    if (b) syslog(LOG_USER | LOG_INFO, "%s", msg.c_str());
-    else  syslog(LOG_USER | LOG_ERR, "%s", msg.c_str());
+    if (d) {
+        if (s) {
+            if (b) syslog(LOG_USER | LOG_INFO, "%s", msg.c_str());
+            else  syslog(LOG_USER | LOG_ERR, "%s", msg.c_str());
+        } else {
+            Log(msg);
+        }
+    } else {
+        printf("%s\n",msg.c_str());
+    }
 #else
     Log(msg);
 #endif
@@ -60,13 +68,8 @@ static void SigHandler(int sig) {
     }
 
     str += " ending...\n";
-    fprintf(stdout,"%s",str.c_str());
-    fflush(stdout);
-    if (!bDaemon) {
-        Log(str);
-    } else {
-        logging(true, str);
-    }
+
+    logging(bDaemon, bsyslog, true, str);
 
     bIsClose = true;
     ServerStop();
@@ -130,6 +133,7 @@ void printHelp() {
 #ifndef _WIN32
            "  -v, --verbose\t Verbose mode\n"
            "  -D, --debug\t Debug mode\n"
+           "  -s, --syslog\t Use syslog in daemon mode\n"
            "  -P <port>, --port=<port>\t Set port for XMLRPC or JSONRPC (default: 3121)\n"
            "  -L <ip>,   --ip=<ip>\t\t Set IP address for XMLRPC or JSONRPC (default: 127.0.0.1)\n"
            "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
@@ -161,6 +165,7 @@ static struct option opts[] = {
     { "rpclog",  required_argument, NULL, 'S'},
     { "uripath", required_argument, NULL, 'U'},
     { "ip",      required_argument, NULL, 'L'},
+    { "syslog",  required_argument, NULL, 's'},
     { NULL,      0,                 NULL, 0}
 };
 
@@ -172,7 +177,7 @@ void writePidFile(char *path)
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hVdvDp:c:l:P:L:S:", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hVdvDsp:c:l:P:L:S:", opts, NULL)) != -1) {
         switch (ch) {
             case 'P':
                 lport = (unsigned short int) atoi (optarg);
@@ -194,6 +199,9 @@ void parseArgs(int argc, char* argv[]) {
                 break;
             case 'd':
                 bDaemon = true;
+                break;
+            case 's':
+                bsyslog = true;
                 break;
             case 'p':
                 strncpy(pidfile, optarg, 256);
@@ -247,34 +255,19 @@ int main(int argc, char* argv[])
         tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
         override[Util::PATH_USER_CONFIG] = tmp;
         override[Util::PATH_USER_LOCAL] = tmp;
-        if (!Util::fileExists(string(config_dir))) {
-#ifndef _WIN32
-            if (!bDaemon) {
-                printf("ERROR: Config directory: No such file or directory\n");
-            } else {
-                logging(false, "ERROR: Config directory: No such file or directory\n");
-            }
-#else
-            printf("ERROR: Config directory: No such file or directory\n");
-#endif
-        }
     }
     if (local_dir[0] != 0) {
         string tmp(local_dir);
         tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
         override[Util::PATH_USER_LOCAL] = tmp;
-        if (!Util::fileExists(string(local_dir))) {
-#ifndef _WIN32
-            if (!bDaemon) {
-                printf("ERROR: Local data directory: No such file or directory\n");
-            } else {
-                logging(false, "ERROR: Local data directory: No such file or directory\n");
-            }
-#else
-            printf("ERROR: Local data directory: No such file or directory\n");
-#endif
-        }
     }
+    if (!Util::fileExists(override[Util::PATH_USER_CONFIG])) {
+            logging(bDaemon, bsyslog, false, string("ERROR: Config directory: No such file or directory (" + override[Util::PATH_USER_CONFIG] + ")"));
+    }
+    if (!Util::fileExists(override[Util::PATH_USER_LOCAL])) {
+        logging(bDaemon, bsyslog, false, string("ERROR: Local data directory: No such file or directory (" + override[Util::PATH_USER_LOCAL] + ")"));
+    }
+
     Util::initialize(override);
 
     if (isDebug) {
@@ -304,20 +297,16 @@ int main(int argc, char* argv[])
     LOCAL_PATH = Util::getPath(Util::PATH_USER_LOCAL);
 #ifndef _WIN32
     if (bDaemon) {
-        printf("%s\n",("Starting "+sTitle+" as daemon using "+PATH+" as config directory and "+LOCAL_PATH+" as local data directory.").c_str());
-
         if (eidcpp_daemon(true,false) == -1)
             return EXIT_FAILURE;
 
         if (pidfile[0] != 0)
             writePidFile(pidfile);
-
-        logging(true,  "EiskaltDC++ daemon starting...\n");
-    } else {
-#endif
-        printf("%s\n",("Starting "+sTitle+" as daemon using "+PATH+" as config directory and "+LOCAL_PATH+" as local data directory.").c_str());
-#ifndef _WIN32
     }
+#endif
+    logging(bDaemon, bsyslog, true, string("Starting "+sTitle+" using "+PATH+" as config directory and "+LOCAL_PATH+" as local data directory."));
+#ifndef _WIN32
+
     sigset_t sst;
     sigemptyset(&sst);
     sigaddset(&sst, SIGPIPE);
@@ -336,46 +325,33 @@ int main(int argc, char* argv[])
     sigact.sa_flags = 0;
 
     if (sigaction(SIGINT, &sigact, NULL) == -1) {
-        printf("Cannot create sigaction SIGINT! %s\n", strerror(errno));
+        logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGINT!" + string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 
     if (sigaction(SIGTERM, &sigact, NULL) == -1) {
-        printf("Cannot create sigaction SIGTERM! %s\n", strerror(errno));
+        logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGTERM!"+ string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 
     if (sigaction(SIGQUIT, &sigact, NULL) == -1) {
-        printf("Cannot create sigaction SIGQUIT! %s\n", strerror(errno));
+        logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGQUIT!" + string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 
     if (!bDaemon && sigaction(SIGHUP, &sigact, NULL) == -1) {
-        printf("Cannot create sigaction SIGHUP! %s\n", strerror(errno));
+        logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGHUP!" + string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 #endif
     ServerInitialize();
 
     if (!ServerStart()) {
-#ifndef _WIN32
-        if (!bDaemon) {
-            printf("Server start failed!\n");
-        } else {
-            logging(false, "Server start failed!\n");
-        }
-#else
-            printf("Server start failed!\n");
-#endif
+        logging(bDaemon, bsyslog, false, "Server start failed!");
         return EXIT_FAILURE;
+    } else {
+        logging(bDaemon, bsyslog, true, sTitle+" running...");
     }
-#ifndef _WIN32
-    else if (!bDaemon) {
-        printf("%s\n",(sTitle+" running...").c_str());
-    }
-#else
-        printf("%s\n",(sTitle+" running...").c_str());
-#endif
 
 #if !defined(_WIN32) && defined(ENABLE_STACKTRACE)
     signal(SIGSEGV, printBacktrace);

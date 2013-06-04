@@ -26,6 +26,7 @@ extern bool isVerbose;
 extern bool isDebug;
 extern unsigned int maxLines;
 extern std::string xmlrpcLog, xmlrpcUriPath, lip;
+extern bool bsyslog;
 
 #ifdef _WIN32
     #ifdef _SERVICE
