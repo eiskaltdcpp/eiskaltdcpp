@@ -21,7 +21,6 @@
 #include "VersionGlobal.h"
 
 #ifndef _WIN32
-#include <syslog.h>
 #include <signal.h>
   #ifdef ENABLE_STACKTRACE
   #include "extra/stacktrace.h"
@@ -33,23 +32,6 @@
 char pidfile[256] = {0};
 char config_dir[1024] = {0};
 char local_dir[1024] = {0};
-
-static void logging(bool d, bool s, bool b, string msg) {
-#ifndef _WIN32
-    if (d) {
-        if (s) {
-            if (b) syslog(LOG_USER | LOG_INFO, "%s", msg.c_str());
-            else  syslog(LOG_USER | LOG_ERR, "%s", msg.c_str());
-        } else {
-            Log(msg);
-        }
-    } else {
-        printf("%s\n",msg.c_str());
-    }
-#else
-    Log(msg);
-#endif
-}
 
 #ifndef _WIN32
 static void SigHandler(int sig) {
@@ -255,17 +237,17 @@ int main(int argc, char* argv[])
         tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
         override[Util::PATH_USER_CONFIG] = tmp;
         override[Util::PATH_USER_LOCAL] = tmp;
+        if (!Util::fileExists(string(config_dir))) {
+            logging(bDaemon, bsyslog, false, string("ERROR: Config directory: No such file or directory (" + string(config_dir) + ")"));
+        }
     }
     if (local_dir[0] != 0) {
         string tmp(local_dir);
         tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
         override[Util::PATH_USER_LOCAL] = tmp;
-    }
-    if (!Util::fileExists(override[Util::PATH_USER_CONFIG])) {
-            logging(bDaemon, bsyslog, false, string("ERROR: Config directory: No such file or directory (" + override[Util::PATH_USER_CONFIG] + ")"));
-    }
-    if (!Util::fileExists(override[Util::PATH_USER_LOCAL])) {
-        logging(bDaemon, bsyslog, false, string("ERROR: Local data directory: No such file or directory (" + override[Util::PATH_USER_LOCAL] + ")"));
+        if (!Util::fileExists(string(local_dir))) {
+            logging(bDaemon, bsyslog, false, string("ERROR: Local data directory: No such file or directory (" + string(local_dir) + ")"));
+        }
     }
 
     Util::initialize(override);

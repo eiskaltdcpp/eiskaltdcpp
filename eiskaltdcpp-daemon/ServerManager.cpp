@@ -19,6 +19,7 @@
 //---------------------------------------------------------------------------
 #include "ServerManager.h"
 #include "ServerThread.h"
+#include "utility.h"
 //---------------------------------------------------------------------------
 
 ServerThread *ServersS = NULL;
@@ -34,7 +35,7 @@ bool bsyslog = false;
 
 void callBack(void* x, const string& a)
 {
-    cout << _("Loading: ") << a << endl;
+    logging(bDaemon, bsyslog, true, "Loading: " + a);
 }
 
 void ServerInitialize()
@@ -62,15 +63,15 @@ bool ServerStart()
 void ServerStop()
 {
     ServersS->Close();
-    fprintf(stdout,"server stops\n");
-    fprintf(stdout,"waiting\n");
+    logging(bDaemon, bsyslog, true, "server stops");
+    logging(bDaemon, bsyslog, true, "waiting");
     ServersS->WaitFor();
-    fprintf(stdout,"waiting finished\n");
+    logging(bDaemon, bsyslog, true, "waiting finished");
     ServersS->release();
 
     ServersS = NULL;
-    fprintf(stdout,"library stops\n");
+    logging(bDaemon, bsyslog, true, "library stops\n");
     dcpp::shutdown();
-    fprintf(stdout,"library was stopped\n");
+    logging(bDaemon, bsyslog, true, "library was stopped\n");
     bServerRunning = false;
 }

@@ -15,11 +15,29 @@
 #include "stdafx.h"
 #include "utility.h"
 #ifndef _WIN32
+#include <syslog.h>
 #include <sys/stat.h>
 #endif
 //---------------------------------------------------------------------------
 
 string LOCAL_PATH="", PATH = "", sTitle = "";
+
+void logging(bool d, bool s, bool b, const string& msg) {
+#ifndef _WIN32
+    if (d) {
+        if (s) {
+            if (b) syslog(LOG_USER | LOG_INFO, "%s", msg.c_str());
+            else  syslog(LOG_USER | LOG_ERR, "%s", msg.c_str());
+        } else {
+            Log(msg);
+        }
+    } else {
+        printf("%s\n",msg.c_str());
+    }
+#else
+    Log(msg);
+#endif
+}
 
 bool DirExist(char * sPath) {
 #ifdef _WIN32
