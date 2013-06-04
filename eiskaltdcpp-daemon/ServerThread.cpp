@@ -763,6 +763,7 @@ bool ServerThread::addInQueue(const string& sddir, const string& name, const int
     catch (const Exception& e)
     {
         if (isDebug) std::cout << "ServerThread::addInQueue->(" << e.getError() << ")"<< std::endl;
+        return false;
     }
 
     return true;
@@ -934,7 +935,6 @@ void ServerThread::updatelistQueueTargets() {
 
 void ServerThread::on(Added, QueueItem* item) noexcept {
     queuesMap[queuesMap.size()+1] = item->getTarget();
-
 }
 
 void ServerThread::on(Finished, QueueItem*, const string&, int64_t) noexcept {
@@ -965,7 +965,7 @@ void ServerThread::listHubsFullDesc(unordered_map<string,StringMap>& listhubs) {
         StringMap sm;
         sm["connected"] = cl->isReady() ? "1"  : "0";
         sm["users"] = Util::toString(cl->getUserCount());
-        sm["totalshare"] = Util::formatBytes(cl->getAvailable());
+        sm["totalshare"] = Util::toString(cl->getAvailable());
         sm["hubname"] = cl->getHubName();
         sm["description"] = cl->getHubDescription();
         listhubs[i->first] = sm;
