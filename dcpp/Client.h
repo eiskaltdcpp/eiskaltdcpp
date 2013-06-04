@@ -120,8 +120,7 @@ public:
         return sm;
     }
     void setSearchInterval(uint32_t aInterval) {
-        // min interval is 10 seconds
-        searchQueue.interval = max(aInterval + 2000, (uint32_t)(10 * 1000));
+        searchQueue.interval = (aInterval + min(aInterval, (uint32_t)1)) * (uint32_t)1000;
     }
 
     uint32_t getSearchInterval() const {
