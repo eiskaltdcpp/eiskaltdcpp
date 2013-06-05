@@ -70,8 +70,8 @@ void ServerStop()
     ServersS->release();
 
     ServersS = NULL;
-    logging(bDaemon, bsyslog, true, "library stops\n");
+    logging(bDaemon, bsyslog, true, "library stops");
     dcpp::shutdown();
-    logging(bDaemon, bsyslog, true, "library was stopped\n");
+    logging(bDaemon, bsyslog, true, "library was stopped");
     bServerRunning = false;
 }

@@ -27,7 +27,7 @@
 #include <cstring>
 #include <cstdlib>
 
-namespace Json 
+namespace Json
 {
 
   namespace Rpc
@@ -64,7 +64,7 @@ namespace Json
             return NULL;
         }
     }
-    
+
     bool HTTPServer::onRequest(const char* request, void* addInfo)
     {
         Json::Value response;
@@ -73,7 +73,7 @@ namespace Json
         sendResponse(res, addInfo);
         return true;
     }
-    
+
     HTTPServer::HTTPServer(const std::string& address, uint16_t port)
     {
       m_address = address;
@@ -84,7 +84,7 @@ namespace Json
     HTTPServer::~HTTPServer()
     {
     }
-    
+
     bool HTTPServer::startPolling()
     {
         char tmp_port[30];
@@ -97,10 +97,11 @@ namespace Json
             return false;
         }
     }
-    
+
     bool HTTPServer::stopPolling()
     {
-        mg_stop(ctx);
+        if(ctx != NULL)
+            mg_stop(ctx);
         return true;
     }
 
@@ -118,7 +119,7 @@ namespace Json
     {
       m_jsonHandler.DeleteMethod(method);
     }
-    
+
     bool HTTPServer::sendResponse(std::string & response, void *addInfo)
     {
         struct mg_connection* conn = (struct mg_connection*)addInfo;
@@ -139,4 +140,3 @@ namespace Json
   } /* namespace Rpc */
 
 } /* namespace Json */
-
