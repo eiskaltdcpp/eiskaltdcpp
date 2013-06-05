@@ -26,10 +26,8 @@
 
 namespace Json 
 {
-
   namespace Rpc
   {
-
     Server::Server(const std::string& address, uint16_t port)
     {
       m_sock = -1;
@@ -93,8 +91,6 @@ namespace Json
     {
       m_jsonHandler.DeleteMethod(method);
     }
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 

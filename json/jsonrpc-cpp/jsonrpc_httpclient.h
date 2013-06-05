@@ -33,12 +33,10 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
-
     /**
-     *Â \class HttpClient
+     * \class HttpClient
      * \brief JSON-RPC Http client.
      */
     class HttpClient : public Client
@@ -208,11 +206,9 @@ namespace Json
         /**
          * \brief Mutex to protected m_lastReceivedList.
          */
-        System::Mutex m_mutex;
+        system_util::Mutex m_mutex;
     };
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 
 #endif /* JSONRPC_HTTPCLIENT_H */

@@ -105,6 +105,5 @@ namespace netstring
   {
     return m_msg.c_str();
   }
-
 } /* namespace netstring */
 

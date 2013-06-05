@@ -26,43 +26,29 @@
 #include <string>
 #include <cstring>
 #include <cstdlib>
+#include "mongoose.h"
 
 namespace Json
 {
 
   namespace Rpc
   {
-    static void *callback(enum mg_event event, struct mg_connection *conn,
-            const struct mg_request_info *request_info) {
+    struct mg_context *ctx;
 
-        char* readBuffer = NULL;
-        int postSize = 0;
-        HTTPServer* serv = (HTTPServer*) request_info->user_data;
+    static int begin_request_handler(struct mg_connection *conn) {
+        const struct mg_request_info *ri = mg_get_request_info(conn);
+        int post_data_len = 0;
+        char* post_data = NULL;
 
-        if(event == MG_NEW_REQUEST) {
-
-            if(strcmp(request_info->request_method,"GET") == 0) {
-                //Mark the request as unprocessed.
-                mg_printf(conn, "HTTP/1.1 200 OK\r\n"
-                "Content-Type: text/plain\r\n\r\n"
-                "%s", request_info->uri);
-                return (void*)"";
-            } else if(strcmp(request_info->request_method,"POST") == 0) {
-                //get size of postData
-                sscanf(mg_get_header(conn,"Content-Length"),"%d",&postSize);
-                readBuffer = (char*) malloc(sizeof(char)*(postSize+1));
-                mg_read(conn,readBuffer,postSize);
-                serv->onRequest(readBuffer,conn);
-                free(readBuffer);
-
-                //Mark the request as processed by our handler.
-                return (void*)"";
-            } else {
-                return NULL;
-            }
-        } else {
-            return NULL;
+        if(strcmp(ri->request_method,"POST") == 0) {
+            HTTPServer* serv = (HTTPServer*) ri->user_data;
+            sscanf(mg_get_header(conn,"Content-Length"),"%d",&post_data_len);
+            post_data = (char*)malloc(post_data_len+1);
+            mg_read(conn, post_data, post_data_len);
+            serv->onRequest(post_data,conn);
+            free(post_data);
         }
+        return 1; // Mark request as processed
     }
 
     bool HTTPServer::onRequest(const char* request, void* addInfo)
@@ -87,10 +73,13 @@ namespace Json
 
     bool HTTPServer::startPolling()
     {
+        struct mg_callbacks callbacks;
         char tmp_port[30];
-        sprintf(tmp_port,"%s:%d",this->m_address.c_str(),this->m_port);
+        sprintf(tmp_port,"%s:%d", GetAddress().c_str(),GetPort());
         const char *options[] = {"listening_ports", tmp_port,"num_threads", "1", NULL };
-        ctx = mg_start(&callback, this, options);
+        memset(&callbacks, 0, sizeof(callbacks));
+        callbacks.begin_request = begin_request_handler;
+        ctx = mg_start(&callbacks, this, options);
         if(ctx != NULL) {
             return true;
         } else {
@@ -103,6 +92,11 @@ namespace Json
         if(ctx != NULL)
             mg_stop(ctx);
         return true;
+    }
+
+    std::string HTTPServer::GetAddress() const
+    {
+      return m_address;
     }
 
     uint16_t HTTPServer::GetPort() const
@@ -129,7 +123,6 @@ namespace Json
         tmp += v;
         tmp += "\r\n\r\n";
         tmp += response;
-        //printf("test: %s\n", tmp.c_str());fflush(stdout);
         if(mg_write(conn, tmp.c_str(), tmp.size()) > 0) {
             return true;
         } else {

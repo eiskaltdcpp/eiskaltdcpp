@@ -36,12 +36,11 @@
 #endif
 
 /**
- * \namespace System
+ * \namespace system_util
  * \brief System related class (thread, ...).
  */
-namespace System
+namespace system_util
 {
-
   /**
    * \brief Sleep for x milliseconds
    * \param ms millisecond to sleep
@@ -194,10 +193,10 @@ namespace System
        * \brief Stop thread.
        * \return true if success, false otherwise
        * \warning Calling this method could lead callback object to an 
-       * incoherent state. You should call it really in desperate situations when
-       * you really want to stop thread and do not care about the rest.
-       * \warning With POSIX thread implementation, calling Stop (one or more times)
-       * will leak 28 bytes of memory.
+       * incoherent state. You should call it really in desperate situations
+       * when you really want to stop thread and do not care about the rest.
+       * \warning With POSIX thread implementation, calling Stop (one or
+       * more times) will leak 28 bytes or memory.
        */
       bool Stop();
 
@@ -275,7 +274,6 @@ namespace System
       pthread_mutex_t m_mutex;
 #endif
   };
-
 } /* namespace System */
 
 #endif /* SYSTEM_H */

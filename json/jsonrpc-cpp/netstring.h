@@ -79,7 +79,6 @@ namespace netstring
    * \throw NetstringException if netstr is not a valid netstring
    */
   std::string decode(const std::string& netstr) throw(netstring::NetstringException);
-
 } /* namespace netstring */
 
 #endif /* NETSTRING_H */

@@ -1,6 +1,6 @@
 /*
  *  JsonRpc-Cpp - JSON-RPC implementation.
- *  Copyright (C) 2008-2011 Sebastien Vincent <sebastien.vincent@cppextrem.com>
+ *  Copyright (C) 2008-2012 Sebastien Vincent <sebastien.vincent@cppextrem.com>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -32,7 +32,6 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
     /**
@@ -145,7 +144,20 @@ namespace Json
         void SetPort(uint16_t port);
       
       private:  
-    
+        /**
+         * \brief Copy constructor (private to avoid copy).
+         * \param obj object to copy
+         */
+        Client(const Client& obj);
+
+        /**
+         * \brief Operator copy assignment (redefined because of "resource"
+         * class).
+         * \param obj object to copy
+         * \return object copied object reference
+         */
+        Client& operator=(const Client& obj);
+
         /**
          * \brief Network address or FQDN.
          */
@@ -161,9 +173,7 @@ namespace Json
          */
         enum EncapsulatedFormat m_format;
     };
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 
 #endif /* JSONRPC_CLIENT_H */

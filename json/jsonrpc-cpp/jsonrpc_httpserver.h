@@ -27,7 +27,6 @@
 
 #include "jsonrpc_common.h"
 #include "jsonrpc_handler.h"
-#include "mongoose.h"
 
 namespace Json
 {
@@ -57,7 +56,13 @@ namespace Json
         bool stopPolling();
         bool onRequest(const char* request, void* addInfo);
         bool sendResponse(std::string& response, void* addInfo = NULL);
-        
+
+        /**
+         * \brief Get the address.
+         * \return address or FQDN
+         */
+        std::string GetAddress() const;
+
         /**
          * \brief Get the port.
          * \return local port
@@ -83,7 +88,22 @@ namespace Json
          */
         Handler m_jsonHandler;
 
+        /**
+         * \brief Copy constructor (private because of "resource" class).
+         * \param obj object to copy
+         */
+        HTTPServer(const HTTPServer& obj);
+
+        /**
+         * \brief Operator copy assignment (private because of "resource"
+         * class).
+         * \param obj object to copy
+         * \return copied object reference
+         */
+        HTTPServer& operator=(const HTTPServer& obj);
+
       private:
+
         /**
          * \brief Network address or FQDN.
          */
@@ -93,11 +113,6 @@ namespace Json
          * \brief Local port.
          */
         uint16_t m_port;
-        
-        /**
-         * \brief mongoose context.
-         */
-        struct mg_context *ctx;
     };
 
   } /* namespace Rpc */
@@ -105,4 +120,3 @@ namespace Json
 } /* namespace Json */
 
 #endif /* JSONRPC_HTTPServer_H */
-

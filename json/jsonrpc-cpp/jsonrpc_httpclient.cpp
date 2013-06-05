@@ -29,10 +29,8 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
-
     HttpClient::HttpClient()
     {
       this->Initialize();
@@ -236,8 +234,8 @@ namespace Json
     ssize_t HttpClient::WaitRecv(std::string &data, unsigned int timeout)
     {
       time_t cur_time = time(NULL);
-      while(data.size() == 0 &&
-            static_cast<time_t>(cur_time + timeout) > time(NULL))
+      while(data.size() == 0 && 
+          static_cast<time_t>(cur_time + timeout) > time(NULL))
       {
         this->Recv(data);
       }
@@ -272,8 +270,6 @@ namespace Json
     {
       return -1; 
     }
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 

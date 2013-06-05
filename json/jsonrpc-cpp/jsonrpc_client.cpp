@@ -28,10 +28,8 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
-
     Client::Client()
     {
     }
@@ -91,7 +89,8 @@ namespace Json
 
     bool Client::Connect()
     {
-      m_sock = networking::connect(m_protocol, GetAddress(), GetPort(), &m_sockaddr, &m_sockaddrlen);
+      m_sock = networking::connect(m_protocol, GetAddress(), GetPort(), 
+          &m_sockaddr, &m_sockaddrlen);
 
       return (m_sock != -1) ? true : false;
     }
@@ -101,8 +100,6 @@ namespace Json
       ::close(m_sock);
       m_sock = -1;
     }
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 

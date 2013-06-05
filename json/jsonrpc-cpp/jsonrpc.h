@@ -1,6 +1,6 @@
 /*
  *  JsonRpc-Cpp - JSON-RPC implementation.
- *  Copyright (C) 2008-2011 Sebastien Vincent <sebastien.vincent@cppextrem.com>
+ *  Copyright (C) 2008-2012 Sebastien Vincent <sebastien.vincent@cppextrem.com>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -18,8 +18,7 @@
 
 /**
  * \file jsonrpc.h
- * \brief Version information and all
- * related include files in order to JsonRpc-Cpp.
+ * \brief Version information and all related include files to use JsonRpc-Cpp.
  * \author Sebastien Vincent
  */
 
@@ -27,20 +26,18 @@
 #define JSONRPC_H
 
 /**
- * \def JSONRPC_CPP_VERSION
  * \brief JsonRpc-Cpp version in integer format.
  *
  * The number is the result of the following computation:\n
  * major * 10000 + minor * 100 + micro\n
  * So version 1.2.3 produces 10203.
  */
-#define JSONRPC_CPP_VERSION 400
+static const int JSONRPC_CPP_VERSION = 500;
 
 /**
- * \def JSONRPC_CPP_VERSION_STRING
  * \brief JsonRpc-Cpp version in string format.
  */
-#define JSONRPC_CPP_VERSION_STRING "0.4.0"
+static const char JSONRPC_CPP_VERSION_STRING[] = "0.5.0";
 
 /* include from external jsoncpp lib */
 #include <jsoncpp/json.h>
@@ -48,14 +45,17 @@
 /* include all headers from JsonRpc-Cpp lib */
 #include "jsonrpc_common.h"
 #include "jsonrpc_handler.h"
-#include "jsonrpc_server.h"
+#include "jsonrpc_httpserver.h"
+//#include "jsonrpc_server.h"
 //#include "jsonrpc_udpserver.h"
 //#include "jsonrpc_tcpserver.h"
-#include "jsonrpc_httpserver.h"
-#include "jsonrpc_client.h"
+//#include "jsonrpc_client.h"
 //#include "jsonrpc_udpclient.h"
 //#include "jsonrpc_tcpclient.h"
+
+//#ifdef CURL_ENABLED_H
 //#include "jsonrpc_httpclient.h"
+//#endif
 
 #include "netstring.h"
 //#include "networking.h"
@@ -73,8 +73,6 @@ namespace Json
   namespace Rpc
   {
   } /* namespace Rpc */
-
 } /* namespace Json */
 
 #endif /* JSONRPC_H */
-

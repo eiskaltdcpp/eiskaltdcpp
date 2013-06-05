@@ -59,7 +59,8 @@ namespace networking
 #endif
   }
 
-  int connect(enum TransportProtocol protocol, const std::string& address, uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen)
+  int connect(enum TransportProtocol protocol, const std::string& address,
+      uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen)
   {
     struct addrinfo hints;
     struct addrinfo* res = NULL;
@@ -95,7 +96,8 @@ namespace networking
         continue;
       }
 
-      if(protocol == TCP && ::connect(sock, (struct sockaddr*)p->ai_addr, p->ai_addrlen) == -1)
+      if(protocol == TCP && ::connect(sock, (struct sockaddr*)p->ai_addr,
+            p->ai_addrlen) == -1)
       {
         ::close(sock);
         sock = -1;
@@ -122,7 +124,8 @@ namespace networking
     return sock;
   }
 
-  int bind(enum TransportProtocol protocol, const std::string& address, uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen)
+  int bind(enum TransportProtocol protocol, const std::string& address,
+      uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen)
   {
     struct addrinfo hints;
     struct addrinfo* res = NULL;
@@ -152,6 +155,7 @@ namespace networking
     for(p = res ; p ; p = p->ai_next)
     {
       int on = 1;
+
       sock = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
 
       if(sock == -1)
@@ -166,7 +170,7 @@ namespace networking
       on = 1;
       setsockopt(sock, IPPROTO_IPV6, IPV6_V6ONLY, &on, sizeof(on));
 #else
-      on = 0;
+      (void)on;
 #endif
 
       if(::bind(sock, p->ai_addr, p->ai_addrlen) == -1)
@@ -195,6 +199,5 @@ namespace networking
 
     return sock;
   }
-
 } /* namespace networking */
 

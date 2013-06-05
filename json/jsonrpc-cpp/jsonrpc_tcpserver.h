@@ -32,7 +32,6 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
     /**
@@ -104,6 +103,20 @@ namespace Json
 
       private:
         /**
+         * \brief Copy constructor (private because of "resource" class).
+         * \param obj object to copy
+         */
+        TcpServer(const TcpServer& obj);
+
+        /**
+         * \brief Operator copy assignment (private because of "resource"
+         * class).
+         * \param obj object to copy
+         * \return copied object reference
+         */
+        TcpServer& operator=(const TcpServer& obj);
+
+        /**
          * \brief List of client sockets.
          */
         std::list<int> m_clients;
@@ -113,9 +126,7 @@ namespace Json
          */
         std::list<int> m_purge;
     };
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 
 #endif /* JSONRPC_TCPSERVER_H */

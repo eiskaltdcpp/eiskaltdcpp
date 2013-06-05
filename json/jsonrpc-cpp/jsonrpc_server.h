@@ -32,7 +32,6 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
     /**
@@ -129,6 +128,20 @@ namespace Json
 
       protected:
         /**
+         * \brief Copy constructor (private because of "resource" class).
+         * \param obj object to copy
+         */
+        Server(const Server& obj);
+
+        /**
+         * \brief Operator copy assignment (private because of "resource"
+         * class).
+         * \param obj object to copy
+         * \return copied object reference
+         */
+        Server& operator=(const Server& obj);
+
+        /**
          * \brief Socket descriptor.
          */
         int m_sock;
@@ -159,9 +172,7 @@ namespace Json
          */
         enum EncapsulatedFormat m_format;
     };
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 
 #endif /* JSONRPC_SERVER_H */

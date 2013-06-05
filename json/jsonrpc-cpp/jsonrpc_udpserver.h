@@ -30,7 +30,6 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
     /**
@@ -79,10 +78,24 @@ namespace Json
          * \param ms millisecond to wait (0 means infinite)
          */
         virtual void WaitMessage(uint32_t ms);
+
+      private:
+        /**
+         * \brief Copy constructor (private because of "resource" class).
+         * \param obj object to copy
+         */
+        UdpServer(const UdpServer& obj);
+
+        /**
+         * \brief Operator copy assignment (private because of "resource"
+         * class).
+         * \param obj object to copy
+         * \return copied object reference
+         */
+        UdpServer& operator=(const UdpServer& obj);
+
     };
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 
 #endif /* JSONRPC_UDPSERVER_H */

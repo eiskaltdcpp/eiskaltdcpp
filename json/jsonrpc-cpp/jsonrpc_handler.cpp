@@ -26,24 +26,26 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
-
     CallbackMethod::~CallbackMethod()
     {
     }
 
     Handler::Handler()
     {
-      /* add a RPC method that list the actual RPC methods contained in the Handler */
+      /* add a RPC method that list the actual RPC methods contained in
+       * the Handler
+       */
       Json::Value root;
 
       root["description"] = "List the RPC methods available";
       root["parameters"] = Json::Value::null;
-      root["returns"] = "Object that contains description of all methods registered";
+      root["returns"] =
+        "Object that contains description of all methods registered";
 
-      AddMethod(new RpcMethod<Handler>(*this, &Handler::SystemDescribe, std::string("system.describe"), root));
+      AddMethod(new RpcMethod<Handler>(*this, &Handler::SystemDescribe,
+            std::string("system.describe"), root));
     }
 
     Handler::~Handler()
@@ -90,7 +92,7 @@ namespace Json
       {
         methods[(*it)->GetName()] = (*it)->GetDescription();
       }
-      
+
       response["result"] = methods;
       return true;
     }
@@ -103,13 +105,14 @@ namespace Json
     bool Handler::Check(const Json::Value& root, Json::Value& error)
     {
       Json::Value err;
-      
+
       /* check the JSON-RPC version => 2.0 */
-      if(!root.isObject() || !root.isMember("jsonrpc") || root["jsonrpc"] != "2.0") 
+      if(!root.isObject() || !root.isMember("jsonrpc") ||
+          root["jsonrpc"] != "2.0")
       {
         error["id"] = Json::Value::null;
         error["jsonrpc"] = "2.0";
-        
+
         err["code"] = INVALID_REQUEST;
         err["message"] = "Invalid JSON-RPC request.";
         error["error"] = err;
@@ -154,7 +157,7 @@ namespace Json
       }
 
       method = root["method"].asString();
-      
+
       if(method != "")
       {
         CallbackMethod* rpc = Lookup(method);
@@ -163,7 +166,7 @@ namespace Json
           return rpc->Call(root, response);
         }
       }
-      
+
       /* forge an error response */
       response["id"] = root.isMember("id") ? root["id"] : Json::Value::null;
       response["jsonrpc"] = "2.0";
@@ -183,30 +186,30 @@ namespace Json
 
       /* parsing */
       parsing = m_reader.parse(msg, root);
-      
+
       if(!parsing)
       {
         /* request or batched call is not in JSON format */
         response["id"] = Json::Value::null;
         response["jsonrpc"] = "2.0";
-        
+
         error["code"] = PARSING_ERROR;
         error["message"] = "Parse error.";
-        response["error"] = error; 
+        response["error"] = error;
         return false;
       }
-      
+
       if(root.isArray())
       {
         /* batched call */
         Json::Value::ArrayIndex i = 0;
         Json::Value::ArrayIndex j = 0;
-        
+
         for(i = 0 ; i < root.size() ; i++)
         {
           Json::Value ret;
           Process(root[i], ret);
-          
+
           if(ret != Json::Value::null)
           {
             /* it is not a notification, add to array of responses */
@@ -241,8 +244,5 @@ namespace Json
 
       return 0;
     }
-
   } /* namespace Rpc */
-
 } /* namespace Json */
-

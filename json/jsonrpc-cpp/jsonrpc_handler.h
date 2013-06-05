@@ -1,6 +1,6 @@
 /*
  *  JsonRpc-Cpp - JSON-RPC implementation.
- *  Copyright (C) 2008-2011 Sebastien Vincent <sebastien.vincent@cppextrem.com>
+ *  Copyright (C) 2008-2012 Sebastien Vincent <sebastien.vincent@cppextrem.com>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -36,7 +36,6 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
     /**
@@ -94,7 +93,8 @@ namespace Json
          * \typedef Method
          * \brief T method signature.
          */
-        typedef bool (T::*Method)(const Json::Value& msg, Json::Value& response);
+        typedef bool (T::*Method)(const Json::Value& msg,
+            Json::Value& response);
 
         /**
          * \brief Constructor.
@@ -103,7 +103,8 @@ namespace Json
          * \param name symbolic name (i.e. system.describe)
          * \param description method description (in JSON format)
          */
-        RpcMethod(T& obj, Method method, const std::string& name, const Json::Value description = Json::Value::null)
+        RpcMethod(T& obj, Method method, const std::string& name,
+            const Json::Value description = Json::Value::null)
         {
           m_obj = &obj;
           m_name = name;
@@ -116,7 +117,8 @@ namespace Json
          * \param msg JSON-RPC request or notification
          * \param response response produced (may be Json::Value::null)
          * \return true if message has been correctly processed, false otherwise
-         * \note JSON-RPC's notification method MUST set response to Json::Value::null
+         * \note JSON-RPC's notification method MUST set response to
+         * Json::Value::null
          */
         virtual bool Call(const Json::Value& msg, Json::Value& response)
         {
@@ -142,6 +144,25 @@ namespace Json
         }
 
       private:
+        /**
+         * \brief Copy constructor (private to avoid copy).
+         * \param obj objec to copy
+         */
+        RpcMethod(const RpcMethod& obj);
+
+         /**
+         * \brief Operator copy assignment (redefined because of "resource"
+         * class).
+         * \param obj object to copy
+         * \return object copied object reference
+         */
+        RpcMethod& operator=(const RpcMethod& obj);
+
+        /**
+         * \brief JSON reader.
+         */
+        Json::Reader m_reader;
+
         /**
          * \brief Object pointer.
          */
@@ -176,7 +197,8 @@ namespace Json
      *    public:
      *      void Init()
      *      {
-     *        RpcMethod* method = new RpcMethod<MyClass>(*this, &MyClass::RemoteMethod, std::string("remote_method"), std::string("Description"));
+     *        RpcMethod* method = new RpcMethod<MyClass>(*this, &MyClass::RemoteMethod, std::string("remote_method"),
+     *          std::string("Description"));
      *        m_handler.AddMethod(method);
      *      }
      *
@@ -189,7 +211,8 @@ namespace Json
      *      Handler m_handler;
      * };
      * \endcode
-     * \note Always pass it in function with reference (i.e. void foo(Json::Rpc::Handler& handler)).
+     * \note Always pass it in function with reference
+     * (i.e. void foo(Json::Rpc::Handler& handler)).
      * \see RpcMethod
      */
     class Handler
@@ -207,13 +230,13 @@ namespace Json
 
         /**
          * \brief Add a new RPC method.
-         * \param method RPC method to add (MUST be dynamically allocated using new)
-         * \note Json::Rpc::Handler object takes care of freeing method memory.\n
+         * \param method RPC method to add (MUST be dynamically allocated)
+         * \note Json::Rpc::Handler object takes care of freeing method memory\n
          * The way of calling this method is:
          * <code>
          * handler.AddMethod(new RpcMethod<MyClass>(...));
          * </code>
-         * \warning The "method" parameter MUST be dynamically allocated (using new).
+         * \warning The "method" parameter MUST be dynamically allocated.
          */
         void AddMethod(CallbackMethod* method);
 
@@ -227,10 +250,10 @@ namespace Json
          * \brief Process a JSON-RPC message.
          * \param msg JSON-RPC message as std::string
          * \param response JSON-RPC response (could be Json::Value::null)
-         * \return true if the request has been correctly processed, false otherwise
-         * (may be caused by parsed error, ...)
-         * \note in case msg is a notification, response is equal to Json::Value::null
-         * and the return value is true.
+         * \return true if the request has been correctly processed, false
+         * otherwise (may be caused by parsed error, ...)
+         * \note in case msg is a notification, response is equal to
+         * Json::Value::null and the return value is true.
          */
         bool Process(const std::string& msg, Json::Value& response);
 
@@ -238,10 +261,10 @@ namespace Json
          * \brief Process a JSON-RPC message.
          * \param msg JSON-RPC message as C-String
          * \param response JSON-RPC response (could be Json::Value::null)
-         * \return true if the request has been correctly processed, false otherwise (may be
-         * caused by parsed error, ...)
-         * \note in case msg is a notification, response is equal to Json::Value::null
-         * and the return value is true.
+         * \return true if the request has been correctly processed, false
+         * otherwise (may be caused by parsed error, ...)
+         * \note in case msg is a notification, response is equal to
+         * Json::Value::null and the return value is true.
          */
         bool Process(const char* msg, Json::Value& response);
 
@@ -261,6 +284,20 @@ namespace Json
         std::string GetString(Json::Value value);
 
       private:
+         /**
+          * \brief Copy constructor (private to avoid copy).
+          * \param obj object to copy
+          */
+        Handler(const Handler& obj);
+
+        /**
+         * \brief Operator copy assignment (redefined because of "resource"
+         * class).
+         * \param obj object to copy
+         * \return object copied object reference
+         */
+        Handler& operator=(const Handler& obj);
+
         /**
          * \brief JSON reader.
          */
@@ -295,17 +332,14 @@ namespace Json
          * \brief Process a JSON-RPC object message.
          * \param root JSON-RPC message as Json::Value
          * \param response JSON-RPC response that will be filled in this method
-         * \return true if the request has been correctly processed, false otherwise
+         * \return true if request has been correctly processed, false otherwise
          * (may be caused by parsed error, ...)
-         * \note In case msg is a notification, response is equal to Json::Value::null
-         * and the return value is true.
+         * \note In case msg is a notification, response is equal to
+         * Json::Value::null and the return value is true.
          */
         bool Process(const Json::Value& root, Json::Value& response);
     };
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 
 #endif /* JSONRPC_HANDLER_H */
-

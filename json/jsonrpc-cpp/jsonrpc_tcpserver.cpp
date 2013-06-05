@@ -31,14 +31,11 @@
 
 #include <cstring>
 #include <cerrno>
-#include <cstdlib>
 
 namespace Json
 {
-
   namespace Rpc
   {
-
     TcpServer::TcpServer(const std::string& address, uint16_t port) : Server(address, port)
     {
       m_protocol = networking::TCP;
@@ -132,7 +129,6 @@ namespace Json
         {
           Send(fd, m_jsonHandler.GetString(response));
         }
-
         return true;
       }
       else
@@ -149,7 +145,7 @@ namespace Json
       int max_sock = m_sock;
 
       tv.tv_sec = ms / 1000;
-      tv.tv_usec = (ms % 1000 ) / 1000;
+      tv.tv_usec = (ms % 1000 ) * 1000;
 
       FD_ZERO(&fdsr);
 
@@ -194,7 +190,12 @@ namespace Json
         /* remove disconnect socket descriptor */
         for(std::list<int>::iterator it = m_purge.begin() ; it != m_purge.end() ; ++it)
         {
-          m_clients.remove((*it));
+          int s = (*it);
+          if(s > 0)
+          {
+            close(s);
+          }
+          m_clients.remove(s);
         }
 
         /* purge disconnected list */
@@ -258,8 +259,5 @@ namespace Json
     {
       return m_clients;
     }
-
   } /* namespace Rpc */
-
 } /* namespace Json */
-

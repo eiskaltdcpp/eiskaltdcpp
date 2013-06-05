@@ -31,7 +31,6 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
     /**
@@ -67,10 +66,24 @@ namespace Json
          * \return number of bytes sent or -1 if error
          */
         ssize_t Send(const std::string& data);
+
+      private:
+        /**
+         * \brief Copy constructor (private because of "resource" class).
+         * \param obj object to copy
+         */
+        UdpClient(const UdpClient& obj);
+
+        /**
+         * \brief Operator copy assignment (private because of "resource"
+         * class).
+         * \param obj object to copy
+         * \return copied object reference
+         */
+        UdpClient& operator=(const UdpClient& obj);
+
     };
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 
 #endif /* JSONRPC_UDPCLIENT_H */

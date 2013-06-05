@@ -28,10 +28,8 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
-
     UdpClient::UdpClient(const std::string& address, uint16_t port) : Client(address, port)
     {
       m_protocol = networking::UDP;
@@ -51,7 +49,8 @@ namespace Json
         rep = netstring::encode(rep);
       }
 
-      return ::sendto(m_sock, rep.c_str(), rep.length(), 0, (struct sockaddr*)&m_sockaddr, m_sockaddrlen);
+      return ::sendto(m_sock, rep.c_str(), rep.length(), 0,
+          (struct sockaddr*)&m_sockaddr, m_sockaddrlen);
     }
 
     ssize_t UdpClient::Recv(std::string& data)
@@ -82,8 +81,6 @@ namespace Json
 
       return nb;
     }
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 

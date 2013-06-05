@@ -31,12 +31,10 @@
 
 namespace Json
 {
-
   namespace Rpc
   {
-
     /**
-     *Â \class TcpClient
+     * \class TcpClient
      * \brief JSON-RPC TCP client.
      */
     class TcpClient : public Client
@@ -68,10 +66,24 @@ namespace Json
          * \return number of bytes sent or -1 if error
          */
         ssize_t Send(const std::string& data);
+
+      private:
+        /**
+         * \brief Copy constructor (private because of "resource" class).
+         * \param obj object to copy
+         */
+        TcpClient(const TcpClient& obj);
+
+        /**
+         * \brief Operator copy assignment (private because of "resource"
+         * class).
+         * \param obj object to copy
+         * \return copied object reference
+         */
+        TcpClient& operator=(const TcpClient& obj);
+
     };
-
   } /* namespace Rpc */
-
 } /* namespace Json */
 
 #endif /* JSONRPC_TCPCLIENT_H */

@@ -113,7 +113,8 @@ namespace networking
    * \param addrlen if function succeed, length of sockaddr
    * \return socket descriptor if success, -1 otherwise
    */
-  int connect(enum TransportProtocol protocol, const std::string& address, uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen);
+  int connect(enum TransportProtocol protocol, const std::string& address,
+      uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen);
 
   /**
    * \brief Bind on a local address.
@@ -125,8 +126,8 @@ namespace networking
    * \param addrlen if function succeed, length of sockaddr
    * \return socket descriptor if success, -1 otherwise
    */
-  int bind(enum TransportProtocol protocol, const std::string& address, uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen);
-
+  int bind(enum TransportProtocol protocol, const std::string& address,
+      uint16_t port, struct sockaddr_storage* sockaddr, socklen_t* addrlen);
 } /* namespace networking */
 
 #endif /* NETWORKING_H */
