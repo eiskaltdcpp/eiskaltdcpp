@@ -736,19 +736,19 @@ void SearchFrame::removeSource(const VarMap &params){
 }
 
 void SearchFrame::timerTick(){
-    ////int32_t waitFor = SearchManager::getInstance()->timeToSearch();
+    //int32_t waitFor = SearchManager::getInstance()->timeToSearch();
 
     //if (waitFor > 0){
         //QString msg = tr("Searching too soon, next search in %1 second").arg(waitFor);
 
-        //status->setText(msg);
+        //progressBar->setFormat(msg);
 
         //arena_title = tr("Search - %1").arg(msg);
 
         //timer->start();
     //}
     //else {
-        //status->setText(tr("Ready to search..."));
+        //progressBar->setFormat(tr("Ready to search..."));
     //}
 }
 
@@ -1554,9 +1554,9 @@ void SearchFrame::slotTimer(){
     if (d->dropped == d->results && d->dropped == 0){
 
         if (d->currentSearch.empty())
-            status->hide();
+            frame_PROGRESS->hide();
         else {
-            status->show();
+            frame_PROGRESS->show();
 
             QString text = QString(tr("<b>No results</b>"));
 
@@ -1564,8 +1564,8 @@ void SearchFrame::slotTimer(){
         }
     }
     else {
-        if (!status->isVisible())
-            status->show();
+        if (!frame_PROGRESS->isVisible())
+            frame_PROGRESS->show();
 
         QString text = QString(tr("Found: <b>%1</b>  Dropped: <b>%2</b>")).arg(d->results).arg(d->dropped);
 
