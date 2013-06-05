@@ -41,7 +41,8 @@ Search::Search():
     previousGrouping(NOGROUPING)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar1")),FALSE);
+    gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbar1")), TRUE);
+    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget("progressbar1")), 0.0);
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar2")),FALSE);
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar3")),FALSE);
 #endif
@@ -423,6 +424,11 @@ void Search::setStatus_gui(string statusBar, string text)
     gtk_statusbar_push(GTK_STATUSBAR(getWidget(statusBar)), 0, text.c_str());
 }
 
+void Search::setProgress_gui(std::string progressBar, std::string text)
+{
+    gtk_progress_bar_set_text(GTK_PROGRESS_BAR(getWidget(progressBar)), text.c_str());
+}
+
 void Search::search_gui()
 {
     StringList clients;
@@ -538,7 +544,7 @@ void Search::search_gui()
 
     droppedResult = 0;
     searchHits = 0;
-    setStatus_gui("statusbar1", _("Searching for ") + text + " ...");
+    setProgress_gui("progressbar1", _("Searching for ") + text + " ...");
     setStatus_gui("statusbar2", _("0 items"));
     setStatus_gui("statusbar3", _("0 filtered"));
     setLabel_gui(text);

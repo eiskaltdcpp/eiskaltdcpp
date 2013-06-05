@@ -627,7 +627,7 @@
         <property name="can_focus">False</property>
         <property name="spacing">5</property>
         <child>
-          <object class="GtkStatusbar" id="statusbar1">
+          <object class="GtkProgressBar" id="progressbar1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
           </object>
