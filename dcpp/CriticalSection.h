@@ -21,16 +21,16 @@
 #include "debug.h"
 #include "noexcept.h"
 
-#ifdef _WIN32
+#if defined (_WIN32) || defined (__HAIKU__)
 #include <boost/thread/lock_guard.hpp>
 #include <boost/thread/recursive_mutex.hpp>
-#else 
+#else
 #include <mutex>
 #endif
 
 namespace dcpp {
-    
-#ifdef _WIN32
+
+#if defined (_WIN32) || defined (__HAIKU__)
 typedef boost::recursive_mutex CriticalSection;
 typedef boost::detail::spinlock FastCriticalSection;
 typedef boost::unique_lock<boost::recursive_mutex> Lock;
