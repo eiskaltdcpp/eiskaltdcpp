@@ -384,14 +384,14 @@ string Util::validateFileName(string tmp, const string& badCharsExtra) {
         tmp[i] = '_';
         i++;
     }
-	
-	i = 0;
-	if(!badCharsExtra.empty()) {
-	    while( (i = tmp.find_first_of(badCharsExtra.c_str(), i)) != string::npos) {
+
+        i = 0;
+        if(!badCharsExtra.empty()) {
+            while( (i = tmp.find_first_of(badCharsExtra.c_str(), i)) != string::npos) {
             tmp[i] = '_';
             i++;
         }
-	}
+        }
 
     // Then, eliminate all ':' that are not the second letter ("c:\...")
     i = 0;
@@ -751,11 +751,11 @@ string Util::getLocalIp() {
     // We take the first ip as default, but if we can find a better one, use it instead...
     memcpy(&(dest.sin_addr), he->h_addr_list[i++], he->h_length);
     tmp = inet_ntoa(dest.sin_addr);
-    if(Util::isPrivateIp(tmp) || strncmp(tmp.c_str(), "169", 3) == 0) {
+    if(Util::isPrivateIp(tmp) || ::strncmp(tmp.c_str(), "169", 3) == 0) {
         while(he->h_addr_list[i]) {
             memcpy(&(dest.sin_addr), he->h_addr_list[i], he->h_length);
             string tmp2 = inet_ntoa(dest.sin_addr);
-            if(!Util::isPrivateIp(tmp2) && strncmp(tmp2.c_str(), "169", 3) != 0) {
+            if(!Util::isPrivateIp(tmp2) && ::strncmp(tmp2.c_str(), "169", 3) != 0) {
                 tmp = tmp2;
             }
             i++;
