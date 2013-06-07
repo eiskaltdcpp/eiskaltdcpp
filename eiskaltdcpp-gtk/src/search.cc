@@ -40,8 +40,9 @@ Search::Search():
     BookEntry(Entry::SEARCH, _("Search"), "search.ui", generateID()),
     previousGrouping(NOGROUPING)
 {
-#if !GTK_CHECK_VERSION(3,0,0)
+#if GTK_CHECK_VERSION(3,0,0)
     gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbar1")), TRUE);
+#else
     gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget("progressbar1")), 0.0);
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar2")),FALSE);
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar3")),FALSE);
