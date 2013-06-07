@@ -68,7 +68,7 @@ public:
         by milli-seconds
         0 means no interval, no auto search and manual search is sent immediately
     */
-    uint32_t interval;
+    uint64_t interval;
 
 private:
     deque<SearchCore>   searchQueue;

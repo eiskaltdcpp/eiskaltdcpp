@@ -29,7 +29,6 @@ namespace dcpp {
 bool SearchQueue::add(const SearchCore& s)
 {
     dcassert(s.owners.size() == 1);
-    dcassert(interval >= 15000); // min interval is 15 seconds
 
     Lock l(cs);
 
@@ -101,7 +100,7 @@ uint64_t SearchQueue::getSearchTime(void* aOwner, uint64_t now) {
 
     if(aOwner == 0) return 0xFFFFFFFF;
 
-    uint64_t x = max(lastSearchTime, uint64_t(/*GET_TICK()*/now - interval));
+    uint64_t x = max(lastSearchTime, now - interval);
 
     for(auto i = searchQueue.cbegin(); i != searchQueue.cend(); ++i){
         x += interval;
