@@ -579,6 +579,10 @@ int Socket::wait(uint32_t millis, int waitFor) {
 
     waitFor = WAIT_NONE;
 
+    // fix buffer overflow during shutdown
+    if(sock == INVALID_SOCKET)
+        return 0;
+
     if(rfdp && FD_ISSET(sock, rfdp)) {
         waitFor |= WAIT_READ;
     }
