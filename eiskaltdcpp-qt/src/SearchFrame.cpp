@@ -89,9 +89,9 @@ public:
     int left_pane_old_size;
 
     QString target;
-    uint64_t searchEndTime;
-    uint64_t searchStartTime;
-    bool waitingResults;
+    uint64_t searchStartTime = 0;
+    uint64_t searchEndTime = 1;
+    bool waitingResults = false;
 };
 
 QVariant SearchStringListModel::data(const QModelIndex &index, int role) const{
@@ -1064,9 +1064,13 @@ void SearchFrame::slotStartSearch(){
         ftype = SearchManager::TYPE_ANY;
     }
 
-    d->searchStartTime = GlobalTimer::getInstance()->getTicks()*1000;
     d->target = s;
-    d->searchEndTime = d->searchStartTime + SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype, searchMode, d->token.toStdString(), exts, (void*)this)+ 5000;
+    d->searchStartTime = GlobalTimer::getInstance()->getTicks()*1000;
+
+    uint64_t maxDelayBeforeSearch = SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype, searchMode, d->token.toStdString(), exts, (void*)this);
+    uint64_t waitingResultsTime = 20000; // just assumption that user receives most of results in 20 seconds
+
+    d->searchEndTime = d->searchStartTime + maxDelayBeforeSearch + waitingResultsTime;
     d->waitingResults = true;
 
     if (!checkBox_HIDEPANEL->isChecked()){
@@ -1547,12 +1551,13 @@ void SearchFrame::slotTimer(){
     Q_D(SearchFrame);
 
     if (d->waitingResults) {
-        float fraction  = 100.0f*(GlobalTimer::getInstance()->getTicks()*1000 - d->searchStartTime)/ (d->searchEndTime - d->searchStartTime);
+        uint64_t now = GlobalTimer::getInstance()->getTicks()*1000;
+        float fraction  = 100.0f*(now - d->searchStartTime)/(d->searchEndTime - d->searchStartTime);
         if (fraction >= 100.0) {
             fraction = 100.0;
             d->waitingResults = false;
         }
-        QString msg = tr("Searching for %1").arg(d->target);
+        QString msg = tr("Searching for %1 ...").arg(d->target);
         progressBar->setFormat(msg);
         progressBar->setValue(static_cast<unsigned>(fraction));
     } else {

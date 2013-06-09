@@ -562,10 +562,10 @@ void Search::search_gui()
     target = text;
 
     dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());
-    uint64_t delayBeforeSearch = SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts, (void*)this);
+    uint64_t maxDelayBeforeSearch = SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts, (void*)this);
     uint64_t waitingResultsTime = 20000; // just assumption that user receives most of results in 20 seconds
 
-    searchEndTime = searchStartTime + delayBeforeSearch + waitingResultsTime;
+    searchEndTime = searchStartTime + maxDelayBeforeSearch + waitingResultsTime;
     waitingResults = true;
 
     if (WGETB("clearsearch")) // Only clear if the search was sent.
