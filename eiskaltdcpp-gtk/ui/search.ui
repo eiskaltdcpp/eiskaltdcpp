@@ -622,7 +622,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkHBox" id="hbox4">
+      <object class="GtkHBox" id="statusbox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="spacing">5</property>

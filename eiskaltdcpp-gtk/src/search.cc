@@ -52,6 +52,7 @@ Search::Search():
     searchStartTime = 0;
     searchEndTime = 1;
     setProgress_gui("progressbar1", "", 0.0);
+    gtk_widget_hide(getWidget("statusbox"));
 
     // Initialize the search entries combo box
     if (searchEntriesModel == NULL)
@@ -550,6 +551,7 @@ void Search::search_gui()
     gtk_list_store_prepend(store, &iter);
     gtk_list_store_set(store, &iter, 0, text.c_str(), -1);
 
+    gtk_widget_show_all(getWidget("statusbox"));
     droppedResult = 0;
     searchHits = 0;
     setStatus_gui("statusbar2", _("0 items"));
