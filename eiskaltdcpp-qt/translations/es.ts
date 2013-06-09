@@ -2979,33 +2979,33 @@ Descargas: %3 Subidas: %4</translation>
         <translation>Explorar</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="488"/>
+        <location filename="../src/SearchFrame.cpp" line="491"/>
         <source>Close</source>
         <translation>Cerrar</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1088"/>
+        <location filename="../src/SearchFrame.cpp" line="1091"/>
         <source>Search - %1</source>
         <translation>Búsqueda - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1194"/>
-        <location filename="../src/SearchFrame.cpp" line="1252"/>
+        <location filename="../src/SearchFrame.cpp" line="1197"/>
+        <location filename="../src/SearchFrame.cpp" line="1255"/>
         <source>Select directory</source>
         <translation>Seleccionar directorio</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1560"/>
+        <location filename="../src/SearchFrame.cpp" line="1563"/>
         <source>Searching for %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1576"/>
+        <location filename="../src/SearchFrame.cpp" line="1579"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sin resultados&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1585"/>
+        <location filename="../src/SearchFrame.cpp" line="1588"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Encontrados: &lt;b&gt;%1&lt;/b&gt;  Descartados: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>

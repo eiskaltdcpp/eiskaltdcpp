@@ -2980,33 +2980,33 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Зірнуць</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="488"/>
+        <location filename="../src/SearchFrame.cpp" line="491"/>
         <source>Close</source>
         <translation>Зачыніць</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1088"/>
+        <location filename="../src/SearchFrame.cpp" line="1091"/>
         <source>Search - %1</source>
         <translation>Шукаем — %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1194"/>
-        <location filename="../src/SearchFrame.cpp" line="1252"/>
+        <location filename="../src/SearchFrame.cpp" line="1197"/>
+        <location filename="../src/SearchFrame.cpp" line="1255"/>
         <source>Select directory</source>
         <translation>Абраць каталёґ</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1560"/>
+        <location filename="../src/SearchFrame.cpp" line="1563"/>
         <source>Searching for %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1576"/>
+        <location filename="../src/SearchFrame.cpp" line="1579"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Вынікаў няма&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1585"/>
+        <location filename="../src/SearchFrame.cpp" line="1588"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Знайшлі: &lt;b&gt;%1&lt;/b&gt;  Адкінулі: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
