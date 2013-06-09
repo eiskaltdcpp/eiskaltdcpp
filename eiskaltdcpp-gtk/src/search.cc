@@ -43,11 +43,17 @@ Search::Search():
 #if GTK_CHECK_VERSION(3,0,0)
     gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbar1")), TRUE);
 #else
-    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget("progressbar1")), 0.0);
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar2")),FALSE);
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar3")),FALSE);
 #endif
+
+    // Initialize variables for search progressbar
+    waitingResults = false;
+    searchStartTime = 0;
+    searchEndTime = 1;
+    setProgress_gui("progressbar1", "", 0.0);
     gtk_widget_hide(getWidget("statusbox"));
+
     // Initialize the search entries combo box
     if (searchEntriesModel == NULL)
         searchEntriesModel = gtk_combo_box_get_model(GTK_COMBO_BOX(getWidget("comboboxentrySearch")));
@@ -552,16 +558,18 @@ void Search::search_gui()
     setStatus_gui("statusbar3", _("0 filtered"));
     setLabel_gui(text);
 
-    dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());
-
     searchStartTime = GET_TICK();
     target = text;
 
+    dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());
+    uint64_t maxDelayBeforeSearch = SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts, (void*)this);
+    uint64_t waitingResultsTime = 20000; // just assumption that user receives most of results in 20 seconds
+
+    searchEndTime = searchStartTime + maxDelayBeforeSearch + waitingResultsTime;
+    waitingResults = true;
+
     if (WGETB("clearsearch")) // Only clear if the search was sent.
         gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
-
-    searchEndTime = searchStartTime + SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts, (void*)this) + 5000;
-    waitingResults = true;
 
     if (gtk_widget_get_visible(getWidget("sidePanel")) && !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkDontHideSideOnSearch"))))
         gtk_widget_hide(getWidget("sidePanel"));

@@ -80,7 +80,7 @@ bool SearchQueue::pop(SearchCore& s, uint64_t now)
     dcassert(interval);
 
     //uint64_t now = GET_TICK();
-    if(now <= lastSearchTime + interval)
+    if(now <= lastSearchTime + interval && lastSearchTime > 0)
         return false;
 
     {

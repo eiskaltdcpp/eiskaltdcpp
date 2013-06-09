@@ -146,7 +146,7 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("popunder-filelist", 0));
     defaultInt.insert(IntMap::value_type("use-oen-monofont", 0));
     defaultInt.insert(IntMap::value_type("urlhandler", 0));
-    defaultInt.insert(IntMap::value_type("clearsearch", 1));
+    defaultInt.insert(IntMap::value_type("clearsearch", 0));
     defaultInt.insert(IntMap::value_type("use-system-icons", 1));
     defaultInt.insert(IntMap::value_type("sort-favusers-first", 0));
     defaultInt.insert(IntMap::value_type("status-in-chat", 1));

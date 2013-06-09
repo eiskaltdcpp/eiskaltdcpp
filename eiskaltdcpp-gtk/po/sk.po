@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-05-28 23:38+0300\n"
+"POT-Creation-Date: 2013-06-09 22:47+0300\n"
 "PO-Revision-Date: 2012-11-16 18:15+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,7 +43,7 @@ msgstr "Užívatelia"
 msgid " added to favorites list"
 msgstr "pridať do obľúbeného zoznamu"
 
-#: ../src/search.cc:1887
+#: ../src/search.cc:1921
 msgid " dropped"
 msgstr " dropped"
 
@@ -55,7 +55,7 @@ msgstr "prázdny..."
 msgid " files"
 msgstr "súbor"
 
-#: ../src/search.cc:1874
+#: ../src/search.cc:1908
 msgid " filtered"
 msgstr "filtrované"
 
@@ -83,7 +83,7 @@ msgstr "je obľúbený užívateľ"
 msgid " is not favorite user"
 msgstr "nie je obľúbený užívateľ"
 
-#: ../src/search.cc:632
+#: ../src/search.cc:654
 msgid " items"
 msgstr "položky"
 
@@ -103,7 +103,7 @@ msgstr "odstrániť z obľúbeného zoznamu"
 msgid " to "
 msgstr ""
 
-#: ../src/search.cc:672
+#: ../src/search.cc:694
 msgid " user(s)"
 msgstr "užívateľ(ia)"
 
@@ -165,11 +165,11 @@ msgstr ""
 msgid "0 Users"
 msgstr "0 Užívateľov"
 
-#: ../src/search.cc:543
+#: ../src/search.cc:558
 msgid "0 filtered"
 msgstr "0 filtrovaných"
 
-#: ../src/search.cc:542
+#: ../src/search.cc:557
 msgid "0 items"
 msgstr "0 položiek"
 
@@ -772,8 +772,8 @@ msgstr ""
 msgid "Browse the list of public hubs"
 msgstr ""
 
-#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:338
-#: ../src/search.cc:409 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
+#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:348
+#: ../src/search.cc:419 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
 #: ../ui/hub.ui:231 ../ui/settingsdialog.ui:2646 ../ui/settingsdialog.ui:2716
 #: ../ui/settingsdialog.ui:6688 ../ui/settingsdialog.ui:8001
 #: ../ui/settingsdialog.ui:8019 ../ui/settingsdialog.ui:8037
@@ -817,27 +817,27 @@ msgstr ""
 msgid "CMD Debug"
 msgstr ""
 
-#: ../src/WulforUtil.cc:212
+#: ../src/WulforUtil.cc:213
 msgid "CP1250"
 msgstr "CP1250"
 
-#: ../src/WulforUtil.cc:221
+#: ../src/WulforUtil.cc:222
 msgid "CP1251"
 msgstr "CP1251"
 
-#: ../src/WulforUtil.cc:211
+#: ../src/WulforUtil.cc:212
 msgid "CP1252"
 msgstr "CP1252"
 
-#: ../src/WulforUtil.cc:222
+#: ../src/WulforUtil.cc:223
 msgid "CP1256"
 msgstr "CP1256"
 
-#: ../src/WulforUtil.cc:223
+#: ../src/WulforUtil.cc:224
 msgid "CP1257"
 msgstr "CP1257"
 
-#: ../src/WulforUtil.cc:219
+#: ../src/WulforUtil.cc:220
 msgid "CP949"
 msgstr "CP949"
 
@@ -1039,8 +1039,8 @@ msgstr "Pripájam sa k"
 msgid "Connecting..."
 msgstr "Pripájanie"
 
-#: ../src/hub.cc:82 ../src/hub.cc:401 ../src/hub.cc:421 ../src/search.cc:97
-#: ../src/search.cc:613 ../src/search.cc:698 ../src/search.cc:831
+#: ../src/hub.cc:82 ../src/hub.cc:401 ../src/hub.cc:421 ../src/search.cc:105
+#: ../src/search.cc:635 ../src/search.cc:720 ../src/search.cc:853
 #: ../ui/settingsdialog.ui:1883 ../ui/settingsdialog.ui:2585
 msgid "Connection"
 msgstr "Spojenie"
@@ -1151,7 +1151,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:3660 ../src/settingsdialog.cc:3680
 #: ../src/settingsdialog.cc:3709 ../src/settingsdialog.cc:3723
 #: ../src/settingsdialog.cc:3778 ../src/sharebrowser.cc:330
-#: ../src/UserCommandMenu.cc:66 ../src/search.cc:877 ../src/search.cc:1684
+#: ../src/UserCommandMenu.cc:66 ../src/search.cc:899 ../src/search.cc:1706
 #: ../ui/settingsdialog.ui:6664
 msgid "Directory"
 msgstr "Priečinok"
@@ -1425,9 +1425,9 @@ msgstr ""
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
 #: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
 #: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:108
-#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:99
-#: ../src/search.cc:122 ../src/search.cc:615 ../src/search.cc:692
-#: ../src/search.cc:701
+#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:107
+#: ../src/search.cc:130 ../src/search.cc:637 ../src/search.cc:714
+#: ../src/search.cc:723
 msgid "Exact Size"
 msgstr "Veľkosť"
 
@@ -1569,11 +1569,11 @@ msgstr ""
 #: ../src/sharebrowser.cc:658 ../src/sharebrowser.cc:1025
 #: ../src/sharebrowser.cc:1059 ../src/finishedtransfers.cc:63
 #: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
-#: ../src/transfers.cc:715 ../src/search.cc:91 ../src/search.cc:124
-#: ../src/search.cc:353 ../src/search.cc:608 ../src/search.cc:649
-#: ../src/search.cc:654 ../src/search.cc:822 ../src/search.cc:870
-#: ../src/search.cc:880 ../src/search.cc:1192 ../src/search.cc:1231
-#: ../src/search.cc:1288 ../src/search.cc:1629 ../src/search.cc:1942
+#: ../src/transfers.cc:715 ../src/search.cc:99 ../src/search.cc:132
+#: ../src/search.cc:363 ../src/search.cc:630 ../src/search.cc:671
+#: ../src/search.cc:676 ../src/search.cc:844 ../src/search.cc:892
+#: ../src/search.cc:902 ../src/search.cc:1214 ../src/search.cc:1253
+#: ../src/search.cc:1310 ../src/search.cc:1651 ../src/search.cc:1976
 msgid "Filename"
 msgstr "Názov súboru "
 
@@ -1679,7 +1679,7 @@ msgstr ""
 msgid "Full tree does not match TTH root"
 msgstr "Full tree does not match TTH root"
 
-#: ../src/WulforUtil.cc:224
+#: ../src/WulforUtil.cc:225
 msgid "GB18030"
 msgstr "GB18030"
 
@@ -1789,8 +1789,8 @@ msgstr "Domovská stránka"
 #: ../src/settingsdialog.cc:3900 ../src/settingsdialog.cc:3991
 #: ../src/settingsdialog.cc:4014 ../src/settingsdialog.cc:4033
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
-#: ../src/search.cc:98 ../src/search.cc:614 ../src/search.cc:711
-#: ../src/search.cc:840
+#: ../src/search.cc:106 ../src/search.cc:636 ../src/search.cc:733
+#: ../src/search.cc:862
 msgid "Hub"
 msgstr "Hub"
 
@@ -1846,27 +1846,27 @@ msgstr ""
 msgid "Hungarian translation\n"
 msgstr ""
 
-#: ../src/transfers.cc:69 ../src/search.cc:100 ../src/search.cc:616
+#: ../src/transfers.cc:69 ../src/search.cc:108 ../src/search.cc:638
 msgid "IP"
 msgstr ""
 
-#: ../src/WulforUtil.cc:217
+#: ../src/WulforUtil.cc:218
 msgid "ISO-2022-JP"
 msgstr "ISO-2022-JP"
 
-#: ../src/WulforUtil.cc:213
+#: ../src/WulforUtil.cc:214
 msgid "ISO-8859-2"
 msgstr "ISO-8859-2"
 
-#: ../src/WulforUtil.cc:214
+#: ../src/WulforUtil.cc:215
 msgid "ISO-8859-7"
 msgstr "ISO-8859-7"
 
-#: ../src/WulforUtil.cc:215
+#: ../src/WulforUtil.cc:216
 msgid "ISO-8859-8"
 msgstr "ISO-8859-8"
 
-#: ../src/WulforUtil.cc:216
+#: ../src/WulforUtil.cc:217
 msgid "ISO-8859-9"
 msgstr "ISO-8859-9"
 
@@ -1957,7 +1957,7 @@ msgstr "Položky"
 msgid "Items: 0"
 msgstr "Položky: 0"
 
-#: ../src/WulforUtil.cc:220
+#: ../src/WulforUtil.cc:221
 msgid "KOI8-R"
 msgstr "KOI8-R"
 
@@ -2261,8 +2261,8 @@ msgstr "Pre_zývka:"
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
-#: ../src/publichubs.cc:295 ../src/search.cc:78 ../src/search.cc:241
-#: ../src/search.cc:257 ../ui/settingsdialog.ui:774
+#: ../src/publichubs.cc:295 ../src/search.cc:86 ../src/search.cc:251
+#: ../src/search.cc:267 ../ui/settingsdialog.ui:774
 msgid "Name"
 msgstr "Meno"
 
@@ -2303,8 +2303,8 @@ msgstr "Ďalší"
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:63
 #: ../src/favoriteusers.cc:64 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:376 ../src/favoriteusers.cc:429
-#: ../src/favoriteusers.cc:586 ../src/search.cc:92 ../src/search.cc:607
-#: ../src/search.cc:673 ../src/search.cc:707 ../src/search.cc:837
+#: ../src/favoriteusers.cc:586 ../src/search.cc:100 ../src/search.cc:629
+#: ../src/search.cc:695 ../src/search.cc:729 ../src/search.cc:859
 #: ../ui/settingsdialog.ui:1199
 msgid "Nick"
 msgstr "Prezývka"
@@ -2381,7 +2381,7 @@ msgstr "Oznamovať"
 msgid "Number of matches for the top"
 msgstr ""
 
-#: ../src/WulforUtil.cc:158
+#: ../src/WulforUtil.cc:159
 msgid "Offline"
 msgstr "Odpojený"
 
@@ -2475,11 +2475,11 @@ msgstr "Heslo"
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
 #: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:508
-#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:95
-#: ../src/search.cc:354 ../src/search.cc:611 ../src/search.cc:688
-#: ../src/search.cc:825 ../src/search.cc:879 ../src/search.cc:1191
-#: ../src/search.cc:1230 ../src/search.cc:1287 ../src/search.cc:1352
-#: ../src/search.cc:1386 ../src/search.cc:1943
+#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:103
+#: ../src/search.cc:364 ../src/search.cc:633 ../src/search.cc:710
+#: ../src/search.cc:847 ../src/search.cc:901 ../src/search.cc:1213
+#: ../src/search.cc:1252 ../src/search.cc:1309 ../src/search.cc:1374
+#: ../src/search.cc:1408 ../src/search.cc:1977
 msgid "Path"
 msgstr "Cesta"
 
@@ -2741,7 +2741,7 @@ msgstr ""
 msgid "Russian translation\n"
 msgstr ""
 
-#: ../src/WulforUtil.cc:218
+#: ../src/WulforUtil.cc:219
 msgid "SJIS"
 msgstr "SJIS"
 
@@ -2750,9 +2750,9 @@ msgid "Say a third person"
 msgstr "Hovorí"
 
 #: ../src/settingsdialog.cc:1124 ../src/settingsdialog.cc:1395
-#: ../src/settingsdialog.cc:1453 ../src/search.cc:40 ../src/search.cc:77
-#: ../src/search.cc:84 ../src/search.cc:240 ../src/search.cc:439
-#: ../src/search.cc:1074 ../src/search.cc:1075 ../src/search.cc:1921
+#: ../src/settingsdialog.cc:1453 ../src/search.cc:40 ../src/search.cc:85
+#: ../src/search.cc:92 ../src/search.cc:250 ../src/search.cc:454
+#: ../src/search.cc:1096 ../src/search.cc:1097 ../src/search.cc:1955
 #: ../ui/searchspy.ui:94 ../ui/searchspy.ui:401 ../ui/mainwindow.ui:1230
 #: ../ui/mainwindow.ui:2203 ../ui/mainwindow.ui:2481
 #: ../ui/settingsdialog.ui:8426
@@ -2813,7 +2813,7 @@ msgstr ""
 msgid "Search within local results"
 msgstr "Hľadať v rámci miestnych výsledkov"
 
-#: ../src/search.cc:541
+#: ../src/search.cc:1891
 msgid "Searching for "
 msgstr "Hľadanie"
 
@@ -2853,7 +2853,7 @@ msgstr ""
 msgid "Send unknown /commands to the hub"
 msgstr "Poslať neznáme /príkazy hubu"
 
-#: ../src/search.cc:546
+#: ../src/search.cc:564
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr ""
@@ -2997,9 +2997,9 @@ msgstr ""
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
 #: ../src/sharebrowser.cc:327 ../src/sharebrowser.cc:358
 #: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
-#: ../src/transfers.cc:729 ../src/search.cc:94 ../src/search.cc:121
-#: ../src/search.cc:610 ../src/search.cc:693 ../src/search.cc:702
-#: ../src/search.cc:828 ../ui/search.ui:318 ../ui/mainwindow.ui:118
+#: ../src/transfers.cc:729 ../src/search.cc:102 ../src/search.cc:129
+#: ../src/search.cc:632 ../src/search.cc:715 ../src/search.cc:724
+#: ../src/search.cc:850 ../ui/search.ui:318 ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Veľkosť"
 
@@ -3024,7 +3024,7 @@ msgstr "Slot udelený"
 msgid "Slot granted to "
 msgstr "Slot udelený"
 
-#: ../src/search.cc:96 ../src/search.cc:123 ../src/search.cc:609
+#: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:631
 msgid "Slots"
 msgstr "Sloty"
 
@@ -3112,7 +3112,7 @@ msgstr "Stav"
 msgid "Status message"
 msgstr "Správa o statuse"
 
-#: ../src/settingsdialog.cc:1043 ../src/WulforUtil.cc:41
+#: ../src/settingsdialog.cc:1043 ../src/WulforUtil.cc:42
 msgid "System default"
 msgstr "Štandartne nastavený systém"
 
@@ -3124,7 +3124,7 @@ msgstr ""
 msgid "System message"
 msgstr "Systémová správa"
 
-#: ../src/WulforUtil.cc:225
+#: ../src/WulforUtil.cc:226
 msgid "TIS-620"
 msgstr "TIS-620"
 
@@ -3133,10 +3133,10 @@ msgstr "TIS-620"
 #: ../src/downloadqueue.cc:757 ../src/sharebrowser.cc:87
 #: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:362
 #: ../src/sharebrowser.cc:567 ../src/sharebrowser.cc:1027
-#: ../src/sharebrowser.cc:1061 ../src/search.cc:101 ../src/search.cc:356
-#: ../src/search.cc:360 ../src/search.cc:366 ../src/search.cc:617
-#: ../src/search.cc:704 ../src/search.cc:834 ../src/search.cc:885
-#: ../src/search.cc:1153 ../src/search.cc:1318 ../src/search.cc:1631
+#: ../src/sharebrowser.cc:1061 ../src/search.cc:109 ../src/search.cc:366
+#: ../src/search.cc:370 ../src/search.cc:376 ../src/search.cc:639
+#: ../src/search.cc:726 ../src/search.cc:856 ../src/search.cc:907
+#: ../src/search.cc:1175 ../src/search.cc:1340 ../src/search.cc:1653
 #: ../ui/mainwindow.ui:132
 msgid "TTH"
 msgstr ""
@@ -3283,8 +3283,8 @@ msgid "Trusted certificates path"
 msgstr ""
 
 #: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:330
-#: ../src/sharebrowser.cc:351 ../src/search.cc:93 ../src/search.cc:612
-#: ../src/search.cc:716 ../src/search.cc:843 ../src/search.cc:877
+#: ../src/sharebrowser.cc:351 ../src/search.cc:101 ../src/search.cc:634
+#: ../src/search.cc:738 ../src/search.cc:865 ../src/search.cc:899
 msgid "Type"
 msgstr "Typ"
 
@@ -3292,7 +3292,7 @@ msgstr "Typ"
 msgid "URL"
 msgstr "URL"
 
-#: ../src/WulforUtil.cc:210
+#: ../src/WulforUtil.cc:211
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -3332,7 +3332,7 @@ msgid "Unfinished downloads directory"
 msgstr ""
 
 #: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
-#: ../src/WulforUtil.cc:317 ../src/WulforUtil.cc:319 ../src/mainwindow.cc:1074
+#: ../src/WulforUtil.cc:320 ../src/WulforUtil.cc:322 ../src/mainwindow.cc:1074
 #: ../src/mainwindow.cc:1464
 msgid "Unknown"
 msgstr "Neznámy"
