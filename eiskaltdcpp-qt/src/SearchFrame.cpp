@@ -89,9 +89,9 @@ public:
     int left_pane_old_size;
 
     QString target;
-    uint64_t searchStartTime = 0;
-    uint64_t searchEndTime = 1;
-    bool waitingResults = false;
+    uint64_t searchStartTime;
+    uint64_t searchEndTime;
+    bool waitingResults;
 };
 
 QVariant SearchStringListModel::data(const QModelIndex &index, int role) const{
@@ -376,6 +376,9 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
     d->completer = NULL;
     d->stop = false;
     d->arena_title = tr("Search");
+    d->searchStartTime = 0;
+    d->searchEndTime = 1;
+    d->waitingResults = false;
 
     setupUi(this);
 
