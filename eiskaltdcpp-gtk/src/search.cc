@@ -48,6 +48,7 @@ Search::Search():
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar3")),FALSE);
 #endif
 
+
     // Initialize the search entries combo box
     if (searchEntriesModel == NULL)
         searchEntriesModel = gtk_combo_box_get_model(GTK_COMBO_BOX(getWidget("comboboxentrySearch")));
@@ -197,6 +198,7 @@ Search::~Search()
 {
     ClientManager::getInstance()->removeListener(this);
     SearchManager::getInstance()->removeListener(this);
+    TimerManager::getInstance()->removeListener(this);
 
     gtk_widget_destroy(getWidget("dirChooserDialog"));
     g_object_unref(getWidget("mainMenu"));
@@ -207,6 +209,7 @@ void Search::show()
     initHubs_gui();
     ClientManager::getInstance()->addListener(this);
     SearchManager::getInstance()->addListener(this);
+    TimerManager::getInstance()->addListener(this);
 }
 
 void Search::putValue_gui(const string &str, int64_t size, SearchManager::SizeModes mode, SearchManager::TypeModes type)
@@ -425,9 +428,10 @@ void Search::setStatus_gui(string statusBar, string text)
     gtk_statusbar_push(GTK_STATUSBAR(getWidget(statusBar)), 0, text.c_str());
 }
 
-void Search::setProgress_gui(std::string progressBar, std::string text)
+void Search::setProgress_gui(const std::string& progressBar, const std::string& text, const float& fract)
 {
     gtk_progress_bar_set_text(GTK_PROGRESS_BAR(getWidget(progressBar)), text.c_str());
+    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget(progressBar)), fract);
 }
 
 void Search::search_gui()
@@ -545,16 +549,20 @@ void Search::search_gui()
 
     droppedResult = 0;
     searchHits = 0;
-    setProgress_gui("progressbar1", _("Searching for ") + text + " ...");
     setStatus_gui("statusbar2", _("0 items"));
     setStatus_gui("statusbar3", _("0 filtered"));
     setLabel_gui(text);
 
     dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());
-    SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);
+
+    searchStartTime = GET_TICK();
+    target = text;
 
     if (WGETB("clearsearch")) // Only clear if the search was sent.
         gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
+
+    searchEndTime = searchStartTime + SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts, (void*)this) + 5000;
+    waitingResults = true;
 
     if (gtk_widget_get_visible(getWidget("sidePanel")) && !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkDontHideSideOnSearch"))))
         gtk_widget_hide(getWidget("sidePanel"));
@@ -1864,6 +1872,18 @@ void Search::on(ClientManagerListener::ClientDisconnected, Client *client) noexc
         F1 *func = new F1(this, &Search::removeHub_gui, client->getHubUrl());
         WulforManager::get()->dispatchGuiFunc(func);
     }
+}
+
+void Search::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
+    if (waitingResults) {
+        float fraction  = 1.0f*(aTick - searchStartTime)/ (searchEndTime - searchStartTime);
+        if (fraction >= 1.0) {
+            fraction = 1.0;
+            waitingResults = false;
+        }
+        setProgress_gui("progressbar1", _("Searching for ") + target + " ...", fraction);
+    } else
+        setProgress_gui("progressbar1", "", 0.0);
 }
 
 void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept

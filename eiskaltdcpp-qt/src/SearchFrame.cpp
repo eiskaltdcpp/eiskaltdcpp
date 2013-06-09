@@ -87,6 +87,11 @@ public:
     bool isHash;
     bool stop;
     int left_pane_old_size;
+
+    QString target;
+    uint64_t searchEndTime;
+    uint64_t searchStartTime;
+    bool waitingResults;
 };
 
 QVariant SearchStringListModel::data(const QModelIndex &index, int role) const{
@@ -735,21 +740,8 @@ void SearchFrame::removeSource(const VarMap &params){
 
 }
 
-void SearchFrame::timerTick(){
-    //int32_t waitFor = SearchManager::getInstance()->timeToSearch();
+void SearchFrame::timerTick() {
 
-    //if (waitFor > 0){
-        //QString msg = tr("Searching too soon, next search in %1 second").arg(waitFor);
-
-        //progressBar->setFormat(msg);
-
-        //arena_title = tr("Search - %1").arg(msg);
-
-        //timer->start();
-    //}
-    //else {
-        //progressBar->setFormat(tr("Ready to search..."));
-    //}
 }
 
 void SearchFrame::onHubAdded(const QString &info){
@@ -1072,7 +1064,10 @@ void SearchFrame::slotStartSearch(){
         ftype = SearchManager::TYPE_ANY;
     }
 
-    SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype, searchMode, d->token.toStdString(), exts);
+    d->searchStartTime = GlobalTimer::getInstance()->getTicks()*1000;
+    d->target = s;
+    d->searchEndTime = d->searchStartTime + SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype, searchMode, d->token.toStdString(), exts, (void*)this)+ 5000;
+    d->waitingResults = true;
 
     if (!checkBox_HIDEPANEL->isChecked()){
         QList<int> panes = splitter->sizes();
@@ -1551,6 +1546,21 @@ void SearchFrame::slotHeaderMenu(const QPoint&){
 void SearchFrame::slotTimer(){
     Q_D(SearchFrame);
 
+    if (d->waitingResults) {
+        float fraction  = 100.0f*(GlobalTimer::getInstance()->getTicks()*1000 - d->searchStartTime)/ (d->searchEndTime - d->searchStartTime);
+        if (fraction >= 100.0) {
+            fraction = 100.0;
+            d->waitingResults = false;
+        }
+        QString msg = tr("Searching for %1").arg(d->target);
+        progressBar->setFormat(msg);
+        progressBar->setValue(static_cast<unsigned>(fraction));
+    } else {
+        QString msg = "";
+        progressBar->setFormat(msg);
+        progressBar->setValue(0);
+    }
+
     if (d->dropped == d->results && d->dropped == 0){
 
         if (d->currentSearch.empty())
@@ -1705,6 +1715,7 @@ void SearchFrame::on(ClientUpdated, Client* c) noexcept{
 void SearchFrame::on(ClientDisconnected, Client* c) noexcept{
     emit coreClientDisconnected((_q(c->getHubUrl())));
 }
+
 void SearchFrame::slotStopSearch(){
     Q_D(SearchFrame);
 

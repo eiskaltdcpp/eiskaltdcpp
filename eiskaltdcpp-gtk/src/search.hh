@@ -25,6 +25,7 @@
 #include <dcpp/ClientManager.h>
 #include <dcpp/SearchManager.h>
 #include <dcpp/SearchResult.h>
+#include <dcpp/TimerManager.h>
 #include "bookentry.hh"
 #include "treeview.hh"
 
@@ -33,7 +34,8 @@ class UserCommandMenu;
 class Search:
     public BookEntry,
     public dcpp::SearchManagerListener,
-    public dcpp::ClientManagerListener
+    public dcpp::ClientManagerListener,
+    public dcpp::TimerManagerListener
 {
     public:
         Search();
@@ -64,7 +66,7 @@ class Search:
         void removeHub_gui(std::string url);
         void popupMenu_gui();
         void setStatus_gui(std::string statusBar, std::string text);
-        void setProgress_gui(std::string progressBar, std::string text);
+        void setProgress_gui(const std::string& progressBar, const std::string& text, const float& fraction);
         void search_gui();
         void addResult_gui(const dcpp::SearchResultPtr result);
         void updateParentRow_gui(GtkTreeIter *parent, GtkTreeIter *child = NULL);
@@ -125,6 +127,8 @@ class Search:
         virtual void on(dcpp::ClientManagerListener::ClientUpdated, dcpp::Client *client) noexcept;
         virtual void on(dcpp::ClientManagerListener::ClientDisconnected, dcpp::Client *client) noexcept;
         virtual void on(dcpp::SearchManagerListener::SR, const dcpp::SearchResultPtr &result) noexcept;
+        virtual void on(dcpp::TimerManagerListener::Second, uint64_t aTick) noexcept;
+
 
         TreeView hubView, resultView;
         GtkListStore *hubStore;
@@ -140,6 +144,10 @@ class Search:
         int searchHits;
         bool isHash;
         bool onlyFree;
+        std::string target;
+        uint64_t searchEndTime;
+        uint64_t searchStartTime;
+        bool waitingResults;
         UserCommandMenu *userCommandMenu;
         GroupType previousGrouping;
         std::unordered_map<std::string, std::vector<dcpp::SearchResultPtr> > results;
