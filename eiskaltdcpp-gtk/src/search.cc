@@ -554,8 +554,8 @@ void Search::search_gui()
     gtk_widget_show_all(getWidget("statusbox"));
     droppedResult = 0;
     searchHits = 0;
-    setStatus_gui("statusbar2", _("0 items"));
-    setStatus_gui("statusbar3", _("0 filtered"));
+    setStatus_gui("statusbar2", _("Found: 0"));
+    setStatus_gui("statusbar3", _("Filtered: 0"));
     setLabel_gui(text);
 
     searchStartTime = GET_TICK();
@@ -651,7 +651,7 @@ void Search::addResult_gui(const SearchResultPtr result)
         updateParentRow_gui(&parent, &iter);
 
     ++searchHits;
-    setStatus_gui("statusbar2", Util::toString(searchHits) + _(" items"));
+    setStatus_gui("statusbar2", _("Found: ") + Util::toString(searchHits));
 
     if (WGETB("bold-search"))
         setBold_gui();
@@ -1905,7 +1905,7 @@ void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexce
         if (result->getType() != SearchResult::TYPE_FILE || TTHValue(searchlist[0]) != result->getTTH())
         {
             ++droppedResult;
-            F2 *func = new F2(this, &Search::setStatus_gui, "statusbar3", Util::toString(droppedResult) + _(" filtered"));
+            F2 *func = new F2(this, &Search::setStatus_gui, "statusbar3", _("Filtered: ") + Util::toString(droppedResult));
             WulforManager::get()->dispatchGuiFunc(func);
             return;
         }
@@ -1918,7 +1918,7 @@ void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexce
                 (*i->begin() == '-' && i->size() != 1 && Util::findSubString(result->getFile(), i->substr(1)) != (string::size_type)-1))
             {
                 ++droppedResult;
-                F2 *func = new F2(this, &Search::setStatus_gui, "statusbar3", Util::toString(droppedResult) + _(" dropped"));
+                F2 *func = new F2(this, &Search::setStatus_gui, "statusbar3", _("Dropped: ") + Util::toString(droppedResult));
                 WulforManager::get()->dispatchGuiFunc(func);
                 return;
             }
