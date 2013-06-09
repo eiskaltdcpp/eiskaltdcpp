@@ -80,16 +80,14 @@ namespace Json
         memset(&callbacks, 0, sizeof(callbacks));
         callbacks.begin_request = begin_request_handler;
         ctx = mg_start(&callbacks, this, options);
-        if(ctx != NULL) {
-            return true;
-        } else {
+        if(!ctx)
             return false;
-        }
+        return true;
     }
 
     bool HTTPServer::stopPolling()
     {
-        if(ctx != NULL)
+        if(ctx)
             mg_stop(ctx);
         return true;
     }

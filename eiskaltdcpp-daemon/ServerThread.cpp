@@ -285,7 +285,7 @@ void ServerThread::disconnectClient(const string& address) {
 }
 
 void ServerThread::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
-    //int64_t diff = (int64_t)((lastUpdate == 0) ? aTick - 1000 : aTick - lastUpdate);
+
     int64_t upDiff = Socket::getTotalUp() - lastUp;
     int64_t downDiff = Socket::getTotalDown() - lastDown;
 

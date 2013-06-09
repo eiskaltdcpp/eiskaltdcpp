@@ -428,7 +428,7 @@ void Search::setStatus_gui(string statusBar, string text)
     gtk_statusbar_push(GTK_STATUSBAR(getWidget(statusBar)), 0, text.c_str());
 }
 
-void Search::setProgress_gui(const std::string& progressBar, const std::string& text, const float& fract)
+void Search::setProgress_gui(const std::string& progressBar, const std::string& text, float fract)
 {
     gtk_progress_bar_set_text(GTK_PROGRESS_BAR(getWidget(progressBar)), text.c_str());
     gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget(progressBar)), fract);
@@ -440,7 +440,6 @@ void Search::search_gui()
     GtkTreeIter iter;
 
     string text = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxentrySearch")));
-    //gtk_entry_get_text(GTK_ENTRY(searchEntry));
     if (text.empty())
         return;
 
