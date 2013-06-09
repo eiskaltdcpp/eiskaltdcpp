@@ -1038,6 +1038,8 @@ void NmdcHub::on(Line, const string& aLine) noexcept {
     if (onClientMessage(this, validateMessage(aLine, true)))
         return;
 #endif
+    if (BOOLSETTING(NMDC_DEBUG))
+        fire(ClientListener::StatusMessage(), this, "<NMDC>" + aLine + "</NMDC>");
     Client::on(Line(), aLine);
     onLine(aLine);
 }

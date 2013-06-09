@@ -95,7 +95,7 @@ const string SettingsManager::settingTags[] =
     "ShowFreeSlotsDesc", "UseIP", "OverLapChunks", "CaseSensitiveFilelist",
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
-    "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart",
+    "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
