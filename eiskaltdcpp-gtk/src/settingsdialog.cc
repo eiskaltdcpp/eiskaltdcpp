@@ -1514,6 +1514,7 @@ void Settings::initAppearance_gui()
         addOption_gui(windowStore2, _("Ignore private messages from the hub"), SettingsManager::IGNORE_HUB_PMS);
         addOption_gui(windowStore2, _("Ignore private messages from bots"), SettingsManager::IGNORE_BOT_PMS);
         addOption_gui(windowStore2, _("Popup box to input password for hubs"), SettingsManager::PROMPT_PASSWORD);
+        addOption_gui(windowStore2, _("Show nicklist in hub frame on the left side"), "hub-nickview-left");
 
         // Confirmation dialog
         createOptionsView_gui(windowView3, windowStore3, "windowsConfirmTreeView");

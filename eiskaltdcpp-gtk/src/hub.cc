@@ -73,6 +73,14 @@ Hub::Hub(const string &address, const string &encoding):
     // Configure the dialog
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("userListCheckButton")), TRUE);
 
+    if (WGETB("hub-nickview-left")) {
+        gtk_container_remove (GTK_CONTAINER(getWidget("pane")), getWidget("chatScroll"));
+        gtk_container_remove (GTK_CONTAINER(getWidget("pane")), getWidget("scrollnickView"));
+        gtk_paned_pack1 (GTK_PANED (getWidget("pane")), getWidget("scrollnickView"), FALSE, TRUE);
+        gtk_paned_pack2 (GTK_PANED (getWidget("pane")), getWidget("chatScroll"), TRUE, TRUE);
+    }
+
+
     // Initialize nick treeview
     nickView.setView(GTK_TREE_VIEW(getWidget("nickView")), true, "hub");
     nickView.insertColumn(_("Nick"), G_TYPE_STRING, TreeView::ICON_STRING_TEXT_COLOR, 100, "Icon", "NickColor");
