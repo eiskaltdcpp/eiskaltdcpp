@@ -44,7 +44,7 @@ public:
         Lock l(listenerCS);
         tmp = listeners;
         for(auto i = tmp.begin(); i != tmp.end(); ++i) {
-            (*i)->on(forward<T>(type)...);
+            (*i)->on(std::forward<T>(type)...);
         }
     }
 
