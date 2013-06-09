@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-10 01:02+0300\n"
+"POT-Creation-Date: 2013-06-10 01:43+0300\n"
 "PO-Revision-Date: 2013-05-01 12:16+0000\n"
 "Last-Translator: Jackl <be.w@mail.ru>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -46,10 +46,6 @@ msgstr " Benutzer"
 msgid " added to favorites list"
 msgstr " zur Favoritenliste hinzugefügt"
 
-#: ../src/search.cc:1921
-msgid " dropped"
-msgstr " verworfen"
-
 #: ../src/hub.cc:1947
 msgid " empty..."
 msgstr " leer …"
@@ -57,10 +53,6 @@ msgstr " leer …"
 #: ../src/sharebrowser.cc:1111 ../src/finishedtransfers.cc:265
 msgid " files"
 msgstr " Dateien"
-
-#: ../src/search.cc:1908
-msgid " filtered"
-msgstr " gefiltert"
 
 #: ../src/hub.cc:444 ../src/hub.cc:455
 msgid " has joined"
@@ -85,10 +77,6 @@ msgstr " ist favorisierter Benutzer"
 #: ../src/privatemessage.cc:1412 ../src/hub.cc:1938 ../src/hub.cc:2760
 msgid " is not favorite user"
 msgstr " ist kein favorisierter Benutzer"
-
-#: ../src/search.cc:654
-msgid " items"
-msgstr " Elemente"
 
 #: ../src/hashdialog.cc:64 ../src/hashdialog.cc:73 ../src/hashdialog.cc:82
 msgid " left"
@@ -175,14 +163,6 @@ msgstr "0 B (0.00%)"
 #: ../src/hub.cc:525
 msgid "0 Users"
 msgstr "0 Benutzer"
-
-#: ../src/search.cc:558
-msgid "0 filtered"
-msgstr "0 gefiltert"
-
-#: ../src/search.cc:557
-msgid "0 items"
-msgstr "0 Elemente"
 
 #: ../src/privatemessage.cc:1038
 msgid ": type /help for a list of available commands"
@@ -1349,6 +1329,11 @@ msgstr "Downloads"
 msgid "Drop sources below"
 msgstr "Quellen unterhalb verwerfen"
 
+#: ../src/search.cc:1921
+#, fuzzy
+msgid "Dropped: "
+msgstr " verworfen"
+
 #: ../ui/settingsdialog.ui:2440
 msgid "DynDNS Address"
 msgstr "DynDNS-Adresse"
@@ -1622,6 +1607,16 @@ msgstr "Dateien filtern, die bereits in der Freigabe sind"
 msgid "Filter kick and NMDC debug messages"
 msgstr "Filterhinauswurf und NMDC-Debug-Nachrichten"
 
+#: ../src/search.cc:1908
+#, fuzzy
+msgid "Filtered: "
+msgstr " gefiltert"
+
+#: ../src/search.cc:558
+#, fuzzy
+msgid "Filtered: 0"
+msgstr " gefiltert"
+
 #: ../ui/sharebrowser.ui:433
 msgid "Find"
 msgstr "Finden"
@@ -1673,6 +1668,10 @@ msgstr "Format"
 #: ../src/sharebrowser.cc:680 ../src/sharebrowser.cc:723
 msgid "Found a match"
 msgstr "Eine Übereinstimmung gefunden"
+
+#: ../src/search.cc:557 ../src/search.cc:654
+msgid "Found: 0"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:6448
 msgid "Frame (size)"
@@ -4032,6 +4031,15 @@ msgstr "Kopfende/warten/Frame:"
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "Warten …"
+
+#~ msgid " items"
+#~ msgstr " Elemente"
+
+#~ msgid "0 filtered"
+#~ msgstr "0 gefiltert"
+
+#~ msgid "0 items"
+#~ msgstr "0 Elemente"
 
 #~ msgid "%) from "
 #~ msgstr "%) from "

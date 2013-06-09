@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-10 01:02+0300\n"
+"POT-Creation-Date: 2013-06-10 01:43+0300\n"
 "PO-Revision-Date: 2013-04-23 11:19+0000\n"
 "Last-Translator: miroslav <miroslav031@yandex.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/"
@@ -47,10 +47,6 @@ msgstr "Коrisnici"
 msgid " added to favorites list"
 msgstr "Dodat na listu omiljenih"
 
-#: ../src/search.cc:1921
-msgid " dropped"
-msgstr "pao"
-
 #: ../src/hub.cc:1947
 msgid " empty..."
 msgstr "prazan ..."
@@ -58,10 +54,6 @@ msgstr "prazan ..."
 #: ../src/sharebrowser.cc:1111 ../src/finishedtransfers.cc:265
 msgid " files"
 msgstr "fajlovi"
-
-#: ../src/search.cc:1908
-msgid " filtered"
-msgstr "filtriran"
 
 #: ../src/hub.cc:444 ../src/hub.cc:455
 msgid " has joined"
@@ -86,10 +78,6 @@ msgstr "је omiljeni korisnik"
 #: ../src/privatemessage.cc:1412 ../src/hub.cc:1938 ../src/hub.cc:2760
 msgid " is not favorite user"
 msgstr "nije omiljeni korisnik"
-
-#: ../src/search.cc:654
-msgid " items"
-msgstr "stavke"
 
 #: ../src/hashdialog.cc:64 ../src/hashdialog.cc:73 ../src/hashdialog.cc:82
 msgid " left"
@@ -176,14 +164,6 @@ msgstr "0 B (0.00%)"
 #: ../src/hub.cc:525
 msgid "0 Users"
 msgstr "0 Korisnika"
-
-#: ../src/search.cc:558
-msgid "0 filtered"
-msgstr "0 filtrirano"
-
-#: ../src/search.cc:557
-msgid "0 items"
-msgstr "0 stavki"
 
 #: ../src/privatemessage.cc:1038
 msgid ": type /help for a list of available commands"
@@ -1341,6 +1321,11 @@ msgstr "Preuzimanje"
 msgid "Drop sources below"
 msgstr "Pad izvora ispod"
 
+#: ../src/search.cc:1921
+#, fuzzy
+msgid "Dropped: "
+msgstr "pao"
+
 #: ../ui/settingsdialog.ui:2440
 msgid "DynDNS Address"
 msgstr "Adresa"
@@ -1614,6 +1599,16 @@ msgstr "Ne preuzimaj već deljene fajlove"
 msgid "Filter kick and NMDC debug messages"
 msgstr "Filter NMDC debug poruke"
 
+#: ../src/search.cc:1908
+#, fuzzy
+msgid "Filtered: "
+msgstr "filtriran"
+
+#: ../src/search.cc:558
+#, fuzzy
+msgid "Filtered: 0"
+msgstr "filtriran"
+
 #: ../ui/sharebrowser.ui:433
 msgid "Find"
 msgstr "Naći"
@@ -1665,6 +1660,10 @@ msgstr "Normalan"
 #: ../src/sharebrowser.cc:680 ../src/sharebrowser.cc:723
 msgid "Found a match"
 msgstr "Pronadjen odgovor"
+
+#: ../src/search.cc:557 ../src/search.cc:654
+msgid "Found: 0"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:6448
 msgid "Frame (size)"
@@ -4019,6 +4018,15 @@ msgstr "top/čekanje/okvir: "
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "čekanje ..."
+
+#~ msgid " items"
+#~ msgstr "stavke"
+
+#~ msgid "0 filtered"
+#~ msgstr "0 filtrirano"
+
+#~ msgid "0 items"
+#~ msgstr "0 stavki"
 
 #~ msgid "%) from "
 #~ msgstr "%) from "

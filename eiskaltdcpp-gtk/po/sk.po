@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-10 01:02+0300\n"
+"POT-Creation-Date: 2013-06-10 01:43+0300\n"
 "PO-Revision-Date: 2012-11-16 18:15+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,10 +43,6 @@ msgstr "Užívatelia"
 msgid " added to favorites list"
 msgstr "pridať do obľúbeného zoznamu"
 
-#: ../src/search.cc:1921
-msgid " dropped"
-msgstr " dropped"
-
 #: ../src/hub.cc:1947
 msgid " empty..."
 msgstr "prázdny..."
@@ -54,10 +50,6 @@ msgstr "prázdny..."
 #: ../src/sharebrowser.cc:1111 ../src/finishedtransfers.cc:265
 msgid " files"
 msgstr "súbor"
-
-#: ../src/search.cc:1908
-msgid " filtered"
-msgstr "filtrované"
 
 #: ../src/hub.cc:444 ../src/hub.cc:455
 msgid " has joined"
@@ -82,10 +74,6 @@ msgstr "je obľúbený užívateľ"
 #: ../src/privatemessage.cc:1412 ../src/hub.cc:1938 ../src/hub.cc:2760
 msgid " is not favorite user"
 msgstr "nie je obľúbený užívateľ"
-
-#: ../src/search.cc:654
-msgid " items"
-msgstr "položky"
 
 #: ../src/hashdialog.cc:64 ../src/hashdialog.cc:73 ../src/hashdialog.cc:82
 msgid " left"
@@ -164,14 +152,6 @@ msgstr ""
 #: ../src/hub.cc:525
 msgid "0 Users"
 msgstr "0 Užívateľov"
-
-#: ../src/search.cc:558
-msgid "0 filtered"
-msgstr "0 filtrovaných"
-
-#: ../src/search.cc:557
-msgid "0 items"
-msgstr "0 položiek"
 
 #: ../src/privatemessage.cc:1038
 msgid ": type /help for a list of available commands"
@@ -1324,6 +1304,11 @@ msgstr ""
 msgid "Drop sources below"
 msgstr ""
 
+#: ../src/search.cc:1921
+#, fuzzy
+msgid "Dropped: "
+msgstr " dropped"
+
 #: ../ui/settingsdialog.ui:2440
 msgid "DynDNS Address"
 msgstr ""
@@ -1597,6 +1582,16 @@ msgstr "Filtrovať súbory, ktoré sú zdieľané"
 msgid "Filter kick and NMDC debug messages"
 msgstr ""
 
+#: ../src/search.cc:1908
+#, fuzzy
+msgid "Filtered: "
+msgstr "filtrované"
+
+#: ../src/search.cc:558
+#, fuzzy
+msgid "Filtered: 0"
+msgstr "filtrované"
+
 #: ../ui/sharebrowser.ui:433
 msgid "Find"
 msgstr "Nájsť"
@@ -1648,6 +1643,10 @@ msgstr ""
 #: ../src/sharebrowser.cc:680 ../src/sharebrowser.cc:723
 msgid "Found a match"
 msgstr "Zhoda nájdená"
+
+#: ../src/search.cc:557 ../src/search.cc:654
+msgid "Found: 0"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:6448
 msgid "Frame (size)"
@@ -3979,6 +3978,15 @@ msgstr ""
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "vyčkávanie"
+
+#~ msgid " items"
+#~ msgstr "položky"
+
+#~ msgid "0 filtered"
+#~ msgstr "0 filtrovaných"
+
+#~ msgid "0 items"
+#~ msgstr "0 položiek"
 
 #~ msgid "%) from "
 #~ msgstr "%) from "

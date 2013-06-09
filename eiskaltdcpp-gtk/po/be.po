@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-10 01:02+0300\n"
+"POT-Creation-Date: 2013-06-10 01:43+0300\n"
 "PO-Revision-Date: 2013-02-06 09:59+0000\n"
 "Last-Translator: Павал Шаламіцкі <yehekim@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -46,10 +46,6 @@ msgstr " Карыстальнікі"
 msgid " added to favorites list"
 msgstr " дадалі да сьпісу ўлюбёнцаў"
 
-#: ../src/search.cc:1921
-msgid " dropped"
-msgstr " адкінулі"
-
 #: ../src/hub.cc:1947
 msgid " empty..."
 msgstr " парожні…"
@@ -57,10 +53,6 @@ msgstr " парожні…"
 #: ../src/sharebrowser.cc:1111 ../src/finishedtransfers.cc:265
 msgid " files"
 msgstr " файлаў"
-
-#: ../src/search.cc:1908
-msgid " filtered"
-msgstr " прасеялі"
 
 #: ../src/hub.cc:444 ../src/hub.cc:455
 msgid " has joined"
@@ -85,10 +77,6 @@ msgstr " — улюбёнец"
 #: ../src/privatemessage.cc:1412 ../src/hub.cc:1938 ../src/hub.cc:2760
 msgid " is not favorite user"
 msgstr " — не ўлюбёнец"
-
-#: ../src/search.cc:654
-msgid " items"
-msgstr " пунктаў"
 
 #: ../src/hashdialog.cc:64 ../src/hashdialog.cc:73 ../src/hashdialog.cc:82
 msgid " left"
@@ -175,14 +163,6 @@ msgstr "0 Б (0.00%)"
 #: ../src/hub.cc:525
 msgid "0 Users"
 msgstr "0 Карыстальнікі"
-
-#: ../src/search.cc:558
-msgid "0 filtered"
-msgstr "0 прасеяных"
-
-#: ../src/search.cc:557
-msgid "0 items"
-msgstr "0 пунктаў"
 
 #: ../src/privatemessage.cc:1038
 msgid ": type /help for a list of available commands"
@@ -1341,6 +1321,11 @@ msgstr "Сьцягванае"
 msgid "Drop sources below"
 msgstr "Адкідаць павольнейшыя за"
 
+#: ../src/search.cc:1921
+#, fuzzy
+msgid "Dropped: "
+msgstr " адкінулі"
+
 #: ../ui/settingsdialog.ui:2440
 msgid "DynDNS Address"
 msgstr "Адрас DynDNS:"
@@ -1614,6 +1599,16 @@ msgstr "Прасейваць файлы, што ўжо маюцца ў абаг�
 msgid "Filter kick and NMDC debug messages"
 msgstr "Не паказваць паведамленьні наладкі (і як даюць высьпятка таксама)"
 
+#: ../src/search.cc:1908
+#, fuzzy
+msgid "Filtered: "
+msgstr " прасеялі"
+
+#: ../src/search.cc:558
+#, fuzzy
+msgid "Filtered: 0"
+msgstr " прасеялі"
+
 #: ../ui/sharebrowser.ui:433
 msgid "Find"
 msgstr "Шукаць"
@@ -1665,6 +1660,10 @@ msgstr "Выгляд"
 #: ../src/sharebrowser.cc:680 ../src/sharebrowser.cc:723
 msgid "Found a match"
 msgstr "Знайшлі супадзеньне"
+
+#: ../src/search.cc:557 ../src/search.cc:654
+msgid "Found: 0"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:6448
 msgid "Frame (size)"
@@ -4018,6 +4017,15 @@ msgstr "найлепшыя/чакаюць/бачныя: "
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "чакаем…"
+
+#~ msgid " items"
+#~ msgstr " пунктаў"
+
+#~ msgid "0 filtered"
+#~ msgstr "0 прасеяных"
+
+#~ msgid "0 items"
+#~ msgstr "0 пунктаў"
 
 #~ msgid "%) from "
 #~ msgstr "%) from "
