@@ -124,17 +124,12 @@ int SearchManager::run() {
 
     while(!stop) {
         try {
-            while( true ) {
-                // Patch from FlylinkDC++, see:
-                // http://code.google.com/p/flylinkdc/source/detail?r=6132
-                // http://bazaar.launchpad.net/~dcplusplus-team/dcplusplus/trunk/revision/2414
-                // .
-                // @todo: remove this workaround for http://bugs.winehq.org/show_bug.cgi?id=22291
-                // if that's fixed by reverting to simpler while (read(...) > 0) {...} code.
-                while (socket->wait(400, Socket::WAIT_READ) != Socket::WAIT_READ);
-                if (stop || (len = socket->read(&buf[0], BUFSIZE, remoteAddr)) <= 0)
-                    break;
+            if(socket->wait(400, Socket::WAIT_READ) != Socket::WAIT_READ) {
+                continue;
+            }
+            if ((len = socket->read(&buf[0], BUFSIZE, remoteAddr)) > 0) {
                 onData(&buf[0], len, inet_ntoa(remoteAddr.sin_addr));
+                continue;
             }
         } catch(const SocketException& e) {
             dcdebug("SearchManager::run Error: %s\n", e.getError().c_str());
