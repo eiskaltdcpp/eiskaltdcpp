@@ -541,6 +541,10 @@ int Socket::wait(uint32_t millis, int waitFor) {
         } while (result < 0 && getLastError() == EINTR);
         check(result);
 
+        // fix buffer overflow during shutdown
+        if(sock == INVALID_SOCKET)
+            return 0;
+
         if(FD_ISSET(sock, &wfd)) {
             return WAIT_CONNECT;
         }
