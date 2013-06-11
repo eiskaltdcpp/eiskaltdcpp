@@ -543,7 +543,7 @@ int Socket::wait(uint32_t millis, int waitFor) {
 
         // fix buffer overflow during shutdown
         if(sock == INVALID_SOCKET)
-            return 0;
+            return WAIT_NONE;
 
         if(FD_ISSET(sock, &wfd)) {
             return WAIT_CONNECT;
@@ -559,7 +559,7 @@ int Socket::wait(uint32_t millis, int waitFor) {
             // No errors! We're connected (?)...
             return WAIT_CONNECT;
         }
-        return 0;
+        return WAIT_NONE;
     }
 
     int result;
@@ -585,7 +585,7 @@ int Socket::wait(uint32_t millis, int waitFor) {
 
     // fix buffer overflow during shutdown
     if(sock == INVALID_SOCKET)
-        return 0;
+        return WAIT_NONE;
 
     if(rfdp && FD_ISSET(sock, rfdp)) {
         waitFor |= WAIT_READ;
