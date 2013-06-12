@@ -244,8 +244,13 @@ void EmoticonsDialog::build()
     GtkWidget *frame = gtk_frame_new(NULL);
     gtk_container_add(GTK_CONTAINER(dialog), frame);
     gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_ETCHED_OUT);
-
+#if GTK_CHECK_VERSION(3,4,0)
+    GtkWidget *table = gtk_grid_new();
+    gtk_grid_set_row_homogeneous(GTK_GRID(table), TRUE);
+    gtk_grid_set_column_homogeneous(GTK_GRID(table), TRUE);
+#else
     GtkWidget *table = gtk_table_new(rows, columns, TRUE);
+#endif
     gtk_container_add(GTK_CONTAINER(frame), table);
 
     gtk_widget_show(frame);
@@ -279,7 +284,11 @@ void EmoticonsDialog::build()
             gtk_button_set_relief(GTK_BUTTON(icon), GTK_RELIEF_NONE);
             gtk_widget_show(icon);
 
+#if GTK_CHECK_VERSION(3,4,0)
+            gtk_grid_attach(GTK_GRID(table), icon, left_attach, top_attach, 1, 1 /*right_attach, bottom_attach*/);
+#else
             gtk_table_attach_defaults(GTK_TABLE(table), icon, left_attach, right_attach, top_attach, bottom_attach);
+#endif
 
             gtk_widget_set_tooltip_text(icon, name);
             g_object_set_data_full(G_OBJECT(icon), "text", g_strdup(name), g_free);

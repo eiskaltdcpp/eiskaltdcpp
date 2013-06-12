@@ -436,26 +436,38 @@ void Settings::saveSettings_client()
         }
 
         { // Search Spy
-            GdkColor color;
 
-            gtk_color_button_get_color(GTK_COLOR_BUTTON(getWidget("aSPColorButton")), &color);
+#if GTK_CHECK_VERSION(3,4,0)
+GdkRGBA color;
+#define g_c_b_g gtk_color_chooser_get_rgba
+#define G_C_B GTK_COLOR_CHOOSER
+#else
+GdkColor color;
+#define g_c_b_g gtk_color_button_get_color
+#define G_C_B GTK_COLOR_BUTTON
+#endif
+            g_c_b_g(G_C_B(getWidget("aSPColorButton")), &color);
             WSET("search-spy-a-color", WulforUtil::colorToString(&color));
 
-            gtk_color_button_get_color(GTK_COLOR_BUTTON(getWidget("tSPColorButton")), &color);
+            g_c_b_g(G_C_B(getWidget("tSPColorButton")), &color);
             WSET("search-spy-t-color", WulforUtil::colorToString(&color));
 
-            gtk_color_button_get_color(GTK_COLOR_BUTTON(getWidget("qSPColorButton")), &color);
+            g_c_b_g(G_C_B(getWidget("qSPColorButton")), &color);
             WSET("search-spy-q-color", WulforUtil::colorToString(&color));
 
-            gtk_color_button_get_color(GTK_COLOR_BUTTON(getWidget("cSPColorButton")), &color);
+            g_c_b_g(G_C_B(getWidget("cSPColorButton")), &color);
             WSET("search-spy-c-color", WulforUtil::colorToString(&color));
 
-            gtk_color_button_get_color(GTK_COLOR_BUTTON(getWidget("rSPColorButton")), &color);
+            g_c_b_g(G_C_B(getWidget("rSPColorButton")), &color);
             WSET("search-spy-r-color", WulforUtil::colorToString(&color));
 
             WSET("search-spy-frame", (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("frameSPSpinButton"))));
             WSET("search-spy-waiting", (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("waitingSPSpinButton"))));
             WSET("search-spy-top", (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("topSPSpinButton"))));
+
+#undef g_c_b_g
+#undef G_C_B
+
         }
 
         { // Window
@@ -1241,7 +1253,14 @@ void Settings::initAppearance_gui()
         int italic = wsm->getInt("text-timestamp-italic");
 
         GtkTextTag *tag = NULL;
-        GtkTextTag *tagTimeStamp = gtk_text_buffer_create_tag(textStyleBuffer, _("Timestamp"),
+        GtkTextTag *tagTimeStamp =
+        WGETB("use-native-back-color-for-text") ?
+        gtk_text_buffer_create_tag(textStyleBuffer, _("Timestamp"),
+            "foreground", fore.c_str(),
+            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+            NULL) :
+        gtk_text_buffer_create_tag(textStyleBuffer, _("Timestamp"),
             "background", back.c_str(),
             "foreground", fore.c_str(),
             "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
@@ -1270,7 +1289,14 @@ void Settings::initAppearance_gui()
             gtk_text_iter_backward_chars(&textStartIter, st_strlen + 1);
 
             if (row_count != 6)
-                tag = gtk_text_buffer_create_tag(textStyleBuffer, style.c_str(),
+                tag =
+                WGETB("use-native-back-color-for-text") ?
+                gtk_text_buffer_create_tag(textStyleBuffer, style.c_str(),
+                    "foreground", fore.c_str(),
+                    "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                    "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                    NULL) :
+                gtk_text_buffer_create_tag(textStyleBuffer, style.c_str(),
                     "background", back.c_str(),
                     "foreground", fore.c_str(),
                     "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
@@ -1467,22 +1493,33 @@ void Settings::initAppearance_gui()
     }
 
     { // Search Spy
-        GdkColor color;
 
-        if (gdk_color_parse(wsm->getString("search-spy-a-color").c_str(), &color))
-            gtk_color_button_set_color(GTK_COLOR_BUTTON(getWidget("aSPColorButton")), &color);
+#if GTK_CHECK_VERSION(3,4,0)
+GdkRGBA color;
+#define g_c_b_s gtk_color_chooser_get_rgba
+#define G_C_B GTK_COLOR_CHOOSER
+#define g_c_p(a,b) gdk_rgba_parse(b,a)
+#else
+GdkColor color;
+#define g_c_b_s gtk_color_button_get_color
+#define G_C_B GTK_COLOR_BUTTON
+#define g_c_p(a,b) gdk_color_parse(a,b)
+#endif
 
-        if (gdk_color_parse(wsm->getString("search-spy-t-color").c_str(), &color))
-            gtk_color_button_set_color(GTK_COLOR_BUTTON(getWidget("tSPColorButton")), &color);
+        if (g_c_p(wsm->getString("search-spy-a-color").c_str(), &color))
+            g_c_b_s(G_C_B(getWidget("aSPColorButton")), &color);
 
-        if (gdk_color_parse(wsm->getString("search-spy-q-color").c_str(), &color))
-            gtk_color_button_set_color(GTK_COLOR_BUTTON(getWidget("qSPColorButton")), &color);
+        if (g_c_p(wsm->getString("search-spy-t-color").c_str(), &color))
+            g_c_b_s(G_C_B(getWidget("tSPColorButton")), &color);
 
-        if (gdk_color_parse(wsm->getString("search-spy-c-color").c_str(), &color))
-            gtk_color_button_set_color(GTK_COLOR_BUTTON(getWidget("cSPColorButton")), &color);
+        if (g_c_p(wsm->getString("search-spy-q-color").c_str(), &color))
+            g_c_b_s(G_C_B(getWidget("qSPColorButton")), &color);
 
-        if (gdk_color_parse(wsm->getString("search-spy-r-color").c_str(), &color))
-            gtk_color_button_set_color(GTK_COLOR_BUTTON(getWidget("rSPColorButton")), &color);
+        if (g_c_p(wsm->getString("search-spy-c-color").c_str(), &color))
+            g_c_b_s(G_C_B(getWidget("cSPColorButton")), &color);
+
+        if (g_c_p(wsm->getString("search-spy-r-color").c_str(), &color))
+            g_c_b_s(G_C_B(getWidget("rSPColorButton")), &color);
 
         gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("frameSPSpinButton")), (double)WGETI("search-spy-frame"));
         gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("waitingSPSpinButton")), (double)WGETI("search-spy-waiting"));
@@ -1490,6 +1527,11 @@ void Settings::initAppearance_gui()
 
         g_signal_connect(getWidget("defaultColorsSPButton"), "clicked", G_CALLBACK(onDefaultColorsSPButton_gui), (gpointer)this);
         g_signal_connect(getWidget("defaultFrameSPButton"), "clicked", G_CALLBACK(onDefaultFrameSPButton_gui), (gpointer)this);
+
+#undef g_c_b_s
+#undef G_C_B
+#undef g_c_p
+
     }
 
     { // Window
@@ -2492,23 +2534,39 @@ void Settings::onDefaultColorsSPButton_gui(GtkWidget *widget, gpointer data)
 {
     Settings *s = (Settings *)data;
 
-    GdkColor color;
+#if GTK_CHECK_VERSION(3,4,0)
+GdkRGBA color;
+#define g_c_b_s gtk_color_chooser_get_rgba
+#define G_C_B GTK_COLOR_CHOOSER
+#define g_c_p(a,b) gdk_rgba_parse(b,a)
+#else
+GdkColor color;
+#define g_c_b_s gtk_color_button_get_color
+#define G_C_B GTK_COLOR_BUTTON
+#define g_c_p(a,b) gdk_color_parse(a,b)
+#endif
+
     WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
 
-    if (gdk_color_parse(wsm->getString("search-spy-a-color", TRUE).c_str(), &color))
-        gtk_color_button_set_color(GTK_COLOR_BUTTON(s->getWidget("aSPColorButton")), &color);
+    if (g_c_p(wsm->getString("search-spy-a-color", TRUE).c_str(), &color))
+        g_c_b_s(G_C_B(s->getWidget("aSPColorButton")), &color);
 
-    if (gdk_color_parse(wsm->getString("search-spy-t-color", TRUE).c_str(), &color))
-        gtk_color_button_set_color(GTK_COLOR_BUTTON(s->getWidget("tSPColorButton")), &color);
+    if (g_c_p(wsm->getString("search-spy-t-color", TRUE).c_str(), &color))
+        g_c_b_s(G_C_B(s->getWidget("tSPColorButton")), &color);
 
-    if (gdk_color_parse(wsm->getString("search-spy-q-color", TRUE).c_str(), &color))
-        gtk_color_button_set_color(GTK_COLOR_BUTTON(s->getWidget("qSPColorButton")), &color);
+    if (g_c_p(wsm->getString("search-spy-q-color", TRUE).c_str(), &color))
+        g_c_b_s(G_C_B(s->getWidget("qSPColorButton")), &color);
 
-    if (gdk_color_parse(wsm->getString("search-spy-c-color", TRUE).c_str(), &color))
-        gtk_color_button_set_color(GTK_COLOR_BUTTON(s->getWidget("cSPColorButton")), &color);
+    if (g_c_p(wsm->getString("search-spy-c-color", TRUE).c_str(), &color))
+        g_c_b_s(G_C_B(s->getWidget("cSPColorButton")), &color);
 
-    if (gdk_color_parse(wsm->getString("search-spy-r-color", TRUE).c_str(), &color))
-        gtk_color_button_set_color(GTK_COLOR_BUTTON(s->getWidget("rSPColorButton")), &color);
+    if (g_c_p(wsm->getString("search-spy-r-color", TRUE).c_str(), &color))
+        g_c_b_s(G_C_B(s->getWidget("rSPColorButton")), &color);
+
+#undef g_c_p
+#undef G_C_B
+#undef g_c_b_s
+
 }
 
 void Settings::onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data)
@@ -3096,24 +3154,39 @@ void Settings::selectTextColor_gui(const int select)
         return;
     }
 
-    GdkColor color;
     string currentcolor = "";
+
+#if GTK_CHECK_VERSION(3,4,0)
+    GdkRGBA color;
+    GtkWidget *dialog = gtk_color_chooser_dialog_new(_("Select Color"),GTK_WINDOW(getContainer()));
+#else
+    GdkColor color;
     GtkColorSelection *colorsel = GTK_COLOR_SELECTION(getWidget("colorsel-color_selection"));
+#endif
 
     if (select == 0)
         currentcolor = textStyleView.getString(&iter, "ForeColor");
     else
         currentcolor = textStyleView.getString(&iter, "BackColor");
 
+#if GTK_CHECK_VERSION(3,4,0)
+    if (gdk_rgba_parse(&color, currentcolor.c_str()))
+        gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(dialog), &color);
+    gint response = gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_hide(dialog);
+#else
     if (gdk_color_parse(currentcolor.c_str(), &color))
         gtk_color_selection_set_current_color(colorsel, &color);
-
-    gint response = gtk_dialog_run(GTK_DIALOG(getWidget("colorSelectionDialog")));
-    gtk_widget_hide(getWidget("colorSelectionDialog"));
+    gint response = gtk_dialog_run(GTK_DIALOG(getWidget("colorSelectionDialog")));gtk_widget_hide(getWidget("colorSelectionDialog"));
+#endif
 
     if (response == GTK_RESPONSE_OK)
     {
+#if GTK_CHECK_VERSION(3,4,0)
+        gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(dialog), &color);
+#else
         gtk_color_selection_get_current_color(colorsel, &color);
+#endif
 
         string ground = "";
         string strcolor = WulforUtil::colorToString(&color);
@@ -3127,10 +3200,15 @@ void Settings::selectTextColor_gui(const int select)
         else
         {
             ground = "background-gdk";
+            if (WGETB("use-native-back-color-for-text"))
+                return;
             gtk_list_store_set(textStyleStore, &iter, textStyleView.col("BackColor"), strcolor.c_str(), -1);
         }
 
         GtkTextTag *tag = gtk_text_tag_table_lookup(gtk_text_buffer_get_tag_table(textStyleBuffer), style.c_str());
+
+        if (ground == "background-gdk" && WGETB("use-native-back-color-for-text"))
+            return;
 
         if (tag)
             g_object_set(tag, ground.c_str(), &color, NULL);
@@ -3174,7 +3252,13 @@ void Settings::selectTextStyle_gui(const int select)
             tag = gtk_text_tag_table_lookup(tag_table, style.c_str());
 
             if (tag)
+                WGETB("use-native-back-color-for-text") ?
                 g_object_set(tag,
+                    "foreground", fore.c_str(),
+                    "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                    "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                    NULL) :
+                 g_object_set(tag,
                     "foreground", fore.c_str(),
                     "background", back.c_str(),
                     "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
