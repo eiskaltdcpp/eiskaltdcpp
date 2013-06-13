@@ -2120,7 +2120,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "userlist")
         {
-            if (gtk_widget_get_visible(hub->getWidget("scrolledwindow2")))
+            if (gtk_widget_get_visible(hub->getWidget("scrollnickView")))
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), FALSE);
             else
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), TRUE);
@@ -2682,10 +2682,10 @@ void Hub::onUserListToggled_gui(GtkWidget *widget, gpointer data)
 {
     Hub *hub = (Hub *)data;
 
-    if (gtk_widget_get_visible(hub->getWidget("scrolledwindow2")))
-        gtk_widget_hide(hub->getWidget("scrolledwindow2"));
+    if (gtk_widget_get_visible(hub->getWidget("scrollnickView")))
+        gtk_widget_hide(hub->getWidget("scrollnickView"));
     else
-        gtk_widget_show_all(hub->getWidget("scrolledwindow2"));
+        gtk_widget_show_all(hub->getWidget("scrollnickView"));
 }
 
 void Hub::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
