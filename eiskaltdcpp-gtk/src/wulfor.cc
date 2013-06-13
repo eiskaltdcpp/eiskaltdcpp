@@ -21,7 +21,6 @@
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-#include <gdk/gdkx.h>
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
 #include "bacon-message-connection.h"
@@ -166,7 +165,6 @@ int main(int argc, char *argv[])
 
     dcpp::TimerManager::getInstance()->start();
 
-    XInitThreads();
 #if !GLIB_CHECK_VERSION(2,32,0)
     g_thread_init(NULL);
 #endif
