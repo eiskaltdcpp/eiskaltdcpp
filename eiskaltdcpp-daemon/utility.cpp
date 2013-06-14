@@ -80,7 +80,6 @@ void Log(const string & sData) {
     fclose(fw);
 }
 
-#include "dcpp/Util.h"
 #include "extra/magnet.h"
 bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth) {
     name = "Unknown";
@@ -90,7 +89,7 @@ bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth)
     StringMap params;
     if (magnet::parseUri(magnet,params)) {
         tth=params["xt"];
-        size = Util::toInt64(params["xl"]);
+        size = stoll(params["xl"]);
         name = params["dn"];
         return true;
     }
