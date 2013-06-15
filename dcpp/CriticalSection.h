@@ -22,8 +22,33 @@
 #include "noexcept.h"
 
 #if defined (_WIN32) || defined (__HAIKU__)
-#include <boost/thread/lock_guard.hpp>
 #include <boost/thread/recursive_mutex.hpp>
+
+#ifdef FIX_FOR_OLD_BOOST
+template <typename Mutex>
+class lock_guard
+{
+private:
+    Mutex& m;
+
+public:
+    explicit lock_guard(Mutex& m_) : m(m_)
+    {
+        m.lock();
+    }
+    lock_guard(Mutex& m_, boost::adopt_lock_t) : m(m_)
+    {
+        m.lock();
+    }
+    ~lock_guard()
+    {
+        m.unlock();
+    }
+};
+#else
+#include <boost/thread/lock_guard.hpp>
+#endif
+
 #else
 #include <mutex>
 #endif
