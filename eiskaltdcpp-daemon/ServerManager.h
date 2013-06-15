@@ -27,13 +27,12 @@ extern bool isDebug;
 extern unsigned int maxLines;
 extern std::string xmlrpcLog, xmlrpcUriPath, lip;
 extern bool bsyslog;
+extern bool bDaemon;
 
 #ifdef _WIN32
     #ifdef _SERVICE
         extern bool bService;
     #endif
-#else
-    extern bool bDaemon;
 #endif
 
 extern ServerThread *ServersS;
