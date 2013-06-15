@@ -24,12 +24,11 @@
 
 ServerThread *ServersS = NULL;
 bool bServerRunning = false, bServerTerminated = false, bIsRestart = false, bIsClose = false;
+bool bDaemon = false;
 #ifdef _WIN32
     #ifdef _SERVICE
         bool bService = false;
     #endif
-#else
-    bool bDaemon = false;
 #endif
 bool bsyslog = false;
 
