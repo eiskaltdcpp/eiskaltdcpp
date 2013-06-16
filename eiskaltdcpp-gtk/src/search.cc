@@ -240,6 +240,10 @@ void Search::initHubs_gui()
         if (client->isConnected())
             addHub_gui(client->getHubName(), client->getHubUrl());
     }
+
+#ifdef DO_NOT_USE_MUTEX
+    ClientManager::getInstance()->unlock();
+#endif // DO_NOT_USE_MUTEX
 }
 
 void Search::addHub_gui(string name, string url)

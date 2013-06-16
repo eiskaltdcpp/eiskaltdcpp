@@ -400,6 +400,10 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
         d->client_list.push_back(client);
     }
 
+#ifdef DO_NOT_USE_MUTEX
+    clientMgr->unlock();
+#endif // DO_NOT_USE_MUTEX
+
     d->str_model->setStringList(d->hubs);
 
 

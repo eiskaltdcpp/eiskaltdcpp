@@ -2199,6 +2199,9 @@ void QueueManager::logFinishedDownload(QueueItem* qi, Download* d, bool crcError
     }
 
     LOG(LogManager::FINISHED_DOWNLOAD, params);
+#ifdef DO_NOT_USE_MUTEX
+    FinishedManager::getInstance()->unlockLists();
+#endif // DO_NOT_USE_MUTEX
 }
 
 class ListMatcher : public dcpp::Thread

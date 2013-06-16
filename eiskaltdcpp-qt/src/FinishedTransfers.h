@@ -198,6 +198,10 @@ private:
             model->addUser(params);;
         }
 
+#ifdef DO_NOT_USE_MUTEX
+        FinishedManager::getInstance()->unlockLists();
+#endif // DO_NOT_USE_MUTEX
+
         AsyncRunner *runner = new AsyncRunner(this);
 
         runner->setRunFunction([this]() { this->loadListFromDB(); });

@@ -68,7 +68,12 @@ public:
     typedef unordered_map<string, FinishedFileItemPtr> MapByFile;
     typedef unordered_map<HintedUser, FinishedUserItemPtr, User::Hash> MapByUser;
 
+#ifdef DO_NOT_USE_MUTEX
+    void lockLists();
+    void unlockLists();
+#else // DO_NOT_USE_MUTEX
     Lock lockLists();
+#endif // DO_NOT_USE_MUTEX
     const MapByFile& getMapByFile(bool upload) const;
     const MapByUser& getMapByUser(bool upload) const;
 

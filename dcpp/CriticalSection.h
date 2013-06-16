@@ -21,7 +21,9 @@
 #include "debug.h"
 #include "noexcept.h"
 
-#if defined (_WIN32) || defined (__HAIKU__)
+#ifndef DO_NOT_USE_MUTEX
+
+#if defined (_WIN32)
 #include <boost/thread/recursive_mutex.hpp>
 
 #ifdef FIX_FOR_OLD_BOOST
@@ -45,9 +47,9 @@ public:
         m.unlock();
     }
 };
-#else
+#else // FIX_FOR_OLD_BOOST
 #include <boost/thread/lock_guard.hpp>
-#endif
+#endif // FIX_FOR_OLD_BOOST
 
 #else
 #include <mutex>
@@ -55,7 +57,7 @@ public:
 
 namespace dcpp {
 
-#if defined (_WIN32) || defined (__HAIKU__)
+#if defined (_WIN32)
 typedef boost::recursive_mutex CriticalSection;
 typedef boost::detail::spinlock FastCriticalSection;
 typedef boost::unique_lock<boost::recursive_mutex> Lock;
@@ -68,3 +70,73 @@ typedef std::lock_guard<std::mutex> FastLock;
 #endif
 
 } // namespace dcpp
+
+#else // DO_NOT_USE_MUTEX
+
+#include <boost/signals2/mutex.hpp>
+
+namespace dcpp {
+
+class CriticalSection
+{
+#ifdef _WIN32
+public:
+    void lock() noexcept {
+        EnterCriticalSection(&cs);
+        dcdrun(counter++);
+    }
+    void unlock() noexcept {
+        dcassert(--counter >= 0);
+        LeaveCriticalSection(&cs);
+    }
+    CriticalSection() noexcept {
+        dcdrun(counter = 0;);
+        InitializeCriticalSection(&cs);
+    }
+    ~CriticalSection() noexcept {
+        dcassert(counter==0);
+        DeleteCriticalSection(&cs);
+    }
+private:
+    dcdrun(long counter);
+    CRITICAL_SECTION cs;
+#else // _WIN32
+public:
+    CriticalSection() noexcept {
+        pthread_mutexattr_init(&ma);
+        pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_RECURSIVE);
+        pthread_mutex_init(&mtx, &ma);
+    }
+    ~CriticalSection() noexcept {
+        pthread_mutex_destroy(&mtx);
+        pthread_mutexattr_destroy(&ma);
+    }
+    void lock() noexcept { pthread_mutex_lock(&mtx); }
+    void unlock() noexcept { pthread_mutex_unlock(&mtx); }
+    pthread_mutex_t& getMutex() { return mtx; }
+private:
+    pthread_mutex_t mtx;
+    pthread_mutexattr_t ma;
+#endif // _WIN32
+    CriticalSection(const CriticalSection&);
+    CriticalSection& operator=(const CriticalSection&);
+};
+
+// A fast, non-recursive and unfair implementation of the Critical Section.
+// It is meant to be used in situations where the risk for lock conflict is very low,
+// i.e. locks that are held for a very short time. The lock is _not_ recursive, i e if
+// the same thread will try to grab the lock it'll hang in a never-ending loop. The lock
+// is not fair, i e the first to try to lock a locked lock is not guaranteed to be the
+// first to get it when it's freed...
+
+class FastCriticalSection {
+public:
+    void lock() { mtx.lock(); }
+    void unlock() { mtx.unlock(); }
+private:
+    typedef boost::signals2::mutex mutex_t;
+    mutex_t mtx;
+};
+
+#endif // DO_NOT_USE_MUTEX
+

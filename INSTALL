@@ -243,6 +243,9 @@ Keys for cmake
     .
 -DENABLE_STACKTRACE=ON/OFF (default: OFF)
     Show stacktrace when program receive SIGSEGV
+-DDO_NOT_USE_MUTEX=ON/OFF (default: OFF)
+    Do not use mutex. While Haiku and WINE do not support mutexes, this option
+    is necessary for them.
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
     build type (please use RelWithDebInfo for debug mode, not Debug)
 And other standart cmake keys...

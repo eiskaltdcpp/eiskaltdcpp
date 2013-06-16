@@ -140,7 +140,12 @@ public:
     bool isActive(const string& aHubUrl = Util::emptyString) const { return getMode(aHubUrl) != SettingsManager::INCOMING_FIREWALL_PASSIVE; }
     static bool ucExecuteLua(const string& cmd, StringMap& params) noexcept;
 
+#ifdef DO_NOT_USE_MUTEX
+    void lock() noexcept { cs.lock(); }
+    void unlock() noexcept { cs.unlock(); }
+#else // DO_NOT_USE_MUTEX
     Lock lock() { return Lock(cs); }
+#endif // DO_NOT_USE_MUTEX
 
     Client::List& getClients() { return clients; }
 

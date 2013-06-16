@@ -45,9 +45,19 @@ FinishedManager::~FinishedManager() {
     clearULs();
 }
 
+#ifdef DO_NOT_USE_MUTEX
+void FinishedManager::lockLists() {
+    cs.lock();
+}
+
+void FinishedManager::unlockLists() {
+    cs.unlock();
+}
+#else // DO_NOT_USE_MUTEX
 Lock FinishedManager::lockLists() {
     return Lock(cs);
 }
+#endif // DO_NOT_USE_MUTEX
 
 const FinishedManager::MapByFile& FinishedManager::getMapByFile(bool upload) const {
     return upload ? ULByFile : DLByFile;

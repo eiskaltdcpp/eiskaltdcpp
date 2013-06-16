@@ -455,6 +455,9 @@ void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpoint
         ft->getFinishedParams_client(it->second, it->first, params);
         ft->addFile_gui(params, FALSE);
     }
+#ifdef DO_NOT_USE_MUTEX
+    FinishedManager::getInstance()->unlockLists();
+#endif // DO_NOT_USE_MUTEX
 }
 
 void FinishedTransfers::onOpen_gui(GtkMenuItem *item, gpointer data)
@@ -645,6 +648,10 @@ void FinishedTransfers::initializeList_client()
         getFinishedParams_client(uit->second, uit->first, params);
         addUser_gui(params, FALSE);
     }
+
+#ifdef DO_NOT_USE_MUTEX
+    FinishedManager::getInstance()->unlockLists();
+#endif // DO_NOT_USE_MUTEX
 
     updateStatus_gui();
 }
