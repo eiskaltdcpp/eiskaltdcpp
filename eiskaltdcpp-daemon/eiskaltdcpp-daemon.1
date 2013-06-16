@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp-daemon" 1 "04 Jun 2013"
+.TH "eiskaltdcpp-daemon" 1 "16 Jun 2013"
 .SH "NAME"
 eiskaltdcpp-daemon \- simple daemon controllable via XMLRPC or JSONRPC
 .SH "SYNOPSIS"
@@ -26,6 +26,9 @@ Debug mode
 .BR "\-s",  \-\-syslog"
 Use syslog in daemon mode
 .TP
+.BR "\-S <file>",  \-\-log=<file>"
+Write daemon log to <file> (default: @config_dir@/Logs/daemon.log)
+.TP
 .BR "\-P <port>",  \-\-port=<port>"
 Set port for XMLRPC or JSONRPC (default: 3121)
 .TP
@@ -41,7 +44,7 @@ Store config in <dir>
 .BR "\-l <dir>",  \-\-localdir=<dir>"
 Store local data (cache, temp files) in <dir> (defaults is equal confdir)
 .TP
-.BR "\-S <file>",  \-\-rpclog=<file>"
+.BR "\-u <file>",  \-\-rpclog=<file>"
 Write xmlrpc log to <file> (default: /tmp/eiskaltdcpp-daemon.xmlrpc.log)
 .TP
 .BR "\-U <uripath>",  \-\-uripath=<uripath>"

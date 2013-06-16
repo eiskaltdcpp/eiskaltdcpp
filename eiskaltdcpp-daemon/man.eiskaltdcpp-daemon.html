@@ -2,7 +2,7 @@
 <HTML><HEAD><TITLE>Man page of eiskaltdcpp-daemon</TITLE>
 </HEAD><BODY>
 <H1>eiskaltdcpp-daemon</H1>
-Section: User Commands  (1)<BR>Updated: 04 Jun 2013<BR><A HREF="#index">Index</A>
+Section: User Commands  (1)<BR>Updated: 16 Jun 2013<BR><A HREF="#index">Index</A>
 <A HREF="/cgi-bin/man/man2html">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
@@ -50,6 +50,10 @@ Debug mode
 
 <DD>
 Use syslog in daemon mode
+<DT><B>-S &lt;file&gt;,</B>--log=&lt;file&gt;
+
+<DD>
+Write daemon log to &lt;file&gt; (default: @config_dir@/Logs/daemon.log)
 <DT><B>-P &lt;port&gt;,</B>--port=&lt;port&gt;
 
 <DD>
@@ -70,7 +74,7 @@ Store config in &lt;dir&gt;
 
 <DD>
 Store local data (cache, temp files) in &lt;dir&gt; (defaults is equal confdir)
-<DT><B>-S &lt;file&gt;,</B>--rpclog=&lt;file&gt;
+<DT><B>-u &lt;file&gt;,</B>--rpclog=&lt;file&gt;
 
 <DD>
 Write xmlrpc log to &lt;file&gt; (default: /tmp/eiskaltdcpp-daemon.xmlrpc.log)
@@ -142,6 +146,6 @@ This manual page was written by Boris Pek &lt;<A HREF="mailto:tehnick-8@mail.ru"
 This document was created by
 <A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 19:31:14 GMT, June 04, 2013
+Time: 17:26:19 GMT, June 16, 2013
 </BODY>
 </HTML>
