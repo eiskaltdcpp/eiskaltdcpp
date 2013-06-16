@@ -49,7 +49,7 @@ static void SigHandler(int sig) {
         str += Util::toString(sig);
     }
 
-    str += " ending...\n";
+    str += " ending...";
 
     logging(bDaemon, bsyslog, true, str);
 
@@ -116,13 +116,14 @@ void printHelp() {
            "  -v, --verbose\t Verbose mode\n"
            "  -D, --debug\t Debug mode\n"
            "  -s, --syslog\t Use syslog in daemon mode\n"
+           "  -S <file>,  --log=<file>\t  Write daemon log to <file> (default: @config_dir@/Logs/daemon.log)\n"
            "  -P <port>, --port=<port>\t Set port for XMLRPC or JSONRPC (default: 3121)\n"
            "  -L <ip>,   --ip=<ip>\t\t Set IP address for XMLRPC or JSONRPC (default: 127.0.0.1)\n"
            "  -p <file>, --pidfile=<file>\t Write daemon process ID to <file>\n"
            "  -c <dir>,  --confdir=<dir>\t Store config in <dir>\n"
            "  -l <dir>,  --localdir=<dir>\t Store local data (cache, temp files) in <dir> (defaults is equal confdir)\n"
 #ifdef XMLRPC_DAEMON
-           "  -S <file>,  --rpclog=<file>\t Write xmlrpc log to <file> (default: /tmp/eiskaltdcpp-daemon.xmlrpc.log)\n"
+           "  -u <file>,  --rpclog=<file>\t Write xmlrpc log to <file> (default: /tmp/eiskaltdcpp-daemon.xmlrpc.log)\n"
            "  -U <uripath>,  --uripath=<uripath>\t Set UriPath for xmlrpc abyss server to <uripath> (default: /eiskaltdcpp)\n"
 #endif
 #endif // _WIN32
@@ -144,10 +145,11 @@ static struct option opts[] = {
     { "localdir",required_argument, NULL, 'l'},
     { "pidfile", required_argument, NULL, 'p'},
     { "port",    required_argument, NULL, 'P'},
-    { "rpclog",  required_argument, NULL, 'S'},
+    { "rpclog",  required_argument, NULL, 'u'},
     { "uripath", required_argument, NULL, 'U'},
     { "ip",      required_argument, NULL, 'L'},
     { "syslog",  required_argument, NULL, 's'},
+    { "log",     required_argument, NULL, 'S'},
     { NULL,      0,                 NULL, 0}
 };
 
@@ -159,7 +161,7 @@ void writePidFile(char *path)
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hVdvDsp:c:l:P:L:S:", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hVdvDsp:c:l:P:L:S:u:U:", opts, NULL)) != -1) {
         switch (ch) {
             case 'P':
                 lport = (unsigned short int) atoi (optarg);
@@ -168,6 +170,9 @@ void parseArgs(int argc, char* argv[]) {
                 lip.assign(optarg,50);
                 break;
             case 'S':
+                LOG_FILE.assign(optarg,1024);
+                break;
+            case 'u':
                 xmlrpcLog.assign(optarg,1024);
                 break;
            case 'U':
@@ -229,6 +234,12 @@ int main(int argc, char* argv[])
 #ifdef _DEBUG
     sTitle += " [debug]";
 #endif
+
+    if (bDaemon) {
+        if (!Util::fileExists(LOG_FILE)) {
+            logging(false, false, false, string("ERROR: Daemon log: No such file or directory (") + LOG_FILE.c_str()+ string(")"));
+        }
+    }
 
     Util::PathsMap override;
 

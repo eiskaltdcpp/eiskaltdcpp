@@ -20,7 +20,7 @@
 #endif
 //---------------------------------------------------------------------------
 
-string LOCAL_PATH="", PATH = "", sTitle = "";
+string LOCAL_PATH="", PATH = "", sTitle = "", LOG_FILE= "";
 
 void logging(bool d, bool s, bool b, const string& msg) {
 #ifndef _WIN32
@@ -54,29 +54,29 @@ bool DirExist(char * sPath) {
 }
 
 void Log(const string & sData) {
+    string tmp;
+    if (LOG_FILE.empty())
 #ifdef _WIN32
-    FILE * fw = fopen((PATH + "\\logs\\daemon.log").c_str(), "a");
+        tmp = PATH + "\\logs\\daemon.log";
 #else
-    FILE * fw = fopen((PATH + "/Logs/daemon.log").c_str(), "a");
+        tmp = PATH + "/Logs/daemon.log";
 #endif
+    else
+        tmp = LOG_FILE;
 
-    if(fw == NULL) {
-        return;
-    }
+    FILE * fw = fopen(tmp.c_str(), "a");
+    if(!fw) return;
 
     time_t acc_time;
     time(&acc_time);
 
     struct tm * acc_tm;
     acc_tm = localtime(&acc_time);
-
     char sBuf[64];
     strftime(sBuf, 64, "%d.%m.%Y %H:%M:%S", acc_tm);
-
     string sTmp = string(sBuf) + " - " + sData + "\n";
 
     fprintf(fw, "%s", sTmp.c_str());
-
     fclose(fw);
 }
 

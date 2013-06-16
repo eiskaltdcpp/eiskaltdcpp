@@ -15,7 +15,7 @@
 
 //---------------------------------------------------------------------------
 #include <string>
-extern std::string LOCAL_PATH, PATH, sTitle;
+extern std::string LOCAL_PATH, PATH, sTitle, LOG_FILE;
 
 void logging(bool d, bool s, bool b, const string& msg);
 bool DirExist(char * sPath);
