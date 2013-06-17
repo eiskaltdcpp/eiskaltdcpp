@@ -1,9 +1,32 @@
---- 2.2.8 2013-05-xx ---
+--- 2.2.8 2013-06-23 ---
 *** common changes ***
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***
+* Added JSON-RPC methods: hub.getuserinfo, hub.getusers, hub.listfulldesc,
+  queue.matchlists.
+* Updated JSON-RPC methods: hub.pm, show.ratio.
+* Synced available XML-RPC and JSON-RPC methods.
+* Fixed possible program crashes in magnet.add method.
+* Fixed program hang-up when config directory is not exist.
+* Fixed program hang-up on exit when active hubs are not in connected state.
+* Added command line options: --syslog, --log=<file>.
+* Updated embedded mongoose library.
+* Updated embedded jsonrpc-cpp library.
+* Additional fix in jsonrpc-cpp:
+  fixed segmentation fault during stopping of mongoose when it was not started.
+* Additional fixes in jsoncpp:
+  - deleted all unused files of this embedded library
+  - added conversion from string to int/uint/int64/uint64
+  - fixed errors "expected int, but obtained string"
+* Now eiskaltdcpp-daemon is ready for daily use via JSON-RPC.
+* XML-RPC is not recommended, but it is still supported.
 *** eiskaltdcpp-cli ***
+* Added new JSON-RPC methods: hash.pause, hash.status, hub.getuserinfo,
+  hub.getusers, hub.listfulldesc, methods.list, queue.getsources,
+  queue.matchlists.
+* Now eiskaltdcpp-cli-jsonrpc is ready for daily use.
+* eiskaltdcpp-cli-xmlrpc is not supported.
 
 --- 2.2.7 2012-05-29 ---
 *** common changes ***

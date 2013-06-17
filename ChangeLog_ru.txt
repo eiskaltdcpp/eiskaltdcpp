@@ -1,9 +1,34 @@
---- 2.2.8 2013-05-xx ---
+--- 2.2.8 2013-06-23 ---
 *** common changes ***
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***
+* Добавлены методы JSON-RPC: hub.getuserinfo, hub.getusers, hub.listfulldesc,
+  queue.matchlists.
+* Обновлены методы JSON-RPC: hub.pm, show.ratio.
+* Синхронизированы доступные методы XML-RPC и JSON-RPC.
+* Исправлены возможные падения программы в методе magnet.add.
+* Исправлены зависания программы при отсутствии директории с конфигами.
+* Исправлены зависания программы при выходе, когда активные хабы находятся в
+  отключенном состоянии.
+* Добавлены опции командной строки: --syslog, --log=<file>.
+* Обновлена встроенная библиотека mongoose.
+* Обновлена встроенная библиотека jsonrpc-cpp.
+* Дополнительные исправления в jsonrpc-cpp:
+  исправлена ошибка сегментации при остановке mongoose, если он не был
+  запущен.
+* Дополнительные исправления в jsoncpp:
+  - удалены все неиспользуемые файлы этой встроенной библиотеки
+  - добавлена конвертация из string в int/uint/int64/uint64
+  - исправлены ошибки "expected int, but obtained string"
+* Теперь eiskaltdcpp-daemon готов для ежедневного использования через JSON-RPC.
+* XML-RPC не рекомендуется, но все еще поддерживается.
 *** eiskaltdcpp-cli ***
+* Добавлены новые методы JSON-RPC: hash.pause, hash.status, hub.getuserinfo,
+  hub.getusers, hub.listfulldesc, methods.list, queue.getsources,
+  queue.matchlists.
+* Теперь eiskaltdcpp-cli-jsonrpc готов для ежедневного использования.
+* eiskaltdcpp-cli-xmlrpc не поддерживается.
 
 --- 2.2.7 2012-05-29 ---
 *** common changes ***
