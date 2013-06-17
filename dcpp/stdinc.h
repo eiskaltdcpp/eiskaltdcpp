@@ -95,19 +95,9 @@ typedef unsigned __int64 uint64_t;
 #include <boost/scoped_array.hpp>
 #include <boost/noncopyable.hpp>
 
-#if defined(_MSC_VER) || defined(_STLPORT_VERSION)
-
-#include <unordered_map>
-#include <unordered_set>
-
-#elif defined(__GLIBCPP__) || defined(__GLIBCXX__)  // Using GNU C++ library?
 
 #include <unordered_set>
 #include <unordered_map>
-
-#else
-#error "Unknown STL, please configure accordingly"
-#endif
 
 namespace dcpp {
 using namespace std;
