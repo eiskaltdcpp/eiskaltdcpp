@@ -21,7 +21,7 @@
 #include "debug.h"
 #include "noexcept.h"
 
-#ifndef DO_NOT_USE_MUTEX
+#if !defined (DO_NOT_USE_MUTEX) || !defined (__HAIKU__)
 
 #if defined (_WIN32)
 #include <boost/thread/recursive_mutex.hpp>
@@ -71,7 +71,8 @@ typedef std::lock_guard<std::mutex> FastLock;
 
 } // namespace dcpp
 
-#else // DO_NOT_USE_MUTEX
+#else // !defined (DO_NOT_USE_MUTEX) || !defined (__HAIKU__)
+// Haiku and WINE do not support mutexes yet
 
 #include <boost/signals2/mutex.hpp>
 
@@ -138,5 +139,5 @@ private:
     mutex_t mtx;
 };
 
-#endif // DO_NOT_USE_MUTEX
+#endif // !defined (DO_NOT_USE_MUTEX) || !defined (__HAIKU__)
 

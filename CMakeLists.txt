@@ -95,11 +95,6 @@ option (INSTALL_RUNTIME_PATH "Install rpath" OFF)
 option (USE_GOLD "Use ld.gold instead ld.bfd" OFF)
 option (DO_NOT_USE_MUTEX "Do not use mutex (necessary for Haiku and WINE)" OFF)
 
-if (HAIKU)
-    # Haiku does not support mutexes yet
-    set (DO_NOT_USE_MUTEX ON)
-endif ()
-
 if (USE_QT OR USE_GTK OR USE_GTK3)
     find_package (X11)
 endif(USE_QT OR USE_GTK OR USE_GTK3)
