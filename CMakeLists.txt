@@ -95,7 +95,7 @@ option (INSTALL_RUNTIME_PATH "Install rpath" OFF)
 option (USE_GOLD "Use ld.gold instead ld.bfd" OFF)
 option (DO_NOT_USE_MUTEX "Do not use mutex (necessary for Haiku and WINE)" OFF)
 
-if (DO_NOT_USE_MUTEX)
+if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
   add_definitions ( -DDO_NOT_USE_MUTEX )
 endif (DO_NOT_USE_MUTEX)
 
