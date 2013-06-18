@@ -138,5 +138,20 @@ private:
     mutex_t mtx;
 };
 
+template<class T>
+class LockBase {
+public:
+    LockBase(T& aCs) noexcept : cs(aCs) { cs.lock(); }
+    ~LockBase() noexcept { cs.unlock(); }
+private:
+    LockBase& operator=(const LockBase&);
+    T& cs;
+};
+
+typedef LockBase<CriticalSection> Lock;
+typedef LockBase<FastCriticalSection> FastLock;
+
+}
+
 #endif // DO_NOT_USE_MUTEX
 
