@@ -276,10 +276,9 @@ sudo gmake install
 *******************************************************************************
 Mac OS X specific notes
 *******************************************************************************
-# If you need program without unnecessary features just configure cmake like this:
-cmake -DCMAKE_BUILD_TYPE=Release -DUSE_MINIUPNP=ON -DFREE_SPACE_BAR_C=ON -DLOCAL_MINIUPNP=ON -DWITH_SOUNDS=ON -DCMAKE_C_COMPILER=/opt/local/bin/gcc-mp-4.5 -DCMAKE_CXX_COMPILER=/opt/local/bin/g++-mp-4.5
-# For generate native app bundle in Mac OS X use:
-cpack -G DragNDrop
+Examples of build scripts:
+macosx/build-universal-binary.sh
+macosx/build.sh
 
 
 *******************************************************************************

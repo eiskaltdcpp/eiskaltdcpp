@@ -89,12 +89,16 @@ Files: update-translations.sh
  data/examples/deadbeef.ru_RU.UTF-8.sh
  eiskaltdcpp-qt/qtscripts/amarok_nowplay/amarok.sh
  eiskaltdcpp-qt/qtscripts/clementine_nowplay/clementine.sh
+ macosx/build-universal-binary.sh
+ macosx/build.sh
 Copyright: 2011-2012 Boris Pek <tehnick-8@mail.ru>
  2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
  2010 Vovochka404 <vovochka13@gmail.com>
  2011 Mark Lutring
  2012 Unreal7z
  2010 none
+ 2013 Maxim Ignatenko
+ 2013 Dmitry Arkhipov
 License: public-domain
  No license required for any purpose; the work is not subject to copyright
  in any jurisdiction.

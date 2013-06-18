@@ -1,5 +1,34 @@
 --- 2.2.8 2013-06-23 ---
 *** common changes ***
+* Fix build with Boost >= 1.50. Dropped support for Boost < 1.39.
+* Added support of Lua 5.1.x (used by default) and Lua 5.2.x.
+* The local copy of miniupnpc is updated to version 1.7. Build with old
+  miniupnpc versions (1.5.x and 1.6.x) is still supported.
+* Fix connection problem when hub domain name has IPv6 address. While we do not
+  have IPv6 support yet, hints.ai_family = AF_UNSPEC was causing the connection
+  problem. [Thanks to Jan Vidar Krey]
+* Changed logic of search intervals: now minimum search interval can be equal
+  to zero. [Thanks to Dmitry Arkhipov]
+* Fixed file names for cache of public hub lists: now these files are saved and
+  loaded properly.
+* Now mutexes from C++11 standard are used in *nix systems. While MinGW does
+  not support this feature, mutexes from Boost are used in MS Windows.
+  Added cmake option DO_NOT_USE_MUTEX (default: OFF), which switches on the
+  old algorithm: Haiku and WINE do not support mutexes yet, so this option
+  is necessary for them. Also this option is used for build in Mac OS X.
+* Added option for keeping unfinished downloads of file-lists in queue between
+  program restart. (Disabled by default, because it is not very useful: user
+  may leave hub or change CID and such file-list will be in download queue
+  until you manually delete it.)
+* Added option for choosing MIME handler (i.e. kfmclient, gnome-open). Use
+  MimeHandler field in DCPlusPlus.xml to set it manually.
+* Fixed buffer overflow on exit due to an attempt to read data from closed
+  socket. Problem was reproducible only in rare situation when local network is
+  up but Internet connection is not available, and program is built with DHT
+  support.
+* Thanks to Helder Cesar the Portuguese translation is now available.
+* Some improvements for build in Haiku.
+* Small code refactoring.
 *** eiskaltdcpp-qt ***
 *** eiskaltdcpp-gtk ***
 *** eiskaltdcpp-daemon ***
@@ -8,7 +37,6 @@
 * Updated JSON-RPC methods: hub.pm, show.ratio.
 * Synced available XML-RPC and JSON-RPC methods.
 * Fixed possible program crashes in magnet.add method.
-* Fixed program hang-up when config directory is not exist.
 * Fixed program hang-up on exit when active hubs are not in connected state.
 * Added command line options: --syslog, --log=<file>.
 * Updated embedded mongoose library.
@@ -16,9 +44,8 @@
 * Additional fix in jsonrpc-cpp:
   fixed segmentation fault during stopping of mongoose when it was not started.
 * Additional fixes in jsoncpp:
-  - deleted all unused files of this embedded library
-  - added conversion from string to int/uint/int64/uint64
-  - fixed errors "expected int, but obtained string"
+  - all source files were combined into three files (.cpp and .h)
+  - added conversion from string to int/uint/int64/uint64/float/double
 * Now eiskaltdcpp-daemon is ready for daily use via JSON-RPC.
 * XML-RPC is not recommended, but it is still supported.
 *** eiskaltdcpp-cli ***
@@ -141,7 +168,7 @@
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Regressions are possible.
 * Now GCC >= 4.5.0 is required for build. (Features from C++11 are used)
-* Fixed build in Haiku OS. System algorithm to test run only one instance
+* Fixed build in Haiku. System algorithm to test run only one instance
   of the program is used now.
 * A lot of new methods are now available using QtScript. See:
   http://code.google.com/p/eiskaltdc/wiki/Scripting
@@ -290,7 +317,7 @@
 * Fixes to improve Lua-scripts.
 * Bugfixes.
 *** eiskaltdcpp-qt ***
-* Added ability to build program on Haiku-OS (see file INSTALL).
+* Added ability to build program on Haiku (see file INSTALL).
 * Fixed loading of emoticons from emoticon packs. It was support files only
   in PNG format, but now it can load images in any standart format.
 * Improvements in the dialog with black list of search results.
@@ -329,7 +356,7 @@
   dialog. (This was frequent users mistake)
 * Added MimeType section in .desktop file.
 *** eiskaltdcpp-daemon ***
-* Added ability to build program on Haiku-OS (see file INSTALL).
+* Added ability to build program on Haiku (see file INSTALL).
 * Added command line options: --pidfile, --confdir, --localdir
 * Added example script for launching daemon on system startup in Debian-based
   systems.
