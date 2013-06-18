@@ -445,7 +445,11 @@ void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpoint
     StringMap params;
     gtk_list_store_clear(ft->fileStore);
 
+#ifdef DO_NOT_USE_MUTEX
+    FinishedManager::getInstance()->lockLists();
+#else // DO_NOT_USE_MUTEX
     auto lock = FinishedManager::getInstance()->lockLists();
+#endif // DO_NOT_USE_MUTEX
 
     const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(ft->isUpload);
 
@@ -631,7 +635,11 @@ void FinishedTransfers::onRemoveAll_gui(GtkMenuItem *item, gpointer data)
 void FinishedTransfers::initializeList_client()
 {
     StringMap params;
+#ifdef DO_NOT_USE_MUTEX
+    FinishedManager::getInstance()->lockLists();
+#else // DO_NOT_USE_MUTEX
     auto lock = FinishedManager::getInstance()->lockLists();
+#endif // DO_NOT_USE_MUTEX
     const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
     const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 

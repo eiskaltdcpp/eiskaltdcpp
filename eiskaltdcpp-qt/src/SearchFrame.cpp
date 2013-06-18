@@ -386,7 +386,11 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
 
     ClientManager* clientMgr = ClientManager::getInstance();
 
+#ifdef DO_NOT_USE_MUTEX
+    clientMgr->lock();
+#else // DO_NOT_USE_MUTEX
     auto lock = clientMgr->lock();
+#endif // DO_NOT_USE_MUTEX
     clientMgr->addListener(this);
     Client::List& clients = clientMgr->getClients();
 

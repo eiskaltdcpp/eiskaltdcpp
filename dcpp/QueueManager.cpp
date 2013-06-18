@@ -2143,7 +2143,11 @@ void QueueManager::logFinishedDownload(QueueItem* qi, Download* d, bool crcError
     params["sfv"] = Util::toString(crcError ? 1 : 0);
 
     {
+#ifdef DO_NOT_USE_MUTEX
+        FinishedManager::getInstance()->lockLists();
+#else // DO_NOT_USE_MUTEX
         auto lock = FinishedManager::getInstance()->lockLists();
+#endif // DO_NOT_USE_MUTEX
         const FinishedManager::MapByFile& map = FinishedManager::getInstance()->getMapByFile(false);
         FinishedManager::MapByFile::const_iterator it = map.find(qi->getTarget());
         if(it != map.end()) {

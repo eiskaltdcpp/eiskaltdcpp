@@ -97,7 +97,7 @@ option (DO_NOT_USE_MUTEX "Do not use mutex (necessary for Haiku and WINE)" OFF)
 
 if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
   add_definitions ( -DDO_NOT_USE_MUTEX )
-endif (DO_NOT_USE_MUTEX)
+endif ()
 
 if (USE_QT OR USE_GTK OR USE_GTK3)
     find_package (X11)

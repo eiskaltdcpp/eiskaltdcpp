@@ -178,7 +178,11 @@ private:
     void loadList(){
         VarMap params;
 
+#ifdef DO_NOT_USE_MUTEX
+        FinishedManager::getInstance()->lockLists();
+#else // DO_NOT_USE_MUTEX
         auto lock = FinishedManager::getInstance()->lockLists();
+#endif // DO_NOT_USE_MUTEX
         const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
         const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 
