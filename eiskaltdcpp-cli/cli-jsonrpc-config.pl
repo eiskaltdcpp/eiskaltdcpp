@@ -1,3 +1,5 @@
+use Env qw[$HOME];
+
 $config{'debug'}=0;
 $config{'separator'}=";";
 $config{'eiskaltHostPort'}="localhost:3121";
