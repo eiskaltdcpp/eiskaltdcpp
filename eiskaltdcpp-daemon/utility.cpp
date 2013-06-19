@@ -18,6 +18,10 @@
 #include <syslog.h>
 #include <sys/stat.h>
 #endif
+#if defined(__MINGW32__) && (__GNUC__ == 4 && __GNUC_MINOR__ < 7)
+#include <boost/lexical_cast.hpp>
+#define USE_BOOST_LEXICAL_CAST 1
+#endif
 //---------------------------------------------------------------------------
 
 string LOCAL_PATH="", PATH = "", sTitle = "", LOG_FILE= "";
@@ -89,7 +93,11 @@ bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth)
     StringMap params;
     if (magnet::parseUri(magnet,params)) {
         tth=params["xt"];
+#if defined(USE_BOOST_LEXICAL_CAST)
+        size = boost::lexical_cast<long long>(params["xl"]);
+#else
         size = stoll(params["xl"]);
+#endif
         name = params["dn"];
         return true;
     }
