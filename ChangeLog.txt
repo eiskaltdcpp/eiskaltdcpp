@@ -22,10 +22,8 @@
   until you manually delete it.)
 * Added option for choosing MIME handler (i.e. kfmclient, gnome-open). Use
   MimeHandler field in DCPlusPlus.xml to set it manually.
-* Fixed buffer overflow on exit due to an attempt to read data from closed
-  socket. Problem was reproducible only in rare situation when local network is
-  up but Internet connection is not available, and program is built with DHT
-  support.
+* Fixed buffer overflow error on exit. Problem was caused by attempt to read
+  data from closed UDP socket.
 * Thanks to Helder Cesar the Portuguese translation is now available.
 * Some improvements for build in Haiku.
 * Small code refactoring.
