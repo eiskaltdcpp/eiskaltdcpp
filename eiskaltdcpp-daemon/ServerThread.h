@@ -127,10 +127,10 @@ private:
     virtual void on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept;
 
     //QueueManagerListener
-    virtual void on(Added, QueueItem*) noexcept;
-    virtual void on(Finished, QueueItem*, const string&, int64_t) noexcept;
-    virtual void on(Removed, QueueItem*) noexcept;
-    virtual void on(Moved, QueueItem*, const string&) noexcept;
+    //virtual void on(Added, QueueItem*) noexcept;
+    //virtual void on(Finished, QueueItem*, const string&, int64_t) noexcept;
+    //virtual void on(Removed, QueueItem*) noexcept;
+    //virtual void on(Moved, QueueItem*, const string&) noexcept;
 
     int64_t lastUp;
     int64_t lastDown;

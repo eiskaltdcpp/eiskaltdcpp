@@ -922,32 +922,44 @@ void ServerThread::listQueueTargets(string& listqueue, const string& sseparator)
     QueueManager::getInstance()->unlockQueue();
 }
 
-void ServerThread::updatelistQueueTargets() {
-    const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
-    queuesMap.clear();
-    auto it = ll.begin(); unsigned int i = 0;
-    while (it != ll.end()) {
-        queuesMap[i] = *it->first;
-         ++it, ++i;
-    }
-    QueueManager::getInstance()->unlockQueue();
-}
+//void ServerThread::updatelistQueueTargets() {
+    //const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+    //queuesMap.clear();
+    //auto it = ll.begin(); unsigned int i = 0;
+    //while (it != ll.end()) {
+        //queuesMap[i] = *it->first;
+         //++it, ++i;
+    //}
+    //QueueManager::getInstance()->unlockQueue();
+//}
 
-void ServerThread::on(Added, QueueItem* item) noexcept {
-    queuesMap[queuesMap.size()+1] = item->getTarget();
-}
+//void ServerThread::on(Added, QueueItem* item) noexcept {
+    //queuesMap[queuesMap.size()+1] = item->getTarget();
+//}
 
-void ServerThread::on(Finished, QueueItem*, const string&, int64_t) noexcept {
+//void ServerThread::on(Finished, QueueItem*, const string&, int64_t) noexcept {
 
-}
+//}
 
-void ServerThread::on(Removed, QueueItem*) noexcept {
+//void ServerThread::on(Removed, QueueItem* item) noexcept {
+    //auto it = queuesMap.begin();
+    //while (it != queuesMap.end()) {
+        //if (it->second == item->getTarget()) {
+            //it = queuesMap.erase(it);
+        //} else
+            //++it;
+    //}
+//}
 
-}
-
-void ServerThread::on(Moved, QueueItem*, const string&) noexcept {
-
-}
+//void ServerThread::on(Moved, QueueItem* item, const string& oldTarget) noexcept {
+    //auto it = queuesMap.begin();
+    //while (it != queuesMap.end()) {
+        //if (it->second == oldTarget) {
+            //it->second = item->getTarget();
+        //} else
+            //++it;
+    //}
+//}
 
 void ServerThread::listQueue(unordered_map<string,StringMap>& listqueue) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
