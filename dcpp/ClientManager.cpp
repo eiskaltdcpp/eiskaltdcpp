@@ -255,7 +255,7 @@ UserPtr ClientManager::findLegacyUser(const string& aNick) const noexcept {
 
     for(auto i = onlineUsers.begin(); i != onlineUsers.end(); ++i) {
         const OnlineUser* ou = i->second;
-        if(ou->getUser()->isSet(User::NMDC) && Util::stricmp(ou->getIdentity().getNick(), aNick) == 0)
+        if(ou->getUser()->isSet(User::NMDC) && ou->getIdentity().getNick() == aNick)
             return ou->getUser();
     }
     return UserPtr();
@@ -308,10 +308,10 @@ bool ClientManager::isOp(const UserPtr& user, const string& aHubUrl) const {
 }
 
 CID ClientManager::makeCid(const string& aNick, const string& aHubUrl) const noexcept {
-    string n = Text::toLower(aNick);
+    //string n = aNick;
     TigerHash th;
-    th.update(n.c_str(), n.length());
-    th.update(Text::toLower(aHubUrl).c_str(), aHubUrl.length());
+    th.update(aNick.c_str(), aNick.length());
+    th.update(aHubUrl.c_str(), aHubUrl.length());
     // Construct hybrid CID from the bits of the tiger hash - should be
     // fairly random, and hopefully low-collision
     return CID(th.finalize());
