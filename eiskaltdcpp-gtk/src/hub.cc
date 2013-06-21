@@ -1835,8 +1835,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         hub->history.erase(hub->history.begin());
 
 #ifdef LUA_SCRIPT
-    bool script_ret = false;
-    script_ret = ((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, Text::fromT(text));
+    bool script_ret = ((ClientScriptInstance *) (hub->client))->onHubFrameEnter(hub->client, Text::fromT(text));
 #endif
     // Process special commands
     if (text[0] == '/')

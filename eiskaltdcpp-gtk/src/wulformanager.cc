@@ -467,7 +467,6 @@ void WulforManager::deleteEntry_gui(Entry *entry)
     g_mutex_unlock(clientCallMutex);
 
     delete entry;
-    entry = NULL;
 }
 
 bool WulforManager::isEntry_gui(Entry *entry)
@@ -516,7 +515,7 @@ DialogEntry* WulforManager::getDialogEntry_gui(const string &id)
     return ret;
 }
 
-void WulforManager::onReceived_gui(const string link)
+void WulforManager::onReceived_gui(const string &link)
 {
     dcassert(mainWin);
 

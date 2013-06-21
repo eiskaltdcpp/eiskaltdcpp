@@ -117,7 +117,7 @@ void BookEntry::setIcon_gui(const EntryType type)
         gtk_image_set_from_icon_name(GTK_IMAGE(icon), stock.c_str(), GTK_ICON_SIZE_BUTTON);
 }
 
-void BookEntry::setIcon_gui(const std::string stock)
+void BookEntry::setIcon_gui(const std::string &stock)
 {
     GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
     if (!stock.empty() && gtk_icon_theme_has_icon(iconTheme, stock.c_str()))

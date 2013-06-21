@@ -683,7 +683,7 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, co
 void Settings::createOptionsView_gui(TreeView &treeView, GtkListStore *&store, const string &widgetName)
 {
     // Create the view
-    treeView.setView(GTK_TREE_VIEW(getWidget(widgetName.c_str())));
+    treeView.setView(GTK_TREE_VIEW(getWidget(widgetName)));
     treeView.insertColumn(_("Use"), G_TYPE_BOOLEAN, TreeView::BOOL, -1);
     treeView.insertColumn(_("Name"), G_TYPE_STRING, TreeView::STRING, -1);
     treeView.insertHiddenColumn("Core Setting", G_TYPE_INT);

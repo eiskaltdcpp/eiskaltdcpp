@@ -502,7 +502,7 @@ bool WulforSettingsManager::getPreviewApp(string &name, PreviewApp::size &index)
     return false;
 }
 
-const std::string WulforSettingsManager::parseCmd(const std::string cmd)
+const std::string WulforSettingsManager::parseCmd(const std::string &cmd)
 {
     StringTokenizer<string> sl(cmd, ' ');
         if (sl.getTokens().size() == 2) {

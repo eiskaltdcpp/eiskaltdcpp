@@ -55,7 +55,7 @@ class WulforManager
         DialogEntry *getHashDialog_gui();
         DialogEntry *getSettingsDialog_gui();
 
-        void onReceived_gui(const std::string link);
+        void onReceived_gui(const std::string &link);
 
     private:
         // argv[1] from main
