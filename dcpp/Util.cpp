@@ -511,16 +511,17 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
             fragmentStart++;
     }
 
-    size_t queryStart = url.rfind('?', queryEnd);
-    size_t fileEnd;
-
+    //size_t queryStart = url.rfind('?', queryEnd);
+    //size_t fileEnd;
     //if(queryStart == string::npos) {
-            fileEnd = queryStart = queryEnd;
+            //fileEnd = queryStart = queryEnd;
     //} else {
             //dcdebug("q");
             //fileEnd = queryStart;
             //queryStart++;
     //}
+    size_t queryStart = queryEnd;
+    size_t fileEnd = queryStart;
 
     size_t protoStart = 0;
     size_t protoEnd = url.find("://", protoStart);

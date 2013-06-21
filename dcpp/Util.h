@@ -314,7 +314,7 @@ public:
     }
 
     static float toFloat(const string& aString) {
-        return (float)toDouble(aString.c_str());
+        return (float)toDouble(aString);
     }
 
     static string toString(short val) {
@@ -385,7 +385,7 @@ public:
         snprintf(buf, sizeof(buf), "%%%X", val&0x0FF);
         return buf;
     }
-    static char fromHexEscape(const string aString) {
+    static char fromHexEscape(const string& aString) {
         unsigned int res = 0;
         sscanf(aString.c_str(), "%X", &res);
         return static_cast<char>(res);
@@ -452,7 +452,7 @@ public:
 
     static string getIpCountry (string IP);
 
-    static void setLang(const string lang) {
+    static void setLang(const string& lang) {
         if(!lang.empty())
 #ifdef _WIN32
             putenv((char *)string("LANGUAGE=" + lang).c_str());

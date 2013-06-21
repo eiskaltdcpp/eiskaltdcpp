@@ -274,7 +274,7 @@ void CryptoManager::loadCertificates() noexcept {
         }
     }
 
-    loadKeyprint(cert.c_str());
+    loadKeyprint(cert);
 
     certsLoaded = true;
 }
