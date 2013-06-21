@@ -53,7 +53,6 @@
 #ifdef _STLP_DEBUG
 void __stl_debug_terminate() {
     int* x = 0;
-    *x = 0;
 }
 #endif
 
