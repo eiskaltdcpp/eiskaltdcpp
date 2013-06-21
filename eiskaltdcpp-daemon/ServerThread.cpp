@@ -972,7 +972,7 @@ void ServerThread::listQueue(unordered_map<string,StringMap>& listqueue) {
 }
 
 void ServerThread::listHubsFullDesc(unordered_map<string,StringMap>& listhubs) {
-    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); i++) {
+    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
         Client* cl = i->second.curclient;
         StringMap sm;
         sm["connected"] = cl->isReady() ? "1"  : "0";
