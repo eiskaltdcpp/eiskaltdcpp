@@ -2926,17 +2926,17 @@ void HubFrame::slotChatMenu(const QPoint &){
     if (!editor)
         return;
 
-    QString pressedParagraph = "", nick = "";
-
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
 
     cursor.movePosition(QTextCursor::StartOfBlock);
 
-    pressedParagraph = cursor.block().text();
+    QString pressedParagraph = cursor.block().text();
 
     int row_counter = 0;
     QRegExp nick_exp("<((.+))>");
     QRegExp thirdPerson_exp("\\*\\W+((\\w+))");// * Some_nick say something
+
+    QString nick = "";
 
     while (!(pressedParagraph.contains(nick_exp) || pressedParagraph.contains(thirdPerson_exp)) && row_counter < 600){//try to find nick in above rows (max 600 rows)
         cursor.movePosition(QTextCursor::PreviousBlock);

@@ -528,11 +528,8 @@ void ShareBrowser::slotRightPaneClicked(const QModelIndex &index){
         return;
     }
 
-    QString parent_path = lineEdit_PATH->text();
+    QString parent_path = lineEdit_PATH->text() + "\\" + item->data(COLUMN_FILEBROWSER_NAME).toString();
     QModelIndex parent_index = tree_model->createIndexForItem(tree_model->createRootForPath(parent_path));
-
-    parent_path = parent_path +"\\"+item->data(COLUMN_FILEBROWSER_NAME).toString();
-    parent_index = tree_model->createIndexForItem(tree_model->createRootForPath(parent_path));
 
     if (!parent_index.isValid())
         return;

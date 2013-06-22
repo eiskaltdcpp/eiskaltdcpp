@@ -128,8 +128,7 @@ void TabButton::mouseMoveEvent(QMouseEvent *e){
         return;
     }
 
-    QPixmap pxm = QPixmap();
-    pxm = QPixmap::grabWidget(this, rect());
+    QPixmap pxm = QPixmap::grabWidget(this, rect());
 
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
@@ -157,13 +156,10 @@ void TabButton::mouseReleaseEvent(QMouseEvent *e){
 void TabButton::paintEvent(QPaintEvent *e){
     QStyleOptionButton option;
     QPainter p(this);
-    bool checked = false;
-    bool mouseOver = false;
-
     initStyleOption(&option);
 
-    checked = (option.state & QStyle::State_On);
-    mouseOver = (option.state & QStyle::State_MouseOver);
+    bool checked = (option.state & QStyle::State_On);
+    bool mouseOver = (option.state & QStyle::State_MouseOver);
 
     option.state &= ~(QStyle::State_On|QStyle::State_MouseOver|QStyle::State_Enabled|
                       QStyle::State_HasFocus|QStyle::State_Active|QStyle::State_Sunken);//shutdown all states
