@@ -43,7 +43,6 @@
 * Updated list of fake client versions in Favorite Hub settings.
 * Added menu for quick connection to favorites hubs. (See related action on
   the tools panel.)
-* Fixed build with MinGW-w64.
 * Fixed emoticons processing in chats.
 * Fixed detection of users on hubs. (Sometimes program took user description
   from another hub.)

@@ -265,12 +265,14 @@ sudo make uninstall
 
 
 *******************************************************************************
-*BSD specific notes
+FreeBSD specific notes
 *******************************************************************************
+# If you use GCC, specific configuration options are not required. But if you
+# use clang, try something like this:
 mkdir -p builddir && cd builddir
-cmake -DCMAKE_BUILD_TYPE=Release ../
-gmake -j2
-sudo gmake install
+cmake -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_CXX_FLAGS='-I/opt/local/include -stdlib=libc++' -DNO_UI_DAEMON=ON -DXMLRPC_DAEMON=ON -DJSONRPC_DAEMON=ON -DUSE_QT=ON ..
+make
+sudo make install
 
 
 *******************************************************************************
