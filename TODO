@@ -10,7 +10,7 @@ The most important changes:
 * Add dialog widget for debugging Lua scripts.
 
 *** eiskaltdcpp-gtk ***
-* Get rid of deprecated Gtk+ elements.
+* Get rid of deprecated Gtk+ 3.x elements.
 * Confirugation dialog for IP filter.
 
 *** eiskaltdcpp-daemon ***
