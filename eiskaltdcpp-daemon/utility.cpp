@@ -18,7 +18,10 @@
 #include <syslog.h>
 #include <sys/stat.h>
 #endif
-#if (__GNUC__ == 4 && __GNUC_MINOR__ < 7)
+#if (defined(__GNUC__) && !defined(__clang__)) && (__GNUC__ == 4 && __GNUC_MINOR__ < 7)
+#include <boost/lexical_cast.hpp>
+#define USE_BOOST_LEXICAL_CAST 1
+#elif defined(__clang__) && (__clang_major__ == 3 && __clang_minor__ < 2)
 #include <boost/lexical_cast.hpp>
 #define USE_BOOST_LEXICAL_CAST 1
 #endif
