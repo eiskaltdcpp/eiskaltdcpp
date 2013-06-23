@@ -1,3 +1,10 @@
+--- 2.3.0 2013-09-xx ---
+*** common changes ***
+*** eiskaltdcpp-qt ***
+*** eiskaltdcpp-gtk ***
+*** eiskaltdcpp-daemon ***
+*** eiskaltdcpp-cli ***
+
 --- 2.2.8 2013-06-23 ---
 *** common changes ***
 * Виправлена збірка з Boost >= 1.50. Припинена підтримка Boost < 1.39.
