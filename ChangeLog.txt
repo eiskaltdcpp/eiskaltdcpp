@@ -28,7 +28,43 @@
 * Some improvements for build in Haiku.
 * Small code refactoring.
 *** eiskaltdcpp-qt ***
+* Fixed opening of public hub lists from cache.
+* Added progress bar into search widget.
+* Added menu item "Match all listings".
+* Added button "Match queue" into the share browser widget.
+* More consistent handling of magnet links from command line arguments.
+  [Thanks to Dorian Scholz]
+* Small improvement in download queue widget: use current filename in save
+  dialog.
+* Added new qtscript for tools panel: NowPlaying QMMP Script.
+  [Thanks to Gustavo Alvarez]
+* Fixed context menu in transfer view widget. (Copying information for
+  selected items worked wrong.)
+* Updated list of fake client versions in Favorite Hub settings.
+* Added menu for quick connection to favorites hubs. (See related action on
+  the tools panel.)
+* Fixed build with MinGW-w64.
+* Fixed emoticons processing in chats.
+* Fixed detection of users on hubs. (Sometimes program took user description
+  from another hub.)
+* Lot of fixes for user commands.
 *** eiskaltdcpp-gtk ***
+* Fixed opening of public hub lists from cache.
+* Added progress bar into search widget.
+* Added menu item "Match all listings".
+* Fixed a number of warnings about using deprecated functions in latest
+  versions of Gtk+ and GLib libraries.
+* In the file list widget parsing of file lists was detached into separate
+  thread, which solved the problem with a short GUI frieze during opening of
+  large file lists.
+* Added menu items for opening partial file lists.
+* Added possibility of configuring the file exceptions in settings dialog.
+  (In previous versions of program it was possible to configure this by
+  manually editing of DCPlusPlus.xml.)
+* Improved look and fill of settings dialog.
+* Added option to show user list on the left side of hub widget.
+* Improved transfers widget: now all information is in separate columns, so
+  some of them can be hided if necessary.
 *** eiskaltdcpp-daemon ***
 * Added JSON-RPC methods: hub.getuserinfo, hub.getusers, hub.listfulldesc,
   queue.matchlists.

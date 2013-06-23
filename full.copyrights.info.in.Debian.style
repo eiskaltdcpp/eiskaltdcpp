@@ -2,20 +2,18 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Debianized-By: Boris Pek <tehnick-8@mail.ru>
 Debianized-Date: Sat, 06 Feb 2010 03:43:21 +0300
 Upstream-Name: EiskaltDC++
-Upstream-Contact: Andrey Karlov <dein.negativ@gmail.com>
- Boris Pek <tehnick-8@mail.ru>
+Upstream-Contact: Boris Pek <tehnick-8@mail.ru>
  Eugene Petrov <dhamp@ya.ru>
  Pavel Vatagin <pavelvat@gmail.com>
+ Andrey Karlov <dein.negativ@gmail.com>
 Source: https://github.com/eiskaltdcpp/eiskaltdcpp
 
 Files: *
 Copyright: 2009-2012 Andrey Karlov <dein.negativ@gmail.com>
-Comment: Developers:
- Andrey Karlov <dein.negativ@gmail.com>
- Boris Pek aka Tehnick <tehnick-8@mail.ru>
- Eugene Petrov <dhamp@ya.ru>
- Alexandr Tkachev <tka4ev@gmail.com>
- Pavel Vatagin <pavelvat@gmail.com>
+ 2009-2013 Eugene Petrov <dhamp@ya.ru>
+ 2009-2013 Boris Pek aka Tehnick <tehnick-8@mail.ru>
+ 2010-2013 Pavel Vatagin <pavelvat@gmail.com>
+ 2010-2013 Alexandr Tkachev <tka4ev@gmail.com>
 License: GPL-3+ with OpenSSL exception
  This program is free software: you can redistribute it and/or modify it under
  the terms of the GNU General Public License as published by the Free Software
@@ -58,7 +56,7 @@ Files: dcpp/*.h dcpp/*.cpp
  extra/freespace.h extra/freespace.cpp
  extra/stacktrace.h
 Copyright:
- 2001-2010 Jacek Sieka <arnetheduck@gmail.com>
+ 2001-2012 Jacek Sieka <arnetheduck@gmail.com>
  2008-2010 Big Muscle (http://strongdc.sf.net)
  1996-2002 Florian Schintke
  2003-2006 RevConnect (http://www.revconnect.com)
@@ -91,7 +89,9 @@ Files: update-translations.sh
  eiskaltdcpp-qt/qtscripts/clementine_nowplay/clementine.sh
  macosx/build-universal-binary.sh
  macosx/build.sh
-Copyright: 2011-2012 Boris Pek <tehnick-8@mail.ru>
+Copyright: not-applicable
+Comment: Authors:
+ 2011-2012 Boris Pek <tehnick-8@mail.ru>
  2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
  2010 Vovochka404 <vovochka13@gmail.com>
  2011 Mark Lutring
