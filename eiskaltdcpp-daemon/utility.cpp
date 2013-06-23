@@ -18,7 +18,7 @@
 #include <syslog.h>
 #include <sys/stat.h>
 #endif
-#if defined(__MINGW32__) && (__GNUC__ == 4 && __GNUC_MINOR__ < 7)
+#if (__GNUC__ == 4 && __GNUC_MINOR__ < 7)
 #include <boost/lexical_cast.hpp>
 #define USE_BOOST_LEXICAL_CAST 1
 #endif
