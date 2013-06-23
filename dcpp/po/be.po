@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
 msgid ""
@@ -9,16 +9,14 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2013-05-28 23:38+0300\n"
-"PO-Revision-Date: 2013-02-06 10:00+0000\n"
+"PO-Revision-Date: 2013-06-23 14:48+0000\n"
 "Last-Translator: Павал Шаламіцкі <yehekim@gmail.com>\n"
-"Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/"
-"language/be/)\n"
-"Language: be\n"
+"Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: be\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -92,15 +90,15 @@ msgstr "Скончылі ствараць скароты: %1%"
 
 #: ../HashManager.cpp:260 ../HashManager.cpp:474
 msgid "Error saving hash data: %1%"
-msgstr "Далі хібу, калі захоўвалі зьвесткі скаротаў: %1%"
+msgstr "Не ўдалося захаваць зьвесткі скаротаў: %1%"
 
 #: ../HashManager.cpp:273
 msgid "Unable to read hash data file"
-msgstr "Не магу прачытаць файл зьвестак скаротаў"
+msgstr "Не ўдалося прачытаць файл зьвестак скаротаў"
 
 #: ../HashManager.cpp:606
 msgid "Error creating hash data file: %1%"
-msgstr "Далі хібу, калі стваралі файл зьвестак скаротаў: %1%"
+msgstr "Не ўдалося стварыць файл зьвестак скаротаў: %1%"
 
 #: ../HashManager.cpp:946
 msgid "Hash database rebuilt"
@@ -109,9 +107,7 @@ msgstr "Адбудавалі базу зьвестак"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% не абагулілі: падлічаная сума CRC32 не адпавядае той, што знайшлі ў "
-"файле SFV."
+msgstr "%1% не абагулілі: падлічаная сума CRC32 не адпавядае знойдзенай у файле SFV."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -127,8 +123,9 @@ msgstr "Вызначаюцца найлепшыя налады злучэньн�
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr "Не магу адчыніць порт(ы) %1%; вам трэба наставіць злучэньне самастойна"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr "Не ўдаецца адчыніць порт(ы) %1%; настаўце злучэньне самастойна"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
@@ -139,17 +136,13 @@ msgstr "Выявілі публічны адрас IP; абіраем дзейн
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr ""
-"Выявілі мясцовую сетку і, магчыма, NAT; спрабуем адлюстраваць порты з "
-"дапамогаю UPnP…"
+msgstr "Выявілі мясцовую сетку і, магчыма, NAT; спрабуем адлюстраваць порты з дапамогаю UPnP…"
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"Не ўдалося самарушна наладзіць злучэньне дзейным спосабам. Мажліва, вы "
-"захочаце наладзіць злучэньне самастойна для лепшае сувязі"
+msgstr "Не ўдалося самарушна наладзіць злучэньне дзейным спосабам. Мажліва, вы захочаце наладзіць злучэньне самастойна для лепшае сувязі"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -170,7 +163,7 @@ msgstr "Злучэньне: "
 #: ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
 #: ../ConnectionManager.cpp:186 ../Socket.cpp:221
 msgid "Connection timeout"
-msgstr "Злучэньне па-за часам"
+msgstr "Выйшаў час злучэньня"
 
 #: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
 msgid "Connection closed"
@@ -190,7 +183,7 @@ msgstr "Злучэньне ўжо існуе."
 
 #: ../UploadManager.cpp:267
 msgid "Unable to send file %1%: %2%"
-msgstr "Не магу даслаць файл %1%: %2%"
+msgstr "Не ўдаецца даслаць файл %1%: %2%"
 
 #: ../UploadManager.cpp:554
 msgid "IPFilter: Blocked incoming connection to "
@@ -248,9 +241,7 @@ msgstr "Прызначылі задаўгую назву файла"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"Хібнае прызначэньне (адсутнічае каталёґ; спраўдзіце перадвызначаныя налады "
-"каталёґа сьцягваць)"
+msgstr "Хібнае прызначэньне (адсутнічае каталёґ; спраўдзіце перадвызначаныя налады каталёґа сьцягваць)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -270,23 +261,23 @@ msgstr "Файл мэты адсутнічае ці мае неадпаведн�
 
 #: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr "Не магу перасунуць %1% у %2% (%3%); далі новую назву: %4%"
+msgstr "Не ўдаецца перасунуць %1% у %2% (%3%); далі новую назву: %4%"
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"Не магу ані перасунуць %1% у %2% (%3%), ані даць новую назву: %4% (%5%)"
+msgstr "Не ўдаецца ані перасунуць %1% у %2% (%3%), ані даць новую назву: %4% (%5%)"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
-msgstr "Не магу адчыніць сьпіс файлаў: %1%"
+msgstr "Не ўдаецца адчыніць сьпіс файлаў: %1%"
 
 #: ../QueueManager.cpp:1426
 msgid "%1%: Matched %2% file"
 msgstr "%1%: супаў файл %2%"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
 msgstr "Да прызначанага шляху няма доступу: %1%; пункт чаргі прыпынілі."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
@@ -309,9 +300,7 @@ msgstr "Не ўдалося дамовіцца пра галоўны прата�
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"Магчыма, асяродак выкарыстоўвае старую вэрсію ADC. Калі ласка, паспрыяйце, "
-"каб уладальнік абнавіў яе"
+msgstr "Магчыма, асяродак выкарыстоўвае старую вэрсію ADC. Паспрыяйце, каб уладальнік абнавіў яе"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -323,7 +312,7 @@ msgstr "Карыстальніку %1% далі высьпятка: %2%"
 
 #: ../AdcHub.cpp:694
 msgid "Not listening for connections - please restart %1%"
-msgstr "Ня чую злучэньняў — калі ласка, запусьціце %1% нанова"
+msgstr "Ня чую злучэньняў — запусьціце %1% нанова"
 
 #: ../FavoriteManager.cpp:429
 msgid "Kick user(s)"
@@ -349,9 +338,7 @@ msgstr "Тэма асяродку:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr ""
-"Гэты асяродак спрабуе рассылаць непажаданыя паведамленьні %1% праз ваш "
-"кліент; калі ласка, паведаміце ўладальніку асяродку, каб ён выправіў гэта"
+msgstr "Гэты асяродак спрабуе рассылаць непажаданыя паведамленьні %1% праз ваш кліент; паведаміце ўладальніку асяродку, каб ён выправіў гэта"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -368,13 +355,13 @@ msgstr "Памылка злучэньня: %1%"
 #: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
 #: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
 msgid "Error during compression"
-msgstr "Далі хібу, калі сьціскалі"
+msgstr "Не ўдалося сьціснуць"
 
 #: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
 #: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
 #: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
 msgid "Error during decompression"
-msgstr "Далі хібу, калі распакоўвалі"
+msgstr "Не ўдалося распакаваць"
 
 #: ../UPnPManager.cpp:45
 msgid "No UPnP implementation available"
@@ -382,7 +369,7 @@ msgstr "Няма даступнага выкананьня UPnP"
 
 #: ../UPnPManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
-msgstr "Зараз спрабуем стварыць іншае люстра портаў UPnP…"
+msgstr "Спрабуем стварыць іншае люстра портаў UPnP…"
 
 #: ../UPnPManager.cpp:82
 msgid "Failed to initialize the %1% interface"
@@ -413,8 +400,7 @@ msgstr " Порт DHT (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr ""
-"Адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю інтэрфэйсу %4%"
+msgstr "Адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю інтэрфэйсу %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -462,7 +448,7 @@ msgstr "Адказ не адпавядае запыту"
 
 #: ../DownloadManager.cpp:241
 msgid "Could not open target file: %1%"
-msgstr "Не магу адчыніць прызначаны файл: %1%"
+msgstr "Не ўдаецца адчыніць прызначаны файл: %1%"
 
 #: ../DownloadManager.cpp:320
 msgid "Full tree does not match TTH root"
@@ -486,7 +472,7 @@ msgstr "Зьвесткі злучэньня ADC не ў кадоўцы UTF-8"
 
 #: ../Thread.cpp:34 ../Thread.cpp:42
 msgid "Unable to create thread"
-msgstr "Не магу стварыць ніць"
+msgstr "Не ўдаецца стварыць ніць"
 
 #: ../DCPlusPlus.cpp:122
 msgid "Hash database"
@@ -565,14 +551,12 @@ msgid "Invalid file name found while hashing folder %1%"
 msgstr "Выявілі хібную назву файла, калі стваралі скароты ў каталёґу %1%"
 
 #: ../ShareManager.cpp:660
-#, fuzzy
 msgid "Skip share file: %1% (Size: %2%)"
-msgstr "Карыстальнік абраў не абагуляць файл %1% (памер: %2%)"
+msgstr "Не абагуляецца файл: %1% (памер: %2%)"
 
 #: ../ShareManager.cpp:681
-#, fuzzy
 msgid "Skip share temp file: %1% (Size: %2%)"
-msgstr "Карыстальнік абраў не абагуляць часовы файл %1% (памер: %2%)"
+msgstr "Не абагуляецца часовы файл: %1% (памер: %2%)"
 
 #: ../ShareManager.cpp:769
 msgid ""
@@ -582,11 +566,9 @@ msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
 
 #: ../ShareManager.cpp:790
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Сьпіс файлаў зараз абнаўляецца. Калі ласка, пачакайце, пакуль ён абновіцца, "
-"каб паспрабаваць абнавіць ізноў."
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "Сьпіс файлаў абнаўляецца. Пачакайце, пакуль ён абновіцца, каб паспрабаваць абнавіць ізноў."
 
 #: ../ShareManager.cpp:811
 msgid "File list refresh failed: %1%"
@@ -656,16 +638,13 @@ msgstr "Паслужнік SOCKS не падтрымвае апазнавань�
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"Не ўдалося апазнацца на паслужніку SOCKS (кепскі пароль ці ўліковае ймя?)"
+msgstr "Не ўдалося апазнацца на паслужніку SOCKS (кепскі пароль ці ўліковае ймя?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт "
-"SOCKS)"
+msgstr "Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт SOCKS)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
@@ -677,7 +656,7 @@ msgstr "Не абралі пасьведчаньня"
 
 #: ../CryptoManager.cpp:149
 msgid "Error generating certificate"
-msgstr "Далі хібу, калі стваралі пасьведчаньне"
+msgstr "Не ўдалося стварыць пасьведчаньне"
 
 #: ../CryptoManager.cpp:212
 msgid "TLS disabled, no certificate file set"
