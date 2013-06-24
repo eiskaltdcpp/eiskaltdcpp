@@ -319,7 +319,7 @@ else (NOT DEFINED linguas)
   elseif (linguas STREQUAL *)
         set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
   else (NOT linguas)
-    string(REGEX MATCHALL [a-zA-Z_]+
+    string(REGEX MATCHALL [a-zA-Z_@]+
            linguas1 ${linguas})
     set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
   endif (NOT linguas)
