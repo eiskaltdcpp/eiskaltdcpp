@@ -30,12 +30,12 @@
     <message>
         <location filename="../src/ADLS.cpp" line="382"/>
         <source>Directory</source>
-        <translation>Тека</translation>
+        <translation>Каталог</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="383"/>
         <source>Full Path</source>
-        <translation>Шлях до файлу</translation>
+        <translation>Повний Шлях</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="389"/>
@@ -68,7 +68,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Search String</source>
-        <translation>Пошуковий рядок</translation>
+        <translation>Рядок пошуку</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
@@ -78,7 +78,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation>Назва теки</translation>
+        <translation>Iм&apos;я каталогу</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
@@ -1140,7 +1140,7 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1664"/>
         <location filename="../src/HubFrame.cpp" line="1666"/>
         <source>Invalid command syntax.</source>
-        <translation>Неправильний синтаксис для команди.</translation>
+        <translation>Невiрний синтаксис для команди.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1676"/>
@@ -1157,7 +1157,7 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1750"/>
         <location filename="../src/HubFrame.cpp" line="1752"/>
         <source>Aspell switched %1</source>
-        <translation>Aspell %1</translation>
+        <translation>Перевірка правопису %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1750"/>
@@ -1424,7 +1424,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="3703"/>
         <source>Connecting to %1</source>
-        <translation>Connecting to %1</translation>
+        <translation>З&apos;єднання з %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3711"/>
@@ -1808,7 +1808,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1282"/>
         <source>Match all listings</source>
-        <translation type="unfinished"/>
+        <translation>Порівняти всі списки</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1284"/>
@@ -2206,7 +2206,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2285"/>
         <source>Script Engine</source>
-        <translation>Двигун сценаріїв</translation>
+        <translation>Скриптовий двигун</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2528"/>
@@ -2261,117 +2261,117 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2649"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (main developer since version 0.4.10)&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (головний розробник з версії 0.4.10)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2652"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Arch Linux maintainer and developer since version 0.4.10)&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (супроводжуючий пакету в Arch Linux і розробник з версії 0.4.10)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2655"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (супроводжуючий пакету в Debian/Ubuntu і розробник з версії 1.89.0)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2658"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (MS Windows maintainer and developer since version 2.2.4)&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (супроводжуючий пакета в M$ Windows і розробник з версії 2.2.4)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2661"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (developer since version 2.0.3)&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (розробник, починаючи з версії 2.0.3)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2663"/>
         <source>&lt;b&gt;Graphic files&lt;/b&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Графічні файли&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2666"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (creator of the logo of the project)&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Творець логотипу проекту)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2673"/>
         <source>Participate in the translation. It is easy: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Беріть участь в перекладі. Це просто: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2677"/>
         <source>Russian translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Російський переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2681"/>
         <source>Belarusian translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Білоруський переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>Hungarian translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Угорський переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2688"/>
         <source>French translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Французький переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>Polish translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Польський переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>Ukrainian translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Український переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2697"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Сербський (латиниця) переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2700"/>
         <source>Spanish translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Iспанський переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2704"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Болгарський переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2707"/>
         <source>Slovak translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Словацький переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2710"/>
         <source>Czech translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Чеський переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2713"/>
         <source>German translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Німецький переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2718"/>
         <source>Greek translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Грецький переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2721"/>
         <source>Italian translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Iталійський переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2725"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Португальський (Бразилія)  переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <source>&amp;nbsp; (main developer 0.4.10 and later)&lt;br/&gt;</source>
@@ -2703,7 +2703,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Locally cached (as of %1) version of the hub list loaded (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Локальний кеш (%1) списку хабів (%2) успішно завантажений</translation>
     </message>
     <message>
         <source>Hub list loaded from cache...</source>
@@ -3092,7 +3092,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1563"/>
         <source>Searching for %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Шукаємо %1 ...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1579"/>
@@ -3102,7 +3102,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1588"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
-        <translation>Знайдено: &lt;b&gt;%1&lt;/b&gt;  Відсіяно: &lt;b&gt;%2&lt;/b&gt;</translation>
+        <translation>Знайдено: &lt;b&gt;%1&lt;/b&gt; Відсіяно: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -3324,7 +3324,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="91"/>
         <source>Portuguese (Brazil)</source>
-        <translation type="unfinished"/>
+        <translation>Португальська (Бразилія)</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="93"/>
@@ -3622,7 +3622,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="393"/>
         <source>Total share size: %1;  Files: %2</source>
-        <translation>Загальний розмір шари: %1; файлів: %2</translation>
+        <translation>Загальний розмір шари: %1; Файлів: %2</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="427"/>
@@ -3663,7 +3663,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="1105"/>
         <source>Matched %1 files</source>
-        <translation type="unfinished"/>
+        <translation>Погоджено %1 файлів</translation>
     </message>
 </context>
 <context>
@@ -4374,7 +4374,11 @@ Do you want to stop it?
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="41"/>
@@ -4395,7 +4399,11 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -5222,7 +5230,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="39"/>
         <source>When script changed</source>
-        <translation>Коли сценарій змінився</translation>
+        <translation>Коли скрипт змінений</translation>
     </message>
 </context>
 <context>
@@ -6012,7 +6020,16 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"/>
+        <translation>Увімкніть цю опцію, якщо хочете залишити файли і каталоги
+в черзі завантажень по закінченні їх завантаження. 
+Після закінчення завантаження елементи черги завантаження 
+матимуть статус &apos;Закінчено&apos; і ви можете видалити їх з черги в будь-який час. 
+ Використовуючи цю функцію, ви можете контролювати, які файли 
+були завантажені, без необхідності виклику вікна зі списком завантаженого. 
+ Майте на увазі, що при фізичному видаленні файлу з їх цільового розташування
+відповідний елемент не буде видалено з черги. Якщо ви вимкнете цю опцію, 
+існуючі елементи зі статусом &apos;Закінчено&apos; не будуть видалені з черги, 
+ви повинні зробити це вручну.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
@@ -6077,7 +6094,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="923"/>
         <source>Allow simultaneous uploads by one IP</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити одночасне завантаження з одного IP</translation>
     </message>
 </context>
 <context>
@@ -6593,7 +6610,11 @@ them is usually available only to operators</source>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -6986,7 +7007,7 @@ and may cause the client to appear to freeze.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="372"/>
         <source>Use ADL search only in own file list</source>
-        <translation type="unfinished"/>
+        <translation>Використовувати ADL пошук тільки в своєму списку файлів</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="387"/>
