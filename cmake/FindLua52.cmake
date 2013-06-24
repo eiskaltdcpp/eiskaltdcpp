@@ -80,7 +80,7 @@ endif ()
 include(FindPackageHandleStandardArgs)
 # handle the QUIETLY and REQUIRED arguments and set LUA_FOUND to TRUE if
 # all listed variables are TRUE
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(Lua51
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(Lua52
                                   REQUIRED_VARS LUA_LIBRARIES LUA_INCLUDE_DIR
                                   VERSION_VAR LUA_VERSION_STRING)
 
