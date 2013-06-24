@@ -1031,7 +1031,7 @@ msgstr "Менеджер підключення: Попередження"
 
 #: ../src/mainwindow.cc:210
 msgid "Contributors"
-msgstr "Співавтори\n"
+msgstr "Співавтори"
 
 #: ../src/searchspy.cc:58 ../src/searchspy.cc:157 ../src/searchspy.cc:271
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:312 ../src/searchspy.cc:434
@@ -1110,7 +1110,7 @@ msgstr "Тека Призначення"
 
 #: ../src/mainwindow.cc:206
 msgid "Developers"
-msgstr "Розробники\n"
+msgstr "Розробники"
 
 #: ../src/sharebrowser.cc:112 ../src/sharebrowser.cc:258
 #: ../src/sharebrowser.cc:277 ../src/sharebrowser.cc:616
