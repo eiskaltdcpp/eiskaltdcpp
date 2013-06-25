@@ -311,7 +311,7 @@ int SpyItem::columnCount() const {
 }
 
 QVariant SpyItem::data(int column) const {
-    if (column == COLUMN_SPY_COUNT && childItems.size() > 0 && parent())
+    if (column == COLUMN_SPY_COUNT && !childItems.isEmpty() && parent())
         return childItems.size()+1;
 
     return itemData.value(column);

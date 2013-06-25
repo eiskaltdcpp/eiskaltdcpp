@@ -307,7 +307,7 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     QMenu *userm = buildUserCmdMenu(list);
 
     if (userm)
-        if (userm->actions().size() > 0)
+        if (!userm->actions().isEmpty())
             menu->addMenu(userm);
 
     QAction *ret = menu->exec(QCursor::pos());
@@ -1538,7 +1538,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 if (getDownloadParams(params, item))
                     new_inst << item->data(COLUMN_SF_FILENAME).toString();
             }
-            if (new_inst.size()>0){
+            if (!new_inst.isEmpty()){
                 static SearchBlacklist *SB = SearchBlacklist::getInstance();
                 QList <QString> list = SB->getList(SearchBlacklist::NAME);
                 list.append(new_inst);

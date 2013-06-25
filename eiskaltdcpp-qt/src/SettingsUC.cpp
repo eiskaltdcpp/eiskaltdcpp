@@ -48,7 +48,7 @@ QModelIndex SettingsUC::selectedIndex(){
     QItemSelectionModel *s_m = treeView->selectionModel();
     QModelIndexList list = s_m->selectedRows(0);
 
-    if (list.size() > 0)
+    if (!list.isEmpty())
         return list.at(0);
     else
         return QModelIndex();

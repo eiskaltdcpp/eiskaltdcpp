@@ -294,7 +294,7 @@ void SettingsSharing::slotContextMenu(const QPoint &){
         menu->addAction(rename);
     }
 
-    if (selected.size() > 0){
+    if (!selected.isEmpty()){
         rem = new QAction(WU->getPixmap(WulforUtil::eiEDITDELETE), tr("Remove"), menu);
         menu->addAction(rem);
     }

@@ -389,7 +389,7 @@ bool FileBrowserModel::hasChildren(const QModelIndex &parent) const{
 
     FileBrowserItem *item = static_cast<FileBrowserItem*>(parent.internalPointer());
 
-    return (item->dir && item->dir->directories.size() > 0);
+    return (item->dir && !item->dir->directories.empty());
 }
 
 void FileBrowserModel::fetchMore(const QModelIndex &parent){
@@ -537,7 +537,7 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
 
         bool found = false;
 
-        if (root->dir && root->dir->directories.size() > 0 && root->childCount() == 0)//Load child items
+        if (root->dir && !root->dir->directories.empty() && root->childCount() == 0)//Load child items
             fetchMore(createIndexForItem(root));
 
         foreach(FileBrowserItem *item, root->childItems){
@@ -683,7 +683,7 @@ void FileBrowserItem::operator=(const FileBrowserItem &item){
 
 FileBrowserItem::~FileBrowserItem()
 {
-    if (childItems.size() > 0)
+    if (!childItems.isEmpty())
         qDeleteAll(childItems);
 }
 
