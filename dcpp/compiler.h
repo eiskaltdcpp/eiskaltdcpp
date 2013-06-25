@@ -18,10 +18,14 @@
 
 #pragma once
 
-#if defined(__GNUC__)
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 4)
-//#error GCC 4.4 is required
+#if defined(__GNUC__) && !defined(__clang__)
+#if (__GNUC__ < 4) || (__GNUC__ == 4 && __GNUC_MINOR__ < 6)
+#error Build with GCC < 4.6 is not supported anymore!
+#endif
 
+#elif defined(__clang__)
+#if (__clang_major__ < 3) || (__clang_major__ == 3 && __clang_minor__ < 1)
+#error Build with Clang < 3.1 is not supported anymore!
 #endif
 
 #elif defined(_MSC_VER)
