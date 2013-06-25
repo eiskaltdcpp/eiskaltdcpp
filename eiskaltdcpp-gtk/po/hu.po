@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Márk Lutring <marcus@elitemail.hu>, 2012-2013
@@ -10,14 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-10 01:43+0300\n"
+"POT-Creation-Date: 2013-06-25 16:01+0300\n"
 "PO-Revision-Date: 2013-06-21 12:22+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/language/hu/)\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/hu/)\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
@@ -33,7 +34,7 @@ msgstr " *** Hangulatjelek mód kikapcsolva"
 msgid " *** Emoticons not loaded"
 msgstr " *** A hangulatjelek nincsenek betöltve"
 
-#: ../src/settingsdialog.cc:2463
+#: ../src/settingsdialog.cc:2505
 msgid " + system icons"
 msgstr " + rendszer ikonok"
 
@@ -41,11 +42,11 @@ msgstr " + rendszer ikonok"
 msgid " Users"
 msgstr " felhasználó"
 
-#: ../src/hub.cc:2789
+#: ../src/hub.cc:2788
 msgid " added to favorites list"
 msgstr " hozzáadva a kedvencekhez"
 
-#: ../src/hub.cc:1947
+#: ../src/hub.cc:1946
 msgid " empty..."
 msgstr " üres..."
 
@@ -69,11 +70,11 @@ msgstr " kilépett"
 msgid " has quit hub "
 msgstr " kilépett "
 
-#: ../src/privatemessage.cc:1391 ../src/hub.cc:1920 ../src/hub.cc:2721
+#: ../src/privatemessage.cc:1391 ../src/hub.cc:1919 ../src/hub.cc:2720
 msgid " is favorite user"
 msgstr " kedvenc felhasználó"
 
-#: ../src/privatemessage.cc:1412 ../src/hub.cc:1938 ../src/hub.cc:2760
+#: ../src/privatemessage.cc:1412 ../src/hub.cc:1937 ../src/hub.cc:2759
 msgid " is not favorite user"
 msgstr " nem kedvenc felhasználó"
 
@@ -85,7 +86,7 @@ msgstr " maradt"
 msgid " of "
 msgstr ""
 
-#: ../src/hub.cc:2816
+#: ../src/hub.cc:2815
 msgid " removed from favorites list"
 msgstr " törölve a favoritok közül"
 
@@ -93,7 +94,7 @@ msgstr " törölve a favoritok közül"
 msgid " to "
 msgstr ""
 
-#: ../src/search.cc:694
+#: ../src/search.cc:702
 msgid " user(s)"
 msgstr " felhasználó(k)"
 
@@ -115,21 +116,29 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a a hét napjainak rövidített neve.\n%b a hónapok rövidített neve.\n%H óra, mint decimális szám, 24 órás időformátumban.\n%M perc, mind decimális szám (tartomány: 00-59).\n%S másodperc, mind decimális szám (tartomány: 00-59).\n%% megjeleníthető '%' karakter.\n\nlásd még: 'man strftime' a további részletekért."
+msgstr ""
+"%a a hét napjainak rövidített neve.\n"
+"%b a hónapok rövidített neve.\n"
+"%H óra, mint decimális szám, 24 órás időformátumban.\n"
+"%M perc, mind decimális szám (tartomány: 00-59).\n"
+"%S másodperc, mind decimális szám (tartomány: 00-59).\n"
+"%% megjeleníthető '%' karakter.\n"
+"\n"
+"lásd még: 'man strftime' a további részletekért."
 
-#: ../src/hub.cc:2368
+#: ../src/hub.cc:2367
 msgid "': type /help for a list of available commands"
 msgstr "': a használható parancsokat a /help használatával érheted el"
 
-#: ../src/privatemessage.cc:1022 ../src/hub.cc:2039
+#: ../src/privatemessage.cc:1022 ../src/hub.cc:2038
 msgid "*** Available commands:"
 msgstr "*** Elérhető parancsok:"
 
-#: ../src/settingsdialog.cc:2236
+#: ../src/settingsdialog.cc:2278
 msgid "*** T E S T ***"
 msgstr "*** T E S Z T ***"
 
-#: ../src/settingsdialog.cc:1431 ../ui/mainwindow.ui:251
+#: ../src/settingsdialog.cc:1457 ../ui/mainwindow.ui:251
 #: ../ui/mainwindow.ui:2375 ../ui/mainwindow.ui:2393
 msgid "+/-"
 msgstr "+/-"
@@ -138,12 +147,12 @@ msgstr "+/-"
 msgid "-:--:-- left"
 msgstr "-:--:-- maradt"
 
-#: ../src/settingsdialog.cc:2415 ../src/settingsdialog.cc:2439
+#: ../src/settingsdialog.cc:2457 ../src/settingsdialog.cc:2481
 msgid "...must be *.theme"
 msgstr "... *.theme kiterjesztésűnek kell lennie"
 
-#: ../src/settingsdialog.cc:2318 ../src/settingsdialog.cc:2347
-#: ../src/settingsdialog.cc:2384
+#: ../src/settingsdialog.cc:2360 ../src/settingsdialog.cc:2389
+#: ../src/settingsdialog.cc:2426
 msgid "...must not be empty"
 msgstr "...nem lehet üres"
 
@@ -161,9 +170,11 @@ msgstr ": a használható parancsokat a /help használatával érheted el"
 
 #: ../ui/settingsdialog.ui:7198
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Segítség</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Segítség</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -237,7 +248,7 @@ msgstr "<b>Ne ossza meg a fájlokat és mappákat amik tartalmazzák:</b>"
 msgid "<b>Enter your password</b>"
 msgstr "<b>Add meg a jelszavad<b>"
 
-#: ../src/settingsdialog.cc:2154
+#: ../src/settingsdialog.cc:2196
 msgid "<b>Extension</b>"
 msgstr "<b>Kiterjesztés</b>"
 
@@ -305,25 +316,27 @@ msgstr "<b>Maximum fájméret</b>"
 msgid "<b>Min FileSize</b>"
 msgstr "<b>Minimum fájlméret</b>"
 
-#: ../src/settingsdialog.cc:1800
+#: ../src/settingsdialog.cc:1842
 msgid "<b>Name of the new search type</b>"
 msgstr "<b>Az új keresési típus neve</b>"
 
-#: ../src/settingsdialog.cc:3031
+#: ../src/settingsdialog.cc:3089
 msgid "<b>Name under which the others see the directory</b>"
 msgstr "<b>Név, ami alatt mások látják a könyvtárat</b>"
 
-#: ../src/settingsdialog.cc:3645
+#: ../src/settingsdialog.cc:3729
 msgid "<b>Name, under which you see the directory</b>"
 msgstr "<b>Név, ami alatt ön látja a könyvtárat</b>"
 
-#: ../src/settingsdialog.cc:2053
+#: ../src/settingsdialog.cc:2095
 msgid "<b>New name</b>"
 msgstr "<b>Új név</b>"
 
 #: ../ui/settingsdialog.ui:9197 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Megjegyzés:</b> A listában szereplő url-ek szerkeszthetők kiválasztás után egy kattintással"
+msgstr ""
+"<b>Megjegyzés:</b> A listában szereplő url-ek szerkeszthetők kiválasztás "
+"után egy kattintással"
 
 #: ../ui/settingsdialog.ui:5484
 msgid "<b>Notify</b>"
@@ -453,13 +466,15 @@ msgstr "<b>Mit szeretnél tenni?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Ablak beállítások</b>"
 
-#: ../src/mainwindow.cc:2332
+#: ../src/mainwindow.cc:2333
 msgid "<b>file:</b> "
 msgstr "<b>fájl</b> "
 
 #: ../ui/favoritehubs.ui:444
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr "<small>Megjegyzés: Ha nincs bejelölve, az alapértelmezett beállítások lesznek érvényben</small>"
+msgstr ""
+"<small>Megjegyzés: Ha nincs bejelölve, az alapértelmezett beállítások "
+"lesznek érvényben</small>"
 
 #: ../src/sharebrowser.hh:149 ../src/sharebrowser.hh:152
 msgid "?"
@@ -481,7 +496,7 @@ msgstr "ADL keresés beállításai"
 msgid "About EiskaltDC++"
 msgstr "Névjegy: EiskaltDC++"
 
-#: ../src/settingsdialog.cc:1599
+#: ../src/settingsdialog.cc:1641
 msgid "Accept custom user commands from hub"
 msgstr "Felhasználói parancsok elfogadása a hubtól"
 
@@ -497,15 +512,16 @@ msgstr "Hozzáadás"
 msgid "Add / Remove"
 msgstr "Hozzáadás / Eltávolítás"
 
-#: ../src/hub.cc:2044 ../ui/hub.ui:39
+#: ../src/hub.cc:2043 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
 msgstr "Hub hozzáadása a kedvencekhez"
 
-#: ../src/settingsdialog.cc:1601
+#: ../src/settingsdialog.cc:1643
 msgid "Add finished files to share instantly (if shared)"
-msgstr "Letöltött fájlok azonnali megosztása (ha a megosztási mappán belül van)\t"
+msgstr ""
+"Letöltött fájlok azonnali megosztása (ha a megosztási mappán belül van)\t"
 
-#: ../src/hub.cc:2074
+#: ../src/hub.cc:2073
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
@@ -523,7 +539,7 @@ msgstr "Hub hozzáadása a kedvencekhez"
 msgid "Add to favorites"
 msgstr "Hozzáadás a kedvencekhez"
 
-#: ../src/privatemessage.cc:1027 ../src/hub.cc:2045 ../ui/privatemessage.ui:48
+#: ../src/privatemessage.cc:1027 ../src/hub.cc:2044 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
 msgstr "Felhasználó hozzáadása a kedvencekhez"
 
@@ -555,47 +571,49 @@ msgstr "Cím"
 msgid "Advanced"
 msgstr "Haladó"
 
-#: ../src/hub.cc:2069
+#: ../src/hub.cc:2068
 msgid "Alias A executing"
 msgstr "A álnév futtatása"
 
-#: ../src/hub.cc:2066
+#: ../src/hub.cc:2065
 msgid "Alias List"
 msgstr "Álnevek listázása"
 
-#: ../src/hub.cc:2067
+#: ../src/hub.cc:2066
 msgid "Alias Remove A"
 msgstr "Álnév eltávolítása A"
 
-#: ../src/hub.cc:2068
+#: ../src/hub.cc:2067
 msgid "Alias add uname -a as A"
 msgstr "\"uname -a\" álnév hozzáadása, mint A"
 
-#: ../src/hub.cc:2268
+#: ../src/hub.cc:2267
 msgid "Aliases not found."
 msgstr "Nem találhatóak álnevek."
 
-#: ../src/settingsdialog.cc:1675
+#: ../src/settingsdialog.cc:1717
 msgid "Allow TLS connections to clients without trusted certificate"
-msgstr "TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli klienseknél is"
+msgstr ""
+"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli klienseknél is"
 
-#: ../src/settingsdialog.cc:1674
+#: ../src/settingsdialog.cc:1716
 msgid "Allow TLS connections to hubs without trusted certificate"
-msgstr "TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli huboknál is"
+msgstr ""
+"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli huboknál is"
 
-#: ../src/settingsdialog.cc:1609
+#: ../src/settingsdialog.cc:1651
 msgid "Allow few connections from one IP"
 msgstr "Több kapcsolat engedélyezése egy IP címnek"
 
-#: ../src/settingsdialog.cc:1608
+#: ../src/settingsdialog.cc:1650
 msgid "Allow overlap chunks"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1610
+#: ../src/settingsdialog.cc:1652
 msgid "Allow some connections for one user"
 msgstr "Több kapcsolat engedélyezése egy felhasználónak"
 
-#: ../src/settingsdialog.cc:940
+#: ../src/settingsdialog.cc:952
 msgid "Amarok player"
 msgstr "Amarok player"
 
@@ -603,9 +621,9 @@ msgstr "Amarok player"
 msgid "Appearance"
 msgstr "Megjelenés"
 
-#: ../src/settingsdialog.cc:913 ../src/settingsdialog.cc:948
-#: ../src/settingsdialog.cc:2918 ../src/settingsdialog.cc:2952
-#: ../src/settingsdialog.cc:2970 ../src/settingsdialog.cc:3001
+#: ../src/settingsdialog.cc:925 ../src/settingsdialog.cc:960
+#: ../src/settingsdialog.cc:2976 ../src/settingsdialog.cc:3010
+#: ../src/settingsdialog.cc:3028 ../src/settingsdialog.cc:3059
 msgid "Application"
 msgstr "Alkalmazás"
 
@@ -624,7 +642,8 @@ msgstr "Alkalmazás kiterjesztésekhez: (avi;mov;divx)"
 #: ../src/favoritehubs.cc:454
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr "Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
+msgstr ""
+"Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
 
 #: ../src/favoriteusers.cc:441
 msgid "Are you sure you want to delete favorite user(s)?"
@@ -658,31 +677,37 @@ msgstr "Automatikus újraellenőrzés ideje"
 msgid "Auto update IP from internet"
 msgstr "IP cím automatikus frissítése az internetről"
 
-#: ../src/settingsdialog.cc:1590
+#: ../src/settingsdialog.cc:1632
 msgid "Auto-away on minimize (and back on restore)"
-msgstr "Minimalizáláskor automatikus away mód (és maximalizáláskor visszavonás)"
+msgstr ""
+"Minimalizáláskor automatikus away mód (és maximalizáláskor visszavonás)"
 
-#: ../src/settingsdialog.cc:973
+#: ../src/settingsdialog.cc:985
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr "Lassú források automatikus eldobása a sor minden eléménél (kivéve fájl-listáknál)"
+msgstr ""
+"Lassú források automatikus eldobása a sor minden eléménél (kivéve fájl-"
+"listáknál)"
 
-#: ../src/settingsdialog.cc:1595
+#: ../src/settingsdialog.cc:1637
 msgid "Automatically disconnect users who leave the hub"
 msgstr "A hubról kilépő felhasználó automatikus szétkapcsolása"
 
-#: ../src/settingsdialog.cc:1591
+#: ../src/settingsdialog.cc:1633
 msgid "Automatically follow redirects"
 msgstr "Átirányítások automatikus követése"
 
-#: ../src/settingsdialog.cc:977
+#: ../src/settingsdialog.cc:989
 msgid "Automatically match queue for auto search hits"
-msgstr "Listák automatikus egyeztetése a letöltésekkel alternatív forrás találásakor"
+msgstr ""
+"Listák automatikus egyeztetése a letöltésekkel alternatív forrás találásakor"
 
 #: ../ui/settingsdialog.ui:4167
 msgid "Automatically open extra slot if speed is below (0 = disable)"
-msgstr "Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = letiltva)"
+msgstr ""
+"Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = "
+"letiltva)"
 
-#: ../src/settingsdialog.cc:976
+#: ../src/settingsdialog.cc:988
 msgid "Automatically search for alternative download locations"
 msgstr "Alternatív letöltési helyek automatikus keresése"
 
@@ -690,18 +715,18 @@ msgstr "Alternatív letöltési helyek automatikus keresése"
 msgid "Automatically update external IP (restart required)"
 msgstr "Külső IP cím automatikus frissítése (újraindítás szükséges)"
 
-#: ../src/privatemessage.cc:1023 ../src/hub.cc:2040 ../ui/privatemessage.ui:12
+#: ../src/privatemessage.cc:1023 ../src/hub.cc:2039 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
 msgid "Away mode message on/off"
 msgstr "Away-mód üzenet ki/be"
 
 #: ../src/privatemessage.cc:911 ../src/privatemessage.cc:925
-#: ../src/privatemessage.cc:1024 ../src/hub.cc:1863 ../src/hub.cc:1876
-#: ../src/hub.cc:2041 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
+#: ../src/privatemessage.cc:1024 ../src/hub.cc:1862 ../src/hub.cc:1875
+#: ../src/hub.cc:2040 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
 msgid "Away mode off"
 msgstr "Away-mód kikapcsolva"
 
-#: ../src/privatemessage.cc:919 ../src/hub.cc:1870
+#: ../src/privatemessage.cc:919 ../src/hub.cc:1869
 msgid "Away mode on: "
 msgstr "Away-mód bekapcsolva: "
 
@@ -717,7 +742,7 @@ msgstr "B/s"
 msgid "Back color"
 msgstr "Betű háttérszín"
 
-#: ../src/settingsdialog.cc:1049
+#: ../src/settingsdialog.cc:1061
 msgid "Belarusian"
 msgstr "Fehérorosz fordítás"
 
@@ -753,23 +778,23 @@ msgstr "Fájl böngészése..."
 msgid "Browse the list of public hubs"
 msgstr "Publikus hublista böngészése"
 
-#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:348
-#: ../src/search.cc:419 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
+#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:356
+#: ../src/search.cc:427 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
 #: ../ui/hub.ui:231 ../ui/settingsdialog.ui:2646 ../ui/settingsdialog.ui:2716
 #: ../ui/settingsdialog.ui:6688 ../ui/settingsdialog.ui:8001
 #: ../ui/settingsdialog.ui:8019 ../ui/settingsdialog.ui:8037
 msgid "Browse..."
 msgstr "Böngészés..."
 
-#: ../src/settingsdialog.cc:1065
+#: ../src/settingsdialog.cc:1077
 msgid "Bulgarian"
 msgstr "Bolgár"
 
-#: ../src/mainwindow.cc:247
+#: ../src/mainwindow.cc:248
 msgid "Bulgarian translation\n"
 msgstr "Bolgár fordítás\n"
 
-#: ../src/settingsdialog.cc:1382
+#: ../src/settingsdialog.cc:1408
 msgid "Button smile"
 msgstr ""
 
@@ -834,12 +859,12 @@ msgstr "CRC32 inkonzisztencia (SFV ellenőrzéskor)"
 msgid "Calculate file TTH"
 msgstr "Fájl TTH kiszámítása"
 
-#: ../src/wulfor.cc:109
+#: ../src/wulfor.cc:108
 #, c-format
 msgid "Cannot handle SIGPIPE\n"
 msgstr ""
 
-#: ../src/wulfor.cc:80
+#: ../src/wulfor.cc:79
 msgid "Catching signal "
 msgstr ""
 
@@ -867,11 +892,11 @@ msgstr "Chat parancsok"
 msgid "Chat Menu"
 msgstr "Chat Menü"
 
-#: ../src/hub.cc:1890
+#: ../src/hub.cc:1889
 msgid "Chat disabled"
 msgstr "Csevegés tiltása"
 
-#: ../src/hub.cc:1895
+#: ../src/hub.cc:1894
 msgid "Chat enabled"
 msgstr "Csevegés beállítása"
 
@@ -883,8 +908,8 @@ msgstr "Ellenőrzés ennyi időnként"
 msgid "Choose a File"
 msgstr "Fájl választása"
 
-#: ../src/privatemessage.cc:1298 ../src/hub.cc:2650 ../src/mainwindow.cc:1314
-#: ../src/mainwindow.cc:1382 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/privatemessage.cc:1298 ../src/hub.cc:2649 ../src/mainwindow.cc:1315
+#: ../src/mainwindow.cc:1383 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8449
 msgid "Choose a directory"
 msgstr "Könyvtár választása"
@@ -901,7 +926,7 @@ msgstr "Törlés"
 msgid "Clear PM"
 msgstr "PM tisztítása"
 
-#: ../src/hub.cc:2042 ../ui/hub.ui:30
+#: ../src/hub.cc:2041 ../ui/hub.ui:30
 msgid "Clear chat"
 msgstr "Chat törlése"
 
@@ -909,7 +934,7 @@ msgstr "Chat törlése"
 msgid "Clear frame search"
 msgstr "Keresési mező törlése"
 
-#: ../src/settingsdialog.cc:1592
+#: ../src/settingsdialog.cc:1634
 msgid "Clear search box after each search"
 msgstr "Keresés után a beviteli mező törlése"
 
@@ -929,7 +954,7 @@ msgstr "Lap bezárása"
 msgid "Close all search"
 msgstr "Minden keresés bezárása"
 
-#: ../src/hub.cc:2043
+#: ../src/hub.cc:2042
 msgid "Close chat"
 msgstr "Chat bezárása"
 
@@ -953,13 +978,13 @@ msgstr "Szín kiválasztása"
 msgid "Colors & Fonts"
 msgstr "Színek & Betűk"
 
-#: ../src/settingsdialog.cc:1622 ../src/settingsdialog.cc:1630
-#: ../src/settingsdialog.cc:3254 ../src/settingsdialog.cc:3328
+#: ../src/settingsdialog.cc:1664 ../src/settingsdialog.cc:1672
+#: ../src/settingsdialog.cc:3338 ../src/settingsdialog.cc:3412
 #: ../ui/settingsdialog.ui:812
 msgid "Command"
 msgstr "Parancs"
 
-#: ../src/settingsdialog.cc:3372 ../src/settingsdialog.cc:3378
+#: ../src/settingsdialog.cc:3456 ../src/settingsdialog.cc:3462
 msgid "Command name already exists"
 msgstr "Ez a parancs név már létezik"
 
@@ -971,20 +996,20 @@ msgstr "Publikus hublisták beállításai"
 msgid "Configure hub lists"
 msgstr "Hublisták beállítása"
 
-#: ../src/settingsdialog.cc:1522
+#: ../src/settingsdialog.cc:1564
 msgid "Confirm application exit"
 msgstr "Kilépés megerősítése"
 
-#: ../src/settingsdialog.cc:1523
+#: ../src/settingsdialog.cc:1565
 msgid "Confirm favorite hub removal"
 msgstr "Megerősítés kérése kedvenc hub eltávolításakor"
 
-#: ../src/settingsdialog.cc:1398 ../src/settingsdialog.cc:1437
+#: ../src/settingsdialog.cc:1424 ../src/settingsdialog.cc:1463
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
 msgid "Connect"
 msgstr "Csatlakozás"
 
-#: ../src/hub.cc:3495
+#: ../src/hub.cc:3494
 msgid "Connect failed: "
 msgstr "Csatlakozás sikertelen: "
 
@@ -996,11 +1021,11 @@ msgstr "Csatlakozás a hubhoz"
 msgid "Connect to hub"
 msgstr "Csatlakozás a hubhoz"
 
-#: ../src/hub.cc:2051 ../ui/hub.ui:57
+#: ../src/hub.cc:2050 ../ui/hub.ui:57
 msgid "Connect to the hub"
 msgstr "Csatlakozás a hubhoz"
 
-#: ../src/hub.cc:3439 ../src/transfers.cc:1029
+#: ../src/hub.cc:3438 ../src/transfers.cc:1029
 msgid "Connected"
 msgstr "Csatlakozva"
 
@@ -1012,7 +1037,7 @@ msgstr "Kapcsolódás"
 msgid "Connecting (forced)..."
 msgstr "Kapcsolódás (kényszerítve)..."
 
-#: ../src/hub.cc:3432
+#: ../src/hub.cc:3431
 msgid "Connecting to "
 msgstr "Csatlakozás: "
 
@@ -1021,12 +1046,12 @@ msgid "Connecting..."
 msgstr "Kapcsolódás..."
 
 #: ../src/hub.cc:90 ../src/hub.cc:409 ../src/hub.cc:429 ../src/search.cc:105
-#: ../src/search.cc:635 ../src/search.cc:720 ../src/search.cc:853
+#: ../src/search.cc:643 ../src/search.cc:728 ../src/search.cc:861
 #: ../ui/settingsdialog.ui:1883 ../ui/settingsdialog.ui:2585
 msgid "Connection"
 msgstr "Kapcsolat"
 
-#: ../src/mainwindow.cc:2276
+#: ../src/mainwindow.cc:2277
 msgid "Connectivity Manager: Warning"
 msgstr "Kapcsolat kezelő: Figyelmeztetés"
 
@@ -1043,11 +1068,11 @@ msgstr "Darabszám"
 msgid "Country"
 msgstr "Ország"
 
-#: ../src/settingsdialog.cc:1069
+#: ../src/settingsdialog.cc:1081
 msgid "Czech"
 msgstr "Cseh"
 
-#: ../src/mainwindow.cc:253
+#: ../src/mainwindow.cc:254
 msgid "Czech translation\n"
 msgstr "Cseh fordítás\n"
 
@@ -1058,7 +1083,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "Ez a DC++ kliens a FreeDC++ és a LinuxDC++ forráskódján alapszik.\n\nEiskaltDC++ verzió: %s (%s)\nDC++ verzió: %s"
+msgstr ""
+"Ez a DC++ kliens a FreeDC++ és a LinuxDC++ forráskódján alapszik.\n"
+"\n"
+"EiskaltDC++ verzió: %s (%s)\n"
+"DC++ verzió: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1123,17 +1152,17 @@ msgstr "Könyvtár"
 msgid "Direct connection"
 msgstr "Közvetlen kapcsolat"
 
-#: ../src/settingsdialog.cc:891 ../src/settingsdialog.cc:905
-#: ../src/settingsdialog.cc:1019 ../src/settingsdialog.cc:1401
-#: ../src/settingsdialog.cc:3661 ../src/settingsdialog.cc:3681
-#: ../src/settingsdialog.cc:3710 ../src/settingsdialog.cc:3724
-#: ../src/settingsdialog.cc:3779 ../src/sharebrowser.cc:330
-#: ../src/UserCommandMenu.cc:66 ../src/search.cc:899 ../src/search.cc:1706
+#: ../src/settingsdialog.cc:903 ../src/settingsdialog.cc:917
+#: ../src/settingsdialog.cc:1031 ../src/settingsdialog.cc:1427
+#: ../src/settingsdialog.cc:3745 ../src/settingsdialog.cc:3765
+#: ../src/settingsdialog.cc:3794 ../src/settingsdialog.cc:3808
+#: ../src/settingsdialog.cc:3863 ../src/sharebrowser.cc:330
+#: ../src/UserCommandMenu.cc:66 ../src/search.cc:907 ../src/search.cc:1714
 #: ../ui/settingsdialog.ui:6664
 msgid "Directory"
 msgstr "Könyvtár"
 
-#: ../src/settingsdialog.cc:3666
+#: ../src/settingsdialog.cc:3750
 msgid "Directory or favorite name already exists"
 msgstr "Könyvtár vagy a kedvenc neve már létezik"
 
@@ -1141,7 +1170,7 @@ msgstr "Könyvtár vagy a kedvenc neve már létezik"
 msgid "Disable chat"
 msgstr "Csevegés bezárása"
 
-#: ../src/settingsdialog.cc:1102
+#: ../src/settingsdialog.cc:1114
 msgid "Do not close the program, hide in the system tray"
 msgstr "Program bezárása helyett a tálcára helyezés"
 
@@ -1157,11 +1186,11 @@ msgstr "Tényleg ki akarsz lépni?"
 msgid "Don't allow Hub/UPnP/DHT to override"
 msgstr "Ne engedje a hubnak/UPnP-nek felülírni"
 
-#: ../src/settingsdialog.cc:979
+#: ../src/settingsdialog.cc:991
 msgid "Don't download files already in share"
 msgstr "Már megosztott fájlok letöltésének kihagyása"
 
-#: ../src/settingsdialog.cc:980
+#: ../src/settingsdialog.cc:992
 msgid "Don't download files already in the queue"
 msgstr "Ne töltse le azokat a fájlokat, amik már a Letöltési sorban vannak"
 
@@ -1169,11 +1198,12 @@ msgstr "Ne töltse le azokat a fájlokat, amik már a Letöltési sorban vannak"
 msgid "Don't hide side panel on search"
 msgstr "Ne rejtse el az oldal panelt keresésnél"
 
-#: ../src/settingsdialog.cc:975
+#: ../src/settingsdialog.cc:987
 msgid "Don't remove the source when auto-dropping, only disconnect"
-msgstr "Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás legyen"
+msgstr ""
+"Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás legyen"
 
-#: ../src/settingsdialog.cc:1602
+#: ../src/settingsdialog.cc:1644
 msgid "Don't send the away message to bots"
 msgstr "Ne küldjön away üzenetet a botoknak"
 
@@ -1181,7 +1211,7 @@ msgstr "Ne küldjön away üzenetet a botoknak"
 msgid "Done"
 msgstr "Kész"
 
-#: ../src/settingsdialog.cc:1383 ../ui/sharebrowser.ui:80
+#: ../src/settingsdialog.cc:1409 ../ui/sharebrowser.ui:80
 #: ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr "Letöltés"
@@ -1190,7 +1220,7 @@ msgstr "Letöltés"
 msgid "Download Matches"
 msgstr "Találatok letöltése"
 
-#: ../src/settingsdialog.cc:1121 ../src/settingsdialog.cc:1501
+#: ../src/settingsdialog.cc:1133 ../src/settingsdialog.cc:1543
 #: ../src/downloadqueue.cc:33 ../ui/mainwindow.ui:1268
 msgid "Download Queue"
 msgstr "Letöltési sor"
@@ -1211,12 +1241,12 @@ msgstr "Letöltés kész..."
 msgid "Download failed: "
 msgstr "Letöltés sikertelen: "
 
-#: ../src/settingsdialog.cc:1151 ../src/settingsdialog.cc:1319
+#: ../src/settingsdialog.cc:1163 ../src/settingsdialog.cc:1345
 #: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr "Letöltés befejeződött"
 
-#: ../src/settingsdialog.cc:1152 ../src/settingsdialog.cc:1323
+#: ../src/settingsdialog.cc:1164 ../src/settingsdialog.cc:1349
 #: ../src/settingsmanager.cc:238
 msgid "Download finished file list"
 msgstr "Fájl-lista letöltése kész"
@@ -1229,19 +1259,19 @@ msgstr "Letöltés befejeződött: "
 msgid "Download image"
 msgstr "Letöltve"
 
-#: ../src/hub.cc:1990
+#: ../src/hub.cc:1989
 msgid "Download image: disable"
 msgstr "Letöltés befejezve"
 
-#: ../src/hub.cc:1992
+#: ../src/hub.cc:1991
 msgid "Download image: unlimit"
 msgstr "Letöltés nem sikerült: "
 
-#: ../src/hub.cc:1994
+#: ../src/hub.cc:1993
 msgid "Download limit image: "
 msgstr "Letöltés elkezdve: "
 
-#: ../src/hub.cc:2057
+#: ../src/hub.cc:2056
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr ""
 
@@ -1273,7 +1303,7 @@ msgstr "Letöltés ide... "
 msgid "Download whole director_y to..."
 msgstr "Egész könyvtá_r letöltése ide..."
 
-#: ../src/mainwindow.cc:751
+#: ../src/mainwindow.cc:752
 msgid "Download: "
 msgstr "Letöltés: "
 
@@ -1298,7 +1328,7 @@ msgstr "Letöltések"
 msgid "Drop sources below"
 msgstr "Forrás eldobása ekkora sebesség alatt"
 
-#: ../src/search.cc:1921
+#: ../src/search.cc:1929
 msgid "Dropped: "
 msgstr " eldobva"
 
@@ -1318,15 +1348,15 @@ msgstr "Beállítások szerkesztése"
 msgid "Emoticons"
 msgstr "Hangulatjelek"
 
-#: ../src/privatemessage.cc:967 ../src/hub.cc:1974
+#: ../src/privatemessage.cc:967 ../src/hub.cc:1973
 msgid "Emoticons mode off"
 msgstr "Hangulatjelek mód kikapcsolva"
 
-#: ../src/privatemessage.cc:972 ../src/hub.cc:1979
+#: ../src/privatemessage.cc:972 ../src/hub.cc:1978
 msgid "Emoticons mode on"
 msgstr "Hangulatjelek mód bekapcsolva"
 
-#: ../src/privatemessage.cc:1031 ../src/hub.cc:2060
+#: ../src/privatemessage.cc:1031 ../src/hub.cc:2059
 msgid "Emoticons on/off"
 msgstr "Hangulatjelek ki/be"
 
@@ -1334,15 +1364,15 @@ msgstr "Hangulatjelek ki/be"
 msgid "Emotion packs"
 msgstr "Hangulatjel csomagok"
 
-#: ../src/settingsdialog.cc:1597
+#: ../src/settingsdialog.cc:1639
 msgid "Enable automatic SFV checking"
 msgstr "Automatikus SFV ellenőrzés engedélyezése"
 
-#: ../src/settingsdialog.cc:1598
+#: ../src/settingsdialog.cc:1640
 msgid "Enable safe and compressed transfers"
 msgstr "Tömörített és biztonságos átvitelek engedélyezése"
 
-#: ../src/settingsdialog.cc:1596
+#: ../src/settingsdialog.cc:1638
 msgid "Enable segmented downloads"
 msgstr "Szegmentált letöltés engedélyezése"
 
@@ -1362,7 +1392,7 @@ msgstr "Karakterkódolás"
 msgid "Encryption"
 msgstr "Titkosítás"
 
-#: ../src/settingsdialog.cc:1045
+#: ../src/settingsdialog.cc:1057
 msgid "English"
 msgstr "Angol"
 
@@ -1374,12 +1404,12 @@ msgstr "Írjon be egy sort felhasználói parancsnak"
 msgid "Enter text to search for"
 msgstr "Adja meg a keresni kívánt szöveget"
 
-#: ../src/mainwindow.cc:1248
+#: ../src/mainwindow.cc:1249
 msgid "Enter value for "
 msgstr "Érték megadása:"
 
-#: ../src/settingsdialog.cc:1861 ../src/settingsdialog.cc:1905
-#: ../src/settingsdialog.cc:2908
+#: ../src/settingsdialog.cc:1903 ../src/settingsdialog.cc:1947
+#: ../src/settingsdialog.cc:2966
 msgid "Error"
 msgstr "Hiba"
 
@@ -1404,8 +1434,8 @@ msgstr "Minden alkalommal, mikor privát üzenet érkezik"
 #: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
 #: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:108
 #: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:107
-#: ../src/search.cc:130 ../src/search.cc:637 ../src/search.cc:714
-#: ../src/search.cc:723
+#: ../src/search.cc:130 ../src/search.cc:645 ../src/search.cc:722
+#: ../src/search.cc:731
 msgid "Exact Size"
 msgstr "Pontos méret"
 
@@ -1417,11 +1447,11 @@ msgstr "Pontos méret"
 msgid "Exceptions"
 msgstr "Kivételek"
 
-#: ../src/hub.cc:2063
+#: ../src/hub.cc:2062
 msgid "Execute Lua Chunk"
 msgstr "Lua kódrészlet futtatása"
 
-#: ../src/hub.cc:2065
+#: ../src/hub.cc:2064
 msgid "Execute code (bash)"
 msgstr "Kód futtatása (bash)"
 
@@ -1441,15 +1471,15 @@ msgstr "Haladó beállítások"
 msgid "Export..."
 msgstr "Exportálás..."
 
-#: ../src/settingsdialog.cc:2153
+#: ../src/settingsdialog.cc:2195
 msgid "Extension edition"
 msgstr "Kiterlyesztések"
 
-#: ../src/settingsdialog.cc:914 ../src/settingsdialog.cc:949
-#: ../src/settingsdialog.cc:1687 ../src/settingsdialog.cc:1828
-#: ../src/settingsdialog.cc:1879 ../src/settingsdialog.cc:1934
-#: ../src/settingsdialog.cc:2919 ../src/settingsdialog.cc:2953
-#: ../src/settingsdialog.cc:2971 ../src/settingsdialog.cc:3002
+#: ../src/settingsdialog.cc:926 ../src/settingsdialog.cc:961
+#: ../src/settingsdialog.cc:1729 ../src/settingsdialog.cc:1870
+#: ../src/settingsdialog.cc:1921 ../src/settingsdialog.cc:1976
+#: ../src/settingsdialog.cc:2977 ../src/settingsdialog.cc:3011
+#: ../src/settingsdialog.cc:3029 ../src/settingsdialog.cc:3060
 msgid "Extensions"
 msgstr "Kiterjesztések"
 
@@ -1465,52 +1495,52 @@ msgstr "Külső IP"
 msgid "Favorite Hub Properties"
 msgstr "Kedvenc hub beállításai"
 
-#: ../src/settingsdialog.cc:1385 ../src/settingsdialog.cc:1439
-#: ../src/settingsdialog.cc:1500 ../src/favoritehubs.cc:31
+#: ../src/settingsdialog.cc:1411 ../src/settingsdialog.cc:1465
+#: ../src/settingsdialog.cc:1542 ../src/favoritehubs.cc:31
 #: ../ui/mainwindow.ui:1174 ../ui/mainwindow.ui:2168
 msgid "Favorite Hubs"
 msgstr "Kedvenc hubok"
 
-#: ../src/settingsdialog.cc:890 ../src/settingsdialog.cc:904
-#: ../src/settingsdialog.cc:3660
+#: ../src/settingsdialog.cc:902 ../src/settingsdialog.cc:916
+#: ../src/settingsdialog.cc:3744
 msgid "Favorite Name"
 msgstr "Kedvenc név"
 
-#: ../src/settingsdialog.cc:1222
+#: ../src/settingsdialog.cc:1234
 msgid "Favorite User"
 msgstr "Kedvenc felhasználó"
 
-#: ../src/settingsdialog.cc:1386 ../src/settingsdialog.cc:1441
-#: ../src/settingsdialog.cc:1504 ../src/favoriteusers.cc:33
+#: ../src/settingsdialog.cc:1412 ../src/settingsdialog.cc:1467
+#: ../src/settingsdialog.cc:1546 ../src/favoriteusers.cc:33
 #: ../ui/mainwindow.ui:1204 ../ui/mainwindow.ui:2184
 msgid "Favorite Users"
 msgstr "Kedvenc felhasználók"
 
-#: ../src/hub.cc:3039
+#: ../src/hub.cc:3038
 msgid "Favorite hub added"
 msgstr "Favorit hub hozzáadva"
 
-#: ../src/hub.cc:3044
+#: ../src/hub.cc:3043
 msgid "Favorite hub already exists"
 msgstr "Favorit hub már létezik"
 
-#: ../src/settingsdialog.cc:3643 ../ui/settingsdialog.ui:8935
+#: ../src/settingsdialog.cc:3727 ../ui/settingsdialog.ui:8935
 msgid "Favorite name"
 msgstr "Kedvenc név"
 
-#: ../src/settingsdialog.cc:1157 ../src/settingsdialog.cc:1339
+#: ../src/settingsdialog.cc:1169 ../src/settingsdialog.cc:1365
 #: ../src/settingsmanager.cc:246
 msgid "Favorite user joined"
 msgstr "Kedvenc felhasználó belépett"
 
-#: ../src/settingsdialog.cc:1158 ../src/settingsdialog.cc:1343
+#: ../src/settingsdialog.cc:1170 ../src/settingsdialog.cc:1369
 #: ../src/settingsmanager.cc:248
 msgid "Favorite user quit"
 msgstr "Kedvenc felhasználó kilépett"
 
-#: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:1135
-#: ../src/settingsdialog.cc:1400 ../src/settingsdialog.cc:2836
-#: ../src/settingsdialog.cc:2855 ../src/UserCommandMenu.cc:68
+#: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:1147
+#: ../src/settingsdialog.cc:1426 ../src/settingsdialog.cc:2894
+#: ../src/settingsdialog.cc:2913 ../src/UserCommandMenu.cc:68
 #: ../ui/settingsdialog.ui:6765 ../ui/settingsdialog.ui:6849
 #: ../ui/settingsdialog.ui:6933 ../ui/settingsdialog.ui:7017
 #: ../ui/settingsdialog.ui:7098
@@ -1548,10 +1578,10 @@ msgstr "Fájl-lista menü"
 #: ../src/sharebrowser.cc:1059 ../src/finishedtransfers.cc:63
 #: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
 #: ../src/transfers.cc:715 ../src/search.cc:99 ../src/search.cc:132
-#: ../src/search.cc:363 ../src/search.cc:630 ../src/search.cc:671
-#: ../src/search.cc:676 ../src/search.cc:844 ../src/search.cc:892
-#: ../src/search.cc:902 ../src/search.cc:1214 ../src/search.cc:1253
-#: ../src/search.cc:1310 ../src/search.cc:1651 ../src/search.cc:1976
+#: ../src/search.cc:371 ../src/search.cc:638 ../src/search.cc:679
+#: ../src/search.cc:684 ../src/search.cc:852 ../src/search.cc:900
+#: ../src/search.cc:910 ../src/search.cc:1222 ../src/search.cc:1261
+#: ../src/search.cc:1318 ../src/search.cc:1659 ../src/search.cc:1984
 msgid "Filename"
 msgstr "Fájlnév"
 
@@ -1571,15 +1601,15 @@ msgstr "Szűrés IP alapján"
 msgid "Filter files already in share"
 msgstr "Megosztásban lévő fájlok kiszűrése"
 
-#: ../src/settingsdialog.cc:1091
+#: ../src/settingsdialog.cc:1103
 msgid "Filter kick and NMDC debug messages"
 msgstr "Kick és NMDC debug  üzenetek szűrése"
 
-#: ../src/search.cc:1908
+#: ../src/search.cc:1916
 msgid "Filtered: "
 msgstr " kiszűrve"
 
-#: ../src/search.cc:558
+#: ../src/search.cc:566
 msgid "Filtered: 0"
 msgstr " kiszűrve"
 
@@ -1591,15 +1621,15 @@ msgstr "Keresés"
 msgid "Find files"
 msgstr " fájl"
 
-#: ../src/settingsdialog.cc:1119 ../src/settingsdialog.cc:1387
-#: ../src/settingsdialog.cc:1461 ../src/settingsdialog.cc:1502
+#: ../src/settingsdialog.cc:1131 ../src/settingsdialog.cc:1413
+#: ../src/settingsdialog.cc:1487 ../src/settingsdialog.cc:1544
 #: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1280
 #: ../ui/mainwindow.ui:2263 ../ui/mainwindow.ui:2513
 msgid "Finished Downloads"
 msgstr "Befejezett letöltések"
 
-#: ../src/settingsdialog.cc:1120 ../src/settingsdialog.cc:1388
-#: ../src/settingsdialog.cc:1463 ../src/settingsdialog.cc:1503
+#: ../src/settingsdialog.cc:1132 ../src/settingsdialog.cc:1414
+#: ../src/settingsdialog.cc:1489 ../src/settingsdialog.cc:1545
 #: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1291
 #: ../ui/mainwindow.ui:2280 ../ui/mainwindow.ui:2521
 msgid "Finished Uploads"
@@ -1635,7 +1665,12 @@ msgstr "Formátum"
 msgid "Found a match"
 msgstr "Találat"
 
-#: ../src/search.cc:557 ../src/search.cc:654
+#: ../src/search.cc:662
+#, fuzzy
+msgid "Found: "
+msgstr "Találat: 0"
+
+#: ../src/search.cc:565
 msgid "Found: 0"
 msgstr "Találat: 0"
 
@@ -1653,11 +1688,11 @@ msgstr ""
 msgid "Frame:"
 msgstr "Képkocka:"
 
-#: ../src/mainwindow.cc:2391
+#: ../src/mainwindow.cc:2392
 msgid "Free "
 msgstr "Szabad "
 
-#: ../src/settingsdialog.cc:1053
+#: ../src/settingsdialog.cc:1065
 msgid "French"
 msgstr "Francia"
 
@@ -1673,7 +1708,7 @@ msgstr "A teljes fa nem megfelelő a TTH gyökérhez"
 msgid "GB18030"
 msgstr "GB18030"
 
-#: ../src/settingsdialog.cc:1198
+#: ../src/settingsdialog.cc:1210
 msgid "General text"
 msgstr "Általános szöveg"
 
@@ -1681,19 +1716,19 @@ msgstr "Általános szöveg"
 msgid "Generate certificates"
 msgstr "Tanúsítvány létrehozása"
 
-#: ../src/settingsdialog.cc:1071
+#: ../src/settingsdialog.cc:1083
 msgid "German"
 msgstr "Német"
 
-#: ../src/mainwindow.cc:256
+#: ../src/mainwindow.cc:257
 msgid "German translation\n"
 msgstr "Német fordítás\n"
 
-#: ../src/privatemessage.cc:1029 ../src/hub.cc:2048 ../ui/privatemessage.ui:66
+#: ../src/privatemessage.cc:1029 ../src/hub.cc:2047 ../ui/privatemessage.ui:66
 msgid "Get file list"
 msgstr "Fájl-lista letöltése"
 
-#: ../src/hub.cc:2856 ../src/favoritehubs.cc:362
+#: ../src/hub.cc:2855 ../src/favoritehubs.cc:362
 msgid "Global hub default"
 msgstr "Alapértelmezett az összes hubra"
 
@@ -1701,15 +1736,15 @@ msgstr "Alapértelmezett az összes hubra"
 msgid "Grant Slot"
 msgstr "Extra slot biztosítása"
 
-#: ../src/privatemessage.cc:1030 ../src/hub.cc:2049 ../ui/privatemessage.ui:75
+#: ../src/privatemessage.cc:1030 ../src/hub.cc:2048 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
 msgstr "Extra slot biztosítása"
 
-#: ../src/settingsdialog.cc:1073
+#: ../src/settingsdialog.cc:1085
 msgid "Greek"
 msgstr "Görög"
 
-#: ../src/mainwindow.cc:262
+#: ../src/mainwindow.cc:263
 msgid "Greek translation\n"
 msgstr "Görög fordítás\n"
 
@@ -1741,7 +1776,7 @@ msgstr "HUB OUT"
 msgid "H_igh"
 msgstr "M_agas"
 
-#: ../src/settingsdialog.cc:1391 ../src/settingsdialog.cc:1451
+#: ../src/settingsdialog.cc:1417 ../src/settingsdialog.cc:1477
 #: ../ui/mainwindow.ui:2101 ../ui/mainwindow.ui:2473
 msgid "Hash"
 msgstr "Index"
@@ -1774,17 +1809,17 @@ msgstr "Legmagasabb prioritás max mérete"
 msgid "Homepage"
 msgstr "Weboldal"
 
-#: ../src/settingsdialog.cc:1621 ../src/settingsdialog.cc:1631
-#: ../src/settingsdialog.cc:3253 ../src/settingsdialog.cc:3327
-#: ../src/settingsdialog.cc:3901 ../src/settingsdialog.cc:3992
-#: ../src/settingsdialog.cc:4015 ../src/settingsdialog.cc:4034
+#: ../src/settingsdialog.cc:1663 ../src/settingsdialog.cc:1673
+#: ../src/settingsdialog.cc:3337 ../src/settingsdialog.cc:3411
+#: ../src/settingsdialog.cc:3985 ../src/settingsdialog.cc:4076
+#: ../src/settingsdialog.cc:4099 ../src/settingsdialog.cc:4118
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
-#: ../src/search.cc:106 ../src/search.cc:636 ../src/search.cc:733
-#: ../src/search.cc:862
+#: ../src/search.cc:106 ../src/search.cc:644 ../src/search.cc:741
+#: ../src/search.cc:870
 msgid "Hub"
 msgstr "Hub"
 
-#: ../src/settingsdialog.cc:1122
+#: ../src/settingsdialog.cc:1134
 msgid "Hub (also sets urgency hint)"
 msgstr "Hub (sürgősségi értesítéssel)"
 
@@ -1806,12 +1841,12 @@ msgstr "Hub Menü"
 msgid "Hub Name"
 msgstr "Hub"
 
-#: ../src/settingsdialog.cc:1155 ../src/settingsdialog.cc:1331
+#: ../src/settingsdialog.cc:1167 ../src/settingsdialog.cc:1357
 #: ../src/settingsmanager.cc:244
 msgid "Hub connected"
 msgstr "Csatlakozva a hubhoz"
 
-#: ../src/settingsdialog.cc:1156 ../src/settingsdialog.cc:1335
+#: ../src/settingsdialog.cc:1168 ../src/settingsdialog.cc:1361
 #: ../src/settingsmanager.cc:242
 msgid "Hub disconnected"
 msgstr "Hub szétkapcsolva"
@@ -1828,7 +1863,7 @@ msgstr "Hubok (normál / regisztrált / op)"
 msgid "Hubs: "
 msgstr "Hubok: "
 
-#: ../src/settingsdialog.cc:1051
+#: ../src/settingsdialog.cc:1063
 msgid "Hungarian"
 msgstr "Magyar"
 
@@ -1836,7 +1871,7 @@ msgstr "Magyar"
 msgid "Hungarian translation\n"
 msgstr "Magyar fordítás\n"
 
-#: ../src/transfers.cc:69 ../src/search.cc:108 ../src/search.cc:638
+#: ../src/transfers.cc:69 ../src/search.cc:108 ../src/search.cc:646
 msgid "IP"
 msgstr "IP"
 
@@ -1860,9 +1895,9 @@ msgstr "ISO-8859-8 (Héber)"
 msgid "ISO-8859-9"
 msgstr "ISO-8859-9 (Török)"
 
-#: ../src/settingsdialog.cc:401 ../src/settingsdialog.cc:1302
-#: ../src/settingsdialog.cc:2234 ../src/settingsdialog.cc:2268
-#: ../src/settingsdialog.cc:2345 ../src/settingsdialog.cc:2381
+#: ../src/settingsdialog.cc:401 ../src/settingsdialog.cc:1328
+#: ../src/settingsdialog.cc:2276 ../src/settingsdialog.cc:2310
+#: ../src/settingsdialog.cc:2387 ../src/settingsdialog.cc:2423
 msgid "Icon"
 msgstr "Ikon"
 
@@ -1882,19 +1917,19 @@ msgstr "TTH kihagyása"
 msgid "Ignore TTH search"
 msgstr "TTH keresések figyelmen kívül hagyása"
 
-#: ../src/settingsdialog.cc:1515
+#: ../src/settingsdialog.cc:1557
 msgid "Ignore private messages from bots"
 msgstr "A botoktól érkező privát üzenetek figyelmen kívül hagyása"
 
-#: ../src/settingsdialog.cc:1514
+#: ../src/settingsdialog.cc:1556
 msgid "Ignore private messages from the hub"
 msgstr "A huboktól érkező privát üzenetek figyelmen kívül hagyása"
 
-#: ../src/hub.cc:3565
+#: ../src/hub.cc:3564
 msgid "Ignored private message from bot "
 msgstr "Némított privát üzenet a következőtől: "
 
-#: ../src/hub.cc:3558
+#: ../src/hub.cc:3557
 msgid "Ignored private message from hub"
 msgstr "Huboktól érkező privát üzenetek letiltása"
 
@@ -1911,31 +1946,31 @@ msgstr "Indexelési folyamat"
 msgid "Indexing files..."
 msgstr "Fájlok indexelése..."
 
-#: ../src/wulfor.cc:96
+#: ../src/wulfor.cc:95
 msgid "Installing handler for"
 msgstr "Kezelő telepítése ehhez:"
 
-#: ../src/settingsdialog.cc:1981 ../src/settingsdialog.cc:2169
+#: ../src/settingsdialog.cc:2023 ../src/settingsdialog.cc:2211
 msgid "Invalid extension: "
 msgstr "Érvénytelen kiterjesztés: "
 
-#: ../src/hub.cc:2212
+#: ../src/hub.cc:2211
 msgid "Ipfilter is disable"
 msgstr "Ipfilter letiltva"
 
-#: ../src/hub.cc:2205
+#: ../src/hub.cc:2204
 msgid "Ipfilter is enable"
 msgstr "Ipfilter engedélyezve"
 
-#: ../src/hub.cc:2070
+#: ../src/hub.cc:2069
 msgid "Ipfilter on/off"
 msgstr "Ipfilter ki/be"
 
-#: ../src/settingsdialog.cc:1075
+#: ../src/settingsdialog.cc:1087
 msgid "Italian"
 msgstr "Olasz"
 
-#: ../src/mainwindow.cc:265
+#: ../src/mainwindow.cc:266
 msgid "Italian translation\n"
 msgstr "Olasz fordítás\n"
 
@@ -1951,21 +1986,23 @@ msgstr "Tétel: 0"
 msgid "KOI8-R"
 msgstr "KOI8-R"
 
-#: ../src/settingsdialog.cc:938
+#: ../src/settingsdialog.cc:950
 msgid "Kaffeine player"
 msgstr "Kaffeine player"
 
-#: ../src/settingsdialog.cc:1612
+#: ../src/settingsdialog.cc:1654
 msgid "Keep downloaded files and dirs in queue"
 msgstr "Ne töltse le azokat a fájlokat, amik már a letöltési sorban vannak"
 
-#: ../src/settingsdialog.cc:1593
+#: ../src/settingsdialog.cc:1635
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr "Többször szereplő fájlok megosztásban tartása (a duplikációk nem növelik a megosztás méretét)"
+msgstr ""
+"Többször szereplő fájlok megosztásban tartása (a duplikációk nem növelik a "
+"megosztás méretét)"
 
-#: ../src/settingsdialog.cc:1594
+#: ../src/settingsdialog.cc:1636
 msgid "Keep filelists when exiting"
 msgstr "Kilépéskor ne törölje a fájl-listákat"
 
@@ -1988,11 +2025,11 @@ msgstr "Baloldalt"
 msgid "Limits"
 msgstr "Limitek"
 
-#: ../src/settingsdialog.cc:329 ../src/settingsdialog.cc:873
-#: ../src/settingsdialog.cc:996 ../src/settingsdialog.cc:1014
-#: ../src/settingsdialog.cc:3541 ../src/settingsdialog.cc:3554
-#: ../src/settingsdialog.cc:3571 ../src/settingsdialog.cc:4249
-#: ../src/settingsdialog.cc:4285 ../src/publichubs.cc:69
+#: ../src/settingsdialog.cc:329 ../src/settingsdialog.cc:885
+#: ../src/settingsdialog.cc:1008 ../src/settingsdialog.cc:1026
+#: ../src/settingsdialog.cc:3625 ../src/settingsdialog.cc:3638
+#: ../src/settingsdialog.cc:3655 ../src/settingsdialog.cc:4333
+#: ../src/settingsdialog.cc:4369 ../src/publichubs.cc:69
 #: ../src/publichubs.cc:339 ../src/publichubs.cc:364 ../src/publichubs.cc:414
 msgid "List"
 msgstr "Lista"
@@ -2001,7 +2038,7 @@ msgstr "Lista"
 msgid "List: "
 msgstr "Lista: "
 
-#: ../src/hub.cc:2062
+#: ../src/hub.cc:2061
 msgid "Load Lua file"
 msgstr "Lua fájl betöltése"
 
@@ -2009,11 +2046,11 @@ msgstr "Lua fájl betöltése"
 msgid "Loaded from cache: "
 msgstr "Betöltés a gyorsítótárból"
 
-#: ../src/mainwindow.cc:2047
+#: ../src/mainwindow.cc:2048
 msgid "Loading file list"
 msgstr "Fájl-lista betöltése"
 
-#: ../src/wulfor.cc:76
+#: ../src/wulfor.cc:75
 msgid "Loading: "
 msgstr "Betöltés: "
 
@@ -2073,11 +2110,11 @@ msgstr "Legalacsonyabb"
 msgid "Magnet"
 msgstr "Magnet"
 
-#: ../src/mainwindow.cc:1375
+#: ../src/mainwindow.cc:1376
 msgid "Magnet Choice"
 msgstr "Magnet választás"
 
-#: ../src/mainwindow.cc:1305
+#: ../src/mainwindow.cc:1306
 msgid "Magnet Properties / Choice"
 msgstr "Magnet beállítások / lehetőségek"
 
@@ -2179,7 +2216,7 @@ msgstr "Minimális online forrás"
 msgid "Mini slot size"
 msgstr "Mini slot méret"
 
-#: ../src/settingsdialog.cc:1106
+#: ../src/settingsdialog.cc:1118
 msgid "Minimize to tray on startup"
 msgstr "Induláskor minimalizálás a tálcára"
 
@@ -2203,7 +2240,7 @@ msgstr "Mozgatás le"
 msgid "Move Up"
 msgstr "Mozgatás föl"
 
-#: ../src/hub.cc:2072
+#: ../src/hub.cc:2071
 msgid "Move rule up/down"
 msgstr "Szabály mozgatása fel/le"
 
@@ -2211,19 +2248,19 @@ msgstr "Szabály mozgatása fel/le"
 msgid "Move to..."
 msgstr "Mozgatás ide..."
 
-#: ../src/settingsdialog.cc:939
+#: ../src/settingsdialog.cc:951
 msgid "Mplayer player"
 msgstr "Mplayer player"
 
-#: ../src/settingsdialog.cc:2900 ../src/settingsdialog.cc:2986
+#: ../src/settingsdialog.cc:2958 ../src/settingsdialog.cc:3044
 msgid "Must not be empty..."
 msgstr "Nem lehet üres..."
 
-#: ../src/settingsdialog.cc:1201
+#: ../src/settingsdialog.cc:1213
 msgid "My nick"
 msgstr "Saját nick"
 
-#: ../src/settingsdialog.cc:1204
+#: ../src/settingsdialog.cc:1216
 msgid "My own message"
 msgstr "Saját üzenet"
 
@@ -2231,28 +2268,28 @@ msgstr "Saját üzenet"
 msgid "N_ick:"
 msgstr "N_ick:"
 
-#: ../src/settingsdialog.cc:676 ../src/settingsdialog.cc:685
-#: ../src/settingsdialog.cc:912 ../src/settingsdialog.cc:947
-#: ../src/settingsdialog.cc:1362 ../src/settingsdialog.cc:1416
-#: ../src/settingsdialog.cc:1620 ../src/settingsdialog.cc:1629
-#: ../src/settingsdialog.cc:1697 ../src/settingsdialog.cc:1853
-#: ../src/settingsdialog.cc:1897 ../src/settingsdialog.cc:1946
-#: ../src/settingsdialog.cc:2146 ../src/settingsdialog.cc:2917
-#: ../src/settingsdialog.cc:2933 ../src/settingsdialog.cc:2951
-#: ../src/settingsdialog.cc:2969 ../src/settingsdialog.cc:2995
-#: ../src/settingsdialog.cc:3000 ../src/settingsdialog.cc:3252
-#: ../src/settingsdialog.cc:3326 ../src/settingsdialog.cc:3900
-#: ../src/settingsdialog.cc:3991 ../src/settingsdialog.cc:4014
-#: ../src/settingsdialog.cc:4033 ../src/favoritehubs.cc:53
+#: ../src/settingsdialog.cc:688 ../src/settingsdialog.cc:697
+#: ../src/settingsdialog.cc:924 ../src/settingsdialog.cc:959
+#: ../src/settingsdialog.cc:1388 ../src/settingsdialog.cc:1442
+#: ../src/settingsdialog.cc:1662 ../src/settingsdialog.cc:1671
+#: ../src/settingsdialog.cc:1739 ../src/settingsdialog.cc:1895
+#: ../src/settingsdialog.cc:1939 ../src/settingsdialog.cc:1988
+#: ../src/settingsdialog.cc:2188 ../src/settingsdialog.cc:2975
+#: ../src/settingsdialog.cc:2991 ../src/settingsdialog.cc:3009
+#: ../src/settingsdialog.cc:3027 ../src/settingsdialog.cc:3053
+#: ../src/settingsdialog.cc:3058 ../src/settingsdialog.cc:3336
+#: ../src/settingsdialog.cc:3410 ../src/settingsdialog.cc:3984
+#: ../src/settingsdialog.cc:4075 ../src/settingsdialog.cc:4098
+#: ../src/settingsdialog.cc:4117 ../src/favoritehubs.cc:53
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
-#: ../src/publichubs.cc:295 ../src/search.cc:86 ../src/search.cc:251
-#: ../src/search.cc:267 ../ui/settingsdialog.ui:774
+#: ../src/publichubs.cc:295 ../src/search.cc:86 ../src/search.cc:259
+#: ../src/search.cc:275 ../ui/settingsdialog.ui:774
 msgid "Name"
 msgstr "Név"
 
-#: ../src/settingsdialog.cc:3366
+#: ../src/settingsdialog.cc:3450
 msgid "Name and command must not be empty"
 msgstr "A név és a parancs nem lehet üres"
 
@@ -2260,15 +2297,15 @@ msgstr "A név és a parancs nem lehet üres"
 msgid "Name:"
 msgstr "Név:"
 
-#: ../src/settingsdialog.cc:4249
+#: ../src/settingsdialog.cc:4333
 msgid "New exception"
 msgstr "Új kivétel"
 
-#: ../src/settingsdialog.cc:3571 ../src/publichubs.cc:364
+#: ../src/settingsdialog.cc:3655 ../src/publichubs.cc:364
 msgid "New list"
 msgstr "Új lista"
 
-#: ../src/settingsdialog.cc:1799
+#: ../src/settingsdialog.cc:1841
 msgid "New search type"
 msgstr "Új keresési típus"
 
@@ -2282,20 +2319,20 @@ msgstr "Következő"
 
 #: ../src/hub.cc:86 ../src/hub.cc:106 ../src/hub.cc:108 ../src/hub.cc:390
 #: ../src/hub.cc:405 ../src/hub.cc:425 ../src/hub.cc:473 ../src/hub.cc:1282
-#: ../src/hub.cc:1585 ../src/hub.cc:1648 ../src/hub.cc:2394 ../src/hub.cc:2425
-#: ../src/hub.cc:2710 ../src/hub.cc:2749 ../src/finishedtransfers.cc:84
+#: ../src/hub.cc:1585 ../src/hub.cc:1648 ../src/hub.cc:2393 ../src/hub.cc:2424
+#: ../src/hub.cc:2709 ../src/hub.cc:2748 ../src/finishedtransfers.cc:84
 #: ../src/finishedtransfers.cc:193 ../src/favoritehubs.cc:56
 #: ../src/favoritehubs.cc:134 ../src/favoritehubs.cc:309
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:63
 #: ../src/favoriteusers.cc:64 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:376 ../src/favoriteusers.cc:429
-#: ../src/favoriteusers.cc:586 ../src/search.cc:100 ../src/search.cc:629
-#: ../src/search.cc:695 ../src/search.cc:729 ../src/search.cc:859
+#: ../src/favoriteusers.cc:586 ../src/search.cc:100 ../src/search.cc:637
+#: ../src/search.cc:703 ../src/search.cc:737 ../src/search.cc:867
 #: ../ui/settingsdialog.ui:1199
 msgid "Nick"
 msgstr "Nick"
 
-#: ../src/hub.cc:3662
+#: ../src/hub.cc:3661
 msgid "Nick already taken"
 msgstr "A nick használatban van"
 
@@ -2303,7 +2340,7 @@ msgstr "A nick használatban van"
 msgid "Nicks"
 msgstr "Nick"
 
-#: ../src/finishedtransfers.cc:668
+#: ../src/finishedtransfers.cc:683
 msgid "No"
 msgstr "Nem"
 
@@ -2339,28 +2376,33 @@ msgstr "Normál"
 msgid "Normal priority max size"
 msgstr "Normál prioritás max mérete"
 
-#: ../src/hub.cc:1922 ../src/hub.cc:1957 ../src/hub.cc:1967 ../src/hub.cc:2111
+#: ../src/hub.cc:1921 ../src/hub.cc:1956 ../src/hub.cc:1966 ../src/hub.cc:2110
 msgid "Not found user: "
 msgstr "Felhasználó nem található: "
 
 #: ../ui/settingsdialog.ui:8399
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr "Megjegyzés: Különböző keresési típusok csak az ADC hubokon használhatóak!"
+msgstr ""
+"Megjegyzés: Különböző keresési típusok csak az ADC hubokon használhatóak!"
 
 #: ../ui/settingsdialog.ui:4754 ../ui/settingsdialog.ui:4824
 msgid "Note: Most of these options require that you restart the application"
-msgstr "Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program újraindítása szükséges"
+msgstr ""
+"Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program újraindítása "
+"szükséges"
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr "Megjegyzés: Az új fájlok csak az indexelés befejezése után kerülnek megosztásra!"
+msgstr ""
+"Megjegyzés: Az új fájlok csak az indexelés befejezése után kerülnek "
+"megosztásra!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
-msgstr "Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgstr ""
+"Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
 
-#: ../src/settingsdialog.cc:1300 ../ui/settingsdialog.ui:5822
+#: ../src/settingsdialog.cc:1326 ../ui/settingsdialog.ui:5822
 msgid "Notify"
 msgstr "Figyelmeztetés"
 
@@ -2377,7 +2419,7 @@ msgstr "Offline"
 msgid "Online"
 msgstr "Online"
 
-#: ../src/settingsdialog.cc:1096
+#: ../src/settingsdialog.cc:1108
 msgid "Only show joins / parts for favorite users"
 msgstr "Csak a kedvenc felhasználók ki és belépésének mutatása a chaten"
 
@@ -2401,7 +2443,7 @@ msgstr "Könyvtár _megnyitása"
 msgid "Open file"
 msgstr "Fájl megnyitása"
 
-#: ../src/settingsdialog.cc:1511
+#: ../src/settingsdialog.cc:1553
 msgid "Open file list window in the background"
 msgstr "Fájl-lista megnyitása a háttérben"
 
@@ -2413,11 +2455,11 @@ msgstr "Könyvtár megnyitása"
 msgid "Open image"
 msgstr "Fájl megnyitása"
 
-#: ../src/settingsdialog.cc:1512
+#: ../src/settingsdialog.cc:1554
 msgid "Open new private messages from other users in the background"
 msgstr "Felhasználóktól kapott új privát üzenet megnyitása a háttérben"
 
-#: ../src/settingsdialog.cc:1513
+#: ../src/settingsdialog.cc:1555
 msgid "Open new window when using /join"
 msgstr "/join használatakor új ablak nyitása"
 
@@ -2425,11 +2467,11 @@ msgstr "/join használatakor új ablak nyitása"
 msgid "Open own file list"
 msgstr "Saját fájl-lista megnyitása"
 
-#: ../src/settingsdialog.cc:1225
+#: ../src/settingsdialog.cc:1237
 msgid "Operator"
 msgstr "Operátor"
 
-#: ../src/settingsdialog.cc:1389 ../src/settingsdialog.cc:1447
+#: ../src/settingsdialog.cc:1415 ../src/settingsdialog.cc:1473
 #: ../ui/mainwindow.ui:2067 ../ui/mainwindow.ui:2457
 msgid "Own file list"
 msgstr "Saját fájl-lista"
@@ -2461,12 +2503,12 @@ msgstr "Jelszó"
 
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
-#: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:508
+#: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:515
 #: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:103
-#: ../src/search.cc:364 ../src/search.cc:633 ../src/search.cc:710
-#: ../src/search.cc:847 ../src/search.cc:901 ../src/search.cc:1213
-#: ../src/search.cc:1252 ../src/search.cc:1309 ../src/search.cc:1374
-#: ../src/search.cc:1408 ../src/search.cc:1977
+#: ../src/search.cc:372 ../src/search.cc:641 ../src/search.cc:718
+#: ../src/search.cc:855 ../src/search.cc:909 ../src/search.cc:1221
+#: ../src/search.cc:1260 ../src/search.cc:1317 ../src/search.cc:1382
+#: ../src/search.cc:1416 ../src/search.cc:1985
 msgid "Path"
 msgstr "Útvonal"
 
@@ -2498,7 +2540,7 @@ msgstr "Plain"
 msgid "Play"
 msgstr "Lejátszás"
 
-#: ../src/settingsdialog.cc:1055
+#: ../src/settingsdialog.cc:1067
 msgid "Polish"
 msgstr "Lengyel"
 
@@ -2506,7 +2548,7 @@ msgstr "Lengyel"
 msgid "Polish translation\n"
 msgstr "Lengyel fordítás\n"
 
-#: ../src/settingsdialog.cc:1516
+#: ../src/settingsdialog.cc:1558
 msgid "Popup box to input password for hubs"
 msgstr "Felugró ablak használata jelszó megadásához"
 
@@ -2518,16 +2560,16 @@ msgstr "Port"
 msgid "Ports"
 msgstr "Portok"
 
-#: ../src/settingsdialog.cc:1057
+#: ../src/settingsdialog.cc:1069
 msgid "Portuguese (Brazil)"
 msgstr "Portugál (Brazil)"
 
-#: ../src/settingsdialog.cc:1686 ../src/settingsdialog.cc:1787
-#: ../src/settingsdialog.cc:1878
+#: ../src/settingsdialog.cc:1728 ../src/settingsdialog.cc:1829
+#: ../src/settingsdialog.cc:1920
 msgid "Predefined"
 msgstr "Előre definiált"
 
-#: ../src/settingsdialog.cc:1392 ../src/settingsdialog.cc:1445
+#: ../src/settingsdialog.cc:1418 ../src/settingsdialog.cc:1471
 #: ../ui/mainwindow.ui:2041 ../ui/mainwindow.ui:2449
 #: ../ui/settingsdialog.ui:1011
 msgid "Preferences"
@@ -2542,7 +2584,7 @@ msgstr "Előnézet"
 msgid "Priority"
 msgstr "Prioritás"
 
-#: ../src/settingsdialog.cc:1123
+#: ../src/settingsdialog.cc:1135
 msgid "Private Message (also sets urgency hint)"
 msgstr "Privát üzenet (sürgősségi értesítéssel)"
 
@@ -2550,8 +2592,8 @@ msgstr "Privát üzenet (sürgősségi értesítéssel)"
 msgid "Private key file"
 msgstr "Privát kulcs"
 
-#: ../src/settingsdialog.cc:1154 ../src/settingsdialog.cc:1207
-#: ../src/settingsdialog.cc:1327 ../src/hub.cc:2053
+#: ../src/settingsdialog.cc:1166 ../src/settingsdialog.cc:1219
+#: ../src/settingsdialog.cc:1353 ../src/hub.cc:2052
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr "Privát üzenet"
@@ -2564,8 +2606,8 @@ msgstr "Indexszelés folyamatban"
 msgid "Properties"
 msgstr "Beállítások"
 
-#: ../src/settingsdialog.cc:1393 ../src/settingsdialog.cc:1443
-#: ../src/settingsdialog.cc:1499 ../src/publichubs.cc:29
+#: ../src/settingsdialog.cc:1419 ../src/settingsdialog.cc:1469
+#: ../src/settingsdialog.cc:1541 ../src/publichubs.cc:29
 #: ../ui/mainwindow.ui:1186 ../ui/mainwindow.ui:2220 ../ui/mainwindow.ui:2441
 msgid "Public Hubs"
 msgstr "Publikus hubok"
@@ -2574,7 +2616,7 @@ msgstr "Publikus hubok"
 msgid "Public Hubs list URL"
 msgstr "Publikus hublista URL"
 
-#: ../src/settingsdialog.cc:1394 ../src/settingsdialog.cc:1459
+#: ../src/settingsdialog.cc:1420 ../src/settingsdialog.cc:1485
 #: ../ui/mainwindow.ui:2246 ../ui/mainwindow.ui:2505
 #: ../ui/settingsdialog.ui:3710
 msgid "Queue"
@@ -2584,7 +2626,7 @@ msgstr "Letöltési sor"
 msgid "Quick connect to the hub"
 msgstr "Gyors csatlakozás a hubhoz"
 
-#: ../src/settingsdialog.cc:1397 ../src/settingsdialog.cc:1465
+#: ../src/settingsdialog.cc:1423 ../src/settingsdialog.cc:1491
 #: ../ui/mainwindow.ui:2349 ../ui/mainwindow.ui:2529
 msgid "Quit"
 msgstr "Kilépés"
@@ -2593,7 +2635,7 @@ msgstr "Kilépés"
 msgid "Quit the program"
 msgstr "Kilépés a programból"
 
-#: ../src/wulfor.cc:190
+#: ../src/wulfor.cc:188
 msgid "Quit..."
 msgstr "Kilépés..."
 
@@ -2613,11 +2655,11 @@ msgstr "Forrás hozzáadása _megint"
 msgid "Re_connect"
 msgstr "_Újracsatlakozás"
 
-#: ../src/hub.cc:2054 ../ui/hub.ui:75
+#: ../src/hub.cc:2053 ../ui/hub.ui:75
 msgid "Rebuild hash"
 msgstr "Hash újraépítése"
 
-#: ../src/settingsdialog.cc:1399 ../src/settingsdialog.cc:1435
+#: ../src/settingsdialog.cc:1425 ../src/settingsdialog.cc:1461
 #: ../ui/mainwindow.ui:2127 ../ui/mainwindow.ui:2409
 msgid "Reconnect"
 msgstr "Újracsatlakozás"
@@ -2630,7 +2672,7 @@ msgstr "Kapcsolódás a hubhoz"
 msgid "Reconnect to the hub"
 msgstr "Újracsatlakozás a hubhoz"
 
-#: ../src/settingsdialog.cc:1390 ../src/settingsdialog.cc:1449
+#: ../src/settingsdialog.cc:1416 ../src/settingsdialog.cc:1475
 #: ../ui/mainwindow.ui:2084 ../ui/mainwindow.ui:2465
 msgid "Refresh"
 msgstr "Frissítés"
@@ -2639,11 +2681,13 @@ msgstr "Frissítés"
 msgid "Refresh file list"
 msgstr "Fájl-lista frissítése"
 
-#: ../src/settingsdialog.cc:1604
+#: ../src/settingsdialog.cc:1646
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
-msgstr "A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
+msgstr ""
+"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása "
+"a rendszerben"
 
-#: ../src/settingsdialog.cc:1605
+#: ../src/settingsdialog.cc:1647
 msgid "Register with the OS to handle magnet: URL links"
 msgstr "A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
 
@@ -2653,7 +2697,8 @@ msgstr "Emlékezz a válaszra"
 
 #: ../src/downloadqueue.cc:1370
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr "A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem lehetséges"
+msgstr ""
+"A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem lehetséges"
 
 #: ../ui/uploadqueue.ui:69 ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:4341
 #: ../ui/settingsdialog.ui:8345
@@ -2672,15 +2717,15 @@ msgstr "Fo_rrás eltávolítása"
 msgid "Remove image"
 msgstr "Kép eltávolítása"
 
-#: ../src/hub.cc:2073
+#: ../src/hub.cc:2072
 msgid "Remove rules from list"
 msgstr "Szabály eltávolítása a listából"
 
-#: ../src/settingsdialog.cc:974
+#: ../src/settingsdialog.cc:986
 msgid "Remove slow filelists"
 msgstr "Lassú fájl-listák eltávolítása"
 
-#: ../src/privatemessage.cc:1028 ../src/hub.cc:2046 ../ui/privatemessage.ui:57
+#: ../src/privatemessage.cc:1028 ../src/hub.cc:2045 ../ui/privatemessage.ui:57
 msgid "Remove user favorite"
 msgstr "Kedvenc felhasználó törlése"
 
@@ -2692,7 +2737,7 @@ msgstr "Felhasználó törlése a _sorból"
 msgid "Rename"
 msgstr "Átnevezés"
 
-#: ../src/settingsdialog.cc:2052
+#: ../src/settingsdialog.cc:2094
 msgid "Rename a search type"
 msgstr "Keresési típus átnevezése"
 
@@ -2720,7 +2765,7 @@ msgstr "Futtatás a háttérben"
 msgid "Running..."
 msgstr "Fut..."
 
-#: ../src/settingsdialog.cc:1047
+#: ../src/settingsdialog.cc:1059
 msgid "Russian"
 msgstr "Orosz"
 
@@ -2732,21 +2777,21 @@ msgstr "Orosz fordítás\n"
 msgid "SJIS"
 msgstr "SJIS"
 
-#: ../src/hub.cc:2052 ../ui/hub.ui:66
+#: ../src/hub.cc:2051 ../ui/hub.ui:66
 msgid "Say a third person"
 msgstr "Beszéd harmadik személyben"
 
-#: ../src/settingsdialog.cc:1124 ../src/settingsdialog.cc:1395
-#: ../src/settingsdialog.cc:1453 ../src/search.cc:40 ../src/search.cc:85
-#: ../src/search.cc:92 ../src/search.cc:250 ../src/search.cc:454
-#: ../src/search.cc:1096 ../src/search.cc:1097 ../src/search.cc:1955
+#: ../src/settingsdialog.cc:1136 ../src/settingsdialog.cc:1421
+#: ../src/settingsdialog.cc:1479 ../src/search.cc:40 ../src/search.cc:85
+#: ../src/search.cc:92 ../src/search.cc:258 ../src/search.cc:462
+#: ../src/search.cc:1104 ../src/search.cc:1105 ../src/search.cc:1963
 #: ../ui/searchspy.ui:94 ../ui/searchspy.ui:401 ../ui/mainwindow.ui:1230
 #: ../ui/mainwindow.ui:2203 ../ui/mainwindow.ui:2481
 #: ../ui/settingsdialog.ui:8426
 msgid "Search"
 msgstr "Keresés"
 
-#: ../src/settingsdialog.cc:1402 ../ui/mainwindow.ui:1242
+#: ../src/settingsdialog.cc:1428 ../ui/mainwindow.ui:1242
 msgid "Search ADL"
 msgstr "ADL keresés"
 
@@ -2754,8 +2799,8 @@ msgstr "ADL keresés"
 msgid "Search Menu"
 msgstr "Keresés Menü"
 
-#: ../src/settingsdialog.cc:1125 ../src/settingsdialog.cc:1396
-#: ../src/settingsdialog.cc:1457 ../src/settingsdialog.cc:1505
+#: ../src/settingsdialog.cc:1137 ../src/settingsdialog.cc:1422
+#: ../src/settingsdialog.cc:1483 ../src/settingsdialog.cc:1547
 #: ../src/searchspy.cc:35 ../ui/mainwindow.ui:1317 ../ui/mainwindow.ui:2321
 #: ../ui/settingsdialog.ui:6614
 msgid "Search Spy"
@@ -2786,13 +2831,13 @@ msgstr "Keresési előzmény"
 msgid "Search options"
 msgstr "Keresési opciók"
 
-#: ../src/hub.cc:3669
+#: ../src/hub.cc:3668
 msgid "Search spam detected from "
 msgstr "Keresési spam érzékelve a következőtől: "
 
-#: ../src/settingsdialog.cc:1685 ../src/settingsdialog.cc:1877
-#: ../src/settingsdialog.cc:1910 ../src/settingsdialog.cc:1996
-#: ../src/settingsdialog.cc:2045 ../src/settingsdialog.cc:2093
+#: ../src/settingsdialog.cc:1727 ../src/settingsdialog.cc:1919
+#: ../src/settingsdialog.cc:1952 ../src/settingsdialog.cc:2038
+#: ../src/settingsdialog.cc:2087 ../src/settingsdialog.cc:2135
 msgid "Search type"
 msgstr "Keresés típusa"
 
@@ -2800,7 +2845,7 @@ msgstr "Keresés típusa"
 msgid "Search within local results"
 msgstr "Keresés a helyi találatok között"
 
-#: ../src/search.cc:1891
+#: ../src/search.cc:1899
 msgid "Searching for "
 msgstr "Keresés erre: "
 
@@ -2808,19 +2853,24 @@ msgstr "Keresés erre: "
 msgid "Security Certificates"
 msgstr "Biztonsági Tanúsítványok"
 
-#: ../src/settingsdialog.cc:3200
+#: ../src/settingsdialog.cc:3161
+#, fuzzy
+msgid "Select Color"
+msgstr "Betű kiválasztása"
+
+#: ../src/settingsdialog.cc:3284
 msgid "Select Font"
 msgstr "Betű kiválasztása"
 
-#: ../src/mainwindow.cc:2417
+#: ../src/mainwindow.cc:2418
 msgid "Select file to Get TTH"
 msgstr "Fájl kiválasztása TTH másolásához"
 
-#: ../src/mainwindow.cc:2010 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:2011 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Fájl-lista böngészése"
 
-#: ../src/settingsdialog.cc:1103
+#: ../src/settingsdialog.cc:1115
 msgid "Send PM when double clicked in the user list"
 msgstr "Privát üzenet küldése dupla kattintásra a felhasználói listában"
 
@@ -2836,29 +2886,29 @@ msgstr "_Privát üzenet küldése"
 msgid "Send once per nick"
 msgstr "Nickenként egyszer küldje el"
 
-#: ../src/settingsdialog.cc:1600
+#: ../src/settingsdialog.cc:1642
 msgid "Send unknown /commands to the hub"
 msgstr "Ismeretlen /parancsok elküldése a hubnak"
 
-#: ../src/search.cc:564
+#: ../src/search.cc:572
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr "ADC kiterjesztése(ek) elküldve : %s\n"
 
-#: ../src/settingsdialog.cc:3278 ../src/settingsdialog.cc:3376
+#: ../src/settingsdialog.cc:3362 ../src/settingsdialog.cc:3460
 #: ../ui/settingsdialog.ui:627
 msgid "Separator"
 msgstr "Elválasztó"
 
-#: ../src/settingsdialog.cc:1433 ../ui/mainwindow.ui:2401
+#: ../src/settingsdialog.cc:1459 ../ui/mainwindow.ui:2401
 msgid "Separators"
 msgstr "Elválasztók"
 
-#: ../src/settingsdialog.cc:1059
+#: ../src/settingsdialog.cc:1071
 msgid "Serbian (Latin)"
 msgstr "Szerb (Latin) fordítás"
 
-#: ../src/mainwindow.cc:240
+#: ../src/mainwindow.cc:241
 msgid "Serbian (Latin) translation\n"
 msgstr "Szerb (latin) fordítás\n"
 
@@ -2870,14 +2920,15 @@ msgstr "Prioritá_s beállítása"
 msgid "Set download limit image"
 msgstr ""
 
-#: ../src/hub.cc:2000
+#: ../src/hub.cc:1999
 msgid "Set download limit image: "
 msgstr ""
 
-#: ../src/settingsdialog.cc:972
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új fájlokhoz"
+#: ../src/settingsdialog.cc:984
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új "
+"fájlokhoz"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -2892,7 +2943,7 @@ msgstr "Megosztva"
 msgid "Sharing"
 msgstr "Megosztva"
 
-#: ../src/settingsdialog.cc:1606
+#: ../src/settingsdialog.cc:1648
 msgid "Show IP's' in chats"
 msgstr "IP-k mutatása a chaten"
 
@@ -2900,7 +2951,7 @@ msgstr "IP-k mutatása a chaten"
 msgid "Show Interface"
 msgstr "Interfész mutatása"
 
-#: ../src/hub.cc:2047 ../ui/hub.ui:48
+#: ../src/hub.cc:2046 ../ui/hub.ui:48
 msgid "Show favorites list"
 msgstr "Kedvencek mutatása"
 
@@ -2908,16 +2959,16 @@ msgstr "Kedvencek mutatása"
 msgid "Show free space bar"
 msgstr "Szabadhely sáv megjelenítése"
 
-#: ../src/privatemessage.cc:1034 ../src/hub.cc:2050
+#: ../src/privatemessage.cc:1034 ../src/hub.cc:2049
 #: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
 msgid "Show help"
 msgstr "Help mutatása"
 
-#: ../src/hub.cc:2071
+#: ../src/hub.cc:2070
 msgid "Show ipfilter rules list"
 msgstr "Ipfilter szabályok mutatása"
 
-#: ../src/settingsdialog.cc:1095
+#: ../src/settingsdialog.cc:1107
 msgid "Show joins / parts in chat by default"
 msgstr "Ki és belépések mutatása a chaten alapértelmezés szerint"
 
@@ -2925,7 +2976,7 @@ msgstr "Ki és belépések mutatása a chaten alapértelmezés szerint"
 msgid "Show magnet dialog"
 msgstr "Magnet párbeszédablak megjelenítése"
 
-#: ../src/settingsdialog.cc:1517
+#: ../src/settingsdialog.cc:1559
 msgid "Show nicklist in hub frame on the left side"
 msgstr "Becenévlista megjelenítése a hub keretben, bal oldalt"
 
@@ -2937,16 +2988,16 @@ msgstr "Csak a teljesen befejezett letöltések mutatása"
 msgid "Show only when the application is not active."
 msgstr "Csak akkor jelenítse meg, ha az alkalmazás nem aktív"
 
-#: ../src/privatemessage.cc:1033 ../src/hub.cc:2059 ../ui/privatemessage.ui:93
+#: ../src/privatemessage.cc:1033 ../src/hub.cc:2058 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
 msgid "Show ratio [send in chat]"
 msgstr "Átviteli ráta mutatása [küldés a chatre]"
 
-#: ../src/settingsdialog.cc:1092
+#: ../src/settingsdialog.cc:1104
 msgid "Show status icon in the system tray"
 msgstr "Ikon mutatása a tálcán"
 
-#: ../src/settingsdialog.cc:1093
+#: ../src/settingsdialog.cc:1105
 msgid "Show timestamps in chat by default"
 msgstr "Időbélyeg megjelenítése a chaten alapértelmezés szerint"
 
@@ -2954,11 +3005,11 @@ msgstr "Időbélyeg megjelenítése a chaten alapértelmezés szerint"
 msgid "Show top search"
 msgstr "Népszerű keresés megjelenítése"
 
-#: ../src/settingsdialog.cc:1607
+#: ../src/settingsdialog.cc:1649
 msgid "Show user country in chat"
 msgstr "A felhasználók országkódjainak mutatása a chaten"
 
-#: ../src/privatemessage.cc:1032 ../src/hub.cc:2058 ../ui/privatemessage.ui:84
+#: ../src/privatemessage.cc:1032 ../src/hub.cc:2057 ../ui/privatemessage.ui:84
 #: ../ui/hub.ui:93
 msgid "Show version"
 msgstr "Verzió mutatása"
@@ -2971,25 +3022,25 @@ msgstr "Átvitelek mutatása/elrejtése "
 msgid "Show/Hide user list"
 msgstr "Felhasználói lista mutatása/elrejtése"
 
-#: ../src/wulfor.cc:188
+#: ../src/wulfor.cc:186
 msgid "Shutting down libdcpp..."
 msgstr "Libdcpp leállítása..."
 
-#: ../src/wulfor.cc:113
+#: ../src/wulfor.cc:112
 #, c-format
 msgid "Signal handlers installed.\n"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1020 ../src/settingsdialog.cc:1026
-#: ../src/settingsdialog.cc:3711 ../src/settingsdialog.cc:3780
+#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:1038
+#: ../src/settingsdialog.cc:3795 ../src/settingsdialog.cc:3864
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
 #: ../src/sharebrowser.cc:327 ../src/sharebrowser.cc:358
 #: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
 #: ../src/transfers.cc:729 ../src/search.cc:102 ../src/search.cc:129
-#: ../src/search.cc:632 ../src/search.cc:715 ../src/search.cc:724
-#: ../src/search.cc:850 ../ui/search.ui:318 ../ui/mainwindow.ui:118
+#: ../src/search.cc:640 ../src/search.cc:723 ../src/search.cc:732
+#: ../src/search.cc:858 ../ui/search.ui:318 ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Méret"
 
@@ -3002,7 +3053,7 @@ msgstr "Méret: "
 msgid "Size: 0 B"
 msgstr "Méret: 0 B"
 
-#: ../src/settingsdialog.cc:978
+#: ../src/settingsdialog.cc:990
 msgid "Skip zero-byte files"
 msgstr "Nulla hosszúságú fájlok kihagyása"
 
@@ -3010,19 +3061,19 @@ msgstr "Nulla hosszúságú fájlok kihagyása"
 msgid "Slot granted"
 msgstr "Slot biztosítva"
 
-#: ../src/hub.cc:2960 ../src/favoriteusers.cc:513
+#: ../src/hub.cc:2959 ../src/favoriteusers.cc:513
 msgid "Slot granted to "
 msgstr "Slot biztosítva: "
 
-#: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:631
+#: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:639
 msgid "Slots"
 msgstr "Slotok"
 
-#: ../src/settingsdialog.cc:1067
+#: ../src/settingsdialog.cc:1079
 msgid "Slovak"
 msgstr "Szlovák"
 
-#: ../src/mainwindow.cc:250
+#: ../src/mainwindow.cc:251
 msgid "Slovak translation\n"
 msgstr "Szlovák  fordítás\n"
 
@@ -3042,11 +3093,11 @@ msgstr "Socket írási puffer"
 msgid "Socks IP"
 msgstr "Socks IP"
 
-#: ../src/settingsdialog.cc:1097
+#: ../src/settingsdialog.cc:1109
 msgid "Sort favorite users first"
 msgstr "Kedvenc felhasználók előre helyezése a listában"
 
-#: ../src/settingsdialog.cc:1134 ../ui/settingsdialog.ui:5194
+#: ../src/settingsdialog.cc:1146 ../ui/settingsdialog.ui:5194
 msgid "Sounds"
 msgstr "Hangok"
 
@@ -3063,11 +3114,11 @@ msgstr "Keresés típusa"
 msgid "Source too slow"
 msgstr "A forrás túl lassú"
 
-#: ../src/settingsdialog.cc:1063
+#: ../src/settingsdialog.cc:1075
 msgid "Spanish"
 msgstr "Spanyol"
 
-#: ../src/mainwindow.cc:243
+#: ../src/mainwindow.cc:244
 msgid "Spanish translation\n"
 msgstr "Spanyol fordítás\n"
 
@@ -3098,11 +3149,11 @@ msgstr "Készültség állapota"
 msgid "Status"
 msgstr "Státusz"
 
-#: ../src/settingsdialog.cc:1213
+#: ../src/settingsdialog.cc:1225
 msgid "Status message"
 msgstr "Státusz üzenet"
 
-#: ../src/settingsdialog.cc:1043 ../src/WulforUtil.cc:42
+#: ../src/settingsdialog.cc:1055 ../src/WulforUtil.cc:42
 msgid "System default"
 msgstr "Rendszer alapértelmezés"
 
@@ -3110,7 +3161,7 @@ msgstr "Rendszer alapértelmezés"
 msgid "System icons"
 msgstr "Rendszer ikonok"
 
-#: ../src/settingsdialog.cc:1210
+#: ../src/settingsdialog.cc:1222
 msgid "System message"
 msgstr "Rendszer üzenet"
 
@@ -3123,10 +3174,10 @@ msgstr "TIS-620 (Thai)"
 #: ../src/downloadqueue.cc:757 ../src/sharebrowser.cc:87
 #: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:362
 #: ../src/sharebrowser.cc:567 ../src/sharebrowser.cc:1027
-#: ../src/sharebrowser.cc:1061 ../src/search.cc:109 ../src/search.cc:366
-#: ../src/search.cc:370 ../src/search.cc:376 ../src/search.cc:639
-#: ../src/search.cc:726 ../src/search.cc:856 ../src/search.cc:907
-#: ../src/search.cc:1175 ../src/search.cc:1340 ../src/search.cc:1653
+#: ../src/sharebrowser.cc:1061 ../src/search.cc:109 ../src/search.cc:374
+#: ../src/search.cc:378 ../src/search.cc:384 ../src/search.cc:647
+#: ../src/search.cc:734 ../src/search.cc:864 ../src/search.cc:915
+#: ../src/search.cc:1183 ../src/search.cc:1348 ../src/search.cc:1661
 #: ../ui/mainwindow.ui:132
 msgid "TTH"
 msgstr "TTH"
@@ -3191,14 +3242,15 @@ msgstr "Hátralévő idő"
 msgid "Time last seen"
 msgstr "Utoljára online"
 
-#: ../src/settingsdialog.cc:1216 ../src/settingsdialog.cc:1244
+#: ../src/settingsdialog.cc:1228 ../src/settingsdialog.cc:1258
+#: ../src/settingsdialog.cc:1263
 msgid "Timestamp"
 msgstr "Időbélyeg"
 
-#: ../src/settingsdialog.cc:400 ../src/settingsdialog.cc:1301
-#: ../src/settingsdialog.cc:2233 ../src/settingsdialog.cc:2289
-#: ../src/settingsdialog.cc:2305 ../src/settingsdialog.cc:2327
-#: ../src/settingsdialog.cc:2331 ../src/settingsdialog.cc:2381
+#: ../src/settingsdialog.cc:400 ../src/settingsdialog.cc:1327
+#: ../src/settingsdialog.cc:2275 ../src/settingsdialog.cc:2331
+#: ../src/settingsdialog.cc:2347 ../src/settingsdialog.cc:2369
+#: ../src/settingsdialog.cc:2373 ../src/settingsdialog.cc:2423
 msgid "Title"
 msgstr "Cím"
 
@@ -3210,7 +3262,9 @@ msgstr ""
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr "A letöltés megkezdéséhez be kell kapcsolnod az alternatívák automatikus keresését (Beállítások/Letöltések/Letöltési sor)"
+msgstr ""
+"A letöltés megkezdéséhez be kell kapcsolnod az alternatívák automatikus "
+"keresését (Beállítások/Letöltések/Letöltési sor)"
 
 #: ../ui/settingsdialog.ui:6132
 msgid "Toolbar"
@@ -3244,7 +3298,7 @@ msgstr "Összes bejövő adatmennyiség: "
 msgid "Total sent"
 msgstr "Összes kimenő adatmennyiség: "
 
-#: ../src/settingsdialog.cc:3785
+#: ../src/settingsdialog.cc:3869
 msgid "Total size: "
 msgstr "Teljes méret: "
 
@@ -3258,7 +3312,7 @@ msgstr "Összesen: "
 
 #: ../src/finishedtransfers.cc:66 ../src/finishedtransfers.cc:87
 #: ../src/finishedtransfers.cc:187 ../src/finishedtransfers.cc:196
-#: ../src/finishedtransfers.cc:240 ../src/finishedtransfers.cc:600
+#: ../src/finishedtransfers.cc:240 ../src/finishedtransfers.cc:607
 #: ../src/transfers.cc:65 ../src/transfers.cc:598
 msgid "Transferred"
 msgstr "Átvitt"
@@ -3273,12 +3327,12 @@ msgid "Trusted certificates path"
 msgstr "Megbízható tanúsítványok helye"
 
 #: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:330
-#: ../src/sharebrowser.cc:351 ../src/search.cc:101 ../src/search.cc:634
-#: ../src/search.cc:738 ../src/search.cc:865 ../src/search.cc:899
+#: ../src/sharebrowser.cc:351 ../src/search.cc:101 ../src/search.cc:642
+#: ../src/search.cc:746 ../src/search.cc:873 ../src/search.cc:907
 msgid "Type"
 msgstr "Típus"
 
-#: ../src/settingsdialog.cc:1219
+#: ../src/settingsdialog.cc:1231
 msgid "URL"
 msgstr "URL"
 
@@ -3286,7 +3340,7 @@ msgstr "URL"
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: ../src/settingsdialog.cc:1061
+#: ../src/settingsdialog.cc:1073
 msgid "Ukrainian"
 msgstr "Ukrán"
 
@@ -3294,7 +3348,7 @@ msgstr "Ukrán"
 msgid "Ukrainian translation\n"
 msgstr "Ukrán fordítás\n"
 
-#: ../src/hub.cc:2985
+#: ../src/hub.cc:2984
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "A csatlakozás nem lehetséges: a kért hubhoz már csatlakozva vagy"
 
@@ -3302,24 +3356,27 @@ msgstr "A csatlakozás nem lehetséges: a kért hubhoz már csatlakozva vagy"
 msgid "Unable to load file list: "
 msgstr "Fájl-lista betöltése nem lehetséges: "
 
-#: ../src/mainwindow.cc:2035
+#: ../src/mainwindow.cc:2036
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Fájl-lista betöltése sikertelen: Nem megfelelő fájl-lista név"
 
-#: ../src/mainwindow.cc:2274
+#: ../src/mainwindow.cc:2275
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a kívánt portot használó alkalmazást be nem zárod."
+msgstr ""
+"A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog "
+"megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a "
+"kívánt portot használó alkalmazást be nem zárod."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
 msgstr "Befejezetlen letöltések könyvtára"
 
 #: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
-#: ../src/WulforUtil.cc:320 ../src/WulforUtil.cc:322 ../src/mainwindow.cc:1074
-#: ../src/mainwindow.cc:1464
+#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1075
+#: ../src/mainwindow.cc:1465
 msgid "Unknown"
 msgstr "Ismeretlen"
 
@@ -3327,7 +3384,7 @@ msgstr "Ismeretlen"
 msgid "Unknown command "
 msgstr "Ismeretlen parancs "
 
-#: ../src/hub.cc:2368
+#: ../src/hub.cc:2367
 msgid "Unknown command '"
 msgstr "Ismeretlen parancs '"
 
@@ -3339,7 +3396,7 @@ msgstr "Frissítés"
 msgid "Update frame search"
 msgstr "Keresési mező frissítése"
 
-#: ../src/hub.cc:2055
+#: ../src/hub.cc:2054
 msgid "Update own file list"
 msgstr "Saját fájl-lista frissítése"
 
@@ -3347,7 +3404,7 @@ msgstr "Saját fájl-lista frissítése"
 msgid "Updating string or TTH"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1384
+#: ../src/settingsdialog.cc:1410
 msgid "Upload"
 msgstr "Feltöltés"
 
@@ -3363,7 +3420,7 @@ msgstr "Feltöltési szálak"
 msgid "Upload complete..."
 msgstr "Feltöltés kész..."
 
-#: ../src/settingsdialog.cc:1153
+#: ../src/settingsdialog.cc:1165
 msgid "Upload finished"
 msgstr "Feltöltés befejezve"
 
@@ -3379,7 +3436,7 @@ msgstr "Feltöltési sebesség"
 msgid "Upload starting..."
 msgstr "Feltöltés kezdése..."
 
-#: ../src/mainwindow.cc:751
+#: ../src/mainwindow.cc:752
 msgid "Upload: "
 msgstr "Feltöltés: "
 
@@ -3388,15 +3445,15 @@ msgid "Uploading"
 msgstr "Feltöltés"
 
 #: ../src/settingsdialog.cc:361 ../src/settingsdialog.cc:399
-#: ../src/settingsdialog.cc:433 ../src/settingsdialog.cc:675
-#: ../src/settingsdialog.cc:688 ../src/settingsdialog.cc:704
-#: ../src/settingsdialog.cc:1133 ../src/settingsdialog.cc:1144
-#: ../src/settingsdialog.cc:1299 ../src/settingsdialog.cc:1314
-#: ../src/settingsdialog.cc:1415 ../src/settingsdialog.cc:1425
+#: ../src/settingsdialog.cc:433 ../src/settingsdialog.cc:687
+#: ../src/settingsdialog.cc:700 ../src/settingsdialog.cc:716
+#: ../src/settingsdialog.cc:1145 ../src/settingsdialog.cc:1156
+#: ../src/settingsdialog.cc:1325 ../src/settingsdialog.cc:1340
+#: ../src/settingsdialog.cc:1441 ../src/settingsdialog.cc:1451
 msgid "Use"
 msgstr "Használ"
 
-#: ../src/settingsdialog.cc:1611
+#: ../src/settingsdialog.cc:1653
 msgid "Use ADL search only in own file list"
 msgstr "ADL keresés csak saját fájllistában"
 
@@ -3412,7 +3469,7 @@ msgstr "DHT használata"
 msgid "Use Emoticons"
 msgstr "Hangulatjelek használata"
 
-#: ../src/settingsdialog.cc:1098
+#: ../src/settingsdialog.cc:1110
 msgid "Use OEM monospaced font for chat windows"
 msgstr "Egyforma szélességű OEM betűtípus használata a chat ablakokban"
 
@@ -3420,7 +3477,7 @@ msgstr "Egyforma szélességű OEM betűtípus használata a chat ablakokban"
 msgid "Use SOCKS5 server to resolve hostnames"
 msgstr "SOCKS5 használata a hosztnevek feloldásához"
 
-#: ../src/settingsdialog.cc:1673
+#: ../src/settingsdialog.cc:1715
 msgid "Use TLS when remote client supports it"
 msgstr "TLS használata, ha a távoli kliens támogatja azt"
 
@@ -3432,19 +3489,20 @@ msgstr "A kliens használhat UPnP-t a router beállításához"
 msgid "Use bandwidth limits"
 msgstr "Sebességkorlátozások használata"
 
-#: ../src/settingsdialog.cc:1100
+#: ../src/settingsdialog.cc:1112
 msgid "Use blinking status icon"
 msgstr "Villogó ikon használata"
 
-#: ../src/settingsdialog.cc:1101
+#: ../src/settingsdialog.cc:1113
 msgid "Use emoticons"
 msgstr "Hangulatjelek használata"
 
-#: ../src/settingsdialog.cc:1603
+#: ../src/settingsdialog.cc:1645
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr "Gyors indexelés használata (kapcsold ki, ha problémát észlelsz indexeléskor)"
+msgstr ""
+"Gyors indexelés használata (kapcsold ki, ha problémát észlelsz indexeléskor)"
 
-#: ../src/settingsdialog.cc:1099
+#: ../src/settingsdialog.cc:1111
 msgid "Use magnet split"
 msgstr ""
 
@@ -3461,11 +3519,11 @@ msgstr ""
 msgid "User"
 msgstr "Felhasználó"
 
-#: ../src/settingsdialog.cc:1374
+#: ../src/settingsdialog.cc:1400
 msgid "User (dc)"
 msgstr "Felhasználó (dc)"
 
-#: ../src/settingsdialog.cc:1378
+#: ../src/settingsdialog.cc:1404
 msgid "User (normal)"
 msgstr "Felhasználó (normál)"
 
@@ -3482,39 +3540,39 @@ msgstr "Felhasználói leírás"
 msgid "User commands"
 msgstr "Felhasználó parancsok"
 
-#: ../src/hub.cc:1947
+#: ../src/hub.cc:1946
 msgid "User favorite list:"
 msgstr "Kedvenc felhasználók listája: "
 
-#: ../src/settingsdialog.cc:1375
+#: ../src/settingsdialog.cc:1401
 msgid "User firewall (dc)"
 msgstr "Felhasználó tűzfal mögül (dc)"
 
-#: ../src/settingsdialog.cc:1379
+#: ../src/settingsdialog.cc:1405
 msgid "User firewall (normal)"
 msgstr "Felhasználó tűzfal mögül (normál)"
 
-#: ../src/hub.cc:2056
+#: ../src/hub.cc:2055
 msgid "User list show/hide"
 msgstr "Felhasználói lista mutatása/elrejtése"
 
-#: ../src/hub.cc:2931 ../src/hub.cc:2951
+#: ../src/hub.cc:2930 ../src/hub.cc:2950
 msgid "User not found"
 msgstr "Felhasználó nem található"
 
-#: ../src/settingsdialog.cc:1377
+#: ../src/settingsdialog.cc:1403
 msgid "User operator (dc)"
 msgstr "Felhasználó operátor (dc)"
 
-#: ../src/settingsdialog.cc:1381
+#: ../src/settingsdialog.cc:1407
 msgid "User operator (normal)"
 msgstr "Felhasználó operátor (normál)"
 
-#: ../src/settingsdialog.cc:1376
+#: ../src/settingsdialog.cc:1402
 msgid "User operator firewall (dc)"
 msgstr "Operátor tűzfal mögül (dc)"
 
-#: ../src/settingsdialog.cc:1380
+#: ../src/settingsdialog.cc:1406
 msgid "User operator firewall (normal)"
 msgstr "Operátor tűzfal mögül (normál)"
 
@@ -3537,24 +3595,34 @@ msgstr "Felhasználó"
 msgid "Users: "
 msgstr "Felhasználó(k): "
 
-#: ../src/wulfor.cc:47
+#: ../src/wulfor.cc:46
 #, c-format
 msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Használat:\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n  eiskaltdcpp <Kapcsoló>\nAz EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC protokollok használatára.\n\nKapcsolók:\n  -h, --help\t\t Help megjelenítése\n  -V, --version\t  Verzióinformáció mutatása\n"
+msgstr ""
+"Használat:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp <Kapcsoló>\n"
+"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC "
+"protokollok használatára.\n"
+"\n"
+"Kapcsolók:\n"
+"  -h, --help\t\t Help megjelenítése\n"
+"  -V, --version\t  Verzióinformáció mutatása\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:365
 msgid "Video"
 msgstr "Videó"
 
-#: ../src/settingsdialog.cc:1094
+#: ../src/settingsdialog.cc:1106
 msgid "View status messages in main chat"
 msgstr "Státusz üzenetek megjelenítése a chaten"
 
@@ -3574,12 +3642,12 @@ msgstr "Befejezett letöltések listázása"
 msgid "View the list of finished uploads"
 msgstr "Befejezett feltöltések listázása"
 
-#: ../src/settingsdialog.cc:1018 ../src/settingsdialog.cc:3709
-#: ../src/settingsdialog.cc:3778
+#: ../src/settingsdialog.cc:1030 ../src/settingsdialog.cc:3793
+#: ../src/settingsdialog.cc:3862
 msgid "Virtual Name"
 msgstr "Virtuális név"
 
-#: ../src/settingsdialog.cc:3028
+#: ../src/settingsdialog.cc:3086
 msgid "Virtual name"
 msgstr "Virtuális név"
 
@@ -3590,7 +3658,8 @@ msgstr "Várakozás (másodpercben)"
 #: ../src/hub.cc:559
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr "Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
+msgstr ""
+"Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
 
 #: ../src/transfers.cc:583
 msgid "Waiting for slot"
@@ -3604,7 +3673,7 @@ msgstr "Várakozás újrapróbálkozásra"
 msgid "Waiting:"
 msgstr "Várakozás:"
 
-#: ../src/mainwindow.cc:381
+#: ../src/mainwindow.cc:382
 msgid "Welcome to "
 msgstr "Üdv itt: "
 
@@ -3624,15 +3693,15 @@ msgstr "Ablakok"
 msgid "Write buffer size"
 msgstr "Írási puffer méret"
 
-#: ../src/settingsdialog.cc:937
+#: ../src/settingsdialog.cc:949
 msgid "Xine player"
 msgstr "Xine player"
 
-#: ../src/finishedtransfers.cc:668
+#: ../src/finishedtransfers.cc:683
 msgid "Yes"
 msgstr "Igen"
 
-#: ../src/settingsdialog.cc:3771
+#: ../src/settingsdialog.cc:3855
 msgid "[HIDDEN SHARE] "
 msgstr "[REJTETT MEGOSZTÁS]"
 
@@ -3869,15 +3938,15 @@ msgstr "_Felhasználó parancsok"
 msgid "_Widgets"
 msgstr "_Ablakok"
 
-#: ../src/hub.cc:3165
+#: ../src/hub.cc:3164
 msgid "bad image"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2454
+#: ../src/settingsdialog.cc:2496
 msgid "default icons"
 msgstr "alapértelmezett ikonok"
 
-#: ../src/settingsdialog.cc:2486
+#: ../src/settingsdialog.cc:2528
 msgid "default theme"
 msgstr "alapértelmezett téma"
 
@@ -3885,12 +3954,12 @@ msgstr "alapértelmezett téma"
 msgid "eMail"
 msgstr "E-mail"
 
-#: ../src/settingsdialog.cc:2703
+#: ../src/settingsdialog.cc:2761
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: stílus betöltése %s...\n"
 
-#: ../src/mainwindow.cc:2322
+#: ../src/mainwindow.cc:2323
 msgid "file list from "
 msgstr "fájl lista ettől: "
 
@@ -3902,7 +3971,7 @@ msgstr ""
 msgid "from Coral"
 msgstr "a Coral-ról"
 
-#: ../src/mainwindow.cc:367
+#: ../src/mainwindow.cc:368
 msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 
@@ -3910,7 +3979,7 @@ msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgid "in program"
 msgstr "a programban"
 
-#: ../src/hub.cc:3156
+#: ../src/hub.cc:3155
 msgid "loading error"
 msgstr "hiba betöltése"
 
@@ -3918,25 +3987,25 @@ msgstr "hiba betöltése"
 msgid "none"
 msgstr "nincs"
 
-#: ../src/privatemessage.cc:977 ../src/hub.cc:2005
+#: ../src/privatemessage.cc:977 ../src/hub.cc:2004
 msgid "project home: "
 msgstr "a projekt weboldala: "
 
-#: ../src/privatemessage.cc:996 ../src/hub.cc:2024
+#: ../src/privatemessage.cc:996 ../src/hub.cc:2023
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "arány: %1% (feltöltés: %2%, letöltés: %3% )"
 
-#: ../src/treeview.cc:211 ../src/mainwindow.cc:2356 ../src/mainwindow.cc:2358
+#: ../src/treeview.cc:211 ../src/mainwindow.cc:2357 ../src/mainwindow.cc:2359
 #: ../src/hashdialog.cc:73 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "s"
 
-#: ../src/settingsdialog.cc:1455
+#: ../src/settingsdialog.cc:1481
 msgid "searchADL"
 msgstr "ADLkeresés"
 
-#: ../src/settingsdialog.cc:3095 ../src/settingsdialog.cc:3196
+#: ../src/settingsdialog.cc:3153 ../src/settingsdialog.cc:3280
 msgid "selected style failed"
 msgstr ""
 

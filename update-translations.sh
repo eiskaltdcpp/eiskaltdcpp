@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@mail.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2012-11-13
+# Updated: 2013-06-25
 # Version: N/A
 
 if [[ ${0} =~ ^/.+$ ]]; then
@@ -69,7 +69,11 @@ case "${1}" in
 
     cd "${CUR_DIR}" || exit 1
 
+    export QT_SELECT=qt4
     lupdate eiskaltdcpp-qt/translations.pro || exit 1
+
+    echo "" | tee dcpp/po/en.po
+    echo "" | tee eiskaltdcpp-gtk/po/en.po
     cd builddir && make pot-update || exit 1
 
     git status || exit 1

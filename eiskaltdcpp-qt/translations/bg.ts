@@ -721,12 +721,12 @@ EiskaltDC++ е мулти-платформена програма използв
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="482"/>
+        <location filename="../src/FinishedTransfers.h" line="490"/>
         <source>Open file</source>
         <translation>Отваряне на файл</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="483"/>
+        <location filename="../src/FinishedTransfers.h" line="491"/>
         <source>Open directory</source>
         <translation>Отваряне на директория</translation>
     </message>
@@ -2352,47 +2352,47 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2697"/>
+        <location filename="../src/MainWindow.cpp" line="2698"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2700"/>
+        <location filename="../src/MainWindow.cpp" line="2701"/>
         <source>Spanish translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2704"/>
+        <location filename="../src/MainWindow.cpp" line="2705"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2707"/>
+        <location filename="../src/MainWindow.cpp" line="2708"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2710"/>
+        <location filename="../src/MainWindow.cpp" line="2711"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2713"/>
+        <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>German translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2718"/>
+        <location filename="../src/MainWindow.cpp" line="2719"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2721"/>
+        <location filename="../src/MainWindow.cpp" line="2722"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2725"/>
+        <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2513,22 +2513,22 @@ Favorite user</source>
         <translation type="obsolete">&amp;nbsp; (за 2.2.6 и следващи версии)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2765"/>
+        <location filename="../src/MainWindow.cpp" line="2766"/>
         <source>Show close buttons</source>
         <translation>Показване бутони за затваряне</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2800"/>
+        <location filename="../src/MainWindow.cpp" line="2801"/>
         <source>[No name]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2888"/>
+        <location filename="../src/MainWindow.cpp" line="2889"/>
         <source>Download Queue</source>
         <translation>Опашка за сваляне</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2888"/>
+        <location filename="../src/MainWindow.cpp" line="2889"/>
         <source>All downloads complete</source>
         <translation>Всички сваляния са завършени</translation>
     </message>
@@ -3097,33 +3097,33 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Търсене</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="491"/>
+        <location filename="../src/SearchFrame.cpp" line="499"/>
         <source>Close</source>
         <translation>Затваряне</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1091"/>
+        <location filename="../src/SearchFrame.cpp" line="1099"/>
         <source>Search - %1</source>
         <translation>Търсене - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1197"/>
-        <location filename="../src/SearchFrame.cpp" line="1255"/>
+        <location filename="../src/SearchFrame.cpp" line="1205"/>
+        <location filename="../src/SearchFrame.cpp" line="1263"/>
         <source>Select directory</source>
         <translation>Избор на директория</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1563"/>
+        <location filename="../src/SearchFrame.cpp" line="1571"/>
         <source>Searching for %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1579"/>
+        <location filename="../src/SearchFrame.cpp" line="1587"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Няма резултати&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1588"/>
+        <location filename="../src/SearchFrame.cpp" line="1596"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Намерени: &lt;b&gt;%1&lt;/b&gt;  Филтрирани: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -3654,38 +3654,38 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Грешка при преглед на списъка с файлове: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="599"/>
-        <location filename="../src/ShareBrowser.cpp" line="623"/>
+        <location filename="../src/ShareBrowser.cpp" line="596"/>
+        <location filename="../src/ShareBrowser.cpp" line="620"/>
         <source>Total size: %1</source>
         <translation>Общ размер: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="621"/>
+        <location filename="../src/ShareBrowser.cpp" line="618"/>
         <source>Selected %1 from %2 items; </source>
         <translation>Избрани %1 от %2 елемента;</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="626"/>
+        <location filename="../src/ShareBrowser.cpp" line="623"/>
         <source>; Selected: %1</source>
         <translation>; Избрани: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="829"/>
+        <location filename="../src/ShareBrowser.cpp" line="826"/>
         <source>Select directory</source>
         <translation>Избор на директория</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="959"/>
+        <location filename="../src/ShareBrowser.cpp" line="956"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Ограничение (в GB)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1098"/>
+        <location filename="../src/ShareBrowser.cpp" line="1095"/>
         <source>Share browser</source>
         <translation>Списък с файлове</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1105"/>
+        <location filename="../src/ShareBrowser.cpp" line="1102"/>
         <source>Matched %1 files</source>
         <translation type="unfinished"></translation>
     </message>
