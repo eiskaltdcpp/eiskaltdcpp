@@ -75,7 +75,7 @@ Build Depends
 --------
 :common:
 --------
-gcc (>= 4.4.0) or clang (>= 2.9)
+gcc (>= 4.6.0) or clang (>= 3.1)
 iconv (libc on GNU/Linux)
 cmake (>= 2.6.3)
 pkg-config
@@ -95,7 +95,6 @@ libattr-dev (optional)
 :eiskaltdcpp-qt:
 ----------------
 qt4 (>= 4.6.0)
-gcc (>= 4.5.0) or clang (>= 3.1)
 libaspell-dev (optional, see cmake keys)
 -----------------
 :eiskaltdcpp-gtk:
