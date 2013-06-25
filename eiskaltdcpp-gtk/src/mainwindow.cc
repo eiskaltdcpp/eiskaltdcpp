@@ -236,6 +236,7 @@ MainWindow::MainWindow():
         string("\n")+
         _("Ukrainian translation\n")+
         string("  2010 Dmytro Demenko <dmytro.demenko@gmail.com>\n")+
+        string("  2013 gray aka grayich <grayich@ukr.net>\n")+
         string("\n")+
         _("Serbian (Latin) translation\n")+
         string("  2010-2013 Miroslav Petrovic <miroslav031@gmail.com>\n")+
