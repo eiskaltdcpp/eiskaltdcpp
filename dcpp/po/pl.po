@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-05-28 23:38+0300\n"
+"POT-Creation-Date: 2013-06-25 16:00+0300\n"
 "PO-Revision-Date: 2012-07-04 17:19+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -59,17 +59,17 @@ msgstr ""
 msgid "CD Image"
 msgstr ""
 
-#: ../SearchManager.cpp:151
+#: ../SearchManager.cpp:146
 msgid "Search enabled again"
 msgstr "Wyszukiwanie znów aktywne"
 
-#: ../SearchManager.cpp:159
+#: ../SearchManager.cpp:154
 msgid "Search disabled: %1%"
 msgstr "Wyszukiwanie nieaktywne: %1%"
 
-#: ../SearchManager.cpp:283 ../SearchManager.cpp:370 ../SearchManager.cpp:372
-#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2167
-#: ../QueueManager.cpp:2173 ../QueueManager.cpp:2179 ../ClientManager.cpp:178
+#: ../SearchManager.cpp:278 ../SearchManager.cpp:365 ../SearchManager.cpp:367
+#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2171
+#: ../QueueManager.cpp:2177 ../QueueManager.cpp:2183 ../ClientManager.cpp:178
 msgid "Offline"
 msgstr "Niedostępny"
 
@@ -116,7 +116,7 @@ msgstr ""
 msgid "Error hashing %1%: %2%"
 msgstr "Błąd hashowania %1%: %2%"
 
-#: ../Transfer.cpp:91 ../QueueManager.cpp:2196 ../AdcHub.cpp:193
+#: ../Transfer.cpp:91 ../QueueManager.cpp:2200 ../AdcHub.cpp:193
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -287,7 +287,7 @@ msgstr ""
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Niezgodne CRC32 (sprawdź SFV)"
 
-#: ../QueueManager.cpp:2218
+#: ../QueueManager.cpp:2225
 msgid "%1% : Matched %2% files"
 msgstr ""
 
@@ -479,58 +479,58 @@ msgstr ""
 msgid "Unable to create thread"
 msgstr "Nie można utworzyć wątku"
 
-#: ../DCPlusPlus.cpp:122
+#: ../DCPlusPlus.cpp:121
 msgid "Hash database"
 msgstr "Baza danych hashów"
 
-#: ../DCPlusPlus.cpp:125
+#: ../DCPlusPlus.cpp:124
 msgid "Shared Files"
 msgstr "Udostępnione pliki"
 
-#: ../DCPlusPlus.cpp:134
+#: ../DCPlusPlus.cpp:133
 msgid "Download Queue"
 msgstr "Kolejka pobierania"
 
-#: ../DCPlusPlus.cpp:137
+#: ../DCPlusPlus.cpp:136
 msgid "Users"
 msgstr "Użytkownicy"
 
-#: ../Util.cpp:640
+#: ../Util.cpp:641
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:642
+#: ../Util.cpp:643
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:644
+#: ../Util.cpp:645
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:647
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f Gb"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:649
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:651
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:680
+#: ../Util.cpp:681
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:684
+#: ../Util.cpp:685
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
