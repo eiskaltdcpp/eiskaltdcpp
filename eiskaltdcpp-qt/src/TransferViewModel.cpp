@@ -671,7 +671,7 @@ TransferViewItem::TransferViewItem(const QList<QVariant> &data, TransferViewItem
 
 TransferViewItem::~TransferViewItem()
 {
-    if (childItems.size() > 0)
+    if (!childItems.isEmpty())
         qDeleteAll(childItems);
 
     parentItem = NULL;

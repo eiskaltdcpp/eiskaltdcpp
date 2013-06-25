@@ -397,7 +397,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     if (!cid.isEmpty() && !pmw){
         user_menu = WulforUtil::getInstance()->buildUserCmdMenu(client->getHubUrl(), UserCommand::CONTEXT_HUB);
 
-    if (user_menu->actions().size() > 0)
+    if (!user_menu->actions().isEmpty())
         menu->addMenu(user_menu);
     }
 
@@ -1268,7 +1268,7 @@ void HubFrame::initMenu(){
         QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(d->client->getHubUrl(), UserCommand::CONTEXT_HUB, d->arenaMenu);
 
         if (u_c){
-            if (u_c->actions().size() > 0){
+            if (!u_c->actions().isEmpty()){
                 u_c->setTitle(tr("Hub Menu"));
 
                 d->arenaMenu->addMenu(u_c);
@@ -2553,13 +2553,13 @@ void HubFrame::getPassword(){
     
     MainWindow *MW = MainWindow::getInstance();
 
-    if (!MW->isVisible() && !(d->client->getPassword().size() > 0)){
+    if (!MW->isVisible() && d->client->getPassword().empty()){
         MW->show();
         MW->raise();
 
     }
 
-    if(d->client && d->client->getPassword().size() > 0) {
+    if(d->client && !d->client->getPassword().empty()) {
         d->client->password(d->client->getPassword());
         addStatus(tr("Stored password sent..."));
     }

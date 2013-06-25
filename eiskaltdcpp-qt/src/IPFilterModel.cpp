@@ -208,7 +208,7 @@ IPFilterModelItem::IPFilterModelItem(const QList<QVariant> &data, IPFilterModelI
 
 IPFilterModelItem::~IPFilterModelItem()
 {
-    if (childItems.size() > 0)
+    if (!childItems.isEmpty())
         qDeleteAll(childItems);
 }
 

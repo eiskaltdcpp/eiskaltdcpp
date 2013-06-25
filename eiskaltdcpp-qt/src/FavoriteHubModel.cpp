@@ -373,7 +373,7 @@ FavoriteHubItem::FavoriteHubItem(const QList<QVariant> &data, FavoriteHubItem *p
 
 FavoriteHubItem::~FavoriteHubItem()
 {
-    if (childItems.size() > 0)
+    if (!childItems.isEmpty())
         qDeleteAll(childItems);
 }
 

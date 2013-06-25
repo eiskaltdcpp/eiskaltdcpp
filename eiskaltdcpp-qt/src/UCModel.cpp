@@ -326,7 +326,7 @@ UCItem::UCItem(UCItem *parent) :
 
 UCItem::~UCItem()
 {
-    if (childItems.size() > 0)
+    if (!childItems.isEmpty())
         qDeleteAll(childItems);
 }
 

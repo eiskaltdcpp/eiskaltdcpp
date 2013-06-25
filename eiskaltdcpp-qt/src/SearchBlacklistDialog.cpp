@@ -185,7 +185,7 @@ QVariant SearchBlackListModel::headerData(int section, Qt::Orientation orientati
 }
 
 QVariant SearchBlackListItem::data(int column) const {
-    if (column == COLUMN_SBL_KEY && childItems.size() > 0 && parentItem != 0)
+    if (column == COLUMN_SBL_KEY && !childItems.isEmpty() && parentItem != 0)
         return childItems.size()+1;
 
     switch(column){
