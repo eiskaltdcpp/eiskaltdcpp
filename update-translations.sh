@@ -83,7 +83,11 @@ case "${1}" in
 
     cd "${CUR_DIR}" || exit 1
 
+    export QT_SELECT=qt4
     lupdate -verbose -no-obsolete eiskaltdcpp-qt/translations.pro || exit 1
+
+    echo "" | tee dcpp/po/en.po
+    echo "" | tee eiskaltdcpp-gtk/po/en.po
     cd builddir && make pot-update || exit 1
 
     git status || exit 1
