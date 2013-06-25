@@ -34,13 +34,14 @@ bool magnet::parseUri(const string& uri, StringMap& params) {
         StringTokenizer<string> mag(uri.substr(8), '&');
         StringMap hashes;
         string type, param;
-        for(auto& idx: mag.getTokens()) {
-            auto pos = idx.find('=');
+        TStringList searchlist = mag.getTokens();
+        for (auto idx = searchlist.begin(); idx != searchlist.end(); ++idx) {
+            auto pos = idx->find('=');
             if(pos != string::npos) {
-                type = Text::toLower(Util::encodeURI(idx.substr(0, pos), true));
-                param = Util::encodeURI(idx.substr(pos + 1), true);
+                type = Text::toLower(Util::encodeURI(idx->substr(0, pos), true));
+                param = Util::encodeURI(idx->substr(pos + 1), true);
             } else {
-                type = Util::encodeURI(idx, true);
+                type = Util::encodeURI(*idx, true);
                 param.clear();
             }
 
