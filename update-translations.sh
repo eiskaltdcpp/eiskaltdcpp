@@ -72,9 +72,9 @@ case "${1}" in
     export QT_SELECT=qt4
     lupdate eiskaltdcpp-qt/translations.pro || exit 1
 
+    cd builddir && make pot-update || exit 1
     cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
     cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
-    cd builddir && make pot-update || exit 1
 
     git status || exit 1
 
@@ -86,9 +86,9 @@ case "${1}" in
     export QT_SELECT=qt4
     lupdate -verbose -no-obsolete eiskaltdcpp-qt/translations.pro || exit 1
 
+    cd builddir && make pot-update || exit 1
     cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
     cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
-    cd builddir && make pot-update || exit 1
 
     git status || exit 1
 
