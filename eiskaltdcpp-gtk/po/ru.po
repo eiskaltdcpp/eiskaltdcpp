@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2013-06-25 16:01+0300\n"
-"PO-Revision-Date: 2013-06-10 01:44+0300\n"
+"PO-Revision-Date: 2013-06-26 03:10+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian <tehnick-8@mail.ru>\n"
 "Language: ru\n"
@@ -1662,9 +1662,8 @@ msgid "Found a match"
 msgstr "Найден"
 
 #: ../src/search.cc:662
-#, fuzzy
 msgid "Found: "
-msgstr "Найдено: 0"
+msgstr "Найдено: "
 
 #: ../src/search.cc:565
 msgid "Found: 0"
@@ -2845,9 +2844,8 @@ msgid "Security Certificates"
 msgstr "Сертификаты безопасности"
 
 #: ../src/settingsdialog.cc:3161
-#, fuzzy
 msgid "Select Color"
-msgstr "Выбрать шрифт"
+msgstr "Выбрать цвет"
 
 #: ../src/settingsdialog.cc:3284
 msgid "Select Font"
