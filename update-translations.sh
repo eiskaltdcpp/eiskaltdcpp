@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@mail.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2013-06-25
+# Updated: 2013-06-26
 # Version: N/A
 
 if [[ ${0} =~ ^/.+$ ]]; then
@@ -72,8 +72,8 @@ case "${1}" in
     export QT_SELECT=qt4
     lupdate eiskaltdcpp-qt/translations.pro || exit 1
 
-    echo "" | tee dcpp/po/en.po
-    echo "" | tee eiskaltdcpp-gtk/po/en.po
+    cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
+    cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
     cd builddir && make pot-update || exit 1
 
     git status || exit 1
@@ -86,8 +86,8 @@ case "${1}" in
     export QT_SELECT=qt4
     lupdate -verbose -no-obsolete eiskaltdcpp-qt/translations.pro || exit 1
 
-    echo "" | tee dcpp/po/en.po
-    echo "" | tee eiskaltdcpp-gtk/po/en.po
+    cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
+    cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
     cd builddir && make pot-update || exit 1
 
     git status || exit 1
