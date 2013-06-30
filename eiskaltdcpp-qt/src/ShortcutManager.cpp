@@ -27,7 +27,7 @@ ShortcutManager::~ShortcutManager(){
 }
 
 void ShortcutManager::load(){
-#ifdef _WIN32
+#if defined(Q_WS_WIN)
     QString configFile = QString::fromUtf8( Util::getPath(Util::PATH_USER_CONFIG).c_str() ) + "shortcuts.txt";
 #else
     QString configFile = _q(Util::getPath(Util::PATH_USER_CONFIG)) + "shortcuts.txt";
@@ -57,7 +57,7 @@ void ShortcutManager::load(){
 }
 
 void ShortcutManager::save(){
-#ifdef _WIN32
+#ifdef defined(Q_WS_WIN)
     QString configFile = QString::fromUtf8( Util::getPath(Util::PATH_USER_CONFIG).c_str() ) + "shortcuts.txt";
 #else
     QString configFile = _q(Util::getPath(Util::PATH_USER_CONFIG)) + "shortcuts.txt";

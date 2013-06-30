@@ -217,7 +217,7 @@ void Notification::setToolTip(const QString &DSPEED, const QString &USPEED, cons
     if (!WBGET(WB_TRAY_ENABLED) || !tray)
         return;
 
-#ifdef Q_WS_X11
+#if defined(Q_WS_X11)
     QString out = tr("<b>Speed</b><br/>"
                      "Download: <font_color=\"green\">%1</font> "
                      "Upload: <font_color=\"red\">%2</font><br/>"
@@ -260,9 +260,9 @@ void Notification::slotShowHide(){
     MainWindow *MW = MainWindow::getInstance();
 
     if (MW->isVisible()){
-#ifdef WIN32
+#if defined(Q_WS_WIN)
         MW->hide();
-#else //WIN32
+#else
         if (MW->isMinimized())
             MW->show();
 

@@ -66,11 +66,11 @@ void SettingsGUI::init(){
 
         int i = 0;
         int k = -1;
-#ifndef WIN32
+#if !defined(Q_WS_WIN)
         QDir translationsDir(CLIENT_TRANSLATIONS_DIR);
 #else
         QDir translationsDir(qApp->applicationDirPath()+QDir::separator()+CLIENT_TRANSLATIONS_DIR);
-#endif//WIN32
+#endif
         foreach (QString f, translationsDir.entryList(QDir::Files | QDir::NoSymLinks)){
             QString full_path = QDir::toNativeSeparators( translationsDir.filePath(f) );
             QString lang = "";
@@ -119,11 +119,11 @@ void SettingsGUI::init(){
         }
         comboBox_LANGS->setCurrentIndex(k);
 
-#ifndef WIN32
+#if !defined(Q_WS_WIN)
         QString users = CLIENT_ICONS_DIR "/user/";
 #else
         QString users = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/user/";
-#endif//WIN32
+#endif
         i = 0;
         k = -1;
         foreach (const QString &f, QDir(users).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
@@ -138,11 +138,11 @@ void SettingsGUI::init(){
         }
         comboBox_USERS->setCurrentIndex(k);
 
-#ifndef WIN32
+#if !defined(Q_WS_WIN)
         QString icons = CLIENT_ICONS_DIR "/appl/";
 #else
         QString icons = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/appl/";
-#endif//WIN32
+#endif
         i = 0;
         k = -1;
         foreach (const QString &f, QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
@@ -157,11 +157,11 @@ void SettingsGUI::init(){
         }
         comboBox_ICONS->setCurrentIndex(k);
 
-#ifndef WIN32
+#if !defined(Q_WS_WIN)
         QString emot = CLIENT_DATA_DIR "/emoticons/";
 #else
         QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
-#endif//WIN32
+#endif
         comboBox_EMOT->setCurrentIndex(0);
         i = 0;
         foreach (const QString &f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
