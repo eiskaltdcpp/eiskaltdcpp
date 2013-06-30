@@ -263,6 +263,7 @@ friend class dcpp::Singleton<MainWindow>;
         void init();
         void loadSettings();
         void saveSettings();
+        void getWindowGeometry();
 
         void initActions();
         void initMenuBar();
