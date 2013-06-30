@@ -2504,7 +2504,7 @@ void MainWindow::slotHideWindow(){
     // GUI programs in Mac OS X are always present in dock.
     // Even if they try to be minimized to system tray.
     // To make it possible getting program window from dock
-     // it should be minimized to dock, but not hidden.
+    // it should be minimized to dock, but not hidden.
     if (!d->isUnload && !isActiveWindow()) {
         close();
     }
