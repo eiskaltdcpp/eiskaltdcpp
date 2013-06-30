@@ -273,10 +273,6 @@ QPixmap WulforUtil::FROMTHEME(const QString &name, bool resource){
         return QIcon(":/"+name+".png").pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
     }
     else{
-//#if defined(Q_WS_X11)
-//        if (WBGET("app/use-icon-theme", false))
-//            return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
-//#endif
         return loadPixmap(name+".png");
     }
 }
@@ -285,10 +281,6 @@ QPixmap WulforUtil::FROMTHEME_SIDE(const QString &name, bool resource, const int
     if (resource)
         return QIcon(":/"+name+".png").pixmap(side, side);
     else{
-//#if defined(Q_WS_X11)
-//        if (WBGET("app/use-icon-theme", false))
-//            return QIcon::fromTheme(name, loadPixmap(name+".png")).pixmap(PXMTHEMESIDE, PXMTHEMESIDE);
-//#endif
         return loadPixmap(name+".png").scaled(side, side);
     }
 }

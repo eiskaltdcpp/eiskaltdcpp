@@ -20,8 +20,6 @@
 #include <QPushButton>
 #include <QDialogButtonBox>
 
-#if 1
-
 static QHash<int, const char*> keyMap;
 
 static void initKeyMap()
@@ -187,19 +185,6 @@ static QString keyToString(int k)
 	
 	return keyMap[k];
 }
-
-#else
-
-static QString keyToString(int k)
-{
-	if (	k == Qt::Key_Shift || k == Qt::Key_Control || k == Qt::Key_Meta ||
-			k == Qt::Key_Alt || k == Qt::Key_AltGr )
-		return QString::null;
-
-	return QKeySequence(k).toString();
-}
-
-#endif
 
 static QStringList modToString(Qt::KeyboardModifiers k)
 {
