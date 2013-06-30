@@ -1125,7 +1125,7 @@ void MainWindow::initActions(){
 }
 
 void MainWindow::initMenuBar(){
-#ifdef Q_WS_MAC
+#if defined(Q_WS_MAC)
     setMenuBar(new QMenuBar());
     menuBar()->setParent(NULL);
     connect(this, SIGNAL(destroyed()), menuBar(), SLOT(deleteLater()));

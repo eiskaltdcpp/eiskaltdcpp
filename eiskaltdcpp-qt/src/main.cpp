@@ -69,7 +69,7 @@ void callBack(void* x, const std::string& a)
 
 void parseCmdLine(const QStringList &);
 
-#ifndef Q_WS_WIN
+#if !defined(Q_WS_WIN)
 #include <unistd.h>
 #include <signal.h>
 #ifndef __HAIKU__

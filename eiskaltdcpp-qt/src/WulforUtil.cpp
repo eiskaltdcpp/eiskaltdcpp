@@ -289,11 +289,11 @@ bool WulforUtil::loadIcons(){
     m_bError = false;
 
     QString icon_theme = WSGET(WS_APP_ICONTHEME);
-#ifndef WIN32
+#if !defined(Q_WS_WIN)
     QString fname = QString(CLIENT_RES_DIR)+QDir::separator()+icon_theme+".rcc";
 #else
     QString fname = qApp->applicationDirPath()+QDir::separator()+CLIENT_RES_DIR+QDir::separator()+icon_theme+".rcc";
-#endif//WIN32
+#endif
     bool resourceFound = false;
 
     if (QFile(fname).exists() && !WBGET("app/use-icon-theme", false))

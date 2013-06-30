@@ -572,11 +572,11 @@ void PMWindow::slotSmileClicked(){
 
 
 void PMWindow::slotSmileContextMenu(){
-#ifndef WIN32
+#if !defined(Q_WS_WIN)
     QString emot = CLIENT_DATA_DIR "/emoticons/";
 #else
     QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
-#endif//WIN32
+#endif
 
     QMenu *m = new QMenu(this);
     QAction * a = NULL;
