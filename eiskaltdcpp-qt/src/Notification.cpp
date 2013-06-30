@@ -262,7 +262,7 @@ void Notification::slotShowHide(){
     if (MW->isVisible()){
 #if defined(Q_WS_WIN)
         MW->hide();
-#else
+#else // defined(Q_WS_WIN)
         if (MW->isMinimized())
             MW->show();
 
@@ -271,9 +271,17 @@ void Notification::slotShowHide(){
             MW->raise();
         }
         else {
+#if !defined(Q_WS_MAC)
             MW->hide();
+#else // !defined(Q_WS_MAC)
+            // GUI programs in Mac OS X are always present in dock.
+            // Even if they try to be minimized to system tray.
+            // To make it possible getting program window from dock
+            // it should be minimized to dock, but not hidden.
+            MW->close();
+#endif // !defined(Q_WS_MAC)
         }
-#endif
+#endif // defined(Q_WS_WIN)
     }
     else{
         MW->show();

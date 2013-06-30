@@ -332,12 +332,32 @@ void MainWindow::setUnload ( bool b ) {
 void MainWindow::closeEvent(QCloseEvent *c_e){
     Q_D(MainWindow);
 
+#if !defined(Q_WS_MAC)
     if (!d->isUnload && WBGET(WB_TRAY_ENABLED)){
         hide();
         c_e->ignore();
 
         return;
     }
+#else // !defined(Q_WS_MAC)
+    // GUI programs in Mac OS X are always present in dock.
+    // Even if they try to be minimized to system tray.
+    // To make it possible getting program window from dock
+    // it should be minimized to dock, but not hidden.
+    if (!d->isUnload){
+        getWindowGeometry();
+
+        showMinimized();
+        c_e->ignore();
+
+        if (WBGET(WB_APP_AUTO_AWAY)){
+            Util::setAway(true);
+            d->toolsAwayOn->setChecked(true);
+        }
+
+        return;
+    }
+#endif // !defined(Q_WS_MAC)
 
     if (d->isUnload && WBGET(WB_EXIT_CONFIRM) && !d->exitBegin){
         QMessageBox::StandardButton ret;
@@ -462,7 +482,7 @@ void MainWindow::showEvent(QShowEvent *e){
     e->accept();
 }
 
-void MainWindow::hideEvent(QHideEvent *e){
+void MainWindow::getWindowGeometry(){
     Q_D(MainWindow);
 
     d->showMax = isMaximized();
@@ -473,6 +493,12 @@ void MainWindow::hideEvent(QHideEvent *e){
         d->xPos = x();
         d->yPos = y();
     }
+}
+
+void MainWindow::hideEvent(QHideEvent *e){
+    Q_D(MainWindow);
+
+    getWindowGeometry();
 
     e->accept();
 
@@ -607,9 +633,11 @@ void MainWindow::loadSettings(){
     d->panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
 
     if (d->sideDock){
+#if !defined(Q_WS_MAC)
         if (d->sideDock->isFloating() && WBGET(WB_MAINWINDOW_HIDE) && WBGET(WB_TRAY_ENABLED))
             d->sideDock->hide();
         else
+#endif
             d->sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
     } else if ( findChild<MultiLineToolBar*> ( "multiLineTabbar" ) ) {
         findChild<MultiLineToolBar*> ( "multiLineTabbar" )->setVisible ( WBGET ( WB_WIDGETS_PANEL_VISIBLE ) );
@@ -656,8 +684,17 @@ void MainWindow::saveSettings(){
         WISET(WI_MAINWINDOW_Y, d->yPos);
     }
 
+#if !defined(Q_WS_MAC)
     if (WBGET(WB_MAINWINDOW_REMEMBER))
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
+#else // !defined(Q_WS_MAC)
+    // GUI programs in Mac OS X are always present in dock.
+    // Even if they try to be minimized to system tray.
+    // To make it possible getting program window from dock
+    // it should be minimized to dock, but not hidden.
+    if (WBGET(WB_MAINWINDOW_REMEMBER))
+        WBSET(WB_MAINWINDOW_HIDE, isMinimized());
+#endif // !defined(Q_WS_MAC)
 
     QString dockwidgetsState = QString::fromAscii(saveState().toBase64());
     WSSET(WS_MAINWINDOW_STATE, dockwidgetsState);
@@ -2459,9 +2496,20 @@ void MainWindow::slotShowMainMenu() {
 void MainWindow::slotHideWindow(){
     Q_D(MainWindow);
 
+#if !defined(Q_WS_MAC)
     if (!d->isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
         hide();
     }
+#else // !defined(Q_WS_MAC)
+    // GUI programs in Mac OS X are always present in dock.
+    // Even if they try to be minimized to system tray.
+    // To make it possible getting program window from dock
+     // it should be minimized to dock, but not hidden.
+    if (!d->isUnload && !isActiveWindow()) {
+        close();
+    }
+#endif // !defined(Q_WS_MAC)
+
 }
 
 void MainWindow::slotHideProgressSpace() {

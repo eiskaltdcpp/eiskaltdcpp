@@ -175,16 +175,27 @@ int main(int argc, char *argv[])
     ScriptEngine::newInstance();
     QObject::connect(ScriptEngine::getInstance(), SIGNAL(scriptChanged(QString)), MainWindow::getInstance(), SLOT(slotJSFileChanged(QString)));
 #endif
-    
+
     ArenaWidgetFactory().create< dcpp::Singleton, FinishedUploads >();
     ArenaWidgetFactory().create< dcpp::Singleton, FinishedDownloads >();
     ArenaWidgetFactory().create< dcpp::Singleton, QueuedUsers >();
-    
+
     MainWindow::getInstance()->autoconnect();
     MainWindow::getInstance()->parseCmdLine(app.arguments());
-    
+
+#if !defined(Q_WS_MAC)
     if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
         MainWindow::getInstance()->show();
+#else // !defined(Q_WS_MAC)
+    // GUI programs in Mac OS X are always present in dock.
+    // Even if they try to be minimized to system tray.
+    // To make it possible getting program window from dock
+    // it should be minimized to dock, but not hidden.
+    if (WBGET(WB_MAINWINDOW_HIDE))
+        MainWindow::getInstance()->showMinimized();
+    else
+        MainWindow::getInstance()->show();
+#endif // !defined(Q_WS_MAC)
 
     ret = app.exec();
 
