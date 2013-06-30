@@ -102,12 +102,6 @@ API Layers:
                 Args: huburl (string)
                 Return: 0 | 1 (integer)
         Останов поиска (прекращение добавления результатов для такого-то поиска, разбор поиска и результатов будет в cli)
-        (+) Инициация поиска (search.send)
-                Args: searchstring (string), seatchtype (int), sizemode (int), sizetype (int), size (double), huburls (string, separator=";")
-                Return: 0 | 1 (integer)
-        (+) Просмотр результатов поиска (search.getresults)
-                Args: huburl (string)
-                Return: @search results@ (array of map)
 СТАТИСТИКА
         (+) Версия (show.version)
                 Args: none
