@@ -27,6 +27,8 @@ ArenaWidgetManager::~ArenaWidgetManager(){
     disconnect(this, 0, 0, 0);
     
     foreach ( ArenaWidget *awgt , widgets ) {
+        if (!dynamic_cast<QObject*>(awgt))
+            continue;
         if (dcpp::ISingleton *isingleton = dynamic_cast<dcpp::ISingleton*>(awgt)){
             isingleton->release();
         }
@@ -74,6 +76,9 @@ void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
     emit removed(awgt);
     
     QApplication::processEvents();
+    
+    if (!dynamic_cast<QObject*>(awgt))
+        return;
     
     if (awgt == dynamic_cast<ArenaWidget*>(awgt->getWidget())){ // ArenaWidget is a parent class of Widget
         awgt->getWidget()->setAttribute(Qt::WA_DeleteOnClose, false);
