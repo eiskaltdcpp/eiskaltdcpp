@@ -43,10 +43,15 @@ ArenaWidgetManager::~ArenaWidgetManager(){
 void ArenaWidgetManager::add ( ArenaWidget *awgt) {
     DEBUG_BLOCK
     
-    if (!awgt || widgets.contains(awgt))
+    if (!awgt)
         return;
+    
+    if (!widgets.isEmpty()){
+        if (widgets.contains(awgt))
+            return;
+    }
         
-    widgets.push_back(awgt);
+    widgets.append(awgt);
     
     emit added(awgt);
     
@@ -56,12 +61,12 @@ void ArenaWidgetManager::add ( ArenaWidget *awgt) {
 
 void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
     DEBUG_BLOCK
-
-    if (!(awgt && widgets.contains(awgt))){
-        assert(0);
-        
+    
+    if (!awgt || widgets.isEmpty())
         return;
-    }
+    
+    if (!widgets.contains(awgt))
+        return;
     
     if (awgt->state() & ArenaWidget::Singleton) {
         awgt->setState(ArenaWidget::Flags(awgt->state() | ArenaWidget::Hidden));
@@ -98,10 +103,14 @@ void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
 void ArenaWidgetManager::activate ( ArenaWidget *awgt ) {
     DEBUG_BLOCK
     
-    if (!widgets.contains(awgt)){
-        emit activated(NULL);
-        
+    if (!awgt)
         return;
+    
+    if (!widgets.isEmpty()){
+        if (!widgets.contains(awgt)){
+            emit activated(NULL);
+            return;
+        }
     }
     
     if (awgt->state() & ArenaWidget::Hidden){
