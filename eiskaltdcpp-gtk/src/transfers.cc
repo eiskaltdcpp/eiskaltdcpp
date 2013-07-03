@@ -739,7 +739,7 @@ void Transfers::initTransfer_gui(StringMap params)
 
     if (oldParentValid)
     {
-        if (gtk_tree_model_iter_n_children(GTK_TREE_MODEL(transferStore), &oldParent) == 0)
+        if (!gtk_tree_model_iter_n_children(GTK_TREE_MODEL(transferStore), &oldParent))
             gtk_tree_store_remove(transferStore, &oldParent);
         else
             updateParent_gui(&oldParent);

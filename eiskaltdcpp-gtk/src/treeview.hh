@@ -66,7 +66,7 @@ class TreeView
         template<class T>
         T getValue(GtkTreeIter *i, const std::string &column, GtkTreeModel *m = NULL)
         {
-            if (m == NULL)
+            if(!m)
                 m = gtk_tree_view_get_model(view);
             T value;
             assert(gtk_tree_model_get_column_type(m, col(column)) != G_TYPE_STRING);

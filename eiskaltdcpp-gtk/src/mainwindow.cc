@@ -123,7 +123,7 @@ MainWindow::MainWindow():
     } else
         g_object_set(G_OBJECT(child), "icon-size", GTK_ICON_SIZE_LARGE_TOOLBAR, NULL);
 
-    if (WGETI("toolbar-position") == 0)
+    if (!WGETI("toolbar-position"))
     {
         box = GTK_BOX(getWidget("vbox1"));
         gtk_orientable_set_orientation(GTK_ORIENTABLE(child), GTK_ORIENTATION_HORIZONTAL);
@@ -671,7 +671,7 @@ void MainWindow::removeBookEntry_gui(BookEntry *entry)
 
         removeTabMenuItem_gui(menuItem);
 
-        if (gtk_notebook_get_n_pages(book) == 0)
+        if (!gtk_notebook_get_n_pages(book))
         {
             gtk_widget_set_sensitive(getWidget("closeMenuItem"), FALSE);
             setTitle(""); // Reset window title to default
@@ -683,7 +683,7 @@ void MainWindow::previousTab_gui()
 {
     GtkNotebook *book = GTK_NOTEBOOK(getWidget("book"));
 
-    if (gtk_notebook_get_current_page(book) == 0)
+    if(!gtk_notebook_get_current_page(book))
         gtk_notebook_set_current_page(book, -1);
     else
         gtk_notebook_prev_page(book);
@@ -716,7 +716,7 @@ void MainWindow::removeTabMenuItem_gui(GtkWidget *menuItem)
 
     gtk_container_remove(GTK_CONTAINER(getWidget("tabsMenu")), menuItem);
 
-    if (gtk_notebook_get_n_pages(book) == 0)
+    if (!gtk_notebook_get_n_pages(book))
     {
         gtk_widget_set_sensitive(getWidget("previousTabMenuItem"), FALSE);
         gtk_widget_set_sensitive(getWidget("nextTabMenuItem"), FALSE);
@@ -787,7 +787,7 @@ void MainWindow::showDownloadQueue_gui()
 {
     BookEntry *entry = findBookEntry(Entry::DOWNLOAD_QUEUE);
 
-    if (entry == NULL)
+    if (!entry)
     {
         entry = new DownloadQueue();
         addBookEntry_gui(entry);
@@ -800,7 +800,7 @@ void MainWindow::showFavoriteHubs_gui()
 {
     BookEntry *entry = findBookEntry(Entry::FAVORITE_HUBS);
 
-    if (entry == NULL)
+    if (!entry)
     {
         entry = new FavoriteHubs();
         addBookEntry_gui(entry);
@@ -813,7 +813,7 @@ void MainWindow::showFavoriteUsers_gui()
 {
     BookEntry *entry = findBookEntry(Entry::FAVORITE_USERS);
 
-    if (entry == NULL)
+    if (!entry)
     {
         entry = new FavoriteUsers();
         addBookEntry_gui(entry);
@@ -826,7 +826,7 @@ void MainWindow::showFinishedDownloads_gui()
 {
     BookEntry *entry = findBookEntry(Entry::FINISHED_DOWNLOADS);
 
-    if (entry == NULL)
+    if (!entry)
     {
         entry = FinishedTransfers::createFinishedDownloads();
         addBookEntry_gui(entry);
@@ -839,7 +839,7 @@ void MainWindow::showFinishedUploads_gui()
 {
     BookEntry *entry = findBookEntry(Entry::FINISHED_UPLOADS);
 
-    if (entry == NULL)
+    if (!entry)
     {
         entry = FinishedTransfers::createFinishedUploads();
         addBookEntry_gui(entry);
@@ -852,7 +852,7 @@ void MainWindow::showHub_gui(string address, string encoding)
 {
     BookEntry *entry = findBookEntry(Entry::HUB, address);
 
-    if (entry == NULL)
+    if (!entry)
     {
         entry = new Hub(address, encoding);
         addBookEntry_gui(entry);
@@ -867,7 +867,7 @@ void MainWindow::showSearchSpy_gui()
 {
         BookEntry *entry = findBookEntry(Entry::SEARCH_SPY);
 
-        if (entry == NULL)
+        if (!entry)
         {
                 entry = new SearchSpy();
                 addBookEntry_gui(entry);
@@ -880,7 +880,7 @@ void MainWindow::showSearchADL_gui()
 {
         BookEntry *entry = findBookEntry(Entry::SEARCH_ADL);
 
-        if (entry == NULL)
+        if (!entry)
         {
                 entry = new SearchADL();
                 addBookEntry_gui(entry);
@@ -893,7 +893,7 @@ void MainWindow::showCmdDebug_gui()
 {
    BookEntry *entry = findBookEntry(Entry::CMD);
 
-   if(entry == NULL)
+   if (!entry)
    {
        entry = new cmddebug();
        addBookEntry_gui(entry);
@@ -910,9 +910,9 @@ void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string 
 
     // If PM is initiated by another user, use setting except if tab is already open.
     if (useSetting)
-        raise = (entry == NULL) ? !WGETB("popunder-pm") : FALSE;
+        raise = (!entry ? !WGETB("popunder-pm") : FALSE);
 
-    if (entry == NULL)
+    if (!entry)
     {
         entry = new PrivateMessage(cid, hubUrl);
         addBookEntry_gui(entry);
@@ -929,7 +929,7 @@ void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string 
         if (!isActive_gui())
         {
             show = TRUE;
-            if (useStatusIconBlink && timer == 0)
+            if (useStatusIconBlink && !timer)
             {
                 timer = g_timeout_add(1000, animationStatusIcon_gui, (gpointer)this);
             }
@@ -992,7 +992,7 @@ void MainWindow::showPublicHubs_gui()
 {
     BookEntry *entry = findBookEntry(Entry::PUBLIC_HUBS);
 
-    if (entry == NULL)
+    if (!entry)
     {
         entry = new PublicHubs();
         addBookEntry_gui(entry);
@@ -1006,7 +1006,7 @@ void MainWindow::showShareBrowser_gui(UserPtr user, string filename, string dir,
     bool raise = useSetting ? !WGETB("popunder-filelist") : TRUE;
     BookEntry *entry = findBookEntry(Entry::SHARE_BROWSER, user->getCID().toBase32());
 
-    if (entry == NULL)
+    if (!entry)
     {
         entry = new ShareBrowser(user, filename, dir, true);
         addBookEntry_gui(entry);
@@ -1069,7 +1069,7 @@ void MainWindow::actionMagnet_gui(string magnet)
     int action = WGETI("magnet-action");
     bool split = WulforUtil::splitMagnet(magnet, name, size, tth);
 
-    if (action == 0 && split)
+    if (!action && split)
     {
         Search *s = addSearch_gui();
         if (tth != _("Unknown"))
@@ -1524,7 +1524,7 @@ gboolean MainWindow::onWindowState_gui(GtkWidget *widget, GdkEventWindowState *e
             Util::setAway(TRUE);
     }
     else if (mw->minimized && (event->new_window_state & GDK_WINDOW_STATE_MAXIMIZED ||
-        event->new_window_state == 0))
+                              !event->new_window_state))
     {
         mw->minimized = FALSE;
         if (BOOLSETTING(SettingsManager::AUTO_AWAY) && !Util::getManualAway())
@@ -2341,7 +2341,7 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) noexcept
     if (!WGETB("always-tray") && minimized)
         return;
 
-    int64_t diff = (int64_t)((lastUpdate == 0) ? ticks - 1000 : ticks - lastUpdate);
+    int64_t diff = (int64_t)(!lastUpdate ? ticks - 1000 : ticks - lastUpdate);
     int64_t downDiff = Socket::getTotalDown() - lastDown;
     int64_t upDiff = Socket::getTotalUp() - lastUp;
     int64_t downBytes = 0;
@@ -2544,7 +2544,7 @@ void MainWindow::showUploadQueue_gui()
 {
     BookEntry *entry = findBookEntry(Entry::UPLOADQUEUE);
 
-    if(entry == NULL)
+    if(!entry)
     {
         entry = new UploadQueue();
         addBookEntry_gui(entry);
@@ -2574,7 +2574,7 @@ void MainWindow::parsePartial_gui(HintedUser user, string txt)
     }
     else
     {
-        if (entry == NULL && !path.empty())
+        if (!entry && !path.empty())
         {
             entry = new ShareBrowser(user.user, path, "", false);
             addBookEntry_gui(entry);

@@ -69,7 +69,7 @@ GtkTreeView *TreeView::get()
  */
 string TreeView::getString(GtkTreeIter *i, const string &column, GtkTreeModel *m)
 {
-    if (m == NULL)
+    if(!m)
         m = gtk_tree_view_get_model(view);
     string value;
     gchar* temp;
@@ -485,7 +485,7 @@ void TreeView::saveSettings()
     for (size_t i = 0; i < columns.size(); i++)
     {
         col = gtk_tree_view_get_column(view, i);
-        if (col == NULL)
+        if (!col)
             continue;
 
         title = string(gtk_tree_view_column_get_title(col));

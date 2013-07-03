@@ -324,7 +324,7 @@ void SearchSpy::updateFrameSearch_gui(const string search, const string type)
 
 bool SearchSpy::updateFrameStatus_gui(GtkTreeIter *iter, uint64_t tick)
 {
-    if (tick == 0)
+    if(!tick)
         tick = GET_TICK();
 
     uint64_t second = (uint64_t)Waiting * 1000;
@@ -646,11 +646,11 @@ gboolean SearchSpy::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpo
 
 void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) noexcept
 {
-    if(WGETB("spyframe-ignore-tth-searches") && s.compare(0, 4, "TTH:") == 0)
+    if(!WGETB("spyframe-ignore-tth-searches") && s.compare(0, 4, "TTH:"))
         return;
 
     string search, type;
-    if(s.compare(0, 4, "TTH:") == 0)
+    if(!s.compare(0, 4, "TTH:"))
     {
         type = "t";
         search = s.substr(4);

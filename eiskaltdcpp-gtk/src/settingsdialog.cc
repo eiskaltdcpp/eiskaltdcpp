@@ -3375,7 +3375,7 @@ void Settings::saveUserCommand(UserCommand *uc)
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogPM"))))
         {
             string to = gtk_entry_get_text(GTK_ENTRY(getWidget("commandDialogTo")));
-            if (to.length() == 0)
+            if (to.empty() == 0)
                 to = "%[userNI]";
 
             command = "$To: " + to + " From: %[myNI] $<%[myNI]> " + NmdcHub::validateMessage(command, FALSE) + "|";
@@ -3387,7 +3387,7 @@ void Settings::saveUserCommand(UserCommand *uc)
             type = UserCommand::TYPE_RAW;
     }
 
-    if (uc == NULL)
+    if (!uc)
     {
         FavoriteManager::getInstance()->addUserCommand(type, ctx, 0, name, command, ""/*to*/, hub);
         gtk_list_store_append(userCommandStore, &iter);
@@ -3818,7 +3818,7 @@ gboolean Settings::onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *
     Settings *s = (Settings *)data;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->shareView.get());
 
-    if (gtk_tree_selection_count_selected_rows(selection) == 0)
+    if(!gtk_tree_selection_count_selected_rows(selection))
         gtk_widget_set_sensitive(s->getWidget("sharedRemoveButton"), FALSE);
     else
         gtk_widget_set_sensitive(s->getWidget("sharedRemoveButton"), TRUE);
@@ -4011,8 +4011,8 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogOnce")), once);
 
             // Chat Command
-            if ((strncmp(command.c_str(), "<%[mynick]> ", 12) == 0 ||
-                strncmp(command.c_str(), "<%[myNI]> ", 10) == 0) &&
+            if((!strncmp(command.c_str(), "<%[mynick]> ", 12) ||
+                !strncmp(command.c_str(), "<%[myNI]> ", 10)) &&
                 command.find('|') == command.length() - 1)
             {
                 string::size_type i = command.find('>') + 2;
@@ -4020,7 +4020,7 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogChat")), TRUE);
             }
             // PM command
-            else if (strncmp(command.c_str(), "$To: ", 5) == 0 && (
+            else if (!strncmp(command.c_str(), "$To: ", 5) && (
                 command.find(" From: %[myNI] $<%[myNI]> ") != string::npos ||
                 command.find(" From: %[mynick] $<%[mynick]> ") != string::npos) &&
                 command.find('|') == command.length() - 1)

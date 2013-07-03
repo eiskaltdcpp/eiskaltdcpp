@@ -33,7 +33,7 @@ DialogEntry::DialogEntry(const EntryType type, const string &ui, GtkWindow* pare
 
     gtk_window_set_role(window, getID().c_str());
 
-    if (parent == NULL)
+    if (!parent)
         parent = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
 
     gboolean modal = gtk_window_get_modal(window);

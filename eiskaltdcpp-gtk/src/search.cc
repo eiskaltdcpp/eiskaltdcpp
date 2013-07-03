@@ -55,7 +55,7 @@ Search::Search():
     gtk_widget_hide(getWidget("statusbox"));
 
     // Initialize the search entries combo box
-    if (searchEntriesModel == NULL)
+    if(!searchEntriesModel)
         searchEntriesModel = gtk_combo_box_get_model(GTK_COMBO_BOX(getWidget("comboboxentrySearch")));
     gtk_combo_box_set_model(GTK_COMBO_BOX(getWidget("comboboxentrySearch")), searchEntriesModel);
     searchEntry = gtk_bin_get_child(GTK_BIN(getWidget("comboboxentrySearch")));
@@ -702,7 +702,7 @@ void Search::updateParentRow_gui(GtkTreeIter *parent, GtkTreeIter *child)
     string users = Util::toString(children) + _(" user(s)");
     gtk_tree_store_set(resultStore, parent, resultView.col(_("Nick")), users.c_str(), -1);
 
-    if (child == NULL)
+    if (!child)
         return;
 
     GroupType groupType = (GroupType)gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxGroupBy")));
@@ -1742,7 +1742,7 @@ void Search::download_client(string target, string cid, string filename, int64_t
     try
     {
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
-        if (user == NULL)
+        if (!user)
             return;
 
         // Only files have a TTH
@@ -1903,7 +1903,7 @@ void Search::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
 
 void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept
 {
-    if (searchlist.empty() || result == NULL)
+    if (searchlist.empty() || !result)
         return;
 
     typedef Func2<Search, string, string> F2;
