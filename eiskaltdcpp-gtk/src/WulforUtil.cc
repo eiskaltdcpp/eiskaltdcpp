@@ -90,12 +90,12 @@ vector<string> WulforUtil::getLocalIPs()
 
     if (getifaddrs(&ifap) == 0)
     {
-        for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next)
+        for (struct ifaddrs *i = ifap; i ; i = i->ifa_next)
         {
             struct sockaddr *sa = i->ifa_addr;
 
             // If the interface is up, is not a loopback and it has an address
-            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL)
+            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa)
             {
                 void* src = NULL;
                 socklen_t len;
@@ -116,7 +116,7 @@ vector<string> WulforUtil::getLocalIPs()
                 }
 
                 // Convert the binary address to a string and add it to the output list
-                if (src != NULL)
+                if (src)
                 {
                     char address[len];
                     inet_ntop(sa->sa_family, src, address, len);
@@ -247,7 +247,7 @@ void WulforUtil::openURI(const string &uri)
 
     g_spawn_async(NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &error);
 
-    if (error != NULL)
+    if (error)
     {
         cerr << "Failed to open URI: " << error->message << endl;
         g_error_free(error);
@@ -260,7 +260,7 @@ void WulforUtil::openURItoApp(const string &cmd)
 
     g_spawn_command_line_async((gchar *)Text::fromUtf8(cmd).c_str(), &error);
 
-    if (error != NULL)
+    if (error)
     {
         cerr << "Failed to open application: " << error->message << endl;
         g_error_free(error);

@@ -194,7 +194,7 @@ MainWindow::MainWindow():
     GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
     GdkPixbuf *logo = gtk_icon_theme_load_icon(iconTheme, "eiskaltdcpp", 128, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
 
-    if (logo != NULL)
+    if (logo)
     {
         gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), logo);
         g_object_unref(logo);
@@ -661,7 +661,7 @@ void MainWindow::removeBookEntry_gui(BookEntry *entry)
         if (num == gtk_notebook_get_current_page(book))
         {
             GList *prev = g_list_first(list);
-            if (prev != NULL)
+            if (prev)
             {
                 gint childNum = gtk_notebook_page_num(book, GTK_WIDGET(prev->data));
                 gtk_notebook_set_current_page(book, childNum);
@@ -984,7 +984,7 @@ void MainWindow::addPrivateStatusMessage_gui(Msg::TypeMsg typemsg, string cid, s
 {
     BookEntry *entry = findBookEntry(Entry::PRIVATE_MESSAGE, cid);
 
-    if (entry != NULL)
+    if (entry)
         dynamic_cast<PrivateMessage*>(entry)->addStatusMessage_gui(message, typemsg);
 }
 
@@ -1539,7 +1539,7 @@ gboolean MainWindow::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpoi
     MainWindow *mw = (MainWindow *)data;
     GtkWidget *child = mw->currentPage_gui();
 
-    if (child != NULL)
+    if (child)
     {
         BookEntry *entry = (BookEntry *)g_object_get_data(G_OBJECT(child), "entry");
         entry->setActive_gui();
@@ -1907,13 +1907,13 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
         {
             BookEntry *entry = mw->findBookEntry(Entry::HUB, *it);
 
-            if (entry != NULL)
+            if (entry)
                 dynamic_cast<Hub*>(entry)->preferences_gui();
             else
             {
                 entry = mw->findBookEntry(Entry::PRIVATE_MESSAGE, *it);
 
-                if (entry != NULL)
+                if (entry)
                     dynamic_cast<PrivateMessage*>(entry)->preferences_gui();
             }
         }
@@ -1921,7 +1921,7 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
         // Search Spy
         BookEntry *entry = mw->findBookEntry(Entry::SEARCH_SPY);
 
-        if (entry != NULL)
+        if (entry)
             dynamic_cast<SearchSpy *>(entry)->preferences_gui();
 
         // Status menu
@@ -2434,7 +2434,7 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
         File f(Text::fromT(string(temp)),File::READ, File::OPEN);
         HashManager  *HM = HashManager::getInstance();
         const TTHValue *tth= HM->getFileTTHif(string(temp));
-        if (tth != NULL) {
+        if (tth) {
             TTH = tth->toBase32();
             string magnetlink = "magnet:?xt=urn:tree:tiger:" + TTH +"&xl="+Util::toString(f.getSize())+"&dn="+Util::encodeURI(Text::fromT(Util::getFileName(string(temp))));
             f.close();
@@ -2476,7 +2476,7 @@ void MainWindow::onCloseAllHub_gui(GtkWidget *widget, gpointer data)
     typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
         BookEntry *entry = mw->findBookEntry(Entry::HUB, *it);
-        if (entry != NULL) {
+        if (entry) {
             F1 *func = new F1(mw,&MainWindow::removeBookEntry_gui,entry);
             WulforManager::get()->dispatchGuiFunc(func);
         }
@@ -2489,7 +2489,7 @@ void MainWindow::onCloseAllPM_gui(GtkWidget *widget, gpointer data)
     typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
         BookEntry *entry = mw->findBookEntry(Entry::PRIVATE_MESSAGE, *it);
-        if (entry != NULL) {
+        if (entry) {
             F1 *func = new F1(mw,&MainWindow::removeBookEntry_gui,entry);
             WulforManager::get()->dispatchGuiFunc(func);
         }
@@ -2502,7 +2502,7 @@ void MainWindow::onCloseAllSearch_gui(GtkWidget *widget, gpointer data)
     typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
         BookEntry *entry = mw->findBookEntry(Entry::SEARCH, *it);
-        if (entry != NULL) {
+        if (entry) {
             F1 *func = new F1(mw,&MainWindow::removeBookEntry_gui,entry);
             WulforManager::get()->dispatchGuiFunc(func);
         }
@@ -2515,7 +2515,7 @@ void MainWindow::onReconectAllHub_gui(GtkWidget *widget, gpointer data)
     typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
         BookEntry *entry = mw->findBookEntry(Entry::HUB, *it);
-        if (entry != NULL) {
+        if (entry) {
             dynamic_cast<Hub*>(entry)->reconnect_client();
         }
     }
@@ -2527,7 +2527,7 @@ void MainWindow::onCloseAlloffPM_gui(GtkWidget *widget, gpointer data)
     typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
         BookEntry *entry = mw->findBookEntry(Entry::PRIVATE_MESSAGE, *it);
-        if (entry != NULL && dynamic_cast<PrivateMessage*>(entry)->getIsOffline()) {
+        if (entry && dynamic_cast<PrivateMessage*>(entry)->getIsOffline()) {
             F1 *func = new F1(mw,&MainWindow::removeBookEntry_gui,entry);
             WulforManager::get()->dispatchGuiFunc(func);
         }
@@ -2568,9 +2568,9 @@ void MainWindow::parsePartial_gui(HintedUser user, string txt)
     //string path = QueueManager::getInstance()->getListPath(aUser) + ".xml.bz2";
     string path = Util::getListPath() + nick + user.user->getCID().toBase32() + ".xml.bz2";
 
-    if(entry != NULL)
+    if (entry)
     {
-      dynamic_cast<ShareBrowser*>(entry)->loadXML(txt);
+        dynamic_cast<ShareBrowser*>(entry)->loadXML(txt);
     }
     else
     {

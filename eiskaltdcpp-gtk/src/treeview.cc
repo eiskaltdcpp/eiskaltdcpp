@@ -76,7 +76,7 @@ string TreeView::getString(GtkTreeIter *i, const string &column, GtkTreeModel *m
     dcassert(gtk_tree_model_get_column_type(m, col(column)) == G_TYPE_STRING);
     gtk_tree_model_get(m, i, col(column), &temp, -1);
 
-    if (temp != NULL)
+    if (temp)
     {
         value = string(temp);
         g_free(temp);
@@ -188,7 +188,7 @@ int TreeView::getRowCount()
 GType* TreeView::getGTypes()
 {
     int i = 0;
-    if (gtypes != NULL)
+    if (gtypes)
         return gtypes;
     gtypes = new GType[count];
 

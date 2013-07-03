@@ -1095,7 +1095,7 @@ void Hub::applyEmoticons_gui()
         {
             GList *names = (*it)->getNames();
 
-            for (GList *p = names; p != NULL; p = p->next)
+            for (GList *p = names; p ; p = p->next)
             {
                 if (gtk_text_iter_forward_search(&start_iter,
                     (gchar *)p->data,
@@ -1191,7 +1191,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
     gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(widget), &iter, buf_x, buf_y);
     tagList = gtk_text_iter_get_tags(&iter);
 
-    if (tagList != NULL)
+    if (tagList)
     {
         newTag = GTK_TEXT_TAG(tagList->data);
 
@@ -1199,7 +1199,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
         {
             GSList *nextList = g_slist_next(tagList);
 
-            if (nextList != NULL)
+            if (nextList)
                 newTag = GTK_TEXT_TAG(nextList->data);
             else
                 newTag = NULL;
@@ -1211,7 +1211,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
     if (newTag != selectedTag)
     {
         // Cursor is in transition.
-        if (newTag != NULL)
+        if (newTag)
         {
             // Cursor is entering a tag.
 #if GTK_CHECK_VERSION(3, 0, 0)
@@ -1506,7 +1506,7 @@ gboolean Hub::onNickListSearch_gui(GtkTreeModel *model, gint column, const gchar
     gchar *nickCasefold = g_utf8_casefold(nick, -1);
 
     // Return false per search equal func API if the key is contained within the nick
-    if (g_strstr_len(nickCasefold, -1, keyCasefold) != NULL)
+    if (g_strstr_len(nickCasefold, -1, keyCasefold))
         result = FALSE;
 
     g_free(nick);
@@ -2273,7 +2273,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                             string store(""), name("");
                                 for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i) {
                                     name = i->substr( 0, i->find_first_of( "::", 0 ) );
-                                    if( name.compare( sl.getTokens().at(1) ) != 0 )
+                                    if ( name.compare(sl.getTokens().at(1)) )
                                         store = store + *i + "#";
                                     }
                                     WSET( "custom-aliases", store );
@@ -2327,7 +2327,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
 
                                 g_spawn_command_line_sync( exec.c_str(), &output, NULL, NULL, &error);
 
-                                if (error != NULL)
+                                if (error)
                                 {
                                     //TODO: вывод ошибки на GUI
                                     printf("ERROR\n");

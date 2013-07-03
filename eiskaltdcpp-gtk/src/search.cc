@@ -1618,7 +1618,7 @@ void Search::onRemoveClicked_gui(GtkMenuItem *item, gpointer data)
         for (GList *i = refList; i; i = i->next)
         {
             path = gtk_tree_row_reference_get_path((GtkTreeRowReference*)i->data);
-            if (path != NULL)
+            if (path)
             {
                 if (gtk_tree_model_get_iter(s->sortedFilterModel, &iter, path))
                 {
@@ -1779,7 +1779,7 @@ void Search::downloadDir_client(string target, string cid, string filename, stri
         }
 
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
-        if (user != NULL)
+        if (user)
         {
             QueueManager::getInstance()->addDirectory(dir, HintedUser(user, hubUrl), target);
         }
@@ -1794,7 +1794,7 @@ void Search::addSource_client(string source, string cid, int64_t size, string tt
     try
     {
         UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
-        if (!tth.empty() && user != NULL)
+        if (!tth.empty() && user)
         {
             QueueManager::getInstance()->add(source, size, TTHValue(tth), HintedUser(user, hubUrl));
         }

@@ -244,7 +244,7 @@ void Notify::showNotify(const string &title, const string &head, const string &b
         {
             GdkPixbuf *temp = gdk_pixbuf_new_from_file(Text::fromUtf8(icon).c_str(), NULL);
 
-            if (temp != NULL)
+            if (temp)
             {
                 pixbuf = WulforUtil::scalePixbuf(temp, icon_width, icon_height);
                 g_object_unref(temp);
@@ -255,7 +255,7 @@ void Notify::showNotify(const string &title, const string &head, const string &b
             pixbuf = gdk_pixbuf_new_from_file(Text::fromUtf8(icon).c_str(), NULL);
         }
 
-        if (pixbuf != NULL)
+        if (pixbuf)
         {
 #ifdef USE_LIBNOTIFY
             notify_notification_set_icon_from_pixbuf(notification, pixbuf);

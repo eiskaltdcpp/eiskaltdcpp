@@ -38,7 +38,7 @@ Entry::Entry(const EntryType type, const string &ui, const string &id):
             GError *error = NULL;
             xml = gtk_builder_new();
             gtk_builder_add_from_file(xml,file.c_str(),&error);
-            if(error != NULL)
+            if (error)
             {
                 g_print("GTKBUILDER ERROR file => %s ,\n => %s",file.c_str(),error->message);
                 gtk_main_quit();
@@ -108,7 +108,7 @@ void Entry::removeChild(const EntryType childType, const string &childId)
 
 void Entry::removeChild(Entry *entry)
 {
-    if (entry != NULL)
+    if (entry)
     {
         entry->removeChildren();
         children.erase(entry->getID());

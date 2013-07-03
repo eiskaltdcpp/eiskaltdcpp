@@ -171,7 +171,7 @@ bool Emoticons::load(const string &file)
                     filter.insert(emotName);
                 }
 
-                if (list != NULL)
+                if (list)
                 {
                     Emot *emot = new Emot(list, emotFile, gdk_pixbuf_new_from_file(emotPath.c_str(), NULL));
                     pack.push_back(emot);

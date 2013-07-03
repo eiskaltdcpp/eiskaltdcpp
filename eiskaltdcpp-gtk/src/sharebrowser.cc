@@ -144,7 +144,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
 #if !GLIB_CHECK_VERSION(2,32,0)
     GError *error = NULL;
     g_thread_create(threadLoad_list, (gpointer)this, FALSE, &error);
-    if (error != NULL)
+    if (error)
     {
         cerr << "Unable to create filelist loader thread: " << error->message << endl;
         g_error_free(error);
@@ -1135,7 +1135,7 @@ void ShareBrowser::onDirGet(GtkMenuItem* item, gpointer data)
             {
                 if(!ii->file->getAdls())return;
                 DirectoryListing::Directory *dir=ii->file->getParent();
-                while( (dir!=NULL) && (dir!=sb->listing.getRoot()))
+                while( dir && (dir != sb->listing.getRoot()))
                 {
                     fullpath=dir->getName()+PATH_SEPARATOR+fullpath;
                     dir=dir->getParent();

@@ -587,7 +587,7 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm,
     string pathIcon = wsm->getString(key3);
     GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(Text::fromUtf8(pathIcon).c_str(), NULL);
 
-    if (pixbuf != NULL)
+    if (pixbuf)
     {
         icon = WulforUtil::scalePixbuf(pixbuf, ICON_SIZE, ICON_SIZE);
         g_object_unref(pixbuf);
@@ -609,7 +609,7 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm,
         8, key4,                            //urgency
         -1);
 
-    if (icon != NULL)
+    if (icon)
         g_object_unref(icon);
 }
 
@@ -631,7 +631,7 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, Gt
         3, key1.c_str(),
         -1);
 
-    if (icon != NULL)
+    if (icon)
         g_object_unref(icon);
 
     set(key1, iconName);
@@ -654,7 +654,7 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, Gt
         3, key1.c_str(),
         -1);
 
-    if (icon != NULL)
+    if (icon)
         g_object_unref(icon);
 }
 
@@ -2301,7 +2301,7 @@ void Settings::onNotifyIconFileBrowseClicked_gui(GtkWidget *widget, gpointer dat
             {
                 GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(path, NULL);
 
-                if (pixbuf != NULL)
+                if (pixbuf)
                 {
                     string target = Text::toUtf8(path);
                     GdkPixbuf *icon = WulforUtil::scalePixbuf(pixbuf, ICON_SIZE, ICON_SIZE);
@@ -2407,7 +2407,7 @@ void Settings::onNotifyDefaultButton_gui(GtkWidget *widget, gpointer data)
         {
             GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(Text::fromUtf8(path).c_str(), NULL);
 
-            if (pixbuf != NULL)
+            if (pixbuf)
             {
                 icon = WulforUtil::scalePixbuf(pixbuf, ICON_SIZE, ICON_SIZE);
                 g_object_unref(pixbuf);
@@ -2668,7 +2668,7 @@ void Settings::applyIconsTheme(bool useDefault)
             themeIconsView.col("iconName"), iconName.c_str(),
             -1);
 
-        if (icon != NULL)
+        if (icon)
             g_object_unref(icon);
 
         set(keyIcon, iconName);
@@ -2967,7 +2967,7 @@ void Settings::onPreviewAdd_gui(GtkWidget *widget, gpointer data)
         return;
     }
 
-    if (wsm->addPreviewApp(name, app, ext) != NULL)
+    if (wsm->addPreviewApp(name, app, ext))
     {
         GtkTreeIter it;
         gtk_list_store_append(s->previewAppToStore, &it);
