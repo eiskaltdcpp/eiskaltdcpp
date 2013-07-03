@@ -57,7 +57,7 @@ void PublicHubsList::slotDown(){
 void PublicHubsList::slotUp(){
     int currentRow = listWidget->currentRow();
 
-    if (currentRow == 0)
+    if (!currentRow)
         return;
 
     QListWidgetItem *currentItem = listWidget->takeItem(currentRow);
@@ -77,7 +77,7 @@ void PublicHubsList::slotAdd(){
 void PublicHubsList::slotRem(){
     int currentRow = listWidget->currentRow();
 
-    if (currentRow == 0)
+    if (!currentRow)
         return;
 
     QListWidgetItem *currentItem = listWidget->takeItem(currentRow);

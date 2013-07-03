@@ -124,7 +124,7 @@ QVariant ScriptManagerModel::data(const QModelIndex & index, int role) const {
 }
 
 bool ScriptManagerModel::setData(const QModelIndex &index, const QVariant &value, int role){
-    if (index.isValid() && index.column() == 0 && role == Qt::CheckStateRole){
+    if (index.isValid() && !index.column() && role == Qt::CheckStateRole){
         ScriptManagerItem *item = reinterpret_cast<ScriptManagerItem*>(index.internalPointer());
 
         item->isOn = (value.toInt() == Qt::Checked)? true : false;

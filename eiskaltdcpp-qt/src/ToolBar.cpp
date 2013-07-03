@@ -158,7 +158,7 @@ void ToolBar::removeWidget(ArenaWidget *awgt){
 
         rebuildIndexes(index);
 
-        if (map.size() == 0)
+        if (map.isEmpty())
             tabbar->hide();
 
         tabbar->removeTab(index);

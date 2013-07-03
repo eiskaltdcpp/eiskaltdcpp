@@ -294,7 +294,7 @@ MainWindow::MainWindow (QWidget *parent):
 HashProgress* MainWindow::progress_dialog() {
     Q_D(MainWindow);
 
-    if( d->_progress_dialog == NULL )
+    if (!d->_progress_dialog)
         d->_progress_dialog = new HashProgress(this);
 
     return d->_progress_dialog;
@@ -1536,7 +1536,7 @@ void MainWindow::initFavHubMenu() {
     if (!d->fBar)
         return;
 
-    if (d->favHubMenu == NULL) {
+    if (!d->favHubMenu) {
         d->favHubMenu = new QMenu(this);
 
         connect(d->favHubMenu, SIGNAL(aboutToShow()), this, SLOT(slotUpdateFavHubMenu()));
@@ -2406,7 +2406,7 @@ void MainWindow::slotToolsSwitchSpeedLimit(){
 void MainWindow::slotPanelMenuActionClicked(){
     QAction *act = qobject_cast<QAction *>(sender());
 
-    if (act == 0)
+    if (!act)
         return;
 
     Q_D(MainWindow);

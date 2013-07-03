@@ -13,7 +13,7 @@
 
 static int translateModifiers(Qt::KeyboardModifiers state, const QString &text) {
     int result = 0;
-    if ((state & Qt::ShiftModifier) && (text.size() == 0
+    if ((state & Qt::ShiftModifier) && (text.isEmpty()
                                         || !text.at(0).isPrint()
                                         || text.at(0).isLetter()
                                         || text.at(0).isSpace()))

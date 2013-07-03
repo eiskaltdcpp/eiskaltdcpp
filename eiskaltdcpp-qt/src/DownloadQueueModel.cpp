@@ -339,7 +339,7 @@ int DownloadQueueModel::rowCount(const QModelIndex &parent) const
 }
 
 static void sortRecursive(int column, Qt::SortOrder order, DownloadQueueItem *i){
-    if (column == -1 || !i || i->childCount() == 0)
+    if (column == -1 || !i || !i->childCount())
         return;
 
     static Compare<Qt::AscendingOrder> acomp;

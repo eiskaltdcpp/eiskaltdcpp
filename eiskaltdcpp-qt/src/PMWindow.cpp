@@ -263,7 +263,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
             else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && fr && cursoratnick)
                     fr->addPM(cid, "");
             else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://")){
-                if (plainTextEdit_INPUT->textCursor().position() == 0)
+                if(!plainTextEdit_INPUT->textCursor().position())
                     plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
                 else
                     plainTextEdit_INPUT->textCursor().insertText(nick + " ");
@@ -444,7 +444,7 @@ void PMWindow::nextMsg(){
 
     if (out_messages_index < 0 ||
         out_messages_index+1 > out_messages.size()-1 ||
-        out_messages.size() == 0)
+        out_messages.isEmpty())
         return;
 
     if (out_messages.at(out_messages_index) != plainTextEdit_INPUT->toPlainText())
@@ -468,7 +468,7 @@ void PMWindow::prevMsg(){
 
     if (out_messages_index < 1 ||
         out_messages_index-1 > out_messages.size()-1 ||
-        out_messages.size() == 0)
+        out_messages.isEmpty())
         return;
 
     if (!out_messages_unsent && out_messages_index == out_messages.size()-1){
@@ -724,7 +724,7 @@ void PMWindow::findText(QTextDocument::FindFlags flag){
 
     if (flag == QTextDocument::FindBackward && !ok)
         c.movePosition(QTextCursor::End,QTextCursor::MoveAnchor,1);
-    else if (flag == 0 && !ok)
+    else if (!flag && !ok)
         c.movePosition(QTextCursor::Start,QTextCursor::MoveAnchor,1);
 
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);

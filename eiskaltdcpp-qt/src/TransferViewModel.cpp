@@ -309,7 +309,7 @@ void TransferViewModel::initTransfer(const VarMap &params){
 
         moveTransfer(item, p, to);
 
-        if (p != rootItem && p->childCount() == 0 && rootItem->childItems.contains(p)){
+        if (p != rootItem && !p->childCount() && rootItem->childItems.contains(p)){
             beginRemoveRows(QModelIndex(), p->row(), p->row());
             {
                 rootItem->childItems.removeAt(p->row());
@@ -415,7 +415,7 @@ void TransferViewModel::removeTransfer(const VarMap &params){
 
             transfer_hash.erase(i);
 
-            if (p != rootItem && p->childCount() == 0){
+            if (p != rootItem && !p->childCount()){
                 beginRemoveRows(QModelIndex(), p->row(), p->row());
                 {
                     rootItem->childItems.removeAt(p->row());

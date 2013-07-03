@@ -162,7 +162,7 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
 
     QModelIndexList mindexes = treeView_RULES->selectionModel()->selectedIndexes();
 
-    if (mindexes.size() == 0){
+    if (mindexes.isEmpty()){
         return;
     }
 
@@ -173,7 +173,7 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
     str_ip = elem->data(COLUMN_RULE_NAME).toString();
     str_d  = elem->data(COLUMN_RULE_DIRECTION).toString();
 
-    if (str_ip.indexOf("!") == 0){
+    if(!str_ip.indexOf("!")){
         act = etaDROP;
         str_ip.replace("!", "");
     }
@@ -333,7 +333,7 @@ void IPFilterFrame::slotImport() {
 void IPFilterFrame::slotUpDownClick(){
     QModelIndexList mindexes = treeView_RULES->selectionModel()->selectedIndexes();
 
-    if (mindexes.size() == 0 || !IPFilter::getInstance()){
+    if (mindexes.isEmpty() || !IPFilter::getInstance()){
         return;
     }
 

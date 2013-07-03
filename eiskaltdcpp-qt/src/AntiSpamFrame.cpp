@@ -103,7 +103,7 @@ void AntiSpamFrame::slotAntiSpamSwitch() {
         AntiSpam::getInstance()->saveLists();
 
         AntiSpam::deleteInstance();
-    } else if (b && (AntiSpam::getInstance() == NULL)) {
+    } else if (b && !AntiSpam::getInstance()) {
         AntiSpam::newInstance();
 
         AntiSpam::getInstance()->loadSettings();
@@ -270,7 +270,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, QString nick) {
 }
 
 void AntiSpamFrame::addItemToTree(QTreeWidget *tree, QString text) {
-    if (tree == NULL || text == "")
+    if (!tree || text == "")
         return;
 
     QTreeWidgetItem *it = new QTreeWidgetItem(tree);
@@ -279,7 +279,7 @@ void AntiSpamFrame::addItemToTree(QTreeWidget *tree, QString text) {
 }
 
 void AntiSpamFrame::remItemFromTree(QTreeWidget *tree, QString text) {
-    if (tree == NULL || text == "")
+    if (!tree || text == "")
         return;
 
     QTreeWidgetItemIterator it(tree, QTreeWidgetItemIterator::NotHidden);
