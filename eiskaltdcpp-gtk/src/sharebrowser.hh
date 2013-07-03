@@ -137,7 +137,7 @@ class ShareBrowser:
                         //columns["COLUMN_FILENAME"] = dcpp::Text::toT(f->getName());
                         columns.insert(ParamMap::value_type("TYPE",dcpp::Util::getFileExt(columns["FILENAME"])));
                         //columns["COLUMN_TYPE"] = dcpp::Util::getFileExt(columns["COLUMN_FILENAME"]);
-                        //if(columns["COLUMN_TYPE"].size() > 0 && columns["COLUMN_TYPE"][0] == '.')
+                        //if(!columns["COLUMN_TYPE"].empty() && columns["COLUMN_TYPE"][0] == '.')
                         //      columns["COLUMN_TYPE"].erase(0, 1);
 
                         columns["EXACTSIZE"] = dcpp::Text::toT(dcpp::Util::formatExactSize(f->getSize()));

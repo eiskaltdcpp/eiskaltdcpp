@@ -497,7 +497,7 @@ void Search::search_gui()
     text = text.substr(0, std::max(text.size(), static_cast<string::size_type>(1)) - 1);
 
     SearchManager::SizeModes mode((SearchManager::SizeModes)gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxSize"))));
-    if (llsize == 0)
+    if (!llsize)
         mode = SearchManager::SIZE_DONTCARE;
 
     int ftype = gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxFile")));
