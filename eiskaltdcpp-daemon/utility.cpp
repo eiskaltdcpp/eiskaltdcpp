@@ -52,7 +52,7 @@ bool DirExist(char * sPath) {
     if(code != INVALID_FILE_ATTRIBUTES && code == FILE_ATTRIBUTE_DIRECTORY) {
 #else
     struct stat st;
-    if(stat(sPath, &st) == 0 && S_ISDIR(st.st_mode)) {
+    if(!stat(sPath, &st) && S_ISDIR(st.st_mode)) {
 #endif
         return true;
     }

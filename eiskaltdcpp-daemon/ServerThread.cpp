@@ -307,7 +307,7 @@ void ServerThread::on(Connecting, Client* cur) noexcept {
         CurHub curhub;
         curhub.curclient = cur;
         clientsMap[cur->getHubUrl()] = curhub;
-    } else if (i != clientsMap.end() && clientsMap[cur->getHubUrl()].curclient == NULL)
+    } else if (i != clientsMap.end() && !clientsMap[cur->getHubUrl()].curclient)
         clientsMap[cur->getHubUrl()].curclient = cur;
 }
 
@@ -433,7 +433,7 @@ void ServerThread::on(SearchFlood, Client*, const string& line) noexcept {
 }
 
 void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept {
-    if (result == NULL) {
+    if (!result) {
         return;
     }
     for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
@@ -654,7 +654,7 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     int64_t lllsize = static_cast<int64_t>(llsize);
 
     SearchManager::SizeModes mode((SearchManager::SizeModes)sizemode);
-    if (llsize == 0)
+    if (!llsize)
         mode = SearchManager::SIZE_DONTCARE;
     int ftype = searchtype;
     string ftypeStr;
@@ -719,7 +719,7 @@ void ServerThread::listShare(string& listshare, const string& sseparator) {
 bool ServerThread::delDirFromShare(const string& sdirectory) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
     for (auto it = directories.begin(); it != directories.end(); ++it) {
-        if (it->first.compare(sdirectory) == 0) {
+        if (!it->first.compare(sdirectory)) {
             ShareManager::getInstance()->removeDirectory(it->second);
             ShareManager::getInstance()->refresh(true);
             return true;
@@ -731,7 +731,7 @@ bool ServerThread::delDirFromShare(const string& sdirectory) {
 bool ServerThread::renameDirInShare(const string& sdirectory, const string& svirtname) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
     for (auto it = directories.begin(); it != directories.end(); ++it) {
-        if (it->second.compare(sdirectory) == 0) {
+        if (!it->second.compare(sdirectory)) {
             ShareManager::getInstance()->renameDirectory(sdirectory, svirtname);
             ShareManager::getInstance()->refresh(true);
             return true;
