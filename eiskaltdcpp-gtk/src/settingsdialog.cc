@@ -3429,7 +3429,7 @@ void Settings::updateUserCommandTextSent_gui()
     else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogPM"))))
     {
         string to = gtk_entry_get_text(GTK_ENTRY(getWidget("commandDialogTo")));
-        if (to.length() == 0)
+        if (to.empty())
             to = "%[userNI]";
         command = "$To: " + to + " From: %[myNI] $<%[myNI]> " + NmdcHub::validateMessage(command, FALSE) + "|";
     }
@@ -3445,7 +3445,7 @@ bool Settings::validateUserCommandInput(const string &oldName)
         string command = gtk_entry_get_text(GTK_ENTRY(getWidget("commandDialogCommand")));
         string hub = gtk_entry_get_text(GTK_ENTRY(getWidget("commandDialogHub")));
 
-        if (name.length() == 0 || command.length() == 0)
+        if (name.empty() || command.empty())
         {
             showErrorDialog(_("Name and command must not be empty"));
             return FALSE;

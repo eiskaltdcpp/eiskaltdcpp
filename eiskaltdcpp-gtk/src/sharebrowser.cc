@@ -343,7 +343,7 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
 
         // If ext is empty we cannot do substr on it.
         string ext = Util::getFileExt((*it_file)->getName());
-        if (ext.length() > 0)
+        if(!ext.empty())
             ext = ext.substr(1);
 
         gtk_list_store_set(fileStore, &iter,
