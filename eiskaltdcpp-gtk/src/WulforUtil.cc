@@ -401,7 +401,7 @@ bool WulforUtil::profileIsLocked()
 #else
     string xdg_config_home = Text::toUtf8(home) + "/.eiskaltdc++/";
 #endif
-    configPath = xdg_config_home.size() > 0 ? xdg_config_home : "/tmp/";
+    configPath = !xdg_config_home.empty() ? xdg_config_home : "/tmp/";
     string profileLockingFile = configPath + "profile.lck";
     int flags = O_WRONLY | O_CREAT;
     int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;

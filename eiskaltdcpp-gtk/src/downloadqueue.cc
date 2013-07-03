@@ -248,7 +248,7 @@ void DownloadQueue::updateStatus_gui()
 
 void DownloadQueue::addFiles_gui(vector<StringMap> files, bool firstUpdate)
 {
-    if (files.size() > 0 && currentDir == files[0]["Path"] &&
+    if (!files.empty() && currentDir == files[0]["Path"] &&
         gtk_tree_selection_get_selected(dirSelection, NULL, NULL))
     {
         if (firstUpdate)
@@ -1278,7 +1278,7 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
         if (it->getUser().user->isOnline())
             ++online;
 
-        if (params["Users"].size() > 0)
+        if(!params["Users"].empty())
             params["Users"] += ", ";
 
         nick = WulforUtil::getNicks(it->getUser());
@@ -1352,7 +1352,7 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
 
         if (!it->isSet(QueueItem::Source::FLAG_REMOVED))
         {
-            if (params["Errors"].size() > 0)
+            if(params["Errors"].empty())
                 params["Errors"] += ", ";
             params["Errors"] += nick + " (";
 

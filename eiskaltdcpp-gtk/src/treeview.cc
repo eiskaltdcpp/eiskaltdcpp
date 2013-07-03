@@ -503,7 +503,7 @@ void TreeView::saveSettings()
         columnVisibility += dcpp::Util::toString(gtk_tree_view_column_get_visible(col)) + ",";
     }
 
-    if (columnOrder.size() > 0)
+    if (!columnOrder.empty())
     {
         columnOrder.erase(columnOrder.size() - 1, 1);
         columnWidth.erase(columnWidth.size() - 1, 1);

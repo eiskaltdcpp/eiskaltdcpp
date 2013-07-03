@@ -428,7 +428,7 @@ void ShareBrowser::fileViewSelected_gui()
             while (valid && ptr != dirView.getValue<gpointer>(&iter, "DL Dir"))
                 valid = gtk_tree_model_iter_next(m, &iter);
 
-            if (!full && filesize == 0) {
+            if (!full && !filesize) {
                 typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
                 F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,
                 (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter, "DL Dir"));
