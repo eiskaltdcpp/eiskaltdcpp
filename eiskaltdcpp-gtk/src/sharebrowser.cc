@@ -643,7 +643,7 @@ void ShareBrowser::find_gui()
     GtkTreeModel *m = GTK_TREE_MODEL(dirStore);
     GtkTreePath *dirPath = gtk_tree_path_new_first();
 
-    if (gtk_tree_path_get_depth(dirPath) == 0 || !gtk_tree_model_get_iter(m, &iter, dirPath))
+    if (!gtk_tree_path_get_depth(dirPath) || !gtk_tree_model_get_iter(m, &iter, dirPath))
     {
         gtk_tree_path_free(dirPath);
         return;
@@ -686,7 +686,7 @@ void ShareBrowser::find_gui()
         }
 
         // Come back up one directory. If we can't, then we've returned to the root and are done.
-        if (!gtk_tree_path_up(dirPath) || gtk_tree_path_get_depth(dirPath) == 0 ||
+        if (!gtk_tree_path_up(dirPath) || !gtk_tree_path_get_depth(dirPath) ||
             !gtk_tree_model_get_iter(m, &iter, dirPath))
         {
             setStatus_gui("mainStatus", _("No matches"));

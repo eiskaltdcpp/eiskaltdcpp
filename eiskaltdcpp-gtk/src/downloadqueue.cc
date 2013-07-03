@@ -326,7 +326,7 @@ void DownloadQueue::addFile_gui(StringMap params, bool updateDirs)
 
 void DownloadQueue::addDir_gui(const string &path, GtkTreeIter *parent)
 {
-    if (path.empty() || parent == NULL)
+    if (path.empty() || !parent)
         return;
 
     GtkTreeIter iter;
@@ -441,7 +441,7 @@ void DownloadQueue::removeFile_gui(string target, int64_t size)
 
 void DownloadQueue::removeDir_gui(const string &path, GtkTreeIter *parent)
 {
-    if (path.empty() || parent == NULL)
+    if (path.empty() || !parent)
         return;
 
     GtkTreeIter iter;

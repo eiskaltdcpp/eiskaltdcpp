@@ -188,11 +188,11 @@ find_file_with_pattern (const char *dir, const char *pattern)
 	GPatternSpec *pat;
 
 	filedir = g_dir_open (dir, 0, NULL);
-	if (filedir == NULL)
+	if (!filedir)
 		return NULL;
 
 	pat = g_pattern_spec_new (pattern);
-	if (pat == NULL)
+	if (!pat)
 	{
 		g_dir_close (filedir);
 		return NULL;
@@ -229,7 +229,7 @@ socket_filename (const char *prefix)
 	pattern = g_strdup_printf ("%s.%s.*", prefix, g_get_user_name ());
 	tmpdir = g_get_tmp_dir ();
 	filename = find_file_with_pattern (tmpdir, pattern);
-	if (filename == NULL)
+	if (!filename)
 	{
 		newfile = g_strdup_printf ("%s.%s.%u", prefix,
 				g_get_user_name (), g_random_int ());
@@ -331,8 +331,7 @@ bacon_message_connection_free (BaconMessageConnection *conn)
 
 	g_return_if_fail (conn != NULL);
 	/* Only servers can accept other connections */
-	g_return_if_fail (conn->is_server != FALSE ||
-			  conn->accepted_connections == NULL);
+	g_return_if_fail (conn->is_server != FALSE || !conn->accepted_connections);
 
 	child_conn = conn->accepted_connections;
 	while (child_conn) {

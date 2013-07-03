@@ -326,7 +326,7 @@ void SearchADL::onMoveUpClicked_gui(GtkWidget *widget, gpointer data)
         g_free(p);
 
         ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
-        if (i == 0 || !(i < collection.size()))
+        if (!i || !(i < collection.size()))
             return;
 
         bool swap = false;

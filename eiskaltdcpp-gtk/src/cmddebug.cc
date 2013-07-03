@@ -149,7 +149,7 @@ void cmddebug::addCmd(const std::string& cmd,const std::string& ip) {
     //g_print("CMDSIZE %d\n",cmdList.size());
 
     if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE) {
-        if (strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))),ip.c_str()) == 0)
+        if (!strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))), ip.c_str()))
             cmdList.push_back(cmd);
     }
     else

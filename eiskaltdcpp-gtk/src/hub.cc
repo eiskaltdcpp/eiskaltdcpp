@@ -824,7 +824,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                 // [img]magnet-link[/img]
 
                 bool notlink = FALSE;
-                if (g_ascii_strncasecmp(tagName.c_str(), "[img]", 5) == 0)
+                if (!g_ascii_strncasecmp(tagName.c_str(), "[img]", 5))
                 {
                     string::size_type i = tagName.rfind("[/img]");
                     if (i != string::npos)
@@ -834,7 +834,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                             notlink = image_tag = TRUE;
                     }
                 }
-                else if (g_ascii_strncasecmp(tagName.c_str(), "[b]", 3) == 0)
+                else if (!g_ascii_strncasecmp(tagName.c_str(), "[b]", 3))
                 {
                     string::size_type i = tagName.rfind("[/b]");
                     if (i != string::npos)
@@ -843,7 +843,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                         notlink = bold_tag = TRUE;
                     }
                 }
-                else if (g_ascii_strncasecmp(tagName.c_str(), "[i]", 3) == 0)
+                else if (!g_ascii_strncasecmp(tagName.c_str(), "[i]", 3))
                 {
                     string::size_type i = tagName.rfind("[/i]");
                     if (i != string::npos)
@@ -852,7 +852,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                         notlink = italic_tag = TRUE;
                     }
                 }
-                else if (g_ascii_strncasecmp(tagName.c_str(), "[u]", 3) == 0)
+                else if (!g_ascii_strncasecmp(tagName.c_str(), "[u]", 3))
                 {
                     string::size_type i = tagName.rfind("[/u]");
                     if (i != string::npos)
@@ -1586,7 +1586,7 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
                 string::size_type tagEnd = 0;
                 if (useNext && (tagEnd = Text::toLower(nick).find(key)) != string::npos)
                 {
-                    if (tagEnd == 0 || nick.find_first_of("]})", tagEnd - 1) == tagEnd - 1)
+                    if (!tagEnd || nick.find_first_of("]})", tagEnd - 1) == tagEnd - 1)
                     {
                         complete = nick;
                         if (start <= 0)
@@ -2191,7 +2191,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         g_print("/ip %s\n",sl.getTokens().at(1).c_str());
                         StringTokenizer<string> purge( sl.getTokens().at(1), ";" );
                         for(StringIter i = purge.getTokens().begin(); i != purge.getTokens().end(); ++i) {
-                            if (i->find("!") == 0)
+                            if (!i->find("!"))
                                 ipfilter::getInstance()->remFromRules((*i), etaDROP);
                             else
                                 ipfilter::getInstance()->remFromRules((*i), etaACPT);
@@ -2288,7 +2288,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i)
                         {
                             name = i->substr( 0, i->find_first_of( "::", 0 ) );
-                            if( name.compare( param.substr( 0, param.find_first_of( "::", 0 ) ) ) == 0 )
+                            if( !name.compare(param.substr(0, param.find_first_of("::", 0))) )
                             {
                                 exists = true;
                                 hub->addMessage_gui("", string( "This alias already exists: " + *i ), Msg::SYSTEM);
@@ -2316,7 +2316,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i)
                 {
                         name = i->substr( 0, i->find_first_of( "::", 0 ) );
-                        if( name.compare( command ) == 0 )
+                        if( !name.compare(command) )
                         {
                             string exec = i->substr( i->find_first_of( "::", 0 ) + 2, i->size() );
 
@@ -3101,7 +3101,7 @@ void Hub::download_client(string target, int64_t size, string tth, string cid)
    try
    {
        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
-       if (user == NULL)
+       if (!user)
            return;
 
        string hubUrl = client->getHubUrl();
@@ -3147,7 +3147,7 @@ void Hub::loadImage_gui(string target, string tth)
    if (imageLoad.first != tth)
        return;
 
-   if (imageLoad.second == NULL)
+   if (!imageLoad.second)
        return;
 
    if (!g_file_test(target.c_str(), G_FILE_TEST_EXISTS))
@@ -3262,7 +3262,7 @@ void Hub::onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data)
        GtkWidget *container = (GtkWidget*) g_object_get_data(G_OBJECT(item), "container");
 
        // if image destroy
-       if (container == NULL)
+       if (!container)
            return;
 
        GList *childs = gtk_container_get_children(GTK_CONTAINER(container));
@@ -3284,7 +3284,7 @@ void Hub::onRemoveImageClicked_gui(GtkMenuItem *item, gpointer data)
    GtkWidget *container = (GtkWidget*) g_object_get_data(G_OBJECT(item), "container");
 
    // if image destroy
-   if (container == NULL)
+   if (!container)
        return;
 
    GList *childs = gtk_container_get_children(GTK_CONTAINER(container));
