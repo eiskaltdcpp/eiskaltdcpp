@@ -49,7 +49,7 @@ bool ServerStart()
     ServerThread::newInstance();
     ServersS = ServerThread::getInstance();
 
-    if(ServersS == NULL)
+    if(!ServersS)
         return false;
 
     ServersS->Resume();
