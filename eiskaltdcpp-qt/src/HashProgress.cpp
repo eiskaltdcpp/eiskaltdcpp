@@ -34,7 +34,7 @@ unsigned HashProgress::getHashStatus() {
     size_t files = 0;
     HM->getStats(path, bytes, files);
 
-    if( bytes != 0 || files != 0 )
+    if( bytes || files )
         return RUNNING;
 
     return IDLE;

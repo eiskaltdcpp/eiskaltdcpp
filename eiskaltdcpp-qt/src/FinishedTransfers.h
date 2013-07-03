@@ -413,7 +413,7 @@ private:
     void slotItemDoubleClicked(const QModelIndex &proxyIndex){
         Q_UNUSED(proxyIndex);
 
-        if (comboBox->currentIndex() != 0)
+        if (comboBox->currentIndex())
             return;
 
         QItemSelectionModel *s_model = treeView->selectionModel();

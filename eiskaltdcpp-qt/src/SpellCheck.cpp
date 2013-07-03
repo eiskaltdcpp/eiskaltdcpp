@@ -34,7 +34,7 @@ SpellCheck::SpellCheck(QObject *parent) :
     if (config){
         AspellCanHaveError *error = new_aspell_speller(config);
 
-        if (aspell_error(error) != 0){
+        if (aspell_error(error)){
             delete_aspell_config(config);
 
             printf("%s\n", aspell_error_message(error));
@@ -74,7 +74,7 @@ void SpellCheck::suggestions(const QString &word, QStringList &list){
     AspellStringEnumeration *elements = aspell_word_list_elements(suggestions);
 
     const char * sugg;
-    while ((sugg = aspell_string_enumeration_next(elements)) != NULL ){
+    while (sugg = aspell_string_enumeration_next(elements)){
         list.append(QString::fromUtf8(sugg, strlen(sugg)));
     }
 

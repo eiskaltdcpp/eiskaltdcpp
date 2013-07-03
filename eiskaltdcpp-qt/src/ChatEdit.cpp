@@ -264,7 +264,7 @@ void ChatEdit::dropEvent(QDropEvent *e)
                         str = QDir::toNativeSeparators( fi.canonicalFilePath() ); // try to follow symlinks
                         tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
                     }
-                    if (tth != NULL)
+                    if (tth)
                         urlStr = WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32()));
                 }
             };

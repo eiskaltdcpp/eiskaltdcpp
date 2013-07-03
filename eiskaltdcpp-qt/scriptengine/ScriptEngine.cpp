@@ -353,7 +353,7 @@ static QScriptValue getMagnets(QScriptContext *ctx, QScriptEngine *engine){
 
         const dcpp::TTHValue *tth = dcpp::HashManager::getInstance()->getFileTTHif(_tq(f));
 
-        if (tth != NULL)
+        if (tth)
             magnets.push_back(WulforUtil::getInstance()->makeMagnet(f.split(QDir::separator(), QString::SkipEmptyParts).last(),
                                                                     file.size(),
                                                                     _q(tth->toBase32())

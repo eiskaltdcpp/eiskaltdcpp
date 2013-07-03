@@ -733,8 +733,7 @@ void ShareBrowser::slotButtonUp(){
 }
 
 void ShareBrowser::slotButtonBack(){
-    if ( (pathHistory_iter != NULL)
-            && (!pathHistory.isEmpty())){
+    if (pathHistory_iter && !pathHistory.isEmpty()){
 
         disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                 this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
@@ -754,8 +753,7 @@ void ShareBrowser::slotButtonBack(){
 }
 
 void ShareBrowser::slotButtonForward(){
-    if ( (pathHistory_iter != NULL)
-            && (!pathHistory.isEmpty())){
+    if (pathHistory_iter && !pathHistory.isEmpty()){
 
         disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                 this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));

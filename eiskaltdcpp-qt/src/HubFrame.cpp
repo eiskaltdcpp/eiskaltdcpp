@@ -103,7 +103,7 @@ static inline void clearLayout(QLayout *l){
         return;
 
     QLayoutItem *item = NULL;
-    while ((item = l->takeAt(0)) != NULL){
+    while ((item = l->takeAt(0))){
         l->removeWidget(item->widget());
         item->widget()->deleteLater();
 
@@ -763,7 +763,7 @@ void HubFrame::LinkParser::parseForMagnetAlias(QString &output){
             name = rx.cap(2);
 
         const TTHValue *tth = HashManager::getInstance()->getFileTTHif(_tq(fi.absoluteFilePath()));
-        if (tth != NULL) {
+        if (tth) {
             QString urlStr = WulforUtil::getInstance()->makeMagnet(name, fi.size(), _q(tth->toBase32()));
             output.replace(pos, rx.cap(1).length(), urlStr);
         } else {

@@ -39,7 +39,7 @@ static inline void clearLayout(QLayout *l){
         return;
 
     QLayoutItem *item = NULL;
-    while ((item = l->takeAt(0)) != NULL){
+    while (item = l->takeAt(0)){
         l->removeWidget(item->widget());
         item->widget()->deleteLater();
 

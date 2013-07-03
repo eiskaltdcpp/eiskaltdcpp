@@ -299,7 +299,7 @@ void FavoriteHubs::getParams(const FavoriteHubEditor &editor, StrMap &map){
     else
         map["IP"] = "";
     map["OVERTAG"] = editor.checkBox_CID->isChecked();
-    if (editor.comboBox_CID->currentIndex() != 0 && editor.checkBox_CID->isChecked())
+    if (editor.comboBox_CID->currentIndex() && editor.checkBox_CID->isChecked())
         map["TAG"] = editor.comboBox_CID->currentText();
     else
         map["TAG"] = editor.comboBox_CID->itemText(0);

@@ -611,7 +611,7 @@ void SideBarView::slotSidebarHook(const QModelIndex &index){
 }
 
 void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
-    if (index.column() != 0)
+    if (index.column())
         return;
 
     SideBarItem *item = reinterpret_cast<SideBarItem*>(index.internalPointer());
