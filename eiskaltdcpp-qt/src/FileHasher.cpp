@@ -62,7 +62,7 @@ void FileHasher::slotStart(){
     pushButton_RUN->setEnabled(false);
     HashManager  *HM = HashManager::getInstance();
     const TTHValue *tth= HM->getFileTTHif(_tq(file));
-    if (tth != NULL) {
+    if (tth) {
         lineEdit_HASH->setText(_q(tth->toBase32()));
         pushButton_RUN->setEnabled(true);
     } else {

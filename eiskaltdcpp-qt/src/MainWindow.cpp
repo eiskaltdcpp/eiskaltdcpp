@@ -2818,7 +2818,7 @@ void MainWindow::slotSideBarDockMenu(){
 
     m->addAction(act);
 
-    if (m->exec(QCursor::pos()) != NULL){
+    if (m->exec(QCursor::pos())){
         WBSET(SIDEBAR_SHOW_CLOSEBUTTONS, act->isChecked());
 
         //repaint rows!
@@ -2883,7 +2883,7 @@ void MainWindow::nextMsg(){
 
         bool pmw = false;
 
-        if (wg != 0)
+        if (wg)
             pmw = (typeid(*wg) == typeid(PMWindow));
 
         if(pmw){
@@ -2906,7 +2906,7 @@ void MainWindow::prevMsg(){
 
         bool pmw = false;
 
-        if (wg != 0)
+        if (wg)
             pmw = (typeid(*wg) == typeid(PMWindow));
 
         if(pmw){

@@ -497,9 +497,9 @@ QString FileBrowserModel::createRemotePath(FileBrowserItem *item) const{
     pitem = item;
     s = pitem->data(COLUMN_FILEBROWSER_NAME).toString();
 
-    while ((pitem = pitem->parent()) != NULL) {
+    while ((pitem = pitem->parent())) {
         // check for root entry
-        if (pitem->parent() != NULL) {
+        if (pitem->parent()) {
             s = pitem->data(COLUMN_FILEBROWSER_NAME).toString() + "\\" + s;
         }
     }

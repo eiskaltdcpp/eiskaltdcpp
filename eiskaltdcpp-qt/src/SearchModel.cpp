@@ -530,7 +530,7 @@ int SearchItem::columnCount() const {
 }
 
 QVariant SearchItem::data(int column) const {
-    if (column == COLUMN_SF_COUNT && !childItems.isEmpty() && parentItem != 0)
+    if (column == COLUMN_SF_COUNT && !childItems.isEmpty() && parentItem)
         return childItems.size()+1;
 
     return itemData.value(column);

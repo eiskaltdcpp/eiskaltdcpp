@@ -630,7 +630,7 @@ bool UserListItem::isAway() const {
 }
 
 void UserListItem::updateIdentity(const Identity& _id, const QString& _cid, bool _fav) {
-    if (ptr != NULL) {
+    if (ptr) {
         id = _id;
         cid = _cid;
         _isOp   = id.isOp();

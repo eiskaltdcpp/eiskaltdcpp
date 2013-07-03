@@ -873,11 +873,11 @@ QStringList WulforUtil::getLocalIfaces(){
     struct ifaddrs *ifap;
 
     if (getifaddrs(&ifap) == 0){
-        for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next){
+        for (struct ifaddrs *i = ifap; i ; i = i->ifa_next){
             struct sockaddr *sa = i->ifa_addr;
 
             // If the interface is up, is not a loopback and it has an address
-            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL && !ifaces.contains(i->ifa_name))
+            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa && !ifaces.contains(i->ifa_name))
                 ifaces.push_back(i->ifa_name);
         }
 
@@ -895,11 +895,11 @@ QStringList WulforUtil::getLocalIPs(){
     struct ifaddrs *ifap;
 
     if (getifaddrs(&ifap) == 0){
-        for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next){
+        for (struct ifaddrs *i = ifap; i ; i = i->ifa_next){
             struct sockaddr *sa = i->ifa_addr;
 
             // If the interface is up, is not a loopback and it has an address
-            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL){
+            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa){
                 void* src = NULL;
                 socklen_t len;
 
@@ -917,7 +917,7 @@ QStringList WulforUtil::getLocalIPs(){
                 }
 
                 // Convert the binary address to a string and add it to the output list
-                if (src != NULL){
+                if (src){
                     char address[len];
                     inet_ntop(sa->sa_family, src, address, len);
                     addresses.push_back(address);
