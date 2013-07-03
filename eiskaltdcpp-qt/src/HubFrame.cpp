@@ -951,7 +951,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
             if (!cid.isEmpty()){
                 if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0){
-                    if (plainTextEdit_INPUT->textCursor().position() == 0)
+                    if(!plainTextEdit_INPUT->textCursor().position())
                         plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
                     else
                         plainTextEdit_INPUT->textCursor().insertText(nick + " ");
@@ -1029,7 +1029,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
                     addPM(cid, "", false);
                 }
                 else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
-                    if (plainTextEdit_INPUT->textCursor().position() == 0)
+                    if(!plainTextEdit_INPUT->textCursor().position())
                         plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
                     else
                         plainTextEdit_INPUT->textCursor().insertText(nick + " ");
@@ -1519,7 +1519,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
 
     QStringList list = line.split(" ", QString::SkipEmptyParts);
 
-    if (list.size() == 0)
+    if (list.isEmpty())
         return false;
 
     if (!line.startsWith("/"))
@@ -2414,7 +2414,7 @@ void HubFrame::newMsg(const VarMap &map){
         addOutput(output);
 
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
-            if (it.userState() == 0){
+            if(!it.userState()){
                 it.setUserState(-1); // delete label for the last of the old messages
 
                 if (it.blockNumber() < chatDoc->blockCount()-3){
@@ -2609,7 +2609,7 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
 
     if (flag == QTextDocument::FindBackward && !ok)
         c.movePosition(QTextCursor::End,QTextCursor::MoveAnchor,1);
-    else if (flag == 0 && !ok)
+    else if (!flag && !ok)
         c.movePosition(QTextCursor::Start,QTextCursor::MoveAnchor,1);
 
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
@@ -3204,7 +3204,7 @@ void HubFrame::nextMsg(){
 
     if (d->out_messages_index < 0 ||
         d->out_messages_index+1 > d->out_messages.size()-1 ||
-        d->out_messages.size() == 0)
+        d->out_messages.isEmpty())
         return;
 
     if (d->out_messages.at(d->out_messages_index) != plainTextEdit_INPUT->toPlainText())
@@ -3230,7 +3230,7 @@ void HubFrame::prevMsg(){
     
     if (d->out_messages_index < 1 ||
         d->out_messages_index-1 > d->out_messages.size()-1 ||
-        d->out_messages.size() == 0)
+        d->out_messages.isEmpty())
         return;
 
     if (!d->out_messages_unsent && d->out_messages_index == d->out_messages.size()-1){

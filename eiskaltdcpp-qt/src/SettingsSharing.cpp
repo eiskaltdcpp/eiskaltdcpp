@@ -410,7 +410,7 @@ ShareDirModel::~ShareDirModel(){
 Qt::ItemFlags ShareDirModel::flags(const QModelIndex& index) const{
     Qt::ItemFlags f = QDirModel::flags(index);
 
-    if (index.column() == 0)
+    if (!index.column())
         f |= Qt::ItemIsUserCheckable;
 
     QString fp = filePath(index);
@@ -435,7 +435,7 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
     switch (role){
         case Qt::CheckStateRole:
         {
-            if (index.column() == 0){
+            if (!index.column()){
                 foreach (const QString &f, checked){
                     if (fp.startsWith(f) && fp.length() == f.length())
                         return Qt::Checked;
@@ -457,7 +457,7 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
         }
         case Qt::FontRole:
         {
-            if (index.column() == 0){
+            if (!index.column()){
                 static QFont font;
                 font.setBold(true);
 
@@ -479,7 +479,7 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
 
 bool ShareDirModel::setData(const QModelIndex& index, const QVariant& value, int role = Qt::EditRole)
 {
-    if (index.isValid() && index.column() == 0 && role == Qt::CheckStateRole){
+    if (index.isValid() && !index.column() && role == Qt::CheckStateRole){
 
         if (value.toInt() == Qt::Checked)
             emit getName(index);//checked.insert(filePath(index));

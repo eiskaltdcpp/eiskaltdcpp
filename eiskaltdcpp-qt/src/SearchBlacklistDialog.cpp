@@ -158,7 +158,7 @@ QVariant SearchBlackListModel::data(const QModelIndex & index, int role) const {
     switch (role){
         case Qt::DisplayRole:
         {
-            if (index.column() == 0)
+            if (!index.column())
                 return item->title;
             else
                 return (item->argument == SearchBlacklist::NAME? tr("Filename") : tr("TTH"));

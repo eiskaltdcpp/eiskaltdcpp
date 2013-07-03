@@ -433,7 +433,7 @@ SideBarDelegate::~SideBarDelegate(){
 }
 
 void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
-    if (index.column() == 0){
+    if (!index.column()){
         QStyledItemDelegate::paint(painter, option, index);
 
         return;

@@ -1037,7 +1037,7 @@ void SearchFrame::slotStartSearch(){
 
     SearchManager::SizeModes searchMode((SearchManager::SizeModes)comboBox_SIZETYPE->currentIndex());
 
-    if(llsize == 0 || lineEdit_SIZE->text() == "")
+    if(!llsize || lineEdit_SIZE->text() == "")
         searchMode = SearchManager::SIZE_DONTCARE;
 
     int ftype = comboBox_FILETYPES->currentIndex();
@@ -1577,7 +1577,7 @@ void SearchFrame::slotTimer(){
         progressBar->setValue(0);
     }
 
-    if (d->dropped == d->results && d->dropped == 0){
+    if (d->dropped == d->results && !d->dropped){
 
         if (d->currentSearch.empty())
             frame_PROGRESS->hide();
@@ -1665,7 +1665,7 @@ void SearchFrame::slotSettingsChanged(const QString &key, const QString &value){
 void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aResult) noexcept {
     Q_D(SearchFrame);
 
-    if (d->currentSearch.empty() || aResult == NULL || d->stop == true)
+    if (d->currentSearch.empty() || !aResult || d->stop == true)
         return;
 
     if (!aResult->getToken().empty() && d->token != _q(aResult->getToken())){
@@ -1704,7 +1704,7 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
         }
     }
 
-    if (d->withFreeSlots && aResult->getFreeSlots() == 0){
+    if (d->withFreeSlots && !aResult->getFreeSlots()){
         d->dropped++;
 
         return;

@@ -145,7 +145,7 @@ void FavoriteHubs::init(){
     load();
 
     int row_num = model->rowCount();
-    if (row_num == 0){
+    if (!row_num){
         changeButton->setEnabled(false);
         removeButton->setEnabled(false);
         connectButton->setEnabled(false);

@@ -260,7 +260,7 @@ void ChatEdit::dropEvent(QDropEvent *e)
 
                 if ( fi.exists() && fi.isFile() && !str.isEmpty() ) {
                     const TTHValue *tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
-                    if ( tth == NULL ) {
+                    if ( !tth ) {
                         str = QDir::toNativeSeparators( fi.canonicalFilePath() ); // try to follow symlinks
                         tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
                     }

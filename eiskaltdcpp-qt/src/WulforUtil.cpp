@@ -674,7 +674,7 @@ QString WulforUtil::dcEnc2QtEnc(QString name){
     auto it = QtEnc2DCEnc.begin();
 
     for (; it != QtEnc2DCEnc.end(); ++it){
-        if (it.value() == name || it.value().indexOf(name) == 0)
+        if (it.value() == name || !it.value().indexOf(name))
             return it.key();
     }
 
@@ -1003,7 +1003,7 @@ int WulforUtil::sortOrderToInt(Qt::SortOrder order){
 }
 
 Qt::SortOrder WulforUtil::intToSortOrder(int i){
-    if (i == 0)
+    if (!i)
         return Qt::AscendingOrder;
     else
         return Qt::DescendingOrder;

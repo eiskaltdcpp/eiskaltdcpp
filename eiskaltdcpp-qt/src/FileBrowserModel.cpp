@@ -414,7 +414,7 @@ static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i){
     static Compare<Qt::AscendingOrder> acomp = Compare<Qt::AscendingOrder>();
     static Compare<Qt::DescendingOrder> dcomp = Compare<Qt::DescendingOrder>();
 
-    if (column < 0 || !i || i->childCount() == 0)
+    if (column < 0 || !i || !i->childCount())
         return;
 
     if (order == Qt::AscendingOrder)
@@ -537,7 +537,7 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
 
         bool found = false;
 
-        if (root->dir && !root->dir->directories.empty() && root->childCount() == 0)//Load child items
+        if (root->dir && !root->dir->directories.empty() && !root->childCount()) //Load child items
             fetchMore(createIndexForItem(root));
 
         foreach(FileBrowserItem *item, root->childItems){
@@ -569,7 +569,7 @@ QModelIndex FileBrowserModel::createIndexForItem(FileBrowserItem *item){
 }
 
 void FileBrowserModel::highlightDuplicates(){
-    if (!rootItem || rootItem->childCount() == 0)
+    if (!rootItem || !rootItem->childCount())
         return;
 
     foreach (FileBrowserItem *i, rootItem->childItems){
@@ -639,7 +639,7 @@ void FileBrowserModel::updateRestriction(QModelIndex &i, unsigned size){
     else
         path = "/";
 
-    if (size == 0 && restrict_map.contains(path))
+    if (!size && restrict_map.contains(path))
         restrict_map.remove(path);
     else {
         restrict_map[path] = size;

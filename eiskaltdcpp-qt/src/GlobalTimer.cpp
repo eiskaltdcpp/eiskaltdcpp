@@ -31,7 +31,7 @@ void GlobalTimer::slotTick() {
     
     emit second();
     
-    if (tickCount % 60 == 0)
+    if ((tickCount % 60) == 0)
         emit minute();
 }
 

@@ -71,7 +71,7 @@ void ActionCustomizer::moveDown(){
 void ActionCustomizer::moveUp(){
     int currentRow = listWidget_ENABLED->currentRow();
 
-    if (currentRow == 0)
+    if (!currentRow)
         return;
 
     QListWidgetItem *currentItem = listWidget_ENABLED->takeItem(currentRow);

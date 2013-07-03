@@ -105,7 +105,7 @@ void HashProgress::timerTick(){
     if(files > startFiles)
         startFiles = files;
 
-    if(autoClose && files == 0) {
+    if(autoClose && !files) {
         accept();
 
         return;;
@@ -145,7 +145,7 @@ void HashProgress::timerTick(){
     }
     progress->setFormat( tr("%p% %1 left").arg(eta) );
 
-    if(files == 0 ) {
+    if(!files) {
         //progress->setValue(10000); // generates anoying blinking 0 -> 100%
         file->setText(tr("Done"));
     } else {

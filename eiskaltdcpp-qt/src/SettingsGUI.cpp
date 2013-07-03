@@ -357,7 +357,7 @@ void SettingsGUI::ok(){
     {//Basic tab
         if (custom_style && comboBox_THEMES->currentIndex() > 0)
             WSSET(WS_APP_THEME, comboBox_THEMES->currentText());
-        else if (comboBox_THEMES->currentIndex() == 0)
+        else if (!comboBox_THEMES->currentIndex())
             WSSET(WS_APP_THEME, "");
 
         if (!lineEdit_APPFONT->text().isEmpty())
@@ -560,7 +560,7 @@ void SettingsGUI::slotSetTransparency(int value){
 }
 
 void SettingsGUI::slotTestAppTheme(){
-    if (comboBox_THEMES->currentIndex() == 0){//Default
+    if (!comboBox_THEMES->currentIndex()){ //Default
         WSSET(WS_APP_THEME, "");
 
         return;

@@ -303,7 +303,7 @@ void TabFrame::prevTab(){
         TabButton *t = qobject_cast<TabButton*>(fr_layout->itemAt(i)->widget());
 
         if (t && t->isChecked()){
-            if (i == 0){
+            if (!i){
                 next = qobject_cast<TabButton*>(fr_layout->itemAt(fr_layout->count()-1)->widget());
                 break;
             }

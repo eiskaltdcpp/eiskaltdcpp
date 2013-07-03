@@ -235,7 +235,7 @@ void UCModel::moveUp(const QModelIndex &i){
 
     UCItem *item = reinterpret_cast<UCItem*>(i.internalPointer());
 
-    if (!rootItem->childItems.contains(item) || item->row() == 0)
+    if (!rootItem->childItems.contains(item) || !item->row())
         return;
 
     emit layoutAboutToBeChanged();

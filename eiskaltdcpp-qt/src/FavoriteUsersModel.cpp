@@ -55,7 +55,7 @@ QVariant FavoriteUsersModel::data(const QModelIndex &index, int role) const
     switch (role) {
         case Qt::DecorationRole: // icon
         {
-            if (index.column() == 0){
+            if (!index.column()){
                 FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
                 for (auto i = ul.begin(); i != ul.end(); ++i) {
