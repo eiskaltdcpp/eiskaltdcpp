@@ -243,7 +243,7 @@ int main(int argc, char* argv[])
 
     Util::PathsMap override;
 
-    if (config_dir[0] != 0) {
+    if (config_dir[0]) {
         string tmp(config_dir);
         tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
         override[Util::PATH_USER_CONFIG] = tmp;
@@ -252,7 +252,7 @@ int main(int argc, char* argv[])
             logging(bDaemon, bsyslog, false, string("ERROR: Config directory: No such file or directory (" + string(config_dir) + ")"));
         }
     }
-    if (local_dir[0] != 0) {
+    if (local_dir[0]) {
         string tmp(local_dir);
         tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
         override[Util::PATH_USER_LOCAL] = tmp;
@@ -293,7 +293,7 @@ int main(int argc, char* argv[])
         if (eidcpp_daemon(true,false) == -1)
             return EXIT_FAILURE;
 
-        if (pidfile[0] != 0)
+        if (pidfile[0])
             writePidFile(pidfile);
     }
 #endif

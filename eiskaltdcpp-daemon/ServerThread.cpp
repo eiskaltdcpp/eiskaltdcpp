@@ -211,7 +211,7 @@ int ServerThread::run() {
 
 bool ServerThread::disconnect_all() {
     for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
-        if (clientsMap[i->first].curclient != NULL)
+        if (clientsMap[i->first].curclient)
             disconnectClient(i->first);
     }
     return true;
@@ -275,7 +275,7 @@ void ServerThread::connectClient(const string& address, const string& encoding) 
 
 void ServerThread::disconnectClient(const string& address) {
     ClientIter i = clientsMap.find(address);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
         Client* cl = i->second.curclient;
         cl->removeListener(this);
         cl->disconnect(true);
@@ -437,7 +437,7 @@ void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr& result) 
         return;
     }
     for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
-        if (clientsMap[i->first].curclient != NULL && i->first == result->getHubURL()) {
+        if (clientsMap[i->first].curclient && i->first == result->getHubURL()) {
             clientsMap[i->first].cursearchresult.push_back(result);
         }
     }
@@ -465,7 +465,7 @@ void ServerThread::showPortsError(const string& port) {
 
 void ServerThread::sendMessage(const string& hubUrl, const string& message) {
     ClientIter i = clientsMap.find(hubUrl);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
         Client* client = i->second.curclient;
         if (client && !message.empty()) {
             bool thirdPerson = !message.compare(0, 3, "/me");
@@ -476,7 +476,7 @@ void ServerThread::sendMessage(const string& hubUrl, const string& message) {
 
 void ServerThread::listConnectedClients(string& listhubs, const string& separator) {
     for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
-        if (clientsMap[i->first].curclient != NULL) {
+        if (clientsMap[i->first].curclient) {
             listhubs.append(i->first);
             listhubs.append(separator);
         }
@@ -490,7 +490,7 @@ bool ServerThread::findHubInConnectedClients(const string& hub) {
 
 bool ServerThread::sendPrivateMessage(const string& hub, const string& nick, const string& message) {
     ClientIter i = clientsMap.find(hub);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
         Client* client = i->second.curclient;
         if (client && !message.empty()) {
             bool thirdPerson = !message.compare(0, 3, "/me");
@@ -512,7 +512,7 @@ bool ServerThread::sendPrivateMessage(const string& hub, const string& nick, con
 
 bool ServerThread::getFileList(const string& hub, const string& nick, bool match) {
     ClientIter i = clientsMap.find(hub);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
         if (!nick.empty()) {
             try {
                 //UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
@@ -1058,14 +1058,14 @@ void ServerThread::matchAllList() {
 
 //void ServerThread::getHubUserList(StringMap& userlist, const string& huburl) {
     //ClientIter i = clientsMap.find(huburl);
-    //if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+    //if (i != clientsMap.end() && clientsMap[i->first].curclient) {
         //userlist = clientsMap[i->first].curuserlist;
     //}
 //}
 
 void ServerThread::getHubUserList(string& userlist, const string& huburl, const string& separator) {
     string tmp = separator.empty()? ";" : separator;
-    if (clientsMap[huburl].curclient != NULL) {
+    if (clientsMap[huburl].curclient) {
         StringMap& ll = clientsMap[huburl].curuserlist;
         for (auto it = ll.begin(); it != ll.end(); ++it) {
             userlist += it->first;
@@ -1149,7 +1149,7 @@ void ServerThread::removeUser(const string& cid, Client* cl)
 
 bool ServerThread::getUserInfo(StringMap& userinfo, const string& nick, const string& huburl) {
     ClientIter i = clientsMap.find(huburl);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient != NULL) {
+    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
         auto it = i->second.curuserlist.find(nick);
         if (it == i->second.curuserlist.end())
             return false;
