@@ -595,7 +595,7 @@ void PrivateMessage::applyEmoticons_gui()
         {
             GList *names = (*it)->getNames();
 
-            for (GList *p = names; p != NULL; p = p->next)
+            for (GList *p = names; p ; p = p->next)
             {
                 if (gtk_text_iter_forward_search(&start_iter,
                     (gchar *)p->data,
@@ -807,7 +807,7 @@ void PrivateMessage::updateCursor(GtkWidget *widget)
     gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(widget), &iter, buf_x, buf_y);
     tagList = gtk_text_iter_get_tags(&iter);
 
-    if (tagList != NULL)
+    if (tagList)
     {
         newTag = GTK_TEXT_TAG(tagList->data);
 
@@ -815,7 +815,7 @@ void PrivateMessage::updateCursor(GtkWidget *widget)
         {
             GSList *nextList = g_slist_next(tagList);
 
-            if (nextList != NULL)
+            if (nextList)
                 newTag = GTK_TEXT_TAG(nextList->data);
             else
                 newTag = NULL;
@@ -828,7 +828,7 @@ void PrivateMessage::updateCursor(GtkWidget *widget)
     if (newTag != selectedTag)
     {
         // Cursor is in transition.
-        if (newTag != NULL)
+        if (newTag)
         {
             // Cursor is entering a tag.
 #if GTK_CHECK_VERSION(3, 0, 0)

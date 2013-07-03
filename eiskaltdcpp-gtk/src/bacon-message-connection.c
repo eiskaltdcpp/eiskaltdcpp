@@ -166,7 +166,7 @@ server_cb (GIOChannel *source, GIOCondition condition, gpointer data)
 
 	while (finished == FALSE && *subs != '\0')
 	{
-		if (conn->func != NULL)
+		if (conn->func)
 			(*conn->func) (subs, conn->data);
 
 		subs += strlen (subs) + 1;
@@ -210,7 +210,7 @@ find_file_with_pattern (const char *dir, const char *pattern)
 			g_free (tmp);
 		}
 
-		if (found_filename != NULL)
+		if (found_filename)
 			break;
 	}
 
@@ -335,7 +335,7 @@ bacon_message_connection_free (BaconMessageConnection *conn)
 			  conn->accepted_connections == NULL);
 
 	child_conn = conn->accepted_connections;
-	while (child_conn != NULL) {
+	while (child_conn) {
 		bacon_message_connection_free (child_conn->data);
 		child_conn = g_slist_next (child_conn);
 	}

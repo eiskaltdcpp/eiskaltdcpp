@@ -557,7 +557,7 @@ void SearchSpy::onSearchItemClicked_gui(GtkMenuItem *item, gpointer data)
     {
         GList *list = gtk_tree_selection_get_selected_rows(s->searchSelection, NULL);
 
-        if (list != NULL)
+        if (list)
         {
             GtkTreeIter iter;
             GtkTreePath *path = (GtkTreePath *) list->data;

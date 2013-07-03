@@ -47,7 +47,7 @@ EmoticonsDialog::~EmoticonsDialog()
 {
     g_object_unref(Menu);
 
-    if (dialog != NULL)
+    if (dialog)
         gtk_widget_destroy(dialog);
 }
 
@@ -266,7 +266,7 @@ void EmoticonsDialog::build()
         GtkWidget *image = NULL;
         GdkPixbuf *pixbuf = (*it)->getPixbuf();
 
-        if (pixbuf != NULL)
+        if (pixbuf)
         {
             gchar *name = (gchar *)(*it)->getNames()->data;
 

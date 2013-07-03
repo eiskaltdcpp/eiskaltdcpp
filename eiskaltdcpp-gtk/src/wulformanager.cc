@@ -111,7 +111,7 @@ WulforManager::WulforManager()
 #if !GLIB_CHECK_VERSION(2,32,0)
     GError *error = NULL;
     guiThread = g_thread_create(threadFunc_gui, (gpointer)this, TRUE, &error);
-    if (error != NULL)
+    if (error)
     {
         cerr << "Unable to create gui thread: " << error->message << endl;
         g_error_free(error);
@@ -121,7 +121,7 @@ WulforManager::WulforManager()
     g_clear_error(&error);
 
     clientThread = g_thread_create(threadFunc_client, (gpointer)this, TRUE, &error);
-    if (error != NULL)
+    if (error)
     {
         cerr << "Unable to create client thread: " << error->message << endl;
         g_error_free(error);
@@ -213,11 +213,11 @@ void WulforManager::deleteMainWindow()
     DialogEntry *hashDialogEntry = getHashDialog_gui();
     DialogEntry *settingsDialogEntry = getSettingsDialog_gui();
 
-    if (hashDialogEntry != NULL)
+    if (hashDialogEntry)
     {
         gtk_dialog_response(GTK_DIALOG(hashDialogEntry->getContainer()), GTK_RESPONSE_OK);
     }
-    if (settingsDialogEntry != NULL)
+    if (settingsDialogEntry)
     {
         dynamic_cast<Settings*>(settingsDialogEntry)->response_gui();
     }

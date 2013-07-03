@@ -364,7 +364,7 @@ void FavoriteUsers::onDescriptionItemClicked_gui(GtkMenuItem *item, gpointer dat
     {
         GList *list = gtk_tree_selection_get_selected_rows(fu->favoriteUserSelection, NULL);
 
-        if (list != NULL)
+        if (list)
         {
             GtkTreeIter iter;
             GtkTreePath *path = (GtkTreePath *) list->data;
