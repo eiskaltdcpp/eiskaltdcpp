@@ -2698,7 +2698,7 @@ static void copyTagToClipboard(QModelIndexList &list){
     foreach ( const QModelIndex &i, list ) {
         item = reinterpret_cast<UserListItem*> ( i.internalPointer() );
 
-        if ( ret.length() > 0 )
+        if ( !ret.isEmpty() )
             ret += "\n";
 
         if ( item )
@@ -2716,7 +2716,7 @@ static void copyTagToClipboard(QModelIndexList &list){
     foreach ( const QModelIndex &i, list ) {
         item = reinterpret_cast<UserListItem*> ( i.internalPointer() );
 
-        if ( ret.length() > 0 )
+        if ( !ret.isEmpty() )
             ret += "\n";
 
         if ( item )
