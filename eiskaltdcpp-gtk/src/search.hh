@@ -66,7 +66,7 @@ class Search:
         void removeHub_gui(std::string url);
         void popupMenu_gui();
         void setStatus_gui(std::string statusBar, std::string text);
-        void setProgress_gui(const std::string& progressBar, const std::string& text, float fraction);
+        void setProgress_gui(const std::string& progressBar, const std::string& text, double fraction);
         void search_gui();
         void addResult_gui(const dcpp::SearchResultPtr result);
         void updateParentRow_gui(GtkTreeIter *parent, GtkTreeIter *child = NULL);

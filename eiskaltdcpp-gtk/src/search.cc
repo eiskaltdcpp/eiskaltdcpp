@@ -441,7 +441,7 @@ void Search::setStatus_gui(string statusBar, string text)
     gtk_statusbar_push(GTK_STATUSBAR(getWidget(statusBar)), 0, text.c_str());
 }
 
-void Search::setProgress_gui(const std::string& progressBar, const std::string& text, float fract)
+void Search::setProgress_gui(const std::string& progressBar, const std::string& text, double fract)
 {
     gtk_progress_bar_set_text(GTK_PROGRESS_BAR(getWidget(progressBar)), text.c_str());
     gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget(progressBar)), fract);
@@ -581,6 +581,8 @@ void Search::search_gui()
 
     if (gtk_widget_get_visible(getWidget("sidePanel")) && !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkDontHideSideOnSearch"))))
         gtk_widget_hide(getWidget("sidePanel"));
+    
+    
 }
 
 void Search::addResult_gui(const SearchResultPtr result)
@@ -1890,15 +1892,19 @@ void Search::on(ClientManagerListener::ClientDisconnected, Client *client) noexc
 }
 
 void Search::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
-    if (waitingResults) {
-        float fraction  = 1.0f*(aTick - searchStartTime)/ (searchEndTime - searchStartTime);
+    if (waitingResults)
+    {
+        double fraction  = 1.0f * (aTick - searchStartTime) / (searchEndTime - searchStartTime);
         if (fraction >= 1.0) {
             fraction = 1.0;
             waitingResults = false;
         }
-        setProgress_gui("progressbar1", _("Searching for ") + target + " ...", fraction);
-    } else
+        setProgress_gui("progressbar1", _("Searching for ") + target + string(" ..."), fraction);
+    }
+    else
+    {
         setProgress_gui("progressbar1", "", 0.0);
+    }
 }
 
 void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept
