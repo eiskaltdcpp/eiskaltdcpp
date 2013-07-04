@@ -22,7 +22,6 @@
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
 #include <iostream>
-#include <gdk/gdkx.h>
 #include <glib/gi18n.h>
 #include "hashdialog.hh"
 #include "settingsdialog.hh"
@@ -268,11 +267,6 @@ void WulforManager::processGuiQueue()
             g_mutex_lock(guiQueueMutex);
         }
         g_mutex_unlock(guiQueueMutex);
-
-        // Don't call gdk_flush() since it actually calls XSync, which can
-        // block waiting on events
-        if (gdk_display_get_default())
-            XFlush(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()));
 
         gdk_threads_leave();
     }
