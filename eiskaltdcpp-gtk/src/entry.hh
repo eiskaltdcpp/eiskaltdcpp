@@ -35,6 +35,7 @@ class Entry
     public:
         typedef enum
         {
+            NONE = 0,
             DOWNLOAD_QUEUE,
             FAVORITE_HUBS,
             FAVORITE_USERS,
@@ -56,8 +57,8 @@ class Entry
             UPLOADQUEUE
         } EntryType;
 
-        Entry() : xml(NULL) {}
-        Entry(const EntryType type, const std::string &ui, const std::string &id = "");
+        Entry() : xml(NULL), type(NONE), id("") {}
+        Entry(const EntryType type = NONE, const std::string &ui = "", const std::string &id = "");
         virtual ~Entry();
 
         const EntryType getType();

@@ -26,8 +26,7 @@
 class BookEntry : public Entry
 {
     public:
-        BookEntry() {}
-        BookEntry(const EntryType type, const std::string &text, const std::string &ui, const std::string &id = "");
+        BookEntry(const EntryType type = EntryType::NONE, const std::string &text = "", const std::string &ui = "", const std::string &id = "");
         virtual ~BookEntry() { }
 
         GtkWidget *getContainer();
