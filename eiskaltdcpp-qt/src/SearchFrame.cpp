@@ -1098,6 +1098,8 @@ void SearchFrame::slotStartSearch(){
 
     d->arena_title = tr("Search - %1").arg(s);
 
+    lineEdit_SEARCHSTR->setEnabled(false);
+
     MW->redrawToolPanel();
 }
 
@@ -1575,6 +1577,7 @@ void SearchFrame::slotTimer(){
         QString msg = "";
         progressBar->setFormat(msg);
         progressBar->setValue(0);
+        lineEdit_SEARCHSTR->setEnabled(true);
     }
 
     if (d->dropped == d->results && !d->dropped){
@@ -1736,4 +1739,5 @@ void SearchFrame::slotStopSearch(){
     Q_D(SearchFrame);
 
     d->stop = true;
+    d->waitingResults = false;
 }
