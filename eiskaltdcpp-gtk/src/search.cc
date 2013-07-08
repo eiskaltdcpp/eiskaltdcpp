@@ -441,7 +441,7 @@ void Search::setStatus_gui(string statusBar, string text)
     gtk_statusbar_push(GTK_STATUSBAR(getWidget(statusBar)), 0, text.c_str());
 }
 
-void Search::setProgress_gui(const std::string& progressBar, const std::string& text, double fract)
+void Search::setProgress_gui(const std::string& progressBar, const std::string& text, float fract)
 {
     gtk_progress_bar_set_text(GTK_PROGRESS_BAR(getWidget(progressBar)), text.c_str());
     gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(getWidget(progressBar)), fract);
@@ -1923,7 +1923,9 @@ void Search::on(ClientManagerListener::ClientDisconnected, Client *client) noexc
 void Search::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
     if (waitingResults)
     {
-        double fraction  = 1.0f * (aTick - searchStartTime) / (searchEndTime - searchStartTime);
+        // use rounding below to workaround bug in gtk_progress_bar_set_fraction()
+        uint fract  = (1000 * (aTick - searchStartTime)) / (searchEndTime - searchStartTime);
+        double fraction  = 1.0f * fract / 1000;
         if (fraction >= 1.0) {
             fraction = 1.0;
             waitingResults = false;
