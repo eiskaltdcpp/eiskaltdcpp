@@ -31,18 +31,18 @@ Entry::Entry(const EntryType type, const string &ui, const string &id):
     type(type),
     id(dcpp::Util::toString(type) + ":" + id)
 {
-        // Load the GtkBuilder XML file, if applicable
-        if (!ui.empty())
-         {
-            string file = WulforManager::get()->getPath() + "/ui/" + ui;
-            GError *error = NULL;
-            xml = gtk_builder_new();
-            gtk_builder_add_from_file(xml,file.c_str(),&error);
-            if (error)
-            {
-                g_print("GTKBUILDER ERROR file => %s ,\n => %s",file.c_str(),error->message);
-                gtk_main_quit();
-            }
+    // Load the GtkBuilder XML file, if applicable
+    if (!ui.empty())
+    {
+        string file = WulforManager::get()->getPath() + "/ui/" + ui;
+        GError *error = NULL;
+        xml = gtk_builder_new();
+        gtk_builder_add_from_file(xml,file.c_str(),&error);
+        if (error)
+        {
+            g_print("GTKBUILDER ERROR file => %s ,\n => %s",file.c_str(),error->message);
+            gtk_main_quit();
+        }
     }
 }
 
