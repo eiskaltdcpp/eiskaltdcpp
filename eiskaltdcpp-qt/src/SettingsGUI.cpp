@@ -200,6 +200,14 @@ void SettingsGUI::init(){
         checkBox_ICONTHEME->setChecked(WBGET("app/use-icon-theme", false));
 #endif
         checkBox_HIDE_ICONS_IN_MENU->setChecked(WBGET("mainwindow/dont-show-icons-in-menus", false));
+
+        // Hide options which do not work in Mac OS X, MS Windows or Haiku:
+#if defined (Q_WS_WIN) || defined (__HAIKU__)
+        checkBox_ICONTHEME->hide();
+#elif defined(Q_WS_MAC)
+        checkBox_ICONTHEME->hide();
+        groupBox_TRAY->hide();
+#endif
     }
     {//Chat tab
         checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
