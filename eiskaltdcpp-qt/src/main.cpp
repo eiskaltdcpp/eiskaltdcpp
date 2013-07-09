@@ -137,6 +137,10 @@ int main(int argc, char *argv[])
     WulforSettings::getInstance()->loadTheme();
 
     WulforUtil::newInstance();
+#if defined(Q_WS_MAC)
+    // Disable system tray functionality in Mac OS X:
+    WBSET(WB_TRAY_ENABLED, false);
+#endif
 
     Text::hubDefaultCharset = WulforUtil::getInstance()->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE)).toStdString();
 
