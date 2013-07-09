@@ -164,7 +164,7 @@ void WulforSettings::load(){
             settings.setValue(WB_MAINWINDOW_HIDE,       static_cast<int>(false));
             settings.setValue(WB_MAINWINDOW_REMEMBER,   static_cast<int>(true));
             settings.setValue(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(true));
-            settings.setValue(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(false));
+            settings.setValue(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(true));
             settings.setValue(WB_SEARCHFILTER_NOFREE,   static_cast<int>(false));
             settings.setValue(WB_SEARCH_DONTHIDEPANEL,  static_cast<int>(false));
             settings.setValue(WB_ANTISPAM_ENABLED,      static_cast<int>(false));
@@ -302,7 +302,7 @@ void WulforSettings::loadOldConfig(){
         intmap.insert(WB_MAINWINDOW_HIDE,       static_cast<int>(false));
         intmap.insert(WB_MAINWINDOW_REMEMBER,   static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(true));
-        intmap.insert(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(false));
+        intmap.insert(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(true));
         intmap.insert(WB_SEARCHFILTER_NOFREE,   static_cast<int>(false));
         intmap.insert(WB_SEARCH_DONTHIDEPANEL,  static_cast<int>(false));
         intmap.insert(WB_ANTISPAM_ENABLED,      static_cast<int>(false));
