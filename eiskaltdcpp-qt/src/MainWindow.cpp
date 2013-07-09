@@ -1913,8 +1913,16 @@ void MainWindow::redrawToolPanel(){
             setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
     }
 
+#if !defined(Q_WS_MAC)
     if (!has_unread)
         Notify->resetTrayIcon();
+#else // !defined(Q_WS_MAC)
+    // Change program icon in dock when there are new unread personal messages.
+    if (has_unread)
+        setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
+    else
+        setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+#endif // !defined(Q_WS_MAC)
 
     emit redrawWidgetPanels();
 }
