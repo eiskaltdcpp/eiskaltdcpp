@@ -48,6 +48,7 @@ Search::Search():
 #endif
 
     // Initialize variables for search progressbar
+    stop = true;
     waitingResults = false;
     searchStartTime = 0;
     searchEndTime = 1;
@@ -449,6 +450,14 @@ void Search::setProgress_gui(const std::string& progressBar, const std::string& 
 
 void Search::search_gui()
 {
+    if (!stop)
+    {
+        stop = true;
+        waitingResults = false;
+        gtk_button_set_label(GTK_BUTTON(getWidget("buttonSearch")), _("Search"));
+        return;
+    }
+
     StringList clients;
     GtkTreeIter iter;
 
@@ -575,14 +584,17 @@ void Search::search_gui()
 
     searchEndTime = searchStartTime + maxDelayBeforeSearch + waitingResultsTime;
     waitingResults = true;
+    stop = false;
 
     if (WGETB("clearsearch")) // Only clear if the search was sent.
         gtk_entry_set_text(GTK_ENTRY(searchEntry), "");
 
-    if (gtk_widget_get_visible(getWidget("sidePanel")) && !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkDontHideSideOnSearch"))))
+    if (gtk_widget_get_visible(getWidget("sidePanel")) &&
+       !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkDontHideSideOnSearch"))))
         gtk_widget_hide(getWidget("sidePanel"));
-    
-    
+
+    gtk_widget_set_sensitive(getWidget("comboboxentrySearch"), FALSE);
+    gtk_button_set_label(GTK_BUTTON(getWidget("buttonSearch")), _("Stop"));
 }
 
 void Search::addResult_gui(const SearchResultPtr result)
@@ -1926,7 +1938,8 @@ void Search::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
         // use rounding below to workaround bug in gtk_progress_bar_set_fraction()
         uint fract  = (1000 * (aTick - searchStartTime)) / (searchEndTime - searchStartTime);
         double fraction  = 1.0f * fract / 1000;
-        if (fraction >= 1.0) {
+        if (fraction >= 1.0)
+        {
             fraction = 1.0;
             waitingResults = false;
         }
@@ -1935,12 +1948,13 @@ void Search::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
     else
     {
         setProgress_gui("progressbar1", "", 0.0);
+        gtk_widget_set_sensitive(getWidget("comboboxentrySearch"), TRUE);
     }
 }
 
 void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept
 {
-    if (searchlist.empty() || !result)
+    if (searchlist.empty() || !result || stop)
         return;
 
     typedef Func2<Search, string, string> F2;
