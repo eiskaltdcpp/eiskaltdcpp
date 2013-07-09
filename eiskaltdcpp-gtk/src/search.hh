@@ -148,6 +148,7 @@ class Search:
         uint64_t searchEndTime;
         uint64_t searchStartTime;
         bool waitingResults;
+        bool stop;
         UserCommandMenu *userCommandMenu;
         GroupType previousGrouping;
         std::unordered_map<std::string, std::vector<dcpp::SearchResultPtr> > results;
