@@ -51,11 +51,6 @@ void SettingsNotification::init(){
         }
 
         comboBox->setCurrentIndex(WIGET(WI_NOTIFY_MODULE));
-
-        // Hide options which do not work in Mac OS X:
-#if defined(Q_WS_MAC)
-        frame->hide();
-#endif
     }
     {//Sound
         QString encoded = WSGET(WS_NOTIFY_SOUNDS);

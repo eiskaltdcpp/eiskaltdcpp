@@ -12,6 +12,10 @@ else (USE_QT_QML)
   message (STATUS "Building without Qt Declarative UI support")
 endif (USE_QT_QML)
 
+if (APPLE OR WIN32 OR HAIKU)
+    set (DBUS_NOTIFY OFF)
+endif ()
+
 if (DBUS_NOTIFY)
     find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
     message (STATUS "Building with Qt DBus support")

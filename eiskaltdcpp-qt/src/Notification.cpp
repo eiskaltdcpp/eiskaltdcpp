@@ -156,6 +156,7 @@ void Notification::switchModule(int m){
 }
 
 void Notification::showMessage(int t, const QString &title, const QString &msg){
+    // On Mac OS X, the Growl notification system must be installed for this function to display messages.
     if (WBGET(WB_NOTIFY_ENABLED) && !supressTxt){
         do {
             if (title.isEmpty() || msg.isEmpty())
