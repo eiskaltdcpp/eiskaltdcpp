@@ -272,6 +272,9 @@ friend class dcpp::Singleton<MainWindow>;
         void initToolbar();
         void initSideBar();
         void initFavHubMenu();
+#if defined(Q_WS_MAC)
+        void initDockMenuBar();
+#endif
 
         void toggleSingletonWidget(ArenaWidget *a);
 

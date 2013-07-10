@@ -67,14 +67,16 @@ public Q_SLOTS:
     void switchModule(int);
     void showMessage(int t, const QString&, const QString&);
 
+    void slotShowHide();
+    void slotSupressTxt();
+    void slotSupressSnd();
+    void slotShowSpeedLimits();
+
 private Q_SLOTS:
     void slotExit();
-    void slotShowHide();
     void slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason);
     void slotCmdFinished(bool, QString);
     void slotCheckTray();
-    void slotShowSpeedLimits();
-    void slotSupress();
 
 private:
     explicit Notification(QObject *parent = 0);
