@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-25 16:01+0300\n"
+"POT-Creation-Date: 2013-07-11 00:58+0300\n"
 "PO-Revision-Date: 2013-06-21 12:22+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -94,7 +94,7 @@ msgstr " törölve a favoritok közül"
 msgid " to "
 msgstr ""
 
-#: ../src/search.cc:702
+#: ../src/search.cc:716
 msgid " user(s)"
 msgstr " felhasználó(k)"
 
@@ -778,8 +778,8 @@ msgstr "Fájl böngészése..."
 msgid "Browse the list of public hubs"
 msgstr "Publikus hublista böngészése"
 
-#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:356
-#: ../src/search.cc:427 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
+#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:357
+#: ../src/search.cc:428 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
 #: ../ui/hub.ui:231 ../ui/settingsdialog.ui:2646 ../ui/settingsdialog.ui:2716
 #: ../ui/settingsdialog.ui:6688 ../ui/settingsdialog.ui:8001
 #: ../ui/settingsdialog.ui:8019 ../ui/settingsdialog.ui:8037
@@ -918,7 +918,7 @@ msgstr "Könyvtár választása"
 msgid "Chose A File"
 msgstr "Fájl választása"
 
-#: ../ui/searchspy.ui:124 ../ui/searchspy.ui:340 ../ui/search.ui:266
+#: ../ui/searchspy.ui:124 ../ui/searchspy.ui:340 ../ui/search.ui:242
 msgid "Clear"
 msgstr "Törlés"
 
@@ -1045,8 +1045,8 @@ msgstr "Csatlakozás: "
 msgid "Connecting..."
 msgstr "Kapcsolódás..."
 
-#: ../src/hub.cc:90 ../src/hub.cc:409 ../src/hub.cc:429 ../src/search.cc:105
-#: ../src/search.cc:643 ../src/search.cc:728 ../src/search.cc:861
+#: ../src/hub.cc:90 ../src/hub.cc:409 ../src/hub.cc:429 ../src/search.cc:106
+#: ../src/search.cc:657 ../src/search.cc:742 ../src/search.cc:875
 #: ../ui/settingsdialog.ui:1883 ../ui/settingsdialog.ui:2585
 msgid "Connection"
 msgstr "Kapcsolat"
@@ -1157,7 +1157,7 @@ msgstr "Közvetlen kapcsolat"
 #: ../src/settingsdialog.cc:3745 ../src/settingsdialog.cc:3765
 #: ../src/settingsdialog.cc:3794 ../src/settingsdialog.cc:3808
 #: ../src/settingsdialog.cc:3863 ../src/sharebrowser.cc:330
-#: ../src/UserCommandMenu.cc:66 ../src/search.cc:907 ../src/search.cc:1714
+#: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/settingsdialog.ui:6664
 msgid "Directory"
 msgstr "Könyvtár"
@@ -1194,7 +1194,7 @@ msgstr "Már megosztott fájlok letöltésének kihagyása"
 msgid "Don't download files already in the queue"
 msgstr "Ne töltse le azokat a fájlokat, amik már a Letöltési sorban vannak"
 
-#: ../ui/search.ui:573
+#: ../ui/search.ui:549
 msgid "Don't hide side panel on search"
 msgstr "Ne rejtse el az oldal panelt keresésnél"
 
@@ -1225,11 +1225,11 @@ msgstr "Találatok letöltése"
 msgid "Download Queue"
 msgstr "Letöltési sor"
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:688 ../ui/hub.ui:221
+#: ../ui/privatemessage.ui:178 ../ui/search.ui:664 ../ui/hub.ui:221
 msgid "Download _to..."
 msgstr "Letöltés _ide..."
 
-#: ../ui/search.ui:702
+#: ../ui/search.ui:678
 msgid "Download _whole directory"
 msgstr "Egész _könyvtár letöltése"
 
@@ -1299,7 +1299,7 @@ msgstr "Letöltés ide"
 msgid "Download to..."
 msgstr "Letöltés ide... "
 
-#: ../ui/search.ui:711
+#: ../ui/search.ui:687
 msgid "Download whole director_y to..."
 msgstr "Egész könyvtá_r letöltése ide..."
 
@@ -1328,7 +1328,7 @@ msgstr "Letöltések"
 msgid "Drop sources below"
 msgstr "Forrás eldobása ekkora sebesség alatt"
 
-#: ../src/search.cc:1929
+#: ../src/search.cc:1980
 msgid "Dropped: "
 msgstr " eldobva"
 
@@ -1433,9 +1433,9 @@ msgstr "Minden alkalommal, mikor privát üzenet érkezik"
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
 #: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
 #: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:108
-#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:107
-#: ../src/search.cc:130 ../src/search.cc:645 ../src/search.cc:722
-#: ../src/search.cc:731
+#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:108
+#: ../src/search.cc:131 ../src/search.cc:659 ../src/search.cc:736
+#: ../src/search.cc:745
 msgid "Exact Size"
 msgstr "Pontos méret"
 
@@ -1577,11 +1577,11 @@ msgstr "Fájl-lista menü"
 #: ../src/sharebrowser.cc:658 ../src/sharebrowser.cc:1025
 #: ../src/sharebrowser.cc:1059 ../src/finishedtransfers.cc:63
 #: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
-#: ../src/transfers.cc:715 ../src/search.cc:99 ../src/search.cc:132
-#: ../src/search.cc:371 ../src/search.cc:638 ../src/search.cc:679
-#: ../src/search.cc:684 ../src/search.cc:852 ../src/search.cc:900
-#: ../src/search.cc:910 ../src/search.cc:1222 ../src/search.cc:1261
-#: ../src/search.cc:1318 ../src/search.cc:1659 ../src/search.cc:1984
+#: ../src/transfers.cc:715 ../src/search.cc:100 ../src/search.cc:133
+#: ../src/search.cc:372 ../src/search.cc:652 ../src/search.cc:693
+#: ../src/search.cc:698 ../src/search.cc:866 ../src/search.cc:914
+#: ../src/search.cc:924 ../src/search.cc:1253 ../src/search.cc:1293
+#: ../src/search.cc:1351 ../src/search.cc:1702 ../src/search.cc:2036
 msgid "Filename"
 msgstr "Fájlnév"
 
@@ -1597,7 +1597,7 @@ msgstr "Fájlok: "
 msgid "Filter by IP"
 msgstr "Szűrés IP alapján"
 
-#: ../ui/search.ui:502
+#: ../ui/search.ui:478
 msgid "Filter files already in share"
 msgstr "Megosztásban lévő fájlok kiszűrése"
 
@@ -1605,11 +1605,11 @@ msgstr "Megosztásban lévő fájlok kiszűrése"
 msgid "Filter kick and NMDC debug messages"
 msgstr "Kick és NMDC debug  üzenetek szűrése"
 
-#: ../src/search.cc:1916
+#: ../src/search.cc:1967
 msgid "Filtered: "
 msgstr " kiszűrve"
 
-#: ../src/search.cc:566
+#: ../src/search.cc:575
 msgid "Filtered: 0"
 msgstr " kiszűrve"
 
@@ -1665,12 +1665,12 @@ msgstr "Formátum"
 msgid "Found a match"
 msgstr "Találat"
 
-#: ../src/search.cc:662
+#: ../src/search.cc:676
 #, fuzzy
 msgid "Found: "
 msgstr "Találat: 0"
 
-#: ../src/search.cc:565
+#: ../src/search.cc:574
 msgid "Found: 0"
 msgstr "Találat: 0"
 
@@ -1748,7 +1748,7 @@ msgstr "Görög"
 msgid "Greek translation\n"
 msgstr "Görög fordítás\n"
 
-#: ../ui/search.ui:406
+#: ../ui/search.ui:382
 msgid "Group by"
 msgstr "Csoportosítás eszerint"
 
@@ -1781,7 +1781,7 @@ msgstr "M_agas"
 msgid "Hash"
 msgstr "Index"
 
-#: ../ui/search.ui:280
+#: ../ui/search.ui:256
 msgid "Hide side panel"
 msgstr "Kedvencek listájának megjelenítése"
 
@@ -1814,8 +1814,8 @@ msgstr "Weboldal"
 #: ../src/settingsdialog.cc:3985 ../src/settingsdialog.cc:4076
 #: ../src/settingsdialog.cc:4099 ../src/settingsdialog.cc:4118
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
-#: ../src/search.cc:106 ../src/search.cc:644 ../src/search.cc:741
-#: ../src/search.cc:870
+#: ../src/search.cc:107 ../src/search.cc:658 ../src/search.cc:755
+#: ../src/search.cc:884
 msgid "Hub"
 msgstr "Hub"
 
@@ -1851,7 +1851,7 @@ msgstr "Csatlakozva a hubhoz"
 msgid "Hub disconnected"
 msgstr "Hub szétkapcsolva"
 
-#: ../ui/search.ui:534 ../ui/mainwindow.ui:2170 ../ui/mainwindow.ui:2425
+#: ../ui/search.ui:510 ../ui/mainwindow.ui:2170 ../ui/mainwindow.ui:2425
 msgid "Hubs"
 msgstr "Hubok: "
 
@@ -1871,7 +1871,7 @@ msgstr "Magyar"
 msgid "Hungarian translation\n"
 msgstr "Magyar fordítás\n"
 
-#: ../src/transfers.cc:69 ../src/search.cc:108 ../src/search.cc:646
+#: ../src/transfers.cc:69 ../src/search.cc:109 ../src/search.cc:660
 msgid "IP"
 msgstr "IP"
 
@@ -2284,8 +2284,8 @@ msgstr "N_ick:"
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
-#: ../src/publichubs.cc:295 ../src/search.cc:86 ../src/search.cc:259
-#: ../src/search.cc:275 ../ui/settingsdialog.ui:774
+#: ../src/publichubs.cc:295 ../src/search.cc:87 ../src/search.cc:260
+#: ../src/search.cc:276 ../ui/settingsdialog.ui:774
 msgid "Name"
 msgstr "Név"
 
@@ -2326,8 +2326,8 @@ msgstr "Következő"
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:63
 #: ../src/favoriteusers.cc:64 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:376 ../src/favoriteusers.cc:429
-#: ../src/favoriteusers.cc:586 ../src/search.cc:100 ../src/search.cc:637
-#: ../src/search.cc:703 ../src/search.cc:737 ../src/search.cc:867
+#: ../src/favoriteusers.cc:586 ../src/search.cc:101 ../src/search.cc:651
+#: ../src/search.cc:717 ../src/search.cc:751 ../src/search.cc:881
 #: ../ui/settingsdialog.ui:1199
 msgid "Nick"
 msgstr "Nick"
@@ -2423,7 +2423,7 @@ msgstr "Online"
 msgid "Only show joins / parts for favorite users"
 msgstr "Csak a kedvenc felhasználók ki és belépésének mutatása a chaten"
 
-#: ../ui/search.ui:479
+#: ../ui/search.ui:455
 msgid "Only users with free slots"
 msgstr "Csak szabad slottal rendelkező felhasználók"
 
@@ -2504,11 +2504,11 @@ msgstr "Jelszó"
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
 #: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:515
-#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:103
-#: ../src/search.cc:372 ../src/search.cc:641 ../src/search.cc:718
-#: ../src/search.cc:855 ../src/search.cc:909 ../src/search.cc:1221
-#: ../src/search.cc:1260 ../src/search.cc:1317 ../src/search.cc:1382
-#: ../src/search.cc:1416 ../src/search.cc:1985
+#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:104
+#: ../src/search.cc:373 ../src/search.cc:655 ../src/search.cc:732
+#: ../src/search.cc:869 ../src/search.cc:923 ../src/search.cc:1252
+#: ../src/search.cc:1292 ../src/search.cc:1350 ../src/search.cc:1417
+#: ../src/search.cc:1452 ../src/search.cc:2037
 msgid "Path"
 msgstr "Útvonal"
 
@@ -2729,7 +2729,7 @@ msgstr "Lassú fájl-listák eltávolítása"
 msgid "Remove user favorite"
 msgstr "Kedvenc felhasználó törlése"
 
-#: ../ui/search.ui:809 ../ui/downloadqueue.ui:345
+#: ../ui/search.ui:785 ../ui/downloadqueue.ui:345
 msgid "Remove user from _queue"
 msgstr "Felhasználó törlése a _sorból"
 
@@ -2782,12 +2782,12 @@ msgid "Say a third person"
 msgstr "Beszéd harmadik személyben"
 
 #: ../src/settingsdialog.cc:1136 ../src/settingsdialog.cc:1421
-#: ../src/settingsdialog.cc:1479 ../src/search.cc:40 ../src/search.cc:85
-#: ../src/search.cc:92 ../src/search.cc:258 ../src/search.cc:462
-#: ../src/search.cc:1104 ../src/search.cc:1105 ../src/search.cc:1963
-#: ../ui/searchspy.ui:94 ../ui/searchspy.ui:401 ../ui/mainwindow.ui:1230
-#: ../ui/mainwindow.ui:2203 ../ui/mainwindow.ui:2481
-#: ../ui/settingsdialog.ui:8426
+#: ../src/settingsdialog.cc:1479 ../src/search.cc:40 ../src/search.cc:86
+#: ../src/search.cc:93 ../src/search.cc:259 ../src/search.cc:457
+#: ../src/search.cc:471 ../src/search.cc:1130 ../src/search.cc:1131
+#: ../src/search.cc:2015 ../ui/searchspy.ui:94 ../ui/searchspy.ui:401
+#: ../ui/search.ui:227 ../ui/mainwindow.ui:1230 ../ui/mainwindow.ui:2203
+#: ../ui/mainwindow.ui:2481 ../ui/settingsdialog.ui:8426
 msgid "Search"
 msgstr "Keresés"
 
@@ -2827,7 +2827,7 @@ msgstr "Fájlok keresése letöltéshez"
 msgid "Search history"
 msgstr "Keresési előzmény"
 
-#: ../ui/search.ui:448
+#: ../ui/search.ui:424
 msgid "Search options"
 msgstr "Keresési opciók"
 
@@ -2841,11 +2841,11 @@ msgstr "Keresési spam érzékelve a következőtől: "
 msgid "Search type"
 msgstr "Keresés típusa"
 
-#: ../ui/search.ui:458
+#: ../ui/search.ui:434
 msgid "Search within local results"
 msgstr "Keresés a helyi találatok között"
 
-#: ../src/search.cc:1899
+#: ../src/search.cc:1946
 msgid "Searching for "
 msgstr "Keresés erre: "
 
@@ -2878,7 +2878,7 @@ msgstr "Privát üzenet küldése dupla kattintásra a felhasználói listában"
 msgid "Send Private Message"
 msgstr "Privát üzenet"
 
-#: ../ui/search.ui:782 ../ui/downloadqueue.ui:297
+#: ../ui/search.ui:758 ../ui/downloadqueue.ui:297
 msgid "Send _private message"
 msgstr "_Privát üzenet küldése"
 
@@ -2890,7 +2890,7 @@ msgstr "Nickenként egyszer küldje el"
 msgid "Send unknown /commands to the hub"
 msgstr "Ismeretlen /parancsok elküldése a hubnak"
 
-#: ../src/search.cc:572
+#: ../src/search.cc:581
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr "ADC kiterjesztése(ek) elküldve : %s\n"
@@ -3038,9 +3038,9 @@ msgstr ""
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
 #: ../src/sharebrowser.cc:327 ../src/sharebrowser.cc:358
 #: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
-#: ../src/transfers.cc:729 ../src/search.cc:102 ../src/search.cc:129
-#: ../src/search.cc:640 ../src/search.cc:723 ../src/search.cc:732
-#: ../src/search.cc:858 ../ui/search.ui:318 ../ui/mainwindow.ui:118
+#: ../src/transfers.cc:729 ../src/search.cc:103 ../src/search.cc:130
+#: ../src/search.cc:654 ../src/search.cc:737 ../src/search.cc:746
+#: ../src/search.cc:872 ../ui/search.ui:294 ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Méret"
 
@@ -3065,7 +3065,7 @@ msgstr "Slot biztosítva"
 msgid "Slot granted to "
 msgstr "Slot biztosítva: "
 
-#: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:639
+#: ../src/search.cc:105 ../src/search.cc:132 ../src/search.cc:653
 msgid "Slots"
 msgstr "Slotok"
 
@@ -3153,6 +3153,10 @@ msgstr "Státusz"
 msgid "Status message"
 msgstr "Státusz üzenet"
 
+#: ../src/search.cc:597
+msgid "Stop"
+msgstr ""
+
 #: ../src/settingsdialog.cc:1055 ../src/WulforUtil.cc:42
 msgid "System default"
 msgstr "Rendszer alapértelmezés"
@@ -3174,10 +3178,10 @@ msgstr "TIS-620 (Thai)"
 #: ../src/downloadqueue.cc:757 ../src/sharebrowser.cc:87
 #: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:362
 #: ../src/sharebrowser.cc:567 ../src/sharebrowser.cc:1027
-#: ../src/sharebrowser.cc:1061 ../src/search.cc:109 ../src/search.cc:374
-#: ../src/search.cc:378 ../src/search.cc:384 ../src/search.cc:647
-#: ../src/search.cc:734 ../src/search.cc:864 ../src/search.cc:915
-#: ../src/search.cc:1183 ../src/search.cc:1348 ../src/search.cc:1661
+#: ../src/sharebrowser.cc:1061 ../src/search.cc:110 ../src/search.cc:375
+#: ../src/search.cc:379 ../src/search.cc:385 ../src/search.cc:661
+#: ../src/search.cc:748 ../src/search.cc:878 ../src/search.cc:929
+#: ../src/search.cc:1213 ../src/search.cc:1382 ../src/search.cc:1704
 #: ../ui/mainwindow.ui:132
 msgid "TTH"
 msgstr "TTH"
@@ -3327,8 +3331,8 @@ msgid "Trusted certificates path"
 msgstr "Megbízható tanúsítványok helye"
 
 #: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:330
-#: ../src/sharebrowser.cc:351 ../src/search.cc:101 ../src/search.cc:642
-#: ../src/search.cc:746 ../src/search.cc:873 ../src/search.cc:907
+#: ../src/sharebrowser.cc:351 ../src/search.cc:102 ../src/search.cc:656
+#: ../src/search.cc:760 ../src/search.cc:887 ../src/search.cc:921
 msgid "Type"
 msgstr "Típus"
 
@@ -3721,7 +3725,7 @@ msgstr "[U]"
 msgid "[Z]"
 msgstr "[Z]"
 
-#: ../ui/search.ui:791 ../ui/transfers.ui:63 ../ui/hub.ui:598
+#: ../ui/search.ui:767 ../ui/transfers.ui:63 ../ui/hub.ui:598
 msgid "_Add to favorites"
 msgstr "_Hozzáadás a kedvencekhez"
 
@@ -3729,7 +3733,7 @@ msgstr "_Hozzáadás a kedvencekhez"
 msgid "_Address:"
 msgstr "_Cím:"
 
-#: ../ui/search.ui:755 ../ui/transfers.ui:36 ../ui/favoriteusers.ui:158
+#: ../ui/search.ui:731 ../ui/transfers.ui:36 ../ui/favoriteusers.ui:158
 #: ../ui/downloadqueue.ui:283 ../ui/hub.ui:556
 msgid "_Browse file list"
 msgstr "Fájl-lista _böngészése"
@@ -3747,7 +3751,7 @@ msgstr "Ablak _bezárása"
 msgid "_Copy link"
 msgstr "_Link másolása"
 
-#: ../ui/privatemessage.ui:201 ../ui/search.ui:740 ../ui/sharebrowser.ui:164
+#: ../ui/privatemessage.ui:201 ../ui/search.ui:716 ../ui/sharebrowser.ui:164
 #: ../ui/downloadqueue.ui:191 ../ui/hub.ui:244
 msgid "_Copy magnet"
 msgstr "Magnet _másolása"
@@ -3764,7 +3768,7 @@ msgstr "_Kép másolása"
 msgid "_Description:"
 msgstr "_Leírás:"
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:679 ../ui/hub.ui:212
+#: ../ui/privatemessage.ui:169 ../ui/search.ui:655 ../ui/hub.ui:212
 msgid "_Download"
 msgstr "_Letöltés"
 
@@ -3784,7 +3788,7 @@ msgstr "_Fájl"
 msgid "_Force attempt"
 msgstr "_Kényszerítés"
 
-#: ../ui/search.ui:800 ../ui/transfers.ui:72
+#: ../ui/search.ui:776 ../ui/transfers.ui:72
 msgid "_Grant extra slot"
 msgstr "_Extra slot biztosítása"
 
@@ -3812,7 +3816,7 @@ msgstr "_Legalacsonyabb"
 msgid "_Magnet Choice"
 msgstr "_Magnet lehetőségek"
 
-#: ../ui/search.ui:773
+#: ../ui/search.ui:749
 msgid "_Match Queue"
 msgstr "_Sor egyeztetése"
 
@@ -3852,7 +3856,7 @@ msgstr "_Hub megnyitása"
 msgid "_Open link in default application"
 msgstr "_Link megnyitása az alapértelmezett alkalmazással"
 
-#: ../ui/search.ui:764 ../ui/hub.ui:565
+#: ../ui/search.ui:740 ../ui/hub.ui:565
 msgid "_Open partial file list"
 msgstr "_Részleges fájllisták megnyitása"
 
@@ -3888,7 +3892,7 @@ msgstr "_Gyors csatlakozás"
 msgid "_Refresh file list"
 msgstr "Fájl-lista frissítése"
 
-#: ../ui/searchspy.ui:108 ../ui/searchspy.ui:416 ../ui/search.ui:838
+#: ../ui/searchspy.ui:108 ../ui/searchspy.ui:416 ../ui/search.ui:814
 #: ../ui/favoriteusers.ui:227 ../ui/downloadqueue.ui:170
 #: ../ui/downloadqueue.ui:359 ../ui/adlsearch.ui:553
 msgid "_Remove"
@@ -3902,11 +3906,7 @@ msgstr "_Eltávolítás a kedvencekből"
 msgid "_Remove user from queue"
 msgstr "_Felhasználó törlése a sorból"
 
-#: ../ui/search.ui:244
-msgid "_Search"
-msgstr "_Keresés"
-
-#: ../ui/search.ui:731 ../ui/sharebrowser.ui:155 ../ui/downloadqueue.ui:182
+#: ../ui/search.ui:707 ../ui/sharebrowser.ui:155 ../ui/downloadqueue.ui:182
 msgid "_Search for alternates"
 msgstr "_Alternatívák keresése"
 
@@ -3930,7 +3930,7 @@ msgstr "_Eszközök"
 msgid "_User Description:"
 msgstr "_Felhasználói leírás:"
 
-#: ../ui/search.ui:818 ../ui/hub.ui:640
+#: ../ui/search.ui:794 ../ui/hub.ui:640
 msgid "_User commands"
 msgstr "_Felhasználó parancsok"
 
@@ -4028,6 +4028,9 @@ msgstr ""
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "várakozás..."
+
+#~ msgid "_Search"
+#~ msgstr "_Keresés"
 
 #~ msgid " items"
 #~ msgstr " items"
