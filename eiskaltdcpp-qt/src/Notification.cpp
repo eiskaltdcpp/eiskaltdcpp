@@ -98,11 +98,9 @@ void Notification::enableTray(bool enable){
         QAction *actSupressSnd = new QAction(tr("Supress sound notifications"), menuAdditional);
         QAction *actSupressTxt = new QAction(tr("Supress text notifications"), menuAdditional);
 
-        actSupressSnd->setObjectName("actSupressSnd");
         actSupressSnd->setCheckable(true);
         actSupressSnd->setChecked(false);
 
-        actSupressTxt->setObjectName("actSupressTxt");
         actSupressTxt->setCheckable(true);
         actSupressTxt->setChecked(false);
 
@@ -122,8 +120,8 @@ void Notification::enableTray(bool enable){
         connect(close_app, SIGNAL(triggered()), this, SLOT(slotExit()));
         connect(tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
                 this, SLOT(slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason)));
-        connect(actSupressTxt, SIGNAL(triggered()), this, SLOT(slotSupress()));
-        connect(actSupressSnd, SIGNAL(triggered()), this, SLOT(slotSupress()));
+        connect(actSupressTxt, SIGNAL(triggered()), this, SLOT(slotSupressTxt()));
+        connect(actSupressSnd, SIGNAL(triggered()), this, SLOT(slotSupressSnd()));
         connect(setup_speed_lim, SIGNAL(triggered()), this, SLOT(slotShowSpeedLimits()));
 
         menu->addAction(show_hide);
@@ -322,14 +320,16 @@ void Notification::slotCheckTray(){
     timer->deleteLater();
 }
 
-void Notification::slotSupress(){
+void Notification::slotSupressTxt(){
     QAction *act = qobject_cast<QAction*>(sender());
+    if (!act) return;
+    supressTxt = act->isChecked();
+}
 
-    if (!act)
-        return;
-
-    bool &b = ((act->objectName() == "actSupressSnd")? supressSnd : supressTxt);
-    b = act->isChecked();
+void Notification::slotSupressSnd(){
+    QAction *act = qobject_cast<QAction*>(sender());
+    if (!act) return;
+    supressSnd = act->isChecked();
 }
 
 void Notification::resetTrayIcon(){

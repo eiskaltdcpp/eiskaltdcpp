@@ -332,32 +332,12 @@ void MainWindow::setUnload ( bool b ) {
 void MainWindow::closeEvent(QCloseEvent *c_e){
     Q_D(MainWindow);
 
-#if !defined(Q_WS_MAC)
     if (!d->isUnload && WBGET(WB_TRAY_ENABLED)){
         hide();
         c_e->ignore();
 
         return;
     }
-#else // !defined(Q_WS_MAC)
-    // GUI programs in Mac OS X are always present in dock.
-    // Even if they try to be minimized to system tray.
-    // To make it possible getting program window from dock
-    // it should be minimized to dock, but not hidden.
-    if (!d->isUnload){
-        getWindowGeometry();
-
-        showMinimized();
-        c_e->ignore();
-
-        if (WBGET(WB_APP_AUTO_AWAY)){
-            Util::setAway(true);
-            d->toolsAwayOn->setChecked(true);
-        }
-
-        return;
-    }
-#endif // !defined(Q_WS_MAC)
 
     if (d->isUnload && WBGET(WB_EXIT_CONFIRM) && !d->exitBegin){
         QMessageBox::StandardButton ret;
@@ -574,6 +554,9 @@ void MainWindow::init(){
     initActions();
 
     initMenuBar();
+#if defined(Q_WS_MAC)
+    initDockMenuBar()
+#endif
 
     initStatusBar();
 
@@ -633,11 +616,9 @@ void MainWindow::loadSettings(){
     d->panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
 
     if (d->sideDock){
-#if !defined(Q_WS_MAC)
         if (d->sideDock->isFloating() && WBGET(WB_MAINWINDOW_HIDE) && WBGET(WB_TRAY_ENABLED))
             d->sideDock->hide();
         else
-#endif
             d->sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
     } else if ( findChild<MultiLineToolBar*> ( "multiLineTabbar" ) ) {
         findChild<MultiLineToolBar*> ( "multiLineTabbar" )->setVisible ( WBGET ( WB_WIDGETS_PANEL_VISIBLE ) );
@@ -684,17 +665,8 @@ void MainWindow::saveSettings(){
         WISET(WI_MAINWINDOW_Y, d->yPos);
     }
 
-#if !defined(Q_WS_MAC)
     if (WBGET(WB_MAINWINDOW_REMEMBER))
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
-#else // !defined(Q_WS_MAC)
-    // GUI programs in Mac OS X are always present in dock.
-    // Even if they try to be minimized to system tray.
-    // To make it possible getting program window from dock
-    // it should be minimized to dock, but not hidden.
-    if (WBGET(WB_MAINWINDOW_REMEMBER))
-        WBSET(WB_MAINWINDOW_HIDE, isMinimized());
-#endif // !defined(Q_WS_MAC)
 
     QString dockwidgetsState = QString::fromAscii(saveState().toBase64());
     WSSET(WS_MAINWINDOW_STATE, dockwidgetsState);
@@ -2504,20 +2476,9 @@ void MainWindow::slotShowMainMenu() {
 void MainWindow::slotHideWindow(){
     Q_D(MainWindow);
 
-#if !defined(Q_WS_MAC)
     if (!d->isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
         hide();
     }
-#else // !defined(Q_WS_MAC)
-    // GUI programs in Mac OS X are always present in dock.
-    // Even if they try to be minimized to system tray.
-    // To make it possible getting program window from dock
-    // it should be minimized to dock, but not hidden.
-    if (!d->isUnload && !isActiveWindow()) {
-        close();
-    }
-#endif // !defined(Q_WS_MAC)
-
 }
 
 void MainWindow::slotHideProgressSpace() {
@@ -2982,3 +2943,44 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) noexcept
 
     emit coreUpdateStats(map);
 }
+
+#if defined(Q_WS_MAC)
+void MainWindow::initDockMenuBar(){
+    QMenu *menu = new QMenu(this);
+    menu->setTitle("EiskaltDC++");
+
+    QMenu *menuAdditional = new QMenu(tr("Additional"), MainWindow::getInstance());
+    QAction *actSupressSnd = new QAction(tr("Supress sound notifications"), menuAdditional);
+    QAction *actSupressTxt = new QAction(tr("Supress text notifications"), menuAdditional);
+
+    actSupressSnd->setCheckable(true);
+    actSupressSnd->setChecked(false);
+
+    actSupressTxt->setCheckable(true);
+    actSupressTxt->setChecked(false);
+
+    menuAdditional->addActions(QList<QAction*>() << actSupressTxt << actSupressSnd);
+
+    QAction *show_hide = new QAction(tr("Show/Hide window"), menu);
+    QAction *setup_speed_lim = new QAction(tr("Setup speed limits"), menu);
+    QAction *sep = new QAction(menu);
+    sep->setSeparator(true);
+
+    setup_speed_lim->setIcon(WICON(WulforUtil::eiSPEED_LIMIT_ON));
+    show_hide->setIcon(WICON(WulforUtil::eiHIDEWINDOW));
+
+    Notification *N = Notification::getInstance();
+    connect(show_hide, SIGNAL(triggered()), N, SLOT(slotShowHide()));
+    connect(actSupressTxt, SIGNAL(triggered()), N, SLOT(slotSupressTxt()));
+    connect(actSupressSnd, SIGNAL(triggered()), N, SLOT(slotSupressSnd()));
+    connect(setup_speed_lim, SIGNAL(triggered()), N, SLOT(slotShowSpeedLimits()));
+
+    menu->addAction(show_hide);
+    menu->addAction(setup_speed_lim);
+    menu->addMenu(menuAdditional);
+    menu->addActions(QList<QAction*>() << sep << close_app);
+
+    qt_mac_set_dock_menu(menu);
+}
+#endif // defined(Q_WS_MAC)
+
