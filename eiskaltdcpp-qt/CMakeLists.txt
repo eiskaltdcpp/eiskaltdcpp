@@ -85,6 +85,16 @@ else (NOT HAIKU)
         list(REMOVE_ITEM MOC_HDRS
                     ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
 endif (NOT HAIKU)
+if (NOT APPLE)
+        list(APPEND MOC_HDRS
+                    src/qtsingleapp/qtsinglecoreapplication.h)
+        list(REMOVE_ITEM MOC_HDRS
+                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
+else (NOT APPLE)
+        list(REMOVE_ITEM MOC_HDRS
+                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
+endif (NOT APPLE)
+
 file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
 if (WIN32)
