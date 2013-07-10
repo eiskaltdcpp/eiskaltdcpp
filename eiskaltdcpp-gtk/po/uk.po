@@ -1,22 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # gray <grayich@ukr.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-26 03:08+0300\n"
+"POT-Creation-Date: 2013-07-11 00:58+0300\n"
 "PO-Revision-Date: 2013-06-26 07:46+0000\n"
 "Last-Translator: gray <grayich@ukr.net>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/eiskaltdcpp/language/uk/)\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/uk/)\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1065 ../src/hub.cc:1144
@@ -91,7 +93,7 @@ msgstr " видалено зі списку обраних"
 msgid " to "
 msgstr " до "
 
-#: ../src/search.cc:702
+#: ../src/search.cc:716
 msgid " user(s)"
 msgstr " користувач(ів)"
 
@@ -113,7 +115,15 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a скорочено день тижня.\n%b скорочено ім'я місяця.\n%H година, як десятинне число в 24-часовому форматі.\n%M хвилина, як десятинне число (від 00 до 59).\n%S секунда, як десятинне число (від 00 до 59).\n%% символ '%'.\n\nдив. детальніше man strftime."
+msgstr ""
+"%a скорочено день тижня.\n"
+"%b скорочено ім'я місяця.\n"
+"%H година, як десятинне число в 24-часовому форматі.\n"
+"%M хвилина, як десятинне число (від 00 до 59).\n"
+"%S секунда, як десятинне число (від 00 до 59).\n"
+"%% символ '%'.\n"
+"\n"
+"див. детальніше man strftime."
 
 #: ../src/hub.cc:2367
 msgid "': type /help for a list of available commands"
@@ -159,9 +169,11 @@ msgstr ": /help для отримання списку доступних ком
 
 #: ../ui/settingsdialog.ui:7198
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Допомога</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Допомога</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -321,7 +333,9 @@ msgstr "<b>Нове ім'я</b>"
 
 #: ../ui/settingsdialog.ui:9197 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Примітка:</b> Для зміни посилань в цьому списку достатньо одного кліка після виділення"
+msgstr ""
+"<b>Примітка:</b> Для зміни посилань в цьому списку достатньо одного кліка "
+"після виділення"
 
 #: ../ui/settingsdialog.ui:5484
 msgid "<b>Notify</b>"
@@ -457,7 +471,9 @@ msgstr "<b>файл:</b> "
 
 #: ../ui/favoritehubs.ui:444
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr "<small>Примітка: Зніміть прапорець, якщо хочете залишити значення по замовчуванню</small>"
+msgstr ""
+"<small>Примітка: Зніміть прапорець, якщо хочете залишити значення по "
+"замовчуванню</small>"
 
 #: ../src/sharebrowser.hh:149 ../src/sharebrowser.hh:152
 msgid "?"
@@ -507,7 +523,9 @@ msgstr "Одразу додавати завантажені файли до ш�
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr "Додає правило 192.168.1.0/23, де напрямок - вхідні, дія - дозволити, і правило 192.168.6.0/24, де напрямок - вхідні та вихідні, а дія - пропустити"
+msgstr ""
+"Додає правило 192.168.1.0/23, де напрямок - вхідні, дія - дозволити, і "
+"правило 192.168.6.0/24, де напрямок - вхідні та вихідні, а дія - пропустити"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -751,8 +769,8 @@ msgstr "Обрати файл ..."
 msgid "Browse the list of public hubs"
 msgstr "Показати список публічних хабів"
 
-#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:356
-#: ../src/search.cc:427 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
+#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:357
+#: ../src/search.cc:428 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
 #: ../ui/hub.ui:231 ../ui/settingsdialog.ui:2646 ../ui/settingsdialog.ui:2716
 #: ../ui/settingsdialog.ui:6688 ../ui/settingsdialog.ui:8001
 #: ../ui/settingsdialog.ui:8019 ../ui/settingsdialog.ui:8037
@@ -891,7 +909,7 @@ msgstr "Обрати теку"
 msgid "Chose A File"
 msgstr "Виберіть файл"
 
-#: ../ui/searchspy.ui:124 ../ui/searchspy.ui:340 ../ui/search.ui:266
+#: ../ui/searchspy.ui:124 ../ui/searchspy.ui:340 ../ui/search.ui:242
 msgid "Clear"
 msgstr "Очистити"
 
@@ -1018,8 +1036,8 @@ msgstr "З'єдання з "
 msgid "Connecting..."
 msgstr "З'єднання..."
 
-#: ../src/hub.cc:90 ../src/hub.cc:409 ../src/hub.cc:429 ../src/search.cc:105
-#: ../src/search.cc:643 ../src/search.cc:728 ../src/search.cc:861
+#: ../src/hub.cc:90 ../src/hub.cc:409 ../src/hub.cc:429 ../src/search.cc:106
+#: ../src/search.cc:657 ../src/search.cc:742 ../src/search.cc:875
 #: ../ui/settingsdialog.ui:1883 ../ui/settingsdialog.ui:2585
 msgid "Connection"
 msgstr "З'єднання"
@@ -1056,7 +1074,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n\nEiskaltDC++ версія: %s (%s)\nDC++ версія ядра: %s"
+msgstr ""
+"Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n"
+"\n"
+"EiskaltDC++ версія: %s (%s)\n"
+"DC++ версія ядра: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1126,7 +1148,7 @@ msgstr "Пряме з'єднання (активний режим)"
 #: ../src/settingsdialog.cc:3745 ../src/settingsdialog.cc:3765
 #: ../src/settingsdialog.cc:3794 ../src/settingsdialog.cc:3808
 #: ../src/settingsdialog.cc:3863 ../src/sharebrowser.cc:330
-#: ../src/UserCommandMenu.cc:66 ../src/search.cc:907 ../src/search.cc:1714
+#: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/settingsdialog.ui:6664
 msgid "Directory"
 msgstr "Тека"
@@ -1163,7 +1185,7 @@ msgstr "Не заівантажувати файл, що вже є у шарі"
 msgid "Don't download files already in the queue"
 msgstr "Не завантажувати файл, що вже є у черзі"
 
-#: ../ui/search.ui:573
+#: ../ui/search.ui:549
 msgid "Don't hide side panel on search"
 msgstr "Не ховати бічну панель при пошуку"
 
@@ -1193,11 +1215,11 @@ msgstr "Завантажити до"
 msgid "Download Queue"
 msgstr "Черга завантажень"
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:688 ../ui/hub.ui:221
+#: ../ui/privatemessage.ui:178 ../ui/search.ui:664 ../ui/hub.ui:221
 msgid "Download _to..."
 msgstr "Завантажити _до..."
 
-#: ../ui/search.ui:702
+#: ../ui/search.ui:678
 msgid "Download _whole directory"
 msgstr "Завантажити _всю директорію"
 
@@ -1241,7 +1263,9 @@ msgstr "Обмеження завантаження зображення:"
 
 #: ../src/hub.cc:2056
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr "Обмеження завантаження картинки: 0 - викнено, n < 0 - необмежено, пусто - інформація"
+msgstr ""
+"Обмеження завантаження картинки: 0 - викнено, n < 0 - необмежено, пусто - "
+"інформація"
 
 #: ../src/transfers.cc:1099
 msgid "Download removed"
@@ -1267,7 +1291,7 @@ msgstr "Завантажити до"
 msgid "Download to..."
 msgstr "Завантажити до..."
 
-#: ../ui/search.ui:711
+#: ../ui/search.ui:687
 msgid "Download whole director_y to..."
 msgstr "Завантажити усю тек_у до..."
 
@@ -1296,7 +1320,7 @@ msgstr "Завантаження"
 msgid "Drop sources below"
 msgstr "Скидання якщо нижче"
 
-#: ../src/search.cc:1929
+#: ../src/search.cc:1980
 msgid "Dropped: "
 msgstr "скинуто"
 
@@ -1401,9 +1425,9 @@ msgstr "Кожного разу, коли повідомлення отрима�
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
 #: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
 #: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:108
-#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:107
-#: ../src/search.cc:130 ../src/search.cc:645 ../src/search.cc:722
-#: ../src/search.cc:731
+#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:108
+#: ../src/search.cc:131 ../src/search.cc:659 ../src/search.cc:736
+#: ../src/search.cc:745
 msgid "Exact Size"
 msgstr "Точний розмір"
 
@@ -1545,11 +1569,11 @@ msgstr "Меню списку файлів"
 #: ../src/sharebrowser.cc:658 ../src/sharebrowser.cc:1025
 #: ../src/sharebrowser.cc:1059 ../src/finishedtransfers.cc:63
 #: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
-#: ../src/transfers.cc:715 ../src/search.cc:99 ../src/search.cc:132
-#: ../src/search.cc:371 ../src/search.cc:638 ../src/search.cc:679
-#: ../src/search.cc:684 ../src/search.cc:852 ../src/search.cc:900
-#: ../src/search.cc:910 ../src/search.cc:1222 ../src/search.cc:1261
-#: ../src/search.cc:1318 ../src/search.cc:1659 ../src/search.cc:1984
+#: ../src/transfers.cc:715 ../src/search.cc:100 ../src/search.cc:133
+#: ../src/search.cc:372 ../src/search.cc:652 ../src/search.cc:693
+#: ../src/search.cc:698 ../src/search.cc:866 ../src/search.cc:914
+#: ../src/search.cc:924 ../src/search.cc:1253 ../src/search.cc:1293
+#: ../src/search.cc:1351 ../src/search.cc:1702 ../src/search.cc:2036
 msgid "Filename"
 msgstr "Ім'я файлу"
 
@@ -1565,7 +1589,7 @@ msgstr "Файли: "
 msgid "Filter by IP"
 msgstr "Фільтрувати по ІР"
 
-#: ../ui/search.ui:502
+#: ../ui/search.ui:478
 msgid "Filter files already in share"
 msgstr "Фільтрувати вже розшарені файли"
 
@@ -1573,11 +1597,11 @@ msgstr "Фільтрувати вже розшарені файли"
 msgid "Filter kick and NMDC debug messages"
 msgstr "Фільтрувати kick і NMDC у відлагоджувальних повідомленнях"
 
-#: ../src/search.cc:1916
+#: ../src/search.cc:1967
 msgid "Filtered: "
 msgstr "відфільтроване"
 
-#: ../src/search.cc:566
+#: ../src/search.cc:575
 msgid "Filtered: 0"
 msgstr "відфільтроване"
 
@@ -1633,11 +1657,11 @@ msgstr "Формат"
 msgid "Found a match"
 msgstr "Знайдено співпадінь"
 
-#: ../src/search.cc:662
+#: ../src/search.cc:676
 msgid "Found: "
 msgstr "Знайдено:"
 
-#: ../src/search.cc:565
+#: ../src/search.cc:574
 msgid "Found: 0"
 msgstr "Знайдено: 0"
 
@@ -1649,7 +1673,9 @@ msgstr "Кадр (розмір)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr "Розмір кадра визначає ширину огляду, великі значення впливають на продуктивність"
+msgstr ""
+"Розмір кадра визначає ширину огляду, великі значення впливають на "
+"продуктивність"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -1715,7 +1741,7 @@ msgstr "Грецька"
 msgid "Greek translation\n"
 msgstr "Грецький переклад\n"
 
-#: ../ui/search.ui:406
+#: ../ui/search.ui:382
 msgid "Group by"
 msgstr "Групувати"
 
@@ -1748,7 +1774,7 @@ msgstr "В_исокий"
 msgid "Hash"
 msgstr "Хеш"
 
-#: ../ui/search.ui:280
+#: ../ui/search.ui:256
 msgid "Hide side panel"
 msgstr "Сховати бічну панель"
 
@@ -1781,8 +1807,8 @@ msgstr "Домашня сторінка"
 #: ../src/settingsdialog.cc:3985 ../src/settingsdialog.cc:4076
 #: ../src/settingsdialog.cc:4099 ../src/settingsdialog.cc:4118
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
-#: ../src/search.cc:106 ../src/search.cc:644 ../src/search.cc:741
-#: ../src/search.cc:870
+#: ../src/search.cc:107 ../src/search.cc:658 ../src/search.cc:755
+#: ../src/search.cc:884
 msgid "Hub"
 msgstr "Хаб"
 
@@ -1818,7 +1844,7 @@ msgstr "З'єднано з хабом"
 msgid "Hub disconnected"
 msgstr "Розз'єднано з хабом"
 
-#: ../ui/search.ui:534 ../ui/mainwindow.ui:2170 ../ui/mainwindow.ui:2425
+#: ../ui/search.ui:510 ../ui/mainwindow.ui:2170 ../ui/mainwindow.ui:2425
 msgid "Hubs"
 msgstr "Хаби"
 
@@ -1838,7 +1864,7 @@ msgstr "Угорська"
 msgid "Hungarian translation\n"
 msgstr "Угорський переклад\n"
 
-#: ../src/transfers.cc:69 ../src/search.cc:108 ../src/search.cc:646
+#: ../src/transfers.cc:69 ../src/search.cc:109 ../src/search.cc:660
 msgid "IP"
 msgstr "IP"
 
@@ -2249,8 +2275,8 @@ msgstr "Н_ік:"
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
-#: ../src/publichubs.cc:295 ../src/search.cc:86 ../src/search.cc:259
-#: ../src/search.cc:275 ../ui/settingsdialog.ui:774
+#: ../src/publichubs.cc:295 ../src/search.cc:87 ../src/search.cc:260
+#: ../src/search.cc:276 ../ui/settingsdialog.ui:774
 msgid "Name"
 msgstr "Ім'я"
 
@@ -2291,8 +2317,8 @@ msgstr "Наступний"
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:63
 #: ../src/favoriteusers.cc:64 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:376 ../src/favoriteusers.cc:429
-#: ../src/favoriteusers.cc:586 ../src/search.cc:100 ../src/search.cc:637
-#: ../src/search.cc:703 ../src/search.cc:737 ../src/search.cc:867
+#: ../src/favoriteusers.cc:586 ../src/search.cc:101 ../src/search.cc:651
+#: ../src/search.cc:717 ../src/search.cc:751 ../src/search.cc:881
 #: ../ui/settingsdialog.ui:1199
 msgid "Nick"
 msgstr "Нік"
@@ -2347,7 +2373,8 @@ msgstr "Не знайдено користувача: "
 
 #: ../ui/settingsdialog.ui:8399
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr "Примітка: Вказані пошукові типи будуть застосовуватися тільки для ADC хабів!"
+msgstr ""
+"Примітка: Вказані пошукові типи будуть застосовуватися тільки для ADC хабів!"
 
 #: ../ui/settingsdialog.ui:4754 ../ui/settingsdialog.ui:4824
 msgid "Note: Most of these options require that you restart the application"
@@ -2358,9 +2385,9 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr "Примітка: Нові файли будуть додані до шари лише після хешування!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
-msgstr "Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgstr ""
+"Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
 
 #: ../src/settingsdialog.cc:1326 ../ui/settingsdialog.ui:5822
 msgid "Notify"
@@ -2383,7 +2410,7 @@ msgstr "В мережі"
 msgid "Only show joins / parts for favorite users"
 msgstr "Показувати вхід/вихід тільки обраних користувачів"
 
-#: ../ui/search.ui:479
+#: ../ui/search.ui:455
 msgid "Only users with free slots"
 msgstr "Тільки у користувачів з вільними слотами "
 
@@ -2464,11 +2491,11 @@ msgstr "Пароль"
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
 #: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:515
-#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:103
-#: ../src/search.cc:372 ../src/search.cc:641 ../src/search.cc:718
-#: ../src/search.cc:855 ../src/search.cc:909 ../src/search.cc:1221
-#: ../src/search.cc:1260 ../src/search.cc:1317 ../src/search.cc:1382
-#: ../src/search.cc:1416 ../src/search.cc:1985
+#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:104
+#: ../src/search.cc:373 ../src/search.cc:655 ../src/search.cc:732
+#: ../src/search.cc:869 ../src/search.cc:923 ../src/search.cc:1252
+#: ../src/search.cc:1292 ../src/search.cc:1350 ../src/search.cc:1417
+#: ../src/search.cc:1452 ../src/search.cc:2037
 msgid "Path"
 msgstr "Шлях"
 
@@ -2486,7 +2513,9 @@ msgstr "Пауза..."
 
 #: ../ui/settingsdialog.ui:1267
 msgid "Personal"
-msgstr "Персональна\n інформація"
+msgstr ""
+"Персональна\n"
+" інформація"
 
 #: ../ui/settingsdialog.ui:4243
 msgid "Pictures"
@@ -2686,7 +2715,7 @@ msgstr "Видаляти повільні списки файлів"
 msgid "Remove user favorite"
 msgstr "Видалити користувача з обраних"
 
-#: ../ui/search.ui:809 ../ui/downloadqueue.ui:345
+#: ../ui/search.ui:785 ../ui/downloadqueue.ui:345
 msgid "Remove user from _queue"
 msgstr "Видалити користувача з _черги"
 
@@ -2739,12 +2768,12 @@ msgid "Say a third person"
 msgstr "Сказати від третьої особи"
 
 #: ../src/settingsdialog.cc:1136 ../src/settingsdialog.cc:1421
-#: ../src/settingsdialog.cc:1479 ../src/search.cc:40 ../src/search.cc:85
-#: ../src/search.cc:92 ../src/search.cc:258 ../src/search.cc:462
-#: ../src/search.cc:1104 ../src/search.cc:1105 ../src/search.cc:1963
-#: ../ui/searchspy.ui:94 ../ui/searchspy.ui:401 ../ui/mainwindow.ui:1230
-#: ../ui/mainwindow.ui:2203 ../ui/mainwindow.ui:2481
-#: ../ui/settingsdialog.ui:8426
+#: ../src/settingsdialog.cc:1479 ../src/search.cc:40 ../src/search.cc:86
+#: ../src/search.cc:93 ../src/search.cc:259 ../src/search.cc:457
+#: ../src/search.cc:471 ../src/search.cc:1130 ../src/search.cc:1131
+#: ../src/search.cc:2015 ../ui/searchspy.ui:94 ../ui/searchspy.ui:401
+#: ../ui/search.ui:227 ../ui/mainwindow.ui:1230 ../ui/mainwindow.ui:2203
+#: ../ui/mainwindow.ui:2481 ../ui/settingsdialog.ui:8426
 msgid "Search"
 msgstr "Пошук"
 
@@ -2784,7 +2813,7 @@ msgstr "Пошук файлів для завантаження"
 msgid "Search history"
 msgstr "Історія пошуку"
 
-#: ../ui/search.ui:448
+#: ../ui/search.ui:424
 msgid "Search options"
 msgstr "Опції пошуку"
 
@@ -2798,11 +2827,11 @@ msgstr "Виявлено пошуковий спам від "
 msgid "Search type"
 msgstr "Пошуковий тип"
 
-#: ../ui/search.ui:458
+#: ../ui/search.ui:434
 msgid "Search within local results"
 msgstr "Шукати, включаючи локальні результати"
 
-#: ../src/search.cc:1899
+#: ../src/search.cc:1946
 msgid "Searching for "
 msgstr "Пошук для "
 
@@ -2834,7 +2863,7 @@ msgstr "Відсилати ПП при подвійному кліку на ко
 msgid "Send Private Message"
 msgstr "Надіслати особисте повідомлення"
 
-#: ../ui/search.ui:782 ../ui/downloadqueue.ui:297
+#: ../ui/search.ui:758 ../ui/downloadqueue.ui:297
 msgid "Send _private message"
 msgstr "Надіслати _особисте повідомлення"
 
@@ -2846,7 +2875,7 @@ msgstr "Відправити по разу кожному ніку"
 msgid "Send unknown /commands to the hub"
 msgstr "Відправляти невідомі /командии хабу"
 
-#: ../src/search.cc:572
+#: ../src/search.cc:581
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr "Подсилання ADC розширень : %s\n"
@@ -2881,9 +2910,10 @@ msgid "Set download limit image: "
 msgstr "Вставити обмеження завантаження: "
 
 #: ../src/settingsdialog.cc:984
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького пріоритету"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького "
+"пріоритету"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -2993,9 +3023,9 @@ msgstr "Сигнали оброблення встановлені.\n"
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
 #: ../src/sharebrowser.cc:327 ../src/sharebrowser.cc:358
 #: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
-#: ../src/transfers.cc:729 ../src/search.cc:102 ../src/search.cc:129
-#: ../src/search.cc:640 ../src/search.cc:723 ../src/search.cc:732
-#: ../src/search.cc:858 ../ui/search.ui:318 ../ui/mainwindow.ui:118
+#: ../src/transfers.cc:729 ../src/search.cc:103 ../src/search.cc:130
+#: ../src/search.cc:654 ../src/search.cc:737 ../src/search.cc:746
+#: ../src/search.cc:872 ../ui/search.ui:294 ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Розмір"
 
@@ -3020,7 +3050,7 @@ msgstr "Слот видано"
 msgid "Slot granted to "
 msgstr "Слот виділено для "
 
-#: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:639
+#: ../src/search.cc:105 ../src/search.cc:132 ../src/search.cc:653
 msgid "Slots"
 msgstr "Слоти"
 
@@ -3108,6 +3138,10 @@ msgstr "Статус"
 msgid "Status message"
 msgstr "Статусне повідомлення"
 
+#: ../src/search.cc:597
+msgid "Stop"
+msgstr ""
+
 #: ../src/settingsdialog.cc:1055 ../src/WulforUtil.cc:42
 msgid "System default"
 msgstr "Системні замовчування"
@@ -3129,10 +3163,10 @@ msgstr "TIS-620"
 #: ../src/downloadqueue.cc:757 ../src/sharebrowser.cc:87
 #: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:362
 #: ../src/sharebrowser.cc:567 ../src/sharebrowser.cc:1027
-#: ../src/sharebrowser.cc:1061 ../src/search.cc:109 ../src/search.cc:374
-#: ../src/search.cc:378 ../src/search.cc:384 ../src/search.cc:647
-#: ../src/search.cc:734 ../src/search.cc:864 ../src/search.cc:915
-#: ../src/search.cc:1183 ../src/search.cc:1348 ../src/search.cc:1661
+#: ../src/sharebrowser.cc:1061 ../src/search.cc:110 ../src/search.cc:375
+#: ../src/search.cc:379 ../src/search.cc:385 ../src/search.cc:661
+#: ../src/search.cc:748 ../src/search.cc:878 ../src/search.cc:929
+#: ../src/search.cc:1213 ../src/search.cc:1382 ../src/search.cc:1704
 #: ../ui/mainwindow.ui:132
 msgid "TTH"
 msgstr "ТТН"
@@ -3165,7 +3199,9 @@ msgstr "Стиль тексту"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr "Збільшення часу очікування збільшує ймовірність додання в топ, але знижує динаміку (оновлення) кадра"
+msgstr ""
+"Збільшення часу очікування збільшує ймовірність додання в топ, але знижує "
+"динаміку (оновлення) кадра"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
@@ -3217,7 +3253,9 @@ msgstr "Кому (пусто для вибраного користувача)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr "Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/Завантаження/Черга)"
+msgstr ""
+"Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/"
+"Завантаження/Черга)"
 
 #: ../ui/settingsdialog.ui:6132
 msgid "Toolbar"
@@ -3280,8 +3318,8 @@ msgid "Trusted certificates path"
 msgstr "Шлях до довір. сертиф."
 
 #: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:330
-#: ../src/sharebrowser.cc:351 ../src/search.cc:101 ../src/search.cc:642
-#: ../src/search.cc:746 ../src/search.cc:873 ../src/search.cc:907
+#: ../src/sharebrowser.cc:351 ../src/search.cc:102 ../src/search.cc:656
+#: ../src/search.cc:760 ../src/search.cc:887 ../src/search.cc:921
 msgid "Type"
 msgstr "Тип"
 
@@ -3303,7 +3341,8 @@ msgstr "Український переклад\n"
 
 #: ../src/hub.cc:2984
 msgid "Unable to connect: already connected to the requested hub"
-msgstr "Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
+msgstr ""
+"Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
 
 #: ../src/sharebrowser.cc:212
 msgid "Unable to load file list: "
@@ -3315,10 +3354,13 @@ msgstr "Не можливо завантажити список файлів: Н
 
 #: ../src/mainwindow.cc:2275
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати коректно поки ви не зміните налаштування або інший додаток не припинить використовувати цей порт."
+msgstr ""
+"Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати "
+"коректно поки ви не зміните налаштування або інший додаток не припинить "
+"використовувати цей порт."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3550,12 +3592,22 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Використовується:\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n  eiskaltdcpp-gtk <Key>\nEiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та ADC протоколи.\n\nКлючі:\n  -h, --help\t Показати це повідомлення\n  -V, --version\t Показати версію\n"
+msgstr ""
+"Використовується:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та "
+"ADC протоколи.\n"
+"\n"
+"Ключі:\n"
+"  -h, --help\t Показати це повідомлення\n"
+"  -V, --version\t Показати версію\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:365
 msgid "Video"
@@ -3659,7 +3711,7 @@ msgstr "[U]"
 msgid "[Z]"
 msgstr "[Z]"
 
-#: ../ui/search.ui:791 ../ui/transfers.ui:63 ../ui/hub.ui:598
+#: ../ui/search.ui:767 ../ui/transfers.ui:63 ../ui/hub.ui:598
 msgid "_Add to favorites"
 msgstr "_Додати до обраних"
 
@@ -3667,7 +3719,7 @@ msgstr "_Додати до обраних"
 msgid "_Address:"
 msgstr "_Адреса:"
 
-#: ../ui/search.ui:755 ../ui/transfers.ui:36 ../ui/favoriteusers.ui:158
+#: ../ui/search.ui:731 ../ui/transfers.ui:36 ../ui/favoriteusers.ui:158
 #: ../ui/downloadqueue.ui:283 ../ui/hub.ui:556
 msgid "_Browse file list"
 msgstr "Переглянути список файлів"
@@ -3685,7 +3737,7 @@ msgstr "_Закрити віджет"
 msgid "_Copy link"
 msgstr "_Копіювати посилання"
 
-#: ../ui/privatemessage.ui:201 ../ui/search.ui:740 ../ui/sharebrowser.ui:164
+#: ../ui/privatemessage.ui:201 ../ui/search.ui:716 ../ui/sharebrowser.ui:164
 #: ../ui/downloadqueue.ui:191 ../ui/hub.ui:244
 msgid "_Copy magnet"
 msgstr "_Копіювати магнет"
@@ -3702,7 +3754,7 @@ msgstr "_Копіювати картинку"
 msgid "_Description:"
 msgstr "_Опис:"
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:679 ../ui/hub.ui:212
+#: ../ui/privatemessage.ui:169 ../ui/search.ui:655 ../ui/hub.ui:212
 msgid "_Download"
 msgstr "_Завантажити"
 
@@ -3722,7 +3774,7 @@ msgstr "Файл"
 msgid "_Force attempt"
 msgstr "_Примусово"
 
-#: ../ui/search.ui:800 ../ui/transfers.ui:72
+#: ../ui/search.ui:776 ../ui/transfers.ui:72
 msgid "_Grant extra slot"
 msgstr "_Надати додатковий слот"
 
@@ -3750,7 +3802,7 @@ msgstr "_Найнижчий"
 msgid "_Magnet Choice"
 msgstr "_Властивості магнетів"
 
-#: ../ui/search.ui:773
+#: ../ui/search.ui:749
 msgid "_Match Queue"
 msgstr "_Збіги черги"
 
@@ -3790,7 +3842,7 @@ msgstr "_Відкрити хаб"
 msgid "_Open link in default application"
 msgstr "_Відкрити посилання у програмі за замовчуванням"
 
-#: ../ui/search.ui:764 ../ui/hub.ui:565
+#: ../ui/search.ui:740 ../ui/hub.ui:565
 msgid "_Open partial file list"
 msgstr "Відкрити частковий список файлів"
 
@@ -3826,7 +3878,7 @@ msgstr "_Швидке з'єднання"
 msgid "_Refresh file list"
 msgstr "_Поновити список файлів"
 
-#: ../ui/searchspy.ui:108 ../ui/searchspy.ui:416 ../ui/search.ui:838
+#: ../ui/searchspy.ui:108 ../ui/searchspy.ui:416 ../ui/search.ui:814
 #: ../ui/favoriteusers.ui:227 ../ui/downloadqueue.ui:170
 #: ../ui/downloadqueue.ui:359 ../ui/adlsearch.ui:553
 msgid "_Remove"
@@ -3840,11 +3892,7 @@ msgstr "_Видалити з обраних"
 msgid "_Remove user from queue"
 msgstr "_Видалити користувача з черги"
 
-#: ../ui/search.ui:244
-msgid "_Search"
-msgstr "_Пошук"
-
-#: ../ui/search.ui:731 ../ui/sharebrowser.ui:155 ../ui/downloadqueue.ui:182
+#: ../ui/search.ui:707 ../ui/sharebrowser.ui:155 ../ui/downloadqueue.ui:182
 msgid "_Search for alternates"
 msgstr "_Пошук альтернатив"
 
@@ -3868,7 +3916,7 @@ msgstr "_Інструменти"
 msgid "_User Description:"
 msgstr "_Опис користувача"
 
-#: ../ui/search.ui:818 ../ui/hub.ui:640
+#: ../ui/search.ui:794 ../ui/hub.ui:640
 msgid "_User commands"
 msgstr "_Команда користувача"
 
@@ -3966,3 +4014,6 @@ msgstr "вгору/очікування/фрейм: "
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "очікування..."
+
+#~ msgid "_Search"
+#~ msgstr "_Пошук"

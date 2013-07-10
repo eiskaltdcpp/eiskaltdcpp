@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-25 16:00+0300\n"
+"POT-Creation-Date: 2013-07-11 00:58+0300\n"
 "PO-Revision-Date: 2013-05-01 12:16+0000\n"
 "Last-Translator: Jackl <be.w@mail.ru>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -94,7 +94,7 @@ msgstr " aus der Favoritenliste entfernt"
 msgid " to "
 msgstr " auf "
 
-#: ../src/search.cc:702
+#: ../src/search.cc:716
 msgid " user(s)"
 msgstr " Benutzer"
 
@@ -777,8 +777,8 @@ msgstr "Datei durchsuchen …"
 msgid "Browse the list of public hubs"
 msgstr "Die Liste der öffentlichen Hubs durchsuchen"
 
-#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:356
-#: ../src/search.cc:427 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
+#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:357
+#: ../src/search.cc:428 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
 #: ../ui/hub.ui:231 ../ui/settingsdialog.ui:2646 ../ui/settingsdialog.ui:2716
 #: ../ui/settingsdialog.ui:6688 ../ui/settingsdialog.ui:8001
 #: ../ui/settingsdialog.ui:8019 ../ui/settingsdialog.ui:8037
@@ -917,7 +917,7 @@ msgstr "Ein Verzeichnis wählen"
 msgid "Chose A File"
 msgstr "Wählen Sie eine Datei aus."
 
-#: ../ui/searchspy.ui:124 ../ui/searchspy.ui:340 ../ui/search.ui:266
+#: ../ui/searchspy.ui:124 ../ui/searchspy.ui:340 ../ui/search.ui:242
 msgid "Clear"
 msgstr "Leeren"
 
@@ -1044,8 +1044,8 @@ msgstr "Verbinden zu "
 msgid "Connecting..."
 msgstr "Wird verbunden …"
 
-#: ../src/hub.cc:90 ../src/hub.cc:409 ../src/hub.cc:429 ../src/search.cc:105
-#: ../src/search.cc:643 ../src/search.cc:728 ../src/search.cc:861
+#: ../src/hub.cc:90 ../src/hub.cc:409 ../src/hub.cc:429 ../src/search.cc:106
+#: ../src/search.cc:657 ../src/search.cc:742 ../src/search.cc:875
 #: ../ui/settingsdialog.ui:1883 ../ui/settingsdialog.ui:2585
 msgid "Connection"
 msgstr "Verbindung"
@@ -1156,7 +1156,7 @@ msgstr "Direkte Verbindung"
 #: ../src/settingsdialog.cc:3745 ../src/settingsdialog.cc:3765
 #: ../src/settingsdialog.cc:3794 ../src/settingsdialog.cc:3808
 #: ../src/settingsdialog.cc:3863 ../src/sharebrowser.cc:330
-#: ../src/UserCommandMenu.cc:66 ../src/search.cc:907 ../src/search.cc:1714
+#: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/settingsdialog.ui:6664
 msgid "Directory"
 msgstr "Verzeichnis"
@@ -1193,7 +1193,7 @@ msgstr "Keine Dateien herunterladen, die bereits gemeinsam benutzt werden"
 msgid "Don't download files already in the queue"
 msgstr "Keine Dateien herunterladen, die bereits in der Warteschlange sind"
 
-#: ../ui/search.ui:573
+#: ../ui/search.ui:549
 msgid "Don't hide side panel on search"
 msgstr "Sidebar bei Suche nicht verbergen"
 
@@ -1224,11 +1224,11 @@ msgstr "Download-Übereinstimmungen"
 msgid "Download Queue"
 msgstr "Download-Warteschlange"
 
-#: ../ui/privatemessage.ui:178 ../ui/search.ui:688 ../ui/hub.ui:221
+#: ../ui/privatemessage.ui:178 ../ui/search.ui:664 ../ui/hub.ui:221
 msgid "Download _to..."
 msgstr "Download _nach …"
 
-#: ../ui/search.ui:702
+#: ../ui/search.ui:678
 msgid "Download _whole directory"
 msgstr "_Ganzes Verzeichnis herunterladen"
 
@@ -1300,7 +1300,7 @@ msgstr "Download nach"
 msgid "Download to..."
 msgstr "Download nach …"
 
-#: ../ui/search.ui:711
+#: ../ui/search.ui:687
 msgid "Download whole director_y to..."
 msgstr "Gan_zes Verzeichnis herunterladen nach …"
 
@@ -1329,7 +1329,7 @@ msgstr "Downloads"
 msgid "Drop sources below"
 msgstr "Quellen unterhalb verwerfen"
 
-#: ../src/search.cc:1929
+#: ../src/search.cc:1980
 #, fuzzy
 msgid "Dropped: "
 msgstr " verworfen"
@@ -1435,9 +1435,9 @@ msgstr "Jedesmal, wenn eine private Nachricht empfangen wird"
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
 #: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
 #: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:108
-#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:107
-#: ../src/search.cc:130 ../src/search.cc:645 ../src/search.cc:722
-#: ../src/search.cc:731
+#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:108
+#: ../src/search.cc:131 ../src/search.cc:659 ../src/search.cc:736
+#: ../src/search.cc:745
 msgid "Exact Size"
 msgstr "Genaue Größe"
 
@@ -1579,11 +1579,11 @@ msgstr "Dateilistenmenü"
 #: ../src/sharebrowser.cc:658 ../src/sharebrowser.cc:1025
 #: ../src/sharebrowser.cc:1059 ../src/finishedtransfers.cc:63
 #: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
-#: ../src/transfers.cc:715 ../src/search.cc:99 ../src/search.cc:132
-#: ../src/search.cc:371 ../src/search.cc:638 ../src/search.cc:679
-#: ../src/search.cc:684 ../src/search.cc:852 ../src/search.cc:900
-#: ../src/search.cc:910 ../src/search.cc:1222 ../src/search.cc:1261
-#: ../src/search.cc:1318 ../src/search.cc:1659 ../src/search.cc:1984
+#: ../src/transfers.cc:715 ../src/search.cc:100 ../src/search.cc:133
+#: ../src/search.cc:372 ../src/search.cc:652 ../src/search.cc:693
+#: ../src/search.cc:698 ../src/search.cc:866 ../src/search.cc:914
+#: ../src/search.cc:924 ../src/search.cc:1253 ../src/search.cc:1293
+#: ../src/search.cc:1351 ../src/search.cc:1702 ../src/search.cc:2036
 msgid "Filename"
 msgstr "Dateiname"
 
@@ -1599,7 +1599,7 @@ msgstr "Dateien: "
 msgid "Filter by IP"
 msgstr "Filter über IP"
 
-#: ../ui/search.ui:502
+#: ../ui/search.ui:478
 msgid "Filter files already in share"
 msgstr "Dateien filtern, die bereits in der Freigabe sind"
 
@@ -1607,12 +1607,12 @@ msgstr "Dateien filtern, die bereits in der Freigabe sind"
 msgid "Filter kick and NMDC debug messages"
 msgstr "Filterhinauswurf und NMDC-Debug-Nachrichten"
 
-#: ../src/search.cc:1916
+#: ../src/search.cc:1967
 #, fuzzy
 msgid "Filtered: "
 msgstr " gefiltert"
 
-#: ../src/search.cc:566
+#: ../src/search.cc:575
 #, fuzzy
 msgid "Filtered: 0"
 msgstr " gefiltert"
@@ -1669,12 +1669,12 @@ msgstr "Format"
 msgid "Found a match"
 msgstr "Eine Übereinstimmung gefunden"
 
-#: ../src/search.cc:662
+#: ../src/search.cc:676
 #, fuzzy
 msgid "Found: "
 msgstr "Klänge"
 
-#: ../src/search.cc:565
+#: ../src/search.cc:574
 msgid "Found: 0"
 msgstr ""
 
@@ -1754,7 +1754,7 @@ msgstr "Griechisch"
 msgid "Greek translation\n"
 msgstr "Griechische Übersetzung\n"
 
-#: ../ui/search.ui:406
+#: ../ui/search.ui:382
 msgid "Group by"
 msgstr "Gruppieren nach"
 
@@ -1787,7 +1787,7 @@ msgstr "_Hoch"
 msgid "Hash"
 msgstr "Hash"
 
-#: ../ui/search.ui:280
+#: ../ui/search.ui:256
 msgid "Hide side panel"
 msgstr "Verberge Seitenleiste"
 
@@ -1820,8 +1820,8 @@ msgstr "Homepage"
 #: ../src/settingsdialog.cc:3985 ../src/settingsdialog.cc:4076
 #: ../src/settingsdialog.cc:4099 ../src/settingsdialog.cc:4118
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
-#: ../src/search.cc:106 ../src/search.cc:644 ../src/search.cc:741
-#: ../src/search.cc:870
+#: ../src/search.cc:107 ../src/search.cc:658 ../src/search.cc:755
+#: ../src/search.cc:884
 msgid "Hub"
 msgstr "Hub"
 
@@ -1857,7 +1857,7 @@ msgstr "Hub verbunden"
 msgid "Hub disconnected"
 msgstr "Hub getrennt"
 
-#: ../ui/search.ui:534 ../ui/mainwindow.ui:2170 ../ui/mainwindow.ui:2425
+#: ../ui/search.ui:510 ../ui/mainwindow.ui:2170 ../ui/mainwindow.ui:2425
 msgid "Hubs"
 msgstr "Hubs"
 
@@ -1877,7 +1877,7 @@ msgstr "Ungarisch"
 msgid "Hungarian translation\n"
 msgstr "Ungarische Übersetzung\n"
 
-#: ../src/transfers.cc:69 ../src/search.cc:108 ../src/search.cc:646
+#: ../src/transfers.cc:69 ../src/search.cc:109 ../src/search.cc:660
 msgid "IP"
 msgstr "IP"
 
@@ -2292,8 +2292,8 @@ msgstr "N_ick:"
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
-#: ../src/publichubs.cc:295 ../src/search.cc:86 ../src/search.cc:259
-#: ../src/search.cc:275 ../ui/settingsdialog.ui:774
+#: ../src/publichubs.cc:295 ../src/search.cc:87 ../src/search.cc:260
+#: ../src/search.cc:276 ../ui/settingsdialog.ui:774
 msgid "Name"
 msgstr "Name"
 
@@ -2334,8 +2334,8 @@ msgstr "Nächster"
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:63
 #: ../src/favoriteusers.cc:64 ../src/favoriteusers.cc:112
 #: ../src/favoriteusers.cc:376 ../src/favoriteusers.cc:429
-#: ../src/favoriteusers.cc:586 ../src/search.cc:100 ../src/search.cc:637
-#: ../src/search.cc:703 ../src/search.cc:737 ../src/search.cc:867
+#: ../src/favoriteusers.cc:586 ../src/search.cc:101 ../src/search.cc:651
+#: ../src/search.cc:717 ../src/search.cc:751 ../src/search.cc:881
 #: ../ui/settingsdialog.ui:1199
 msgid "Nick"
 msgstr "Nick"
@@ -2433,7 +2433,7 @@ msgstr "Online"
 msgid "Only show joins / parts for favorite users"
 msgstr "Nur Verbindungen/Trennungen für favorisierte Benutzer anzeigen"
 
-#: ../ui/search.ui:479
+#: ../ui/search.ui:455
 msgid "Only users with free slots"
 msgstr "Nur Benutzer mit freien Slots"
 
@@ -2514,11 +2514,11 @@ msgstr "Passwort"
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
 #: ../src/finishedtransfers.cc:238 ../src/finishedtransfers.cc:515
-#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:103
-#: ../src/search.cc:372 ../src/search.cc:641 ../src/search.cc:718
-#: ../src/search.cc:855 ../src/search.cc:909 ../src/search.cc:1221
-#: ../src/search.cc:1260 ../src/search.cc:1317 ../src/search.cc:1382
-#: ../src/search.cc:1416 ../src/search.cc:1985
+#: ../src/transfers.cc:68 ../src/transfers.cc:716 ../src/search.cc:104
+#: ../src/search.cc:373 ../src/search.cc:655 ../src/search.cc:732
+#: ../src/search.cc:869 ../src/search.cc:923 ../src/search.cc:1252
+#: ../src/search.cc:1292 ../src/search.cc:1350 ../src/search.cc:1417
+#: ../src/search.cc:1452 ../src/search.cc:2037
 msgid "Path"
 msgstr "Pfad"
 
@@ -2739,7 +2739,7 @@ msgstr "Langsame Dateilisten entfernen"
 msgid "Remove user favorite"
 msgstr "Favorisierte Benutzer entfernen"
 
-#: ../ui/search.ui:809 ../ui/downloadqueue.ui:345
+#: ../ui/search.ui:785 ../ui/downloadqueue.ui:345
 msgid "Remove user from _queue"
 msgstr "_Benutzer aus Warteschlange entfernen"
 
@@ -2792,12 +2792,12 @@ msgid "Say a third person"
 msgstr "Einer dritten Person sagen"
 
 #: ../src/settingsdialog.cc:1136 ../src/settingsdialog.cc:1421
-#: ../src/settingsdialog.cc:1479 ../src/search.cc:40 ../src/search.cc:85
-#: ../src/search.cc:92 ../src/search.cc:258 ../src/search.cc:462
-#: ../src/search.cc:1104 ../src/search.cc:1105 ../src/search.cc:1963
-#: ../ui/searchspy.ui:94 ../ui/searchspy.ui:401 ../ui/mainwindow.ui:1230
-#: ../ui/mainwindow.ui:2203 ../ui/mainwindow.ui:2481
-#: ../ui/settingsdialog.ui:8426
+#: ../src/settingsdialog.cc:1479 ../src/search.cc:40 ../src/search.cc:86
+#: ../src/search.cc:93 ../src/search.cc:259 ../src/search.cc:457
+#: ../src/search.cc:471 ../src/search.cc:1130 ../src/search.cc:1131
+#: ../src/search.cc:2015 ../ui/searchspy.ui:94 ../ui/searchspy.ui:401
+#: ../ui/search.ui:227 ../ui/mainwindow.ui:1230 ../ui/mainwindow.ui:2203
+#: ../ui/mainwindow.ui:2481 ../ui/settingsdialog.ui:8426
 msgid "Search"
 msgstr "Suche"
 
@@ -2837,7 +2837,7 @@ msgstr "Nach Dateien zum Herunterladen suchen"
 msgid "Search history"
 msgstr "Suchchronik"
 
-#: ../ui/search.ui:448
+#: ../ui/search.ui:424
 msgid "Search options"
 msgstr "Suchoptionen"
 
@@ -2851,11 +2851,11 @@ msgstr "Such-Spam entdeckt von "
 msgid "Search type"
 msgstr "Suchtyp"
 
-#: ../ui/search.ui:458
+#: ../ui/search.ui:434
 msgid "Search within local results"
 msgstr "Innerhalb lokaler Ergebnisse suchen"
 
-#: ../src/search.cc:1899
+#: ../src/search.cc:1946
 msgid "Searching for "
 msgstr "Suchen nach "
 
@@ -2888,7 +2888,7 @@ msgstr "Bei Doppelklick in der Benutzerliste PM senden"
 msgid "Send Private Message"
 msgstr "Private Nachricht"
 
-#: ../ui/search.ui:782 ../ui/downloadqueue.ui:297
+#: ../ui/search.ui:758 ../ui/downloadqueue.ui:297
 msgid "Send _private message"
 msgstr "_Private Nachricht senden"
 
@@ -2900,7 +2900,7 @@ msgstr "Nur einmal je Nick senden"
 msgid "Send unknown /commands to the hub"
 msgstr "Unbekannte /commands zum Hub senden"
 
-#: ../src/search.cc:572
+#: ../src/search.cc:581
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr "ADC-Erweiterungen gesandt: %s\n"
@@ -3048,9 +3048,9 @@ msgstr "Signalprozedur installiert.\n"
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
 #: ../src/sharebrowser.cc:327 ../src/sharebrowser.cc:358
 #: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
-#: ../src/transfers.cc:729 ../src/search.cc:102 ../src/search.cc:129
-#: ../src/search.cc:640 ../src/search.cc:723 ../src/search.cc:732
-#: ../src/search.cc:858 ../ui/search.ui:318 ../ui/mainwindow.ui:118
+#: ../src/transfers.cc:729 ../src/search.cc:103 ../src/search.cc:130
+#: ../src/search.cc:654 ../src/search.cc:737 ../src/search.cc:746
+#: ../src/search.cc:872 ../ui/search.ui:294 ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Größe"
 
@@ -3075,7 +3075,7 @@ msgstr "Slot bewilligt"
 msgid "Slot granted to "
 msgstr "Slot bewilligt für "
 
-#: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:639
+#: ../src/search.cc:105 ../src/search.cc:132 ../src/search.cc:653
 msgid "Slots"
 msgstr "Slots"
 
@@ -3163,6 +3163,10 @@ msgstr "Status"
 msgid "Status message"
 msgstr "Statusnachricht"
 
+#: ../src/search.cc:597
+msgid "Stop"
+msgstr ""
+
 #: ../src/settingsdialog.cc:1055 ../src/WulforUtil.cc:42
 msgid "System default"
 msgstr "Systemvorgabe"
@@ -3184,10 +3188,10 @@ msgstr "TIS-620"
 #: ../src/downloadqueue.cc:757 ../src/sharebrowser.cc:87
 #: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:362
 #: ../src/sharebrowser.cc:567 ../src/sharebrowser.cc:1027
-#: ../src/sharebrowser.cc:1061 ../src/search.cc:109 ../src/search.cc:374
-#: ../src/search.cc:378 ../src/search.cc:384 ../src/search.cc:647
-#: ../src/search.cc:734 ../src/search.cc:864 ../src/search.cc:915
-#: ../src/search.cc:1183 ../src/search.cc:1348 ../src/search.cc:1661
+#: ../src/sharebrowser.cc:1061 ../src/search.cc:110 ../src/search.cc:375
+#: ../src/search.cc:379 ../src/search.cc:385 ../src/search.cc:661
+#: ../src/search.cc:748 ../src/search.cc:878 ../src/search.cc:929
+#: ../src/search.cc:1213 ../src/search.cc:1382 ../src/search.cc:1704
 #: ../ui/mainwindow.ui:132
 msgid "TTH"
 msgstr "TTH"
@@ -3340,8 +3344,8 @@ msgid "Trusted certificates path"
 msgstr "Pfad für vertrauenswürdige Zertifikate"
 
 #: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:330
-#: ../src/sharebrowser.cc:351 ../src/search.cc:101 ../src/search.cc:642
-#: ../src/search.cc:746 ../src/search.cc:873 ../src/search.cc:907
+#: ../src/sharebrowser.cc:351 ../src/search.cc:102 ../src/search.cc:656
+#: ../src/search.cc:760 ../src/search.cc:887 ../src/search.cc:921
 msgid "Type"
 msgstr "Typ"
 
@@ -3735,7 +3739,7 @@ msgstr "[U]"
 msgid "[Z]"
 msgstr "[Z]"
 
-#: ../ui/search.ui:791 ../ui/transfers.ui:63 ../ui/hub.ui:598
+#: ../ui/search.ui:767 ../ui/transfers.ui:63 ../ui/hub.ui:598
 msgid "_Add to favorites"
 msgstr "Zu _Favoriten hinzufügen"
 
@@ -3743,7 +3747,7 @@ msgstr "Zu _Favoriten hinzufügen"
 msgid "_Address:"
 msgstr "A_dresse:"
 
-#: ../ui/search.ui:755 ../ui/transfers.ui:36 ../ui/favoriteusers.ui:158
+#: ../ui/search.ui:731 ../ui/transfers.ui:36 ../ui/favoriteusers.ui:158
 #: ../ui/downloadqueue.ui:283 ../ui/hub.ui:556
 msgid "_Browse file list"
 msgstr "Dateil_iste durchstöbern"
@@ -3761,7 +3765,7 @@ msgstr "Widget schlie_ßen"
 msgid "_Copy link"
 msgstr "Link _kopieren"
 
-#: ../ui/privatemessage.ui:201 ../ui/search.ui:740 ../ui/sharebrowser.ui:164
+#: ../ui/privatemessage.ui:201 ../ui/search.ui:716 ../ui/sharebrowser.ui:164
 #: ../ui/downloadqueue.ui:191 ../ui/hub.ui:244
 msgid "_Copy magnet"
 msgstr "_Magnet kopieren"
@@ -3778,7 +3782,7 @@ msgstr "_Bild kopieren"
 msgid "_Description:"
 msgstr "_Beschreibung:"
 
-#: ../ui/privatemessage.ui:169 ../ui/search.ui:679 ../ui/hub.ui:212
+#: ../ui/privatemessage.ui:169 ../ui/search.ui:655 ../ui/hub.ui:212
 msgid "_Download"
 msgstr "_Download"
 
@@ -3798,7 +3802,7 @@ msgstr "_Datei"
 msgid "_Force attempt"
 msgstr "_Versuch erzwingen"
 
-#: ../ui/search.ui:800 ../ui/transfers.ui:72
+#: ../ui/search.ui:776 ../ui/transfers.ui:72
 msgid "_Grant extra slot"
 msgstr "Zus_ätzlichen Slot gewähren"
 
@@ -3826,7 +3830,7 @@ msgstr "Am nie_drigsten"
 msgid "_Magnet Choice"
 msgstr "_Magnetauswahl"
 
-#: ../ui/search.ui:773
+#: ../ui/search.ui:749
 msgid "_Match Queue"
 msgstr "Einer _Warteschlange zuordnen"
 
@@ -3866,7 +3870,7 @@ msgstr "Hu_b öffnen"
 msgid "_Open link in default application"
 msgstr "Link in St_andardanwendung öffnen"
 
-#: ../ui/search.ui:764 ../ui/hub.ui:565
+#: ../ui/search.ui:740 ../ui/hub.ui:565
 msgid "_Open partial file list"
 msgstr "_Teildateiliste öffnen"
 
@@ -3902,7 +3906,7 @@ msgstr "Schnell _verbinden"
 msgid "_Refresh file list"
 msgstr "Dateil_iste auffrischen"
 
-#: ../ui/searchspy.ui:108 ../ui/searchspy.ui:416 ../ui/search.ui:838
+#: ../ui/searchspy.ui:108 ../ui/searchspy.ui:416 ../ui/search.ui:814
 #: ../ui/favoriteusers.ui:227 ../ui/downloadqueue.ui:170
 #: ../ui/downloadqueue.ui:359 ../ui/adlsearch.ui:553
 msgid "_Remove"
@@ -3916,11 +3920,7 @@ msgstr "Aus den Fa_voriten entfernen"
 msgid "_Remove user from queue"
 msgstr "Benutzer aus _Warteschlange entfernen"
 
-#: ../ui/search.ui:244
-msgid "_Search"
-msgstr "_Suche"
-
-#: ../ui/search.ui:731 ../ui/sharebrowser.ui:155 ../ui/downloadqueue.ui:182
+#: ../ui/search.ui:707 ../ui/sharebrowser.ui:155 ../ui/downloadqueue.ui:182
 msgid "_Search for alternates"
 msgstr "Nach _Alternativen suchen"
 
@@ -3944,7 +3944,7 @@ msgstr "_Werkzeuge"
 msgid "_User Description:"
 msgstr "Ben_utzerbeschreibung:"
 
-#: ../ui/search.ui:818 ../ui/hub.ui:640
+#: ../ui/search.ui:794 ../ui/hub.ui:640
 msgid "_User commands"
 msgstr "Benutzerbefeh_le"
 
@@ -4042,6 +4042,9 @@ msgstr "Kopfende/warten/Frame:"
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "Warten …"
+
+#~ msgid "_Search"
+#~ msgstr "_Suche"
 
 #~ msgid " items"
 #~ msgstr " Elemente"
