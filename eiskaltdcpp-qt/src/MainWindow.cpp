@@ -555,7 +555,7 @@ void MainWindow::init(){
 
     initMenuBar();
 #if defined(Q_WS_MAC)
-    initDockMenuBar()
+    initDockMenuBar();
 #endif
 
     initStatusBar();
@@ -2945,6 +2945,8 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) noexcept
 }
 
 #if defined(Q_WS_MAC)
+extern void qt_mac_set_dock_menu(QMenu *menu); // Qt internal function
+
 void MainWindow::initDockMenuBar(){
     QMenu *menu = new QMenu(this);
     menu->setTitle("EiskaltDC++");
@@ -2978,7 +2980,6 @@ void MainWindow::initDockMenuBar(){
     menu->addAction(show_hide);
     menu->addAction(setup_speed_lim);
     menu->addMenu(menuAdditional);
-    menu->addActions(QList<QAction*>() << sep << close_app);
 
     qt_mac_set_dock_menu(menu);
 }
