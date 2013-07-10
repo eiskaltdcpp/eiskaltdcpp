@@ -22,8 +22,10 @@ using namespace std;
 #include "dcpp/Thread.h"
 #include "dcpp/Singleton.h"
 
-#ifdef __HAIKU__
+#if defined (__HAIKU__)
 #include "EiskaltApp_haiku.h"
+#elif defined(Q_WS_MAC)
+#include "EiskaltApp_mac.h"
 #endif
 
 #include "WulforUtil.h"
@@ -40,7 +42,7 @@ using namespace std;
 #include "MainWindow.h"
 #include "GlobalTimer.h"
 
-#ifndef __HAIKU__
+#if !defined (__HAIKU__) && !defined(Q_WS_MAC)
 #include "EiskaltApp.h"
 #endif
 
@@ -72,7 +74,7 @@ void parseCmdLine(const QStringList &);
 #if !defined(Q_WS_WIN)
 #include <unistd.h>
 #include <signal.h>
-#ifndef __HAIKU__
+#if !defined (__HAIKU__)
 #include <execinfo.h>
 
 #ifdef ENABLE_STACKTRACE
@@ -91,6 +93,20 @@ void migrateConfig();
 #include <locale.h>
 #endif
 
+#if defined(Q_WS_MAC)
+bool dockClickHandler(id self, SEL _cmd, ...)
+{
+    Q_UNUSED(self)
+    Q_UNUSED(_cmd)
+    Notification *N = Notification::getInstance();
+    if (N){
+        N->slotShowHide();
+        return true;
+    }
+    return false;
+}
+#endif
+
 int main(int argc, char *argv[])
 {
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
@@ -104,7 +120,7 @@ int main(int argc, char *argv[])
     if (app.isRunning()){
         QStringList args = app.arguments();
         args.removeFirst();//remove path to executable
-#ifndef __HAIKU__
+#if !defined (__HAIKU__)
         app.sendMessage(args.join("\n"));
 #endif
         return 0;
