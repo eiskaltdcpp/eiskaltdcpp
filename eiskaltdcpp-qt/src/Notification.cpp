@@ -57,7 +57,11 @@ void Notification::enableTray(bool enable){
 
         tray = NULL;
 
+#if defined(Q_WS_MAC)
+        MainWindow::getInstance()->setUnload(false);
+#else // defined(Q_WS_MAC)
         MainWindow::getInstance()->setUnload(true);
+#endif // defined(Q_WS_MAC)
 
         //WBSET(WB_TRAY_ENABLED, false);
     }
