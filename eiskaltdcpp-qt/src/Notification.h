@@ -63,13 +63,15 @@ enum Type{
     void reloadSounds();
     void resetTrayIcon();
 
+    void setSupressTxt(bool supressTxt_ = false) { supressTxt = supressTxt_; }
+    void setSupressSnd(bool supressSnd_ = false) { supressSnd = supressSnd_; }
+
+
 public Q_SLOTS:
     void switchModule(int);
     void showMessage(int t, const QString&, const QString&);
 
     void slotShowHide();
-    void slotSupressTxt();
-    void slotSupressSnd();
     void slotShowSpeedLimits();
 
 private Q_SLOTS:
@@ -77,6 +79,8 @@ private Q_SLOTS:
     void slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason);
     void slotCmdFinished(bool, QString);
     void slotCheckTray();
+    void slotSupressTxt();
+    void slotSupressSnd();
 
 private:
     explicit Notification(QObject *parent = 0);

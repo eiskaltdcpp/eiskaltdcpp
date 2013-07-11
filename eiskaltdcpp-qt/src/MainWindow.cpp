@@ -332,7 +332,11 @@ void MainWindow::setUnload ( bool b ) {
 void MainWindow::closeEvent(QCloseEvent *c_e){
     Q_D(MainWindow);
 
+#if defined(Q_WS_MAC)
+    if (!d->isUnload){
+#else // defined(Q_WS_MAC)
     if (!d->isUnload && WBGET(WB_TRAY_ENABLED)){
+#endif // defined(Q_WS_MAC)
         hide();
         c_e->ignore();
 
@@ -547,7 +551,7 @@ void MainWindow::init(){
 
     d->transfer_dock->hide();
 
-    setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+    this->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 
     setWindowTitle(QString("%1").arg(EISKALTDCPP_WND_TITLE));
 
@@ -1642,8 +1646,9 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
     d->statusSPLabel->setText(speedText);
     d->statusDLabel->setText(downText);
 
-    if (Notification::getInstance())
-        Notification::getInstance()->setToolTip(map["DSPEED"]+tr("/s"), map["USPEED"]+tr("/s"), map["DOWN"], map["UP"]);
+    Notification *N = Notification::getInstance();
+    if (N)
+        N->setToolTip(map["DSPEED"]+tr("/s"), map["USPEED"]+tr("/s"), map["DOWN"], map["UP"]);
 
     int leftM=0, topM=0, rightM=0, bottomM=0;
     d->statusSPLabel->getContentsMargins(&leftM, &topM, &rightM, &bottomM);
@@ -1891,9 +1896,9 @@ void MainWindow::redrawToolPanel(){
 #else // !defined(Q_WS_MAC)
     // Change program icon in dock when there are new unread personal messages.
     if (has_unread)
-        setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
+        this->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
     else
-        setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+        this->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 #endif // !defined(Q_WS_MAC)
 
     emit redrawWidgetPanels();
@@ -2963,25 +2968,40 @@ void MainWindow::initDockMenuBar(){
 
     menuAdditional->addActions(QList<QAction*>() << actSupressTxt << actSupressSnd);
 
-    QAction *show_hide = new QAction(tr("Show/Hide window"), menu);
     QAction *setup_speed_lim = new QAction(tr("Setup speed limits"), menu);
     QAction *sep = new QAction(menu);
     sep->setSeparator(true);
 
     setup_speed_lim->setIcon(WICON(WulforUtil::eiSPEED_LIMIT_ON));
-    show_hide->setIcon(WICON(WulforUtil::eiHIDEWINDOW));
 
-    Notification *N = Notification::getInstance();
-    connect(show_hide, SIGNAL(triggered()), N, SLOT(slotShowHide()));
-    connect(actSupressTxt, SIGNAL(triggered()), N, SLOT(slotSupressTxt()));
-    connect(actSupressSnd, SIGNAL(triggered()), N, SLOT(slotSupressSnd()));
-    connect(setup_speed_lim, SIGNAL(triggered()), N, SLOT(slotShowSpeedLimits()));
+    connect(setup_speed_lim, SIGNAL(triggered()), this, SLOT(slotShowSpeedLimits()));
+    connect(actSupressTxt, SIGNAL(triggered()), this, SLOT(slotSupressTxt()));
+    connect(actSupressSnd, SIGNAL(triggered()), this, SLOT(slotSupressSnd()));
 
-    menu->addAction(show_hide);
     menu->addAction(setup_speed_lim);
     menu->addMenu(menuAdditional);
 
     qt_mac_set_dock_menu(menu);
+}
+
+void slotShowSpeedLimits(){
+    Notification *N = Notification::getInstance();
+    if (N)
+        N->slotShowSpeedLimits();
+}
+
+void slotSupressTxt(){
+    Notification *N = Notification::getInstance();
+    QAction *act = qobject_cast<QAction*>(sender());
+    if (N && act)
+        N->setSupressTxt(act->isChecked());
+}
+
+void slotSupressSnd(){
+    Notification *N = Notification::getInstance();
+    QAction *act = qobject_cast<QAction*>(sender());
+    if (N && act)
+        N->setSupressSnd(act->isChecked());
 }
 #endif // defined(Q_WS_MAC)
 

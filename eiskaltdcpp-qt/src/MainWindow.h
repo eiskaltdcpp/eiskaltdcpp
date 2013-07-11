@@ -242,6 +242,12 @@ friend class dcpp::Singleton<MainWindow>;
         void slotUpdateFavHubMenu();
         void slotConnectFavHub(QAction*);
 
+#if defined(Q_WS_MAC)
+        void slotShowSpeedLimits();
+        void slotSupressTxt();
+        void slotSupressSnd();
+#endif
+
     Q_SIGNALS:
         void coreLogMessage(const QString&);
         void coreOpenShare(dcpp::UserPtr, const QString &, const QString&);
