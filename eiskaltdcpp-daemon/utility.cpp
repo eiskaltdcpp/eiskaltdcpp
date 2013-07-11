@@ -61,17 +61,7 @@ bool DirExist(char * sPath) {
 }
 
 void Log(const string & sData) {
-    string tmp;
-    if (LOG_FILE.empty())
-#ifdef _WIN32
-        tmp = PATH + "\\logs\\daemon.log";
-#else
-        tmp = PATH + "/Logs/daemon.log";
-#endif
-    else
-        tmp = LOG_FILE;
-
-    FILE * fw = fopen(tmp.c_str(), "a");
+    FILE * fw = fopen(LOG_FILE.c_str(), "a");
     if(!fw) return;
 
     time_t acc_time;
