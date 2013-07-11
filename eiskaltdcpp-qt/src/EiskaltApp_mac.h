@@ -19,6 +19,8 @@
 #include <objc/objc.h>
 #include <objc/message.h>
 
+bool dockClickHandler(id self,SEL _cmd,...);
+
 class EiskaltEventFilter: public QObject{
 Q_OBJECT
 public:
