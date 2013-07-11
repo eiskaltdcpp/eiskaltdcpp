@@ -2984,20 +2984,20 @@ void MainWindow::initDockMenuBar(){
     qt_mac_set_dock_menu(menu);
 }
 
-void slotShowSpeedLimits(){
+void MainWindow::slotShowSpeedLimits(){
     Notification *N = Notification::getInstance();
     if (N)
         N->slotShowSpeedLimits();
 }
 
-void slotSupressTxt(){
+void MainWindow::slotSupressTxt(){
     Notification *N = Notification::getInstance();
     QAction *act = qobject_cast<QAction*>(sender());
     if (N && act)
         N->setSupressTxt(act->isChecked());
 }
 
-void slotSupressSnd(){
+void MainWindow::slotSupressSnd(){
     Notification *N = Notification::getInstance();
     QAction *act = qobject_cast<QAction*>(sender());
     if (N && act)
