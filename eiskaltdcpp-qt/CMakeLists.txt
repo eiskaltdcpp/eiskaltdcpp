@@ -200,6 +200,11 @@ include_directories (
         )
 list (APPEND LIBS ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
+if (APPLE)
+  find_library (COCOA_LIBRARY Cocoa)
+  list (APPEND LIBS ${COCOA_LIBRARY})
+endif (APPLE)
+
 if (FREE_SPACE_BAR_C)
   add_definitions (-DFREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)
