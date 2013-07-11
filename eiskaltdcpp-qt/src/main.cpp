@@ -22,14 +22,6 @@ using namespace std;
 #include "dcpp/Thread.h"
 #include "dcpp/Singleton.h"
 
-#if defined (__HAIKU__)
-#include "EiskaltApp_haiku.h"
-#elif defined(Q_WS_MAC)
-#include "EiskaltApp_mac.h"
-#include <objc/objc.h>
-#include <objc/message.h>
-#endif
-
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 #include "HubManager.h"
@@ -44,7 +36,11 @@ using namespace std;
 #include "MainWindow.h"
 #include "GlobalTimer.h"
 
-#if !defined (__HAIKU__) && !defined(Q_WS_MAC)
+#if defined (__HAIKU__)
+#include "EiskaltApp_haiku.h"
+#elif defined(Q_WS_MAC)
+#include "EiskaltApp_mac.h"
+#else
 #include "EiskaltApp.h"
 #endif
 
@@ -96,13 +92,17 @@ void migrateConfig();
 #endif
 
 #if defined(Q_WS_MAC)
-void dockClickHandler(id self, SEL _cmd)
+#include <objc/objc.h>
+#include <objc/message.h>
+
+bool dockClickHandler(id self,SEL _cmd,...)
 {
     Q_UNUSED(self)
     Q_UNUSED(_cmd)
     Notification *N = Notification::getInstance();
     if (N)
         N->slotShowHide();
+    return true;
 }
 #endif
 
