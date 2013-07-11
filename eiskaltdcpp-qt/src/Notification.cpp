@@ -169,12 +169,19 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
             if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
                 break;
 
+#if defined(Q_WS_MAC)
+            MainWindow::getInstance()->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
+
+            if (MainWindow::getInstance()->isVisible())
+                QApplication::alert(MainWindow::getInstance(), 0);
+#else // defined(Q_WS_MAC)
             if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS))){
                 tray->setIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
 
                 if (MainWindow::getInstance()->isVisible())
                     QApplication::alert(MainWindow::getInstance(), 0);
             }
+#endif // defined(Q_WS_MAC)
 
             if (notify)
                 notify->showMessage(title, msg, tray);
@@ -261,7 +268,12 @@ void Notification::slotShowHide(){
     if (MW->isVisible()){
 #if defined(Q_WS_WIN)
         MW->hide();
-#else // defined(Q_WS_WIN)
+#elif defined(Q_WS_MAC)
+        if (!MW->isActiveWindow()){
+            MW->activateWindow();
+            MW->raise();
+        }
+#else // Linux, FreeBSD, Haiku, Hurd
         if (MW->isMinimized())
             MW->show();
 
@@ -272,14 +284,17 @@ void Notification::slotShowHide(){
         else {
             MW->hide();
         }
-#endif // defined(Q_WS_WIN)
+#endif
     }
     else{
         MW->show();
         MW->raise();
-
+#if defined(Q_WS_MAC)
+        MW->redrawToolPanel();
+#else // defined(Q_WS_MAC)
         if (tray)
             MW->redrawToolPanel();
+#endif // defined(Q_WS_MAC)
     }
 }
 
@@ -323,14 +338,14 @@ void Notification::slotCheckTray(){
 
 void Notification::slotSupressTxt(){
     QAction *act = qobject_cast<QAction*>(sender());
-    if (!act) return;
-    supressTxt = act->isChecked();
+    if (act)
+        setSupressTxt(act->isChecked());
 }
 
 void Notification::slotSupressSnd(){
     QAction *act = qobject_cast<QAction*>(sender());
-    if (!act) return;
-    supressSnd = act->isChecked();
+    if (act)
+        setSupressSnd(act->isChecked());
 }
 
 void Notification::resetTrayIcon(){
