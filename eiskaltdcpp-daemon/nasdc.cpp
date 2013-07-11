@@ -235,12 +235,6 @@ int main(int argc, char* argv[])
     sTitle += " [debug]";
 #endif
 
-    if (bDaemon) {
-        if (!Util::fileExists(LOG_FILE)) {
-            logging(false, false, false, string("ERROR: Daemon log: No such file or directory (") + LOG_FILE.c_str()+ string(")"));
-        }
-    }
-
     Util::PathsMap override;
 
     if (config_dir[0]) {
@@ -288,6 +282,20 @@ int main(int argc, char* argv[])
 
     PATH = Util::getPath(Util::PATH_USER_CONFIG);
     LOCAL_PATH = Util::getPath(Util::PATH_USER_LOCAL);
+
+    if (LOG_FILE.empty())
+#ifdef _WIN32
+        LOG_FILE = PATH + "logs\\daemon.log";
+#else
+        LOG_FILE = PATH + "Logs/daemon.log";
+#endif
+
+    if (bDaemon) {
+        if (!Util::fileExists(LOG_FILE)) {
+            logging(false, false, false, string("ERROR: Daemon log: No such file or directory (") + LOG_FILE.c_str()+ string(")"));
+        }
+    }
+
 #ifndef _WIN32
     if (bDaemon) {
         if (eidcpp_daemon(true,false) == -1)
