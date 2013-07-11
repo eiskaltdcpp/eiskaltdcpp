@@ -26,6 +26,8 @@ using namespace std;
 #include "EiskaltApp_haiku.h"
 #elif defined(Q_WS_MAC)
 #include "EiskaltApp_mac.h"
+#include <objc/objc.h>
+#include <objc/message.h>
 #endif
 
 #include "WulforUtil.h"
@@ -94,16 +96,13 @@ void migrateConfig();
 #endif
 
 #if defined(Q_WS_MAC)
-bool dockClickHandler(id self, SEL _cmd, ...)
+void dockClickHandler(id self, SEL _cmd)
 {
     Q_UNUSED(self)
     Q_UNUSED(_cmd)
     Notification *N = Notification::getInstance();
-    if (N){
+    if (N)
         N->slotShowHide();
-        return true;
-    }
-    return false;
 }
 #endif
 
