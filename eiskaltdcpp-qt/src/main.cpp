@@ -170,7 +170,11 @@ int main(int argc, char *argv[])
     ArenaWidgetManager::newInstance();
 
     MainWindow::newInstance();
+#if defined(Q_WS_MAC)
+    MainWindow::getInstance()->setUnload(false);
+#else // defined(Q_WS_MAC)
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
+#endif // defined(Q_WS_MAC)
 
     app.connect(&app, SIGNAL(messageReceived(QString)), MainWindow::getInstance(), SLOT(parseInstanceLine(QString)));
 
