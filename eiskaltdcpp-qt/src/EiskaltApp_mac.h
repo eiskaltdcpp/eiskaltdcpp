@@ -91,6 +91,7 @@ public:
     EiskaltApp(int &argc, char *argv[], const QString& uniqKey): QtSingleCoreApplication(argc, argv, uniqKey)
     {
         installEventFilter(&ef);
+        installMacHandlers();
     }
 
     void commitData(QSessionManager& manager){
@@ -107,22 +108,21 @@ public:
 private:
     EiskaltEventFilter ef;
 
-    objc_object* cls = objc_getClass("NSApplication");
-    SEL sharedApplication = sel_registerName("sharedApplication");
-    objc_object* appInst = objc_msgSend(cls, sharedApplication);
+    void installMacHandlers(){
+        objc_object* cls = objc_getClass("NSApplication");
+        SEL sharedApplication = sel_registerName("sharedApplication");
+        objc_object* appInst = objc_msgSend(cls, sharedApplication);
 
-    if (appInst)
-    {
-        objc_object* delegate = objc_msgSend(appInst,  sel_registerName("delegate"));
-        objc_object* delClass = objc_msgSend(delegate, sel_registerName("class"));
-        const char* tst = class_getName(delClass->isa);
-        bool test = class_addMethod((objc_class*)delClass,
-                                    sel_registerName("applicationShouldHandleReopen:hasVisibleWindows:"),
-                                    (IMP)dockClickHandler,"B@:");
-
-        if (!test)
-        {
-            // failed to register handler...
+        if (appInst){
+            objc_object* delegate = objc_msgSend(appInst,  sel_registerName("delegate"));
+            objc_object* delClass = objc_msgSend(delegate, sel_registerName("class"));
+            const char* tst = class_getName(delClass->isa);
+            bool test = class_addMethod((objc_class*)delClass,
+                                        sel_registerName("applicationShouldHandleReopen:hasVisibleWindows:"),
+                                        (IMP)dockClickHandler,"B@:");
+            if (!test){
+                // failed to register handler...
+            }
         }
     }
 };
