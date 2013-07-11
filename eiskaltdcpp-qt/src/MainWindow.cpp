@@ -2954,9 +2954,11 @@ extern void qt_mac_set_dock_menu(QMenu *menu); // Qt internal function
 
 void MainWindow::initDockMenuBar(){
     QMenu *menu = new QMenu(this);
-    menu->setTitle("EiskaltDC++");
+    QAction *setup_speed_lim = new QAction(tr("Setup speed limits"), menu);
 
-    QMenu *menuAdditional = new QMenu(tr("Additional"), MainWindow::getInstance());
+    setup_speed_lim->setIcon(WICON(WulforUtil::eiSPEED_LIMIT_ON));
+
+    QMenu *menuAdditional = new QMenu(tr("Additional"), this);
     QAction *actSupressSnd = new QAction(tr("Supress sound notifications"), menuAdditional);
     QAction *actSupressTxt = new QAction(tr("Supress text notifications"), menuAdditional);
 
@@ -2966,18 +2968,11 @@ void MainWindow::initDockMenuBar(){
     actSupressTxt->setCheckable(true);
     actSupressTxt->setChecked(false);
 
-    menuAdditional->addActions(QList<QAction*>() << actSupressTxt << actSupressSnd);
-
-    QAction *setup_speed_lim = new QAction(tr("Setup speed limits"), menu);
-    QAction *sep = new QAction(menu);
-    sep->setSeparator(true);
-
-    setup_speed_lim->setIcon(WICON(WulforUtil::eiSPEED_LIMIT_ON));
-
     connect(setup_speed_lim, SIGNAL(triggered()), this, SLOT(slotShowSpeedLimits()));
     connect(actSupressTxt, SIGNAL(triggered()), this, SLOT(slotSupressTxt()));
     connect(actSupressSnd, SIGNAL(triggered()), this, SLOT(slotSupressSnd()));
 
+    menuAdditional->addActions(QList<QAction*>() << actSupressTxt << actSupressSnd);
     menu->addAction(setup_speed_lim);
     menu->addMenu(menuAdditional);
 
