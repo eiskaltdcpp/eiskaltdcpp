@@ -7,7 +7,7 @@ CXX_COMPILER=/usr/bin/$MINGW32_NAME-g++
 RC_COMPILER=/usr/bin/$MINGW32_NAME-windres
 MINGW32_DIR=/usr/$MINGW32_NAME
 
-SOURCES_DIR=/home/$LOGNAME/builds/eiskaltdcpp/eiskaltdcpp
+SOURCES_DIR=/home/$LOGNAME/src/eiskaltdcpp
 MINGW32_DEPENDS_DIR=/home/$LOGNAME/builds/eiskaltdcpp/mingw32-depends
 QT_MINGW32_DIR=/home/$LOGNAME/.wine/drive_c/Qt/4.8.5
 OPENSSL_DIR=/home/$LOGNAME/.wine/drive_c/OpenSSL-Win32
