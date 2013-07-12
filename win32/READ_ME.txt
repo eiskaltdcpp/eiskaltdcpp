@@ -1,16 +1,16 @@
 You can get the lastest program sources from git repository:
-download sources on link http://nodeload.github.com/eiskaltdcpp/eiskaltdcpp/tarball/master
+download sources on link https://codeload.github.com/eiskaltdcpp/eiskaltdcpp/tar.gz/master
 or download and install git from http://git-scm.com/
 and run in command line: git clone git://github.com/eiskaltdcpp/eiskaltdcpp.git
 
 *******************************************************************************
 Build Depends
 *******************************************************************************
-mingw-get-inst-20120426.exe or later
+mingw-get-inst-20120426.exe
 	http://sourceforge.net/projects/mingw/files/Installer/mingw-get-inst/mingw-get-inst-20120426/mingw-get-inst-20120426.exe/download
 
 qt-win-opensource-4.8.5-mingw.exe or later
-	http://releases.qt-project.org/qt4/source/qt-win-opensource-4.8.4-mingw.exe
+	http://releases.qt-project.org/qt4/source/qt-win-opensource-4.8.5-mingw.exe
 
 Win32OpenSSL-1_0_1e.exe or later
 	http://www.slproweb.com/download/Win32OpenSSL-1_0_1e.exe
@@ -21,7 +21,7 @@ cmake-2.8.9-win32-x86.exe or later
 nsis-2.46-setup.exe or later
 	http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46-setup.exe/download
 
-boost_1_49_0.tar.bz2 or later
+boost_1_49_0.tar.bz2
 	http://sourceforge.net/projects/boost/files/boost/1.49.0/boost_1_49_0.tar.bz2/download
 
 bzip2-1.0.6-4-mingw32-dev.tar.lzma or later
@@ -60,8 +60,8 @@ aspell-0.60.5-1-bin.tar.bz2 or later
 aspell-0.60.5-1-lib.tar.bz2 or later
 	http://www.winkde.org/pub/kde/ports/win32/repository/aspell/aspell-0.60.5-1-lib.tar.bz2
 
-libidn-1.25-win32.zip or later
-	ftp://ftp.gnu.org/gnu/libidn/libidn-1.25-win32.zip
+libidn-1.28-win32.zip or later
+	ftp://ftp.gnu.org/gnu/libidn/libidn-1.28-win32.zip
 
 mingw32-qtscriptgenerator-git-26-10-2010.tar.xz or later
 	http://eiskaltdc.googlecode.com/files/mingw32-qtscriptgenerator-git-26-10-2010.tar.xz
