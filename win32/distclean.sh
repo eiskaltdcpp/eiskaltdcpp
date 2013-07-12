@@ -21,3 +21,4 @@ rm -f $BUILD_DIR/Makefile
 rm -f $BUILD_DIR/VersionGlobal.h
 rm -f $BUILD_DIR/cmake_install.cmake
 rm -f $BUILD_DIR/cmake_uninstall.cmake
+rm -f $BUILD_DIR/install_manifest.txt

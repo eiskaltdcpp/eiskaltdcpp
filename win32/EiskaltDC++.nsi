@@ -1,6 +1,6 @@
 !include MUI2.nsh
 
-!define PRODUCT_DISPLAY_VERSION      "2.2.8"
+!define PRODUCT_DISPLAY_VERSION      "2.2.9"
 !define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
@@ -47,6 +47,7 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_LANGUAGE "Italian"
 !insertmacro MUI_LANGUAGE "German"
 !insertmacro MUI_LANGUAGE "Greek"
+!insertmacro MUI_LANGUAGE "PortugueseBR"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY

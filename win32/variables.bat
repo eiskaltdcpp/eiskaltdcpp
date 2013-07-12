@@ -18,7 +18,7 @@ set INSTALL_DIR=%BUILD_DIR%\EiskaltDC++
 set INSTALLER_DIR=%BUILD_DIR%\installer
 
 set MINGW32_DIR=%SystemDrive%\MinGW
-set QT_MINGW32_DIR=%SystemDrive%\Qt\4.8.4
+set QT_MINGW32_DIR=%SystemDrive%\Qt\4.8.5
 
 set OPENSSL_DIR=%SystemDrive%\OpenSSL-Win32
 set MINGW32_DEPENDS_DIR=%SystemDrive%\eiskaltdcpp\mingw32-depends

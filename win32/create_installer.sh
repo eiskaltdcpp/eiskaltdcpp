@@ -40,6 +40,8 @@ cp "$MINGW32_DEPENDS_DIR/script/qtscript_xmlpatterns.dll" "$INSTALLER_DIR/script
 cp "$QT_MINGW32_DIR/bin/libgcc_s_dw2-1.dll"               "$INSTALLER_DIR"
 #cp "$MINGW32_DIR/bin/libgcc_s_sjlj-1.dll"                 "$INSTALLER_DIR"
 #cp "$MINGW32_DIR/bin/libstdc++-6.dll"                     "$INSTALLER_DIR"
+cp "/usr/lib/gcc/$MINGW32_NAME/4.6/libgcc_s_sjlj-1.dll"   "$INSTALL_DIR"
+cp "/usr/lib/gcc/$MINGW32_NAME/4.6/libstdc++-6.dll"       "$INSTALL_DIR"
 cp "$QT_MINGW32_DIR/bin/mingwm10.dll"                     "$INSTALLER_DIR"
 
 cp "$GETTEXT_DIR/bin/libintl-8.dll"                       "$INSTALLER_DIR"
