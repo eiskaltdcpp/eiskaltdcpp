@@ -9,7 +9,7 @@ Build Depends
 mingw-get-inst-20120426.exe or later
 	http://sourceforge.net/projects/mingw/files/Installer/mingw-get-inst/mingw-get-inst-20120426/mingw-get-inst-20120426.exe/download
 
-qt-win-opensource-4.8.4-mingw.exe or later
+qt-win-opensource-4.8.5-mingw.exe or later
 	http://releases.qt-project.org/qt4/source/qt-win-opensource-4.8.4-mingw.exe
 
 Win32OpenSSL-1_0_1e.exe or later

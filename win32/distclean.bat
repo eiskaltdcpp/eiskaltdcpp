@@ -19,3 +19,4 @@ del /f %BUILD_DIR%\Makefile
 del /f %BUILD_DIR%\VersionGlobal.h
 del /f %BUILD_DIR%\cmake_install.cmake
 del /f %BUILD_DIR%\cmake_uninstall.cmake
+del /f %BUILD_DIR%\install_manifest.txt
