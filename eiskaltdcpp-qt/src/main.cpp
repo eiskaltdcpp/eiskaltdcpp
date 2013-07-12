@@ -22,6 +22,14 @@ using namespace std;
 #include "dcpp/Thread.h"
 #include "dcpp/Singleton.h"
 
+#if defined (__HAIKU__)
+#include "EiskaltApp_haiku.h"
+#elif defined(Q_WS_MAC)
+#include "EiskaltApp_mac.h"
+#else
+#include "EiskaltApp.h"
+#endif
+
 #include "WulforUtil.h"
 #include "WulforSettings.h"
 #include "HubManager.h"
@@ -35,14 +43,6 @@ using namespace std;
 #include "ArenaWidgetFactory.h"
 #include "MainWindow.h"
 #include "GlobalTimer.h"
-
-#if defined (__HAIKU__)
-#include "EiskaltApp_haiku.h"
-#elif defined(Q_WS_MAC)
-#include "EiskaltApp_mac.h"
-#else
-#include "EiskaltApp.h"
-#endif
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
