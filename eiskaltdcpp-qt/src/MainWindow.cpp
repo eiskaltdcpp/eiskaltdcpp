@@ -1896,9 +1896,9 @@ void MainWindow::redrawToolPanel(){
 #else // !defined(Q_WS_MAC)
     // Change program icon in dock when there are new unread personal messages.
     if (has_unread)
-        this->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
+        qApp->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
     else
-        this->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+        qApp->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 #endif // !defined(Q_WS_MAC)
 
     emit redrawWidgetPanels();

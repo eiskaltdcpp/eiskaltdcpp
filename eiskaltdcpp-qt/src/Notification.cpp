@@ -174,10 +174,8 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
                 break;
 
 #if defined(Q_WS_MAC)
-            MainWindow::getInstance()->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
-
-            if (MainWindow::getInstance()->isVisible())
-                QApplication::alert(MainWindow::getInstance(), 0);
+            qApp->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
+            qApp->alert(MainWindow::getInstance(), 0);
 #else // defined(Q_WS_MAC)
             if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS))){
                 tray->setIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
