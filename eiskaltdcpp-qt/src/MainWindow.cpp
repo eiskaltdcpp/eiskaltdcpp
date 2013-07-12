@@ -2949,6 +2949,26 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) noexcept
     emit coreUpdateStats(map);
 }
 
+void MainWindow::slotShowSpeedLimits(){
+    Notification *N = Notification::getInstance();
+    if (N)
+        N->slotShowSpeedLimits();
+}
+
+void MainWindow::slotSupressTxt(){
+    Notification *N = Notification::getInstance();
+    QAction *act = qobject_cast<QAction*>(sender());
+    if (N && act)
+        N->setSupressTxt(act->isChecked());
+}
+
+void MainWindow::slotSupressSnd(){
+    Notification *N = Notification::getInstance();
+    QAction *act = qobject_cast<QAction*>(sender());
+    if (N && act)
+        N->setSupressSnd(act->isChecked());
+}
+
 #if defined(Q_WS_MAC)
 extern void qt_mac_set_dock_menu(QMenu *menu); // Qt internal function
 
@@ -2977,26 +2997,6 @@ void MainWindow::initDockMenuBar(){
     menu->addMenu(menuAdditional);
 
     qt_mac_set_dock_menu(menu);
-}
-
-void MainWindow::slotShowSpeedLimits(){
-    Notification *N = Notification::getInstance();
-    if (N)
-        N->slotShowSpeedLimits();
-}
-
-void MainWindow::slotSupressTxt(){
-    Notification *N = Notification::getInstance();
-    QAction *act = qobject_cast<QAction*>(sender());
-    if (N && act)
-        N->setSupressTxt(act->isChecked());
-}
-
-void MainWindow::slotSupressSnd(){
-    Notification *N = Notification::getInstance();
-    QAction *act = qobject_cast<QAction*>(sender());
-    if (N && act)
-        N->setSupressSnd(act->isChecked());
 }
 #endif // defined(Q_WS_MAC)
 

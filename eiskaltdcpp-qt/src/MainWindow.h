@@ -242,11 +242,12 @@ friend class dcpp::Singleton<MainWindow>;
         void slotUpdateFavHubMenu();
         void slotConnectFavHub(QAction*);
 
-#if defined(Q_WS_MAC)
+        // These slots are used only in Mac OS X.
+        // But due to bug in moc they cannot be placed in #ifdef block.
         void slotShowSpeedLimits();
         void slotSupressTxt();
         void slotSupressSnd();
-#endif
+        //
 
     Q_SIGNALS:
         void coreLogMessage(const QString&);
