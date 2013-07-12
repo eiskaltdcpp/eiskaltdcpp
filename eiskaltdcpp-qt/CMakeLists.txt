@@ -76,24 +76,24 @@ endif (NOT HAIKU)
 
 file (GLOB MOC_HDRS ${PROJECT_SOURCE_DIR}/src/*.h)
 
-if (NOT HAIKU)
+if (NOT HAIKU AND NOT APPLE)
         list(APPEND MOC_HDRS
                     src/qtsingleapp/qtsinglecoreapplication.h)
         list(REMOVE_ITEM MOC_HDRS
                     ${PROJECT_SOURCE_DIR}/src/EiskaltApp_haiku.h)
-else (NOT HAIKU)
-        list(REMOVE_ITEM MOC_HDRS
-                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
-endif (NOT HAIKU)
-if (NOT APPLE)
-        list(APPEND MOC_HDRS
-                    src/qtsingleapp/qtsinglecoreapplication.h)
         list(REMOVE_ITEM MOC_HDRS
                     ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
-else (NOT APPLE)
+elseif (HAIKU)
         list(REMOVE_ITEM MOC_HDRS
                     ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
-endif (NOT APPLE)
+        list(REMOVE_ITEM MOC_HDRS
+                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
+elseif (APPLE)
+        list(REMOVE_ITEM MOC_HDRS
+                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
+        list(REMOVE_ITEM MOC_HDRS
+                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
+endif ()
 
 file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
