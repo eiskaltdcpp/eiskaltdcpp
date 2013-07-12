@@ -6,6 +6,7 @@ strip "%INSTALL_DIR%\eiskaltdcpp-qt.exe"
 strip "%INSTALL_DIR%\eiskaltdcpp-daemon.exe"
 
 copy /Y %SOURCES_DIR%\win32\dcppboot.xml                        "%INSTALL_DIR%"
+copy /Y %SOURCES_DIR%\eiskaltdcpp-cli\cli-jsonrpc-config.pl     "%INSTALL_DIR%"
 echo [Paths] > "%INSTALL_DIR%\qt.conf"
 echo Plugins = ./plugins >> "%INSTALL_DIR%\qt.conf"
 
