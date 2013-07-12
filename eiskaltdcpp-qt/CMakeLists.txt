@@ -89,10 +89,12 @@ elseif (HAIKU)
         list(REMOVE_ITEM MOC_HDRS
                     ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
 elseif (APPLE)
+        list(APPEND MOC_HDRS
+                    src/qtsingleapp/qtsinglecoreapplication.h)
         list(REMOVE_ITEM MOC_HDRS
                     ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
         list(REMOVE_ITEM MOC_HDRS
-                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
+                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_haiku.h)
 endif ()
 
 file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
