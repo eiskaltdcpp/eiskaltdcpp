@@ -1,5 +1,5 @@
 /*jslint browser:true */
-/*global $, jQuery*/
+/*global $, jQuery, config*/
 var eiskalt = (function () {
     "use strict";
 
@@ -11,13 +11,14 @@ var eiskalt = (function () {
         DEBUG : 5
     }, eiskalt = {
 
-        currentDebugLevel: debugLevels.DEBUG,
         searchResults: {},
         groupedResults: {},
         downloadQueue: {},
+        config: null,
 
         debugOut: function (debugLevel, text) {
-            if (debugLevel <= eiskalt.currentDebugLevel) {
+            if (debugLevel <= config.debugLevel) {
+                $('#debugdiv').show();
                 $('#debugout').prepend((new Date()).toLocaleTimeString() + ': ' + text + '\n');
             }
         },
@@ -156,6 +157,11 @@ var eiskalt = (function () {
                     eiskalt.addDownloadQueue(entry);
                 });
             }
+            $.each(eiskalt.downloadQueue, function (target, entry) {
+                if (!data.result.hasOwnProperty(target)) {
+                    entry.row.remove();
+                }
+            });
         },
 
         requestDownloadQueue: function () {
@@ -167,7 +173,7 @@ var eiskalt = (function () {
 
         onLoad: function () {
             $.jsonRPC.setup({
-                endPoint : 'http://127.0.0.1:3121/',
+                endPoint : 'http://' + config.jsonrpc.host + ':' + config.jsonrpc.port,
                 namespace : ''
             });
             $('input#search').on('click', eiskalt.onSearchClicked);
