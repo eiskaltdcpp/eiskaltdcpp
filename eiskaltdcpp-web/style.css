@@ -1,0 +1,107 @@
+body
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 0.9em;
+    color: #444;
+}
+
+h1 {
+    font-weight: normal;
+    margin: 10px 0px 0px 0px;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+div.section {
+    border: 1px solid #fff;
+    padding: 0px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+#debugout {
+    font-family: monospace;
+    background: #eef;
+    color: #669;
+    padding: 10px 10px 10px 10px;
+}
+
+input {
+    border: none;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    padding: 8px;
+}
+
+input[type=text] {
+    background: #f8f8ff;
+    color: #669;
+}
+
+input[type=button] {
+    background: #b9c9fe;
+    color: #039;
+}
+
+table
+{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+table th
+{
+    font-weight: normal;
+    padding: 8px;
+    background: linear-gradient(top, #fff, #b9c9fe);
+    border-top: 2px solid #d3ddff;
+    border-bottom: 1px solid #fff;
+    color: #039;
+}
+
+table td
+{
+    padding: 4px;
+    border-bottom: 1px solid #fff;
+    color: #669;
+    border-top: 1px solid #fff;
+    background: #e8edff;
+}
+
+table#searchresults td:nth-child(1), table#searchresults td:nth-child(2) {
+   text-align: center;
+}
+
+table#searchresults td:nth-child(4) {
+   text-align: right;
+}
+
+table#downloadqueue td:nth-child(1) {
+   text-align: center;
+}
+
+table#downloadqueue td:nth-child(3) {
+   text-align: right;
+}
+
+table td img
+{
+    cursor: pointer;
+    height: 1.5em;
+    padding: 0;
+    margin: 0;
+}
+
+table tfoot tr td
+{
+    background: linear-gradient(top, #fff, #e8edff);
+    color: #99c;
+}
+
+table tbody tr:hover td
+{
+    background: linear-gradient(top, #fff, #d0dafd);
+    color: #339;
+}
