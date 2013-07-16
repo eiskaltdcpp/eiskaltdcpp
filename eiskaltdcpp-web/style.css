@@ -21,6 +21,10 @@ div.section {
     box-shadow: 0 0 10px rgba(0,0,0,0.15);
 }
 
+#debugdiv {
+    display: none;
+}
+
 #debugout {
     font-family: monospace;
     background: #eef;
@@ -40,7 +44,7 @@ input[type=text] {
 }
 
 input[type=button] {
-    background: #b9c9fe;
+    background: linear-gradient(0deg, #b9c9fe, #f8f8ff);
     color: #039;
 }
 
@@ -55,19 +59,24 @@ table th
 {
     font-weight: normal;
     padding: 8px;
-    background: linear-gradient(top, #fff, #b9c9fe);
-    border-top: 2px solid #d3ddff;
-    border-bottom: 1px solid #fff;
+    background: linear-gradient(0deg, #b9c9fe, #f8f8ff);
+    border: 0;
     color: #039;
 }
 
 table td
 {
     padding: 4px;
+    background: linear-gradient(0deg, #e8edff, #f8f8ff);
+    border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
     color: #669;
-    border-top: 1px solid #fff;
-    background: #e8edff;
+}
+
+table tbody tr:hover td
+{
+    background: linear-gradient(0deg, #d0dafd, #f8f8ff);
+    color: #339;
 }
 
 table#searchresults td:nth-child(1), table#searchresults td:nth-child(2) {
@@ -92,16 +101,4 @@ table td img
     height: 1.5em;
     padding: 0;
     margin: 0;
-}
-
-table tfoot tr td
-{
-    background: linear-gradient(top, #fff, #e8edff);
-    color: #99c;
-}
-
-table tbody tr:hover td
-{
-    background: linear-gradient(top, #fff, #d0dafd);
-    color: #339;
 }
