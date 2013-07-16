@@ -358,6 +358,16 @@ bool JsonRpcMethods::AddQueueItem(const Json::Value& root, Json::Value& response
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
 
+    std::string directory = root["params"]["directory"].asString();
+    std::string tth = root["params"]["tth"].asString();
+    std::string name = root["params"]["filename"].asString();
+    int64_t size = root["params"]["size"].asInt64();
+
+    if (ServerThread::getInstance()->addInQueue(directory, name, size, tth))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
+
     if (isDebug) std::cout << "AddQueueItem (response): " << response << std::endl;
     return true;
 }
