@@ -18,6 +18,9 @@
 
 #pragma once
 
+#include <functional>
+#include <unordered_map>
+
 #include "TimerManager.h"
 #include "CriticalSection.h"
 #include "Exception.h"
@@ -32,6 +35,12 @@
 #include "ClientManagerListener.h"
 
 namespace dcpp {
+
+using std::function;
+using std::list;
+using std::pair;
+using std::unordered_multimap;
+using std::unordered_map;
 
 STANDARD_EXCEPTION(QueueException);
 
@@ -69,6 +78,8 @@ class QueueManager : public Singleton<QueueManager>, public Speaker<QueueManager
     private SearchManagerListener, private ClientManagerListener
 {
 public:
+    typedef list<QueueItemPtr> QueueItemList;
+
     //NOTE: freedcpp
     void add(const string& aTarget, int64_t aSize, const TTHValue& root);
 
@@ -106,7 +117,7 @@ public:
     QueueItem::StringMap& lockQueue() noexcept { cs.lock(); return fileQueue.getQueue(); } ;
     void unlockQueue() noexcept { cs.unlock(); }
 
-    Download* getDownload(UserConnection& aSource, bool supportsTrees) noexcept;
+    Download* getDownload(UserConnection& aSource) noexcept;
     void putDownload(Download* aDownload, bool finished) noexcept;
     void setFile(Download* download);
 
@@ -129,7 +140,7 @@ public:
 
     bool isChunkDownloaded(const TTHValue& tth, int64_t startPos, int64_t& bytes, string& tempTarget, int64_t& size) {
         Lock l(cs);
-        QueueItem::List ql;
+        QueueItemList ql;
         fileQueue.find(ql, tth);
 
         if(ql.empty()) return false;
@@ -192,7 +203,7 @@ private:
     public:
         FileQueue() : lastInsert(queue.end()) { }
         ~FileQueue() {
-            for(QueueItem::StringIter i = queue.begin(); i != queue.end(); ++i)
+            for(auto i = queue.begin(); i != queue.end(); ++i)
                 delete i->second;
         }
         void add(QueueItem* qi);
@@ -200,8 +211,9 @@ private:
             const string& aTempTarget, time_t aAdded, const TTHValue& root);
 
         QueueItem* find(const string& target);
-        void find(QueueItem::List& sl, int64_t aSize, const string& ext);
-        void find(QueueItem::List& ql, const TTHValue& tth);
+        void find(QueueItemList& sl, int64_t aSize, const string& ext);
+        void find(QueueItemList& ql, const TTHValue& tth);
+        QueueItemList find(const TTHValue& tth);
         // find some PFS sources to exchange parts info
         void findPFSSources(PFSSourceList&);
         bool exists(const TTHValue& tth) const;
@@ -219,7 +231,7 @@ private:
     private:
         QueueItem::StringMap queue;
         /** A hint where to insert an item... */
-        QueueItem::StringIter lastInsert;
+        QueueItem::StringMap::iterator lastInsert;
     };
 
     /** All queue items indexed by user (this is a cache for the FileQueue really...) */
@@ -231,21 +243,21 @@ private:
         QueueItem* getRunning(const UserPtr& aUser);
         void addDownload(QueueItem* qi, Download* d);
         void removeDownload(QueueItem* qi, const UserPtr& d);
-        QueueItem::UserListMap& getList(int p) { return userQueue[p]; }
+        unordered_map<UserPtr, QueueItemList, User::Hash>& getList(int p) { return userQueue[p]; }
         void remove(QueueItem* qi, bool removeRunning = true);
         void remove(QueueItem* qi, const UserPtr& aUser, bool removeRunning = true);
         void setPriority(QueueItem* qi, QueueItem::Priority p);
 
-        QueueItem::UserMap& getRunning() { return running; }
+        unordered_map<UserPtr, QueueItemPtr, User::Hash>& getRunning() { return running; }
         bool isRunning(const UserPtr& aUser) const {
             return (running.find(aUser) != running.end());
         }
         int64_t getQueued(const UserPtr& aUser) const;
     private:
         /** QueueItems by priority and user (this is where the download order is determined) */
-        QueueItem::UserListMap userQueue[QueueItem::LAST];
+        unordered_map<UserPtr, QueueItemList, User::Hash> userQueue[QueueItem::LAST];
         /** Currently running downloads, a QueueItem is always either here or in the userQueue */
-        QueueItem::UserMap running;
+        unordered_map<UserPtr, QueueItemPtr, User::Hash> running;
     };
 
     friend class QueueLoader;

@@ -74,17 +74,15 @@ public:
 
     void respond(const AdcCommand& cmd, const CID& cid,  bool isUdpActive, const string& hubIpPort);
 
-    uint16_t getPort() const
-    {
-        return port;
-    }
+    const string& getPort() const { return port; }
 
     void listen();
     void disconnect() noexcept;
     void onSearchResult(const string& aLine) {
-        onData((const uint8_t*)aLine.data(), aLine.length(), Util::emptyString);
+        onData(aLine, Util::emptyString);
     }
 
+    void onData(const string& data, const string& remoteIp = Util::emptyString);
     void onRES(const AdcCommand& cmd, const UserPtr& from, const string& remoteIp = Util::emptyString);
     void onPSR(const AdcCommand& cmd, UserPtr from, const string& remoteIp = Util::emptyString);
     AdcCommand toPSR(bool wantResponse, const string& myNick, const string& hubIpPort, const string& tth, const vector<uint16_t>& partialInfo) const;
@@ -119,7 +117,7 @@ private:
 
     CriticalSection cs;
     std::unique_ptr<Socket> socket;
-    uint16_t port;
+    string port;
     bool stop;
     friend class Singleton<SearchManager>;
 
@@ -129,7 +127,7 @@ private:
     int run();
 
     ~SearchManager();
-    void onData(const uint8_t* buf, size_t aLen, const string& address);
+    //void onData(const uint8_t* buf, size_t aLen, const string& address);
 
     string getPartsString(const PartsInfo& partsInfo) const;
 };

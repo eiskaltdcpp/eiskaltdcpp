@@ -31,7 +31,7 @@ bool UPnP::open(const unsigned short port, const Protocol protocol, const string
     if(!add(port, protocol, description))
         return false;
 
-    rules.push_back(make_pair(port, protocol));
+    rules.push_back(std::make_pair(port, protocol));
     return true;
 }
 

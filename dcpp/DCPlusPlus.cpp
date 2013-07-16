@@ -20,24 +20,23 @@
 #include "DCPlusPlus.h"
 #include "format.h"
 
-#include "ConnectionManager.h"
-#include "DownloadManager.h"
-#include "UploadManager.h"
-#include "CryptoManager.h"
-#include "ShareManager.h"
-#include "SearchManager.h"
-#include "QueueManager.h"
+#include "ADLSearch.h"
 #include "ClientManager.h"
+#include "ConnectionManager.h"
+#include "CryptoManager.h"
+#include "DownloadManager.h"
+#include "FavoriteManager.h"
+#include "FinishedManager.h"
 #include "HashManager.h"
 #include "LogManager.h"
-#include "FavoriteManager.h"
+#include "UploadManager.h"
+#include "SearchManager.h"
 #include "SettingsManager.h"
-#include "FinishedManager.h"
-#include "ResourceManager.h"
-#include "ThrottleManager.h"
-#include "ADLSearch.h"
-//#include "WindowManager.h"
+#include "ShareManager.h"
 #include "StringTokenizer.h"
+#include "ThrottleManager.h"
+#include "QueueManager.h"
+
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
@@ -74,7 +73,6 @@ void startup(void (*f)(void*, const string&), void* p) {
     bindtextdomain(PACKAGE, LOCALEDIR);
     bind_textdomain_codeset(PACKAGE, "UTF-8");
 
-    ResourceManager::newInstance();
     SettingsManager::newInstance();
 
     LogManager::newInstance();
@@ -180,7 +178,6 @@ void shutdown() {
     LogManager::deleteInstance();
     SettingsManager::deleteInstance();
     TimerManager::deleteInstance();
-    ResourceManager::deleteInstance();
 
 #ifdef _WIN32
     ::WSACleanup();

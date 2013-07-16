@@ -18,15 +18,26 @@
 
 #pragma once
 
+#include <unordered_map>
+#include <unordered_set>
+
 #include "TimerManager.h"
 #include "Client.h"
 #include "Singleton.h"
 #include "SettingsManager.h"
-#include "User.h"
+#include "OnlineUser.h"
 #include "Socket.h"
+#include "CID.h"
+#include "ClientListener.h"
 #include "ClientManagerListener.h"
+#include "HintedUser.h"
 
 namespace dcpp {
+
+using std::pair;
+using std::unordered_map;
+using std::unordered_multimap;
+using std::unordered_set;
 
 class UserCommand;
 
@@ -35,25 +46,31 @@ class ClientManager : public Speaker<ClientManagerListener>,
     private TimerManagerListener
 {
 public:
+
+    typedef unordered_set<Client*> ClientList;
+    typedef unordered_map<CID, UserPtr> UserMap;
+    typedef unordered_multimap<CID, OnlineUser*> OnlineMap;
+    typedef OnlineMap::iterator OnlineIter;
+    typedef OnlineMap::const_iterator OnlineIterC;
+    typedef pair<OnlineIter, OnlineIter> OnlinePair;
+    typedef pair<OnlineIterC, OnlineIterC> OnlinePairC;
+
     Client* getClient(const string& aHubURL);
     void putClient(Client* aClient);
 
     size_t getUserCount() const;
     int64_t getAvailable() const;
 
-    StringList getHubs(const CID& cid, const string& hintUrl);
-    StringList getHubNames(const CID& cid, const string& hintUrl);
-    StringList getNicks(const CID& cid, const string& hintUrl);
+    StringList getHubUrls(const CID& cid, const string& hintUrl = Util::emptyString);
+    StringList getHubNames(const CID& cid, const string& hintUrl = Util::emptyString);
+    StringList getNicks(const CID& cid, const string& hintUrl = Util::emptyString);
     string getField(const CID& cid, const string& hintUrl, const char* field) const;
-
-    StringList getHubs(const CID& cid, const string& hintUrl, bool priv);
-    StringList getHubNames(const CID& cid, const string& hintUrl, bool priv);
-    StringList getNicks(const CID& cid, const string& hintUrl, bool priv);
 
     StringList getNicks(const HintedUser& user) { return getNicks(user.user->getCID(), user.hint); }
     StringList getHubNames(const HintedUser& user) { return getHubNames(user.user->getCID(), user.hint); }
-    StringList getHubs(const HintedUser& user) { return getHubs(user.user->getCID(), user.hint); }
-
+    StringList getHubUrls(const HintedUser& user) { return getHubUrls(user.user->getCID(), user.hint); }
+    StringPairList getHubs(const CID& cid, const string& hintUrl);
+    vector<Identity> getIdentities(const UserPtr &u) const;
     string getConnection(const CID& cid) const;
     uint8_t getSlots(const CID& cid) const;
 
@@ -71,16 +88,20 @@ public:
     string findHub(const string& ipPort) const;
     string findHubEncoding(const string& aUrl) const;
 
-    /**
-    * @param priv discard any user that doesn't match the hint.
-    * @return OnlineUser* found by CID and hint; might be only by CID if priv is false.
+    /** Get an OnlineUser object - lock it with lock()!
+    * @return OnlineUser* found by CID, using the hub URL as a hint.
     */
-    OnlineUser* findOnlineUser(const HintedUser& user, bool priv);
-    OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl, bool priv);
+    OnlineUser* findOnlineUser(const HintedUser& user) const;
+    OnlineUser* findOnlineUser(const CID& cid, const string& hintUrl) const;
+    /// @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
+    OnlineUser* findOnlineUserHint(const HintedUser& user) const;
+    OnlineUser* findOnlineUserHint(const CID& cid, const string& hintUrl) const;
 
     UserPtr findUser(const string& aNick, const string& aHubUrl) const noexcept { return findUser(makeCid(aNick, aHubUrl)); }
     UserPtr findUser(const CID& cid) const noexcept;
-    UserPtr findLegacyUser(const string& aNick) const noexcept;
+    /** Find an online NMDC user by nick only (random user returned if multiple hubs share users
+    with the same nick). The nick is given in hub-dependant encoding. */
+    HintedUser findLegacyUser(const string& nick) const noexcept;
 
     bool isOnline(const UserPtr& aUser) const {
         Lock l(cs);
@@ -97,7 +118,7 @@ public:
         }
         return Identity();
     }
-    
+
     int64_t getBytesShared(const UserPtr& p) const{
         int64_t l_share = 0;
         {
@@ -116,9 +137,9 @@ public:
         Lock l(cs);
         OnlineMap::const_iterator i = onlineUsers.find(user->getCID());
         if ( i != onlineUsers.end() ) {
-            i->second->getIdentity().setIp(IP);
+            i->second->getIdentity().setIp4(IP);
             if(udpPort > 0)
-                i->second->getIdentity().setUdpPort(Util::toString(udpPort));
+                i->second->getIdentity().setUdp4Port(Util::toString(udpPort));
         }
     }
 
@@ -126,13 +147,14 @@ public:
 
     /** Constructs a synthetic, hopefully unique CID */
     CID makeCid(const string& nick, const string& hubUrl) const noexcept;
-
+    /** Send a ClientListener::Updated signal for every connected user. */
+    void updateUsers();
     void putOnline(OnlineUser* ou) noexcept;
     void putOffline(OnlineUser* ou, bool disconnect = false) noexcept;
 
     UserPtr& getMe();
 
-    void send(AdcCommand& c, const CID& to);
+    void sendUDP(AdcCommand& cmd, const OnlineUser& user);
     void connect(const HintedUser& user, const string& token);
     void privateMessage(const HintedUser& user, const string& msg, bool thirdPerson);
     void userCommand(const HintedUser& user, const UserCommand& uc, StringMap& params, bool compatibility);
@@ -147,7 +169,16 @@ public:
     Lock lock() { return Lock(cs); }
 #endif // DO_NOT_USE_MUTEX
 
-    Client::List& getClients() { return clients; }
+    /// Access current hubs - lock this with lock()!
+    const ClientList& getClients() const { return clients; }
+
+    /// Access known users (online and offline) - lock this with lock()!
+    const UserMap& getUsers() const { return users; }
+    UserMap& getUsers() { return users; }
+
+    /// Access online users - lock this with lock()!
+    const OnlineMap& getOnlineUsers() const { return onlineUsers; }
+    OnlineMap& getOnlineUsers() { return onlineUsers; }
 
     CID getMyCID();
     const CID& getMyPID();
@@ -158,24 +189,17 @@ public:
 #ifdef WITH_DHT
     OnlineUserPtr findDHTNode(const CID& cid) const;
 #endif
-
+    void send(AdcCommand& cmd, const CID& cid);
 private:
     typedef unordered_map<string, UserPtr> LegacyMap;
     typedef LegacyMap::iterator LegacyIter;
 
-    typedef unordered_map<CID, UserPtr> UserMap;
     typedef UserMap::iterator UserIter;
 
     typedef std::pair<std::string, bool> NickMapEntry; // the boolean being true means "save this".
     typedef unordered_map<CID, NickMapEntry> NickMap;
 
-    typedef unordered_multimap<CID, OnlineUser*> OnlineMap;
-    typedef OnlineMap::iterator OnlineIter;
-    typedef OnlineMap::const_iterator OnlineIterC;
-    typedef pair<OnlineIter, OnlineIter> OnlinePair;
-    typedef pair<OnlineIterC, OnlineIterC> OnlinePairC;
-
-    Client::List clients;
+    ClientList clients;
     mutable CriticalSection cs;
 
     UserMap users;
@@ -190,27 +214,17 @@ private:
 
     friend class Singleton<ClientManager>;
 
-    ClientManager() {
-        TimerManager::getInstance()->addListener(this);
-    }
+    ClientManager();
+    virtual ~ClientManager();
 
-    virtual ~ClientManager() {
-        TimerManager::getInstance()->removeListener(this);
-    }
+    void updateUser(const OnlineUser& user) noexcept;
 
-    void updateNick(const OnlineUser& user) noexcept;
-
-    /// @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
-    OnlineUser* findOnlineUserHint(const CID& cid, const string& hintUrl) const {
-        OnlinePairC p;
-        return findOnlineUserHint(cid, hintUrl, p);
-    }
     /**
     * @param p OnlinePair of all the users found by CID, even those who don't match the hint.
     * @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
     */
     OnlineUser* findOnlineUserHint(const CID& cid, const string& hintUrl, OnlinePairC& p) const;
-
+    void sendUDP(const string& ip, const string& port, const string& data);
     string getUsersFile() const { return Util::getPath(Util::PATH_USER_LOCAL) + "Users.xml"; }
 
     // ClientListener

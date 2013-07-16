@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include <deque>
+#include <memory>
 #include "typedefs.h"
 #include "BufferedSocketListener.h"
 #include "Semaphore.h"
@@ -28,6 +30,10 @@
 #include "Atomic.h"
 
 namespace dcpp {
+using std::deque;
+using std::function;
+using std::pair;
+using std::unique_ptr;
 
 class BufferedSocket : public Speaker<BufferedSocketListener>, private Thread {
 public:
@@ -48,8 +54,8 @@ public:
      * @param sep Line separator
      * @return An unconnected socket
      */
-    static BufferedSocket* getSocket(char sep) {
-        return new BufferedSocket(sep);
+    static BufferedSocket* getSocket(char sep, bool v4only = false) {
+        return new BufferedSocket(sep, v4only);
     }
 
     static void putSocket(BufferedSocket* aSock) {
@@ -64,9 +70,9 @@ public:
             Thread::sleep(100);
     }
 
-    void accept(const Socket& srv, bool secure, bool allowUntrusted);
-    void connect(const string& aAddress, uint16_t aPort, bool secure, bool allowUntrusted, bool proxy);
-    void connect(const string& aAddress, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy);
+    uint16_t accept(const Socket& srv, bool secure, bool allowUntrusted);
+    void connect(const string& aAddress, const string& aPort, bool secure, bool allowUntrusted, bool proxy);
+    void connect(const string& aAddress, const string& aPort, const string& localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy);
 
     /** Sets data mode for aBytes bytes. Must be called within onLine. */
     void setDataMode(int64_t aBytes = -1) { mode = MODE_DATA; dataBytes = aBytes; }
@@ -79,7 +85,6 @@ public:
     void setMode(Modes mode, size_t aRollback = 0);
     Modes getMode() const { return mode; }
     const string& getIp() const { return sock->getIp(); }
-    bool isConnected() const { return sock->isConnected(); }
 
     bool isSecure() const { return sock->isSecure(); }
     bool isTrusted() const { return sock->isTrusted(); }
@@ -91,13 +96,14 @@ public:
     /** Send the file f over this socket. */
     void transmitFile(InputStream* f) { Lock l(cs); addTask(SEND_FILE, new SendFileInfo(f)); }
 
-    /** Send an updated signal to all listeners */
-    void updated() { Lock l(cs); addTask(UPDATED, 0); }
+    /** Call a function from the socket's thread. */
+    void callAsync(function<void ()> f) { Lock l(cs); addTask(ASYNC_CALL, new CallData(f)); }
 
     void disconnect(bool graceless = false) noexcept { Lock l(cs); if(graceless) disconnecting = true; addTask(DISCONNECT, 0); }
 
     string getLocalIp() const { return sock->getLocalIp(); }
     uint16_t getLocalPort() const { return sock->getLocalPort(); }
+
 
     GETSET(char, separator, Separator)
 private:
@@ -108,7 +114,7 @@ private:
         SEND_FILE,
         SHUTDOWN,
         ACCEPTED,
-        UPDATED
+        ASYNC_CALL
     };
 
     enum State {
@@ -121,10 +127,10 @@ private:
         virtual ~TaskData() { }
     };
     struct ConnectInfo : public TaskData {
-        ConnectInfo(string addr_, uint16_t port_, uint16_t localPort_, NatRoles natRole_, bool proxy_) : addr(addr_), port(port_), localPort(localPort_), natRole(natRole_), proxy(proxy_) { }
+        ConnectInfo(string addr_, string port_, string localPort_, NatRoles natRole_, bool proxy_) : addr(addr_), port(port_), localPort(localPort_), natRole(natRole_), proxy(proxy_) { }
         string addr;
-        uint16_t port;
-        uint16_t localPort;
+        string port;
+        string localPort;
         NatRoles natRole;
         bool proxy;
     };
@@ -132,8 +138,11 @@ private:
         SendFileInfo(InputStream* stream_) : stream(stream_) { }
         InputStream* stream;
     };
-
-    BufferedSocket(char aSeparator);
+    struct CallData : public TaskData {
+        CallData(function<void ()> f) : f(f) { }
+        function<void ()> f;
+    };
+    BufferedSocket(char aSeparator, bool v4only);
 
     virtual ~BufferedSocket();
 
@@ -154,10 +163,11 @@ private:
     std::unique_ptr<Socket> sock;
     State state;
     bool disconnecting;
+    bool v4only;
 
     virtual int run();
 
-    void threadConnect(const string& aAddr, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool proxy);
+    void threadConnect(const string& aAddr, const string& aPort, const string& localPort, NatRoles natRole, bool proxy);
     void threadAccept();
     void threadRead();
     void threadSendFile(InputStream* is);
@@ -169,7 +179,8 @@ private:
     bool checkEvents();
     void checkSocket();
 
-    void setSocket(std::unique_ptr<Socket> s);
+    void setSocket(std::unique_ptr<Socket>&& s);
+    void setOptions();
     void shutdown();
     void addTask(Tasks task, TaskData* data);
 };

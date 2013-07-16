@@ -18,8 +18,7 @@
 
 #pragma once
 
-#include "MerkleTree.h"
-#include "noexcept.h"
+#include "forward.h"
 
 namespace dcpp {
 

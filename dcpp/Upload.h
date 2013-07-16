@@ -21,6 +21,7 @@
 #include "forward.h"
 #include "Transfer.h"
 #include "Flags.h"
+#include "GetSet.h"
 
 namespace dcpp {
 
@@ -36,7 +37,6 @@ public:
 
     virtual void getParams(const UserConnection& aSource, StringMap& params);
 
-    GETSET(int64_t, fileSize, FileSize);
     GETSET(InputStream*, stream, Stream);
 };
 

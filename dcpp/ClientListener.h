@@ -45,6 +45,7 @@ public:
     typedef X<16> SearchFlood;
     typedef X<17> NmdcSearch;
     typedef X<18> AdcSearch;
+    typedef X<19> ClientLine;
 
     enum StatusFlags {
         FLAG_NORMAL = 0x00,
@@ -67,7 +68,8 @@ public:
     virtual void on(NickTaken, Client*) noexcept { }
     virtual void on(SearchFlood, Client*, const string&) noexcept { }
     virtual void on(NmdcSearch, Client*, const string&, int, int64_t, int, const string&) noexcept { }
-    virtual void on(AdcSearch, Client*, const AdcCommand&, const CID&) noexcept { }
+    virtual void on(AdcSearch, Client*, const AdcCommand&, const OnlineUser&) noexcept { }
+    virtual void on(ClientLine, Client*, const string& line, int type) noexcept { };
 };
 
 } // namespace dcpp

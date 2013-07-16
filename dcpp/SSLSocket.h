@@ -22,10 +22,6 @@
 #include "Singleton.h"
 #include "SSL.h"
 
-#ifndef SSL_SUCCESS
-#define SSL_SUCCESS 1
-#endif
-
 namespace dcpp {
 
 class SSLSocketException : public SocketException {
@@ -35,7 +31,7 @@ public:
 #else //_DEBUG
     SSLSocketException(const string& aError) noexcept : SocketException(aError) { }
 #endif // _DEBUG
-
+    SSLSocketException(int aError) noexcept : SocketException(aError) { }
     virtual ~SSLSocketException() throw() { }
 };
 
@@ -45,11 +41,11 @@ class SSLSocket : public Socket {
 public:
     virtual ~SSLSocket() { }
 
-    virtual void accept(const Socket& listeningSocket);
-    virtual void connect(const string& aIp, uint16_t aPort);
+    virtual uint16_t accept(const Socket& listeningSocket);
+    virtual void connect(const string& aIp, const string& aPort);
     virtual int read(void* aBuffer, int aBufLen);
     virtual int write(const void* aBuffer, int aLen);
-    virtual int wait(uint32_t millis, int waitFor);
+    virtual std::pair<bool, bool> wait(uint32_t millis, bool checkRead, bool checkWrite);
     virtual void shutdown() noexcept;
     virtual void close() noexcept;
 
@@ -66,8 +62,6 @@ private:
     friend class CryptoManager;
 
     SSLSocket(SSL_CTX* context);
-    SSLSocket(const SSLSocket&);
-    SSLSocket& operator=(const SSLSocket&);
 
     SSL_CTX* ctx;
     ssl::SSL ssl;

@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include <algorithm>
+
 #include "debug.h"
 #include "typedefs.h"
 #include "TigerHash.h"
@@ -25,6 +27,10 @@
 #include "HashValue.h"
 
 namespace dcpp {
+
+using std::make_pair;
+using std::max;
+using std::min;
 
 /**
  * A class that represents a Merkle Tree hash. Storing

@@ -17,7 +17,7 @@
  */
 
 #include "stdinc.h"
-
+#include "format.h"
 #include "UPnPManager.h"
 
 #include "ConnectionManager.h"
@@ -66,9 +66,9 @@ int UPnPManager::run() {
     setThreadName("UPnPManager");
     // cache these
     const unsigned short
-        conn_port = ConnectionManager::getInstance()->getPort(),
-        secure_port = ConnectionManager::getInstance()->getSecurePort(),
-        search_port = SearchManager::getInstance()->getPort();
+        conn_port = Util::toInt(ConnectionManager::getInstance()->getPort()),
+        secure_port = Util::toInt(ConnectionManager::getInstance()->getSecurePort()),
+        search_port = Util::toInt(SearchManager::getInstance()->getPort());
 #ifdef WITH_DHT
         const unsigned short dht_port = dht::DHT::getInstance()->getPort();
 #endif

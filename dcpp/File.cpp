@@ -590,4 +590,10 @@ uint32_t FileFindIter::DirData::getLastWriteTime() {
 
 #endif // !_WIN32
 
+#ifdef _WIN32
+FILE* dcpp_fopen(const char* filename, const char* mode) {
+    return _wfopen(Text::toT(filename).c_str(), Text::toT(mode).c_str());
+}
+#endif
+
 } // namespace dcpp

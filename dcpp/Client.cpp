@@ -19,12 +19,11 @@
 #include "stdinc.h"
 
 #include "Client.h"
-
+#include "ClientManager.h"
 #include "BufferedSocket.h"
 #include "DebugManager.h"
 #include "FavoriteManager.h"
 #include "TimerManager.h"
-#include "ClientManager.h"
 #include "version.h"
 
 namespace dcpp {
@@ -35,7 +34,7 @@ Client::Client(const string& hubURL, char separator_, bool secure_) :
     myIdentity(ClientManager::getInstance()->getMe(), 0),
     reconnDelay(120), lastActivity(GET_TICK()), registered(false), autoReconnect(false),
     encoding(Text::hubDefaultCharset), state(STATE_DISCONNECTED), sock(0),
-    hubUrl(hubURL), port(0), separator(separator_),
+    hubUrl(hubURL), separator(separator_),
     secure(secure_), countType(COUNT_UNCOUNTED)
 {
     string file, proto, query, fragment;
@@ -80,7 +79,9 @@ void Client::reloadSettings(bool updateNick) {
 
     if(hub) {
         if(updateNick) {
-            setCurrentNick(checkNick(hub->getNick(true)));
+            string t = hub->getNick(true);
+            checkNick(t);
+            setCurrentNick(t);
         }
 
         if(!hub->getUserDescription().empty()) {
@@ -105,7 +106,9 @@ void Client::reloadSettings(bool updateNick) {
         setSearchInterval(hub->getSearchInterval());
     } else {
         if(updateNick) {
-            setCurrentNick(checkNick(SETTING(NICK)));
+            string t = SETTING(NICK);
+            checkNick(t);
+            setCurrentNick(t);
         }
         setCurrentDescription(SETTING(DESCRIPTION));
         setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL));
@@ -143,7 +146,7 @@ void Client::connect() {
 }
 
 void Client::send(const char* aMessage, size_t aLen) {
-    if(!isReady()) {
+    if(!isConnected()) {
         dcassert(0);
         return;
     }
@@ -186,19 +189,19 @@ void Client::disconnect(bool graceLess) {
 }
 
 bool Client::isSecure() const {
-    return isReady() && sock->isSecure();
+    return isConnected() && sock->isSecure();
 }
 
 bool Client::isTrusted() const {
-    return isReady() && sock->isTrusted();
+    return isConnected() && sock->isTrusted();
 }
 
 std::string Client::getCipherName() const {
-    return isReady() ? sock->getCipherName() : Util::emptyString;
+    return isConnected() ? sock->getCipherName() : Util::emptyString;
 }
 
 vector<uint8_t> Client::getKeyprint() const {
-    return isReady() ? sock->getKeyprint() : vector<uint8_t>();
+    return isConnected() ? sock->getKeyprint() : vector<uint8_t>();
 }
 void Client::updateCounts(bool aRemove) {
     // We always remove the count and then add the correct one if requested...

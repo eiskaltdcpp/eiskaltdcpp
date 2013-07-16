@@ -22,6 +22,7 @@
 
 #include "UserConnection.h"
 #include "ClientManager.h"
+#include "format.h"
 
 namespace dcpp {
 
@@ -80,7 +81,7 @@ void Transfer::getParams(const UserConnection& aSource, StringMap& params) {
     if(hubNames.empty())
         hubNames.push_back(_("Offline"));
     params["hub"] = Util::toString(hubNames);
-    StringList hubs = ClientManager::getInstance()->getHubs(aSource.getUser()->getCID(), aSource.getHubUrl());
+    StringList hubs = ClientManager::getInstance()->getHubUrls(aSource.getUser()->getCID(), aSource.getHubUrl());
     if(hubs.empty())
         hubs.push_back(_("Offline"));
     params["hubURL"] = Util::toString(hubs);
@@ -101,7 +102,7 @@ const UserPtr Transfer::getUser() const {
     return getUserConnection().getUser();
 }
 
-const HintedUser Transfer::getHintedUser() const {
+HintedUser Transfer::getHintedUser() const {
     return getUserConnection().getHintedUser();
 }
 

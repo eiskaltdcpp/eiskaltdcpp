@@ -235,16 +235,16 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
             base = b;
         }
         StringList sl = StringTokenizer<string>(base.substr(1), '/').getTokens();
-        for(auto i = sl.begin(); i != sl.end(); ++i) {
-            DirectoryListing::Directory* d = NULL;
-            for(auto j = cur->directories.begin(); j != cur->directories.end(); ++j) {
-                if((*j)->getName() == *i) {
-                    d = *j;
+        for(auto& i: sl) {
+            DirectoryListing::Directory* d = nullptr;
+            for(auto j: cur->directories) {
+                if(j->getName() == i) {
+                    d = j;
                     break;
                 }
             }
-            if(d == NULL) {
-                d = new DirectoryListing::Directory(cur, *i, false, false);
+            if(!d) {
+                d = new DirectoryListing::Directory(cur, i, false, false);
                 cur->directories.push_back(d);
             }
             cur = d;
@@ -331,7 +331,7 @@ void DirectoryListing::download(const string& aDir, const string& aTarget, bool 
     dcassert(aDir.size() > 2);
     dcassert(aDir[aDir.size() - 1] == '\\'); // This should not be PATH_SEPARATOR
     Directory* d = find(aDir, getRoot());
-    if(d != NULL)
+    if(!d)
         download(d, aTarget, highPrio);
 }
 
@@ -349,14 +349,14 @@ DirectoryListing::Directory* DirectoryListing::find(const string& aName, Directo
     dcassert(end != string::npos);
     auto name = aName.substr(0, end);
 
-    auto i = std::find(current->directories.begin(), current->directories.end(), name);
+    auto i = std::find(current->directories.cbegin(), current->directories.cend(), name);
     if(i != current->directories.end()) {
         if(end == (aName.size() - 1))
             return *i;
         else
             return find(aName.substr(end + 1), *i);
     }
-    return NULL;
+    return nullptr;
 }
 
 struct HashContained {
@@ -392,24 +392,24 @@ void DirectoryListing::Directory::filterList(DirectoryListing::Directory::TTHSet
 }
 
 void DirectoryListing::Directory::getHashList(DirectoryListing::Directory::TTHSet& l) {
-    for(auto i = directories.begin(); i != directories.end(); ++i) (*i)->getHashList(l);
-    for(auto i = files.begin(); i != files.end(); ++i) l.insert((*i)->getTTH());
+    for(auto i: directories) i->getHashList(l);
+    for(auto i: files) l.insert(i->getTTH());
 }
 
 int64_t DirectoryListing::Directory::getTotalSize(bool adl) {
     int64_t x = getSize();
-    for(auto i = directories.begin(); i != directories.end(); ++i) {
-        if(!(adl && (*i)->getAdls()))
-            x += (*i)->getTotalSize(adls);
+    for(auto i: directories) {
+        if(!(adl && i->getAdls()))
+            x += i->getTotalSize(adls);
     }
     return x;
 }
 
 size_t DirectoryListing::Directory::getTotalFileCount(bool adl) {
     size_t x = getFileCount();
-    for(auto i = directories.begin(); i != directories.end(); ++i) {
-        if(!(adl && (*i)->getAdls()))
-            x += (*i)->getTotalFileCount(adls);
+    for(auto i: directories) {
+        if(!(adl && i->getAdls()))
+            x += i->getTotalFileCount(adls);
     }
     return x;
 }

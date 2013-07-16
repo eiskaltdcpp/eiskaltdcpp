@@ -18,14 +18,16 @@
 
 #pragma once
 
+#include <deque>
 #include "forward.h"
 #include "MerkleTree.h"
-#include "TimerManager.h"
-#include "Util.h"
 #include "CriticalSection.h"
 #include "Segment.h"
+#include "GetSet.h"
 
 namespace dcpp {
+
+using std::deque;
 
 class Transfer : private boost::noncopyable {
 public:
@@ -78,7 +80,7 @@ public:
 
     UserPtr getUser();
     const UserPtr getUser() const;
-    const HintedUser getHintedUser() const;
+    HintedUser getHintedUser() const;
 
     const string& getPath() const { return path; }
     const TTHValue& getTTH() const { return tth; }

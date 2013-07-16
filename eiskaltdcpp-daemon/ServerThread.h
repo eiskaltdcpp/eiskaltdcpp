@@ -25,6 +25,8 @@
 #include "dcpp/Singleton.h"
 #include "dcpp/Socket.h"
 
+using namespace dcpp;
+
 class ServerThread :
         private TimerManagerListener,
         private QueueManagerListener,
@@ -101,7 +103,6 @@ private:
     QueueMap queuesMap;
 
     typedef unordered_map <string, CurHub> ClientMap;
-    typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
     bool json_run;
 
@@ -136,7 +137,7 @@ private:
     int64_t lastDown;
     uint64_t lastUpdate;
 
-    dcpp::Socket sock;
+    std::unique_ptr<dcpp::Socket> sock;
     CriticalSection shutcs;
     static const unsigned int maxLines = 50;
 };
