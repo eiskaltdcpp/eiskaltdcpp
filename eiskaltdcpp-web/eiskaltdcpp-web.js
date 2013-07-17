@@ -38,6 +38,7 @@ var eiskalt = (function () {
             });
             $('table#searchresults tbody > tr').remove();
             eiskalt.groupedResults = {};
+            eiskalt.searchResults = {};
         },
 
         addSearchResult: function (result) {
@@ -90,11 +91,8 @@ var eiskalt = (function () {
             var searchIsValid = (data.result === 0);
             eiskalt.debugOut(debugLevels.DEBUG, 'searchIsValid: ' + searchIsValid);
             if (searchIsValid) {
-                $('input#searchstring').timer({
-                    callback: eiskalt.requestSearchResults,
-                    delay: 1000,
-                    repeat: 5
-                });
+                $('input#searchstring').timer('stop');
+                $('input#searchstring').timer('start');
             }
         },
 
@@ -177,6 +175,12 @@ var eiskalt = (function () {
                 namespace : ''
             });
             $('input#search').on('click', eiskalt.onSearchClicked);
+            $('input#searchstring').timer({
+                callback: eiskalt.requestSearchResults,
+                delay: 1000,
+                repeat: 5,
+                autostart: false
+            });
             $('table#downloadqueue').timer({
                 callback: eiskalt.requestDownloadQueue,
                 delay: 1000,
