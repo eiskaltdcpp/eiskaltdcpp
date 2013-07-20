@@ -705,8 +705,9 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
     // This will be pretty slow on large queues...
     if (BOOLSETTING(DONT_DL_ALREADY_QUEUED))
     {
-        QueueItemList ql;
-        fileQueue.find(ql, root);
+        //QueueItemList ql;
+        //fileQueue.find(ql, root);
+        QueueItemList ql = fileQueue.find(root);
         if (!ql.empty())
             throw QueueException(_("This file is already queued"));
     }
@@ -770,8 +771,9 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
 
         // This will be pretty slow on large queues...
         if(BOOLSETTING(DONT_DL_ALREADY_QUEUED) && !(aFlags & QueueItem::FLAG_USER_LIST)) {
-            QueueItemList ql;
-            fileQueue.find(ql, root);
+            //QueueItemList ql;
+            //fileQueue.find(ql, root);
+            QueueItemList ql = fileQueue.find(root);
             if (!ql.empty()) {
                 // Found one or more existing queue items, lets see if we can add the source to them
                 bool sourceAdded = false;
@@ -1048,8 +1050,10 @@ void QueueManager::move(const string& aSource, const string& aTarget) noexcept {
 
 void QueueManager::getTargets(const TTHValue& tth, StringList& sl) {
     Lock l(cs);
-    QueueItemList ql;
-    fileQueue.find(ql, tth);
+    //QueueItemList ql;
+    //fileQueue.find(ql, tth);
+    QueueItemList ql = fileQueue.find(tth);
+
     for(auto i = ql.begin(); i != ql.end(); ++i) {
         sl.push_back((*i)->getTarget());
     }
@@ -1839,9 +1843,9 @@ void QueueManager::on(SearchManagerListener::SR, const SearchResultPtr& sr) noex
 
     {
         Lock l(cs);
-        QueueItemList matches;
-
-        fileQueue.find(matches, sr->getTTH());
+        //QueueItemList matches;
+        //fileQueue.find(matches, sr->getTTH());
+        QueueItemList matches = fileQueue.find(sr->getTTH());
 
         for(auto i = matches.begin(); i != matches.end(); ++i) {
             QueueItem* qi = *i;
@@ -1920,8 +1924,9 @@ bool QueueManager::handlePartialResult(const UserPtr& aUser, const string& hubHi
         Lock l(cs);
 
         // Locate target QueueItem in download queue
-        QueueItemList ql;
-        fileQueue.find(ql, tth);
+        //QueueItemList ql;
+        //fileQueue.find(ql, tth);
+        QueueItemList ql = fileQueue.find(tth);
 
         if(ql.empty()){
             dcdebug("Not found in download queue\n");
@@ -1994,8 +1999,9 @@ bool QueueManager::handlePartialSearch(const TTHValue& tth, PartsInfo& _outParts
         Lock l(cs);
 
         // Locate target QueueItem in download queue
-        QueueItemList ql;
-        fileQueue.find(ql, tth);
+        //QueueItemList ql;
+        //fileQueue.find(ql, tth);
+        QueueItemList ql = fileQueue.find(tth);
 
         if(ql.empty()){
             return false;

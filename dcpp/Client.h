@@ -103,7 +103,7 @@ public:
     string getLocalIp() const;
 
     /** Send a ClientListener::Updated signal for every connected user. */
-    void updateUsers();
+    //void updateUsers();
 
     static string getCounts() {
         char buf[128];
@@ -192,8 +192,8 @@ protected:
 
     virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) = 0;
 
-    void updated(OnlineUser& user);
-    void updated(OnlineUserList& users);
+    //void updated(OnlineUser& user);
+    //void updated(OnlineUserList& users);
 
     /** Reload details from favmanager or settings */
     //void reloadSettings(bool updateNick);

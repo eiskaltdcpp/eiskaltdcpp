@@ -20,6 +20,7 @@
  */
 
 #include "search.hh"
+#include <dcpp/ClientManager.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/QueueManager.h>
 #include <dcpp/ShareManager.h>
@@ -236,7 +237,7 @@ void Search::initHubs_gui()
     auto lock = ClientManager::getInstance()->lock();
 #endif // DO_NOT_USE_MUTEX
 
-    Client::List& clients = ClientManager::getInstance()->getClients();
+    auto& clients = ClientManager::getInstance()->getClients();
 
     Client *client = NULL;
     for (auto it = clients.begin(); it != clients.end(); ++it)

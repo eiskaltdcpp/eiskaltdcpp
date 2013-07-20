@@ -392,7 +392,7 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
     auto lock = clientMgr->lock();
 #endif // DO_NOT_USE_MUTEX
     clientMgr->addListener(this);
-    Client::List& clients = clientMgr->getClients();
+    auto& clients = clientMgr->getClients();
 
     for (auto it = clients.begin(); it != clients.end(); ++it) {
         Client* client = *it;

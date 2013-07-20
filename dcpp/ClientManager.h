@@ -148,7 +148,7 @@ public:
     /** Constructs a synthetic, hopefully unique CID */
     CID makeCid(const string& nick, const string& hubUrl) const noexcept;
     /** Send a ClientListener::Updated signal for every connected user. */
-    void updateUsers();
+    //void updateUsers();
     void putOnline(OnlineUser* ou) noexcept;
     void putOffline(OnlineUser* ou, bool disconnect = false) noexcept;
 

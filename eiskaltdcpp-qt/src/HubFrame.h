@@ -29,7 +29,6 @@
 #include "dcpp/ClientListener.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/ClientManagerListener.h"
-#include "dcpp/TaskQueue.h"
 #include "dcpp/User.h"
 #include "dcpp/Client.h"
 #include "dcpp/FavoriteManagerListener.h"

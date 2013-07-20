@@ -28,6 +28,7 @@
 #include "FavoriteManager.h"
 #include "FinishedManager.h"
 #include "HashManager.h"
+#include "HttpManager.h"
 #include "LogManager.h"
 #include "UploadManager.h"
 #include "SearchManager.h"
@@ -86,13 +87,13 @@ void startup(void (*f)(void*, const string&), void* p) {
     UploadManager::newInstance();
     ThrottleManager::newInstance();
     QueueManager::newInstance();
+    HttpManager::newInstance();
     ShareManager::newInstance();
     FavoriteManager::newInstance();
     FinishedManager::newInstance();
     ADLSearchManager::newInstance();
     ConnectivityManager::newInstance();
     UPnPManager::newInstance();
-    //WindowManager::newInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
 #endif
@@ -152,16 +153,15 @@ void shutdown() {
     UPnPManager::getInstance()->close();
 
     BufferedSocket::waitShutdown();
-    //WindowManager::getInstance()->prepareSave();
     QueueManager::getInstance()->saveQueue(true);
     ClientManager::getInstance()->saveUsers();
     if (ipfilter::getInstance())
         ipfilter::getInstance()->shutdown();
     SettingsManager::getInstance()->save();
 
-    //WindowManager::deleteInstance();
     UPnPManager::deleteInstance();
     ConnectivityManager::deleteInstance();
+    HttpManager::deleteInstance();
     ADLSearchManager::deleteInstance();
     FinishedManager::deleteInstance();
     ShareManager::deleteInstance();

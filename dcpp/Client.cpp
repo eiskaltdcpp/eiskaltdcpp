@@ -140,7 +140,7 @@ void Client::connect() {
     } catch(const Exception& e) {
         shutdown();
         /// @todo at this point, this hub instance is completely useless
-        fire(ClientListener::Failed(), this, e.getError());
+        fire(ClientListener::Failed(), this, "ClientManager::connect " + e.getError());
     }
     updateActivity();
 }
@@ -248,6 +248,11 @@ string Client::getLocalIp() const {
 
     return localIp;
 }
+
+//void Client::updateUsers() {
+    //// this is a public call, can come from any thread. bring it to this hub's thread.
+    //if(sock) sock->callAsync([this] { auto users = getUsers(); updated(users); });
+//}
 
 uint64_t Client::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList, void* owner){
     dcdebug("Queue search %s\n", aString.c_str());

@@ -1232,7 +1232,7 @@ string Util::translateError(int aError) {
     }
     return tmp;
 #else // _WIN32
-    return Text::toUtf8(strerror(aError));
+    return Text::toUtf8(aError > 0 ? strerror(aError) : gai_strerror(aError));
 #endif // _WIN32
 }
 

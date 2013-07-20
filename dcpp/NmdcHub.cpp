@@ -328,7 +328,8 @@ void NmdcHub::onLine(const string& aLine) noexcept {
 
                 if(!u->getUser()->isSet(User::PASSIVE)) {
                     u->getUser()->setFlag(User::PASSIVE);
-                    updated(*u);
+                    //updated(*u);
+                    fire(ClientListener::UserUpdated(), this, *u);
                 }
             }
 
@@ -525,7 +526,8 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 u->getUser()->setFlag(User::PASSIVE);
                 // Notify the user that we're passive too...
                 revConnectToMe(*u);
-                updated(*u);
+                fire(ClientListener::UserUpdated(), this, *u);
+                //updated(*u);
 
                 return;
             }
@@ -1078,6 +1080,14 @@ void NmdcHub::on(Minute, uint64_t aTick) noexcept {
         }
         lastProtectedIPsUpdate = aTick;
     }
+}
+
+OnlineUserList NmdcHub::getUsers() const {
+    OnlineUserList ret;
+    ret.reserve(users.size());
+    for(auto& i: users)
+        ret.push_back(i.second);
+    return ret;
 }
 
 #ifdef LUA_SCRIPT

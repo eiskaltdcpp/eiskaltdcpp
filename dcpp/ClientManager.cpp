@@ -323,12 +323,12 @@ CID ClientManager::makeCid(const string& aNick, const string& aHubUrl) const noe
     return CID(th.finalize());
 }
 
-void ClientManager::updateUsers() {
-    Lock l(cs);
-    for(auto client: clients) {
-        client->updateUsers();
-    }
-}
+//void ClientManager::updateUsers() {
+    //Lock l(cs);
+    //for(auto client: clients) {
+        //client->updateUsers();
+    //}
+//}
 
 void ClientManager::putOnline(OnlineUser* ou) noexcept {
     {
