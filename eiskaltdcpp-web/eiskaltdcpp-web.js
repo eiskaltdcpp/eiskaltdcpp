@@ -15,6 +15,7 @@ var eiskalt = (function () {
         groupedResults: {},
         downloadQueue: {},
         config: null,
+        connectedHubs: [],
 
         debugOut: function (debugLevel, text) {
             if (debugLevel <= config.debugLevel) {
@@ -164,8 +165,36 @@ var eiskalt = (function () {
 
         requestDownloadQueue: function () {
             $.jsonRPC.request('queue.list', {
-                success : eiskalt.updateDownloadQueue,
-                error : eiskalt.onError
+                success : eiskalt.updateDownloadQueue
+            });
+        },
+
+        updateConnectedHubs: function (data) {
+            //eiskalt.debugOut(debugLevels.DEBUG, 'updateConnectedHubs: ' + data.result);
+            var connectedHubs = data.result.split(';').filter(function (x) { return (x !== ''); }).sort();
+            if (eiskalt.connectedHubs !== connectedHubs) {
+                eiskalt.connectedHubs = connectedHubs;
+                if (connectedHubs.length == 0) {
+                    $('#connectedhubs').attr('class', 'error');
+                    $('#connectedhubs').text('No hubs connected!');
+                } else {
+                    $('#connectedhubs').attr('class', '');
+                    $('#connectedhubs').text(connectedHubs);
+                }
+            }
+        },
+
+        errorConnectedHubs: function (data) {
+            eiskalt.connectedHubs = [];
+            $('#connectedhubs').attr('class', 'error');
+            $('#connectedhubs').text('Connection to EiskaltDC++ daemon failed on ' + 'http://' + config.jsonrpc.host + ':' + config.jsonrpc.port);
+        },
+
+        requestConnectedHubs: function () {
+            $.jsonRPC.request('hub.list', {
+                params : {'separator': ';'},
+                success : eiskalt.updateConnectedHubs,
+                error : eiskalt.errorConnectedHubs
             });
         },
 
@@ -177,12 +206,17 @@ var eiskalt = (function () {
             $('input#search').on('click', eiskalt.onSearchClicked);
             $('input#searchstring').timer({
                 callback: eiskalt.requestSearchResults,
-                delay: 1000,
-                repeat: 5,
+                delay: 500,
+                repeat: 10,
                 autostart: false
             });
             $('table#downloadqueue').timer({
                 callback: eiskalt.requestDownloadQueue,
+                delay: 1000,
+                repeat: true
+            });
+            $('#connectedhubs').timer({
+                callback: eiskalt.requestConnectedHubs,
                 delay: 1000,
                 repeat: true
             });
