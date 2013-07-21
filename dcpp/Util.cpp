@@ -550,9 +550,9 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, string& 
                     return;
             }
 
-            host = url.substr(authorityStart, hostEnd - authorityStart);
+            host = url.substr(authorityStart+1, hostEnd - authorityStart - 1);
             if(hostEnd + 1 < url.size() && url[hostEnd + 1] == ':') {
-                portStart = hostEnd + 1;
+                portStart = hostEnd + 2;
             }
         } else {
             size_t hostEnd;
@@ -582,7 +582,7 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, string& 
             }
         } else {
             dcdebug("p");
-            port = static_cast<uint16_t>(Util::toInt(url.substr(portStart, authorityEnd - portStart)));
+            port = url.substr(portStart, authorityEnd - portStart);
         }
     }
 
@@ -601,7 +601,7 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, string& 
     //printf ("ACE label (length %d): '%s'\n", strlen (p), p);
     //printf ("%s\n", host.c_str());
 #endif
-    //printf("protocol:%s\n host:%s\n port:%d\n path:%s\n query:%s\n fragment:%s\n", protocol.c_str(), host.c_str(), port, path.c_str(), query.c_str(), fragment.c_str());
+    printf(" url: %s\n protocol:%s\n host:%s\n port:%s\n path:%s\n query:%s\n fragment:%s\n", url.c_str(), protocol.c_str(), host.c_str(), port.c_str(), path.c_str(), query.c_str(), fragment.c_str());
 }
 
 map<string, string> Util::decodeQuery(const string& query) {
