@@ -204,6 +204,14 @@ var eiskalt = (function () {
                 namespace : ''
             });
             $('input#search').on('click', eiskalt.onSearchClicked);
+            $('input#searchstring').keypress(function(event) {
+                if (event.which == 13) {
+                    event.preventDefault();
+                    eiskalt.onSearchClicked();
+                    return false;
+                }
+            });
+
             $('input#searchstring').timer({
                 callback: eiskalt.requestSearchResults,
                 delay: 500,
