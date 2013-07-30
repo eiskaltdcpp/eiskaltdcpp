@@ -97,19 +97,20 @@ void DirectoryListing::loadFile(const string& name) {
 
 class ListLoader : public dcpp::SimpleXMLReader::CallBack {
 public:
-    ListLoader(DirectoryListing::Directory* root, bool aUpdating) : cur(root),
-                                                                    base("/"),
-                                                                    inListing(false),
-                                                                    updating(aUpdating),
-                                                                    m_is_mediainfo_list(false),
-                                                                    m_is_first_check_mediainfo_list(false)
+    ListLoader(DirectoryListing::Directory* root, bool aUpdating) :
+    cur(root),
+    base("/"),
+    inListing(false),
+    updating(aUpdating),
+    m_is_mediainfo_list(false),
+    m_is_first_check_mediainfo_list(false)
     {
     }
 
     virtual ~ListLoader() { }
 
     virtual void startTag(const string& name, StringPairList& attribs, bool simple);
-    virtual void endTag(const string& name, const string& data);
+    virtual void endTag(const string&);
 
     const string& getBase() const { return base; }
 private:
@@ -226,7 +227,7 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
 
             if(simple) {
                 // To handle <Directory Name="..." />
-                endTag(name, Util::emptyString);
+                endTag(name);
             }
         }
     } else if(name == sFileListing) {
@@ -254,12 +255,12 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
 
         if(simple) {
             // To handle <Directory Name="..." />
-            endTag(name, Util::emptyString);
+            endTag(name);
         }
     }
 }
 
-void ListLoader::endTag(const string& name, const string&) {
+void ListLoader::endTag(const string& name) {
     if(inListing) {
         if(name == sDirectory) {
             cur = cur->getParent();

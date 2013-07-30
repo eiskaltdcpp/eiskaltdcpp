@@ -70,7 +70,7 @@ int UPnPManager::run() {
         secure_port = Util::toInt(ConnectionManager::getInstance()->getSecurePort()),
         search_port = Util::toInt(SearchManager::getInstance()->getPort());
 #ifdef WITH_DHT
-        const unsigned short dht_port = dht::DHT::getInstance()->getPort();
+        const unsigned short dht_port = Util::toInt(dht::DHT::getInstance()->getPort());
 #endif
 
     for(Impls::iterator i = impls.begin(); i != impls.end(); ++i) {

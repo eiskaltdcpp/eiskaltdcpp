@@ -119,14 +119,14 @@ int SearchManager::run() {
     setThreadName("SearchManager");
     boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
     int len;
-    string remoteAddr;
+    string remoteAddr, remotePort;
 
     while(!stop) {
         try {
             if(!socket->wait(400, true, false).first) {
                 continue;
             }
-            if ((len = socket->read(&buf[0], BUFSIZE, remoteAddr)) > 0) {
+            if ((len = socket->read(&buf[0], BUFSIZE, remoteAddr, remotePort)) > 0) {
                 string data(reinterpret_cast<char*>(&buf[0]), len);
                 onData(data, remoteAddr);
                 continue;

@@ -150,6 +150,7 @@ void shutdown() {
     HashManager::getInstance()->shutdown();
 
     ConnectionManager::getInstance()->shutdown();
+    HttpManager::getInstance()->shutdown();
     UPnPManager::getInstance()->close();
 
     BufferedSocket::waitShutdown();

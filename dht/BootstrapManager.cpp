@@ -25,19 +25,25 @@
 
 #include "dcpp/AdcCommand.h"
 #include "dcpp/ClientManager.h"
+#include "dcpp/HttpManager.h"
 #include "dcpp/LogManager.h"
+#include "dcpp/Streams.h"
 #include <zlib.h>
 
 namespace dht
 {
+    vector<string> dhtservers;
 
     BootstrapManager::BootstrapManager(void)
     {
+        dhtservers.push_back("http://strongdc.sourceforge.net/bootstrap/");
+        dhtservers.push_back("http://ssa.in.ua/dcDHT.php");
+        HttpManager::getInstance()->addListener(this);
     }
 
     BootstrapManager::~BootstrapManager(void)
     {
-        delete httpDownload;
+        HttpManager::getInstance()->removeListener(this);
     }
 
     void BootstrapManager::bootstrap()
@@ -45,17 +51,32 @@ namespace dht
         if(bootstrapNodes.empty())
         {
             LogManager::getInstance()->message("DHT bootstrapping started");
-
+            string dhturl = dhtservers[0/*Util::rand(dhtservers.size())*/];
             // TODO: make URL settable
-            string url = BOOTSTRAP_URL "?cid=" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "&encryption=1";
+            string url = dhturl  + "?cid=" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "&encryption=1";
 
             // store only active nodes to database
             if(ClientManager::getInstance()->isActive(Util::emptyString))
             {
-                    url += "&u4=" + Util::toString(DHT::getInstance()->getPort());
+                    url += "&u4=" + DHT::getInstance()->getPort();
             }
-            httpDownload = new HttpDownload(url, std::bind(&dht::BootstrapManager::complete,this), false);
+            c = HttpManager::getInstance()->download(url);
         }
+    }
+
+    void BootstrapManager::on(HttpManagerListener::Failed, HttpConnection* c, const string& str) noexcept {
+        if(c != this->c) { return; }
+        c = nullptr;
+        LogManager::getInstance()->message("DHT bootstrap error: " + str);
+        bootstrap();
+    }
+
+    void BootstrapManager::on(HttpManagerListener::Complete, HttpConnection* c, OutputStream* stream) noexcept {
+        if(c != this->c) { return; }
+        c = nullptr;
+
+        nodesXML = static_cast<StringOutputStream*>(stream)->getString();
+        complete();
     }
 
     #define BUFSIZE 16384
@@ -96,7 +117,7 @@ namespace dht
                     string i4       = remoteXml.getChildAttrib("I4");
                     string u4       = remoteXml.getChildAttrib("U4");
 
-                    addBootstrapNode(i4, static_cast<uint16_t>(Util::toInt(u4)), cid, UDPKey());
+                    addBootstrapNode(i4, u4, cid, UDPKey());
                 }
 
                 remoteXml.stepOut();
@@ -108,12 +129,13 @@ namespace dht
         }
     }
 
+
     //void BootstrapManager::on(HttpConnectionListener::Failed, HttpConnection*, const string& aLine) throw()
     //{
             //LogManager::getInstance()->message("DHT bootstrap error: " + aLine);
     //}
 
-    void BootstrapManager::addBootstrapNode(const string& ip, uint16_t udpPort, const CID& targetCID, const UDPKey& udpKey)
+    void BootstrapManager::addBootstrapNode(const string& ip, const string& udpPort, const CID& targetCID, const UDPKey& udpKey)
     {
             BootstrapNode node = { ip, udpPort, targetCID, udpKey };
             bootstrapNodes.push_back(node);

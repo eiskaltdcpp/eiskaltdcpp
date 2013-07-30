@@ -24,6 +24,7 @@
 
 namespace dht
 {
+using namespace dcpp;
 
     // all members must be static!
     class Utils

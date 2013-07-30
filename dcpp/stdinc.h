@@ -76,3 +76,7 @@
 
 #include <utility>
 using std::move;
+
+namespace dcpp {
+    using namespace std;
+}

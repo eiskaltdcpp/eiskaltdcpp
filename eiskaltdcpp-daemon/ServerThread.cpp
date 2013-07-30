@@ -630,7 +630,7 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
         }
     }
     string ssearch;
-    dcpp::TStringList searchlist = StringTokenizer<string>(search, ' ').getTokens();
+    dcpp::StringList searchlist = StringTokenizer<string>(search, ' ').getTokens();
     for (auto si = searchlist.begin(); si != searchlist.end(); ++si)
         if ((*si)[0] != '-') ssearch += *si + ' ';
     ssearch = ssearch.substr(0, std::max(ssearch.size(), static_cast<string::size_type>(1)) - 1);

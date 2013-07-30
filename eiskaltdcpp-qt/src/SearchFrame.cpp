@@ -58,7 +58,7 @@ public:
     QString arena_title;
     QString token;
 
-    TStringList currentSearch;
+    StringList currentSearch;
 
     qulonglong dropped;
     qulonglong results;
@@ -1685,7 +1685,7 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
         }
     }
     else {
-        for(TStringIter j = d->currentSearch.begin(); j != d->currentSearch.end(); ++j) {
+        for(auto j = d->currentSearch.begin(); j != d->currentSearch.end(); ++j) {
             if((*j->begin() != ('-') && Util::findSubString(aResult->getFile(), *j) == tstring::npos) ||
                (*j->begin() == ('-') && j->size() != 1 && Util::findSubString(aResult->getFile(), j->substr(1)) != tstring::npos)
               )

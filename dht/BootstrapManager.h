@@ -23,13 +23,13 @@
 #include "KBucket.h"
 
 #include "dcpp/CID.h"
-#include "dcpp/HttpDownload.h"
+#include "dcpp/HttpManagerListener.h"
 #include "dcpp/Singleton.h"
 
 namespace dht
 {
 
-class BootstrapManager : public Singleton<BootstrapManager>
+class BootstrapManager : public Singleton<BootstrapManager>, private HttpManagerListener
 {
 public:
     BootstrapManager(void);
@@ -41,7 +41,7 @@ public:
 
     void complete();
 
-    void addBootstrapNode(const string& ip, uint16_t udpPort, const CID& targetCID, const UDPKey& udpKey);
+    void addBootstrapNode(const string& ip, const string& udpPort, const CID& targetCID, const UDPKey& udpKey);
 
 private:
 
@@ -50,8 +50,8 @@ private:
     struct BootstrapNode
     {
         string          ip;
-        uint16_t        udpPort;
-        CID                     cid;
+        string          udpPort;
+        CID             cid;
         UDPKey          udpKey;
     };
 
@@ -59,10 +59,14 @@ private:
     deque<BootstrapNode> bootstrapNodes;
 
     /** HTTP connection for bootstrapping */
-    HttpDownload * httpDownload;
+    HttpConnection* c;
 
     /** Downloaded node list */
     string nodesXML;
+
+    // HttpManagerListener
+    void on(HttpManagerListener::Failed, HttpConnection*, const string&) noexcept;
+    void on(HttpManagerListener::Complete, HttpConnection*, OutputStream*) noexcept;
 
 };
 

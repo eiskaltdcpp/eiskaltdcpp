@@ -18,7 +18,7 @@
 
 #include "dyndns.h"
 #include <functional>
-#include <dcpp/HttpManager.h>
+#include "dcpp/HttpManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Streams.h"
 #include "dcpp/ClientManager.h"
@@ -26,8 +26,8 @@
 namespace dcpp {
 
 DynDNS::DynDNS() {
-    Request();
     HttpManager::getInstance()->addListener(this);
+    Request();
 }
 
 

@@ -181,9 +181,9 @@ int64_t File::getSize(const string& aFileName) noexcept {
 
 void File::ensureDirectory(const string& aFile) noexcept {
     // Skip the first dir...
-    tstring file;
+    string file;
     Text::toT(aFile, file);
-    tstring::size_type start = file.find_first_of(_T("\\/"));
+    string::size_type start = file.find_first_of(_T("\\/"));
     if(start == string::npos)
         return;
     start++;

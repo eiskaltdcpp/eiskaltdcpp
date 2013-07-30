@@ -1256,21 +1256,21 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
         aDownload = nullptr;
         d->close();
 
-        if(aDownload->getType() == Transfer::TYPE_PARTIAL_LIST) {
-            QueueItem* q = fileQueue.find(getListPath(aDownload->getHintedUser()));
+        if(d->getType() == Transfer::TYPE_PARTIAL_LIST) {
+            QueueItem* q = fileQueue.find(getListPath(d->getHintedUser()));
             if(q) {
-                if(!aDownload->getPFS().empty()) {
-                    if( (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) && directories.find(aDownload->getUser()) != directories.end()) ||
+                if(!d->getPFS().empty()) {
+                    if( (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) && directories.find(d->getUser()) != directories.end()) ||
                             (q->isSet(QueueItem::FLAG_MATCH_QUEUE)) )
                     {
                         dcassert(finished);
 
-                        fl_fname = aDownload->getPFS();
-                        fl_user = aDownload->getHintedUser();
+                        fl_fname = d->getPFS();
+                        fl_user = d->getHintedUser();
                         fl_flag = (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) ? (QueueItem::FLAG_DIRECTORY_DOWNLOAD) : 0)
                                 | (q->isSet(QueueItem::FLAG_MATCH_QUEUE) ? QueueItem::FLAG_MATCH_QUEUE : 0) | QueueItem::FLAG_TEXT;
                     } else {
-                        fire(QueueManagerListener::PartialList(), aDownload->getHintedUser(), aDownload->getPFS());
+                        fire(QueueManagerListener::PartialList(), d->getHintedUser(), d->getPFS());
                     }
                 } else {
                     // partial filelist probably failed, redownload full list
@@ -1282,16 +1282,16 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
                     userQueue.remove(q);
                     fileQueue.remove(q);
                 //} else {
-                    //userQueue.removeDownload(q, aDownload->getUser());
+                    //userQueue.removeDownload(q, d->getUser());
                     //fire(QueueManagerListener::StatusUpdated(), q);
                 //}
             }
         } else {
-            QueueItem* q = fileQueue.find(aDownload->getPath());
+            QueueItem* q = fileQueue.find(d->getPath());
 
             if(q) {
-                if(aDownload->getType() == Transfer::TYPE_FULL_LIST) {
-                    if(aDownload->isSet(Download::FLAG_XML_BZ_LIST)) {
+                if(d->getType() == Transfer::TYPE_FULL_LIST) {
+                    if(d->isSet(Download::FLAG_XML_BZ_LIST)) {
                         q->setFlag(QueueItem::FLAG_XML_BZLIST);
                     } else {
                         q->unsetFlag(QueueItem::FLAG_XML_BZLIST);
@@ -1299,64 +1299,64 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
                 }
 
                 if(finished) {
-                    if(aDownload->getType() == Transfer::TYPE_TREE) {
+                    if(d->getType() == Transfer::TYPE_TREE) {
                         // Got a full tree, now add it to the HashManager
-                        dcassert(aDownload->getTreeValid());
-                        HashManager::getInstance()->addTree(aDownload->getTigerTree());
+                        dcassert(d->getTreeValid());
+                        HashManager::getInstance()->addTree(d->getTigerTree());
 
-                        userQueue.removeDownload(q, aDownload->getUser());
+                        userQueue.removeDownload(q, d->getUser());
                         fire(QueueManagerListener::StatusUpdated(), q);
                     } else {
                         // Now, let's see if this was a directory download filelist...
-                        if( (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) && directories.find(aDownload->getUser()) != directories.end()) ||
+                        if( (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) && directories.find(d->getUser()) != directories.end()) ||
                             (q->isSet(QueueItem::FLAG_MATCH_QUEUE)) )
                         {
                             fl_fname = q->getListName();
-                            fl_user = aDownload->getHintedUser();
+                            fl_user = d->getHintedUser();
                             fl_flag = (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) ? QueueItem::FLAG_DIRECTORY_DOWNLOAD : 0)
                                 | (q->isSet(QueueItem::FLAG_MATCH_QUEUE) ? QueueItem::FLAG_MATCH_QUEUE : 0);
                         }
 
                         string dir;
                         bool crcError = false;
-                        if(aDownload->getType() == Transfer::TYPE_FULL_LIST) {
+                        if(d->getType() == Transfer::TYPE_FULL_LIST) {
                             dir = q->getTempTarget();
                             q->addSegment(Segment(0, q->getSize()));
-                        } else if(aDownload->getType() == Transfer::TYPE_FILE) {
-                            q->addSegment(aDownload->getSegment());
+                        } else if(d->getType() == Transfer::TYPE_FILE) {
+                            q->addSegment(d->getSegment());
                         }
 
                         if (q->isFinished() && BOOLSETTING(SFV_CHECK)) {
-                                crcError = checkSfv(q, aDownload);
+                                crcError = checkSfv(q, d.get());
                         }
 
-                        if(aDownload->getType() != Transfer::TYPE_FILE || q->isFinished()) {
+                        if(d->getType() != Transfer::TYPE_FILE || q->isFinished()) {
                             // Check if we need to move the file
-                            if( aDownload->getType() == Transfer::TYPE_FILE && !aDownload->getTempTarget().empty() && (Util::stricmp(aDownload->getPath().c_str(), aDownload->getTempTarget().c_str()) != 0) ) {
-                                moveFile(aDownload->getTempTarget(), aDownload->getPath());
+                            if( d->getType() == Transfer::TYPE_FILE && !d->getTempTarget().empty() && (Util::stricmp(d->getPath().c_str(), d->getTempTarget().c_str()) != 0) ) {
+                                moveFile(d->getTempTarget(), d->getPath());
                             }
-                            if (BOOLSETTING(LOG_FINISHED_DOWNLOADS) && aDownload->getType() == Transfer::TYPE_FILE) {
-                                logFinishedDownload(q, aDownload, crcError);
+                            if (BOOLSETTING(LOG_FINISHED_DOWNLOADS) && d->getType() == Transfer::TYPE_FILE) {
+                                logFinishedDownload(q, d.get(), crcError);
                             }
 
-                            fire(QueueManagerListener::Finished(), q, dir, aDownload->getAverageSpeed());
+                            fire(QueueManagerListener::Finished(), q, dir, d->getAverageSpeed());
 
                             userQueue.remove(q);
 
-                            if(!BOOLSETTING(KEEP_FINISHED_FILES) || aDownload->getType() == Transfer::TYPE_FULL_LIST) {
+                            if(!BOOLSETTING(KEEP_FINISHED_FILES) || d->getType() == Transfer::TYPE_FULL_LIST) {
                                 fire(QueueManagerListener::Removed(), q);
                                 fileQueue.remove(q);
                             } else {
                                 fire(QueueManagerListener::StatusUpdated(), q);
                             }
                         } else {
-                            userQueue.removeDownload(q, aDownload->getUser());
+                            userQueue.removeDownload(q, d->getUser());
                             fire(QueueManagerListener::StatusUpdated(), q);
                         }
                         setDirty();
                     }
                 } else {
-                    if(aDownload->getType() != Transfer::TYPE_TREE) {
+                    if(d->getType() != Transfer::TYPE_TREE) {
                         if(q->getDownloadedBytes() == 0) {
                             q->setTempTarget(Util::emptyString);
                         }
@@ -1364,13 +1364,13 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
                             // Blah...no use keeping an unfinished file list...
                             File::deleteFile(q->getListName());
                         }
-                        if(aDownload->getType() == Transfer::TYPE_FILE) {
+                        if(d->getType() == Transfer::TYPE_FILE) {
                             // mark partially downloaded chunk, but align it to block size
-                            int64_t downloaded = aDownload->getPos();
-                            downloaded -= downloaded % aDownload->getTigerTree().getBlockSize();
+                            int64_t downloaded = d->getPos();
+                            downloaded -= downloaded % d->getTigerTree().getBlockSize();
 
                             if(downloaded > 0) {
-                                q->addSegment(Segment(aDownload->getStartPos(), downloaded));
+                                q->addSegment(Segment(d->getStartPos(), downloaded));
                                 setDirty();
                             }
                         }
@@ -1380,16 +1380,15 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
                         q->getOnlineUsers(getConn);
                     }
 
-                    userQueue.removeDownload(q, aDownload->getUser());
+                    userQueue.removeDownload(q, d->getUser());
                     fire(QueueManagerListener::StatusUpdated(), q);
                 }
-            } else if(aDownload->getType() != Transfer::TYPE_TREE) {
-                if(!aDownload->getTempTarget().empty() && (aDownload->getType() == Transfer::TYPE_FULL_LIST || aDownload->getTempTarget() != aDownload->getPath())) {
-                    File::deleteFile(aDownload->getTempTarget());
+            } else if(d->getType() != Transfer::TYPE_TREE) {
+                if(!d->getTempTarget().empty() && (d->getType() == Transfer::TYPE_FULL_LIST || d->getTempTarget() != d->getPath())) {
+                    File::deleteFile(d->getTempTarget());
                 }
             }
         }
-        delete aDownload;
     }
 
     for(HintedUserList::iterator i = getConn.begin(); i != getConn.end(); ++i) {
@@ -2118,11 +2117,11 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
 TTHValue* QueueManager::FileQueue::findPFSPubTTH()
 {
     uint64_t now = GET_TICK();
-    QueueItem::Ptr cand = NULL;
+    QueueItemPtr cand = NULL;
 
-    for(QueueItem::StringIter i = queue.begin(); i != queue.end(); ++i)
+    for(auto i = queue.begin(); i != queue.end(); ++i)
     {
-        QueueItem::Ptr qi = i->second;
+        QueueItemPtr qi = i->second;
         if(qi && qi->getSize() >= PARTIAL_SHARE_MIN_SIZE && now >= qi->getNextPublishingTime() && qi->getPriority() > QueueItem::PAUSED && qi->isRunning())
         {
             if(cand == NULL || cand->getNextPublishingTime() > qi->getNextPublishingTime() || (cand->getNextPublishingTime() == qi->getNextPublishingTime() && cand->getPriority() < qi->getPriority()) )

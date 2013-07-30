@@ -544,7 +544,7 @@ int Socket::read(void* aBuffer, int aBufLen) {
     return len;
 }
 
-int Socket::read(void* aBuffer, int aBufLen, string &aIP) {
+int Socket::read(void* aBuffer, int aBufLen, string &aIP, string &aPort) {
     dcassert(type == TYPE_UDP);
 
     addr remote_addr = { { 0 } };
@@ -553,6 +553,11 @@ int Socket::read(void* aBuffer, int aBufLen, string &aIP) {
     auto len = check([&] {
         return ::recvfrom(readable(sock4, sock6), (char*)aBuffer, aBufLen, 0, &remote_addr.sa, &addr_length);
     }, true);
+
+    if (remote_addr.sa.sa_family == AF_INET)
+        aPort = Util::toString(remote_addr.sai.sin_port);
+    else if (remote_addr.sa.sa_family == AF_INET6)
+        aPort = Util::toString(remote_addr.sai6.sin6_port);
 
     if(len > 0) {
         aIP = resolveName(&remote_addr.sa, addr_length);
