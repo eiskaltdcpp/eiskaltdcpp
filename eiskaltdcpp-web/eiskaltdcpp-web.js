@@ -206,13 +206,32 @@ var eiskalt = (function () {
                 namespace : ''
             });
 
+            jQuery.tablesorter.addParser({
+                id: 'filesize',
+                is: function(s) {
+                    return s.match(new RegExp(/[0-9]+(\.[0-9]+)?\s*(K|M|G|T|P|E|Y)?i?B/i));
+                },
+                format: function(s) {
+                    var parts, suffix, num, exponent = 0;
+                    parts = s.match(new RegExp(/([0-9]+(\.[0-9]+)?)\s*((K|M|G|T|P|E|Y)?i?B)?/i));
+                    if (parts === null) {
+                        return 0;
+                    }
+                    suffix = parts[3];
+                    if (suffix !== undefined) {
+                        exponent = Math.max(0, 'bkmgtpey'.indexOf(suffix[0].toLowerCase()));
+                    }
+                    num = parseFloat(parts[1]);
+                    return num * Math.pow(1024, exponent, 0);
+                },
+                type: 'numeric'
+            });
+
             $('table#downloadqueue').tablesorter({
                 sortList: [[1,0]],
-                sortInitialOrder: 'desc'
             });
             $('table#searchresults').tablesorter({
                 sortList: [[1,1]],
-                sortInitialOrder: 'desc'
             });
 
             $('input#search').on('click', eiskalt.onSearchClicked);
