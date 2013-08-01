@@ -14,11 +14,15 @@ h2 {
     font-weight: normal;
 }
 
-div.section {
+h3 {
+    font-weight: normal;
+}
+
+.section {
     border: 1px solid #fff;
-    padding: 0px 10px 10px 10px;
-    margin: 10px 10px 10px 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    padding: 0px 8px 8px 8px;
+    margin: 8px 8px 8px 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
 .error {
@@ -41,6 +45,7 @@ input {
     border: none;
     box-shadow: 0 0 8px rgba(0,0,0,0.15);
     padding: 8px;
+    margin: 0 0 5px 0;
 }
 
 input[type=text] {
@@ -64,7 +69,7 @@ table th
 {
     font-weight: normal;
     padding: 8px;
-    background: linear-gradient(0deg, #b9c9fe, #f8f8ff);
+    background-color: #e8e8ff;
     border: 0;
     color: #039;
 }
@@ -72,7 +77,7 @@ table th
 table td
 {
     padding: 4px;
-    background: linear-gradient(0deg, #e8edff, #f8f8ff);
+    background-color: #f8f8ff;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
     color: #669;
@@ -80,15 +85,43 @@ table td
 
 table tbody tr:hover td
 {
-    background: linear-gradient(0deg, #d0dafd, #f8f8ff);
+    background-color: #e8e8ff;
     color: #339;
+}
+
+table td img
+{
+    cursor: pointer;
+    height: 1.5em;
+    padding: 0;
+    margin: 0;
+}
+
+.tablesorter .tablesorter-header {
+    /* black (unsorted) double arrow */
+    background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding: 8px 18px 8px 8px;
+    white-space: normal;
+    cursor: pointer;
+}
+
+.tablesorter .tablesorter-headerAsc {
+    /* black asc arrow */
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+}
+
+.tablesorter .tablesorter-headerDesc {
+    /* black desc arrow */
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
 }
 
 table#searchresults td:nth-child(1), table#searchresults td:nth-child(2) {
    text-align: center;
 }
 
-table#searchresults td:nth-child(4) {
+table#searchresults td:nth-child(3) {
    text-align: right;
 }
 
@@ -98,12 +131,4 @@ table#downloadqueue td:nth-child(1) {
 
 table#downloadqueue td:nth-child(3) {
    text-align: right;
-}
-
-table td img
-{
-    cursor: pointer;
-    height: 1.5em;
-    padding: 0;
-    margin: 0;
 }

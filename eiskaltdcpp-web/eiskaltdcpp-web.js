@@ -1,7 +1,7 @@
 /*jslint browser:true */
 /*global $, jQuery, config*/
 var eiskalt = (function () {
-    "use strict";
+    'use strict';
 
     var debugLevels = {
         FATAL : 1,
@@ -78,6 +78,7 @@ var eiskalt = (function () {
                         eiskalt.addSearchResult(result);
                     }
                 });
+                $('table#searchresults').trigger('update');
             }
         },
 
@@ -161,6 +162,7 @@ var eiskalt = (function () {
                     entry.row.remove();
                 }
             });
+            $('table#downloadqueue').trigger('update');
         },
 
         requestDownloadQueue: function () {
@@ -176,7 +178,7 @@ var eiskalt = (function () {
                 eiskalt.connectedHubs = connectedHubs;
                 if (connectedHubs.length == 0) {
                     $('#connectedhubs').attr('class', 'error');
-                    $('#connectedhubs').text('No hubs connected!');
+                    $('#connectedhubs').text('Not connected to any hubs!');
                 } else {
                     $('#connectedhubs').attr('class', '');
                     $('#connectedhubs').text(connectedHubs);
@@ -203,6 +205,16 @@ var eiskalt = (function () {
                 endPoint : 'http://' + config.jsonrpc.host + ':' + config.jsonrpc.port,
                 namespace : ''
             });
+
+            $('table#downloadqueue').tablesorter({
+                sortList: [[1,0]],
+                sortInitialOrder: 'desc'
+            });
+            $('table#searchresults').tablesorter({
+                sortList: [[1,1]],
+                sortInitialOrder: 'desc'
+            });
+
             $('input#search').on('click', eiskalt.onSearchClicked);
             $('input#searchstring').keypress(function(event) {
                 if (event.which == 13) {
