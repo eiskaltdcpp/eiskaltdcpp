@@ -25,7 +25,7 @@ use strict;
 use warnings;
 no warnings 'uninitialized';
 use 5.012;
-use JSON::RPC::Client;
+use JSON::RPC;
 use Term::ShellUI;
 use Data::Dumper;
 use Getopt::Long;
@@ -88,7 +88,17 @@ $obj->{'jsonrpc'} = $config{jsonrpc};
 my $res;
 
 # creating and configuring jsonrpc client
-my $client = new JSON::RPC::Client;
+my $client;
+if ( $JSON::RPC::VERSION >=  1.03 )
+{
+	require JSON::RPC::Legacy::Client;
+	$client = new JSON::RPC::Legacy::Client;
+}
+else
+{
+	require JSON::RPC::Client;
+	$client = new JSON::RPC::Client;
+}
 $client->version("2.0");
 $client->ua->timeout(10);
 #$client->ua->credentials('http://127.0.0.1:3121', 'jsonrpc', 'user' => 'password');
