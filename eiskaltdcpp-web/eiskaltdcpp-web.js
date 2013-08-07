@@ -209,11 +209,11 @@ var eiskalt = (function () {
             jQuery.tablesorter.addParser({
                 id: 'filesize',
                 is: function(s) {
-                    return s.match(new RegExp(/[0-9]+(\.[0-9]+)?\s*(K|M|G|T|P|E|Y)?i?B/i));
+                    return s.match(new RegExp(/[0-9]+(\.[0-9]+)?\s*(K|M|G|T|P|E|Z|Y)?i?B/i));
                 },
                 format: function(s) {
                     var parts, suffix, num, exponent = 0;
-                    parts = s.match(new RegExp(/([0-9]+(\.[0-9]+)?)\s*((K|M|G|T|P|E|Y)?i?B)?/i));
+                    parts = s.match(new RegExp(/([0-9]+(\.[0-9]+)?)\s*((K|M|G|T|P|E|Z|Y)?i?B)?/i));
                     if (parts === null) {
                         return 0;
                     }
