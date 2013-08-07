@@ -49,6 +49,7 @@ namespace Json
             sscanf(mg_get_header(conn,"Content-Length"),"%d",&post_data_len);
             post_data = (char*)malloc(post_data_len+1);
             mg_read(conn, post_data, post_data_len);
+            post_data[post_data_len] = 0; // make sure this is null terminated
             serv->onRequest(post_data,conn);
             free(post_data);
         }
