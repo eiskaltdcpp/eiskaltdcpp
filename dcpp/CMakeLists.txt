@@ -11,7 +11,7 @@ if (NOT LUA_SCRIPT)
   list (REMOVE_ITEM dcpp_srcs ${CMAKE_CURRENT_SOURCE_DIR}/ScriptManager.cpp)
 endif ()
 
-include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${GETTEXT_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${IDNA_INCLUDE_DIR})
+include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DIR} ${RHASH_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${GETTEXT_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${IDNA_INCLUDE_DIR})
 
 if (WIN32)
   set (LINK STATIC)
@@ -36,6 +36,10 @@ if (APPLE)
 endif (APPLE)
 
 set (UPNP "extra")
+
+if (USE_RHASH)
+  list (REMOVE_ITEM dcpp_srcs ${CMAKE_CURRENT_SOURCE_DIR}/TigerHash.cpp)
+endif ()
 
 add_library (dcpp ${LINK} ${dcpp_srcs})
 
@@ -80,7 +84,7 @@ else(WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
 endif (WIN32)
 
-target_link_libraries (dcpp ${DHT_LIB} ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
+target_link_libraries (dcpp ${DHT_LIB} ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES} ${RHASH_LIBRARY}
 ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE} ${IDNA_LIBRARIES} ${XATTR_LIBRARIES} ${HAIKU_LIB} ${Boost_LIBRARIES})
 set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 

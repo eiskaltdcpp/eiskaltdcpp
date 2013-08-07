@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
+    <head>
+        <title>EiskaltDC++ Web Frontend</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" charset="utf-8" src="jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jquery.tablesorter.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jquery.jsonrpc.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jquery.plugin.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jquery.timer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="eiskaltdcpp-web.js"></script>
+    </head>
+    <body onload="eiskalt.onLoad();">
+        <div class="section" id="titlediv">
+            <h1>
+                <img style="margin: 0 3px -3px 0;" height="28px" src="images/eiskaltdcpp.png">
+                EiskaltDC++ Web Frontend
+            </h1>
+        </div>
+
+        <div class="section" id="downloadqueuediv">
+            <h2>Download Queue</h2>
+            <table class="tablesorter" id="downloadqueue">
+                <thead>
+                    <tr>
+                        <th align="center">Remove</th>
+                        <th width="65%" key="Filename">Filename</th>
+                        <th width="5%" align="right" key="Size" data-sortinitialorder="desc">Size</th>
+                        <th width="15%" key="Downloaded" data-sortinitialorder="desc">Progress</th>
+                        <th width="15%" key="Status">Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="section" id="searchdiv">
+            <h2>Search</h2>
+            <p>
+                <input name="searchstring" id="searchstring" type="text"/>
+                <input name="search" id="search" type="button" value="Search" /><br>
+                <b>Connected Hubs:</b> <span id="connectedhubs">Not connected yet...</span>
+            </p>
+            <table class="tablesorter" id="searchresults">
+                <thead>
+                    <tr>
+                        <th width="5%" align="center">Download</th>
+                        <th width="5%" align="center" data-sortinitialorder="desc">Count</th>
+                        <th width="10%" align="right" key="Size" data-sortinitialorder="desc">Size</th>
+                        <th width="80%" key="Filename">Filename</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="section" id="debugdiv">
+            <h2>Debug Output</h2>
+            <pre id="debugout"></pre>
+        </div>
+    </body>
+</html>
