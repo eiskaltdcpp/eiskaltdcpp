@@ -51,6 +51,7 @@ public:
     }
 
     ~TigerHash() {
+        rhash_free(context);
     }
 
     void update(const void* data, size_t len) {
