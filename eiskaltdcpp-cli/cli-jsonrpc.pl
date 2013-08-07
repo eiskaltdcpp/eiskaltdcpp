@@ -25,7 +25,6 @@ use strict;
 use warnings;
 no warnings 'uninitialized';
 use 5.012;
-use JSON::RPC;
 use Term::ShellUI;
 use Data::Dumper;
 use Getopt::Long;
@@ -88,24 +87,23 @@ $obj->{'jsonrpc'} = $config{jsonrpc};
 my $res;
 
 # creating and configuring jsonrpc client
-my $client;
-if ( $JSON::RPC::VERSION >=  1.03 )
-{
-	require JSON::RPC::Legacy::Client;
-	$client = new JSON::RPC::Legacy::Client;
-}
-else
+my $client = eval
 {
 	require JSON::RPC::Client;
-	$client = new JSON::RPC::Client;
+	JSON::RPC::Client->new();
 }
+or do
+{
+	require JSON::RPC::Legacy::Client;
+	JSON::RPC::Legacy::Client->new();
+};
 $client->version("2.0");
 $client->ua->timeout(10);
 #$client->ua->credentials('http://127.0.0.1:3121', 'jsonrpc', 'user' => 'password');
 #$client->ua()->ssl_opts(verify_hostname=>0);
 
 # preparing shell: reading command list, configuring history file and so
-my $term = new Term::ShellUI(commands => get_commands(), history_file => $config{hist_file}, history_max => $config{hist_max});
+my $term = Term::ShellUI->new(commands => get_commands(), history_file => $config{hist_file}, history_max => $config{hist_max});
 
 # execute command if -c option used end exit 
 if (defined($command))
