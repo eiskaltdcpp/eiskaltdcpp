@@ -7,7 +7,7 @@
 * b) The algorithm must correctly compute Tiger.
 * c) The algorithm's use must be legal.
 * d) The algorithm may not be exported to countries banned by law.
-* e) The authors of the C code are not responsible of this use of the code, 
+* e) The authors of the C code are not responsible of this use of the code,
 *    the software or anything else.
 */
 
@@ -32,41 +32,79 @@
 #include <cstddef>
 #include <cstdint>
 
+#ifdef USE_RHASH
+#include <rhash/rhash.h>
+#endif
+
 namespace dcpp {
+
+#ifdef USE_RHASH
 
 class TigerHash {
 public:
-	/** Hash size in bytes */
-	static const size_t BITS = 192;
-	static const size_t BYTES = BITS / 8;
+    /** Hash size in bytes */
+    static const size_t BITS = 192;
+    static const size_t BYTES = BITS / 8;
 
-	TigerHash() : pos(0) {
-		res[0]=_ULL(0x0123456789ABCDEF);
-		res[1]=_ULL(0xFEDCBA9876543210);
-		res[2]=_ULL(0xF096A5B4C3B2E187);
-	}
+    TigerHash() {
+        context = rhash_init(RHASH_TIGER);
+    }
 
-	~TigerHash() {
-	}
+    ~TigerHash() {
+        rhash_free(context);
+    }
 
-	/** Calculates the Tiger hash of the data. */
-	void update(const void* data, size_t len);
-	/** Call once all data has been processed. */
-	uint8_t* finalize();
+    void update(const void* data, size_t len) {
+        rhash_update(context, data, len);
+    }
 
-	uint8_t* getResult() { return (uint8_t*) res; }
+    uint8_t* finalize() {
+        rhash_final(context, output);
+        return (uint8_t*) output;
+    }
+
 private:
-	enum { BLOCK_SIZE = 512/8 };
-	/** 512 bit blocks for the compress function */
-	uint8_t tmp[512/8];
-	/** State / final hash value */
-	uint64_t res[3];
-	/** Total number of bytes compressed */
-	uint64_t pos;
-	/** S boxes */
-	static uint64_t table[];
-
-	void tigerCompress(const uint64_t* data, uint64_t state[3]);
+    rhash context;
+    unsigned char output[24];
 };
+
+#else
+
+class TigerHash {
+public:
+    /** Hash size in bytes */
+    static const size_t BITS = 192;
+    static const size_t BYTES = BITS / 8;
+
+    TigerHash() : pos(0) {
+        res[0]=_ULL(0x0123456789ABCDEF);
+        res[1]=_ULL(0xFEDCBA9876543210);
+        res[2]=_ULL(0xF096A5B4C3B2E187);
+    }
+
+    ~TigerHash() {
+    }
+
+    /** Calculates the Tiger hash of the data. */
+    void update(const void* data, size_t len);
+    /** Call once all data has been processed. */
+    uint8_t* finalize();
+
+    uint8_t* getResult() { return (uint8_t*) res; }
+private:
+    enum { BLOCK_SIZE = 512/8 };
+    /** 512 bit blocks for the compress function */
+    uint8_t tmp[512/8];
+    /** State / final hash value */
+    uint64_t res[3];
+    /** Total number of bytes compressed */
+    uint64_t pos;
+    /** S boxes */
+    static uint64_t table[];
+
+    void tigerCompress(const uint64_t* data, uint64_t state[3]);
+};
+
+#endif // USE_RHASH
 
 } // namespace dcpp

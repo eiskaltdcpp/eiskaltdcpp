@@ -94,6 +94,12 @@ option (USE_LIBCANBERRA "Use LibCanberra in GTK interface (sound notification)" 
 option (INSTALL_RUNTIME_PATH "Install rpath" OFF)
 option (USE_GOLD "Use ld.gold instead ld.bfd" OFF)
 option (DO_NOT_USE_MUTEX "Do not use mutex (necessary for Haiku and WINE)" OFF)
+option (USE_RHASH "Use librhash to calculate tth" ON)
+
+if (USE_RHASH)
+    find_package (RHash)
+    add_definitions ( -DUSE_RHASH )
+endif ()
 
 if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
   add_definitions ( -DDO_NOT_USE_MUTEX )
