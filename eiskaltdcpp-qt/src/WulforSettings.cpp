@@ -162,7 +162,7 @@ void WulforSettings::load(){
             settings.setValue(WB_CHAT_HIDE_SMILE_PANEL, static_cast<bool>(true));
             settings.setValue(WB_MAINWINDOW_MAXIMIZED,  static_cast<int>(true));
             settings.setValue(WB_MAINWINDOW_HIDE,       static_cast<int>(false));
-            settings.setValue(WB_MAINWINDOW_REMEMBER,   static_cast<int>(true));
+            settings.setValue(WB_MAINWINDOW_REMEMBER,   static_cast<int>(false));
             settings.setValue(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(true));
             settings.setValue(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(true));
             settings.setValue(WB_SEARCHFILTER_NOFREE,   static_cast<int>(false));
@@ -300,7 +300,7 @@ void WulforSettings::loadOldConfig(){
         intmap.insert(WB_CHAT_HIDE_SMILE_PANEL, static_cast<bool>(true));
         intmap.insert(WB_MAINWINDOW_MAXIMIZED,  static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_HIDE,       static_cast<int>(false));
-        intmap.insert(WB_MAINWINDOW_REMEMBER,   static_cast<int>(true));
+        intmap.insert(WB_MAINWINDOW_REMEMBER,   static_cast<int>(false));
         intmap.insert(WB_MAINWINDOW_USE_M_TABBAR, static_cast<int>(true));
         intmap.insert(WB_MAINWINDOW_USE_SIDEBAR, static_cast<int>(true));
         intmap.insert(WB_SEARCHFILTER_NOFREE,   static_cast<int>(false));
