@@ -103,14 +103,13 @@ void ArenaWidgetManager::rem ( ArenaWidget *awgt ) {
 void ArenaWidgetManager::activate ( ArenaWidget *awgt ) {
     DEBUG_BLOCK
     
-    if (!awgt)
+    if (!awgt){
+        emit activated(NULL);
         return;
-    
-    if (!widgets.isEmpty()){
-        if (!widgets.contains(awgt)){
-            emit activated(NULL);
-            return;
-        }
+    }
+    else if (!widgets.contains(awgt)){
+        emit activated(NULL);
+        return;
     }
     
     if (awgt->state() & ArenaWidget::Hidden){
