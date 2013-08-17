@@ -37,5 +37,9 @@
         <key>LANG</key>
         <string>en_US.UTF-8</string>
     </dict>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSHighResolutionCapable</key>
+    <true/> 
 </dict>
 </plist>
