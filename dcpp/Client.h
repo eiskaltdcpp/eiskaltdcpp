@@ -158,6 +158,7 @@ public:
 
     /** Reload details from favmanager or settings */
     void reloadSettings(bool updateNick);
+    bool bIPv6, bIPv4;
 protected:
     friend class ClientManager;
     Client(const string& hubURL, char separator, bool secure_);

@@ -82,7 +82,7 @@ inline auto check(F f, bool blockOk = false) -> decltype(f()) {
         }
 
         if(error != EINTR) {
-            printf("Socket::check %d\n", error); fflush(stdout);
+            //printf("Socket::check %d\n", error); fflush(stdout);
             throw SocketException(error);
         }
     }
@@ -109,7 +109,7 @@ inline auto check(F f, bool blockOk = false) -> decltype(f()) {
         }
 
         if(error != EINTR) {
-            printf("Socket::check %d\n", error); fflush(stdout);
+            //printf("Socket::check %d\n", error); fflush(stdout);
             throw SocketException(error);
         }
     }
@@ -222,7 +222,7 @@ string SocketException::errorToString(int aError) noexcept {
     if(msg.empty()) {
         msg = str(F_("Unknown error: 0x%1$x") % aError);
     }
-    printf("SocketException::errorToString %s\n", msg.c_str()); fflush(stdout);
+    //printf("SocketException::errorToString %s\n", msg.c_str()); fflush(stdout);
 
     return msg;
 }
@@ -753,7 +753,7 @@ bool Socket::waitConnected(uint32_t millis) {
         }
 
         if(!sock4.valid()) {
-            printf("!sock4.valid() %d\n", err6); fflush(stdout);
+            //printf("!sock4.valid() %d\n", err6); fflush(stdout);
             throw SocketException(err6);
         }
 
@@ -768,7 +768,7 @@ bool Socket::waitConnected(uint32_t millis) {
         }
 
         if(!sock6.valid()) {
-            printf("!sock6.valid() %d\n", err4); fflush(stdout);
+            //printf("!sock6.valid() %d\n", err4); fflush(stdout);
             throw SocketException(err4);
         }
 
@@ -813,7 +813,7 @@ Socket::addrinfo_p Socket::resolveAddr(const string& name, const string& port, i
     auto err = ::getaddrinfo(name.c_str(), port.empty() ? NULL : port.c_str(), &hints, &result);
     if(err) {
         string err_str = gai_strerror(err);
-        printf("Socket::resolveAddr name->%s port->%s %s %d\n",name.c_str(), port.empty()? "0": port.c_str() , err_str.c_str(), err); fflush(stdout);
+        //printf("Socket::resolveAddr name->%s port->%s %s %d\n",name.c_str(), port.empty()? "0": port.c_str() , err_str.c_str(), err); fflush(stdout);
         throw SocketException(err);
     }
 
@@ -829,7 +829,7 @@ string Socket::resolveName(const sockaddr* sa, socklen_t sa_len, int flags) {
 
     auto err = ::getnameinfo(sa, sa_len, buf, sizeof(buf), NULL, 0, flags);
     if(err) {
-        printf("Socket::resolveName %d\n", err); fflush(stdout);
+        //printf("Socket::resolveName %d\n", err); fflush(stdout);
         throw SocketException(err);
     }
 

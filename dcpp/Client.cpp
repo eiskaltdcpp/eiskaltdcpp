@@ -35,7 +35,7 @@ Client::Client(const string& hubURL, char separator_, bool secure_) :
     reconnDelay(120), lastActivity(GET_TICK()), registered(false), autoReconnect(false),
     encoding(Text::hubDefaultCharset), state(STATE_DISCONNECTED), sock(0),
     hubUrl(hubURL), separator(separator_),
-    secure(secure_), countType(COUNT_UNCOUNTED)
+    secure(secure_), countType(COUNT_UNCOUNTED), bIPv6(false), bIPv4(false)
 {
     string file, proto, query, fragment;
     Util::decodeUrl(hubURL, proto, address, port, file, query, fragment);
@@ -159,6 +159,13 @@ void Client::on(Connected) noexcept {
     updateActivity();
     ip = sock->getIp();
     localIp = sock->getLocalIp();
+
+    if(!localIp.empty() && !strchr(localIp.c_str(), '.')) {
+        bIPv6 = true;
+    } else {
+        bIPv4 = true;
+    }
+
     if(sock->isSecure() && keyprint.compare(0, 7, "SHA256/") == 0) {
         auto kp = sock->getKeyprint();
         if(!kp.empty()) {

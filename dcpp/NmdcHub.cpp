@@ -54,7 +54,7 @@ NmdcHub::~NmdcHub() {
 void NmdcHub::connect(const OnlineUser& aUser, const string&) {
     checkstate();
     dcdebug("NmdcHub::connect %s\n", aUser.getIdentity().getNick().c_str());
-    if(isActive()) {
+    if(isActive() || bIPv6) {
         connectToMe(aUser);
     } else {
         revConnectToMe(aUser);
@@ -106,6 +106,9 @@ void NmdcHub::supports(const StringList& feat) {
     for(auto& i: feat) {
         x+= i + ' ';
     }
+    x += "IP64 ";
+    if (bIPv6)
+        x+= "IPv4 ";
     send("$Supports " + x + '|');
 }
 
@@ -248,16 +251,18 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         if(state != STATE_NORMAL) {
             return;
         }
+        //printf("$Search %s\n", param.c_str()); fflush(stdout);
         string::size_type i = 0;
         string::size_type j = param.find(' ', i);
         if(j == string::npos || i == j)
             return;
 
         string seeker = param.substr(i, j-i);
-
+        //printf("$Search->%s\n", seeker.c_str()); fflush(stdout);
         // Filter own searches
         if(isActive()) {
-            if(seeker == (getLocalIp() + ":" + SearchManager::getInstance()->getPort())) {
+            if(seeker == (getLocalIp() + ":" + SearchManager::getInstance()->getPort())
+               || seeker == ("[" + getLocalIp() + "]" + ":" + SearchManager::getInstance()->getPort())) {
                 return;
             }
         } else {
@@ -403,6 +408,24 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         } else {
             u.getUser()->unsetFlag(User::NAT_TRAVERSAL);
         }
+        //printf("Status: %s->%x\n",u.getIdentity().getNick().c_str(), u.getIdentity().getStatus());fflush(stdout);
+        //if(isSet(SUPPORTS_IP64)) {
+            //printf("Status: %s->%x\n",u.getIdentity().getNick().c_str(), u.getIdentity().getStatus());fflush(stdout);
+            if (u.getIdentity().getStatus() & Identity::IPV4) {
+                //printf("%s->ipv4\n", u.getIdentity().getNick().c_str());fflush(stdout);
+                u.getUser()->setFlag(Identity::IPV4);
+            } else {
+                u.getUser()->unsetFlag(Identity::IPV4);
+            }
+
+            if (u.getIdentity().getStatus() & Identity::IPV6) {
+                //printf("%s->ipv6\n", u.getIdentity().getNick().c_str());fflush(stdout);
+                u.getUser()->setFlag(Identity::IPV6);
+            } else {
+                u.getUser()->unsetFlag(Identity::IPV6);
+            }
+        //}
+
         i = j + 1;
         j = param.find('$', i);
 
@@ -443,11 +466,22 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             return;
         }
         i++;
-        j = param.find(':', i);
+        string server;
+        j = param.find(']', i);
+        //printf("i->%u j->%u\n",i,j);fflush(stdout);
         if(j == string::npos) {
-            return;
+            j = param.find(':', i);
+            server = Socket::resolve(param.substr(i, j-i), AF_INET);
+        } else {
+            j++;
+            server = Socket::resolve(param.substr(i+1, j-i-2), AF_INET6);
+            //server = param.substr(i+1, j-i-2);
         }
-        string server = Socket::resolve(param.substr(i, j-i));
+        //printf("i->%u j->%u\n",i,j);fflush(stdout);
+        //printf("ipv6->%s\n", param.substr(i).c_str());//fflush(stdout);
+        //printf("ipv6->%s\n",param.substr(i, j-i).c_str());fflush(stdout);
+        //string server = Socket::resolve(param.substr(i, j-i), );
+        //printf("$ConnectToMe Socket::resolve->%s\n ", server.c_str());fflush(stdout);
         if(isProtectedIP(server))
             return;
         if(j+1 >= param.size()) {
@@ -472,7 +506,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             }
         }
 
-        if(BOOLSETTING(ALLOW_NATT)) {
+        if(BOOLSETTING(ALLOW_NATT) && !bIPv6) {
             if(port[port.size() - 1] == 'N') {
                 if(senderNick.empty())
                     return;
@@ -514,9 +548,10 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         if(u == NULL)
             return;
 
-        if(isActive()) {
+        if(isActive() && bIPv6) {
             connectToMe(*u);
-        } else if(BOOLSETTING(ALLOW_NATT) && (u->getIdentity().getStatus() & Identity::NAT)) {
+        } else if(BOOLSETTING(ALLOW_NATT) && (u->getIdentity().getStatus() & Identity::NAT)
+        && !bIPv6) {
             bool secure = CryptoManager::getInstance()->TLSOk() && u->getUser()->isSet(User::TLS);
             // NMDC v2.205 supports "$ConnectToMe sender_nick remote_nick ip:port", but many NMDC hubsofts block it
             // sender_nick at the end should work at least in most used hubsofts
@@ -563,6 +598,8 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 supportFlags |= SUPPORTS_NOGETINFO;
             } else if(i == "UserIP2") {
                 supportFlags |= SUPPORTS_USERIP2;
+            } else if (i == "IP64") {
+                supportFlags |= SUPPORTS_IP64;
             }
         }
     } else if(cmd == "$UserCommand") {
@@ -841,7 +878,10 @@ void NmdcHub::connectToMe(const OnlineUser& aUser) {
     ConnectionManager::getInstance()->nmdcExpect(nick, getMyNick(), getHubUrl());
     bool secure = CryptoManager::getInstance()->TLSOk() && aUser.getUser()->isSet(User::TLS);
     string port = secure ? ConnectionManager::getInstance()->getSecurePort() : ConnectionManager::getInstance()->getPort();
-    send("$ConnectToMe " + nick + " " + getLocalIp() + ":" + port + (secure ? "S" : "") + "|");
+    if (bIPv6  && (aUser.getIdentity().getStatus() & Identity::IPV6))
+        send("$ConnectToMe " + nick + " [" + getLocalIp() + "]:" + port + (secure ? "S" : "") + "|");
+    else if (bIPv4)
+        send("$ConnectToMe " + nick + " " + getLocalIp() + ":" + port + (secure ? "S" : "") + "|");
 }
 
 void NmdcHub::revConnectToMe(const OnlineUser& aUser) {
@@ -886,18 +926,23 @@ void NmdcHub::myInfo(bool alwaysSend) {
             StatusMode |= Identity::TLS;
     }
 
+    if (bIPv6) {
+        StatusMode |= Identity::IPV4;
+        StatusMode |= Identity::IPV6;
+    } else
+        StatusMode |= Identity::IPV4;
+
     bool gslotf = BOOLSETTING(SHOW_FREE_SLOTS_DESC);
     string gslot = "["+Util::toString(UploadManager::getInstance()->getFreeSlots())+"]";
     string uMin = (SETTING(MIN_UPLOAD_SPEED) == 0) ? Util::emptyString : ",O:" + Util::toString(SETTING(MIN_UPLOAD_SPEED));
     string myInfoA =
         "$MyINFO $ALL " + fromUtf8(getMyNick()) + " " +
-        fromUtf8(escape((gslotf ? gslot :"")+getCurrentDescription())) + " <"+ getClientId().c_str() + ",M:" + modeChar + ",H:" + getCounts();
+        fromUtf8(escape((gslotf ? gslot :"")+getCurrentDescription())) + " <"+ getClientId().c_str() + ",M:" + modeChar + (bIPv6 ? "A": "") + ",H:" + getCounts();
     string myInfoB = ",S:" + Util::toString(SETTING(SLOTS));
     string myInfoC = uMin +
         ">$ $" + uploadSpeed + StatusMode + "$" + fromUtf8(escape(SETTING(EMAIL))) + '$';
     string myInfoD = ShareManager::getInstance()->getShareSizeString() + "$|";
     // we always send A and C; however, B (slots) and D (share size) can frequently change so we delay them if needed
-    //printf("%s\n", (myInfoA + myInfoB + myInfoC + myInfoD).c_str());
     if(lastMyInfoA != myInfoA || lastMyInfoC != myInfoC ||
         alwaysSend || ((lastMyInfoB != myInfoB || lastMyInfoD != myInfoD) && lastUpdate + 15*60*1000 < GET_TICK())) {
         dcdebug("MyInfo %s...\n", getMyNick().c_str());
@@ -920,8 +965,8 @@ void NmdcHub::search(int aSizeType, int64_t aSize, int aFileType, const string& 
         tmp[i] = '$';
     }
     string tmp2;
-    if(isActive() && !BOOLSETTING(SEARCH_PASSIVE)) {
-        tmp2 = getLocalIp() + ':' + SearchManager::getInstance()->getPort();
+    if((isActive() && !BOOLSETTING(SEARCH_PASSIVE)) || bIPv6) {
+        tmp2 = (bIPv6 ? '[' + getLocalIp() + ']' : getLocalIp() ) + ':' + SearchManager::getInstance()->getPort();
     } else {
         tmp2 = "Hub:" + fromUtf8(getMyNick());
     }

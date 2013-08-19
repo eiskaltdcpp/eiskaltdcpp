@@ -78,7 +78,8 @@ friend class ClientManager;
     enum SupportFlags {
         SUPPORTS_USERCOMMAND = 0x01,
         SUPPORTS_NOGETINFO = 0x02,
-        SUPPORTS_USERIP2 = 0x04
+        SUPPORTS_USERIP2 = 0x04,
+        SUPPORTS_IP64    = 0x10
     };
 
     mutable CriticalSection cs;
@@ -126,7 +127,7 @@ friend class ClientManager;
     void updateFromTag(Identity& id, const string& tag);
 
     virtual void checkNick(string& nick);
-    virtual bool v4only() const { return true; }
+    virtual bool v4only() const { return false; }
 
     // TimerManagerListener
     virtual void on(Second, uint64_t aTick) noexcept;

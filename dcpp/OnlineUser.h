@@ -37,7 +37,9 @@ public:
         NORMAL          = 0x01,
         AWAY            = 0x02,
         TLS             = 0x10,
-        NAT             = 0x20
+        NAT             = 0x20,
+        IPV4            = 0x40,
+        IPV6            = 0x80
     };
 
     Identity() { }
