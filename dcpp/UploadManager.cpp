@@ -61,6 +61,7 @@ UploadManager::~UploadManager() {
 }
 
 bool UploadManager::hasUpload ( UserConnection& aSource ) {
+    Lock l(cs);
     if (!aSource.getSocket() || SETTING(ALLOW_SIM_UPLOADS))
         return false;
 
