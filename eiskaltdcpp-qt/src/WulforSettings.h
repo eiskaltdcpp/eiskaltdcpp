@@ -173,7 +173,7 @@ public:
     void loadTranslation();
     void loadTheme();
 
-    void    parseCmd(const QString &);
+    void    parseCmd(const QString &, QString &);
 
     bool hasKey(const QString&) const;
 
@@ -228,4 +228,4 @@ static const auto WBSET = [](const QString &key, const bool &value){ WulforSetti
 static const auto WVGET = [](const QString &key, const QVariant &default_value = QVariant()) -> QVariant { return WulforSettings::getInstance()->getVar(key, default_value); };
 static const auto WVSET = [](const QString &key, const QVariant &value){ WulforSettings::getInstance()->setVar(key, value); };
 
-static const auto WSCMD = [](const QString &cmd){ WulforSettings::getInstance()->parseCmd(cmd); };
+static const auto WSCMD = [](const QString &cmd, QString &res){ WulforSettings::getInstance()->parseCmd(cmd,res); };

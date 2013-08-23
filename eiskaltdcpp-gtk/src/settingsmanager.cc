@@ -505,17 +505,25 @@ bool WulforSettingsManager::getPreviewApp(string &name, PreviewApp::size &index)
 const std::string WulforSettingsManager::parseCmd(const std::string &cmd)
 {
     StringTokenizer<string> sl(cmd, ' ');
-        if (sl.getTokens().size() == 2) {
-            if (intMap.find(sl.getTokens().at(0)) != intMap.end() || defaultInt.find(sl.getTokens().at(0)) != defaultInt.end()) {
+    if (sl.getTokens().size() == 1 || sl.getTokens().size() == 2) {
+        string tmp;
+        if (intMap.find(sl.getTokens().at(0)) != intMap.end() || defaultInt.find(sl.getTokens().at(0)) != defaultInt.end()) {
+            if (sl.getTokens().size() == 2) {
                 int i = atoi(sl.getTokens().at(1).c_str());
                 WSET(sl.getTokens().at(0), i);
-            }
-            else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end() || defaultString.find(sl.getTokens().at(0)) != defaultString.end())
-                WSET(sl.getTokens().at(0), sl.getTokens().at(1));
-            else
-                return _("Error: setting not found!");
-            string msg = _("Change setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
-            return msg;
+            } else if (sl.getTokens().size() == 1)
+                tmp = Util::toString(WGETI(sl.getTokens().at(0)));
         }
-    return _("Error: params have been not 2!");
+        else if (stringMap.find(sl.getTokens().at(0)) != stringMap.end() || defaultString.find(sl.getTokens().at(0)) != defaultString.end()) {
+            if (sl.getTokens().size() == 2)
+                WSET(sl.getTokens().at(0), sl.getTokens().at(1));
+            else if (sl.getTokens().size() == 1)
+                tmp = WGETS(sl.getTokens().at(0));
+        } else
+            return _("Error: setting not found!");
+        return !tmp.empty() ?
+        _("Gui setting ") + string(sl.getTokens().at(0)) + ": " + tmp :
+        _("Change gui setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
+    }
+    return _("Error: segv parser :D");
 }
