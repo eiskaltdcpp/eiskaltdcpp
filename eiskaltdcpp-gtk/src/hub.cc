@@ -2062,6 +2062,8 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/lua <chunk>\t\t\t -  " + _("Execute Lua Chunk") + "\n"+
 #endif
             "/sh\t\t\t\t\t - " +  _("Execute code (bash)") +"\n"+
+            "/ws param value\t\t\t - " +  _("Set gui option param in value (without value return current value of option)\n") +
+            "/dcpps param value\t\t\t - " +  _("Set core option param in value (without value return current value of option)\n") +
             "/alias list\t\t\t - " + _("Alias List")+ "\n"+
             "/alias purge A\t\t - "+ _("Alias Remove A")+"\n"+
             "/alias A::uname -a\t - " +  _("Alias add uname -a as A")+"\n" +
