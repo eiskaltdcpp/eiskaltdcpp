@@ -96,6 +96,7 @@ const string SettingsManager::settingTags[] =
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
+    "ShareSkipZeroByte",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
@@ -302,6 +303,7 @@ SettingsManager::SettingsManager()
     setDefault(USE_ADL_ONLY_OWN_LIST, false);
     setDefault(ALLOW_SIM_UPLOADS, true);
     setDefault(CHECK_TARGETS_PATHS_ON_START, false);
+    setDefault(SHARE_SKIP_ZERO_BYTE, false);
     setSearchTypeDefaults();
 }
 

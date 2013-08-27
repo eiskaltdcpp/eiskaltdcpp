@@ -651,6 +651,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
             continue;
 
         int64_t size = i->getSize();
+
         string fileName = aName + name;
 
         if (l_skip_list.size())
@@ -682,6 +683,8 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
                     % Util::addBrackets(fileName) % Util::formatBytes(size)));
                     continue;
                 }
+                if (BOOLSETTING(SHARE_SKIP_ZERO_BYTE) && size == 0)
+                    continue;
                 if(Util::stricmp(fileName, SETTING(TLS_PRIVATE_KEY_FILE)) == 0) {
                     continue;
                 }

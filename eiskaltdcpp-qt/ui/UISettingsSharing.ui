@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>528</width>
+    <width>573</width>
     <height>522</height>
    </rect>
   </property>
@@ -237,6 +237,13 @@ and may cause the client to appear to freeze.</string>
          </property>
          <property name="text">
           <string>Share temporary files</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_SHARE_SKIP_ZERO_BYTE">
+         <property name="text">
+          <string>Skip zero byte file</string>
          </property>
         </widget>
        </item>

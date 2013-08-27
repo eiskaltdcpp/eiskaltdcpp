@@ -71,6 +71,7 @@ void SettingsSharing::ok(){
     SM->set(SettingsManager::HASH_BUFFER_POPULATE, checkBox_MAPPOPULATE->isChecked());
     SM->set(SettingsManager::HASH_BUFFER_PRIVATE, checkBox_MAPPRIVATE->isChecked());
     SM->set(SettingsManager::HASH_BUFFER_SIZE_MB, comboBox_BUFSIZE->currentText().toInt());
+    SM->set(SettingsManager::SHARE_SKIP_ZERO_BYTE, checkBox_SHARE_SKIP_ZERO_BYTE->isChecked());
 
     QStringList list;
     for (int k = 0; k < listWidget_SKIPLIST->count(); ++k)
@@ -108,7 +109,7 @@ void SettingsSharing::init(){
     spinBox_REFRESH_TIME->setValue(SETTING(AUTO_REFRESH_TIME));
     spinBox_HASHING_START_DELAY->setValue(SETTING(HASHING_START_DELAY));
     checkBox_AUTOREMOVE->setChecked(WBGET(WB_APP_REMOVE_NOT_EX_DIRS));
-
+    checkBox_SHARE_SKIP_ZERO_BYTE->setChecked(SETTING(SHARE_SKIP_ZERO_BYTE));
     checkBox_FASTHASH->setChecked(BOOLSETTING(FAST_HASH));
     groupBox_FASTHASH->setEnabled(BOOLSETTING(FAST_HASH));
 
