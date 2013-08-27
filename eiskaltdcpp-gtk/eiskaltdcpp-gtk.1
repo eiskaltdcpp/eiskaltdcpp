@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp-gtk" 1 "19 Feb 2012"
+.TH "eiskaltdcpp-gtk" 1 "27 Aug 2013"
 .SH "NAME"
 EiskaltDC++_Gtk \- GUI based on Gtk (based on FreeDC++ and LinuxDC++)
 .SH "SYNOPSIS"
@@ -139,7 +139,15 @@ Switch to the next string from history of sent messages in chat for current sess
 .br
 /ip 192.168.1.0/23::in;!192.168.6.0/24::both \- Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming or outcoming and action is drop
 .br
-/ws <option> [value] \- edit config (~/.config/eiskaltdc++/EiskaltDC++_Gtk.xml), also you can edit it manually
+/dcpps <param> [value] \- set Core option param in value (without value return current value of option)
+    New settings will be applied immediately and will be stored in config 
+    (i.e. ~/.config/eiskaltdc++/DCPlusPlus.xml) as well.
+    For example:
+    /dcpps MinimumSearchInterval 5 (specify minimal search interval to 5 seconds)
+.br
+/ws <param> [value] \- set GUI option param in value (without value return current value of option)
+    New settings will be applied immediately and will be stored in config 
+    (i.e. ~/.config/eiskaltdc++/EiskaltDC++_Gtk.xml) as well.
     For example:
     /ws sound-command aplay (specify program for sound playing)
 .SH "FILES"

@@ -1,4 +1,4 @@
-.TH "eiskaltdcpp-qt" 1 "19 Feb 2012"
+.TH "eiskaltdcpp-qt" 1 "27 Aug 2013"
 .SH "NAME"
 EiskaltDC++_Qt \- GUI based on Qt
 .SH "SYNOPSIS"
@@ -146,7 +146,15 @@ Delete selected items. Now available in Download Queue widget.
 .br
 /lua <chunk> \- execute Lua Chunk
 .br
-/ws <option> [value] \- edit config (~/.config/eiskaltdc++/EiskaltDC++_Qt.conf), also you can edit it manually
+/dcpps <param> [value] \- set Core option param in value (without value return current value of option)
+    New settings will be applied immediately and will be stored in config 
+    (i.e. ~/.config/eiskaltdc++/DCPlusPlus.xml) as well.
+    For example:
+    /dcpps MinimumSearchInterval 5 (specify minimal search interval to 5 seconds)
+.br
+/ws <param> [value] \- set GUI option param in value (without value return current value of option)
+    New settings will be applied immediately and will be stored in config
+    (i.e. ~/.config/eiskaltdc++/EiskaltDC++_Qt.conf) as well.
     For example:
     /ws chat-dbl-click-action <0-2> (double click)
     /ws chat-mdl-click-action <0-2> (middle click)
