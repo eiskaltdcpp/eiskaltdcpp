@@ -2,7 +2,7 @@
 <HTML><HEAD><TITLE>Man page of eiskaltdcpp-gtk</TITLE>
 </HEAD><BODY>
 <H1>eiskaltdcpp-gtk</H1>
-Section: User Commands  (1)<BR>Updated: 19 Feb 2012<BR><A HREF="#index">Index</A>
+Section: User Commands  (1)<BR>Updated: 27 Aug 2013<BR><A HREF="#index">Index</A>
 <A HREF="/cgi-bin/man/man2html">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
@@ -220,7 +220,16 @@ Switch to the next string from history of sent messages in chat for current sess
 /ip 192.168.1.0/23::in;!192.168.6.0/24::both - Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming or outcoming and action is drop
 <BR>
 
-/ws &lt;option&gt; [value] - edit config (~/.config/eiskaltdc++/EiskaltDC++_Gtk.xml), also you can edit it manually
+/dcpps &lt;param&gt; [value] - set Core option param in value (without value return current value of option)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;settings&nbsp;will&nbsp;be&nbsp;applied&nbsp;immediately&nbsp;and&nbsp;will&nbsp;be&nbsp;stored&nbsp;in&nbsp;config&nbsp;
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;(i.e.&nbsp;~/.config/eiskaltdc++/DCPlusPlus.xml)&nbsp;as&nbsp;well.
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;example:
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;/dcpps&nbsp;MinimumSearchInterval&nbsp;5&nbsp;(specify&nbsp;minimal&nbsp;search&nbsp;interval&nbsp;to&nbsp;5&nbsp;seconds)
+<BR>
+
+/ws &lt;param&gt; [value] - set GUI option param in value (without value return current value of option)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;settings&nbsp;will&nbsp;be&nbsp;applied&nbsp;immediately&nbsp;and&nbsp;will&nbsp;be&nbsp;stored&nbsp;in&nbsp;config&nbsp;
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;(i.e.&nbsp;~/.config/eiskaltdc++/EiskaltDC++_Gtk.xml)&nbsp;as&nbsp;well.
 <BR>&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;example:
 <BR>&nbsp;&nbsp;&nbsp;&nbsp;/ws&nbsp;sound-command&nbsp;aplay&nbsp;(specify&nbsp;program&nbsp;for&nbsp;sound&nbsp;playing)
 <A NAME="lbAH">&nbsp;</A>
@@ -275,6 +284,6 @@ This manual page was written by Boris Pek &lt;<A HREF="mailto:tehnick-8@mail.ru"
 This document was created by
 <A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 19:46:35 GMT, September 18, 2011
+Time: 19:17:56 GMT, August 27, 2013
 </BODY>
 </HTML>
