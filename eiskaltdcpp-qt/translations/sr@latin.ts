@@ -2331,7 +2331,7 @@ Omiljeni korisnik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2715"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
-        <translation>Srpski (Latin) prevod&lt;br/&gt;</translation>
+        <translation>Srpski (Latinica) prevod&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2718"/>
