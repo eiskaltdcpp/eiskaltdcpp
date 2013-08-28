@@ -243,7 +243,7 @@ and may cause the client to appear to freeze.</string>
        <item>
         <widget class="QCheckBox" name="checkBox_SHARE_SKIP_ZERO_BYTE">
          <property name="text">
-          <string>Skip zero byte file</string>
+          <string>Skip zero sized files</string>
          </property>
         </widget>
        </item>
