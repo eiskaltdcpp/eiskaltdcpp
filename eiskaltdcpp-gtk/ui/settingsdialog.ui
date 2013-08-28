@@ -8249,7 +8249,7 @@ see man strftime for details.</property>
               <object class="GtkLabel" id="label22">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Advanced</property>
+                <property name="label" translatable="yes">Miscellaneous</property>
               </object>
               <packing>
                 <property name="position">6</property>
