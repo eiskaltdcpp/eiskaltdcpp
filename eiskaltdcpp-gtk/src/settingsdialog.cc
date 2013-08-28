@@ -332,6 +332,8 @@ void Settings::saveSettings_client()
         if (!lists.empty())
             lists.erase(lists.size() - 1);
         SettingsManager::getInstance()->set(SettingsManager::SKIPLIST_SHARE, lists);
+
+        sm->set(SettingsManager::SHARE_SKIP_ZERO_BYTE, (int)gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("skipZeroSizedFilesCheckButton"))));
     }
 
     { // Appearance
@@ -1043,6 +1045,7 @@ void Settings::initSharing_gui()
 
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("shareHiddenCheckButton")), BOOLSETTING(SHARE_HIDDEN));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("followLinksCheckButton")), BOOLSETTING(FOLLOW_LINKS));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("skipZeroSizedFilesCheckButton")), BOOLSETTING(SHARE_SKIP_ZERO_BYTE));
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("sharedExtraSlotSpinButton")), (double)SETTING(MIN_UPLOAD_SPEED));
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("sharedUploadSlotsSpinButton")), (double)SETTING(SLOTS_PRIMARY));
 }
