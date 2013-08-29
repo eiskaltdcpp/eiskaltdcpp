@@ -266,6 +266,9 @@ MainWindow::MainWindow():
         _("Italian translation\n")+
         string("  2012 Stefano Simoncelli <netcelli@gmail.com>\n")+
         string("  2012 Lorenzo Keller <lorenzo.keller@gmail.com>\n")+
+        string("\n")+
+        _("Vietnamese translation\n")+
+        string("  2013 Anh Phan <ppanhh@gmail.com>\n")+
         string("\n");
     gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
         (const gchar *)translator_credits.c_str());
