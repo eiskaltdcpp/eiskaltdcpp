@@ -107,6 +107,8 @@ void SettingsGUI::init(){
                 lang = tr("Greek");
             else if (f == "it.qm")
                 lang = tr("Italian");
+            else if (f == "vi.qm")
+                lang = tr("Vietnamese");
 
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);

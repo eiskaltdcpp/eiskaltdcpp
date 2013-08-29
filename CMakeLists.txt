@@ -310,6 +310,7 @@ list (APPEND AllLanguages
             sr@latin
             sk
             uk
+            vi
             )
 if (NOT DEFINED linguas)
   set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)

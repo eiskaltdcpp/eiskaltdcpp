@@ -1089,6 +1089,8 @@ void Settings::initAppearance_gui()
         vectorLangShortNames.push_back("el");
         vectorLangFullNames.push_back(_("Italian"));
         vectorLangShortNames.push_back("it");
+        vectorLangFullNames.push_back(_("Vietnamese"));
+        vectorLangShortNames.push_back("vi");
 
         // Fill language drop-down list
         uint8_t lang_ind = 0;
