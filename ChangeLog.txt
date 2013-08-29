@@ -6,6 +6,40 @@
 *** eiskaltdcpp-daemon ***
 *** eiskaltdcpp-cli ***
 
+--- 2.2.9 2013-08-29 ---
+*** common changes ***
+* Fixed build with GCC < 4.6 and Clang < 3.1. This is the last release with
+  support of old compilers.
+* Fixed cmake rules for building with sr@latin localization.
+* Small code refactoring and optimisation.
+*** eiskaltdcpp-qt ***
+* Improvements in search widget: now progress bar works as expected.
+* Fixed segmentation fault on right click at some nicknames in public chats.
+* Fixed SIGABRT during closing Tic-Tac-Toe QML widget.
+* Fixed SIGABRT on program exit when QtScript "LogManager View" is active.
+* A number of improvements for Mac OS X:
+  - disabled system tray functionality (it never worked there as expected)
+  - added special program menu to the dock icon
+  - now program is hided into dock instead of exiting by the click on window
+    close button
+  - added platform-specific code to handle left click on program icon in dock
+    (now it works as in native Mac OS X programs)
+  - added dock icon jumping when there are new unread personal messages
+  - added support for Retina displays (fonts are rendered in high resolution
+    when program built with Qt 4.8.x)
+  [Thanks to Dmitry Arkhipov who showed developers how Mac OS X looks like]
+* Some platform-specific improvements in settings dialog: hided options which
+  do not work in Mac OS X, MS Windows or Haiku.
+*** eiskaltdcpp-gtk ***
+* Improvements in search widget: now progress bar works as expected.
+* Fixed SIGABRT when gdk_display_get_default() returns NULL.
+*** eiskaltdcpp-daemon ***
+* Fixed check of log file existence in daemon mode (see --syslog and --log
+  command-line options).
+*** eiskaltdcpp-cli ***
+* Fixed work with libjson-rpc-perl >= 1.00 (module JSON::RPC::Client was moved
+  to JSON::RPC::Legacy::Client there). [Thanks to Damyan Ivanov]
+
 --- 2.2.8 2013-06-23 ---
 *** common changes ***
 * Fix build with Boost >= 1.50. Dropped support for Boost < 1.39.
