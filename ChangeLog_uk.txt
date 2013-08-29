@@ -35,7 +35,7 @@
   які не працюють в Mac OS X, MS Windows або Haiku.
 *** eiskaltdcpp-gtk ***
 * Покращення у віджеті пошуку: тепер індикатор прогресу працює як очікувалося.
-* Виправлено SIGABRT коли gdk_display_get_default() повертає NULL.
+* Виправлено SIGABRT, коли gdk_display_get_default() повертає NULL.
 *** eiskaltdcpp-daemon ***
 * Виправлена перевірка існування лог-файлу при роботі в режимі демона
   (див. опції командного рядка --syslog і --log).
