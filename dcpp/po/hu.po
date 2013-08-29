@@ -3,15 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
 # Márk Lutring <marcus@elitemail.hu>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-25 16:00+0300\n"
-"PO-Revision-Date: 2013-06-21 12:14+0000\n"
-"Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
+"POT-Creation-Date: 2013-08-29 22:51+0300\n"
+"PO-Revision-Date: 2013-08-29 20:12+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -186,19 +185,19 @@ msgstr "A maximális parancs hossz túllépve"
 msgid "Disconnected"
 msgstr "Szétkapcsolva"
 
-#: ../UploadManager.cpp:132
+#: ../UploadManager.cpp:133
 msgid "Connection already exists."
 msgstr "Kapcsolat lezárva"
 
-#: ../UploadManager.cpp:267
+#: ../UploadManager.cpp:268
 msgid "Unable to send file %1%: %2%"
 msgstr "A fájl küldése sikertelen: %1%: %2%"
 
-#: ../UploadManager.cpp:554
+#: ../UploadManager.cpp:555
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 
-#: ../UploadManager.cpp:617
+#: ../UploadManager.cpp:618
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
@@ -572,19 +571,19 @@ msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
 "Érvénytelen fájlnév található a következő könyvtárban indexelésekor: %1%"
 
-#: ../ShareManager.cpp:660
+#: ../ShareManager.cpp:661
 msgid "Skip share file: %1% (Size: %2%)"
 msgstr ""
 "A felhasználó azt választotta, hogy a következő fájlt nem osztja meg: %1% "
 "(Méret: %2%)"
 
-#: ../ShareManager.cpp:681
+#: ../ShareManager.cpp:682
 msgid "Skip share temp file: %1% (Size: %2%)"
 msgstr ""
 "A felhasználó azt választotta, hogy a következő ideiglenes fájlt nem osztja "
 "meg: %1% (Méret: %2%)"
 
-#: ../ShareManager.cpp:769
+#: ../ShareManager.cpp:772
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
@@ -592,7 +591,7 @@ msgstr ""
 "Többször meglévő fájl nem lesz megosztva: %1% (Méret: %2% B) Megegyezik "
 "ezzel: %3%"
 
-#: ../ShareManager.cpp:790
+#: ../ShareManager.cpp:793
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -600,53 +599,57 @@ msgstr ""
 "A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, "
 "mielőtt újra frissíteni próbálnál!"
 
-#: ../ShareManager.cpp:811
+#: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
 msgstr "Hiba a fájl-lista frissítésekor: %1%"
 
-#: ../ShareManager.cpp:834
+#: ../ShareManager.cpp:837
 msgid "File list refresh initiated"
 msgstr "A fájl-lista frissítése elkezdődött"
 
-#: ../ShareManager.cpp:859
+#: ../ShareManager.cpp:862
 msgid "File list refresh finished"
 msgstr "A fájl-lista frissítése befejeződött"
 
-#: ../ShareManager.cpp:941
+#: ../ShareManager.cpp:944
 msgid "File list %1% generated"
 msgstr "Fájl-lista %1% létrehozva"
 
-#: ../SettingsManager.cpp:182
+#: ../SettingsManager.cpp:183
 msgid "downloaded from"
 msgstr "letöltve"
 
-#: ../SettingsManager.cpp:515
+#: ../SettingsManager.cpp:517
 msgid "Invalid search type name"
 msgstr "Érvénytelen keresési feltétel"
 
-#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
 msgid "This search type already exists"
 msgstr "A megadott keresési feltétel már létezik"
 
-#: ../SettingsManager.cpp:573
+#: ../SettingsManager.cpp:575
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:616
 msgid "Error: setting not found!"
 msgstr "Hiba: Beállítás nem található!"
 
-#: ../SettingsManager.cpp:609
+#: ../SettingsManager.cpp:618
+msgid "Core setting "
+msgstr ""
+
+#: ../SettingsManager.cpp:619
 msgid "Change core setting "
 msgstr "Alapbeállítás megváltoztatása: "
 
-#: ../SettingsManager.cpp:609
+#: ../SettingsManager.cpp:619
 msgid " to "
 msgstr ""
 
-#: ../SettingsManager.cpp:611
-msgid "Error: params have been not 2!"
-msgstr "Hiba: nem lehet 2 paraméter!"
+#: ../SettingsManager.cpp:621
+msgid "Error: segv parser :D"
+msgstr ""
 
 #: ../Socket.cpp:86
 #, c-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-25 16:00+0300\n"
-"PO-Revision-Date: 2012-07-04 17:19+0000\n"
+"POT-Creation-Date: 2013-08-29 22:51+0300\n"
+"PO-Revision-Date: 2013-08-29 20:12+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/el/)\n"
@@ -186,19 +186,19 @@ msgstr "Υπέρβαση μεγίστου μήκος εντολής"
 msgid "Disconnected"
 msgstr "Αποσυνδέθηκε"
 
-#: ../UploadManager.cpp:132
+#: ../UploadManager.cpp:133
 msgid "Connection already exists."
 msgstr "Η σύνδεση έκλεισε"
 
-#: ../UploadManager.cpp:267
+#: ../UploadManager.cpp:268
 msgid "Unable to send file %1%: %2%"
 msgstr "Αδύνατο να σταλθεί το αρχείο %1%: %2%"
 
-#: ../UploadManager.cpp:554
+#: ../UploadManager.cpp:555
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Φραγή εισερχόμενης σύνδεσης σε "
 
-#: ../UploadManager.cpp:617
+#: ../UploadManager.cpp:618
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Αποσυνδεδεμένος χρήστης αποχωρεί από τον κόμβο: %1%"
 
@@ -570,18 +570,15 @@ msgstr ""
 "Βρέθηκε μη έγκυρο όνομα αρχείου καάτα την διάρκεια αποτύπωσης του κατάλογου "
 "%1%"
 
-#: ../ShareManager.cpp:660
-#, fuzzy
+#: ../ShareManager.cpp:661
 msgid "Skip share file: %1% (Size: %2%)"
-msgstr "Ο χρήστης επέλεξε να μην μοιραστεί το αρχείο: %1% (Μέγεθος: %2%)"
+msgstr ""
 
-#: ../ShareManager.cpp:681
-#, fuzzy
+#: ../ShareManager.cpp:682
 msgid "Skip share temp file: %1% (Size: %2%)"
 msgstr ""
-"Ο χρήστης επέλεξε να μην μοιραστεί το προσωρινό αρχείο: %1% (Μέγεθος: %2%)"
 
-#: ../ShareManager.cpp:769
+#: ../ShareManager.cpp:772
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
@@ -589,7 +586,7 @@ msgstr ""
 "Το διπλότυπο αρχείο δεν θα μοιραστεί: %1% (Μέγεθος: %2% B) Ταίριασμα "
 "διπλότυπου με: %3%"
 
-#: ../ShareManager.cpp:790
+#: ../ShareManager.cpp:793
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -597,53 +594,57 @@ msgstr ""
 "Ανανέωση λίστας αρχείων σε εξέλιξη, παρακαλώ περιμένετε να ολοκληρωθεί πριν "
 "ανανεώσετε ξανά"
 
-#: ../ShareManager.cpp:811
+#: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
 msgstr "Ολοκληρώθηκε η ανανέωση της λίστας αρχείων"
 
-#: ../ShareManager.cpp:834
+#: ../ShareManager.cpp:837
 msgid "File list refresh initiated"
 msgstr "Εκκίνηση ανανέωσης της λίστας αρχείων"
 
-#: ../ShareManager.cpp:859
+#: ../ShareManager.cpp:862
 msgid "File list refresh finished"
 msgstr "Ολοκληρώθηκε η ανανέωση της λίστας αρχείων"
 
-#: ../ShareManager.cpp:941
+#: ../ShareManager.cpp:944
 msgid "File list %1% generated"
 msgstr "Εκκίνηση ανανέωσης της λίστας αρχείων"
 
-#: ../SettingsManager.cpp:182
+#: ../SettingsManager.cpp:183
 msgid "downloaded from"
 msgstr "έχει ληφθεί από"
 
-#: ../SettingsManager.cpp:515
+#: ../SettingsManager.cpp:517
 msgid "Invalid search type name"
 msgstr "Μη έγκυρο όνομα τύπου αναζήτησης"
 
-#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
 msgid "This search type already exists"
 msgstr "Αυτός ο τύπος αναζήτησης υπάρχει ήδη"
 
-#: ../SettingsManager.cpp:573
+#: ../SettingsManager.cpp:575
 msgid "No such search type"
 msgstr "Δεν υπάρχει τέτοιος τύπος αναζήτησης"
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:616
 msgid "Error: setting not found!"
 msgstr "Σφάλμα: η ρύθμιση δεν βρέθηκε! "
 
-#: ../SettingsManager.cpp:609
+#: ../SettingsManager.cpp:618
+msgid "Core setting "
+msgstr ""
+
+#: ../SettingsManager.cpp:619
 msgid "Change core setting "
 msgstr "Αλλαγή ρύθμισής πυρήνα  "
 
-#: ../SettingsManager.cpp:609
+#: ../SettingsManager.cpp:619
 msgid " to "
 msgstr " σε "
 
-#: ../SettingsManager.cpp:611
-msgid "Error: params have been not 2!"
-msgstr "Σφάλμα: παράμετροι δεν είναι 2!"
+#: ../SettingsManager.cpp:621
+msgid "Error: segv parser :D"
+msgstr ""
 
 #: ../Socket.cpp:86
 #, c-format

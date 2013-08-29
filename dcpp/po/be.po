@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-25 16:00+0300\n"
+"POT-Creation-Date: 2013-08-29 22:51+0300\n"
 "PO-Revision-Date: 2013-06-23 14:48+0000\n"
 "Last-Translator: Павал Шаламіцкі <yehekim@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -183,19 +183,19 @@ msgstr "Загад задаўгі"
 msgid "Disconnected"
 msgstr "Адлучаны"
 
-#: ../UploadManager.cpp:132
+#: ../UploadManager.cpp:133
 msgid "Connection already exists."
 msgstr "Злучэньне ўжо існуе."
 
-#: ../UploadManager.cpp:267
+#: ../UploadManager.cpp:268
 msgid "Unable to send file %1%: %2%"
 msgstr "Не ўдаецца даслаць файл %1%: %2%"
 
-#: ../UploadManager.cpp:554
+#: ../UploadManager.cpp:555
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "Сіта IP: забаранілі ўваходнае злучэньне з "
 
-#: ../UploadManager.cpp:617
+#: ../UploadManager.cpp:618
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Карыстальнік адлучыўся і выходзіць з асяродку: %1%"
 
@@ -563,21 +563,21 @@ msgstr "Нельга абагуляць часовы каталёґ"
 msgid "Invalid file name found while hashing folder %1%"
 msgstr "Выявілі хібную назву файла, калі стваралі скароты ў каталёґу %1%"
 
-#: ../ShareManager.cpp:660
+#: ../ShareManager.cpp:661
 msgid "Skip share file: %1% (Size: %2%)"
 msgstr "Не абагуляецца файл: %1% (памер: %2%)"
 
-#: ../ShareManager.cpp:681
+#: ../ShareManager.cpp:682
 msgid "Skip share temp file: %1% (Size: %2%)"
 msgstr "Не абагуляецца часовы файл: %1% (памер: %2%)"
 
-#: ../ShareManager.cpp:769
+#: ../ShareManager.cpp:772
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
 
-#: ../ShareManager.cpp:790
+#: ../ShareManager.cpp:793
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -585,53 +585,58 @@ msgstr ""
 "Сьпіс файлаў абнаўляецца. Пачакайце, пакуль ён абновіцца, каб паспрабаваць "
 "абнавіць ізноў."
 
-#: ../ShareManager.cpp:811
+#: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
 msgstr "Не ўдалося абнавіць сьпіс файлаў: %1%"
 
-#: ../ShareManager.cpp:834
+#: ../ShareManager.cpp:837
 msgid "File list refresh initiated"
 msgstr "Распачалі абнаўляць сьпіс файлаў"
 
-#: ../ShareManager.cpp:859
+#: ../ShareManager.cpp:862
 msgid "File list refresh finished"
 msgstr "Сьпіс файлаў абнавілі"
 
-#: ../ShareManager.cpp:941
+#: ../ShareManager.cpp:944
 msgid "File list %1% generated"
 msgstr "Стварылі сьпіс файлаў %1%"
 
-#: ../SettingsManager.cpp:182
+#: ../SettingsManager.cpp:183
 msgid "downloaded from"
 msgstr "сьцягнулі з"
 
-#: ../SettingsManager.cpp:515
+#: ../SettingsManager.cpp:517
 msgid "Invalid search type name"
 msgstr "Хібная назва віду пошуку"
 
-#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
 msgid "This search type already exists"
 msgstr "Гэты від пошуку ўжо існуе"
 
-#: ../SettingsManager.cpp:573
+#: ../SettingsManager.cpp:575
 msgid "No such search type"
 msgstr "Такі від пошуку не існуе"
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:616
 msgid "Error: setting not found!"
 msgstr "Памылка: не знайшлі налады!"
 
-#: ../SettingsManager.cpp:609
+#: ../SettingsManager.cpp:618
+#, fuzzy
+msgid "Core setting "
+msgstr "Зьмяніць наладу асновы "
+
+#: ../SettingsManager.cpp:619
 msgid "Change core setting "
 msgstr "Зьмяніць наладу асновы "
 
-#: ../SettingsManager.cpp:609
+#: ../SettingsManager.cpp:619
 msgid " to "
 msgstr " да "
 
-#: ../SettingsManager.cpp:611
-msgid "Error: params have been not 2!"
-msgstr "Памылка: парамэтраў ня два!"
+#: ../SettingsManager.cpp:621
+msgid "Error: segv parser :D"
+msgstr ""
 
 #: ../Socket.cpp:86
 #, c-format
@@ -709,3 +714,6 @@ msgstr "Запісалі байтаў болей за тое, колькі бы�
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "Разыходжаньне TTH"
+
+#~ msgid "Error: params have been not 2!"
+#~ msgstr "Памылка: парамэтраў ня два!"

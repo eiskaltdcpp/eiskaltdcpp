@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-#   <lorenzo.keller@gmail.com>, 2012.
-# Stefano  <netcelli@gmail.com>, 2011, 2012.
+# lokeller <lorenzo.keller@gmail.com>, 2012
+# Stefano Simoncelli <netcelli@gmail.com>, 2011-2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-06-25 16:00+0300\n"
-"PO-Revision-Date: 2012-08-29 21:42+0000\n"
-"Last-Translator: lokeller <lorenzo.keller@gmail.com>\n"
+"POT-Creation-Date: 2013-08-29 22:51+0300\n"
+"PO-Revision-Date: 2013-08-29 20:12+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/it/)\n"
 "Language: it\n"
@@ -188,19 +188,19 @@ msgstr "La lunghezza massima del commando è stata superata"
 msgid "Disconnected"
 msgstr "Disconnesso"
 
-#: ../UploadManager.cpp:132
+#: ../UploadManager.cpp:133
 msgid "Connection already exists."
 msgstr "Connessione chiusa"
 
-#: ../UploadManager.cpp:267
+#: ../UploadManager.cpp:268
 msgid "Unable to send file %1%: %2%"
 msgstr "Impossibile inviare il file %1%: %2%"
 
-#: ../UploadManager.cpp:554
+#: ../UploadManager.cpp:555
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Bloccata connessione entrante verso"
 
-#: ../UploadManager.cpp:617
+#: ../UploadManager.cpp:618
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Disconnetti l'utente che lascia l'hub: %1%"
 
@@ -570,19 +570,15 @@ msgstr "La cartella degli scaricamenti temporanei non può essere condivisa"
 msgid "Invalid file name found while hashing folder %1%"
 msgstr "Nome del file non valido nell'indicizzare la cartella %1%"
 
-#: ../ShareManager.cpp:660
-#, fuzzy
+#: ../ShareManager.cpp:661
 msgid "Skip share file: %1% (Size: %2%)"
-msgstr "L'utente ha scelto di non condividere il file: %1% (Dimensione: %2%)"
+msgstr ""
 
-#: ../ShareManager.cpp:681
-#, fuzzy
+#: ../ShareManager.cpp:682
 msgid "Skip share temp file: %1% (Size: %2%)"
 msgstr ""
-"L'utente ha scelto di non condividere il file temporaneo: %1% (Dimensione: "
-"%2%)"
 
-#: ../ShareManager.cpp:769
+#: ../ShareManager.cpp:772
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
@@ -590,7 +586,7 @@ msgstr ""
 "I file duplicati non saranno condivisi: %1% (Dimensione: %2%) Corrispondenza "
 "rispetto: %3%"
 
-#: ../ShareManager.cpp:790
+#: ../ShareManager.cpp:793
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -598,53 +594,57 @@ msgstr ""
 "Aggiornamento lista file in corso, attendi il termine prima di riprovare ad "
 "aggiornarla nuovamente"
 
-#: ../ShareManager.cpp:811
+#: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
 msgstr "Aggiornamento lista file terminato"
 
-#: ../ShareManager.cpp:834
+#: ../ShareManager.cpp:837
 msgid "File list refresh initiated"
 msgstr "Inizio aggiornamento lista file"
 
-#: ../ShareManager.cpp:859
+#: ../ShareManager.cpp:862
 msgid "File list refresh finished"
 msgstr "Aggiornamento lista file terminato"
 
-#: ../ShareManager.cpp:941
+#: ../ShareManager.cpp:944
 msgid "File list %1% generated"
 msgstr "Inizio aggiornamento lista file"
 
-#: ../SettingsManager.cpp:182
+#: ../SettingsManager.cpp:183
 msgid "downloaded from"
 msgstr "scaricato da"
 
-#: ../SettingsManager.cpp:515
+#: ../SettingsManager.cpp:517
 msgid "Invalid search type name"
 msgstr "Nome del tipo di ricerca non valido"
 
-#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
 msgid "This search type already exists"
 msgstr "Il tipo di ricerca esiste già"
 
-#: ../SettingsManager.cpp:573
+#: ../SettingsManager.cpp:575
 msgid "No such search type"
 msgstr "Tipo di ricerca non esistente"
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:616
 msgid "Error: setting not found!"
 msgstr "Errore: impostazioni non trovate!"
 
-#: ../SettingsManager.cpp:609
+#: ../SettingsManager.cpp:618
+msgid "Core setting "
+msgstr ""
+
+#: ../SettingsManager.cpp:619
 msgid "Change core setting "
 msgstr "Cabmia le impostazioni del core"
 
-#: ../SettingsManager.cpp:609
+#: ../SettingsManager.cpp:619
 msgid " to "
 msgstr " a "
 
-#: ../SettingsManager.cpp:611
-msgid "Error: params have been not 2!"
-msgstr "Errore: i parametri non sono 2!"
+#: ../SettingsManager.cpp:621
+msgid "Error: segv parser :D"
+msgstr ""
 
 #: ../Socket.cpp:86
 #, c-format
