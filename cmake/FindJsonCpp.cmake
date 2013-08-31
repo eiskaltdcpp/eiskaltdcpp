@@ -1,5 +1,5 @@
-find_path(JSONCPP_INCLUDE_DIR jsoncpp/json.h
-   PATH_SUFFIXES jsoncpp)
+find_path(JSONCPP_INCLUDE_DIR json/json.h
+   PATH_SUFFIXES include/jsoncpp jsoncpp)
 find_library(JSONCPP_LIBRARY jsoncpp)
 
 INCLUDE(FindPackageHandleStandardArgs)

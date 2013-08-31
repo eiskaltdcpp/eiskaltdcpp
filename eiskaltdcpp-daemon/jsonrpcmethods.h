@@ -11,7 +11,7 @@
 
 #pragma once
 
-#include <jsoncpp/json.h>
+#include <json/json.h>
 class JsonRpcMethods
 {
   public:

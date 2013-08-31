@@ -94,6 +94,8 @@ option (USE_LIBCANBERRA "Use LibCanberra in GTK interface (sound notification)" 
 option (INSTALL_RUNTIME_PATH "Install rpath" OFF)
 option (USE_GOLD "Use ld.gold instead ld.bfd" OFF)
 option (DO_NOT_USE_MUTEX "Do not use mutex (necessary for Haiku and WINE)" OFF)
+option (LOCAL_JSONCPP "Use local JsonCpp" ON)
+option (LOCAL_BOOST "Use local boost headers" OFF)
 
 if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
   add_definitions ( -DDO_NOT_USE_MUTEX )
