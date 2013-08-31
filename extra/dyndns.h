@@ -18,31 +18,28 @@
 #pragma once
 
 #include "dcpp/stdinc.h"
-#include "dcpp/HttpConnection.h"
+#include "dcpp/HttpManagerListener.h"
 #include "dcpp/Singleton.h"
 #include "dcpp/TimerManager.h"
 
 namespace dcpp {
 
-class DynDNS : public Singleton<DynDNS>, private HttpConnectionListener
+class DynDNS : public Singleton<DynDNS>, private HttpManagerListener
 {
     public:
-    DynDNS();
-    ~DynDNS();
+        DynDNS();
+        ~DynDNS();
 
     private:
-    HttpConnection httpConnection;
-    string html;
-    bool request;
-    void Request();
-    // HttpConnectionListener
-    void on(HttpConnectionListener::Data, HttpConnection* conn, const uint8_t* buf, size_t len) noexcept;
-    void on(HttpConnectionListener::Complete, HttpConnection* conn, string const& aLine, bool /*fromCoral*/) noexcept;
-    void on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) noexcept;
+        HttpConnection* c;
+        void Request();
+        void completeDownload(bool success, const string& html);
 
-    // TimerManagerListener
-    void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;
+        // HttpManagerListener
+        void on(HttpManagerListener::Failed, HttpConnection*, const string&) noexcept;
+        void on(HttpManagerListener::Complete, HttpConnection*, OutputStream*) noexcept;
 
+        // TimerManagerListener
+        void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;
 };
-
 }

@@ -20,7 +20,6 @@
  */
 
 #include "downloadqueue.hh"
-#include <dcpp/ResourceManager.h>
 #include "search.hh"
 #include "settingsmanager.hh"
 #include "wulformanager.hh"

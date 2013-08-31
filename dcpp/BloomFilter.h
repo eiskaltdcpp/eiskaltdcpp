@@ -30,8 +30,8 @@ public:
 
     void add(const string& s) {xadd(s, N); }
     bool match(const StringList& s) const {
-        for(auto i = s.begin(); i != s.end(); ++i) {
-            if(!match(*i))
+        for(auto& i: s) {
+            if(!match(i))
                 return false;
         }
         return true;

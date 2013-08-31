@@ -138,7 +138,7 @@ class Search:
         GtkTreeSelection *selection;
         GdkEventType oldEventType;
         GtkWidget *searchEntry;
-        dcpp::TStringList searchlist;
+        dcpp::StringList searchlist;
         static GtkTreeModel *searchEntriesModel;
         int droppedResult;
         int searchHits;

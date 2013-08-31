@@ -18,6 +18,11 @@
 
 #pragma once
 
+#include <algorithm>
+#include <list>
+#include <set>
+#include <unordered_map>
+
 #include "forward.h"
 #include "UserConnectionListener.h"
 #include "Singleton.h"
@@ -31,8 +36,25 @@
 #include "Speaker.h"
 #include "PerFolderLimit.h"
 #include "SettingsManager.h"
+#include "HintedUser.h"
+#include "UserConnection.h"
+#include "GetSet.h"
 
 namespace dcpp {
+
+using std::max;
+using std::list;
+using std::set;
+using std::unordered_map;
+
+struct WaitingUser {
+        HintedUser user;
+        string token;
+
+        WaitingUser(const HintedUser& _user, const std::string& _token) : user(_user), token(_token) { }
+
+        operator const UserPtr&() const { return user.user; }
+};
 
 class UploadManager : private ClientManagerListener, private UserConnectionListener, public Speaker<UploadManagerListener>, private TimerManagerListener, public Singleton<UploadManager>
 {

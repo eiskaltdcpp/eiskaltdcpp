@@ -21,6 +21,7 @@
 #include "forward.h"
 #include "AdcCommand.h"
 #include "noexcept.h"
+#include "Util.h"
 
 namespace dcpp {
 
@@ -59,7 +60,7 @@ public:
     virtual void on(Get, UserConnection*, const string&, int64_t) noexcept { }
     virtual void on(Send, UserConnection*) noexcept { }
     virtual void on(GetListLength, UserConnection*) noexcept { }
-    virtual void on(MaxedOut, UserConnection*) noexcept { }
+    virtual void on(MaxedOut, UserConnection*, string param = Util::emptyString) noexcept { }
     virtual void on(ModeChange, UserConnection*) noexcept { }
     virtual void on(MyNick, UserConnection*, const string&) noexcept { }
     virtual void on(TransmitDone, UserConnection*) noexcept { }

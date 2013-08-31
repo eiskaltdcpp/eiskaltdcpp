@@ -168,7 +168,7 @@ string WulforUtil::getHubNames(const UserPtr& user, const string& hintUrl)
 
 StringList WulforUtil::getHubAddress(const CID& cid, const string& hintUrl)
 {
-    return ClientManager::getInstance()->getHubs(cid, hintUrl);
+    return ClientManager::getInstance()->getHubUrls(cid, hintUrl);
 }
 
 StringList WulforUtil::getHubAddress(const UserPtr& user, const string& hintUrl)

@@ -23,11 +23,13 @@
 
 #pragma once
 
-#include "Util.h"
-#include "SettingsManager.h"
-#include "StringSearch.h"
-#include "Singleton.h"
 #include "DirectoryListing.h"
+#include "GetSet.h"
+#include "HintedUser.h"
+#include "SettingsManager.h"
+#include "Singleton.h"
+#include "StringSearch.h"
+#include "Util.h"
 
 namespace dcpp {
 class AdlSearchManager;

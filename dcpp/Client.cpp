@@ -19,12 +19,11 @@
 #include "stdinc.h"
 
 #include "Client.h"
-
+#include "ClientManager.h"
 #include "BufferedSocket.h"
 #include "DebugManager.h"
 #include "FavoriteManager.h"
 #include "TimerManager.h"
-#include "ClientManager.h"
 #include "version.h"
 
 namespace dcpp {
@@ -35,8 +34,8 @@ Client::Client(const string& hubURL, char separator_, bool secure_) :
     myIdentity(ClientManager::getInstance()->getMe(), 0),
     reconnDelay(120), lastActivity(GET_TICK()), registered(false), autoReconnect(false),
     encoding(Text::hubDefaultCharset), state(STATE_DISCONNECTED), sock(0),
-    hubUrl(hubURL), port(0), separator(separator_),
-    secure(secure_), countType(COUNT_UNCOUNTED)
+    hubUrl(hubURL), separator(separator_),
+    secure(secure_), countType(COUNT_UNCOUNTED), bIPv6(false), bIPv4(false)
 {
     string file, proto, query, fragment;
     Util::decodeUrl(hubURL, proto, address, port, file, query, fragment);
@@ -80,7 +79,9 @@ void Client::reloadSettings(bool updateNick) {
 
     if(hub) {
         if(updateNick) {
-            setCurrentNick(checkNick(hub->getNick(true)));
+            string t = hub->getNick(true);
+            checkNick(t);
+            setCurrentNick(t);
         }
 
         if(!hub->getUserDescription().empty()) {
@@ -105,7 +106,9 @@ void Client::reloadSettings(bool updateNick) {
         setSearchInterval(hub->getSearchInterval());
     } else {
         if(updateNick) {
-            setCurrentNick(checkNick(SETTING(NICK)));
+            string t = SETTING(NICK);
+            checkNick(t);
+            setCurrentNick(t);
         }
         setCurrentDescription(SETTING(DESCRIPTION));
         setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL));
@@ -137,13 +140,13 @@ void Client::connect() {
     } catch(const Exception& e) {
         shutdown();
         /// @todo at this point, this hub instance is completely useless
-        fire(ClientListener::Failed(), this, e.getError());
+        fire(ClientListener::Failed(), this, "ClientManager::connect " + e.getError());
     }
     updateActivity();
 }
 
 void Client::send(const char* aMessage, size_t aLen) {
-    if(!isReady()) {
+    if(!isConnected()) {
         dcassert(0);
         return;
     }
@@ -156,6 +159,13 @@ void Client::on(Connected) noexcept {
     updateActivity();
     ip = sock->getIp();
     localIp = sock->getLocalIp();
+
+    if(!localIp.empty() && !strchr(localIp.c_str(), '.')) {
+        bIPv6 = true;
+    } else {
+        bIPv4 = true;
+    }
+
     if(sock->isSecure() && keyprint.compare(0, 7, "SHA256/") == 0) {
         auto kp = sock->getKeyprint();
         if(!kp.empty()) {
@@ -186,19 +196,19 @@ void Client::disconnect(bool graceLess) {
 }
 
 bool Client::isSecure() const {
-    return isReady() && sock->isSecure();
+    return isConnected() && sock->isSecure();
 }
 
 bool Client::isTrusted() const {
-    return isReady() && sock->isTrusted();
+    return isConnected() && sock->isTrusted();
 }
 
 std::string Client::getCipherName() const {
-    return isReady() ? sock->getCipherName() : Util::emptyString;
+    return isConnected() ? sock->getCipherName() : Util::emptyString;
 }
 
 vector<uint8_t> Client::getKeyprint() const {
-    return isReady() ? sock->getKeyprint() : vector<uint8_t>();
+    return isConnected() ? sock->getKeyprint() : vector<uint8_t>();
 }
 void Client::updateCounts(bool aRemove) {
     // We always remove the count and then add the correct one if requested...
@@ -246,6 +256,11 @@ string Client::getLocalIp() const {
     return localIp;
 }
 
+//void Client::updateUsers() {
+    //// this is a public call, can come from any thread. bring it to this hub's thread.
+    //if(sock) sock->callAsync([this] { auto users = getUsers(); updated(users); });
+//}
+
 uint64_t Client::search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList, void* owner){
     dcdebug("Queue search %s\n", aString.c_str());
 
@@ -289,7 +304,7 @@ void Client::on(Second, uint64_t aTick) noexcept {
     }
 }
 #ifdef LUA_SCRIPT
-string ClientScriptInstance::formatChatMessage(const tstring& aLine) {
+string ClientScriptInstance::formatChatMessage(const string& aLine) {
     Lock l(cs);
     // this string is probably in UTF-8.  Does lua want/need strings in the active code page?
     string processed = Text::fromT(aLine);

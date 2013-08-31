@@ -18,6 +18,7 @@
 
 #pragma once
 
+#include <memory>
 #include <string>
 #include "forward.h"
 #include "noexcept.h"
@@ -25,10 +26,12 @@
 #include "MerkleTree.h"
 #include "Flags.h"
 #include "Streams.h"
+#include "GetSet.h"
 
 namespace dcpp {
 
 using std::string;
+using std::unique_ptr;
 
 /**
  * Comes as an argument in the DownloadManagerListener functions.
@@ -44,35 +47,38 @@ public:
         FLAG_OVERLAP    = 0x100
     };
 
-    Download(UserConnection& conn, QueueItem& qi, const string& path, bool supportsTrees) noexcept;
+    Download(UserConnection& conn, QueueItem& qi) noexcept;
 
     virtual void getParams(const UserConnection& aSource, StringMap& params);
 
     virtual ~Download();
 
     /** @return Target filename without path. */
-    string getTargetFileName();
+    string getTargetFileName() const;
 
-    /** @internal */
-    const string& getDownloadTarget() {
-        return (getTempTarget().empty() ? getPath() : getTempTarget());
-    }
+    /** Open the target output for writing */
+    void open(int64_t bytes, bool z);
+
+    /** Release the target output */
+    void close();
 
     /** @internal */
     TigerTree& getTigerTree() { return tt; }
-    string& getPFS() { return pfs; }
+    const string& getPFS() const { return pfs; }
     /** @internal */
     AdcCommand getCommand(bool zlib);
 
+    const unique_ptr<OutputStream>& getOutput() const { return output; }
+
     GETSET(string, tempTarget, TempTarget);
-    GETSET(OutputStream*, file, File);
     GETSET(bool, treeValid, TreeValid);
 private:
-    Download(const Download&);
-    Download& operator=(const Download&);
+
+    const string& getDownloadTarget() const;
 
     TigerTree tt;
     string pfs;
+    unique_ptr<OutputStream> output;
 };
 
 } // namespace dcpp

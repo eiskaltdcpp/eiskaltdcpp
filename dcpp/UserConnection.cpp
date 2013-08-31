@@ -28,6 +28,8 @@
 #include "ScriptManager.h"
 #endif
 #include "DebugManager.h"
+#include "format.h"
+#include "SettingsManager.h"
 
 namespace dcpp {
 
@@ -47,7 +49,7 @@ const string UserConnection::FILE_NOT_AVAILABLE = "File Not Available";
 const string UserConnection::UPLOAD = "Upload";
 const string UserConnection::DOWNLOAD = "Download";
 
-void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw () {
+void UserConnection::on(BufferedSocketListener::Line, const string& aLine) noexcept {
     if(aLine.length() < 2) {
         fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
         return;
@@ -155,19 +157,19 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
 }
 #endif
 
-void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException) {
+void UserConnection::connect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole) {
     dcassert(!socket);
-
+    port = aPort;
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
     socket->connect(aServer, aPort, localPort, natRole, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
 }
 
-void UserConnection::accept(const Socket& aServer) throw(SocketException, ThreadException) {
+void UserConnection::accept(const Socket& aServer) {
     dcassert(!socket);
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
-    socket->accept(aServer, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS));
+    setPort(Util::toString(socket->accept(aServer, isSet(FLAG_SECURE), SETTING(ALLOW_UNTRUSTED_CLIENTS))));
 }
 
 void UserConnection::inf(bool withToken) {
@@ -181,8 +183,8 @@ void UserConnection::inf(bool withToken) {
 
 void UserConnection::sup(const StringList& features) {
     AdcCommand c(AdcCommand::CMD_SUP);
-    for(StringIterC i = features.begin(); i != features.end(); ++i)
-        c.addParam(*i);
+    for(auto& i: features)
+        c.addParam(i);
     send(c);
 }
 
@@ -225,10 +227,6 @@ void UserConnection::on(ModeChange) noexcept {
 
 void UserConnection::on(TransmitDone) noexcept {
     fire(UserConnectionListener::TransmitDone(), this);
-}
-
-void UserConnection::on(Updated) noexcept {
-    fire(UserConnectionListener::Updated(), this);
 }
 
 void UserConnection::on(Failed, const string& aLine) noexcept {
@@ -277,4 +275,15 @@ void UserConnection::updateChunkSize(int64_t leafSize, int64_t lastChunk, uint64
     chunkSize = targetSize;
 }
 
+void UserConnection::send(const string& aString) {
+    lastActivity = GET_TICK();
+    COMMAND_DEBUG(aString, DebugManager::CLIENT_OUT, getRemoteIp());
+#ifdef LUA_SCRIPT
+        if(onUserConnectionMessageOut(this, aString)) {
+            disconnect(true);
+            return;
+        }
+#endif
+    socket->write(aString);
+}
 } // namespace dcpp

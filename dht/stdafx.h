@@ -22,6 +22,6 @@
 
 namespace dht
 {
-    using namespace dcpp;
+    //using namespace dcpp;
     using namespace std;
 }
