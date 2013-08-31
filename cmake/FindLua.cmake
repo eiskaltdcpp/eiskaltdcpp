@@ -1,6 +1,6 @@
 # Locate Lua library
 # This module defines
-#  LUA52_FOUND, if false, do not try to link to Lua
+#  LUA_FOUND, if false, do not try to link to Lua
 #  LUA_LIBRARIES
 #  LUA_INCLUDE_DIR, where to find lua.h
 #  LUA_VERSION_STRING, the version of Lua found (since CMake 2.8.8)
@@ -28,7 +28,7 @@
 find_path(LUA_INCLUDE_DIR lua.h
   HINTS
     ENV LUA_DIR
-  PATH_SUFFIXES include/lua52 include/lua5.2 include/lua include
+  PATH_SUFFIXES include/lua51 include/lua5.1 include/lua52 include/lua5.2 include/lua include
   PATHS
   ~/Library/Frameworks
   /Library/Frameworks
@@ -39,7 +39,7 @@ find_path(LUA_INCLUDE_DIR lua.h
 )
 
 find_library(LUA_LIBRARY
-  NAMES lua52 lua5.2 lua-5.2 lua
+  NAMES lua51 lua5.1 lua-5.1 lua52 lua5.2 lua-5.2 lua
   HINTS
     ENV LUA_DIR
   PATH_SUFFIXES lib
@@ -69,19 +69,20 @@ if(LUA_INCLUDE_DIR AND EXISTS "${LUA_INCLUDE_DIR}/lua.h")
   unset(lua_version_str)
 endif()
 
-if (NOT LUA_VERSION_STRING)
-    pkg_check_modules(Lua lua)
-    set( LUA_INCLUDE_DIR "${Lua_INCLUDEDIR}" CACHE STRING "" FORCE)
-    set( LUA_VERSION_STRING "${Lua_VERSION}" CACHE STRING "" FORCE)
-endif ()
+#if (NOT LUA_VERSION_STRING)
+    #pkg_check_modules(Lua lua5.1)
+    #set( LUA_INCLUDE_DIR "${Lua_INCLUDEDIR}" CACHE STRING "" FORCE)
+    #set( LUA_VERSION_STRING "${Lua_VERSION}" CACHE STRING "" FORCE)
+#endif ()
 
 
 #include(${CMAKE_CURRENT_LIST_DIR}/FindPackageHandleStandardArgs.cmake)
 include(FindPackageHandleStandardArgs)
 # handle the QUIETLY and REQUIRED arguments and set LUA_FOUND to TRUE if
 # all listed variables are TRUE
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(Lua52
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(Lua
                                   REQUIRED_VARS LUA_LIBRARIES LUA_INCLUDE_DIR
                                   VERSION_VAR LUA_VERSION_STRING)
 
 mark_as_advanced(LUA_INCLUDE_DIR LUA_LIBRARIES LUA_LIBRARY LUA_MATH_LIBRARY)
+
