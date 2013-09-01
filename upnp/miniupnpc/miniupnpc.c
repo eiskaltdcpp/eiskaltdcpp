@@ -1,4 +1,4 @@
-/* $Id: miniupnpc.c,v 1.105 2012/04/11 05:50:53 nanard Exp $ */
+/* $Id: miniupnpc.c,v 1.111 2012/10/09 17:53:14 nanard Exp $ */
 /* Project : miniupnp
  * Web : http://miniupnp.free.fr/
  * Author : Thomas BERNARD
@@ -17,7 +17,7 @@
 #endif
 #endif
 
-#if !defined(__OpenBSD__) && !defined(__NetBSD__) && !defined(MACOSX) && !defined(_WIN32) && !defined(__CYGWIN__)
+#if !defined(__DragonFly__) && !defined(__OpenBSD__) && !defined(__NetBSD__) && !defined(MACOSX) && !defined(_WIN32) && !defined(__CYGWIN__) && !defined(__sun)
 #define HAS_IP_MREQN
 #endif
 
@@ -31,6 +31,7 @@
 #include <io.h>
 #include <iphlpapi.h>
 #define snprintf _snprintf
+#define strdup _strdup
 #ifndef strncasecmp
 #if defined(_MSC_VER) && (_MSC_VER >= 1400)
 #define strncasecmp _memicmp
@@ -189,12 +190,11 @@ char * simpleUPnPcommand2(int s, const char * url, const char * service,
 		strncpy(p, "></" SOAPPREFIX ":Body></" SOAPPREFIX ":Envelope>\r\n",
 		        soapbody + sizeof(soapbody) - p);
 	}
-	if(!parseURL(url, hostname, &port, &path)) return NULL;
-	if(s<0)
-	{
-		s = connecthostport(hostname, port);
-		if(s < 0)
-		{
+	if(!parseURL(url, hostname, &port, &path, NULL)) return NULL;
+	if(s < 0) {
+		s = connecthostport(hostname, port, 0);
+		if(s < 0) {
+			/* failed to connect */
 			return NULL;
 		}
 	}
@@ -230,8 +230,9 @@ char * simpleUPnPcommand(int s, const char * url, const char * service,
 {
 	char * buf;
 
+#if 1
 	buf = simpleUPnPcommand2(s, url, service, action, args, bufsize, "1.1");
-/*
+#else
 	buf = simpleUPnPcommand2(s, url, service, action, args, bufsize, "1.0");
 	if (!buf || *bufsize == 0)
 	{
@@ -240,7 +241,7 @@ char * simpleUPnPcommand(int s, const char * url, const char * service,
 #endif
 		buf = simpleUPnPcommand2(s, url, service, action, args, bufsize, "1.1");
 	}
-*/
+#endif
 	return buf;
 }
 
@@ -327,6 +328,7 @@ upnpDiscover(int delay, const char * multicastif,
 {
 	struct UPNPDev * tmp;
 	struct UPNPDev * devlist = 0;
+	unsigned int scope_id = 0;
 	int opt = 1;
 	static const char MSearchMsgFmt[] =
 	"M-SEARCH * HTTP/1.1\r\n"
@@ -625,7 +627,7 @@ upnpDiscover(int delay, const char * multicastif,
 #endif /* #ifdef NO_GETADDRINFO */
 	}
 	/* Waiting for SSDP REPLY packet to M-SEARCH */
-	n = receivedata(sudp, bufr, sizeof(bufr), delay);
+	n = receivedata(sudp, bufr, sizeof(bufr), delay, &scope_id);
 	if (n < 0) {
 		/* error */
 		if(error)
@@ -685,6 +687,7 @@ upnpDiscover(int delay, const char * multicastif,
 			tmp->buffer[urlsize] = '\0';
 			memcpy(tmp->buffer + urlsize + 1, st, stsize);
 			tmp->buffer[urlsize+1+stsize] = '\0';
+			tmp->scope_id = scope_id;
 			devlist = tmp;
 		}
 	}
@@ -731,15 +734,31 @@ url_cpy_or_cat(char * dst, const char * src, int n)
 
 /* Prepare the Urls for usage...
  */
-LIBSPEC void GetUPNPUrls(struct UPNPUrls * urls, struct IGDdatas * data,
-                 const char * descURL)
+LIBSPEC void
+GetUPNPUrls(struct UPNPUrls * urls, struct IGDdatas * data,
+            const char * descURL, unsigned int scope_id)
 {
 	char * p;
 	int n1, n2, n3, n4;
+#ifdef IF_NAMESIZE
+	char ifname[IF_NAMESIZE];
+#else
+	char scope_str[8];
+#endif
 
 	n1 = strlen(data->urlbase);
 	if(n1==0)
 		n1 = strlen(descURL);
+	if(scope_id != 0) {
+#ifdef IF_NAMESIZE
+		if(if_indextoname(scope_id, ifname)) {
+			n1 += 3 + strlen(ifname);	/* 3 == strlen(%25) */
+		}
+#else
+	/* under windows, scope is numerical */
+	snprintf(scope_str, sizeof(scope_str), "%u", scope_id);
+#endif
+	}
 	n1 += 2;	/* 1 byte more for Null terminator, 1 byte for '/' if needed */
 	n2 = n1; n3 = n1; n4 = n1;
 	n1 += strlen(data->first.scpdurl);
@@ -763,6 +782,24 @@ LIBSPEC void GetUPNPUrls(struct UPNPUrls * urls, struct IGDdatas * data,
 		strncpy(urls->ipcondescURL, descURL, n1);
 	p = strchr(urls->ipcondescURL+7, '/');
 	if(p) p[0] = '\0';
+	if(scope_id != 0) {
+		if(0 == memcmp(urls->ipcondescURL, "http://[fe80:", 13)) {
+			/* this is a linklocal IPv6 address */
+			p = strchr(urls->ipcondescURL, ']');
+			if(p) {
+				/* insert %25<scope> into URL */
+#ifdef IF_NAMESIZE
+				memmove(p + 3 + strlen(ifname), p, strlen(p) + 1);
+				memcpy(p, "%25", 3);
+				memcpy(p + 3, ifname, strlen(ifname));
+#else
+				memmove(p + 3 + strlen(scope_str), p, strlen(p) + 1);
+				memcpy(p, "%25", 3);
+				memcpy(p + 3, scope_str, strlen(scope_str));
+#endif
+			}
+		}
+	}
 	strncpy(urls->controlURL, urls->ipcondescURL, n2);
 	strncpy(urls->controlURL_CIF, urls->ipcondescURL, n3);
 	strncpy(urls->controlURL_6FC, urls->ipcondescURL, n4);
@@ -872,7 +909,8 @@ UPNP_GetValidIGD(struct UPNPDev * devlist,
 			if(state == 1)
 			{
 				desc[i].xml = miniwget_getaddr(dev->descURL, &(desc[i].size),
-				   	                           lanaddr, lanaddrlen);
+				   	                           lanaddr, lanaddrlen,
+				                               dev->scope_id);
 #ifdef DEBUG
 				if(!desc[i].xml)
 				{
@@ -889,7 +927,7 @@ UPNP_GetValidIGD(struct UPNPDev * devlist,
 				   "urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1")
 				   || state >= 3 )
 				{
-				  GetUPNPUrls(urls, data, dev->descURL);
+				  GetUPNPUrls(urls, data, dev->descURL, dev->scope_id);
 
 #ifdef DEBUG
 				  printf("UPNPIGD_IsConnected(%s) = %d\n",
@@ -908,7 +946,7 @@ UPNP_GetValidIGD(struct UPNPDev * devlist,
 				    memcpy(&data->tmp, &data->first, sizeof(struct IGDdatas_service));
 				    memcpy(&data->first, &data->second, sizeof(struct IGDdatas_service));
 				    memcpy(&data->second, &data->tmp, sizeof(struct IGDdatas_service));
-				    GetUPNPUrls(urls, data, dev->descURL);
+				    GetUPNPUrls(urls, data, dev->descURL, dev->scope_id);
 #ifdef DEBUG
 				    printf("UPNPIGD_IsConnected(%s) = %d\n",
 				       urls->controlURL,
@@ -925,7 +963,14 @@ UPNP_GetValidIGD(struct UPNPDev * devlist,
 	}
 	state = 0;
 free_and_return:
-	free(desc);
+	if(desc) {
+		for(i = 0; i < ndev; i++) {
+			if(desc[i].xml) {
+				free(desc[i].xml);
+			}
+		}
+		free(desc);
+	}
 	return state;
 }
 
@@ -943,14 +988,14 @@ UPNP_GetIGDFromUrl(const char * rootdescurl,
 	char * descXML;
 	int descXMLsize = 0;
 	descXML = miniwget_getaddr(rootdescurl, &descXMLsize,
-	   	                       lanaddr, lanaddrlen);
+	   	                       lanaddr, lanaddrlen, 0);
 	if(descXML) {
 		memset(data, 0, sizeof(struct IGDdatas));
 		memset(urls, 0, sizeof(struct UPNPUrls));
 		parserootdesc(descXML, descXMLsize, data);
 		free(descXML);
 		descXML = NULL;
-		GetUPNPUrls(urls, data, rootdescurl);
+		GetUPNPUrls(urls, data, rootdescurl, 0);
 		return 1;
 	} else {
 		return 0;
