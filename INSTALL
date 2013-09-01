@@ -135,7 +135,8 @@ Keys for cmake
 ----------------
 -DLOCAL_BOOST=ON/OFF (default: OFF)
     use local boost headers
-    Script downloads archive with only necessary headers: http://code.google.com/p/eiskaltdc/downloads/detail?name=boost.tar.gz
+    Script downloads archive with only necessary headers:
+    http://code.google.com/p/eiskaltdc/downloads/detail?name=boost.tar.gz
     (This archive have less size than official boost archive)
     If boost.tar.gz already available in source tree nothing happens.
 -DLUA_SCRIPT=ON/OFF (default: OFF)
@@ -184,11 +185,15 @@ Keys for cmake
 :eiskaltdcpp-daemon:
 --------------------
 -DNO_UI_DAEMON=ON/OFF (default: OFF)
-    build daemon (without any UI)
+    Build daemon (without any UI)
 -DXMLRPC_DAEMON=ON/OFF (default: OFF)
-    make this daemon as xmlrpc server
+    Make this daemon as xmlrpc server.
 -DJSONRPC_DAEMON=ON/OFF (default: OFF)
-    make this daemon as json server
+    Make this daemon as json server.
+-DLOCAL_JSONCPP=ON/OFF (default: ON)
+    Use embedded copy of jsoncpp library or system library. Have in mind, if
+    this library do not have our patch, it will causes segmentation faults in
+    eiskaltdcpp-daemon.
 -----------------
 :eiskaltdcpp-cli:
 ----------------

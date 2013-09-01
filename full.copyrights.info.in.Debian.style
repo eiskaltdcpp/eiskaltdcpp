@@ -198,7 +198,7 @@ Copyright: 1991, 1993 The Regents of the University of California
 License: BSD-3-clause
 
 Files: json/jsoncpp/*
-Copyright: 2007-2010 Baptiste Lepilleur
+Copyright: 2007-2011 Baptiste Lepilleur
 License: Expat or public-domain
  Distributed under MIT license, or Public Domain if desired and recognized
  in your jurisdiction. See file LICENSE for detail or copy at
@@ -209,7 +209,7 @@ Copyright: 2008-2012 Sebastien Vincent <sebastien.vincent@cppextrem.com>
 License: LGPL-3+
 
 Files: json/jsonrpc-cpp/mongoose.*
-Copyright: 2004-2011 Sergey Lyubka
+Copyright: 2004-2013 Sergey Lyubka
 License: Expat
 
 Files: debian/*
