@@ -1,10 +1,14 @@
 project(miniupnpc)
 cmake_minimum_required(VERSION 2.6)
+set (MINIUPNPC_VERSION 1.8)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR})
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/miniupnpc miniupnpc_SRCS)
 add_definitions (-DSTATICLIB)
+
+configure_file (${PROJECT_SOURCE_DIR}/miniupnpc/miniupnpcstrings.h.cmake ${PROJECT_BINARY_DIR}/miniupnpcstrings.h)
+include_directories (${PROJECT_BINARY_DIR})
 
 if (WIN32)
   set (WIN_VERSION 0x501)
