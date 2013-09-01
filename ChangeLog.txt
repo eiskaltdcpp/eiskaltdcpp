@@ -2,11 +2,20 @@
 *** common changes ***
 * GCC < 4.6 and Clang < 3.1 are not supported anymore.
 * Added option (ShareSkipZeroByte) for skipping zero sized files from share.
+* Thanks to Anh Phan the Vietnamese translation is now available.
+* Fixed finding of Lua 5.2.x during configuration.
+* The local copy of miniupnpc is updated to version 1.8. Build with old
+  miniupnpc versions (1.5.x, 1.6.x and 1.7.x) is still supported.
 *** eiskaltdcpp-qt ***
 * Added some options in settings dialog: SHARE_SKIP_ZERO_BYTE
 *** eiskaltdcpp-gtk ***
 * Added some options in settings dialog: SHARE_SKIP_ZERO_BYTE
 *** eiskaltdcpp-daemon ***
+* Updated embedded mongoose library to version 3.9.
+* Updated embedded jsoncpp library to current state in SVN trunk.
+* Added cmake option LOCAL_JSONCPP. Now it is possible to build program with
+  system version of library jsoncpp. But have in mind, if this library do not
+  have our patch, it will causes segmentation faults in eiskaltdcpp-daemon.
 *** eiskaltdcpp-cli ***
 
 --- 2.2.9 2013-08-29 ---
