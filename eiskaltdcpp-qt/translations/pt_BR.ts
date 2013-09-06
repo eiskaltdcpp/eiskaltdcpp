@@ -273,7 +273,7 @@ Comandos:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="76"/>
         <source>Lowest</source>
-        <translation>Mas baixa</translation>
+        <translation>Baixissíma</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="79"/>
@@ -293,7 +293,7 @@ Comandos:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="88"/>
         <source>Highest</source>
-        <translation>Mais alta</translation>
+        <translation>Altissíma</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="94"/>
@@ -467,7 +467,7 @@ Comandos:
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="137"/>
         <source>Lowest</source>
-        <translation>Mais baixa</translation>
+        <translation>Baixissíma</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="140"/>
@@ -482,7 +482,7 @@ Comandos:
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="146"/>
         <source>Highest</source>
-        <translation>Mais alta</translation>
+        <translation>Altissíma</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="149"/>

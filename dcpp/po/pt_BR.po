@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2013-08-29 22:51+0300\n"
-"PO-Revision-Date: 2013-09-04 11:23+0000\n"
+"PO-Revision-Date: 2013-09-05 23:23+0000\n"
 "Last-Translator: redrum <heldercro@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/eiskaltdcpp/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -172,7 +172,7 @@ msgstr "Conexão fechada"
 
 #: ../BufferedSocket.cpp:275
 msgid "Maximum command length exceeded"
-msgstr ""
+msgstr "Tamanho do comando excedido"
 
 #: ../BufferedSocket.cpp:452
 msgid "Disconnected"
@@ -196,7 +196,7 @@ msgstr "Desconectando do usuário: %1%"
 
 #: ../DirectoryListing.cpp:206
 msgid "Directory missing name attribute"
-msgstr ""
+msgstr "Falta o nome da pasta"
 
 #: ../QueueManager.cpp:243
 msgid "No needed part"
@@ -216,33 +216,33 @@ msgstr "O arquivo já está na fila"
 
 #: ../QueueManager.cpp:723 ../QueueManager.cpp:799
 msgid "A file with a different size already exists in the queue"
-msgstr ""
+msgstr "Um arquivo com o tamanho diferente já está na fila"
 
 #: ../QueueManager.cpp:727
 msgid "A file with different tth root already exists in the queue"
-msgstr ""
+msgstr "Um arquivo com uma raiz tth diferente já está na fila"
 
 #: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
-msgstr ""
+msgstr "Você está tentando baixar de você mesmo!"
 
 #: ../QueueManager.cpp:802
 msgid "A file with a different TTH root already exists in the queue"
-msgstr ""
+msgstr "Um arquivo com TTH diferente já está na lista"
 
 #: ../QueueManager.cpp:806
 msgid "This file has already finished downloading"
-msgstr ""
+msgstr "Este arquivo já foi baixado"
 
 #: ../QueueManager.cpp:843 ../QueueManager.cpp:852
 msgid "Target filename too long"
-msgstr ""
+msgstr "Arquivo de nome muito longo"
 
 #: ../QueueManager.cpp:848 ../QueueManager.cpp:856
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
+msgstr "Nome de arquivo inválido (a localização não existe, tente a pasta padrão de download)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -258,7 +258,7 @@ msgstr ""
 
 #: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
-msgstr ""
+msgstr "Arquivo inexistente ou o tamanho está errado"
 
 #: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
@@ -270,11 +270,11 @@ msgstr ""
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
-msgstr ""
+msgstr "Não foi possível abrir a lista: %1%"
 
 #: ../QueueManager.cpp:1426
 msgid "%1%: Matched %2% file"
-msgstr ""
+msgstr "%1% : possui %2% arquivo"
 
 #: ../QueueManager.cpp:1796
 msgid ""
@@ -283,7 +283,7 @@ msgstr ""
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr ""
+msgstr "Inconsistência de CRC32 (SFV-Check)"
 
 #: ../QueueManager.cpp:2225
 msgid "%1% : Matched %2% files"
@@ -366,7 +366,7 @@ msgstr "Erro durante a descompressão"
 
 #: ../UPnPManager.cpp:45
 msgid "No UPnP implementation available"
-msgstr ""
+msgstr "Não há implementação UPnP disponível"
 
 #: ../UPnPManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
@@ -374,7 +374,7 @@ msgstr "Outra tentativa de mapeamento de portas UPnP está em execução..."
 
 #: ../UPnPManager.cpp:82
 msgid "Failed to initialize the %1% interface"
-msgstr ""
+msgstr "Falha ao iniciar a interface %1%"
 
 #: ../UPnPManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
@@ -401,7 +401,7 @@ msgstr " Porta DHT (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr ""
+msgstr "Mapeamento feito com sucesso (TCP: %1%, UDP: %2%, TLS: %3%), mapeado utilizando a interface %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -409,7 +409,7 @@ msgstr "Falha ao buscar IP externo"
 
 #: ../UPnPManager.cpp:129
 msgid "Failed to create port mappings"
-msgstr ""
+msgstr "Falha ao mapear portas"
 
 #: ../UPnPManager.cpp:138
 msgid "Successfully removed port mappings with the %1% interface"
@@ -433,31 +433,31 @@ msgstr "Cancelar"
 
 #: ../SSLSocket.cpp:160
 msgid "SSL Error: %1% (%2%, %3%)"
-msgstr ""
+msgstr "Erro de SSL: %1% (%2%, %3%)"
 
 #: ../DownloadManager.cpp:134
 msgid "IPFilter: Blocked outgoing connection to "
-msgstr ""
+msgstr "IPFilter: Bloqueou conexão vinda de"
 
 #: ../DownloadManager.cpp:229
 msgid "Invalid size"
-msgstr ""
+msgstr "Tamanho inválido"
 
 #: ../DownloadManager.cpp:234
 msgid "Response does not match request"
-msgstr ""
+msgstr "A resposta não combina com a requisição"
 
 #: ../DownloadManager.cpp:241
 msgid "Could not open target file: %1%"
-msgstr ""
+msgstr "Não foi possível abrir o arquivo: %1%"
 
 #: ../DownloadManager.cpp:320
 msgid "Full tree does not match TTH root"
-msgstr ""
+msgstr "A árvore não corresponde ao TTH da raiz "
 
 #: ../DownloadManager.cpp:385
 msgid "No slots available"
-msgstr ""
+msgstr "Não há slots disponíveis"
 
 #: ../DownloadManager.cpp:496
 msgid "%1%: File not available"
@@ -563,17 +563,17 @@ msgstr ""
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr ""
+msgstr "Arquivo duplicado não será compartilhado: %1% (Tamanho: %2% B) Duplicata: %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to"
 " refresh again"
-msgstr ""
+msgstr "Atualizando a lista, espere até terminar para atualizar novamente"
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
-msgstr ""
+msgstr "Falha ao atualizar a lista: %1%"
 
 #: ../ShareManager.cpp:837
 msgid "File list refresh initiated"
@@ -585,7 +585,7 @@ msgstr "Atualização da lista de arquivos finalizada"
 
 #: ../ShareManager.cpp:944
 msgid "File list %1% generated"
-msgstr ""
+msgstr "Lista gerada %1%"
 
 #: ../SettingsManager.cpp:183
 msgid "downloaded from"
@@ -609,7 +609,7 @@ msgstr "Error: configuração não encontrada"
 
 #: ../SettingsManager.cpp:618
 msgid "Core setting "
-msgstr ""
+msgstr "Configuração"
 
 #: ../SettingsManager.cpp:619
 msgid "Change core setting "
@@ -653,23 +653,23 @@ msgstr "Falha ao configurar socket por causa de atraso UDP (verifique o endereç
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
-msgstr ""
+msgstr "Sem chave privada"
 
 #: ../CryptoManager.cpp:137
 msgid "No certificate file chosen"
-msgstr ""
+msgstr "Sem certificado"
 
 #: ../CryptoManager.cpp:149
 msgid "Error generating certificate"
-msgstr ""
+msgstr "Erro ao gerar certificado"
 
 #: ../CryptoManager.cpp:212
 msgid "TLS disabled, no certificate file set"
-msgstr ""
+msgstr "TLS desabilitado, o certificado não foi criado"
 
 #: ../CryptoManager.cpp:220
 msgid "Generated new TLS certificate"
-msgstr ""
+msgstr "Gerar novo certificado TLS"
 
 #: ../CryptoManager.cpp:222
 msgid "TLS disabled, failed to generate certificate: %1%"
@@ -678,12 +678,12 @@ msgstr ""
 #: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
 #: ../CryptoManager.cpp:240
 msgid "Failed to load certificate file"
-msgstr ""
+msgstr "Falha ao carregar certificado"
 
 #: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
 #: ../CryptoManager.cpp:258
 msgid "Failed to load private key"
-msgstr ""
+msgstr "Falha ao carregar chave privada"
 
 #: ../ChatMessage.cpp:33
 msgid "Sent "
@@ -695,4 +695,4 @@ msgstr ""
 
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
-msgstr ""
+msgstr "Inconsistência de TTH"
