@@ -142,8 +142,8 @@ typedef long off_t;
 #define fdopen(x, y) _fdopen((x), (y))
 #define write(x, y, z) _write((x), (y), (unsigned) z)
 #define read(x, y, z) _read((x), (y), (unsigned) z)
-#define flockfile(x) EnterCriticalSection(&global_log_file_lock)
-#define funlockfile(x) LeaveCriticalSection(&global_log_file_lock)
+#define flockfile(x)
+#define funlockfile(x)
 #define sleep(x) Sleep((x) * 1000)
 #define rmdir(x) _rmdir(x)
 
@@ -248,7 +248,7 @@ typedef int SOCKET;
 
 #include "mongoose.h"
 
-#define MONGOOSE_VERSION "3.9"
+#define MONGOOSE_VERSION "4.2"
 #define PASSWORDS_FILE_NAME ".htpasswd"
 #define CGI_ENVIRONMENT_SIZE 4096
 #define MAX_CGI_ENVIR_VARS 64
@@ -257,7 +257,6 @@ typedef int SOCKET;
 #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
 
 #ifdef _WIN32
-static CRITICAL_SECTION global_log_file_lock;
 static pthread_t pthread_self(void) {
   return GetCurrentThreadId();
 }
@@ -1674,6 +1673,24 @@ int mg_printf(struct mg_connection *conn, const char *fmt, ...) {
   return mg_vprintf(conn, fmt, ap);
 }
 
+int mg_chunked_printf(struct mg_connection *conn, const char *fmt, ...)
+{
+  char mem[MG_BUF_LEN], *buf = mem;
+  int len;
+
+  va_list ap;
+  va_start(ap, fmt);
+  if ((len = alloc_vprintf(&buf, sizeof(mem), fmt, ap)) > 0) {
+    len = mg_printf(conn, "%X\r\n%s\r\n", len, buf);
+  }
+
+  if (buf != mem && buf != NULL) {
+    free(buf);
+  }
+
+  return len;
+}
+
 int mg_url_decode(const char *src, int src_len, char *dst,
                   int dst_len, int is_form_url_encoded) {
   int i, j, a, b;
@@ -1830,7 +1847,7 @@ static void convert_uri_to_file_name(struct mg_connection *conn, char *buf,
   }
 
   // Support PATH_INFO for CGI scripts.
-  for (p = buf + strlen(buf); p > buf + 1; p--) {
+  for (p = buf + strlen(root == NULL ? "" : root); *p != '\0'; p++) {
     if (*p == '/') {
       *p = '\0';
       if (match_prefix(conn->ctx->config[CGI_EXTENSIONS],
@@ -2641,7 +2658,7 @@ static void print_dir_entry(struct de *de) {
   strftime(mod, sizeof(mod), "%d-%b-%Y %H:%M",
            localtime(&de->file.modification_time));
   mg_url_encode(de->file_name, href, sizeof(href));
-  de->conn->num_bytes_sent += mg_printf(de->conn,
+  de->conn->num_bytes_sent += mg_chunked_printf(de->conn,
       "<tr><td><a href=\"%s%s%s\">%s%s</a></td>"
       "<td>&nbsp;%s</td><td>&nbsp;&nbsp;%s</td></tr>\n",
       de->conn->request_info.uri, href, de->file.is_directory ? "/" : "",
@@ -2818,10 +2835,10 @@ static void handle_directory_request(struct mg_connection *conn,
   conn->must_close = 1;
   mg_printf(conn, "%s",
             "HTTP/1.1 200 OK\r\n"
-            "Connection: close\r\n"
+            "Transfer-Encoding: Chunked\r\n"
             "Content-Type: text/html; charset=utf-8\r\n\r\n");
 
-  conn->num_bytes_sent += mg_printf(conn,
+  conn->num_bytes_sent += mg_chunked_printf(conn,
       "<html><head><title>Index of %s</title>"
       "<style>th {text-align: left;}</style></head>"
       "<body><h1>Index of %s</h1><pre><table cellpadding=\"0\">"
@@ -2833,7 +2850,7 @@ static void handle_directory_request(struct mg_connection *conn,
       sort_direction, sort_direction, sort_direction);
 
   // Print first entry - link to a parent directory
-  conn->num_bytes_sent += mg_printf(conn,
+  conn->num_bytes_sent += mg_chunked_printf(conn,
       "<tr><td><a href=\"%s%s\">%s</a></td>"
       "<td>&nbsp;%s</td><td>&nbsp;&nbsp;%s</td></tr>\n",
       conn->request_info.uri, "..", "Parent directory", "-", "-");
@@ -2847,7 +2864,8 @@ static void handle_directory_request(struct mg_connection *conn,
   }
   free(data.entries);
 
-  conn->num_bytes_sent += mg_printf(conn, "%s", "</table></body></html>");
+  conn->num_bytes_sent += mg_chunked_printf(conn, "%s", "</table></body></html>");
+  conn->num_bytes_sent += mg_write(conn, "0\r\n\r\n", 5);
   conn->status_code = 200;
 }
 
@@ -3256,6 +3274,7 @@ static char *addenv(struct cgi_env_block *block, const char *fmt, ...) {
 static void prepare_cgi_environment(struct mg_connection *conn,
                                     const char *prog,
                                     struct cgi_env_block *blk) {
+  const struct mg_request_info *ri = &conn->request_info;
   const char *s, *slash;
   struct vec var_vec;
   char *p, src_addr[IP_ADDR_STR_LEN];
@@ -3278,18 +3297,25 @@ static void prepare_cgi_environment(struct mg_connection *conn,
   // TODO(lsm): fix this for IPv6 case
   addenv(blk, "SERVER_PORT=%d", ntohs(conn->client.lsa.sin.sin_port));
 
-  addenv(blk, "REQUEST_METHOD=%s", conn->request_info.request_method);
+  addenv(blk, "REQUEST_METHOD=%s", ri->request_method);
   addenv(blk, "REMOTE_ADDR=%s", src_addr);
-  addenv(blk, "REMOTE_PORT=%d", conn->request_info.remote_port);
-  addenv(blk, "REQUEST_URI=%s", conn->request_info.uri);
+  addenv(blk, "REMOTE_PORT=%d", ri->remote_port);
+  addenv(blk, "REQUEST_URI=%s%s%s", ri->uri,
+         ri->query_string == NULL ? "" : "?",
+         ri->query_string == NULL ? "" : ri->query_string);
 
   // SCRIPT_NAME
-  assert(conn->request_info.uri[0] == '/');
-  slash = strrchr(conn->request_info.uri, '/');
-  if ((s = strrchr(prog, '/')) == NULL)
-    s = prog;
-  addenv(blk, "SCRIPT_NAME=%.*s%s", (int) (slash - conn->request_info.uri),
-         conn->request_info.uri, s);
+  if (conn->path_info != NULL) {
+    addenv(blk, "SCRIPT_NAME=%.*s",
+           (int) (strlen(ri->uri) - strlen(conn->path_info)), ri->uri);
+    addenv(blk, "PATH_INFO=%s", conn->path_info);
+  } else {
+    s = strrchr(prog, '/');
+    slash = strrchr(ri->uri, '/');
+    addenv(blk, "SCRIPT_NAME=%.*s%s",
+           slash == NULL ? 0 : (int) (slash - ri->uri), ri->uri,
+           s == NULL ? prog : s);
+  }
 
   addenv(blk, "SCRIPT_FILENAME=%s", prog);
   addenv(blk, "PATH_TRANSLATED=%s", prog);
@@ -3298,18 +3324,15 @@ static void prepare_cgi_environment(struct mg_connection *conn,
   if ((s = mg_get_header(conn, "Content-Type")) != NULL)
     addenv(blk, "CONTENT_TYPE=%s", s);
 
-  if (conn->request_info.query_string != NULL)
-    addenv(blk, "QUERY_STRING=%s", conn->request_info.query_string);
+  if (ri->query_string != NULL) {
+    addenv(blk, "QUERY_STRING=%s", ri->query_string);
+  }
 
   if ((s = mg_get_header(conn, "Content-Length")) != NULL)
     addenv(blk, "CONTENT_LENGTH=%s", s);
 
   if ((s = getenv("PATH")) != NULL)
     addenv(blk, "PATH=%s", s);
-
-  if (conn->path_info != NULL) {
-    addenv(blk, "PATH_INFO=%s", conn->path_info);
-  }
 
 #if defined(_WIN32)
   if ((s = getenv("COMSPEC")) != NULL) {
@@ -3335,16 +3358,15 @@ static void prepare_cgi_environment(struct mg_connection *conn,
   if ((s = getenv("PERLLIB")) != NULL)
     addenv(blk, "PERLLIB=%s", s);
 
-  if (conn->request_info.remote_user != NULL) {
-    addenv(blk, "REMOTE_USER=%s", conn->request_info.remote_user);
+  if (ri->remote_user != NULL) {
+    addenv(blk, "REMOTE_USER=%s", ri->remote_user);
     addenv(blk, "%s", "AUTH_TYPE=Digest");
   }
 
   // Add all headers as HTTP_* variables
-  for (i = 0; i < conn->request_info.num_headers; i++) {
+  for (i = 0; i < ri->num_headers; i++) {
     p = addenv(blk, "HTTP_%s=%s",
-        conn->request_info.http_headers[i].name,
-        conn->request_info.http_headers[i].value);
+        ri->http_headers[i].name, ri->http_headers[i].value);
 
     // Convert variable name into uppercase, and change - to _
     for (; *p != '=' && *p != '\0'; p++) {
@@ -4530,7 +4552,8 @@ static int is_valid_port(unsigned int port) {
 // Examples: 80, 443s, 127.0.0.1:3128, 1.2.3.4:8080s
 // TODO(lsm): add parsing of the IPv6 address
 static int parse_port_string(const struct vec *vec, struct socket *so) {
-  unsigned int a, b, c, d, ch, len, port;
+  unsigned int a, b, c, d, ch, port;
+  int len;
 #if defined(USE_IPV6)
   char buf[100];
 #endif
@@ -5373,7 +5396,6 @@ struct mg_context *mg_start(const struct mg_callbacks *callbacks,
 #if defined(_WIN32) && !defined(__SYMBIAN32__)
   WSADATA data;
   WSAStartup(MAKEWORD(2,2), &data);
-  InitializeCriticalSection(&global_log_file_lock);
 #endif // _WIN32
 
   // Allocate context and initialize reasonable general case defaults.
@@ -5429,8 +5451,6 @@ struct mg_context *mg_start(const struct mg_callbacks *callbacks,
   // Ignore SIGPIPE signal, so if browser cancels the request, it
   // won't kill the whole process.
   (void) signal(SIGPIPE, SIG_IGN);
-  // Also ignoring SIGCHLD to let the OS to reap zombies properly.
-  (void) signal(SIGCHLD, SIG_IGN);
 #endif // !_WIN32
 
   (void) pthread_mutex_init(&ctx->mutex, NULL);
