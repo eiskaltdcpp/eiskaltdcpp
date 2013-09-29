@@ -201,7 +201,22 @@ void TigerHash::update(const void* data, size_t length) {
 			buf[j^7]=((uint8_t*)str)[j];
 		tiger_compress_macro(((uint64_t*)buf), res);
 #else
+// Small fix by Boris Pek <tehnick@debian.org>
+// Bug report: https://github.com/eiskaltdcpp/eiskaltdcpp/pull/25
+// Description: The ARM EABI requires 8-byte stack alignment at public
+// function entry points, compared to the previous 4-byte alignment. 
+// See for details: https://wiki.debian.org/ArmEabiPort
+#if (defined(__VFP_FP__) && defined(__SOFTFP__)) // armel
+		union {
+			uint64_t str64[8];
+			int8_t str8[64];
+		} temp;
+		memcpy(temp.str8, str, BLOCK_SIZE);
+		tiger_compress_macro(((uint64_t*)temp.str64), res);
+#else // common case
 		tiger_compress_macro(((uint64_t*)str), res);
+#endif
+// end of fix
 #endif
 		str += BLOCK_SIZE;
 		pos += BLOCK_SIZE;
