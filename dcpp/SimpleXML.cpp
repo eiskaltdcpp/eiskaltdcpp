@@ -19,7 +19,6 @@
 #include "stdinc.h"
 
 #include "SimpleXML.h"
-#include "Streams.h"
 
 namespace dcpp {
 
@@ -78,15 +77,15 @@ string& SimpleXML::escape(string& aString, bool aAttrib, bool aLoading /* = fals
 }
 
 void SimpleXML::Tag::appendAttribString(string& tmp) {
-    for(auto& i: attribs) {
-        tmp.append(i.first);
+    for(StringPairIter i = attribs.begin(); i!= attribs.end(); ++i) {
+        tmp.append(i->first);
         tmp.append("=\"", 2);
-        if(needsEscape(i.second, true)) {
-            string tmp2(i.second);
+        if(needsEscape(i->second, true)) {
+            string tmp2(i->second);
             escape(tmp2, true);
             tmp.append(tmp2);
         } else {
-            tmp.append(i.second);
+            tmp.append(i->second);
         }
         tmp.append("\" ", 2);
     }
@@ -129,8 +128,8 @@ void SimpleXML::Tag::toXML(int indent, OutputStream* f) {
             tmp.append(">\r\n", 3);
             f->write(tmp);
             tmp.clear();
-            for(auto& i: children) {
-                i->toXML(indent + 1, f);
+            for(Iter i = children.begin(); i!=children.end(); ++i) {
+                (*i)->toXML(indent + 1, f);
             }
             tmp.append(indent, '\t');
         }
@@ -190,7 +189,7 @@ void SimpleXML::fromXML(const string& aXML) {
     }
 
     TagReader t(&root);
-        SimpleXMLReader(&t).parse(aXML);
+        SimpleXMLReader(&t).parse(aXML.c_str(), aXML.size(), false);
 
     if(root.children.size() != 1) {
         throw SimpleXMLException("Invalid XML file, missing or multiple root tags");
@@ -200,9 +199,4 @@ void SimpleXML::fromXML(const string& aXML) {
     resetCurrentChild();
 }
 
-string SimpleXML::toXML() {
-    StringOutputStream os;
-    toXML(&os);
-    return os.getString();
-}
 } // namespace dcpp

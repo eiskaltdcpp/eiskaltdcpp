@@ -20,7 +20,6 @@
 
 #include "forward.h"
 #include <string>
-#include "OnlineUser.h"
 
 namespace dcpp {
 

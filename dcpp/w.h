@@ -20,9 +20,31 @@
 
 #ifdef _WIN32
 
-#include <winsock2.h>
-#include <ws2tcpip.h>
+#ifndef _WIN32_WINNT
+# define _WIN32_WINNT 0x0502
+#endif
 
+#ifndef _WIN32_IE
+# define _WIN32_IE	0x0501
+#endif
+
+#ifndef WINVER
+# define WINVER 0x501
+#endif
+
+#ifndef STRICT
+#define STRICT 1
+#endif
+
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+
+#ifndef NOMINMAX
+#define NOMINMAX 1
+#endif
+
+#include <winsock2.h>
 #include <windows.h>
 #include <tchar.h>
 

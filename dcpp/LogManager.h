@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include <deque>
-#include <utility>
 #include "typedefs.h"
 #include "CriticalSection.h"
 #include "Singleton.h"
@@ -27,9 +25,6 @@
 #include "LogManagerListener.h"
 
 namespace dcpp {
-
-using std::deque;
-using std::pair;
 
 class LogManager : public Singleton<LogManager>, public Speaker<LogManagerListener>
 {

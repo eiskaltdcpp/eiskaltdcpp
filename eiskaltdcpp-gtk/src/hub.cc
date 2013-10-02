@@ -3514,7 +3514,7 @@ void Hub::on(ClientListener::HubUpdated, Client *) noexcept
     string hubName;
 
     if (client->getHubName().empty())
-        hubName = client->getAddress() + ":" + client->getPort();
+        hubName = client->getAddress() + ":" + Util::toString(client->getPort());
     else
         hubName = client->getHubName();
 

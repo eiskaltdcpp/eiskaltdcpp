@@ -38,7 +38,7 @@ namespace dht
     #define BUFSIZE                 16384
     #define MAGICVALUE_UDP          0x5b
 
-    UDPSocket::UDPSocket(void) : stop(false), port("0"), delay(100)
+    UDPSocket::UDPSocket(void) : stop(false), port(0), delay(100)
 #ifdef _DEBUG
         , sentBytes(0), receivedBytes(0), sentPackets(0), receivedPackets(0)
 #endif
@@ -65,7 +65,7 @@ namespace dht
         {
             stop = true;
             socket->disconnect();
-            port.clear();
+            port = 0;
 
             join();
 
@@ -84,10 +84,12 @@ namespace dht
 
         try
         {
-            socket.reset(new Socket(Socket::TYPE_UDP));
-            socket->setLocalIp4(SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
-            socket->setLocalIp6(SETTING(BIND_IFACE)? socket->getIfaceI6(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS6));
-            port = socket->listen(Util::toString(SETTING(DHT_PORT)));
+            socket.reset(new Socket);
+            socket->create(Socket::TYPE_UDP);
+            socket->setSocketOpt(SO_REUSEADDR, 1);
+            socket->setSocketOpt(SO_RCVBUF, SETTING(SOCKET_IN_BUFFER));
+            port = socket->bind(static_cast<uint16_t>(SETTING(DHT_PORT)), SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
+
             start();
         }
         catch(...)
@@ -99,11 +101,11 @@ namespace dht
 
     void UDPSocket::checkIncoming() throw(SocketException)
     {
-        string remoteAddr,remotePort;
-        if(socket->wait(delay, true, false).first)
+        if(socket->wait(delay, Socket::WAIT_READ) == Socket::WAIT_READ)
         {
+            sockaddr_in remoteAddr = { 0 };
             boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
-            int len = socket->read(&buf[0], BUFSIZE, remoteAddr, remotePort);
+            int len = socket->read(&buf[0], BUFSIZE, remoteAddr);
             dcdrun(receivedBytes += len);
             dcdrun(receivedPackets++);
 
@@ -113,7 +115,7 @@ namespace dht
                 if(buf[0] != ADC_PACKED_PACKET_HEADER && buf[0] != ADC_PACKET_HEADER)
                 {
                     // it seems to be encrypted packet
-                    if(!decryptPacket(&buf[0], len, remoteAddr, isUdpKeyValid))
+                    if(!decryptPacket(&buf[0], len, inet_ntoa(remoteAddr.sin_addr), isUdpKeyValid))
                         return;
                 }
                 //else
@@ -136,8 +138,10 @@ namespace dht
                 string s((char*)destBuf.get(), destLen);
                 if(s[0] == ADC_PACKET_HEADER && s[s.length() - 1] == ADC_PACKET_FOOTER) // is it valid ADC command?
                 {
-                    COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::HUB_IN,  remoteAddr + ":" + remotePort);
-                    DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), remoteAddr, remotePort, isUdpKeyValid);
+                    string ip = inet_ntoa(remoteAddr.sin_addr);
+                    uint16_t port = ntohs(remoteAddr.sin_port);
+                    COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::HUB_IN,  ip + ":" + Util::toString(port));
+                    DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), ip, port, isUdpKeyValid);
                 }
 
                 Thread::sleep(25);
@@ -235,7 +239,10 @@ namespace dht
                     try
                     {
                         socket->disconnect();
-                        port = socket->listen(Util::toString(SETTING(DHT_PORT)));
+                        socket->create(Socket::TYPE_UDP);
+                        socket->setSocketOpt(SO_RCVBUF, SETTING(SOCKET_IN_BUFFER));
+                        socket->setSocketOpt(SO_REUSEADDR, 1);
+                        socket->bind(port, SETTING(BIND_ADDRESS));
                         if(failed)
                         {
                             LogManager::getInstance()->message("DHT enabled again"); // TODO: translate
@@ -269,7 +276,7 @@ namespace dht
     /*
      * Sends command to ip and port
      */
-    void UDPSocket::send(AdcCommand& cmd, const string& ip, const string& port, const CID& targetCID, const CID& udpKey)
+    void UDPSocket::send(AdcCommand& cmd, const string& ip, uint16_t port, const CID& targetCID, const CID& udpKey)
     {
         // store packet for antiflooding purposes
         Utils::trackOutgoingPacket(ip, cmd);
@@ -277,7 +284,7 @@ namespace dht
         // pack data
         cmd.addParam("UK", Utils::getUdpKey(ip).toBase32()); // add our key for the IP address
         string command = cmd.toString(ClientManager::getInstance()->getMe()->getCID());
-        COMMAND_DEBUG(command, DebugManager::HUB_OUT, ip + ":" + port);
+        COMMAND_DEBUG(command, DebugManager::HUB_OUT, ip + ":" + Util::toString(port));
 
         Packet* p = new Packet(ip, port, command, targetCID, udpKey);
 

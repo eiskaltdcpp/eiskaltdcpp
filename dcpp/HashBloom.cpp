@@ -22,8 +22,6 @@
 
 #include <cmath>
 
-#include "MerkleTree.h"
-
 namespace dcpp {
 
 size_t HashBloom::get_k(size_t n, size_t h) {
@@ -39,7 +37,7 @@ size_t HashBloom::get_k(size_t n, size_t h) {
 uint64_t HashBloom::get_m(size_t n, size_t k) {
     uint64_t m = (static_cast<uint64_t>(ceil(static_cast<double>(n) * k / log(2.))));
     // 64-bit boundary as per spec
-    return ((m + 63ULL )/ 64ULL) * 64ULL;
+    return ((m + 63 )/ 64) * 64;
 }
 
 void HashBloom::add(const TTHValue& tth) {
@@ -84,7 +82,7 @@ size_t HashBloom::pos(const TTHValue& tth, size_t n) const {
         size_t pos = bit % 8;
 
         if(tth.data[byte] & (1 << pos)) {
-            x |= (1LL << i);
+            x |= (1 << i);
         }
     }
     return x % bloom.size();

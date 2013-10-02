@@ -109,10 +109,6 @@ void Encoder::fromBase32(const char* src, uint8_t* dst, size_t len) {
     }
 }
 
-bool Encoder::isBase32(const string& str) {
-    return str.find_first_not_of(base32Alphabet) == string::npos;
-}
-
 uint8_t decode16(char c) {
     if (c >= '0' && c <= '9')
         return c - '0';

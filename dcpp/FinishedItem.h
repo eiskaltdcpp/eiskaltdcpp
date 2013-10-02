@@ -20,9 +20,8 @@
 
 #include <boost/noncopyable.hpp>
 #include "forward.h"
-#include "typedefs.h"
 #include "Pointer.h"
-#include "GetSet.h"
+#include "Util.h"
 
 namespace dcpp {
 

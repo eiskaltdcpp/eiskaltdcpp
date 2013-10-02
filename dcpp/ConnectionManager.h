@@ -18,20 +18,15 @@
 
 #pragma once
 
-#include <memory>
-#include <unordered_map>
 #include "TimerManager.h"
-#include "UserConnectionListener.h"
+#include "UserConnection.h"
+#include "User.h"
 #include "CriticalSection.h"
 #include "Singleton.h"
-#include "BufferedSocket.h"
+#include "Util.h"
 #include "ConnectionManagerListener.h"
-#include "HintedUser.h"
 
 namespace dcpp {
-
-using std::unique_ptr;
-using std::unordered_map;
 
 class SocketException;
 
@@ -85,7 +80,7 @@ public:
 
 private:
     /** Nick -> myNick, hubUrl for expected NMDC incoming connections */
-    typedef unordered_map<string, StringPair> ExpectMap;
+    typedef map<string, StringPair> ExpectMap;
     ExpectMap expectedConnections;
 
     CriticalSection cs;
@@ -103,16 +98,16 @@ public:
         expectedConnections.add(aNick, aMyNick, aHubUrl);
     }
 
-    void nmdcConnect(const string& aServer, const string& aPort, const string& aMyNick, const string& hubUrl, const string& encoding, bool secure);
-    void nmdcConnect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole, const string& aNick, const string& hubUrl, const string& encoding, bool secure);
-    void adcConnect(const OnlineUser& aUser, const string& aPort, const string& aToken, bool secure);
-    void adcConnect(const OnlineUser& aUser, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure);
+    void nmdcConnect(const string& aServer, uint16_t aPort, const string& aMyNick, const string& hubUrl, const string& encoding, bool secure);
+    void nmdcConnect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aNick, const string& hubUrl, const string& encoding, bool secure);
+    void adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure);
+    void adcConnect(const OnlineUser& aUser, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure);
 
     void getDownloadConnection(const HintedUser& aUser);
     void force(const UserPtr& aUser);
 
     void disconnect(const UserPtr& aUser); // disconnect downloads and uploads
-    void disconnect(const UserPtr& aUser, bool isDownload);
+    void disconnect(const UserPtr& aUser, int isDownload);
 
     void shutdown();
 
@@ -120,20 +115,21 @@ public:
     void listen();
     void disconnect() noexcept;
 
-    const string& getPort() const;
-    const string& getSecurePort() const;
+    uint16_t getPort() { return server ? static_cast<uint16_t>(server->getPort()) : 0; }
+    uint16_t getSecurePort() { return secureServer ? static_cast<uint16_t>(secureServer->getPort()) : 0; }
 private:
 
     class Server : public Thread {
     public:
-        Server(bool secure, const string& port_, const string& ip4_, const string& ip6_);
+        Server(bool secure_, uint16_t port, const string& ip = "0.0.0.0");
+        uint16_t getPort() { return port; }
         virtual ~Server() { die = true; join(); }
-        const string& getPort() const { return port; }
     private:
         virtual int run() noexcept;
 
         Socket sock;
-        string port;
+        uint16_t port;
+        string ip;
         bool secure;
         bool die;
     };
@@ -156,8 +152,8 @@ private:
 
     uint32_t floodCounter;
 
-    unique_ptr<Server> server;
-    unique_ptr<Server> secureServer;
+    Server* server;
+    Server* secureServer;
 
     bool shuttingDown;
 
@@ -175,9 +171,9 @@ private:
     ConnectionQueueItem* getCQI(const HintedUser& aUser, bool download);
     void putCQI(ConnectionQueueItem* cqi);
 
-    void accept(const Socket& sock, bool secure) noexcept;
-
     bool checkKeyprint(UserConnection *aSource);
+
+    void accept(const Socket& sock, bool secure) noexcept;
 
     void failed(UserConnection* aSource, const string& aError, bool protocolError);
 

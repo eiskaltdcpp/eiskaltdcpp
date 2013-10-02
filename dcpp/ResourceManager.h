@@ -16,36 +16,26 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "stdinc.h"
+#pragma once
 
-#include "UPnP.h"
+#include "Singleton.h"
 
 namespace dcpp {
 
-const char* UPnP::protocols[PROTOCOL_LAST] = {
-    "TCP",
-    "UDP"
+class ResourceManager : public Singleton<ResourceManager> {
+public:
+
+    bool isRTL() { return rtl; }
+
+private:
+    friend class Singleton<ResourceManager>;
+
+    ResourceManager() : rtl(false) {
+    }
+
+    virtual ~ResourceManager() { }
+
+    bool rtl;
 };
 
-bool UPnP::open(const unsigned short port, const Protocol protocol, const string& description) {
-    if(!add(port, protocol, description))
-        return false;
-
-    rules.push_back(make_pair(port, protocol));
-    return true;
-}
-
-bool UPnP::close() {
-    bool ret = true;
-
-    for(std::vector<rule>::const_iterator i = rules.begin(), iend = rules.end(); i != iend; ++i)
-        ret &= remove(i->first, i->second);
-    rules.clear();
-
-    return ret;
-}
-
-bool UPnP::hasRules() const {
-        return !rules.empty();
-}
 } // namespace dcpp

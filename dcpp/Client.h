@@ -18,22 +18,19 @@
 
 #pragma once
 
-#include "Atomic.h"
 #include "compiler.h"
-#include "BufferedSocketListener.h"
-#include "ClientListener.h"
 #include "forward.h"
-#include "OnlineUser.h"
+#include "User.h"
 #include "Speaker.h"
+#include "BufferedSocketListener.h"
 #include "TimerManager.h"
+#include "ClientListener.h"
+#include "Atomic.h"
 #include "SearchQueue.h"
-#include "GetSet.h"
 
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
-
-#include <boost/noncopyable.hpp>
 
 namespace dcpp {
 #ifdef LUA_SCRIPT
@@ -59,12 +56,15 @@ public:
 
 };
 /** Yes, this should probably be called a Hub */
-class Client : public ClientBase, public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener, private boost::noncopyable
+class Client : public ClientBase, public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener
 #ifdef LUA_SCRIPT
 , public ClientScriptInstance
 #endif
 {
 public:
+    typedef Client* Ptr;
+    typedef list<Ptr> List;
+    typedef List::iterator Iter;
 
     virtual void connect();
     virtual void disconnect(bool graceless);
@@ -87,7 +87,8 @@ public:
 
     virtual string escape(string const& str) const { return str; }
 
-    bool isConnected() const { return state != STATE_CONNECTING && state != STATE_DISCONNECTED; }
+    bool isConnected() const { return state != STATE_DISCONNECTED; }
+    bool isReady() const { return state != STATE_CONNECTING && state != STATE_DISCONNECTED; }
     bool isSecure() const;
     bool isTrusted() const;
     std::string getCipherName() const;
@@ -95,15 +96,14 @@ public:
 
     bool isOp() const { return getMyIdentity().isOp(); }
 
-    const string& getPort() const { return port; }
+    uint16_t getPort() const { return port; }
     const string& getAddress() const { return address; }
 
     const string& getIp() const { return ip; }
-    string getIpPort() const { return getIp() + ':' + port; }
+    string getIpPort() const { return getIp() + ':' + Util::toString(port); }
     string getLocalIp() const;
 
-    /** Send a ClientListener::Updated signal for every connected user. */
-    //void updateUsers();
+    void updated(const OnlineUser& aUser) { fire(ClientListener::UserUpdated(), this, aUser); }
 
     static string getCounts() {
         char buf[128];
@@ -158,7 +158,6 @@ public:
 
     /** Reload details from favmanager or settings */
     void reloadSettings(bool updateNick);
-    bool bIPv6, bIPv4;
 protected:
     friend class ClientManager;
     Client(const string& hubURL, char separator, bool secure_);
@@ -180,28 +179,19 @@ protected:
         STATE_IDENTIFY,     ///< Nick setup
         STATE_VERIFY,       ///< Checking password
         STATE_NORMAL,       ///< Running
-        STATE_DISCONNECTED,  ///< Nothing in particular
+        STATE_DISCONNECTED  ///< Nothing in particular
     } state;
     SearchQueue searchQueue;
+    BufferedSocket* sock;
+
     static Counts counts;
     Counts lastCounts;
-
-    BufferedSocket *sock;
 
     void updateCounts(bool aRemove);
     void updateActivity() { lastActivity = GET_TICK(); }
 
+    virtual string checkNick(const string& nick) = 0;
     virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) = 0;
-
-    //void updated(OnlineUser& user);
-    //void updated(OnlineUserList& users);
-
-    /** Reload details from favmanager or settings */
-    //void reloadSettings(bool updateNick);
-    /// Get the external IP the user has defined for this hub, if any.
-    const string& getUserIp() const;
-
-    virtual void checkNick(string& nick) = 0;
 
     // TimerManagerListener
     virtual void on(Second, uint64_t aTick) noexcept;
@@ -210,11 +200,8 @@ protected:
     virtual void on(Connected) noexcept;
     virtual void on(Line, const string& aLine) noexcept;
     virtual void on(Failed, const string&) noexcept;
-    virtual bool v4only() const = 0;
 
 private:
-
-    virtual OnlineUserList getUsers() const = 0;
 
     enum CountType {
         COUNT_UNCOUNTED,
@@ -223,12 +210,15 @@ private:
         COUNT_OP
     };
 
+    Client(const Client&);
+    Client& operator=(const Client&);
+
     string hubUrl;
     string address;
     string ip;
     string localIp;
     string keyprint;
-    string port;
+    uint16_t port;
     string externalIP;
     char separator;
     bool secure;

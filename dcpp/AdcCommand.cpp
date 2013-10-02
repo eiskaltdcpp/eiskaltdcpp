@@ -225,9 +225,9 @@ string AdcCommand::getHeaderString(const CID& cid) const {
 
 string AdcCommand::getParamString(bool nmdc) const {
     string tmp;
-    for(auto& i: getParameters()) {
+    for(auto i = getParameters().begin(); i != getParameters().end(); ++i) {
         tmp += ' ';
-        tmp += escape(i, nmdc);
+        tmp += escape(*i, nmdc);
     }
     if(nmdc) {
         tmp += '|';

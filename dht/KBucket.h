@@ -80,7 +80,7 @@ namespace dht
         typedef std::deque<Node::Ptr> NodeList;
 
         /** Creates new (or update existing) node which is NOT added to our routing table */
-        Node::Ptr createNode(const UserPtr& u, const string& ip, const string& port, bool update, bool isUdpKeyValid);
+        Node::Ptr createNode(const UserPtr& u, const string& ip, uint16_t port, bool update, bool isUdpKeyValid);
 
         /** Adds node to routing table */
         bool insert(const Node::Ptr& node);

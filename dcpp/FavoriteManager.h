@@ -20,7 +20,8 @@
 
 #include "SettingsManager.h"
 #include "CriticalSection.h"
-#include "HttpManagerListener.h"
+#include "HttpConnection.h"
+#include "User.h"
 #include "UserCommand.h"
 #include "FavoriteUser.h"
 #include "Singleton.h"
@@ -28,7 +29,6 @@
 #include "FavoriteManagerListener.h"
 #include "HubEntry.h"
 #include "FavHubGroup.h"
-#include "User.h"
 
 namespace dcpp {
 
@@ -37,8 +37,8 @@ class SimpleXML;
 /**
  * Public hub list, favorites (hub&user). Assumed to be called only by UI thread.
  */
-class FavoriteManager : public Speaker<FavoriteManagerListener>, public Singleton<FavoriteManager>,
-private ClientManagerListener, private HttpManagerListener, private SettingsManagerListener
+class FavoriteManager : public Speaker<FavoriteManagerListener>, private HttpConnectionListener, public Singleton<FavoriteManager>,
+    private SettingsManagerListener, private ClientManagerListener
 {
 public:
 // Public Hubs
@@ -87,6 +87,7 @@ public:
     void setFavHubGroups(const FavHubGroups& favHubGroups_) { favHubGroups = favHubGroups_; }
 
     FavoriteHubEntryList getFavoriteHubs(const string& group) const;
+    bool isPrivate(const string& url) const;
 
 // Favorite Directories
     bool addFavoriteDir(const string& aDirectory, const string& aName);
@@ -109,7 +110,7 @@ public:
 
     void load();
     void save();
-    void shutdown();
+
 private:
     FavoriteHubEntryList favoriteHubs;
     FavHubGroups favHubGroups;
@@ -129,6 +130,7 @@ private:
     HttpConnection* c;
     int lastServer;
     HubTypes listType;
+    string downloadBuf;
 
     /** Used during loading to prevent saving. */
     bool dontSave;
@@ -138,22 +140,26 @@ private:
     FavoriteManager();
     virtual ~FavoriteManager();
 
-    FavoriteHubEntryPtr getFavoriteHub(const string& aServer);
+    FavoriteHubEntryList::iterator getFavoriteHub(const string& aServer);
 
     // ClientManagerListener
-    void on(UserUpdated, const OnlineUser& user) noexcept;
-    void on(UserConnected, const UserPtr& user) noexcept;
-    void on(UserDisconnected, const UserPtr& user) noexcept;
+    virtual void on(UserUpdated, const OnlineUser& user) noexcept;
+    virtual void on(UserConnected, const UserPtr& user) noexcept;
+    virtual void on(UserDisconnected, const UserPtr& user) noexcept;
 
-    // HttpManagerListener
-    void on(HttpManagerListener::Added, HttpConnection*) noexcept;
-    void on(HttpManagerListener::Failed, HttpConnection*, const string&) noexcept;
-    void on(HttpManagerListener::Complete, HttpConnection*, OutputStream*) noexcept;
+    // HttpConnectionListener
+    virtual void on(Data, HttpConnection*, const uint8_t*, size_t) noexcept;
+    virtual void on(Failed, HttpConnection*, const string&) noexcept;
+    virtual void on(Complete, HttpConnection*, const string&, bool) noexcept;
+    virtual void on(Redirected, HttpConnection*, const string&) noexcept;
+    virtual void on(TypeNormal, HttpConnection*) noexcept;
+    virtual void on(TypeBZ2, HttpConnection*) noexcept;
+    virtual void on(Retried, HttpConnection*, const bool) noexcept;
 
-    bool onHttpFinished(const string& buf) noexcept;
+    bool onHttpFinished(bool fromHttp) noexcept;
 
     // SettingsManagerListener
-    void on(SettingsManagerListener::Load, SimpleXML& xml) noexcept {
+    virtual void on(SettingsManagerListener::Load, SimpleXML& xml) noexcept {
         load(xml);
     }
 

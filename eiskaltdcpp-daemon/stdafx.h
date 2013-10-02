@@ -17,3 +17,5 @@
 
 #include <libintl.h>
 #include <iostream>
+
+using namespace dcpp;

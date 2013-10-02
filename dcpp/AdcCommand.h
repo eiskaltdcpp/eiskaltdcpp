@@ -18,17 +18,15 @@
 
 #pragma once
 
-#include <string>
-
-#include "forward.h"
-#include "Exception.h"
 #include "typedefs.h"
+#include "Exception.h"
+#include "Util.h"
 
 namespace dcpp {
 
-using std::string;
-
 STANDARD_EXCEPTION(ParseException);
+
+class CID;
 
 class AdcCommand {
 public:

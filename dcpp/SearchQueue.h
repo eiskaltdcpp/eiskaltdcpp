@@ -18,14 +18,9 @@
 
 #pragma once
 
-#include <deque>
-#include <string>
-#include "forward.h"
 #include "MerkleTree.h"
 
 namespace dcpp {
-using std::deque;
-using std::string;
 
 struct SearchCore
 {

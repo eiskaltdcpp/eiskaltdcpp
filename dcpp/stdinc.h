@@ -24,59 +24,81 @@
 #define BZ_NO_STDIO 1
 #endif
 
+#ifdef _MSC_VER
+
+//disable the deprecated warnings for the CRT functions.
+#define _CRT_SECURE_NO_DEPRECATE 1
+#define _ATL_SECURE_NO_DEPRECATE 1
+#define _CRT_NON_CONFORMING_SWPRINTFS 1
+
+
+typedef signed __int8 int8_t;
+typedef signed __int16 int16_t;
+typedef signed __int32 int32_t;
+typedef signed __int64 int64_t;
+
+typedef unsigned __int8 uint8_t;
+typedef unsigned __int16 uint16_t;
+typedef unsigned __int32 uint32_t;
+typedef unsigned __int64 uint64_t;
+
+# ifndef CDECL
+#  define CDECL _cdecl
+# endif
+
+#else // _MSC_VER
+
+# ifndef CDECL
+#  define CDECL
+# endif
+
+#endif // _MSC_VER
 
 #ifdef _WIN32
 #include "w.h"
 #else
-#include <arpa/inet.h>
-#include <dirent.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <fnmatch.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <pthread.h>
-#include <sched.h>
-#include <semaphore.h>
-#include <sys/ioctl.h>
-#include <sys/resource.h>
-#include <sys/socket.h>
-#include <sys/stat.h>
-#include <sys/time.h>
 #include <unistd.h>
 #endif
 
-#include <cstdint>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <climits>
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#else
+#include <assert.h>
+#endif
+
+#include <ctype.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <memory.h>
+#include <sys/types.h>
+#include <time.h>
+#include <locale.h>
+#ifndef _MSC_VER
+#include <stdint.h>
+#endif
 
 #include <algorithm>
-#include <deque>
-#include <functional>
-#include <list>
-#include <map>
-#include <memory>
-#include <set>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <utility>
 #include <vector>
+#include <string>
+#include <map>
+#include <set>
+#include <deque>
+#include <list>
+#include <utility>
+#include <functional>
+#include <memory>
+#include <numeric>
+#include <limits>
+#include <libintl.h>
 
 #include <boost/format.hpp>
 #include <boost/scoped_array.hpp>
 #include <boost/noncopyable.hpp>
 
-#include <bzlib.h>
 
-#include <openssl/ssl.h>
-
-#include <utility>
-using std::move;
+#include <unordered_set>
+#include <unordered_map>
 
 namespace dcpp {
-    using namespace std;
+using namespace std;
 }

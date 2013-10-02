@@ -38,6 +38,7 @@ public:
     typedef X<5> ModeChange;
     typedef X<6> TransmitDone;
     typedef X<7> Failed;
+    typedef X<8> Updated;
 
     virtual void on(Connecting) noexcept { }
     virtual void on(Connected) noexcept { }
@@ -47,6 +48,7 @@ public:
     virtual void on(ModeChange) noexcept { }
     virtual void on(TransmitDone) noexcept { }
     virtual void on(Failed, const string&) noexcept { }
+    virtual void on(Updated) noexcept { }
 };
 
 } // namespace dcpp

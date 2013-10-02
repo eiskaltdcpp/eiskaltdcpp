@@ -29,7 +29,7 @@
 
 string LOCAL_PATH="", PATH = "", sTitle = "", LOG_FILE= "";
 
-void logging(bool d, bool s, bool b, const std::string& msg) {
+void logging(bool d, bool s, bool b, const string& msg) {
 #ifndef _WIN32
     if (d) {
         if (s) {
@@ -71,20 +71,20 @@ void Log(const string & sData) {
     acc_tm = localtime(&acc_time);
     char sBuf[64];
     strftime(sBuf, 64, "%d.%m.%Y %H:%M:%S", acc_tm);
-    std::string sTmp = string(sBuf) + " - " + sData + "\n";
+    string sTmp = string(sBuf) + " - " + sData + "\n";
 
     fprintf(fw, "%s", sTmp.c_str());
     fclose(fw);
 }
 
 #include "extra/magnet.h"
-bool splitMagnet(const std::string &magnet, std::string &name, int64_t &size, std::string &tth) {
+bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth) {
     name = "Unknown";
     size = 0;
     tth = "Unknown";
 
-    dcpp::StringMap params;
-    if (dcpp::magnet::parseUri(magnet,params)) {
+    StringMap params;
+    if (magnet::parseUri(magnet,params)) {
         tth=params["xt"];
 #if defined(USE_BOOST_LEXICAL_CAST)
         size = boost::lexical_cast<long long>(params["xl"]);

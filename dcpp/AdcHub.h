@@ -69,9 +69,7 @@ public:
     static const string SECURE_CLIENT_PROTOCOL_TEST;
     static const string ADCS_FEATURE;
     static const string TCP4_FEATURE;
-    static const string TCP6_FEATURE;
     static const string UDP4_FEATURE;
-    static const string UDP6_FEATURE;
     static const string NAT0_FEATURE;
     static const string SEGA_FEATURE;
     static const string BASE_SUPPORT;
@@ -90,12 +88,18 @@ private:
     friend class Identity;
 
     AdcHub(const string& aHubURL, bool secure);
+
+    AdcHub(const AdcHub&);
+    AdcHub& operator=(const AdcHub&);
     virtual ~AdcHub();
 
+    /** Map session id to OnlineUser */
+    typedef unordered_map<uint32_t, OnlineUser*> SIDMap;
+    typedef SIDMap::iterator SIDIter;
 
     bool oldPassword;
     Socket udp;
-    unordered_map<uint32_t, OnlineUser*> users; /** Map session id to OnlineUser */
+    SIDMap users;
     StringMap lastInfoMap;
     mutable CriticalSection cs;
 
@@ -106,7 +110,7 @@ private:
 
     static const vector<StringList> searchExts;
 
-    virtual void checkNick(string& nick);
+    virtual string checkNick(const string& nick);
 
     OnlineUser& getUser(const uint32_t aSID, const CID& aCID);
     OnlineUser* findUser(const uint32_t sid) const;
@@ -140,14 +144,13 @@ private:
     void sendUDP(const AdcCommand& cmd) noexcept;
     void unknownProtocol(uint32_t target, const string& protocol, const string& token);
     bool secureAvail(uint32_t target, const string& protocol, const string& token);
-    virtual bool v4only() const { return false; }
     virtual void on(Connecting) noexcept { fire(ClientListener::Connecting(), this); }
     virtual void on(Connected) noexcept;
     virtual void on(Line, const string& aLine) noexcept;
     virtual void on(Failed, const string& aLine) noexcept;
 
     virtual void on(Second, uint64_t aTick) noexcept;
-    OnlineUserList getUsers() const;
+
 };
 
 } // namespace dcpp

@@ -181,9 +181,9 @@ int64_t File::getSize(const string& aFileName) noexcept {
 
 void File::ensureDirectory(const string& aFile) noexcept {
     // Skip the first dir...
-    string file;
+    tstring file;
     Text::toT(aFile, file);
-    string::size_type start = file.find_first_of(_T("\\/"));
+    tstring::size_type start = file.find_first_of(_T("\\/"));
     if(start == string::npos)
         return;
     start++;
@@ -589,11 +589,5 @@ uint32_t FileFindIter::DirData::getLastWriteTime() {
 }
 
 #endif // !_WIN32
-
-#ifdef _WIN32
-FILE* dcpp_fopen(const char* filename, const char* mode) {
-    return _wfopen(Text::toT(filename).c_str(), Text::toT(mode).c_str());
-}
-#endif
 
 } // namespace dcpp

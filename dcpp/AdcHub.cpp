@@ -47,9 +47,7 @@ const string AdcHub::CLIENT_PROTOCOL("ADC/1.0");
 const string AdcHub::SECURE_CLIENT_PROTOCOL_TEST("ADCS/0.10");
 const string AdcHub::ADCS_FEATURE("ADC0");
 const string AdcHub::TCP4_FEATURE("TCP4");
-const string AdcHub::TCP6_FEATURE("TCP6");
 const string AdcHub::UDP4_FEATURE("UDP4");
-const string AdcHub::UDP6_FEATURE("UDP6");
 const string AdcHub::NAT0_FEATURE("NAT0");
 const string AdcHub::SEGA_FEATURE("SEGA");
 const string AdcHub::BASE_SUPPORT("ADBASE");
@@ -64,8 +62,7 @@ const string AdcHub::DHT0_SUPPORT("ADDHT0");
 
 const vector<StringList> AdcHub::searchExts;
 
-AdcHub::AdcHub(const string& aHubURL, bool secure) :
-    Client(aHubURL, '\n', secure), oldPassword(false), udp(Socket::TYPE_UDP), sid(0) {
+AdcHub::AdcHub(const string& aHubURL, bool secure) : Client(aHubURL, '\n', secure), oldPassword(false), sid(0) {
     TimerManager::getInstance()->addListener(this);
 }
 
@@ -100,9 +97,9 @@ OnlineUser* AdcHub::findUser(const uint32_t aSID) const {
 
 OnlineUser* AdcHub::findUser(const CID& aCID) const {
     Lock l(cs);
-    for(auto& i: users) {
-        if(i.second->getUser()->getCID() == aCID) {
-            return i.second;
+    for(auto i = users.begin(); i != users.end(); ++i) {
+        if(i->second->getUser()->getCID() == aCID) {
+            return i->second;
         }
     }
     return 0;
@@ -127,16 +124,16 @@ void AdcHub::putUser(const uint32_t aSID, bool disconnect) {
 }
 
 void AdcHub::clearUsers() {
-    decltype(users) tmp;
+    SIDMap tmp;
     {
         Lock l(cs);
         users.swap(tmp);
     }
 
-    for(auto& i: tmp) {
-        if(i.first != AdcCommand::HUB_SID)
-            ClientManager::getInstance()->putOffline(i.second);
-        delete i.second;
+    for(auto i = tmp.begin(); i != tmp.end(); ++i) {
+        if(i->first != AdcCommand::HUB_SID)
+            ClientManager::getInstance()->putOffline(i->second);
+        delete i->second;
     }
 }
 
@@ -175,11 +172,11 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) noexcept {
         return;
     }
 
-    for(auto& i: c.getParameters()) {
-        if(i.length() < 2)
+    for(auto i = c.getParameters().begin(); i != c.getParameters().end(); ++i) {
+        if(i->length() < 2)
             continue;
 
-        u->getIdentity().set(i.c_str(), i.substr(2));
+        u->getIdentity().set(i->c_str(), i->substr(2));
     }
 
     if(u->getIdentity().isBot()) {
@@ -216,13 +213,13 @@ void AdcHub::handle(AdcCommand::SUP, AdcCommand& c) noexcept {
         return;
     bool baseOk = false;
     bool tigrOk = false;
-    for(auto& i: c.getParameters()) {
-        if(i == BAS0_SUPPORT) {
+    for(auto i = c.getParameters().begin(); i != c.getParameters().end(); ++i) {
+        if(*i == BAS0_SUPPORT) {
             baseOk = true;
             tigrOk = true;
-        } else if(i == BASE_SUPPORT) {
+        } else if(*i == BASE_SUPPORT) {
             baseOk = true;
-        } else if(i == TIGR_SUPPORT) {
+        } else if(*i == TIGR_SUPPORT) {
             tigrOk = true;
         }
     }
@@ -317,9 +314,9 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) noexcept {
         }
 
     if(s == sid) {
-        // this QUI is directed to us
+                // this QUI is directed to us
 
-        string tmp;
+                string tmp;
         if(c.getParam("TL", 1, tmp)) {
             if(tmp == "-1") {
                 setAutoReconnect(false);
@@ -363,7 +360,7 @@ void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) noexcept {
         return;
     }
 
-    ConnectionManager::getInstance()->adcConnect(*u, port, token, secure);
+    ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), token, secure);
 }
 
 void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) noexcept {
@@ -434,7 +431,7 @@ void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) noexcept {
 void AdcHub::sendUDP(const AdcCommand& cmd) noexcept {
     string command;
     string ip;
-    string port;
+    uint16_t port;
     {
         Lock l(cs);
         auto i = users.find(cmd.getTo());
@@ -447,7 +444,7 @@ void AdcHub::sendUDP(const AdcCommand& cmd) noexcept {
             return;
         }
         ip = ou.getIdentity().getIp();
-        port = ou.getIdentity().getUdpPort();
+        port = static_cast<uint16_t>(Util::toInt(ou.getIdentity().getUdpPort()));
         command = cmd.toString(ou.getUser()->getCID());
     }
     try {
@@ -514,7 +511,7 @@ void AdcHub::handle(AdcCommand::SCH, AdcCommand& c) noexcept {
         return;
     }
 
-    fire(ClientListener::AdcSearch(), this, c, *ou);
+    fire(ClientListener::AdcSearch(), this, c, ou->getUser()->getCID());
 }
 
 void AdcHub::handle(AdcCommand::RES, AdcCommand& c) noexcept {
@@ -617,7 +614,7 @@ void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) noexcept {
 
     // Trigger connection attempt sequence locally ...
     dcdebug("triggering connecting attempt in NAT: remote port = %s, local IP = %s, local port = %d\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort());
-    ConnectionManager::getInstance()->adcConnect(*u, port, Util::toString(sock->getLocalPort()), BufferedSocket::NAT_CLIENT, token, secure);
+    ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_CLIENT, token, secure);
 
     // ... and signal other client to do likewise.
     send(AdcCommand(AdcCommand::CMD_RNT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(protocol).
@@ -650,7 +647,7 @@ void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
 
     // Trigger connection attempt sequence locally
     dcdebug("triggering connecting attempt in RNT: remote port = %s, local IP = %s, local port = %d\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort());
-    ConnectionManager::getInstance()->adcConnect(*u, port, Util::toString(sock->getLocalPort()), BufferedSocket::NAT_SERVER, token, secure);
+    ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_SERVER, token, secure);
 }
 void AdcHub::handle(AdcCommand::ZON, AdcCommand& c) noexcept {
     try {
@@ -691,13 +688,13 @@ void AdcHub::connect(const OnlineUser& user, string const& token, bool secure) {
     }
 
     if(isActive()) {
-        const string& port = secure ? ConnectionManager::getInstance()->getSecurePort() : ConnectionManager::getInstance()->getPort();
-        if(port.empty()) {
+        uint16_t port = secure ? ConnectionManager::getInstance()->getSecurePort() : ConnectionManager::getInstance()->getPort();
+        if(port == 0) {
             // Oops?
             LogManager::getInstance()->message(str(F_("Not listening for connections - please restart %1%") % APPNAME));
             return;
         }
-        send(AdcCommand(AdcCommand::CMD_CTM, user.getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(*proto).addParam(port).addParam(token));
+        send(AdcCommand(AdcCommand::CMD_CTM, user.getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(*proto).addParam(Util::toString(port)).addParam(token));
     } else {
         send(AdcCommand(AdcCommand::CMD_RCM, user.getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(*proto).addParam(token));
     }
@@ -734,9 +731,9 @@ void AdcHub::sendUserCmd(const UserCommand& command, const StringMap& params) {
         } else {
             const string& to = command.getTo();
             Lock l(cs);
-            for(auto& i: users) {
-                if(i.second->getIdentity().getNick() == to) {
-                    privateMessage(*i.second, cmd);
+            for(auto i = users.begin(); i != users.end(); ++i) {
+                if(i->second->getIdentity().getNick() == to) {
+                    privateMessage(*i->second, cmd);
                     return;
                 }
             }
@@ -844,8 +841,8 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
             c.addParam("LE", Util::toString(aSize));
         }
         StringTokenizer<string> st(aString, ' ');
-        for(auto& i: st.getTokens()) {
-            c.addParam("AN", i);
+        for(auto i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+            c.addParam("AN", *i);
         }
         if(aFileType == SearchManager::TYPE_DIRECTORY) {
             c.addParam("TY", "2");
@@ -904,14 +901,14 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
                 c_gr.setFeatures('+' + SEGA_FEATURE);
 
                 const auto& params = c.getParameters();
-                for(auto& i: params)
-                    c_gr.addParam(i);
+                for(auto i = params.cbegin(), iend = params.cend(); i != iend; ++i)
+                    c_gr.addParam(*i);
 
-                for(auto& i: exts)
-                    c_gr.addParam("EX", i);
+                for(auto i = exts.cbegin(), iend = exts.cend(); i != iend; ++i)
+                    c_gr.addParam("EX", *i);
                 c_gr.addParam("GR", Util::toString(gr));
-                for(auto& i: rx)
-                    c_gr.addParam("RX", i);
+                for(auto i = rx.cbegin(), iend = rx.cend(); i != iend; ++i)
+                    c_gr.addParam("RX", *i);
 
                 sendSearch(c_gr);
 
@@ -921,8 +918,8 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
             }
         }
 
-        for(auto& i: aExtList)
-            c.addParam("EX", i);
+        for(auto i = aExtList.cbegin(), iend = aExtList.cend(); i != iend; ++i)
+            c.addParam("EX", *i);
     }
 
     sendSearch(c);
@@ -931,8 +928,8 @@ void AdcHub::sendSearch(AdcCommand& c) {
     if(isActive()) {
         send(c);
     } else {
-        c.setType(AdcCommand::TYPE_FEATURE);
         string features = c.getFeatures();
+        c.setType(AdcCommand::TYPE_FEATURE);
         if (BOOLSETTING(ALLOW_NATT)) {
             c.setFeatures(features + '+' + TCP4_FEATURE + '-' + NAT0_FEATURE);
             send(c);
@@ -1028,13 +1025,13 @@ void AdcHub::info(bool /*alwaysSend*/) {
     if (!getFavIp().empty()) {
         addParam(lastInfoMap, c, "I4", getFavIp());
    } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
-           addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP), AF_INET));
+           addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP)));
    } else {
            addParam(lastInfoMap, c, "I4", "0.0.0.0");
    }
 
    if(isActive()) {
-           addParam(lastInfoMap, c, "U4", SearchManager::getInstance()->getPort());
+           addParam(lastInfoMap, c, "U4", Util::toString(SearchManager::getInstance()->getPort()));
            su += "," + TCP4_FEATURE;
             su += "," + UDP4_FEATURE;
    } else {
@@ -1055,18 +1052,20 @@ void AdcHub::info(bool /*alwaysSend*/) {
 int64_t AdcHub::getAvailable() const {
     Lock l(cs);
     int64_t x = 0;
-    for(auto& i: users) {
-        x+=i.second->getIdentity().getBytesShared();
+    for(auto i = users.begin(); i != users.end(); ++i) {
+        x+=i->second->getIdentity().getBytesShared();
     }
     return x;
 }
 
-void AdcHub::checkNick(string& nick) {
-    for(size_t i = 0; i < nick.size(); ++i) {
-        if(static_cast<uint8_t>(nick[i]) <= 32) {
-            nick[i] = '_';
+string AdcHub::checkNick(const string& aNick) {
+    string tmp = aNick;
+    for(size_t i = 0; i < aNick.size(); ++i) {
+        if(static_cast<uint8_t>(tmp[i]) <= 32) {
+            tmp[i] = '_';
         }
     }
+    return tmp;
 }
 
 void AdcHub::send(const AdcCommand& cmd) {
@@ -1143,16 +1142,6 @@ void AdcHub::on(Second s, uint64_t aTick) noexcept {
         send("\n", 1);
     }
 }
-
-OnlineUserList AdcHub::getUsers() const {
-    Lock l(cs);
-    OnlineUserList ret;
-    ret.reserve(users.size());
-    for(auto& i: users)
-        ret.push_back(i.second);
-    return ret;
-}
-
 #ifdef LUA_SCRIPT
 bool AdcScriptInstance::onClientMessage(AdcHub* aClient, const string& aLine) {
     Lock l(cs);

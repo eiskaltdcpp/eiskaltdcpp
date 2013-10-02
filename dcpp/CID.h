@@ -18,14 +18,12 @@
 
 #pragma once
 
-#include <cstring>
+#include "Encoder.h"
+#include "Util.h"
+#include <functional>
 #include <algorithm>
 
-#include "Encoder.h"
-
 namespace dcpp {
-
-using std::find_if;
 
 class CID {
 public:
@@ -49,7 +47,7 @@ public:
     }
     const uint8_t* data() const { return cid; }
 
-    bool isZero() const { return find_if(cid, cid+SIZE, [](uint8_t c) { return c != 0; }) == (cid+SIZE); }
+    bool isZero() const { return std::find_if(cid, cid+SIZE, bind2nd(std::not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
 
     static CID generate();
 

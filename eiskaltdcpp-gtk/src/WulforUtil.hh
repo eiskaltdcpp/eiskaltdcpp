@@ -25,7 +25,6 @@
 #include <dcpp/stdinc.h>
 #include <dcpp/CID.h>
 #include <dcpp/User.h>
-#include <dcpp/HintedUser.h>
 
 #define C_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
 

@@ -29,15 +29,13 @@
 #include <fstream>
 #endif
 
-using namespace dcpp;
-
 char pidfile[256] = {0};
 char config_dir[1024] = {0};
 char local_dir[1024] = {0};
 
 #ifndef _WIN32
 static void SigHandler(int sig) {
-    std::string str = "Received signal ";
+    string str = "Received signal ";
 
     if (sig == SIGINT) {
         str += "SIGINT";
@@ -48,7 +46,7 @@ static void SigHandler(int sig) {
     } else if (sig == SIGHUP) {
         str += "SIGHUP";
     } else {
-        str += dcpp::Util::toString(sig);
+        str += Util::toString(sig);
     }
 
     str += " ending...";

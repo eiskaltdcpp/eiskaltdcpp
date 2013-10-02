@@ -18,69 +18,76 @@
 
 #pragma once
 
-#include <string>
-#include "BufferedSocketListener.h"
-#include "HttpConnectionListener.h"
-#include "GetSet.h"
-#include "Speaker.h"
-#include "Util.h"
+#include "BufferedSocket.h"
+#include "noexcept.h"
 
 namespace dcpp {
-using std::string;
 
-class HttpConnection : BufferedSocketListener, public Speaker<HttpConnectionListener>, boost::noncopyable
+class HttpConnection;
+
+class HttpConnectionListener {
+public:
+    virtual ~HttpConnectionListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
+
+    typedef X<0> Data;
+    typedef X<1> Failed;
+    typedef X<2> Complete;
+    typedef X<3> Redirected;
+    typedef X<4> TypeNormal;
+    typedef X<5> TypeBZ2;
+    typedef X<6> Retried;
+
+    virtual void on(Data, HttpConnection*, const uint8_t*, size_t) noexcept =0;
+    virtual void on(Failed, HttpConnection*, const string&) noexcept { }
+    virtual void on(Complete, HttpConnection*, const string&, bool) noexcept { }
+    virtual void on(Redirected, HttpConnection*, const string&) noexcept { }
+    virtual void on(TypeNormal, HttpConnection*) noexcept { }
+    virtual void on(TypeBZ2, HttpConnection*) noexcept { }
+    virtual void on(Retried, HttpConnection*, const bool) noexcept { }
+};
+
+class HttpConnection : BufferedSocketListener, public Speaker<HttpConnectionListener>
 {
 public:
-    HttpConnection(const string& aUserAgent = Util::emptyString);
-    virtual ~HttpConnection();
+    void downloadFile(const string& aUrl);
+    HttpConnection() : ok(false), port(80), size(-1), moved302(false), coralizeState(CST_DEFAULT), socket(NULL) { }
+    virtual ~HttpConnection() noexcept {
+        if(socket) {
+            socket->removeListener(this);
+            BufferedSocket::putSocket(socket);
+        }
+    }
 
-    void download();
-    void download(const StringMap& postData);
-
-    void abort();
-    const string& getMimeType() const { return mimeType; }
-
-    int64_t getSize() const { return size; }
-    int64_t getDone() const { return done; }
-    double getSpeed() const { return speed; }
-
-    GETSET(string, url, Url);
-    GETSET(bool, coralized, Coralized);
+    enum CoralizeStates {CST_DEFAULT, CST_CONNECTED, CST_NOCORALIZE};
+    void setCoralizeState(CoralizeStates _cor) { coralizeState = _cor; }
 
 private:
-    enum RequestType { TYPE_GET, TYPE_POST };
-    enum ConnectionStates { CONN_UNKNOWN, CONN_OK, CONN_FAILED, CONN_MOVED, CONN_CHUNKED };
 
-    string userAgent;
-    string method;
+    HttpConnection(const HttpConnection&);
+    HttpConnection& operator=(const HttpConnection&);
+
+    string currentUrl;
     string file;
     string server;
-    string port;
-    string requestBody;
-    string mimeType;
+    bool ok;
+    uint16_t port;
     int64_t size;
-    int64_t done;
-    double speed;
+    bool moved302;
 
-    // counters to compute a best-effort speed
-    int64_t lastPos;
-    uint64_t lastTick;
-
-    ConnectionStates connState;
-    RequestType connType;
+    CoralizeStates coralizeState;
 
     BufferedSocket* socket;
-    void prepareRequest(RequestType type);
-    void abortRequest(bool disconnect);
-
-    void updateSpeed();
 
     // BufferedSocketListener
-    void on(Connected) noexcept;
-    void on(Line, const string&) noexcept;
-    void on(Data, uint8_t*, size_t) noexcept;
-    void on(ModeChange) noexcept;
-    void on(Failed, const string&) noexcept;
+    virtual void on(Connected) noexcept;
+    virtual void on(Line, const string&) noexcept;
+    virtual void on(Data, uint8_t*, size_t) noexcept;
+    virtual void on(ModeChange) noexcept;
+    virtual void on(Failed, const string&) noexcept;
+
+    void onConnected();
+    void onLine(const string& aLine);
 
 };
 

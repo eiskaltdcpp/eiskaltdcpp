@@ -56,7 +56,7 @@ quint64 ClientManagerScript::getAvailable() const{
 }
 
 QStringList ClientManagerScript::getHubs(const QString& cid) const{
-    return toQStringList(CM->getHubUrls(dcpp::CID(_tq(cid)), ""));
+    return toQStringList(CM->getHubs(dcpp::CID(_tq(cid)), ""));
 }
 
 QStringList ClientManagerScript::getHubNames(const QString& cid) const{
@@ -65,7 +65,7 @@ QStringList ClientManagerScript::getHubNames(const QString& cid) const{
 
 QStringList ClientManagerScript::getHubNames(const QString& cid, const QString& hubUrl) const{
     StringList hubs = ClientManager::getInstance()->getHubNames(dcpp::CID(_tq(cid)), _tq(hubUrl));
-
+    
     if (hubs.empty())
         return QStringList();
     else
@@ -84,7 +84,7 @@ QStringList ClientManagerScript::getNicks(const QString& cid) const{
 QStringList ClientManagerScript::getConnectedHubs() const {
     QStringList ret;
     CM->lock();
-    auto& clients = CM->getClients();
+    dcpp::Client::List& clients = CM->getClients();
 
     for(auto it = clients.begin(); it != clients.end(); ++it) {
         Client* client = *it;

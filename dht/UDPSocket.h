@@ -27,12 +27,12 @@
 
 namespace dht
 {
-using namespace dcpp;
 
-    struct Packet
+    struct Packet :
+        FastAlloc<Packet>
     {
         /** Public constructor */
-        Packet(const string& ip_, const string& port_, const std::string& data_, const CID& _targetCID, const CID& _udpKey) :
+        Packet(const string& ip_, uint16_t port_, const std::string& data_, const CID& _targetCID, const CID& _udpKey) :
             ip(ip_), port(port_), data(data_), targetCID(_targetCID), udpKey(_udpKey)
         {
         }
@@ -41,7 +41,7 @@ using namespace dcpp;
         string ip;
 
         /** To which port this packet should be sent */
-        string port;
+        uint16_t port;
 
         /** Data to sent */
         std::string data;
@@ -68,10 +68,10 @@ using namespace dcpp;
         void listen() throw(SocketException);
 
         /** Returns port used to listening to UDP socket */
-        const string& getPort() const { return port; }
+        uint16_t getPort() const { return port; }
 
         /** Sends command to ip and port */
-        void send(AdcCommand& cmd, const string& ip, const string& port, const CID& targetCID, const CID& udpKey);
+        void send(AdcCommand& cmd, const string& ip, uint16_t port, const CID& targetCID, const CID& udpKey);
 
     private:
 
@@ -81,7 +81,7 @@ using namespace dcpp;
         bool stop;
 
         /** Port for communicating in this network */
-        string port;
+        uint16_t port;
 
         /** Queue for sending packets through UDP socket */
         std::deque<Packet*> sendQueue;

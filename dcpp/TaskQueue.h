@@ -18,26 +18,52 @@
 
 #pragma once
 
-#include <string>
+#include <memory>
+#include <utility>
+#include <vector>
+#include "CriticalSection.h"
 
 namespace dcpp {
 
-using std::string;
+using std::make_pair;
+using std::pair;
+using std::swap;
+using std::unique_ptr;
+using std::vector;
 
-class Encoder
-{
+struct Task {
+    virtual ~Task() { };
+};
+struct StringTask : public Task {
+    StringTask(const string& str_) : str(str_) { }
+    string str;
+};
+
+class TaskQueue {
 public:
-    static string& toBase32(const uint8_t* src, size_t len, string& tgt);
-    static string toBase32(const uint8_t* src, size_t len) {
-        string tmp;
-        return toBase32(src, len, tmp);
-    }
-    static void fromBase32(const char* src, uint8_t* dst, size_t len);
+    typedef pair<int, unique_ptr<Task>> Pair;
+    typedef vector<Pair> List;
 
-    static void fromBase16(const char* src, uint8_t *dst, size_t len);
+    TaskQueue() {
+    }
+
+    ~TaskQueue() {
+        clear();
+    }
+
+    void add(int type, std::unique_ptr<Task> && data) { Lock l(cs); tasks.push_back(make_pair(type, move(data))); }
+    void get(List& list) { Lock l(cs); swap(tasks, list); }
+    void clear() {
+        List tmp;
+        get(tmp);
+    }
 private:
-    static const int8_t base32Table[];
-    static const char base32Alphabet[];
+
+    TaskQueue(const TaskQueue&);
+    TaskQueue& operator=(const TaskQueue&);
+
+    CriticalSection cs;
+    List tasks;
 };
 
 } // namespace dcpp

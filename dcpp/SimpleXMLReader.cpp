@@ -100,7 +100,7 @@ bool SimpleXMLReader::error(const char* e) {
 const string& SimpleXMLReader::CallBack::getAttrib(StringPairList& attribs, const string& name, size_t hint) {
     hint = min(hint, attribs.size());
 
-    auto i = find_if(attribs.begin() + hint, attribs.end(), CompareFirst<string, string>(name));
+    StringPairIter i = find_if(attribs.begin() + hint, attribs.end(), CompareFirst<string, string>(name));
     if(i == attribs.end()) {
         i = find_if(attribs.begin(), attribs.begin() + hint, CompareFirst<string, string>(name));
         return ((i == (attribs.begin() + hint)) ? Util::emptyString : i->second);
@@ -507,11 +507,10 @@ bool SimpleXMLReader::elementEndEnd() {
     }
 
     if(charAt(0) == '>') {
-        //if(!encoding.empty() && encoding != Text::utf8) {
-            //value = Text::toUtf8(encoding);
-        //}
-        //cb->endTag(elements.back(), value);
-        cb->endTag(elements.back());
+        if(!encoding.empty() && encoding != Text::utf8) {
+            value = Text::toUtf8(encoding);
+        }
+        cb->endTag(elements.back(), value);
         value.clear();
         elements.pop_back();
 
@@ -571,15 +570,10 @@ void SimpleXMLReader::parse(InputStream& stream, size_t maxSize) {
     } while(process());
 }
 
-bool SimpleXMLReader::parse(const char* data, size_t len) {
+bool SimpleXMLReader::parse(const char* data, size_t len, bool more) {
     buf.append(data, len);
     return process();
 }
-
-bool SimpleXMLReader::parse(const string& str) {
-    return parse(str.c_str(), str.size());
-}
-
 bool SimpleXMLReader::spaceOrError(const char* message) {
     if(!skipSpace()) {
         error(message);
@@ -718,11 +712,8 @@ bool SimpleXMLReader::process() {
             return true;
         }
 
-        if(oldState == STATE_CONTENT && state != oldState && !value.empty()) {
-            if(!encoding.empty() && encoding != Text::utf8) {
-                value = Text::toUtf8(value, encoding);
-            }
-            cb->data(value);
+        if(state == STATE_CONTENT && state != oldState) {
+            // might contain whitespace from previous unfruitful contents (that turned out to be elements / comments)
             value.clear();
         }
 
@@ -732,6 +723,6 @@ bool SimpleXMLReader::process() {
 
     // should never happen
     return false;
-};
+}
 
 }

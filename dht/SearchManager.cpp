@@ -26,7 +26,6 @@
 #include "dcpp/SearchManager.h"
 #include "dcpp/SearchResult.h"
 #include "dcpp/SimpleXML.h"
-#include "dcpp/Streams.h"
 
 namespace dht
 {
@@ -76,7 +75,7 @@ namespace dht
             cmd.addParam("TO", token);
 
             //node->setTimeout();
-            DHT::getInstance()->send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
+            DHT::getInstance()->send(cmd, node->getIdentity().getIp(), static_cast<uint16_t>(Util::toInt(node->getIdentity().getUdpPort())), node->getUser()->getCID(), node->getUdpKey());
         }
     }
 
@@ -291,14 +290,14 @@ namespace dht
             return; // no requested nodes found, don't send empty list
 
         string nodes;
-        StringRefOutputStream sos(nodes);
+        StringOutputStream sos(nodes);
         //sos.write(SimpleXML::utf8Header); // don't write header to save some bytes
         xml.toXML(&sos);
 
         res.addParam("NX", Utils::compressXML(nodes));
 
         // send search result
-        DHT::getInstance()->send(res, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
+        DHT::getInstance()->send(res, node->getIdentity().getIp(), static_cast<uint16_t>(Util::toInt(node->getIdentity().getUdpPort())), node->getUser()->getCID(), node->getUdpKey());
     }
 
     /*
@@ -340,12 +339,12 @@ namespace dht
                 {
                     const CID cid       = CID(xml.getChildAttrib("CID"));
                     const string& i4    = xml.getChildAttrib("I4");
-                    const string& u4    = Util::toString(xml.getIntChildAttrib("U4"));
+                    uint16_t u4         = static_cast<uint16_t>(xml.getIntChildAttrib("U4"));
                     int64_t size        = xml.getLongLongChildAttrib("SI");
                     bool partial        = xml.getBoolChildAttrib("PF");
 
                     // don't bother with invalid sources and private IPs
-                    if( cid.isZero() || ClientManager::getInstance()->getMe()->getCID() == cid || !Utils::isGoodIPPort(i4, Util::toInt(u4)))
+                    if( cid.isZero() || ClientManager::getInstance()->getMe()->getCID() == cid || !Utils::isGoodIPPort(i4, u4))
                         continue;
 
                     // create user as offline (only TCP connected users will be online)
@@ -361,7 +360,7 @@ namespace dht
 
                         // ask for partial file
                         AdcCommand cmd(AdcCommand::CMD_PSR, AdcCommand::TYPE_UDP);
-                        cmd.addParam("U4", dcpp::SearchManager::getInstance()->getPort());
+                        cmd.addParam("U4", Util::toString(dcpp::SearchManager::getInstance()->getPort()));
                         cmd.addParam("TR", s->term);
 
                         DHT::getInstance()->send(cmd, i4, u4, cid, source->getUdpKey());
@@ -405,10 +404,10 @@ namespace dht
                 }
 
                 const string& i4 = xml.getChildAttrib("I4");
-                const string& u4 = Util::toString(xml.getIntChildAttrib("U4"));
+                uint16_t u4 = static_cast<uint16_t>(xml.getIntChildAttrib("U4"));
 
                 // don't bother with private IPs
-                if(!Utils::isGoodIPPort(i4, Util::toInt(u4)))
+                if(!Utils::isGoodIPPort(i4, u4))
                     continue;
 
                 // create unverified node
@@ -452,7 +451,7 @@ namespace dht
                 cmd.addParam("PF", "1");
 
             //i->second->setTimeout();
-            DHT::getInstance()->send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
+            DHT::getInstance()->send(cmd, node->getIdentity().getIp(), static_cast<uint16_t>(Util::toInt(node->getIdentity().getUdpPort())), node->getUser()->getCID(), node->getUdpKey());
         }
     }
 

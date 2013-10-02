@@ -17,11 +17,11 @@
  */
 
 #include "stdinc.h"
+
 #include "User.h"
 
 #include "AdcHub.h"
 #include "FavoriteUser.h"
-#include "format.h"
 #include "StringTokenizer.h"
 #include "ClientManager.h"
 
@@ -32,62 +32,28 @@ FastCriticalSection Identity::cs;
 OnlineUser::OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_) : identity(ptr, sid_), client(client_) {
 
 }
+
 bool Identity::isTcpActive(const Client* c) const {
-    return isTcp4Active(c) || isTcp6Active(c);
-}
-
-bool Identity::isTcp4Active(const Client* c) const {
-    if(c && user == ClientManager::getInstance()->getMe()) {
+    if(c != NULL && user == ClientManager::getInstance()->getMe()) {
         return c->isActive(); // userlist should display our real mode
     } else {
         return (!user->isSet(User::NMDC)) ?
-                !getIp4().empty() && supports(AdcHub::TCP4_FEATURE) :
-                !user->isSet(User::PASSIVE);
-    }
-}
-
-bool Identity::isTcp6Active(const Client* c) const {
-    if(c && user == ClientManager::getInstance()->getMe()) {
-        return c->isActive(); // userlist should display our real mode
-    } else {
-        return (!user->isSet(User::NMDC)) ?
-                !getIp6().empty() && supports(AdcHub::TCP6_FEATURE) :
+                !getIp().empty() && supports(AdcHub::TCP4_FEATURE) :
                 !user->isSet(User::PASSIVE);
     }
 }
 
 bool Identity::isUdpActive() const {
-    return isUdp4Active() || isUdp6Active();
-}
-
-bool Identity::isUdp4Active() const {
-    if(getIp4().empty() || getUdp4Port().empty())
+    if(getIp().empty() || getUdpPort().empty())
         return false;
-    return user->isSet(User::NMDC) ? !user->isSet(User::PASSIVE) : supports(AdcHub::UDP4_FEATURE);
-}
-
-bool Identity::isUdp6Active() const {
-    if(getIp6().empty() || getUdp6Port().empty())
-        return user->isSet(User::NMDC) ? !user->isSet(User::PASSIVE) : supports(AdcHub::UDP6_FEATURE);
-    return false;
-}
-
-string Identity::getUdpPort() const {
-    if(getIp6().empty() || getUdp6Port().empty()) {
-        return getUdp4Port();
-    }
-    return getUdp6Port();
-}
-
-string Identity::getIp() const {
-    return getIp6().empty() ? getIp4() : getIp6();
+    return (!user->isSet(User::NMDC)) ? supports(AdcHub::UDP4_FEATURE) : !user->isSet(User::PASSIVE);
 }
 
 void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility, bool dht) const {
     {
         FastLock l(cs);
-        for(auto& i: info) {
-            sm[prefix + string((char*)(&i.first), 2)] = i.second;
+        for(InfMap::const_iterator i = info.begin(); i != info.end(); ++i) {
+            sm[prefix + string((char*)(&i->first), 2)] = i->second;
         }
     }
     if(
@@ -128,37 +94,19 @@ string Identity::getTag() const {
         return get("TA");
     if(get("VE").empty() || get("HN").empty() || get("HR").empty() ||get("HO").empty() || get("SL").empty())
         return Util::emptyString;
-    return "<" + getApplication() + ",M:" + string(isTcpActive() ? "A" : "P") + ",H:" + get("HN") + "/" + get("HR") + "/" + get("HO") + ",S:" + get("SL") + ">";
+    return "<" + get("VE") + ",M:" + string(isTcpActive() ? "A" : "P") + ",H:" + get("HN") + "/" +
+        get("HR") + "/" + get("HO") + ",S:" + get("SL") + ">";
 }
-
-string Identity::getApplication() const {
-    auto application = get("AP");
-    auto version = get("VE");
-
-    if(version.empty())
-        return application;
-
-    if(application.empty())
-        return version;
-
-    return application + ' ' + version;
-}
-
-//string Identity::getConnection() const {
-    //if(!get("US").empty())
-        //return str(F_("%1%/s") % Util::formatBytes(get("US")));
-    //return get("CO");
-//}
 
 string Identity::get(const char* name) const {
     FastLock l(cs);
-    auto i = info.find(*(short*)name);
+    InfMap::const_iterator i = info.find(*(short*)name);
     return i == info.end() ? Util::emptyString : i->second;
 }
 
 bool Identity::isSet(const char* name) const {
     FastLock l(cs);
-    auto i = info.find(*(short*)name);
+    InfMap::const_iterator i = info.find(*(short*)name);
     return i != info.end();
 }
 
@@ -174,8 +122,8 @@ void Identity::set(const char* name, const string& val) {
 bool Identity::supports(const string& name) const {
     string su = get("SU");
     StringTokenizer<string> st(su, ',');
-    for(auto& i: st.getTokens()) {
-        if(i == name)
+    for(auto i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+        if(*i == name)
             return true;
     }
     return false;
@@ -185,8 +133,8 @@ std::map<string, string> Identity::getInfo() const {
     std::map<string, string> ret;
 
     FastLock l(cs);
-    for(auto& i: info) {
-        ret[string((char*)(&i.first), 2)] = i.second;
+    for(InfIterC i = info.begin(); i != info.end(); ++i) {
+        ret[string((char*)(&i->first), 2)] = i->second;
     }
 
     return ret;

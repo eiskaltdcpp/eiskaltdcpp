@@ -24,7 +24,8 @@
 #include "BufferedSocketListener.h"
 #include "BufferedSocket.h"
 #include "CriticalSection.h"
-#include "HintedUser.h"
+#include "File.h"
+#include "User.h"
 #include "AdcCommand.h"
 #include "MerkleTree.h"
 #include "DebugManager.h"
@@ -109,7 +110,7 @@ public:
         STATE_IDLE, // No more downloads for the moment
 
         // Up & down
-        STATE_RUNNING,       // Transmitting data
+        STATE_RUNNING       // Transmitting data
 
     };
 
@@ -124,18 +125,7 @@ public:
     void fileLength(const string& aLength) { send("$FileLength " + aLength + '|'); }
     void error(const string& aError) { send("$Error " + aError + '|'); }
     void listLen(const string& aLength) { send("$ListLen " + aLength + '|'); }
-    void maxedOut(size_t queue_position = 0) {
-        bool sendPos = queue_position > 0;
-        if(isSet(FLAG_NMDC)) {
-            send("$MaxedOut|");
-        } else {
-            AdcCommand cmd(AdcCommand::SEV_RECOVERABLE, AdcCommand::ERROR_SLOTS_FULL, "Slots full");
-            if(sendPos) {
-                cmd.addParam("QP", Util::toString(queue_position));
-            }
-            send(cmd);
-        }
-    }
+    void maxedOut() { isSet(FLAG_NMDC) ? send("$MaxedOut|") : send(AdcCommand(AdcCommand::SEV_RECOVERABLE, AdcCommand::ERROR_SLOTS_FULL, "Slots full")); }
     void fileNotAvail(const std::string& msg = FILE_NOT_AVAILABLE) { isSet(FLAG_NMDC) ? send("$Error " + msg + "|") : send(AdcCommand(AdcCommand::SEV_RECOVERABLE, AdcCommand::ERROR_FILE_NOT_AVAILABLE, msg)); }
     void supports(const StringList& feat);
 
@@ -149,12 +139,10 @@ public:
     void setDataMode(int64_t aBytes = -1) { dcassert(socket); socket->setDataMode(aBytes); }
     void setLineMode(size_t rollback) { dcassert(socket); socket->setLineMode(rollback); }
 
-    void sendRaw(const string& raw) { send(raw); }
-    void connect(const string& aServer, const string& aPort, const string& localPort, const BufferedSocket::NatRoles natRole);
-    void accept(const Socket& aServer);
+    void connect(const string& aServer, uint16_t aPort, uint16_t localPort, const BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException);
+    void accept(const Socket& aServer) throw(SocketException, ThreadException);
 
-    template<typename F>
-    void callAsync(F f) { if(socket) socket->callAsync(f); }
+    void updated() { if(socket) socket->updated(); }
 
     void disconnect(bool graceless = false) { if(socket) socket->disconnect(graceless); }
     void transmitFile(InputStream* f) { socket->transmitFile(f); }
@@ -166,7 +154,7 @@ public:
 
     const UserPtr& getUser() const { return user; }
     UserPtr& getUser() { return user; }
-    HintedUser getHintedUser() const { return HintedUser(user, hubUrl); }
+    const HintedUser getHintedUser() const { return HintedUser(user, hubUrl); }
 
     bool isSecure() const { return socket && socket->isSecure(); }
     bool isTrusted() const { return socket && socket->isTrusted(); }
@@ -174,6 +162,7 @@ public:
     vector<uint8_t> getKeyprint() const { return socket ? socket->getKeyprint() : vector<uint8_t>(); }
     std::string getRemoteIp() const { return socket ? socket->getIp() : Util::emptyString; }
     Download* getDownload() { dcassert(isSet(FLAG_DOWNLOAD)); return download; }
+    //uint16_t getPort() const { if(socket) return socket->getPort(); else return 0; }
     void setDownload(Download* d) { dcassert(isSet(FLAG_DOWNLOAD)); download = d; }
     Upload* getUpload() { dcassert(isSet(FLAG_UPLOAD)); return upload; }
     void setUpload(Upload* u) { dcassert(isSet(FLAG_UPLOAD)); upload = u; }
@@ -191,12 +180,10 @@ public:
 
     int64_t getChunkSize() const { return chunkSize; }
     void updateChunkSize(int64_t leafSize, int64_t lastChunk, uint64_t ticks);
-    bool supportsTrees() const { return isSet(FLAG_SUPPORTS_TTHL); }
-
+    void sendRaw(const string& raw) { send(raw); }//aded
     GETSET(string, hubUrl, HubUrl);
     GETSET(string, token, Token);
     GETSET(string, encoding, Encoding);
-    GETSET(string, port, Port);
     GETSET(States, state, State);
     GETSET(uint64_t, lastActivity, LastActivity);
     GETSET(double, speed, Speed);
@@ -220,7 +207,7 @@ private:
             setFlag(FLAG_SECURE);
     }
 
-    virtual ~UserConnection() {
+    virtual ~UserConnection() noexcept {
         BufferedSocket::putSocket(socket);
     }
 
@@ -232,7 +219,17 @@ private:
 
     void onLine(const string& aLine) noexcept;
 
-    void send(const string& aString);
+    void send(const string& aString) {
+        lastActivity = GET_TICK();
+        COMMAND_DEBUG(aString, DebugManager::CLIENT_OUT, getRemoteIp());
+#ifdef LUA_SCRIPT
+        if(onUserConnectionMessageOut(this, aString)) {
+            disconnect(true);
+            return;
+        }
+#endif
+        socket->write(aString);
+    }
 
     virtual void on(Connected) noexcept;
     virtual void on(Line, const string&) noexcept;
@@ -241,6 +238,7 @@ private:
     virtual void on(ModeChange) noexcept;
     virtual void on(TransmitDone) noexcept;
     virtual void on(Failed, const string&) noexcept;
+    virtual void on(Updated) noexcept;
 };
 
 } // namespace dcpp

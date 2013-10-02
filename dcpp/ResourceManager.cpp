@@ -18,34 +18,8 @@
 
 #include "stdinc.h"
 
-#include "UPnP.h"
+#include "ResourceManager.h"
 
 namespace dcpp {
 
-const char* UPnP::protocols[PROTOCOL_LAST] = {
-    "TCP",
-    "UDP"
-};
-
-bool UPnP::open(const unsigned short port, const Protocol protocol, const string& description) {
-    if(!add(port, protocol, description))
-        return false;
-
-    rules.push_back(make_pair(port, protocol));
-    return true;
-}
-
-bool UPnP::close() {
-    bool ret = true;
-
-    for(std::vector<rule>::const_iterator i = rules.begin(), iend = rules.end(); i != iend; ++i)
-        ret &= remove(i->first, i->second);
-    rules.clear();
-
-    return ret;
-}
-
-bool UPnP::hasRules() const {
-        return !rules.empty();
-}
 } // namespace dcpp

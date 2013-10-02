@@ -18,11 +18,7 @@
 
 #pragma once
 
-#include <string>
-
 namespace dcpp {
-
-using std::string;
 
 class UPnP : boost::noncopyable
 {

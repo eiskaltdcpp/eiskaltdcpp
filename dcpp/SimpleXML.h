@@ -18,12 +18,8 @@
 
 #pragma once
 
-#include <boost/noncopyable.hpp>
-
-#include "forward.h"
-#include "noexcept.h"
 #include "Exception.h"
-#include "Util.h"
+#include "Streams.h"
 #include "SimpleXMLReader.h"
 
 namespace dcpp {
@@ -105,14 +101,6 @@ public:
         checkChildSelected();
         return (*currentChild)->data;
     }
-    StringMap getCurrentChildren() {
-        dcassert(current != NULL);
-        StringMap d;
-        for(Tag::Iter i = current->children.begin(); i != current->children.end(); ++i) {
-            d[(*i)->name] = (*i)->data;
-        }
-        return d;
-    }
 
     const string& getChildAttrib(const string& aName, const string& aDefault = Util::emptyString) {
         checkChildSelected();
@@ -131,11 +119,11 @@ public:
         checkChildSelected();
         const string& tmp = getChildAttrib(aName);
 
-        return (!tmp.empty()) && tmp[0] == '1';
+        return !tmp.empty() && tmp[0] == '1';
     }
 
     void fromXML(const string& aXML);
-    string toXML();
+    string toXML() { string tmp; StringOutputStream os(tmp); toXML(&os); return tmp; }
     void toXML(OutputStream* f) { if(!root.children.empty()) root.children[0]->toXML(0, f); }
 
     static const string& escape(const string& str, string& tmp, bool aAttrib, bool aLoading = false, const string &encoding = Text::utf8) {
@@ -156,7 +144,7 @@ public:
     }
     static const string utf8Header;
 private:
-    class Tag : boost::noncopyable {
+    class Tag {
     public:
         typedef Tag* Ptr;
         typedef vector<Ptr> List;
@@ -190,7 +178,7 @@ private:
         }
 
         const string& getAttrib(const string& aName, const string& aDefault = Util::emptyString) {
-            auto i = find_if(attribs.begin(), attribs.end(), CompareFirst<string,string>(aName));
+            StringPairIter i = find_if(attribs.begin(), attribs.end(), CompareFirst<string,string>(aName));
             return (i == attribs.end()) ? aDefault : i->second;
         }
         void toXML(int indent, OutputStream* f);
@@ -198,24 +186,27 @@ private:
         void appendAttribString(string& tmp);
         /** Delete all children! */
         ~Tag() {
-            for(auto i: children) {
-                delete i;
+            for(Iter i = children.begin(); i != children.end(); ++i) {
+                delete *i;
             }
         }
+
+    private:
+        Tag(const Tag&);
+        Tag& operator=(Tag&);
     };
 
     class TagReader : public SimpleXMLReader::CallBack {
     public:
         TagReader(Tag* root) : cur(root) { }
-        void startTag(const string& name, StringPairList& attribs, bool simple) {
+        virtual bool getData(string&) { return false; }
+        virtual void startTag(const string& name, StringPairList& attribs, bool simple) {
             cur->children.push_back(new Tag(name, attribs, cur));
             if(!simple)
                 cur = cur->children.back();
         }
-        void data(const string& data) {
-            cur->data += data;
-        }
-        void endTag(const string&) {
+        virtual void endTag(const string&, const string& d) {
+            cur->data = d;
             if(cur->parent == NULL)
                 throw SimpleXMLException("Invalid end tag");
             cur = cur->parent;

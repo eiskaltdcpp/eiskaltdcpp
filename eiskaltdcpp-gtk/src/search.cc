@@ -20,7 +20,6 @@
  */
 
 #include "search.hh"
-#include <dcpp/ClientManager.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/QueueManager.h>
 #include <dcpp/ShareManager.h>
@@ -237,7 +236,7 @@ void Search::initHubs_gui()
     auto lock = ClientManager::getInstance()->lock();
 #endif // DO_NOT_USE_MUTEX
 
-    auto& clients = ClientManager::getInstance()->getClients();
+    Client::List& clients = ClientManager::getInstance()->getClients();
 
     Client *client = NULL;
     for (auto it = clients.begin(); it != clients.end(); ++it)
@@ -1972,7 +1971,7 @@ void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexce
     }
     else
     {
-        for (auto i = searchlist.begin(); i != searchlist.end(); ++i)
+        for (TStringIter i = searchlist.begin(); i != searchlist.end(); ++i)
         {
             if ((*i->begin() != '-' && Util::findSubString(result->getFile(), *i) == (string::size_type)-1) ||
                 (*i->begin() == '-' && i->size() != 1 && Util::findSubString(result->getFile(), i->substr(1)) != (string::size_type)-1))
@@ -2033,7 +2032,7 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
 
     // Filter based on search terms.
     string filter = Text::toLower(gtk_entry_get_text(GTK_ENTRY(s->searchEntry)));
-    StringList filterList = StringTokenizer<string>(filter, ' ').getTokens();
+    TStringList filterList = StringTokenizer<tstring>(filter, ' ').getTokens();
     string filename = Text::toLower(s->resultView.getString(iter, _("Filename"), model));
     string path = Text::toLower(s->resultView.getString(iter, _("Path"), model));
     for (auto term = filterList.begin(); term != filterList.end(); ++term)

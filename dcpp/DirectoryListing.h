@@ -24,8 +24,6 @@
 #include "MerkleTree.h"
 #include "Streams.h"
 #include "MediaInfo.h"
-#include "GetSet.h"
-#include "HintedUser.h"
 
 namespace dcpp {
 

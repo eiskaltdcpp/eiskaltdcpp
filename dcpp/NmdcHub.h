@@ -18,7 +18,6 @@
 
 #pragma once
 
-#include <list>
 #include "TimerManager.h"
 #include "SettingsManager.h"
 #include "forward.h"
@@ -32,8 +31,6 @@
 #include "ScriptManager.h"
 #endif
 namespace dcpp {
-
-using std::list;
 
 #ifdef LUA_SCRIPT
 struct NmdcHubScriptInstance : public ScriptInstance {
@@ -78,13 +75,15 @@ friend class ClientManager;
     enum SupportFlags {
         SUPPORTS_USERCOMMAND = 0x01,
         SUPPORTS_NOGETINFO = 0x02,
-        SUPPORTS_USERIP2 = 0x04,
-        SUPPORTS_IP64    = 0x10
+        SUPPORTS_USERIP2 = 0x04
     };
 
     mutable CriticalSection cs;
 
-    unordered_map<string, OnlineUser*, CaseStringHash, CaseStringEq> users;
+    typedef unordered_map<string, OnlineUser*, CaseStringHash, CaseStringEq> NickMap;
+    typedef NickMap::iterator NickIter;
+
+    NickMap users;
 
     int supportFlags;
 
@@ -103,6 +102,10 @@ friend class ClientManager;
 
     NmdcHub(const string& aHubURL, bool secure);
     virtual ~NmdcHub();
+
+    // Dummy
+    NmdcHub(const NmdcHub&);
+    NmdcHub& operator=(const NmdcHub&);
 
     void clearUsers();
 
@@ -126,8 +129,7 @@ friend class ClientManager;
 
     void updateFromTag(Identity& id, const string& tag);
 
-    virtual void checkNick(string& nick);
-    virtual bool v4only() const { return false; }
+    virtual string checkNick(const string& aNick);
 
     // TimerManagerListener
     virtual void on(Second, uint64_t aTick) noexcept;
@@ -137,7 +139,6 @@ friend class ClientManager;
     virtual void on(Line, const string& l) noexcept;
     virtual void on(Failed, const string&) noexcept;
 
-    OnlineUserList getUsers() const;
 };
 
 } // namespace dcpp

@@ -27,11 +27,11 @@
 
 namespace dcpp {
 
-SSLSocket::SSLSocket(SSL_CTX* context) : Socket(TYPE_TCP), ctx(context), ssl(0) {
+SSLSocket::SSLSocket(SSL_CTX* context) : ctx(context), ssl(0) {
 
 }
 
-void SSLSocket::connect(const string& aIp, const string&  aPort) {
+void SSLSocket::connect(const string& aIp, uint16_t aPort) {
     Socket::connect(aIp, aPort);
 
     waitConnected(0);
@@ -46,7 +46,7 @@ bool SSLSocket::waitConnected(uint32_t millis) {
         if(!ssl)
             checkSSL(-1);
 
-        checkSSL(SSL_set_fd(ssl, getSock()));
+        checkSSL(SSL_set_fd(ssl, sock));
     }
 
     if(SSL_is_init_finished(ssl)) {
@@ -65,12 +65,10 @@ bool SSLSocket::waitConnected(uint32_t millis) {
     }
 }
 
-uint16_t SSLSocket::accept(const Socket& listeningSocket) {
-    auto ret = Socket::accept(listeningSocket);
+void SSLSocket::accept(const Socket& listeningSocket) {
+    Socket::accept(listeningSocket);
 
     waitAccepted(0);
-
-    return ret;
 }
 
 bool SSLSocket::waitAccepted(uint32_t millis) {
@@ -82,7 +80,7 @@ bool SSLSocket::waitAccepted(uint32_t millis) {
         if(!ssl)
             checkSSL(-1);
 
-        checkSSL(SSL_set_fd(ssl, getSock()));
+        checkSSL(SSL_set_fd(ssl, sock));
     }
 
     if(SSL_is_init_finished(ssl)) {
@@ -105,9 +103,9 @@ bool SSLSocket::waitWant(int ret, uint32_t millis) {
     int err = SSL_get_error(ssl, ret);
     switch(err) {
     case SSL_ERROR_WANT_READ:
-        return wait(millis, true, false).first;
+        return wait(millis, Socket::WAIT_READ) == WAIT_READ;
     case SSL_ERROR_WANT_WRITE:
-        return wait(millis, true, false).second;
+        return wait(millis, Socket::WAIT_WRITE) == WAIT_WRITE;
     // Check if this is a fatal error...
     default: checkSSL(ret);
     }
@@ -146,7 +144,7 @@ int SSLSocket::checkSSL(int ret) {
         return -1;
     }
     if(ret <= 0) {
-        auto err = SSL_get_error(ssl, ret);
+        int err = SSL_get_error(ssl, ret);
         switch(err) {
             case SSL_ERROR_NONE:        // Fallthrough - YaSSL doesn't for example return an openssl compatible error on recv fail
             case SSL_ERROR_WANT_READ:   // Fallthrough
@@ -154,37 +152,26 @@ int SSLSocket::checkSSL(int ret) {
                 return -1;
             case SSL_ERROR_ZERO_RETURN:
                 throw SocketException(_("Connection closed"));
-            case SSL_ERROR_SYSCALL:
-                {
-                    auto sys_err = ERR_get_error();
-                    if(sys_err == 0) {
-                        if(ret == 0) {
-                            dcdebug("TLS error: call ret = %d, SSL_get_error = %d, ERR_get_error = %lu\n", ret, err, sys_err);
-                            throw SSLSocketException(_("Connection closed"));
-                        }
-                            sys_err = getLastError();
-                    }
-                    throw SSLSocketException(sys_err);
-                }
             default:
-                /* don't bother getting error messages from the codes because 1) there is some
-                additional management necessary (eg SSL_load_error_strings) and 2) openssl error codes
-                aren't shown to the end user; they only hit standard output in debug builds. */
-                dcdebug("TLS error: call ret = %d, SSL_get_error = %d, ERR_get_error = %lu\n", ret, err, ERR_get_error());
-                throw SSLSocketException(_("TLS error"));
+                {
+                    ssl.reset();
+                    // @todo replace 80 with MAX_ERROR_SZ or whatever's appropriate for yaSSL in some nice way...
+                    char errbuf[80];
+                    throw SSLSocketException(str(F_("SSL Error: %1% (%2%, %3%)") % ERR_error_string(err, errbuf) % ret % err));
+                }
         }
     }
     return ret;
 }
 
-std::pair<bool, bool> SSLSocket::wait(uint32_t millis, bool checkRead, bool checkWrite) {
-    if(ssl && checkRead) {
+int SSLSocket::wait(uint32_t millis, int waitFor) {
+    if(ssl && (waitFor & Socket::WAIT_READ)) {
         /** @todo Take writing into account as well if reading is possible? */
         char c;
         if(SSL_peek(ssl, &c, 1) > 0)
-            return std::make_pair(true, false);
+            return WAIT_READ;
     }
-    return Socket::wait(millis, checkRead, checkWrite);
+    return Socket::wait(millis, waitFor);
 }
 
 bool SSLSocket::isTrusted() const noexcept {

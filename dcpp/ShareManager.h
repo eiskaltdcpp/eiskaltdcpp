@@ -18,12 +18,6 @@
 
 #pragma once
 
-#include <functional>
-#include <map>
-#include <memory>
-#include <set>
-#include <unordered_map>
-
 #include "TimerManager.h"
 #include "SearchManager.h"
 #include "SettingsManager.h"
@@ -46,12 +40,6 @@ namespace dht {
 #endif
 
 namespace dcpp {
-
-using std::function;
-using std::map;
-using std::set;
-using std::unique_ptr;
-using std::unordered_map;
 
 STANDARD_EXCEPTION(ShareException);
 

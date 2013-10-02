@@ -39,17 +39,17 @@ namespace {
 
 int QueueItem::countOnlineUsers() const {
     int n = 0;
-    for(auto& i: sources) {
-        if(i.getUser().user->isOnline())
+    for(auto i = sources.begin(), iend = sources.end(); i != iend; ++i) {
+        if(i->getUser().user->isOnline())
         n++;
     }
     return n;
 }
 
 void QueueItem::getOnlineUsers(HintedUserList& l) const {
-    for(auto& i: sources)
-        if(i.getUser().user->isOnline())
-            l.push_back(i.getUser());
+    for(auto i = sources.begin(), iend = sources.end(); i != iend; ++i)
+        if(i->getUser().user->isOnline())
+            l.push_back(i->getUser());
 }
 
 void QueueItem::addSource(const HintedUser& aUser) {
@@ -278,8 +278,8 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
 
 int64_t QueueItem::getDownloadedBytes() const {
     int64_t total = 0;
-    for(auto& i: done) {
-        total += i.getSize();
+    for(auto i = done.begin(); i != done.end(); ++i) {
+        total += i->getSize();
     }
     return total;
 }
@@ -309,7 +309,7 @@ bool QueueItem::isNeededPart(const PartsInfo& partsInfo, int64_t blockSize)
 {
     dcassert(partsInfo.size() % 2 == 0);
 
-    auto i  = done.begin();
+    SegmentConstIter i  = done.begin();
     for(PartsInfo::const_iterator j = partsInfo.begin(); j != partsInfo.end(); j+=2) {
         while(i != done.end() && (*i).getEnd() <= (*j) * blockSize)
             ++i;
@@ -326,7 +326,7 @@ void QueueItem::getPartialInfo(PartsInfo& partialInfo, int64_t blockSize) const 
     size_t maxSize = min(done.size() * 2, (size_t)510);
     partialInfo.reserve(maxSize);
 
-    auto i = done.begin();
+    SegmentConstIter i = done.begin();
     for(; i != done.end() && partialInfo.size() < maxSize; ++i) {
 
         uint16_t s = (uint16_t)((*i).getStart() / blockSize);
@@ -334,15 +334,6 @@ void QueueItem::getPartialInfo(PartsInfo& partialInfo, int64_t blockSize) const 
 
         partialInfo.push_back(s);
         partialInfo.push_back(e);
-    }
-}
-
-string QueueItem::getListName() const {
-    dcassert(isSet(QueueItem::FLAG_USER_LIST));
-    if(isSet(QueueItem::FLAG_XML_BZLIST)) {
-        return getTarget() + ".xml.bz2";
-    } else {
-        return getTarget() + ".xml";
     }
 }
 
