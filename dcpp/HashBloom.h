@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "MerkleTree.h"
+#include "typedefs.h"
 
 namespace dcpp {
 /**

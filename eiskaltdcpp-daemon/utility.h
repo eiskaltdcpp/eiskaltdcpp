@@ -15,9 +15,12 @@
 
 //---------------------------------------------------------------------------
 #include <string>
+
+using std::string;
+
 extern std::string LOCAL_PATH, PATH, sTitle, LOG_FILE;
 
-void logging(bool d, bool s, bool b, const string& msg);
+void logging(bool d, bool s, bool b, const std::string& msg);
 bool DirExist(char * sPath);
 void Log(const std::string & sData);
 std::string toString(short val);

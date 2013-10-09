@@ -97,14 +97,14 @@ namespace Text {
 #endif
 
     inline const TStringList& toT(const StringList& lst, TStringList& tmp) noexcept {
-        for(StringIterC i = lst.begin(), iend = lst.end(); i != iend; ++i)
-            tmp.push_back(toT(*i));
+        for(auto& i: lst)
+            tmp.push_back(toT(i));
         return tmp;
     }
 
     inline const StringList& fromT(const TStringList& lst, StringList& tmp) noexcept {
-        for(TStringIterC i = lst.begin(), iend = lst.end(); i != iend; ++i)
-            tmp.push_back(fromT(*i));
+        for(auto& i: lst)
+            tmp.push_back(fromT(i));
         return tmp;
     }
 
@@ -149,6 +149,19 @@ namespace Text {
 
     string toDOS(string tmp);
     wstring toDOS(wstring tmp);
+
+    template<typename T, typename F>
+    inline void tokenize(const std::basic_string<T>& str, T token, F f) {
+            string::size_type i = 0;
+            string::size_type j = 0;
+            while( (i=str.find(token, j)) != string::npos ) {
+                    f(str.substr(j, i-j));
+                    j = i + 1;
+            }
+            if(j < str.size())
+                    f(str.substr(j));
+
+    }
 
 }
 

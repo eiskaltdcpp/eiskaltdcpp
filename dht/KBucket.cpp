@@ -100,7 +100,7 @@ namespace dht
     /*
      * Creates new (or update existing) node which is NOT added to our routing table
      */
-    Node::Ptr KBucket::createNode(const UserPtr& u, const string& ip, uint16_t port, bool update, bool isUdpKeyValid)
+    Node::Ptr KBucket::createNode(const UserPtr& u, const string& ip, const string& port, bool update, bool isUdpKeyValid)
     {
         if(u->isSet(User::DHT)) // is this user already known in DHT?
         {
@@ -135,7 +135,7 @@ namespace dht
                 {
                     string oldIp    = node->getIdentity().getIp();
                     string oldPort  = node->getIdentity().getUdpPort();
-                    if(ip != oldIp || static_cast<uint16_t>(Util::toInt(oldPort)) != port)
+                    if(ip != oldIp || oldPort != port)
                     {
                         node->setIpVerified(false);
 
@@ -143,15 +143,15 @@ namespace dht
 
                         // erase old IP and remember new one
                         ipMap.erase(oldIp + ":" + oldPort);
-                        ipMap.insert(ip + ":" + Util::toString(port));
+                        ipMap.insert(ip + ":" + port);
                     }
 
                     if(!node->isIpVerified())
                         node->setIpVerified(isUdpKeyValid);
 
                     node->setAlive();
-                    node->getIdentity().setIp(ip);
-                    node->getIdentity().setUdpPort(Util::toString(port));
+                    node->getIdentity().setIp4(ip);
+                    node->getIdentity().setUdp4Port(port);
 
                     DHT::getInstance()->setDirty();
                 }
@@ -163,8 +163,8 @@ namespace dht
         u->setFlag(User::DHT);
 
         Node::Ptr node(new Node(u));
-        node->getIdentity().setIp(ip);
-        node->getIdentity().setUdpPort(Util::toString(port));
+        node->getIdentity().setIp4(ip);
+        node->getIdentity().setUdp4Port(port);
         node->setIpVerified(isUdpKeyValid);
         return node;
     }
@@ -283,7 +283,7 @@ namespace dht
             {
                 // ping the oldest (expired) node
                 node->setTimeout(currentTime);
-                DHT::getInstance()->info(node->getIdentity().getIp(), static_cast<uint16_t>(Util::toInt(node->getIdentity().getUdpPort())), DHT::PING, node->getUser()->getCID(), node->getUdpKey());
+                DHT::getInstance()->info(node->getIdentity().getIp(), node->getIdentity().getUdpPort(), DHT::PING, node->getUser()->getCID(), node->getUdpKey());
                 pinged++;
             }
 
@@ -320,9 +320,9 @@ namespace dht
             {
                 CID cid         = CID(xml.getChildAttrib("CID"));
                 string i4       = xml.getChildAttrib("I4");
-                uint16_t u4     = static_cast<uint16_t>(xml.getIntChildAttrib("U4"));
+                const string& u4 = Util::toString(xml.getIntChildAttrib("U4"));
 
-                if(Utils::isGoodIPPort(i4, u4))
+                if(Utils::isGoodIPPort(i4, Util::toInt(u4)))
                 {
                     UDPKey udpKey;
                     string key      = xml.getChildAttrib("key");

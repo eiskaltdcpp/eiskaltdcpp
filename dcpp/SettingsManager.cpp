@@ -43,7 +43,7 @@ const string SettingsManager::settingTags[] =
     "ExternalIp", "HublistServers", "HttpProxy",
     "LogDirectory", "LogFormatPostDownload","LogFormatPostFinishedDownload",
     "LogFormatPostUpload", "LogFormatMainChat", "LogFormatPrivateChat",
-    "TempDownloadDirectory", "BindAddress", "SocksServer",
+    "TempDownloadDirectory", "BindAddress", "BindAddress6", "SocksServer",
     "SocksUser", "SocksPassword", "ConfigVersion", "DefaultAwayMessage",
     "TimeStampsFormat", "CID", "LogFileMainChat", "LogFilePrivateChat",
     "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileFinishedDownload",
@@ -96,7 +96,7 @@ const string SettingsManager::settingTags[] =
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
-    "ShareSkipZeroByte",
+    "ShareSkipZeroByte", "RequireTLS",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",

@@ -17,70 +17,78 @@
 
 
 #include "dyndns.h"
+#include <functional>
+#include "dcpp/HttpManager.h"
 #include "dcpp/SettingsManager.h"
+#include "dcpp/Streams.h"
 #include "dcpp/ClientManager.h"
 
 namespace dcpp {
 
 DynDNS::DynDNS() {
-    httpConnection.addListener(this);
-    request = true;
+    HttpManager::getInstance()->addListener(this);
     Request();
 }
 
 
 DynDNS::~DynDNS() {
-    httpConnection.removeListener(this);
+    HttpManager::getInstance()->removeListener(this);
+}
+
+void DynDNS::on(HttpManagerListener::Failed, HttpConnection* c, const string& str) noexcept {
+    if(c != this->c) { return; }
+    c = nullptr;
+    completeDownload(false, str);
+}
+
+void DynDNS::on(HttpManagerListener::Complete, HttpConnection* c, OutputStream* stream) noexcept {
+    if(c != this->c) { return; }
+    c = nullptr;
+
+    auto str = static_cast<StringOutputStream*>(stream)->getString();
+    completeDownload(true, str);
 }
 
 void DynDNS::Request() {
     if (BOOLSETTING(DYNDNS_ENABLE)) {
-        httpConnection.setCoralizeState(HttpConnection::CST_NOCORALIZE);
         string tmps = !SETTING(DYNDNS_SERVER).compare(0,7,"http://") ? SETTING(DYNDNS_SERVER) : "http://" + SETTING(DYNDNS_SERVER);
-        httpConnection.downloadFile(tmps);
+        c = HttpManager::getInstance()->download(tmps);
+    }
+}
+
+void DynDNS::completeDownload(bool success, const string& html) {
+    if (success) {
+        string internetIP;
+        if (!html.empty()) {
+            int start = html.find(":")+2;
+            int end = html.find("</body>");
+
+
+            if ((start == -1) || (end < start)) {
+                internetIP = "";
+            } else {
+                internetIP = html.substr(start, end - start);
+            }
+        }
+        else
+            internetIP = "";
+
+        if (!internetIP.empty()) {
+            SettingsManager::getInstance()->set(SettingsManager::INTERNETIP, internetIP);
+            auto clients = ClientManager::getInstance()->getClients();
+
+            for(auto i : clients) {
+                if(i->isConnected()) {
+                    i->reloadSettings(false);
+                }
+            }
+        }
+    } else {
+        Request();
     }
 }
 
 void DynDNS::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
-    if (request)
-        Request();
-}
-
-void DynDNS::on(HttpConnectionListener::Data, HttpConnection*, const uint8_t* buf, size_t len) noexcept {
-    html += string((const char*)buf, len);
-}
-
-void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&, bool /*fromCoral*/) noexcept {
-    request = false;
-    string internetIP;
-    if (!html.empty()) {
-        int start = html.find(":")+2;
-        int end = html.find("</body>");
-
-
-        if ((start == -1) || (end < start)) {
-            internetIP = "";
-        } else {
-            internetIP = html.substr(start, end - start);
-        }
-    }
-    else
-        internetIP = "";
-
-    if (!internetIP.empty()) {
-        SettingsManager::getInstance()->set(SettingsManager::INTERNETIP, internetIP);
-        Client::List clients = ClientManager::getInstance()->getClients();
-
-        for(Client::Iter i = clients.begin(); i != clients.end(); ++i) {
-            if((*i)->isConnected()) {
-                (*i)->reloadSettings(false);
-            }
-        }
-    }
-    request = true;
-}
-
-void DynDNS::on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) noexcept {
     Request();
 }
 

@@ -40,31 +40,7 @@ extern "C" int  _nl_msg_cat_cntr;
 
 namespace dcpp {
 
-template<typename T, bool flag> struct ReferenceSelector {
-    typedef T ResultType;
-};
-template<typename T> struct ReferenceSelector<T,true> {
-    typedef const T& ResultType;
-};
-
-template<typename T> class IsOfClassType {
-public:
-    template<typename U> static char check(int U::*);
-    template<typename U> static float check(...);
-public:
-    enum { Result = sizeof(check<T>(0)) };
-};
-
-template<typename T> struct TypeTraits {
-    typedef IsOfClassType<T> ClassType;
-    typedef ReferenceSelector<T, ((ClassType::Result == 1) || (sizeof(T) > sizeof(char*)) ) > Selector;
-    typedef typename Selector::ResultType ParameterType;
-};
-
-#define GETSET(type, name, name2) \
-private: type name; \
-public: TypeTraits<type>::ParameterType get##name2() const { return name; } \
-    void set##name2(TypeTraits<type>::ParameterType a##name2) { name = a##name2; }
+using std::map;
 
 #define LIT(x) x, (sizeof(x)-1)
 
@@ -132,15 +108,7 @@ public:
     static void initialize(PathsMap pathOverrides = PathsMap());
 
     /** Path of temporary storage */
-    static string getTempPath() {
-#ifdef _WIN32
-        TCHAR buf[MAX_PATH + 1];
-        DWORD x = GetTempPath(MAX_PATH, buf);
-        return Text::fromT(tstring(buf, x));
-#else
-        return "/tmp/";
-#endif
-    }
+    static string getTempPath();
 
     /** Path of configuration files */
     static const string& getPath(Paths path) { return paths[path]; }
@@ -213,11 +181,11 @@ public:
         replace(string_t(search), string_t(replacement), str);
     }
 
-    static void decodeUrl(const string& aUrl, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment);
-    static std::map<string, string> decodeQuery(const string& query);
+    static void decodeUrl(const string& aUrl, string& protocol, string& host, string& port, string& path, string& query, string& fragment);
+    static map<string, string> decodeQuery(const string& query);
     static string validateFileName(string aFile, const string& badCharsExtra = "");
     static bool checkExtension(const string& tmp);
-    static string cleanPathChars(string aNick);
+    static string cleanPathChars(const string& str);
     static string addBrackets(const string& s);
 
     static string formatBytes(const string& aString) { return formatBytes(toInt64(aString)); }
@@ -366,7 +334,7 @@ public:
     template<typename string_t>
     static string_t toString(const string_t& sep, const std::vector<string_t>& lst) {
         string_t ret;
-        for(typename std::vector<string_t>::const_iterator i = lst.begin(), iend = lst.end(); i != iend; ++i) {
+        for(auto i = lst.begin(), iend = lst.end(); i != iend; ++i) {
             ret += *i;
             if(i + 1 != iend)
                 ret += sep;
@@ -393,7 +361,7 @@ public:
 
     template<typename T>
     static T& intersect(T& t1, const T& t2) {
-        for(typename T::iterator i = t1.begin(); i != t1.end();) {
+        for(auto i = t1.begin(); i != t1.end();) {
             if(std::find_if(t2.begin(), t2.end(), bind1st(std::equal_to<typename T::value_type>(), *i)) == t2.end())
                 i = t1.erase(i);
             else

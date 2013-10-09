@@ -18,6 +18,9 @@
 
 #pragma once
 
+#include <functional>
+#include <map>
+
 #include "Singleton.h"
 #include "MerkleTree.h"
 #include "Thread.h"
@@ -29,6 +32,7 @@
 #include "Text.h"
 #include "Streams.h"
 #include "HashManagerListener.h"
+#include "GetSet.h"
 
 #ifdef USE_XATTR
 #include "attr/attributes.h"
@@ -37,6 +41,9 @@
 #endif
 
 namespace dcpp {
+
+using std::function;
+using std::map;
 
 STANDARD_EXCEPTION(HashException);
 class File;

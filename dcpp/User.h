@@ -18,16 +18,12 @@
 
 #pragma once
 
-#include "Util.h"
+#include "forward.h"
 #include "Pointer.h"
 #include "CID.h"
 #include "FastAlloc.h"
 #include "CriticalSection.h"
 #include "Flags.h"
-#include "forward.h"
-#include <boost/utility.hpp>
-#include <map>
-#include <vector>
 
 namespace dcpp {
 
@@ -70,7 +66,7 @@ public:
 
     User(const CID& aCID) : cid(aCID) { }
 
-    ~User() noexcept { }
+    ~User() { }
 
     const CID& getCID() const { return cid; }
     operator const CID&() const { return cid; }
@@ -80,139 +76,6 @@ public:
 
 private:
     CID cid;
-};
-
-/** User pointer associated to a hub url */
-struct HintedUser {
-    UserPtr user;
-    string hint;
-
-    explicit HintedUser(const UserPtr& user_, const string& hint_) : user(user_), hint(hint_) { }
-
-    bool operator==(const UserPtr& rhs) const {
-        return user == rhs;
-    }
-    bool operator==(const HintedUser& rhs) const {
-        return user == rhs.user;
-        // ignore the hint, we don't want lists with multiple instances of the same user...
-    }
-
-    operator UserPtr() const { return user; }
-};
-
-/** One of possibly many identities of a user, mainly for UI purposes */
-class Identity : public Flags {
-public:
-    enum IdentityFlagBits {
-        GOT_INF_BIT,
-        NMDC_PASSIVE_BIT
-    };
-    enum IdentityFlags {
-        GOT_INF = 1 << GOT_INF_BIT,
-        NMDC_PASSIVE = 1 << NMDC_PASSIVE_BIT
-    };
-    enum ClientType {
-        CT_BOT = 1,
-        CT_REGGED = 2,
-        CT_OP = 4,
-        CT_SU = 8,
-        CT_OWNER = 16,
-        CT_HUB = 32,
-        CT_HIDDEN = 64
-    };
-    enum StatusFlags {
-        NORMAL          = 0x01,
-        AWAY            = 0x02,
-        TLS             = 0x10,
-        NAT             = 0x20
-    };
-
-    Identity() { }
-    Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr) { setSID(aSID); }
-    Identity(const Identity& rhs) { *this = rhs; } // Use operator= since we have to lock before reading...
-    Identity& operator=(const Identity& rhs) { FastLock l(cs); user = rhs.user; info = rhs.info; return *this; }
-    ~Identity() { }
-// GS is already defined on some systems (e.g. OpenSolaris)
-#ifdef GS
-#undef GS
-#endif
-
-#define GS(n, x) string get##n() const { return get(x); } void set##n(const string& v) { set(x, v); }
-    GS(Nick, "NI")
-    GS(Description, "DE")
-    GS(Ip, "I4")
-    GS(UdpPort, "U4")
-    GS(Email, "EM")
-    GS(Connection, "CO")
-
-    void setBytesShared(const string& bs) { set("SS", bs); }
-    int64_t getBytesShared() const { return Util::toInt64(get("SS")); }
-
-    void setStatus(const string& st) { set("ST", st); }
-    StatusFlags getStatus() const { return static_cast<StatusFlags>(Util::toInt(get("ST"))); }
-
-    void setOp(bool op) { set("OP", op ? "1" : Util::emptyString); }
-    void setHub(bool hub) { set("HU", hub ? "1" : Util::emptyString); }
-    void setBot(bool bot) { set("BO", bot ? "1" : Util::emptyString); }
-    void setHidden(bool hidden) { set("HI", hidden ? "1" : Util::emptyString); }
-    string getTag() const;
-    bool supports(const string& name) const;
-    bool isHub() const { return isClientType(CT_HUB) || isSet("HU"); }
-    bool isOp() const { return isClientType(CT_OP) || isClientType(CT_SU) || isClientType(CT_OWNER) || isSet("OP"); }
-    bool isRegistered() const { return isClientType(CT_REGGED) || isSet("RG"); }
-    bool isHidden() const { return isClientType(CT_HIDDEN) || isSet("HI"); }
-    bool isBot() const { return isClientType(CT_BOT) || isSet("BO"); }
-    bool isAway() const { return isSet("AW"); }
-    bool isTcpActive(const Client* = NULL) const;
-    bool isUdpActive() const;
-    std::map<string, string> getInfo() const;
-    string get(const char* name) const;
-    void set(const char* name, const string& val);
-    bool isSet(const char* name) const;
-    string getSIDString() const { return string((const char*)&sid, 4); }
-
-    bool isClientType(ClientType ct) const;
-
-    void getParams(StringMap& map, const string& prefix, bool compatibility, bool dht = false) const;
-    UserPtr& getUser() { return user; }
-    GETSET(UserPtr, user, User);
-    GETSET(uint32_t, sid, SID);
-private:
-    typedef std::unordered_map<short, string> InfMap;
-    typedef InfMap::iterator InfIter;
-    typedef InfMap::const_iterator InfIterC;
-    InfMap info;
-
-    static FastCriticalSection cs;
-};
-
-class Client;
-class NmdcHub;
-
-class OnlineUser : public FastAlloc<OnlineUser>, public intrusive_ptr_base<OnlineUser> {
-public:
-    typedef std::vector<OnlineUser*> List;
-    typedef List::iterator Iter;
-
-    OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_);
-    virtual ~OnlineUser() noexcept { }
-    operator UserPtr&() { return getUser(); }
-    operator const UserPtr&() const { return getUser(); }
-
-    UserPtr& getUser() { return getIdentity().getUser(); }
-    const UserPtr& getUser() const { return getIdentity().getUser(); }
-    Identity& getIdentity() { return identity; }
-    Client& getClient() { return (Client&)client; }
-    const Client& getClient() const { return (const Client&)client; }
-    ClientBase& getClientBase() { return client; }
-    const ClientBase& getClientBase() const { return client; }
-    bool isInList;
-    GETSET(Identity, identity, Identity);
-private:
-    friend class NmdcHub;
-    OnlineUser(const OnlineUser&);
-    OnlineUser& operator=(const OnlineUser&);
-    ClientBase& client;
 };
 
 } // namespace dcpp

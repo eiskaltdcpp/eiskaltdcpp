@@ -19,8 +19,8 @@
 #include "stdinc.h"
 
 #include "UserCommand.h"
-
 #include "StringTokenizer.h"
+#include "Util.h"
 
 namespace dcpp {
 
@@ -36,8 +36,8 @@ void UserCommand::setDisplayName() {
     string name_ = name;
     Util::replace("//", "\t", name_);
     StringTokenizer<string> t(name_, '/');
-    for(auto i = t.getTokens().begin(), iend = t.getTokens().end(); i != iend; ++i) {
-        displayName.push_back(*i);
+    for(auto& i: t.getTokens()) {
+        displayName.push_back(i);
         Util::replace("\t", "/", displayName.back());
     }
 }

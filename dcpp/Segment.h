@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include "GetSet.h"
+
 namespace dcpp {
 
 // minimum file size to be PFS : 20M

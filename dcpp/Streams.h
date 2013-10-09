@@ -19,6 +19,8 @@
 #pragma once
 
 #include <algorithm>
+#include <boost/noncopyable.hpp>
+
 #include "typedefs.h"
 #include "format.h"
 #include "SettingsManager.h"
@@ -33,7 +35,7 @@ STANDARD_EXCEPTION(FileException);
 /**
  * A simple output stream. Intended to be used for nesting streams one inside the other.
  */
-class OutputStream {
+class OutputStream : boost::noncopyable {
 public:
     OutputStream() { }
     virtual ~OutputStream() { }
@@ -58,12 +60,9 @@ public:
     virtual bool eof() { return false; }
 
     size_t write(const string& str) { return write(str.c_str(), str.size()); }
-private:
-    OutputStream(const OutputStream&);
-    OutputStream& operator=(const OutputStream&);
 };
 
-class InputStream {
+class InputStream : boost::noncopyable {
 public:
     InputStream() { }
     virtual ~InputStream() { }
@@ -73,9 +72,6 @@ public:
      *         actually read from the stream source in this call.
      */
     virtual size_t read(void* buf, size_t& len) = 0;
-private:
-    InputStream(const InputStream&);
-    InputStream& operator=(const InputStream&);
 };
 
 class MemoryInputStream : public InputStream {
@@ -109,21 +105,40 @@ private:
 class IOStream : public InputStream, public OutputStream {
 };
 
+/** Count how many bytes have been read. */
+template<bool managed>
+class CountedInputStream : public InputStream {
+public:
+    CountedInputStream(InputStream* is) : s(is), readBytes(0) { }
+    virtual ~CountedInputStream() { if(managed) delete s; }
+
+    size_t read(void* buf, size_t& len) {
+        auto ret = s->read(buf, len);
+        readBytes += len;
+        return ret;
+    }
+
+    uint64_t getReadBytes() const { return readBytes; }
+
+private:
+    InputStream* s;
+    uint64_t readBytes;
+};
+
 template<bool managed>
 class LimitedInputStream : public InputStream {
 public:
-    LimitedInputStream(InputStream* is, uint64_t aMaxBytes) : s(is), maxBytes(aMaxBytes) { }
+    LimitedInputStream(InputStream* is, uint64_t aMaxBytes) : s(is), maxBytes(aMaxBytes) {  }
     virtual ~LimitedInputStream() { if(managed) delete s; }
 
     size_t read(void* buf, size_t& len) {
         len = (size_t)min(maxBytes, (uint64_t)len);
         if(len == 0)
-            return 0;
+                return 0;
         size_t x = s->read(buf, len);
         maxBytes -= x;
         return x;
     }
-
 private:
     InputStream* s;
     uint64_t maxBytes;
@@ -207,15 +222,35 @@ private:
 
 class StringOutputStream : public OutputStream {
 public:
-    StringOutputStream(string& out) : str(out) { }
+    StringOutputStream() { }
     virtual ~StringOutputStream() { }
     using OutputStream::write;
 
     virtual size_t flush() { return 0; }
     virtual size_t write(const void* buf, size_t len) {
-        str.append((char*)buf, len);
+        str.append(reinterpret_cast<const char*>(buf), len);
         return len;
     }
+
+    string getString() { return move(str); }
+    string& stringRef() { return str; }
+
+private:
+        string str;
+};
+
+class StringRefOutputStream : public OutputStream {
+public:
+    StringRefOutputStream(string& out) : str(out) { }
+    virtual ~StringRefOutputStream() { }
+    using OutputStream::write;
+
+    virtual size_t flush() { return 0; }
+    virtual size_t write(const void* buf, size_t len) {
+        str.append(reinterpret_cast<const char*>(buf), len);
+        return len;
+    }
+
 private:
     string& str;
 };

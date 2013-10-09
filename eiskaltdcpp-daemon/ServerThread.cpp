@@ -40,6 +40,10 @@
 #include "jsonrpcmethods.h"
 #endif
 
+using std::cout;
+using std::endl;
+using namespace dcpp;
+
 unsigned short int lport = 3121;
 string lip = "127.0.0.1";
 bool isVerbose = false;
@@ -151,9 +155,9 @@ int ServerThread::run() {
     xmlrpcRegistry.addMethod("hub.getuserinfo", getUserInfoMethodP);
     xmlrpcRegistry.addMethod("queue.matchlists", matchAllListMethodP);
     xmlrpcRegistry.setShutdown(new systemShutdownMethod);
-    sock.create();
-    sock.setSocketOpt(SO_REUSEADDR, 1);
-    sock.bind(lport, lip);
+    sock.reset(new Socket(Socket::TYPE_TCP));
+    sock.setLocalIp4(lip);
+    sock.listen(lport);
     server = new xmlrpc_c::serverAbyss(xmlrpc_c::serverAbyss::constrOpt()
                                       .registryP(&xmlrpcRegistry)
                                       .socketFd(sock.sock)
@@ -255,12 +259,11 @@ void ServerThread::autoConnect() {
 }
 
 void ServerThread::connectClient(const string& address, const string& encoding) {
-    if (ClientManager::getInstance()->isConnected(address))
+    if (ClientManager::getInstance()->isConnected(address)) {
         printf("Already connected to %s\n", address.c_str());
-    string tmp;
-    ClientIter i = clientsMap.find(address);
-    if (i != clientsMap.end())
         return;
+    }
+    string tmp;
     if (address.substr(0, 6) == "adc://" || address.substr(0, 7) == "adcs://")
         tmp = "UTF-8";
     else if (encoding.empty())
@@ -274,13 +277,12 @@ void ServerThread::connectClient(const string& address, const string& encoding) 
 }
 
 void ServerThread::disconnectClient(const string& address) {
-    ClientIter i = clientsMap.find(address);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
-        Client* cl = i->second.curclient;
+    Client* cl = clientsMap[address].curclient;
+    if (cl) {
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
-        clientsMap[i->first].curclient = NULL;
+        clientsMap[address].curclient = NULL;
     }
 }
 
@@ -302,12 +304,11 @@ void ServerThread::on(Connecting, Client* cur) noexcept {
     if (isVerbose)
         cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 
-    ClientIter i = clientsMap.find(cur->getHubUrl());
-    if (i == clientsMap.end()) {
+    if (auto i = clientsMap.find(cur->getHubUrl()) == clientsMap.end()) {
         CurHub curhub;
         curhub.curclient = cur;
         clientsMap[cur->getHubUrl()] = curhub;
-    } else if (i != clientsMap.end() && !clientsMap[cur->getHubUrl()].curclient)
+    } else if (!clientsMap[cur->getHubUrl()].curclient)
         clientsMap[cur->getHubUrl()].curclient = cur;
 }
 
@@ -359,7 +360,7 @@ void ServerThread::on(Failed, Client* cur, const string& line) noexcept {
 }
 
 void ServerThread::on(GetPassword, Client* cur) noexcept {
-    ClientIter i = clientsMap.find(cur->getHubUrl());
+    auto i = clientsMap.find(cur->getHubUrl());
     if (i != clientsMap.end()) {
         string pass = cur->getPassword();
         if (!pass.empty())
@@ -380,17 +381,16 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
         if (BOOLSETTING(LOG_PRIVATE_CHAT)) {
             const string& hint = cl->getHubUrl();
             const CID& cid = message.replyTo->getUser()->getCID();
-            bool priv = FavoriteManager::getInstance()->isPrivate(hint);
             params["message"] = Text::fromUtf8(msg);
-            params["hubNI"] = Util::toString(ClientManager::getInstance()->getHubNames(cid, hint, priv));
-            params["hubURL"] = Util::toString(ClientManager::getInstance()->getHubs(cid, hint, priv));
+            params["hubNI"] = Util::toString(ClientManager::getInstance()->getHubNames(cid, hint));
+            params["hubURL"] = Util::toString(ClientManager::getInstance()->getHubUrls(cid, hint));
             params["userCID"] = cid.toBase32();
-            params["userNI"] = ClientManager::getInstance()->getNicks(cid, hint, priv)[0];
+            params["userNI"] = ClientManager::getInstance()->getNicks(cid, hint)[0];
             params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
             LOG(LogManager::PM, params);
         }
     } else {
-        ClientIter it = clientsMap.find(cl->getHubUrl());
+        auto it = clientsMap.find(cl->getHubUrl());
         if (it != clientsMap.end()) {
             if (it->second.curchat.size() >= maxLines)
                 clientsMap[cl->getHubUrl()].curchat.pop_front();
@@ -464,9 +464,8 @@ void ServerThread::showPortsError(const string& port) {
 }
 
 void ServerThread::sendMessage(const string& hubUrl, const string& message) {
-    ClientIter i = clientsMap.find(hubUrl);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
-        Client* client = i->second.curclient;
+    if (clientsMap[hubUrl].curclient) {
+        Client* client = clientsMap[hubUrl].curclient;
         if (client && !message.empty()) {
             bool thirdPerson = !message.compare(0, 3, "/me");
             client->hubMessage(thirdPerson ? message.substr(4) : message , thirdPerson);
@@ -484,18 +483,17 @@ void ServerThread::listConnectedClients(string& listhubs, const string& separato
 }
 
 bool ServerThread::findHubInConnectedClients(const string& hub) {
-    ClientIter i = clientsMap.find(hub);
+    auto i = clientsMap.find(hub);
     return i != clientsMap.end();
 }
 
 bool ServerThread::sendPrivateMessage(const string& hub, const string& nick, const string& message) {
-    ClientIter i = clientsMap.find(hub);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
-        Client* client = i->second.curclient;
-        if (client && !message.empty()) {
+    Client* client = clientsMap[hub].curclient;
+    if (client) {
+        if (!message.empty()) {
             bool thirdPerson = !message.compare(0, 3, "/me");
-            auto it = i->second.curuserlist.find(nick);
-            if (it == i->second.curuserlist.end())
+            auto it = clientsMap[hub].curuserlist.find(nick);
+            if (it == clientsMap[hub].curuserlist.end())
                 return false;
             UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
             if (user && user->isOnline()) {
@@ -511,14 +509,12 @@ bool ServerThread::sendPrivateMessage(const string& hub, const string& nick, con
 }
 
 bool ServerThread::getFileList(const string& hub, const string& nick, bool match) {
-    ClientIter i = clientsMap.find(hub);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
+    if (clientsMap[hub].curclient) {
         if (!nick.empty()) {
             try {
-                //UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
                 UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
                 if (user && user->isOnline() && user->isNMDC()) {
-                    const HintedUser hintedUser(user, i->first);
+                    const HintedUser hintedUser(user, hub);
                     if (user == ClientManager::getInstance()->getMe()) {
                         // Don't download file list, open locally instead
                         //WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
@@ -541,7 +537,7 @@ bool ServerThread::getFileList(const string& hub, const string& nick, bool match
 }
 
 void ServerThread::getChatPubFromClient(string& chat, const string& hub, const string& separator) {
-    ClientIter it = clientsMap.find(hub);
+    auto it = clientsMap.find(hub);
     if (it != clientsMap.end()) {
         for (unsigned int i = 0; i < it->second.curchat.size(); ++i) {
             chat += it->second.curchat.at(i);
@@ -638,6 +634,7 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
         if (item[0] != '-')
             ssearch += item + ' ';
     }
+
     ssearch = ssearch.substr(0, std::max(ssearch.size(), static_cast<string::size_type>(1)) - 1);
 
     double llsize = lsize;
@@ -971,7 +968,7 @@ void ServerThread::listHubsFullDesc(unordered_map<string,StringMap>& listhubs) {
     for (auto& client : clientsMap) {
         Client* cl = client.second.curclient;
         StringMap sm;
-        sm["connected"] = cl->isReady() ? "1"  : "0";
+        sm["connected"] = cl->isConnected() ? "1"  : "0";
         sm["users"] = Util::toString(cl->getUserCount());
         sm["totalshare"] = Util::toString(cl->getAvailable());
         sm["totalshare preformatted"] = Util::formatBytes(cl->getAvailable());
@@ -1054,13 +1051,6 @@ void ServerThread::matchAllList() {
     QueueManager::getInstance()->matchAllListings();
 }
 
-//void ServerThread::getHubUserList(StringMap& userlist, const string& huburl) {
-    //ClientIter i = clientsMap.find(huburl);
-    //if (i != clientsMap.end() && clientsMap[i->first].curclient) {
-        //userlist = clientsMap[i->first].curuserlist;
-    //}
-//}
-
 void ServerThread::getHubUserList(string& userlist, const string& huburl, const string& separator) {
     string sep = separator.empty()? ";" : separator;
     if (clientsMap[huburl].curclient) {
@@ -1142,10 +1132,9 @@ void ServerThread::removeUser(const string& cid, Client* cl)
 }
 
 bool ServerThread::getUserInfo(StringMap& userinfo, const string& nick, const string& huburl) {
-    ClientIter i = clientsMap.find(huburl);
-    if (i != clientsMap.end() && clientsMap[i->first].curclient) {
-        auto it = i->second.curuserlist.find(nick);
-        if (it == i->second.curuserlist.end())
+    if (clientsMap[huburl].curclient) {
+        auto it = clientsMap[huburl].curuserlist.find(nick);
+        if (it == clientsMap[huburl].curuserlist.end())
             return false;
         UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
         if (user && user->isOnline()) {

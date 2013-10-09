@@ -181,7 +181,7 @@ int LuaManager::SendUDPPacket(lua_State* L) {
     /* arguments: ip:port, data */
     if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
         StringList sl = StringTokenizer<string>(lua_tostring(L, -2), ':').getTokens();
-        ScriptManager::getInstance()->s.writeTo(sl[0], static_cast<short>(Util::toInt(sl[1])), lua_tostring(L, -1), string(lua_tostring(L, -1)).size());
+        ScriptManager::getInstance()->s.writeTo(sl[0], sl[1], lua_tostring(L, -1), string(lua_tostring(L, -1)).size());
     }
 
     return 0;
@@ -329,7 +329,7 @@ int LuaManager::RunTimer(lua_State* L) {
 lua_State* ScriptInstance::L = 0;       //filled in by scriptmanager.
 CriticalSection ScriptInstance::cs;
 
-ScriptManager::ScriptManager() : timerEnabled(false) {
+ScriptManager::ScriptManager() : s(Socket::TYPE_UDP), timerEnabled(false) {
 }
 
 void ScriptManager::load() {
@@ -367,8 +367,6 @@ void ScriptManager::load() {
 
 
     lua_pop(L, lua_gettop(L));      //hm. starts at 8 or so for me. I have no idea why...
-
-    s.create(Socket::TYPE_UDP);
 
     ClientManager::getInstance()->addListener(this);
 }

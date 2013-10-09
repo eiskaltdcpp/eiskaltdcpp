@@ -19,9 +19,10 @@
 #include "stdinc.h"
 
 #include "Text.h"
-#include "Util.h"
 
-#ifndef _WIN32
+#ifdef _WIN32
+#include "w.h"
+#else
 #include <errno.h>
 #include <iconv.h>
 #include <langinfo.h>
@@ -31,6 +32,8 @@
 #endif
 
 #endif
+
+#include "Util.h"
 
 namespace dcpp {
 
@@ -269,9 +272,9 @@ const wstring& utf8ToWide(const string& str, wstring& tgt) noexcept {
 
 wchar_t toLower(wchar_t c) noexcept {
 #ifdef _WIN32
-        return static_cast<wchar_t>(reinterpret_cast<ptrdiff_t>(CharLowerW((LPWSTR)c)));
+    return LOWORD(CharLowerW(reinterpret_cast<LPWSTR>(MAKELONG(c, 0))));
 #else
-        return (wchar_t)towlower(c);
+    return (wchar_t)towlower(c);
 #endif
 }
 
@@ -280,9 +283,8 @@ const wstring& toLower(const wstring& str, wstring& tmp) noexcept {
         return Util::emptyStringW;
     tmp.clear();
     tmp.reserve(str.length());
-    wstring::const_iterator end = str.end();
-    for(wstring::const_iterator i = str.begin(); i != end; ++i) {
-        tmp += toLower(*i);
+    for(auto& i: str) {
+        tmp += toLower(i);
     }
     return tmp;
 }

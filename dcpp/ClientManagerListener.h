@@ -23,7 +23,7 @@
 #include <string>
 
 namespace dcpp {
-    
+
 using std::string;
 
 class ClientManagerListener {

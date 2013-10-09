@@ -18,10 +18,13 @@
 
 #pragma once
 
+#include <string>
 #include "forward.h"
 #include "noexcept.h"
 
 namespace dcpp {
+
+using std::string;
 
 class QueueManagerListener {
 public:
