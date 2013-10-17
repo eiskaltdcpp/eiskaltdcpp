@@ -178,7 +178,7 @@ var eiskalt = (function () {
             var connectedHubs = data.result.split(';').filter(function (x) { return (x !== ''); }).sort();
             if (eiskalt.connectedHubs !== connectedHubs) {
                 eiskalt.connectedHubs = connectedHubs;
-                if (connectedHubs.length == 0) {
+                if (connectedHubs.length === 0) {
                     $('#connectedhubs').attr('class', 'error');
                     $('#connectedhubs').text('Not connected to any hubs!');
                 } else {
@@ -202,7 +202,15 @@ var eiskalt = (function () {
             });
         },
 
+        getURLParameter: function (name) {
+            return decodeURIComponent(
+                (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || ['', ''])[1].replace(/\+/g, '%20')
+            ) || null;
+        },
+
         onLoad: function () {
+            var searchString;
+
             $.jsonRPC.setup({
                 endPoint : 'http://' + config.jsonrpc.host + ':' + config.jsonrpc.port,
                 namespace : ''
@@ -210,10 +218,10 @@ var eiskalt = (function () {
 
             jQuery.tablesorter.addParser({
                 id: 'filesize',
-                is: function(s) {
+                is: function (s) {
                     return s.match(new RegExp(/[0-9]+(\.[0-9]+)?\s*(K|M|G|T|P|E|Z|Y)?i?B/i));
                 },
-                format: function(s) {
+                format: function (s) {
                     var parts, suffix, num, exponent = 0;
                     parts = s.match(new RegExp(/([0-9]+(\.[0-9]+)?)\s*((K|M|G|T|P|E|Z|Y)?i?B)?/i));
                     if (parts === null) {
@@ -230,15 +238,15 @@ var eiskalt = (function () {
             });
 
             $('table#downloadqueue').tablesorter({
-                sortList: [[1,0]],
+                sortList: [[1, 0]]
             });
             $('table#searchresults').tablesorter({
-                sortList: [[1,1]],
+                sortList: [[1, 1]]
             });
 
             $('input#search').on('click', eiskalt.onSearchClicked);
-            $('input#searchstring').keypress(function(event) {
-                if (event.which == 13) {
+            $('input#searchstring').keypress(function (event) {
+                if (event.which === 13) {
                     event.preventDefault();
                     eiskalt.onSearchClicked();
                     return false;
@@ -261,6 +269,12 @@ var eiskalt = (function () {
                 delay: 1000,
                 repeat: true
             });
+
+            searchString = eiskalt.getURLParameter('search');
+            if (searchString !== null) {
+                $('input#searchstring').val(searchString);
+                eiskalt.onSearchClicked();
+            }
         }
     };
     return eiskalt;
