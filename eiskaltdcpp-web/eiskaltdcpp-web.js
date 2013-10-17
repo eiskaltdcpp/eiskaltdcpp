@@ -1,5 +1,7 @@
+/* Copyright (c) 2013 Dorian Scholz */
+/* License: GPLv3 */
 /*jslint browser:true */
-/*global $, jQuery, config*/
+/*global $, jQuery, config */
 var eiskalt = (function () {
     'use strict';
 
