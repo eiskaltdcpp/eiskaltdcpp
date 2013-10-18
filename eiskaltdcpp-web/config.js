@@ -3,5 +3,5 @@ var config = {
         "host" : "127.0.0.1",
         "port" : "3121"
     },
-    "debugLevel" : 5
+    "debugLevel" : 3
 };

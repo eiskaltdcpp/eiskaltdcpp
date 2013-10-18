@@ -18,16 +18,76 @@ h3 {
     font-weight: normal;
 }
 
+a {
+    color: #039;
+}
+
 .section {
     border: 1px solid #fff;
     padding: 0px 8px 8px 8px;
     margin: 8px 8px 8px 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 .error {
+    margin-top: 8px;
     color: #c44;
     font-weight: bold;
+}
+
+.tab-container {
+    padding: 0px 8px 8px 8px;
+    margin: 8px 0px 8px 0px;
+}
+
+.tab-container .section {
+    margin: 0;
+}
+
+.tab-header {
+    margin: 0;
+    padding: 0;
+}
+
+.tab-header li {
+    margin: 4px 8px 0 0;
+}
+
+.tab {
+    display: inline-block;
+    zoom:1;
+    *display:inline;
+    background: #fff;
+    border: solid 1px #fff;
+    border-bottom: none;
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.07);
+    padding: 0 0 2px 0;
+}
+
+.tab.active {
+    background: #fff;
+    padding: 0 0 4px 0;
+    position: relative;
+    top: 1px;
+}
+
+.tab a {
+    font-size: 14px;
+    line-height: 2em;
+    display: block;
+    padding: 0 10px 4px 10px;
+    outline: none;
+    text-decoration: none;
+    color: #444;
+}
+
+.tab a.active {
+    font-weight: bold;
+    color: #039;
 }
 
 #debugdiv {
@@ -43,7 +103,7 @@ h3 {
 
 input {
     border: none;
-    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
     padding: 8px;
     margin: 0 0 5px 0;
 }
