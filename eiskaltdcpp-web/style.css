@@ -111,6 +111,7 @@ input {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
     padding: 8px;
     margin: 0 0 5px 0;
+    font-size: 16px;
 }
 
 input[type=text] {
