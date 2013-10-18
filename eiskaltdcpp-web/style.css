@@ -1,0 +1,200 @@
+body
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 0.9em;
+    color: #444;
+}
+
+h1 {
+    font-weight: normal;
+    margin: 10px 0px 0px 0px;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+a {
+    color: #039;
+}
+
+.title {
+    border: 1px solid #fff;
+    padding: 0px 8px 8px 8px;
+    margin: 8px 8px 8px 8px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.error {
+    margin-top: 8px;
+    color: #c44;
+    font-weight: bold;
+}
+
+.tab-container {
+    padding: 0px 8px 8px 8px;
+    margin: 8px 0px 8px 0px;
+}
+
+.tab-page {
+    border: 1px solid #fff;
+    padding: 8px 8px 8px 8px;
+    margin: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-header {
+    margin: 0;
+    padding: 0;
+}
+
+.tab-header li {
+    margin: 4px 8px 0 0;
+}
+
+.tab {
+    display: inline-block;
+    zoom:1;
+    *display:inline;
+    background: #fff;
+    border: solid 1px #fff;
+    border-bottom: none;
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.07);
+    padding: 0 0 2px 0;
+}
+
+.tab.active {
+    background: #fff;
+    padding: 0 0 4px 0;
+    position: relative;
+    top: 1px;
+}
+
+.tab a {
+    font-size: 18px;
+    line-height: 2em;
+    display: block;
+    padding: 4px 14px 4px 14px;
+    outline: none;
+    text-decoration: none;
+    color: #444;
+}
+
+.tab a.active {
+    font-weight: bold;
+}
+
+.tab a:hover {
+    color: #039;
+}
+
+#debugdiv {
+    display: none;
+}
+
+#debugout {
+    font-family: monospace;
+    background: #eef;
+    color: #669;
+    padding: 10px 10px 10px 10px;
+}
+
+input {
+    border: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    padding: 8px;
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+input[type=text] {
+    background: #f8f8ff;
+    color: #669;
+}
+
+input[type=button] {
+    background: linear-gradient(0deg, #b9c9fe, #f8f8ff);
+    color: #039;
+}
+
+table
+{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+table th
+{
+    font-weight: normal;
+    padding: 8px;
+    background-color: #e8e8ff;
+    border: 0;
+    color: #039;
+}
+
+table td
+{
+    padding: 4px;
+    background-color: #f8f8ff;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    color: #669;
+}
+
+table tbody tr:hover td
+{
+    background-color: #e8e8ff;
+    color: #339;
+}
+
+table td img
+{
+    cursor: pointer;
+    height: 1.5em;
+    padding: 0;
+    margin: 0;
+}
+
+.tablesorter .tablesorter-header {
+    /* black (unsorted) double arrow */
+    background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding: 8px 18px 8px 8px;
+    white-space: normal;
+    cursor: pointer;
+}
+
+.tablesorter .tablesorter-headerAsc {
+    /* black asc arrow */
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+}
+
+.tablesorter .tablesorter-headerDesc {
+    /* black desc arrow */
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
+}
+
+table#searchresults td:nth-child(1), table#searchresults td:nth-child(2) {
+   text-align: center;
+}
+
+table#searchresults td:nth-child(3) {
+   text-align: right;
+}
+
+table#downloadqueue td:nth-child(1) {
+   text-align: center;
+}
+
+table#downloadqueue td:nth-child(3) {
+   text-align: right;
+}

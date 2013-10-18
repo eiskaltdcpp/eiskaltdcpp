@@ -40,11 +40,16 @@ namespace Json
         int post_data_len = 0;
         char* post_data = NULL;
 
-        if(strcmp(ri->request_method,"POST") == 0) {
-            HTTPServer* serv = (HTTPServer*) ri->user_data;
+        HTTPServer* serv = (HTTPServer*) ri->user_data;
+        if(strcmp(ri->request_method,"OPTIONS") == 0) {
+            std::string res = "";
+            serv->sendResponse(res, conn);
+        }
+        else if(strcmp(ri->request_method,"POST") == 0) {
             sscanf(mg_get_header(conn,"Content-Length"),"%d",&post_data_len);
             post_data = (char*)malloc(post_data_len+1);
             mg_read(conn, post_data, post_data_len);
+            post_data[post_data_len] = 0; // make sure this is null terminated
             serv->onRequest(post_data,conn);
             free(post_data);
         }
@@ -115,7 +120,7 @@ namespace Json
     bool HTTPServer::sendResponse(std::string & response, void *addInfo)
     {
         struct mg_connection* conn = (struct mg_connection*)addInfo;
-        std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: ";
+        std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Headers: Content-Type\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: ";
         char v[16];
         snprintf(v, sizeof(v), "%u", response.size());
         tmp += v;
