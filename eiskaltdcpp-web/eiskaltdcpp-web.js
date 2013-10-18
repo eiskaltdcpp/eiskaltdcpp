@@ -11,6 +11,18 @@ var eiskalt = (function () {
         WARN : 3,
         INFO : 4,
         DEBUG : 5
+    }, searchTypes = {
+        TYPE_ANY: 0,
+        TYPE_AUDIO: 1,
+        TYPE_COMPRESSED: 2,
+        TYPE_DOCUMENT: 3,
+        TYPE_EXECUTABLE: 4,
+        TYPE_PICTURE: 5,
+        TYPE_VIDEO: 6,
+        TYPE_DIRECTORY: 7,
+        TYPE_TTH: 8,
+        TYPE_CD_IMAGE: 9,
+        TYPE_LAST: 10
     }, eiskalt = {
 
         searchResults: {},
@@ -95,12 +107,12 @@ var eiskalt = (function () {
             var searchIsValid = (data.result === 0);
             eiskalt.debugOut(debugLevels.DEBUG, 'searchIsValid: ' + searchIsValid);
             if (searchIsValid) {
-                $('input#searchstring').timer('stop');
                 $('input#searchstring').timer('start');
             }
         },
 
         onSearchClicked: function () {
+            $('input#searchstring').timer('stop');
             eiskalt.clearSearchResults();
             $.jsonRPC.request('search.send', {
                 params : {'searchstring': $('input#searchstring').val()},
@@ -110,8 +122,16 @@ var eiskalt = (function () {
         },
 
         onDownloadClicked: function () {
+            // add file to the download queue
             $.jsonRPC.request('queue.add', {
                 params : {'filename': $(this).attr('filename'), 'size': $(this).attr('size'), 'tth': $(this).attr('tth'), 'directory': ''},
+                success : eiskalt.onSuccess,
+                error : eiskalt.onError
+            });
+            // start TTH search for the newly added file to get download sources
+            $('input#searchstring').timer('stop');
+            $.jsonRPC.request('search.send', {
+                params : {'searchstring': $(this).attr('tth'), 'searchtype': searchTypes.TYPE_TTH},
                 success : eiskalt.onSuccess,
                 error : eiskalt.onError
             });
@@ -269,7 +289,7 @@ var eiskalt = (function () {
             $('input#searchstring').timer({
                 callback: eiskalt.requestSearchResults,
                 delay: 500,
-                repeat: 10,
+                repeat: 50,
                 autostart: false
             });
             $('table#downloadqueue').timer({
