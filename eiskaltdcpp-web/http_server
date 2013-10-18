@@ -1,0 +1,5 @@
+#!/bin/sh
+echo This server is just for testing, it is not secure!
+echo Only argument is the server port, it defaults to 8000.
+echo Stop server with ctrl-c...
+python -m SimpleHTTPServer $1
