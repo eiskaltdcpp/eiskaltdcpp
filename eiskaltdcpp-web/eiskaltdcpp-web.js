@@ -158,12 +158,12 @@ var eiskalt = (function () {
                 $.each(data.result, function (target, entry) {
                     eiskalt.addDownloadQueue(entry);
                 });
-                $.each(eiskalt.downloadQueue, function (target, entry) {
-                    if (!data.result.hasOwnProperty(target)) {
-                        entry.row.remove();
-                    }
-                });
             }
+            $.each(eiskalt.downloadQueue, function (target, entry) {
+                if (data.result === null || !data.result.hasOwnProperty(target)) {
+                    entry.row.remove();
+                }
+            });
             $('table#downloadqueue').trigger('update');
         },
 
