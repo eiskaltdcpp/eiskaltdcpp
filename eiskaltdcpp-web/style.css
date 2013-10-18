@@ -22,11 +22,10 @@ a {
     color: #039;
 }
 
-.section {
+.title {
     border: 1px solid #fff;
     padding: 0px 8px 8px 8px;
     margin: 8px 8px 8px 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .hidden {
@@ -44,8 +43,11 @@ a {
     margin: 8px 0px 8px 0px;
 }
 
-.tab-container .section {
+.tab-page {
+    border: 1px solid #fff;
+    padding: 8px 8px 8px 8px;
     margin: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .tab-header {
@@ -76,10 +78,10 @@ a {
 }
 
 .tab a {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 2em;
     display: block;
-    padding: 0 10px 4px 10px;
+    padding: 4px 14px 4px 14px;
     outline: none;
     text-decoration: none;
     color: #444;
@@ -87,6 +89,9 @@ a {
 
 .tab a.active {
     font-weight: bold;
+}
+
+.tab a:hover {
     color: #039;
 }
 

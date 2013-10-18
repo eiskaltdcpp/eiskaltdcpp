@@ -15,7 +15,7 @@
         <script type="text/javascript" charset="utf-8" src="eiskaltdcpp-web.js"></script>
     </head>
     <body onload="eiskalt.onLoad();">
-        <div class="section" id="titlediv">
+        <div class="title" id="titlediv">
             <h1>
                 <img style="margin: 0 3px -3px 0;" height="28px" src="images/eiskaltdcpp.png">
                 EiskaltDC++ Web Frontend
@@ -30,8 +30,7 @@
                 <li class="tab"><a href="#tab-status">Status</a></li>
             </ul>
 
-            <div class="section" id="tab-downloadqueue">
-                <h2>Download Queue</h2>
+            <div class="tab-page" id="tab-downloadqueue">
                 <table class="tablesorter" id="downloadqueue">
                     <thead>
                         <tr>
@@ -46,8 +45,7 @@
                 </table>
             </div>
 
-            <div class="section" id="tab-search">
-                <h2>Search</h2>
+            <div class="tab-page" id="tab-search">
                 <p>
                     <input name="searchstring" id="searchstring" type="text"/>
                     <input name="search" id="search" type="button" value="Search" /><br>
@@ -65,7 +63,7 @@
                 </table>
             </div>
 
-            <div class="section" id="tab-status">
+            <div class="tab-page" id="tab-status">
                 <h2>Connected Hubs</h2>
                 <div id="connectedhubs">Not connected yet...</div>
 
