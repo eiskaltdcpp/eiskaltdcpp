@@ -1,5 +1,5 @@
 /* Copyright (c) 2013 Dorian Scholz */
-/* License: GPLv3 */
+/* License: GPLv3 or later */
 /*jslint browser:true */
 /*global $, jQuery, config */
 var eiskalt = (function () {
