@@ -30,6 +30,7 @@ var eiskalt = (function () {
         downloadQueue: {},
         config: null,
         connectedHubs: [],
+        statisticalData: [],
 
         debugOut: function (debugLevel, text) {
             if (debugLevel <= config.debugLevel) {
@@ -197,6 +198,8 @@ var eiskalt = (function () {
             if (error) {
                 $('#connectedhubs').attr('class', 'error');
                 $('#connectedhubs').text(message);
+                $('#statisticaldata').attr('class', 'error');
+                $('#statisticaldata').text(message);
                 $('#connectionerror').attr('class', 'error');
                 $('#connectionerror').text(message);
             } else {
@@ -230,6 +233,21 @@ var eiskalt = (function () {
                 params : {'separator': ';'},
                 success : eiskalt.updateConnectedHubs,
                 error : eiskalt.errorConnectedHubs
+            });
+        },
+
+        updateStatisticalData: function (data) {
+            var statisticalData = data.result;
+            if (eiskalt.statisticalData !== statisticalData) {
+                eiskalt.statisticalData = statisticalData;
+                $('#statisticaldata').attr('class', '');
+                $('#statisticaldata').html('Downloaded: ' + statisticalData.down + '<br>Uploaded: ' + statisticalData.up + '<br>Ratio: ' + statisticalData.ratio);
+            }
+        },
+
+        requestStatisticalData: function () {
+            $.jsonRPC.request('show.ratio', {
+                success : eiskalt.updateStatisticalData,
             });
         },
 
@@ -300,6 +318,11 @@ var eiskalt = (function () {
             $('#connectedhubs').timer({
                 callback: eiskalt.requestConnectedHubs,
                 delay: 1000,
+                repeat: true
+            });
+            $('#statisticaldata').timer({
+                callback: eiskalt.requestStatisticalData,
+                delay: 3000,
                 repeat: true
             });
 
