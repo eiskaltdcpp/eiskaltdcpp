@@ -203,8 +203,6 @@ var eiskalt = (function () {
 
         showConnectionStatus: function (error, message) {
             if (error) {
-                $('#statisticaldata').attr('class', 'error');
-                $('#statisticaldata').text(message);
                 $('#connectionerror').attr('class', 'error');
                 $('#connectionerror').text(message);
             } else {
@@ -282,9 +280,14 @@ var eiskalt = (function () {
             }
         },
 
+        errorStatisticalData: function (data) {
+            $('#statisticaldata').text('Statistical data are unknown.');
+        },
+
         requestStatisticalData: function () {
             $.jsonRPC.request('show.ratio', {
-                success : eiskalt.updateStatisticalData
+                success : eiskalt.updateStatisticalData,
+                error: eiskalt.errorStatisticalData
             });
         },
 
