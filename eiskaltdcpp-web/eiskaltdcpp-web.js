@@ -174,7 +174,7 @@ var eiskalt = (function () {
         },
 
         updateDownloadQueue: function (data) {
-            //eiskalt.debugOut(debugLevels.DEBUG, 'updateDownloadQueue: ' + data.result);
+            eiskalt.showConnectionStatus(false);
             if (data.result !== null) {
                 $.each(data.result, function (target, entry) {
                     eiskalt.addDownloadQueue(entry);
@@ -189,6 +189,7 @@ var eiskalt = (function () {
         },
 
         errorDownloadQueue: function (data) {
+            eiskalt.showConnectionStatus(true);
             $.each(eiskalt.downloadQueue, function (target, entry) {
                 entry.row.remove();
             });
@@ -201,10 +202,10 @@ var eiskalt = (function () {
             });
         },
 
-        showConnectionStatus: function (error, message) {
+        showConnectionStatus: function (error) {
             if (error) {
                 $('#connectionerror').attr('class', 'error');
-                $('#connectionerror').text(message);
+                $('#connectionerror').text('Connection to EiskaltDC++ daemon failed on ' + 'http://' + config.jsonrpc.host + ':' + config.jsonrpc.port);
             } else {
                 $('#connectionerror').attr('class', 'hidden');
                 $('#connectionerror').text('');
@@ -254,14 +255,12 @@ var eiskalt = (function () {
                 }
             });
             $('table#connectedhubs').trigger('update');
-            eiskalt.showConnectionStatus(false, "");
         },
 
         errorConnectedHubs: function (data) {
             $.each(eiskalt.connectedHubs, function (target, entry) {
                 entry.row.remove();
             });
-            eiskalt.showConnectionStatus(true, 'Connection to EiskaltDC++ daemon failed on ' + 'http://' + config.jsonrpc.host + ':' + config.jsonrpc.port);
         },
 
         requestConnectedHubs: function () {
