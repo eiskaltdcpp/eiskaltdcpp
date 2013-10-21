@@ -66,11 +66,22 @@
             </div>
 
             <div class="section" id="tab-status">
-                <h2>Connected Hubs</h2>
-                <div id="connectedhubs">Not connected yet...</div>
-
                 <h2>Statistics</h2>
                 <div id="statisticaldata">Statistics is unknown yet...</div>
+
+                <h2>Connected Hubs</h2>
+                <table class="tablesorter" id="connectedhubs">
+                    <thead>
+                        <tr>
+                            <th align="center">Connected</th>
+                            <th width="15%" key="description">Address</th>
+                            <th width="65%" key="hubname">Hub name</th>
+                            <th width="5%"  key="users" align="right" data-sortinitialorder="desc">Users</th>
+                            <th width="10%" key="totalshare" align="right" data-sortinitialorder="desc">Total share</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
 
                 <div id="debugdiv">
                     <h2>Debug Output</h2>

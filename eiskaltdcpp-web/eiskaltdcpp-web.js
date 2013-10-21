@@ -29,7 +29,7 @@ var eiskalt = (function () {
         groupedResults: {},
         downloadQueue: {},
         config: null,
-        connectedHubs: [],
+        connectedHubs: {},
         statisticalData: [],
 
         debugOut: function (debugLevel, text) {
@@ -196,41 +196,71 @@ var eiskalt = (function () {
 
         showConnectionStatus: function (error, message) {
             if (error) {
-                $('#connectedhubs').attr('class', 'error');
-                $('#connectedhubs').text(message);
                 $('#statisticaldata').attr('class', 'error');
                 $('#statisticaldata').text(message);
                 $('#connectionerror').attr('class', 'error');
                 $('#connectionerror').text(message);
             } else {
-                $('#connectedhubs').attr('class', '');
-                $('#connectedhubs').text(message);
                 $('#connectionerror').attr('class', 'hidden');
                 $('#connectionerror').text('');
             }
         },
 
-        updateConnectedHubs: function (data) {
-            //eiskalt.debugOut(debugLevels.DEBUG, 'updateConnectedHubs: ' + data.result);
-            var connectedHubs = data.result.split(';').filter(function (x) { return (x !== ''); }).sort();
-            if (eiskalt.connectedHubs !== connectedHubs) {
-                eiskalt.connectedHubs = connectedHubs;
-                if (connectedHubs.length === 0) {
-                    eiskalt.showConnectionStatus(true, 'Not connected to any hubs!');
-                } else {
-                    eiskalt.showConnectionStatus(false, connectedHubs);
-                }
+        addConnectedHubs: function (target, entry) {
+            var table, row, headers, image;
+            table = $('table#connectedhubs');
+            headers = table.find('th');
+            if (!eiskalt.connectedHubs.hasOwnProperty(target)) {
+                row = $('<tr>');
+                row.append($('<td align="center">'));
+                row.append($('<td align="left">'));
+                row.append($('<td align="left">'));
+                row.append($('<td align="right">'));
+                row.append($('<td align="right">'));
+                table.find('tbody').append(row);
+                eiskalt.connectedHubs[target] = {'row': row};
+            } else {
+                row = eiskalt.connectedHubs[target].row;
             }
+
+            if (entry["connected"] == 1) {
+                image = "images/ball_green.png";
+            } else {
+                image = "images/ball_red.png";
+            }
+
+            $(row.find('td')[0]).html($('<img src="' + image + '">'));
+            $(row.find('td')[1]).text(target);
+            $(row.find('td')[2]).html($('<div title="' + entry["description"] +'">')
+                                        .append(entry["hubname"]));
+            $(row.find('td')[3]).text(entry["users"]);
+            $(row.find('td')[4]).text(entry["totalshare"]);
+        },
+
+        updateConnectedHubs: function (data) {
+            if (data.result !== null) {
+                $.each(data.result, function (target, entry) {
+                    eiskalt.addConnectedHubs(target, entry);
+                });
+            }
+            $.each(eiskalt.connectedHubs, function (target, entry) {
+                if (data.result === null || !data.result.hasOwnProperty(target)) {
+                    entry.row.remove();
+                }
+            });
+            $('table#connectedhubs').trigger('update');
+            eiskalt.showConnectionStatus(false, "");
         },
 
         errorConnectedHubs: function (data) {
-            eiskalt.connectedHubs = [];
+            $.each(eiskalt.connectedHubs, function (target, entry) {
+                entry.row.remove();
+            });
             eiskalt.showConnectionStatus(true, 'Connection to EiskaltDC++ daemon failed on ' + 'http://' + config.jsonrpc.host + ':' + config.jsonrpc.port);
         },
 
         requestConnectedHubs: function () {
-            $.jsonRPC.request('hub.list', {
-                params : {'separator': ';'},
+            $.jsonRPC.request('hub.listfulldesc', {
                 success : eiskalt.updateConnectedHubs,
                 error : eiskalt.errorConnectedHubs
             });
@@ -294,6 +324,9 @@ var eiskalt = (function () {
             $('table#searchresults').tablesorter({
                 sortList: [[1, 1]]
             });
+            $('table#connectedhubs').tablesorter({
+                sortList: [[3, 1]]
+            });
 
             $('input#search').on('click', eiskalt.onSearchClicked);
             $('input#searchstring').keypress(function (event) {
@@ -315,9 +348,9 @@ var eiskalt = (function () {
                 delay: 1000,
                 repeat: true
             });
-            $('#connectedhubs').timer({
+            $('table##connectedhubs').timer({
                 callback: eiskalt.requestConnectedHubs,
-                delay: 1000,
+                delay: 2000,
                 repeat: true
             });
             $('#statisticaldata').timer({
