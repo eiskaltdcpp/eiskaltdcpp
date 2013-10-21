@@ -247,7 +247,7 @@ var eiskalt = (function () {
 
         requestStatisticalData: function () {
             $.jsonRPC.request('show.ratio', {
-                success : eiskalt.updateStatisticalData,
+                success : eiskalt.updateStatisticalData
             });
         },
 
@@ -328,6 +328,7 @@ var eiskalt = (function () {
 
             searchString = eiskalt.getURLParameter('search');
             if (searchString !== null) {
+                $('#tab-container').easytabs('select', '#tab-search');
                 $('input#searchstring').val(searchString);
                 eiskalt.onSearchClicked();
             }
