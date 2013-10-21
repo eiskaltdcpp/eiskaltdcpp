@@ -188,9 +188,16 @@ var eiskalt = (function () {
             $('table#downloadqueue').trigger('update');
         },
 
+        errorDownloadQueue: function (data) {
+            $.each(eiskalt.downloadQueue, function (target, entry) {
+                entry.row.remove();
+            });
+        },
+
         requestDownloadQueue: function () {
             $.jsonRPC.request('queue.list', {
-                success : eiskalt.updateDownloadQueue
+                success : eiskalt.updateDownloadQueue,
+                error : eiskalt.errorDownloadQueue
             });
         },
 
