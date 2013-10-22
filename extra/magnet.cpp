@@ -34,7 +34,7 @@ bool magnet::parseUri(const string& uri, StringMap& params) {
         StringTokenizer<string> mag(uri.substr(8), '&');
         StringMap hashes;
         string type, param;
-        for(auto& idx: mag.getTokens()) {
+        for(auto& idx : mag.getTokens()) {
             auto pos = idx.find('=');
             if(pos != string::npos) {
                 type = Text::toLower(Util::encodeURI(idx.substr(0, pos), true));

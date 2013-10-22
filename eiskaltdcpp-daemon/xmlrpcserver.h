@@ -417,13 +417,13 @@ public:
             xmlrpc_c::value *   const  retvalP) {
 
         string const shuburl(paramList.getString(0));
-        vector<StringMap> tmp;
-        ServerThread::getInstance()->returnSearchResults(tmp, shuburl);
+        vector<StringMap> hublist;
+        ServerThread::getInstance()->returnSearchResults(hublist, shuburl);
         vector<xmlrpc_c::value> tmp_array_in;
-        for (auto i = tmp.begin(); i != tmp.end(); ++i) {
+        for (auto& hub : hublist) {
             map<string, xmlrpc_c::value> tmp_struct_in;
-            for (auto kk = (*i).begin(); kk != (*i).end(); ++kk) {
-                pair<string, xmlrpc_c::value> member(kk->first, xmlrpc_c::value_string(kk->second));
+            for (auto& rearchresult : hub) {
+                pair<string, xmlrpc_c::value> member(rearchresult.first, xmlrpc_c::value_string(rearchresult.second));
                 tmp_struct_in.insert(member);
             }
             xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
@@ -529,10 +529,10 @@ public:
         unordered_map<string,StringMap> listqueue;
         ServerThread::getInstance()->listQueue(listqueue);
         map<string, xmlrpc_c::value> tmp_struct1_in;
-        for (auto i = listqueue.begin(); i != listqueue.end(); ++i) {
+        for (auto& item : listqueue) {
             map<string, xmlrpc_c::value> tmp_struct2_in;
-            for (auto kk = (*i).second.begin(); kk != (*i).second.end(); ++kk) {
-                pair<string, xmlrpc_c::value> member2(kk->first, xmlrpc_c::value_string(kk->second));
+            for (auto& parameter : item.second) {
+                pair<string, xmlrpc_c::value> member2(parameter.first, xmlrpc_c::value_string(parameter.second));
                 tmp_struct2_in.insert(member2);
             }
             xmlrpc_c::value_struct const tmp_struct2_out(tmp_struct2_in);
@@ -661,11 +661,11 @@ public:
         string const snick(paramList.getString(0));;
         string const shuburl(paramList.getString(1));;
         paramList.verifyEnd(2);
-        StringMap tmp;
-        if (ServerThread::getInstance()->getUserInfo(tmp, snick, shuburl)) {
+        StringMap params;
+        if (ServerThread::getInstance()->getUserInfo(params, snick, shuburl)) {
             map<string, xmlrpc_c::value> tmp_struct_in;
-            for (auto kk = tmp.begin(); kk != tmp.end(); ++kk) {
-                pair<string, xmlrpc_c::value> member(kk->first, xmlrpc_c::value_string(kk->second));
+            for (auto& parameter : params) {
+                pair<string, xmlrpc_c::value> member(parameter.first, xmlrpc_c::value_string(parameter.second));
                 tmp_struct_in.insert(member);
             }
             xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
@@ -705,14 +705,14 @@ public:
         unordered_map<string,StringMap> listhubs;
         ServerThread::getInstance()->listHubsFullDesc(listhubs);
         map<string, xmlrpc_c::value> tmp_struct1_in;
-        for (auto i = listhubs.begin(); i != listhubs.end(); ++i) {
+        for (auto& hub : listhubs) {
             map<string, xmlrpc_c::value> tmp_struct2_in;
-            for (auto kk = (*i).second.begin(); kk != (*i).second.end(); ++kk) {
-                pair<string, xmlrpc_c::value> member2(kk->first, xmlrpc_c::value_string(kk->second));
+            for (auto& parameter : hub.second) {
+                pair<string, xmlrpc_c::value> member2(parameter.first, xmlrpc_c::value_string(parameter.second));
                 tmp_struct2_in.insert(member2);
             }
             xmlrpc_c::value_struct const tmp_struct2_out(tmp_struct2_in);
-            pair<string, xmlrpc_c::value> member1(i->first, xmlrpc_c::value_struct(tmp_struct2_out));
+            pair<string, xmlrpc_c::value> member1(hub.first, xmlrpc_c::value_struct(tmp_struct2_out));
             tmp_struct1_in.insert(member1);
         }
         xmlrpc_c::value_struct tmp_struct1_out(tmp_struct1_in);

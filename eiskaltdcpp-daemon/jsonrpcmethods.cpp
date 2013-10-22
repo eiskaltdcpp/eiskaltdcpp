@@ -226,15 +226,15 @@ bool JsonRpcMethods::ReturnSearchResults(const Json::Value& root, Json::Value& r
     if (isDebug) std::cout << "ReturnSearchResults (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    vector<StringMap> tmp;
+    vector<StringMap> hublist;
     Json::Value parameters;
-    ServerThread::getInstance()->returnSearchResults(tmp, root["params"]["huburl"].asString());
-    auto i = tmp.begin();int k = 0;
-    while (i != tmp.end()) {
-        for (auto kk = (*i).begin(); kk != (*i).end(); ++kk) {
-            parameters[k][kk->first] = kk->second;
+    ServerThread::getInstance()->returnSearchResults(hublist, root["params"]["huburl"].asString());
+    int k = 0;
+    for (auto& hub : hublist) {
+        for (auto& rearchresult : hub) {
+            parameters[k][rearchresult.first] = rearchresult.second;
         }
-        ++i; ++k;
+        ++k;
     }
     response["result"] = parameters;
     if (isDebug) std::cout << "ReturnSearchResults (response): " << response << std::endl;
@@ -331,9 +331,9 @@ bool JsonRpcMethods::ListQueue(const Json::Value& root, Json::Value& response) {
     Json::Value parameters;
     unordered_map<string,StringMap> listqueue;
     ServerThread::getInstance()->listQueue(listqueue);
-    for (auto i = listqueue.begin(); i != listqueue.end(); ++i) {
-        for (auto kk = i->second.begin(); kk != i->second.end(); ++kk) {
-            parameters[i->first][kk->first] = kk->second;
+    for (auto& item : listqueue) {
+        for (auto& parameter : item.second) {
+            parameters[item.first][parameter.first] = parameter.second;
         }
     }
     response["result"] = parameters;
@@ -440,9 +440,9 @@ bool JsonRpcMethods::ListHubsFullDesc(const Json::Value& root, Json::Value& resp
     Json::Value parameters;
     unordered_map<string,StringMap> listhubs;
     ServerThread::getInstance()->listHubsFullDesc(listhubs);
-    for (auto i = listhubs.begin(); i != listhubs.end(); ++i) {
-        for (auto kk = i->second.begin(); kk != i->second.end(); ++kk) {
-            parameters[i->first][kk->first] = kk->second;
+    for (auto& hub : listhubs) {
+        for (auto& parameter : hub.second) {
+            parameters[hub.first][parameter.first] = parameter.second;
         }
     }
     response["result"] = parameters;
@@ -465,10 +465,10 @@ bool JsonRpcMethods::GetUserInfo(const Json::Value& root, Json::Value& response)
     if (isDebug) std::cout << "GetUserInfo (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    StringMap tmp; Json::Value parameters;
-    if (ServerThread::getInstance()->getUserInfo(tmp, root["params"]["nick"].asString(),root["params"]["huburl"].asString())) {
-        for (StringMap::iterator kk = tmp.begin(); kk != tmp.end(); ++kk) {
-            parameters[kk->first] = kk->second;
+    StringMap params; Json::Value parameters;
+    if (ServerThread::getInstance()->getUserInfo(params, root["params"]["nick"].asString(),root["params"]["huburl"].asString())) {
+        for (auto& parameter : params) {
+            parameters[parameter.first] = parameter.second;
         }
     }
     response["result"] = parameters;

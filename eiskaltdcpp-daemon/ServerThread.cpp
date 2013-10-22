@@ -211,9 +211,9 @@ int ServerThread::run() {
 }
 
 bool ServerThread::disconnect_all() {
-    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
-        if (clientsMap[i->first].curclient)
-            disconnectClient(i->first);
+    for (auto& client : clientsMap) {
+        if (clientsMap[client.first].curclient)
+            disconnectClient(client.first);
     }
     return true;
 }
@@ -244,12 +244,11 @@ void ServerThread::WaitFor() {
 }
 
 void ServerThread::autoConnect() {
-    const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
-    for (auto i = fl.begin(); i != fl.end(); ++i) {
-        FavoriteHubEntry* entry = *i;
-        if (entry->getConnect()) {
-            string address = entry->getServer();
-            string encoding = entry->getEncoding();
+    const FavoriteHubEntryList& favhublist = FavoriteManager::getInstance()->getFavoriteHubs();
+    for (auto& hub : favhublist) {
+        if (hub->getConnect()) {
+            string address = hub->getServer();
+            string encoding = hub->getEncoding();
             connectClient(address, encoding);
         }
     }
@@ -331,9 +330,9 @@ void ServerThread::on(UserUpdated, Client* cur, const OnlineUser& user) noexcept
 void ServerThread::on(UsersUpdated, Client* cur, const OnlineUserList& list) noexcept {
     Identity id;
 
-    for (auto it = list.begin(); it != list.end(); ++it)
+    for (auto& item : list)
     {
-        id = (*it)->getIdentity();
+        id = item->getIdentity();
         if (!id.isHidden())
         {
             StringMap params;
@@ -437,9 +436,9 @@ void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr& result) 
     if (!result) {
         return;
     }
-    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
-        if (clientsMap[i->first].curclient && i->first == result->getHubURL()) {
-            clientsMap[i->first].cursearchresult.push_back(result);
+    for (auto& client : clientsMap) {
+        if (clientsMap[client.first].curclient && client.first == result->getHubURL()) {
+            clientsMap[client.first].cursearchresult.push_back(result);
         }
     }
 }
@@ -476,9 +475,9 @@ void ServerThread::sendMessage(const string& hubUrl, const string& message) {
 }
 
 void ServerThread::listConnectedClients(string& listhubs, const string& separator) {
-    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
-        if (clientsMap[i->first].curclient) {
-            listhubs.append(i->first);
+    for (auto& client : clientsMap) {
+        if (clientsMap[client.first].curclient) {
+            listhubs.append(client.first);
             listhubs.append(separator);
         }
     }
@@ -605,13 +604,13 @@ void ServerThread::parseSearchResult(SearchResultPtr result, StringMap &resultMa
 
 string ServerThread::revertSeparator(const string& ps) {
     string str = ps;
-    for (auto it = str.begin(); it != str.end(); ++it) {
+    for (auto& ch : str) {
 #ifdef _WIN32
-        if ((*it) == '/')
-            (*it) = '\\';
+        if (ch == '/')
+            ch = '\\';
 #else
-        if ((*it) == '\\')
-            (*it) = '/';
+        if (ch == '\\')
+            ch = '/';
 #endif //_WIN32
     }
     return str;
@@ -623,21 +622,22 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
     StringList clients;
     if (!huburls.empty()) {
         StringTokenizer<string> sl(huburls, ";");
-        for (StringIter i = sl.getTokens().begin(); i != sl.getTokens().end(); ++i) {
-            clients.push_back((*i));
+        for (auto& client : sl.getTokens()) {
+            clients.push_back(client);
         }
         if (clients.empty())
             return false;
     } else {
-        ClientIter i = clientsMap.begin();
-        while (i != clientsMap.end()) {
-            clients.push_back(i->first); ++i;
+        for (auto& client : clientsMap) {
+            clients.push_back(client.first);
         }
     }
     string ssearch;
     dcpp::TStringList searchlist = StringTokenizer<string>(search, ' ').getTokens();
-    for (auto si = searchlist.begin(); si != searchlist.end(); ++si)
-        if ((*si)[0] != '-') ssearch += *si + ' ';
+    for (auto& item : searchlist) {
+        if (item[0] != '-')
+            ssearch += item + ' ';
+    }
     ssearch = ssearch.substr(0, std::max(ssearch.size(), static_cast<string::size_type>(1)) - 1);
 
     double llsize = lsize;
@@ -684,23 +684,22 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
 }
 
 void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const string& huburl) {
-    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
-        if (!huburl.empty() && i->first != huburl)
+    for (auto& client : clientsMap) {
+        if (!huburl.empty() && client.first != huburl)
             continue;
-        SearchResultList::const_iterator kk;
-        for (kk = clientsMap[i->first].cursearchresult.begin(); kk != clientsMap[i->first].cursearchresult.end(); ++kk) {
+        for (auto& searchresult : clientsMap[client.first].cursearchresult) {
             StringMap resultMap;
-            parseSearchResult(*kk, resultMap);
+            parseSearchResult(searchresult, resultMap);
             resultarray.push_back(resultMap);
         }
     }
 }
 
 bool ServerThread::clearSearchResults(const string& huburl) {
-    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
-        if (!huburl.empty() && i->first != huburl)
+    for (auto& client : clientsMap) {
+        if (!huburl.empty() && client.first != huburl)
             continue;
-        clientsMap[i->first].cursearchresult.clear();
+        clientsMap[client.first].cursearchresult.clear();
         return true;
     }
     return false;
@@ -708,20 +707,20 @@ bool ServerThread::clearSearchResults(const string& huburl) {
 
 void ServerThread::listShare(string& listshare, const string& sseparator) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (auto it = directories.begin(); it != directories.end(); ++it) {
+    for (auto& dir : directories) {
         listshare.append("\n");
-        listshare.append(it->second + sseparator);
-        listshare.append(it->first + sseparator);
-        listshare.append(Util::formatBytes(ShareManager::getInstance()->getShareSize(it->second)) + sseparator);
+        listshare.append(dir.second + sseparator);
+        listshare.append(dir.first + sseparator);
+        listshare.append(Util::formatBytes(ShareManager::getInstance()->getShareSize(dir.second)) + sseparator);
         listshare.append("\n");
     }
 }
 
 bool ServerThread::delDirFromShare(const string& sdirectory) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (auto it = directories.begin(); it != directories.end(); ++it) {
-        if (!it->first.compare(sdirectory)) {
-            ShareManager::getInstance()->removeDirectory(it->second);
+    for (auto& dir : directories) {
+        if (!dir.first.compare(sdirectory)) {
+            ShareManager::getInstance()->removeDirectory(dir.second);
             ShareManager::getInstance()->refresh(true);
             return true;
         }
@@ -731,8 +730,8 @@ bool ServerThread::delDirFromShare(const string& sdirectory) {
 
 bool ServerThread::renameDirInShare(const string& sdirectory, const string& svirtname) {
     StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (auto it = directories.begin(); it != directories.end(); ++it) {
-        if (!it->second.compare(sdirectory)) {
+    for (auto& dir : directories) {
+        if (!dir.second.compare(sdirectory)) {
             ShareManager::getInstance()->renameDirectory(sdirectory, svirtname);
             ShareManager::getInstance()->refresh(true);
             return true;
@@ -786,11 +785,10 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
     }
 
     if (target[target.length() - 1] == PATH_SEPARATOR) {
-        string *file;
         const QueueItem::StringMap& ll = QueueManager::getInstance()->lockQueue();
-
-        for (auto it = ll.begin(); it != ll.end(); ++it) {
-            file = it->first;
+        string *file;
+        for (auto& item : ll) {
+            file = item.first;
             if (file->length() >= target.length() && file->substr(0, target.length()) == target)
                 QueueManager::getInstance()->setPriority(*file, p);
         }
@@ -803,20 +801,20 @@ bool ServerThread::setPriorityQueueItem(const string& target, const unsigned int
 
 void ServerThread::getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online_tmp) {
     string nick;
-    for (QueueItem::SourceConstIter it = item->getSources().begin(); it != item->getSources().end(); ++it) {
-        if (it->getUser().user->isOnline())
+    for (auto& s : item->getSources()) {
+        if (s.getUser().user->isOnline())
             ++online_tmp;
         if (!sources.empty())
             sources += separator;
-        nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+        nick = Util::toString(ClientManager::getInstance()->getNicks(s.getUser().user->getCID(), s.getUser().hint));
         sources += nick;
     }
 }
 void ServerThread::getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
-    for (auto it = ll.begin(); it != ll.end(); ++it) {
-        if (target == *it->first) {
-            getItemSources(it->second, separator, sources, online);
+    for (auto& item : ll) {
+        if (target == *(item.first)) {
+            getItemSources(item.second, separator, sources, online);
         }
     }
     QueueManager::getInstance()->unlockQueue();
@@ -874,25 +872,25 @@ void ServerThread::getQueueParams(QueueItem* item, StringMap& params) {
 
     // Error
     params["Errors"] = "";
-    for (QueueItem::SourceConstIter it = item->getBadSources().begin(); it != item->getBadSources().end(); ++it) {
-        nick = Util::toString(ClientManager::getInstance()->getNicks(it->getUser().user->getCID(), it->getUser().hint));
+    for (auto& s : item->getBadSources()) {
+        nick = Util::toString(ClientManager::getInstance()->getNicks(s.getUser().user->getCID(), s.getUser().hint));
 
-        if (!it->isSet(QueueItem::Source::FLAG_REMOVED)) {
+        if (!s.isSet(QueueItem::Source::FLAG_REMOVED)) {
             if (params["Errors"].size() > 0)
                 params["Errors"] += ", ";
             params["Errors"] += nick + " (";
 
-            if (it->isSet(QueueItem::Source::FLAG_FILE_NOT_AVAILABLE))
+            if (s.isSet(QueueItem::Source::FLAG_FILE_NOT_AVAILABLE))
                 params["Errors"] += _("File not available");
-            else if (it->isSet(QueueItem::Source::FLAG_PASSIVE))
+            else if (s.isSet(QueueItem::Source::FLAG_PASSIVE))
                 params["Errors"] += _("Passive user");
-            else if (it->isSet(QueueItem::Source::FLAG_CRC_FAILED))
+            else if (s.isSet(QueueItem::Source::FLAG_CRC_FAILED))
                 params["Errors"] += _("CRC32 inconsistency (SFV-Check)");
-            else if (it->isSet(QueueItem::Source::FLAG_BAD_TREE))
+            else if (s.isSet(QueueItem::Source::FLAG_BAD_TREE))
                 params["Errors"] += _("Full tree does not match TTH root");
-            else if (it->isSet(QueueItem::Source::FLAG_SLOW_SOURCE))
+            else if (s.isSet(QueueItem::Source::FLAG_SLOW_SOURCE))
                 params["Errors"] += _("Source too slow");
-            else if (it->isSet(QueueItem::Source::FLAG_NO_TTHF))
+            else if (s.isSet(QueueItem::Source::FLAG_NO_TTHF))
                 params["Errors"] += _("Remote client does not fully support TTH - cannot download");
 
             params["Errors"] += ")";
@@ -916,8 +914,8 @@ void ServerThread::listQueueTargets(string& listqueue, const string& sseparator)
         separator = sseparator;
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-    for (auto it = ll.begin(); it != ll.end(); ++it) {
-        listqueue += *it->first;
+    for (auto& item : ll) {
+        listqueue += *(item.first);
         listqueue += separator;
     }
     QueueManager::getInstance()->unlockQueue();
@@ -926,10 +924,10 @@ void ServerThread::listQueueTargets(string& listqueue, const string& sseparator)
 //void ServerThread::updatelistQueueTargets() {
     //const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
     //queuesMap.clear();
-    //auto it = ll.begin(); unsigned int i = 0;
-    //while (it != ll.end()) {
-        //queuesMap[i] = *it->first;
-         //++it, ++i;
+    //unsigned int i = 0;
+    //for (auto& item : ll) {
+        //queuesMap[i] = *(item.first);
+         //++i;
     //}
     //QueueManager::getInstance()->unlockQueue();
 //}
@@ -943,45 +941,42 @@ void ServerThread::listQueueTargets(string& listqueue, const string& sseparator)
 //}
 
 //void ServerThread::on(Removed, QueueItem* item) noexcept {
-    //auto it = queuesMap.begin();
-    //while (it != queuesMap.end()) {
-        //if (it->second == item->getTarget()) {
-            //it = queuesMap.erase(it);
+    //for (auto& queue : queuesMap) {
+        //if (queue.second == item->getTarget()) {
+            //queue = queuesMap.erase(&queue);
         //} else
             //++it;
     //}
 //}
 
 //void ServerThread::on(Moved, QueueItem* item, const string& oldTarget) noexcept {
-    //auto it = queuesMap.begin();
-    //while (it != queuesMap.end()) {
-        //if (it->second == oldTarget) {
-            //it->second = item->getTarget();
-        //} else
-            //++it;
+    //for (auto& t : queuesMap) {
+        //if (t.second == oldTarget) {
+            //t.second = item->getTarget();
+        //}
     //}
 //}
 
 void ServerThread::listQueue(unordered_map<string,StringMap>& listqueue) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
-    for (auto it = ll.begin(); it != ll.end(); ++it) {
+    for (auto& item : ll) {
         StringMap sm;
-        getQueueParams(it->second,sm);
-        listqueue[*it->first] = sm;
+        getQueueParams(item.second,sm);
+        listqueue[*(item.first)] = sm;
     }
     QueueManager::getInstance()->unlockQueue();
 }
 
 void ServerThread::listHubsFullDesc(unordered_map<string,StringMap>& listhubs) {
-    for (ClientIter i = clientsMap.begin(); i != clientsMap.end(); ++i) {
-        Client* cl = i->second.curclient;
+    for (auto& client : clientsMap) {
+        Client* cl = client.second.curclient;
         StringMap sm;
         sm["connected"] = cl->isReady() ? "1"  : "0";
         sm["users"] = Util::toString(cl->getUserCount());
         sm["totalshare"] = Util::toString(cl->getAvailable());
         sm["hubname"] = cl->getHubName();
         sm["description"] = cl->getHubDescription();
-        listhubs[i->first] = sm;
+        listhubs[client.first] = sm;
     }
 }
 
@@ -993,16 +988,16 @@ bool ServerThread::moveQueueItem(const string& source, const string& target) {
             string *file;
             const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-            for (auto it = ll.begin(); it != ll.end(); ++it)
-            {
-                file = it->first;
+            for (auto& item : ll) {
+                file = item.first;
                 if (file->length() >= source.length() && file->substr(0, source.length()) == source)
                     targets.push_back(*file);
             }
             QueueManager::getInstance()->unlockQueue();
 
-            for (auto it = targets.begin(); it != targets.end(); ++it)
-                QueueManager::getInstance()->move(*it, target + it->substr(source.length()));
+            for (auto& item : targets) {
+                QueueManager::getInstance()->move(item, target + item.substr(source.length()));
+            }
         } else {
             QueueManager::getInstance()->move(source, target);
         }
@@ -1018,15 +1013,16 @@ bool ServerThread::removeQueueItem(const string& target) {
             vector<string> targets;
             const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-            for (auto it = ll.begin(); it != ll.end(); ++it) {
-                file = it->first;
+            for (auto& item : ll) {
+                file = item.first;
                 if (file->length() >= target.length() && file->substr(0, target.length()) == target)
                     targets.push_back(*file);
             }
             QueueManager::getInstance()->unlockQueue();
 
-            for (auto it = targets.begin(); it != targets.end(); ++it)
-                QueueManager::getInstance()->remove(*it);
+            for (auto& item : targets) {
+                QueueManager::getInstance()->remove(item);
+            }
         } else {
             QueueManager::getInstance()->remove(target);
         }
@@ -1065,12 +1061,12 @@ void ServerThread::matchAllList() {
 //}
 
 void ServerThread::getHubUserList(string& userlist, const string& huburl, const string& separator) {
-    string tmp = separator.empty()? ";" : separator;
+    string sep = separator.empty()? ";" : separator;
     if (clientsMap[huburl].curclient) {
         StringMap& ll = clientsMap[huburl].curuserlist;
-        for (auto it = ll.begin(); it != ll.end(); ++it) {
-            userlist += it->first;
-            userlist += tmp;
+        for (auto& user : ll) {
+            userlist += user.first;
+            userlist += sep;
         }
     }
 }
@@ -1111,40 +1107,36 @@ void ServerThread::updateUser(const StringMap& params, Client* cl)
     const string &cid = params.at("CID");
     const string &Nick = params.at("Nick");
     StringMap & item = clientsMap[cl->getHubUrl()].curuserlist;
-    auto it = item.begin();
-    while (it != item.end()) {
-        if (it->second == cid)
+    for (auto& parameter : item) {
+        if (parameter.second == cid) {
+            if (parameter == *(item.end())) {
+                item.insert(StringMap::value_type(Nick, cid));
+                if (isDebug) {printf ("HUB: %s == Add user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
+            } else if (parameter.first != Nick) {
+                // User has changed nick, update userMap and remove the old Nick tag
+                item.erase(parameter.first);
+                item.insert(StringMap::value_type(Nick, cid));
+                if (isDebug) {printf ("HUB: %s == Update user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
+            }
             break;
-        else
-            ++it;
-    }
+        }
 
-    if (it == item.end()) {
-        item.insert(StringMap::value_type(Nick, cid));
-        if (isDebug) {printf ("HUB: %s == Add user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
-    } else if (it->first != Nick) {
-        // User has changed nick, update userMap and remove the old Nick tag
-        item.erase(it->first);
-        item.insert(StringMap::value_type(Nick, cid));
-        if (isDebug) {printf ("HUB: %s == Update user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
     }
 }
 
 void ServerThread::removeUser(const string& cid, Client* cl)
 {
-    StringMap & item = clientsMap[cl->getHubUrl()].curuserlist;
-    auto it = item.begin();
-    while (it != item.end()) {
-        if (it->second == cid)
+    StringMap & userlist = clientsMap[cl->getHubUrl()].curuserlist;
+    for (auto& user : userlist) {
+        if (user.second == cid) {
+            if (user == *(userlist.end())) {
+                if (isDebug) {printf ("HUB: %s == ERROR: no user with this cid (%s)\n", cl->getHubUrl().c_str(), cid.c_str()); fflush (stdout);}
+            } else {
+                userlist.erase(user.first);
+                if (isDebug) {printf ("HUB: %s == Remove user: %s\n", cl->getHubUrl().c_str(), (user.first).c_str()); fflush (stdout);}
+            }
             break;
-        else
-            ++it;
-    }
-    if (it == item.end()) {
-        if (isDebug) {printf ("HUB: %s == ERROR: no user with this cid (%s)\n", cl->getHubUrl().c_str(), cid.c_str()); fflush (stdout);}
-    } else {
-        item.erase(it->first);
-        if (isDebug) {printf ("HUB: %s == Remove user: %s\n", cl->getHubUrl().c_str(), (it->first).c_str()); fflush (stdout);}
+        }
     }
 }
 
