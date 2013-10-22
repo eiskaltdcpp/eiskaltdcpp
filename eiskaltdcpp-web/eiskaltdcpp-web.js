@@ -240,7 +240,7 @@ var eiskalt = (function () {
             $(row.find('td')[2]).html($('<div title="' + entry["description"] +'">')
                                         .append(entry["hubname"]));
             $(row.find('td')[3]).text(entry["users"]);
-            $(row.find('td')[4]).text(entry["totalshare"]);
+            $(row.find('td')[4]).text(entry["totalshare preformatted"]);
         },
 
         updateConnectedHubs: function (data) {
