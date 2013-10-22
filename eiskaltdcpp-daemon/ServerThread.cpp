@@ -974,6 +974,7 @@ void ServerThread::listHubsFullDesc(unordered_map<string,StringMap>& listhubs) {
         sm["connected"] = cl->isReady() ? "1"  : "0";
         sm["users"] = Util::toString(cl->getUserCount());
         sm["totalshare"] = Util::toString(cl->getAvailable());
+        sm["totalshare preformatted"] = Util::formatBytes(cl->getAvailable());
         sm["hubname"] = cl->getHubName();
         sm["description"] = cl->getHubDescription();
         listhubs[client.first] = sm;
