@@ -171,6 +171,7 @@ Q_SIGNALS:
     void coreFavoriteUserRemoved(QString);
     void closeRequest();
     void highlighted(const VarMap&);
+    void new_msg(const VarMap&);
 
 public Q_SLOTS:
     void disableChat();

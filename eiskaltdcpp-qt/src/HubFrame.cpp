@@ -2350,6 +2350,8 @@ void HubFrame::newMsg(const VarMap &map){
         Notification::getInstance()->showMessage(Notification::NICKSAY, getArenaTitle().left(20), nick + ": " + message);
     }
 
+    emit new_msg(map);
+
     if (msg_color == WS_CHAT_SAY_NICK){
         VarMap tmap = map;
         tmap["TRIGGER"] = trigger;
