@@ -140,6 +140,13 @@ bool WulforUtil::loadUserIcons(){
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
+#if defined(Q_WS_MAC)
+    settings_path = bin_path + "../../qt/icons/user/" + user_theme;
+    settings_path = QDir::toNativeSeparators(settings_path);
+    if (QDir(settings_path).exists())
+        return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
+#endif // defined(Q_WS_MAC)
+
     settings_path = bin_path + "icons/user/" + user_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
@@ -177,6 +184,13 @@ QString WulforUtil::findAppIconsPath(){
 
     if (QDir(settings_path).exists())
         return settings_path;
+
+#if defined(Q_WS_MAC)
+    settings_path = bin_path + "../../qt/appl/" + icon_theme;
+    settings_path = QDir::toNativeSeparators(settings_path);
+    if (QDir(settings_path).exists())
+        return settings_path;
+#endif // defined(Q_WS_MAC)
 
     settings_path = QDir::homePath() + "/.eiskaltdc++/icons/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
