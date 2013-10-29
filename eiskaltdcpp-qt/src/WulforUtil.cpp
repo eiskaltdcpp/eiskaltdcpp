@@ -117,7 +117,7 @@ WulforUtil::WulforUtil()
     QtEnc2DCEnc["WINDOWS-1256"] = "CP1256 (Arabic)";
     QtEnc2DCEnc["WINDOWS-1257"] = "CP1257 (Baltic)";
 
-    bin_path = QApplication::applicationDirPath();
+    bin_path = qApp->applicationDirPath();
 
     if (!bin_path.endsWith(PATH_SEPARATOR))
         bin_path += PATH_SEPARATOR_STR;
@@ -167,7 +167,7 @@ bool WulforUtil::loadUserIcons(){
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
-    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/user/" + user_theme;
+    settings_path = bin_path + CLIENT_ICONS_DIR "/user/" + user_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
@@ -208,7 +208,7 @@ QString WulforUtil::findAppIconsPath(){
     if (QDir(settings_path).exists())
         return settings_path;
 
-    settings_path = qApp->applicationDirPath() + QDir::separator() + CLIENT_ICONS_DIR "/appl/" + icon_theme;
+    settings_path = bin_path + CLIENT_ICONS_DIR "/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
 
     if (QDir(settings_path).exists())
@@ -304,9 +304,9 @@ bool WulforUtil::loadIcons(){
 
     QString icon_theme = WSGET(WS_APP_ICONTHEME);
 #if !defined(Q_WS_WIN)
-    QString fname = QString(CLIENT_RES_DIR)+QDir::separator()+icon_theme+".rcc";
+    QString fname = QString(CLIENT_RES_DIR) + PATH_SEPARATOR_STR + icon_theme+".rcc";
 #else
-    QString fname = qApp->applicationDirPath()+QDir::separator()+CLIENT_RES_DIR+QDir::separator()+icon_theme+".rcc";
+    QString fname = bin_path + CLIENT_RES_DIR + PATH_SEPARATOR_STR + icon_theme + ".rcc";
 #endif
     bool resourceFound = false;
 

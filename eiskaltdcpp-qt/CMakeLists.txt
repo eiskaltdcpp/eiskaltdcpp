@@ -262,7 +262,6 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                  -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
                  -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
-                 -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/qt/icons"
                 )
 
 if (USE_JS)
@@ -270,9 +269,15 @@ if (USE_JS)
 endif (USE_JS)
 
 if (APPLE)
-  add_definitions(-DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources")
+  add_definitions(
+                  -DCLIENT_ICONS_DIR="${PROJECT_NAME_GLOBAL}.app/qt/icons"
+                  -DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources"
+                 )
 else (APPLE)
-  add_definitions(-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/qt/resources")
+  add_definitions(
+                  -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/qt/icons"
+                  -DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/qt/resources"
+                 )
 endif (APPLE)
 
 if (APPLE)
@@ -306,14 +311,14 @@ if (APPLE)
   else ()
     set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-stable-${CMAKE_SYSTEM_PROCESSOR}")
   endif ()
-  set (MACOSX_BUNDLE_INFO_STRING "DC and ADC client")
+  set (MACOSX_BUNDLE_INFO_STRING "Direct Connect and ADC client")
   set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
   set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
   set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
   set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
   set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
   set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION})
-  set (MACOSX_BUNDLE_COPYRIGH "Copyright 2012 Andrey Karlov")
+  set (MACOSX_BUNDLE_COPYRIGH "Copyright 2009-2013 EiskaltDC++ developers")
 endif (APPLE)
 
   if (USE_JS)
