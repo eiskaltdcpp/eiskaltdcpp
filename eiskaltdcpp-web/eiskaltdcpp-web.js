@@ -193,6 +193,7 @@ var eiskalt = (function () {
             $.each(eiskalt.downloadQueue, function (target, entry) {
                 entry.row.remove();
             });
+            eiskalt.downloadQueue = {};
         },
 
         requestDownloadQueue: function () {
@@ -261,6 +262,7 @@ var eiskalt = (function () {
             $.each(eiskalt.connectedHubs, function (target, entry) {
                 entry.row.remove();
             });
+            eiskalt.connectedHubs = {};
         },
 
         requestConnectedHubs: function () {
