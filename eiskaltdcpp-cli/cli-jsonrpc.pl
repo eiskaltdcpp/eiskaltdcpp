@@ -87,15 +87,16 @@ $obj->{'jsonrpc'} = $config{jsonrpc};
 my $res;
 
 # creating and configuring jsonrpc client
-my $client = eval
+my $client;
+eval
 {
 	require JSON::RPC::Client;
-	JSON::RPC::Client->new();
+	$client = JSON::RPC::Client->new();
 }
 or do
 {
 	require JSON::RPC::Legacy::Client;
-	JSON::RPC::Legacy::Client->new();
+	$client=JSON::RPC::Legacy::Client->new();
 };
 $client->version("2.0");
 $client->ua->timeout(10);
