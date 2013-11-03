@@ -49,5 +49,6 @@ class JsonRpcMethods
     bool ListHubsFullDesc(const Json::Value& root, Json::Value& response);
     bool GetHubUserList(const Json::Value& root, Json::Value& response);
     bool GetUserInfo(const Json::Value& root, Json::Value& response);
-
+    bool OpenFileList(const Json::Value& root, Json::Value& response);
+    bool ShowLocalLists(const Json::Value& root, Json::Value& response);
 };

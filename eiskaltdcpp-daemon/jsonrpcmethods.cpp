@@ -427,7 +427,7 @@ bool JsonRpcMethods::MatchAllLists(const Json::Value& root, Json::Value& respons
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     ServerThread::getInstance()->matchAllList();
-        response["result"] = 0;
+    response["result"] = 0;
     if (isDebug) std::cout << "MatchAllLists (response): " << response << std::endl;
     return true;
 }
@@ -473,5 +473,29 @@ bool JsonRpcMethods::GetUserInfo(const Json::Value& root, Json::Value& response)
     }
     response["result"] = parameters;
     if (isDebug) std::cout << "GetUserInfo (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::ShowLocalLists(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "ShowLocalLists (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    string tmp;
+    ServerThread::getInstance()->showLocalLists(tmp, root["params"]["separator"].asString());
+    response["result"] = tmp;
+    if (isDebug) std::cout << "ShowLocalLists (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::OpenFileList(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "OpenFileList (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    string ret;
+    if (ServerThread::getInstance()->openFileList(root["params"]["filelist"].asString(), ret))
+        response["result"] = ret;
+    else
+        response["result"] = 1;
+    if (isDebug) std::cout << "OpenFileList (response): " << response << std::endl;
     return true;
 }
