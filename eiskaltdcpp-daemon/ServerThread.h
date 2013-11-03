@@ -75,6 +75,8 @@ public:
     void updateUser(const StringMap& params, Client* cl);
     void removeUser(const string& cid, Client* cl);
     bool getUserInfo(StringMap& userinfo, const string& nick, const string& huburl);
+    void showLocalLists(string& l, const string& separator);
+    bool openFileList(const string& filelist, string& ret);
 
 private:
     friend class Singleton<ServerThread>;

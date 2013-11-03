@@ -200,6 +200,8 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MatchAllLists, std::string("queue.matchlists")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHubUserList, std::string("hub.getusers")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetUserInfo, std::string("hub.getuserinfo")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowLocalLists, std::string("list.local")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::OpenFileList, std::string("list.open")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -515,10 +517,12 @@ bool ServerThread::getFileList(const string& hub, const string& nick, bool match
     if (i != clientsMap.end() && clientsMap[i->first].curclient) {
         if (!nick.empty()) {
             try {
-                //UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
-                UserPtr user = ClientManager::getInstance()->getUser(nick, hub);
-                if (user && user->isOnline() && user->isNMDC()) {
-                    const HintedUser hintedUser(user, i->first);
+                auto it = clientsMap[hub].curuserlist.find(nick);
+                if (it == clientsMap[hub].curuserlist.end())
+                    return false;
+                UserPtr user = ClientManager::getInstance()->findUser(CID(it->second));
+                if (user && user->isOnline()) {
+                    const HintedUser hintedUser(user, hub);
                     if (user == ClientManager::getInstance()->getMe()) {
                         // Don't download file list, open locally instead
                         //WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
@@ -1157,4 +1161,24 @@ bool ServerThread::getUserInfo(StringMap& userinfo, const string& nick, const st
         }
     }
     return false;
+}
+
+void ServerThread::showLocalLists(string& l, const string& separator) {
+    string tmp = separator.empty()? ";" : separator;
+    StringList lists = File::findFiles(Util::getListPath(), "*.xml*");
+    for (auto i : lists) {
+        l += Util::getFileName(i);
+        l += tmp;
+    }
+}
+
+bool ServerThread::openFileList(const string& filelist, string& ret) {
+    if (!Util::fileExists(Util::getListPath() + filelist))
+        return false;
+    File f(Util::getListPath() + filelist, File::READ, File::OPEN);
+    size_t datalen = static_cast<uint32_t>(f.getSize());
+    std::unique_ptr<uint8_t[]> buf(new uint8_t[datalen]);
+    f.read((void*)buf.get(), datalen);
+    ret = Encoder::toBase32(buf.get(), datalen);
+    return true;
 }
