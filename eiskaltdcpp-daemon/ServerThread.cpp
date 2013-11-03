@@ -1164,11 +1164,11 @@ bool ServerThread::getUserInfo(StringMap& userinfo, const string& nick, const st
 }
 
 void ServerThread::showLocalLists(string& l, const string& separator) {
-    string tmp = separator.empty()? ";" : separator;
-    StringList lists = File::findFiles(Util::getListPath(), "*.xml*");
-    for (auto i : lists) {
-        l += Util::getFileName(i);
-        l += tmp;
+    string sep = separator.empty()? ";" : separator;
+    StringList files = File::findFiles(Util::getListPath(), "*.xml*");
+    for (auto file : files) {
+        l += Util::getFileName(file);
+        l += sep;
     }
 }
 
