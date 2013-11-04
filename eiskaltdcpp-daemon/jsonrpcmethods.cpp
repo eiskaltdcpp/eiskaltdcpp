@@ -487,15 +487,60 @@ bool JsonRpcMethods::ShowLocalLists(const Json::Value& root, Json::Value& respon
     return true;
 }
 
+bool JsonRpcMethods::GetClientFileList(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "GetClientFileList (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    string ret;
+    if (ServerThread::getInstance()->getClientFileList(root["params"]["filelist"].asString(), ret))
+        response["result"] = ret;
+    else
+        response["result"] = 1;
+    if (isDebug) std::cout << "GetClientFileList (response): " << response << std::endl;
+    return true;
+}
 bool JsonRpcMethods::OpenFileList(const Json::Value& root, Json::Value& response) {
     if (isDebug) std::cout << "OpenFileList (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     string ret;
-    if (ServerThread::getInstance()->openFileList(root["params"]["filelist"].asString(), ret))
-        response["result"] = ret;
+    ServerThread::getInstance()->openFileList(root["params"]["filelist"].asString());
+    response["result"] = 0;
+    if (isDebug) std::cout << "OpenFileList (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::CloseFileList(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "CloseFileList (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    string ret;
+    if (ServerThread::getInstance()->closeFileList(root["params"]["filelist"].asString()))
+        response["result"] = 0;
     else
         response["result"] = 1;
-    if (isDebug) std::cout << "OpenFileList (response): " << response << std::endl;
+    if (isDebug) std::cout << "CloseFileList (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::CloseAllFileLists(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "CloseAllFileList (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    string ret;
+    ServerThread::getInstance()->closeAllFileLists();
+    response["result"] = 0;
+    if (isDebug) std::cout << "CloseAllFileList (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::ShowOpenedLists(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "ShowOpenedLists (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    string tmp;
+    ServerThread::getInstance()->showOpenedLists(tmp, root["params"]["separator"].asString());
+    response["result"] = tmp;
+    if (isDebug) std::cout << "ShowOpenedLists (response): " << response << std::endl;
     return true;
 }

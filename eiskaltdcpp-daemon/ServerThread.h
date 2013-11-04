@@ -13,17 +13,18 @@
 
 #pragma once
 
-#include "dcpp/QueueManagerListener.h"
-#include "dcpp/TimerManager.h"
-#include "dcpp/LogManager.h"
 #include "dcpp/ClientListener.h"
-#include "dcpp/ShareManager.h"
-#include "dcpp/Thread.h"
+#include "dcpp/DirectoryListing.h"
+#include "dcpp/LogManager.h"
+#include "dcpp/QueueManagerListener.h"
 #include "dcpp/SearchManager.h"
 #include "dcpp/SearchManagerListener.h"
 #include "dcpp/SearchResult.h"
 #include "dcpp/Singleton.h"
+#include "dcpp/ShareManager.h"
 #include "dcpp/Socket.h"
+#include "dcpp/TimerManager.h"
+#include "dcpp/Thread.h"
 
 using namespace dcpp;
 
@@ -78,7 +79,12 @@ public:
     void removeUser(const string& cid, Client* cl);
     bool getUserInfo(StringMap& userinfo, const string& nick, const string& huburl);
     void showLocalLists(string& l, const string& separator);
-    bool openFileList(const string& filelist, string& ret);
+    bool getClientFileList(const string& filelist, string& ret);
+    void openFileList(const string& filelist);
+    void buildList(const string& filelist, const string& nick, DirectoryListing* listing, bool full);
+    bool closeFileList(const string& filelist);
+    void closeAllFileLists();
+    void showOpenedLists(string& l, const string& separator);
 
 private:
     friend class Singleton<ServerThread>;
@@ -107,6 +113,9 @@ private:
     typedef unordered_map <string, CurHub> ClientMap;
     static ClientMap clientsMap;
     bool json_run;
+
+    typedef unordered_map <string, DirectoryListing*> FilelistMap;
+    FilelistMap listsMap;
 
     // TimerManagerListener
     virtual void on(TimerManagerListener::Second, uint64_t aTick) noexcept;
