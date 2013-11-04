@@ -51,7 +51,7 @@ namespace dht
         if(bootstrapNodes.empty())
         {
             LogManager::getInstance()->message("DHT bootstrapping started");
-            string dhturl = dhtservers[0/*Util::rand(dhtservers.size())*/];
+            string dhturl = dhtservers[Util::rand(dhtservers.size())];
             // TODO: make URL settable
             string url = dhturl  + "?cid=" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "&encryption=1";
 
