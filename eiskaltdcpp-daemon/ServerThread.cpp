@@ -15,20 +15,21 @@
 #include "utility.h"
 #include "ServerThread.h"
 
+#include "dcpp/AdcHub.h"
+#include "dcpp/ADLSearch.h"
+#include "dcpp/ChatMessage.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/Client.h"
-#include "dcpp/AdcHub.h"
 #include "dcpp/ConnectionManager.h"
-#include "dcpp/FavoriteManager.h"
+#include "dcpp/ConnectivityManager.h"
 #include "dcpp/DownloadManager.h"
-#include "dcpp/UploadManager.h"
+#include "dcpp/FavoriteManager.h"
+#include "dcpp/HashManager.h"
 #include "dcpp/QueueManager.h"
 #include "dcpp/SearchManager.h"
-#include "dcpp/ConnectivityManager.h"
-#include "dcpp/HashManager.h"
-#include "dcpp/ChatMessage.h"
-#include "dcpp/Text.h"
 #include "dcpp/StringTokenizer.h"
+#include "dcpp/Text.h"
+#include "dcpp/UploadManager.h"
 #include "dcpp/version.h"
 
 #ifdef XMLRPC_DAEMON
@@ -201,7 +202,11 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHubUserList, std::string("hub.getusers")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetUserInfo, std::string("hub.getuserinfo")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowLocalLists, std::string("list.local")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetClientFileList, std::string("list.get")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::OpenFileList, std::string("list.open")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::CloseFileList, std::string("list.close")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::CloseAllFileLists, std::string("list.closeall")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowOpenedLists, std::string("list.listopened")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -1172,7 +1177,7 @@ void ServerThread::showLocalLists(string& l, const string& separator) {
     }
 }
 
-bool ServerThread::openFileList(const string& filelist, string& ret) {
+bool ServerThread::getClientFileList(const string& filelist, string& ret) {
     if (!Util::fileExists(Util::getListPath() + filelist))
         return false;
     File f(Util::getListPath() + filelist, File::READ, File::OPEN);
@@ -1181,4 +1186,56 @@ bool ServerThread::openFileList(const string& filelist, string& ret) {
     f.read((void*)buf.get(), datalen);
     ret = Encoder::toBase32(buf.get(), datalen);
     return true;
+}
+
+void ServerThread::buildList(const string& filelist, const string& nick, DirectoryListing* listing, bool full) {
+    try
+    {
+        listing->getRoot()->setName(nick);
+        //if (full) {
+            listing->loadFile(filelist);
+            ADLSearchManager::getInstance()->matchListing(*(listing));
+        //}
+    }
+    catch (const Exception &e)
+    {
+        //ex = "Unable to load file list: " + e.getError();
+    }
+}
+void ServerThread::openFileList(const string& filelist) {
+    auto it = listsMap.find(filelist);
+    if (it == listsMap.end()) {
+        UserPtr u = DirectoryListing::getUserFromFilename(filelist);
+        if (!u)
+            return;
+        //// Use the nick from the file name in case the user is offline and core only returns CID
+        //auto nick = ClientManager::getNicks(user, "");
+        //if (nick.find(user->getCID().toBase32(), 1) != string::npos)
+        //{
+            //string name = Util::getFileName(file);
+            //string::size_type loc = name.find('.');
+            //nick = name.substr(0, loc);
+            //setLabel_gui(_("List: ") + nick);
+        //}
+        HintedUser user(u, Util::emptyString);
+        DirectoryListing* dl = new DirectoryListing(user);
+        buildList(filelist, "test", dl, false);
+        listsMap.insert(FilelistMap::value_type(filelist,dl));
+    }
+}
+
+bool ServerThread::closeFileList(const string& filelist) {
+    return (1 <= listsMap.erase(filelist));
+}
+
+void ServerThread::closeAllFileLists() {
+    listsMap.clear();
+}
+
+void ServerThread::showOpenedLists(string& l, const string& separator) {
+    string tmp = separator.empty()? ";" : separator;
+    for (auto i : listsMap) {
+        l += i.first;
+        l += tmp;
+    }
 }

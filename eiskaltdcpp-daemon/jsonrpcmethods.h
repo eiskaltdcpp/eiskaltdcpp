@@ -51,4 +51,8 @@ class JsonRpcMethods
     bool GetUserInfo(const Json::Value& root, Json::Value& response);
     bool OpenFileList(const Json::Value& root, Json::Value& response);
     bool ShowLocalLists(const Json::Value& root, Json::Value& response);
+    bool GetClientFileList(const Json::Value& root, Json::Value& response);
+    bool CloseFileList(const Json::Value& root, Json::Value& response);
+    bool CloseAllFileLists(const Json::Value& root, Json::Value& response);
+    bool ShowOpenedLists(const Json::Value& root, Json::Value& response);
 };
