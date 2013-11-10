@@ -55,7 +55,7 @@ void SettingsLog::init(){
 
     groupBox_SPYLOG->setChecked(BOOLSETTING(LOG_SPY));
     lineEdit_SPYFMT->setText(_q(SETTING(LOG_FORMAT_SPY)));
-    lineEdit_FILE_SPYFMT->setText(_q(SETTING(LOG_FILE_SYSTEM)));
+    lineEdit_FILE_SPYFMT->setText(_q(SETTING(LOG_FILE_SPY)));
 
     toolButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
