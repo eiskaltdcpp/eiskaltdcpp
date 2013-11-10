@@ -153,12 +153,12 @@ public:
 
     GETSET(HintedUser, user, User);
 
+    Directory* find(const string& aName, Directory* current);
+
 private:
     friend class ListLoader;
 
     Directory* root;
-
-    Directory* find(const string& aName, Directory* current);
 
 };
 

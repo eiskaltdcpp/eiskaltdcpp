@@ -331,7 +331,7 @@ void DirectoryListing::download(const string& aDir, const string& aTarget, bool 
     dcassert(aDir.size() > 2);
     dcassert(aDir[aDir.size() - 1] == '\\'); // This should not be PATH_SEPARATOR
     Directory* d = find(aDir, getRoot());
-    if(d != NULL)
+    if(d)
         download(d, aTarget, highPrio);
 }
 

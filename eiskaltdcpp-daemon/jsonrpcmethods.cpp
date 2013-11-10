@@ -544,3 +544,20 @@ bool JsonRpcMethods::ShowOpenedLists(const Json::Value& root, Json::Value& respo
     if (isDebug) std::cout << "ShowOpenedLists (response): " << response << std::endl;
     return true;
 }
+
+bool JsonRpcMethods::LsDirInList(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "ListDirInList (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    Json::Value parameters;
+    unordered_map<string,StringMap> map;
+    ServerThread::getInstance()->lsDirInList(root["params"]["directory"].asString(), root["params"]["filelist"].asString(), map);
+    for (auto& item : map) {
+        for (auto& parameter : item.second) {
+            parameters[item.first][parameter.first] = parameter.second;
+        }
+    }
+    response["result"] = parameters;
+    if (isDebug) std::cout << "LsDirInList (response): " << response << std::endl;
+    return true;
+}

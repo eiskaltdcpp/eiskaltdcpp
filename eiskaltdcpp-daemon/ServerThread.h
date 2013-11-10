@@ -83,6 +83,8 @@ public:
     bool closeFileList(const string& filelist);
     void closeAllFileLists();
     void showOpenedLists(string& l, const string& separator);
+    void lsDirInList(const string& directory, const string& filelist, unordered_map<string,StringMap>& ret);
+    void lsDirInList(DirectoryListing::Directory *dir, unordered_map<string,StringMap>& ret);
 
 private:
     friend class Singleton<ServerThread>;
