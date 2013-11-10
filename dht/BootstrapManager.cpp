@@ -29,9 +29,12 @@
 
 namespace dht
 {
-
+    vector<string> dhtservers;
+ 
     BootstrapManager::BootstrapManager(void)
     {
+        dhtservers.push_back("http://strongdc.sourceforge.net/bootstrap/");
+        dhtservers.push_back("http://ssa.in.ua/dcDHT.php");
         httpConnection.addListener(this);
     }
 
@@ -45,9 +48,9 @@ namespace dht
         if(bootstrapNodes.empty())
         {
             LogManager::getInstance()->message("DHT bootstrapping started");
-
+            string dhturl = dhtservers[Util::rand(dhtservers.size())];
             // TODO: make URL settable
-            string url = BOOTSTRAP_URL "?cid=" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "&encryption=1";
+            string url = dhturl  + "?cid=" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "&encryption=1";
 
             // store only active nodes to database
             if(ClientManager::getInstance()->isActive(Util::emptyString))
