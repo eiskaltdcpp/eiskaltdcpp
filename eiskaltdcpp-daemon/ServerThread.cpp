@@ -211,6 +211,7 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::CloseFileList, std::string("list.close")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::CloseAllFileLists, std::string("list.closeall")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowOpenedLists, std::string("list.listopened")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::LsDirInList, std::string("list.lsdir")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -1183,12 +1184,13 @@ void ServerThread::buildList(const string& filelist, const string& nick, Directo
     {
         listing->getRoot()->setName(nick);
         //if (full) {
-            listing->loadFile(filelist);
+            listing->loadFile(Util::getListPath() + filelist);
             ADLSearchManager::getInstance()->matchListing(*(listing));
         //}
     }
     catch (const Exception &e)
     {
+        printf("Unable to load file list: %s\n", e.getError().c_str());fflush(stdout);
         //ex = "Unable to load file list: " + e.getError();
     }
 }
@@ -1223,9 +1225,46 @@ void ServerThread::closeAllFileLists() {
 }
 
 void ServerThread::showOpenedLists(string& l, const string& separator) {
-    string tmp = separator.empty()? ";" : separator;
+    string sep = separator.empty()? ";" : separator;
     for (auto i : listsMap) {
         l += i.first;
-        l += tmp;
+        l += sep;
+    }
+}
+
+void ServerThread::lsDirInList(const string& directory, const string& filelist, unordered_map<string,StringMap>& ret) {
+    auto it = listsMap.find(filelist);
+    if (it != listsMap.end()) {
+        DirectoryListing::Directory *dir;
+        if (directory.empty() || directory == "\\") {
+            dir = it->second->getRoot();
+        } else {
+            dir = it->second->find(directory,it->second->getRoot());
+        }
+        lsDirInList(dir, ret);
+    }
+}
+
+void ServerThread::lsDirInList(DirectoryListing::Directory *dir, unordered_map<string,StringMap>& ret) {
+    if (dir == NULL)
+        return;
+    for (auto d : dir->directories) {
+        StringMap map;
+        map["Name"] = "d" + d->getName();
+        map["Size"] = Util::toString(d->getSize());
+        map["Size preformatted"] = Util::formatBytes(d->getSize());
+        ret[d->getName()] = map;
+    }
+    for (auto file : dir->files) {
+        StringMap map;
+        map["Name"] = file->getName();
+        map["Size"] = Util::toString(file->getSize());
+        map["Size preformatted"] = Util::formatBytes(file->getSize());
+        map["TTH"] = file->getTTH().toBase32();
+        map["Bitrate"] = file->mediaInfo.bitrate ? (Util::toString(file->mediaInfo.bitrate)) : Util::emptyString;
+        map["Resolution"] = !file->mediaInfo.video_info.empty() ? file->mediaInfo.resolution : Util::emptyString;
+        map["Video"] = file->mediaInfo.video_info;
+        map["Audio"] = file->mediaInfo.audio_info;
+        ret[file->getName()] = map;
     }
 }
