@@ -44,9 +44,29 @@ API Layers:
                 Args: separator (string)
                 Return: @all filelists in filelist dir@ (string) | 1 (integer)
                 Comment:
-        (wip) Передача файллиста на клиента (list.open)
+        (wip) Передача файллиста на клиента (list.get)
                 Args: filelist (string)
                 Return: @base32 encoded xml.bz2 file@ | 1 (integer)
+                Comment:
+        (wip) Открыть файллист (list.open)
+                Args: filelist (string)
+                Return: 0 | 1 (integer)
+                Comment:
+        (wip) Закрыть файллист (list.close)
+                Args: filelist (string)
+                Return: 0 | 1 (integer)
+                Comment:
+        (wip) Закрыть все файллисты (list.closeall)
+                Args: none
+                Return: 0 (integer)
+                Comment:
+        (wip) Вернуть список открытых файллистов (list.listopened)
+                Args: separator (string)
+                Return: @all opened file lists@ (string)
+                Comment:
+        (wip) Список файлов и директории в (list.lsdir)
+                Args: filelist (string), directory(string)
+                Return: @all files and dirs in directory of filelist@ (string)
                 Comment:
         Постановка файла из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
         Постановка директории из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)

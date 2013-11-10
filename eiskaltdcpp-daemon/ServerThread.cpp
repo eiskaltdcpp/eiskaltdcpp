@@ -1199,7 +1199,7 @@ class ServerThreadListLoader : public dcpp::Thread
                 dl->getRoot()->setName(nick);
                 dl->loadFile(Util::getListPath() + filelist);
                 ADLSearchManager::getInstance()->matchListing(*dl);
-            } catch (const Exception&) { }
+            } catch (const Exception&) {}
             delete this;// Cleanup the thread object
             return 0;
         }
@@ -1225,12 +1225,13 @@ class ServerThreadListLoader : public dcpp::Thread
     //}
 //}
 
-void ServerThread::openFileList(const string& filelist) {
+
+bool ServerThread::openFileList(const string& filelist) {
     auto it = listsMap.find(filelist);
     if (it == listsMap.end()) {
         UserPtr u = DirectoryListing::getUserFromFilename(filelist);
         if (!u)
-            return;
+            return false;
         // Use the nick from the file name in case the user is offline and core only returns CID
         string nick = Util::toString(ClientManager::getInstance()->getNicks(u->getCID(), ""));
         if (nick.find(u->getCID().toBase32(), 1) != string::npos)
@@ -1248,8 +1249,10 @@ void ServerThread::openFileList(const string& filelist) {
         } catch (const ThreadException&) {
             ///@todo add error message
             delete stld;
+            return false;
         }
         listsMap.insert(FilelistMap::value_type(filelist,dl));
+        return true;
     }
 }
 
