@@ -96,6 +96,8 @@ LogManager::LogManager() {
     options[SYSTEM][FORMAT]     = SettingsManager::LOG_FORMAT_SYSTEM;
     options[STATUS][FILE]       = SettingsManager::LOG_FILE_STATUS;
     options[STATUS][FORMAT]     = SettingsManager::LOG_FORMAT_STATUS;
+    options[SPY][FILE]       = SettingsManager::LOG_FILE_SPY;
+    options[SPY][FORMAT]     = SettingsManager::LOG_FORMAT_SPY;
 }
 
 LogManager::~LogManager() {
