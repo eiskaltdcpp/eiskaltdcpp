@@ -15,10 +15,6 @@
 
 #include <QtDebug>
 
-namespace{
-static const auto _zero_up = [](const uint &i) { if (0 == i) return (uint)1; else return i; };
-}
-
 SpyModel::SpyModel(QObject *parent):
         QAbstractItemModel(parent), isSort(false), sortColumn(0), sortOrder(Qt::DescendingOrder)
 {
@@ -249,12 +245,14 @@ void SpyModel::addResult(const QString &file, bool isTTH)
     if (parent == rootItem)
         hashes.insert(_file, item);
 
-    if(parent != rootItem){
+    if (parent != rootItem){
         parent->appendChild(item);
         rootItem->moveUp(parent);
-    }else{
+    } else {
         parent->insertChild(item, 0);
     }
+
+    static const auto _zero_up = [](const uint &i) { return (i? i : (uint)1); };
 
     if (BOOLSETTING(LOG_SPY)){
         dcpp::StringMap params;
