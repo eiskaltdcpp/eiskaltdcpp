@@ -1179,39 +1179,66 @@ bool ServerThread::getClientFileList(const string& filelist, string& ret) {
     return true;
 }
 
-void ServerThread::buildList(const string& filelist, const string& nick, DirectoryListing* listing, bool full) {
-    try
-    {
-        listing->getRoot()->setName(nick);
-        //if (full) {
-            listing->loadFile(Util::getListPath() + filelist);
-            ADLSearchManager::getInstance()->matchListing(*(listing));
-        //}
-    }
-    catch (const Exception &e)
-    {
-        printf("Unable to load file list: %s\n", e.getError().c_str());fflush(stdout);
-        //ex = "Unable to load file list: " + e.getError();
-    }
-}
+class ServerThreadListLoader : public dcpp::Thread
+{
+    public:
+        ServerThreadListLoader(const string& filelist_, const string& nick_, DirectoryListing* dl_) : filelist(filelist_), nick(nick_), dl(dl_) { }
+        int run() {
+            dl->getRoot()->setName(nick);
+            try {
+                dl->getRoot()->setName(nick);
+                dl->loadFile(Util::getListPath() + filelist);
+                ADLSearchManager::getInstance()->matchListing(*dl);
+            } catch (const Exception&) { }
+            delete this;// Cleanup the thread object
+            return 0;
+        }
+    private:
+        string filelist;
+        string nick;
+        DirectoryListing* dl;
+};
+
+//void ServerThread::buildList(const string& filelist, const string& nick, DirectoryListing* listing, bool full) {
+    //try
+    //{
+        //listing->getRoot()->setName(nick);
+        ////if (full) {
+            //listing->loadFile(Util::getListPath() + filelist);
+            //ADLSearchManager::getInstance()->matchListing(*(listing));
+        ////}
+    //}
+    //catch (const Exception &e)
+    //{
+        //printf("Unable to load file list: %s\n", e.getError().c_str());fflush(stdout);
+        ////ex = "Unable to load file list: " + e.getError();
+    //}
+//}
+
 void ServerThread::openFileList(const string& filelist) {
     auto it = listsMap.find(filelist);
     if (it == listsMap.end()) {
         UserPtr u = DirectoryListing::getUserFromFilename(filelist);
         if (!u)
             return;
-        //// Use the nick from the file name in case the user is offline and core only returns CID
-        //auto nick = ClientManager::getNicks(user, "");
-        //if (nick.find(user->getCID().toBase32(), 1) != string::npos)
-        //{
-            //string name = Util::getFileName(file);
-            //string::size_type loc = name.find('.');
-            //nick = name.substr(0, loc);
-            //setLabel_gui(_("List: ") + nick);
-        //}
+        // Use the nick from the file name in case the user is offline and core only returns CID
+        string nick = Util::toString(ClientManager::getInstance()->getNicks(u->getCID(), ""));
+        if (nick.find(u->getCID().toBase32(), 1) != string::npos)
+        {
+            string name = Util::getFileName(filelist);
+            string::size_type loc = name.find('.');
+            nick = name.substr(0, loc);
+        }
         HintedUser user(u, Util::emptyString);
         DirectoryListing* dl = new DirectoryListing(user);
-        buildList(filelist, "test", dl, false);
+        //buildList(filelist, nick, dl, false);
+        ServerThreadListLoader* stld = new ServerThreadListLoader(filelist, nick, dl);
+        try {
+            stld->start();
+        } catch (const ThreadException&) {
+            ///@todo add error message
+            delete stld;
+        }
         listsMap.insert(FilelistMap::value_type(filelist,dl));
     }
 }
