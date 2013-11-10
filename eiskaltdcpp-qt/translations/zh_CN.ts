@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/ADLS.cpp" line="53"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"/>
+        <translation>ADL搜索</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="139"/>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Checked</source>
-        <translation type="unfinished"/>
+        <translation>已检查</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
@@ -73,27 +73,27 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Type source</source>
-        <translation type="unfinished"/>
+        <translation>键入源</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation type="unfinished"/>
+        <translation>名称目录</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Min. Size</source>
-        <translation type="unfinished"/>
+        <translation>最小尺寸</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Max. Size</source>
-        <translation type="unfinished"/>
+        <translation>最大尺寸</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Type Size</source>
-        <translation type="unfinished"/>
+        <translation>键入尺寸</translation>
     </message>
 </context>
 <context>
@@ -116,7 +116,7 @@ Keys:
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="17"/>
         <source>Customize actions</source>
-        <translation type="unfinished"/>
+        <translation>自定义行为</translation>
     </message>
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="26"/>
@@ -130,27 +130,27 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="141"/>
         <source>Checking user %1 (message: %2, cid: %3)...</source>
-        <translation type="unfinished"/>
+        <translation>正在检查用户 %1 (消息: %2, cid: %3)...</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="152"/>
         <source>%1: Moving user to GRAY.</source>
-        <translation type="unfinished"/>
+        <translation>%1: 移动用户至灰名单。</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="162"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation type="unfinished"/>
+        <translation>%1: 移动用户至黑名单。</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"/>
+        <translation>%1: 正在发送 &quot;再尝试&quot; 消息。</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="177"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>嗨，我是反垃圾信息机器人，问你个问题 &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="64"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"/>
+        <translation>复制网页磁链</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="65"/>
@@ -346,7 +346,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="401"/>
         <source>Full tree does not match TTH root</source>
-        <translation type="unfinished"/>
+        <translation>完整的树与 TTH 根不符</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="403"/>
@@ -553,7 +553,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="58"/>
         <source>******</source>
-        <translation type="unfinished"/>
+        <translation>******</translation>
     </message>
 </context>
 <context>
@@ -614,7 +614,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="244"/>
         <source>Grant/Remove slot</source>
-        <translation type="unfinished"/>
+        <translation>添加/移除空位</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.h" line="46"/>
@@ -783,7 +783,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Target</source>
-        <translation type="unfinished"/>
+        <translation>目标</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="116"/>
@@ -857,7 +857,7 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="173"/>
         <location filename="../src/HubFrame.cpp" line="1251"/>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>复制</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="174"/>
@@ -903,7 +903,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="182"/>
         <source>Grant slot</source>
-        <translation type="unfinished"/>
+        <translation>添加空位</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="183"/>
@@ -968,7 +968,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="207"/>
         <source>Copy data</source>
-        <translation type="unfinished"/>
+        <translation>复制数据</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="297"/>
@@ -1022,7 +1022,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1249"/>
         <source>Show widget</source>
-        <translation type="unfinished"/>
+        <translation>显示挂件</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1252"/>
@@ -1058,22 +1058,22 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1408"/>
         <source>Chat cleared.</source>
-        <translation type="unfinished"/>
+        <translation>聊天室已清空。</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1420"/>
         <source>Chat disabled.</source>
-        <translation type="unfinished"/>
+        <translation>聊天室已禁用。</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1427"/>
         <source>Chat enabled.</source>
-        <translation type="unfinished"/>
+        <translation>聊天室已启用。</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1463"/>
         <source>Hub role: Operator</source>
-        <translation type="unfinished"/>
+        <translation>中枢角色: 操作器</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1465"/>
@@ -1084,7 +1084,8 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1468"/>
         <source>
 Favorite user</source>
-        <translation type="unfinished"/>
+        <translation>
+最喜爱的用户</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1543"/>
@@ -1202,25 +1203,30 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1824"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
-        <translation type="unfinished"/>
+        <translation>/away &lt;message&gt; - 打开或关闭离开模式
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1825"/>
         <source>/back - set away-mode off
 </source>
-        <translation type="unfinished"/>
+        <translation>/back - 关闭离去模式
+
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1826"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
-        <translation type="unfinished"/>
+        <translation>/browse &lt;nick&gt; - 浏览用户文件
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1827"/>
         <source>/clear - clear chat window
 </source>
-        <translation type="unfinished"/>
+        <translation>/clear - 清空聊天室窗口
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1828"/>
@@ -1233,7 +1239,8 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1829"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
-        <translation type="unfinished"/>
+        <translation>/kword purge &lt;keyword&gt; - 移除用户定义的关键字
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1830"/>
@@ -1246,55 +1253,64 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1831"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation type="unfinished"/>
+        <translation>/magnet - 处理磁力链接的默认行为 (0-询问, 1-搜索, 2-下载)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1832"/>
         <source>/close - close this hub
 </source>
-        <translation type="unfinished"/>
+        <translation>/close - 关闭此交换中枢
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1833"/>
         <source>/fav - add this hub to favorites
 </source>
-        <translation type="unfinished"/>
+        <translation>/fav - 添加此交换中枢到我的最爱
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1834"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
-        <translation type="unfinished"/>
+        <translation>/grant &lt;nick&gt; - 为用户添加额外的空位
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1835"/>
         <source>/help, /?, /h - show this help
 </source>
-        <translation type="unfinished"/>
+        <translation>/help, /?, /h - 显示本帮助
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1836"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation type="unfinished"/>
+        <translation>/info &lt;nick&gt; - 显示用户资料
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1837"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
-        <translation type="unfinished"/>
+        <translation>/ratio [show] - 显示速率 [send in chat]
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1838"/>
         <source>/me - say a third person
 </source>
-        <translation type="unfinished"/>
+        <translation>/me - 以第三人称说话
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1839"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation type="unfinished"/>
+        <translation>/pm &lt;nick&gt; - 与用户开始私聊
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1840"/>
@@ -1317,18 +1333,20 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1843"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
-        <translation type="unfinished"/>
+        <translation>/luafile &lt;file&gt; - 载入 Lua 文件
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1844"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished"/>
+        <translation>/lua &lt;chunk&gt; - 运行 Lua 代码块
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2096"/>
         <source> joins the chat</source>
-        <translation type="unfinished"/>
+        <translation>加入聊天室</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2101"/>
@@ -1360,63 +1378,63 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="2197"/>
         <location filename="../src/HubFrame.cpp" line="2211"/>
         <source>User not found</source>
-        <translation type="unfinished"/>
+        <translation>无法找到用户</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2218"/>
         <source>Slot granted to </source>
-        <translation type="unfinished"/>
+        <translation>添加空位至</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2277"/>
         <source> has been added to favorites.</source>
-        <translation type="unfinished"/>
+        <translation>已经添加至最喜爱中</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2277"/>
         <source> has been removed from favorites.</source>
-        <translation type="unfinished"/>
+        <translation> 已经被移出最喜爱.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2309"/>
         <source>Favorite hub added.</source>
-        <translation type="unfinished"/>
+        <translation>成功添加最喜爱的中枢。</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2312"/>
         <source>Favorite hub already exists.</source>
-        <translation type="unfinished"/>
+        <translation>最喜爱的中枢已存在。</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2530"/>
         <source>User offline.</source>
-        <translation type="unfinished"/>
+        <translation>用户离线。</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2569"/>
         <source>Stored password sent...</source>
-        <translation type="unfinished"/>
+        <translation>已发送经过储存的密码……</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2572"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>密码</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2586"/>
         <location filename="../src/HubFrame.cpp" line="3749"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
-        <translation type="unfinished"/>
+        <translation>将接受到的请求重定向至一个已连接的中枢</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2658"/>
         <source>Users count: %3/%1 | Total share: %2</source>
-        <translation type="unfinished"/>
+        <translation>用户数量: %3/%1 | 总共享: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2664"/>
         <source>Users count: %1 | Total share: %2</source>
-        <translation type="unfinished"/>
+        <translation>用户数量: %3/%1 | 总共享: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3533"/>
@@ -1431,27 +1449,27 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="3708"/>
         <source>Connecting to %1</source>
-        <translation type="unfinished"/>
+        <translation>正在连接 %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3716"/>
         <source>Connected to %1</source>
-        <translation type="unfinished"/>
+        <translation>已经连接 %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3759"/>
         <source>Fail: %1...</source>
-        <translation type="unfinished"/>
+        <translation>失败: %1...</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3953"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"/>
+        <translation>抱歉，昵称 &quot;%1&quot; 已经被其他用户使用了。</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3959"/>
         <source>Search flood detected: %1</source>
-        <translation type="unfinished"/>
+        <translation>检测到滥用搜索: %1</translation>
     </message>
 </context>
 <context>
@@ -1459,22 +1477,22 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilter.cpp" line="453"/>
         <source>Nothing to export.</source>
-        <translation type="unfinished"/>
+        <translation>没有可以导出的。</translation>
     </message>
     <message>
         <location filename="../src/IPFilter.cpp" line="465"/>
         <source>Unable to export settings.</source>
-        <translation type="unfinished"/>
+        <translation>无法导出设置。</translation>
     </message>
     <message>
         <location filename="../src/IPFilter.cpp" line="481"/>
         <source>Nothing to import.</source>
-        <translation type="unfinished"/>
+        <translation>没有可以导入的。</translation>
     </message>
     <message>
         <location filename="../src/IPFilter.cpp" line="505"/>
         <source>Invalid signature.</source>
-        <translation type="unfinished"/>
+        <translation>无效的签名。</translation>
     </message>
 </context>
 <context>
@@ -1482,42 +1500,42 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="189"/>
         <source>Change rule direction</source>
-        <translation type="unfinished"/>
+        <translation>更改规则方向</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="197"/>
         <source>Change IP/Mask</source>
-        <translation type="unfinished"/>
+        <translation>更改 IP/掩码</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="198"/>
         <source>Delete rule</source>
-        <translation type="unfinished"/>
+        <translation>删除规则</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="230"/>
         <source>Enter new rule</source>
-        <translation type="unfinished"/>
+        <translation>输入新规则</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="230"/>
         <source>Rule:</source>
-        <translation type="unfinished"/>
+        <translation>规则:</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="320"/>
         <source>Import list</source>
-        <translation type="unfinished"/>
+        <translation>导入列表</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="373"/>
         <source>Export list</source>
-        <translation type="unfinished"/>
+        <translation>导出列表</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="374"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>所有文件 (*)</translation>
     </message>
 </context>
 <context>
@@ -1525,12 +1543,12 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilterModel.cpp" line="25"/>
         <source>IP/Mask</source>
-        <translation type="unfinished"/>
+        <translation>IP/掩码</translation>
     </message>
     <message>
         <location filename="../src/IPFilterModel.cpp" line="25"/>
         <source>Direction</source>
-        <translation type="unfinished"/>
+        <translation>方向</translation>
     </message>
 </context>
 <context>
@@ -1538,33 +1556,34 @@ Favorite user</source>
     <message>
         <location filename="../src/Magnet.cpp" line="44"/>
         <source>Run search alternatives manually.</source>
-        <translation type="unfinished"/>
+        <translation>手动搜索代替者。</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="47"/>
         <source>Download file via auto search alternatives</source>
-        <translation type="unfinished"/>
+        <translation>下载文件时自动搜索代替者</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="168"/>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>浏览</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="188"/>
         <source>Select directory</source>
-        <translation type="unfinished"/>
+        <translation>选择目录</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="205"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="205"/>
         <source>Some error ocurred when starting download:
  %1</source>
-        <translation type="unfinished"/>
+        <translation>开始下载时发生了一些错误:
+ %1</translation>
     </message>
 </context>
 <context>
@@ -1572,244 +1591,244 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="263"/>
         <source>Ready</source>
-        <translation type="unfinished"/>
+        <translation>准备</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="349"/>
         <source>Exit confirm</source>
-        <translation type="unfinished"/>
+        <translation>退出确认</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="350"/>
         <source>Exit program?</source>
-        <translation type="unfinished"/>
+        <translation>确定退出程序吗？</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="454"/>
         <source>Enter user nick</source>
-        <translation type="unfinished"/>
+        <translation>输入用户昵称</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="454"/>
         <source>Nick</source>
-        <translation type="unfinished"/>
+        <translation>昵称</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="454"/>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="459"/>
         <source>Would you like to change other settings?</source>
-        <translation type="unfinished"/>
+        <translation>要更改其他设置吗？</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="690"/>
         <source>Ctrl+I</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+I</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="696"/>
         <source>Ctrl+L</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="727"/>
         <source>Ctrl+E</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+E</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="733"/>
         <source>Ctrl+Alt+H</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+H</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="739"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="746"/>
         <source>Ctrl+R</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+R</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="752"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+N</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="758"/>
         <source>Ctrl+H</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+H</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="764"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="770"/>
         <source>Ctrl+U</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+U</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="786"/>
         <source>Ctrl+O</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="798"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="806"/>
         <source>Ctrl+D</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="812"/>
         <source>Ctrl+Shift+U</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Shift+U</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="868"/>
         <source>Ctrl+Alt+J</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+J</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="894"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="931"/>
         <source>Ctrl+F</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1063"/>
         <source>Next widget</source>
-        <translation type="unfinished"/>
+        <translation>下一个挂件</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1064"/>
         <source>Previous widget</source>
-        <translation type="unfinished"/>
+        <translation>上一个挂件</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1065"/>
         <source>Next message</source>
-        <translation type="unfinished"/>
+        <translation>下一条消息</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1066"/>
         <source>Previous message</source>
-        <translation type="unfinished"/>
+        <translation>上一条消息</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1067"/>
         <source>Close current widget</source>
-        <translation type="unfinished"/>
+        <translation>关闭当前挂件</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1068"/>
         <source>Toggle main menu</source>
-        <translation type="unfinished"/>
+        <translation>切换主菜单</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1077"/>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1078"/>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Ctrl+Down</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Down</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1080"/>
         <source>Ctrl+Up</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Up</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1081"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1082"/>
         <source>Ctrl+M</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1210"/>
         <source>Counts</source>
-        <translation type="unfinished"/>
+        <translation>数量</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1216"/>
         <source>Download/Upload speed</source>
-        <translation type="unfinished"/>
+        <translation>下载/上传速度</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1222"/>
         <source>Downloaded/Uploaded</source>
-        <translation type="unfinished"/>
+        <translation>已下载/已上传</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1240"/>
         <source>Space free</source>
-        <translation type="unfinished"/>
+        <translation>可用空间</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1254"/>
         <source>Hashing progress</source>
-        <translation type="unfinished"/>
+        <translation>哈希进度</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1281"/>
         <source>&amp;File</source>
-        <translation type="unfinished"/>
+        <translation>&amp;文件</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1283"/>
         <location filename="../src/MainWindow.cpp" line="2156"/>
         <source>Open magnet link</source>
-        <translation type="unfinished"/>
+        <translation>打开磁力链接</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1285"/>
         <location filename="../src/MainWindow.cpp" line="2085"/>
         <source>Open log file</source>
-        <translation type="unfinished"/>
+        <translation>打开日志文件</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1287"/>
         <source>Open download directory</source>
-        <translation type="unfinished"/>
+        <translation>打开下载目录</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1289"/>
         <source>Open filelist...</source>
-        <translation type="unfinished"/>
+        <translation>打开文件列表</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1291"/>
         <source>Calculate file TTH</source>
-        <translation type="unfinished"/>
+        <translation>计算文件 TTH</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1293"/>
         <source>Open own filelist</source>
-        <translation type="unfinished"/>
+        <translation>打开我的文件列表</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1295"/>
@@ -1820,306 +1839,306 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1297"/>
         <location filename="../src/MainWindow.cpp" line="1703"/>
         <source>Refresh share</source>
-        <translation type="unfinished"/>
+        <translation>刷新共享</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1299"/>
         <location filename="../src/MainWindow.cpp" line="2367"/>
         <source>Hide window</source>
-        <translation type="unfinished"/>
+        <translation>隐藏窗口</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1302"/>
         <location filename="../src/MainWindow.cpp" line="2365"/>
         <source>Show/hide find frame</source>
-        <translation type="unfinished"/>
+        <translation>显示/隐藏寻找页面</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1304"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1306"/>
         <source>&amp;Hubs</source>
-        <translation type="unfinished"/>
+        <translation>&amp;中枢</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1308"/>
         <source>Reconnect to hub</source>
-        <translation type="unfinished"/>
+        <translation>重新连接中枢</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1310"/>
         <source>Favourite hubs</source>
-        <translation type="unfinished"/>
+        <translation>最喜爱的中枢</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1312"/>
         <source>Public hubs</source>
-        <translation type="unfinished"/>
+        <translation>公共中枢</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1314"/>
         <source>Favourite users</source>
-        <translation type="unfinished"/>
+        <translation>最喜爱的用户</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1316"/>
         <source>Quick connect</source>
-        <translation type="unfinished"/>
+        <translation>快速连接</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1318"/>
         <source>&amp;Tools</source>
-        <translation type="unfinished"/>
+        <translation>&amp;工具</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1320"/>
         <source>Transfers</source>
-        <translation type="unfinished"/>
+        <translation>传输</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1322"/>
         <source>Download queue</source>
-        <translation type="unfinished"/>
+        <translation>下载列表</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1324"/>
         <source>Queued Users</source>
-        <translation type="unfinished"/>
+        <translation>排队中的用户</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1326"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"/>
+        <translation>中枢管理器</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1328"/>
         <source>Finished downloads</source>
-        <translation type="unfinished"/>
+        <translation>已完成的下载</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1330"/>
         <source>Finished uploads</source>
-        <translation type="unfinished"/>
+        <translation>已完成的上传</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1332"/>
         <source>Search Spy</source>
-        <translation type="unfinished"/>
+        <translation>搜索间谍</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1334"/>
         <source>AntiSpam module</source>
-        <translation type="unfinished"/>
+        <translation>反垃圾信息模块</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1336"/>
         <source>IPFilter module</source>
-        <translation type="unfinished"/>
+        <translation>IP过滤器模块</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1338"/>
         <location filename="../src/MainWindow.cpp" line="2499"/>
         <source>Hide free space bar</source>
-        <translation type="unfinished"/>
+        <translation>隐藏可用空间栏</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1341"/>
         <location filename="../src/MainWindow.cpp" line="2494"/>
         <source>Show free space bar</source>
-        <translation type="unfinished"/>
+        <translation>显示可用空间栏</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1343"/>
         <location filename="../src/MainWindow.cpp" line="2515"/>
         <source>Hide last status message</source>
-        <translation type="unfinished"/>
+        <translation>隐藏最新的状态信息</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1346"/>
         <location filename="../src/MainWindow.cpp" line="2513"/>
         <source>Show last status message</source>
-        <translation type="unfinished"/>
+        <translation>显示最新的状态信息</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1348"/>
         <location filename="../src/MainWindow.cpp" line="2532"/>
         <source>Hide users statistics</source>
-        <translation type="unfinished"/>
+        <translation>隐藏用户统计数据</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1351"/>
         <location filename="../src/MainWindow.cpp" line="2530"/>
         <source>Show users statistics</source>
-        <translation type="unfinished"/>
+        <translation>显示用户统计数据</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1353"/>
         <source>Away message</source>
-        <translation type="unfinished"/>
+        <translation>离开信息</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1355"/>
         <source>On</source>
-        <translation type="unfinished"/>
+        <translation>开</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>关</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1359"/>
         <source>Away when not visible</source>
-        <translation type="unfinished"/>
+        <translation>隐藏时离开</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1361"/>
         <source>Copy window title</source>
-        <translation type="unfinished"/>
+        <translation>复制窗口标题</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1363"/>
         <source>Preferences</source>
-        <translation type="unfinished"/>
+        <translation>用户偏好</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1365"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1367"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"/>
+        <translation>ADL搜索</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1369"/>
         <source>Speed limit On/Off</source>
-        <translation type="unfinished"/>
+        <translation>开/关速度限制</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1372"/>
         <source>Scripts Manager</source>
-        <translation type="unfinished"/>
+        <translation>脚本管理器</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1374"/>
         <source>Script Console</source>
-        <translation type="unfinished"/>
+        <translation>脚本控制台</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1377"/>
         <source>Clear chat</source>
-        <translation type="unfinished"/>
+        <translation>清空聊天室</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1379"/>
         <source>Find/Filter</source>
-        <translation type="unfinished"/>
+        <translation>查找/过滤</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1381"/>
         <source>Disable/enable chat</source>
-        <translation type="unfinished"/>
+        <translation>禁用/启用聊天室</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1383"/>
         <source>&amp;Widgets</source>
-        <translation type="unfinished"/>
+        <translation>&amp;挂件</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1385"/>
         <source>&amp;Panels</source>
-        <translation type="unfinished"/>
+        <translation>&amp;面板</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1388"/>
         <source>Widgets panel</source>
-        <translation type="unfinished"/>
+        <translation>挂件面板</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1390"/>
         <source>Widgets side dock</source>
-        <translation type="unfinished"/>
+        <translation>挂件侧边栏</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1392"/>
         <source>Tools panel</source>
-        <translation type="unfinished"/>
+        <translation>工具面板</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1394"/>
         <source>Fast search panel</source>
-        <translation type="unfinished"/>
+        <translation>快速搜索面板</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1396"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"/>
+        <translation>&amp;帮助</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1398"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>主页</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1400"/>
         <source>Source (git)</source>
-        <translation type="unfinished"/>
+        <translation>源(git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1402"/>
         <source>Report a Bug</source>
-        <translation type="unfinished"/>
+        <translation>报告漏洞</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1404"/>
         <source>Wiki of project</source>
-        <translation type="unfinished"/>
+        <translation>项目维基</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1406"/>
         <source>Changelog (git)</source>
-        <translation type="unfinished"/>
+        <translation>更变日志(git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1408"/>
         <source>About EiskaltDC++</source>
-        <translation type="unfinished"/>
+        <translation>关于 EiskaltDC++</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1410"/>
         <source>About Qt</source>
-        <translation type="unfinished"/>
+        <translation>关于 Qt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1413"/>
         <location filename="../src/MainWindow.cpp" line="1445"/>
         <source>Actions</source>
-        <translation type="unfinished"/>
+        <translation>行为</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1416"/>
         <source>Main layout</source>
-        <translation type="unfinished"/>
+        <translation>主布局</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1643"/>
         <source>%1/s / %2/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/s / %2/s</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1644"/>
         <source>%1 / %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 / %2</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1651"/>
         <source>/s</source>
-        <translation type="unfinished"/>
+        <translation>/s</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1672"/>
@@ -2137,112 +2156,112 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1738"/>
         <location filename="../src/MainWindow.cpp" line="1753"/>
         <source>Hash progress</source>
-        <translation type="unfinished"/>
+        <translation>哈希进度</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1715"/>
         <source>List update</source>
-        <translation type="unfinished"/>
+        <translation>更新列表</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1727"/>
         <source>Delayed</source>
-        <translation type="unfinished"/>
+        <translation>推迟</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1742"/>
         <source>Paused</source>
-        <translation type="unfinished"/>
+        <translation>暂停</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1756"/>
         <source>%p%</source>
-        <translation type="unfinished"/>
+        <translation>%p%</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1847"/>
         <source>Choose file to open</source>
-        <translation type="unfinished"/>
+        <translation>选择打开文件</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1849"/>
         <source>Modern XML Filelists</source>
-        <translation type="unfinished"/>
+        <translation>现代 XML 文件列表</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1850"/>
         <source>Modern XML Filelists uncompressed</source>
-        <translation type="unfinished"/>
+        <translation>未压缩现代 XML 文件列表</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1851"/>
         <source>All files</source>
-        <translation type="unfinished"/>
+        <translation>所有文件</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1862"/>
         <source>Unable to load file list: Invalid file list name</source>
-        <translation type="unfinished"/>
+        <translation>无法载入文件列表: 无效的文件列表名</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2027"/>
         <source>Menu</source>
-        <translation type="unfinished"/>
+        <translation>菜单</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2064"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
-        <translation type="unfinished"/>
+        <translation>无法打开端口 %1 。请关闭所有使用该端口的程序，否则无法正确进行搜索或文件传输。</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2065"/>
         <source>Connectivity Manager: Warning</source>
-        <translation type="unfinished"/>
+        <translation>连接管理器: 警告</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2085"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>日志文件 (*.log);;所有文件 (*.*)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2156"/>
         <source>Enter magnet link:</source>
-        <translation type="unfinished"/>
+        <translation>输入磁力链接:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2307"/>
         <source>Script Engine</source>
-        <translation type="unfinished"/>
+        <translation>脚本引擎</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2550"/>
         <source>Button style</source>
-        <translation type="unfinished"/>
+        <translation>按钮风格</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2551"/>
         <source>Icons only</source>
-        <translation type="unfinished"/>
+        <translation>仅图标</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2552"/>
         <source>Text only</source>
-        <translation type="unfinished"/>
+        <translation>仅文字</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2553"/>
         <source>Text beside icons</source>
-        <translation type="unfinished"/>
+        <translation>文字与图标并列</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2554"/>
         <source>Text under icons</source>
-        <translation type="unfinished"/>
+        <translation>文字在图标下</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2564"/>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>自定义</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2621"/>
@@ -2252,12 +2271,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2645"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>EiskaltDC++ 是应用 Direct Connect 和 ADC 协议的一个图形化客户端。&lt;br/&gt;&lt;br/&gt;DC++ 内核版本: %1 (修改版)&lt;br/&gt;&lt;br/&gt;主页: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;总上传: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;总下载: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;比率: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2665"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>请通过 &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; 报告漏洞。&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2668"/>
@@ -2527,7 +2546,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2791"/>
         <source>Show close buttons</source>
-        <translation type="unfinished"/>
+        <translation>显示关闭按钮</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2826"/>
@@ -2537,12 +2556,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2914"/>
         <source>Download Queue</source>
-        <translation type="unfinished"/>
+        <translation>下载队列</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2914"/>
         <source>All downloads complete</source>
-        <translation type="unfinished"/>
+        <translation>已完成所有下载</translation>
     </message>
 </context>
 <context>
@@ -2550,7 +2569,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MultiLineToolBar.cpp" line="56"/>
         <source>Show close buttons</source>
-        <translation type="unfinished"/>
+        <translation>显示关闭按钮</translation>
     </message>
 </context>
 <context>
@@ -2563,17 +2582,17 @@ Favorite user</source>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
         <source>Supress sound notifications</source>
-        <translation type="unfinished"/>
+        <translation>不使用声音提示</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
         <source>Supress text notifications</source>
-        <translation type="unfinished"/>
+        <translation>不使用文本提示</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="113"/>
         <source>Show/Hide window</source>
-        <translation type="unfinished"/>
+        <translation>显示/隐藏窗口</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="114"/>
@@ -2583,12 +2602,12 @@ Favorite user</source>
     <message>
         <location filename="../src/Notification.cpp" line="115"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="229"/>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;速度&lt;/b&gt;&lt;br/&gt;下载: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; 上传: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;统计数据&lt;/b&gt;&lt;br/&gt;已下载: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; 已上传: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="240"/>
@@ -2596,7 +2615,10 @@ Favorite user</source>
 Download: %1 Upload: %2
 Statistics
 Downloaded: %3 Uploaded: %4</source>
-        <translation type="unfinished"/>
+        <translation>速度
+下载: %1 上传: %2
+统计数据
+已下载: %3 已上传: %4</translation>
     </message>
 </context>
 <context>
@@ -2604,27 +2626,27 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="105"/>
         <source>Private message</source>
-        <translation type="unfinished"/>
+        <translation>私信</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="106"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="307"/>
         <source>%1 on hub %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 在中枢 %2 上</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="337"/>
         <source>Chat cleared.</source>
-        <translation type="unfinished"/>
+        <translation>聊天室已清空。</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="425"/>
         <source>User went offline</source>
-        <translation type="unfinished"/>
+        <translation>用户下线</translation>
     </message>
 </context>
 <context>
@@ -2632,62 +2654,62 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Users</source>
-        <translation type="unfinished"/>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>地址</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="28"/>
         <source>Country</source>
-        <translation type="unfinished"/>
+        <translation>国家</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="28"/>
         <source>Shared</source>
-        <translation type="unfinished"/>
+        <translation>已共享</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="28"/>
         <source>Min share</source>
-        <translation type="unfinished"/>
+        <translation>最小共享</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="28"/>
         <source>Min slots</source>
-        <translation type="unfinished"/>
+        <translation>最小空位</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="29"/>
         <source>Max hubs</source>
-        <translation type="unfinished"/>
+        <translation>最大中枢量</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="29"/>
         <source>Max users</source>
-        <translation type="unfinished"/>
+        <translation>最大用户量</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="29"/>
         <source>Reliability</source>
-        <translation type="unfinished"/>
+        <translation>可靠性</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="29"/>
         <source>Rating</source>
-        <translation type="unfinished"/>
+        <translation>评分</translation>
     </message>
 </context>
 <context>
@@ -2695,42 +2717,42 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="55"/>
         <source>Downloading public hub list...</source>
-        <translation type="unfinished"/>
+        <translation>正在下载公共中枢列表……</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="154"/>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>连接</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="155"/>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>添加至最爱</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="156"/>
         <source>Copy &amp;address to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>复制 &amp;地址到剪切版</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="278"/>
         <source>Downloading public hub list... (%1)</source>
-        <translation type="unfinished"/>
+        <translation>正在下载公共中枢列表…… (%1)</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="282"/>
         <source>Download failed: %1</source>
-        <translation type="unfinished"/>
+        <translation>下载失败: %1</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="286"/>
         <source>Hub list downloaded... (%1 %2) </source>
-        <translation type="unfinished"/>
+        <translation>成功下载中枢列表…… (%1 %2) </translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="286"/>
         <source>from Coral</source>
-        <translation type="unfinished"/>
+        <translation>来自 Coral</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
@@ -2744,17 +2766,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="295"/>
         <source>Cached hub list is corrupted or unsupported</source>
-        <translation type="unfinished"/>
+        <translation>暂存的中枢列表已损坏或不支持</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="297"/>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
-        <translation type="unfinished"/>
+        <translation>暂存的中枢列表已损坏或不支持 (%1)</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.h" line="40"/>
         <source>Public Hubs</source>
-        <translation type="unfinished"/>
+        <translation>公共中枢</translation>
     </message>
 </context>
 <context>
@@ -2763,13 +2785,13 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/PublicHubsList.cpp" line="71"/>
         <location filename="../src/PublicHubsList.cpp" line="95"/>
         <source>Public hub</source>
-        <translation type="unfinished"/>
+        <translation>公共中枢</translation>
     </message>
     <message>
         <location filename="../src/PublicHubsList.cpp" line="71"/>
         <location filename="../src/PublicHubsList.cpp" line="95"/>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>连接</translation>
     </message>
 </context>
 <context>
@@ -2777,27 +2799,27 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/main.cpp" line="67"/>
         <source>Loading: </source>
-        <translation type="unfinished"/>
+        <translation>载入中: </translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="163"/>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"/>
+        <translation>已载入用户列表图标</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="166"/>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"/>
+        <translation>已载入程序图标</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="214"/>
         <source>Shutting down libdcpp...</source>
-        <translation type="unfinished"/>
+        <translation>正在关闭 libdcpp ……</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="249"/>
         <source>Quit...</source>
-        <translation type="unfinished"/>
+        <translation>退出……</translation>
     </message>
 </context>
 <context>
@@ -2805,12 +2827,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="68"/>
         <source>Grant slot</source>
-        <translation type="unfinished"/>
+        <translation>添加空位</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.h" line="102"/>
         <source>Queued Users</source>
-        <translation type="unfinished"/>
+        <translation>排队中的用户</translation>
     </message>
 </context>
 <context>
@@ -2818,12 +2840,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="116"/>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="116"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation>文件</translation>
     </message>
 </context>
 <context>
@@ -2831,7 +2853,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../scriptengine/ScriptConsole.cpp" line="23"/>
         <source>Script Console</source>
-        <translation type="unfinished"/>
+        <translation>脚本控制台</translation>
     </message>
 </context>
 <context>
@@ -2839,7 +2861,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ScriptManagerDialog.cpp" line="41"/>
         <source>Script Manager</source>
-        <translation type="unfinished"/>
+        <translation>脚本管理器</translation>
     </message>
 </context>
 <context>
@@ -2847,12 +2869,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="344"/>
         <source>Filename</source>
-        <translation type="unfinished"/>
+        <translation>文件名</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="345"/>
         <source>TTH</source>
-        <translation type="unfinished"/>
+        <translation>TTH</translation>
     </message>
 </context>
 <context>
@@ -2860,12 +2882,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="58"/>
         <source>Add new</source>
-        <translation type="unfinished"/>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="59"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>移除</translation>
     </message>
 </context>
 <context>
@@ -2873,12 +2895,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>Filename</source>
-        <translation type="unfinished"/>
+        <translation>文件名</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>TTH</source>
-        <translation type="unfinished"/>
+        <translation>TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
@@ -2888,7 +2910,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="180"/>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>类型</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="279"/>
@@ -2907,7 +2929,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../ui/UISearchFrame.ui" line="44"/>
         <location filename="../src/SearchFrame.cpp" line="378"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="51"/>
@@ -2917,162 +2939,162 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="58"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>清除</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="65"/>
         <source>Show/Hide side panel</source>
-        <translation type="unfinished"/>
+        <translation>显示/隐藏侧边面板</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="82"/>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>停止</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="132"/>
         <source>Hubs</source>
-        <translation type="unfinished"/>
+        <translation>中枢</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="139"/>
         <source>Only users with free slots</source>
-        <translation type="unfinished"/>
+        <translation>仅有空闲空位的用户</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="146"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>大小</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="157"/>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="162"/>
         <source>KiB</source>
-        <translation type="unfinished"/>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="167"/>
         <source>MiB</source>
-        <translation type="unfinished"/>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="172"/>
         <source>GiB</source>
-        <translation type="unfinished"/>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="184"/>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>普通</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="189"/>
         <source>At least</source>
-        <translation type="unfinished"/>
+        <translation>至少</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="194"/>
         <source>At most</source>
-        <translation type="unfinished"/>
+        <translation>最多</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="205"/>
         <source>Don&apos;t hide this panel when search</source>
-        <translation type="unfinished"/>
+        <translation>搜索时不隐藏此面板</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="221"/>
         <source>Already shared files</source>
-        <translation type="unfinished"/>
+        <translation>已分享的文件</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="234"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>什么也不做</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="239"/>
         <source>Hide</source>
-        <translation type="unfinished"/>
+        <translation>隐藏</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="244"/>
         <source>Highlight</source>
-        <translation type="unfinished"/>
+        <translation>高亮显示</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="121"/>
         <source>Magnet</source>
-        <translation type="unfinished"/>
+        <translation>磁力链接</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="123"/>
         <source>Download</source>
-        <translation type="unfinished"/>
+        <translation>下载</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="126"/>
         <source>Download to...</source>
-        <translation type="unfinished"/>
+        <translation>下载到……</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="129"/>
         <source>Download Whole Directory</source>
-        <translation type="unfinished"/>
+        <translation>下载整个目录</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="132"/>
         <source>Download Whole Directory to...</source>
-        <translation type="unfinished"/>
+        <translation>下载整个目录到……</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="138"/>
         <source>Search TTH</source>
-        <translation type="unfinished"/>
+        <translation>搜索 TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="141"/>
         <source>Copy magnet</source>
-        <translation type="unfinished"/>
+        <translation>复制磁力链接</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="144"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"/>
+        <translation>复制网页磁链</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="147"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"/>
+        <translation>磁力链接属性</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="150"/>
         <source>Browse files</source>
-        <translation type="unfinished"/>
+        <translation>浏览文件</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="153"/>
         <source>Match Queue</source>
-        <translation type="unfinished"/>
+        <translation>匹配队列</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="156"/>
         <source>Send Private Message</source>
-        <translation type="unfinished"/>
+        <translation>发送私信</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="159"/>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>添加至最爱</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="162"/>
         <source>Grant extra slot</source>
-        <translation type="unfinished"/>
+        <translation>添加额外空位</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="174"/>
