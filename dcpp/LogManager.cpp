@@ -82,22 +82,22 @@ void LogManager::log(const string& area, const string& msg) noexcept {
 }
 
 LogManager::LogManager() {
-    options[UPLOAD][FILE]       = SettingsManager::LOG_FILE_UPLOAD;
-    options[UPLOAD][FORMAT]     = SettingsManager::LOG_FORMAT_POST_UPLOAD;
-    options[DOWNLOAD][FILE]     = SettingsManager::LOG_FILE_DOWNLOAD;
-    options[DOWNLOAD][FORMAT]   = SettingsManager::LOG_FORMAT_POST_DOWNLOAD;
-    options[FINISHED_DOWNLOAD][FILE] = SettingsManager::LOG_FILE_FINISHED_DOWNLOAD;
+    options[UPLOAD][FILE]              = SettingsManager::LOG_FILE_UPLOAD;
+    options[UPLOAD][FORMAT]            = SettingsManager::LOG_FORMAT_POST_UPLOAD;
+    options[DOWNLOAD][FILE]            = SettingsManager::LOG_FILE_DOWNLOAD;
+    options[DOWNLOAD][FORMAT]          = SettingsManager::LOG_FORMAT_POST_DOWNLOAD;
+    options[FINISHED_DOWNLOAD][FILE]   = SettingsManager::LOG_FILE_FINISHED_DOWNLOAD;
     options[FINISHED_DOWNLOAD][FORMAT] = SettingsManager::LOG_FORMAT_POST_FINISHED_DOWNLOAD;
-    options[CHAT][FILE]     = SettingsManager::LOG_FILE_MAIN_CHAT;
-    options[CHAT][FORMAT]       = SettingsManager::LOG_FORMAT_MAIN_CHAT;
-    options[PM][FILE]       = SettingsManager::LOG_FILE_PRIVATE_CHAT;
-    options[PM][FORMAT]     = SettingsManager::LOG_FORMAT_PRIVATE_CHAT;
-    options[SYSTEM][FILE]       = SettingsManager::LOG_FILE_SYSTEM;
-    options[SYSTEM][FORMAT]     = SettingsManager::LOG_FORMAT_SYSTEM;
-    options[STATUS][FILE]       = SettingsManager::LOG_FILE_STATUS;
-    options[STATUS][FORMAT]     = SettingsManager::LOG_FORMAT_STATUS;
-    options[SPY][FILE]       = SettingsManager::LOG_FILE_SPY;
-    options[SPY][FORMAT]     = SettingsManager::LOG_FORMAT_SPY;
+    options[CHAT][FILE]                = SettingsManager::LOG_FILE_MAIN_CHAT;
+    options[CHAT][FORMAT]              = SettingsManager::LOG_FORMAT_MAIN_CHAT;
+    options[PM][FILE]                  = SettingsManager::LOG_FILE_PRIVATE_CHAT;
+    options[PM][FORMAT]                = SettingsManager::LOG_FORMAT_PRIVATE_CHAT;
+    options[SYSTEM][FILE]              = SettingsManager::LOG_FILE_SYSTEM;
+    options[SYSTEM][FORMAT]            = SettingsManager::LOG_FORMAT_SYSTEM;
+    options[STATUS][FILE]              = SettingsManager::LOG_FILE_STATUS;
+    options[STATUS][FORMAT]            = SettingsManager::LOG_FORMAT_STATUS;
+    options[SPY][FILE]                 = SettingsManager::LOG_FILE_SPY;
+    options[SPY][FORMAT]               = SettingsManager::LOG_FORMAT_SPY;
 }
 
 LogManager::~LogManager() {
