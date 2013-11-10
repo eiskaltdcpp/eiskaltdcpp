@@ -53,6 +53,10 @@ void SettingsLog::init(){
     checkBox_SYSTEM->setChecked(BOOLSETTING(LOG_SYSTEM));
     checkBox_REPORT_ALTERNATES->setChecked(BOOLSETTING(REPORT_ALTERNATES));
 
+    groupBox_SPYLOG->setChecked(BOOLSETTING(LOG_SPY));
+    lineEdit_SPYFMT->setText(_q(SETTING(LOG_FORMAT_SPY)));
+    lineEdit_FILE_SPYFMT->setText(_q(SETTING(LOG_FILE_SYSTEM)));
+
     toolButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
     connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
@@ -84,6 +88,7 @@ void SettingsLog::ok(){
     sm->set(SettingsManager::LOG_SYSTEM, checkBox_SYSTEM->isChecked());
     sm->set(SettingsManager::LOG_STATUS_MESSAGES, checkBox_STAT->isChecked());
     sm->set(SettingsManager::LOG_FILELIST_TRANSFERS, checkBox_FILELIST->isChecked());
+    sm->set(SettingsManager::LOG_SPY, groupBox_SPYLOG->isChecked());
     sm->set(SettingsManager::REPORT_ALTERNATES, checkBox_REPORT_ALTERNATES->isChecked());
 }
 

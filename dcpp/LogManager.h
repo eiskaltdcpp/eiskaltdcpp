@@ -32,7 +32,7 @@ public:
     typedef pair<time_t, string> Pair;
     typedef deque<Pair> List;
 
-    enum Area { CHAT, PM, DOWNLOAD, FINISHED_DOWNLOAD, UPLOAD, SYSTEM, STATUS, LAST };
+    enum Area { CHAT, PM, DOWNLOAD, FINISHED_DOWNLOAD, UPLOAD, SYSTEM, STATUS, SPY, LAST };
     enum { FILE, FORMAT };
 
     void log(Area area, StringMap& params) noexcept;
