@@ -80,7 +80,7 @@ public:
     bool getUserInfo(StringMap& userinfo, const string& nick, const string& huburl);
     void showLocalLists(string& l, const string& separator);
     bool getClientFileList(const string& filelist, string& ret);
-    void openFileList(const string& filelist);
+    bool openFileList(const string& filelist);
     //void buildList(const string& filelist, const string& nick, DirectoryListing* listing, bool full);
     bool closeFileList(const string& filelist);
     void closeAllFileLists();

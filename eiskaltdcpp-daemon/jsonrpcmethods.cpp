@@ -503,9 +503,10 @@ bool JsonRpcMethods::OpenFileList(const Json::Value& root, Json::Value& response
     if (isDebug) std::cout << "OpenFileList (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    string ret;
-    ServerThread::getInstance()->openFileList(root["params"]["filelist"].asString());
-    response["result"] = 0;
+    if (ServerThread::getInstance()->openFileList(root["params"]["filelist"].asString()))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
     if (isDebug) std::cout << "OpenFileList (response): " << response << std::endl;
     return true;
 }
@@ -527,7 +528,6 @@ bool JsonRpcMethods::CloseAllFileLists(const Json::Value& root, Json::Value& res
     if (isDebug) std::cout << "CloseAllFileList (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    string ret;
     ServerThread::getInstance()->closeAllFileLists();
     response["result"] = 0;
     if (isDebug) std::cout << "CloseAllFileList (response): " << response << std::endl;
@@ -546,7 +546,7 @@ bool JsonRpcMethods::ShowOpenedLists(const Json::Value& root, Json::Value& respo
 }
 
 bool JsonRpcMethods::LsDirInList(const Json::Value& root, Json::Value& response) {
-    if (isDebug) std::cout << "ListDirInList (root): " << root << std::endl;
+    if (isDebug) std::cout << "LsDirInList (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     Json::Value parameters;
