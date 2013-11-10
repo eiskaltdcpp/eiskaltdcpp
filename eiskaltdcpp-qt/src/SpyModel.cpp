@@ -9,7 +9,15 @@
 
 #include "SpyModel.h"
 
+#include "WulforUtil.h"
+#include "dcpp/stdinc.h"
+#include "dcpp/LogManager.h"
+
 #include <QtDebug>
+
+namespace{
+static const auto _zero_up = [](const uint &i) { if (0 == i) return (uint)1; else return i; };
+}
 
 SpyModel::SpyModel(QObject *parent):
         QAbstractItemModel(parent), isSort(false), sortColumn(0), sortOrder(Qt::DescendingOrder)
@@ -246,6 +254,13 @@ void SpyModel::addResult(const QString &file, bool isTTH)
         rootItem->moveUp(parent);
     }else{
         parent->insertChild(item, 0);
+    }
+
+    if (BOOLSETTING(LOG_SPY)){
+        dcpp::StringMap params;
+        params["message"] = _tq(item->data(1).toString());
+        params["count"] = _tq(QString::number(_zero_up(parent->data(0).toUInt())));
+        LOG(LogManager::SPY, params);
     }
 
     if(isSort)

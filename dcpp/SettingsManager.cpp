@@ -48,7 +48,7 @@ const string SettingsManager::settingTags[] =
     "TimeStampsFormat", "CID", "LogFileMainChat", "LogFilePrivateChat",
     "LogFileStatus", "LogFileUpload", "LogFileDownload", "LogFileFinishedDownload",
     "LogFileSystem",
-    "LogFormatSystem", "LogFormatStatus", "TLSPrivateKeyFile",
+    "LogFormatSystem", "LogFormatStatus", "LogFileSpy", "LogFormatSpy", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
     "Language", "SkipListShare", "InternetIp", "BindIfaceName",
     "DHTKey", "DynDNSServer", "MimeHandler",
@@ -177,6 +177,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FINISHED_DOWNLOADS, false);
     setDefault(LOG_PRIVATE_CHAT, false);
     setDefault(LOG_MAIN_CHAT, false);
+    setDefault(LOG_SPY, false);
     setDefault(UPLOAD_SPEED, connectionSpeeds[11]);
     setDefault(MIN_UPLOAD_SPEED, 0);
     setDefault(LOG_FORMAT_POST_DOWNLOAD, "[%Y-%m-%d %H:%M:%S] %[target] downloaded from %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
@@ -186,6 +187,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FORMAT_PRIVATE_CHAT,  "[%Y-%m-%d %H:%M:%S] %[message]");
     setDefault(LOG_FORMAT_STATUS,        "[%Y-%m-%d %H:%M:%S] %[message]");
     setDefault(LOG_FORMAT_SYSTEM,        "[%Y-%m-%d %H:%M:%S] %[message]");
+    setDefault(LOG_FORMAT_SPY,        "[%Y-%m-%d %H:%M:%S] %[message] (%[count])");
     setDefault(LOG_FILE_MAIN_CHAT,    "CHAT/%B - %Y/%[hubNI] (%[hubURL]).log");
     setDefault(LOG_FILE_STATUS,       "STATUS/%B - %Y/%[hubNI] (%[hubURL]).log");
     setDefault(LOG_FILE_PRIVATE_CHAT, "PM/%B - %Y/%[userNI] (%[userCID]).log");
@@ -193,6 +195,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FILE_DOWNLOAD,     "Downloads.log");
     setDefault(LOG_FILE_FINISHED_DOWNLOAD, "Finished_downloads.log");
     setDefault(LOG_FILE_SYSTEM,       "System.log");
+    setDefault(LOG_FILE_SPY,       "Spy.log");
     setDefault(AUTO_AWAY, false);
     setDefault(BIND_ADDRESS, "0.0.0.0");
     setDefault(SOCKS_PORT, 1080);
