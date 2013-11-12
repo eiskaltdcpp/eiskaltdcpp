@@ -186,7 +186,7 @@ QString WulforUtil::findAppIconsPath(){
         return settings_path;
 
 #if defined(Q_WS_MAC)
-    settings_path = bin_path + "../../qt/appl/" + icon_theme;
+    settings_path = bin_path + "../../qt/icons/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return settings_path;
