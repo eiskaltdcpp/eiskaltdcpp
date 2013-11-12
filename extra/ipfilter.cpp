@@ -134,10 +134,7 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
     #ifdef _DEBUG_IPFILTER_
         fprintf(stdout,"act::%d\n",nip); fflush(stdout);
     #endif
-    if (mask1 >= 0)
-        mask = MaskForBits(mask1 > 32? 32:mask1);
-    else
-        mask = MaskForBits(32);
+    mask = MaskForBits(mask1 > 32? 32:mask1);
 
     ip = make_ip(ip1,ip2,ip3,ip4);
     return true;
