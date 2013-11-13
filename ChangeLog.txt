@@ -1,4 +1,4 @@
---- 2.3.0 2013-09-xx ---
+--- 2.3.0 2013-xx-xx ---
 *** common changes ***
 * GCC < 4.6 and Clang < 3.1 are not supported anymore.
 * Added option (ShareSkipZeroByte) for skipping zero sized files from share.
