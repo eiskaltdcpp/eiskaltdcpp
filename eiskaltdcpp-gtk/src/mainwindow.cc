@@ -544,6 +544,11 @@ void MainWindow::loadIcons_gui()
 {
     WulforUtil::registerIcons();
 
+#if GTK_CHECK_VERSION(3, 10, 0)
+#define gtk_tool_button_set_stock_id(a,b) gtk_tool_button_set_icon_name(a,b)
+#define gtk_image_set_from_stock(a,b,c) gtk_image_set_from_icon_name(a,b,c)
+#endif
+
     // Reset the stock IDs manually to force the icon to refresh
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("favHubs")), "icon-favorite-hubs");
     gtk_tool_button_set_stock_id(GTK_TOOL_BUTTON(getWidget("favUsers")), "icon-favorite-users");
@@ -564,6 +569,12 @@ void MainWindow::loadIcons_gui()
     gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageHubs")), "icon-public-hubs", GTK_ICON_SIZE_SMALL_TOOLBAR);
     gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageDownloadSpeed")), "icon-download", GTK_ICON_SIZE_SMALL_TOOLBAR);
     gtk_image_set_from_stock(GTK_IMAGE(getWidget("imageUploadSpeed")), "icon-upload", GTK_ICON_SIZE_SMALL_TOOLBAR);
+
+#if GTK_CHECK_VERSION(3, 10, 0)
+#undef gtk_tool_button_set_stock_id
+#undef gtk_image_set_from_stock
+#endif
+
 }
 
 void MainWindow::autoOpen_gui()

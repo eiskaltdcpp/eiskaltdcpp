@@ -31,6 +31,11 @@
 using namespace std;
 using namespace dcpp;
 
+#if GTK_CHECK_VERSION(3, 10, 0)
+#define GTK_STOCK_FIND "edit-find"
+#define GTK_STOCK_DIALOG_QUESTION "dialog-question"
+#endif
+
 SearchSpy::SearchSpy():
     BookEntry(Entry::SEARCH_SPY, _("Search Spy"), "searchspy.ui")
 {
@@ -674,3 +679,8 @@ void SearchSpy::on(TimerManagerListener::Minute, uint64_t tick) noexcept
     F0 *func = new F0(this, &SearchSpy::updateFrameStatus_gui);
     WulforManager::get()->dispatchGuiFunc(func);
 }
+
+#if GTK_CHECK_VERSION(3, 10, 0)
+#undef GTK_STOCK_FIND
+#undef GTK_STOCK_DIALOG_QUESTION
+#endif

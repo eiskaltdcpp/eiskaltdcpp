@@ -574,14 +574,27 @@ void Hub::getPassword_gui()
 
     // Create password dialog
     string title = client->getHubUrl(); //_("Enter hub password")
+
+#if GTK_CHECK_VERSION(3, 10, 0)
     GtkWidget *dialog = gtk_dialog_new_with_buttons(title.c_str(),
-        GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer()),
-        GTK_DIALOG_DESTROY_WITH_PARENT,
-        GTK_STOCK_OK,
-        GTK_RESPONSE_OK,
-        GTK_STOCK_CANCEL,
-        GTK_RESPONSE_CANCEL,
-        NULL);
+    GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer()),
+    GTK_DIALOG_DESTROY_WITH_PARENT,
+    "_OK",
+    GTK_RESPONSE_OK,
+    "_Cancel",
+    GTK_RESPONSE_CANCEL,
+    NULL);
+#else
+    GtkWidget *dialog = gtk_dialog_new_with_buttons(title.c_str(),
+    GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer()),
+    GTK_DIALOG_DESTROY_WITH_PARENT,
+    GTK_STOCK_OK,
+    GTK_RESPONSE_OK,
+    GTK_STOCK_CANCEL,
+    GTK_RESPONSE_CANCEL,
+    NULL);
+#endif
+
     gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_OK);
 #if GTK_CHECK_VERSION(3, 2, 0)
@@ -893,8 +906,12 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
                 // Creating a visible window may cause artifacts that are visible to the user.
                 gtk_event_box_set_visible_window(GTK_EVENT_BOX(event_box), FALSE);
-
+#if GTK_CHECK_VERSION(3, 10, 0)
+                GtkWidget* image;
+                gtk_image_set_from_icon_name(GTK_IMAGE(image), "text-x-generic",GTK_ICON_SIZE_BUTTON);
+#else
                 GtkWidget *image = gtk_image_new_from_stock(GTK_STOCK_FILE, GTK_ICON_SIZE_BUTTON);
+#endif
                 gtk_container_add(GTK_CONTAINER(event_box), image);
                 gtk_text_view_add_child_at_anchor(GTK_TEXT_VIEW(getWidget("chatText")), event_box, anchor);
                 g_object_set_data_full(G_OBJECT(event_box), "magnet", g_strdup(image_magnet.c_str()), g_free);
@@ -3281,21 +3298,25 @@ void Hub::onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onRemoveImageClicked_gui(GtkMenuItem *item, gpointer data)
 {
-   Hub *hub = (Hub*) data;
+    Hub *hub = (Hub*) data;
 
-   GtkWidget *container = (GtkWidget*) g_object_get_data(G_OBJECT(item), "container");
+    GtkWidget *container = (GtkWidget*) g_object_get_data(G_OBJECT(item), "container");
 
-   // if image destroy
-   if (!container)
-       return;
+    // if image destroy
+    if (!container)
+        return;
 
-   GList *childs = gtk_container_get_children(GTK_CONTAINER(container));
-   GtkWidget *image = (GtkWidget*)childs->data;
-   g_list_free(childs);
-   gtk_image_set_from_stock(GTK_IMAGE(image), GTK_STOCK_FILE, GTK_ICON_SIZE_BUTTON);
+    GList *childs = gtk_container_get_children(GTK_CONTAINER(container));
+    GtkWidget *image = (GtkWidget*)childs->data;
+    g_list_free(childs);
+#if GTK_CHECK_VERSION(3, 10, 0)
+    gtk_image_set_from_icon_name(GTK_IMAGE(image), "text-x-generic",GTK_ICON_SIZE_BUTTON);
+#else
+    gtk_image_set_from_stock(GTK_IMAGE(image), GTK_STOCK_FILE, GTK_ICON_SIZE_BUTTON);
+#endif
 
-   hub->imageLoad.first = "";
-   hub->imageLoad.second = NULL;
+    hub->imageLoad.first = "";
+    hub->imageLoad.second = NULL;
 }
 
 void Hub::onOpenImageClicked_gui(GtkMenuItem *item, gpointer data)

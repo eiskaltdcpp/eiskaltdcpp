@@ -283,7 +283,7 @@ void FavoriteHubs::onAddEntry_gui(GtkWidget *widget, gpointer data)
     params["Disable Chat"] = "0";
     params["External IP"] = emptyString;
     params["Internet IP"] = "0";
- 
+
     bool updatedEntry = fh->showFavoriteHubDialog_gui(params, fh);
 
     if (updatedEntry)
@@ -342,7 +342,7 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
     gtk_entry_set_text(GTK_ENTRY(fh->getWidget("comboboxentryCharset")), params["Encoding"].c_str());
     gtk_combo_box_set_active(GTK_COMBO_BOX(fh->getWidget("comboboxMode")), Util::toInt64(params["Mode"]));
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(fh->getWidget("spinButton_MINSEARCH_INTERVAL")), Util::toInt64(params["Search Interval"]));
-    
+
 
     // Set the auto connect checkbox
     gboolean autoConnect = params["Auto Connect"] == "1" ? TRUE : FALSE;
@@ -452,7 +452,11 @@ void FavoriteHubs::onRemoveEntry_gui(GtkWidget *widget, gpointer data)
             GtkWidget* dialog = gtk_message_dialog_new(parent,
                 GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE,
                 _("Are you sure you want to delete favorite hub \"%s\"?"), name.c_str());
+#if GTK_CHECK_VERSION(3, 10, 0)
+            gtk_dialog_add_buttons(GTK_DIALOG(dialog), "_Cancel", GTK_RESPONSE_CANCEL, "_Remove", GTK_RESPONSE_YES, NULL);
+#else
             gtk_dialog_add_buttons(GTK_DIALOG(dialog), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_REMOVE, GTK_RESPONSE_YES, NULL);
+#endif
             gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog), GTK_RESPONSE_YES, GTK_RESPONSE_CANCEL, -1);
             gint response = gtk_dialog_run(GTK_DIALOG(dialog));
             gtk_widget_destroy(dialog);

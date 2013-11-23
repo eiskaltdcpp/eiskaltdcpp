@@ -82,7 +82,11 @@ Settings::Settings(GtkWindow* parent):
     defaultStringTheme.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
     defaultStringTheme.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
     defaultStringTheme.insert(StringMap::value_type("icon-reconnect", "eiskaltdcpp-reconnect"));
+#if GTK_CHECK_VERSION(3, 10, 0)
+    defaultStringTheme.insert(StringMap::value_type("icon-file", "text-x-generic"));
+#else
     defaultStringTheme.insert(StringMap::value_type("icon-file", GTK_STOCK_FILE));
+#endif
     defaultStringTheme.insert(StringMap::value_type("icon-directory", "eiskaltdcpp-folder-blue"));
     defaultStringTheme.insert(StringMap::value_type("icon-openlist", "eiskaltdcpp-openlist"));
     defaultStringTheme.insert(StringMap::value_type("icon-own-filelist", "eiskaltdcpp-own_filelist"));
@@ -2509,6 +2513,23 @@ void Settings::onSystemIconsThemeButton_gui(GtkWidget *widget, gpointer data)
     string theme = gtk_label_get_text(GTK_LABEL(s->getWidget("currentThemeLabel")));
     theme += _(" + system icons");
     gtk_label_set_text(GTK_LABEL(s->getWidget("currentThemeLabel")), theme.c_str());
+
+#if GTK_CHECK_VERSION(3, 10, 0)
+    s->set("icon-download", "go-down");
+    s->set("icon-favorite-hubs", "go-home");
+    s->set("icon-finished-downloads", "go-down");
+    s->set("icon-finished-uploads", "go-up");
+    s->set("icon-hash", GTK_STOCK_CONVERT);
+    s->set("icon-preferences", "preferences-system");
+    s->set("icon-public-hubs", "network-workgroup");
+    s->set("icon-queue", "folder");
+    s->set("icon-search", "edit-find");
+    s->set("icon-upload", "go-up");
+    s->set("icon-quit", "application-exit");
+    s->set("icon-connect", GTK_STOCK_CONNECT);
+    s->set("icon-file", "text-x-generic");
+    s->set("icon-directory", "folder");
+#else
     s->set("icon-download", GTK_STOCK_GO_DOWN);
     s->set("icon-favorite-hubs", GTK_STOCK_HOME);
     s->set("icon-finished-downloads", GTK_STOCK_GO_DOWN);
@@ -2523,6 +2544,7 @@ void Settings::onSystemIconsThemeButton_gui(GtkWidget *widget, gpointer data)
     s->set("icon-connect", GTK_STOCK_CONNECT);
     s->set("icon-file", GTK_STOCK_FILE);
     s->set("icon-directory", GTK_STOCK_DIRECTORY);
+#endif
     s->applyIconsTheme();
 }
 

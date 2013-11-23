@@ -274,7 +274,11 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("icon-quit", "eiskaltdcpp-application-exit"));
     defaultString.insert(StringMap::value_type("icon-connect", "eiskaltdcpp-network-connect"));
     defaultString.insert(StringMap::value_type("icon-reconnect", "eiskaltdcpp-reconnect"));
+#if GTK_CHECK_VERSION(3, 10, 0)
+    defaultString.insert(StringMap::value_type("icon-file", "text-x-generic"));
+#else
     defaultString.insert(StringMap::value_type("icon-file", GTK_STOCK_FILE));
+#endif
     defaultString.insert(StringMap::value_type("icon-directory", "eiskaltdcpp-folder-blue"));
     defaultString.insert(StringMap::value_type("icon-openlist", "eiskaltdcpp-openlist"));
     defaultString.insert(StringMap::value_type("icon-own-filelist", "eiskaltdcpp-own_filelist"));
