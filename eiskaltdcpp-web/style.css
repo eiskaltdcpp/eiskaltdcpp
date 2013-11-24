@@ -68,6 +68,10 @@ a {
     padding: 0 0 2px 0;
 }
 
+.tab.highlighed {
+    background: #ddf;
+}
+
 .tab.active {
     background: #fff;
     padding: 0 0 4px 0;
