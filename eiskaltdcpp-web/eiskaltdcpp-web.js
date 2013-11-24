@@ -12,17 +12,16 @@ var eiskalt = (function () {
         INFO : 4,
         DEBUG : 5
     }, searchTypes = {
-        TYPE_ANY: 0,
-        TYPE_AUDIO: 1,
-        TYPE_COMPRESSED: 2,
-        TYPE_DOCUMENT: 3,
-        TYPE_EXECUTABLE: 4,
-        TYPE_PICTURE: 5,
-        TYPE_VIDEO: 6,
-        TYPE_DIRECTORY: 7,
-        TYPE_TTH: 8,
-        TYPE_CD_IMAGE: 9,
-        TYPE_LAST: 10
+        'Any': 0,
+        'Audio': 1,
+        'Compressed': 2,
+        'Document': 3,
+        'Executable': 4,
+        'Picture': 5,
+        'Video': 6,
+        'Directory': 7,
+        'TTH': 8,
+        'CD image': 9
     }, eiskalt = {
 
         searchResults: {},
@@ -139,7 +138,10 @@ var eiskalt = (function () {
             $('input#searchstring').timer('stop');
             eiskalt.clearSearchResults();
             $.jsonRPC.request('search.send', {
-                params : {'searchstring': $('input#searchstring').val()},
+                params : {
+                    'searchstring': $('input#searchstring').val(),
+                    'searchtype': $('#searchtype option:selected').val()
+                },
                 success : eiskalt.onSearchSendSuccess,
                 error : eiskalt.onError
             });
@@ -155,7 +157,7 @@ var eiskalt = (function () {
             // start TTH search for the newly added file to get download sources
             $('input#searchstring').timer('stop');
             $.jsonRPC.request('search.send', {
-                params : {'searchstring': $(this).attr('tth'), 'searchtype': searchTypes.TYPE_TTH},
+                params : {'searchstring': $(this).attr('tth'), 'searchtype': searchTypes.TTH},
                 success : eiskalt.onSuccess,
                 error : eiskalt.onError
             });
@@ -287,6 +289,12 @@ var eiskalt = (function () {
 
         onLoad: function () {
             var searchString;
+
+            $.each(searchTypes, function (typename, typeval) {
+                $('#searchtype').append(
+                    $('<option></option>').val(typeval).html(typename)
+                );
+            });
 
             $('#tab-container').easytabs();
 
