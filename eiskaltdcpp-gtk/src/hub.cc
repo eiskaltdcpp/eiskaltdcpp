@@ -2089,7 +2089,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             "/ip list\t\t\t\t - " + _("Show ipfilter rules list") + "\n" +
             "/ip up/down\t\t\t - " + _("Move rule up/down") + "\n" +
             "/ip purge 192.168.1.0/23;192.168.6.0/24 - " + _("Remove rules from list") + "\n" +
-            "/ip 192.168.1.0/23::in;!192.168.6.0/24::both - " + _("Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming or outcoming and action is drop") + "\n"
+            "/ip 192.168.1.0/23|in;!192.168.6.0/24|both - " + _("Add rule 192.168.1.0/23 where direction incoming and action is allow and 192.168.6.0/24 where direction is incoming or outcoming and action is drop") + "\n"
             , Msg::SYSTEM);
         }
         else if (command == "ws" && !param.empty())
@@ -2199,7 +2199,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                                 default:
                                     break;
                             }
-                            tmp+=prefix+string(ipfilter::Uint32ToString(el->ip)) + "/" + Util::toString(ipfilter::MaskToCIDR(el->mask))+ "::" + type + "\n";
+                            tmp+=prefix+string(ipfilter::Uint32ToString(el->ip)) + "/" + Util::toString(ipfilter::MaskToCIDR(el->mask))+ "|" + type + "\n";
                         }
                         hub->addStatusMessage_gui(tmp, Msg::SYSTEM, Sound::NONE);;
                     }
@@ -2250,7 +2250,9 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         StringTokenizer<string> add( param, ";" );
                         for(StringIter i = add.getTokens().begin(); i != add.getTokens().end(); ++i)
                         {
-                            StringTokenizer<string> addsub( (*i), "::" );
+                            StringTokenizer<string> addsub( (*i), "|" );
+                            if (addsub.getTokens().size() == 0)
+                                return;
                             if (addsub.getTokens().at(1) == "in")
                                 ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_IN);
                             else if (addsub.getTokens().at(1) == "out")

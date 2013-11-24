@@ -14,6 +14,8 @@
 #ifndef WIN32
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
 #include <unistd.h>
 #endif
 #include "dcpp/Util.h"
@@ -25,11 +27,6 @@ using namespace dcpp;
 
 const string signature = "$EISKALTDC IPFILTERLIST$";
 
-inline static uint32_t make_ip(unsigned int a, unsigned int b, unsigned int c, unsigned int d)
-{
-    return ((a << 24) | (b << 16) | (c << 8) | d);
-}
-
 ipfilter::ipfilter() {
 }
 
@@ -37,24 +34,35 @@ ipfilter::~ipfilter() {
     clearRules();
 }
 
-uint32_t ipfilter::StringToUint32(const string& ip){
-    unsigned int ip1=0,ip2=0,ip3=0,ip4=0;
-    if (sscanf(ip.c_str(),"%3u.%3u.%3u.%3u",&ip1,&ip2,&ip3,&ip4) != 4 || ip1 > 255 || ip2 > 255 || ip3 > 255 || ip4 > 255)
-        return 0;
-    return make_ip(ip1,ip2,ip3,ip4);
+uint32_t ipfilter::StringToUint32(const string& ip) {
+    uint32_t ret;
+    int return_code;
+    return_code = inet_pton(AF_INET, ip.c_str(), &ret);
+    switch (return_code) {
+        case 1: return ret;
+        case 0:
+        {
+            #ifdef _DEBUG_IPFILTER_
+            fprintf(stdout,"ipfilter::StringToUint32 not valid network address\n");fflush(stdout);
+            #endif
+            return 0;
+        }
+        case -1:
+        {
+            #ifdef _DEBUG_IPFILTER_
+            fprintf(stdout,"ipfilter::StringToUint32 not valid address family\n");fflush(stdout);
+            #endif
+            return 0;
+        }
+        default: return 0;
+    }
 }
 
-string ipfilter::Uint32ToString(uint32_t ip){
-    string ret;
-    unsigned int ip1,ip2,ip3,ip4;
-    ip1 = (ip & 0xFF000000) >> 24;
-    ip2 = (ip & 0x00FF0000) >> 16;
-    ip3 = (ip & 0x0000FF00) >> 8;
-    ip4 = (ip & 0x000000FF);
-    std::stringstream ss;
-    ss << ip1 << "." << ip2 << "." << ip3 << "." << ip4;
-    ss >> ret;
-    return ret;
+string ipfilter::Uint32ToString(uint32_t ip) {
+    char str[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &ip, str, INET_ADDRSTRLEN);
+    if (str)
+        return string(str);
 }
 
 uint32_t ipfilter::MaskToCIDR(uint32_t mask){
@@ -104,42 +112,42 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
         return true;
     }
 
-    string str_ip = "", str_mask = "";
-    unsigned int ip1=0,ip2=0,ip3=0,ip4=0,mask1=0,nip=0;
-    nip = exp.find("!") != string::npos;
-    str_ip = exp.substr(exp.find("!") != string::npos);
-    if (str_ip.find("/") != string::npos) {
-        #ifdef _DEBUG_IPFILTER_
-        fprintf(stdout,"%s %s\n",str_ip.c_str(),str_mask.c_str());fflush(stdout);
-        #endif
-        if (sscanf(str_ip.c_str(),"%3u.%3u.%3u.%3u/%2u",&ip1,&ip2,&ip3,&ip4,&mask1) != 5 || ip1 > 255 || ip2 > 255 || ip3 > 255 || ip4 > 255) {
-            #ifdef _DEBUG_IPFILTER_
-            fprintf(stdout,"fail parse with mask\n"); fflush(stdout);
-            #endif
-            return false;}
-    } else {
-        if (sscanf(str_ip.c_str(),"%3u.%3u.%3u.%3u",&ip1,&ip2,&ip3,&ip4) != 4 || ip1 > 255 || ip2 > 255 || ip3 > 255 || ip4 > 255) {
-            #ifdef _DEBUG_IPFILTER_
-            fprintf(stdout,"fail parse without mask\n"); fflush(stdout);
-            #endif
-            return false;}
-    }
+    string str_ip_mask = "", str_ip = "", str_mask = "";
+    unsigned int pos=0;
+    pos = exp.find("!");
     #ifdef _DEBUG_IPFILTER_
-        fprintf(stdout,"ip::%d %d %d %d mask::%d \n",ip1,ip2,ip3,ip4,mask1); fflush(stdout);
+        fprintf(stdout,"! pos::%d %u\n", pos, pos != string::npos);
     #endif
-    if (nip > 0)
+    if (pos == 0) {
         act = etaDROP;
-    else
+    } else {
         act = etaACPT;
+    }
+    str_ip_mask = (pos != string::npos) ? exp.substr(pos+1) : exp;
     #ifdef _DEBUG_IPFILTER_
-        fprintf(stdout,"act::%d\n",nip); fflush(stdout);
+        fprintf(stdout,"str_ip_mask::%s\n", str_ip_mask.c_str());
     #endif
-    if (mask1 >= 0)
-        mask = MaskForBits(mask1 > 32? 32:mask1);
-    else
-        mask = MaskForBits(32);
+    pos = str_ip_mask.find("/");
+    #ifdef _DEBUG_IPFILTER_
+        fprintf(stdout,"/ pos::%d %u\n", pos, pos != string::npos);
+    #endif
+    str_mask = (pos != string::npos ) ? str_ip_mask.substr(pos+1) : str_ip_mask;
+    #ifdef _DEBUG_IPFILTER_
+        fprintf(stdout,"str_mask::%s\n", str_mask.c_str());
+    #endif
+    str_ip = (pos != string::npos ) ? str_ip_mask.erase(pos) : str_ip_mask;
+    #ifdef _DEBUG_IPFILTER_
+        fprintf(stdout,"str_ip::%s\n", str_ip.c_str());
+    #endif
+    ip = StringToUint32(str_ip);
+    mask = atoi(str_mask.c_str()) > 32 ? 32 : atoi(str_mask.c_str());
 
-    ip = make_ip(ip1,ip2,ip3,ip4);
+    #ifdef _DEBUG_IPFILTER_
+        fprintf(stdout,"ip::%u\n", ip);
+        fprintf(stdout,"mask::%u\n", mask);
+        fprintf(stdout,"act::%u\n",act); fflush(stdout);
+    #endif
+
     return true;
 }
 
@@ -199,24 +207,14 @@ void ipfilter::addToRules(string exp, eDIRECTION direction) {
 }
 
 void ipfilter::remFromRules(string exp, eTableAction act) {
+    uint32_t exp_ip, exp_mask;
+    eTableAction exp_act;
 
-    string str_ip;
-    uint32_t exp_ip;
-#ifdef _DEBUG_IPFILTER_
-    printf("remove: exp - %s\n", exp.c_str());
-#endif
-    size_t pos = exp.find("/");
-#ifdef _DEBUG_IPFILTER_
-    printf("pos / - %i\n", (uint32_t)pos);
-#endif
-    if (pos != string::npos)
-        str_ip = exp.erase(pos);
-    else
-        str_ip = exp;
-#ifdef _DEBUG_IPFILTER_
-    printf("remove: str_ip - %s\n", str_ip.c_str());
-#endif
-    exp_ip = ipfilter::StringToUint32(str_ip);
+    if (!ParseString(exp, exp_ip, exp_mask, exp_act))
+        return;
+    if (exp_act != act)
+        return;
+
     QIPHash::iterator it = list_ip.find(exp_ip);
 
     if (it != list_ip.end() && it->first == exp_ip){
