@@ -28,6 +28,7 @@ var eiskalt = (function () {
         searchResults: {},
         groupedResults: {},
         downloadQueue: {},
+        downloadQueueTTH: {},
         config: null,
         connectedHubs: {},
         statisticalData: [],
@@ -57,16 +58,37 @@ var eiskalt = (function () {
             eiskalt.searchResults = {};
         },
 
+        updateSearchResultIcon: function (tth) {
+            var downloadLink, removeLink;
+            downloadLink = $('#download_' + tth);
+            removeLink = $('#remove_' + tth);
+            if (eiskalt.downloadQueueTTH.hasOwnProperty(tth)) {
+                downloadLink.hide();
+                removeLink.show();
+                removeLink.attr('target', eiskalt.downloadQueueTTH[tth].data.Target);
+            } else {
+                downloadLink.show();
+                removeLink.hide();
+            }
+        },
+
         addSearchResult: function (result) {
-            var table, row, tth, headers, key, downloadLink, downloadImage;
+            var table, row, tth, headers, key, downloadLink, downloadImage, removeLink, removeImage;
             table = $('table#searchresults');
             tth = result.TTH;
             if (!eiskalt.groupedResults.hasOwnProperty(tth)) {
                 row = $('<tr>');
+
                 downloadImage = $('<img src="images/download.png">');
-                downloadLink = $('<a filename="' + result.Filename + '" tth="' + result.TTH + '" size="' + result['Real Size'] + '">').append(downloadImage);
+                downloadLink = $('<a id="download_' + tth + '" filename="' + result.Filename + '" tth="' + tth + '" size="' + result['Real Size'] + '">').append(downloadImage);
                 downloadLink.on('click', eiskalt.onDownloadClicked);
-                row.append($('<td>').append(downloadLink));
+
+                removeImage = $('<img src="images/remove.png">');
+                removeLink = $('<a id="remove_' + tth + '" target="">').append(removeImage);
+                removeLink.on('click', eiskalt.onRemoveClicked);
+                removeLink.hide();
+
+                row.append($('<td>').append(downloadLink).append(removeLink));
                 row.append($('<td>').text('0'));
                 headers = table.find('th');
                 headers.each(function (i, header) {
@@ -77,6 +99,7 @@ var eiskalt = (function () {
                 });
                 table.find('tbody').append(row);
                 eiskalt.groupedResults[tth] = {'row': row, 'results': []};
+                eiskalt.updateSearchResultIcon(tth);
             }
             eiskalt.groupedResults[tth].results.push(result);
             $(eiskalt.groupedResults[tth].row.children()[1]).text(eiskalt.groupedResults[tth].results.length);
@@ -161,7 +184,8 @@ var eiskalt = (function () {
                 removeLink.on('click', eiskalt.onRemoveClicked);
                 $(row.children()[0]).append(removeLink);
                 table.find('tbody').append(row);
-                eiskalt.downloadQueue[entry.Target] = {'row': row};
+                eiskalt.downloadQueue[entry.Target] = {'row': row, 'data': entry};
+                eiskalt.downloadQueueTTH[entry.TTH] = eiskalt.downloadQueue[entry.Target];
             } else {
                 row = eiskalt.downloadQueue[entry.Target].row;
             }
@@ -174,16 +198,21 @@ var eiskalt = (function () {
         },
 
         updateDownloadQueue: function (data) {
+            var tth;
             eiskalt.showConnectionStatus(false);
             if (data.result !== null) {
                 $.each(data.result, function (target, entry) {
                     eiskalt.addDownloadQueue(entry);
                 });
             }
-            $.each(eiskalt.downloadQueue, function (target, entry) {
+            $.each(eiskalt.downloadQueue, function (target, entryInfo) {
+                tth = entryInfo.data.TTH;
                 if (data.result === null || !data.result.hasOwnProperty(target)) {
-                    entry.row.remove();
+                    entryInfo.row.remove();
+                    delete eiskalt.downloadQueue[target];
+                    delete eiskalt.downloadQueueTTH[tth];
                 }
+                eiskalt.updateSearchResultIcon(tth);
             });
             $('table#downloadqueue').trigger('update');
         },
@@ -359,7 +388,7 @@ var eiskalt = (function () {
                 delay: 1000,
                 repeat: true
             });
-            $('table##connectedhubs').timer({
+            $('table#connectedhubs').timer({
                 callback: eiskalt.requestConnectedHubs,
                 delay: 2000,
                 repeat: true
