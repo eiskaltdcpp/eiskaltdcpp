@@ -107,7 +107,7 @@ var eiskalt = (function () {
                 removeLink.hide();
 
                 result.UserLinks = eiskalt.getUserLinks(result);
-                result.DownloadLink = downloadLink.append(removeLink);
+                result.DownloadLink = downloadLink.add(removeLink);
 
                 headers = table.find('th');
                 headers.each(function (i, header) {
