@@ -126,7 +126,7 @@ input[type=button] {
 table
 {
     width: 100%;
-    text-align: left;
+    text-align: center;
     border-collapse: collapse;
 }
 
@@ -182,18 +182,10 @@ table td img
     background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
 }
 
-table#searchresults td:nth-child(1), table#searchresults td:nth-child(2) {
-   text-align: center;
+table#searchresults td:nth-child(5), table#downloadqueue td:nth-child(2) {
+   text-align: left;
 }
 
-table#searchresults td:nth-child(3) {
-   text-align: right;
-}
-
-table#downloadqueue td:nth-child(1) {
-   text-align: center;
-}
-
-table#downloadqueue td:nth-child(3) {
+table#searchresults td:nth-child(4), table#downloadqueue td:nth-child(3) {
    text-align: right;
 }
