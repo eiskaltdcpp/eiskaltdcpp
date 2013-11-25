@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # gray <grayich@ukr.net>, 2013
@@ -9,15 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-08-29 22:51+0300\n"
-"PO-Revision-Date: 2013-08-30 08:38+0000\n"
+"POT-Creation-Date: 2013-11-25 05:55+0200\n"
+"PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: gray <grayich@ukr.net>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/eiskaltdcpp/language/uk/)\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/uk/)\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -108,7 +110,8 @@ msgstr "Хешувати перебудовану базу"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr "%1% не розшарено; підрахована CRC32 не відповідає знайденій у SFV файлі."
+msgstr ""
+"%1% не розшарено; підрахована CRC32 не відповідає знайденій у SFV файлі."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -124,26 +127,33 @@ msgstr "Визначення найкращих налаштувань з'єдн
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr "Неможливо відкрити порт(и) %1%. Налаштування підключення повинні бути встановлені вручну"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr ""
+"Неможливо відкрити порт(и) %1%. Налаштування підключення повинні бути "
+"встановлені вручну"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr "Публічна IP-адреса виявлена, вибирається активний режим із прямим підключенням"
+msgstr ""
+"Публічна IP-адреса виявлена, вибирається активний режим із прямим "
+"підключенням"
 
 #: ../ConnectivityManager.cpp:102
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr "Виявлена локальна мережа з можливим використанням NAT, роблю спробу прокинути порти, використовуючи UPnP..."
+msgstr ""
+"Виявлена локальна мережа з можливим використанням NAT, роблю спробу "
+"прокинути порти, використовуючи UPnP..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr "Автоматичне встановлення активного режиму провалилося. Ви можете спробувати встановити своє підключення вручну для кращого зв'язку"
+msgstr ""
+"Автоматичне встановлення активного режиму провалилося. Ви можете спробувати "
+"встановити своє підключення вручну для кращого зв'язку"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -242,7 +252,9 @@ msgstr "Назва файла призначення надто довге"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr "Невірний файл призначення (відсутня папка, перевірте конфігурацію папки завантаження за вмовчуванням)"
+msgstr ""
+"Невірний файл призначення (відсутня папка, перевірте конфігурацію папки "
+"завантаження за вмовчуванням)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -277,9 +289,10 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Узгоджений файл %2%"
 
 #: ../QueueManager.cpp:1796
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
-msgstr "Каталог призначення для цього елемента недоступний: %1%; завантаження припинено."
+msgid "Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+"Каталог призначення для цього елемента недоступний: %1%; завантаження "
+"припинено."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -301,7 +314,9 @@ msgstr "Не вдалось визначити базовий протокол"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr "Можливо, хаб використовує стару версію ADC, будь ласка, сповістіть володаря про оновлення."
+msgstr ""
+"Можливо, хаб використовує стару версію ADC, будь ласка, сповістіть володаря "
+"про оновлення."
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -339,7 +354,9 @@ msgstr "Топік хабу:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr "Цей хаб намагається використовувати ваш клієнт для спаму %1%, будь ласка повідомте власнику хаба, щоб він виправив це"
+msgstr ""
+"Цей хаб намагається використовувати ваш клієнт для спаму %1%, будь ласка "
+"повідомте власнику хаба, щоб він виправив це"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -401,7 +418,9 @@ msgstr "DHT порт (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr "Успішно виконане прокидання портів (TCP: %1%, UDP: %2%, TLS: %3%), використовується інтерфейс %4%"
+msgstr ""
+"Успішно виконане прокидання портів (TCP: %1%, UDP: %2%, TLS: %3%), "
+"використовується інтерфейс %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -563,13 +582,16 @@ msgstr "Пропущен нерасшаренний тимчасовий фай�
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr "Дублікат файла не буде розшарено: %1% (Розмір: %2% Б) Копія співпала з: %3%"
+msgstr ""
+"Дублікат файла не буде розшарено: %1% (Розмір: %2% Б) Копія співпала з: %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
-msgstr "Виконується оновлення списку файлів, будь ласка, зачекайте закінчення перед спробою оновити знов"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Виконується оновлення списку файлів, будь ласка, зачекайте закінчення перед "
+"спробою оновити знов"
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
@@ -587,39 +609,39 @@ msgstr "Оновлення списку файлів закінчено"
 msgid "File list %1% generated"
 msgstr "Список файлів %1% згенеровано"
 
-#: ../SettingsManager.cpp:183
+#: ../SettingsManager.cpp:184
 msgid "downloaded from"
 msgstr "завантажено з"
 
-#: ../SettingsManager.cpp:517
+#: ../SettingsManager.cpp:520
 msgid "Invalid search type name"
 msgstr "Неправильне ім'я типу пошуку"
 
-#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
+#: ../SettingsManager.cpp:524 ../SettingsManager.cpp:546
 msgid "This search type already exists"
 msgstr "Цей тип пошуку вже використовується"
 
-#: ../SettingsManager.cpp:575
+#: ../SettingsManager.cpp:578
 msgid "No such search type"
 msgstr "Немає такого типу пошуку"
 
-#: ../SettingsManager.cpp:616
+#: ../SettingsManager.cpp:619
 msgid "Error: setting not found!"
 msgstr "Помилка: опцію не знайдено!"
 
-#: ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:621
 msgid "Core setting "
 msgstr "Опція ядра"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:622
 msgid "Change core setting "
 msgstr "Змінити опцію ядра"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:622
 msgid " to "
 msgstr "в"
 
-#: ../SettingsManager.cpp:621
+#: ../SettingsManager.cpp:624
 msgid "Error: segv parser :D"
 msgstr "Помилка: парсер зламався: D"
 
@@ -643,13 +665,16 @@ msgstr "Сокет-сервер на підтримує авторизацію �
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr "Сокет-сервер авторизація не вдалась (неправильне ім’я користувача / паролю?)"
+msgstr ""
+"Сокет-сервер авторизація не вдалась (неправильне ім’я користувача / паролю?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr "Не вдалось налаштувати сокет-сервер для UDP передачі (перевірте адресу і порт сокета)"
+msgstr ""
+"Не вдалось налаштувати сокет-сервер для UDP передачі (перевірте адресу і "
+"порт сокета)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"

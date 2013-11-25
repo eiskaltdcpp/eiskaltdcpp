@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
-# Boris Pek <tehnick-8@mail.ru>, 2012.
+# Boris Pek <tehnick-8@mail.ru>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-08-29 22:51+0300\n"
-"PO-Revision-Date: 2012-11-16 18:16+0000\n"
+"POT-Creation-Date: 2013-11-25 05:55+0200\n"
+"PO-Revision-Date: 2013-11-19 16:39+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/el/)\n"
@@ -33,7 +32,7 @@ msgstr " *** Λειτουργία εικονιδίων διάθεσης ανεν
 msgid " *** Emoticons not loaded"
 msgstr " *** Εικονίδια διάθεσης δεν φορτώθηκαν"
 
-#: ../src/settingsdialog.cc:2510
+#: ../src/settingsdialog.cc:2512
 msgid " + system icons"
 msgstr " + εικονίδια συστήματος"
 
@@ -133,11 +132,11 @@ msgstr "': πληκτρολογήστε /help για μια λίστα διαθ�
 msgid "*** Available commands:"
 msgstr "*** Διαθέσιμες εντολές:"
 
-#: ../src/settingsdialog.cc:2283
+#: ../src/settingsdialog.cc:2285
 msgid "*** T E S T ***"
 msgstr "*** Τ Ε Σ Τ ***"
 
-#: ../src/settingsdialog.cc:1462 ../ui/mainwindow.ui:251
+#: ../src/settingsdialog.cc:1464 ../ui/mainwindow.ui:251
 #: ../ui/mainwindow.ui:2375 ../ui/mainwindow.ui:2393
 msgid "+/-"
 msgstr "+/-"
@@ -146,12 +145,12 @@ msgstr "+/-"
 msgid "-:--:-- left"
 msgstr "-:--:-- αριστερά"
 
-#: ../src/settingsdialog.cc:2462 ../src/settingsdialog.cc:2486
+#: ../src/settingsdialog.cc:2464 ../src/settingsdialog.cc:2488
 msgid "...must be *.theme"
 msgstr "...πρέπει να είναι *.theme"
 
-#: ../src/settingsdialog.cc:2365 ../src/settingsdialog.cc:2394
-#: ../src/settingsdialog.cc:2431
+#: ../src/settingsdialog.cc:2367 ../src/settingsdialog.cc:2396
+#: ../src/settingsdialog.cc:2433
 msgid "...must not be empty"
 msgstr "...δεν πρέπει να είναι άδειο"
 
@@ -363,7 +362,7 @@ msgstr ""
 msgid "<b>Enter your password</b>"
 msgstr "<b>Εισάγετε τον κωδικό πρόσβασης</b>"
 
-#: ../src/settingsdialog.cc:2201
+#: ../src/settingsdialog.cc:2203
 msgid "<b>Extension</b>"
 msgstr "Περιγραφή"
 
@@ -431,19 +430,19 @@ msgstr "<b>αρχειο:</b> "
 msgid "<b>Min FileSize</b>"
 msgstr "<b>αρχειο:</b> "
 
-#: ../src/settingsdialog.cc:1847
+#: ../src/settingsdialog.cc:1849
 msgid "<b>Name of the new search type</b>"
 msgstr "Χρονική σφραγίδα"
 
-#: ../src/settingsdialog.cc:3094
+#: ../src/settingsdialog.cc:3096
 msgid "<b>Name under which the others see the directory</b>"
 msgstr "<b>Όνομα που βλέπουν άλλοι το φάκελο</b>"
 
-#: ../src/settingsdialog.cc:3734
+#: ../src/settingsdialog.cc:3736
 msgid "<b>Name, under which you see the directory</b>"
 msgstr "<b>Όνομα που βλέπετε εσείς το φάκελο</b>"
 
-#: ../src/settingsdialog.cc:2100
+#: ../src/settingsdialog.cc:2102
 msgid "<b>New name</b>"
 msgstr "<b>αρχειο:</b> "
 
@@ -581,7 +580,7 @@ msgstr "<b>Τι θα θέλατε να κάνετε;</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Ρυθμίσεις Παραθυριών</b>"
 
-#: ../src/mainwindow.cc:2336
+#: ../src/mainwindow.cc:2339
 msgid "<b>file:</b> "
 msgstr "<b>αρχείο:</b> "
 
@@ -610,7 +609,7 @@ msgstr "Συμβολοσειρά αναζήτησης"
 msgid "About EiskaltDC++"
 msgstr "Σχετικά με το EiskaltDC++"
 
-#: ../src/settingsdialog.cc:1646
+#: ../src/settingsdialog.cc:1648
 msgid "Accept custom user commands from hub"
 msgstr "Αποδοχή προσαρμοσμένων εντολών χρήστη από τον κόμβο"
 
@@ -630,7 +629,7 @@ msgstr "Προσθήκη / Αφαίρεση"
 msgid "Add a hub to favorites"
 msgstr "Προσθήκη κόμβου στα αγαπημένα"
 
-#: ../src/settingsdialog.cc:1648
+#: ../src/settingsdialog.cc:1650
 msgid "Add finished files to share instantly (if shared)"
 msgstr "Άμεση προσθήκη ολοκληρωμένων αρχείων στα κοινόχρηστα (αν μοιράζονται)"
 
@@ -707,23 +706,23 @@ msgstr "Ψευδώνυμο προσθήκη uname -a ως Α"
 msgid "Aliases not found."
 msgstr "Δεν βρέθηκε ο χρήστης"
 
-#: ../src/settingsdialog.cc:1722
+#: ../src/settingsdialog.cc:1724
 msgid "Allow TLS connections to clients without trusted certificate"
 msgstr "Επιτρέπονται συνδέσεις TLS σε πελάτες χωρίς έμπιστο πιστοποιητικό"
 
-#: ../src/settingsdialog.cc:1721
+#: ../src/settingsdialog.cc:1723
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr "Επιτρέπονται συνδέσεις TLS σε κόμβους χωρίς έμπιστο πιστοποιητικό"
 
-#: ../src/settingsdialog.cc:1656
+#: ../src/settingsdialog.cc:1658
 msgid "Allow few connections from one IP"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1655
+#: ../src/settingsdialog.cc:1657
 msgid "Allow overlap chunks"
 msgstr "Να επιτρέπονται κομμάτια που επικαλύπτονται"
 
-#: ../src/settingsdialog.cc:1657
+#: ../src/settingsdialog.cc:1659
 msgid "Allow some connections for one user"
 msgstr ""
 
@@ -736,8 +735,8 @@ msgid "Appearance"
 msgstr "Εμφάνιση"
 
 #: ../src/settingsdialog.cc:927 ../src/settingsdialog.cc:962
-#: ../src/settingsdialog.cc:2981 ../src/settingsdialog.cc:3015
-#: ../src/settingsdialog.cc:3033 ../src/settingsdialog.cc:3064
+#: ../src/settingsdialog.cc:2983 ../src/settingsdialog.cc:3017
+#: ../src/settingsdialog.cc:3035 ../src/settingsdialog.cc:3066
 msgid "Application"
 msgstr "Εφαρμογή"
 
@@ -799,7 +798,7 @@ msgstr "Χρόνος αυτόματης ενημέρωσης"
 msgid "Auto update IP from internet"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1637
+#: ../src/settingsdialog.cc:1639
 msgid "Auto-away on minimize (and back on restore)"
 msgstr "Αυτόματα απών κατά την ελαχιστοποίηση (και επιστροφή στην επαναφορά)"
 
@@ -807,11 +806,11 @@ msgstr "Αυτόματα απών κατά την ελαχιστοποίηση (
 msgid "Auto-drop slow sources for all queue items (except filelists)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1642
+#: ../src/settingsdialog.cc:1644
 msgid "Automatically disconnect users who leave the hub"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1638
+#: ../src/settingsdialog.cc:1640
 msgid "Automatically follow redirects"
 msgstr ""
 
@@ -923,7 +922,7 @@ msgstr ""
 msgid "Bulgarian translation\n"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1413
+#: ../src/settingsdialog.cc:1415
 msgid "Button smile"
 msgstr ""
 
@@ -1033,12 +1032,20 @@ msgstr ""
 msgid "Check every"
 msgstr ""
 
+#: ../src/settingsdialog.cc:1094
+msgid "Chinese (China)"
+msgstr ""
+
+#: ../src/mainwindow.cc:273
+msgid "Chinese (China) translation\n"
+msgstr ""
+
 #: ../ui/settingsdialog.ui:8582
 msgid "Choose a File"
 msgstr ""
 
-#: ../src/privatemessage.cc:1298 ../src/hub.cc:2651 ../src/mainwindow.cc:1318
-#: ../src/mainwindow.cc:1386 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/privatemessage.cc:1298 ../src/hub.cc:2651 ../src/mainwindow.cc:1321
+#: ../src/mainwindow.cc:1389 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8510
 msgid "Choose a directory"
 msgstr ""
@@ -1063,7 +1070,7 @@ msgstr ""
 msgid "Clear frame search"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1639
+#: ../src/settingsdialog.cc:1641
 msgid "Clear search box after each search"
 msgstr ""
 
@@ -1107,13 +1114,13 @@ msgstr ""
 msgid "Colors & Fonts"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1669 ../src/settingsdialog.cc:1677
-#: ../src/settingsdialog.cc:3343 ../src/settingsdialog.cc:3417
+#: ../src/settingsdialog.cc:1671 ../src/settingsdialog.cc:1679
+#: ../src/settingsdialog.cc:3345 ../src/settingsdialog.cc:3419
 #: ../ui/settingsdialog.ui:812
 msgid "Command"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3461 ../src/settingsdialog.cc:3467
+#: ../src/settingsdialog.cc:3463 ../src/settingsdialog.cc:3469
 msgid "Command name already exists"
 msgstr ""
 
@@ -1125,15 +1132,15 @@ msgstr ""
 msgid "Configure hub lists"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1569
+#: ../src/settingsdialog.cc:1571
 msgid "Confirm application exit"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1570
+#: ../src/settingsdialog.cc:1572
 msgid "Confirm favorite hub removal"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1429 ../src/settingsdialog.cc:1468
+#: ../src/settingsdialog.cc:1431 ../src/settingsdialog.cc:1470
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
 msgid "Connect"
 msgstr ""
@@ -1181,7 +1188,7 @@ msgstr ""
 msgid "Connection"
 msgstr ""
 
-#: ../src/mainwindow.cc:2280
+#: ../src/mainwindow.cc:2283
 msgid "Connectivity Manager: Warning"
 msgstr ""
 
@@ -1280,16 +1287,16 @@ msgid "Direct connection"
 msgstr ""
 
 #: ../src/settingsdialog.cc:905 ../src/settingsdialog.cc:919
-#: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1432
-#: ../src/settingsdialog.cc:3750 ../src/settingsdialog.cc:3770
-#: ../src/settingsdialog.cc:3799 ../src/settingsdialog.cc:3813
-#: ../src/settingsdialog.cc:3868 ../src/sharebrowser.cc:330
+#: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1434
+#: ../src/settingsdialog.cc:3752 ../src/settingsdialog.cc:3772
+#: ../src/settingsdialog.cc:3801 ../src/settingsdialog.cc:3815
+#: ../src/settingsdialog.cc:3870 ../src/sharebrowser.cc:330
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3755
+#: ../src/settingsdialog.cc:3757
 msgid "Directory or favorite name already exists"
 msgstr ""
 
@@ -1297,7 +1304,7 @@ msgstr ""
 msgid "Disable chat"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1119
+#: ../src/settingsdialog.cc:1121
 msgid "Do not close the program, hide in the system tray"
 msgstr ""
 
@@ -1329,7 +1336,7 @@ msgstr ""
 msgid "Don't remove the source when auto-dropping, only disconnect"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1649
+#: ../src/settingsdialog.cc:1651
 msgid "Don't send the away message to bots"
 msgstr ""
 
@@ -1337,7 +1344,7 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1414 ../ui/sharebrowser.ui:80
+#: ../src/settingsdialog.cc:1416 ../ui/sharebrowser.ui:80
 #: ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr ""
@@ -1346,7 +1353,7 @@ msgstr ""
 msgid "Download Matches"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1138 ../src/settingsdialog.cc:1548
+#: ../src/settingsdialog.cc:1140 ../src/settingsdialog.cc:1550
 #: ../src/downloadqueue.cc:33 ../ui/mainwindow.ui:1268
 msgid "Download Queue"
 msgstr ""
@@ -1367,12 +1374,12 @@ msgstr ""
 msgid "Download failed: "
 msgstr ""
 
-#: ../src/settingsdialog.cc:1168 ../src/settingsdialog.cc:1350
+#: ../src/settingsdialog.cc:1170 ../src/settingsdialog.cc:1352
 #: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1169 ../src/settingsdialog.cc:1354
+#: ../src/settingsdialog.cc:1171 ../src/settingsdialog.cc:1356
 #: ../src/settingsmanager.cc:238
 msgid "Download finished file list"
 msgstr ""
@@ -1429,7 +1436,7 @@ msgstr ""
 msgid "Download whole director_y to..."
 msgstr ""
 
-#: ../src/mainwindow.cc:755
+#: ../src/mainwindow.cc:758
 msgid "Download: "
 msgstr ""
 
@@ -1443,9 +1450,8 @@ msgid "Downloaded hub list is corrupted or unsupported "
 msgstr ""
 
 #: ../src/transfers.cc:581 ../src/transfers.cc:954
-#, fuzzy
 msgid "Downloading"
-msgstr "Downloaded "
+msgstr ""
 
 #: ../ui/settingsdialog.ui:2995 ../ui/settingsdialog.ui:3966
 msgid "Downloads"
@@ -1456,9 +1462,8 @@ msgid "Drop sources below"
 msgstr ""
 
 #: ../src/search.cc:1980
-#, fuzzy
 msgid "Dropped: "
-msgstr "αποσύρθηκε"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:2440
 msgid "DynDNS Address"
@@ -1492,15 +1497,15 @@ msgstr ""
 msgid "Emotion packs"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1644
+#: ../src/settingsdialog.cc:1646
 msgid "Enable automatic SFV checking"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1645
+#: ../src/settingsdialog.cc:1647
 msgid "Enable safe and compressed transfers"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1643
+#: ../src/settingsdialog.cc:1645
 msgid "Enable segmented downloads"
 msgstr ""
 
@@ -1532,12 +1537,12 @@ msgstr ""
 msgid "Enter text to search for"
 msgstr ""
 
-#: ../src/mainwindow.cc:1252
+#: ../src/mainwindow.cc:1255
 msgid "Enter value for "
 msgstr ""
 
-#: ../src/settingsdialog.cc:1908 ../src/settingsdialog.cc:1952
-#: ../src/settingsdialog.cc:2971
+#: ../src/settingsdialog.cc:1910 ../src/settingsdialog.cc:1954
+#: ../src/settingsdialog.cc:2973
 msgid "Error"
 msgstr ""
 
@@ -1599,15 +1604,15 @@ msgstr ""
 msgid "Export..."
 msgstr ""
 
-#: ../src/settingsdialog.cc:2200
+#: ../src/settingsdialog.cc:2202
 msgid "Extension edition"
 msgstr ""
 
 #: ../src/settingsdialog.cc:928 ../src/settingsdialog.cc:963
-#: ../src/settingsdialog.cc:1734 ../src/settingsdialog.cc:1875
-#: ../src/settingsdialog.cc:1926 ../src/settingsdialog.cc:1981
-#: ../src/settingsdialog.cc:2982 ../src/settingsdialog.cc:3016
-#: ../src/settingsdialog.cc:3034 ../src/settingsdialog.cc:3065
+#: ../src/settingsdialog.cc:1736 ../src/settingsdialog.cc:1877
+#: ../src/settingsdialog.cc:1928 ../src/settingsdialog.cc:1983
+#: ../src/settingsdialog.cc:2984 ../src/settingsdialog.cc:3018
+#: ../src/settingsdialog.cc:3036 ../src/settingsdialog.cc:3067
 msgid "Extensions"
 msgstr ""
 
@@ -1623,23 +1628,23 @@ msgstr ""
 msgid "Favorite Hub Properties"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1416 ../src/settingsdialog.cc:1470
-#: ../src/settingsdialog.cc:1547 ../src/favoritehubs.cc:31
+#: ../src/settingsdialog.cc:1418 ../src/settingsdialog.cc:1472
+#: ../src/settingsdialog.cc:1549 ../src/favoritehubs.cc:31
 #: ../ui/mainwindow.ui:1174 ../ui/mainwindow.ui:2168
 msgid "Favorite Hubs"
 msgstr ""
 
 #: ../src/settingsdialog.cc:904 ../src/settingsdialog.cc:918
-#: ../src/settingsdialog.cc:3749
+#: ../src/settingsdialog.cc:3751
 msgid "Favorite Name"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1239
+#: ../src/settingsdialog.cc:1241
 msgid "Favorite User"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1417 ../src/settingsdialog.cc:1472
-#: ../src/settingsdialog.cc:1551 ../src/favoriteusers.cc:33
+#: ../src/settingsdialog.cc:1419 ../src/settingsdialog.cc:1474
+#: ../src/settingsdialog.cc:1553 ../src/favoriteusers.cc:33
 #: ../ui/mainwindow.ui:1204 ../ui/mainwindow.ui:2184
 msgid "Favorite Users"
 msgstr ""
@@ -1652,23 +1657,23 @@ msgstr ""
 msgid "Favorite hub already exists"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3732 ../ui/settingsdialog.ui:8996
+#: ../src/settingsdialog.cc:3734 ../ui/settingsdialog.ui:8996
 msgid "Favorite name"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1174 ../src/settingsdialog.cc:1370
+#: ../src/settingsdialog.cc:1176 ../src/settingsdialog.cc:1372
 #: ../src/settingsmanager.cc:246
 msgid "Favorite user joined"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1175 ../src/settingsdialog.cc:1374
+#: ../src/settingsdialog.cc:1177 ../src/settingsdialog.cc:1376
 #: ../src/settingsmanager.cc:248
 msgid "Favorite user quit"
 msgstr ""
 
-#: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1152
-#: ../src/settingsdialog.cc:1431 ../src/settingsdialog.cc:2899
-#: ../src/settingsdialog.cc:2918 ../src/UserCommandMenu.cc:68
+#: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1154
+#: ../src/settingsdialog.cc:1433 ../src/settingsdialog.cc:2901
+#: ../src/settingsdialog.cc:2920 ../src/UserCommandMenu.cc:68
 #: ../ui/settingsdialog.ui:6826 ../ui/settingsdialog.ui:6910
 #: ../ui/settingsdialog.ui:6994 ../ui/settingsdialog.ui:7078
 #: ../ui/settingsdialog.ui:7159
@@ -1734,19 +1739,17 @@ msgstr ""
 msgid "Filter files already in share"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1108
+#: ../src/settingsdialog.cc:1110
 msgid "Filter kick and NMDC debug messages"
 msgstr ""
 
 #: ../src/search.cc:1967
-#, fuzzy
 msgid "Filtered: "
-msgstr "φίλτρο"
+msgstr ""
 
 #: ../src/search.cc:575
-#, fuzzy
 msgid "Filtered: 0"
-msgstr "φίλτρο"
+msgstr ""
 
 #: ../ui/sharebrowser.ui:433
 msgid "Find"
@@ -1756,15 +1759,15 @@ msgstr ""
 msgid "Find files"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1136 ../src/settingsdialog.cc:1418
-#: ../src/settingsdialog.cc:1492 ../src/settingsdialog.cc:1549
+#: ../src/settingsdialog.cc:1138 ../src/settingsdialog.cc:1420
+#: ../src/settingsdialog.cc:1494 ../src/settingsdialog.cc:1551
 #: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1280
 #: ../ui/mainwindow.ui:2263 ../ui/mainwindow.ui:2513
 msgid "Finished Downloads"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1137 ../src/settingsdialog.cc:1419
-#: ../src/settingsdialog.cc:1494 ../src/settingsdialog.cc:1550
+#: ../src/settingsdialog.cc:1139 ../src/settingsdialog.cc:1421
+#: ../src/settingsdialog.cc:1496 ../src/settingsdialog.cc:1552
 #: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1291
 #: ../ui/mainwindow.ui:2280 ../ui/mainwindow.ui:2521
 msgid "Finished Uploads"
@@ -1822,7 +1825,7 @@ msgstr ""
 msgid "Frame:"
 msgstr ""
 
-#: ../src/mainwindow.cc:2395
+#: ../src/mainwindow.cc:2398
 msgid "Free "
 msgstr ""
 
@@ -1846,7 +1849,7 @@ msgstr ""
 msgid "GB18030"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1215
+#: ../src/settingsdialog.cc:1217
 msgid "General text"
 msgstr ""
 
@@ -1903,9 +1906,8 @@ msgid "Grouped by Users"
 msgstr ""
 
 #: ../src/settingsmanager.cc:525
-#, fuzzy
 msgid "Gui setting "
-msgstr "Εφαρμογή ρυθμήσεων"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:2944
 msgid "HTTP Proxy (for hublist only)"
@@ -1923,7 +1925,7 @@ msgstr ""
 msgid "H_igh"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1422 ../src/settingsdialog.cc:1482
+#: ../src/settingsdialog.cc:1424 ../src/settingsdialog.cc:1484
 #: ../ui/mainwindow.ui:2101 ../ui/mainwindow.ui:2473
 msgid "Hash"
 msgstr ""
@@ -1960,17 +1962,17 @@ msgstr ""
 msgid "Homepage"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1668 ../src/settingsdialog.cc:1678
-#: ../src/settingsdialog.cc:3342 ../src/settingsdialog.cc:3416
-#: ../src/settingsdialog.cc:3990 ../src/settingsdialog.cc:4081
-#: ../src/settingsdialog.cc:4104 ../src/settingsdialog.cc:4123
+#: ../src/settingsdialog.cc:1670 ../src/settingsdialog.cc:1680
+#: ../src/settingsdialog.cc:3344 ../src/settingsdialog.cc:3418
+#: ../src/settingsdialog.cc:3992 ../src/settingsdialog.cc:4083
+#: ../src/settingsdialog.cc:4106 ../src/settingsdialog.cc:4125
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
 #: ../src/search.cc:107 ../src/search.cc:658 ../src/search.cc:755
 #: ../src/search.cc:884 ../ui/search.ui:150
 msgid "Hub"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1139
+#: ../src/settingsdialog.cc:1141
 msgid "Hub (also sets urgency hint)"
 msgstr ""
 
@@ -1992,12 +1994,12 @@ msgstr ""
 msgid "Hub Name"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1172 ../src/settingsdialog.cc:1362
+#: ../src/settingsdialog.cc:1174 ../src/settingsdialog.cc:1364
 #: ../src/settingsmanager.cc:244
 msgid "Hub connected"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1173 ../src/settingsdialog.cc:1366
+#: ../src/settingsdialog.cc:1175 ../src/settingsdialog.cc:1368
 #: ../src/settingsmanager.cc:242
 msgid "Hub disconnected"
 msgstr ""
@@ -2046,9 +2048,9 @@ msgstr ""
 msgid "ISO-8859-9"
 msgstr ""
 
-#: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1333
-#: ../src/settingsdialog.cc:2281 ../src/settingsdialog.cc:2315
-#: ../src/settingsdialog.cc:2392 ../src/settingsdialog.cc:2428
+#: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1335
+#: ../src/settingsdialog.cc:2283 ../src/settingsdialog.cc:2317
+#: ../src/settingsdialog.cc:2394 ../src/settingsdialog.cc:2430
 msgid "Icon"
 msgstr ""
 
@@ -2072,11 +2074,11 @@ msgstr ""
 msgid "Ignore TTH search"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1562
+#: ../src/settingsdialog.cc:1564
 msgid "Ignore private messages from bots"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1561
+#: ../src/settingsdialog.cc:1563
 msgid "Ignore private messages from the hub"
 msgstr ""
 
@@ -2105,7 +2107,7 @@ msgstr ""
 msgid "Installing handler for"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2028 ../src/settingsdialog.cc:2216
+#: ../src/settingsdialog.cc:2030 ../src/settingsdialog.cc:2218
 msgid "Invalid extension: "
 msgstr ""
 
@@ -2145,17 +2147,17 @@ msgstr ""
 msgid "Kaffeine player"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1659
+#: ../src/settingsdialog.cc:1661
 msgid "Keep downloaded files and dirs in queue"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1640
+#: ../src/settingsdialog.cc:1642
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1641
+#: ../src/settingsdialog.cc:1643
 msgid "Keep filelists when exiting"
 msgstr ""
 
@@ -2184,9 +2186,9 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:329 ../src/settingsdialog.cc:887
 #: ../src/settingsdialog.cc:1010 ../src/settingsdialog.cc:1028
-#: ../src/settingsdialog.cc:3630 ../src/settingsdialog.cc:3643
-#: ../src/settingsdialog.cc:3660 ../src/settingsdialog.cc:4338
-#: ../src/settingsdialog.cc:4374 ../src/publichubs.cc:69
+#: ../src/settingsdialog.cc:3632 ../src/settingsdialog.cc:3645
+#: ../src/settingsdialog.cc:3662 ../src/settingsdialog.cc:4340
+#: ../src/settingsdialog.cc:4376 ../src/publichubs.cc:69
 #: ../src/publichubs.cc:339 ../src/publichubs.cc:364 ../src/publichubs.cc:414
 msgid "List"
 msgstr ""
@@ -2203,7 +2205,7 @@ msgstr ""
 msgid "Loaded from cache: "
 msgstr ""
 
-#: ../src/mainwindow.cc:2051
+#: ../src/mainwindow.cc:2054
 msgid "Loading file list"
 msgstr ""
 
@@ -2267,11 +2269,11 @@ msgstr ""
 msgid "Magnet"
 msgstr ""
 
-#: ../src/mainwindow.cc:1379
+#: ../src/mainwindow.cc:1382
 msgid "Magnet Choice"
 msgstr ""
 
-#: ../src/mainwindow.cc:1309
+#: ../src/mainwindow.cc:1312
 msgid "Magnet Properties / Choice"
 msgstr ""
 
@@ -2377,7 +2379,7 @@ msgstr ""
 msgid "Mini slot size"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1123
+#: ../src/settingsdialog.cc:1125
 msgid "Minimize to tray on startup"
 msgstr ""
 
@@ -2417,15 +2419,15 @@ msgstr ""
 msgid "Mplayer player"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2963 ../src/settingsdialog.cc:3049
+#: ../src/settingsdialog.cc:2965 ../src/settingsdialog.cc:3051
 msgid "Must not be empty..."
 msgstr ""
 
-#: ../src/settingsdialog.cc:1218
+#: ../src/settingsdialog.cc:1220
 msgid "My nick"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1221
+#: ../src/settingsdialog.cc:1223
 msgid "My own message"
 msgstr ""
 
@@ -2435,17 +2437,17 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:690 ../src/settingsdialog.cc:699
 #: ../src/settingsdialog.cc:926 ../src/settingsdialog.cc:961
-#: ../src/settingsdialog.cc:1393 ../src/settingsdialog.cc:1447
-#: ../src/settingsdialog.cc:1667 ../src/settingsdialog.cc:1676
-#: ../src/settingsdialog.cc:1744 ../src/settingsdialog.cc:1900
-#: ../src/settingsdialog.cc:1944 ../src/settingsdialog.cc:1993
-#: ../src/settingsdialog.cc:2193 ../src/settingsdialog.cc:2980
-#: ../src/settingsdialog.cc:2996 ../src/settingsdialog.cc:3014
-#: ../src/settingsdialog.cc:3032 ../src/settingsdialog.cc:3058
-#: ../src/settingsdialog.cc:3063 ../src/settingsdialog.cc:3341
-#: ../src/settingsdialog.cc:3415 ../src/settingsdialog.cc:3989
-#: ../src/settingsdialog.cc:4080 ../src/settingsdialog.cc:4103
-#: ../src/settingsdialog.cc:4122 ../src/favoritehubs.cc:53
+#: ../src/settingsdialog.cc:1395 ../src/settingsdialog.cc:1449
+#: ../src/settingsdialog.cc:1669 ../src/settingsdialog.cc:1678
+#: ../src/settingsdialog.cc:1746 ../src/settingsdialog.cc:1902
+#: ../src/settingsdialog.cc:1946 ../src/settingsdialog.cc:1995
+#: ../src/settingsdialog.cc:2195 ../src/settingsdialog.cc:2982
+#: ../src/settingsdialog.cc:2998 ../src/settingsdialog.cc:3016
+#: ../src/settingsdialog.cc:3034 ../src/settingsdialog.cc:3060
+#: ../src/settingsdialog.cc:3065 ../src/settingsdialog.cc:3343
+#: ../src/settingsdialog.cc:3417 ../src/settingsdialog.cc:3991
+#: ../src/settingsdialog.cc:4082 ../src/settingsdialog.cc:4105
+#: ../src/settingsdialog.cc:4124 ../src/favoritehubs.cc:53
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
@@ -2454,7 +2456,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3455
+#: ../src/settingsdialog.cc:3457
 msgid "Name and command must not be empty"
 msgstr ""
 
@@ -2462,15 +2464,15 @@ msgstr ""
 msgid "Name:"
 msgstr ""
 
-#: ../src/settingsdialog.cc:4338
+#: ../src/settingsdialog.cc:4340
 msgid "New exception"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3660 ../src/publichubs.cc:364
+#: ../src/settingsdialog.cc:3662 ../src/publichubs.cc:364
 msgid "New list"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1846
+#: ../src/settingsdialog.cc:1848
 msgid "New search type"
 msgstr ""
 
@@ -2569,7 +2571,7 @@ msgstr ""
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
-#: ../src/settingsdialog.cc:1331 ../ui/settingsdialog.ui:5883
+#: ../src/settingsdialog.cc:1333 ../ui/settingsdialog.ui:5883
 msgid "Notify"
 msgstr ""
 
@@ -2586,7 +2588,7 @@ msgstr ""
 msgid "Online"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1113
+#: ../src/settingsdialog.cc:1115
 msgid "Only show joins / parts for favorite users"
 msgstr ""
 
@@ -2610,7 +2612,7 @@ msgstr ""
 msgid "Open file"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1558
+#: ../src/settingsdialog.cc:1560
 msgid "Open file list window in the background"
 msgstr ""
 
@@ -2622,11 +2624,11 @@ msgstr ""
 msgid "Open image"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1559
+#: ../src/settingsdialog.cc:1561
 msgid "Open new private messages from other users in the background"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1560
+#: ../src/settingsdialog.cc:1562
 msgid "Open new window when using /join"
 msgstr ""
 
@@ -2634,11 +2636,11 @@ msgstr ""
 msgid "Open own file list"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1242
+#: ../src/settingsdialog.cc:1244
 msgid "Operator"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1420 ../src/settingsdialog.cc:1478
+#: ../src/settingsdialog.cc:1422 ../src/settingsdialog.cc:1480
 #: ../ui/mainwindow.ui:2067 ../ui/mainwindow.ui:2457
 msgid "Own file list"
 msgstr ""
@@ -2719,7 +2721,7 @@ msgstr ""
 msgid "Polish translation\n"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1563
+#: ../src/settingsdialog.cc:1565
 msgid "Popup box to input password for hubs"
 msgstr ""
 
@@ -2735,12 +2737,12 @@ msgstr ""
 msgid "Portuguese (Brazil)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1733 ../src/settingsdialog.cc:1834
-#: ../src/settingsdialog.cc:1925
+#: ../src/settingsdialog.cc:1735 ../src/settingsdialog.cc:1836
+#: ../src/settingsdialog.cc:1927
 msgid "Predefined"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1423 ../src/settingsdialog.cc:1476
+#: ../src/settingsdialog.cc:1425 ../src/settingsdialog.cc:1478
 #: ../ui/mainwindow.ui:2041 ../ui/mainwindow.ui:2449
 #: ../ui/settingsdialog.ui:1011
 msgid "Preferences"
@@ -2755,7 +2757,7 @@ msgstr ""
 msgid "Priority"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1140
+#: ../src/settingsdialog.cc:1142
 msgid "Private Message (also sets urgency hint)"
 msgstr ""
 
@@ -2763,8 +2765,8 @@ msgstr ""
 msgid "Private key file"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1171 ../src/settingsdialog.cc:1224
-#: ../src/settingsdialog.cc:1358 ../src/hub.cc:2052
+#: ../src/settingsdialog.cc:1173 ../src/settingsdialog.cc:1226
+#: ../src/settingsdialog.cc:1360 ../src/hub.cc:2052
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr ""
@@ -2777,8 +2779,8 @@ msgstr ""
 msgid "Properties"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1424 ../src/settingsdialog.cc:1474
-#: ../src/settingsdialog.cc:1546 ../src/publichubs.cc:29
+#: ../src/settingsdialog.cc:1426 ../src/settingsdialog.cc:1476
+#: ../src/settingsdialog.cc:1548 ../src/publichubs.cc:29
 #: ../ui/mainwindow.ui:1186 ../ui/mainwindow.ui:2220 ../ui/mainwindow.ui:2441
 msgid "Public Hubs"
 msgstr ""
@@ -2787,7 +2789,7 @@ msgstr ""
 msgid "Public Hubs list URL"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1425 ../src/settingsdialog.cc:1490
+#: ../src/settingsdialog.cc:1427 ../src/settingsdialog.cc:1492
 #: ../ui/mainwindow.ui:2246 ../ui/mainwindow.ui:2505
 #: ../ui/settingsdialog.ui:3710
 msgid "Queue"
@@ -2797,7 +2799,7 @@ msgstr ""
 msgid "Quick connect to the hub"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1428 ../src/settingsdialog.cc:1496
+#: ../src/settingsdialog.cc:1430 ../src/settingsdialog.cc:1498
 #: ../ui/mainwindow.ui:2349 ../ui/mainwindow.ui:2529
 msgid "Quit"
 msgstr ""
@@ -2830,7 +2832,7 @@ msgstr ""
 msgid "Rebuild hash"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1430 ../src/settingsdialog.cc:1466
+#: ../src/settingsdialog.cc:1432 ../src/settingsdialog.cc:1468
 #: ../ui/mainwindow.ui:2127 ../ui/mainwindow.ui:2409
 msgid "Reconnect"
 msgstr ""
@@ -2843,7 +2845,7 @@ msgstr ""
 msgid "Reconnect to the hub"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1421 ../src/settingsdialog.cc:1480
+#: ../src/settingsdialog.cc:1423 ../src/settingsdialog.cc:1482
 #: ../ui/mainwindow.ui:2084 ../ui/mainwindow.ui:2465
 msgid "Refresh"
 msgstr ""
@@ -2852,11 +2854,11 @@ msgstr ""
 msgid "Refresh file list"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1651
+#: ../src/settingsdialog.cc:1653
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1652
+#: ../src/settingsdialog.cc:1654
 msgid "Register with the OS to handle magnet: URL links"
 msgstr ""
 
@@ -2905,7 +2907,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2099
+#: ../src/settingsdialog.cc:2101
 msgid "Rename a search type"
 msgstr ""
 
@@ -2953,8 +2955,8 @@ msgstr ""
 msgid "Say a third person"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1141 ../src/settingsdialog.cc:1426
-#: ../src/settingsdialog.cc:1484 ../src/search.cc:40 ../src/search.cc:86
+#: ../src/settingsdialog.cc:1143 ../src/settingsdialog.cc:1428
+#: ../src/settingsdialog.cc:1486 ../src/search.cc:40 ../src/search.cc:86
 #: ../src/search.cc:93 ../src/search.cc:259 ../src/search.cc:457
 #: ../src/search.cc:471 ../src/search.cc:1130 ../src/search.cc:1131
 #: ../src/search.cc:2015 ../ui/searchspy.ui:94 ../ui/searchspy.ui:401
@@ -2963,7 +2965,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1433 ../ui/mainwindow.ui:1242
+#: ../src/settingsdialog.cc:1435 ../ui/mainwindow.ui:1242
 msgid "Search ADL"
 msgstr ""
 
@@ -2971,8 +2973,8 @@ msgstr ""
 msgid "Search Menu"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1142 ../src/settingsdialog.cc:1427
-#: ../src/settingsdialog.cc:1488 ../src/settingsdialog.cc:1552
+#: ../src/settingsdialog.cc:1144 ../src/settingsdialog.cc:1429
+#: ../src/settingsdialog.cc:1490 ../src/settingsdialog.cc:1554
 #: ../src/searchspy.cc:35 ../ui/mainwindow.ui:1317 ../ui/mainwindow.ui:2321
 #: ../ui/settingsdialog.ui:6675
 msgid "Search Spy"
@@ -3007,9 +3009,9 @@ msgstr ""
 msgid "Search spam detected from "
 msgstr ""
 
-#: ../src/settingsdialog.cc:1732 ../src/settingsdialog.cc:1924
-#: ../src/settingsdialog.cc:1957 ../src/settingsdialog.cc:2043
-#: ../src/settingsdialog.cc:2092 ../src/settingsdialog.cc:2140
+#: ../src/settingsdialog.cc:1734 ../src/settingsdialog.cc:1926
+#: ../src/settingsdialog.cc:1959 ../src/settingsdialog.cc:2045
+#: ../src/settingsdialog.cc:2094 ../src/settingsdialog.cc:2142
 msgid "Search type"
 msgstr ""
 
@@ -3025,23 +3027,23 @@ msgstr ""
 msgid "Security Certificates"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3166
+#: ../src/settingsdialog.cc:3168
 msgid "Select Color"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3289
+#: ../src/settingsdialog.cc:3291
 msgid "Select Font"
 msgstr ""
 
-#: ../src/mainwindow.cc:2421
+#: ../src/mainwindow.cc:2424
 msgid "Select file to Get TTH"
 msgstr ""
 
-#: ../src/mainwindow.cc:2014 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:2017 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1120
+#: ../src/settingsdialog.cc:1122
 msgid "Send PM when double clicked in the user list"
 msgstr ""
 
@@ -3057,7 +3059,7 @@ msgstr ""
 msgid "Send once per nick"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1647
+#: ../src/settingsdialog.cc:1649
 msgid "Send unknown /commands to the hub"
 msgstr ""
 
@@ -3066,12 +3068,12 @@ msgstr ""
 msgid "Sent ADC extensions : %s\n"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3367 ../src/settingsdialog.cc:3465
+#: ../src/settingsdialog.cc:3369 ../src/settingsdialog.cc:3467
 #: ../ui/settingsdialog.ui:627
 msgid "Separator"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1464 ../ui/mainwindow.ui:2401
+#: ../src/settingsdialog.cc:1466 ../ui/mainwindow.ui:2401
 msgid "Separators"
 msgstr ""
 
@@ -3122,7 +3124,7 @@ msgstr ""
 msgid "Sharing"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1653
+#: ../src/settingsdialog.cc:1655
 msgid "Show IP's' in chats"
 msgstr ""
 
@@ -3147,7 +3149,7 @@ msgstr ""
 msgid "Show ipfilter rules list"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1112
+#: ../src/settingsdialog.cc:1114
 msgid "Show joins / parts in chat by default"
 msgstr ""
 
@@ -3155,7 +3157,7 @@ msgstr ""
 msgid "Show magnet dialog"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1564
+#: ../src/settingsdialog.cc:1566
 msgid "Show nicklist in hub frame on the left side"
 msgstr ""
 
@@ -3172,11 +3174,11 @@ msgstr ""
 msgid "Show ratio [send in chat]"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1109
+#: ../src/settingsdialog.cc:1111
 msgid "Show status icon in the system tray"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1110
+#: ../src/settingsdialog.cc:1112
 msgid "Show timestamps in chat by default"
 msgstr ""
 
@@ -3184,7 +3186,7 @@ msgstr ""
 msgid "Show top search"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1654
+#: ../src/settingsdialog.cc:1656
 msgid "Show user country in chat"
 msgstr ""
 
@@ -3211,7 +3213,7 @@ msgid "Signal handlers installed.\n"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1034 ../src/settingsdialog.cc:1040
-#: ../src/settingsdialog.cc:3800 ../src/settingsdialog.cc:3869
+#: ../src/settingsdialog.cc:3802 ../src/settingsdialog.cc:3871
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
@@ -3277,11 +3279,11 @@ msgstr ""
 msgid "Socks IP"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1114
+#: ../src/settingsdialog.cc:1116
 msgid "Sort favorite users first"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1151 ../ui/settingsdialog.ui:5255
+#: ../src/settingsdialog.cc:1153 ../ui/settingsdialog.ui:5255
 msgid "Sounds"
 msgstr ""
 
@@ -3333,7 +3335,7 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1230
+#: ../src/settingsdialog.cc:1232
 msgid "Status message"
 msgstr ""
 
@@ -3350,7 +3352,7 @@ msgstr ""
 msgid "System icons"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1227
+#: ../src/settingsdialog.cc:1229
 msgid "System message"
 msgstr ""
 
@@ -3435,15 +3437,15 @@ msgstr ""
 msgid "Time last seen"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1233 ../src/settingsdialog.cc:1263
-#: ../src/settingsdialog.cc:1268
+#: ../src/settingsdialog.cc:1235 ../src/settingsdialog.cc:1265
+#: ../src/settingsdialog.cc:1270
 msgid "Timestamp"
 msgstr ""
 
-#: ../src/settingsdialog.cc:402 ../src/settingsdialog.cc:1332
-#: ../src/settingsdialog.cc:2280 ../src/settingsdialog.cc:2336
-#: ../src/settingsdialog.cc:2352 ../src/settingsdialog.cc:2374
-#: ../src/settingsdialog.cc:2378 ../src/settingsdialog.cc:2428
+#: ../src/settingsdialog.cc:402 ../src/settingsdialog.cc:1334
+#: ../src/settingsdialog.cc:2282 ../src/settingsdialog.cc:2338
+#: ../src/settingsdialog.cc:2354 ../src/settingsdialog.cc:2376
+#: ../src/settingsdialog.cc:2380 ../src/settingsdialog.cc:2430
 msgid "Title"
 msgstr ""
 
@@ -3489,7 +3491,7 @@ msgstr ""
 msgid "Total sent"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3874
+#: ../src/settingsdialog.cc:3876
 msgid "Total size: "
 msgstr ""
 
@@ -3523,7 +3525,7 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1236
+#: ../src/settingsdialog.cc:1238
 msgid "URL"
 msgstr ""
 
@@ -3547,11 +3549,11 @@ msgstr ""
 msgid "Unable to load file list: "
 msgstr ""
 
-#: ../src/mainwindow.cc:2039
+#: ../src/mainwindow.cc:2042
 msgid "Unable to load file list: Invalid file list name"
 msgstr ""
 
-#: ../src/mainwindow.cc:2278
+#: ../src/mainwindow.cc:2281
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -3563,8 +3565,8 @@ msgid "Unfinished downloads directory"
 msgstr ""
 
 #: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
-#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1078
-#: ../src/mainwindow.cc:1468
+#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1081
+#: ../src/mainwindow.cc:1471
 msgid "Unknown"
 msgstr ""
 
@@ -3592,7 +3594,7 @@ msgstr ""
 msgid "Updating string or TTH"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1415
+#: ../src/settingsdialog.cc:1417
 msgid "Upload"
 msgstr ""
 
@@ -3608,7 +3610,7 @@ msgstr ""
 msgid "Upload complete..."
 msgstr ""
 
-#: ../src/settingsdialog.cc:1170
+#: ../src/settingsdialog.cc:1172
 msgid "Upload finished"
 msgstr ""
 
@@ -3624,25 +3626,24 @@ msgstr ""
 msgid "Upload starting..."
 msgstr ""
 
-#: ../src/mainwindow.cc:755
+#: ../src/mainwindow.cc:758
 msgid "Upload: "
 msgstr ""
 
 #: ../src/transfers.cc:1142
-#, fuzzy
 msgid "Uploading"
-msgstr "Uploaded "
+msgstr ""
 
 #: ../src/settingsdialog.cc:363 ../src/settingsdialog.cc:401
 #: ../src/settingsdialog.cc:435 ../src/settingsdialog.cc:689
 #: ../src/settingsdialog.cc:702 ../src/settingsdialog.cc:718
-#: ../src/settingsdialog.cc:1150 ../src/settingsdialog.cc:1161
-#: ../src/settingsdialog.cc:1330 ../src/settingsdialog.cc:1345
-#: ../src/settingsdialog.cc:1446 ../src/settingsdialog.cc:1456
+#: ../src/settingsdialog.cc:1152 ../src/settingsdialog.cc:1163
+#: ../src/settingsdialog.cc:1332 ../src/settingsdialog.cc:1347
+#: ../src/settingsdialog.cc:1448 ../src/settingsdialog.cc:1458
 msgid "Use"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1658
+#: ../src/settingsdialog.cc:1660
 msgid "Use ADL search only in own file list"
 msgstr ""
 
@@ -3658,7 +3659,7 @@ msgstr ""
 msgid "Use Emoticons"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1115
+#: ../src/settingsdialog.cc:1117
 msgid "Use OEM monospaced font for chat windows"
 msgstr ""
 
@@ -3666,7 +3667,7 @@ msgstr ""
 msgid "Use SOCKS5 server to resolve hostnames"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1720
+#: ../src/settingsdialog.cc:1722
 msgid "Use TLS when remote client supports it"
 msgstr ""
 
@@ -3678,19 +3679,19 @@ msgstr ""
 msgid "Use bandwidth limits"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1117
+#: ../src/settingsdialog.cc:1119
 msgid "Use blinking status icon"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1118
+#: ../src/settingsdialog.cc:1120
 msgid "Use emoticons"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1650
+#: ../src/settingsdialog.cc:1652
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1116
+#: ../src/settingsdialog.cc:1118
 msgid "Use magnet split"
 msgstr ""
 
@@ -3707,11 +3708,11 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1405
+#: ../src/settingsdialog.cc:1407
 msgid "User (dc)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1409
+#: ../src/settingsdialog.cc:1411
 msgid "User (normal)"
 msgstr ""
 
@@ -3732,11 +3733,11 @@ msgstr ""
 msgid "User favorite list:"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1406
+#: ../src/settingsdialog.cc:1408
 msgid "User firewall (dc)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1410
+#: ../src/settingsdialog.cc:1412
 msgid "User firewall (normal)"
 msgstr ""
 
@@ -3748,19 +3749,19 @@ msgstr ""
 msgid "User not found"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1408
+#: ../src/settingsdialog.cc:1410
 msgid "User operator (dc)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1412
+#: ../src/settingsdialog.cc:1414
 msgid "User operator (normal)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1407
+#: ../src/settingsdialog.cc:1409
 msgid "User operator firewall (dc)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1411
+#: ../src/settingsdialog.cc:1413
 msgid "User operator firewall (normal)"
 msgstr ""
 
@@ -3809,7 +3810,7 @@ msgstr ""
 msgid "Vietnamese translation\n"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1111
+#: ../src/settingsdialog.cc:1113
 msgid "View status messages in main chat"
 msgstr ""
 
@@ -3829,12 +3830,12 @@ msgstr ""
 msgid "View the list of finished uploads"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3798
-#: ../src/settingsdialog.cc:3867
+#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3800
+#: ../src/settingsdialog.cc:3869
 msgid "Virtual Name"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3091
+#: ../src/settingsdialog.cc:3093
 msgid "Virtual name"
 msgstr ""
 
@@ -3859,7 +3860,7 @@ msgstr ""
 msgid "Waiting:"
 msgstr ""
 
-#: ../src/mainwindow.cc:385
+#: ../src/mainwindow.cc:388
 msgid "Welcome to "
 msgstr ""
 
@@ -3887,7 +3888,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3860
+#: ../src/settingsdialog.cc:3862
 msgid "[HIDDEN SHARE] "
 msgstr ""
 
@@ -4128,11 +4129,11 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2501
+#: ../src/settingsdialog.cc:2503
 msgid "default icons"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2533
+#: ../src/settingsdialog.cc:2535
 msgid "default theme"
 msgstr ""
 
@@ -4140,12 +4141,12 @@ msgstr ""
 msgid "eMail"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2766
+#: ../src/settingsdialog.cc:2768
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr ""
 
-#: ../src/mainwindow.cc:2326
+#: ../src/mainwindow.cc:2329
 msgid "file list from "
 msgstr ""
 
@@ -4157,7 +4158,7 @@ msgstr ""
 msgid "from Coral"
 msgstr ""
 
-#: ../src/mainwindow.cc:371
+#: ../src/mainwindow.cc:374
 msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 
@@ -4181,17 +4182,17 @@ msgstr ""
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr ""
 
-#: ../src/treeview.cc:211 ../src/mainwindow.cc:2360 ../src/mainwindow.cc:2362
+#: ../src/treeview.cc:211 ../src/mainwindow.cc:2363 ../src/mainwindow.cc:2365
 #: ../src/hashdialog.cc:73 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1486
+#: ../src/settingsdialog.cc:1488
 msgid "searchADL"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3158 ../src/settingsdialog.cc:3285
+#: ../src/settingsdialog.cc:3160 ../src/settingsdialog.cc:3287
 msgid "selected style failed"
 msgstr ""
 
@@ -4214,15 +4215,3 @@ msgstr ""
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr ""
-
-#~ msgid " items"
-#~ msgstr "αντικείμενα"
-
-#~ msgid "0 filtered"
-#~ msgstr "0 φίλτρα"
-
-#~ msgid "0 items"
-#~ msgstr "0 αντικείμενα"
-
-#~ msgid "%) from "
-#~ msgstr "%) from "
