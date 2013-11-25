@@ -1,4 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -8,7 +7,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2013-11-25 05:55+0200\n"
-"PO-Revision-Date: 2013-11-19 16:39+0000\n"
+"PO-Revision-Date: 2013-11-25 06:11+0200\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "eiskaltdcpp/language/pt_BR/)\n"
@@ -17,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1065 ../src/hub.cc:1144
@@ -4142,7 +4142,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:374
 msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-msgstr ""
+msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 
 #: ../ui/settingsdialog.ui:5129
 msgid "in program"
@@ -4197,3 +4197,4 @@ msgstr ""
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr ""
+
