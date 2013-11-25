@@ -71,8 +71,27 @@ var eiskalt = (function () {
             }
         },
 
+        getUserLinks: function (result) {
+            var userlinks = '', re = new RegExp(/%\w+%/gi), matches;
+            if (config.hasOwnProperty('userlinks')) {
+                $.each(config.userlinks, function (key, data) {
+                    userlinks += '<a target="_blank" href="' + data.url + '"><img src="' + data.icon + '">';
+                    if (!data.filter) {
+                        data.filter = function (text) { return text; };
+                    }
+                    matches = userlinks.match(re);
+                    if (matches !== null) {
+                        $.each(matches, function (index, match) {
+                            userlinks = userlinks.replace(match, data.filter(result[match.replace(/%/g, '')]));
+                        });
+                    }
+                });
+            }
+            return userlinks;
+        },
+
         addSearchResult: function (result) {
-            var table, row, tth, headers, key, downloadLink, downloadImage, removeLink, removeImage;
+            var table, row, tth, headers, downloadLink, downloadImage, removeLink, removeImage;
             table = $('table#searchresults');
             tth = result.TTH;
             if (!eiskalt.groupedResults.hasOwnProperty(tth)) {
@@ -87,13 +106,14 @@ var eiskalt = (function () {
                 removeLink.on('click', eiskalt.onRemoveClicked);
                 removeLink.hide();
 
-                row.append($('<td>').append(downloadLink).append(removeLink));
-                row.append($('<td>').text('0'));
+                result.UserLinks = eiskalt.getUserLinks(result);
+                result.DownloadLink = downloadLink.append(removeLink);
+
                 headers = table.find('th');
                 headers.each(function (i, header) {
-                    key = $(header).attr('key');
+                    var key = $(header).attr('key');
                     if (key !== undefined) {
-                        row.append($('<td>').text(result[key]));
+                        row.append($('<td key="' + key + '">').append(result[key]));
                     }
                 });
                 table.find('tbody').append(row);
@@ -101,7 +121,7 @@ var eiskalt = (function () {
                 eiskalt.updateSearchResultIcon(tth);
             }
             eiskalt.groupedResults[tth].results.push(result);
-            $(eiskalt.groupedResults[tth].row.children()[1]).text(eiskalt.groupedResults[tth].results.length);
+            eiskalt.groupedResults[tth].row.find('td[key=UserCount]').text(eiskalt.groupedResults[tth].results.length);
         },
 
         updateSearchResults: function (data) {
@@ -338,6 +358,10 @@ var eiskalt = (function () {
                 );
             });
 
+            if (!config.hasOwnProperty('userlinks') || config.userlinks.length === 0) {
+                $('#userlinks').remove();
+            }
+
             $('#tab-container').easytabs();
 
             $.jsonRPC.setup({
@@ -366,11 +390,21 @@ var eiskalt = (function () {
                 type: 'numeric'
             });
 
-            $('table#downloadqueue').tablesorter({
-                sortList: [[1, 0]]
+            // init table sorting and set initial sorting column by key
+            $('table#downloadqueue').tablesorter();
+            $('table#downloadqueue').find('th').each(function (i, header) {
+                if ($(header).attr('key') === 'Filename') {
+                    $('table#downloadqueue').trigger('sorton', [[[i, 0]]]);
+                    return;
+                }
             });
-            $('table#searchresults').tablesorter({
-                sortList: [[1, 1]]
+
+            $('table#searchresults').tablesorter();
+            $('table#searchresults').find('th').each(function (i, header) {
+                if ($(header).attr('key') === 'UserCount') {
+                    $('table#searchresults').trigger('sorton', [[[i, 1]]]);
+                    return;
+                }
             });
             $('table#connectedhubs').tablesorter({
                 sortList: [[3, 1]]
