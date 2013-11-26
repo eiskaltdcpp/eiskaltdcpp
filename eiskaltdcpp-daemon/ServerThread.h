@@ -81,7 +81,6 @@ public:
     void showLocalLists(string& l, const string& separator);
     bool getClientFileList(const string& filelist, string& ret);
     bool openFileList(const string& filelist);
-    //void buildList(const string& filelist, const string& nick, DirectoryListing* listing, bool full);
     bool closeFileList(const string& filelist);
     void closeAllFileLists();
     void showOpenedLists(string& l, const string& separator);

@@ -772,7 +772,7 @@ void HubFrame::LinkParser::parseForMagnetAlias(QString &output){
     }
 }
 
-HubFrame::HubFrame(QWidget *parent=NULL, QString hub="", QString encoding=""):
+HubFrame::HubFrame(QWidget *parent, QString hub="", QString encoding=""):
         QWidget(parent),
         d_ptr(new HubFramePrivate())
 {

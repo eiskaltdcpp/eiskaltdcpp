@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-08-29 22:51+0300\n"
+"POT-Creation-Date: 2013-11-25 05:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -583,39 +583,39 @@ msgstr ""
 msgid "File list %1% generated"
 msgstr ""
 
-#: ../SettingsManager.cpp:183
+#: ../SettingsManager.cpp:184
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:517
+#: ../SettingsManager.cpp:520
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
+#: ../SettingsManager.cpp:524 ../SettingsManager.cpp:546
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:575
+#: ../SettingsManager.cpp:578
 msgid "No such search type"
 msgstr ""
 
-#: ../SettingsManager.cpp:616
+#: ../SettingsManager.cpp:619
 msgid "Error: setting not found!"
 msgstr ""
 
-#: ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:621
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:622
 msgid "Change core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:622
 msgid " to "
 msgstr ""
 
-#: ../SettingsManager.cpp:621
+#: ../SettingsManager.cpp:624
 msgid "Error: segv parser :D"
 msgstr ""
 

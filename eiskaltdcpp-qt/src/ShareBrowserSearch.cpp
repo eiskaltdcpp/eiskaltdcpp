@@ -99,7 +99,7 @@ void ShareBrowserSearch::slotGotItem(QString item, FileBrowserItem *path){
 
     treeWidget->insertTopLevelItem(0, i);
 
-    label_STATS->setText(QString("Found %1 items").arg(items.size()));
+    label_STATS->setText(QString(tr("Found %1 items")).arg(items.size()));
 }
 
 void ShareBrowserSearch::slotItemActivated(QTreeWidgetItem *item, int){

@@ -3,15 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
 # Павал Шаламіцкі <yehekim@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-08-29 22:51+0300\n"
-"PO-Revision-Date: 2013-06-23 14:48+0000\n"
-"Last-Translator: Павал Шаламіцкі <yehekim@gmail.com>\n"
+"POT-Creation-Date: 2013-11-25 05:55+0200\n"
+"PO-Revision-Date: 2013-11-19 16:39+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/be/)\n"
 "Language: be\n"
@@ -34,7 +33,7 @@ msgstr " *** Пачуцьцезнакі не ўжываюцца"
 msgid " *** Emoticons not loaded"
 msgstr " *** Пачуцьцезнакі не прачыталі"
 
-#: ../src/settingsdialog.cc:2510
+#: ../src/settingsdialog.cc:2512
 msgid " + system icons"
 msgstr " + сыстэмныя значкі"
 
@@ -134,11 +133,11 @@ msgstr "»: надрукуйце «/help», каб атрымаць сьпіс �
 msgid "*** Available commands:"
 msgstr "*** Даступныя загады:"
 
-#: ../src/settingsdialog.cc:2283
+#: ../src/settingsdialog.cc:2285
 msgid "*** T E S T ***"
 msgstr "*** С П Р О Б А ***"
 
-#: ../src/settingsdialog.cc:1462 ../ui/mainwindow.ui:251
+#: ../src/settingsdialog.cc:1464 ../ui/mainwindow.ui:251
 #: ../ui/mainwindow.ui:2375 ../ui/mainwindow.ui:2393
 msgid "+/-"
 msgstr "+/-"
@@ -147,12 +146,12 @@ msgstr "+/-"
 msgid "-:--:-- left"
 msgstr "-:--:-- засталося"
 
-#: ../src/settingsdialog.cc:2462 ../src/settingsdialog.cc:2486
+#: ../src/settingsdialog.cc:2464 ../src/settingsdialog.cc:2488
 msgid "...must be *.theme"
 msgstr "…мусіць заканчвацца на «.theme»"
 
-#: ../src/settingsdialog.cc:2365 ../src/settingsdialog.cc:2394
-#: ../src/settingsdialog.cc:2431
+#: ../src/settingsdialog.cc:2367 ../src/settingsdialog.cc:2396
+#: ../src/settingsdialog.cc:2433
 msgid "...must not be empty"
 msgstr "…нельга, каб было пустым"
 
@@ -189,9 +188,8 @@ msgid "1AM"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:8790 ../ui/settingsdialog.ui:8870
-#, fuzzy
 msgid "1PM"
-msgstr "Паведамленьне"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:8972
 msgid "22x22"
@@ -206,9 +204,8 @@ msgid "2AM"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:8793 ../ui/settingsdialog.ui:8873
-#, fuzzy
 msgid "2PM"
-msgstr "Паведамленьне"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:8978
 msgid "32x32"
@@ -223,9 +220,8 @@ msgid "3AM"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:8796 ../ui/settingsdialog.ui:8876
-#, fuzzy
 msgid "3PM"
-msgstr "Паведамленьне"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:8984
 msgid "48x48"
@@ -236,18 +232,16 @@ msgid "4AM"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:8799 ../ui/settingsdialog.ui:8879
-#, fuzzy
 msgid "4PM"
-msgstr "Паведамленьне"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:8766 ../ui/settingsdialog.ui:8846
 msgid "5AM"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:8802 ../ui/settingsdialog.ui:8882
-#, fuzzy
 msgid "5PM"
-msgstr "Паведамленьне"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:8987
 msgid "64x64"
@@ -258,36 +252,32 @@ msgid "6AM"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:8805 ../ui/settingsdialog.ui:8885
-#, fuzzy
 msgid "6PM"
-msgstr "Паведамленьне"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:8772 ../ui/settingsdialog.ui:8852
 msgid "7AM"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:8808 ../ui/settingsdialog.ui:8888
-#, fuzzy
 msgid "7PM"
-msgstr "Паведамленьне"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:8775 ../ui/settingsdialog.ui:8855
 msgid "8AM"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:8811 ../ui/settingsdialog.ui:8891
-#, fuzzy
 msgid "8PM"
-msgstr "Паведамленьне"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:8778 ../ui/settingsdialog.ui:8858
 msgid "9AM"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:8814 ../ui/settingsdialog.ui:8894
-#, fuzzy
 msgid "9PM"
-msgstr "Паведамленьне"
+msgstr ""
 
 #: ../src/privatemessage.cc:1038
 msgid ": type /help for a list of available commands"
@@ -373,7 +363,7 @@ msgstr "<b>Не абагуляць файлы ды каталёґі, якія з
 msgid "<b>Enter your password</b>"
 msgstr "<b>Упішыце свой пароль</b>"
 
-#: ../src/settingsdialog.cc:2201
+#: ../src/settingsdialog.cc:2203
 msgid "<b>Extension</b>"
 msgstr "<b>Пашырэньне</b>"
 
@@ -441,19 +431,19 @@ msgstr "<b>найбольшы</b>"
 msgid "<b>Min FileSize</b>"
 msgstr "<b>Найменшы і</b>"
 
-#: ../src/settingsdialog.cc:1847
+#: ../src/settingsdialog.cc:1849
 msgid "<b>Name of the new search type</b>"
 msgstr "<b>Назва новага віду пошуку</b>"
 
-#: ../src/settingsdialog.cc:3094
+#: ../src/settingsdialog.cc:3096
 msgid "<b>Name under which the others see the directory</b>"
 msgstr "<b>Назва, якую будуць бачыць іншыя карыстальнікі</b>"
 
-#: ../src/settingsdialog.cc:3734
+#: ../src/settingsdialog.cc:3736
 msgid "<b>Name, under which you see the directory</b>"
 msgstr "<b>Назва, якую будзеце бачыць вы</b>"
 
-#: ../src/settingsdialog.cc:2100
+#: ../src/settingsdialog.cc:2102
 msgid "<b>New name</b>"
 msgstr "<b>Новая назва</b>"
 
@@ -590,7 +580,7 @@ msgstr "<b>Што вы хочаце рабіць?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Можнасьці вокнаў</b>"
 
-#: ../src/mainwindow.cc:2336
+#: ../src/mainwindow.cc:2339
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
@@ -618,7 +608,7 @@ msgstr "Уласьцівасьці самарушнага пошуку"
 msgid "About EiskaltDC++"
 msgstr "Пра «EiskaltDC++»"
 
-#: ../src/settingsdialog.cc:1646
+#: ../src/settingsdialog.cc:1648
 msgid "Accept custom user commands from hub"
 msgstr "Прымаць дадатковыя загады ад асяродку"
 
@@ -638,7 +628,7 @@ msgstr "Дадаць / Выкрасьліць"
 msgid "Add a hub to favorites"
 msgstr "Дадаць асяродак да ўлюбёных"
 
-#: ../src/settingsdialog.cc:1648
+#: ../src/settingsdialog.cc:1650
 msgid "Add finished files to share instantly (if shared)"
 msgstr ""
 "Адразу ж дадаваць апрацаваныя файлы да абагуленага (калі яны абагуляюцца)"
@@ -716,23 +706,23 @@ msgstr "Дадаць назоўку A для «uname -a»"
 msgid "Aliases not found."
 msgstr "Назовак не знайшлі."
 
-#: ../src/settingsdialog.cc:1722
+#: ../src/settingsdialog.cc:1724
 msgid "Allow TLS connections to clients without trusted certificate"
 msgstr "Дазволіць злучацца праз TLS з кліентамі без давераных пасьведчаньняў"
 
-#: ../src/settingsdialog.cc:1721
+#: ../src/settingsdialog.cc:1723
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr "Дазволіць злучацца праз TLS з асяродкамі без давераных пасьведчаньняў"
 
-#: ../src/settingsdialog.cc:1656
+#: ../src/settingsdialog.cc:1658
 msgid "Allow few connections from one IP"
 msgstr "Дазволіць некалькі злучэньняў з аднаго IP"
 
-#: ../src/settingsdialog.cc:1655
+#: ../src/settingsdialog.cc:1657
 msgid "Allow overlap chunks"
 msgstr "Дазволіць кавалкам накладацца"
 
-#: ../src/settingsdialog.cc:1657
+#: ../src/settingsdialog.cc:1659
 msgid "Allow some connections for one user"
 msgstr "Дазволіць некалькі злучэньняў з адным карыстальнікам"
 
@@ -745,8 +735,8 @@ msgid "Appearance"
 msgstr "Вонкавы выгляд"
 
 #: ../src/settingsdialog.cc:927 ../src/settingsdialog.cc:962
-#: ../src/settingsdialog.cc:2981 ../src/settingsdialog.cc:3015
-#: ../src/settingsdialog.cc:3033 ../src/settingsdialog.cc:3064
+#: ../src/settingsdialog.cc:2983 ../src/settingsdialog.cc:3017
+#: ../src/settingsdialog.cc:3035 ../src/settingsdialog.cc:3066
 msgid "Application"
 msgstr "Праґрама"
 
@@ -807,7 +797,7 @@ msgstr "Абнаўляць кожныя"
 msgid "Auto update IP from internet"
 msgstr "Самарушна абнаўляць IP зь сеціва"
 
-#: ../src/settingsdialog.cc:1637
+#: ../src/settingsdialog.cc:1639
 msgid "Auto-away on minimize (and back on restore)"
 msgstr "У стан «адсутнічаю», калі найменшылі (і вяртацца, калі аднавілі)"
 
@@ -815,11 +805,11 @@ msgstr "У стан «адсутнічаю», калі найменшылі (і 
 msgid "Auto-drop slow sources for all queue items (except filelists)"
 msgstr "Самарушна адкідаць павольныя крыніцы (апроч сьпісаў файлаў)"
 
-#: ../src/settingsdialog.cc:1642
+#: ../src/settingsdialog.cc:1644
 msgid "Automatically disconnect users who leave the hub"
 msgstr "Адлучаць карыстальніка, які выйшаў з асяродку"
 
-#: ../src/settingsdialog.cc:1638
+#: ../src/settingsdialog.cc:1640
 msgid "Automatically follow redirects"
 msgstr "Самарушна перанакіроўвацца"
 
@@ -932,7 +922,7 @@ msgstr "Баўгарская"
 msgid "Bulgarian translation\n"
 msgstr "Баўгарская мова\n"
 
-#: ../src/settingsdialog.cc:1413
+#: ../src/settingsdialog.cc:1415
 msgid "Button smile"
 msgstr "Кнопка ўсьмешак"
 
@@ -1011,9 +1001,8 @@ msgid "Certificate file"
 msgstr "Файл пасьведчаньня"
 
 #: ../src/settingsmanager.cc:526
-#, fuzzy
 msgid "Change gui setting "
-msgstr "Зьмяніць налады "
+msgstr ""
 
 #: ../ui/mainwindow.ui:1611
 msgid "Changelog (git)"
@@ -1043,12 +1032,21 @@ msgstr "Гутарку задзейнічалі"
 msgid "Check every"
 msgstr "Спраўджваць кожныя"
 
+#: ../src/settingsdialog.cc:1094
+msgid "Chinese (China)"
+msgstr ""
+
+#: ../src/mainwindow.cc:273
+#, fuzzy
+msgid "Chinese (China) translation\n"
+msgstr "Сэрбская мова (лацінка)\n"
+
 #: ../ui/settingsdialog.ui:8582
 msgid "Choose a File"
 msgstr "Абярыце файл"
 
-#: ../src/privatemessage.cc:1298 ../src/hub.cc:2651 ../src/mainwindow.cc:1318
-#: ../src/mainwindow.cc:1386 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/privatemessage.cc:1298 ../src/hub.cc:2651 ../src/mainwindow.cc:1321
+#: ../src/mainwindow.cc:1389 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8510
 msgid "Choose a directory"
 msgstr "Абярыце каталёґ"
@@ -1073,7 +1071,7 @@ msgstr "Ачысьціць гутарку"
 msgid "Clear frame search"
 msgstr "Ачысьціць ваконца пошуку"
 
-#: ../src/settingsdialog.cc:1639
+#: ../src/settingsdialog.cc:1641
 msgid "Clear search box after each search"
 msgstr "Ачышчаць кожнага разу поле пошуку"
 
@@ -1117,13 +1115,13 @@ msgstr "Абярыце колер"
 msgid "Colors & Fonts"
 msgstr "Колеры ды шрыфты"
 
-#: ../src/settingsdialog.cc:1669 ../src/settingsdialog.cc:1677
-#: ../src/settingsdialog.cc:3343 ../src/settingsdialog.cc:3417
+#: ../src/settingsdialog.cc:1671 ../src/settingsdialog.cc:1679
+#: ../src/settingsdialog.cc:3345 ../src/settingsdialog.cc:3419
 #: ../ui/settingsdialog.ui:812
 msgid "Command"
 msgstr "Загад"
 
-#: ../src/settingsdialog.cc:3461 ../src/settingsdialog.cc:3467
+#: ../src/settingsdialog.cc:3463 ../src/settingsdialog.cc:3469
 msgid "Command name already exists"
 msgstr "Загад з такою назваю ўжо існуе"
 
@@ -1135,15 +1133,15 @@ msgstr "Наставіць сьпісы"
 msgid "Configure hub lists"
 msgstr "Наставіць сьпісы асяродкаў"
 
-#: ../src/settingsdialog.cc:1569
+#: ../src/settingsdialog.cc:1571
 msgid "Confirm application exit"
 msgstr "Пацьвярджаць, калі выходзім з праґрамы"
 
-#: ../src/settingsdialog.cc:1570
+#: ../src/settingsdialog.cc:1572
 msgid "Confirm favorite hub removal"
 msgstr "Пацьвярджаць, калі сьціраем улюбёны асяродак"
 
-#: ../src/settingsdialog.cc:1429 ../src/settingsdialog.cc:1468
+#: ../src/settingsdialog.cc:1431 ../src/settingsdialog.cc:1470
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
 msgid "Connect"
 msgstr "Злучыцца"
@@ -1191,7 +1189,7 @@ msgstr "Злучаемся…"
 msgid "Connection"
 msgstr "Злучэньне"
 
-#: ../src/mainwindow.cc:2280
+#: ../src/mainwindow.cc:2283
 msgid "Connectivity Manager: Warning"
 msgstr "Кіраўнік злучэньняў: перасьцярога"
 
@@ -1294,16 +1292,16 @@ msgid "Direct connection"
 msgstr "Простае злучэньне"
 
 #: ../src/settingsdialog.cc:905 ../src/settingsdialog.cc:919
-#: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1432
-#: ../src/settingsdialog.cc:3750 ../src/settingsdialog.cc:3770
-#: ../src/settingsdialog.cc:3799 ../src/settingsdialog.cc:3813
-#: ../src/settingsdialog.cc:3868 ../src/sharebrowser.cc:330
+#: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1434
+#: ../src/settingsdialog.cc:3752 ../src/settingsdialog.cc:3772
+#: ../src/settingsdialog.cc:3801 ../src/settingsdialog.cc:3815
+#: ../src/settingsdialog.cc:3870 ../src/sharebrowser.cc:330
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
 msgstr "Каталёґ"
 
-#: ../src/settingsdialog.cc:3755
+#: ../src/settingsdialog.cc:3757
 msgid "Directory or favorite name already exists"
 msgstr "Такі каталёґ (або назва каталёґа) ўжо існуе"
 
@@ -1311,7 +1309,7 @@ msgstr "Такі каталёґ (або назва каталёґа) ўжо іс
 msgid "Disable chat"
 msgstr "Забараніць гутарку"
 
-#: ../src/settingsdialog.cc:1119
+#: ../src/settingsdialog.cc:1121
 msgid "Do not close the program, hide in the system tray"
 msgstr "Не зачыняць праґраму, а хаваць у сыстэмны латок"
 
@@ -1343,7 +1341,7 @@ msgstr "Не хаваць бакавую паліцу, калі шукаем"
 msgid "Don't remove the source when auto-dropping, only disconnect"
 msgstr "Не выкрасьляць крыніцу, калі самарушна адкідаем — толькі адлучацца"
 
-#: ../src/settingsdialog.cc:1649
+#: ../src/settingsdialog.cc:1651
 msgid "Don't send the away message to bots"
 msgstr "Не тлумачыць ботам стан «адсутнічаю»"
 
@@ -1351,7 +1349,7 @@ msgstr "Не тлумачыць ботам стан «адсутнічаю»"
 msgid "Done"
 msgstr "Зроблена"
 
-#: ../src/settingsdialog.cc:1414 ../ui/sharebrowser.ui:80
+#: ../src/settingsdialog.cc:1416 ../ui/sharebrowser.ui:80
 #: ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr "Сьцягнуць"
@@ -1360,7 +1358,7 @@ msgstr "Сьцягнуць"
 msgid "Download Matches"
 msgstr "Сьцягваць сабе"
 
-#: ../src/settingsdialog.cc:1138 ../src/settingsdialog.cc:1548
+#: ../src/settingsdialog.cc:1140 ../src/settingsdialog.cc:1550
 #: ../src/downloadqueue.cc:33 ../ui/mainwindow.ui:1268
 msgid "Download Queue"
 msgstr "Чарга сьцягванага"
@@ -1381,12 +1379,12 @@ msgstr "Скончылі сьцягваць…"
 msgid "Download failed: "
 msgstr "Не ўдалося сьцягнуць: "
 
-#: ../src/settingsdialog.cc:1168 ../src/settingsdialog.cc:1350
+#: ../src/settingsdialog.cc:1170 ../src/settingsdialog.cc:1352
 #: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr "Скончылі сьцягваць"
 
-#: ../src/settingsdialog.cc:1169 ../src/settingsdialog.cc:1354
+#: ../src/settingsdialog.cc:1171 ../src/settingsdialog.cc:1356
 #: ../src/settingsmanager.cc:238
 msgid "Download finished file list"
 msgstr "Скончылі сьцягваць сьпіс файлаў"
@@ -1444,7 +1442,7 @@ msgstr "Сьцягнуць у…"
 msgid "Download whole director_y to..."
 msgstr "Сьцягнуць увесь _каталёґ у…"
 
-#: ../src/mainwindow.cc:755
+#: ../src/mainwindow.cc:758
 msgid "Download: "
 msgstr "Сьцягнулі: "
 
@@ -1505,15 +1503,15 @@ msgstr "Ужываць або не пачуцьцезнакі"
 msgid "Emotion packs"
 msgstr "Наборы пачуцьцезнакаў"
 
-#: ../src/settingsdialog.cc:1644
+#: ../src/settingsdialog.cc:1646
 msgid "Enable automatic SFV checking"
 msgstr "Дазволіць самарушна спраўджваць SFV"
 
-#: ../src/settingsdialog.cc:1645
+#: ../src/settingsdialog.cc:1647
 msgid "Enable safe and compressed transfers"
 msgstr "Дазволіць бясьпечна перадаваць і сьціскаць"
 
-#: ../src/settingsdialog.cc:1643
+#: ../src/settingsdialog.cc:1645
 msgid "Enable segmented downloads"
 msgstr "Дазволіць сьцягваць па частках"
 
@@ -1545,12 +1543,12 @@ msgstr "Упішыце радок карыстальніцкага загаду"
 msgid "Enter text to search for"
 msgstr "Упішыце тэкст, які трэба шукаць"
 
-#: ../src/mainwindow.cc:1252
+#: ../src/mainwindow.cc:1255
 msgid "Enter value for "
 msgstr "Упішыце значэньне "
 
-#: ../src/settingsdialog.cc:1908 ../src/settingsdialog.cc:1952
-#: ../src/settingsdialog.cc:2971
+#: ../src/settingsdialog.cc:1910 ../src/settingsdialog.cc:1954
+#: ../src/settingsdialog.cc:2973
 msgid "Error"
 msgstr "Памылка"
 
@@ -1612,15 +1610,15 @@ msgstr "Толькі знаўцам"
 msgid "Export..."
 msgstr "Выняць…"
 
-#: ../src/settingsdialog.cc:2200
+#: ../src/settingsdialog.cc:2202
 msgid "Extension edition"
 msgstr "Правіць пашырэньне"
 
 #: ../src/settingsdialog.cc:928 ../src/settingsdialog.cc:963
-#: ../src/settingsdialog.cc:1734 ../src/settingsdialog.cc:1875
-#: ../src/settingsdialog.cc:1926 ../src/settingsdialog.cc:1981
-#: ../src/settingsdialog.cc:2982 ../src/settingsdialog.cc:3016
-#: ../src/settingsdialog.cc:3034 ../src/settingsdialog.cc:3065
+#: ../src/settingsdialog.cc:1736 ../src/settingsdialog.cc:1877
+#: ../src/settingsdialog.cc:1928 ../src/settingsdialog.cc:1983
+#: ../src/settingsdialog.cc:2984 ../src/settingsdialog.cc:3018
+#: ../src/settingsdialog.cc:3036 ../src/settingsdialog.cc:3067
 msgid "Extensions"
 msgstr "Пашырэньні"
 
@@ -1636,23 +1634,23 @@ msgstr "Вонкавы IP"
 msgid "Favorite Hub Properties"
 msgstr "Уласьцівасьці ўлюбёнага асяродку"
 
-#: ../src/settingsdialog.cc:1416 ../src/settingsdialog.cc:1470
-#: ../src/settingsdialog.cc:1547 ../src/favoritehubs.cc:31
+#: ../src/settingsdialog.cc:1418 ../src/settingsdialog.cc:1472
+#: ../src/settingsdialog.cc:1549 ../src/favoritehubs.cc:31
 #: ../ui/mainwindow.ui:1174 ../ui/mainwindow.ui:2168
 msgid "Favorite Hubs"
 msgstr "Улюбёныя асяродкі"
 
 #: ../src/settingsdialog.cc:904 ../src/settingsdialog.cc:918
-#: ../src/settingsdialog.cc:3749
+#: ../src/settingsdialog.cc:3751
 msgid "Favorite Name"
 msgstr "Назва ўлюбёнага"
 
-#: ../src/settingsdialog.cc:1239
+#: ../src/settingsdialog.cc:1241
 msgid "Favorite User"
 msgstr "Улюбёнец"
 
-#: ../src/settingsdialog.cc:1417 ../src/settingsdialog.cc:1472
-#: ../src/settingsdialog.cc:1551 ../src/favoriteusers.cc:33
+#: ../src/settingsdialog.cc:1419 ../src/settingsdialog.cc:1474
+#: ../src/settingsdialog.cc:1553 ../src/favoriteusers.cc:33
 #: ../ui/mainwindow.ui:1204 ../ui/mainwindow.ui:2184
 msgid "Favorite Users"
 msgstr "Улюбёнцы"
@@ -1665,23 +1663,23 @@ msgstr "Дадалі ўлюбёны асяродак"
 msgid "Favorite hub already exists"
 msgstr "Асяродак ужо ёсьць ва ўлюбёных"
 
-#: ../src/settingsdialog.cc:3732 ../ui/settingsdialog.ui:8996
+#: ../src/settingsdialog.cc:3734 ../ui/settingsdialog.ui:8996
 msgid "Favorite name"
 msgstr "Назва"
 
-#: ../src/settingsdialog.cc:1174 ../src/settingsdialog.cc:1370
+#: ../src/settingsdialog.cc:1176 ../src/settingsdialog.cc:1372
 #: ../src/settingsmanager.cc:246
 msgid "Favorite user joined"
 msgstr "Улюбёнец далучыўся"
 
-#: ../src/settingsdialog.cc:1175 ../src/settingsdialog.cc:1374
+#: ../src/settingsdialog.cc:1177 ../src/settingsdialog.cc:1376
 #: ../src/settingsmanager.cc:248
 msgid "Favorite user quit"
 msgstr "Улюбёнец выйшаў"
 
-#: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1152
-#: ../src/settingsdialog.cc:1431 ../src/settingsdialog.cc:2899
-#: ../src/settingsdialog.cc:2918 ../src/UserCommandMenu.cc:68
+#: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1154
+#: ../src/settingsdialog.cc:1433 ../src/settingsdialog.cc:2901
+#: ../src/settingsdialog.cc:2920 ../src/UserCommandMenu.cc:68
 #: ../ui/settingsdialog.ui:6826 ../ui/settingsdialog.ui:6910
 #: ../ui/settingsdialog.ui:6994 ../ui/settingsdialog.ui:7078
 #: ../ui/settingsdialog.ui:7159
@@ -1705,9 +1703,8 @@ msgid "File not available"
 msgstr "Файл недаступны"
 
 #: ../ui/search.ui:153
-#, fuzzy
 msgid "File type"
-msgstr "Сьпіс файлаў"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:705
 msgid "Filelist Menu"
@@ -1748,7 +1745,7 @@ msgstr "Прасейваць па IP"
 msgid "Filter files already in share"
 msgstr "Прасейваць файлы, што ўжо маюцца ў абагуленым"
 
-#: ../src/settingsdialog.cc:1108
+#: ../src/settingsdialog.cc:1110
 msgid "Filter kick and NMDC debug messages"
 msgstr "Не паказваць паведамленьні наладкі (і як даюць высьпятка таксама)"
 
@@ -1768,15 +1765,15 @@ msgstr "Шукаць"
 msgid "Find files"
 msgstr "Знайсьці файлы"
 
-#: ../src/settingsdialog.cc:1136 ../src/settingsdialog.cc:1418
-#: ../src/settingsdialog.cc:1492 ../src/settingsdialog.cc:1549
+#: ../src/settingsdialog.cc:1138 ../src/settingsdialog.cc:1420
+#: ../src/settingsdialog.cc:1494 ../src/settingsdialog.cc:1551
 #: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1280
 #: ../ui/mainwindow.ui:2263 ../ui/mainwindow.ui:2513
 msgid "Finished Downloads"
 msgstr "Сьцягнутае"
 
-#: ../src/settingsdialog.cc:1137 ../src/settingsdialog.cc:1419
-#: ../src/settingsdialog.cc:1494 ../src/settingsdialog.cc:1550
+#: ../src/settingsdialog.cc:1139 ../src/settingsdialog.cc:1421
+#: ../src/settingsdialog.cc:1496 ../src/settingsdialog.cc:1552
 #: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1291
 #: ../ui/mainwindow.ui:2280 ../ui/mainwindow.ui:2521
 msgid "Finished Uploads"
@@ -1813,9 +1810,8 @@ msgid "Found a match"
 msgstr "Знайшлі супадзеньне"
 
 #: ../src/search.cc:676
-#, fuzzy
 msgid "Found: "
-msgstr "Знайшлі: 0"
+msgstr ""
 
 #: ../src/search.cc:574
 msgid "Found: 0"
@@ -1837,7 +1833,7 @@ msgstr ""
 msgid "Frame:"
 msgstr "Кадар:"
 
-#: ../src/mainwindow.cc:2395
+#: ../src/mainwindow.cc:2398
 msgid "Free "
 msgstr "Вольных "
 
@@ -1850,9 +1846,8 @@ msgid "French translation\n"
 msgstr "Француская мова\n"
 
 #: ../ui/adlsearch.ui:395
-#, fuzzy
 msgid "Full Path"
-msgstr "Шлях"
+msgstr ""
 
 #: ../src/downloadqueue.cc:1366
 msgid "Full tree does not match TTH root"
@@ -1862,7 +1857,7 @@ msgstr "Скарот (TTH) сьцягнутага не адпавядае ска
 msgid "GB18030"
 msgstr "GB18030"
 
-#: ../src/settingsdialog.cc:1215
+#: ../src/settingsdialog.cc:1217
 msgid "General text"
 msgstr "Галоўны тэкст"
 
@@ -1883,9 +1878,8 @@ msgid "Get file list"
 msgstr "Атрымаць сьпіс файлаў"
 
 #: ../ui/search.ui:112 ../ui/adlsearch.ui:415
-#, fuzzy
 msgid "GiB"
-msgstr "КіБ"
+msgstr ""
 
 #: ../src/hub.cc:2857 ../src/favoritehubs.cc:362
 msgid "Global hub default"
@@ -1920,9 +1914,8 @@ msgid "Grouped by Users"
 msgstr "Аб’яднанае па карыстальніках"
 
 #: ../src/settingsmanager.cc:525
-#, fuzzy
 msgid "Gui setting "
-msgstr "Зьмяніць налады "
+msgstr ""
 
 #: ../ui/settingsdialog.ui:2944
 msgid "HTTP Proxy (for hublist only)"
@@ -1940,7 +1933,7 @@ msgstr "Вых. асяродку"
 msgid "H_igh"
 msgstr "_Высокае"
 
-#: ../src/settingsdialog.cc:1422 ../src/settingsdialog.cc:1482
+#: ../src/settingsdialog.cc:1424 ../src/settingsdialog.cc:1484
 #: ../ui/mainwindow.ui:2101 ../ui/mainwindow.ui:2473
 msgid "Hash"
 msgstr "Стварэньне скаротаў"
@@ -1977,17 +1970,17 @@ msgstr "Найвышэйшае: найвялікшы памер"
 msgid "Homepage"
 msgstr "Хатняя бачына"
 
-#: ../src/settingsdialog.cc:1668 ../src/settingsdialog.cc:1678
-#: ../src/settingsdialog.cc:3342 ../src/settingsdialog.cc:3416
-#: ../src/settingsdialog.cc:3990 ../src/settingsdialog.cc:4081
-#: ../src/settingsdialog.cc:4104 ../src/settingsdialog.cc:4123
+#: ../src/settingsdialog.cc:1670 ../src/settingsdialog.cc:1680
+#: ../src/settingsdialog.cc:3344 ../src/settingsdialog.cc:3418
+#: ../src/settingsdialog.cc:3992 ../src/settingsdialog.cc:4083
+#: ../src/settingsdialog.cc:4106 ../src/settingsdialog.cc:4125
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
 #: ../src/search.cc:107 ../src/search.cc:658 ../src/search.cc:755
 #: ../src/search.cc:884 ../ui/search.ui:150
 msgid "Hub"
 msgstr "Асяродак"
 
-#: ../src/settingsdialog.cc:1139
+#: ../src/settingsdialog.cc:1141
 msgid "Hub (also sets urgency hint)"
 msgstr "Асяродак (таксама ўсталёўвае патрабаваньне ўвагі)"
 
@@ -2009,12 +2002,12 @@ msgstr "Мэню асяродку"
 msgid "Hub Name"
 msgstr "Назва асяродку"
 
-#: ../src/settingsdialog.cc:1172 ../src/settingsdialog.cc:1362
+#: ../src/settingsdialog.cc:1174 ../src/settingsdialog.cc:1364
 #: ../src/settingsmanager.cc:244
 msgid "Hub connected"
 msgstr "Злучыліся з асяродкам"
 
-#: ../src/settingsdialog.cc:1173 ../src/settingsdialog.cc:1366
+#: ../src/settingsdialog.cc:1175 ../src/settingsdialog.cc:1368
 #: ../src/settingsmanager.cc:242
 msgid "Hub disconnected"
 msgstr "Асяродак адлучыўся"
@@ -2063,9 +2056,9 @@ msgstr "ISO-8859-8"
 msgid "ISO-8859-9"
 msgstr "ISO-8859-9"
 
-#: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1333
-#: ../src/settingsdialog.cc:2281 ../src/settingsdialog.cc:2315
-#: ../src/settingsdialog.cc:2392 ../src/settingsdialog.cc:2428
+#: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1335
+#: ../src/settingsdialog.cc:2283 ../src/settingsdialog.cc:2317
+#: ../src/settingsdialog.cc:2394 ../src/settingsdialog.cc:2430
 msgid "Icon"
 msgstr "Значак"
 
@@ -2078,9 +2071,8 @@ msgid "Icon..."
 msgstr "Значак…"
 
 #: ../ui/settingsdialog.ui:8943
-#, fuzzy
 msgid "Icons"
-msgstr "Значак"
+msgstr ""
 
 #: ../ui/searchspy.ui:209
 msgid "Ignore TTH"
@@ -2090,11 +2082,11 @@ msgstr "Не скароты (TTH)"
 msgid "Ignore TTH search"
 msgstr "Не зважаць, калі шукаюць скароты"
 
-#: ../src/settingsdialog.cc:1562
+#: ../src/settingsdialog.cc:1564
 msgid "Ignore private messages from bots"
 msgstr "Не зважаць на асабістыя паведамленьні ад ботаў"
 
-#: ../src/settingsdialog.cc:1561
+#: ../src/settingsdialog.cc:1563
 msgid "Ignore private messages from the hub"
 msgstr "Не зважаць на асабістыя паведамленьні ад асяродку"
 
@@ -2123,7 +2115,7 @@ msgstr "Ствараецца паказьнік файлаў…"
 msgid "Installing handler for"
 msgstr "Усталёўваецца апрацоўнік для"
 
-#: ../src/settingsdialog.cc:2028 ../src/settingsdialog.cc:2216
+#: ../src/settingsdialog.cc:2030 ../src/settingsdialog.cc:2218
 msgid "Invalid extension: "
 msgstr "Хібнае пашырэньне: "
 
@@ -2163,11 +2155,11 @@ msgstr "KOI8-R"
 msgid "Kaffeine player"
 msgstr "Прайгравальнік Kaffeine"
 
-#: ../src/settingsdialog.cc:1659
+#: ../src/settingsdialog.cc:1661
 msgid "Keep downloaded files and dirs in queue"
 msgstr "Пакідаць сьцягнутыя файлы і каталёґі ў чарзе"
 
-#: ../src/settingsdialog.cc:1640
+#: ../src/settingsdialog.cc:1642
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
@@ -2175,7 +2167,7 @@ msgstr ""
 "Пакідаць падвойныя файлы ў сьпісе файлаў (яны не ўплываюць на памер "
 "абагуленага)"
 
-#: ../src/settingsdialog.cc:1641
+#: ../src/settingsdialog.cc:1643
 msgid "Keep filelists when exiting"
 msgstr "Пакідаць сьпісы файлаў па выхадзе"
 
@@ -2191,9 +2183,8 @@ msgid "L_ow"
 msgstr "Н_ізкае"
 
 #: ../ui/settingsdialog.ui:8926
-#, fuzzy
 msgid "Left"
-msgstr "Засталося"
+msgstr ""
 
 #: ../ui/mainwindow.ui:1505
 msgid "Left position"
@@ -2205,9 +2196,9 @@ msgstr "Абмежаваньні"
 
 #: ../src/settingsdialog.cc:329 ../src/settingsdialog.cc:887
 #: ../src/settingsdialog.cc:1010 ../src/settingsdialog.cc:1028
-#: ../src/settingsdialog.cc:3630 ../src/settingsdialog.cc:3643
-#: ../src/settingsdialog.cc:3660 ../src/settingsdialog.cc:4338
-#: ../src/settingsdialog.cc:4374 ../src/publichubs.cc:69
+#: ../src/settingsdialog.cc:3632 ../src/settingsdialog.cc:3645
+#: ../src/settingsdialog.cc:3662 ../src/settingsdialog.cc:4340
+#: ../src/settingsdialog.cc:4376 ../src/publichubs.cc:69
 #: ../src/publichubs.cc:339 ../src/publichubs.cc:364 ../src/publichubs.cc:414
 msgid "List"
 msgstr "Сьпіс"
@@ -2224,7 +2215,7 @@ msgstr "Прачытаць файл Lua"
 msgid "Loaded from cache: "
 msgstr "Прачыталі з запасьніку: "
 
-#: ../src/mainwindow.cc:2051
+#: ../src/mainwindow.cc:2054
 msgid "Loading file list"
 msgstr "Чытаецца сьпіс файлаў"
 
@@ -2288,11 +2279,11 @@ msgstr "Найніжэйшае"
 msgid "Magnet"
 msgstr "Маґніт-спасылка"
 
-#: ../src/mainwindow.cc:1379
+#: ../src/mainwindow.cc:1382
 msgid "Magnet Choice"
 msgstr "Выбар па маґніт-спасылцы"
 
-#: ../src/mainwindow.cc:1309
+#: ../src/mainwindow.cc:1312
 msgid "Magnet Properties / Choice"
 msgstr "Уласьцівасьці маґніт-спасылкі (выбар)"
 
@@ -2398,7 +2389,7 @@ msgstr "Далучаных крыніцаў болей за"
 msgid "Mini slot size"
 msgstr "Найменшы памер шчыліны"
 
-#: ../src/settingsdialog.cc:1123
+#: ../src/settingsdialog.cc:1125
 msgid "Minimize to tray on startup"
 msgstr "Наймяншаць у латок па запуску"
 
@@ -2438,15 +2429,15 @@ msgstr "Перасунуць у…"
 msgid "Mplayer player"
 msgstr "Прайгравальнік Mplayer"
 
-#: ../src/settingsdialog.cc:2963 ../src/settingsdialog.cc:3049
+#: ../src/settingsdialog.cc:2965 ../src/settingsdialog.cc:3051
 msgid "Must not be empty..."
 msgstr "Нельга, каб было пустым…"
 
-#: ../src/settingsdialog.cc:1218
+#: ../src/settingsdialog.cc:1220
 msgid "My nick"
 msgstr "Мая мянушка"
 
-#: ../src/settingsdialog.cc:1221
+#: ../src/settingsdialog.cc:1223
 msgid "My own message"
 msgstr "Маё ўласнае паведамленьне"
 
@@ -2456,17 +2447,17 @@ msgstr "_Мянушка:"
 
 #: ../src/settingsdialog.cc:690 ../src/settingsdialog.cc:699
 #: ../src/settingsdialog.cc:926 ../src/settingsdialog.cc:961
-#: ../src/settingsdialog.cc:1393 ../src/settingsdialog.cc:1447
-#: ../src/settingsdialog.cc:1667 ../src/settingsdialog.cc:1676
-#: ../src/settingsdialog.cc:1744 ../src/settingsdialog.cc:1900
-#: ../src/settingsdialog.cc:1944 ../src/settingsdialog.cc:1993
-#: ../src/settingsdialog.cc:2193 ../src/settingsdialog.cc:2980
-#: ../src/settingsdialog.cc:2996 ../src/settingsdialog.cc:3014
-#: ../src/settingsdialog.cc:3032 ../src/settingsdialog.cc:3058
-#: ../src/settingsdialog.cc:3063 ../src/settingsdialog.cc:3341
-#: ../src/settingsdialog.cc:3415 ../src/settingsdialog.cc:3989
-#: ../src/settingsdialog.cc:4080 ../src/settingsdialog.cc:4103
-#: ../src/settingsdialog.cc:4122 ../src/favoritehubs.cc:53
+#: ../src/settingsdialog.cc:1395 ../src/settingsdialog.cc:1449
+#: ../src/settingsdialog.cc:1669 ../src/settingsdialog.cc:1678
+#: ../src/settingsdialog.cc:1746 ../src/settingsdialog.cc:1902
+#: ../src/settingsdialog.cc:1946 ../src/settingsdialog.cc:1995
+#: ../src/settingsdialog.cc:2195 ../src/settingsdialog.cc:2982
+#: ../src/settingsdialog.cc:2998 ../src/settingsdialog.cc:3016
+#: ../src/settingsdialog.cc:3034 ../src/settingsdialog.cc:3060
+#: ../src/settingsdialog.cc:3065 ../src/settingsdialog.cc:3343
+#: ../src/settingsdialog.cc:3417 ../src/settingsdialog.cc:3991
+#: ../src/settingsdialog.cc:4082 ../src/settingsdialog.cc:4105
+#: ../src/settingsdialog.cc:4124 ../src/favoritehubs.cc:53
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
@@ -2475,7 +2466,7 @@ msgstr "_Мянушка:"
 msgid "Name"
 msgstr "Назва"
 
-#: ../src/settingsdialog.cc:3455
+#: ../src/settingsdialog.cc:3457
 msgid "Name and command must not be empty"
 msgstr "Назва і загад мусяць быць не пустымі"
 
@@ -2483,15 +2474,15 @@ msgstr "Назва і загад мусяць быць не пустымі"
 msgid "Name:"
 msgstr "Назва:"
 
-#: ../src/settingsdialog.cc:4338
+#: ../src/settingsdialog.cc:4340
 msgid "New exception"
 msgstr "Новае пярэчаньне"
 
-#: ../src/settingsdialog.cc:3660 ../src/publichubs.cc:364
+#: ../src/settingsdialog.cc:3662 ../src/publichubs.cc:364
 msgid "New list"
 msgstr "Новы сьпіс"
 
-#: ../src/settingsdialog.cc:1846
+#: ../src/settingsdialog.cc:1848
 msgid "New search type"
 msgstr "Новы від пошуку"
 
@@ -2594,7 +2585,7 @@ msgstr ""
 msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Уважце: хуткасьць зьмяняецца, таму гэта вызначаецца недакладна…"
 
-#: ../src/settingsdialog.cc:1331 ../ui/settingsdialog.ui:5883
+#: ../src/settingsdialog.cc:1333 ../ui/settingsdialog.ui:5883
 msgid "Notify"
 msgstr "Cпавяшчэньні"
 
@@ -2611,7 +2602,7 @@ msgstr "Ня ў сетцы"
 msgid "Online"
 msgstr "У сетцы"
 
-#: ../src/settingsdialog.cc:1113
+#: ../src/settingsdialog.cc:1115
 msgid "Only show joins / parts for favorite users"
 msgstr "Паведамляць, калі ўлюбёнец увайшоў ці выйшаў"
 
@@ -2635,7 +2626,7 @@ msgstr "Адчыніць _каталёґ"
 msgid "Open file"
 msgstr "Адчыніць файл"
 
-#: ../src/settingsdialog.cc:1558
+#: ../src/settingsdialog.cc:1560
 msgid "Open file list window in the background"
 msgstr "Адчыняць вокны сьпісаў файлаў на заднім пляне"
 
@@ -2647,11 +2638,11 @@ msgstr "Адчыніць каталёґ"
 msgid "Open image"
 msgstr "Адчыніць відарыс"
 
-#: ../src/settingsdialog.cc:1559
+#: ../src/settingsdialog.cc:1561
 msgid "Open new private messages from other users in the background"
 msgstr "Адчыняць новыя вокны асаб. паведамленьняў на заднім пляне"
 
-#: ../src/settingsdialog.cc:1560
+#: ../src/settingsdialog.cc:1562
 msgid "Open new window when using /join"
 msgstr "Адчыніць новае вакно па загадзе «/join»"
 
@@ -2659,11 +2650,11 @@ msgstr "Адчыніць новае вакно па загадзе «/join»"
 msgid "Open own file list"
 msgstr "Адчыніць уласны сьпіс файлаў"
 
-#: ../src/settingsdialog.cc:1242
+#: ../src/settingsdialog.cc:1244
 msgid "Operator"
 msgstr "Апэратар"
 
-#: ../src/settingsdialog.cc:1420 ../src/settingsdialog.cc:1478
+#: ../src/settingsdialog.cc:1422 ../src/settingsdialog.cc:1480
 #: ../ui/mainwindow.ui:2067 ../ui/mainwindow.ui:2457
 msgid "Own file list"
 msgstr "Уласны сьпіс файлаў"
@@ -2685,9 +2676,8 @@ msgid "Parse and build tree..."
 msgstr "Будуецца дрэва…"
 
 #: ../ui/favoritehubs.ui:558
-#, fuzzy
 msgid "Passive"
-msgstr "Нядзейны карыстальнік"
+msgstr ""
 
 #: ../src/downloadqueue.cc:1362
 msgid "Passive user"
@@ -2745,7 +2735,7 @@ msgstr "Польская"
 msgid "Polish translation\n"
 msgstr "Польская мова\n"
 
-#: ../src/settingsdialog.cc:1563
+#: ../src/settingsdialog.cc:1565
 msgid "Popup box to input password for hubs"
 msgstr "Вокны-вынырцы на пароль да асяродкаў"
 
@@ -2761,12 +2751,12 @@ msgstr "Порты"
 msgid "Portuguese (Brazil)"
 msgstr "Партуґальская (Бразылія)"
 
-#: ../src/settingsdialog.cc:1733 ../src/settingsdialog.cc:1834
-#: ../src/settingsdialog.cc:1925
+#: ../src/settingsdialog.cc:1735 ../src/settingsdialog.cc:1836
+#: ../src/settingsdialog.cc:1927
 msgid "Predefined"
 msgstr "Перадвызначана"
 
-#: ../src/settingsdialog.cc:1423 ../src/settingsdialog.cc:1476
+#: ../src/settingsdialog.cc:1425 ../src/settingsdialog.cc:1478
 #: ../ui/mainwindow.ui:2041 ../ui/mainwindow.ui:2449
 #: ../ui/settingsdialog.ui:1011
 msgid "Preferences"
@@ -2781,7 +2771,7 @@ msgstr "Паглядзець"
 msgid "Priority"
 msgstr "Пяршынства"
 
-#: ../src/settingsdialog.cc:1140
+#: ../src/settingsdialog.cc:1142
 msgid "Private Message (also sets urgency hint)"
 msgstr "Асабістае паведамленьне (таксама ўсталёўвае патрабаваньне ўвагі)"
 
@@ -2789,8 +2779,8 @@ msgstr "Асабістае паведамленьне (таксама ўстал
 msgid "Private key file"
 msgstr "Файл асабістага ключа"
 
-#: ../src/settingsdialog.cc:1171 ../src/settingsdialog.cc:1224
-#: ../src/settingsdialog.cc:1358 ../src/hub.cc:2052
+#: ../src/settingsdialog.cc:1173 ../src/settingsdialog.cc:1226
+#: ../src/settingsdialog.cc:1360 ../src/hub.cc:2052
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr "Асабістае паведамленьне"
@@ -2803,8 +2793,8 @@ msgstr "Поступ"
 msgid "Properties"
 msgstr "Уласьцівасьці"
 
-#: ../src/settingsdialog.cc:1424 ../src/settingsdialog.cc:1474
-#: ../src/settingsdialog.cc:1546 ../src/publichubs.cc:29
+#: ../src/settingsdialog.cc:1426 ../src/settingsdialog.cc:1476
+#: ../src/settingsdialog.cc:1548 ../src/publichubs.cc:29
 #: ../ui/mainwindow.ui:1186 ../ui/mainwindow.ui:2220 ../ui/mainwindow.ui:2441
 msgid "Public Hubs"
 msgstr "Адкрытыя асяродкі"
@@ -2813,7 +2803,7 @@ msgstr "Адкрытыя асяродкі"
 msgid "Public Hubs list URL"
 msgstr "Спасылка на сьпіс адкрытых асяродкаў"
 
-#: ../src/settingsdialog.cc:1425 ../src/settingsdialog.cc:1490
+#: ../src/settingsdialog.cc:1427 ../src/settingsdialog.cc:1492
 #: ../ui/mainwindow.ui:2246 ../ui/mainwindow.ui:2505
 #: ../ui/settingsdialog.ui:3710
 msgid "Queue"
@@ -2823,7 +2813,7 @@ msgstr "Чарга"
 msgid "Quick connect to the hub"
 msgstr "Хутка злучыцца з асяродкам"
 
-#: ../src/settingsdialog.cc:1428 ../src/settingsdialog.cc:1496
+#: ../src/settingsdialog.cc:1430 ../src/settingsdialog.cc:1498
 #: ../ui/mainwindow.ui:2349 ../ui/mainwindow.ui:2529
 msgid "Quit"
 msgstr "Выйсьці"
@@ -2856,7 +2846,7 @@ msgstr "Нанова _злучыцца"
 msgid "Rebuild hash"
 msgstr "Нанова стварыць скароты"
 
-#: ../src/settingsdialog.cc:1430 ../src/settingsdialog.cc:1466
+#: ../src/settingsdialog.cc:1432 ../src/settingsdialog.cc:1468
 #: ../ui/mainwindow.ui:2127 ../ui/mainwindow.ui:2409
 msgid "Reconnect"
 msgstr "Нанова злучыцца"
@@ -2869,7 +2859,7 @@ msgstr "Нанова злучыцца з асяродкамі"
 msgid "Reconnect to the hub"
 msgstr "Нанова злучыцца з асяродкам"
 
-#: ../src/settingsdialog.cc:1421 ../src/settingsdialog.cc:1480
+#: ../src/settingsdialog.cc:1423 ../src/settingsdialog.cc:1482
 #: ../ui/mainwindow.ui:2084 ../ui/mainwindow.ui:2465
 msgid "Refresh"
 msgstr "Абнавіць"
@@ -2878,12 +2868,12 @@ msgstr "Абнавіць"
 msgid "Refresh file list"
 msgstr "Абнавіць сьпіс файлаў"
 
-#: ../src/settingsdialog.cc:1651
+#: ../src/settingsdialog.cc:1653
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr ""
 "Запісацца ў апэрацыйнае сыстэме як апрацоўнік спасылак «dchub://» і «adc://»"
 
-#: ../src/settingsdialog.cc:1652
+#: ../src/settingsdialog.cc:1654
 msgid "Register with the OS to handle magnet: URL links"
 msgstr "Запісацца ў апэрацыйнае сыстэме як апрацоўнік спасылак «magnet:»"
 
@@ -2932,7 +2922,7 @@ msgstr "_Выкрасьліць карыстальніка з чаргі"
 msgid "Rename"
 msgstr "Назваць"
 
-#: ../src/settingsdialog.cc:2099
+#: ../src/settingsdialog.cc:2101
 msgid "Rename a search type"
 msgstr "Даць новую назву віду пошуку"
 
@@ -2980,8 +2970,8 @@ msgstr "SJIS"
 msgid "Say a third person"
 msgstr "Мовіць ад трэцяе асобы"
 
-#: ../src/settingsdialog.cc:1141 ../src/settingsdialog.cc:1426
-#: ../src/settingsdialog.cc:1484 ../src/search.cc:40 ../src/search.cc:86
+#: ../src/settingsdialog.cc:1143 ../src/settingsdialog.cc:1428
+#: ../src/settingsdialog.cc:1486 ../src/search.cc:40 ../src/search.cc:86
 #: ../src/search.cc:93 ../src/search.cc:259 ../src/search.cc:457
 #: ../src/search.cc:471 ../src/search.cc:1130 ../src/search.cc:1131
 #: ../src/search.cc:2015 ../ui/searchspy.ui:94 ../ui/searchspy.ui:401
@@ -2990,7 +2980,7 @@ msgstr "Мовіць ад трэцяе асобы"
 msgid "Search"
 msgstr "Шукаць"
 
-#: ../src/settingsdialog.cc:1433 ../ui/mainwindow.ui:1242
+#: ../src/settingsdialog.cc:1435 ../ui/mainwindow.ui:1242
 msgid "Search ADL"
 msgstr "Самарушна шукаць у сьпісах файлаў"
 
@@ -2998,8 +2988,8 @@ msgstr "Самарушна шукаць у сьпісах файлаў"
 msgid "Search Menu"
 msgstr "Мэню пошуку"
 
-#: ../src/settingsdialog.cc:1142 ../src/settingsdialog.cc:1427
-#: ../src/settingsdialog.cc:1488 ../src/settingsdialog.cc:1552
+#: ../src/settingsdialog.cc:1144 ../src/settingsdialog.cc:1429
+#: ../src/settingsdialog.cc:1490 ../src/settingsdialog.cc:1554
 #: ../src/searchspy.cc:35 ../ui/mainwindow.ui:1317 ../ui/mainwindow.ui:2321
 #: ../ui/settingsdialog.ui:6675
 msgid "Search Spy"
@@ -3034,9 +3024,9 @@ msgstr "Можнасьці пошуку"
 msgid "Search spam detected from "
 msgstr "Выявілі непажаданы пошук ад  "
 
-#: ../src/settingsdialog.cc:1732 ../src/settingsdialog.cc:1924
-#: ../src/settingsdialog.cc:1957 ../src/settingsdialog.cc:2043
-#: ../src/settingsdialog.cc:2092 ../src/settingsdialog.cc:2140
+#: ../src/settingsdialog.cc:1734 ../src/settingsdialog.cc:1926
+#: ../src/settingsdialog.cc:1959 ../src/settingsdialog.cc:2045
+#: ../src/settingsdialog.cc:2094 ../src/settingsdialog.cc:2142
 msgid "Search type"
 msgstr "Від крыніцы"
 
@@ -3052,24 +3042,23 @@ msgstr "Шукаем  "
 msgid "Security Certificates"
 msgstr "Пасьведчаньні бясьпекі"
 
-#: ../src/settingsdialog.cc:3166
-#, fuzzy
+#: ../src/settingsdialog.cc:3168
 msgid "Select Color"
-msgstr "Абярыце шрыфт"
+msgstr ""
 
-#: ../src/settingsdialog.cc:3289
+#: ../src/settingsdialog.cc:3291
 msgid "Select Font"
 msgstr "Абярыце шрыфт"
 
-#: ../src/mainwindow.cc:2421
+#: ../src/mainwindow.cc:2424
 msgid "Select file to Get TTH"
 msgstr "Абярыце файл, скарот якога трэба вылічыць"
 
-#: ../src/mainwindow.cc:2014 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:2017 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Абярыце сьпіс файлаў"
 
-#: ../src/settingsdialog.cc:1120
+#: ../src/settingsdialog.cc:1122
 msgid "Send PM when double clicked in the user list"
 msgstr ""
 "Дасылаць асабістае паведамленьне падвойным пстрыкам у сьпісе карыстальнікаў"
@@ -3086,7 +3075,7 @@ msgstr "Асабістае _паведамленьне"
 msgid "Send once per nick"
 msgstr "Адзін раз на кожную мянушку"
 
-#: ../src/settingsdialog.cc:1647
+#: ../src/settingsdialog.cc:1649
 msgid "Send unknown /commands to the hub"
 msgstr "Дасылаць невядомыя /загады асяродку"
 
@@ -3095,12 +3084,12 @@ msgstr "Дасылаць невядомыя /загады асяродку"
 msgid "Sent ADC extensions : %s\n"
 msgstr "Даслалі прыбудовы ADC: %s\n"
 
-#: ../src/settingsdialog.cc:3367 ../src/settingsdialog.cc:3465
+#: ../src/settingsdialog.cc:3369 ../src/settingsdialog.cc:3467
 #: ../ui/settingsdialog.ui:627
 msgid "Separator"
 msgstr "Аддзяляльнік"
 
-#: ../src/settingsdialog.cc:1464 ../ui/mainwindow.ui:2401
+#: ../src/settingsdialog.cc:1466 ../ui/mainwindow.ui:2401
 msgid "Separators"
 msgstr "Аддзяляльнікі"
 
@@ -3153,7 +3142,7 @@ msgstr "Абагуленае"
 msgid "Sharing"
 msgstr "Абагуленае"
 
-#: ../src/settingsdialog.cc:1653
+#: ../src/settingsdialog.cc:1655
 msgid "Show IP's' in chats"
 msgstr "Паказваць адрасы IP ў гутарцы"
 
@@ -3178,7 +3167,7 @@ msgstr "Паказаць даведку"
 msgid "Show ipfilter rules list"
 msgstr "Паказаць сьпіс правілаў сіта IP"
 
-#: ../src/settingsdialog.cc:1112
+#: ../src/settingsdialog.cc:1114
 msgid "Show joins / parts in chat by default"
 msgstr "Звычайна паказваць у гутарцы, калі хто ўваходзіць ці выходзіць"
 
@@ -3186,7 +3175,7 @@ msgstr "Звычайна паказваць у гутарцы, калі хто �
 msgid "Show magnet dialog"
 msgstr "Паказаць дыялёґ маґніт-спасылкі"
 
-#: ../src/settingsdialog.cc:1564
+#: ../src/settingsdialog.cc:1566
 msgid "Show nicklist in hub frame on the left side"
 msgstr "Паказваць сьпіс карыстальнікаў леваруч"
 
@@ -3203,11 +3192,11 @@ msgstr "Паказваць толькі калі праґрама — нядзе
 msgid "Show ratio [send in chat]"
 msgstr "Паказаць суадносіны [даслаць у гутарку]"
 
-#: ../src/settingsdialog.cc:1109
+#: ../src/settingsdialog.cc:1111
 msgid "Show status icon in the system tray"
 msgstr "Паказваць значак стану ў сыстэмным латку"
 
-#: ../src/settingsdialog.cc:1110
+#: ../src/settingsdialog.cc:1112
 msgid "Show timestamps in chat by default"
 msgstr "Звычайна, пазначаць час у гутарцы"
 
@@ -3215,7 +3204,7 @@ msgstr "Звычайна, пазначаць час у гутарцы"
 msgid "Show top search"
 msgstr "Паказаць найлепшае пошуку"
 
-#: ../src/settingsdialog.cc:1654
+#: ../src/settingsdialog.cc:1656
 msgid "Show user country in chat"
 msgstr "Паказваць краіну карыстальніка ў гутарцы"
 
@@ -3242,7 +3231,7 @@ msgid "Signal handlers installed.\n"
 msgstr "Апрацоўнікі сыґналаў усталявалі.\n"
 
 #: ../src/settingsdialog.cc:1034 ../src/settingsdialog.cc:1040
-#: ../src/settingsdialog.cc:3800 ../src/settingsdialog.cc:3869
+#: ../src/settingsdialog.cc:3802 ../src/settingsdialog.cc:3871
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
@@ -3265,9 +3254,8 @@ msgid "Size: 0 B"
 msgstr "Памер: 0 Б"
 
 #: ../ui/settingsdialog.ui:4430
-#, fuzzy
 msgid "Skip zero sized files"
-msgstr "Прапускаць файлы нулявога памеру"
+msgstr ""
 
 #: ../src/settingsdialog.cc:992
 msgid "Skip zero-byte files"
@@ -3309,11 +3297,11 @@ msgstr "Буфэр запісв. гнязда"
 msgid "Socks IP"
 msgstr "Socks IP"
 
-#: ../src/settingsdialog.cc:1114
+#: ../src/settingsdialog.cc:1116
 msgid "Sort favorite users first"
 msgstr "Упарадкаваць першымі ўлюбёнцаў"
 
-#: ../src/settingsdialog.cc:1151 ../ui/settingsdialog.ui:5255
+#: ../src/settingsdialog.cc:1153 ../ui/settingsdialog.ui:5255
 msgid "Sounds"
 msgstr "Гукі"
 
@@ -3365,7 +3353,7 @@ msgstr "Стан падрыхтаванасьці"
 msgid "Status"
 msgstr "Стан"
 
-#: ../src/settingsdialog.cc:1230
+#: ../src/settingsdialog.cc:1232
 msgid "Status message"
 msgstr "Апісаньне стану"
 
@@ -3382,7 +3370,7 @@ msgstr "Як звычайна"
 msgid "System icons"
 msgstr "Сыстэмныя значкі"
 
-#: ../src/settingsdialog.cc:1227
+#: ../src/settingsdialog.cc:1229
 msgid "System message"
 msgstr "Паведамленьне сыстэмы"
 
@@ -3469,15 +3457,15 @@ msgstr "Засталося"
 msgid "Time last seen"
 msgstr "Апошні раз бачылі"
 
-#: ../src/settingsdialog.cc:1233 ../src/settingsdialog.cc:1263
-#: ../src/settingsdialog.cc:1268
+#: ../src/settingsdialog.cc:1235 ../src/settingsdialog.cc:1265
+#: ../src/settingsdialog.cc:1270
 msgid "Timestamp"
 msgstr "Часадзнака"
 
-#: ../src/settingsdialog.cc:402 ../src/settingsdialog.cc:1332
-#: ../src/settingsdialog.cc:2280 ../src/settingsdialog.cc:2336
-#: ../src/settingsdialog.cc:2352 ../src/settingsdialog.cc:2374
-#: ../src/settingsdialog.cc:2378 ../src/settingsdialog.cc:2428
+#: ../src/settingsdialog.cc:402 ../src/settingsdialog.cc:1334
+#: ../src/settingsdialog.cc:2282 ../src/settingsdialog.cc:2338
+#: ../src/settingsdialog.cc:2354 ../src/settingsdialog.cc:2376
+#: ../src/settingsdialog.cc:2380 ../src/settingsdialog.cc:2430
 msgid "Title"
 msgstr "Загаловак"
 
@@ -3525,7 +3513,7 @@ msgstr "Агулам атрымалі"
 msgid "Total sent"
 msgstr "Агулам адаслалі"
 
-#: ../src/settingsdialog.cc:3874
+#: ../src/settingsdialog.cc:3876
 msgid "Total size: "
 msgstr "Разам: "
 
@@ -3559,7 +3547,7 @@ msgstr "Шлях да давераных пасьведч."
 msgid "Type"
 msgstr "Від"
 
-#: ../src/settingsdialog.cc:1236
+#: ../src/settingsdialog.cc:1238
 msgid "URL"
 msgstr "Спасылка"
 
@@ -3583,11 +3571,11 @@ msgstr "Не магу злучыцца: з запытаным асяродкам
 msgid "Unable to load file list: "
 msgstr "Не магу прачытаць сьпіс файлаў: "
 
-#: ../src/mainwindow.cc:2039
+#: ../src/mainwindow.cc:2042
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Не магу прачытаць сьпіс файлаў: хібная назва сьпісу файлаў"
 
-#: ../src/mainwindow.cc:2278
+#: ../src/mainwindow.cc:2281
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -3602,8 +3590,8 @@ msgid "Unfinished downloads directory"
 msgstr "Каталёґ яшчэ ня сьцягнутага"
 
 #: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
-#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1078
-#: ../src/mainwindow.cc:1468
+#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1081
+#: ../src/mainwindow.cc:1471
 msgid "Unknown"
 msgstr "Невядома"
 
@@ -3631,7 +3619,7 @@ msgstr "Абнавіць уласны сьпіс файлаў"
 msgid "Updating string or TTH"
 msgstr "Абнаўляецца радок або скарот"
 
-#: ../src/settingsdialog.cc:1415
+#: ../src/settingsdialog.cc:1417
 msgid "Upload"
 msgstr "Зацягнуць"
 
@@ -3647,7 +3635,7 @@ msgstr "Шчылінаў зацягваць файлы"
 msgid "Upload complete..."
 msgstr "Скончылі зацягваць…"
 
-#: ../src/settingsdialog.cc:1170
+#: ../src/settingsdialog.cc:1172
 msgid "Upload finished"
 msgstr "Скончылі зацягваць"
 
@@ -3663,7 +3651,7 @@ msgstr "Хуткасьць зацягваць"
 msgid "Upload starting..."
 msgstr "Пачынаем зацягваць…"
 
-#: ../src/mainwindow.cc:755
+#: ../src/mainwindow.cc:758
 msgid "Upload: "
 msgstr "Зацягнулі: "
 
@@ -3674,13 +3662,13 @@ msgstr "Зацягваецца"
 #: ../src/settingsdialog.cc:363 ../src/settingsdialog.cc:401
 #: ../src/settingsdialog.cc:435 ../src/settingsdialog.cc:689
 #: ../src/settingsdialog.cc:702 ../src/settingsdialog.cc:718
-#: ../src/settingsdialog.cc:1150 ../src/settingsdialog.cc:1161
-#: ../src/settingsdialog.cc:1330 ../src/settingsdialog.cc:1345
-#: ../src/settingsdialog.cc:1446 ../src/settingsdialog.cc:1456
+#: ../src/settingsdialog.cc:1152 ../src/settingsdialog.cc:1163
+#: ../src/settingsdialog.cc:1332 ../src/settingsdialog.cc:1347
+#: ../src/settingsdialog.cc:1448 ../src/settingsdialog.cc:1458
 msgid "Use"
 msgstr "Ужываць"
 
-#: ../src/settingsdialog.cc:1658
+#: ../src/settingsdialog.cc:1660
 msgid "Use ADL search only in own file list"
 msgstr "Самарушна шукаць толькі ва ўласным сьпісе"
 
@@ -3696,7 +3684,7 @@ msgstr "Задзейнічаць DHT"
 msgid "Use Emoticons"
 msgstr "Ужываць пачуцьцезнакі"
 
-#: ../src/settingsdialog.cc:1115
+#: ../src/settingsdialog.cc:1117
 msgid "Use OEM monospaced font for chat windows"
 msgstr "Ужываць роўнашырокі шрыфт у вокнах гутаркі"
 
@@ -3704,7 +3692,7 @@ msgstr "Ужываць роўнашырокі шрыфт у вокнах гут�
 msgid "Use SOCKS5 server to resolve hostnames"
 msgstr "Высьвятляць назвы вузлоў праз паслужнік SOCKS5"
 
-#: ../src/settingsdialog.cc:1720
+#: ../src/settingsdialog.cc:1722
 msgid "Use TLS when remote client supports it"
 msgstr "Ужываць TLS, калі другі кліент гэта падтрымвае"
 
@@ -3716,21 +3704,21 @@ msgstr "Наладзіць кліент па UPnP праз маршрутава�
 msgid "Use bandwidth limits"
 msgstr "Абмяжоўваць хуткасьці"
 
-#: ../src/settingsdialog.cc:1117
+#: ../src/settingsdialog.cc:1119
 msgid "Use blinking status icon"
 msgstr "Мігцець значкам стану"
 
-#: ../src/settingsdialog.cc:1118
+#: ../src/settingsdialog.cc:1120
 msgid "Use emoticons"
 msgstr "Ужываць пачуцьцезнакі"
 
-#: ../src/settingsdialog.cc:1650
+#: ../src/settingsdialog.cc:1652
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr ""
 "Ствараць скароты хуткім спосабам (не ўжывайце, калі маеце праблемы са "
 "скаротамі)"
 
-#: ../src/settingsdialog.cc:1116
+#: ../src/settingsdialog.cc:1118
 msgid "Use magnet split"
 msgstr "Паказваць маґніт-спасылкі сьцісла"
 
@@ -3747,11 +3735,11 @@ msgstr "Аддзяляйце пашырэньні кропкаю з коскаю
 msgid "User"
 msgstr "Карыстач"
 
-#: ../src/settingsdialog.cc:1405
+#: ../src/settingsdialog.cc:1407
 msgid "User (dc)"
 msgstr "Карыстальнік (dc)"
 
-#: ../src/settingsdialog.cc:1409
+#: ../src/settingsdialog.cc:1411
 msgid "User (normal)"
 msgstr "Карыстальнік (звычайны)"
 
@@ -3772,11 +3760,11 @@ msgstr "Загады карыстальніка"
 msgid "User favorite list:"
 msgstr "Сьпіс улюбёнцаў:"
 
-#: ../src/settingsdialog.cc:1406
+#: ../src/settingsdialog.cc:1408
 msgid "User firewall (dc)"
 msgstr "Карыстальнік за сетказаслонаю (dc)"
 
-#: ../src/settingsdialog.cc:1410
+#: ../src/settingsdialog.cc:1412
 msgid "User firewall (normal)"
 msgstr "Карыстальнік за сетказаслонаю (звычайны)"
 
@@ -3788,19 +3776,19 @@ msgstr "Паказаць або схаваць сьпіс карыстальні
 msgid "User not found"
 msgstr "Не знайшлі карыстальніка"
 
-#: ../src/settingsdialog.cc:1408
+#: ../src/settingsdialog.cc:1410
 msgid "User operator (dc)"
 msgstr "Карыстальнік — апэратар (dc)"
 
-#: ../src/settingsdialog.cc:1412
+#: ../src/settingsdialog.cc:1414
 msgid "User operator (normal)"
 msgstr "Карыстальнік — апэратар (звычайны)"
 
-#: ../src/settingsdialog.cc:1407
+#: ../src/settingsdialog.cc:1409
 msgid "User operator firewall (dc)"
 msgstr "Карыстальнік — апэратар за сетказаслонаю (dc)"
 
-#: ../src/settingsdialog.cc:1411
+#: ../src/settingsdialog.cc:1413
 msgid "User operator firewall (normal)"
 msgstr "Карыстальнік — апэратар за сетказаслонаю (звычайны)"
 
@@ -3851,16 +3839,14 @@ msgid "Video"
 msgstr "Відэа"
 
 #: ../src/settingsdialog.cc:1092
-#, fuzzy
 msgid "Vietnamese"
-msgstr "Назва файла"
+msgstr ""
 
 #: ../src/mainwindow.cc:270
-#, fuzzy
 msgid "Vietnamese translation\n"
-msgstr "Грэцкая мова\n"
+msgstr ""
 
-#: ../src/settingsdialog.cc:1111
+#: ../src/settingsdialog.cc:1113
 msgid "View status messages in main chat"
 msgstr "Паказваць апісаньні стану ў галоўнай гутарцы"
 
@@ -3880,12 +3866,12 @@ msgstr "Зірнуць сьпіс сьцягнутага"
 msgid "View the list of finished uploads"
 msgstr "Зірнуць сьпіс зацягнутага"
 
-#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3798
-#: ../src/settingsdialog.cc:3867
+#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3800
+#: ../src/settingsdialog.cc:3869
 msgid "Virtual Name"
 msgstr "Уяўная назва"
 
-#: ../src/settingsdialog.cc:3091
+#: ../src/settingsdialog.cc:3093
 msgid "Virtual name"
 msgstr "Назва"
 
@@ -3910,7 +3896,7 @@ msgstr "Чакаем паспрабаваць зноўку"
 msgid "Waiting:"
 msgstr "Чакаем:"
 
-#: ../src/mainwindow.cc:385
+#: ../src/mainwindow.cc:388
 msgid "Welcome to "
 msgstr "Вітаем вас у "
 
@@ -3938,7 +3924,7 @@ msgstr "Прайгравальнік Xine"
 msgid "Yes"
 msgstr "Так"
 
-#: ../src/settingsdialog.cc:3860
+#: ../src/settingsdialog.cc:3862
 msgid "[HIDDEN SHARE] "
 msgstr "[СХАВАНАЕ АБАГУЛЕНАЕ] "
 
@@ -4176,15 +4162,14 @@ msgid "bad image"
 msgstr "кепскі відарыс"
 
 #: ../ui/settingsdialog.ui:8990
-#, fuzzy
 msgid "default"
-msgstr "Як звычайна"
+msgstr ""
 
-#: ../src/settingsdialog.cc:2501
+#: ../src/settingsdialog.cc:2503
 msgid "default icons"
 msgstr "звычайныя значкі"
 
-#: ../src/settingsdialog.cc:2533
+#: ../src/settingsdialog.cc:2535
 msgid "default theme"
 msgstr "звычайнае аздабленьне"
 
@@ -4192,12 +4177,12 @@ msgstr "звычайнае аздабленьне"
 msgid "eMail"
 msgstr "Пошта"
 
-#: ../src/settingsdialog.cc:2766
+#: ../src/settingsdialog.cc:2768
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: прачыталі аздабленьне %s…\n"
 
-#: ../src/mainwindow.cc:2326
+#: ../src/mainwindow.cc:2329
 msgid "file list from "
 msgstr "сьпіс файлаў ад "
 
@@ -4209,7 +4194,7 @@ msgstr "ад"
 msgid "from Coral"
 msgstr "з Каралу (Coral)"
 
-#: ../src/mainwindow.cc:371
+#: ../src/mainwindow.cc:374
 msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 
@@ -4233,17 +4218,17 @@ msgstr "бачына праекту: "
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "суадносіны: %1% (зацягнулі: %2%, сьцягнулі: %3%)"
 
-#: ../src/treeview.cc:211 ../src/mainwindow.cc:2360 ../src/mainwindow.cc:2362
+#: ../src/treeview.cc:211 ../src/mainwindow.cc:2363 ../src/mainwindow.cc:2365
 #: ../src/hashdialog.cc:73 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "с"
 
-#: ../src/settingsdialog.cc:1486
+#: ../src/settingsdialog.cc:1488
 msgid "searchADL"
 msgstr "Самарушна шукаць у сьпісах файлаў"
 
-#: ../src/settingsdialog.cc:3158 ../src/settingsdialog.cc:3285
+#: ../src/settingsdialog.cc:3160 ../src/settingsdialog.cc:3287
 msgid "selected style failed"
 msgstr "не абралі від"
 
@@ -4266,27 +4251,3 @@ msgstr "найлепшыя/чакаюць/бачныя: "
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "чакаем…"
-
-#~ msgid "Error: params have been not 2!"
-#~ msgstr "Памылка: парамэтраў ня два!"
-
-#~ msgid "_Search"
-#~ msgstr "_Шукаць"
-
-#~ msgid " items"
-#~ msgstr " items"
-
-#~ msgid "0 filtered"
-#~ msgstr "0 filtered"
-
-#~ msgid "0 items"
-#~ msgstr "0 items"
-
-#~ msgid "%) from "
-#~ msgstr "%) from "
-
-#~ msgid "Downloaded "
-#~ msgstr "Downloaded "
-
-#~ msgid "Uploaded "
-#~ msgstr "Uploaded "

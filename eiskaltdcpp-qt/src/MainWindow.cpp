@@ -815,11 +815,13 @@ void MainWindow::initActions(){
 
         d->toolsFinishedDownloads = new QAction("", this);
         d->toolsFinishedDownloads->setObjectName("toolsFinishedDownloads");
+        SM->registerShortcut(d->toolsFinishedDownloads, tr("Ctrl+["));
         d->toolsFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWNLIST));
         connect(d->toolsFinishedDownloads, SIGNAL(triggered()), this, SLOT(slotToolsFinishedDownloads()));
 
         d->toolsFinishedUploads = new QAction("", this);
         d->toolsFinishedUploads->setObjectName("toolsFinishedUploads");
+        SM->registerShortcut(d->toolsFinishedUploads, tr("Ctrl+]"));
         d->toolsFinishedUploads->setIcon(WU->getPixmap(WulforUtil::eiUPLIST));
         connect(d->toolsFinishedUploads, SIGNAL(triggered()), this, SLOT(slotToolsFinishedUploads()));
 
@@ -916,6 +918,7 @@ void MainWindow::initActions(){
 
         d->toolsSwitchSpeedLimit = new QAction("", this);
         d->toolsSwitchSpeedLimit->setObjectName("toolsSwitchSpeedLimit");
+        SM->registerShortcut(d->toolsSwitchSpeedLimit, tr("Ctrl+K"));
         d->toolsSwitchSpeedLimit->setIcon(BOOLSETTING(THROTTLE_ENABLE)? WU->getPixmap(WulforUtil::eiSPEED_LIMIT_ON) : WU->getPixmap(WulforUtil::eiSPEED_LIMIT_OFF));
         d->toolsSwitchSpeedLimit->setCheckable(true);
         d->toolsSwitchSpeedLimit->setChecked(BOOLSETTING(THROTTLE_ENABLE));
@@ -1021,6 +1024,7 @@ void MainWindow::initActions(){
                 << separator2
                 << d->hubsFavoriteHubs
                 << d->hubsFavoriteUsers
+                << d->toolsQueuedUsers
                 << d->toolsSearch
                 << d->hubsPublicHubs
                 << separator3
@@ -2750,6 +2754,9 @@ void MainWindow::slotAboutClient(){
         QString("<br/>")+
         tr("Vietnamese translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2013 <a href=\"mailto:ppanhh@gmail.com\">Anh Phan</a><br/>")+
+        QString("<br/>")+
+        tr("Chinese (China) translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2013 <a href=\"mailto:syaomingl@gmail.com\">Syaoming Lai</a><br/>")+
         QString("<br/>")
         );
 

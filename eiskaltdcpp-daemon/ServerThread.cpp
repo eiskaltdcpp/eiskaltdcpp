@@ -1160,11 +1160,11 @@ bool ServerThread::getUserInfo(StringMap& userinfo, const string& nick, const st
 }
 
 void ServerThread::showLocalLists(string& l, const string& separator) {
-    string tmp = separator.empty()? ";" : separator;
-    StringList lists = File::findFiles(Util::getListPath(), "*.xml*");
-    for (auto i : lists) {
-        l += Util::getFileName(i);
-        l += tmp;
+    string sep = separator.empty()? ";" : separator;
+    StringList files = File::findFiles(Util::getListPath(), "*.xml*");
+    for (auto file : files) {
+        l += Util::getFileName(file);
+        l += sep;
     }
 }
 
@@ -1199,23 +1199,6 @@ class ServerThreadListLoader : public dcpp::Thread
         DirectoryListing* dl;
 };
 
-//void ServerThread::buildList(const string& filelist, const string& nick, DirectoryListing* listing, bool full) {
-    //try
-    //{
-        //listing->getRoot()->setName(nick);
-        ////if (full) {
-            //listing->loadFile(Util::getListPath() + filelist);
-            //ADLSearchManager::getInstance()->matchListing(*(listing));
-        ////}
-    //}
-    //catch (const Exception &e)
-    //{
-        //printf("Unable to load file list: %s\n", e.getError().c_str());fflush(stdout);
-        ////ex = "Unable to load file list: " + e.getError();
-    //}
-//}
-
-
 bool ServerThread::openFileList(const string& filelist) {
     auto it = listsMap.find(filelist);
     if (it == listsMap.end()) {
@@ -1232,7 +1215,6 @@ bool ServerThread::openFileList(const string& filelist) {
         }
         HintedUser user(u, Util::emptyString);
         DirectoryListing* dl = new DirectoryListing(user);
-        //buildList(filelist, nick, dl, false);
         ServerThreadListLoader* stld = new ServerThreadListLoader(filelist, nick, dl);
         try {
             stld->start();
