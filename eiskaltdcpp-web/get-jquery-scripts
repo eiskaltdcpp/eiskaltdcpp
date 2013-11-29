@@ -10,9 +10,9 @@ set -e
 
 if [ "${1}" == "system" ]; then
 
-    rm -rf jquery
-    mkdir -p jquery
-    cd jquery
+    rm -rf js/lib
+    mkdir -p js/lib
+    cd js/lib
 
     ln -s /usr/share/javascript/jquery/jquery.min.js                            jquery.min.js
     ln -s /usr/share/javascript/jquery-easytabs/jquery.easytabs.min.js          jquery.easytabs.min.js
@@ -21,12 +21,13 @@ if [ "${1}" == "system" ]; then
     ln -s /usr/share/javascript/jquery-plugin/jquery.plugin.js                  jquery.plugin.js
     ln -s /usr/share/javascript/jquery-tablesorter/jquery.tablesorter.min.js    jquery.tablesorter.min.js
     ln -s /usr/share/javascript/jquery-timer/jquery.timer.js                    jquery.timer.js
+    ln -s /usr/share/javascript/requirejs/require.min.js                        require.min.js
 
 elif [ "${1}" == "local" ]; then
 
-    rm -rf jquery
-    mkdir -p jquery
-    cd jquery
+    rm -rf js/lib
+    mkdir -p js/lib
+    cd js/lib
 
     wget -c http://code.jquery.com/jquery-1.7.2.min.js -O jquery.min.js
     wget -c https://raw.github.com/JangoSteve/jQuery-EasyTabs/v3.2.0/lib/jquery.easytabs.min.js
@@ -35,21 +36,22 @@ elif [ "${1}" == "local" ]; then
     wget -c https://raw.github.com/Cyntax/jquery-timer/master/jquery.plugin.js
     wget -c https://raw.github.com/Mottie/tablesorter/v2.12.0/js/jquery.tablesorter.min.js
     wget -c https://raw.github.com/Cyntax/jquery-timer/master/jquery.timer.js
+    wget -c http://requirejs.org/docs/release/2.1.9/minified/require.js
 
 elif [ "${1}" == "mixed" ]; then
 
     "${0}" local
-    rm -rf jquery.local
-    mv jquery jquery.local
+    rm -rf js/lib.local
+    mv js/lib js/lib.local
 
     "${0}" system
     for JS in ${@} ; do
         if [ "${JS}" != "${1}" ]; then
-            rm -f "jquery/jquery.${JS}.js"
-            cp "jquery.local/jquery.${JS}.js" "jquery/jquery.${JS}.js"
+            rm -f "js/lib/jquery.${JS}.js"
+            cp "js/lib.local/jquery.${JS}.js" "js/lib/jquery.${JS}.js"
         fi
     done
-    rm -r jquery.local
+    rm -r js/lib.local
 
 else
 
