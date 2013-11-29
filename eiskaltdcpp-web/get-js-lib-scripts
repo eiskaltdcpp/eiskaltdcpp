@@ -36,7 +36,7 @@ elif [ "${1}" == "local" ]; then
     wget -c https://raw.github.com/Cyntax/jquery-timer/master/jquery.plugin.js
     wget -c https://raw.github.com/Mottie/tablesorter/v2.12.0/js/jquery.tablesorter.min.js
     wget -c https://raw.github.com/Cyntax/jquery-timer/master/jquery.timer.js
-    wget -c http://requirejs.org/docs/release/2.1.9/minified/require.js
+    wget -c http://requirejs.org/docs/release/2.1.9/minified/require.js -O require.min.js
 
 elif [ "${1}" == "mixed" ]; then
 
