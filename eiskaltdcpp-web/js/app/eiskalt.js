@@ -101,7 +101,16 @@ define(
             },
 
             onLoad: function () {
+
                 $('#tab-container').easytabs();
+
+                // determine jsonrpc host in this order: config -> http host -> localhost
+                if (!config.jsonrpc.host) {
+                    config.jsonrpc.host = location.host;
+                    if (!config.jsonrpc.host) {
+                        config.jsonrpc.host = 'localhost';
+                    }
+                }
 
                 $.jsonRPC.setup({
                     endPoint : 'http://' + config.jsonrpc.host + ':' + config.jsonrpc.port,
