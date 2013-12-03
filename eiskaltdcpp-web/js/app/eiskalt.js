@@ -106,7 +106,7 @@ define(
 
                 // determine jsonrpc host in this order: config -> http host -> localhost
                 if (!config.jsonrpc.host) {
-                    config.jsonrpc.host = location.host;
+                    config.jsonrpc.host = location.hostname;
                     if (!config.jsonrpc.host) {
                         config.jsonrpc.host = 'localhost';
                     }
