@@ -10,6 +10,8 @@
 #include "FavoriteUsers.h"
 #include "WulforUtil.h"
 #include "FavoriteUsersModel.h"
+#include "ArenaWidgetManager.h"
+#include "ArenaWidgetFactory.h"
 
 #include <QMenu>
 #include <QInputDialog>
@@ -21,6 +23,8 @@
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
 #include "dcpp/Util.h"
+#include <dcpp/QueueManager.h>
+
 
 using namespace dcpp;
 
@@ -201,6 +205,51 @@ void FavoriteUsers::handleDesc(const QString & _cid){
     }
 }
 
+void FavoriteUsers::getFileList(const VarMap &params){
+    string cid  = params["CID"].toString().toStdString();
+    string dir  = "";
+    string hub  = params["HUB"].toString().toStdString();
+
+    if (cid.empty())
+        return;
+
+    try {
+        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+
+        if (user)
+            QueueManager::getInstance()->addList(HintedUser(user, hub),  QueueItem::FLAG_CLIENT_VIEW, dir);
+    }
+    catch (const Exception&){}
+
+}
+
+void FavoriteUsers::handleBrowseShare(const QString & _cid){
+     FavoriteUserItem *item = model->itemForCID(_cid);
+     static QString old = "";
+
+     if (!item)
+         return;
+
+     dcpp::CID cid(_tq(_cid));
+     const dcpp::UserPtr &user = ClientManager::getInstance()->findUser(cid);
+
+     if (user){
+
+         VarMap params;
+         FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();;
+
+         auto i = ul.find(cid);
+         if (ul.end() != i){
+             dcpp::FavoriteUser &user = i->second;
+
+             getParams(params, user);
+             getFileList(params);
+         }
+         else return;
+     }
+
+}
+
 void FavoriteUsers::handleGrant(const QString &cid){
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
@@ -244,7 +293,10 @@ void FavoriteUsers::slotContextMenu(){
     QAction *grant  = new QAction(tr("Grant/Remove slot"), menu);
     grant->setIcon(WICON(WulforUtil::eiBALL_GREEN));
 
-    menu->addActions(QList<QAction*>() << desc << grant << remove);
+    QAction *browse  = new QAction(tr("Browse Files"), menu);
+    browse->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
+
+    menu->addActions(QList<QAction*>() << browse << desc << grant << remove);
 
     QAction *ret = menu->exec(QCursor::pos());
 
@@ -258,6 +310,10 @@ void FavoriteUsers::slotContextMenu(){
     else if (ret == grant){
         foreach(FavoriteUserItem *i, items)
             handleGrant(i->cid);
+    }
+    else if(ret == browse){
+        foreach(FavoriteUserItem *i, items)
+            handleBrowseShare(i->cid);
     }
     else {
         foreach(FavoriteUserItem *i, items)
