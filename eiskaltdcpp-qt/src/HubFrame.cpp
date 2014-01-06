@@ -2753,7 +2753,6 @@ void HubFrame::slotUserListMenu(const QPoint&){
         cid = reinterpret_cast<UserListItem*>(i.internalPointer())->getCID();
     }
 
-    qDebug() << "cid = " << cid << "\n";
     Menu::Action action = Menu::getInstance()->execUserMenu(d->client, cid);
     UserListItem *item = NULL;
 
