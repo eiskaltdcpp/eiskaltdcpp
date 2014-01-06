@@ -203,7 +203,7 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
 {
 
 
-    nick = WulforUtil::getInstance()->getNicks(user->getCID());;
+    nick = WulforUtil::getInstance()->getNicks(user->getCID());
 
     if (nick.indexOf(_q(user->getCID().toBase32()) >= 0)){//User offline
         nick = _q(ClientManager::getInstance()->getNicks(HintedUser(user, ""))[0]);

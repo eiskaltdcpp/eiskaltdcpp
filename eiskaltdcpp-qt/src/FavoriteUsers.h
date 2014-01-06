@@ -84,8 +84,10 @@ private:
     void handleRemove(const QString &);
     void handleDesc(const QString &);
     void handleGrant(const QString &);
+    void handleBrowseShare(const QString &);
 
-    void getParams(VarMap &map, const dcpp::FavoriteUser &);
+    void getParams(VarMap &map, const dcpp::FavoriteUser &user);
+    void getFileList(const VarMap &params);
 
     FavoriteUsersModel *model;
 };
