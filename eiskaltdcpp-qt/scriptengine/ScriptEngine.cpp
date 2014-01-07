@@ -84,7 +84,7 @@ void ScriptEngine::loadScripts(){
     
     QStringList enabled = QString(QByteArray::fromBase64(WSGET(WS_APP_ENABLED_SCRIPTS).toAscii())).split("\n");
 
-    foreach (QString s, enabled)
+    for (const auto &s : enabled)
         loadScript(s);
 }
 
@@ -132,7 +132,7 @@ void ScriptEngine::loadJSScript(const QString &file){
     obj->engine.evaluate(data, file);
 
     if (obj->engine.hasUncaughtException()){
-        foreach (QString s, obj->engine.uncaughtExceptionBacktrace())
+        for (const auto &s : obj->engine.uncaughtExceptionBacktrace())
             qDebug() << s;
     }
 }
@@ -183,7 +183,7 @@ void ScriptEngine::stopScript(const QString &path){
 void ScriptEngine::slotProcessChangedFiles() {
     DEBUG_BLOCK
     
-    foreach(const QString &file , changedFiles)
+    for (const QString &file : changedFiles)
         emit scriptChanged(file);
     
     changedFiles.clear();
@@ -261,7 +261,7 @@ void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
                                                      << "LogManagerScript"  << "FavoriteUsers"  << "HashManagerScript"
                                                      << "WulforUtil"        << "WulforSettings";
 
-    foreach( QString cl, staticMembers ) {
+    for (const auto cl : staticMembers) {
         QScriptValue ct = engine.newFunction(staticMemberConstructor);
         ct.setProperty("className", cl, QScriptValue::ReadOnly);
         engine.globalObject().setProperty(cl, ct, QScriptValue::ReadOnly);
@@ -274,7 +274,7 @@ void ScriptEngine::registerDynamicMembers(QScriptEngine &engine){
     static QStringList dynamicMembers = QStringList() << "HubFrame" << "SearchFrame" << "ShellCommandRunner" << "MainWindowScript"
                                                       << "ScriptWidget";
 
-    foreach( QString cl, dynamicMembers ) {
+    for (const auto &cl : dynamicMembers) {
         QScriptValue ct = engine.newFunction(dynamicMemberConstructor);
         ct.setProperty("className", cl, QScriptValue::ReadOnly);
         engine.globalObject().setProperty(cl, ct, QScriptValue::ReadOnly);
@@ -288,7 +288,7 @@ void ScriptEngine::slotWSKeyChanged(const QString &key, const QString &value){
         QStringList enabled = QString(QByteArray::fromBase64(value.toAscii())).split("\n", QString::SkipEmptyParts);
         QMap<QString, ScriptObject*>::iterator it;
 
-        foreach (QString script, enabled){
+        for (const auto &script : enabled){
             it = scripts.find(script);
 
             if (it == scripts.end())
@@ -345,7 +345,7 @@ static QScriptValue getMagnets(QScriptContext *ctx, QScriptEngine *engine){
 
     QStringList magnets;
 
-    foreach (QString f, files){
+    for (const auto &f : files){
         QFile file(f);
 
         if (!file.exists())

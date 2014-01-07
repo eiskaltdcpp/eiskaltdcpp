@@ -44,7 +44,7 @@ void ScriptConsole::stopEvaluation(){
     engine.abortEvaluation();
 
     if (engine.hasUncaughtException()){
-        foreach (QString line, engine.uncaughtExceptionBacktrace())
+        for (const auto &line : engine.uncaughtExceptionBacktrace())
             textEdit_OUTPUT->append(line);
     }
 }
