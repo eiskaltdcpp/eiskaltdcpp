@@ -234,7 +234,7 @@ SearchFrame::Menu::~Menu(){
 }
 
 SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList()){
-    foreach(QAction *a, action_list)
+    for (const auto &a : action_list)
         a->setParent(NULL);
 
     qDeleteAll(down_to->actions());
@@ -253,7 +253,7 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     QStringList temp_pathes = DownloadToDirHistory::get();
 
     if (!temp_pathes.isEmpty()){
-        foreach (const QString &t, temp_pathes){
+        for (const auto &t : temp_pathes){
             QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act->setToolTip(t);
             act->setData(t);
@@ -394,9 +394,7 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
     clientMgr->addListener(this);
     auto& clients = clientMgr->getClients();
 
-    for (auto it = clients.begin(); it != clients.end(); ++it) {
-        Client* client = *it;
-
+    for (const auto &client : clients) {
         if(!client->isConnected())
             continue;
 
@@ -507,9 +505,9 @@ void SearchFrame::init(){
     }
 
     // Customs
-    for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
+    for (const auto &i : searchTypes)
     {
-        string type = i->first;
+        string type = i.first;
         if (!(type.size() == 1 && type[0] >= '1' && type[0] <= '7'))
         {
                 filetypes << _q(type);
@@ -532,7 +530,7 @@ void SearchFrame::init(){
 
     QMenu *m = new QMenu();
 
-    foreach (const QString &s, d->searchHistory)
+    for (const auto &s : d->searchHistory)
         m->addAction(s);
 
     d->focusShortcut = new QShortcut(QKeySequence(Qt::Key_F6), this);
@@ -1002,7 +1000,7 @@ void SearchFrame::slotStartSearch(){
 
         QMenu *m = new QMenu();
 
-        foreach (const QString &s, d->searchHistory)
+        for (const auto &s : d->searchHistory)
             m->addAction(s);
 
         lineEdit_SEARCHSTR->setMenu(m);
@@ -1131,7 +1129,7 @@ void SearchFrame::slotResultDoubleClicked(const QModelIndex &index){
         if (item->childCount() > 0 && !SETTING(DONT_DL_ALREADY_QUEUED)){//download all child items
             QString fname = params["FNAME"].toString();
 
-            foreach (SearchItem *i, item->childItems){
+            for (const auto &i : item->childItems){
                 if (getDownloadParams(params, i)){
                     params["FNAME"] = fname;
 
@@ -1158,7 +1156,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
     QStringList hubs;
 
-    foreach (const QModelIndex &i, list){
+    for (const auto &i : list){
         SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
         QString host = item->data(COLUMN_SF_HOST).toString();
 
@@ -1175,7 +1173,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::Download:
         {
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1185,7 +1183,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     if (item->childCount() > 0 && !SETTING(DONT_DL_ALREADY_QUEUED)){//download all child items
                         QString fname = params["FNAME"].toString();
 
-                        foreach (SearchItem *i, item->childItems){
+                        for (const auto &i : item->childItems){
                             if (getDownloadParams(params, i)){
                                 params["FNAME"] = fname;
 
@@ -1219,7 +1217,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             old_target = target;
 
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1230,7 +1228,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     if (item->childCount() > 0 && !SETTING(DONT_DL_ALREADY_QUEUED)){//download all child items
                         QString fname = params["FNAME"].toString();
 
-                        foreach (SearchItem *i, item->childItems){
+                        for (const auto  &i : item->childItems){
                             if (getDownloadParams(params, i)){
                                 params["FNAME"]  = fname;
                                 params["TARGET"] = target;
@@ -1246,7 +1244,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::DownloadWholeDir:
         {
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1277,7 +1275,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             old_target = target;
 
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1291,7 +1289,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::SearchTTH:
         {
-            foreach (QModelIndex i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only one file
@@ -1310,7 +1308,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
             QString magnets = "";
             WulforUtil *WU = WulforUtil::getInstance();
 
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only files
@@ -1337,7 +1335,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
             QString magnets = "";
             WulforUtil *WU = WulforUtil::getInstance();
 
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only files
@@ -1363,7 +1361,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             WulforUtil *WU = WulforUtil::getInstance();
 
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only files
@@ -1385,7 +1383,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::Browse:
         {
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1397,7 +1395,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::MatchQueue:
         {
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1413,7 +1411,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             HubFrame *fr = NULL;
 
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 QString hubUrl = item->data(COLUMN_SF_HOST).toString();
@@ -1429,7 +1427,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::AddToFav:
         {
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1442,7 +1440,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::GrantExtraSlot:
         {
-             foreach (const QModelIndex &i, list){
+             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1455,7 +1453,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::RemoveFromQueue:
         {
-             foreach (const QModelIndex &i, list){
+             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1470,7 +1468,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
              selection_model->clearSelection();
 
-             foreach (const QModelIndex &i, list){
+             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 d->model->removeItem(item);
@@ -1482,7 +1480,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::UserCommands:
         {
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 QString cmd_name = Menu::getInstance()->ucParams["NAME"];
                 QString hub      = Menu::getInstance()->ucParams["HOST"];
@@ -1533,7 +1531,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             QList <QString> new_inst;
 
-            foreach (const QModelIndex &i, list){
+            for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
                 VarMap params;
 
@@ -1685,9 +1683,9 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
         }
     }
     else {
-        for(auto j = d->currentSearch.begin(); j != d->currentSearch.end(); ++j) {
-            if((*j->begin() != ('-') && Util::findSubString(aResult->getFile(), *j) == tstring::npos) ||
-               (*j->begin() == ('-') && j->size() != 1 && Util::findSubString(aResult->getFile(), j->substr(1)) != tstring::npos)
+        for (const auto &j : d->currentSearch) {
+            if((*j.begin() != ('-') && Util::findSubString(aResult->getFile(), j) == tstring::npos) ||
+               (*j.begin() == ('-') && j.size() != 1 && Util::findSubString(aResult->getFile(), j.substr(1)) != tstring::npos)
               )
            {
                     d->dropped++;

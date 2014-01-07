@@ -1881,7 +1881,7 @@ void MainWindow::redrawToolPanel(){
     PMWindow *pm = NULL;
     bool has_unread = false;
 
-    for(; it != end; ++it){ //also redraw all widget menu items and change window title if needed
+    for (; it != end; ++it){ //also redraw all widget menu items and change window title if needed
         awgt = it.value();
         it.key()->setText(awgt->getArenaShortTitle());
         it.key()->setIcon(awgt->getPixmap());
@@ -2826,7 +2826,7 @@ void MainWindow::slotUpdateFavHubMenu() {
 
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for(auto &i : fl) {
+    for (auto &i : fl) {
         const FavoriteHubEntry &entry = *i;
 
         QString url = _q(entry.getServer());
