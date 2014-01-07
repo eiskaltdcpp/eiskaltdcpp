@@ -140,7 +140,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     QStringList temp_pathes = DownloadToDirHistory::get();
 
     if (!temp_pathes.isEmpty()){
-        foreach (const QString &t, temp_pathes){
+        for (auto &t : temp_pathes){
             QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act->setToolTip(t);
             act->setData(t);
@@ -203,7 +203,7 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
 {
 
 
-    nick = WulforUtil::getInstance()->getNicks(user->getCID());;
+    nick = WulforUtil::getInstance()->getNicks(user->getCID());
 
     if (nick.indexOf(_q(user->getCID().toBase32()) >= 0)){//User offline
         nick = _q(ClientManager::getInstance()->getNicks(HintedUser(user, ""))[0]);
@@ -785,7 +785,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
     QModelIndexList selected  = selection_model->selectedRows(0);
 
     if (view == treeView_RPANE && treeView_RPANE->model() == proxy){
-        foreach (const QModelIndex &i, selected)
+        for (const QModelIndex &i : selected)
             list.push_back(proxy->mapToSource(i));
     }
     else
@@ -804,7 +804,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         case Menu::Download:
         {
-            foreach (const QModelIndex &index, list){
+            for (auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 if (item->file)
@@ -839,7 +839,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             DownloadToDirHistory::put(temp_pathes);
 
             if (!target.isEmpty()){
-                foreach (const QModelIndex &index, list){
+                for (auto &index : list){
                     FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                     if (item->file)

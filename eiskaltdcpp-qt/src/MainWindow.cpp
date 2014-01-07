@@ -1432,7 +1432,7 @@ void MainWindow::initToolbar(){
     if (enabled_actions.isEmpty())
         d->fBar->addActions(d->toolBarActions);
     else {
-        foreach (const QString &objName, enabled_actions){
+        for (auto &objName : enabled_actions){
             QAction *act = findChild<QAction*>(objName);
 
             if (act)
@@ -1814,7 +1814,7 @@ void MainWindow::autoconnect(){
 }
 
 void MainWindow::parseCmdLine(const QStringList &args){
-    foreach (const QString &arg, args){
+    for (auto &arg : args){
         if (arg.startsWith("magnet:?")){
             Magnet m(this);
             m.setLink(arg);
@@ -2001,7 +2001,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
         throw std::runtime_error(_tq(Q_FUNC_INFO) + ": NULL argument");
 
     if (sender() && qobject_cast<QAction*>(sender()) && a->getWidget()){
-        QAction *act = reinterpret_cast<QAction*>(sender());;
+        QAction *act = reinterpret_cast<QAction*>(sender());
 
         act->setCheckable(true);
 
@@ -2039,7 +2039,7 @@ void MainWindow::toggleMainMenu(bool showMenu){
 
             QMenu *m = new QMenu(this);
 
-            foreach (QAction *a, menuBar()->actions())
+            for (auto &a : menuBar()->actions())
                 m->addAction(a);
 
             compactMenus->setMenu(m);
@@ -2075,7 +2075,7 @@ void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const 
 void MainWindow::reloadSomeSettings(){
     Q_D(MainWindow);
 
-    foreach (ArenaWidget *awgt, d->menuWidgetsHash.values()){
+    for (auto &awgt : d->menuWidgetsHash.values()){
         HubFrame *fr = qobject_cast<HubFrame *>(awgt->getWidget());
 
         if (fr)
@@ -2557,7 +2557,7 @@ void MainWindow::slotToolbarCustomization() {
     toolButtonStyle->addAction(tr("Text beside icons"))->setData(Qt::ToolButtonTextBesideIcon);
     toolButtonStyle->addAction(tr("Text under icons"))->setData(Qt::ToolButtonTextUnderIcon);
 
-    foreach (QAction *a, toolButtonStyle->actions()){
+    for (auto &a : toolButtonStyle->actions()){
         a->setCheckable(true);
         a->setChecked(d->fBar->toolButtonStyle() == static_cast<Qt::ToolButtonStyle>(a->data().toInt()));
     }
@@ -2591,7 +2591,7 @@ void MainWindow::slotToolbarCustomizerDone(const QList<QAction*> &enabled){
 
     QStringList enabled_list;
 
-    foreach (QAction *act, enabled){
+    for (auto &act : enabled){
         if (!act)
             continue;
 
