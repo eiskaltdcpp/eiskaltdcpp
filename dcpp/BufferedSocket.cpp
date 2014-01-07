@@ -344,7 +344,11 @@ void BufferedSocket::threadSendFile(InputStream* file) {
 
             if(written == -1) {
                 // workaround for OpenSSL (crashes when previous write failed and now retrying with different writeSize)
-                written = sock->write(&writeBuf[writePos], writeSize);
+                try {
+                    written = sock->write(&writeBuf[writePos], writeSize);
+                } catch(const Exception& e) {
+                    // ...
+                }
             } else {
                 writeSize = min(sockSize / 2, writeBuf.size() - writePos);
                 written = ThrottleManager::getInstance()->write(sock.get(), &writeBuf[writePos], writeSize);
