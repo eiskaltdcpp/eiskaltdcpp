@@ -289,13 +289,9 @@ bool SideBarModel::hasWidget(ArenaWidget *awgt) const{
         return false;
 
     bool inRoot = false;
-    auto it = roots.begin();
-    SideBarItem *item = NULL;
 
-    for(; it != roots.end(); ++it){
-        item = it.value();
-
-        if (item->getWidget() == awgt && awgt->getWidget()->isVisible()){
+    for (const auto &root : roots){
+        if (root->getWidget() == awgt && awgt->getWidget()->isVisible()){
             inRoot = true;
 
             break;
@@ -338,10 +334,8 @@ void SideBarModel::updated ( ArenaWidget* awgt ) {
 }
 
 bool SideBarModel::isRootItem(const SideBarItem *item) const{
-    auto it = roots.begin();
-
-    for(; it != roots.end(); ++it){
-        if (it.value() == item)
+    for (const auto &root : roots){
+        if (root == item)
             return true;
     }
 
@@ -351,7 +345,7 @@ bool SideBarModel::isRootItem(const SideBarItem *item) const{
 ArenaWidget::Role SideBarModel::rootItemRole(const SideBarItem *item) const{
     auto it = roots.begin();
 
-    for(; it != roots.end(); ++it){
+    for (; it != roots.end(); ++it){
         if (it.value() == item)
             return it.key();
     }
@@ -562,9 +556,9 @@ void SideBarView::slotSidebarContextMenu(){
         if (menu->exec(QCursor::pos())){
             QList<SideBarItem*> childs = item->childItems;
 
-            foreach (SideBarItem *i, childs){
-                if (i && i->getWidget())
-                    ArenaWidgetManager::getInstance()->rem(i->getWidget());
+            for (const auto &child : childs){
+                if (child && child->getWidget())
+                    ArenaWidgetManager::getInstance()->rem(child->getWidget());
             }
         }
         
