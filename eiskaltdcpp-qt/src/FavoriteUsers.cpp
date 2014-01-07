@@ -10,8 +10,6 @@
 #include "FavoriteUsers.h"
 #include "WulforUtil.h"
 #include "FavoriteUsersModel.h"
-#include "ArenaWidgetManager.h"
-#include "ArenaWidgetFactory.h"
 
 #include <QMenu>
 #include <QInputDialog>
@@ -20,10 +18,10 @@
 #include <QItemSelectionModel>
 
 #include "dcpp/ClientManager.h"
+#include "dcpp/QueueManager.h"
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
 #include "dcpp/Util.h"
-#include <dcpp/QueueManager.h>
 
 
 using namespace dcpp;
@@ -207,47 +205,32 @@ void FavoriteUsers::handleDesc(const QString & _cid){
 
 void FavoriteUsers::getFileList(const VarMap &params){
     string cid  = params["CID"].toString().toStdString();
-    string dir  = "";
     string hub  = params["HUB"].toString().toStdString();
 
     if (cid.empty())
         return;
 
-    try {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
-
-        if (user)
-            QueueManager::getInstance()->addList(HintedUser(user, hub),  QueueItem::FLAG_CLIENT_VIEW, dir);
+    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+    if (user){
+        try {
+            QueueManager::getInstance()->addList(HintedUser(user, hub),  QueueItem::FLAG_CLIENT_VIEW, "");
+        } catch(const Exception&) {
+            // ...
+        }
     }
-    catch (const Exception&){}
-
 }
 
 void FavoriteUsers::handleBrowseShare(const QString & _cid){
-     FavoriteUserItem *item = model->itemForCID(_cid);
-     static QString old = "";
+    FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
-     if (!item)
-         return;
+    auto i = ul.find(CID(_tq(_cid)));
+    if (i != ul.end()){
+        dcpp::FavoriteUser &user = i->second;
 
-     dcpp::CID cid(_tq(_cid));
-     const dcpp::UserPtr &user = ClientManager::getInstance()->findUser(cid);
-
-     if (user){
-
-         VarMap params;
-         FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();;
-
-         auto i = ul.find(cid);
-         if (ul.end() != i){
-             dcpp::FavoriteUser &user = i->second;
-
-             getParams(params, user);
-             getFileList(params);
-         }
-         else return;
-     }
-
+        VarMap params;
+        getParams(params, user);
+        getFileList(params);
+    }
 }
 
 void FavoriteUsers::handleGrant(const QString &cid){
