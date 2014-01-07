@@ -79,9 +79,9 @@ void EmoticonFactory::load(){
 
     f.close();
 
-    foreach(QTextDocument *d, docs)
+    for (const auto &d : docs)
         addEmoticons(d);
-    
+
     currentTheme = emoTheme;
 }
 
@@ -91,7 +91,7 @@ void EmoticonFactory::addEmoticons(QTextDocument *to){
 
     QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
 
-    foreach(EmoticonObject *i, list){
+    for (const auto &i : list){
         to->addResource( QTextDocument::ImageResource,
                          QUrl(emoTheme + "/emoticon" + QString().setNum(i->id)),
                          i->pixmap.toImage()
@@ -221,7 +221,7 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
 
     clear();
 
-    foreach(QDomNode node, emoNodes){
+    for (const auto &node : emoNodes){
         QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
 
         EmoticonObject *emot = new EmoticonObject();
@@ -242,7 +242,7 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
         }
 
         int registered = 0;
-        foreach (QDomNode node, emoTexts){
+        for (const auto &node : emoTexts){
             QDomElement el = node.toElement();
 
             if (el.isNull())
@@ -276,7 +276,7 @@ void EmoticonFactory::fillLayout(QLayout *l, QSize &recommendedSize){
         return;
     }
 
-    foreach (EmoticonObject *i, list){
+    for (const auto &i : list){
         EmoticonLabel *lbl = new EmoticonLabel();
 
         lbl->setPixmap(i->pixmap);

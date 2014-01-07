@@ -120,7 +120,7 @@ void ShareBrowserSearch::findMatches(FileBrowserItem *item){
     
     QString fname = "";
 
-    foreach(FileBrowserItem *i, item->childItems){
+    for (const auto &i : item->childItems){
         if (i->dir){
             findMatches(i);
 

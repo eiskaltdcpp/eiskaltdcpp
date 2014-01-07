@@ -26,7 +26,7 @@ SpyModel::SpyModel(QObject *parent):
 
 SpyModel::~SpyModel()
 {
-    foreach(SpyItem *i, rootItem->childItems)
+    for (const auto &i : rootItem->childItems)
         pool.destroy(i);
 
     rootItem->childItems.clear();
@@ -219,7 +219,7 @@ void SpyModel::addResult(const QString &file, bool isTTH)
 {
     QString _temp;
 
-    foreach (const QChar &ch, file)
+    for (const QChar &ch : file)
         _temp += ((ch.isPrint() || ch == ' ')? ch : ' ');//remove all non-printable chars except space
 
     QString &_file = _temp;
@@ -270,7 +270,7 @@ void SpyModel::addResult(const QString &file, bool isTTH)
 void SpyModel::clearModel(){
     QList<SpyItem*> &childs = rootItem->childItems;
 
-    foreach(SpyItem *i, childs)
+    for (const auto &i : childs)
         pool.destroy(i);
 
     rootItem->childItems.clear();

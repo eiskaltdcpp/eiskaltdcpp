@@ -16,7 +16,7 @@ ActionCustomizer::ActionCustomizer(const QList<QAction*> &available, const QList
 
     setWindowTitle(tr("Customize actions"));
 
-    foreach (QAction *act, enabled){
+    for (const auto &act : enabled){
         if (!act)
             continue;
 
@@ -28,7 +28,7 @@ ActionCustomizer::ActionCustomizer(const QList<QAction*> &available, const QList
         enabled_items.insert(item, act);
     }
 
-    foreach (QAction *act, available){
+    for (const auto &act : available){
         if (!act || enabled.contains(act))
             continue;
 

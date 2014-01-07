@@ -45,7 +45,7 @@ TabFrame::TabFrame(QWidget *parent) :
               << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_9), this))
               << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_0), this));
 
-    foreach (QShortcut *s, shortcuts){
+    for (const auto &s : shortcuts){
         s->setContext(Qt::ApplicationShortcut);
 
         connect(s, SIGNAL(activated()), this, SLOT(slotShorcuts()));

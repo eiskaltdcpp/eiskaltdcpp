@@ -252,7 +252,7 @@ int main(int argc, char *argv[])
 }
 
 void parseCmdLine(const QStringList &args){
-    foreach (const QString &arg, args){
+    for (const auto &arg : args){
         if (arg == "-h" || arg == "--help"){
             About().printHelp();
 
@@ -329,7 +329,7 @@ void copy(const QDir &from, const QDir &to){
     if (!from_path.endsWith(QDir::separator()))
         from_path += QDir::separator();
 
-    foreach (const QString &s, from.entryList(QDir::Dirs)){
+    for (const auto &s : from.entryList(QDir::Dirs)){
         QDir new_dir(to_path+s);
 
         if (new_dir.exists())
@@ -342,7 +342,7 @@ void copy(const QDir &from, const QDir &to){
         }
     }
 
-    foreach (const QString &f, from.entryList(QDir::Files)){
+    for (const auto &f : from.entryList(QDir::Files)){
         QFile orig(from_path+f);
 
         if (!orig.copy(to_path+f))

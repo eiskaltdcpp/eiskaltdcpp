@@ -148,8 +148,7 @@ bool FlowLayout::moveRight(QLayoutItem *item){
 
 QSize FlowLayout::minimumSize() const {
     QSize size;
-    QLayoutItem *item;
-    foreach (item, itemList)
+    for (const auto &item : itemList)
         size = size.expandedTo(item->minimumSize());
 
     size += QSize(2*margin(), 2*margin());
@@ -163,7 +162,7 @@ void FlowLayout::place(QWidget *on, QWidget *what){
     QLayoutItem *i_on = NULL;
     QLayoutItem *i_what = NULL;
 
-    foreach (QLayoutItem *item, itemList) {
+    for (const auto &item : itemList) {
         if (item->widget() == on)
             i_on = item;
         else if (item->widget() == what)
@@ -193,8 +192,7 @@ int FlowLayout::doLayout(const QRect &rect, bool testOnly) const {
     int y = effectiveRect.y();
     int lineHeight = 0;
 
-    QLayoutItem *item;
-    foreach (item, itemList) {
+    for (const auto &item : itemList) {
         QWidget *wid = item->widget();
         int spaceX = horizontalSpacing();
         if (spaceX == -1)

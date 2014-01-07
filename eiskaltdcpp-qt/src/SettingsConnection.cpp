@@ -342,7 +342,7 @@ bool SettingsConnection::validateIp(QString &ip){
     bool valid = true;
     int pos = 0;
 
-    foreach (QString s, l)
+    for (QString s : l)
         valid = valid && (v.validate(s, pos) == QValidator::Acceptable);
 
     return valid;

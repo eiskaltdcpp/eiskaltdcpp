@@ -51,7 +51,7 @@ void SettingsGUI::init(){
 
         comboBox_THEMES->addItem(tr("Default (need to restart)"));
 
-        foreach (const QString &s, styles)
+        for (const QString &s : styles)
             comboBox_THEMES->addItem(s);
 
         comboBox_THEMES->setCurrentIndex(styles.indexOf(WSGET(WS_APP_THEME)) >= 0? (styles.indexOf(WSGET(WS_APP_THEME))+1) : 0);
@@ -71,7 +71,7 @@ void SettingsGUI::init(){
 #else
         QDir translationsDir(qApp->applicationDirPath()+QDir::separator()+CLIENT_TRANSLATIONS_DIR);
 #endif
-        foreach (QString f, translationsDir.entryList(QDir::Files | QDir::NoSymLinks)){
+        for (const auto &f : translationsDir.entryList(QDir::Files | QDir::NoSymLinks)){
             QString full_path = QDir::toNativeSeparators( translationsDir.filePath(f) );
             QString lang = "";
 
@@ -130,7 +130,7 @@ void SettingsGUI::init(){
 #endif
         i = 0;
         k = -1;
-        foreach (const QString &f, QDir(users).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+        for (const QString &f : QDir(users).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_USERS->addItem(f);
 
@@ -149,7 +149,7 @@ void SettingsGUI::init(){
 #endif
         i = 0;
         k = -1;
-        foreach (const QString &f, QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+        for (const QString &f : QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_ICONS->addItem(f);
 
@@ -168,7 +168,7 @@ void SettingsGUI::init(){
 #endif
         comboBox_EMOT->setCurrentIndex(0);
         i = 0;
-        foreach (const QString &f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+        for (const QString &f : QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_EMOT->addItem(f);
 

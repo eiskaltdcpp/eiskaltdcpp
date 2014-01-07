@@ -25,10 +25,11 @@ ArenaWidgetManager::~ArenaWidgetManager(){
     DEBUG_BLOCK
 
     disconnect(this, 0, 0, 0);
-    
-    foreach ( ArenaWidget *awgt , widgets ) {
-        if (!dynamic_cast<QObject*>(awgt))
+
+    for (const auto &awgt : widgets) {
+        if (!dynamic_cast<QObject*>(awgt)){
             continue;
+        }
         if (dcpp::ISingleton *isingleton = dynamic_cast<dcpp::ISingleton*>(awgt)){
             isingleton->release();
         }

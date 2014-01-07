@@ -296,23 +296,23 @@ bool ShortcutGetter::event(QEvent *e)
 
 		if ( key.count() || mods.count() )
 		{
-						
+
 			if ( key.count() && !lKeys.contains(key) )
 				lKeys << key;
-						
-			foreach ( key, mods )
+
+			for ( const auto &key : mods ) {
 				if ( !lKeys.contains(key) )
 					lKeys << key;
-			
-			} else {
+            }
+		} else {
 				key = k->text();
 						
 				if ( !lKeys.contains(key) )
 					lKeys << key;
-			}
-					
-			setText();
-			break;
+		}
+
+		setText();
+		break;
 					
 		case QEvent::KeyRelease :
 					
@@ -360,7 +360,7 @@ void ShortcutGetter::setText()
 	if ( lKeys.contains("Meta") )
 		seq << "Meta";
 			
-	foreach (const QString &s, lKeys ) {
+	for (const QString &s : lKeys ) {
 		//qDebug("setText: s: '%s'", s.toUtf8().data());
 		if ( s != "Shift" && s != "Ctrl"
 			&& s != "Alt" && s != "Meta" )
