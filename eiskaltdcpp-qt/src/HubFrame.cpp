@@ -1066,10 +1066,8 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     save();
 
-    auto it = d->pm.constBegin();
-
-    for (; it != d->pm.constEnd(); ++it){
-        PMWindow *w = const_cast<PMWindow*>(it.value());
+    for (auto &it : d->pm){
+        PMWindow *w = const_cast<PMWindow*>(it);
 
         disconnect(w, SIGNAL(privateMessageClosed(QString)), this, SLOT(slotPMClosed(QString)));
 
@@ -1078,7 +1076,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     d->pm.clear();
 
-    foreach (ShellCommandRunner *r, d->shell_list){
+    for (auto &r : d->shell_list){
         r->cancel();
         r->exit(0);
 
@@ -1178,7 +1176,7 @@ void HubFrame::init(){
     if (EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
 
-    foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+    for (auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
         connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
 
     connect(this, SIGNAL(coreConnecting(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
@@ -1583,14 +1581,14 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                 QString alias = lex.at(2);
                 QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
 
-                foreach(QString line, alias_list){
+                for (auto &line : alias_list){
                     QStringList cmds = line.split('\t', QString::SkipEmptyParts);
 
                     if (cmds.size() == 2 && alias == cmds.at(0)){
                         alias_list.removeAt(alias_list.indexOf(line));
 
                         QString new_aliases;
-                        foreach (QString line, alias_list)
+                        for (auto &line : alias_list)
                             new_aliases += line + "\n";
 
                         WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toAscii().toBase64());
@@ -1675,7 +1673,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             {
                 QString str = tr("List of keywords:\n");
 
-                foreach (const QString &s, kwords)
+                for (auto &s : kwords)
                     str += "\t" + s + "\n";
 
                 if (fr == this)
@@ -1896,7 +1894,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
         bool ok = false;
 
-        foreach(QString line, alias_list){
+        for (auto &line : alias_list){
             QStringList cmds = line.split('\t', QString::SkipEmptyParts);
 
             if (cmds.size() == 2 && cmd == ("/" + cmds.at(0))){
@@ -2334,7 +2332,7 @@ void HubFrame::newMsg(const VarMap &map){
 
     const QStringList &kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
 
-    foreach (const QString &word, kwords){
+    for (auto &word : kwords){
         if (message.contains(word, Qt::CaseInsensitive)){
             msg_color = WS_CHAT_SAY_NICK;
             trigger = word;
@@ -2702,7 +2700,7 @@ static void copyTagToClipboard(QModelIndexList &list){
     QString ret = "";
     UserListItem *item = NULL;
 
-    foreach ( const QModelIndex &i, list ) {
+    for (auto &i : list) {
         item = reinterpret_cast<UserListItem*> ( i.internalPointer() );
 
         if ( !ret.isEmpty() )
@@ -2720,7 +2718,7 @@ static void copyTagToClipboard(QModelIndexList &list){
     QString ret = "";
     UserListItem *item = NULL;
 
-    foreach ( const QModelIndex &i, list ) {
+    for (auto &i : list) {
         item = reinterpret_cast<UserListItem*> ( i.internalPointer() );
 
         if ( !ret.isEmpty() )
@@ -2753,7 +2751,6 @@ void HubFrame::slotUserListMenu(const QPoint&){
         cid = reinterpret_cast<UserListItem*>(i.internalPointer())->getCID();
     }
 
-    qDebug() << "cid = " << cid << "\n";
     Menu::Action action = Menu::getInstance()->execUserMenu(d->client, cid);
     UserListItem *item = NULL;
 
@@ -2765,7 +2762,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
     QModelIndexList list;
 
     if (d->proxy && treeView_USERS->model() == d->proxy){
-        foreach(const QModelIndex &i, proxy_list)
+        for (auto &i : proxy_list)
             list.push_back(d->proxy->mapToSource(i));
     }
     else
@@ -2778,7 +2775,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::BrowseFilelist:
         {
-            foreach(const QModelIndex &i, list){
+            for (auto &i : list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2789,7 +2786,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::PrivateMessage:
         {
-            foreach(const QModelIndex &i, list){
+            for (auto &i : list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2802,7 +2799,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         {
             QString ttip = "";
 
-            foreach(const QModelIndex &i, list){
+            for (auto &i : list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2842,7 +2839,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::MatchQueue:
         {
-            foreach(const QModelIndex &i, list){
+            for (auto &i : list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2853,7 +2850,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::FavoriteAdd:
         {
-            foreach(const QModelIndex &i, list){
+            for (auto &i : list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2864,7 +2861,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::FavoriteRem:
         {
-            foreach(const QModelIndex &i, list){
+            for (auto &i : list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2875,7 +2872,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::GrantSlot:
         {
-            foreach(const QModelIndex &i, list){
+            for (auto &i : list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2886,7 +2883,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::RemoveQueue:
         {
-            foreach(const QModelIndex &i, list){
+            for (auto &i : list){
                 item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                 if (item)
@@ -2899,7 +2896,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         {
 
             if (AntiSpam::getInstance()){
-                foreach(const QModelIndex &i, list){
+                for (auto &i : list){
                     item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                     (*AntiSpam::getInstance()) << eIN_WHITE << item->getNick();
@@ -2911,7 +2908,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         case Menu::AntiSpamBlack:
         {
             if (AntiSpam::getInstance()){
-                foreach(const QModelIndex &i, list){
+                for (auto &i : list){
                     item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
                     (*AntiSpam::getInstance()) << eIN_BLACK << item->getNick();
@@ -3438,7 +3435,7 @@ void HubFrame::slotSmileContextMenu(){
 
     QMenu *m = new QMenu(this);
 
-    foreach (const QString &f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+    for (auto &f : QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
             QAction * act = m->addAction(f);
             act->setCheckable(true);
@@ -3541,7 +3538,7 @@ void HubFrame::slotInputContextMenu(){
                 ss = new QMenu(tr("Suggestions"), this);
 
 
-                foreach (const QString &s, list)
+                for (auto &s : list)
                     ss->addAction(s);
 
                 m->addMenu(ss);
@@ -3617,7 +3614,7 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
 
             EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
 
-            foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+            for (auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
                 connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
         }
     }
@@ -3655,7 +3652,7 @@ void HubFrame::slotBoolSettingsChanged(const QString &key, int value){
 
             EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
 
-            foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+            for (auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
                 connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
 
         }
@@ -3730,8 +3727,8 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
 }
 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) noexcept{
-    for (auto it = list.begin(); it != list.end(); ++it){
-        const OnlineUser &user = *(*it);
+    for (auto &it : list){
+        const OnlineUser &user = *it;
         if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
             continue;
 
