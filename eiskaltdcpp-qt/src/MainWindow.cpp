@@ -277,12 +277,12 @@ MainWindow::MainWindow (QWidget *parent):
 
     if (WBGET(WB_APP_REMOVE_NOT_EX_DIRS)){
         StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (auto it = directories.begin(); it != directories.end(); ++it){
-            QDir dir(_q(it->second));
+        for (auto &it : directories){
+            QDir dir(_q(it.second));
 
             if (!dir.exists()){
                 try {
-                    ShareManager::getInstance()->removeDirectory(it->second);
+                    ShareManager::getInstance()->removeDirectory(it.second);
                 }
                 catch (const std::exception&){}
             }
@@ -1799,8 +1799,8 @@ void MainWindow::setStatusMessage(QString msg){
 void MainWindow::autoconnect(){
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for (auto i = fl.begin(); i != fl.end(); ++i) {
-        FavoriteHubEntry* entry = *i;
+    for (auto &i : fl) {
+        FavoriteHubEntry* entry = i;
 
         if (entry->getConnect()) {
             if (entry->getNick().empty() && SETTING(NICK).empty())
@@ -2826,8 +2826,8 @@ void MainWindow::slotUpdateFavHubMenu() {
 
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for(auto i = fl.cbegin(); i != fl.cend(); ++i) {
-        const FavoriteHubEntry &entry = *(*i);
+    for(auto &i : fl) {
+        const FavoriteHubEntry &entry = *i;
 
         QString url = _q(entry.getServer());
         QString name = entry.getName().empty() ? tr("[No name]") : _q(entry.getName());
