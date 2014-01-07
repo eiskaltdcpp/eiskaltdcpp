@@ -230,8 +230,8 @@ bool JsonRpcMethods::ReturnSearchResults(const Json::Value& root, Json::Value& r
     Json::Value parameters;
     ServerThread::getInstance()->returnSearchResults(hublist, root["params"]["huburl"].asString());
     int k = 0;
-    for (auto& hub : hublist) {
-        for (auto& rearchresult : hub) {
+    for (const auto& hub : hublist) {
+        for (const auto& rearchresult : hub) {
             parameters[k][rearchresult.first] = rearchresult.second;
         }
         ++k;
@@ -331,8 +331,8 @@ bool JsonRpcMethods::ListQueue(const Json::Value& root, Json::Value& response) {
     Json::Value parameters;
     unordered_map<string,StringMap> listqueue;
     ServerThread::getInstance()->listQueue(listqueue);
-    for (auto& item : listqueue) {
-        for (auto& parameter : item.second) {
+    for (const auto& item : listqueue) {
+        for (const auto& parameter : item.second) {
             parameters[item.first][parameter.first] = parameter.second;
         }
     }
@@ -440,8 +440,8 @@ bool JsonRpcMethods::ListHubsFullDesc(const Json::Value& root, Json::Value& resp
     Json::Value parameters;
     unordered_map<string,StringMap> listhubs;
     ServerThread::getInstance()->listHubsFullDesc(listhubs);
-    for (auto& hub : listhubs) {
-        for (auto& parameter : hub.second) {
+    for (const auto& hub : listhubs) {
+        for (const auto& parameter : hub.second) {
             parameters[hub.first][parameter.first] = parameter.second;
         }
     }
@@ -467,7 +467,7 @@ bool JsonRpcMethods::GetUserInfo(const Json::Value& root, Json::Value& response)
     response["id"] = root["id"];
     StringMap params; Json::Value parameters;
     if (ServerThread::getInstance()->getUserInfo(params, root["params"]["nick"].asString(),root["params"]["huburl"].asString())) {
-        for (auto& parameter : params) {
+        for (const auto& parameter : params) {
             parameters[parameter.first] = parameter.second;
         }
     }
@@ -515,7 +515,6 @@ bool JsonRpcMethods::CloseFileList(const Json::Value& root, Json::Value& respons
     if (isDebug) std::cout << "CloseFileList (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    string ret;
     if (ServerThread::getInstance()->closeFileList(root["params"]["filelist"].asString()))
         response["result"] = 0;
     else
@@ -552,8 +551,8 @@ bool JsonRpcMethods::LsDirInList(const Json::Value& root, Json::Value& response)
     Json::Value parameters;
     unordered_map<string,StringMap> map;
     ServerThread::getInstance()->lsDirInList(root["params"]["directory"].asString(), root["params"]["filelist"].asString(), map);
-    for (auto& item : map) {
-        for (auto& parameter : item.second) {
+    for (const auto& item : map) {
+        for (const auto& parameter : item.second) {
             parameters[item.first][parameter.first] = parameter.second;
         }
     }

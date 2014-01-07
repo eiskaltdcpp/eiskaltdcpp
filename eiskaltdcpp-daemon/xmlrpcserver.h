@@ -420,9 +420,9 @@ public:
         vector<StringMap> hublist;
         ServerThread::getInstance()->returnSearchResults(hublist, shuburl);
         vector<xmlrpc_c::value> tmp_array_in;
-        for (auto& hub : hublist) {
+        for (const auto& hub : hublist) {
             map<string, xmlrpc_c::value> tmp_struct_in;
-            for (auto& rearchresult : hub) {
+            for (const auto& rearchresult : hub) {
                 pair<string, xmlrpc_c::value> member(rearchresult.first, xmlrpc_c::value_string(rearchresult.second));
                 tmp_struct_in.insert(member);
             }
@@ -529,9 +529,9 @@ public:
         unordered_map<string,StringMap> listqueue;
         ServerThread::getInstance()->listQueue(listqueue);
         map<string, xmlrpc_c::value> tmp_struct1_in;
-        for (auto& item : listqueue) {
+        for (const auto& item : listqueue) {
             map<string, xmlrpc_c::value> tmp_struct2_in;
-            for (auto& parameter : item.second) {
+            for (const auto& parameter : item.second) {
                 pair<string, xmlrpc_c::value> member2(parameter.first, xmlrpc_c::value_string(parameter.second));
                 tmp_struct2_in.insert(member2);
             }
@@ -664,7 +664,7 @@ public:
         StringMap params;
         if (ServerThread::getInstance()->getUserInfo(params, snick, shuburl)) {
             map<string, xmlrpc_c::value> tmp_struct_in;
-            for (auto& parameter : params) {
+            for (const auto& parameter : params) {
                 pair<string, xmlrpc_c::value> member(parameter.first, xmlrpc_c::value_string(parameter.second));
                 tmp_struct_in.insert(member);
             }
@@ -705,9 +705,9 @@ public:
         unordered_map<string,StringMap> listhubs;
         ServerThread::getInstance()->listHubsFullDesc(listhubs);
         map<string, xmlrpc_c::value> tmp_struct1_in;
-        for (auto& hub : listhubs) {
+        for (const auto& hub : listhubs) {
             map<string, xmlrpc_c::value> tmp_struct2_in;
-            for (auto& parameter : hub.second) {
+            for (const auto& parameter : hub.second) {
                 pair<string, xmlrpc_c::value> member2(parameter.first, xmlrpc_c::value_string(parameter.second));
                 tmp_struct2_in.insert(member2);
             }
