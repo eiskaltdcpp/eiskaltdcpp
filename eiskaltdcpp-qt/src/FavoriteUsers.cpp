@@ -56,8 +56,8 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
     VarMap params;
 
-    for (auto i = ul.begin(); i != ul.end(); ++i) {
-        dcpp::FavoriteUser &u = i->second;
+    for (auto &i : ul) {
+        dcpp::FavoriteUser &u = i.second;
 
         if (WBGET(WB_FAVUSERS_AUTOGRANT)){
             u.setFlag(FavoriteUser::FLAG_GRANTSLOT);
@@ -96,10 +96,10 @@ bool FavoriteUsers::eventFilter(QObject *obj, QEvent *e){
                 QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
                 QList<FavoriteUserItem*> items;
 
-                foreach(const QModelIndex &i, indexes)
+                for (auto &i : indexes)
                     items.push_back(reinterpret_cast<FavoriteUserItem*>(i.internalPointer()));
 
-                foreach (FavoriteUserItem *i, items)
+                for (auto &i : items)
                     handleRemove(i->cid);
 
                 return true;
@@ -220,10 +220,10 @@ void FavoriteUsers::getFileList(const VarMap &params){
     }
 }
 
-void FavoriteUsers::handleBrowseShare(const QString & _cid){
+void FavoriteUsers::handleBrowseShare(const QString &cid){
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
-    auto i = ul.find(CID(_tq(_cid)));
+    auto i = ul.find(CID(_tq(cid)));
     if (i != ul.end()){
         dcpp::FavoriteUser &user = i->second;
 
@@ -236,7 +236,8 @@ void FavoriteUsers::handleBrowseShare(const QString & _cid){
 void FavoriteUsers::handleGrant(const QString &cid){
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
-    for (auto i = ul.begin(); i != ul.end(); ++i) {
+    auto i = ul.find(CID(_tq(cid)));
+    if (i != ul.end()){
         dcpp::FavoriteUser &u = i->second;
 
         if (_q(u.getUser()->getCID().toBase32()) == cid){
@@ -248,8 +249,6 @@ void FavoriteUsers::handleGrant(const QString &cid){
                 u.setFlag(FavoriteUser::FLAG_GRANTSLOT);
                 FavoriteManager::getInstance()->setAutoGrant(u.getUser(), true);
             }
-
-            break;
         }
     }
 }
@@ -258,7 +257,7 @@ void FavoriteUsers::slotContextMenu(){
     QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
     QList<FavoriteUserItem*> items;
 
-    foreach(const QModelIndex &i, indexes)
+    for (auto &i : indexes)
         items.push_back(reinterpret_cast<FavoriteUserItem*>(i.internalPointer()));
 
     if (items.size() < 1)
@@ -287,19 +286,19 @@ void FavoriteUsers::slotContextMenu(){
         return;
 
     if (ret == remove){
-        foreach(FavoriteUserItem *i, items)
+        for (auto &i : items)
             handleRemove(i->cid);
     }
     else if (ret == grant){
-        foreach(FavoriteUserItem *i, items)
+        for (auto &i : items)
             handleGrant(i->cid);
     }
     else if(ret == browse){
-        foreach(FavoriteUserItem *i, items)
+        for (auto &i : items)
             handleBrowseShare(i->cid);
     }
     else {
-        foreach(FavoriteUserItem *i, items)
+        for (auto &i : items)
             handleDesc(i->cid);
     }
 }
