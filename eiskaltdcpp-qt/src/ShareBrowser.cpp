@@ -140,7 +140,7 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     QStringList temp_pathes = DownloadToDirHistory::get();
 
     if (!temp_pathes.isEmpty()){
-        for (auto &t : temp_pathes){
+        for (const auto &t : temp_pathes){
             QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act->setToolTip(t);
             act->setData(t);
@@ -550,7 +550,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
 
     current_size = 0;
 
-    for (auto &dir : root->directories){
+    for (const auto &dir : root->directories){
         FileBrowserItem *child;
         quint64 size = 0;
         QList<QVariant> data;
@@ -571,7 +571,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
 
     DirectoryListing::File::List *files = &(root->files);
 
-    for (auto &file : *files){
+    for (const auto &file : *files){
         FileBrowserItem *child;
         quint64 size = 0;
         QList<QVariant> data;
@@ -602,7 +602,7 @@ void ShareBrowser::slotRightPaneSelChanged(const QItemSelection &, const QItemSe
     qulonglong selected_size    = 0;
     quint32    total_selected   = 0;
 
-    for (auto &i : list) {
+    for (const auto &i : list) {
         selected_size += reinterpret_cast<FileBrowserItem*>(i.internalPointer())->data(COLUMN_FILEBROWSER_ESIZE).toULongLong();
         total_selected++;
     }
@@ -799,7 +799,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         case Menu::Download:
         {
-            for (auto &index : list){
+            for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 if (item->file)
@@ -834,7 +834,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             DownloadToDirHistory::put(temp_pathes);
 
             if (!target.isEmpty()){
-                for (auto &index : list){
+                for (const auto &index : list){
                     FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                     if (item->file)
@@ -848,7 +848,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         case Menu::Alternates:
         {
-            for (auto &index : list){
+            for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 if (item->file){//search alternates only for files
@@ -869,7 +869,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             QString path, tth, magnet;
             qlonglong size;
 
-            for (auto &index : list){
+            for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 path = item->data(COLUMN_FILEBROWSER_NAME).toString();
@@ -894,7 +894,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             QString path, tth, magnet;
             qlonglong size;
 
-            for (auto &index : list){
+            for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 path = item->data(COLUMN_FILEBROWSER_NAME).toString();
@@ -918,7 +918,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             QString path, tth, magnet;
             qlonglong size;
 
-            for (auto &index : list){
+            for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 path = item->data(COLUMN_FILEBROWSER_NAME).toString();
@@ -967,7 +967,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         {
             ShareManager *SM = ShareManager::getInstance();
 
-            for (auto &index : list){
+            for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
                 if (!item)
@@ -994,7 +994,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
                 }
                 catch ( ... ){ }
 
-                for (auto &it : lst){
+                for (const auto &it : lst){
                     if (QDir(_q(it)).exists())
 #ifndef Q_WS_WIN
                         QDesktopServices::openUrl(QUrl("file://"+_q(it)));
