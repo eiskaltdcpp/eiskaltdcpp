@@ -261,7 +261,7 @@ void ScriptEngine::registerStaticMembers(QScriptEngine &engine){
                                                      << "LogManagerScript"  << "FavoriteUsers"  << "HashManagerScript"
                                                      << "WulforUtil"        << "WulforSettings";
 
-    for (const auto cl : staticMembers) {
+    for (const auto &cl : staticMembers) {
         QScriptValue ct = engine.newFunction(staticMemberConstructor);
         ct.setProperty("className", cl, QScriptValue::ReadOnly);
         engine.globalObject().setProperty(cl, ct, QScriptValue::ReadOnly);
