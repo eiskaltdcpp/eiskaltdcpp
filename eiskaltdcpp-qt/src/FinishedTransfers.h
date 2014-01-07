@@ -420,7 +420,7 @@ private:
         QModelIndexList p_indexes = s_model->selectedRows(0);
         QModelIndexList indexes;
 
-        foreach (const QModelIndex &i, p_indexes)
+        for (const auto &i : p_indexes)
             indexes.push_back(proxy->mapToSource(i));
 
         if (indexes.size() < 1)
@@ -431,7 +431,7 @@ private:
         QString file;
         bool full;
 
-        foreach (const QModelIndex &i, indexes){
+        for (const auto &i : indexes){
             item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
             file = item->data(COLUMN_FINISHED_TARGET).toString();
             full = item->data(COLUMN_FINISHED_FULL).toBool();
@@ -440,7 +440,7 @@ private:
                 files.push_back(file);
         }
 
-        foreach (QString f, files)
+        for (const auto &f : files)
             openFile(f);
     }
 
@@ -451,7 +451,7 @@ private:
         QModelIndexList p_indexes = s_model->selectedRows(0);
         QModelIndexList indexes;
 
-        foreach (const QModelIndex &i, p_indexes)
+        for (const auto &i : p_indexes)
             indexes.push_back(proxy->mapToSource(i));
 
         if (indexes.size() < 1)
@@ -463,7 +463,7 @@ private:
             FinishedTransfersItem *item = NULL;
             QString file;
 
-            foreach (const QModelIndex &i, indexes){
+            for (const auto &i : indexes){
                 item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
                 file = item->data(COLUMN_FINISHED_TARGET).toString();
 
@@ -475,7 +475,7 @@ private:
             FinishedTransfersItem *item = NULL;
             QString file_list;
 
-            foreach (const QModelIndex &i, indexes){
+            for (const auto &i : indexes){
                 item = reinterpret_cast<FinishedTransfersItem*>(i.internalPointer());
                 file_list = item->data(COLUMN_FINISHED_PATH).toString();
 
@@ -498,11 +498,11 @@ private:
         delete m;
 
         if (ret == open_f){
-            foreach (QString f, files)
+            for (const auto &f : files)
                 openFile(f);
         }
         else if (ret == open_dir){
-            foreach (QString f, files){
+            for (auto &f : files){
                 f = f.left(f.lastIndexOf(QDir::separator())) + QDir::separator();
 
                 if (f.startsWith("/"))

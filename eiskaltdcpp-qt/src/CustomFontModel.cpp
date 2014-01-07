@@ -187,7 +187,7 @@ void CustomFontModel::itemDoubleClicked(const QModelIndex &i){
 }
 
 void CustomFontModel::ok(){
-    foreach (CustomFontItem *i, rootItem->childItems){
+    for (const auto &i : rootItem->childItems){
         if (!i->custom_font.isEmpty()){
             WSSET(i->key.toAscii().constData(), i->custom_font);
 

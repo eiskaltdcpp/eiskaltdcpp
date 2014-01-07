@@ -68,7 +68,7 @@ void SearchBlackListDialog::slotContextMenu(){
         s_m->select(model->addEmptyItem(), QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
     }
     else if (ret && !indexes.isEmpty()){
-        foreach (const QModelIndex &index, indexes){
+        for (const auto &index : indexes){
             SearchBlackListItem *i = reinterpret_cast<SearchBlackListItem*>(index.internalPointer());
 
             if (!i)
@@ -92,7 +92,7 @@ SearchBlackListModel::SearchBlackListModel(QObject * parent) :
     QList<QString> names = SB->getList(SearchBlacklist::NAME);
     QList<QString> tths  = SB->getList(SearchBlacklist::TTH);
 
-    foreach (const QString &name, names){
+    for (const auto &name : names){
         SearchBlackListItem * item = new SearchBlackListItem(rootItem);
         item->title = name;
         item->argument = SearchBlacklist::NAME;
@@ -100,7 +100,7 @@ SearchBlackListModel::SearchBlackListModel(QObject * parent) :
         rootItem->appendChild(item);
     }
 
-    foreach (const QString &tth, tths){
+    for (const auto &tth : tths){
         SearchBlackListItem * item = new SearchBlackListItem(rootItem);
         item->title = tth;
         item->argument = SearchBlacklist::TTH;
@@ -120,7 +120,7 @@ void SearchBlackListModel::save(){
     QList<QString> names;
     QList<QString> tths;
 
-    foreach (SearchBlackListItem *item, rootItem->childItems){
+    for (const auto &item : rootItem->childItems){
         QList<QString> &l = (item->argument == SearchBlacklist::NAME? names : tths);
 
         l.push_back(item->title);

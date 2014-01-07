@@ -64,7 +64,7 @@ void QuickConnect::slotAccept() {
         }
         QString hist = "";
 
-        foreach (const QString &i, list)
+        for (const auto &i : list)
             hist += (i + " ");
 
         WulforSettings::getInstance()->setStr(WS_QCONNECT_HISTORY, hist);

@@ -165,7 +165,7 @@ void PublicHubs::slotContextMenu(){
         PublicHubItem * item = NULL;
         MainWindow *MW = MainWindow::getInstance();
 
-        foreach (const QModelIndex &i, indexes){
+        for (const auto &i : indexes){
             item = reinterpret_cast<PublicHubItem*>(i.internalPointer());
 
             if (item)
@@ -177,7 +177,7 @@ void PublicHubs::slotContextMenu(){
     else if (ret == add_fav){
         PublicHubItem * item = NULL;
 
-        foreach (const QModelIndex &i, indexes){
+        for (const auto &i : indexes){
             item = reinterpret_cast<PublicHubItem*>(i.internalPointer());
 
             if (item && item->entry){
@@ -194,7 +194,7 @@ void PublicHubs::slotContextMenu(){
         PublicHubItem * item = NULL;
         QString out = "";
 
-        foreach (const QModelIndex &i, indexes){
+        for (const auto &i : indexes){
             item = reinterpret_cast<PublicHubItem*>(i.internalPointer());
 
             if (item)

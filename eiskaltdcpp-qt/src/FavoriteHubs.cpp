@@ -184,7 +184,7 @@ static bool isValidIP(const QString &ip){
     bool valid = true;
     int pos = 0;
 
-    foreach (QString s, l)
+    for (auto &s : l)
         valid = valid && (v.validate(s, pos) == QValidator::Acceptable);
 
     return valid;
@@ -494,7 +494,7 @@ void FavoriteHubs::on(FavoriteRemoved, const FavoriteHubEntryPtr entry) noexcept
 
     QList<FavoriteHubItem*> list = model->getItems();
 
-    foreach (FavoriteHubItem *i, list){
+    for (const auto &i : list){
         if (i->data(COLUMN_HUB_ADDRESS).toString() == server){
             item = i;
 

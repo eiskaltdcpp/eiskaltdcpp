@@ -488,7 +488,7 @@ bool SearchModel::okToFind(const SearchItem *item){
 
         SearchItem *tth_root = tths.value(tth);//try to find item by tth
 
-        foreach (SearchItem *i, tth_root->childItems){
+        for (const auto &i : tth_root->childItems){
             if (item == i)
                 return true;
         }
@@ -551,7 +551,7 @@ bool SearchItem::exists(const QString &user_cid) const {
     if (childItems.isEmpty())
         return cid == user_cid;
 
-    foreach(SearchItem *child, childItems) {
+    for (const auto &child : childItems) {
         if (child->cid == user_cid)
             return true;
     }

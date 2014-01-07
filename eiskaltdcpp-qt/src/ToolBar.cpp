@@ -28,7 +28,7 @@ ToolBar::ToolBar(QWidget *parent):
 }
 
 ToolBar::~ToolBar(){
-    foreach (QShortcut *s, shortcuts)
+    for (const auto &s : shortcuts)
         s->deleteLater();
 }
 
@@ -105,7 +105,7 @@ void ToolBar::initTabs(){
               << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_9), parentWidget()))
               << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_0), parentWidget()));
 
-    foreach (QShortcut *s, shortcuts){
+    for (const auto &s : shortcuts){
         s->setContext(Qt::ApplicationShortcut);
 
         connect(s, SIGNAL(activated()), this, SLOT(slotShorcuts()));

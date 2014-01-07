@@ -223,7 +223,7 @@ void SettingsDownloads::slotDownloadTo(){
         aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
         paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
 
-        foreach (QTreeWidgetItem *i, selected){
+        for (const auto &i : selected){
             QString alias = i->text(1);
             QString path  = i->text(0);
 

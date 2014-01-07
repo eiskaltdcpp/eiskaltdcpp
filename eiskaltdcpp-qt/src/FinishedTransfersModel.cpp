@@ -384,7 +384,7 @@ void FinishedTransfersModel::addFile(const QMap<QString, QVariant> &params){
             if (users.isEmpty())
                 continue;
             else{
-                foreach (QString nick, users){
+                for (const auto nick : users){
                     if (!old_users.contains(nick))
                         old_users.push_back(nick);
                 }

@@ -252,7 +252,7 @@ void ChatEdit::dropEvent(QDropEvent *e)
         e->setDropAction(Qt::IgnoreAction);
 
         QStringList fileNames;
-        foreach (QUrl url, e->mimeData()->urls()) {
+        for (const auto url : e->mimeData()->urls()) {
             QString urlStr = url.toString();
             if (url.scheme().toLower() == "file") {
                 QFileInfo fi( url.toLocalFile() );
