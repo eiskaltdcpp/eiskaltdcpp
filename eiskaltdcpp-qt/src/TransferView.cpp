@@ -435,11 +435,11 @@ void TransferView::slotContextMenu(const QPoint &){
 
     QList<TransferViewItem*> items;
 
-    for (auto &index : list){
+    for (const auto &index : list){
         TransferViewItem *i = reinterpret_cast<TransferViewItem*>(index.internalPointer());
 
         if (i->childCount() > 0){
-            for (auto &child : i->childItems)
+            for (const auto &child : i->childItems)
                 items.append(child);
         }
         else if (!items.contains(i))
@@ -457,7 +457,7 @@ void TransferView::slotContextMenu(const QPoint &){
     }
     case Menu::Browse:
     {
-        for (auto &i : items)
+        for (const auto &i : items)
             getFileList(i->cid, vstr(i->data(COLUMN_TRANSFER_HOST)));
 
         break;
@@ -466,7 +466,7 @@ void TransferView::slotContextMenu(const QPoint &){
     {
         QStringList tths;
         QString tth_str = "";
-        for (auto &item : items) {
+        for (const auto &item : items) {
             tth_str = getTTHFromItem(item);
             if (!tth_str.isEmpty() && !tths.contains(tth_str)){
                 tths.push_back(tth_str);
@@ -478,21 +478,21 @@ void TransferView::slotContextMenu(const QPoint &){
     }
     case Menu::MatchQueue:
     {
-        for (auto &i : items)
+        for (const auto &i : items)
             matchQueue(i->cid, vstr(i->data(COLUMN_TRANSFER_HOST)));
 
         break;
     }
     case Menu::AddToFav:
     {
-        for (auto &i : items)
+        for (const auto &i : items)
             addFavorite(i->cid);
 
         break;
     }
     case Menu::GrantExtraSlot:
     {
-        for (auto &i : items)
+        for (const auto &i : items)
             grantSlot(i->cid, vstr(i->data(COLUMN_TRANSFER_HOST)));
 
         break;
@@ -503,12 +503,12 @@ void TransferView::slotContextMenu(const QPoint &){
         QString data = "";
 
         if (col <= (model->columnCount()-1)){
-            for (auto &i : items)
+            for (const auto &i : items)
                 data += i->data(col).toString() + "\n";
         }
         else {
             QString tth_str = "";
-            for (auto &i : items){
+            for (const auto &i : items){
                 QFileInfo fi(i->target);
                 tth_str = getTTHFromItem(i);
 
@@ -532,21 +532,21 @@ void TransferView::slotContextMenu(const QPoint &){
     }
     case Menu::RemoveFromQueue:
     {
-        for (auto &i : items)
+        for (const auto &i : items)
             removeFromQueue(i->cid);
 
         break;
     }
     case Menu::Force:
     {
-        for (auto &i : items)
+        for (const auto &i : items)
             forceAttempt(i->cid);
 
         break;
     }
     case Menu::Close:
     {
-        for (auto &i : items)
+        for (const auto &i : items)
             closeConection(i->cid, i->download);
 
         break;
@@ -555,7 +555,7 @@ void TransferView::slotContextMenu(const QPoint &){
     {
         HubFrame *fr = NULL;
 
-        for (auto &i : items){
+        for (const auto &i : items){
             dcpp::CID cid(_tq(i->cid));
             QString hubUrl = i->data(COLUMN_TRANSFER_HOST).toString();
 
@@ -608,7 +608,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Starting, dcpp::Download* d
 }
 
 void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadList& dls) noexcept{
-    for (auto &it : dls){
+    for (const auto &it : dls){
         Download* dl = it;
         VarMap params;
         QString str;
@@ -787,7 +787,7 @@ void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) n
 }
 
 void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) noexcept{
-    for (auto &it : uls){
+    for (const auto &it : uls){
         Upload* ul = it;
         VarMap params;
         QString stat = "";

@@ -277,7 +277,7 @@ MainWindow::MainWindow (QWidget *parent):
 
     if (WBGET(WB_APP_REMOVE_NOT_EX_DIRS)){
         StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (auto &it : directories){
+        for (const auto &it : directories){
             QDir dir(_q(it.second));
 
             if (!dir.exists()){
@@ -1432,7 +1432,7 @@ void MainWindow::initToolbar(){
     if (enabled_actions.isEmpty())
         d->fBar->addActions(d->toolBarActions);
     else {
-        for (auto &objName : enabled_actions){
+        for (const auto &objName : enabled_actions){
             QAction *act = findChild<QAction*>(objName);
 
             if (act)
@@ -1799,7 +1799,7 @@ void MainWindow::setStatusMessage(QString msg){
 void MainWindow::autoconnect(){
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for (auto &i : fl) {
+    for (const auto &i : fl) {
         FavoriteHubEntry* entry = i;
 
         if (entry->getConnect()) {
@@ -1814,7 +1814,7 @@ void MainWindow::autoconnect(){
 }
 
 void MainWindow::parseCmdLine(const QStringList &args){
-    for (auto &arg : args){
+    for (const auto &arg : args){
         if (arg.startsWith("magnet:?")){
             Magnet m(this);
             m.setLink(arg);
@@ -2039,7 +2039,7 @@ void MainWindow::toggleMainMenu(bool showMenu){
 
             QMenu *m = new QMenu(this);
 
-            for (auto &a : menuBar()->actions())
+            for (const auto &a : menuBar()->actions())
                 m->addAction(a);
 
             compactMenus->setMenu(m);
@@ -2075,7 +2075,7 @@ void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const 
 void MainWindow::reloadSomeSettings(){
     Q_D(MainWindow);
 
-    for (auto &awgt : d->menuWidgetsHash.values()){
+    for (const auto &awgt : d->menuWidgetsHash.values()){
         HubFrame *fr = qobject_cast<HubFrame *>(awgt->getWidget());
 
         if (fr)
@@ -2557,7 +2557,7 @@ void MainWindow::slotToolbarCustomization() {
     toolButtonStyle->addAction(tr("Text beside icons"))->setData(Qt::ToolButtonTextBesideIcon);
     toolButtonStyle->addAction(tr("Text under icons"))->setData(Qt::ToolButtonTextUnderIcon);
 
-    for (auto &a : toolButtonStyle->actions()){
+    for (const auto &a : toolButtonStyle->actions()){
         a->setCheckable(true);
         a->setChecked(d->fBar->toolButtonStyle() == static_cast<Qt::ToolButtonStyle>(a->data().toInt()));
     }
@@ -2591,7 +2591,7 @@ void MainWindow::slotToolbarCustomizerDone(const QList<QAction*> &enabled){
 
     QStringList enabled_list;
 
-    for (auto &act : enabled){
+    for (const auto &act : enabled){
         if (!act)
             continue;
 

@@ -96,10 +96,10 @@ bool FavoriteUsers::eventFilter(QObject *obj, QEvent *e){
                 QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
                 QList<FavoriteUserItem*> items;
 
-                for (auto &i : indexes)
+                for (const auto &i : indexes)
                     items.push_back(reinterpret_cast<FavoriteUserItem*>(i.internalPointer()));
 
-                for (auto &i : items)
+                for (const auto &i : items)
                     handleRemove(i->cid);
 
                 return true;
@@ -257,7 +257,7 @@ void FavoriteUsers::slotContextMenu(){
     QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
     QList<FavoriteUserItem*> items;
 
-    for (auto &i : indexes)
+    for (const auto &i : indexes)
         items.push_back(reinterpret_cast<FavoriteUserItem*>(i.internalPointer()));
 
     if (items.size() < 1)
@@ -286,19 +286,19 @@ void FavoriteUsers::slotContextMenu(){
         return;
 
     if (ret == remove){
-        for (auto &i : items)
+        for (const auto &i : items)
             handleRemove(i->cid);
     }
     else if (ret == grant){
-        for (auto &i : items)
+        for (const auto &i : items)
             handleGrant(i->cid);
     }
     else if(ret == browse){
-        for (auto &i : items)
+        for (const auto &i : items)
             handleBrowseShare(i->cid);
     }
     else {
-        for (auto &i : items)
+        for (const auto &i : items)
             handleDesc(i->cid);
     }
 }
