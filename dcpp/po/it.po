@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-11-25 05:55+0200\n"
+"POT-Creation-Date: 2014-01-11 15:08+0400\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -185,7 +185,7 @@ msgstr "Connessione chiusa"
 msgid "Maximum command length exceeded"
 msgstr "La lunghezza massima del commando è stata superata"
 
-#: ../BufferedSocket.cpp:452
+#: ../BufferedSocket.cpp:456
 msgid "Disconnected"
 msgstr "Disconnesso"
 

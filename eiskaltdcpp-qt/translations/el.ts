@@ -366,17 +366,17 @@ Keys:
         <translation>Κανένα σφάλμα</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="652"/>
+        <location filename="../src/DownloadQueue.cpp" line="653"/>
         <source>Choose filename</source>
         <translation>Επιλέξετε όνομα αρχείου</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="652"/>
+        <location filename="../src/DownloadQueue.cpp" line="653"/>
         <source>All files (*.*)</source>
         <translation>Όλα τα αρχεία (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="792"/>
+        <location filename="../src/DownloadQueue.cpp" line="793"/>
         <source>Total files: &lt;b&gt;%1&lt;/b&gt; Total size: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Σύνολο αρχείων: &lt;b&gt;%1&lt;/b&gt; Συνολικό μέγεθος: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -597,26 +597,31 @@ Keys:
 <context>
     <name>FavoriteUsers</name>
     <message>
-        <location filename="../src/FavoriteUsers.cpp" line="117"/>
-        <location filename="../src/FavoriteUsers.cpp" line="294"/>
+        <location filename="../src/FavoriteUsers.cpp" line="119"/>
+        <location filename="../src/FavoriteUsers.cpp" line="332"/>
         <source>Online</source>
         <translation>Συνδεδεμένο</translation>
     </message>
     <message>
-        <location filename="../src/FavoriteUsers.cpp" line="194"/>
-        <location filename="../src/FavoriteUsers.cpp" line="241"/>
+        <location filename="../src/FavoriteUsers.cpp" line="196"/>
+        <location filename="../src/FavoriteUsers.cpp" line="272"/>
         <source>Description</source>
         <translation>Περιγραφή</translation>
     </message>
     <message>
-        <location filename="../src/FavoriteUsers.cpp" line="238"/>
+        <location filename="../src/FavoriteUsers.cpp" line="269"/>
         <source>Remove</source>
         <translation>Διαγραφή</translation>
     </message>
     <message>
-        <location filename="../src/FavoriteUsers.cpp" line="244"/>
+        <location filename="../src/FavoriteUsers.cpp" line="275"/>
         <source>Grant/Remove slot</source>
         <translation>Χορήγηση/Διαγραφή υποδοχής</translation>
+    </message>
+    <message>
+        <location filename="../src/FavoriteUsers.cpp" line="278"/>
+        <source>Browse Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.h" line="46"/>
@@ -650,37 +655,37 @@ Keys:
 <context>
     <name>FileBrowserModel</name>
     <message>
-        <location filename="../src/FileBrowserModel.cpp" line="103"/>
+        <location filename="../src/FileBrowserModel.cpp" line="102"/>
         <source>%1 [%2 Gb]</source>
         <translation>%1 [%2 Gb]</translation>
     </message>
     <message>
-        <location filename="../src/FileBrowserModel.cpp" line="167"/>
+        <location filename="../src/FileBrowserModel.cpp" line="166"/>
         <source>File marked as a duplicate of another file: %1</source>
         <translation>Το αρχείο έχει επισημανθεί ως διπλότυπο άλλου αρχείου: %1</translation>
     </message>
     <message>
-        <location filename="../src/FileBrowserModel.cpp" line="199"/>
+        <location filename="../src/FileBrowserModel.cpp" line="198"/>
         <source>File already exists: %1</source>
         <translation>Το αρχείο υπάρχει ήδη: %1</translation>
     </message>
     <message>
-        <location filename="../src/FileBrowserModel.cpp" line="295"/>
+        <location filename="../src/FileBrowserModel.cpp" line="294"/>
         <source>Name</source>
         <translation>Όνομα</translation>
     </message>
     <message>
-        <location filename="../src/FileBrowserModel.cpp" line="295"/>
+        <location filename="../src/FileBrowserModel.cpp" line="294"/>
         <source>Size</source>
         <translation>Μέγεθος</translation>
     </message>
     <message>
-        <location filename="../src/FileBrowserModel.cpp" line="295"/>
+        <location filename="../src/FileBrowserModel.cpp" line="294"/>
         <source>Exact size</source>
         <translation>Ακριβές μέγεθος</translation>
     </message>
     <message>
-        <location filename="../src/FileBrowserModel.cpp" line="295"/>
+        <location filename="../src/FileBrowserModel.cpp" line="294"/>
         <source>TTH</source>
         <translation>TTH</translation>
     </message>
@@ -857,7 +862,7 @@ Keys:
     <name>HubFrame</name>
     <message>
         <location filename="../src/HubFrame.cpp" line="173"/>
-        <location filename="../src/HubFrame.cpp" line="1251"/>
+        <location filename="../src/HubFrame.cpp" line="1249"/>
         <source>Copy</source>
         <translation>Αντιγραφή</translation>
     </message>
@@ -893,7 +898,7 @@ Keys:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="180"/>
-        <location filename="../src/HubFrame.cpp" line="1250"/>
+        <location filename="../src/HubFrame.cpp" line="1248"/>
         <source>Add to Favorites</source>
         <translation>Προσθήκη στα αγαπημένα</translation>
     </message>
@@ -1012,456 +1017,456 @@ Keys:
         <translation>μη κοινόχρηστο</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1246"/>
+        <location filename="../src/HubFrame.cpp" line="1244"/>
         <source>Hub menu</source>
         <translation>Μενού κόμβου</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1248"/>
+        <location filename="../src/HubFrame.cpp" line="1246"/>
         <source>Reconnect</source>
         <translation>Επανασύνδεση</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1249"/>
+        <location filename="../src/HubFrame.cpp" line="1247"/>
         <source>Show widget</source>
         <translation>Εμφάνιση γραφικού συστατικου</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1252"/>
+        <location filename="../src/HubFrame.cpp" line="1250"/>
         <source>Hub IP</source>
         <translation>IP Κόμβου</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1253"/>
+        <location filename="../src/HubFrame.cpp" line="1251"/>
         <source>Hub URL</source>
         <translation>URL Κόμβου</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1254"/>
+        <location filename="../src/HubFrame.cpp" line="1252"/>
         <source>Hub Title</source>
         <translation>Τίτλος Κόμβου</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1258"/>
+        <location filename="../src/HubFrame.cpp" line="1256"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1272"/>
+        <location filename="../src/HubFrame.cpp" line="1270"/>
         <source>Hub Menu</source>
         <translation>Μενού Κόμβου</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1350"/>
-        <location filename="../src/HubFrame.cpp" line="1375"/>
+        <location filename="../src/HubFrame.cpp" line="1348"/>
+        <location filename="../src/HubFrame.cpp" line="1373"/>
         <source>Not connected</source>
         <translation>Χωρίς σύνδεση</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1408"/>
+        <location filename="../src/HubFrame.cpp" line="1406"/>
         <source>Chat cleared.</source>
         <translation>Καθαρίστηκε η συνομιλία.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1420"/>
+        <location filename="../src/HubFrame.cpp" line="1418"/>
         <source>Chat disabled.</source>
         <translation>Απενεργοποιήθηκε η συνομιλία.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1427"/>
+        <location filename="../src/HubFrame.cpp" line="1425"/>
         <source>Chat enabled.</source>
         <translation>Ενεργοποιήθηκε η συνομιλία.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1463"/>
+        <location filename="../src/HubFrame.cpp" line="1461"/>
         <source>Hub role: Operator</source>
         <translation>Ρόλο κόμβου: Διαχειριστής</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1465"/>
+        <location filename="../src/HubFrame.cpp" line="1463"/>
         <source>Hub role: User</source>
         <translation>Ρόλος κόμβου: Χρήστης</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1468"/>
+        <location filename="../src/HubFrame.cpp" line="1466"/>
         <source>
 Favorite user</source>
         <translation>
 Αγαπημένος χρήστης</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1541"/>
         <location filename="../src/HubFrame.cpp" line="1543"/>
-        <location filename="../src/HubFrame.cpp" line="1545"/>
+        <location filename="../src/HubFrame.cpp" line="1757"/>
         <location filename="../src/HubFrame.cpp" line="1759"/>
-        <location filename="../src/HubFrame.cpp" line="1761"/>
         <source>Away mode off</source>
         <translation>Κατάσταση απουσία ανενεργή</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1555"/>
         <location filename="../src/HubFrame.cpp" line="1557"/>
-        <location filename="../src/HubFrame.cpp" line="1559"/>
         <source>Away mode on: </source>
         <translation>Κατάσταση απουσία ενεργή</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1575"/>
         <location filename="../src/HubFrame.cpp" line="1577"/>
-        <location filename="../src/HubFrame.cpp" line="1579"/>
         <source>Aliases not found.</source>
         <translation>Δεν βρέθηκαν αντιστοιχίες.</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1597"/>
         <location filename="../src/HubFrame.cpp" line="1599"/>
-        <location filename="../src/HubFrame.cpp" line="1601"/>
         <source>Alias removed.</source>
         <translation>Αντιστοιχία αφαιρέθηκε.</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1610"/>
         <location filename="../src/HubFrame.cpp" line="1612"/>
-        <location filename="../src/HubFrame.cpp" line="1614"/>
+        <location filename="../src/HubFrame.cpp" line="1619"/>
         <location filename="../src/HubFrame.cpp" line="1621"/>
-        <location filename="../src/HubFrame.cpp" line="1623"/>
         <source>Invalid alias syntax.</source>
         <translation>Μη έγκυρη σύνταξη αντιστοιχίας</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1629"/>
         <location filename="../src/HubFrame.cpp" line="1631"/>
-        <location filename="../src/HubFrame.cpp" line="1633"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Αντιστοιχία %1 =&gt; %2 προστέθηκε</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1653"/>
         <location filename="../src/HubFrame.cpp" line="1655"/>
-        <location filename="../src/HubFrame.cpp" line="1657"/>
+        <location filename="../src/HubFrame.cpp" line="1662"/>
         <location filename="../src/HubFrame.cpp" line="1664"/>
-        <location filename="../src/HubFrame.cpp" line="1666"/>
         <source>Invalid command syntax.</source>
         <translation>Μη έγκυρη σύνταξη εντολής</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1676"/>
+        <location filename="../src/HubFrame.cpp" line="1674"/>
         <source>List of keywords:
 </source>
         <translation>Λίστα λέξεων-κλειδιών:</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1723"/>
+        <location filename="../src/HubFrame.cpp" line="1721"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
         <translation>αναλογία: %1 (αποστολές: %2, λήψεις: %3)</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1748"/>
         <location filename="../src/HubFrame.cpp" line="1750"/>
-        <location filename="../src/HubFrame.cpp" line="1752"/>
         <source>Aspell switched %1</source>
         <translation>Aspell είναι %1</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1748"/>
         <location filename="../src/HubFrame.cpp" line="1750"/>
-        <location filename="../src/HubFrame.cpp" line="1752"/>
         <source>on</source>
         <translation>ενεργό</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1748"/>
         <location filename="../src/HubFrame.cpp" line="1750"/>
-        <location filename="../src/HubFrame.cpp" line="1752"/>
         <source>off</source>
         <translation>ανενεργό</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1765"/>
         <location filename="../src/HubFrame.cpp" line="1767"/>
-        <location filename="../src/HubFrame.cpp" line="1769"/>
         <source>Chat has been cleared</source>
         <translation>Η συνομιλία έχει εκκαθαριστεί</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1819"/>
+        <location filename="../src/HubFrame.cpp" line="1817"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
         <translation>/aspell on/off - ενεργοποίηση/απενεργοποίηση ορθογραφικού ελέγχου
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1821"/>
+        <location filename="../src/HubFrame.cpp" line="1819"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
         <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - κατασκευή ψευδωνύμου /ALIAS_NAME σε /COMMAND
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1822"/>
+        <location filename="../src/HubFrame.cpp" line="1820"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
         <translation>/alias purge &lt;ALIAS_NAME&gt; - αφαίρεση ψευδωνύμου
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1823"/>
+        <location filename="../src/HubFrame.cpp" line="1821"/>
         <source>/alias list - list all aliases
 </source>
         <translation>/alias list - καταγραφή όλων των ψευδωνύμων
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1824"/>
+        <location filename="../src/HubFrame.cpp" line="1822"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
         <translation>/away &lt;message&gt; - ενεργοποίηση/απενεργοποίηση λειτουργίας απουσίας
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1825"/>
+        <location filename="../src/HubFrame.cpp" line="1823"/>
         <source>/back - set away-mode off
 </source>
         <translation>/back - απενεργοποίηση λειτουργίας απουσίας
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1826"/>
+        <location filename="../src/HubFrame.cpp" line="1824"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
         <translation>/browse &lt;nick&gt; - περιήγηση σε αρχεία χρηστών
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1827"/>
+        <location filename="../src/HubFrame.cpp" line="1825"/>
         <source>/clear - clear chat window
 </source>
         <translation>/clear - καθάρισμα παραθύρου συνομιλίας</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1828"/>
+        <location filename="../src/HubFrame.cpp" line="1826"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
         <translation>/kword add &lt;keyword&gt; - προσθήκη προσαρμοσμένης λέξης-κλειδί που θα τονίζεται στην συνομιλία
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1829"/>
+        <location filename="../src/HubFrame.cpp" line="1827"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
         <translation>/kword purge &lt;keyword&gt; - κατάργηση προσαρμοσμένης λέξης-κλειδί
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1830"/>
+        <location filename="../src/HubFrame.cpp" line="1828"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
         <translation>/kword list - πλήρης λίστα λέξεων-κλειδιών που θα τονίζονται στην συνομιλία
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1831"/>
+        <location filename="../src/HubFrame.cpp" line="1829"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
         <translation>/magnet - προκαθορισμένη ενέργεια με magnet (0-ερώτηση, 1-αναζήτηση, 2-μεταφόρτωση)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1832"/>
+        <location filename="../src/HubFrame.cpp" line="1830"/>
         <source>/close - close this hub
 </source>
         <translation>/close - κλείσιμο αυτού του κόμβου
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1833"/>
+        <location filename="../src/HubFrame.cpp" line="1831"/>
         <source>/fav - add this hub to favorites
 </source>
         <translation>/fav - προσθύκη αυτού του κόμβου στα αγαπημένα
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1834"/>
+        <location filename="../src/HubFrame.cpp" line="1832"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
         <translation>/grant &lt;nick&gt; - παραχώρηση επιπλέον υποδοχής στον χρήστη
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1835"/>
+        <location filename="../src/HubFrame.cpp" line="1833"/>
         <source>/help, /?, /h - show this help
 </source>
         <translation>/help, /;, /h - δείξε αυτή τη βοήθεια
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1836"/>
+        <location filename="../src/HubFrame.cpp" line="1834"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
         <translation>/info &lt;nick&gt; - δείξε πληροφορίες για τον χρήστη
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1837"/>
+        <location filename="../src/HubFrame.cpp" line="1835"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
         <translation>/ratio [show] - δείξε την αναλογία [αποστολή στην συνομιλία]
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1838"/>
+        <location filename="../src/HubFrame.cpp" line="1836"/>
         <source>/me - say a third person
 </source>
         <translation>/me - αναφορά σε τρίτο πρόσωπο
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1839"/>
+        <location filename="../src/HubFrame.cpp" line="1837"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
         <translation>/pm &lt;nick&gt; - έναρξη ιδιωτικής συνομιλίας με χρήστη
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1840"/>
+        <location filename="../src/HubFrame.cpp" line="1838"/>
         <source>/ws param value - set gui option param in value (without value return current value of option)
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1841"/>
+        <location filename="../src/HubFrame.cpp" line="1839"/>
         <source>/dcpps param value - set core option param in value (without value return current value of option)
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1843"/>
+        <location filename="../src/HubFrame.cpp" line="1841"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
         <translation>/luafile &lt;file&gt; - φόρτωση αρχείου Lua
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1844"/>
+        <location filename="../src/HubFrame.cpp" line="1842"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
         <translation>/lua &lt;chunk&gt; - εκτέλεση κομματιού Lua
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2096"/>
+        <location filename="../src/HubFrame.cpp" line="2094"/>
         <source> joins the chat</source>
         <translation> προσέρχεται στην συνομιλία</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2101"/>
-        <location filename="../src/HubFrame.cpp" line="2158"/>
+        <location filename="../src/HubFrame.cpp" line="2099"/>
+        <location filename="../src/HubFrame.cpp" line="2156"/>
         <source>Favorites</source>
         <translation>Αγαπημένα</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2101"/>
+        <location filename="../src/HubFrame.cpp" line="2099"/>
         <source>%1 is now online</source>
         <translation>Ο/Η %s μόλις συνδέθηκε</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2114"/>
+        <location filename="../src/HubFrame.cpp" line="2112"/>
         <source>User online.</source>
         <translation>Ο χρήστης συνδέθηκε.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2153"/>
+        <location filename="../src/HubFrame.cpp" line="2151"/>
         <source> left the chat</source>
         <translation> έχει φύγει από τη συνομιλία</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2158"/>
+        <location filename="../src/HubFrame.cpp" line="2156"/>
         <source>%1 is now offline</source>
         <translation>Ο/Η %s μόλις αποσυνδέθηκε</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2197"/>
-        <location filename="../src/HubFrame.cpp" line="2211"/>
+        <location filename="../src/HubFrame.cpp" line="2195"/>
+        <location filename="../src/HubFrame.cpp" line="2209"/>
         <source>User not found</source>
         <translation>Δε βρέθηκε ο χρήστης</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2218"/>
+        <location filename="../src/HubFrame.cpp" line="2216"/>
         <source>Slot granted to </source>
         <translation>Υποδοχή παραχωρήθηκε στο/-η </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2277"/>
+        <location filename="../src/HubFrame.cpp" line="2275"/>
         <source> has been added to favorites.</source>
         <translation> προστέθηκε στα αγαπημένα.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2277"/>
+        <location filename="../src/HubFrame.cpp" line="2275"/>
         <source> has been removed from favorites.</source>
         <translation> αφαιρέθηκε από τα αγαπημένα.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2309"/>
+        <location filename="../src/HubFrame.cpp" line="2307"/>
         <source>Favorite hub added.</source>
         <translation>Προστέθηκε ο κόμβος στα αγαπημένα.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2312"/>
+        <location filename="../src/HubFrame.cpp" line="2310"/>
         <source>Favorite hub already exists.</source>
         <translation>Υπάρχει ήδη ως αγαπημένος κόμβος.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2532"/>
+        <location filename="../src/HubFrame.cpp" line="2530"/>
         <source>User offline.</source>
         <translation>Χρήστης χωρίς σύνδεση.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2571"/>
+        <location filename="../src/HubFrame.cpp" line="2569"/>
         <source>Stored password sent...</source>
         <translation>Απεστάλη ο αποθηκευμένος κωδικός...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2574"/>
+        <location filename="../src/HubFrame.cpp" line="2572"/>
         <source>Password</source>
         <translation>Κωδικός</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2588"/>
-        <location filename="../src/HubFrame.cpp" line="3751"/>
+        <location filename="../src/HubFrame.cpp" line="2586"/>
+        <location filename="../src/HubFrame.cpp" line="3748"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Λήφθηκε αίτηση ανακατεύθυνσης σε κόμβο που είναι ήδη συνδεδεμένος</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2660"/>
+        <location filename="../src/HubFrame.cpp" line="2658"/>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Καταμέτρηση χρηστών: %3/%1 | Σύνολο κοινόχρηστου: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2666"/>
+        <location filename="../src/HubFrame.cpp" line="2664"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Καταμέτρηση χρηστών: %1 | Σύνολο κοινόχρηστου: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3535"/>
+        <location filename="../src/HubFrame.cpp" line="3532"/>
         <source>Add to dictionary</source>
         <translation>Προσθήκη στο λεξικό</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3541"/>
+        <location filename="../src/HubFrame.cpp" line="3538"/>
         <source>Suggestions</source>
         <translation>Προτάσεις</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3710"/>
+        <location filename="../src/HubFrame.cpp" line="3707"/>
         <source>Connecting to %1</source>
         <translation>Γίνεται σύνδεση με %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3718"/>
+        <location filename="../src/HubFrame.cpp" line="3715"/>
         <source>Connected to %1</source>
         <translation>Συνδέθηκε με %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3761"/>
+        <location filename="../src/HubFrame.cpp" line="3758"/>
         <source>Fail: %1...</source>
         <translation>Απέτυχε: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3955"/>
+        <location filename="../src/HubFrame.cpp" line="3952"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Συγνώμη, αλλά το ψευδώνυμο &quot;%1&quot; χρησιμοποιείται ήδη από άλλο χρήστη.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3961"/>
+        <location filename="../src/HubFrame.cpp" line="3958"/>
         <source>Search flood detected: %1</source>
         <translation>Ανιχνεύτηκε πλημμύρα αναζήτησης: %1</translation>
     </message>
@@ -3018,33 +3023,33 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Αναζήτηση</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="499"/>
+        <location filename="../src/SearchFrame.cpp" line="497"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1099"/>
+        <location filename="../src/SearchFrame.cpp" line="1097"/>
         <source>Search - %1</source>
         <translation>Αναζήτηση - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1207"/>
-        <location filename="../src/SearchFrame.cpp" line="1265"/>
+        <location filename="../src/SearchFrame.cpp" line="1205"/>
+        <location filename="../src/SearchFrame.cpp" line="1263"/>
         <source>Select directory</source>
         <translation>Επιλογή καταλόγου</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1573"/>
+        <location filename="../src/SearchFrame.cpp" line="1571"/>
         <source>Searching for %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1590"/>
+        <location filename="../src/SearchFrame.cpp" line="1588"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Κανένα αποτέλεσμα&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1599"/>
+        <location filename="../src/SearchFrame.cpp" line="1597"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Βρέθηκαν: &lt;b&gt;%1&lt;/b&gt;  Απορρίφτηκαν: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -3584,38 +3589,38 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="596"/>
-        <location filename="../src/ShareBrowser.cpp" line="620"/>
+        <location filename="../src/ShareBrowser.cpp" line="593"/>
+        <location filename="../src/ShareBrowser.cpp" line="615"/>
         <source>Total size: %1</source>
         <translation>Συνολικό μέγεθος: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="618"/>
+        <location filename="../src/ShareBrowser.cpp" line="613"/>
         <source>Selected %1 from %2 items; </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="623"/>
+        <location filename="../src/ShareBrowser.cpp" line="618"/>
         <source>; Selected: %1</source>
         <translation>; Επιλέχθηκε: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="824"/>
+        <location filename="../src/ShareBrowser.cpp" line="819"/>
         <source>Select directory</source>
         <translation>Επιλογή καταλόγου</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="954"/>
+        <location filename="../src/ShareBrowser.cpp" line="949"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Εισάγετε περιορισμό μεγέθους (σε GB)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1093"/>
+        <location filename="../src/ShareBrowser.cpp" line="1087"/>
         <source>Share browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1100"/>
+        <location filename="../src/ShareBrowser.cpp" line="1094"/>
         <source>Matched %1 files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3686,85 +3691,85 @@ Downloaded: %3 Uploaded: %4</source>
     <name>SideBarModel</name>
     <message>
         <location filename="../src/SideBar.cpp" line="56"/>
-        <location filename="../src/SideBar.cpp" line="410"/>
+        <location filename="../src/SideBar.cpp" line="404"/>
         <source>Hubs</source>
         <translation>Κόμβοι</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="57"/>
-        <location filename="../src/SideBar.cpp" line="411"/>
+        <location filename="../src/SideBar.cpp" line="405"/>
         <source>Private Messages</source>
         <translation>Προσωπικά Μηνύματα</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="58"/>
-        <location filename="../src/SideBar.cpp" line="412"/>
+        <location filename="../src/SideBar.cpp" line="406"/>
         <source>Search</source>
         <translation>Αναζήτηση</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="59"/>
-        <location filename="../src/SideBar.cpp" line="413"/>
+        <location filename="../src/SideBar.cpp" line="407"/>
         <source>Share Browsers</source>
         <translation>Περιηγητές Κοινόχρηστων</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="60"/>
-        <location filename="../src/SideBar.cpp" line="414"/>
+        <location filename="../src/SideBar.cpp" line="408"/>
         <source>ADLSearch</source>
         <translation>Αναζήτηση ADL</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="61"/>
-        <location filename="../src/SideBar.cpp" line="415"/>
+        <location filename="../src/SideBar.cpp" line="409"/>
         <source>Download Queue</source>
         <translation>Ουρά Λήψεων</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="62"/>
-        <location filename="../src/SideBar.cpp" line="423"/>
+        <location filename="../src/SideBar.cpp" line="417"/>
         <source>Queued Users</source>
         <translation>Χρήστες σε Αναμονή</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="63"/>
-        <location filename="../src/SideBar.cpp" line="416"/>
+        <location filename="../src/SideBar.cpp" line="410"/>
         <source>Finished Uploads</source>
         <translation>Ολοκληρωμένες Αποστολές</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="64"/>
-        <location filename="../src/SideBar.cpp" line="417"/>
+        <location filename="../src/SideBar.cpp" line="411"/>
         <source>Finished Downloads</source>
         <translation>Ολοκληρωμένες Λήψεις</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="65"/>
-        <location filename="../src/SideBar.cpp" line="418"/>
+        <location filename="../src/SideBar.cpp" line="412"/>
         <source>Favorite Hubs</source>
         <translation>Αγαπημένη Κόμβοι</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="66"/>
-        <location filename="../src/SideBar.cpp" line="419"/>
+        <location filename="../src/SideBar.cpp" line="413"/>
         <source>Favorite Users</source>
         <translation>Αγαπημένοι Χρήστες</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="67"/>
-        <location filename="../src/SideBar.cpp" line="420"/>
+        <location filename="../src/SideBar.cpp" line="414"/>
         <source>Public Hubs</source>
         <translation>Δημόσιοι Κόμβοι</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="68"/>
-        <location filename="../src/SideBar.cpp" line="421"/>
+        <location filename="../src/SideBar.cpp" line="415"/>
         <source>Spy</source>
         <translation>Κατάσκοπος</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="70"/>
-        <location filename="../src/SideBar.cpp" line="422"/>
+        <location filename="../src/SideBar.cpp" line="416"/>
         <source>Other Widgets</source>
         <translation>Άλλα γραφικά συστατικά</translation>
     </message>
@@ -3777,42 +3782,42 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>SideBarView</name>
     <message>
-        <location filename="../src/SideBar.cpp" line="560"/>
+        <location filename="../src/SideBar.cpp" line="554"/>
         <source>Close all</source>
         <translation>Κλείσιμο όλων</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="581"/>
+        <location filename="../src/SideBar.cpp" line="575"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="640"/>
+        <location filename="../src/SideBar.cpp" line="634"/>
         <source>Choose file to open</source>
         <translation>Επιλογή αρχείου για άνοιγμα</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="642"/>
+        <location filename="../src/SideBar.cpp" line="636"/>
         <source>Modern XML Filelists</source>
         <translation>Σύγχρονες Λίστες Αρχείων XML</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="643"/>
+        <location filename="../src/SideBar.cpp" line="637"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Σύγχρονες Λίστες Αρχείων XML αποσυμπιεσμένες</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="644"/>
+        <location filename="../src/SideBar.cpp" line="638"/>
         <source>All files</source>
         <translation>Όλα τα αρχεία</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="659"/>
+        <location filename="../src/SideBar.cpp" line="653"/>
         <source>Open log file</source>
         <translation>Άνοιγμα αρχείου καταγραφής</translation>
     </message>
     <message>
-        <location filename="../src/SideBar.cpp" line="659"/>
+        <location filename="../src/SideBar.cpp" line="653"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation>Αρχεία καταγραφής (*.log);;Όλα τα αρχεία (*.*)</translation>
     </message>
@@ -3990,7 +3995,7 @@ Do you want to stop it?
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="343"/>
-        <location filename="../src/TransferView.cpp" line="652"/>
+        <location filename="../src/TransferView.cpp" line="650"/>
         <source>Download complete</source>
         <translation>Η λήψη ολοκληρώθηκε</translation>
     </message>
@@ -4005,90 +4010,90 @@ Do you want to stop it?
         <translation>TTH: </translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="595"/>
+        <location filename="../src/TransferView.cpp" line="593"/>
         <source>Requesting</source>
         <translation>Αίτηση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="606"/>
+        <location filename="../src/TransferView.cpp" line="604"/>
         <source>Download starting...</source>
         <translation>Η λήψη ξεκινάει... </translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="624"/>
-        <location filename="../src/TransferView.cpp" line="802"/>
+        <location filename="../src/TransferView.cpp" line="622"/>
+        <location filename="../src/TransferView.cpp" line="800"/>
         <source>[S]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="626"/>
-        <location filename="../src/TransferView.cpp" line="804"/>
+        <location filename="../src/TransferView.cpp" line="624"/>
+        <location filename="../src/TransferView.cpp" line="802"/>
         <source>[U]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="630"/>
+        <location filename="../src/TransferView.cpp" line="628"/>
         <source>[T]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="632"/>
-        <location filename="../src/TransferView.cpp" line="807"/>
+        <location filename="../src/TransferView.cpp" line="630"/>
+        <location filename="../src/TransferView.cpp" line="805"/>
         <source>[Z]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="636"/>
+        <location filename="../src/TransferView.cpp" line="634"/>
         <source>Downloaded %1</source>
         <translation>Λήφθηκε %1</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="637"/>
+        <location filename="../src/TransferView.cpp" line="635"/>
         <source> (%1%)</source>
         <translation> (%1%)</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="691"/>
+        <location filename="../src/TransferView.cpp" line="689"/>
         <source>Connecting...</source>
         <translation>Σύνδεση...</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="715"/>
+        <location filename="../src/TransferView.cpp" line="713"/>
         <source>Connected</source>
         <translation>Συνδέθηκε</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="746"/>
+        <location filename="../src/TransferView.cpp" line="744"/>
         <source>Connecting</source>
         <translation>Συνδέεται</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="748"/>
+        <location filename="../src/TransferView.cpp" line="746"/>
         <source>No download slots</source>
         <translation>Δεν υπάρχουν υποδοχές λήψης</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="750"/>
+        <location filename="../src/TransferView.cpp" line="748"/>
         <source>Waiting to retry</source>
         <translation>Αναμονή για νέα προσπάθεια</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="784"/>
+        <location filename="../src/TransferView.cpp" line="782"/>
         <source>Upload starting...</source>
         <translation>Η αποστολή ξεκινάει... </translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="811"/>
+        <location filename="../src/TransferView.cpp" line="809"/>
         <source>Uploaded %1 (%2%) </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="828"/>
+        <location filename="../src/TransferView.cpp" line="826"/>
         <source>Upload complete</source>
         <translation>Το αποστολή ολοκληρώθηκε</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="840"/>
+        <location filename="../src/TransferView.cpp" line="838"/>
         <source>Upload failed</source>
         <translation>Η αποστολή απέτυχε</translation>
     </message>
@@ -7194,68 +7199,68 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
         <translation type="unfinished">Προεπιλογή συστήματος</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="956"/>
-        <location filename="../src/WulforUtil.cpp" line="970"/>
+        <location filename="../src/WulforUtil.cpp" line="957"/>
+        <location filename="../src/WulforUtil.cpp" line="971"/>
         <source>%1 B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="958"/>
+        <location filename="../src/WulforUtil.cpp" line="959"/>
         <source>%1 KiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="960"/>
+        <location filename="../src/WulforUtil.cpp" line="961"/>
         <source>%1 MiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="962"/>
+        <location filename="../src/WulforUtil.cpp" line="963"/>
         <source>%1 GiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="964"/>
+        <location filename="../src/WulforUtil.cpp" line="965"/>
         <source>%1 TiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="966"/>
+        <location filename="../src/WulforUtil.cpp" line="967"/>
         <source>%1 PiB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="972"/>
+        <location filename="../src/WulforUtil.cpp" line="973"/>
         <source>%1 KB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="974"/>
+        <location filename="../src/WulforUtil.cpp" line="975"/>
         <source>%1 MB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="976"/>
+        <location filename="../src/WulforUtil.cpp" line="977"/>
         <source>%1 GB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="978"/>
+        <location filename="../src/WulforUtil.cpp" line="979"/>
         <source>%1 TB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="980"/>
+        <location filename="../src/WulforUtil.cpp" line="981"/>
         <source>%1 PB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1030"/>
+        <location filename="../src/WulforUtil.cpp" line="1031"/>
         <source>Offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1133"/>
+        <location filename="../src/WulforUtil.cpp" line="1134"/>
         <source>User commands</source>
         <translation type="unfinished"></translation>
     </message>
