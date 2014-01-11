@@ -239,7 +239,7 @@ MainWindow::MainWindow():
         string("  2013-2014 gray aka grayich <grayich@ukr.net>\n")+
         string("\n")+
         _("Serbian (Latin) translation\n")+
-        string("  2010-2013 Miroslav Petrovic <miroslav031@gmail.com>\n")+
+        string("  2010-2014 Miroslav Petrovic <miroslav031@gmail.com>\n")+
         string("\n")+
         _("Spanish translation\n")+
         string("  2010-2013 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
