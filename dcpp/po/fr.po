@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -10,14 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-11-25 05:55+0200\n"
+"POT-Creation-Date: 2014-01-11 15:08+0400\n"
 "PO-Revision-Date: 2013-11-25 09:03+0000\n"
 "Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/eiskaltdcpp/language/fr/)\n"
+"Language-Team: French (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -109,7 +110,9 @@ msgstr "Base de données re-créée"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr "%1% non partagé ; le CRC32 calculé ne correspond pas avec celui trouvé dans le fichier SFV ."
+msgstr ""
+"%1% non partagé ; le CRC32 calculé ne correspond pas avec celui trouvé dans "
+"le fichier SFV ."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -125,9 +128,10 @@ msgstr "Recherche des meilleurs paramètres de connexion..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr "Impossible d'ouvrir le(s) port(s) %1% ; les paramètres doivent être configurés manuellement"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr ""
+"Impossible d'ouvrir le(s) port(s) %1% ; les paramètres doivent être "
+"configurés manuellement"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
@@ -138,13 +142,17 @@ msgstr "IP publique détectée, sélection du mode actif avec connexion directe"
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr "Réseau local avec un possible NAT détecté, tentative de redirection des ports avec UPnP..."
+msgstr ""
+"Réseau local avec un possible NAT détecté, tentative de redirection des "
+"ports avec UPnP..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr "La configuration automatique du mode actif a échoué. Vous devriez la configurer manuellement pour de meilleurs transferts"
+msgstr ""
+"La configuration automatique du mode actif a échoué. Vous devriez la "
+"configurer manuellement pour de meilleurs transferts"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -175,7 +183,7 @@ msgstr "Connexion fermée"
 msgid "Maximum command length exceeded"
 msgstr "Dépassement de la longueur maximale de la commande"
 
-#: ../BufferedSocket.cpp:452
+#: ../BufferedSocket.cpp:456
 msgid "Disconnected"
 msgstr "Déconnecté"
 
@@ -217,11 +225,14 @@ msgstr "Ce fichier est déjà dans la liste de téléchargement"
 
 #: ../QueueManager.cpp:723 ../QueueManager.cpp:799
 msgid "A file with a different size already exists in the queue"
-msgstr "Un fichier d'une taille différente existe dans la liste de téléchargement"
+msgstr ""
+"Un fichier d'une taille différente existe dans la liste de téléchargement"
 
 #: ../QueueManager.cpp:727
 msgid "A file with different tth root already exists in the queue"
-msgstr "Un fichier avec une clé TTH différente existe déjà dans la liste de téléchargement"
+msgstr ""
+"Un fichier avec une clé TTH différente existe déjà dans la liste de "
+"téléchargement"
 
 #: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
@@ -243,7 +254,9 @@ msgstr "Nom du fichier cible trop long"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr "Fichier cible invalide (dossier manquant ; vérifier l'option du dossier des téléchargements par défaut)"
+msgstr ""
+"Fichier cible invalide (dossier manquant ; vérifier l'option du dossier des "
+"téléchargements par défaut)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -267,7 +280,8 @@ msgstr "Impossible de déplacer %1% vers %2% (%3); renommé en %4%"
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr "Impossible de déplacer %1% vers %2% (%3) ou même de le renommer en %4% (%5)"
+msgstr ""
+"Impossible de déplacer %1% vers %2% (%3) ou même de le renommer en %4% (%5)"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -278,8 +292,7 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: %2% fichier(s) correspond(ent)"
 
 #: ../QueueManager.cpp:1796
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
+msgid "Target path for this item is not available: %1%; pause this queue item."
 msgstr "Le chemin de cet élément n'est pas disponible: %1%; pause."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
@@ -302,7 +315,9 @@ msgstr "Impossible de négocier le protocole de base"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr "Le serveur utilise probablement une ancienne version d'ADC, veuillez encourager l'hébergeur à mettre à jour son programme."
+msgstr ""
+"Le serveur utilise probablement une ancienne version d'ADC, veuillez "
+"encourager l'hébergeur à mettre à jour son programme."
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -340,7 +355,9 @@ msgstr "Sujet du serveur:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr "Ce serveur tente d'utiliser votre client pour spammer %1%, veuillez contacter l'administrateur pour qu'il règle le problème."
+msgstr ""
+"Ce serveur tente d'utiliser votre client pour spammer %1%, veuillez "
+"contacter l'administrateur pour qu'il règle le problème."
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -402,7 +419,9 @@ msgstr " Port DHT (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr "Redirection de ports réussie (TCP: %1%, UDP: %2%, TLS: %3%), redirigés en utilisant l'interface %4%"
+msgstr ""
+"Redirection de ports réussie (TCP: %1%, UDP: %2%, TLS: %3%), redirigés en "
+"utilisant l'interface %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -564,13 +583,16 @@ msgstr "Fichier temporaire ignoré: %1% (Taille: %2%)"
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr "Ficher en double non partagé : %1% (Taille : %2% o) Est identique à : %3%"
+msgstr ""
+"Ficher en double non partagé : %1% (Taille : %2% o) Est identique à : %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
-msgstr "Mise à jour de la liste de fichiers en cours, veuillez attendre qu'elle se termine avant de ré-essayer"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Mise à jour de la liste de fichiers en cours, veuillez attendre qu'elle se "
+"termine avant de ré-essayer"
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
@@ -640,17 +662,23 @@ msgstr "Le serveur socks requiert une authentification"
 
 #: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
-msgstr "Le serveur socks ne supporte pas l'autentification par identifiant / mot de passe"
+msgstr ""
+"Le serveur socks ne supporte pas l'autentification par identifiant / mot de "
+"passe"
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr "Échec lors de l'authentification au serveur socks (mauvais identifiant / mot de passe ?)"
+msgstr ""
+"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot "
+"de passe ?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr "Impossible de configurer le serveur socks en tant que relais UDP (vérifier l'adresse et le port du serveur socks)"
+msgstr ""
+"Impossible de configurer le serveur socks en tant que relais UDP (vérifier "
+"l'adresse et le port du serveur socks)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
