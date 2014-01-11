@@ -2677,7 +2677,7 @@ void MainWindow::slotAboutClient(){
         QString("&nbsp; 2009-2013 <a href=\"mailto:dhamp@ya.ru\">Eugene Petrov</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (Arch Linux maintainer and developer since version 0.4.10)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; 2010-2013 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        QString("&nbsp; 2010-2014 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
         tr("&nbsp;&nbsp;&nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2013 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
@@ -2702,7 +2702,7 @@ void MainWindow::slotAboutClient(){
         QString("<br/>")+
         tr("Russian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2009-2010 <a href=\"mailto:wiselord1983@gmail.com\">Uladzimir Bely</a><br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2013 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
         QString("<br/>")+
         tr("Belarusian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2009-2013 <a href=\"mailto:i.kliok@gmail.com\">Paval Shalamitski</a> aka Klyok<br/>")+
@@ -2726,7 +2726,7 @@ void MainWindow::slotAboutClient(){
         QString("<br/>")+
         tr("Spanish translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2013 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2012 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012-2014 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
         QString("<br/>")+
         tr("Bulgarian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:dimitrov.rusi@gmail.com\">Rusi Dimitrov</a> aka PsyTrip<br/>")+

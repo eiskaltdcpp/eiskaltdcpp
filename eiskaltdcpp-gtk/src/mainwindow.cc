@@ -204,7 +204,7 @@ MainWindow::MainWindow():
     const gchar * const authors[] =
     {
         _("Developers"),
-        "  2010-2013 Boris Pek <tehnick-8@mail.ru>",
+        "  2010-2014 Boris Pek <tehnick-8@mail.ru>",
         "  2010-2013 Eugene Petrov <dhamp@ya.ru>",
         "  ",
         _("Contributors"),
@@ -218,7 +218,7 @@ MainWindow::MainWindow():
 
     string translator_credits =
         _("Russian translation\n")+
-        string("  2010-2013 Boris Pek aka Tehnick <tehnick-8@mail.ru>\n")+
+        string("  2010-2014 Boris Pek aka Tehnick <tehnick-8@mail.ru>\n")+
         string("  2012 Vyacheslav Tretyakov <tret2003@gmail.com>\n")+
         string("\n")+
         _("Belarusian translation\n")+
@@ -243,7 +243,7 @@ MainWindow::MainWindow():
         string("\n")+
         _("Spanish translation\n")+
         string("  2010-2013 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
-        string("  2012 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
+        string("  2012-2014 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
         string("\n")+
         _("Bulgarian translation\n")+
         string("  2010-2012 Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>\n")+
