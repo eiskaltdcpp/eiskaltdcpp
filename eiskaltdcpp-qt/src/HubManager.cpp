@@ -58,10 +58,8 @@ QObject *HubManager::getHub(const QString &url){
 QList<QObject*> HubManager::getHubs() const {
     QList<QObject*> list;
 
-    auto it = hubs.constBegin();
-
-    for(; it != hubs.constEnd(); ++it)
-        list << qobject_cast<QObject*>(const_cast<HubFrame*>(it.value()));
+    for (const auto &hub : hubs)
+        list << qobject_cast<QObject*>(const_cast<HubFrame*>(hub));
 
     return list;
 }

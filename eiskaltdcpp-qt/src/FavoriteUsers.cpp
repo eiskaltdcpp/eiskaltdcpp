@@ -10,8 +10,6 @@
 #include "FavoriteUsers.h"
 #include "WulforUtil.h"
 #include "FavoriteUsersModel.h"
-#include "ArenaWidgetManager.h"
-#include "ArenaWidgetFactory.h"
 
 #include <QMenu>
 #include <QInputDialog>
@@ -20,10 +18,10 @@
 #include <QItemSelectionModel>
 
 #include "dcpp/ClientManager.h"
+#include "dcpp/QueueManager.h"
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
 #include "dcpp/Util.h"
-#include <dcpp/QueueManager.h>
 
 
 using namespace dcpp;
@@ -58,8 +56,8 @@ FavoriteUsers::FavoriteUsers(QWidget *parent) :
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
     VarMap params;
 
-    for (auto i = ul.begin(); i != ul.end(); ++i) {
-        dcpp::FavoriteUser &u = i->second;
+    for (auto &i : ul) {
+        dcpp::FavoriteUser &u = i.second;
 
         if (WBGET(WB_FAVUSERS_AUTOGRANT)){
             u.setFlag(FavoriteUser::FLAG_GRANTSLOT);
@@ -98,10 +96,10 @@ bool FavoriteUsers::eventFilter(QObject *obj, QEvent *e){
                 QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
                 QList<FavoriteUserItem*> items;
 
-                foreach(const QModelIndex &i, indexes)
+                for (const auto &i : indexes)
                     items.push_back(reinterpret_cast<FavoriteUserItem*>(i.internalPointer()));
 
-                foreach (FavoriteUserItem *i, items)
+                for (const auto &i : items)
                     handleRemove(i->cid);
 
                 return true;
@@ -207,53 +205,39 @@ void FavoriteUsers::handleDesc(const QString & _cid){
 
 void FavoriteUsers::getFileList(const VarMap &params){
     string cid  = params["CID"].toString().toStdString();
-    string dir  = "";
     string hub  = params["HUB"].toString().toStdString();
 
     if (cid.empty())
         return;
 
-    try {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
-
-        if (user)
-            QueueManager::getInstance()->addList(HintedUser(user, hub),  QueueItem::FLAG_CLIENT_VIEW, dir);
+    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+    if (user){
+        try {
+            QueueManager::getInstance()->addList(HintedUser(user, hub),  QueueItem::FLAG_CLIENT_VIEW, "");
+        } catch(const Exception&) {
+            // ...
+        }
     }
-    catch (const Exception&){}
-
 }
 
-void FavoriteUsers::handleBrowseShare(const QString & _cid){
-     FavoriteUserItem *item = model->itemForCID(_cid);
-     static QString old = "";
+void FavoriteUsers::handleBrowseShare(const QString &cid){
+    FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
-     if (!item)
-         return;
+    auto i = ul.find(CID(_tq(cid)));
+    if (i != ul.end()){
+        dcpp::FavoriteUser &user = i->second;
 
-     dcpp::CID cid(_tq(_cid));
-     const dcpp::UserPtr &user = ClientManager::getInstance()->findUser(cid);
-
-     if (user){
-
-         VarMap params;
-         FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();;
-
-         auto i = ul.find(cid);
-         if (ul.end() != i){
-             dcpp::FavoriteUser &user = i->second;
-
-             getParams(params, user);
-             getFileList(params);
-         }
-         else return;
-     }
-
+        VarMap params;
+        getParams(params, user);
+        getFileList(params);
+    }
 }
 
 void FavoriteUsers::handleGrant(const QString &cid){
     FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
-    for (auto i = ul.begin(); i != ul.end(); ++i) {
+    auto i = ul.find(CID(_tq(cid)));
+    if (i != ul.end()){
         dcpp::FavoriteUser &u = i->second;
 
         if (_q(u.getUser()->getCID().toBase32()) == cid){
@@ -265,8 +249,6 @@ void FavoriteUsers::handleGrant(const QString &cid){
                 u.setFlag(FavoriteUser::FLAG_GRANTSLOT);
                 FavoriteManager::getInstance()->setAutoGrant(u.getUser(), true);
             }
-
-            break;
         }
     }
 }
@@ -275,7 +257,7 @@ void FavoriteUsers::slotContextMenu(){
     QModelIndexList indexes = treeView->selectionModel()->selectedRows(0);
     QList<FavoriteUserItem*> items;
 
-    foreach(const QModelIndex &i, indexes)
+    for (const auto &i : indexes)
         items.push_back(reinterpret_cast<FavoriteUserItem*>(i.internalPointer()));
 
     if (items.size() < 1)
@@ -304,19 +286,19 @@ void FavoriteUsers::slotContextMenu(){
         return;
 
     if (ret == remove){
-        foreach(FavoriteUserItem *i, items)
+        for (const auto &i : items)
             handleRemove(i->cid);
     }
     else if (ret == grant){
-        foreach(FavoriteUserItem *i, items)
+        for (const auto &i : items)
             handleGrant(i->cid);
     }
     else if(ret == browse){
-        foreach(FavoriteUserItem *i, items)
+        for (const auto &i : items)
             handleBrowseShare(i->cid);
     }
     else {
-        foreach(FavoriteUserItem *i, items)
+        for (const auto &i : items)
             handleDesc(i->cid);
     }
 }

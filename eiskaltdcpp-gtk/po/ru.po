@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Translators:
 # Boris Pek <tehnick-8@mail.ru>, 2012
 # Boris Pek <tehnick-8@yandex.ru>, 2012-2013
+# Boris Pek <tehnick-8@yandex.ru>, 2014
 # Вячеслав Третьяков <tret2003@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-11-25 05:55+0200\n"
-"PO-Revision-Date: 2013-11-19 16:39+0000\n"
+"POT-Creation-Date: 2014-01-11 15:13+0400\n"
+"PO-Revision-Date: 2014-01-11 11:13+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/ru/)\n"
@@ -1037,12 +1039,11 @@ msgstr "Проверка каждые"
 
 #: ../src/settingsdialog.cc:1094
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Китайский (Китай)"
 
 #: ../src/mainwindow.cc:273
-#, fuzzy
 msgid "Chinese (China) translation\n"
-msgstr "Сербский (Латиница) перевод\n"
+msgstr "Китайский (Китай) перевод\n"
 
 #: ../ui/settingsdialog.ui:8582
 msgid "Choose a File"

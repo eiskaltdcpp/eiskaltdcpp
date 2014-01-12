@@ -20,7 +20,7 @@ struct DownloadToDirHistory {
         QString paths = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
         QStringList result;
 
-        foreach (QString path, paths.replace("\r","").split("\n", QString::SkipEmptyParts)) {
+        for (auto path : paths.replace("\r","").split("\n", QString::SkipEmptyParts)) {
             if (path.endsWith(QDir::separator()))
                 path = path.left(path.length()-1);
 

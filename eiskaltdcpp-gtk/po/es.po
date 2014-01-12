@@ -3,17 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Klondike klondikeño <franxisco1988@gmail.com>, 2013
+# Translators:
+# Klondike klondikeño <franxisco1988@gmail.com>, 2013-2014
 # Klondike klondikeño <franxisco1988@gmail.com>, 2012
 # Gustavo Alvarez Lopez <sl1pkn07@gmail.com>, 2012-2013
-# Klondike klondikeño <franxisco1988@gmail.com>, 2012
+# Klondike klondikeño <franxisco1988@gmail.com>, 2012-2013
+# korsakof <korsakofc@gmail.com>, 2012
 # korsakof <korsakofc@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2013-11-25 05:55+0200\n"
-"PO-Revision-Date: 2013-11-19 16:39+0000\n"
+"POT-Creation-Date: 2014-01-11 15:08+0400\n"
+"PO-Revision-Date: 2014-01-10 17:31+0000\n"
 "Last-Translator: Klondike klondikeño <franxisco1988@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/es/)\n"
@@ -1041,12 +1043,11 @@ msgstr "Comprobar todos"
 
 #: ../src/settingsdialog.cc:1094
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Chino (China)"
 
 #: ../src/mainwindow.cc:273
-#, fuzzy
 msgid "Chinese (China) translation\n"
-msgstr "Traducción al Servio (Latín)\n"
+msgstr "Traducción al Serbio (Latin)\n"
 
 #: ../ui/settingsdialog.ui:8582
 msgid "Choose a File"
@@ -3108,7 +3109,7 @@ msgstr "Traducción al Serbio (Latín)"
 
 #: ../src/mainwindow.cc:241
 msgid "Serbian (Latin) translation\n"
-msgstr "Traducción al Servio (Latín)\n"
+msgstr "Traducción al Serbio (Latín)\n"
 
 #: ../src/hub.cc:2066
 msgid ""

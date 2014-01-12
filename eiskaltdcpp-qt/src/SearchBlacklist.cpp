@@ -70,10 +70,10 @@ void SearchBlacklist::saveLists(){
 
     QTextStream stream(&f);
 
-    foreach(const QString &line, list[NAME])
+    for (const QString &line : list[NAME])
         stream << "NAME:" << line << "\n";
 
-    foreach(const QString &line, list[TTH])
+    for (const QString &line : list[TTH])
         stream << "TTH:" << line << "\n";
 
     f.close();
@@ -82,7 +82,7 @@ void SearchBlacklist::saveLists(){
 bool SearchBlacklist::ok(const QString &exp, Argument type){
     const QList<QString> &l = (type == NAME)? list[NAME] : list[TTH];
 
-    foreach (const QString &str, l){
+    for (const QString &str : l){
         QRegExp reg_exp(str, Qt::CaseInsensitive, QRegExp::Wildcard);
 
         if (reg_exp.exactMatch(exp))

@@ -146,7 +146,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
 
         QList<QString> keys = getKeys();
 
-        foreach (QString key, keys){
+        for (auto key : keys){
             if (key.toUpper() == msg.toUpper()){
                 (*this) << eIN_GRAY << WulforUtil::getInstance()->getNicks(cid);
                 log(tr("%1: Moving user to GRAY.").arg(cid));

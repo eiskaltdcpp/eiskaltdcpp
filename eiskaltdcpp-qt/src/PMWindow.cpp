@@ -68,7 +68,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     if (EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
 
-    foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+    for (const auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
         connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
 
     setAttribute(Qt::WA_DeleteOnClose);
@@ -581,7 +581,7 @@ void PMWindow::slotSmileContextMenu(){
     QMenu *m = new QMenu(this);
     QAction * a = NULL;
 
-    foreach (const QString &f, QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+    for (const auto &f : QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
             QAction * act = m->addAction(f);
             act->setCheckable(true);
@@ -615,7 +615,7 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
 
             EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
 
-            foreach(EmoticonLabel *l, frame_SMILES->findChildren<EmoticonLabel*>())
+            for (const auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
                 connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
         }
 

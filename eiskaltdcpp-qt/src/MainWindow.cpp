@@ -277,12 +277,12 @@ MainWindow::MainWindow (QWidget *parent):
 
     if (WBGET(WB_APP_REMOVE_NOT_EX_DIRS)){
         StringPairList directories = ShareManager::getInstance()->getDirectories();
-        for (auto it = directories.begin(); it != directories.end(); ++it){
-            QDir dir(_q(it->second));
+        for (const auto &it : directories){
+            QDir dir(_q(it.second));
 
             if (!dir.exists()){
                 try {
-                    ShareManager::getInstance()->removeDirectory(it->second);
+                    ShareManager::getInstance()->removeDirectory(it.second);
                 }
                 catch (const std::exception&){}
             }
@@ -1432,7 +1432,7 @@ void MainWindow::initToolbar(){
     if (enabled_actions.isEmpty())
         d->fBar->addActions(d->toolBarActions);
     else {
-        foreach (const QString &objName, enabled_actions){
+        for (const auto &objName : enabled_actions){
             QAction *act = findChild<QAction*>(objName);
 
             if (act)
@@ -1799,8 +1799,8 @@ void MainWindow::setStatusMessage(QString msg){
 void MainWindow::autoconnect(){
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for (auto i = fl.begin(); i != fl.end(); ++i) {
-        FavoriteHubEntry* entry = *i;
+    for (const auto &i : fl) {
+        FavoriteHubEntry* entry = i;
 
         if (entry->getConnect()) {
             if (entry->getNick().empty() && SETTING(NICK).empty())
@@ -1814,7 +1814,7 @@ void MainWindow::autoconnect(){
 }
 
 void MainWindow::parseCmdLine(const QStringList &args){
-    foreach (const QString &arg, args){
+    for (const auto &arg : args){
         if (arg.startsWith("magnet:?")){
             Magnet m(this);
             m.setLink(arg);
@@ -1881,7 +1881,7 @@ void MainWindow::redrawToolPanel(){
     PMWindow *pm = NULL;
     bool has_unread = false;
 
-    for(; it != end; ++it){ //also redraw all widget menu items and change window title if needed
+    for (; it != end; ++it){ //also redraw all widget menu items and change window title if needed
         awgt = it.value();
         it.key()->setText(awgt->getArenaShortTitle());
         it.key()->setIcon(awgt->getPixmap());
@@ -2001,7 +2001,7 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
         throw std::runtime_error(_tq(Q_FUNC_INFO) + ": NULL argument");
 
     if (sender() && qobject_cast<QAction*>(sender()) && a->getWidget()){
-        QAction *act = reinterpret_cast<QAction*>(sender());;
+        QAction *act = reinterpret_cast<QAction*>(sender());
 
         act->setCheckable(true);
 
@@ -2039,7 +2039,7 @@ void MainWindow::toggleMainMenu(bool showMenu){
 
             QMenu *m = new QMenu(this);
 
-            foreach (QAction *a, menuBar()->actions())
+            for (const auto &a : menuBar()->actions())
                 m->addAction(a);
 
             compactMenus->setMenu(m);
@@ -2075,7 +2075,7 @@ void MainWindow::showShareBrowser(dcpp::UserPtr usr, const QString &file, const 
 void MainWindow::reloadSomeSettings(){
     Q_D(MainWindow);
 
-    foreach (ArenaWidget *awgt, d->menuWidgetsHash.values()){
+    for (const auto &awgt : d->menuWidgetsHash.values()){
         HubFrame *fr = qobject_cast<HubFrame *>(awgt->getWidget());
 
         if (fr)
@@ -2557,7 +2557,7 @@ void MainWindow::slotToolbarCustomization() {
     toolButtonStyle->addAction(tr("Text beside icons"))->setData(Qt::ToolButtonTextBesideIcon);
     toolButtonStyle->addAction(tr("Text under icons"))->setData(Qt::ToolButtonTextUnderIcon);
 
-    foreach (QAction *a, toolButtonStyle->actions()){
+    for (const auto &a : toolButtonStyle->actions()){
         a->setCheckable(true);
         a->setChecked(d->fBar->toolButtonStyle() == static_cast<Qt::ToolButtonStyle>(a->data().toInt()));
     }
@@ -2591,7 +2591,7 @@ void MainWindow::slotToolbarCustomizerDone(const QList<QAction*> &enabled){
 
     QStringList enabled_list;
 
-    foreach (QAction *act, enabled){
+    for (const auto &act : enabled){
         if (!act)
             continue;
 
@@ -2677,7 +2677,7 @@ void MainWindow::slotAboutClient(){
         QString("&nbsp; 2009-2013 <a href=\"mailto:dhamp@ya.ru\">Eugene Petrov</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (Arch Linux maintainer and developer since version 0.4.10)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; 2010-2013 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        QString("&nbsp; 2010-2014 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
         tr("&nbsp;&nbsp;&nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2013 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
@@ -2702,7 +2702,7 @@ void MainWindow::slotAboutClient(){
         QString("<br/>")+
         tr("Russian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2009-2010 <a href=\"mailto:wiselord1983@gmail.com\">Uladzimir Bely</a><br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2013 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
         QString("<br/>")+
         tr("Belarusian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2009-2013 <a href=\"mailto:i.kliok@gmail.com\">Paval Shalamitski</a> aka Klyok<br/>")+
@@ -2719,14 +2719,14 @@ void MainWindow::slotAboutClient(){
         QString("<br/>")+
         tr("Ukrainian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010 <a href=\"mailto:dmytro.demenko@gmail.com\">Dmytro Demenko</a><br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2013 <a href=\"mailto:grayich@ukr.net\">gray</a> aka grayich<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2013-2014 <a href=\"mailto:grayich@ukr.net\">gray</a> aka grayich<br/>")+
         QString("<br/>")+
         tr("Serbian (Latin) translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2013 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
         QString("<br/>")+
         tr("Spanish translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2013 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2012 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012-2014 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
         QString("<br/>")+
         tr("Bulgarian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:dimitrov.rusi@gmail.com\">Rusi Dimitrov</a> aka PsyTrip<br/>")+
@@ -2826,8 +2826,8 @@ void MainWindow::slotUpdateFavHubMenu() {
 
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
 
-    for(auto i = fl.cbegin(); i != fl.cend(); ++i) {
-        const FavoriteHubEntry &entry = *(*i);
+    for (auto &i : fl) {
+        const FavoriteHubEntry &entry = *i;
 
         QString url = _q(entry.getServer());
         QString name = entry.getName().empty() ? tr("[No name]") : _q(entry.getName());

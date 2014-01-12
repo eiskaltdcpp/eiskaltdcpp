@@ -138,7 +138,7 @@ void DownloadQueue::Menu::clearMenu(QMenu *m){
 
     QList<QAction*> actions = m->actions();
 
-   foreach (QAction *a, actions)
+   for (const auto &a : actions)
        m->removeAction(a);
 
    qDeleteAll(actions);
@@ -241,7 +241,7 @@ void DownloadQueue::requestDelete(){
 
     QList<DownloadQueueItem*> items;
 
-    foreach (const QModelIndex &i, list){
+    for (const auto &i : list){
         DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(i.internalPointer());
 
         if (!item)
@@ -254,7 +254,7 @@ void DownloadQueue::requestDelete(){
     }
 
     QueueManager *QM = QueueManager::getInstance();
-    foreach (DownloadQueueItem *i, items){
+    for (const auto &i : items){
         QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
 
         try {
@@ -532,7 +532,7 @@ void DownloadQueue::getChilds(DownloadQueueItem *i, QList<DownloadQueueItem *> &
     if (i->childCount() < 1)
         return;
 
-    foreach(DownloadQueueItem *ii, i->childItems)
+    for (const auto &ii : i->childItems)
         getChilds(ii, list);
 }
 
@@ -542,7 +542,7 @@ void DownloadQueue::getItems(const QModelIndexList &list, QList<DownloadQueueIte
     if (list.isEmpty())
         return;
 
-    foreach (const QModelIndex &i, list){
+    for (const auto &i : list){
         DownloadQueueItem *item = reinterpret_cast<DownloadQueueItem*>(i.internalPointer());
 
         getChilds(item, items);
@@ -588,7 +588,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         {
             SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
-            foreach (DownloadQueueItem *i, items)
+            for (const auto &i : items)
                 sf->searchAlternates(i->data(COLUMN_DOWNLOADQUEUE_TTH).toString());
 
             break;
@@ -597,7 +597,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         {
             QString magnet = "";
 
-            foreach (DownloadQueueItem *i, items)
+            for (const auto &i : items)
                 magnet += WulforUtil::getInstance()->makeMagnet(
                         i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
                         i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
@@ -612,13 +612,14 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         {
             QString magnet = "";
 
-            foreach (DownloadQueueItem *i, items)
+            for (const auto &i : items){
                 magnet += "[magnet=\"" +
                     WulforUtil::getInstance()->makeMagnet(
                         i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
                         i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
                         i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) +
                     "\"]"+i->data(COLUMN_DOWNLOADQUEUE_NAME).toString()+"[/magnet]\n";
+            }
 
             if (!magnet.isEmpty())
                 qApp->clipboard()->setText(magnet, QClipboard::Clipboard);
@@ -629,7 +630,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         {
             QString magnet = "";
 
-            foreach (DownloadQueueItem *i, items){
+            for (const auto &i : items){
                 magnet = WulforUtil::getInstance()->makeMagnet(
                     i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
                     i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
@@ -646,7 +647,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         }
         case Menu::RenameMove:
         {
-            foreach (DownloadQueueItem *i, items){
+            for (const auto &i : items){
                 QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() +
                                  i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
                 QString new_target = QFileDialog::getSaveFileName(this, tr("Choose filename"), target, tr("All files (*.*)"));
@@ -664,7 +665,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         }
         case Menu::SetPriority:
         {
-            foreach (DownloadQueueItem *i, items){
+            for (const auto &i : items){
                 QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
 
                 try {
@@ -701,7 +702,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             QString nick = ((++it).key());
             QList<QObject*> list = HubManager::getInstance()->getHubs();
 
-            foreach (QObject *obj, list){
+            for (const auto &obj : list){
                 HubFrame *fr = qobject_cast<HubFrame*>(obj);
 
                 if (!fr)
@@ -754,7 +755,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         }
         case Menu::Remove:
         {
-            foreach (DownloadQueueItem *i, items){
+            for (const auto &i : items){
                 QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
 
                 try {

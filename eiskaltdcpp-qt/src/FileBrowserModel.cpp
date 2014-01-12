@@ -50,9 +50,8 @@ FileBrowserModel::~FileBrowserModel()
 
         if (f.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){
             QTextStream stream(&f);
-            auto it = restrict_map.begin();
 
-            for(; it != restrict_map.end(); ++it)
+            for (auto it = restrict_map.begin(); it != restrict_map.end(); ++it)
                 stream << it.value() << " " << it.key() << '\n';
 
             stream.flush();
@@ -403,8 +402,8 @@ void FileBrowserModel::fetchMore(const QModelIndex &parent){
         DirectoryListing::Directory::Iter it;
         QModelIndex i = createIndexForItem(item);
 
-        for (it = item->dir->directories.begin(); it != item->dir->directories.end(); ++it)//loading child directories
-            fetchBranch(i, *it);
+        for (const auto &dir : item->dir->directories) //loading child directories
+            fetchBranch(i, dir);
 
         sortRecursive(sortColumn, sortOrder, item);
     }
@@ -422,7 +421,7 @@ static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i){
     else if (order == Qt::DescendingOrder)
         dcomp.sort(column, i->childItems);
 
-    foreach(FileBrowserItem *ii, i->childItems)
+    for (const auto &ii : i->childItems)
         sortRecursive(column, order, ii);
 }
 
@@ -520,7 +519,7 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
     if (list.empty() || !root)
         return NULL;
 
-    foreach (QString s, list){
+    for (const auto &s : list){
         if (s.isEmpty())
             continue;
 
@@ -540,11 +539,11 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
         if (root->dir && !root->dir->directories.empty() && !root->childCount()) //Load child items
             fetchMore(createIndexForItem(root));
 
-        foreach(FileBrowserItem *item, root->childItems){
+        for (const auto &item : root->childItems){
             if (!item->dir)
                 continue;
 
-            QString name = (item == rootItem?"":item->data(COLUMN_FILEBROWSER_NAME).toString());
+            QString name = (item == rootItem ? "" : item->data(COLUMN_FILEBROWSER_NAME).toString());
 
             if (!name.compare(s, Qt::CaseSensitive)){
                 root = item;
@@ -572,7 +571,7 @@ void FileBrowserModel::highlightDuplicates(){
     if (!rootItem || !rootItem->childCount())
         return;
 
-    foreach (FileBrowserItem *i, rootItem->childItems){
+    for (const auto &i : rootItem->childItems){
         const QString &tth = i->data(COLUMN_FILEBROWSER_TTH).toString();
 
         if (tth.isEmpty())

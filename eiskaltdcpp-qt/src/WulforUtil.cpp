@@ -806,7 +806,7 @@ bool WulforUtil::getUserCommandParams(const UserCommand& uc, StringMap& params) 
 
     std::vector<std::function<void ()> > valueFs;
 
-    foreach(const string name, names) {
+    for (const auto &name : names) {
         QString caption = _q(name);
 
         if (uc.adc()) {
@@ -834,8 +834,8 @@ bool WulforUtil::getUserCommandParams(const UserCommand& uc, StringMap& params) 
         QHBoxLayout *hlayout = new QHBoxLayout(box);
 
         if (combo_sel >= 0) {
-            for(auto it = combo_values.begin(); it != combo_values.end(); it++)
-                it->replace("\t", "/");
+            for (auto &val : combo_values)
+                val.replace("\t", "/");
 
             QComboBox *combo = new QComboBox(box);
             hlayout->addWidget(combo);
@@ -875,7 +875,8 @@ bool WulforUtil::getUserCommandParams(const UserCommand& uc, StringMap& params) 
     if (dlg.exec() != QDialog::Accepted)
         return false;
 
-    foreach(auto fs, valueFs) fs();
+    for (const auto &fs : valueFs)
+        fs();
 
     return true;
 }
@@ -1114,8 +1115,8 @@ void WulforUtil::headerMenu(QTreeView *tree){
 
 QMenu *WulforUtil::buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* parent) {
     dcpp::StringList hubs;
-    foreach (const QString &s, hub_list)
-        hubs.push_back(_tq(s));
+    for (const auto &hub : hub_list)
+        hubs.push_back(_tq(hub));
 
     return buildUserCmdMenu(hubs, ctx, parent);
 }
@@ -1133,7 +1134,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
     QMenu *ucMenu = new QMenu(tr("User commands"), parent);
 
     QMenu *menuPtr = ucMenu;
-    for(size_t n = 0; n < userCommands.size(); ++n) {
+    for (size_t n = 0; n < userCommands.size(); ++n) {
         UserCommand *uc = &userCommands[n];
         if (uc->getType() == UserCommand::TYPE_SEPARATOR) {
             // Avoid double separators...
@@ -1144,9 +1145,11 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
             }
         } else if (uc->isRaw() || uc->isChat()) {
             menuPtr = ucMenu;
-            for(auto ibegin = uc->getDisplayName().begin(), iend = uc->getDisplayName().end(); ibegin != iend; ++ibegin) {
-                const QString name = _q(*ibegin);
-                if (ibegin + 1 == iend) {
+            auto _ptr = uc->getDisplayName().begin();
+            auto _end = uc->getDisplayName().end();
+            for(; _ptr != _end; ++_ptr) {
+                const QString name = _q(*_ptr);
+                if (_ptr + 1 == _end) {
                     QAction *act = menuPtr->addAction(name);
                     act->setToolTip(_q(uc->getCommand()));
                     act->setStatusTip(_q(uc->getName()));

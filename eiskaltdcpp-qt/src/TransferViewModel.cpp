@@ -455,7 +455,7 @@ bool TransferViewModel::findParent(const QString &target, TransferViewItem **ite
     if (!item)
         return false;
 
-    foreach (TransferViewItem *i, rootItem->childItems){
+    for (const auto &i : rootItem->childItems){
         if ((i->download == download) && i->target == target && i->cid.isEmpty()){
             *item = i;
 
@@ -505,7 +505,7 @@ void TransferViewModel::moveTransfer(TransferViewItem *item, TransferViewItem *f
 }
 
 void TransferViewModel::updateParents(){
-    foreach(TransferViewItem *i, rootItem->childItems)
+    for (const auto &i : rootItem->childItems)
         updateParent(i);
 
     emit layoutChanged();
@@ -525,7 +525,7 @@ void TransferViewModel::updateParent(TransferViewItem *p){
 
     totalSize = vlng(p->data(COLUMN_TRANSFER_SIZE));
 
-    foreach (TransferViewItem *i, p->childItems){
+    for (const auto &i : p->childItems){
         if (!i->fail){
             active++;
             speed += vdbl(i->data(COLUMN_TRANSFER_SPEED));
@@ -554,7 +554,7 @@ void TransferViewModel::updateParent(TransferViewItem *p){
                    + QString(" (%1%)").arg(progress, 0, 'f', 1);
 
     QString hubs_str;
-    foreach(const QString &s, hubs)
+    for (const QString &s : hubs)
         hubs_str += s + " ";
 
     if (vstr(p->data(COLUMN_TRANSFER_FNAME)).startsWith(tr("TTH: "))){
@@ -607,7 +607,7 @@ void TransferViewModel::finishParent(const VarMap &params){
     p->finished = true;
     p->updateColumn(COLUMN_TRANSFER_SPEED, qlonglong(0));
 
-    foreach (TransferViewItem *i, p->childItems){
+    for (const auto &i : p->childItems){
         i->updateColumn(COLUMN_TRANSFER_STATS, tr("Finished"));
         i->percent = 100.0;
         i->finished = true;
