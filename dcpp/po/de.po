@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Jackl <be.w@mail.ru>, 2013
+# Translators:
+# Jackl <be.w@mail.ru>, 2013-2014
 # Jackl <be.w@mail.ru>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-01-11 15:08+0400\n"
-"PO-Revision-Date: 2013-11-19 16:45+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/eiskaltdcpp/"
-"language/de/)\n"
-"Language: de\n"
+"PO-Revision-Date: 2014-01-13 23:26+0000\n"
+"Last-Translator: Jackl <be.w@mail.ru>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/eiskaltdcpp/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -110,9 +110,7 @@ msgstr "Hash-Datenbank neu erstellt"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% nicht gemeinsam benutzt; berechnete CRC32 passt nicht zur gefundenen SFV-"
-"Datei"
+msgstr "%1% nicht gemeinsam benutzt; berechnete CRC32 passt nicht zur gefundenen SFV-Datei"
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -128,34 +126,26 @@ msgstr "Beste Verbindungseinstellungen werden festgelegt …"
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-"%1% Port(s) können nicht geöffnet werden; Verbindungseinstellungen müssen "
-"manuell konfiguriert werden"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr "%1% Port(s) können nicht geöffnet werden; Verbindungseinstellungen müssen manuell konfiguriert werden"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr ""
-"Öffentliche IP-Adresse entdeckt, es wird der aktive Modus mit direkter "
-"Verbindung gewählt."
+msgstr "Öffentliche IP-Adresse entdeckt, es wird der aktive Modus mit direkter Verbindung gewählt."
 
 #: ../ConnectivityManager.cpp:102
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr ""
-"lokales Netzwerk mit möglichem NAT entdeckt, es wird versucht, die Ports mit "
-"UPnP zu öffnen…"
+msgstr "lokales Netzwerk mit möglichem NAT entdeckt, es wird versucht, die Ports mit UPnP zu öffnen…"
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"Die automatische Einrichtung des aktiven Modus ist fehlgeschlagen. "
-"Vielleicht möchten Sie für eine bessere Verbindungsfähigkeit Ihre Verbindung "
-"manuell einrichten."
+msgstr "Die automatische Einrichtung des aktiven Modus ist fehlgeschlagen. Vielleicht möchten Sie für eine bessere Verbindungsfähigkeit Ihre Verbindung manuell einrichten."
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -220,9 +210,7 @@ msgstr "TTH-Alternativen werden gesucht für: %1%"
 
 #: ../QueueManager.cpp:684 ../QueueManager.cpp:745
 msgid "A file with the same hash already exists in your share"
-msgstr ""
-"In Ihrem gemeinsamen Verzeichnis exisitert bereits eine Datei mit dem "
-"gleichen Hash-Wert."
+msgstr "In Ihrem gemeinsamen Verzeichnis exisitert bereits eine Datei mit dem gleichen Hash-Wert."
 
 #: ../QueueManager.cpp:710 ../QueueManager.cpp:787
 msgid "This file is already queued"
@@ -230,15 +218,11 @@ msgstr "Diese Datei wurde bereits in die Warteschlange eingereiht."
 
 #: ../QueueManager.cpp:723 ../QueueManager.cpp:799
 msgid "A file with a different size already exists in the queue"
-msgstr ""
-"In der Warteschlange exisitert bereits eine Datei mit einer "
-"unterschiedlichen Größe."
+msgstr "In der Warteschlange exisitert bereits eine Datei mit einer unterschiedlichen Größe."
 
 #: ../QueueManager.cpp:727
 msgid "A file with different tth root already exists in the queue"
-msgstr ""
-"In der Warteschlange exisitert bereits eine Datei mit einer "
-"unterschiedlichen TTH-Wurzel."
+msgstr "In der Warteschlange exisitert bereits eine Datei mit einer unterschiedlichen TTH-Wurzel."
 
 #: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
@@ -246,9 +230,7 @@ msgstr "Sie versuchen eine Datei von sich selbst herunterzuladen!"
 
 #: ../QueueManager.cpp:802
 msgid "A file with a different TTH root already exists in the queue"
-msgstr ""
-"In der Warteschlange existiert bereits eine Datei mit einer "
-"unterschiedlichen TTH-Wurzel."
+msgstr "In der Warteschlange existiert bereits eine Datei mit einer unterschiedlichen TTH-Wurzel."
 
 #: ../QueueManager.cpp:806
 msgid "This file has already finished downloading"
@@ -262,9 +244,7 @@ msgstr "Zieldateiname zu lang"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"ungültige Zieldatei (fehlendes Verzeichnis, prüfen Sie die Einstellung des "
-"Standard-Download-Verzeichnisses)"
+msgstr "ungültige Zieldatei (fehlendes Verzeichnis, prüfen Sie die Einstellung des Standard-Download-Verzeichnisses)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -284,15 +264,11 @@ msgstr "Zieldatei fehlt oder hat die falsche Größe"
 
 #: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr ""
-"Ziel konnte nicht von %1% nach %2% verschoben werden (%3%); wurde in %4% "
-"umbenannt"
+msgstr "Ziel konnte nicht von %1% nach %2% verschoben werden (%3%); wurde in %4% umbenannt"
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"Ziel konnte weder von %1% nach %2% verschoben (%3%) noch in %4% umbenannt "
-"(%5%) werden"
+msgstr "Ziel konnte weder von %1% nach %2% verschoben (%3%) noch in %4% umbenannt (%5%) werden"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -303,10 +279,9 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Passt zu Datei %2%"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
-msgstr ""
-"Zielverzeichnis für dieses Element ist nicht verfügbar: %1%; pausiert dieses "
-"Warteschlangenelement."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr "Zielverzeichnis für dieses Element ist nicht verfügbar: %1%; pausiert dieses Warteschlangenelement."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -328,9 +303,7 @@ msgstr "Das Aushandeln des Basisprotokolls ist fehlgeschlagen."
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"Der Hub verwendet möglicherweise eine alte Version des ADC. Bitte raten Sie "
-"dem Besitzer zu einem Upgrade."
+msgstr "Der Hub verwendet möglicherweise eine alte Version des ADC. Bitte raten Sie dem Besitzer zu einem Upgrade."
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -368,9 +341,7 @@ msgstr "Thema des Hubs:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr ""
-"Dieser Hub versucht, Ihren Client zum Spammen von %1% zu benutzen. Bitte "
-"drängen Sie den Besitzer dies zu beheben."
+msgstr "Dieser Hub versucht, Ihren Client zum Spammen von %1% zu benutzen. Bitte drängen Sie den Besitzer dies zu beheben."
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -432,9 +403,7 @@ msgstr " DHT-Port (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr ""
-"erfolgreich erstellte Portzuordnungen (TCP: %1%, UDP: %2%, TLS: %3%), "
-"zugeordnet unter Benutzung der Schnittstelle %4%"
+msgstr "erfolgreich erstellte Portzuordnungen (TCP: %1%, UDP: %2%, TLS: %3%), zugeordnet unter Benutzung der Schnittstelle %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -450,8 +419,7 @@ msgstr "Portzuordnungen mit der Schnittstelle %1% wurden erfolgreich entfernt."
 
 #: ../UPnPManager.cpp:139
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr ""
-"Portzuordnungen mit der Schnittstelle %1% konnten nicht entfernt werden."
+msgstr "Portzuordnungen mit der Schnittstelle %1% konnten nicht entfernt werden."
 
 #: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
@@ -579,13 +547,11 @@ msgstr "Verzeichnis ist versteckt"
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
-msgstr ""
-"Das temporäre Download-Verzeichnis kann nicht gemeinsam genutzt werden."
+msgstr "Das temporäre Download-Verzeichnis kann nicht gemeinsam genutzt werden."
 
 #: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
-msgstr ""
-"Beim Hashing des Verzeichnisses %1% wurde ein ungültiger Dateiname gefunden."
+msgstr "Beim Hashing des Verzeichnisses %1% wurde ein ungültiger Dateiname gefunden."
 
 #: ../ShareManager.cpp:661
 msgid "Skip share file: %1% (Size: %2%)"
@@ -599,17 +565,13 @@ msgstr "Überspringe temporäres Share-File: %1% (Größe: %2%)"
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr ""
-"Doppelte Datei wird nicht gemeinsam benutzt: %1% (Größe: %2% B) Duplikat "
-"passt zu: %3%"
+msgstr "Doppelte Datei wird nicht gemeinsam benutzt: %1% (Größe: %2% B) Duplikat passt zu: %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Die Dateiliste wird gerade erneuert. Bitte warten Sie, bis dies "
-"abgeschlossen ist, bevor Sie die Liste erneut erneuern."
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "Die Dateiliste wird gerade erneuert. Bitte warten Sie, bis dies abgeschlossen ist, bevor Sie die Liste erneut erneuern."
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
@@ -649,7 +611,7 @@ msgstr "Fehler: Einstellung nicht gefunden!"
 
 #: ../SettingsManager.cpp:621
 msgid "Core setting "
-msgstr ""
+msgstr "Kern Einstellungen"
 
 #: ../SettingsManager.cpp:622
 msgid "Change core setting "
@@ -661,7 +623,7 @@ msgstr " auf "
 
 #: ../SettingsManager.cpp:624
 msgid "Error: segv parser :D"
-msgstr ""
+msgstr "Fehler: segv parser :D"
 
 #: ../Socket.cpp:86
 #, c-format
@@ -679,23 +641,17 @@ msgstr "Der SOCKS-Server verlangt Authentifizierung."
 
 #: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
-msgstr ""
-"Der SOCKS-Server unterstützt keine Authentifizierung mittels Anmeldename und "
-"Passwort"
+msgstr "Der SOCKS-Server unterstützt keine Authentifizierung mittels Anmeldename und Passwort"
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"Die Authentifizierung des SOCKS-Servers ist fehlgeschlagen. (Anmeldename/"
-"Passwort falsch?)"
+msgstr "Die Authentifizierung des SOCKS-Servers ist fehlgeschlagen. (Anmeldename/Passwort falsch?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"Einrichtung des SOCKS-Servers für UDP-Relay ist fehlgeschlagen (prüfen Sie "
-"SOCKS-Adresse und Port)"
+msgstr "Einrichtung des SOCKS-Servers für UDP-Relay ist fehlgeschlagen (prüfen Sie SOCKS-Adresse und Port)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
