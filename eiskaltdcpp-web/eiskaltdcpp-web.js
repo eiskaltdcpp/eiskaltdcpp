@@ -1,6 +1,6 @@
 /* Copyright (c) 2013 Dorian Scholz */
 /* License: GPLv3 or later */
-/*jslint browser:true */
+/*jslint browser: true */
 /*global $, jQuery, config */
 var eiskalt = (function () {
     'use strict';
@@ -242,7 +242,7 @@ var eiskalt = (function () {
             }
         },
 
-        addConnectedHubs: function (target, entry) {
+        addConnectedHub: function (target, entry) {
             var table, row, headers, image;
             table = $('table#connectedhubs');
             headers = table.find('th');
@@ -259,24 +259,24 @@ var eiskalt = (function () {
                 row = eiskalt.connectedHubs[target].row;
             }
 
-            if (entry["connected"] == 1) {
-                image = "images/ball_green.png";
+            if (entry.connected === '1') {
+                image = 'images/ball_green.png';
             } else {
-                image = "images/ball_red.png";
+                image = 'images/ball_red.png';
             }
 
             $(row.find('td')[0]).html($('<img src="' + image + '">'));
             $(row.find('td')[1]).text(target);
-            $(row.find('td')[2]).html($('<div title="' + entry["description"] +'">')
-                                        .append(entry["hubname"]));
-            $(row.find('td')[3]).text(entry["users"]);
-            $(row.find('td')[4]).text(entry["totalshare preformatted"]);
+            $(row.find('td')[2]).html($('<div title="' + entry.description +'">')
+                                        .append(entry.hubname));
+            $(row.find('td')[3]).text(entry.users);
+            $(row.find('td')[4]).text(entry['totalshare preformatted']);
         },
 
         updateConnectedHubs: function (data) {
             if (data.result !== null) {
                 $.each(data.result, function (target, entry) {
-                    eiskalt.addConnectedHubs(target, entry);
+                    eiskalt.addConnectedHub(target, entry);
                 });
             }
             $.each(eiskalt.connectedHubs, function (target, entry) {
