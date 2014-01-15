@@ -1,6 +1,6 @@
 var config = {
     "jsonrpc" : {
-        "host" : "127.0.0.1",
+        "host" : "", // if empty it defaults to the host serving the script and falls back to localhost
         "port" : "3121"
     },
     "debugLevel" : 3,
