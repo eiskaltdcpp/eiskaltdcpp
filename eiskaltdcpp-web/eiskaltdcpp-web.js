@@ -350,7 +350,7 @@ var eiskalt = (function () {
         },
 
         onLoad: function () {
-            var searchString;
+            var searchString, searchType;
 
             $.each(searchTypes, function (typename, typeval) {
                 $('#searchtype').append(
@@ -449,7 +449,17 @@ var eiskalt = (function () {
                 repeat: true
             });
 
-            searchString = eiskalt.getURLParameter('search');
+            searchType = eiskalt.getURLParameter('searchtype');
+            if (searchType !== null) {
+                $.each(searchTypes, function (typename, typeval) {
+                    if (typename.toLowerCase() === String(searchType).toLowerCase()) {
+                        $('#searchtype option[value="' + typeval + '"]').attr('selected', true);
+                        return false;
+                    }
+                });
+            }
+
+            searchString = eiskalt.getURLParameter('searchstring');
             if (searchString !== null) {
                 $('#tab-container').easytabs('select', '#tab-search');
                 $('input#searchstring').val(searchString);
