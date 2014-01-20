@@ -4,17 +4,9 @@
     <head>
         <title>EiskaltDC++ Web Frontend</title>
         <link href="style.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" charset="utf-8" src="jquery/jquery.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="jquery/jquery.tablesorter.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="jquery/jquery.hashchange.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="jquery/jquery.easytabs.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="jquery/jquery.jsonrpc.js"></script>
-        <script type="text/javascript" charset="utf-8" src="jquery/jquery.plugin.js"></script>
-        <script type="text/javascript" charset="utf-8" src="jquery/jquery.timer.js"></script>
-        <script type="text/javascript" charset="utf-8" src="config.js"></script>
-        <script type="text/javascript" charset="utf-8" src="eiskaltdcpp-web.js"></script>
+        <script data-main="js/main.js" src="js/lib/require.js"></script>
     </head>
-    <body onload="eiskalt.onLoad();">
+    <body>
         <div class="section" id="titlediv">
             <h1>
                 <img style="margin: 0 3px -3px 0;" height="28px" src="images/eiskaltdcpp.png">
@@ -70,7 +62,7 @@
             <div class="section" id="tab-status">
 
                 <h2>Statistics</h2>
-                <div id="statisticaldata">Statistics is unknown yet...</div>
+                <div id="statisticaldata">Statistics are not yet known...</div>
                 <h2>Connected Hubs</h2>
                 <table class="tablesorter" id="connectedhubs">
                     <thead>
@@ -85,7 +77,7 @@
                     <tbody></tbody>
                 </table>
             </div>
-            
+
             <div id="debugdiv">
                 <h2>Debug Output</h2>
                 <pre id="debugout"></pre>
