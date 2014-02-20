@@ -144,12 +144,9 @@ endif (UNIX)
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 
-  install (DIRECTORY ui/ DESTINATION "${CLIENT_DATA_DIR}/gtk/ui"
-    PATTERN ".svn" EXCLUDE)
-  install (DIRECTORY icons/ DESTINATION "${CLIENT_DATA_DIR}/gtk/icons"
-    PATTERN ".svn" EXCLUDE)
-  install (DIRECTORY themes/ DESTINATION "${CLIENT_DATA_DIR}/gtk/themes"
-    PATTERN ".svn" EXCLUDE)
+  install (DIRECTORY ui/ DESTINATION "${CLIENT_DATA_DIR}/gtk/ui")
+  install (DIRECTORY icons/ DESTINATION "${CLIENT_DATA_DIR}/gtk/icons")
+  install (DIRECTORY themes/ DESTINATION "${CLIENT_DATA_DIR}/gtk/themes")
 
 if (APPLE)
   install (FILES ${PROJECT_NAME}.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
