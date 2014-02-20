@@ -26,6 +26,7 @@
 #include <QFile>
 #include <QSystemTrayIcon>
 #include <QHeaderView>
+#include <QMap>
 
 #ifndef CLIENT_ICONS_DIR
 #define CLIENT_ICONS_DIR ""
@@ -71,48 +72,33 @@ void SettingsGUI::init(){
 #else
         QDir translationsDir(qApp->applicationDirPath()+QDir::separator()+CLIENT_TRANSLATIONS_DIR);
 #endif
-        for (const auto &f : translationsDir.entryList(QDir::Files | QDir::NoSymLinks)){
-            QString full_path = QDir::toNativeSeparators( translationsDir.filePath(f) );
-            QString lang = "";
+        QMap<QString, QString> langNames;
+        langNames["en.qm"]       = tr("English");
+        langNames["ru.qm"]       = tr("Russian");
+        langNames["be.qm"]       = tr("Belarusian");
+        langNames["hu.qm"]       = tr("Hungarian");
+        langNames["fr.qm"]       = tr("French");
+        langNames["pl.qm"]       = tr("Polish");
+        langNames["pt_BR.qm"]    = tr("Portuguese (Brazil)");
+        langNames["sr@latin.qm"] = tr("Serbian (Latin)");
+        langNames["uk.qm"]       = tr("Ukrainian");
+        langNames["es.qm"]       = tr("Spanish");
+        langNames["bg.qm"]       = tr("Bulgarian");
+        langNames["sk.qm"]       = tr("Slovak");
+        langNames["cs.qm"]       = tr("Czech");
+        langNames["de.qm"]       = tr("German");
+        langNames["el.qm"]       = tr("Greek");
+        langNames["it.qm"]       = tr("Italian");
+        langNames["vi.qm"]       = tr("Vietnamese");
+        langNames["zh_CN.qm"]    = tr("Chinese (China)");
+        langNames["sv_SE.qm"]    = tr("Swedish (Sweden)");
 
-            if (f == "en.qm")
-                lang = tr("English");
-            else if (f == "ru.qm")
-                lang = tr("Russian");
-            else if (f == "be.qm")
-                lang = tr("Belarusian");
-            else if (f == "hu.qm")
-                lang = tr("Hungarian");
-            else if (f == "fr.qm")
-                lang = tr("French");
-            else if (f == "pl.qm")
-                lang = tr("Polish");
-            else if (f == "pt_BR.qm")
-                lang = tr("Portuguese (Brazil)");
-            else if (f == "sr@latin.qm")
-                lang = tr("Serbian (Latin)");
-            else if (f == "uk.qm")
-                lang = tr("Ukrainian");
-            else if (f == "es.qm")
-                lang = tr("Spanish");
-            else if (f == "bg.qm")
-                lang = tr("Bulgarian");
-            else if (f == "sk.qm")
-                lang = tr("Slovak");
-            else if (f == "cs.qm")
-                lang = tr("Czech");
-            else if (f == "de.qm")
-                lang = tr("German");
-            else if (f == "el.qm")
-                lang = tr("Greek");
-            else if (f == "it.qm")
-                lang = tr("Italian");
-            else if (f == "vi.qm")
-                lang = tr("Vietnamese");
-            else if (f == "zh_CN.qm")
-                lang = tr("Chinese (China)");
-            else if (f == "sv_SE.qm")
-                lang = tr("Swedish (Sweden)");
+        QString full_path;
+        QString lang;
+
+        for (const auto &f : translationsDir.entryList(QDir::Files | QDir::NoSymLinks)){
+            full_path = QDir::toNativeSeparators( translationsDir.filePath(f) );
+            lang = langNames[f];
 
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);
