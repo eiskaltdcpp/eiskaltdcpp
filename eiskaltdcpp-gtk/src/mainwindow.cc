@@ -272,6 +272,9 @@ MainWindow::MainWindow():
         string("\n")+
         _("Chinese (China) translation\n")+
         string("  2013 Syaoming Lai <syaomingl@gmail.com>\n")+
+        string("\n")+
+        _("Swedish (Sweden) translation\n")+
+        string("  2014 Sopor <sopor@hotmail.com>\n")+
         string("\n");
     gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
         (const gchar *)translator_credits.c_str());
