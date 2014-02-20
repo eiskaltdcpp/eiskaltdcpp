@@ -111,6 +111,8 @@ void SettingsGUI::init(){
                 lang = tr("Vietnamese");
             else if (f == "zh_CN.qm")
                 lang = tr("Chinese (China)");
+            else if (f == "sv_SE.qm")
+                lang = tr("Swedish (Sweden)");
 
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);

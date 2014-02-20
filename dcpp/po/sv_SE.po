@@ -1,0 +1,699 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR EiskaltDC++ team
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Translators:
+# Translators:
+# Sopor, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: EiskaltDC++\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
+"POT-Creation-Date: 2014-01-11 15:08+0400\n"
+"PO-Revision-Date: 2014-02-20 14:46+0000\n"
+"Last-Translator: Sopor\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv_SE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../SearchManager.cpp:36
+msgid "Any"
+msgstr "Alla"
+
+#: ../SearchManager.cpp:37
+msgid "Audio"
+msgstr "Ljud"
+
+#: ../SearchManager.cpp:38
+msgid "Compressed"
+msgstr "Komprimerat"
+
+#: ../SearchManager.cpp:39
+msgid "Document"
+msgstr "Dokument"
+
+#: ../SearchManager.cpp:40
+msgid "Executable"
+msgstr "Körbara"
+
+#: ../SearchManager.cpp:41
+msgid "Picture"
+msgstr "Bild"
+
+#: ../SearchManager.cpp:42
+msgid "Video"
+msgstr "Video"
+
+#: ../SearchManager.cpp:43
+msgid "Directory"
+msgstr "Mapp"
+
+#: ../SearchManager.cpp:44
+msgid "TTH"
+msgstr "TTH"
+
+#: ../SearchManager.cpp:45
+msgid "CD Image"
+msgstr "CD-avbild"
+
+#: ../SearchManager.cpp:146
+msgid "Search enabled again"
+msgstr "Sök är aktivt igen"
+
+#: ../SearchManager.cpp:154
+msgid "Search disabled: %1%"
+msgstr "Sökning avstängd: %1%"
+
+#: ../SearchManager.cpp:278 ../SearchManager.cpp:365 ../SearchManager.cpp:367
+#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2171
+#: ../QueueManager.cpp:2177 ../QueueManager.cpp:2183 ../ClientManager.cpp:178
+msgid "Offline"
+msgstr "Frånkopplad"
+
+#: ../HashManager.cpp:218 ../HashManager.cpp:418
+msgid "Hashing failed: %1%"
+msgstr "Indexeringen misslyckades: %1%"
+
+#: ../HashManager.cpp:225
+msgid "Finished hashing: %1% (%2% at %3%/s)"
+msgstr "Indexeringen klar: %1% (%2% i %3%/s)"
+
+#: ../HashManager.cpp:228
+msgid "Finished hashing: %1% (%2%)"
+msgstr "Indexeringen klar: %1% (%2%)"
+
+#: ../HashManager.cpp:231
+msgid "Finished hashing: %1%"
+msgstr "Indexeringen klar: %1%"
+
+#: ../HashManager.cpp:260 ../HashManager.cpp:474
+msgid "Error saving hash data: %1%"
+msgstr "Kunde inte spara indexeringsdata: %1%"
+
+#: ../HashManager.cpp:273
+msgid "Unable to read hash data file"
+msgstr "Kan inte läsa indexdatabasfilen"
+
+#: ../HashManager.cpp:606
+msgid "Error creating hash data file: %1%"
+msgstr "Kunde inte skapa indexeringsdatabasfil: %1%"
+
+#: ../HashManager.cpp:946
+msgid "Hash database rebuilt"
+msgstr "Indexdatabas återskapad"
+
+#: ../HashManager.cpp:1040
+msgid ""
+"%1% not shared; calculated CRC32 does not match the one found in SFV file."
+msgstr "%1% inte utdelad; beräknat CRC32-värde stämmer inte med det värdet som finns i SFV-filen."
+
+#: ../HashManager.cpp:1045
+msgid "Error hashing %1%: %2%"
+msgstr "Indexeringsfel %1%: %2%"
+
+#: ../Transfer.cpp:91 ../QueueManager.cpp:2200 ../AdcHub.cpp:193
+msgid "%1%/s"
+msgstr "%1%/s"
+
+#: ../ConnectivityManager.cpp:80
+msgid "Determining the best connectivity settings..."
+msgstr "Fastställer bästa anslutningsinställningar..."
+
+#: ../ConnectivityManager.cpp:85
+msgid ""
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr ""
+
+#: ../ConnectivityManager.cpp:95
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr "En pubilk IP-adress upptäcktes, väljer aktivt läge med direktanslutning"
+
+#: ../ConnectivityManager.cpp:102
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr "Lokalt nätverk med NAT upptäckt, försöker skapa portmappning med UPnP..."
+
+#: ../ConnectivityManager.cpp:130
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr "Den automatiska uppkopplingen för aktivt läge har misslyckats. Du rekommeneras att manuellt konfigurera för en bättre anslutning"
+
+#: ../ConnectivityManager.cpp:142
+msgid "Transfer (TCP)"
+msgstr "Överföring (TCP)"
+
+#: ../ConnectivityManager.cpp:148
+msgid "Search (UDP)"
+msgstr "Sök (UDP)"
+
+#: ../ConnectivityManager.cpp:154
+msgid "DHT (UDP)"
+msgstr "DHT (UDP)"
+
+#: ../ConnectivityManager.cpp:169
+msgid "Connectivity: "
+msgstr "Anslutning:"
+
+#: ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../ConnectionManager.cpp:186 ../Socket.cpp:221
+msgid "Connection timeout"
+msgstr "Anslutningen tog för lång tid"
+
+#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
+msgid "Connection closed"
+msgstr "Anslutningen stängdes"
+
+#: ../BufferedSocket.cpp:275
+msgid "Maximum command length exceeded"
+msgstr "Maximal kommandolängd överskriden"
+
+#: ../BufferedSocket.cpp:456
+msgid "Disconnected"
+msgstr "Frånkopplad"
+
+#: ../UploadManager.cpp:133
+msgid "Connection already exists."
+msgstr "Anslutningen finns redan."
+
+#: ../UploadManager.cpp:268
+msgid "Unable to send file %1%: %2%"
+msgstr "Kunde inte skicka filen %1%: %2%"
+
+#: ../UploadManager.cpp:555
+msgid "IPFilter: Blocked incoming connection to "
+msgstr "IP-filter: Blockera inkommanda anslutningar till"
+
+#: ../UploadManager.cpp:618
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Frånkopplade användare lämnar hubben: %1%"
+
+#: ../DirectoryListing.cpp:206
+msgid "Directory missing name attribute"
+msgstr ""
+
+#: ../QueueManager.cpp:243
+msgid "No needed part"
+msgstr "Ingen del behövs"
+
+#: ../QueueManager.cpp:633
+msgid "Searching TTH alternates for: %1%"
+msgstr "Sök efter TTH-alternativ för: %1%"
+
+#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
+msgid "A file with the same hash already exists in your share"
+msgstr "En fil med samma indexvärde finns redan i din utdelning"
+
+#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
+msgid "This file is already queued"
+msgstr "Denna filen finns redan i kön"
+
+#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
+msgid "A file with a different size already exists in the queue"
+msgstr "En fil med ett annat TTH-värde finns redan i nedladdningskön"
+
+#: ../QueueManager.cpp:727
+msgid "A file with different tth root already exists in the queue"
+msgstr "En fil med ett annat tth-värde finns redan i nedladdningskön"
+
+#: ../QueueManager.cpp:739
+msgid "You're trying to download from yourself!"
+msgstr "Du försöker ladda ned din egen fillista!"
+
+#: ../QueueManager.cpp:802
+msgid "A file with a different TTH root already exists in the queue"
+msgstr "En fil med ett annat TTH-värde finns redan i nedladdningskön"
+
+#: ../QueueManager.cpp:806
+msgid "This file has already finished downloading"
+msgstr "Denna filen är redan nedladdad"
+
+#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
+msgid "Target filename too long"
+msgstr "Målfilens namn är för långt"
+
+#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
+msgid ""
+"Invalid target file (missing directory, check default download directory "
+"setting)"
+msgstr "Ogiltig målfil (mappen finns inte, kontrollera inställningarna för standard nedladdningsmapp)"
+
+#: ../QueueManager.cpp:864
+msgid "File already exists at the target location"
+msgstr "Filen finns redan i målmappen"
+
+#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
+msgid "Duplicate source: %1%"
+msgstr "Dubblettkälla: %1%"
+
+#: ../QueueManager.cpp:1148
+msgid "Target removed"
+msgstr "Målfilen borttagen"
+
+#: ../QueueManager.cpp:1156
+msgid "Target file is missing or wrong size"
+msgstr "Målfilen finns inte eller har fel storlek"
+
+#: ../QueueManager.cpp:1205
+msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
+msgstr "Kan inte flytta %1% till %2% (%3%); döpt om till %4%"
+
+#: ../QueueManager.cpp:1208
+msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
+msgstr "Kan inte flytta %1% till %2% (%3%) eller döpa om till %4% (%5%)"
+
+#: ../QueueManager.cpp:1403
+msgid "Unable to open filelist: %1%"
+msgstr "Kan inte öppna fillistan: %1%"
+
+#: ../QueueManager.cpp:1426
+msgid "%1%: Matched %2% file"
+msgstr "%1%: Matchar %2% filen"
+
+#: ../QueueManager.cpp:1796
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+
+#: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr "CRC32-värden stämmer inte överens (SFV-Check)"
+
+#: ../QueueManager.cpp:2225
+msgid "%1% : Matched %2% files"
+msgstr "%1% : Matchade %2% filer"
+
+#: ../AdcHub.cpp:156
+msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+msgstr "%1% (%2%) har samma CID {%3%} som %4% (%5%), ignorerar"
+
+#: ../AdcHub.cpp:228
+msgid "Failed to negotiate base protocol"
+msgstr ""
+
+#: ../AdcHub.cpp:234
+msgid ""
+"Hub probably uses an old version of ADC, please encourage the owner to "
+"upgrade"
+msgstr "Hubben använder troligen en äldre version av ADC, be ägaren av hubben att uppdatera"
+
+#: ../AdcHub.cpp:305
+msgid "%1% was kicked by %2%: %3%"
+msgstr "%1% blev kickad av %2%: %3%"
+
+#: ../AdcHub.cpp:308
+msgid "%1% was kicked: %2%"
+msgstr "%1% blev kickad: %2%"
+
+#: ../AdcHub.cpp:694
+msgid "Not listening for connections - please restart %1%"
+msgstr "Lyssnar ej på inkommande anslutningar - %1% behöver startas om"
+
+#: ../FavoriteManager.cpp:429
+msgid "Kick user(s)"
+msgstr "Kicka användare"
+
+#: ../FavoriteManager.cpp:433
+msgid "Redirect user(s)"
+msgstr "Omdirigera användare"
+
+#: ../FavoriteManager.cpp:489
+msgid "Auto-connect group (converted)"
+msgstr ""
+
+#: ../NmdcHub.cpp:288
+msgid "%1% (Nick unknown)"
+msgstr "%1% (Användarnamn okänt)"
+
+#: ../NmdcHub.cpp:667
+msgid "Hub topic:"
+msgstr "Rubrik:"
+
+#: ../NmdcHub.cpp:1017
+msgid ""
+"This hub is trying to use your client to spam %1%, please urge hub owner to "
+"fix this"
+msgstr "Denna hubben försöker använda din klient till att spamma %1%, be hubbägaren att åtgärda detta"
+
+#: ../ConnectionManager.cpp:179
+msgid "All download slots taken"
+msgstr "Alla nedladdningsslottar är upptagna"
+
+#: ../ConnectionManager.cpp:253
+msgid "Connectivity restored"
+msgstr "Anslutningen återställd"
+
+#: ../ConnectionManager.cpp:261
+msgid "Connectivity error: %1%"
+msgstr "Anslutningsfel: %1%"
+
+#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
+#: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
+msgid "Error during compression"
+msgstr "Fel vid komprimering"
+
+#: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
+#: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
+#: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
+msgid "Error during decompression"
+msgstr "Fel vid uppackning"
+
+#: ../UPnPManager.cpp:45
+msgid "No UPnP implementation available"
+msgstr "Ingen UPnP tillgänglig"
+
+#: ../UPnPManager.cpp:50
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr "Det pågår redan en portmappning med UPnP..."
+
+#: ../UPnPManager.cpp:82
+msgid "Failed to initialize the %1% interface"
+msgstr "Kunde inte starta gränssnittet %1%"
+
+#: ../UPnPManager.cpp:86
+msgid " Transfer Port (%1% TCP)"
+msgstr " Överföringsport (%1% TCP)"
+
+#: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:102
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr "Gränssnittet %1% kunde inte mappa %2% %3% port"
+
+#: ../UPnPManager.cpp:91
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr "Krypterad överföringsport (%1% TCP)"
+
+#: ../UPnPManager.cpp:96
+msgid " Search Port (%1% UDP)"
+msgstr "Sökport (%1% UDP)"
+
+#: ../UPnPManager.cpp:101
+msgid " DHT Port (%1% UDP)"
+msgstr "DHT-port (%1% UDP)"
+
+#: ../UPnPManager.cpp:108
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr "Lyckades skapa portmappningar (Överföring: %1%, Sök: %2%, Krypterad överföring: %3%) på enheten %4%"
+
+#: ../UPnPManager.cpp:119
+msgid "Failed to get external IP"
+msgstr "Kan inte hämta den publika IP-adressen"
+
+#: ../UPnPManager.cpp:129
+msgid "Failed to create port mappings"
+msgstr "Kunde inte skapa portmappningar"
+
+#: ../UPnPManager.cpp:138
+msgid "Successfully removed port mappings with the %1% interface"
+msgstr "Lyckades ta bort portmappningar med gränssnittet %1%"
+
+#: ../UPnPManager.cpp:139
+msgid "Failed to remove port mappings with the %1% interface"
+msgstr "Misslyckades att ta bort portmappningar med gränssnittet %1%"
+
+#: ../UPnPManager.cpp:144
+msgid "UPnP: %1%"
+msgstr "UPnP: %1%"
+
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Enter string>"
+
+#: ../ADLSearch.cpp:487
+msgid "Discard"
+msgstr "Ta bort"
+
+#: ../SSLSocket.cpp:160
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "SSL-fel: %1% (%2%, %3%)"
+
+#: ../DownloadManager.cpp:134
+msgid "IPFilter: Blocked outgoing connection to "
+msgstr "IP-filter: Blockerar utgående anslutning till"
+
+#: ../DownloadManager.cpp:229
+msgid "Invalid size"
+msgstr "Ogiltig storlek"
+
+#: ../DownloadManager.cpp:234
+msgid "Response does not match request"
+msgstr "Svaret matchar inte förfrågningen"
+
+#: ../DownloadManager.cpp:241
+msgid "Could not open target file: %1%"
+msgstr "Kan inte öppna målfil: %1%"
+
+#: ../DownloadManager.cpp:320
+msgid "Full tree does not match TTH root"
+msgstr "Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen korrupt"
+
+#: ../DownloadManager.cpp:385
+msgid "No slots available"
+msgstr "Inga slottar lediga"
+
+#: ../DownloadManager.cpp:496
+msgid "%1%: File not available"
+msgstr "%1%: Filen är inte tillgänglig"
+
+#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
+msgid "Invalid data"
+msgstr "Ogiltig data"
+
+#: ../UserConnection.cpp:58
+msgid "Non-UTF-8 data in an ADC connection"
+msgstr "Non-UTF-8 data i ADC-anslutningen"
+
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "Kan inte skapa tråd"
+
+#: ../DCPlusPlus.cpp:121
+msgid "Hash database"
+msgstr "Index databas"
+
+#: ../DCPlusPlus.cpp:124
+msgid "Shared Files"
+msgstr "Delade filer"
+
+#: ../DCPlusPlus.cpp:133
+msgid "Download Queue"
+msgstr "Nedladdningskö"
+
+#: ../DCPlusPlus.cpp:136
+msgid "Users"
+msgstr "Användare"
+
+#: ../Util.cpp:641
+#, c-format
+msgid "%d B"
+msgstr "%d B"
+
+#: ../Util.cpp:643
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:645
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:647
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:649
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:651
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:681
+#, c-format
+msgid "%s B"
+msgstr "%s B"
+
+#: ../Util.cpp:685
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld B"
+
+#: ../HttpConnection.cpp:166
+msgid "Endless redirection loop (%1%)"
+msgstr "Ändlös omdirgeringsloop (%1%)"
+
+#: ../ShareManager.cpp:446
+msgid "No directory specified"
+msgstr "Ingen mapp är specificerad"
+
+#: ../ShareManager.cpp:450
+msgid "Directory is hidden"
+msgstr "Mappen är dold"
+
+#: ../ShareManager.cpp:454
+msgid "The temporary download directory cannot be shared"
+msgstr "Mappar med pågående nedladdningar kan inte delas ut"
+
+#: ../ShareManager.cpp:642
+msgid "Invalid file name found while hashing folder %1%"
+msgstr "Hittade ogiltigt filnamn vid indexeringen av mappen %1%"
+
+#: ../ShareManager.cpp:661
+msgid "Skip share file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:682
+msgid "Skip share temp file: %1% (Size: %2%)"
+msgstr ""
+
+#: ../ShareManager.cpp:772
+msgid ""
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr "Dubblettfil kommer inte att delas ut: %1% (Storlek: %2% B) Dubblett matchad mot: %3%"
+
+#: ../ShareManager.cpp:793
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "Fillistan uppdateras, du måste vänta tills den är klar innan du uppdaterar igen"
+
+#: ../ShareManager.cpp:814
+msgid "File list refresh failed: %1%"
+msgstr "Uppdatering av fillistan misslyckades: %1%"
+
+#: ../ShareManager.cpp:837
+msgid "File list refresh initiated"
+msgstr "Uppdatering av fillistan har startat"
+
+#: ../ShareManager.cpp:862
+msgid "File list refresh finished"
+msgstr "Fillistan har uppdaterats"
+
+#: ../ShareManager.cpp:944
+msgid "File list %1% generated"
+msgstr "Fillistan %1% har skapats"
+
+#: ../SettingsManager.cpp:184
+msgid "downloaded from"
+msgstr "nedladdat från"
+
+#: ../SettingsManager.cpp:520
+msgid "Invalid search type name"
+msgstr "Ogiltig söktyp"
+
+#: ../SettingsManager.cpp:524 ../SettingsManager.cpp:546
+msgid "This search type already exists"
+msgstr "Denna söktyp finns redan"
+
+#: ../SettingsManager.cpp:578
+msgid "No such search type"
+msgstr "Söktypen finns inte"
+
+#: ../SettingsManager.cpp:619
+msgid "Error: setting not found!"
+msgstr "Fel: inställning finns inte!"
+
+#: ../SettingsManager.cpp:621
+msgid "Core setting "
+msgstr ""
+
+#: ../SettingsManager.cpp:622
+msgid "Change core setting "
+msgstr "Ändra huvudinställning"
+
+#: ../SettingsManager.cpp:622
+msgid " to "
+msgstr "till"
+
+#: ../SettingsManager.cpp:624
+msgid "Error: segv parser :D"
+msgstr "Fel: segv parser :D"
+
+#: ../Socket.cpp:86
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Okänt fel: 0x%1$x"
+
+#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:298 ../Socket.cpp:313
+msgid "The socks server failed establish a connection"
+msgstr "Socks-servern har misslyckats med att upprätta en anslutning"
+
+#: ../Socket.cpp:302
+msgid "The socks server requires authentication"
+msgstr "Socks-servern kräver autentisering"
+
+#: ../Socket.cpp:316
+msgid "The socks server doesn't support login / password authentication"
+msgstr "Socks-servern stöder inte användarnamn / lösenords autentisering"
+
+#: ../Socket.cpp:330 ../Socket.cpp:334
+msgid "Socks server authentication failed (bad login / password?)"
+msgstr "Kunde inte logga in på socks-server (ogiltligt användarnamn / lösenord?)"
+
+#: ../Socket.cpp:471
+msgid ""
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
+msgstr "Misslyckades med att upprätta socks-server för UDP-relä (kontrollera socks-adress och port)"
+
+#: ../CryptoManager.cpp:134
+msgid "No private key file chosen"
+msgstr "Ingen privat nyckel vald"
+
+#: ../CryptoManager.cpp:137
+msgid "No certificate file chosen"
+msgstr "Ingen certifikatfil vald"
+
+#: ../CryptoManager.cpp:149
+msgid "Error generating certificate"
+msgstr "Kunde inte skapa certifikatfilen"
+
+#: ../CryptoManager.cpp:212
+msgid "TLS disabled, no certificate file set"
+msgstr "TLS är inaktiverat, ingen certifikatfil angiven"
+
+#: ../CryptoManager.cpp:220
+msgid "Generated new TLS certificate"
+msgstr "Ett nytt TLS-certifikat skapades"
+
+#: ../CryptoManager.cpp:222
+msgid "TLS disabled, failed to generate certificate: %1%"
+msgstr "TLS inaktiverat, kunde inte skapa certifikat: %1%"
+
+#: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
+#: ../CryptoManager.cpp:240
+msgid "Failed to load certificate file"
+msgstr "Kunde inte ladda certifikatfil"
+
+#: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
+#: ../CryptoManager.cpp:258
+msgid "Failed to load private key"
+msgstr "Kunde inte ladda privat nyckel"
+
+#: ../ChatMessage.cpp:33
+msgid "Sent "
+msgstr "Skickat"
+
+#: ../Streams.h:141
+msgid "More bytes written than requested"
+msgstr "Fler bytes skrivna än begärt"
+
+#: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
+msgid "TTH inconsistency"
+msgstr "TTH-värden stämmer inte överens"
