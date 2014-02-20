@@ -2433,7 +2433,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2761"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Шведский (Швеция) перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2994"/>
@@ -3287,7 +3287,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="82"/>
         <source>Portuguese (Brazil)</source>
-        <translation>Португальский (Бразилия)\</translation>
+        <translation>Португальский (Бразилия)</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="83"/>
@@ -3347,7 +3347,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="94"/>
         <source>Swedish (Sweden)</source>
-        <translation type="unfinished"></translation>
+        <translation>Шведский (Швеция)</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="243"/>

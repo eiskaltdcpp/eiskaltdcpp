@@ -1,21 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
 # Translators:
-# Boris Pek <tehnick-8@mail.ru>, 2012
-# Boris Pek <tehnick-8@yandex.ru>, 2012-2013
-# Boris Pek <tehnick-8@yandex.ru>, 2014
-# Вячеслав Третьяков <tret2003@gmail.com>, 2012
+# Boris Pek <tehnick-8@mail.ru>, 2012.
+# Boris Pek <tehnick-8@yandex.ru>, 2012-2013.
+# Boris Pek <tehnick-8@yandex.ru>, 2014.
+# Вячеслав Третьяков <tret2003@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-01-11 11:13+0000\n"
+"PO-Revision-Date: 2014-02-21 02:31+0400\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"Language-Team: Russian <tehnick-8@mail.ru>\n"
 "language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1065 ../src/hub.cc:1144
@@ -3368,12 +3368,11 @@ msgstr "Стоп"
 
 #: ../src/settingsdialog.cc:1096
 msgid "Swedish (Sweden)"
-msgstr ""
+msgstr "Шведский (Швеция)"
 
 #: ../src/mainwindow.cc:276
-#, fuzzy
 msgid "Swedish (Sweden) translation\n"
-msgstr "Сербский (Латиница) перевод\n"
+msgstr "Шведский (Швеция) перевод\n"
 
 #: ../src/settingsdialog.cc:1058 ../src/WulforUtil.cc:42
 #: ../ui/settingsdialog.ui:8958
@@ -4266,3 +4265,4 @@ msgstr "верх/ожидание/фрейм:"
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "ожидание..."
+
