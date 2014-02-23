@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Márk Lutring <marcus@elitemail.hu>, 2012-2013
+# Translators:
+# Márk Lutring <marcus@elitemail.hu>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-01-11 15:08+0400\n"
-"PO-Revision-Date: 2013-11-19 16:45+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
-"language/hu/)\n"
-"Language: hu\n"
+"PO-Revision-Date: 2014-02-21 22:59+0000\n"
+"Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -109,8 +109,7 @@ msgstr "A hash adatbázis újraépítve"
 #: ../HashManager.cpp:1040
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% nincs megosztva. A kiszámított CRC32 nem egyezik az SFV fájlban lévővel."
+msgstr "%1% nincs megosztva. A kiszámított CRC32 nem egyezik az SFV fájlban lévővel."
 
 #: ../HashManager.cpp:1045
 msgid "Error hashing %1%: %2%"
@@ -126,32 +125,26 @@ msgstr "Legjobb kapcsolat beállítások felderítése..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-"%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr "%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr ""
-"Publikus IP cím sikeresen lekérdezve, aktív mód kiválasztása közvetlen "
-"kapcsolattal"
+msgstr "Publikus IP cím sikeresen lekérdezve, aktív mód kiválasztása közvetlen kapcsolattal"
 
 #: ../ConnectivityManager.cpp:102
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr ""
-"Helyi hálózat és lehetséges NAT észlelve, kísérlet a portok feltérképezésére "
-"UPnP használatával ..."
+msgstr "Helyi hálózat és lehetséges NAT észlelve, kísérlet a portok feltérképezésére UPnP használatával ..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az aktív mód "
-"beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
+msgstr "Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az aktív mód beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -250,9 +243,7 @@ msgstr "A cél fájlneve túl hosszú"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"Érvénytelen célfájl (hiányzó könyvtár, ellenőrizd az alapértelmezett "
-"letöltési könyvtár beállításait)"
+msgstr "Érvénytelen célfájl (hiányzó könyvtár, ellenőrizd az alapértelmezett letöltési könyvtár beállításait)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -276,8 +267,7 @@ msgstr "Sikertelen áthelyezés [%1% ide: %2% (%3%)]; átnevezve erre: %4%"
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"Sikertelen áthelyezés [%1% ide: %2% (%3%)], vagy átnevezés [erre: %4% (%5)]"
+msgstr "Sikertelen áthelyezés [%1% ide: %2% (%3%)], vagy átnevezés [erre: %4% (%5)]"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -288,10 +278,9 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Találat: %2% fájl"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
-msgstr ""
-"Cél útvonal ehhez az elemhez nem elérhető: %1%; szüneteltesse ezt a "
-"várakozási sor elemet"
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr "Cél útvonal ehhez az elemhez nem elérhető: %1%; szüneteltesse ezt a várakozási sor elemet"
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -313,9 +302,7 @@ msgstr "Az alap protokoll egyeztetése sikertelen"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"A hub vélhetően régi verziójú ADC protokollt használ, kérlek szólj a "
-"tulajnak, hogy frissítsen"
+msgstr "A hub vélhetően régi verziójú ADC protokollt használ, kérlek szólj a tulajnak, hogy frissítsen"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -353,9 +340,7 @@ msgstr "Hub topic:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr ""
-"Ez a hub a kliensedet spam küldésére próbálja felhasználni (%1%), kérlek "
-"értesítsd a hub üzemeltetőit, hogy javítsák a problémát."
+msgstr "Ez a hub a kliensedet spam küldésére próbálja felhasználni (%1%), kérlek értesítsd a hub üzemeltetőit, hogy javítsák a problémát."
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -417,9 +402,7 @@ msgstr " DHT port (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr ""
-"A port-hozzárendelés sikeresen létrehozva (TCP: %1%, UDP: %2%, TLS: %3%), a "
-"használt interfész: %4%"
+msgstr "A port-hozzárendelés sikeresen létrehozva (TCP: %1%, UDP: %2%, TLS: %3%), a használt interfész: %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -435,9 +418,7 @@ msgstr "A port-hozzárendelés sikeresen törölve a következő interfésszel: 
 
 #: ../UPnPManager.cpp:139
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr ""
-"Nem sikerült megszüntetni a port-hozzárendeléseket a következő interfészen: "
-"%1%"
+msgstr "Nem sikerült megszüntetni a port-hozzárendeléseket a következő interfészen: %1%"
 
 #: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
@@ -569,36 +550,27 @@ msgstr "Az ideiglenes letöltési könyvtár nem megosztható"
 
 #: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
-msgstr ""
-"Érvénytelen fájlnév található a következő könyvtárban indexelésekor: %1%"
+msgstr "Érvénytelen fájlnév található a következő könyvtárban indexelésekor: %1%"
 
 #: ../ShareManager.cpp:661
 msgid "Skip share file: %1% (Size: %2%)"
-msgstr ""
-"A felhasználó azt választotta, hogy a következő fájlt nem osztja meg: %1% "
-"(Méret: %2%)"
+msgstr "A felhasználó azt választotta, hogy a következő fájlt nem osztja meg: %1% (Méret: %2%)"
 
 #: ../ShareManager.cpp:682
 msgid "Skip share temp file: %1% (Size: %2%)"
-msgstr ""
-"A felhasználó azt választotta, hogy a következő ideiglenes fájlt nem osztja "
-"meg: %1% (Méret: %2%)"
+msgstr "A felhasználó azt választotta, hogy a következő ideiglenes fájlt nem osztja meg: %1% (Méret: %2%)"
 
 #: ../ShareManager.cpp:772
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr ""
-"Többször meglévő fájl nem lesz megosztva: %1% (Méret: %2% B) Megegyezik "
-"ezzel: %3%"
+msgstr "Többször meglévő fájl nem lesz megosztva: %1% (Méret: %2% B) Megegyezik ezzel: %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, "
-"mielőtt újra frissíteni próbálnál!"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, mielőtt újra frissíteni próbálnál!"
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
@@ -638,7 +610,7 @@ msgstr "Hiba: Beállítás nem található!"
 
 #: ../SettingsManager.cpp:621
 msgid "Core setting "
-msgstr ""
+msgstr "Alapbeállítás"
 
 #: ../SettingsManager.cpp:622
 msgid "Change core setting "
@@ -646,11 +618,11 @@ msgstr "Alapbeállítás megváltoztatása: "
 
 #: ../SettingsManager.cpp:622
 msgid " to "
-msgstr ""
+msgstr "erre:"
 
 #: ../SettingsManager.cpp:624
 msgid "Error: segv parser :D"
-msgstr ""
+msgstr "Hiba: segv-elemző :D"
 
 #: ../Socket.cpp:86
 #, c-format
@@ -668,22 +640,17 @@ msgstr "A socks kiszolgáló hitelesítést igényel"
 
 #: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
-msgstr ""
-"A socks kiszolgáló nem támogatja a bejelentkezési név / jelszó hitelesítést"
+msgstr "A socks kiszolgáló nem támogatja a bejelentkezési név / jelszó hitelesítést"
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói név/"
-"jelszó?)"
+msgstr "A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói név/jelszó?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"A socks kiszolgáló beállítása az UDP port továbbításra nem sikerült "
-"(ellenőrizd a kiszolgáló címét és a portot)"
+msgstr "A socks kiszolgáló beállítása az UDP port továbbításra nem sikerült (ellenőrizd a kiszolgáló címét és a portot)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"

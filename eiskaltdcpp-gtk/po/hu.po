@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Márk Lutring <marcus@elitemail.hu>, 2012-2013
+# Translators:
+# Márk Lutring <marcus@elitemail.hu>, 2012-2014
 # Szabolcs Molnár <fleet@elitemail.hu>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2013-11-19 16:39+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
-"language/hu/)\n"
-"Language: hu\n"
+"PO-Revision-Date: 2014-02-21 23:13+0000\n"
+"Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
@@ -115,15 +115,7 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr ""
-"%a a hét napjainak rövidített neve.\n"
-"%b a hónapok rövidített neve.\n"
-"%H óra, mint decimális szám, 24 órás időformátumban.\n"
-"%M perc, mind decimális szám (tartomány: 00-59).\n"
-"%S másodperc, mind decimális szám (tartomány: 00-59).\n"
-"%% megjeleníthető '%' karakter.\n"
-"\n"
-"lásd még: 'man strftime' a további részletekért."
+msgstr "%a a hét napjainak rövidített neve.\n%b a hónapok rövidített neve.\n%H óra, mint decimális szám, 24 órás időformátumban.\n%M perc, mind decimális szám (tartomány: 00-59).\n%S másodperc, mind decimális szám (tartomány: 00-59).\n%% megjeleníthető '%' karakter.\n\nlásd még: 'man strftime' a további részletekért."
 
 #: ../src/hub.cc:2369
 msgid "': type /help for a list of available commands"
@@ -165,119 +157,119 @@ msgstr "0 felhasználó"
 
 #: ../ui/settingsdialog.ui:8781 ../ui/settingsdialog.ui:8861
 msgid "10AM"
-msgstr ""
+msgstr "10 óra"
 
 #: ../ui/settingsdialog.ui:8817 ../ui/settingsdialog.ui:8897
 msgid "10PM"
-msgstr ""
+msgstr "22 óra"
 
 #: ../ui/settingsdialog.ui:8784 ../ui/settingsdialog.ui:8864
 msgid "11AM"
-msgstr ""
+msgstr "11 óra"
 
 #: ../ui/settingsdialog.ui:8820 ../ui/settingsdialog.ui:8900
 msgid "11PM"
-msgstr ""
+msgstr "23 óra"
 
 #: ../ui/settingsdialog.ui:8969
 msgid "16x16"
-msgstr ""
+msgstr "16x16"
 
 #: ../ui/settingsdialog.ui:8754 ../ui/settingsdialog.ui:8834
 msgid "1AM"
-msgstr ""
+msgstr "1 óra"
 
 #: ../ui/settingsdialog.ui:8790 ../ui/settingsdialog.ui:8870
 msgid "1PM"
-msgstr ""
+msgstr "13 óra"
 
 #: ../ui/settingsdialog.ui:8972
 msgid "22x22"
-msgstr ""
+msgstr "22x22"
 
 #: ../ui/settingsdialog.ui:8975
 msgid "24x24"
-msgstr ""
+msgstr "24x24"
 
 #: ../ui/settingsdialog.ui:8757 ../ui/settingsdialog.ui:8837
 msgid "2AM"
-msgstr ""
+msgstr "2 óra"
 
 #: ../ui/settingsdialog.ui:8793 ../ui/settingsdialog.ui:8873
 msgid "2PM"
-msgstr ""
+msgstr "14 óra"
 
 #: ../ui/settingsdialog.ui:8978
 msgid "32x32"
-msgstr ""
+msgstr "32x32"
 
 #: ../ui/settingsdialog.ui:8981
 msgid "36x36"
-msgstr ""
+msgstr "36x36"
 
 #: ../ui/settingsdialog.ui:8760 ../ui/settingsdialog.ui:8840
 msgid "3AM"
-msgstr ""
+msgstr "3 óra"
 
 #: ../ui/settingsdialog.ui:8796 ../ui/settingsdialog.ui:8876
 msgid "3PM"
-msgstr ""
+msgstr "15 óra"
 
 #: ../ui/settingsdialog.ui:8984
 msgid "48x48"
-msgstr ""
+msgstr "48x48"
 
 #: ../ui/settingsdialog.ui:8763 ../ui/settingsdialog.ui:8843
 msgid "4AM"
-msgstr ""
+msgstr "4 óra"
 
 #: ../ui/settingsdialog.ui:8799 ../ui/settingsdialog.ui:8879
 msgid "4PM"
-msgstr ""
+msgstr "16 óra"
 
 #: ../ui/settingsdialog.ui:8766 ../ui/settingsdialog.ui:8846
 msgid "5AM"
-msgstr ""
+msgstr "5 óra"
 
 #: ../ui/settingsdialog.ui:8802 ../ui/settingsdialog.ui:8882
 msgid "5PM"
-msgstr ""
+msgstr "17 óra"
 
 #: ../ui/settingsdialog.ui:8987
 msgid "64x64"
-msgstr ""
+msgstr "64x64"
 
 #: ../ui/settingsdialog.ui:8769 ../ui/settingsdialog.ui:8849
 msgid "6AM"
-msgstr ""
+msgstr "6 óra"
 
 #: ../ui/settingsdialog.ui:8805 ../ui/settingsdialog.ui:8885
 msgid "6PM"
-msgstr ""
+msgstr "18 óra"
 
 #: ../ui/settingsdialog.ui:8772 ../ui/settingsdialog.ui:8852
 msgid "7AM"
-msgstr ""
+msgstr "7 óra"
 
 #: ../ui/settingsdialog.ui:8808 ../ui/settingsdialog.ui:8888
 msgid "7PM"
-msgstr ""
+msgstr "19 óra"
 
 #: ../ui/settingsdialog.ui:8775 ../ui/settingsdialog.ui:8855
 msgid "8AM"
-msgstr ""
+msgstr "8 óra"
 
 #: ../ui/settingsdialog.ui:8811 ../ui/settingsdialog.ui:8891
 msgid "8PM"
-msgstr ""
+msgstr "20 óra"
 
 #: ../ui/settingsdialog.ui:8778 ../ui/settingsdialog.ui:8858
 msgid "9AM"
-msgstr ""
+msgstr "9 óra"
 
 #: ../ui/settingsdialog.ui:8814 ../ui/settingsdialog.ui:8894
 msgid "9PM"
-msgstr ""
+msgstr "21 óra"
 
 #: ../src/privatemessage.cc:1038
 msgid ": type /help for a list of available commands"
@@ -285,11 +277,9 @@ msgstr ": a használható parancsokat a /help használatával érheted el"
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
-msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Segítség</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Segítség</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -449,9 +439,7 @@ msgstr "<b>Új név</b>"
 
 #: ../ui/settingsdialog.ui:9258 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr ""
-"<b>Megjegyzés:</b> A listában szereplő url-ek szerkeszthetők kiválasztás "
-"után egy kattintással"
+msgstr "<b>Megjegyzés:</b> A listában szereplő url-ek szerkeszthetők kiválasztás után egy kattintással"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
@@ -587,9 +575,7 @@ msgstr "<b>fájl</b> "
 
 #: ../ui/favoritehubs.ui:444
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr ""
-"<small>Megjegyzés: Ha nincs bejelölve, az alapértelmezett beállítások "
-"lesznek érvényben</small>"
+msgstr "<small>Megjegyzés: Ha nincs bejelölve, az alapértelmezett beállítások lesznek érvényben</small>"
 
 #: ../src/sharebrowser.hh:149 ../src/sharebrowser.hh:152
 msgid "?"
@@ -633,8 +619,7 @@ msgstr "Hub hozzáadása a kedvencekhez"
 
 #: ../src/settingsdialog.cc:1652
 msgid "Add finished files to share instantly (if shared)"
-msgstr ""
-"Letöltött fájlok azonnali megosztása (ha a megosztási mappán belül van)\t"
+msgstr "Letöltött fájlok azonnali megosztása (ha a megosztási mappán belül van)\t"
 
 #: ../src/hub.cc:2075
 msgid ""
@@ -708,13 +693,11 @@ msgstr "Nem találhatóak álnevek."
 
 #: ../src/settingsdialog.cc:1726
 msgid "Allow TLS connections to clients without trusted certificate"
-msgstr ""
-"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli klienseknél is"
+msgstr "TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli klienseknél is"
 
 #: ../src/settingsdialog.cc:1725
 msgid "Allow TLS connections to hubs without trusted certificate"
-msgstr ""
-"TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli huboknál is"
+msgstr "TLS kapcsolatok engedélyezése megbízható tanúsítvány nélküli huboknál is"
 
 #: ../src/settingsdialog.cc:1660
 msgid "Allow few connections from one IP"
@@ -757,8 +740,7 @@ msgstr "Alkalmazás kiterjesztésekhez: (avi;mov;divx)"
 #: ../src/favoritehubs.cc:454
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
-"Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
+msgstr "Biztos, hogy törölni akarod a következő hubot a kedvencek közül? \"%s\""
 
 #: ../src/favoriteusers.cc:441
 msgid "Are you sure you want to delete favorite user(s)?"
@@ -766,11 +748,11 @@ msgstr "Biztos, hogy törlöd a kijelölt kedvenc felhasználót?"
 
 #: ../ui/search.ui:89
 msgid "At least"
-msgstr ""
+msgstr "Legalább"
 
 #: ../ui/search.ui:92
 msgid "At most"
-msgstr ""
+msgstr "Legfeljebb"
 
 #: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:366
 msgid "Audio"
@@ -802,14 +784,11 @@ msgstr "IP cím automatikus frissítése az internetről"
 
 #: ../src/settingsdialog.cc:1641
 msgid "Auto-away on minimize (and back on restore)"
-msgstr ""
-"Minimalizáláskor automatikus away mód (és maximalizáláskor visszavonás)"
+msgstr "Minimalizáláskor automatikus away mód (és maximalizáláskor visszavonás)"
 
 #: ../src/settingsdialog.cc:987
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr ""
-"Lassú források automatikus eldobása a sor minden eléménél (kivéve fájl-"
-"listáknál)"
+msgstr "Lassú források automatikus eldobása a sor minden eléménél (kivéve fájl-listáknál)"
 
 #: ../src/settingsdialog.cc:1646
 msgid "Automatically disconnect users who leave the hub"
@@ -821,14 +800,11 @@ msgstr "Átirányítások automatikus követése"
 
 #: ../src/settingsdialog.cc:991
 msgid "Automatically match queue for auto search hits"
-msgstr ""
-"Listák automatikus egyeztetése a letöltésekkel alternatív forrás találásakor"
+msgstr "Listák automatikus egyeztetése a letöltésekkel alternatív forrás találásakor"
 
 #: ../ui/settingsdialog.ui:4167
 msgid "Automatically open extra slot if speed is below (0 = disable)"
-msgstr ""
-"Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = "
-"letiltva)"
+msgstr "Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = letiltva)"
 
 #: ../src/settingsdialog.cc:990
 msgid "Automatically search for alternative download locations"
@@ -892,7 +868,7 @@ msgstr "Üzenet küldőjének neve kiemelése a chaten"
 
 #: ../ui/settingsdialog.ui:8949
 msgid "Both"
-msgstr ""
+msgstr "Mindkettő"
 
 #: ../ui/settingsdialog.ui:8952
 msgid "Both horizontal"
@@ -1010,7 +986,7 @@ msgstr "Tanúsítvány fájl"
 
 #: ../src/settingsmanager.cc:526
 msgid "Change gui setting "
-msgstr ""
+msgstr "Grafikusfelület beállítás megváltoztatása"
 
 #: ../ui/mainwindow.ui:1611
 msgid "Changelog (git)"
@@ -1042,12 +1018,11 @@ msgstr "Ellenőrzés ennyi időnként"
 
 #: ../src/settingsdialog.cc:1094
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Kínai (Kína)"
 
 #: ../src/mainwindow.cc:273
-#, fuzzy
 msgid "Chinese (China) translation\n"
-msgstr "Szerb (latin) fordítás\n"
+msgstr "Kínai (Kína) fordítás\n"
 
 #: ../ui/settingsdialog.ui:8582
 msgid "Choose a File"
@@ -1229,11 +1204,7 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr ""
-"Ez a DC++ kliens a FreeDC++ és a LinuxDC++ forráskódján alapszik.\n"
-"\n"
-"EiskaltDC++ verzió: %s (%s)\n"
-"DC++ verzió: %s"
+msgstr "Ez a DC++ kliens a FreeDC++ és a LinuxDC++ forráskódján alapszik.\n\nEiskaltDC++ verzió: %s (%s)\nDC++ verzió: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1347,8 +1318,7 @@ msgstr "Ne rejtse el az oldal panelt keresésnél"
 
 #: ../src/settingsdialog.cc:989
 msgid "Don't remove the source when auto-dropping, only disconnect"
-msgstr ""
-"Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás legyen"
+msgstr "Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás legyen"
 
 #: ../src/settingsdialog.cc:1653
 msgid "Don't send the away message to bots"
@@ -1562,7 +1532,7 @@ msgstr "Hiba"
 
 #: ../src/settingsmanager.cc:528
 msgid "Error: segv parser :D"
-msgstr ""
+msgstr "Hiba: segv-elemző :D"
 
 #: ../src/settingsmanager.cc:523
 msgid "Error: setting not found!"
@@ -1712,7 +1682,7 @@ msgstr "Fájl nem elérhető"
 
 #: ../ui/search.ui:153
 msgid "File type"
-msgstr ""
+msgstr "Fájltípus"
 
 #: ../ui/settingsdialog.ui:705
 msgid "Filelist Menu"
@@ -1853,7 +1823,7 @@ msgstr "Francia fordítás\n"
 
 #: ../ui/adlsearch.ui:395
 msgid "Full Path"
-msgstr ""
+msgstr "Teljes útvonal"
 
 #: ../src/downloadqueue.cc:1366
 msgid "Full tree does not match TTH root"
@@ -1885,7 +1855,7 @@ msgstr "Fájl-lista letöltése"
 
 #: ../ui/search.ui:112 ../ui/adlsearch.ui:415
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: ../src/hub.cc:2857 ../src/favoritehubs.cc:362
 msgid "Global hub default"
@@ -1921,7 +1891,7 @@ msgstr "Csoportosítva felhasználók szerint"
 
 #: ../src/settingsmanager.cc:525
 msgid "Gui setting "
-msgstr ""
+msgstr "Grafikusfelület beállítás"
 
 #: ../ui/settingsdialog.ui:2944
 msgid "HTTP Proxy (for hublist only)"
@@ -1946,7 +1916,7 @@ msgstr "Index"
 
 #: ../ui/settingsdialog.ui:8955
 msgid "Hidden"
-msgstr ""
+msgstr "Rejtett"
 
 #: ../ui/search.ui:256
 msgid "Hide side panel"
@@ -2078,7 +2048,7 @@ msgstr "Ikon"
 
 #: ../ui/settingsdialog.ui:8943
 msgid "Icons"
-msgstr ""
+msgstr "Ikonok"
 
 #: ../ui/searchspy.ui:209
 msgid "Ignore TTH"
@@ -2169,9 +2139,7 @@ msgstr "Ne töltse le azokat a fájlokat, amik már a letöltési sorban vannak"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr ""
-"Többször szereplő fájlok megosztásban tartása (a duplikációk nem növelik a "
-"megosztás méretét)"
+msgstr "Többször szereplő fájlok megosztásban tartása (a duplikációk nem növelik a megosztás méretét)"
 
 #: ../src/settingsdialog.cc:1645
 msgid "Keep filelists when exiting"
@@ -2190,7 +2158,7 @@ msgstr "A_lacsony"
 
 #: ../ui/settingsdialog.ui:8926
 msgid "Left"
-msgstr ""
+msgstr "Bal"
 
 #: ../ui/mainwindow.ui:1505
 msgid "Left position"
@@ -2364,7 +2332,7 @@ msgstr "MiB/s"
 
 #: ../ui/settingsdialog.ui:8751 ../ui/settingsdialog.ui:8831
 msgid "Midnight"
-msgstr ""
+msgstr "Éjfél"
 
 #: ../src/publichubs.cc:53 ../src/publichubs.cc:165
 msgid "Min Share"
@@ -2533,7 +2501,7 @@ msgstr "Nincsenek hibák"
 
 #: ../ui/search.ui:129
 msgid "No grouping"
-msgstr ""
+msgstr "Ne csoportosítsa"
 
 #: ../src/sharebrowser.cc:692 ../src/sharebrowser.cc:888
 msgid "No matches"
@@ -2557,7 +2525,7 @@ msgstr "Nincsenek ikonok"
 
 #: ../ui/settingsdialog.ui:8787 ../ui/settingsdialog.ui:8867
 msgid "Noon"
-msgstr ""
+msgstr "Dél"
 
 #: ../src/downloadqueue.cc:1342 ../ui/search.ui:86
 msgid "Normal"
@@ -2573,25 +2541,20 @@ msgstr "Felhasználó nem található: "
 
 #: ../ui/settingsdialog.ui:8460
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr ""
-"Megjegyzés: Különböző keresési típusok csak az ADC hubokon használhatóak!"
+msgstr "Megjegyzés: Különböző keresési típusok csak az ADC hubokon használhatóak!"
 
 #: ../ui/settingsdialog.ui:4815 ../ui/settingsdialog.ui:4885
 msgid "Note: Most of these options require that you restart the application"
-msgstr ""
-"Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program újraindítása "
-"szükséges"
+msgstr "Megjegyzés: A legtöbb beállítás érvénybe lépéséhez a program újraindítása szükséges"
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr ""
-"Megjegyzés: Az új fájlok csak az indexelés befejezése után kerülnek "
-"megosztásra!"
+msgstr "Megjegyzés: Az új fájlok csak az indexelés befejezése után kerülnek megosztásra!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
-msgstr ""
-"Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
+msgstr "Megjegyzés; a változékony letöltési sebesség miatt ez nem 100% pontosságú..."
 
 #: ../src/settingsdialog.cc:1335 ../ui/settingsdialog.ui:5883
 msgid "Notify"
@@ -2685,7 +2648,7 @@ msgstr ""
 
 #: ../ui/favoritehubs.ui:558
 msgid "Passive"
-msgstr ""
+msgstr "Passzív"
 
 #: ../src/downloadqueue.cc:1362
 msgid "Passive user"
@@ -2878,9 +2841,7 @@ msgstr "Fájl-lista frissítése"
 
 #: ../src/settingsdialog.cc:1655
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
-msgstr ""
-"A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása "
-"a rendszerben"
+msgstr "A dchub://, adc:// és adcs:// URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerben"
 
 #: ../src/settingsdialog.cc:1656
 msgid "Register with the OS to handle magnet: URL links"
@@ -2892,8 +2853,7 @@ msgstr "Emlékezz a válaszra"
 
 #: ../src/downloadqueue.cc:1370
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr ""
-"A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem lehetséges"
+msgstr "A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem lehetséges"
 
 #: ../ui/uploadqueue.ui:69 ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:4341
 #: ../ui/settingsdialog.ui:8406
@@ -2954,7 +2914,7 @@ msgstr "Felbontás"
 
 #: ../ui/settingsdialog.ui:8929
 msgid "Right"
-msgstr ""
+msgstr "Jobb"
 
 #: ../ui/hash.ui:21
 msgid "Run in background"
@@ -3054,7 +3014,7 @@ msgstr "Biztonsági Tanúsítványok"
 
 #: ../src/settingsdialog.cc:3170
 msgid "Select Color"
-msgstr ""
+msgstr "Szín választása"
 
 #: ../src/settingsdialog.cc:3293
 msgid "Select Font"
@@ -3112,7 +3072,8 @@ msgstr "Szerb (latin) fordítás\n"
 
 #: ../src/hub.cc:2066
 msgid ""
-"Set Core option param in value (without value return current value of option)"
+"Set Core option param in value (without value return current value of "
+"option)"
 msgstr ""
 
 #: ../src/hub.cc:2065
@@ -3133,10 +3094,9 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:986
-msgid "Set lowest priority for newly added files larger than low priority size"
-msgstr ""
-"Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új "
-"fájlokhoz"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
+msgstr "Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új fájlokhoz"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -3264,7 +3224,7 @@ msgstr "Méret: 0 B"
 
 #: ../ui/settingsdialog.ui:4430
 msgid "Skip zero sized files"
-msgstr ""
+msgstr "Nulla hosszúságú fájlok kihagyása"
 
 #: ../src/settingsdialog.cc:992
 msgid "Skip zero-byte files"
@@ -3368,16 +3328,15 @@ msgstr "Státusz üzenet"
 
 #: ../src/search.cc:597
 msgid "Stop"
-msgstr ""
+msgstr "Megállítás"
 
 #: ../src/settingsdialog.cc:1096
 msgid "Swedish (Sweden)"
-msgstr ""
+msgstr "Svéd (Svédország)"
 
 #: ../src/mainwindow.cc:276
-#, fuzzy
 msgid "Swedish (Sweden) translation\n"
-msgstr "Szerb (latin) fordítás\n"
+msgstr "Svéd (Svédország) fordítás\n"
 
 #: ../src/settingsdialog.cc:1058 ../src/WulforUtil.cc:42
 #: ../ui/settingsdialog.ui:8958
@@ -3427,7 +3386,7 @@ msgstr "Teszt"
 
 #: ../ui/settingsdialog.ui:8946
 msgid "Text"
-msgstr ""
+msgstr "Szöveg"
 
 #: ../ui/settingsdialog.ui:5400
 msgid "Text color"
@@ -3493,9 +3452,7 @@ msgstr ""
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr ""
-"A letöltés megkezdéséhez be kell kapcsolnod az alternatívák automatikus "
-"keresését (Beállítások/Letöltések/Letöltési sor)"
+msgstr "A letöltés megkezdéséhez be kell kapcsolnod az alternatívák automatikus keresését (Beállítások/Letöltések/Letöltési sor)"
 
 #: ../ui/settingsdialog.ui:6193
 msgid "Toolbar"
@@ -3593,13 +3550,10 @@ msgstr "Fájl-lista betöltése sikertelen: Nem megfelelő fájl-lista név"
 
 #: ../src/mainwindow.cc:2284
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
-msgstr ""
-"A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog "
-"megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a "
-"kívánt portot használó alkalmazást be nem zárod."
+msgstr "A %1% port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a kívánt portot használó alkalmazást be nem zárod."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3730,8 +3684,7 @@ msgstr "Hangulatjelek használata"
 
 #: ../src/settingsdialog.cc:1654
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr ""
-"Gyors indexelés használata (kapcsold ki, ha problémát észlelsz indexeléskor)"
+msgstr "Gyors indexelés használata (kapcsold ki, ha problémát észlelsz indexeléskor)"
 
 #: ../src/settingsdialog.cc:1120
 msgid "Use magnet split"
@@ -3832,22 +3785,12 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr ""
-"Használat:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp <Kapcsoló>\n"
-"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC "
-"protokollok használatára.\n"
-"\n"
-"Kapcsolók:\n"
-"  -h, --help\t\t Help megjelenítése\n"
-"  -V, --version\t  Verzióinformáció mutatása\n"
+msgstr "Használat:\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n  eiskaltdcpp <Kapcsoló>\nAz EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC protokollok használatára.\n\nKapcsolók:\n  -h, --help\t\t Help megjelenítése\n  -V, --version\t  Verzióinformáció mutatása\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:365
 msgid "Video"
@@ -3855,11 +3798,11 @@ msgstr "Videó"
 
 #: ../src/settingsdialog.cc:1092
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnami"
 
 #: ../src/mainwindow.cc:270
 msgid "Vietnamese translation\n"
-msgstr ""
+msgstr "Vietnami fordítás\n"
 
 #: ../src/settingsdialog.cc:1115
 msgid "View status messages in main chat"
@@ -3897,8 +3840,7 @@ msgstr "Várakozás (másodpercben)"
 #: ../src/hub.cc:559
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr ""
-"Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
+msgstr "Várakozás a jelszó bevitelére (ne töröld a /password szót a jelszavad elől)"
 
 #: ../src/transfers.cc:583
 msgid "Waiting for slot"
@@ -4179,7 +4121,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8990
 msgid "default"
-msgstr ""
+msgstr "alapértelmezett"
 
 #: ../src/settingsdialog.cc:2505
 msgid "default icons"
