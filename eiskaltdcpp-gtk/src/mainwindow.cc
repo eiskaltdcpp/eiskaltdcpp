@@ -226,7 +226,7 @@ MainWindow::MainWindow():
         string("\n")+
         _("Hungarian translation\n")+
         string("  2010-2012 Akos Berki aka sumo <husumo@gmail.com>\n")+
-        string("  2011-2013 Márk Lutring <marcus@elitemail.hu>\n")+
+        string("  2011-2014 Márk Lutring <marcus@elitemail.hu>\n")+
         string("\n")+
         _("French translation\n")+
         string("  2010-2012 Alexandre Wallimann aka Ale <alexandre.wallimann@gmail.com>\n")+
