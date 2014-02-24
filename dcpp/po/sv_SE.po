@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-01-11 15:08+0400\n"
-"PO-Revision-Date: 2014-02-23 18:36+0000\n"
+"PO-Revision-Date: 2014-02-23 19:02+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -280,7 +280,7 @@ msgstr "%1%: Matchar %2% filen"
 #: ../QueueManager.cpp:1796
 msgid ""
 "Target path for this item is not available: %1%; pause this queue item."
-msgstr ""
+msgstr "Målsökvägen för detta objekt finns inte tillgängligt: %1%; objektet pausad."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
