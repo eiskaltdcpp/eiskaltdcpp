@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-02-23 00:48+0000\n"
+"PO-Revision-Date: 2014-02-24 21:50+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -755,13 +755,13 @@ msgstr "Högst"
 
 #: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:366
 msgid "Audio"
-msgstr ""
+msgstr "Ljud"
 
 #: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:72
 #: ../src/favoritehubs.cc:131 ../src/favoritehubs.cc:313
 #: ../src/favoritehubs.cc:495 ../src/favoritehubs.cc:497
 msgid "Auto Connect"
-msgstr ""
+msgstr "Anslut automatiskt"
 
 #: ../ui/favoritehubs.ui:457
 msgid "Auto connect on _startup"
@@ -771,11 +771,11 @@ msgstr ""
 #: ../src/favoriteusers.cc:111 ../src/favoriteusers.cc:473
 #: ../src/favoriteusers.cc:475
 msgid "Auto grant slot"
-msgstr ""
+msgstr "Bevilja slott automatiskt"
 
 #: ../ui/settingsdialog.ui:7811
 msgid "Auto refresh time"
-msgstr ""
+msgstr "Uppdatera utdelning"
 
 #: ../ui/favoritehubs.ui:510
 msgid "Auto update IP from internet"
@@ -783,7 +783,7 @@ msgstr "Uppdatera IP-adressen automatiskt"
 
 #: ../src/settingsdialog.cc:1641
 msgid "Auto-away on minimize (and back on restore)"
-msgstr ""
+msgstr "Auto-IVD vid minimera (och tillbaka vid återställ)"
 
 #: ../src/settingsdialog.cc:987
 msgid "Auto-drop slow sources for all queue items (except filelists)"
