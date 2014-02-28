@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-01-11 15:08+0400\n"
-"PO-Revision-Date: 2014-02-24 21:44+0000\n"
+"PO-Revision-Date: 2014-02-27 20:58+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "Video"
 
 #: ../SearchManager.cpp:43
 msgid "Directory"
-msgstr "Mapp"
+msgstr "Katalog"
 
 #: ../SearchManager.cpp:44
 msgid "TTH"
@@ -197,7 +197,7 @@ msgstr "Frånkopplade användare lämnar hubben: %1%"
 
 #: ../DirectoryListing.cpp:206
 msgid "Directory missing name attribute"
-msgstr "Mappen saknas namnattribut"
+msgstr "Katalogen saknas namnattribut"
 
 #: ../QueueManager.cpp:243
 msgid "No needed part"
@@ -243,7 +243,7 @@ msgstr "Målfilens namn är för långt"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr "Ogiltig målfil (mappen finns inte, kontrollera inställningarna för standard nedladdningsmapp)"
+msgstr "Ogiltig målfil (katalogen finns inte, kontrollera inställningarna för standard nedladdningskatalog)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -538,15 +538,15 @@ msgstr "Ändlös omdirgeringsloop (%1%)"
 
 #: ../ShareManager.cpp:446
 msgid "No directory specified"
-msgstr "Ingen mapp är specificerad"
+msgstr "Ingen katalog är specificerad"
 
 #: ../ShareManager.cpp:450
 msgid "Directory is hidden"
-msgstr "Mappen är dold"
+msgstr "Katalogen är dold"
 
 #: ../ShareManager.cpp:454
 msgid "The temporary download directory cannot be shared"
-msgstr "Mappar med pågående nedladdningar kan inte delas ut"
+msgstr "Kataloger med pågående nedladdningar kan inte delas ut"
 
 #: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-02-24 21:50+0000\n"
+"PO-Revision-Date: 2014-02-27 20:53+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -322,11 +322,11 @@ msgstr "<b>Anslut till adress:</b>"
 
 #: ../ui/settingsdialog.ui:743
 msgid "<b>Context</b>"
-msgstr ""
+msgstr "<b>Innehåll</b>"
 
 #: ../ui/settingsdialog.ui:5993
 msgid "<b>Current theme name:</b>"
-msgstr ""
+msgstr "<b>Nuvarande temanamn:</b>"
 
 #: ../ui/settingsdialog.ui:4743
 msgid "<b>Default away message</b>"
@@ -338,15 +338,15 @@ msgstr "<b>Beskrivning</b>"
 
 #: ../ui/adlsearch.ui:295
 msgid "<b>Destination Directory</b>"
-msgstr "<b>Målmapp</b>"
+msgstr "<b>Målkatalog</b>"
 
 #: ../ui/settingsdialog.ui:2743
 msgid "<b>Directories</b>"
-msgstr "<b>Mappar</b>"
+msgstr "<b>Kataloger</b>"
 
 #: ../ui/settingsdialog.ui:4396
 msgid "<b>Do not share files and folders containing:</b>"
-msgstr ""
+msgstr "<b>Dela inte ut filer och mappar som innehåller:</b>"
 
 #: ../src/hub.cc:601
 msgid "<b>Enter your password</b>"
@@ -426,11 +426,11 @@ msgstr "<b>Namn på den nya söktypen</b>"
 
 #: ../src/settingsdialog.cc:3098
 msgid "<b>Name under which the others see the directory</b>"
-msgstr "<b>Mappnamnet som andra användare ser det</b>"
+msgstr "<b>Katalognamnet som andra användare ser det</b>"
 
 #: ../src/settingsdialog.cc:3738
 msgid "<b>Name, under which you see the directory</b>"
-msgstr "<b>Mappnamnet som du ser det</b>"
+msgstr "<b>Katalognamnet som du ser det</b>"
 
 #: ../src/settingsdialog.cc:2104
 msgid "<b>New name</b>"
@@ -510,7 +510,7 @@ msgstr "<b>Inställning för alternativ hastighetsbegränsning</b>"
 
 #: ../ui/settingsdialog.ui:4140
 msgid "<b>Shared directories</b>"
-msgstr "<b>Utdelade mappar</b>"
+msgstr "<b>Utdelade kataloger</b>"
 
 #: ../ui/adlsearch.ui:252
 msgid "<b>Size Type</b>"
@@ -688,15 +688,15 @@ msgstr ""
 
 #: ../src/hub.cc:2269
 msgid "Aliases not found."
-msgstr ""
+msgstr "Hittade inga alias."
 
 #: ../src/settingsdialog.cc:1726
 msgid "Allow TLS connections to clients without trusted certificate"
-msgstr ""
+msgstr "Tillåt TLS-anslutningar till klienter som saknar betrodda certifikat"
 
 #: ../src/settingsdialog.cc:1725
 msgid "Allow TLS connections to hubs without trusted certificate"
-msgstr ""
+msgstr "Tillåt TLS-anslutningar till hubbar som saknar betrodda certifikat"
 
 #: ../src/settingsdialog.cc:1660
 msgid "Allow few connections from one IP"
@@ -704,7 +704,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1659
 msgid "Allow overlap chunks"
-msgstr ""
+msgstr "Tillåt att delarna överlappas"
 
 #: ../src/settingsdialog.cc:1661
 msgid "Allow some connections for one user"
@@ -712,7 +712,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:954
 msgid "Amarok player"
-msgstr ""
+msgstr "Amarok-spelare"
 
 #: ../ui/settingsdialog.ui:4829 ../ui/settingsdialog.ui:6691
 msgid "Appearance"
@@ -739,11 +739,11 @@ msgstr ""
 #: ../src/favoritehubs.cc:454
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
+msgstr "Vill du ta bort favorithubben \"%s\"?"
 
 #: ../src/favoriteusers.cc:441
 msgid "Are you sure you want to delete favorite user(s)?"
-msgstr ""
+msgstr "Vill du ta bort favoritanvändare?"
 
 #: ../ui/search.ui:89
 msgid "At least"
@@ -765,7 +765,7 @@ msgstr "Anslut automatiskt"
 
 #: ../ui/favoritehubs.ui:457
 msgid "Auto connect on _startup"
-msgstr ""
+msgstr "Anslut automatiskt vid uppstart"
 
 #: ../src/favoriteusers.cc:47 ../src/favoriteusers.cc:68
 #: ../src/favoriteusers.cc:111 ../src/favoriteusers.cc:473
@@ -791,19 +791,19 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1646
 msgid "Automatically disconnect users who leave the hub"
-msgstr ""
+msgstr "Koppla bort användare som lämnar hubben"
 
 #: ../src/settingsdialog.cc:1642
 msgid "Automatically follow redirects"
-msgstr ""
+msgstr "Följ omdirigering automatiskt"
 
 #: ../src/settingsdialog.cc:991
 msgid "Automatically match queue for auto search hits"
-msgstr ""
+msgstr "Matcha automatiskt filer mot nedladdningskön"
 
 #: ../ui/settingsdialog.ui:4167
 msgid "Automatically open extra slot if speed is below (0 = disable)"
-msgstr ""
+msgstr "Öppna extra slott om hastigheten underskrider (0 = avstängt)"
 
 #: ../src/settingsdialog.cc:990
 msgid "Automatically search for alternative download locations"
@@ -811,35 +811,35 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:2408
 msgid "Automatically update external IP (restart required)"
-msgstr ""
+msgstr "Uppdatera extern IP-adress vid uppstart (omstart krävs)"
 
 #: ../src/privatemessage.cc:1023 ../src/hub.cc:2039 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
 msgid "Away mode message on/off"
-msgstr ""
+msgstr "IVD-läge meddelande på/av"
 
 #: ../src/privatemessage.cc:911 ../src/privatemessage.cc:925
 #: ../src/privatemessage.cc:1024 ../src/hub.cc:1862 ../src/hub.cc:1875
 #: ../src/hub.cc:2040 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
 msgid "Away mode off"
-msgstr ""
+msgstr "IVD-läga av"
 
 #: ../src/privatemessage.cc:919 ../src/hub.cc:1869
 msgid "Away mode on: "
-msgstr ""
+msgstr "IVD-läge på:"
 
 #: ../ui/search.ui:103 ../ui/adlsearch.ui:406 ../ui/settingsdialog.ui:7978
 #: ../ui/settingsdialog.ui:7991
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: ../src/hashdialog.cc:64 ../ui/settingsdialog.ui:3552
 msgid "B/s"
-msgstr ""
+msgstr "B/s"
 
 #: ../ui/settingsdialog.ui:5383
 msgid "Back color"
-msgstr ""
+msgstr "Bakgrundsfärg"
 
 #: ../src/settingsdialog.cc:1064
 msgid "Belarusian"
@@ -851,15 +851,15 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:7772
 msgid "Bind address"
-msgstr ""
+msgstr "Nätverksadress"
 
 #: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:363
 msgid "Bitrate"
-msgstr ""
+msgstr "Bithastighet"
 
 #: ../ui/settingsdialog.ui:5451
 msgid "Black/White"
-msgstr ""
+msgstr "Svart/Vit"
 
 #: ../ui/settingsdialog.ui:5362
 msgid "Bold Authors of message in chat"
@@ -879,15 +879,15 @@ msgstr "Längst ned"
 
 #: ../ui/uploadqueue.ui:87
 msgid "Browse FileList"
-msgstr ""
+msgstr "Bläddra i fillistan"
 
 #: ../ui/settingsdialog.ui:5167
 msgid "Browse file..."
-msgstr ""
+msgstr "Bläddra fil..."
 
 #: ../ui/mainwindow.ui:2218
 msgid "Browse the list of public hubs"
-msgstr ""
+msgstr "Bläddra i listan med publika hubbar"
 
 #: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:357
 #: ../src/search.cc:428 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
@@ -895,7 +895,7 @@ msgstr ""
 #: ../ui/settingsdialog.ui:6749 ../ui/settingsdialog.ui:8062
 #: ../ui/settingsdialog.ui:8080 ../ui/settingsdialog.ui:8098
 msgid "Browse..."
-msgstr ""
+msgstr "Bländra..."
 
 #: ../src/settingsdialog.cc:1080
 msgid "Bulgarian"
@@ -916,7 +916,7 @@ msgstr ""
 #: ../src/favoriteusers.cc:428 ../src/favoriteusers.cc:472
 #: ../src/favoriteusers.cc:590
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 #: ../ui/cmddebug.ui:69
 msgid "CLIENT IN"
@@ -936,39 +936,39 @@ msgstr ""
 
 #: ../src/WulforUtil.cc:213
 msgid "CP1250"
-msgstr ""
+msgstr "CP1250"
 
 #: ../src/WulforUtil.cc:222
 msgid "CP1251"
-msgstr ""
+msgstr "CP1251"
 
 #: ../src/WulforUtil.cc:212
 msgid "CP1252"
-msgstr ""
+msgstr "CP1252"
 
 #: ../src/WulforUtil.cc:223
 msgid "CP1256"
-msgstr ""
+msgstr "CP1256"
 
 #: ../src/WulforUtil.cc:224
 msgid "CP1257"
-msgstr ""
+msgstr "CP1257"
 
 #: ../src/WulforUtil.cc:220
 msgid "CP949"
-msgstr ""
+msgstr "CP949"
 
 #: ../src/finishedtransfers.cc:68 ../src/finishedtransfers.cc:242
 msgid "CRC Checked"
-msgstr ""
+msgstr "CRC-kontrollerad"
 
 #: ../src/downloadqueue.cc:1364
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr ""
+msgstr "CRC32-värden stämmer inte överens (SFV-kontroll)"
 
 #: ../ui/mainwindow.ui:1112
 msgid "Calculate file TTH"
-msgstr ""
+msgstr "Beräkna TTH-värde"
 
 #: ../src/wulfor.cc:108
 #, c-format
@@ -1013,7 +1013,7 @@ msgstr "Chatten aktiverad"
 
 #: ../ui/settingsdialog.ui:3492
 msgid "Check every"
-msgstr ""
+msgstr "Kontrollera varje"
 
 #: ../src/settingsdialog.cc:1094
 msgid "Chinese (China)"
@@ -1031,7 +1031,7 @@ msgstr ""
 #: ../src/mainwindow.cc:1392 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8510
 msgid "Choose a directory"
-msgstr ""
+msgstr "Välj en kalalog"
 
 #: ../ui/mainwindow.ui:512
 msgid "Chose A File"
@@ -1126,7 +1126,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1433 ../src/settingsdialog.cc:1472
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
 msgid "Connect"
-msgstr ""
+msgstr "Anslut"
 
 #: ../src/hub.cc:3496
 msgid "Connect failed: "
@@ -1146,30 +1146,30 @@ msgstr ""
 
 #: ../src/hub.cc:3440 ../src/transfers.cc:1029
 msgid "Connected"
-msgstr ""
+msgstr "Ansluten"
 
 #: ../src/transfers.cc:1065
 msgid "Connecting"
-msgstr ""
+msgstr "Ansluter"
 
 #: ../src/transfers.cc:374
 msgid "Connecting (forced)..."
-msgstr ""
+msgstr "Ansluter (tvingad)..."
 
 #: ../src/hub.cc:3433
 msgid "Connecting to "
-msgstr ""
+msgstr "Ansluter till"
 
 #: ../src/transfers.cc:1018
 msgid "Connecting..."
-msgstr ""
+msgstr "Ansluter..."
 
 #: ../src/hub.cc:90 ../src/hub.cc:409 ../src/hub.cc:429 ../src/search.cc:106
 #: ../src/search.cc:657 ../src/search.cc:742 ../src/search.cc:875
 #: ../ui/search.ui:141 ../ui/settingsdialog.ui:1883
 #: ../ui/settingsdialog.ui:2585
 msgid "Connection"
-msgstr ""
+msgstr "Ansluter"
 
 #: ../src/mainwindow.cc:2286
 msgid "Connectivity Manager: Warning"
@@ -1182,11 +1182,11 @@ msgstr ""
 #: ../src/searchspy.cc:58 ../src/searchspy.cc:157 ../src/searchspy.cc:271
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:312 ../src/searchspy.cc:434
 msgid "Count"
-msgstr ""
+msgstr "Antal"
 
 #: ../src/publichubs.cc:51 ../src/publichubs.cc:163
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #: ../src/settingsdialog.cc:1084
 msgid "Czech"
@@ -1203,38 +1203,38 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr ""
+msgstr "DC++ klient bygger på källkod från FreeDC++ och LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
-msgstr ""
+msgstr "DETECTION"
 
 #: ../ui/settingsdialog.ui:2508
 msgid "DHT Port"
-msgstr ""
+msgstr "DHT-port"
 
 #: ../src/emoticonsdialog.cc:98 ../src/previewmenu.cc:87
 #: ../ui/favoritehubs.ui:552 ../ui/settingsdialog.ui:5721
 #: ../ui/settingsdialog.ui:6436 ../ui/settingsdialog.ui:6622
 #: ../ui/settingsdialog.ui:8421
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: ../ui/settingsdialog.ui:2618
 msgid "Default download directory"
-msgstr ""
+msgstr "Standardkatalog för nedladdningar"
 
 #: ../ui/settingsdialog.ui:1211
 msgid "Default hub encoding"
-msgstr ""
+msgstr "Standard teckenkodning för hubb"
 
 #: ../ui/settingsdialog.ui:6074
 msgid "Default icons"
-msgstr ""
+msgstr "Standardikon"
 
 #: ../ui/settingsdialog.ui:5434
 msgid "Default styles"
-msgstr ""
+msgstr "Standardstil"
 
 #: ../ui/searchspy.ui:112
 msgid "Delete item"
@@ -1253,7 +1253,7 @@ msgstr ""
 #: ../src/adlsearch.cc:41 ../src/adlsearch.cc:61 ../src/adlsearch.cc:112
 #: ../src/adlsearch.cc:212 ../src/adlsearch.cc:237
 msgid "Destination Directory"
-msgstr ""
+msgstr "Målkatalog"
 
 #: ../src/mainwindow.cc:206
 msgid "Developers"
@@ -1277,7 +1277,7 @@ msgstr ""
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
-msgstr ""
+msgstr "Katalog"
 
 #: ../src/settingsdialog.cc:3759
 msgid "Directory or favorite name already exists"
@@ -2602,7 +2602,7 @@ msgstr ""
 
 #: ../src/notify.cc:161
 msgid "Open folder"
-msgstr ""
+msgstr "Öppna mapp"
 
 #: ../ui/hub.ui:157
 msgid "Open image"
