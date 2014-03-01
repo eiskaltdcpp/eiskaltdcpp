@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-02-27 20:53+0000\n"
+"PO-Revision-Date: 2014-02-28 23:47+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -298,7 +298,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5306
 msgid "<b>Available styles</b>"
-msgstr ""
+msgstr "<b>Tillgängliga stilar</b>"
 
 #: ../ui/settingsdialog.ui:8204
 msgid "<b>Certificate Paths</b>"
@@ -730,7 +730,7 @@ msgstr ""
 
 #: ../ui/searchspy.ui:241
 msgid "Apply settings"
-msgstr ""
+msgstr "Verkställ inställningarna"
 
 #: ../ui/settingsdialog.ui:3828
 msgid "Apply to Extensions: (avi;mov;divx)"
@@ -932,7 +932,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1256
 msgid "CMD Debug"
-msgstr ""
+msgstr "CMD Debug"
 
 #: ../src/WulforUtil.cc:213
 msgid "CP1250"
@@ -981,7 +981,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8172
 msgid "Certificate file"
-msgstr ""
+msgstr "Certifikatfil"
 
 #: ../src/settingsmanager.cc:526
 msgid "Change gui setting "
@@ -989,11 +989,11 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1611
 msgid "Changelog (git)"
-msgstr ""
+msgstr "Ändringslogg (git)"
 
 #: ../ui/settingsdialog.ui:609
 msgid "Chat"
-msgstr ""
+msgstr "Chatt"
 
 #: ../ui/privatemessage.ui:260 ../ui/hub.ui:332
 msgid "Chat Commands"
@@ -1001,7 +1001,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:688
 msgid "Chat Menu"
-msgstr ""
+msgstr "Chattmeny"
 
 #: ../src/hub.cc:1889
 msgid "Chat disabled"
@@ -1025,7 +1025,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8582
 msgid "Choose a File"
-msgstr ""
+msgstr "Välj en fil"
 
 #: ../src/privatemessage.cc:1298 ../src/hub.cc:2651 ../src/mainwindow.cc:1324
 #: ../src/mainwindow.cc:1392 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
@@ -1035,93 +1035,93 @@ msgstr "Välj en kalalog"
 
 #: ../ui/mainwindow.ui:512
 msgid "Chose A File"
-msgstr ""
+msgstr "Välj en fil"
 
 #: ../ui/searchspy.ui:124 ../ui/searchspy.ui:340 ../ui/search.ui:242
 msgid "Clear"
-msgstr ""
+msgstr "Rensa"
 
 #: ../src/privatemessage.cc:1025 ../ui/privatemessage.ui:30
 msgid "Clear PM"
-msgstr ""
+msgstr "Rensa privata meddelanden"
 
 #: ../src/hub.cc:2041 ../ui/hub.ui:30
 msgid "Clear chat"
-msgstr ""
+msgstr "Rensa chatten"
 
 #: ../src/searchspy.cc:503 ../ui/searchspy.ui:344
 msgid "Clear frame search"
-msgstr ""
+msgstr "Rensa ramfältet"
 
 #: ../src/settingsdialog.cc:1643
 msgid "Clear search box after each search"
-msgstr ""
+msgstr "Rensa sökfältet efter varje sökning"
 
 #: ../src/privatemessage.cc:1026 ../ui/privatemessage.ui:39
 msgid "Close PM"
-msgstr ""
+msgstr "Stäng meddelande"
 
 #: ../ui/mainwindow.ui:1428
 msgid "Close all PM"
-msgstr ""
+msgstr "Stäng alla meddelande"
 
 #: ../ui/mainwindow.ui:1419
 msgid "Close all hubs"
-msgstr ""
+msgstr "Stäng all hubbfönster"
 
 #: ../ui/mainwindow.ui:1437
 msgid "Close all search"
-msgstr ""
+msgstr "Stäng alla sökfönster"
 
 #: ../src/hub.cc:2042
 msgid "Close chat"
-msgstr ""
+msgstr "Stäng alla meddelandenfönster"
 
 #: ../ui/mainwindow.ui:1446
 msgid "Close offline PM"
-msgstr ""
+msgstr "Stäng alla meddelandefönster där användaren är frånkopplad"
 
 #: ../src/bookentry.cc:75
 msgid "Close tab"
-msgstr ""
+msgstr "Stäng flik"
 
 #: ../src/transfers.cc:407
 msgid "Closing connection..."
-msgstr ""
+msgstr "Stänger anslutningen..."
 
 #: ../ui/settingsdialog.ui:401
 msgid "Color select"
-msgstr ""
+msgstr "Välj färg"
 
 #: ../ui/settingsdialog.ui:5505
 msgid "Colors & Fonts"
-msgstr ""
+msgstr "Färger & Typsnitt"
 
 #: ../src/settingsdialog.cc:1673 ../src/settingsdialog.cc:1681
 #: ../src/settingsdialog.cc:3347 ../src/settingsdialog.cc:3421
 #: ../ui/settingsdialog.ui:812
 msgid "Command"
-msgstr ""
+msgstr "Kommando"
 
 #: ../src/settingsdialog.cc:3465 ../src/settingsdialog.cc:3471
 msgid "Command name already exists"
-msgstr ""
+msgstr "Namnet på kommandot finns redan"
 
 #: ../ui/settingsdialog.ui:2904
 msgid "Configure Public Hub Lists"
-msgstr ""
+msgstr "Konfigurera publika hubblistor"
 
 #: ../ui/settingsdialog.ui:9103 ../ui/publichubs.ui:10
 msgid "Configure hub lists"
-msgstr ""
+msgstr "Konfigurera hubblistor"
 
 #: ../src/settingsdialog.cc:1573
 msgid "Confirm application exit"
-msgstr ""
+msgstr "Bekräfta avstängning av programmet"
 
 #: ../src/settingsdialog.cc:1574
 msgid "Confirm favorite hub removal"
-msgstr ""
+msgstr "Bekräfta borttagning av favorithubb"
 
 #: ../src/settingsdialog.cc:1433 ../src/settingsdialog.cc:1472
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
@@ -1130,19 +1130,19 @@ msgstr "Anslut"
 
 #: ../src/hub.cc:3496
 msgid "Connect failed: "
-msgstr ""
+msgstr "Anslutningen misslyckades:"
 
 #: ../ui/mainwindow.ui:620
 msgid "Connect to a hub"
-msgstr ""
+msgstr "Anslut till en hubb"
 
 #: ../ui/favoriteusers.ui:203
 msgid "Connect to hub"
-msgstr ""
+msgstr "Anslut till hubb"
 
 #: ../src/hub.cc:2050 ../ui/hub.ui:57
 msgid "Connect to the hub"
-msgstr ""
+msgstr "Anslut till hubben"
 
 #: ../src/hub.cc:3440 ../src/transfers.cc:1029
 msgid "Connected"
@@ -1238,7 +1238,7 @@ msgstr "Standardstil"
 
 #: ../ui/searchspy.ui:112
 msgid "Delete item"
-msgstr ""
+msgstr "Ta bort"
 
 #: ../src/hub.cc:88 ../src/hub.cc:407 ../src/hub.cc:427
 #: ../src/favoritehubs.cc:54 ../src/favoritehubs.cc:133
@@ -1248,7 +1248,7 @@ msgstr ""
 #: ../src/favoriteusers.cc:400 ../src/favoriteusers.cc:589
 #: ../ui/favoriteusers.ui:212 ../ui/settingsdialog.ui:1171
 msgid "Description"
-msgstr ""
+msgstr "Beskrivning"
 
 #: ../src/adlsearch.cc:41 ../src/adlsearch.cc:61 ../src/adlsearch.cc:112
 #: ../src/adlsearch.cc:212 ../src/adlsearch.cc:237
