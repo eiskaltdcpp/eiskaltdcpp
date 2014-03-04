@@ -4,38 +4,38 @@
     <message>
         <location filename="../src/ADLS.cpp" line="53"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"/>
+        <translation>ADL-sök</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="139"/>
         <location filename="../src/ADLS.cpp" line="156"/>
         <source>Add new</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till nytt</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="157"/>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>Ändra</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="158"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="381"/>
         <source>Filename</source>
-        <translation type="unfinished"/>
+        <translation>Filnamn</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="382"/>
         <source>Directory</source>
-        <translation type="unfinished"/>
+        <translation>Katalog</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="383"/>
         <source>Full Path</source>
-        <translation type="unfinished"/>
+        <translation>Hela sökvägen</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="389"/>
@@ -63,37 +63,37 @@
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Checked</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollerad</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Search String</source>
-        <translation type="unfinished"/>
+        <translation>Söksträng</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="19"/>
         <source>Type source</source>
-        <translation type="unfinished"/>
+        <translation>Källtyp</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Name directory</source>
-        <translation type="unfinished"/>
+        <translation>Katalognamn</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Min. Size</source>
-        <translation type="unfinished"/>
+        <translation>Minsta storlek</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Max. Size</source>
-        <translation type="unfinished"/>
+        <translation>Största storlek</translation>
     </message>
     <message>
         <location filename="../src/ADLSModel.cpp" line="20"/>
         <source>Type Size</source>
-        <translation type="unfinished"/>
+        <translation>Storlekstyp</translation>
     </message>
 </context>
 <context>
@@ -122,7 +122,7 @@ Keys:
         <location filename="../src/ActionCustomizer.cpp" line="26"/>
         <location filename="../src/ActionCustomizer.cpp" line="38"/>
         <source>-- Separator --</source>
-        <translation type="unfinished"/>
+        <translation>-- Avgränsare --</translation>
     </message>
 </context>
 <context>
@@ -130,17 +130,17 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="141"/>
         <source>Checking user %1 (message: %2, cid: %3)...</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollerar användare %1 (meddelande: %2, cid: %3)...</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="152"/>
         <source>%1: Moving user to GRAY.</source>
-        <translation type="unfinished"/>
+        <translation>%1: Flyttar användaren till GRAY.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="162"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation type="unfinished"/>
+        <translation>%1: Flyttar användaren till BLACK.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
@@ -165,7 +165,7 @@ Keys:
         <location filename="../src/CustomFontModel.cpp" line="29"/>
         <location filename="../src/CustomFontModel.cpp" line="94"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Typsnitt</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="33"/>
@@ -203,22 +203,22 @@ Keys:
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="65"/>
         <source>Code</source>
-        <translation type="unfinished"/>
+        <translation>Kod</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="89"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Rensa</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="109"/>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="116"/>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>Stopp</translation>
     </message>
 </context>
 <context>
@@ -226,7 +226,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="60"/>
         <source>Magnet</source>
-        <translation type="unfinished"/>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="62"/>
@@ -236,142 +236,142 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="63"/>
         <source>Copy magnet</source>
-        <translation type="unfinished"/>
+        <translation>Kopiera magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="64"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"/>
+        <translation>Kopiera webb-magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="65"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"/>
+        <translation>Egenskaper för magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="66"/>
         <source>Rename/Move</source>
-        <translation type="unfinished"/>
+        <translation>Döp om/Flytta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="71"/>
         <source>Set priority</source>
-        <translation type="unfinished"/>
+        <translation>Ställ in prioritet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="73"/>
         <source>Paused</source>
-        <translation type="unfinished"/>
+        <translation>Pausad</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="76"/>
         <source>Lowest</source>
-        <translation type="unfinished"/>
+        <translation>Lägsta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="79"/>
         <source>Low</source>
-        <translation type="unfinished"/>
+        <translation>Låg</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="82"/>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="85"/>
         <source>High</source>
-        <translation type="unfinished"/>
+        <translation>Hög</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="88"/>
         <source>Highest</source>
-        <translation type="unfinished"/>
+        <translation>Högsta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="94"/>
         <source>Browse files</source>
-        <translation type="unfinished"/>
+        <translation>Bläddra bland filer</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="95"/>
         <source>Send private message</source>
-        <translation type="unfinished"/>
+        <translation>Skicka privata meddelande</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="100"/>
         <source>Remove source</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort källa</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="101"/>
         <source>Remove user</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort användare</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="103"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="360"/>
         <source>No users...</source>
-        <translation type="unfinished"/>
+        <translation>Inga användare...</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="367"/>
         <source>%1 of %2 user(s) online</source>
-        <translation type="unfinished"/>
+        <translation>%1 av %2 användare anslutna</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="369"/>
         <source>Running...</source>
-        <translation type="unfinished"/>
+        <translation>Laddar ned...</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="395"/>
         <source>File not available</source>
-        <translation type="unfinished"/>
+        <translation>Filen är inte tillgänglig</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="397"/>
         <source>Passive user</source>
-        <translation type="unfinished"/>
+        <translation>Passiv användare</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="399"/>
         <source>Checksum mismatch</source>
-        <translation type="unfinished"/>
+        <translation>Felaktig kontrollsumma</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="401"/>
         <source>Full tree does not match TTH root</source>
-        <translation type="unfinished"/>
+        <translation>Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen trasig</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="403"/>
         <source>Source too slow</source>
-        <translation type="unfinished"/>
+        <translation>Källan är för långsam</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="405"/>
         <source>Remote client does not fully support TTH - cannot download</source>
-        <translation type="unfinished"/>
+        <translation>Den andra klienten har inte fullt stöd för TTH-värden - kan inte ladda ned</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="412"/>
         <source>No errors</source>
-        <translation type="unfinished"/>
+        <translation>Inga fel</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="653"/>
         <source>Choose filename</source>
-        <translation type="unfinished"/>
+        <translation>Välj filnamn</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="653"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Alla filer (*.*)</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="793"/>
@@ -381,7 +381,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.h" line="85"/>
         <source>Download Queue</source>
-        <translation type="unfinished"/>
+        <translation>Nedladdningskö</translation>
     </message>
 </context>
 <context>
@@ -390,61 +390,61 @@ Keys:
         <location filename="../src/DownloadQueueModel.cpp" line="76"/>
         <location filename="../src/DownloadQueueModel.cpp" line="278"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Namn</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="76"/>
         <location filename="../src/DownloadQueueModel.cpp" line="278"/>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>Status</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="76"/>
         <location filename="../src/DownloadQueueModel.cpp" line="278"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Storlek</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="76"/>
         <location filename="../src/DownloadQueueModel.cpp" line="278"/>
         <source>Downloaded</source>
-        <translation type="unfinished"/>
+        <translation>Nedladdat</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="77"/>
         <location filename="../src/DownloadQueueModel.cpp" line="279"/>
         <source>Priority</source>
-        <translation type="unfinished"/>
+        <translation>Prioritet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="77"/>
         <location filename="../src/DownloadQueueModel.cpp" line="279"/>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>Användare</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="77"/>
         <location filename="../src/DownloadQueueModel.cpp" line="279"/>
         <source>Path</source>
-        <translation type="unfinished"/>
+        <translation>Sökväg</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="77"/>
         <location filename="../src/DownloadQueueModel.cpp" line="279"/>
         <source>Exact size</source>
-        <translation type="unfinished"/>
+        <translation>Exakt storlek</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="78"/>
         <location filename="../src/DownloadQueueModel.cpp" line="280"/>
         <source>Errors</source>
-        <translation type="unfinished"/>
+        <translation>Fel</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="78"/>
         <location filename="../src/DownloadQueueModel.cpp" line="280"/>
         <source>Added</source>
-        <translation type="unfinished"/>
+        <translation>Tillagd</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="78"/>
@@ -455,38 +455,38 @@ Keys:
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="134"/>
         <source>Paused</source>
-        <translation type="unfinished"/>
+        <translation>Pausad</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="137"/>
         <source>Lowest</source>
-        <translation type="unfinished"/>
+        <translation>Lägsta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="140"/>
         <source>Low</source>
-        <translation type="unfinished"/>
+        <translation>Låg</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="143"/>
         <source>High</source>
-        <translation type="unfinished"/>
+        <translation>Hög</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="146"/>
         <source>Highest</source>
-        <translation type="unfinished"/>
+        <translation>Högsta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="149"/>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="170"/>
         <location filename="../src/DownloadQueueModel.cpp" line="187"/>
         <source>No errors</source>
-        <translation type="unfinished"/>
+        <translation>Inga fel</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="189"/>
@@ -494,7 +494,10 @@ Keys:
 &lt;b&gt;Path: &lt;/b&gt; %2
 &lt;b&gt;Errors: &lt;/b&gt; %3
 </source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Tillagda: &lt;/b&gt; %1
+&lt;b&gt;Sökväg: &lt;/b&gt; %2
+&lt;b&gt;Fel: &lt;/b&gt; %3
+</translation>
     </message>
 </context>
 <context>
@@ -502,7 +505,7 @@ Keys:
     <message>
         <location filename="../src/EmoticonDialog.cpp" line="27"/>
         <source>Select emoticon</source>
-        <translation type="unfinished"/>
+        <translation>Välj uttryckssymbol</translation>
     </message>
 </context>
 <context>
@@ -510,37 +513,37 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="19"/>
         <source>Autoconnect</source>
-        <translation type="unfinished"/>
+        <translation>Anslut automatiskt</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="19"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Namn</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="19"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Beskrivning</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Adress</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>Nick</source>
-        <translation type="unfinished"/>
+        <translation>Användarnamn</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Lösenord</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>User description</source>
-        <translation type="unfinished"/>
+        <translation>Användarbeskrivning</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
@@ -558,35 +561,35 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="58"/>
         <source>Favorite hubs</source>
-        <translation type="unfinished"/>
+        <translation>Favorithubbar</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="170"/>
         <location filename="../src/FavoriteHubs.cpp" line="200"/>
         <location filename="../src/FavoriteHubs.cpp" line="312"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Systemstandard</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="372"/>
         <location filename="../src/FavoriteHubs.cpp" line="402"/>
         <source>Add new</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till ny</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="403"/>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>Ändra</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="404"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="405"/>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>Anslut</translation>
     </message>
 </context>
 <context>
@@ -595,23 +598,23 @@ Keys:
         <location filename="../src/FavoriteUsers.cpp" line="119"/>
         <location filename="../src/FavoriteUsers.cpp" line="332"/>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>Ansluten</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="196"/>
         <location filename="../src/FavoriteUsers.cpp" line="272"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Beskrivning</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="269"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="275"/>
         <source>Grant/Remove slot</source>
-        <translation type="unfinished"/>
+        <translation>Bevilja/Ta bort slott</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="278"/>
@@ -621,7 +624,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteUsers.h" line="46"/>
         <source>Favourite users</source>
-        <translation type="unfinished"/>
+        <translation>Favoritanvändare</translation>
     </message>
 </context>
 <context>
@@ -629,22 +632,22 @@ Keys:
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Nick</source>
-        <translation type="unfinished"/>
+        <translation>Användarnamn</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Hub</source>
-        <translation type="unfinished"/>
+        <translation>Hubb</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Last seen</source>
-        <translation type="unfinished"/>
+        <translation>Sågs senast</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Beskrivning</translation>
     </message>
 </context>
 <context>
@@ -662,22 +665,22 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="198"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished"/>
+        <translation>Filen finns redan: %1</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="294"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Namn</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="294"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Storlek</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="294"/>
         <source>Exact size</source>
-        <translation type="unfinished"/>
+        <translation>Exakt storlek</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="294"/>
@@ -690,12 +693,12 @@ Keys:
     <message>
         <location filename="../src/FileHasher.cpp" line="102"/>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Välj fil</translation>
     </message>
     <message>
         <location filename="../src/FileHasher.cpp" line="102"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Alla filer (*.*)</translation>
     </message>
 </context>
 <context>
@@ -716,12 +719,12 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfers.h" line="490"/>
         <source>Open file</source>
-        <translation type="unfinished"/>
+        <translation>Öppna fil</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.h" line="491"/>
         <source>Open directory</source>
-        <translation type="unfinished"/>
+        <translation>Öppna katalog</translation>
     </message>
 </context>
 <context>
@@ -730,30 +733,30 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>Användare</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
         <source>Files</source>
-        <translation type="unfinished"/>
+        <translation>Filer</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Tid</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Transferred</source>
-        <translation type="unfinished"/>
+        <translation>Överfört</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Hastighet</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
@@ -765,17 +768,17 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Full</source>
-        <translation type="unfinished"/>
+        <translation>Full</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>Filename</source>
-        <translation type="unfinished"/>
+        <translation>Filnamn</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>Path</source>
-        <translation type="unfinished"/>
+        <translation>Sökväg</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
@@ -785,7 +788,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Target</source>
-        <translation type="unfinished"/>
+        <translation>Mål</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="116"/>
@@ -799,17 +802,17 @@ Keys:
     <message>
         <location filename="../src/HashProgress.cpp" line="95"/>
         <source>Refreshing file list</source>
-        <translation type="unfinished"/>
+        <translation>Uppdaterar fillistan</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="125"/>
         <source>-.-- files/h, %1 files left</source>
-        <translation type="unfinished"/>
+        <translation>-.-- filer/h, %1 filer kvar</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="126"/>
         <source>-.-- B/s, %1 left</source>
-        <translation type="unfinished"/>
+        <translation>-.-- B/s, %1 kvar</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="127"/>
@@ -820,37 +823,37 @@ Keys:
     <message>
         <location filename="../src/HashProgress.cpp" line="132"/>
         <source>%1 files/h, %2 files left</source>
-        <translation type="unfinished"/>
+        <translation>%1 filer/h, %2 filer kvar</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="133"/>
         <source>%1/s, %2 left, %3 shared</source>
-        <translation type="unfinished"/>
+        <translation>%1/s, %2 kvar, %3 utdelat</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="146"/>
         <source>%p% %1 left</source>
-        <translation type="unfinished"/>
+        <translation>%p% %1 kvar</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="150"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Klar</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="218"/>
         <source>Start</source>
-        <translation type="unfinished"/>
+        <translation>Starta</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="222"/>
         <source>Pause</source>
-        <translation type="unfinished"/>
+        <translation>Pausa</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="226"/>
         <source>Resume</source>
-        <translation type="unfinished"/>
+        <translation>Återuppta</translation>
     </message>
 </context>
 <context>
@@ -859,17 +862,17 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="173"/>
         <location filename="../src/HubFrame.cpp" line="1249"/>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Kopiera</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="174"/>
         <source>Search text</source>
-        <translation type="unfinished"/>
+        <translation>Söktext</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="175"/>
         <source>Copy nick</source>
-        <translation type="unfinished"/>
+        <translation>Kopiera användarnamn</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="176"/>
@@ -889,73 +892,73 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="179"/>
         <source>Private Message</source>
-        <translation type="unfinished"/>
+        <translation>Privata meddelande</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="180"/>
         <location filename="../src/HubFrame.cpp" line="1248"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till favoriter</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="181"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort från favoriter</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="182"/>
         <source>Grant slot</source>
-        <translation type="unfinished"/>
+        <translation>Bevilja slott</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="183"/>
         <source>Remove from Queue</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort från kön</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="187"/>
         <source>Clear chat</source>
-        <translation type="unfinished"/>
+        <translation>Rensa chatten</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="188"/>
         <source>Find in chat</source>
-        <translation type="unfinished"/>
+        <translation>Sök i chatten</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="189"/>
         <source>Disable/Enable chat</source>
-        <translation type="unfinished"/>
+        <translation>Stäng av/Sätt på chatten</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="191"/>
         <source>Select all</source>
-        <translation type="unfinished"/>
+        <translation>Välj alla</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="193"/>
         <source>Zoom In</source>
-        <translation type="unfinished"/>
+        <translation>Zooma in</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="194"/>
         <source>Zoom Out</source>
-        <translation type="unfinished"/>
+        <translation>Zooma ut</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="197"/>
         <source>Nick</source>
-        <translation type="unfinished"/>
+        <translation>Användarnamn</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="198"/>
         <source>IP</source>
-        <translation type="unfinished"/>
+        <translation>IP-adress</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="199"/>
         <source>Share</source>
-        <translation type="unfinished"/>
+        <translation>Utdelat</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="200"/>
@@ -965,7 +968,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="202"/>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Alla</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="207"/>
@@ -1009,17 +1012,17 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="770"/>
         <source>not shared</source>
-        <translation type="unfinished"/>
+        <translation>inte utdelad</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1244"/>
         <source>Hub menu</source>
-        <translation type="unfinished"/>
+        <translation>Hubbmeny</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1246"/>
         <source>Reconnect</source>
-        <translation type="unfinished"/>
+        <translation>Återanslut</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1247"/>
@@ -1029,33 +1032,33 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1250"/>
         <source>Hub IP</source>
-        <translation type="unfinished"/>
+        <translation>Hubbens IP-adress</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1251"/>
         <source>Hub URL</source>
-        <translation type="unfinished"/>
+        <translation>Hubb-URL</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1252"/>
         <source>Hub Title</source>
-        <translation type="unfinished"/>
+        <translation>Hubbnamn</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1256"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Stäng</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1270"/>
         <source>Hub Menu</source>
-        <translation type="unfinished"/>
+        <translation>Hubbmeny</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1348"/>
         <location filename="../src/HubFrame.cpp" line="1373"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Inte ansluten</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1406"/>
@@ -1094,13 +1097,13 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1757"/>
         <location filename="../src/HubFrame.cpp" line="1759"/>
         <source>Away mode off</source>
-        <translation type="unfinished"/>
+        <translation>IVD-läge av</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1555"/>
         <location filename="../src/HubFrame.cpp" line="1557"/>
         <source>Away mode on: </source>
-        <translation type="unfinished"/>
+        <translation>IVD-läge på:</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1575"/>
@@ -1157,13 +1160,13 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1748"/>
         <location filename="../src/HubFrame.cpp" line="1750"/>
         <source>on</source>
-        <translation type="unfinished"/>
+        <translation>på</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1748"/>
         <location filename="../src/HubFrame.cpp" line="1750"/>
         <source>off</source>
-        <translation type="unfinished"/>
+        <translation>av</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1765"/>
@@ -1199,7 +1202,8 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1822"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
-        <translation type="unfinished"/>
+        <translation>/away &lt;meddelande&gt; - ändra IVD-läge på/av
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1823"/>
@@ -1318,44 +1322,44 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2094"/>
         <source> joins the chat</source>
-        <translation type="unfinished"/>
+        <translation>ansluter i chatten</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2099"/>
         <location filename="../src/HubFrame.cpp" line="2156"/>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Favoriter</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2099"/>
         <source>%1 is now online</source>
-        <translation type="unfinished"/>
+        <translation>%1 är nu ansluten</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2112"/>
         <source>User online.</source>
-        <translation type="unfinished"/>
+        <translation>Användaren ansluten.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2151"/>
         <source> left the chat</source>
-        <translation type="unfinished"/>
+        <translation>lämnade chatten</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2156"/>
         <source>%1 is now offline</source>
-        <translation type="unfinished"/>
+        <translation>%1 är nu frånkopplad</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2195"/>
         <location filename="../src/HubFrame.cpp" line="2209"/>
         <source>User not found</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte hitta användaren</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2216"/>
         <source>Slot granted to </source>
-        <translation type="unfinished"/>
+        <translation>Slott beviljad till</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2275"/>
@@ -1380,17 +1384,17 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2530"/>
         <source>User offline.</source>
-        <translation type="unfinished"/>
+        <translation>Användaren frånkopplad.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2569"/>
         <source>Stored password sent...</source>
-        <translation type="unfinished"/>
+        <translation>Skickar lösenord...</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2572"/>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Lösenord</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2586"/>
@@ -1416,27 +1420,27 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="3538"/>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Förslag</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3707"/>
         <source>Connecting to %1</source>
-        <translation type="unfinished"/>
+        <translation>Ansluter till %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3715"/>
         <source>Connected to %1</source>
-        <translation type="unfinished"/>
+        <translation>Ansluten till %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3758"/>
         <source>Fail: %1...</source>
-        <translation type="unfinished"/>
+        <translation>Fel: %1...</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3952"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"/>
+        <translation>Användarnamnet &quot;%1&quot; används redan.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3958"/>
@@ -1449,7 +1453,7 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilter.cpp" line="453"/>
         <source>Nothing to export.</source>
-        <translation type="unfinished"/>
+        <translation>Inget att exportera</translation>
     </message>
     <message>
         <location filename="../src/IPFilter.cpp" line="465"/>
@@ -1459,12 +1463,12 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilter.cpp" line="481"/>
         <source>Nothing to import.</source>
-        <translation type="unfinished"/>
+        <translation>Inget att importera</translation>
     </message>
     <message>
         <location filename="../src/IPFilter.cpp" line="505"/>
         <source>Invalid signature.</source>
-        <translation type="unfinished"/>
+        <translation>Ogiltig signatur</translation>
     </message>
 </context>
 <context>
@@ -1507,7 +1511,7 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="374"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Alla filer (*.*)</translation>
     </message>
 </context>
 <context>
@@ -1538,23 +1542,24 @@ Favorite user</source>
     <message>
         <location filename="../src/Magnet.cpp" line="168"/>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Bländra</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="188"/>
         <source>Select directory</source>
-        <translation type="unfinished"/>
+        <translation>Välj kalalog</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="205"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Fel</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="205"/>
         <source>Some error ocurred when starting download:
  %1</source>
-        <translation type="unfinished"/>
+        <translation>Några fel upptäcktes vid start av nedladdningen:
+ %1</translation>
     </message>
 </context>
 <context>
@@ -1572,7 +1577,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="350"/>
         <source>Exit program?</source>
-        <translation type="unfinished"/>
+        <translation>Avsluta program?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="454"/>
@@ -1582,12 +1587,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="454"/>
         <source>Nick</source>
-        <translation type="unfinished"/>
+        <translation>Användarnamn</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="454"/>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>Användare</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="459"/>
@@ -1707,12 +1712,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1069"/>
         <source>Next message</source>
-        <translation type="unfinished"/>
+        <translation>Nästa meddelande</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1070"/>
         <source>Previous message</source>
-        <translation type="unfinished"/>
+        <translation>Föregående meddelande</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1071"/>
@@ -1727,22 +1732,22 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1081"/>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1082"/>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1083"/>
         <source>Ctrl+Down</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Down</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Ctrl+Up</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Up</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1085"/>
@@ -1831,7 +1836,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1303"/>
         <location filename="../src/MainWindow.cpp" line="2371"/>
         <source>Hide window</source>
-        <translation type="unfinished"/>
+        <translation>Göm fönstret</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1306"/>
@@ -1842,7 +1847,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1308"/>
         <source>Quit</source>
-        <translation type="unfinished"/>
+        <translation>Avsluta</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1310"/>
@@ -1852,7 +1857,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1312"/>
         <source>Reconnect to hub</source>
-        <translation type="unfinished"/>
+        <translation>Återanslut till hubben</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1314"/>
@@ -1963,17 +1968,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>
         <source>Away message</source>
-        <translation type="unfinished"/>
+        <translation>Inte Vid Datorn-meddelande</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1359"/>
         <source>On</source>
-        <translation type="unfinished"/>
+        <translation>På</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1361"/>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Av</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1363"/>
@@ -1993,12 +1998,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1369"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Sök</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1371"/>
         <source>ADLSearch</source>
-        <translation type="unfinished"/>
+        <translation>ADL-sök</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1373"/>
@@ -2063,12 +2068,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1400"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Hjälp</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1402"/>
         <source>Homepage</source>
-        <translation type="unfinished"/>
+        <translation>Hemsida</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1404"/>
@@ -2078,7 +2083,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1406"/>
         <source>Report a Bug</source>
-        <translation type="unfinished"/>
+        <translation>Rapportera ett fel</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1408"/>
@@ -2093,12 +2098,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1412"/>
         <source>About EiskaltDC++</source>
-        <translation type="unfinished"/>
+        <translation>Om EiskaltDC++</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1414"/>
         <source>About Qt</source>
-        <translation type="unfinished"/>
+        <translation>Om Qt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1417"/>
@@ -2129,12 +2134,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1676"/>
         <source>Free %1</source>
-        <translation type="unfinished"/>
+        <translation>Ledigt %1</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1679"/>
         <source>Free %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Ledigt %1 av %2</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1716"/>
@@ -2157,7 +2162,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1746"/>
         <source>Paused</source>
-        <translation type="unfinished"/>
+        <translation>Pausad</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1760"/>
@@ -2182,7 +2187,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1855"/>
         <source>All files</source>
-        <translation type="unfinished"/>
+        <translation>Alla filer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1866"/>
@@ -2192,7 +2197,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2031"/>
         <source>Menu</source>
-        <translation type="unfinished"/>
+        <translation>Meny</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2068"/>
@@ -6567,7 +6572,8 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <location filename="../ui/UISettingsPersonal.ui" line="46"/>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
-        <translation type="unfinished"/>
+        <translation>När du är i IVD-läge (Inte Vid Datorn), kommer detta meddelande
+att skickas till alla som skickar privata meddelanden till dig.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="54"/>
@@ -6593,7 +6599,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="83"/>
         <source>Away message</source>
-        <translation type="unfinished"/>
+        <translation>Inte Vid Datorn-meddelande</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="90"/>

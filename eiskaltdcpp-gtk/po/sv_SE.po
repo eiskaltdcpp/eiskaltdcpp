@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-02-28 23:47+0000\n"
+"PO-Revision-Date: 2014-03-02 21:50+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -716,17 +716,17 @@ msgstr "Amarok-spelare"
 
 #: ../ui/settingsdialog.ui:4829 ../ui/settingsdialog.ui:6691
 msgid "Appearance"
-msgstr ""
+msgstr "Utseende"
 
 #: ../src/settingsdialog.cc:927 ../src/settingsdialog.cc:962
 #: ../src/settingsdialog.cc:2985 ../src/settingsdialog.cc:3019
 #: ../src/settingsdialog.cc:3037 ../src/settingsdialog.cc:3068
 msgid "Application"
-msgstr ""
+msgstr "Program"
 
 #: ../ui/settingsdialog.ui:3802
 msgid "Application:"
-msgstr ""
+msgstr "Program:"
 
 #: ../ui/searchspy.ui:241
 msgid "Apply settings"
@@ -816,13 +816,13 @@ msgstr "Uppdatera extern IP-adress vid uppstart (omstart krävs)"
 #: ../src/privatemessage.cc:1023 ../src/hub.cc:2039 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
 msgid "Away mode message on/off"
-msgstr "IVD-läge meddelande på/av"
+msgstr "IVD-meddelande på/av"
 
 #: ../src/privatemessage.cc:911 ../src/privatemessage.cc:925
 #: ../src/privatemessage.cc:1024 ../src/hub.cc:1862 ../src/hub.cc:1875
 #: ../src/hub.cc:2040 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
 msgid "Away mode off"
-msgstr "IVD-läga av"
+msgstr "IVD-läge av"
 
 #: ../src/privatemessage.cc:919 ../src/hub.cc:1869
 msgid "Away mode on: "
@@ -997,7 +997,7 @@ msgstr "Chatt"
 
 #: ../ui/privatemessage.ui:260 ../ui/hub.ui:332
 msgid "Chat Commands"
-msgstr ""
+msgstr "Chatt-kommandon"
 
 #: ../ui/settingsdialog.ui:688
 msgid "Chat Menu"
@@ -1263,11 +1263,11 @@ msgstr "Utvecklarna"
 #: ../src/sharebrowser.cc:277 ../src/sharebrowser.cc:616
 #: ../src/sharebrowser.cc:668
 msgid "Dir"
-msgstr ""
+msgstr "Katalog"
 
 #: ../ui/settingsdialog.ui:1803
 msgid "Direct connection"
-msgstr ""
+msgstr "Direkt anslutning"
 
 #: ../src/settingsdialog.cc:905 ../src/settingsdialog.cc:919
 #: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1436
@@ -1281,7 +1281,7 @@ msgstr "Katalog"
 
 #: ../src/settingsdialog.cc:3759
 msgid "Directory or favorite name already exists"
-msgstr ""
+msgstr "Katalog- eller favoritnamn finns redan"
 
 #: ../ui/favoritehubs.ui:91 ../ui/hub.ui:344
 msgid "Disable chat"
@@ -1289,7 +1289,7 @@ msgstr "Inaktivera chatten"
 
 #: ../src/settingsdialog.cc:1123
 msgid "Do not close the program, hide in the system tray"
-msgstr ""
+msgstr "Stäng inte programmet, lägg det i meddelandefältet"
 
 #: ../ui/settingsdialog.ui:2669
 msgid "Do not use unfinished downloads directory"
@@ -1297,7 +1297,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:792
 msgid "Do you really want to exit?"
-msgstr ""
+msgstr "Vill du avsluta?"
 
 #: ../ui/settingsdialog.ui:1508
 msgid "Don't allow Hub/UPnP/DHT to override"
@@ -1305,15 +1305,15 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:993
 msgid "Don't download files already in share"
-msgstr ""
+msgstr "Ladda inte ner filer som redan finns utdelade"
 
 #: ../src/settingsdialog.cc:994
 msgid "Don't download files already in the queue"
-msgstr ""
+msgstr "Ladda inte ned filer som redan finns i nedladdningskön"
 
 #: ../ui/search.ui:549
 msgid "Don't hide side panel on search"
-msgstr ""
+msgstr "Göm inte sidpanelen vid sök"
 
 #: ../src/settingsdialog.cc:989
 msgid "Don't remove the source when auto-dropping, only disconnect"
@@ -1321,7 +1321,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1653
 msgid "Don't send the away message to bots"
-msgstr ""
+msgstr "Skicka inte IVD-meddelande till botar"
 
 #: ../src/sharebrowser.cc:185 ../src/hashdialog.cc:102
 msgid "Done"
