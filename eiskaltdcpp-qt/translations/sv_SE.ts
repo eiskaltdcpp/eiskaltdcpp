@@ -20,7 +20,7 @@
     <message>
         <location filename="../src/ADLS.cpp" line="158"/>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Radera</translation>
     </message>
     <message>
         <location filename="../src/ADLS.cpp" line="381"/>
@@ -145,7 +145,7 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"/>
+        <translation>%1: Skickar &quot;Försök igen&quot;-meddelande.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="177"/>
@@ -159,7 +159,7 @@ Keys:
         <location filename="../src/CustomFontModel.cpp" line="29"/>
         <location filename="../src/CustomFontModel.cpp" line="94"/>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Beskrivning</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="29"/>
@@ -170,7 +170,7 @@ Keys:
     <message>
         <location filename="../src/CustomFontModel.cpp" line="33"/>
         <source>Application</source>
-        <translation type="unfinished"/>
+        <translation>Program</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="34"/>
@@ -231,7 +231,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="62"/>
         <source>Search for alternates</source>
-        <translation type="unfinished"/>
+        <translation>Sök efter nya källor</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="63"/>
@@ -548,7 +548,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
-        <translation type="unfinished"/>
+        <translation>Mottagarklientens teckenkodning</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="58"/>
@@ -584,7 +584,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="404"/>
         <source>Delete</source>
-        <translation>Ta bort</translation>
+        <translation>Radera</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="405"/>
@@ -706,12 +706,12 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="12"/>
         <source>Finished uploads</source>
-        <translation type="unfinished"/>
+        <translation>Färdiga uppladdningar</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="13"/>
         <source>Finished downloads</source>
-        <translation type="unfinished"/>
+        <translation>Färdiga nedladdningar</translation>
     </message>
 </context>
 <context>
@@ -973,19 +973,19 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="207"/>
         <source>Copy data</source>
-        <translation type="unfinished"/>
+        <translation>Kopiera data</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="297"/>
         <location filename="../src/HubFrame.cpp" line="382"/>
         <source>[User went offline]</source>
-        <translation type="unfinished"/>
+        <translation>[Användaren kopplade från sig]</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="314"/>
         <location filename="../src/HubFrame.cpp" line="408"/>
         <source>AntiSpam</source>
-        <translation type="unfinished"/>
+        <translation>AntiSpam</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="318"/>
@@ -1027,7 +1027,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1247"/>
         <source>Show widget</source>
-        <translation type="unfinished"/>
+        <translation>Visa widget</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1250"/>
@@ -1063,17 +1063,17 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1406"/>
         <source>Chat cleared.</source>
-        <translation type="unfinished"/>
+        <translation>Chatten tömd.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1418"/>
         <source>Chat disabled.</source>
-        <translation type="unfinished"/>
+        <translation>Chatten avstängd.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1425"/>
         <source>Chat enabled.</source>
-        <translation type="unfinished"/>
+        <translation>Chatten påslagen.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1461"/>
@@ -1089,7 +1089,8 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="1466"/>
         <source>
 Favorite user</source>
-        <translation type="unfinished"/>
+        <translation>
+Favoritanvändare</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1541"/>
@@ -1115,7 +1116,7 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1597"/>
         <location filename="../src/HubFrame.cpp" line="1599"/>
         <source>Alias removed.</source>
-        <translation type="unfinished"/>
+        <translation>Alias borttagen.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1610"/>
@@ -1251,31 +1252,36 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1830"/>
         <source>/close - close this hub
 </source>
-        <translation type="unfinished"/>
+        <translation>/close - stäng hubben
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1831"/>
         <source>/fav - add this hub to favorites
 </source>
-        <translation type="unfinished"/>
+        <translation>/fav - lägg till favorithubbar
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1832"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
-        <translation type="unfinished"/>
+        <translation>/grant &lt;nick&gt; - bevilja extra slott till användaren
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1833"/>
         <source>/help, /?, /h - show this help
 </source>
-        <translation type="unfinished"/>
+        <translation>/help, /?, /h - visa denna hjälp
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1834"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation type="unfinished"/>
+        <translation>/info &lt;nick&gt; - visa information om användaren
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1835"/>
@@ -1287,13 +1293,15 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1836"/>
         <source>/me - say a third person
 </source>
-        <translation type="unfinished"/>
+        <translation>/me - säg som tredje person
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1837"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation type="unfinished"/>
+        <translation>/pm &lt;nick&gt; - börja chatta privat med en användare
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1838"/>
@@ -1311,7 +1319,8 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1841"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
-        <translation type="unfinished"/>
+        <translation>/luafile &lt;file&gt; - ladda Lua-fil
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1842"/>
@@ -1364,22 +1373,22 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2275"/>
         <source> has been added to favorites.</source>
-        <translation type="unfinished"/>
+        <translation> har lagts till favoriter.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2275"/>
         <source> has been removed from favorites.</source>
-        <translation type="unfinished"/>
+        <translation>har tagits bort från favoriter.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2307"/>
         <source>Favorite hub added.</source>
-        <translation type="unfinished"/>
+        <translation>Favorithubb har lagts till.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2310"/>
         <source>Favorite hub already exists.</source>
-        <translation type="unfinished"/>
+        <translation>Favorithubben finns redan.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2530"/>
@@ -1405,12 +1414,12 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2658"/>
         <source>Users count: %3/%1 | Total share: %2</source>
-        <translation type="unfinished"/>
+        <translation>Användare: %3/%1 | Totalt utdelat: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2664"/>
         <source>Users count: %1 | Total share: %2</source>
-        <translation type="unfinished"/>
+        <translation>Användare: %1 | Utdelat: %2</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3532"/>
@@ -1458,7 +1467,7 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilter.cpp" line="465"/>
         <source>Unable to export settings.</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte exportera inställningar.</translation>
     </message>
     <message>
         <location filename="../src/IPFilter.cpp" line="481"/>
@@ -1481,12 +1490,12 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="197"/>
         <source>Change IP/Mask</source>
-        <translation type="unfinished"/>
+        <translation>Ändra IP/Mask</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="198"/>
         <source>Delete rule</source>
-        <translation type="unfinished"/>
+        <translation>Radera regel</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="230"/>
@@ -2761,7 +2770,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="59"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
 </context>
 <context>
@@ -2973,12 +2982,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="174"/>
         <source>Remove from Queue</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort från nedladdningskön</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="177"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="180"/>
@@ -3199,7 +3208,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="186"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Radera</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="193"/>
@@ -3461,7 +3470,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="299"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="337"/>
@@ -3530,7 +3539,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="89"/>
         <source>Remove restriction</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort begränsning</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="90"/>
@@ -3963,7 +3972,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="84"/>
         <source>Remove Source</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort källa</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="90"/>
@@ -4214,7 +4223,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearch.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Radera</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="100"/>
@@ -4676,7 +4685,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Radera</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="100"/>
@@ -5090,7 +5099,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="76"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="83"/>
@@ -5742,7 +5751,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="658"/>
         <source>Remove slow filelists</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort långsamma fillistor</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="661"/>
@@ -6705,7 +6714,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Radera</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
@@ -6744,7 +6753,7 @@ and may cause the client to appear to freeze.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="253"/>
         <source>Auto remove non-existing directories</source>
-        <translation type="unfinished"/>
+        <translation>Ta automatiskt bort icke-existerande kataloger</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="262"/>
@@ -6904,7 +6913,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISettingsUC.ui" line="56"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="63"/>
