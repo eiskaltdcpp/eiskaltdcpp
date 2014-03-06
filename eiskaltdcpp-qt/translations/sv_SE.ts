@@ -1179,7 +1179,8 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1817"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation type="unfinished"/>
+        <translation>/aspell på/av - aktivera/inaktivera stavningskontroll
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1819"/>
@@ -3444,7 +3445,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="209"/>
         <location filename="../src/SettingsSharing.cpp" line="238"/>
         <source>Add item</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till objekt</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="209"/>
@@ -3590,7 +3591,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="613"/>
         <source>Selected %1 from %2 items; </source>
-        <translation type="unfinished"/>
+        <translation>Valda %1 från %2 objekt; </translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="618"/>
@@ -3628,7 +3629,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowserSearch.cpp" line="102"/>
         <source>Found %1 items</source>
-        <translation type="unfinished"/>
+        <translation>%1 objekt funna</translation>
     </message>
 </context>
 <context>
@@ -5739,7 +5740,7 @@ If disabled, the files will be set to Normal as priority.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="642"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
-        <translation type="unfinished"/>
+        <translation>Stäng automatiskt ner alla långsamma källor (utom fillistor)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="645"/>

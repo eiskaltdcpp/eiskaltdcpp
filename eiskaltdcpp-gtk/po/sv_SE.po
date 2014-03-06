@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-03-04 16:56+0000\n"
+"PO-Revision-Date: 2014-03-05 00:21+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -394,7 +394,7 @@ msgstr "<b>Inkommande anslutningar</b>"
 
 #: ../ui/settingsdialog.ui:4538
 msgid "<b>Language</b>"
-msgstr ""
+msgstr "<b>Språk</b>"
 
 #: ../ui/settingsdialog.ui:2859
 msgid "<b>Limits</b>"
@@ -843,7 +843,7 @@ msgstr "Bakgrundsfärg"
 
 #: ../src/settingsdialog.cc:1064
 msgid "Belarusian"
-msgstr ""
+msgstr "Vitryska"
 
 #: ../src/mainwindow.cc:224
 msgid "Belarusian translation\n"
@@ -899,7 +899,7 @@ msgstr "Bländra..."
 
 #: ../src/settingsdialog.cc:1080
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgariska"
 
 #: ../src/mainwindow.cc:248
 msgid "Bulgarian translation\n"
@@ -1017,11 +1017,11 @@ msgstr "Kontrollera varje"
 
 #: ../src/settingsdialog.cc:1094
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Kinesiska (Kina)"
 
 #: ../src/mainwindow.cc:273
 msgid "Chinese (China) translation\n"
-msgstr ""
+msgstr "Kinesiska (Kina) översättning\n"
 
 #: ../ui/settingsdialog.ui:8582
 msgid "Choose a File"
@@ -1177,7 +1177,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:210
 msgid "Contributors"
-msgstr ""
+msgstr "Medarbetare"
 
 #: ../src/searchspy.cc:58 ../src/searchspy.cc:157 ../src/searchspy.cc:271
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:312 ../src/searchspy.cc:434
@@ -1190,7 +1190,7 @@ msgstr "Land"
 
 #: ../src/settingsdialog.cc:1084
 msgid "Czech"
-msgstr ""
+msgstr "Tjeckiska"
 
 #: ../src/mainwindow.cc:254
 msgid "Czech translation\n"
@@ -1510,7 +1510,7 @@ msgstr "Kryptering"
 
 #: ../src/settingsdialog.cc:1060
 msgid "English"
-msgstr ""
+msgstr "Engelska"
 
 #: ../ui/mainwindow.ui:2535
 msgid "Enter line for user command"
@@ -1518,7 +1518,7 @@ msgstr ""
 
 #: ../ui/sharebrowser.ui:278
 msgid "Enter text to search for"
-msgstr ""
+msgstr "Ange text att söka efter"
 
 #: ../src/mainwindow.cc:1258
 msgid "Enter value for "
@@ -1527,7 +1527,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1912 ../src/settingsdialog.cc:1956
 #: ../src/settingsdialog.cc:2975
 msgid "Error"
-msgstr ""
+msgstr "Fel"
 
 #: ../src/settingsmanager.cc:528
 msgid "Error: segv parser :D"
@@ -1609,7 +1609,7 @@ msgstr "Extern IP-adress"
 
 #: ../ui/favoritehubs.ui:15
 msgid "Favorite Hub Properties"
-msgstr ""
+msgstr "Egenskaper för favorithubb"
 
 #: ../src/settingsdialog.cc:1420 ../src/settingsdialog.cc:1474
 #: ../src/settingsdialog.cc:1551 ../src/favoritehubs.cc:31
@@ -1814,7 +1814,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1068
 msgid "French"
-msgstr ""
+msgstr "Franska"
 
 #: ../src/mainwindow.cc:231
 msgid "French translation\n"
@@ -1830,7 +1830,7 @@ msgstr ""
 
 #: ../src/WulforUtil.cc:225
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: ../src/settingsdialog.cc:1219
 msgid "General text"
@@ -1842,7 +1842,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1086
 msgid "German"
-msgstr ""
+msgstr "Tyska"
 
 #: ../src/mainwindow.cc:257
 msgid "German translation\n"
@@ -1850,7 +1850,7 @@ msgstr ""
 
 #: ../src/privatemessage.cc:1029 ../src/hub.cc:2047 ../ui/privatemessage.ui:66
 msgid "Get file list"
-msgstr ""
+msgstr "Hämta fillista"
 
 #: ../ui/search.ui:112 ../ui/adlsearch.ui:415
 msgid "GiB"
@@ -1870,7 +1870,7 @@ msgstr "Bevilja extra slott"
 
 #: ../src/settingsdialog.cc:1088
 msgid "Greek"
-msgstr ""
+msgstr "Grekiska"
 
 #: ../src/mainwindow.cc:263
 msgid "Greek translation\n"
@@ -1911,7 +1911,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1426 ../src/settingsdialog.cc:1486
 #: ../ui/mainwindow.ui:2101 ../ui/mainwindow.ui:2473
 msgid "Hash"
-msgstr ""
+msgstr "Index"
 
 #: ../ui/settingsdialog.ui:8955
 msgid "Hidden"
@@ -1919,11 +1919,11 @@ msgstr "Gömd"
 
 #: ../ui/search.ui:256
 msgid "Hide side panel"
-msgstr ""
+msgstr "Göm sidpanelen"
 
 #: ../ui/mainwindow.ui:1541
 msgid "Hide tools panel"
-msgstr ""
+msgstr "Göm verktygspanelen"
 
 #: ../src/downloadqueue.cc:1336
 msgid "High"
@@ -1980,12 +1980,12 @@ msgstr "Hubbnamn"
 #: ../src/settingsdialog.cc:1176 ../src/settingsdialog.cc:1366
 #: ../src/settingsmanager.cc:244
 msgid "Hub connected"
-msgstr ""
+msgstr "Hubb ansluten"
 
 #: ../src/settingsdialog.cc:1177 ../src/settingsdialog.cc:1370
 #: ../src/settingsmanager.cc:242
 msgid "Hub disconnected"
-msgstr ""
+msgstr "Hubb frånkopplad"
 
 #: ../ui/search.ui:510 ../ui/mainwindow.ui:2170 ../ui/mainwindow.ui:2425
 msgid "Hubs"
@@ -2001,7 +2001,7 @@ msgstr "Hubbar: "
 
 #: ../src/settingsdialog.cc:1066
 msgid "Hungarian"
-msgstr ""
+msgstr "Ungerska"
 
 #: ../src/mainwindow.cc:227
 msgid "Hungarian translation\n"
@@ -2108,7 +2108,7 @@ msgstr "IP-filter på/av"
 
 #: ../src/settingsdialog.cc:1090
 msgid "Italian"
-msgstr ""
+msgstr "Italien"
 
 #: ../src/mainwindow.cc:266
 msgid "Italian translation\n"
@@ -2124,7 +2124,7 @@ msgstr ""
 
 #: ../src/WulforUtil.cc:221
 msgid "KOI8-R"
-msgstr ""
+msgstr "KOI8-R"
 
 #: ../src/settingsdialog.cc:952
 msgid "Kaffeine player"
@@ -2412,7 +2412,7 @@ msgstr "Mitt användarnamn"
 
 #: ../src/settingsdialog.cc:1225
 msgid "My own message"
-msgstr ""
+msgstr "Mina egna meddelanden"
 
 #: ../ui/favoritehubs.ui:340
 msgid "N_ick:"
@@ -2627,11 +2627,11 @@ msgstr ""
 #: ../src/settingsdialog.cc:1424 ../src/settingsdialog.cc:1482
 #: ../ui/mainwindow.ui:2067 ../ui/mainwindow.ui:2457
 msgid "Own file list"
-msgstr ""
+msgstr "Egen fillista"
 
 #: ../ui/settingsdialog.ui:589 ../ui/settingsdialog.ui:5860
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: ../ui/settingsdialog.ui:7517
 msgid "PM history"
@@ -2656,7 +2656,7 @@ msgstr ""
 #: ../src/favoritehubs.cc:57 ../src/favoritehubs.cc:135
 #: ../ui/settingsdialog.ui:1723
 msgid "Password"
-msgstr ""
+msgstr "Lösenord"
 
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398 ../src/finishedtransfers.cc:64
@@ -2667,19 +2667,19 @@ msgstr ""
 #: ../src/search.cc:1292 ../src/search.cc:1350 ../src/search.cc:1417
 #: ../src/search.cc:1452 ../src/search.cc:2037 ../ui/search.ui:135
 msgid "Path"
-msgstr ""
+msgstr "Sökväg"
 
 #: ../ui/hash.ui:155
 msgid "Pause"
-msgstr ""
+msgstr "Paus"
 
 #: ../src/downloadqueue.cc:1327
 msgid "Paused"
-msgstr ""
+msgstr "Pausad"
 
 #: ../src/hashdialog.cc:40 ../src/hashdialog.cc:124 ../src/hashdialog.cc:136
 msgid "Paused..."
-msgstr ""
+msgstr "Pausad..."
 
 #: ../ui/settingsdialog.ui:1267
 msgid "Personal"
@@ -2687,19 +2687,19 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:4243
 msgid "Pictures"
-msgstr ""
+msgstr "Bilder"
 
 #: ../src/transfers.cc:893
 msgid "Plain"
-msgstr ""
+msgstr "Vanlig"
 
 #: ../ui/settingsdialog.ui:5112
 msgid "Play"
-msgstr ""
+msgstr "Spela upp"
 
 #: ../src/settingsdialog.cc:1070
 msgid "Polish"
-msgstr ""
+msgstr "Polska"
 
 #: ../src/mainwindow.cc:234
 msgid "Polish translation\n"
@@ -2707,19 +2707,19 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1567
 msgid "Popup box to input password for hubs"
-msgstr ""
+msgstr "Poppuppruta för att ange hubblösenord"
 
 #: ../ui/settingsdialog.ui:1755
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: ../ui/settingsdialog.ui:1445
 msgid "Ports"
-msgstr ""
+msgstr "Portar"
 
 #: ../src/settingsdialog.cc:1072
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "Portugal (Brasilien)"
 
 #: ../src/settingsdialog.cc:1737 ../src/settingsdialog.cc:1838
 #: ../src/settingsdialog.cc:1929
@@ -2734,12 +2734,12 @@ msgstr ""
 
 #: ../ui/transfers.ui:110 ../ui/settingsdialog.ui:3950
 msgid "Preview"
-msgstr ""
+msgstr "Förhandsgranskning"
 
 #: ../src/downloadqueue.cc:76 ../src/downloadqueue.cc:290
 #: ../src/downloadqueue.cc:397
 msgid "Priority"
-msgstr ""
+msgstr "Prioritet"
 
 #: ../src/settingsdialog.cc:1144
 msgid "Private Message (also sets urgency hint)"
@@ -2747,13 +2747,13 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8187
 msgid "Private key file"
-msgstr ""
+msgstr "Privat nyckelfil"
 
 #: ../src/settingsdialog.cc:1175 ../src/settingsdialog.cc:1228
 #: ../src/settingsdialog.cc:1362 ../src/hub.cc:2052
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
-msgstr ""
+msgstr "Privata meddelande"
 
 #: ../src/transfers.cc:59 ../src/transfers.cc:600
 msgid "Progress"
@@ -2761,40 +2761,40 @@ msgstr ""
 
 #: ../ui/adlsearch.ui:466 ../ui/adlsearch.ui:544
 msgid "Properties"
-msgstr ""
+msgstr "Egenskaper"
 
 #: ../src/settingsdialog.cc:1428 ../src/settingsdialog.cc:1478
 #: ../src/settingsdialog.cc:1550 ../src/publichubs.cc:29
 #: ../ui/mainwindow.ui:1186 ../ui/mainwindow.ui:2220 ../ui/mainwindow.ui:2441
 msgid "Public Hubs"
-msgstr ""
+msgstr "Publika Hubbar"
 
 #: ../ui/settingsdialog.ui:2890
 msgid "Public Hubs list URL"
-msgstr ""
+msgstr "Adress till publika hubblistor"
 
 #: ../src/settingsdialog.cc:1429 ../src/settingsdialog.cc:1494
 #: ../ui/mainwindow.ui:2246 ../ui/mainwindow.ui:2505
 #: ../ui/settingsdialog.ui:3710
 msgid "Queue"
-msgstr ""
+msgstr "Nedladdningskön"
 
 #: ../ui/mainwindow.ui:2142
 msgid "Quick connect to the hub"
-msgstr ""
+msgstr "Snabbanslutning"
 
 #: ../src/settingsdialog.cc:1432 ../src/settingsdialog.cc:1500
 #: ../ui/mainwindow.ui:2349 ../ui/mainwindow.ui:2529
 msgid "Quit"
-msgstr ""
+msgstr "Avsluta"
 
 #: ../ui/mainwindow.ui:2347
 msgid "Quit the program"
-msgstr ""
+msgstr "Avsluta program"
 
 #: ../src/wulfor.cc:188
 msgid "Quit..."
-msgstr ""
+msgstr "Avsluta..."
 
 #: ../src/publichubs.cc:57 ../src/publichubs.cc:169
 msgid "Rating"
@@ -2802,7 +2802,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:571
 msgid "Raw"
-msgstr ""
+msgstr "Raw"
 
 #: ../ui/downloadqueue.ui:311
 msgid "Re-_add source"
@@ -2814,29 +2814,29 @@ msgstr ""
 
 #: ../src/hub.cc:2053 ../ui/hub.ui:75
 msgid "Rebuild hash"
-msgstr ""
+msgstr "Återskapa index"
 
 #: ../src/settingsdialog.cc:1434 ../src/settingsdialog.cc:1470
 #: ../ui/mainwindow.ui:2127 ../ui/mainwindow.ui:2409
 msgid "Reconnect"
-msgstr ""
+msgstr "Återanslut"
 
 #: ../ui/mainwindow.ui:1455
 msgid "Reconnect all hubs"
-msgstr ""
+msgstr "Återanslut till alla hubbar"
 
 #: ../ui/mainwindow.ui:2125
 msgid "Reconnect to the hub"
-msgstr ""
+msgstr "Anslut till hubben"
 
 #: ../src/settingsdialog.cc:1425 ../src/settingsdialog.cc:1484
 #: ../ui/mainwindow.ui:2084 ../ui/mainwindow.ui:2465
 msgid "Refresh"
-msgstr ""
+msgstr "Uppdatera"
 
 #: ../ui/mainwindow.ui:2082
 msgid "Refresh file list"
-msgstr ""
+msgstr "Uppdaterar fillistan"
 
 #: ../src/settingsdialog.cc:1655
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
@@ -2848,11 +2848,11 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:389
 msgid "Remember choice"
-msgstr ""
+msgstr "Kom ihåg val"
 
 #: ../src/downloadqueue.cc:1370
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr ""
+msgstr "Fjärrklienten har inte fullt stöd för TTH-värden - kan inte ladda ned"
 
 #: ../ui/uploadqueue.ui:69 ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:4341
 #: ../ui/settingsdialog.ui:8406
@@ -2889,7 +2889,7 @@ msgstr "Ta bort användaren från _nedladdningskön"
 
 #: ../ui/settingsdialog.ui:8391
 msgid "Rename"
-msgstr ""
+msgstr "Döp om"
 
 #: ../src/settingsdialog.cc:2103
 msgid "Rename a search type"
@@ -2897,7 +2897,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1583
 msgid "Report a Bug"
-msgstr ""
+msgstr "Rapportera ett fel"
 
 #: ../src/transfers.cc:905
 msgid "Requesting"
@@ -2909,23 +2909,23 @@ msgstr "Återställ ändringarna"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:364
 msgid "Resolution"
-msgstr ""
+msgstr "Upplösning"
 
 #: ../ui/settingsdialog.ui:8929
 msgid "Right"
-msgstr ""
+msgstr "Höger"
 
 #: ../ui/hash.ui:21
 msgid "Run in background"
-msgstr ""
+msgstr "Kör i bakgrunden"
 
 #: ../src/downloadqueue.cc:1296
 msgid "Running..."
-msgstr ""
+msgstr "Laddar ned..."
 
 #: ../src/settingsdialog.cc:1062
 msgid "Russian"
-msgstr ""
+msgstr "Ryska"
 
 #: ../src/mainwindow.cc:220
 msgid "Russian translation\n"
@@ -2933,7 +2933,7 @@ msgstr ""
 
 #: ../src/WulforUtil.cc:219
 msgid "SJIS"
-msgstr ""
+msgstr "SJIS"
 
 #: ../src/hub.cc:2051 ../ui/hub.ui:66
 msgid "Say a third person"
@@ -2947,22 +2947,22 @@ msgstr ""
 #: ../ui/search.ui:227 ../ui/mainwindow.ui:1230 ../ui/mainwindow.ui:2203
 #: ../ui/mainwindow.ui:2481 ../ui/settingsdialog.ui:8487
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 #: ../src/settingsdialog.cc:1437 ../ui/mainwindow.ui:1242
 msgid "Search ADL"
-msgstr ""
+msgstr "Sök ADL"
 
 #: ../ui/settingsdialog.ui:671
 msgid "Search Menu"
-msgstr ""
+msgstr "Sökmeny"
 
 #: ../src/settingsdialog.cc:1146 ../src/settingsdialog.cc:1431
 #: ../src/settingsdialog.cc:1492 ../src/settingsdialog.cc:1556
 #: ../src/searchspy.cc:35 ../ui/mainwindow.ui:1317 ../ui/mainwindow.ui:2321
 #: ../ui/settingsdialog.ui:6675
 msgid "Search Spy"
-msgstr ""
+msgstr "Sökspion"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:110
 #: ../src/adlsearch.cc:210 ../src/adlsearch.cc:236 ../src/searchspy.cc:57
@@ -2971,19 +2971,19 @@ msgstr ""
 #: ../src/searchspy.cc:295 ../src/searchspy.cc:311 ../src/searchspy.cc:470
 #: ../src/searchspy.cc:535 ../src/searchspy.cc:568
 msgid "Search String"
-msgstr ""
+msgstr "Söksträng"
 
 #: ../ui/search.ui:174
 msgid "Search for"
-msgstr ""
+msgstr "Sök efter"
 
 #: ../ui/mainwindow.ui:2201
 msgid "Search for files to download"
-msgstr ""
+msgstr "Sök efter filer att ladda ned"
 
 #: ../ui/settingsdialog.ui:7759
 msgid "Search history"
-msgstr ""
+msgstr "Sökhistorik"
 
 #: ../ui/search.ui:424
 msgid "Search options"
@@ -2991,7 +2991,7 @@ msgstr ""
 
 #: ../src/hub.cc:3670
 msgid "Search spam detected from "
-msgstr ""
+msgstr "Sök-spam upptäcktes från"
 
 #: ../src/settingsdialog.cc:1736 ../src/settingsdialog.cc:1928
 #: ../src/settingsdialog.cc:1961 ../src/settingsdialog.cc:2047
@@ -3009,7 +3009,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8297
 msgid "Security Certificates"
-msgstr ""
+msgstr "Säkerhetscertifikats"
 
 #: ../src/settingsdialog.cc:3170
 msgid "Select Color"
@@ -3017,11 +3017,11 @@ msgstr "Välj färg"
 
 #: ../src/settingsdialog.cc:3293
 msgid "Select Font"
-msgstr ""
+msgstr "Välj typsnitt"
 
 #: ../src/mainwindow.cc:2427
 msgid "Select file to Get TTH"
-msgstr ""
+msgstr "Visa TTH-värde för en fil"
 
 #: ../src/mainwindow.cc:2020 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
@@ -3063,7 +3063,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1074
 msgid "Serbian (Latin)"
-msgstr ""
+msgstr "Serbiska (Latin)"
 
 #: ../src/mainwindow.cc:241
 msgid "Serbian (Latin) translation\n"
@@ -3104,15 +3104,15 @@ msgstr ""
 #: ../src/hub.cc:87 ../src/hub.cc:389 ../src/hub.cc:406 ../src/hub.cc:426
 #: ../src/hub.cc:474 ../src/publichubs.cc:52 ../src/publichubs.cc:164
 msgid "Shared"
-msgstr ""
+msgstr "Utdelad"
 
 #: ../ui/settingsdialog.ui:4279 ../ui/settingsdialog.ui:4486
 msgid "Sharing"
-msgstr ""
+msgstr "Delar ut"
 
 #: ../src/settingsdialog.cc:1657
 msgid "Show IP's' in chats"
-msgstr ""
+msgstr "Visa IP-nummer i chatt"
 
 #: ../ui/mainwindow.ui:1994
 msgid "Show Interface"
@@ -3129,7 +3129,7 @@ msgstr ""
 #: ../src/privatemessage.cc:1034 ../src/hub.cc:2049
 #: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
 msgid "Show help"
-msgstr ""
+msgstr "Visa hjälp"
 
 #: ../src/hub.cc:2072
 msgid "Show ipfilter rules list"
@@ -3179,19 +3179,19 @@ msgstr ""
 #: ../src/privatemessage.cc:1032 ../src/hub.cc:2057 ../ui/privatemessage.ui:84
 #: ../ui/hub.ui:93
 msgid "Show version"
-msgstr ""
+msgstr "Visa version"
 
 #: ../ui/mainwindow.ui:1723
 msgid "Show/Hide transfers panel"
-msgstr ""
+msgstr "Visa/Göm överföringspanel"
 
 #: ../ui/hub.ui:513
 msgid "Show/Hide user list"
-msgstr ""
+msgstr "Visa/Göm användarlistan"
 
 #: ../src/wulfor.cc:186
 msgid "Shutting down libdcpp..."
-msgstr ""
+msgstr "Stänger ner libdcpp..."
 
 #: ../src/wulfor.cc:112
 #, c-format
@@ -3210,40 +3210,40 @@ msgstr ""
 #: ../src/search.cc:872 ../ui/search.ui:138 ../ui/search.ui:294
 #: ../ui/mainwindow.ui:118
 msgid "Size"
-msgstr ""
+msgstr "Storlek"
 
 #: ../src/downloadqueue.cc:244 ../src/downloadqueue.cc:246
 #: ../src/sharebrowser.cc:388
 msgid "Size: "
-msgstr ""
+msgstr "Storlek:"
 
 #: ../src/sharebrowser.cc:393
 msgid "Size: 0 B"
-msgstr ""
+msgstr "Storlek: 0 B"
 
 #: ../ui/settingsdialog.ui:4430
 msgid "Skip zero sized files"
-msgstr ""
+msgstr "Ladda inte ned filer som är 0 byte"
 
 #: ../src/settingsdialog.cc:992
 msgid "Skip zero-byte files"
-msgstr ""
+msgstr "Ladda inte ned filer som är 0 byte"
 
 #: ../src/privatemessage.cc:1444
 msgid "Slot granted"
-msgstr ""
+msgstr "Slott beviljad"
 
 #: ../src/hub.cc:2961 ../src/favoriteusers.cc:513
 msgid "Slot granted to "
-msgstr ""
+msgstr "Slott beviljad till"
 
 #: ../src/search.cc:105 ../src/search.cc:132 ../src/search.cc:653
 msgid "Slots"
-msgstr ""
+msgstr "Slottar"
 
 #: ../src/settingsdialog.cc:1082
 msgid "Slovak"
-msgstr ""
+msgstr "Slovakien"
 
 #: ../src/mainwindow.cc:251
 msgid "Slovak translation\n"
@@ -3251,7 +3251,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1522
 msgid "Small icons"
-msgstr ""
+msgstr "Små ikoner"
 
 #: ../ui/settingsdialog.ui:7785
 msgid "Socket read buffer"
@@ -3288,7 +3288,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1078
 msgid "Spanish"
-msgstr ""
+msgstr "Spanska"
 
 #: ../src/mainwindow.cc:244
 msgid "Spanish translation\n"
@@ -3331,11 +3331,11 @@ msgstr "Stopp"
 
 #: ../src/settingsdialog.cc:1096
 msgid "Swedish (Sweden)"
-msgstr ""
+msgstr "Svenska (Sverige)"
 
 #: ../src/mainwindow.cc:276
 msgid "Swedish (Sweden) translation\n"
-msgstr ""
+msgstr "Svenska (Sverige) översättning\n"
 
 #: ../src/settingsdialog.cc:1058 ../src/WulforUtil.cc:42
 #: ../ui/settingsdialog.ui:8958
@@ -3352,7 +3352,7 @@ msgstr ""
 
 #: ../src/WulforUtil.cc:226
 msgid "TIS-620"
-msgstr ""
+msgstr "TIS-620"
 
 #: ../src/downloadqueue.cc:82 ../src/downloadqueue.cc:294
 #: ../src/downloadqueue.cc:401 ../src/downloadqueue.cc:729
@@ -3365,15 +3365,15 @@ msgstr ""
 #: ../src/search.cc:1213 ../src/search.cc:1382 ../src/search.cc:1704
 #: ../ui/search.ui:144 ../ui/mainwindow.ui:132
 msgid "TTH"
-msgstr ""
+msgstr "TTH"
 
 #: ../src/transfers.cc:710 ../src/transfers.cc:711 ../src/transfers.cc:877
 msgid "TTH: "
-msgstr ""
+msgstr "TTH: "
 
 #: ../ui/settingsdialog.ui:4902
 msgid "Tabs"
-msgstr ""
+msgstr "Flikar"
 
 #: ../src/hub.cc:89 ../src/hub.cc:408 ../src/hub.cc:428
 msgid "Tag"
@@ -3424,7 +3424,7 @@ msgstr ""
 
 #: ../src/transfers.cc:62 ../src/transfers.cc:599
 msgid "Time Left"
-msgstr ""
+msgstr "Tid kvar"
 
 #: ../src/favoriteusers.cc:50 ../src/favoriteusers.cc:114
 #: ../src/favoriteusers.cc:580 ../src/favoriteusers.cc:588
@@ -3441,7 +3441,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:2356 ../src/settingsdialog.cc:2378
 #: ../src/settingsdialog.cc:2382 ../src/settingsdialog.cc:2432
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: ../ui/settingsdialog.ui:888
 msgid "To (empty for selected user)"
@@ -3529,7 +3529,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1076
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainska"
 
 #: ../src/mainwindow.cc:237
 msgid "Ukrainian translation\n"
@@ -3679,7 +3679,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1122
 msgid "Use emoticons"
-msgstr ""
+msgstr "Använd uttryckssymboler"
 
 #: ../src/settingsdialog.cc:1654
 msgid "Use fast hashing method (disable if you have problems with hashing)"
@@ -3765,18 +3765,18 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:1671
 msgid "Username"
-msgstr ""
+msgstr "Användarnamn"
 
 #: ../src/downloadqueue.cc:77 ../src/downloadqueue.cc:283
 #: ../src/downloadqueue.cc:390 ../src/publichubs.cc:49 ../src/publichubs.cc:63
 #: ../src/publichubs.cc:64 ../src/publichubs.cc:161 ../ui/mainwindow.ui:2186
 #: ../ui/mainwindow.ui:2433
 msgid "Users"
-msgstr ""
+msgstr "Användare"
 
 #: ../src/publichubs.cc:180
 msgid "Users: "
-msgstr ""
+msgstr "Användare:"
 
 #: ../src/wulfor.cc:46
 #, c-format
@@ -3797,11 +3797,11 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1092
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamesisk"
 
 #: ../src/mainwindow.cc:270
 msgid "Vietnamese translation\n"
-msgstr ""
+msgstr "Vietnamesisk översättning\n"
 
 #: ../src/settingsdialog.cc:1115
 msgid "View status messages in main chat"
@@ -3826,11 +3826,11 @@ msgstr ""
 #: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3802
 #: ../src/settingsdialog.cc:3871
 msgid "Virtual Name"
-msgstr ""
+msgstr "Virtual Namn"
 
 #: ../src/settingsdialog.cc:3095
 msgid "Virtual name"
-msgstr ""
+msgstr "Virtuelt namn"
 
 #: ../ui/settingsdialog.ui:6548
 msgid "Waiting (seconds)"
@@ -3855,7 +3855,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:391
 msgid "Welcome to "
-msgstr ""
+msgstr "Välkommen till"
 
 #: ../ui/settingsdialog.ui:5215
 msgid "When a private message window is opened"
@@ -3867,7 +3867,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5055
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: ../ui/settingsdialog.ui:7746
 msgid "Write buffer size"
@@ -3887,19 +3887,19 @@ msgstr ""
 
 #: ../src/transfers.cc:941 ../src/transfers.cc:1131
 msgid "[S]"
-msgstr ""
+msgstr "[S]"
 
 #: ../src/transfers.cc:946
 msgid "[T]"
-msgstr ""
+msgstr "[T]"
 
 #: ../src/transfers.cc:943 ../src/transfers.cc:1133
 msgid "[U]"
-msgstr ""
+msgstr "[U]"
 
 #: ../src/transfers.cc:948 ../src/transfers.cc:1136
 msgid "[Z]"
-msgstr ""
+msgstr "[Z]"
 
 #: ../ui/search.ui:767 ../ui/transfers.ui:63 ../ui/hub.ui:598
 msgid "_Add to favorites"
@@ -4120,7 +4120,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8990
 msgid "default"
-msgstr ""
+msgstr "standard"
 
 #: ../src/settingsdialog.cc:2505
 msgid "default icons"
@@ -4145,7 +4145,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:2092
 msgid "from"
-msgstr ""
+msgstr "från"
 
 #: ../src/publichubs.cc:459
 msgid "from Coral"
@@ -4153,7 +4153,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:377
 msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-msgstr ""
+msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 
 #: ../ui/settingsdialog.ui:5129
 msgid "in program"
@@ -4179,7 +4179,7 @@ msgstr ""
 #: ../src/hashdialog.cc:73 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
-msgstr ""
+msgstr "s"
 
 #: ../src/settingsdialog.cc:1490
 msgid "searchADL"
@@ -4191,11 +4191,11 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:6006
 msgid "theme"
-msgstr ""
+msgstr "tema"
 
 #: ../ui/settingsdialog.ui:2122
 msgid "to"
-msgstr ""
+msgstr "till"
 
 #: ../src/searchspy.cc:361
 msgid "top..."
