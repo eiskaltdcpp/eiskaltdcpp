@@ -1,72 +1,100 @@
 project (${PROJECT_NAME_GLOBAL}-qt)
 
+if (USE_QT)
 cmake_minimum_required (VERSION 2.6)
+elseif(USE_QT5)
+cmake_minimum_required (VERSION 2.8.11)
+endif()
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+if (USE_QT)
+	find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+elseif(USE_QT5)
+	find_package(Qt5Widgets 5.0 REQUIRED)
+	find_package(Qt5Xml 5.0 REQUIRED)
+	find_package(Qt5Network 5.0 REQUIRED)
+
+	list (APPEND LIBS Qt5::Widgets Qt5::Network Qt5::Xml)
+	add_definitions(-DUSE_QT5)
+endif()
+
 if (USE_QT_QML)
-  find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork QtDeclarative REQUIRED)
-  message (STATUS "Building with Qt Declarative UI support")
-  set (USE_JS ON)
+
+	if (USE_QT)
+		find_package (Qt4 4.7.0 COMPONENTS QtDeclarative REQUIRED)
+	elseif(USE_QT5)
+		find_package(Qt5Declarative 5.0 REQUIRED)
+		list (APPEND LIBS Qt5::Declarative)
+	endif()
+
+	message (STATUS "Building with Qt Declarative UI support")
+	set (USE_JS ON)
+	add_definitions(-DUSE_QML)
+	set (QT_USE_QTDECLARATIVE 1)
 else (USE_QT_QML)
-  find_package (Qt4 4.6.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
-  message (STATUS "Building without Qt Declarative UI support")
+	if (USE_QT)
+		find_package (Qt4 4.6.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+	endif()
+	message (STATUS "Building without Qt Declarative UI support")
 endif (USE_QT_QML)
 
 if (APPLE OR WIN32 OR HAIKU)
-    set (DBUS_NOTIFY OFF)
+	set (DBUS_NOTIFY OFF)
 endif ()
 
 if (DBUS_NOTIFY)
-    find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
-    message (STATUS "Building with Qt DBus support")
+	if (USE_QT)
+		find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
+	elseif(USE_QT5)
+		find_package(Qt5DBus 5.0 REQUIRED)
+		list (APPEND LIBS Qt5::DBus)
+	endif()
+	message (STATUS "Building with Qt DBus support")
+	set (QT_USE_QTDBUS 1)
+	add_definitions (-DDBUS_NOTIFY)
 else (DBUS_NOTIFY)
-    message (STATUS "Building without Qt DBus support")
+	message (STATUS "Building without Qt DBus support")
 endif (DBUS_NOTIFY)
 
 if (USE_JS)
-    find_package (Qt4 4.6.0 COMPONENTS QtScript REQUIRED)
-message (STATUS "Building with Qt Script support")
+	if (USE_QT)
+		find_package (Qt4 4.6.0 COMPONENTS QtScript REQUIRED)
+	elseif(USE_QT5)
+		find_package(Qt5Script 5.0 REQUIRED)
+		list (APPEND LIBS Qt5::Script)
+	endif()
+	message (STATUS "Building with Qt Script support")
+	add_definitions (-DUSE_JS)
+	set (QT_USE_QTSCRIPT 1)
 else (USE_JS)
-    message (STATUS "Building without Qt Script support")
+	message (STATUS "Building without Qt Script support")
 endif (USE_JS)
 
 if (USE_QT_SQLITE)
-    find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
-    message (STATUS "Building with Qt SQLite support")
+	if (USE_QT)
+		find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
+	elseif(USE_QT5)
+		find_package(Qt5Sql 5.0 REQUIRED)
+		list (APPEND LIBS Qt5::Sql)
+	endif()
+	message (STATUS "Building with Qt SQLite support")
+	set (QT_USE_QTSQL 1)
+	add_definitions (-DUSE_QT_SQLITE)
 else (USE_QT_SQLITE)
-    message (STATUS "Building without Qt SQLite support")
+	message (STATUS "Building without Qt SQLite support")
 endif (USE_QT_SQLITE)
 
-set (QT_USE_QTNETWORK 1)
-set (QT_USE_QTXML 1)
-set (QT_USE_QTWEBKIT 0)
-
-if (DBUS_NOTIFY)
-  set (QT_USE_QTDBUS 1)
-  add_definitions (-DDBUS_NOTIFY)
-endif (DBUS_NOTIFY)
-
-if (USE_JS)
-  add_definitions (-DUSE_JS)
-  set (QT_USE_QTSCRIPT  1)
-endif (USE_JS)
-
-if (USE_QT_QML)
-  add_definitions(-DUSE_QML)
-  set (QT_USE_QTDECLARATIVE 1)
-endif(USE_QT_QML)
+if (USE_QT)
+	set (QT_USE_QTNETWORK 1)
+	set (QT_USE_QTXML 1)
+	set (QT_USE_QTWEBKIT 0)
+	include (${QT_USE_FILE})
+endif()
 
 if (WITH_DHT)
   add_definitions ( -DWITH_DHT )
 endif (WITH_DHT)
-
-if (USE_QT_SQLITE)
-  set (QT_USE_QTSQL 1)
-
-  add_definitions (-DUSE_QT_SQLITE)
-endif (USE_QT_SQLITE)
-
-include (${QT_USE_FILE})
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/src SRCS)
 
@@ -154,10 +182,16 @@ foreach (LANGUAGE ${LANGUAGES})
   list (APPEND COMPILED_TRANSLATIONS ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
 endforeach()
 
-#Create moc files
-QT4_WRAP_CPP (M_SRCS ${MOC_HDRS})
-#Create .h files from ui files
-QT4_WRAP_UI (U_SRCS ${UI_FORMS})
+if(USE_QT)
+	#Create moc files
+	QT4_WRAP_CPP (M_SRCS ${MOC_HDRS})
+	#Create .h files from ui files
+	QT4_WRAP_UI (U_SRCS ${UI_FORMS})
+elseif(USE_QT5)
+	QT5_WRAP_CPP (M_SRCS ${MOC_HDRS})
+	QT5_WRAP_UI (U_SRCS ${UI_FORMS})
+endif()
+
 #Create translations
 set (target_basename "translations_qt")
 file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/translations/)
@@ -193,14 +227,19 @@ EXECUTE_PROCESS (
   )
 
 include_directories (
-        ${QT_INCLUDES}
         ${PROJECT_SOURCE_DIR}
         ${PROJECT_SOURCE_DIR}/src
         ${PROJECT_SOURCE_DIR}/scriptengine
         ${PROJECT_SOURCE_DIR}/..
         ${Boost_INCLUDE_DIRS}
         )
-list (APPEND LIBS ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
+
+if (USE_QT)
+include_directories (${QT_INCLUDES})
+list (APPEND LIBS ${QT_LIBRARIES})
+endif()
+
+list (APPEND LIBS  ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
 if (APPLE)
   find_library (COCOA_LIBRARY Cocoa)
@@ -257,8 +296,8 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${MOC_HDRS}
                 ${TRANSLATIONS}
                 ${WIN_RESOURCES}
-                translations
-                )
+                translations)
+
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                  -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
                  -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
