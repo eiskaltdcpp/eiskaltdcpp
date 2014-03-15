@@ -17,7 +17,7 @@
 
 struct DownloadToDirHistory {
     static QStringList get() {
-        QString paths = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toAscii());
+        QString paths = QByteArray::fromBase64(WSGET(WS_DOWNLOAD_DIR_HISTORY).toLatin1());
         QStringList result;
 
         for (auto path : paths.replace("\r","").split("\n", QString::SkipEmptyParts)) {
@@ -38,6 +38,6 @@ struct DownloadToDirHistory {
             list.removeLast();
 
         QString raw = list.join ( "\n" );
-        WSSET ( WS_DOWNLOAD_DIR_HISTORY, raw.toAscii().toBase64() );
+        WSSET ( WS_DOWNLOAD_DIR_HISTORY, raw.toLatin1().toBase64() );
     }
 };

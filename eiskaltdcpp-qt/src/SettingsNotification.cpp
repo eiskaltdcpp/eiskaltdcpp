@@ -54,7 +54,7 @@ void SettingsNotification::init(){
     }
     {//Sound
         QString encoded = WSGET(WS_NOTIFY_SOUNDS);
-        QString decoded = QByteArray::fromBase64(encoded.toAscii());
+        QString decoded = QByteArray::fromBase64(encoded.toLatin1());
         QStringList sounds = decoded.split("\n");
 
         if (sounds.size() == 4){
@@ -161,7 +161,7 @@ void SettingsNotification::ok(){
         sounds += lineEdit_SNDTRDONE->text() + "\n";
         sounds += lineEdit_FAV->text();
 
-        WSSET(WS_NOTIFY_SOUNDS, sounds.toAscii().toBase64());
+        WSSET(WS_NOTIFY_SOUNDS, sounds.toLatin1().toBase64());
         WBSET(WB_NOTIFY_SND_ENABLED, groupBox_SND->isChecked());
         WBSET("notification/play-sound-with-active-pm", checkBox_ACTIVEPM->isChecked());
 

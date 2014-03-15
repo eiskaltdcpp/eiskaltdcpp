@@ -6,90 +6,93 @@ elseif(USE_QT5)
 cmake_minimum_required (VERSION 2.8.11)
 endif()
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${PROJECT_BINARY_DIR})
 
 if (USE_QT)
-	find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+        find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
 elseif(USE_QT5)
-	find_package(Qt5Widgets 5.0 REQUIRED)
-	find_package(Qt5Xml 5.0 REQUIRED)
-	find_package(Qt5Network 5.0 REQUIRED)
+        find_package(Qt5Widgets 5.0 REQUIRED)
+        find_package(Qt5Xml 5.0 REQUIRED)
+        find_package(Qt5Network 5.0 REQUIRED)
+        find_package(Qt5LinguistTools 5.0 REQUIRED)
+        find_package(Qt5Multimedia 5.0 REQUIRED)
+        find_package(Qt5Concurrent 5.0 REQUIRED)
 
-	list (APPEND LIBS Qt5::Widgets Qt5::Network Qt5::Xml)
-	add_definitions(-DUSE_QT5)
+        list (APPEND LIBS Qt5::Widgets Qt5::Network Qt5::Xml Qt5::Multimedia Qt5::Concurrent)
+        add_definitions(-DUSE_QT5)
 endif()
 
 if (USE_QT_QML)
 
-	if (USE_QT)
-		find_package (Qt4 4.7.0 COMPONENTS QtDeclarative REQUIRED)
-	elseif(USE_QT5)
-		find_package(Qt5Declarative 5.0 REQUIRED)
-		list (APPEND LIBS Qt5::Declarative)
-	endif()
+        if (USE_QT)
+                find_package (Qt4 4.7.0 COMPONENTS QtDeclarative REQUIRED)
+        elseif(USE_QT5)
+                find_package(Qt5Declarative 5.0 REQUIRED)
+                list (APPEND LIBS Qt5::Declarative)
+        endif()
 
-	message (STATUS "Building with Qt Declarative UI support")
-	set (USE_JS ON)
-	add_definitions(-DUSE_QML)
-	set (QT_USE_QTDECLARATIVE 1)
+        message (STATUS "Building with Qt Declarative UI support")
+        set (USE_JS ON)
+        add_definitions(-DUSE_QML)
+        set (QT_USE_QTDECLARATIVE 1)
 else (USE_QT_QML)
-	if (USE_QT)
-		find_package (Qt4 4.6.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
-	endif()
-	message (STATUS "Building without Qt Declarative UI support")
+        if (USE_QT)
+                find_package (Qt4 4.6.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+        endif()
+        message (STATUS "Building without Qt Declarative UI support")
 endif (USE_QT_QML)
 
 if (APPLE OR WIN32 OR HAIKU)
-	set (DBUS_NOTIFY OFF)
+        set (DBUS_NOTIFY OFF)
 endif ()
 
 if (DBUS_NOTIFY)
-	if (USE_QT)
-		find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
-	elseif(USE_QT5)
-		find_package(Qt5DBus 5.0 REQUIRED)
-		list (APPEND LIBS Qt5::DBus)
-	endif()
-	message (STATUS "Building with Qt DBus support")
-	set (QT_USE_QTDBUS 1)
-	add_definitions (-DDBUS_NOTIFY)
+        if (USE_QT)
+                find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
+        elseif(USE_QT5)
+                find_package(Qt5DBus 5.0 REQUIRED)
+                list (APPEND LIBS Qt5::DBus)
+        endif()
+        message (STATUS "Building with Qt DBus support")
+        set (QT_USE_QTDBUS 1)
+        add_definitions (-DDBUS_NOTIFY)
 else (DBUS_NOTIFY)
-	message (STATUS "Building without Qt DBus support")
+        message (STATUS "Building without Qt DBus support")
 endif (DBUS_NOTIFY)
 
 if (USE_JS)
-	if (USE_QT)
-		find_package (Qt4 4.6.0 COMPONENTS QtScript REQUIRED)
-	elseif(USE_QT5)
-		find_package(Qt5Script 5.0 REQUIRED)
-		list (APPEND LIBS Qt5::Script)
-	endif()
-	message (STATUS "Building with Qt Script support")
-	add_definitions (-DUSE_JS)
-	set (QT_USE_QTSCRIPT 1)
+        if (USE_QT)
+                find_package (Qt4 4.6.0 COMPONENTS QtScript REQUIRED)
+        elseif(USE_QT5)
+                find_package(Qt5Script 5.0 REQUIRED)
+                list (APPEND LIBS Qt5::Script)
+        endif()
+        message (STATUS "Building with Qt Script support")
+        add_definitions (-DUSE_JS)
+        set (QT_USE_QTSCRIPT 1)
 else (USE_JS)
-	message (STATUS "Building without Qt Script support")
+        message (STATUS "Building without Qt Script support")
 endif (USE_JS)
 
 if (USE_QT_SQLITE)
-	if (USE_QT)
-		find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
-	elseif(USE_QT5)
-		find_package(Qt5Sql 5.0 REQUIRED)
-		list (APPEND LIBS Qt5::Sql)
-	endif()
-	message (STATUS "Building with Qt SQLite support")
-	set (QT_USE_QTSQL 1)
-	add_definitions (-DUSE_QT_SQLITE)
+        if (USE_QT)
+                find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
+        elseif(USE_QT5)
+                find_package(Qt5Sql 5.0 REQUIRED)
+                list (APPEND LIBS Qt5::Sql)
+        endif()
+        message (STATUS "Building with Qt SQLite support")
+        set (QT_USE_QTSQL 1)
+        add_definitions (-DUSE_QT_SQLITE)
 else (USE_QT_SQLITE)
-	message (STATUS "Building without Qt SQLite support")
+        message (STATUS "Building without Qt SQLite support")
 endif (USE_QT_SQLITE)
 
 if (USE_QT)
-	set (QT_USE_QTNETWORK 1)
-	set (QT_USE_QTXML 1)
-	set (QT_USE_QTWEBKIT 0)
-	include (${QT_USE_FILE})
+        set (QT_USE_QTNETWORK 1)
+        set (QT_USE_QTXML 1)
+        set (QT_USE_QTWEBKIT 0)
+        include (${QT_USE_FILE})
 endif()
 
 if (WITH_DHT)
@@ -134,15 +137,15 @@ endif (WIN32)
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)
   ADD_CUSTOM_COMMAND (OUTPUT
-            "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
+            "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
             COMMAND ${CMAKE_RC_COMPILER}
-            -I"${CMAKE_CURRENT_SOURCE_DIR}/"
-            -i "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.rc"
-            -o "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
+            -I"${PROJECT_SOURCE_DIR}/"
+            -i "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}.rc"
+            -o "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
             )
-  SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o)
+  SET (WIN_RESOURCES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o)
 elseif (NOT MINGW AND WIN32)
-  SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.rc")
+  SET (WIN_RESOURCES"${PROJECT_SOURCE_DIR}/${PROJECT_NAME}.rc")
 endif (MINGW AND WIN32)
 
 if (NOT USE_ASPELL)
@@ -183,13 +186,17 @@ foreach (LANGUAGE ${LANGUAGES})
 endforeach()
 
 if(USE_QT)
-	#Create moc files
-	QT4_WRAP_CPP (M_SRCS ${MOC_HDRS})
-	#Create .h files from ui files
-	QT4_WRAP_UI (U_SRCS ${UI_FORMS})
+    #Create moc files
+    QT4_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
+    #Create .h files from ui files
+    QT4_WRAP_UI (U_SRCS ${UI_FORMS})
 elseif(USE_QT5)
-	QT5_WRAP_CPP (M_SRCS ${MOC_HDRS})
-	QT5_WRAP_UI (U_SRCS ${UI_FORMS})
+    QT5_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
+    QT5_WRAP_UI (U_SRCS ${UI_FORMS})
+endif()
+
+if(USE_QT5)
+set(QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE})
 endif()
 
 #Create translations
@@ -210,20 +217,20 @@ endforeach()
 
 add_custom_target(${target_basename} ALL DEPENDS ${TRANSLATIONS_BINARY})
 
-set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc)
+set (DEFAULT_QRC_FILE ${PROJECT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
 if (UNIX)
   EXECUTE_PROCESS (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE eiskaltdcpp-qt.1
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
     install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)
 
 EXECUTE_PROCESS (
     COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} -o ${PROJECT_BINARY_DIR}/default.rcc
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/
   )
 
 include_directories (
@@ -351,7 +358,7 @@ if (APPLE)
     set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-stable-${CMAKE_SYSTEM_PROCESSOR}")
   endif ()
   set (MACOSX_BUNDLE_INFO_STRING "Direct Connect and ADC client")
-  set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
+  set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${PROJECT_SOURCE_DIR}/Info.plist.in)
   set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
   set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
   set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})

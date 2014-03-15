@@ -244,8 +244,8 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
 
     QString aliases, paths;
 
-    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
-    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toLatin1());
+    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toLatin1());
 
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
@@ -525,7 +525,7 @@ void SearchFrame::init(){
     for (int i = 0; i < icons.size(); i++)
         comboBox_FILETYPES->setItemIcon(i, WICON(icons.at(i)));
 
-    QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
+    QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toLatin1());
     d->searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
     QMenu *m = new QMenu();
@@ -580,7 +580,7 @@ void SearchFrame::init(){
 void SearchFrame::load(){
     Q_D(SearchFrame);
 
-    treeView_RESULTS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SEARCH_STATE).toAscii()));
+    treeView_RESULTS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SEARCH_STATE).toLatin1()));
     treeView_RESULTS->setSortingEnabled(true);
 
     d->filterShared = static_cast<SearchFrame::AlreadySharedAction>(WIGET(WI_SEARCH_SHARED_ACTION));
@@ -594,7 +594,7 @@ void SearchFrame::load(){
 
     treeView_RESULTS->sortByColumn(WIGET(WI_SEARCH_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_SEARCH_SORT_ORDER)));
 
-    QString raw = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toAscii());
+    QString raw = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toLatin1());
     QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
     d->completer = new QCompleter(list, lineEdit_SEARCHSTR);
@@ -1010,7 +1010,7 @@ void SearchFrame::slotStartSearch(){
                 d->searchHistory.removeLast();
 
         QString hist = d->searchHistory.join("\n");
-        WSSET(WS_SEARCH_HISTORY, hist.toAscii().toBase64());
+        WSSET(WS_SEARCH_HISTORY, hist.toLatin1().toBase64());
     }
 
     {

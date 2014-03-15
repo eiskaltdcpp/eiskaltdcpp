@@ -382,7 +382,7 @@ void WulforSettings::loadOldConfig(){
 
             for (; it != strmap.end(); ++it){
                 if (xml.findChild(it.key().toStdString()))
-                        strmap.insert(it.key(), QTextCodec::codecForCStrings()->fromUnicode(xml.getChildData().c_str()));
+                        strmap.insert(it.key(), QString::fromStdString(xml.getChildData()));
 
                 xml.resetCurrentChild();
             }

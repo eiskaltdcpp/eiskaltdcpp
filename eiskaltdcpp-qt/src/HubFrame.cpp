@@ -59,6 +59,10 @@
 #include <QShortcut>
 #include <QHeaderView>
 
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#include <QUrlQuery>
+#endif
+
 #include <QtDebug>
 
 #include <exception>
@@ -505,21 +509,33 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 if (linktype == "magnet:"){
                     QString magnet = link;
 
+                    #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+                    QUrlQuery u;
+                    #else
                     QUrl u;
+                    #endif
 
-                    if (!magnet.contains("+"))
-                        u.setEncodedUrl(magnet.toAscii());
-                    else {
+                    if (!magnet.contains("+")) {
+                    #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+                        QUrl qurl = QUrl::fromEncoded(magnet.toLatin1());
+                        u(qurl);
+                    #else
+                        u.setEncodedUrl(magnet.toLatin1());
+                    #endif
+                    } else {
                         QString _l = magnet;
 
                         _l.replace("+", "%20");
-                        u.setEncodedUrl(_l.toAscii());
+                        #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+                            QUrl qurl = QUrl::fromEncoded(_l.toLatin1());
+                            u(qurl);
+                        #else
+                            u.setEncodedUrl(_l.toLatin1());
+                        #endif
                     }
-
-                    if (u.hasQueryItem("kt")){
+                    if (u.hasQueryItem("kt")) {
                         QString keywords = u.queryItemValue("kt");
                         QString hub = u.hasQueryItem("xs")? u.queryItemValue("xs") : "";
-
                         if (!(hub.startsWith("dchub://", Qt::CaseInsensitive) ||
                               hub.startsWith("adc://", Qt::CaseInsensitive) ||
                               hub.startsWith("adcs://", Qt::CaseInsensitive)) && !hub.isEmpty())
@@ -529,9 +545,15 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                             keywords = tr("Invalid keywords");
 
                         if (!hub.isEmpty())
+                        #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+                            toshow = keywords.toHtmlEscaped() + " (" + hub.toHtmlEscaped() + ")";
+                        else
+                            toshow = keywords.toHtmlEscaped();
+                        #else
                             toshow = Qt::escape(keywords) + " (" + Qt::escape(hub) + ")";
                         else
                             toshow = Qt::escape(keywords);
+                        #endif
                     }
                     else {
                         QString name, tth;
@@ -595,7 +617,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                     if (emo_text_len == input_length)
                         nextCharisSpace = true;
                     else if (input_length > emo_text_len){
-                        char c = input.at(emo_text_len).toAscii();
+                        char c = input.at(emo_text_len).toLatin1();
 
                         nextCharisSpace = (c == ' ' || c == '\t');
                     }
@@ -636,7 +658,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 QString chunk = input.left(input.indexOf("[/color]")+8);
 
                 if (exp.exactMatch(chunk)){
-                    if (exp.numCaptures() == 3){
+                    if (exp.captureCount() == 3){
                         output += "<font color=\"" + exp.cap(1) + "\">" + parseForLinks(exp.cap(2), false) + "</font>";
 
                         input.remove(0, chunk.length());
@@ -647,7 +669,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 QRegExp exp("\\[url=*((.+[^\\]\\[]))*\\]((.+))\\[/url\\]");
                 QString chunk = input.left(input.indexOf("[/url]")+6);
 
-                if (exp.exactMatch(chunk) && exp.numCaptures() == 4){
+                if (exp.exactMatch(chunk) && exp.captureCount() == 4){
                     QString link = exp.cap(2);
                     QString title = exp.cap(3);
 
@@ -657,7 +679,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                         link.remove(0, 1);
 
                     if (!title.isEmpty()){
-                        output += "<a href=\"" + link + "\" title=\"" + Qt::escape(title) + "\">" + Qt::escape(title) + "</a>";
+                        #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+                            output += "<a href=\"" + link + "\" title=\"" + title.toHtmlEscaped() + "\">" + title.toHtmlEscaped() + "</a>";
+                        #else
+                            output += "<a href=\"" + link + "\" title=\"" + Qt::escape(title) + "\">" + Qt::escape(title) + "</a>";
+                        #endif
 
                         input.remove(0, chunk.length());
                     }
@@ -1305,7 +1331,7 @@ void HubFrame::load(){
     QString ustate = WSGET(WS_CHAT_USERLIST_STATE);
 
     if (!ustate.isEmpty())
-        treeView_USERS->header()->restoreState(QByteArray::fromBase64(ustate.toAscii()));
+        treeView_USERS->header()->restoreState(QByteArray::fromBase64(ustate.toLatin1()));
 
     if (w_chat >= 0 && w_ulist >= 0){
         QList<int> frames;
@@ -1561,7 +1587,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         QStringList lex = line.split(" ", QString::SkipEmptyParts);
 
         if (lex.size() >= 2){
-            QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toAscii());
+            QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toLatin1());
 
             if (lex.at(1) == "list"){
                 if (!aliases.isEmpty()){
@@ -1591,7 +1617,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                         for (const auto &line : alias_list)
                             new_aliases += line + "\n";
 
-                        WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toAscii().toBase64());
+                        WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toLatin1().toBase64());
 
                         if (fr == this)
                             addStatus(tr("Alias removed."));
@@ -1623,7 +1649,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                     else if (!aliases.contains(new_cmd.at(0)+'\t')){
                         aliases += new_cmd.at(0) + '\t' +  new_cmd.at(1) + '\n';
 
-                        WSSET(WS_CHAT_CMD_ALIASES, aliases.toAscii().toBase64());
+                        WSSET(WS_CHAT_CMD_ALIASES, aliases.toLatin1().toBase64());
 
                         if (fr == this)
                             addStatus(tr("Alias %1 => %2 has been added").arg(new_cmd.at(0)).arg(new_cmd.at(1)));
@@ -1890,7 +1916,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             pm->addStatus(out);
     }
     else if (!WSGET(WS_CHAT_CMD_ALIASES).isEmpty()){
-        QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toAscii());
+        QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toLatin1());
         QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
         bool ok = false;
 
@@ -2297,7 +2323,7 @@ void HubFrame::addAsFavorite(){
         aEntry.setServer(d->client->getHubUrl());
         aEntry.setName(d->client->getHubName());
         aEntry.setDescription(d->client->getHubDescription());
-        aEntry.setConnect(FALSE);
+        aEntry.setConnect(false);
         aEntry.setNick(d->client->getMyNick());
         aEntry.setEncoding(d->client->getEncoding());
 
@@ -3939,9 +3965,9 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
 
     if (BOOLSETTING(LOG_STATUS_MESSAGES)){
         StringMap params;
-        d->client->getHubIdentity().getParams(params, "hub", FALSE);
+        d->client->getHubIdentity().getParams(params, "hub", false);
         params["hubURL"] = d->client->getHubUrl();
-        d->client->getMyIdentity().getParams(params, "my", TRUE);
+        d->client->getMyIdentity().getParams(params, "my", true);
         params["message"] = msg;
         LOG(LogManager::STATUS, params);
     }

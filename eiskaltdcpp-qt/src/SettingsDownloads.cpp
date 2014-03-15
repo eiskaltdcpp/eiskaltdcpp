@@ -115,8 +115,8 @@ void SettingsDownloads::init(){
     {//Download to
         QString aliases, paths;
 
-        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
-        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toLatin1());
+        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toLatin1());
 
         QStringList a = aliases.split("\n", QString::SkipEmptyParts);
         QStringList p = paths.split("\n", QString::SkipEmptyParts);
@@ -204,14 +204,14 @@ void SettingsDownloads::slotDownloadTo(){
 
         QString aliases, paths;
 
-        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
-        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toLatin1());
+        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toLatin1());
 
         aliases += alias + "\n";
         paths   += dir + "\n";
 
-        WSSET(WS_DOWNLOADTO_ALIASES, aliases.toAscii().toBase64());
-        WSSET(WS_DOWNLOADTO_PATHS, paths.toAscii().toBase64());
+        WSSET(WS_DOWNLOADTO_ALIASES, aliases.toLatin1().toBase64());
+        WSSET(WS_DOWNLOADTO_PATHS, paths.toLatin1().toBase64());
 
         QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
 
@@ -220,8 +220,8 @@ void SettingsDownloads::slotDownloadTo(){
     }
     else if (ret){
         QString aliases, paths;
-        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
-        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toLatin1());
+        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toLatin1());
 
         for (const auto &i : selected){
             QString alias = i->text(1);
@@ -233,8 +233,8 @@ void SettingsDownloads::slotDownloadTo(){
             delete i;
         }
 
-        WSSET(WS_DOWNLOADTO_ALIASES, aliases.toAscii().toBase64());
-        WSSET(WS_DOWNLOADTO_PATHS, paths.toAscii().toBase64());
+        WSSET(WS_DOWNLOADTO_ALIASES, aliases.toLatin1().toBase64());
+        WSSET(WS_DOWNLOADTO_PATHS, paths.toLatin1().toBase64());
     }
 }
 
