@@ -22,6 +22,8 @@
 #include <QBrush>
 #include <QPen>
 #include <QPointF>
+#include <QMimeData>
+#include <QDrag>
 
 #include "WulforUtil.h"
 #include "WulforSettings.h"

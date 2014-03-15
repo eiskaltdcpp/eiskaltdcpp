@@ -328,7 +328,7 @@ void SettingsGUI::init(){
         CustomFontModel *model = new CustomFontModel(this);
         tableView->setModel(model);
 
-        tableView->horizontalHeader()->restoreState(QByteArray::fromBase64(WSGET(WS_SETTINGS_GUI_FONTS_STATE).toAscii()));
+        tableView->horizontalHeader()->restoreState(QByteArray::fromBase64(WSGET(WS_SETTINGS_GUI_FONTS_STATE).toLatin1()));
 
         connect(tableView, SIGNAL(doubleClicked(QModelIndex)), model, SLOT(itemDoubleClicked(QModelIndex)));
         connect(this, SIGNAL(saveFonts()), model, SLOT(ok()));

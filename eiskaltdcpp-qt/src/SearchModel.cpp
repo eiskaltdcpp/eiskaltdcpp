@@ -6,8 +6,12 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
+#ifdef USE_QT5
+#include <QtWidgets>
+#else
 #include <QtGui>
+#endif
+
 #include <QFileInfo>
 #include <QList>
 #include <QStringList>
@@ -226,21 +230,21 @@ namespace {
 template <Qt::SortOrder order>
 struct Compare {
     typedef bool (*AttrComp)(const SearchItem * l, const SearchItem * r);
-    
+
     void static sort(unsigned column, QList<SearchItem*>& items) {
         if (column > COLUMN_SF_HOST)
             return;
-        
+
         qStableSort(items.begin(), items.end(), attrs[column]);
     }
 
     QList<SearchItem*>::iterator static insertSorted(unsigned column, QList<SearchItem*>& items, SearchItem* item) {
         if (column > COLUMN_SF_HOST)
             return items.end();
-        
-        return qLowerBound(items.begin(), 
-                           items.end(), 
-                           item, 
+
+        return qLowerBound(items.begin(),
+                           items.end(),
+                           item,
                            attrs[column]
                           );
     }
@@ -260,7 +264,7 @@ struct Compare {
         }
         template <typename T>
         bool static Cmp(const T& l, const T& r);
-        
+
         static AttrComp attrs[13];
 };
 
@@ -454,6 +458,11 @@ void SearchModel::clearModel(){
     blockSignals(false);
 
     reset();
+}
+
+void SearchModel::reset() {
+    beginResetModel();
+    endResetModel();
 }
 
 void SearchModel::removeItem(const SearchItem *item){

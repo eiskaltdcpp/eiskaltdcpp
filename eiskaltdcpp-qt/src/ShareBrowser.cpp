@@ -38,10 +38,15 @@
 #include <QClipboard>
 #include <QHeaderView>
 #include <QKeyEvent>
-#include <QtConcurrentFilter>
-#include <QtConcurrentRun>
 #include <QInputDialog>
 #include <QDesktopServices>
+
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#include <QtConcurrent>
+#else
+#include <QtConcurrentFilter>
+#include <QtConcurrentRun>
+#endif
 
 using namespace dcpp;
 
@@ -131,8 +136,8 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     const QPixmap &dir_px = WICON(WulforUtil::eiFOLDER_BLUE);
     QString aliases, paths;
 
-    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toAscii());
-    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toAscii());
+    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toLatin1());
+    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toLatin1());
 
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
@@ -381,8 +386,8 @@ void ShareBrowser::load(){
         splitter->setSizes(frames);
     }
 
-    treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toAscii()));
-    treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toAscii()));
+    treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toLatin1()));
+    treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toLatin1()));
 
     treeView_LPANE->setSortingEnabled(true);
     treeView_RPANE->setSortingEnabled(true);

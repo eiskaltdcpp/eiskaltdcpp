@@ -88,4 +88,6 @@ private:
 
     QHash<QString, IPFilterModelItem*> rules;
     IPFilterModelItem *rootItem;
+
+    void reset();
 };

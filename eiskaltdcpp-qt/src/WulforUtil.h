@@ -17,8 +17,8 @@
 #include <QTextCodec>
 #include <QTreeView>
 #include <QAbstractItemModel>
-#include <QHttp>
-#include <QHttpHeader>
+//#include <QHttp>
+//#include <QHttpHeader>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"

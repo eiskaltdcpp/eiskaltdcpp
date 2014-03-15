@@ -263,7 +263,7 @@ void SettingsSharing::slotSimpleShareModeChanged(){
             treeView->header()->hideSection(2);
 
             if (!WSGET(WS_SHAREHEADER_STATE).isEmpty())
-                treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toAscii()));
+                treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toLatin1()));
 
             connect(model, SIGNAL(getName(QModelIndex)), this, SLOT(slotGetName(QModelIndex)));
             connect(model, SIGNAL(expandMe(QModelIndex)), treeView, SLOT(expand(QModelIndex)));
@@ -275,7 +275,7 @@ void SettingsSharing::slotSimpleShareModeChanged(){
         }
     }
     else{
-        treeWidget_SIMPLE_MODE->header()->restoreState(QByteArray::fromBase64((WSGET("settings-simple-share-headerstate").toAscii())));
+        treeWidget_SIMPLE_MODE->header()->restoreState(QByteArray::fromBase64((WSGET("settings-simple-share-headerstate").toLatin1())));
 
         updateShareView();
     }

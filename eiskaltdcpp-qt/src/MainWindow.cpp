@@ -611,7 +611,7 @@ void MainWindow::loadSettings(){
     QString dockwidgetsState = WSGET(WS_MAINWINDOW_STATE);
 
     if (!dockwidgetsState.isEmpty())
-        this->restoreState(QByteArray::fromBase64(dockwidgetsState.toAscii()));
+        this->restoreState(QByteArray::fromBase64(dockwidgetsState.toLatin1()));
 
     d->fBar->setVisible(WBGET(WB_TOOLS_PANEL_VISIBLE));
     d->panelsTools->setChecked(WBGET(WB_TOOLS_PANEL_VISIBLE));
@@ -672,7 +672,7 @@ void MainWindow::saveSettings(){
     if (WBGET(WB_MAINWINDOW_REMEMBER))
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
-    QString dockwidgetsState = QString::fromAscii(saveState().toBase64());
+    QString dockwidgetsState = QString::fromLatin1(saveState().toBase64());
     WSSET(WS_MAINWINDOW_STATE, dockwidgetsState);
 
     stateIsSaved = true;
@@ -1427,7 +1427,7 @@ void MainWindow::initToolbar(){
     d->fBar = new ToolBar(this);
     d->fBar->setObjectName("fBar");
 
-    QStringList enabled_actions = QString(QByteArray::fromBase64(WSGET(WS_MAINWINDOW_TOOLBAR_ACTS).toAscii())).split(";", QString::SkipEmptyParts);
+    QStringList enabled_actions = QString(QByteArray::fromBase64(WSGET(WS_MAINWINDOW_TOOLBAR_ACTS).toLatin1())).split(";", QString::SkipEmptyParts);
 
     if (enabled_actions.isEmpty())
         d->fBar->addActions(d->toolBarActions);
@@ -1618,7 +1618,7 @@ void MainWindow::newHubFrame(QString address, QString enc){
     if (address.isEmpty())
         return;
 
-    address = QUrl::fromPercentEncoding(address.toAscii());
+    address = QUrl::fromPercentEncoding(address.toLatin1());
 
     HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(address));
 
@@ -2601,7 +2601,7 @@ void MainWindow::slotToolbarCustomizerDone(const QList<QAction*> &enabled){
 
     initFavHubMenu();
 
-    WSSET(WS_MAINWINDOW_TOOLBAR_ACTS, enabled_list.join(";").toAscii().toBase64());
+    WSSET(WS_MAINWINDOW_TOOLBAR_ACTS, enabled_list.join(";").toLatin1().toBase64());
 }
 
 void MainWindow::slotAboutOpenUrl(){

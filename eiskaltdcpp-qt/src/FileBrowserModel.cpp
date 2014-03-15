@@ -10,7 +10,12 @@
 #include "FileBrowserModel.h"
 #include "WulforUtil.h"
 
+#ifdef USE_QT5
+#include <QtWidgets>
+#else
 #include <QtGui>
+#endif
+
 #include <QFileInfo>
 #include <QList>
 #include <QStringList>

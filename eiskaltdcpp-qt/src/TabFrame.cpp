@@ -16,7 +16,12 @@
 #include "DebugHelper.h"
 #include "GlobalTimer.h"
 
+#ifdef USE_QT5
+#include <QtWidgets>
+#else
 #include <QtGui>
+#endif
+
 #include <QPushButton>
 #include <QWheelEvent>
 #include <functional>

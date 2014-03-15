@@ -179,7 +179,7 @@ void IPFilter::addToRules(QString exp, eDIRECTION direction) {
            "\t\tIP  : %s\n"
            "\t\tD   : %i\n"
            "\t\tA   : %i\n",
-           el->mask, IPFilter::Uint32ToString(el->ip).toAscii().constData(),
+           el->mask, IPFilter::Uint32ToString(el->ip).toLatin1().constData(),
            (int)el->direction, (int)el->action
           );
 #endif
@@ -262,7 +262,7 @@ void IPFilter::changeRuleDirection(QString exp, eDIRECTION direction, eTableActi
 
 bool IPFilter::OK(const QString &exp, eDIRECTION direction){
 #ifdef _DEBUG_IPFILTER_
-    qDebug() << "IPFilter::OK(" << exp.toAscii().constData() << ", " << (int)direction << ")";
+    qDebug() << "IPFilter::OK(" << exp.toLatin1().constData() << ", " << (int)direction << ")";
 #endif
     QString str_src(exp);
 

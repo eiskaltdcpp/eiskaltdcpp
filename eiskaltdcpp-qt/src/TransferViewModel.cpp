@@ -11,7 +11,12 @@
 
 #include "WulforUtil.h"
 
+#ifdef USE_QT5
+#include <QtWidgets>
+#else
 #include <QtGui>
+#endif
+
 #include <QFileInfo>
 #include <QList>
 #include <QStringList>
@@ -26,7 +31,7 @@
 #include <QSize>
 #include <QStyleOptionProgressBar>
 #include <QHash>
-#include <QColorGroup>
+//#include <QColorGroup>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/ShareManager.h"
@@ -102,8 +107,8 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
         case Qt::DisplayRole:
         {
             if (item->download && index.column() != COLUMN_TRANSFER_SIZE && item->childCount() == 1)//This parent item has hidden child, so just copy child column text into parent
-				return data(createIndex(0, index.column(), reinterpret_cast<void*>(item->childItems.first())), role);
-			
+                                return data(createIndex(0, index.column(), reinterpret_cast<void*>(item->childItems.first())), role);
+
             if (index.column() == COLUMN_TRANSFER_SPEED)
                 return WulforUtil::formatBytes(item->data(COLUMN_TRANSFER_SPEED).toDouble()) + tr("/s");
             else if (index.column() == COLUMN_TRANSFER_SIZE)
@@ -170,7 +175,7 @@ struct Compare {
        }
         template <typename T>
         bool static Cmp(const T& l, const T& r);
-        
+
         static AttrComp attrs[10];
 };
 template <Qt::SortOrder order>

@@ -47,6 +47,10 @@
 #include <QRegExp>
 #include <QProcess>
 
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#include <QUrlQuery>
+#endif
+
 #include "SearchFrame.h"
 #include "extra/magnet.h"
 
@@ -407,7 +411,7 @@ QPixmap WulforUtil::loadPixmap(const QString &file){
     if (p.load(f))
         return p;
 
-    printf("loadPixmap: Can't load '%s'\n", f.toAscii().constData());
+    printf("loadPixmap: Can't load '%s'\n", f.toLatin1().constData());
 
     m_bError = true;
 
@@ -710,7 +714,7 @@ QTextCodec *WulforUtil::codecForEncoding(QString name){
     if (!QtEnc2DCEnc.contains(name))
         return QTextCodec::codecForLocale();
 
-    return QTextCodec::codecForName(name.toAscii());
+    return QTextCodec::codecForName(name.toLatin1());
 }
 
 bool WulforUtil::openUrl(const QString &url){
@@ -718,7 +722,7 @@ bool WulforUtil::openUrl(const QString &url){
         if (!SETTING(MIME_HANDLER).empty())
             QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
         else
-            QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
+            QDesktopServices::openUrl(QUrl::fromEncoded(url.toLatin1()));
     }
     else if (url.startsWith("adc://") || url.startsWith("adcs://")){
         MainWindow::getInstance()->newHubFrame(url, "UTF-8");
@@ -740,18 +744,32 @@ bool WulforUtil::openUrl(const QString &url){
     else if (url.startsWith("magnet:")){
         QString magnet = url;
 
+        #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+        QUrlQuery u;
+        #else
         QUrl u;
+        #endif
 
-        if (!magnet.contains("+"))
-            u.setEncodedUrl(magnet.toAscii());
-        else {
+        if (!magnet.contains("+")) {
+            #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+                QUrl qurl = QUrl::fromEncoded(magnet.toLatin1());
+                u(qurl);
+            #else
+                u.setEncodedUrl(magnet.toLatin1());
+            #endif
+        } else {
             QString _l = magnet;
 
             _l.replace("+", "%20");
-            u.setEncodedUrl(_l.toAscii());
+            #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+                QUrl qurl = QUrl::fromEncoded(_l.toLatin1());
+                u(qurl);
+            #else
+                u.setEncodedUrl(_l.toLatin1());
+            #endif
         }
 
-        if (u.hasQueryItem("kt")){
+        if (u.hasQueryItem("kt")) {
             QString keywords = u.queryItemValue("kt");
             QString hub = u.hasQueryItem("xs")? u.queryItemValue("xs") : "";
 
@@ -773,7 +791,7 @@ bool WulforUtil::openUrl(const QString &url){
             if (!SETTING(MIME_HANDLER).empty())
                 QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
             else
-                QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
+                QDesktopServices::openUrl(QUrl::fromEncoded(url.toLatin1()));
         }
     }
     else

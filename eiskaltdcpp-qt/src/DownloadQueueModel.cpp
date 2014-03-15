@@ -10,7 +10,12 @@
 #include "DownloadQueueModel.h"
 #include "WulforUtil.h"
 
+#ifdef USE_QT5
+#include <QtWidgets>
+#else
 #include <QtGui>
+#endif
+
 #include <QFileInfo>
 #include <QList>
 #include <QStringList>
@@ -38,7 +43,7 @@ static inline void printRoot(DownloadQueueItem *i, const QString &dlmtr){
     if (!i)
         return;
 
-    qDebug() << dlmtr.toAscii().constData() << i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().toAscii().constData();
+	qDebug() << dlmtr.toLatin1().constData() << i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().toLatin1().constData();
 
     for (const auto &child : i->childItems)
         printRoot(child, dlmtr + "-");
