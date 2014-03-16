@@ -742,7 +742,7 @@ bool WulforUtil::openUrl(const QString &url){
         m->deleteLater();
     }
     else if (url.startsWith("magnet:")){
-        QString magnet = url;
+        const QString magnet = url;
 
         #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
         QUrlQuery u;
@@ -752,8 +752,7 @@ bool WulforUtil::openUrl(const QString &url){
 
         if (!magnet.contains("+")) {
             #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
-                QUrl qurl = QUrl::fromEncoded(magnet.toLatin1());
-                u(qurl);
+                u.setQuery(magnet.toLatin1());
             #else
                 u.setEncodedUrl(magnet.toLatin1());
             #endif
@@ -762,8 +761,7 @@ bool WulforUtil::openUrl(const QString &url){
 
             _l.replace("+", "%20");
             #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
-                QUrl qurl = QUrl::fromEncoded(_l.toLatin1());
-                u(qurl);
+                u.setQuery(_l.toLatin1());
             #else
                 u.setEncodedUrl(_l.toLatin1());
             #endif
