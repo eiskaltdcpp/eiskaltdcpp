@@ -517,8 +517,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
                     if (!magnet.contains("+")) {
                     #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
-                        QUrl qurl = QUrl::fromEncoded(magnet.toLatin1());
-                        u(qurl);
+                        u.setQuery(magnet.toLatin1());
                     #else
                         u.setEncodedUrl(magnet.toLatin1());
                     #endif
@@ -527,8 +526,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
                         _l.replace("+", "%20");
                         #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
-                            QUrl qurl = QUrl::fromEncoded(_l.toLatin1());
-                            u(qurl);
+                            u.setQuery(_l.toLatin1());
                         #else
                             u.setEncodedUrl(_l.toLatin1());
                         #endif
