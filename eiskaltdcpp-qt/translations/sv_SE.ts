@@ -1198,7 +1198,8 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1821"/>
         <source>/alias list - list all aliases
 </source>
-        <translation type="unfinished"/>
+        <translation>/alias list - lista alla alias
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1822"/>
@@ -1225,7 +1226,8 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1825"/>
         <source>/clear - clear chat window
 </source>
-        <translation type="unfinished"/>
+        <translation>/clear - rensa chattfönstret
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1826"/>
@@ -1249,7 +1251,8 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1829"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation type="unfinished"/>
+        <translation>/magnet - standardutförande med magnet (0-fråga, 1-sök, 2-ladda ned)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1830"/>
@@ -1290,7 +1293,8 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1835"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
-        <translation type="unfinished"/>
+        <translation>/ratio [show] - visa förhållande [skicka i chatt]
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1836"/>
@@ -1457,7 +1461,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="3958"/>
         <source>Search flood detected: %1</source>
-        <translation type="unfinished"/>
+        <translation>Massökning upptäckt: %1</translation>
     </message>
 </context>
 <context>
@@ -1503,7 +1507,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="230"/>
         <source>Enter new rule</source>
-        <translation type="unfinished"/>
+        <translation>Ange ny regel</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="230"/>
@@ -1513,12 +1517,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="320"/>
         <source>Import list</source>
-        <translation type="unfinished"/>
+        <translation>Importera lista</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="373"/>
         <source>Export list</source>
-        <translation type="unfinished"/>
+        <translation>Exportera lista</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="374"/>
@@ -1794,7 +1798,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1258"/>
         <source>Hashing progress</source>
-        <translation type="unfinished"/>
+        <translation>Indexeringsförlopp</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1285"/>
@@ -1874,7 +1878,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1314"/>
         <source>Favourite hubs</source>
-        <translation type="unfinished"/>
+        <translation>Favorithubbar</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1316"/>
@@ -1884,12 +1888,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1318"/>
         <source>Favourite users</source>
-        <translation type="unfinished"/>
+        <translation>Favoritanvändare</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1320"/>
         <source>Quick connect</source>
-        <translation type="unfinished"/>
+        <translation>Snabbanslutning</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1322"/>
@@ -2035,7 +2039,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1381"/>
         <source>Clear chat</source>
-        <translation type="unfinished"/>
+        <translation>Rensa chatt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1383"/>
@@ -2045,12 +2049,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1385"/>
         <source>Disable/enable chat</source>
-        <translation type="unfinished"/>
+        <translation>Inaktivera/Aktivera chatt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1387"/>
         <source>&amp;Widgets</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Widgetar</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1389"/>
@@ -2070,7 +2074,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1396"/>
         <source>Tools panel</source>
-        <translation type="unfinished"/>
+        <translation>Verktygspanel</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1398"/>
@@ -2159,7 +2163,7 @@ Favoritanvändare</translation>
         <location filename="../src/MainWindow.cpp" line="1742"/>
         <location filename="../src/MainWindow.cpp" line="1757"/>
         <source>Hash progress</source>
-        <translation type="unfinished"/>
+        <translation>Indexeringsförlopp</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1719"/>
