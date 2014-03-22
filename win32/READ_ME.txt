@@ -69,6 +69,8 @@ mingw32-qtscriptgenerator-git-26-10-2010.tar.xz or later
 mingw32-pcre-8.21.tar.xz or later
 	http://eiskaltdc.googlecode.com/files/mingw32-pcre-8.21.tar.xz
 
+ShellExecAsUser.zip
+	http://nsis.sourceforge.net/mediawiki/images/c/c7/ShellExecAsUser.zip
 *******************************************************************************
 Compilation in MS Windows
 *******************************************************************************
@@ -91,6 +93,7 @@ Unpack aspell-* archives to mingw32-depends\aspell\
 Unpack libidn-* archive to mingw32-depends\idna\
 Unpack mingw32-pcre-* archive to mingw32-depends\pcre\
 Unpack mingw32-qtscriptgenerator-* archive to mingw32-depends\
+Unpack ShellExecAsUser.dll from ShellExecAsUser.zip archive to C:\Program Files\NSIS\Plugins\ (for 64-bit to C:\Program Files (x86)\NSIS\Plugins\)
 --Note: If the libidn-* archive have a file "lib/Libidn.dll" delete it.
 
 Check variables.bat for correct paths and run:
@@ -121,6 +124,7 @@ Unpack aspell-* archives to mingw32-depends/aspell/
 Unpack libidn-* archive to mingw32-depends/idna/
 Unpack mingw32-pcre-* archive to mingw32-depends/pcre/
 Unpack mingw32-qtscriptgenerator-* archive to mingw32-depends/
+Unpack ShellExecAsUser.dll from ShellExecAsUser.zip archive to /usr/share/nsis/Plugins/
 --Note: If the libidn-* archive have a file "lib/Libidn.dll" delete it.
 
 Check variables.sh for correct paths and run:
