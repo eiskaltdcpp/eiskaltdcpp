@@ -1110,7 +1110,7 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1575"/>
         <location filename="../src/HubFrame.cpp" line="1577"/>
         <source>Aliases not found.</source>
-        <translation type="unfinished"/>
+        <translation>Kunde inte hitta alias.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1597"/>
@@ -1124,13 +1124,13 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1619"/>
         <location filename="../src/HubFrame.cpp" line="1621"/>
         <source>Invalid alias syntax.</source>
-        <translation type="unfinished"/>
+        <translation>Ogiltigt alias syntax.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1629"/>
         <location filename="../src/HubFrame.cpp" line="1631"/>
         <source>Alias %1 =&gt; %2 has been added</source>
-        <translation type="unfinished"/>
+        <translation>Alias %1 =&gt; %2 har blivit tillagt</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1653"/>
@@ -1233,7 +1233,8 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1826"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
-        <translation type="unfinished"/>
+        <translation>/kword add &lt;ord&gt; - lägg till dina egna ord som blir markerade i chatten
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1827"/>
@@ -1245,7 +1246,8 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1828"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
-        <translation type="unfinished"/>
+        <translation>/kword list - komplett lista över ord som blir markerade i chatten
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1829"/>
