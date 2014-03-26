@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-03-05 00:21+0000\n"
+"PO-Revision-Date: 2014-03-26 19:43+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -676,7 +676,7 @@ msgstr ""
 
 #: ../src/hub.cc:2067
 msgid "Alias List"
-msgstr ""
+msgstr "Alias lista"
 
 #: ../src/hub.cc:2068
 msgid "Alias Remove A"
@@ -787,7 +787,7 @@ msgstr "Auto-IVD vid minimera (och tillbaka vid återställ)"
 
 #: ../src/settingsdialog.cc:987
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr ""
+msgstr "Stäng automatiskt ner alla långsamma källor (utom fillistor)"
 
 #: ../src/settingsdialog.cc:1646
 msgid "Automatically disconnect users who leave the hub"
@@ -807,7 +807,7 @@ msgstr "Öppna extra slott om hastigheten underskrider (0 = avstängt)"
 
 #: ../src/settingsdialog.cc:990
 msgid "Automatically search for alternative download locations"
-msgstr ""
+msgstr "Sök automatiskt efter nya nedladdningsplatser"
 
 #: ../ui/settingsdialog.ui:2408
 msgid "Automatically update external IP (restart required)"
@@ -1502,7 +1502,7 @@ msgstr "Aktiverad"
 #: ../src/favoritehubs.cc:230 ../src/favoritehubs.cc:252
 #: ../src/favoritehubs.cc:312 ../src/favoritehubs.cc:484
 msgid "Encoding"
-msgstr ""
+msgstr "Teckenkodning"
 
 #: ../src/transfers.cc:70
 msgid "Encryption"
@@ -1565,11 +1565,11 @@ msgstr "Undantag"
 
 #: ../src/hub.cc:2062
 msgid "Execute Lua Chunk"
-msgstr ""
+msgstr "Starta Lua Chunk"
 
 #: ../src/hub.cc:2064
 msgid "Execute code (bash)"
-msgstr ""
+msgstr "Starta kod (bash)"
 
 #: ../ui/mainwindow.ui:2021
 msgid "Exit"
@@ -1685,7 +1685,7 @@ msgstr "Filtyp"
 
 #: ../ui/settingsdialog.ui:705
 msgid "Filelist Menu"
-msgstr ""
+msgstr "Fillistmeny"
 
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:96
 #: ../src/downloadqueue.cc:97 ../src/downloadqueue.cc:282
@@ -1784,7 +1784,7 @@ msgstr "Format"
 
 #: ../src/sharebrowser.cc:680 ../src/sharebrowser.cc:723
 msgid "Found a match"
-msgstr ""
+msgstr "Matchning funnen"
 
 #: ../src/search.cc:676
 msgid "Found: "
@@ -1796,7 +1796,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:6509
 msgid "Frame (size)"
-msgstr ""
+msgstr "Ram (storlek)"
 
 #: ../ui/searchspy.ui:325 ../ui/settingsdialog.ui:6494
 msgid ""
@@ -1810,7 +1810,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2401
 msgid "Free "
-msgstr ""
+msgstr "Ledigt"
 
 #: ../src/settingsdialog.cc:1068
 msgid "French"
@@ -1826,7 +1826,7 @@ msgstr "Full sökväg"
 
 #: ../src/downloadqueue.cc:1366
 msgid "Full tree does not match TTH root"
-msgstr ""
+msgstr "Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen trasig"
 
 #: ../src/WulforUtil.cc:225
 msgid "GB18030"
@@ -1838,7 +1838,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8264
 msgid "Generate certificates"
-msgstr ""
+msgstr "Skapa nya certifikat"
 
 #: ../src/settingsdialog.cc:1086
 msgid "German"
