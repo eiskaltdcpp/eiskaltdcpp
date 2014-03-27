@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-03-27 21:29+0000\n"
+"PO-Revision-Date: 2014-03-27 23:03+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -1446,7 +1446,7 @@ msgstr "Stäng ner källor under"
 
 #: ../src/search.cc:1980
 msgid "Dropped: "
-msgstr ""
+msgstr "Släppta: "
 
 #: ../ui/settingsdialog.ui:2440
 msgid "DynDNS Address"
@@ -1728,11 +1728,11 @@ msgstr "Filtrera kick- och NMDC-debugmeddelanden"
 
 #: ../src/search.cc:1967
 msgid "Filtered: "
-msgstr ""
+msgstr "Filtrerat: "
 
 #: ../src/search.cc:575
 msgid "Filtered: 0"
-msgstr ""
+msgstr "Filtrerat: 0"
 
 #: ../ui/sharebrowser.ui:433
 msgid "Find"
@@ -1766,7 +1766,7 @@ msgstr "Brandvägg med manuell port-forward"
 
 #: ../src/transfers.cc:64
 msgid "Flags"
-msgstr ""
+msgstr "Flaggor"
 
 #: ../ui/settingsdialog.ui:4072
 msgid "Follow Links"
@@ -1788,11 +1788,11 @@ msgstr "Matchning funnen"
 
 #: ../src/search.cc:676
 msgid "Found: "
-msgstr ""
+msgstr "Funnit: "
 
 #: ../src/search.cc:574
 msgid "Found: 0"
-msgstr ""
+msgstr "Funnit: 0"
 
 #: ../ui/settingsdialog.ui:6509
 msgid "Frame (size)"
@@ -2132,7 +2132,7 @@ msgstr "Kaffeine-spelare"
 
 #: ../src/settingsdialog.cc:1663
 msgid "Keep downloaded files and dirs in queue"
-msgstr ""
+msgstr "Behåll nedladdade filer och kataloger i kön"
 
 #: ../src/settingsdialog.cc:1644
 msgid ""
@@ -2142,7 +2142,7 @@ msgstr "Behåll dubbletter i din fillista (dubbletter höjer inte storleken på 
 
 #: ../src/settingsdialog.cc:1645
 msgid "Keep filelists when exiting"
-msgstr ""
+msgstr "Behåll fillistor vid programavslut"
 
 #: ../ui/search.ui:106 ../ui/adlsearch.ui:409 ../ui/settingsdialog.ui:3230
 #: ../ui/settingsdialog.ui:3246 ../ui/settingsdialog.ui:3278
@@ -2757,7 +2757,7 @@ msgstr "Privata meddelande"
 
 #: ../src/transfers.cc:59 ../src/transfers.cc:600
 msgid "Progress"
-msgstr ""
+msgstr "Förlopp"
 
 #: ../ui/adlsearch.ui:466 ../ui/adlsearch.ui:544
 msgid "Properties"
