@@ -2429,12 +2429,12 @@ Favoritanvändare</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Ignorera ljudmeddelanden</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2996"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Ignorera textmeddelande</translation>
     </message>
     <message>
@@ -2480,12 +2480,12 @@ Favoritanvändare</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -6895,7 +6895,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
         <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
+if your system becomes slow while hashing files.</source>
         <translation>Du kan begränsa indexeringshastighet här
 om du tycker dator blir långsam vid indexeringen.</translation>
     </message>

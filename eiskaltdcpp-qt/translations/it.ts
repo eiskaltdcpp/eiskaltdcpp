@@ -2442,12 +2442,12 @@ Utente preferito</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation type="unfinished">Sopprimi le notifiche sonore</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2996"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation type="unfinished">Sopprimi le notifiche testuali</translation>
     </message>
     <message>
@@ -2493,12 +2493,12 @@ Utente preferito</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Sopprimi le notifiche sonore</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Sopprimi le notifiche testuali</translation>
     </message>
     <message>
@@ -6976,7 +6976,7 @@ gli slot addizionali non saranno chiusi.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
         <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
+if your system becomes slow while hashing files.</source>
         <translation>Questa opzione limita la velocità di hashing.  Usare questa opzione se il sistema diventa lento durante l&apos;hashing dei files.</translation>
     </message>
     <message>

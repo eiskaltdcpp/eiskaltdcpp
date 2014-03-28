@@ -2426,12 +2426,12 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Supprimer les notifications sonores</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2996"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Supprimer les notifications textes</translation>
     </message>
     <message>
@@ -2477,12 +2477,12 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Supprimer les notifications sonores</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Supprimer les notifications textes</translation>
     </message>
     <message>
@@ -6955,7 +6955,7 @@ Ce slot ne sera pas fermé si la vitesse repasse au dessus du seuil.</translatio
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
         <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
+if your system becomes slow while hashing files.</source>
         <translation>Vous pouvez limiter la vitesse de scan si votre système
 devient trop lent lors du scan de votre partage.</translation>
     </message>

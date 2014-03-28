@@ -2441,12 +2441,12 @@ Bevorzugte Benutzer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Tonbenachrichtigungen unterdrücken</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2996"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Textbenachrichtigungen unterdrücken</translation>
     </message>
     <message>
@@ -2492,12 +2492,12 @@ Bevorzugte Benutzer</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Akustische Benachrichtigungen unterdrücken</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Textbenachrichtigungen unterdrücken</translation>
     </message>
     <message>
@@ -7004,7 +7004,7 @@ wird der gewährte Slot nicht geschlossen.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
         <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
+if your system becomes slow while hashing files.</source>
         <translation>Hier kann die maximale Hashgeschwindigkeit gebrenzt werden,
 falls dein System während dem Hashing langsam wird.</translation>
     </message>

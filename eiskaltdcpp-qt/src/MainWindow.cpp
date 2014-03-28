@@ -2968,18 +2968,18 @@ void MainWindow::slotShowSpeedLimits(){
         N->slotShowSpeedLimits();
 }
 
-void MainWindow::slotSupressTxt(){
+void MainWindow::slotSuppressTxt(){
     Notification *N = Notification::getInstance();
     QAction *act = qobject_cast<QAction*>(sender());
     if (N && act)
-        N->setSupressTxt(act->isChecked());
+        N->setSuppressTxt(act->isChecked());
 }
 
-void MainWindow::slotSupressSnd(){
+void MainWindow::slotSuppressSnd(){
     Notification *N = Notification::getInstance();
     QAction *act = qobject_cast<QAction*>(sender());
     if (N && act)
-        N->setSupressSnd(act->isChecked());
+        N->setSuppressSnd(act->isChecked());
 }
 
 #if defined(Q_WS_MAC)
@@ -2992,20 +2992,20 @@ void MainWindow::initDockMenuBar(){
     setup_speed_lim->setIcon(WICON(WulforUtil::eiSPEED_LIMIT_ON));
 
     QMenu *menuAdditional = new QMenu(tr("Additional"), this);
-    QAction *actSupressSnd = new QAction(tr("Supress sound notifications"), menuAdditional);
-    QAction *actSupressTxt = new QAction(tr("Supress text notifications"), menuAdditional);
+    QAction *actSuppressSnd = new QAction(tr("Suppress sound notifications"), menuAdditional);
+    QAction *actSuppressTxt = new QAction(tr("Suppress text notifications"), menuAdditional);
 
-    actSupressSnd->setCheckable(true);
-    actSupressSnd->setChecked(false);
+    actSuppressSnd->setCheckable(true);
+    actSuppressSnd->setChecked(false);
 
-    actSupressTxt->setCheckable(true);
-    actSupressTxt->setChecked(false);
+    actSuppressTxt->setCheckable(true);
+    actSuppressTxt->setChecked(false);
 
     connect(setup_speed_lim, SIGNAL(triggered()), this, SLOT(slotShowSpeedLimits()));
-    connect(actSupressTxt, SIGNAL(triggered()), this, SLOT(slotSupressTxt()));
-    connect(actSupressSnd, SIGNAL(triggered()), this, SLOT(slotSupressSnd()));
+    connect(actSuppressTxt, SIGNAL(triggered()), this, SLOT(slotSuppressTxt()));
+    connect(actSuppressSnd, SIGNAL(triggered()), this, SLOT(slotSuppressSnd()));
 
-    menuAdditional->addActions(QList<QAction*>() << actSupressTxt << actSupressSnd);
+    menuAdditional->addActions(QList<QAction*>() << actSuppressTxt << actSuppressSnd);
     menu->addAction(setup_speed_lim);
     menu->addMenu(menuAdditional);
 

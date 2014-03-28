@@ -2423,12 +2423,12 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Suspenzija zvučnih obaveštenja</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2996"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Suspenzija tekstualnih obaveštenja</translation>
     </message>
     <message>
@@ -2474,12 +2474,12 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Suspenzija zvučnih obaveštenja</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Suspenzija tekstualnih obaveštenja</translation>
     </message>
     <message>
@@ -6972,7 +6972,7 @@ odobreni slot neće biti zatvoren.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
         <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
+if your system becomes slow while hashing files.</source>
         <translation>Možeš limitirati brzinu osvežavanja ovde
 ako tvoj sistem počinje sporo.</translation>
     </message>

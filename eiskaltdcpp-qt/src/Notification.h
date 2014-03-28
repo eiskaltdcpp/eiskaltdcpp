@@ -63,8 +63,8 @@ enum Type{
     void reloadSounds();
     void resetTrayIcon();
 
-    void setSupressTxt(bool supressTxt_ = false) { supressTxt = supressTxt_; }
-    void setSupressSnd(bool supressSnd_ = false) { supressSnd = supressSnd_; }
+    void setSuppressTxt(bool suppressTxt_ = false) { suppressTxt = suppressTxt_; }
+    void setSuppressSnd(bool suppressSnd_ = false) { suppressSnd = suppressSnd_; }
 
 
 public Q_SLOTS:
@@ -79,8 +79,8 @@ private Q_SLOTS:
     void slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason);
     void slotCmdFinished(bool, QString);
     void slotCheckTray();
-    void slotSupressTxt();
-    void slotSupressSnd();
+    void slotSuppressTxt();
+    void slotSuppressSnd();
 
 private:
     explicit Notification(QObject *parent = 0);
@@ -91,8 +91,8 @@ private:
     QSystemTrayIcon *tray;
     NotifyModule *notify;
 
-    bool supressSnd;
-    bool supressTxt;
+    bool suppressSnd;
+    bool suppressTxt;
 
     int checkSystemTrayCounter;
 };

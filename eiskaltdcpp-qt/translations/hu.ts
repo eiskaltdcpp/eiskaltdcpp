@@ -2441,12 +2441,12 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Hangértesítések felfüggesztése</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2996"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Szöveges értesítések felfüggesztése</translation>
     </message>
     <message>
@@ -2492,12 +2492,12 @@ Kedvenc felhasználó</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Hangüzenetek elhagyása</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Szöveges üzenetek elhagyása</translation>
     </message>
     <message>
@@ -6987,7 +6987,7 @@ az újabb vagy megváltozott tartalom indexelése céljából.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
         <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
+if your system becomes slow while hashing files.</source>
         <translation>Ezzel a MiB/mp-ben megadott sebességgel fogja az EiskaltDC++ indexelni a fájlaidat.
 Alapesetben az indexelés sebességét csak a meghajtók sebessége korlátozza,
 ezzel a beállítással az indexelés lassabra vehető, így kevésbe terheli le a rendszert.

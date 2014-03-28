@@ -30,7 +30,7 @@ static int getBitPos(unsigned eventId){
 }
 
 Notification::Notification(QObject *parent) :
-    QObject(parent), tray(NULL), notify(NULL), supressSnd(false), supressTxt(false)
+    QObject(parent), tray(NULL), notify(NULL), suppressSnd(false), suppressTxt(false)
 {
     switchModule(static_cast<unsigned>(WIGET(WI_NOTIFY_MODULE)));
 
@@ -99,16 +99,16 @@ void Notification::enableTray(bool enable){
         menu->setTitle("EiskaltDC++");
 
         QMenu *menuAdditional = new QMenu(tr("Additional"), MainWindow::getInstance());
-        QAction *actSupressSnd = new QAction(tr("Supress sound notifications"), menuAdditional);
-        QAction *actSupressTxt = new QAction(tr("Supress text notifications"), menuAdditional);
+        QAction *actSuppressSnd = new QAction(tr("Suppress sound notifications"), menuAdditional);
+        QAction *actSuppressTxt = new QAction(tr("Suppress text notifications"), menuAdditional);
 
-        actSupressSnd->setCheckable(true);
-        actSupressSnd->setChecked(false);
+        actSuppressSnd->setCheckable(true);
+        actSuppressSnd->setChecked(false);
 
-        actSupressTxt->setCheckable(true);
-        actSupressTxt->setChecked(false);
+        actSuppressTxt->setCheckable(true);
+        actSuppressTxt->setChecked(false);
 
-        menuAdditional->addActions(QList<QAction*>() << actSupressTxt << actSupressSnd);
+        menuAdditional->addActions(QList<QAction*>() << actSuppressTxt << actSuppressSnd);
 
         QAction *show_hide = new QAction(tr("Show/Hide window"), menu);
         QAction *setup_speed_lim = new QAction(tr("Setup speed limits"), menu);
@@ -124,8 +124,8 @@ void Notification::enableTray(bool enable){
         connect(close_app, SIGNAL(triggered()), this, SLOT(slotExit()));
         connect(tray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
                 this, SLOT(slotTrayMenuTriggered(QSystemTrayIcon::ActivationReason)));
-        connect(actSupressTxt, SIGNAL(triggered()), this, SLOT(slotSupressTxt()));
-        connect(actSupressSnd, SIGNAL(triggered()), this, SLOT(slotSupressSnd()));
+        connect(actSuppressTxt, SIGNAL(triggered()), this, SLOT(slotSuppressTxt()));
+        connect(actSuppressSnd, SIGNAL(triggered()), this, SLOT(slotSuppressSnd()));
         connect(setup_speed_lim, SIGNAL(triggered()), this, SLOT(slotShowSpeedLimits()));
 
         menu->addAction(show_hide);
@@ -161,7 +161,7 @@ void Notification::switchModule(int m){
 
 void Notification::showMessage(int t, const QString &title, const QString &msg){
     // On Mac OS X, the Growl notification system must be installed for this function to display messages.
-    if (WBGET(WB_NOTIFY_ENABLED) && !supressTxt){
+    if (WBGET(WB_NOTIFY_ENABLED) && !suppressTxt){
         do {
             if (title.isEmpty() || msg.isEmpty())
                 break;
@@ -190,7 +190,7 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
         } while (0);
     }
 
-    if (WBGET(WB_NOTIFY_SND_ENABLED) && !supressSnd){
+    if (WBGET(WB_NOTIFY_SND_ENABLED) && !suppressSnd){
         do {
             if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_SNDMAP)) & static_cast<unsigned>(t)))
                 break;
@@ -338,16 +338,16 @@ void Notification::slotCheckTray(){
     timer->deleteLater();
 }
 
-void Notification::slotSupressTxt(){
+void Notification::slotSuppressTxt(){
     QAction *act = qobject_cast<QAction*>(sender());
     if (act)
-        setSupressTxt(act->isChecked());
+        setSuppressTxt(act->isChecked());
 }
 
-void Notification::slotSupressSnd(){
+void Notification::slotSuppressSnd(){
     QAction *act = qobject_cast<QAction*>(sender());
     if (act)
-        setSupressSnd(act->isChecked());
+        setSuppressSnd(act->isChecked());
 }
 
 void Notification::resetTrayIcon(){
