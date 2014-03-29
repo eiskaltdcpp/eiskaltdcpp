@@ -2481,12 +2481,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
         <source>Suppress sound notifications</source>
-        <translation type="unfinished"/>
+        <translation>Ignorera ljudmeddelanden</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
         <source>Suppress text notifications</source>
-        <translation type="unfinished"/>
+        <translation>Ignorera textmeddelande</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="113"/>
@@ -3440,14 +3440,14 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="311"/>
         <location filename="../src/SettingsSharing.cpp" line="322"/>
         <source>Select directory</source>
-        <translation type="unfinished"/>
+        <translation>Välj kalalog</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="192"/>
         <location filename="../src/SettingsSharing.cpp" line="322"/>
         <location filename="../src/SettingsSharing.cpp" line="363"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Namn</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="209"/>
@@ -3459,7 +3459,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="209"/>
         <location filename="../src/SettingsSharing.cpp" line="238"/>
         <source>Enter text:</source>
-        <translation type="unfinished"/>
+        <translation>Ange text:</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="216"/>
@@ -3469,7 +3469,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="290"/>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="294"/>
