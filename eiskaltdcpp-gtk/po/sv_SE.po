@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-03-29 21:47+0000\n"
+"PO-Revision-Date: 2014-03-31 19:16+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -848,7 +848,7 @@ msgstr "Vitryska"
 
 #: ../src/mainwindow.cc:224
 msgid "Belarusian translation\n"
-msgstr ""
+msgstr "Vitrysk översättning\n"
 
 #: ../ui/settingsdialog.ui:7772
 msgid "Bind address"
@@ -872,7 +872,7 @@ msgstr "Båda"
 
 #: ../ui/settingsdialog.ui:8952
 msgid "Both horizontal"
-msgstr ""
+msgstr "Både horisontellt"
 
 #: ../ui/settingsdialog.ui:8932
 msgid "Bottom"
@@ -974,7 +974,7 @@ msgstr "Beräkna TTH-värde"
 #: ../src/wulfor.cc:108
 #, c-format
 msgid "Cannot handle SIGPIPE\n"
-msgstr ""
+msgstr "Kan inte hantera SIGPIPE\n"
 
 #: ../src/wulfor.cc:79
 msgid "Catching signal "
@@ -2450,7 +2450,7 @@ msgstr "Namn:"
 
 #: ../src/settingsdialog.cc:4342
 msgid "New exception"
-msgstr ""
+msgstr "Nytt undantag"
 
 #: ../src/settingsdialog.cc:3664 ../src/publichubs.cc:364
 msgid "New list"
@@ -2501,7 +2501,7 @@ msgstr "Inga fel"
 
 #: ../ui/search.ui:129
 msgid "No grouping"
-msgstr ""
+msgstr "Ingen gruppering"
 
 #: ../src/sharebrowser.cc:692 ../src/sharebrowser.cc:888
 msgid "No matches"
@@ -2636,7 +2636,7 @@ msgstr "PM"
 
 #: ../ui/settingsdialog.ui:7517
 msgid "PM history"
-msgstr ""
+msgstr "Historik för privata meddelande"
 
 #: ../ui/mainwindow.ui:1475
 msgid "Panels"
@@ -2807,11 +2807,11 @@ msgstr "Raw"
 
 #: ../ui/downloadqueue.ui:311
 msgid "Re-_add source"
-msgstr ""
+msgstr "Lägg tillbaka källa"
 
 #: ../ui/mainwindow.ui:1162
 msgid "Re_connect"
-msgstr ""
+msgstr "Återanslut"
 
 #: ../src/hub.cc:2053 ../ui/hub.ui:75
 msgid "Rebuild hash"
@@ -3038,7 +3038,7 @@ msgstr "Skicka privat meddelande"
 
 #: ../ui/search.ui:758 ../ui/downloadqueue.ui:297
 msgid "Send _private message"
-msgstr ""
+msgstr "Skicka privat meddelande"
 
 #: ../ui/settingsdialog.ui:919
 msgid "Send once per nick"
@@ -3083,7 +3083,7 @@ msgstr ""
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
-msgstr ""
+msgstr "Ställ in prioritet"
 
 #: ../ui/hub.ui:84
 msgid "Set download limit image"
@@ -3096,7 +3096,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:986
 msgid ""
 "Set lowest priority for newly added files larger than low priority size"
-msgstr ""
+msgstr "Sätt lägsta prioritet för nya filer som är större än låg prioritetsstorlek"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -3154,7 +3154,7 @@ msgstr "Visa endast helt färdiga nedladdningar"
 
 #: ../ui/settingsdialog.ui:5813
 msgid "Show only when the application is not active."
-msgstr ""
+msgstr "Visa endast när programet är inaktivt."
 
 #: ../src/privatemessage.cc:1033 ../src/hub.cc:2058 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
@@ -3341,7 +3341,7 @@ msgstr "Svenska (Sverige) översättning\n"
 #: ../src/settingsdialog.cc:1058 ../src/WulforUtil.cc:42
 #: ../ui/settingsdialog.ui:8958
 msgid "System default"
-msgstr ""
+msgstr "Systemstandard"
 
 #: ../ui/settingsdialog.ui:6089
 msgid "System icons"
@@ -3382,7 +3382,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5646
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: ../ui/settingsdialog.ui:8946
 msgid "Text"
@@ -3421,7 +3421,7 @@ msgstr "Teman"
 #: ../src/searchspy.cc:59 ../src/searchspy.cc:272 ../src/searchspy.cc:297
 #: ../src/searchspy.cc:313 ../src/transfers.cc:61
 msgid "Time"
-msgstr ""
+msgstr "Tid"
 
 #: ../src/transfers.cc:62 ../src/transfers.cc:599
 msgid "Time Left"
@@ -3456,7 +3456,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:6193
 msgid "Toolbar"
-msgstr ""
+msgstr "Verktygsrad"
 
 #: ../ui/mainwindow.ui:1485
 msgid "Tools panel"
@@ -3464,11 +3464,11 @@ msgstr ""
 
 #: ../ui/searchspy.ui:10 ../ui/searchspy.ui:372 ../ui/settingsdialog.ui:8923
 msgid "Top"
-msgstr ""
+msgstr "Överst"
 
 #: ../ui/settingsdialog.ui:6587
 msgid "Top (number of matches, more than)"
-msgstr ""
+msgstr "Överst (antal matchningar, mer än)"
 
 #: ../ui/mainwindow.ui:1495
 msgid "Top position"
@@ -3480,11 +3480,11 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1864
 msgid "Total received"
-msgstr ""
+msgstr "Totalt mottaget"
 
 #: ../ui/mainwindow.ui:1941
 msgid "Total sent"
-msgstr ""
+msgstr "Totalt skickat"
 
 #: ../src/settingsdialog.cc:3878
 msgid "Total size: "
@@ -3503,7 +3503,7 @@ msgstr ""
 #: ../src/finishedtransfers.cc:240 ../src/finishedtransfers.cc:607
 #: ../src/transfers.cc:65 ../src/transfers.cc:598
 msgid "Transferred"
-msgstr ""
+msgstr "Överfört"
 
 #: ../src/transfers.cc:614
 #, c-format
@@ -3522,11 +3522,11 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1240
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: ../src/WulforUtil.cc:211
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: ../src/settingsdialog.cc:1076
 msgid "Ukrainian"
@@ -3563,19 +3563,19 @@ msgstr ""
 #: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1084
 #: ../src/mainwindow.cc:1474
 msgid "Unknown"
-msgstr ""
+msgstr "Okänt"
 
 #: ../src/privatemessage.cc:1038
 msgid "Unknown command "
-msgstr ""
+msgstr "Okänt kommando"
 
 #: ../src/hub.cc:2369
 msgid "Unknown command '"
-msgstr ""
+msgstr "Okänt kommando '"
 
 #: ../ui/searchspy.ui:356
 msgid "Update"
-msgstr ""
+msgstr "Uppdatera"
 
 #: ../src/searchspy.cc:392 ../ui/searchspy.ui:360
 msgid "Update frame search"
@@ -3583,7 +3583,7 @@ msgstr ""
 
 #: ../src/hub.cc:2054
 msgid "Update own file list"
-msgstr ""
+msgstr "Uppdatera din fillista"
 
 #: ../ui/settingsdialog.ui:6401
 msgid "Updating string or TTH"
@@ -3591,15 +3591,15 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1419
 msgid "Upload"
-msgstr ""
+msgstr "Ladda upp"
 
 #: ../src/uploadqueue.cc:36 ../ui/mainwindow.ui:1305
 msgid "Upload Queue"
-msgstr ""
+msgstr "Uppladdningskö"
 
 #: ../ui/settingsdialog.ui:2305
 msgid "Upload Slots"
-msgstr ""
+msgstr "Uppladdningsslottar"
 
 #: ../src/transfers.cc:1155
 msgid "Upload complete..."
@@ -3636,7 +3636,7 @@ msgstr "Laddar upp"
 #: ../src/settingsdialog.cc:1334 ../src/settingsdialog.cc:1349
 #: ../src/settingsdialog.cc:1450 ../src/settingsdialog.cc:1460
 msgid "Use"
-msgstr ""
+msgstr "Använd"
 
 #: ../src/settingsdialog.cc:1662
 msgid "Use ADL search only in own file list"
@@ -3648,11 +3648,11 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:2476
 msgid "Use DHT"
-msgstr ""
+msgstr "Använd DHT"
 
 #: ../src/privatemessage.cc:1212 ../src/hub.cc:1769
 msgid "Use Emoticons"
-msgstr ""
+msgstr "Använd uttryckssymboler"
 
 #: ../src/settingsdialog.cc:1119
 msgid "Use OEM monospaced font for chat windows"
@@ -3668,7 +3668,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:1299
 msgid "Use UPnP to let client cofigure my router"
-msgstr ""
+msgstr "Använd UPnP för att låta klienten ställa in min routern"
 
 #: ../ui/settingsdialog.ui:1897
 msgid "Use bandwidth limits"
@@ -3676,7 +3676,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1121
 msgid "Use blinking status icon"
-msgstr ""
+msgstr "Använd blinkande statusikon"
 
 #: ../src/settingsdialog.cc:1122
 msgid "Use emoticons"
@@ -3701,7 +3701,7 @@ msgstr ""
 #: ../src/transfers.cc:57 ../src/transfers.cc:88 ../src/transfers.cc:90
 #: ../src/transfers.cc:499 ../src/transfers.cc:564 ../src/transfers.cc:595
 msgid "User"
-msgstr ""
+msgstr "Användare"
 
 #: ../src/settingsdialog.cc:1409
 msgid "User (dc)"
@@ -3713,16 +3713,16 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:7475
 msgid "User Commands"
-msgstr ""
+msgstr "Användarkommandon"
 
 #: ../src/favoritehubs.cc:58 ../src/favoritehubs.cc:143
 #: ../src/favoritehubs.cc:311
 msgid "User Description"
-msgstr ""
+msgstr "Användarbeskrivning"
 
 #: ../ui/transfers.ui:90 ../ui/sharebrowser.ui:109 ../ui/sharebrowser.ui:182
 msgid "User commands"
-msgstr ""
+msgstr "Användarkommandon"
 
 #: ../src/hub.cc:1946
 msgid "User favorite list:"
@@ -3742,7 +3742,7 @@ msgstr ""
 
 #: ../src/hub.cc:2932 ../src/hub.cc:2952
 msgid "User not found"
-msgstr ""
+msgstr "Kunde inte hitta användaren"
 
 #: ../src/settingsdialog.cc:1412
 msgid "User operator (dc)"
@@ -3762,7 +3762,7 @@ msgstr ""
 
 #: ../src/privatemessage.cc:1379
 msgid "User went offline"
-msgstr ""
+msgstr "Användaren frånkopplad."
 
 #: ../ui/settingsdialog.ui:1671
 msgid "Username"
@@ -3794,7 +3794,7 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:365
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../src/settingsdialog.cc:1092
 msgid "Vietnamese"
@@ -3806,7 +3806,7 @@ msgstr "Vietnamesisk översättning\n"
 
 #: ../src/settingsdialog.cc:1115
 msgid "View status messages in main chat"
-msgstr ""
+msgstr "Visa statusmeddelanden i huvudchatten"
 
 #: ../ui/mainwindow.ui:2244
 msgid "View the files to be downloaded"
@@ -3814,7 +3814,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:2099
 msgid "View the hashing progress"
-msgstr ""
+msgstr "Visa indexeringsförloppet"
 
 #: ../ui/mainwindow.ui:2261
 msgid "View the list of finished downloads"
@@ -3835,7 +3835,7 @@ msgstr "Virtuelt namn"
 
 #: ../ui/settingsdialog.ui:6548
 msgid "Waiting (seconds)"
-msgstr ""
+msgstr "Väntar (sekunder)"
 
 #: ../src/hub.cc:559
 msgid ""
@@ -3852,7 +3852,7 @@ msgstr ""
 
 #: ../ui/searchspy.ui:284
 msgid "Waiting:"
-msgstr ""
+msgstr "Väntar:"
 
 #: ../src/mainwindow.cc:391
 msgid "Welcome to "
@@ -3872,15 +3872,15 @@ msgstr "Windows"
 
 #: ../ui/settingsdialog.ui:7746
 msgid "Write buffer size"
-msgstr ""
+msgstr "Skrivbuffertstorlek"
 
 #: ../src/settingsdialog.cc:951
 msgid "Xine player"
-msgstr ""
+msgstr "Xine-spelare"
 
 #: ../src/finishedtransfers.cc:683
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: ../src/settingsdialog.cc:3864
 msgid "[HIDDEN SHARE] "
@@ -4125,20 +4125,20 @@ msgstr "standard"
 
 #: ../src/settingsdialog.cc:2505
 msgid "default icons"
-msgstr ""
+msgstr "standardikoner"
 
 #: ../src/settingsdialog.cc:2537
 msgid "default theme"
-msgstr ""
+msgstr "standardstil"
 
 #: ../src/hub.cc:92 ../src/hub.cc:411 ../src/hub.cc:431
 msgid "eMail"
-msgstr ""
+msgstr "ePost"
 
 #: ../src/settingsdialog.cc:2770
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
-msgstr ""
+msgstr "eiskaltdcpp-gtk: ladda tema %s...\n"
 
 #: ../src/mainwindow.cc:2332
 msgid "file list from "
@@ -4208,4 +4208,4 @@ msgstr ""
 
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
-msgstr ""
+msgstr "väntar..."
