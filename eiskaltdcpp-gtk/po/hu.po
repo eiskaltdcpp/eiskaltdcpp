@@ -3667,7 +3667,7 @@ msgid "Use TLS when remote client supports it"
 msgstr "TLS használata, ha a távoli kliens támogatja azt"
 
 #: ../ui/settingsdialog.ui:1299
-msgid "Use UPnP to let client cofigure my router"
+msgid "Use UPnP to let client configure my router"
 msgstr "A kliens használhat UPnP-t a router beállításához"
 
 #: ../ui/settingsdialog.ui:1897

@@ -3671,7 +3671,7 @@ msgid "Use TLS when remote client supports it"
 msgstr "Usar TLS si el cliente remoto lo soporta"
 
 #: ../ui/settingsdialog.ui:1299
-msgid "Use UPnP to let client cofigure my router"
+msgid "Use UPnP to let client configure my router"
 msgstr "Usar UPnp para permitir al cliente configurar el router"
 
 #: ../ui/settingsdialog.ui:1897

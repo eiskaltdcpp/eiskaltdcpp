@@ -3694,8 +3694,8 @@ msgid "Use TLS when remote client supports it"
 msgstr "Use TLS when remote client supports it"
 
 #: ../ui/settingsdialog.ui:1299
-msgid "Use UPnP to let client cofigure my router"
-msgstr "Use UPnP to let client cofigure my router"
+msgid "Use UPnP to let client configure my router"
+msgstr "Use UPnP to let client configure my router"
 
 #: ../ui/settingsdialog.ui:1897
 msgid "Use bandwidth limits"
