@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-03-31 19:16+0000\n"
+"PO-Revision-Date: 2014-03-31 21:05+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -904,7 +904,7 @@ msgstr "Bulgariska"
 
 #: ../src/mainwindow.cc:248
 msgid "Bulgarian translation\n"
-msgstr ""
+msgstr "Bulgarisk översättning\n"
 
 #: ../src/settingsdialog.cc:1417
 msgid "Button smile"
@@ -1302,7 +1302,7 @@ msgstr "Vill du avsluta?"
 
 #: ../ui/settingsdialog.ui:1508
 msgid "Don't allow Hub/UPnP/DHT to override"
-msgstr ""
+msgstr "Tillåt inte hubb/UPnP att ändra"
 
 #: ../src/settingsdialog.cc:993
 msgid "Don't download files already in share"
@@ -1819,7 +1819,7 @@ msgstr "Franska"
 
 #: ../src/mainwindow.cc:231
 msgid "French translation\n"
-msgstr ""
+msgstr "Fransk översättning\n"
 
 #: ../ui/adlsearch.ui:395
 msgid "Full Path"
@@ -1847,7 +1847,7 @@ msgstr "Tyska"
 
 #: ../src/mainwindow.cc:257
 msgid "German translation\n"
-msgstr ""
+msgstr "Tysk översättning\n"
 
 #: ../src/privatemessage.cc:1029 ../src/hub.cc:2047 ../ui/privatemessage.ui:66
 msgid "Get file list"
@@ -1875,7 +1875,7 @@ msgstr "Grekiska"
 
 #: ../src/mainwindow.cc:263
 msgid "Greek translation\n"
-msgstr ""
+msgstr "Grekisk översättning\n"
 
 #: ../ui/search.ui:382
 msgid "Group by"
@@ -2113,7 +2113,7 @@ msgstr "Italien"
 
 #: ../src/mainwindow.cc:266
 msgid "Italian translation\n"
-msgstr ""
+msgstr "Italiensk översättning\n"
 
 #: ../src/downloadqueue.cc:243 ../src/sharebrowser.cc:387
 msgid "Items: "
@@ -2704,7 +2704,7 @@ msgstr "Polska"
 
 #: ../src/mainwindow.cc:234
 msgid "Polish translation\n"
-msgstr ""
+msgstr "Polsk översättning\n"
 
 #: ../src/settingsdialog.cc:1567
 msgid "Popup box to input password for hubs"
@@ -2930,7 +2930,7 @@ msgstr "Ryska"
 
 #: ../src/mainwindow.cc:220
 msgid "Russian translation\n"
-msgstr ""
+msgstr "Rysk översättning\n"
 
 #: ../src/WulforUtil.cc:219
 msgid "SJIS"
@@ -3293,7 +3293,7 @@ msgstr "Spanska"
 
 #: ../src/mainwindow.cc:244
 msgid "Spanish translation\n"
-msgstr ""
+msgstr "Spansk översättning\n"
 
 #: ../src/finishedtransfers.cc:67 ../src/finishedtransfers.cc:88
 #: ../src/finishedtransfers.cc:197 ../src/finishedtransfers.cc:241
@@ -3790,7 +3790,7 @@ msgid ""
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr ""
+msgstr "Använd:\n  eiskaltdcpp-gtk <magnetlänk> <dchubb://länk> <adc(s)://länk>\n  eiskaltdcpp-gtk <Nyckel>\nEiskaltDC++ är ett plattformsoberoende program som använder Direct Connect och ADC-protokollet\n\nNycklar:\n  -h, --help\t Visa detta meddelande\n  -V, --version\t Visa version\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:365
 msgid "Video"

@@ -1078,7 +1078,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1461"/>
         <source>Hub role: Operator</source>
-        <translation type="unfinished"/>
+        <translation>Hubbroll: Operatör</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1463"/>
@@ -1149,7 +1149,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="1721"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
-        <translation type="unfinished"/>
+        <translation>förhållande: %1 (uppladdningar: %2, nedladdningar: %3)</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1748"/>
@@ -1537,7 +1537,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/IPFilterModel.cpp" line="25"/>
         <source>IP/Mask</source>
-        <translation type="unfinished"/>
+        <translation>IP/Mask</translation>
     </message>
     <message>
         <location filename="../src/IPFilterModel.cpp" line="25"/>
@@ -1600,7 +1600,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="454"/>
         <source>Enter user nick</source>
-        <translation type="unfinished"/>
+        <translation>Ange användarnamn</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="454"/>
@@ -1615,7 +1615,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="459"/>
         <source>Would you like to change other settings?</source>
-        <translation type="unfinished"/>
+        <translation>Vill du ändra fler inställningar?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="690"/>
@@ -1780,17 +1780,17 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1214"/>
         <source>Counts</source>
-        <translation type="unfinished"/>
+        <translation>Antal</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1220"/>
         <source>Download/Upload speed</source>
-        <translation type="unfinished"/>
+        <translation>Ned-/Upp-laddningshastighet</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
         <source>Downloaded/Uploaded</source>
-        <translation type="unfinished"/>
+        <translation>Nedladdat/Uppladdat</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1244"/>
@@ -1822,7 +1822,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1291"/>
         <source>Open download directory</source>
-        <translation type="unfinished"/>
+        <translation>Öppna nedladdningskatalog</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1293"/>
@@ -1832,7 +1832,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1295"/>
         <source>Calculate file TTH</source>
-        <translation type="unfinished"/>
+        <translation>Beräkna filens TTH-värde</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1297"/>
@@ -1963,25 +1963,25 @@ Favoritanvändare</translation>
         <location filename="../src/MainWindow.cpp" line="1347"/>
         <location filename="../src/MainWindow.cpp" line="2519"/>
         <source>Hide last status message</source>
-        <translation type="unfinished"/>
+        <translation>Göm senaste statusmeddelandet</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1350"/>
         <location filename="../src/MainWindow.cpp" line="2517"/>
         <source>Show last status message</source>
-        <translation type="unfinished"/>
+        <translation>Visa senaste statusmeddelandent</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1352"/>
         <location filename="../src/MainWindow.cpp" line="2536"/>
         <source>Hide users statistics</source>
-        <translation type="unfinished"/>
+        <translation>Göm användarstatistiken</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1355"/>
         <location filename="../src/MainWindow.cpp" line="2534"/>
         <source>Show users statistics</source>
-        <translation type="unfinished"/>
+        <translation>Visa användarstatistiken</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>
@@ -2006,7 +2006,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1365"/>
         <source>Copy window title</source>
-        <translation type="unfinished"/>
+        <translation>Kopiera fönstrets titel</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1367"/>
@@ -2026,7 +2026,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1373"/>
         <source>Speed limit On/Off</source>
-        <translation type="unfinished"/>
+        <translation>Hastighetsbegränsning På/Av</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1376"/>
@@ -2046,7 +2046,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1383"/>
         <source>Find/Filter</source>
-        <translation type="unfinished"/>
+        <translation>Sök/Filter</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1385"/>
@@ -2175,7 +2175,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1731"/>
         <source>Delayed</source>
-        <translation type="unfinished"/>
+        <translation>Fördröjning</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1746"/>
@@ -2190,7 +2190,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1851"/>
         <source>Choose file to open</source>
-        <translation type="unfinished"/>
+        <translation>Välj fil att öppna</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1853"/>
@@ -2230,7 +2230,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2089"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Logga filer (*.log);;Alla filer (*.*)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2160"/>
@@ -2250,22 +2250,22 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2555"/>
         <source>Icons only</source>
-        <translation type="unfinished"/>
+        <translation>Endast ikoner</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2556"/>
         <source>Text only</source>
-        <translation type="unfinished"/>
+        <translation>Endast text</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2557"/>
         <source>Text beside icons</source>
-        <translation type="unfinished"/>
+        <translation>Text vid sidan av okinerna</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2558"/>
         <source>Text under icons</source>
-        <translation type="unfinished"/>
+        <translation>Text under ikonerna</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2568"/>
@@ -2280,7 +2280,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2649"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>EiskaltDC++ är en grafisk klient för Direct Connect och ADC-protokoll.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modifierad)&lt;br/&gt;&lt;br/&gt;Hemsida: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Totalt upp: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Totalt ned: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Förhållande: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
