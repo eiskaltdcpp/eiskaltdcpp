@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Sopor, 2014
@@ -10,14 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-03-31 21:05+0000\n"
-"Last-Translator: Sopor\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
+"POT-Creation-Date: 2014-04-01 23:52+0400\n"
+"PO-Revision-Date: 2014-04-01 19:35+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/"
+"eiskaltdcpp/language/sv_SE/)\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
@@ -115,7 +116,15 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a förkortat veckodagsnamn.\n%b förkortat månadsnamn.\n%H tid i 24-timmarsformat.\n%M minuter (range 00 to 59).\n%S sekunder (range 00 to 59).\n%% procenttecken.\n\nse manual strftime för mer information."
+msgstr ""
+"%a förkortat veckodagsnamn.\n"
+"%b förkortat månadsnamn.\n"
+"%H tid i 24-timmarsformat.\n"
+"%M minuter (range 00 to 59).\n"
+"%S sekunder (range 00 to 59).\n"
+"%% procenttecken.\n"
+"\n"
+"se manual strftime för mer information."
 
 #: ../src/hub.cc:2369
 msgid "': type /help for a list of available commands"
@@ -277,9 +286,11 @@ msgstr ": skriv /help för att få en lista över tillgängliga kommandon"
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -439,7 +450,8 @@ msgstr "<b>Nytt namn</b>"
 
 #: ../ui/settingsdialog.ui:9258 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Obs:</b> Klicka en gång när url:en redan är markerad för att editera dem"
+msgstr ""
+"<b>Obs:</b> Klicka en gång när url:en redan är markerad för att editera dem"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
@@ -625,7 +637,9 @@ msgstr "Lägg till klara filer direkt till utdelningen (om utdelad)"
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr "Lägg till regel 192.168.1.0/23 där inkommande trafik är tillåten och 192.168.6.0/24 där inkommande eller utgående trafik stängs ned"
+msgstr ""
+"Lägg till regel 192.168.1.0/23 där inkommande trafik är tillåten och "
+"192.168.6.0/24 där inkommande eller utgående trafik stängs ned"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -1204,7 +1218,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "DC++ klient bygger på källkod från FreeDC++ och LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"
+msgstr ""
+"DC++ klient bygger på källkod från FreeDC++ och LinuxDC++\n"
+"\n"
+"EiskaltDC++ version: %s (%s)\n"
+"DC++ core version: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1827,7 +1845,8 @@ msgstr "Full sökväg"
 
 #: ../src/downloadqueue.cc:1366
 msgid "Full tree does not match TTH root"
-msgstr "Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen trasig"
+msgstr ""
+"Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen trasig"
 
 #: ../src/WulforUtil.cc:225
 msgid "GB18030"
@@ -2139,7 +2158,9 @@ msgstr "Behåll nedladdade filer och kataloger i kön"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr "Behåll dubbletter i din fillista (dubbletter höjer inte storleken på din utdelning)"
+msgstr ""
+"Behåll dubbletter i din fillista (dubbletter höjer inte storleken på din "
+"utdelning)"
 
 #: ../src/settingsdialog.cc:1645
 msgid "Keep filelists when exiting"
@@ -2509,7 +2530,8 @@ msgstr "Inga träffar"
 
 #: ../ui/settingsdialog.ui:2778
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr "Inga nya nedladdningar om hastigheter överskrider (KiB/s, 0 = avstängt)"
+msgstr ""
+"Inga nya nedladdningar om hastigheter överskrider (KiB/s, 0 = avstängt)"
 
 #: ../src/sharebrowser.cc:899
 msgid "No search text entered"
@@ -2549,11 +2571,11 @@ msgstr "Obs: De flesta av dessa inställningar kräver en omstart"
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr "Obs: Nya filer läggs inte till din utdelning förrän de har blivit indexerade!"
+msgstr ""
+"Obs: Nya filer läggs inte till din utdelning förrän de har blivit indexerade!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1335 ../ui/settingsdialog.ui:5883
@@ -3072,8 +3094,7 @@ msgstr ""
 
 #: ../src/hub.cc:2066
 msgid ""
-"Set Core option param in value (without value return current value of "
-"option)"
+"Set Core option param in value (without value return current value of option)"
 msgstr ""
 
 #: ../src/hub.cc:2065
@@ -3094,9 +3115,9 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:986
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Sätt lägsta prioritet för nya filer som är större än låg prioritetsstorlek"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Sätt lägsta prioritet för nya filer som är större än låg prioritetsstorlek"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -3550,8 +3571,8 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2284
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 
@@ -3785,12 +3806,22 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Använd:\n  eiskaltdcpp-gtk <magnetlänk> <dchubb://länk> <adc(s)://länk>\n  eiskaltdcpp-gtk <Nyckel>\nEiskaltDC++ är ett plattformsoberoende program som använder Direct Connect och ADC-protokollet\n\nNycklar:\n  -h, --help\t Visa detta meddelande\n  -V, --version\t Visa version\n"
+msgstr ""
+"Använd:\n"
+"  eiskaltdcpp-gtk <magnetlänk> <dchubb://länk> <adc(s)://länk>\n"
+"  eiskaltdcpp-gtk <Nyckel>\n"
+"EiskaltDC++ är ett plattformsoberoende program som använder Direct Connect "
+"och ADC-protokollet\n"
+"\n"
+"Nycklar:\n"
+"  -h, --help\t Visa detta meddelande\n"
+"  -V, --version\t Visa version\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:365
 msgid "Video"

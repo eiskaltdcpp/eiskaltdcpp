@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2013-11-25 13:32+0000\n"
-"Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>\n"
+"POT-Creation-Date: 2014-04-01 23:52+0400\n"
+"PO-Revision-Date: 2014-04-01 19:34+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/fr/)\n"
 "Language: fr\n"
@@ -3375,9 +3375,8 @@ msgid "Swedish (Sweden)"
 msgstr ""
 
 #: ../src/mainwindow.cc:276
-#, fuzzy
 msgid "Swedish (Sweden) translation\n"
-msgstr "Traduction Serbe (Latin)\n"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1058 ../src/WulforUtil.cc:42
 #: ../ui/settingsdialog.ui:8958
