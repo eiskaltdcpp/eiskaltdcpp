@@ -3585,7 +3585,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="218"/>
         <source>Listing: </source>
-        <translation>Список файлов:</translation>
+        <translation>Файлы: </translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="312"/>
