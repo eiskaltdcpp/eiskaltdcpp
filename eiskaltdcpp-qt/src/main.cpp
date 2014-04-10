@@ -306,8 +306,12 @@ void installHandlers(){
 
     if (sigaction(SIGPIPE, &sa, NULL) == -1)
         printf("Cannot handle SIGPIPE\n");
-    else
-        signal(SIGPIPE, SIG_IGN);
+    else {
+        sigset_t set;
+        sigemptyset (&set);
+        sigaddset (&set, SIGPIPE);
+        pthread_sigmask(SIG_BLOCK, &set, NULL);
+    }
 
     catchSignals<SIGSEGV, SIGABRT, SIGBUS, SIGTERM>();
 
