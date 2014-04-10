@@ -24,10 +24,6 @@
 #include "TimerManager.h"
 #include "LogManager.h"
 
-#ifndef _WIN32
-#include <signal.h>
-#endif
-
 #ifdef __MINGW32__
 #ifndef EADDRNOTAVAIL
 #define EADDRNOTAVAIL WSAEADDRNOTAVAIL
@@ -109,11 +105,6 @@ void Socket::create(int aType /* = TYPE_TCP */) {
     type = aType;
 
     setBlocking(false);
-
-#ifndef _WIN32
-    // Such errors should be processed where they occur instead of common SIGPIPE handler
-    signal(SIGPIPE, SIG_IGN);
-#endif
 
     if (SETTING(IP_TOS_VALUE) != -1)
         setSocketOpt(IP_TOS, IPTOS_TOS(SETTING(IP_TOS_VALUE)));
