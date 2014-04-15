@@ -1560,7 +1560,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/Magnet.cpp" line="168"/>
         <source>Browse</source>
-        <translation>Bländra</translation>
+        <translation>Bläddra</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="188"/>
@@ -3017,12 +3017,12 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchFrame.cpp" line="291"/>
         <location filename="../src/SearchFrame.cpp" line="294"/>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Bläddra</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="497"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Stäng</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1097"/>
@@ -3033,7 +3033,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchFrame.cpp" line="1205"/>
         <location filename="../src/SearchFrame.cpp" line="1263"/>
         <source>Select directory</source>
-        <translation type="unfinished"/>
+        <translation>Välj kalalog</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1571"/>
@@ -3056,7 +3056,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Count</source>
-        <translation type="unfinished"/>
+        <translation>Antal</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
@@ -3096,7 +3096,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
         <source>Free slots</source>
-        <translation type="unfinished"/>
+        <translation>Lediga slotts</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
@@ -3106,22 +3106,22 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="54"/>
         <source>IP</source>
-        <translation type="unfinished"/>
+        <translation>IP-adress</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="54"/>
         <source>Hub</source>
-        <translation type="unfinished"/>
+        <translation>Hubb</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="54"/>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Värd</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="133"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished"/>
+        <translation>Filen finns redan: %1</translation>
     </message>
 </context>
 <context>
@@ -3129,7 +3129,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="32"/>
         <source>Preferences</source>
-        <translation type="unfinished"/>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="45"/>
@@ -3139,12 +3139,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="50"/>
         <source>Connection</source>
-        <translation type="unfinished"/>
+        <translation>Anslutning</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="55"/>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Nedladdningar</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="60"/>
@@ -3159,12 +3159,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="70"/>
         <source>Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Meddelanden</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="75"/>
         <source>Logs</source>
-        <translation type="unfinished"/>
+        <translation>Loggar</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="80"/>
@@ -3174,7 +3174,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="85"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Genvägar</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="90"/>
@@ -3198,7 +3198,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsConnection.cpp" line="352"/>
         <source>Warning</source>
-        <translation type="unfinished"/>
+        <translation>Varning</translation>
     </message>
 </context>
 <context>
@@ -3207,12 +3207,12 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsDownloads.cpp" line="163"/>
         <location filename="../src/SettingsDownloads.cpp" line="198"/>
         <source>Select directory</source>
-        <translation type="unfinished"/>
+        <translation>Välj kalalog</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="180"/>
         <source>New</source>
-        <translation type="unfinished"/>
+        <translation>Ny</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="186"/>
@@ -3222,12 +3222,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Enter alias for directory</source>
-        <translation type="unfinished"/>
+        <translation>Ange ett alias för katalogen</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Alias</source>
-        <translation type="unfinished"/>
+        <translation>Alias</translation>
     </message>
 </context>
 <context>
@@ -3235,37 +3235,37 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="53"/>
         <source>Default (need to restart)</source>
-        <translation type="unfinished"/>
+        <translation>Standard (omstart krävs)</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="76"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>Engelska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="77"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>Ryska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="78"/>
         <source>Belarusian</source>
-        <translation type="unfinished"/>
+        <translation>Vitryska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="79"/>
         <source>Hungarian</source>
-        <translation type="unfinished"/>
+        <translation>Ungerska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="80"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>Franska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="81"/>
         <source>Polish</source>
-        <translation type="unfinished"/>
+        <translation>Polska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="82"/>
@@ -3280,32 +3280,32 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="84"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"/>
+        <translation>Ukrainska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="85"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>Spanska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="86"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"/>
+        <translation>Bulgariska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="87"/>
         <source>Slovak</source>
-        <translation type="unfinished"/>
+        <translation>Slovakien</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Czech</source>
-        <translation type="unfinished"/>
+        <translation>Tjeckiska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="89"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>Tyska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="90"/>
@@ -3335,17 +3335,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="243"/>
         <source>Local user</source>
-        <translation type="unfinished"/>
+        <translation>Lokal användare</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="247"/>
         <source>Operator</source>
-        <translation type="unfinished"/>
+        <translation>Operatör</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="251"/>
         <source>Bot</source>
-        <translation type="unfinished"/>
+        <translation>Bot</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="255"/>
@@ -3365,37 +3365,37 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="267"/>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>Status</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="271"/>
         <source>User</source>
-        <translation type="unfinished"/>
+        <translation>Användare</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="275"/>
         <source>Favorite User</source>
-        <translation type="unfinished"/>
+        <translation>Favoritanvändare</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="279"/>
         <source>Time stamp</source>
-        <translation type="unfinished"/>
+        <translation>Tidsstämpel</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="283"/>
         <source>Message</source>
-        <translation type="unfinished"/>
+        <translation>Meddelande</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="599"/>
         <source>Select translation</source>
-        <translation type="unfinished"/>
+        <translation>Välj översättning</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="599"/>
         <source>Translation (*.qm)</source>
-        <translation type="unfinished"/>
+        <translation>Översättning (*.qm)</translation>
     </message>
 </context>
 <context>
@@ -3403,7 +3403,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsLog.cpp" line="96"/>
         <source>Choose the directory</source>
-        <translation type="unfinished"/>
+        <translation>Välj kalalogen</translation>
     </message>
 </context>
 <context>
@@ -3411,12 +3411,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsNotification.cpp" line="194"/>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Välj fil</translation>
     </message>
     <message>
         <location filename="../src/SettingsNotification.cpp" line="194"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Alla filer (*.*)</translation>
     </message>
 </context>
 <context>
@@ -3424,7 +3424,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsPersonal.cpp" line="78"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Systemstandard</translation>
     </message>
 </context>
 <context>
@@ -3464,7 +3464,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="216"/>
         <source>Choose the directory</source>
-        <translation type="unfinished"/>
+        <translation>Välj kalalogen</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="290"/>
@@ -3474,7 +3474,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="294"/>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Döp om</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="299"/>
@@ -3485,12 +3485,12 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="337"/>
         <location filename="../src/SettingsSharing.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Fel</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="362"/>
         <source>Enter new name</source>
-        <translation type="unfinished"/>
+        <translation>Ange nytt namn</translation>
     </message>
 </context>
 <context>
@@ -3498,37 +3498,37 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="69"/>
         <source>Restrictions</source>
-        <translation type="unfinished"/>
+        <translation>Begränsningar</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="70"/>
         <source>Magnet</source>
-        <translation type="unfinished"/>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="72"/>
         <source>Download</source>
-        <translation type="unfinished"/>
+        <translation>Nedladdning</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="74"/>
         <source>Download to...</source>
-        <translation type="unfinished"/>
+        <translation>Laddar ned till...</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="77"/>
         <source>Search for alternates</source>
-        <translation type="unfinished"/>
+        <translation>Sök efter nya källor</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="79"/>
         <source>Copy magnet</source>
-        <translation type="unfinished"/>
+        <translation>Kopiera magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="81"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished"/>
+        <translation>Kopiera webb-magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="83"/>
@@ -3538,12 +3538,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="86"/>
         <source>Add to favorites</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till favoriter</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="88"/>
         <source>Add restriction</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till begränsning</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="89"/>
@@ -3553,17 +3553,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="90"/>
         <source>Open directory</source>
-        <translation type="unfinished"/>
+        <translation>Öppna katalog</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="166"/>
         <source>Browse</source>
-        <translation type="unfinished"/>
+        <translation>Bläddra</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="216"/>
         <source>Own files</source>
-        <translation type="unfinished"/>
+        <translation>Mina egna filer</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="218"/>
@@ -3578,7 +3578,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="314"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Stäng</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="393"/>
@@ -3609,7 +3609,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="819"/>
         <source>Select directory</source>
-        <translation type="unfinished"/>
+        <translation>Välj kalalog</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="949"/>
@@ -5777,7 +5777,7 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="675"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
-        <translation type="unfinished"/>
+        <translation>Ta inte bort källan vid automatisk frånkoppling, koppla bara i från</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="678"/>
