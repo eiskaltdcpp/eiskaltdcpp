@@ -196,7 +196,8 @@ elseif(USE_QT5)
 endif()
 
 if(USE_QT5)
-set(QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE})
+    set(QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE})
+    get_target_property(QT_RCC_EXECUTABLE Qt5::rcc LOCATION)
 endif()
 
 #Create translations
