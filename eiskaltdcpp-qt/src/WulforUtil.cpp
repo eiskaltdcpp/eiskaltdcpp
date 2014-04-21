@@ -244,7 +244,7 @@ void WulforUtil::clearUserIconCache(){
 
 QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, const QString &sp){
 
-    int x = connectionSpeeds[sp];
+    int x = connectionSpeeds.value(sp, 5);
     int y = 0;
 
     if (isAway)
