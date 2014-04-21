@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Translators:
+# Павал Шаламіцкі <yehekim@gmail.com>, 2012
 # Павал Шаламіцкі <yehekim@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2013-11-19 16:39+0000\n"
+"POT-Creation-Date: 2014-04-01 23:52+0400\n"
+"PO-Revision-Date: 2014-04-01 19:34+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/be/)\n"
@@ -1037,9 +1039,8 @@ msgid "Chinese (China)"
 msgstr ""
 
 #: ../src/mainwindow.cc:273
-#, fuzzy
 msgid "Chinese (China) translation\n"
-msgstr "Сэрбская мова (лацінка)\n"
+msgstr ""
 
 #: ../ui/settingsdialog.ui:8582
 msgid "Choose a File"
@@ -3366,9 +3367,8 @@ msgid "Swedish (Sweden)"
 msgstr ""
 
 #: ../src/mainwindow.cc:276
-#, fuzzy
 msgid "Swedish (Sweden) translation\n"
-msgstr "Сэрбская мова (лацінка)\n"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1058 ../src/WulforUtil.cc:42
 #: ../ui/settingsdialog.ui:8958
@@ -3706,7 +3706,7 @@ msgid "Use TLS when remote client supports it"
 msgstr "Ужываць TLS, калі другі кліент гэта падтрымвае"
 
 #: ../ui/settingsdialog.ui:1299
-msgid "Use UPnP to let client cofigure my router"
+msgid "Use UPnP to let client configure my router"
 msgstr "Наладзіць кліент па UPnP праз маршрутавальнік"
 
 #: ../ui/settingsdialog.ui:1897

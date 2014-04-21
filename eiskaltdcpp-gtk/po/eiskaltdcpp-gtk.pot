@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-02-21 02:29+0400\n"
+"POT-Creation-Date: 2014-04-01 23:52+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3661,7 +3661,7 @@ msgid "Use TLS when remote client supports it"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:1299
-msgid "Use UPnP to let client cofigure my router"
+msgid "Use UPnP to let client configure my router"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:1897

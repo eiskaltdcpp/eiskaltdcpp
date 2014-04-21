@@ -1296,7 +1296,7 @@
                             <property name="row_spacing">3</property>
                             <child>
                               <object class="GtkRadioButton" id="upnpRadioButton">
-                                <property name="label" translatable="yes">Use UPnP to let client cofigure my router</property>
+                                <property name="label" translatable="yes">Use UPnP to let client configure my router</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>

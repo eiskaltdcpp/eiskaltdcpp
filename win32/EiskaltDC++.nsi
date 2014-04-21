@@ -1,6 +1,6 @@
 !include MUI2.nsh
 
-!define PRODUCT_DISPLAY_VERSION      "2.2.9"
+!define PRODUCT_DISPLAY_VERSION      "2.3.0"
 !define PRODUCT_NAME                 "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "http://code.google.com/p/eiskaltdc/"
@@ -24,7 +24,8 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_PAGE_LICENSE "installer\LICENSE"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
-!define MUI_FINISHPAGE_RUN "$INSTDIR\eiskaltdcpp-qt.exe"
+!define MUI_FINISHPAGE_RUN
+!define MUI_FINISHPAGE_RUN_FUNCTION "RunEiskaltDC++"
 !insertmacro MUI_PAGE_FINISH
 
 !insertmacro MUI_UNPAGE_CONFIRM
@@ -48,6 +49,8 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_LANGUAGE "German"
 !insertmacro MUI_LANGUAGE "Greek"
 !insertmacro MUI_LANGUAGE "PortugueseBR"
+!insertmacro MUI_LANGUAGE "SimpChinese"
+!insertmacro MUI_LANGUAGE "Swedish"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY
@@ -59,6 +62,10 @@ InstallDir "${PRODUCT_INSTALL_DIR}"
 ShowInstDetails show
 ShowUnInstDetails show
 RequestExecutionLevel admin
+
+Function RunEiskaltDC++
+  ShellExecAsUser::ShellExecAsUser "" "$INSTDIR/eiskaltdcpp-qt.exe" ""
+FunctionEnd
 
 Section "EiskaltDC++"
   SetOutPath $INSTDIR

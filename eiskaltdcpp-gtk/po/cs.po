@@ -3663,7 +3663,7 @@ msgid "Use TLS when remote client supports it"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:1299
-msgid "Use UPnP to let client cofigure my router"
+msgid "Use UPnP to let client configure my router"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:1897

@@ -2674,13 +2674,13 @@ void MainWindow::slotAboutClient(){
         QString("&nbsp; 2009-2012 <a href=\"mailto:dein.negativ@gmail.com\">Andrey Karlov</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (main developer since version 0.4.10)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; 2009-2013 <a href=\"mailto:dhamp@ya.ru\">Eugene Petrov</a><br/>")+
+        QString("&nbsp; 2009-2014 <a href=\"mailto:dhamp@ya.ru\">Eugene Petrov</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (Arch Linux maintainer and developer since version 0.4.10)<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2014 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
         tr("&nbsp;&nbsp;&nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; 2010-2013 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
+        QString("&nbsp; 2010-2014 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (MS Windows maintainer and developer since version 2.2.4)<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2013 <a href=\"mailto:tka4ev@gmail.com\">Alexandr Tkachev</a><br/>")+
@@ -2725,7 +2725,7 @@ void MainWindow::slotAboutClient(){
         QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
         QString("<br/>")+
         tr("Spanish translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2013 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2012-2014 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
         QString("<br/>")+
         tr("Bulgarian translation<br/>")+
@@ -2968,18 +2968,18 @@ void MainWindow::slotShowSpeedLimits(){
         N->slotShowSpeedLimits();
 }
 
-void MainWindow::slotSupressTxt(){
+void MainWindow::slotSuppressTxt(){
     Notification *N = Notification::getInstance();
     QAction *act = qobject_cast<QAction*>(sender());
     if (N && act)
-        N->setSupressTxt(act->isChecked());
+        N->setSuppressTxt(act->isChecked());
 }
 
-void MainWindow::slotSupressSnd(){
+void MainWindow::slotSuppressSnd(){
     Notification *N = Notification::getInstance();
     QAction *act = qobject_cast<QAction*>(sender());
     if (N && act)
-        N->setSupressSnd(act->isChecked());
+        N->setSuppressSnd(act->isChecked());
 }
 
 #if defined(Q_WS_MAC)
@@ -2992,20 +2992,20 @@ void MainWindow::initDockMenuBar(){
     setup_speed_lim->setIcon(WICON(WulforUtil::eiSPEED_LIMIT_ON));
 
     QMenu *menuAdditional = new QMenu(tr("Additional"), this);
-    QAction *actSupressSnd = new QAction(tr("Supress sound notifications"), menuAdditional);
-    QAction *actSupressTxt = new QAction(tr("Supress text notifications"), menuAdditional);
+    QAction *actSuppressSnd = new QAction(tr("Suppress sound notifications"), menuAdditional);
+    QAction *actSuppressTxt = new QAction(tr("Suppress text notifications"), menuAdditional);
 
-    actSupressSnd->setCheckable(true);
-    actSupressSnd->setChecked(false);
+    actSuppressSnd->setCheckable(true);
+    actSuppressSnd->setChecked(false);
 
-    actSupressTxt->setCheckable(true);
-    actSupressTxt->setChecked(false);
+    actSuppressTxt->setCheckable(true);
+    actSuppressTxt->setChecked(false);
 
     connect(setup_speed_lim, SIGNAL(triggered()), this, SLOT(slotShowSpeedLimits()));
-    connect(actSupressTxt, SIGNAL(triggered()), this, SLOT(slotSupressTxt()));
-    connect(actSupressSnd, SIGNAL(triggered()), this, SLOT(slotSupressSnd()));
+    connect(actSuppressTxt, SIGNAL(triggered()), this, SLOT(slotSuppressTxt()));
+    connect(actSuppressSnd, SIGNAL(triggered()), this, SLOT(slotSuppressSnd()));
 
-    menuAdditional->addActions(QList<QAction*>() << actSupressTxt << actSupressSnd);
+    menuAdditional->addActions(QList<QAction*>() << actSuppressTxt << actSuppressSnd);
     menu->addAction(setup_speed_lim);
     menu->addMenu(menuAdditional);
 

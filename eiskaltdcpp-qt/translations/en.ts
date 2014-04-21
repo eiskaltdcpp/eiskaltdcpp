@@ -2445,13 +2445,13 @@ Favorite user</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
-        <source>Supress sound notifications</source>
-        <translation>Supress sound notifications</translation>
+        <source>Suppress sound notifications</source>
+        <translation>Suppress sound notifications</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2996"/>
-        <source>Supress text notifications</source>
-        <translation>Supress text notifications</translation>
+        <source>Suppress text notifications</source>
+        <translation>Suppress text notifications</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2990"/>
@@ -2496,13 +2496,13 @@ Favorite user</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
-        <source>Supress sound notifications</source>
-        <translation>Supress sound notifications</translation>
+        <source>Suppress sound notifications</source>
+        <translation>Suppress sound notifications</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
-        <source>Supress text notifications</source>
-        <translation>Supress text notifications</translation>
+        <source>Suppress text notifications</source>
+        <translation>Suppress text notifications</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="113"/>
@@ -7012,9 +7012,9 @@ the granted slot will not be closed.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
         <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
+if your system becomes slow while hashing files.</source>
         <translation>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</translation>
+if your system becomes slow while hashing files.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="524"/>

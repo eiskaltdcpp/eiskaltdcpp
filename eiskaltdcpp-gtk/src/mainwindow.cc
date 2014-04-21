@@ -205,7 +205,7 @@ MainWindow::MainWindow():
     {
         _("Developers"),
         "  2010-2014 Boris Pek <tehnick-8@mail.ru>",
-        "  2010-2013 Eugene Petrov <dhamp@ya.ru>",
+        "  2010-2014 Eugene Petrov <dhamp@ya.ru>",
         "  ",
         _("Contributors"),
         "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
@@ -242,7 +242,7 @@ MainWindow::MainWindow():
         string("  2010-2014 Miroslav Petrovic <miroslav031@gmail.com>\n")+
         string("\n")+
         _("Spanish translation\n")+
-        string("  2010-2013 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
+        string("  2010-2014 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
         string("  2012-2014 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
         string("\n")+
         _("Bulgarian translation\n")+

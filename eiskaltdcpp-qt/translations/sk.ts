@@ -2436,12 +2436,12 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation type="unfinished">Zakázať upozornenia zvukom</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2996"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation type="unfinished">Zakázať upozornenia textom</translation>
     </message>
     <message>
@@ -2487,12 +2487,12 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Zakázať upozornenia zvukom</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Zakázať upozornenia textom</translation>
     </message>
     <message>
@@ -6904,7 +6904,7 @@ Ak rýchosť uploadovania vzrastie, tak tento extra slot sa uzavrie.</translatio
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
         <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
+if your system becomes slow while hashing files.</source>
         <translation>Nastaviť max rýchlosť hashovania.</translation>
     </message>
     <message>

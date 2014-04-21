@@ -2443,12 +2443,12 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation type="unfinished">Спиране на звуковото уведомяване</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2996"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation type="unfinished">Спиране на текстовото уведомяване</translation>
     </message>
     <message>
@@ -2494,12 +2494,12 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
-        <source>Supress sound notifications</source>
+        <source>Suppress sound notifications</source>
         <translation>Спиране на звуковото уведомяване</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="103"/>
-        <source>Supress text notifications</source>
+        <source>Suppress text notifications</source>
         <translation>Спиране на текстовото уведомяване</translation>
     </message>
     <message>
@@ -7011,7 +7011,7 @@ the granted slot will not be closed.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="510"/>
         <source>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</source>
+if your system becomes slow while hashing files.</source>
         <translation>Ако вашата система &quot;зависва&quot; при хеширане на файлове,
 тук можете да им зададете максималната скорост.</translation>
     </message>
