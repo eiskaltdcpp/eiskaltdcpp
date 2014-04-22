@@ -1186,13 +1186,15 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1819"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
-        <translation type="unfinished"/>
+        <translation>/alias &lt;ALIAS_NAMN&gt;::&lt;KOMMANDO&gt; - gör alias /ALIAS_NAMN till /KOMMANDO
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1820"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
-        <translation type="unfinished"/>
+        <translation>/alias purge &lt;ALIAS_NAMN&gt; - ta bort alias
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1821"/>
@@ -1550,7 +1552,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/Magnet.cpp" line="44"/>
         <source>Run search alternatives manually.</source>
-        <translation type="unfinished"/>
+        <translation>Sök manuellt efter nya källor.</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="47"/>
@@ -1740,12 +1742,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1071"/>
         <source>Close current widget</source>
-        <translation type="unfinished"/>
+        <translation>Stäng nuvarande widget</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1072"/>
         <source>Toggle main menu</source>
-        <translation type="unfinished"/>
+        <translation>Växla huvudmenyn</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1081"/>
@@ -1848,7 +1850,7 @@ Favoritanvändare</translation>
         <location filename="../src/MainWindow.cpp" line="1301"/>
         <location filename="../src/MainWindow.cpp" line="1707"/>
         <source>Refresh share</source>
-        <translation type="unfinished"/>
+        <translation>Uppdatera utdelningen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1303"/>
@@ -1860,7 +1862,7 @@ Favoritanvändare</translation>
         <location filename="../src/MainWindow.cpp" line="1306"/>
         <location filename="../src/MainWindow.cpp" line="2369"/>
         <source>Show/hide find frame</source>
-        <translation type="unfinished"/>
+        <translation>Visa/Göm sökpanelen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1308"/>
@@ -1915,7 +1917,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1328"/>
         <source>Queued Users</source>
-        <translation type="unfinished"/>
+        <translation>Köade användare</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1330"/>
@@ -1945,7 +1947,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1340"/>
         <source>IPFilter module</source>
-        <translation type="unfinished"/>
+        <translation>IP-filter modul</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1342"/>
@@ -2001,7 +2003,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1363"/>
         <source>Away when not visible</source>
-        <translation type="unfinished"/>
+        <translation>IVD när du inte är synlig</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1365"/>
@@ -2061,12 +2063,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1389"/>
         <source>&amp;Panels</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Paneler</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1392"/>
         <source>Widgets panel</source>
-        <translation type="unfinished"/>
+        <translation>Widget-panel</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1394"/>
@@ -2170,7 +2172,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1719"/>
         <source>List update</source>
-        <translation type="unfinished"/>
+        <translation>Lista uppdatering</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1731"/>
@@ -2285,7 +2287,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Använd &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; för att rapportera fel.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
@@ -2535,7 +2537,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/PMWindow.cpp" line="307"/>
         <source>%1 on hub %2</source>
-        <translation type="unfinished"/>
+        <translation>%1 på hubb %2</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="337"/>
@@ -2899,12 +2901,12 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="205"/>
         <source>Don&apos;t hide this panel when search</source>
-        <translation type="unfinished"/>
+        <translation>Göm denba panelen när du söker</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="221"/>
         <source>Already shared files</source>
-        <translation type="unfinished"/>
+        <translation>Redan utdelade filer</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="234"/>
@@ -2919,7 +2921,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="244"/>
         <source>Highlight</source>
-        <translation type="unfinished"/>
+        <translation>Markera</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="121"/>
@@ -3172,7 +3174,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="80"/>
         <source>User Commands</source>
-        <translation type="unfinished"/>
+        <translation>Användarkommandon</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="85"/>
@@ -3576,7 +3578,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="312"/>
         <source>Filebrowser</source>
-        <translation type="unfinished"/>
+        <translation>Filbläddrare</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="314"/>
@@ -3635,7 +3637,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/ShareBrowserSearch.cpp" line="67"/>
         <source>Search - %1</source>
-        <translation type="unfinished"/>
+        <translation>Sök - %1</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowserSearch.cpp" line="102"/>
@@ -3648,7 +3650,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="525"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Fel</translation>
     </message>
 </context>
 <context>
@@ -3666,7 +3668,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="237"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Rensa</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="239"/>
@@ -3698,7 +3700,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
         <location filename="../src/SideBar.cpp" line="56"/>
         <location filename="../src/SideBar.cpp" line="404"/>
         <source>Hubs</source>
-        <translation type="unfinished"/>
+        <translation>Hubbar</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="57"/>
@@ -3710,7 +3712,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
         <location filename="../src/SideBar.cpp" line="58"/>
         <location filename="../src/SideBar.cpp" line="406"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Sök</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="59"/>
@@ -3847,7 +3849,10 @@ Nedladdat: %3 Uppladdat: %4</translation>
 It will continue to work when the widget is hidden.
 Do you want to stop it?
 </source>
-        <translation type="unfinished"/>
+        <translation>Sökspionen är nu i gång.
+Den kommer att vara i gång när widgeten är gömd.
+Vill du stoppa den?
+</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="82"/>
@@ -3969,7 +3974,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
         <source>IP</source>
-        <translation type="unfinished"/>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="78"/>
