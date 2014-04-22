@@ -307,6 +307,8 @@ SettingsManager::SettingsManager()
     setDefault(ALLOW_SIM_UPLOADS, true);
     setDefault(CHECK_TARGETS_PATHS_ON_START, false);
     setDefault(SHARE_SKIP_ZERO_BYTE, false);
+	setDefault(BIND_ADDRESS6, "::");
+
     setSearchTypeDefaults();
 }
 
