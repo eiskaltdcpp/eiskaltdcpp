@@ -93,6 +93,7 @@ void SettingsConnection::ok(){
         QString bind_ip=lineEdit_BIND_ADDRESS->text();
         if (validateIp(bind_ip))
             SM->set(SettingsManager::BIND_ADDRESS, lineEdit_BIND_ADDRESS->text().toStdString());
+        SM->set(SettingsManager::BIND_ADDRESS6, lineEdit_BIND_ADDRESS6->text().toStdString());
         SM->set(SettingsManager::NO_IP_OVERRIDE, checkBox_DONTOVERRIDE->checkState() == Qt::Checked);
     }
     else {
@@ -103,7 +104,9 @@ void SettingsConnection::ok(){
     int type = SETTING(OUTGOING_CONNECTIONS);
 
     SM->set(SettingsManager::BIND_IFACE, radioButton_BIND_IFACE->isChecked());
+    SM->set(SettingsManager::BIND_IFACE6, radioButton_BIND_IFACE6->isChecked());
     SM->set(SettingsManager::BIND_IFACE_NAME, _tq(comboBox_IFACES->currentText()));
+    SM->set(SettingsManager::BIND_IFACE_NAME6, _tq(comboBox_IFACES6->currentText()));
 
     if (use_socks){
         QString ip = lineEdit_SIP->text();
@@ -171,6 +174,7 @@ void SettingsConnection::ok(){
 void SettingsConnection::init(){
     lineEdit_WANIP->setText(QString::fromStdString(SETTING(EXTERNAL_IP)));
     lineEdit_BIND_ADDRESS->setText(QString::fromStdString(SETTING(BIND_ADDRESS)));
+    lineEdit_BIND_ADDRESS6->setText(QString::fromStdString(SETTING(BIND_ADDRESS6)));
 
     spinBox_TCP->setValue(old_tcp = SETTING(TCP_PORT));
     spinBox_UDP->setValue(old_udp = SETTING(UDP_PORT));
@@ -199,10 +203,13 @@ void SettingsConnection::init(){
 
     QStringList ifaces = WulforUtil::getInstance()->getLocalIfaces();
 
-    if (!ifaces.isEmpty())
+    if (!ifaces.isEmpty()) {
         comboBox_IFACES->addItems(ifaces);
+        comboBox_IFACES6->addItems(ifaces);
+    }
 
     comboBox_IFACES->addItem("");
+    comboBox_IFACES6->addItem("");
 
     if (SETTING(BIND_IFACE)){
         radioButton_BIND_IFACE->toggle();
@@ -214,6 +221,17 @@ void SettingsConnection::init(){
     }
     else
         radioButton_BIND_ADDR->toggle();
+
+    if (SETTING(BIND_IFACE6)){
+        radioButton_BIND_IFACE6->toggle();
+
+        if (ifaces.contains(_q(SETTING(BIND_IFACE_NAME6))))
+            comboBox_IFACES6->setCurrentIndex(ifaces.indexOf(_q(SETTING(BIND_IFACE_NAME6))));
+        else
+            comboBox_IFACES6->setCurrentIndex(comboBox_IFACES6->count()-1);
+    }
+    else
+        radioButton_BIND_ADDR6->toggle();
 
     switch (SETTING(INCOMING_CONNECTIONS)){
     case SettingsManager::INCOMING_DIRECT:

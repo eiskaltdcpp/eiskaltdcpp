@@ -90,7 +90,7 @@ void SearchManager::listen() {
     try {
         socket.reset(new Socket(Socket::TYPE_UDP));
         socket->setLocalIp4(SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
-        socket->setLocalIp6(SETTING(BIND_IFACE)? socket->getIfaceI6(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS6));
+        socket->setLocalIp6(SETTING(BIND_IFACE6)? socket->getIfaceI6(SETTING(BIND_IFACE_NAME6)).c_str() : SETTING(BIND_ADDRESS6));
         port = socket->listen(Util::toString(SETTING(UDP_PORT)));
         start();
     } catch(...) {

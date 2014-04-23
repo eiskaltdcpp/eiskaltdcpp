@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>620</width>
-    <height>611</height>
+    <height>632</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,86 +40,18 @@
           <string>Incoming connections</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <property name="margin">
+          <property name="leftMargin">
            <number>1</number>
           </property>
-          <item row="1" column="0">
-           <widget class="QWidget" name="widget" native="true">
-            <layout class="QGridLayout" name="gridLayout_2">
-             <property name="margin">
-              <number>0</number>
-             </property>
-             <item row="1" column="0">
-              <widget class="QRadioButton" name="radioButton_ACTIVE">
-               <property name="toolTip">
-                <string>Select this mode if your computer is connected directly to the internet.
-Do not select this mode if you have a router or any external firewall.
-If your computer is not behind a router all you have to do is to choose
-this option and usually you don't need to alter anything more in the
-connection settings.
-However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</string>
-               </property>
-               <property name="text">
-                <string>Active mode</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QRadioButton" name="radioButton_PORT">
-               <property name="toolTip">
-                <string>Select this mode if you are behind a firewall (router), and will set up
-the TCP, UDP and TLS port forwarding on your own.
-You will need to specify the external IP address of your router using
-the setting below if you want downloads to work properly.
-Use this mode only if the previous ones are not options for you.</string>
-               </property>
-               <property name="text">
-                <string>Firewall with port forwarding</string>
-               </property>
-               <property name="autoExclusive">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="0">
-              <widget class="QRadioButton" name="radioButton_PASSIVE">
-               <property name="toolTip">
-                <string>Select this mode if none of the previous modes apply. In this mode,
-EiskaltDC++ will not try to make inbound connections, only outbound ones.
-This mode carries some serious limitations:
-  * only 5 results per user will be returned in response to searches;
-  * you will not be able to download from other passive users;
-  * you may won't be able to search and/or download on certain hubs.</string>
-               </property>
-               <property name="text">
-                <string>Passive mode</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QRadioButton" name="radioButton_UPNP">
-               <property name="toolTip">
-                <string>Select this mode if you are behind a firewall/router that supports
-the UPnP standard for program auto-configuration.
-Most routers do support UPnP but you may need to enable it
-in the router's configuration page.
-This way EiskaltDC++ will automatically open the ports it needs
-and obtain your external IP address as well.</string>
-               </property>
-               <property name="text">
-                <string>Firewall with UPnP</string>
-               </property>
-               <property name="checkable">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
+           <number>1</number>
+          </property>
           <item row="1" column="1">
            <widget class="QFrame" name="frame">
             <property name="frameShape">
@@ -129,7 +61,16 @@ and obtain your external IP address as well.</string>
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QFormLayout" name="formLayout">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item row="3" column="0">
@@ -220,19 +161,170 @@ and obtain your external IP address as well.</string>
             </layout>
            </widget>
           </item>
+          <item row="1" column="0">
+           <widget class="QWidget" name="widget" native="true">
+            <layout class="QGridLayout" name="gridLayout_2">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item row="1" column="0">
+              <widget class="QRadioButton" name="radioButton_ACTIVE">
+               <property name="toolTip">
+                <string>Select this mode if your computer is connected directly to the internet.
+Do not select this mode if you have a router or any external firewall.
+If your computer is not behind a router all you have to do is to choose
+this option and usually you don't need to alter anything more in the
+connection settings.
+However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</string>
+               </property>
+               <property name="text">
+                <string>Active mode</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QRadioButton" name="radioButton_PORT">
+               <property name="toolTip">
+                <string>Select this mode if you are behind a firewall (router), and will set up
+the TCP, UDP and TLS port forwarding on your own.
+You will need to specify the external IP address of your router using
+the setting below if you want downloads to work properly.
+Use this mode only if the previous ones are not options for you.</string>
+               </property>
+               <property name="text">
+                <string>Firewall with port forwarding</string>
+               </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QRadioButton" name="radioButton_PASSIVE">
+               <property name="toolTip">
+                <string>Select this mode if none of the previous modes apply. In this mode,
+EiskaltDC++ will not try to make inbound connections, only outbound ones.
+This mode carries some serious limitations:
+  * only 5 results per user will be returned in response to searches;
+  * you will not be able to download from other passive users;
+  * you may won't be able to search and/or download on certain hubs.</string>
+               </property>
+               <property name="text">
+                <string>Passive mode</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QRadioButton" name="radioButton_UPNP">
+               <property name="toolTip">
+                <string>Select this mode if you are behind a firewall/router that supports
+the UPnP standard for program auto-configuration.
+Most routers do support UPnP but you may need to enable it
+in the router's configuration page.
+This way EiskaltDC++ will automatically open the ports it needs
+and obtain your external IP address as well.</string>
+               </property>
+               <property name="text">
+                <string>Firewall with UPnP</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="QGroupBox" name="groupBox_6">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
+             </property>
+             <item>
+              <widget class="QRadioButton" name="radioButton_BIND_ADDR6">
+               <property name="text">
+                <string>Bind to ipv6 address</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_BIND_ADDRESS6"/>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="radioButton_BIND_IFACE6">
+               <property name="text">
+                <string>Bind to ipv6 interface</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox_IFACES6"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
           <item row="2" column="0" colspan="2">
            <widget class="QGroupBox" name="groupBox_5">
             <property name="title">
              <string/>
             </property>
             <layout class="QGridLayout" name="gridLayout_12">
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
+             </property>
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <item row="0" column="3">
+              <widget class="QComboBox" name="comboBox_IFACES"/>
+             </item>
              <item row="0" column="1">
               <widget class="QLineEdit" name="lineEdit_BIND_ADDRESS"/>
              </item>
              <item row="0" column="0">
               <widget class="QRadioButton" name="radioButton_BIND_ADDR">
                <property name="text">
-                <string>Bind to address</string>
+                <string>Bind to ipv4 address</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -242,12 +334,9 @@ and obtain your external IP address as well.</string>
              <item row="0" column="2">
               <widget class="QRadioButton" name="radioButton_BIND_IFACE">
                <property name="text">
-                <string>Bind to interface</string>
+                <string>Bind to ipv4 interface</string>
                </property>
               </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QComboBox" name="comboBox_IFACES"/>
              </item>
             </layout>
            </widget>
@@ -261,13 +350,31 @@ and obtain your external IP address as well.</string>
           <string>Outgoing connections</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="0">
            <widget class="QWidget" name="widget_2" native="true">
             <layout class="QGridLayout" name="gridLayout_6">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item row="1" column="0">
@@ -310,13 +417,22 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QGridLayout" name="gridLayout_8">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item row="0" column="1">
               <widget class="LineEdit" name="lineEdit_SIP">
                <property name="inputMask">
-                <string>000.000.000.000; </string>
+                <string>000.000.000.000</string>
                </property>
               </widget>
              </item>
@@ -363,7 +479,7 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
                 </size>
                </property>
                <property name="inputMask">
-                <string>00000; </string>
+                <string>00000</string>
                </property>
               </widget>
              </item>
@@ -491,7 +607,16 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item>
@@ -1040,6 +1165,38 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>548</x>
      <y>241</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_BIND_ADDR6</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineEdit_BIND_ADDRESS6</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>313</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>268</x>
+     <y>313</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_BIND_IFACE6</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>comboBox_IFACES6</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>414</x>
+     <y>313</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>550</x>
+     <y>313</y>
     </hint>
    </hints>
   </connection>

@@ -223,7 +223,7 @@ ConnectionManager::Server::Server(bool secure, const string& port_, const string
 sock(Socket::TYPE_TCP), secure(secure), die(false)
 {
     string ip4 = SETTING(BIND_IFACE)? sock.getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : ip4_;
-    string ip6 = SETTING(BIND_IFACE)? sock.getIfaceI6(SETTING(BIND_IFACE_NAME)).c_str() : ip6_;
+    string ip6 = SETTING(BIND_IFACE6)? sock.getIfaceI6(SETTING(BIND_IFACE_NAME6)).c_str() : ip6_;
     sock.setLocalIp4(ip4);
     sock.setLocalIp6(ip6);
     port = sock.listen(port_);

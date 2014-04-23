@@ -51,7 +51,7 @@ const string SettingsManager::settingTags[] =
     "LogFormatSystem", "LogFormatStatus", "LogFileSpy", "LogFormatSpy", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
     "Language", "SkipListShare", "InternetIp", "BindIfaceName",
-    "DHTKey", "DynDNSServer", "MimeHandler",
+    "DHTKey", "DynDNSServer", "MimeHandler",  "BindIfaceName6",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow",
@@ -97,6 +97,7 @@ const string SettingsManager::settingTags[] =
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
     "ShareSkipZeroByte", "RequireTLS", "LogSpy",
+    "BindIface6",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
@@ -299,6 +300,8 @@ SettingsManager::SettingsManager()
     setDefault(SEGMENT_SIZE, 0);
     setDefault(BIND_IFACE, false);
     setDefault(BIND_IFACE_NAME, "");
+    setDefault(BIND_IFACE6, false);
+    setDefault(BIND_IFACE_NAME6, "");
     setDefault(MINIMUM_SEARCH_INTERVAL, 60);
     setDefault(DYNDNS_SERVER, "http://checkip.dyndns.org/index.html");
     setDefault(DYNDNS_ENABLE, false);
