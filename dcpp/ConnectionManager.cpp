@@ -222,6 +222,7 @@ static const uint32_t FLOOD_ADD = 2000;
 ConnectionManager::Server::Server(bool secure, const string& port_, const string& ip4_, const string& ip6_) :
 sock(Socket::TYPE_TCP), secure(secure), die(false)
 {
+    sock.setV4only(false);
     string ip4 = SETTING(BIND_IFACE)? sock.getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : ip4_;
     string ip6 = SETTING(BIND_IFACE6)? sock.getIfaceI6(SETTING(BIND_IFACE_NAME6)).c_str() : ip6_;
     sock.setLocalIp4(ip4);
