@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-01-11 15:08+0400\n"
+"POT-Creation-Date: 2014-04-01 23:52+0400\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -611,39 +611,39 @@ msgstr "Обновление списка файлов завершено"
 msgid "File list %1% generated"
 msgstr "Запущено обновление списка файлов %1%"
 
-#: ../SettingsManager.cpp:184
+#: ../SettingsManager.cpp:179
 msgid "downloaded from"
 msgstr "загружено из"
 
-#: ../SettingsManager.cpp:520
+#: ../SettingsManager.cpp:515
 msgid "Invalid search type name"
 msgstr "Неверное имя поискового типа"
 
-#: ../SettingsManager.cpp:524 ../SettingsManager.cpp:546
+#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
 msgid "This search type already exists"
 msgstr "Этот поисковый тип уже существует"
 
-#: ../SettingsManager.cpp:578
+#: ../SettingsManager.cpp:573
 msgid "No such search type"
 msgstr "Нет такого поискового типа"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:614
 msgid "Error: setting not found!"
 msgstr "Ошибка: опция не обнаружена!"
 
-#: ../SettingsManager.cpp:621
+#: ../SettingsManager.cpp:616
 msgid "Core setting "
 msgstr "Опция ядра "
 
-#: ../SettingsManager.cpp:622
+#: ../SettingsManager.cpp:617
 msgid "Change core setting "
 msgstr "Изменить опцию ядра "
 
-#: ../SettingsManager.cpp:622
+#: ../SettingsManager.cpp:617
 msgid " to "
 msgstr " в "
 
-#: ../SettingsManager.cpp:624
+#: ../SettingsManager.cpp:619
 msgid "Error: segv parser :D"
 msgstr "Ошибка: парсер сломался :D"
 

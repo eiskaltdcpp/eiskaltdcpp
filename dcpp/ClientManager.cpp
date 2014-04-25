@@ -587,6 +587,27 @@ void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const CID& f
 
     }
     SearchManager::getInstance()->respond(adc, from, isUdpActive, c->getIpPort());
+
+    Speaker<ClientManagerListener>::fire(ClientManagerListener::IncomingSearch(), [&adc]() -> string
+    {
+        auto toCode = [](char a, char b) -> uint16_t {
+            return (uint16_t)a | ((uint16_t)b)<<8;
+        };
+
+        string result;
+        const StringList &params = adc.getParameters();
+
+        for(const string &param: params) {
+            if(param.length() <= 2)
+                continue;
+            uint16_t cmd = toCode(param[0], param[1]);
+            if (toCode('T', 'R') == cmd)
+                result = "TTH:" + param.substr(2);
+            else if (toCode('A', 'N') == cmd)
+                result += param.substr(2) + ' ';
+        }
+        return result;
+    }());
 }
 
 

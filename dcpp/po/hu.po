@@ -4,14 +4,15 @@
 #
 # Translators:
 # Translators:
-# Márk Lutring <marcus@elitemail.hu>, 2012-2013
+# Translators:
+# Márk Lutring <marcus@elitemail.hu>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-01-11 15:08+0400\n"
-"PO-Revision-Date: 2013-11-19 16:45+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"POT-Creation-Date: 2014-04-01 23:52+0400\n"
+"PO-Revision-Date: 2014-02-21 22:59+0000\n"
+"Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -616,41 +617,41 @@ msgstr "A fájl-lista frissítése befejeződött"
 msgid "File list %1% generated"
 msgstr "Fájl-lista %1% létrehozva"
 
-#: ../SettingsManager.cpp:184
+#: ../SettingsManager.cpp:179
 msgid "downloaded from"
 msgstr "letöltve"
 
-#: ../SettingsManager.cpp:520
+#: ../SettingsManager.cpp:515
 msgid "Invalid search type name"
 msgstr "Érvénytelen keresési feltétel"
 
-#: ../SettingsManager.cpp:524 ../SettingsManager.cpp:546
+#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
 msgid "This search type already exists"
 msgstr "A megadott keresési feltétel már létezik"
 
-#: ../SettingsManager.cpp:578
+#: ../SettingsManager.cpp:573
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:614
 msgid "Error: setting not found!"
 msgstr "Hiba: Beállítás nem található!"
 
-#: ../SettingsManager.cpp:621
+#: ../SettingsManager.cpp:616
 msgid "Core setting "
-msgstr ""
+msgstr "Alapbeállítás"
 
-#: ../SettingsManager.cpp:622
+#: ../SettingsManager.cpp:617
 msgid "Change core setting "
 msgstr "Alapbeállítás megváltoztatása: "
 
-#: ../SettingsManager.cpp:622
+#: ../SettingsManager.cpp:617
 msgid " to "
-msgstr ""
+msgstr "erre:"
 
-#: ../SettingsManager.cpp:624
+#: ../SettingsManager.cpp:619
 msgid "Error: segv parser :D"
-msgstr ""
+msgstr "Hiba: segv-elemző :D"
 
 #: ../Socket.cpp:86
 #, c-format

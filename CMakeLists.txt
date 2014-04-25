@@ -315,6 +315,7 @@ list (APPEND AllLanguages
             uk
             vi
             zh_CN
+            sv_SE
             )
 if (NOT DEFINED linguas)
   set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)

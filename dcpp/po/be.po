@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-01-11 15:08+0400\n"
+"POT-Creation-Date: 2014-04-01 23:52+0400\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -298,7 +298,7 @@ msgstr "%1% — супала файлаў: %2%"
 
 #: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
+msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
 
 #: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
@@ -362,7 +362,7 @@ msgstr "Злучэньне аднавілі"
 
 #: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"
-msgstr "Памылка злучэньня: %1%"
+msgstr "Памылка злучэньня: %1%"
 
 #: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
 #: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
@@ -473,7 +473,7 @@ msgstr "Няма даступных шчылінаў"
 
 #: ../DownloadManager.cpp:496
 msgid "%1%: File not available"
-msgstr "%1%: файл недаступны"
+msgstr "%1%: файл недаступны"
 
 #: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
 msgid "Invalid data"
@@ -601,39 +601,39 @@ msgstr "Сьпіс файлаў абнавілі"
 msgid "File list %1% generated"
 msgstr "Стварылі сьпіс файлаў %1%"
 
-#: ../SettingsManager.cpp:184
+#: ../SettingsManager.cpp:179
 msgid "downloaded from"
 msgstr "сьцягнулі з"
 
-#: ../SettingsManager.cpp:520
+#: ../SettingsManager.cpp:515
 msgid "Invalid search type name"
 msgstr "Хібная назва віду пошуку"
 
-#: ../SettingsManager.cpp:524 ../SettingsManager.cpp:546
+#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
 msgid "This search type already exists"
 msgstr "Гэты від пошуку ўжо існуе"
 
-#: ../SettingsManager.cpp:578
+#: ../SettingsManager.cpp:573
 msgid "No such search type"
 msgstr "Такі від пошуку не існуе"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:614
 msgid "Error: setting not found!"
 msgstr "Памылка: не знайшлі налады!"
 
-#: ../SettingsManager.cpp:621
+#: ../SettingsManager.cpp:616
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:622
+#: ../SettingsManager.cpp:617
 msgid "Change core setting "
 msgstr "Зьмяніць наладу асновы "
 
-#: ../SettingsManager.cpp:622
+#: ../SettingsManager.cpp:617
 msgid " to "
 msgstr " да "
 
-#: ../SettingsManager.cpp:624
+#: ../SettingsManager.cpp:619
 msgid "Error: segv parser :D"
 msgstr ""
 

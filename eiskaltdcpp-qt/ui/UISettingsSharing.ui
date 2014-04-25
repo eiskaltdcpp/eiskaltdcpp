@@ -508,7 +508,7 @@ the granted slot will not be closed.</string>
           <widget class="QSpinBox" name="spinBox_MAXHASHSPEED">
            <property name="toolTip">
             <string>You can limit maximum hash speed here
-if your system becomes slow while hasing files.</string>
+if your system becomes slow while hashing files.</string>
            </property>
           </widget>
          </item>
