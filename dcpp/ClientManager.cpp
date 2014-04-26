@@ -574,18 +574,10 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
     }
 }
 
-void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const CID& from) noexcept {
+void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const OnlineUser& from) noexcept {
     bool isUdpActive = false;
-    {
-        Lock l(cs);
+    isUdpActive = from.getIdentity().isUdpActive();
 
-        auto i = onlineUsers.find(from);
-        if(i != onlineUsers.end()) {
-            OnlineUser& u = *i->second;
-            isUdpActive = u.getIdentity().isUdpActive();
-        }
-
-    }
     SearchManager::getInstance()->respond(adc, from, isUdpActive, c->getIpPort());
 
     Speaker<ClientManagerListener>::fire(ClientManagerListener::IncomingSearch(), [&adc]() -> string

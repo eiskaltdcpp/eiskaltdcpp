@@ -448,14 +448,11 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
 
 }
 
-void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpActive, const string& hubIpPort) {
+void SearchManager::respond(const AdcCommand& adc, const OnlineUser& from,  bool isUdpActive, const string& hubIpPort) {
     // Filter own searches
-    if(from == ClientManager::getInstance()->getMe()->getCID())
+    if(from.getUser()->getCID() == ClientManager::getInstance()->getMe()->getCID()) {
         return;
-
-    UserPtr p = ClientManager::getInstance()->findUser(from);
-    if(!p)
-        return;
+    }
 
     SearchResultList results;
     ShareManager::getInstance()->search(results, adc.getParameters(), isUdpActive ? 10 : 5);
@@ -479,7 +476,7 @@ void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpA
         }
 
         AdcCommand cmd = toPSR(true, Util::emptyString, hubIpPort, tth, partialInfo);
-        ClientManager::getInstance()->send(cmd, from);
+        ClientManager::getInstance()->send(cmd, from.getUser()->getCID());
         return;
     }
 
@@ -487,7 +484,7 @@ void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpA
         AdcCommand cmd = i->toRES(AdcCommand::TYPE_UDP);
         if(!token.empty())
             cmd.addParam("TO", token);
-        ClientManager::getInstance()->send(cmd, from);
+        ClientManager::getInstance()->send(cmd, from.getUser()->getCID());
     }
 }
 

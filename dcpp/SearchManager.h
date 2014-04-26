@@ -72,7 +72,7 @@ public:
         return search(who, aName, Util::toInt64(aSize), aTypeMode, aSizeMode, aToken, aExtList, aOwner);
     }
 
-    void respond(const AdcCommand& cmd, const CID& cid,  bool isUdpActive, const string& hubIpPort);
+    void respond(const AdcCommand& cmd, const OnlineUser& from,  bool isUdpActive, const string& hubIpPort);
 
     const string& getPort() const { return port; }
 
