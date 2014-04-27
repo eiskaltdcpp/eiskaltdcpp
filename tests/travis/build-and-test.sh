@@ -119,5 +119,11 @@ cmake ${CMAKEOPTS} \
 make VERBOSE=1
 sudo make install
 
-du -shc /usr/bin/eiskaltdcpp-* /usr/lib*/libeiskaltdcpp.so* /usr/share/eiskaltdcpp/*
+
+du -shc /usr/bin/eiskaltdcpp-*
+du -shc /usr/lib*/libeiskaltdcpp.so*
+
+if [ -z "${USE_DAEMON}" ]; then
+    du -shc /usr/share/eiskaltdcpp/*
+fi
 

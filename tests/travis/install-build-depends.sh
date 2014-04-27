@@ -18,8 +18,9 @@ if [ "${USE_QT}" = "qt4" ]; then
     fi
 elif [ "${USE_QT}" = "qt5" ]; then
     sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa
+    sudo add-apt-repository -y ppa:kalakris/cmake
     sudo apt-get update -qq
-    sudo apt-get install libqt5-dev
+    sudo apt-get install libqt5-dev cmake
     if [ "${CONFIG}" = "full" ]; then
         sudo apt-get install -qq libaspell-dev
     fi
@@ -28,12 +29,12 @@ fi
 if [ "${USE_GTK}" = "gtk2" ]; then
     sudo apt-get install -qq libgtk2.0-dev
     if [ "${CONFIG}" = "full" ]; then
-        sudo apt-get install -qq libnotify-dev
+        sudo apt-get install -qq libnotify-dev libcanberra-gtk-dev
     fi
 elif [ "${USE_GTK}" = "gtk3" ]; then
     sudo apt-get install libgtk-3-dev
     if [ "${CONFIG}" = "full" ]; then
-        sudo apt-get install -qq libnotify-dev
+        sudo apt-get install -qq libnotify-dev libcanberra-gtk3-dev
     fi
 fi
 
