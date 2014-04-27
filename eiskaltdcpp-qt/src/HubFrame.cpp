@@ -3877,7 +3877,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         map["CLR"] = color;
         map["3RD"] = third;
         map["CID"] = _q(id.toBase32());
-        map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp());
+        map["I4"]  = _q(message.from->getIdentity().getIp());
 
         if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
             emit coreMessage(map);
