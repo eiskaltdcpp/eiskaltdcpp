@@ -3898,7 +3898,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             params["userCID"] = id.toBase32();
             params["userNI"] = user->getIdentity().getNick();
             params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
-            params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp();
+            params["userI4"] = message.from->getIdentity().getIp();
             LOG(LogManager::PM, params);
         }
     }
