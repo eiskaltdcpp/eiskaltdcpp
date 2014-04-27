@@ -18,7 +18,6 @@ if [ "${USE_QT}" = "qt4" ]; then
     fi
 elif [ "${USE_QT}" = "qt5" ]; then
     sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa
-    sudo add-apt-repository -y ppa:kalakris/cmake
     sudo apt-get update -qq
     sudo apt-get install -qq libqt5-dev cmake
     sudo apt-get dist-upgrade -qq
