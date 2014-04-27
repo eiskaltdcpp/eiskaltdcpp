@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x
+
 sudo apt-get update -qq
 
 # Common build dependencies:

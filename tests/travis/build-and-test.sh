@@ -1,6 +1,8 @@
 #!/bin/sh
 
-export CXXFLAGS="-O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2" 
+set -x
+
+export CXXFLAGS="-O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2"
 export LDFLAGS="-Wl,-z,relro -Wl,--as-needed"
 
 mkdir -p builddir
@@ -8,9 +10,9 @@ cd builddir
 
 CMAKEOPTS="..
            -DCMAKE_INSTALL_PREFIX=/usr
-           -DCMAKE_CXX_FLAGS=\"${CXXFLAGS}\"
-           -DCMAKE_SHARED_LINKER_FLAGS=\"${LDFLAGS}\"
-           -DCMAKE_EXE_LINKER_FLAGS=\"${LDFLAGS}\"
+           -DCMAKE_CXX_FLAGS=${CXXFLAGS}
+           -DCMAKE_SHARED_LINKER_FLAGS=${LDFLAGS}
+           -DCMAKE_EXE_LINKER_FLAGS=${LDFLAGS}
            -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 
 if [ "${CONFIG}" = "full" ]; then
