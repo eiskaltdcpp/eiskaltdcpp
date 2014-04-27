@@ -47,7 +47,7 @@
 #include <QRegExp>
 #include <QProcess>
 
-#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
 #endif
 
@@ -744,27 +744,27 @@ bool WulforUtil::openUrl(const QString &url){
     else if (url.startsWith("magnet:")){
         const QString magnet = url;
 
-        #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
         QUrlQuery u;
-        #else
+#else
         QUrl u;
-        #endif
+#endif
 
         if (!magnet.contains("+")) {
-            #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
                 u.setQuery(magnet.toLatin1());
-            #else
+#else
                 u.setEncodedUrl(magnet.toLatin1());
-            #endif
+#endif
         } else {
             QString _l = magnet;
 
             _l.replace("+", "%20");
-            #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
                 u.setQuery(_l.toLatin1());
-            #else
+#else
                 u.setEncodedUrl(_l.toLatin1());
-            #endif
+#endif
         }
 
         if (u.hasQueryItem("kt")) {

@@ -10,7 +10,7 @@
 #include "FileBrowserModel.h"
 #include "WulforUtil.h"
 
-#ifdef USE_QT5
+#if QT_VERSION >= 0x050000
 #include <QtWidgets>
 #else
 #include <QtGui>

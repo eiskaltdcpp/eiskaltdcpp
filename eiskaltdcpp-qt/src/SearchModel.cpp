@@ -6,7 +6,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifdef USE_QT5
+#if QT_VERSION >= 0x050000
 #include <QtWidgets>
 #else
 #include <QtGui>
