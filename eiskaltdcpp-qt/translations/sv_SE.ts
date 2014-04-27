@@ -140,7 +140,7 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="162"/>
         <source>%1: Moving user to BLACK.</source>
-        <translation>%1: Flyttar användaren till BLACK.</translation>
+        <translation>%1: Flyttar användaren till SVART.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
@@ -783,7 +783,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Check sum</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollsumma</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
@@ -1002,7 +1002,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="529"/>
         <source>Invalid keywords</source>
-        <translation type="unfinished"/>
+        <translation>Ogiltiga nyckelord</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="731"/>
