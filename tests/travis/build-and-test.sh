@@ -10,9 +10,6 @@ cd builddir
 
 CMAKEOPTS="..
            -DCMAKE_INSTALL_PREFIX=/usr
-           -DCMAKE_CXX_FLAGS='${CXXFLAGS}'
-           -DCMAKE_SHARED_LINKER_FLAGS='${LDFLAGS}'
-           -DCMAKE_EXE_LINKER_FLAGS='${LDFLAGS}'
            -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 
 if [ "${CONFIG}" = "full" ]; then
@@ -115,7 +112,10 @@ if [ ! -z "${USE_CLI}" ]; then
 fi
 
 
-cmake ${CMAKEOPTS}
+cmake ${CMAKEOPTS} \
+      -DCMAKE_CXX_FLAGS="${CXXFLAGS}" \
+      -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS}" \
+      -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS}"
 make VERBOSE=1
 sudo make install
 
