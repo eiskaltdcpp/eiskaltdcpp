@@ -59,7 +59,7 @@
 #include <QShortcut>
 #include <QHeaderView>
 
-#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
 #endif
 
@@ -509,27 +509,27 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 if (linktype == "magnet:"){
                     QString magnet = link;
 
-                    #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
                     QUrlQuery u;
-                    #else
+#else
                     QUrl u;
-                    #endif
+#endif
 
                     if (!magnet.contains("+")) {
-                    #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
                         u.setQuery(magnet.toLatin1());
-                    #else
+#else
                         u.setEncodedUrl(magnet.toLatin1());
-                    #endif
+#endif
                     } else {
                         QString _l = magnet;
 
                         _l.replace("+", "%20");
-                        #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
                             u.setQuery(_l.toLatin1());
-                        #else
+#else
                             u.setEncodedUrl(_l.toLatin1());
-                        #endif
+#endif
                     }
                     if (u.hasQueryItem("kt")) {
                         QString keywords = u.queryItemValue("kt");
@@ -543,15 +543,15 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                             keywords = tr("Invalid keywords");
 
                         if (!hub.isEmpty())
-                        #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
                             toshow = keywords.toHtmlEscaped() + " (" + hub.toHtmlEscaped() + ")";
                         else
                             toshow = keywords.toHtmlEscaped();
-                        #else
+#else
                             toshow = Qt::escape(keywords) + " (" + Qt::escape(hub) + ")";
                         else
                             toshow = Qt::escape(keywords);
-                        #endif
+#endif
                     }
                     else {
                         QString name, tth;
@@ -677,11 +677,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                         link.remove(0, 1);
 
                     if (!title.isEmpty()){
-                        #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION >= 0x050000
                             output += "<a href=\"" + link + "\" title=\"" + title.toHtmlEscaped() + "\">" + title.toHtmlEscaped() + "</a>";
-                        #else
+#else
                             output += "<a href=\"" + link + "\" title=\"" + Qt::escape(title) + "\">" + Qt::escape(title) + "</a>";
-                        #endif
+#endif
 
                         input.remove(0, chunk.length());
                     }

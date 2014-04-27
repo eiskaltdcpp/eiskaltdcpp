@@ -18,7 +18,6 @@ elseif (USE_QT5)
     find_package (Qt5LinguistTools 5.0.2 REQUIRED)
     find_package (Qt5Multimedia    5.0.2 REQUIRED)
     find_package (Qt5Concurrent    5.0.2 REQUIRED)
-    add_definitions(-DUSE_QT5)
 endif ()
 
 set (QT_USE_QTNETWORK 1)

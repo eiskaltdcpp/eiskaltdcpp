@@ -108,7 +108,7 @@ bool dockClickHandler(id self,SEL _cmd,...)
 
 int main(int argc, char *argv[])
 {
-#ifndef USE_QT5
+#if QT_VERSION < 0x050000
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 #endif
     setlocale(LC_ALL, "");
@@ -139,7 +139,7 @@ int main(int argc, char *argv[])
     dcpp::TimerManager::getInstance()->start();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
-#ifndef USE_QT5
+#if QT_VERSION < 0x050000
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 #endif
     app.setOrganizationName("EiskaltDC++ Team");
