@@ -2,8 +2,6 @@
 
 set -x
 
-dpkg -l | grep qt5 | grep dev
-
 export CXXFLAGS="-O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2"
 export LDFLAGS="-Wl,-z,relro -Wl,--as-needed"
 
