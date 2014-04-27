@@ -10,9 +10,9 @@ cd builddir
 
 CMAKEOPTS="..
            -DCMAKE_INSTALL_PREFIX=/usr
-           -DCMAKE_CXX_FLAGS=${CXXFLAGS}
-           -DCMAKE_SHARED_LINKER_FLAGS=${LDFLAGS}
-           -DCMAKE_EXE_LINKER_FLAGS=${LDFLAGS}
+           -DCMAKE_CXX_FLAGS='${CXXFLAGS}'
+           -DCMAKE_SHARED_LINKER_FLAGS='${LDFLAGS}'
+           -DCMAKE_EXE_LINKER_FLAGS='${LDFLAGS}'
            -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 
 if [ "${CONFIG}" = "full" ]; then
