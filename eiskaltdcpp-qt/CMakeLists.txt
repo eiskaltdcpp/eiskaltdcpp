@@ -82,10 +82,6 @@ else (USE_QT_SQLITE)
     message (STATUS "Building without Qt SQLite support")
 endif (USE_QT_SQLITE)
 
-if (USE_QT AND NOT USE_QT5)
-    include (${QT_USE_FILE})
-endif ()
-
 if (WITH_DHT)
     add_definitions ( -DWITH_DHT )
 endif (WITH_DHT)
@@ -228,6 +224,7 @@ EXECUTE_PROCESS (
   )
 
 if (USE_QT)
+    include (${QT_USE_FILE})
     include_directories (${QT_INCLUDES})
     list (APPEND LIBS ${QT_LIBRARIES})
 elseif (USE_QT5)
