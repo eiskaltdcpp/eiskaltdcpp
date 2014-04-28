@@ -4,6 +4,9 @@ set -x
 
 export CXXFLAGS="$(dpkg-buildflags --get CXXFLAGS) $(dpkg-buildflags --get CPPFLAGS)"
 export LDFLAGS="$(dpkg-buildflags --get LDFLAGS) -Wl,--as-needed"
+if [ "${USE_QT}" = "qt5" ]; then
+    CXXFLAGS="${CXXFLAGS} -fPIC"
+fi
 
 mkdir -p builddir
 cd builddir
