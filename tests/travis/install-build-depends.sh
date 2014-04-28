@@ -19,7 +19,7 @@ if [ "${USE_QT}" = "qt4" ]; then
 elif [ "${USE_QT}" = "qt5" ]; then
     sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa
     sudo apt-get update -qq
-    sudo apt-get install -qq qtbase5-dev qttools5-dev qtmultimedia5-dev qtquick1-5-dev qtscript5-dev cmake
+    sudo apt-get install -qq qtbase5-dev qttools5-dev qtmultimedia5-dev qtquick1-5-dev qtscript5-dev qt5-default cmake
     sudo apt-get dist-upgrade -qq
     if [ "${CONFIG}" = "full" ]; then
         sudo apt-get install -qq libaspell-dev
