@@ -80,9 +80,9 @@ Build Depends
 --------
 :common:
 --------
-gcc (>= 4.6.0) or clang (>= 3.1)
+gcc (>= 4.6.0) or clang (>= 3.2)
 iconv (libc on GNU/Linux)
-cmake (>= 2.6.3)
+cmake (>= 2.6.3) or cmake (>= 2.8.8) [for build with Qt5]
 pkg-config
 bzip2
 zlib
