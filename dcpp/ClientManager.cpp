@@ -256,14 +256,15 @@ HintedUser ClientManager::findLegacyUser(const string& nick) const noexcept {
     for(auto i: clients) {
         auto nmdc = dynamic_cast<NmdcHub*>(i);
         if(nmdc) {
-        /** @todo run the search directly on non-UTF-8 nicks when we store them. */
+            /** @todo run the search directly on non-UTF-8 nicks when we store them. */
             auto ou = nmdc->findUser(nmdc->toUtf8(nick));
             if(ou) {
                 return HintedUser(*ou);
             }
         }
-        return HintedUser();
     }
+
+    return HintedUser();
 }
 
 UserPtr ClientManager::getUser(const string& aNick, const string& aHubUrl) noexcept {
