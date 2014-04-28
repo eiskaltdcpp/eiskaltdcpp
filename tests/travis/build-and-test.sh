@@ -2,8 +2,8 @@
 
 set -x
 
-export CXXFLAGS="-O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2"
-export LDFLAGS="-Wl,-z,relro -Wl,--as-needed"
+export CXXFLAGS="$(dpkg-buildflags --get CXXFLAGS) $(dpkg-buildflags --get CPPFLAGS)"
+export LDFLAGS="$(dpkg-buildflags --get LDFLAGS) -Wl,--as-needed"
 
 mkdir -p builddir
 cd builddir
