@@ -251,6 +251,7 @@ string ClientManager::findHubEncoding(const string& aUrl) const {
 HintedUser ClientManager::findLegacyUser(const string& nick) const noexcept {
     if(nick.empty())
         return HintedUser();
+
     Lock l(cs);
 
     for(auto i: clients) {
