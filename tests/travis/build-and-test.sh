@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Author:  Boris Pek
+# Version: N/A
+# License: Public Domain
+
 set -x
 
 export CXXFLAGS="$(dpkg-buildflags --get CXXFLAGS) $(dpkg-buildflags --get CPPFLAGS)"
