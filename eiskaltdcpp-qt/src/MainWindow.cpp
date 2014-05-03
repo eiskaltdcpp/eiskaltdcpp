@@ -2103,6 +2103,12 @@ void MainWindow::slotFileOpenLogFile(){
 void MainWindow::slotFileOpenDownloadDirectory(){
     QString directory = QString::fromStdString(SETTING(DOWNLOAD_DIRECTORY));
 
+#ifdef Q_OS_WIN
+    if (directory == "\\" || directory == "\" ) {
+            directory = QDir::toNativeSeparators(qApp->applicationDirPath() + directory);
+    }
+#endif
+
     directory.prepend( directory.startsWith("/")? ("file://") : ("file:///"));
 
     QDesktopServices::openUrl(QUrl::fromEncoded(directory.toUtf8()));
