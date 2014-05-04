@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-02-21 02:29+0400\n"
-"PO-Revision-Date: 2014-04-29 19:29+0000\n"
+"PO-Revision-Date: 2014-05-04 18:53+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -3664,7 +3664,7 @@ msgstr "Använd SOCKS5-server för att ta reda på värdnamnet"
 
 #: ../src/settingsdialog.cc:1724
 msgid "Use TLS when remote client supports it"
-msgstr ""
+msgstr "Använd TLS om fjärrklienten har stöd för det"
 
 #: ../ui/settingsdialog.ui:1299
 msgid "Use UPnP to let client configure my router"
@@ -3672,7 +3672,7 @@ msgstr "Använd UPnP för att låta klienten ställa in min routern"
 
 #: ../ui/settingsdialog.ui:1897
 msgid "Use bandwidth limits"
-msgstr ""
+msgstr "Använd bredbandsbegränsning"
 
 #: ../src/settingsdialog.cc:1121
 msgid "Use blinking status icon"
