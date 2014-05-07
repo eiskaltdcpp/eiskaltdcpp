@@ -1,4 +1,4 @@
---- 2.3.0 2013-xx-xx ---
+--- 2.3.0 2014-xx-xx ---
 *** common changes ***
 * GCC < 4.6 and Clang < 3.1 are not supported anymore.
 * Added option (ShareSkipZeroByte) for skipping zero sized files from share.
@@ -6,6 +6,8 @@
 * Fixed finding of Lua 5.2.x during configuration.
 * The local copy of miniupnpc is updated to version 1.8. Build with old
   miniupnpc versions (1.5.x, 1.6.x and 1.7.x) is still supported.
+* Prevent crashes when receiving malicious search requests on NMDC hubs.
+  [Thanks to Pavel Pimenov]
 *** eiskaltdcpp-qt ***
 * Added some options in settings dialog: SHARE_SKIP_ZERO_BYTE
 *** eiskaltdcpp-gtk ***
