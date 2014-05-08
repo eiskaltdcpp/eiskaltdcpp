@@ -40,6 +40,7 @@
 #include <QKeyEvent>
 #include <QInputDialog>
 #include <QDesktopServices>
+#include <QDateTime>
 
 #if QT_VERSION >= 0x050000
 #include <QtConcurrent>
@@ -393,6 +394,13 @@ void ShareBrowser::load(){
     treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toLatin1()));
     treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toLatin1()));
 
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TTH);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_BR);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_WH);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MVIDEO);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MAUDIO);
+
     treeView_LPANE->setSortingEnabled(true);
     treeView_RPANE->setSortingEnabled(true);
 
@@ -595,7 +603,9 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
              << file->mediaInfo.bitrate
              << _q(file->mediaInfo.resolution)
              << _q(file->mediaInfo.video_info)
-             << _q(file->mediaInfo.audio_info);
+             << _q(file->mediaInfo.audio_info)
+             << (quint64)file->getHit()
+             << QDateTime::fromTime_t(file->getTS()).toString("yyyy-MM-dd hh:mm");
 
         child = new FileBrowserItem(data, list_root);
         child->file = file;
