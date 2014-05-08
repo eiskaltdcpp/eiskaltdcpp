@@ -400,6 +400,8 @@ void ShareBrowser::load(){
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_WH);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MVIDEO);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MAUDIO);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_HIT);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TS);
 
     treeView_LPANE->setSortingEnabled(true);
     treeView_RPANE->setSortingEnabled(true);
