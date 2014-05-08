@@ -34,17 +34,14 @@ using namespace dcpp;
 
 #include <set>
 
-#define NUM_OF_COLUMNS COLUMN_FILEBROWSER_TS+1
-
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i);
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
     : QAbstractItemModel(parent), listing(NULL), iconsScaled(false), restrictionsLoaded(false), ownList(false)
 {
     QList<QVariant> initList; int it = 0;
-    while (it < NUM_OF_COLUMNS) {
-        initList.append(QString());
-        ++it;
+    while (it < COLUMN_LAST) {
+        initList.append(QString()); ++it;
     }
     rootItem = new FileBrowserItem(initList, NULL);
 
@@ -190,15 +187,15 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
                 if (!f->mediaInfo.video_info.empty() || !f->mediaInfo.audio_info.empty()){
                     MediaInfo &mi = f->mediaInfo;
 
-                    tooltip = QString("<b>Media Info:</b><br/>");
+                    tooltip = tr("<b>Media Info:</b><br/>");
                     if (!f->mediaInfo.video_info.empty())
-                        tooltip += QString("&nbsp;&nbsp;<b>Video:</b> %1<br/>").arg(_q(mi.video_info));
+                        tooltip += tr("&nbsp;&nbsp;<b>Video:</b> %1<br/>").arg(_q(mi.video_info));
                     if (!f->mediaInfo.audio_info.empty())
-                        tooltip += QString("&nbsp;&nbsp;<b>Audio:</b> %2<br/>").arg(_q(mi.audio_info));
+                        tooltip += tr("&nbsp;&nbsp;<b>Audio:</b> %2<br/>").arg(_q(mi.audio_info));
                     if (f->mediaInfo.bitrate > 0)
-                        tooltip += QString("&nbsp;&nbsp;<b>Bitrate:</b> %3<br/>").arg(mi.bitrate);
+                        tooltip += tr("&nbsp;&nbsp;<b>Bitrate:</b> %3<br/>").arg(mi.bitrate);
                     if (!f->mediaInfo.resolution.empty())
-                        tooltip += QString("&nbsp;&nbsp;<b>Resolution:</b> %4<br/><br/>").arg(_q(mi.resolution));
+                        tooltip += tr("&nbsp;&nbsp;<b>Resolution:</b> %4<br/><br/>").arg(_q(mi.resolution));
                 }
             }
 
@@ -243,14 +240,14 @@ struct Compare {
     typedef bool (*AttrComp)(const FileBrowserItem * l, const FileBrowserItem * r);
     
     void static sort(unsigned  column, QList<FileBrowserItem*>& items) {
-        if (column > NUM_OF_COLUMNS-1)
+        if (column > COLUMN_LAST-1)
             return;
         
         qStableSort(items.begin(), items.end(), attrs[column] );
     }
 
     void static insertSorted(unsigned column, QList<FileBrowserItem*>& items, FileBrowserItem* item) {
-        if (column > NUM_OF_COLUMNS-1)
+        if (column > COLUMN_LAST-1)
             return;
         
         auto it = qLowerBound(items.begin(), 
@@ -280,11 +277,11 @@ struct Compare {
         template <typename T>
         bool static Cmp(const T& l, const T& r);
         
-        static AttrComp attrs[NUM_OF_COLUMNS];
+        static AttrComp attrs[COLUMN_LAST];
 };
 
 template <Qt::SortOrder order>
-typename Compare<order>::AttrComp Compare<order>::attrs[NUM_OF_COLUMNS] = {  AttrCmp<COLUMN_FILEBROWSER_NAME>,
+typename Compare<order>::AttrComp Compare<order>::attrs[COLUMN_LAST] = {  AttrCmp<COLUMN_FILEBROWSER_NAME>,
                                                                 NumCmp<COLUMN_FILEBROWSER_ESIZE>,
                                                                 NumCmp<COLUMN_FILEBROWSER_ESIZE>,
                                                                 AttrCmp<COLUMN_FILEBROWSER_TTH>,
