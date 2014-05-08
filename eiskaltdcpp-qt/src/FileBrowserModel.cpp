@@ -34,14 +34,16 @@ using namespace dcpp;
 
 #include <set>
 
-#define NUM_OF_COLUMNS 8
-
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i);
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
     : QAbstractItemModel(parent), listing(NULL), iconsScaled(false), restrictionsLoaded(false), ownList(false)
 {
-    rootItem = new FileBrowserItem(QList<QVariant>() << tr("") << tr("") << tr("") << tr("") << tr("") << tr("") << tr("") << tr(""), NULL);
+    QList<QVariant> rootItemCulumns;
+    for (int k = 0; k < NUM_OF_COLUMNS; ++k)
+        rootItemCulumns << QString();
+
+    rootItem = new FileBrowserItem(rootItemCulumns, NULL);
 
     sortColumn = COLUMN_FILEBROWSER_NAME;
     sortOrder = Qt::DescendingOrder;
