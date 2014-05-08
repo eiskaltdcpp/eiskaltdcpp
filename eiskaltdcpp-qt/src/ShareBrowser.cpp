@@ -302,6 +302,10 @@ void ShareBrowser::init(){
     treeView_LPANE->setModel(tree_model);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TTH);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_BR);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_WH);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MVIDEO);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MAUDIO);
     treeView_LPANE->setExpanded(tree_model->index(0, 0), true);
     treeView_LPANE->setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -587,7 +591,11 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         data << _q(file->getName())
              << WulforUtil::formatBytes(size)
              << size
-             << _q(file->getTTH().toBase32());
+             << _q(file->getTTH().toBase32())
+             << file->mediaInfo.bitrate
+             << _q(file->mediaInfo.resolution)
+             << _q(file->mediaInfo.video_info)
+             << _q(file->mediaInfo.audio_info);
 
         child = new FileBrowserItem(data, list_root);
         child->file = file;
