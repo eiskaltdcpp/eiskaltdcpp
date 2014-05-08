@@ -20,7 +20,6 @@
 #include "dcpp/User.h"
 #include "dcpp/DirectoryListing.h"
 
-// Сolumns:
 enum  {
     COLUMN_FILEBROWSER_NAME = 0,
     COLUMN_FILEBROWSER_SIZE,
@@ -29,12 +28,9 @@ enum  {
     COLUMN_FILEBROWSER_BR,
     COLUMN_FILEBROWSER_WH,
     COLUMN_FILEBROWSER_MVIDEO,
-    COLUMN_FILEBROWSER_MAUDIO
+    COLUMN_FILEBROWSER_MAUDIO,
+    NUM_OF_COLUMNS // total number of columns
 };
-
-// The number of columns:
-static const unsigned NUM_OF_COLUMNS = COLUMN_FILEBROWSER_MAUDIO + 1;
-
 
 class FileBrowserItem
 {
