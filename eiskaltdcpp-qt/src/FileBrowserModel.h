@@ -20,15 +20,18 @@
 #include "dcpp/User.h"
 #include "dcpp/DirectoryListing.h"
 
-static const unsigned COLUMN_FILEBROWSER_NAME   = 0;
-static const unsigned COLUMN_FILEBROWSER_SIZE   = 1;
-static const unsigned COLUMN_FILEBROWSER_ESIZE  = 2;
-static const unsigned COLUMN_FILEBROWSER_TTH    = 3;
-static const unsigned COLUMN_FILEBROWSER_BR    = 4;
-static const unsigned COLUMN_FILEBROWSER_WH    = 5;
-static const unsigned COLUMN_FILEBROWSER_MVIDEO    = 6;
-static const unsigned COLUMN_FILEBROWSER_MAUDIO    = 7;
-
+enum {
+    COLUMN_FILEBROWSER_NAME = 0,
+    COLUMN_FILEBROWSER_SIZE,
+    COLUMN_FILEBROWSER_ESIZE,
+    COLUMN_FILEBROWSER_TTH,
+    COLUMN_FILEBROWSER_BR,
+    COLUMN_FILEBROWSER_WH,
+    COLUMN_FILEBROWSER_MVIDEO,
+    COLUMN_FILEBROWSER_MAUDIO,
+    COLUMN_FILEBROWSER_HIT,
+    COLUMN_FILEBROWSER_TS
+};
 
 class FileBrowserItem
 {

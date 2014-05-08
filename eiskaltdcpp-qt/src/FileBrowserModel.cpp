@@ -34,14 +34,19 @@ using namespace dcpp;
 
 #include <set>
 
-#define NUM_OF_COLUMNS 8
+#define NUM_OF_COLUMNS COLUMN_FILEBROWSER_TS+1
 
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i);
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
     : QAbstractItemModel(parent), listing(NULL), iconsScaled(false), restrictionsLoaded(false), ownList(false)
 {
-    rootItem = new FileBrowserItem(QList<QVariant>() << tr("") << tr("") << tr("") << tr("") << tr("") << tr("") << tr("") << tr(""), NULL);
+    QList<QVariant> initList; int it = 0;
+    while (it < NUM_OF_COLUMNS) {
+        initList.append(QString());
+        ++it;
+    }
+    rootItem = new FileBrowserItem(initList, NULL);
 
     sortColumn = COLUMN_FILEBROWSER_NAME;
     sortOrder = Qt::DescendingOrder;
@@ -184,14 +189,16 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
                 
                 if (!f->mediaInfo.video_info.empty() || !f->mediaInfo.audio_info.empty()){
                     MediaInfo &mi = f->mediaInfo;
-                    
-                    tooltip = QString("<b>Media Info:</b><br/>"
-                                      "&nbsp;&nbsp;<b>Video:</b> %1<br/>"
-                                      "&nbsp;&nbsp;<b>Audio:</b> %2<br/>"
-                                      "&nbsp;&nbsp;<b>Bitrate:</b> %3<br/>"
-                                      "&nbsp;&nbsp;<b>Resolution:</b> %4<br/><br/>")
-                                      .arg(_q(mi.video_info)).arg(_q(mi.audio_info))
-                                      .arg(mi.bitrate).arg(_q(mi.resolution));
+
+                    tooltip = QString("<b>Media Info:</b><br/>");
+                    if (!f->mediaInfo.video_info.empty())
+                        tooltip += QString("&nbsp;&nbsp;<b>Video:</b> %1<br/>").arg(_q(mi.video_info));
+                    if (!f->mediaInfo.audio_info.empty())
+                        tooltip += QString("&nbsp;&nbsp;<b>Audio:</b> %2<br/>").arg(_q(mi.audio_info));
+                    if (f->mediaInfo.bitrate > 0)
+                        tooltip += QString("&nbsp;&nbsp;<b>Bitrate:</b> %3<br/>").arg(mi.bitrate);
+                    if (!f->mediaInfo.resolution.empty())
+                        tooltip += QString("&nbsp;&nbsp;<b>Resolution:</b> %4<br/><br/>").arg(_q(mi.resolution));
                 }
             }
 
@@ -285,6 +292,8 @@ typename Compare<order>::AttrComp Compare<order>::attrs[NUM_OF_COLUMNS] = {  Att
                                                                 AttrCmp<COLUMN_FILEBROWSER_WH>,
                                                                 AttrCmp<COLUMN_FILEBROWSER_MVIDEO>,
                                                                 AttrCmp<COLUMN_FILEBROWSER_MAUDIO>,
+                                                                NumCmp<COLUMN_FILEBROWSER_HIT>,
+                                                                NumCmp<COLUMN_FILEBROWSER_TS>
                                                              };
 
 template <> template <typename T>
@@ -303,7 +312,8 @@ QVariant FileBrowserModel::headerData(int section, Qt::Orientation orientation,
 {
     QList<QVariant> rootData;
     rootData << tr("Name") << tr("Size") << tr("Exact size") << tr("TTH")
-             << tr("Bitrate") << tr("Resolution") << tr("Video") << tr("Audio");
+             << tr("Bitrate") << tr("Resolution") << tr("Video") << tr("Audio")
+             << tr("Downloaded") << tr("Shared");
 
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
         return rootData.at(section);

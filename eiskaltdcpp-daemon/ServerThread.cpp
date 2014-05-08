@@ -1274,6 +1274,8 @@ void ServerThread::lsDirInList(DirectoryListing::Directory *dir, unordered_map<s
         map["Resolution"] = !file->mediaInfo.video_info.empty() ? file->mediaInfo.resolution : Util::emptyString;
         map["Video"] = file->mediaInfo.video_info;
         map["Audio"] = file->mediaInfo.audio_info;
+        map["Downloaded"] = Util::toString(file->getHit());
+        map["Shared"] = Util::formatTime("%Y-%m-%d %H:%M", file->getTS());
         ret[file->getName()] = map;
     }
 }
