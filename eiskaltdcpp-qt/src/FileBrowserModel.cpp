@@ -34,12 +34,14 @@ using namespace dcpp;
 
 #include <set>
 
+#define NUM_OF_COLUMNS 8
+
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i);
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
     : QAbstractItemModel(parent), listing(NULL), iconsScaled(false), restrictionsLoaded(false), ownList(false)
 {
-    rootItem = new FileBrowserItem(QList<QVariant>() << tr("") << tr("") << tr("") << tr(""), NULL);
+    rootItem = new FileBrowserItem(QList<QVariant>() << tr("") << tr("") << tr("") << tr("") << tr("") << tr("") << tr("") << tr(""), NULL);
 
     sortColumn = COLUMN_FILEBROWSER_NAME;
     sortOrder = Qt::DescendingOrder;
@@ -234,14 +236,14 @@ struct Compare {
     typedef bool (*AttrComp)(const FileBrowserItem * l, const FileBrowserItem * r);
     
     void static sort(unsigned  column, QList<FileBrowserItem*>& items) {
-        if (column > COLUMN_FILEBROWSER_TTH)
+        if (column > NUM_OF_COLUMNS-1)
             return;
         
         qStableSort(items.begin(), items.end(), attrs[column] );
     }
 
     void static insertSorted(unsigned column, QList<FileBrowserItem*>& items, FileBrowserItem* item) {
-        if (column > COLUMN_FILEBROWSER_TTH)
+        if (column > NUM_OF_COLUMNS-1)
             return;
         
         auto it = qLowerBound(items.begin(), 
@@ -271,14 +273,18 @@ struct Compare {
         template <typename T>
         bool static Cmp(const T& l, const T& r);
         
-        static AttrComp attrs[4];
+        static AttrComp attrs[NUM_OF_COLUMNS];
 };
 
 template <Qt::SortOrder order>
-typename Compare<order>::AttrComp Compare<order>::attrs[4] = {  AttrCmp<COLUMN_FILEBROWSER_NAME>,
+typename Compare<order>::AttrComp Compare<order>::attrs[NUM_OF_COLUMNS] = {  AttrCmp<COLUMN_FILEBROWSER_NAME>,
                                                                 NumCmp<COLUMN_FILEBROWSER_ESIZE>,
                                                                 NumCmp<COLUMN_FILEBROWSER_ESIZE>,
-                                                                AttrCmp<COLUMN_FILEBROWSER_TTH>
+                                                                AttrCmp<COLUMN_FILEBROWSER_TTH>,
+                                                                NumCmp<COLUMN_FILEBROWSER_BR>,
+                                                                AttrCmp<COLUMN_FILEBROWSER_WH>,
+                                                                AttrCmp<COLUMN_FILEBROWSER_MVIDEO>,
+                                                                AttrCmp<COLUMN_FILEBROWSER_MAUDIO>,
                                                              };
 
 template <> template <typename T>
@@ -296,7 +302,8 @@ QVariant FileBrowserModel::headerData(int section, Qt::Orientation orientation,
                                int role) const
 {
     QList<QVariant> rootData;
-    rootData << tr("Name") << tr("Size") << tr("Exact size") << tr("TTH");
+    rootData << tr("Name") << tr("Size") << tr("Exact size") << tr("TTH")
+             << tr("Bitrate") << tr("Resolution") << tr("Video") << tr("Audio");
 
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
         return rootData.at(section);
