@@ -1161,15 +1161,12 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
             }
         } else if (uc->isRaw() || uc->isChat()) {
             menuPtr = ucMenu;
-            auto _ptr = uc->getDisplayName().begin();
+            auto _begin = uc->getDisplayName().begin();
             auto _end = uc->getDisplayName().end();
-            for(; _ptr != _end; ++_ptr) {
-                const QString name = _q(*_ptr);
-                if (_ptr + 1 == _end) {
-                    QAction *act = menuPtr->addAction(name);
-                    act->setToolTip(_q(uc->getCommand()));
-                    act->setStatusTip(_q(uc->getName()));
-                    act->setData(_q(uc->getHub()));
+            for(; _begin != _end; ++_begin) {
+                const QString name = _q(*_begin);
+                if (_begin + 1 == _end) {
+                    menuPtr->addAction(name)->setData(uc->getId());
                 } else {
                     bool found = false;
                     QListIterator<QAction*> iter(menuPtr->actions());
