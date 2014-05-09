@@ -1,6 +1,6 @@
 project (dht)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${PROJECT_BINARY_DIR})
 
 cmake_minimum_required (VERSION 2.6)
 
