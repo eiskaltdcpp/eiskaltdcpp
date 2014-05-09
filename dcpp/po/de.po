@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-04-01 23:52+0400\n"
+"POT-Creation-Date: 2014-05-09 12:42+0400\n"
 "PO-Revision-Date: 2014-01-13 23:26+0000\n"
 "Last-Translator: Jackl <be.w@mail.ru>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -198,7 +198,7 @@ msgstr "IPFilter: Eingehende Verbindung wurde blockiert zu "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Der Benutzer, dessen Verbindung getrennt wurde, verließ den Hub: %1%"
 
-#: ../DirectoryListing.cpp:206
+#: ../DirectoryListing.cpp:209
 msgid "Directory missing name attribute"
 msgstr "Dem Verzeichnis fehlt das Namensattribut."
 
@@ -331,15 +331,15 @@ msgstr "Benutzer umleiten"
 msgid "Auto-connect group (converted)"
 msgstr "Gruppe automatisch verbinden (umgewandelt)"
 
-#: ../NmdcHub.cpp:288
+#: ../NmdcHub.cpp:289
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nick unbekannt)"
 
-#: ../NmdcHub.cpp:667
+#: ../NmdcHub.cpp:668
 msgid "Hub topic:"
 msgstr "Thema des Hubs:"
 
-#: ../NmdcHub.cpp:1017
+#: ../NmdcHub.cpp:1018
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"

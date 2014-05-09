@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-04-01 23:52+0400\n"
+"POT-Creation-Date: 2014-05-09 12:42+0400\n"
 "PO-Revision-Date: 2014-04-01 19:34+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -50,7 +50,7 @@ msgstr " hozzáadva a kedvencekhez"
 msgid " empty..."
 msgstr " üres..."
 
-#: ../src/sharebrowser.cc:1111 ../src/finishedtransfers.cc:265
+#: ../src/sharebrowser.cc:1118 ../src/finishedtransfers.cc:265
 msgid " files"
 msgstr " fájl"
 
@@ -773,7 +773,7 @@ msgstr "Legalább"
 msgid "At most"
 msgstr "Legfeljebb"
 
-#: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:366
+#: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:370
 msgid "Audio"
 msgstr "Hang"
 
@@ -879,7 +879,7 @@ msgstr "Fehérorosz fordítás\n"
 msgid "Bind address"
 msgstr "Kötési cím"
 
-#: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:363
+#: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:367
 msgid "Bitrate"
 msgstr "Bitráta"
 
@@ -915,7 +915,7 @@ msgstr "Fájl böngészése..."
 msgid "Browse the list of public hubs"
 msgstr "Publikus hublista böngészése"
 
-#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:357
+#: ../src/sharebrowser.cc:539 ../src/sharebrowser.cc:607 ../src/search.cc:357
 #: ../src/search.cc:428 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
 #: ../ui/hub.ui:231 ../ui/settingsdialog.ui:2646 ../ui/settingsdialog.ui:2716
 #: ../ui/settingsdialog.ui:6749 ../ui/settingsdialog.ui:8062
@@ -1289,9 +1289,9 @@ msgstr "Célkönyvtár"
 msgid "Developers"
 msgstr "Fejlesztők\\n"
 
-#: ../src/sharebrowser.cc:112 ../src/sharebrowser.cc:258
-#: ../src/sharebrowser.cc:277 ../src/sharebrowser.cc:616
-#: ../src/sharebrowser.cc:668
+#: ../src/sharebrowser.cc:116 ../src/sharebrowser.cc:262
+#: ../src/sharebrowser.cc:281 ../src/sharebrowser.cc:623
+#: ../src/sharebrowser.cc:675
 msgid "Dir"
 msgstr "Könyvtár"
 
@@ -1303,7 +1303,7 @@ msgstr "Közvetlen kapcsolat"
 #: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1436
 #: ../src/settingsdialog.cc:3754 ../src/settingsdialog.cc:3774
 #: ../src/settingsdialog.cc:3803 ../src/settingsdialog.cc:3817
-#: ../src/settingsdialog.cc:3872 ../src/sharebrowser.cc:330
+#: ../src/settingsdialog.cc:3872 ../src/sharebrowser.cc:334
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
@@ -1354,7 +1354,7 @@ msgstr ""
 msgid "Don't send the away message to bots"
 msgstr "Ne küldjön away üzenetet a botoknak"
 
-#: ../src/sharebrowser.cc:185 ../src/hashdialog.cc:102
+#: ../src/sharebrowser.cc:189 ../src/hashdialog.cc:102
 msgid "Done"
 msgstr "Kész"
 
@@ -1456,6 +1456,7 @@ msgstr "Letöltés: "
 
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:95
 #: ../src/downloadqueue.cc:288 ../src/downloadqueue.cc:395
+#: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:371
 msgid "Downloaded"
 msgstr "Letöltve"
 
@@ -1579,8 +1580,8 @@ msgstr "Minden alkalommal, mikor privát üzenet érkezik"
 
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
 #: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
-#: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:108
-#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:108
+#: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:111
+#: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:363 ../src/search.cc:108
 #: ../src/search.cc:131 ../src/search.cc:659 ../src/search.cc:736
 #: ../src/search.cc:745
 msgid "Exact Size"
@@ -1698,7 +1699,7 @@ msgstr "Fájl"
 msgid "File list"
 msgstr "Fájl-lista"
 
-#: ../src/sharebrowser.cc:177
+#: ../src/sharebrowser.cc:181
 msgid "File list loaded"
 msgstr "Fájl-lista betöltve"
 
@@ -1722,11 +1723,11 @@ msgstr "Fájl-lista menü"
 #: ../src/downloadqueue.cc:97 ../src/downloadqueue.cc:282
 #: ../src/downloadqueue.cc:389 ../src/downloadqueue.cc:755
 #: ../src/downloadqueue.cc:798 ../src/downloadqueue.cc:849
-#: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:104
-#: ../src/sharebrowser.cc:106 ../src/sharebrowser.cc:320
-#: ../src/sharebrowser.cc:350 ../src/sharebrowser.cc:564
-#: ../src/sharebrowser.cc:658 ../src/sharebrowser.cc:1025
-#: ../src/sharebrowser.cc:1059 ../src/finishedtransfers.cc:63
+#: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:107
+#: ../src/sharebrowser.cc:109 ../src/sharebrowser.cc:324
+#: ../src/sharebrowser.cc:354 ../src/sharebrowser.cc:571
+#: ../src/sharebrowser.cc:665 ../src/sharebrowser.cc:1032
+#: ../src/sharebrowser.cc:1066 ../src/finishedtransfers.cc:63
 #: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
 #: ../src/transfers.cc:715 ../src/search.cc:100 ../src/search.cc:133
 #: ../src/search.cc:372 ../src/search.cc:652 ../src/search.cc:693
@@ -1741,7 +1742,7 @@ msgstr "Fájlnév"
 msgid "Files"
 msgstr "Fájlok"
 
-#: ../src/downloadqueue.cc:245 ../src/sharebrowser.cc:382
+#: ../src/downloadqueue.cc:245 ../src/sharebrowser.cc:389
 msgid "Files: "
 msgstr "Fájlok: "
 
@@ -1813,7 +1814,7 @@ msgstr "Betűkészlet kiválasztás"
 msgid "Format"
 msgstr "Formátum"
 
-#: ../src/sharebrowser.cc:680 ../src/sharebrowser.cc:723
+#: ../src/sharebrowser.cc:687 ../src/sharebrowser.cc:730
 msgid "Found a match"
 msgstr "Találat"
 
@@ -2145,11 +2146,11 @@ msgstr "Olasz"
 msgid "Italian translation\n"
 msgstr "Olasz fordítás\n"
 
-#: ../src/downloadqueue.cc:243 ../src/sharebrowser.cc:387
+#: ../src/downloadqueue.cc:243 ../src/sharebrowser.cc:394
 msgid "Items: "
 msgstr "Tétel: "
 
-#: ../src/sharebrowser.cc:392
+#: ../src/sharebrowser.cc:399
 msgid "Items: 0"
 msgstr "Tétel: 0"
 
@@ -2301,7 +2302,7 @@ msgstr "Egyeztetés a letöltésekkel"
 msgid "Match all listings"
 msgstr ""
 
-#: ../src/sharebrowser.cc:1111
+#: ../src/sharebrowser.cc:1118
 msgid "Matched "
 msgstr "Illeszkedik"
 
@@ -2535,7 +2536,7 @@ msgstr "Nincsenek hibák"
 msgid "No grouping"
 msgstr "Ne csoportosítsa"
 
-#: ../src/sharebrowser.cc:692 ../src/sharebrowser.cc:888
+#: ../src/sharebrowser.cc:699 ../src/sharebrowser.cc:895
 msgid "No matches"
 msgstr "Nincsenek találatok"
 
@@ -2543,7 +2544,7 @@ msgstr "Nincsenek találatok"
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
 msgstr "Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)"
 
-#: ../src/sharebrowser.cc:899
+#: ../src/sharebrowser.cc:906
 msgid "No search text entered"
 msgstr "A keresési mező nincs kitöltve"
 
@@ -2679,7 +2680,7 @@ msgstr "PM előzmény"
 msgid "Panels"
 msgstr "Panelek"
 
-#: ../src/sharebrowser.cc:183
+#: ../src/sharebrowser.cc:187
 msgid "Parse and build tree..."
 msgstr ""
 
@@ -2830,7 +2831,7 @@ msgstr "Kilépés"
 msgid "Quit the program"
 msgstr "Kilépés a programból"
 
-#: ../src/wulfor.cc:188
+#: ../src/wulfor.cc:194
 msgid "Quit..."
 msgstr "Kilépés..."
 
@@ -2948,7 +2949,7 @@ msgstr "Kérés"
 msgid "Reset changes"
 msgstr "Változtatások visszaállítása"
 
-#: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:364
+#: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:368
 msgid "Resolution"
 msgstr "Felbontás"
 
@@ -3142,8 +3143,10 @@ msgstr ""
 msgid "Share hidden files"
 msgstr "Rejtett fájlok megosztása"
 
-#: ../src/hub.cc:87 ../src/hub.cc:389 ../src/hub.cc:406 ../src/hub.cc:426
-#: ../src/hub.cc:474 ../src/publichubs.cc:52 ../src/publichubs.cc:164
+#: ../src/sharebrowser.cc:94 ../src/sharebrowser.cc:112
+#: ../src/sharebrowser.cc:372 ../src/hub.cc:87 ../src/hub.cc:389
+#: ../src/hub.cc:406 ../src/hub.cc:426 ../src/hub.cc:474
+#: ../src/publichubs.cc:52 ../src/publichubs.cc:164
 msgid "Shared"
 msgstr "Megosztva"
 
@@ -3230,11 +3233,11 @@ msgstr "Átvitelek mutatása/elrejtése "
 msgid "Show/Hide user list"
 msgstr "Felhasználói lista mutatása/elrejtése"
 
-#: ../src/wulfor.cc:186
+#: ../src/wulfor.cc:192
 msgid "Shutting down libdcpp..."
 msgstr "Libdcpp leállítása..."
 
-#: ../src/wulfor.cc:112
+#: ../src/wulfor.cc:118
 #, c-format
 msgid "Signal handlers installed.\n"
 msgstr ""
@@ -3243,8 +3246,8 @@ msgstr ""
 #: ../src/settingsdialog.cc:3804 ../src/settingsdialog.cc:3873
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
-#: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
-#: ../src/sharebrowser.cc:327 ../src/sharebrowser.cc:358
+#: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:110
+#: ../src/sharebrowser.cc:331 ../src/sharebrowser.cc:362
 #: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
 #: ../src/transfers.cc:729 ../src/search.cc:103 ../src/search.cc:130
 #: ../src/search.cc:654 ../src/search.cc:737 ../src/search.cc:746
@@ -3254,11 +3257,11 @@ msgid "Size"
 msgstr "Méret"
 
 #: ../src/downloadqueue.cc:244 ../src/downloadqueue.cc:246
-#: ../src/sharebrowser.cc:388
+#: ../src/sharebrowser.cc:395
 msgid "Size: "
 msgstr "Méret: "
 
-#: ../src/sharebrowser.cc:393
+#: ../src/sharebrowser.cc:400
 msgid "Size: 0 B"
 msgstr "Méret: 0 B"
 
@@ -3398,9 +3401,9 @@ msgstr "TIS-620 (Thai)"
 #: ../src/downloadqueue.cc:82 ../src/downloadqueue.cc:294
 #: ../src/downloadqueue.cc:401 ../src/downloadqueue.cc:729
 #: ../src/downloadqueue.cc:757 ../src/sharebrowser.cc:87
-#: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:362
-#: ../src/sharebrowser.cc:567 ../src/sharebrowser.cc:1027
-#: ../src/sharebrowser.cc:1061 ../src/search.cc:110 ../src/search.cc:375
+#: ../src/sharebrowser.cc:336 ../src/sharebrowser.cc:366
+#: ../src/sharebrowser.cc:574 ../src/sharebrowser.cc:1034
+#: ../src/sharebrowser.cc:1068 ../src/search.cc:110 ../src/search.cc:375
 #: ../src/search.cc:379 ../src/search.cc:385 ../src/search.cc:661
 #: ../src/search.cc:748 ../src/search.cc:878 ../src/search.cc:929
 #: ../src/search.cc:1213 ../src/search.cc:1382 ../src/search.cc:1704
@@ -3536,7 +3539,7 @@ msgstr "Teljes méret: "
 msgid "Total size: 0 B"
 msgstr "Teljes méret: 0 B"
 
-#: ../src/sharebrowser.cc:383
+#: ../src/sharebrowser.cc:390
 msgid "Total: "
 msgstr "Összesen: "
 
@@ -3556,8 +3559,8 @@ msgstr "Transfers::updateTransfer, CID nem található %s\n"
 msgid "Trusted certificates path"
 msgstr "Megbízható tanúsítványok helye"
 
-#: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:330
-#: ../src/sharebrowser.cc:351 ../src/search.cc:102 ../src/search.cc:656
+#: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:334
+#: ../src/sharebrowser.cc:355 ../src/search.cc:102 ../src/search.cc:656
 #: ../src/search.cc:760 ../src/search.cc:887 ../src/search.cc:921
 msgid "Type"
 msgstr "Típus"
@@ -3582,7 +3585,7 @@ msgstr "Ukrán fordítás\n"
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "A csatlakozás nem lehetséges: a kért hubhoz már csatlakozva vagy"
 
-#: ../src/sharebrowser.cc:212
+#: ../src/sharebrowser.cc:216
 msgid "Unable to load file list: "
 msgstr "Fájl-lista betöltése nem lehetséges: "
 
@@ -3848,7 +3851,7 @@ msgstr ""
 "  -h, --help\t\t Help megjelenítése\n"
 "  -V, --version\t  Verzióinformáció mutatása\n"
 
-#: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:365
+#: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:369
 msgid "Video"
 msgstr "Videó"
 
