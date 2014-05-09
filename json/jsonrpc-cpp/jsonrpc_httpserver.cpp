@@ -33,33 +33,42 @@ namespace Json
 
   namespace Rpc
   {
-    struct mg_context *ctx;
+    struct mg_server *server;
+    static int exit_flag;
 
-    static int begin_request_handler(struct mg_connection *conn) {
-        const struct mg_request_info *ri = mg_get_request_info(conn);
-        int post_data_len = 0;
-        char* post_data = NULL;
-
-        HTTPServer* serv = (HTTPServer*) ri->user_data;
-        if(strcmp(ri->request_method,"OPTIONS") == 0) {
-            std::string res = "";
-            serv->sendResponse(res, conn);
+    static int ev_handler(struct mg_connection *conn, enum mg_event ev) {
+        int result = MG_FALSE;
+        if (ev == MG_AUTH) {
+          return MG_TRUE;   // Authorize all requests
         }
-        else if(strcmp(ri->request_method,"POST") == 0) {
-            sscanf(mg_get_header(conn,"Content-Length"),"%d",&post_data_len);
-            post_data = (char*)malloc(post_data_len+1);
-            mg_read(conn, post_data, post_data_len);
-            post_data[post_data_len] = 0; // make sure this is null terminated
-            serv->onRequest(post_data,conn);
-            free(post_data);
+        if (ev == MG_REQUEST) {
+            HTTPServer* serv = (HTTPServer*) conn->connection_param;
+            if(strcmp(conn->request_method,"OPTIONS") == 0) {
+                std::string res = "";
+                serv->sendResponse(res, conn);
+            }
+            else if(strcmp(conn->request_method,"POST") == 0) {
+                std::string tmp;
+                tmp.assign(conn->content, conn->content_len);
+                serv->onRequest(tmp, conn);
+            }
+            result = MG_TRUE;
         }
-        return 1; // Mark request as processed
+        return result;
     }
 
-    bool HTTPServer::onRequest(const char* request, void* addInfo)
+    static void *serving_thread_func(void *param) {
+      struct mg_server *srv = (struct mg_server *) param;
+      while (exit_flag == 0) {
+        mg_poll_server(srv, 1000);
+      }
+      return NULL;
+    }
+
+    bool HTTPServer::onRequest(const std::string& str, void* addInfo)
     {
         Json::Value response;
-        m_jsonHandler.Process(std::string(request), response);
+        m_jsonHandler.Process(str, response);
         std::string res = m_jsonHandler.GetString(response);
         sendResponse(res, addInfo);
         return true;
@@ -69,7 +78,7 @@ namespace Json
     {
       m_address = address;
       m_port = port;
-      ctx = NULL;
+      exit_flag = 0;
     }
 
     HTTPServer::~HTTPServer()
@@ -78,22 +87,21 @@ namespace Json
 
     bool HTTPServer::startPolling()
     {
-        struct mg_callbacks callbacks;
+        // Create and configure the server
+        if ((server = mg_create_server(NULL, ev_handler)) == NULL) {
+            return false;
+        }
         char tmp_port[30];
         sprintf(tmp_port,"%s:%d", GetAddress().c_str(),GetPort());
-        const char *options[] = {"listening_ports", tmp_port,"num_threads", "1", NULL };
-        memset(&callbacks, 0, sizeof(callbacks));
-        callbacks.begin_request = begin_request_handler;
-        ctx = mg_start(&callbacks, this, options);
-        if(!ctx)
-            return false;
+        mg_set_option(server, "listening_port", tmp_port);
+        serving_thread_func(server);
         return true;
     }
 
     bool HTTPServer::stopPolling()
     {
-        if(ctx)
-            mg_stop(ctx);
+        exit_flag = 1;
+        mg_destroy_server(&server);
         return true;
     }
 

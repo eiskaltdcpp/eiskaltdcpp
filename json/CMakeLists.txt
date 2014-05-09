@@ -10,7 +10,7 @@ list(REMOVE_ITEM jsonrpcpp_SRCS ${PROJECT_SOURCE_DIR}/jsonrpc-cpp/jsonrpc_udpser
                                 ${PROJECT_SOURCE_DIR}/jsonrpc-cpp/jsonrpc_tcpserver.cpp
                                 ${PROJECT_SOURCE_DIR}/jsonrpc-cpp/jsonrpc_server.cpp
                                 ${PROJECT_SOURCE_DIR}/jsonrpc-cpp/networking.cpp)
-set_source_files_properties(${PROJECT_SOURCE_DIR}/jsonrpc-cpp/mongoose.c PROPERTIES COMPILE_FLAGS "-DNDEBUG -DNO_CGI -DNO_SSL")
+set_source_files_properties(${PROJECT_SOURCE_DIR}/jsonrpc-cpp/mongoose.c PROPERTIES COMPILE_FLAGS "-DMONGOOSE_NO_FILESYSTEM -DMONGOOSE_NO_WEBSOCKET")
 if (LOCAL_JSONCPP)
     set (JSONCPP_LIBRARY jsoncpp)
     set (JSONCPP_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/jsoncpp/)

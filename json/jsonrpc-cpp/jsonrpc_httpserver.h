@@ -54,7 +54,7 @@ namespace Json
 
         bool startPolling();
         bool stopPolling();
-        bool onRequest(const char* request, void* addInfo);
+        bool onRequest(const std::string &str, void* addInfo);
         bool sendResponse(std::string& response, void* addInfo = NULL);
 
         /**
@@ -81,7 +81,7 @@ namespace Json
          */
         void DeleteMethod(const std::string& method);
 
-      protected:
+    protected:
 
         /**
          * \brief JSON-RPC handler.
