@@ -304,41 +304,25 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     menu->insertMenu(action_list.at(5), magnet_menu);
     menu->insertMenu(action_list.at(12),black_list_menu);
 
-    QMenu *userm = buildUserCmdMenu(list);
+    QScopedPointer<QMenu> userm(buildUserCmdMenu(list));
 
-    if (userm)
-        if (!userm->actions().isEmpty())
-            menu->addMenu(userm);
+    if (!userm.isNull() && !userm->actions().isEmpty())
+        menu->addMenu(userm.data());
 
     QAction *ret = menu->exec(QCursor::pos());
 
-    if (actions.contains(ret)){
-        delete userm;
-
+    if (actions.contains(ret)) {
         return actions.value(ret);
-    }
-    else if (down_to->actions().contains(ret)){
+    } else if (down_to->actions().contains(ret)) {
         downToPath = ret->data().toString();
-
         return DownloadTo;
-    }
-    else if (down_wh_to->actions().contains(ret)){
+    } else if (down_wh_to->actions().contains(ret)) {
         downToPath = ret->data().toString();
-
         return DownloadWholeDirTo;
-    }
-    else if (ret){
-        ucParams["LAST"] = ret->toolTip();
-        ucParams["NAME"] = ret->statusTip();
-        ucParams["HOST"] =  ret->data().toString();
-
-        delete userm;
-
+    } else if (ret) {
+        uc_cmd_id = ret->data().toInt();
         return UserCommands;
-    }
-    else{
-        delete userm;
-
+    } else {
         return None;
     }
 }
@@ -1482,13 +1466,10 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
-                QString cmd_name = Menu::getInstance()->ucParams["NAME"];
-                QString hub      = Menu::getInstance()->ucParams["HOST"];
-                QString last_user_cmd = Menu::getInstance()->ucParams["LAST"];
 
-                int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
+                int id = Menu::getInstance()->getCommandId();
+
                 UserCommand uc;
-
                 if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
                     break;
 
@@ -1511,7 +1492,9 @@ void SearchFrame::slotContextMenu(const QPoint &){
                         params["filesizeshort"] = params["fileSIshort"];
                         params["tth"] = params["fileTR"];
 
-                        ClientManager::getInstance()->userCommand(HintedUser(user, _tq(hub)), uc, params, true);
+                        string hubUrl = _tq(i.data(COLUMN_SF_HOST).toString());
+
+                        ClientManager::getInstance()->userCommand(HintedUser(user, hubUrl), uc, params, true);
                     }
 
                 }

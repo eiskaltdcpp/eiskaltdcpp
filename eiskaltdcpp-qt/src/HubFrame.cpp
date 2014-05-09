@@ -339,19 +339,15 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
     else if (res && !res->toolTip().isEmpty()){//User command{
-        last_user_cmd = res->toolTip();
-        QString cmd_name = res->statusTip();
-        QString hub = res->data().toString();
+        int id = res->data().toInt();
 
-        int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
         UserCommand uc;
-
         if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
             return None;
 
         StringMap params;
 
-        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
+        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)) {
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
             if (user)
@@ -431,13 +427,9 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
     else if (res && !res->toolTip().isEmpty()){//User command
-        last_user_cmd = res->toolTip();
-        QString cmd_name = res->statusTip();
-        QString hub = res->data().toString();
+        int id = res->data().toInt();
 
-        int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
         UserCommand uc;
-
         if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
             return None;
 
@@ -3597,22 +3589,18 @@ void HubFrame::slotStatusLinkOpen(const QString &url){
     WulforUtil::getInstance()->openUrl(url);
 }
 
-void HubFrame::slotHubMenu(QAction *res){
-    if (res && !res->toolTip().isEmpty()){//User command
-        QString last_user_cmd = res->toolTip();
-        QString cmd_name = res->statusTip();
-        QString hub = res->data().toString();
+void HubFrame::slotHubMenu(QAction *res) {
+    if (res && !res->toolTip().isEmpty()) {//User command
+        int id = res->data().toInt();
 
-        int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
         UserCommand uc;
-
         if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
             return;
 
         StringMap params;
         Q_D(HubFrame);
 
-        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
+        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)) {
             d->client->getMyIdentity().getParams(params, "my", true);
             d->client->getHubIdentity().getParams(params, "hub", false);
 
