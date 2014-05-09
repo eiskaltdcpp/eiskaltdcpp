@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-02-21 02:29+0400\n"
+"POT-Creation-Date: 2014-05-09 12:42+0400\n"
 "PO-Revision-Date: 2013-11-19 16:39+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgstr " added to favorites list"
 msgid " empty..."
 msgstr " empty..."
 
-#: ../src/sharebrowser.cc:1111 ../src/finishedtransfers.cc:265
+#: ../src/sharebrowser.cc:1118 ../src/finishedtransfers.cc:265
 msgid " files"
 msgstr " files"
 
@@ -763,7 +763,7 @@ msgstr "At least"
 msgid "At most"
 msgstr "At most"
 
-#: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:366
+#: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:370
 msgid "Audio"
 msgstr "Audio"
 
@@ -863,7 +863,7 @@ msgstr "Belarusian translation\n"
 msgid "Bind address"
 msgstr "Bind address"
 
-#: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:363
+#: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:367
 msgid "Bitrate"
 msgstr "Bitrate"
 
@@ -899,7 +899,7 @@ msgstr "Browse file..."
 msgid "Browse the list of public hubs"
 msgstr "Browse the list of public hubs"
 
-#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:357
+#: ../src/sharebrowser.cc:539 ../src/sharebrowser.cc:607 ../src/search.cc:357
 #: ../src/search.cc:428 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
 #: ../ui/hub.ui:231 ../ui/settingsdialog.ui:2646 ../ui/settingsdialog.ui:2716
 #: ../ui/settingsdialog.ui:6749 ../ui/settingsdialog.ui:8062
@@ -1274,9 +1274,9 @@ msgstr "Destination Directory"
 msgid "Developers"
 msgstr "Developers"
 
-#: ../src/sharebrowser.cc:112 ../src/sharebrowser.cc:258
-#: ../src/sharebrowser.cc:277 ../src/sharebrowser.cc:616
-#: ../src/sharebrowser.cc:668
+#: ../src/sharebrowser.cc:116 ../src/sharebrowser.cc:262
+#: ../src/sharebrowser.cc:281 ../src/sharebrowser.cc:623
+#: ../src/sharebrowser.cc:675
 msgid "Dir"
 msgstr "Dir"
 
@@ -1288,7 +1288,7 @@ msgstr "Direct connection"
 #: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1436
 #: ../src/settingsdialog.cc:3754 ../src/settingsdialog.cc:3774
 #: ../src/settingsdialog.cc:3803 ../src/settingsdialog.cc:3817
-#: ../src/settingsdialog.cc:3872 ../src/sharebrowser.cc:330
+#: ../src/settingsdialog.cc:3872 ../src/sharebrowser.cc:334
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
@@ -1338,7 +1338,7 @@ msgstr "Don't remove the source when auto-dropping, only disconnect"
 msgid "Don't send the away message to bots"
 msgstr "Don't send the away message to bots"
 
-#: ../src/sharebrowser.cc:185 ../src/hashdialog.cc:102
+#: ../src/sharebrowser.cc:189 ../src/hashdialog.cc:102
 msgid "Done"
 msgstr "Done"
 
@@ -1440,6 +1440,7 @@ msgstr "Download: "
 
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:95
 #: ../src/downloadqueue.cc:288 ../src/downloadqueue.cc:395
+#: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:371
 msgid "Downloaded"
 msgstr "Downloaded"
 
@@ -1563,8 +1564,8 @@ msgstr "Every time a private message is received"
 
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
 #: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
-#: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:108
-#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:108
+#: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:111
+#: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:363 ../src/search.cc:108
 #: ../src/search.cc:131 ../src/search.cc:659 ../src/search.cc:736
 #: ../src/search.cc:745
 msgid "Exact Size"
@@ -1682,7 +1683,7 @@ msgstr "File"
 msgid "File list"
 msgstr "File list"
 
-#: ../src/sharebrowser.cc:177
+#: ../src/sharebrowser.cc:181
 msgid "File list loaded"
 msgstr "File list loaded"
 
@@ -1706,11 +1707,11 @@ msgstr "Filelist Menu"
 #: ../src/downloadqueue.cc:97 ../src/downloadqueue.cc:282
 #: ../src/downloadqueue.cc:389 ../src/downloadqueue.cc:755
 #: ../src/downloadqueue.cc:798 ../src/downloadqueue.cc:849
-#: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:104
-#: ../src/sharebrowser.cc:106 ../src/sharebrowser.cc:320
-#: ../src/sharebrowser.cc:350 ../src/sharebrowser.cc:564
-#: ../src/sharebrowser.cc:658 ../src/sharebrowser.cc:1025
-#: ../src/sharebrowser.cc:1059 ../src/finishedtransfers.cc:63
+#: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:107
+#: ../src/sharebrowser.cc:109 ../src/sharebrowser.cc:324
+#: ../src/sharebrowser.cc:354 ../src/sharebrowser.cc:571
+#: ../src/sharebrowser.cc:665 ../src/sharebrowser.cc:1032
+#: ../src/sharebrowser.cc:1066 ../src/finishedtransfers.cc:63
 #: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
 #: ../src/transfers.cc:715 ../src/search.cc:100 ../src/search.cc:133
 #: ../src/search.cc:372 ../src/search.cc:652 ../src/search.cc:693
@@ -1725,7 +1726,7 @@ msgstr "Filename"
 msgid "Files"
 msgstr "Files"
 
-#: ../src/downloadqueue.cc:245 ../src/sharebrowser.cc:382
+#: ../src/downloadqueue.cc:245 ../src/sharebrowser.cc:389
 msgid "Files: "
 msgstr "Files: "
 
@@ -1797,7 +1798,7 @@ msgstr "Font select"
 msgid "Format"
 msgstr "Format"
 
-#: ../src/sharebrowser.cc:680 ../src/sharebrowser.cc:723
+#: ../src/sharebrowser.cc:687 ../src/sharebrowser.cc:730
 msgid "Found a match"
 msgstr "Found a match"
 
@@ -2131,11 +2132,11 @@ msgstr "Italian"
 msgid "Italian translation\n"
 msgstr "Italian translation\n"
 
-#: ../src/downloadqueue.cc:243 ../src/sharebrowser.cc:387
+#: ../src/downloadqueue.cc:243 ../src/sharebrowser.cc:394
 msgid "Items: "
 msgstr "Items: "
 
-#: ../src/sharebrowser.cc:392
+#: ../src/sharebrowser.cc:399
 msgid "Items: 0"
 msgstr "Items: 0"
 
@@ -2287,7 +2288,7 @@ msgstr "Match Queue"
 msgid "Match all listings"
 msgstr "Match all listings"
 
-#: ../src/sharebrowser.cc:1111
+#: ../src/sharebrowser.cc:1118
 msgid "Matched "
 msgstr "Matched "
 
@@ -2521,7 +2522,7 @@ msgstr "No errors"
 msgid "No grouping"
 msgstr "No grouping"
 
-#: ../src/sharebrowser.cc:692 ../src/sharebrowser.cc:888
+#: ../src/sharebrowser.cc:699 ../src/sharebrowser.cc:895
 msgid "No matches"
 msgstr "No matches"
 
@@ -2529,7 +2530,7 @@ msgstr "No matches"
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
 msgstr "No new downloads if speed exceeds (KiB/s, 0 = disable)"
 
-#: ../src/sharebrowser.cc:899
+#: ../src/sharebrowser.cc:906
 msgid "No search text entered"
 msgstr "No search text entered"
 
@@ -2660,7 +2661,7 @@ msgstr "PM history"
 msgid "Panels"
 msgstr "Panels"
 
-#: ../src/sharebrowser.cc:183
+#: ../src/sharebrowser.cc:187
 msgid "Parse and build tree..."
 msgstr "Parse and build tree..."
 
@@ -2811,7 +2812,7 @@ msgstr "Quit"
 msgid "Quit the program"
 msgstr "Quit the program"
 
-#: ../src/wulfor.cc:188
+#: ../src/wulfor.cc:194
 msgid "Quit..."
 msgstr "Quit..."
 
@@ -2926,7 +2927,7 @@ msgstr "Requesting"
 msgid "Reset changes"
 msgstr "Reset changes"
 
-#: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:364
+#: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:368
 msgid "Resolution"
 msgstr "Resolution"
 
@@ -3121,8 +3122,10 @@ msgstr ""
 msgid "Share hidden files"
 msgstr "Share hidden files"
 
-#: ../src/hub.cc:87 ../src/hub.cc:389 ../src/hub.cc:406 ../src/hub.cc:426
-#: ../src/hub.cc:474 ../src/publichubs.cc:52 ../src/publichubs.cc:164
+#: ../src/sharebrowser.cc:94 ../src/sharebrowser.cc:112
+#: ../src/sharebrowser.cc:372 ../src/hub.cc:87 ../src/hub.cc:389
+#: ../src/hub.cc:406 ../src/hub.cc:426 ../src/hub.cc:474
+#: ../src/publichubs.cc:52 ../src/publichubs.cc:164
 msgid "Shared"
 msgstr "Shared"
 
@@ -3209,11 +3212,11 @@ msgstr "Show/Hide transfers panel"
 msgid "Show/Hide user list"
 msgstr "Show/Hide user list"
 
-#: ../src/wulfor.cc:186
+#: ../src/wulfor.cc:192
 msgid "Shutting down libdcpp..."
 msgstr "Shutting down libdcpp..."
 
-#: ../src/wulfor.cc:112
+#: ../src/wulfor.cc:118
 #, c-format
 msgid "Signal handlers installed.\n"
 msgstr "Signal handlers installed.\n"
@@ -3222,8 +3225,8 @@ msgstr "Signal handlers installed.\n"
 #: ../src/settingsdialog.cc:3804 ../src/settingsdialog.cc:3873
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
-#: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
-#: ../src/sharebrowser.cc:327 ../src/sharebrowser.cc:358
+#: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:110
+#: ../src/sharebrowser.cc:331 ../src/sharebrowser.cc:362
 #: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
 #: ../src/transfers.cc:729 ../src/search.cc:103 ../src/search.cc:130
 #: ../src/search.cc:654 ../src/search.cc:737 ../src/search.cc:746
@@ -3233,11 +3236,11 @@ msgid "Size"
 msgstr "Size"
 
 #: ../src/downloadqueue.cc:244 ../src/downloadqueue.cc:246
-#: ../src/sharebrowser.cc:388
+#: ../src/sharebrowser.cc:395
 msgid "Size: "
 msgstr "Size: "
 
-#: ../src/sharebrowser.cc:393
+#: ../src/sharebrowser.cc:400
 msgid "Size: 0 B"
 msgstr "Size: 0 B"
 
@@ -3378,9 +3381,9 @@ msgstr "TIS-620"
 #: ../src/downloadqueue.cc:82 ../src/downloadqueue.cc:294
 #: ../src/downloadqueue.cc:401 ../src/downloadqueue.cc:729
 #: ../src/downloadqueue.cc:757 ../src/sharebrowser.cc:87
-#: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:362
-#: ../src/sharebrowser.cc:567 ../src/sharebrowser.cc:1027
-#: ../src/sharebrowser.cc:1061 ../src/search.cc:110 ../src/search.cc:375
+#: ../src/sharebrowser.cc:336 ../src/sharebrowser.cc:366
+#: ../src/sharebrowser.cc:574 ../src/sharebrowser.cc:1034
+#: ../src/sharebrowser.cc:1068 ../src/search.cc:110 ../src/search.cc:375
 #: ../src/search.cc:379 ../src/search.cc:385 ../src/search.cc:661
 #: ../src/search.cc:748 ../src/search.cc:878 ../src/search.cc:929
 #: ../src/search.cc:1213 ../src/search.cc:1382 ../src/search.cc:1704
@@ -3518,7 +3521,7 @@ msgstr "Total size: "
 msgid "Total size: 0 B"
 msgstr "Total size: 0 B"
 
-#: ../src/sharebrowser.cc:383
+#: ../src/sharebrowser.cc:390
 msgid "Total: "
 msgstr "Total: "
 
@@ -3538,8 +3541,8 @@ msgstr "Transfers::updateTransfer, CID not found %s\n"
 msgid "Trusted certificates path"
 msgstr "Trusted certificates path"
 
-#: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:330
-#: ../src/sharebrowser.cc:351 ../src/search.cc:102 ../src/search.cc:656
+#: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:334
+#: ../src/sharebrowser.cc:355 ../src/search.cc:102 ../src/search.cc:656
 #: ../src/search.cc:760 ../src/search.cc:887 ../src/search.cc:921
 msgid "Type"
 msgstr "Type"
@@ -3564,7 +3567,7 @@ msgstr "Ukrainian translation\n"
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "Unable to connect: already connected to the requested hub"
 
-#: ../src/sharebrowser.cc:212
+#: ../src/sharebrowser.cc:216
 msgid "Unable to load file list: "
 msgstr "Unable to load file list: "
 
@@ -3829,7 +3832,7 @@ msgstr ""
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
 
-#: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:365
+#: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:369
 msgid "Video"
 msgstr "Video"
 
