@@ -319,7 +319,7 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     } else if (down_wh_to->actions().contains(ret)) {
         downToPath = ret->data().toString();
         return DownloadWholeDirTo;
-    } else if (ret) {
+    } else if (ret && ret->data().canConvert(QVariant::Int)) {
         uc_cmd_id = ret->data().toInt();
         return UserCommands;
     } else {

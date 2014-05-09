@@ -338,7 +338,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
         return chat_actions_map[res];
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
-    else if (res && !res->toolTip().isEmpty()){//User command{
+    else if (res && res->data().canConvert(QVariant::Int)){//User command{
         int id = res->data().toInt();
 
         UserCommand uc;
@@ -426,7 +426,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         return chat_actions_map[res];
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
-    else if (res && !res->toolTip().isEmpty()){//User command
+    else if (res && res->data().canConvert(QVariant::Int)){//User command
         int id = res->data().toInt();
 
         UserCommand uc;
@@ -3590,7 +3590,7 @@ void HubFrame::slotStatusLinkOpen(const QString &url){
 }
 
 void HubFrame::slotHubMenu(QAction *res) {
-    if (res && !res->toolTip().isEmpty()) {//User command
+    if (res && res->data().canConvert(QVariant::Int)) {//User command
         int id = res->data().toInt();
 
         UserCommand uc;
