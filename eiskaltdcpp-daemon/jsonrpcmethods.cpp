@@ -399,17 +399,6 @@ bool JsonRpcMethods::GetHashStatus(const Json::Value& root, Json::Value& respons
     return true;
 }
 
-bool JsonRpcMethods::GetMethodList(const Json::Value& root, Json::Value& response) {
-    if (isDebug) std::cout << "GetMethodList (root): " << root << std::endl;
-    response["jsonrpc"] = "2.0";
-    response["id"] = root["id"];
-    string tmp;
-    ServerThread::getInstance()->getMethodList(tmp);
-    response["result"] = tmp;
-    if (isDebug) std::cout << "GetMethodList (response): " << response << std::endl;
-    return true;
-}
-
 bool JsonRpcMethods::PauseHash(const Json::Value& root, Json::Value& response) {
     if (isDebug) std::cout << "PauseHash (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
@@ -558,5 +547,18 @@ bool JsonRpcMethods::LsDirInList(const Json::Value& root, Json::Value& response)
     }
     response["result"] = parameters;
     if (isDebug) std::cout << "LsDirInList (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::DownloadDirFromList(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "DownloadDirFromList (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    Json::Value parameters;
+    if (ServerThread::getInstance()->downloadDirFromList(root["params"]["target"].asString(), root["params"]["downloadto"].asString(), root["params"]["filelist"].asString()))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
+    if (isDebug) std::cout << "DownloadDirFromList (response): " << response << std::endl;
     return true;
 }
