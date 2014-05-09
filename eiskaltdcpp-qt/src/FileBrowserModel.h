@@ -31,7 +31,7 @@ enum {
     COLUMN_FILEBROWSER_MAUDIO,
     COLUMN_FILEBROWSER_HIT,
     COLUMN_FILEBROWSER_TS,
-    COLUMN_LAST
+    NUM_OF_COLUMNS // total number of columns
 };
 
 class FileBrowserItem
