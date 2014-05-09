@@ -33,6 +33,8 @@ elif [ "${USE_QT}" = "qt5" ]; then
     # sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa
     # Use latest Qt5 (fix build with clang >= 3.4):
     sudo add-apt-repository -y ppa:canonical-qt5-edgers/qt5-beta-proper
+    # Use latest cmake (>= 2.8.8):
+    sudo add-apt-repository -y ppa:kalakris/cmake
     sudo apt-get update -qq
     sudo apt-get install -qq qtbase5-dev \
                              qttools5-dev \
