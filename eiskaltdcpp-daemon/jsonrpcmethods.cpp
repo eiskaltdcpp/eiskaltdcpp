@@ -562,3 +562,16 @@ bool JsonRpcMethods::DownloadDirFromList(const Json::Value& root, Json::Value& r
     if (isDebug) std::cout << "DownloadDirFromList (response): " << response << std::endl;
     return true;
 }
+
+bool JsonRpcMethods::DownloadFileFromList(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "DownloadFileFromList (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    Json::Value parameters;
+    if (ServerThread::getInstance()->downloadFileFromList(root["params"]["target"].asString(), root["params"]["downloadto"].asString(), root["params"]["filelist"].asString()))
+        response["result"] = 0;
+    else
+        response["result"] = 1;
+    if (isDebug) std::cout << "DownloadFileFromList (response): " << response << std::endl;
+    return true;
+}
