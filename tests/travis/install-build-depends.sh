@@ -30,7 +30,9 @@ if [ "${USE_QT}" = "qt4" ]; then
         sudo apt-get install -qq libaspell-dev
     fi
 elif [ "${USE_QT}" = "qt5" ]; then
-    sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa
+    # sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa
+    # Use latest Qt5 (fix build with clang >= 3.4):
+    sudo add-apt-repository -y ppa:canonical-qt5-edgers/qt5-beta-proper
     sudo apt-get update -qq
     sudo apt-get install -qq qtbase5-dev \
                              qttools5-dev \
