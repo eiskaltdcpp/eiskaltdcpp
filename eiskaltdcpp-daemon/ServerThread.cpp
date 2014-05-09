@@ -208,6 +208,7 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowOpenedLists, std::string("list.listopened")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::LsDirInList, std::string("list.lsdir")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DownloadDirFromList, std::string("list.downloaddir")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DownloadFileFromList, std::string("list.downloadfile")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -1330,6 +1331,47 @@ bool ServerThread::downloadDirFromList(DirectoryListing::Directory *dir, Directo
         list->download(dir, downloadto, false);
     }
     catch (const Exception& e) {
+        return false;
+    }
+    return true;
+}
+
+bool ServerThread::downloadFileFromList(const string& target_file, const string& downloadto, const string& filelist)
+{
+    auto it = listsMap.find(filelist);
+    if (it != listsMap.end()) {
+        string directory = Util::getFilePath(target_file, '\\');
+        DirectoryListing::Directory *dir;
+        if (directory.empty() || directory == "\\") {
+            dir = it->second->getRoot();
+        } else {
+            dir = it->second->find(directory,it->second->getRoot());
+        }
+        string fname = Util::getFileName(target_file, '\\');
+        DirectoryListing::File* filePtr;
+        for (const auto& file : dir->files) {
+            if (file->getName() == fname) {
+                filePtr = file;
+            }
+        }
+        string dtdir = downloadto.empty() ? SETTING(DOWNLOAD_DIRECTORY) : downloadto;
+        dtdir += PATH_SEPARATOR + fname;
+        if (downloadFileFromList(filePtr, it->second, dtdir))
+            return true;
+        else
+            return false;
+    }
+    return false;
+}
+
+bool ServerThread::downloadFileFromList(DirectoryListing::File *file, DirectoryListing *list, const string& downloadto)
+{
+    try
+    {
+        list->download(file, downloadto, false, false);
+    }
+    catch (const Exception& e) {
+        printf("Exception %s\n",e.getError().c_str());fflush(stdout);
         return false;
     }
     return true;

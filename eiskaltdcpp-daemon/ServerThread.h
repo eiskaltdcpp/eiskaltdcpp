@@ -79,6 +79,7 @@ public:
     void lsDirInList(const string& directory, const string& filelist, unordered_map<string,StringMap>& ret);
     bool downloadDirFromList(const string &target, const string &downloadto, const string &filelist);
 
+    bool downloadFileFromList(const string &file, const string &downloadto, const string &filelist);
 private:
     friend class Singleton<ServerThread>;
 
@@ -153,4 +154,5 @@ private:
     void removeUser(const string& cid, Client* cl);
     void lsDirInList(DirectoryListing::Directory *dir, unordered_map<string,StringMap>& ret);
     bool downloadDirFromList(DirectoryListing::Directory *dir, DirectoryListing* list, const string& downloadto);
+    bool downloadFileFromList(DirectoryListing::File *file, DirectoryListing *list, const string &downloadto);
 };
