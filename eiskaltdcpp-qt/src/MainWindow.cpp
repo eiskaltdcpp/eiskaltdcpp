@@ -672,7 +672,7 @@ void MainWindow::saveSettings(){
     if (WBGET(WB_MAINWINDOW_REMEMBER))
         WBSET(WB_MAINWINDOW_HIDE, !isVisible());
 
-    QString dockwidgetsState = QString::fromLatin1(saveState().toBase64());
+    QString dockwidgetsState = QString::fromUtf8(saveState().toBase64());
     WSSET(WS_MAINWINDOW_STATE, dockwidgetsState);
 
     stateIsSaved = true;
