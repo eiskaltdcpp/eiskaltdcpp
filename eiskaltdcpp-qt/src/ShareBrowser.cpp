@@ -137,8 +137,8 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     const QPixmap &dir_px = WICON(WulforUtil::eiFOLDER_BLUE);
     QString aliases, paths;
 
-    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toLatin1());
-    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toLatin1());
+    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
+    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
 
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
@@ -391,8 +391,8 @@ void ShareBrowser::load(){
         splitter->setSizes(frames);
     }
 
-    treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toLatin1()));
-    treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toLatin1()));
+    treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toUtf8()));
+    treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toUtf8()));
 
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TTH);
