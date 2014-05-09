@@ -187,15 +187,15 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
                 if (!f->mediaInfo.video_info.empty() || !f->mediaInfo.audio_info.empty()){
                     MediaInfo &mi = f->mediaInfo;
 
-                    tooltip = QString("<b>Media Info:</b><br/>");
+                    tooltip = tr("<b>Media Info:</b><br/>");
                     if (!f->mediaInfo.video_info.empty())
-                        tooltip += QString("&nbsp;&nbsp;<b>Video:</b> %1<br/>").arg(_q(mi.video_info));
+                        tooltip += tr("&nbsp;&nbsp;<b>Video:</b> %1<br/>").arg(_q(mi.video_info));
                     if (!f->mediaInfo.audio_info.empty())
-                        tooltip += QString("&nbsp;&nbsp;<b>Audio:</b> %2<br/>").arg(_q(mi.audio_info));
+                        tooltip += tr("&nbsp;&nbsp;<b>Audio:</b> %1<br/>").arg(_q(mi.audio_info));
                     if (f->mediaInfo.bitrate > 0)
-                        tooltip += QString("&nbsp;&nbsp;<b>Bitrate:</b> %3<br/>").arg(mi.bitrate);
+                        tooltip += tr("&nbsp;&nbsp;<b>Bitrate:</b> %1<br/>").arg(mi.bitrate);
                     if (!f->mediaInfo.resolution.empty())
-                        tooltip += QString("&nbsp;&nbsp;<b>Resolution:</b> %4<br/><br/>").arg(_q(mi.resolution));
+                        tooltip += tr("&nbsp;&nbsp;<b>Resolution:</b> %1<br/><br/>").arg(_q(mi.resolution));
                 }
             }
 
