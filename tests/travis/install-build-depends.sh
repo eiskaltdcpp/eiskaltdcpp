@@ -31,10 +31,6 @@ if [ "${USE_QT}" = "qt4" ]; then
     fi
 elif [ "${USE_QT}" = "qt5" ]; then
     sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa
-    # Use latest Qt5 (fix build with clang >= 3.4):
-    sudo add-apt-repository -y ppa:canonical-qt5-edgers/qt5-beta-proper
-    # Use latest cmake (>= 2.8.8):
-    sudo add-apt-repository -y ppa:kalakris/cmake
     sudo apt-get update -qq
     sudo apt-get install -qq qtbase5-dev \
                              qttools5-dev \
@@ -44,6 +40,12 @@ elif [ "${USE_QT}" = "qt5" ]; then
                              qt5-default \
                              qttools5-dev-tools \
                              cmake
+    # Use latest Qt5 (fix build with clang >= 3.4):
+    sudo add-apt-repository -y ppa:canonical-qt5-edgers/qt5-beta-proper
+    # Use latest cmake (>= 2.8.8):
+    sudo add-apt-repository -y ppa:kalakris/cmake
+    sudo apt-get update -qq
+    # This small hack may cause some problems in case of conflicts between packages:
     sudo apt-get dist-upgrade -qq
     if [ "${CONFIG}" = "full" ]; then
         sudo apt-get install -qq libaspell-dev
