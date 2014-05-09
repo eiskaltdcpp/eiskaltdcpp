@@ -108,7 +108,14 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC pro
 Keys:
   -h, --help	 Show this message
   -V, --version	 Show version string</source>
-        <translation type="unfinished"/>
+        <translation>Användning:
+  eiskaltdcpp-qt &lt;magnet-iänk&gt; &lt;dchub://länk&gt; &lt;adc(s)://iänk&gt;
+  eiskaltdcpp-qt &lt;Nyckel&gt;
+EiskaltDC++ är ett plattformsoberoende program som hanterar Direct Connect och ADC-protokolet.
+
+Nycklar:
+  -h, --help	 Visa denna text
+  -V, --version	 Visa vilken version</translation>
     </message>
 </context>
 <context>
@@ -619,7 +626,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="278"/>
         <source>Browse Files</source>
-        <translation type="unfinished"/>
+        <translation>Bläddra i filerna</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.h" line="46"/>
@@ -1844,7 +1851,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1299"/>
         <source>Match all listings</source>
-        <translation type="unfinished"/>
+        <translation>Matcha alla listningar</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1301"/>
@@ -2277,7 +2284,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2625"/>
         <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="unfinished"/>
+        <translation>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2649"/>
@@ -2427,7 +2434,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2994"/>
         <source>Additional</source>
-        <translation type="unfinished"/>
+        <translation>Extra</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2995"/>
@@ -2442,7 +2449,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2990"/>
         <source>Setup speed limits</source>
-        <translation type="unfinished"/>
+        <translation>Inställning för hastighetsbegränsning</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2801"/>
@@ -2658,7 +2665,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Locally cached (as of %1) version of the hub list loaded (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Lokalt buffrad (som av %1) version av laddad hubblista (%2)</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="295"/>
@@ -3629,7 +3636,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="1094"/>
         <source>Matched %1 files</source>
-        <translation type="unfinished"/>
+        <translation>Matchade %1 filer</translation>
     </message>
 </context>
 <context>
@@ -3944,12 +3951,12 @@ Vill du stoppa den?
     <message>
         <location filename="../src/TransferView.cpp" line="71"/>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>Status</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="72"/>
         <source>Flags</source>
-        <translation type="unfinished"/>
+        <translation>Flaggor</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="73"/>
@@ -5945,7 +5952,7 @@ denna funktionen, du måste då radera dem manuellt.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="923"/>
         <source>Allow simultaneous uploads by one IP</source>
-        <translation type="unfinished"/>
+        <translation>Tillåt flera samtidiga uppladdningar från ett och samma IP</translation>
     </message>
 </context>
 <context>
@@ -6863,7 +6870,7 @@ och kan få klienten att verka ha låst sig.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="379"/>
         <source>Use ADL search only in own file list</source>
-        <translation type="unfinished"/>
+        <translation>Använd ADL-sök endast i din egna fillista</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="394"/>
