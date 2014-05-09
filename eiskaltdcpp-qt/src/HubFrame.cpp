@@ -517,18 +517,18 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
                     if (!magnet.contains("+")) {
 #if QT_VERSION >= 0x050000
-                        u.setQuery(magnet.toLatin1());
+                        u.setQuery(magnet.toUtf8());
 #else
-                        u.setEncodedUrl(magnet.toLatin1());
+                        u.setEncodedUrl(magnet.toUtf8());
 #endif
                     } else {
                         QString _l = magnet;
 
                         _l.replace("+", "%20");
 #if QT_VERSION >= 0x050000
-                            u.setQuery(_l.toLatin1());
+                            u.setQuery(_l.toUtf8());
 #else
-                            u.setEncodedUrl(_l.toLatin1());
+                            u.setEncodedUrl(_l.toUtf8());
 #endif
                     }
                     if (u.hasQueryItem("kt")) {
@@ -615,7 +615,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                     if (emo_text_len == input_length)
                         nextCharisSpace = true;
                     else if (input_length > emo_text_len){
-                        char c = input.at(emo_text_len).toLatin1();
+                        char c = input.at(emo_text_len).unicode();
 
                         nextCharisSpace = (c == ' ' || c == '\t');
                     }
@@ -1329,7 +1329,7 @@ void HubFrame::load(){
     QString ustate = WSGET(WS_CHAT_USERLIST_STATE);
 
     if (!ustate.isEmpty())
-        treeView_USERS->header()->restoreState(QByteArray::fromBase64(ustate.toLatin1()));
+        treeView_USERS->header()->restoreState(QByteArray::fromBase64(ustate.toUtf8()));
 
     if (w_chat >= 0 && w_ulist >= 0){
         QList<int> frames;
@@ -1585,7 +1585,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         QStringList lex = line.split(" ", QString::SkipEmptyParts);
 
         if (lex.size() >= 2){
-            QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toLatin1());
+            QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toUtf8());
 
             if (lex.at(1) == "list"){
                 if (!aliases.isEmpty()){
@@ -1615,7 +1615,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                         for (const auto &line : alias_list)
                             new_aliases += line + "\n";
 
-                        WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toLatin1().toBase64());
+                        WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toUtf8().toBase64());
 
                         if (fr == this)
                             addStatus(tr("Alias removed."));
@@ -1647,7 +1647,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                     else if (!aliases.contains(new_cmd.at(0)+'\t')){
                         aliases += new_cmd.at(0) + '\t' +  new_cmd.at(1) + '\n';
 
-                        WSSET(WS_CHAT_CMD_ALIASES, aliases.toLatin1().toBase64());
+                        WSSET(WS_CHAT_CMD_ALIASES, aliases.toUtf8().toBase64());
 
                         if (fr == this)
                             addStatus(tr("Alias %1 => %2 has been added").arg(new_cmd.at(0)).arg(new_cmd.at(1)));
@@ -1914,7 +1914,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             pm->addStatus(out);
     }
     else if (!WSGET(WS_CHAT_CMD_ALIASES).isEmpty()){
-        QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toLatin1());
+        QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toUtf8());
         QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
         bool ok = false;
 

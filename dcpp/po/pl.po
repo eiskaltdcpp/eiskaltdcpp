@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-04-01 23:52+0400\n"
+"POT-Creation-Date: 2014-05-09 12:42+0400\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -196,7 +196,7 @@ msgstr ""
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Rozłączony użytkownik opuścił hub: %1%"
 
-#: ../DirectoryListing.cpp:206
+#: ../DirectoryListing.cpp:209
 msgid "Directory missing name attribute"
 msgstr "Bąd nazwy przypisanego katalogu"
 
@@ -332,15 +332,15 @@ msgstr "Przekieruj użytkownika(ów)"
 msgid "Auto-connect group (converted)"
 msgstr ""
 
-#: ../NmdcHub.cpp:288
+#: ../NmdcHub.cpp:289
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nazwa użytkownika nieznana)"
 
-#: ../NmdcHub.cpp:667
+#: ../NmdcHub.cpp:668
 msgid "Hub topic:"
 msgstr ""
 
-#: ../NmdcHub.cpp:1017
+#: ../NmdcHub.cpp:1018
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"

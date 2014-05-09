@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Sopor, 2014
@@ -10,14 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-02-21 02:29+0400\n"
+"POT-Creation-Date: 2014-05-09 12:42+0400\n"
 "PO-Revision-Date: 2014-05-04 18:53+0000\n"
 "Last-Translator: Sopor\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/"
+"eiskaltdcpp/language/sv_SE/)\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
@@ -49,7 +50,7 @@ msgstr "lagts till favoritlistan"
 msgid " empty..."
 msgstr " tomt..."
 
-#: ../src/sharebrowser.cc:1111 ../src/finishedtransfers.cc:265
+#: ../src/sharebrowser.cc:1118 ../src/finishedtransfers.cc:265
 msgid " files"
 msgstr "filer"
 
@@ -115,7 +116,15 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a förkortat veckodagsnamn.\n%b förkortat månadsnamn.\n%H tid i 24-timmarsformat.\n%M minuter (range 00 to 59).\n%S sekunder (range 00 to 59).\n%% procenttecken.\n\nse manual strftime för mer information."
+msgstr ""
+"%a förkortat veckodagsnamn.\n"
+"%b förkortat månadsnamn.\n"
+"%H tid i 24-timmarsformat.\n"
+"%M minuter (range 00 to 59).\n"
+"%S sekunder (range 00 to 59).\n"
+"%% procenttecken.\n"
+"\n"
+"se manual strftime för mer information."
 
 #: ../src/hub.cc:2369
 msgid "': type /help for a list of available commands"
@@ -277,9 +286,11 @@ msgstr ": skriv /help för att få en lista över tillgängliga kommandon"
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -439,7 +450,8 @@ msgstr "<b>Nytt namn</b>"
 
 #: ../ui/settingsdialog.ui:9258 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Obs:</b> Klicka en gång när url:en redan är markerad för att editera dem"
+msgstr ""
+"<b>Obs:</b> Klicka en gång när url:en redan är markerad för att editera dem"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
@@ -625,7 +637,9 @@ msgstr "Lägg till klara filer direkt till utdelningen (om utdelad)"
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr "Lägg till regel 192.168.1.0/23 där inkommande trafik är tillåten och 192.168.6.0/24 där inkommande eller utgående trafik stängs ned"
+msgstr ""
+"Lägg till regel 192.168.1.0/23 där inkommande trafik är tillåten och "
+"192.168.6.0/24 där inkommande eller utgående trafik stängs ned"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -754,7 +768,7 @@ msgstr "Minst"
 msgid "At most"
 msgstr "Högst"
 
-#: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:366
+#: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:370
 msgid "Audio"
 msgstr "Ljud"
 
@@ -854,7 +868,7 @@ msgstr "Vitrysk översättning\n"
 msgid "Bind address"
 msgstr "Nätverksadress"
 
-#: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:363
+#: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:367
 msgid "Bitrate"
 msgstr "Bithastighet"
 
@@ -890,7 +904,7 @@ msgstr "Bläddra fil..."
 msgid "Browse the list of public hubs"
 msgstr "Bläddra i listan med publika hubbar"
 
-#: ../src/sharebrowser.cc:532 ../src/sharebrowser.cc:600 ../src/search.cc:357
+#: ../src/sharebrowser.cc:539 ../src/sharebrowser.cc:607 ../src/search.cc:357
 #: ../src/search.cc:428 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
 #: ../ui/hub.ui:231 ../ui/settingsdialog.ui:2646 ../ui/settingsdialog.ui:2716
 #: ../ui/settingsdialog.ui:6749 ../ui/settingsdialog.ui:8062
@@ -1204,7 +1218,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "DC++ klient bygger på källkod från FreeDC++ och LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"
+msgstr ""
+"DC++ klient bygger på källkod från FreeDC++ och LinuxDC++\n"
+"\n"
+"EiskaltDC++ version: %s (%s)\n"
+"DC++ core version: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1260,9 +1278,9 @@ msgstr "Målkatalog"
 msgid "Developers"
 msgstr "Utvecklarna"
 
-#: ../src/sharebrowser.cc:112 ../src/sharebrowser.cc:258
-#: ../src/sharebrowser.cc:277 ../src/sharebrowser.cc:616
-#: ../src/sharebrowser.cc:668
+#: ../src/sharebrowser.cc:116 ../src/sharebrowser.cc:262
+#: ../src/sharebrowser.cc:281 ../src/sharebrowser.cc:623
+#: ../src/sharebrowser.cc:675
 msgid "Dir"
 msgstr "Katalog"
 
@@ -1274,7 +1292,7 @@ msgstr "Direkt anslutning"
 #: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1436
 #: ../src/settingsdialog.cc:3754 ../src/settingsdialog.cc:3774
 #: ../src/settingsdialog.cc:3803 ../src/settingsdialog.cc:3817
-#: ../src/settingsdialog.cc:3872 ../src/sharebrowser.cc:330
+#: ../src/settingsdialog.cc:3872 ../src/sharebrowser.cc:334
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
@@ -1324,7 +1342,7 @@ msgstr "Ta inte bort källan vid automatisk bortkoppling, koppla bara i från"
 msgid "Don't send the away message to bots"
 msgstr "Skicka inte IVD-meddelande till botar"
 
-#: ../src/sharebrowser.cc:185 ../src/hashdialog.cc:102
+#: ../src/sharebrowser.cc:189 ../src/hashdialog.cc:102
 msgid "Done"
 msgstr "Klar"
 
@@ -1426,6 +1444,7 @@ msgstr "Ladda ned:"
 
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:95
 #: ../src/downloadqueue.cc:288 ../src/downloadqueue.cc:395
+#: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:371
 msgid "Downloaded"
 msgstr "Nedladdat"
 
@@ -1549,8 +1568,8 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
 #: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
-#: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:108
-#: ../src/sharebrowser.cc:328 ../src/sharebrowser.cc:359 ../src/search.cc:108
+#: ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:111
+#: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:363 ../src/search.cc:108
 #: ../src/search.cc:131 ../src/search.cc:659 ../src/search.cc:736
 #: ../src/search.cc:745
 msgid "Exact Size"
@@ -1668,7 +1687,7 @@ msgstr "Fil"
 msgid "File list"
 msgstr "Fillista"
 
-#: ../src/sharebrowser.cc:177
+#: ../src/sharebrowser.cc:181
 msgid "File list loaded"
 msgstr "Fillistan laddad"
 
@@ -1692,11 +1711,11 @@ msgstr "Fillistmeny"
 #: ../src/downloadqueue.cc:97 ../src/downloadqueue.cc:282
 #: ../src/downloadqueue.cc:389 ../src/downloadqueue.cc:755
 #: ../src/downloadqueue.cc:798 ../src/downloadqueue.cc:849
-#: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:104
-#: ../src/sharebrowser.cc:106 ../src/sharebrowser.cc:320
-#: ../src/sharebrowser.cc:350 ../src/sharebrowser.cc:564
-#: ../src/sharebrowser.cc:658 ../src/sharebrowser.cc:1025
-#: ../src/sharebrowser.cc:1059 ../src/finishedtransfers.cc:63
+#: ../src/sharebrowser.cc:84 ../src/sharebrowser.cc:107
+#: ../src/sharebrowser.cc:109 ../src/sharebrowser.cc:324
+#: ../src/sharebrowser.cc:354 ../src/sharebrowser.cc:571
+#: ../src/sharebrowser.cc:665 ../src/sharebrowser.cc:1032
+#: ../src/sharebrowser.cc:1066 ../src/finishedtransfers.cc:63
 #: ../src/finishedtransfers.cc:237 ../src/transfers.cc:66
 #: ../src/transfers.cc:715 ../src/search.cc:100 ../src/search.cc:133
 #: ../src/search.cc:372 ../src/search.cc:652 ../src/search.cc:693
@@ -1711,7 +1730,7 @@ msgstr "Filnamn"
 msgid "Files"
 msgstr "Filer"
 
-#: ../src/downloadqueue.cc:245 ../src/sharebrowser.cc:382
+#: ../src/downloadqueue.cc:245 ../src/sharebrowser.cc:389
 msgid "Files: "
 msgstr "Filer:"
 
@@ -1783,7 +1802,7 @@ msgstr "Välj typsnitt"
 msgid "Format"
 msgstr "Format"
 
-#: ../src/sharebrowser.cc:680 ../src/sharebrowser.cc:723
+#: ../src/sharebrowser.cc:687 ../src/sharebrowser.cc:730
 msgid "Found a match"
 msgstr "Matchning funnen"
 
@@ -1827,7 +1846,8 @@ msgstr "Full sökväg"
 
 #: ../src/downloadqueue.cc:1366
 msgid "Full tree does not match TTH root"
-msgstr "Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen trasig"
+msgstr ""
+"Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen trasig"
 
 #: ../src/WulforUtil.cc:225
 msgid "GB18030"
@@ -2115,11 +2135,11 @@ msgstr "Italien"
 msgid "Italian translation\n"
 msgstr "Italiensk översättning\n"
 
-#: ../src/downloadqueue.cc:243 ../src/sharebrowser.cc:387
+#: ../src/downloadqueue.cc:243 ../src/sharebrowser.cc:394
 msgid "Items: "
 msgstr "Objekt: "
 
-#: ../src/sharebrowser.cc:392
+#: ../src/sharebrowser.cc:399
 msgid "Items: 0"
 msgstr "Okjekt: 0"
 
@@ -2139,7 +2159,9 @@ msgstr "Behåll nedladdade filer och kataloger i kön"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr "Behåll dubbletter i din fillista (dubbletter höjer inte storleken på din utdelning)"
+msgstr ""
+"Behåll dubbletter i din fillista (dubbletter höjer inte storleken på din "
+"utdelning)"
 
 #: ../src/settingsdialog.cc:1645
 msgid "Keep filelists when exiting"
@@ -2269,7 +2291,7 @@ msgstr "Matcha nedladdningskön"
 msgid "Match all listings"
 msgstr "Matcha alla listningar"
 
-#: ../src/sharebrowser.cc:1111
+#: ../src/sharebrowser.cc:1118
 msgid "Matched "
 msgstr "Matchad"
 
@@ -2503,15 +2525,16 @@ msgstr "Inga fel"
 msgid "No grouping"
 msgstr "Ingen gruppering"
 
-#: ../src/sharebrowser.cc:692 ../src/sharebrowser.cc:888
+#: ../src/sharebrowser.cc:699 ../src/sharebrowser.cc:895
 msgid "No matches"
 msgstr "Inga träffar"
 
 #: ../ui/settingsdialog.ui:2778
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr "Inga nya nedladdningar om hastigheter överskrider (KiB/s, 0 = avstängt)"
+msgstr ""
+"Inga nya nedladdningar om hastigheter överskrider (KiB/s, 0 = avstängt)"
 
-#: ../src/sharebrowser.cc:899
+#: ../src/sharebrowser.cc:906
 msgid "No search text entered"
 msgstr ""
 
@@ -2549,11 +2572,11 @@ msgstr "Obs: De flesta av dessa inställningar kräver en omstart"
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr "Obs: Nya filer läggs inte till din utdelning förrän de har blivit indexerade!"
+msgstr ""
+"Obs: Nya filer läggs inte till din utdelning förrän de har blivit indexerade!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1335 ../ui/settingsdialog.ui:5883
@@ -2642,7 +2665,7 @@ msgstr "Historik för privata meddelande"
 msgid "Panels"
 msgstr "Paneler"
 
-#: ../src/sharebrowser.cc:183
+#: ../src/sharebrowser.cc:187
 msgid "Parse and build tree..."
 msgstr ""
 
@@ -2793,7 +2816,7 @@ msgstr "Avsluta"
 msgid "Quit the program"
 msgstr "Avsluta program"
 
-#: ../src/wulfor.cc:188
+#: ../src/wulfor.cc:194
 msgid "Quit..."
 msgstr "Avsluta..."
 
@@ -2908,7 +2931,7 @@ msgstr ""
 msgid "Reset changes"
 msgstr "Återställ ändringarna"
 
-#: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:364
+#: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:368
 msgid "Resolution"
 msgstr "Upplösning"
 
@@ -3072,8 +3095,7 @@ msgstr ""
 
 #: ../src/hub.cc:2066
 msgid ""
-"Set Core option param in value (without value return current value of "
-"option)"
+"Set Core option param in value (without value return current value of option)"
 msgstr ""
 
 #: ../src/hub.cc:2065
@@ -3094,16 +3116,18 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:986
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Sätt lägsta prioritet för nya filer som är större än låg prioritetsstorlek"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Sätt lägsta prioritet för nya filer som är större än låg prioritetsstorlek"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
 msgstr "Dela ut dolda filer"
 
-#: ../src/hub.cc:87 ../src/hub.cc:389 ../src/hub.cc:406 ../src/hub.cc:426
-#: ../src/hub.cc:474 ../src/publichubs.cc:52 ../src/publichubs.cc:164
+#: ../src/sharebrowser.cc:94 ../src/sharebrowser.cc:112
+#: ../src/sharebrowser.cc:372 ../src/hub.cc:87 ../src/hub.cc:389
+#: ../src/hub.cc:406 ../src/hub.cc:426 ../src/hub.cc:474
+#: ../src/publichubs.cc:52 ../src/publichubs.cc:164
 msgid "Shared"
 msgstr "Utdelad"
 
@@ -3190,11 +3214,11 @@ msgstr "Visa/Göm överföringspanel"
 msgid "Show/Hide user list"
 msgstr "Visa/Göm användarlistan"
 
-#: ../src/wulfor.cc:186
+#: ../src/wulfor.cc:192
 msgid "Shutting down libdcpp..."
 msgstr "Stänger ner libdcpp..."
 
-#: ../src/wulfor.cc:112
+#: ../src/wulfor.cc:118
 #, c-format
 msgid "Signal handlers installed.\n"
 msgstr ""
@@ -3203,8 +3227,8 @@ msgstr ""
 #: ../src/settingsdialog.cc:3804 ../src/settingsdialog.cc:3873
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
-#: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:107
-#: ../src/sharebrowser.cc:327 ../src/sharebrowser.cc:358
+#: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:110
+#: ../src/sharebrowser.cc:331 ../src/sharebrowser.cc:362
 #: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
 #: ../src/transfers.cc:729 ../src/search.cc:103 ../src/search.cc:130
 #: ../src/search.cc:654 ../src/search.cc:737 ../src/search.cc:746
@@ -3214,11 +3238,11 @@ msgid "Size"
 msgstr "Storlek"
 
 #: ../src/downloadqueue.cc:244 ../src/downloadqueue.cc:246
-#: ../src/sharebrowser.cc:388
+#: ../src/sharebrowser.cc:395
 msgid "Size: "
 msgstr "Storlek:"
 
-#: ../src/sharebrowser.cc:393
+#: ../src/sharebrowser.cc:400
 msgid "Size: 0 B"
 msgstr "Storlek: 0 B"
 
@@ -3358,9 +3382,9 @@ msgstr "TIS-620"
 #: ../src/downloadqueue.cc:82 ../src/downloadqueue.cc:294
 #: ../src/downloadqueue.cc:401 ../src/downloadqueue.cc:729
 #: ../src/downloadqueue.cc:757 ../src/sharebrowser.cc:87
-#: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:362
-#: ../src/sharebrowser.cc:567 ../src/sharebrowser.cc:1027
-#: ../src/sharebrowser.cc:1061 ../src/search.cc:110 ../src/search.cc:375
+#: ../src/sharebrowser.cc:336 ../src/sharebrowser.cc:366
+#: ../src/sharebrowser.cc:574 ../src/sharebrowser.cc:1034
+#: ../src/sharebrowser.cc:1068 ../src/search.cc:110 ../src/search.cc:375
 #: ../src/search.cc:379 ../src/search.cc:385 ../src/search.cc:661
 #: ../src/search.cc:748 ../src/search.cc:878 ../src/search.cc:929
 #: ../src/search.cc:1213 ../src/search.cc:1382 ../src/search.cc:1704
@@ -3494,7 +3518,7 @@ msgstr "Total storlek:"
 msgid "Total size: 0 B"
 msgstr "Total storlek: 0 B"
 
-#: ../src/sharebrowser.cc:383
+#: ../src/sharebrowser.cc:390
 msgid "Total: "
 msgstr ""
 
@@ -3514,8 +3538,8 @@ msgstr ""
 msgid "Trusted certificates path"
 msgstr ""
 
-#: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:330
-#: ../src/sharebrowser.cc:351 ../src/search.cc:102 ../src/search.cc:656
+#: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:334
+#: ../src/sharebrowser.cc:355 ../src/search.cc:102 ../src/search.cc:656
 #: ../src/search.cc:760 ../src/search.cc:887 ../src/search.cc:921
 msgid "Type"
 msgstr "Typ"
@@ -3540,7 +3564,7 @@ msgstr ""
 msgid "Unable to connect: already connected to the requested hub"
 msgstr ""
 
-#: ../src/sharebrowser.cc:212
+#: ../src/sharebrowser.cc:216
 msgid "Unable to load file list: "
 msgstr ""
 
@@ -3550,8 +3574,8 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2284
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 
@@ -3785,14 +3809,24 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Använd:\n  eiskaltdcpp-gtk <magnetlänk> <dchubb://länk> <adc(s)://länk>\n  eiskaltdcpp-gtk <Nyckel>\nEiskaltDC++ är ett plattformsoberoende program som använder Direct Connect och ADC-protokollet\n\nNycklar:\n  -h, --help\t Visa detta meddelande\n  -V, --version\t Visa version\n"
+msgstr ""
+"Använd:\n"
+"  eiskaltdcpp-gtk <magnetlänk> <dchubb://länk> <adc(s)://länk>\n"
+"  eiskaltdcpp-gtk <Nyckel>\n"
+"EiskaltDC++ är ett plattformsoberoende program som använder Direct Connect "
+"och ADC-protokollet\n"
+"\n"
+"Nycklar:\n"
+"  -h, --help\t Visa detta meddelande\n"
+"  -V, --version\t Visa version\n"
 
-#: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:365
+#: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:369
 msgid "Video"
 msgstr "Video"
 
