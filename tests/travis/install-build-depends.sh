@@ -45,8 +45,8 @@ elif [ "${USE_QT}" = "qt5" ]; then
     # Use latest cmake (>= 2.8.8):
     sudo add-apt-repository -y ppa:kalakris/cmake
     sudo apt-get update -qq
-    # This small hack may cause some problems in case of conflicts between packages:
-    sudo apt-get dist-upgrade -qq
+    # This is safe but not full upgrade:
+    sudo apt-get upgrade -qq
     if [ "${CONFIG}" = "full" ]; then
         sudo apt-get install -qq libaspell-dev
     fi
