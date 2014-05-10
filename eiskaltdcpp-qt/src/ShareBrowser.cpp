@@ -301,12 +301,16 @@ void ShareBrowser::init(){
     lineEdit_FILTER->installEventFilter(this);
 
     treeView_LPANE->setModel(tree_model);
+
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TTH);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_BR);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_WH);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MVIDEO);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MAUDIO);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_HIT);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TS);
+
     treeView_LPANE->setExpanded(tree_model->index(0, 0), true);
     treeView_LPANE->setContextMenuPolicy(Qt::CustomContextMenu);
 
