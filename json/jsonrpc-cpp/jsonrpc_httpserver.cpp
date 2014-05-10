@@ -42,15 +42,14 @@ namespace Json
           return MG_TRUE;   // Authorize all requests
         }
         if (ev == MG_REQUEST) {
-            HTTPServer* serv = (HTTPServer*) conn->connection_param;
             if(strcmp(conn->request_method,"OPTIONS") == 0) {
                 std::string res = "";
-                serv->sendResponse(res, conn);
+                reinterpret_cast<HTTPServer*>(conn->server_param)->sendResponse(res, conn);
             }
             else if(strcmp(conn->request_method,"POST") == 0) {
                 std::string tmp;
                 tmp.assign(conn->content, conn->content_len);
-                serv->onRequest(tmp, conn);
+                reinterpret_cast<HTTPServer*>(conn->server_param)->onRequest(tmp, conn);
             }
             result = MG_TRUE;
         }
@@ -88,7 +87,7 @@ namespace Json
     bool HTTPServer::startPolling()
     {
         // Create and configure the server
-        if ((server = mg_create_server(NULL, ev_handler)) == NULL) {
+        if ((server = mg_create_server(this, ev_handler)) == NULL) {
             return false;
         }
         char tmp_port[30];
