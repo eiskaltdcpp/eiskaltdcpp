@@ -215,10 +215,12 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DownloadDirFromList, std::string("list.downloaddir")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DownloadFileFromList, std::string("list.downloadfile")));
 
-    if (!jsonserver->startPolling())
-        std::cout << "JSONRPC: Start mongoose failed" << std::endl;
-    else
-        std::cout << "JSONRPC: Start mongoose" << std::endl;
+	jsonserver->startPolling();
+
+//    if (!jsonserver->startPolling())
+//        std::cout << "JSONRPC: Start mongoose failed" << std::endl;
+//    else
+//        std::cout << "JSONRPC: Start mongoose" << std::endl;
 #endif
 
     return 0;
@@ -245,7 +247,7 @@ void ServerThread::Close() {
 #endif
 #ifdef JSONRPC_DAEMON
     jsonserver->stopPolling();
-    std::cout << "JSONRPC: Stop mongoose" << std::endl;
+//    std::cout << "JSONRPC: Stop mongoose" << std::endl;
     delete jsonserver;
 #endif
 

@@ -13,6 +13,7 @@
 #include <cstdio>
 #include <cassert>
 #include <cstring>
+#include <istream>
 #include <stdexcept>
 
 #if defined(_MSC_VER)  &&  _MSC_VER >= 1400 // VC++ 8.0
@@ -27,6 +28,8 @@ namespace Json {
 Features::Features()
    : allowComments_( true )
    , strictRoot_( false )
+   , allowDroppedNullPlaceholders_ ( false )
+   , allowNumericKeys_ ( false )
 {
 }
 
@@ -44,6 +47,8 @@ Features::strictMode()
    Features features;
    features.allowComments_ = false;
    features.strictRoot_ = true;
+   features.allowDroppedNullPlaceholders_ = false;
+   features.allowNumericKeys_ = false;
    return features;
 }
 
@@ -190,6 +195,17 @@ Reader::readValue()
 
    if ( collectComments_  &&  !commentsBefore_.empty() )
    {
+      // Remove newline characters at the end of the comments
+      size_t lastNonNewline = commentsBefore_.find_last_not_of("\r\n");
+      if (lastNonNewline != std::string::npos)
+      {
+         commentsBefore_.erase(lastNonNewline+1);
+      }
+      else
+      {
+         commentsBefore_.clear();
+      }
+
       currentValue().setComment( commentsBefore_, commentBefore );
       commentsBefore_ = "";
    }
@@ -199,9 +215,11 @@ Reader::readValue()
    {
    case tokenObjectBegin:
       successful = readObject( token );
+      currentValue().setOffsetLimit(current_ - begin_);
       break;
    case tokenArrayBegin:
       successful = readArray( token );
+      currentValue().setOffsetLimit(current_ - begin_);
       break;
    case tokenNumber:
       successful = decodeNumber( token );
@@ -211,14 +229,34 @@ Reader::readValue()
       break;
    case tokenTrue:
       currentValue() = true;
+      currentValue().setOffsetStart(token.start_ - begin_);
+      currentValue().setOffsetLimit(token.end_ - begin_);
       break;
    case tokenFalse:
       currentValue() = false;
+      currentValue().setOffsetStart(token.start_ - begin_);
+      currentValue().setOffsetLimit(token.end_ - begin_);
       break;
    case tokenNull:
       currentValue() = Value();
+      currentValue().setOffsetStart(token.start_ - begin_);
+      currentValue().setOffsetLimit(token.end_ - begin_);
       break;
+   case tokenArraySeparator:
+      if ( features_.allowDroppedNullPlaceholders_ )
+      {
+         // "Un-read" the current token and mark the current value as a null
+         // token.
+         current_--;
+         currentValue() = Value();
+         currentValue().setOffsetStart(current_ - begin_ - 1);
+         currentValue().setOffsetLimit(current_ - begin_);
+         break;
+      }
+      // Else, fall through...
    default:
+      currentValue().setOffsetStart(token.start_ - begin_);
+      currentValue().setOffsetLimit(token.end_ - begin_);
       return addError( "Syntax error: value, object or array expected.", token );
    }
 
@@ -467,11 +505,12 @@ Reader::readString()
 
 
 bool 
-Reader::readObject( Token &/*tokenStart*/ )
+Reader::readObject( Token &tokenStart )
 {
    Token tokenName;
    std::string name;
    currentValue() = Value( objectValue );
+   currentValue().setOffsetStart(tokenStart.start_ - begin_);
    while ( readToken( tokenName ) )
    {
       bool initialTokenOk = true;
@@ -481,12 +520,24 @@ Reader::readObject( Token &/*tokenStart*/ )
          break;
       if ( tokenName.type_ == tokenObjectEnd  &&  name.empty() )  // empty object
          return true;
-      if ( tokenName.type_ != tokenString )
-         break;
-      
       name = "";
-      if ( !decodeString( tokenName, name ) )
-         return recoverFromError( tokenObjectEnd );
+      if ( tokenName.type_ == tokenString )
+      {
+         if ( !decodeString( tokenName, name ) )
+            return recoverFromError( tokenObjectEnd );
+      }
+      else if ( tokenName.type_ == tokenNumber &&
+                features_.allowNumericKeys_ )
+      {
+         Value numberName;
+         if ( !decodeNumber( tokenName, numberName ) )
+            return recoverFromError( tokenObjectEnd );
+         name = numberName.asString();
+      }
+      else
+      {
+         break;
+      }
 
       Token colon;
       if ( !readToken( colon ) ||  colon.type_ != tokenMemberSeparator )
@@ -526,9 +577,10 @@ Reader::readObject( Token &/*tokenStart*/ )
 
 
 bool 
-Reader::readArray( Token &/*tokenStart*/ )
+Reader::readArray( Token &tokenStart )
 {
    currentValue() = Value( arrayValue );
+   currentValue().setOffsetStart(tokenStart.start_ - begin_);
    skipSpaces();
    if ( *current_ == ']' ) // empty array
    {
@@ -571,6 +623,19 @@ Reader::readArray( Token &/*tokenStart*/ )
 bool 
 Reader::decodeNumber( Token &token )
 {
+  Value decoded;
+  if ( !decodeNumber( token, decoded ) )
+     return false;
+  currentValue() = decoded;
+  currentValue().setOffsetStart(token.start_ - begin_);
+  currentValue().setOffsetLimit(token.end_ - begin_);
+  return true;
+}
+
+
+bool
+Reader::decodeNumber( Token &token, Value &decoded )
+{
    bool isDouble = false;
    for ( Location inspect = token.start_; inspect != token.end_; ++inspect )
    {
@@ -579,7 +644,7 @@ Reader::decodeNumber( Token &token )
                  ||  ( *inspect == '-'  &&  inspect != token.start_ );
    }
    if ( isDouble )
-      return decodeDouble( token );
+      return decodeDouble( token, decoded );
    // Attempts to parse the number as an integer. If the number is
    // larger than the maximum supported value of an integer then
    // we decode the number as a double.
@@ -607,23 +672,36 @@ Reader::decodeNumber( Token &token )
              current != token.end_ ||
              digit > maxIntegerValue % 10)
          {
-            return decodeDouble( token );
+            return decodeDouble( token, decoded );
          }
       }
       value = value * 10 + digit;
    }
    if ( isNegative )
-      currentValue() = -Value::LargestInt( value );
+      decoded = -Value::LargestInt( value );
    else if ( value <= Value::LargestUInt(Value::maxInt) )
-      currentValue() = Value::LargestInt( value );
+      decoded = Value::LargestInt( value );
    else
-      currentValue() = value;
+      decoded = value;
    return true;
 }
 
 
 bool 
 Reader::decodeDouble( Token &token )
+{
+  Value decoded;
+  if ( !decodeDouble( token, decoded ) )
+     return false;
+  currentValue() = decoded;
+  currentValue().setOffsetStart(token.start_ - begin_);
+  currentValue().setOffsetLimit(token.end_ - begin_);
+  return true;
+}
+
+
+bool
+Reader::decodeDouble( Token &token, Value &decoded )
 {
    double value = 0;
    const int bufferSize = 32;
@@ -657,7 +735,7 @@ Reader::decodeDouble( Token &token )
 
    if ( count != 1 )
       return addError( "'" + std::string( token.start_, token.end_ ) + "' is not a number.", token );
-   currentValue() = value;
+   decoded = value;
    return true;
 }
 
@@ -669,6 +747,8 @@ Reader::decodeString( Token &token )
    if ( !decodeString( token, decoded ) )
       return false;
    currentValue() = decoded;
+   currentValue().setOffsetStart(token.start_ - begin_);
+   currentValue().setOffsetLimit(token.end_ - begin_);
    return true;
 }
 
@@ -903,6 +983,25 @@ Reader::getFormattedErrorMessages() const
 }
 
 
+std::vector<Reader::StructuredError>
+Reader::getStructuredErrors() const
+{
+   std::vector<Reader::StructuredError> allErrors;
+   for ( Errors::const_iterator itError = errors_.begin();
+         itError != errors_.end();
+         ++itError )
+   {
+      const ErrorInfo &error = *itError;
+      Reader::StructuredError structured;
+      structured.offset_start = error.token_.start_ - begin_;
+      structured.offset_limit = error.token_.end_ - begin_;
+      structured.message = error.message_;
+      allErrors.push_back(structured);
+   }
+   return allErrors;
+}
+
+
 std::istream& operator>>( std::istream &sin, Value &root )
 {
     Json::Reader reader;
@@ -920,3 +1019,4 @@ std::istream& operator>>( std::istream &sin, Value &root )
 
 
 } // namespace Json
+// vim: et ts=3 sts=3 sw=3 tw=0
