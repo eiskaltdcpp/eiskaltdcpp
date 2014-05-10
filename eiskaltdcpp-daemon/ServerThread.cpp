@@ -195,6 +195,7 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueueTargets, std::string("queue.listtargets")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetSourcesItem, std::string("queue.getsources")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetItemDescbyTarget, std::string("queue.getiteminfo")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHashStatus, std::string("hash.status")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MatchAllLists, std::string("queue.matchlists")));
@@ -821,11 +822,22 @@ void ServerThread::getItemSources(QueueItem* item, const string& separator, stri
         sources += nick;
     }
 }
+
 void ServerThread::getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
     for (const auto& item : ll) {
         if (target == *(item.first)) {
             getItemSources(item.second, separator, sources, online);
+        }
+    }
+    QueueManager::getInstance()->unlockQueue();
+}
+
+void ServerThread::getItemDescbyTarget(const string& target, StringMap& sm) {
+    const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+    for (const auto& item : ll) {
+        if (target == *(item.first)) {
+            getQueueParams(item.second,sm);
         }
     }
     QueueManager::getInstance()->unlockQueue();
@@ -1331,6 +1343,7 @@ bool ServerThread::downloadDirFromList(DirectoryListing::Directory *dir, Directo
         list->download(dir, downloadto, false);
     }
     catch (const Exception& e) {
+        if (isDebug) std::cout << "ServerThread::downloadDirFromList->(" << e.getError() << ")"<< std::endl;
         return false;
     }
     return true;
@@ -1371,7 +1384,7 @@ bool ServerThread::downloadFileFromList(DirectoryListing::File *file, DirectoryL
         list->download(file, downloadto, false, false);
     }
     catch (const Exception& e) {
-        printf("Exception %s\n",e.getError().c_str());fflush(stdout);
+        if (isDebug) std::cout << "ServerThread::downloadFileFromList->(" << e.getError() << ")"<< std::endl;
         return false;
     }
     return true;

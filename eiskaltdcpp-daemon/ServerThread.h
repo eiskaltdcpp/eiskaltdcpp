@@ -78,8 +78,9 @@ public:
     void showOpenedLists(string& l, const string& separator);
     void lsDirInList(const string& directory, const string& filelist, unordered_map<string,StringMap>& ret);
     bool downloadDirFromList(const string &target, const string &downloadto, const string &filelist);
-
     bool downloadFileFromList(const string &file, const string &downloadto, const string &filelist);
+    void getItemDescbyTarget(const string &target, StringMap &sm);
+
 private:
     friend class Singleton<ServerThread>;
 

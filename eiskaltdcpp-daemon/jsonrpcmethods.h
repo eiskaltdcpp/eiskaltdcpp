@@ -58,4 +58,5 @@ class JsonRpcMethods
     bool LsDirInList(const Json::Value& root, Json::Value& response);
     bool DownloadDirFromList(const Json::Value &root, Json::Value &response);
     bool DownloadFileFromList(const Json::Value &root, Json::Value &response);
+    bool GetItemDescbyTarget(const Json::Value &root, Json::Value &response);
 };

@@ -554,7 +554,6 @@ bool JsonRpcMethods::DownloadDirFromList(const Json::Value& root, Json::Value& r
     if (isDebug) std::cout << "DownloadDirFromList (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    Json::Value parameters;
     if (ServerThread::getInstance()->downloadDirFromList(root["params"]["target"].asString(), root["params"]["downloadto"].asString(), root["params"]["filelist"].asString()))
         response["result"] = 0;
     else
@@ -567,11 +566,24 @@ bool JsonRpcMethods::DownloadFileFromList(const Json::Value& root, Json::Value& 
     if (isDebug) std::cout << "DownloadFileFromList (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    Json::Value parameters;
     if (ServerThread::getInstance()->downloadFileFromList(root["params"]["target"].asString(), root["params"]["downloadto"].asString(), root["params"]["filelist"].asString()))
         response["result"] = 0;
     else
         response["result"] = 1;
     if (isDebug) std::cout << "DownloadFileFromList (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::GetItemDescbyTarget(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "GetItemDescbyTarget (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    Json::Value parameters; StringMap map;
+    ServerThread::getInstance()->getItemDescbyTarget(root["params"]["target"].asString(), map);
+    for (const auto& parameter : map) {
+        parameters[parameter.first] = parameter.second;
+    }
+    response["result"] = parameters;
+    if (isDebug) std::cout << "GetItemDescbyTarget (response): " << response << std::endl;
     return true;
 }
