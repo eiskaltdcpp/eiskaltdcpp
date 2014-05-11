@@ -210,6 +210,13 @@ bool ShareBrowser::buildList_gui()
         if (full) {
             openDir_gui(initialDirectory);
         }
+
+        int matched = QueueManager::getInstance()->matchListing(listing);
+        string message = _("Matched ") + Util::toString(matched) + _(" files");
+
+        typedef Func2<ShareBrowser, string, string> F2;
+        F2 *f = new F2(this, &ShareBrowser::setStatus_gui, "mainStatus", message);
+        WulforManager::get()->dispatchGuiFunc(f);
     }
     catch (const Exception &e)
     {

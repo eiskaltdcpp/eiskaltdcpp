@@ -231,6 +231,7 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
     runner->setRunFunction([this]() { this->buildList(); });
     connect(runner, SIGNAL(finished()), this, SLOT(init()), Qt::QueuedConnection);
     connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()), Qt::QueuedConnection);
+    connect(runner, SIGNAL(finished()), this, SLOT(slotMatchList()));
 
     runner->start();
 
