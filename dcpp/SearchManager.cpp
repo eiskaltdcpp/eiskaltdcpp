@@ -56,8 +56,8 @@ SearchManager::SearchManager() :
 }
 
 SearchManager::~SearchManager() {
+    stop = true;
     if(socket.get()) {
-        stop = true;
         socket->disconnect();
 #ifdef _WIN32
         join();
@@ -139,6 +139,9 @@ int SearchManager::run() {
         bool failed = false;
         while(!stop) {
             try {
+                if (!socket.get() || stop) {
+                    break;
+                }
                 socket->disconnect();
                 port = socket->listen(Util::toString(SETTING(UDP_PORT)));
                 if(failed) {
@@ -169,7 +172,7 @@ int SearchManager::UdpQueue::run() {
     string x = Util::emptyString;
     string remoteIp = Util::emptyString;
     stop = false;
-;
+
     while(true) {
         if (resultList.empty())
             s.wait();
