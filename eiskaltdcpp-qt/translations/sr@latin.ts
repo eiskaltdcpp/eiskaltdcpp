@@ -663,7 +663,7 @@ Keys:
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="190"/>
-        <source>&lt;b&gt;Media Info:&lt;/b&gt;&lt;br/&gt;</source>=
+        <source>&lt;b&gt;Media Info:&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Info za medije:&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
