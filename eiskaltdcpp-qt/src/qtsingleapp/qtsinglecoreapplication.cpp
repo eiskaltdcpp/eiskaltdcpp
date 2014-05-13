@@ -65,7 +65,7 @@ bool QtSingleCoreApplication::sendMessage(QString message)
         message = message.left(sharedMemory.size()-2);
 
     QByteArray byteArray("1");
-    byteArray.append(message.toLatin1());
+    byteArray.append(message.toUtf8());
     byteArray.append('\0');
 
     sharedMemory.lock();

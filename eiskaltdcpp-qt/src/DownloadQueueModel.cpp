@@ -43,7 +43,7 @@ static inline void printRoot(DownloadQueueItem *i, const QString &dlmtr){
     if (!i)
         return;
 
-	qDebug() << dlmtr.toLatin1().constData() << i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().toLatin1().constData();
+	qDebug() << dlmtr.toUtf8().constData() << i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().toUtf8().constData();
 
     for (const auto &child : i->childItems)
         printRoot(child, dlmtr + "-");

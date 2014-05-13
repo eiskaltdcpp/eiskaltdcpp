@@ -174,7 +174,7 @@ namespace dht
             try
             {
                 unsigned long length = compressBound(packet->data.length()) + 2;
-                std::unique_ptr<uint8_t> data(new uint8_t[length]);
+                std::unique_ptr<uint8_t[]> data(new uint8_t[length]);
 
                 // compress packet
                 compressPacket(packet->data, data.get(), length);
