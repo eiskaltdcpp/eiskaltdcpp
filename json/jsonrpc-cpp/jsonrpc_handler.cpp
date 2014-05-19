@@ -142,6 +142,18 @@ namespace Json
         return false;
       }
 
+      /* extract "params" attribute */
+      if(!root.isMember("params") || !root["params"].isObject())
+      {
+        error["id"] = Json::Value::null;
+        error["jsonrpc"] = "2.0";
+
+        err["code"] = INVALID_REQUEST;
+        err["message"] = "Invalid JSON-RPC request.";
+        error["error"] = err;
+        return false;
+      }
+
       return true;
     }
 
