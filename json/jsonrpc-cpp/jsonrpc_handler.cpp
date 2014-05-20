@@ -143,7 +143,7 @@ namespace Json
       }
 
       /* extract "params" attribute */
-      if(!root.isMember("params") || !root["params"].isObject())
+      if(root.isMember("params") && !root["params"].isObject())
       {
         error["id"] = Json::Value::null;
         error["jsonrpc"] = "2.0";
