@@ -231,7 +231,7 @@ int main(int argc, char* argv[])
 {
     parseArgs(argc, argv);
 
-    sTitle = "eiskaltdcpp-daemon (EiskaltDC++ core 2.2)";
+    sTitle = "eiskaltdcpp-daemon (EiskaltDC++ core " + string(EISKALTDCPP_VERSION) + ")";
 
 #ifdef _DEBUG
     sTitle += " [debug]";

@@ -32,9 +32,12 @@ API Layers:
         Добавление источника к элементу очереди.
         Удаление источника для элемента очереди.
         (wip) Добавление элемента очереди (queue.add)
-            Args: directory (string), filename (string), tth (string), size (int64_t)
-            Return: 0 | 1 (integer)
-            Comment: add file in queue by tth
+                Args: directory (string), filename (string), tth (string), size (int64_t)
+                Return: 0 | 1 (integer)
+                Comment: add file in queue by tth
+        (wip) Очистка очереди (queue.clear)
+                Args: none
+                Return: 0 (integer)
 
 -----------------------
 РАБОТА С ФАЙЛЛИСТАМИ
