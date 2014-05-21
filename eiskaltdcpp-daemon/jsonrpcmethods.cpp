@@ -587,3 +587,13 @@ bool JsonRpcMethods::GetItemDescbyTarget(const Json::Value& root, Json::Value& r
     if (isDebug) std::cout << "GetItemDescbyTarget (response): " << response << std::endl;
     return true;
 }
+
+bool JsonRpcMethods::QueueClear(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "QueueClear (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    ServerThread::getInstance()->queueClear();
+    response["result"] = 0;
+    if (isDebug) std::cout << "QueueClear (response): " << response << std::endl;
+    return true;
+}
