@@ -1728,6 +1728,7 @@ void Settings::initAdvanced_gui()
         addOption_gui(certificatesStore, _("Use TLS when remote client supports it"), SettingsManager::USE_TLS);
         addOption_gui(certificatesStore, _("Allow TLS connections to hubs without trusted certificate"), SettingsManager::ALLOW_UNTRUSTED_HUBS);
         addOption_gui(certificatesStore, _("Allow TLS connections to clients without trusted certificate"), SettingsManager::ALLOW_UNTRUSTED_CLIENTS);
+        addOption_gui(certificatesStore, _("Allow only TLS connections to clients"), SettingsManager::REQUIRE_TLS);
 
         g_signal_connect(getWidget("generateCertificatesButton"), "clicked", G_CALLBACK(onGenerateCertificatesClicked_gui), (gpointer)this);
     }

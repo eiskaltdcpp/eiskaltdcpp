@@ -159,6 +159,11 @@ void SettingsConnection::ok(){
     if (!(old_dht < 1024) && (SETTING(DHT_PORT) < 1024))
         showMsg(tr("Program need root privileges to open ports less than 1024"), NULL);
 #endif
+    SM->set(SettingsManager::ALLOW_UNTRUSTED_CLIENTS, checkBox_UNTRUSTED_CLIENTS->isChecked());
+    SM->set(SettingsManager::ALLOW_UNTRUSTED_HUBS, checkBox_UNTRUSTED_HUBS->isChecked());
+
+    SM->set(SettingsManager::USE_TLS, (comboBox_TLS->currentIndex() == 1) || (comboBox_TLS->currentIndex() == 2));
+    SM->set(SettingsManager::REQUIRE_TLS, (comboBox_TLS->currentIndex() == 2));
 
     if (old_mode != SETTING(INCOMING_CONNECTIONS) || old_tcp != (SETTING(TCP_PORT))
         || old_udp != (SETTING(UDP_PORT)) || old_tls != (SETTING(TLS_PORT)))
@@ -200,6 +205,17 @@ void SettingsConnection::init(){
 #else
     groupBox_DHT->hide();
 #endif
+
+    checkBox_UNTRUSTED_CLIENTS->setChecked(SETTING(ALLOW_UNTRUSTED_CLIENTS));
+    checkBox_UNTRUSTED_HUBS->setChecked(SETTING(ALLOW_UNTRUSTED_HUBS));
+
+    comboBox_TLS->setCurrentIndex(0);
+    if (SETTING(USE_TLS)) {
+        comboBox_TLS->setCurrentIndex(1);
+    }
+    if (SETTING(REQUIRE_TLS)) {
+        comboBox_TLS->setCurrentIndex(2);
+    }
 
     QStringList ifaces = WulforUtil::getInstance()->getLocalIfaces();
 
