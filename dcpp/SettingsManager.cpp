@@ -96,7 +96,7 @@ const string SettingsManager::settingTags[] =
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
-    "ShareSkipZeroByte", "LogSpy",
+    "ShareSkipZeroByte", "RequireTLS", "LogSpy",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
