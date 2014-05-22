@@ -98,6 +98,7 @@ const string SettingsManager::settingTags[] =
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
     "ShareSkipZeroByte", "RequireTLS", "LogSpy",
     "BindIface6",
+    "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
