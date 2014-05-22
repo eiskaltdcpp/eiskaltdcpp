@@ -244,8 +244,8 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
 
     QString aliases, paths;
 
-    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toLatin1());
-    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toLatin1());
+    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
+    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
 
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
@@ -304,41 +304,25 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList
     menu->insertMenu(action_list.at(5), magnet_menu);
     menu->insertMenu(action_list.at(12),black_list_menu);
 
-    QMenu *userm = buildUserCmdMenu(list);
+    QScopedPointer<QMenu> userm(buildUserCmdMenu(list));
 
-    if (userm)
-        if (!userm->actions().isEmpty())
-            menu->addMenu(userm);
+    if (!userm.isNull() && !userm->actions().isEmpty())
+        menu->addMenu(userm.data());
 
     QAction *ret = menu->exec(QCursor::pos());
 
-    if (actions.contains(ret)){
-        delete userm;
-
+    if (actions.contains(ret)) {
         return actions.value(ret);
-    }
-    else if (down_to->actions().contains(ret)){
+    } else if (down_to->actions().contains(ret)) {
         downToPath = ret->data().toString();
-
         return DownloadTo;
-    }
-    else if (down_wh_to->actions().contains(ret)){
+    } else if (down_wh_to->actions().contains(ret)) {
         downToPath = ret->data().toString();
-
         return DownloadWholeDirTo;
-    }
-    else if (ret){
-        ucParams["LAST"] = ret->toolTip();
-        ucParams["NAME"] = ret->statusTip();
-        ucParams["HOST"] =  ret->data().toString();
-
-        delete userm;
-
+    } else if (ret && ret->data().canConvert(QVariant::Int)) {
+        uc_cmd_id = ret->data().toInt();
         return UserCommands;
-    }
-    else{
-        delete userm;
-
+    } else {
         return None;
     }
 }
@@ -525,7 +509,7 @@ void SearchFrame::init(){
     for (int i = 0; i < icons.size(); i++)
         comboBox_FILETYPES->setItemIcon(i, WICON(icons.at(i)));
 
-    QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toLatin1());
+    QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
     d->searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
     QMenu *m = new QMenu();
@@ -580,7 +564,7 @@ void SearchFrame::init(){
 void SearchFrame::load(){
     Q_D(SearchFrame);
 
-    treeView_RESULTS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SEARCH_STATE).toLatin1()));
+    treeView_RESULTS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SEARCH_STATE).toUtf8()));
     treeView_RESULTS->setSortingEnabled(true);
 
     d->filterShared = static_cast<SearchFrame::AlreadySharedAction>(WIGET(WI_SEARCH_SHARED_ACTION));
@@ -594,7 +578,7 @@ void SearchFrame::load(){
 
     treeView_RESULTS->sortByColumn(WIGET(WI_SEARCH_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_SEARCH_SORT_ORDER)));
 
-    QString raw = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toLatin1());
+    QString raw = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
     QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
 
     d->completer = new QCompleter(list, lineEdit_SEARCHSTR);
@@ -1010,7 +994,7 @@ void SearchFrame::slotStartSearch(){
                 d->searchHistory.removeLast();
 
         QString hist = d->searchHistory.join("\n");
-        WSSET(WS_SEARCH_HISTORY, hist.toLatin1().toBase64());
+        WSSET(WS_SEARCH_HISTORY, hist.toUtf8().toBase64());
     }
 
     {
@@ -1482,13 +1466,10 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
-                QString cmd_name = Menu::getInstance()->ucParams["NAME"];
-                QString hub      = Menu::getInstance()->ucParams["HOST"];
-                QString last_user_cmd = Menu::getInstance()->ucParams["LAST"];
 
-                int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
+                int id = Menu::getInstance()->getCommandId();
+
                 UserCommand uc;
-
                 if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
                     break;
 
@@ -1511,7 +1492,9 @@ void SearchFrame::slotContextMenu(const QPoint &){
                         params["filesizeshort"] = params["fileSIshort"];
                         params["tth"] = params["fileTR"];
 
-                        ClientManager::getInstance()->userCommand(HintedUser(user, _tq(hub)), uc, params, true);
+                        string hubUrl = _tq(i.data(COLUMN_SF_HOST).toString());
+
+                        ClientManager::getInstance()->userCommand(HintedUser(user, hubUrl), uc, params, true);
                     }
 
                 }

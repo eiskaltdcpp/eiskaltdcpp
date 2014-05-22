@@ -6,12 +6,16 @@
 
 set -x
 
+# This  is an ugly hack for partial updating of build environment from
+# Ubuntu 12.04 (Precise Pangolin) to Ubuntu 14.04 (Trusty Tahr):
+sudo sed -i 's/precise/trusty/g' /etc/apt/sources.list
 sudo apt-get update -qq
 
 # Common build dependencies:
 sudo apt-get install -qq cmake \
                          libbz2-dev \
                          libboost-dev \
+                         libboost-system-dev \
                          libssl-dev \
                          libattr1-dev \
                          zlib1g-dev
@@ -30,17 +34,13 @@ if [ "${USE_QT}" = "qt4" ]; then
         sudo apt-get install -qq libaspell-dev
     fi
 elif [ "${USE_QT}" = "qt5" ]; then
-    sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa
-    sudo apt-get update -qq
     sudo apt-get install -qq qtbase5-dev \
                              qttools5-dev \
                              qtmultimedia5-dev \
                              qtquick1-5-dev \
                              qtscript5-dev \
                              qt5-default \
-                             qttools5-dev-tools \
-                             cmake
-    sudo apt-get dist-upgrade -qq
+                             qttools5-dev-tools
     if [ "${CONFIG}" = "full" ]; then
         sudo apt-get install -qq libaspell-dev
     fi
@@ -65,8 +65,6 @@ if [ "${USE_DAEMON}" = "ON" ]; then
 fi
 
 if [ "${USE_CLI}" = "ON" ]; then
-    sudo apt-add-repository -y ppa:tehnick/tehnick
-    sudo apt-get update -qq
     sudo apt-get install -qq libdata-dump-perl \
                              libgetopt-long-descriptive-perl \
                              libjson-rpc-perl \

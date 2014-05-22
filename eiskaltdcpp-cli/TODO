@@ -19,14 +19,15 @@ API Layers:
         (+) Установка приоритета элемента очереди (queue.setpriority)
                 Args: target (string), priority (integer; 0-PAUSED, 1-LOWEST, 2-LOW, 3-NORMAL, 4-HIGH, 5-HIGHEST)
                 Return: 0 | 1 (integer)
-                Comment: починил
         (+) Список источников для элемента очереди (queue.getsources)
                 Args: target (string), separator (string)
                 Return: online (integer), sources (string)
         (wip) Запуск согласования текущей очереди для всех скачанных файллистов (queue.matchlists)
                 Args: none
                 Return: 0 | 1 (integer)
-        Просмотр конкретного элемента очереди
+        (wip) Просмотр конкретного элемента очереди (queue.getiteminfo)
+                Args: target (string)
+                Return: @info about item@ (string map)
         Добавление источника к элементу очереди.
         Удаление источника для элемента очереди.
         (wip) Добавление элемента очереди (queue.add)
@@ -40,7 +41,7 @@ API Layers:
                 Args: huburl (string), nick (string)
                 Return: 0 | 1 (integer)
                 Comment:
-        (wip) Список файллистов (list.local)
+        (+) Список файллистов (list.local)
                 Args: separator (string)
                 Return: @all filelists in filelist dir@ (string) | 1 (integer)
                 Comment:
@@ -48,29 +49,40 @@ API Layers:
                 Args: filelist (string)
                 Return: @base32 encoded xml.bz2 file@ | 1 (integer)
                 Comment:
-        (wip) Открыть файллист (list.open)
+        (+) Открыть файллист (list.open)
                 Args: filelist (string)
                 Return: 0 | 1 (integer)
                 Comment:
-        (wip) Закрыть файллист (list.close)
+        (+) Закрыть файллист (list.close)
                 Args: filelist (string)
                 Return: 0 | 1 (integer)
                 Comment:
-        (wip) Закрыть все файллисты (list.closeall)
+        (+) Закрыть все файллисты (list.closeall)
                 Args: none
                 Return: 0 (integer)
                 Comment:
-        (wip) Вернуть список открытых файллистов (list.listopened)
+        (+) Вернуть список открытых файллистов (list.listopened)
                 Args: separator (string)
                 Return: @all opened file lists@ (string)
                 Comment:
-        (wip) Список файлов и директории в (list.lsdir)
+        (+) Список файлов и директории в (list.lsdir)
                 Args: filelist (string), directory(string)
                 Return: @all files and dirs in directory of filelist@ (string)
+                Comment: In return if item is directory param Name prepended "d".
+                         In args directory should finished by "\\".
+        (wip) Постановка файла в очередь с указанием директории назначения (list.downloadfile)
+                Args: target(string), downloadto(string), filelist (string)
+                Return: 0 | 1 (integer)
                 Comment:
-        Постановка файла из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
-        Постановка директории из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
------------------------
+                        For argument target directory separator should be "\\".
+                        If downloadto is empty, it's set to SETTING(DOWNLOAD_DIRECTORY) on server.
+        (wip) Постановка директории в очередь с указанием директории назначения (list.downloaddir)
+                Args: target(string), downloadto(string), filelist (string)
+                Return: 0 | 1 (integer)
+                Comment:
+                        In args target should finished by "\\".
+                        If downloadto is empty, it's set to SETTING(DOWNLOAD_DIRECTORY) on server.
+
 УПРАВЛЕНИЕ ШАРОЙ
         (+) Добавление (share.add)
                 Args: directory (string), virtual name (string)
@@ -84,7 +96,7 @@ API Layers:
         (+) Листинг (share.list)
                 Args: separator (string)
                 Return: @list of shared directoriess in string with separator@ (string)
-        (+) Обновлние (share.refresh)
+        (+) Обновление (share.refresh)
                 Args : none
                 Return: 0 | 1 (integer)
         (+) Показать статус хеширования (hash.status)
@@ -139,9 +151,10 @@ API Layers:
         (+) Байт принято/отдано (show.ratio)
                 Args: none
                 Return: @ratio@ (string)
-        (+) Список методов (methods.list)
+        (+) Список методов (methods.list) //deleted
                 Args: none
                 Return: separated list of methods
+                Comment: This method has been deleted - use system.describe
 -----------------------
 IPFILTER
         Добавление

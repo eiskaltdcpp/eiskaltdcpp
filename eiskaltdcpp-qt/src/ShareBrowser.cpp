@@ -40,6 +40,7 @@
 #include <QKeyEvent>
 #include <QInputDialog>
 #include <QDesktopServices>
+#include <QDateTime>
 
 #if QT_VERSION >= 0x050000
 #include <QtConcurrent>
@@ -136,8 +137,8 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     const QPixmap &dir_px = WICON(WulforUtil::eiFOLDER_BLUE);
     QString aliases, paths;
 
-    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toLatin1());
-    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toLatin1());
+    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
+    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
 
     QStringList a = aliases.split("\n", QString::SkipEmptyParts);
     QStringList p = paths.split("\n", QString::SkipEmptyParts);
@@ -300,8 +301,16 @@ void ShareBrowser::init(){
     lineEdit_FILTER->installEventFilter(this);
 
     treeView_LPANE->setModel(tree_model);
+
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TTH);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_BR);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_WH);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MVIDEO);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MAUDIO);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_HIT);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TS);
+
     treeView_LPANE->setExpanded(tree_model->index(0, 0), true);
     treeView_LPANE->setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -386,8 +395,17 @@ void ShareBrowser::load(){
         splitter->setSizes(frames);
     }
 
-    treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toLatin1()));
-    treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toLatin1()));
+    treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toUtf8()));
+    treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toUtf8()));
+
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TTH);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_BR);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_WH);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MVIDEO);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_MAUDIO);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_HIT);
+    treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TS);
 
     treeView_LPANE->setSortingEnabled(true);
     treeView_RPANE->setSortingEnabled(true);
@@ -587,7 +605,13 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         data << _q(file->getName())
              << WulforUtil::formatBytes(size)
              << size
-             << _q(file->getTTH().toBase32());
+             << _q(file->getTTH().toBase32())
+             << file->mediaInfo.bitrate
+             << _q(file->mediaInfo.resolution)
+             << _q(file->mediaInfo.video_info)
+             << _q(file->mediaInfo.audio_info)
+             << (quint64)file->getHit()
+             << QDateTime::fromTime_t(file->getTS()).toString("yyyy-MM-dd hh:mm");
 
         child = new FileBrowserItem(data, list_root);
         child->file = file;

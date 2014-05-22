@@ -195,9 +195,9 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueueTargets, std::string("queue.listtargets")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ListQueue, std::string("queue.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetSourcesItem, std::string("queue.getsources")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetItemDescbyTarget, std::string("queue.getiteminfo")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHashStatus, std::string("hash.status")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::PauseHash, std::string("hash.pause")));
-    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetMethodList, std::string("methods.list")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::MatchAllLists, std::string("queue.matchlists")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetHubUserList, std::string("hub.getusers")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::GetUserInfo, std::string("hub.getuserinfo")));
@@ -208,6 +208,8 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::CloseAllFileLists, std::string("list.closeall")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::ShowOpenedLists, std::string("list.listopened")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::LsDirInList, std::string("list.lsdir")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DownloadDirFromList, std::string("list.downloaddir")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DownloadFileFromList, std::string("list.downloadfile")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -820,11 +822,22 @@ void ServerThread::getItemSources(QueueItem* item, const string& separator, stri
         sources += nick;
     }
 }
+
 void ServerThread::getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online) {
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
     for (const auto& item : ll) {
         if (target == *(item.first)) {
             getItemSources(item.second, separator, sources, online);
+        }
+    }
+    QueueManager::getInstance()->unlockQueue();
+}
+
+void ServerThread::getItemDescbyTarget(const string& target, StringMap& sm) {
+    const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+    for (const auto& item : ll) {
+        if (target == *(item.first)) {
+            getQueueParams(item.second,sm);
         }
     }
     QueueManager::getInstance()->unlockQueue();
@@ -1056,10 +1069,6 @@ bool ServerThread::pauseHash() {
     return !paused;
 }
 
-void ServerThread::getMethodList(string& tmp) {
-    tmp = "magnet.add|daemon.stop|hub.add|hub.del|hub.say|hub.pm|hub.list|hub.list|share.add|share.rename|share.del|share.list|share.refresh|list.download|hub.getchat|search.send|search.getresults|show.version|show.ratio|queue.setpriority|queue.move|queue.remove|queue.listtargets|queue.list|queue.getsources|hash.status|hash.pause|methods.list|queue.matchlists|hub.getusers|hub.getuserinfo|hub.listfulldesc";
-}
-
 void ServerThread::matchAllList() {
     QueueManager::getInstance()->matchAllListings();
 }
@@ -1117,21 +1126,22 @@ void ServerThread::updateUser(const StringMap& params, Client* cl)
 {
     const string &cid = params.at("CID");
     const string &Nick = params.at("Nick");
-    StringMap & item = clientsMap[cl->getHubUrl()].curuserlist;
-    for (const auto& parameter : item) {
-        if (parameter.second == cid) {
-            if (parameter == *(item.end())) {
-                item.insert(StringMap::value_type(Nick, cid));
-                if (isDebug) {printf ("HUB: %s == Add user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
-            } else if (parameter.first != Nick) {
-                // User has changed nick, update userMap and remove the old Nick tag
-                item.erase(parameter.first);
-                item.insert(StringMap::value_type(Nick, cid));
-                if (isDebug) {printf ("HUB: %s == Update user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
-            }
-            break;
+    StringMap & userlist = clientsMap[cl->getHubUrl()].curuserlist;
+    if (userlist.empty()) {
+        userlist.insert(StringMap::value_type(Nick, cid));
+        if (isDebug) {printf ("updateUser HUB: %s == Add user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
+    } else {
+        auto it = userlist.find(Nick);
+        if (it == userlist.end()) {
+            if (isDebug) {printf ("updateUser HUB: %s == Add user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
+            userlist.insert(StringMap::value_type(Nick, cid));
+            return;
+        } else if ((*it).second == cid && (*it).first != Nick) {
+            // User has changed nick, update userMap and remove the old Nick tag
+            if (isDebug) {printf ("updateUser HUB: %s == Update user: %s\n", cl->getHubUrl().c_str(), Nick.c_str()); fflush (stdout);}
+            userlist.erase(it);
+            userlist.insert(StringMap::value_type(Nick, cid));
         }
-
     }
 }
 
@@ -1140,12 +1150,8 @@ void ServerThread::removeUser(const string& cid, Client* cl)
     StringMap & userlist = clientsMap[cl->getHubUrl()].curuserlist;
     for (const auto& user : userlist) {
         if (user.second == cid) {
-            if (user == *(userlist.end())) {
-                if (isDebug) {printf ("HUB: %s == ERROR: no user with this cid (%s)\n", cl->getHubUrl().c_str(), cid.c_str()); fflush (stdout);}
-            } else {
-                userlist.erase(user.first);
-                if (isDebug) {printf ("HUB: %s == Remove user: %s\n", cl->getHubUrl().c_str(), (user.first).c_str()); fflush (stdout);}
-            }
+            if (isDebug) {printf ("HUB: %s == Remove user: %s\n", cl->getHubUrl().c_str(), (user.first).c_str()); fflush (stdout);}
+            userlist.erase(user.first);
             break;
         }
     }
@@ -1305,6 +1311,81 @@ void ServerThread::lsDirInList(DirectoryListing::Directory *dir, unordered_map<s
         map["Resolution"] = !file->mediaInfo.video_info.empty() ? file->mediaInfo.resolution : Util::emptyString;
         map["Video"] = file->mediaInfo.video_info;
         map["Audio"] = file->mediaInfo.audio_info;
+        map["Downloaded"] = Util::toString(file->getHit());
+        map["Shared"] = Util::formatTime("%Y-%m-%d %H:%M", file->getTS());
         ret[file->getName()] = map;
     }
+}
+
+bool ServerThread::downloadDirFromList(const string& directory, const string& downloadto, const string& filelist)
+{
+    auto it = listsMap.find(filelist);
+    if (it != listsMap.end()) {
+        DirectoryListing::Directory *dir;
+        if (directory.empty() || directory == "\\") {
+            dir = it->second->getRoot();
+        } else {
+            dir = it->second->find(directory,it->second->getRoot());
+        }
+        string dtdir = downloadto.empty() ? SETTING(DOWNLOAD_DIRECTORY) : downloadto;
+        if (downloadDirFromList(dir, it->second, dtdir))
+            return true;
+        else
+            return false;
+    }
+    return false;
+}
+
+bool ServerThread::downloadDirFromList(DirectoryListing::Directory *dir, DirectoryListing *list, const string& downloadto)
+{
+    try
+    {
+        list->download(dir, downloadto, false);
+    }
+    catch (const Exception& e) {
+        if (isDebug) std::cout << "ServerThread::downloadDirFromList->(" << e.getError() << ")"<< std::endl;
+        return false;
+    }
+    return true;
+}
+
+bool ServerThread::downloadFileFromList(const string& target_file, const string& downloadto, const string& filelist)
+{
+    auto it = listsMap.find(filelist);
+    if (it != listsMap.end()) {
+        string directory = Util::getFilePath(target_file, '\\');
+        DirectoryListing::Directory *dir;
+        if (directory.empty() || directory == "\\") {
+            dir = it->second->getRoot();
+        } else {
+            dir = it->second->find(directory,it->second->getRoot());
+        }
+        string fname = Util::getFileName(target_file, '\\');
+        DirectoryListing::File* filePtr;
+        for (const auto& file : dir->files) {
+            if (file->getName() == fname) {
+                filePtr = file;
+            }
+        }
+        string dtdir = downloadto.empty() ? SETTING(DOWNLOAD_DIRECTORY) : downloadto;
+        dtdir += PATH_SEPARATOR + fname;
+        if (downloadFileFromList(filePtr, it->second, dtdir))
+            return true;
+        else
+            return false;
+    }
+    return false;
+}
+
+bool ServerThread::downloadFileFromList(DirectoryListing::File *file, DirectoryListing *list, const string& downloadto)
+{
+    try
+    {
+        list->download(file, downloadto, false, false);
+    }
+    catch (const Exception& e) {
+        if (isDebug) std::cout << "ServerThread::downloadFileFromList->(" << e.getError() << ")"<< std::endl;
+        return false;
+    }
+    return true;
 }

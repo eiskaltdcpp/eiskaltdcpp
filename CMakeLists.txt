@@ -47,7 +47,7 @@ CHECK_INCLUDE_FILES ("malloc.h;dlfcn.h;inttypes.h;memory.h;stdlib.h;strings.h;sy
 CHECK_INCLUDE_FILES ("sys/socket.h;net/if.h;ifaddrs.h;sys/types.h" HAVE_IFADDRS_H)
 CHECK_INCLUDE_FILES ("sys/types.h;sys/statvfs.h;limits.h;stdbool.h;stdint.h" FS_USAGE_C)
 
-set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
 
 find_package (PkgConfig)
 find_package (BZip2 REQUIRED)
@@ -135,7 +135,7 @@ if (USE_MINIUPNP)
     set (MINIUPNP_LIBRARY)
   if (LOCAL_MINIUPNP)
     add_subdirectory(upnp)
-    set (MINIUPNP_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/upnp")
+    set (MINIUPNP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/upnp")
     set (MINIUPNP_LIBRARY "miniupnpc")
   else (LOCAL_MINIUPNP)
     find_package (Miniupnpc REQUIRED)
@@ -400,8 +400,8 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
     ")
 
 CONFIGURE_FILE(
-  "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+  "${PROJECT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+  "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake"
   IMMEDIATE @ONLY)
 ADD_CUSTOM_TARGET(uninstall
-  "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
+  "${CMAKE_COMMAND}" -P "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake")

@@ -251,7 +251,7 @@ void Notification::setToolTip(const QString &DSPEED, const QString &USPEED, cons
 
 void Notification::reloadSounds(){
     QString encoded = WSGET(WS_NOTIFY_SOUNDS);
-    QString decoded = QByteArray::fromBase64(encoded.toLatin1());
+    QString decoded = QByteArray::fromBase64(encoded.toUtf8());
 
     sounds = decoded.split("\n");
 }

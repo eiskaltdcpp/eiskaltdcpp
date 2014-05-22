@@ -411,7 +411,7 @@ QPixmap WulforUtil::loadPixmap(const QString &file){
     if (p.load(f))
         return p;
 
-    printf("loadPixmap: Can't load '%s'\n", f.toLatin1().constData());
+    printf("loadPixmap: Can't load '%s'\n", f.toUtf8().constData());
 
     m_bError = true;
 
@@ -714,7 +714,7 @@ QTextCodec *WulforUtil::codecForEncoding(QString name){
     if (!QtEnc2DCEnc.contains(name))
         return QTextCodec::codecForLocale();
 
-    return QTextCodec::codecForName(name.toLatin1());
+    return QTextCodec::codecForName(name.toUtf8());
 }
 
 bool WulforUtil::openUrl(const QString &url){
@@ -722,7 +722,7 @@ bool WulforUtil::openUrl(const QString &url){
         if (!SETTING(MIME_HANDLER).empty())
             QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
         else
-            QDesktopServices::openUrl(QUrl::fromEncoded(url.toLatin1()));
+            QDesktopServices::openUrl(QUrl::fromEncoded(url.toUtf8()));
     }
     else if (url.startsWith("adc://") || url.startsWith("adcs://")){
         MainWindow::getInstance()->newHubFrame(url, "UTF-8");
@@ -752,18 +752,18 @@ bool WulforUtil::openUrl(const QString &url){
 
         if (!magnet.contains("+")) {
 #if QT_VERSION >= 0x050000
-                u.setQuery(magnet.toLatin1());
+                u.setQuery(magnet.toUtf8());
 #else
-                u.setEncodedUrl(magnet.toLatin1());
+                u.setEncodedUrl(magnet.toUtf8());
 #endif
         } else {
             QString _l = magnet;
 
             _l.replace("+", "%20");
 #if QT_VERSION >= 0x050000
-                u.setQuery(_l.toLatin1());
+                u.setQuery(_l.toUtf8());
 #else
-                u.setEncodedUrl(_l.toLatin1());
+                u.setEncodedUrl(_l.toUtf8());
 #endif
         }
 
@@ -789,7 +789,7 @@ bool WulforUtil::openUrl(const QString &url){
             if (!SETTING(MIME_HANDLER).empty())
                 QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
             else
-                QDesktopServices::openUrl(QUrl::fromEncoded(url.toLatin1()));
+                QDesktopServices::openUrl(QUrl::fromEncoded(url.toUtf8()));
         }
     }
     else
@@ -1161,15 +1161,12 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
             }
         } else if (uc->isRaw() || uc->isChat()) {
             menuPtr = ucMenu;
-            auto _ptr = uc->getDisplayName().begin();
+            auto _begin = uc->getDisplayName().begin();
             auto _end = uc->getDisplayName().end();
-            for(; _ptr != _end; ++_ptr) {
-                const QString name = _q(*_ptr);
-                if (_ptr + 1 == _end) {
-                    QAction *act = menuPtr->addAction(name);
-                    act->setToolTip(_q(uc->getCommand()));
-                    act->setStatusTip(_q(uc->getName()));
-                    act->setData(_q(uc->getHub()));
+            for(; _begin != _end; ++_begin) {
+                const QString name = _q(*_begin);
+                if (_begin + 1 == _end) {
+                    menuPtr->addAction(name)->setData(uc->getId());
                 } else {
                     bool found = false;
                     QListIterator<QAction*> iter(menuPtr->actions());

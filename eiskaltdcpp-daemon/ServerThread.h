@@ -58,23 +58,16 @@ public:
     bool addDirInShare(const string& sdirectory, const string& svirtname);
     bool addInQueue(const string& sddir, const string& name, const int64_t& size, const string& tth);
     bool setPriorityQueueItem(const string& target, const unsigned int& priority);
-    void getQueueParams(QueueItem* item, StringMap& params);
     void listQueueTargets(string& listqueue, const string& sseparator);
     void listQueue(unordered_map<string,StringMap>& listqueue);
     bool moveQueueItem(const string& source, const string& target);
     bool removeQueueItem(const string& target);
-    void updatelistQueueTargets();
-    void getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online);
     void getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online);
     void getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status);
     bool pauseHash();
-    void getMethodList(string& tmp);
     void matchAllList();
     void listHubsFullDesc(unordered_map<string,StringMap>& listhubs);
     void getHubUserList(string& userlist, const string& huburl, const string& separator);
-    void getParamsUser(StringMap& params, Identity& id);
-    void updateUser(const StringMap& params, Client* cl);
-    void removeUser(const string& cid, Client* cl);
     bool getUserInfo(StringMap& userinfo, const string& nick, const string& huburl);
     void showLocalLists(string& l, const string& separator);
     bool getClientFileList(const string& filelist, string& ret);
@@ -84,7 +77,9 @@ public:
     void closeAllFileLists();
     void showOpenedLists(string& l, const string& separator);
     void lsDirInList(const string& directory, const string& filelist, unordered_map<string,StringMap>& ret);
-    void lsDirInList(DirectoryListing::Directory *dir, unordered_map<string,StringMap>& ret);
+    bool downloadDirFromList(const string &target, const string &downloadto, const string &filelist);
+    bool downloadFileFromList(const string &file, const string &downloadto, const string &filelist);
+    void getItemDescbyTarget(const string &target, StringMap &sm);
 
 private:
     friend class Singleton<ServerThread>;
@@ -152,4 +147,13 @@ private:
     dcpp::Socket sock;
     CriticalSection shutcs;
     static const unsigned int maxLines = 50;
+
+    void getQueueParams(QueueItem* item, StringMap& params);
+    void getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online);
+    void getParamsUser(StringMap& params, Identity& id);
+    void updateUser(const StringMap& params, Client* cl);
+    void removeUser(const string& cid, Client* cl);
+    void lsDirInList(DirectoryListing::Directory *dir, unordered_map<string,StringMap>& ret);
+    bool downloadDirFromList(DirectoryListing::Directory *dir, DirectoryListing* list, const string& downloadto);
+    bool downloadFileFromList(DirectoryListing::File *file, DirectoryListing *list, const string &downloadto);
 };

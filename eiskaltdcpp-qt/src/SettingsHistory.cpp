@@ -41,7 +41,7 @@ void SettingsHistory::ok(){
     WBSET("memorize-tth-search-phrases", checkBox_TTHSearchHistory->isChecked());
     
     if (!checkBox_TTHSearchHistory->isChecked()){
-        QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toLatin1());
+        QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
         QStringList searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
         
         QString text = "";
@@ -53,12 +53,12 @@ void SettingsHistory::ok(){
         }
         
         QString hist = searchHistory.join("\n");
-        WSSET(WS_SEARCH_HISTORY, hist.toLatin1().toBase64());
+        WSSET(WS_SEARCH_HISTORY, hist.toUtf8().toBase64());
     }
     }
     
     { // search-history-items-number
-    QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toLatin1());
+    QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
     QStringList searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
     uint maxItemsNumber = WIGET("search-history-items-number", 10);
     
@@ -71,7 +71,7 @@ void SettingsHistory::ok(){
                 searchHistory.removeLast();
             
             QString hist = searchHistory.join("\n");
-            WSSET(WS_SEARCH_HISTORY, hist.toLatin1().toBase64());
+            WSSET(WS_SEARCH_HISTORY, hist.toUtf8().toBase64());
         }
     }
     }

@@ -66,6 +66,8 @@ public:
         GETSET(Directory*, parent, Parent);
         GETSET(TTHValue, tthRoot, TTH);
         GETSET(bool, adls, Adls);
+        GETSET(uint64_t, ts, TS);
+        GETSET(uint64_t, hit, Hit);
         MediaInfo mediaInfo;
     };
 

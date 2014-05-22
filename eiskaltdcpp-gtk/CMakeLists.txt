@@ -31,7 +31,7 @@ else (USE_LIBNOTIFY)
     message (STATUS "Building without libnotify support")
 endif (USE_LIBNOTIFY)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${PROJECT_BINARY_DIR})
 aux_source_directory(${PROJECT_SOURCE_DIR}/src gtk_srcs)
 file (GLOB gtk_hdrs ${PROJECT_SOURCE_DIR}/src/*.hh)
 file (GLOB gtk_ui ${PROJECT_SOURCE_DIR}/ui/*.ui)
@@ -135,7 +135,7 @@ if (UNIX)
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE ${PROJECT_NAME}.1
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
     install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)
 

@@ -61,7 +61,7 @@ bool SpellCheck::ok(const QString &word){
     if (!spell_checker || word.isEmpty())
         return true;
 
-    int correct = aspell_speller_check(spell_checker, word.toLatin1().constData(), -1);
+    int correct = aspell_speller_check(spell_checker, word.toUtf8().constData(), -1);
 
     return (correct != 0);
 }
@@ -70,7 +70,7 @@ void SpellCheck::suggestions(const QString &word, QStringList &list){
     if (!spell_checker || word.isEmpty())
         return;
 
-    const AspellWordList *suggestions = aspell_speller_suggest(spell_checker, word.toLatin1().constData(), -1);
+    const AspellWordList *suggestions = aspell_speller_suggest(spell_checker, word.toUtf8().constData(), -1);
     AspellStringEnumeration *elements = aspell_word_list_elements(suggestions);
 
     const char * sugg;
