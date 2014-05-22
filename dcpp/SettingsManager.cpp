@@ -97,6 +97,7 @@ const string SettingsManager::settingTags[] =
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
     "ShareSkipZeroByte", "LogSpy",
+    "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
     "SENTRY",
