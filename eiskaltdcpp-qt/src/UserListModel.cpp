@@ -96,9 +96,21 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
                 return QString::number(item->getShare());
             else {
 
-                QString ttip  = "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getNick() + "<br/>";
-                ttip += "<b>" + headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getComment() + "<br/>";
-                ttip += "<b>" + headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getEmail() + "<br/>";
+                QString nick = item->getNick();
+                WulforUtil::getInstance()->textToHtml(nick, true);
+
+                QString ttip  = "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + nick + "<br/>";
+
+                QString comment = item->getComment();
+                WulforUtil::getInstance()->textToHtml(comment, true);
+
+                ttip += "<b>" + headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + comment + "<br/>";
+
+                QString mail = item->getEmail();
+                WulforUtil::getInstance()->textToHtml(mail, true);
+
+                ttip += "<b>" + headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + mail + "<br/>";
+
                 ttip += "<b>" + headerData(COLUMN_IP, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getIP() + "<br/>";
                 ttip += "<b>" + headerData(COLUMN_SHARE, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " +
                         WulforUtil::formatBytes(item->getShare()) + "<br/>";
@@ -107,7 +119,11 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
                 WulforUtil::getInstance()->textToHtml(tag, true);
 
                 ttip += "<b>" + headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + tag + "<br/>";
-                ttip += "<b>" + headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + item->getConnection() + "<br/>";
+
+                QString connection = item->getConnection();
+                WulforUtil::getInstance()->textToHtml(connection, true);
+
+                ttip += "<b>" + headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + connection + "<br/>";
 
                 if (item->isOP())
                     ttip += tr("<b>Hub role</b>: Operator");
