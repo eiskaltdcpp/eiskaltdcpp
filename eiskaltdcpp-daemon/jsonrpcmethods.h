@@ -66,4 +66,6 @@ class JsonRpcMethods
     bool IpFilterAddRules(const Json::Value &root, Json::Value &response);
     bool IpFilterPurgeRules(const Json::Value &root, Json::Value &response);
     bool IpFilterUpDownRule(const Json::Value &root, Json::Value &response);
+private:
+    void FailedValidateRequest(Json::Value &error);
 };
