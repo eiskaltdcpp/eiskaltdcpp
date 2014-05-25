@@ -219,8 +219,6 @@ public:
 
     void unset(size_t key) { isSet[key] = false; }
 
-    const std::string parseCoreCmd(const std::string& cmd);
-
     void load() {
         Util::migrate(getConfigFile());
         load(getConfigFile());
@@ -251,6 +249,10 @@ public:
         return searchTypes;
     }
     const StringList& getExtensions(const string& name);
+
+    const std::string parseCoreCmd(const std::string& cmd);
+    const std::string parseCoreCmd(const std::string& key, const string& value);
+
 private:
     friend class Singleton<SettingsManager>;
     SettingsManager();

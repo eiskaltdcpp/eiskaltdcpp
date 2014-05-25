@@ -596,3 +596,65 @@ bool JsonRpcMethods::QueueClear(const Json::Value& root, Json::Value& response) 
     if (isDebug) std::cout << "QueueClear (response): " << response << std::endl;
     return true;
 }
+
+bool JsonRpcMethods::SettingsGetSet(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "SettingsGetSet (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    string out;
+    ServerThread::getInstance()->settingsGetSet(out, root["params"]["key"].asString(), root["params"]["value"].asString());
+    response["result"] = out;
+    if (isDebug) std::cout << "SettingsGetSet (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::IpFilterOnOff(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "IpFilterOnOff (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    ServerThread::getInstance()->ipfilterOnOff(root["params"]["on"].asBool());
+    response["result"] = 0;
+    if (isDebug) std::cout << "IpFilterOnOff (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::IpFilterList(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "IpFilterList (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    string out;
+    ServerThread::getInstance()->ipfilterList(out, root["params"]["separator"].asString());
+    response["result"] = out;
+    if (isDebug) std::cout << "IpFilterList (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::IpFilterAddRules(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "IpFilterAddRules (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    ServerThread::getInstance()->ipfilterAddRules(root["params"]["rules"].asString());
+    response["result"] = 0;
+    if (isDebug) std::cout << "IpFilterAddRules (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::IpFilterPurgeRules(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "IpFilterPurgeRules (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    ServerThread::getInstance()->ipfilterPurgeRules(root["params"]["rules"].asString());
+    response["result"] = 0;
+    if (isDebug) std::cout << "IpFilterPurgeRules (response): " << response << std::endl;
+    return true;
+}
+
+bool JsonRpcMethods::IpFilterUpDownRule(const Json::Value& root, Json::Value& response) {
+    if (isDebug) std::cout << "IpFilterUpDownRule (root): " << root << std::endl;
+    response["jsonrpc"] = "2.0";
+    response["id"] = root["id"];
+    ServerThread::getInstance()->ipfilterUpDownRule(root["params"]["up"].asBool(), root["params"]["rule"].asString());
+    response["result"] = 0;
+    if (isDebug) std::cout << "IpFilterUpDownRule (response): " << response << std::endl;
+    return true;
+}

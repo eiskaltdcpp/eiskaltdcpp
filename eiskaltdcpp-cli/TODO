@@ -163,15 +163,37 @@ API Layers:
                 Comment: This method has been deleted - use system.describe
 -----------------------
 IPFILTER
-        Добавление
-        Удаление
-        Список
-        Вкл/выкл
+        (wip) Добавление (ipfilter.addrules)
+                Args: rules {list rules with direction(in,out,both) and action(drop,accept) separated by ";"} (string)
+                Return: 0 (integer)
+                Example: "rules" = "192.168.1.0/23|in;!192.168.6.0/24|both"
+        (wip) Удаление (ipfilter.purgerules)
+                Args: rules {list rules separated by ";"} (string)
+                Return: 0 (integer)
+                Example: "rules" = "192.168.1.0/23;192.168.6.0/24"
+        (wip) Список (ipfilter.list)
+                Args: separator (string)
+                Return: separated list of rules in ipfilter (string)
+        (wip) Вкл/выкл (ipfilter.onoff)
+                Args: on (bool)
+                Return: 0 (integer)
+        (wip) Переместить правило выше/ниже (ipfilter.updown)
+                Args: up (bool), rule (string)
+                Return: 0 (integer)
 -----------------------
 УПРАВЛЕНИЕ ДЕМОНОМ
         (+) Стоп демона (daemon.stop)
                 Args: none
                 Return: 0 | 1 (integer)
+        (wip) Изменение/просмотр настроек (settings.getset)
+                Args: param (string), value (string)
+                Return:
+                    if param empty - return error in string
+                    if value is empty - current value of param
+                    if value isn't empty - try set param to value,
+                        return string contains param and value on success,
+                        return error sring otherwise
+                    (string)
 -----------------------
 ПОЛЬЗОВАТЕЛИ
         (+) Просмотр списка пользователей хаба (hub.getusers)

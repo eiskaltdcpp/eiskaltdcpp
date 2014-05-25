@@ -60,4 +60,10 @@ class JsonRpcMethods
     bool DownloadFileFromList(const Json::Value &root, Json::Value &response);
     bool GetItemDescbyTarget(const Json::Value &root, Json::Value &response);
     bool QueueClear(const Json::Value &root, Json::Value &response);
+    bool SettingsGetSet(const Json::Value &root, Json::Value &response);
+    bool IpFilterOnOff(const Json::Value &root, Json::Value &response);
+    bool IpFilterList(const Json::Value &root, Json::Value &response);
+    bool IpFilterAddRules(const Json::Value &root, Json::Value &response);
+    bool IpFilterPurgeRules(const Json::Value &root, Json::Value &response);
+    bool IpFilterUpDownRule(const Json::Value &root, Json::Value &response);
 };

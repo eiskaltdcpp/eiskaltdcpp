@@ -81,6 +81,12 @@ public:
     bool downloadFileFromList(const string &file, const string &downloadto, const string &filelist);
     void getItemDescbyTarget(const string &target, StringMap &sm);
     void queueClear();
+    void settingsGetSet(string &out, const string &param, const string &value);
+    void ipfilterList(string &out, const string &separator);
+    void ipfilterOnOff(bool on);
+    void ipfilterPurgeRules(const string &rules);
+    void ipfilterAddRules(const string &rules);
+    void ipfilterUpDownRule(bool up, const string &rule);
 
 private:
     friend class Singleton<ServerThread>;

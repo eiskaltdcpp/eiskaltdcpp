@@ -31,6 +31,7 @@
 #include "dcpp/Text.h"
 #include "dcpp/UploadManager.h"
 #include "dcpp/version.h"
+#include "extra/ipfilter.h"
 
 #ifdef XMLRPC_DAEMON
 #include "xmlrpcserver.h"
@@ -211,6 +212,12 @@ int ServerThread::run() {
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::LsDirInList, std::string("list.lsdir")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DownloadDirFromList, std::string("list.downloaddir")));
     jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::DownloadFileFromList, std::string("list.downloadfile")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::SettingsGetSet, std::string("settings.getset")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::IpFilterList, std::string("ipfilter.list")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::IpFilterAddRules, std::string("ipfilter.addrules")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::IpFilterPurgeRules, std::string("ipfilter.purgerules")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::IpFilterOnOff, std::string("ipfilter.onoff")));
+    jsonserver->AddMethod(new Json::Rpc::RpcMethod<JsonRpcMethods>(a, &JsonRpcMethods::IpFilterUpDownRule, std::string("ipfilter.updownrule")));
 
     if (!jsonserver->startPolling())
         std::cout << "JSONRPC: Start mongoose failed" << std::endl;
@@ -1396,4 +1403,97 @@ bool ServerThread::downloadFileFromList(DirectoryListing::File *file, DirectoryL
         return false;
     }
     return true;
+}
+
+void ServerThread::settingsGetSet(string& out, const string& param, const string& value)
+{
+    out = SettingsManager::getInstance()->parseCoreCmd(param, value);
+}
+
+void ServerThread::ipfilterList(string& out, const string& separator)
+{
+    if (!ipfilter::getInstance())
+        return;
+    string sep = separator.empty()? ";" : separator;
+    QIPList list = ipfilter::getInstance()->getRules();
+    for (unsigned int i = 0; i < list.size(); ++i) {
+
+        IPFilterElem *el = list.at(i);
+        string prefix = (el->action == etaDROP?"!":"");
+        string type = "OUT";
+
+        switch (el->direction) {
+            case eDIRECTION_BOTH:
+                type = "BOTH";
+
+                break;
+            case eDIRECTION_IN:
+                type = "IN";
+
+                break;
+            default:
+                break;
+        }
+        out+=prefix+string(ipfilter::Uint32ToString(el->ip)) + "/" + Util::toString(ipfilter::MaskToCIDR(el->mask))+ "|" + type + sep;
+    }
+}
+
+void ServerThread::ipfilterOnOff(bool on)
+{
+    if (on) {
+        ipfilter::newInstance();
+        ipfilter::getInstance()->load();
+        SettingsManager::getInstance()->set(SettingsManager::IPFILTER, 1);
+    } else {
+        if (!ipfilter::getInstance())
+            return;
+        ipfilter::getInstance()->shutdown();
+        SettingsManager::getInstance()->set(SettingsManager::IPFILTER, 0);
+    }
+}
+
+void ServerThread::ipfilterPurgeRules(const string& rules) {
+    if (!ipfilter::getInstance())
+        return;
+    StringTokenizer<string> purge( rules, ";" );
+    for(StringIter i = purge.getTokens().begin(); i != purge.getTokens().end(); ++i) {
+        if (!i->find("!"))
+            ipfilter::getInstance()->remFromRules((*i), etaDROP);
+        else
+            ipfilter::getInstance()->remFromRules((*i), etaACPT);
+    }
+}
+
+void ServerThread::ipfilterAddRules(const string& rules) {
+    if (!ipfilter::getInstance())
+        return;
+    StringTokenizer<string> add( rules, ";" );
+    for(StringIter i = add.getTokens().begin(); i != add.getTokens().end(); ++i)
+    {
+        StringTokenizer<string> addsub( (*i), "|" );
+        if (addsub.getTokens().size() == 0)
+            return;
+        if (addsub.getTokens().at(1) == "in")
+            ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_IN);
+        else if (addsub.getTokens().at(1) == "out")
+            ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_OUT);
+        else
+            ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_BOTH);
+    }
+}
+
+void ServerThread::ipfilterUpDownRule(bool up, const string& rule) {
+    if (up){
+        if (!ipfilter::getInstance())
+            return;
+        uint32_t ip,mask; eTableAction act;
+        if (ipfilter::getInstance()->ParseString(rule, ip, mask, act))
+            ipfilter::getInstance()->moveRuleUp(ip, act);
+    } else {
+        if (!ipfilter::getInstance())
+            return;
+        uint32_t ip,mask; eTableAction act;
+        if (ipfilter::getInstance()->ParseString(rule, ip, mask, act))
+            ipfilter::getInstance()->moveRuleDown(ip, act);
+    }
 }
