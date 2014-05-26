@@ -214,8 +214,8 @@ public:
         tmp_struct_in["ratio"] = xmlrpc_c::value_string(Util::toString(ratio));
         tmp_struct_in["up"] = xmlrpc_c::value_string(upload);
         tmp_struct_in["down"] = xmlrpc_c::value_string(download);
-        tmp_struct_in["up_bytes"] = xmlrpc_c::value_string(up);
-        tmp_struct_in["down_bytes"] = xmlrpc_c::value_string(down);
+        tmp_struct_in["up_bytes"] = xmlrpc_c::value_double(up);
+        tmp_struct_in["down_bytes"] = xmlrpc_c::value_double(down);
         xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
         *retvalP = tmp_struct_out;
     }
