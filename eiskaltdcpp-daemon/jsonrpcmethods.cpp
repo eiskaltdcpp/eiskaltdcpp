@@ -14,7 +14,7 @@
 #include "ServerManager.h"
 #include "utility.h"
 #include "ServerThread.h"
-#include "VersionGlobal.h"r
+#include "VersionGlobal.h"
 #include "dcpp/format.h"
 
 using namespace std;
