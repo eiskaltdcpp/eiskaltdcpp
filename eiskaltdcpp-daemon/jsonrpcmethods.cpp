@@ -14,7 +14,7 @@
 #include "ServerManager.h"
 #include "utility.h"
 #include "ServerThread.h"
-#include "VersionGlobal.h"
+#include "VersionGlobal.h"r
 #include "dcpp/format.h"
 
 using namespace std;
@@ -273,6 +273,8 @@ bool JsonRpcMethods::ShowRatio(const Json::Value& root, Json::Value& response)
     response["result"]["ratio"] = Util::toString(ratio);
     response["result"]["up"] = upload;
     response["result"]["down"] = download;
+    response["result"]["up_bytes"] = up;
+    response["result"]["down_bytes"] = down;
     if (isDebug) std::cout << "ShowRatio (response): " << response << std::endl;
     return true;
 }
