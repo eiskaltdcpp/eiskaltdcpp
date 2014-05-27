@@ -3888,7 +3888,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="653"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>Loggfiler (*.log);;Alla filer (*.*)</translation>
     </message>
 </context>
 <context>
@@ -5861,7 +5861,7 @@ men inte borttagna ur kön.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="690"/>
         <source>Automatically search for alternative download locations</source>
-        <translation type="unfinished"/>
+        <translation>Sök automatiskt efter nya nedladdningskällor</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="693"/>
@@ -5876,7 +5876,7 @@ a predefined search interval rule is in effect.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="709"/>
         <source>Automatically match queue for auto search hits</source>
-        <translation type="unfinished"/>
+        <translation>Matcha nedladdningskön när nya källor hittas</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="712"/>
@@ -5893,7 +5893,7 @@ and that you&apos;ll download a lot of file lists.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="730"/>
         <source>Skip zero-byte files</source>
-        <translation type="unfinished"/>
+        <translation>Ladda inte ned filer som är 0 byte</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="733"/>
@@ -5906,34 +5906,36 @@ However every file, even an empty one, will consume some drive space.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="747"/>
         <source>Don&apos;t download files already in share</source>
-        <translation type="unfinished"/>
+        <translation>Ladda inte ned filer som redan finns utdelade</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="750"/>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
-        <translation type="unfinished"/>
+        <translation>Denna inställning förhindrar dig från att ladda ned
+filer som redan finns i dina utdelade kataloger.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="762"/>
         <source>Don&apos;t download files already in the queue</source>
-        <translation type="unfinished"/>
+        <translation>Ladda inte ned filer som redan finns i nedladdningskön</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="765"/>
         <source>This option will stop you from downloading files
 which already exist in your queue.</source>
-        <translation type="unfinished"/>
+        <translation>Denna inställning förhindrar dig från att ladda ned
+filer som redan finns i din nedladdningskö.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="777"/>
         <source>SFV Check</source>
-        <translation type="unfinished"/>
+        <translation>SFV-kontroll</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="788"/>
         <source>Keep downloaded filelists</source>
-        <translation type="unfinished"/>
+        <translation>Behåll nedladdade fillistor</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="791"/>
@@ -5951,7 +5953,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
         <source>Keep downloaded files</source>
-        <translation type="unfinished"/>
+        <translation>Behåll nedladdade filer</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
@@ -5995,12 +5997,12 @@ denna funktionen, du måste då radera dem manuellt.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="876"/>
         <source>Interval for auto search alternates (minutes)</source>
-        <translation type="unfinished"/>
+        <translation>Söktid för de automatiska nedladdningskällorna (minuter)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="899"/>
         <source>Segment size (in MB, 0 = auto segment size)</source>
-        <translation type="unfinished"/>
+        <translation>Storlek på segmenten (i MB, 0 = automatisk)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
@@ -6038,7 +6040,7 @@ denna funktionen, du måste då radera dem manuellt.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="73"/>
         <source>Apply</source>
-        <translation type="unfinished"/>
+        <translation>Verkställ</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="83"/>
@@ -6048,7 +6050,7 @@ denna funktionen, du måste då radera dem manuellt.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="95"/>
         <source>Change</source>
-        <translation type="unfinished"/>
+        <translation>Ändra</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="105"/>
@@ -6942,7 +6944,11 @@ an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
 If the speed of the original uploads increases,
 the granted slot will not be closed.</source>
-        <translation type="unfinished"/>
+        <translation>Om medelhastigheten på uppladdningen är lägre än angivet värde,
+öppnas en extra uppladdningsslott.
+Det öppnas en ny slott var 30:e sekund som mest.
+Om hastigheten ökar kommer de extra slottarna inte att
+stängas ned.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="430"/>
@@ -6953,7 +6959,7 @@ the granted slot will not be closed.</source>
         <location filename="../ui/UISettingsSharing.ui" line="446"/>
         <location filename="../ui/UISettingsSharing.ui" line="481"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
-        <translation type="unfinished"/>
+        <translation>Här ställer du tiden när din utdelning automatiskt ska uppdateras.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="465"/>
@@ -7216,12 +7222,12 @@ stänga hans slott, men om användaren återkommer inom
     <message>
         <location filename="../src/UserListModel.cpp" line="113"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: Operator</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Hubbroll&lt;/b&gt;: Operatör</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="115"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: User</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Hubbroll&lt;/b&gt;: Användare</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="118"/>
