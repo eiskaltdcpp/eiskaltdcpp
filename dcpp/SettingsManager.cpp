@@ -597,38 +597,40 @@ bool SettingsManager::getType(const char* name, int& n, int& type) const {
 const std::string SettingsManager::parseCoreCmd(const std::string& cmd) {
     StringTokenizer<string> sl(cmd, ' ');
     if (sl.getTokens().size() == 1) {
-        return parseCoreCmd(sl.getTokens().at(0), Util::emptyString);
+        string ret;
+        bool b = parseCoreCmd(ret, sl.getTokens().at(0), Util::emptyString);
+        return (!b ? _("Error: setting not found!") : _("Core setting ") + sl.getTokens().at(0) + ": " + ret);
     } else if (sl.getTokens().size() >= 2) {
         string tmp = cmd.substr(sl.getTokens().at(0).size()+1);
-        return parseCoreCmd(sl.getTokens().at(0), tmp);
+        string ret;
+        bool b = parseCoreCmd(ret, sl.getTokens().at(0), tmp);
+        return (!b ? _("Error: setting not found!") : _("Change core setting ") + sl.getTokens().at(0) + _(" to ") + tmp);
     }
     return Util::emptyString;
 }
 
-const std::string SettingsManager::parseCoreCmd(const std::string& key, const string& value) {
+bool SettingsManager::parseCoreCmd(string& ret, const std::string& key, const string& value) {
     if (key.empty()) {
-        return _("Error: setting not found!");
+        return false;
     }
 
-    int n,type; string tmp;
+    int n,type;
     getType(key.c_str(),n,type);
     if (type == SettingsManager::TYPE_INT) {
         if (!value.empty()) {
             int i = atoi(value.c_str());
             set((SettingsManager::IntSetting)n,i);
         } else if (value.empty())
-            tmp = Util::toString(get((SettingsManager::IntSetting)n,false));
+            ret = Util::toString(get((SettingsManager::IntSetting)n,false));
     }
     else if (type == SettingsManager::TYPE_STRING) {
         if (!value.empty())
             set((SettingsManager::StrSetting)n, value);
         else if (value.empty())
-            tmp = get((SettingsManager::StrSetting)n,false);
-     } else
-        return _("Error: setting not found!");
-    return !tmp.empty() ?
-    _("Core setting ") + string(key) + ": " + tmp :
-    _("Change core setting ") + string(key) + _(" to ") + string(value);
+            ret = get((SettingsManager::StrSetting)n,false);
+    } else
+        return false;
+    return true;
 }
 
 } // namespace dcpp

@@ -188,11 +188,11 @@ IPFILTER
         (wip) Изменение/просмотр настроек (settings.getset)
                 Args: param (string), value (string)
                 Return:
-                    if param empty - return error in string
-                    if value is empty - current value of param
+                    if param empty - return 1 (integer)
+                    if value is empty - current_value(string)
                     if value isn't empty - try set param to value,
-                        return string contains param and value on success,
-                        return error sring otherwise
+                        return 0 (integer) on success,
+                        return 1 (integer) on fail
                     (string)
 -----------------------
 ПОЛЬЗОВАТЕЛИ
