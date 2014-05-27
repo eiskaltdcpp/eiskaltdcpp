@@ -3921,7 +3921,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
 
         map["CLR"] = color;
         map["3RD"] = third;
-        map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp());
+        map["I4"]  = _q(user->getIdentity().getIp());
 
         emit coreMessage(map);
 
@@ -3935,7 +3935,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             d->client->getHubIdentity().getParams(params, "hub", false);
             params["hubURL"] = d->client->getHubUrl();
             params["userNI"] = _tq(nick);
-            params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp();
+            params["userI4"] = user->getIdentity().getIp();
             d->client->getMyIdentity().getParams(params, "my", true);
             LOG(LogManager::CHAT, params);
         }
