@@ -82,7 +82,7 @@ public:
     bool downloadFileFromList(const string &file, const string &downloadto, const string &filelist);
     void getItemDescbyTarget(const string &target, StringMap &sm);
     void queueClear();
-    void settingsGetSet(string &out, const string &param, const string &value);
+    bool settingsGetSet(string &out, const string &param, const string &value);
     void ipfilterList(string &out, const string &separator);
     void ipfilterOnOff(bool on);
     void ipfilterPurgeRules(const string &rules);

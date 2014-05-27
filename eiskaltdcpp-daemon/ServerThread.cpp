@@ -1373,9 +1373,10 @@ bool ServerThread::downloadFileFromList(DirectoryListing::File *file, DirectoryL
     return true;
 }
 
-void ServerThread::settingsGetSet(string& out, const string& param, const string& value)
+bool ServerThread::settingsGetSet(string& out, const string& param, const string& value)
 {
-    out = SettingsManager::getInstance()->parseCoreCmd(param, value);
+    bool b = SettingsManager::getInstance()->parseCoreCmd(out, param, value);
+    return b;
 }
 
 void ServerThread::ipfilterList(string& out, const string& separator)

@@ -251,7 +251,7 @@ public:
     const StringList& getExtensions(const string& name);
 
     const std::string parseCoreCmd(const std::string& cmd);
-    const std::string parseCoreCmd(const std::string& key, const string& value);
+    bool parseCoreCmd(string& ret, const std::string& key, const string& value);
 
 private:
     friend class Singleton<SettingsManager>;

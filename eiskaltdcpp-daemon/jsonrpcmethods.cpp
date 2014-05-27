@@ -901,8 +901,16 @@ bool JsonRpcMethods::SettingsGetSet(const Json::Value& root, Json::Value& respon
     }
 
     string out;
-    ServerThread::getInstance()->settingsGetSet(out, root["params"]["key"].asString(), root["params"]["value"].asString());
-    response["result"] = out;
+    bool b = ServerThread::getInstance()->settingsGetSet(out, root["params"]["key"].asString(), root["params"]["value"].asString());
+    if (b) {
+        if (root["params"]["value"].asString().empty()) {
+            response["result"]["curr_value"] = out;
+        } else {
+            response["result"] = 0;
+        }
+    } else {
+        response["result"] = 1;
+    }
     if (isDebug) std::cout << "SettingsGetSet (response): " << response << std::endl;
     return true;
 }
