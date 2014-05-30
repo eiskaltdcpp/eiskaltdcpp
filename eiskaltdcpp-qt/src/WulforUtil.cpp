@@ -428,6 +428,11 @@ QString WulforUtil::getNicks(const QString &cid, const QString &hintUrl){
     return getNicks(CID(cid.toStdString()), hintUrl);
 }
 
+QString WulforUtil::getNickViaOnlineUser(const QString &cid, const QString &hintUrl) {
+    OnlineUser* user = ClientManager::getInstance()->findOnlineUser(CID(_tq(cid)), _tq(hintUrl));
+    return user ? _q(user->getIdentity().getNick()) : QString();
+}
+
 QString WulforUtil::getNicks(const CID &cid, const QString &hintUrl){
     return _q(dcpp::Util::toString(ClientManager::getInstance()->getNicks(cid, _tq(hintUrl))));
 }
