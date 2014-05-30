@@ -80,6 +80,7 @@ public:
     bool downloadDirFromList(const string &target, const string &downloadto, const string &filelist);
     bool downloadFileFromList(const string &file, const string &downloadto, const string &filelist);
     void getItemDescbyTarget(const string &target, StringMap &sm);
+    void queueClear();
 
 private:
     friend class Singleton<ServerThread>;

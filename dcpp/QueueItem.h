@@ -111,9 +111,10 @@ public:
             FLAG_NO_NEED_PARTS      = 0x250,
             FLAG_TTH_INCONSISTENCY  = 0x300,
             FLAG_UNTRUSTED = 0x400,
+            FLAG_UNENCRYPTED = 0x450,
             FLAG_MASK = FLAG_FILE_NOT_AVAILABLE
                 | FLAG_PASSIVE | FLAG_REMOVED | FLAG_CRC_FAILED | FLAG_CRC_WARN
-                | FLAG_BAD_TREE | FLAG_NO_TREE | FLAG_SLOW_SOURCE | FLAG_TTH_INCONSISTENCY | FLAG_UNTRUSTED
+                | FLAG_BAD_TREE | FLAG_NO_TREE | FLAG_SLOW_SOURCE | FLAG_TTH_INCONSISTENCY | FLAG_UNTRUSTED | FLAG_UNENCRYPTED
         };
 
         Source(const HintedUser& aUser) : user(aUser), partialSource(NULL) { }

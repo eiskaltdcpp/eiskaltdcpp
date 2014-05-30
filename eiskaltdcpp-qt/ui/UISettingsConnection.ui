@@ -920,6 +920,48 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>TLS settings</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QComboBox" name="comboBox_TLS">
+            <item>
+             <property name="text">
+              <string>Disable TLS</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Allow TLS</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Require TLS</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox_UNTRUSTED_HUBS">
+            <property name="text">
+             <string>Allow untrusted certificate for hubs</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBox_UNTRUSTED_CLIENTS">
+            <property name="text">
+             <string>Allow untrusted sertificate for clients</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

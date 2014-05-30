@@ -22,18 +22,22 @@ API Layers:
         (+) Список источников для элемента очереди (queue.getsources)
                 Args: target (string), separator (string)
                 Return: online (integer), sources (string)
-        (wip) Запуск согласования текущей очереди для всех скачанных файллистов (queue.matchlists)
+        (+) Запуск согласования текущей очереди для всех скачанных файллистов (queue.matchlists)
                 Args: none
                 Return: 0 | 1 (integer)
-        (wip) Просмотр конкретного элемента очереди (queue.getiteminfo)
+        (+-) Просмотр конкретного элемента очереди (queue.getiteminfo)
                 Args: target (string)
                 Return: @info about item@ (string map)
+                Comment: not tested
         Добавление источника к элементу очереди.
         Удаление источника для элемента очереди.
         (wip) Добавление элемента очереди (queue.add)
-            Args: directory (string), filename (string), tth (string), size (int64_t)
-            Return: 0 | 1 (integer)
-            Comment: add file in queue by tth
+                Args: directory (string), filename (string), tth (string), size (int64_t)
+                Return: 0 | 1 (integer)
+                Comment: add file in queue by tth
+        (wip) Очистка очереди (queue.clear)
+                Args: none
+                Return: 0 (integer)
 
 -----------------------
 РАБОТА С ФАЙЛЛИСТАМИ
@@ -70,18 +74,20 @@ API Layers:
                 Return: @all files and dirs in directory of filelist@ (string)
                 Comment: In return if item is directory param Name prepended "d".
                          In args directory should finished by "\\".
-        (wip) Постановка файла в очередь с указанием директории назначения (list.downloadfile)
+        (+) Постановка файла в очередь с указанием директории назначения (list.downloadfile)
                 Args: target(string), downloadto(string), filelist (string)
                 Return: 0 | 1 (integer)
                 Comment:
                         For argument target directory separator should be "\\".
                         If downloadto is empty, it's set to SETTING(DOWNLOAD_DIRECTORY) on server.
-        (wip) Постановка директории в очередь с указанием директории назначения (list.downloaddir)
+                        Now works for latin encoded targets only. l10n is wip for now
+        (+) Постановка директории в очередь с указанием директории назначения (list.downloaddir)
                 Args: target(string), downloadto(string), filelist (string)
                 Return: 0 | 1 (integer)
                 Comment:
                         In args target should finished by "\\".
                         If downloadto is empty, it's set to SETTING(DOWNLOAD_DIRECTORY) on server.
+                        Now works for latin encoded targets only. l10n is wip for now
 
 УПРАВЛЕНИЕ ШАРОЙ
         (+) Добавление (share.add)
