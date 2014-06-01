@@ -14,6 +14,7 @@
 
 #include <QCloseEvent>
 #include <QDir>
+#include <QComboBox>
 
 ShareBrowserSearch::ShareBrowserSearch(FileBrowserModel *model, QWidget *parent): QDialog(parent), searchRoot(NULL) {
     if ( !model )
@@ -26,6 +27,7 @@ ShareBrowserSearch::ShareBrowserSearch(FileBrowserModel *model, QWidget *parent)
     if (WVGET("sharebrowsersearch/size").isValid())
         resize(WVGET("sharebrowsersearch/size").toSize());
 
+    comboBox_TYPE_SEARCH->setCurrentIndex(WVGET("sharebrowsersearch/currenttype").toInt());
     treeWidget->header()->restoreState(WVGET("sharebrowsersearch/columnstate").toByteArray());
 
     setAttribute(Qt::WA_DeleteOnClose, true);
@@ -46,6 +48,7 @@ ShareBrowserSearch::~ShareBrowserSearch(){
 void ShareBrowserSearch::closeEvent(QCloseEvent *e){
     WVSET("sharebrowsersearch/size", size());
     WVSET("sharebrowsersearch/columnstate", treeWidget->header()->saveState());
+    WVSET("sharebrowsersearch/currenttype", comboBox_TYPE_SEARCH->currentIndex());
 
     QDialog::closeEvent(e);
 }
@@ -58,6 +61,7 @@ void ShareBrowserSearch::slotStartSearch(){
     treeWidget->clear();
 
     hash.clear();
+    items.clear();
 
     label_STATS->setText("");
 

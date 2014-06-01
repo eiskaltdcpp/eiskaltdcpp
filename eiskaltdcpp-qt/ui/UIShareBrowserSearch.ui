@@ -32,7 +32,7 @@
     <widget class="QComboBox" name="comboBox_TYPE_SEARCH">
      <item>
       <property name="text">
-       <string>Seach only files</string>
+       <string>Search only files</string>
       </property>
      </item>
      <item>
