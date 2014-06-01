@@ -119,19 +119,25 @@ void ShareBrowserSearch::findMatches(FileBrowserItem *item){
         model->fetchMore(index);
     
     QString fname = "";
-
+    int type_search = comboBox_TYPE_SEARCH->currentIndex();
     for (const auto &i : item->childItems){
         if (i->dir){
-            findMatches(i);
-
-            DirectoryListing::File::List *files = &i->dir->files;
-            DirectoryListing::File::Iter it_file;
-
-            for (it_file = files->begin(); it_file != files->end(); ++it_file){
-                fname = _q((*it_file)->getName());
-                
+            if (type_search == 1 || type_search == 2) {
+                fname = _q(i->dir->getName());
                 if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || fname.indexOf(regexp) >= 0 || regexp.exactMatch(fname))
-                    emit gotItem(_q((*it_file)->getName()), i);
+                    emit gotItem(_q(i->dir->getName()), item);
+            }
+            findMatches(i);
+            if (type_search == 0 || type_search == 2) {
+                DirectoryListing::File::List *files = &i->dir->files;
+                DirectoryListing::File::Iter it_file;
+
+                for (it_file = files->begin(); it_file != files->end(); ++it_file){
+                    fname = _q((*it_file)->getName());
+
+                    if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || fname.indexOf(regexp) >= 0 || regexp.exactMatch(fname))
+                        emit gotItem(_q((*it_file)->getName()), i);
+                }
             }
         }
     }

@@ -13,8 +13,8 @@
   <property name="windowTitle">
    <string>Search</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLineEdit" name="lineEdit_SEARCHSTR"/>
@@ -28,7 +28,26 @@
      </item>
     </layout>
    </item>
-   <item row="1" column="0">
+   <item>
+    <widget class="QComboBox" name="comboBox_TYPE_SEARCH">
+     <item>
+      <property name="text">
+       <string>Seach only files</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Search only directories</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Search all</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
     <widget class="QTreeWidget" name="treeWidget">
      <column>
       <property name="text">
@@ -42,7 +61,7 @@
      </column>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item>
     <widget class="QLabel" name="label_STATS">
      <property name="text">
       <string/>
