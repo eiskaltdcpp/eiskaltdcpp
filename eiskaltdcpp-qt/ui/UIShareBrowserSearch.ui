@@ -51,7 +51,7 @@
     <widget class="QTreeWidget" name="treeWidget">
      <column>
       <property name="text">
-       <string>Filename</string>
+       <string>Name</string>
       </property>
      </column>
      <column>
