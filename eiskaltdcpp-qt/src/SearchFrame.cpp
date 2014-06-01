@@ -1129,7 +1129,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
     QModelIndexList list = selection_model->selectedRows(0);
     Q_D(SearchFrame);
 
-    if (list.size() < 1)
+    if (list.empty())
         return;
 
     if (d->proxy)
@@ -1142,6 +1142,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
     for (const auto &i : list){
         SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+        if (!item)
+            return;
         QString host = item->data(COLUMN_SF_HOST).toString();
 
         if (!hubs.contains(host))
@@ -1159,6 +1161,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getDownloadParams(params, item)){
@@ -1203,6 +1207,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getDownloadParams(params, item)){
@@ -1230,6 +1236,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getWholeDirParams(params, item))
@@ -1261,6 +1269,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getWholeDirParams(params, item)){
@@ -1275,7 +1285,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
-
+                if (!item)
+                    return;
                 if (!item->isDir){//only one file
                     SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
@@ -1294,6 +1305,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
 
                 if (!item->isDir){//only files
                     qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
@@ -1321,6 +1334,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
 
                 if (!item->isDir){//only files
                     qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
@@ -1347,6 +1362,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
 
                 if (!item->isDir){//only files
                     qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
@@ -1369,6 +1386,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getWholeDirParams(params, item))
@@ -1381,6 +1400,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getWholeDirParams(params, item)){
@@ -1397,7 +1418,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
-
+                if (!item)
+                    return;
                 QString hubUrl = item->data(COLUMN_SF_HOST).toString();
                 dcpp::CID cid(_tq(item->cid));
 
@@ -1413,6 +1435,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getDownloadParams(params, item))
@@ -1426,6 +1450,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
              for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getDownloadParams(params, item))
@@ -1439,6 +1465,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
              for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getDownloadParams(params, item))
@@ -1454,7 +1482,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
              for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
-
+                if (!item)
+                    return;
                 d->model->removeItem(item);
 
                 d->model->repaint();
@@ -1466,7 +1495,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
         {
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
-
+                if (!item)
+                    return;
                 int id = Menu::getInstance()->getCommandId();
 
                 UserCommand uc;
@@ -1516,6 +1546,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
+                if (!item)
+                    return;
                 VarMap params;
 
                 if (getDownloadParams(params, item))
