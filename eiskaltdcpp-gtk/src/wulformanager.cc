@@ -524,8 +524,11 @@ void WulforManager::onReceived_gui(const string &link)
 
 gint WulforManager::openHashDialog_gui()
 {
-    Hash *h = new Hash();
-    gint response = h->run();
+    DialogEntry *hash = getHashDialog_gui();
+    if (!hash)
+        hash = new Hash();
+
+    gint response = hash->run();
 
     return response;
 }
