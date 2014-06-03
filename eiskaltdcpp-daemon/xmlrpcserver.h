@@ -200,20 +200,19 @@ public:
     execute(xmlrpc_c::paramList const& paramList,
             xmlrpc_c::value *   const  retvalP) {
 
-        double ratio;
-        double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
-        double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
+        auto up    = SETTING(TOTAL_UPLOAD);
+        auto down  = SETTING(TOTAL_DOWNLOAD);
+        auto ratio = (down > 0) ? up / down : 0;
 
-        if (down > 0)
-            ratio = up / down;
-        else
-            ratio = 0;
         string upload = Util::formatBytes(up);
         string download = Util::formatBytes(down);
+
         map<string, xmlrpc_c::value> tmp_struct_in;
         tmp_struct_in["ratio"] = xmlrpc_c::value_string(Util::toString(ratio));
         tmp_struct_in["up"] = xmlrpc_c::value_string(upload);
         tmp_struct_in["down"] = xmlrpc_c::value_string(download);
+        tmp_struct_in["up_bytes"] = xmlrpc_c::value_string(Util::toString(up));
+        tmp_struct_in["down_bytes"] = xmlrpc_c::value_string(Util::toString(down));
         xmlrpc_c::value_struct const tmp_struct_out(tmp_struct_in);
         *retvalP = tmp_struct_out;
     }

@@ -395,19 +395,18 @@ bool JsonRpcMethods::ShowRatio(const Json::Value& root, Json::Value& response)
     if (isDebug) std::cout << "ShowRatio (root): " << root << std::endl;
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
-    double ratio;
-    double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
-    double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
 
-    if (down > 0)
-        ratio = up / down;
-    else
-        ratio = 0;
+    auto up    = SETTING(TOTAL_UPLOAD);
+    auto down  = SETTING(TOTAL_DOWNLOAD);
+    auto ratio = (down > 0) ? up / down : 0;
+
     string upload = Util::formatBytes(up);
     string download = Util::formatBytes(down);
     response["result"]["ratio"] = Util::toString(ratio);
     response["result"]["up"] = upload;
     response["result"]["down"] = download;
+    response["result"]["up_bytes"] = Util::toString(up);
+    response["result"]["down_bytes"] = Util::toString(down);
     if (isDebug) std::cout << "ShowRatio (response): " << response << std::endl;
     return true;
 }

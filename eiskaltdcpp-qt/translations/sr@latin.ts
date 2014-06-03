@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr@latin" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="sr@latin">
 <context>
     <name>ADLS</name>
     <message>
@@ -914,7 +916,7 @@ Keys:
     <name>HubFrame</name>
     <message>
         <location filename="../src/HubFrame.cpp" line="177"/>
-        <location filename="../src/HubFrame.cpp" line="1273"/>
+        <location filename="../src/HubFrame.cpp" line="1264"/>
         <source>Copy</source>
         <translation>Kopiraj</translation>
     </message>
@@ -950,7 +952,7 @@ Keys:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="184"/>
-        <location filename="../src/HubFrame.cpp" line="1272"/>
+        <location filename="../src/HubFrame.cpp" line="1263"/>
         <source>Add to Favorites</source>
         <translation>Dodaj u omiljene</translation>
     </message>
@@ -1031,485 +1033,485 @@ Keys:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="301"/>
-        <location filename="../src/HubFrame.cpp" line="386"/>
+        <location filename="../src/HubFrame.cpp" line="381"/>
         <source>[User went offline]</source>
         <translation>[Korisnik je van mreže]</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="318"/>
-        <location filename="../src/HubFrame.cpp" line="412"/>
+        <location filename="../src/HubFrame.cpp" line="407"/>
         <source>AntiSpam</source>
         <translation>AntiSpam</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="322"/>
-        <location filename="../src/HubFrame.cpp" line="414"/>
+        <location filename="../src/HubFrame.cpp" line="409"/>
         <source>Add to Black</source>
         <translation>Dodaj na crnu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="323"/>
-        <location filename="../src/HubFrame.cpp" line="415"/>
+        <location filename="../src/HubFrame.cpp" line="410"/>
         <source>Add to White</source>
         <translation>Dodaj na belu</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="543"/>
+        <location filename="../src/HubFrame.cpp" line="534"/>
         <source>Invalid keywords</source>
         <translation>Nevažeće ključne reči
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="755"/>
+        <location filename="../src/HubFrame.cpp" line="746"/>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="794"/>
+        <location filename="../src/HubFrame.cpp" line="785"/>
         <source>not shared</source>
         <translation>nije deljeno</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1268"/>
+        <location filename="../src/HubFrame.cpp" line="1259"/>
         <source>Hub menu</source>
         <translation>Hab meni</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1270"/>
+        <location filename="../src/HubFrame.cpp" line="1261"/>
         <source>Reconnect</source>
         <translation>Ponovo poveži</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1271"/>
+        <location filename="../src/HubFrame.cpp" line="1262"/>
         <source>Show widget</source>
         <translation>Pokaži widžet</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1274"/>
+        <location filename="../src/HubFrame.cpp" line="1265"/>
         <source>Hub IP</source>
         <translation>Hab IP adresa</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1275"/>
+        <location filename="../src/HubFrame.cpp" line="1266"/>
         <source>Hub URL</source>
         <translation>Hab Url</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1276"/>
+        <location filename="../src/HubFrame.cpp" line="1267"/>
         <source>Hub Title</source>
         <translation>Ime haba</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1280"/>
+        <location filename="../src/HubFrame.cpp" line="1271"/>
         <source>Close</source>
         <translation>Zatvori</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1294"/>
+        <location filename="../src/HubFrame.cpp" line="1285"/>
         <source>Hub Menu</source>
         <translation>Hab meni</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1372"/>
-        <location filename="../src/HubFrame.cpp" line="1397"/>
+        <location filename="../src/HubFrame.cpp" line="1363"/>
+        <location filename="../src/HubFrame.cpp" line="1388"/>
         <source>Not connected</source>
         <translation>Nije povezan</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1430"/>
+        <location filename="../src/HubFrame.cpp" line="1421"/>
         <source>Chat cleared.</source>
         <translation>Razgovor opozvan.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1442"/>
+        <location filename="../src/HubFrame.cpp" line="1433"/>
         <source>Chat disabled.</source>
         <translation>Razgovor onemogućen.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1449"/>
+        <location filename="../src/HubFrame.cpp" line="1440"/>
         <source>Chat enabled.</source>
         <translation>Razgovor omogućen.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1485"/>
+        <location filename="../src/HubFrame.cpp" line="1476"/>
         <source>Hub role: Operator</source>
         <translation>Hab uloga: Operater</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1487"/>
+        <location filename="../src/HubFrame.cpp" line="1478"/>
         <source>Hub role: User</source>
         <translation>Hab uloga: Korisnik</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1490"/>
+        <location filename="../src/HubFrame.cpp" line="1481"/>
         <source>
 Favorite user</source>
         <translation>
 Omiljeni korisnik</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1565"/>
-        <location filename="../src/HubFrame.cpp" line="1567"/>
-        <location filename="../src/HubFrame.cpp" line="1781"/>
-        <location filename="../src/HubFrame.cpp" line="1783"/>
+        <location filename="../src/HubFrame.cpp" line="1556"/>
+        <location filename="../src/HubFrame.cpp" line="1558"/>
+        <location filename="../src/HubFrame.cpp" line="1772"/>
+        <location filename="../src/HubFrame.cpp" line="1774"/>
         <source>Away mode off</source>
         <translation>Režim otsutnosti isključen</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1579"/>
-        <location filename="../src/HubFrame.cpp" line="1581"/>
+        <location filename="../src/HubFrame.cpp" line="1570"/>
+        <location filename="../src/HubFrame.cpp" line="1572"/>
         <source>Away mode on: </source>
         <translation>Režim otsutnosti uključen:</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1599"/>
-        <location filename="../src/HubFrame.cpp" line="1601"/>
+        <location filename="../src/HubFrame.cpp" line="1590"/>
+        <location filename="../src/HubFrame.cpp" line="1592"/>
         <source>Aliases not found.</source>
         <translation>Pseudonimi nisu pronadjeni.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1621"/>
-        <location filename="../src/HubFrame.cpp" line="1623"/>
+        <location filename="../src/HubFrame.cpp" line="1612"/>
+        <location filename="../src/HubFrame.cpp" line="1614"/>
         <source>Alias removed.</source>
         <translation>Pseudonim uklonjen.</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1625"/>
+        <location filename="../src/HubFrame.cpp" line="1627"/>
         <location filename="../src/HubFrame.cpp" line="1634"/>
         <location filename="../src/HubFrame.cpp" line="1636"/>
-        <location filename="../src/HubFrame.cpp" line="1643"/>
-        <location filename="../src/HubFrame.cpp" line="1645"/>
         <source>Invalid alias syntax.</source>
         <translation>Neispravan pseudonim.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1653"/>
-        <location filename="../src/HubFrame.cpp" line="1655"/>
+        <location filename="../src/HubFrame.cpp" line="1644"/>
+        <location filename="../src/HubFrame.cpp" line="1646"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Pseudonim %1 =&gt; %2 bio dodat</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1668"/>
+        <location filename="../src/HubFrame.cpp" line="1670"/>
         <location filename="../src/HubFrame.cpp" line="1677"/>
         <location filename="../src/HubFrame.cpp" line="1679"/>
-        <location filename="../src/HubFrame.cpp" line="1686"/>
-        <location filename="../src/HubFrame.cpp" line="1688"/>
         <source>Invalid command syntax.</source>
         <translation>Nevažeća sintaksa komande</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1698"/>
+        <location filename="../src/HubFrame.cpp" line="1689"/>
         <source>List of keywords:
 </source>
         <translation>Lista ključnih reči:</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1745"/>
+        <location filename="../src/HubFrame.cpp" line="1736"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
         <translation>odnos: %1 (otpremanja: %2, preuzimanja: %3)</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1772"/>
-        <location filename="../src/HubFrame.cpp" line="1774"/>
+        <location filename="../src/HubFrame.cpp" line="1763"/>
+        <location filename="../src/HubFrame.cpp" line="1765"/>
         <source>Aspell switched %1</source>
         <translation>Aspell uključen %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1772"/>
-        <location filename="../src/HubFrame.cpp" line="1774"/>
+        <location filename="../src/HubFrame.cpp" line="1763"/>
+        <location filename="../src/HubFrame.cpp" line="1765"/>
         <source>on</source>
         <translation>Uključi</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1772"/>
-        <location filename="../src/HubFrame.cpp" line="1774"/>
+        <location filename="../src/HubFrame.cpp" line="1763"/>
+        <location filename="../src/HubFrame.cpp" line="1765"/>
         <source>off</source>
         <translation>Isključi</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1789"/>
-        <location filename="../src/HubFrame.cpp" line="1791"/>
+        <location filename="../src/HubFrame.cpp" line="1780"/>
+        <location filename="../src/HubFrame.cpp" line="1782"/>
         <source>Chat has been cleared</source>
         <translation>Razgovor je bio opozvan</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1841"/>
+        <location filename="../src/HubFrame.cpp" line="1832"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
         <translation>/aspell uklj/isklj - uključi/isključi proveru pravopisa
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1843"/>
+        <location filename="../src/HubFrame.cpp" line="1834"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
         <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1844"/>
+        <location filename="../src/HubFrame.cpp" line="1835"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
         <translation>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1845"/>
+        <location filename="../src/HubFrame.cpp" line="1836"/>
         <source>/alias list - list all aliases
 </source>
         <translation>/alias list - list all aliases
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1846"/>
+        <location filename="../src/HubFrame.cpp" line="1837"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
         <translation>/away &lt;message&gt; - set away-mode on/off
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1847"/>
+        <location filename="../src/HubFrame.cpp" line="1838"/>
         <source>/back - set away-mode off
 </source>
         <translation>/back - set away-mode off
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1848"/>
+        <location filename="../src/HubFrame.cpp" line="1839"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
         <translation>/pregledaj &lt;nadimak&gt; - pregledaj korisnikove fajlove
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1849"/>
+        <location filename="../src/HubFrame.cpp" line="1840"/>
         <source>/clear - clear chat window
 </source>
         <translation>/ čist - čist prozor za razgovor</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1850"/>
+        <location filename="../src/HubFrame.cpp" line="1841"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
         <translation>/ kword add&lt;keyword&gt; - dodavanje korisnički definisane ključne reči koje će biti istaknute u razgovor
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1851"/>
+        <location filename="../src/HubFrame.cpp" line="1842"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
         <translation>/ kword čist &lt;ključna reč&gt; - Uklonite korisnički definisane ključne reči</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1852"/>
+        <location filename="../src/HubFrame.cpp" line="1843"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
         <translation>/kword list - full list of keywords which will be highlighted in the chat
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1853"/>
+        <location filename="../src/HubFrame.cpp" line="1844"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
         <translation>/magnet - podrazumevana akcija sa magnetom (0-pitaj, 1-pretraga, 2-preuzimanje)</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1854"/>
+        <location filename="../src/HubFrame.cpp" line="1845"/>
         <source>/close - close this hub
 </source>
         <translation>/zatvori - zatvori ovaj hab</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1855"/>
+        <location filename="../src/HubFrame.cpp" line="1846"/>
         <source>/fav - add this hub to favorites
 </source>
         <translation>/ fav - dodaj ovaj hab u omiljene</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1856"/>
+        <location filename="../src/HubFrame.cpp" line="1847"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
         <translation>/ odobren &lt;nadimak&gt; - odobrava ekstra slot za korisnika</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1857"/>
+        <location filename="../src/HubFrame.cpp" line="1848"/>
         <source>/help, /?, /h - show this help
 </source>
         <translation>/pomoć,/?, /h - pokaži pomoć</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1858"/>
+        <location filename="../src/HubFrame.cpp" line="1849"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
         <translation>/ info &lt;nadimak&gt; - Prikaži info o korisniku</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1859"/>
+        <location filename="../src/HubFrame.cpp" line="1850"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
         <translation>/ odnos [pokaži] - pokazuje odnos[slanje u razgovor]</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1860"/>
+        <location filename="../src/HubFrame.cpp" line="1851"/>
         <source>/me - say a third person
 </source>
         <translation>/ ja - kaže treća osoba</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1861"/>
+        <location filename="../src/HubFrame.cpp" line="1852"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
         <translation>/ PP&lt;nadimak&gt; - počinje privatni razgovor sa korisnikom</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1862"/>
+        <location filename="../src/HubFrame.cpp" line="1853"/>
         <source>/ws param value - set gui option param in value (without value return current value of option)
 </source>
         <translation>/ws vrednost parametara - podesi parametre sučelja u vrednosti (bez opcije povratka trenutnih vrednosti)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1863"/>
+        <location filename="../src/HubFrame.cpp" line="1854"/>
         <source>/dcpps param value - set core option param in value (without value return current value of option)
 </source>
         <translation>/dcpps vrednost parametara - podesi osnovne parametre u vrednosti (bez opcije povratka trenutnih vrednosti)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1865"/>
+        <location filename="../src/HubFrame.cpp" line="1856"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
         <translation>/ luafile &lt;fajl&gt; - učitavanje Lua fajla</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1866"/>
+        <location filename="../src/HubFrame.cpp" line="1857"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
         <translation>/ lua &lt;komad&gt; izvršava Lua komad</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2118"/>
+        <location filename="../src/HubFrame.cpp" line="2109"/>
         <source> joins the chat</source>
         <translation>Pridruži se razgovoru</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2123"/>
-        <location filename="../src/HubFrame.cpp" line="2180"/>
+        <location filename="../src/HubFrame.cpp" line="2114"/>
+        <location filename="../src/HubFrame.cpp" line="2171"/>
         <source>Favorites</source>
         <translation>Favoriti</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2123"/>
+        <location filename="../src/HubFrame.cpp" line="2114"/>
         <source>%1 is now online</source>
         <translation>%1 postaje na vezi</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2136"/>
+        <location filename="../src/HubFrame.cpp" line="2127"/>
         <source>User online.</source>
         <translation>Korisnik na vezi.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2175"/>
+        <location filename="../src/HubFrame.cpp" line="2166"/>
         <source> left the chat</source>
         <translation>napustio razgovor</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2180"/>
+        <location filename="../src/HubFrame.cpp" line="2171"/>
         <source>%1 is now offline</source>
         <translation>%1 postao van veze</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2219"/>
-        <location filename="../src/HubFrame.cpp" line="2233"/>
+        <location filename="../src/HubFrame.cpp" line="2210"/>
+        <location filename="../src/HubFrame.cpp" line="2224"/>
         <source>User not found</source>
         <translation>Korisnik nije pronadjen</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2240"/>
+        <location filename="../src/HubFrame.cpp" line="2231"/>
         <source>Slot granted to </source>
         <translation>Slot odobren </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2299"/>
+        <location filename="../src/HubFrame.cpp" line="2290"/>
         <source> has been added to favorites.</source>
         <translation> Dodat u favorite.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2299"/>
+        <location filename="../src/HubFrame.cpp" line="2290"/>
         <source> has been removed from favorites.</source>
         <translation> Uklonjen iz favorita.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2331"/>
+        <location filename="../src/HubFrame.cpp" line="2322"/>
         <source>Favorite hub added.</source>
         <translation>Omiljeni hab dodat.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2334"/>
+        <location filename="../src/HubFrame.cpp" line="2325"/>
         <source>Favorite hub already exists.</source>
         <translation>Omiljeni hab već postoji.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2554"/>
+        <location filename="../src/HubFrame.cpp" line="2545"/>
         <source>User offline.</source>
         <translation>Korisnik nije povezan.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2593"/>
+        <location filename="../src/HubFrame.cpp" line="2584"/>
         <source>Stored password sent...</source>
         <translation>Sačuvana lozinka poslata...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2596"/>
+        <location filename="../src/HubFrame.cpp" line="2587"/>
         <source>Password</source>
         <translation>Lozinka</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2610"/>
-        <location filename="../src/HubFrame.cpp" line="3772"/>
+        <location filename="../src/HubFrame.cpp" line="2601"/>
+        <location filename="../src/HubFrame.cpp" line="3759"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Preusmeravanje zahteva primljenog na hab koji je već povezan</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2682"/>
+        <location filename="../src/HubFrame.cpp" line="2673"/>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Korisnički brojač: %3/%1 | Ukupno deljeno: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2688"/>
+        <location filename="../src/HubFrame.cpp" line="2679"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Broj korisnika: %1 | Ukupno deljeno: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3556"/>
+        <location filename="../src/HubFrame.cpp" line="3547"/>
         <source>Add to dictionary</source>
         <translation>Dodaj u rečnik</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3562"/>
+        <location filename="../src/HubFrame.cpp" line="3553"/>
         <source>Suggestions</source>
         <translation>Sugestije</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3731"/>
+        <location filename="../src/HubFrame.cpp" line="3718"/>
         <source>Connecting to %1</source>
         <translation>Povezivanje na  %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3739"/>
+        <location filename="../src/HubFrame.cpp" line="3726"/>
         <source>Connected to %1</source>
         <translation>Povezano na  %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3782"/>
+        <location filename="../src/HubFrame.cpp" line="3769"/>
         <source>Fail: %1...</source>
         <translation>Ne: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3976"/>
+        <location filename="../src/HubFrame.cpp" line="3963"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation> Izvini, ali nadimak &quot;%1&quot; je već uzeo drugi korisnik.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3982"/>
+        <location filename="../src/HubFrame.cpp" line="3969"/>
         <source>Search flood detected: %1</source>
         <translation>Fludovanje otkriveno: %1</translation>
     </message>
@@ -2868,7 +2870,7 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="44"/>
-        <location filename="../src/SearchFrame.cpp" line="378"/>
+        <location filename="../src/SearchFrame.cpp" line="362"/>
         <source>Search</source>
         <translation>Pretraži</translation>
     </message>
@@ -3069,33 +3071,33 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Pregledaj</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="497"/>
+        <location filename="../src/SearchFrame.cpp" line="481"/>
         <source>Close</source>
         <translation>Zatvori</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1097"/>
+        <location filename="../src/SearchFrame.cpp" line="1081"/>
         <source>Search - %1</source>
         <translation>Pretraži - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1205"/>
-        <location filename="../src/SearchFrame.cpp" line="1263"/>
+        <location filename="../src/SearchFrame.cpp" line="1189"/>
+        <location filename="../src/SearchFrame.cpp" line="1247"/>
         <source>Select directory</source>
         <translation>Izaberi fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1571"/>
+        <location filename="../src/SearchFrame.cpp" line="1554"/>
         <source>Searching for %1 ...</source>
         <translation>Pretraga za %1 ...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1588"/>
+        <location filename="../src/SearchFrame.cpp" line="1571"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Bez rezultata&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1597"/>
+        <location filename="../src/SearchFrame.cpp" line="1580"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Pronadjeno: &lt;b&gt;%1&lt;/b&gt;     Ispalo: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -3240,12 +3242,12 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <location filename="../src/SettingsConnection.cpp" line="157"/>
-        <location filename="../src/SettingsConnection.cpp" line="165"/>
+        <location filename="../src/SettingsConnection.cpp" line="170"/>
         <source>Program need root privileges to open ports less than 1024</source>
         <translation>Program zahteva admin privilegije za otvaranje portova manje nego 1024</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="352"/>
+        <location filename="../src/SettingsConnection.cpp" line="368"/>
         <source>Warning</source>
         <translation>Upozorenje</translation>
     </message>
@@ -3620,58 +3622,58 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Listing: </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="322"/>
+        <location filename="../src/ShareBrowser.cpp" line="326"/>
         <source>Filebrowser</source>
         <translation>Pregledač fajlova</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="324"/>
+        <location filename="../src/ShareBrowser.cpp" line="328"/>
         <source>Close</source>
         <translation>Zatvori</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="412"/>
+        <location filename="../src/ShareBrowser.cpp" line="416"/>
         <source>Total share size: %1;  Files: %2</source>
         <translation>Ukupno deljena veličina: %1;  Fajlovi: %2</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="446"/>
+        <location filename="../src/ShareBrowser.cpp" line="450"/>
         <source>Share browser error: %1</source>
         <translation>Greška deljenog pretraživača: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="618"/>
-        <location filename="../src/ShareBrowser.cpp" line="640"/>
+        <location filename="../src/ShareBrowser.cpp" line="622"/>
+        <location filename="../src/ShareBrowser.cpp" line="644"/>
         <source>Total size: %1</source>
         <translation>Ukupna veličina: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="638"/>
+        <location filename="../src/ShareBrowser.cpp" line="642"/>
         <source>Selected %1 from %2 items; </source>
         <translation>Izabrano %1 od %2 stavke; </translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="643"/>
+        <location filename="../src/ShareBrowser.cpp" line="647"/>
         <source>; Selected: %1</source>
         <translation>; Izabrano: %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="844"/>
+        <location filename="../src/ShareBrowser.cpp" line="848"/>
         <source>Select directory</source>
         <translation>Izaberi fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="974"/>
+        <location filename="../src/ShareBrowser.cpp" line="978"/>
         <source>Enter restriction size (in GB)</source>
         <translation>Unesite veličinu ograničenja (in GB)</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1112"/>
+        <location filename="../src/ShareBrowser.cpp" line="1116"/>
         <source>Share browser</source>
         <translation>Deljeni pretraživač</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowser.cpp" line="1119"/>
+        <location filename="../src/ShareBrowser.cpp" line="1123"/>
         <source>Matched %1 files</source>
         <translation>Uparen %1 fajlova</translation>
     </message>
@@ -3679,12 +3681,12 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>ShareBrowserSearch</name>
     <message>
-        <location filename="../src/ShareBrowserSearch.cpp" line="67"/>
+        <location filename="../src/ShareBrowserSearch.cpp" line="71"/>
         <source>Search - %1</source>
         <translation>Pretraga - %1</translation>
     </message>
     <message>
-        <location filename="../src/ShareBrowserSearch.cpp" line="102"/>
+        <location filename="../src/ShareBrowserSearch.cpp" line="106"/>
         <source>Found %1 items</source>
         <translation>Pronađeno %1 stavki</translation>
     </message>
@@ -4010,9 +4012,13 @@ Da li želite da zaustavite?</translation>
         <translation>Ime fajla</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="76"/>
         <source>Host</source>
-        <translation>Host</translation>
+        <translation type="obsolete">Host</translation>
+    </message>
+    <message>
+        <location filename="../src/TransferView.cpp" line="76"/>
+        <source>Hub</source>
+        <translation type="unfinished">Hab</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
@@ -4382,7 +4388,7 @@ Da li želite da zaustavite?</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -4407,7 +4413,7 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -5273,7 +5279,7 @@ in options, file will be downloaded without opening search dialog.</source>
         <source>Select this mode if your computer is connected directly to the internet.
 Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
-this option and usually you don't need to alter anything more in the
+this option and usually you don&apos;t need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation>Izaberi ovaj režim ako je tvoj kompjuter povezan direktno na internet.
@@ -5328,7 +5334,7 @@ Ovaj režim nosi neka ozbiljna ograničenja.
         <source>Select this mode if you are behind a firewall/router that supports
 the UPnP standard for program auto-configuration.
 Most routers do support UPnP but you may need to enable it
-in the router's configuration page.
+in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
         <translation>Izaberite ovaj režim ako ste iza zaštitnog zida koji podržava
@@ -5534,13 +5540,13 @@ DC++&apos;s SOCKS5 podrška ne obuhvata GSSAPI.</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn't matter&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -5591,6 +5597,36 @@ p, li { white-space: pre-wrap; }
         <source>DHT port</source>
         <translation>DHT port</translation>
     </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="925"/>
+        <source>TLS settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="932"/>
+        <source>Disable TLS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="937"/>
+        <source>Allow TLS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="942"/>
+        <source>Require TLS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="950"/>
+        <source>Allow untrusted certificate for hubs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsConnection.ui" line="957"/>
+        <source>Allow untrusted sertificate for clients</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UISettingsDownloads</name>
@@ -5628,7 +5664,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
         <source>This is another method of limiting simultaneous downloads,
 designed to prevent new downloads if your existing downloads
-exceed a specific threshold. It's measured in kibibytes per second,
+exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
         <translation>Ovo je još jedan od načina ograničavanja istovremenog preuzimanja,
 dizajniran da spreči nova preuzimanja ako postojeće preuzimanje
@@ -5903,7 +5939,7 @@ ali ne i uklonjeni iz reda.</translation>
         <source>Every few minutes, the client will search for files in your
 Download Queue to find more download locations (more users/sources).
 The autosearch will find exact matches by searching via hash.
-The drawback is that it may won't find much more sources
+The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
         <translation>Svakih nekoliko minuta, klijent će tražiti svoje fajlove
@@ -5920,11 +5956,11 @@ definisan tražeći interval.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="712"/>
-        <source>Enable to automatically download a user's list and match them
-as sources for files in your Download Queue when they've been
-discovered as a source for one of the files you're downloading.
+        <source>Enable to automatically download a user&apos;s list and match them
+as sources for files in your Download Queue when they&apos;ve been
+discovered as a source for one of the files you&apos;re downloading.
 If you download files in sets, that user is probably a source
-for many more files you're downloading. Enable if unsure.
+for many more files you&apos;re downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
@@ -5990,12 +6026,12 @@ koji već stoje u redu.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="791"/>
         <source>Enable this option if you want to keep downloaded filelists
 in the download queue after they have been finished.
-After downloaded the queue items will have 'Finished' status
+After downloaded the queue items will have &apos;Finished&apos; status
 and you can delete these finished entries anytime later.
 Note that if you physically move/delete your downloaded files from
-their target location, it won't result automatic deletion of
+their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won't remove existing finished items
+If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Omogućite ovu opciju ako želite da zadržite preuzete fajl liste 
 u redu za preuzimanje nakon što su završene 
@@ -6014,15 +6050,15 @@ njihove ciljne lokacije, to neće rezultirati automatskim brisanjem odgovarajuć
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
         <source>Enable this option if you want to keep downloaded files and folders
 in the download queue after they have been finished.
-After downloaded the queue items will have 'Finished' status
+After downloaded the queue items will have &apos;Finished&apos; status
 and you can delete these finished entries anytime later.
 Using this function you can keep track of what files are already
 downloaded right there in the download queue without the need
 of checking the Finished Downloads window.
 Note that if you physically move/delete your downloaded files from
-their target location, it won't result automatic deletion of
+their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won't remove existing finished items
+If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Omogućite ovu opciJu ako želite da zadržite preuzete datoteke i fascikle 
 u Redu preuzimanja nakon što su završili.
@@ -6243,8 +6279,8 @@ iz reda, već to morate da uradite  ručno.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="346"/>
-        <source>If checked, you'll see emoticons even in the middle of words.
-If unchecked, you'll see emoticons only if they are isolated
+        <source>If checked, you&apos;ll see emoticons even in the middle of words.
+If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
         <translation>Ako je provereno, videćete smajlije čak i u sredini reči
 Ako je neprovereno, videćete emotikone samo ako su oni odvojeni
@@ -6590,7 +6626,7 @@ them is usually available only to operators</source>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -6712,7 +6748,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="355"/>
-        <source>If your sound files' format is unsupported by Qt, you can define
+        <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
         <translation>Ako format tvog zvučnog fajla nije podržan u Qt, možeš odrediti
@@ -7040,10 +7076,10 @@ ako tvoj sistem počinje sporo.</translation>
         <location filename="../ui/UISettingsSharing.ui" line="534"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
-one slot for each hub that they're on with you.
+one slot for each hub that they&apos;re on with you.
 EiskaltDC++ supports uploading file lists and files below 64 KiB
 to other DC++ users without requiring a slot.
-There's a max of 3 connections in addition to normal slots,
+There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
@@ -7132,11 +7168,30 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
-        <source>Filename</source>
-        <translation>Ime fajla</translation>
+        <source>Search only files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="40"/>
+        <source>Search only directories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIShareBrowserSearch.ui" line="45"/>
+        <source>Search all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
+        <source>Name</source>
+        <translation type="unfinished">Ime</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="obsolete">Ime fajla</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
         <source>Directory</source>
         <translation>Fascikla</translation>
     </message>
@@ -7273,52 +7328,52 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
 <context>
     <name>UserListModel</name>
     <message>
-        <location filename="../src/UserListModel.cpp" line="113"/>
+        <location filename="../src/UserListModel.cpp" line="129"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: Operator</source>
         <translation>&lt;b&gt;Hab uloga&lt;/b&gt;: Operater</translation>
     </message>
     <message>
-        <location filename="../src/UserListModel.cpp" line="115"/>
+        <location filename="../src/UserListModel.cpp" line="131"/>
         <source>&lt;b&gt;Hub role&lt;/b&gt;: User</source>
         <translation>&lt;b&gt;Hab uloga&lt;/b&gt;: Korisnik</translation>
     </message>
     <message>
-        <location filename="../src/UserListModel.cpp" line="118"/>
+        <location filename="../src/UserListModel.cpp" line="134"/>
         <source>&lt;br/&gt;&lt;b&gt;Favorite user&lt;/b&gt;</source>
         <translation>&lt;br/&gt;&lt;b&gt;Omiljeni korisnik&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/UserListModel.cpp" line="151"/>
+        <location filename="../src/UserListModel.cpp" line="167"/>
         <source>Nick</source>
         <translation>Nadimak</translation>
     </message>
     <message>
-        <location filename="../src/UserListModel.cpp" line="152"/>
+        <location filename="../src/UserListModel.cpp" line="168"/>
         <source>Comment</source>
         <translation>Komentar</translation>
     </message>
     <message>
-        <location filename="../src/UserListModel.cpp" line="153"/>
+        <location filename="../src/UserListModel.cpp" line="169"/>
         <source>Tag</source>
         <translation>Tag</translation>
     </message>
     <message>
-        <location filename="../src/UserListModel.cpp" line="154"/>
+        <location filename="../src/UserListModel.cpp" line="170"/>
         <source>Connection</source>
         <translation>Povezivanje</translation>
     </message>
     <message>
-        <location filename="../src/UserListModel.cpp" line="155"/>
+        <location filename="../src/UserListModel.cpp" line="171"/>
         <source>E-mail</source>
         <translation>E-pošta</translation>
     </message>
     <message>
-        <location filename="../src/UserListModel.cpp" line="156"/>
+        <location filename="../src/UserListModel.cpp" line="172"/>
         <source>Share</source>
         <translation>Deljeno</translation>
     </message>
     <message>
-        <location filename="../src/UserListModel.cpp" line="157"/>
+        <location filename="../src/UserListModel.cpp" line="173"/>
         <source>IP</source>
         <translation>IP</translation>
     </message>
@@ -7339,73 +7394,73 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="699"/>
+        <location filename="../src/WulforUtil.cpp" line="704"/>
         <source>System default</source>
         <translation>Podrazumevano</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="973"/>
-        <location filename="../src/WulforUtil.cpp" line="987"/>
+        <location filename="../src/WulforUtil.cpp" line="978"/>
+        <location filename="../src/WulforUtil.cpp" line="992"/>
         <source>%1 B</source>
         <translation>%1 B</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="975"/>
+        <location filename="../src/WulforUtil.cpp" line="980"/>
         <source>%1 KiB</source>
         <translation>%1 KiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="977"/>
+        <location filename="../src/WulforUtil.cpp" line="982"/>
         <source>%1 MiB</source>
         <translation>%1 MiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="979"/>
+        <location filename="../src/WulforUtil.cpp" line="984"/>
         <source>%1 GiB</source>
         <translation>%1 GiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="981"/>
+        <location filename="../src/WulforUtil.cpp" line="986"/>
         <source>%1 TiB</source>
         <translation>%1 TiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="983"/>
+        <location filename="../src/WulforUtil.cpp" line="988"/>
         <source>%1 PiB</source>
         <translation>%1 PiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="989"/>
+        <location filename="../src/WulforUtil.cpp" line="994"/>
         <source>%1 KB</source>
         <translation>%1 KB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="991"/>
+        <location filename="../src/WulforUtil.cpp" line="996"/>
         <source>%1 MB</source>
         <translation>%1 MB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="993"/>
+        <location filename="../src/WulforUtil.cpp" line="998"/>
         <source>%1 GB</source>
         <translation>%1 GB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="995"/>
+        <location filename="../src/WulforUtil.cpp" line="1000"/>
         <source>%1 TB</source>
         <translation>%1 TB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="997"/>
+        <location filename="../src/WulforUtil.cpp" line="1002"/>
         <source>%1 PB</source>
         <translation>%1 PB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1047"/>
+        <location filename="../src/WulforUtil.cpp" line="1052"/>
         <source>Offline</source>
         <translation>Nije povezan</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1150"/>
+        <location filename="../src/WulforUtil.cpp" line="1155"/>
         <source>User commands</source>
         <translation>Korisničke komande</translation>
     </message>
