@@ -4040,7 +4040,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Хаб</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
@@ -5623,32 +5623,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="925"/>
         <source>TLS settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки TLS</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="932"/>
         <source>Disable TLS</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключить TLS</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="937"/>
         <source>Allow TLS</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешить TLS</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="942"/>
         <source>Require TLS</source>
-        <translation type="unfinished"></translation>
+        <translation>Требовать TLS</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="950"/>
         <source>Allow untrusted certificate for hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешить недоверенные сертификаты для хабов</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="957"/>
         <source>Allow untrusted sertificate for clients</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешить недоверенные сертификаты для клиентов</translation>
     </message>
 </context>
 <context>
@@ -7210,22 +7210,22 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
         <source>Search only files</source>
-        <translation type="unfinished"></translation>
+        <translation>Искать только файлы</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="40"/>
         <source>Search only directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Искать только каталоги</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="45"/>
         <source>Search all</source>
-        <translation type="unfinished"></translation>
+        <translation>Искать всё</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя</translation>
     </message>
     <message>
         <source>Filename</source>
